@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# The Hithicker's Guide to the Packaging" documentation build configuration file, created by
+# The Hithicker's Guide to Packaging" documentation build configuration file, created by
 # sphinx-quickstart on Sun Dec 13 14:07:23 2009.
 #
 # This file is execfile()d with the current directory set to its containing dir.
