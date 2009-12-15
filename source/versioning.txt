@@ -66,15 +66,99 @@ of your project, as long as it follows a standard version scheme.
 Standard versioning schemes
 ===========================
 
+The two most commone schemes used to version a software are **date-based**
+schemes and **sequence-based** schemes.
+
+Date scheme
+-----------
+
+Some projects use dates for the version numbers. That was the case for Wine
+before it started using a sequence-based scheme. A date scheme is usually
+using a ``YYYY-MM-DD`` form so versions can be sorted alphanumerically:
+
+- 2009-08-10
+- 2005-02-03
+- etc.
+
+This versioning scheme has a few limitations:
+
+- you need to add hours to the scheme if you do more than one release
+  per day.
+
+- if you have maintenance branches over older releases, the overall
+  order will not work anymore: a maintenance release of an older version
+  will appear to be newer than a recent release.
+
+Although, date schemes are commonly used as extra markers in versions schemes.
+
+Sequence-based scheme
+---------------------
+
+The most common scheme is the sequence-based scheme, where each version is a
+sequence of numerical values usually separated by dots (`.`):
+
+- 1.0
+- 1.1
+- 1.0.1
+- 1.3.4
+
+This scheme removes the limitations we have seen with date-based schemes since
+you can release maintenance versions and keep the proper order: versions are
+ordered by comparing alphanumerically each segment of the version.
+
+The most frequent sequence-based scheme is::
+
+    MAJOR.MINOR[.MICRO]
+
+where ``MAJOR`` designates a major revision number for the software, like ``2``
+or ``3`` for Python. Usually, raising a major revision number means that you
+are adding a lot of feature, breaking backward-compatibility or drastically
+changing the APIs or ABIs.
+
+``MINOR`` usually groups moderate changes to the software like bug fixes or
+minor improvements. Most of the time, end users can upgrade with no risks
+their software to a new minor release. In case an API change, the end users
+will be noticed with deprecation warnings. In other words, API and ABI
+stability is usually a promise between two minor releases.
+
+Some softwares use a third level: ``MICRO``. This level is used when the
+release cycle of minor release is quite long. In that case, micro releases
+are dedicated to bug fixes.
+
+Choosing between a major-based scheme and a micro-based one is really a
+matter of taste. The most important thing is to document how your version
+scheme works and what your end users should expect when you release a new
+version. So be sure to define your release cycle properly before you
+start releasing to the wild !
+
+Development releases
+::::::::::::::::::::
+
 XXX
 
-Minor vs Micro
-==============
+Pre-releases
+::::::::::::
+
+XXX
+
+Post-releases
+:::::::::::::
 
 XXX
 
 Defining your release cycle
 ===========================
+
+A sofware usually follows this cycle:
+
+- an internal development version is released, for testing purposes
+- one or several pre-release are made for getting end-users feedback
+  and avoiding releasing a `brown bag` release.
+- a final version is released to the world, usually starting at
+  ``1.0`` or ``0.1``.
+- bugfixes and new features are added and new versions are released
+
+
 
 XXX
 
