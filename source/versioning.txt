@@ -117,8 +117,8 @@ changing the APIs or ABIs.
 
 ``MINOR`` usually groups moderate changes to the software like bug fixes or
 minor improvements. Most of the time, end users can upgrade with no risks
-their software to a new minor release. In case an API change, the end users
-will be noticed with deprecation warnings. In other words, API and ABI
+their software to a new minor release. In case an API changes, the end users
+will be notified with deprecation warnings. In other words, API and ABI
 stability is usually a promise between two minor releases.
 
 Some softwares use a third level: ``MICRO``. This level is used when the
@@ -168,4 +168,46 @@ Using a PEP 386 compatible scheme
 
 XXX
 
+Example
+=======
+
+XXX example of a setup.py with dev versions
+
+Explains here how dev versions are automatically
+numbered using the tip revision if --dev is used.
+
+
+::
+
+    from distutils.command.sdist import sdist
+    import os
+
+    class sdist_hg(sdist):
+
+        user_options = sdist.user_options + [
+                ('dev', None, "Add a dev marker")
+                ]
+
+        def initialize_options(self):
+            sdist.initialize_options(self)
+            self.dev = 0
+
+        def run(self):
+            if self.dev:
+                suffix = '.dev%d' % self.get_tip_revision()
+                self.distribution.metadata.version += suffix
+            sdist.run(self)
+
+        def get_tip_revision(self, path=os.getcwd()):
+            from mercurial.hg import repository
+            from mercurial.ui import ui
+            from mercurial import node
+            repo = repository(ui(), path)
+            tip = repo.changelog.tip()
+            return repo.changelog.rev(tip)
+
+    setup(name='MyProject',
+          version='1.0',
+          packages=['package'],
+          cmdclass={'sdist': sdist_hg})
 
