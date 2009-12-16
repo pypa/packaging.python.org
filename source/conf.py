@@ -37,7 +37,7 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'The Hithicker\'s Guide to the Packaging"'
+project = u'The Hithicker\'s Guide to Packaging"'
 copyright = u'2009, Tarek Ziadé'
 
 # The version info for the project you're documenting, acts as replacement for
