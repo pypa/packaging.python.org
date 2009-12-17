@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# The Hithicker's Guide to Packaging" documentation build configuration file, created by
+# The Hitchhiker's Guide to Packaging" documentation build configuration file, created by
 # sphinx-quickstart on Sun Dec 13 14:07:23 2009.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -37,7 +37,7 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'The Hithicker\'s Guide to Packaging"'
+project = u'The Hitchhiker\'s Guide to Packaging'
 copyright = u'2009, Tarek Ziadé'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -158,7 +158,7 @@ html_static_path = ['_static']
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'TheHithickersGuidetothePackagingdoc'
+htmlhelp_basename = 'TheHitchhikersGuidetoPackagingdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -172,7 +172,7 @@ htmlhelp_basename = 'TheHithickersGuidetothePackagingdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'TheHithickersGuidetothePackaging.tex', u'The Hithicker\'s Guide to the Packaging" Documentation',
+  ('index', 'TheHitchhickersGuidetoPackaging.tex', u'The Hitchhiker\'s Guide to Packaging" Documentation',
    u'Tarek Ziadé', 'manual'),
 ]
 
