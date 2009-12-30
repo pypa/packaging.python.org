@@ -112,7 +112,7 @@ The most frequent sequence-based scheme is::
 
 where ``MAJOR`` designates a major revision number for the software, like ``2``
 or ``3`` for Python. Usually, raising a major revision number means that you
-are adding a lot of feature, breaking backward-compatibility or drastically
+are adding a lot of features, breaking backward-compatibility or drastically
 changing the APIs or ABIs.
 
 ``MINOR`` usually groups moderate changes to the software like bug fixes or
@@ -134,50 +134,30 @@ start releasing to the wild !
 Development releases
 ::::::::::::::::::::
 
-XXX
+When working for the next version of your application, you might need to
+release a development version in order to share it with other developers.
+Many projects provide `nightly builds`, which are daily snapshots of the
+code repository people can install to try out a cutting edge version.
 
-Pre-releases
-::::::::::::
+Like regular versions, development versions have to be numbered so they can be
+sorted and compared with any other version. The simplest way to perform this
+numbering is to use the current repository version number when creating the
+release. The next version is suffixed by a `dev` number. Of course this
+implies that your code lives in a repository, like Subversion or Mercurial.
 
-XXX
+Examples:
 
-Post-releases
-:::::::::::::
+- 1.2.dev1234 : a development version of the future 1.2 release. 1234 is the
+  current repository version.
+- 1.3a2.dev12 : a development version of the future 1.3 alpha 2 release. 12 is
+  the current repository version.
 
-XXX
+Package managers that will install those versions will need to sort them
+correctly: 1.2.dev1234 < 1.2 < 1.3a2.dev12 < 1.3a2 < 1.3
 
-Defining your release cycle
-===========================
-
-A sofware usually follows this cycle:
-
-- an internal development version is released, for testing purposes
-- one or several pre-release are made for getting end-users feedback
-  and avoiding releasing a `brown bag` release.
-- a final version is released to the world, usually starting at
-  ``1.0`` or ``0.1``.
-- bugfixes and new features are added and new versions are released
-
-
-
-XXX
-
-
-Using a PEP 386 compatible scheme
-=================================
-
-XXX
-
-Example
-=======
-
-XXX example of a setup.py with dev versions
-
-Explains here how dev versions are automatically
-numbered using the tip revision if --dev is used.
-
-
-::
+Here's an example of a ``setup.py`` file in a project that lives in a Mercurial
+repository, that will automatically generate the right development version when
+creating a source distribution.::
 
     from distutils.command.sdist import sdist
     import os
@@ -210,4 +190,105 @@ numbered using the tip revision if --dev is used.
           version='1.0',
           packages=['package'],
           cmdclass={'sdist': sdist_hg})
+
+This development marker will be added when the ``dev`` option is used.
+
+Pre-releases
+::::::::::::
+
+Major versions of a software are often preceded by pre-releases. These
+previews are comparable to development versions and are released for testing
+purposes. Publishing them will let your end-users try them out and send you
+valuable feedback before the `final` version is published. It also helps
+avoiding releases of `brown-bag` versions. A brown-bag version is a version
+that is badly broken and that cannot be used by some of all of the end users.
+
+Usually, pre-releases are organized in three phases:
+
+- **alpha** releases: early pre-releases. A lot of changes can occur between
+  alphas and the final release, like feature additions or refactorings. But
+  they are minor changes and the software should stay pretty unchanged by the
+  time the first beta is reached.
+
+- **beta** releases: at this stage, no new features are added and developers
+  are tracking remaning bugs.
+
+- **release candidate** releases: a release candidate is an ultimate release
+  before the final release. Unless something bad happens, nothing is changed.
+
+Of course, the number of pre-releases varies a lot depending on the size of
+your project and the numbers of end-users. Python itself has several alpha,
+beta and release candidate releases when a minor version is being released,
+because it impacts a lot of people and organizations.
+
+Small projects often don't have any pre-releases because they can publish
+a new final version anytime. Some small projects do have pre-releases even if
+they could skip it because it is benefic for increasing feedback, and has a
+positive psychological effect on end-users. For instance, having a series
+of pre-releases for your "1.0" version will increase the chances to publish
+a rock-solid version. And the "1.0" milestone can mean a lot to your end
+users: round numbers like this make them feel that your software has reached
+an important step in its maturity.
+
+Post-releases
+:::::::::::::
+
+Some projects use post-releases when they need to publish a version that
+simply doesn't fit in the next series or can't be a new release in the
+current series. Let's take an example: "1.9" is the last release of your "1.x"
+series, and you have started a backward incompatible "2.x" series. You want
+all your users to drop any "1.x" release as soon as possible. You have released
+debug versions in the "1.x" series for quite a time and stated that "1.9" was
+the last one. Although, a user finds a really bad bug in "1.9" and asks you to
+fix it because he can't switch to the new series. In that case it is useful to
+publish a post release.
+
+This use case is quite rare, and it's likely that you will never have to do
+post releases.
+
+Defining your release cycle
+===========================
+
+A sofware usually follows this cycle:
+
+- internal development versions might be released, for testing purposes. These
+  releases can be private to a circle of developers, but they still need to be
+  versioned. It's a good practice to do them because, unlike grabbing the
+  current development version out of the code repository, it will help
+  testing your release process: if there's a bug in your setup.py file, or in
+  any part of your release/deploy/install process, they can be caught in early
+  stage that way.
+
+- one or several pre-release are made for getting end-users feedback
+  and avoiding releasing a `brown bag` release, as we saw in the previous
+  section. Having just release candidates, or also apha and betas is up to you.
+  There's no rule about it, but it is considered overkill to have alphas and betas
+  for small projects (small here would be less that 5k SLOC. or less than 50
+  end-users)
+
+- a final version is released to the world, usually starting at
+  ``1.0`` or ``0.1``. Micro versions are considered overkill, unless the release
+  cycle of your minor version lasts for months, and you want to keep the same
+  major number for years.
+
+- bugfixes and new features are added and new versions are released
+
+- when a new major version is started, like "2.0", bug fixes releases may
+  continue in the "1.x" series, depending on the cost of moving to "2.0" for
+  your end-users.
+
+
+
+Using a PEP 386 compatible scheme
+=================================
+
+PEP 386 defines a standard version scheme that should be used by Python
+applications that are publishing releases at PyPI. It ensures interoperability
+among all major package managers and installers. In other words, it will make
+sure that all versions of a project are proprely recognized and sorted as
+long as a PEP 386-compatible scheme is used.
+
+XXX put a link, more info
+
+
 
