@@ -131,7 +131,15 @@ html_static_path = ['_static']
 #html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
+CURDIR = os.path.dirname(__file__)
+sidebars = []
+for f in os.listdir(CURDIR):
+    name, ext = os.path.splitext(f)
+    if ext != '.txt':
+        continue
+    sidebars.append((name, 'indexsidebar.html'))
+
+html_sidebars = dict(sidebars)
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
