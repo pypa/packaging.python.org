@@ -16,17 +16,17 @@ Let's begin.
 Background
 ==========
 
-Suppose you have a couple of useful modules you'd like to share:
-``location.py`` and ``utils.py``.  First thing to do is
-come up with a CamelCase project name for them. Let's go with
-"TowelStuff" since it seems appropriate and also it has not yet been
-used on the `PyPI <http://pypi.python.org/pypi>`_.
+Suppose you've written a couple modules to help you keep track of your
+towel (``location.py`` and ``utils.py``), and you'd like to share
+them.  First thing to do is come up with a CamelCase project name for
+them. Let's go with "TowelStuff" since it seems appropriate and also
+it has not yet been used on the `PyPI <http://pypi.python.org/pypi>`_.
 
 
 Arranging your file and directory structure
 ===========================================
 
-"TowelStuff" will be the name of our project and of our
+"TowelStuff" will be the name of our project as well as the name of our
 :term:`distribution`. We should also come up with a :term:`package`
 name within which our modules will reside (to avoid naming conflicts
 with other modules). For this example, there's only one package, so
@@ -53,10 +53,10 @@ layout of your project directory (described below) look like this::
 Here's what you should do for each of those listed above:
 
 * Put into ``bin`` any scripts you've written that use your
-  ``towelstuff`` package, which you think would be useful for your users. If
-  you don't have any, then remove the ``bin`` directory.
+  ``towelstuff`` package and which you think would be useful for your
+  users. If you don't have any, then remove the ``bin`` directory.
 
-* For now, the CHANGES.txt file should only contain::
+* For now, the ``CHANGES.txt`` file should only contain::
 
       v<version>, <date> -- Initial release.
 
@@ -69,8 +69,8 @@ Here's what you should do for each of those listed above:
   Markdown <http://johnmacfarlane.net/pandoc/>`_, but many Pythoneers
   use `ReST <http://docutils.sourceforge.net/rst.html>`_.
 
-* The LICENSE.txt file is often just a copy/paste of your license of
-  choice.  We recommend going with a commonly-used license, such as
+* The ``LICENSE.txt`` file is often just a copy/paste of your license
+  of choice.  We recommend going with a commonly-used license, such as
   the GPL, BSD, or MIT.
 
 * The ``MANIFEST.in`` file should contain this::
@@ -79,9 +79,9 @@ Here's what you should do for each of those listed above:
       recursive-include docs *.txt
       recursive-include towelstuff *.py
 
-* The README.txt file should be written in ReST so that the PyPI can
-  use it to generate your project's PyPI page. Here's a 10-second intro
-  to reST that you might use to start with::
+* The ``README.txt`` file should be written in ReST so that the PyPI
+  can use it to generate your project's PyPI page. Here's a 10-second
+  intro to reST that you might use to start with::
 
       ===========
       Towel Stuff
@@ -128,13 +128,13 @@ Here's what you should do for each of those listed above:
       written `like this <http://www.example.com/foo/bar>`_.
 
   You might also consider adding a "Contributors" section and/or a
-  "Thanks also to" section to list the names of people who's helped.
+  "Thanks also to" section to list the names of people who've helped.
 
   By the way, to see how the above ``README.txt`` looks rendered in
   html, see the `TowelStuff project
   <http://pypi.python.org/pypi/TowelStuff/>`_ at the PyPI.
 
-* setup.py -- Create this file and make it look like this::
+* ``setup.py`` -- Create this file and make it look like this::
 
       from distutils.core import setup
 
@@ -157,8 +157,8 @@ Here's what you should do for each of those listed above:
   release (this is using the common "major.minor.micro" numbering
   convention).
 
-  If you have no scripts to distribute (and no ``bin`` dir), you can
-  remove the above line above starting with ``scripts``.
+  If you have no scripts to distribute (and thus no ``bin`` dir), you
+  can remove the above line which begins with "scripts".
 
 * Inside the ``towelstuff`` directory, ``__init__.py`` can be
   empty. Likewise, inside ``towelstuff/test``, *that* ``__init__.py``
@@ -184,9 +184,9 @@ Create your distribution file like so::
 Running that last command will create a ``MANIFEST`` file in your
 project directory, and also a ``dist`` and ``build`` directory. Inside
 that ``dist`` directory is the distribution that you'll be uploading
-to the PyPI. In our case, the distribution file is named
-``TowelStuff-1.0.0.tgz``. Feel free to poke around in the dist directory to
-look at your distribution.
+to the PyPI. In our case, the distribution file will be named
+``TowelStuff-0.1.0.tgz``. Feel free to poke around in the ``dist``
+directory to look at your distribution.
 
 
 Uploading your distribution file
