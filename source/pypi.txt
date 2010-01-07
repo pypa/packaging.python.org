@@ -2,5 +2,138 @@
 The Python Package Index
 ========================
 
-TBD
+The Python Package Index (PyPI), formely known as the Cheeseshop, is to Python
+what CPAN is to Perl: a central repository of projects and
+:term:`distributions <distribution>`.
+
+PyPI is located at http://pypi.python.org and contains more than 8000 projects
+registered by developers from the community.
+
+<SCREENSHOT>
+
+Tools like :doc:`Pip <pip>` or ``zc.buildout`` are using PyPI as the default
+location to find distributions to install. When ``pip install Foo`` is called,
+it will browse PyPI to find the latest available version of the ``Foo``
+project using `The Simple Index Protocol`_. If it finds it, it will download
+it and install it automatically.
+
+This automatic installation ala apt-get will work only if the distribution
+is a Distutils-based structure containing a ``setup.py`` file.
+
+This involves that any serious Python project should use Distutils
+(see the :doc:`basics <basics_creating_distributing_dists>` for doing this)
+and should at the minimum be registered at PyPI. Uploading releases there is
+also a good practice.
+
+Registering projects
+====================
+
+Registering a project at PyPI is done by using Distutils' ``register`` command.
+This command performs a simple HTTP post using a basic authentication.
+It will use for that the login name and password stored in the ``.pypirc`` file
+located in your home directory. This login has to be registered at PyPI, so
+you need to go there and create an account.
+
+Another option is to call ``register`` once on any Distutils-based project.
+It will register the new account for you and all you'll have to do is to reply
+to the confirmation e-mail PyPI will send you::
+
+    $ python setup.py register
+    running register
+    warning: register: missing required meta-data: version
+    We need to know who you are, so please choose either:
+    1. use your existing login,
+    2. register as a new user,
+    3. have the server generate a new password for you (and email it to you), or
+    4. quit
+    Your selection [default 1]:
+    ...
+
+Once this is done, ``register`` will ask you if you want to save your login
+information in the ``.pypirc`` file. By default, this will store the login name
+**and** the password::
+
+    [distutils]
+    index-servers =
+        pypi
+
+    [pypi]
+    username:tarek
+    password:sigourney_as_an_avatar_is_scary
+
+For security reasons, starting at Python 2.6, you can remove the password from
+the file if you want ``register`` to prompt you to type it everytime.
+
+.. note::
+
+    A recent GSOC project called Keyring was done in 2009 in order
+    to use any available system keyring like KWallet or KeyChain to
+    be able to store the PyPI password there. The project was coded
+    and once its proven to be mature enough, it might be used in Distutils
+    ``register`` and ``upload`` commands.
+
+    See: http://pypi.python.org/pypi/keyring
+
+Once your account is ready, registering it at PyPI will create among other
+things a new web page there, using the metadata fields of your project.
+
+- **name** will be used as the unique identifier in PyPI. For example, if
+  your project's name is ``Foo``, its page will be located at
+  `http://pypi.python.org/pypi/foo`. The rule at PyPI is `first in, first
+  served`, meaning that once you have registered the `Foo` project, your
+  login is the owner of the PyPI `foo` identifier and no one else (unless
+  you authorize them) will be able to register a project under that name.
+
+- **long_description** will be used to
+  fill that page. An Html to :term:`reStructuredText` rendered will be used
+  on the field before it is displayed.
+
+A good practice is to use reST, and make sure your ``long_description``
+field doesn't contain any reStructuredText syntax error. See
+:ref:`rest_example` for a quick introduction on how to write a reSt compatible field.
+
+To perform a check, install ``docutils`` by using Pip
+(``pip install docutils``) and run::
+
+    $ python setup.py --long-description | rst2html.py > /dev/null
+
+Under Windows, make sure the sys.prefix + 'Scripts/' path is in the ``PATH``
+environment variable and run::
+
+    $ python.exe setup.py --long-description | rst2html.py > dummy.html
+
+If you text contains any reSt error or warning, they will be displayed.
+
+Starting at Python 2.7, you can use the ``check`` command instead of calling
+the ``rst2html.py`` script, as long as ``docutils`` is installed::
+
+    $ python setup.py check
+
+The check command will check that all fields are compliant before you
+register the project at PyPI.
+
+XXX conclude
+
+
+Uploading distributions
+=======================
+
+XXX discuss "upload"
+
+The Simple Index protocol
+=========================
+
+XXX define the protocol (get the doc from Peak's website)
+
+
+The XML-RPC interface
+=====================
+
+XXX pointer to PyPI developer doc + demo with yolk
+
+Limitatins of the system
+========================
+
+XXX SPOF, mirroring, mention PEP 382
+
 
