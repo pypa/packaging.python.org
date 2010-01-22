@@ -112,18 +112,102 @@ the ``rst2html.py`` script, as long as ``docutils`` is installed::
 The check command will check that all fields are compliant before you
 register the project at PyPI.
 
-XXX conclude
-
 
 Uploading distributions
 =======================
 
-XXX discuss "upload"
+PyPI also allows developer to upload their project's distributions. This can
+be done manually via a web form, but also through Distutils by using the
+``upload`` command.
+
+This command will upload freshly created archives via HTTP to PyPI. The
+usual way to perform this is to call ``upload`` right after ``register``
+and the commands used to create archives. For instance, to upload a source
+distribution and update the project's page, one may do::
+
+    $ python setup.py register sdist upload
+
+Note that you can upload several archives in one step if wanted::
+
+    $ python setup.py register sdist bdist upload
+
+
+A good practice when uploading distributions at PyPI is to always upload
+the source distribution, unless your project is not open source of course.
+Binary distribution are optional especially if your project doesn't contain
+any extension to be compiled. This will help automatic installers like
+:doc:`Pip <pip>` to get and install your project on any platform. Uploading
+only a binary distribution will restrict automatic installation to the platform
+and Python version it was compiled with.
+
 
 The Simple Index protocol
 =========================
 
-XXX define the protocol (get the doc from Peak's website)
+Besides its web pages, PyPI provides a tree structure at
+http://pypi.python.org/simple called the ``Simple Index``. This structure
+allows installers like :doc:`Pip <pip>` to look for distribution archives.
+
+For example, calling::
+
+    $ pip install distribute
+
+Will look at the ``http://pypi.python.org/simple/distribute`` page, which
+is a list of URLs for the Distribute project. These URLs are:
+
+- the Distribute archives uploaded at PyPI
+- a link to the project's home page
+- extra links contained in the project's description fields
+
+The Package Index follows these rules (taken from Setuptools' documentation):
+
+1. Its pages are in HTML
+
+2. Individual project version pages' URLs must be of the form
+   ``base/projectname/version``, where ``base`` is the package index's base
+   URL. The base URL for PyPI is : ``http://pypi.python.org/simple``.
+
+3. Omitting the ``/version`` part of a project page's URL (but keeping the
+   trailing ``/``) should result in a page that is either:
+
+   a) The single active version of that project, as though the version had been
+      explicitly included, OR
+
+   b) A page with links to all of the active version pages for that project.
+
+   Depending on the project's configuration, PyPI will display a) or b).
+
+4. Individual project version pages should contain direct links to downloadable
+   distributions where possible.  The project's "long_description" field
+   may contain URLs that will be displayed.
+
+5. Where available, MD5 information should be added to download URLs by
+   appending a fragment identifier of the form ``#md5=...``, where ``...`` is
+   the 32-character hex MD5 digest.
+
+6. Individual project version pages should identify any "homepage" or
+   "download" URLs using ``rel="homepage"`` and ``rel="download"`` attributes
+   on the HTML elements linking to those URLs. Use of these attributes will
+   cause EasyInstall to always follow the provided links, unless it can be
+   determined by inspection that they are downloadable distributions. If the
+   links are not to downloadable distributions, they are retrieved, and if they
+   are HTML, they are scanned for download links. They are *not* scanned for
+   additional "homepage" or "download" links, as these are only processed for
+   pages that are part of a package index site.
+
+7. The root URL of the index, if retrieved with a trailing ``/``, must result
+   in a page containing links to *all* projects' active version pages.
+
+   (Note: This requirement is a workaround for the absence of case-insensitive
+   ``safe_name()`` matching of project names in URL paths. If project names are
+   matched in this fashion (e.g. via the PyPI server, mod_rewrite, or a similar
+   mechanism), then it is not necessary to include this all-packages listing
+   page.)
+
+8. If a package index is accessed via a ``file://`` URL, then EasyInstall will
+   automatically use ``index.html`` files, if present, when trying to read a
+   directory with a trailing ``/`` on the URL.
+
 
 
 The XML-RPC interface
