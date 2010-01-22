@@ -2,6 +2,8 @@
 The Python Package Index
 ========================
 
+XXX put here the Monty Python Cheeseshop extract
+
 The Python Package Index (PyPI), formely known as the Cheeseshop, is to Python
 what CPAN is to Perl: a central repository of projects and
 :term:`distributions <distribution>`.
@@ -11,8 +13,10 @@ registered by developers from the community.
 
 <SCREENSHOT>
 
-Tools like :doc:`Pip <pip>` or ``zc.buildout`` are using PyPI as the default
-location to find distributions to install. When ``pip install Foo`` is called,
+Tools like :doc:`Pip <pip>` or
+`zc.buildout <http://pypi.python.org/pypi/zc.buildout>`_ are using PyPI as
+the default location to find distributions to install. When
+``pip install Foo`` is called,
 it will browse PyPI to find the latest available version of the ``Foo``
 project using `The Simple Index Protocol`_. If it finds it, it will download
 it and install it automatically.
@@ -215,9 +219,47 @@ The XML-RPC interface
 
 XXX pointer to PyPI developer doc + demo with yolk
 
-Limitatins of the system
-========================
+Private and secondary PyPI servers
+==================================
 
-XXX SPOF, mirroring, mention PEP 382
+XXX explain here that other servers can have a pypi feature (like plone.org, or private)
+XXX explain that pip can point to any pypi-like server
+XXX conclude on the multiple-index merge idea
 
+
+Limitations of the system
+=========================
+
+Within the last years, PyPI became a first class citizen in the Python
+developement ecosystem. For instance Plone developers that are using
+``zc.buildout`` to install Plone-based applications, are making hundreds
+of calls to PyPI each time they build their projects. That's because a web
+application is using hundreds of small Python distributions nowadays.
+
+This has a bad side effect: if PyPI is down, it becomes impossible to build
+some applications. PyPI acts as a ``Single Point of Failure`` (SPOF).
+
+The PyPI server is quite robust and its uptime is probably around 99.99%.
+Although people hit the SPOF problem once or twice per year. The community
+started to develop strategies to avoid it:
+
+- ``zc.buildout`` comes with a cache that will keep on the system a copy
+  of downloaded archives. This avoid getting packages at PyPI when they were
+  already downloaded once.
+
+- the `collective.eggproxy <http://pypi.python.org/pypi/collective.eggproxy>`_
+  project provides a cache server that acts like
+  a proxy between developers and PyPI, and caches PyPI files like
+  ``zc.buildout`` does.
+
+- the `z3c.pypimirror <http://pypi.python.org/pypi/z3c.pypimirror>`_ project
+  is a mirroring script that syncs a local copy of the simple index so tools
+  can use it instead of calling PyPI.
+
+During last year, PEP 381 was added to try describe a mirroring protocol and
+set up a system of official ring of PyPI mirrors. This system should be ready
+by the end of the year 2010, and will provide a DNS at ``mirrors.pypi.org``
+listing all mirrors IPs. This will allow tools like :doc:`Pip <pip>` to
+list all mirrors and pick the closest one, or fall back in case a server is
+down.
 
