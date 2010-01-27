@@ -4,3 +4,79 @@ Distribute and Setuptools
 
 XXX
 
+Entry points
+============
+
+Entry points are a Setuptools/Distribute feature that’s really handy in one
+specific case: register something under a specific key in package A that
+package B can query for.
+
+Distribute itself uses it. If you’re packaging your project up properly, you’ve
+probably used the ``console_scripts`` entry point::
+
+    setup(name='zest.releaser',
+          ...
+          entry_points={
+            'console_scripts':
+                ['release = zest.releaser.release:main',
+                 'prerelease = zest.releaser.prerelease:main',
+                ]}
+        )
+
+``console_scripts`` is an entry point that Setuptools looks up. It looks up all
+entry points registered under the name console_scripts and uses that
+information to generate scripts. In the above example that’d be a bin/release
+script that runs the main() method in zest/releaser/release.py.
+
+You can use that for your own extension mechanism. For ``zest.releaser`` I
+needed some extension mechanism. I wanted to be able to do extra things on
+prerelease/release/postrelease time.
+
+- Downloading an external javascript library into a package that cannot be
+  stored in (zope’s) svn repository directly due to licensing issues. Before
+  packaging and releasing it, that is. Automatically so you don’t forget it.
+
+- Uploading a version.cfg to scp://somewhere/kgs/ourmainproduct-version.cfg
+  after making a release to use it as a so-called “known good set” (KGS).
+
+- Possibly modifying values (like a commit message) inside zest.releaser itself
+  while doing a release. (I do get modification requests from time to time “hey,
+  can you make x and y configurable”). So now every zest.releaser step
+  (prerelease, release, postrelease) is splitted in two: a calculation phase
+  and a “doing” phase. The results of the first phase are stored in a dict
+  that gets used in the second phase. And you can register an entry point that
+  gets passed that dict so you can modify it. See the entry point documentation
+  of zest.releaser for details.
+
+An entry point for zest.releaser is configured like this in your setup.py::
+
+    entry_points={
+        'console_scripts':
+            ['myscript = my.package.scripts:main'],
+        'zest.releaser.prereleaser.middle':
+            ['dosomething = my.package.some:some_entrypoint, ]
+    }
+
+Replace prereleaser and middle in zest.releaser.prereleaser.middle with
+prerelease/release/postrelease and before/middle/after where needed. (For this
+specific zest.releaser example).
+
+Now, how to use this in your program? The best way is to show a quick example
+from zest.releaser where we query and use one of our entry points::
+
+    import pkg_resources
+
+    ...
+    def run_entry_point(data):
+        # Note: data is zest.releaser specific: we want to pass
+        # something to the plugin group = 'zest.releaser.prerelease.middle'
+
+        for entrypoint in pkg_resources.iter_entry_points(group=group):
+            # Grab the function that is the actual plugin.
+            plugin = entrypoint.load() # Call the plugin
+            plugin(data)
+
+So: pretty easy and simple way to allow other packages to register something
+that you want to know. Extra plugins, extra render methods, extra functionality
+you want to register in your web application, etcetera.
+
