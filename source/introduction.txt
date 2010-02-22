@@ -21,9 +21,63 @@ TBD : Repetition at http://docs.python.org/install/index.html
 
 Python file layout
 ------------------
-Here's a diagram showing the layout of the files in a normal
-installation of Python.
+A Python installation has a ``site-packages`` directory inside the
+module directory. This directory is where user installed packages are
+dropped. A ``.pth`` file in this directory is maintained which
+contains paths to the directories where the extra packages are
+installed. (For details on the ``.pth`` file, please refer see
+`modyfing python's search path
+<http://docs.python.org/install/index.html#inst-search-path>`_).
+So, when a new package is installed, the contents of the package are
+dropped into the ``site-packages`` directory and then the name of the
+new package directory is added to a ``.pth`` file. This allows Python
+upon the next startup to see the new package. 
+
+Here we have a small digression to discuss the `virtualenv`
+package. In most situations, the ``site-packages`` directory is part
+of the system Python installation and not writable by unprivileged
+users. Also, it's useful to have a solid reliable installation of the
+language which we can use. Experimental packages shouldn't be mixed
+with the stable ones if we want to keep this quality. In order to
+achieve this, most Python developers use the :doc:`virtualenv
+</virtualenv>` package which allows people to create a `virtual`
+installation of Python. This replicates the ``site-packages``
+directory in an user writeable area and then by manipulating the
+Python search path via. the ``PYTHONPATH`` environment variable, makes
+sure that packages are picked up from the new ``site-packages``
+directory in addition to the global one. While orthogonal to the whole
+package installation process, it's an extremely useful and natural way
+to work and so the whole thing will be mentioned again.
+
+How to install a package
+------------------------
+TBD : A quick ```pip install package``` perhaps?
 
 
+Benefits of packaging
+---------------------
+While it's possible to unpack tarballs and manually put them into your
+Python installation directories, using a package management system
+gives you some significant benefits. Here are some of the obvious
+ones. 
 
+Dependency management
+   Often, the package you want to install requires that others be
+   there. A package management system can automatically resolve
+   dependencies and make your installation pain free and quick.
 
+Accounting
+   Package managers can maintain lists of things installed and other
+   metadata like the version installed etc. which makes is easy for
+   the user to know what are the things his system has. 
+
+Unistall
+   Package managers can give you push button ways of removing a
+   package from your environment. 
+
+Overrides
+   Package managers give users a convenient way of installing multiple
+   versions of the same library or application onto your system.
+
+TBD : FEATURES!!! http://docs.rubygems.org/read/chapter/1#page68
+TBD : FEATURES!!!! http://zef.me/2470/building-clojure-projects-with-leiningen
