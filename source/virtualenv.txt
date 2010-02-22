@@ -2,5 +2,49 @@
 Virtualenv
 ==========
 
-TBD
+Getting Started
+===============
 
+Creating a virtualenv
+---------------------
+
+We'll be using `virtualenv`_ so our installation experiments are
+contained and don't modify your system Python environment. If you
+aren't already familiar with virtualenv, you may want to read up on it
+first.
+
+Create a virtualenv::
+
+   virtualenv --no-site-packages pip_test_env
+
+We use the ``--no-site-packages`` flag to prevent this virtualenv from
+"seeing" your global Python "site-packages" directory, so that our
+experiments aren't confused by any Python packages you happen to
+already have installed globally.
+
+Recent versions of virtualenv (1.4+) automatically install pip for you
+inside the virtualenv (there will already be a ``pip`` script in
+``pip_test_env/bin/``). If you are using a pre-1.4 virtualenv, run
+``pip_test_env/bin/easy_install pip`` to install pip in the virtual
+environment.
+
+.. Note:: 
+   If you are using Windows, executable scripts in the virtualenv will
+   be located at ``pip_test_env\Scripts\`` rather than
+   ``pip_test_env/bin/``. Just replace all occurrences of the latter
+   with the former.
+
+Let's "activate" the virtualenv to put ``pip_test_env/bin`` on our
+default PATH, so we can just type ``pip`` instead of
+``pip_test_env/bin/pip``::
+
+    . pip_test_env/bin/activate
+
+On Windows, this is::
+
+    pip_test_env\Scripts\activate.bat
+
+In either case, your shell prompt should now begin with
+``(pip_test_env)`` to remind you that a virtualenv is activated. When
+you are done working with this virtualenv type ``deactivate`` to
+remove its bin directory from your PATH.

@@ -1,3 +1,35 @@
 ==================
 Creating a Package
 ==================
+
+
+Shipping your Package with Distribute
+-------------------------------------
+
+Packages built and distributed using ``setuptools`` (a package provided by Distribute_) look to the user like ordinary Python packages based on the ``distutils``. Your users don’t need to install or even know about setuptools in order to use them, and you don’t have to include the entire ``setuptools`` package in your distributions. By including just a single bootstrap module (an 8K .py file), your package will automatically download and install ``setuptools`` if the user is building your package from source and doesn’t have a suitable version already installed.
+
+Installation Instructions
+
+Distribute is only released as a source distribution.
+
+It can be installed using easy_install or pip, and can be done so with the source tarball, the eggs distribution, or by using the distribute_setup.py script provided online.
+
+distribute_setup.py is the simplest and preferred way on all systems.
+
+distribute_setup.py
+Download distribute_setup.py and execute it, using the Python interpreter of your choice.
+
+If your shell has the curl program you can do:
+
+$ curl -O http://python-distribute.org/distribute_setup.py
+$ python distribute_setup.py
+Notice this file is also provided in the source release.
+
+easy_install or pip
+Run easy_install or pip:
+
+$ easy_install -U distribute
+$ pip install distribute
+If you want to install the latest dev version, you can also run:
+
+$ easy_install -U distribute==dev
