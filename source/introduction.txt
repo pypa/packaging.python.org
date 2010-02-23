@@ -2,33 +2,105 @@
 Introduction to Packaging
 =========================
 
+.. comment:: The audience for this document includes people who don't know anything about Python and aren't about to learn the language just in order to install and maintain it for their users, i.e. system administrators. Thus, We have to be sure to explain the basics at some point: sys.path and PYTHONPATH at least.
+
+.. topic:: Abstract
+
+   This document describes the current state of packaging in Python using Distribution Utilities ("Distutils") and its extensions from the end-user's point-of-view, describing how to extend the capabilities of a standard Python installation by building packages and installing third-party packages Python modules and extensions.
+
 Python is known for it's "batteries included" philosophy and has a
 rich standard library. However, being a popular language, the number
-of third party packages is much higher than the number of things in
-the standard library. 
+of third party packages is much larger than the number of standard library packages. So it eventually becomes necessary to discover how packages are used and creating in Python. 
 
 It can be tedious to manually install extra packages that one needs
 and therefore, Python has a packaging system that allows people to
 distribute their programs and libraries in a standard format that
 makes it easy to install and use them.
 
-This document describes the way in which the packaging system works
-and how you as a developer can :doc:`create packages </creation>` or as a
-user can :doc:`install packages <installation>`. However, in order to
-do this, first we must describe where Python looks for libraries.
+This document aims to explain how to :doc:`install packages <installation>` and :doc:`create  packages <creation>` for the novice Python :term:`Developer` while still providing references to in-depth information to more skilled developers.
 
-TBD : Repetition at http://docs.python.org/install/index.html
+TBD: Repetition at http://docs.python.org/install/index.html
+
+The Packaging Ecosystem
+=======================
+
+A Package
+---------
+
+A :term:`package` is simply a directory with an ``__init__.py`` file inside it. For example::
+
+   mkdir mypackage
+   cd mypackage
+   touch __init__.py
+   echo "# A Package" > __init__.py
+   cd ..
+
+This creates a package that can be imported using the :keyword:`import`. Example::
+
+   >>> import mypackage
+   >>> mypackage.__file__
+   'mypackage/__init__.py'
+
+Discovering a Python Package
+----------------------------
+
+Using :term:`packages <package>` in the current working directory only works for small projects in most cases. Using the working directory as a package location usually becomes a problem when distributing packages for larger systems. Therefore, :mod:`distutils` was created to **install** packages into the :envvar:`PYTHONPATH` with little difficulty. The :envvar:`PYTHONPATH`, also ``sys.path`` in code, is a list of locations to look for Python packages.  Example::
+
+   >>> import sys
+   >>> sys.path
+   ['',
+    '/usr/local/lib/python2.6',
+    '/usr/local/lib/python2.6/site-packages',
+    ...]
+   >>> import mypackage
+   >>> mypackage.__file__
+   'mypackage/__init__.py'
+
+The first value, the null or empty string, in ``sys.path`` is the current working directory, which is what allows the packages in the current working directory to be found.
+
+.. note:: Your :envvar:`PYTHONPATH` values will likely be different from those displayed.
+
+Explicitly Including a Package Location
+---------------------------------------
+
+The convention way of manually installing packages is to put them in the :file:`{...}/site-packages/` directory. But one may want to install Python modules into some arbitrary directory. For example, your site may have a convention of keeping all software related to the web server application under :file:`/www`. Add-on Python modules might then belong in :file:`/www/python{x.y}/`, and in order to import them, this directory must be added to ``sys.path``. There are several different ways to add the directory.
+
+.. todo:: Better define where the :file:`.../site-packages/` directory is located.
+
+The most convenient way is to add a path configuration file to a directory
+that's already in Python's path, which could be the :file:`.../site-packages/`
+directory. Path configuration files have an extension of :file:`.pth`, and each
+line must contain a single path that will be appended to ``sys.path``. (Because the new paths are appended to ``sys.path``, modules in the added directories will not override standard modules.  This means you can't use this mechanism for installing fixed versions of standard modules.)
+
+Paths can be absolute or relative, in which case they're relative to the
+directory containing the :file:`.pth` file.  See the documentation of
+the :mod:`site` module for more information.
+
+In addition there are two environment variables that can modify ``sys.path``. :envvar:`PYTHONHOME` sets an alternate value for the prefix of the Python installation. For example, if :envvar:`PYTHONHOME` is set to :file:`/www/python/lib/python2.6/`, the search path will be set to ``['', '/www/python/lib/python2.6/', ...]``.
+
+The :envvar:`PYTHONPATH` variable can be set to a list of paths that will be
+added to the beginning of ``sys.path``.  For example, if :envvar:`PYTHONPATH` is
+set to ``/www/python:/opt/py``, the search path will begin with
+``['', '/www/python', '/opt/py', ...]``.
+
+.. note:: Directories must exist in order to be added to ``sys.path``. The :mod:`site` module removes paths that don't exist.
+
+Finally, ``sys.path`` is just a regular Python list, so any Python application
+can modify it by adding or removing entries.
+
+.. note:: The `zc.buildout <http://pypi.python.org/pypi/zc.buildout/>`_ package modifies the sys.path in order to include all packages relative to a buildout.  The ``zc.buildout`` package is often used to build large projects that have external build requirements.
 
 Python file layout
 ------------------
+
 A Python installation has a ``site-packages`` directory inside the
 module directory. This directory is where user installed packages are
 dropped. A ``.pth`` file in this directory is maintained which
 contains paths to the directories where the extra packages are
-installed. (For details on the ``.pth`` file, please refer see
-`modyfing python's search path
-<http://docs.python.org/install/index.html#inst-search-path>`_).
-So, when a new package is installed, the contents of the package are
+installed.
+
+.. note:: For details on the ``.pth`` file, please refer to `modyfing python's search path <http://docs.python.org/install/index.html#inst-search-path>`_.
+In short, when a new package is installed using :mod:`distutils` or `one of its extenders <installation>`_, the contents of the package are
 dropped into the ``site-packages`` directory and then the name of the
 new package directory is added to a ``.pth`` file. This allows Python
 upon the next startup to see the new package. 
@@ -49,8 +121,8 @@ directory in addition to the global one. While orthogonal to the whole
 package installation process, it's an extremely useful and natural way
 to work and so the whole thing will be mentioned again.
 
-How to install a package
-------------------------
+Installing Packages with :mod:`distutils`
+-----------------------------------------
 TBD : A quick ```pip install package``` perhaps?
 
 
