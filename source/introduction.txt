@@ -4,6 +4,9 @@ Introduction to Packaging
 
 .. comment:: The audience for this document includes people who don't know anything about Python and aren't about to learn the language just in order to install and maintain it for their users, i.e. system administrators. Thus, We have to be sure to explain the basics at some point: sys.path and PYTHONPATH at least.
 
+.. comment:: This section was mostly extracted from the install documenation
+   at: <http://docs.python.org/install/index.html>
+
 .. topic:: Abstract
 
    This document describes the current state of packaging in Python using Distribution Utilities ("Distutils") and its extensions from the end-user's point-of-view, describing how to extend the capabilities of a standard Python installation by building packages and installing third-party packages Python modules and extensions.
@@ -18,8 +21,6 @@ distribute their programs and libraries in a standard format that
 makes it easy to install and use them.
 
 This document aims to explain how to :doc:`install packages <installation>` and :doc:`create  packages <creation>` for the novice Python :term:`Developer` while still providing references to in-depth information to more skilled developers.
-
-TBD: Repetition at http://docs.python.org/install/index.html
 
 The Packaging Ecosystem
 =======================
@@ -65,7 +66,7 @@ Explicitly Including a Package Location
 
 The convention way of manually installing packages is to put them in the :file:`{...}/site-packages/` directory. But one may want to install Python modules into some arbitrary directory. For example, your site may have a convention of keeping all software related to the web server application under :file:`/www`. Add-on Python modules might then belong in :file:`/www/python{x.y}/`, and in order to import them, this directory must be added to ``sys.path``. There are several different ways to add the directory.
 
-.. todo:: Better define where the :file:`.../site-packages/` directory is located.
+.. todo:: Better define where the :file:`{...}/site-packages/` directory is located.
 
 The most convenient way is to add a path configuration file to a directory
 that's already in Python's path, which could be the :file:`.../site-packages/`
@@ -121,35 +122,30 @@ directory in addition to the global one. While orthogonal to the whole
 package installation process, it's an extremely useful and natural way
 to work and so the whole thing will be mentioned again.
 
-Installing Packages with :mod:`distutils`
------------------------------------------
-TBD : A quick ```pip install package``` perhaps?
-
-
 Benefits of packaging
----------------------
-While it's possible to unpack tarballs and manually put them into your
-Python installation directories, using a package management system
-gives you some significant benefits. Here are some of the obvious
-ones. 
+=====================
 
-Dependency management
-   Often, the package you want to install requires that others be
-   there. A package management system can automatically resolve
-   dependencies and make your installation pain free and quick.
+While it's possible to unpack :term:`tarballs <tarball>` and manually put them into your Python installation directories (see `Explicitly Including a Package Location`_), using a package management system gives you some significant benefits. Here are some of the obvious ones:
 
-Accounting
-   Package managers can maintain lists of things installed and other
-   metadata like the version installed etc. which makes is easy for
-   the user to know what are the things his system has. 
+- Dependency management
+      Often, the package you want to install requires that others be there. A package management system can automatically resolve dependencies and make your installation pain free and quick. This is one of the basic facilities offered by :mod:`distutils`. However, other extensions to :mod:`distutils` do a better job of installing dependencies. (see :ref:`distribute_info`)
 
-Unistall
-   Package managers can give you push button ways of removing a
-   package from your environment. 
+- Accounting
+      Package managers can maintain lists of things installed and other metadata like the version installed etc. which makes is easy for the user to know what are the things his system has. (see :ref:`pip_info`)
 
-Overrides
-   Package managers give users a convenient way of installing multiple
-   versions of the same library or application onto your system.
+- Unistall
+      Package managers can give you push button ways of removing a package from your environment. (see :ref:`pip_info`)
 
-TBD : FEATURES!!! http://docs.rubygems.org/read/chapter/1#page68
-TBD : FEATURES!!!! http://zef.me/2470/building-clojure-projects-with-leiningen
+- Search
+      Find packages by searching a :term:`package index` for specific terminology. (see :ref:`pip_info`)
+
+Staying Pure with :mod:`distutils`
+==================================
+
+.. comment:: here will be were we mention :mod:`distutils2`
+
+Creating a Micro Ecosystem with :mod:`virtualenv`
+=================================================
+
+
+
