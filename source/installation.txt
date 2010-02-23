@@ -11,21 +11,23 @@ Distribute
 
 .. _Distribute: http://packages.python.org/distribute
 
-Distribute_ is a collection of enhancements to the Python ``distutils`` (for Python 2.3.5 and up on most platforms; 64-bit platforms require a minimum of Python 2.4) that allows you to more easily build and distribute Python packages, especially ones that have dependencies on other packages.
+Distribute_ is a collection of enhancements to the Python standard library module: :mod:`distutils` (for Python 2.3.5 and up on most platforms; 64-bit platforms require a minimum of Python 2.4) that allows you to more easily build and distribute Python packages, especially ones that have dependencies on other packages.
 
-For further information, please see the `Distribute documentation <http://packages.python.org/distribute>`_.
+Distribute was created because the `Setuptools package <http://pypi.python.org/pypi/setuptools/>`_ is no longer maintained. Third-party packages will likely require :mod:`setuptools`, which is provided by the Distribute_. Therefore, anytime time a packages depends on `Setuptools package <http://pypi.python.org/pypi/setuptools/>`_, Distribute_ will step-in to say it already provides the :mod:`setuptools` module.
+
+.. seealso:: `Distribute documentation <http://packages.python.org/distribute>`_.
 
 Installation Instructions
 -------------------------
 
-Distribute_ can be installed by using the ``distribute_setup.py`` script provided online.  It can also be installed using easy_install, pip, the source tarball, or the egg distribution. ``distribute_setup.py`` is the simplest and preferred way to install Distribute on all systems.
+Distribute_ can be installed using the `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ script.  It can also be installed using easy_install, pip, the source tarball, or the egg distribution. `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ is the simplest and preferred way to install Distribute on all systems.
 
 Download `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ and execute it, using the Python interpreter of your choice.
 
 From the *nix shell you can do::
 
-    $ wget http://python-distribute.org/distribute_setup.py
-    $ python distribute_setup.py
+    wget http://python-distribute.org/distribute_setup.py
+    python distribute_setup.py
 
 .. note:: For those on the Mac OS, you can use ``curl -O <url>`` instead of ``wget``.
 
@@ -45,7 +47,9 @@ The ``pip`` application is a replacement for `easy_install
 same techniques for finding packages, so packages that were made
 easy_installable should be pip-installable as well.
 
-For more information, please see the `Pip Documentation <http://pip.openplans.org/index.html>`_ and `Pip PyPI description <http://pypi.python.org/pypi/pip>`_
+.. seealso:: `Pip Documentation <http://pip.openplans.org/index.html>`_ and `Pip PyPI description <http://pypi.python.org/pypi/pip>`_
+
+`pip documentation <http://pip.openplans.org/#requirements-files>`_
 
 Installing Pip
 --------------
@@ -134,16 +138,8 @@ the Markdown package.
 .. Note::
    Pip inside a :doc:`Virtual Environment <virtualenv>` will only uninstall packages installed within that virtual environment. For instance, if you try to ``pip uninstall wsgiref`` it will refuse, because the reference is within the global Python's standard library.
 
-Requirements files
-==================
-
-See `the pip documentation
-<http://pip.openplans.org/#requirements-files>`_ for a good overview.
-
-
 .. _chishop: http://github.com/ask/chishop
 .. _Pip: http://pip.openplans.org/
-.. _virtualenv: http://virtualenv.openplans.org/
 .. _Markdown: http://pypi.python.org/pypi/Markdown
 .. _package metadata: http://www.python.org/dev/peps/pep-0314/
 .. _Python Package Index: http://pypi.python.org/pypi/
