@@ -106,22 +106,6 @@ dropped into the ``site-packages`` directory and then the name of the
 new package directory is added to a ``.pth`` file. This allows Python
 upon the next startup to see the new package. 
 
-Here we have a small digression to discuss the `virtualenv`
-package. In most situations, the ``site-packages`` directory is part
-of the system Python installation and not writable by unprivileged
-users. Also, it's useful to have a solid reliable installation of the
-language which we can use. Experimental packages shouldn't be mixed
-with the stable ones if we want to keep this quality. In order to
-achieve this, most Python developers use the :doc:`virtualenv
-</virtualenv>` package which allows people to create a `virtual`
-installation of Python. This replicates the ``site-packages``
-directory in an user writeable area and then by manipulating the
-Python search path via. the ``PYTHONPATH`` environment variable, makes
-sure that packages are picked up from the new ``site-packages``
-directory in addition to the global one. While orthogonal to the whole
-package installation process, it's an extremely useful and natural way
-to work and so the whole thing will be mentioned again.
-
 Benefits of packaging
 =====================
 
@@ -142,10 +126,19 @@ While it's possible to unpack :term:`tarballs <tarball>` and manually put them i
 Staying Pure with :mod:`distutils`
 ==================================
 
-.. comment:: here will be were we mention :mod:`distutils2`
+.. comment:: In the future this will be where we mention :mod:`distutils2`.
 
-Creating a Micro Ecosystem with :mod:`virtualenv`
+The :mod:`distutils` modules is part of the standard library. The module is supposed to provide the basics for packaging Python. Unfortunately, the :mod:`distutils` module is riddled with a few problems, which is why the Python Software Foundation (PSF) is working on :mod:`distutils2`. However, until :mod:`distutils2` is complete it is recommended that the :term:`Developer` either use pure :mod:`distutils` or the `Distribute package <distribute_info_>`_.
+
+.. seealso:: For further information about the :mod:`distutils2` package, you can take a look at the :doc:`future` document.
+
+In the mean time, if a package requires a ``setuptools`` package it is our recommendation that you install the `Distribute`, which provides a more up to date version of the ``setuptools`` package rather than the `orignal Setuptools package <http://pypi.python.org/pypi/setuptools/>`_.
+
+.. warning:: Please use the :ref:`Distribute package <distribute_info>` rather than the `Setuptools package <http://pypi.python.org/pypi/setuptools/>`_ because there are problems in this package that can and will not be fixed.
+
+Creating a Micro-Ecosystem with :mod:`virtualenv`
 =================================================
 
+Here we have a small digression to briefly discuss the :doc:`Virtual Environments <virtualenv>`, which will be covered later in this document. In most situations, the ``site-packages`` directory is part of the system Python installation and not writable by unprivileged users. Also, it's useful to have a solid reliable installation of the language which we can use. Experimental packages shouldn't be mixed with the stable ones if we want to keep this quality. In order to achieve this, most Python developers use the :doc:`virtualenv </virtualenv>` package which allows people to create a *virtual* installation of Python. This replicates the ``site-packages`` directory in an user writeable area and then by manipulating the Python search path via. the ``PYTHONPATH`` environment variable, makes sure that packages are picked up from the new ``site-packages`` directory in addition to the global one. While orthogonal to the whole package installation process, it's an extremely useful and natural way to work and so the whole thing will be mentioned again.  The installation and usage of ``virtualenv`` is covered in :doc:`virtualenv` document.
 
 
