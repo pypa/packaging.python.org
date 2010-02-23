@@ -5,38 +5,35 @@ Contribute Your Package to the World
 The Python Package Index (PyPI)
 ===============================
 
-XXX put here the Monty Python Cheeseshop extract
+.. note:: XXX put here the Monty Python Cheeseshop extract
 
-The Python Package Index (PyPI), formely known as the Cheeseshop, is to Python
+The Python Package Index (PyPI), formerly known as the Cheeseshop, is to Python
 what CPAN is to Perl: a central repository of projects and
 :term:`distributions <distribution>`.
 
-PyPI is located at http://pypi.python.org and contains more than 9000 projects
-registered by developers from the community.
+`PyPI <http://pypi.python.org>`_ is located at http://pypi.python.org and contains more than 9000 projects registered by developers from the community.
 
 .. image:: images/pypi_screenshot.jpg
 
-Tools like :doc:`Pip <pip>` or
-`zc.buildout <http://pypi.python.org/pypi/zc.buildout>`_ are using PyPI as
-the default location to find distributions to install. When
-``pip install Foo`` is called,
+Tools like :ref:`Pip <pip_info>` or `zc.buildout <http://pypi.python.org/pypi/zc.buildout>`_ are using PyPI as the default location to find distributions to install. When ``pip install Foo`` is called,
 it will browse PyPI to find the latest available version of the ``Foo``
 project using `The Simple Index Protocol`_. If it finds it, it will download
 it and install it automatically.
 
-This automatic installation ala apt-get will work only if the distribution
-is a Distutils-based structure containing a ``setup.py`` file.
+This automatic installation ala :ref:`pip_info` will work only if the distribution is using the Distutils-based structure and containes a ``setup.py`` file.
 
 This involves that any serious Python project should use Distutils
-(see the :doc:`basics <basics_creating_distributing_dists>` for doing this)
+(see the :ref:`basics <creation_basics>` for doing this)
 and should at the minimum be registered at PyPI. Uploading releases there is
 also a good practice.
+
+.. note:: ??? Why should a project at a minimum register at PyPI?
+   good practice, yes; at a minimum, no
 
 Registering projects
 --------------------
 
-Registering a project at PyPI is done by using Distutils' ``register`` command.
-This command performs a simple HTTP post using a basic authentication.
+Registering a project at PyPI is done by using :term:`Distutils`' ``register`` command. This command performs a simple HTTP post using a basic authentication.
 It will use for that the login name and password stored in the ``.pypirc`` file
 located in your home directory. This login has to be registered at PyPI, so
 you need to go there and create an account.
@@ -220,7 +217,7 @@ The Package Index follows these rules (taken from Setuptools' documentation):
 The XML-RPC interface
 ---------------------
 
-XXX pointer to PyPI developer doc + demo with yolk
+.. note:: XXX pointer to PyPI developer doc + demo with yolk
 
 Limitations of the system
 -------------------------
@@ -254,13 +251,13 @@ started to develop strategies to avoid it:
 During last year, PEP 381 was added to try describe a mirroring protocol and
 set up a system of official ring of PyPI mirrors. This system should be ready
 by the end of the year 2010, and will provide a DNS at ``mirrors.pypi.org``
-listing all mirrors IPs. This will allow tools like :doc:`Pip <pip>` to
+listing all mirrors IPs. This will allow tools like :ref:`pip_info` to
 list all mirrors and pick the closest one, or fall back in case a server is
 down.
 
 Private and secondary PyPI servers
 ==================================
 
-XXX explain here that other servers can have a pypi feature (like plone.org, or private)
-XXX explain that pip can point to any pypi-like server
-XXX conclude on the multiple-index merge idea
+.. note:: XXX explain here that other servers can have a pypi feature (like plone.org, or private)
+.. note:: XXX explain that pip can point to any pypi-like server
+.. note:: XXX conclude on the multiple-index merge idea
