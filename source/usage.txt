@@ -2,15 +2,28 @@
 Using Packages
 ==============
 
+Finding Packages
+================
+
+.. note:: TODO I'm mentioning :ref:`pypi_info` everywhere. Should probably move this up in the documentation instead of explaining it over and over.
+
+How does one find a package. Well, the simple answer is to check :ref:`pypi_info` first. The other options are:
+
+- To do a simple web search with google.com, yahoo, etc.
+- Ask around the python community using :term:`IRC` 
+
+We will cover the :ref:`pypi_info` later in the documentation.
 
 Installing from other sources
 =============================
 
-How does installation know what to install when you run ``pip install
-Markdown``? By default, it checks the :ref:`pypi_info` for a package of that name. In this case, it found one; but what
-if you want to install a package that hasn't been uploaded to PyPI?
+When using the :ref:`pip_info` application, how does it know what to install when you run ``pip install Markdown``? By default, it checks the :ref:`pypi_info` for a package of that name. In this case, it found one; but what if you want to install a package that hasn't been uploaded to PyPI?
 
 You have several options:
+
+- `Installing from a tarball`_
+- `Installing from a Version Control System (VCS)`_
+- `Add URLs to search for links`_
 
 .. index:: tarball; install
 
@@ -27,8 +40,8 @@ You can also install from a tarball/zip file over the network::
 
     $ pip install http://dist.repoze.org/PIL-1.1.6.tar.gz
 
-Installing from a VCS
----------------------
+Installing from a Version Control System (VCS)
+----------------------------------------------
 
 Using the ``--editable`` or ``-e`` option, pip has the capability to
 install directly from a version control repository (it currently
@@ -74,7 +87,7 @@ on for that directory, you can run::
    single: package index; chishop
 
 Running your own package index
-------------------------------
+==============================
 
 If you want more of the features provided by PyPI (including the
 ability to upload packages with ``python setup.py sdist upload``), you
