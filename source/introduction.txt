@@ -2,9 +2,9 @@
 Introduction to Packaging
 =========================
 
-.. comment:: The audience for this document includes people who don't know anything about Python and aren't about to learn the language just in order to install and maintain it for their users, i.e. system administrators. Thus, We have to be sure to explain the basics at some point: sys.path and PYTHONPATH at least.
+.. The audience for this document includes people who don't know anything about Python and aren't about to learn the language just in order to install and maintain it for their users, i.e. system administrators. Thus, We have to be sure to explain the basics at some point: sys.path and PYTHONPATH at least.
 
-.. comment:: This section was mostly extracted from the install documenation
+.. This section was mostly extracted from the install documenation
    at: <http://docs.python.org/install/index.html>
 
 .. topic:: Abstract
@@ -66,7 +66,7 @@ Explicitly Including a Package Location
 
 The convention way of manually installing packages is to put them in the :file:`{...}/site-packages/` directory. But one may want to install Python modules into some arbitrary directory. For example, your site may have a convention of keeping all software related to the web server application under :file:`/www`. Add-on Python modules might then belong in :file:`/www/python{x.y}/`, and in order to import them, this directory must be added to ``sys.path``. There are several different ways to add the directory.
 
-.. todo:: Better define where the :file:`{...}/site-packages/` directory is located.
+.. note:: TODO Better define where the :file:`{...}/site-packages/` directory is located.
 
 The most convenient way is to add a path configuration file to a directory
 that's already in Python's path, which could be the :file:`.../site-packages/`
@@ -100,11 +100,7 @@ dropped. A ``.pth`` file in this directory is maintained which
 contains paths to the directories where the extra packages are
 installed.
 
-.. note:: For details on the ``.pth`` file, please refer to `modyfing python's search path <http://docs.python.org/install/index.html#inst-search-path>`_.
-In short, when a new package is installed using :mod:`distutils` or `one of its extenders <installation>`_, the contents of the package are
-dropped into the ``site-packages`` directory and then the name of the
-new package directory is added to a ``.pth`` file. This allows Python
-upon the next startup to see the new package. 
+.. note:: For details on the ``.pth`` file, please refer to `modyfing python's search path <http://docs.python.org/install/index.html#inst-search-path>`_. In short, when a new package is installed using :mod:`distutils` or `one of its extenders <installation>`_, the contents of the package are dropped into the ``site-packages`` directory and then the name of the new package directory is added to a ``.pth`` file. This allows Python upon the next startup to see the new package. 
 
 Benefits of packaging
 =====================

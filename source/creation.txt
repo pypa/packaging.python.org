@@ -5,7 +5,7 @@ Creating a Package
 Packaging with Distribute
 =========================
 
-Packages built and distributed using ``setuptools`` (a package provided by Distribute_) look to the user like ordinary Python packages based on the ``distutils``. Your users don’t need to install or even know about setuptools in order to use them, and you don’t have to include the entire ``setuptools`` package in your distributions. By including just a single bootstrap module (an 8K .py file), your package will automatically download and install ``setuptools`` if the user is building your package from source and doesn’t have a suitable version already installed.
+Packages built and distributed using ``setuptools`` (a package provided by :ref:`distribute_info`) look to the user like ordinary Python packages based on the ``distutils``. Your users don’t need to install or even know about setuptools in order to use them, and you don’t have to include the entire ``setuptools`` package in your distributions. By including just a single bootstrap module (an 8K .py file), your package will automatically download and install ``setuptools`` if the user is building your package from source and doesn’t have a suitable version already installed.
 
 Installation Instructions
 -------------------------
@@ -23,8 +23,8 @@ If your shell has the curl program you can do::
 
     $ curl -O http://python-distribute.org/distribute_setup.py
     $ python distribute_setup.py
-    Notice this file is also provided in the source release.
 
+Notice this file is also provided in the source release.
 Run easy_install or pip::
 
     $ easy_install -U distribute
@@ -68,7 +68,8 @@ prerelease/release/postrelease time.
   stored in (zope’s) svn repository directly due to licensing issues. Before
   packaging and releasing it, that is. Automatically so you don’t forget it.
 
-- Uploading a version.cfg to scp://somewhere/kgs/ourmainproduct-version.cfg
+- Uploading a version.cfg to
+  ``scp://somewhere/kgs/ourmainproduct-version.cfg``
   after making a release to use it as a so-called “known good set” (KGS).
 
 - Possibly modifying values (like a commit message) inside zest.releaser itself
