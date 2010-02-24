@@ -19,23 +19,25 @@ distribute_setup.py is the simplest and preferred way on all systems.
 distribute_setup.py
 Download distribute_setup.py and execute it, using the Python interpreter of your choice.
 
-If your shell has the curl program you can do:
+If your shell has the curl program you can do::
 
-$ curl -O http://python-distribute.org/distribute_setup.py
-$ python distribute_setup.py
-Notice this file is also provided in the source release.
+    $ curl -O http://python-distribute.org/distribute_setup.py
+    $ python distribute_setup.py
+    Notice this file is also provided in the source release.
 
-easy_install or pip
-Run easy_install or pip:
+Run easy_install or pip::
 
-$ easy_install -U distribute
-$ pip install distribute
-If you want to install the latest dev version, you can also run:
+    $ easy_install -U distribute
+    $ pip install distribute
 
-$ easy_install -U distribute==dev
+If you want to install the latest dev version, you can also run::
+
+    $ easy_install -U distribute==dev
 
 Entry points
 ------------
+
+.. note:: XXX Ditch the example here and use the `parrot example <http://bitbucket.org/carljm/sample-distutils2-project/>`_, developed by Carl Meyer, to illustrate how this works.
 
 Entry points are a Setuptools/Distribute feature that’s really handy in one
 specific case: register something under a specific key in package A that
@@ -44,14 +46,14 @@ package B can query for.
 Distribute itself uses it. If you’re packaging your project up properly, you’ve
 probably used the ``console_scripts`` entry point::
 
-    setup(name='zest.releaser',
-          ...
-          entry_points={
-            'console_scripts':
-                ['release = zest.releaser.release:main',
-                 'prerelease = zest.releaser.prerelease:main',
-                ]}
-        )
+   setup(name='zest.releaser',
+         ...
+         entry_points={
+             'console_scripts':
+                 ['release = zest.releaser.release:main',
+                  'prerelease = zest.releaser.prerelease:main',
+                  ]}
+         )
 
 ``console_scripts`` is an entry point that Setuptools looks up. It looks up all
 entry points registered under the name console_scripts and uses that
