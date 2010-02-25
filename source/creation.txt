@@ -29,7 +29,7 @@ them.  First thing to do is come up with a CamelCase project name for
 them. Let's go with "TowelStuff" since it seems appropriate and also
 it has not yet been used on the :ref:`pypi_info`.
 
-.. _rest_example:
+.. _directory_layout:
 
 Arranging your file and directory structure
 -------------------------------------------
@@ -62,9 +62,13 @@ layout of your project directory (described below) look like this::
 
 Here's what you should do for each of those listed above:
 
+.. _bin_description:
+
 * Put into ``bin`` any scripts you've written that use your
   ``towelstuff`` package and which you think would be useful for your
   users. If you don't have any, then remove the ``bin`` directory.
+
+.. _changes_txt_description:
 
 * For now, the ``CHANGES.txt`` file should only contain::
 
@@ -73,20 +77,28 @@ Here's what you should do for each of those listed above:
   since this is your very first version (version number will be
   described below) and there are no changes to report.
 
+.. _docs_description:
+
 * The ``docs`` dir should contain any design docs, implementation notes, a
   FAQ, or any other docs you've written. For now, stick to plain text
   files ending in ".txt". This author (JohnMG) likes to use `Pandoc's
   Markdown <http://johnmacfarlane.net/pandoc/>`_, but many Pythoneers
   use :term:`reStructuredText <reStructuredText>`.
 
+.. _license_txt_description:
+
 * The ``LICENSE.txt`` file is often just a copy/paste of your license
   of choice.  We recommend going with a commonly-used license, such as
   the GPL, BSD, or MIT.
+
+.. _manifest_in_description:
 
 * The ``MANIFEST.in`` file should contain this::
 
       include *.txt
       recursive-include docs *.txt
+
+.. _readme_txt_description:
 
 * The ``README.txt`` file should be written in :term:`reST <reStructuredText>`
   so that the PyPI can use it to generate your project's PyPI page. Here's a
@@ -143,6 +155,8 @@ Here's what you should do for each of those listed above:
   html, see the `TowelStuff project
   <http://pypi.python.org/pypi/TowelStuff/>`_ at the PyPI.
 
+.. _setup_py_description:
+
 * ``setup.py`` -- Create this file and make it look like this::
 
       from distutils.core import setup
@@ -168,6 +182,8 @@ Here's what you should do for each of those listed above:
 
   If you have no scripts to distribute (and thus no ``bin`` dir), you
   can remove the above line which begins with "scripts".
+
+.. _towelstuff_description:
 
 * Inside the ``towelstuff`` directory, ``__init__.py`` can be
   empty. Likewise, inside ``towelstuff/test``, *that* ``__init__.py``

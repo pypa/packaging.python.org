@@ -1,0 +1,57 @@
+===========
+Quick Start
+===========
+
+Here's how to create a new project; we'll call our example TowelStuff.
+
+1. Lay out your project main directory.
+=======================================
+
+Under the main directory, you'll **need** a :ref:`setup.py
+<setup_py_description>` and at least one package directory,
+:ref:`towelstuff/ <towelstuff_description>` (which is what's actually
+imported when you do ``import towelstuff``).  You will also need a
+:ref:`MANIFEST.in <manifest_in_description>` to bundle non-source
+files in the distribution -- unless you're using Subversion.  (Don't
+ask.)  If you have any command line scripts, put them in the
+:ref:`bin/ <bin_description>` directory.
+
+We **highly recommend** a :ref:`README.txt <readme_txt_description>`
+file describing your project and where to go for more information, and
+a :ref:`LICENSE.txt <license_txt_description>` file containing the
+license of your project.
+
+If you want full marks on your project, please also include a
+:ref:`CHANGES.txt <changes_txt_description>`
+and a :ref:`docs/ <docs_description>` directory containing any documentation.
+
+.. note:: For full details, look at :ref:`directory_layout`.
+
+2. Register your package with the Python Package Index (PyPI)
+=============================================================
+
+To register your package on the :ref:`pypi_info`, run ::
+
+ $ python setup.py register
+
+.. note:: You may need to do this every time you change ``README.txt``.
+
+3. For each release, build and upload the package.
+==================================================
+
+Whenever you release a new version, build your package and then upload
+it to PyPI.  The following command line will create a source distribution
+and Windows binary installer, and then upload both of them to PyPI. ::
+
+ $ python setup.py sdist bdist_msi upload
+
+4. Go find some users.
+======================
+
+At this point you should announce your package to the community!
+
+Grab Your Towel and Save the Universe
+=====================================
+
+The `Quick Start`_ is a good brief introduction, but does not cover a lot of obscure use-cases. For those wanting more, please read the :doc:`introduction` document to gain a better understanding of the :ref:`state_of_packaging_info`.
+
