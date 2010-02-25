@@ -5,7 +5,7 @@ Creating a Package
 Packaging with Distribute
 =========================
 
-Packages built and distributed using ``setuptools`` (provided by :ref:`distribute_info`) look to the user like ordinary Python packages based on the :mod:`distutils` module. Your users don’t need to install or even know about ``setuptools`` in order to use them, and you don’t have to include the entire ``setuptools`` package in your distributions. By including, the `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_, which is a single bootstrap module (an 8K .py file), your package will automatically download and install ``setuptools`` if the user is building your package from source and doesn’t have a suitable version already installed.
+Packages built and distributed using ``setuptools`` (provided by :ref:`distribute_info`) look to the user like ordinary Python packages based on the :mod:`distutils` module. Your users don’t need to install or even know about ``setuptools`` in order to use them, and you don’t have to include the entire ``setuptools`` package in your distributions. By including the `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_, which is a single bootstrap module (an 8K .py file), your package will automatically download and install ``setuptools`` if the user is building your package from source and doesn't have a suitable version already installed.
 
 Basics: Creating and Distributing Distributions
 ===============================================
@@ -74,7 +74,7 @@ Here's what you should do for each of those listed above:
   described below) and there are no changes to report.
 
 * The ``docs`` dir should contain any design docs, implementation notes, a
-  faq, or any other docs you've written. For now, stick to plain text
+  FAQ, or any other docs you've written. For now, stick to plain text
   files ending in ".txt". This author (JohnMG) likes to use `Pandoc's
   Markdown <http://johnmacfarlane.net/pandoc/>`_, but many Pythoneers
   use :term:`reStructuredText <reStructuredText>`.
@@ -241,7 +241,7 @@ Entry points are a Setuptools/Distribute feature that’s really handy in one
 specific case: register something under a specific key in package A that
 package B can query for.
 
-Distribute itself uses it. If you’re packaging your project up properly, you’ve
+Distribute itself uses it. If you’re packaging your project up properly, you've
 probably used the ``console_scripts`` entry point::
 
    setup(name='zest.releaser',
@@ -263,7 +263,7 @@ needed some extension mechanism. I wanted to be able to do extra things on
 prerelease/release/postrelease time.
 
 - Downloading an external javascript library into a package that cannot be
-  stored in (zope’s) svn repository directly due to licensing issues. Before
+  stored in (zope's) svn repository directly due to licensing issues. Before
   packaging and releasing it, that is. Automatically so you don’t forget it.
 
 - Uploading a version.cfg to
