@@ -40,7 +40,13 @@ Let's "activate" the virtualenv to put ``pip_test_env/bin`` on our
 default PATH, so we can just type ``pip`` instead of
 ``pip_test_env/bin/pip``::
 
-    $ pip_test_env/bin/activate
+    $ . pip_test_env/bin/activate
+
+.. Note:: 
+   The leading dot is important.  Without it, a subshell is spawned
+   and only that subshell gets the virtualenv activated.  The leading
+   dot tells the shell to run the `activate` script in the current
+   shell.
 
 On Windows, this is::
 
