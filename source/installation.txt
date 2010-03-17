@@ -2,7 +2,13 @@
 Installing the Package Tools
 ============================
 
-In the :ref:`current state of packaging <state_of_packaging_info>` in Python, one needs a set of tools to easily manipulate the packaging ecosystem. There are two tools in particular that are extremely handy in the current ecosystem. There is a third tool, :doc:`virtualenv`, that will be discussed later in this documentation that will assist in isolating a packaging ecosystem from the global one. The combination of these tools will help to find, install and uninstall packages.
+In the :ref:`current state of packaging <state_of_packaging_info>` in Python,
+one needs a set of tools to easily manipulate the packaging ecosystem. There are
+two tools in particular that are extremely handy in the current ecosystem. There
+is a third tool, :doc:`virtualenv`, that will be discussed later in this
+documentation that will assist in isolating a packaging ecosystem from the
+global one. The combination of these tools will help to find, install and
+uninstall packages.
 
 .. _distribute_info:
 
@@ -11,27 +17,44 @@ Distribute
 
 .. _Distribute: http://packages.python.org/distribute
 
-Distribute_ is a collection of enhancements to the Python standard library module: :mod:`distutils` (for Python 2.3.5 and up on most platforms; 64-bit platforms require a minimum of Python 2.4) that allows you to more easily build and distribute Python packages, especially ones that have dependencies on other packages.
+Distribute_ is a collection of enhancements to the Python standard library
+module: :mod:`distutils` (for Python 2.3.5 and up on most platforms; 64-bit
+platforms require a minimum of Python 2.4) that allows you to more easily build
+and distribute Python packages, especially ones that have dependencies on other
+packages.
 
-Distribute was created because the `Setuptools package <http://pypi.python.org/pypi/setuptools/>`_ is no longer maintained. Third-party packages will likely require :mod:`setuptools`, which is provided by the Distribute_ package. Therefore, anytime time a packages depends on the `Setuptools package <http://pypi.python.org/pypi/setuptools/>`_, Distribute_ will step in to say it already provides the :mod:`setuptools` module.
+Distribute was created because the `Setuptools package
+<http://pypi.python.org/pypi/setuptools/>`_ is no longer maintained. Third-party
+packages will likely require :mod:`setuptools`, which is provided by the
+Distribute_ package. Therefore, anytime time a packages depends on the
+`Setuptools package <http://pypi.python.org/pypi/setuptools/>`_, Distribute_
+will step in to say it already provides the :mod:`setuptools` module.
 
 .. seealso:: `Distribute documentation <http://packages.python.org/distribute>`_.
 
 Installation Instructions
 -------------------------
 
-Distribute_ can be installed using the `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ script.  It can also be installed using easy_install, pip, the source tarball, or the egg distribution. `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ is the simplest and preferred way to install Distribute on all systems.
+Distribute_ can be installed using the `distribute_setup.py
+<http://python-distribute.org/distribute_setup.py>`_ script.  It can also be
+installed using easy_install, pip, the source tarball, or the egg distribution.
+`distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ is the
+simplest and preferred way to install Distribute on all systems.
 
-Download `distribute_setup.py <http://python-distribute.org/distribute_setup.py>`_ and execute it, using the Python interpreter of your choice.
+Download `distribute_setup.py
+<http://python-distribute.org/distribute_setup.py>`_ and execute it, using the
+Python interpreter of your choice.
 
 From the \*nix shell you can do::
 
     $ wget http://python-distribute.org/distribute_setup.py
     $ python distribute_setup.py
 
-.. note:: For those on Mac OS X, you can use ``curl -O <url>`` instead of ``wget``.
+.. note:: For those on Mac OS X, you can use ``curl -O <url>`` instead of
+   ``wget``.
 
-.. seealso:: The development version of Distribute can be found at: http://bitbucket.org/tarek/distribute/
+.. seealso:: The development version of Distribute can be found at:
+   http://bitbucket.org/tarek/distribute/
 
 .. _pip_info:
 
@@ -47,14 +70,16 @@ The ``pip`` application is a replacement for `easy_install
 same techniques for finding packages, so packages that were made
 easy_installable should be pip-installable as well.
 
-.. seealso:: `Pip Documentation <http://pip.openplans.org/index.html>`_ and `Pip PyPI description <http://pypi.python.org/pypi/pip>`_
+.. seealso:: `Pip Documentation <http://pip.openplans.org/index.html>`_ and `Pip
+   PyPI description <http://pypi.python.org/pypi/pip>`_
 
 .. note:: ??? `Pip requirements <http://pip.openplans.org/#requirements-files>`_
 
 Installing Pip
 --------------
 
-The `Pip`_ installer can be installed using the source tarball or using ``easy_install``.  The source tarball is the recommended method of installation.
+The `Pip`_ installer can be installed using the source tarball or using
+``easy_install``.  The source tarball is the recommended method of installation.
 
 The latest version of the source tarball can be obtained from PyPI::
 
@@ -71,7 +96,8 @@ The ``pip`` application is now installed.
 
 .. Can the above be simplified?
 
-.. note:: ``pip`` is complementary with :doc:`virtualenv`, and it is encouraged that you use :doc:`virtualenv` to isolate your installation.
+.. note:: ``pip`` is complementary with :doc:`virtualenv`, and it is encouraged
+   that you use :doc:`virtualenv` to isolate your installation.
 
 Installing a package
 --------------------
@@ -117,7 +143,8 @@ specifiers with a comma::
 Upgrading
 ---------
 
-If you want to upgrade a package to its most recent available version, use the ``-U`` or ``--upgrade`` flag::
+If you want to upgrade a package to its most recent available version, use the
+``-U`` or ``--upgrade`` flag::
 
     $ pip install -U Markdown
 
@@ -133,7 +160,10 @@ requesting confirmation, pip will uninstall everything installed by
 the Markdown package.
 
 .. Note::
-   Pip inside a :doc:`Virtual Environment <virtualenv>` will only uninstall packages installed within that virtual environment. For instance, if you try to ``pip uninstall wsgiref`` it will refuse, because the reference is within the global Python's standard library.
+   Pip inside a :doc:`Virtual Environment <virtualenv>` will only uninstall
+   packages installed within that virtual environment. For instance, if you try
+   to ``pip uninstall wsgiref`` it will refuse, because the reference is within
+   the global Python's standard library.
 
 .. _Pip: http://pip.openplans.org/
 .. _Markdown: http://pypi.python.org/pypi/Markdown
