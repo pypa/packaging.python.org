@@ -4,112 +4,187 @@ Glossary
 
 .. glossary::
 
-   CPAN
-       CPAN is the Comprehensive Perl Archive Network, a large collection of
-       :term:`Perl` software and documentation. You can begin exploring from
-       either http://www.cpan.org/, http://www.perl.com/CPAN/ or any of the
-       mirrors listed at http://www.cpan.org/SITES.html. [CPAN]_
+    Buildout
+        A `python-based build system <http://www.buildout.org>`_ for creating,
+        assembling and deploying applications from multiple parts, any of
+        which may be non-python based. It lets you create a buildout
+        configuration and reproduce the same software later.
+        
+        Buildout is commonly used to install and manage Python distributions.
+        It differentiates itself from :doc:`<pip>` in a few ways: Buildout
+        takes a configuration file as input, where as pip is run from the 
+        command-line. Buildout can run any arbitrary recipe during installation
+        and so can manage non-python parts, such as config files, databases,
+        etc. Buildout by default installs packages in a multi-version manner, 
+        so that each distribution is contained in a separate directory, and 
+        Buildout be configured so that other Buildout installations can re-use
+        a multi-version archive of installed distributions. In contrast, Pip
+        installs distributions into a single location, such that it's only
+        possible to have a single version of each distribution installed at
+        a time. However, it's possible to use different recipes with Buildout
+        to create single location installations in the same fashion as pip.
 
-   Developer
-       The person developing the package.
+    CPAN
+        CPAN is the Comprehensive Perl Archive Network, a large collection of
+        :term:`Perl` software and documentation. You can begin exploring from
+        either http://www.cpan.org/, http://www.perl.com/CPAN/ or any of the
+        mirrors listed at http://www.cpan.org/SITES.html. [CPAN]_
 
-   distribution
-       A Python distribution is a versioned compressed archive file
-       that contains Python packages, modules, and other resource
-       files. The distribution file is what an end-user will downloaded
-       from the internet and install.
-       
-       In other fields of computing, a distribution is often called a
-       package. For example, Mac OS X and Debian call these files
-       package files. However, in Python, the term package refers to an
-       importable directory. In order to distinguish between these two
-       concepts, the compressed archive file containing code is called
-       a distribution.
+    Developer
+        The person developing the package.
 
-       It is not uncommon in Python to refer to a distribution using the
-       term package. While not 100% technically correct, the context of
-       the term package is usually sufficient to distinguish the meaning
-       of the word.
+    Distribution
+        A Python distribution is a versioned compressed archive file
+        that contains Python packages, modules, and other resource
+        files. The distribution file is what an end-user will downloaded
+        from the internet and install.
+        
+        In other fields of computing, a distribution is often called a
+        package. For example, Mac OS X and Debian call these files
+        package files. However, in Python, the term package refers to an
+        importable directory. In order to distinguish between these two
+        concepts, the compressed archive file containing code is called
+        a distribution.
+        
+        It is not uncommon in Python to refer to a distribution using the
+        term package. While the two meanings of the term package is not always
+        100% unambigous, the context of the term package is usually sufficient
+        to distinguish the meaning of the word. For example, the python
+        installation tool pip is an acronym for "pip installs packages",
+        while technically the tool installs distribution files, the name
+        package is used as it's meaning is more widely understood.
 
-   distutils
-       A standard and basic package that comes with the Python
-       standard library. It is used for creating distributions
-       (where it is imported in the ``setup.py`` file for that
-       distribution).
+    Distutils
+        A standard and basic package that comes with the Python
+        standard library. It is used for creating distributions
+        (where it is imported in the ``setup.py`` file for that
+        distribution).
 
-   IRC
-       Internet Relay Chat (IRC) is a form of real-time Internet text messaging
-       (chat) or synchronous conferencing. It is mainly designed for group
-       communication in discussion forums, called channels, but also allows
-       one-to-one communication via private message as well as chat and data
-       transfers via Direct Client-to-Client. [WikipediaIRC]_
+    Extension Module
+        A module written in the low-level language of the Python
+        implementation: C/C++ for Python, Java for Jython. Typically
+        contained in a single dynamically loadable pre-compiled file, e.g.
+        a shared object (.so) file for Python extensions on Unix, a DLL
+        (given the .pyd extension) for Python extensions on Windows, or a
+        Java class file for Jython extensions.
 
-   module
-       A python source code file (ex. ``mymodule.py``), most often
-       found in a package (``mypackage/mymodule.py``). You can import
-       a module: ``import mymodule``, or ``import mypackage.mymodule``
-       if it lives in ``mypackage``.
+    IRC
+        Internet Relay Chat (IRC) is a form of real-time Internet text messaging
+        (chat) or synchronous conferencing. It is mainly designed for group
+        communication in discussion forums, called channels, but also allows
+        one-to-one communication via private message as well as chat and data
+        transfers via Direct Client-to-Client. [WikipediaIRC]_
 
-   package
-       A directory containing an ``__init__.py`` file (ex.
-       ``mypackage/__init__.py``), and also usually containing
-       modules (possibly along with other packages). You can import
-       a package: ``import mypackage``
+    Module
+        A python source code file (ex. ``mymodule.py``), most often
+        found in a package (``mypackage/mymodule.py``). You can import
+        a module: ``import mymodule``, or ``import mypackage.mymodule``
+        if it lives in ``mypackage``.
 
-       A package should not be confused with a compressed archive file
-       used to install Python code.
+    Package
+        A directory containing an ``__init__.py`` file (ex.
+        ``mypackage/__init__.py``), and also usually containing
+        modules (possibly along with other packages). You can import
+        a package: ``import mypackage``
 
-   package index
-       A repository of distributions with a web interface to automate
-       distribution discovery and consumption.
+        A package should not be confused with a compressed archive file
+        used to install Python code.
 
-       .. seealso:: The :ref:`pypi_info` is the default packaging
-                    index for the Python community. It is open to all
-                    Python developers to consume and distribute their
-                    distributions.
+    Package Index
+        A repository of distributions with a web interface to automate
+        distribution discovery and consumption.
 
-   Packager
-       The person packaging the package for a particular operating system
-       (e.g. Debian).
+        .. seealso:: The :ref:`pypi_info` is the default packaging
+                     index for the Python community. It is open to all
+                     Python developers to consume and distribute their
+                     distributions.
 
-   Perl
-       Perl is a high-level programming language with an eclectic heritage
-       written by Larry Wall and a cast of thousands. It derives from the
-       ubiquitous C programming language and to a lesser extent from sed, awk,
-       the Unix shell, and at least a dozen other tools and languages. Perl's
-       process, file, and text manipulation facilities make it particularly
-       well-suited for tasks involving quick prototyping, system utilities,
-       software tools, system management tasks, database access, graphical
-       programming, networking, and world wide web programming. These strengths
-       make it especially popular with system administrators and CGI script
-       authors, but mathematicians, geneticists, journalists, and even managers
-       also use Perl. [PERL]_
+    Packager
+        The person packaging the package for a particular operating system
+        (e.g. Debian).
 
-   reStructuredText
-       A plain text format used in many Python projects for documentation. The
-       reStructuredText format is used in this document. For more information,
-       please see the `reStructuredText Documentation 
-       <http://docutils.sourceforge.net/rst.html>`_.
+    Perl
+        Perl is a high-level programming language with an eclectic heritage
+        written by Larry Wall and a cast of thousands. It derives from the
+        ubiquitous C programming language and to a lesser extent from sed, awk,
+        the Unix shell, and at least a dozen other tools and languages. Perl's
+        process, file, and text manipulation facilities make it particularly
+        well-suited for tasks involving quick prototyping, system utilities,
+        software tools, system management tasks, database access, graphical
+        programming, networking, and world wide web programming. These strengths
+        make it especially popular with system administrators and CGI script
+        authors, but mathematicians, geneticists, journalists, and even managers
+        also use Perl. [PERL]_
 
-   standard library
-       Python's standard library is very extensive, offering a wide range of
-       facilities as indicated by the long table of contents listed below. The
-       library contains built-in modules (written in C) that provide access to
-       system functionality such as file I/O that would otherwise be
-       inaccessible to Python programmers, as well as modules written in Python
-       that provide standardized solutions for many problems that occur in
-       everyday programming. Some of these modules are explicitly designed to
-       encourage and enhance the portability of Python programs by abstracting
-       away platform-specifics into platform-neutral APIs. [StandardLibrary]_
+    Pip
+        :doc:`<pip>` is a command-line tool for downloading and installing
+        Python distributions.
 
-       .. seealso:: `Python Standard Library Documentation
-          <http://docs.python.org/library/>`_
+    Project
+        A library, framework, script, plugin, application, or collection of
+        data or other resources, or some combination thereof.
 
-   tarball
-       An archive format for collected a group of files together as one. The
-       format's extension is usually ``.tar``, which represents its meaning,
-       Tape ARchive. The format is often used in conjunction with a
-       compression format such as gzip or bzip. 
+        Python projects must have unique names, which are registered on 
+        PyPI. Each project will then contain one or more releases, and
+        each release may comprise one or more distributions.
+
+        Note that there is a strong convention to name a project after the
+        name of the package that is imported to run that project. However,
+        this doesn't have to hold true. It's possible to install a distribution
+        from the project 'spam' and have it provide a package importable only
+        as 'eggs'.
+
+    Pure Python Module
+        A module written in Python and contained in a single .py file
+        (and possibly associated .pyc and/or .pyo files). Sometimes referred
+        to as a "pure module."
+
+    Release
+        A snapshot of a project at a particular point in time, denoted by a
+        version identifier.
+        
+        Making a release may entail the publishing of multiple distributions.
+        For example, if version 1.0 of a project was released, it could be
+        available in both a source distribution format and a Windows
+        installer distribution format.
+
+    reStructuredText
+        A plain text format used in many Python projects for documentation. The
+        reStructuredText format is used in this document. For more information,
+        please see the `reStructuredText Documentation 
+        <http://docutils.sourceforge.net/rst.html>`_.
+
+    Standard Library
+        Python's standard library is very extensive, offering a wide range of
+        facilities as indicated by the long table of contents listed below. The
+        library contains built-in modules (written in C) that provide access to
+        system functionality such as file I/O that would otherwise be
+        inaccessible to Python programmers, as well as modules written in Python
+        that provide standardized solutions for many problems that occur in
+        everyday programming. Some of these modules are explicitly designed to
+        encourage and enhance the portability of Python programs by abstracting
+        away platform-specifics into platform-neutral APIs. [StandardLibrary]_
+
+        .. seealso:: `Python Standard Library Documentation
+           <http://docs.python.org/library/>`_
+
+    System Package
+        A package provided by in a format native to the operating system.
+        e.g. rpm or dpkg file.
+        
+    Tarball
+        An archive format for collected a group of files together as one. The
+        format's extension is usually ``.tar``, which represents its meaning,
+        Tape ARchive. The format is often used in conjunction with a
+        compression format such as gzip or bzip. 
+
+    Working Set
+        A collection of distributions available for importing. These are the
+        distributions that are on the `sys.path` variable. At most one
+        version a distribution is possible in a working set.
+
+        Working sets include all distributions available for importing, not
+        just the sub-set of distributions which have actually been imported.
 
 Citations
 ---------
