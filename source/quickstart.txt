@@ -4,8 +4,8 @@ Quick Start
 
 Here's how to create a new project, which we'll call **TowelStuff**.
 
-1. Lay out your project's main directory
-========================================
+1. Lay out your project
+=======================
 
 The smallest python project is two files. A :ref:`setup.py
 <setup_py_description>` file which describes the metadata about your project,
@@ -36,10 +36,13 @@ Your project will now look like::
         towelstuff/
             __init__.py
 
-2. Describe your project in the setup.py file
-=============================================
 
-There a quite a few fields you can add to a project to give it a rich set of
+2. Describe your project
+========================
+
+The :ref:`setup.py <setup_py_description>` file is at the heart of a Python
+project. It describes all of the metadata about your project. There a quite
+a few fields you can add to a project to give it a rich set of
 metadata describing the project. However, there are only three required
 fields: `name`, `version`, and `packages`. The `name` field must be unique
 if you wish to publish your package on the Python Package Index (PyPI).
@@ -62,37 +65,20 @@ This will look like::
     )
 
 
-3. Register your package with the Python Package Index (PyPI)
-=============================================================
-
-There is a central index of all publically available Python projects
-maintained on the python.org web site named the :ref:`pypi_info`. You
-will first have to visit that site, where you can register for an account.
-Project's are published on PyPI in the format of::
-
-    http://pypi.python.org/pypi/<projectname>
-
-Your project will have to choose a name which is not already taken on PyPI.    
-You can then claim your new project's name by registering the package
-by running the command::
-
- $ python setup.py register
-
-
-4. Build and check a release
+3. Create your first release
 ============================
 
 In the `version` field, we specified `0.1dev`. This indicates that we
 are *developing* towards the `0.1` version. Right now there isn't any code
-in the project. You would first write enough code to make your first release
-worthwhile, then change the version field to just `0.1`, dropping the `dev`
+in the project. After you've written enough code to make your first release
+worthwhile, you will change the version field to just `0.1`, dropping the `dev`
 marker.
 
 To create a release, your source code needs to be packaged into a single
 archive file. This can be done with the `sdist` command:
 
  $ python setup.py sdist
- 
+
 This will create a `dist` sub-directory in your project, and will wrap-up
 all of your project's source code files into a distribution file,
 a compressed archive file in the form of::
@@ -102,9 +88,35 @@ a compressed archive file in the form of::
 The compressed archive format defaults to `.tar.gz` files on POSIX systems,
 and `.zip` files on Windows systems.
 
-At this point, it's a good idea to uncompress the newly created source
-distribution, and make sure everything is being packaged correctly. There
-are a two important points to check to make sure your package is ready for release:
+By default, Distutils does **not** include all files in your project's
+directory. Only the following files will be included by default:
+
+ * all Python source files implied by the py_modules and packages options
+
+ * all C source files mentioned in the ext_modules or libraries options
+ 
+ * scripts identified by the scripts option
+
+ * anything that looks like a test script: test/test*.py
+  
+ * Top level files named: README.txt, README, setup.py, or setup.cfg
+
+If you want to include additional files, then there are a couple options
+for including those files:
+
+ * Use a package which extends Distutils with more functionality.
+   Setuptools and Distribute all you to include all files checked into
+   your version control system.
+
+ * Write a top-level MANIFEST.in file. This is a template file which
+   specifies which files (and file patterns) should be included.
+   (TO-DO: link to a MANIFEST.in document)
+
+When you run the **sdist** command, a file named MANIFEST will be 
+generated which contains a complete list of all files included. You can
+view this file to double check that you've setup your project to include
+all files correctly. Now your project is ready for a release. Before
+releasing, it's a good idea to double check to make sure that you have:
 
 * The correct version number.
 
@@ -115,23 +127,29 @@ are a two important points to check to make sure your package is ready for relea
 
 * All desired project files are included.
 
-  This is a big one. There are a variety of different ways of indicating
-  which files from your project should be included in the release, and which
-  should not. For a full overview see `specifying the files to distribute
-  <http://docs.python.org/distutils/sourcedist.html#specifying-the-files-to-distribute>`_.
+  Go over the MANIFEST file, or open the archive file generated by
+  running the **sdist** command.
 
-  In our minimal example, we used the `packages` field describes a list of
-  packages that are included as part of your project. If we created a 
-  `towelstuff.test` package, we would need to explicitly add that package
-  name to our `packages` field, so that it looked like::
 
-    packages=['towelstuff','towelstuff.test'],
+4. Register your package with the Python Package Index (PyPI)
+=============================================================
 
-  You will also notice that the README.txt and LICENSE.txt files are not
-  included as part of distribution - unless those files have checked into
-  Subversion. If you aren't using Subversion for source code management,
-  then you will either need to specify those files using a `MANIFEST.in`
-  file (or use Distribute with a plug-in appropriate for your source code tool).
+The distribution file generated by running **sdist** can be published
+anywhere. There is a central index of all publically available Python projects
+maintained on the python.org web site named the :ref:`pypi_info`. This is
+where you will want to release your distribution if you intend to make your
+project public.
+
+You will first have to visit that site, where you can register for an account.
+Project's are published on PyPI in the format of::
+
+  http://pypi.python.org/pypi/<projectname>
+
+Your project will have to choose a name which is not already taken on PyPI.    
+You can then claim your new project's name by registering the package
+by running the command::
+
+$ python setup.py register
 
 
 5. Upload your release, then grab your towel and save the Universe!
