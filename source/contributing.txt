@@ -21,7 +21,12 @@ what :term:`CPAN` is to :term:`Perl`: a central repository of projects and
 
 .. image:: images/pypi_screenshot.jpg
 
-Tools like :ref:`Pip <pip_info>` or `zc.buildout <http://pypi.python.org/pypi/zc.buildout>`_ are using PyPI as the default location to find :term:`distributions <distribution>` to install. When ``pip install Foo`` is called, it will browse PyPI to find the latest available version of the ``Foo`` project using `The Simple Index Protocol`_. If it finds it, it will download it and install it automatically.
+Tools like :ref:`Pip <pip_info>` or `zc.buildout
+<http://pypi.python.org/pypi/zc.buildout>`_ are using PyPI as the default
+location to find :term:`distributions <distribution>` to install. When ``pip
+install Foo`` is called, it will browse PyPI to find the latest available
+version of the ``Foo`` project using `The Simple Index Protocol`_. If it finds
+it, it will download it and install it automatically.
 
 This automatic installation ala :ref:`pip_info` will work only if the distribution is using the Distutils-based structure and contains a ``setup.py`` file.
 
@@ -38,10 +43,12 @@ also a good practice.
 Registering projects
 --------------------
 
-Registering a project at PyPI is done by using :term:`Distutils`' ``register`` command. This command performs a simple HTTP post using basic authentication
+Registering a project at PyPI is done by using :term:`Distutils`' ``register``
+command. This command performs a simple HTTP post using basic authentication
 with the login name and password stored in the ``.pypirc`` file
 located in your home directory. This login has to be registered at PyPI, so
-you should go there and create an account before running ``register`` for the first time.
+you should go there and create an account before running ``register`` for the
+first time.
 
 Another option is to call ``register`` once on any Distutils-based project.
 It will register the new account for you and all you'll have to do is to reply
@@ -98,7 +105,8 @@ a new web page there, using the metadata fields of your project.
 
 A good practice is to use reST, and make sure your ``long_description``
 field doesn't contain any reStructuredText syntax error. See
-:ref:`rest_example` for a quick introduction on how to write a reST compatible field.
+:ref:`rest_example` for a quick introduction on how to write a reST compatible
+field.
 
 To perform a check, install ``docutils`` by using Pip
 (``pip install docutils``) and run::
@@ -243,8 +251,8 @@ although people hit the SPOF problem once or twice per year. The community
 has started to develop strategies to avoid it:
 
 - ``zc.buildout`` comes with a cache that will keep a copy
-  of downloaded archives on the local system. This avoids getting packages at PyPI when they were
-  already downloaded once.
+  of downloaded archives on the local system. This avoids getting packages at
+  PyPI when they were already downloaded once.
 
 - the `collective.eggproxy <http://pypi.python.org/pypi/collective.eggproxy>`_
   project provides a cache server that acts like
@@ -257,10 +265,10 @@ has started to develop strategies to avoid it:
 
 In the last year, PEP 381 was added to describe a mirroring protocol and
 set up an official "ring" of PyPI mirrors. This system should be ready
-by the end of the year 2010, and will provide a DNS entry under ``mirrors.pypi.org``
-listing all mirrors IPs. This will allow tools like :ref:`pip_info` to
-list all mirrors and pick the closest one, or fall back in case a server is
-down.
+by the end of the year 2010, and will provide a DNS entry under
+``mirrors.pypi.org`` listing all mirrors IPs. This will allow tools like
+:ref:`pip_info` to list all mirrors and pick the closest one, or fall back in
+case a server is down.
 
 .. index::
    single: package index; pypi
@@ -269,6 +277,7 @@ down.
 Private and secondary PyPI servers
 ==================================
 
-.. note:: XXX explain here that other servers can have a pypi feature (like plone.org, or private)
+.. note:: XXX explain here that other servers can have a pypi feature (like
+   plone.org, or private)
 .. note:: XXX explain that pip can point to any pypi-like server
 .. note:: XXX conclude on the multiple-index merge idea
