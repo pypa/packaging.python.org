@@ -167,6 +167,10 @@ Here's what you should do for each of those listed above:
           license='LICENSE.txt',
           description='Useful towel-related stuff.',
           long_description=open('README.txt').read(),
+          install_requires=[
+              "Django >= 1.1.1",
+              "caldav == 0.1.4",
+          ],
       )
 
   but, of course, replace the towel stuff with your own project and
@@ -174,6 +178,19 @@ Here's what you should do for each of those listed above:
   :doc:`versioning`, but '0.1.0' will work just fine for a first
   release (this is using the common "major.minor.micro" numbering
   convention).
+
+  Use the install_requires argument to automatically install dependencies 
+  when your package will be installed and include information about 
+  dependencies (so that package management tools like Pip can use the information).
+  It takes a string or list of strings containing requirement specifiers.
+
+  The syntax consists of a project's PyPI name, optionally followed by a 
+  comma-separated list of version specifiers. Modern packaging tools  
+  implement version specifiers syntax described in `PEP 345`_ and  
+  resolve version comparison in compliance with `PEP 386`_.
+  
+.. _`PEP 345`: http://www.python.org/dev/peps/pep-0345/#version-specifiers
+.. _`PEP 386`: http://www.python.org/dev/peps/pep-0386/
 
   If you have no scripts to distribute (and thus no ``bin`` dir), you
   can remove the above line which begins with "scripts".
