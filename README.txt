@@ -1,4 +1,4 @@
-The "Hitchhiker's Guide to Packaging" is a guide focusing on current
+The "Python Packaging User Guide" is a guide focusing on current
 best-practices for working with Python distributions (third-party
 software distributions of Python packages and modules). It covers
 finding, installing, creating, and distributing packages, as well as
@@ -9,7 +9,7 @@ and the Guide itself is built using the [Sphinx][2] documentation
 tool.
 
 The html version of the Guide is currently available at
-<http://guide.python-distribute.org/>.
+<https://python-packaging-user-guide.readthedocs.org>.
 
 Please see the `source/license.txt` file for license information.
 

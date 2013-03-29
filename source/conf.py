@@ -37,8 +37,8 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'The Hitchhiker\'s Guide to Packaging'
-copyright = u'2009, Tarek Ziadé'
+project = u'Python Packaging User Guide'
+copyright = u'2013, Pypa People'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
