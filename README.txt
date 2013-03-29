@@ -4,6 +4,10 @@ software distributions of Python packages and modules). It covers
 finding, installing, creating, and distributing packages, as well as
 other aspects of the Python module packaging ecosystem.
 
+This guide is a fork from the original "Hitchhiker's Guide to Packaging",
+which was previously maintained by Tarek Ziadé.  Thankyou Tarek for all
+your efforts in python packaging.
+
 All chapters of the Guide are written in [reStructuredText][1] format,
 and the Guide itself is built using the [Sphinx][2] documentation
 tool.
