@@ -1,0 +1,48 @@
+
+=====================
+Quick Recommendations
+=====================
+
+If all you're after is clear, simple advice for what to use right now, here it
+is:
+
+* use `distribute`_ to build and package Python distributions and publish
+  them to the `Python Package Index`_ (PyPI). The ``setuptools`` and
+  ``distribute`` projects are in the process of merging back together,
+  but the merger isn't complete yet (I will update this essay as soon
+  as that changes).
+* use `pip`_ to install Python distributions from PyPI
+* use `virtualenv`_ to isolate application specific dependencies from the
+  system Python installation
+* use `zc.buildout`_ (primarily focused on the web development community)
+  or `hashdist`_ and `conda`_ (primarily focused on the scientific community)
+  if you want fully intregrated software stacks, without worrying about
+  interoperability with platform provided package management systems
+* if you're on Linux, the versions of these tools provided as platform
+  specific packages should be fine for most purposes, but may be missing
+  some of the latest features described on the project websites (and, in
+  Fedora's case, calls ``pip`` ``pip-python`` due to a naming conflict with
+  an old Perl tool).
+
+.. _distribute: http://pythonhosted.org/distribute/
+.. _Python Package Index: https://pypi.python.org
+.. _pip: http://www.pip-installer.org/en/latest/
+.. _virtualenv: http://www.virtualenv.org/en/1.9.X/
+.. _zc.buildout: http://www.buildout.org/
+.. _hashdist: http://hashdist.readthedocs.org/en/latest/
+.. _conda: http://docs.continuum.io/conda/
+
+Unfortunately, there are a couple of qualifications required on that simple
+advice:
+
+* use ``easy_install`` or `zc.buildout`_ if you need to install from the
+  binary ``egg`` format, which ``pip`` can't currently handle
+* aside from using ``distribute`` over the original ``setuptools`` (again,
+  keeping in mind that those two projects are in the process of merging
+  back into a single ``setuptools`` project), and ``pip`` over
+  ``easy_install`` whenever possible, try to ignore
+  the confusing leftovers of slanging matches between developers of
+  competing tools, as well as information about upcoming tools that
+  are likely still months or years away from being meaningful to anyone
+  not directly involved in developing packaging tools
+

@@ -1,234 +1,45 @@
-=========================
-Introduction to Packaging
-=========================
+============
+Introduction
+============
 
-.. The audience for this document includes people who don't know anything about
-   Python and aren't about to learn the language just in order to install and
-   maintain it for their users, i.e. system administrators. Thus, We have to be
-   sure to explain the basics at some point: sys.path and PYTHONPATH at least.
+What's covered
+==============
 
-.. This section was mostly extracted from the install documentation
-   at: <http://docs.python.org/install/index.html>
+* :doc:`current` for what tools you should be using now.
+* :ref:`History`.
+* A :ref:`Packaging Tutorial` for creating and releasing distributions.
+* An :ref:`Installation Tutorial` for setting up environments and installing
+  distributions.
+* :doc:`future`.
+* :doc:`Summaries <projects>` of the most relevant projects.
+* :ref:`Summaries <PEP Summaries>` of the most relevant PEPs.
+* A :doc:`glossary` of packaging and installation terms.
 
-.. topic:: Abstract
 
-   This document describes the current state of packaging in Python using
-   Distribution Utilities ("Distutils") and its extensions from the end-user's
-   point-of-view, describing how to extend the capabilities of a standard Python
-   installation by building packages and installing third-party packages,
-   modules and extensions.
+Where to get support
+====================
 
-Python is known for it's "batteries included" philosophy and has a
-rich :term:`standard library`. However, being a popular language, the number
-of third party packages is much larger than the number of :term:`standard
-library` packages. So it eventually becomes necessary to discover how packages
-are :doc:`used <usage>`, :ref:`found <pypi_info>` and :doc:`created <creation>`
-in Python.
+* For support related to a specific project, see the mailing list links on the
+  :doc:`Projects <projects>` page.
+* For something more general, or when you just not sure, use the `distutils-sig
+  <http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
 
-It can be tedious to manually install extra packages that one needs or
-requires. Therefore, Python has a packaging system that allows people to
-distribute their programs and libraries in a standard format that
-makes it easy to install and use them. In addition to distributing a package,
-Python also provides a central service for contributing packages. This service
-is known as :ref:`pypi_info`. Information about :ref:`pypi_info` will be
-provided throughout this documentation. This allows a :term:`developer` to
-distribute a package to the greater community with little effort.
+How to get involved
+===================
 
-This documentation aims to explain how to :doc:`install packages <usage>`
-and :doc:`create packages <creation>` for the end-user, while still providing
-references to advanced topics.
+* Get involved with one of mainstream :doc:`packaging projects <projects>`.
+* Discuss :doc:`PEPs <peps>` and long terms plans at `distutils-sig
+  <http://mail.python.org/mailman/listinfo/distutils-sig>`_.
+* Help make this guide better.  Log issues or make pull requests at
+  https://bitbucket.org/pypa/python-packaging-user-guide
 
-The Packaging Ecosystem
-=======================
 
-A Package
----------
+About the Guide
+===============
 
-A :term:`package` is simply a directory with an ``__init__.py`` file inside it. For example::
+The Guide is maintained by the PyPA and aims to be the authoritative resource on
+how to release and install distributions in python.
 
-   $ mkdir mypackage
-   $ cd mypackage
-   $ touch __init__.py
-   $ echo "# A Package" > __init__.py
-   $ cd ..
+The guide was originally forked from the "Hitchhikers Guide to Packaging" in
+March 2013.
 
-This creates a package that can be imported using the :keyword:`import`. Example::
-
-   >>> import mypackage
-   >>> mypackage.__file__
-   'mypackage/__init__.py'
-
-Discovering a Python Package
-----------------------------
-
-Using :term:`packages <package>` in the current working directory only works for
-small projects in most cases. Using the working directory as a package location
-usually becomes a problem when distributing packages for larger systems.
-Therefore, :mod:`distutils` was created to **install** packages into the
-:envvar:`PYTHONPATH` with little difficulty. The :envvar:`PYTHONPATH`, also
-``sys.path`` in code, is a list of locations to look for Python packages. 
-Example::
-
-   >>> import sys
-   >>> sys.path
-   ['',
-    '/usr/local/lib/python2.6',
-    '/usr/local/lib/python2.6/site-packages',
-    ...]
-   >>> import mypackage
-   >>> mypackage.__file__
-   'mypackage/__init__.py'
-
-The first value, the null or empty string, in ``sys.path`` is the current
-working directory, which is what allows the packages in the current working
-directory to be found.
-
-.. note:: Your :envvar:`PYTHONPATH` values will likely be different from those
-   displayed.
-
-Explicitly Including a Package Location
----------------------------------------
-
-The convention way of manually installing packages is to put them in the
-:file:`{...}/site-packages/` directory. But one may want to install Python
-modules into some arbitrary directory. For example, your site may have a
-convention of keeping all software related to the web server application under
-:file:`/www`. Add-on Python modules might then belong in
-:file:`/www/python{x.y}/`, and in order to import them, this directory must be
-added to ``sys.path``. There are several different ways to add the directory.
-
-.. note:: TODO Better define where the :file:`{...}/site-packages/` directory is
-   located.
-
-The most convenient way is to add a path configuration file to a directory
-that's already in Python's path, which could be the :file:`.../site-packages/`
-directory. Path configuration files have an extension of :file:`.pth`, and each
-line must contain a single path that will be appended to ``sys.path``. (Because
-the new paths are appended to ``sys.path``, modules in the added directories
-will not override standard modules.  This means you can't use this mechanism for
-installing fixed versions of standard modules.)
-
-Paths can be absolute or relative, in which case they're relative to the
-directory containing the :file:`.pth` file.  See the documentation of
-the :mod:`site` module for more information.
-
-In addition there are two environment variables that can modify ``sys.path``.
-:envvar:`PYTHONHOME` sets an alternate value for the prefix of the Python
-installation. For example, if :envvar:`PYTHONHOME` is set to
-:file:`/www/python/lib/python2.6/`, the search path will be set to ``['',
-'/www/python/lib/python2.6/', ...]``.
-
-The :envvar:`PYTHONPATH` variable can be set to a list of paths that will be
-added to the beginning of ``sys.path``.  For example, if :envvar:`PYTHONPATH` is
-set to ``/www/python:/opt/py``, the search path will begin with
-``['', '/www/python', '/opt/py', ...]``.
-
-.. note:: Directories must exist in order to be added to ``sys.path``. The
-   :mod:`site` module removes paths that don't exist.
-
-Finally, ``sys.path`` is just a regular Python list, so any Python application
-can modify it by adding or removing entries.
-
-.. note:: The `zc.buildout <http://pypi.python.org/pypi/zc.buildout/>`_ package
-   modifies the sys.path in order to include all packages relative to a
-   buildout.  The ``zc.buildout`` package is often used to build large projects
-   that have external build requirements.
-
-Python file layout
-------------------
-
-A Python installation has a ``site-packages`` directory inside the
-module directory. This directory is where user installed packages are
-dropped. A ``.pth`` file in this directory is maintained which
-contains paths to the directories where the extra packages are
-installed.
-
-.. note:: For details on the ``.pth`` file, please refer to `modifying Python's
-   search path <http://docs.python.org/install/index.html#inst-search-path>`_.
-   In short, when a new package is installed using :mod:`distutils` or `one of
-   its extenders <installation>`_, the contents of the package are dropped into
-   the ``site-packages`` directory and then the name of the new package
-   directory is added to a ``.pth`` file. This allows Python upon the next
-   startup to see the new package.
-
-Benefits of packaging
-=====================
-
-While it's possible to unpack :term:`tarballs <tarball>` and manually put them
-into your Python installation directories (see `Explicitly Including a Package
-Location`_), using a package management system gives you some significant
-benefits. Here are some of the obvious ones:
-
-- Dependency management
-      Often, the package you want to install requires that others be there. A
-      package management system can automatically resolve dependencies and make
-      your installation pain free and quick. This is one of the basic facilities
-      offered by :mod:`distutils`. However, other extensions to :mod:`distutils`
-      do a better job of installing dependencies. (see :ref:`distribute_info`)
-
-- Accounting
-      Package managers can maintain lists of things installed and other metadata
-      like the version installed etc. which makes is easy for the user to know
-      what are the things his system has. (see :ref:`pip_info`)
-
-- Uninstall
-      Package managers can give you push button ways of removing a package from your environment. (see :ref:`pip_info`)
-
-- Search
-      Find packages by searching a :term:`package index` for specific terminology. (see :ref:`pip_info`)
-
-.. _state_of_packaging_info:
-
-Current State of Packaging
-==========================
-
-.. image:: images/state_of_packaging.jpg
-
-The :mod:`distutils` modules is part of the :term:`standard library` and will be
-until Python 3.3. The :mod:`distutils` module will be discontinued in Python
-3.3.  The :mod:`distutils2` (note the number two) will be backwards compatible
-for Python 2.4 onward; and will be part of the :term:`standard library` in
-Python 3.3.
-
-The :mod:`distutils` module provides the basics for packaging Python.
-Unfortunately, the :mod:`distutils` module is riddled with problems, which is
-why a small group of python developers are working on :mod:`distutils2`.
-However, until :mod:`distutils2` is complete it is recommended that the
-:term:`Developer` either use pure :mod:`distutils` or the `Distribute package
-<distribute_info_>`_ for packaging Python software.
-
-.. see also:: For more information about the :mod:`distutils2` package, you can
-   take a look at the :doc:`future` document.
-
-In the mean time, if a package requires the ``setuptools`` package, it is our
-recommendation that you install the `Distribute` package, which provides a more
-up to date version of ``setuptools`` than does the `original Setuptools package
-<http://pypi.python.org/pypi/setuptools/>`_.
-
-In the :doc:`future <future>` :mod:`distutils2` will replace :mod:`setuptools`
-and :mod:`distutils`, which will also remove the need for :ref:`Distribute
-<distribute_info>`. And as stated before :mod:`distutils` will be removed from
-the :term:`standard library`. For more information, please refer to the
-:doc:`future`.
-
-.. warning:: Please use the :ref:`Distribute package <distribute_info>` rather
-   than the `Setuptools package <http://pypi.python.org/pypi/setuptools/>`_
-   because there are problems in this package that can and will not be fixed.
-
-Creating a Micro-Ecosystem with :mod:`virtualenv`
-=================================================
-
-Here we have a small digression to briefly discuss :doc:`Virtual Environments
-<virtualenv>`, which will be covered later in this guide. In most situations,
-the ``site-packages`` directory is part of the system Python installation and
-not writable by unprivileged users. Also, it's useful to have a solid reliable
-installation of the language which we can use. Experimental packages shouldn't
-be mixed with the stable ones if we want to keep this quality. In order to
-achieve this, most Python developers use the :doc:`virtualenv </virtualenv>`
-package which allows people to create a *virtual* installation of Python. This
-replicates the ``site-packages`` directory in an user writable area. The
-``site-packages`` directory located in the :doc:`virtualenv` is in addition to
-the global one. While orthogonal to the whole package installation process, it's
-an extremely useful and natural way to work and so the whole thing will be
-mentioned again.  The installation and usage of ``virtualenv`` is covered in
-:doc:`virtualenv` document.
