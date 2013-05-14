@@ -6,17 +6,30 @@ The History of Packaging
 ========================
 
 
-**2013**: Setuptools/Distribute Merge
+**2013-03-23**: :term:`PyPA` became the maintainer for the `Python Packaging User Guide`_,
+which was forked from the "Hitcherhiker's Guide to Packaging". [#]_
 
-**2012**: wheel
+**2013-03-15**: Packaging Dev and User Summits were held at Pycon 2013 to share ideas on
+the future of packaging. [#]_ [#]_
 
-**2008**: After some period of trying to open up the Setuptools project
-itself, some of these developers led by Tarek Ziade decided to fork Setuptools.
-The fork was named Distribute. The aim is to develop the technology with a
-larger community of developers. One of the first big improvements of the
-Distribute project is Python 3 support.
+**2013-03-14**: The intention to merge :ref:`setuptools <setuptools_pre_merge>` and
+:ref:`distribute` was announced by their respective maintainers, PJ Eby and Jason Coombs. [#]_
 
-**2008**: Ian Bicking created an alternative for easy_install called pip, also
+**2013-03-09**: :ref:`pip` began depending on :ref:`distlib`. [#]_
+
+**2013-03-02**: :ref:`distlib` began releasing to `PyPI`_.
+
+**2013-03-17**: `PEP425`_ and `PEP427`_ were accepted.  Together, they specify a
+built-package format for Python called "wheel".
+
+**2012-06-19**: The effort to include "Distutils2/Packaging" in Python 3.3 was
+abandoned due lack of involvement. [#]_
+
+**2008**: After some period of trying to open up the Setuptools project itself,
+some of these developers led by Tarek Ziade decided to fork Setuptools.  The
+fork was named Distribute.
+
+**2008**: Ian Bicking created an alternative for easy_install called `pip`_, also
 building on Setuptools.
 
 **2007**: virtualenv was released. Ian Bicking drove one line of solutions:
@@ -28,8 +41,8 @@ easy_install will install all packages into its the virtualenv's
 site-packages. This allows you to create a virtualenv per project and thus
 isolate each project from each other.
 
-**2006**: Jim Fulton created Buildout, building on Setuptools
-and easy_install. Buildout can create an isolated project environment like
+**2006**: Jim Fulton created Buildout, building on Setuptools and
+easy_install. Buildout can create an isolated project environment like
 virtualenv does, but is more ambitious: the goal is to create a system for
 repeatable installations of potentially very complex projects. Instead of
 writing an INSTALL.txt that tells others who to install the prerequites for a
@@ -47,9 +60,9 @@ usage scenarios.
 a way to upload packages and metadata to a central index. If we then manually
 downloaded a package we could install it using setup.py thanks to Distutils.
 
-**2002**: Richard Jones started work on the Python Package Index, PyPI.  PyPI is
+**2002**: Richard Jones started work on the Python Package Index, `PyPI`_.  `PyPI`_ is
 also known as the Cheeseshop. The first work on an implementation started, and
-PEP 301 that describes PyPI was also created then. Distutils was extended so the
+PEP 301 that describes `PyPI`_ was also created then. Distutils was extended so the
 metadata and packages themselves could be uploaded to this package index.
 
 **2001**: The first step was to standardize the metadata that could be cataloged
@@ -70,4 +83,18 @@ setup.py. Through this setup.py you can issue a variety of commands, such as
 creating a tarball out of your project, or installing your project. Distutils
 importantly also has infrastructure to help compiling C extensions for your
 Python package.
+
+
+.. _PyPI: https://pypi.python.org
+.. _pip: http://www.pip-installer.org/en/latest/
+.. _`Python Packaging User Guide`: https://python-packaging-user-guide.readthedocs.org/en/latest/
+.. _PEP425: http://www.python.org/dev/peps/pep-0425
+.. _PEP427: http://www.python.org/dev/peps/pep-0427
+
+.. [#] http://mail.python.org/pipermail/distutils-sig/2013-March/020224.html
+.. [#] https://us.pycon.org/2013/community/openspaces/packaginganddistributionminisummit/
+.. [#] http://www.pyvideo.org/video/1731/panel-directions-for-packaging
+.. [#] http://mail.python.org/pipermail/distutils-sig/2013-March/020127.html
+.. [#] https://github.com/pypa/pip/pull/834
+.. [#] http://mail.python.org/pipermail/python-dev/2012-June/120430.html
 
