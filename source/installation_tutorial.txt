@@ -12,13 +12,53 @@ Where to get more details
 Global vs User vs Virtualenv
 ============================
 
+The Python packaging tools can be installed at a number of locations, the
+the primary difference being how widely localised the tools are on the target
+system.
 
-Installing pip globally
-***********************
+Installing globally
+*******************
 
-Installing virtualenv
-*********************
+Global installation surfaces the packaging tools for all users of Python on the
+system. Such an installation most often requires administrative privilege.
 
+The following series of commands will install the Python packaging tools
+globally; execute the following **with administrative privilege**::
+
+ # install setuptools
+ $ curl https://bitbucket.org/pypa/setuptools/raw/0.7.8/ez_setup.py | python
+ 
+ # install pip
+ $ curl https://github.com/pypa/pip/blob/1.3.X/contrib/get-pip.py | python
+
+Installing for user
+*******************
+
+A user installation avoids altering system wide Python while providing the user
+the means to install their own baseline of Python packaging tools.
+
+A user installation does not require administrative privilege and is achieved
+with the following commands::
+
+ # install setuptools
+ $ curl -O https://bitbucket.org/pypa/setuptools/raw/0.7.8/ez_setup.py
+ $ python ez_setup.py --user
+ 
+ # install pip
+ $ curl -O https://pypi.python.org/packages/source/p/pip/pip-1.3.1.tar.gz
+ $ tar xvfz pip-1.3.1.tar.gz
+ $ cd pip-1.3.1
+ $ python setup.py install --user
+
+Installing in virtualenv
+************************
+
+The packaging tools are made available in an isolated Python environments
+known as a :ref:`virtualenv` allowing packages to be easily installed into the
+self-contained environment.
+
+The basic tools are installed into the virtualenv when the environments are
+created; please see the `Creating Virtual Environments`_ section below.
 
 Creating Virtual Environments
 =============================
