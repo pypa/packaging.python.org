@@ -5,120 +5,168 @@ Glossary
 
 .. glossary::
 
-    Developer
-        The person developing the package.
+
+    Binary Distribution (or "Binary Archive")
+
+        A distribution format containing prebuilt files that only need to be
+        moved to the correct location on the target system. As Python is a
+        dynamically bound cross-platform language, many so-called "binary"
+        distributions will contain only pure Python source code.
+
+
+    Contributors
+
+        Individuals and organizations that work together to develop a software
+        component.
+
 
     Distribution
-        A Python distribution is a versioned compressed archive file
-        that contains Python packages, modules, and other resource
-        files. The distribution file is what an end-user will download
+
+        A Python distribution is a versioned archive file that contains Python
+        packages, modules, and other resource files that used to distribute a
+        :term:`Release`. The distribution file is what an end-user will download
         from the internet and install.
 
-        A distribution is often also called a package. This is the term
-        commonly used in other fields of computing. For example, Mac OS X
-        and Debian call these files package files. However, in Python, the
-        term package refers to an importable directory. In order to
-        distinguish between these two concepts, the compressed archive file
-        containing code is called a distribution.
+        A distribution is often also called a package. This is the term commonly
+        used in other fields of computing. For example, Mac OS X and Debian call
+        these files package files. However, in Python, the term package refers
+        to an importable directory. In order to distinguish between these two
+        concepts, the compressed archive file containing code is called a
+        distribution.
 
-        However, it is not uncommon in Python to refer to a distribution
-        using the term package. While the two meanings of the term package
-        is not always 100% unambigous, the context of the term package is
-        usually sufficient to distinguish the meaning of the word. For
-        example, the python installation tool pip is an acronym for
-        "pip installs packages", while technically the tool installs
-        distributions, the name package is used as it's meaning is more
-        widely understood. Even the site where distributions are distributed
-        at is called the Python Package Index (and not the Python Distribution
-        Index).
+        However, it is not uncommon in Python to refer to a distribution using
+        the term package. While the two meanings of the term package is not
+        always 100% unambigous, the context of the term package is usually
+        sufficient to distinguish the meaning of the word. For example, the
+        python installation tool pip is an acronym for "pip installs packages",
+        while technically the tool installs distributions, the name package is
+        used as it's meaning is more widely understood. Even the site where
+        distributions are distributed at is called the Python Package Index (and
+        not the Python Distribution Index).
+
+
+    "Distros"
+
+        An alternative term for Linux distributions, to help avoid confusion
+        with the Python-specific meaning of the term.
+
 
     Distutils
-        A standard and basic package that comes with the Python
-        standard library. It is used for creating distributions
-        (where it is imported in the ``setup.py`` file for that
-        distribution).
+
+        A standard and basic package that comes with the Python standard
+        library. It is used for creating distributions (where it is imported in
+        the ``setup.py`` file for that distribution).
+
 
     Extension Module
-        A module written in the low-level language of the Python
-        implementation: C/C++ for Python, Java for Jython. Typically
-        contained in a single dynamically loadable pre-compiled file, e.g.
-        a shared object (.so) file for Python extensions on Unix, a DLL
-        (given the .pyd extension) for Python extensions on Windows, or a
-        Java class file for Jython extensions.
+
+        A module written in the low-level language of the Python implementation:
+        C/C++ for Python, Java for Jython. Typically contained in a single
+        dynamically loadable pre-compiled file, e.g.  a shared object (.so) file
+        for Python extensions on Unix, a DLL (given the .pyd extension) for
+        Python extensions on Windows, or a Java class file for Jython
+        extensions.
+
 
     Known Good Set (KGS)
+
         A set of distributions at specified versions which are compatible with
-        each other. Typically a test suite will be run which passes all
-        tests before a specific set of packages is declared a known good
-        set. This term is commonly used by frameworks and toolkits which
-        are comprised of multiple individual distributions.
+        each other. Typically a test suite will be run which passes all tests
+        before a specific set of packages is declared a known good set. This
+        term is commonly used by frameworks and toolkits which are comprised of
+        multiple individual distributions.
+
 
     Module
-        A python source code file (ex. ``mymodule.py``), most often
-        found in a package (``mypackage/mymodule.py``). You can import
-        a module: ``import mymodule``, or ``import mypackage.mymodule``
-        if it lives in ``mypackage``.
+
+        A python source code file (ex. ``mymodule.py``), most often found in a
+        package (``mypackage/mymodule.py``). You can import a module: ``import
+        mymodule``, or ``import mypackage.mymodule`` if it lives in
+        ``mypackage``.
+
 
     Package
-        A directory containing an ``__init__.py`` file (ex.
-        ``mypackage/__init__.py``), and also usually containing
-        modules (possibly along with other packages). You can import
-        a package: ``import mypackage``
 
-        A package should not be confused with a compressed archive file
-        used to install Python code.
+        A directory containing an ``__init__.py`` file (ex.
+        ``mypackage/__init__.py``), and also usually containing modules
+        (possibly along with other packages). You can import a package: ``import
+        mypackage``
+
+        A package should not be confused with a compressed archive file used to
+        install Python code.
+
 
     Package Index
+
         A repository of distributions with a web interface to automate
         distribution discovery and consumption.
 
-        .. seealso:: The :ref:`pypi_info` is the default packaging
-                     index for the Python community. It is open to all
-                     Python developers to consume and distribute their
-                     distributions.
+        .. seealso:: :term:`PyPI <Python Package Index (PyPI)>`
 
-    Packager
-        The person packaging the package for a particular operating system
-        (e.g. Debian).
-
-    Pip
-        pip is a command-line tool for downloading and installing
-        Python distributions.
 
     Project
-        A library, framework, script, plugin, application, or collection of
-        data or other resources, or some combination thereof.
+
+        A library, framework, script, plugin, application, or collection of data
+        or other resources, or some combination thereof.
 
         Python projects must have unique names, which are registered on
-        PyPI. Each project will then contain one or more releases, and
-        each release may comprise one or more distributions.
+        :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
+        contain one or more :term:`Releases <Release>`, and each release may
+        comprise one or more distributions.
 
-        Note that there is a strong convention to name a project after the
-        name of the package that is imported to run that project. However,
-        this doesn't have to hold true. It's possible to install a distribution
-        from the project 'spam' and have it provide a package importable only
-        as 'eggs'.
+        Note that there is a strong convention to name a project after the name
+        of the package that is imported to run that project. However, this
+        doesn't have to hold true. It's possible to install a distribution from
+        the project 'spam' and have it provide a package importable only as
+        'eggs'.
+
 
     Pure Python Module
-        A module written in Python and contained in a single .py file
-        (and possibly associated .pyc and/or .pyo files). Sometimes referred
-        to as a "pure module."
 
-    PyPA
-        Python Packaging Authority. An informal working group that maintains
-        some of the most relevant projects for Python packaging. They host
-        projects at https://github.com/pypa/ and https://bitbucket.org/pypa.
+        A module written in Python and contained in a single .py file (and
+        possibly associated .pyc and/or .pyo files). Sometimes referred to as a
+        "pure module."
+
+    Python Packaging Authority (PyPA)
+
+        PyPA is an informal working group that maintains some of the most
+        relevant projects for Python packaging. They host projects at
+        https://github.com/pypa/ and https://bitbucket.org/pypa, and discuss
+        issues at https://groups.google.com/forum/#!forum/pypa-dev.
+
+    Python Package Index (PyPI)
+
+        PyPI is the default packaging index for the Python community. It is open
+        to all Python developers to consume and distribute their distributions.
 
     Release
-        A snapshot of a project at a particular point in time, denoted by a
-        version identifier.
 
-        Making a release may entail the publishing of multiple distributions.
-        For example, if version 1.0 of a project was released, it could be
-        available in both a source distribution format and a Windows
-        installer distribution format.
+        A snapshot of a :term:`Project` at a particular point in time, denoted
+        by a version identifier.
+
+        Making a release may entail the publishing of multiple
+        :term:`Distributions <Distribution>`.  For example, if version 1.0 of a
+        project was released, it could be available in both a source
+        distribution format and a Windows installer distribution format.
+
+
+    Source Archive
+
+        An archive containing the raw source code for a release, prior to
+        creation of an :term:`sdist <Source Distribution (or "sdist")>` or
+        :term:`Binary Distribution <Binary Distribution (or "Binary Archive")>`.
+
+
+    Source Distribution (or "sdist")
+
+        A distribution format (usually generated using ``python setup.py
+        sdist``) that provides metadata and the essential source files needed
+        for installing by a tool like :ref:`pip`, or for generating a
+        :term:`Binary Distribution <Binary Distribution (or "Binary Archive")>`.
+
 
     Standard Library
+
         Python's standard library is very extensive, offering a wide range of
         facilities as indicated by the long table of contents listed below. The
         library contains built-in modules (written in C) that provide access to
@@ -133,20 +181,16 @@ Glossary
            <http://docs.python.org/library/>`_
 
     System Package
-        A package provided by in a format native to the operating system.
-        e.g. rpm or dpkg file.
 
-    Tarball
-        An archive format for collected a group of files together as one. The
-        format's extension is usually ``.tar``, which represents its meaning,
-        Tape ARchive. The format is often used in conjunction with a
-        compression format such as gzip or bzip.
+        A package provided by in a format native to the operating system,
+        e.g. an rpm or dpkg file.
+
 
     Working Set
+
         A collection of distributions available for importing. These are the
-        distributions that are on the `sys.path` variable. At most one
-        version a distribution is possible in a working set.
+        distributions that are on the `sys.path` variable. At most one version
+        of a :term:`Distribution` is possible in a working set.
 
-        Working sets include all distributions available for importing, not
-        just the sub-set of distributions which have actually been imported.
-
+        Working sets include all distributions available for importing, not just
+        the sub-set of distributions which have actually been imported.
