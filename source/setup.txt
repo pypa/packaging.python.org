@@ -10,7 +10,7 @@ install python software the way that is recommended in the tutorials.
 Recommended Procedure
 ---------------------
 
-We recommend the following installation procedure in most cases for these reasons:
+We recommend the following installation procedure for these reasons:
 
 * It doesn't require administrator access.
 * It doesn't modify your system Python which can possibly result in system failures.
@@ -22,8 +22,8 @@ We recommend the following installation procedure in most cases for these reason
 It involves using `virtualenv`_ to create isolated environments that contain pip
 and `setuptools`_.
 
-Download virtualenv
-+++++++++++++++++++
+Get virtualenv
+++++++++++++++
 
 Download the latest virtualenv from here: https://pypi.python.org/pypi/virtualenv/
 
@@ -34,16 +34,14 @@ The file you'll be downloading will be of the form "virtualenv-X.Y.tar.gz"
     You must use virtualenv>=1.9.1 (which contains pip>=1.3.1) to ensure pip
     verifies certificates over SSL when installing.
 
-
-Unpack virtualenv
-+++++++++++++++++
-
 Unpack the downloaded file and place the contents into your home directory (or
 user directory on Windows), or other directory of your choice.
 
+We will not be *installing* virtualenv.
 
-Create environments
-+++++++++++++++++++
+
+Create an environment
++++++++++++++++++++++
 
 Assuming the following:
 
@@ -51,18 +49,40 @@ Assuming the following:
 * On Windows, your python interpreter of choice is available as "c:\\PythonXY\\python"
 * In your console, you are in the directory you unpacked the download file into.
 
-Then use virtualenv, like so, to create a `myVE` virtual environment that
-contains pip and setuptools.
+Then use virtualenv, like so, to create a virtual environment (that contains pip
+and setuptools).
+
+E.g, in this case, we'll be creating an environment labeled
+"myVE", short for "my virtual environment".
 
 On linux/OSX::
 
    $ pythonX.Y virtualenv-X.Y/virtualenv.py myVE
-   $ source myVE/bin/active
 
 On Windows::
 
    $ c:\pythonXY\python virtualenv-X.Y/virtualenv.py myVE
+
+
+Use the environment
++++++++++++++++++++
+
+To use the `myVE` environment, activate it like so.
+
+On linux/OSX::
+
+   $ source myVE/bin/active
+
+On Windows::
+
    $ myVE\Scripts\activate.bat
+
+
+As a result, the following will be true:
+
+* ``pip`` will be on your path, and will install packages to the `myVE` environment.
+* ``setup.py`` files that import `setuptools`, will be importing from the :ref:`setuptools` distribution installed in `myVE`.
+
 
 
 .. _`Advanced Procedure`:
