@@ -1,0 +1,129 @@
+=================
+Install the Tools
+=================
+
+In order to package and install python software they way that is recommended in
+the tutorials, you'll need `virtualenv`_, `pip`_, and `setuptools`_
+
+.. _`Recommended Procedure`:
+
+Recommended Procedure
+---------------------
+
+We recommend the following installation procedure in most cases for these reasons:
+
+* It doesn't require administrator access.
+* It doesn't modify your system Python which can possibly result in system failures.
+* It's simple and gives you the flexibility to work from any python installed on
+  your system.
+* You'll end up with versions of pip, virtualenv, and setuptools that have been
+  tested together.
+
+It involves using `virtualenv`_ to create isolated environments that contain pip
+and `setuptools`_.
+
+#1. Download virtualenv
++++++++++++++++++++++++
+
+Download the latest virtualenv from here: https://pypi.python.org/pypi/virtualenv/
+
+The file you'll be downloading will be of the form "virtualenv-X.Y.tar.gz"
+
+.. warning::
+
+    You must use virtualenv>=1.9.1 (which contains pip>=1.3.1) to ensure pip
+    verifies certificates over SSL when installing.
+
+
+#2. Unpack virtualenv
++++++++++++++++++++++
+
+Unpack the downloaded file and place the contents into your home directory (or
+user directory on Windows), or other directory of your choice.
+
+
+#3. Use virtualenv
+++++++++++++++++++
+
+Assuming the following:
+
+* On linux/OSX, your python interpreter of choice is available as "pythonX.Y"
+* On Windows, your python interpreter of choice is available as "c:\\PythonXY\\python"
+* In your console, you are in the directory you unpacked the download file into.
+
+Then use virtualenv, like so, to create a `myVE` virtual environment that
+contains pip and setuptools.
+
+On linux/OSX::
+
+   $ pythonX.Y virtualenv-X.Y/virtualenv.py myVE
+   $ source myVE/bin/active
+
+On Windows::
+
+   $ c:\pythonXY\python virtualenv-X.Y/virtualenv.py myVE
+   $ myVE\Scripts\activate.bat
+
+
+.. _`Advanced Procedure`:
+
+Advanced Procedure
+------------------
+
+Although we recommend the vitualenv approach above, there are cases where a user
+might want to install `pip`_ and `setuptools`_ directly into site-packages for a
+python install on their system, and bypass using `virtualenv`_.  In that case,
+use the procedures below to install or upgrade `setuptools`_ and `pip`_.
+
+
+#1 Install or Upgrade Setuptools
+++++++++++++++++++++++++++++++++
+
+To install setuptools from scratch, download `ez_setup.py` from here:
+https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py.
+
+Then run it like so::
+
+   $ python ez_setup.py
+
+
+To upgrade a previous install of setuptools or distribute, there are two scenarios.
+
+1. You currently have setuptools or distribute *and* some version of pip::
+
+   $ pip install --upgrade setuptools
+
+   If you have distribute, this will upgrade to you distribute-0.7.X, which is
+   just a wrapper, that depends on setuptools. The end result will be that you
+   have distribute-0.7.X (which does nothing) *and* the latest setuptools
+   installed.
+
+2. You currently have setuptools or distribute, but not pip:
+
+   Follow the pip install procedure below, then come back and run::
+
+   $ pip install --upgrade setuptools
+
+
+#2 Install or Upgrade pip
++++++++++++++++++++++++++
+
+Download `get-pip.py` from here: https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+
+Then run the following (which may require administrator access), to install or upgrade to the
+latest pip::
+
+ $ python get-pip.py
+
+.. note::
+
+    As of pip 1.4, pip recommends `setuptools`_ >=0.8, not `distribute`_ (a
+    fork of setuptools) and the wheel support *requires* `setuptools`_ >=0.8.
+    `setuptools`_ and `distribute`_ are now merged back together as
+    "setuptools".
+
+
+.. _pip: http://www.pip-installer.org
+.. _virtualenv: http://www.virtualenv.org
+.. _setuptools: https://pypi.python.org/pypi/setuptools
+.. _distribute: https://pypi.python.org/pypi/distribute
