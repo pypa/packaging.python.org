@@ -1,26 +1,25 @@
-=================
-Install the Tools
-=================
+===================================
+Get setuptools, pip, and virtualenv
+===================================
 
-You'll need `virtualenv`_, `pip`_, and `setuptools`_, in order to package and
+You'll need `setuptools`_, `pip`_, and `virtualenv`_ in order to package and
 install python software the way that is recommended in the tutorials.
 
 .. _`Recommended Procedure`:
 
-Recommended Procedure
----------------------
+Virtualenv Procedure (recommended)
+----------------------------------
 
-We recommend the following installation procedure for these reasons:
+We recommend getting `virtualenv`_ first, and then using that to create virtual
+environments that contain `pip`_ and `setuptools`_ for the following reasons:
 
-* It doesn't require administrator access.
-* It doesn't modify your system Python which can possibly result in system failures.
-* It's simple and gives you the flexibility to work from any python installed on
-  your system.
-* You'll end up with versions of pip, virtualenv, and setuptools that have been
-  tested together.
+#. It doesn't require administrator access.
+#. It doesn't modify your system Python which can possibly result in system failures.
+#. It's simple and gives you the flexibility to work from any python installed
+   on your system.
+#. You'll end up with versions of pip, virtualenv, and setuptools that have been
+   tested together.
 
-It involves using `virtualenv`_ to create isolated environments that contain pip
-and `setuptools`_.
 
 Get virtualenv
 ++++++++++++++
@@ -85,19 +84,32 @@ As a result, the following will be true:
 
 
 
-.. _`Advanced Procedure`:
+Global Procedures
+-----------------
 
-Advanced Procedure
-------------------
+Although we recommend the vitualenv procedure above, there are cases where a
+user might want to install pip and setuptools globally for a python install on
+their system.  There are two options here:
 
-Although we recommend the vitualenv approach above, there are cases where a user
-might want to install `pip`_ and `setuptools`_ globally for a python install on
-their system, and bypass using `virtualenv`_.  In that case, use the procedures
-below to install or upgrade `setuptools`_ and `pip`_.
+1. Using the bootstap scripts for setuptools and pip
+2. On linux, for the system python, using the system package manager.
 
+Note that these methods will usually require administrator access.
 
-Install or Upgrade Setuptools
-+++++++++++++++++++++++++++++
+Using the bootstrap scripts
++++++++++++++++++++++++++++
+
+Install/Upgrade Setuptools
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+pip requires `setuptools`_.
+
+.. warning::
+
+    As of pip 1.4, pip recommends `setuptools`_ >=0.8, not `distribute`_ (a
+    fork of setuptools) and the wheel support *requires* `setuptools`_ >=0.8.
+    `setuptools`_ and `distribute`_ are now merged back together as
+    "setuptools".
 
 To install setuptools from scratch, download `ez_setup.py` from here:
 https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py.
@@ -107,7 +119,9 @@ Then run it like so::
    $ python ez_setup.py
 
 
-To upgrade a previous install of setuptools or distribute, there are two scenarios.
+To upgrade a previous install of setuptools or distribute, there are two
+scenarios.
+
 
 1. You currently have setuptools or distribute *and* some version of pip::
 
@@ -125,22 +139,32 @@ To upgrade a previous install of setuptools or distribute, there are two scenari
    $ pip install --upgrade setuptools
 
 
-Install or Upgrade pip
-++++++++++++++++++++++
+Install/Upgrade pip
+~~~~~~~~~~~~~~~~~~~
 
-Download `get-pip.py` from here: https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+Download `get-pip.py` from here:
+https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 
-Then run the following (which may require administrator access), to install or upgrade to the
-latest pip::
+Then run the following, to install or
+upgrade to the latest pip::
 
  $ python get-pip.py
 
-.. note::
 
-    As of pip 1.4, pip recommends `setuptools`_ >=0.8, not `distribute`_ (a
-    fork of setuptools) and the wheel support *requires* `setuptools`_ >=0.8.
-    `setuptools`_ and `distribute`_ are now merged back together as
-    "setuptools".
+Using Package Managers
+++++++++++++++++++++++
+
+On Linux, pip will generally be available for the system install of python using
+the system package manager, although often the latest version lags
+behind. Installing `python-pip` will also install `python-setuptools`.
+
+On Debian and Ubuntu::
+
+   $ sudo apt-get install python-pip
+
+On Fedora::
+
+   $ sudo yum install python-pip
 
 
 .. _pip: http://www.pip-installer.org
