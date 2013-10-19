@@ -2,6 +2,13 @@
 Installation Guide
 ==================
 
+This page explains how to install python packages, which you will normally
+find on `PyPI <https://pypi.python.org/pypi>`__.
+
+Note that if you ever plan on working on multiple python projects, it is
+usually worth setting up a :ref:`virtualenv` environment in which to install
+packages for a particular project. In this way, different projects'
+package and runtime requirements can be isolated from each other.
 
 Installing from PyPI
 ====================
@@ -16,15 +23,25 @@ Installing from PyPI
 Installing from other indexes
 =============================
 
+This can be handy when installing packages from a local PyPI mirror, or
+similar situations where one might wish to use a personal repository of
+packages, rather than the official one.
+
 ::
 
   $ pip install --index-url=https://my.package.repo/simple SomePackage
+
+One can also install directly from a file system, or archive::
+
+  $ pip install --no-index /path/to/package
+  $ pip install --no-index /path/to/SomePackage-1.0.4.zip
 
 
 Installing from VCS
 ===================
 
-pip supports installing python projects (that have distutils or setuptools `setup.py`) directly from version control.
+pip supports installing python projects (that have distutils or setuptools
+`setup.py`) directly from version control.
 
 ::
 
@@ -33,12 +50,43 @@ pip supports installing python projects (that have distutils or setuptools `setu
   $ pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage         # from svn
   $ pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomePackage  # from 'feature' branch
 
+Note the ``#egg=SomePackage`` fragment on the end, that is used to help
+indicate to pip the name of the package being installed, but is not part
+of the url used to retreive the package.
+
 For a full breakdown of the forms pip supports, see the `VCS Support
 <http://www.pip-installer.org/en/latest/logic.html#vcs-support>`_ section in the
 pip docs.
 
+Installing from a requirements file
+===================================
+
+A project may sometimes contain a :file:`requirements.txt` or
+:file:`dev-requirements.txt` file (or both) which lists all the packages needed
+to respectively install, or help develop that project. Pip can read this file
+to install all the listed requirements.
+
+::
+
+  $ pip install -r requirements.txt
+
+One can also generate this file quite easily from the current set of installed
+packages, on a unix shell::
+
+  $ pip freeze > requirements.txt
+
+.. note::
+
+   this will generate the requirements with exact version numbers. This can,
+   for instance, be useful for replicating an install environment.
+
 Installing your project in edit mode
 ====================================
+
+This allows you to continue working on a project in progress even as
+python will then consider it 'installed' - the installation is not 'static'.
+
+using ``.`` will install the project in your current directory.
 
 ::
 
@@ -52,6 +100,12 @@ Upgrading
 
   $ pip install --upgrade SomePackage
 
+Listing installed packages
+==========================
+
+::
+
+  $ pip freeze
 
 Uninstalling
 ============
