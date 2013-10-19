@@ -10,10 +10,10 @@ What's covered
 * An :doc:`installation` for setting up environments and installing
 * A :doc:`packaging` for creating and releasing distributions.
   distributions.
-* :doc:`Summaries <projects>` of the most relevant projects.
-* :ref:`Summaries <PEP Summaries>` of the most relevant PEPs.
-* :doc:`future`.
-* :ref:`History`.
+* Summaries of the most relevant :doc:`projects <projects>`.
+* Summaries of the most relevant :doc:`PEPs <peps>`.
+* :doc:`Future <future>`.
+* :doc:`History <history>`.
 * A :doc:`glossary` of packaging and installation terms.
 
 
