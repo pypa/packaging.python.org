@@ -54,6 +54,11 @@ scenarios.
    have distribute-0.7.X (which does nothing) *and* the latest setuptools
    installed.
 
+   .. note::
+
+      If you wish to start with a fresh setuptools and no distribute, run
+      ``$ pip uninstall distribute`` and then start from step 1.
+
 2. You currently don't have pip.
 
    Follow the pip install procedure below, then come back and run::
