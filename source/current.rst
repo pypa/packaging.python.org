@@ -8,13 +8,13 @@ is:
 
 * Use :ref:`setuptools` to build and package Python distributions and publish
   them to the `Python Package Index`_ (PyPI). :ref:`distribute` (a fork of
-  setuptools) was recently merged back into setuptools, thereby making
+  setuptools) was merged back into setuptools in June 2013, thereby making
   setuptools the primary choice for packaging.
-* Use :ref:`pip` to install Python distributions from PyPI
+* Use :ref:`pip` to install Python packages from PyPI.
 * Use :ref:`virtualenv` to isolate application specific dependencies from the
-  system Python installation
+  system Python installation.
 * Use :ref:`buildout` (primarily focused on the web development community) or
-  `hashdist`_ and `conda`_ (primarily focused on the scientific community) if
+  :ref:`hashdist` and :ref:`conda` (primarily focused on the scientific community) if
   you want fully intregrated software stacks, without worrying about
   interoperability with platform provided package management systems
 * If you're on Linux, the versions of these tools provided as platform specific
@@ -25,7 +25,7 @@ Unfortunately, there are a couple of qualifications required on that simple
 advice:
 
 * Use ``easy_install`` or :ref:`buildout` if you need to install from the binary
-  ``egg`` format, which :ref:`pip` can't currently handle
+  ``egg`` format, which :ref:`pip` can't currently handle.
 * Aside from using :ref:`pip` over ``easy_install`` whenever possible, try to
   ignore the confusing leftovers of slanging matches between developers of
   competing tools, as well as information about upcoming tools that are likely
@@ -33,9 +33,6 @@ advice:
   involved in developing packaging tools.
 
 .. _Python Package Index: https://pypi.python.org
-.. _hashdist: http://hashdist.readthedocs.org/en/latest/
-.. _conda: http://docs.continuum.io/conda/
-
 
 Step-by-step Guide
 ==================
