@@ -49,15 +49,14 @@ scenarios.
 
    $ pip install --upgrade setuptools
 
-   If you have distribute, this will upgrade to you distribute-0.7.X, which is
-   just a wrapper, that depends on setuptools. The end result will be that you
-   have distribute-0.7.X (which does nothing) *and* the latest setuptools
-   installed.
-
    .. note::
 
-      If you wish to start with a fresh setuptools and no distribute, run
-      ``$ pip uninstall distribute`` and then start from step 1.
+      If you have distribute, this will upgrade to you distribute-0.7.X, which
+      is just a wrapper, that depends on setuptools. The end result will be that
+      you have distribute-0.7.X (which does nothing) *and* the latest setuptools
+      installed.  If you'd prefer not to end up with the distribute wrapper,
+      then instead, run ``$ pip uninstall distribute``, then go back to step #1
+      above which installs setuptools from scratch.
 
 2. You currently don't have pip.
 
