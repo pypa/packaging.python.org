@@ -41,7 +41,7 @@ A tool for creating isolated Python environments.
 distlib
 =======
 
-`Docs <http://www.pip-installer.org/en/latest/>`__ `|`
+`Docs <http://pythonhosted.org/distlib>`__ `|`
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ `|`
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ `|`
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ `|`
