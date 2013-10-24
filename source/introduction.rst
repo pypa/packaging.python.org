@@ -12,8 +12,8 @@ What's covered
   distributions.
 * Summaries of the most relevant :doc:`projects <projects>`.
 * Summaries of the most relevant :doc:`PEPs <peps>`.
-* :doc:`Future <future>`.
-* :doc:`History <history>`.
+* :doc:`future`.
+* :doc:`history`.
 * A :doc:`glossary` of packaging and installation terms.
 
 
