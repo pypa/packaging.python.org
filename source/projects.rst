@@ -11,7 +11,7 @@ pip
 ===
 
 `Docs <http://www.pip-installer.org/en/latest/>`__ `|`
-`User list <http://groups.google.com/group/python-virtualenv>`__ `|`
+`User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ `|`
 `Dev list <http://groups.google.com/group/pypa-dev>`__ `|`
 `Issues <https://github.com/pypa/pip/issues>`__ `|`
 `Github <https://github.com/pypa/pip>`__ `|`
@@ -42,7 +42,7 @@ distlib
 =======
 
 `Docs <http://pythonhosted.org/distlib>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ `|`
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ `|`
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ `|`
 `PyPI <https://pypi.python.org/pypi/distlib>`__
@@ -59,7 +59,8 @@ testing.
 setuptools
 ==========
 
-`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ `|`
+`Docs <http://pythonhosted.org/setuptools>`__ `|`
+`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
 `Dev list <http://groups.google.com/group/pypa-dev>`__ `|`
 `Issues <https://bitbucket.org/pypa/setuptools/issues>`__ `|`
 `Bitbucket <https://bitbucket.org/pypa/setuptools>`__ `|`
@@ -81,7 +82,7 @@ distribute
 ==========
 
 `Docs <http://pythonhosted.org/distribute/>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ `|`
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
 `Issues <https://bitbucket.org/tarek/distribute/issues?status=new&status=open>`__ `|`
 `Bitbucket <https://bitbucket.org/tarek/distribute>`__ `|`
 `PyPI <https://pypi.python.org/pypi/distribute>`__
@@ -99,7 +100,7 @@ wheel
 =====
 
 `Docs <http://wheel.readthedocs.org>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ `|`
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
 `Issues <https://bitbucket.org/dholth/wheel/issues?status=new&status=open>`__ `|`
 `Bitbucket <https://bitbucket.org/dholth/wheel>`__ `|`
 `PyPI <https://pypi.python.org/pypi/wheel>`__
@@ -124,7 +125,7 @@ buildout
 ========
 
 `Docs <http://www.buildout.org>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ `|`
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ `|`
 `PyPI <https://pypi.python.org/pypi/zc.buildout>`__ `|`
 irc:#buildout
@@ -177,3 +178,8 @@ trying to be “the Debian of choice for cases where Debian technology doesn’t
 work”. The best way for Pythonistas to think about Hashdist may be a more
 powerful hybrid of virtualenv and buildout.
 
+
+.. [1] pip was created by the same developer as virtualenv, and early on adopted
+       the virtualenv mailing list, and it's stuck ever since.
+
+.. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
