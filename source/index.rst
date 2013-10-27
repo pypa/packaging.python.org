@@ -14,6 +14,7 @@ Python Packaging User Guide
    peps
    future
    history
+   resources
    glossary
    credits
    license

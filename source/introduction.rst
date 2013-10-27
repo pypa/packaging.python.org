@@ -14,6 +14,7 @@ What's covered
 * Summaries of the most relevant :doc:`PEPs <peps>`.
 * :doc:`future`.
 * :doc:`history`.
+* :doc:`resources` we deem helpful.
 * A :doc:`glossary` of packaging and installation terms.
 
 

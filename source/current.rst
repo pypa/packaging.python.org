@@ -47,15 +47,3 @@ If you want to learn about what's coming later, see :doc:`future`.
 .. [3] For more information, see the pip guide to `Building and Installing Wheels
        <http://www.pip-installer.org/en/latest/cookbook.html#building-and-installing-wheels>`_.
 
-
-Step-by-step Guide
-==================
-
-For those looking for a more comprehensive guide to "How do I publish my
-Python project in a way that will make it as easy as possible for me to
-maintain and for others to contribute?", then Jeff Knupp's
-`Open Sourcing a Python Project the Right Way
-<http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/>`__
-is an excellent guide that is up to date with the currently available tools
-(as of September, 2013). Even for those not looking for a step-by-step
-guide, Jeff's post provides some links to some excellent resources.
