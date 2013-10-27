@@ -3,36 +3,50 @@
 Quick Recommendations
 =====================
 
-If all you're after is clear, simple advice for what to use right now, here it
-is:
+If you're familiar with Python packaging and installation, and just want to know
+what toolset is currently recommended, then here it is:
 
-* Use :ref:`setuptools` to build and package Python distributions and publish
-  them to the `Python Package Index`_ (PyPI). :ref:`distribute` (a fork of
-  setuptools) was merged back into setuptools in June 2013, thereby making
-  setuptools the primary choice for packaging.
-* Use :ref:`pip` to install Python packages from PyPI.
+* Use :ref:`pip` to install Python packages from :term:`PyPI
+  <Python Package Index (PyPI)>`. [1]_
+
+* Use :ref:`setuptools` to package and publish Python :term:`distributions <Distribution>` (or
+  "packages") to the :term:`PyPI <Python Package Index (PyPI)>`. [2]_
+
 * Use :ref:`virtualenv` to isolate application specific dependencies from the
   system Python installation.
-* Use :ref:`buildout` (primarily focused on the web development community) or
-  :ref:`hashdist` and :ref:`conda` (primarily focused on the scientific community) if
-  you want fully intregrated software stacks, without worrying about
-  interoperability with platform provided package management systems
-* If you're on Linux, the versions of these tools provided as platform specific
-  packages should be fine for most purposes, but may be missing some of the
-  latest features described on the project websites.
 
-Unfortunately, there are a couple of qualifications required on that simple
-advice:
+* Use the ``bdist_wheel`` :ref:`setuptools` extension available from the :ref:`wheel
+  project <wheel>`, to create :term:`wheel distributions <wheel>` for your
+  project.
 
-* Use ``easy_install`` or :ref:`buildout` if you need to install from the binary
-  ``egg`` format, which :ref:`pip` can't currently handle.
-* Aside from using :ref:`pip` over ``easy_install`` whenever possible, try to
-  ignore the confusing leftovers of slanging matches between developers of
-  competing tools, as well as information about upcoming tools that are likely
-  still months or years away from being meaningful to anyone not directly
-  involved in developing packaging tools.
+* Use `pip wheel
+  <http://www.pip-installer.org/en/latest/usage.html#pip-wheel>`_ to create a
+  cache of :term:`wheel` distributions, for the purpose of speeding up
+  installation. [3]_
 
-.. _Python Package Index: https://pypi.python.org
+* If you're looking for fully intregrated software stacks, consider
+  :ref:`buildout` (primarily focused on the web development community) or
+  :ref:`hashdist`, or :ref:`conda` (primarily focused on the scientific
+  community).
+
+
+If you're not so familiar with Python packaging or installation, then proceed to
+the  :doc:`packaging` and :doc:`installation`.
+
+If you want to learn about what's coming later, see :doc:`future`.
+
+
+.. [1] If you need to install from the :term:`Egg` format (which pip doesn't
+       support), you can use ``easy_install`` (from :ref:`setuptools`) or
+       :ref:`buildout`.  :term:`Eggs <Egg>` are intended to be replaced by
+       :term:`Wheels <Wheel>`, so they should become less common over time.
+
+.. [2] :ref:`distribute` (a fork of setuptools) was merged back into setuptools
+       in June 2013, thereby making setuptools the primary choice for packaging.
+
+.. [3] For more information, see the pip guide to `Building and Installing Wheels
+       <http://www.pip-installer.org/en/latest/cookbook.html#building-and-installing-wheels>`_.
+
 
 Step-by-step Guide
 ==================
