@@ -6,6 +6,7 @@ PEP Summaries
 
 Summaries for the most relevant PEPs in the space of Python installation and packaging.
 
+.. _PEP376s:
 
 PEP376 Database of Installed Python Distributions
 *************************************************
@@ -19,6 +20,8 @@ help users to be aware of this directory format if they go hunting through their
 `site-packages` for some reason, which we all end up doing from time to time.
 
 
+.. _PEP425s:
+
 PEP425 Compatibility Tags for Built Distributions
 *************************************************
 
@@ -28,15 +31,24 @@ implementation and language version, ABI, and platform a :term:`Binary
 Distribution` requires.  The motivation for the system was to tag wheel
 distributions, which are covered in `PEP427`_.
 
+
+.. _PEP427s:
+
 PEP427 The Wheel Binary Package Format 1.0
 ******************************************
 
 `PEP427`_
 
+
+.. _PEP438s:
+
 PEP438 Transitioning to release-file hosting on PyPI
 ****************************************************
 
 `PEP438`_
+
+
+.. _PEP453s:
 
 PEP453 Explicit bootstrapping of pip in Python installations
 ************************************************************
@@ -52,10 +64,15 @@ The impact for users, is that pip would be immediately
 available without user installation.
 
 
+.. _PEP426s:
+
 PEP426 Metadata for Python Software Packages 2.0
 ************************************************
 
 `PEP426`_
+
+
+.. _PEP440s:
 
 PEP440 Version Identification and Dependency Specification
 **********************************************************
