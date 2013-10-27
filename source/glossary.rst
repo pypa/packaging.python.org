@@ -40,6 +40,14 @@ Glossary
         and is more commonly used than distutils by itself.
 
 
+    Egg
+
+        A :term:`Binary Distribution` format introduced by :ref:`setuptools`,
+        which is being replaced by :term:`Wheel`.  For details, see `The
+        Internal Structure of Python Eggs
+        <http://pythonhosted.org/setuptools/formats.html>`_ and `Python Eggs
+        <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
+
     Extension Module
 
         A :term:`module` written in the low-level language of the Python implementation:
@@ -116,8 +124,9 @@ Glossary
 
     Python Package Index (PyPI)
 
-        PyPI is the default :term:`Package Index` for the Python community. It is open
-        to all Python developers to consume and distribute their distributions.
+        `PyPI <https://pypi.python.org/pypi>`_ is the default :term:`Package
+        Index` for the Python community. It is open to all Python developers to
+        consume and distribute their distributions.
 
     Release
 
@@ -150,6 +159,12 @@ Glossary
         A package provided in a format native to the operating system,
         e.g. an rpm or dpkg file.
 
+
+    Wheel
+
+        A :term:`Binary Distribution` format introduced by :ref:`PEP427`, which
+        is intended to replace the :term:`Egg` format.  Wheel is currently
+        supported by :ref:`pip`.
 
     Working Set
 
