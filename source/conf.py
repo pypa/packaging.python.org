@@ -91,11 +91,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'default'
-
-# makes RTD use the real default style, not it's "gray" default
-# https://read-the-docs.readthedocs.org/en/latest/faq.html#i-want-to-use-the-blue-default-sphinx-theme
-html_style = '/default.css'
+html_theme = 'pydoctheme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -103,7 +99,7 @@ html_style = '/default.css'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = []
+html_theme_path = ['themes']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -135,15 +131,7 @@ html_static_path = ['_static']
 #html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-CURDIR = os.path.dirname(__file__)
-sidebars = []
-for f in os.listdir(CURDIR):
-    name, ext = os.path.splitext(f)
-    if ext != '.txt':
-        continue
-    sidebars.append((name, 'indexsidebar.html'))
-
-html_sidebars = dict(sidebars)
+# html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.

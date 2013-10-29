@@ -1,0 +1,14 @@
+{% extends "!layout.html" %}
+{% block extrahead %}
+    <script type="text/javascript" src="{{ pathto('_static/sidebar.js', 1) }}"></script>
+{% endblock %}
+{% block sidebarsourcelink %}
+{%- if show_source and has_source and sourcename %}
+<h3>{{ _('This Page') }}</h3>
+<ul class="this-page-menu">
+  <li><a href="{{ pathto('_sources/' + sourcename, true)|e }}"
+         rel="nofollow">Show Source</a></li>
+  <li><a href="https://bitbucket.org/pypa/python-packaging-user-guide/issues/">Log an Issue</a></li>
+</ul>
+{%- endif %}
+{% endblock %}
