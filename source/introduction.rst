@@ -2,6 +2,9 @@
 Introduction
 ============
 
+:Page Status: Complete
+:Last Reviewed: 10-29-2013
+
 What's covered
 ==============
 
@@ -45,3 +48,17 @@ how to release and install distributions in python.
 The guide was originally forked from the "Hitchhikers Guide to Packaging" in
 March 2013.
 
+
+About 'Page Status'
+===================
+
+Each page, even this one, will state at the top whether it's "Complete" or
+"Incomplete".  Admittedly, a binary distinction is not very precise, but most
+pages will additionally offer a footnote to better explain what's not complete or wrong.
+
+Also, each page will give a "Last Reviewed" date, wich will only be updated by a
+:term:`PyPA <Python Packaging Authority (PyPA)>` member when a meaningful review
+is done to determine the status.
+
+Why do this? See `here
+<https://bitbucket.org/pypa/python-packaging-user-guide/issue/8/please-make-the-last-edited-date-very#comment-6545169>`_.

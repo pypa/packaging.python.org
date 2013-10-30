@@ -1,9 +1,13 @@
 
 .. _`History`:
 
-========================
-The History of Packaging
-========================
+====================
+A Packaging Timeline
+====================
+
+:Page Status: Incomplete [#]_
+:Last Reviewed: 10-29-2013
+
 
 **2013-06-09**: The merge of :ref:`setuptools` and :ref:`distribute` was completed
 and released to PyPI. [#]_
@@ -94,6 +98,7 @@ Python package.
 .. _PEP425: http://www.python.org/dev/peps/pep-0425
 .. _PEP427: http://www.python.org/dev/peps/pep-0427
 
+.. [#] Missing some recent events. Some the older events could more brief.
 .. [#] http://mail.python.org/pipermail/distutils-sig/2013-June/021160.html
 .. [#] http://mail.python.org/pipermail/distutils-sig/2013-March/020224.html
 .. [#] https://us.pycon.org/2013/community/openspaces/packaginganddistributionminisummit/

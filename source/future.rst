@@ -2,6 +2,10 @@
 The Future of Python Packaging
 ==============================
 
+:Page Status: Incomplete [1]_
+:Last Reviewed: 10-29-2013
+
+
 The `distutils` cross-platform build and distribution system was added to
 the Python standard library in late 1998. This means the current Python
 software distribution ecosystem is almost 15 years old, which poses a
@@ -119,3 +123,5 @@ Independent activities & miscellaneous suggestions
 * getting this guide up to scratch, so the python.org docs can refer to it
   as the primary resource for developers wanting to distribute or install
   Python packagers
+
+.. [1] Many items need be linked and expanded so this can made more accessible to regular python users.

@@ -2,6 +2,9 @@
 Credits
 =======
 
+:Page Status: Incomplete [1]_
+:Last Reviewed: 10-29-2013
+
 Here's the list of writers, editors, reviewers, and
 people who allowed some of their own content to be included in the
 guide.
@@ -19,3 +22,6 @@ guide.
 - Nick Coghlan
 - Reinout van Rees
 - Tarek Ziadé
+
+
+.. [1] Need to review the commit history for missing names.

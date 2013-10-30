@@ -3,6 +3,9 @@
 Glossary
 ========
 
+:Page Status: Incomplete [1]_
+:Last Reviewed: 10-29-2013
+
 .. glossary::
 
 
@@ -173,3 +176,7 @@ Glossary
         variable. At most, one :term:`Distribution` for a project is possible in
         a working set.
 
+
+.. [1] Although the current terms have been reviewed, there's more terminology
+       used by projects like :ref:`pip` and :ref:`setuptools` that needs to be
+       added.

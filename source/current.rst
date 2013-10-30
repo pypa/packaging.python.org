@@ -3,6 +3,9 @@
 Quick Recommendations
 =====================
 
+:Page Status: Complete
+:Last Reviewed: 10-29-2013
+
 If you're familiar with Python packaging and installation, and just want to know
 what toolset is currently recommended, then here it is:
 

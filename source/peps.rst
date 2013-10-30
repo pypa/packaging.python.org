@@ -4,6 +4,10 @@
 PEP Summaries
 ==============
 
+:Page Status: Incomplete [1]_
+:Last Reviewed: 10-29-2013
+
+
 Summaries for the most relevant PEPs in the space of Python installation and packaging.
 
 .. _PEP376s:
@@ -87,3 +91,8 @@ PEP440 Version Identification and Dependency Specification
 .. _PEP453: http://www.python.org/dev/peps/pep-0453/
 .. _PEP426: http://www.python.org/dev/peps/pep-0426
 .. _PEP440: http://www.python.org/dev/peps/pep-0440//
+
+
+.. [1] See `Issue #31
+       <https://bitbucket.org/pypa/python-packaging-user-guide/issue/31/what-to-cover-in-the-pep-summaries>`_
+       about how these entries need to be expanded.

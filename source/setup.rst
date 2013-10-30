@@ -2,6 +2,9 @@
 Installing the Tools
 ====================
 
+:Page Status: Complete
+:Last Reviewed: 10-29-2013
+
 Instructions for installing or upgrading :ref:`setuptools`, :ref:`pip`, and
 :ref:`virtualenv`, the de facto tools for Python packaging and installation.
 

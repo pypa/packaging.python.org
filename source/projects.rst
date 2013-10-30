@@ -3,6 +3,9 @@
 Project Summaries
 =================
 
+:Page Status: Complete
+:Last Reviewed: 10-29-2013
+
 Summaries for the most relevant projects in the space of Python installation and packaging.
 
 .. _pip:
@@ -183,3 +186,4 @@ powerful hybrid of virtualenv and buildout.
        the virtualenv mailing list, and it's stuck ever since.
 
 .. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
+

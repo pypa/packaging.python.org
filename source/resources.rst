@@ -3,7 +3,11 @@
 Additional Resources
 ====================
 
-Additional Resources we deem helpful.
+:Page Status: Incomplete [1]_
+:Last Reviewed: 10-29-2013
+
+
+Additional Resources we deem might be helpful.
 
 
 1. For those looking for a more comprehensive guide to "How do I publish my
@@ -15,3 +19,6 @@ Additional Resources we deem helpful.
    (as of September, 2013). Even for those not looking for a step-by-step guide,
    Jeff's post provides some links to some excellent resources.
 
+
+.. [1] So many links we could add here.  We don't have to vouch for every word
+       in these links, just want to narrow things down more than users googling.
