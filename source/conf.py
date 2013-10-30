@@ -11,7 +11,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+import sys, os, glob
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -131,7 +131,12 @@ html_static_path = ['_static']
 #html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-# html_sidebars = {}
+paths = glob.glob(os.path.join(os.path.dirname(__file__), '*.rst'))
+sidebars = [(os.path.splitext(os.path.basename(path))[0], 'sidebar.html') for path in paths]
+# NOTE: using the glob syntax for "html_sidebars" that sphinx>1.0 supports won't
+# work here, because it apparently fails to set the sourcename variable that our
+# "sidebar.html" template needs
+html_sidebars = dict(sidebars)
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -147,7 +152,7 @@ html_static_path = ['_static']
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
