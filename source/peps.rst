@@ -100,8 +100,9 @@ PEP453 Explicit bootstrapping of pip in Python installations
 
 :User Impact: ``pip`` will be available without users having to install it.
 
-:Implementation:
-
+:Implementation: The goal is to have this for Python 3.4.  PEP453 includes an
+                 `integration timeline
+                 <http://www.python.org/dev/peps/pep-0453/#integration-timeline>`_.
 
 
 .. _PEP426s:
