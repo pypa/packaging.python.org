@@ -42,6 +42,17 @@ PEP425 Compatibility Tags for Built Distributions
 
 :PEP Status: Accepted
 
+             .. note::
+
+                 A revision to this PEP is likely due to it not handling the
+                 variation within a specific platform, e.g. the linux variation
+                 we see across the linux distros is not covered with the simple
+                 tag "linux_x86_64".  Because of this, PyPI currently blocks
+                 uploading platform-specific wheels (except for windows), and
+                 pip currently won't install platform-specific wheels from PyPI
+                 (except for windows).
+
+
 :Summary: Specifies a tagging system to use in :term:`Binary Distribution` file
           names. The motivation for the system was to tag wheel distributions,
           which are covered in `PEP427`_
@@ -51,7 +62,7 @@ PEP425 Compatibility Tags for Built Distributions
 
 :Implementation: The ``bdist_wheel`` setuptools extensions generates
                  :term:`wheels <Wheel>` using this scheme, and pip's wheel
-                 installer understands the scheme as well as of v1.4.
+                 installer understands the scheme as of v1.4.
 
 
 .. _PEP427s:
