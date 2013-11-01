@@ -3,7 +3,7 @@ The Future of Python Packaging
 ==============================
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 11-01-2013
 
 
 The `distutils` cross-platform build and distribution system was added to
@@ -17,7 +17,7 @@ the standard library prior to the release of Python 3.3.
 
 While ``distutils2`` itself is no longer under development, that project
 laid the foundations for many of the current efforts (and also highlighted
-the fact that, while the ``setup.py install`` is highly problematic,
+the fact that, while the ``setup.py install`` command is highly problematic,
 ``setup.py`` is significantly more reasonable as an interface to a build
 system.
 
@@ -25,12 +25,12 @@ system.
 Overall Goal
 ============
 
-The primary aim of Python Packaging Authority is to provide a relatively
+The primary aim of the Python Packaging Authority is to provide a relatively
 easy to use software distribution infrastructure that is also fast,
 reliable and reasonably secure.
 
 "Reasonably secure" is the aim, since backwards compatibility constraints
-prevent turning of some insecure legacy features (like API access over HTTP)
+prevent turning off some insecure legacy features (like API access over HTTP)
 and the PyPI index operators only promise to deliver the bits to end users
 that were uploaded by the original author. Whether or not those bits
 themselves are malicious is ultimately up to end users to determine for
@@ -83,19 +83,16 @@ Approved work (in progress)
 
 * PEP 438 (Transitioning to PyPI file hosting)
 * PEP 449 (Removal of the DNS based mirror autodiscovery)
+* PEP 453 (explicit pip bootstrapping in the standard library)
 
 
 Upcoming work (Python 3.4/pip 1.5 timeframe)
 ============================================
 
-* PEP 453 (explicit pip bootstrapping in the standar library)
 * improved handling of in-place pip upgrades on Windows
 * improved handling of pip/setuptools/pkg_resources division of
   responsibility
 * both pip and setuptools available as cross platform wheel files on PyPI
-* Key requirement: "pip uninstall setuptools" must be supported &
-  must not fundamentally break pip (but may disable installation from
-  anything other than wheel files)
 
 
 Upcoming work (post Python 3.4/pip 1.6 timeframe)
@@ -105,19 +102,20 @@ Experimental versions of items mentioned in this section may already be
 available.
 
 * further proposals target pip 1.6 - decoupled from CPython release cycle
+* eliminate ``pip`` dependency on ``setuptools``
 * metadata 2.0 (PEP 426/440)
 * sdist 2.0 and wheel 1.1
 * installation database format update
-* revisit TUF-for-PyPI (that's more likely to be pip 1.7
-  timeframe, though...)
+* revisit using The Update Framework (TUF) for end-to-end PyPI security
 
 
 Independent activities & miscellaneous suggestions
 ==================================================
 
 * improved PyPI upload API (Donald's working on this)
-* getting Warehouse to a point where it can be brought online as
-  "pypi-next.python.org"
+* migration from the legacy PyPI server (which has no automated regression tests!)
+  to the new (properly tested) Warehouse project (the preview is available at https://preview-pypi.python.org/ running
+  off the live PyPI data)
 * TUF-for-PyPI exploration (the TUF folks seems to have this well in hand)
 * improved local PyPI hosting (especially devpi)
 * getting this guide up to scratch, so the python.org docs can refer to it
