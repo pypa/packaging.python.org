@@ -5,35 +5,53 @@ PEP Summaries
 ==============
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 11-01-2013
 
 
-Summaries for the most relevant PEPs in the space of Python installation and packaging.
+Summaries for the most relevant PEPs in the space of Python installation and
+packaging.
 
 .. _PEP376s:
 
 PEP376 Database of Installed Python Distributions
 *************************************************
 
-`PEP376`_ describes a new ``.dist-info`` directory structure to be used when
-installing distributions.  Currently, only the ``bdist_wheel`` extension from
-the :ref:`wheel` project creates distributions using this structure, although
-:ref:`setuptools` and :ref:`pip` are equipped to manage distributions installed
-in this way. This has very little implication for users, except that it might
-help users to be aware of this directory format if they go hunting through their
-`site-packages` for some reason, which we all end up doing from time to time.
+:PEP Link: `PEP376`_
 
+:PEP Status: Accepted
+
+:Summary: Describes a new ``.dist-info`` directory structure to be used when
+          installing distributions.
+
+:User Impact: This has very little implication for users, except that it might
+              help users to be aware of this directory format if they go hunting
+              through their `site-packages` for some reason, which we all end up
+              doing from time to time.
+
+:Implementation: Currently, only the ``bdist_wheel`` extension from the
+                :ref:`wheel` project creates distributions using this structure,
+                although :ref:`setuptools` and :ref:`pip` are equipped to manage
+                distributions installed in this way.
 
 .. _PEP425s:
 
 PEP425 Compatibility Tags for Built Distributions
 *************************************************
 
-`PEP425`_ specifies a tagging system to use in :term:`Binary Distribution` file
-names.  The system is composed of a set of three tags that indicate which Python
-implementation and language version, ABI, and platform a :term:`Binary
-Distribution` requires.  The motivation for the system was to tag wheel
-distributions, which are covered in `PEP427`_.
+:PEP Link: `PEP425`_
+
+:PEP Status: Accepted
+
+:Summary: Specifies a tagging system to use in :term:`Binary Distribution` file
+          names. The motivation for the system was to tag wheel distributions,
+          which are covered in `PEP427`_
+
+:User Impact: As :term:`wheels <Wheel>` become more common, users will notice
+              the new tagging scheme in wheel filenames.
+
+:Implementation: The ``bdist_wheel`` setuptools extensions generates
+                 :term:`wheels <Wheel>` using this scheme, and pip's wheel
+                 installer understands the scheme as well as of v1.4.
 
 
 .. _PEP427s:
@@ -41,7 +59,15 @@ distributions, which are covered in `PEP427`_.
 PEP427 The Wheel Binary Package Format 1.0
 ******************************************
 
-`PEP427`_
+:PEP Link: `PEP427`_
+
+:PEP Status: Accepted
+
+:Summary:
+
+:User Impact:
+
+:Implementation:
 
 
 .. _PEP438s:
@@ -49,7 +75,15 @@ PEP427 The Wheel Binary Package Format 1.0
 PEP438 Transitioning to release-file hosting on PyPI
 ****************************************************
 
-`PEP438`_
+:PEP Link: `PEP438`_
+
+:PEP Status: Accepted
+
+:Summary:
+
+:User Impact:
+
+:Implementation:
 
 
 .. _PEP453s:
@@ -57,15 +91,17 @@ PEP438 Transitioning to release-file hosting on PyPI
 PEP453 Explicit bootstrapping of pip in Python installations
 ************************************************************
 
-`PEP453`_ proposes the inclusion of a method for explicitly bootstrapping pip as
-the default package manager for Python. It also proposes that the distributions
-of Python available via Python.org will automatically run this explicit
-bootstrapping method and a recommendation to third party redistributors of
-Python to also provide pip by default (in a way reasonable for their
-distributions).
+:PEP Link: `PEP453`_
 
-The impact for users, is that pip would be immediately
-available without user installation.
+:PEP Status: Accepted
+
+:Summary: Proposes the inclusion of a method for explicitly bootstrapping pip as
+          the default package manager for Python.
+
+:User Impact: ``pip`` will be available without users having to install it.
+
+:Implementation:
+
 
 
 .. _PEP426s:
@@ -73,7 +109,15 @@ available without user installation.
 PEP426 Metadata for Python Software Packages 2.0
 ************************************************
 
-`PEP426`_
+:PEP Link: `PEP426`_
+
+:PEP Status: Draft
+
+:Summary:
+
+:User Impact:
+
+:Implementation:
 
 
 .. _PEP440s:
@@ -81,7 +125,15 @@ PEP426 Metadata for Python Software Packages 2.0
 PEP440 Version Identification and Dependency Specification
 **********************************************************
 
-`PEP440`_
+:PEP Link: `PEP427`_
+
+:PEP Status: Draft
+
+:Summary:
+
+:User Impact:
+
+:Implementation:
 
 
 .. _PEP376: http://www.python.org/dev/peps/pep-0376/
@@ -93,6 +145,4 @@ PEP440 Version Identification and Dependency Specification
 .. _PEP440: http://www.python.org/dev/peps/pep-0440//
 
 
-.. [1] See `Issue #31
-       <https://bitbucket.org/pypa/python-packaging-user-guide/issue/31/what-to-cover-in-the-pep-summaries>`_
-       about how these entries need to be expanded.
+.. [1] Need to fill in missing information.
