@@ -4,7 +4,7 @@ Project Summaries
 =================
 
 :Page Status: Complete
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 10-31-2013
 
 Summaries for the most relevant projects in the space of Python installation and packaging.
 
@@ -109,18 +109,10 @@ wheel
 `PyPI <https://pypi.python.org/pypi/wheel>`__
 
 
-A built-package format for Python.
+Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
+creating :term:`wheel distributions <Wheel>`.  Additionally, it offers it's own
+command line utility for creating and installing wheels.
 
-A wheel is a ZIP-format archive with a specially formatted filename and the .whl
-extension.  It is designed to contain all the files for a PEP 376 compatible
-install in a way that is very close to the on-disk format.  Many packages will
-be properly installed with only the “Unpack” step (simply extracting the file
-onto sys.path), and the unpacked archive preserves enough information to
-“Spread” (copy data and scripts to their final locations) at any later time.
-
-The wheel project provides a bdist_wheel command for setuptools (requires
-distribute >= 0.6.34).  Wheel files can be installed with a newer pip from
-https://github.com/pypa/pip or with wheel’s own command line utility.
 
 .. _buildout:
 
