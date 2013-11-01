@@ -20,19 +20,9 @@ Glossary
     Distribution
 
         A Python distribution is a versioned archive file that contains Python
-        :term:`packages <package>`, :term:`modules <module>`, and other resource
+        :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and other resource
         files that are used to distribute a :term:`Release`. The distribution file
         is what an end-user will download from the internet and install.
-
-        It is common in Python to refer to a distribution using the term
-        "package". While the two meanings of the term "package" is not always
-        100% unambigous, the context of the term "package" is usually sufficient
-        to distinguish the meaning of the word. For example, the python
-        installation tool :ref:`pip` is an acronym for "pip installs
-        packages". while technically the tool installs distributions. Even the
-        site where distributions are distributed at is called the ":term:`Python
-        Package Index <Python Package Index (PyPI)>`" (and not the "Python
-        Distribution Index").
 
 
     Distutils
@@ -76,24 +66,30 @@ Glossary
         types: :term:`Pure Module`, or :term:`Extension Module`.
 
 
-    Package
+    Package (Meaning #1)
 
         A directory containing an ``__init__.py`` file (ex.
         ``mypackage/__init__.py``), and also usually containing modules
         (possibly along with other packages). You can import a package: ``import
         mypackage``
 
-        The term "package" is also often used to refer to a
-        :term:`Distribution`.  For an explanation, see the the term
-        ":term:`Distribution`".
+    Package (Meaning #2)
+
+        A synonym for :term:`Distribution`. It is common in Python to refer to a
+        distribution using the term "package". While the two meanings of the
+        term "package" is not always 100% unambigous, the context of the term
+        "package" is usually sufficient to distinguish the meaning of the
+        word. For example, the python installation tool :ref:`pip` is an acronym
+        for "pip installs packages". while technically the tool installs
+        distributions. Even the site where distributions are distributed at is
+        called the ":term:`Python Package Index <Python Package Index (PyPI)>`"
+        (and not the "Python Distribution Index").
 
 
     Package Index
 
         A repository of distributions with a web interface to automate
         :term:`Distribution` discovery and consumption.
-
-        .. seealso:: :term:`PyPI <Python Package Index (PyPI)>`
 
 
     Project

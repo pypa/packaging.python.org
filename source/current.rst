@@ -9,11 +9,11 @@ Quick Recommendations
 If you're familiar with Python packaging and installation, and just want to know
 what toolset is currently recommended, then here it is:
 
-* Use :ref:`pip` to install Python packages from :term:`PyPI
-  <Python Package Index (PyPI)>`. [1]_
+* Use :ref:`pip` to install Python :term:`packages <Package (Meaning #2)>` from
+  :term:`PyPI <Python Package Index (PyPI)>`. [1]_
 
-* Use :ref:`setuptools` to package and publish Python :term:`distributions <Distribution>` (or
-  "packages") to the :term:`PyPI <Python Package Index (PyPI)>`. [2]_
+* Use :ref:`setuptools` to package and publish Python :term:`packages <Package
+  (Meaning #2)>` to the :term:`PyPI <Python Package Index (PyPI)>`. [2]_
 
 * Use :ref:`virtualenv` to isolate application specific dependencies from the
   system Python installation.
