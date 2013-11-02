@@ -3,16 +3,15 @@ Introduction
 ============
 
 :Page Status: Complete
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 11-02-2013
 
 What's covered
 ==============
 
 * :doc:`current` for what tools you should be using now.
 * :doc:`Instructions for installing setuptools, pip, and virtualenv <setup>`.
-* An :doc:`installation` for setting up environments and installing
-* A :doc:`packaging` for creating and releasing distributions.
-  distributions.
+* An :doc:`installation` for setting up environments and installing :term:`distributions <Distribution>`.
+* A :doc:`packaging` for creating and releasing :term:`distributions <Distribution>`.
 * Summaries of the most relevant :doc:`projects <projects>`.
 * Summaries of the most relevant :doc:`PEPs <peps>`.
 * :doc:`future`.
