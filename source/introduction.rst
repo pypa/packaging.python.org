@@ -28,10 +28,14 @@ Where to get support
 * For something more general, or when you just not sure, use the `distutils-sig
   <http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
 
-How to get involved
-===================
+How to help
+===========
 
 * Get involved with one of mainstream :doc:`packaging projects <projects>`.
+* Help us catalog and discuss the current problems in packaging and
+  installation.  See the `The issue tracker for the problems in packaging
+  <https://github.com/pypa/packaging-problems/issues>`_ maintained by
+  :term:`PyPA <Python Packaging Authority (PyPA)>`.
 * Discuss :doc:`PEPs <peps>` and long terms plans at `distutils-sig
   <http://mail.python.org/mailman/listinfo/distutils-sig>`_.
 * Help make this guide better.  Log issues or make pull requests at
