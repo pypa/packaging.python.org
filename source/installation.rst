@@ -3,7 +3,7 @@ Installation Guide
 ==================
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 2013-10-29
 
 This page explains how to install python packages, which you will normally
 find on `PyPI <https://pypi.python.org/pypi>`__.

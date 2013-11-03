@@ -5,7 +5,7 @@ PEP Summaries
 ==============
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 11-01-2013
+:Last Reviewed: 2013-11-01
 
 
 Summaries for the most relevant PEPs in the space of Python installation and

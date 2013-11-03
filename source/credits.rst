@@ -3,7 +3,7 @@ Credits
 =======
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 2013-10-29
 
 Here's the list of writers, editors, reviewers, and
 people who allowed some of their own content to be included in the

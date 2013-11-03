@@ -3,7 +3,7 @@ License
 =======
 
 :Page Status: Complete
-:Last Reviewed: 10-29-2013
+:Last Reviewed: 2013-10-29
 
 The Python Packaging User Guide is licensed under a Creative Commons
 Attribution-ShareAlike license:
