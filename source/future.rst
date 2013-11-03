@@ -122,4 +122,6 @@ Independent activities & miscellaneous suggestions
   as the primary resource for developers wanting to distribute or install
   Python packagers
 
+----
+
 .. [1] Many items need be linked and expanded so this can made more accessible to regular python users.

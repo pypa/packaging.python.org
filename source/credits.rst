@@ -23,5 +23,6 @@ guide.
 - Reinout van Rees
 - Tarek Ziadé
 
+----
 
 .. [1] Need to review the commit history for missing names.

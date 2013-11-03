@@ -172,6 +172,7 @@ Glossary
         variable. At most, one :term:`Distribution` for a project is possible in
         a working set.
 
+----
 
 .. [1] Although the current terms have been reviewed, there's more terminology
        used by projects like :ref:`pip` and :ref:`setuptools` that needs to be

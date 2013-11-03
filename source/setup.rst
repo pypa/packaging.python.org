@@ -96,6 +96,7 @@ To install or upgrade, run the following (which may require administrator access
 
  $ pip install --upgrade virtualenv
 
+----
 
 .. [1] As of pip 1.4, pip started requiring :ref:`setuptools`, not :ref:`distribute`
        (a fork of setuptools). :ref:`setuptools` and :ref:`distribute` are now merged

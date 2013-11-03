@@ -173,6 +173,7 @@ trying to be “the Debian of choice for cases where Debian technology doesn’t
 work”. The best way for Pythonistas to think about Hashdist may be a more
 powerful hybrid of virtualenv and buildout.
 
+----
 
 .. [1] pip was created by the same developer as virtualenv, and early on adopted
        the virtualenv mailing list, and it's stuck ever since.

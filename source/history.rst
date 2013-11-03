@@ -98,6 +98,8 @@ Python package.
 .. _PEP425: http://www.python.org/dev/peps/pep-0425
 .. _PEP427: http://www.python.org/dev/peps/pep-0427
 
+----
+
 .. [#] Missing some recent events. Some the older events could more brief.
 .. [#] http://mail.python.org/pipermail/distutils-sig/2013-June/021160.html
 .. [#] http://mail.python.org/pipermail/distutils-sig/2013-March/020224.html

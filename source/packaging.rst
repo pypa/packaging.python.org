@@ -195,6 +195,7 @@ towards next (e.g. `0.2.dev1`).
 Where to get more details
 =========================
 
+----
 
 .. [1] This page will likely be revamped. See `Issue #23
        <https://bitbucket.org/pypa/python-packaging-user-guide/issue/23/stop-recreating-the-pip-setuptools-docs-in>`_.

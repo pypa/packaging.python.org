@@ -22,4 +22,6 @@ Python Packaging User Guide
    credits
    license
 
+----
+
 .. [1] The main index page will only be marked "Complete", when all pages are marked "Complete", which they are not.

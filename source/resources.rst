@@ -19,6 +19,7 @@ Additional Resources we deem might be helpful.
    (as of September, 2013). Even for those not looking for a step-by-step guide,
    Jeff's post provides some links to some excellent resources.
 
+----
 
 .. [1] So many links we could add here.  We don't have to vouch for every word
        in these links, just want to narrow things down more than users googling.

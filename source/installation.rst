@@ -158,6 +158,7 @@ subcommands and options, with many examples, and a `cookbook section
 <http://www.pip-installer.org/en/latest/cookbook.html>`_ that covers many of the
 practical issues users deal with.
 
+----
 
 .. [1] This page will likely be revamped. See `Issue #23
        <https://bitbucket.org/pypa/python-packaging-user-guide/issue/23/stop-recreating-the-pip-setuptools-docs-in>`_.
