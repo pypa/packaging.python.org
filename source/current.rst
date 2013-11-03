@@ -55,10 +55,10 @@ Packaging Tool Recommendations
        :ref:`buildout`.  :term:`Eggs <Egg>` are intended to be replaced by
        :term:`Wheels <Wheel>`, so they should become less common over time.
 
-.. [2] The acceptance of :pep:`453` means that :ref:`pip` will likely be
+.. [2] The acceptance of :ref:`PEP453 <PEP453s>` means that :ref:`pip` will likely be
        available by default in most installations of Python 3.4 or later.
 
-.. [3] The acceptance of :pep:`453` means that users of Python 3.4 or later
+.. [3] The acceptance of :ref:`PEP453 <PEP453s>` means that users of Python 3.4 or later
        will likely be able to use the standard library's own ``pyvenv`` tool
        instead of :ref:`virtualenv`. However, using :ref:`virtualenv` will
        still be recommended for users that need cross-version consistency.
