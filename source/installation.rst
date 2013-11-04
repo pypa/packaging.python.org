@@ -85,4 +85,5 @@ Advanced Topics
    4. centos/redhat considerations (just one global scheme, unlike debian)
    5. the world of OSX (homebrew, macports etc...)
    6. windows installation considerations
+   7. "deploying" python software in the real world
 

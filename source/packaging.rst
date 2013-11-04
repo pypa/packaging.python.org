@@ -102,3 +102,4 @@ Advanced Topics
 
    1. Building Rpms and Debs for packages (also for whole environments)
    2. private non-pypi deployment workflows
+   3. the case for "pip bundle" (or not)
