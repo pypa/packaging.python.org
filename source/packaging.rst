@@ -71,7 +71,7 @@ Getting started with setuptools
       (ideally a link into setuptools)
    3. Explain how setuptools builds on top of distutils (maybe cover some hisory of why it's like this)
       (ideally a link into setuptools docs)
-   4. link to the "Complete Guide to setup.py", which covers all subcommands and keyboards (including distutils)
+   4. link to the "Complete Guide to setup.py", which covers all subcommands and keywords (including distutils)
       (this does *not* exist atm, but ideally it exists in the setuptools docs, not in these docs)
 
 
