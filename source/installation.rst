@@ -86,4 +86,5 @@ Advanced Topics
    5. the world of OSX (homebrew, macports etc...)
    6. windows installation considerations
    7. "deploying" python software in the real world
+   8. easy_install's pth sys.path modification (that can override --user installs)
 
