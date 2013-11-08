@@ -2,200 +2,104 @@
 Packaging Guide
 ===============
 
-:Page Status: Incomplete [1]_
-:Last Reviewed: 2013-10-29
+:Page Status: Incomplete
+:Last Reviewed: 2013-11-03
+
+A guide to packaging python projects and uploading them to PyPI.
 
 
-Lay out your project
+What is "packaging"?
 ====================
 
-The smallest python project is two files: a `setup.py` file which describes the
-metadata about your project, and a file containing Python code to implement the
-functionality of your project.
+::
 
-In this example project we are going to add a little more to the
-project to provide the typical minimal layout of a project. We will call our
-project TowelStuff and keep it in a directory with the same name.
-We'll create a full Python package called
-`towelstuff` as a directory with an
-`__init__.py` file. This anticipates future growth as our project's source
-code is likely to grow beyond a single module file.
+   FIXME
 
-We'll also create a `README.txt`
-file giving an overview of your project, and
-a `LICENSE.txt` file containing the
-license of your project.
+   What to cover:
 
-That's enough to start. There are a number of other types of files a
-project will often have, see the `directory_layout` for an example of
-a more fully fleshed out project.
-
-Your project will now look like::
-
-    TowelStuff/
-        LICENSE.txt
-        README.txt
-        setup.py
-        towelstuff/
-            __init__.py
+   1. the uses of the term "packaging"
+     a. creating/maintaining a setup.py
+     b. the act of creating distributions (or packages)
+   2. creating binary packages, involves "building" or compiling.
+   3. Why package at all? what's the point? Is it just about PyPI?
 
 
-Describe your project
-=====================
-
-The `setup.py` file is at the heart of a Python project. It describes all of the
-metadata about your project. There a quite a few fields you can add to a project
-to give it a rich set of metadata describing the project. However, there are
-only three required fields: `name`, `version`, and `packages`. The `name` field
-must be unique if you wish to publish your package on the ":term:`Python Package
-Index <Python Package Index (PyPI)>`". The `version` field keeps track of
-different releases of the project. The `packages` field describes where you've
-put the Python source code within your project. The `classifiers` field lists
-various facts about your project, e.g. what versions of Python it is compatible
-with.
-
-Our initial `setup.py` will also include information about the license
-and will re-use the `README.txt` file for the `long_description` field.
-This will look like::
-
-    from setuptools import setup
-
-    with open('README.txt') as file:
-        long_description = file.read()
-
-    setup(
-        name='TowelStuff',
-        version='0.1.dev1',
-        packages=['towelstuff',],
-        license='Creative Commons Attribution-Noncommercial-Share Alike license',
-        long_description=long_description,
-        classifiers=[
-            'Programming Language :: Python :: 3.3',
-        ],
-    )
-
-
-Specifying Dependencies
-=======================
-
-Configuring Scripts
-===================
-
-Configuring Additional Files
-============================
-
-Create your first release
+Current packaging formats
 =========================
 
-In the `version` field, we specified `0.1.dev1`. This indicates that we
-are *developing* towards the `0.1` version. Right now there isn't any code
-in the project. After you've written enough code to make your first release
-worthwhile, you will change the version field to just `0.1`, dropping the
-`.dev1` marker.
+::
 
-To create a release, your source code needs to be packaged into a single
-archive file for distribution. This can be done with the `sdist` command:
+   FIXME
 
- $ python setup.py sdist
+   What to cover:
 
-This will create a `dist` sub-directory in your project, and will wrap-up
-all of your project's source code files into a distribution file,
-a compressed archive file in the form of::
-
-    TowelStuff-0.1.tar.gz
-
-The compressed archive format defaults to `.tar.gz` files on POSIX systems,
-and `.zip` files on Windows systems.
-
-By default, Distutils does **not** include all files in your project's
-directory. Only the following files will be included by default:
-
- * all Python source files implied by the `py_modules` and `packages` options
-
- * all C source files mentioned in the `ext_modules` or `libraries` options
-
- * scripts identified by the `scripts` option
-
- * anything that looks like a test script: test/test*.py
-
- * Top level files named: `README.txt`, `README`, `setup.py`, or `setup.cfg`
-
-If you want to include additional files, then there are a couple options
-for including those files:
-
- * Use a package which extends Distutils with more functionality.
-   Setuptools allows you to include all files checked into
-   your version control system.
-
- * Write a top-level `MANIFEST.in` file. This is a template file which
-   specifies which files (and file patterns) should be included.
-   (TO-DO: link to a MANIFEST.in document)
-
-When you run the **sdist** command, a file named `MANIFEST` will be
-generated which contains a complete list of all files included. You can
-view this file to double check that you've setup your project to include
-all files correctly. Now your project is ready for a release. Before
-releasing, it's a good idea to double check to make sure that you have:
-
-* The correct version number.
-
-  While it's handy to append a `.devN` marker to the version number during
-  development, so that you can distinguish between code under development
-  and a released version, you **never** want to publish a release with
-  `.devN` in the version name.
-
-* All desired project files are included.
-
-  Go over the MANIFEST file, or open the archive file generated by
-  running the **sdist** command.
+   1) sdist and wheel are the most relevant currently
+   2) what defines an sdist? (sdist 2.0 is coming)
+   3) wheel? why not egg? what was wrong with egg?
 
 
-Register your package
-=====================
+What tools to use
+=================
 
-The distribution file generated by running **sdist** can be published
-anywhere. There is a central index of all publically available Python projects
-maintained on the python.org web site named the ":term:`Python Package Index
-<Python Package Index (PyPI)>`". This is where you will want to release your
-distribution if you intend to make your project public.
+:ref:`setuptools` and :ref:`wheel` (for ``bdist_wheel``)
 
-You will first have to visit that site, where you can register for an account.
-Project's are published on PyPI in the format of::
+::
 
-  http://pypi.python.org/pypi/<projectname>
+   FIXME
 
-Your project will have to choose a name which is not already taken on PyPI.
-You can then claim your new project's name by registering the package
-by running the command::
+   What to cover:
 
-$ python setup.py register
+   1. Why setuptools (and not distutils)?
+   2. What happened to distutils2? Can we be trusted again to give recommendations?  : )
+   3. Is setuptools stable and supported by PyPA?
+   4. Why the wheel project implementation of wheel? It's not a PyPA project?
+   5. twine for uploading?
 
 
-Upload your release
-===================
+Getting started with setuptools
+===============================
 
-Now that you are happy that you can create a valid source distribution,
-it's time to upload the finished product to PyPI. We'll also create a
-`bdist_wininst` distribution file of our project, which will create a Windows
-installable file. There are a few different file formats that Python
-distributions can be created for. Each format must be specified when
-you run the **upload** command, or they won't be uploaded (even if you've
-previously built them previously). You should always upload a
-source distribution file. The other formats are optional, and will depend upon
-the needs of your anticipated user base::
+::
 
- $ python setup.py sdist bdist_wininst upload
+   FIXME
 
-At this point you should announce your package to the community!
+   What to cover:
 
-Finally, in your `setup.py` you can make plans for your next release,
-by changing the `version` field to indicate which version you want to work
-towards next (e.g. `0.2.dev1`).
+   1. link to the setuptools "Getting Started" guide
+      (which doesn't really exist atm, but needs to)
+   2. Highlight which features are relevant *today*
+      (ideally a link into setuptools)
+   3. Explain how setuptools builds on top of distutils (maybe cover some hisory of why it's like this)
+      (ideally a link into setuptools docs)
+   4. link to the "Complete Guide to setup.py", which covers all subcommands and keywords (including distutils)
+      (this does *not* exist atm, but ideally it exists in the setuptools docs, not in these docs)
 
-Where to get more details
-=========================
 
-----
+Getting started with wheel
+==========================
 
-.. [1] This page will likely be revamped. See `Issue #23
-       <https://bitbucket.org/pypa/python-packaging-user-guide/issue/23/stop-recreating-the-pip-setuptools-docs-in>`_.
+::
+
+   FIXME
+
+   What to cover:
+
+   1. installing the wheel project
+   2. using bdist_wheel (and why "pip wheel" is for a different use case and covered in the install guide)
+   3. the pep425 tagging system
+   4. "universal" wheels
+   5. the current PyPI upload block on linux platform wheels (and why they're blocked)
+
+
+Advanced Topics
+===============
+
+::
+
+   FIXME
+
+   What to cover:
+
+   1. Building Rpms and Debs for packages (also for whole environments)
+   2. private non-pypi deployment workflows
+   3. the case for "pip bundle" (or not)
