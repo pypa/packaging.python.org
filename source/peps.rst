@@ -186,6 +186,6 @@ PEP440 Version Identification and Dependency Specification
 .. _PEP386: http://www.python.org/dev/peps/pep-0386/
 .. _PEP440: http://www.python.org/dev/peps/pep-0440/
 
-----
 
-.. [1] Need to fill in missing information.
+
+
