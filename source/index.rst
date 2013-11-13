@@ -3,7 +3,7 @@ Python Packaging User Guide
 ===========================
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 2013-10-29
+:Last Reviewed: 2013-11-12
 
 .. toctree::
    :maxdepth: 2

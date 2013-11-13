@@ -4,12 +4,12 @@
 PEP Summaries
 ==============
 
-:Page Status: Incomplete [1]_
-:Last Reviewed: 2013-11-01
+:Page Status: Incomplete
+:Last Reviewed: 2013-11-12
 
 
-Summaries for the most relevant PEPs in the space of Python installation and
-packaging.
+Summaries for the currently relevant `PEPs <http://www.python.org/dev/peps/>`_
+in the space of Python installation and packaging.
 
 .. _PEP376s:
 
@@ -20,13 +20,17 @@ PEP376 Database of Installed Python Distributions
 
 :PEP Status: Accepted
 
-:Summary: Describes a new ``.dist-info`` directory structure to be used when
-          installing distributions.
+:Summary: Describes a new ``.dist-info`` directory structure and system of
+          metadata to be used when installing distributions.
 
-:User Impact: This has very little implication for users, except that it might
-              help users to be aware of this directory format if they go hunting
-              through their `site-packages` for some reason, which we all end up
-              doing from time to time.
+:User Impact: This has very little implication for users, except to be aware of
+              the format if they go hunting through their `site-packages`.
+
+              .. note::
+
+                :ref:`PEP426 <PEP426s>` will likely spawn a child PEP that
+                updates this to use a json-based system of metadata.
+
 
 :Implementation: Currently, only the ``bdist_wheel`` extension from the
                 :ref:`wheel` project creates distributions using this structure,
@@ -42,25 +46,22 @@ PEP425 Compatibility Tags for Built Distributions
 
 :PEP Status: Accepted
 
-             .. note::
-
-                 A revision to this PEP is likely due to it not handling the
-                 variation within a specific platform, e.g. the linux variation
-                 we see across the linux distros is not covered with the simple
-                 tag "linux_x86_64".  Because of this, PyPI currently blocks
-                 uploading platform-specific wheels (except for windows), and
-                 pip currently won't install platform-specific wheels from PyPI
-                 (except for windows).
-
-
 :Summary: Specifies a tagging system to use in :term:`Binary Distribution` file
           names. The motivation for the system was to tag wheel distributions,
           which are covered in `PEP427`_
 
+          .. note::
+
+             A revision to this PEP is likely due to simple tags like
+             "linux_x86_64" not handling the variation within linux
+             platforms. Because of this, PyPI currently blocks uploading linux
+             platform-specific wheels and pip won't install linux
+             platform-specific wheels from PyPI.
+
 :User Impact: As :term:`wheels <Wheel>` become more common, users will notice
               the new tagging scheme in wheel filenames.
 
-:Implementation: The ``bdist_wheel`` setuptools extensions generates
+:Implementation: The ``bdist_wheel`` :ref:`setuptools` extensions generates
                  :term:`wheels <Wheel>` using this scheme, and pip's wheel
                  installer understands the scheme as of v1.4.
 
@@ -74,11 +75,21 @@ PEP427 The Wheel Binary Package Format 1.0
 
 :PEP Status: Accepted
 
-:Summary:
+:Summary: Specifies a built distribution format, that is based on, but modernizes
+          the :term:`Egg` format. Wheel filenames conform to :ref:`PEP425
+          <PEP425s>`
 
-:User Impact:
+          .. note::
 
-:Implementation:
+             :ref:`PEP426 <PEP426s>` will likely spawn a child PEP that
+             updates this to use a json-based system of metadata.
+
+
+:User Impact: Built distributions are *fast* to install.
+
+:Implementation: The ``bdist_wheel`` :ref:`setuptools` extension (available from
+                 :ref:`wheel`) generates :term:`wheels <Wheel>`, and :ref:`pip`
+                 supports installing wheels as of v1.4.
 
 
 .. _PEP438s:
@@ -90,11 +101,13 @@ PEP438 Transitioning to release-file hosting on PyPI
 
 :PEP Status: Accepted
 
-:Summary:
+:Summary: Specifies a two-step plan to phase out the primary use of external download
+          links on PyPI, for the sake of security and installation speed.
 
-:User Impact:
+:User Impact:  :ref:`pip` (as of v1.5) will be faster and more secure by default.
 
-:Implementation:
+:Implementation: Both :ref:`pip` and PyPI made changes during 2013 to implement
+                 this PEP.
 
 
 .. _PEP453s:
@@ -109,7 +122,8 @@ PEP453 Explicit bootstrapping of pip in Python installations
 :Summary: Proposes the inclusion of a method for explicitly bootstrapping pip as
           the default package manager for Python.
 
-:User Impact: ``pip`` will be available without users having to install it.
+:User Impact: ``pip`` will be available in some Python installations without
+               users having to install it.
 
 :Implementation: The goal is to have this for Python 3.4.  PEP453 includes an
                  `integration timeline
@@ -125,11 +139,20 @@ PEP426 Metadata for Python Software Packages 2.0
 
 :PEP Status: Draft
 
-:Summary:
+:Summary: Specifies version 2.0 of the metadata format. Version 1.0 is specified
+          in `PEP241`_. Version 1.1 is specified in `PEP314`_. Version 1.2 is
+          specified in `PEP345`_.  This is a work in progress, and represents a
+          major upgrade to the Packaging ecosystem. :ref:`PEP440 <PEP440s>` is a
+          child of this PEP, and more PEPs are likely to grow out of this, as it
+          evolves.
 
-:User Impact:
+:User Impact: When this is accepted, users themselves will *not* do anything to
+              adopt the new system, but rather projects like pip, setuptools,
+              and PyPI will make changes to conform to it, and then surface new
+              features and functionality to users that are based on top of the
+              new system.
 
-:Implementation:
+:Implementation:  Nothing at this time.
 
 
 .. _PEP440s:
@@ -137,24 +160,31 @@ PEP426 Metadata for Python Software Packages 2.0
 PEP440 Version Identification and Dependency Specification
 **********************************************************
 
-:PEP Link: `PEP427`_
+:PEP Link: `PEP440`_
 
 :PEP Status: Draft
 
-:Summary:
+:Summary: Specifies a versioning system for Python projects that goes along with
+          :ref:`PEP426 <PEP440s>`, and replaces `PEP386`_. This system will be
+          consistent with how most people version their projects today.
 
-:User Impact:
+:User Impact: Once accepted, users will have a clear specification for what's
+              "correct" versioning for Python projects.
 
-:Implementation:
+:Implementation:  Nothing at this time.
 
 
+.. _PEP241: http://www.python.org/dev/peps/pep-0241/
+.. _PEP314: http://www.python.org/dev/peps/pep-0314/
+.. _PEP345: http://www.python.org/dev/peps/pep-0345/
 .. _PEP376: http://www.python.org/dev/peps/pep-0376/
 .. _PEP425: http://www.python.org/dev/peps/pep-0425/
 .. _PEP427: http://www.python.org/dev/peps/pep-0427/
 .. _PEP438: http://www.python.org/dev/peps/pep-0438/
 .. _PEP453: http://www.python.org/dev/peps/pep-0453/
-.. _PEP426: http://www.python.org/dev/peps/pep-0426
-.. _PEP440: http://www.python.org/dev/peps/pep-0440//
+.. _PEP426: http://www.python.org/dev/peps/pep-0426/
+.. _PEP386: http://www.python.org/dev/peps/pep-0386/
+.. _PEP440: http://www.python.org/dev/peps/pep-0440/
 
 ----
 
