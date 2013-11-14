@@ -9,7 +9,7 @@ A Packaging Timeline
 :Last Reviewed: 2013-10-29
 
 
-**2013-06-09**: The merge of :ref:`setuptools` and :ref:`distribute` was completed
+**2013-06-09**: The merge of :ref:`setuptools` and `distribute`_ was completed
 and released to PyPI. [#]_
 
 **2013-03-23**: :term:`PyPA <Python Packaging Authority (PyPA)>` became the
@@ -19,8 +19,8 @@ maintainer for the `Python Packaging User Guide`_, which was forked from the
 **2013-03-15**: Packaging Dev and User Summits were held at Pycon 2013 to share ideas on
 the future of packaging. [#]_ [#]_
 
-**2013-03-14**: The intention to merge :ref:`setuptools` and
-:ref:`distribute` was announced by their respective maintainers, PJ Eby and Jason Coombs. [#]_
+**2013-03-14**: The intention to merge :ref:`setuptools` and `distribute`_ was
+announced by their respective maintainers, PJ Eby and Jason Coombs. [#]_
 
 **2013-03-09**: :ref:`pip` began depending on :ref:`distlib`. [#]_
 
@@ -97,6 +97,7 @@ Python package.
 .. _`Python Packaging User Guide`: https://python-packaging-user-guide.readthedocs.org/en/latest/
 .. _PEP425: http://www.python.org/dev/peps/pep-0425
 .. _PEP427: http://www.python.org/dev/peps/pep-0427
+.. _distribute: https://pypi.python.org/pypi/distribute
 
 ----
 

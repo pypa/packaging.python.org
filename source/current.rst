@@ -67,7 +67,7 @@ Packaging Tool Recommendations
        Wheels
        <http://www.pip-installer.org/en/latest/cookbook.html#building-and-installing-wheels>`_.
 
-.. [5] :ref:`distribute` (a fork of setuptools) was merged back into
+.. [5] `distribute`_ (a fork of setuptools) was merged back into
        :ref:`setuptools` in June 2013, thereby making setuptools the default
        choice for packaging.
 
@@ -84,3 +84,5 @@ Packaging Tool Recommendations
        dependencies, by using one of the fully integrated cross-platform
        software stack management systems mentioned in the installation tools
        section, or by using platform specific tools.
+
+.. _distribute: https://pypi.python.org/pypi/distribute

@@ -6,7 +6,8 @@ Project Summaries
 :Page Status: Complete
 :Last Reviewed: 2013-10-31
 
-Summaries for the most relevant projects in the space of Python installation and packaging.
+Summaries and links for the most relevant projects in the space of Python
+installation and packaging.
 
 .. _pip:
 
@@ -39,24 +40,6 @@ irc:#pip
 A tool for creating isolated Python environments.
 
 
-.. _distlib:
-
-distlib
-=======
-
-`Docs <http://pythonhosted.org/distlib>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
-`PyPI <https://pypi.python.org/pypi/distlib>`__
-
-Distlib is a library which implements low-level functions that relate to
-packaging and distribution of Python software.  It consists in part of the
-functions in the packaging Python package, which was intended to be released as
-part of Python 3.3, but was removed shortly before Python 3.3 entered beta
-testing.
-
-
 .. _setuptools:
 
 setuptools
@@ -74,27 +57,9 @@ setuptools is a collection of enhancements to the Python distutils that allow
 you to more easily build and distribute Python packages, especially ones that
 have dependencies on other packages.
 
-:ref:`distribute` was a fork of setuptools that was recently merged back into
+`distribute`_ was a fork of setuptools that was recently merged back into
 setuptools (in v0.7), thereby making setuptools the primary choice for Python
 packaging.
-
-
-.. _distribute:
-
-distribute
-==========
-
-`Docs <http://pythonhosted.org/distribute/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <https://bitbucket.org/tarek/distribute/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/tarek/distribute>`__ |
-`PyPI <https://pypi.python.org/pypi/distribute>`__
-
-distribute was a fork of the setuptools project, and was intended to replace
-setuptools as the standard method for working with Python module distributions.
-
-distribute was recently merged back into setuptools (in v0.7), thereby making
-setuptools the primary choice for Python packaging.
 
 
 .. _wheel:
@@ -112,6 +77,24 @@ wheel
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
 creating :term:`wheel distributions <Wheel>`.  Additionally, it offers it's own
 command line utility for creating and installing wheels.
+
+
+.. _distlib:
+
+distlib
+=======
+
+`Docs <http://pythonhosted.org/distlib>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
+`Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
+`PyPI <https://pypi.python.org/pypi/distlib>`__
+
+Distlib is a library which implements low-level functions that relate to
+packaging and distribution of Python software.  It consists in part of the
+functions in the packaging Python package, which was intended to be released as
+part of Python 3.3, but was removed shortly before Python 3.3 entered beta
+testing.
 
 
 .. _buildout:
@@ -180,3 +163,5 @@ powerful hybrid of virtualenv and buildout.
 
 .. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
 
+
+.. _distribute: https://pypi.python.org/pypi/distribute

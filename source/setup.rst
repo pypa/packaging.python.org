@@ -42,7 +42,7 @@ To install setuptools from scratch:
       inside the unpacked directory.
 
 
-To upgrade a previous install of :ref:`setuptools` or :ref:`distribute`, there are two
+To upgrade a previous install of :ref:`setuptools` or `distribute`_, there are two
 scenarios.
 
 
@@ -98,9 +98,11 @@ To install or upgrade, run the following (which may require administrator access
 
 ----
 
-.. [1] As of pip 1.4, pip started requiring :ref:`setuptools`, not :ref:`distribute`
-       (a fork of setuptools). :ref:`setuptools` and :ref:`distribute` are now merged
+.. [1] As of pip 1.4, pip started requiring :ref:`setuptools`, not `distribute`_
+       (a fork of setuptools). :ref:`setuptools` and `distribute`_ are now merged
        back together as "setuptools".
 .. [2] "Secure" in this context means using a modern browser or a
        tool like `curl` that verifies SSL certificates when downloading from
        https URLs.
+
+.. _distribute: https://pypi.python.org/pypi/distribute
