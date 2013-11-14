@@ -13,12 +13,12 @@ Summaries for the most relevant projects in the space of Python installation and
 pip
 ===
 
-`Docs <http://www.pip-installer.org/en/latest/>`__ `|`
-`User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ `|`
-`Dev list <http://groups.google.com/group/pypa-dev>`__ `|`
-`Issues <https://github.com/pypa/pip/issues>`__ `|`
-`Github <https://github.com/pypa/pip>`__ `|`
-`PyPI <https://pypi.python.org/pypi/pip/>`__ `|`
+`Docs <http://www.pip-installer.org/en/latest/>`__ |
+`User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
+`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Issues <https://github.com/pypa/pip/issues>`__ |
+`Github <https://github.com/pypa/pip>`__ |
+`PyPI <https://pypi.python.org/pypi/pip/>`__ |
 irc:#pip
 
 A tool for installing and managing Python packages.
@@ -28,12 +28,12 @@ A tool for installing and managing Python packages.
 virtualenv
 ==========
 
-`Docs <http://www.virtualenv.org>`__ `|`
-`User list <http://groups.google.com/group/python-virtualenv>`__ `|`
-`Dev list <http://groups.google.com/group/pypa-dev>`__ `|`
-`Issues <https://github.com/pypa/virtualenv/issues>`__ `|`
-`Github <https://github.com/pypa/virtualenv>`__ `|`
-`PyPI <https://pypi.python.org/pypi/virtualenv/>`__ `|`
+`Docs <http://www.virtualenv.org>`__ |
+`User list <http://groups.google.com/group/python-virtualenv>`__ |
+`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Issues <https://github.com/pypa/virtualenv/issues>`__ |
+`Github <https://github.com/pypa/virtualenv>`__ |
+`PyPI <https://pypi.python.org/pypi/virtualenv/>`__ |
 irc:#pip
 
 A tool for creating isolated Python environments.
@@ -44,10 +44,10 @@ A tool for creating isolated Python environments.
 distlib
 =======
 
-`Docs <http://pythonhosted.org/distlib>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
-`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ `|`
-`Bitbucket <https://bitbucket.org/pypa/distlib>`__ `|`
+`Docs <http://pythonhosted.org/distlib>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
+`Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.python.org/pypi/distlib>`__
 
 Distlib is a library which implements low-level functions that relate to
@@ -62,11 +62,11 @@ testing.
 setuptools
 ==========
 
-`Docs <http://pythonhosted.org/setuptools>`__ `|`
-`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
-`Dev list <http://groups.google.com/group/pypa-dev>`__ `|`
-`Issues <https://bitbucket.org/pypa/setuptools/issues>`__ `|`
-`Bitbucket <https://bitbucket.org/pypa/setuptools>`__ `|`
+`Docs <http://pythonhosted.org/setuptools>`__ |
+`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Issues <https://bitbucket.org/pypa/setuptools/issues>`__ |
+`Bitbucket <https://bitbucket.org/pypa/setuptools>`__ |
 `PyPI <https://pypi.python.org/pypi/setuptools>`__
 
 
@@ -84,10 +84,10 @@ packaging.
 distribute
 ==========
 
-`Docs <http://pythonhosted.org/distribute/>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
-`Issues <https://bitbucket.org/tarek/distribute/issues?status=new&status=open>`__ `|`
-`Bitbucket <https://bitbucket.org/tarek/distribute>`__ `|`
+`Docs <http://pythonhosted.org/distribute/>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://bitbucket.org/tarek/distribute/issues?status=new&status=open>`__ |
+`Bitbucket <https://bitbucket.org/tarek/distribute>`__ |
 `PyPI <https://pypi.python.org/pypi/distribute>`__
 
 distribute was a fork of the setuptools project, and was intended to replace
@@ -102,10 +102,10 @@ setuptools the primary choice for Python packaging.
 wheel
 =====
 
-`Docs <http://wheel.readthedocs.org>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
-`Issues <https://bitbucket.org/dholth/wheel/issues?status=new&status=open>`__ `|`
-`Bitbucket <https://bitbucket.org/dholth/wheel>`__ `|`
+`Docs <http://wheel.readthedocs.org>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://bitbucket.org/dholth/wheel/issues?status=new&status=open>`__ |
+`Bitbucket <https://bitbucket.org/dholth/wheel>`__ |
 `PyPI <https://pypi.python.org/pypi/wheel>`__
 
 
@@ -119,10 +119,10 @@ command line utility for creating and installing wheels.
 buildout
 ========
 
-`Docs <http://www.buildout.org>`__ `|`
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ `|`
-`Issues <https://bugs.launchpad.net/zc.buildout>`__ `|`
-`PyPI <https://pypi.python.org/pypi/zc.buildout>`__ `|`
+`Docs <http://www.buildout.org>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://bugs.launchpad.net/zc.buildout>`__ |
+`PyPI <https://pypi.python.org/pypi/zc.buildout>`__ |
 irc:#buildout
 
 Buildout is a Python-based build system for creating, assembling and deploying
@@ -135,10 +135,10 @@ lets you create a buildout configuration and reproduce the same software later.
 bento
 =====
 
-`Docs <http://cournape.github.io/Bento/>`__ `|`
-`Mailing list <http://librelist.com/browser/bento>`__ `|`
-`Issues <https://github.com/cournape/Bento/issues>`__ `|`
-`Github <https://github.com/cournape/Bento>`__ `|`
+`Docs <http://cournape.github.io/Bento/>`__ |
+`Mailing list <http://librelist.com/browser/bento>`__ |
+`Issues <https://github.com/cournape/Bento/issues>`__ |
+`Github <https://github.com/cournape/Bento>`__ |
 `PyPI <https://pypi.python.org/pypi/bento>`__
 
 Bento is a packaging tool solution for python software, targeted as an
@@ -165,7 +165,7 @@ Analysis, Engineering, Machine Learning, and more.
 Hashdist
 ========
 
-`Docs <http://hashdist.readthedocs.org/en/latest/>`__ `|`
+`Docs <http://hashdist.readthedocs.org/en/latest/>`__ |
 `Github <https://github.com/hashdist/hashdist/>`__
 
 Hashdist is a library for building non-root software distributions. Hashdist is
