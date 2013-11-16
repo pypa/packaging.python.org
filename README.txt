@@ -1,15 +1,16 @@
-The "Python Packaging User Guide" is a guide focusing on current
-best-practices for working with Python distributions (third-party
-software distributions of Python packages and modules). It covers
-finding, installing, creating, and distributing packages, as well as
-other aspects of the Python module packaging ecosystem.
+The "Python Packaging User Guide" aims to be the authoritative resource on how
+to package and install distributions in Python.
 
-The guide will also maintain information on the latest development efforts
-to improve Python packaging and installation.
+The guide is part of a larger effort to improve all of the packaging and
+installation docs, including pip, setuptools, virtualenv, and wheel. Ultimately,
+users need more than a "guide" to feel confident about the current tools. They
+need complete, accurate and inter-consistent documentation across all the
+projects.
 
-This guide is a fork from the original "Hitchhiker's Guide to Packaging",
-which was previously maintained by Tarek Ziadé.  Thankyou Tarek for all
-your efforts in python packaging.
+The guide is currently maintained by the "Python Packaging Authority" (PyPA).
+It was forked from the “Hitchhikers Guide to Packaging” in March 2013, which was
+maintained by Tarek Ziadé.  Thankyou Tarek for all your efforts in python
+packaging.
 
 The html version of the Guide is currently available at
 https://python-packaging-user-guide.readthedocs.org.
