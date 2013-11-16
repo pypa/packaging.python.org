@@ -11,18 +11,28 @@ Glossary
 
     Binary Distribution
 
-        A :term:`Distribution` format containing prebuilt files that only need
-        to be moved to the correct location on the target system. As Python is a
-        dynamically bound cross-platform language, many so-called "binary"
-        distributions will contain only pure Python source code.
+        A specific kind of :term:`Built Distribution` that contains compiled
+        extensions.
+
+
+    Built Distribution
+
+        A :term:`Distribution` format containing files and metadata that only
+        need to be moved to the correct location on the target system, to be
+        installed. :term:`Wheel` is such a format, whereas distutil's
+        :term:`Source Distribution <Source Distribution (or "sdist")>` is not,
+        in that it requires a build step before it can be installed.  This
+        format does not imply that python files have to be precompiled
+        (:term:`Wheel` intentionally does not include compiled python files).
 
 
     Distribution
 
         A Python distribution is a versioned archive file that contains Python
-        :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and other resource
-        files that are used to distribute a :term:`Release`. The distribution file
-        is what an end-user will download from the internet and install.
+        :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and
+        other resource files that are used to distribute a :term:`Release`. The
+        distribution file is what an end-user will download from the internet
+        and install.
 
 
     Distutils
@@ -35,7 +45,7 @@ Glossary
 
     Egg
 
-        A :term:`Binary Distribution` format introduced by :ref:`setuptools`,
+        A :term:`Built Distribution` format introduced by :ref:`setuptools`,
         which is being replaced by :term:`Wheel`.  For details, see `The
         Internal Structure of Python Eggs
         <http://pythonhosted.org/setuptools/formats.html>`_ and `Python Eggs
@@ -72,6 +82,7 @@ Glossary
         ``mypackage/__init__.py``), and also usually containing modules
         (possibly along with other packages). You can import a package: ``import
         mypackage``
+
 
     Package (Meaning #2)
 
@@ -142,7 +153,7 @@ Glossary
 
         An archive containing the raw source code for a :term:`Release`, prior to
         creation of an :term:`Source Distribution <Source Distribution (or "sdist")>` or
-        :term:`Binary Distribution`.
+        :term:`Built Distribution`.
 
 
     Source Distribution (or "sdist")
@@ -150,7 +161,7 @@ Glossary
         A :term:`distribution <Distribution>` format (usually generated using ``python setup.py
         sdist``) that provides metadata and the essential source files needed
         for installing by a tool like :ref:`pip`, or for generating a
-        :term:`Binary Distribution`.
+        :term:`Built Distribution`.
 
 
     System Package
@@ -161,7 +172,7 @@ Glossary
 
     Wheel
 
-        A :term:`Binary Distribution` format introduced by :ref:`PEP427s`, which
+        A :term:`Built Distribution` format introduced by :ref:`PEP427s`, which
         is intended to replace the :term:`Egg` format.  Wheel is currently
         supported by :ref:`pip`.
 

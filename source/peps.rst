@@ -46,7 +46,7 @@ PEP425 Compatibility Tags for Built Distributions
 
 :PEP Status: Accepted
 
-:Summary: Specifies a tagging system to use in :term:`Binary Distribution` file
+:Summary: Specifies a tagging system to use in :term:`Built Distribution` file
           names. The motivation for the system was to tag wheel distributions,
           which are covered in `PEP427`_
 
@@ -75,9 +75,9 @@ PEP427 The Wheel Binary Package Format 1.0
 
 :PEP Status: Accepted
 
-:Summary: Specifies a built distribution format, that is based on, but modernizes
-          the :term:`Egg` format. Wheel filenames conform to :ref:`PEP425
-          <PEP425s>`
+:Summary: Specifies a :term:`Built Distribution` format, that is based on, but
+          modernizes the :term:`Egg` format. Wheel filenames conform to
+          :ref:`PEP425 <PEP425s>`
 
           .. note::
 
