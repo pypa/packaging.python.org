@@ -174,6 +174,24 @@ PEP440 Version Identification and Dependency Specification
 :Implementation:  Nothing at this time.
 
 
+.. _PEP458s:
+
+PEP458 Surviving a Compromise of PyPI
+*************************************
+
+:PEP Link: `PEP458`_
+
+:PEP Status: Draft
+
+:Summary: Specifies an integration of PyPI with the `"The Update Framework"
+          (TUF) <http://www.updateframework.com/projects/project>`_.
+
+:User Impact: pip will be more secure against various types of security attacks
+              on PyPI and protect users against them.
+
+:Implementation:  Nothing at this time.
+
+
 .. _PEP241: http://www.python.org/dev/peps/pep-0241/
 .. _PEP314: http://www.python.org/dev/peps/pep-0314/
 .. _PEP345: http://www.python.org/dev/peps/pep-0345/
@@ -185,6 +203,7 @@ PEP440 Version Identification and Dependency Specification
 .. _PEP426: http://www.python.org/dev/peps/pep-0426/
 .. _PEP386: http://www.python.org/dev/peps/pep-0386/
 .. _PEP440: http://www.python.org/dev/peps/pep-0440/
+.. _PEP458: http://www.python.org/dev/peps/pep-0458/
 
 
 
