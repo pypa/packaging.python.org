@@ -5,7 +5,9 @@ Installation Guide
 :Page Status: Incomplete
 :Last Reviewed: 2013-11-03
 
-A guide to installing python :term:`packages <Package (Meaning #2)>`.
+
+A guide to installing python :term:`distributions <Distribution>` from
+:term:`PyPI <Python Package Index (PyPI)>` and other sources.
 
 
 What is "installation"?

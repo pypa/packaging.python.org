@@ -5,8 +5,9 @@ Packaging Guide
 :Page Status: Incomplete
 :Last Reviewed: 2013-11-03
 
-A guide to packaging python :term:`projects <Project>` and uploading them to
-:term:`PyPI <Python Package Index (PyPI)>`
+
+A guide to packaging python :term:`projects <Project>` into :term:`distributions
+<Distribution>` and uploading them to :term:`PyPI <Python Package Index (PyPI)>`.
 
 
 What is "packaging"?
