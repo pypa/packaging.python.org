@@ -5,8 +5,9 @@ Installing the Tools
 :Page Status: Complete
 :Last Reviewed: 2013-10-29
 
-Instructions for installing or upgrading :ref:`setuptools`, :ref:`pip`, and
-:ref:`virtualenv`, the de facto tools for Python packaging and installation.
+Instructions for installing or upgrading :ref:`setuptools`, :ref:`pip`,
+:ref:`wheel`, and :ref:`virtualenv`, the :doc:`recommended <current>` tools for
+Python packaging and installation.
 
 On Linux and OSX, these tools will usually be available for the system python
 from a system package manager (e.g. `yum` or `apt-get` for linux, or `homebrew` for
@@ -16,10 +17,6 @@ way, so in most cases, you'll want to use the instructions below.
 
 setuptools
 ----------
-
-:ref:`setuptools` supports building, packaging, and uploading projects to
-:term:`PyPI <Python Package Index (PyPI)>`, and is also a requirement of
-:ref:`pip`.
 
 To install setuptools from scratch:
 
@@ -81,14 +78,18 @@ latest version of pip::
  $ python get-pip.py
 
 
+wheel
+-----
+
+To install :ref:`wheel`, :ref:`pip` should already be installed (see section above).
+
+To install or upgrade, run the following (which may require administrator access)::
+
+ $ pip install --upgrade wheel
+
+
 virtualenv
 ----------
-
-Although it's not strictly required for the tutorials in this guide, using
-:ref:`virtualenv` to create isolated Python environments (that already contain copies of
-:ref:`setuptools` and :ref:`pip`) is a common practice when installing packages.
-
-For more details, see http://www.virtualenv.org.
 
 To install :ref:`virtualenv`, :ref:`pip` should already be installed (see section above).
 

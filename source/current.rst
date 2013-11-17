@@ -6,7 +6,7 @@ Quick Recommendations
 :Last Reviewed: 2013-11-03
 
 If you're familiar with Python packaging and installation, and just want to know
-what toolset is currently recommended, then here it is.
+what tools are currently recommended, then here it is.
 
 If you're less familiar with Python packaging or installation, and would like
 more details, then proceed to the  :doc:`packaging` and :doc:`installation`.
