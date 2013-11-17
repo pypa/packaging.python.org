@@ -76,17 +76,80 @@ Getting started with pip
 Advanced Topics
 ===============
 
+
+pip vs easy_install
+-------------------
+
+::
+
+   FIXME  needs more links and explanation
+
+The most important ways they are different:
+
++-----------------------------+---------------------------------------+------------------------------------+
+|                             | **pip**                               | **easy_install**                   |
++-----------------------------+---------------------------------------+------------------------------------+
+|Installs from :term:`Wheels  |Yes                                    |No                                  |
+|<Wheel>`                     |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|Uninstall Packages           |Yes (``pip uninstall``)                |No                                  |
++-----------------------------+---------------------------------------+------------------------------------+
+|Dependency Overrides         |Yes ("Requirements Files")             |No                                  |
+|                             |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|List Installed Packages      |Yes (``pip list`` and ``pip freeze``)  |No                                  |
+|                             |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|:ref:`PEP438 <PEP438s>`      |Yes                                    |No                                  |
+|Support                      |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|Installation format          |'Flat' packages with `egg-info`        | Encapsulated Egg format            |
+|                             |metadata directories.                  |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|``sys.path`` modification    |No                                     |Yes (``easy-install.pth``)          |
+|                             |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|Installs from :term:`Eggs    |No                                     |Yes                                 |
+|<Egg>`                       |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+|Multi-version Installs       |No                                     |Yes                                 |
+|                             |                                       |                                    |
++-----------------------------+---------------------------------------+------------------------------------+
+
+
+
+Installing on Debian/Ubuntu
+---------------------------
+
 ::
 
    FIXME
 
-   What to cover:
+   cover 'dist-packages' and it's /usr and /usr/local schemes
 
-   1. When to use yum/apt OS packages
-   2. debian/unbuntu considerations (dist-packages and it's /usr and /usr/local schemes)
-   4. centos/redhat considerations (just one global scheme, unlike debian)
-   5. the world of OSX (homebrew, macports etc...)
-   6. windows installation considerations
-   7. "deploying" python software in the real world
-   8. easy_install's pth sys.path modification (that can override --user installs)
+
+Installing on CentOS/RedHat
+---------------------------
+
+::
+
+   FIXME
+
+
+Installing on Windows
+---------------------
+
+::
+
+   FIXME
+
+
+Installing on OSX
+-----------------
+
+::
+
+   FIXME
+
+
 
