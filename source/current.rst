@@ -1,5 +1,5 @@
 
-.. _`Recommendations`:
+.. _`Quick Recommendations`:
 
 =====================
 Quick Recommendations
