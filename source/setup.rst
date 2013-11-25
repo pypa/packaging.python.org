@@ -6,8 +6,8 @@ Installing the Tools
 :Last Reviewed: 2013-10-29
 
 Instructions for installing or upgrading :ref:`setuptools`, :ref:`pip`,
-:ref:`wheel`, and :ref:`virtualenv`, the :doc:`recommended <current>` tools for
-Python packaging and installation.
+:ref:`wheel`, and :ref:`virtualenv`, the :ref:`recommended <Recommendations>`
+tools for Python packaging and installation.
 
 On Linux and OSX, these tools will usually be available for the system python
 from a system package manager (e.g. `yum` or `apt-get` for linux, or `homebrew` for

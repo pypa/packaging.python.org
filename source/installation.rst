@@ -104,7 +104,7 @@ The most important ways they are different:
 |Support                      |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
 |Installation format          |'Flat' packages with `egg-info`   | Encapsulated Egg format       |
-|                             |metadata directories.             |                               |
+|                             |metadata.                         |                               |
 +-----------------------------+----------------------------------+-------------------------------+
 |``sys.path`` modification    |No                                |Yes (``easy-install.pth``)     |
 |                             |                                  |                               |
