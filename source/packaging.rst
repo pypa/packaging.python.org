@@ -3,7 +3,7 @@ Packaging Guide
 ===============
 
 :Page Status: Incomplete
-:Last Reviewed: 2013-11-03
+:Last Reviewed: 2013-11-26
 
 
 A guide to packaging python :term:`projects <Project>` into :term:`distributions
@@ -22,7 +22,7 @@ What is "packaging"?
    1. the uses of the term "packaging"
      a. creating/maintaining a setup.py
      b. the act of creating distributions (or packages)
-   2. creating binary packages, involves "building" or compiling.
+   2. source vs built vs binary distributions
    3. Why package at all? what's the point? Is it just about PyPI?
 
 
@@ -96,12 +96,7 @@ Getting started with wheel
 Advanced Topics
 ===============
 
-::
+* :ref:`Wheel vs Egg`
+* :ref:`Building RPMs for Python projects`
+* :ref:`Building debs for Python projects`
 
-   FIXME
-
-   What to cover:
-
-   1. Building Rpms and Debs for packages (also for whole environments)
-   2. private non-pypi deployment workflows
-   3. the case for "pip bundle" (or not)

@@ -3,7 +3,7 @@ Python Packaging User Guide
 ===========================
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 2013-11-12
+:Last Reviewed: 2013-11-26
 
 .. toctree::
    :maxdepth: 2
@@ -13,6 +13,7 @@ Python Packaging User Guide
    setup
    installation
    packaging
+   advanced
    projects
    peps
    future
