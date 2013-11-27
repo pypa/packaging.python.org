@@ -13,11 +13,11 @@ What's covered in the guide
 * An :doc:`installation` for setting up environments and installing :term:`distributions <Distribution>`.
 * A :doc:`packaging` for creating and releasing :term:`distributions <Distribution>`.
 * :doc:`advanced` in Packaging and Installation.
-* Summaries of the most relevant :doc:`projects <projects>`.
-* Summaries of the most relevant :doc:`PEPs <peps>`.
+* Summaries of the most relevant :doc:`packaging projects <projects>`.
+* Summaries of the most relevant :doc:`packaging PEPs <peps>`.
 * :doc:`future`.
 * :doc:`history`.
-* :doc:`resources` we deem helpful.
+* :doc:`resources`.
 * A :doc:`glossary` of packaging and installation terms.
 
 
