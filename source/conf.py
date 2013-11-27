@@ -24,7 +24,13 @@ on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = []
+extensions = ['sphinx.ext.intersphinx']
+
+intersphinx_cache_limit = 0
+intersphinx_mapping = {
+    'pip': ('http://www.pip-installer.org/en/latest', None)
+    }
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['themes/pug/templates']
