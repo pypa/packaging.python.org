@@ -5,8 +5,8 @@ Introduction
 :Page Status: Complete
 :Last Reviewed: 2013-11-26
 
-What's covered
-==============
+What's covered in the guide
+===========================
 
 * :doc:`current` for what tools you should be using now.
 * :doc:`Instructions for installing setuptools, pip, virtualenv and wheel <setup>`.
@@ -21,16 +21,16 @@ What's covered
 * A :doc:`glossary` of packaging and installation terms.
 
 
-Where to get support
-====================
+Where to get packaging support
+==============================
 
-* For support related to a specific project, see the mailing list links on the
-  :doc:`Projects <projects>` page.
+* For support related to a specific project, see the mailing list and IRC links
+  on the :doc:`Projects <projects>` page.
 * For something more general, or when you just not sure, use the `distutils-sig
   <http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
 
-How to help
-===========
+How to help packaging
+=====================
 
 * Get involved with one of mainstream :doc:`packaging projects <projects>`.
 * Help us catalog and discuss the current problems in packaging and
@@ -41,24 +41,6 @@ How to help
   <http://mail.python.org/mailman/listinfo/distutils-sig>`_.
 * Help make this guide better.  Log issues or make pull requests at
   https://bitbucket.org/pypa/python-packaging-user-guide
-
-
-About the Guide
-===============
-
-The guide aims to be the authoritative resource on how to package and install
-distributions in Python.
-
-The guide is part of a larger effort to improve all of the packaging and
-installation docs, including :ref:`pip`, :ref:`setuptools`, :ref:`virtualenv`,
-and :ref:`wheel`. Ultimately, users need more than a "guide" to feel confident
-about the current tools. They need complete, accurate and inter-consistent
-documentation across all the projects.
-
-The guide is currently maintained by the :term:`PyPA <Python Packaging Authority
-(PyPA)>`.  It was forked from the “Hitchhikers Guide to Packaging” in March
-2013, which was maintained by Tarek Ziadé.  Thankyou Tarek for all your efforts
-in python packaging.
 
 
 About 'Page Status'
