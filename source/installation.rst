@@ -80,11 +80,20 @@ Advanced Topics
 pip vs easy_install
 -------------------
 
-::
+`easy_install` was released in 2004, as part of :ref:`setuptools`.  It was
+notable at the time for installing :term:`distributions <Distribution>` from
+:term:`PyPI <Python Package Index (PyPI)>` using requirement specifiers, and
+automatically installing dependencies.
 
-   FIXME  needs more links and explanation
+:ref:`pip` came later in 2008, as alternative to `easy_install`, although still
+largely built on top of :ref:`setuptools` components.  It was notable at the
+time for *not* installing packages as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but
+rather simply as 'flat' packages from :term:`sdists <Source Distribution (or
+"sdist")>`), and introducing the idea of :ref:`Requirements Files
+<pip:Requirements Files>`, which gave users the power to easily replicate
+environments.
 
-The most important ways they are different:
+Here's a breakdown if the important differences between pip and easy_install now:
 
 +-----------------------------+----------------------------------+-------------------------------+
 |                             | **pip**                          | **easy_install**              |
@@ -94,8 +103,8 @@ The most important ways they are different:
 +-----------------------------+----------------------------------+-------------------------------+
 |Uninstall Packages           |Yes (``pip uninstall``)           |No                             |
 +-----------------------------+----------------------------------+-------------------------------+
-|Dependency Overrides         |Yes ("Requirements Files")        |No                             |
-|                             |                                  |                               |
+|Dependency Overrides         |Yes (:ref:`Requirements Files     |No                             |
+|                             |<pip:Requirements Files>`)        |                               |
 +-----------------------------+----------------------------------+-------------------------------+
 |List Installed Packages      |Yes (``pip list`` and ``pip       |No                             |
 |                             |freeze``)                         |                               |
@@ -106,7 +115,8 @@ The most important ways they are different:
 |Installation format          |'Flat' packages with `egg-info`   | Encapsulated Egg format       |
 |                             |metadata.                         |                               |
 +-----------------------------+----------------------------------+-------------------------------+
-|``sys.path`` modification    |No                                |Yes (``easy-install.pth``)     |
+|sys.path modification        |No                                |:ref:`Yes <easy_install and    |
+|                             |                                  |sys.path>`                     |
 |                             |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
 |Installs from :term:`Eggs    |No                                |Yes                            |
@@ -115,6 +125,12 @@ The most important ways they are different:
 |Multi-version Installs       |No                                |Yes                            |
 |                             |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
+
+
+.. _`easy_install and sys.path`:
+
+easy_install and sys.path
+-------------------------
 
 
 
