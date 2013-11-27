@@ -15,9 +15,10 @@ and :ref:`wheel`. Ultimately, users need more than a guide to feel confident
 about the current tools. They need complete, accurate and inter-consistent
 documentation across all the projects.
 
-The guide is currently maintained by the :term:`Python Packaging Authority
-(PyPA)`.  It was forked from the “Hitchhikers Guide to Packaging” in March
-2013.
+The guide is maintained `here
+<https://bitbucket.org/pypa/python-packaging-user-guide>`_ by the :term:`Python
+Packaging Authority (PyPA)`.  It was forked from the “Hitchhikers Guide to
+Packaging” in March 2013.
 
 
 .. toctree::
