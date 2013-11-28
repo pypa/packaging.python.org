@@ -41,9 +41,12 @@ A tool for creating isolated Python environments.
 
 
 .. _setuptools:
+.. _easy_install:
 
 setuptools
 ==========
+
+(includes easy_install)
 
 `Docs <http://pythonhosted.org/setuptools>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
