@@ -35,7 +35,15 @@ Introduction to PyPI
 What tools to use
 =================
 
-:ref:`virtualenv` and :ref:`pip`
+The PyPA recommends the use of :ref:`pip` for package installation and
+:ref:`virtualenv` for virtual environments.
+
+Advantages of pip over easy_install:
+
+  - Uninstall support.
+  - Addresses [unspecified] bugs that easy_install cannot address due to
+    backward-compatibilty constraints.
+  - Decoupled from packaging tools.
 
 ::
 
@@ -44,9 +52,29 @@ What tools to use
    What to cover:
 
    1) Why virtualenv (what about pyenv? buildout?)
-   2) Why pip (compare pip vs easy_install in detail); use rationale from PEP453
-   3) When to use easy_install ([multi-version] eggs)
+   2) What easy_install bugs mentioned in PEP453 does pip address?
 
+Alternatives
+------------
+
+:ref:`setuptools` provides the ``easy_install`` command for installation.
+``easy_install`` is preferred by some for the features it offers not offered
+by pip:
+
+  - Multi-version installs: easy_install allows simultaneous installation of
+    different versions of the same package inte a single environment shared by
+    multiple programs which must ``require`` the appropriate version of the
+    package at run time. In general, virtual environments fulfill this need
+    without the complication of the ``require`` directive.
+  - Natural egg support: Although pip can install as eggs using the ``--egg``
+    parameter for installing eggs, easy_install provides additional control
+    over how eggs are installed (i.e. zipped or unzipped).
+  - Rigorous version management: easy_install will raise an error if
+    mutually-incompatible versions of a dependency tree are installed.
+  - Better console script support on Windows: ``easy_install`` is currently
+    the only installer that supports the `launching of natural scripts
+    <http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher>`_
+    using `PyLauncher <https://bitbucket.org/pypa/pylauncher>`.
 
 Getting started with virtualenv
 ===============================
