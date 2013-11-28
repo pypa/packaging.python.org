@@ -53,7 +53,7 @@ Here's a breakdown if the important differences between pip and easy_install now
 |Installs from :term:`Eggs    |No                                |Yes                            |
 |<Egg>`                       |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
-|Multi-version Installs       |No                                |Yes                            |
+|:ref:`Multi-version Installs`|No                                |Yes                            |
 |                             |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
 
