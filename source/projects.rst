@@ -4,7 +4,7 @@ Project Summaries
 =================
 
 :Page Status: Complete
-:Last Reviewed: 2013-10-31
+:Last Reviewed: 2013-11-28
 
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
@@ -50,7 +50,8 @@ setuptools
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://bitbucket.org/pypa/setuptools/issues>`__ |
 `Bitbucket <https://bitbucket.org/pypa/setuptools>`__ |
-`PyPI <https://pypi.python.org/pypi/setuptools>`__
+`PyPI <https://pypi.python.org/pypi/setuptools>`__ |
+irc:#distutils
 
 
 setuptools is a collection of enhancements to the Python distutils that allow
