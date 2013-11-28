@@ -53,6 +53,9 @@ Here's a breakdown if the important differences between pip and easy_install now
 |Installs from :term:`Eggs    |No                                |Yes                            |
 |<Egg>`                       |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
+|:ref:`Dependency Resolution` | :ref:`Kinda <Dependency          | :ref:`Kinda <Dependency       |
+|                             |Resolution>`                      |Resolution>`                   |
++-----------------------------+----------------------------------+-------------------------------+
 |:ref:`Multi-version Installs`|No                                |Yes                            |
 |                             |                                  |                               |
 +-----------------------------+----------------------------------+-------------------------------+
@@ -150,3 +153,21 @@ Multi-version Installs
 
    FIXME
 
+
+.. _`Dependency Resolution`:
+
+Dependency Resolution
+=====================
+
+::
+
+   FIXME
+
+   what to cover:
+   - pip lacking a true resolver (currently, "1st found wins"; practical for overriding in requirements files)
+   - easy_install will raise an error if mutually-incompatible versions of a dependency tree are installed.
+   - console_scripts complaining about conflicts
+   - scenarios to breakdown:
+      - conficting dependencies within the dep tree of one argument ``pip|easy_install  OnePackage``
+      - conflicts across arguments: ``pip|easy_install  OnePackage TwoPackage``
+      - conflicts with what's already installed

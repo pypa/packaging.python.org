@@ -35,7 +35,7 @@ Introduction to PyPI
 What tools to use
 =================
 
-The PyPA recommends the use of :ref:`pip` for package installation and
+The :term:`PyPA <Python Packaging Authority (PyPA)>` currently :doc:`recommends <current>` :ref:`pip` for package installation and
 :ref:`virtualenv` for virtual environments.
 
 Advantages of pip over easy_install:
@@ -52,7 +52,7 @@ Advantages of pip over easy_install:
    What to cover:
 
    1) Why virtualenv (what about pyenv? buildout?)
-   2) What easy_install bugs mentioned in PEP453 does pip address?
+   2) Why pip? the rationale from PEP453 (what easy_install bugs mentioned in PEP453 does pip address?)
 
 Alternatives
 ------------
@@ -69,8 +69,6 @@ by pip:
   - Natural egg support: Although pip can install as eggs using the ``--egg``
     parameter for installing eggs, easy_install provides additional control
     over how eggs are installed (i.e. zipped or unzipped).
-  - Rigorous version management: easy_install will raise an error if
-    mutually-incompatible versions of a dependency tree are installed.
   - Better console script support on Windows: ``easy_install`` is currently
     the only installer that supports the `launching of natural scripts
     <http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher>`_
