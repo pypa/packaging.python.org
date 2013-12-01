@@ -53,6 +53,9 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Installs from :term:`Eggs     |No                                |Yes                            |
 |<Egg>`                        |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
+|`pylauncher support`_         |No                                |Yes [1]_                       |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
 |:ref:`Dependency Resolution`  |:ref:`Kinda <Dependency           |:ref:`Kinda <Dependency        |
 |                              |Resolution>`                      |Resolution>`                   |
 +------------------------------+----------------------------------+-------------------------------+
@@ -60,6 +63,8 @@ Here's a breakdown of the important differences between pip and easy_install now
 |                              |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
 
+
+.. _pylauncher support: https://bitbucket.org/pypa/pylauncher
 
 .. _`easy_install and sys.path`:
 
@@ -153,6 +158,12 @@ Multi-version Installs
 
    FIXME
 
+easy_install allows simultaneous installation of different versions of the same
+package inte a single environment shared by multiple programs which must
+``require`` the appropriate version of the package at run time. In general,
+virtual environments fulfill this need without the complication of the
+``require`` directive.
+
 
 .. _`Dependency Resolution`:
 
@@ -171,3 +182,5 @@ Dependency Resolution
       - conficting dependencies within the dep tree of one argument ``pip|easy_install  OnePackage``
       - conflicts across arguments: ``pip|easy_install  OnePackage TwoPackage``
       - conflicts with what's already installed
+
+.. [1] http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher

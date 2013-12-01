@@ -49,29 +49,11 @@ environments.
    2) Why pick *one* installer to recommend?
        the rationale from PEP453
    3) why pip?
-      - feature breakdown in the pip vs easy_install chart in the advanced section weighs in pip's favor
+      - feature breakdown in the "pip vs easy_install" chart in the advanced section weighs in pip's favor
       - Decoupled from packaging tools.
       - what easy_install bugs mentioned in PEP453 does pip address?
+   4) mention easy_install for the Yes cases in the "pip vs easy_install" chart.
 
-Alternatives
-------------
-
-:ref:`setuptools` provides the ``easy_install`` command for installation.
-``easy_install`` is preferred by some for the features it offers not offered
-by pip:
-
-  - Multi-version installs: easy_install allows simultaneous installation of
-    different versions of the same package inte a single environment shared by
-    multiple programs which must ``require`` the appropriate version of the
-    package at run time. In general, virtual environments fulfill this need
-    without the complication of the ``require`` directive.
-  - Natural egg support: Although pip can install as eggs using the ``--egg``
-    parameter for installing eggs, easy_install provides additional control
-    over how eggs are installed (i.e. zipped or unzipped).
-  - Better console script support on Windows: ``easy_install`` is currently
-    the only installer that supports the `launching of natural scripts
-    <http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher>`_
-    using `PyLauncher <https://bitbucket.org/pypa/pylauncher>`.
 
 Getting started with virtualenv
 ===============================
