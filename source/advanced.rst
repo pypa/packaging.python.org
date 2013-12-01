@@ -3,7 +3,7 @@ Advanced Topics
 ===============
 
 :Page Status: Incomplete
-:Last Reviewed: 2013-11-26
+:Last Reviewed: 2013-12-01
 
 
 .. _`pip vs easy_install`:
