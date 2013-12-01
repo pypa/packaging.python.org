@@ -35,15 +35,9 @@ Introduction to PyPI
 What tools to use
 =================
 
-The :term:`PyPA <Python Packaging Authority (PyPA)>` currently :doc:`recommends <current>` :ref:`pip` for package installation and
-:ref:`virtualenv` for virtual environments.
-
-Advantages of pip over easy_install:
-
-  - Uninstall support.
-  - Addresses [unspecified] bugs that easy_install cannot address due to
-    backward-compatibilty constraints.
-  - Decoupled from packaging tools.
+The :term:`PyPA <Python Packaging Authority (PyPA)>` currently :doc:`recommends
+<current>` :ref:`pip` for package installation and :ref:`virtualenv` for virtual
+environments.
 
 ::
 
@@ -52,7 +46,12 @@ Advantages of pip over easy_install:
    What to cover:
 
    1) Why virtualenv (what about pyenv? buildout?)
-   2) Why pip? the rationale from PEP453 (what easy_install bugs mentioned in PEP453 does pip address?)
+   2) Why pick *one* installer to recommend?
+       the rationale from PEP453
+   3) why pip?
+      - feature breakdown in the pip vs easy_install chart in the advanced section weighs in pip's favor
+      - Decoupled from packaging tools.
+      - what easy_install bugs mentioned in PEP453 does pip address?
 
 Alternatives
 ------------

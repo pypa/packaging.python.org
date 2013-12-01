@@ -24,41 +24,41 @@ rather simply as 'flat' packages from :term:`sdists <Source Distribution (or
 <pip:Requirements Files>`, which gave users the power to easily replicate
 environments.
 
-Here's a breakdown if the important differences between pip and easy_install now:
+Here's a breakdown of the important differences between pip and easy_install now:
 
-+-----------------------------+----------------------------------+-------------------------------+
-|                             | **pip**                          | **easy_install**              |
-+-----------------------------+----------------------------------+-------------------------------+
-|Installs from :term:`Wheels  |Yes                               |No                             |
-|<Wheel>`                     |                                  |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|Uninstall Packages           |Yes (``pip uninstall``)           |No                             |
-+-----------------------------+----------------------------------+-------------------------------+
-|Dependency Overrides         |Yes (:ref:`Requirements Files     |No                             |
-|                             |<pip:Requirements Files>`)        |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|List Installed Packages      |Yes (``pip list`` and ``pip       |No                             |
-|                             |freeze``)                         |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|:ref:`PEP438 <PEP438s>`      |Yes                               |No                             |
-|Support                      |                                  |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|Installation format          |'Flat' packages with `egg-info`   | Encapsulated Egg format       |
-|                             |metadata.                         |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|sys.path modification        |No                                |:ref:`Yes <easy_install and    |
-|                             |                                  |sys.path>`                     |
-|                             |                                  |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|Installs from :term:`Eggs    |No                                |Yes                            |
-|<Egg>`                       |                                  |                               |
-+-----------------------------+----------------------------------+-------------------------------+
-|:ref:`Dependency Resolution` | :ref:`Kinda <Dependency          | :ref:`Kinda <Dependency       |
-|                             |Resolution>`                      |Resolution>`                   |
-+-----------------------------+----------------------------------+-------------------------------+
-|:ref:`Multi-version Installs`|No                                |Yes                            |
-|                             |                                  |                               |
-+-----------------------------+----------------------------------+-------------------------------+
++------------------------------+----------------------------------+-------------------------------+
+|                              | **pip**                          | **easy_install**              |
++------------------------------+----------------------------------+-------------------------------+
+|Installs from :term:`Wheels   |Yes                               |No                             |
+|<Wheel>`                      |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
+|Uninstall Packages            |Yes (``pip uninstall``)           |No                             |
++------------------------------+----------------------------------+-------------------------------+
+|Dependency Overrides          |Yes (:ref:`Requirements Files     |No                             |
+|                              |<pip:Requirements Files>`)        |                               |
++------------------------------+----------------------------------+-------------------------------+
+|List Installed Packages       |Yes (``pip list`` and ``pip       |No                             |
+|                              |freeze``)                         |                               |
++------------------------------+----------------------------------+-------------------------------+
+|:ref:`PEP438 <PEP438s>`       |Yes                               |No                             |
+|Support                       |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
+|Installation format           |'Flat' packages with `egg-info`   | Encapsulated Egg format       |
+|                              |metadata.                         |                               |
++------------------------------+----------------------------------+-------------------------------+
+|sys.path modification         |No                                |:ref:`Yes <easy_install and    |
+|                              |                                  |sys.path>`                     |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
+|Installs from :term:`Eggs     |No                                |Yes                            |
+|<Egg>`                        |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
+|:ref:`Dependency Resolution`  |:ref:`Kinda <Dependency           |:ref:`Kinda <Dependency        |
+|                              |Resolution>`                      |Resolution>`                   |
++------------------------------+----------------------------------+-------------------------------+
+|:ref:`Multi-version Installs` |No                                |Yes                            |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
 
 
 .. _`easy_install and sys.path`:
