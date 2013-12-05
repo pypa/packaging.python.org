@@ -1,6 +1,6 @@
-===============
-Advanced Topics
-===============
+=================
+Additional Topics
+=================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-12-01
@@ -182,5 +182,6 @@ Dependency Resolution
       - conficting dependencies within the dep tree of one argument ``pip|easy_install  OnePackage``
       - conflicts across arguments: ``pip|easy_install  OnePackage TwoPackage``
       - conflicts with what's already installed
+
 
 .. [1] http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher

@@ -29,7 +29,7 @@ Packaging” in March 2013.
    setup
    installation
    packaging
-   advanced
+   additional
    projects
    peps
    future

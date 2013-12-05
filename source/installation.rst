@@ -49,7 +49,7 @@ environments.
    2) Why pick *one* installer to recommend?
        the rationale from PEP453
    3) why pip?
-      - feature breakdown in the "pip vs easy_install" chart in the advanced section weighs in pip's favor
+      - feature breakdown in the "pip vs easy_install" chart in the additional section weighs in pip's favor
       - Decoupled from packaging tools.
       - what easy_install bugs mentioned in PEP453 does pip address?
    4) mention easy_install for the Yes cases in the "pip vs easy_install" chart.
@@ -80,8 +80,8 @@ Getting started with pip
       - pip's usage (which needs better subcommand descriptions and more examples)
 
 
-Advanced Topics
-===============
+Additional Topics
+=================
 
 * :ref:`pip vs easy_install`
 * :ref:`easy_install and sys.path`
@@ -89,3 +89,4 @@ Advanced Topics
 * :ref:`Installing on CentOS/RedHat`
 * :ref:`Installing on Windows`
 * :ref:`Installing on OSX`
+

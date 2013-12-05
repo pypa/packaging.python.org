@@ -12,7 +12,7 @@ What's covered in the guide
 * :doc:`Instructions for installing setuptools, pip, virtualenv and wheel <setup>`.
 * An :doc:`installation` for setting up environments and installing :term:`distributions <Distribution>`.
 * A :doc:`packaging` for creating and releasing :term:`distributions <Distribution>`.
-* :doc:`advanced` in Packaging and Installation.
+* :doc:`additional` in Packaging and Installation.
 * Summaries of the most relevant :doc:`packaging projects <projects>`.
 * Summaries of the most relevant :doc:`packaging PEPs <peps>`.
 * :doc:`future`.
