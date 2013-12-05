@@ -89,4 +89,4 @@ Additional Topics
 * :ref:`Installing on CentOS/RedHat`
 * :ref:`Installing on Windows`
 * :ref:`Installing on OSX`
-
+* :ref:`NumPy and the Science Stack`

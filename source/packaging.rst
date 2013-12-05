@@ -99,4 +99,5 @@ Additional Topics
 * :ref:`Wheel vs Egg`
 * :ref:`Building RPMs for Python projects`
 * :ref:`Building debs for Python projects`
+* :ref:`Binary Extensions`
 

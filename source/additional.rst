@@ -184,4 +184,31 @@ Dependency Resolution
       - conflicts with what's already installed
 
 
+.. _`Binary Extensions`:
+
+Binary Extensions
+=================
+
+::
+
+   FIXME
+
+   https://bitbucket.org/pypa/python-packaging-user-guide/issue/36
+
+
+
+.. _`NumPy and the Science Stack`:
+
+NumPy and the Science Stack
+===========================
+
+::
+
+   FIXME
+
+   https://bitbucket.org/pypa/python-packaging-user-guide/issue/37
+
+
+
+
 .. [1] http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher
