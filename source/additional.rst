@@ -164,6 +164,17 @@ package inte a single environment shared by multiple programs which must
 virtual environments fulfill this need without the complication of the
 ``require`` directive.
 
+The major limitation of ``require`` is that the first time you call it, it
+locks in the *default* version of everything which is available on sys.path,
+and ``setuptools`` created command line scripts call it by default. This
+means that, for example, you can't use ``require`` tests invoked through
+``nose`` or a WSGI application invoked through ``gunicorn`` if your
+application needs a non-default version of anything - the script wrapper
+for the main application will lock in the version that is available by
+default, so the subsequent ``require`` call fails with a spurious version
+conflict.
+
+
 
 .. _`Dependency Resolution`:
 
