@@ -287,11 +287,22 @@ when using virtual environments is a common approach to working around this
 limitation.
 
 
-Anaconda packages
------------------
+SciPy distributions
+-------------------
+
+The SciPy site lists `several distributions
+<http://www.scipy.org/install.html>`__ that provide the full SciPy stack to
+end users in an easy to use and update format.
+
+Some of these distributions may not be compatible with the standard ``pip``
+and ``virtualenv`` based toolchain.
+
+
+The conda cross-platform package manager
+----------------------------------------
 
 `Anaconda <https://store.continuum.io/cshop/anaconda/>`__ (in this context)
-is a Python distribution published by Continuum Analytics.
+is a SciPy distribution published by Continuum Analytics.
 
 ``conda`` is the open source (BSD licensed) package management system that
 Continuum Analytics created and published as part of Anaconda's development.
