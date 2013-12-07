@@ -1,6 +1,6 @@
-===============
-Packaging Guide
-===============
+==============================
+Distributing Software via PyPI
+==============================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-11-26

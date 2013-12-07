@@ -1,6 +1,6 @@
-==================
-Installation Guide
-==================
+====================
+Installing from PyPI
+====================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-12-01
