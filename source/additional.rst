@@ -156,26 +156,31 @@ Building debs for Python projects
 Multi-version Installs
 ======================
 
-::
-
-   FIXME
-
 easy_install allows simultaneous installation of different versions of the same
-package inte a single environment shared by multiple programs which must
-``require`` the appropriate version of the package at run time. In general,
-virtual environments fulfill this need without the complication of the
-``require`` directive.
+package into a single environment shared by multiple programs which must
+``require`` the appropriate version of the package at run time (using
+``pkg_resources``).
 
-The major limitation of ``require`` is that the first time you call it, it
-locks in the *default* version of everything which is available on sys.path,
-and ``setuptools`` created command line scripts call it by default. This
-means that, for example, you can't use ``require`` tests invoked through
-``nose`` or a WSGI application invoked through ``gunicorn`` if your
-application needs a non-default version of anything - the script wrapper
-for the main application will lock in the version that is available by
-default, so the subsequent ``require`` call fails with a spurious version
-conflict.
+For many use cases, virtual environments address this need without the
+complication of the ``require`` directive. However, the advantage of
+parallel installations within the same environment is that it works for an
+environment shared by multiple applications, such as the system Python in a
+Linux distribution.
 
+The major limitation of ``pkg_resources`` based parallel installation is
+that as soon as you import ``pkg_resources`` it locks in the *default*
+version of everything which is already available on sys.path. This can
+cause problems, since ``setuptools`` created command line scripts
+use ``pkg_resources`` to find the entry point to execute. This means that,
+for example, you can't use ``require`` tests invoked through ``nose`` or a
+WSGI application invoked through ``gunicorn`` if your application needs a
+non-default version of anything that is available on the standard
+``sys.path`` - the script wrapper for the main application will lock in the
+version that is available by default, so the subsequent ``require`` call
+in your own code fails with a spurious version conflict.
+
+Refer to the `pkg_resources documentation <http://pythonhosted.org/setuptools/pkg_resources.html#workingset-objects>`__
+for more details.
 
 
 .. _`Dependency Resolution`:
