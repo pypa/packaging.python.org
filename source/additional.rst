@@ -275,6 +275,9 @@ least publish Windows installers, either on PyPI or on their project
 download page. Using these installers allows users to avoid the need to set
 up a suitable environment to build extensions locally.
 
+The extensions provided in these installers are typically compatible with
+the CPython Windows installers published on python.org.
+
 For projects which don't provide their own Windows installers (and even
 some which do), Christoph Gohlke at the University of California provides
 a `collection of Windows installers
@@ -286,6 +289,19 @@ a system Python installation - they do not support installation in virtual
 environments. Allowing access to packages installed into the system Python
 when using virtual environments is a common approach to working around this
 limitation.
+
+
+Mac OS X installers and package managers
+----------------------------------------
+
+Similar to the situation on Windows, many projects (including NumPy) publish
+Mac OS X installers that are compatible with the Mac OS X CPython binaries
+published on python.org.
+
+Mac OS X users also have access to Linux distribution style package managers
+such as ``MacPorts``. The SciPy site has more details on using MacPorts to
+install the ` scientific Python stack
+<http://www.scipy.org/install.html#mac-packages>`__
 
 
 SciPy distributions
