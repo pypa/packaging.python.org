@@ -87,6 +87,11 @@ This means that binary extensions:
   and introducing additional complexity in the test suite to ensure both
   versions are always executed.
 
+Another disadvantage of relying on binary extensions is that alternative
+import mechanisms (such as the ability to import modules directly from
+zipfiles) often won't work for extension modules (as the dynamic loading
+mechanisms on most platforms can only load libraries from disk).
+
 
 Alternatives to handcoded accelerator modules
 ---------------------------------------------
