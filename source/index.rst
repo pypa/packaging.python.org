@@ -29,7 +29,6 @@ Packaging” in March 2013.
    setup
    installation
    packaging
-   extensions
    additional
    projects
    peps
