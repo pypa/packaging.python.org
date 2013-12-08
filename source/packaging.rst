@@ -93,8 +93,8 @@ Getting started with wheel
    5. the current PyPI upload block on linux platform wheels (and why they're blocked)
 
 
-Additional Topics
-=================
+Related Additional Topics
+=========================
 
 * :ref:`Wheel vs Egg`
 * :ref:`Building RPMs for Python projects`

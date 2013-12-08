@@ -80,8 +80,8 @@ Getting started with pip
       - pip's usage (which needs better subcommand descriptions and more examples)
 
 
-Additional Topics
-=================
+Related Additional Topics
+=========================
 
 * :ref:`pip vs easy_install`
 * :ref:`easy_install and sys.path`
