@@ -1,8 +1,8 @@
 .. _`Binary Extensions`:
 
-==========================
-Handling Binary Extensions
-==========================
+=================
+Binary Extensions
+=================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-12-08
