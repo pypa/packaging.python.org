@@ -8,17 +8,17 @@ Introduction
 What's covered in the guide
 ===========================
 
-* :doc:`current` for what tools you should be using now.
-* :doc:`Instructions for installing setuptools, pip, virtualenv and wheel <setup>`.
-* An :doc:`installation` for setting up environments and installing :term:`distributions <Distribution>`.
-* A :doc:`packaging` for creating and releasing :term:`distributions <Distribution>`.
-* :doc:`additional` in Packaging and Installation.
+* :doc:`Quick Recommendations <current>` for what tools you should be using now.
+* :doc:`Instructions for installing the main packaging tools <setup>`.
+* An introduction to :doc:`Installing Python Packages <installation>`.
+* An introduction to :doc:`Packaging and Distributing Python Projects <packaging>`.
+* :doc:`Additional Topics <additional>` in Packaging and Installation.
 * Summaries of the most relevant :doc:`packaging projects <projects>`.
 * Summaries of the most relevant :doc:`packaging PEPs <peps>`.
-* :doc:`future`.
-* :doc:`history`.
-* :doc:`resources`.
-* A :doc:`glossary` of packaging and installation terms.
+* :doc:`The Future of Python Packaging <future>`.
+* :doc:`A Packaging Timeline <history>`.
+* :doc:`Additional Resources <resources>`.
+* A :doc:`Glossary <glossary>` of packaging and installation terms.
 
 
 Where to get packaging support
