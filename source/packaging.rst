@@ -1,13 +1,14 @@
-==============================
-Distributing Software via PyPI
-==============================
+==========================================
+Packaging and Distributing Python Projects
+==========================================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-11-26
 
 
 A guide to packaging python :term:`projects <Project>` into :term:`distributions
-<Distribution>` and uploading them to :term:`PyPI <Python Package Index (PyPI)>`.
+<Distribution>` (or ":term:`packages <Package (Meaning #2)>`") and uploading
+them to :term:`PyPI <Python Package Index (PyPI)>`.
 
 
 What is "packaging"?
