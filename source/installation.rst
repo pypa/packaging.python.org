@@ -1,12 +1,12 @@
-====================
-Installing from PyPI
-====================
+==========================
+Installing Python Packages
+==========================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-12-01
 
 
-A guide to installing python :term:`distributions <Distribution>` from
+A guide to installing python :term:`packages <Package (Meaning #2)>` from
 :term:`PyPI <Python Package Index (PyPI)>` and other sources.
 
 
