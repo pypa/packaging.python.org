@@ -44,11 +44,11 @@ How to help packaging
 About the guide
 ===============
 
-The guide is maintained `here on bitbucket
-<https://bitbucket.org/pypa/python-packaging-user-guide>`_ by the :term:`Python
+The guide is maintained `here on Github
+<https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python
 Packaging Authority (PyPA)`.  It was forked from the “Hitchhikers Guide to
 Packaging” in March 2013. Please `Log Issues
-<https://bitbucket.org/pypa/python-packaging-user-guide/issues>`_ and Pull
+<https://github.com/pypa/python-packaging-user-guide/issues>`_ and Pull
 Requests to help make the guide better.
 
 About 'Page Status'
