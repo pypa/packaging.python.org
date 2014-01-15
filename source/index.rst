@@ -16,7 +16,7 @@ about the current tools. They need complete, accurate and inter-consistent
 documentation across all the projects.
 
 The guide is maintained `here
-<https://bitbucket.org/pypa/python-packaging-user-guide>`_ by the :term:`Python
+<https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python
 Packaging Authority (PyPA)`.  It was forked from the “Hitchhikers Guide to
 Packaging” in March 2013.
 
