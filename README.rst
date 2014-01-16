@@ -17,10 +17,9 @@ packaging.
 
 The html version of the Guide is currently available online at readthedocs.org_.
 
-Please see the `source/license.rst <license>`_ file for license information.
+Please see the `source/license.rst <source/license.rst>`_ file for license information.
 
 This documentation project is built with the Sphinx_ documentation software.
 
 .. _readthedocs.org: https://python-packaging-user-guide.readthedocs.org
-.. _license: source/license.rst
 .. _Sphinx: https://pypi.python.org/pypi/Sphinx
