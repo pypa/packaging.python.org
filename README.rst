@@ -1,5 +1,5 @@
-The Python Package User Guide
-=============================
+Python Packaging User Guide
+===========================
 
 The "Python Packaging User Guide" (PPUG) aims to be the authoritative
 resource on how to package and install distributions in Python.
@@ -17,10 +17,10 @@ packaging.
 
 The html version of the Guide is currently available online at readthedocs.org_.
 
-Please see the `source/license.txt <license>`_ file for license information.
+Please see the `source/license.rst <license>`_ file for license information.
 
 This documentation project is built with the Sphinx_ documentation software.
 
 .. _readthedocs.org: https://python-packaging-user-guide.readthedocs.org
-.. _license: source/license.txt
+.. _license: source/license.rst
 .. _Sphinx: https://pypi.python.org/pypi/Sphinx
