@@ -1,5 +1,8 @@
-The "Python Packaging User Guide" aims to be the authoritative resource on how
-to package and install distributions in Python.
+The Python Package User Guide
+=============================
+
+The "Python Packaging User Guide" (PPUG) aims to be the authoritative
+resource on how to package and install distributions in Python.
 
 The guide is part of a larger effort to improve all of the packaging and
 installation docs, including pip, setuptools, virtualenv, wheel, and
@@ -12,7 +15,12 @@ It was forked from the “Hitchhikers Guide to Packaging” in March 2013, which
 maintained by Tarek Ziadé.  Thankyou Tarek for all your efforts in python
 packaging.
 
-The html version of the Guide is currently available at
-https://python-packaging-user-guide.readthedocs.org.
+The html version of the Guide is currently available online at readthedocs.org_.
 
-Please see the `source/license.txt` file for license information.
+Please see the `source/license.txt <license>`_ file for license information.
+
+This documentation project is built with the Sphinx_ documentation software.
+
+.. _readthedocs.org: https://python-packaging-user-guide.readthedocs.org
+.. _license: source/license.txt
+.. _Sphinx: https://pypi.python.org/pypi/Sphinx
