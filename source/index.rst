@@ -24,6 +24,7 @@ Packaging” in March 2013.
 .. toctree::
    :maxdepth: 2
 
+   quickstart
    introduction
    current
    setup
