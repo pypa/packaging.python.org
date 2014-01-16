@@ -11,9 +11,9 @@ to package and install distributions in Python.
 
 The guide is part of a larger effort to improve all of the packaging and
 installation docs, including :ref:`pip`, :ref:`setuptools`, :ref:`virtualenv`,
-and :ref:`wheel`. Ultimately, users need more than a guide to feel confident
-about the current tools. They need complete, accurate and inter-consistent
-documentation across all the projects.
+:ref:`wheel`, and `docs.python.org`_. Ultimately, users need more than a guide
+to feel confident about the current tools. They need complete, accurate and
+inter-consistent documentation across all the projects.
 
 The guide is maintained `here
 <https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python
@@ -41,4 +41,8 @@ Packaging” in March 2013.
 
 ----
 
-.. [1] The main index page will only be marked "Complete", when all pages are marked "Complete", which they are not.
+.. [1] The main index page will only be marked "Complete", when all pages are
+       marked "Complete", which they are not.
+
+
+.. _docs.python.org: http://docs.python.org
