@@ -19,7 +19,9 @@ Installing on Debian/Ubuntu
 
    FIXME
 
-   cover 'dist-packages' and it's /usr and /usr/local schemes
+   -  dist-packages vs  site-pacakges
+   - /usr vs /usr/local
+   - users getting stuck on older setuptools use LTS distros
 
 
 .. _`Installing on CentOS/RedHat`:
