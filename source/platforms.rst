@@ -51,6 +51,9 @@ Installing on OSX
 
    FIXME
 
+   - inability to override default setuptools with --user install
+     (https://github.com/pypa/pip/issues/1480)
+
 
 .. _`Building RPMs for Python projects`:
 
