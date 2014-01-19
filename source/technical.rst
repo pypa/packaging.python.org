@@ -80,6 +80,8 @@ easy_install and sys.path
 
    FIXME
 
+   - global easy_install'd packages override --user installs
+
 
 .. _`Wheel vs Egg`:
 
