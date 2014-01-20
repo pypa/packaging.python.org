@@ -1,8 +1,9 @@
 Python Packaging User Guide
 ===========================
 
-The "Python Packaging User Guide" (PPUG) aims to be the authoritative
-resource on how to package and install distributions in Python.
+The "Python Packaging User Guide" (PUG) aims to be the authoritative resource on
+how to package and install distributions in Python using current tools, but also
+on the efforts to improve python packaging.
 
 The guide is part of a larger effort to improve all of the packaging and
 installation docs, including pip, setuptools, virtualenv, wheel, and

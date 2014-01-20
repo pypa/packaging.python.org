@@ -6,8 +6,9 @@ Python Packaging User Guide
 :Last Reviewed: 2013-11-26
 
 
-The "Python Packaging User Guide" aims to be the authoritative resource on how
-to package and install distributions in Python.
+The "Python Packaging User Guide" (PUG) aims to be the authoritative resource on
+how to package and install distributions in Python using current tools, but also
+on the efforts to improve Python packaging.
 
 The guide is part of a larger effort to improve all of the packaging and
 installation docs, including :ref:`pip`, :ref:`setuptools`, :ref:`virtualenv`,
