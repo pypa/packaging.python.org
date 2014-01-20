@@ -8,6 +8,7 @@ Introduction
 What's covered in the guide
 ===========================
 
+* A :doc:`Quickstart <quickstart>` for getting going fast.
 * :doc:`Quick Recommendations <current>` for what tools you should be using now.
 * :doc:`Instructions for installing the main packaging tools <setup>`.
 * An introduction to :doc:`Installing Python Packages <installation>`.
