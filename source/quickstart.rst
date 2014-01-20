@@ -64,14 +64,6 @@ Upgrade an already installed `SomePackage` to the latest from PyPI.
  pip install --upgrade SomePackage
 
 
-Install a local project in :ref:`Editable mode <pip:editable-installs>`.
-
-::
-
- pip install -e .                  # project in current directory
- pip install -e path/to/project    # project in another directory
-
-
 Install a project from VCS in "editable" mode.  For a full breakdown of the
 syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
@@ -134,11 +126,20 @@ See the `PyPA sample project <https://github.com/pypa/sampleproject>`__.
 
 You can can copy and edit from that to get your project going.
 
-For more on packaging projects, see :doc:`packaging`.
+To install your project in "develop" or "editable" mode (i.e. to have your
+project installed, but still editable for development)
+
+::
+
+ cd myproject
+ python setup.py develop    # the setuptools way
+ pip install -e .           # the pip way
+
+For more on creating projects, see :doc:`packaging`.
 
 
-Uploading your project to PyPI
-==============================
+Build & Upload your Project to PyPI
+===================================
 
 ::
 
