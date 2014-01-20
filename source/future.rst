@@ -97,7 +97,6 @@ Work in Progress
 ================
 
 * :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4 distributions
-* :ref:`PEP458 <PEP458s>`: An integration of PyPI with the "The Update Framework (TUF)"
 * `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based mirror autodiscovery
 
 Future Work
@@ -127,6 +126,7 @@ TBD
 * A `"MetaBuild" <http://www.python.org/dev/peps/pep-0426/#metabuild-system>`_
   PEP that would allow projects to specify alternative build systems
   (i.e. something other than setuptools).
+* :ref:`PEP458 <PEP458s>`: An integration of PyPI with the "The Update Framework (TUF)"
 * An update of :ref:`PEP376 <PEP376s>` (the installation format) to be json based
 * An internal stable api for pip
 * Improved PyPI upload API
