@@ -41,8 +41,8 @@ Current packaging formats
    3) wheel? why not egg? what was wrong with egg?
 
 
-What tools to use
-=================
+What tools to use and why
+=========================
 
 :ref:`setuptools` and :ref:`wheel` (for ``bdist_wheel``)
 

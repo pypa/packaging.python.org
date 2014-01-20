@@ -32,8 +32,8 @@ Introduction to PyPI
    FIXME
 
 
-What tools to use
-=================
+What tools to use and why
+=========================
 
 The :term:`PyPA <Python Packaging Authority (PyPA)>` currently :doc:`recommends
 <current>` :ref:`pip` for package installation and :ref:`virtualenv` for virtual
