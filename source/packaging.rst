@@ -76,6 +76,7 @@ Getting started with setuptools
       (ideally a link into setuptools docs)
    4. link to the "Complete Guide to setup.py", which covers all subcommands and keywords (including distutils)
       (this does *not* exist atm, but ideally it exists in the setuptools docs, not in these docs)
+   5. link to the pypa sampleproject template
 
 
 Getting started with wheel
