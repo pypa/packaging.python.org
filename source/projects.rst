@@ -101,6 +101,20 @@ part of Python 3.3, but was removed shortly before Python 3.3 entered beta
 testing.
 
 
+.. _warehouse:
+
+Warehouse
+=========
+
+`Docs <http://warehouse.readthedocs.org/en/latest/>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://github.com/pypa/warehouse/issues>`__ |
+`Github <https://github.com/pypa/warehouse>`__ |
+irc:#warehouse
+
+The new unreleased PyPI application (to replace the current site at https://pypi.python.org/pypi).
+
+
 .. _buildout:
 
 buildout
