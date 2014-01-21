@@ -10,15 +10,11 @@ No explanations or justifications here, just the snippets to get going.
 Install the Tools
 =================
 
-1. Download `ez_setup.py
-   <https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py>`_ for
-   installing :ref:`setuptools`.
-2. Run ``python ez_setup.py``
-3. Download `get-pip.py
+1. Download `get-pip.py
    <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ for installing
-   :ref:`pip`.
-4. Run ``python get-pip.py``
-5. Run ``pip install virtualenv``
+   :ref:`pip`
+2. Run ``python get-pip.py`` (this will install pip and setuptools)
+3. Run ``pip install virtualenv``
 
 
 For more explanation, see :doc:`setup`.
