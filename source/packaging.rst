@@ -56,7 +56,7 @@ What tools to use and why
    2. What happened to distutils2? Can we be trusted again to give recommendations?  : )
    3. Is setuptools stable and supported by PyPA?
    4. Why the wheel project implementation of wheel? It's not a PyPA project?
-   5. twine for uploading?
+   5. justify twine for uploading
 
 
 Getting started with setuptools
@@ -79,6 +79,8 @@ Getting started with setuptools
    5. link to the pypa sampleproject template
 
 
+.. _`Getting started with wheel`:
+
 Getting started with wheel
 ==========================
 
@@ -93,6 +95,17 @@ Getting started with wheel
    3. the pep425 tagging system
    4. "universal" wheels
    5. the current PyPI upload block on linux platform wheels (and why they're blocked)
+
+
+.. _`Getting started with twine`:
+
+Getting started with twine
+==========================
+
+::
+
+   FIXME
+
 
 
 Related Additional Topics

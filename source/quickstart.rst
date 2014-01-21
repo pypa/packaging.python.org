@@ -2,12 +2,12 @@
 Quickstart
 ==========
 
-:Page Status: Incomplete
+:Page Status: Complete
 :Last Reviewed: 2014-01-20
 
-No explanations or justifications here, just the snippets.
+No explanations or justifications here, just the snippets to get going.
 
-Install the tools
+Install the Tools
 =================
 
 1. Download `ez_setup.py
@@ -19,25 +19,26 @@ Install the tools
    :ref:`pip`.
 4. Run ``python get-pip.py``
 5. Run ``pip install virtualenv``
-6. Run ``pip install wheel``
 
 
 For more explanation, see :doc:`setup`.
 
 
-Create an Environment
-=====================
+Create a Virtual Environment
+============================
 
 ::
 
  virtualenv myVE
  source myVE/bin/activate
 
-For more on virtualenv see :doc:`installation`.
+Or, if you want to install packages globally, don't do this.
+
+For more information on virtualenv environments and global installs, see :doc:`installation`.
 
 
-Install Packages
-================
+Install Python Packages
+=======================
 
 Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
@@ -141,6 +142,24 @@ For more on creating projects, see :doc:`packaging`.
 Build & Upload your Project to PyPI
 ===================================
 
+Build a source distribution
+
 ::
 
-  FIXME
+ python setup.py sdist
+
+
+Build a wheel (for details on when and why, see :ref:`Getting started with wheel`)
+
+::
+
+ pip install wheel
+ python setup.py bdist_wheel
+
+
+Upload your distributions with :ref:`twine <Getting started with twine>`
+
+::
+
+ pip install twince
+ twine upload dist/*

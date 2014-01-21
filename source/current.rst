@@ -41,8 +41,7 @@ Installation Tool Recommendations
 Packaging Tool Recommendations
 ==============================
 
-* Use :ref:`setuptools` to package and publish Python :term:`packages <Package
-  (Meaning #2)>` to :term:`PyPI <Python Package Index (PyPI)>`. [5]_ [6]_
+* Use :ref:`setuptools` to define projects and build distributions. [5]_ [6]_
 
 * If your project includes binary extensions, use the ``bdist_wheel``
   :ref:`setuptools` extension available from the :ref:`wheel project
@@ -50,6 +49,9 @@ Packaging Tool Recommendations
   Windows and Mac OS X for your project on :term:`PyPI <Python Package Index
   (PyPI)>`. These wheel files should be compatible with the binary
   installers provided for download from python.org. [7]_
+
+* Use :ref:`twine <Getting started with twine>` for uploading distributions to
+  :term:`PyPI <Python Package Index (PyPI)>`.
 
 ----
 
