@@ -161,5 +161,5 @@ Upload your distributions with :ref:`twine <Getting started with twine>`
 
 ::
 
- pip install twince
+ pip install twine
  twine upload dist/*
