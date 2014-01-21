@@ -136,7 +136,7 @@ project installed, but still editable for development)
  python setup.py develop    # the setuptools way
  pip install -e .           # the pip way
 
-For more on creating projects, see :doc:`packaging`.
+For more information on creating projects, see :doc:`packaging`.
 
 
 Build & Upload your Project to PyPI
@@ -163,3 +163,7 @@ Upload your distributions with :ref:`twine <Getting started with twine>`
 
  pip install twine
  twine upload dist/*
+
+
+For more information on :term:`PyPI <Python Package Index (PyPI)>` and uploading
+distributions, see :doc:`packaging`.
