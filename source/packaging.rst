@@ -14,6 +14,16 @@ them to :term:`PyPI <Python Package Index (PyPI)>`.
 What is "packaging"?
 ====================
 
+Packaging software is the process of making software code available for use
+outside the environment in which it was created as working reusable software.
+It enables installation and distribution of the packaged code in an automated,
+reliable and reproducible manner.
+
+Packaging Python software means making available a collection of one or more
+:term:`modules <Module>` to other Python software.
+The Python packaging ecosystem provides a set of officially supported tools
+for working with packages.
+
 ::
 
    FIXME
