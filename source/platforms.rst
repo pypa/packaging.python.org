@@ -177,6 +177,8 @@ environments. Allowing access to packages installed into the system Python
 when using virtual environments is a common approach to working around this
 limitation.
 
+The `wheel` project also provides a `wheel convert` subcommand that can
+convert a Windows `bdist_wininst` installer to a wheel.
 
 Mac OS X installers and package managers
 ----------------------------------------
