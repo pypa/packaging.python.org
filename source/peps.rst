@@ -32,10 +32,11 @@ PEP376 Database of Installed Python Distributions
                 updates this to use a json-based system of metadata.
 
 
-:Implementation: Currently, only the ``bdist_wheel`` extension from the
+:Implementation: Currently, the ``bdist_wheel`` extension from the
                 :ref:`wheel` project creates distributions using this structure,
-                although :ref:`setuptools` and :ref:`pip` are equipped to manage
-                distributions installed in this way.
+                and :ref:`setuptools` and :ref:`pip` are equipped to manage
+                distributions installed in this way. There is also an
+                implementation in :ref:`distlib`.
 
 .. _PEP425s:
 
@@ -63,7 +64,8 @@ PEP425 Compatibility Tags for Built Distributions
 
 :Implementation: The ``bdist_wheel`` :ref:`setuptools` extensions generates
                  :term:`wheels <Wheel>` using this scheme, and pip's wheel
-                 installer understands the scheme as of v1.4.
+                 installer understands the scheme as of v1.4. The wheel builder
+                 in :ref:`distlib` also implements this scheme.
 
 
 .. _PEP427s:
@@ -89,7 +91,9 @@ PEP427 The Wheel Binary Package Format 1.0
 
 :Implementation: The ``bdist_wheel`` :ref:`setuptools` extension (available from
                  :ref:`wheel`) generates :term:`wheels <Wheel>`, and :ref:`pip`
-                 supports installing wheels as of v1.4.
+                 supports installing wheels as of v1.4. There is also an
+                 implementation in :ref:`distlib`, which allows both building
+                 wheels and installing from wheels.
 
 
 .. _PEP438s:
@@ -152,7 +156,10 @@ PEP426 Metadata for Python Software Packages 2.0
               features and functionality to users that are based on top of the
               new system.
 
-:Implementation:  Nothing at this time.
+:Implementation:  Most of the PEP is implemented in :ref:`distlib`, including
+                  the dependency metadata. Since the PEP is still in flux, the
+                  ``distlib`` implementation lags behind the most recent PEP
+                  changes, but most of the functionality in the PEP is covered.
 
 
 .. _PEP440s:
