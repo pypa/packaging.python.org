@@ -5,14 +5,11 @@
 Tool Recommendations
 ====================
 
-:Page Status: Complete
-:Last Reviewed: 2013-11-26
+:Page Status: Incomplete
+:Last Reviewed: 2014-01-22
 
 If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
-
-If you're less familiar with Python packaging or installation, and would like
-more details, then proceed to the  :doc:`packaging` and :doc:`installation`.
 
 If you're interested in learning more about current areas of development,
 see :doc:`future`.
@@ -38,6 +35,19 @@ Installation Tool Recommendations
   the scientific community).
 
 
+::
+
+   FIXME
+
+   1) Why virtualenv (what about pyenv? buildout?)
+   2) Why pick *one* installer to recommend?
+       the rationale from PEP453
+   3) why pip?
+      - feature breakdown in the "pip vs easy_install" chart
+      - Decoupled from packaging tools.
+      - what easy_install bugs mentioned in PEP453 does pip address?
+
+
 Packaging Tool Recommendations
 ==============================
 
@@ -50,8 +60,18 @@ Packaging Tool Recommendations
   (PyPI)>`. These wheel files should be compatible with the binary
   installers provided for download from python.org. [7]_
 
-* Use :ref:`twine <Getting started with twine>` for uploading distributions to
-  :term:`PyPI <Python Package Index (PyPI)>`.
+* Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading distributions
+  to :term:`PyPI <Python Package Index (PyPI)>`.
+
+
+::
+
+   FIXME
+
+   1. Why setuptools (and not distutils)?
+   2. mention that distutils2 is not a live project anymore
+   3. twine? what about 'setup.py upload'
+
 
 ----
 

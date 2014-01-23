@@ -6,7 +6,7 @@ A Packaging Timeline
 ====================
 
 :Page Status: Incomplete [#]_
-:Last Reviewed: 2013-11-25
+:Last Reviewed: 2014-01-22
 
 
 **2013-06-09**: The merge of :ref:`setuptools` and `distribute`_ was completed

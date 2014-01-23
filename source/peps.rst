@@ -5,7 +5,7 @@ PEP Summaries
 ==============
 
 :Page Status: Complete
-:Last Reviewed: 2013-11-12
+:Last Reviewed: 2014-01-22
 
 
 Summaries for the currently relevant `PEPs <http://www.python.org/dev/peps/>`_

@@ -1,23 +1,18 @@
-==========
-Quickstart
-==========
+===================================
+Installation & Packaging Quickstart
+===================================
 
-:Page Status: Complete
-:Last Reviewed: 2014-01-20
+:Page Status: InComplete
+:Last Reviewed: 2014-01-22
 
-No explanations or justifications here, just the snippets to get going.
 
 Install the Tools
 =================
 
-1. Download `get-pip.py
-   <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ for installing
-   :ref:`pip`
-2. Run ``python get-pip.py`` (this will install pip and setuptools)
+1. Securely Download `get-pip.py
+   <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
+2. Run ``python get-pip.py`` (this will install pip and setuptools) [2]_ [3]_
 3. Run ``pip install virtualenv``
-
-
-For more explanation, see :doc:`setup`.
 
 
 Create a Virtual Environment
@@ -29,8 +24,6 @@ Create a Virtual Environment
  source myVE/bin/activate
 
 Or, if you want to install packages globally, don't do this.
-
-For more information on virtualenv environments and global installs, see :doc:`installation`.
 
 
 Install Python Packages
@@ -112,14 +105,21 @@ Find pre-release and development versions, in addition to stable versions.  By d
  pip install --pre SomePackage
 
 
+For more on installation, see `the pip docs <http://www.pip-installer.org/en/latest/>`_.
 
-For more on installation and pip, see :doc:`installation`.
+
+Cache Wheels
+============
+
+::
+
+  FIXME,  cover 'pip wheel'
 
 
 Create your own Project
 =======================
 
-See the `PyPA sample project <https://github.com/pypa/sampleproject>`__.
+See the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 You can can copy and edit from that to get your project going.
 
@@ -132,7 +132,12 @@ project installed, but still editable for development)
  python setup.py develop    # the setuptools way
  pip install -e .           # the pip way
 
-For more information on creating projects, see :doc:`packaging`.
+For more information on creating projects, see:
+
+ * `Setuptools Developer Guide
+   <http://pythonhosted.org/setuptools/setuptools.html#developer-s-guide>`_
+ * `Open Sourcing a Python Project the Right Way
+   <http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/>`_
 
 
 Build & Upload your Project to PyPI
@@ -145,7 +150,7 @@ Build a source distribution
  python setup.py sdist
 
 
-Build a wheel (for details on when and why, see :ref:`Getting started with wheel`)
+Build a wheel (for advice on when, see :ref:`pip:Should you upload wheels to PyPI`)
 
 ::
 
@@ -153,7 +158,7 @@ Build a wheel (for details on when and why, see :ref:`Getting started with wheel
  python setup.py bdist_wheel
 
 
-Upload your distributions with :ref:`twine <Getting started with twine>`
+Upload your distributions with `twine <https://pypi.python.org/pypi/twine>`_
 
 ::
 
@@ -161,5 +166,16 @@ Upload your distributions with :ref:`twine <Getting started with twine>`
  twine upload dist/*
 
 
-For more information on :term:`PyPI <Python Package Index (PyPI)>` and uploading
-distributions, see :doc:`packaging`.
+----
+
+.. [1] "Secure" in this context means using a modern browser or a
+       tool like `curl` that verifies SSL certificates when downloading from
+       https URLs.
+
+.. [2] Depending on your platform, this may require root or Administrator access.
+
+.. [3] On Linux and OSX, these tools will usually be available for the system
+       python from a system package manager (e.g. `yum` or `apt-get` for linux,
+       or `homebrew` for OSX). Unfortunately, there is often delay in getting
+       the latest version this way, so in most cases, you'll want to use the
+       instructions.

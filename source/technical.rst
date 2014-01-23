@@ -3,10 +3,33 @@ Technical Details
 =================
 
 :Page Status: Incomplete
-:Last Reviewed: 2013-12-08
+:Last Reviewed: 2014-01-22
 
 This section covers miscellaneous technical details of ``pip`` and other
 components of the distribution toolchain.
+
+
+Packaging Formats
+=================
+
+::
+
+   FIXME
+
+   1) sdist and wheel are the most relevant currently
+   2) what defines an sdist? (sdist 2.0 is coming)
+
+
+Installation Schemes
+====================
+
+::
+
+   FIXME
+
+   1. distutils/sysconfig schemes
+   2. global vs user installs
+   3. virtual environments
 
 
 .. _`pip vs easy_install`:
