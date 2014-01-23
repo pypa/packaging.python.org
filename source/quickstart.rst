@@ -2,7 +2,7 @@
 Installation & Packaging Quickstart
 ===================================
 
-:Page Status: InComplete
+:Page Status: Incomplete
 :Last Reviewed: 2014-01-22
 
 
