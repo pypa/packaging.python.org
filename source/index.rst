@@ -2,10 +2,6 @@
 Python Packaging User Guide
 ===========================
 
-:Page Status: Incomplete [1]_
-:Last Reviewed: 2014-01-22
-
-
 The "Python Packaging User Guide" (PUG) aims to be the authoritative resource on
 how to package and install distributions in Python using current tools, but also
 on the efforts to improve Python packaging.
@@ -34,11 +30,6 @@ Packaging” in March 2013.
    peps
    history
    glossary
-
-----
-
-.. [1] The main index page will only be marked "Complete", when all pages are
-       marked "Complete", which they are not.
 
 
 .. _docs.python.org: http://docs.python.org
