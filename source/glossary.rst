@@ -127,10 +127,11 @@ Glossary
 
     Python Packaging Authority (PyPA)
 
-        PyPA is an informal working group that maintains some of the most
-        relevant projects for Python packaging. They host projects at
-        https://github.com/pypa/ and https://bitbucket.org/pypa, and discuss
-        issues at https://groups.google.com/forum/#!forum/pypa-dev.
+        PyPA is a working group that maintains many of the relevant projects in
+        Python packaging. They host projects on `github
+        <https://github.com/pypa>`_ and `bitbucket
+        <https://bitbucket.org/pypa>`_, and discuss issues on the `pypa-dev
+        mailing list <https://groups.google.com/forum/#!forum/pypa-dev>`_.
 
     Python Package Index (PyPI)
 
