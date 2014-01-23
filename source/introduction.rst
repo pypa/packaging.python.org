@@ -3,22 +3,19 @@ Introduction
 ============
 
 :Page Status: Complete
-:Last Reviewed: 2013-11-26
+:Last Reviewed: 2014-01-22
 
 What's covered in the guide
 ===========================
 
-* A :doc:`Quickstart <quickstart>` for getting going fast.
-* :doc:`Quick Recommendations <current>` for what tools you should be using now.
-* :doc:`Instructions for installing the main packaging tools <setup>`.
-* An introduction to :doc:`Installing Python Packages <installation>`.
-* An introduction to :doc:`Packaging and Distributing Python Projects <packaging>`.
-* :doc:`Additional Topics <additional>` in Packaging and Installation.
+* An :doc:`Installation & Packaging Quickstart <quickstart>` for getting going fast.
+* :doc:`Recommendations & Justifications <current>` for what tools you should be
+  using now.
+* :doc:`The Future of Python Packaging <future>`.
+* :doc:`Advanced Topics <additional>` in Packaging and Installation.
 * Summaries of the most relevant :doc:`packaging projects <projects>`.
 * Summaries of the most relevant :doc:`packaging PEPs <peps>`.
-* :doc:`The Future of Python Packaging <future>`.
 * :doc:`A Packaging Timeline <history>`.
-* :doc:`Additional Resources <resources>`.
 * A :doc:`Glossary <glossary>` of packaging and installation terms.
 
 

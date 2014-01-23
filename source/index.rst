@@ -3,7 +3,7 @@ Python Packaging User Guide
 ===========================
 
 :Page Status: Incomplete [1]_
-:Last Reviewed: 2013-11-26
+:Last Reviewed: 2014-01-22
 
 
 The "Python Packaging User Guide" (PUG) aims to be the authoritative resource on
@@ -28,18 +28,12 @@ Packaging” in March 2013.
    introduction
    quickstart
    current
-   setup
-   installation
-   packaging
+   future
    additional
    projects
    peps
-   future
    history
    glossary
-   resources
-   credits
-   license
 
 ----
 

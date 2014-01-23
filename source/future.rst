@@ -92,6 +92,10 @@ Completed work
 ----
 
 * virtualenv installs pip & setuptools using wheels.
+* :ref:`pip` (>=1.5.1) available as a cross platform wheel on PyPI
+* :ref:`pip` (>=1.5.1) doesn't require :ref:`setuptools` to install wheels
+* ``get-pip.py`` installs setuptools for you, if you don't already have it
+
 
 Work in Progress
 ================
@@ -105,10 +109,6 @@ Future Work
 2014
 ----
 
-* :ref:`pip` (>=1.5.1) available as a cross platform wheel on PyPI
-* :ref:`pip` (>=1.5.1) doesn't require :ref:`setuptools` to install wheels
-* ``get-pip.py`` installs setuptools for you, if you don't already have it
-* Improved handling of in-place pip upgrades on Windows
 * Migration from the legacy PyPI server to :ref:`warehouse` (the preview is
   available at https://preview-pypi.python.org/ running off the live PyPI data)
 * "Metadata 2.0" (:ref:`PEP426 <PEP426s>` / :ref:`PEP440 <PEP440s>`)
@@ -118,6 +118,7 @@ Future Work
   <https://github.com/pypa/pip/issues/1046>`_)
 * Public release of the `Python Packaging User Guide
   <https://python-packaging-user-guide.readthedocs.org>`_
+* Improved handling of in-place pip upgrades on Windows
 
 TBD
 ---

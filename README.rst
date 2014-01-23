@@ -18,7 +18,8 @@ packaging.
 
 The html version of the Guide is currently available online at readthedocs.org_.
 
-Please see the `source/license.rst <source/license.rst>`_ file for license information.
+The Python Packaging User Guide is licensed under a Creative Commons
+Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0 .
 
 This documentation project is built with the Sphinx_ documentation software.
 
