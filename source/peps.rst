@@ -165,13 +165,14 @@ PEP440 Version Identification and Dependency Specification
 :PEP Status: Draft
 
 :Summary: Specifies a versioning system for Python projects that goes along with
-          :ref:`PEP426 <PEP440s>`, and replaces `PEP386`_. This system will be
+          :ref:`PEP426 <PEP426s>`, and replaces `PEP386`_. This system will be
           consistent with how most people version their projects today.
 
 :User Impact: Once accepted, users will have a clear specification for what's
               "correct" versioning for Python projects.
 
-:Implementation:  Nothing at this time.
+:Implementation: :ref:`distlib` has version classes that understand PEP440, and
+                 pip relies on :ref:`distlib`'s implementation in specific cases.
 
 
 .. _PEP458s:
