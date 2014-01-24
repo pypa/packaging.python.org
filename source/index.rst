@@ -10,9 +10,9 @@ on the efforts to improve Python packaging.
 
 The guide is part of a larger effort to improve all of the packaging and
 installation docs, including :ref:`pip`, :ref:`setuptools`, :ref:`virtualenv`,
-:ref:`wheel`, and `docs.python.org`_. Ultimately, users need more than a guide
-to feel confident about the current tools. They need complete, accurate and
-inter-consistent documentation across all the projects.
+:ref:`wheel`, :ref:`distlib`, and `docs.python.org`_. Ultimately, users need
+more than a guide to feel confident about the current tools. They need complete,
+accurate and inter-consistent documentation across all the projects.
 
 The guide is maintained `here
 <https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python

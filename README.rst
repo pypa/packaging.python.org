@@ -6,7 +6,7 @@ how to package and install distributions in Python using current tools, but also
 on the efforts to improve python packaging.
 
 The guide is part of a larger effort to improve all of the packaging and
-installation docs, including pip, setuptools, virtualenv, wheel, and
+installation docs, including pip, setuptools, virtualenv, wheel, distlib, and
 docs.python.org. Ultimately, users need more than a "guide" to feel confident
 about the current tools. They need complete, accurate and inter-consistent
 documentation across all the projects.
