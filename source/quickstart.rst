@@ -14,17 +14,43 @@ Install the Tools
 2. Run ``python get-pip.py`` (this will install pip and setuptools) [2]_ [3]_
 3. Run ``pip install virtualenv``
 
+A note about install locations
+==============================
 
-Create a Virtual Environment
-============================
+User-local
+----------
+
+On Unix/Linux/OSX, the default install location may be system-wide and not writable by you.
+Enable user-local installs with these commands:
 
 ::
 
- virtualenv myVE
- source myVE/bin/activate
+ git config -f ~/.pip/pip.conf install.user true
+ echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc # Assuming bash; restart your shell to apply
 
-Or, if you want to install packages globally, don't do this.
+System-wide
+-----------
 
+If you want a package to be visible to all users, you can install it globally:
+
+::
+
+ sudo pip install --no-user mypackage
+
+Virtual Environment
+-------------------
+
+Virtual environments are install locations that can be activated,
+exposing the packages they contain, or deactivated.
+
+They can be used by developers who want to test their packages in
+self-contained environments.
+
+::
+
+ virtualenv myenv          # Creation
+ source myenv/bin/activate # Activation
+ deactivate                # Deactivation
 
 Install Python Packages
 =======================
