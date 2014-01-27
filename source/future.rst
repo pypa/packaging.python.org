@@ -22,6 +22,7 @@ foundations for the current effort.
 The current effort is managed by the :term:`Python Packaging Authority (PyPA)`,
 in cooperation with members of the Python core development team.
 
+
 Goals
 =====
 
@@ -41,6 +42,19 @@ Goals
   it.  Most of the current effort is largely focused on 3rd party projects.
 
 .. _docs.python.org: http://docs.python.org
+
+
+How to help
+===========
+
+* Get involved with one of mainstream :doc:`packaging projects <projects>`.
+* Help us catalog and discuss the current problems in packaging and
+  installation.  See the `The issue tracker for the problems in packaging
+  <https://github.com/pypa/packaging-problems/issues>`_ maintained by
+  :term:`PyPA <Python Packaging Authority (PyPA)>`.
+* Discuss :doc:`PEPs <peps>` and long terms plans at `distutils-sig
+  <http://mail.python.org/mailman/listinfo/distutils-sig>`_.
+
 
 Presentations & Articles
 ========================
