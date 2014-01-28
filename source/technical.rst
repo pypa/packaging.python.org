@@ -195,3 +195,25 @@ Dependency Resolution
       - conflicts with what's already installed
 
 
+
+.. _`Supporting multiple Python versions`:
+
+Supporting multiple Python versions
+===================================
+
+::
+
+  FIXME
+
+  Useful projects/resources to reference:
+
+  - six
+  - tox
+  - Travis and Shining Panda CI
+  - Ned Batchelder's What's in Which version pages
+    - http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html
+      - http://nedbatchelder.com/blog/201109/whats_in_which_python.html
+  - Lennart Regebro's "Porting to Python 3"
+  - the Python 3 porting how to in the main docs
+  - cross reference to the stable ABI discussion in the binary extensions topic (once that exists)
+  - mention version classifiers for distribution metadata
