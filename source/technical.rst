@@ -44,7 +44,7 @@ Requirements files vs setup.py
    - cover 3 distinctions
     - abstract vs concrete requirements (https://caremad.io/blog/setup-vs-requirement/)
     - minimally defined vs exhaustive or frozen (http://stackoverflow.com/a/7085000)
-    - project requirements vs environment requirements.
+    - library vs app/environment requirements.
    - mention pip's breakdown of the use cases for requirements files
       (http://www.pip-installer.org/en/latest/cookbook.html#requirements-files)
    - boil it down to a set of rules
