@@ -1,12 +1,11 @@
-=================
-Technical Details
-=================
+===================
+Concepts & Analyses
+===================
 
 :Page Status: Incomplete
 :Last Reviewed: 2014-01-22
 
-This section covers miscellaneous technical details of ``pip`` and other
-components of the distribution toolchain.
+This section covers various packaging concepts and analyses.
 
 
 Packaging Formats
@@ -30,6 +29,26 @@ Installation Schemes
    1. distutils/sysconfig schemes
    2. global vs user installs
    3. virtual environments
+
+
+.. _`Requirements files vs setup.py`:
+
+Requirements files vs setup.py
+==============================
+
+
+::
+
+   FIXME
+
+   - cover 3 distinctions
+    - abstract vs concrete requirements (https://caremad.io/blog/setup-vs-requirement/)
+    - minimally defined vs exhaustive or frozen (http://stackoverflow.com/a/7085000)
+    - project requirements vs environment requirements.
+   - mention pip's breakdown of the use cases for requirements files
+      (http://www.pip-installer.org/en/latest/cookbook.html#requirements-files)
+   - boil it down to a set of rules
+      (e.g. see the end of http://blog.miguelgrinberg.com/post/the-package-dependency-blues)
 
 
 .. _`pip vs easy_install`:
