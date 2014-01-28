@@ -35,18 +35,6 @@ Installation Tool Recommendations
   the scientific community).
 
 
-::
-
-   FIXME
-
-   1) Why virtualenv (what about pyenv? buildout?)
-   2) Why pick *one* installer to recommend?
-       the rationale from PEP453
-   3) why pip?
-      - feature breakdown in the "pip vs easy_install" chart
-      - Decoupled from packaging tools.
-      - what easy_install bugs mentioned in PEP453 does pip address?
-
 
 Packaging Tool Recommendations
 ==============================
@@ -64,28 +52,22 @@ Packaging Tool Recommendations
   to :term:`PyPI <Python Package Index (PyPI)>`.
 
 
-::
-
-   FIXME
-
-   1. Why setuptools (and not distutils)?
-   2. mention that distutils2 is not a live project anymore
-   3. twine? what about 'setup.py upload'
-
-
 ----
 
-.. [1] If you need to install from the :term:`Egg` format (which pip doesn't
-       support), you can use ``easy_install`` (from :ref:`setuptools`) or
-       :ref:`buildout`.  :term:`Eggs <Egg>` are intended to be replaced by
-       :term:`Wheels <Wheel>`, so they should become less common over time.
+.. [1] There are some cases where you might choose to use ``easy_install`` (from
+       :ref:`setuptools`), e.g. if you need to install from :term:`Eggs <Egg>`
+       (which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs
+       easy_install`.
 
-.. [2] The acceptance of :ref:`PEP453 <PEP453s>` means that :ref:`pip` will likely be
-       available by default in most installations of Python 3.4 or later.
+.. [2] The acceptance of :ref:`PEP453 <PEP453s>` means that :ref:`pip` will be
+       available by default in most installations of Python 3.4 or later.  See
+       the `rationale section
+       <http://www.python.org/dev/peps/pep-0453/#rationale>`_ from :ref:`PEP453
+       <PEP453s>` as for why pip was chosen.
 
-.. [3] The acceptance of :ref:`PEP453 <PEP453s>` means that users of Python 3.4 or later
-       will likely be able to use the standard library's own ``pyvenv`` tool
-       instead of :ref:`virtualenv`. However, using :ref:`virtualenv` will
+.. [3] The acceptance of :ref:`PEP453 <PEP453s>` means that users of Python 3.4
+       or later will likely be able to use the standard library's own ``pyvenv``
+       tool instead of :ref:`virtualenv`. However, using :ref:`virtualenv` will
        still be recommended for users that need cross-version consistency.
 
 .. [4] For more information, see the pip guide to `Building and Installing
@@ -96,10 +78,11 @@ Packaging Tool Recommendations
        :ref:`setuptools` in June 2013, thereby making setuptools the default
        choice for packaging.
 
-.. [6] When building from source (rather than installing from a :term:`wheel
-       <Wheel>` file), :ref:`pip` ensures that packages that use the standard
-       library's ``distutils`` module are built with :ref:`setuptools`
-       instead.
+.. [6] Although you can use pure ``distutils``, for most projects, that's
+       insufficient, due it lacking support for defining dependencies. If do you
+       use ``distutils``, realize that when :ref:`pip` installs your project
+       source (rather than installing from a :term:`wheel <Wheel>` file), it
+       will actually build your project using :ref:`setuptools` instead.
 
 .. [7] :ref:`pip` and the wheel format don't currently offer good tools for
        handling arbitrary external binary dependencies. Accordingly, PyPI
