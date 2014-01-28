@@ -16,8 +16,6 @@ The current effort to improve the situation started when the ``packaging``
 library (also known as ``distutils2``) `failed to be accepted
 <https://mail.python.org/pipermail/python-dev/2012-June/120430.html>`_ into the
 standard library for Python 3.3.  That effort had spanned from 2009 to 2012.
-While ``packaging`` itself is no longer under development, it did help lay the
-foundations for the current effort.
 
 The current effort is managed by the :term:`Python Packaging Authority (PyPA)`,
 in cooperation with members of the Python core development team.
@@ -30,12 +28,22 @@ Goals
   is also fast, reliable and reasonably secure.  "Reasonably secure", due to
   backwards compatibility constraints preventing turning off some insecure
   legacy features.
+
+* Although it's still being defined, to work towards a "Meta-Packaging" [1]_ system that:
+
+  * Clearly delineates the phases of distribution
+  * Allows for multiple interacting tools vs one monolithic tool
+  * Specifically allows for alternative build systems, i.e. a `"MetaBuild"
+    <http://www.python.org/dev/peps/pep-0426/#metabuild-system>`_ system.
+
 * To improve the docs for users, including the `Python Packaging User Guide
   <https://python-packaging-user-guide.readthedocs.org>`_, anything related to
   packaging on `docs.python.org`_, and the project docs for :ref:`pip`,
   :ref:`setuptools`, :ref:`virtualenv`, and :ref:`wheel`.
+
 * To be progressive, but also be very mindful to not break things that are
   currently working, due to haste.
+
 * To specifically *not* focus at first on adding something to the standard
   library as our solution to our packaging problems.  Adding something to the
   standard library is hard, and once it's added, it's a slow process to change
@@ -70,7 +78,7 @@ regarding current and future efforts related to packaging.
 * PyCon AU, July 2013
 
   * `Nobody Expects the Python Packaging Authority
-    <http://pyvideo.org/video/2197/nobody-expects-the-python-packaging-authority>`__ [1]_
+    <http://pyvideo.org/video/2197/nobody-expects-the-python-packaging-authority>`__ [2]_
 
 * Personal essays
 
@@ -93,7 +101,7 @@ Completed work
   migrated to the PyPA BitBucket account
 * PyPI supports clients using verified SSL with standard cert bundles
 * PyPI forces web users over to SSL
-* :ref:`pip` (>=1.3) and :ref:`easy_install <setuptools>` (>=0.7) use verified SSL by default
+* :ref:`pip` (v1.3) and :ref:`easy_install <setuptools>` (v0.7) use verified SSL by default
 * easy_install supports additional hashes beyond md5 (pip already did)
 * Fastly CDN enabled for PyPI (donated)
 * Restructured the `pip install docs
@@ -101,13 +109,14 @@ Completed work
   setuptools and pip are the "base" of the bootstrapping hierarchy
 * setuptools available as a cross platform wheel on PyPI
 * :ref:`PEP438s` and the associated pip changes.
+* :ref:`pip` (v1.4) added support for building and installing :term:`wheels <Wheel>`
 
 2014
 ----
 
 * virtualenv installs pip & setuptools using wheels.
-* :ref:`pip` (>=1.5.1) available as a cross platform wheel on PyPI
-* :ref:`pip` (>=1.5.1) doesn't require :ref:`setuptools` to install wheels
+* :ref:`pip` (v1.5.1) available as a cross platform wheel on PyPI
+* :ref:`pip` (v1.5.1) doesn't require :ref:`setuptools` to install wheels
 * ``get-pip.py`` installs setuptools for you, if you don't already have it
 
 
@@ -149,4 +158,8 @@ TBD
 
 ----
 
-.. [1] Repeated that at PyTexas, but can't find a video link for it.  Anyone?
+.. [1] See Nick Coghlan's `The Phases of Distribution
+       <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/core_packaging_api.html#the-phases-of-distribution>`_
+       and `A Meta-Packaging System
+       <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/core_packaging_api.html#a-meta-packaging-system>`_
+.. [2] Repeated that at PyTexas, but can't find a video link for it.  Anyone?
