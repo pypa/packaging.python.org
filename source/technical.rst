@@ -190,7 +190,7 @@ Dependency Resolution
    - easy_install will raise an error if mutually-incompatible versions of a dependency tree are installed.
    - console_scripts complaining about conflicts
    - scenarios to breakdown:
-      - conficting dependencies within the dep tree of one argument ``pip|easy_install  OnePackage``
+      - conficting dependencies within the dep tree of one argument `
       - conflicts across arguments: ``pip|easy_install  OnePackage TwoPackage``
       - conflicts with what's already installed
 
@@ -215,5 +215,19 @@ Supporting multiple Python versions
       - http://nedbatchelder.com/blog/201109/whats_in_which_python.html
   - Lennart Regebro's "Porting to Python 3"
   - the Python 3 porting how to in the main docs
-  - cross reference to the stable ABI discussion in the binary extensions topic (once that exists)
+  - cross reference to the stable ABI discussion
+    in the binary extensions topic (once that exists)
   - mention version classifiers for distribution metadata
+
+
+.. _`Local PyPI indexes and caches`:
+
+Local PyPI indexes and caches
+=============================
+
+::
+
+  FIXME
+
+  - local --find-links
+  - tools like https://pypi.python.org/pypi/devpi-server
