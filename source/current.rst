@@ -5,8 +5,8 @@
 Tool Recommendations
 ====================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-01-22
+:Page Status: Complete
+:Last Reviewed: 2014-01-27
 
 If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
@@ -39,14 +39,12 @@ Installation Tool Recommendations
 Packaging Tool Recommendations
 ==============================
 
-* Use :ref:`setuptools` to define projects and build distributions. [5]_ [6]_
+* Use :ref:`setuptools` to define projects and create :term:`Source Distributions
+  <Source Distribution (or "sdist")>`. [5]_ [6]_
 
-* If your project includes binary extensions, use the ``bdist_wheel``
-  :ref:`setuptools` extension available from the :ref:`wheel project
-  <wheel>`, to create and publish :term:`wheel distributions <wheel>` for
-  Windows and Mac OS X for your project on :term:`PyPI <Python Package Index
-  (PyPI)>`. These wheel files should be compatible with the binary
-  installers provided for download from python.org. [7]_
+* Use the ``bdist_wheel`` :ref:`setuptools` extension available from the
+  :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is
+  especially beneficial, if your project contains binary extensions. [7]_
 
 * Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
@@ -65,10 +63,10 @@ Packaging Tool Recommendations
        <http://www.python.org/dev/peps/pep-0453/#rationale>`_ from :ref:`PEP453
        <PEP453s>` as for why pip was chosen.
 
-.. [3] The acceptance of :ref:`PEP453 <PEP453s>` means that users of Python 3.4
-       or later will likely be able to use the standard library's own ``pyvenv``
-       tool instead of :ref:`virtualenv`. However, using :ref:`virtualenv` will
-       still be recommended for users that need cross-version consistency.
+.. [3] Beginning with Python 3.4, ``pyenv`` will create virtualenv environments
+       with ``pip`` installed, thereby making it an equal alternative to
+       :ref:`virtualenv`. However, using :ref:`virtualenv` will still be
+       recommended for users that need cross-version consistency.
 
 .. [4] For more information, see the pip guide to `Building and Installing
        Wheels
@@ -81,16 +79,13 @@ Packaging Tool Recommendations
 .. [6] Although you can use pure ``distutils``, for most projects, that's
        insufficient, due it lacking support for defining dependencies. If do you
        use ``distutils``, realize that when :ref:`pip` installs your project
-       source (rather than installing from a :term:`wheel <Wheel>` file), it
-       will actually build your project using :ref:`setuptools` instead.
+       from source (rather than installing from a :term:`wheel <Wheel>` file),
+       it will actually build your project using :ref:`setuptools` instead.
 
-.. [7] :ref:`pip` and the wheel format don't currently offer good tools for
-       handling arbitrary external binary dependencies. Accordingly, PyPI
-       currently only allows platform specific wheel distributions to be
-       uploaded for Windows and Mac OS X. External binary dependencies are
-       currently best handled by building custom wheel files with the correct
-       dependencies, by using one of the fully integrated cross-platform
-       software stack management systems mentioned in the installation tools
-       section, or by using platform specific tools.
+.. [7] :term:`PyPI <Python Package Index (PyPI)>` currently only allows
+       uploading Windows and Mac OS X wheels, and they should be compatible with
+       the binary installers provided for download from python.org. Enhancements
+       will have to be made to the :ref:`wheel compatibility tagging scheme
+       <PEP425s>` before linux wheels will be allowed.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
