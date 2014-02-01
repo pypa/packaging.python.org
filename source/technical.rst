@@ -134,6 +134,8 @@ Wheel vs Egg
 
    FIXME
 
+   - specifically cover the topic of zip import:
+     http://www.python.org/dev/peps/pep-0427/#is-it-possible-to-import-python-code-directly-from-a-wheel-file
 
 
 .. _`Multi-version Installs`:
@@ -231,3 +233,17 @@ Local PyPI indexes and caches
 
   - local --find-links
   - tools like https://pypi.python.org/pypi/devpi-server
+
+
+Deployment Strategies
+=====================
+
+::
+
+  FIXME
+
+  - how to deploy python apps to servers in the real world?
+  - mention pip/virtualenv support in the various CFM systems (puppet etc..)
+  - link to the various projects that try to offer solutions (e.g. PEX)
+  - mention the "home-grown" solutions that many people use: fabric, copying venvs around
+  - cover the need for repeatability: http://www.pip-installer.org/en/latest/cookbook.html#ensuring-repeatability
