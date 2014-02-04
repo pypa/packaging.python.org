@@ -1,4 +1,3 @@
-
 .. _`History`:
 
 ====================
@@ -33,6 +32,11 @@ accepted.  Together, they specify a built-package format for Python called
 
 **2012-06-19**: The effort to include "Distutils2/Packaging" in Python 3.3 was
 abandoned due lack of involvement. [#]_
+
+**2011-02-28**: The :term:`PyPA <Python Packaging Authority (PyPA)>` is created
+to take over the maintenance of :ref:`pip` and :ref:`virtualenv` from Ian Bicking,
+led by Carl Meyer, Brian Rosner and Jannis Leidel. Other proposed names were
+"ianb-ng", "cabal", "pack" and "Ministry of Installation".
 
 **2008**: `distribute`_ was forked from :ref:`setuptools` by Tarek Ziade, in an
 effort to create a more open project.
