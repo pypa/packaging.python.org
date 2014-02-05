@@ -130,12 +130,26 @@ easy_install and sys.path
 Wheel vs Egg
 ============
 
-::
+* :term:`Wheel` has an :ref:`official PEP <PEP427s>`. :term:`Egg` did not.
 
-   FIXME
+* :term:`Wheel` is a :term:`distribution <Distribution>` format, i.e a packaging
+  format. [2]_ :term:`Egg` was both a distribution format and a runtime
+  installation format (if left zipped), and was designed to be importable.
 
-   - specifically cover the topic of zip import:
-     http://www.python.org/dev/peps/pep-0427/#is-it-possible-to-import-python-code-directly-from-a-wheel-file
+* :term:`Wheel` archives do not include .pyc files. Therefore, when when the
+  distribution only contains python file (i.e. no extensions), and is compatible
+  with Python 2 and 3, it's possible for a wheel to be "universal", similar to
+  an :term:`sdist <Source Distribution (or "sdist")>`.
+
+* :term:`Wheel` uses :ref:`PEP376-compliant <PEP376s>` ``.dist-info``
+  directories. Egg used ``.egg-info``.
+
+* :term:`Wheel` has a :ref:`richer file naming convention <PEP425s>`. A single
+  wheel archive can indicate its compatibility with a number of Python language
+  versions and implementations, ABIs, and system architectures.
+
+* :term:`Wheel` is versioned. Every wheel file contains the version of the wheel
+  specification and the implementation that packaged it.
 
 
 .. _`Multi-version Installs`:
@@ -249,3 +263,10 @@ Deployment Strategies
     - convert packages or whole virtualenvs to OS packages and use OS tools
     - py2exe/py2app/PEX approach
     - "home-grown" solutions using fabric/ssh that reinstall or copy venv archives around
+
+----
+
+.. [2] Circumstantially, in some cases, wheels can be used as an importable
+       runtime format, although `this is not officially supported at this time
+       <http://www.python.org/dev/peps/pep-0427/#is-it-possible-to-import-python-code-directly-from-a-wheel-file>`_.
+
