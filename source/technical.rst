@@ -240,6 +240,34 @@ Supporting multiple Python versions
   - mention version classifiers for distribution metadata
 
 
+.. _`Local PyPI indexes and caches`:
+
+Local PyPI indexes and caches
+=============================
+
+::
+
+  FIXME
+
+  - local --find-links
+  - tools like https://pypi.python.org/pypi/devpi-server
+
+
+Deployment Strategies
+=====================
+
+::
+
+  FIXME
+
+  - how to deploy python apps to servers in the real world?
+  - cover the need for repeatability: http://www.pip-installer.org/en/latest/cookbook.html#ensuring-repeatability
+  - various strategies:
+    - pip/virtualenv support in the various CFM systems (puppet/chef/salt)
+    - convert packages or whole virtualenvs to OS packages and use OS tools
+    - py2exe/py2app/PEX approach
+    - "home-grown" solutions using fabric/ssh that reinstall or copy venv archives around
+
 ----
 
 .. [2] Circumstantially, in some cases, wheels can be used as an importable
