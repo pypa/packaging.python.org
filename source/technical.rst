@@ -136,10 +136,10 @@ Wheel vs Egg
   format. [2]_ :term:`Egg` was both a distribution format and a runtime
   installation format (if left zipped), and was designed to be importable.
 
-* :term:`Wheel` archives do not include .pyc files. Therefore, when when the
-  distribution only contains python file (i.e. no extensions), and is compatible
-  with Python 2 and 3, it's possible for a wheel to be "universal", similar to
-  an :term:`sdist <Source Distribution (or "sdist")>`.
+* :term:`Wheel` archives do not include .pyc files. Therefore, when the
+  distribution only contains python files (i.e. no compiled extensions), and is
+  compatible with Python 2 and 3, it's possible for a wheel to be "universal",
+  similar to an :term:`sdist <Source Distribution (or "sdist")>`.
 
 * :term:`Wheel` uses :ref:`PEP376-compliant <PEP376s>` ``.dist-info``
   directories. Egg used ``.egg-info``.
