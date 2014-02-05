@@ -151,6 +151,10 @@ Wheel vs Egg
 * :term:`Wheel` is versioned. Every wheel file contains the version of the wheel
   specification and the implementation that packaged it.
 
+* :term:`Wheel` is internally organized by `sysconfig path type
+  <http://docs.python.org/2/library/sysconfig.html#installation-paths>`_,
+  therefore making it easier to convert to other formats.
+
 
 .. _`Multi-version Installs`:
 
@@ -235,34 +239,6 @@ Supporting multiple Python versions
     in the binary extensions topic (once that exists)
   - mention version classifiers for distribution metadata
 
-
-.. _`Local PyPI indexes and caches`:
-
-Local PyPI indexes and caches
-=============================
-
-::
-
-  FIXME
-
-  - local --find-links
-  - tools like https://pypi.python.org/pypi/devpi-server
-
-
-Deployment Strategies
-=====================
-
-::
-
-  FIXME
-
-  - how to deploy python apps to servers in the real world?
-  - cover the need for repeatability: http://www.pip-installer.org/en/latest/cookbook.html#ensuring-repeatability
-  - various strategies:
-    - pip/virtualenv support in the various CFM systems (puppet/chef/salt)
-    - convert packages or whole virtualenvs to OS packages and use OS tools
-    - py2exe/py2app/PEX approach
-    - "home-grown" solutions using fabric/ssh that reinstall or copy venv archives around
 
 ----
 
