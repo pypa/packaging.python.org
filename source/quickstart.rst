@@ -108,12 +108,38 @@ Find pre-release and development versions, in addition to stable versions.  By d
 For more on installation, see `the pip docs <http://www.pip-installer.org/en/latest/>`_.
 
 
-Cache Wheels
-============
+Cache and Install from Wheels
+=============================
+
+:term:`Wheel` is a new pre-built alternative to :term:`sdist <Source
+Distribution (or "sdist")>` that provides faster installation, especially when a
+project contains extensions.
+
+Although wheels are `becoming more common <http://pythonwheels.com>`_ on
+:term:`PyPI <Python Package Index (PyPI)>`, if you want all of your dependencies
+converted to wheel, do the following (assuming you're using a :ref:`Requirements
+File <pip:Requirements Files>`):
 
 ::
 
-  FIXME,  cover 'pip wheel'
+ pip install wheel
+ pip wheel --wheel-dir=/local/wheels -r requirements.txt
+
+And then to install those requirements just using your local directory of wheels
+(and not from PyPI):
+
+::
+
+ pip install --no-index --find-links=/local/wheels -r requirements.txt
+
+
+.. warning::
+
+   Currently, when ``pip wheel`` finds a wheel for one of your requirements
+   already on PyPI, it does not rebuild, and it does not place the file in your
+   wheelhouse directory.  This is fixed in the develop branch of pip, but is
+   not due to be released until v1.6
+
 
 
 Create your own Project
