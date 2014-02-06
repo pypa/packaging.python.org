@@ -57,45 +57,6 @@ Installing on OSX
      (https://github.com/pypa/pip/issues/1480)
 
 
-.. _`Building RPMs for Python projects`:
-
-Building RPMs for Python projects
-=================================
-
-::
-
-   FIXME
-
-
-.. _`Building debs for Python projects`:
-
-Building debs for Python projects
-=================================
-
-::
-
-   FIXME
-
-
-.. _`Building Windows installers for Python projects`:
-
-Building Windows installers for Python projects
-===============================================
-
-::
-
-   FIXME
-
-
-.. _`Building Mac OS X installers for Python projects`:
-
-Building Mac OS X installers for Python projects
-================================================
-
-::
-
-   FIXME
-
 
 .. _`NumPy and the Science Stack`:
 

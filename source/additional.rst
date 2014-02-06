@@ -14,5 +14,6 @@ different categories, those categorisations are quite broad and flexible.
    :maxdepth: 2
 
    technical
+   deployment
    platforms
    extensions
