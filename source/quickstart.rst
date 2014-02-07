@@ -15,7 +15,7 @@ Install the Tools
 3. Run ``pip install virtualenv``
 
 
-Create a Virtual Environment
+Create and use a Virtual Environment
 ============================
 
 ::
@@ -26,7 +26,7 @@ Create a Virtual Environment
 Or, if you want to install packages globally, don't do this.
 
 
-Install Python Packages
+Install some Python packages
 =======================
 
 Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
