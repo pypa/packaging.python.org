@@ -20,7 +20,7 @@ Why these tools? See the :ref:`Tool Recommendations` page.
 
 
 Create and use a Virtual Environment
-============================
+====================================
 
 ::
 
@@ -31,7 +31,7 @@ Or, if you want to install packages globally, don't do this.
 
 
 Install some Python packages
-=======================
+============================
 
 Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
