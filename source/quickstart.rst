@@ -11,8 +11,12 @@ Install the Tools
 
 1. Securely Download `get-pip.py
    <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
-2. Run ``python get-pip.py`` (this will install pip and setuptools) [2]_ [3]_
-3. Run ``pip install virtualenv``
+2. Run ``python get-pip.py``.  This will install or upgrade pip and install
+   setuptools if it's not installed already. To upgrade an existing setuptools,
+   run ``pip install -U setuptools`` [2]_ [3]_
+3. Run ``pip install virtualenv`` [2]_
+
+Why these tools? See the :ref:`Tool Recommendations` page.
 
 
 Create a Virtual Environment
@@ -200,7 +204,7 @@ Upload your distributions with `twine <https://pypi.python.org/pypi/twine>`_
 
 .. [2] Depending on your platform, this may require root or Administrator access.
 
-.. [3] On Linux and OSX, these tools will usually be available for the system
+.. [3] On Linux and OSX, pip and setuptools will usually be available for the system
        python from a system package manager (e.g. `yum` or `apt-get` for linux,
        or `homebrew` for OSX). Unfortunately, there is often delay in getting
        the latest version this way, so in most cases, you'll want to use the
