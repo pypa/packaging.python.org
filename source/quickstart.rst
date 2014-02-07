@@ -14,6 +14,8 @@ Install the Tools
 2. Run ``python get-pip.py`` (this will install pip and setuptools) [2]_ [3]_
 3. Run ``pip install virtualenv``
 
+Why these tools? The :doc:`current` on the next page can tell you.
+
 
 Create a Virtual Environment
 ============================
