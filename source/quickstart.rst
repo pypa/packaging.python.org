@@ -19,7 +19,7 @@ Install the Tools
 Why these tools? See the :ref:`Tool Recommendations` page.
 
 
-Create a Virtual Environment
+Create and use a Virtual Environment
 ============================
 
 ::
@@ -30,7 +30,7 @@ Create a Virtual Environment
 Or, if you want to install packages globally, don't do this.
 
 
-Install Python Packages
+Install some Python packages
 =======================
 
 Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
