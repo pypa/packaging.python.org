@@ -27,7 +27,16 @@ Create and use a Virtual Environment
  virtualenv myVE
  source myVE/bin/activate
 
-Or, if you want to install packages globally, don't do this.
+Virtualenv Environments are encouraged because they don't require root access,
+and allow you to isolate applications and reduce dependency conflicts.
+
+For more information, see the `virtualenv docs <http://www.virtualenv.org>`_.
+
+In some cases, the User installation scheme can offer similar benefits as Virtual
+Environments. For more information see the `User Installs
+<https://pip.readthedocs.org/en/latest/user_guide.html#user-installs>`_ section
+from the pip docs.
+
 
 
 Install some Python packages
@@ -102,7 +111,8 @@ Install from a local directory containing archives (and don't check :term:`PyPI
  pip install --no-index --find-links=relative/dir/ SomePackage
 
 
-Find pre-release and development versions, in addition to stable versions.  By default, pip only finds stable versions.
+Find pre-release and development versions, in addition to stable versions.  By
+default, pip only finds stable versions.
 
 ::
 
@@ -141,9 +151,97 @@ And then to install those requirements just using your local directory of wheels
 Create your own Project
 =======================
 
-See the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
+See the `PyPA sample project <https://github.com/pypa/sampleproject>`_. You can
+use that as an example to get started.
 
-You can can copy and edit from that to get your project going.
+Let's cover the critical features below: [4]_
+
+
+Project Structure
+-----------------
+
+Project Name
+------------
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+  name = 'sample'
+
+This will determine how your project is listed on :term:`PyPI <Python Package
+Index (PyPI)>`. It's recommended to only use letters, decimal digits, ``-``, ``.``, and ``_``.
+
+
+Project Version
+---------------
+
+from `sampleproject/sample/__init__.py
+<https://github.com/pypa/sampleproject/blob/master/sample/__init__.py>`_
+
+::
+
+  __version__ = '0.1'
+
+Projects should aim to comply with the `scheme
+<http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
+specified in :ref:`PEP440 <PEP440s>`.
+
+Some Examples:
+
+::
+
+  1.2.0.dev1  # Development release
+  1.2.0a2     # Alpha Release
+  1.2.0b1     # Beta Release
+  1.2.0       # Final Release
+  1.2.0.post1 # Post Release
+
+
+Dependencies
+------------
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+ install_requires = ['SomeDependency']
+
+
+Data Files
+----------
+
+Scripts
+-------
+
+Universal Wheels
+----------------
+
+from `sampleproject/setup.cfg
+<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_
+
+::
+
+ universal=1
+
+Only use this setting, if:
+
+1. You're project runs on Python 2 and 3 with no changes (i.e. it does not
+   require 2to3).
+2. You're project does not have any C extensions.
+
+The benefit of this setting, is that ``python setup.py bdist_wheel`` will then
+generate a wheel that will be installable anywhere, similar to an :term:`sdist
+<Source Distribution (or "sdist")>`.
+
+Beware that ``bdist_wheel`` does not currently have any checks to warn you if
+use the setting inappropriately.
+
+
+Install your project in Editable mode
+=====================================
 
 To install your project in "develop" or "editable" mode (i.e. to have your
 project installed, but still editable for development)
@@ -154,10 +252,6 @@ project installed, but still editable for development)
  python setup.py develop    # the setuptools way
  pip install -e .           # the pip way
 
-For more information on creating projects, see:
-
- * `Setuptools Developer Guide
-   <http://pythonhosted.org/setuptools/setuptools.html#developer-s-guide>`_
 
 
 Build & Upload your Project to PyPI
@@ -170,7 +264,7 @@ Build a source distribution
  python setup.py sdist
 
 
-Build a wheel (for advice on when, see :ref:`pip:Should you upload wheels to PyPI`)
+Build a wheel
 
 ::
 
@@ -199,3 +293,6 @@ Upload your distributions with `twine <https://pypi.python.org/pypi/twine>`_
        or `homebrew` for OSX). Unfortunately, there is often delay in getting
        the latest version this way, so in most cases, you'll want to use the
        instructions.
+
+.. [4] For more information on creating projects, see the `Setuptools Docs
+       <http://pythonhosted.org/setuptools/setuptools.html>`_
