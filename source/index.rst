@@ -24,8 +24,8 @@ Packaging Authority (PyPA)`.
 .. toctree::
    :maxdepth: 1
 
-   quickstart
    current
+   tutorial
    future
    additional
    projects
