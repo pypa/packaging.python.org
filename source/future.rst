@@ -3,7 +3,7 @@ The Future of Python Packaging
 ==============================
 
 :Page Status: Complete
-:Last Reviewed: 2014-01-19
+:Last Reviewed: 2014-02-22
 
 
 The :term:`distutils` cross-platform build and distribution system was added to
@@ -118,13 +118,13 @@ Completed work
 * :ref:`pip` (v1.5.1) available as a cross platform wheel on PyPI
 * :ref:`pip` (v1.5.1) doesn't require :ref:`setuptools` to install wheels
 * ``get-pip.py`` installs setuptools for you, if you don't already have it
+* `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based mirror autodiscovery
 
 
 Work in Progress
 ================
 
 * :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4 distributions
-* `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based mirror autodiscovery
 
 Future Work
 ===========
@@ -139,8 +139,6 @@ Future Work
 * Removal of older pip commands and options that aren't popular or well
   maintained (`#906 <https://github.com/pypa/pip/issues/906>`_, `#1046
   <https://github.com/pypa/pip/issues/1046>`_)
-* Public release of the `Python Packaging User Guide
-  <https://python-packaging-user-guide.readthedocs.org>`_
 * Improved handling of in-place pip upgrades on Windows
 
 TBD
