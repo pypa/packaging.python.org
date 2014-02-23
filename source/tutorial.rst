@@ -182,7 +182,7 @@ from `sampleproject/sample/__init__.py
 
 ::
 
-  __version__ = '0.1'
+  __version__ = '1.2.0'
 
 Projects should aim to comply with the `scheme
 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
@@ -193,7 +193,7 @@ Some Examples:
 ::
 
   1.2.0.dev1  # Development release
-  1.2.0a2     # Alpha Release
+  1.2.0a1     # Alpha Release
   1.2.0b1     # Beta Release
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
