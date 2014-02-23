@@ -137,14 +137,6 @@ And then to install those requirements just using your local directory of wheels
  pip install --no-index --find-links=/local/wheels -r requirements.txt
 
 
-.. warning::
-
-   Currently, when ``pip wheel`` finds a wheel for one of your requirements
-   already on PyPI, it does not rebuild, and it does not place the file in your
-   wheelhouse directory.  This is fixed in the develop branch of pip, but is
-   not due to be released until v1.6
-
-
 
 Create your own Project
 =======================
