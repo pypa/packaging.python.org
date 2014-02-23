@@ -158,8 +158,6 @@ For more information on creating projects, see:
 
  * `Setuptools Developer Guide
    <http://pythonhosted.org/setuptools/setuptools.html#developer-s-guide>`_
- * `Open Sourcing a Python Project the Right Way
-   <http://www.jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/>`_
 
 
 Build & Upload your Project to PyPI
