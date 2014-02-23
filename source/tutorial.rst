@@ -224,6 +224,7 @@ from `sampleproject/setup.cfg
 
 ::
 
+ [wheel]
  universal=1
 
 The benefit of this setting, is that ``python setup.py bdist_wheel`` will then
