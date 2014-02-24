@@ -101,6 +101,20 @@ part of Python 3.3, but was removed shortly before Python 3.3 entered beta
 testing.
 
 
+.. _twine:
+
+twine
+=====
+
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://github.com/dstufft/twine/issues>`__ |
+`Github <https://github.com/dstufft/twine>`__ |
+`PyPI <https://pypi.python.org/pypi/twine>`__
+
+Twine is a utility for interacting with PyPI, that offers a secure replacement for
+``setup.py upload``.
+
+
 .. _warehouse:
 
 Warehouse
