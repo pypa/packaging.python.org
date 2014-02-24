@@ -6,8 +6,8 @@ Installation & Packaging Tutorial
 :Last Reviewed: 2014-01-22
 
 
-Install the Tools
-=================
+Installing the Required Tools
+=============================
 
 1. Securely Download `get-pip.py
    <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
@@ -19,8 +19,8 @@ Install the Tools
 Why these tools? See the :ref:`Tool Recommendations` page.
 
 
-Create and use a Virtual Environment
-====================================
+Creating and using Virtual Environments
+=======================================
 
 ::
 
@@ -38,9 +38,8 @@ Environments. For more information see the `User Installs
 from the pip docs.
 
 
-
-Install some Python packages
-============================
+Installing Python packages
+==========================
 
 Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
@@ -122,8 +121,8 @@ default, pip only finds stable versions.
 For more on installation, see `the pip docs <http://www.pip-installer.org/en/latest/>`_.
 
 
-Cache and Install from Wheels
-=============================
+Installing Wheels
+=================
 
 :term:`Wheel` is a new pre-built alternative to :term:`sdist <Source
 Distribution (or "sdist")>` that provides faster installation, especially when a
@@ -148,8 +147,8 @@ And then to install those requirements just using your local directory of wheels
 
 
 
-Create your own Project
-=======================
+Creating your own Project
+=========================
 
 See the `PyPA sample project <https://github.com/pypa/sampleproject>`_. You can
 use that as an example to get started.
@@ -241,8 +240,8 @@ Beware that ``bdist_wheel`` does not currently have any checks to warn you if
 use the setting inappropriately.
 
 
-Install your project in Editable mode
-=====================================
+Installing your project in Editable mode
+========================================
 
 To install your project in "develop" or "editable" mode (i.e. to have your
 project installed, but still editable for development)
@@ -255,8 +254,8 @@ project installed, but still editable for development)
 
 
 
-Build & Upload your Project to PyPI
-===================================
+Building & Uploading your Project to PyPI
+=========================================
 
 Build a source distribution
 
