@@ -165,6 +165,9 @@ Installing Wheels
 Distribution (or "sdist")>` that provides faster installation, especially when a
 project contains extensions.
 
+As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
+Distribution (or "sdist")>` when searching indexes.
+
 Although wheels are `becoming more common <http://pythonwheels.com>`_ on
 :term:`PyPI <Python Package Index (PyPI)>`, if you want all of your dependencies
 converted to wheel, do the following (assuming you're using a :ref:`Requirements
@@ -334,5 +337,5 @@ Upload your distributions with :ref:`twine`
 
 .. [5] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
-       installed, thereby making it an equal alternative to
+       pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
