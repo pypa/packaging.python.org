@@ -6,34 +6,71 @@ Installation & Packaging Tutorial
 :Last Reviewed: 2014-01-22
 
 
-Installing the Required Tools
-=============================
+Installing the Tools
+====================
+
+For Installation or Packaging, you'll minimally want :ref:`pip` and
+:ref:`setuptools`, and in most cases, :ref:`virtualenv` [5]_.  Additionally, for
+building wheels, you'll need :ref:`wheel`, and for uploading to :term:`PyPI
+<Python Package Index (PyPI)>`, you'll need :ref:`twine`.
+
+We recommend the following sequence for installation:
 
 1. Securely Download `get-pip.py
    <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
-2. Run ``python get-pip.py``.  This will install or upgrade pip and install
-   setuptools if it's not installed already. To upgrade an existing setuptools,
-   run ``pip install -U setuptools`` [2]_ [3]_
-3. Run ``pip install virtualenv`` [2]_
 
-Why these tools? See the :ref:`Tool Recommendations` page.
+2. Run ``python get-pip.py``.  This will install or upgrade pip.  Additionally,
+   it will install setuptools if it's not installed already. To upgrade an
+   existing setuptools, run ``pip install -U setuptools`` [2]_ [3]_
 
+3. Run ``pip install virtualenv`` [2]_ [5]_
+
+4. Optionally, Create a virtual environment (See :ref:`section below <Creating
+   and using Virtual Environments>` for details):
+
+   ::
+
+    virtualenv <DIR>
+    source <DIR>/bin/activate
+
+5. For building wheels: ``pip install wheel`` [2]_
+
+6. For uploading distributions: ``pip install twine`` [2]_
+
+
+.. _`Creating and using Virtual Environments`:
 
 Creating and using Virtual Environments
 =======================================
 
-::
+:ref:`virtualenv` is a tool to create isolated Python environments. [5]_
 
- virtualenv myVE
- source myVE/bin/activate
+The basic problem being addressed is one of dependencies and versions, and
+indirectly permissions. Imagine you have an application that needs version 1 of
+LibFoo, but another application requires version 2. How can you use both these
+applications? If you install everything into /usr/lib/python2.7/site-packages
+(or whatever your platform’s standard location is), it’s easy to end up in a
+situation where you unintentionally upgrade an application that shouldn’t be
+upgraded.
 
-Virtualenv Environments are encouraged because they don't require root access,
-and allow you to isolate applications and reduce dependency conflicts.
+Or more generally, what if you want to install an application and leave it be?
+If an application works, any change in its libraries or the versions of those
+libraries can break the application.
+
+Also, what if you can’t install packages into the global site-packages
+directory? For instance, on a shared host.
+
+In all these cases, virtualenv can help you. It creates an environment that has
+its own installation directories, that doesn’t share libraries with other
+virtualenv environments (and optionally doesn’t access the globally installed
+libraries either).
 
 For more information, see the `virtualenv docs <http://www.virtualenv.org>`_.
 
-In some cases, the User installation scheme can offer similar benefits as Virtual
-Environments. For more information see the `User Installs
+Note that in some cases, the `user installation scheme
+<http://docs.python.org/install/index.html#alternate-installation-the-user-scheme>`_
+can offer similar benefits as Virtual Environments. For more information see the
+`User Installs
 <https://pip.readthedocs.org/en/latest/user_guide.html#user-installs>`_ section
 from the pip docs.
 
@@ -268,15 +305,13 @@ Build a wheel
 
 ::
 
- pip install wheel
  python setup.py bdist_wheel
 
 
-Upload your distributions with `twine <https://pypi.python.org/pypi/twine>`_
+Upload your distributions with :ref:`twine`
 
 ::
 
- pip install twine
  twine upload dist/*
 
 
@@ -296,3 +331,8 @@ Upload your distributions with `twine <https://pypi.python.org/pypi/twine>`_
 
 .. [4] For more information on creating projects, see the `Setuptools Docs
        <http://pythonhosted.org/setuptools/setuptools.html>`_
+
+.. [5] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
+       :ref:`virtualenv`) will create virtualenv environments with ``pip``
+       installed, thereby making it an equal alternative to
+       :ref:`virtualenv`.
