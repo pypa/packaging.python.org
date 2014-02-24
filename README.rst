@@ -12,12 +12,9 @@ It was forked from the “Hitchhikers Guide to Packaging” in March 2013, which
 maintained by Tarek Ziadé.  Thankyou Tarek for all your efforts in python
 packaging.
 
-The html version of the Guide is currently available online at readthedocs.org_.
+The html version of the Guide is currently available online at
+http://packaging.python.org.
 
 The Python Packaging User Guide is licensed under a Creative Commons
 Attribution-ShareAlike license: http://creativecommons.org/licenses/by-sa/3.0 .
 
-This documentation project is built with the Sphinx_ documentation software.
-
-.. _readthedocs.org: https://python-packaging-user-guide.readthedocs.org
-.. _Sphinx: https://pypi.python.org/pypi/Sphinx
