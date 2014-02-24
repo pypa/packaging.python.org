@@ -20,7 +20,8 @@ pip
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `Github <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.python.org/pypi/pip/>`__ |
-irc:#pip
+User irc:#pip |
+Dev irc:#pypa
 
 A tool for installing and managing Python packages.
 
@@ -35,7 +36,8 @@ virtualenv
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `Github <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.python.org/pypi/virtualenv/>`__ |
-irc:#pip
+User irc:#pip  |
+Dev irc:#pypa
 
 A tool for creating isolated Python environments.
 
