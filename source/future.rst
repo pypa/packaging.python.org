@@ -36,10 +36,9 @@ Goals
   * Specifically allows for alternative build systems, i.e. a `"MetaBuild"
     <http://www.python.org/dev/peps/pep-0426/#metabuild-system>`_ system.
 
-* To improve the docs for users, including the `Python Packaging User Guide
-  <https://python-packaging-user-guide.readthedocs.org>`_, anything related to
-  packaging on `docs.python.org`_, and the project docs for :ref:`pip`,
-  :ref:`setuptools`, :ref:`virtualenv`, and :ref:`wheel`.
+* To improve the docs for users, including the `Python Packaging User Guide`_,
+  anything related to packaging on `docs.python.org`_, and the project docs for
+  :ref:`pip`, :ref:`setuptools`, :ref:`virtualenv`, and :ref:`wheel`.
 
 * To be progressive, but also be very mindful to not break things that are
   currently working, due to haste.
@@ -132,14 +131,22 @@ Completed work
 * virtualenv installs pip & setuptools using wheels.
 * :ref:`pip` (v1.5.1) available as a cross platform wheel on PyPI
 * :ref:`pip` (v1.5.1) doesn't require :ref:`setuptools` to install wheels
+* ``get-pip.py`` doesn't require setuptools to be installed first
 * ``get-pip.py`` installs setuptools for you, if you don't already have it
 * `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based mirror autodiscovery
+* `Refactored the pip docs <https://github.com/pypa/pip/pull/1556>`_ to be
+  consistent with the `"PyPA Standard Docs Template"
+  <https://gist.github.com/qwcode/8431828>`_
 
 
 Work in Progress
 ================
 
 * :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4 distributions
+* http://bugs.python.org/issue19407: Have the distutils docs on docs.python.org
+  be aware of :ref:`PEP453 <PEP453s>`.
+* Refactoring the :ref:`virtualenv`, :ref:`setuptools`, and :ref:`wheel` docs to be consistent with the `"PyPA Standard Docs Template"
+  <https://gist.github.com/qwcode/8431828>`_
 
 Future Work
 ===========
@@ -176,3 +183,4 @@ TBD
        and `A Meta-Packaging System
        <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/core_packaging_api.html#a-meta-packaging-system>`_
 
+.. _Python Packaging User Guide: http://packaging.python.org
