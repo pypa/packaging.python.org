@@ -7,7 +7,7 @@ Advanced Topics
 
 This section covers a variety of packaging concepts and topics that don't fit
 neatly into the documentation of any particular tool, and don't really belong in
-the :doc:`Quickstart <quickstart>` either. While the entries are organised into
+the :doc:`Tutorial <tutorial>` either. While the entries are organised into
 different categories, those categorisations are quite broad and flexible.
 
 .. toctree::
