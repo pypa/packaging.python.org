@@ -10,11 +10,12 @@ Installing the Tools
 ====================
 
 For Installation or Packaging, you'll minimally want :ref:`pip` and
-:ref:`setuptools`, and in most cases, :ref:`virtualenv` [5]_.  Additionally, for
-building wheels, you'll need :ref:`wheel`, and for uploading to :term:`PyPI
-<Python Package Index (PyPI)>`, you'll need :ref:`twine`.
+:ref:`setuptools`, and in most cases, :ref:`virtualenv` [5]_.
 
-We recommend the following sequence for installation:
+Additionally, for building wheels, you'll need :ref:`wheel`, and for uploading
+to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
+
+We recommend the following installation sequence:
 
 1. Securely Download `get-pip.py
    <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
@@ -64,6 +65,19 @@ In all these cases, virtualenv can help you. It creates an environment that has
 its own installation directories, that doesn’t share libraries with other
 virtualenv environments (and optionally doesn’t access the globally installed
 libraries either).
+
+The basic usage is like so:
+
+::
+
+ virtualenv <DIR>
+ source <DIR>/bin/activate
+
+
+By default, :ref:`pip` and :ref:`setuptools` are installed into each new
+virtualenv environments.  I.e. when working in an activated virtual environment,
+you'll be using installs of :ref:`pip` and :ref:`setuptools` that are unique to
+that environment.
 
 For more information, see the `virtualenv docs <http://www.virtualenv.org>`_.
 
