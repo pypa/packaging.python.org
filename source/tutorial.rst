@@ -331,6 +331,9 @@ Build a wheel
  python setup.py bdist_wheel
 
 
+Note that PyPI currently only allows uploading platform-specific wheels for
+Windows and Mac OS X.
+
 Upload your distributions with :ref:`twine`
 
 ::
