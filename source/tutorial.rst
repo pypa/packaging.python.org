@@ -177,7 +177,10 @@ Installing Wheels
 
 :term:`Wheel` is a new pre-built alternative to :term:`sdist <Source
 Distribution (or "sdist")>` that provides faster installation, especially when a
-project contains extensions.
+project contains compiled extensions.
+
+For a detailed comparison of wheel to it's :term:`Egg` predecessor, see
+:ref:`Wheel vs Egg`.
 
 As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
 Distribution (or "sdist")>` when searching indexes.
@@ -189,7 +192,6 @@ File <pip:Requirements Files>`):
 
 ::
 
- pip install wheel
  pip wheel --wheel-dir=/local/wheels -r requirements.txt
 
 And then to install those requirements just using your local directory of wheels
@@ -292,6 +294,10 @@ Only use this setting, if:
 
 Beware that ``bdist_wheel`` does not currently have any checks to warn you if
 use the setting inappropriately.
+
+If your project has optional C extensions, it is recommended not to publish a
+universal wheel, because pip will prefer the wheel over a source installation,
+and prevent he possibility of building the extension.
 
 
 Installing your project in Editable mode
