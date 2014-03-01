@@ -75,7 +75,7 @@ The basic usage is like so:
 
 
 By default, :ref:`pip` and :ref:`setuptools` are installed into each new
-virtualenv environments.  I.e. when working in an activated virtual environment,
+virtualenv environment.  I.e. when working in an activated virtual environment,
 you'll be using installs of :ref:`pip` and :ref:`setuptools` that are unique to
 that environment.
 
