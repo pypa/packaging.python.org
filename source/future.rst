@@ -123,7 +123,8 @@ Completed work
   setuptools and pip are the "base" of the bootstrapping hierarchy
 * setuptools available as a cross platform wheel on PyPI
 * :ref:`PEP438s` and the associated pip changes.
-* :ref:`pip` (v1.4) added support for building and installing :term:`wheels <Wheel>`
+* :ref:`pip` (v1.4) added support for building and installing :term:`wheels
+  <Wheel>`
 
 2014
 ----
@@ -133,7 +134,8 @@ Completed work
 * :ref:`pip` (v1.5.1) doesn't require :ref:`setuptools` to install wheels
 * ``get-pip.py`` doesn't require setuptools to be installed first
 * ``get-pip.py`` installs setuptools for you, if you don't already have it
-* `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based mirror autodiscovery
+* `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based
+  mirror autodiscovery
 * `Refactored the pip docs <https://github.com/pypa/pip/pull/1556>`_ to be
   consistent with the `"PyPA Standard Docs Template"
   <https://gist.github.com/qwcode/8431828>`_
@@ -145,7 +147,8 @@ Work in Progress
 * :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4 distributions
 * http://bugs.python.org/issue19407: Have the distutils docs on docs.python.org
   be aware of :ref:`PEP453 <PEP453s>`.
-* Refactoring the :ref:`virtualenv`, :ref:`setuptools`, and :ref:`wheel` docs to be consistent with the `"PyPA Standard Docs Template"
+* Refactoring the :ref:`virtualenv`, :ref:`setuptools`, and :ref:`wheel` docs to
+  be consistent with the `"PyPA Standard Docs Template"
   <https://gist.github.com/qwcode/8431828>`_
 
 Future Work
@@ -154,27 +157,41 @@ Future Work
 2014
 ----
 
+* "Metadata 2.0" (`Open Issues
+  <https://bitbucket.org/pypa/pypi-metadata-formats/issues?status=new&status=open&priority=blocker>`_)
+
+  * :ref:`PEP426: Metadata for Python Software Packages 2.0 <PEP426s>`
+  * :ref:`PEP440: Version Identification and Dependency Specification <PEP440s>`
+  * `PEP459: Standard Metadata Extensions for Python Software Packages
+    <http://legacy.python.org/dev/peps/pep-0459/>`_
+  * `Wheel 1.1
+    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/18/wheel-11>`_
+  * `sdist 2.0
+    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/20/sdist-20>`_
+  * `PEP for common naming schemes
+    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/23/common-filename-scheme>`_
+  * `Installation Database 2.0 (replace PEP376)
+    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/22/installation-database-2>`_
+
 * Migration from the legacy PyPI server to :ref:`warehouse` (the preview is
   available at https://preview-pypi.python.org/ running off the live PyPI data)
-* "Metadata 2.0" (:ref:`PEP426 <PEP426s>` / :ref:`PEP440 <PEP440s>`)
-* :ref:`pip` should `get a real dependency resolver <https://github.com/pypa/pip/issues/988>`_
 * Removal of older pip commands and options that aren't popular or well
   maintained (`#906 <https://github.com/pypa/pip/issues/906>`_, `#1046
   <https://github.com/pypa/pip/issues/1046>`_)
 * Improved handling of in-place pip upgrades on Windows
+* :ref:`pip` should `get a real dependency resolver
+  <https://github.com/pypa/pip/issues/988>`_
 
 TBD
 ---
 
-* PEPs for "sdist 2.0" and wheel 1.1
 * A `"MetaBuild" <http://www.python.org/dev/peps/pep-0426/#metabuild-system>`_
   PEP that would allow projects to specify alternative build systems
   (i.e. something other than setuptools).
+* `Wheel 2.0 <https://bitbucket.org/pypa/pypi-metadata-formats/issue/19/wheel-20>`_
 * :ref:`PEP458 <PEP458s>`: An integration of PyPI with the "The Update Framework (TUF)"
-* An update of :ref:`PEP376 <PEP376s>` (the installation format) to be json based
 * An internal stable api for pip
 * Improved PyPI upload API
-* Improved local PyPI hosting solutions (e.g. like `devpi <http://doc.devpi.net/latest/devpi>`_)
 
 ----
 
