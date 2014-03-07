@@ -2,8 +2,8 @@
 The Future of Python Packaging
 ==============================
 
-:Page Status: Complete
-:Last Reviewed: 2014-02-22
+:Page Status: Incomplete
+:Last Reviewed: 2014-03-08
 
 
 The :term:`distutils` cross-platform build and distribution system was added to
@@ -96,49 +96,6 @@ regarding current and future efforts related to packaging.
 
   * `Nick Coghlan
     <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/core_packaging_api.html>`__
-
-
-
-Completed work
-==============
-
-2013
-----
-
-* :ref:`distlib` started releasing to PyPI, and pip began depending on it
-* Core PyPI infrastructure relocated to OSU/OSL (with significantly
-  increased resources)
-* The core packaging projects were collected under the :term:`Python Packaging Authority
-  (PyPA)` accounts on `GitHub <https://github.com/pypa>`_ and `Bitbucket
-  <https://bitbucket.org/pypa/>`_
-* distribute merged back into :ref:`setuptools`, and :ref:`setuptools` development
-  migrated to the PyPA BitBucket account
-* PyPI supports clients using verified SSL with standard cert bundles
-* PyPI forces web users over to SSL
-* :ref:`pip` (v1.3) and :ref:`easy_install <setuptools>` (v0.7) use verified SSL by default
-* easy_install supports additional hashes beyond md5 (pip already did)
-* Fastly CDN enabled for PyPI (donated)
-* Restructured the `pip install docs
-  <http://www.pip-installer.org/en/latest/installing.html>`_ to clarify that
-  setuptools and pip are the "base" of the bootstrapping hierarchy
-* setuptools available as a cross platform wheel on PyPI
-* :ref:`PEP438s` and the associated pip changes.
-* :ref:`pip` (v1.4) added support for building and installing :term:`wheels
-  <Wheel>`
-
-2014
-----
-
-* virtualenv installs pip & setuptools using wheels.
-* :ref:`pip` (v1.5.1) available as a cross platform wheel on PyPI
-* :ref:`pip` (v1.5.1) doesn't require :ref:`setuptools` to install wheels
-* ``get-pip.py`` doesn't require setuptools to be installed first
-* ``get-pip.py`` installs setuptools for you, if you don't already have it
-* `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based
-  mirror autodiscovery
-* `Refactored the pip docs <https://github.com/pypa/pip/pull/1556>`_ to be
-  consistent with the `"PyPA Standard Docs Template"
-  <https://gist.github.com/qwcode/8431828>`_
 
 
 Work in Progress
