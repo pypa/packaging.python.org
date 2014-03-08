@@ -33,22 +33,84 @@ Installation Schemes
 
 .. _`Requirements files vs install_requires`:
 
-Requirements files vs install_requires
+install_requires vs Requirements files
 ======================================
 
+install_requires
+----------------
+
+``install_requires`` is a :ref:`setuptools` ``setup.py`` keyword that should be
+used to specify what a project **minimally** needs to run correctly.  When the
+project is installed by :ref:`pip`, this is the specification that is used to
+install it's dependencies.
+
+For example, if the project requires A and B, your ``install_requires`` would be
+like so:
 
 ::
 
-   FIXME
+ install_requires=[
+    'A',
+    'B'
+ ]
 
-   - cover 3 distinctions
-    - abstract vs concrete requirements (https://caremad.io/blog/setup-vs-requirement/)
-    - minimally defined vs exhaustive or frozen (http://stackoverflow.com/a/7085000)
-    - library vs app/environment requirements.
-   - mention pip's breakdown of the use cases for requirements files
-      (http://www.pip-installer.org/en/latest/cookbook.html#requirements-files)
-   - boil it down to a set of rules
-      (e.g. see the end of http://blog.miguelgrinberg.com/post/the-package-dependency-blues)
+Additionally, it's best practice to indicate any known lower or upper bounds.
+
+For example, it may be known, that your project requires at least v1 of 'A', and
+v2 of 'B', so it would be like so:
+
+::
+
+ install_requires=[
+    'A>=1',
+    'B>=2'
+ ]
+
+It may also be known that project A follows semantic versioning, and that v2 of
+'A' will indicate a break in compatibility, so it makes sense to not allow v2:
+
+::
+
+ install_requires=[
+    'A>=1,<2',
+    'B>=2'
+ ]
+
+It is not considered best practice to use ``install_requires`` to pin
+dependencies to specific versions, or to specify sub-dependencies
+(i.e. dependencies of your dependencies).  This is overly-restrictive, and
+prevents the user from gaining the benefit of dependency upgrades.
+
+Lastly, it's important to understand that ``install_requires`` is a listing of
+"Abstract" requirements, i.e just names and version restrictions that don't
+determine where the dependencies will be fulfilled from (i.e. from what
+index or source).  The where (i.e. how they are to be made "Concrete") is to
+be determined at install time using :ref:`pip` options. [3]_
+
+
+Requirements files
+------------------
+
+:ref:`Requirements Files <pip:Requirements Files>` described most simply, are
+just a list of :ref:`pip:pip install` arguments placed into a file.
+
+Whereas ``install_requires`` defines the dependencies for a single project,
+:ref:`Requirements Files <pip:Requirements Files>` are often used to define
+the requirements for a complete python environment.
+
+Whereas ``install_requires`` requirements are minimal, requirements files
+often contain an exhaustive listing of pinned versions for the purpose of
+achieving :ref:`repeatable installations <pip:Repeatability>` of a complete
+environment.
+
+Whereas ``install_requires`` requirements are "Abstract", requirements files
+often contain pip options like ``--index-url`` or ``--find-links`` to make
+requirements "Concrete". [3]_
+
+Whereas ``install_requires`` metadata is automatically analyzed by pip during an
+install, requirements files are not, and only are used when a user specifically
+installs them using ``pip install -r``.
+
 
 
 .. _`pip vs easy_install`:
@@ -220,4 +282,7 @@ Dependency Resolution
 .. [2] Circumstantially, in some cases, wheels can be used as an importable
        runtime format, although `this is not officially supported at this time
        <http://www.python.org/dev/peps/pep-0427/#is-it-possible-to-import-python-code-directly-from-a-wheel-file>`_.
+
+.. [3] For more on "Abstract" vs "Concrete" requirements, see
+       https://caremad.io/blog/setup-vs-requirement.
 
