@@ -1,21 +1,19 @@
 .. _`History`:
 
-====================
-A Packaging Timeline
-====================
+=================
+Packaging History
+=================
 
 :Page Status: Incomplete [#]_
-:Last Reviewed: 2014-01-22
+:Last Reviewed: 2014-03-27
 
-Work completed through PyPA
-===========================
 
 2014
 ----
 
-* virtualenv installs pip & setuptools using wheels.
-* :ref:`pip` (v1.5.1) available as a cross platform wheel on PyPI
-* :ref:`pip` (v1.5.1) doesn't require :ref:`setuptools` to install wheels
+* :ref:`virtualenv` (v1.11) started installing pip & setuptools using wheels.
+* :ref:`pip` (v1.5.1) became available as a cross platform wheel on PyPI.
+* :ref:`pip` (v1.5.1) stop requiring :ref:`setuptools` to install wheels.
 * ``get-pip.py`` doesn't require setuptools to be installed first
 * ``get-pip.py`` installs setuptools for you, if you don't already have it
 * `PEP449 <http://www.python.org/dev/peps/pep-0449>`_: Removal of the DNS based
@@ -27,14 +25,14 @@ Work completed through PyPA
 2013
 ----
 
-* :ref:`distlib` started releasing to PyPI, and pip began depending on it
+* :ref:`distlib` started releasing to PyPI, and :ref:`pip` began depending on it
 * Core PyPI infrastructure relocated to OSU/OSL (with significantly
   increased resources)
 * The core packaging projects were collected under the :term:`Python Packaging Authority
   (PyPA)` accounts on `GitHub <https://github.com/pypa>`_ and `Bitbucket
   <https://bitbucket.org/pypa/>`_
-* distribute merged back into :ref:`setuptools`, and :ref:`setuptools` development
-  migrated to the PyPA BitBucket account
+* Distribute merged back into :ref:`setuptools`, and :ref:`setuptools` development
+  migrated to the PyPA BitBucket account.
 * PyPI supports clients using verified SSL with standard cert bundles
 * PyPI forces web users over to SSL
 * :ref:`pip` (v1.3) and :ref:`easy_install <setuptools>` (v0.7) use verified SSL by default
@@ -47,31 +45,17 @@ Work completed through PyPA
 * :ref:`PEP438s` and the associated pip changes.
 * :ref:`pip` (v1.4) added support for building and installing :term:`wheels
   <Wheel>`
+* :term:`PyPA <Python Packaging Authority (PyPA)>` became the maintainer for the
+  `Python Packaging User Guide`_, which was forked from the "Hitchhiker's Guide
+  to Packaging". [#]_
+* Packaging Dev and User Summits were held at Pycon 2013 to share ideas on the
+  future of packaging. [#]_ [#]_
+* :ref:`PEP425 <PEP425s>` and :ref:`PEP427 <PEP427s>` were accepted.  Together,
+  they specify a built-package format for Python called :term:`Wheel`.
 
-Packaging History prior to PyPA
-===============================
 
-**2013-06-09**: The merge of :ref:`setuptools` and `distribute`_ was completed
-and released to PyPI. [#]_
-
-**2013-03-23**: :term:`PyPA <Python Packaging Authority (PyPA)>` became the
-maintainer for the `Python Packaging User Guide`_, which was forked from the
-"Hitchhiker's Guide to Packaging". [#]_
-
-**2013-03-15**: Packaging Dev and User Summits were held at Pycon 2013 to share
-ideas on the future of packaging. [#]_ [#]_
-
-**2013-03-14**: The intention to merge :ref:`setuptools` and `distribute`_
-was announced by their respective maintainers, PJ Eby and Jason Coombs. [#]_
-
-**2013-03-09**: :ref:`pip` began depending on :ref:`distlib`. [#]_
-
-**2013-03-02**: :ref:`distlib` began releasing to :term:`PyPI <Python Package
-Index (PyPI)>`.
-
-**2013-03-17**: :ref:`PEP425 <PEP425s>` and :ref:`PEP427 <PEP427s>` were
-accepted.  Together, they specify a built-package format for Python called
-:term:`Wheel`.
+Before 2013
+===========
 
 **2012-06-19**: The effort to include "Distutils2/Packaging" in Python 3.3 was
 abandoned due lack of involvement. [#]_
