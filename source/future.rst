@@ -98,57 +98,72 @@ regarding current and future efforts related to packaging.
     <http://python-notes.curiousefficiency.org/en/latest/pep_ideas/core_packaging_api.html>`__
 
 
-Work in Progress
-================
-
-* :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4 distributions
-* http://bugs.python.org/issue19407: Have the distutils docs on docs.python.org
-  be aware of :ref:`PEP453 <PEP453s>`.
-* Refactoring the :ref:`virtualenv`, :ref:`setuptools`, and :ref:`wheel` docs to
-  be consistent with the `"PyPA Standard Docs Template"
-  <https://gist.github.com/qwcode/8431828>`_
-
-Future Work
+Major Todos
 ===========
 
-2014
-----
+Metadata 2.0
+------------
 
-* "Metadata 2.0" (`Open Issues
-  <https://bitbucket.org/pypa/pypi-metadata-formats/issues?status=new&status=open&priority=blocker>`_)
+`See the Metadata Open Issues
+<https://bitbucket.org/pypa/pypi-metadata-formats/issues?status=new&status=open&priority=blocker>`_
 
-  * :ref:`PEP426: Metadata for Python Software Packages 2.0 <PEP426s>`
-  * :ref:`PEP440: Version Identification and Dependency Specification <PEP440s>`
-  * `PEP459: Standard Metadata Extensions for Python Software Packages
-    <http://legacy.python.org/dev/peps/pep-0459/>`_
-  * `Wheel 1.1
-    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/18/wheel-11>`_
-  * `sdist 2.0
-    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/20/sdist-20>`_
-  * `PEP for common naming schemes
-    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/23/common-filename-scheme>`_
-  * `Installation Database 2.0 (replace PEP376)
-    <https://bitbucket.org/pypa/pypi-metadata-formats/issue/22/installation-database-2>`_
+* :ref:`PEP426: Metadata for Python Software Packages 2.0 <PEP426s>`
+* :ref:`PEP440: Version Identification and Dependency Specification <PEP440s>`
+* `PEP459: Standard Metadata Extensions for Python Software Packages
+  <http://legacy.python.org/dev/peps/pep-0459/>`_
+* `Wheel 1.1
+  <https://bitbucket.org/pypa/pypi-metadata-formats/issue/18/wheel-11>`_
+* `sdist 2.0
+  <https://bitbucket.org/pypa/pypi-metadata-formats/issue/20/sdist-20>`_
+* `PEP for common naming schemes
+  <https://bitbucket.org/pypa/pypi-metadata-formats/issue/23/common-filename-scheme>`_
+* `Installation Database 2.0 (replace PEP376)
+  <https://bitbucket.org/pypa/pypi-metadata-formats/issue/22/installation-database-2>`_
+
+
+PyPI Infrastructure
+-------------------
 
 * Migration from the legacy PyPI server to :ref:`warehouse` (the preview is
   available at https://preview-pypi.python.org/ running off the live PyPI data)
+* :ref:`PEP458 <PEP458s>`: An integration of PyPI with the "The Update Framework (TUF)"
+* Improved PyPI upload API
+
+
+pip
+---
+
+* :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4
+  distributions
+* An internal stable api for pip
 * Removal of older pip commands and options that aren't popular or well
   maintained (`#906 <https://github.com/pypa/pip/issues/906>`_, `#1046
   <https://github.com/pypa/pip/issues/1046>`_)
 * Improved handling of in-place pip upgrades on Windows
-* :ref:`pip` should `get a real dependency resolver
+* :ref:`pip` needs a `real dependency resolver
   <https://github.com/pypa/pip/issues/988>`_
 
-TBD
----
+
+Docs and Community
+------------------
+
+* http://bugs.python.org/issue19407: Have the distutils docs on docs.python.org
+  be aware of :ref:`PEP453 <PEP453s>`.
+* Refactor the :ref:`virtualenv`, :ref:`setuptools`, and :ref:`wheel` docs to
+  be consistent with the `"PyPA Standard Docs Template"
+  <https://gist.github.com/qwcode/8431828>`_
+* Document pip's (and more generally pypa's) deprecation policy (`Issue 1611
+  <https://github.com/pypa/pip/issues/1611>`)
+* A general release email list for all Pypa projects?
+
+
+More PEPs
+---------
 
 * A `"MetaBuild" <http://www.python.org/dev/peps/pep-0426/#metabuild-system>`_
   PEP that would allow projects to specify alternative build systems
   (i.e. something other than setuptools).
 * `Wheel 2.0 <https://bitbucket.org/pypa/pypi-metadata-formats/issue/19/wheel-20>`_
-* :ref:`PEP458 <PEP458s>`: An integration of PyPI with the "The Update Framework (TUF)"
-* An internal stable api for pip
-* Improved PyPI upload API
 
 ----
 
