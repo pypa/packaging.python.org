@@ -153,7 +153,7 @@ Docs and Community
   be consistent with the `"PyPA Standard Docs Template"
   <https://gist.github.com/qwcode/8431828>`_
 * Document pip's (and more generally pypa's) deprecation policy (`Issue 1611
-  <https://github.com/pypa/pip/issues/1611>`)
+  <https://github.com/pypa/pip/issues/1611>`_)
 * A general release email list for all Pypa projects?
 
 
