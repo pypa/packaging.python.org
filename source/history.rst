@@ -55,7 +55,7 @@ Packaging History
 
 
 Before 2013
-===========
+-----------
 
 **2012-06-19**: The effort to include "Distutils2/Packaging" in Python 3.3 was
 abandoned due lack of involvement. [#]_
