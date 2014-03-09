@@ -315,8 +315,8 @@ project installed, but still editable for development)
 
 
 
-Building & Uploading your Project to PyPI
-=========================================
+Building & Packaging your Project
+=================================
 
 Build a source distribution
 
@@ -334,6 +334,15 @@ Build a wheel
 
 Note that PyPI currently only allows uploading platform-specific wheels for
 Windows and Mac OS X.
+
+
+Uploading your Project to PyPI
+==============================
+
+::
+
+  FIXME:  cover registration and pypi ui
+
 
 Upload your distributions with :ref:`twine`
 
