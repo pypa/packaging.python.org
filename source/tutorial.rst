@@ -57,8 +57,8 @@ Creating and using Virtual Environments
 
 Currently, there are two viable tools for creating Python virtual environments:
 :ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3/3.4,
-and only in 3.4, is :ref:`pip`/:ref:`setuptools` installed by default, whereas
-:ref:`virtualenv` supports Python 2.6 thru Python 3.4 (and
+and only in 3.4, is :ref:`pip`/:ref:`setuptools` installed into environments by
+default, whereas :ref:`virtualenv` supports Python 2.6 thru Python 3.4 (and
 :ref:`pip`/:ref:`setuptools` is installed by default in every version).
 
 The basic problem being addressed with virtual environments is one of
