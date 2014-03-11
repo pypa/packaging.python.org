@@ -3,7 +3,7 @@ Installation & Packaging Tutorial
 =================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-01-22
+:Last Reviewed: 2014-03-10
 
 .. contents::
 
@@ -11,7 +11,8 @@ Installing the Tools
 ====================
 
 For Installation or Packaging, you'll minimally want :ref:`pip` and
-:ref:`setuptools`, and in most cases, :ref:`virtualenv` [5]_.
+:ref:`setuptools`, and in most cases, :ref:`virtualenv` (unless you're using
+`pyvenv`_).
 
 Additionally, for building wheels, you'll need :ref:`wheel`, and for uploading
 to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
@@ -25,15 +26,24 @@ We recommend the following installation sequence:
    it will install setuptools if it's not installed already. To upgrade an
    existing setuptools, run ``pip install -U setuptools`` [2]_ [3]_
 
-3. Run ``pip install virtualenv`` [2]_ [5]_
-
-4. Optionally, Create a virtual environment (See :ref:`section below <Creating
+3. Optionally, Create a virtual environment (See :ref:`section below <Creating
    and using Virtual Environments>` for details):
+
+   Using :ref:`virtualenv`:
 
    ::
 
+    pip install virtualenv
     virtualenv <DIR>
     source <DIR>/bin/activate
+
+   Using `pyvenv`_: [5]_
+
+   ::
+
+    pyvenv <DIR>
+    source <DIR>/bin/activate
+
 
 5. For building wheels: ``pip install wheel`` [2]_
 
@@ -45,15 +55,20 @@ We recommend the following installation sequence:
 Creating and using Virtual Environments
 =======================================
 
-:ref:`virtualenv` is a tool to create isolated Python environments. [5]_
+Currently, there are two viable options for creating isolated Python environments,
+:ref:`virtualenv` and `pyvenv`_.
 
-The basic problem being addressed is one of dependencies and versions, and
-indirectly permissions. Imagine you have an application that needs version 1 of
-LibFoo, but another application requires version 2. How can you use both these
-applications? If you install everything into /usr/lib/python2.7/site-packages
-(or whatever your platform’s standard location is), it’s easy to end up in a
-situation where you unintentionally upgrade an application that shouldn’t be
-upgraded.
+`pyvenv`_ is available in Python 3.3 and Python 3.4, but only started installing
+:ref:`pip`, by default, in Python 3.4.  :ref:`virtualenv` is functional for
+Python 2.6 thru Python 3.4.
+
+The basic problem being addressed with virtual environments is one of
+dependencies and versions, and indirectly permissions. Imagine you have an
+application that needs version 1 of LibFoo, but another application requires
+version 2. How can you use both these applications? If you install everything
+into /usr/lib/python2.7/site-packages (or whatever your platform’s standard
+location is), it’s easy to end up in a situation where you unintentionally
+upgrade an application that shouldn’t be upgraded.
 
 Or more generally, what if you want to install an application and leave it be?
 If an application works, any change in its libraries or the versions of those
@@ -69,9 +84,19 @@ libraries either).
 
 The basic usage is like so:
 
+Using :ref:`virtualenv`:
+
 ::
 
  virtualenv <DIR>
+ source <DIR>/bin/activate
+
+
+Using `pyvenv`_:
+
+::
+
+ pyvenv <DIR>
  source <DIR>/bin/activate
 
 
@@ -80,7 +105,8 @@ virtualenv environment.  I.e. when working in an activated virtual environment,
 you'll be using installs of :ref:`pip` and :ref:`setuptools` that are unique to
 that environment.
 
-For more information, see the `virtualenv docs <http://www.virtualenv.org>`_.
+For more information, see the `virtualenv <http://www.virtualenv.org>`_ docs or
+the `pyvenv`_ docs.
 
 Note that in some cases, the `user installation scheme
 <http://docs.python.org/install/index.html#alternate-installation-the-user-scheme>`_
@@ -372,3 +398,6 @@ Upload your distributions with :ref:`twine`
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
+
+
+.. _pyvenv: http://docs.python.org/3.4/library/venv.html

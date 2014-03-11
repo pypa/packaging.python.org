@@ -6,7 +6,7 @@ Tool Recommendations
 ====================
 
 :Page Status: Complete
-:Last Reviewed: 2014-01-27
+:Last Reviewed: 2014-03-10
 
 If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
@@ -21,8 +21,8 @@ Installation Tool Recommendations
 * Use :ref:`pip` to install Python :term:`packages <Package (Meaning #2)>`
   from :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_
 
-* Use :ref:`virtualenv` to isolate application specific dependencies from a
-  shared Python installation. [3]_
+* Use :ref:`virtualenv`, or `pyvenv`_ to isolate application specific
+  dependencies from a shared Python installation. [3]_
 
 * Use `pip wheel
   <http://www.pip-installer.org/en/latest/usage.html#pip-wheel>`_ to create a
@@ -89,3 +89,4 @@ Packaging Tool Recommendations
        <PEP425s>` before linux wheels will be allowed.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
+.. _pyvenv: http://docs.python.org/3.4/library/venv.html
