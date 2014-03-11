@@ -58,9 +58,9 @@ Creating and using Virtual Environments
 Currently, there are two viable options for creating isolated Python environments,
 :ref:`virtualenv` and `pyvenv`_.
 
-`pyvenv`_ is available in Python 3.3 and Python 3.4, but only started installing
-:ref:`pip`, by default, in Python 3.4.  :ref:`virtualenv` is functional for
-Python 2.6 thru Python 3.4.
+`pyvenv`_ is available in Python 3.3 and Python 3.4, but only in Python 3.4
+:ref:`pip` is installed by default. :ref:`virtualenv` is functional for Python 2.6
+thru Python 3.4 and :ref:`pip` is installed by default.
 
 The basic problem being addressed with virtual environments is one of
 dependencies and versions, and indirectly permissions. Imagine you have an
