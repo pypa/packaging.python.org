@@ -31,7 +31,7 @@ Installation Schemes
    3. virtual environments
 
 
-.. _`Requirements files vs install_requires`:
+.. _`install_requires vs Requirements files`:
 
 install_requires vs Requirements files
 ======================================

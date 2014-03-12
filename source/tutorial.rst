@@ -294,6 +294,11 @@ from `sampleproject/setup.py
 
  install_requires = ['peppercorn']
 
+"install_requires" should be used to specify what dependences a project
+minimally needs to run. When the project is installed by :ref:`pip`, this is the
+specification that is used to install it’s dependencies.
+
+For more on using "install_requires" see :ref:`install_requires vs Requirements files`.
 
 Package Data
 ------------
