@@ -4,8 +4,8 @@
 Packaging History
 =================
 
-:Page Status: Incomplete [#]_
-:Last Reviewed: 2014-03-27
+:Page Status: Complete
+:Last Reviewed: 2014-03-11
 
 
 2014
@@ -30,9 +30,9 @@ Packaging History
   increased resources)
 * The core packaging projects were collected under the :term:`Python Packaging Authority
   (PyPA)` accounts on `GitHub <https://github.com/pypa>`_ and `Bitbucket
-  <https://bitbucket.org/pypa/>`_
+  <https://bitbucket.org/pypa/>`_ [2]_
 * Distribute merged back into :ref:`setuptools`, and :ref:`setuptools` development
-  migrated to the PyPA BitBucket account.
+  migrated to the PyPA BitBucket account. [1]_ [5]_
 * PyPI supports clients using verified SSL with standard cert bundles
 * PyPI forces web users over to SSL
 * :ref:`pip` (v1.3) and :ref:`easy_install <setuptools>` (v0.7) use verified SSL by default
@@ -47,9 +47,9 @@ Packaging History
   <Wheel>`
 * :term:`PyPA <Python Packaging Authority (PyPA)>` became the maintainer for the
   `Python Packaging User Guide`_, which was forked from the "Hitchhiker's Guide
-  to Packaging". [#]_
+  to Packaging".
 * Packaging Dev and User Summits were held at Pycon 2013 to share ideas on the
-  future of packaging. [#]_ [#]_
+  future of packaging. [3]_ [4]_
 * :ref:`PEP425 <PEP425s>` and :ref:`PEP427 <PEP427s>` were accepted.  Together,
   they specify a built-package format for Python called :term:`Wheel`.
 
@@ -58,7 +58,7 @@ Before 2013
 -----------
 
 **2012-06-19**: The effort to include "Distutils2/Packaging" in Python 3.3 was
-abandoned due lack of involvement. [#]_
+abandoned due lack of involvement. [6]_
 
 **2011-02-28**: The :term:`PyPA <Python Packaging Authority (PyPA)>` is created
 to take over the maintenance of :ref:`pip` and :ref:`virtualenv` from Ian Bicking,
@@ -108,13 +108,10 @@ development of :term:`distutils`.
 
 ----
 
-.. [#] What's missing: 1) recent PEP438 events 2) D2 evolution and failure, 3)
-       PEP453 approval, 4) buildout 2.0 not being isolated
-.. [#] http://mail.python.org/pipermail/distutils-sig/2013-June/021160.html
-.. [#] http://mail.python.org/pipermail/distutils-sig/2013-March/020224.html
-.. [#] https://us.pycon.org/2013/community/openspaces/packaginganddistributionminisummit/
-.. [#] http://www.pyvideo.org/video/1731/panel-directions-for-packaging
-.. [#] http://mail.python.org/pipermail/distutils-sig/2013-March/020127.html
-.. [#] https://github.com/pypa/pip/pull/834
-.. [#] http://mail.python.org/pipermail/python-dev/2012-June/120430.html
+.. [1] http://mail.python.org/pipermail/distutils-sig/2013-June/021160.html
+.. [2] http://mail.python.org/pipermail/distutils-sig/2013-March/020224.html
+.. [3] https://us.pycon.org/2013/community/openspaces/packaginganddistributionminisummit/
+.. [4] http://www.pyvideo.org/video/1731/panel-directions-for-packaging
+.. [5] http://mail.python.org/pipermail/distutils-sig/2013-March/020127.html
+.. [6] http://mail.python.org/pipermail/python-dev/2012-June/120430.html
 
