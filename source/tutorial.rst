@@ -269,7 +269,7 @@ from `sampleproject/sample/__init__.py
 
   __version__ = '1.2.0'
 
-Projects should aim to comply with the `scheme
+Projects should aim to comply with the `version scheme
 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
 specified in :ref:`PEP440 <PEP440s>`.
 
@@ -292,11 +292,69 @@ from `sampleproject/setup.py
 
 ::
 
- install_requires = ['SomeDependency']
+ install_requires = ['peppercorn']
+
+
+Package Data
+------------
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+ package_data={
+     'sample': ['package_data.dat'],
+ }
+
+
+Often, additional files need to be installed into a package. These files are
+often data that’s closely related to the package’s implementation, or text files
+containing documentation that might be of interest to programmers using the
+package. These files are called "package data".
+
+The value must be a mapping from package name to a list of relative path names
+that should be copied into the package. The paths are interpreted as relative to
+the directory containing the package.
+
+For more information, see `Including Data Files
+<http://pythonhosted.org/setuptools/setuptools.html#including-data-files>`_ from
+the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_
 
 
 Data Files
 ----------
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+  data_files=[('my_data', ['data/data_file'])],
+
+Although configuring ``package_data`` is recommended, in some cases you may need
+to place data files outside of your packages.  This directive allows you to do
+that.
+
+Each (directory, files) pair in the sequence specifies the installation
+directory and the files to install there. If directory is a relative path, it is
+interpreted relative to the installation prefix (Python’s sys.prefix for
+pure-Python packages, sys.exec_prefix for packages that contain extension
+modules). Each file name in files is interpreted relative to the setup.py script
+at the top of the package source distribution.
+
+For more information see the distutils section on `Installing Additional Files
+<http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files>`_.
+
+.. note::
+
+  :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
+  absolute, when intalling from :term:`sdist <Source Distribution (or
+  "sdist")>`.  This is not true, when installing from :term:`wheel`
+  distributions. Wheels don't support absolute paths, and they end up being
+  installed relative to "site-packages".  For discussion see `wheel Issue #92
+  <https://bitbucket.org/pypa/wheel/issue/92>`_.
+
 
 Scripts
 -------
