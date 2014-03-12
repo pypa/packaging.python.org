@@ -118,6 +118,12 @@ from the pip docs.
 Installing Python packages
 ==========================
 
+:ref:`pip` is the recommended installer, and supports various requirement forms
+and options.  For details, see the `pip docs
+<http://www.pip-installer.org/en/latest/>`_.
+
+Below are the most common use cases:
+
 Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
 
@@ -194,8 +200,6 @@ default, pip only finds stable versions.
 
  pip install --pre SomePackage
 
-
-For more on installation, see `the pip docs <http://www.pip-installer.org/en/latest/>`_.
 
 
 Installing Wheels
