@@ -256,7 +256,9 @@ from `sampleproject/setup.py
   name = 'sample'
 
 This will determine how your project is listed on :term:`PyPI <Python Package
-Index (PyPI)>`. It's recommended to only use letters, decimal digits, ``-``, ``.``, and ``_``.
+Index (PyPI)>`. For details on permitted characters, see the `name
+<http://legacy.python.org/dev/peps/pep-0426/#name>`_ section from :ref:`PEP426
+<PEP426s>`.
 
 
 Project Version
