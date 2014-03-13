@@ -1,4 +1,3 @@
-
 =================
 Project Summaries
 =================
@@ -81,7 +80,7 @@ wheel
 
 
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
-creating :term:`wheel distributions <Wheel>`.  Additionally, it offers it's own
+creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
 
 
