@@ -47,8 +47,6 @@ A tool for creating isolated Python environments.
 setuptools
 ==========
 
-(includes easy_install)
-
 `Docs <http://pythonhosted.org/setuptools>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
@@ -58,13 +56,12 @@ setuptools
 irc:#distutils
 
 
-setuptools is a collection of enhancements to the Python distutils that allow
-you to more easily build and distribute Python packages, especially ones that
-have dependencies on other packages.
+setuptools (which includes ``easy_install``) is a collection of enhancements to
+the Python distutils that allow you to more easily build and distribute Python
+packages, especially ones that have dependencies on other packages.
 
-`distribute`_ was a fork of setuptools that was recently merged back into
-setuptools (in v0.7), thereby making setuptools the primary choice for Python
-packaging.
+`distribute`_ was a fork of setuptools that was merged back into setuptools (in
+v0.7), thereby making setuptools the primary choice for Python packaging.
 
 
 .. _wheel:
