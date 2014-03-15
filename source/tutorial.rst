@@ -236,17 +236,37 @@ And then to install those requirements just using your local directory of wheels
 Creating your own Project
 =========================
 
-See the `PyPA sample project <https://github.com/pypa/sampleproject>`_. You can
-use that as an example to get started.
+In the sections below, we'll reference the `PyPA sample project
+<https://github.com/pypa/sampleproject>`_. which aims to exemplify best
+practices for packaging Python projects using :ref:`setuptools`.
 
-Let's cover the critical features below: [4]_
+
+Layout
+------
+
+The critical requirement for creating projects using :ref:`setuptools` is to
+have a ``setup.py``. For an example, see `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_.  We'll cover the
+components of ``setup.py`` in the sections below.
+
+Although it's not required, most projects will organize the code using a `single
+top-level package <https://github.com/pypa/sampleproject/tree/master/sample>`_,
+that's named the same as the project.
+
+Additionally, most projects will contain the following files:
+
+* A `README <https://github.com/pypa/sampleproject/blob/master/README.rst>`_ for
+  explaining the project.
+* A `setup.cfg <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_
+  that contains option defaults for ``setup.py`` commands.
+* A `MANIFEST.in
+  <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ that defines
+  the files that will be included in the project distribution when it's
+  packaged.
 
 
-Project Structure
------------------
-
-Project Name
-------------
+Name
+----
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -261,8 +281,8 @@ Index (PyPI)>`. For details on permitted characters, see the `name
 <PEP426s>`.
 
 
-Project Version
----------------
+Version
+-------
 
 from `sampleproject/sample/__init__.py
 <https://github.com/pypa/sampleproject/blob/master/sample/__init__.py>`_
@@ -286,6 +306,12 @@ Some Examples:
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
 
+
+Packages
+--------
+
+Metadata
+--------
 
 Dependencies
 ------------
@@ -363,6 +389,8 @@ For more information see the distutils section on `Installing Additional Files
   installed relative to "site-packages".  For discussion see `wheel Issue #92
   <https://bitbucket.org/pypa/wheel/issue/92>`_.
 
+Manifest
+--------
 
 Scripts
 -------
