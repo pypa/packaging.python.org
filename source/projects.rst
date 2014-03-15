@@ -97,9 +97,9 @@ distlib
 
 Distlib is a library which implements low-level functions that relate to
 packaging and distribution of Python software.  It consists in part of the
-functions in the packaging Python package, which was intended to be released as
-part of Python 3.3, but was removed shortly before Python 3.3 entered beta
-testing.
+functions from the `distutils2 <https://pypi.python.org/pypi/Distutils2>`_
+project, which was intended to be released as ``packaging`` in the Python 3.3
+stdlib, but was removed shortly before Python 3.3 entered beta testing.
 
 
 .. _twine:
