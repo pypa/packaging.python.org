@@ -71,8 +71,8 @@ wheel
 
 `Docs <http://wheel.readthedocs.org>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <https://bitbucket.org/dholth/wheel/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/dholth/wheel>`__ |
+`Issues <https://bitbucket.org/pypa/wheel/issues?status=new&status=open>`__ |
+`Bitbucket <https://bitbucket.org/pypa/wheel>`__ |
 `PyPI <https://pypi.python.org/pypi/wheel>`__
 
 
