@@ -384,9 +384,9 @@ similar to an :term:`sdist <Source Distribution (or "sdist")>`.
 
 Only use this setting, if:
 
-1. You're project runs on Python 2 and 3 with no changes (i.e. it does not
+1. Your project runs on Python 2 and 3 with no changes (i.e. it does not
    require 2to3).
-2. You're project does not have any C extensions.
+2. Your project does not have any C extensions.
 
 Beware that ``bdist_wheel`` does not currently have any checks to warn you if
 use the setting inappropriately.
