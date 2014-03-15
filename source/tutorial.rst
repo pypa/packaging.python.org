@@ -19,14 +19,25 @@ to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
 
 We recommend the following installation sequence:
 
-1. Securely Download `get-pip.py
-   <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
+1. Install :ref:`pip` and :ref:`setuptools`:
 
-2. Run ``python get-pip.py``.  This will install or upgrade pip.  Additionally,
-   it will install setuptools if it's not installed already. To upgrade an
-   existing setuptools, run ``pip install -U setuptools`` [2]_ [3]_
+   If you have Python 3.4:
 
-3. Optionally, Create a virtual environment (See :ref:`section below <Creating
+   * You're distribution will likely already have the ``pip`` command available
+     by default (and setuptools will be installed as well).  If ``pip`` is not
+     available, run: ``python -m ensurepip --upgrade``, which will install pip
+     and setuptools.
+
+   If you have less than Python 3.4:
+
+   * Securely Download `get-pip.py
+     <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
+
+   * Run ``python get-pip.py``.  This will install or upgrade pip.
+     Additionally, it will install setuptools if it's not installed already. To
+     upgrade an existing setuptools, run ``pip install -U setuptools`` [2]_ [3]_
+
+2. Optionally, Create a virtual environment (See :ref:`section below <Creating
    and using Virtual Environments>` for details):
 
    Using :ref:`virtualenv`:
@@ -45,9 +56,9 @@ We recommend the following installation sequence:
     source <DIR>/bin/activate
 
 
-5. For building wheels: ``pip install wheel`` [2]_
+3. For building wheels: ``pip install wheel`` [2]_
 
-6. For uploading distributions: ``pip install twine`` [2]_
+4. For uploading distributions: ``pip install twine`` [2]_
 
 
 .. _`Creating and using Virtual Environments`:
@@ -56,10 +67,11 @@ Creating and using Virtual Environments
 =======================================
 
 Currently, there are two viable tools for creating Python virtual environments:
-:ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3/3.4,
-and only in 3.4, is :ref:`pip`/:ref:`setuptools` installed into environments by
-default, whereas :ref:`virtualenv` supports Python 2.6 thru Python 3.4 (and
-:ref:`pip`/:ref:`setuptools` is installed by default in every version).
+:ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3 &
+3.4, and only in Python 3.4, is :ref:`pip` & :ref:`setuptools` installed into
+environments by default, whereas :ref:`virtualenv` supports Python 2.6 thru
+Python 3.4 and :ref:`pip` & :ref:`setuptools` are installed by default in every
+version.
 
 The basic problem being addressed with virtual environments is one of
 dependencies and versions, and indirectly permissions. Imagine you have an
@@ -98,11 +110,6 @@ Using `pyvenv`_:
  pyvenv <DIR>
  source <DIR>/bin/activate
 
-
-By default, :ref:`pip` and :ref:`setuptools` are installed into each new
-virtualenv environment.  I.e. when working in an activated virtual environment,
-you'll be using installs of :ref:`pip` and :ref:`setuptools` that are unique to
-that environment.
 
 For more information, see the `virtualenv <http://www.virtualenv.org>`_ docs or
 the `pyvenv`_ docs.
