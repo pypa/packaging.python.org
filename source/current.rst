@@ -11,9 +11,6 @@ Tool Recommendations
 If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
 
-If you're interested in learning more about current areas of development,
-see :doc:`future`.
-
 
 Installation Tool Recommendations
 =================================
