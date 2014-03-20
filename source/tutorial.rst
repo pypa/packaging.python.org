@@ -23,7 +23,7 @@ We recommend the following installation sequence:
 
    If you have Python 3.4:
 
-   * You're distribution will likely already have the ``pip`` command available
+   * Your distribution will likely already have the ``pip`` command available
      by default (and setuptools will be installed as well).  If ``pip`` is not
      available, run: ``python -m ensurepip --upgrade``, which will install pip
      and setuptools.
