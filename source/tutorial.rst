@@ -360,7 +360,7 @@ the directory containing the package.
 
 For more information, see `Including Data Files
 <http://pythonhosted.org/setuptools/setuptools.html#including-data-files>`_ from
-the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_
+the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
 
 Data Files
@@ -401,6 +401,31 @@ Manifest
 
 Scripts
 -------
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+  entry_points={
+      'console_scripts': [
+          'sample=sample:main',
+      ],
+  },
+
+Although setup.py supports a `scripts
+<http://docs.python.org/3.4/distutils/setupscript.html#installing-scripts>`_
+keyword for pointing to pre-made scripts, the recommended approach to achieve
+cross-platform compatibility, is to use "console_script" `entry points
+<http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+that register your script interfaces, and let the toolchain handle the work of
+turning these interfaces into actual scripts.  The scripts will be generated
+during the install of your package.
+
+For more information, see `Automatic Script Creation
+<http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
+from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+
 
 Universal Wheels
 ----------------
