@@ -19,8 +19,8 @@ pip
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `Github <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.python.org/pypi/pip/>`__ |
-User irc:#pip |
-Dev irc:#pypa
+User irc:#pypa |
+Dev irc:#pypa-dev
 
 A tool for installing and managing Python packages.
 
@@ -35,8 +35,8 @@ virtualenv
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `Github <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.python.org/pypi/virtualenv/>`__ |
-User irc:#pip  |
-Dev irc:#pypa
+User irc:#pypa  |
+Dev irc:#pypa-dev
 
 A tool for creating isolated Python environments.
 
@@ -53,7 +53,9 @@ setuptools
 `Issues <https://bitbucket.org/pypa/setuptools/issues>`__ |
 `Bitbucket <https://bitbucket.org/pypa/setuptools>`__ |
 `PyPI <https://pypi.python.org/pypi/setuptools>`__ |
-irc:#distutils
+User irc:#pypa  |
+Dev irc:#pypa-dev
+
 
 
 setuptools (which includes ``easy_install``) is a collection of enhancements to
@@ -73,7 +75,9 @@ wheel
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/wheel/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/wheel>`__ |
-`PyPI <https://pypi.python.org/pypi/wheel>`__
+`PyPI <https://pypi.python.org/pypi/wheel>`__ |
+User irc:#pypa  |
+Dev irc:#pypa-dev
 
 
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
@@ -122,7 +126,8 @@ Warehouse
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/warehouse/issues>`__ |
 `Github <https://github.com/pypa/warehouse>`__ |
-irc:#warehouse
+Dev irc:#pypa-dev
+
 
 The new unreleased PyPI application (to replace the current site at https://pypi.python.org/pypi).
 
