@@ -60,7 +60,7 @@ Packaging Tool Recommendations
        <http://www.python.org/dev/peps/pep-0453/#rationale>`_ from :ref:`PEP453
        <PEP453s>` as for why pip was chosen.
 
-.. [3] Beginning with Python 3.4, ``pyenv`` will create virtualenv environments
+.. [3] Beginning with Python 3.4, ``pyvenv`` will create virtualenv environments
        with ``pip`` installed, thereby making it an equal alternative to
        :ref:`virtualenv`. However, using :ref:`virtualenv` will still be
        recommended for users that need cross-version consistency.
