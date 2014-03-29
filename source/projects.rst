@@ -8,6 +8,20 @@ Project Summaries
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
 
+
+Python Packaging User Guide
+===========================
+
+`Docs <http://packaging.python.org>`__ |
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ |
+`Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
+`Github <https://github.com/pypa/python-packaging-user-guide>`__ |
+User irc:#pypa |
+Dev irc:#pypa-dev
+
+This guide!
+
+
 .. _pip:
 
 pip
