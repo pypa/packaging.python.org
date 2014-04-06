@@ -21,14 +21,15 @@ We recommend the following installation sequence:
 
 1. Install :ref:`pip` and :ref:`setuptools`: [3]_
 
-   If you have Python 3.4:
+   If you have a :ref:`PEP453 <PEP453s>`-compliant Python 3.4:
 
-   * Your distribution will likely already have the ``pip`` command available
-     by default (and setuptools will be installed as well).  If ``pip`` is not
-     available, run: ``python -m ensurepip --upgrade``, which will install pip
-     and setuptools.
+   * Some Python 3.4 distribution may already have the ``pip`` command available
+     by default (and setuptools will be installed as well), or they may at least
+     contain a working `ensurepip
+     <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
+     setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.
 
-   If you have less than Python 3.4:
+   Otherwise:
 
    * Securely Download `get-pip.py
      <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
