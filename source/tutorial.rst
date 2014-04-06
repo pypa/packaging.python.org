@@ -66,13 +66,6 @@ We recommend the following installation sequence:
 Creating and using Virtual Environments
 =======================================
 
-Currently, there are two viable tools for creating Python virtual environments:
-:ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3 &
-3.4, and only in Python 3.4, is :ref:`pip` & :ref:`setuptools` installed into
-environments by default, whereas :ref:`virtualenv` supports Python 2.6 thru
-Python 3.4 and :ref:`pip` & :ref:`setuptools` are installed by default in every
-version.
-
 The basic problem being addressed with virtual environments is one of
 dependencies and versions, and indirectly permissions. Imagine you have an
 application that needs version 1 of LibFoo, but another application requires
@@ -88,10 +81,16 @@ libraries can break the application.
 Also, what if you can’t install packages into the global site-packages
 directory? For instance, on a shared host.
 
-In all these cases, virtualenv can help you. It creates an environment that has
-its own installation directories, that doesn’t share libraries with other
-virtualenv environments (and optionally doesn’t access the globally installed
-libraries either).
+In all these cases, virtual environments can help you. They have their own
+installation directories and they don’t share libraries with other virtualenv
+environments.
+
+Currently, there are two viable tools for creating Python virtual environments:
+:ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3 &
+3.4, and only in Python 3.4, is :ref:`pip` & :ref:`setuptools` installed into
+environments by default, whereas :ref:`virtualenv` supports Python 2.6 thru
+Python 3.4 and :ref:`pip` & :ref:`setuptools` are installed by default in every
+version.
 
 The basic usage is like so:
 
