@@ -19,7 +19,7 @@ to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
 
 We recommend the following installation sequence:
 
-1. Install :ref:`pip` and :ref:`setuptools`:
+1. Install :ref:`pip` and :ref:`setuptools`: [3]_
 
    If you have Python 3.4:
 
@@ -35,7 +35,7 @@ We recommend the following installation sequence:
 
    * Run ``python get-pip.py``.  This will install or upgrade pip.
      Additionally, it will install setuptools if it's not installed already. To
-     upgrade an existing setuptools, run ``pip install -U setuptools`` [2]_ [3]_
+     upgrade an existing setuptools, run ``pip install -U setuptools`` [2]_
 
 2. Optionally, Create a virtual environment (See :ref:`section below <Creating
    and using Virtual Environments>` for details):
@@ -511,12 +511,15 @@ Upload your distributions with :ref:`twine`
        tool like `curl` that verifies SSL certificates when downloading from
        https URLs.
 
-.. [2] Depending on your platform, this may require root or Administrator access.
+.. [2] Depending on your platform, this may require root or Administrator
+       access. :ref:`pip` is currently considering changing this by `making user
+       installs the default behavior
+       <https://github.com/pypa/pip/issues/1668>`_.
 
 .. [3] On Linux and OSX, pip and setuptools will usually be available for the system
        python from a system package manager (e.g. `yum` or `apt-get` for linux,
        or `homebrew` for OSX). Unfortunately, there is often delay in getting
-       the latest version this way, so in most cases, you'll want to use the
+       the latest version this way, so in most cases, you'll want to use these
        instructions.
 
 .. [4] For more information on creating projects, see the `Setuptools Docs
