@@ -106,7 +106,14 @@ Glossary
     Project
 
         A library, framework, script, plugin, application, or collection of data
-        or other resources, or some combination thereof.
+        or other resources, or some combination thereof that is intended to be
+        packaged into a :term:`Distribution`.
+
+        Since most projects create :term:`Distributions <Distribution>` using
+        :term:`Distutils` or :ref:`setuptools`, another practical way to define
+        projects currently is something that contains a :term:`setup.py` at the
+        root of the project src directory, where "setup.py" is the project
+        specification filename used by :term:`Distutils` and :ref:`setuptools`.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
@@ -125,6 +132,7 @@ Glossary
         A :term:`module` written in Python and contained in a single .py file (and
         possibly associated .pyc and/or .pyo files).
 
+
     Python Packaging Authority (PyPA)
 
         PyPA is a working group that maintains many of the relevant projects in
@@ -132,6 +140,7 @@ Glossary
         <https://github.com/pypa>`_ and `bitbucket
         <https://bitbucket.org/pypa>`_, and discuss issues on the `pypa-dev
         mailing list <https://groups.google.com/forum/#!forum/pypa-dev>`_.
+
 
     Python Package Index (PyPI)
 
@@ -148,6 +157,11 @@ Glossary
         :term:`Distributions <Distribution>`.  For example, if version 1.0 of a
         project was released, it could be available in both a source
         distribution format and a Windows installer distribution format.
+
+
+    setup.py
+
+        The project specification file for :term:`Distutils` and :ref:`setuptools`.
 
 
     Source Archive
