@@ -35,15 +35,6 @@ Glossary
         distribution file is what an end-user will download from the internet
         and install.
 
-
-    Distutils
-
-        A standard package that comes with the Python Standard Library that has
-        support for creating :term:`distributions
-        <Distribution>`. :ref:`Setuptools` provides enhancements to distutils,
-        and is more commonly used than distutils by itself.
-
-
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
@@ -111,10 +102,10 @@ Glossary
         packaged into a :term:`Distribution`.
 
         Since most projects create :term:`Distributions <Distribution>` using
-        :term:`Distutils` or :ref:`setuptools`, another practical way to define
+        :ref:`distutils` or :ref:`setuptools`, another practical way to define
         projects currently is something that contains a :term:`setup.py` at the
         root of the project src directory, where "setup.py" is the project
-        specification filename used by :term:`Distutils` and :ref:`setuptools`.
+        specification filename used by :ref:`distutils` and :ref:`setuptools`.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
@@ -162,7 +153,7 @@ Glossary
 
     setup.py
 
-        The project specification file for :term:`Distutils` and :ref:`setuptools`.
+        The project specification file for :ref:`distutils` and :ref:`setuptools`.
 
 
     Source Archive

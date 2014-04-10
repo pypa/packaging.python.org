@@ -6,9 +6,9 @@ The Future of Python Packaging
 :Last Reviewed: 2014-04-09
 
 
-The :term:`distutils` cross-platform build and distribution system was added to
+The :ref:`distutils` cross-platform build and distribution system was added to
 the Python standard library in late 2000. This means the current Python software
-distribution ecosystem (which builds on :term:`distutils`) has a foundation that
+distribution ecosystem (which builds on :ref:`distutils`) has a foundation that
 is almost 15 years old, which poses a variety of challenges to successful
 evolution.
 

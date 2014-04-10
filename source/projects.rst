@@ -79,6 +79,22 @@ packages, especially ones that have dependencies on other packages.
 `distribute`_ was a fork of setuptools that was merged back into setuptools (in
 v0.7), thereby making setuptools the primary choice for Python packaging.
 
+.. _distutils:
+
+distutils
+=========
+
+`Docs <https://docs.python.org/3/library/distutils.html#module-distutils>`__ |
+`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <http://bugs.python.org>`__ |
+User irc:#pypa  |
+Dev irc:#pypa-dev
+
+A standard package that comes with the Python Standard Library that has support
+for creating and installing :term:`distributions
+<Distribution>`. :ref:`Setuptools` provides enhancements to distutils, and is
+much more commonly used than distutils by itself.
+
 
 .. _wheel:
 

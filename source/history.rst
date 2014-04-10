@@ -96,10 +96,10 @@ dependencies.
 **2000**: `catalog-sig`_ was created to discuss creating a centralized index of
 packages.
 
-**2000**: :term:`distutils` was added to the Python standard library in Python 1.6.
+**2000**: :ref:`distutils` was added to the Python standard library in Python 1.6.
 
 **1998**: The `distutils-sig`_ dicussion list was created to discuss the
-development of :term:`distutils`.
+development of :ref:`distutils`.
 
 
 .. _distutils-sig: http://www.python.org/community/sigs/current/distutils-sig/
