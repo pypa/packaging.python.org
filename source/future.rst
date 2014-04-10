@@ -133,13 +133,10 @@ PyPI Infrastructure
 pip
 ---
 
-* :ref:`PEP453 <PEP453s>`: Having ``pip`` be available by default in Python 3.4
-  distributions
 * An internal stable api for pip
 * Removal of older pip commands and options that aren't popular or well
   maintained (`#906 <https://github.com/pypa/pip/issues/906>`_, `#1046
   <https://github.com/pypa/pip/issues/1046>`_)
-* Improved handling of in-place pip upgrades on Windows
 * :ref:`pip` needs a `real dependency resolver
   <https://github.com/pypa/pip/issues/988>`_
 
@@ -147,8 +144,6 @@ pip
 Docs and Community
 ------------------
 
-* http://bugs.python.org/issue19407: Have the distutils docs on docs.python.org
-  be aware of :ref:`PEP453 <PEP453s>`.
 * Refactor the :ref:`virtualenv`, :ref:`setuptools`, and :ref:`wheel` docs to
   be consistent with the `"PyPA Standard Docs Template"
   <https://gist.github.com/qwcode/8431828>`_

@@ -11,6 +11,10 @@ Packaging History
 2014
 ----
 
+* :ref:`PEP453 <PEP453s>`: Being able to able to bootstrap ``pip`` into Python
+  3.4.
+* http://bugs.python.org/issue19407: Modern Installation and Packaging guides on
+  python.org.
 * :ref:`virtualenv` (v1.11) started installing pip & setuptools using wheels.
 * :ref:`pip` (v1.5.1) became available as a cross platform wheel on PyPI.
 * :ref:`pip` (v1.5.1) stop requiring :ref:`setuptools` to install wheels.
