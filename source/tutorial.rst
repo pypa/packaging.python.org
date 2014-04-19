@@ -453,7 +453,7 @@ use the setting inappropriately.
 
 If your project has optional C extensions, it is recommended not to publish a
 universal wheel, because pip will prefer the wheel over a source installation,
-and prevent he possibility of building the extension.
+and prevent the possibility of building the extension.
 
 
 Installing your project in Editable mode
