@@ -1,4 +1,3 @@
-
 .. _`Tool Recommendations`:
 
 ====================
@@ -22,7 +21,7 @@ Installation Tool Recommendations
   dependencies from a shared Python installation. [3]_
 
 * Use `pip wheel
-  <http://www.pip-installer.org/en/latest/usage.html#pip-wheel>`_ to create a
+  <http://www.pip-installer.org/en/latest/reference/pip_wheel.html>`_ to create a
   cache of :term:`wheel` distributions, for the purpose of speeding up
   subsequent installations. [4]_
 
