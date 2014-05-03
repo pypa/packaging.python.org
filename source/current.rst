@@ -64,9 +64,8 @@ Packaging Tool Recommendations
        :ref:`virtualenv`. However, using :ref:`virtualenv` will still be
        recommended for users that need cross-version consistency.
 
-.. [4] For more information, see the pip guide to `Building and Installing
-       Wheels
-       <http://pip.pypa.io/en/latest/cookbook.html#building-and-installing-wheels>`_.
+.. [4] For more information, see the pip guide to `Installing from Wheels
+       <https://pip.pypa.io/en/latest/user_guide.html#installing-from-wheels>`_.
 
 .. [5] `distribute`_ (a fork of setuptools) was merged back into
        :ref:`setuptools` in June 2013, thereby making setuptools the default
