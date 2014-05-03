@@ -27,7 +27,7 @@ This guide!
 pip
 ===
 
-`Docs <http://www.pip-installer.org/en/latest/>`__ |
+`Docs <https://pip.pypa.io>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
@@ -43,7 +43,7 @@ A tool for installing and managing Python packages.
 virtualenv
 ==========
 
-`Docs <http://www.virtualenv.org>`__ |
+`Docs <https://virtualenv.pypa.io>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |

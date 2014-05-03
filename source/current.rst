@@ -21,7 +21,7 @@ Installation Tool Recommendations
   dependencies from a shared Python installation. [3]_
 
 * Use `pip wheel
-  <http://www.pip-installer.org/en/latest/reference/pip_wheel.html>`_ to create a
+  <http://pip.pypa.io/en/latest/reference/pip_wheel.html>`_ to create a
   cache of :term:`wheel` distributions, for the purpose of speeding up
   subsequent installations. [4]_
 
@@ -66,7 +66,7 @@ Packaging Tool Recommendations
 
 .. [4] For more information, see the pip guide to `Building and Installing
        Wheels
-       <http://www.pip-installer.org/en/latest/cookbook.html#building-and-installing-wheels>`_.
+       <http://pip.pypa.io/en/latest/cookbook.html#building-and-installing-wheels>`_.
 
 .. [5] `distribute`_ (a fork of setuptools) was merged back into
        :ref:`setuptools` in June 2013, thereby making setuptools the default

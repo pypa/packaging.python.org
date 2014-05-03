@@ -43,7 +43,7 @@ Packaging History
 * easy_install supports additional hashes beyond md5 (pip already did)
 * Fastly CDN enabled for PyPI (donated)
 * Restructured the `pip install docs
-  <http://www.pip-installer.org/en/latest/installing.html>`_ to clarify that
+  <http://pip.pypa.io/en/latest/installing.html>`_ to clarify that
   setuptools and pip are the "base" of the bootstrapping hierarchy
 * setuptools available as a cross platform wheel on PyPI
 * :ref:`PEP438s` and the associated pip changes.

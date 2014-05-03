@@ -111,7 +111,7 @@ Using `pyvenv`_:
  source <DIR>/bin/activate
 
 
-For more information, see the `virtualenv <http://www.virtualenv.org>`_ docs or
+For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `pyvenv`_ docs.
 
 Note that in some cases, the `user installation scheme
@@ -127,7 +127,7 @@ Installing Python packages
 
 :ref:`pip` is the recommended installer, and supports various requirement forms
 and options.  For details, see the `pip docs
-<http://www.pip-installer.org/en/latest/>`_.
+<https://pip.pypa.io>`_.
 
 Below are the most common use cases:
 
