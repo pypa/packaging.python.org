@@ -17,7 +17,7 @@ when you're just not sure, use the `distutils-sig
 <http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
 
 
-The guide is maintained `here
+The project is maintained on `github
 <https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python
 Packaging Authority (PyPA)`.
 
