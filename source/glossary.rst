@@ -3,8 +3,8 @@
 Glossary
 ========
 
-:Page Status: Incomplete [1]_
-:Last Reviewed: 2014-04-09
+:Page Status: Complete
+:Last Reviewed: 2014-05-10
 
 
 .. glossary::
@@ -151,6 +151,22 @@ Glossary
         distribution format and a Windows installer distribution format.
 
 
+    Requirement
+
+       A specification for a :term:`package <Package (Meaning #2)>` to be
+       installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority
+       (PyPA)>` recommended installer, allows various forms of specification
+       that can all be considered a "requirement". For more information, see the
+       :ref:`pip:pip install` reference.
+
+
+    Requirements File
+
+       A file containing a list of :term:`Requirements <Requirement>` that can
+       be installed using :ref:`pip`. For more information, see the :ref:`pip`
+       docs on :ref:`pip:Requirements Files`.
+
+
     setup.py
 
         The project specification file for :ref:`distutils` and :ref:`setuptools`.
@@ -158,17 +174,17 @@ Glossary
 
     Source Archive
 
-        An archive containing the raw source code for a :term:`Release`, prior to
-        creation of an :term:`Source Distribution <Source Distribution (or "sdist")>` or
-        :term:`Built Distribution`.
+        An archive containing the raw source code for a :term:`Release`, prior
+        to creation of an :term:`Source Distribution <Source Distribution (or
+        "sdist")>` or :term:`Built Distribution`.
 
 
     Source Distribution (or "sdist")
 
-        A :term:`distribution <Distribution>` format (usually generated using ``python setup.py
-        sdist``) that provides metadata and the essential source files needed
-        for installing by a tool like :ref:`pip`, or for generating a
-        :term:`Built Distribution`.
+        A :term:`distribution <Distribution>` format (usually generated using
+        ``python setup.py sdist``) that provides metadata and the essential
+        source files needed for installing by a tool like :ref:`pip`, or for
+        generating a :term:`Built Distribution`.
 
 
     System Package
@@ -176,6 +192,13 @@ Glossary
         A package provided in a format native to the operating system,
         e.g. an rpm or dpkg file.
 
+
+    Virtual Environment
+
+        An isolated Python environment that allows packages to be installed for
+        use by a particular application, rather than being installed system
+        wide. For more information, see the tutorial section on :ref:`Creating
+        and using Virtual Environments`.
 
     Wheel
 
@@ -190,8 +213,3 @@ Glossary
         variable. At most, one :term:`Distribution` for a project is possible in
         a working set.
 
-----
-
-.. [1] Although the current terms have been reviewed, there's more terminology
-       used by projects like :ref:`pip` and :ref:`setuptools` that needs to be
-       added.
