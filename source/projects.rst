@@ -115,6 +115,20 @@ creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
 
 
+.. _venv:
+
+venv
+====
+
+`Docs <https://docs.python.org/3/library/venv.html>`__ |
+`Issues <http://bugs.python.org>`__
+
+A standard package that comes with the Python Standard Library (starting with
+Python 3.3) that includes the ``pyvenv`` tool for creating :term:`Virtual
+Environments <Virtual Environment>`.  For more information, see the tutorial
+section on :ref:`Creating and using Virtual Environments`.
+
+
 .. _distlib:
 
 distlib
