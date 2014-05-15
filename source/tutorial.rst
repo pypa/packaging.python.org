@@ -315,9 +315,11 @@ The most common approach to referencing ``__version__`` in ``setup.py`` is
 simply to import your package, and reference, e.g. ``sample.__version__``.  This
 is often fine, but in some build scenarios, there may be ``sys.path`` conditions
 that obstruct the import, and then it's necessary to literally read the version
-from the package file.  For examples of ways of doing that, see `pip's setup.py
-<https://github.com/pypa/pip/blob/1.5.5/setup.py#L33>`_ and the `warehouse
-setup.py <https://github.com/pypa/warehouse/blob/v14.2.1/setup.py#L24>`_.
+from the package file.  For examples of two different ways of doing that, see
+the `pip setup.py <https://github.com/pypa/pip/blob/1.5.5/setup.py#L33>`_ (which
+reads and parses with ``re``) and the `warehouse setup.py
+<https://github.com/pypa/warehouse/blob/v14.2.1/setup.py#L24>`_ (which reads and
+uses ``exec``)
 
 
 Projects should aim to comply with the `version scheme
