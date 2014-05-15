@@ -291,18 +291,38 @@ Index (PyPI)>`. For details on permitted characters, see the `name
 Version
 -------
 
-from `sampleproject/sample/__init__.py
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+  version = sample.__version__
+
+where ``__version__`` is defined in `sampleproject/sample/__init__.py
 <https://github.com/pypa/sampleproject/blob/master/sample/__init__.py>`_
 
 ::
 
   __version__ = '1.2.0'
 
+It's common practice to set the version in a ``__version__`` global variable
+in one of your packages.  Thusly, it's available to your code (if needed), and
+available to ``setup.py``.  If it's truly the case, your code (or a client of
+your code) won't need the version, then it's acceptable to just place the
+version directly in ``setup.py`` as the ``version`` value to ``setup()``.
+
+The most common approach to referencing ``__version__`` in ``setup.py`` is
+simply to import your package, and reference, e.g. ``sample.__version__``.  This
+is often fine, but in some build scenarios, there may be ``sys.path`` conditions
+that obstruct the import, and then it's necessary to literally read the version
+from the package file.  For examples of ways of doing that, see `pip's setup.py
+<https://github.com/pypa/pip/blob/1.5.5/setup.py#L33>`_ and the `warehouse
+setup.py <https://github.com/pypa/warehouse/blob/v14.2.1/setup.py#L24>`_.
+
+
 Projects should aim to comply with the `version scheme
 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-specified in :ref:`PEP440 <PEP440s>`.
-
-Some Examples:
+specified in :ref:`PEP440 <PEP440s>`.  Here are some examples:
 
 ::
 
