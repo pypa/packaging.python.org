@@ -441,14 +441,8 @@ keyword for pointing to pre-made scripts, the recommended approach to achieve
 cross-platform compatibility, is to use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 that register your script interfaces, and let the toolchain handle the work of
-turning these interfaces into actual scripts[#]_.  The scripts will be generated
+turning these interfaces into actual scripts [6]_.  The scripts will be generated
 during the install of your package.
-
-.. [#] Specifically, the "console_script" approach generates ``.exe`` files on
-       Windows, which are necessary because the OS special-cases ``.exe`` files.
-       Script-execution features like ``PATHEXT`` and the `Python Launcher for
-       Windows <http://legacy.python.org/dev/peps/pep-0397/>` allow scripts to
-       be used in many cases, but not all.
 
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
@@ -558,6 +552,12 @@ Upload your distributions with :ref:`twine`
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
+
+.. [6] Specifically, the "console_script" approach generates ``.exe`` files on
+       Windows, which are necessary because the OS special-cases ``.exe`` files.
+       Script-execution features like ``PATHEXT`` and the `Python Launcher for
+       Windows <http://legacy.python.org/dev/peps/pep-0397/>`_ allow scripts to
+       be used in many cases, but not all.
 
 
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
