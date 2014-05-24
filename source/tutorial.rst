@@ -296,30 +296,7 @@ from `sampleproject/setup.py
 
 ::
 
-  version = sample.__version__
-
-where ``__version__`` is defined in `sampleproject/sample/__init__.py
-<https://github.com/pypa/sampleproject/blob/master/sample/__init__.py>`_
-
-::
-
-  __version__ = '1.2.0'
-
-It's common practice to set the version in a ``__version__`` global variable
-in one of your packages.  Thusly, it's available to your code (if needed), and
-available to ``setup.py``.  If it's truly the case, your code (or a client of
-your code) won't need the version, then it's acceptable to just place the
-version directly in ``setup.py`` as the ``version`` value to ``setup()``.
-
-The most common approach to referencing ``__version__`` in ``setup.py`` is
-simply to import your package, and reference, e.g. ``sample.__version__``.  This
-is often fine, but in some build scenarios, there may be ``sys.path`` conditions
-that obstruct the import, and then it's necessary to literally read the version
-from the package file.  For examples of two different ways of doing that, see
-the `pip setup.py <https://github.com/pypa/pip/blob/1.5.5/setup.py#L33>`_ (which
-reads and parses with ``re``) and the `warehouse setup.py
-<https://github.com/pypa/warehouse/blob/v14.2.1/setup.py#L24>`_ (which reads and
-uses ``exec``)
+  version = '1.2.0'
 
 
 Projects should aim to comply with the `version scheme
@@ -335,6 +312,78 @@ specified in :ref:`PEP440 <PEP440s>`.  Here are some examples:
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
 
+
+If the project code itself needs run-time access to the version, there are a few
+techniques to achieve that without duplicating the value:
+
+
+1. Place the value in a simple ``VERSION`` text file and have both ``setup.py``
+   and the project code read it.
+
+   ::
+
+    version_file = open(os.path.join(mypackage_root_dir, 'VERSION'))
+    version = version_file.read().strip()
+
+   An advantage with this technique is that it's not specific to Python.  Any
+   tool can read the version.
+
+
+2. Set the value to a ``__version__`` global variable in a dedicated module in
+   your package (e.g. ``version.py``), then have setup.py read and exec the
+   value into a variable.
+
+   Using ``execfile``:
+
+   ::
+
+     execfile('...sample/version.py')
+     assert __version__ == '1.2.0'
+
+   Using ``exec``:
+
+   ::
+
+     version = {}
+     with open("...sample/version.py") as fp:
+         exec(fp.read(), version)
+     assert version['__version__'] == '1.2.0'
+
+
+3. Similar to #2, but instead of ``exec``, parse with ``re``.  E.g., see the
+   `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_.
+
+4. Set the value in ``setup.py``, and have the project code use the
+   ``pkg_resources`` API.
+
+   ::
+
+     import pkg_resources
+     assert pkg_resources.get_distribution('pip').version == '1.2.0'
+
+   Be aware that the ``pkg_resources`` API only knows about what's in the
+   installation metadata, which is not necessarily the code that's currently
+   imported.
+
+5.  Use an external build tool that either manages updating both locations, or
+    offers an API that both locations can use.
+
+6.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
+    ``sample`` in ``setup.py``.
+
+    ::
+
+      import sample
+      setup(
+          ...
+          version=sample.__version__
+          ...
+      )
+
+    Although this technique is common, beware that it will fail if
+    ``sample/__init__.py`` imports packages from ``install_requires``
+    dependencies, which will very likely not be installed yet when ``setup.py``
+    is run.
 
 Packages
 --------
