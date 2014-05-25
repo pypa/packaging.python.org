@@ -131,7 +131,7 @@ and options.  For details, see the `pip docs
 
 Below are the most common use cases:
 
-Install `SomePackage` and it's dependencies from :term:`PyPI <Python Package
+Install `SomePackage` and its dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
 
 ::
@@ -216,7 +216,7 @@ Installing Wheels
 Distribution (or "sdist")>` that provides faster installation, especially when a
 project contains compiled extensions.
 
-For a detailed comparison of wheel to it's :term:`Egg` predecessor, see
+For a detailed comparison of wheel to its :term:`Egg` predecessor, see
 :ref:`Wheel vs Egg`.
 
 As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
