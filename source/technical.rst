@@ -42,7 +42,7 @@ install_requires
 ``install_requires`` is a :ref:`setuptools` ``setup.py`` keyword that should be
 used to specify what a project **minimally** needs to run correctly.  When the
 project is installed by :ref:`pip`, this is the specification that is used to
-install it's dependencies.
+install its dependencies.
 
 For example, if the project requires A and B, your ``install_requires`` would be
 like so:
