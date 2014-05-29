@@ -11,7 +11,7 @@ Packaging History
 2014
 ----
 
-* :ref:`PEP453 <PEP453s>`: Being able to able to bootstrap ``pip`` into Python
+* :ref:`PEP453 <PEP453s>`: Being able to bootstrap ``pip`` into Python
   3.4.
 * http://bugs.python.org/issue19407: Modern Installation and Packaging guides on
   python.org.
