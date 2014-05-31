@@ -62,16 +62,17 @@ We recommend the following installation sequence:
 
 .. _`Creating and using Virtual Environments`:
 
-Creating and using Virtual Environments
-=======================================
+Virtual Environments
+====================
 
-The basic problem being addressed with virtual environments is one of
-dependencies and versions, and indirectly permissions. Imagine you have an
-application that needs version 1 of LibFoo, but another application requires
-version 2. How can you use both these applications? If you install everything
-into /usr/lib/python2.7/site-packages (or whatever your platform’s standard
-location is), it’s easy to end up in a situation where you unintentionally
-upgrade an application that shouldn’t be upgraded.
+Python "Virtual Environments" allow packages to be installed in an isolated
+location for a particular application, rather than being installed globally.
+
+Imagine you have an application that needs version 1 of LibFoo, but another
+application requires version 2. How can you use both these applications? If you
+install everything into /usr/lib/python2.7/site-packages (or whatever your
+platform’s standard location is), it’s easy to end up in a situation where you
+unintentionally upgrade an application that shouldn’t be upgraded.
 
 Or more generally, what if you want to install an application and leave it be?
 If an application works, any change in its libraries or the versions of those
