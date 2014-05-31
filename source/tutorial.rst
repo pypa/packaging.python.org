@@ -3,7 +3,7 @@ Installation & Packaging Tutorial
 =================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-04-09
+:Last Reviewed: 2014-05-31
 
 .. contents::
 
@@ -113,13 +113,6 @@ Using `pyvenv`_:
 For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `pyvenv`_ docs.
 
-Note that in some cases, the `user installation scheme
-<http://docs.python.org/install/index.html#alternate-installation-the-user-scheme>`_
-can offer similar benefits as Virtual Environments. For more information see the
-`User Installs
-<https://pip.readthedocs.org/en/latest/user_guide.html#user-installs>`_ section
-from the pip docs.
-
 
 Installing Python packages
 ==========================
@@ -128,7 +121,8 @@ Installing Python packages
 and options.  For details, see the `pip docs
 <https://pip.pypa.io>`_.
 
-Below are the most common use cases:
+Examples
+--------
 
 Install `SomePackage` and its dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
@@ -236,6 +230,22 @@ And then to install those requirements just using your local directory of wheels
 
 :term:`Wheel` is intended to replace :term:`Eggs <Egg>`.  For a detailed
 comparison, see :ref:`Wheel vs Egg`.
+
+
+User Installs
+-------------
+
+To install packages that are isolated to the current user, use the ``-user`` flag:
+
+::
+
+  pip install --user SomePackage
+
+
+For more information see the `User Installs
+<https://pip.readthedocs.org/en/latest/user_guide.html#user-installs>`_ section
+from the pip docs.
+
 
 
 Creating your own Project
