@@ -225,10 +225,10 @@ distutils
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
-A standard package that comes with the Python Standard Library that has support
-for creating and installing :term:`distributions
-<Distribution>`. :ref:`Setuptools` provides enhancements to distutils, and is
-much more commonly used than distutils by itself.
+A package in the Python Standard Library that has support for creating and
+installing :term:`distributions <Distribution>`. :ref:`Setuptools` provides
+enhancements to distutils, and is much more commonly used than just using
+distutils by itself.
 
 
 .. _venv:
@@ -239,11 +239,10 @@ venv
 `Docs <https://docs.python.org/3/library/venv.html>`__ |
 `Issues <http://bugs.python.org>`__
 
-A standard package that comes with the Python Standard Library (starting with
-Python 3.3) that includes the ``pyvenv`` tool for creating :term:`Virtual
-Environments <Virtual Environment>`.  For more information, see the tutorial
-section on :ref:`Creating and using Virtual Environments`.
-
+A package in the Python Standard Library (starting with Python 3.3) that
+includes the ``pyvenv`` tool for creating :term:`Virtual Environments <Virtual
+Environment>`.  For more information, see the tutorial section on :ref:`Creating
+and using Virtual Environments`.
 
 
 ----
