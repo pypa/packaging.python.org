@@ -393,6 +393,9 @@ techniques to achieve that without duplicating the value:
     dependencies, which will very likely not be installed yet when ``setup.py``
     is run.
 
+License
+-------
+
 Packages
 --------
 
@@ -506,6 +509,47 @@ For more information, see `Automatic Script Creation
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
 
+Developing your project
+=======================
+
+Although not required, it's common to locally install your project in "develop"
+or "editable" mode, while you're working on it.  This allows the project to be
+both installed and editable in project form.
+
+::
+
+ cd myproject
+ python setup.py develop    # the setuptools way
+ pip install -e .           # the pip way (which just calls "setup.py develop")
+
+
+For more information, see the `Development Mode
+<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
+of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+
+
+Packaging your Project
+======================
+
+Build a :term:`Source Distribution <Source Distribution (or
+"sdist")>`:
+
+::
+
+ python setup.py sdist
+
+
+Build a :term:`Wheel`:
+
+::
+
+ python setup.py bdist_wheel
+
+
+Note that PyPI currently only allows uploading platform-specific wheels for
+Windows and Mac OS X.
+
+
 Universal Wheels
 ----------------
 
@@ -534,45 +578,6 @@ If your project has optional C extensions, it is recommended not to publish a
 universal wheel, because pip will prefer the wheel over a source installation,
 and prevent the possibility of building the extension.
 
-
-Developing your project
-=======================
-
-Although not required, it's common to locally install your project in "develop"
-or "editable" mode, while you're working on it.  This allows the project to be
-both installed and editable in project form.
-
-::
-
- cd myproject
- python setup.py develop    # the setuptools way
- pip install -e .           # the pip way (which just calls "setup.py develop")
-
-
-For more information, see the `Development Mode
-<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
-of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
-
-
-Building & Packaging your Project
-=================================
-
-Build a source distribution
-
-::
-
- python setup.py sdist
-
-
-Build a wheel
-
-::
-
- python setup.py bdist_wheel
-
-
-Note that PyPI currently only allows uploading platform-specific wheels for
-Windows and Mac OS X.
 
 
 Uploading your Project to PyPI
