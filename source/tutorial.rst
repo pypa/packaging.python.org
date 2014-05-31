@@ -525,18 +525,23 @@ universal wheel, because pip will prefer the wheel over a source installation,
 and prevent the possibility of building the extension.
 
 
-Installing your project in Editable mode
-========================================
+Developing your project
+=======================
 
-To install your project in "develop" or "editable" mode (i.e. to have your
-project installed, but still editable for development)
+Although not required, it's common to locally install your project in "develop"
+or "editable" mode, while you're working on it.  This allows the project to be
+both installed and editable in project form.
 
 ::
 
  cd myproject
  python setup.py develop    # the setuptools way
- pip install -e .           # the pip way
+ pip install -e .           # the pip way (which just calls "setup.py develop")
 
+
+For more information, see the `Development Mode
+<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
+of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
 
 Building & Packaging your Project
