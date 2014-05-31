@@ -207,16 +207,12 @@ default, pip only finds stable versions.
  pip install --pre SomePackage
 
 
+Wheels
+------
 
-Installing Wheels
-=================
-
-:term:`Wheel` is a new pre-built alternative to :term:`sdist <Source
-Distribution (or "sdist")>` that provides faster installation, especially when a
-project contains compiled extensions.
-
-For a detailed comparison of wheel to its :term:`Egg` predecessor, see
-:ref:`Wheel vs Egg`.
+:term:`Wheel` is a pre-built package format that provides faster installation
+compared to :term:`Source Distributions (sdist) <Source Distribution (or
+"sdist")>`, especially when a project contains compiled extensions.
 
 As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
 Distribution (or "sdist")>` when searching indexes.
@@ -237,6 +233,9 @@ And then to install those requirements just using your local directory of wheels
 
  pip install --no-index --find-links=/local/wheels -r requirements.txt
 
+
+:term:`Wheel` is intended to replace :term:`Eggs <Egg>`.  For a detailed
+comparison, see :ref:`Wheel vs Egg`.
 
 
 Creating your own Project
