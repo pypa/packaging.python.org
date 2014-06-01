@@ -571,7 +571,7 @@ First, register your package on PyPI:
 
   python setup.py register
   
-If you don't have a PyPI account, the wizard will let you choose a username and password. A .pypirc file will be created in your home folder. (
+The wizard will ask for your PyPI username and password (or let you create an account). A .pypirc file will be created in your home folder.
   
 Now upload your distributions
 
@@ -584,7 +584,7 @@ This can also be done with :ref:`twine`
 ::
 
  twine upload dist/*
- 
+
 
 ----
 
