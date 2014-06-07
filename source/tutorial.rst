@@ -531,7 +531,16 @@ of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 Packaging your Project
 ======================
 
-Build a :term:`Source Distribution <Source Distribution (or
+To have your project installable from a :term:`Package Index` like :term:`PyPI
+<Python Package Index (PyPI)>`, you'll need to create a :term:`Distribution`
+(aka ":term:`Package <Package (Meaning #2)>`" ) for your project.
+
+
+
+Source Distributions
+--------------------
+
+Minimally, you should create a :term:`Source Distribution <Source Distribution (or
 "sdist")>`:
 
 ::
@@ -539,33 +548,38 @@ Build a :term:`Source Distribution <Source Distribution (or
  python setup.py sdist
 
 
-Build a :term:`Wheel`:
+A "source distribution" is unbuilt (i.e, it's not a :term:`Built Distribution`),
+and requires a build step when installed by pip.  Even if the distribution is
+pure python (i.e. contains no extensions), it still involves a build step to
+build out the installation metadata from "setup.py".
 
-::
-
- python setup.py bdist_wheel
-
-
-Note that PyPI currently only allows uploading platform-specific wheels for
-Windows and Mac OS X.
-
+.. _`Universal Wheels`:
 
 Universal Wheels
 ----------------
 
-from `sampleproject/setup.cfg
-<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_
+Additionally, if your project is pure python (i.e. contains no compiled
+extensions) and is version agnostic, then you should also create what's called a
+"Universal Wheel". This is a wheel that can be installed anywhere by :ref:`pip`.
+
+To build a Universal Wheel:
+
+::
+
+ python setup.py bdist_wheel --universal
+
+
+You can also permanently set the ``--universal`` flag in "setup.cfg" (e.g., see
+`sampleproject/setup.cfg
+<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_)
 
 ::
 
  [bdist_wheel]
  universal=1
 
-The benefit of this setting, is that ``python setup.py bdist_wheel`` will then
-generate a wheel that will be installable anywhere (i.e. be "Universal"),
-similar to an :term:`sdist <Source Distribution (or "sdist")>`.
 
-Only use this setting, if:
+Only use the ``--universal`` setting, if:
 
 1. Your project runs on Python 2 and 3 with no changes (i.e. it does not
    require 2to3).
@@ -578,6 +592,27 @@ If your project has optional C extensions, it is recommended not to publish a
 universal wheel, because pip will prefer the wheel over a source installation,
 and prevent the possibility of building the extension.
 
+
+Platform Wheels
+---------------
+
+"Platform Wheels" are wheels that are specific to a certain platform like linux,
+OSX, or Windows, usually due to containing compiled extensions.
+
+"Platform Wheels" are built the same as "Universal Wheels", but without the
+``--universal`` flag:
+
+::
+
+ python setup.py bdist_wheel
+
+
+.. note::
+
+  :term:`PyPI <Python Package Index (PyPI)>` currently only allows uploads of
+  platform wheels for Windows and OS X, NOT linux.  Currently, the wheel tag
+  specification (:ref:`PEP425 <PEP425s>`) does not handle the variation that can
+  exist across linux distros.
 
 
 Uploading your Project to PyPI
