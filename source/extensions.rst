@@ -33,7 +33,7 @@ conventional categories:
   to Python code. They may either expose the underlying C interface directly,
   or else expose a more "Pythonic" API that makes use of Python language
   features to make the API easier to use. The CPython standard library makes
-  extensive use of accelerator modules.
+  extensive use of wrapper modules.
 
 * low level system access: these modules are created to access lower level
   features of the CPython runtime, the operating system, or the underlying
