@@ -563,12 +563,21 @@ Windows and Mac OS X.
 Uploading your Project to PyPI
 ==============================
 
+First, register your package on PyPI:
+
 ::
 
-  FIXME:  cover registration and pypi ui
+  python setup.py register
+  
+The wizard will ask for your PyPI username and password (or let you create an account). A .pypirc file will be created in your home folder.
+  
+Now upload your distributions
 
+::
 
-Upload your distributions with :ref:`twine`
+  python setup.py sdist bdist_wheel upload
+  
+This can also be done with :ref:`twine`
 
 ::
 
