@@ -125,7 +125,7 @@ PyPI Infrastructure
 -------------------
 
 * Migration from the legacy PyPI server to :ref:`warehouse` (the preview is
-  available at https://preview-pypi.python.org/ running off the live PyPI data)
+  available at https://warehouse.python.org/ running off the live PyPI data)
 * :ref:`PEP458 <PEP458s>`: An integration of PyPI with the "The Update Framework (TUF)"
 * Improved PyPI upload API
 
