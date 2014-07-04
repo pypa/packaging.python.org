@@ -11,6 +11,19 @@ installation and packaging.
 PyPA Projects
 #############
 
+.. _bandersnatch:
+
+bandersnatch
+============
+
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://bitbucket.org/pypa/bandersnatch/issues?status=new&status=open>`__ |
+`Bitbucket <https://bitbucket.org/pypa/bandersnatch>`__ |
+`PyPI <https://pypi.python.org/pypi/bandersnatch>`__
+
+bandersnatch is a PyPI mirroring client designed to efficiently create a
+complete mirror of the contents of PyPI.
+
 
 .. _distlib:
 
