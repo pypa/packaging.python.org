@@ -3,7 +3,7 @@ Project Summaries
 =================
 
 :Page Status: Complete
-:Last Reviewed: 2014-05-10
+:Last Reviewed: 2014-07-04
 
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.

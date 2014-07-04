@@ -2,7 +2,7 @@
 Python Packaging User Guide
 ===========================
 
-:Last Reviewed: 2014-04-09
+:Last Reviewed: 2014-07-04
 
 The "Python Packaging User Guide" (PUG) aims to be the authoritative resource on
 how to package and install Python distributions using current tools, but also on
