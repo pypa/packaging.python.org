@@ -3,7 +3,7 @@ Installation & Packaging Tutorial
 =================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-05-31
+:Last Reviewed: 2014-07-10
 
 .. contents::
 
@@ -82,7 +82,7 @@ Also, what if you can’t install packages into the global site-packages
 directory? For instance, on a shared host.
 
 In all these cases, virtual environments can help you. They have their own
-installation directories and they don’t share libraries with other virtualenv
+installation directories and they don’t share libraries with other virtual
 environments.
 
 Currently, there are two viable tools for creating Python virtual environments:
