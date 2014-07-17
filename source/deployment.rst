@@ -55,8 +55,8 @@ __ http://doc.devpi.net/latest/quickstart-pypimirror.html
 Complete mirror with bandersnatch
 ----------------------------------
 
-bandersnatch will set up a complete local mirror of all packages on PyPI (and
-only those packages - externally-hosted packages are not mirrored). See the
+bandersnatch will set up a complete local mirror of all packages on PyPI
+(externally-hosted packages are not mirrored). See the
 `bandersnatch documentation for getting that going`__.
 
 __ https://bitbucket.org/pypa/bandersnatch/overview
