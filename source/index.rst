@@ -28,6 +28,7 @@ Packaging Authority (PyPA)`.
    tutorial
    future
    additional
+   cookbook
    projects
    peps
    history
