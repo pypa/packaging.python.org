@@ -2,7 +2,12 @@
 Cookbook
 ========
 
+:Page Status: Incomplete
+:Last Reviewed: 2014-07-23
+
 Various advanced topics about packaging.
+
+.. contents::
 
 .. _versioning-recipes:
 
