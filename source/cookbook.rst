@@ -66,7 +66,7 @@ There are a few techniques to achieve that without duplicating the value:
             exec(fp.read(), version)
         assert version['__version__'] == '1.2.0'
 
-    Example using this technique:
+    Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_.
 
 #.  Place the value in a simple ``VERSION`` text file and have both ``setup.py``
     and the project code read it.
