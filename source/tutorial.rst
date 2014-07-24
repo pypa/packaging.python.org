@@ -320,13 +320,9 @@ specified in :ref:`PEP440 <PEP440s>`.  Here are some examples:
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
 
-If the project code itself needs run-time access to the version, the simplest way is to keep
-the version in both setup.py and your code. There are various ways to manage this (so you don't
-duplicate the value) outlined in the :ref:`cookbook <versioning-recipes>`.
-
 If the project code itself needs run-time access to the version, the simplest way is to keep the version in both
 ``setup.py`` and your code. If you'd rather not duplicate the value, there are a few ways to manage this. See the
-"`Single-sourcing the version <version-single-sourcing>`_" Advanced Topics section.
+":ref:`Single sourcing the version`" Advanced Topics section.
 
 License
 -------
