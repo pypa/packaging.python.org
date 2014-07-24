@@ -9,12 +9,13 @@ Various advanced topics about packaging.
 
 .. contents::
 
-.. _versioning-recipes:
+.. _version-single-sourcing:
 
-Storing the version in your repository
-======================================
+Single-sourcing the version across ``setup.py`` and your project
+================================================================
 
-There are a few techniques to achieve that without duplicating the value:
+There are a few techniques to store the version in your project code without duplicating the value stored in
+``setup.py``:
 
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
     from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
