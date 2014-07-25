@@ -3,7 +3,7 @@ Installation & Packaging Tutorial
 =================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-07-10
+:Last Reviewed: 2014-07-26
 
 .. contents::
 
@@ -320,78 +320,9 @@ specified in :ref:`PEP440 <PEP440s>`.  Here are some examples:
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
 
-
-If the project code itself needs run-time access to the version, there are a few
-techniques to achieve that without duplicating the value:
-
-
-1. Place the value in a simple ``VERSION`` text file and have both ``setup.py``
-   and the project code read it.
-
-   ::
-
-    version_file = open(os.path.join(mypackage_root_dir, 'VERSION'))
-    version = version_file.read().strip()
-
-   An advantage with this technique is that it's not specific to Python.  Any
-   tool can read the version.
-
-
-2. Set the value to a ``__version__`` global variable in a dedicated module in
-   your package (e.g. ``version.py``), then have setup.py read and exec the
-   value into a variable.
-
-   Using ``execfile``:
-
-   ::
-
-     execfile('...sample/version.py')
-     assert __version__ == '1.2.0'
-
-   Using ``exec``:
-
-   ::
-
-     version = {}
-     with open("...sample/version.py") as fp:
-         exec(fp.read(), version)
-     assert version['__version__'] == '1.2.0'
-
-
-3. Similar to #2, but instead of ``exec``, parse with ``re``.  E.g., see the
-   `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_.
-
-4. Set the value in ``setup.py``, and have the project code use the
-   ``pkg_resources`` API.
-
-   ::
-
-     import pkg_resources
-     assert pkg_resources.get_distribution('pip').version == '1.2.0'
-
-   Be aware that the ``pkg_resources`` API only knows about what's in the
-   installation metadata, which is not necessarily the code that's currently
-   imported.
-
-5.  Use an external build tool that either manages updating both locations, or
-    offers an API that both locations can use.
-
-6.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
-    ``sample`` in ``setup.py``.
-
-    ::
-
-      import sample
-      setup(
-          ...
-          version=sample.__version__
-          ...
-      )
-
-    Although this technique is common, beware that it will fail if
-    ``sample/__init__.py`` imports packages from ``install_requires``
-    dependencies, which will very likely not be installed yet when ``setup.py``
-    is run.
+If the project code itself needs run-time access to the version, the simplest way is to keep the version in both
+``setup.py`` and your code. If you'd rather not duplicate the value, there are a few ways to manage this. See the
+":ref:`Single sourcing the version`" Advanced Topics section.
 
 License
 -------
@@ -453,7 +384,7 @@ from `sampleproject/setup.py
 
 ::
 
-  data_files=[('my_data', ['data/data_file'])],
+    data_files=[('my_data', ['data/data_file'])],
 
 Although configuring ``package_data`` is recommended, in some cases you may need
 to place data files outside of your packages.  This directive allows you to do
@@ -463,7 +394,7 @@ Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
 interpreted relative to the installation prefix (Python’s sys.prefix for
 pure-Python packages, sys.exec_prefix for packages that contain extension
-modules). Each file name in files is interpreted relative to the setup.py script
+modules). Each file name in files is interpreted relative to the ``setup.py`` script
 at the top of the package source distribution.
 
 For more information see the distutils section on `Installing Additional Files
@@ -495,7 +426,7 @@ from `sampleproject/setup.py
       ],
   },
 
-Although setup.py supports a `scripts
+Although ``setup.py`` supports a `scripts
 <http://docs.python.org/3.4/distutils/setupscript.html#installing-scripts>`_
 keyword for pointing to pre-made scripts, the recommended approach to achieve
 cross-platform compatibility, is to use "console_script" `entry points
@@ -551,7 +482,7 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
 A "source distribution" is unbuilt (i.e, it's not a :term:`Built Distribution`),
 and requires a build step when installed by pip.  Even if the distribution is
 pure python (i.e. contains no extensions), it still involves a build step to
-build out the installation metadata from "setup.py".
+build out the installation metadata from "``setup.py``".
 
 .. _`Universal Wheels`:
 
@@ -623,15 +554,15 @@ First, register your package on PyPI:
 ::
 
   python setup.py register
-  
+
 The wizard will ask for your PyPI username and password (or let you create an account). A .pypirc file will be created in your home folder.
-  
+
 Now upload your distributions
 
 ::
 
   python setup.py sdist bdist_wheel upload
-  
+
 This can also be done with :ref:`twine`
 
 ::
