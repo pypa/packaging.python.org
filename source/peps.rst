@@ -5,7 +5,7 @@ PEP Summaries
 ==============
 
 :Page Status: Complete
-:Last Reviewed: 2014-04-09
+:Last Reviewed: 2014-07-02
 
 
 Summaries for the currently relevant `PEPs <http://www.python.org/dev/peps/>`_
@@ -200,6 +200,31 @@ PEP458 Surviving a Compromise of PyPI
 :Implementation:  Nothing at this time.
 
 
+
+.. _PEP70s:
+
+PEP470 Using Multi Index Support for External to PyPI Package File Hosting
+**************************************************************************
+
+:PEP Link: `PEP470`_
+
+:PEP Status: Draft
+
+:Summary: PyPI would no longer support projects configuring external hosting
+          links that pip crawls and installs from automatically.  Projects would
+          be allowed to configure external index links, but pip would never
+          install from them automatically, but instead, only give users an
+          informational message about what command they would use to do the
+          install.  This PEP effectively reverts :ref:`PEP438 <PEP438s>`.
+
+:User Impact: This would obsolete pip's ``--allow-external`` and
+               ``--allow-unverified`` links, because PyPI itself wouldn't
+               contain external or unverified links.
+
+:Implementation: Nothing at this time.
+
+
+
 .. _PEP241: http://www.python.org/dev/peps/pep-0241/
 .. _PEP314: http://www.python.org/dev/peps/pep-0314/
 .. _PEP345: http://www.python.org/dev/peps/pep-0345/
@@ -212,6 +237,7 @@ PEP458 Surviving a Compromise of PyPI
 .. _PEP386: http://www.python.org/dev/peps/pep-0386/
 .. _PEP440: http://www.python.org/dev/peps/pep-0440/
 .. _PEP458: http://www.python.org/dev/peps/pep-0458/
+.. _PEP470: http://www.python.org/dev/peps/pep-0470/
 
 
 

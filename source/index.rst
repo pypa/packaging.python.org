@@ -2,9 +2,9 @@
 Python Packaging User Guide
 ===========================
 
-:Last Reviewed: 2014-04-09
+:Last Reviewed: 2014-07-04
 
-The "Python Packaging User Guide" (PUG) aims to be the authoritative resource on
+The "Python Packaging User Guide" (PPUG) aims to be the authoritative resource on
 how to package and install Python distributions using current tools, but also on
 the efforts to improve Python packaging. The guide is part of a larger effort to
 improve all of the packaging and installation docs, including :ref:`pip`,
@@ -17,7 +17,7 @@ when you're just not sure, use the `distutils-sig
 <http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
 
 
-The project is maintained on `github
+This guide is maintained on `github
 <https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python
 Packaging Authority (PyPA)`.
 

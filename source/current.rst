@@ -67,15 +67,23 @@ Packaging Tool Recommendations
 .. [4] For more information, see the pip guide to `Installing from Wheels
        <https://pip.pypa.io/en/latest/user_guide.html#installing-from-wheels>`_.
 
-.. [5] `distribute`_ (a fork of setuptools) was merged back into
+.. [5] Although you can use pure ``distutils`` for many projects, it does not
+       support defining dependencies on other projects and is missing several
+       convenience utilities for automatically populating package metadata
+       correctly that are provided by ``setuptools``. Being outside the
+       standard library, ``setuptools`` also offers a more consistent feature
+       set across different versions of Python, and (unlike ``distutils``),
+       ``setuptools`` will be updated to produce the upcoming "Metadata 2.0"
+       standard formats on all supported versions.
+       
+       Even for projects that do choose to use ``distutils``, when :ref:`pip`
+       installs such projects directly from source (rather than installing
+       from a prebuilt :term:`wheel <Wheel>` file), it will actually build
+       your project using :ref:`setuptools` instead.
+
+.. [6] `distribute`_ (a fork of setuptools) was merged back into
        :ref:`setuptools` in June 2013, thereby making setuptools the default
        choice for packaging.
-
-.. [6] Although you can use pure ``distutils``, for most projects, that's
-       insufficient, due it lacking support for defining dependencies. If do you
-       use ``distutils``, realize that when :ref:`pip` installs your project
-       from source (rather than installing from a :term:`wheel <Wheel>` file),
-       it will actually build your project using :ref:`setuptools` instead.
 
 .. [7] :term:`PyPI <Python Package Index (PyPI)>` currently only allows
        uploading Windows and Mac OS X wheels, and they should be compatible with
