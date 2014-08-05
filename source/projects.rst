@@ -97,6 +97,21 @@ packages, especially ones that have dependencies on other packages.
 v0.7), thereby making setuptools the primary choice for Python packaging.
 
 
+.. _twine:
+
+twine
+=====
+
+`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
+`Issues <https://github.com/pypa/twine/issues>`__ |
+`Github <https://github.com/pypa/twine>`__ |
+`PyPI <https://pypi.python.org/pypi/twine>`__
+
+Twine is a utility for interacting with PyPI, that offers a secure replacement for
+``setup.py upload``.
+
+
+
 .. _virtualenv:
 
 virtualenv
@@ -207,21 +222,6 @@ Hashdist is a library for building non-root software distributions. Hashdist is
 trying to be “the Debian of choice for cases where Debian technology doesn’t
 work”. The best way for Pythonistas to think about Hashdist may be a more
 powerful hybrid of virtualenv and buildout.
-
-
-.. _twine:
-
-twine
-=====
-
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <https://github.com/dstufft/twine/issues>`__ |
-`Github <https://github.com/dstufft/twine>`__ |
-`PyPI <https://pypi.python.org/pypi/twine>`__
-
-Twine is a utility for interacting with PyPI, that offers a secure replacement for
-``setup.py upload``.
-
 
 
 Standard Library Projects
