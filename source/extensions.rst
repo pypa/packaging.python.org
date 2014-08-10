@@ -49,8 +49,8 @@ conventional categories:
 
 Not all extension modules will fit neatly into the above categories. The
 extension modules included with NumPy, for example, span all three use cases
-- they moves inner loops to C for speed reasons, wrap external libraries
-written in C, FORTRAN and other languages, and uses low level system
+- they move inner loops to C for speed reasons, wrap external libraries
+written in C, FORTRAN and other languages, and use low level system
 interfaces for both CPython and the underlying operation system to support
 concurrent execution of vectorised operations and to tightly control the
 exact memory layout of created objects.
