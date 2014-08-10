@@ -551,14 +551,12 @@ Uploading your Project to PyPI
 ==============================
 
 First, you need a :term:`PyPI <Python Package Index (PyPI)>` user
-account. There are three options:
+account. There are two options:
 
-1. Use an existing `OpenID <http://en.wikipedia.org/wiki/OpenID>`_ user account.
-
-2. Create an account manually `using the form on the PyPI website
+1. Create an account manually `using the form on the PyPI website
    <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
 
-3. Have an account created as part of registering your first project (see option
+2. Have an account created as part of registering your first project (see option
    #2 below).
 
 Next, you need to register your project.  There are two ways to do this:
