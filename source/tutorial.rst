@@ -3,7 +3,7 @@ Installation & Packaging Tutorial
 =================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-07-26
+:Last Reviewed: 2014-08-07
 
 .. contents::
 
@@ -320,8 +320,9 @@ specified in :ref:`PEP440 <PEP440s>`.  Here are some examples:
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
 
-If the project code itself needs run-time access to the version, the simplest way is to keep the version in both
-``setup.py`` and your code. If you'd rather not duplicate the value, there are a few ways to manage this. See the
+If the project code itself needs run-time access to the version, the simplest
+way is to keep the version in both ``setup.py`` and your code. If you'd rather
+not duplicate the value, there are a few ways to manage this. See the
 ":ref:`Single sourcing the version`" Advanced Topics section.
 
 License
@@ -549,25 +550,71 @@ OSX, or Windows, usually due to containing compiled extensions.
 Uploading your Project to PyPI
 ==============================
 
-First, register your package on PyPI:
+First, you need a :term:`PyPI <Python Package Index (PyPI)>` user
+account. There are two options:
 
-::
+1. Create an account manually `using the form on the PyPI website
+   <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
 
-  python setup.py register
+2. Have an account created as part of registering your first project (see option
+   #2 below).
 
-The wizard will ask for your PyPI username and password (or let you create an account). A .pypirc file will be created in your home folder.
+Next, you need to register your project.  There are two ways to do this:
 
-Now upload your distributions
+1. **(Recommended):** Use `the form on the PyPI website
+   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_.  Although the form is
+   cumbersome, it's a secure option over using #2 below, which passes your
+   credentials over plaintext.
+2. Run ``python setup.py register``.  If you don't have a user account already,
+   a wizard will create one for you.
 
-::
 
-  python setup.py sdist bdist_wheel upload
+If you created your account using option #1 (the form), you'll need to manually
+write a ``~/.pypirc`` file like so.
 
-This can also be done with :ref:`twine`
+   ::
 
-::
+    [distutils]
+    index-servers=
+    pypi
 
- twine upload dist/*
+    [pypi]
+    repository = https://pypi.python.org/pypi
+    username = <username>
+    password = <password>
+
+
+Finally, you can upload your distributions to :term:`PyPI <Python Package Index
+(PyPI)>`. There are two options.
+
+1. **(Recommended):** Use :ref:`twine`
+
+   ::
+
+     twine upload dist/*
+
+   The biggest reason to use twine is that ``python setup.py upload`` (option #2
+   below) uploads files over plaintext. This means anytime you use it you expose
+   your username and password to a MITM attack. Twine uses only verified TLS to
+   upload to PyPI protecting your credentials from theft.
+
+   Secondly it allows you to precreate your distribution files.  ``python
+   setup.py upload`` only allows you to upload something that you've created in
+   the same command invocation. This means that you cannot test the exact file
+   you're going to upload to PyPI to ensure that it works before uploading it.
+
+   Finally it allows you to pre-sign your files and pass the .asc files into the
+   command line invocation (``twine upload twine-1.0.1.tar.gz
+   twine-1.0.1.tar.gz.asc``). This enables you to be assured that you're typing
+   your gpg passphrase into gpg itself and not anything else since *you* will be
+   the one directly executing ``gpg --detach-sign -a <filename>``.
+
+
+2. Use :ref:`setuptools`:
+
+   ::
+
+    python setup.py sdist bdist_wheel upload
 
 
 ----
@@ -600,6 +647,5 @@ This can also be done with :ref:`twine`
        Script-execution features like ``PATHEXT`` and the `Python Launcher for
        Windows <http://legacy.python.org/dev/peps/pep-0397/>`_ allow scripts to
        be used in many cases, but not all.
-
 
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
