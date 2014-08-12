@@ -212,6 +212,19 @@ Analysis, Engineering, Machine Learning, and more.
 
 .. _hashdist:
 
+devpi
+=====
+
+`Docs <http://doc.devpi.net>`__ |
+`Mailing List <https://groups.google.com/forum/#!forum/devpi-dev>`__ |
+`Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
+`PyPI <https://pypi.python.org/pypi/devpi>`__
+
+devpi features a powerful PyPI-compatible server and PyPI proxy cache with
+a complimentary command line tool to drive packaging, testing and release
+activities with Python.
+
+
 Hashdist
 ========
 
