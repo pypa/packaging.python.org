@@ -203,11 +203,22 @@ conda
 
 `Docs <http://docs.continuum.io/conda/index.html>`__
 
-conda is an installation tool for managing `Anaconda
-<http://docs.continuum.io/anaconda/index.html>`__ installations. Anaconda is a
-collection of powerful packages for Python that enables large-scale data
-management, analysis, and visualization for Business Intelligence, Scientific
-Analysis, Engineering, Machine Learning, and more.
+conda is the package management tool for `Anaconda
+<http://docs.continuum.io/anaconda/index.html>`__ Python installations.
+Anaconda Python is a distribution from `Continuum Analytics
+<http://continuum.io/downloads>`__ specifically aimed at the scientific
+community, and in particular on Windows where the installation of binary
+extensions is often difficuly.
+
+Conda is a completely separate tool to pip, virtualenv and wheel, but provides
+many of their combined features in terms of package management, virtual environment
+management and deployment of binary extensions.
+
+Conda does not install packages from PyPI and can install only from
+the official Continuum repositories, or binstar.org (a place for
+user-contributed *conda* packages), or a local (e.g. intranet) package server.
+However, note that pip can be installed into, and work side-by-side with conda
+for managing packages from PyPI.
 
 
 .. _hashdist:
