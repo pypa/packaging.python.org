@@ -214,9 +214,11 @@ Conda is a completely separate tool to pip, virtualenv and wheel, but provides
 many of their combined features in terms of package management, virtual environment
 management and deployment of binary extensions.
 
-However, conda does not install packages from PyPI and can install only from
+Conda does not install packages from PyPI and can install only from
 the official Continuum repositories, or binstar.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
+However, note that pip can be installed into, and work side-by-side with conda
+for managing packages from PyPI.
 
 
 .. _hashdist:
