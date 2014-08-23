@@ -575,8 +575,7 @@ write a ``~/.pypirc`` file like so.
    ::
 
     [distutils]
-    index-servers=
-    pypi
+    index-servers=pypi
 
     [pypi]
     repository = https://pypi.python.org/pypi
