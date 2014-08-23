@@ -404,7 +404,7 @@ For more information see the distutils section on `Installing Additional Files
 .. note::
 
   :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
-  absolute, when intalling from :term:`sdist <Source Distribution (or
+  absolute, when installing from :term:`sdist <Source Distribution (or
   "sdist")>`.  This is not true, when installing from :term:`wheel`
   distributions. Wheels don't support absolute paths, and they end up being
   installed relative to "site-packages".  For discussion see `wheel Issue #92
