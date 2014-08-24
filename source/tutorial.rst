@@ -350,8 +350,15 @@ specification that is used to install its dependencies.
 
 For more on using "install_requires" see :ref:`install_requires vs Requirements files`.
 
+.. _`Package Data`:
+
 Package Data
 ------------
+
+Often, additional files need to be installed into a package. These files are
+often data that’s closely related to the package’s implementation, or text files
+containing documentation that might be of interest to programmers using the
+package. These files are called "package data".
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -363,11 +370,6 @@ from `sampleproject/setup.py
  }
 
 
-Often, additional files need to be installed into a package. These files are
-often data that’s closely related to the package’s implementation, or text files
-containing documentation that might be of interest to programmers using the
-package. These files are called "package data".
-
 The value must be a mapping from package name to a list of relative path names
 that should be copied into the package. The paths are interpreted as relative to
 the directory containing the package.
@@ -377,8 +379,14 @@ For more information, see `Including Data Files
 the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
 
+.. _`Data Files`:
+
 Data Files
 ----------
+
+Although configuring :ref:`Package Data` is sufficient for most needs, in some
+cases you may need to place data files *outside* of your packages.  The
+``data_files`` directive allows you to do that.
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -386,10 +394,6 @@ from `sampleproject/setup.py
 ::
 
     data_files=[('my_data', ['data/data_file'])],
-
-Although configuring ``package_data`` is recommended, in some cases you may need
-to place data files outside of your packages.  This directive allows you to do
-that.
 
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
