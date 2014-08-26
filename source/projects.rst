@@ -208,7 +208,7 @@ conda is the package management tool for `Anaconda
 Anaconda Python is a distribution from `Continuum Analytics
 <http://continuum.io/downloads>`__ specifically aimed at the scientific
 community, and in particular on Windows where the installation of binary
-extensions is often difficuly.
+extensions is often difficult.
 
 Conda is a completely separate tool to pip, virtualenv and wheel, but provides
 many of their combined features in terms of package management, virtual environment
