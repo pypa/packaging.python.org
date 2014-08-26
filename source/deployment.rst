@@ -33,6 +33,23 @@ Supporting multiple Python versions
   - mention version classifiers for distribution metadata
 
 
+What's in Which Python?
+-----------------------
+
+Ned Batchelder provides a list of changes in each Python release for
+`Python 2 <http://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__
+and separately
+for `Python 3 <http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__.
+These lists may be used to check whether any changes between Python versions
+may affect your package.
+
+::
+
+    TODO These lists should be reproduced here (with permission).
+
+    TODO The py3 list should be updated to include 3.4
+
+
 Supporting multiple hardware platforms
 ======================================
 
