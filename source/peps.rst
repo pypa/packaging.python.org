@@ -5,7 +5,7 @@ PEP Summaries
 ==============
 
 :Page Status: Complete
-:Last Reviewed: 2014-07-02
+:Last Reviewed: 2014-08-25
 
 
 Summaries for the currently relevant `PEPs <http://www.python.org/dev/peps/>`_
@@ -169,17 +169,21 @@ PEP440 Version Identification and Dependency Specification
 
 :PEP Link: `PEP440`_
 
-:PEP Status: Draft
+:PEP Status: Accepted
 
 :Summary: Specifies a versioning system for Python projects that goes along with
           :ref:`PEP426 <PEP426s>`, and replaces `PEP386`_. This system will be
-          consistent with how most people version their projects today.
+          mostly consistent with how most people version their
+          projects today.
 
-:User Impact: Once accepted, users will have a clear specification for what's
-              "correct" versioning for Python projects.
+:User Impact: Users will have a clear specification for what's proper
+              versioning for Python projects.
 
 :Implementation: :ref:`distlib` has version classes that understand PEP440, and
-                 pip relies on :ref:`distlib`'s implementation in specific cases.
+                 pip relies on :ref:`distlib`'s implementation in specific
+                 cases. pip also has a `work-in-progress PR
+                 <https://github.com/pypa/pip/pull/1894>`_ that implements
+                 PEP440.
 
 
 .. _PEP458s:
