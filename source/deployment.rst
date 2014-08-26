@@ -33,6 +33,46 @@ Supporting multiple Python versions
   - mention version classifiers for distribution metadata
 
 
+
+Automated Testing and Continuous Integration
+--------------------------------------------
+
+Several hosted services for automated testing are available. These services
+will typically monitor your source code repository (e.g. at
+`Github <https://github.com>`_ or `Bitbucket <https://bitbucket.org>`_)
+and run your package's test suite every time a new commit is made.
+
+These services also offer facilities to run your package's test suite on
+*multiple versions of Python*, giving rapid feedback about whether the code
+will work, without the developer having to perform such tests themselves.
+
+Wikipedia has an extensive `comparison
+<http://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software>`_
+of many continuous-integration systems. There are two hosted services which
+when used in conjunction provide automated testing across Linux, Mac and
+Windows:
+
+  - `Travis CI <https://travis-ci.org>`_ provides both a Linux and a Mac OSX
+    environment. The Linux environment is Ubuntu 12.04 LTS Server Edition 64 bit
+    while the OSX is 10.9.2 at the time of writing.
+  - `Appveyor <http://www.appveyor.com>`_ provides a Windows environment
+    (Windows Server 2012).
+
+::
+
+    TODO Either link to or provide example .yml files for these two
+    services.
+
+    TODO How do we keep the Travis Linux and OSX versions up-to-date in this
+    document?
+
+Both `Travis CI`_ and Appveyor_ require a `YAML
+<http://www.yaml.org>`_-formatted file as specification for the instructions
+for testing. If any tests fail, the output log for that specific configuration
+can be inspected.
+
+For Python packages that are intended to be deployed on both Python 2 and 3
+with a single-source strategy, there are a number of options.
 Supporting multiple hardware platforms
 ======================================
 
