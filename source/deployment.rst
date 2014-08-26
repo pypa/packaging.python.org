@@ -22,8 +22,8 @@ Supporting multiple Python versions
 
   - six
   - tox
-  - Travis and Shining Panda CI
-  - Ned Batchelder's What's in Which version pages
+  - DONE Travis and Shining Panda CI (Shining Panda no longer available)
+  - DONE Appveyor
     - http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html
       - http://nedbatchelder.com/blog/201109/whats_in_which_python.html
   - Lennart Regebro's "Porting to Python 3"
