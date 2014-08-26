@@ -9,6 +9,7 @@ This section covers various platform specific integration issues and usage
 models, along with a discussion of any particularly problematic areas
 Python users might expect to encounter.
 
+.. contents::
 
 .. _`Installing on Debian/Ubuntu`:
 

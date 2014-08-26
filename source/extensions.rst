@@ -13,6 +13,8 @@ C API for use by other software. One of the most common uses of this C API
 is to create importable C extensions that allow things which aren't
 always easy to achieve in pure Python code.
 
+.. contents::
+
 An overview of binary extensions
 ================================
 
