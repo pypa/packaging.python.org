@@ -221,8 +221,6 @@ However, note that pip can be installed into, and work side-by-side with conda
 for managing packages from PyPI.
 
 
-.. _hashdist:
-
 devpi
 =====
 
@@ -235,6 +233,8 @@ devpi features a powerful PyPI-compatible server and PyPI proxy cache with
 a complimentary command line tool to drive packaging, testing and release
 activities with Python.
 
+
+.. _hashdist:
 
 Hashdist
 ========
