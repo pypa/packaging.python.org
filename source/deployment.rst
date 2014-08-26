@@ -27,6 +27,9 @@ Supporting multiple Python versions
     - http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html
       - http://nedbatchelder.com/blog/201109/whats_in_which_python.html
   - Lennart Regebro's "Porting to Python 3"
+  - Greg Hewgill's script to identify the minimum version of Python
+    required to run a particular script:
+    https://github.com/ghewgill/pyqver
   - the Python 3 porting how to in the main docs
   - cross reference to the stable ABI discussion
     in the binary extensions topic (once that exists)
