@@ -33,6 +33,17 @@ Supporting multiple Python versions
   - mention version classifiers for distribution metadata
 
 
+In addition to the work required to create a Python package, it is often
+necessary that the package must be made available on different versions of
+Python.  Different Python versions may contain different (or renamed) standard
+library packages, and the changes between Python versions 2.x and 3.x include
+changes in the language syntax.
+
+Performed manually, all the testing required to ensure that the package works
+correctly on all the target Python versions (and OSs!) could be very
+time-consuming. Fortunately, several tools are available for dealing with
+this, and these will briefly be discussed here.
+
 Supporting multiple hardware platforms
 ======================================
 
