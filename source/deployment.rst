@@ -20,7 +20,8 @@ Supporting multiple Python versions
 
   Useful projects/resources to reference:
 
-  - six
+  - DONE six
+  - DONE python-future (http://python-future.org)
   - tox
   - Travis and Shining Panda CI
   - Ned Batchelder's What's in Which version pages
@@ -36,6 +37,26 @@ Supporting multiple Python versions
   - mention version classifiers for distribution metadata
 
 
+Tools for single-source Python packages
+----------------------------------------
+
+`six <http://pythonhosted.org/six/>`_ is a tool developed by Benjamin Peterson
+for wrapping over the differences between Python 2 and Python 3. The six_
+package has enjoyed widespread use and may be regarded as a reliable way to
+write a single-source python module that can be use in both Python 2 and 3.
+
+Similar to six_, `python-future <http://python-future.org/overview.html>`_ is
+a package that provides a compatibility layer between Python 2 and Python 3
+source code; however, unlike six_, this package aims to provide
+interoperability between Python 2 and Python 3 with a language syntax that
+matches one of the two Python versions: one may
+use
+
+  - a Python 2 (by syntax) module in a Python 3 project.
+  - a Python 3 (by syntax) module in a *Python 2* project.
+
+Because of the bi-directionality, python-future_ offers a pathway to
+converting a Python 2 package to Python 3 syntax module-by-module.
 Supporting multiple hardware platforms
 ======================================
 
