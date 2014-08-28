@@ -2,8 +2,8 @@
 Installation & Packaging Tutorial
 =================================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-08-07
+:Page Status: Complete
+:Last Reviewed: 2014-08-27
 
 .. contents::
 
@@ -276,7 +276,7 @@ Additionally, most projects will contain the following files:
   that contains option defaults for ``setup.py`` commands.
 * A `MANIFEST.in
   <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ that defines
-  the files that will be included in the project distribution when it's
+  additional files to be included in the project distribution when it's
   packaged.
 
 
@@ -325,14 +325,78 @@ way is to keep the version in both ``setup.py`` and your code. If you'd rather
 not duplicate the value, there are a few ways to manage this. See the
 ":ref:`Single sourcing the version`" Advanced Topics section.
 
-License
--------
 
 Packages
 --------
 
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+  packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+
+It's required to list the :term:`packages <Package (Meaning #1)>` to be included
+in your project.  Although they can be listed manually,
+``setuptools.find_packages`` finds them automatically.  Use the ``exclude``
+keyword argument to omit packages that are not intended to be released and
+installed.
+
+
 Metadata
 --------
+
+It's important to include various metadata about your project.
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+    # A description of your project
+    description='A sample Python project',
+    long_description=long_description,
+
+    # The project's main homepage
+    url='https://github.com/pypa/sampleproject',
+
+    # Author details
+    author='The Python Packaging Authority',
+    author_email='pypa-dev@googlegroups.com',
+
+    # Choose your license
+    license='MIT',
+
+    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
+        # How mature is this project? Common values are
+        #   3 - Alpha
+        #   4 - Beta
+        #   5 - Production/Stable
+        'Development Status :: 3 - Alpha',
+
+        # Indicate who your project is intended for
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+
+        # Pick your license as you wish (should match "license" above)
+        'License :: OSI Approved :: MIT License',
+
+        # Specify the Python versions you support here. In particular, ensure
+        # that you indicate whether you support Python 2, Python 3 or both.
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+    ],
+
+    # What does your project relate to?
+    keywords='sample setuptools development',
+
+
 
 Dependencies
 ------------
@@ -414,8 +478,6 @@ For more information see the distutils section on `Installing Additional Files
   installed relative to "site-packages".  For discussion see `wheel Issue #92
   <https://bitbucket.org/pypa/wheel/issue/92>`_.
 
-Manifest
---------
 
 Scripts
 -------
@@ -443,6 +505,23 @@ during the install of your package.
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+
+
+MANIFEST.in
+-----------
+
+A ``MANIFEST.in`` file is needed in certain cases where you need to package
+additional files that ``python setup.py sdist (or bdist_wheel)`` don't
+automatically include.
+
+To see a list of what's included by default, see the `Specifying the files to
+distribute
+<https://docs.python.org/3.4/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
+section from the :ref:`distutils` documentation.
+
+For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
+<https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
+section from the :ref:`distutils` documentation.
 
 
 Developing your project
