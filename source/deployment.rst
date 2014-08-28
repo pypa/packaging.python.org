@@ -95,6 +95,10 @@ Tools for single-source Python packages
 for wrapping over the differences between Python 2 and Python 3. The six_
 package has enjoyed widespread use and may be regarded as a reliable way to
 write a single-source python module that can be use in both Python 2 and 3.
+The six_ module can be used from as early as Python 2.5. A tool called
+`modernize <https://pypi.python.org/pypi/modernize>`_, developed by Armin
+Ronacher, can be used to automatically apply the code modifications provided
+by six_.
 
 Similar to six_, `python-future <http://python-future.org/overview.html>`_ is
 a package that provides a compatibility layer between Python 2 and Python 3
@@ -107,7 +111,17 @@ use
   - a Python 3 (by syntax) module in a *Python 2* project.
 
 Because of the bi-directionality, python-future_ offers a pathway to
-converting a Python 2 package to Python 3 syntax module-by-module.
+converting a Python 2 package to Python 3 syntax module-by-module. However, in
+contrast to six_, python-future_ is supported only from Python 2.6. Similar to
+modernize_ for six_, python-future_ comes with two scripts called ``futurize``
+and ``pasteurize`` that can be applied to either a Python 2 module or a Python
+3 module respectively.
+
+Use of six_ or python-future_ adds an additional runtime dependency to your
+package: with python-future_, the ``futurize`` script can be called with the
+``--stage1`` option to apply only the changes that Python 2.6+ already
+provides for forward-compatibility to Python 3. Any remaining compatibility
+problems would require manual changes.
 
 What's in Which Python?
 -----------------------
