@@ -91,10 +91,10 @@ dependencies.
 **2002**: Richard Jones started work on :term:`PyPI <Python Package Index
 (PyPI)>`, and created `PEP301`_ to describe it.
 
-**2001**: `PEP241`_ was written to standardize the metadata for packages.
+**2001**: `PEP241`_ was written to standardize the metadata for distributions.
 
 **2000**: `catalog-sig`_ was created to discuss creating a centralized index of
-packages.
+distributions.
 
 **2000**: :ref:`distutils` was added to the Python standard library in Python 1.6.
 

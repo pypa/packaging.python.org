@@ -91,7 +91,7 @@ Dev irc:#pypa-dev
 
 setuptools (which includes ``easy_install``) is a collection of enhancements to
 the Python distutils that allow you to more easily build and distribute Python
-packages, especially ones that have dependencies on other packages.
+distributions, especially ones that have dependencies on other packages.
 
 `distribute`_ was a fork of setuptools that was merged back into setuptools (in
 v0.7), thereby making setuptools the primary choice for Python packaging.
@@ -218,7 +218,7 @@ Conda does not install packages from PyPI and can install only from
 the official Continuum repositories, or binstar.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
 However, note that pip can be installed into, and work side-by-side with conda
-for managing packages from PyPI.
+for managing distributions from PyPI.
 
 
 devpi

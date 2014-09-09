@@ -61,8 +61,8 @@ Installing on OSX
 
 .. _`NumPy and the Science Stack`:
 
-Installing Scientific Packages
-==============================
+Installing Scientific Distributions
+===================================
 
 Scientific software tends to have more complex dependencies than most, and
 it will often have multiple build options to take advantage of different
@@ -111,8 +111,8 @@ For Linux users, the system package manager will often have pre-compiled
 versions of various pieces of scientific software, including NumPy and
 other parts of the scientific Python stack.
 
-If using versions which may be several months old is acceptable, then this
-is likely to be a good option (just make sure to allow access to packages
+If using versions which may be several months old is acceptable, then this is
+likely to be a good option (just make sure to allow access to distributions
 installed into the system Python when using virtual environments).
 
 
@@ -133,9 +133,9 @@ a `collection of Windows installers
 <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`__. Many Python users on
 Windows have reported a positive experience with these prebuilt versions.
 
-As with Linux system packages, the Windows installers will only install into
-a system Python installation - they do not support installation in virtual
-environments. Allowing access to packages installed into the system Python
+As with Linux system packages, the Windows installers will only install into a
+system Python installation - they do not support installation in virtual
+environments. Allowing access to distributions installed into the system Python
 when using virtual environments is a common approach to working around this
 limitation.
 

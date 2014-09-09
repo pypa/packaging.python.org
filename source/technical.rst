@@ -141,12 +141,12 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Installs from :term:`Wheels   |Yes                               |No                             |
 |<Wheel>`                      |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|Uninstall Packages            |Yes (``pip uninstall``)           |No                             |
+|Uninstall Distributions       |Yes (``pip uninstall``)           |No                             |
 +------------------------------+----------------------------------+-------------------------------+
 |Dependency Overrides          |Yes (:ref:`Requirements Files     |No                             |
 |                              |<pip:Requirements Files>`)        |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|List Installed Packages       |Yes (``pip list`` and ``pip       |No                             |
+|List Installed Distributions  |Yes (``pip list`` and ``pip       |No                             |
 |                              |freeze``)                         |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |:ref:`PEP438 <PEP438s>`       |Yes                               |No                             |
@@ -186,7 +186,7 @@ easy_install and sys.path
 
    FIXME
 
-   - global easy_install'd packages override --user installs
+   - global easy_install'd distributions override --user installs
 
 
 .. _`Wheel vs Egg`:
@@ -226,8 +226,8 @@ Multi-version Installs
 ======================
 
 easy_install allows simultaneous installation of different versions of the same
-package into a single environment shared by multiple programs which must
-``require`` the appropriate version of the package at run time (using
+project into a single environment shared by multiple programs which must
+``require`` the appropriate version of the project at run time (using
 ``pkg_resources``).
 
 For many use cases, virtual environments address this need without the
@@ -275,7 +275,7 @@ Dependency Resolution
    - console_scripts complaining about conflicts
    - scenarios to breakdown:
       - conficting dependencies within the dep tree of one argument `
-      - conflicts across arguments: ``pip|easy_install  OnePackage TwoPackage``
+      - conflicts across arguments: ``pip|easy_install  OneProject TwoProject``
       - conflicts with what's already installed
 
 
