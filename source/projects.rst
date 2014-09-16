@@ -247,6 +247,20 @@ trying to be “the Debian of choice for cases where Debian technology doesn’t
 work”. The best way for Pythonistas to think about Hashdist may be a more
 powerful hybrid of virtualenv and buildout.
 
+.. _pex:
+
+pex
+===
+
+`Docs <http://pex.readthedocs.org/en/latest/>`__ |
+`Github <https://github.com/pantsbuild/pex/>`__ |
+`PyPI <https://pypi.python.org/pypi/pex>`__
+
+pex is both a library and tool for generating ``.pex`` (Python EXecutable)
+files, standalone Python environments in the spirit of :ref:`virtualenv`.
+``.pex`` files are just carefully constructed zip files with a
+``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
+deployment of Python applications as simple as ``cp``.
 
 Standard Library Projects
 #########################
