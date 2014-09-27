@@ -77,7 +77,7 @@ function InstallPackage ($python_home, $pkg) {
 }
 
 function main () {
-    # InstallPython $env:PYTHON_VERSION $env:PYTHON_ARCH $env:PYTHON
+    InstallPython $env:PYTHON_VERSION $env:PYTHON_ARCH $env:PYTHON
     InstallPip $env:PYTHON
     InstallPackage $env:PYTHON wheel
 }

@@ -58,7 +58,7 @@ appveyor.yml
    :language: yaml
    :linenos:
 
-This file can be downloaded from `here <http://example.com/to_be_confirmed>`__.
+This file can be downloaded from `here <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/appveyor.yml>`__.
 
 The ``appveyor.yml`` file must be located in the root directory of your
 project. It is in ``YAML`` format, and consists of a number of sections.
@@ -135,7 +135,7 @@ It is possible to request Appveyor to automatically upload wheels. There is a
 example) copy the built artifacts to a FTP site, or an Amazon S3 instance.
 Documentation on how to do this is included in the Appveyor guides.
 
-Alternatively, it would be possible to add a ``setup.py upload`` step to the
+Alternatively, it would be possible to add a ``twine upload`` step to the
 build.  The supplied ``appveyor.yml`` does not do this, as it is not clear that
 uploading new wheels after every commit is desirable (although some projects
 may wish to do this).
