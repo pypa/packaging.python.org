@@ -51,11 +51,13 @@ this, and these will briefly be discussed here.
 
 Automated Testing and Continuous Integration
 --------------------------------------------
-=======
-Overview
-========
 
-These services also offer facilities to run your package's test suite on
+Several hosted services for automated testing are available. These services
+will typically monitor your source code repository (e.g. at
+`Github <https://github.com>`_ or `Bitbucket <https://bitbucket.org>`_)
+and run your project's test suite every time a new commit is made.
+
+These services also offer facilities to run your project's test suite on
 *multiple versions of Python*, giving rapid feedback about whether the code
 will work, without the developer having to perform such tests themselves.
 
@@ -138,25 +140,6 @@ may affect your package.
 
     TODO The py3 list should be updated to include 3.4
 
-Supporting multiple hardware platforms
---------------------------------------
-
-::
-
-  FIXME
-
-  Meaning: x86, x64, ARM, others?
-
-  For Python-only distributions, it *should* be straightforward to deploy on all
-  platforms where Python can run.
-
-  For distributions with binary extensions, deployment is major headache.  Not only
-  must the extensions be built on all the combinations of operating system and
-  hardware platform, but they must also be tested, preferably on continuous
-  integration platforms.  The issues are similar to the "multiple python
-  versions" section above, not sure whether this should be a separate section.
-  Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
-  significant usage.
 
 
 .. _`Single sourcing the version`:
