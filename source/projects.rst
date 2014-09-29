@@ -91,7 +91,7 @@ Dev irc:#pypa-dev
 
 setuptools (which includes ``easy_install``) is a collection of enhancements to
 the Python distutils that allow you to more easily build and distribute Python
-packages, especially ones that have dependencies on other packages.
+distributions, especially ones that have dependencies on other packages.
 
 `distribute`_ was a fork of setuptools that was merged back into setuptools (in
 v0.7), thereby making setuptools the primary choice for Python packaging.
@@ -218,7 +218,7 @@ Conda does not install packages from PyPI and can install only from
 the official Continuum repositories, or binstar.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
 However, note that pip can be installed into, and work side-by-side with conda
-for managing packages from PyPI.
+for managing distributions from PyPI.
 
 
 devpi
@@ -247,6 +247,20 @@ trying to be “the Debian of choice for cases where Debian technology doesn’t
 work”. The best way for Pythonistas to think about Hashdist may be a more
 powerful hybrid of virtualenv and buildout.
 
+.. _pex:
+
+pex
+===
+
+`Docs <http://pex.readthedocs.org/en/latest/>`__ |
+`Github <https://github.com/pantsbuild/pex/>`__ |
+`PyPI <https://pypi.python.org/pypi/pex>`__
+
+pex is both a library and tool for generating ``.pex`` (Python EXecutable)
+files, standalone Python environments in the spirit of :ref:`virtualenv`.
+``.pex`` files are just carefully constructed zip files with a
+``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
+deployment of Python applications as simple as ``cp``.
 
 Standard Library Projects
 #########################

@@ -2,8 +2,8 @@
 Installation & Packaging Tutorial
 =================================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-08-07
+:Page Status: Complete
+:Last Reviewed: 2014-08-27
 
 .. contents::
 
@@ -55,9 +55,10 @@ We recommend the following installation sequence:
     source <DIR>/bin/activate
 
 
-3. For building wheels: ``pip install wheel`` [2]_
+3. For building :term:`wheels <Wheel>`: ``pip install wheel`` [2]_
 
-4. For uploading distributions: ``pip install twine`` [2]_
+4. For uploading :term:`distributions <Distribution>`: ``pip install twine``
+   [2]_
 
 
 .. _`Creating and using Virtual Environments`:
@@ -65,8 +66,9 @@ We recommend the following installation sequence:
 Virtual Environments
 ====================
 
-Python "Virtual Environments" allow packages to be installed in an isolated
-location for a particular application, rather than being installed globally.
+Python "Virtual Environments" allow Python :term:`distributions <Distribution>`
+to be installed in an isolated location for a particular application, rather
+than being installed globally.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
@@ -78,8 +80,8 @@ Or more generally, what if you want to install an application and leave it be?
 If an application works, any change in its libraries or the versions of those
 libraries can break the application.
 
-Also, what if you can’t install packages into the global site-packages
-directory? For instance, on a shared host.
+Also, what if you can’t install :term:`distributions <Distribution>` into the
+global site-packages directory? For instance, on a shared host.
 
 In all these cases, virtual environments can help you. They have their own
 installation directories and they don’t share libraries with other virtual
@@ -114,8 +116,8 @@ For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `pyvenv`_ docs.
 
 
-Installing Python packages
-==========================
+Installing Python Distributions
+===============================
 
 :ref:`pip` is the recommended installer, and supports various requirement forms
 and options.  For details, see the `pip docs
@@ -124,14 +126,14 @@ and options.  For details, see the `pip docs
 Examples
 --------
 
-Install `SomePackage` and its dependencies from :term:`PyPI <Python Package
+Install `SomeProject` and its dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
 
 ::
 
- pip install SomePackage           # latest version
- pip install SomePackage==1.0.4    # specific version
- pip install 'SomePackage>=1.0.4'  # minimum version
+ pip install SomeProject           # latest version
+ pip install SomeProject==1.0.4    # specific version
+ pip install 'SomeProject>=1.0.4'  # minimum version
 
 
 Install a list of requirements specified in a :ref:`Requirements File
@@ -142,11 +144,11 @@ Install a list of requirements specified in a :ref:`Requirements File
  pip install -r requirements.txt
 
 
-Upgrade an already installed `SomePackage` to the latest from PyPI.
+Upgrade an already installed `SomeProject` to the latest from PyPI.
 
 ::
 
- pip install --upgrade SomePackage
+ pip install --upgrade SomeProject
 
 
 Install a project from VCS in "editable" mode.  For a full breakdown of the
@@ -154,25 +156,25 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
 ::
 
- pip install -e git+https://git.repo/some_pkg.git#egg=SomePackage          # from git
- pip install -e hg+https://hg.repo/some_pkg.git#egg=SomePackage            # from mercurial
- pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomePackage         # from svn
- pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomePackage  # from a branch
+ pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
+ pip install -e hg+https://hg.repo/some_pkg.git#egg=SomeProject            # from mercurial
+ pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
+ pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
 
 
 Install a particular source archive file.
 
 ::
 
- pip install ./downloads/SomePackage-1.0.4.tar.gz
- pip install http://my.package.repo/SomePackage-1.0.4.zip
+ pip install ./downloads/SomeProject-1.0.4.tar.gz
+ pip install http://my.package.repo/SomeProject-1.0.4.zip
 
 
 Install from an alternate index
 
 ::
 
- pip install --index-url http://my.package.repo/simple/ SomePackage
+ pip install --index-url http://my.package.repo/simple/ SomeProject
 
 
 Search an additional index during install, in addition to :term:`PyPI <Python
@@ -180,7 +182,7 @@ Package Index (PyPI)>`
 
 ::
 
- pip install --extra-index-url http://my.package.repo/simple SomePackage
+ pip install --extra-index-url http://my.package.repo/simple SomeProject
 
 
 Install from a local directory containing archives (and don't check :term:`PyPI
@@ -188,9 +190,9 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 
 ::
 
- pip install --no-index --find-links=file:///local/dir/ SomePackage
- pip install --no-index --find-links=/local/dir/ SomePackage
- pip install --no-index --find-links=relative/dir/ SomePackage
+ pip install --no-index --find-links=file:///local/dir/ SomeProject
+ pip install --no-index --find-links=/local/dir/ SomeProject
+ pip install --no-index --find-links=relative/dir/ SomeProject
 
 
 Find pre-release and development versions, in addition to stable versions.  By
@@ -198,15 +200,16 @@ default, pip only finds stable versions.
 
 ::
 
- pip install --pre SomePackage
+ pip install --pre SomeProject
 
 
 Wheels
 ------
 
-:term:`Wheel` is a pre-built package format that provides faster installation
-compared to :term:`Source Distributions (sdist) <Source Distribution (or
-"sdist")>`, especially when a project contains compiled extensions.
+:term:`Wheel` is a pre-built :term:`distribution <Distribution>` format that
+provides faster installation compared to :term:`Source Distributions (sdist)
+<Source Distribution (or "sdist")>`, especially when a project contains compiled
+extensions.
 
 As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
 Distribution (or "sdist")>` when searching indexes.
@@ -235,11 +238,12 @@ comparison, see :ref:`Wheel vs Egg`.
 User Installs
 -------------
 
-To install packages that are isolated to the current user, use the ``-user`` flag:
+To install :term:`distributions <Distribution>` that are isolated to the current
+user, use the ``-user`` flag:
 
 ::
 
-  pip install --user SomePackage
+  pip install --user SomeProject
 
 
 For more information see the `User Installs
@@ -252,8 +256,8 @@ Creating your own Project
 =========================
 
 In the sections below, we'll reference the `PyPA sample project
-<https://github.com/pypa/sampleproject>`_. which aims to exemplify best
-practices for packaging Python projects using :ref:`setuptools`.
+<https://github.com/pypa/sampleproject>`_. which exists as a companion to this
+tutorial.
 
 
 Layout
@@ -276,7 +280,7 @@ Additionally, most projects will contain the following files:
   that contains option defaults for ``setup.py`` commands.
 * A `MANIFEST.in
   <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ that defines
-  the files that will be included in the project distribution when it's
+  additional files to be included in the project distribution when it's
   packaged.
 
 
@@ -325,14 +329,78 @@ way is to keep the version in both ``setup.py`` and your code. If you'd rather
 not duplicate the value, there are a few ways to manage this. See the
 ":ref:`Single sourcing the version`" Advanced Topics section.
 
-License
--------
 
 Packages
 --------
 
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+  packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+
+It's required to list the :term:`packages <Package (Meaning #1)>` to be included
+in your project.  Although they can be listed manually,
+``setuptools.find_packages`` finds them automatically.  Use the ``exclude``
+keyword argument to omit packages that are not intended to be released and
+installed.
+
+
 Metadata
 --------
+
+It's important to include various metadata about your project.
+
+from `sampleproject/setup.py
+<https://github.com/pypa/sampleproject/blob/master/setup.py>`_
+
+::
+
+    # A description of your project
+    description='A sample Python project',
+    long_description=long_description,
+
+    # The project's main homepage
+    url='https://github.com/pypa/sampleproject',
+
+    # Author details
+    author='The Python Packaging Authority',
+    author_email='pypa-dev@googlegroups.com',
+
+    # Choose your license
+    license='MIT',
+
+    # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
+        # How mature is this project? Common values are
+        #   3 - Alpha
+        #   4 - Beta
+        #   5 - Production/Stable
+        'Development Status :: 3 - Alpha',
+
+        # Indicate who your project is intended for
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+
+        # Pick your license as you wish (should match "license" above)
+        'License :: OSI Approved :: MIT License',
+
+        # Specify the Python versions you support here. In particular, ensure
+        # that you indicate whether you support Python 2, Python 3 or both.
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+    ],
+
+    # What does your project relate to?
+    keywords='sample setuptools development',
+
+
 
 Dependencies
 ------------
@@ -350,15 +418,17 @@ specification that is used to install its dependencies.
 
 For more on using "install_requires" see :ref:`install_requires vs Requirements files`.
 
+
 .. _`Package Data`:
 
 Package Data
 ------------
 
-Often, additional files need to be installed into a package. These files are
-often data that’s closely related to the package’s implementation, or text files
-containing documentation that might be of interest to programmers using the
-package. These files are called "package data".
+Often, additional files need to be installed into a :term:`package <Package
+(Meaning #1)>`. These files are often data that’s closely related to the
+package’s implementation, or text files containing documentation that might be
+of interest to programmers using the package. These files are called "package
+data".
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -385,8 +455,8 @@ Data Files
 ----------
 
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
-cases you may need to place data files *outside* of your packages.  The
-``data_files`` directive allows you to do that.
+cases you may need to place data files *outside* of your :term:`packages
+<Package (Meaning #1)>`.  The ``data_files`` directive allows you to do that.
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -398,9 +468,9 @@ from `sampleproject/setup.py
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
 interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python packages, sys.exec_prefix for packages that contain extension
-modules). Each file name in files is interpreted relative to the ``setup.py`` script
-at the top of the package source distribution.
+pure-Python distributions, sys.exec_prefix for distributions that contain
+extension modules). Each file name in files is interpreted relative to the
+``setup.py`` script at the top of the project source distribution.
 
 For more information see the distutils section on `Installing Additional Files
 <http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files>`_.
@@ -414,8 +484,6 @@ For more information see the distutils section on `Installing Additional Files
   installed relative to "site-packages".  For discussion see `wheel Issue #92
   <https://bitbucket.org/pypa/wheel/issue/92>`_.
 
-Manifest
---------
 
 Scripts
 -------
@@ -437,12 +505,29 @@ keyword for pointing to pre-made scripts, the recommended approach to achieve
 cross-platform compatibility, is to use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 that register your script interfaces, and let the toolchain handle the work of
-turning these interfaces into actual scripts [6]_.  The scripts will be generated
-during the install of your package.
+turning these interfaces into actual scripts [6]_.  The scripts will be
+generated during the install of your :term:`distribution <Distribution>`.
 
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+
+
+MANIFEST.in
+-----------
+
+A ``MANIFEST.in`` file is needed in certain cases where you need to package
+additional files that ``python setup.py sdist (or bdist_wheel)`` don't
+automatically include.
+
+To see a list of what's included by default, see the `Specifying the files to
+distribute
+<https://docs.python.org/3.4/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
+section from the :ref:`distutils` documentation.
+
+For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
+<https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
+section from the :ref:`distutils` documentation.
 
 
 Developing your project

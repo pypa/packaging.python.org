@@ -14,8 +14,8 @@ what tools are currently recommended, then here it is.
 Installation Tool Recommendations
 =================================
 
-* Use :ref:`pip` to install Python :term:`packages <Package (Meaning #2)>`
-  from :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_
+* Use :ref:`pip` to install Python :term:`distributions <Distribution>` from
+  :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_
 
 * Use :ref:`virtualenv`, or `pyvenv`_ to isolate application specific
   dependencies from a shared Python installation. [3]_
@@ -69,13 +69,13 @@ Packaging Tool Recommendations
 
 .. [5] Although you can use pure ``distutils`` for many projects, it does not
        support defining dependencies on other projects and is missing several
-       convenience utilities for automatically populating package metadata
+       convenience utilities for automatically populating distribution metadata
        correctly that are provided by ``setuptools``. Being outside the
        standard library, ``setuptools`` also offers a more consistent feature
        set across different versions of Python, and (unlike ``distutils``),
        ``setuptools`` will be updated to produce the upcoming "Metadata 2.0"
        standard formats on all supported versions.
-       
+
        Even for projects that do choose to use ``distutils``, when :ref:`pip`
        installs such projects directly from source (rather than installing
        from a prebuilt :term:`wheel <Wheel>` file), it will actually build
