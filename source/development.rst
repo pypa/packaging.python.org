@@ -21,10 +21,12 @@ Supporting multiple Python versions
 
   Useful projects/resources to reference:
 
-  - six
+  - DONE six
+  - DONE python-future (http://python-future.org)
   - tox
   - DONE Travis and Shining Panda CI (Shining Panda no longer available)
   - DONE Appveyor
+  - DONE Ned Batchelder's "What's in Which Python"
     - http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html
       - http://nedbatchelder.com/blog/201109/whats_in_which_python.html
   - Lennart Regebro's "Porting to Python 3"
@@ -36,7 +38,16 @@ Supporting multiple Python versions
     in the binary extensions topic (once that exists)
   - mention version classifiers for distribution metadata
 
+In addition to the work required to create a Python package, it is often
+necessary that the package must be made available on different versions of
+Python.  Different Python versions may contain different (or renamed) standard
+library packages, and the changes between Python versions 2.x and 3.x include
+changes in the language syntax.
 
+Performed manually, all the testing required to ensure that the package works
+correctly on all the target Python versions (and OSs!) could be very
+time-consuming. Fortunately, several tools are available for dealing with
+this, and these will briefly be discussed here.
 
 Automated Testing and Continuous Integration
 --------------------------------------------
@@ -77,6 +88,58 @@ can be inspected.
 
 For Python projects that are intended to be deployed on both Python 2 and 3
 with a single-source strategy, there are a number of options.
+
+Tools for single-source Python packages
+----------------------------------------
+
+`six <http://pythonhosted.org/six/>`_ is a tool developed by Benjamin Peterson
+for wrapping over the differences between Python 2 and Python 3. The six_
+package has enjoyed widespread use and may be regarded as a reliable way to
+write a single-source python module that can be use in both Python 2 and 3.
+The six_ module can be used from as early as Python 2.5. A tool called
+`modernize <https://pypi.python.org/pypi/modernize>`_, developed by Armin
+Ronacher, can be used to automatically apply the code modifications provided
+by six_.
+
+Similar to six_, `python-future <http://python-future.org/overview.html>`_ is
+a package that provides a compatibility layer between Python 2 and Python 3
+source code; however, unlike six_, this package aims to provide
+interoperability between Python 2 and Python 3 with a language syntax that
+matches one of the two Python versions: one may
+use
+
+  - a Python 2 (by syntax) module in a Python 3 project.
+  - a Python 3 (by syntax) module in a *Python 2* project.
+
+Because of the bi-directionality, python-future_ offers a pathway to
+converting a Python 2 package to Python 3 syntax module-by-module. However, in
+contrast to six_, python-future_ is supported only from Python 2.6. Similar to
+modernize_ for six_, python-future_ comes with two scripts called ``futurize``
+and ``pasteurize`` that can be applied to either a Python 2 module or a Python
+3 module respectively.
+
+Use of six_ or python-future_ adds an additional runtime dependency to your
+package: with python-future_, the ``futurize`` script can be called with the
+``--stage1`` option to apply only the changes that Python 2.6+ already
+provides for forward-compatibility to Python 3. Any remaining compatibility
+problems would require manual changes.
+
+What's in Which Python?
+-----------------------
+
+Ned Batchelder provides a list of changes in each Python release for
+`Python 2 <http://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__
+and separately
+for `Python 3 <http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__.
+These lists may be used to check whether any changes between Python versions
+may affect your package.
+
+::
+
+    TODO These lists should be reproduced here (with permission).
+
+    TODO The py3 list should be updated to include 3.4
+
 
 
 .. _`Single sourcing the version`:
