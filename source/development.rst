@@ -84,7 +84,7 @@ Both `Travis CI`_ and Appveyor_ require a `YAML
 for testing. If any tests fail, the output log for that specific configuration
 can be inspected.
 
-For Python packages that are intended to be deployed on both Python 2 and 3
+For Python projects that are intended to be deployed on both Python 2 and 3
 with a single-source strategy, there are a number of options.
 
 Tools for single-source Python packages
@@ -203,7 +203,7 @@ There are a few techniques to store the version in your project code without dup
 
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
-    your package (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
+    your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
     value into a variable.
 
     Using ``execfile``:
@@ -276,7 +276,7 @@ There are a few techniques to store the version in your project code without dup
 PyPI mirrors and caches
 =======================
 
-Mirroring or caching of PyPI can be used to speed up local package
+Mirroring or caching of PyPI can be used to speed up local distribution
 installation, allow offline work, handle corporate firewalls or just plain
 Internet flakiness.
 
@@ -285,14 +285,14 @@ Three options are available in this area:
 1. pip provides local caching options,
 2. devpi provides higher-level caching option, potentially shared amongst
    many users or machines, and
-3. bandersnatch provides a local complete mirror of all packages on PyPI.
+3. bandersnatch provides a local complete mirror of all PyPI distributions.
 
 
 Caching with pip
 ----------------
 
 pip provides a number of facilities for speeding up installation by using
-local cached copies of packages:
+local cached copies of distributions:
 
 1. `Fast & local installs
    <https://pip.pypa.io/en/latest/user_guide.html#fast-local-installs>`_ by
@@ -302,8 +302,8 @@ local cached copies of packages:
    the requirements using `pip wheel
    <http://pip.readthedocs.org/en/latest/reference/pip_wheel.html>`_::
 
-    $ pip wheel --wheel-dir=/tmp/wheelhouse SomePackage
-    $ pip install --no-index --find-links=/tmp/wheelhouse SomePackage
+    $ pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
+    $ pip install --no-index --find-links=/tmp/wheelhouse SomeProject
 
 
 Caching with devpi
@@ -319,14 +319,14 @@ __ http://doc.devpi.net/latest/quickstart-pypimirror.html
 Complete mirror with bandersnatch
 ----------------------------------
 
-bandersnatch will set up a complete local mirror of all packages on PyPI
-(externally-hosted packages are not mirrored). See the
+bandersnatch will set up a complete local mirror of all PyPI distributions
+(externally-hosted distributions are not mirrored). See the
 `bandersnatch documentation for getting that going`__.
 
 __ https://bitbucket.org/pypa/bandersnatch/overview
 
-A benefit of devpi is that it will create a mirror which includes packages
-that are external to PyPI, unlike bandersnatch which will only cache packages
+A benefit of devpi is that it will create a mirror which includes distributions
+that are external to PyPI, unlike bandersnatch which will only cache distributions
 hosted on PyPI.
 
 
