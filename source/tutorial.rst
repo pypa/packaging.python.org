@@ -256,8 +256,8 @@ Creating your own Project
 =========================
 
 In the sections below, we'll reference the `PyPA sample project
-<https://github.com/pypa/sampleproject>`_. which aims to exemplify best
-practices for packaging Python projects using :ref:`setuptools`.
+<https://github.com/pypa/sampleproject>`_. which exists as a companion to this
+tutorial.
 
 
 Layout
