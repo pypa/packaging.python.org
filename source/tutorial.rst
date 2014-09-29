@@ -671,6 +671,8 @@ write a ``~/.pypirc`` file like so.
     username = <username>
     password = <password>
 
+You can leave out the password line if below you use twine with its
+``-p PASSWORD`` argument.
 
 Finally, you can upload your distributions to :term:`PyPI <Python Package Index
 (PyPI)>`. There are two options.
