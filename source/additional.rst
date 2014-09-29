@@ -18,4 +18,5 @@ different categories, those categorisations are quite broad and flexible.
    deployment
    extensions
    science
+   appveyor
    os

@@ -31,7 +31,6 @@ Packaging Authority (PyPA)`.
    projects
    peps
    history
-   howto
    glossary
 
 
