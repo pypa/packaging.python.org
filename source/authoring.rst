@@ -7,6 +7,21 @@ Tutorial for Project Distributors
 
 .. contents::
 
+
+Installing the Tools
+====================
+
+Additionally, for building wheels, you'll need :ref:`wheel`, and for uploading
+to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
+
+We recommend the following installation sequence:
+
+1. For building :term:`wheels <Wheel>`: ``pip install wheel`` [1]_
+
+2. For uploading :term:`distributions <Distribution>`: ``pip install twine``
+   [1]_
+
+
 Creating your own Project
 =========================
 
@@ -260,7 +275,7 @@ keyword for pointing to pre-made scripts, the recommended approach to achieve
 cross-platform compatibility, is to use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 that register your script interfaces, and let the toolchain handle the work of
-turning these interfaces into actual scripts [1]_.  The scripts will be
+turning these interfaces into actual scripts [2]_.  The scripts will be
 generated during the install of your :term:`distribution <Distribution>`.
 
 For more information, see `Automatic Script Creation
@@ -464,7 +479,13 @@ Finally, you can upload your distributions to :term:`PyPI <Python Package Index
 
 ----
 
-.. [1] Specifically, the "console_script" approach generates ``.exe`` files on
+.. [1] Depending on your platform, this may require root or Administrator
+       access. :ref:`pip` is currently considering changing this by `making user
+       installs the default behavior
+       <https://github.com/pypa/pip/issues/1668>`_.
+
+
+.. [2] Specifically, the "console_script" approach generates ``.exe`` files on
        Windows, which are necessary because the OS special-cases ``.exe`` files.
        Script-execution features like ``PATHEXT`` and the `Python Launcher for
        Windows <http://legacy.python.org/dev/peps/pep-0397/>`_ allow scripts to
