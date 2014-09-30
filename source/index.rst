@@ -26,6 +26,7 @@ Packaging Authority (PyPA)`.
 
    current
    tutorial
+   authoring
    future
    additional
    projects
