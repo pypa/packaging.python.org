@@ -1,6 +1,6 @@
-===============================
-Tutorial on Installing Packages
-===============================
+====================================
+Tutorial on Installing Distributions
+====================================
 
 :Page Status: Complete
 :Last Reviewed: 2014-09-30

@@ -1,6 +1,6 @@
-=================================
-Tutorial for Project Distributors
-=================================
+==============================================
+Tutorial on Project Packaging and Distribution
+==============================================
 
 :Page Status: Complete
 :Last Reviewed: 2014-09-30
