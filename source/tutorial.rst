@@ -12,12 +12,13 @@ This tutorial covers the basics of how to install Python :term:`packages
 :term:`distributions <Distribution>`.
 
 
-.. _installation_tools:
+.. _installing_setup:
 
-Tools for Installing Packages
+Setup for Installing Packages
 =============================
 
-To install packages, you'll minimally want to install :ref:`pip` and
+This section describes the steps to follow before installing other
+Python packages.  You will want to install :ref:`pip` and
 :ref:`setuptools`, and in most cases, :ref:`virtualenv` (unless you're using
 `pyvenv`_).
 

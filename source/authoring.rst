@@ -7,12 +7,22 @@ Tutorial for Project Distributors
 
 .. contents::
 
+This tutorial covers the basics of how to create and distribute your
+own Python projects.  This tutorial assumes that you are already familiar
+with the contents of the :doc:`Tutorial on Installing Packages <tutorial>`.
 
-Installing the Tools
-====================
 
-Additionally, for building wheels, you'll need :ref:`wheel`, and for uploading
-to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
+Setup for Project Distributors
+==============================
+
+This section describes steps to follow before distributing your own
+Python packages.
+
+First, make sure you have already followed the :ref:`setup steps for
+installing packages <installing_setup>`.
+
+In addition, you'll need :ref:`wheel` (if you will be building wheels), and
+:ref:`twine`, for uploading to :term:`PyPI <Python Package Index (PyPI)>`.
 
 We recommend the following installation sequence:
 
