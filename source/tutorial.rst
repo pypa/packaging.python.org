@@ -13,12 +13,9 @@ This tutorial covers the basics of how to install Python packages.
 Installing the Tools
 ====================
 
-For Installation or Packaging, you'll minimally want :ref:`pip` and
+To install packages, you'll minimally want :ref:`pip` and
 :ref:`setuptools`, and in most cases, :ref:`virtualenv` (unless you're using
 `pyvenv`_).
-
-Additionally, for building wheels, you'll need :ref:`wheel`, and for uploading
-to :term:`PyPI <Python Package Index (PyPI)>`, you'll need :ref:`twine`.
 
 We recommend the following installation sequence:
 
@@ -56,12 +53,6 @@ We recommend the following installation sequence:
 
     pyvenv <DIR>
     source <DIR>/bin/activate
-
-
-3. For building :term:`wheels <Wheel>`: ``pip install wheel`` [2]_
-
-4. For uploading :term:`distributions <Distribution>`: ``pip install twine``
-   [2]_
 
 
 .. _`Creating and using Virtual Environments`:
