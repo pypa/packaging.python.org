@@ -14,8 +14,8 @@ This tutorial covers the basics of how to install Python :term:`packages
 
 .. _installing_setup:
 
-Setup for Installing Packages
-=============================
+Setup for Installing Distributions
+==================================
 
 This section describes the steps to follow before installing other
 Python packages.  You will want to install :ref:`pip` and
