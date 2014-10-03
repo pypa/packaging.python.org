@@ -5,7 +5,8 @@ Tutorial on Installing Distributions
 :Page Status: Complete
 :Last Reviewed: 2014-09-30
 
-.. contents::
+.. contents:: Contents
+   :local:
 
 This tutorial covers the basics of how to install Python :term:`packages
 <Package (Meaning #2)>`, which are known more formally as
