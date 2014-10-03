@@ -39,6 +39,9 @@ In the sections below, we'll reference the `PyPA sample project
 <https://github.com/pypa/sampleproject>`_. which exists as a companion to this
 tutorial.
 
+For more information on creating projects, see the `Setuptools Docs
+<http://pythonhosted.org/setuptools/setuptools.html>`_
+
 
 Layout
 ------
