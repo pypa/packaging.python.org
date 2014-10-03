@@ -8,7 +8,8 @@ Building Binary Wheels for Windows using Appveyor
 This section covers how to use the free `Appveyor`_ continuous integration
 service to build Windows-targeted binary wheels for your project.
 
-.. contents::
+.. contents:: Contents
+   :local:
 
 
 Background

@@ -7,7 +7,8 @@ Concepts & Analyses
 
 This section covers various packaging concepts and analyses.
 
-.. contents::
+.. contents:: Contents
+   :local:
 
 
 Packaging Formats
