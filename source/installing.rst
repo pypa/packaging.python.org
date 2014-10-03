@@ -53,7 +53,7 @@ We recommend the following installation sequence:
     virtualenv <DIR>
     source <DIR>/bin/activate
 
-   Using `pyvenv`_: [5]_
+   Using `pyvenv`_: [4]_
 
    ::
 
@@ -269,10 +269,7 @@ from the pip docs.
        the latest version this way, so in most cases, you'll want to use these
        instructions.
 
-.. [4] For more information on creating projects, see the `Setuptools Docs
-       <http://pythonhosted.org/setuptools/setuptools.html>`_
-
-.. [5] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
+.. [4] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
