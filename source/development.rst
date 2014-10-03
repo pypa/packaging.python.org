@@ -8,7 +8,8 @@ Project Development
 
 Packaging topics that related to the development phase.
 
-.. contents::
+.. contents:: Contents
+   :local:
 
 .. _`Supporting multiple Python versions`:
 

@@ -6,7 +6,8 @@ Application Deployment
 :Page Status: Incomplete
 :Last Reviewed: 2014-07-24
 
-.. contents::
+.. contents:: Contents
+   :local:
 
 
 Overview
