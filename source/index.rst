@@ -25,8 +25,8 @@ Packaging Authority (PyPA)`.
    :maxdepth: 1
 
    current
-   tutorial
-   authoring
+   installing
+   distributing
    future
    additional
    projects
