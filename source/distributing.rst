@@ -9,7 +9,7 @@ Tutorial on Packaging and Distributing Projects
 
 This tutorial covers the basics of how to create and distribute your
 own Python projects.  This tutorial assumes that you are already familiar
-with the contents of the :doc:`Tutorial on Installing Packages <tutorial>`.
+with the contents of the :doc:`installing`.
 
 
 Setup for Project Distributors
