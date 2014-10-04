@@ -15,8 +15,8 @@ This tutorial covers the basics of how to install Python :term:`packages
 
 .. _installing_setup:
 
-Setup for Installing Distributions
-==================================
+Setup for Installing Distribution Packages
+==========================================
 
 This section describes the steps to follow before installing other
 Python packages.  You will want to install :ref:`pip` and
@@ -116,8 +116,8 @@ For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `pyvenv`_ docs.
 
 
-Installing Python Distributions
-===============================
+Installing Python Distribution Packages
+=======================================
 
 :ref:`pip` is the recommended installer, and supports various requirement forms
 and options.  For details, see the `pip docs
