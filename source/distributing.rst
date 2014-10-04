@@ -9,8 +9,13 @@ Tutorial on Packaging and Distributing Projects
    :local:
 
 This tutorial covers the basics of how to create and distribute your
-own Python projects.  This tutorial assumes that you are already familiar
+own Python projects.  It assumes that you are already familiar
 with the contents of the :doc:`installing`.
+
+The tutorial aims to cover core packaging tasks and features and does *not*
+aim to cover project "best practices."  For example, it does not provide
+guidance or recommendations on selecting third-party tools or services
+such as for documentation, automated testing, continuous integration, etc.
 
 
 Setup for Project Distributors
