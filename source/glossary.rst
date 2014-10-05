@@ -18,7 +18,8 @@ Glossary
 
     Built Distribution
 
-        A :term:`distribution package` format containing files and metadata that only
+        A :term:`distribution-package <distribution package>` format
+        containing files and metadata that only
         need to be moved to the correct location on the target system, to be
         installed. :term:`Wheel` is such a format, whereas distutil's
         :term:`Source Distribution <Source Distribution (or "sdist")>` is not,
@@ -36,9 +37,9 @@ Glossary
         internet and install.
 
         It is common in Python to use the simpler term ":term:`package`"
-        when referring to distribution packages (e.g. the name of the Python
-        installation tool :ref:`pip` is an acronym for "pip installs
-        packages").
+        when referring to distribution packages. For example, the name of
+        the Python installation tool :ref:`pip` is an acronym for "pip
+        installs packages," which refers to distribution packages).
 
 
     Egg
@@ -93,10 +94,10 @@ Glossary
         for a directory of Python modules that can be imported. See the
         entries for these two terms for more complete definitions.
 
-        The :term:`Python Packaging User Guide (PyPUG)` uses these more
-        complete terms instead of "package" for emphasis, or when the
-        meaning is not clear from context. Usually, however, context is
-        enough to know what meaning is intended.
+        The :term:`Python Packaging User Guide (PyPUG)` sometimes uses these
+        more complete terms instead of "package" for emphasis, or when the
+        context is not enough to tell which meaning is intended. Usually,
+        however, context is enough.
 
 
     Package Index
@@ -196,7 +197,8 @@ Glossary
 
     Source Distribution (or "sdist")
 
-        A :term:`distribution package` format (usually generated using
+        A :term:`distribution-package <distribution package>` format (usually
+        generated using
         ``python setup.py sdist``) that provides metadata and the essential
         source files needed for installing by a tool like :ref:`pip`, or for
         generating a :term:`Built Distribution`.
