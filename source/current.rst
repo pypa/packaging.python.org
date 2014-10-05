@@ -14,7 +14,7 @@ what tools are currently recommended, then here it is.
 Installation Tool Recommendations
 =================================
 
-* Use :ref:`pip` to install Python :term:`distribution packages <distribution package>` from
+* Use :ref:`pip` to install Python :term:`packages <distribution package>` from
   :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_
 
 * Use :ref:`virtualenv`, or `pyvenv`_ to isolate application specific
@@ -22,7 +22,7 @@ Installation Tool Recommendations
 
 * Use `pip wheel
   <http://pip.pypa.io/en/latest/reference/pip_wheel.html>`_ to create a
-  cache of :term:`wheel` distributions, for the purpose of speeding up
+  cache of :term:`wheel` packages, for the purpose of speeding up
   subsequent installations. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
@@ -42,8 +42,8 @@ Packaging Tool Recommendations
   :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is
   especially beneficial, if your project contains binary extensions. [7]_
 
-* Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading distributions
-  to :term:`PyPI <Python Package Index (PyPI)>`.
+* Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading
+  :term:`packages <distribution package>` to :term:`PyPI <Python Package Index (PyPI)>`.
 
 
 ----
@@ -69,7 +69,8 @@ Packaging Tool Recommendations
 
 .. [5] Although you can use pure ``distutils`` for many projects, it does not
        support defining dependencies on other projects and is missing several
-       convenience utilities for automatically populating distribution metadata
+       convenience utilities for automatically populating
+       :term:`package <distribution package>` metadata
        correctly that are provided by ``setuptools``. Being outside the
        standard library, ``setuptools`` also offers a more consistent feature
        set across different versions of Python, and (unlike ``distutils``),
