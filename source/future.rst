@@ -133,7 +133,7 @@ PyPI Infrastructure
 pip
 ---
 
-* An internal stable api for pip
+* An internal stable API for pip
 * Removal of older pip commands and options that aren't popular or well
   maintained (`#906 <https://github.com/pypa/pip/issues/906>`_, `#1046
   <https://github.com/pypa/pip/issues/1046>`_)
