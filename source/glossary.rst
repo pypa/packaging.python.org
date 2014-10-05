@@ -39,7 +39,7 @@ Glossary
         It is common in Python to use the simpler term ":term:`package`"
         when referring to distribution packages. For example, the name of
         the Python installation tool :ref:`pip` is an acronym for "pip
-        installs packages," which refers to distribution packages).
+        installs packages," which refers to distribution packages.
 
 
     Egg
