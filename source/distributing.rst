@@ -35,7 +35,7 @@ We recommend the following installation sequence:
 
 1. For building :term:`wheels <Wheel>`: ``pip install wheel`` [1]_
 
-2. For uploading :term:`distributions <Distribution>`: ``pip install twine``
+2. For uploading :term:`distribution packages <distribution package>`: ``pip install twine``
    [1]_
 
 
@@ -296,7 +296,7 @@ cross-platform compatibility, is to use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 that register your script interfaces, and let the toolchain handle the work of
 turning these interfaces into actual scripts [2]_.  The scripts will be
-generated during the install of your :term:`distribution <Distribution>`.
+generated during the install of your :term:`distribution package`.
 
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_

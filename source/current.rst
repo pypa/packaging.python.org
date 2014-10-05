@@ -14,7 +14,7 @@ what tools are currently recommended, then here it is.
 Installation Tool Recommendations
 =================================
 
-* Use :ref:`pip` to install Python :term:`distributions <Distribution>` from
+* Use :ref:`pip` to install Python :term:`distribution packages <distribution package>` from
   :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_
 
 * Use :ref:`virtualenv`, or `pyvenv`_ to isolate application specific
