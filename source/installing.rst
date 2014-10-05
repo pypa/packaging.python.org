@@ -239,7 +239,7 @@ User Installs
 -------------
 
 To install :term:`distributions <Distribution>` that are isolated to the current
-user, use the ``-user`` flag:
+user, use the ``--user`` flag:
 
 ::
 
