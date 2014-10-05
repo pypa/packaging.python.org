@@ -18,8 +18,7 @@ Glossary
 
     Built Distribution
 
-        A :term:`distribution-package <distribution package>` format
-        containing files and metadata that only
+        A :term:`package <distribution package>` format containing files and metadata that only
         need to be moved to the correct location on the target system, to be
         installed. :term:`Wheel` is such a format, whereas distutil's
         :term:`Source Distribution <Source Distribution (or "sdist")>` is not,
@@ -28,7 +27,7 @@ Glossary
         (:term:`Wheel` intentionally does not include compiled python files).
 
 
-    distribution package
+    Distribution Package
 
         A distribution package is a versioned archive file containing Python
         :term:`packages <import package>`, :term:`modules <module>`, and
@@ -36,11 +35,12 @@ Glossary
         distribution package is the file an end-user can download from the
         internet and install.
 
-        Despite ":term:`package`" having a :term:`second meaning
-        <import package>`, it is common in Python simply to say "package"
-        to refer to distribution packages. For example, the name of the
-        Python installation tool :ref:`pip` is an acronym for "pip installs
-        packages," which refers to distribution packages.
+        A distribution package is normally called simply a "package."
+        The simpler term ":term:`package`" has a :term:`second meaning
+        <import package>`, but context usually makes clear which meaning
+        should be used. For example, the name of the Python installation tool
+        :ref:`pip` is an acronym for "pip installs packages," which refers
+        to distribution packages.
 
 
     Egg
@@ -60,16 +60,17 @@ Glossary
         Python extensions on Windows, or a Java class file for Jython
         extensions.
 
-    import package
+    Import Package
 
         An import package is a directory containing an ``__init__.py`` file (ex.
         ``mypackage/__init__.py``), and also usually containing modules
         (possibly along with other packages).
 
-        Despite ":term:`package`" having a :term:`second meaning
-        <distribution package>`, it is common in Python simply to say
-        "package" to refer to import packages (e.g. instructing one to
-        import a package by typing ``import mypackage``).
+        An import package is normally called simply a "package." The
+        simpler term ":term:`package`" has a :term:`second meaning
+        <distribution package>`, but context usually makes clear which
+        meaning should be used (e.g. instructing one to import a package
+        by typing ``import mypackage``).
 
 
     Known Good Set (KGS)
@@ -88,7 +89,7 @@ Glossary
         types: :term:`Pure Module`, or :term:`Extension Module`.
 
 
-    package
+    Package
 
         This ubiquitous Python word in fact has two meanings:
         ":term:`distribution package`" for the versioned archive file that
@@ -199,8 +200,7 @@ Glossary
 
     Source Distribution (or "sdist")
 
-        A :term:`distribution-package <distribution package>` format (usually
-        generated using
+        A :term:`package <distribution package>` format (usually generated using
         ``python setup.py sdist``) that provides metadata and the essential
         source files needed for installing by a tool like :ref:`pip`, or for
         generating a :term:`Built Distribution`.

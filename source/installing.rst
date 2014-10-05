@@ -206,7 +206,7 @@ default, pip only finds stable versions.
 Wheels
 ------
 
-:term:`Wheel` is a pre-built :term:`distribution-package <distribution package>` format that
+:term:`Wheel` is a pre-built :term:`package <distribution package>` format that
 provides faster installation compared to :term:`Source Distributions (sdist)
 <Source Distribution (or "sdist")>`, especially when a project contains compiled
 extensions.
