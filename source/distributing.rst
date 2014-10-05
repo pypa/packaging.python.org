@@ -43,11 +43,11 @@ Creating your own Project
 =========================
 
 In the sections below, we'll reference the `PyPA sample project
-<https://github.com/pypa/sampleproject>`_. which exists as a companion to this
+<https://github.com/pypa/sampleproject>`_, which exists as a companion to this
 tutorial.
 
 For more information on creating projects, see the `Setuptools Docs
-<http://pythonhosted.org/setuptools/setuptools.html>`_
+<http://pythonhosted.org/setuptools/setuptools.html>`_.
 
 
 Layout
@@ -59,7 +59,7 @@ have a ``setup.py``. For an example, see `sampleproject/setup.py
 components of ``setup.py`` in the sections below.
 
 Although it's not required, most projects will organize the code using a `single
-top-level package <https://github.com/pypa/sampleproject/tree/master/sample>`_,
+top-level package <https://github.com/pypa/sampleproject/tree/master/sample>`_
 that's named the same as the project.
 
 Additionally, most projects will contain the following files:
@@ -269,7 +269,7 @@ For more information see the distutils section on `Installing Additional Files
 
   :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
   absolute, when installing from :term:`sdist <Source Distribution (or
-  "sdist")>`.  This is not true, when installing from :term:`wheel`
+  "sdist")>`.  This is not true when installing from :term:`wheel`
   distributions. Wheels don't support absolute paths, and they end up being
   installed relative to "site-packages".  For discussion see `wheel Issue #92
   <https://bitbucket.org/pypa/wheel/issue/92>`_.
@@ -292,11 +292,12 @@ from `sampleproject/setup.py
 Although ``setup.py`` supports a `scripts
 <http://docs.python.org/3.4/distutils/setupscript.html#installing-scripts>`_
 keyword for pointing to pre-made scripts, the recommended approach to achieve
-cross-platform compatibility, is to use "console_script" `entry points
+cross-platform compatibility is to use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
-that register your script interfaces, and let the toolchain handle the work of
-turning these interfaces into actual scripts [2]_.  The scripts will be
-generated during the install of your :term:`distribution package`.
+that register your script interfaces. You can then let the toolchain handle
+the work of turning these interfaces into actual scripts [2]_.  The scripts
+will be generated during the install of your
+:term:`distribution package`.
 
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
@@ -324,7 +325,7 @@ Developing your project
 =======================
 
 Although not required, it's common to locally install your project in "develop"
-or "editable" mode, while you're working on it.  This allows the project to be
+or "editable" mode while you're working on it.  This allows the project to be
 both installed and editable in project form.
 
 ::
@@ -362,7 +363,7 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
 A "source distribution" is unbuilt (i.e, it's not a :term:`Built Distribution`),
 and requires a build step when installed by pip.  Even if the distribution is
 pure python (i.e. contains no extensions), it still involves a build step to
-build out the installation metadata from "``setup.py``".
+build out the installation metadata from ``setup.py``.
 
 .. _`Universal Wheels`:
 
