@@ -9,7 +9,7 @@ Tutorial on Installing Distributions
    :local:
 
 This tutorial covers the basics of how to install Python :term:`packages
-<Package (Meaning #2)>`, which are known more formally as
+<distribution package>`, which are known more formally as
 :term:`distributions <Distribution>`.
 
 

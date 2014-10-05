@@ -18,7 +18,7 @@ Glossary
 
     Built Distribution
 
-        A :term:`Distribution` format containing files and metadata that only
+        A :term:`distribution package` format containing files and metadata that only
         need to be moved to the correct location on the target system, to be
         installed. :term:`Wheel` is such a format, whereas distutil's
         :term:`Source Distribution <Source Distribution (or "sdist")>` is not,
@@ -27,13 +27,19 @@ Glossary
         (:term:`Wheel` intentionally does not include compiled python files).
 
 
-    Distribution
+    distribution package
 
-        A Python distribution is a versioned archive file that contains Python
-        :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and
-        other resource files that are used to distribute a :term:`Release`. The
-        distribution file is what an end-user will download from the internet
-        and install.
+        A distribution package is a versioned archive file containing Python
+        :term:`packages <import package>`, :term:`modules <module>`, and
+        other resource files used to distribute a :term:`Release`. The
+        distribution package is the file an end-user can download from the
+        internet and install.
+
+        It is common in Python to use the simpler term ":term:`package`"
+        when referring to distribution packages (e.g. the name of the Python
+        installation tool :ref:`pip` is an acronym for "pip installs
+        packages").
+
 
     Egg
 
@@ -52,14 +58,25 @@ Glossary
         Python extensions on Windows, or a Java class file for Jython
         extensions.
 
+    import package
+
+        An import package is a directory containing an ``__init__.py`` file (ex.
+        ``mypackage/__init__.py``), and also usually containing modules
+        (possibly along with other packages).
+
+        It is common in Python to refer to an import package using
+        the simpler term ":term:`package`" (e.g. when instructing one to
+        import a package by typing ``import mypackage``).
+
 
     Known Good Set (KGS)
 
-        A set of distributions at specified versions which are compatible with
+        A set of :term:`distribution packages <distribution package>`
+        at specified versions which are compatible with
         each other. Typically a test suite will be run which passes all tests
-        before a specific set of packages is declared a known good set. This
+        before a specific set is declared a known good set. This
         term is commonly used by frameworks and toolkits which are comprised of
-        multiple individual distributions.
+        multiple individual distribution packages.
 
 
     Module
@@ -68,40 +85,33 @@ Glossary
         types: :term:`Pure Module`, or :term:`Extension Module`.
 
 
-    Package (Meaning #1)
+    package
 
-        A directory containing an ``__init__.py`` file (ex.
-        ``mypackage/__init__.py``), and also usually containing modules
-        (possibly along with other packages). You can import a package: ``import
-        mypackage``
+        This ubiquitous Python word in fact has two meanings:
+        ":term:`distribution package`" for the versioned archive file that
+        contains a project :term:`release`, and ":term:`import package`"
+        for a directory of Python modules that can be imported. See the
+        entries for these two terms for more complete definitions.
 
-
-    Package (Meaning #2)
-
-        A synonym for :term:`Distribution`. It is common in Python to refer to a
-        distribution using the term "package". While the two meanings of the
-        term "package" is not always 100% unambigous, the context of the term
-        "package" is usually sufficient to distinguish the meaning of the
-        word. For example, the python installation tool :ref:`pip` is an acronym
-        for "pip installs packages". while technically the tool installs
-        distributions. Even the site where distributions are distributed at is
-        called the ":term:`Python Package Index <Python Package Index (PyPI)>`"
-        (and not the "Python Distribution Index").
+        The :term:`Python Packaging User Guide (PyPUG)` uses these more
+        complete terms instead of "package" for emphasis, or when the
+        meaning is not clear from context. Usually, however, context is
+        enough to know what meaning is intended.
 
 
     Package Index
 
-        A repository of distributions with a web interface to automate
-        :term:`Distribution` discovery and consumption.
+        A repository of :term:`distribution packages <distribution package>`
+        with a web interface to automate :term:`distribution package` discovery and consumption.
 
 
     Project
 
         A library, framework, script, plugin, application, or collection of data
         or other resources, or some combination thereof that is intended to be
-        packaged into a :term:`Distribution`.
+        packaged into a :term:`distribution package`.
 
-        Since most projects create :term:`Distributions <Distribution>` using
+        Since most projects create :term:`distribution packages <distribution package>` using
         :ref:`distutils` or :ref:`setuptools`, another practical way to define
         projects currently is something that contains a :term:`setup.py` at the
         root of the project src directory, where "setup.py" is the project
@@ -110,7 +120,7 @@ Glossary
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
         contain one or more :term:`Releases <Release>`, and each release may
-        comprise one or more :term:`distributions <Distribution>`.
+        comprise one or more :term:`distribution packages <distribution package>`.
 
         Note that there is a strong convention to name a project after the name
         of the package that is imported to run that project. However, this
@@ -134,6 +144,11 @@ Glossary
         mailing list <https://groups.google.com/forum/#!forum/pypa-dev>`_.
 
 
+    Python Packaging User Guide (PyPUG)
+
+        The guide you are reading.
+
+
     Python Package Index (PyPI)
 
         `PyPI <https://pypi.python.org/pypi>`_ is the default :term:`Package
@@ -146,14 +161,14 @@ Glossary
         by a version identifier.
 
         Making a release may entail the publishing of multiple
-        :term:`Distributions <Distribution>`.  For example, if version 1.0 of a
+        :term:`distribution packages <distribution package>`.  For example, if version 1.0 of a
         project was released, it could be available in both a source
         distribution format and a Windows installer distribution format.
 
 
     Requirement
 
-       A specification for a :term:`package <Package (Meaning #2)>` to be
+       A specification for a :term:`package <distribution package>` to be
        installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority
        (PyPA)>` recommended installer, allows various forms of specification
        that can all be considered a "requirement". For more information, see the
@@ -181,7 +196,7 @@ Glossary
 
     Source Distribution (or "sdist")
 
-        A :term:`distribution <Distribution>` format (usually generated using
+        A :term:`distribution package` format (usually generated using
         ``python setup.py sdist``) that provides metadata and the essential
         source files needed for installing by a tool like :ref:`pip`, or for
         generating a :term:`Built Distribution`.
@@ -208,8 +223,8 @@ Glossary
 
     Working Set
 
-        A collection of :term:`distributions <Distribution>` available for
+        A collection of :term:`distribution packages <distribution package>` available for
         importing. These are the distributions that are on the `sys.path`
-        variable. At most, one :term:`Distribution` for a project is possible in
+        variable. At most, one :term:`distribution package` for a project is possible in
         a working set.
 

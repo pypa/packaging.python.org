@@ -130,7 +130,7 @@ from `sampleproject/setup.py
 
   packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
-It's required to list the :term:`packages <Package (Meaning #1)>` to be included
+It's required to list the :term:`packages <import package>` to be included
 in your project.  Although they can be listed manually,
 ``setuptools.find_packages`` finds them automatically.  Use the ``exclude``
 keyword argument to omit packages that are not intended to be released and
@@ -214,8 +214,8 @@ For more on using "install_requires" see :ref:`install_requires vs Requirements 
 Package Data
 ------------
 
-Often, additional files need to be installed into a :term:`package <Package
-(Meaning #1)>`. These files are often data that’s closely related to the
+Often, additional files need to be installed into a :term:`package
+<import package>`. These files are often data that’s closely related to the
 package’s implementation, or text files containing documentation that might be
 of interest to programmers using the package. These files are called "package
 data".
@@ -246,7 +246,7 @@ Data Files
 
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
 cases you may need to place data files *outside* of your :term:`packages
-<Package (Meaning #1)>`.  The ``data_files`` directive allows you to do that.
+<import package>`.  The ``data_files`` directive allows you to do that.
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -343,8 +343,8 @@ Packaging your Project
 ======================
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
-<Python Package Index (PyPI)>`, you'll need to create a :term:`Distribution`
-(aka ":term:`Package <Package (Meaning #2)>`" ) for your project.
+<Python Package Index (PyPI)>`, you'll need to create a
+:term:`distribution package` (aka ":term:`package`") for your project.
 
 
 
