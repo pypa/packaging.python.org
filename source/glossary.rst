@@ -36,10 +36,11 @@ Glossary
         distribution package is the file an end-user can download from the
         internet and install.
 
-        It is common in Python to use the simpler term ":term:`package`"
-        when referring to distribution packages. For example, the name of
-        the Python installation tool :ref:`pip` is an acronym for "pip
-        installs packages," which refers to distribution packages.
+        Despite ":term:`package`" having a :term:`second meaning
+        <import package>`, it is common in Python simply to say "package"
+        to refer to distribution packages. For example, the name of the
+        Python installation tool :ref:`pip` is an acronym for "pip installs
+        packages," which refers to distribution packages.
 
 
     Egg
@@ -65,8 +66,9 @@ Glossary
         ``mypackage/__init__.py``), and also usually containing modules
         (possibly along with other packages).
 
-        It is common in Python to refer to an import package using
-        the simpler term ":term:`package`" (e.g. when instructing one to
+        Despite ":term:`package`" having a :term:`second meaning
+        <distribution package>`, it is common in Python simply to say
+        "package" to refer to import packages (e.g. instructing one to
         import a package by typing ``import mypackage``).
 
 
