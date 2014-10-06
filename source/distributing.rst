@@ -35,7 +35,7 @@ We recommend the following installation sequence:
 
 1. For building :term:`wheels <Wheel>`: ``pip install wheel`` [1]_
 
-2. For uploading :term:`distribution packages <distribution package>`: ``pip install twine``
+2. For uploading :term:`packages <distribution package>`: ``pip install twine``
    [1]_
 
 
@@ -70,8 +70,8 @@ Additionally, most projects will contain the following files:
   that contains option defaults for ``setup.py`` commands.
 * A `MANIFEST.in
   <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ that defines
-  additional files to be included in the project distribution when it's
-  packaged.
+  additional files to be included in :term:`distribution packages <distribution package>``
+  created from the project.
 
 
 Name
@@ -258,9 +258,11 @@ from `sampleproject/setup.py
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
 interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python distributions, sys.exec_prefix for distributions that contain
+pure-Python :term:`distribution packages <distribution package>`,
+sys.exec_prefix for distribution packages that contain
 extension modules). Each file name in files is interpreted relative to the
-``setup.py`` script at the top of the project source distribution.
+``setup.py`` script at the top of the project :term:`source distribution
+<Source Distribution (or "sdist")>`.
 
 For more information see the distutils section on `Installing Additional Files
 <http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files>`_.
@@ -270,7 +272,7 @@ For more information see the distutils section on `Installing Additional Files
   :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
   absolute, when installing from :term:`sdist <Source Distribution (or
   "sdist")>`.  This is not true when installing from :term:`wheel`
-  distributions. Wheels don't support absolute paths, and they end up being
+  packages. Wheels don't support absolute paths, and they end up being
   installed relative to "site-packages".  For discussion see `wheel Issue #92
   <https://bitbucket.org/pypa/wheel/issue/92>`_.
 
@@ -297,7 +299,7 @@ cross-platform compatibility is to use "console_script" `entry points
 that register your script interfaces. You can then let the toolchain handle
 the work of turning these interfaces into actual scripts [2]_.  The scripts
 will be generated during the install of your
-:term:`distribution package`.
+:term:`package <distribution package>`.
 
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
@@ -345,7 +347,7 @@ Packaging your Project
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
 <Python Package Index (PyPI)>`, you'll need to create a
-:term:`distribution package` (aka ":term:`package`") for your project.
+:term:`distribution package` from your project.
 
 
 
@@ -361,7 +363,8 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
 
 
 A "source distribution" is unbuilt (i.e, it's not a :term:`Built Distribution`),
-and requires a build step when installed by pip.  Even if the distribution is
+and requires a build step when the :term:`package <distribution package>`
+is installed by pip.  Even if the package is
 pure python (i.e. contains no extensions), it still involves a build step to
 build out the installation metadata from ``setup.py``.
 
@@ -465,8 +468,8 @@ write a ``~/.pypirc`` file like so.
 You can leave out the password line if below you use twine with its
 ``-p PASSWORD`` argument.
 
-Finally, you can upload your distributions to :term:`PyPI <Python Package Index
-(PyPI)>`. There are two options.
+Finally, you can upload your :term:`packages <distribution package>` to
+:term:`PyPI <Python Package Index (PyPI)>`. There are two options.
 
 1. **(Recommended):** Use :ref:`twine`
 
@@ -479,7 +482,7 @@ Finally, you can upload your distributions to :term:`PyPI <Python Package Index
    your username and password to a MITM attack. Twine uses only verified TLS to
    upload to PyPI protecting your credentials from theft.
 
-   Secondly it allows you to precreate your distribution files.  ``python
+   Secondly it allows you to precreate your :term:`distribution package` files.  ``python
    setup.py upload`` only allows you to upload something that you've created in
    the same command invocation. This means that you cannot test the exact file
    you're going to upload to PyPI to ensure that it works before uploading it.
