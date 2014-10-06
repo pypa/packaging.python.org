@@ -465,6 +465,11 @@ write a ``~/.pypirc`` file like so.
 You can leave out the password line if below you use twine with its
 ``-p PASSWORD`` argument.
 
+The PyPI web page to manage the :term:`releases <release>` for a project
+provides an option to upload project documentation to
+`<http://pythonhosted.org>`_. This feature exists more for backwards
+compatibility and is not an approach recommended by this Guide.
+
 Finally, you can upload your distributions to :term:`PyPI <Python Package Index
 (PyPI)>`. There are two options.
 
