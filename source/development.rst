@@ -37,7 +37,7 @@ Supporting multiple Python versions
   - the Python 3 porting how to in the main docs
   - cross reference to the stable ABI discussion
     in the binary extensions topic (once that exists)
-  - mention version classifiers for distribution metadata
+  - mention version classifiers for :term:`package <distribution package>` metadata
 
 In addition to the work required to create a Python package, it is often
 necessary that the package must be made available on different versions of
@@ -222,7 +222,7 @@ There are a few techniques to store the version in your project code without dup
     .. warning::
 
         With this approach you must make sure that the ``VERSION`` file is included in
-        all your source and binary distributions.
+        all your source and binary :term:`packages <distribution package>`.
 
 #.  Set the value in ``setup.py``, and have the project code use the
     ``pkg_resources`` API.
@@ -260,7 +260,7 @@ There are a few techniques to store the version in your project code without dup
 PyPI mirrors and caches
 =======================
 
-Mirroring or caching of PyPI can be used to speed up local distribution
+Mirroring or caching of PyPI can be used to speed up local :term:`package <distribution package>`
 installation, allow offline work, handle corporate firewalls or just plain
 Internet flakiness.
 
@@ -269,14 +269,14 @@ Three options are available in this area:
 1. pip provides local caching options,
 2. devpi provides higher-level caching option, potentially shared amongst
    many users or machines, and
-3. bandersnatch provides a local complete mirror of all PyPI distributions.
+3. bandersnatch provides a local complete mirror of all PyPI :term:`packages <distribution package>`.
 
 
 Caching with pip
 ----------------
 
 pip provides a number of facilities for speeding up installation by using
-local cached copies of distributions:
+local cached copies of :term:`packages <distribution package>`:
 
 1. `Fast & local installs
    <https://pip.pypa.io/en/latest/user_guide.html#fast-local-installs>`_ by
@@ -303,14 +303,14 @@ __ http://doc.devpi.net/latest/quickstart-pypimirror.html
 Complete mirror with bandersnatch
 ----------------------------------
 
-bandersnatch will set up a complete local mirror of all PyPI distributions
-(externally-hosted distributions are not mirrored). See the
+bandersnatch will set up a complete local mirror of all PyPI :term:`packages <distribution package>`
+(externally-hosted packages are not mirrored). See the
 `bandersnatch documentation for getting that going`__.
 
 __ https://bitbucket.org/pypa/bandersnatch/overview
 
-A benefit of devpi is that it will create a mirror which includes distributions
-that are external to PyPI, unlike bandersnatch which will only cache distributions
+A benefit of devpi is that it will create a mirror which includes packages
+that are external to PyPI, unlike bandersnatch which will only cache packages
 hosted on PyPI.
 
 
