@@ -54,10 +54,11 @@ PEP425 Compatibility Tags for Built Distributions
           .. note::
 
              A revision to this PEP is likely due to simple tags like
-             "linux_x86_64" not handling the variation within linux
-             platforms. Because of this, PyPI currently blocks uploading linux
-             platform-specific wheels and pip won't install linux
-             platform-specific wheels from PyPI.
+             "linux_x86_64" not handling the variation within linux platforms.
+             Because of this, PyPI currently `blocks uploading linux
+             platform-specific wheels
+             <https://bitbucket.org/pypa/pypi-metadata-formats/issue/15/enhance-the-platform-tag-definition-for>`_
+             and pip won't install linux platform-specific wheels from PyPI.
 
 :User Impact: As :term:`wheels <Wheel>` become more common, users will notice
               the new tagging scheme in wheel filenames.
