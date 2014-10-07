@@ -17,7 +17,8 @@ Background
 
 Windows users typically do not have access to a C compiler, and therefore are
 reliant on projects that use C extensions distributing binary wheels on PyPI in
-order for the distribution to be installable via ``pip install dist```.
+order for the :term:`package <distribution package>` to be installable via
+``pip install dist``.
 However, it is often the case that projects which are intended to be
 cross-platform are developed on Unix, and so the project developers *also* have
 the problem of lack of access to a Windows compiler.
@@ -105,7 +106,8 @@ appropriate compiler for the selected Python version.
 `appveyor/install.ps1 <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/install.ps1>`__ is a Powershell
 script that downloads and installs any missing Python versions, installs
 ``pip`` into the Python ``site-packages`` and downloads and installs the latest
-``wheel`` distribution. Steps that are not needed are omitted, so in practice,
+``wheel`` :term:`package <distribution package>`. Steps that are not needed
+are omitted, so in practice,
 the Python install will never be run (it is present for advanced users who want
 to install additional versions of Python not supplied by Appveyor) and the
 ``pip`` install will be omitted for Python 3.4, where pip is installed as
@@ -144,7 +146,8 @@ may wish to do this).
 External dependencies
 ---------------------
 
-The supplied scripts will successfully build any distribution that does not
+The supplied scripts will successfully build any :term:`package <distribution package>`
+that does not
 rely on 3rd party external libraries for the build. It would be possible for an
 individual project to add code to the ``install.ps1`` script to make external
 libraries available to the build, but this is of necessity specific to

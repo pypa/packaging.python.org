@@ -9,8 +9,8 @@ Tutorial on Installing Distributions
    :local:
 
 This tutorial covers the basics of how to install Python :term:`packages
-<Package (Meaning #2)>`, which are known more formally as
-:term:`distributions <Distribution>`.
+<distribution package>`, which are known more formally as
+:term:`distribution packages <distribution package>`.
 
 
 .. _installing_setup:
@@ -66,7 +66,7 @@ We recommend the following installation sequence:
 Virtual Environments
 ====================
 
-Python "Virtual Environments" allow Python :term:`distributions <Distribution>`
+Python "Virtual Environments" allow Python :term:`distribution packages <distribution package>`
 to be installed in an isolated location for a particular application, rather
 than being installed globally.
 
@@ -80,7 +80,7 @@ Or more generally, what if you want to install an application and leave it be?
 If an application works, any change in its libraries or the versions of those
 libraries can break the application.
 
-Also, what if you can’t install :term:`distributions <Distribution>` into the
+Also, what if you can’t install :term:`distribution packages <distribution package>` into the
 global site-packages directory? For instance, on a shared host.
 
 In all these cases, virtual environments can help you. They have their own
@@ -206,7 +206,7 @@ default, pip only finds stable versions.
 Wheels
 ------
 
-:term:`Wheel` is a pre-built :term:`distribution <Distribution>` format that
+:term:`Wheel` is a pre-built :term:`package <distribution package>` format that
 provides faster installation compared to :term:`Source Distributions (sdist)
 <Source Distribution (or "sdist")>`, especially when a project contains compiled
 extensions.
@@ -238,7 +238,7 @@ comparison, see :ref:`Wheel vs Egg`.
 User Installs
 -------------
 
-To install :term:`distributions <Distribution>` that are isolated to the current
+To install :term:`distribution packages <distribution package>` that are isolated to the current
 user, use the ``--user`` flag:
 
 ::
