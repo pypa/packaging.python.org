@@ -33,7 +33,8 @@ Glossary
         :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and
         other resource files that are used to distribute a :term:`Release`. The
         distribution file is what an end-user will download from the internet
-        and install.
+        and install.  Distributions are often referred to as ":term:`Packages
+        <Package (Meaning #2)>`".
 
     Egg
 
@@ -212,4 +213,3 @@ Glossary
         importing. These are the distributions that are on the `sys.path`
         variable. At most, one :term:`Distribution` for a project is possible in
         a working set.
-

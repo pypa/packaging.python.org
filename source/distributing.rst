@@ -35,8 +35,8 @@ We recommend the following installation sequence:
 
 1. For building :term:`wheels <Wheel>`: ``pip install wheel`` [1]_
 
-2. For uploading :term:`distributions <Distribution>`: ``pip install twine``
-   [1]_
+2. For uploading :term:`packages <Package (Meaning #2)>`: ``pip install twine``
+[1]_
 
 
 Creating your own Project
@@ -258,9 +258,10 @@ from `sampleproject/setup.py
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
 interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python distributions, sys.exec_prefix for distributions that contain
-extension modules). Each file name in files is interpreted relative to the
-``setup.py`` script at the top of the project source distribution.
+pure-Python :term:`distributions <Distribution>`, sys.exec_prefix for
+distributions that contain extension modules). Each file name in files is
+interpreted relative to the ``setup.py`` script at the top of the project source
+distribution.
 
 For more information see the distutils section on `Installing Additional Files
 <http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files>`_.
