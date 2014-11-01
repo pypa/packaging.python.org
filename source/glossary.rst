@@ -70,6 +70,7 @@ Glossary
 
 
     Package (Meaning #1)
+    Import Package
 
         A directory containing an ``__init__.py`` file (ex.
         ``mypackage/__init__.py``), and also usually containing modules
@@ -78,6 +79,7 @@ Glossary
 
 
     Package (Meaning #2)
+    Distribution Package
 
         A synonym for :term:`Distribution`. It is common in Python to refer to a
         distribution using the term "package". While the two meanings of the
