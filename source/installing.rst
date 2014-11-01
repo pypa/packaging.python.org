@@ -14,12 +14,11 @@ This tutorial covers the basics of how to install Python :term:`packages
 It's important to note that the term ":term:`package <Package (Meaning #2)>`" in
 this context is being used as a synonym for a :term:`distribution` (i.e. a
 bundle of software to be installed), not to refer to the kind of :term:`package
-<Package (Meaning #2)>` that you import in your Python source code (i.e. a
+<Package (Meaning #1)>` that you import in your Python source code (i.e. a
 directory of modules). It is common in the Python community to refer to a
-:term:`distribution` using the term ":term:`package <Package (Meaning #2)>`".
-Using the term "distribution" is often not preferred, because it can easily be
-confused with a Linux distribution, or another larger distribution like Python
-itself.
+:term:`distribution` using the term "package".  Using the term "distribution" is
+often not preferred, because it can easily be confused with a Linux
+distribution, or another larger distribution like Python itself.
 
 
 .. _installing_setup:
