@@ -70,14 +70,16 @@ Glossary
 
 
     Package (Meaning #1)
-    Import Package
 
         A Python module which can contain other modules or recursively, other
         packages. You can import a package: ``import mypackage``.
 
+        For the purpose of distinguishing from the :term:`second meaning
+        <Package (Meaning #2)>` of "package", this guide may use the phrase
+        "Import Package" for clarity.
+
 
     Package (Meaning #2)
-    Distribution Package
 
         A synonym for :term:`Distribution`. It is common in Python to refer to a
         distribution using the term "package". While the two meanings of the
@@ -88,6 +90,10 @@ Glossary
         distributions. Even the site where distributions are distributed at is
         called the ":term:`Python Package Index <Python Package Index (PyPI)>`"
         (and not the "Python Distribution Index").
+
+        For the purpose of distinguishing from the :term:`first meaning<Package
+        (Meaning #1)>` of "package", this guide may use the phrase "Distribution
+        Package" for clarity.
 
 
     Package Index
