@@ -122,7 +122,7 @@ pip vs easy_install
 ===================
 
 `easy_install` was released in 2004, as part of :ref:`setuptools`.  It was
-notable at the time for installing :term:`distributions <Distribution>` from
+notable at the time for installing :term:`packages <Package (Meaning #2)>` from
 :term:`PyPI <Python Package Index (PyPI)>` using requirement specifiers, and
 automatically installing dependencies.
 
@@ -142,12 +142,12 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Installs from :term:`Wheels   |Yes                               |No                             |
 |<Wheel>`                      |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|Uninstall Distributions       |Yes (``pip uninstall``)           |No                             |
+|Uninstall Packages            |Yes (``pip uninstall``)           |No                             |
 +------------------------------+----------------------------------+-------------------------------+
 |Dependency Overrides          |Yes (:ref:`Requirements Files     |No                             |
 |                              |<pip:Requirements Files>`)        |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|List Installed Distributions  |Yes (``pip list`` and ``pip       |No                             |
+|List Installed Packages       |Yes (``pip list`` and ``pip       |No                             |
 |                              |freeze``)                         |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |:ref:`PEP438 <PEP438s>`       |Yes                               |No                             |
@@ -187,7 +187,7 @@ easy_install and sys.path
 
    FIXME
 
-   - global easy_install'd distributions override --user installs
+   - global easy_install'd packages override --user installs
 
 
 .. _`Wheel vs Egg`:
@@ -288,4 +288,3 @@ Dependency Resolution
 
 .. [3] For more on "Abstract" vs "Concrete" requirements, see
        https://caremad.io/blog/setup-vs-requirement.
-

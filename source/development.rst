@@ -260,23 +260,23 @@ There are a few techniques to store the version in your project code without dup
 PyPI mirrors and caches
 =======================
 
-Mirroring or caching of PyPI can be used to speed up local distribution
-installation, allow offline work, handle corporate firewalls or just plain
-Internet flakiness.
+Mirroring or caching of PyPI can be used to speed up local package installation,
+allow offline work, handle corporate firewalls or just plain Internet flakiness.
 
 Three options are available in this area:
 
 1. pip provides local caching options,
 2. devpi provides higher-level caching option, potentially shared amongst
    many users or machines, and
-3. bandersnatch provides a local complete mirror of all PyPI distributions.
+3. bandersnatch provides a local complete mirror of all PyPI :term:`packages
+   <Package (Meaning #2)>`.
 
 
 Caching with pip
 ----------------
 
-pip provides a number of facilities for speeding up installation by using
-local cached copies of distributions:
+pip provides a number of facilities for speeding up installation by using local
+cached copies of :term:`packages <Package (Meaning #2)>`:
 
 1. `Fast & local installs
    <https://pip.pypa.io/en/latest/user_guide.html#fast-local-installs>`_ by
@@ -303,14 +303,15 @@ __ http://doc.devpi.net/latest/quickstart-pypimirror.html
 Complete mirror with bandersnatch
 ----------------------------------
 
-bandersnatch will set up a complete local mirror of all PyPI distributions
-(externally-hosted distributions are not mirrored). See the
-`bandersnatch documentation for getting that going`__.
+bandersnatch will set up a complete local mirror of all PyPI :term:`packages
+<Package (Meaning #2)>` (externally-hosted packages are not mirrored). See
+the `bandersnatch documentation for getting that going`__.
 
 __ https://bitbucket.org/pypa/bandersnatch/overview
 
-A benefit of devpi is that it will create a mirror which includes distributions
-that are external to PyPI, unlike bandersnatch which will only cache distributions
+A benefit of devpi is that it will create a mirror which includes
+:term:`packages <Package (Meaning #2)>` that are external to PyPI, unlike
+bandersnatch which will only cache :term:`packages <Package (Meaning #2)>`
 hosted on PyPI.
 
 
@@ -328,4 +329,3 @@ Patching & Forking
      - PEP440's local identifiers: http://www.python.org/dev/peps/pep-0440/#local-version-identifiers
   - fork and publish when you need to publish a project that depends on the fork
      (DONT use dependency links)
-

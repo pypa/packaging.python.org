@@ -33,7 +33,8 @@ Glossary
         :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and
         other resource files that are used to distribute a :term:`Release`. The
         distribution file is what an end-user will download from the internet
-        and install.
+        and install.  Distributions are often referred to as ":term:`Packages
+        <Package (Meaning #2)>`".
 
     Egg
 
@@ -70,10 +71,12 @@ Glossary
 
     Package (Meaning #1)
 
-        A directory containing an ``__init__.py`` file (ex.
-        ``mypackage/__init__.py``), and also usually containing modules
-        (possibly along with other packages). You can import a package: ``import
-        mypackage``
+        A Python module which can contain other modules or recursively, other
+        packages. You can import a package: ``import mypackage``.
+
+        For the purpose of distinguishing from the :term:`second meaning
+        <Package (Meaning #2)>` of "package", this guide may use the phrase
+        "Import Package" for clarity.
 
 
     Package (Meaning #2)
@@ -87,6 +90,10 @@ Glossary
         distributions. Even the site where distributions are distributed at is
         called the ":term:`Python Package Index <Python Package Index (PyPI)>`"
         (and not the "Python Distribution Index").
+
+        For the purpose of distinguishing from the :term:`first meaning<Package
+        (Meaning #1)>` of "package", this guide may use the phrase "Distribution
+        Package" for clarity.
 
 
     Package Index
@@ -212,4 +219,3 @@ Glossary
         importing. These are the distributions that are on the `sys.path`
         variable. At most, one :term:`Distribution` for a project is possible in
         a working set.
-

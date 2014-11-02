@@ -1,6 +1,6 @@
-====================================
-Tutorial on Installing Distributions
-====================================
+===============================
+Tutorial on Installing Packages
+===============================
 
 :Page Status: Complete
 :Last Reviewed: 2014-09-30
@@ -9,14 +9,22 @@ Tutorial on Installing Distributions
    :local:
 
 This tutorial covers the basics of how to install Python :term:`packages
-<Package (Meaning #2)>`, which are known more formally as
-:term:`distributions <Distribution>`.
+<Package (Meaning #2)>`.
+
+It's important to note that the term ":term:`package <Package (Meaning #2)>`" in
+this context is being used as a synonym for a :term:`distribution` (i.e. a
+bundle of software to be installed), not to refer to the kind of :term:`package
+<Package (Meaning #1)>` that you import in your Python source code (i.e. a
+directory of modules). It is common in the Python community to refer to a
+:term:`distribution` using the term "package".  Using the term "distribution" is
+often not preferred, because it can easily be confused with a Linux
+distribution, or another larger software distribution like Python itself.
 
 
 .. _installing_setup:
 
-Setup for Installing Distribution Packages
-==========================================
+Setup for Installing Packages
+=============================
 
 This section describes the steps to follow before installing other
 Python packages.  You will want to install :ref:`pip` and
@@ -66,9 +74,9 @@ We recommend the following installation sequence:
 Virtual Environments
 ====================
 
-Python "Virtual Environments" allow Python :term:`distributions <Distribution>`
-to be installed in an isolated location for a particular application, rather
-than being installed globally.
+Python "Virtual Environments" allow Python :term:`packages <Package (Meaning
+#2)>` to be installed in an isolated location for a particular application,
+rather than being installed globally.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
@@ -80,7 +88,7 @@ Or more generally, what if you want to install an application and leave it be?
 If an application works, any change in its libraries or the versions of those
 libraries can break the application.
 
-Also, what if you can’t install :term:`distributions <Distribution>` into the
+Also, what if you can’t install :term:`packages <Package (Meaning #2)>` into the
 global site-packages directory? For instance, on a shared host.
 
 In all these cases, virtual environments can help you. They have their own
@@ -116,8 +124,8 @@ For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `pyvenv`_ docs.
 
 
-Installing Python Distribution Packages
-=======================================
+Installing Python Packages
+==========================
 
 :ref:`pip` is the recommended installer, and supports various requirement forms
 and options.  For details, see the `pip docs
@@ -238,8 +246,8 @@ comparison, see :ref:`Wheel vs Egg`.
 User Installs
 -------------
 
-To install :term:`distributions <Distribution>` that are isolated to the current
-user, use the ``--user`` flag:
+To install :term:`packages <Package (Meaning #2)>` that are isolated to the
+current user, use the ``--user`` flag:
 
 ::
 
