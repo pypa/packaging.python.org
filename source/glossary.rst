@@ -72,10 +72,8 @@ Glossary
     Package (Meaning #1)
     Import Package
 
-        A directory containing an ``__init__.py`` file (ex.
-        ``mypackage/__init__.py``), and also usually containing modules
-        (possibly along with other packages). You can import a package: ``import
-        mypackage``
+        A Python module which can contain other modules or recursively, other
+        packages. You can import a package: ``import mypackage``.
 
 
     Package (Meaning #2)
