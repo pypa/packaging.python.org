@@ -35,7 +35,7 @@ We recommend the following installation sequence:
 
 1. For building :term:`wheels <Wheel>`: ``pip install wheel`` [1]_
 
-2. For uploading :term:`packages <Package (Meaning #2)>`: ``pip install twine``
+2. For uploading :term:`packages <Distribution Package>`: ``pip install twine``
 [1]_
 
 
@@ -130,7 +130,7 @@ from `sampleproject/setup.py
 
   packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
-It's required to list the :term:`packages <Package (Meaning #1)>` to be included
+It's required to list the :term:`packages <Import Package>` to be included
 in your project.  Although they can be listed manually,
 ``setuptools.find_packages`` finds them automatically.  Use the ``exclude``
 keyword argument to omit packages that are not intended to be released and
@@ -214,8 +214,7 @@ For more on using "install_requires" see :ref:`install_requires vs Requirements 
 Package Data
 ------------
 
-Often, additional files need to be installed into a :term:`package <Package
-(Meaning #1)>`. These files are often data that’s closely related to the
+Often, additional files need to be installed into a :term:`package <Import Package>`. These files are often data that’s closely related to the
 package’s implementation, or text files containing documentation that might be
 of interest to programmers using the package. These files are called "package
 data".
@@ -246,7 +245,7 @@ Data Files
 
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
 cases you may need to place data files *outside* of your :term:`packages
-<Package (Meaning #1)>`.  The ``data_files`` directive allows you to do that.
+<Import Package>`.  The ``data_files`` directive allows you to do that.
 
 from `sampleproject/setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_
@@ -258,7 +257,7 @@ from `sampleproject/setup.py
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
 interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python :term:`distributions <Distribution>`, sys.exec_prefix for
+pure-Python :term:`distributions <Distribution Package>`, sys.exec_prefix for
 distributions that contain extension modules). Each file name in files is
 interpreted relative to the ``setup.py`` script at the top of the project source
 distribution.
@@ -295,10 +294,10 @@ Although ``setup.py`` supports a `scripts
 keyword for pointing to pre-made scripts, the recommended approach to achieve
 cross-platform compatibility is to use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
-that register your script interfaces. You can then let the toolchain handle
-the work of turning these interfaces into actual scripts [2]_.  The scripts
-will be generated during the install of your
-:term:`distribution <Distribution>`.
+that register your script interfaces. You can then let the toolchain handle the
+work of turning these interfaces into actual scripts [2]_.  The scripts will be
+generated during the install of your :term:`distribution <Distribution
+Package>`.
 
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
@@ -345,8 +344,9 @@ Packaging your Project
 ======================
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
-<Python Package Index (PyPI)>`, you'll need to create a :term:`Distribution`
-(aka ":term:`Package <Package (Meaning #2)>`" ) for your project.
+<Python Package Index (PyPI)>`, you'll need to create a :term:`Distribution
+<Distribution Package>` (aka ":term:`Package <Distribution Package>`" ) for your
+project.
 
 
 

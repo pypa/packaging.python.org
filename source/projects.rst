@@ -277,9 +277,9 @@ User irc:#pypa  |
 Dev irc:#pypa-dev
 
 A package in the Python Standard Library that has support for creating and
-installing :term:`distributions <Distribution>`. :ref:`Setuptools` provides
-enhancements to distutils, and is much more commonly used than just using
-distutils by itself.
+installing :term:`distributions <Distribution Package>`. :ref:`Setuptools`
+provides enhancements to distutils, and is much more commonly used than just
+using distutils by itself.
 
 
 .. _venv:
