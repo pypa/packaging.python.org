@@ -122,7 +122,7 @@ pip vs easy_install
 ===================
 
 `easy_install` was released in 2004, as part of :ref:`setuptools`.  It was
-notable at the time for installing :term:`packages <Package (Meaning #2)>` from
+notable at the time for installing :term:`packages <Distribution Package>` from
 :term:`PyPI <Python Package Index (PyPI)>` using requirement specifiers, and
 automatically installing dependencies.
 
@@ -197,7 +197,7 @@ Wheel vs Egg
 
 * :term:`Wheel` has an :ref:`official PEP <PEP427s>`. :term:`Egg` did not.
 
-* :term:`Wheel` is a :term:`distribution <Distribution>` format, i.e a packaging
+* :term:`Wheel` is a :term:`distribution <Distribution Package>` format, i.e a packaging
   format. [2]_ :term:`Egg` was both a distribution format and a runtime
   installation format (if left zipped), and was designed to be importable.
 

@@ -18,23 +18,29 @@ Glossary
 
     Built Distribution
 
-        A :term:`Distribution` format containing files and metadata that only
-        need to be moved to the correct location on the target system, to be
-        installed. :term:`Wheel` is such a format, whereas distutil's
-        :term:`Source Distribution <Source Distribution (or "sdist")>` is not,
-        in that it requires a build step before it can be installed.  This
-        format does not imply that python files have to be precompiled
-        (:term:`Wheel` intentionally does not include compiled python files).
+        A :term:`Distribution <Distribution Package>` format containing files
+        and metadata that only need to be moved to the correct location on the
+        target system, to be installed. :term:`Wheel` is such a format, whereas
+        distutil's :term:`Source Distribution <Source Distribution (or
+        "sdist")>` is not, in that it requires a build step before it can be
+        installed.  This format does not imply that python files have to be
+        precompiled (:term:`Wheel` intentionally does not include compiled
+        python files).
 
 
-    Distribution
+    Distribution Package
 
-        A Python distribution is a versioned archive file that contains Python
-        :term:`packages <Package (Meaning #1)>`, :term:`modules <module>`, and
-        other resource files that are used to distribute a :term:`Release`. The
-        distribution file is what an end-user will download from the internet
-        and install.  Distributions are often referred to as ":term:`Packages
-        <Package (Meaning #2)>`".
+        A versioned archive file that contains Python :term:`packages <Import
+        Package>`, :term:`modules <module>`, and other resource files that are
+        used to distribute a :term:`Release`. The distribution file is what an
+        end-user will download from the internet and install.
+
+        A distribution package is more commonly referred to with the single
+        words "package" or "distribution", but this guide may use the expanded
+        term when more clarity is needed to prevent confusion with an
+        :term:`Import Package` which is also commonly called a "package", or
+        another kind of distribution (e.g. Linux or Python itself), which often
+        use the single term "distribution".
 
     Egg
 
@@ -63,61 +69,45 @@ Glossary
         multiple individual distributions.
 
 
+    Import Package
+
+        A Python module which can contain other modules or recursively, other
+        packages.
+
+        An import package is more commonly referred to with the single word
+        "package", but this guide will use the expanded term when more clarity
+        is needed to prevent confusion with a :term:`Distribution Package` which
+        is also commonly called a "package".
+
     Module
 
         The basic unit of code reusability in Python, existing in one of two
         types: :term:`Pure Module`, or :term:`Extension Module`.
 
 
-    Package (Meaning #1)
-
-        A Python module which can contain other modules or recursively, other
-        packages. You can import a package: ``import mypackage``.
-
-        For the purpose of distinguishing from the :term:`second meaning
-        <Package (Meaning #2)>` of "package", this guide may use the phrase
-        "Import Package" for clarity.
-
-
-    Package (Meaning #2)
-
-        A synonym for :term:`Distribution`. It is common in Python to refer to a
-        distribution using the term "package". While the two meanings of the
-        term "package" is not always 100% unambigous, the context of the term
-        "package" is usually sufficient to distinguish the meaning of the
-        word. For example, the python installation tool :ref:`pip` is an acronym
-        for "pip installs packages". while technically the tool installs
-        distributions. Even the site where distributions are distributed at is
-        called the ":term:`Python Package Index <Python Package Index (PyPI)>`"
-        (and not the "Python Distribution Index").
-
-        For the purpose of distinguishing from the :term:`first meaning<Package
-        (Meaning #1)>` of "package", this guide may use the phrase "Distribution
-        Package" for clarity.
-
-
     Package Index
 
         A repository of distributions with a web interface to automate
-        :term:`Distribution` discovery and consumption.
+        :term:`package <Distribution Package>` discovery and consumption.
 
 
     Project
 
         A library, framework, script, plugin, application, or collection of data
         or other resources, or some combination thereof that is intended to be
-        packaged into a :term:`Distribution`.
+        packaged into a :term:`Distribution <Distribution Package>`.
 
-        Since most projects create :term:`Distributions <Distribution>` using
-        :ref:`distutils` or :ref:`setuptools`, another practical way to define
-        projects currently is something that contains a :term:`setup.py` at the
-        root of the project src directory, where "setup.py" is the project
-        specification filename used by :ref:`distutils` and :ref:`setuptools`.
+        Since most projects create :term:`Distributions <Distribution Package>`
+        using :ref:`distutils` or :ref:`setuptools`, another practical way to
+        define projects currently is something that contains a :term:`setup.py`
+        at the root of the project src directory, where "setup.py" is the
+        project specification filename used by :ref:`distutils` and
+        :ref:`setuptools`.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
         contain one or more :term:`Releases <Release>`, and each release may
-        comprise one or more :term:`distributions <Distribution>`.
+        comprise one or more :term:`distributions <Distribution Package>`.
 
         Note that there is a strong convention to name a project after the name
         of the package that is imported to run that project. However, this
@@ -153,14 +143,14 @@ Glossary
         by a version identifier.
 
         Making a release may entail the publishing of multiple
-        :term:`Distributions <Distribution>`.  For example, if version 1.0 of a
-        project was released, it could be available in both a source
+        :term:`Distributions <Distribution Package>`.  For example, if version
+        1.0 of a project was released, it could be available in both a source
         distribution format and a Windows installer distribution format.
 
 
     Requirement
 
-       A specification for a :term:`package <Package (Meaning #2)>` to be
+       A specification for a :term:`package <Distribution Package>` to be
        installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority
        (PyPA)>` recommended installer, allows various forms of specification
        that can all be considered a "requirement". For more information, see the
@@ -188,10 +178,10 @@ Glossary
 
     Source Distribution (or "sdist")
 
-        A :term:`distribution <Distribution>` format (usually generated using
-        ``python setup.py sdist``) that provides metadata and the essential
-        source files needed for installing by a tool like :ref:`pip`, or for
-        generating a :term:`Built Distribution`.
+        A :term:`distribution <Distribution Package>` format (usually generated
+        using ``python setup.py sdist``) that provides metadata and the
+        essential source files needed for installing by a tool like :ref:`pip`,
+        or for generating a :term:`Built Distribution`.
 
 
     System Package
@@ -215,7 +205,7 @@ Glossary
 
     Working Set
 
-        A collection of :term:`distributions <Distribution>` available for
-        importing. These are the distributions that are on the `sys.path`
-        variable. At most, one :term:`Distribution` for a project is possible in
-        a working set.
+        A collection of :term:`distributions <Distribution Package>` available
+        for importing. These are the distributions that are on the `sys.path`
+        variable. At most, one :term:`Distribution <Distribution Package>` for a
+        project is possible in a working set.

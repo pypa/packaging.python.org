@@ -269,14 +269,14 @@ Three options are available in this area:
 2. devpi provides higher-level caching option, potentially shared amongst
    many users or machines, and
 3. bandersnatch provides a local complete mirror of all PyPI :term:`packages
-   <Package (Meaning #2)>`.
+   <Distribution Package>`.
 
 
 Caching with pip
 ----------------
 
 pip provides a number of facilities for speeding up installation by using local
-cached copies of :term:`packages <Package (Meaning #2)>`:
+cached copies of :term:`packages <Distribution Package>`:
 
 1. `Fast & local installs
    <https://pip.pypa.io/en/latest/user_guide.html#fast-local-installs>`_ by
@@ -304,14 +304,14 @@ Complete mirror with bandersnatch
 ----------------------------------
 
 bandersnatch will set up a complete local mirror of all PyPI :term:`packages
-<Package (Meaning #2)>` (externally-hosted packages are not mirrored). See
+<Distribution Package>` (externally-hosted packages are not mirrored). See
 the `bandersnatch documentation for getting that going`__.
 
 __ https://bitbucket.org/pypa/bandersnatch/overview
 
 A benefit of devpi is that it will create a mirror which includes
-:term:`packages <Package (Meaning #2)>` that are external to PyPI, unlike
-bandersnatch which will only cache :term:`packages <Package (Meaning #2)>`
+:term:`packages <Distribution Package>` that are external to PyPI, unlike
+bandersnatch which will only cache :term:`packages <Distribution Package>`
 hosted on PyPI.
 
 
