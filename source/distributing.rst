@@ -3,7 +3,7 @@ Tutorial on Packaging and Distributing Projects
 ===============================================
 
 :Page Status: Complete
-:Last Reviewed: 2014-09-30
+:Last Reviewed: 2014-11-11
 
 .. contents:: Contents
    :local:
