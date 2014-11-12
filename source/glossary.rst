@@ -32,15 +32,16 @@ Glossary
 
         A versioned archive file that contains Python :term:`packages <Import
         Package>`, :term:`modules <module>`, and other resource files that are
-        used to distribute a :term:`Release`. The distribution file is what an
+        used to distribute a :term:`Release`. The archive file is what an
         end-user will download from the internet and install.
 
         A distribution package is more commonly referred to with the single
         words "package" or "distribution", but this guide may use the expanded
         term when more clarity is needed to prevent confusion with an
-        :term:`Import Package` which is also commonly called a "package", or
-        another kind of distribution (e.g. Linux or Python itself), which often
-        use the single term "distribution".
+        :term:`Import Package` (which is also commonly called a "package") or
+        another kind of distribution (e.g. a Linux distribution or the Python
+        language distribution), which are often referred to with the single term
+        "distribution".
 
     Egg
 
