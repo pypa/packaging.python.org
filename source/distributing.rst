@@ -18,6 +18,12 @@ For example, it does not provide guidance or recommendations on selecting
 third-party tools or services such as for documentation, automated
 testing, continuous integration, etc.
 
+For a reference guide on creating projects, see the `Setuptools guide to
+Building and Distributing Packages
+<http://pythonhosted.org/setuptools/setuptools.html>`_, but note that some
+advisory content there may be outdated. In the event of conflicts, prefer the
+advice in the Python Packaging User Guide.
+
 
 Setup for Project Distributors
 ==============================
@@ -45,9 +51,6 @@ Creating your own Project
 In the sections below, we'll reference the `PyPA sample project
 <https://github.com/pypa/sampleproject>`_, which exists as a companion to this
 tutorial.
-
-For more information on creating projects, see the `Setuptools Docs
-<http://pythonhosted.org/setuptools/setuptools.html>`_.
 
 
 Layout
