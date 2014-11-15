@@ -27,11 +27,8 @@ Packaging Authority (PyPA)`.
    current
    installing
    distributing
-   future
    additional
    projects
-   peps
-   history
    glossary
 
 
