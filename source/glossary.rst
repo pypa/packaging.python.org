@@ -200,8 +200,8 @@ Glossary
 
     Wheel
 
-        A :term:`Built Distribution` format introduced by :ref:`PEP427s`, which
-        is intended to replace the :term:`Egg` format.  Wheel is currently
+        A :term:`Built Distribution` format introduced by :ref:`pypa:PEP427s`,
+        which is intended to replace the :term:`Egg` format.  Wheel is currently
         supported by :ref:`pip`.
 
     Working Set

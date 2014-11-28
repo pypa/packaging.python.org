@@ -53,11 +53,11 @@ Packaging Tool Recommendations
        (which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs
        easy_install`.
 
-.. [2] The acceptance of :ref:`PEP453 <PEP453s>` means that :ref:`pip` will be
-       available by default in most installations of Python 3.4 or later.  See
-       the `rationale section
+.. [2] The acceptance of :ref:`PEP453 <pypa:PEP453s>` means that :ref:`pip`
+       will be available by default in most installations of Python 3.4 or
+       later.  See the `rationale section
        <http://www.python.org/dev/peps/pep-0453/#rationale>`_ from :ref:`PEP453
-       <PEP453s>` as for why pip was chosen.
+       <pypa:PEP453s>` as for why pip was chosen.
 
 .. [3] Beginning with Python 3.4, ``pyvenv`` will create virtualenv environments
        with ``pip`` installed, thereby making it an equal alternative to
@@ -89,7 +89,7 @@ Packaging Tool Recommendations
        uploading Windows and Mac OS X wheels, and they should be compatible with
        the binary installers provided for download from python.org. Enhancements
        will have to be made to the :ref:`wheel compatibility tagging scheme
-       <PEP425s>` before linux wheels will be allowed.
+       <pypa:PEP425s>` before linux wheels will be allowed.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html

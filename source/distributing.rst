@@ -90,7 +90,7 @@ from `sampleproject/setup.py
 This will determine how your project is listed on :term:`PyPI <Python Package
 Index (PyPI)>`. For details on permitted characters, see the `name
 <http://legacy.python.org/dev/peps/pep-0426/#name>`_ section from :ref:`PEP426
-<PEP426s>`.
+<pypa:PEP426s>`.
 
 
 Version
@@ -106,7 +106,7 @@ from `sampleproject/setup.py
 
 Projects should aim to comply with the `version scheme
 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-specified in :ref:`PEP440 <PEP440s>`.  Here are some examples:
+specified in :ref:`PEP440 <pypa:PEP440s>`.  Here are some examples:
 
 ::
 
@@ -427,7 +427,7 @@ OSX, or Windows, usually due to containing compiled extensions.
 
   :term:`PyPI <Python Package Index (PyPI)>` currently only allows uploads of
   platform wheels for Windows and OS X, NOT linux.  Currently, the wheel tag
-  specification (:ref:`PEP425 <PEP425s>`) does not handle the variation that can
+  specification (:ref:`PEP425 <pypa:PEP425s>`) does not handle the variation that can
   exist across linux distros.
 
 
