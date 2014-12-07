@@ -210,7 +210,7 @@ default, pip only finds stable versions.
 
  pip install --pre SomeProject
 
-Install a project's optional dependency.
+Install a package's optional dependency.
 
 ::
 
