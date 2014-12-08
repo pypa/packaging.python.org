@@ -155,10 +155,11 @@ There are a few techniques to store the version in your project code without dup
     from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
 
         def read(*names, **kwargs):
-            return io.open(
+            with io.open(
                 os.path.join(os.path.dirname(__file__), *names),
                 encoding=kwargs.get("encoding", "utf8")
-            ).read()
+            ) as fp:
+                return fp.read()
 
         def find_version(*file_paths):
             version_file = read(*file_paths)
@@ -213,8 +214,8 @@ There are a few techniques to store the version in your project code without dup
 
     ::
 
-        version_file = open(os.path.join(mypackage_root_dir, 'VERSION'))
-        version = version_file.read().strip()
+        with open(os.path.join(mypackage_root_dir, 'VERSION')) as version_file:
+            version = version_file.read().strip()
 
     An advantage with this technique is that it's not specific to Python.  Any
     tool can read the version.
