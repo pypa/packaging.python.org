@@ -210,6 +210,12 @@ default, pip only finds stable versions.
 
  pip install --pre SomeProject
 
+Install a package with `setuptools extras`_.
+::
+
+  $ pip install SomePackage[PDF]
+  $ pip install SomePackage[PDF]==3.0
+  $ pip install -e .[PDF]==3.0  # editable project in current directory
 
 Wheels
 ------
@@ -283,3 +289,4 @@ from the pip docs.
        :ref:`virtualenv`.
 
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
+.. _setuptools extras: http://packages.python.org/setuptools/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
