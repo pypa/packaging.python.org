@@ -287,4 +287,4 @@ Dependency Resolution
        <http://www.python.org/dev/peps/pep-0427/#is-it-possible-to-import-python-code-directly-from-a-wheel-file>`_.
 
 .. [3] For more on "Abstract" vs "Concrete" requirements, see
-       https://caremad.io/blog/setup-vs-requirement.
+       https://caremad.io/2013/07/setup-vs-requirement/.
