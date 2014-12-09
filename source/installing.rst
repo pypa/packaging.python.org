@@ -214,7 +214,10 @@ Install a package's optional dependency.
 
 ::
 
- pip install "SomeProject[someDependency]"
+  $ pip install SomePackage[PDF]
+  $ pip install SomePackage[PDF]==3.0
+  $ pip install -e .[PDF]==3.0  # editable project in current directory
+
 
 Wheels
 ------
