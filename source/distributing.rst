@@ -434,6 +434,14 @@ OSX, or Windows, usually due to containing compiled extensions.
 Uploading your Project to PyPI
 ==============================
 
+.. note::
+
+  Before releasing on main PyPI repo, you might prefer training with 
+  `PyPI test site <https://testpypi.python.org/pypi>`_
+  which is cleaned on a semi regular basis. See 
+  `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how 
+  to setup your configuration in order to use it.
+
 First, you need a :term:`PyPI <Python Package Index (PyPI)>` user
 account. There are two options:
 
