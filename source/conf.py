@@ -28,7 +28,8 @@ extensions = ['sphinx.ext.intersphinx']
 
 intersphinx_cache_limit = 0
 intersphinx_mapping = {
-    'pip': ('https://pip.pypa.io/en/latest/', None)
+    'pip': ('https://pip.pypa.io/en/latest/', None),
+    'pypa': ('https://pypa.io/en/latest/', None),
     }
 
 

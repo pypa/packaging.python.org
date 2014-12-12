@@ -2,24 +2,16 @@
 Python Packaging User Guide
 ===========================
 
-:Last Reviewed: 2014-11-11
+:Last Reviewed: 2014-11-27
 
-The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource on
-how to package and install Python distributions using current tools, but also on
-the efforts to improve Python packaging. The guide is part of a larger effort to
-improve all of the packaging and installation docs, including :ref:`pip`,
-:ref:`setuptools`, :ref:`virtualenv`, :ref:`wheel`, :ref:`distlib`, and
-`docs.python.org`_.
+The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource
+on how to package, publish and install Python distributions using current tools.
 
-For user support related to a specific project, see the mailing list and IRC
-links on the :doc:`Projects <projects>` page. For something more general, or
-when you're just not sure, use the `distutils-sig
-<http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
-
+To follow the development of Python packaging, see the site for the `Python
+Packaging Authority <https://pypa.io>`_.
 
 This guide is maintained on `github
-<https://github.com/pypa/python-packaging-user-guide>`_ by the :term:`Python
-Packaging Authority (PyPA)`.
+<https://github.com/pypa/python-packaging-user-guide>`_.
 
 .. toctree::
    :maxdepth: 1
@@ -27,12 +19,10 @@ Packaging Authority (PyPA)`.
    current
    installing
    distributing
-   future
    additional
    projects
-   peps
-   history
    glossary
+   support
 
 
 .. _docs.python.org: http://docs.python.org

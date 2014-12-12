@@ -1,3 +1,6 @@
+
+.. _projects:
+
 =================
 Project Summaries
 =================

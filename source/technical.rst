@@ -150,7 +150,7 @@ Here's a breakdown of the important differences between pip and easy_install now
 |List Installed Packages       |Yes (``pip list`` and ``pip       |No                             |
 |                              |freeze``)                         |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|:ref:`PEP438 <PEP438s>`       |Yes                               |No                             |
+|:ref:`PEP438 <pypa:PEP438s>`  |Yes                               |No                             |
 |Support                       |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |Installation format           |'Flat' packages with `egg-info`   | Encapsulated Egg format       |
@@ -195,7 +195,7 @@ easy_install and sys.path
 Wheel vs Egg
 ============
 
-* :term:`Wheel` has an :ref:`official PEP <PEP427s>`. :term:`Egg` did not.
+* :term:`Wheel` has an :ref:`official PEP <pypa:PEP427s>`. :term:`Egg` did not.
 
 * :term:`Wheel` is a :term:`distribution <Distribution Package>` format, i.e a packaging
   format. [2]_ :term:`Egg` was both a distribution format and a runtime
@@ -206,10 +206,10 @@ Wheel vs Egg
   compatible with Python 2 and 3, it's possible for a wheel to be "universal",
   similar to an :term:`sdist <Source Distribution (or "sdist")>`.
 
-* :term:`Wheel` uses :ref:`PEP376-compliant <PEP376s>` ``.dist-info``
+* :term:`Wheel` uses :ref:`PEP376-compliant <pypa:PEP376s>` ``.dist-info``
   directories. Egg used ``.egg-info``.
 
-* :term:`Wheel` has a :ref:`richer file naming convention <PEP425s>`. A single
+* :term:`Wheel` has a :ref:`richer file naming convention <pypa:PEP425s>`. A single
   wheel archive can indicate its compatibility with a number of Python language
   versions and implementations, ABIs, and system architectures.
 
