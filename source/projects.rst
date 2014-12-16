@@ -46,6 +46,21 @@ project, which was intended to be released as ``packaging`` in the Python 3.3
 stdlib, but was removed shortly before Python 3.3 entered beta testing.
 
 
+.. _packaging:
+
+packaging
+=========
+
+`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Issues <https://github.com/pypa/packaging/issues>`__ |
+`Github <https://github.com/pypa/packaging>`__ |
+`PyPI <https://pypi.python.org/pypi/packaging>`__ |
+User irc:#pypa |
+Dev irc:#pypa-dev
+
+Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
+
+
 .. _pip:
 
 pip
