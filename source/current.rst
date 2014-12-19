@@ -45,6 +45,12 @@ Packaging Tool Recommendations
 * Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
 
+Testing Tool Recommendations
+============================
+
+* Use `nose`_, `pytest`_ or `unittest`_ to write your tests.
+
+* Use `tox`_ to manage and run your tests.
 
 ----
 
@@ -93,3 +99,7 @@ Packaging Tool Recommendations
 
 .. _distribute: https://pypi.python.org/pypi/distribute
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
+.. _nose: https://nose.readthedocs.org/en/latest/
+.. _pytest: http://pytest.org/latest/
+.. _unittest: https://docs.python.org/2/library/unittest.html
+.. _tox: http://tox.readthedocs.org/en/latest/
