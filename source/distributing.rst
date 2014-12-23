@@ -131,7 +131,7 @@ from `sampleproject/setup.py
 
 ::
 
-  packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+  packages=find_packages(exclude=['contrib', 'docs', 'tests*'])
 
 It's required to list the :term:`packages <Import Package>` to be included
 in your project.  Although they can be listed manually,
@@ -191,7 +191,7 @@ from `sampleproject/setup.py
     ],
 
     # What does your project relate to?
-    keywords='sample setuptools development',
+    keywords='sample setuptools development'
 
 
 
@@ -255,7 +255,7 @@ from `sampleproject/setup.py
 
 ::
 
-    data_files=[('my_data', ['data/data_file'])],
+    data_files=[('my_data', ['data/data_file'])]
 
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
@@ -290,7 +290,7 @@ from `sampleproject/setup.py
       'console_scripts': [
           'sample=sample:main',
       ],
-  },
+  }
 
 Although ``setup.py`` supports a `scripts
 <http://docs.python.org/3.4/distutils/setupscript.html#installing-scripts>`_
@@ -436,10 +436,10 @@ Uploading your Project to PyPI
 
 .. note::
 
-  Before releasing on main PyPI repo, you might prefer training with 
+  Before releasing on main PyPI repo, you might prefer training with
   `PyPI test site <https://testpypi.python.org/pypi>`_
-  which is cleaned on a semi regular basis. See 
-  `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how 
+  which is cleaned on a semi regular basis. See
+  `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how
   to setup your configuration in order to use it.
 
 First, you need a :term:`PyPI <Python Package Index (PyPI)>` user
