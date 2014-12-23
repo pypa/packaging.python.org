@@ -11,6 +11,8 @@ Project Summaries
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
 
+.. _pypa_projects:
+
 PyPA Projects
 #############
 
