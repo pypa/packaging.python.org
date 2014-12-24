@@ -2,21 +2,24 @@
 Advanced Topics
 ===============
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-11-11
+:Last Reviewed: 2014-12-24
 
 This section covers a variety of packaging concepts and topics that don't fit
-neatly into the documentation of any particular tool, and don't really belong in
-the :doc:`Tutorial <tutorial>` either. While the entries are organised into
-different categories, those categorisations are quite broad and flexible.
+neatly into the documentation of any particular tool or one of the two
+tutorials.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   technical
-   development
-   deployment
    extensions
+   multiple_python_versions
+   patching
+   mirrors
+   single_source_version
+   requirements
+   pip_easy_install
+   wheel_egg
    science
+   deployment
+   multi_version_install
    appveyor
-   os

@@ -5,4 +5,4 @@ Platform Integtation
 ====================
 
 
-This content has been split to :doc:`os` and :doc:`science`
+This content has been moved to :doc:`science`
