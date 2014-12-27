@@ -2,8 +2,8 @@
 Tutorial on Installing Packages
 ===============================
 
-:Page Status: Complete
-:Last Reviewed: 2014-09-30
+:Page Status: Incomplete
+:Last Reviewed: 2014-12-24
 
 .. contents:: Contents
    :local:
@@ -26,12 +26,8 @@ distribution, or another larger software distribution like Python itself.
 Setup for Installing Packages
 =============================
 
-This section describes the steps to follow before installing other
-Python packages.  You will want to install :ref:`pip` and
-:ref:`setuptools`, and in most cases, :ref:`virtualenv` (unless you're using
-`pyvenv`_).
-
-We recommend the following installation sequence:
+This section describes the steps to follow before installing other Python
+packages.
 
 1. Install :ref:`pip` and :ref:`setuptools`: [3]_
 
@@ -71,8 +67,8 @@ We recommend the following installation sequence:
 
 .. _`Creating and using Virtual Environments`:
 
-Virtual Environments
-====================
+Creating Virtual Environments
+=============================
 
 Python "Virtual Environments" allow Python :term:`packages <Distribution
 Package>` to be installed in an isolated location for a particular application,
@@ -124,15 +120,22 @@ For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `pyvenv`_ docs.
 
 
-Installing Python Packages
-==========================
+Use pip for Installing
+======================
 
-:ref:`pip` is the recommended installer, and supports various requirement forms
-and options.  For details, see the `pip docs
-<https://pip.pypa.io>`_.
+:ref:`pip` is the recommended installer.  Below, we'll cover the most common
+usage scenarios. For more detail, see the `pip docs <https://pip.pypa.io>`_,
+which includes a complete `Reference Guide
+<https://pip.pypa.io/en/latest/reference/index.html>`_.
 
-Examples
---------
+There are a few cases where you might want to use `easy_install
+<https://pip.pypa.io/en/latest/reference/index.html>`_ instead of pip.  For
+details, see the the :ref:`pip vs easy_install` breakdown in the :doc:`Advanced
+Topics <additional>` section.
+
+
+Installing from PyPI
+====================
 
 Install `SomeProject` and its dependencies from :term:`PyPI <Python Package
 Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
@@ -144,13 +147,8 @@ Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
  pip install 'SomeProject>=1.0.4'  # minimum version
 
 
-Install a list of requirements specified in a :ref:`Requirements File
-<pip:Requirements Files>`.
-
-::
-
- pip install -r requirements.txt
-
+Upgrading packages
+==================
 
 Upgrade an already installed `SomeProject` to the latest from PyPI.
 
@@ -159,66 +157,8 @@ Upgrade an already installed `SomeProject` to the latest from PyPI.
  pip install --upgrade SomeProject
 
 
-Install a project from VCS in "editable" mode.  For a full breakdown of the
-syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
-
-::
-
- pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
- pip install -e hg+https://hg.repo/some_pkg.git#egg=SomeProject            # from mercurial
- pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
- pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
-
-
-Install a particular source archive file.
-
-::
-
- pip install ./downloads/SomeProject-1.0.4.tar.gz
- pip install http://my.package.repo/SomeProject-1.0.4.zip
-
-
-Install from an alternate index
-
-::
-
- pip install --index-url http://my.package.repo/simple/ SomeProject
-
-
-Search an additional index during install, in addition to :term:`PyPI <Python
-Package Index (PyPI)>`
-
-::
-
- pip install --extra-index-url http://my.package.repo/simple SomeProject
-
-
-Install from a local directory containing archives (and don't check :term:`PyPI
-<Python Package Index (PyPI)>`)
-
-::
-
- pip install --no-index --find-links=file:///local/dir/ SomeProject
- pip install --no-index --find-links=/local/dir/ SomeProject
- pip install --no-index --find-links=relative/dir/ SomeProject
-
-
-Find pre-release and development versions, in addition to stable versions.  By
-default, pip only finds stable versions.
-
-::
-
- pip install --pre SomeProject
-
-Install a package with `setuptools extras`_.
-::
-
-  $ pip install SomePackage[PDF]
-  $ pip install SomePackage[PDF]==3.0
-  $ pip install -e .[PDF]==3.0  # editable project in current directory
-
-Wheels
-------
+Installing Cached Wheels
+========================
 
 :term:`Wheel` is a pre-built :term:`distribution <Distribution Package>` format that
 provides faster installation compared to :term:`Source Distributions (sdist)
@@ -249,8 +189,8 @@ And then to install those requirements just using your local directory of wheels
 comparison, see :ref:`Wheel vs Egg`.
 
 
-User Installs
--------------
+Installing to the User Site
+===========================
 
 To install :term:`packages <Distribution Package>` that are isolated to the
 current user, use the ``--user`` flag:
@@ -263,6 +203,115 @@ current user, use the ``--user`` flag:
 For more information see the `User Installs
 <https://pip.readthedocs.org/en/latest/user_guide.html#user-installs>`_ section
 from the pip docs.
+
+
+Requirements files
+==================
+
+Install a list of requirements specified in a :ref:`Requirements File
+<pip:Requirements Files>`.
+
+::
+
+ pip install -r requirements.txt
+
+
+Installing from VCS
+===================
+
+Install a project from VCS in "editable" mode.  For a full breakdown of the
+syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
+
+::
+
+ pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
+ pip install -e hg+https://hg.repo/some_pkg.git#egg=SomeProject            # from mercurial
+ pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
+ pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+
+
+Installing from other Indexes
+=============================
+
+Install from an alternate index
+
+::
+
+ pip install --index-url http://my.package.repo/simple/ SomeProject
+
+
+Search an additional index during install, in addition to :term:`PyPI <Python
+Package Index (PyPI)>`
+
+::
+
+ pip install --extra-index-url http://my.package.repo/simple SomeProject
+
+
+
+Installing from a local src tree
+================================
+
+
+Installing from local src in `Development Mode
+<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_, i.e. in
+such a way that the project appears to be installed, but yet is still editable
+from the src tree.
+
+::
+
+ pip install -e <path>
+
+
+You can also normally from src
+
+::
+
+ pip install <path>
+
+
+Installing from local archives
+==============================
+
+Install a particular source archive file.
+
+::
+
+ pip install ./downloads/SomeProject-1.0.4.tar.gz
+
+
+Install from a local directory containing archives (and don't check :term:`PyPI
+<Python Package Index (PyPI)>`)
+
+::
+
+ pip install --no-index --find-links=file:///local/dir/ SomeProject
+ pip install --no-index --find-links=/local/dir/ SomeProject
+ pip install --no-index --find-links=relative/dir/ SomeProject
+
+
+
+Installing Prereleases
+======================
+
+Find pre-release and development versions, in addition to stable versions.  By
+default, pip only finds stable versions.
+
+::
+
+ pip install --pre SomeProject
+
+
+Installing Setuptools "Extras"
+==============================
+
+Install `setuptools extras`_.
+
+::
+
+  $ pip install SomePackage[PDF]
+  $ pip install SomePackage[PDF]==3.0
+  $ pip install -e .[PDF]==3.0  # editable project in current directory
 
 
 
@@ -287,6 +336,8 @@ from the pip docs.
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
+
+.. [5]
 
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
 .. _setuptools extras: http://packages.python.org/setuptools/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
