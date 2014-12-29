@@ -4,6 +4,10 @@
 Multi-version Installs
 ======================
 
+:Page Status: Complete
+:Last Reviewed: 2014-12-27
+
+
 easy_install allows simultaneous installation of different versions of the same
 project into a single environment shared by multiple programs which must
 ``require`` the appropriate version of the project at run time (using

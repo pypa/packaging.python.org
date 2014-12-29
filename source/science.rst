@@ -7,6 +7,9 @@ Installing Scientific Packages
 :Page Status: Incomplete
 :Last Reviewed: 2014-07-24
 
+.. contents:: Contents
+   :local:
+
 
 Scientific software tends to have more complex dependencies than most, and
 it will often have multiple build options to take advantage of different

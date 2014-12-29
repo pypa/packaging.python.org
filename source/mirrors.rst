@@ -1,11 +1,15 @@
 .. _`PyPI mirrors and caches`:
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-12-24
-
 =======================
 PyPI mirrors and caches
 =======================
+
+:Page Status: Incomplete
+:Last Reviewed: 2014-12-24
+
+.. contents:: Contents
+   :local:
+
 
 Mirroring or caching of PyPI can be used to speed up local package installation,
 allow offline work, handle corporate firewalls or just plain Internet flakiness.
