@@ -158,6 +158,16 @@ Glossary
        :ref:`pip:pip install` reference.
 
 
+    Requirement Specifier
+
+       A format used by :ref:`pip` to install packages from a :term:`Package
+       Index`. For an EBNF diagram of the format, see the
+       `pkg_resources.Requirement
+       <https://pythonhosted.org/setuptools/pkg_resources.html#requirement-objects>`_
+       entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
+       requirement specifier, where "foo" is the project name, and the ">=1.3"
+       portion is the :term:`Version Specifier`
+
     Requirements File
 
        A file containing a list of :term:`Requirements <Requirement>` that can
@@ -190,6 +200,15 @@ Glossary
         A package provided in a format native to the operating system,
         e.g. an rpm or dpkg file.
 
+
+    Version Specifier
+
+       The version component of a :term:`Requirement Specifier`. For example,
+       the ">=1.3" portion of "foo>=1.3".  :ref:`PEP440 <pypa:PEP440s>` contains
+       a `full specification
+       <https://www.python.org/dev/peps/pep-0440/#version-specifiers>`_ of the
+       specifiers that Python packaging currently supports.  Support for PEP440
+       was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
 
     Virtual Environment
 

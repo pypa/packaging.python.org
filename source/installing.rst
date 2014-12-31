@@ -137,14 +137,45 @@ Topics <additional>` section.
 Installing from PyPI
 ====================
 
-Install `SomeProject` and its dependencies from :term:`PyPI <Python Package
-Index (PyPI)>` using :ref:`pip:Requirement Specifiers`
+The most common usage of :ref:`pip` is to install from the :term:`Python Package
+Index <Python Package Index (PyPI)>` using a :term:`requirement specifier
+<Requirement Specifier>`. Generally speaking, a requirement specifier is
+composed of a project name followed by an optional :term:`version specifier
+<Version Specifier>`.  :ref:`PEP440 <pypa:PEP440s>` contains a `full
+specification <https://www.python.org/dev/peps/pep-0440/#version-specifiers>`_
+of the currently supported specifiers. Below are some examples.
+
+To install the latest version of "SomeProject":
 
 ::
 
- pip install SomeProject           # latest version
- pip install SomeProject==1.0.4    # specific version
- pip install 'SomeProject>=1.0.4'  # minimum version
+ pip install 'SomeProject'
+
+
+To install a specific version:
+
+::
+
+ pip install 'SomeProject==1.4'
+
+
+To install greater than or equal to one version and less than another:
+
+::
+
+ pip install 'SomeProject>=1,<2'
+
+
+To install a version that's `"compatible"
+<https://www.python.org/dev/peps/pep-0440/#compatible-release>`_ with a certain
+version: [5]_
+
+::
+
+ pip install 'SomeProject~=1.4.2'
+
+In this case, this means to install any version "==1.4.*" version that's also
+">=1.4.2".
 
 
 Upgrading packages
@@ -337,7 +368,9 @@ Install `setuptools extras`_.
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
 
-.. [5]
+.. [5] The compatible release specifier was accepted in :ref:`PEP440
+       <pypa:PEP440s>` and support was released in :ref:`setuptools` v8.0 and
+       :ref:`pip` v6.0
 
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
 .. _setuptools extras: http://packages.python.org/setuptools/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
