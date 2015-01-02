@@ -553,6 +553,8 @@ Uploading your Project to PyPI
   `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how
   to setup your configuration in order to use it.
 
+Create an account
+-----------------
 
 First, you need a :term:`PyPI <Python Package Index (PyPI)>` user
 account. There are two options:
@@ -562,6 +564,10 @@ account. There are two options:
 
 2. Have an account created as part of registering your first project (see option
    #2 below).
+
+
+Register your project
+---------------------
 
 Next, you need to register your project.  There are two ways to do this:
 
@@ -589,8 +595,14 @@ write a ``~/.pypirc`` file like so.
 You can leave out the password line if below you use twine with its
 ``-p PASSWORD`` argument.
 
+
+Upload your distributions
+-------------------------
+
 Finally, you can upload your distributions to :term:`PyPI <Python Package Index
-(PyPI)>`. There are two options.
+(PyPI)>`.
+
+There are two options:
 
 1. **(Recommended):** Use :ref:`twine`
 
