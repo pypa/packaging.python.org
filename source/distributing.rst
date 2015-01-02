@@ -13,9 +13,9 @@ The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
-For a reference material on this topic, see the `Setuptools docs on Building and
-Distributing Packages <http://pythonhosted.org/setuptools/setuptools.html>`_,
-but note that some advisory content there may be outdated. In the event of
+For more reference material, see `Building and Distributing Packages
+<http://pythonhosted.org/setuptools/setuptools.html>`_ in the :ref:`setuptools`
+docs, but note that some advisory content there may be outdated. In the event of
 conflicts, prefer the advice in the Python Packaging User Guide.
 
 .. contents:: Contents
@@ -28,7 +28,7 @@ Requirements for Packaging and Distributing
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
-2. Install the "wheel" project [1]_:
+2. Install "wheel" [1]_:
 
    ::
 
@@ -37,7 +37,7 @@ Requirements for Packaging and Distributing
    You'll need this to package your project into :term:`wheels <Wheel>` (see
    :ref:`below <Packaging Your Project>`).
 
-3. Install the "twine" project [1]_:
+3. Install "twine" [1]_:
 
    ::
 
