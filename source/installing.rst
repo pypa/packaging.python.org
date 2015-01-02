@@ -5,9 +5,6 @@ Tutorial on Installing Packages
 :Page Status: Incomplete
 :Last Reviewed: 2014-12-24
 
-.. contents:: Contents
-   :local:
-
 This tutorial covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
 
@@ -21,10 +18,14 @@ is often not preferred, because it can easily be confused with a Linux
 distribution, or another larger software distribution like Python itself.
 
 
-.. _installing_setup:
+.. contents:: Contents
+   :local:
 
-Setup for Installing Packages
-=============================
+
+.. _installing_requirements:
+
+Requirements for Installing Packages
+====================================
 
 This section describes the steps to follow before installing other Python
 packages.
