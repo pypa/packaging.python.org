@@ -312,8 +312,8 @@ venv
 
 A package in the Python Standard Library (starting with Python 3.3) that
 includes the ``pyvenv`` tool for creating :term:`Virtual Environments <Virtual
-Environment>`.  For more information, see the tutorial section on :ref:`Creating
-and using Virtual Environments`.
+Environment>`.  For more information, see the section on :ref:`Creating and
+using Virtual Environments`.
 
 
 ----
