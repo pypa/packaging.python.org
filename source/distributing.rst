@@ -1,15 +1,15 @@
-===============================================
-Tutorial on Packaging and Distributing Projects
-===============================================
+===================================
+Packaging and Distributing Projects
+===================================
 
 :Page Status: Complete
 :Last Reviewed: 2014-12-31
 
-This tutorial covers the basics of how to configure, package and distribute your
+This section covers the basics of how to configure, package and distribute your
 own Python projects.  It assumes that you are already familiar with the contents
 of the :doc:`installing`.
 
-The tutorial does *not* aim to cover best practices for Python project
+The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 

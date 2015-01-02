@@ -1,11 +1,11 @@
-===============================
-Tutorial on Installing Packages
-===============================
+===================
+Installing Packages
+===================
 
 :Page Status: Incomplete
 :Last Reviewed: 2014-12-24
 
-This tutorial covers the basics of how to install Python :term:`packages
+This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
 
 It's important to note that the term "package" in this context is being used as

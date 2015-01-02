@@ -5,8 +5,8 @@ Advanced Topics
 :Last Reviewed: 2014-12-24
 
 This section covers a variety of packaging concepts and topics that don't fit
-neatly into the documentation of any particular tool or one of the two
-tutorials.
+neatly into the documentation of any particular :ref:`project <projects>` or in
+either of our guides on :doc:`installing` or :doc:`distributing`.
 
 .. toctree::
    :maxdepth: 1

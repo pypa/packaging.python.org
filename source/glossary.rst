@@ -214,8 +214,8 @@ Glossary
 
         An isolated Python environment that allows packages to be installed for
         use by a particular application, rather than being installed system
-        wide. For more information, see the tutorial section on :ref:`Creating
-        and using Virtual Environments`.
+        wide. For more information, see the section on :ref:`Creating and using
+        Virtual Environments`.
 
     Wheel
 
