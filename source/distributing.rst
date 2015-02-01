@@ -478,14 +478,35 @@ and requires a build step when installed by pip.  Even if the distribution is
 pure python (i.e. contains no extensions), it still involves a build step to
 build out the installation metadata from ``setup.py``.
 
+
+Wheels
+------
+
+You should also create a wheel for your project. A wheel is a :term:`built
+package <Built Distribution>` that can be installed without needing to go
+through the "build" process. Installing wheels is substantially faster for the
+end user than installing from a source distribution.
+
+If your project is pure python (i.e. contains no compiled extensions) and
+natively supports both Python 2 and 3, then you'll be creating what's called a
+:ref:`"Universal Wheel" (see section below) <Universal Wheels>`.
+
+If your project is pure python but does not natively support both Python 2 and
+3, then you'll be creating a :ref:`"Pure Python Wheel" (see section below) <Pure
+Python Wheels>`.
+
+If you project contains compiled extensions, then you'll be creating what's
+called a :ref:`"Platform Wheel" (see section below) <Platform Wheels>`.
+
+
 .. _`Universal Wheels`:
 
 Universal Wheels
-----------------
+~~~~~~~~~~~~~~~~
 
-Additionally, if your project is pure python (i.e. contains no compiled
-extensions) and is version agnostic, then you should also create what's called a
-"Universal Wheel". This is a wheel that can be installed anywhere by :ref:`pip`.
+"Universal Wheels" are wheels that are pure python (i.e. contains no compiled
+extensions) and support Python 2 and 3. This is a wheel that can be installed
+anywhere by :ref:`pip`.
 
 To build a Universal Wheel:
 
@@ -518,19 +539,52 @@ universal wheel, because pip will prefer the wheel over a source installation,
 and prevent the possibility of building the extension.
 
 
-Platform Wheels
----------------
+.. _`Pure Python Wheels`:
 
-"Platform Wheels" are wheels that are specific to a certain platform like linux,
-OSX, or Windows, usually due to containing compiled extensions.
+Pure Python Wheels
+~~~~~~~~~~~~~~~~~~
 
-"Platform Wheels" are built the same as "Universal Wheels", but without the
-``--universal`` flag:
+"Pure Python Wheels" that are not "universal" are wheels that are pure python
+(i.e. contains no compiled extensions), but don't natively support both Python 2
+and 3.
+
+To build the wheel:
 
 ::
 
  python setup.py bdist_wheel
 
+
+`bdist_wheel` will detect that the code is pure Python, and build a wheel that's
+named such that it's usable on any Python installation with the same major
+version (Python 2 or Python 3) as the version you used to build the wheel.  For
+details on the naming of wheel files, see :ref:`PEP425 <pypa:PEP425s>`
+
+If your code supports both Python 2 and 3, but with different code (e.g., you
+use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
+``setup.py bdist_wheel`` twice, once with Python 2 and once with Python 3. This
+will produce wheels for each version.
+
+
+
+.. _`Platform Wheels`:
+
+Platform Wheels
+~~~~~~~~~~~~~~~
+
+"Platform Wheels" are wheels that are specific to a certain platform like linux,
+OSX, or Windows, usually due to containing compiled extensions.
+
+To build the wheel:
+
+::
+
+ python setup.py bdist_wheel
+
+
+`bdist_wheel` will detect that the code is not pure Python, and build a wheel
+that's named such that it's only usable on the platform that it was built
+on. For details on the naming of wheel files, see :ref:`PEP425 <pypa:PEP425s>`
 
 .. note::
 
