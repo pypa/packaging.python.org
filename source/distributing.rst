@@ -478,13 +478,44 @@ and requires a build step when installed by pip.  Even if the distribution is
 pure python (i.e. contains no extensions), it still involves a build step to
 build out the installation metadata from ``setup.py``.
 
+.. _`Wheels`:
+
+Wheels
+------
+
+You should also create a wheel for your project. A wheel is an installable
+binary package of your project which can be installed without needing to go
+through the "build" process. Installing wheels is substantially faster for
+the end user than installing from a source distribution.
+
+To build a Wheel:
+
+::
+
+ python setup.py bdist_wheel
+
+Assuming that your project does not contain any C extensions, this will build
+a "Pure Python Wheel". It will be usable on any Python installation with the
+same major version (Python 2 or Python 3) as the version you used to build
+the wheel.
+
+If your project will run on both Python 2 and Python 3 with the same source,
+you should produce a "Universal Wheel" (see below). If your project includes
+C extensions, you should produce "Platform Wheels" for the platforms you
+support.
+
+If your code supports both Python 2 and 3, but with different code (e.g., you
+use ``2to3``) you can run ``setup.py bdist_wheel`` twice, once with Python 2
+and once with Python 3. This will produce wheels for each version.
+
+
 .. _`Universal Wheels`:
 
 Universal Wheels
 ----------------
 
 Additionally, if your project is pure python (i.e. contains no compiled
-extensions) and is version agnostic, then you should also create what's called a
+extensions) and is version agnostic, then you should create what's called a
 "Universal Wheel". This is a wheel that can be installed anywhere by :ref:`pip`.
 
 To build a Universal Wheel:
@@ -531,6 +562,8 @@ OSX, or Windows, usually due to containing compiled extensions.
 
  python setup.py bdist_wheel
 
+The ``bdist_wheel`` command will detect automatically whether your code contains
+a C extension, and build a pure Python wheel or a platform wheel as appropriate.
 
 .. note::
 
