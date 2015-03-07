@@ -151,7 +151,7 @@ name
 
 ::
 
-  name = 'sample'
+  name='sample'
 
 This is the name of your project, and will determine how your project is listed
 on :term:`PyPI <Python Package Index (PyPI)>`. For details on permitted
@@ -164,7 +164,7 @@ version
 
 ::
 
-  version = '1.2.0'
+  version='1.2.0'
 
 
 Projects should comply with the `version scheme
@@ -295,7 +295,7 @@ install_requires
 
 ::
 
- install_requires = ['peppercorn']
+ install_requires=['peppercorn']
 
 "install_requires" should be used to specify what dependences a project
 minimally needs to run. When the project is installed by :ref:`pip`, this is the
