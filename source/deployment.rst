@@ -45,10 +45,35 @@ OS Packaging & Installers
 
   - Building rpm/debs for projects
   - Building rpms/debs for whole virtualenvs
-  - Building Windows installers for Python projects
   - Building Mac OS X installers for Python projects
 
+Windows
+-------
 
+::
+
+  FIXME
+
+  - Building Windows installers for Python projects
+
+Pynsist
+^^^^^^^
+
+`Pynsist <https://pypi.python.org/pypi/pynsist>`__ is a tool that bundles Python
+programs together with the Python-interpreter into a single installer based on
+NSIS. In most cases, packaging only requires the user to choose a version of
+the Python-interpreter and declare the dependencies of the program. Downloading
+and bundling of the dependencies is done automatically.
+
+The installer installs or updates the Python-interpreter on the users system,
+which can be used independently of the packaged program. The program itself,
+can be started from a shortcut, that the installer places in the start-menu.
+Uninstalling the program leaves the Python installation of the user intact.
+
+A big advantage of pynsist is that the Windows packages can be build on Linux.
+There are several examples for different kinds of programs (console, GUI) in
+the `documentation <http://pynsist.readthedocs.org>`__. The tool is released
+under the MIT-licence.
 
 Application Bundles
 ===================
