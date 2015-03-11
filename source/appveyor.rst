@@ -153,21 +153,6 @@ individual projects.
 Should projects develop scripts showing how to do this, references will be
 added to this guide at a later date.
 
-Possible issues
----------------
-
-The webhooks installed by Appveyor for github projects report on the build
-success on the project page, in much the same way as the Travis webhooks do.
-There is a limitation on the github reporting API, which means that only one
-build result is currently shown for a project - so if your project uses both
-Travis and Appveyor, only one will be displayed. The github team are aware of
-this limitation, and are planning on fixing it. In the meantime, however, it
-can sometimes be necessary to check the build results by going to the project
-page in the CI system directly.
-
-Note that failed builds are *always* reported by github, so this issue does not
-mean that projects could find failures being missed.
-
 Support scripts
 ---------------
 
