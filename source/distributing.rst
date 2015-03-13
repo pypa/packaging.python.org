@@ -151,7 +151,7 @@ name
 
 ::
 
-  name='sample'
+  name='sample',
 
 This is the name of your project, and will determine how your project is listed
 on :term:`PyPI <Python Package Index (PyPI)>`. For details on permitted
@@ -164,7 +164,7 @@ version
 
 ::
 
-  version='1.2.0'
+  version='1.2.0',
 
 
 Projects should comply with the `version scheme
@@ -192,7 +192,7 @@ description
 ::
 
   description='A sample Python project',
-  long_description=long_description
+  long_description=long_description,
 
 Give a short and long description for you project.  These values will be
 displayed on :term:`PyPI <Python Package Index (PyPI)>` if you publish your
@@ -204,7 +204,7 @@ url
 
 ::
 
-  url='https://github.com/pypa/sampleproject'
+  url='https://github.com/pypa/sampleproject',
 
 
 Give a homepage url for your project.
@@ -216,7 +216,7 @@ author
 ::
 
   author='The Python Packaging Authority',
-  author_email='pypa-dev@googlegroups.com'
+  author_email='pypa-dev@googlegroups.com',
 
 Provide details about the author.
 
@@ -226,7 +226,7 @@ license
 
 ::
 
-  license='MIT'
+  license='MIT',
 
 Provide the type of license you are using.
 
@@ -259,7 +259,7 @@ classifiers
       'Programming Language :: Python :: 3.2',
       'Programming Language :: Python :: 3.3',
       'Programming Language :: Python :: 3.4',
-  ]
+  ],
 
 Provide a list of classifiers the categorize your project. For a full listing,
 see https://pypi.python.org/pypi?%3Aaction=list_classifiers.
@@ -270,7 +270,7 @@ keywords
 
 ::
 
-  keywords='sample setuptools development'
+  keywords='sample setuptools development',
 
 List keywords that describe your project.
 
@@ -280,7 +280,7 @@ packages
 
 ::
 
-  packages=find_packages(exclude=['contrib', 'docs', 'tests*'])
+  packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
 
 It's required to list the :term:`packages <Import Package>` to be included
@@ -295,7 +295,7 @@ install_requires
 
 ::
 
- install_requires=['peppercorn']
+ install_requires=['peppercorn'],
 
 "install_requires" should be used to specify what dependences a project
 minimally needs to run. When the project is installed by :ref:`pip`, this is the
@@ -313,7 +313,7 @@ package_data
 
  package_data={
      'sample': ['package_data.dat'],
- }
+ },
 
 
 Often, additional files need to be installed into a :term:`package <Import
@@ -337,7 +337,7 @@ data_files
 
 ::
 
-    data_files=[('my_data', ['data/data_file'])]
+    data_files=[('my_data', ['data/data_file'])],
 
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
 cases you may need to place data files *outside* of your :term:`packages
@@ -381,7 +381,7 @@ entry_points
 
   entry_points={
     ...
-  }
+  },
 
 
 Use this keyword to specify any plugins that your project provides for any named
@@ -405,7 +405,7 @@ console_scripts
       'console_scripts': [
           'sample=sample:main',
       ],
-  }
+  },
 
 Use "console_script" `entry points
 <http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
