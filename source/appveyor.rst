@@ -17,7 +17,7 @@ Background
 
 Windows users typically do not have access to a C compiler, and therefore are
 reliant on projects that use C extensions distributing binary wheels on PyPI in
-order for the distribution to be installable via ``pip install dist```.
+order for the distribution to be installable via ``pip install dist``.
 However, it is often the case that projects which are intended to be
 cross-platform are developed on Unix, and so the project developers *also* have
 the problem of lack of access to a Windows compiler.
