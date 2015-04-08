@@ -56,7 +56,8 @@ There are a few techniques to store the version in your project code without dup
     ::
 
         execfile('...sample/version.py')
-        assert __version__ == '1.2.0'
+        # now we have a `__version__` variable
+        # later on we use: __version__
 
     Using ``exec``:
 
@@ -65,7 +66,7 @@ There are a few techniques to store the version in your project code without dup
         version = {}
         with open("...sample/version.py") as fp:
             exec(fp.read(), version)
-        assert version['__version__'] == '1.2.0'
+        # later on we use: version['__version__']
 
     Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_.
 
