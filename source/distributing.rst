@@ -297,7 +297,7 @@ install_requires
 
  install_requires=['peppercorn'],
 
-"install_requires" should be used to specify what dependences a project
+"install_requires" should be used to specify what dependencies a project
 minimally needs to run. When the project is installed by :ref:`pip`, this is the
 specification that is used to install its dependencies.
 
