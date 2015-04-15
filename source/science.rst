@@ -130,7 +130,8 @@ OSX, and Linux. Conda can be used to package up and distribute all kinds of
 packages, it is not limited to just Python packages.   It has full support 
 for native virtual environments. Conda makes environments first-class citizens, 
 making it easy to create independent environments even for C libraries. It is 
-written in Python, but is Python-agnostic. Conda installs Python directly in 
-contrast to pip which does not.  Conda is available in Anaconda and Miniconda 
-(an easy-to-install download with just Python and conda). 
+written in Python, but is Python-agnostic. Conda can install Python directly with
+the command ``conda install python`` in contrast to pip which does not.  Conda is 
+available in Anaconda and Miniconda (an easy-to-install download with just Python 
+and conda). 
 
