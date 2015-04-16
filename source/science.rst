@@ -116,22 +116,21 @@ and ``virtualenv`` based toolchain.
 The conda cross-platform package manager
 ----------------------------------------
 
-`Anaconda <https://store.continuum.io/cshop/anaconda/>`__ (in this context)
-is a SciPy distribution published by Continuum Analytics.
+`Anaconda <https://store.continuum.io/cshop/anaconda/>`__ is a Python 
+distribution published by Continuum Analytics. It is a stable collection of  
+Open Source packages for big data and scientific use.  About 100 are 
+installed with Anaconda 2.2, and a total of 279 can be installed and 
+updated from the Anaconda repository. 
 
-``conda`` is the open source (BSD licensed) package management system that
-Continuum Analytics created and published as part of Anaconda's development.
-It doesn't support interoperability with system package managers the way the
-standard toolchain does (as, unlike the standard toolchain, that isn't one
-of conda's design goals), but it *does* support some degree of
-interoperability with the standard toolchain itself. In particular,
-bootstrapping conda via ``pip install conda`` and then running the
-``conda init`` command provides access to all of the pre-built binaries
-that Continuum Analytics have created for the free version of the
-Anaconda distribution.
-
-At time of writing (December, 2013), there are still some rough edges when
-attempting to use conda to install Anaconda packages outside the Anaconda
-distribution, but those issues are still likely to be simpler to resolve
-or work around than building local versions of scientific Python libraries
-and their external dependencies.
+``conda`` an open source (BSD licensed) package management system and 
+environment management system included in Anaconda that allows users to 
+install multiple versions of binary software packages and their dependencies, 
+and easily switch between them. It is a cross-platform tool working on Windows, 
+OSX, and Linux. Conda can be used to package up and distribute all kinds of 
+packages, it is not limited to just Python packages.   It has full support 
+for native virtual environments. Conda makes environments first-class citizens, 
+making it easy to create independent environments even for C libraries. It is 
+written in Python, but is Python-agnostic. Conda manages python itself as a 
+package, so that `conda update python` is possible, in contrast to pip, which only 
+manages Python packages. Conda is available in Anaconda and Miniconda 
+(an easy-to-install download with just Python and conda). 
