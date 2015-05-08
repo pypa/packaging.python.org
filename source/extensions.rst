@@ -156,7 +156,7 @@ wrapper modules up to date.
   modules. It still involves wrapping the interfaces by hand, however, so
   may not be a good choice for wrapping large APIs.
 
-* `cffi <cffi.readthedocs.org/>`__ is a project created by some of the PyPy
+* `cffi <http://cffi.readthedocs.org/>`__ is a project created by some of the PyPy
   developers to make it straightforward for developers that already know
   both Python and C to expose their C modules to Python applications. It
   also makes it relatively straightforward to wrap a C module based on its
