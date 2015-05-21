@@ -31,7 +31,7 @@ There are a few techniques to store the version in your project code without dup
 
         setup(
            ...
-           version=find_version("package/__init__.py")
+           version=find_version("package", "__init__.py")
            ...
         )
 
