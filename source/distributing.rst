@@ -359,11 +359,11 @@ For more information see the distutils section on `Installing Additional Files
   :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
   absolute until pip 7.0, when installing from :term:`sdist <Source Distribution (or
   "sdist")>`.  With pip 7.0 and up, pip installs by default :term:`wheel`
-  distributions and wheels do not support absolute paths: "dat_files" are instead
-  installed relative to "site-packages".  For discussion see:
-   - `wheel issue #92 <https://bitbucket.org/pypa/wheel/issue/92>`_.
-   - `wheel issue #120 <https://bitbucket.org/pypa/wheel/issue/120>`_.
-   - `pip issue #2874 <https://github.com/pypa/pip/issues/2874>`_.
+  distributions and wheels do not support absolute paths: "data_files" are instead
+  installed relative to "site-packages".  For discussion see these issues:
+  `wheel issue #92 <https://bitbucket.org/pypa/wheel/issue/92>`_,
+  `wheel issue #120 <https://bitbucket.org/pypa/wheel/issue/120>`_,
+  and `pip issue #2874 <https://github.com/pypa/pip/issues/2874>`_.
 
 scripts
 ~~~~~~~
