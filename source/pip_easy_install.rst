@@ -57,6 +57,9 @@ Here's a breakdown of the important differences between pip and easy_install now
 |:ref:`Multi-version Installs` |No                                |Yes                            |
 |                              |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
+|Exclude scripts during install|No                                |Yes                            |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
 
 ----
 
