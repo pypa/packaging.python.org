@@ -285,6 +285,20 @@ deployment of Python applications as simple as ``cp``.
 Standard Library Projects
 #########################
 
+.. _ensurepip:
+
+ensurepip
+=========
+
+`Docs <https://docs.python.org/3/library/ensurepip.html>`__ |
+`Issues <http://bugs.python.org>`__
+
+A package in the Python Standard Library that provides support for bootstrapping
+:ref:`pip` into an existing Python installation or virtual environment.  In most
+cases, end users won't use this module, but rather it will be used during the
+build of the Python distribution.
+
+
 .. _distutils:
 
 distutils
