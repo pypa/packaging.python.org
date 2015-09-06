@@ -166,19 +166,15 @@ version
 
   version='1.2.0',
 
+This is the current version of your project, allowing your users to determine whether or not
+they have the latest version, and to indicate which specific versions they've tested their own
+software against.
 
-Projects should comply with the `version scheme
-<http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-specified in :ref:`PEP440 <pypa:PEP440s>`.  Here are some examples:
+Versions are displayed on :term:`PyPI <Python Package Index (PyPI)>` for each release if you
+publish your project.
 
-::
-
-  1.2.0.dev1  # Development release
-  1.2.0a1     # Alpha Release
-  1.2.0b1     # Beta Release
-  1.2.0rc1    # RC Release
-  1.2.0       # Final Release
-  1.2.0.post1 # Post Release
+See :ref:`Choosing a versioning scheme` for more information on ways to use versions to convey
+compatibility information to your users.
 
 If the project code itself needs run-time access to the version, the simplest
 way is to keep the version in both ``setup.py`` and your code. If you'd rather
@@ -418,6 +414,120 @@ For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
+Choosing a versioning scheme
+----------------------------
+
+Standards compliance for interoperability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Different Python projects may use different versioning schemes based on the needs of that
+particular project, but all of them are required to comply with the flexible `public version
+scheme <https://www.python.org/dev/peps/pep-0440/#public-version-identifiers>`_ specified
+in :ref:`PEP440 <pypa:PEP440s>` in order to be supported in tools and libraries like ``pip``
+and ``setuptools``.
+
+Here are some examples of compliant version numbers::
+
+  1.2.0.dev1  # Development release
+  1.2.0a1     # Alpha Release
+  1.2.0b1     # Beta Release
+  1.2.0rc1    # Release Candidate
+  1.2.0       # Final Release
+  1.2.0.post1 # Post Release
+  15.10       # Date based release
+  23          # Serial release
+
+To further accommodate historical variations in approaches to version numbering,
+:ref:`PEP440 <pypa:PEP440s>` also defines a comprehensive technique for `version
+normalisation <https://www.python.org/dev/peps/pep-0440/#normalization>`_ that maps
+variant spellings of different version numbers to a standardised canonical form.
+
+Scheme choices
+~~~~~~~~~~~~~~
+
+Semantic versioning (preferred)
+*******************************
+
+For new projects, the recommended versioning scheme is based on `Semantic Versioning
+<http://semver.org>`_, but adopts a different approach to handling pre-releases and
+build metadata.
+
+The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE numbering scheme,
+where the project author increments:
+
+1. MAJOR version when they make incompatible API changes,
+2. MINOR version when they add functionality in a backwards-compatible manner, and
+3. MAINTENANCE version when they make backwards-compatible bug fixes.
+
+Adopting this approach as a project author allows users to make use of `"compatible release"
+<https://www.python.org/dev/peps/pep-0440/#compatible-release>`_ specifiers, where
+``name ~= X.Y`` requires at least release X.Y, but also allows any later release with
+a matching MAJOR version.
+
+Python projects adopting semantic versioning should abide by clauses 1-8 of the
+`Semantic Versioning 2.0.0 specification <http://semver.org>`_.
+
+Date based versioning
+*********************
+
+Semantic versioning is not a suitable choice for all projects, such as those with a regular
+time based release cadence and a deprecation process that provides warnings for a number of
+releases prior to removal of a feature.
+
+A key advantage of date based versioning is that it is straightforward to tell how old the
+base feature set of a particular release is given just the version number.
+
+Version numbers for date based projects typically take the form of YEAR.MONTH (for example,
+``12.04``, ``15.10``).
+
+Serial versioning
+*****************
+
+This is the simplest possible versioning scheme, and consists of a single number which is
+incremented every release.
+
+While serial versioning is very easy to manage as a developer, it is the hardest to track
+as an end user, as serial version numbers convey little or no information regarding API
+backwards compatibility.
+
+Hybrid schemes
+**************
+
+Combinations of the above schemes are possible. For example, a project may combine date
+based versioning with serial versioning to create a YEAR.SERIAL numbering scheme that
+readily conveys the approximate age of a release, but doesn't otherwise commit to a particular
+release cadence within the year.
+
+Pre-release versioning
+~~~~~~~~~~~~~~~~~~~~~~
+
+Regardless of the base versioning scheme, pre-releases for a given final release may be
+published as:
+
+* zero or more dev releases (denoted with a ".devN" suffix)
+* zero or more alpha releases (denoted with a ".aN" suffix)
+* zero or more beta releases (denoted with a ".bN" suffix)
+* zero or more release candidates (denoted with a ".rcN" suffix)
+
+``pip`` and other modern Python package installers ignore pre-releases by default when
+deciding which versions of dependencies to install.
+
+
+Local version identifiers
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Public version identifiers are designed to support distribution via
+:term:`PyPI <Python Package Index (PyPI)>`. Python's software distribution tools also support
+the notion of a `local version identifier
+<https://www.python.org/dev/peps/pep-0440/#local-version-identifiers>`_, which can be used to
+identify local development builds not intended for publication, or modified variants of a release
+maintained by a redistributor.
+
+A local version identifier takes the form ``<public version identifier>+<local version label>``.
+For example::
+
+   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commmit since 1.2.0.dev1 release
+   1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
 Working in "Development Mode"
