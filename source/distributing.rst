@@ -417,8 +417,13 @@ from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_
 Choosing a versioning scheme
 ----------------------------
 
-Different Python projects may use different versioning schemes, but all of them will comply with the `public version scheme
-<https://www.python.org/dev/peps/pep-0440/#public-version-identifiers>`_ specified in :ref:`PEP440 <pypa:PEP440s>`.  Here are some examples of compliant version numbers::
+Standards compliance for interoperability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Different Python projects may use different versioning schemes based on the needs of that particular project, but all of them are required to comply with the flexible `public version scheme
+<https://www.python.org/dev/peps/pep-0440/#public-version-identifiers>`_ specified in :ref:`PEP440 <pypa:PEP440s>` in order to be supported in tools and libraries like ``pip`` and ``setuptools``.
+
+Here are some examples of compliant version numbers::
 
   1.2.0.dev1  # Development release
   1.2.0a1     # Alpha Release
@@ -426,9 +431,16 @@ Different Python projects may use different versioning schemes, but all of them 
   1.2.0rc1    # Release Candidate
   1.2.0       # Final Release
   1.2.0.post1 # Post Release
+  15.10       # Date based release
+  23          # Serial release
 
-Recommended versioning scheme
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To further accommodate historical variations in approaches to version numbering, :ref:`PEP440 <pypa:PEP440s>` also defines a comprehensive technique for `version normalisation <https://www.python.org/dev/peps/pep-0440/#normalization>`_ that maps variant spellings of different version numbers to a standardised canonical form.
+
+Scheme choices
+~~~~~~~~~~~~~~
+
+Semantic versioning (preferred)
+*******************************
 
 For new projects, the recommended versioning scheme is based on `Semantic Versioning <http://semver.org>`_, but adopts a different approach to handling pre-releases and build metadata.
 
@@ -447,6 +459,8 @@ Date based versioning
 
 Semantic versioning is not a suitable choice for all projects, such as those with a regular time based release cadence and a deprecation process that provides warnings for a number of releases prior to removal of a feature.
 
+A key advantage of date based versioning is that it is straightforward to tell how old the base feature set of a particular release is given just the version number.
+
 Version numbers for date based projects typically take the form of YEAR.MONTH (for example, ``12.04``, ``15.10``).
 
 Serial versioning
@@ -456,6 +470,10 @@ This is the simplest possible versioning scheme, and consists of a single number
 
 While serial versioning is very easy to manage as a developer, it is the hardest to track as an end user, as serial version numbers convey little or no information regarding API backwards compatibility.
 
+Hybrid schemes
+**************
+
+Combinations of the above schemes are possible. For example, a project may combine data based versioning with serial versioning to create a YEAR.SERIAL numbering scheme that readily conveys the approximate age of a release, but doesn't otherwise commit to a particular release cadence within the year.
 
 Pre-release versioning
 ~~~~~~~~~~~~~~~~~~~~~~
