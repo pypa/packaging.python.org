@@ -28,16 +28,7 @@ Requirements for Packaging and Distributing
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
-2. Install "wheel" [1]_:
-
-   ::
-
-    pip install wheel
-
-   You'll need this to package your project into :term:`wheels <Wheel>` (see
-   :ref:`below <Packaging Your Project>`).
-
-3. Install "twine" [1]_:
+2. Install "twine" [1]_:
 
    ::
 
