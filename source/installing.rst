@@ -30,14 +30,15 @@ Requirements for Installing Packages
 This section describes the steps to follow before installing other Python
 packages.
 
-1. Install :ref:`pip` and :ref:`setuptools`: [3]_
+1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`: [3]_
 
    If you have Python 2.7.9 and later (in the Python 2 series), or Python 3.4
    and later (in the Python 3 series), it may already have the ``pip`` command
    available by default (and setuptools will be installed as well), or it may at
    least contain a working `ensurepip
    <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
-   setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.
+   setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.  Then
+   install :ref:`wheel`: ``pip install wheel``
 
    Otherwise:
 
@@ -45,8 +46,9 @@ packages.
      <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
 
    * Run ``python get-pip.py``.  This will install or upgrade pip.
-     Additionally, it will install setuptools if it's not installed already. To
-     upgrade an existing setuptools, run ``pip install -U setuptools`` [2]_
+     Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
+     not installed already. To upgrade an existing setuptools and wheel, run
+     ``pip install -U setuptools wheel`` [2]_
 
 2. Optionally, Create a virtual environment (See :ref:`section below <Creating
    and using Virtual Environments>` for details):
