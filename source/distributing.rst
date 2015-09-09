@@ -414,6 +414,8 @@ For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
+.. _`Choosing a versioning scheme`:
+
 Choosing a versioning scheme
 ----------------------------
 
