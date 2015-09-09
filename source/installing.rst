@@ -50,6 +50,14 @@ packages.
      not installed already. To upgrade an existing setuptools and wheel, run
      ``pip install -U setuptools wheel`` [2]_
 
+     .. warning::
+
+        Be cautious if you're using a Python install that's managed by your
+        operating system or another package manager. get-pip.py does not
+        coordinate with those tools, and may leave your system in an
+        inconsistent state.
+
+
 2. Optionally, Create a virtual environment (See :ref:`section below <Creating
    and using Virtual Environments>` for details):
 
