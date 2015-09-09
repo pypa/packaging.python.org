@@ -2,8 +2,8 @@
 Installing Packages
 ===================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-12-24
+:Page Status: Complete
+:Last Reviewed: 2015-09-09
 
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
@@ -192,6 +192,23 @@ In this case, this means to install any version "==1.4.*" version that's also
 ">=1.4.2".
 
 
+Source Distributions vs Wheels
+==============================
+
+:ref:`pip` can install from either :term:`Source Distributions (sdist) <Source
+Distribution (or "sdist")>` or :term:`Wheels <Wheel>`, but if both are present
+on PyPI, pip will prefer the :term:`wheel <Wheel>`.
+
+:term:`Wheels <Wheel>` are a pre-built :term:`distribution <Distribution
+Package>` format that provides faster installation compared to :term:`Source
+Distributions (sdist) <Source Distribution (or "sdist")>`, especially when a
+project contains compiled extensions.
+
+If :ref:`pip` does not find a wheel to install, it will locally build a wheel
+and cache it for future installs, instead of rebuilding the source distribution
+in the future.
+
+
 Upgrading packages
 ==================
 
@@ -201,37 +218,6 @@ Upgrade an already installed `SomeProject` to the latest from PyPI.
 
  pip install --upgrade SomeProject
 
-
-Installing Cached Wheels
-========================
-
-:term:`Wheel` is a pre-built :term:`distribution <Distribution Package>` format that
-provides faster installation compared to :term:`Source Distributions (sdist)
-<Source Distribution (or "sdist")>`, especially when a project contains compiled
-extensions.
-
-As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
-Distribution (or "sdist")>` when searching indexes.
-
-Although wheels are `becoming more common <http://pythonwheels.com>`_ on
-:term:`PyPI <Python Package Index (PyPI)>`, if you want all of your dependencies
-converted to wheel, do the following (assuming you're using a :ref:`Requirements
-File <pip:Requirements Files>`):
-
-::
-
- pip wheel --wheel-dir=/local/wheels -r requirements.txt
-
-And then to install those requirements just using your local directory of wheels
-(and not from PyPI):
-
-::
-
- pip install --no-index --find-links=/local/wheels -r requirements.txt
-
-
-:term:`Wheel` is intended to replace :term:`Eggs <Egg>`.  For a detailed
-comparison, see :ref:`Wheel vs Egg`.
 
 
 Installing to the User Site
