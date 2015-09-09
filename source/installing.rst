@@ -197,7 +197,7 @@ Source Distributions vs Wheels
 
 :ref:`pip` can install from either :term:`Source Distributions (sdist) <Source
 Distribution (or "sdist")>` or :term:`Wheels <Wheel>`, but if both are present
-on PyPI, pip will prefer the :term:`wheel <Wheel>`.
+on PyPI, pip will prefer a compatible :term:`wheel <Wheel>`.
 
 :term:`Wheels <Wheel>` are a pre-built :term:`distribution <Distribution
 Package>` format that provides faster installation compared to :term:`Source
