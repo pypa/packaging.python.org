@@ -3,7 +3,7 @@ Packaging and Distributing Projects
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2014-12-31
+:Last Reviewed: 2015-09-08
 
 This section covers the basics of how to configure, package and distribute your
 own Python projects.  It assumes that you are already familiar with the contents

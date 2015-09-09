@@ -3,7 +3,7 @@ How to Get Support
 ==================
 
 :Page Status: Complete
-:Last Reviewed: 2014-11-27
+:Last Reviewed: 2015-09-08
 
 For support related to a specific project, see the links on the :doc:`Projects
 <projects>` page.

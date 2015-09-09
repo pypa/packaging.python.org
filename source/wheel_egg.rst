@@ -5,7 +5,7 @@ Wheel vs Egg
 ============
 
 :Page Status: Complete
-:Last Reviewed: 2014-12-24
+:Last Reviewed: 2015-09-08
 
 * :term:`Wheel` has an :ref:`official PEP <pypa:PEP427s>`. :term:`Egg` did not.
 

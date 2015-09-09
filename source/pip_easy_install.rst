@@ -6,7 +6,7 @@ pip vs easy_install
 ===================
 
 :Page Status: Complete
-:Last Reviewed: 2014-12-24
+:Last Reviewed: 2015-09-08
 
 
 `easy_install` was released in 2004, as part of :ref:`setuptools`.  It was

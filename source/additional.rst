@@ -2,7 +2,7 @@
 Advanced Topics
 ===============
 
-:Last Reviewed: 2014-12-24
+:Last Reviewed: 2015-09-08
 
 This section covers a variety of packaging concepts and topics that don't fit
 neatly into the documentation of any particular :ref:`project <projects>` or in
