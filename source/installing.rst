@@ -30,25 +30,27 @@ Requirements for Installing Packages
 This section describes the steps to follow before installing other Python
 packages.
 
-1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`: [3]_
+1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`:
 
-   If you have Python 2.7.9 and later (in the Python 2 series), or Python 3.4
-   and later (in the Python 3 series), it may already have the ``pip`` command
-   available by default (and setuptools will be installed as well), or it may at
-   least contain a working `ensurepip
-   <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
-   setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.  Then
-   install :ref:`wheel`: ``pip install wheel``
+   If you have Python >=2.7.9 or Python>=3.4:
+
+     You may already have the ``pip`` command available by default (and
+     setuptools will be installed as well), or you may at least contain a
+     working `ensurepip
+     <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
+     setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.
+
+     Since :ref:`wheel` won't be installed, you'll also need to run: ``pip
+     install wheel``
 
    Otherwise:
 
    * Securely Download `get-pip.py
      <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
 
-   * Run ``python get-pip.py``.  This will install or upgrade pip.
+   * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
      Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
-     not installed already. To upgrade an existing setuptools and wheel, run
-     ``pip install -U setuptools wheel`` [2]_
+     not installed already.
 
      .. warning::
 
@@ -69,7 +71,7 @@ packages.
     virtualenv <DIR>
     source <DIR>/bin/activate
 
-   Using `pyvenv`_: [4]_
+   Using `pyvenv`_: [3]_
 
    ::
 
@@ -180,7 +182,7 @@ To install greater than or equal to one version and less than another:
 
 To install a version that's `"compatible"
 <https://www.python.org/dev/peps/pep-0440/#compatible-release>`_ with a certain
-version: [5]_
+version: [4]_
 
 ::
 
@@ -369,18 +371,12 @@ Install `setuptools extras`_.
        installs the default behavior
        <https://github.com/pypa/pip/issues/1668>`_.
 
-.. [3] On Linux and OSX, pip and setuptools will usually be available for the system
-       python from a system package manager (e.g. `yum` or `apt-get` for linux,
-       or `homebrew` for OSX). Unfortunately, there is often delay in getting
-       the latest version this way, so in most cases, you'll want to use these
-       instructions.
-
-.. [4] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
+.. [3] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
 
-.. [5] The compatible release specifier was accepted in :ref:`PEP440
+.. [4] The compatible release specifier was accepted in :ref:`PEP440
        <pypa:PEP440s>` and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
 
