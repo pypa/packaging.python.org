@@ -28,16 +28,7 @@ Requirements for Packaging and Distributing
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
-2. Install "wheel" [1]_:
-
-   ::
-
-    pip install wheel
-
-   You'll need this to package your project into :term:`wheels <Wheel>` (see
-   :ref:`below <Packaging Your Project>`).
-
-3. Install "twine" [1]_:
+2. Install "twine" [1]_:
 
    ::
 
@@ -413,6 +404,8 @@ Package>`.
 For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+
+.. _`Choosing a versioning scheme`:
 
 Choosing a versioning scheme
 ----------------------------

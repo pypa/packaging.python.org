@@ -2,8 +2,8 @@
 Installing Packages
 ===================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-12-24
+:Page Status: Complete
+:Last Reviewed: 2015-09-09
 
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
@@ -30,22 +30,35 @@ Requirements for Installing Packages
 This section describes the steps to follow before installing other Python
 packages.
 
-1. Install :ref:`pip` and :ref:`setuptools`: [3]_
+1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`:
 
-   If you have a :ref:`PEP453 <pypa:PEP453s>`-compliant Python 3.4, it may
-   already have the ``pip`` command available by default (and setuptools will be
-   installed as well), or it may at least contain a working `ensurepip
-   <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
-   setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.
+   If you have Python 2 >=2.7.9 or Python 3 >=3.4:
+
+     You may already have the ``pip`` command available by default (and
+     setuptools will be installed as well), or you may at least contain a
+     working `ensurepip
+     <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
+     setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.
+
+     Since :ref:`wheel` won't be installed, you'll also need to run: ``pip
+     install wheel``
 
    Otherwise:
 
    * Securely Download `get-pip.py
      <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
 
-   * Run ``python get-pip.py``.  This will install or upgrade pip.
-     Additionally, it will install setuptools if it's not installed already. To
-     upgrade an existing setuptools, run ``pip install -U setuptools`` [2]_
+   * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
+     Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
+     not installed already.
+
+     .. warning::
+
+        Be cautious if you're using a Python install that's managed by your
+        operating system or another package manager. get-pip.py does not
+        coordinate with those tools, and may leave your system in an
+        inconsistent state.
+
 
 2. Optionally, Create a virtual environment (See :ref:`section below <Creating
    and using Virtual Environments>` for details):
@@ -58,7 +71,7 @@ packages.
     virtualenv <DIR>
     source <DIR>/bin/activate
 
-   Using `pyvenv`_: [4]_
+   Using `pyvenv`_: [3]_
 
    ::
 
@@ -169,7 +182,7 @@ To install greater than or equal to one version and less than another:
 
 To install a version that's `"compatible"
 <https://www.python.org/dev/peps/pep-0440/#compatible-release>`_ with a certain
-version: [5]_
+version: [4]_
 
 ::
 
@@ -177,6 +190,23 @@ version: [5]_
 
 In this case, this means to install any version "==1.4.*" version that's also
 ">=1.4.2".
+
+
+Source Distributions vs Wheels
+==============================
+
+:ref:`pip` can install from either :term:`Source Distributions (sdist) <Source
+Distribution (or "sdist")>` or :term:`Wheels <Wheel>`, but if both are present
+on PyPI, pip will prefer a compatible :term:`wheel <Wheel>`.
+
+:term:`Wheels <Wheel>` are a pre-built :term:`distribution <Distribution
+Package>` format that provides faster installation compared to :term:`Source
+Distributions (sdist) <Source Distribution (or "sdist")>`, especially when a
+project contains compiled extensions.
+
+If :ref:`pip` does not find a wheel to install, it will locally build a wheel
+and cache it for future installs, instead of rebuilding the source distribution
+in the future.
 
 
 Upgrading packages
@@ -188,37 +218,6 @@ Upgrade an already installed `SomeProject` to the latest from PyPI.
 
  pip install --upgrade SomeProject
 
-
-Installing Cached Wheels
-========================
-
-:term:`Wheel` is a pre-built :term:`distribution <Distribution Package>` format that
-provides faster installation compared to :term:`Source Distributions (sdist)
-<Source Distribution (or "sdist")>`, especially when a project contains compiled
-extensions.
-
-As of v1.5, :ref:`pip` prefers :term:`wheels <Wheel>` over :term:`sdists <Source
-Distribution (or "sdist")>` when searching indexes.
-
-Although wheels are `becoming more common <http://pythonwheels.com>`_ on
-:term:`PyPI <Python Package Index (PyPI)>`, if you want all of your dependencies
-converted to wheel, do the following (assuming you're using a :ref:`Requirements
-File <pip:Requirements Files>`):
-
-::
-
- pip wheel --wheel-dir=/local/wheels -r requirements.txt
-
-And then to install those requirements just using your local directory of wheels
-(and not from PyPI):
-
-::
-
- pip install --no-index --find-links=/local/wheels -r requirements.txt
-
-
-:term:`Wheel` is intended to replace :term:`Eggs <Egg>`.  For a detailed
-comparison, see :ref:`Wheel vs Egg`.
 
 
 Installing to the User Site
@@ -358,18 +357,12 @@ Install `setuptools extras`_.
        installs the default behavior
        <https://github.com/pypa/pip/issues/1668>`_.
 
-.. [3] On Linux and OSX, pip and setuptools will usually be available for the system
-       python from a system package manager (e.g. `yum` or `apt-get` for linux,
-       or `homebrew` for OSX). Unfortunately, there is often delay in getting
-       the latest version this way, so in most cases, you'll want to use these
-       instructions.
-
-.. [4] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
+.. [3] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
 
-.. [5] The compatible release specifier was accepted in :ref:`PEP440
+.. [4] The compatible release specifier was accepted in :ref:`PEP440
        <pypa:PEP440s>` and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
 
