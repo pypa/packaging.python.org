@@ -14,7 +14,8 @@ compilation, which can be costly in testing and production workflows.
 The :term:`Egg` format was introduced by :ref:`setuptools` in 2004, whereas the
 :term:`Wheel` format was introduced by :ref:`PEP427 <pypa:PEP427s>` in 2012.
 
-:term:`Wheel` is currently considered the standard for built and binary packaging for Python.
+:term:`Wheel` is currently considered the standard for :term:`built <Built
+Distribution>` and :term:`binary <Binary Distribution>` packaging for Python.
 
 Here's a breakdown of the important differences between :term:`Wheel` and :term:`Egg`.
 
