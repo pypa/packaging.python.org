@@ -32,7 +32,7 @@ packages.
 
 1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`:
 
-   If you have Python >=2.7.9 or Python>=3.4:
+   If you have Python 2 >=2.7.9 or Python 3 >=3.4:
 
      You may already have the ``pip`` command available by default (and
      setuptools will be installed as well), or you may at least contain a
