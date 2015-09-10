@@ -5,7 +5,19 @@ Wheel vs Egg
 ============
 
 :Page Status: Complete
-:Last Reviewed: 2015-09-08
+:Last Reviewed: 2015-09-10
+
+:term:`Wheel` and :term:`Egg` are both packaging formats that aim to support the
+use case of needing an install artifact that doesn't require building or
+compilation, which can be costly in testing and production workflows.
+
+The :term:`Egg` format was introduced by :ref:`setuptools` in 2004, whereas the
+:term:`Wheel` format was introduced by :ref:`PEP427 <pypa:PEP427s>` in 2012.
+
+:term:`Wheel` is currently considered the standard for built and binary packaging for Python.
+
+Here's a breakdown of the important differences between :term:`Wheel` and :term:`Egg`.
+
 
 * :term:`Wheel` has an :ref:`official PEP <pypa:PEP427s>`. :term:`Egg` did not.
 
