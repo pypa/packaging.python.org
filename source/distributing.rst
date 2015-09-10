@@ -729,10 +729,12 @@ Register your project
 Next, you need to register your project.  There are two ways to do this:
 
 1. **(Recommended):** Use `the form on the PyPI website
-   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_ and upload the
-   ``yourproject.egg-info/PKG-INFO`` file.  Although the form is
-   cumbersome, it's a secure option over using #2 below, which passes your
-   credentials over plaintext.
+   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
+   ``PKG-INFO`` info located in your local project tree at
+   ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
+   then run ``python setup.py egg_info`` to have it generated. Using the form is
+   a secure option over using #2 below, which passes your credentials over
+   plaintext.
 2. Run ``python setup.py register``.  If you don't have a user account already,
    a wizard will create one for you.
 
