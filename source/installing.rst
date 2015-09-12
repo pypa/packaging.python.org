@@ -32,16 +32,26 @@ packages.
 
 1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`:
 
-   If you have Python 2 >=2.7.9 or Python 3 >=3.4:
+   If you have Python 2 >=2.7.9 or Python 3 >=3.4 installed from `python.org
+   <https://www.python.org>`_:
 
-     You may already have the ``pip`` command available by default (and
-     setuptools will be installed as well), or you may at least contain a
-     working `ensurepip
-     <https://docs.python.org/3.4/library/ensurepip.html>`_. To install pip (and
-     setuptools) using ensurepip, run: ``python -m ensurepip --upgrade``.
+     You will already have :ref:`pip` and :ref:`setuptools`, but will need to
+     upgrade to the latest version:
 
-     Since :ref:`wheel` won't be installed, you'll also need to run: ``pip
-     install wheel``
+     On Linux or OS X:
+
+     ::
+
+       pip install -U pip
+
+
+     On Windows:
+
+     ::
+
+       python -m pip install -U pip
+
+     You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
 
    Otherwise:
 
