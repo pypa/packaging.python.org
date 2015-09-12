@@ -113,8 +113,8 @@ Glossary
         Note that there is a strong convention to name a project after the name
         of the package that is imported to run that project. However, this
         doesn't have to hold true. It's possible to install a distribution from
-        the project 'spam' and have it provide a package importable only as
-        'eggs'.
+        the project 'foo' and have it provide a package importable only as
+        'bar'.
 
 
     Pure Module
