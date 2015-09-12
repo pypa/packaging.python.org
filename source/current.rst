@@ -17,7 +17,7 @@ Installation Tool Recommendations
 * Use :ref:`pip` to install Python :term:`packages <Distribution Package>` from
   :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ Depending how :ref:`pip`
   is installed, you may need to also install :ref:`wheel` to get the benefit
-  of :ref:`wheel caching <pip:Wheel cache>`. [3]_
+  of wheel caching. [3]_
 
 * Use :ref:`virtualenv`, or `pyvenv`_ to isolate application specific
   dependencies from a shared Python installation. [4]_
