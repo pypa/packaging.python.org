@@ -32,30 +32,20 @@ versions.  When this is known, we will make note of it below.
 Fedora
 ~~~~~~
 
-* < Fedora 22:
+* Fedora 21:
 
-  * ``sudo yum install python-pip`` (use "python3-pip" for Python 3)
-  * setuptools is already installed
-  * wheel is not available
+  * Python 2: ``sudo yum install python-pip python-wheel``
+  * Python 3: ``sudo yum install python3 python3-wheel``
 
-* >= Fedora 22:
+* Fedora 22:
 
-  pip and setuptools are already installed. wheel is not available.
+  * Python 2: ``sudo dnf install python-pip python-wheel``
+  * Python 3: ``sudo dnf install python3 python3-wheel``
 
-To get newer versions of pip (and also setuptools and wheel), you can enable the
+
+To get newer versions of pip, setuptools, and wheel, you can enable the
 `PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using the
-`Copr Repo instructions <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__,
-and run the following:
-
-* < Fedora 23:
-
-  ::
-
-    sudo yum install python-pip python-setuptools python-wheel
-
-  Replace "python" with "python3" for Python 3.
-
-* >= Fedora 23: same as above, but use "dnf", instead of "yum"
+`Copr Repo instructions <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__.
 
 
 CentOS/RHEL
