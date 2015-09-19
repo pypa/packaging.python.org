@@ -11,6 +11,7 @@ either of our guides on :doc:`installing` or :doc:`distributing`.
 .. toctree::
    :maxdepth: 1
 
+   install_requirements_linux
    extensions
    multiple_python_versions
    patching
