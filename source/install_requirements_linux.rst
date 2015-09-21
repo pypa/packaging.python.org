@@ -89,7 +89,7 @@ upgrade :ref:`setuptools`:
 
 Also, note that if you're using the `IUS repository
 <https://iuscommunity.org/pages/Repos.html>`_ to install alternative Python
-versions, IUS also maintains corresponding versions versions of pip, setuptools,
+versions, IUS also maintains corresponding versions of pip, setuptools,
 and wheel that are usually up to date.
 
 
