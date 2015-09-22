@@ -64,8 +64,7 @@ upgrade :ref:`setuptools`:
      http://developers.redhat.com/products/softwarecollections/overview/
    * For CentOS, see here: https://www.softwarecollections.org/en/
 
-   Although this has promise to be the preferred method in the future, as it is,
-   you can't count on finding a collection that has recent versions.
+   Be aware that collections may not contain the most recent versions.
 
 2. You can install pip from the `EPEL repository
    <https://fedoraproject.org/wiki/EPEL>`_. Enable EPEL using `these
