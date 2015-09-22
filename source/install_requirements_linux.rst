@@ -66,7 +66,7 @@ upgrade :ref:`setuptools`:
 
    Be aware that collections may not contain the most recent versions.
 
-2. You can install pip from the `EPEL repository
+2. You can install a fairly recent version of pip from the `EPEL repository
    <https://fedoraproject.org/wiki/EPEL>`_. Enable EPEL using `these
    instructions
    <https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F>`__,
@@ -74,14 +74,16 @@ upgrade :ref:`setuptools`:
 
      sudo yum install python-pip
 
-   Although EPEL tends to maintain a pretty recent version of :ref:`pip`, it
-   does not maintain :ref:`setuptools` or :ref:`wheel`, so you'd have to settle
-   for the distro version of setuptools, and use pip itself to install
-   wheel.
+   EPEL 7 (but not EPEL 6) also maintains a recent version of wheel and is
+   installed like so::
+
+     sudo yum install python-wheel
+
 
 3. You can enable the `PyPA Copr Repo
-   <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using `these instructions
-   <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__ [1]_, and run::
+   <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using `Copr Repo
+   instructions <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__ [1]_,
+   and run::
 
      sudo yum install python-pip python-setuptools python-wheel
 
