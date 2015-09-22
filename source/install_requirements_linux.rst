@@ -43,9 +43,10 @@ Fedora
   * Python 3: ``sudo dnf install python3 python3-wheel``
 
 
-To get newer versions of pip, setuptools, and wheel, you can enable the
-`PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using the
-`Copr Repo instructions <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__.
+To get newer versions of pip, setuptools, and wheel for Python 2, you can enable
+the `PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using
+the `Copr Repo instructions
+<https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__.
 
 
 CentOS/RHEL
