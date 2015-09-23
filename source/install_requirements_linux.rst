@@ -34,19 +34,30 @@ Fedora
 
 * Fedora 21:
 
-  * Python 2: ``sudo yum install python-pip python-wheel``
+  * Python 2::
+
+      sudo yum upgrade python-setuptools
+      sudo yum install python-pip python-wheel
+
   * Python 3: ``sudo yum install python3 python3-wheel``
 
 * Fedora 22:
 
-  * Python 2: ``sudo dnf install python-pip python-wheel``
+  * Python 2::
+
+      sudo dnf upgrade python-setuptools
+      sudo dnf install python-pip python-wheel
+
   * Python 3: ``sudo dnf install python3 python3-wheel``
 
 
 To get newer versions of pip, setuptools, and wheel for Python 2, you can enable
 the `PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using
 the `Copr Repo instructions
-<https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__.
+<https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__, and then run::
+
+  sudo yum|dnf upgrade python-setuptools
+  sudo yum|dnf install python-pip python-wheel
 
 
 CentOS/RHEL
