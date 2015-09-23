@@ -30,48 +30,55 @@ Requirements for Installing Packages
 This section describes the steps to follow before installing other Python
 packages.
 
-1. Install :ref:`pip`, :ref:`setuptools`, and :ref:`wheel`:
+Install pip, setuptools, and wheel
+----------------------------------
 
-   If you have Python 2 >=2.7.9 or Python 3 >=3.4 installed from `python.org
-   <https://www.python.org>`_:
+* If you have Python 2 >=2.7.9 or Python 3 >=3.4 installed from `python.org
+  <https://www.python.org>`_, you will already have :ref:`pip` and
+  :ref:`setuptools`, but will need to upgrade to the latest version:
 
-     You will already have :ref:`pip` and :ref:`setuptools`, but will need to
-     upgrade to the latest version:
+  On Linux or OS X:
 
-     On Linux or OS X:
+  ::
 
-     ::
-
-       pip install -U pip
-
-
-     On Windows:
-
-     ::
-
-       python -m pip install -U pip
-
-     You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
-
-   Otherwise:
-
-   * Securely Download `get-pip.py
-     <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
-
-   * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
-     Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
-     not installed already.
-
-     .. warning::
-
-        Be cautious if you're using a Python install that's managed by your
-        operating system or another package manager. get-pip.py does not
-        coordinate with those tools, and may leave your system in an
-        inconsistent state.
+    pip install -U pip setuptools
 
 
-2. Optionally, Create a virtual environment (See :ref:`section below <Creating
-   and using Virtual Environments>` for details):
+  On Windows:
+
+  ::
+
+    python -m pip install -U pip setuptools
+
+  You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
+
+* If you're using a Python install on Linux that's managed by the system package
+  manager (e.g "yum", "apt-get" etc...), and you want to use the system package
+  manager to install or upgrade pip, then see :ref:`Installing
+  pip/setuptools/wheel with Linux Package Managers`
+
+* Otherwise:
+
+ * Securely Download `get-pip.py
+   <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
+
+ * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
+   Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
+   not installed already.
+
+   .. warning::
+
+      Be cautious if you're using a Python install that's managed by your
+      operating system or another package manager. get-pip.py does not
+      coordinate with those tools, and may leave your system in an
+      inconsistent state.
+
+
+Optionally, Create a virtual environment
+----------------------------------------
+
+See :ref:`section below <Creating and using Virtual Environments>` for details,
+but here's the basic commands:
 
    Using :ref:`virtualenv`:
 
