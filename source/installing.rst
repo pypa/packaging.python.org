@@ -41,14 +41,14 @@ Install pip, setuptools, and wheel
 
   ::
 
-    pip install -U pip
+    pip install -U pip setuptools
 
 
   On Windows:
 
   ::
 
-    python -m pip install -U pip
+    python -m pip install -U pip setuptools
 
   You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
 
