@@ -109,7 +109,7 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
    Be aware that collections may not contain the most recent versions.
 
 2. Enable the `IUS repository <https://iuscommunity.org/pages/Repos.html>`_ and
-   install one of the `parrallel-installable
+   install one of the `parallel-installable
    <https://iuscommunity.org/pages/TheSafeRepoInitiative.html#parallel-installable-packages>`_
    Pythons, along with pip, setuptools, and wheel, which are kept fairly up to
    date.
