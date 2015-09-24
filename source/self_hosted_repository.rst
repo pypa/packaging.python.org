@@ -13,8 +13,8 @@ software package like `devpi`_ or you can use simply create the proper
 directory structure and use any web server that can serve static files and
 generate an autoindex.
 
-In either case, since you'll be relying on a repository that is likely not in
-you user's default repositories, you should instruct them in your project's
+In either case, since you'll be hosting a repository that is likely not in
+your user's default repositories, you should instruct them in your project's
 description to configure their installer appropriately. For example with pip::
 
     pip install --extra-index-url https://python.example.com/ foobar
