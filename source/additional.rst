@@ -24,3 +24,4 @@ either of our guides on :doc:`installing` or :doc:`distributing`.
    deployment
    multi_version_install
    appveyor
+   self_hosted_repository
