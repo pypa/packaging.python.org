@@ -17,7 +17,7 @@ In either case, since you'll be relying on a repository that is likely not in
 you user's default repositories, you should instruct them in your project's
 description to configure their installer appropriately. For example with pip::
 
-    pip install --extra-index-url https://python.example.com/simple/ foobar
+    pip install --extra-index-url https://python.example.com/ foobar
 
 In addition, it is **highly** recommended that you serve your repository with
 valid HTTPS. At this time, the security of your user's installations depends on
