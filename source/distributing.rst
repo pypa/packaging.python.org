@@ -544,9 +544,13 @@ Or you can achieve the same result using :ref:`pip`:
  pip install -e .
 
 
-Note that both commands will install any dependencies declared with
-"install_requires" and also any scripts declared with "console_scripts".
+Note that both commands will install any dependencies declared with "install_requires"
+and also any scripts declared with "console_scripts".  If you do not want dependencies
+installed, you can pass the ``--no-deps`` flag to setup.py:
 
+::
+
+ python setup.py develop --no-deps
 
 For more information, see the `Development Mode
 <http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
