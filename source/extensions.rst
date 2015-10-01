@@ -239,7 +239,8 @@ To set up a build environment for binary extensions, the steps are as follows:
     For Python 2.7
 
         1. Install "Visual C++ Compiler Package for Python 2.7",
-           which is available from Microsoft's website.
+           which is available from
+           `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=44266>`__.
         2. Use (a recent version of) setuptools in your setup.py (pip will
            do this for you, in any case).
         3. Done.
@@ -247,7 +248,8 @@ To set up a build environment for binary extensions, the steps are as follows:
     For Python 3.4
 
         1. Install "Windows SDK for Windows 7 and .NET Framework 4" (v7.1),
-           which is available from Microsoft's website.
+           which is available from
+           `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=8279>`__.
         2. Work from an SDK command prompt (with the environment variables
            set, and the SDK on PATH).
         3. Set DISTUTILS_USE_SDK=1
@@ -255,8 +257,9 @@ To set up a build environment for binary extensions, the steps are as follows:
 
     For Python 3.5
 
-        1. Install Visual Studio 2015 Community Edition (or any later
-           version, when these are released).
+        1. Install `Visual Studio 2015 Community Edition 
+           <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
+           (or any later version, when these are released).
         2. Done.
 
 Note that from Python 3.5 onwards, Visual Studio works in a backward
