@@ -526,32 +526,45 @@ For example::
 Working in "Development Mode"
 =============================
 
-Although not required, it's common to locally install your project in "develop"
-or "editable" mode while you're working on it.  This allows the project to be
+Although not required, it's common to locally install your project in "editable"
+or "develop" mode while you're working on it.  This allows your project to be
 both installed and editable in project form.
 
-Using "setup.py", run the following:
-
-::
-
- python setup.py develop
-
-
-Or you can achieve the same result using :ref:`pip`:
+Assuming you're in the root of your project directory, then run:
 
 ::
 
  pip install -e .
 
 
-Note that both commands will install any dependencies declared with
-"install_requires" and also any scripts declared with "console_scripts".
+Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
+to the current working directory, so together, it means to install the current
+directory (i.e. your project) in editable mode.  This will also install any
+dependencies declared with "install_requires" and any scripts declared with
+"console_scripts".  Dependencies will not be installed in editable mode.
+
+It's fairly common to also want to install some of your dependencies in editable
+mode as well. For example, supposing your project requires "foo" and "bar", but
+you want "bar" installed from vcs in editable mode, then you could construct a
+requirements file like so::
+
+  -e .
+  -e git+https://somerepo/bar.git#egg=bar
+
+The first line says to install your project and any dependencies. The second
+line overrides the "bar" dependency, such that it's fulfilled from vcs, not
+PyPI.  For more on requirements files, see the :ref:`Requirements File
+<pip:Requirements Files>` section in the pip docs.  For more on vcs installs,
+see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
+
+Lastly, if you don't want to install any dependencies at all, you can run::
+
+   pip install -e . --no-deps
 
 
 For more information, see the `Development Mode
 <http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
 of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
-
 
 .. _`Packaging Your Project`:
 
