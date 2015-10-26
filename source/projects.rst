@@ -235,7 +235,7 @@ many of their combined features in terms of package management, virtual environm
 management and deployment of binary extensions.
 
 Conda does not install packages from PyPI and can install only from
-the official Continuum repositories, or binstar.org (a place for
+the official Continuum repositories, or anaconda.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
 However, note that pip can be installed into, and work side-by-side with conda
 for managing distributions from PyPI.
