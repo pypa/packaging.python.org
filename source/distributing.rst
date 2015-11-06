@@ -111,7 +111,7 @@ section from the :ref:`distutils` documentation.
 <your package>
 ~~~~~~~~~~~~~~
 
-Although it's not required, the most common practice to is to include your
+Although it's not required, the most common practice is to include your
 python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
