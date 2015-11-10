@@ -119,6 +119,19 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
      sudo yum install python34u python34u-wheel
 
 
+openSUSE
+~~~~~~~~
+
+* Python 2::
+
+    sudo zypper install python-pip python-setuptools python-wheel
+
+
+* Python 3::
+ 
+    sudo zypper install python3-pip python3-setuptools python3-wheel
+
+
 Debian/Ubuntu
 ~~~~~~~~~~~~~
 
