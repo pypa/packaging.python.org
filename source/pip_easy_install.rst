@@ -38,7 +38,7 @@ Here's a breakdown of the important differences between pip and easy_install now
 |List Installed Packages       |Yes (``pip list`` and ``pip       |No                             |
 |                              |freeze``)                         |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|:ref:`PEP438 <pypa:PEP438s>`  |Yes                               |No                             |
+|:pep:`438`                    |Yes                               |No                             |
 |Support                       |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |Installation format           |'Flat' packages with `egg-info`   | Encapsulated Egg format       |

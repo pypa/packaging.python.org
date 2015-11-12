@@ -172,8 +172,8 @@ The most common usage of :ref:`pip` is to install from the :term:`Python Package
 Index <Python Package Index (PyPI)>` using a :term:`requirement specifier
 <Requirement Specifier>`. Generally speaking, a requirement specifier is
 composed of a project name followed by an optional :term:`version specifier
-<Version Specifier>`.  :ref:`PEP440 <pypa:PEP440s>` contains a `full
-specification <https://www.python.org/dev/peps/pep-0440/#version-specifiers>`_
+<Version Specifier>`.  :pep:`440` contains a :pep:`full
+specification <440#version-specifiers>`
 of the currently supported specifiers. Below are some examples.
 
 To install the latest version of "SomeProject":
@@ -197,9 +197,8 @@ To install greater than or equal to one version and less than another:
  pip install 'SomeProject>=1,<2'
 
 
-To install a version that's `"compatible"
-<https://www.python.org/dev/peps/pep-0440/#compatible-release>`_ with a certain
-version: [4]_
+To install a version that's :pep:`"compatible" <440#compatible-release>`
+with a certain version: [4]_
 
 ::
 
@@ -379,8 +378,8 @@ Install `setuptools extras`_.
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
 
-.. [4] The compatible release specifier was accepted in :ref:`PEP440
-       <pypa:PEP440s>` and support was released in :ref:`setuptools` v8.0 and
+.. [4] The compatible release specifier was accepted in :pep:`440`
+       and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
 
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html
