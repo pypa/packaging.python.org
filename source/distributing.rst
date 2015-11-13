@@ -146,8 +146,8 @@ name
 
 This is the name of your project, and will determine how your project is listed
 on :term:`PyPI <Python Package Index (PyPI)>`. For details on permitted
-characters, see the `name <http://legacy.python.org/dev/peps/pep-0426/#name>`_
-section from :ref:`PEP426 <pypa:PEP426s>`.
+characters, see the :pep:`name <426#name>`
+section from :pep:`426`.
 
 
 version
@@ -414,9 +414,9 @@ Standards compliance for interoperability
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Different Python projects may use different versioning schemes based on the needs of that
-particular project, but all of them are required to comply with the flexible `public version
-scheme <https://www.python.org/dev/peps/pep-0440/#public-version-identifiers>`_ specified
-in :ref:`PEP440 <pypa:PEP440s>` in order to be supported in tools and libraries like ``pip``
+particular project, but all of them are required to comply with the flexible :pep:`public version
+scheme <440#public-version-identifiers>` specified
+in :pep:`440` in order to be supported in tools and libraries like ``pip``
 and ``setuptools``.
 
 Here are some examples of compliant version numbers::
@@ -431,8 +431,8 @@ Here are some examples of compliant version numbers::
   23          # Serial release
 
 To further accommodate historical variations in approaches to version numbering,
-:ref:`PEP440 <pypa:PEP440s>` also defines a comprehensive technique for `version
-normalisation <https://www.python.org/dev/peps/pep-0440/#normalization>`_ that maps
+:pep:`440` also defines a comprehensive technique for :pep:`version
+normalisation <440#normalization>` that maps
 variant spellings of different version numbers to a standardised canonical form.
 
 Scheme choices
@@ -452,8 +452,8 @@ where the project author increments:
 2. MINOR version when they add functionality in a backwards-compatible manner, and
 3. MAINTENANCE version when they make backwards-compatible bug fixes.
 
-Adopting this approach as a project author allows users to make use of `"compatible release"
-<https://www.python.org/dev/peps/pep-0440/#compatible-release>`_ specifiers, where
+Adopting this approach as a project author allows users to make use of :pep:`"compatible release"
+<440#compatible-release>` specifiers, where
 ``name ~= X.Y`` requires at least release X.Y, but also allows any later release with
 a matching MAJOR version.
 
@@ -511,8 +511,8 @@ Local version identifiers
 
 Public version identifiers are designed to support distribution via
 :term:`PyPI <Python Package Index (PyPI)>`. Python's software distribution tools also support
-the notion of a `local version identifier
-<https://www.python.org/dev/peps/pep-0440/#local-version-identifiers>`_, which can be used to
+the notion of a :pep:`local version identifier
+<440#local-version-identifiers>`, which can be used to
 identify local development builds not intended for publication, or modified variants of a release
 maintained by a redistributor.
 
@@ -674,7 +674,7 @@ To build the wheel:
 `bdist_wheel` will detect that the code is pure Python, and build a wheel that's
 named such that it's usable on any Python installation with the same major
 version (Python 2 or Python 3) as the version you used to build the wheel.  For
-details on the naming of wheel files, see :ref:`PEP425 <pypa:PEP425s>`
+details on the naming of wheel files, see :pep:`425`
 
 If your code supports both Python 2 and 3, but with different code (e.g., you
 use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
@@ -700,13 +700,13 @@ To build the wheel:
 
 `bdist_wheel` will detect that the code is not pure Python, and build a wheel
 that's named such that it's only usable on the platform that it was built
-on. For details on the naming of wheel files, see :ref:`PEP425 <pypa:PEP425s>`
+on. For details on the naming of wheel files, see :pep:`425`
 
 .. note::
 
   :term:`PyPI <Python Package Index (PyPI)>` currently only allows uploads of
   platform wheels for Windows and OS X, NOT linux.  Currently, the wheel tag
-  specification (:ref:`PEP425 <pypa:PEP425s>`) does not handle the variation that can
+  specification (:pep:`425`) does not handle the variation that can
   exist across linux distros.
 
 
@@ -817,6 +817,6 @@ There are two options:
 
 .. [2] Specifically, the "console_script" approach generates ``.exe`` files on
        Windows, which are necessary because the OS special-cases ``.exe`` files.
-       Script-execution features like ``PATHEXT`` and the `Python Launcher for
-       Windows <http://legacy.python.org/dev/peps/pep-0397/>`_ allow scripts to
+       Script-execution features like ``PATHEXT`` and the :pep:`Python Launcher for
+       Windows <397>` allow scripts to
        be used in many cases, but not all.

@@ -50,11 +50,10 @@ Packaging Tool Recommendations
        (which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs
        easy_install`.
 
-.. [2] The acceptance of :ref:`PEP453 <pypa:PEP453s>` means that :ref:`pip`
+.. [2] The acceptance of :pep:`453` means that :ref:`pip`
        will be available by default in most installations of Python 3.4 or
-       later.  See the `rationale section
-       <http://www.python.org/dev/peps/pep-0453/#rationale>`_ from :ref:`PEP453
-       <pypa:PEP453s>` as for why pip was chosen.
+       later.  See the :pep:`rationale section <453#rationale>` from :pep:`453`
+       as for why pip was chosen.
 
 .. [3] :ref:`get-pip.py <pip:get-pip>` and :ref:`virtualenv` install
        :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`pyvenv <venv>` do not
@@ -87,8 +86,8 @@ Packaging Tool Recommendations
 .. [7] :term:`PyPI <Python Package Index (PyPI)>` currently only allows
        uploading Windows and Mac OS X wheels, and they should be compatible with
        the binary installers provided for download from python.org. Enhancements
-       will have to be made to the :ref:`wheel compatibility tagging scheme
-       <pypa:PEP425s>` before linux wheels will be allowed.
+       will have to be made to the :pep:`wheel compatibility tagging scheme
+       <425>` before linux wheels will be allowed.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
 .. _pyvenv: http://docs.python.org/3.4/library/venv.html

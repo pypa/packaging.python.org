@@ -204,9 +204,9 @@ Glossary
     Version Specifier
 
        The version component of a :term:`Requirement Specifier`. For example,
-       the ">=1.3" portion of "foo>=1.3".  :ref:`PEP440 <pypa:PEP440s>` contains
-       a `full specification
-       <https://www.python.org/dev/peps/pep-0440/#version-specifiers>`_ of the
+       the ">=1.3" portion of "foo>=1.3".  :pep:`440` contains
+       a :pep:`full specification
+       <440#version-specifiers>` of the
        specifiers that Python packaging currently supports.  Support for PEP440
        was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
 
@@ -219,7 +219,7 @@ Glossary
 
     Wheel
 
-        A :term:`Built Distribution` format introduced by :ref:`pypa:PEP427s`,
+        A :term:`Built Distribution` format introduced by :pep:`427`,
         which is intended to replace the :term:`Egg` format.  Wheel is currently
         supported by :ref:`pip`.
 
