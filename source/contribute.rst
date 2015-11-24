@@ -132,7 +132,7 @@ Conventions and mechanics
 
 **Use a gender-neutral style**
   Often, you'll address the reader directly with *you*, *your* and *yours*.
-  Otherwise, user gender-neutral pronouns *they*, *their*, and *theirs* or
+  Otherwise, use gender-neutral pronouns *they*, *their*, and *theirs* or
   avoid pronouns entirely.
 
   | Wrong: A maintainer uploads the file. Then he…
