@@ -23,6 +23,7 @@ This guide is maintained on `github
    projects
    glossary
    support
+   contribute
 
 
 .. _docs.python.org: http://docs.python.org
