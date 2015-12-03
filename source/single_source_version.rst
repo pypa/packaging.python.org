@@ -41,19 +41,7 @@ number of your project:
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
     your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
-    value into a variable.
-
-    Using ``execfile``:
-
-    ::
-
-        execfile('...sample/version.py')
-        # now we have a `__version__` variable
-        # later on we use: __version__
-
-    Using ``exec``:
-
-    ::
+    value into a variable::
 
         version = {}
         with open("...sample/version.py") as fp:
