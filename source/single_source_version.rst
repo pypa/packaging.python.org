@@ -14,6 +14,9 @@ number of your project:
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
     from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
 
+        import os.path
+        import re
+
         def find_version(*file_paths):
             with open(os.path.join(os.path.dirname(__file__), *file_paths), 'rb') as f:
                 match = re.search(br"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
@@ -42,6 +45,8 @@ number of your project:
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
     your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
     value into a variable::
+
+        import os.path
 
         base_dir = os.path.dirname(__file__)
         version = {}
