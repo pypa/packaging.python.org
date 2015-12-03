@@ -43,19 +43,19 @@ number of your project:
 
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
-    your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
+    your project (e.g. ``__about__.py``), then have ``setup.py`` read and ``exec`` the
     value into a variable::
 
         import os.path
 
         base_dir = os.path.dirname(__file__)
-        version = {}
-        with open(os.path.join(base_dir, "module_name", "version.py"), 'rb') as fp:
-            exec(fp.read(), version)
+        about = {}
+        with open(os.path.join(base_dir, "module_name", "__about__.py"), 'rb') as fp:
+            exec(fp.read(), about)
 
         setup(
            ...
-           version=version['__version__']
+           version=about['__version__']
            ...
         )
 
