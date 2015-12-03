@@ -47,7 +47,12 @@ number of your project:
         version = {}
         with open(os.path.join(base_dir, "module_name", "version.py"), 'rb') as fp:
             exec(fp.read(), version)
-        # later on we use: version['__version__']
+
+        setup(
+           ...
+           version=version['__version__']
+           ...
+        )
 
     Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_.
 
