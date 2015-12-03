@@ -44,7 +44,7 @@ number of your project:
     value into a variable::
 
         version = {}
-        with open("...sample/version.py") as fp:
+        with open("...sample/version.py", 'rb') as fp:
             exec(fp.read(), version)
         # later on we use: version['__version__']
 
