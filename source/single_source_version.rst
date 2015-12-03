@@ -14,19 +14,11 @@ number of your project:
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
     from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
 
-        def read(*names, **kwargs):
-            with io.open(
-                os.path.join(os.path.dirname(__file__), *names),
-                encoding=kwargs.get("encoding", "utf8")
-            ) as fp:
-                return fp.read()
-
         def find_version(*file_paths):
-            version_file = read(*file_paths)
-            version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                                      version_file, re.M)
-            if version_match:
-                return version_match.group(1)
+            with open(os.path.join(os.path.dirname(__file__), *file_paths), 'rb') as f:
+                match = re.search(br"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
+            if match:
+                return match.group(1)
             raise RuntimeError("Unable to find version string.")
 
         setup(
