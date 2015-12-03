@@ -18,6 +18,10 @@ number of your project:
         import re
 
         def find_version(*file_paths):
+            # We read __version__ instead of importing it because that would fail if
+            # the module it's in tries to import things from dependencies that aren't
+            # installed yet when setup.py is being run.
+            # Moreover, imports can fail if sys.path isn't properly set.
             with open(os.path.join(os.path.dirname(__file__), *file_paths), 'rb') as f:
                 match = re.search(br"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
             if match:
@@ -48,6 +52,8 @@ number of your project:
 
         import os.path
 
+        # We exec the module instead of importing it because imports can fail if
+        # sys.path isn't properly set.
         base_dir = os.path.dirname(__file__)
         about = {}
         with open(os.path.join(base_dir, "module_name", "__about__.py"), 'rb') as fp:
