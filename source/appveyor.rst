@@ -58,6 +58,13 @@ In order to define how Appveyor should build your project, you need to add an
 in the file are covered in the Appveyor documentation. This guide will provide
 the details necessary to set up wheel builds.
 
+Appveyor includes by default all of the compiler toolchains needed to build
+extensions for Python. For Python 2.7, 3.5+ and 32-bit versions of 3.3 and 3.4,
+the tools work out of the box. But for 64-bit versions of Python 3.3 and 3.4,
+there is a small amount of additional configuration needed to let distutils
+know where to find the 64-bit compilers. (From 3.5 onwards, the version of
+Visual Studio used includes 64-bit compilers with no additional setup).
+
 appveyor.yml
 ------------
 
@@ -76,7 +83,7 @@ which your wheels will be created. Appveyor comes with Python 2.6, 2.7, 3.3,
 builds for all of these environments except Python 2.6. Installing for Python
 2.6 is more complex, as it does not come with pip included. We don't support
 2.6 in this document (as Windows users still using Python 2 are generally able
-to move to Python 2.7 without too much difficulty)
+to move to Python 2.7 without too much difficulty).
 
 The ``install`` section uses pip to install any additional software that the
 project may require. The only requirement for building wheels is the ``wheel``
