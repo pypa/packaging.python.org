@@ -1,12 +1,14 @@
-=================================================
-Building Binary Wheels for Windows using Appveyor
-=================================================
+=================================
+Supporting Windows using Appveyor
+=================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-09-27
+:Last Reviewed: 2015-12-03
 
 This section covers how to use the free `Appveyor`_ continuous integration
-service to build Windows-targeted binary wheels for your project.
+service to provide Windows support for your project. This includes testing
+the code on Windows, and building Windows-targeted binaries for projects
+that use C extensions.
 
 .. contents:: Contents
    :local:
@@ -15,18 +17,22 @@ service to build Windows-targeted binary wheels for your project.
 Background
 ==========
 
-Windows users typically do not have access to a C compiler, and therefore are
-reliant on projects that use C extensions distributing binary wheels on PyPI in
-order for the distribution to be installable via ``pip install dist``.
-However, it is often the case that projects which are intended to be
-cross-platform are developed on Unix, and so the project developers *also* have
-the problem of lack of access to a Windows compiler.
+Many projects are developed on Unix by default, and providing Windows support
+can be a challenge, because setting up a suitable Windows test environment is
+non-trivial, and may require buying software licenses.
 
 The Appveyor service is a continuous integration service, much like the
 better-known `Travis`_ service that is commonly used for testing by projects
 hosted on `Github`_. However, unlike Travis, the build workers on Appveyor are
 Windows hosts and have the necessary compilers installed to build Python
 extensions.
+
+Windows users typically do not have access to a C compiler, and therefore are
+reliant on projects that use C extensions distributing binary wheels on PyPI in
+order for the distribution to be installable via ``pip install <dist>``. By
+using Appveyor as a build service (even if not using it for testing) it is
+possible for projects without a dedicated Windows environment to provide
+Windows-targeted binaries.
 
 Setting Up
 ==========
@@ -65,54 +71,59 @@ The ``appveyor.yml`` file must be located in the root directory of your
 project. It is in ``YAML`` format, and consists of a number of sections.
 
 The ``environment`` section is the key to defining the Python versions for
-which your wheels will be created. Appveyor comes with Python 2.7, 3.3 and 3.4
-installed, in both 32-bit and 64-bit builds. The example file builds for all of
-these environments.
+which your wheels will be created. Appveyor comes with Python 2.6, 2.7, 3.3,
+3.4 and 3.5 installed, in both 32-bit and 64-bit builds. The example file
+builds for all of these environments except Python 2.6. Installing for Python
+2.6 is more complex, as it does not come with pip included. We don't support
+2.6 in this document (as Windows users still using Python 2 are generally able
+to move to Python 2.7 without too much difficulty)
 
-The ``install`` section installs any additional software that the project may
-require. The supplied code installs ``pip`` (if needed) and ``wheel``. Projects
-may wish to customise this code in certain circumstances (for example, to install
-additional build packages such as ``Cython``, or test tools such as ``tox``).
+The ``install`` section uses pip to install any additional software that the
+project may require. The only requirement for building wheels is the ``wheel``
+project, but projects may wish to customise this code in certain circumstances
+(for example, to install additional build packages such as ``Cython``, or test
+tools such as ``tox``).
 
 The ``build`` section simply switches off builds - there is no build step needed
 for Python, unlike languages like ``C#``.
 
-The ``test_script`` section is technically not needed. The supplied file runs
-your test suite using ``setup.py test``. You may wish to use another test tool
-such as ``tox`` or ``py.test``. Or you could skip the test (but why would you,
-unless your tests are expected to fail on Windows?) by replacing the script with
-a simple ``echo Skipped`` command.
+The main sections that will need to be tailored to your project are ``test_script``
+and ``after_test``.
 
-The ``after_test`` command is where the wheels are built. Assuming your project
-uses the recommended tools (specifically, ``setuptools``) then the
-``setup.py bdist_wheel`` command will build your wheels.
+The ``test_script`` section is where you will run your project's tests. The
+supplied file runs your test suite using ``setup.py test``. If you are only
+interested in building wheels, and not in running your tests on Windows, you
+can replace this section with a dummy command such as ``echo Skipped Tests``.
+You may wish to use another test tool, such as ``nose`` or ``py.test``. Or you
+may wish to use a test driver like ``tox`` - however if you are using ``tox``
+there are some additional configuration changes you will need to consider,
+which are described below.
+
+The ``after_test`` runs once your tests have completed, and so is where the
+wheels should be built. Assuming your project uses the recommended tools
+(specifically, ``setuptools``) then the ``setup.py bdist_wheel`` command
+will build your wheels.
 
 Note that wheels will only be built if your tests succeed. If you expect your
 tests to fail on Windows, you can skip them as described above.
 
 
-Support scripts
----------------
+Support script
+--------------
 
-The ``appveyor.yml`` file relies on two support scripts. The code assumes that
-these will be placed in a subdirectory named ``appveyor`` at the root of your
-project.
+The ``appveyor.yml`` file relies on a single support script, which sets up the
+environment to use the SDK compiler for 64-bit builds on Python 3.3 and 3.4.
+For projects which do not need a compiler, or which don't support 3.3 or 3.4 on
+64-bit Windows, only the ``appveyor.yml`` file is needed.
 
-`appveyor/run_with_compiler.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/run_with_compiler.cmd>`__
+`build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/build.cmd>`__
 is a Windows batch script that runs a single command in an environment with the
-appropriate compiler for the selected Python version.
+appropriate compiler for the selected Python version. All you need to do is to
+set the single environment variable ``DISTUTILS_USE_SDK`` to a value of ``1``
+and the script does the rest. It sets up the SDK needed for 64-bit builds of
+Python 3.3 or 3.4, so don't set the environment variable for any other builds.
 
-`appveyor/install.ps1 <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/install.ps1>`__ is a Powershell
-script that downloads and installs any missing Python versions, installs
-``pip`` into the Python ``site-packages`` and downloads and installs the latest
-``wheel`` distribution. Steps that are not needed are omitted, so in practice,
-the Python install will never be run (it is present for advanced users who want
-to install additional versions of Python not supplied by Appveyor) and the
-``pip`` install will be omitted for Python 3.4, where pip is installed as
-standard.
-
-You can simply download these two files and include them in your project
-unchanged.
+You can simply download the batch file and include it in your project unchanged.
 
 
 Access to the built wheels
@@ -127,6 +138,57 @@ wheels and upload them to PyPI as part of your release process.
 
 Additional Notes
 ================
+
+Testing with tox
+----------------
+
+Many projects use the `Tox`_ tool to run their tests. It ensures that tests
+are run in an isolated environment using the exact files that will be distributed
+by the project.
+
+In order to use ``tox`` on Appveyor there are a couple of additional considerations
+(in actual fact, these issues are not specific to Appveyor, and may well affect
+other CI systems).
+
+1. By default, ``tox`` only passes a chosen subset of environment variables to the
+   test processes. Because ``distutils`` uses environment variables to control the
+   compiler, this "test isolation" feature will cause the tests to use the wrong
+   compiler by default.
+
+   To force ``tox`` to pass the necessary environment variables to the subprocess,
+   you need to set the ``tox`` configuration option ``passenv`` to list the additional
+   environment variables to be passed to the subprocess. For the SDK compilers, you
+   need
+
+        - ``DISTUTILS_USE_SDK``
+        - ``MSSdk``
+        - ``INCLUDE``
+        - ``LIB``
+
+    The ``passenv`` option can be set in your ``tox.ini``, or if you prefer to avoid
+    adding Windows-specific settings to your general project files, it can be set by
+    setting the ``TOX_TESTENV_PASSENV`` environment variable. The supplied ``build.cmd``
+    script does this by default whenever ``DISTUTILS_USE_SDK`` is set.
+
+2. When used interactively, ``tox`` allows you to run your tests against multiple
+   environments (often, this means multiple Python versions). This feature is not as
+   useful in a CI environment like Travis or Appveyor, where all tests are run in
+   isolated environments for each configuration. As a result, projects often supply
+   an argument ``-e ENVNAME`` to ``tox`` to specify which environment to use (there
+   are default environments for most versions of Python).
+
+    However, this does *not* work well with a Windows CI system like Appveyor, where
+    there are (for example) two installations of Python 3.4 (32-bit and 64-bit)
+    available, but only one ``py34`` environment in ``tox``.
+
+    In order to run tests using ``tox``, therefore, projects should probably use the
+    default ``py`` environment in ``tox``, which uses the Python interpreter that
+    was used to run ``tox``. This will ensure that when Appveyor runs the tests, they
+    will be run with the configured interpreter.
+
+    In order to support running under the ``py`` environment, it is possible that
+    projects with complex ``tox`` configurations might need to modify their ``tox.ini``
+    file. Doing so is, however, outside the scope of this document.
 
 Automatically uploading wheels
 ------------------------------
@@ -145,32 +207,28 @@ External dependencies
 ---------------------
 
 The supplied scripts will successfully build any distribution that does not
-rely on 3rd party external libraries for the build. It would be possible for an
-individual project to add code to the ``install.ps1`` script to make external
-libraries available to the build, but this is of necessity specific to
-individual projects.
+rely on 3rd party external libraries for the build.
 
-Should projects develop scripts showing how to do this, references will be
-added to this guide at a later date.
+It is possible to add steps to the ``appveyor.yml`` configuration (typically
+in the "install" section) to download and/or build external libraries needed by
+the distribution. And if needed, it is possible to add extra configuration for
+the build to supply the location of these libraries to the compiler. However,
+this level of configuration is beyond the scope of this document.
+
 
 Support scripts
 ---------------
 
-For reference, the two support scripts are listed here:
+For reference, the SDK setup support script is listed here:
 
-``code/run_with_compiler.cmd``
+``code/build.cmd``
 
-.. literalinclude:: code/run_with_compiler.cmd
+.. literalinclude:: code/build.cmd
    :language: bat
-   :linenos:
-
-``code/install.ps1``
-
-.. literalinclude:: code/install.ps1
-   :language: powershell
    :linenos:
 
 .. _Appveyor: http://www.appveyor.com/
 .. _Travis: https://travis-ci.org/
 .. _Github: https://github.org/
 .. _Bitbucket: https://bitbucket.org/
+.. _Tox: http://tox.testrun.org
