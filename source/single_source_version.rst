@@ -43,8 +43,9 @@ number of your project:
     your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
     value into a variable::
 
+        base_dir = os.path.dirname(__file__)
         version = {}
-        with open("...sample/version.py", 'rb') as fp:
+        with open(os.path.join(base_dir, "module_name", "version.py"), 'rb') as fp:
             exec(fp.read(), version)
         # later on we use: version['__version__']
 
