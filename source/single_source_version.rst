@@ -84,7 +84,8 @@ number of your project:
     .. warning::
 
         With this approach you must make sure that the ``VERSION`` file is included in
-        all your source and binary distributions.
+        all your source and binary distributions (e.g. add ``include VERSION`` to your
+        ``MANIFEST.in``).
 
 #.  Set the value in ``setup.py``, and have the project code use the
     ``pkg_resources`` API.
