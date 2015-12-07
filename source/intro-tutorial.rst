@@ -8,7 +8,9 @@ Who is this for?
 ~~~~~~~~~~~~~~~~~
 This tutorial is for Python programmers who are at an "advanced beginner" level. There are broadly two classes of Python programmers who stand to benefit from these tutorials.
 
-You are a Python programmer who is looking to use a third party Python package. You should be reasonably comfortable making use of basic language features like classes, functions, conditionals and loops. In addition, you should know how to import classes and functions from standard library module and the what is meant by third party packages.
+The Python users who are looking to use a third party Python package. You should be reasonably comfortable making use of basic language features like classes, functions, conditionals and loops. In addition, it is expected that the user knows how to import classes and functions from standard library modules.
+
+The second category of Python programmers these tutorials aim to address are those who have built something useful in Python and are looking to share their work with the wider Python community by building and distributing their program as a package.
 
 
 What will be covered in this tutorial?
