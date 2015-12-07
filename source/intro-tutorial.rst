@@ -6,12 +6,10 @@ This section aims to introduce people to Packaging of Python Scripts.
 
 Who is this for?
 ~~~~~~~~~~~~~~~~~
+This tutorial is for Python programmers who are at an "advanced beginner" level. There are broadly two classes of Python programmers who stand to benefit from these tutorials.
 
-This tutorial is for Python users who are at an "advanced beginner" level.This means that the users of Python can import a standard Python library and can make use of basic language features like ``if``, ``for`` and other such loops and can also differentiate between them.
+You are a Python programmer who is looking to use a third party Python package. You should be reasonably comfortable making use of basic language features like classes, functions, conditionals and loops. In addition, you should know how to import classes and functions from standard library module and the what is meant by third party packages.
 
-
-This tutorial is also aimed at people with an intermediate level experience in Python and want to make and distribute 
-a package for the first time,for Python users who need a refersher and advanced Python users who want to take on specialized packaging tasks.
 
 What will be covered in this tutorial?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
