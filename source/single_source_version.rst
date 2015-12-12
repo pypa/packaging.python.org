@@ -22,6 +22,8 @@ number of your project:
             # the module it's in tries to import things from dependencies that aren't
             # installed yet when setup.py is being run.
             # Moreover, imports can fail if sys.path isn't properly set.
+            # Since version numbers only use a subset of ascii, we can read the file
+            # as bytes, thus avoiding unicode decode errors.
             with open(os.path.join(os.path.dirname(__file__), *file_paths), 'rb') as f:
                 match = re.search(br"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
             if match:
