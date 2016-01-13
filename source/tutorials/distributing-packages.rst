@@ -446,26 +446,26 @@ data_files
 Although configuring :ref:`Package Data` is sufficient for most needs, in some
 cases you may need to place data files *outside* of your :term:`packages
 <Import Package>`.  The ``data_files`` directive allows you to do that.
+It is mostly useful if you need to install files which are used by other
+programs, which may be unaware of Python packages.
 
-Each (directory, files) pair in the sequence specifies the installation
-directory and the files to install there. If directory is a relative path, it
-is interpreted relative to the installation prefix (Python’s ``sys.prefix`` for
-pure-Python :term:`distributions <Distribution Package>`, ``sys.exec_prefix``
-for distributions that contain extension modules). Each file name in files is
-interpreted relative to the :file:`setup.py` script at the top of the project
-source distribution.
+Each ``(directory, files)`` pair in the sequence specifies the installation
+directory and the files to install there. The ``directory`` must be a relative
+path (although this may change in the future, see
+`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_).
+and it is interpreted relative to the installation prefix (Python’s ``sys.prefix``).
+Each file name in ``files`` is interpreted relative to the :file:`setup.py`
+script at the top of the project source distribution.
 
 For more information see the distutils section on `Installing Additional Files
 <http://docs.python.org/3/distutils/setupscript.html#installing-additional-files>`_.
 
 .. note::
 
-  :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
-  absolute, when installing from :term:`sdist <Source Distribution (or
-  "sdist")>`.  This is not true when installing from :term:`wheel`
-  distributions. Wheels don't support absolute paths, and they end up being
-  installed relative to "site-packages".  For discussion see `wheel Issue #92
-  <https://github.com/pypa/wheel/issues/92>`_.
+  When installing packages as egg, ``data_files`` is not supported.
+  So, if your project uses :ref:`setuptools`, you must use ``pip``
+  to install it. Alternatively, if you must use ``python setup.py``,
+  then you need to pass the ``--old-and-unmanageable`` option.
 
 
 scripts
