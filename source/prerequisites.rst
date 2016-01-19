@@ -1,7 +1,7 @@
 Prerequisites for Creating Packages
 ==========================
 
-In order to create or install packages, you must have pip, setuptools and wheel installed. The section below describe the steps to installation.
+In order to create or install packages, you must have pip, setuptools and wheel installed. The section below describe the steps for installation.
 
 Install pip, setuptools and wheel
 =================================
@@ -27,5 +27,14 @@ you may proceed installing/verifying pip, setuptools and wheel in your system.
 You will not have wheel, so you’ll need to run: pip install wheel
 
 * If you're using a verison of Python which didn't install pip, setuptools and wheel, follow the steps below.
+
+*If you’re using a Python install on Linux that’s managed by the system package manager (e.g “yum”, “apt-get” etc...), and you want to use the system package manager to install or upgrade pip, then see Installing pip/setuptools/wheel with Linux Package Managers \\provide link
+
+*Otherwise:
+
+  1. Securely Download get-pip.py //provide link
+  2. Run "python get-pip.py" in your Terminal or Command Prompt. [2] This command will install or upgrade pip. Also, it will install setuptools and wheel if they’re not installed already.
+
+
 
 
