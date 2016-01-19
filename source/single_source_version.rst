@@ -59,7 +59,7 @@ number of your project:
         base_dir = os.path.dirname(__file__)
         about = {}
         with open(os.path.join(base_dir, "module_name", "__about__.py"), 'rb') as fp:
-            exec(fp.read(), about)
+            exec(fp.read(), {}, about)
 
         setup(
            ...
