@@ -60,7 +60,7 @@ Install pip, setuptools, and wheel
 * Otherwise:
 
  * Securely Download `get-pip.py
-   <https://raw.github.com/pypa/pip/master/contrib/get-pip.py>`_ [1]_
+   <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
 
  * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
    Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
