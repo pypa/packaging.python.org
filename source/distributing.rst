@@ -748,7 +748,10 @@ Next, you need to register your project.  There are two ways to do this:
    then run ``python setup.py egg_info`` to have it generated. Using the form is
    a secure option over using #2 below, which passes your credentials over
    plaintext.
-2. Run ``python setup.py register``.  If you don't have a user account already,
+2. Use ``twine register dist/*``.  This is better than using ``setup.py register``
+   because Twine uses only verified TLS to communicate with PyPI protecting your
+   credentials from theft.
+3. Run ``python setup.py register``.  If you don't have a user account already,
    a wizard will create one for you.
 
 
