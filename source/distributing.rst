@@ -732,25 +732,9 @@ account. There are two options:
 1. Create an account manually `using the form on the PyPI website
    <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
 
-2. Have an account created as part of registering your first project (see option
-   #2 below).
-
-
-Register your project
----------------------
-
-Next, you need to register your project.  There are two ways to do this:
-
-1. **(Recommended):** Use `the form on the PyPI website
-   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
-   ``PKG-INFO`` info located in your local project tree at
-   ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
-   then run ``python setup.py egg_info`` to have it generated. Using the form is
-   a secure option over using #2 below, which passes your credentials over
-   plaintext.
-2. Run ``python setup.py register``.  If you don't have a user account already,
-   a wizard will create one for you.
-
+2. **(Not recommended):** Have an account created as part of
+   registering your first project (not recommended due to the
+   related security concerns, see option #3 below).
 
 If you created your account using option #1 (the form), you'll need to manually
 write a ``~/.pypirc`` file like so.
@@ -765,8 +749,33 @@ write a ``~/.pypirc`` file like so.
     username = <username>
     password = <password>
 
-You can leave out the password line if below you use twine with its
-``-p PASSWORD`` argument.
+You can leave out the password line if you use twine with its
+``-p PASSWORD`` argument or prefer to simply enter your password
+when prompted.
+
+
+Register your project
+---------------------
+
+Next, if this is the first release, you currently need to explicitly register your
+project prior to uploading.
+
+There are three ways to do this:
+
+1. Use `the form on the PyPI website
+   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
+   ``PKG-INFO`` info located in your local project tree at
+   ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
+   then run ``python setup.py egg_info`` to have it generated.
+2. Run ``twine register dist/*``, and :ref:`twine` will register your project
+   based on the package metadata in the specified files. Your ``~/.pypirc``
+   must already be appropriately configured for twine to work.
+3. **(Not recommended):** Run ``python setup.py register``.  If you don't have
+   a user account already, a wizard will create one for you. This approach is
+   covered here due to it being mentioned in other guides, but it is not
+   recommended as it may use a plaintext HTTP or unverified HTTPS connection
+   on some Python versions, allowing your username and password to be intercepted
+   during transmission.
 
 
 Upload your distributions
@@ -777,7 +786,7 @@ Finally, you can upload your distributions to :term:`PyPI <Python Package Index
 
 There are two options:
 
-1. **(Recommended):** Use :ref:`twine`
+1. Use :ref:`twine`
 
    ::
 
@@ -786,7 +795,7 @@ There are two options:
    The biggest reason to use twine is that ``python setup.py upload`` (option #2
    below) uploads files over plaintext. This means anytime you use it you expose
    your username and password to a MITM attack. Twine uses only verified TLS to
-   upload to PyPI protecting your credentials from theft.
+   upload to PyPI in order to protect your credentials from theft.
 
    Secondly it allows you to precreate your distribution files.  ``python
    setup.py upload`` only allows you to upload something that you've created in
@@ -800,12 +809,16 @@ There are two options:
    the one directly executing ``gpg --detach-sign -a <filename>``.
 
 
-2. Use :ref:`setuptools`:
+2. **(Not recommended):** Use :ref:`setuptools`:
 
    ::
 
     python setup.py sdist bdist_wheel upload
 
+   This approach is covered here due to it being mentioned in other guides, but it
+   is not recommended as it may use a plaintext HTTP or unverified HTTPS connection
+   on some Python versions, allowing your username and password to be intercepted
+   during transmission.
 
 ----
 
