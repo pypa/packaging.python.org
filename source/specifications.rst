@@ -57,7 +57,7 @@ Version Specifiers
 ==================
 
 Version numbering requirements and the semantics for specifying comparisons
-between versions are defined :pep:`440`.
+between versions are defined in :pep:`440`.
 
 The version specifiers section in this PEP supersedes the version specifiers
 section in :pep:`345`.
@@ -75,7 +75,7 @@ Source Distribution Format
 ==========================
 
 The source distribution format (``sdist``) is not currently formally defined.
-Instead, it's format is implicitly defined by the behaviour of the
+Instead, its format is implicitly defined by the behaviour of the
 standard library's ``distutils`` module when executing the ``setup.py sdist``
 command.
 
