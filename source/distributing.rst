@@ -757,7 +757,10 @@ when prompted.
 Register your project
 ---------------------
 
-Next, you need to register your project.  There are three ways to do this:
+Next, if this is the first release, you currently need to explicitly register your
+project prior to uploading.
+
+There are three ways to do this:
 
 1. Use `the form on the PyPI website
    <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
@@ -770,8 +773,9 @@ Next, you need to register your project.  There are three ways to do this:
 3. **(Not recommended):** Run ``python setup.py register``.  If you don't have
    a user account already, a wizard will create one for you. This approach is
    covered here due to it being mentioned in other guides, but it is not
-   recommended as it uses a plaintext HTTP connection, allowing your username
-   and password to be intercepted during transmission.
+   recommended as it may use a plaintext HTTP or unverified HTTPS connection
+   on some Python versions, allowing your username and password to be intercepted
+   during transmission.
 
 
 Upload your distributions
@@ -791,7 +795,7 @@ There are two options:
    The biggest reason to use twine is that ``python setup.py upload`` (option #2
    below) uploads files over plaintext. This means anytime you use it you expose
    your username and password to a MITM attack. Twine uses only verified TLS to
-   upload to PyPI in order protect your credentials from theft.
+   upload to PyPI in order to protect your credentials from theft.
 
    Secondly it allows you to precreate your distribution files.  ``python
    setup.py upload`` only allows you to upload something that you've created in
@@ -812,8 +816,9 @@ There are two options:
     python setup.py sdist bdist_wheel upload
 
    This approach is covered here due to it being mentioned in other guides, but it
-   is not recommended as it uses a plaintext HTTP connection, allowing your username
-   and password to be intercepted during transmission.
+   is not recommended as it may use a plaintext HTTP or unverified HTTPS connection
+   on some Python versions, allowing your username and password to be intercepted
+   during transmission.
 
 ----
 
