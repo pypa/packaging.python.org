@@ -90,9 +90,9 @@ Platform Compatibility Tags
 The platform compatibility tagging model used for ``wheel`` distribution is
 defined in :pep:`425`.
 
-Note that the scheme defined in that PEP is insufficient for public distribution
-of Linux wheel files (and *nix wheel files in general), so the public Python
-Package Index restricts wheel file uploads to Windows and Mac OS X.
+The scheme defined in that PEP is insufficient for public distribution
+of Linux wheel files (and *nix wheel files in general), so :pep:`513` was
+created to define the ``manylinux1`` tag.
 
 Recording Installed Distributions
 =================================
