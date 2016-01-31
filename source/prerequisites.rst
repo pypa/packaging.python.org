@@ -1,40 +1,43 @@
 Prerequisites for Creating Packages
 ==========================
 
-In order to create or install packages, you must have pip, setuptools and wheel installed. The section below describe the steps for installation.
+In order to complete the following tutorial, you must have pip, setuptools and wheel installed. The section below describes the steps for installation.
 
 Install pip, setuptools and wheel
 =================================
 
-*In order to install pip, setuptools and wheel, you must have a version of Python installed. You can verify if
-there is a version of Python in your system by entering the following into your Treminal or Command Prompt:
+*To install pip, setuptools and wheel, you must have a version of Python installed. You can verify if
+there is a version of Python in your system by entering the following into your terminal or command prompt:
 
-  Linux, OS X or Windows:
-
-  python -V or python --version
+  python -V
 
 Once you have verified a version of Python is installed in your system,
-you may proceed installing/verifying pip, setuptools and wheel in your system.
+you may proceed verifying/installing/upgrading pip, setuptools and wheel in your system.
 
-*If you have Python 2 >=2.7.9 or Python 3 >=3.4 installed from python.org, you will already have pip and setuptools, but will need to upgrade to the latest version:
+*pip
 
-  On Linux or OS X:
-  pip install -U pip setuptools
+To verify if pip is installed in your system, enter 'pip -V' into your command prompt.
+If a version number is returned (for example: pip 7.X.X), then pip is installed.
 
-  On Windows:
-  python -m pip install -U pip setuptools
+If pip is not installed, download 'get-pip.py <https://bootstrap.pypa.io/get-pip.py>'. After downloading,
+run "python get-pip.py" in your command prompt as this will install pip.
 
-You will not have wheel, so you’ll need to run: pip install wheel
+If pip is installed and needs to be upgraded, enter the 'pip install --upgrade pip' command.
 
-* If you're using a verison of Python which didn't install pip, setuptools and wheel, follow the steps below.
+*setuptools
 
-*If you’re using a Python install on Linux that’s managed by the system package manager (e.g “yum”, “apt-get” etc...), and you want to use the system package manager to install or upgrade pip, then see 'Installing pip/setuptools/wheel with Linux Package Managers <https://packaging.python.org/en/latest/install_requirements_linux/#installing-pip-setuptools-wheel-with-linux-package-managers>'
+Once you have verified//upgraded pip in your system, you'll need to verify if you have setuptools installed.
+To verify, enter 'pip list' in the command prompt and you'll see a list of packages managed by pip. Scroll through
+the list, which is listed alphabetically, and locate setuptools.
 
-*Otherwise:
+If setuptool is not installed, enter 'pip install setuptools' into your command prompt.
 
-  1. Download 'get-pip.py <https://bootstrap.pypa.io/get-pip.py>'
-  2. Run "python get-pip.py" in your Terminal or Command Prompt. This command will install or upgrade pip. Also, it will install setuptools and wheel if they’re not installed already.
+If setuptools needs to be upgraded, enter the 'pip install --upgrade setuptools' command.
 
+*wheel
 
+Similar to setuptools verification, to verify if wheel is installed, enter 'pip list' and locate wheel.
 
+If wheel is not installed already, enter 'pip install wheel' into your command prompt.
 
+To upgrade, enter the 'pip install --upgrade wheel' into your command prompt.
