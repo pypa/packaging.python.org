@@ -20,13 +20,14 @@ will then be able to create and work with virtual environments via the
 ``virtualenv`` command.
 
 If you are using Python 3.3 or a more recent version, support for
-creating virtual environments should already be installed and
-accessible via the ``pyvenv`` command.
+creating virtual environments should already be installed and accessible via the
+``python -m venv`` command (on some systems, the equivalent ``pyvenv`` command
+may also be available).
 
-For the rest of the guide, I will be using ``pyvenv`` as the command
-name assuming that you are using Python 3.3 or greater. However, for
-other Python versions, ``virtualenv`` should work the same.
-
+For the rest of the guide, ``python -m venv`` will be used as the command for
+creating virtual environments, with the assumption that you are using Python 3.3
+or greater. However, for older Python versions, ``virtualenv`` should work the
+same.
 
 Creating a virtual environment
 ------------------------------
@@ -41,7 +42,7 @@ OS X. The following command will carry out this operation:
 
 .. code::
 
-   $ pyvenv ~/work/virtualenvs/tabulate
+   $ python -m venv ~/work/virtualenvs/tabulate
 
 If you are on Windows, assuming that you want the new virtualenv to be
 created under ``C:\work\virtualenvs``, the equivalent command would be:
@@ -172,8 +173,8 @@ Key steps
 
 To summarize, here are the steps when working with virtual environments:
 
-- Create a virtual environment using ``pyvenv`` or ``virtualenv``
-- Activate it using the activate script
+- Create a virtual environment using ``python -m venv``, ``pyvenv``, or
+  ``virtualenv``
 - Activate it using the ``activate`` script
 - Work
 - Deactivate using ``deactivate``
