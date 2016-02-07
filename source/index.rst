@@ -16,6 +16,7 @@ This guide is maintained on `github
 .. toctree::
    :maxdepth: 1
 
+   packaging_tutorials
    current
    installing
    distributing
