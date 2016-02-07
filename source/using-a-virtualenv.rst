@@ -72,8 +72,7 @@ On Windows, the command to activate the virtual environment is:
    > \work\virtualenvs\tabulate\Scripts\activate
 
 Now, we are in the virtual environment. To see the packages currently
-installed in our virtual enviroment, we can use the ``pip3 list``
-command:
+installed in our virtual enviroment, we can use the ``pip list`` command:
 
 .. code::
 
