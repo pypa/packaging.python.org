@@ -149,6 +149,17 @@ Replace "python" with "python3" for Python 3.
    is a significant behavior change that can be surprising to some users.
 
 
+Arch Linux
+~~~~~~~~~~
+
+* Python 2::
+
+    sudo pacman -S python2-pip
+
+* Python 3::
+
+    sudo pacman -S python-pip
+
 ----
 
 .. [1] Currently, there is no "copr" yum plugin available for CentOS/RHEL, so
