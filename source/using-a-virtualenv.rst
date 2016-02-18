@@ -14,7 +14,7 @@ Installation
 ------------
 
 If you are using Python 2 or Python 3 (up to and including Python 3.2),
-install `virtualenv <https://virtualenv.readthedocs.org/en/latest/>`__ using
+install `virtualenv <https://virtualenv.pypa.io/en/latest/>`__ using
 ``pip install virtualenv`` or ``pip3 install virtualenv``, respectively. You
 will then be able to create and work with virtual environments via the
 ``virtualenv`` command.
