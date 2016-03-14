@@ -71,7 +71,9 @@ Install pip, setuptools, and wheel
       Be cautious if you're using a Python install that's managed by your
       operating system or another package manager. get-pip.py does not
       coordinate with those tools, and may leave your system in an
-      inconsistent state.
+      inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
+      to install in ``/usr/local`` which is designed for locally-installed
+      software.
 
 
 Optionally, Create a virtual environment
