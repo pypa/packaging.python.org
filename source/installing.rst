@@ -310,7 +310,7 @@ from the src tree.
  pip install -e <path>
 
 
-You can also normally from src
+You can also install normally from src
 
 ::
 
