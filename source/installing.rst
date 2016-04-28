@@ -51,6 +51,8 @@ Install pip, setuptools, and wheel
     python -m pip install -U pip setuptools
 
   You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
+  
+  **Note:** For most Windows blends, you'll need to add the path to the pip.exe file into the environment variables before you can use pip on the CLI.
 
 * If you're using a Python install on Linux that's managed by the system package
   manager (e.g "yum", "apt-get" etc...), and you want to use the system package
