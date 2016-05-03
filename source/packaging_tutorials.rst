@@ -14,4 +14,5 @@ Introduction to Packaging
 .. toctree::
    :maxdepth: 1
 
+   prerequisites
    using-a-virtualenv
