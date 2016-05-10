@@ -60,6 +60,9 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Exclude scripts during install|No                                |Yes                            |
 |                              |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
+|per project index             |Only in virtualenv                |Yes, via setup.cfg             |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
 
 ----
 
