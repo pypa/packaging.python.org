@@ -6,7 +6,7 @@ pip vs easy_install
 ===================
 
 :Page Status: Complete
-:Last Reviewed: 2014-12-24
+:Last Reviewed: 2015-09-08
 
 
 `easy_install` was released in 2004, as part of :ref:`setuptools`.  It was
@@ -38,7 +38,7 @@ Here's a breakdown of the important differences between pip and easy_install now
 |List Installed Packages       |Yes (``pip list`` and ``pip       |No                             |
 |                              |freeze``)                         |                               |
 +------------------------------+----------------------------------+-------------------------------+
-|:ref:`PEP438 <pypa:PEP438s>`  |Yes                               |No                             |
+|:pep:`438`                    |Yes                               |No                             |
 |Support                       |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |Installation format           |'Flat' packages with `egg-info`   | Encapsulated Egg format       |
@@ -55,6 +55,9 @@ Here's a breakdown of the important differences between pip and easy_install now
 |                              |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |:ref:`Multi-version Installs` |No                                |Yes                            |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
+|Exclude scripts during install|No                                |Yes                            |
 |                              |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
 |:ref:`On-demand               |                                  |                               |

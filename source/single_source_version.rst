@@ -5,11 +5,11 @@ Single-sourcing the Project Version
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2014-12-24
+:Last Reviewed: 2015-12-03
 
 
-There are a few techniques to store the version in your project code without duplicating the value stored in
-``setup.py``:
+There are many techniques to maintain a single source of truth for the version
+number of your project:
 
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
     from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
@@ -84,7 +84,8 @@ There are a few techniques to store the version in your project code without dup
     .. warning::
 
         With this approach you must make sure that the ``VERSION`` file is included in
-        all your source and binary distributions.
+        all your source and binary distributions (e.g. add ``include VERSION`` to your
+        ``MANIFEST.in``).
 
 #.  Set the value in ``setup.py``, and have the project code use the
     ``pkg_resources`` API.
@@ -115,3 +116,8 @@ There are a few techniques to store the version in your project code without dup
     ``sample/__init__.py`` imports packages from ``install_requires``
     dependencies, which will very likely not be installed yet when ``setup.py``
     is run.
+
+
+#.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)
+    instead of in the code, and automatically extract it from there using
+    `setuptools_scm <https://pypi.python.org/pypi/setuptools_scm>`_.

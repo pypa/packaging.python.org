@@ -2,7 +2,7 @@
 Python Packaging User Guide
 ===========================
 
-:Last Reviewed: 2014-11-27
+:Last Reviewed: 2015-09-08
 
 The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource
 on how to package, publish and install Python distributions using current tools.
@@ -20,6 +20,7 @@ This guide is maintained on `github
    installing
    distributing
    additional
+   specifications
    projects
    glossary
    support

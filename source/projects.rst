@@ -6,7 +6,7 @@ Project Summaries
 =================
 
 :Page Status: Complete
-:Last Reviewed: 2014-07-04
+:Last Reviewed: 2015-09-08
 
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
@@ -235,7 +235,7 @@ many of their combined features in terms of package management, virtual environm
 management and deployment of binary extensions.
 
 Conda does not install packages from PyPI and can install only from
-the official Continuum repositories, or binstar.org (a place for
+the official Continuum repositories, or anaconda.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
 However, note that pip can be installed into, and work side-by-side with conda
 for managing distributions from PyPI.
@@ -284,6 +284,20 @@ deployment of Python applications as simple as ``cp``.
 
 Standard Library Projects
 #########################
+
+.. _ensurepip:
+
+ensurepip
+=========
+
+`Docs <https://docs.python.org/3/library/ensurepip.html>`__ |
+`Issues <http://bugs.python.org>`__
+
+A package in the Python Standard Library that provides support for bootstrapping
+:ref:`pip` into an existing Python installation or virtual environment.  In most
+cases, end users won't use this module, but rather it will be used during the
+build of the Python distribution.
+
 
 .. _distutils:
 

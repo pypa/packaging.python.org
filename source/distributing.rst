@@ -3,7 +3,7 @@ Packaging and Distributing Projects
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2014-12-31
+:Last Reviewed: 2015-09-08
 
 This section covers the basics of how to configure, package and distribute your
 own Python projects.  It assumes that you are already familiar with the contents
@@ -28,16 +28,7 @@ Requirements for Packaging and Distributing
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
-2. Install "wheel" [1]_:
-
-   ::
-
-    pip install wheel
-
-   You'll need this to package your project into :term:`wheels <Wheel>` (see
-   :ref:`below <Packaging Your Project>`).
-
-3. Install "twine" [1]_:
+2. Install "twine" [1]_:
 
    ::
 
@@ -120,7 +111,7 @@ section from the :ref:`distutils` documentation.
 <your package>
 ~~~~~~~~~~~~~~
 
-Although it's not required, the most common practice to is to include your
+Although it's not required, the most common practice is to include your
 python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
@@ -155,8 +146,8 @@ name
 
 This is the name of your project, and will determine how your project is listed
 on :term:`PyPI <Python Package Index (PyPI)>`. For details on permitted
-characters, see the `name <http://legacy.python.org/dev/peps/pep-0426/#name>`_
-section from :ref:`PEP426 <pypa:PEP426s>`.
+characters, see the :pep:`name <426#name>`
+section from :pep:`426`.
 
 
 version
@@ -166,19 +157,15 @@ version
 
   version='1.2.0',
 
+This is the current version of your project, allowing your users to determine whether or not
+they have the latest version, and to indicate which specific versions they've tested their own
+software against.
 
-Projects should comply with the `version scheme
-<http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-specified in :ref:`PEP440 <pypa:PEP440s>`.  Here are some examples:
+Versions are displayed on :term:`PyPI <Python Package Index (PyPI)>` for each release if you
+publish your project.
 
-::
-
-  1.2.0.dev1  # Development release
-  1.2.0a1     # Alpha Release
-  1.2.0b1     # Beta Release
-  1.2.0rc1    # RC Release
-  1.2.0       # Final Release
-  1.2.0.post1 # Post Release
+See :ref:`Choosing a versioning scheme` for more information on ways to use versions to convey
+compatibility information to your users.
 
 If the project code itself needs run-time access to the version, the simplest
 way is to keep the version in both ``setup.py`` and your code. If you'd rather
@@ -418,37 +405,166 @@ For more information, see `Automatic Script Creation
 <http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
 from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
 
+.. _`Choosing a versioning scheme`:
+
+Choosing a versioning scheme
+----------------------------
+
+Standards compliance for interoperability
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Different Python projects may use different versioning schemes based on the needs of that
+particular project, but all of them are required to comply with the flexible :pep:`public version
+scheme <440#public-version-identifiers>` specified
+in :pep:`440` in order to be supported in tools and libraries like ``pip``
+and ``setuptools``.
+
+Here are some examples of compliant version numbers::
+
+  1.2.0.dev1  # Development release
+  1.2.0a1     # Alpha Release
+  1.2.0b1     # Beta Release
+  1.2.0rc1    # Release Candidate
+  1.2.0       # Final Release
+  1.2.0.post1 # Post Release
+  15.10       # Date based release
+  23          # Serial release
+
+To further accommodate historical variations in approaches to version numbering,
+:pep:`440` also defines a comprehensive technique for :pep:`version
+normalisation <440#normalization>` that maps
+variant spellings of different version numbers to a standardised canonical form.
+
+Scheme choices
+~~~~~~~~~~~~~~
+
+Semantic versioning (preferred)
+*******************************
+
+For new projects, the recommended versioning scheme is based on `Semantic Versioning
+<http://semver.org>`_, but adopts a different approach to handling pre-releases and
+build metadata.
+
+The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE numbering scheme,
+where the project author increments:
+
+1. MAJOR version when they make incompatible API changes,
+2. MINOR version when they add functionality in a backwards-compatible manner, and
+3. MAINTENANCE version when they make backwards-compatible bug fixes.
+
+Adopting this approach as a project author allows users to make use of :pep:`"compatible release"
+<440#compatible-release>` specifiers, where
+``name ~= X.Y`` requires at least release X.Y, but also allows any later release with
+a matching MAJOR version.
+
+Python projects adopting semantic versioning should abide by clauses 1-8 of the
+`Semantic Versioning 2.0.0 specification <http://semver.org>`_.
+
+Date based versioning
+*********************
+
+Semantic versioning is not a suitable choice for all projects, such as those with a regular
+time based release cadence and a deprecation process that provides warnings for a number of
+releases prior to removal of a feature.
+
+A key advantage of date based versioning is that it is straightforward to tell how old the
+base feature set of a particular release is given just the version number.
+
+Version numbers for date based projects typically take the form of YEAR.MONTH (for example,
+``12.04``, ``15.10``).
+
+Serial versioning
+*****************
+
+This is the simplest possible versioning scheme, and consists of a single number which is
+incremented every release.
+
+While serial versioning is very easy to manage as a developer, it is the hardest to track
+as an end user, as serial version numbers convey little or no information regarding API
+backwards compatibility.
+
+Hybrid schemes
+**************
+
+Combinations of the above schemes are possible. For example, a project may combine date
+based versioning with serial versioning to create a YEAR.SERIAL numbering scheme that
+readily conveys the approximate age of a release, but doesn't otherwise commit to a particular
+release cadence within the year.
+
+Pre-release versioning
+~~~~~~~~~~~~~~~~~~~~~~
+
+Regardless of the base versioning scheme, pre-releases for a given final release may be
+published as:
+
+* zero or more dev releases (denoted with a ".devN" suffix)
+* zero or more alpha releases (denoted with a ".aN" suffix)
+* zero or more beta releases (denoted with a ".bN" suffix)
+* zero or more release candidates (denoted with a ".rcN" suffix)
+
+``pip`` and other modern Python package installers ignore pre-releases by default when
+deciding which versions of dependencies to install.
+
+
+Local version identifiers
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Public version identifiers are designed to support distribution via
+:term:`PyPI <Python Package Index (PyPI)>`. Python's software distribution tools also support
+the notion of a :pep:`local version identifier
+<440#local-version-identifiers>`, which can be used to
+identify local development builds not intended for publication, or modified variants of a release
+maintained by a redistributor.
+
+A local version identifier takes the form ``<public version identifier>+<local version label>``.
+For example::
+
+   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commmit since 1.2.0.dev1 release
+   1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
 Working in "Development Mode"
 =============================
 
-Although not required, it's common to locally install your project in "develop"
-or "editable" mode while you're working on it.  This allows the project to be
+Although not required, it's common to locally install your project in "editable"
+or "develop" mode while you're working on it.  This allows your project to be
 both installed and editable in project form.
 
-Using "setup.py", run the following:
-
-::
-
- python setup.py develop
-
-
-Or you can achieve the same result using :ref:`pip`:
+Assuming you're in the root of your project directory, then run:
 
 ::
 
  pip install -e .
 
 
-Note that both commands will install any dependencies declared with
-"install_requires" and also any scripts declared with "console_scripts".
+Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
+to the current working directory, so together, it means to install the current
+directory (i.e. your project) in editable mode.  This will also install any
+dependencies declared with "install_requires" and any scripts declared with
+"console_scripts".  Dependencies will not be installed in editable mode.
+
+It's fairly common to also want to install some of your dependencies in editable
+mode as well. For example, supposing your project requires "foo" and "bar", but
+you want "bar" installed from vcs in editable mode, then you could construct a
+requirements file like so::
+
+  -e .
+  -e git+https://somerepo/bar.git#egg=bar
+
+The first line says to install your project and any dependencies. The second
+line overrides the "bar" dependency, such that it's fulfilled from vcs, not
+PyPI.  For more on requirements files, see the :ref:`Requirements File
+<pip:Requirements Files>` section in the pip docs.  For more on vcs installs,
+see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
+
+Lastly, if you don't want to install any dependencies at all, you can run::
+
+   pip install -e . --no-deps
 
 
 For more information, see the `Development Mode
 <http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
 of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
-
 
 .. _`Packaging Your Project`:
 
@@ -558,7 +674,7 @@ To build the wheel:
 `bdist_wheel` will detect that the code is pure Python, and build a wheel that's
 named such that it's usable on any Python installation with the same major
 version (Python 2 or Python 3) as the version you used to build the wheel.  For
-details on the naming of wheel files, see :ref:`PEP425 <pypa:PEP425s>`
+details on the naming of wheel files, see :pep:`425`
 
 If your code supports both Python 2 and 3, but with different code (e.g., you
 use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
@@ -584,13 +700,13 @@ To build the wheel:
 
 `bdist_wheel` will detect that the code is not pure Python, and build a wheel
 that's named such that it's only usable on the platform that it was built
-on. For details on the naming of wheel files, see :ref:`PEP425 <pypa:PEP425s>`
+on. For details on the naming of wheel files, see :pep:`425`
 
 .. note::
 
   :term:`PyPI <Python Package Index (PyPI)>` currently only allows uploads of
   platform wheels for Windows and OS X, NOT linux.  Currently, the wheel tag
-  specification (:ref:`PEP425 <pypa:PEP425s>`) does not handle the variation that can
+  specification (:pep:`425`) does not handle the variation that can
   exist across linux distros.
 
 
@@ -616,22 +732,9 @@ account. There are two options:
 1. Create an account manually `using the form on the PyPI website
    <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
 
-2. Have an account created as part of registering your first project (see option
-   #2 below).
-
-
-Register your project
----------------------
-
-Next, you need to register your project.  There are two ways to do this:
-
-1. **(Recommended):** Use `the form on the PyPI website
-   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_.  Although the form is
-   cumbersome, it's a secure option over using #2 below, which passes your
-   credentials over plaintext.
-2. Run ``python setup.py register``.  If you don't have a user account already,
-   a wizard will create one for you.
-
+2. **(Not recommended):** Have an account created as part of
+   registering your first project (not recommended due to the
+   related security concerns, see option #3 below).
 
 If you created your account using option #1 (the form), you'll need to manually
 write a ``~/.pypirc`` file like so.
@@ -646,8 +749,33 @@ write a ``~/.pypirc`` file like so.
     username = <username>
     password = <password>
 
-You can leave out the password line if below you use twine with its
-``-p PASSWORD`` argument.
+You can leave out the password line if you use twine with its
+``-p PASSWORD`` argument or prefer to simply enter your password
+when prompted.
+
+
+Register your project
+---------------------
+
+Next, if this is the first release, you currently need to explicitly register your
+project prior to uploading.
+
+There are three ways to do this:
+
+1. Use `the form on the PyPI website
+   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
+   ``PKG-INFO`` info located in your local project tree at
+   ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
+   then run ``python setup.py egg_info`` to have it generated.
+2. Run ``twine register dist/*``, and :ref:`twine` will register your project
+   based on the package metadata in the specified files. Your ``~/.pypirc``
+   must already be appropriately configured for twine to work.
+3. **(Not recommended):** Run ``python setup.py register``.  If you don't have
+   a user account already, a wizard will create one for you. This approach is
+   covered here due to it being mentioned in other guides, but it is not
+   recommended as it may use a plaintext HTTP or unverified HTTPS connection
+   on some Python versions, allowing your username and password to be intercepted
+   during transmission.
 
 
 Upload your distributions
@@ -658,7 +786,7 @@ Finally, you can upload your distributions to :term:`PyPI <Python Package Index
 
 There are two options:
 
-1. **(Recommended):** Use :ref:`twine`
+1. Use :ref:`twine`
 
    ::
 
@@ -667,7 +795,7 @@ There are two options:
    The biggest reason to use twine is that ``python setup.py upload`` (option #2
    below) uploads files over plaintext. This means anytime you use it you expose
    your username and password to a MITM attack. Twine uses only verified TLS to
-   upload to PyPI protecting your credentials from theft.
+   upload to PyPI in order to protect your credentials from theft.
 
    Secondly it allows you to precreate your distribution files.  ``python
    setup.py upload`` only allows you to upload something that you've created in
@@ -681,12 +809,16 @@ There are two options:
    the one directly executing ``gpg --detach-sign -a <filename>``.
 
 
-2. Use :ref:`setuptools`:
+2. **(Not recommended):** Use :ref:`setuptools`:
 
    ::
 
     python setup.py sdist bdist_wheel upload
 
+   This approach is covered here due to it being mentioned in other guides, but it
+   is not recommended as it may use a plaintext HTTP or unverified HTTPS connection
+   on some Python versions, allowing your username and password to be intercepted
+   during transmission.
 
 ----
 
@@ -698,6 +830,6 @@ There are two options:
 
 .. [2] Specifically, the "console_script" approach generates ``.exe`` files on
        Windows, which are necessary because the OS special-cases ``.exe`` files.
-       Script-execution features like ``PATHEXT`` and the `Python Launcher for
-       Windows <http://legacy.python.org/dev/peps/pep-0397/>`_ allow scripts to
+       Script-execution features like ``PATHEXT`` and the :pep:`Python Launcher for
+       Windows <397>` allow scripts to
        be used in many cases, but not all.
