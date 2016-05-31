@@ -50,8 +50,6 @@ Install pip, setuptools, and wheel
 
     python -m pip install -U pip setuptools
 
-  You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
-
 * If you're using a Python install on Linux that's managed by the system package
   manager (e.g "yum", "apt-get" etc...), and you want to use the system package
   manager to install or upgrade pip, then see :ref:`Installing
@@ -123,11 +121,14 @@ installation directories and they don’t share libraries with other virtual
 environments.
 
 Currently, there are two viable tools for creating Python virtual environments:
-:ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3 &
-3.4, and only in Python 3.4, is :ref:`pip` & :ref:`setuptools` installed into
-environments by default, whereas :ref:`virtualenv` supports Python 2.6 thru
-Python 3.4 and :ref:`pip` & :ref:`setuptools` are installed by default in every
-version.
+
+* `pyvenv`_ is available by default in Python 3.3 and later, and installs
+  :ref:`pip` and :ref:`setuptools` into created virtual environments in
+  Python 3.4 and later.
+* :ref:`virtualenv` needs to be installed separately, but supports Python 2.6+
+  and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are
+  always installed into created virtual environments by default (regardless of
+  Python version).
 
 The basic usage is like so:
 
