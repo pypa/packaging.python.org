@@ -48,8 +48,8 @@ Glossary
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
         which is being replaced by :term:`Wheel`.  For details, see `The
         Internal Structure of Python Eggs
-        <http://pythonhosted.org/setuptools/formats.html>`_ and `Python Eggs
-        <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
+        <https://setuptools.readthedocs.io/en/latest/formats.html>`_ and
+        `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
     Extension Module
 
@@ -163,7 +163,7 @@ Glossary
        A format used by :ref:`pip` to install packages from a :term:`Package
        Index`. For an EBNF diagram of the format, see the
        `pkg_resources.Requirement
-       <https://pythonhosted.org/setuptools/pkg_resources.html#requirement-objects>`_
+       <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_
        entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
        requirement specifier, where "foo" is the project name, and the ">=1.3"
        portion is the :term:`Version Specifier`

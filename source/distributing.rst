@@ -14,9 +14,10 @@ development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
 For more reference material, see `Building and Distributing Packages
-<http://pythonhosted.org/setuptools/setuptools.html>`_ in the :ref:`setuptools`
-docs, but note that some advisory content there may be outdated. In the event of
-conflicts, prefer the advice in the Python Packaging User Guide.
+<https://setuptools.readthedocs.io/en/latest/setuptools.html>`_ in the
+:ref:`setuptools` docs, but note that some advisory content there may be
+outdated. In the event of conflicts, prefer the advice in the Python
+Packaging User Guide.
 
 .. contents:: Contents
    :local:
@@ -313,8 +314,8 @@ that should be copied into the package. The paths are interpreted as relative to
 the directory containing the package.
 
 For more information, see `Including Data Files
-<http://pythonhosted.org/setuptools/setuptools.html#including-data-files>`_ from
-the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files>`_
+from the `setuptools docs <https://setuptools.readthedocs.io>`_.
 
 
 .. _`Data Files`:
@@ -376,7 +377,7 @@ entry points that may be defined by your project or others that you depend on.
 
 For more information, see the section on `Dynamic Discovery of Services and
 Plugins
-<http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 from the :ref:`setuptools` docs.
 
 The most commonly used entry point is "console_scripts" (see below).
@@ -395,15 +396,15 @@ console_scripts
   },
 
 Use "console_script" `entry points
-<http://pythonhosted.org/setuptools/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 to register your script interfaces. You can then let the toolchain handle the
 work of turning these interfaces into actual scripts [2]_.  The scripts will be
 generated during the install of your :term:`distribution <Distribution
 Package>`.
 
 For more information, see `Automatic Script Creation
-<http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation>`_
-from the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_
+from the `setuptools docs <https://setuptools.readthedocs.io>`_.
 
 .. _`Choosing a versioning scheme`:
 
@@ -563,8 +564,8 @@ Lastly, if you don't want to install any dependencies at all, you can run::
 
 
 For more information, see the `Development Mode
-<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_ section
-of the `setuptools docs <http://pythonhosted.org/setuptools/setuptools.html>`_.
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_ section
+of the `setuptools docs <https://setuptools.readthedocs.io>`_.
 
 .. _`Packaging Your Project`:
 

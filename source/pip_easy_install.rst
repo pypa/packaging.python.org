@@ -63,7 +63,7 @@ Here's a breakdown of the important differences between pip and easy_install now
 
 ----
 
-.. [1] http://pythonhosted.org/setuptools/easy_install.html#natural-script-launcher
+.. [1] https://setuptools.readthedocs.io/en/latest/easy_install.html#natural-script-launcher
 
 
 .. _pylauncher support: https://bitbucket.org/pypa/pylauncher

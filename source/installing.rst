@@ -302,9 +302,9 @@ Installing from a local src tree
 
 
 Installing from local src in `Development Mode
-<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_, i.e. in
-such a way that the project appears to be installed, but yet is still editable
-from the src tree.
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_,
+i.e. in such a way that the project appears to be installed, but yet is
+still editable from the src tree.
 
 ::
 
