@@ -746,7 +746,7 @@ write a ``~/.pypirc`` file like so.
     index-servers=pypi
 
     [pypi]
-    repository = https://pypi.python.org/pypi
+    repository = https://upload.pypi.io/legacy/
     username = <username>
     password = <password>
 
@@ -768,7 +768,7 @@ There are three ways to do this:
    ``PKG-INFO`` info located in your local project tree at
    ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
    then run ``python setup.py egg_info`` to have it generated.
-2. Run ``twine register dist/*``, and :ref:`twine` will register your project
+2. Run ``twine register dist/mypkg.whl``, and :ref:`twine` will register your project
    based on the package metadata in the specified files. Your ``~/.pypirc``
    must already be appropriately configured for twine to work.
 3. **(Not recommended):** Run ``python setup.py register``.  If you don't have
