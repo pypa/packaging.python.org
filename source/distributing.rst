@@ -724,6 +724,8 @@ Uploading your Project to PyPI
   `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how
   to setup your configuration in order to use it.
 
+When you ran the command to create your distribution, a new directory dist/ was created under your project's root directory. That's where you'll find your distribution file(s) to upload.
+
 Create an account
 -----------------
 
@@ -783,7 +785,7 @@ Upload your distributions
 -------------------------
 
 Finally, you can upload your distributions to :term:`PyPI <Python Package Index
-(PyPI)>`.
+(PyPI)>`. 
 
 There are two options:
 
