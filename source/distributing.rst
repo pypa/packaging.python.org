@@ -648,7 +648,7 @@ Only use the ``--universal`` setting, if:
    require 2to3).
 2. Your project does not have any C extensions.
 
-Beware that ``bdist_wheel`` does not currently have any checks to warn you if
+Beware that ``bdist_wheel`` does not currently have any checks to warn if you
 use the setting inappropriately.
 
 If your project has optional C extensions, it is recommended not to publish a
