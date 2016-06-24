@@ -6,7 +6,7 @@ Project Summaries
 =================
 
 :Page Status: Complete
-:Last Reviewed: 2015-09-08
+:Last Reviewed: 2016-06-24
 
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
@@ -35,7 +35,7 @@ complete mirror of the contents of PyPI.
 distlib
 =======
 
-`Docs <http://pythonhosted.org/distlib>`__ |
+`Docs <http://pythonhosted.org/distlib/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
@@ -68,7 +68,7 @@ Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 pip
 ===
 
-`Docs <https://pip.pypa.io>`__ |
+`Docs <https://pip.pypa.io/en/stable/>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
@@ -83,7 +83,7 @@ A tool for installing Python packages.
 Python Packaging User Guide
 ===========================
 
-`Docs <http://packaging.python.org>`__ |
+`Docs <https://packaging.python.org/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ |
 `Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
 `Github <https://github.com/pypa/python-packaging-user-guide>`__ |
@@ -99,7 +99,7 @@ This guide!
 setuptools
 ==========
 
-`Docs <https://setuptools.readthedocs.io>`__ |
+`Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://bitbucket.org/pypa/setuptools/issues>`__ |
@@ -137,7 +137,7 @@ Twine is a utility for interacting with PyPI, that offers a secure replacement f
 virtualenv
 ==========
 
-`Docs <https://virtualenv.pypa.io>`__ |
+`Docs <https://virtualenv.pypa.io/en/stable/>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
@@ -154,7 +154,7 @@ A tool for creating isolated Python environments.
 Warehouse
 =========
 
-`Docs <http://warehouse.readthedocs.org/en/latest/>`__ |
+`Docs <https://warehouse.pypa.io/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/warehouse/issues>`__ |
 `Github <https://github.com/pypa/warehouse>`__ |
@@ -169,7 +169,7 @@ The new unreleased PyPI application which can be previewed at https://warehouse.
 wheel
 =====
 
-`Docs <http://wheel.readthedocs.org>`__ |
+`Docs <http://wheel.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/wheel/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/wheel>`__ |
@@ -206,7 +206,7 @@ reproducibility, extensibility and simplicity (in that order).
 buildout
 ========
 
-`Docs <http://www.buildout.org>`__ |
+`Docs <http://www.buildout.org/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
 `PyPI <https://pypi.python.org/pypi/zc.buildout>`__ |
@@ -221,7 +221,7 @@ lets you create a buildout configuration and reproduce the same software later.
 conda
 =====
 
-`Docs <http://docs.continuum.io/conda/index.html>`__
+`Docs <http://conda.pydata.org/docs/>`__
 
 conda is the package management tool for `Anaconda
 <http://docs.continuum.io/anaconda/index.html>`__ Python installations.
@@ -244,7 +244,7 @@ for managing distributions from PyPI.
 devpi
 =====
 
-`Docs <http://doc.devpi.net>`__ |
+`Docs <http://doc.devpi.net/latest/>`__ |
 `Mailing List <https://groups.google.com/forum/#!forum/devpi-dev>`__ |
 `Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
 `PyPI <https://pypi.python.org/pypi/devpi>`__
@@ -304,7 +304,7 @@ build of the Python distribution.
 distutils
 =========
 
-`Docs <https://docs.python.org/3/library/distutils.html#module-distutils>`__ |
+`Docs <https://docs.python.org/3/library/distutils.html>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <http://bugs.python.org>`__ |
 User irc:#pypa  |
@@ -324,10 +324,9 @@ venv
 `Docs <https://docs.python.org/3/library/venv.html>`__ |
 `Issues <http://bugs.python.org>`__
 
-A package in the Python Standard Library (starting with Python 3.3) that
-includes the ``pyvenv`` tool for creating :term:`Virtual Environments <Virtual
-Environment>`.  For more information, see the section on :ref:`Creating and
-using Virtual Environments`.
+A package in the Python Standard Library (starting with Python 3.3) for
+creating :term:`Virtual Environments <Virtual Environment>`.  For more
+information, see the section on :ref:`Creating and using Virtual Environments`.
 
 
 ----
