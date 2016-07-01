@@ -4,7 +4,7 @@
 :: MS Windows SDK for Windows 7 and .NET Framework 4
 ::
 :: More details at:
-:: https://github.com/cython/cython/wiki/64BitCythonExtensionsOnWindows
+:: https://github.com/cython/cython/wiki/CythonExtensionsOnWindows
 
 IF "%DISTUTILS_USE_SDK%"=="1" (
     ECHO Configuring environment to build with MSVC on a 64bit architecture
