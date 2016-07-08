@@ -23,9 +23,12 @@ Installation Tool Recommendations
   dependencies from a shared Python installation. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
-  stacks, consider :ref:`buildout` (primarily focused on the web development
-  community) or :ref:`hashdist`, or :ref:`conda` (both primarily focused on
-  the scientific community).
+  stacks, consider:
+
+  * :ref:`buildout`: primarily focused on the web development community
+
+  * :ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused
+    on the scientific community.
 
 
 
