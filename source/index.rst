@@ -21,7 +21,7 @@ This guide is maintained on `github
    distributing
    additional
    specifications
-   projects
+   key_projects
    glossary
    support
 
