@@ -282,6 +282,28 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 ``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
 deployment of Python applications as simple as ``cp``.
 
+.. _spack:
+
+Spack
+=====
+
+`Docs <http://software.llnl.gov/spack/>`__ |
+`Github <https://github.com/llnl/spack/>`__ |
+`Paper <http://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf>`__ |
+`Slides <https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf>`__
+
+A flexible package manager designed to support multiple versions,
+configurations, platforms, and compilers.  Spack is like homebrew, but
+packages are written in Python and parameterized to allow easy
+swapping of compilers, library versions, build options,
+etc. Arbitrarily many versions of packages can coexist on the same
+system. Spack was designed for rapidly building high performance
+scientific applications on clusters and supercomputers.
+
+Spack is not in PyPI (yet), but it requires no installation and can be
+used immediately after cloning from github.
+
+
 Standard Library Projects
 #########################
 
