@@ -112,6 +112,24 @@ end users in an easy to use and update format.
 Some of these distributions may not be compatible with the standard ``pip``
 and ``virtualenv`` based toolchain.
 
+Spack
+------
+`Spack <https://github.com/LLNL/spack/>`_ is a flexible package manager
+designed to support multiple versions, configurations, platforms, and compilers.
+It was built to support the needs of large supercomputing centers and scientific
+application teams, who must often build software many different ways.
+Spack is not limited to Python; it can install packages for ``C``, ``C++``, 
+``Fortran``, ``R``, and other languages.  It is non-destructive; installing
+a new version of one package does not break existing installations, so many
+configurations can coexist on the same system.
+
+Spack offers a simple but powerful syntax that allows users to specify
+versions and configuration options concisely. Package files are written in
+pure Python, and they are templated so that it is easy to swap compilers,
+dependency implementations (like MPI), versions, and build options with a single
+package file.  Spack also generates *module* files so that packages can
+be loaded and unloaded from the user's environment.
+
 
 The conda cross-platform package manager
 ----------------------------------------
