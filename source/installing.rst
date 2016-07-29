@@ -37,16 +37,12 @@ Install pip, setuptools, and wheel
   <https://www.python.org>`_, you will already have :ref:`pip` and
   :ref:`setuptools`, but will need to upgrade to the latest version:
 
-  On Linux or OS X:
-
-  ::
+  On Linux or OS X::
 
     pip install -U pip setuptools
 
 
-  On Windows:
-
-  ::
+  On Windows::
 
     python -m pip install -U pip setuptools
 
@@ -78,17 +74,13 @@ Optionally, Create a virtual environment
 See :ref:`section below <Creating and using Virtual Environments>` for details,
 but here's the basic commands:
 
-   Using :ref:`virtualenv`:
-
-   ::
+   Using :ref:`virtualenv`::
 
     pip install virtualenv
     virtualenv <DIR>
     source <DIR>/bin/activate
 
-   Using `venv`_: [3]_
-
-   ::
+   Using `venv`_ [3]_::
 
     python3 -m venv <DIR>
     source <DIR>/bin/activate
@@ -132,17 +124,13 @@ Currently, there are two viable tools for creating Python virtual environments:
 
 The basic usage is like so:
 
-Using :ref:`virtualenv`:
-
-::
+Using :ref:`virtualenv`::
 
  virtualenv <DIR>
  source <DIR>/bin/activate
 
 
-Using `venv`_:
-
-::
+Using `venv`_::
 
  python3 -m venv <DIR>
  source <DIR>/bin/activate
@@ -177,31 +165,23 @@ composed of a project name followed by an optional :term:`version specifier
 specification <440#version-specifiers>`
 of the currently supported specifiers. Below are some examples.
 
-To install the latest version of "SomeProject":
-
-::
+To install the latest version of "SomeProject"::
 
  pip install 'SomeProject'
 
 
-To install a specific version:
-
-::
+To install a specific version::
 
  pip install 'SomeProject==1.4'
 
 
-To install greater than or equal to one version and less than another:
-
-::
+To install greater than or equal to one version and less than another::
 
  pip install 'SomeProject>=1,<2'
 
 
 To install a version that's :pep:`"compatible" <440#compatible-release>`
-with a certain version: [4]_
-
-::
+with a certain version [4]_::
 
  pip install 'SomeProject~=1.4.2'
 
@@ -229,21 +209,16 @@ in the future.
 Upgrading packages
 ==================
 
-Upgrade an already installed `SomeProject` to the latest from PyPI.
-
-::
+Upgrade an already installed "SomeProject" to the latest from PyPI::
 
  pip install --upgrade SomeProject
-
 
 
 Installing to the User Site
 ===========================
 
 To install :term:`packages <Distribution Package>` that are isolated to the
-current user, use the ``--user`` flag:
-
-::
+current user, use the ``--user`` flag::
 
   pip install --user SomeProject
 
@@ -257,9 +232,7 @@ Requirements files
 ==================
 
 Install a list of requirements specified in a :ref:`Requirements File
-<pip:Requirements Files>`.
-
-::
+<pip:Requirements Files>`::
 
  pip install -r requirements.txt
 
@@ -268,9 +241,7 @@ Installing from VCS
 ===================
 
 Install a project from VCS in "editable" mode.  For a full breakdown of the
-syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
-
-::
+syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`::
 
  pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
  pip install -e hg+https://hg.repo/some_pkg.git#egg=SomeProject            # from mercurial
@@ -281,39 +252,29 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 Installing from other Indexes
 =============================
 
-Install from an alternate index
-
-::
+Install from an alternate index::
 
  pip install --index-url http://my.package.repo/simple/ SomeProject
 
 
 Search an additional index during install, in addition to :term:`PyPI <Python
-Package Index (PyPI)>`
-
-::
+Package Index (PyPI)>`::
 
  pip install --extra-index-url http://my.package.repo/simple SomeProject
-
 
 
 Installing from a local src tree
 ================================
 
-
 Installing from local src in `Development Mode
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_,
 i.e. in such a way that the project appears to be installed, but yet is
-still editable from the src tree.
-
-::
+still editable from the src tree::
 
  pip install -e <path>
 
 
-You can also install normally from src
-
-::
+You can also install normally from source::
 
  pip install <path>
 
@@ -321,31 +282,24 @@ You can also install normally from src
 Installing from local archives
 ==============================
 
-Install a particular source archive file.
-
-::
+Install a particular source archive file::
 
  pip install ./downloads/SomeProject-1.0.4.tar.gz
 
 
 Install from a local directory containing archives (and don't check :term:`PyPI
-<Python Package Index (PyPI)>`)
-
-::
+<Python Package Index (PyPI)>`)::
 
  pip install --no-index --find-links=file:///local/dir/ SomeProject
  pip install --no-index --find-links=/local/dir/ SomeProject
  pip install --no-index --find-links=relative/dir/ SomeProject
 
 
-
 Installing Prereleases
 ======================
 
 Find pre-release and development versions, in addition to stable versions.  By
-default, pip only finds stable versions.
-
-::
+default, pip only finds stable versions::
 
  pip install --pre SomeProject
 
@@ -353,9 +307,7 @@ default, pip only finds stable versions.
 Installing Setuptools "Extras"
 ==============================
 
-Install `setuptools extras`_.
-
-::
+Install `setuptools extras`_::
 
   $ pip install SomePackage[PDF]
   $ pip install SomePackage[PDF]==3.0
