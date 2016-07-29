@@ -21,7 +21,7 @@ The current core metadata file format, version 1.2, is specified in :pep:`345`.
 
 However, the version specifiers and environment markers sections of that PEP
 have been superceded as described below. In addition, metadata files are
-permitted to contain the following additional field:
+permitted to contain the following additional fields:
 
 Provides-Extra (multiple use)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,6 +51,70 @@ respectively.
 
 It is legal to specify ``Provides-Extra:`` without referencing it in any
 ``Requires-Dist:``.
+
+Description-Content-Type
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+A string containing the format of the distribution's description, so that tools
+can intelligently render the description. Historically, distribution
+descriptions in plain text and in `reStructuredText (reST)
+<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ have
+been supported and PyPI knows how to render reST into HTML. It is very common
+for distribution authors to write their description in `Markdown
+<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763
+<https://tools.ietf.org/html/rfc7763>`_). Distribution authors commonly use
+Markdown probably because that's the markup language that they are most
+familiar with, but PyPI historically didn't know the format of the description
+and thus could not know to render a description as Markdown. This results in
+PyPI having many packages where the description is rendered in a very ugly way,
+because the description was written in Markdown, but PyPI is rendering it as
+reST. This field allows the distribution author to specify the format of their
+description and thus opens up the possibility for PyPI and other tools to be
+able to render Markdown and other formats.
+
+The format of this field is same as the ``Content-Type`` header in HTTP (e.g.:
+`RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type.html>`_).
+Briefly, this means that it has a ``type/subtype`` part and then it can
+optionally have a number of parameters:
+
+Format::
+
+    Description-Content-Type: <type>/<subtype>; charset=<charset>[; <param_name>=<param value> ...]
+
+The ``type/subtype`` part has only a few legal values:
+
+- ``text/plain``
+- ``text/x-rst``
+- ``text/markdown``
+
+There is one required parameter called ``charset``, to specify whether the text
+is UTF-8, ASCII, etc.
+
+Other parameters might be specific to the chosen subtype. For example, for the
+``markdown`` subtype, there is a ``variant`` parameter that allows specifying
+the variant of Markdown in use, such as ``Original`` for `Gruber's original
+Markdown syntax <https://tools.ietf.org/html/rfc7763#section-6.1.4>`_ or
+``GFM`` for `GitHub Flavored Markdown (GFM)
+<https://tools.ietf.org/html/rfc7764#section-3.2>`_.
+
+Example::
+
+    Description-Content-Type: text/plain; charset=UTF-8
+
+Example::
+
+    Description-Content-Type: text/x-rst; charset=UTF-8
+
+Example::
+
+    Description-Content-Type: text/markdown; charset=UTF-8; variant=Original
+
+Example::
+
+    Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+If a ``Description-Content-Type`` is not specified, then the assumed content type
+is ``text/x-rst; charset=UTF-8``.
 
 
 Version Specifiers
