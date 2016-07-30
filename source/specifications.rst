@@ -87,8 +87,10 @@ The ``type/subtype`` part has only a few legal values:
 - ``text/x-rst``
 - ``text/markdown``
 
-There is one required parameter called ``charset``, to specify whether the text
-is UTF-8, ASCII, etc.
+One parameter is called ``charset``; it can be used to specify whether the
+character set in use is UTF-8, ASCII, etc. If ``charset`` is not provided, then
+it is recommended that the implementation (e.g.: PyPI) treat the content as
+UTF-8.
 
 Other parameters might be specific to the chosen subtype. For example, for the
 ``markdown`` subtype, there is a ``variant`` parameter that allows specifying
