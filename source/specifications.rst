@@ -105,6 +105,10 @@ the variant of Markdown in use, such as:
 - ``Original`` for `Gruber's original Markdown syntax
   <https://tools.ietf.org/html/rfc7763#section-6.1.4>`_
 
+If the subtype is ``markdown`` and no ``variant`` is specified, then the
+implementation (e.g.: PyPI) should assume that the ``variant`` is
+``CommonMark``.
+
 Example::
 
     Description-Content-Type: text/plain; charset=UTF-8
