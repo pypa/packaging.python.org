@@ -105,9 +105,9 @@ the variant of Markdown in use, such as:
 - ``Original`` for `Gruber's original Markdown syntax
   <https://tools.ietf.org/html/rfc7763#section-6.1.4>`_
 
-If the subtype is ``markdown`` and no ``variant`` is specified, then the
-implementation (e.g.: PyPI) should assume that the ``variant`` is
-``CommonMark``.
+If the subtype is ``markdown`` and no ``variant`` is specified or the specfied
+``variant`` is not recognized, then the implementation (e.g.: PyPI) should
+assume that the ``variant`` is ``CommonMark``.
 
 Example::
 
@@ -129,8 +129,15 @@ Example::
 
     Description-Content-Type: text/markdown; charset=UTF-8; variant=Original
 
-If a ``Description-Content-Type`` is not specified, then the assumed content type
-is ``text/x-rst; charset=UTF-8``.
+If a ``Description-Content-Type`` is not specified or it's set to an
+unrecognized value, then the assumed content type is ``text/x-rst;
+charset=UTF-8``.
+
+If the ``charset`` is not specified or it's set to an unrecognized value, then
+the assumed ``charset`` is ``UTF-8``.
+
+If the subtype is ``markdown`` and ``variant`` is not specified or it's set to
+an unrecognized value, then the assumed ``variant`` is ``CommonMark``.
 
 
 Version Specifiers
