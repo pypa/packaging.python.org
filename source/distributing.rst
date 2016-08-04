@@ -816,7 +816,7 @@ There are two options:
 
    ::
 
-    python setup.py sdist bdist_wheel upload
+    python setup.py bdist_wheel sdist upload
 
    This approach is covered here due to it being mentioned in other guides, but it
    is not recommended as it may use a plaintext HTTP or unverified HTTPS connection
