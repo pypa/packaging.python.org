@@ -748,7 +748,7 @@ write a ``~/.pypirc`` file like so.
     index-servers=pypi
 
     [pypi]
-    repository = https://upload.pypi.io/legacy/
+    repository = https://upload.pypi.org/legacy/
     username = <username>
     password = <password>
 
