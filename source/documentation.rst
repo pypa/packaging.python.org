@@ -7,8 +7,15 @@ Documenting the Package
 
 A well-rounded project should also provide documentation to its users
 to provide a narrative description of the purpose and use of the
-package. This section describes the best practices for maintaining
-and publishing documentation for a typical package.
+package.
+
+While a simple README file that provides both end user and
+developer documentation is a good starting point for a new project,
+as a project matures, it frequently becomes desirable to provide
+more structured user-facing documentation.
+
+This section describes the best practices for maintaining
+and publishing documentation for a such a package.
 
 .. contents:: Contents
    :local:
