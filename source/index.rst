@@ -19,6 +19,7 @@ This guide is maintained on `github
    current
    installing
    distributing
+   documentation
    additional
    specifications
    key_projects
