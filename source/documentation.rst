@@ -118,13 +118,13 @@ package assets and publish the documentation in one command::
 
     # setup.cfg
     [aliases]
-    release = sdist sphinx_build upload upload-docs
+    release = sdist build_sphinx upload upload-docs
 
 Next, ensure that sphinx is available during the build process by
 including it in the ``setup_requires`` of the setup script::
 
     # setup.py
-    needs_sphinx = {'release', 'sphinx_build'}.intersection(sys.argv)
+    needs_sphinx = {'release', 'build_sphinx'}.intersection(sys.argv)
     sphinx = ['sphinx'] if needs_sphinx else []
 
     setup(
