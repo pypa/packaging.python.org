@@ -76,6 +76,14 @@ If the docs rely on code in the project itself or its
 dependencies, you will also want to configure the
 "Install Project" option in Advanced Settings.
 
+Configure the Webhook
+---------------------
+
+In order for the documentation to be rebuilt when changes
+are published to the source repository, a webhook must
+be enabled. Follow `these directions to configure webhooks
+<http://docs.readthedocs.io/en/latest/webhooks.html>`_.
+
 Porting from Distutils-built Documentation
 ------------------------------------------
 
