@@ -5,8 +5,8 @@ The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource 
 how to package and install distributions in Python using current tools.
 
 The guide is currently maintained by the "Python Packaging Authority" (PyPA).
-It was forked from the “Hitchhikers Guide to Packaging” in March 2013, which was
-maintained by Tarek Ziadé.  Thankyou Tarek for all your efforts in python
+It was forked from the “Hitchhiker's Guide to Packaging” in March 2013, which was
+maintained by Tarek Ziadé.  Thank you Tarek for all your efforts in Python
 packaging.
 
 To follow the development of Python packaging, see the `Python

@@ -5,7 +5,7 @@ Tool Recommendations
 ====================
 
 :Page Status: Complete
-:Last Reviewed: 2015-08-31
+:Last Reviewed: 2016-06-24
 
 If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
@@ -19,13 +19,16 @@ Installation Tool Recommendations
   is installed, you may need to also install :ref:`wheel` to get the benefit
   of wheel caching. [3]_
 
-* Use :ref:`virtualenv`, or `pyvenv`_ to isolate application specific
+* Use :ref:`virtualenv`, or `venv`_ to isolate application specific
   dependencies from a shared Python installation. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
-  stacks, consider :ref:`buildout` (primarily focused on the web development
-  community) or :ref:`hashdist`, or :ref:`conda` (both primarily focused on
-  the scientific community).
+  stacks, consider:
+
+  * :ref:`buildout`: primarily focused on the web development community
+
+  * :ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused
+    on the scientific community.
 
 
 
@@ -56,11 +59,11 @@ Packaging Tool Recommendations
        as for why pip was chosen.
 
 .. [3] :ref:`get-pip.py <pip:get-pip>` and :ref:`virtualenv` install
-       :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`pyvenv <venv>` do not
+       :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not
        currently.  Also, the common "python-pip" package that's found in various
        linux distros, does not depend on "python-wheel" currently.
 
-.. [4] Beginning with Python 3.4, ``pyvenv`` will create virtualenv environments
+.. [4] Beginning with Python 3.4, ``venv`` will create virtualenv environments
        with ``pip`` installed, thereby making it an equal alternative to
        :ref:`virtualenv`. However, using :ref:`virtualenv` will still be
        recommended for users that need cross-version consistency.
@@ -90,4 +93,4 @@ Packaging Tool Recommendations
        <425>` before linux wheels will be allowed.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
-.. _pyvenv: http://docs.python.org/3.4/library/venv.html
+.. _venv: https://docs.python.org/3/library/venv.html

@@ -46,6 +46,7 @@ OS Packaging & Installers
   - Building rpm/debs for projects
   - Building rpms/debs for whole virtualenvs
   - Building Mac OS X installers for Python projects
+  - Building Android APKs with Kivy+P4A or P4A & Buildozer
 
 Windows
 -------

@@ -3,7 +3,7 @@ Installing Packages
 ===================
 
 :Page Status: Complete
-:Last Reviewed: 2015-09-09
+:Last Reviewed: 2016-06-24
 
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
@@ -50,8 +50,6 @@ Install pip, setuptools, and wheel
 
     python -m pip install -U pip setuptools
 
-  You will not have :ref:`wheel`, so you'll need to run: ``pip install wheel``
-
 * If you're using a Python install on Linux that's managed by the system package
   manager (e.g "yum", "apt-get" etc...), and you want to use the system package
   manager to install or upgrade pip, then see :ref:`Installing
@@ -88,11 +86,11 @@ but here's the basic commands:
     virtualenv <DIR>
     source <DIR>/bin/activate
 
-   Using `pyvenv`_: [3]_
+   Using `venv`_: [3]_
 
    ::
 
-    pyvenv <DIR>
+    python3 -m venv <DIR>
     source <DIR>/bin/activate
 
 
@@ -123,11 +121,14 @@ installation directories and they don’t share libraries with other virtual
 environments.
 
 Currently, there are two viable tools for creating Python virtual environments:
-:ref:`virtualenv` and `pyvenv`_. `pyvenv`_ is only available in Python 3.3 &
-3.4, and only in Python 3.4, is :ref:`pip` & :ref:`setuptools` installed into
-environments by default, whereas :ref:`virtualenv` supports Python 2.6 thru
-Python 3.4 and :ref:`pip` & :ref:`setuptools` are installed by default in every
-version.
+
+* `venv`_ is available by default in Python 3.3 and later, and installs
+  :ref:`pip` and :ref:`setuptools` into created virtual environments in
+  Python 3.4 and later.
+* :ref:`virtualenv` needs to be installed separately, but supports Python 2.6+
+  and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are
+  always installed into created virtual environments by default (regardless of
+  Python version).
 
 The basic usage is like so:
 
@@ -139,16 +140,16 @@ Using :ref:`virtualenv`:
  source <DIR>/bin/activate
 
 
-Using `pyvenv`_:
+Using `venv`_:
 
 ::
 
- pyvenv <DIR>
+ python3 -m venv <DIR>
  source <DIR>/bin/activate
 
 
 For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
-the `pyvenv`_ docs.
+the `venv`_ docs.
 
 
 Use pip for Installing
@@ -301,16 +302,16 @@ Installing from a local src tree
 
 
 Installing from local src in `Development Mode
-<http://pythonhosted.org/setuptools/setuptools.html#development-mode>`_, i.e. in
-such a way that the project appears to be installed, but yet is still editable
-from the src tree.
+<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_,
+i.e. in such a way that the project appears to be installed, but yet is
+still editable from the src tree.
 
 ::
 
  pip install -e <path>
 
 
-You can also normally from src
+You can also install normally from src
 
 ::
 
@@ -373,7 +374,7 @@ Install `setuptools extras`_.
        installs the default behavior
        <https://github.com/pypa/pip/issues/1668>`_.
 
-.. [3] Beginning with Python 3.4, ``pyvenv`` (a stdlib alternative to
+.. [3] Beginning with Python 3.4, ``venv`` (a stdlib alternative to
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
@@ -382,5 +383,5 @@ Install `setuptools extras`_.
        and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
 
-.. _pyvenv: http://docs.python.org/3.4/library/venv.html
-.. _setuptools extras: http://packages.python.org/setuptools/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
+.. _venv: https://docs.python.org/3/library/venv.html
+.. _setuptools extras: http://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies

@@ -39,5 +39,5 @@ wrapper script or use ``python -c '<commmand>'`` to invoke the application's
 main entry point directly.
 
 Refer to the `pkg_resources documentation
-<http://pythonhosted.org/setuptools/pkg_resources.html#workingset-objects>`__
+<https://setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-objects>`__
 for more details.
