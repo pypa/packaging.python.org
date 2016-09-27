@@ -102,7 +102,7 @@ setuptools
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
-`Issues <https://bitbucket.org/pypa/setuptools/issues>`__ |
+`Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.python.org/pypi/setuptools>`__ |
 User irc:#pypa  |
