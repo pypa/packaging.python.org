@@ -66,6 +66,13 @@ sample project <https://github.com/pypa/sampleproject>`_.
 2. It's the command line interface for running various commands that
    relate to packaging tasks. To get a listing of available commands, run
    ``python setup.py --help-commands``.
+   
+Note that even if one could think of using a `setup.py` directory containing a 
+`__main__.py` (see CPython's `Command line and environment 
+<https://docs.python.org/3/using/cmdline.html>`_), this is
+not supported since `setup.py` is not always called by passing it as a command 
+line argument to python. Sometimes it's passed via `execfile`, which 
+doesn't support executing directories.
 
 
 setup.cfg
