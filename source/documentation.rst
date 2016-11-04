@@ -157,3 +157,8 @@ This technique had some advantages that the RTD process does not::
  - Authentication and Authorization of maintainers in PyPI was re-used
    for authorization to publish documentation.
  - Uniform API that required no additional manual steps.
+ - A link to the docs would be provided automatically in the project page.
+ - Documentation builds could be readily tested locally, whereas with
+   RTD, one must iterate on the RTD servers.
+ - RTD is a complex service with many more opportunities for failure
+   and a higher bar for resolving issues when they arise.
