@@ -766,20 +766,20 @@ when prompted.
 Register your project
 ---------------------
 
-Next, if this is the first release, you currently need to explicitly register your
-project prior to uploading.
+Next, if this is the first release, **unless you use twine**, you
+need to explicitly register your project prior to uploading. If you intend to
+upload your project using twine (see :ref:`Upload your distributions` below),
+you can skip this step, as twine will register and upload your project in one
+step.
 
-There are three ways to do this:
+There are two ways to do register manually:
 
 1. Use `the form on the PyPI website
    <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
    ``PKG-INFO`` info located in your local project tree at
    ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
    then run ``python setup.py egg_info`` to have it generated.
-2. Run ``twine register dist/mypkg.whl``, and :ref:`twine` will register your project
-   based on the package metadata in the specified files. Your ``~/.pypirc``
-   must already be appropriately configured for twine to work.
-3. **(Not recommended):** Run ``python setup.py register``.  If you don't have
+2. **(Not recommended):** Run ``python setup.py register``.  If you don't have
    a user account already, a wizard will create one for you. This approach is
    covered here due to it being mentioned in other guides, but it is not
    recommended as it may use a plaintext HTTP or unverified HTTPS connection
