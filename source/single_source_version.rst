@@ -14,19 +14,20 @@ number of your project:
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
     from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
 
-        def read(*names, **kwargs):
-            with io.open(
-                os.path.join(os.path.dirname(__file__), *names),
-                encoding=kwargs.get("encoding", "utf8")
-            ) as fp:
-                return fp.read()
+        import os.path
+        import re
 
         def find_version(*file_paths):
-            version_file = read(*file_paths)
-            version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                                      version_file, re.M)
-            if version_match:
-                return version_match.group(1)
+            # We read __version__ instead of importing it because that would fail if
+            # the module it's in tries to import things from dependencies that aren't
+            # installed yet when setup.py is being run.
+            # Moreover, imports can fail if sys.path isn't properly set.
+            # Since version numbers only use a subset of ascii, we can read the file
+            # as bytes, thus avoiding unicode decode errors.
+            with open(os.path.join(os.path.dirname(__file__), *file_paths), 'rb') as f:
+                match = re.search(br"^__version__ = ['\"]([^'\"]*)['\"]", f.read(), re.M)
+            if match:
+                return match.group(1)
             raise RuntimeError("Unable to find version string.")
 
         setup(
@@ -48,25 +49,23 @@ number of your project:
 
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
-    your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
-    value into a variable.
+    your project (e.g. ``__about__.py``), then have ``setup.py`` read and ``exec`` the
+    value into a variable::
 
-    Using ``execfile``:
+        import os.path
 
-    ::
+        # We exec the module instead of importing it because imports can fail if
+        # sys.path isn't properly set.
+        base_dir = os.path.dirname(__file__)
+        about = {}
+        with open(os.path.join(base_dir, "module_name", "__about__.py"), 'rb') as fp:
+            exec(fp.read(), {}, about)
 
-        execfile('...sample/version.py')
-        # now we have a `__version__` variable
-        # later on we use: __version__
-
-    Using ``exec``:
-
-    ::
-
-        version = {}
-        with open("...sample/version.py") as fp:
-            exec(fp.read(), version)
-        # later on we use: version['__version__']
+        setup(
+           ...
+           version=about['__version__']
+           ...
+        )
 
     Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_.
 
