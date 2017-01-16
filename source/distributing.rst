@@ -542,7 +542,7 @@ Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
 to the current working directory, so together, it means to install the current
 directory (i.e. your project) in editable mode.  This will also install any
 dependencies declared with "install_requires" and any scripts declared with
-"console_scripts".  Dependencies will not be installed in editable mode.
+"console_scripts".  Dependencies will be installed in the usual, non-editable mode.
 
 It's fairly common to also want to install some of your dependencies in editable
 mode as well. For example, supposing your project requires "foo" and "bar", but
