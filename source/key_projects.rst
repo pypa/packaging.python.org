@@ -161,7 +161,7 @@ Warehouse
 Dev irc:#pypa-dev
 
 
-The new unreleased PyPI application which can be previewed at https://warehouse.python.org/.
+The new unreleased PyPI application which can be previewed at https://pypi.org/.
 
 
 .. _wheel:
