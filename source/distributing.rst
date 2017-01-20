@@ -126,7 +126,7 @@ include in the `PyPA sample project <https://github.com/pypa/sampleproject>`_
 setup() args
 ------------
 
-As mentioned above, The primary feature of ``setup.py`` is that it contains a
+As mentioned above, the primary feature of ``setup.py`` is that it contains a
 global ``setup()`` function.  The keyword arguments to this function are how
 specific details of your project are defined.
 
