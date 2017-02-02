@@ -55,24 +55,25 @@ It is legal to specify ``Provides-Extra:`` without referencing it in any
 Description-Content-Type
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-A string containing the format of the distribution's description, so that tools
-can intelligently render the description. Historically, distribution
-descriptions in plain text and in `reStructuredText (reST)
-<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_ have
-been supported and PyPI knows how to render reST into HTML. It is very common
-for distribution authors to write their description in `Markdown
-<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763
-<https://tools.ietf.org/html/rfc7763>`_). Distribution authors commonly use
-Markdown probably because that's the markup language that they are most
-familiar with, but PyPI historically didn't know the format of the description
-and thus could not know to render a description as Markdown. This results in
-PyPI having many packages where the description is rendered in a very ugly way,
-because the description was written in Markdown, but PyPI is rendering it as
-reST. This field allows the distribution author to specify the format of their
-description and thus opens up the possibility for PyPI and other tools to be
-able to render Markdown and other formats.
+A string containing the format of the distribution's description, so that
+tools can intelligently render the description.
 
-The format of this field is same as the ``Content-Type`` header in HTTP (e.g.:
+Historically, PyPI supported descriptions in plain text and `reStructuredText
+(reST) <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_,
+and could render reST into HTML. However, it is common for distribution
+authors to write the description in `Markdown
+<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763
+<https://tools.ietf.org/html/rfc7763>`_) as many code hosting sites render
+Markdown READMEs, and authors would reuse the file for the description. PyPI
+didn't recognize the format and so could not render the description correctly.
+This resulted in many packages on PyPI with poorly-rendered descriptions when
+Markdown is left as plain text, or worse, was attempted to be rendered as reST.
+This field allows the distribution author to specify the format of their
+description, opening up the possibility for PyPI and other tools to be able to
+render Markdown and other formats.
+
+The format of this field is the same as the ``Content-Type`` header in HTTP
+(e.g.:
 `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type.html>`_).
 Briefly, this means that it has a ``type/subtype`` part and then it can
 optionally have a number of parameters:
@@ -87,9 +88,9 @@ The ``type/subtype`` part has only a few legal values:
 - ``text/x-rst``
 - ``text/markdown``
 
-One parameter is called ``charset``; it can be used to specify whether the
-character set in use is UTF-8, ASCII, etc. If ``charset`` is not provided, then
-it is recommended that the implementation (e.g.: PyPI) treat the content as
+The ``charset`` parameter can be used to specify whether the character set in
+use is UTF-8, ASCII, etc. If ``charset`` is not provided, then it is
+recommended that the implementation (e.g.: PyPI) treat the content as
 UTF-8.
 
 Other parameters might be specific to the chosen subtype. For example, for the
@@ -104,10 +105,6 @@ the variant of Markdown in use, such as:
 
 - ``Original`` for `Gruber's original Markdown syntax
   <https://tools.ietf.org/html/rfc7763#section-6.1.4>`_
-
-If the subtype is ``markdown`` and no ``variant`` is specified or the specfied
-``variant`` is not recognized, then the implementation (e.g.: PyPI) should
-assume that the ``variant`` is ``CommonMark``.
 
 Example::
 
