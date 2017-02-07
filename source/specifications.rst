@@ -6,7 +6,7 @@ PyPA Specifications
 ===================
 
 :Page Status: Complete
-:Last Reviewed: 2016-01-22
+:Last Reviewed: 2017-02-06
 
 This is a list of currently active interoperability specifications maintained
 by the Python Packaging Authority.
@@ -70,6 +70,13 @@ component is defined in :pep:`508`.
 
 The environment markers section in this PEP supersedes the environment markers
 section in :pep:`345`.
+
+Declaring Build System Dependencies
+===================================
+
+`pyproject.toml` is a build system independent file format defined in :pep:`518`
+that projects may provide in order to declare any Python level dependencies that
+must be installed in order to run the project's build system successfully.
 
 Source Distribution Format
 ==========================
