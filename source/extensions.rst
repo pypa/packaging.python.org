@@ -47,7 +47,7 @@ conventional categories:
 
   One particularly notable feature of C extensions is that, when they don't
   need to call back into the interpreter runtime, they can release CPython's
-  global interpreter lock around long-running operations (regardling of
+  global interpreter lock around long-running operations (regardless of
   whether those operations are CPU or IO bound).
 
 Not all extension modules will fit neatly into the above categories. The
