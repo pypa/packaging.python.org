@@ -35,7 +35,7 @@ cached copies of :term:`packages <Distribution Package>`:
    those downloaded files instead of going to PyPI.
 2. A variation on the above which pre-builds the installation files for
    the requirements using `pip wheel
-   <http://pip.readthedocs.org/en/latest/reference/pip_wheel.html>`_::
+   <https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_::
 
     $ pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
     $ pip install --no-index --find-links=/tmp/wheelhouse SomeProject
