@@ -705,10 +705,9 @@ on. For details on the naming of wheel files, see :pep:`425`
 
 .. note::
 
-  :term:`PyPI <Python Package Index (PyPI)>` currently only allows uploads of
-  platform wheels for Windows and OS X, NOT linux.  Currently, the wheel tag
-  specification (:pep:`425`) does not handle the variation that can
-  exist across linux distros.
+  :term:`PyPI <Python Package Index (PyPI)>` currently supports uploads of
+  platform wheels for Windows, OS X, and the multi-distro ``manylinux1`` ABI.
+  Details of the latter are defined in :pep`513`.
 
 
 .. _`Uploading your Project to PyPI`:
