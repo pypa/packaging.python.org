@@ -338,6 +338,19 @@ Install from a local directory containing archives (and don't check :term:`PyPI
  pip install --no-index --find-links=relative/dir/ SomeProject
 
 
+Installing from other sources
+=============================
+
+To install from other data sources (for example Amazon S3 storage) you can
+create a helper application that presents the data in a :pep:`503` compliant
+index format, and use the ``--extra-index-url`` flag to direct pip to use
+that index.
+
+::
+
+ ./s3helper --port=7777
+ pip install --extra-index-url http://localhost:7777 SomeProject
+
 
 Installing Prereleases
 ======================
