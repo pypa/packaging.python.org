@@ -249,7 +249,7 @@ classifiers
       'Programming Language :: Python :: 3.4',
   ],
 
-Provide a list of classifiers the categorize your project. For a full listing,
+Provide a list of classifiers that categorize your project. For a full listing,
 see https://pypi.python.org/pypi?%3Aaction=list_classifiers.
 
 
@@ -784,7 +784,7 @@ Upload your distributions
 -------------------------
 
 Finally, you can upload your distributions to :term:`PyPI <Python Package Index
-(PyPI)>`. 
+(PyPI)>`.
 
 There are two options:
 
