@@ -25,3 +25,4 @@ either of our guides on :doc:`installing` or :doc:`distributing`.
    multi_version_install
    appveyor
    self_hosted_repository
+   namespace_packages
