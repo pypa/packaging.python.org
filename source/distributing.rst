@@ -554,7 +554,14 @@ requirements file like so::
 
 The first line says to install your project and any dependencies. The second
 line overrides the "bar" dependency, such that it's fulfilled from vcs, not
-PyPI.  For more on requirements files, see the :ref:`Requirements File
+PyPI.
+
+If, however, you want "bar" installed from a local directory in editable mode, the requirements file should look like this, with the local paths at the top of the file::
+
+  -e /path/to/project/bar
+  -e .
+
+Otherwise, the dependency will be fulfilled from PyPI, due to the installation order of the requirements file.  For more on requirements files, see the :ref:`Requirements File
 <pip:Requirements Files>` section in the pip docs.  For more on vcs installs,
 see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
