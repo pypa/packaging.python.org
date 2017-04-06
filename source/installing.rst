@@ -249,7 +249,7 @@ current user, use the ``--user`` flag:
 
 
 For more information see the `User Installs
-<https://pip.readthedocs.org/en/latest/user_guide.html#user-installs>`_ section
+<https://pip.readthedocs.io/en/latest/user_guide.html#user-installs>`_ section
 from the pip docs.
 
 
@@ -397,4 +397,4 @@ Install `setuptools extras`_.
        :ref:`pip` v6.0
 
 .. _venv: https://docs.python.org/3/library/venv.html
-.. _setuptools extras: http://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
+.. _setuptools extras: https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies

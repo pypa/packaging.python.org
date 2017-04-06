@@ -74,7 +74,7 @@ Uninstalling the program leaves the Python installation of the user intact.
 
 A big advantage of pynsist is that the Windows packages can be built on Linux.
 There are several examples for different kinds of programs (console, GUI) in
-the `documentation <http://pynsist.readthedocs.org>`__. The tool is released
+the `documentation <https://pynsist.readthedocs.io>`__. The tool is released
 under the MIT-licence.
 
 Application Bundles

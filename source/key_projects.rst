@@ -169,7 +169,7 @@ The new unreleased PyPI application which can be previewed at https://pypi.org/.
 wheel
 =====
 
-`Docs <http://wheel.readthedocs.io/en/latest/>`__ |
+`Docs <https://wheel.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/wheel/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/wheel>`__ |
@@ -259,7 +259,7 @@ activities with Python.
 Hashdist
 ========
 
-`Docs <http://hashdist.readthedocs.org/en/latest/>`__ |
+`Docs <https://hashdist.readthedocs.io/en/latest/>`__ |
 `Github <https://github.com/hashdist/hashdist/>`__
 
 Hashdist is a library for building non-root software distributions. Hashdist is
@@ -272,7 +272,7 @@ powerful hybrid of virtualenv and buildout.
 pex
 ===
 
-`Docs <http://pex.readthedocs.org/en/latest/>`__ |
+`Docs <https://pex.readthedocs.io/en/latest/>`__ |
 `Github <https://github.com/pantsbuild/pex/>`__ |
 `PyPI <https://pypi.python.org/pypi/pex>`__
 
