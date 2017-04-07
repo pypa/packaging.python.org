@@ -5,8 +5,11 @@ Packaging namespace packages
 :Page Status: Draft
 :Last Reviewed: 2017-05-04
 
-Namespace packages allow you to split a single Python package across multiple
-distributions. For instance, if you have the following package structure:
+Namespace packages allow you to split the sub-packages and modules within a
+single :term:`package <Import Package>` across multiple, separate
+:term:`distribution packages <Distribution Package>` (referred to as
+**distributions** in this document to avoid ambiguity). For example, if you
+have the following package structure:
 
 .. code-block:: text
     
@@ -18,6 +21,7 @@ distributions. For instance, if you have the following package structure:
         subpackage_b/
             __init__.py
             ...
+        module_b.py
     setup.py
 
 And you use this package in your code like so::
@@ -40,6 +44,7 @@ Then you can break these sub-packages into two separate distributions:
         mynamespace/
             subpackage_b/
                 __init__.py
+            module_b.py
 
 Each sub-package can now be separately installed, used, and versioned.
 
@@ -47,7 +52,9 @@ Namespace packages can be useful for a large collection of loosely-related
 packages (such as a large corpus of client libraries for multiple products from
 a single company). However, namespace packages come with several caveats and
 are not appropriate in all cases. A simple alternative is to use a prefix on
-all of your distributions such as ``import mynamespace_subpackage_a``.
+all of your distributions such as ``import mynamespace_subpackage_a`` (you
+could even use ``import mynamespace_subpackage_a as subpackage_a`` to keep the
+import object short).
 
 
 Creating a namespace package
@@ -55,9 +62,10 @@ Creating a namespace package
 
 There are currently three different approaches to creating namespace packages:
 
-#. Use `PEP 420-style namespace packages`_. This is recommended if packages in
-   your namespace only ever need to support Python 3 and installation via
-   ``pip``.
+#. Use `native namespace packages`_. This type of namespace package is defined
+   in :pep:`420` and is available in Python 3.3 and later. This is recommended if
+   packages in your namespace only ever need to support Python 3 and
+   installation via ``pip``.
 #. Use `pkgutil-style namespace packages`_. This is recommended for new
    packages that need to support Python 2 and 3 and installation via both
    ``pip`` and ``python setup.py install``.
@@ -65,16 +73,19 @@ There are currently three different approaches to creating namespace packages:
    you need compatibility with packages already using this method or if your
    package needs to be zip-safe.
 
-The three methods of creating namespace packages are largely not
-cross-compatible. It's inadvisable to use different methods in distributions of
-the same namespace package.
+.. warning:: While native namespace packages and pkgutil-style namespace
+    packages are largely compatible, pkg_resources-style namespace packages
+    are not compatible with the other methods. It's inadvisable to use
+    different methods in different distributions that provide packages to the
+    same namespace.
 
-PEP 420-style namespace packages
+Native namespace packages
 --------------------------------
 
-`PEP 420`_ outlined **implicit** namespace packages. All that is required to
-create an implicit namespace package is that you just omit ``__init__.py``
-from the namespace package directory. An example file structure:
+Python 3.3 added **implicit** namespace packages from :pep:`420`. All that is
+required to create a native namespace package is that you just omit
+``__init__.py`` from the namespace package directory. An example file
+structure:
 
 .. code-block:: text
 
@@ -87,8 +98,9 @@ from the namespace package directory. An example file structure:
             module.py
 
 It is extremely important that every distribution that uses the namespace
-package omits the ``__init__.py``. If any distribution does not, it will cause
-the namespace logic to fail and the other sub-packages will not be importable.
+package omits the ``__init__.py`` or uses a pkgutil-style ``__init__.py``. If
+any distribution does not, it will cause the namespace logic to fail and the
+other sub-packages will not be importable.
 
 Because ``mynamespace`` doesn't contain an ``__init__.py``,
 :func:`setuptools.find_packages` won't find the sub-package. You must
@@ -104,13 +116,16 @@ explicitly list all packages in your ``setup.py``. For example:
         packages=['mynamespace.subpackage_a']
     )
 
-A complete working example of two PEP 420-style namespace packages can be found
-in the `PEP 420 namespace example project`_.
+A complete working example of two native namespace packages can be found in
+the `native namespace package example project`_.
 
-.. _PEP 420: https://www.python.org/dev/peps/pep-0420/
-.. _PEP 420 namespace example project:
+.. _native namespace package example project:
     https://github.com/jonparrott/namespace-pkg-tests
 
+.. note:: Because native and pkgutil-style namespace packages are largely
+    compatible, you can use native namespace packages in the distributions that
+    only support Python 3 and pkgutil-style namespace packages in the
+    distributions that need to support Python 2 and 3.
 
 pkgutil-style namespace packages
 --------------------------------
