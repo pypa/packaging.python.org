@@ -60,6 +60,13 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Exclude scripts during install|No                                |Yes                            |
 |                              |                                  |                               |
 +------------------------------+----------------------------------+-------------------------------+
+|:ref:`On-demand               |                                  |                               |
+|Package Resolution`           |No                                |Yes                            |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
+|:ref:`Multi-homed Packages`   |Python 3.3+ only via PEP-420      |Yes                            |
+|                              |                                  |                               |
++------------------------------+----------------------------------+-------------------------------+
 
 ----
 
