@@ -26,3 +26,4 @@ either of our guides on :doc:`installing` or :doc:`distributing`.
    appveyor
    self_hosted_repository
    namespace_packages
+   plugin_discovery
