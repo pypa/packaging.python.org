@@ -104,10 +104,16 @@ and ``myapp.plugin.b`` then ``myapp_plugins`` in this case would be:
 This sample uses a sub-package as the namespace package (``myapp.plugin``), but
 it's also possible to use a top-level package for this purpose (such as
 ``myapp_plugins``). How to pick the namespace to use is a matter of preference,
-but it's not recommended to make the top-level package (``myapp`` in this case)
-a namespace package for the purpose of plugins, as one bad plugin could cause
-the entire namespace to break which would in turn make your project
-unimportable.
+but it's not recommended to make your project's main top-level package (
+``myapp`` in this case) a namespace package for the purpose of plugins, as one
+bad plugin could cause the entire namespace to break which would in turn make
+your project unimportable. For the "namespace sub-package" approach to work,
+the plugin packages must omit the ``__init__.py`` for your top-level package
+directory (``myapp`` in this case) and include the namespace-package style
+``__init__.py`` in the namespace sub-package directory (``myapp/plugins``).
+This also means that plugins will need to explicitly pass a list of packages
+to :func:`setup`'s ``packages`` argument instead of using
+:func:`setuptools.find_packages`.
 
 .. warning:: Namespace packages are a complex feature and there are several
     different ways to create them. It's highly recommended to read the
