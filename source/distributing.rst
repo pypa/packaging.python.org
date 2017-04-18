@@ -722,112 +722,70 @@ on. For details on the naming of wheel files, see :pep:`425`
 Uploading your Project to PyPI
 ==============================
 
-.. note::
+When you ran the command to create your distribution, a new directory ``dist/``
+was created under your project's root directory. That's where you'll find your
+distribution file(s) to upload.
 
-  Before releasing on main PyPI repo, you might prefer training with
+.. note:: Before releasing on main PyPI repo, you might prefer training with
   `PyPI test site <https://testpypi.python.org/pypi>`_
   which is cleaned on a semi regular basis. See
   `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how
   to setup your configuration in order to use it.
 
-When you ran the command to create your distribution, a new directory dist/ was created under your project's root directory. That's where you'll find your distribution file(s) to upload.
+.. warning:: In other resources you may encounter references to using
+  ``python setup.py register`` and ``python setup.py upload``. These methods
+  of registering and uploading a package are **strongly discouraged** as it may
+  use a plaintext HTTP or unverified HTTPS connection on some Python versions,
+  allowing your username and password to be intercepted during transmission.
 
 Create an account
 -----------------
 
-First, you need a :term:`PyPI <Python Package Index (PyPI)>` user
-account. There are two options:
+First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. You
+can create an account
+`using the form on the PyPI website <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
 
-1. Create an account manually `using the form on the PyPI website
-   <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
+.. Note:: If you want to avoid entering your username and password when
+  uploading, you can create a ``~/.pypirc`` file with your username and
+  password:
 
-2. **(Not recommended):** Have an account created as part of
-   registering your first project (not recommended due to the
-   related security concerns, see option #3 below).
-
-If you created your account using option #1 (the form), you'll need to manually
-write a ``~/.pypirc`` file like so.
-
-   ::
-
-    [distutils]
-    index-servers=pypi
+  .. code-block:: text
 
     [pypi]
-    repository = https://upload.pypi.org/legacy/
     username = <username>
     password = <password>
 
-You can leave out the password line if you use twine with its
-``-p PASSWORD`` argument or prefer to simply enter your password
-when prompted.
-
-
-Register your project
----------------------
-
-Next, if this is the first release, **unless you use twine**, you
-need to explicitly register your project prior to uploading. If you intend to
-upload your project using twine (see :ref:`Upload your distributions` below),
-you can skip this step, as twine will register and upload your project in one
-step.
-
-There are two ways to do register manually:
-
-1. Use `the form on the PyPI website
-   <https://pypi.python.org/pypi?%3Aaction=submit_form>`_, to upload your
-   ``PKG-INFO`` info located in your local project tree at
-   ``myproject.egg-info/PKG-INFO``.  If you don't have that file or directory,
-   then run ``python setup.py egg_info`` to have it generated.
-2. **(Not recommended):** Run ``python setup.py register``.  If you don't have
-   a user account already, a wizard will create one for you. This approach is
-   covered here due to it being mentioned in other guides, but it is not
-   recommended as it may use a plaintext HTTP or unverified HTTPS connection
-   on some Python versions, allowing your username and password to be intercepted
-   during transmission.
-
+  **Be aware that this stores your password in plaintext.**
 
 Upload your distributions
 -------------------------
 
-Finally, you can upload your distributions to :term:`PyPI <Python Package Index
-(PyPI)>`.
+Once you have an account you can upload your distributions to
+:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`. If this is
+your first time uploading a distribution for a new project, twine will handle
+registering the project.
 
-There are two options:
+.. code-block:: text
 
-1. Use :ref:`twine`
-
-   ::
-
-     twine upload dist/*
-
-   The biggest reason to use twine is that ``python setup.py upload`` (option #2
-   below) uploads files over plaintext. This means anytime you use it you expose
-   your username and password to a MITM attack. Twine uses only verified TLS to
-   upload to PyPI in order to protect your credentials from theft.
-
-   Secondly it allows you to precreate your distribution files.  ``python
-   setup.py upload`` only allows you to upload something that you've created in
-   the same command invocation. This means that you cannot test the exact file
-   you're going to upload to PyPI to ensure that it works before uploading it.
-
-   Finally it allows you to pre-sign your files and pass the .asc files into the
-   command line invocation (``twine upload twine-1.0.1.tar.gz
-   twine-1.0.1.tar.gz.asc``). This enables you to be assured that you're typing
-   your gpg passphrase into gpg itself and not anything else since *you* will be
-   the one directly executing ``gpg --detach-sign -a <filename>``.
+    twine upload dist/*
 
 
-2. **(Not recommended):** Use :ref:`setuptools`:
+.. note:: Twine allows you to pre-sign your distribution files using gpg:
 
-   ::
+  .. code-block:: text
 
-    python setup.py bdist_wheel sdist upload
+      gpg --detach-sign -a dist/package-1.0.1.tar.gz
 
-   This approach is covered here due to it being mentioned in other guides, but it
-   is not recommended as it may use a plaintext HTTP or unverified HTTPS connection
-   on some Python versions, allowing your username and password to be intercepted
-   during transmission.
+  and pass the gpg-created .asc files into the command line invocation:
+
+  .. code-block:: text
+
+      twine upload dist/package-1.0.1.tar.gz package-1.0.1.tar.gz.asc
+
+  This enables you to be assured that you're only ever typing your gpg
+  passphrase into gpg itself and not anything else since *you* will be
+  the one directly executing the ``gpg`` command.
+
 
 ----
 
