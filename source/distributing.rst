@@ -632,7 +632,13 @@ Universal Wheels
 extensions) and support Python 2 and 3. This is a wheel that can be installed
 anywhere by :ref:`pip`.
 
-To build a Universal Wheel:
+To build a Universal Wheel, first install the `wheel` package:
+
+::
+
+ pip install wheel
+
+Then create the "Universal Wheel" package.
 
 ::
 
