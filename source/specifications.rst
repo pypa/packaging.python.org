@@ -52,16 +52,6 @@ respectively.
 It is legal to specify ``Provides-Extra:`` without referencing it in any
 ``Requires-Dist:``.
 
-
-Version Specifiers
-==================
-
-Version numbering requirements and the semantics for specifying comparisons
-between versions are defined in :pep:`440`.
-
-The version specifiers section in this PEP supersedes the version specifiers
-section in :pep:`345`.
-
 Dependency Specifiers
 =====================
 
