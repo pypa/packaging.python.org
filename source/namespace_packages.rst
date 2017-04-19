@@ -120,7 +120,7 @@ A complete working example of two native namespace packages can be found in
 the `native namespace package example project`_.
 
 .. _native namespace package example project:
-    https://github.com/jonparrott/namespace-pkg-tests
+    https://github.com/pypa/sample-namespace-packages/tree/master/native
 
 .. note:: Because native and pkgutil-style namespace packages are largely
     compatible, you can use native namespace packages in the distributions that
@@ -166,7 +166,7 @@ in the `pkgutil namespace example project`_.
 .. _extend_path:
     https://docs.python.org/3/library/pkgutil.html#pkgutil.extend_path
 .. _pkgutil namespace example project:
-    https://github.com/jonparrott/namespace-pkg-tests
+    https://github.com/pypa/sample-namespace-packages/tree/master/pkgutil
 
 
 pkg_resources-style namespace packages
@@ -236,6 +236,11 @@ to :func:`~setuptools.setup` in ``setup.py``. For example:
         namespace_packages=['mynamespace']
     )
 
+A complete working example of two pkgutil-style namespace packages can be found
+in the `pkg_resources namespace example project`_.
+
 .. _setuptools: https://setuptools.readthedocs.io
 .. _pkg_resources.declare_namespace:
     https://setuptools.readthedocs.io/en/latest/setuptools.html#namespace-packages
+.. _pkg_resources namespace example project:
+    https://github.com/pypa/sample-namespace-packages/tree/master/pkg_resources
