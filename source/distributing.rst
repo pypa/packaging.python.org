@@ -613,14 +613,21 @@ end user than installing from a source distribution.
 
 If your project is pure python (i.e. contains no compiled extensions) and
 natively supports both Python 2 and 3, then you'll be creating what's called a
-:ref:`"Universal Wheel" (see section below) <Universal Wheels>`.
+:ref:`*Universal Wheel* (see section below) <Universal Wheels>`.
 
 If your project is pure python but does not natively support both Python 2 and
 3, then you'll be creating a :ref:`"Pure Python Wheel" (see section below) <Pure
 Python Wheels>`.
 
 If you project contains compiled extensions, then you'll be creating what's
-called a :ref:`"Platform Wheel" (see section below) <Platform Wheels>`.
+called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
+
+Before you can build wheels for your project, you'll need to install the
+``wheel`` package:
+
+.. code-block:: text
+
+  pip install wheel
 
 
 .. _`Universal Wheels`:
@@ -628,26 +635,24 @@ called a :ref:`"Platform Wheel" (see section below) <Platform Wheels>`.
 Universal Wheels
 ~~~~~~~~~~~~~~~~
 
-"Universal Wheels" are wheels that are pure python (i.e. contains no compiled
+*Universal Wheels* are wheels that are pure python (i.e. contains no compiled
 extensions) and support Python 2 and 3. This is a wheel that can be installed
 anywhere by :ref:`pip`.
 
-To build a Universal Wheel:
+To build the wheel:
 
-::
+.. code-block:: text
 
- python setup.py bdist_wheel --universal
-
+  python setup.py bdist_wheel --universal
 
 You can also permanently set the ``--universal`` flag in "setup.cfg" (e.g., see
 `sampleproject/setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_)
 
-::
+.. code-block:: text
 
- [bdist_wheel]
- universal=1
-
+  [bdist_wheel]
+  universal=1
 
 Only use the ``--universal`` setting, if:
 
@@ -668,7 +673,7 @@ and prevent the possibility of building the extension.
 Pure Python Wheels
 ~~~~~~~~~~~~~~~~~~
 
-"Pure Python Wheels" that are not "universal" are wheels that are pure python
+*Pure Python Wheels* that are not "universal" are wheels that are pure python
 (i.e. contains no compiled extensions), but don't natively support both Python 2
 and 3.
 
@@ -696,7 +701,7 @@ will produce wheels for each version.
 Platform Wheels
 ~~~~~~~~~~~~~~~
 
-"Platform Wheels" are wheels that are specific to a certain platform like linux,
+*Platform Wheels* are wheels that are specific to a certain platform like linux,
 OSX, or Windows, usually due to containing compiled extensions.
 
 To build the wheel:
