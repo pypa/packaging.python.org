@@ -205,6 +205,10 @@ above to make the interface available as an importable Python module.
 Implementing binary extensions
 ==============================
 
+The CPython `Extending and Embedding <https://docs.python.org/3/extending/>`_
+guide includes an introduction to writing a
+`custom extension module in C <https://docs.python.org/3/extending/extending.html>`_.
+
 ::
 
    mention the stable ABI (3.2+, link to the CPython C API docs)
