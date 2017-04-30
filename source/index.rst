@@ -24,6 +24,7 @@ This guide is maintained on `github
    key_projects
    glossary
    support
+   contribute
 
 
 .. _docs.python.org: http://docs.python.org
