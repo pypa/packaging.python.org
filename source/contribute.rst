@@ -90,7 +90,8 @@ Here's a quick check: try reading aloud to get a sense for your writing's voice
 and tone. Does it sound like something you would say or does it sound like
 you're acting out a part or giving a speech? Feel free to use contractions and
 don't worry about sticking to fussy grammar rules. You are hereby granted
-permission to end a sentence in a preposition.
+permission to end a sentence in a preposition, if that's what you want to end it
+with.
 
 When writing the guide, adjust your tone for the seriousness and difficulty of
 the topic. If you're writing an introductory tutorial, it's OK to make a joke,
