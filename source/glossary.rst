@@ -92,6 +92,13 @@ Glossary
         :term:`package <Distribution Package>` discovery and consumption.
 
 
+    Per Project Index
+
+        A private or other non-canonical :term:`Package Index` indicated by
+        a specific :term:`Project` as the index preferred or required to
+        resolve dependencies of that project.
+
+
     Project
 
         A library, framework, script, plugin, application, or collection of data
