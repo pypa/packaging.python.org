@@ -44,8 +44,8 @@ Purpose
 
 The purpose of the |PyPUG| is
 
-    to be the authoritative resource on how to package, publish and install
-    Python distributions using current tools
+    to be the authoritative resource on how to package, publish, and install
+    Python projects using current tools.
 
 
 Scope
