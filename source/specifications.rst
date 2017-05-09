@@ -125,12 +125,17 @@ Example::
 
     Description-Content-Type: text/markdown; charset=UTF-8; variant=Original
 
-If a ``Description-Content-Type`` is not specified or it's set to an
-unrecognized value, then the assumed content type is ``text/x-rst;
-charset=UTF-8``.
+If a ``Description-Content-Type`` is not specified, then applications should
+attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to
+``text/plain`` if it is not valid rst.
 
-If the subtype is ``markdown`` and ``variant`` is not specified or is set to
-an unrecognized value, then the assumed ``variant`` is ``CommonMark``.
+If a ``Description-Content-Type`` is an unrecognized value, then the assumed
+content type is ``text/plain`` (Although PyPI will probably reject anything
+with an unrecognized value).
+
+If the ``Description-Content-Type` is ``text/markdown`` and ``variant`` is not
+specified or is set to an unrecognized value, then the assumed ``variant`` is
+``CommonMark``.
 
 
 Version Specifiers
