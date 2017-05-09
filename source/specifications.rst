@@ -133,7 +133,7 @@ If a ``Description-Content-Type`` is an unrecognized value, then the assumed
 content type is ``text/plain`` (Although PyPI will probably reject anything
 with an unrecognized value).
 
-If the ``Description-Content-Type` is ``text/markdown`` and ``variant`` is not
+If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is not
 specified or is set to an unrecognized value, then the assumed ``variant`` is
 ``CommonMark``.
 
