@@ -93,17 +93,12 @@ the description. The only legal value is ``UTF-8``. If omitted, it is assumed to
 be ``UTF-8``.
 
 Other parameters might be specific to the chosen subtype. For example, for the
-``markdown`` subtype, there is a ``variant`` parameter that allows specifying
-the variant of Markdown in use, such as:
+``markdown`` subtype, there is an optional ``variant`` parameter that allows
+specifying the variant of Markdown in use (defaults to ``CommonMark`` if not
+specified). Currently, the only value that is recognized is:
 
 - ``CommonMark`` for `CommonMark
   <https://tools.ietf.org/html/rfc7764#section-3.5>`_
-
-- ``GFM`` for `GitHub Flavored Markdown (GFM)
-  <https://tools.ietf.org/html/rfc7764#section-3.2>`_
-
-- ``Original`` for `Gruber's original Markdown syntax
-  <https://tools.ietf.org/html/rfc7763#section-6.1.4>`_
 
 Example::
 
@@ -119,11 +114,7 @@ Example::
 
 Example::
 
-    Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
-
-Example::
-
-    Description-Content-Type: text/markdown; charset=UTF-8; variant=Original
+    Description-Content-Type: text/markdown
 
 If a ``Description-Content-Type`` is not specified, then applications should
 attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to
@@ -136,6 +127,10 @@ with an unrecognized value).
 If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is not
 specified or is set to an unrecognized value, then the assumed ``variant`` is
 ``CommonMark``.
+
+So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
+``variant`` defaults to ``CommonMark`` and thus it is equivalent to the example
+before it.
 
 
 Version Specifiers
