@@ -96,7 +96,7 @@ Other parameters might be specific to the chosen subtype. For example, for the
 ``markdown`` subtype, there is a ``variant`` parameter that allows specifying
 the variant of Markdown in use, such as:
 
-- ``CommonMark`` for `CommonMark`
+- ``CommonMark`` for `CommonMark
   <https://tools.ietf.org/html/rfc7764#section-3.5>`_
 
 - ``GFM`` for `GitHub Flavored Markdown (GFM)
