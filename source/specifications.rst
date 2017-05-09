@@ -73,7 +73,7 @@ description, opening up the possibility for PyPI and other tools to be able to
 render Markdown and other formats.
 
 The format of this field is the same as the ``Content-Type`` header in HTTP
-(e.g.:
+(i.e.:
 `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type.html>`_).
 Briefly, this means that it has a ``type/subtype`` part and then it can
 optionally have a number of parameters:
@@ -88,10 +88,9 @@ The ``type/subtype`` part has only a few legal values:
 - ``text/x-rst``
 - ``text/markdown``
 
-The ``charset`` parameter can be used to specify whether the character set in
-use is UTF-8, ASCII, etc. If ``charset`` is not provided, then it is
-recommended that the implementation (e.g.: PyPI) treat the content as
-UTF-8.
+The ``charset`` parameter can be used to specify the character encoding of 
+the description. The only legal value is ``UTF-8``. If omitted, it is assumed to 
+be ``UTF-8``.
 
 Other parameters might be specific to the chosen subtype. For example, for the
 ``markdown`` subtype, there is a ``variant`` parameter that allows specifying
@@ -130,10 +129,7 @@ If a ``Description-Content-Type`` is not specified or it's set to an
 unrecognized value, then the assumed content type is ``text/x-rst;
 charset=UTF-8``.
 
-If the ``charset`` is not specified or it's set to an unrecognized value, then
-the assumed ``charset`` is ``UTF-8``.
-
-If the subtype is ``markdown`` and ``variant`` is not specified or it's set to
+If the subtype is ``markdown`` and ``variant`` is not specified or is set to
 an unrecognized value, then the assumed ``variant`` is ``CommonMark``.
 
 
