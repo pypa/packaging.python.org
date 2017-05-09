@@ -94,16 +94,11 @@ be ``UTF-8``.
 
 Other parameters might be specific to the chosen subtype. For example, for the
 ``markdown`` subtype, there is a ``variant`` parameter that allows specifying
-the variant of Markdown in use, such as:
+the variant of Markdown in use. Currently, the only value that is recognized
+is:
 
 - ``CommonMark`` for `CommonMark
   <https://tools.ietf.org/html/rfc7764#section-3.5>`_
-
-- ``GFM`` for `GitHub Flavored Markdown (GFM)
-  <https://tools.ietf.org/html/rfc7764#section-3.2>`_
-
-- ``Original`` for `Gruber's original Markdown syntax
-  <https://tools.ietf.org/html/rfc7763#section-6.1.4>`_
 
 Example::
 
@@ -116,14 +111,6 @@ Example::
 Example::
 
     Description-Content-Type: text/markdown; charset=UTF-8; variant=CommonMark
-
-Example::
-
-    Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
-
-Example::
-
-    Description-Content-Type: text/markdown; charset=UTF-8; variant=Original
 
 If a ``Description-Content-Type`` is not specified, then applications should
 attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to
