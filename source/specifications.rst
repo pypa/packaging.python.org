@@ -55,8 +55,8 @@ It is legal to specify ``Provides-Extra:`` without referencing it in any
 Description-Content-Type
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-A string containing the format of the distribution's description, so that
-tools can intelligently render the description.
+A string stating the markup syntax (if any) used in the distribution's
+description, so that tools can intelligently render the description.
 
 Historically, PyPI supported descriptions in plain text and `reStructuredText
 (reST) <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_,
