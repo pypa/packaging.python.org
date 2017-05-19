@@ -236,7 +236,7 @@ to :func:`~setuptools.setup` in ``setup.py``. For example:
         namespace_packages=['mynamespace']
     )
 
-A complete working example of two pkgutil-style namespace packages can be found
+A complete working example of two pkg_resources-style namespace packages can be found
 in the `pkg_resources namespace example project`_.
 
 .. _setuptools: https://setuptools.readthedocs.io
