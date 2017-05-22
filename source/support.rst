@@ -2,9 +2,6 @@
 How to Get Support
 ==================
 
-:Page Status: Complete
-:Last Reviewed: 2015-09-08
-
 For support related to a specific project, see the links on the :doc:`Projects
 <key_projects>` page.
 

@@ -4,9 +4,6 @@
 Tool recommendations
 ====================
 
-:Page Status: Complete
-:Last Reviewed: 2016-06-24
-
 If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
 

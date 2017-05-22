@@ -1,10 +1,6 @@
-
 ========
 Glossary
 ========
-
-:Page Status: Complete
-:Last Reviewed: 2015-09-08
 
 
 .. glossary::

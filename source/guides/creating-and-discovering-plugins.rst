@@ -2,9 +2,6 @@
 Creating and discovering plugins
 ================================
 
-:Page Status: Complete
-:Last Reviewed: 2017-04-10
-
 Often when creating a Python application or library you'll want the ability to
 provide customizations or extra features via **plugins**. Because Python
 packages can be separately distributed, your application or library may want to

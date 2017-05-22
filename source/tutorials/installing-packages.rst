@@ -2,9 +2,6 @@
 Installing Packages
 ===================
 
-:Page Status: Complete
-:Last Reviewed: 2016-06-24
-
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
 
