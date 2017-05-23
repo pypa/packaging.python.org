@@ -122,25 +122,18 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'pydoctheme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#
 html_theme_options = {
-    'description': None,
-    'github_user': 'pypa',
-    'github_repo': 'python-packaging-user-guide',
-    'github_banner': True,
-    'travis_button': False,
-    'font_family': "'Roboto', Georgia, sans",
-    'head_font_family': "'Roboto', Georgia, serif",
-    'code_font_family': "'Roboto Mono', 'Consolas', monospace",
+    'collapsiblesidebar': True,
+    'externalrefs': True,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
-# html_theme_path = []
+html_theme_path = ['themes']
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
@@ -187,13 +180,10 @@ html_static_path = ['_static']
 # Custom sidebar templates, maps document names to template names.
 #
 
+# Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'relations.html',
-        'searchbox.html',
-    ]
+    '**': ['localtoc.html', 'relations.html', 'searchbox.html'],
+    'index': ['globaltoc.html', 'searchbox.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to
