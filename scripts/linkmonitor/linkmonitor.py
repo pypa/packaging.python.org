@@ -14,6 +14,7 @@ import yaml
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 INVENTORY_FILENAME = os.path.join(HERE, 'inventory.yaml')
+REDIRECTS_FILENAME = os.path.join(HERE, 'redirects.yaml')
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 HTML_DIR = os.path.join(ROOT, 'build', 'html')
 IGNORED_FILES = [
@@ -71,7 +72,40 @@ def load_inventory():
 
 def save_inventory(inventory):
     with io.open(INVENTORY_FILENAME, 'w') as inventory_file:
-        yaml.dump(list(inventory), inventory_file)
+        yaml.dump(sorted(list(inventory)), inventory_file)
+
+
+def load_redirects():
+    with io.open(REDIRECTS_FILENAME, 'r') as redirects_file:
+        return yaml.load(redirects_file)
+
+
+def expand_redirects(redirects, inventory):
+    valid_redirects = set()
+    missing_redirects = set()
+
+    for redirect in redirects:
+        from_ = redirect['from']
+        source_links = set()
+
+        # Get all links that start with the page. This gathers all deep links.
+        # For example, the redirect may be old.html -> new.html. old.html may
+        # have had #1, #2, #3. We need to get all of those deep links.
+        for link in inventory:
+            if link.startswith(from_):
+                source_links.add(link)
+
+        # Make sure all of the source links have a counterpart in the
+        # destination page. For the example above, new.html needs to have #1
+        # #2 and #3 as well.
+        for source_link in source_links:
+            dest_link = source_link.replace(from_, redirect['to'])
+            if dest_link in inventory:
+                valid_redirects.add(source_link)
+            else:
+                missing_redirects.add((source_link, dest_link))
+
+    return valid_redirects, missing_redirects
 
 
 def update_command(args):
@@ -98,25 +132,43 @@ def check_command(args):
     """Checks the current set of links against the inventory.
 
     This should be run on every documentation change to ensure that no deep
-    links have been broken.
+    links have been broken and that new links are tracked in the inventory.
     """
     os.chdir(HTML_DIR)
 
     # TODO: Add another file to list currently defined redirects.
     inventory = load_inventory()
+    redirects = load_redirects()
     links = find_links()
 
+    valid_redirects, missing_redirects = expand_redirects(redirects, inventory)
+    if missing_redirects:
+        print(
+            'The following redirects are missing deep link anchors in the '
+            'destination:')
+        for source, dest in missing_redirects:
+            print(' * {} -> {}'.format(source, dest))
+
     missing_links = inventory.difference(links)
+    missing_links -= valid_redirects
 
-    if not missing_links:
-        print('All is well')
-        return 0
+    if missing_links:
+        print('Missing the following deep links:')
+        for link in missing_links:
+            print(' * {}'.format(link))
+        return 1
 
-    print('Missing the following deep links:')
-    for link in missing_links:
-        print(' * {}'.format(link))
+    new_links = links.difference(inventory)
 
-    return 1
+    if new_links:
+        print('The following new deep links were added:')
+        for link in new_links:
+            print(' * {}'.format(link))
+        print('Run nox -s updatelinks to update them in git.')
+        return 2
+
+    print('All is well')
+    return 0
 
 
 if __name__ == '__main__':
