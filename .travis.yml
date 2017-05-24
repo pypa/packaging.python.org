@@ -1,6 +1,6 @@
 language: python
 sudo: false
 python:
-- 2.7
-install: pip install sphinx==1.5.6
-script: make SPHINXOPTS="-W" html
+- 3.6
+install: pip install --upgrade nox-automation virtualenv
+script: nox -s build checklinks
