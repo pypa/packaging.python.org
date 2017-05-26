@@ -197,6 +197,12 @@ url
 
 Give a homepage url for your project.
 
+.. note::
+
+  :ref:`setuptools` also documents a field `download_url`, however this is
+  not generally used.  Your packages should rather be uploaded directly to
+  :term:`PyPI <Python Package Index (PyPI)>`.
+
 
 author
 ~~~~~~
