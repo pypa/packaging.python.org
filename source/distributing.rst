@@ -499,9 +499,9 @@ Regardless of the base versioning scheme, pre-releases for a given final release
 published as:
 
 * zero or more dev releases (denoted with a ".devN" suffix)
-* zero or more alpha releases (denoted with a ".aN" suffix)
-* zero or more beta releases (denoted with a ".bN" suffix)
-* zero or more release candidates (denoted with a ".rcN" suffix)
+* zero or more alpha releases (denoted with a "aN" suffix)
+* zero or more beta releases (denoted with a "bN" suffix)
+* zero or more release candidates (denoted with a "rcN" suffix)
 
 ``pip`` and other modern Python package installers ignore pre-releases by default when
 deciding which versions of dependencies to install.
