@@ -333,9 +333,7 @@ cases you may need to place data files *outside* of your :term:`packages
 
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
-interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python :term:`distributions <Distribution Package>`, sys.exec_prefix for
-distributions that contain extension modules). Each file name in files is
+interpreted relative to Python’s ``sys.prefix``. Each file name in files is
 interpreted relative to the ``setup.py`` script at the top of the project source
 distribution.
 
@@ -344,11 +342,13 @@ For more information see the distutils section on `Installing Additional Files
 
 .. note::
 
-  :ref:`setuptools` allows absolute "data_files" paths, and pip honors them as
-  absolute, when installing from :term:`sdist <Source Distribution (or
-  "sdist")>`.  This is not true when installing from :term:`wheel`
-  distributions. Wheels don't support absolute paths, and they end up being
-  installed relative to "site-packages".  For discussion see `wheel Issue #92
+  :ref:`setuptools` does not support ``data_files``, see
+  `setuptools #130
+  <https://bitbucket.org/pypa/setuptools/issues/130/install_data-doesnt-respect-prefix>`_.
+  Use ``distutils`` instead.
+  :term:`wheel` only supports relative paths: files with absolute paths
+  end up being installed relative to "site-packages".
+  For discussion see `wheel Issue #92
   <https://bitbucket.org/pypa/wheel/issue/92>`_.
 
 
