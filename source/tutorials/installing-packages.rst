@@ -164,8 +164,7 @@ which includes a complete `Reference Guide
 
 There are a few cases where you might want to use `easy_install
 <https://pip.pypa.io/en/latest/reference/index.html>`_ instead of pip.  For
-details, see the the :ref:`pip vs easy_install` breakdown in the :doc:`Advanced
-Topics <additional>` section.
+details, see :ref:`pip vs easy_install`.
 
 
 Installing from PyPI

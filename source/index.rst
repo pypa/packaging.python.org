@@ -16,11 +16,10 @@ This guide is maintained on `github
 .. toctree::
    :maxdepth: 1
 
-   current
-   installing
-   distributing
-   additional
-   specifications
+   tutorials/index
+   guides/index
+   discussions/index
+   specifications/index
    key_projects
    glossary
    support

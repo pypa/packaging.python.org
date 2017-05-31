@@ -15,6 +15,7 @@ import yaml
 HERE = os.path.abspath(os.path.dirname(__file__))
 INVENTORY_FILENAME = os.path.join(HERE, 'inventory.yaml')
 REDIRECTS_FILENAME = os.path.join(HERE, 'redirects.yaml')
+IGNORED_FILENAME = os.path.join(HERE, 'ignored.yaml')
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 HTML_DIR = os.path.join(ROOT, 'build', 'html')
 IGNORED_FILES = [
@@ -50,6 +51,9 @@ def find_all_named_anchors_in_files(files):
     links = set()
 
     for filename in files:
+        if filename in ('search.html',):
+            continue
+
         links.add(filename)
         anchors = find_all_named_anchors(filename)
         links.update(anchors)
@@ -80,7 +84,13 @@ def load_redirects():
         return yaml.load(redirects_file)
 
 
-def expand_redirects(redirects, inventory):
+def load_ignored():
+    with io.open(IGNORED_FILENAME, 'r') as ignored_file:
+        raw = yaml.load(ignored_file)
+        return set([entry['url'] for entry in raw])
+
+
+def expand_redirects(redirects, inventory, ignored):
     valid_redirects = set()
     missing_redirects = set()
 
@@ -99,6 +109,9 @@ def expand_redirects(redirects, inventory):
         # destination page. For the example above, new.html needs to have #1
         # #2 and #3 as well.
         for source_link in source_links:
+            if source_link in ignored:
+                continue
+
             dest_link = source_link.replace(from_, redirect['to'])
             if dest_link in inventory:
                 valid_redirects.add(source_link)
@@ -139,9 +152,11 @@ def check_command(args):
     # TODO: Add another file to list currently defined redirects.
     inventory = load_inventory()
     redirects = load_redirects()
+    ignored = load_ignored()
     links = find_links()
 
-    valid_redirects, missing_redirects = expand_redirects(redirects, inventory)
+    valid_redirects, missing_redirects = expand_redirects(
+        redirects, inventory, ignored)
     if missing_redirects:
         print(
             'The following redirects are missing deep link anchors in the '
@@ -151,6 +166,14 @@ def check_command(args):
 
     missing_links = inventory.difference(links)
     missing_links -= valid_redirects
+
+    ignored_links = set()
+    for link in missing_links:
+        for source_url in ignored:
+            if link.startswith(source_url):
+                ignored_links.add(link)
+
+    missing_links -= ignored_links
 
     if missing_links:
         print('Missing the following deep links:')

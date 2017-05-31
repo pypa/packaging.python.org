@@ -1,7 +1,7 @@
 .. _`Tool Recommendations`:
 
 ====================
-Tool Recommendations
+Tool recommendations
 ====================
 
 :Page Status: Complete

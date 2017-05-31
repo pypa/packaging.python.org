@@ -1,7 +1,7 @@
 .. _`Hosting your Own Simple Repository`:
 
 ==================================
-Hosting your Own Simple Repository
+Hosting your own simple repository
 ==================================
 
 :Page Status: Complete

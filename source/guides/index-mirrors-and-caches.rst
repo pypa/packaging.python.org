@@ -1,8 +1,8 @@
 .. _`PyPI mirrors and caches`:
 
-=======================
-PyPI mirrors and caches
-=======================
+================================
+Package index mirrors and caches
+================================
 
 :Page Status: Incomplete
 :Last Reviewed: 2014-12-24

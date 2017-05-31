@@ -1,8 +1,8 @@
 .. _`Binary Extensions`:
 
-=================
-Binary Extensions
-=================
+===========================
+Packaging binary extensions
+===========================
 
 :Page Status: Incomplete
 :Last Reviewed: 2013-12-08

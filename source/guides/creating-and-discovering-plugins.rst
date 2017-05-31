@@ -1,6 +1,6 @@
-=============================
-Plugin creation and discovery
-=============================
+================================
+Creating and discovering plugins
+================================
 
 :Page Status: Complete
 :Last Reviewed: 2017-04-10
@@ -61,8 +61,8 @@ naming convention.
 Using namespace packages
 ========================
 
-:doc:`Namespace packages <namespace_packages>` can be used to provide a
-convention for where to place plugins and also provides a way to perform
+:doc:`Namespace packages <packaging-namespace-packages>` can be used to provide
+a convention for where to place plugins and also provides a way to perform
 discovery. For example, if you make the sub-package ``myapp.plugins`` a
 namespace package then other :term:`distributions <Distribution Package>` can
 provide modules and packages to that namespace. Once installed, you can use
@@ -117,8 +117,8 @@ to :func:`setup`'s ``packages`` argument instead of using
 
 .. warning:: Namespace packages are a complex feature and there are several
     different ways to create them. It's highly recommended to read the
-    :doc:`namespace_packages` documentation and clearly document which
-    approach is preferred for plugins to your project.
+    :doc:`packaging-namespace-packages` documentation and clearly document
+    which approach is preferred for plugins to your project.
 
 Using package metadata
 ======================
