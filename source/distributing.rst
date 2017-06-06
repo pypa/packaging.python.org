@@ -258,9 +258,9 @@ keywords
 
 ::
 
-  keywords='sample setuptools development',
+  keywords=['sample', 'setuptools', 'development'],
 
-List keywords that describe your project.
+List of keywords that describe your project.
 
 
 packages
