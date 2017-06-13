@@ -1,7 +1,7 @@
 
-======================
-Application Deployment
-======================
+=============================
+Deploying Python applications
+=============================
 
 :Page Status: Incomplete
 :Last Reviewed: 2014-11-11

@@ -1,7 +1,7 @@
 .. _`Single sourcing the version`:
 
 ===================================
-Single-sourcing the Project Version
+Single-sourcing the package version
 ===================================
 
 :Page Status: Complete

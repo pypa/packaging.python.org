@@ -68,11 +68,11 @@ Visual Studio used includes 64-bit compilers with no additional setup).
 appveyor.yml
 ------------
 
-.. literalinclude:: code/appveyor.yml
+.. literalinclude:: appveyor-sample/appveyor.yml
    :language: yaml
    :linenos:
 
-This file can be downloaded from `here <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/appveyor.yml>`__.
+This file can be downloaded from `here <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/appveyor.yml>`__.
 
 The ``appveyor.yml`` file must be located in the root directory of your
 project. It is in ``YAML`` format, and consists of a number of sections.
@@ -123,7 +123,7 @@ environment to use the SDK compiler for 64-bit builds on Python 3.3 and 3.4.
 For projects which do not need a compiler, or which don't support 3.3 or 3.4 on
 64-bit Windows, only the ``appveyor.yml`` file is needed.
 
-`build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/code/build.cmd>`__
+`build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/ppveyor-sample/build.cmd>`__
 is a Windows batch script that runs a single command in an environment with the
 appropriate compiler for the selected Python version. All you need to do is to
 set the single environment variable ``DISTUTILS_USE_SDK`` to a value of ``1``
@@ -228,9 +228,9 @@ Support scripts
 
 For reference, the SDK setup support script is listed here:
 
-``code/build.cmd``
+``appveyor-sample/build.cmd``
 
-.. literalinclude:: code/build.cmd
+.. literalinclude:: appveyor-sample/build.cmd
    :language: bat
    :linenos:
 
