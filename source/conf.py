@@ -183,8 +183,8 @@ html_last_updated_fmt = ''
 
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
-    '**': ['localtoc.html', 'relations.html', 'searchbox.html'],
-    'index': ['globaltoc.html', 'searchbox.html']
+    '**': ['localtoc.html', 'relations.html'],
+    'index': ['globaltoc.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to
