@@ -4,9 +4,6 @@
 Single-sourcing the package version
 ===================================
 
-:Page Status: Complete
-:Last Reviewed: 2015-12-03
-
 
 There are many techniques to maintain a single source of truth for the version
 number of your project:

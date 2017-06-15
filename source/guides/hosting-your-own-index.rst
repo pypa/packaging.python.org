@@ -4,9 +4,6 @@
 Hosting your own simple repository
 ==================================
 
-:Page Status: Complete
-:Last Reviewed: 2015-09-24
-
 
 If you wish to host your own simple repository [1]_, you can either use a
 software package like `devpi`_ or you can use simply create the proper

@@ -2,9 +2,6 @@
 Packaging namespace packages
 ============================
 
-:Page Status: Complete
-:Last Reviewed: 2017-04-19
-
 Namespace packages allow you to split the sub-packages and modules within a
 single :term:`package <Import Package>` across multiple, separate
 :term:`distribution packages <Distribution Package>` (referred to as

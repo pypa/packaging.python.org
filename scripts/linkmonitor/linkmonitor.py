@@ -38,7 +38,7 @@ def find_all_named_anchors(filename):
             if anchor.startswith('index-'):
                 continue
             # Ignore searchbox anchors
-            if anchor == 'searchbox':
+            if anchor in ('searchbox', 'rtd-search-form'):
                 continue
 
             href = '{}#{}'.format(filename, anchor)

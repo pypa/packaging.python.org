@@ -5,9 +5,6 @@
 Project Summaries
 =================
 
-:Page Status: Complete
-:Last Reviewed: 2016-06-24
-
 Summaries and links for the most relevant projects in the space of Python
 installation and packaging.
 

@@ -4,9 +4,6 @@
 Wheel vs Egg
 ============
 
-:Page Status: Complete
-:Last Reviewed: 2015-09-10
-
 :term:`Wheel` and :term:`Egg` are both packaging formats that aim to support the
 use case of needing an install artifact that doesn't require building or
 compilation, which can be costly in testing and production workflows.

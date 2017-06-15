@@ -5,9 +5,6 @@
 PyPA Specifications
 ===================
 
-:Page Status: Complete
-:Last Reviewed: 2017-02-06
-
 This is a list of currently active interoperability specifications maintained
 by the Python Packaging Authority.
 
