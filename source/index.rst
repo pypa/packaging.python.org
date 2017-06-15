@@ -2,19 +2,37 @@
 Python Packaging User Guide
 ===========================
 
-The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource
-on how to package, publish, and install Python projects using current tools.
+Welcome to the *Python Packaging User Guide*. This guide provides documentation
+on how to distribute and install Python packages.
 
-To follow the development of Python packaging, see the `Python
-Packaging Authority <https://www.pypa.io>`_.
+This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We
+happily accept any :doc:`contributions and feedback <contribute>`. :)
 
-This guide is maintained on `github
-<https://github.com/pypa/python-packaging-user-guide>`_.
+.. _GitHub: https://github.com/pypa/python-packaging-user-guide>
+.. _Python Packaging Authority: https://pypa.io
 
-.. _docs.python.org: http://docs.python.org
+Get started
+===========
 
+If you want to learn how to install packages, see the :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+
+If you want to learn how to package and distribute your projects, see the :doc:`tutorial on packaging and distributing <tutorials/distributing-packages>`
+
+More resources
+==============
+
+Beyond our :doc:`tutorials/index`, this guide has several other resources:
+
+* :doc:`guides/index` that walk you through a specific task.
+* :doc:`discussions/index` that provide comprehensive documentation on specific topics.
+* :doc:`specifications/index` for detailed information about packaging specifications.
+
+Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
+
+Index
+=====
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    tutorials/index
    guides/index
