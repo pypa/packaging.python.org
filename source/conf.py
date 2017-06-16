@@ -130,6 +130,7 @@ html_theme = 'pypa_theme'
 html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs': True,
+    'navigation_depth': 2,
     'issues_url': 'https://github.com/pypa/python-packaging-user-guide/issues'
 }
 
@@ -184,7 +185,7 @@ html_last_updated_fmt = ''
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
     '**': ['localtoc.html', 'relations.html'],
-    'index': ['globaltoc.html']
+    'index': ['localtoc.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to

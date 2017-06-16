@@ -17,6 +17,14 @@ def build(session):
     session.run('make', 'clean', 'html')
 
 
+@nox.session
+def preview(session):
+    session.reuse_existing_virtualenv = True
+    build(session)
+    session.chdir('build/html')
+    session.run('python', '-m', 'http.server')
+
+
 def linkmonitor(session, command):
     if not os.path.exists(os.path.join('build', 'html')):
         session.error('HTML output not available, run nox -s build first.')

@@ -2,19 +2,9 @@
 Python Packaging User Guide
 ===========================
 
-The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource
-on how to package, publish, and install Python projects using current tools.
-
-To follow the development of Python packaging, see the `Python
-Packaging Authority <https://www.pypa.io>`_.
-
-This guide is maintained on `github
-<https://github.com/pypa/python-packaging-user-guide>`_.
-
-.. _docs.python.org: http://docs.python.org
-
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
+   :hidden:
 
    tutorials/index
    guides/index
@@ -24,3 +14,31 @@ This guide is maintained on `github
    glossary
    support
    contribute
+
+Welcome to the *Python Packaging User Guide*, a collection of tutorials and
+references to help you distribute and install Python packages with modern
+tools.
+
+This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We
+happily accept any :doc:`contributions and feedback <contribute>`. 😊
+
+.. _GitHub: https://github.com/pypa/python-packaging-user-guide>
+.. _Python Packaging Authority: https://pypa.io
+
+Get started
+===========
+
+If you want to learn how to install packages, see the :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+
+If you want to learn how to package and distribute your projects, see the :doc:`tutorial on packaging and distributing <tutorials/distributing-packages>`
+
+Learn more
+==========
+
+Beyond our :doc:`tutorials/index`, this guide has several other resources:
+
+* :doc:`guides/index` for walk throughs, such as :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`
+* :doc:`discussions/index` for in-depth references on topics such as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`
+* :doc:`specifications/index` for packaging interoperability specifications
+
+Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
