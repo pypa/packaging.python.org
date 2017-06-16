@@ -2,6 +2,19 @@
 Python Packaging User Guide
 ===========================
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   tutorials/index
+   guides/index
+   discussions/index
+   specifications/index
+   key_projects
+   glossary
+   support
+   contribute
+
 Welcome to the *Python Packaging User Guide*, a collection of tutorials and
 references to help you distribute and install Python packages with modern
 tools.
@@ -29,18 +42,3 @@ Beyond our :doc:`tutorials/index`, this guide has several other resources:
 * :doc:`specifications/index` for detailed information about packaging specifications.
 
 Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
-
-Contents
-========
-
-.. toctree::
-   :maxdepth: 2
-
-   tutorials/index
-   guides/index
-   discussions/index
-   specifications/index
-   key_projects
-   glossary
-   support
-   contribute
