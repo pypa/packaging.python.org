@@ -37,8 +37,8 @@ Learn more
 
 Beyond our :doc:`tutorials/index`, this guide has several other resources:
 
-* :doc:`guides/index` for walk throughs, such as :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`.
-* :doc:`discussions/index` for in-depth references on topics such as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`.
-* :doc:`specifications/index` for packaging interoperability specifications.
+* :doc:`guides/index` for walk throughs, such as :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`
+* :doc:`discussions/index` for in-depth references on topics such as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`
+* :doc:`specifications/index` for packaging interoperability specifications
 
 Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
