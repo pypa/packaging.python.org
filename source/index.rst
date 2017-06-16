@@ -32,13 +32,13 @@ If you want to learn how to install packages, see the :doc:`tutorial on installi
 
 If you want to learn how to package and distribute your projects, see the :doc:`tutorial on packaging and distributing <tutorials/distributing-packages>`
 
-More resources
-==============
+Learn more
+==========
 
 Beyond our :doc:`tutorials/index`, this guide has several other resources:
 
-* :doc:`guides/index` that walk you through a specific task.
-* :doc:`discussions/index` that provide comprehensive documentation on specific topics.
-* :doc:`specifications/index` for detailed information about packaging specifications.
+* :doc:`guides/index` for walk throughs, such as :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`.
+* :doc:`discussions/index` for in-depth references on topics such as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`.
+* :doc:`specifications/index` for packaging interoperability specifications.
 
 Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
