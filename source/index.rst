@@ -2,11 +2,12 @@
 Python Packaging User Guide
 ===========================
 
-Welcome to the *Python Packaging User Guide*. This guide provides documentation
-on how to distribute and install Python packages.
+Welcome to the *Python Packaging User Guide*, a collection of tutorials and
+references to help you distribute and install Python packages with modern
+tools.
 
 This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We
-happily accept any :doc:`contributions and feedback <contribute>`. :)
+happily accept any :doc:`contributions and feedback <contribute>`. 😊
 
 .. _GitHub: https://github.com/pypa/python-packaging-user-guide>
 .. _Python Packaging Authority: https://pypa.io
@@ -29,8 +30,9 @@ Beyond our :doc:`tutorials/index`, this guide has several other resources:
 
 Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
 
-Index
-=====
+Contents
+========
+
 .. toctree::
    :maxdepth: 2
 
