@@ -28,17 +28,18 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 Get started
 ===========
 
-If you want to learn how to install packages, see the :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+Essential tools and concepts for working with the Python packaging ecosystem are covered in our :doc:`tutorials/index` section:
 
-If you want to learn how to package and distribute your projects, see the :doc:`tutorial on packaging and distributing <tutorials/distributing-packages>`
+* to learn how to install packages, see the :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+* to learn how to package and distribute your projects, see the :doc:`tutorial on packaging and distributing <tutorials/distributing-packages>`
 
 Learn more
 ==========
 
 Beyond our :doc:`tutorials/index`, this guide has several other resources:
 
-* :doc:`guides/index` for walk throughs, such as :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`
-* :doc:`discussions/index` for in-depth references on topics such as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`
-* :doc:`specifications/index` for packaging interoperability specifications
+* the :doc:`guides/index` section for walk throughs, such as :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`
+* the :doc:`discussions/index` section for in-depth references on topics such as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`
+* the :doc:`specifications/index` section for packaging interoperability specifications
 
 Additionally, there is a list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
