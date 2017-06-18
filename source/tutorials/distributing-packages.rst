@@ -142,10 +142,23 @@ name
 
   name='sample',
 
-This is the name of your project, and will determine how your project is listed
-on :term:`PyPI <Python Package Index (PyPI)>`. For details on permitted
-characters, see the :pep:`name <426#name>`
-section from :pep:`426`.
+This is the name of your project, determining how your project is listed on
+:term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`508`, valid project
+names must:
+
+- Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-``),
+  and/or periods (``.``), and
+- Start & end with an ASCII letter or digit
+
+Comparison of project names is case insensitive and treats arbitrarily-long
+runs of underscores, hyphens, and/or periods as equal.  For example, if you
+register a project named ``cool-stuff``, users will be able to download it or
+declare a dependency on it using any of the following spellings::
+
+    Cool-Stuff
+    cool.stuff
+    COOL_STUFF
+    CoOl__-.-__sTuFF
 
 
 version
