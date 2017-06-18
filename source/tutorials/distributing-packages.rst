@@ -143,7 +143,7 @@ name
   name='sample',
 
 This is the name of your project, determining how your project is listed on
-:term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`426`, valid project
+:term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`508`, valid project
 names must:
 
 - Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-``),
