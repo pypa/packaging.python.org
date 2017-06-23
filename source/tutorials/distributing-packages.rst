@@ -90,9 +90,8 @@ MANIFEST.in
 ~~~~~~~~~~~
 
 A "MANIFEST.in" is needed in certain cases where you need to package additional
-files that ``python setup.py sdist (or bdist_wheel)`` don't automatically
-include. To see a list of what's included by default, see the `Specifying the
-files to distribute
+files that are not automatically included in a source distribution. To see a
+list of what's included by default, see the `Specifying the files to distribute
 <https://docs.python.org/3.4/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
 section from the :ref:`distutils` documentation.
 
@@ -100,11 +99,12 @@ For an example, see the `MANIFEST.in
 <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_
 
-
 For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
 <https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
 section from the :ref:`distutils` documentation.
 
+.. note:: ``MANIFEST.in`` does not affect binary distributions such as 
+  ``wheels``.
 
 <your package>
 ~~~~~~~~~~~~~~
