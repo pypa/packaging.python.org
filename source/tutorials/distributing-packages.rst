@@ -106,6 +106,19 @@ For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
 section from the :ref:`distutils` documentation.
 
 
+LICENSE.txt
+~~~~~~~~~~~
+
+Every package should include a license file detailing the terms of
+distribution. In many jurisdictions, packages without an explicit license can
+not be legally used or distributed by anyone other than the copyright holder.
+If you're unsure which license to choose, you can use resources such as
+`GitHub's Choose a License <https://choosealicense.com/>`_ or consult a lawyer.
+
+For an example, see the `LICENSE.txt
+<https://github.com/pypa/sampleproject/blob/master/LICENSE.txt>`_ from the `PyPA
+sample project <https://github.com/pypa/sampleproject>`_
+
 <your package>
 ~~~~~~~~~~~~~~
 
