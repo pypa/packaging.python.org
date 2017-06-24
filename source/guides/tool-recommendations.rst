@@ -85,7 +85,8 @@ some users may choose to opt in to using it
 
 ``pypi.org`` is expected to become the default recommended interface for browsing
 once the limitations in the next two sections are addressed (at which point
-``pypi.python.org`` is also expected to become a CNAME for ``pypi.org``)
+attempts to access ``pypi.python.org`` will automatically be redirected to
+``pypi.org``)
 
 
 Downloading packages
