@@ -784,6 +784,8 @@ can create an account
 
   **Be aware that this stores your password in plaintext.**
 
+.. _register-your-project:
+
 Upload your distributions
 -------------------------
 
