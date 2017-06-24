@@ -69,6 +69,7 @@ The default upload settings switched to ``pypi.org`` in the following versions:
 
 * ``twine`` 1.8.0
 * ``setuptools`` 27.0.0
+* Python 2.7.13 (``distutils`` update)
 * Python 3.4.6 (``distutils`` update)
 * Python 3.5.3 (``distutils`` update)
 * Python 3.6.0 (``distutils`` update)
