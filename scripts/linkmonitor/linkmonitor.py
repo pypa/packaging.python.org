@@ -4,6 +4,7 @@
 #   http://creativecommons.org/licenses/by-sa/3.0.
 
 import argparse
+from fnmatch import fnmatch
 from glob import glob
 import io
 import os
@@ -18,9 +19,9 @@ REDIRECTS_FILENAME = os.path.join(HERE, 'redirects.yaml')
 IGNORED_FILENAME = os.path.join(HERE, 'ignored.yaml')
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 HTML_DIR = os.path.join(ROOT, 'build', 'html')
-IGNORED_FILES = [
+IGNORED_FILES = set([
     'genindex.html'
-]
+])
 
 
 def find_all_named_anchors(filename):
@@ -61,9 +62,13 @@ def find_all_named_anchors_in_files(files):
     return links
 
 
-def find_links():
+def find_links(ignored_files):
     files = glob('**/*.html', recursive=True)
-    files = filter(lambda name: name not in IGNORED_FILES, files)
+    ignored_files = ignored_files | IGNORED_FILES
+    files = [
+        filename for filename in files
+        if not any(
+            [fnmatch(filename, pattern) for pattern in ignored_files])]
     return find_all_named_anchors_in_files(files)
 
 
@@ -87,7 +92,9 @@ def load_redirects():
 def load_ignored():
     with io.open(IGNORED_FILENAME, 'r') as ignored_file:
         raw = yaml.load(ignored_file)
-        return set([entry['url'] for entry in raw])
+        sources = set([entry['glob'] for entry in raw['sources']])
+        urls = set([entry['url'] for entry in raw['urls']])
+        return sources, urls
 
 
 def expand_redirects(redirects, inventory, ignored):
@@ -152,11 +159,11 @@ def check_command(args):
     # TODO: Add another file to list currently defined redirects.
     inventory = load_inventory()
     redirects = load_redirects()
-    ignored = load_ignored()
-    links = find_links()
+    ignored_sources, ignored_urls = load_ignored()
+    links = find_links(ignored_sources)
 
     valid_redirects, missing_redirects = expand_redirects(
-        redirects, inventory, ignored)
+        redirects, inventory, ignored_urls)
     if missing_redirects:
         print(
             'The following redirects are missing deep link anchors in the '
@@ -169,7 +176,7 @@ def check_command(args):
 
     ignored_links = set()
     for link in missing_links:
-        for source_url in ignored:
+        for source_url in ignored_urls:
             if link.startswith(source_url):
                 ignored_links.add(link)
 
