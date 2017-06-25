@@ -274,6 +274,12 @@ classifiers
 Provide a list of classifiers that categorize your project. For a full listing,
 see https://pypi.python.org/pypi?%3Aaction=list_classifiers.
 
+Although the list of classifiers is often used to declare what Python versions
+a project supports, this information is only used for searching & browsing
+projects on PyPI, not for installing projects.  To actually restrict what
+Python versions a project can be installed on, use the :ref:`python_requires`
+argument.
+
 
 keywords
 ~~~~~~~~
@@ -312,6 +318,44 @@ minimally needs to run. When the project is installed by :ref:`pip`, this is the
 specification that is used to install its dependencies.
 
 For more on using "install_requires" see :ref:`install_requires vs Requirements files`.
+
+
+.. _python_requires:
+
+python_requires
+~~~~~~~~~~~~~~~
+
+If your project only runs on certain Python versions, setting the
+``python_requires`` argument to the appropriate :pep:`440` version specifier
+string will prevent :ref:`pip` from installing the project on other Python
+versions.  For example, if your package is for Python 3+ only, write::
+
+    python_requires='>=3',
+
+If your package is for Python 3.3 and up but you're not willing to commit to
+Python 4 support yet, write::
+
+    python_requires='~=3.3',
+
+If your package is for Python 2.6, 2.7, and all versions of Python 3 starting
+with 3.3, write::
+
+    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4',
+
+And so on.
+
+.. note::
+
+    Support for this feature is relatively recent.  Your project's source
+    distributions and wheels (see :ref:`Packaging Your Project`) must be built
+    using at least version 24.2.0 of :ref:`setuptools` in order for the
+    ``python_requires`` argument to be recognized and the appropriate metadata
+    generated.
+
+    In addition, only versions 9.0.0 and higher of :ref:`pip` recognize the
+    ``python_requires`` metadata.  Users with earlier versions of pip will be
+    able to download & install projects on any Python version regardless of the
+    projects' ``python_requires`` values.
 
 
 .. _`Package Data`:
