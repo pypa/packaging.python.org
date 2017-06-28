@@ -137,7 +137,8 @@ def update_command(args):
     os.chdir(HTML_DIR)
 
     inventory = load_inventory()
-    links = find_links()
+    ignored_sources, ignored_urls = load_ignored()
+    links = find_links(ignored_sources)
 
     new_links = links.difference(inventory)
     print('Found {} new links.'.format(len(new_links)))
