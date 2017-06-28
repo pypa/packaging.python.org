@@ -20,3 +20,4 @@ introduction to packaging, see :doc:`/tutorials/index`.
    creating-and-discovering-plugins
    index-mirrors-and-caches
    hosting-your-own-index
+   migrating-to-pypi-org
