@@ -16,14 +16,14 @@ Uploading
 ---------
 
 The recommended way to migrate to PyPI.org for uploading is to ensure that you
-are using a new enough version of the upload tools. That would be twine v1.8.0+
-(recommneded tool), Python 3.4.6+, Python 3.5.3+, Python 3.6+, 2.7.13+, or
-setuptools 27+.
+are using a new enough version of your upload tool. Tools that support PyPI.org
+by default are twine v1.8.0+ (recommended tool), setuptools 27+, or the distutils
+included with Python 3.4.6+, Python 3.5.3+, Python 3.6+, and 2.7.13+.
 
 In addition to ensuring you're on a new enough version of the tool for the
-tool's default to have switched. You must also make sure that you have not
-configured the tool to override it' default value. Typically this is configured
-in a file located at ``~/.pypirc``. If you see a file like:
+tool's default to have switched, you must also make sure that you have not
+configured the tool to override its default upload URL. Typically this is
+configured in a file located at ``~/.pypirc``. If you see a file like:
 
 
 .. code::
@@ -38,15 +38,14 @@ in a file located at ``~/.pypirc``. If you see a file like:
     password:yourpassword
 
 
-Then simply delete the line starting with ``repository`` and you will utilize
-the default version of your upload tool.
+Then simply delete the line starting with ``repository`` and you will use
+your upload tool's default URL.
 
 If for some reason you're unable to upgrade the version of your tool to a
 version that defaults to using PyPI.org, then you may edit ``~/.pypirc`` and
 include the ``repository:`` line, but use the value
 ``https://upload.pypi.org/legacy/`` instead.
 
-In addition to regular PyPI, you must also update your ``~/.pypirc`` to handle
-TestPyPI if you're using it. For that you must edit your ``~/.pypirc`` to
-replace ``https://testpypi.python.org/pypi`` with
-``https://test.pypi.org/legacy/``.
+If you use TestPyPI, you must update your ``~/.pypirc`` to handle
+TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
+with ``https://test.pypi.org/legacy/``.
