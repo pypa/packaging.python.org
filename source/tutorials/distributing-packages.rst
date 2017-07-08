@@ -768,7 +768,7 @@ Platform Wheels
 ~~~~~~~~~~~~~~~
 
 *Platform Wheels* are wheels that are specific to a certain platform like linux,
-OSX, or Windows, usually due to containing compiled extensions.
+macOS, or Windows, usually due to containing compiled extensions.
 
 To build the wheel:
 
