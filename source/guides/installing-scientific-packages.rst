@@ -89,14 +89,17 @@ limitation.
 The `wheel` project also provides a `wheel convert` subcommand that can
 convert a Windows `bdist_wininst` installer to a wheel.
 
-Mac OS X installers and package managers
-----------------------------------------
+.. preserve old links to this heading
+.. _mac-os-x-installers-and-package-managers:
+
+macOS installers and package managers
+-------------------------------------
 
 Similar to the situation on Windows, many projects (including NumPy) publish
-Mac OS X installers that are compatible with the Mac OS X CPython binaries
+macOS installers that are compatible with the macOS CPython binaries
 published on python.org.
 
-Mac OS X users also have access to Linux distribution style package managers
+macOS users also have access to Linux distribution style package managers
 such as ``MacPorts``. The SciPy site has more details on using MacPorts to
 install the `scientific Python stack
 <http://www.scipy.org/install.html#mac-packages>`__
@@ -144,7 +147,7 @@ updated from the Anaconda repository.
 environment management system included in Anaconda that allows users to 
 install multiple versions of binary software packages and their dependencies, 
 and easily switch between them. It is a cross-platform tool working on Windows, 
-OSX, and Linux. Conda can be used to package up and distribute all kinds of 
+macOS, and Linux. Conda can be used to package up and distribute all kinds of
 packages, it is not limited to just Python packages.   It has full support 
 for native virtual environments. Conda makes environments first-class citizens, 
 making it easy to create independent environments even for C libraries. It is 

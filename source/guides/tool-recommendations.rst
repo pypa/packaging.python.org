@@ -158,7 +158,7 @@ milestone.
        choice for packaging.
 
 .. [7] :term:`PyPI <Python Package Index (PyPI)>` currently only allows
-       uploading Windows and Mac OS X wheels, and they should be compatible with
+       uploading Windows and macOS wheels, and they should be compatible with
        the binary installers provided for download from python.org. Enhancements
        will have to be made to the :pep:`wheel compatibility tagging scheme
        <425>` before linux wheels will be allowed.
