@@ -11,7 +11,6 @@ the new location.
 
 This section covers how to migrate to the new PyPI.org for different tasks.
 
-
 Uploading
 ---------
 
@@ -44,8 +43,36 @@ your upload tool's default URL.
 If for some reason you're unable to upgrade the version of your tool to a
 version that defaults to using PyPI.org, then you may edit ``~/.pypirc`` and
 include the ``repository:`` line, but use the value
-``https://upload.pypi.org/legacy/`` instead.
+``https://upload.pypi.org/legacy/`` instead::
+
+
+.. code::
+
+    [distutils]
+    index-servers =
+        pypi
+
+    [pypi]
+    repository:https://upload.pypi.org/legacy/
+    username:yourusername
+    password:yourpassword
 
 If you use TestPyPI, you must update your ``~/.pypirc`` to handle
 TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
 with ``https://test.pypi.org/legacy/``.
+
+
+Registering package names & metadata
+------------------------------------
+
+Explicit pre-registration of package names with the `setup.py register`
+command prior to the first upload is no longer required, and is not
+currently supported by the legacy upload API emulation on `pypi.org`.
+
+As a result, attempting explicit registration after switching to using
+`pypi.org` for uploads will give the follow error message::
+
+    Server response (410): This API is no longer supported, instead simply upload the file.
+
+The solution is to skip the registration step, and proceed directly to
+uploading artifacts.
