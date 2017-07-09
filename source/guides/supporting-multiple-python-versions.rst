@@ -63,9 +63,9 @@ of many continuous-integration systems. There are two hosted services which
 when used in conjunction provide automated testing across Linux, Mac and
 Windows:
 
-  - `Travis CI <https://travis-ci.org>`_ provides both a Linux and a Mac OSX
+  - `Travis CI <https://travis-ci.org>`_ provides both a Linux and a macOS
     environment. The Linux environment is Ubuntu 12.04 LTS Server Edition 64 bit
-    while the OSX is 10.9.2 at the time of writing.
+    while the macOS is 10.9.2 at the time of writing.
   - `Appveyor <http://www.appveyor.com>`_ provides a Windows environment
     (Windows Server 2012).
 
@@ -74,7 +74,7 @@ Windows:
     TODO Either link to or provide example .yml files for these two
     services.
 
-    TODO How do we keep the Travis Linux and OSX versions up-to-date in this
+    TODO How do we keep the Travis Linux and macOS versions up-to-date in this
     document?
 
 Both `Travis CI`_ and Appveyor_ require a `YAML

@@ -34,7 +34,7 @@ Install pip, setuptools, and wheel
   <https://www.python.org>`_, you will already have :ref:`pip` and
   :ref:`setuptools`, but will need to upgrade to the latest version:
 
-  On Linux or OS X:
+  On Linux or macOS:
 
   ::
 

@@ -275,7 +275,7 @@ be able to build Python extensions for all Python versions from 3.5 onwards.
    FIXME
 
    cover Windows binary compatibility requirements
-   cover Mac OS X binary compatibility requirements
+   cover macOS binary compatibility requirements
    cover the vagaries of Linux distros and other *nix systems
 
 
@@ -291,7 +291,7 @@ For interim guidance on this topic, see the discussion in
    FIXME
 
    cover publishing as wheel files on PyPI or a custom index server
-   cover creation of Windows and Mac OS X installers
+   cover creation of Windows and macOS installers
    mention the fact that Linux distros have a requirement to build from
    source in their own build systems, so binary-only releases are strongly
    discouraged
