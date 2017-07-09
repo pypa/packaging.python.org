@@ -43,7 +43,7 @@ your upload tool's default URL.
 If for some reason you're unable to upgrade the version of your tool to a
 version that defaults to using PyPI.org, then you may edit ``~/.pypirc`` and
 include the ``repository:`` line, but use the value
-``https://upload.pypi.org/legacy/`` instead::
+``https://upload.pypi.org/legacy/`` instead:
 
 
 .. code::
