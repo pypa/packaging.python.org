@@ -89,6 +89,9 @@ limitation.
 The `wheel` project also provides a `wheel convert` subcommand that can
 convert a Windows `bdist_wininst` installer to a wheel.
 
+.. preserve old links to this heading
+.. _mac-os-x-installers-and-package-managers:
+
 macOS installers and package managers
 -------------------------------------
 
