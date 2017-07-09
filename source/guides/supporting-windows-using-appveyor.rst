@@ -123,7 +123,7 @@ environment to use the SDK compiler for 64-bit builds on Python 3.3 and 3.4.
 For projects which do not need a compiler, or which don't support 3.3 or 3.4 on
 64-bit Windows, only the ``appveyor.yml`` file is needed.
 
-`build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/ppveyor-sample/build.cmd>`__
+`build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/build.cmd>`__
 is a Windows batch script that runs a single command in an environment with the
 appropriate compiler for the selected Python version. All you need to do is to
 set the single environment variable ``DISTUTILS_USE_SDK`` to a value of ``1``
