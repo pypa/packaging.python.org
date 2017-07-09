@@ -65,12 +65,12 @@ with ``https://test.pypi.org/legacy/``.
 Registering package names & metadata
 ------------------------------------
 
-Explicit pre-registration of package names with the `setup.py register`
+Explicit pre-registration of package names with the ``setup.py register``
 command prior to the first upload is no longer required, and is not
-currently supported by the legacy upload API emulation on `pypi.org`.
+currently supported by the legacy upload API emulation on PyPI.org.
 
 As a result, attempting explicit registration after switching to using
-`pypi.org` for uploads will give the follow error message::
+PyPI.org for uploads will give the following error message::
 
     Server response (410): This API is no longer supported, instead simply upload the file.
 
