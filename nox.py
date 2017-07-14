@@ -31,7 +31,8 @@ def linkmonitor(session, command):
     session.interpreter = 'python3.6'
     session.install('-r', 'scripts/linkmonitor/requirements.txt')
     session.run(
-        'python', 'scripts/linkmonitor/linkmonitor.py', command)
+        'python', 'scripts/linkmonitor/linkmonitor.py', command,
+        success_codes=[0, 1])
 
 
 @nox.session
