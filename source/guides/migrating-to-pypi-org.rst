@@ -11,6 +11,7 @@ the new location.
 
 This section covers how to migrate to the new PyPI.org for different tasks.
 
+
 Uploading
 ---------
 
@@ -23,7 +24,6 @@ In addition to ensuring you're on a new enough version of the tool for the
 tool's default to have switched, you must also make sure that you have not
 configured the tool to override its default upload URL. Typically this is
 configured in a file located at ``~/.pypirc``. If you see a file like:
-
 
 .. code::
 
@@ -45,7 +45,6 @@ version that defaults to using PyPI.org, then you may edit ``~/.pypirc`` and
 include the ``repository:`` line, but use the value
 ``https://upload.pypi.org/legacy/`` instead:
 
-
 .. code::
 
     [distutils]
@@ -53,13 +52,9 @@ include the ``repository:`` line, but use the value
         pypi
 
     [pypi]
-    repository:https://upload.pypi.org/legacy/
-    username:yourusername
-    password:yourpassword
-
-If you use TestPyPI, you must update your ``~/.pypirc`` to handle
-TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
-with ``https://test.pypi.org/legacy/``.
+    repository: https://upload.pypi.org/legacy/
+    username: your username
+    password: your password
 
 
 Registering package names & metadata
@@ -76,3 +71,23 @@ PyPI.org for uploads will give the following error message::
 
 The solution is to skip the registration step, and proceed directly to
 uploading artifacts.
+
+
+Using TestPyPI
+--------------
+
+If you use TestPyPI, you must update your ``~/.pypirc`` to handle
+TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
+with ``https://test.pypi.org/legacy/``, for example:
+
+.. code::
+
+    [distutils]
+    index-servers=
+        pypi
+        testpypi
+
+    [testpypi]
+    repository: https://test.pypi.org/legacy
+    username: your testpypi username
+    password: your testpypi password
