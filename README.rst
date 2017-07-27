@@ -69,14 +69,19 @@ To build the guide run below bash command in the source folder
   nox -s build
 
 After the process completed you can find the HTML version in the
-  **/python-packaging-user-guide/build/html**
+
+**/python-packaging-user-guide/build/html**
+
 open index.html file to view the guide in web broswer.
 
 * **Serve the guide using http server**
 
 Other than access locally build guide you can serve the guide through http server. To that run below command in project folder.
+
   nox -s preview
+
 To access guide access localhost using web browser using port 8000.
+
   http://localhost:8000
 
   or
