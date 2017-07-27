@@ -40,7 +40,8 @@ In order to build this guide locally, you'll need:
    See the `Hitchhiker's Guide to Python installation instructions <http://docs.python-guide.org/en/latest/starting/installation/>`__
    to install Python 3.6 on your operating system.
 
-* **Building the Guide**
+Building the Guide
+++++++++++++++++++
 
 To build the guide run below bash command in the source folder::
 
@@ -50,7 +51,8 @@ After the process completed you can find the HTML output in the ``./build/html`
 directory. You can open the ``index.html`` file to view the guide in web broswer,
 bu it's recommendation to serve the guide using an http server.
 
-* **Serve the guide using http server**
+Serving the guide using a local HTTP server
++++++++++++++++++++++++++++++++++++++++++++
 
 You can build the guide and serve it via an HTTP server using the following
 command::
