@@ -32,7 +32,7 @@ def linkmonitor(session, command):
     session.install('-r', 'scripts/linkmonitor/requirements.txt')
     session.run(
         'python', 'scripts/linkmonitor/linkmonitor.py', command,
-        success_codes=[0, 1])
+        success_codes=range(0, 100))
 
 
 @nox.session
