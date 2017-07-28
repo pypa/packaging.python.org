@@ -251,6 +251,20 @@ a complimentary command line tool to drive packaging, testing and release
 activities with Python.
 
 
+flit
+====
+
+`Docs <https://flit.readthedocs.io/en/latest/>`__ |
+`Issues <https://github.com/takluyver/flit/issues>`__ |
+`PyPI <https://pypi.python.org/pypi/flit>`__
+
+Flit is a simple way to put Python packages and modules on PyPI. Flit packages
+a single importable module or package at a time, using the import name as the
+name on PyPI. All subpackages and data files within a package are included
+automatically. Flit requires Python 3, but you can use it to distribute modules
+for Python 2, so long as they can be imported on Python 3.
+
+
 .. _hashdist:
 
 Hashdist
