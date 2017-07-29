@@ -264,6 +264,22 @@ name on PyPI. All subpackages and data files within a package are included
 automatically. Flit requires Python 3, but you can use it to distribute modules
 for Python 2, so long as they can be imported on Python 3.
 
+enscons
+=======
+
+`Source <https://bitbucket.org/dholth/enscons/src>`__ |
+`Issues <https://bitbucket.org/dholth/enscons/issues>`__ |
+`PyPI <https://pypi.python.org/pypi/enscons>`__
+
+Enscons is a Python packaging tool based on `SCons`_. It builds pip-compatible
+source distributions and wheels without using distutils or setuptools,
+including distributions with C extensions. Enscons has a different architecture
+and philosophy than distutils. Rather than adding build features to a Python
+packaging system, enscons adds Python packaging to a general purpose build
+system. Enscons helps you to build sdists that can be automatically built by
+pip, and wheels that are independent of enscons.
+
+.. _SCons: http://scons.org/
 
 .. _hashdist:
 
