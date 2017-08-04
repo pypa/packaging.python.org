@@ -88,6 +88,6 @@ with ``https://test.pypi.org/legacy/``, for example:
         testpypi
 
     [testpypi]
-    repository: https://test.pypi.org/legacy
+    repository: https://test.pypi.org/legacy/
     username: your testpypi username
     password: your testpypi password
