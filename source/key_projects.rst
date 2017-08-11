@@ -158,7 +158,8 @@ Warehouse
 Dev irc:#pypa-dev
 
 
-The new unreleased PyPI application which can be previewed at https://pypi.org/.
+The current codebase powering :term:`PyPI`. It is hosted at
+`pypi.org <https://pypi.org/>`_.
 
 
 .. _wheel:
