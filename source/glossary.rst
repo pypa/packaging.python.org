@@ -137,9 +137,16 @@ Glossary
 
     Python Package Index (PyPI)
 
-        `PyPI <https://pypi.python.org/pypi>`_ is the default :term:`Package
+        `PyPI <https://pypi.org>`_ is the default :term:`Package
         Index` for the Python community. It is open to all Python developers to
         consume and distribute their distributions.
+
+    pypi.org
+
+        `pypi.org <https://pypi.org>`_ is the domain name for the
+        :term:`Python Package Index (PyPI)`. It replaced the legacy index
+        domain name, `pypi.python.org`, in 2017. It is powered by
+        :ref:`warehouse`.
 
     Release
 

@@ -3,11 +3,11 @@
 Migrating to PyPI.org
 =====================
 
-PyPI.org is a new, rewritten version of PyPI that is replacing the legacy code
-base located at pypi.python.org. As it becomes the default, and eventually only,
-version of PyPI people are expected to interact with, there will be a transition
-period where tooling and processes are expected to need to update to deal with
-the new location.
+:term:`PyPI.org` is a new, rewritten version of PyPI that is replacing the
+legacy code base located at `pypi.python.org`. As it becomes the default, and
+eventually only, version of PyPI people are expected to interact with, there
+will be a transition period where tooling and processes are expected to need to
+update to deal with the new location.
 
 This section covers how to migrate to the new PyPI.org for different tasks.
 
