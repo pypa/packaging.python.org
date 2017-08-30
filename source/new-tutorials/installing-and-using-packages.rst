@@ -3,13 +3,15 @@ Installing and using packages
 
 This tutorial walks you through installing and using Python packages. It will
 show you how to install and use the necessary tools and make strong
-recommendations on best practices. Keep in mind that the Python packaging
-ecosystem is a broad and varied one so this isn't the only way to install and
-use Python packages, however, it does cover the most common tools and use
-cases.
+recommendations on best practices. Keep in mind that Python is used for a great
+many different purposes, and precisely how you want to manage your dependencies
+may change based on how you decide to publish your software. The guidance
+presented here is most directly applicable to the development and deployment of
+network services (including web applications), but is also very well suited to
+managing development and testing environments for any kind of project.
 
 .. Note:: This guide is written for Python 3, however, these instructions
-    should work fine on Python 2.
+    should work fine on Python 2.7.
 
 
 Make sure you've got Python & pip
@@ -22,9 +24,23 @@ from your command line. You can check this by simply running:
 
     python --version
 
-You should get some output like ``3.6.1``. If you do not have Python, please
+You should get some output like ``3.6.2``. If you do not have Python, please
 install the latest 3.x version from `python.org`_ or refer to the
 `Installing Python`_ section of the Hitchhiker's Guide to Python.
+
+.. Note:: If you're newcomer and you get an error like this:
+    
+    .. code-block:: python
+
+        >>> python
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        NameError: name 'python' is not defined
+
+    It's because this command is intended to be run in a *shell* (also called
+    a *terminal* or *console*). See the Python for Beginners
+    `getting started tutorial`_ for an introduction to using your operating
+    system's shell and interacting with Python.
 
 Additionally, you'll need to make sure you have :ref:`pip` available. You can
 check this by running:
@@ -38,6 +54,7 @@ via `Homebrew`_ you should already have pip. If you're on Linux and installed
 using your OS package manager, you may have to install pip separately, see
 :doc:`/guides/installing-using-linux-tools`.
 
+.. _getting started tutorial: https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly
 .. _python.org: https://python.org
 .. _Homebrew: https://brew.sh
 .. _Installing Python: http://docs.python-guide.org/en/latest/starting/installation/
@@ -62,15 +79,19 @@ Use ``pip`` to install Pipenv:
 .. Note:: This does a `user installation`_ to prevent breaking any system-wide
     packages. If ``pipenv`` isn't available in your shell after installation,
     you'll need to add the `user base`_'s ``bin`` directory to your ``PATH``.
-    You can find the user base by running ``import site; print(site.USER_BASE)``
-    in Python. For example, on Linux this will return ``~/.local`` so you'll
-    need to add ``~/.local/bin`` to your ``PATH``.
+    You can find the user base by running ``python -m site`` which will print
+    site information including the user base. For example, on Linux this will
+    return ``USER_BASE: '~/.local'`` so you'll need to add ``~/.local/bin`` to
+    your ``PATH``. On Linux and macOS you can set your ``PATH`` permanently
+    by `modifying ~/.profile`_. On Windows you can set the user
+    ``PATH`` permanently in the `Control Panel`_.
 
 .. _npm: https://www.npmjs.com/
 .. _bundler: http://bundler.io/
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
 .. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
-
+.. _modifying ~/.profile: https://stackoverflow.com/a/14638025
+.. _Control Panel: https://msdn.microsoft.com/en-us/library/windows/desktop/bb776899(v=vs.85).aspx
 
 Installing packages for your project
 ------------------------------------
@@ -87,13 +108,14 @@ tutorial) and run:
 Pipenv will install the excellent `Requests`_ library and create a ``Pipfile``
 for you in your project's directory. The :ref:`Pipfile` is used to track which
 dependencies your project needs in case you need to re-install them, such as
-when you share your project with others. You should get output similar to this:
+when you share your project with others. You should get output similar to this
+(although the exact paths shown will vary):
 
 .. code-block:: text
 
     Creating a Pipfile for this project...
     Creating a virtualenv for this project...
-    Using base prefix '/usr/local/Cellar/python3/3.6.1/Frameworks/Python.framework/Versions/3.6'
+    Using base prefix '/usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6'
     New python executable in ~/.local/share/virtualenvs/tmp-agwWamBd/bin/python3.6
     Also creating executable in ~/.local/share/virtualenvs/tmp-agwWamBd/bin/python
     Installing setuptools, pip, wheel...done.
@@ -159,6 +181,11 @@ There's more resources you can look at to learn about installing and using
 Python packages:
 
 .. TODO Link to additional guides and resources.
+
+If you find this approach isn't working well for you or your use case, you may
+want to explore these other approaches:
+
+.. TODO Link to alternatives
 
 If you're interesting in creating and distributing Python packages, see the
 tutorial on packaging and distributing packages.

@@ -83,8 +83,9 @@ Pipfile
 
 `Source <https://github.com/pypa/pipfile>`__
 
-``Pipfile`` and its sister ``Pipfile.lock`` are a replacement for the existing
-standard :ref:`pip`'s ``requirements.txt`` file.
+``Pipfile`` and its sister ``Pipfile.lock`` are a higher-level
+application-centric alternative to :ref:`pip`'s lower-level
+``requirements.txt`` file.
 
 
 Python Packaging User Guide
