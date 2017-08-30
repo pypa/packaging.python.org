@@ -22,7 +22,7 @@ from your command line. You can check this by simply running:
 
     python --version
 
-You should get some output like ``3.6.1``. If you do not have Python, please
+You should get some output like ``3.6.2``. If you do not have Python, please
 install the latest 3.x version from `python.org`_ or refer to the
 `Installing Python`_ section of the Hitchhiker's Guide to Python.
 
@@ -93,7 +93,7 @@ when you share your project with others. You should get output similar to this:
 
     Creating a Pipfile for this project...
     Creating a virtualenv for this project...
-    Using base prefix '/usr/local/Cellar/python3/3.6.1/Frameworks/Python.framework/Versions/3.6'
+    Using base prefix '/usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6'
     New python executable in ~/.local/share/virtualenvs/tmp-agwWamBd/bin/python3.6
     Also creating executable in ~/.local/share/virtualenvs/tmp-agwWamBd/bin/python
     Installing setuptools, pip, wheel...done.
