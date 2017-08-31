@@ -28,7 +28,7 @@ You should get some output like ``3.6.2``. If you do not have Python, please
 install the latest 3.x version from `python.org`_ or refer to the
 `Installing Python`_ section of the Hitchhiker's Guide to Python.
 
-.. Note:: If you're newcomer and you get an error like this:
+.. Note:: If you're a newcomer and you get an error like this:
     
     .. code-block:: python
 
@@ -37,10 +37,11 @@ install the latest 3.x version from `python.org`_ or refer to the
           File "<stdin>", line 1, in <module>
         NameError: name 'python' is not defined
 
-    It's because this command is intended to be run in a *shell* (also called
-    a *terminal* or *console*). See the Python for Beginners
-    `getting started tutorial`_ for an introduction to using your operating
-    system's shell and interacting with Python.
+    It's because this command and other suggested commands in this tutorial
+    are intended to be run in a *shell* (also called a *terminal* or
+    *console*). See the Python for Beginners `getting started tutorial`_ for
+    an introduction to using your operating system's shell and interacting with
+    Python.
 
 Additionally, you'll need to make sure you have :ref:`pip` available. You can
 check this by running:
@@ -180,14 +181,14 @@ Congratulations, you now know how to install and use Python packages! ✨ 🍰 �
 There's more resources you can look at to learn about installing and using
 Python packages:
 
-.. TODO Link to additional guides and resources.
+.. TODO:: Link to additional guides and resources.
 
 If you find this approach isn't working well for you or your use case, you may
 want to explore these other approaches:
 
-.. TODO Link to alternatives
+.. TODO:: Link to alternatives
 
 If you're interesting in creating and distributing Python packages, see the
 tutorial on packaging and distributing packages.
 
-.. TODO Link to packaging tutorial when it exists.
+.. TODO:: Link to packaging tutorial when it exists.

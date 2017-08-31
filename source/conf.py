@@ -32,6 +32,7 @@
 # ones.
 extensions = [
     'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -355,3 +356,9 @@ intersphinx_mapping = {
     'pip': ('https://pip.pypa.io/en/latest/', None),
     'pypa': ('https://pypa.io/en/latest/', None),
 }
+
+
+# f this is True, todo and todolist produce output, else they produce nothing.
+# The default is False.
+
+todo_include_todos = True
