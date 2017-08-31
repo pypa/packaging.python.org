@@ -186,7 +186,36 @@ Python packages:
 If you find this approach isn't working well for you or your use case, you may
 want to explore these other approaches:
 
-.. TODO:: Link to alternatives
+* [briefcase](https://briefcase.readthedocs.io/en/latest/): briefcase is a tool that focuses
+  on defining applications as Python packages, and then using that package definition to
+  generate native application installers for popular client operating systems
+* [pex](https://pex.readthedocs.io/en/stable/whatispex.html#whatispex): PEX is a single-file
+  distribution format for executable Python virtual environments as zip archives containing
+  a `__main__.py` file. Their main runtime requirement is that a suitable Python interpreter
+  be available on the system running the application.
+* [pipsi](https://github.com/mitsuhiko/pipsi#pipsi): Similar to `pex`, `pipsi` aims to run
+  applications in self-contained virtual environments. Unlike `pex`, it generates these
+  virtual environments dynamically inside the user's home directory for applications available
+  as Python packages.
+* [pew](https://github.com/berdario/pew#pew---python-env-wrapper): `pew` is the underlying
+  virtual environment manager used by `pipenv`. It is a lower level tool that offers more
+  flexibility in where, when, and how virtual environments are created and updated)
+* [pip-tools](https://github.com/jazzband/pip-tools#pip-tools--pip-compile--pip-sync): `pip-tools`
+  provides the `pip-compile` and `pip-sync` commands for automated requirements.txt file management
+  that distinguishes between abstract dependency combinations that are expected to work, but may not
+  be explicitly tested, and the exact pinned versions that will be tested and/or deployed. Like
+  `pew`, these are lower level tools that offer more flexibility in when and how dependencies are
+  installed and updated.
+* [conda](https://conda.io/docs/): conda is a "cross-platform platform" that manages the Python
+  interpreter and external binary dependencies in addition to managing Python modules. It is most
+  useful in situations where it is easier to ensure that the conda package manager is preinstalled
+  than it is to ensure that a suitable Python version is available.
+
+.. note:: the above list only covers cross-platform tools, and there are even more options available
+   when targeting native installation only on a specific subset of platforms (e.g. PyInstaller,
+   cx_Freeze, py2app, py2exe). There is an 
+   `open issue <https://github.com/pypa/python-packaging-user-guide/issues/267>`__ requesting a
+   more comprehensive overview of this aspect of the Python packaging ecosystem.
 
 If you're interesting in creating and distributing Python packages, see the
 tutorial on packaging and distributing packages.
