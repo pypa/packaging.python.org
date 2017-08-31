@@ -188,7 +188,7 @@ want to explore these other approaches:
 
 * [briefcase](https://briefcase.readthedocs.io/en/latest/): briefcase is a tool that focuses
   on defining applications as Python packages, and then using that package definition to
-   generate native application installers for popular client operating systems
+  generate native application installers for popular client operating systems
 * [pex](https://pex.readthedocs.io/en/stable/whatispex.html#whatispex): PEX is a single-file
   distribution format for executable Python virtual environments as zip archives containing
   a `__main__.py` file. Their main runtime requirement is that a suitable Python interpreter
