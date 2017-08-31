@@ -271,7 +271,7 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 ::
 
  pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
- pip install -e hg+https://hg.repo/some_pkg.git#egg=SomeProject            # from mercurial
+ pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
  pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
  pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
 
