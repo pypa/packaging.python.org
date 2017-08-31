@@ -76,6 +76,17 @@ Dev irc:#pypa-dev
 
 A tool for installing Python packages.
 
+.. _Pipfile:
+
+Pipfile
+=======
+
+`Source <https://github.com/pypa/pipfile>`__
+
+``Pipfile`` and its sister ``Pipfile.lock`` are a higher-level
+application-centric alternative to :ref:`pip`'s lower-level
+``requirements.txt`` file.
+
 
 Python Packaging User Guide
 ===========================
@@ -158,8 +169,8 @@ Warehouse
 Dev irc:#pypa-dev
 
 
-The current codebase powering :term:`PyPI`. It is hosted at
-`pypi.org <https://pypi.org/>`_.
+The current codebase powering the :term:`Python Package Index (PyPI)`. It is
+hosted at `pypi.org <https://pypi.org/>`_.
 
 
 .. _wheel:
@@ -309,6 +320,22 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 ``.pex`` files are just carefully constructed zip files with a
 ``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
 deployment of Python applications as simple as ``cp``.
+
+
+.. _Pipenv:
+
+Pipenv
+======
+
+`Docs <http://docs.pipenv.org/en/latest/>`__ |
+`Source <https://github.com/kennethreitz/pipenv>`__ |
+`Issues <https://github.com/kennethreitz/pipenv/issues>`__ |
+`PyPI <https://pypi.python.org/pypi/pipenv>`__
+
+Pipenv is a project that aims to bring the best of all packaging worlds to the
+Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
+into one single toolchain. It features very pretty terminal colors.
+
 
 .. _spack:
 
