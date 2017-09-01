@@ -80,12 +80,13 @@ Use ``pip`` to install Pipenv:
 .. Note:: This does a `user installation`_ to prevent breaking any system-wide
     packages. If ``pipenv`` isn't available in your shell after installation,
     you'll need to add the `user base`_'s ``bin`` directory to your ``PATH``.
-    You can find the user base by running ``python -m site`` which will print
-    site information including the user base. For example, on Linux this will
-    return ``USER_BASE: '~/.local'`` so you'll need to add ``~/.local/bin`` to
-    your ``PATH``. On Linux and macOS you can set your ``PATH`` permanently
-    by `modifying ~/.profile`_. On Windows you can set the user
-    ``PATH`` permanently in the `Control Panel`_.
+    You can find the user base by running ``python -m site --user-base`` which
+    will print out the user base directory. For example, on Linux this will
+    return ``'~/.local'`` (with ``~`` expanded to the absolute path to your
+    home directory) so you'll need to add ``~/.local/bin`` to your ``PATH``.
+    On Linux and macOS you can set your ``PATH`` permanently by `modifying
+    ~/.profile`_. On Windows you can set the user ``PATH`` permanently in the
+    `Control Panel`_.
 
 .. _npm: https://www.npmjs.com/
 .. _bundler: http://bundler.io/
