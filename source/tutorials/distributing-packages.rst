@@ -84,7 +84,7 @@ this is not a requirement.
 
 For an example, see `README.rst
 <https://github.com/pypa/sampleproject/blob/master/README.rst>`_ from the `PyPA
-sample project <https://github.com/pypa/sampleproject>`_
+sample project <https://github.com/pypa/sampleproject>`_.
 
 MANIFEST.in
 ~~~~~~~~~~~
@@ -97,7 +97,7 @@ section from the :ref:`distutils` documentation.
 
 For an example, see the `MANIFEST.in
 <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ from the `PyPA
-sample project <https://github.com/pypa/sampleproject>`_
+sample project <https://github.com/pypa/sampleproject>`_.
 
 For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
 <https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
@@ -116,18 +116,18 @@ If you're unsure which license to choose, you can use resources such as
 
 For an example, see the `LICENSE.txt
 <https://github.com/pypa/sampleproject/blob/master/LICENSE.txt>`_ from the `PyPA
-sample project <https://github.com/pypa/sampleproject>`_
+sample project <https://github.com/pypa/sampleproject>`_.
 
 <your package>
 ~~~~~~~~~~~~~~
 
 Although it's not required, the most common practice is to include your
-python modules and packages under a single top-level package that has the same
+Python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
 For an example, see the `sample
 <https://github.com/pypa/sampleproject/tree/master/sample>`_ package that's
-include in the `PyPA sample project <https://github.com/pypa/sampleproject>`_
+included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
 .. _`setup() args`:
@@ -135,7 +135,7 @@ include in the `PyPA sample project <https://github.com/pypa/sampleproject>`_
 setup() args
 ------------
 
-As mentioned above, The primary feature of ``setup.py`` is that it contains a
+As mentioned above, the primary feature of ``setup.py`` is that it contains a
 global ``setup()`` function.  The keyword arguments to this function are how
 specific details of your project are defined.
 
@@ -160,7 +160,7 @@ names must:
 
 - Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-``),
   and/or periods (``.``), and
-- Start & end with an ASCII letter or digit
+- Start & end with an ASCII letter or digit.
 
 Comparison of project names is case insensitive and treats arbitrarily-long
 runs of underscores, hyphens, and/or periods as equal.  For example, if you
@@ -204,7 +204,7 @@ description
   description='A sample Python project',
   long_description=long_description,
 
-Give a short and long description for you project.  These values will be
+Give a short and long description for your project.  These values will be
 displayed on :term:`PyPI <Python Package Index (PyPI)>` if you publish your
 project.
 
@@ -217,7 +217,7 @@ url
   url='https://github.com/pypa/sampleproject',
 
 
-Give a homepage url for your project.
+Give a homepage URL for your project.
 
 
 author
@@ -612,14 +612,14 @@ dependencies declared with "install_requires" and any scripts declared with
 
 It's fairly common to also want to install some of your dependencies in editable
 mode as well. For example, supposing your project requires "foo" and "bar", but
-you want "bar" installed from vcs in editable mode, then you could construct a
+you want "bar" installed from VCS in editable mode, then you could construct a
 requirements file like so::
 
   -e .
   -e git+https://somerepo/bar.git#egg=bar
 
 The first line says to install your project and any dependencies. The second
-line overrides the "bar" dependency, such that it's fulfilled from vcs, not
+line overrides the "bar" dependency, such that it's fulfilled from VCS, not
 PyPI.
 
 If, however, you want "bar" installed from a local directory in editable mode, the requirements file should look like this, with the local paths at the top of the file::
@@ -628,7 +628,7 @@ If, however, you want "bar" installed from a local directory in editable mode, t
   -e .
 
 Otherwise, the dependency will be fulfilled from PyPI, due to the installation order of the requirements file.  For more on requirements files, see the :ref:`Requirements File
-<pip:Requirements Files>` section in the pip docs.  For more on vcs installs,
+<pip:Requirements Files>` section in the pip docs.  For more on VCS installs,
 see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
 Lastly, if you don't want to install any dependencies at all, you can run::
@@ -647,7 +647,7 @@ Packaging your Project
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
 <Python Package Index (PyPI)>`, you'll need to create a :term:`Distribution
-<Distribution Package>` (aka ":term:`Package <Distribution Package>`" ) for your
+<Distribution Package>` (aka ":term:`Package <Distribution Package>`") for your
 project.
 
 
@@ -663,9 +663,9 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
  python setup.py sdist
 
 
-A "source distribution" is unbuilt (i.e, it's not a :term:`Built Distribution`),
+A "source distribution" is unbuilt (i.e. it's not a :term:`Built Distribution`),
 and requires a build step when installed by pip.  Even if the distribution is
-pure python (i.e. contains no extensions), it still involves a build step to
+pure Python (i.e. contains no extensions), it still involves a build step to
 build out the installation metadata from ``setup.py``.
 
 
@@ -677,15 +677,15 @@ package <Built Distribution>` that can be installed without needing to go
 through the "build" process. Installing wheels is substantially faster for the
 end user than installing from a source distribution.
 
-If your project is pure python (i.e. contains no compiled extensions) and
+If your project is pure Python (i.e. contains no compiled extensions) and
 natively supports both Python 2 and 3, then you'll be creating what's called a
 :ref:`*Universal Wheel* (see section below) <Universal Wheels>`.
 
-If your project is pure python but does not natively support both Python 2 and
+If your project is pure Python but does not natively support both Python 2 and
 3, then you'll be creating a :ref:`"Pure Python Wheel" (see section below) <Pure
 Python Wheels>`.
 
-If you project contains compiled extensions, then you'll be creating what's
+If your project contains compiled extensions, then you'll be creating what's
 called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
 
 Before you can build wheels for your project, you'll need to install the
@@ -701,7 +701,7 @@ Before you can build wheels for your project, you'll need to install the
 Universal Wheels
 ~~~~~~~~~~~~~~~~
 
-*Universal Wheels* are wheels that are pure python (i.e. contains no compiled
+*Universal Wheels* are wheels that are pure Python (i.e. contain no compiled
 extensions) and support Python 2 and 3. This is a wheel that can be installed
 anywhere by :ref:`pip`.
 
@@ -713,7 +713,7 @@ To build the wheel:
 
 You can also permanently set the ``--universal`` flag in "setup.cfg" (e.g., see
 `sampleproject/setup.cfg
-<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_)
+<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
 
 .. code-block:: text
 
@@ -739,8 +739,8 @@ and prevent the possibility of building the extension.
 Pure Python Wheels
 ~~~~~~~~~~~~~~~~~~
 
-*Pure Python Wheels* that are not "universal" are wheels that are pure python
-(i.e. contains no compiled extensions), but don't natively support both Python 2
+*Pure Python Wheels* that are not "universal" are wheels that are pure Python
+(i.e. contain no compiled extensions), but don't natively support both Python 2
 and 3.
 
 To build the wheel:
@@ -753,7 +753,7 @@ To build the wheel:
 `bdist_wheel` will detect that the code is pure Python, and build a wheel that's
 named such that it's usable on any Python installation with the same major
 version (Python 2 or Python 3) as the version you used to build the wheel.  For
-details on the naming of wheel files, see :pep:`425`
+details on the naming of wheel files, see :pep:`425`.
 
 If your code supports both Python 2 and 3, but with different code (e.g., you
 use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
@@ -767,7 +767,7 @@ will produce wheels for each version.
 Platform Wheels
 ~~~~~~~~~~~~~~~
 
-*Platform Wheels* are wheels that are specific to a certain platform like linux,
+*Platform Wheels* are wheels that are specific to a certain platform like Linux,
 macOS, or Windows, usually due to containing compiled extensions.
 
 To build the wheel:
@@ -779,7 +779,7 @@ To build the wheel:
 
 `bdist_wheel` will detect that the code is not pure Python, and build a wheel
 that's named such that it's only usable on the platform that it was built
-on. For details on the naming of wheel files, see :pep:`425`
+on. For details on the naming of wheel files, see :pep:`425`.
 
 .. note::
 
@@ -798,7 +798,7 @@ was created under your project's root directory. That's where you'll find your
 distribution file(s) to upload.
 
 .. note:: Before releasing on main PyPI repo, you might prefer training with
-  `PyPI test site <https://testpypi.python.org/pypi>`_
+  the `PyPI test site <https://testpypi.python.org/pypi>`_
   which is cleaned on a semi regular basis. See
   `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how
   to setup your configuration in order to use it.
