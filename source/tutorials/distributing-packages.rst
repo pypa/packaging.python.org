@@ -809,6 +809,14 @@ distribution file(s) to upload.
   use a plaintext HTTP or unverified HTTPS connection on some Python versions,
   allowing your username and password to be intercepted during transmission.
 
+.. tip:: The reStructuredText parser used on PyPI is **not** Sphinx!
+  Furthermore, to ensure safety of all users, certain kinds of URLs and
+  directives are forbidden or stripped out (e.g., the ``.. raw::``
+  directive). **Before** trying to upload your distribution, you should check
+  to see if your brief / long descriptions provided in ``setup.py`` are valid.
+  You can do this by following the instructions for the
+  `pypa/readme_renderer <https://github.com/pypa/readme_renderer>`_ tool.
+
 Create an account
 -----------------
 
