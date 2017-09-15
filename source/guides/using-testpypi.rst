@@ -39,7 +39,7 @@ specifying the ``--index-url`` flag
     $ pip install --index-url https://test.pypi.org/simple/ your-package
 
 If you want to allow pip to also pull other packages from PyPI you can
-specify ``--extra-index-url`` to point to PyPI. This useful when the package
+specify ``--extra-index-url`` to point to PyPI. This is useful when the package
 you're testing has dependencies:
 
 .. code::
