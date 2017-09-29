@@ -10,37 +10,132 @@ However, the version specifiers and environment markers sections of that PEP
 have been superceded as described below. In addition, metadata files are
 permitted to contain the following additional fields:
 
-Provides-Extra (multiple use)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. contents:: Contents
+   :local:
 
-A string containing the name of an optional feature. Must be a valid Python
-identifier. May be used to make a dependency conditional on whether the
-optional feature has been requested.
 
-Example::
+Metadata-Version
+================
 
-    Provides-Extra: pdf
-    Requires-Dist: reportlab; extra == 'pdf'
+.. versionadded:: 1.0
 
-A second distribution requires an optional dependency by placing it
-inside square brackets, and can request multiple features by separating
-them with a comma (,). The requirements are evaluated for each requested
-feature and added to the set of requirements for the distribution.
+Version of the file format; "1.2" is the only legal value.
 
 Example::
 
-    Requires-Dist: beaglevote[pdf]
-    Requires-Dist: libexample[test, doc]
+    Metadata-Version: 1.2
 
-Two feature names `test` and `doc` are reserved to mark dependencies that
-are needed for running automated tests and generating documentation,
-respectively.
 
-It is legal to specify ``Provides-Extra:`` without referencing it in any
-``Requires-Dist:``.
+Name
+====
 
-Description-Content-Type
-~~~~~~~~~~~~~~~~~~~~~~~~
+.. versionadded:: 1.0
+
+The name of the distributions.
+
+Example::
+
+    Name: BeagleVote
+
+
+Version
+=======
+
+.. versionadded:: 1.0
+
+A string containing the distribution's version number.  This
+field  must be in the format specified in PEP 440.
+
+Example::
+
+    Version: 1.0a2
+
+
+Platform (multiple use)
+=======================
+
+.. versionadded:: 1.0
+
+A Platform specification describing an operating system supported by
+the distribution which is not listed in the "Operating System" Trove classifiers.
+See "Classifier" below.
+
+Examples::
+
+    Platform: ObscureUnix
+    Platform: RareDOS
+
+
+Supported-Platform (multiple use)
+=================================
+
+.. versionadded:: 1.1
+
+Binary distributions containing a PKG-INFO file will use the
+Supported-Platform field in their metadata to specify the OS and
+CPU for which the binary distribution was compiled.  The semantics of
+the Supported-Platform field are not specified in this PEP.
+
+Example::
+
+    Supported-Platform: RedHat 7.2
+    Supported-Platform: i386-win32-2791
+
+
+Summary
+=======
+
+.. versionadded:: 1.0
+
+A one-line summary of what the distribution does.
+
+Example::
+
+    Summary: A module for collecting votes from beagles.
+
+
+Description (optional)
+======================
+
+.. versionadded:: 1.0
+
+A longer description of the distribution that can run to several
+paragraphs.  Software that deals with metadata should not assume
+any maximum size for this field, though people shouldn't include
+their instruction manual as the description.
+
+The contents of this field can be written using reStructuredText
+markup [1]_.  For programs that work with the metadata, supporting
+markup is optional; programs can also display the contents of the
+field as-is.  This means that authors should be conservative in
+the markup they use.
+
+To support empty lines and lines with indentation with respect to
+the RFC 822 format, any CRLF character has to be suffixed by 7 spaces
+followed by a pipe ("|") char. As a result, the Description field is
+encoded into a folded field that can be interpreted by RFC822
+parser [2]_.
+
+Example::
+
+    Description: This project provides powerful math functions
+            |For example, you can use `sum()` to sum numbers:
+            |
+            |Example::
+            |
+            |    >>> sum(1, 2)
+            |    3
+            |
+
+This encoding implies that any occurrences of a CRLF followed by 7 spaces
+and a pipe char have to be replaced by a single CRLF when the field is unfolded
+using a RFC822 reader.
+
+
+Description-Content-Type (optional)
+===================================
+
+.. versionadded:: 1.3
 
 A string stating the markup syntax (if any) used in the distribution's
 description, so that tools can intelligently render the description.
@@ -118,3 +213,326 @@ specified or is set to an unrecognized value, then the assumed ``variant`` is
 So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
 ``variant`` defaults to ``CommonMark`` and thus it is equivalent to the example
 before it.
+
+
+Keywords (optional)
+===================
+
+.. versionadded:: 1.0
+
+A list of additional keywords to be used to assist searching
+for the distribution in a larger catalog.
+
+Example::
+
+    Keywords: dog puppy voting election
+
+
+Home-page (optional)
+====================
+
+.. versionadded:: 1.0
+
+A string containing the URL for the distribution's home page.
+
+Example::
+
+    Home-page: http://www.example.com/~cschultz/bvote/
+
+
+Download-URL
+============
+
+.. versionadded:: 1.1
+
+A string containing the URL from which this version of the distribution
+can be downloaded.  (This means that the URL can't be something like
+".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
+
+
+Author (optional)
+=================
+
+.. versionadded:: 1.0
+
+A string containing the author's name at a minimum; additional
+contact information may be provided.
+
+Example::
+
+    Author: C. Schultz, Universal Features Syndicate,
+            Los Angeles, CA <cschultz@peanuts.example.com>
+
+
+Author-email (optional)
+=======================
+
+.. versionadded:: 1.0
+
+A string containing the author's e-mail address.  It can contain
+a name and e-mail address in the legal forms for a RFC-822
+``From:`` header.
+
+Example::
+
+    Author-email: "C. Schultz" <cschultz@example.com>
+
+
+Maintainer (optional)
+=====================
+
+.. versionadded:: 1.2
+
+A string containing the maintainer's name at a minimum; additional
+contact information may be provided.
+
+Note that this field is intended for use when a project is being
+maintained by someone other than the original author:  it should be
+omitted if it is identical to ``Author``.
+
+Example::
+
+    Maintainer: C. Schultz, Universal Features Syndicate,
+            Los Angeles, CA <cschultz@peanuts.example.com>
+
+
+Maintainer-email (optional)
+===========================
+
+.. versionadded:: 1.2
+
+A string containing the maintainer's e-mail address.  It can contain
+a name and e-mail address in the legal forms for a RFC-822
+``From:`` header.
+
+Note that this field is intended for use when a project is being
+maintained by someone other than the original author:  it should be
+omitted if it is identical to ``Author-email``.
+
+Example::
+
+    Maintainer-email: "C. Schultz" <cschultz@example.com>
+
+
+License (optional)
+==================
+
+.. versionadded:: 1.0
+
+Text indicating the license covering the distribution where the license
+is not a selection from the "License" Trove classifiers. See
+"Classifier" below.  This field may also be used to specify a
+particular version of a licencse which is named via the ``Classifier``
+field, or to indicate a variation or exception to such a license.
+
+Examples::
+
+    License: This software may only be obtained by sending the
+            author a postcard, and then the user promises not
+            to redistribute it.
+
+    License: GPL version 3, excluding DRM provisions
+
+
+Classifier (multiple use)
+=========================
+
+.. versionadded:: 1.1
+
+Each entry is a string giving a single classification value
+for the distribution.  Classifiers are described in PEP 301 [3]_.
+
+Examples::
+
+    Classifier: Development Status :: 4 - Beta
+    Classifier: Environment :: Console (Text Based)
+
+
+Requires-Dist (multiple use)
+============================
+
+.. versionadded:: 1.2
+
+Each entry contains a string naming some other distutils
+project required by this distribution.
+
+The format of a requirement string is identical to that of a
+distutils project name (e.g., as found in the ``Name:`` field.
+optionally followed by a version declaration within parentheses.
+
+The distutils project names should correspond to names as found
+on the `Python Package Index`_.
+
+Version declarations must follow the rules described in
+:doc:`version-specifiers`.
+
+Examples::
+
+    Requires-Dist: pkginfo
+    Requires-Dist: PasteDeploy
+    Requires-Dist: zope.interface (>3.5.0)
+
+
+Provides-Dist (multiple use)
+============================
+
+.. versionadded:: 1.2
+
+Each entry contains a string naming a Distutils project which
+is contained within this distribution.  This field *must* include
+the project identified in the ``Name`` field, followed by the
+version : Name (Version).
+
+A distribution may provide additional names, e.g. to indicate that
+multiple projects have been bundled together.  For instance, source
+distributions of the ``ZODB`` project have historically included
+the ``transaction`` project, which is now available as a separate
+distribution.  Installing such a source distribution satisfies
+requirements for both ``ZODB`` and ``transaction``.
+
+A distribution may also provide a "virtual" project name, which does
+not correspond to any separately-distributed project:  such a name
+might be used to indicate an abstract capability which could be supplied
+by one of multiple projects.  E.g., multiple projects might supply
+RDBMS bindings for use by a given ORM:  each project might declare
+that it provides ``ORM-bindings``, allowing other projects to depend
+only on having at most one of them installed.
+
+A version declaration may be supplied and must follow the rules described
+in :doc:`version-specifiers`. The distribution's version number will be implied
+if none is specified.
+
+Examples::
+
+    Provides-Dist: OtherProject
+    Provides-Dist: AnotherProject (3.4)
+    Provides-Dist: virtual_package
+
+
+Obsoletes-Dist (multiple use)
+=============================
+
+.. versionadded:: 1.2
+
+Each entry contains a string describing a distutils project's distribution
+which this distribution renders obsolete, meaning that the two projects
+should not be installed at the same time.
+
+Version declarations can be supplied.  Version numbers must be in the
+format specified in :doc:`version-specifiers`.
+
+The most common use of this field will be in case a project name
+changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0.
+When you install Torqued Python, the Gorgon distribution should be
+removed.
+
+Examples::
+
+    Obsoletes-Dist: Gorgon
+    Obsoletes-Dist: OtherProject (<3.0)
+
+
+Requires-Python
+===============
+
+.. versionadded:: 1.2
+
+This field specifies the Python version(s) that the distribution is
+guaranteed to be compatible with.
+
+Version numbers must be in the format specified in :doc:`version-specifiers`.
+
+Examples::
+
+    Requires-Python: 2.5
+    Requires-Python: >2.1
+    Requires-Python: >=2.3.4
+    Requires-Python: >=2.5,<2.7
+
+
+Requires-External (multiple use)
+================================
+
+.. versionadded:: 1.2
+
+Each entry contains a string describing some dependency in the
+system that the distribution is to be used.  This field is intended to
+serve as a hint to downstream project maintainers, and has no
+semantics which are meaningful to the ``distutils`` distribution.
+
+The format of a requirement string is a name of an external
+dependency, optionally followed by a version declaration within
+parentheses.
+
+Because they refer to non-Python software releases, version numbers
+for this field are **not** required to conform to the format
+specified in PEP 440:  they should correspond to the
+version scheme used by the external dependency.
+
+Notice that there's is no particular rule on the strings to be used.
+
+Examples::
+
+    Requires-External: C
+    Requires-External: libpng (>=1.5)
+
+
+Project-URL (multiple-use)
+==========================
+
+.. versionadded:: 1.2
+
+A string containing a browsable URL for the project and a label for it,
+separated by a comma.
+
+Example::
+
+    Bug Tracker, http://bitbucket.org/tarek/distribute/issues/
+
+The label is a free text limited to 32 signs.
+
+
+Provides-Extra (optional, multiple use)
+=======================================
+
+.. versionadded:: 1.3
+
+A string containing the name of an optional feature. Must be a valid Python
+identifier. May be used to make a dependency conditional on whether the
+optional feature has been requested.
+
+Example::
+
+    Provides-Extra: pdf
+    Requires-Dist: reportlab; extra == 'pdf'
+
+A second distribution requires an optional dependency by placing it
+inside square brackets, and can request multiple features by separating
+them with a comma (,). The requirements are evaluated for each requested
+feature and added to the set of requirements for the distribution.
+
+Example::
+
+    Requires-Dist: beaglevote[pdf]
+    Requires-Dist: libexample[test, doc]
+
+Two feature names `test` and `doc` are reserved to mark dependencies that
+are needed for running automated tests and generating documentation,
+respectively.
+
+It is legal to specify ``Provides-Extra:`` without referencing it in any
+``Requires-Dist:``.
+
+
+----
+
+.. [1] reStructuredText markup:
+   http://docutils.sourceforge.net/
+
+.. _`Python Package Index`: http://pypi.python.org/pypi/
+
+.. [2] RFC 822 Long Header Fields:
+   http://www.freesoft.org/CIE/RFC/822/7.htm
+
+.. [3] PEP 301, Package Index and Metadata for Distutils:
+   http://www.python.org/dev/peps/pep-0301/
