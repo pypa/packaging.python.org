@@ -79,14 +79,23 @@ Use ``pip`` to install Pipenv:
 
 .. Note:: This does a `user installation`_ to prevent breaking any system-wide
     packages. If ``pipenv`` isn't available in your shell after installation,
-    you'll need to add the `user base`_'s ``bin`` directory to your ``PATH``.
-    You can find the user base by running ``python -m site --user-base`` which
-    will print out the user base directory. For example, on Linux this will
-    return ``'~/.local'`` (with ``~`` expanded to the absolute path to your
-    home directory) so you'll need to add ``~/.local/bin`` to your ``PATH``.
-    On Linux and macOS you can set your ``PATH`` permanently by `modifying
-    ~/.profile`_. On Windows you can set the user ``PATH`` permanently in the
-    `Control Panel`_.
+    you'll need to add the `user base`_'s binary directory to your ``PATH``.
+
+    On Linux and macOS you can find the user base binary directory by running
+    ``python -m site --user-base`` and adding ``bin`` to the end. For example,
+    this will typically print ``~/.local`` (with ``~`` expanded to the
+    absolute path to your home directory) so you'll need to add
+    ``~/.local/bin`` to your ``PATH``. You can set your ``PATH`` permanently by
+    `modifying ~/.profile`_.
+
+    On Windows you can find the user base binary directory by running
+    ``python -m site --user-site`` and replacing ``site-packages`` with
+    ``Scripts``. For example, this could return
+    ``C:\Users\Username\AppData\Roaming\Python36\site-packages`` so you would
+    need to set your ``PATH`` to
+    ``C:\Users\Username\AppData\Roaming\Python36\Scripts``. You can set your
+    user ``PATH`` permanently in the `Control Panel`_. You may need to log
+    out for the ``PATH`` changes to take effect.
 
 .. _npm: https://www.npmjs.com/
 .. _bundler: http://bundler.io/
