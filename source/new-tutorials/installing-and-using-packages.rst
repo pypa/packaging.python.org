@@ -89,10 +89,10 @@ Use ``pip`` to install Pipenv:
     `modifying ~/.profile`_.
 
     On Windows you can find the user base binary directory by running
-    ``python -m site --user-site`` and replacing ``site-packages`` with
+    ``py -m site --user-site`` and replacing ``site-packages`` with
     ``Scripts``. For example, this could return
     ``C:\Users\Username\AppData\Roaming\Python36\site-packages`` so you would
-    need to set your ``PATH`` to
+    need to set your ``PATH`` to include
     ``C:\Users\Username\AppData\Roaming\Python36\Scripts``. You can set your
     user ``PATH`` permanently in the `Control Panel`_. You may need to log
     out for the ``PATH`` changes to take effect.
