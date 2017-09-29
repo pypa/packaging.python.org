@@ -1,0 +1,377 @@
+Installing packages using pip and virtualenv
+============================================
+
+This guide discusses how to install packages using :ref:`pip` and
+:ref:`virtualenv`. These tools are recommended if :ref:`pipenv` does not suit
+your project's needs.
+
+.. note:: This doc uses the term **package** to refer to a
+    :term:`Distribution Package`  which is different from a :term:`Import
+    Package` that which is used to import modules in your Python source code.
+
+
+Installing pip
+--------------
+
+:ref:`pip` is the the Python package manager. It's used to install and update
+packages. You'll need to make sure you have the latest version of pip
+installed.
+
+
+Windows
++++++++
+
+The Python installers for Windows include pip. If you setup Python to be in
+your ``PATH`` you should have access to pip already:
+
+.. code-block:: bash
+
+    pip version
+    pip 9.0.1 from  c:\python36\lib\site-packages (Python 3.6.1)
+
+You should make sure that pip is up-to-date by running:
+
+.. code-block:: bash
+
+    pip install --upgrade pip
+
+
+Linux and macOS
+++++++++++++++++
+
+Debian and most other distributions include a `python-pip`_ package, if you
+want to use the Linux distribution-provided versions of pip see
+:doc:`/guides/installing-using-linux-tools`. 
+
+You can also install pip yourself to ensure you have the latest version:
+
+.. code-block:: bash
+
+    wget https://bootstrap.pypa.io/get-pip.py
+    sudo python get-pip.py
+
+Afterwards, you should have pip:
+
+.. code-block:: bash
+
+    pip --version
+    pip 9.0.1 from /usr/local/lib/python3.6/dist-packages (python 3.6)
+
+.. _python-pip: https://packages.debian.org/stable/python-pip
+
+Installing virtualenv
+---------------------
+
+:ref:`virtualenv` is used to manage Python packages for different projects.
+Using virtualenv allows you to avoid installing Python packages globally
+which could break system tools or other projects.
+
+You can install virtualenv by using pip:
+
+.. code-block:: bash
+
+    pip install --user virtualenv
+
+
+.. Note:: This does a `user installation`_ to prevent breaking any system-wide
+    packages. If ``virtualenv`` isn't available in your shell after
+    installation, you'll need to add the `user base`_'s ``bin`` directory to
+    your ``PATH``. See :ref:`the note in the installing packages tutorial
+    <pipenv-user-base>` for details on how to set your ``PATH`` correctly.
+
+.. Note:: If you are using Python 3.3 or newer the :mod:`venv` module is
+    included in the Python standard library. This can also create and manage
+    virtual environments, however, it only supports Python 3.
+
+.. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
+.. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
+
+
+Creating a virtualenv
+---------------------
+
+:ref:`virtualenv` allows you to manage separate package installations for
+different projects. It essentially allows you to create a "virtual" isolated
+Python installation and install packages into that virtual installation. When
+you switch projects, you can simply create a new virtual environment and not
+have to worry about breaking the packages installed in the other environments.
+It is always recommended to use a virtualenv while developing Python
+applications.
+
+To create a virtual environment, go to your project's directory and run
+virtualenv:
+
+.. code-block:: bash 
+
+    virtualenv env
+
+.. Note:: If you have Python 2 and 3 installed, you will probably need to
+    specify the Python version you want using
+    ``virtualenv --python python3 env``.
+
+The second argument is the location to create the virtualenv. Generally, you
+can just create this in your project and call it ``env``.
+
+.. Note:: You should exclude your virtualenv directory from your version
+    control system using ``.gitignore`` or similar.
+
+virtualenv will create a virtual Python installation in the ``env`` folder.
+
+
+Activating a virtualenv
+-----------------------
+
+Before you can start installing or using packages in your virtualenv you'll
+need to *activate* it. 
+
+On macOS and Linux:
+
+.. code-block:: bash
+
+    source env/bin/activate
+
+On Windows::
+
+    .\env\Scripts\activate
+
+You can confirm you're in the virtualenv by checking the location of your
+Python interpreter, it should point to the ``env`` directory.
+
+On macOS and Linux:
+
+.. code-block:: bash
+
+    which python
+    .../env/bin/python
+
+On Windows:
+
+.. code-block:: bash
+
+    where python
+    .../env/bin/python.exe
+
+
+As long as your virtualenv is activated pip will install packages into that
+specific environment and you'll be able to import and use packages in your
+Python application.
+
+
+Leaving the virtualenv
+----------------------
+
+If you want to switch projects or otherwise leave your virtualenv, simply run:
+
+.. code-block:: bash
+
+    deactivate
+
+If you want to re-enter the virtualenv just follow the same instructions above
+about activating a virtualenv. There's no need to re-create the virtualenv.
+
+
+Installing packages
+-------------------
+
+Now that you're in your virtualenv you can install packages. Let's install
+the excellent `Requests`_ library from the :term:`Python Package Index (PyPI)`:
+
+.. code-block:: bash
+
+    pip install requests
+
+pip should download requests and all of its dependencies and install them:
+
+.. code-block:: text
+
+    Collecting requests
+      Using cached requests-2.18.4-py2.py3-none-any.whl
+    Collecting chardet<3.1.0,>=3.0.2 (from requests)
+      Using cached chardet-3.0.4-py2.py3-none-any.whl
+    Collecting urllib3<1.23,>=1.21.1 (from requests)
+      Using cached urllib3-1.22-py2.py3-none-any.whl
+    Collecting certifi>=2017.4.17 (from requests)
+      Using cached certifi-2017.7.27.1-py2.py3-none-any.whl
+    Collecting idna<2.7,>=2.5 (from requests)
+      Using cached idna-2.6-py2.py3-none-any.whl
+    Installing collected packages: chardet, urllib3, certifi, idna, requests
+    Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
+
+.. _Requests: http://docs.python-requests.org/
+
+
+Installing specific versions
+-----------------------------
+
+pip allows you to specify which version of a package to install using
+:term:`version specifiers <Version Specifier>`. For example, to install
+a specific version of ``requests``:
+
+.. code-block:: bash
+
+    pip install requests==2.18.4
+
+To install the latest ``2.x`` release of requests:
+
+.. code-block:: bash
+
+    pip install requests>=2.0.0,<3.0.0
+
+To install pre-release versions of packages, use the ``--pre`` flag:
+
+.. code-block:: bash
+
+    pip install --pre requests
+
+
+Installing extras
+-----------------
+
+Some packages have optioanl `extras`_. You can tell pip to install these by
+specifying the extra in brackets:
+
+.. code-block:: bash
+
+    pip install requests[security]
+
+.. _extras:
+    https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
+
+
+Installing from source
+----------------------
+
+pip can install a package directly from source, for example:
+
+.. code-block:: bash
+
+    cd google-auth
+    pip install .
+
+Additionally, pip can install packages from source in `development mode`_,
+meaning that changes to the source directory will immediately affect the
+installed package without needing to re-install:
+
+.. code-block:: bash
+
+    pip install --editable .
+
+
+.. _development mode:
+    https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode
+
+
+Installing from version control systems
+---------------------------------------
+
+pip can install packages directly from their version control system. For
+example, you can install directly from a git repository:
+
+.. code-block:: bash
+
+    git+https://github.com/GoogleCloudPlatform/google-auth-library-python.git#egg=google-auth
+
+For more information on supported version control systems and syntax, see pip's
+documentation on :ref:`VCS Support <pip:VCS Support>`.
+
+
+Installing from local archives
+------------------------------
+
+If you have a local copy of a :term:`Distribution Package`'s archive (a zip,
+wheel, or tar file) you can install it directly with pip:
+
+.. code-block:: bash
+
+    pip install requests-2.18.4.tar.gz 
+
+If you have a directory containing archives of multiple packages, you can tell
+pip to look for packages there and not to use the
+:term:`Python Package Index (PyPI)` at all:
+
+.. code-block:: bash
+
+    pip install --no-index --find-links=/local/dir/ requests
+
+This is useful if you are installing packages on a system with limited
+connectivity or if you want to strictly control the origin of distribution
+packages.
+
+
+Using other package indexes
+---------------------------
+
+If you want to download packages from a different index than the
+:term:`Python Package Index (PyPI)`, you can use the ``--index-url`` flag:
+
+.. code-block:: bash
+
+    pip install --index-url http://index.example.com/simple/ SomeProject
+
+If you want to allow packages from both the :term:`Python Package Index (PyPI)`
+and a separate index, you can use the ``--extra-index-url`` flag instead:
+
+
+.. code-block:: bash
+
+    pip install --extra-index-url http://index.example.com/simple/ SomeProject
+
+
+Upgrading packages
+------------------
+
+pip can upgrade packages in-place using the ``--upgrade`` flag. For example, to
+install the latest version of ``requests`` and all of its dependencies:
+
+.. code-block:: bash
+
+    pip install --upgrade requests
+
+
+Using requirements files
+------------------------
+
+Instead of installing packages individually, pip allows you to declare all
+dependencies in a :ref:`Requirements File <pip:Requirements Files>`. For
+example you could create a ``requirements.txt`` file containing:
+
+.. code-block:: text
+
+    requests==2.18.4
+    google-auth==1.1.0
+
+And tell pip too install all of the packages in this file using the ``-r`` flag:
+
+.. code-block:: bash
+
+    pip install -r requirements.txt
+
+
+Freezing dependencies
+---------------------
+
+Pip can export a list of all installed packages and their versions using the
+``freeze`` command:
+
+.. code-block:: bash
+
+    pip freeze
+
+Which will output a list of package specifiers such as:
+
+.. code-block:: text
+
+    cachetools==2.0.1
+    certifi==2017.7.27.1
+    chardet==3.0.4
+    google-auth==1.1.1
+    idna==2.6
+    pyasn1==0.3.6
+    pyasn1-modules==0.1.4
+    requests==2.18.4
+    rsa==3.4.2
+    six==1.11.0
+    urllib3==1.22
+
+This is useful for creating :ref:`pip:Requirements Files` that can re-create
+the exact versions of all packages installed in an environment.
