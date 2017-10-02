@@ -6,9 +6,14 @@ Core Metadata Specifications
 
 The current core metadata file format, version 1.2, is specified in :pep:`345`.
 
-However, the version specifiers and environment markers sections of that PEP
-have been superceded as described below. In addition, metadata files are
-permitted to contain the following additional fields:
+However, in a forthcoming PEP, the following specification will be defined as
+the canonical source for the core metadata file format. Fields which are
+defined in this specification, but do not currently appear in any accepted PEP,
+are marked as "New in version 1.3".
+
+Fields defined in the following specification should be considered valid,
+complete and not subject to change. Fields should be considered "optional" for
+versions which predate their introduction.
 
 .. contents:: Contents
    :local:
