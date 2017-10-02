@@ -19,7 +19,17 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; "1.2" is the only legal value.
+Version of the file format; legal values are "1.0", "1.1" and "1.2".
+
+Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
+greater than the highest version they support, and MUST fail if
+``metadata_version`` has a greater major version than the highest
+version they support (as described in :pep:`440`, the major version is the
+value before the first dot).
+
+For broader compatibility, build tools MAY choose to produce
+distribution metadata using the lowest metadata version that includes
+all of the needed fields.
 
 Example::
 
