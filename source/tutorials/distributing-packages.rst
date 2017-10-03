@@ -799,9 +799,8 @@ distribution file(s) to upload.
 
 .. note:: Before releasing on main PyPI repo, you might prefer training with
   the `PyPI test site <https://testpypi.python.org/pypi>`_
-  which is cleaned on a semi regular basis. See
-  `these instructions <https://wiki.python.org/moin/TestPyPI>`_ on how
-  to setup your configuration in order to use it.
+  which is cleaned on a semi regular basis. See :ref:`using-test-pypi`
+  on how to setup your configuration in order to use it.
 
 .. warning:: In other resources you may encounter references to using
   ``python setup.py register`` and ``python setup.py upload``. These methods
