@@ -14,7 +14,7 @@ Code of Conduct
 ---------------
 
 Everyone interacting in the Python Packaging User Guide project's codebases,
-issue trackers, chat rooms, and mailing lists is expected to follow the
+issue trackers, chat rooms, and mailing lists are expected to follow the
 `PyPA Code of Conduct`_.
 
 
@@ -43,13 +43,14 @@ In order to build this guide locally, you'll need:
 Building the Guide
 ++++++++++++++++++
 
-To build the guide run below bash command in the source folder::
+To build the guide, run the following bash command in the source folder::
 
   nox -s build
 
-After the process completed you can find the HTML output in the ``./build/html`
-directory. You can open the ``index.html`` file to view the guide in web broswer,
-bu it's recommendation to serve the guide using an http server.
+After the process has completed you can find the HTML output in the
+``./build/html`` directory. You can open the ``index.html`` file to view the
+guide in web broswer, but it's recommended to serve the guide using an HTTP
+server.
 
 Serving the guide using a local HTTP server
 +++++++++++++++++++++++++++++++++++++++++++
