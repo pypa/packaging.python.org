@@ -26,7 +26,7 @@ pip using:
 
 .. code-block:: bash
 
-    py -m pip
+    py -m pip --version
     pip 9.0.1 from c:\python36\lib\site-packages (Python 3.6.1)
 
 You can make sure that pip is up-to-date by running:
