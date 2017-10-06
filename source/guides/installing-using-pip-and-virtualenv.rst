@@ -2,8 +2,8 @@ Installing packages using pip and virtualenv
 ============================================
 
 This guide discusses how to install packages using :ref:`pip` and
-:ref:`virtualenv`. These tools are recommended if :ref:`pipenv` does not suit
-your project's needs.
+:ref:`virtualenv`. These are the lowest-level tools for managing Python
+packages and are recommended if higher-level tools do not suit your needs.
 
 .. note:: This doc uses the term **package** to refer to a
     :term:`Distribution Package`  which is different from a :term:`Import
@@ -13,27 +13,27 @@ your project's needs.
 Installing pip
 --------------
 
-:ref:`pip` is the the Python package manager. It's used to install and update
-packages. You'll need to make sure you have the latest version of pip
+:ref:`pip` is the reference Python package manager. It's used to install and
+update packages. You'll need to make sure you have the latest version of pip
 installed.
 
 
 Windows
 +++++++
 
-The Python installers for Windows include pip. If you setup Python to be in
-your ``PATH`` you should have access to pip already:
+The Python installers for Windows include pip. You should be able to access
+pip using:
 
 .. code-block:: bash
 
-    pip version
-    pip 9.0.1 from  c:\python36\lib\site-packages (Python 3.6.1)
+    py -m pip
+    pip 9.0.1 from c:\python36\lib\site-packages (Python 3.6.1)
 
-You should make sure that pip is up-to-date by running:
+You can make sure that pip is up-to-date by running:
 
 .. code-block:: bash
 
-    pip install --upgrade pip
+    py -m pip install --upgrade pip
 
 
 Linux and macOS
@@ -43,48 +43,47 @@ Debian and most other distributions include a `python-pip`_ package, if you
 want to use the Linux distribution-provided versions of pip see
 :doc:`/guides/installing-using-linux-tools`. 
 
-You can also install pip yourself to ensure you have the latest version:
+You can also install pip yourself to ensure you have the latest version. It's
+recommended to use the system pip to bootstrap a user installation of pip:
 
 .. code-block:: bash
 
-    wget https://bootstrap.pypa.io/get-pip.py
-    sudo python get-pip.py
+    python3 -m pip install --user --upgrade pip
 
-Afterwards, you should have pip:
+Afterwards, you should have the newest pip installed in your user site:
 
 .. code-block:: bash
 
-    pip --version
-    pip 9.0.1 from /usr/local/lib/python3.6/dist-packages (python 3.6)
+    python3 -m pip --version
+    pip 9.0.1 from ~/.local/lib/python3.6/site-packages (python 3.6)
 
 .. _python-pip: https://packages.debian.org/stable/python-pip
+
 
 Installing virtualenv
 ---------------------
 
 :ref:`virtualenv` is used to manage Python packages for different projects.
 Using virtualenv allows you to avoid installing Python packages globally
-which could break system tools or other projects.
+which could break system tools or other projects. You can install virtualenv
+using pip.
 
-You can install virtualenv by using pip:
+On macOS and Linux:
 
 .. code-block:: bash
 
-    pip install --user virtualenv
+    python3 -m pip install --user virtualenv
 
+On Windows:
 
-.. Note:: This does a `user installation`_ to prevent breaking any system-wide
-    packages. If ``virtualenv`` isn't available in your shell after
-    installation, you'll need to add the `user base`_'s ``bin`` directory to
-    your ``PATH``. See :ref:`the note in the installing packages tutorial
-    <pipenv-user-base>` for details on how to set your ``PATH`` correctly.
+.. code-block:: bash
+
+    py -m pip install --user virtualenv
+
 
 .. Note:: If you are using Python 3.3 or newer the :mod:`venv` module is
     included in the Python standard library. This can also create and manage
     virtual environments, however, it only supports Python 3.
-
-.. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
-.. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
 
 
 Creating a virtualenv
@@ -99,30 +98,35 @@ It is always recommended to use a virtualenv while developing Python
 applications.
 
 To create a virtual environment, go to your project's directory and run
-virtualenv:
+virtualenv.
+
+On macOS and Linux:
 
 .. code-block:: bash 
 
-    virtualenv env
+    python3 -m virtualenv env
 
-.. Note:: If you have Python 2 and 3 installed, you will probably need to
-    specify the Python version you want using
-    ``virtualenv --python python3 env``.
+On Windows:
+
+.. code-block:: bash
+
+    py -m virtualenv env
 
 The second argument is the location to create the virtualenv. Generally, you
 can just create this in your project and call it ``env``.
 
+virtualenv will create a virtual Python installation in the ``env`` folder.
+
 .. Note:: You should exclude your virtualenv directory from your version
     control system using ``.gitignore`` or similar.
-
-virtualenv will create a virtual Python installation in the ``env`` folder.
 
 
 Activating a virtualenv
 -----------------------
 
 Before you can start installing or using packages in your virtualenv you'll
-need to *activate* it. 
+need to *activate* it. Activating a virtualenv will put the virtualenv-specific
+``python`` and ``pip`` executables into your shell's ``PATH``.
 
 On macOS and Linux:
 
@@ -173,8 +177,8 @@ about activating a virtualenv. There's no need to re-create the virtualenv.
 Installing packages
 -------------------
 
-Now that you're in your virtualenv you can install packages. Let's install
-the excellent `Requests`_ library from the :term:`Python Package Index (PyPI)`:
+Now that you're in your virtualenv you can install packages. Let's install the
+excellent `Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
 .. code-block:: bash
 

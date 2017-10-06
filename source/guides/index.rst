@@ -9,7 +9,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    :maxdepth: 1
 
    tool-recommendations
-   installing-packages-using-pip-and-virtualenv
+   installing-using-pip-and-virtualenv
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
