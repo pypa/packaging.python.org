@@ -80,8 +80,13 @@ The entry points file must always use ``=`` to delimit names from values
 The sections of the config file represent entry point groups, the names are
 names, and the values encode both the object path and the optional extras.
 If extras are used, they are a comma-separated list inside square brackets.
-There may be zero, one or multiple spaces between the object name and the
-opening square bracket.
+
+Within a value, readers must accept and ignore spaces (including multiple
+consecutive spaces) before or after the colon, between the object path and the
+left square bracket, between the extra names and the square brackets and colons
+delimiting them, and after the right square bracket.
+For tools writing the file, it is recommended only to insert a space between the
+object path and the left square bracket.
 
 For example::
   
