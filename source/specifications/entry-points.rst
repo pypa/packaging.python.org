@@ -51,7 +51,7 @@ It is intended to be looked up like this::
    of a better term, especially where it points to a function to launch a
    program.
 
-There is also an optional piece property: the **extras** are a set of strings
+There is also an optional property: the **extras** are a set of strings
 identifying optional features of the distribution providing the entry point.
 If these are specified, the entry point requires the dependencies of those
 'extras'. See the metadata field :ref:`metadata_provides_extra`.
@@ -74,8 +74,8 @@ can be made like this::
     class CaseSensitiveConfigParser(configparser.ConfigParser):
         optionxform = staticmethod(str)
 
-The entry points file always uses ``=`` to delimit names from values (whereas
-configparser also allows using ``:``).
+The entry points file must always use ``=`` to delimit names from values
+(whereas configparser also allows using ``:``).
 
 The sections of the config file represent entry point groups, the names are
 names, and the values encode both the object path and the optional extras.
