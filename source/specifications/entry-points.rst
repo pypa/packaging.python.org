@@ -14,8 +14,13 @@ example:
   installed packages. For more about this, see
   :doc:`/guides/creating-and-discovering-plugins`.
 
-Entry points were developed as part of setuptools. This document aims to
-describe the mechanism that is already a de-facto standard.
+The entry point file format was originally developed to allow packages built
+with setuptools to provide integration point metadata that would be read at
+runtime with ``pkg_resources``. It is now defined as a PyPA interoperability
+specification in order to allow build tools other than setuptools to publish
+``pkg_resources`` compatible entry point metadata, and runtime libraries other
+than ``pkg_resources`` to portably read published entry point metadata
+(potentially with different caching and conflict resolution strategies).
 
 Data model
 ==========
