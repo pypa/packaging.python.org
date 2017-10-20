@@ -107,3 +107,34 @@ For example::
     # pytest plugins refer to a module, so there is no ':obj'
     [pytest11]
     nbval = nbval.plugin
+
+Use for scripts
+===============
+
+Two groups of entry points have special significant in packaging:
+``console_scripts`` and ``gui_scripts``. In both groups, the name of the entry
+point should be usable as a command in a system shell after the package is
+installed. The object reference points to a function which will be called with
+no arguments when this command is run. The function may return an integer to be
+used as a process exit code, and returning ``None`` is equivalent to returning
+``0``.
+
+For instance, the entry point ``mycmd = mymod:main`` would create a command
+``mycmd`` launching a script like this::
+
+    import sys
+    from mymod import main
+    sys.exit(main())
+
+The difference between ``console_scripts`` and ``gui_scripts`` only affects
+Windows systems. ``console_scripts`` are wrapped in a console executable,
+so they are attached to a console and can use ``sys.stdin``, ``sys.stdout`` and
+``sys.stderr`` for input and output. ``gui_scripts`` are wrapped in a GUI
+executable, so they can be started without a console, but cannot use standard
+streams unless application code redirects them. Other platforms do not have the
+same distinction.
+
+Install tools are expected to set up wrappers for both ``console_scripts`` and
+``gui_scripts`` in the scripts directory of the install scheme. They are not
+responsible for putting this directory in the ``PATH`` environment variable
+which defines where command-line tools are found.
