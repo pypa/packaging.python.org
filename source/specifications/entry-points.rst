@@ -147,3 +147,7 @@ Install tools are expected to set up wrappers for both ``console_scripts`` and
 ``gui_scripts`` in the scripts directory of the install scheme. They are not
 responsible for putting this directory in the ``PATH`` environment variable
 which defines where command-line tools are found.
+
+As files are created from the names, and some filesystems are case-insensitive,
+packages should avoid using names in these groups which differ only in case.
+The behaviour of install tools when names differ only in case is undefined.
