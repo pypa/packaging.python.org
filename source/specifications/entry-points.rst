@@ -121,7 +121,7 @@ For example::
 Use for scripts
 ===============
 
-Two groups of entry points have special significant in packaging:
+Two groups of entry points have special significance in packaging:
 ``console_scripts`` and ``gui_scripts``. In both groups, the name of the entry
 point should be usable as a command in a system shell after the package is
 installed. The object reference points to a function which will be called with
