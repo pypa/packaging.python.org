@@ -39,7 +39,7 @@ Conceptually, an entry point is defined by three required properties:
   of this is up to the consumer. For console scripts, the name of the entry point
   is the command that will be used to launch it. Within a distribution, entry
   point names should be unique. If different distributions provide the same
-  name, the consumer decides how to handle that.
+  name, the consumer decides how to handle such conflicts.
 
 - The **object reference** points to a Python object. It is either in the form
   ``importable.module``, or ``importable.module:object.attr``. Each of the parts
