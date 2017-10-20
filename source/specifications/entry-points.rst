@@ -22,7 +22,7 @@ Data model
 
 Conceptually, an entry point is defined by three required properties:
 
-The **group** an entry point belongs to indicates what sort of object it
+The **group** that an entry point belongs to indicates what sort of object it
 provides. For instance, the group ``console_scripts`` is for entry points
 referring to functions which can be used as a command, while
 ``pygments.styles`` is the group for classes defining pygments styles.
