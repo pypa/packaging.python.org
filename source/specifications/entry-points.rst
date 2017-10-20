@@ -32,7 +32,9 @@ Conceptually, an entry point is defined by three required properties:
 
 - The **name** identifies this entry point within its group. The precise meaning
   of this is up to the consumer. For console scripts, the name of the entry point
-  is the command that will be used to launch it.
+  is the command that will be used to launch it. Within a distribution, entry
+  point names should be unique. If different distributions provide the same
+  name, the consumer decides how to handle that.
 
 - The **object reference** points to a Python object. It is either in the form
   ``importable.module``, or ``importable.module:object.attr``. Each of the parts
@@ -40,13 +42,11 @@ Conceptually, an entry point is defined by three required properties:
   It is intended to be looked up like this::
 
     import importlib
-    if ':' in object_ref:
-        modname, attrs = object_ref.split(':')
-        obj = importlib.import_module(object_ref)
-        for attr in attrs.split('.'):
+    modname, qualname_separator, qualname = object_ref.partition(':')
+    obj = importlib.import_module(modname)
+    if qualname_separator:
+        for attr in qualname.split('.'):
             obj = getattr(obj, attr)
-    else:
-        obj = importlib.import_module(object_ref)
 
 .. note::
    Some tools call this kind of object reference by itself an 'entry point', for
@@ -92,7 +92,8 @@ If extras are used, they are a comma-separated list inside square brackets.
 Within a value, readers must accept and ignore spaces (including multiple
 consecutive spaces) before or after the colon, between the object reference and
 the left square bracket, between the extra names and the square brackets and
-colons delimiting them, and after the right square bracket.
+colons delimiting them, and after the right square bracket. The syntax for
+extras is formally specified as part of :pep:`508` (as ``extras``).
 For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
 
