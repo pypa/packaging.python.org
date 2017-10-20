@@ -26,7 +26,9 @@ Conceptually, an entry point is defined by three required properties:
   provides. For instance, the group ``console_scripts`` is for entry points
   referring to functions which can be used as a command, while
   ``pygments.styles`` is the group for classes defining pygments styles.
-  The consumer typically defines the expected interface.
+  The consumer typically defines the expected interface. To avoid clashes,
+  consumers defining a new group should use names starting with a PyPI name
+  owned by the consumer project, followed by ``.``.
 
 - The **name** identifies this entry point within its group. The precise meaning
   of this is up to the consumer. For console scripts, the name of the entry point
