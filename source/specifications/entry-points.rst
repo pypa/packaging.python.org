@@ -7,8 +7,8 @@ components it provides to be discovered and used by other code. For
 example:
 
 - Distributions can specify ``console_scripts`` entry points, each referring to
-  a function. When *pip* installs the distribution, it will create a
-  command-line wrapper for each entry point.
+  a function. When *pip* (or another console_scripts aware installer) installs
+  the distribution, it will create a command-line wrapper for each entry point.
 - Applications can use entry points to load plugins; e.g. Pygments (a syntax
   highlighting tool) can use additional lexers and styles from separately
   installed packages. For more about this, see
