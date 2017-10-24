@@ -68,11 +68,11 @@ identifying optional features of the distribution providing the entry point.
 If these are specified, the entry point requires the dependencies of those
 'extras'. See the metadata field :ref:`metadata_provides_extra`.
 
-The precise functionality of entry points with extras is tied to setuptools'
-model of adding ``.egg`` directories to ``sys.path`` at runtime. Other
-installation mechanisms (such as pip and virtualenv) work differently. Packages
-declaring entry points should not assume that extras have any particular effect
-on the environment of the code using the entry points.
+Using extras for an entry point is no longer recommended. Consumers should
+support parsing them from existing distributions, but may then ignore them.
+New publishing tools need not support specifying extras. The functionality of
+handling extras was tied to setuptools' model of managing 'egg' packages, but
+newer tools such as pip and virtualenv use a different model.
 
 File format
 ===========
