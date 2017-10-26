@@ -15,3 +15,4 @@ by the Python Packaging Authority.
    platform-compatibility-tags
    recording-installed-packages
    simple-repository-api
+   entry-points

@@ -506,6 +506,7 @@ Example::
 
 The label is a free text limited to 32 signs.
 
+.. _metadata_provides_extra:
 
 Provides-Extra (optional, multiple use)
 =======================================
