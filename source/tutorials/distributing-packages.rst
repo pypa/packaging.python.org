@@ -89,7 +89,7 @@ sample project <https://github.com/pypa/sampleproject>`_.
 MANIFEST.in
 ~~~~~~~~~~~
 
-A :file:`MANIFEST.in` is needed in certain cases where you need to package
+A :file:`MANIFEST.in` is needed when you need to package
 additional files that are not automatically included in a source distribution.
 To see a list of what's included by default, see the `Specifying the files to
 distribute <https://docs.python.org/3.4/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
