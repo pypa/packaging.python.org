@@ -299,7 +299,7 @@ packages
   packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
 
-It's required to list the :term:`packages <Import Package>` to be included
+It is required to list the :term:`packages <Import Package>` to be included
 in your project.  Although they can be listed manually,
 ``setuptools.find_packages`` finds them automatically.  Use the ``exclude``
 keyword argument to omit packages that are not intended to be released and
@@ -427,6 +427,15 @@ keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
 
+py_modules
+~~~~~~~~~~
+
+::
+
+    py_modules=["six"],
+
+It is required to list the names of single file modules that are to be included
+in your project.
 
 entry_points
 ~~~~~~~~~~~~
