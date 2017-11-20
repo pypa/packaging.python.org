@@ -9,13 +9,10 @@ There are many techniques to maintain a single source of truth for the version
 number of your project:
 
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
-    from `pip setup.py <https://github.com/pypa/pip/blob/1.5.6/setup.py#L33>`_)::
+    from `pip setup.py <https://github.com/pypa/pip/blob/master/setup.py#L12>`_)::
 
-        def read(*names, **kwargs):
-            with io.open(
-                os.path.join(os.path.dirname(__file__), *names),
-                encoding=kwargs.get("encoding", "utf8")
-            ) as fp:
+        def read(*parts):
+            with codecs.open(os.path.join(here, *parts), 'r') as fp:
                 return fp.read()
 
         def find_version(*file_paths):
