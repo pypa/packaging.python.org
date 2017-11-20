@@ -10,6 +10,8 @@ number of your project:
 
 #.  Read the file in ``setup.py`` and parse the version with a regex. Example (
     from `pip setup.py <https://github.com/pypa/pip/blob/master/setup.py#L12>`_)::
+    
+        here = os.path.abspath(os.path.dirname(__file__))
 
         def read(*parts):
             with codecs.open(os.path.join(here, *parts), 'r') as fp:
