@@ -9,4 +9,5 @@ topics, see :doc:`/guides/index`.
     :maxdepth: 1
 
     installing-packages
+    managing-dependencies
     distributing-packages
