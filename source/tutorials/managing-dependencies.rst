@@ -1,64 +1,28 @@
-Installing and using packages
-=============================
+.. _managing-dependencies:
 
-This tutorial walks you through installing and using Python packages. It will
-show you how to install and use the necessary tools and make strong
-recommendations on best practices. Keep in mind that Python is used for a great
-many different purposes, and precisely how you want to manage your dependencies
-may change based on how you decide to publish your software. The guidance
-presented here is most directly applicable to the development and deployment of
-network services (including web applications), but is also very well suited to
-managing development and testing environments for any kind of project.
+Managing Application Dependencies
+=================================
+
+The :ref:`package installation tutorial <installing-packages>`
+covered the basics of getting set up to install and update Python packages.
+
+However, running these commands interactively can get tedious even for your
+own personal projects, and things get even more difficult when trying to set up
+development environments automatically for projects with multiple contributors.
+
+This tutorial walks you through the use of :ref:`Pipenv` to manage dependencies
+for an application. It will show you how to install and use the necessary tools
+and make strong recommendations on best practices.
+
+Keep in mind that Python is used for a great many different purposes, and
+precisely how you want to manage your dependencies may change based on how you
+decide to publish your software. The guidance presented here is most directly
+applicable to the development and deployment of network services (including
+web applications), but is also very well suited to managing development and
+testing environments for any kind of project.
 
 .. Note:: This guide is written for Python 3, however, these instructions
-    should work fine on Python 2.7.
-
-
-Make sure you've got Python & pip
----------------------------------
-
-Before you go any further, make sure you have Python and that it's avalable
-from your command line. You can check this by simply running:
-
-.. code-block:: bash
-
-    python --version
-
-You should get some output like ``3.6.2``. If you do not have Python, please
-install the latest 3.x version from `python.org`_ or refer to the
-`Installing Python`_ section of the Hitchhiker's Guide to Python.
-
-.. Note:: If you're a newcomer and you get an error like this:
-    
-    .. code-block:: python
-
-        >>> python
-        Traceback (most recent call last):
-          File "<stdin>", line 1, in <module>
-        NameError: name 'python' is not defined
-
-    It's because this command and other suggested commands in this tutorial
-    are intended to be run in a *shell* (also called a *terminal* or
-    *console*). See the Python for Beginners `getting started tutorial`_ for
-    an introduction to using your operating system's shell and interacting with
-    Python.
-
-Additionally, you'll need to make sure you have :ref:`pip` available. You can
-check this by running:
-
-.. code-block:: bash
-
-    pip --version
-
-If you installed Python from source, with an installer from `python.org`_, or
-via `Homebrew`_ you should already have pip. If you're on Linux and installed
-using your OS package manager, you may have to install pip separately, see
-:doc:`/guides/installing-using-linux-tools`.
-
-.. _getting started tutorial: https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly
-.. _python.org: https://python.org
-.. _Homebrew: https://brew.sh
-.. _Installing Python: http://docs.python-guide.org/en/latest/starting/installation/
+    should also work on Python 2.7.
 
 
 Installing Pipenv
@@ -66,9 +30,9 @@ Installing Pipenv
 
 :ref:`Pipenv` is a dependency manager for Python projects. If you're familiar
 with Node.js' `npm`_ or Ruby's `bundler`_, it is similar in spirit to those
-tools. While :ref:`pip` can install Python packages, Pipenv is recommended as
-it's a higher-level tool that simplifies dependency management for common use
-cases.
+tools. While :ref:`pip` alone is often sufficient for personal use, Pipenv is
+recommended for collaborative projects as it's a higher-level tool that
+simplifies dependency management for common use cases.
 
 Use ``pip`` to install Pipenv:
 
@@ -187,19 +151,14 @@ have access to your installed packages with ``pipenv shell``.
 Next steps
 ----------
 
-Congratulations, you now know how to install and use Python packages! ✨ 🍰 ✨
+Congratulations, you now know how to effectively manage dependencies and
+development environments on a collaborative Python project! ✨ 🍰 ✨
 
-There's more resources you can look at to learn about installing and using
-Python packages:
+If you find this particular approach isn't working well for you or your use
+case, you may want to explore these other approaches:
 
-.. TODO:: Link to additional guides and resources.
+* `pip-tools <https://github.com/jazzband/pip-tools>`_
+* `hatch <https://github.com/ofek/hatch>`_
 
-If you find this approach isn't working well for you or your use case, you may
-want to explore these other approaches:
-
-.. TODO:: Link to alternatives
-
-If you're interesting in creating and distributing Python packages, see the
-tutorial on packaging and distributing packages.
-
-.. TODO:: Link to packaging tutorial when it exists.
+If you're interesting in creating and distributing your own Python packages, see
+the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.

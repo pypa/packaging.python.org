@@ -1,3 +1,5 @@
+.. _distributing-packages:
+
 ===================================
 Packaging and Distributing Projects
 ===================================

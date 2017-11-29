@@ -1,3 +1,5 @@
+.. _installing-packages:
+
 ===================
 Installing Packages
 ===================
@@ -27,32 +29,82 @@ Requirements for Installing Packages
 This section describes the steps to follow before installing other Python
 packages.
 
-Install pip, setuptools, and wheel
-----------------------------------
 
-* If you have Python 2 >=2.7.9 or Python 3 >=3.4 installed from `python.org
-  <https://www.python.org>`_, you will already have :ref:`pip` and
-  :ref:`setuptools`, but will need to upgrade to the latest version:
+Ensure you can run Python from the command line
+-----------------------------------------------
 
-  On Linux or macOS:
+Before you go any further, make sure you have Python and that the expected
+version is available from your command line. You can check this by running:
 
-  ::
+.. code-block:: bash
 
-    pip install -U pip setuptools
+    python --version
 
+You should get some output like ``Python 3.6.3``. If you do not have Python,
+please install the latest 3.x version from `python.org`_ or refer to the
+`Installing Python`_ section of the Hitchhiker's Guide to Python.
 
-  On Windows:
+.. Note:: If you're a newcomer and you get an error like this:
 
-  ::
+    .. code-block:: python
 
-    python -m pip install -U pip setuptools
+        >>> python --version
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        NameError: name 'python' is not defined
 
-* If you're using a Python install on Linux that's managed by the system package
-  manager (e.g "yum", "apt-get" etc...), and you want to use the system package
-  manager to install or upgrade pip, then see :ref:`Installing
-  pip/setuptools/wheel with Linux Package Managers`
+    It's because this command and other suggested commands in this tutorial
+    are intended to be run in a *shell* (also called a *terminal* or
+    *console*). See the Python for Beginners `getting started tutorial`_ for
+    an introduction to using your operating system's shell and interacting with
+    Python.
 
-* Otherwise:
+    If you're using an enhanced shell like IPython or the Jupyter notebook, you
+    can run system commands like those in this tutorial by prefacing them with
+    a ``!`` character::
+
+    .. code-block:: python
+
+        In [1]: !python --version
+        Python 3.6.3
+
+.. Note:: Due to the way most Linux distributions are handling the Python 3
+   migration, Linux users using the system Python without creating a virtual
+   environment first should replace the ``python`` command in this tutorial
+   with ``python3`` and the ``pip`` command with ``pip3 --user``. Do *not*
+   run any of the commands in this tutorial with ``sudo``: if you get a
+   permissions error, come back to the section on creating virtual environments,
+   set one up, and then continue with the tutorial as written.
+
+.. _getting started tutorial: https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly
+.. _python.org: https://python.org
+
+Ensure you can run pip from the command line
+--------------------------------------------
+
+Additionally, you'll need to make sure you have :ref:`pip` available. You can
+check this by running:
+
+.. code-block:: bash
+
+    pip --version
+
+If you installed Python from source, with an installer from `python.org`_, or
+via `Homebrew`_ you should already have pip. If you're on Linux and installed
+using your OS package manager, you may have to install pip separately, see
+:doc:`/guides/installing-using-linux-tools`.
+
+.. _Homebrew: https://brew.sh
+.. _Installing Python: http://docs.python-guide.org/en/latest/starting/installation/
+
+If ``pip`` isn't already installed, then first try to bootstrap it from the
+standard library:
+
+.. code-block:: bash
+
+    python -m ensurepip --default-pip
+
+If that still doesn't allow you to run ``pip``:
 
  * Securely Download `get-pip.py
    <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
@@ -71,26 +123,29 @@ Install pip, setuptools, and wheel
       software.
 
 
-Optionally, Create a virtual environment
+Ensure pip, setuptools, and wheel are up to date
+------------------------------------------------
+
+While ``pip`` alone is sufficient to install from pre-built binary archives,
+up to date copies of the ``setuptools`` and ``wheel`` projects are useful
+to ensure you can also install from source archives::
+
+    python -m pip install --upgrade pip setuptools wheel
+
+
+Optionally, create a virtual environment
 ----------------------------------------
 
 See :ref:`section below <Creating and using Virtual Environments>` for details,
-but here's the basic commands:
+but here's the basic `venv`_ [3]_ command to use on a typical Linux system:
 
-   Using :ref:`virtualenv`:
+.. code-block:: bash
 
-   ::
+    python3 -m venv tutorial_env
+    source tutorial_env/bin/activate
 
-    pip install virtualenv
-    virtualenv <DIR>
-    source <DIR>/bin/activate
-
-   Using `venv`_: [3]_
-
-   ::
-
-    python3 -m venv <DIR>
-    source <DIR>/bin/activate
+This will create a new virtual environment in the ``tutorial_env`` subdirectory,
+and configure the current shell to use it as the default ``python`` environment.
 
 
 .. _`Creating and using Virtual Environments`:
@@ -119,7 +174,7 @@ In all these cases, virtual environments can help you. They have their own
 installation directories and they don’t share libraries with other virtual
 environments.
 
-Currently, there are two viable tools for creating Python virtual environments:
+Currently, there are two common tools for creating Python virtual environments:
 
 * `venv`_ is available by default in Python 3.3 and later, and installs
   :ref:`pip` and :ref:`setuptools` into created virtual environments in
@@ -150,6 +205,11 @@ Using `venv`_:
 For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `venv`_ docs.
 
+Managing multiple virtual environments directly can become tedious, so the
+:ref:`dependency management tutorial <managing-dependencies>` introduces a
+higher level tool, :ref:`Pipenv`, that automatically manages a separate
+virtual environment for each project and application that you work on.
+
 
 Use pip for Installing
 ======================
@@ -158,10 +218,6 @@ Use pip for Installing
 usage scenarios. For more detail, see the `pip docs <https://pip.pypa.io>`_,
 which includes a complete `Reference Guide
 <https://pip.pypa.io/en/latest/reference/index.html>`_.
-
-There are a few cases where you might want to use `easy_install
-<https://pip.pypa.io/en/latest/reference/index.html>`_ instead of pip.  For
-details, see :ref:`pip vs easy_install`.
 
 
 Installing from PyPI
@@ -249,6 +305,9 @@ current user, use the ``--user`` flag:
 For more information see the `User Installs
 <https://pip.readthedocs.io/en/latest/user_guide.html#user-installs>`_ section
 from the pip docs.
+
+Note that the ``--user`` flag has no effect when inside a virtual environment
+- all installation commands will affect the virtual environment.
 
 
 Requirements files
