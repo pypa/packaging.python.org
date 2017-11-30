@@ -36,7 +36,7 @@ covered in our :doc:`tutorials/index` section:
 
 * to learn how to install packages, see the
   :doc:`tutorial on installing packages <tutorials/installing-packages>`.
-* to learn how to manage dependencies in a collaborative project, see the
+* to learn how to manage dependencies in a version controlled project, see the
   :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`.
 * to learn how to package and distribute your projects, see the
   :doc:`tutorial on packaging and distributing <tutorials/distributing-packages>`
