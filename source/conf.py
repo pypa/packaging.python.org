@@ -358,7 +358,35 @@ intersphinx_mapping = {
 }
 
 
-# f this is True, todo and todolist produce output, else they produce nothing.
+# If this is True, todo and todolist produce output, else they produce nothing.
 # The default is False.
 
 todo_include_todos = True
+
+# Configure the GitHub PR role to point to our project.
+
+pr_role_github_org_and_project = 'pypa/python-packaging-user-guide'
+
+#
+# Custom plugin code below.
+#
+
+
+def setup(app):
+    app.add_config_value('pr_role_github_org_and_project', None, 'html')
+    app.add_role('pr', pr_role)
+
+
+def pr_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
+    """Transforms ':pr:`number`'' to a hyperlink to the referenced pull request
+    on GitHub."""
+    from docutils import nodes
+
+    app = inliner.document.settings.env
+    project = app.config.pr_role_github_org_and_project
+    title = '#{}'.format(text)
+
+    uri = 'https://github.com/{}/pull/{}'.format(project, text)
+    rn = nodes.reference(
+        title, title, internal=False, refuri=uri, classes=['pr'])
+    return [rn], []
