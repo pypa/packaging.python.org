@@ -327,7 +327,7 @@ deployment of Python applications as simple as ``cp``.
 Pipenv
 ======
 
-`Docs <http://docs.pipenv.org/en/latest/>`__ |
+`Docs <https://docs.pipenv.org>`__ |
 `Source <https://github.com/kennethreitz/pipenv>`__ |
 `Issues <https://github.com/kennethreitz/pipenv/issues>`__ |
 `PyPI <https://pypi.python.org/pypi/pipenv>`__
