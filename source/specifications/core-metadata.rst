@@ -45,8 +45,14 @@ Name
 ====
 
 .. versionadded:: 1.0
+.. versionchanged:: 1.3
+   Added additional restrictions on format from :pep:`508`
 
-The name of the distributions.
+The name of the distribution. The name field is the primary identifier for a
+distribution. Distribution names are limited to those which match the following
+regex (run with ``re.IGNORECASE``)::
+
+    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
 
 Example::
 
