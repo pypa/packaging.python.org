@@ -4,12 +4,9 @@
 Core Metadata Specifications
 ============================
 
-The current core metadata file format, version 1.2, is specified in :pep:`345`.
-
-However, in a forthcoming PEP, the following specification will be defined as
-the canonical source for the core metadata file format. Fields which are
-defined in this specification, but do not currently appear in any accepted PEP,
-are marked as "New in version 1.3".
+The current core metadata file format, version 1.3, is specified in :pep:`566`.
+It defines the following specification as the canonical source for the core
+metadata file format.
 
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. Fields should be considered "optional" for
@@ -24,7 +21,7 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1" and "1.2".
+Version of the file format; legal values are "1.0", "1.1", "1.2" and "1.3".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -38,7 +35,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 1.2
+    Metadata-Version: 1.3
 
 
 Name
