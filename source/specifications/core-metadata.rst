@@ -453,16 +453,16 @@ Requires-Python
 .. versionadded:: 1.2
 
 This field specifies the Python version(s) that the distribution is
-guaranteed to be compatible with.
+guaranteed to be compatible with. Installation tools may look at this when
+picking which version of a project to install.
 
-Version numbers must be in the format specified in :doc:`version-specifiers`.
+The value must be in the format specified in :doc:`version-specifiers`.
 
 Examples::
 
-    Requires-Python: 2.5
-    Requires-Python: >2.1
-    Requires-Python: >=2.3.4
-    Requires-Python: >=2.5,<2.7
+    Requires-Python: >=3
+    Requires-Python: >2.6,!=3.0.*,!=3.1.*
+    Requires-Python: ~=2.6
 
 
 Requires-External (multiple use)
