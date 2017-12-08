@@ -417,7 +417,7 @@ For more information see the distutils section on `Installing Additional Files
   "sdist")>`.  This is not true when installing from :term:`wheel`
   distributions. Wheels don't support absolute paths, and they end up being
   installed relative to "site-packages".  For discussion see `wheel Issue #92
-  <https://bitbucket.org/pypa/wheel/issue/92>`_.
+  <https://github.com/pypa/wheel/issues/92>`_.
 
 
 scripts
