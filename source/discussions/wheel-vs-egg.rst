@@ -24,7 +24,7 @@ Here's a breakdown of the important differences between :term:`Wheel` and :term:
   installation format (if left zipped), and was designed to be importable.
 
 * :term:`Wheel` archives do not include .pyc files. Therefore, when the
-  distribution only contains python files (i.e. no compiled extensions), and is
+  distribution only contains Python files (i.e. no compiled extensions), and is
   compatible with Python 2 and 3, it's possible for a wheel to be "universal",
   similar to an :term:`sdist <Source Distribution (or "sdist")>`.
 

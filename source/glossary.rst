@@ -19,9 +19,9 @@ Glossary
         target system, to be installed. :term:`Wheel` is such a format, whereas
         distutil's :term:`Source Distribution <Source Distribution (or
         "sdist")>` is not, in that it requires a build step before it can be
-        installed.  This format does not imply that python files have to be
+        installed.  This format does not imply that Python files have to be
         precompiled (:term:`Wheel` intentionally does not include compiled
-        python files).
+        Python files).
 
 
     Distribution Package
