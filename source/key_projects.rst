@@ -206,7 +206,7 @@ bento
 `Github <https://github.com/cournape/Bento>`__ |
 `PyPI <https://pypi.python.org/pypi/bento>`__
 
-Bento is a packaging tool solution for python software, targeted as an
+Bento is a packaging tool solution for Python software, targeted as an
 alternative to distutils, setuptools, distribute, etc....  Bento's philosophy is
 reproducibility, extensibility and simplicity (in that order).
 

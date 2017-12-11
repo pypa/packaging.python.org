@@ -68,7 +68,7 @@ just a list of :ref:`pip:pip install` arguments placed into a file.
 
 Whereas ``install_requires`` defines the dependencies for a single project,
 :ref:`Requirements Files <pip:Requirements Files>` are often used to define
-the requirements for a complete python environment.
+the requirements for a complete Python environment.
 
 Whereas ``install_requires`` requirements are minimal, requirements files
 often contain an exhaustive listing of pinned versions for the purpose of
