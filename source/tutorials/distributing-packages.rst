@@ -808,6 +808,11 @@ When you ran the command to create your distribution, a new directory ``dist/``
 was created under your project's root directory. That's where you'll find your
 distribution file(s) to upload.
 
+.. note:: These files are only created when you run the command to create your
+  distribution. This means that any time you change the source of your project
+  or the configuration in your ``setup.py`` file, you will need to rebuild
+  these files again before you can distribute the changes to PyPI.
+
 .. note:: Before releasing on main PyPI repo, you might prefer training with
   the `PyPI test site <https://testpypi.python.org/pypi>`_
   which is cleaned on a semi regular basis. See :ref:`using-test-pypi`
