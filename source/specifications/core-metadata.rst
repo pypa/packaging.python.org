@@ -357,6 +357,8 @@ Classifier (multiple use)
 Each entry is a string giving a single classification value
 for the distribution.  Classifiers are described in PEP 301 [3]_.
 
+This field may be followed by an environment marker after a semicolon.
+
 Examples::
 
     Classifier: Development Status :: 4 - Beta
@@ -371,14 +373,25 @@ Requires-Dist (multiple use)
 Each entry contains a string naming some other distutils
 project required by this distribution.
 
-The format of a requirement string is identical to that of a
-distutils project name (e.g., as found in the ``Name:`` field.
-optionally followed by a version declaration within parentheses.
+The format of a requirement string contains from one to four parts:
 
-The distutils project names should correspond to names as found
+* A project name, in the same format as the ``Name:`` field.
+  The only mandatory part.
+* A comma-separated list of 'extra' names. These are defined by
+  the required project, referring to specific features which may
+  need extra dependencies.
+* A version specifier. Tools parsing the format should accept optional
+  parentheses around this, but tools generating it should not use
+  parentheses.
+* An environment marker after a semicolon. This means that the
+  requirement is only needed in the specified conditions.
+
+See :pep:`508` for full details of the allowed format.
+
+The project names should correspond to names as found
 on the `Python Package Index`_.
 
-Version declarations must follow the rules described in
+Version specifiers must follow the rules described in
 :doc:`version-specifiers`.
 
 Examples::
@@ -386,6 +399,7 @@ Examples::
     Requires-Dist: pkginfo
     Requires-Dist: PasteDeploy
     Requires-Dist: zope.interface (>3.5.0)
+    Requires-Dist: pywin32 >1.0; sys_platform == 'win32'
 
 
 Provides-Dist (multiple use)
@@ -417,11 +431,13 @@ A version declaration may be supplied and must follow the rules described
 in :doc:`version-specifiers`. The distribution's version number will be implied
 if none is specified.
 
+This field may be followed by an environment marker after a semicolon.
+
 Examples::
 
     Provides-Dist: OtherProject
     Provides-Dist: AnotherProject (3.4)
-    Provides-Dist: virtual_package
+    Provides-Dist: virtual_package; python_version >= "3.4"
 
 
 Obsoletes-Dist (multiple use)
@@ -436,6 +452,8 @@ should not be installed at the same time.
 Version declarations can be supplied.  Version numbers must be in the
 format specified in :doc:`version-specifiers`.
 
+This field may be followed by an environment marker after a semicolon.
+
 The most common use of this field will be in case a project name
 changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0.
 When you install Torqued Python, the Gorgon distribution should be
@@ -445,6 +463,7 @@ Examples::
 
     Obsoletes-Dist: Gorgon
     Obsoletes-Dist: OtherProject (<3.0)
+    Obsoletes-Dist: Foo; os_name == "posix"
 
 
 Requires-Python
@@ -458,11 +477,14 @@ picking which version of a project to install.
 
 The value must be in the format specified in :doc:`version-specifiers`.
 
+This field may be followed by an environment marker after a semicolon.
+
 Examples::
 
     Requires-Python: >=3
     Requires-Python: >2.6,!=3.0.*,!=3.1.*
     Requires-Python: ~=2.6
+    Requires-Python: >=3; sys_platform == 'win32'
 
 
 Requires-External (multiple use)
@@ -479,6 +501,8 @@ The format of a requirement string is a name of an external
 dependency, optionally followed by a version declaration within
 parentheses.
 
+This field may be followed by an environment marker after a semicolon.
+
 Because they refer to non-Python software releases, version numbers
 for this field are **not** required to conform to the format
 specified in PEP 440:  they should correspond to the
@@ -490,6 +514,7 @@ Examples::
 
     Requires-External: C
     Requires-External: libpng (>=1.5)
+    Requires-External: make; sys_platform != "win32"
 
 
 Project-URL (multiple-use)
