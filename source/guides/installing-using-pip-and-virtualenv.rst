@@ -55,7 +55,7 @@ Afterwards, you should have the newest pip installed in your user site:
 .. code-block:: bash
 
     python3 -m pip --version
-    pip 9.0.1 from ~/.local/lib/python3.6/site-packages (python 3.6)
+    pip 9.0.1 from $HOME/.local/lib/python3.6/site-packages (python 3.6)
 
 .. _python-pip: https://packages.debian.org/stable/python-pip
 

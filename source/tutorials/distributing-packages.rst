@@ -840,7 +840,7 @@ can create an account
 `using the form on the PyPI website <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
 
 .. Note:: If you want to avoid entering your username and password when
-  uploading, you can create a ``~/.pypirc`` file with your username and
+  uploading, you can create a ``$HOME/.pypirc`` file with your username and
   password:
 
   .. code-block:: text
