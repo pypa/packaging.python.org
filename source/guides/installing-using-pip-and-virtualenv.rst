@@ -41,7 +41,7 @@ Linux and macOS
 
 Debian and most other distributions include a `python-pip`_ package, if you
 want to use the Linux distribution-provided versions of pip see
-:doc:`/guides/installing-using-linux-tools`. 
+:doc:`/guides/installing-using-linux-tools`.
 
 You can also install pip yourself to ensure you have the latest version. It's
 recommended to use the system pip to bootstrap a user installation of pip:
@@ -55,7 +55,7 @@ Afterwards, you should have the newest pip installed in your user site:
 .. code-block:: bash
 
     python3 -m pip --version
-    pip 9.0.1 from ~/.local/lib/python3.6/site-packages (python 3.6)
+    pip 9.0.1 from $HOME/.local/lib/python3.6/site-packages (python 3.6)
 
 .. _python-pip: https://packages.debian.org/stable/python-pip
 
@@ -102,7 +102,7 @@ virtualenv.
 
 On macOS and Linux:
 
-.. code-block:: bash 
+.. code-block:: bash
 
     python3 -m virtualenv env
 
@@ -287,7 +287,7 @@ wheel, or tar file) you can install it directly with pip:
 
 .. code-block:: bash
 
-    pip install requests-2.18.4.tar.gz 
+    pip install requests-2.18.4.tar.gz
 
 If you have a directory containing archives of multiple packages, you can tell
 pip to look for packages there and not to use the

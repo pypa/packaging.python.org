@@ -52,9 +52,9 @@ Setting up TestPyPI in pypirc
 -----------------------------
 
 If you want to avoid entering the TestPyPI url and your username and password
-you can configure TestPyPI in your ``~/.pypirc``.
+you can configure TestPyPI in your ``$HOME/.pypirc``.
 
-Create or modify ``~/.pypirc`` with the following:
+Create or modify ``$HOME/.pypirc`` with the following:
 
 .. code::
 
