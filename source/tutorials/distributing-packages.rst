@@ -100,7 +100,7 @@ MANIFEST.in
 A :file:`MANIFEST.in` is needed when you need to package
 additional files that are not automatically included in a source distribution.
 To see a list of what's included by default, see the `Specifying the files to
-distribute <https://docs.python.org/3.4/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
+distribute <https://docs.python.org/3/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
 section from the :ref:`distutils` documentation.
 
 For an example, see the `MANIFEST.in
@@ -414,7 +414,7 @@ interpreted relative to the ``setup.py`` script at the top of the project source
 distribution.
 
 For more information see the distutils section on `Installing Additional Files
-<http://docs.python.org/3.4/distutils/setupscript.html#installing-additional-files>`_.
+<http://docs.python.org/3/distutils/setupscript.html#installing-additional-files>`_.
 
 .. note::
 
@@ -430,7 +430,7 @@ scripts
 ~~~~~~~
 
 Although ``setup()`` supports a `scripts
-<http://docs.python.org/3.4/distutils/setupscript.html#installing-scripts>`_
+<http://docs.python.org/3/distutils/setupscript.html#installing-scripts>`_
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
