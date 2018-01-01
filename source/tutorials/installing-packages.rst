@@ -61,7 +61,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
     If you're using an enhanced shell like IPython or the Jupyter notebook, you
     can run system commands like those in this tutorial by prefacing them with
-    a ``!`` character::
+    a ``!`` character:
 
     .. code-block:: python
 
