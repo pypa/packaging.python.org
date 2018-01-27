@@ -336,7 +336,8 @@ License (optional)
 
 Text indicating the license covering the distribution where the license
 is not a selection from the "License" Trove classifiers. See
-"Classifier" below.  This field may also be used to specify a
+:ref:`"Classifier" <metadata-classifier>` below.
+This field may also be used to specify a
 particular version of a licencse which is named via the ``Classifier``
 field, or to indicate a variation or exception to such a license.
 
@@ -349,13 +350,17 @@ Examples::
     License: GPL version 3, excluding DRM provisions
 
 
+.. _metadata_classifier:
+
 Classifier (multiple use)
 =========================
 
 .. versionadded:: 1.1
 
 Each entry is a string giving a single classification value
-for the distribution.  Classifiers are described in PEP 301 [3]_.
+for the distribution.  Classifiers are described in :pep:`301`,
+and the Python Package Index publishes a dynamic list of
+`currently defined classifiers <https://pypi.python.org/pypi?%3Aaction=list_classifiers>`__.
 
 This field may be followed by an environment marker after a semicolon.
 
@@ -574,6 +579,3 @@ It is legal to specify ``Provides-Extra:`` without referencing it in any
 
 .. [2] RFC 822 Long Header Fields:
    http://www.freesoft.org/CIE/RFC/822/7.htm
-
-.. [3] PEP 301, Package Index and Metadata for Distutils:
-   http://www.python.org/dev/peps/pep-0301/
