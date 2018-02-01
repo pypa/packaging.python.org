@@ -30,6 +30,14 @@ in the ``--repository-url`` flag
 
     $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
+The ``legacy`` in the URL above refers to the legacy API for PyPI, which may
+change as the Warehouse project progresses.
+
+You can see if your package has successfully uploaded by navigating to the URL
+``https://test.pypi.org/project/<sampleproject>`` where ``sampleproject`` is
+the name of your project that you uploaded. It may take a minute or two for
+your project to appear on the site.
+
 Using TestPyPI with pip
 -----------------------
 
