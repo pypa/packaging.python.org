@@ -292,6 +292,11 @@ Example::
 
     Author-email: "C. Schultz" <cschultz@example.com>
 
+Per RFC-822, this field may contain multiple comma-separated e-mail
+addresses::
+
+    Author-email: cschultz@example.com, snoopy@peanuts.com
+
 
 Maintainer (optional)
 =====================
@@ -327,6 +332,11 @@ omitted if it is identical to ``Author-email``.
 Example::
 
     Maintainer-email: "C. Schultz" <cschultz@example.com>
+
+Per RFC-822, this field may contain multiple comma-separated e-mail
+addresses::
+
+    Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
 
 License (optional)
