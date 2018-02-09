@@ -889,6 +889,11 @@ registering the project.
   the one directly executing the ``gpg`` command.
 
 
+You can see if your package has successfully uploaded by navigating to the URL
+``https://pypi.org/project/<sampleproject>`` where ``sampleproject`` is
+the name of your project that you uploaded. It may take a minute or two for
+your project to appear on the site.
+
 ----
 
 .. [1] Depending on your platform, this may require root or Administrator
