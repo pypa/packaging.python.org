@@ -113,13 +113,18 @@ when you share your project with others. You should get output similar to this
     Adding requests to Pipfile's [packages]...
     P.S. You have excellent taste! ✨ 🍰 ✨
 
-.. Warning:: Due to an `open issue with pipenv`_, it's not presently possible
-    to use ``pipenv`` to create environments for different Python versions. The
-    interpreter version you use in your project should be the same as the
+.. Warning:: Due to an `open issue with pipenv`_, it's not currently reliable
+    to use ``pipenv`` to create environments for different Python versions
+    (as environment marker conditions may not be processed correctly).
+    The interpreter version you use in your project should be the same as the
     interpreter version used to install ``pipenv``.
+    When testing against multiple versions with ``tox``, install ``pipenv``
+    into each test environment, as described `here <pipenv-tox>`_.
 
 .. _Requests: https://python-requests.org
 .. _open issue with pipenv: https://github.com/pypa/pipenv/issues/857
+.. _pipenv-tox: https://docs.pipenv.org/advanced/#tox-automation-project
+
 
 Using installed packages
 ------------------------
