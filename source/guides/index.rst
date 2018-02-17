@@ -19,6 +19,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    supporting-windows-using-appveyor
    packaging-namespace-packages
    creating-and-discovering-plugins
+   analyzing-pypi-package-downloads
    index-mirrors-and-caches
    hosting-your-own-index
    migrating-to-pypi-org
