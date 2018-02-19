@@ -360,7 +360,7 @@ Examples::
     License: GPL version 3, excluding DRM provisions
 
 
-.. _metadata_classifier:
+.. _metadata-classifier:
 
 Classifier (multiple use)
 =========================
