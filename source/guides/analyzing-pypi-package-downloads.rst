@@ -93,10 +93,10 @@ Useful queries
 Run queries in the `BigQuery web UI`_ by clicking the "Compose query" button.
 
 Note that the rows are stored in separate tables for each day, which helps
-limit costs if you are only interested in recent downloads. To analyze the
-full history, use `wildcard tables
+limit the cost of queries. These example queries analyze downloads from
+recent history by using `wildcard tables
 <https://cloud.google.com/bigquery/docs/querying-wildcard-tables>`__ to
-select all tables.
+select all tables and then filter by ``_TABLE_SUFFIX``.
 
 Counting package downloads
 --------------------------
@@ -110,11 +110,16 @@ The following query counts the total number of downloads for the project
     SELECT COUNT(*) AS num_downloads
     FROM `the-psf.pypi.downloads*`
     WHERE file.project = 'pytest'
+      -- Only query the last 30 days of history
+      AND _TABLE_SUFFIX
+        BETWEEN FORMAT_DATE(
+          '%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY))
+        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())
 
 +---------------+
 | num_downloads |
 +===============+
-| 35534338      |
+| 2117807       |
 +---------------+
 
 To only count downloads from pip, filter on the ``details.installer.name``
@@ -125,14 +130,18 @@ column.
     #standardSQL
     SELECT COUNT(*) AS num_downloads
     FROM `the-psf.pypi.downloads*`
-    WHERE
-      file.project = 'pytest'
+    WHERE file.project = 'pytest'
       AND details.installer.name = 'pip'
+      -- Only query the last 30 days of history
+      AND _TABLE_SUFFIX
+        BETWEEN FORMAT_DATE(
+          '%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY))
+        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())
 
 +---------------+
 | num_downloads |
 +===============+
-| 31768554      |
+| 1829322       |
 +---------------+
 
 Package downloads over time
@@ -151,7 +160,11 @@ costs.
     FROM `the-psf.pypi.downloads*`
     WHERE
       file.project = 'pytest'
-      AND _TABLE_SUFFIX BETWEEN '20171001' AND '20180131'
+      -- Only query the last 6 months of history
+      AND _TABLE_SUFFIX
+        BETWEEN FORMAT_DATE(
+          '%Y%m01', DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH))
+        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())
     GROUP BY `month`
     ORDER BY `month` DESC
 
@@ -166,6 +179,10 @@ costs.
 +---------------+--------+
 | 2047310       | 201710 |
 +---------------+--------+
+| 1744443       | 201709 |
++---------------+--------+
+| 1916952       | 201708 |
++---------------+--------+
 
 More queries
 ------------
@@ -175,6 +192,8 @@ More queries
 - `PyPI queries gist <https://gist.github.com/alex/4f100a9592b05e9b4d63>`__
 - `Python versions over time
   <https://github.com/tswast/code-snippets/blob/master/2018/python-community-insights/Python%20Community%20Insights.ipynb>`__
+- `Non-Windows downloads, grouped by platform
+  <https://bigquery.cloud.google.com/savedquery/51422494423:ff1976af63614ad4a1258d8821dd7785>`__
 
 Additional tools
 ================
