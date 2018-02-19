@@ -63,7 +63,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
     can run system commands like those in this tutorial by prefacing them with
     a ``!`` character:
 
-    .. code-block:: python
+    ::
 
         In [1]: !python --version
         Python 3.6.3

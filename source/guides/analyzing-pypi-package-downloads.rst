@@ -23,6 +23,7 @@ collect and display accurately. Reasons for this are included in the
     of which are:
 
         - Technically hard to make work with the new CDN
+
             - The CDN is being donated to the PSF, and the donated tier does
               not offer any form of log access
             - The work around for not having log access would greatly reduce
@@ -30,6 +31,7 @@ collect and display accurately. Reasons for this are included in the
         - Highly inaccurate
             - A number of things prevent the download counts from being
               inaccurate, some of which include:
+
                 - pip download cache
                 - Internal or unofficial mirrors
                 - Packages not hosted on PyPI (for comparisons sake)
@@ -37,6 +39,7 @@ collect and display accurately. Reasons for this are included in the
                   (Last I looked 25% of the downloads were from a known
                   mirroring script).
         - Not particularly useful
+
             - Just because a project has been downloaded a lot doesn't mean
               it's good
             - Similarly just because a project hasn't been downloaded a lot
