@@ -819,10 +819,10 @@ distribution file(s) to upload.
   or the configuration in your ``setup.py`` file, you will need to rebuild
   these files again before you can distribute the changes to PyPI.
 
-.. note:: Before releasing on main PyPI repo, you might prefer training with
-  the `PyPI test site <https://testpypi.python.org/pypi>`_
-  which is cleaned on a semi regular basis. See :ref:`using-test-pypi`
-  on how to setup your configuration in order to use it.
+.. note:: Before releasing on main PyPI repo, you might prefer
+  training with the `PyPI test site <https://test.pypi.org/>`_ which
+  is cleaned on a semi regular basis. See :ref:`using-test-pypi` on
+  how to setup your configuration in order to use it.
 
 .. warning:: In other resources you may encounter references to using
   ``python setup.py register`` and ``python setup.py upload``. These methods
