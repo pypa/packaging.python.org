@@ -76,6 +76,22 @@ Dev irc:#pypa-dev
 
 A tool for installing Python packages.
 
+
+.. _Pipenv:
+
+Pipenv
+======
+
+`Docs <https://docs.pipenv.org>`__ |
+`Source <https://github.com/pypa/pipenv>`__ |
+`Issues <https://github.com/pypa/pipenv/issues>`__ |
+`PyPI <https://pypi.python.org/pypi/pipenv>`__
+
+Pipenv is a project that aims to bring the best of all packaging worlds to the
+Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
+into one single toolchain. It features very pretty terminal colors.
+
+
 .. _Pipfile:
 
 Pipfile
@@ -320,21 +336,6 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 ``.pex`` files are just carefully constructed zip files with a
 ``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
 deployment of Python applications as simple as ``cp``.
-
-
-.. _Pipenv:
-
-Pipenv
-======
-
-`Docs <https://docs.pipenv.org>`__ |
-`Source <https://github.com/kennethreitz/pipenv>`__ |
-`Issues <https://github.com/kennethreitz/pipenv/issues>`__ |
-`PyPI <https://pypi.python.org/pypi/pipenv>`__
-
-Pipenv is a project that aims to bring the best of all packaging worlds to the
-Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
-into one single toolchain. It features very pretty terminal colors.
 
 
 .. _spack:
