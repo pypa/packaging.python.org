@@ -68,7 +68,7 @@ value ``https://upload.pypi.org/legacy/`` instead:
     password: your password
 
 (``legacy`` in this URL refers to the fact that this is the new server
-implementation's emulation of the legacy server implementation's upload API)
+implementation's emulation of the legacy server implementation's upload API.)
 
 
 Registering package names & metadata
