@@ -124,7 +124,7 @@ Browsing packages
 some users may choose to opt in to using it.
 
 ``pypi.org`` is expected to become the default recommended interface for browsing
-once the limitations in the next two sections are addressed (at which point
+once the limitations in the next section are addressed (at which point
 attempts to access ``pypi.python.org`` will automatically be redirected to
 ``pypi.org``).
 
@@ -139,9 +139,11 @@ may choose to opt in to using it, but its current hosting setup isn't capable of
 handling the full bandwidth requirements of being the default download source (even
 after accounting for the Fastly CDN).
 
-``pypi.org`` is expected to become the default host for downloading packages once
-it has been redeployed into an environment capable of handling the associated
-network load.
+``pypi.org`` is expected to become the default host for downloading
+packages once it has been redeployed into an environment capable of
+handling the associated network load. The setup work is being tracked
+as part of the `Launch milestone
+<https://github.com/pypa/warehouse/milestone/1>`_.
 
 
 Managing published packages and releases
@@ -150,8 +152,5 @@ Managing published packages and releases
 ``pypi.python.org`` provides an interface for logged in users to manage their
 published packages and releases.
 
-``pypi.org`` does not currently provide such an interface.
-
-The missing capabilities are being tracked as part of the
-`Shut Down Legacy PyPI <https://github.com/pypa/warehouse/milestone/7>`_
-milestone.
+``pypi.org`` also provides such an interface which is fully functional, and
+some users may choose to opt in to using it.
