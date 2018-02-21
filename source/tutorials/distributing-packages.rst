@@ -843,7 +843,7 @@ Create an account
 
 First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. You
 can create an account
-`using the form on the PyPI website <https://pypi.python.org/pypi?%3Aaction=register_form>`_.
+`using the form on the PyPI website <https://pypi.org/account/register/>`_.
 
 .. Note:: If you want to avoid entering your username and password when
   uploading, you can create a ``$HOME/.pypirc`` file with your username and
