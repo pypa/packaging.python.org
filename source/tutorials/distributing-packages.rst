@@ -312,7 +312,7 @@ project_urls
   },
 
 List additional relevant URLs about your project. This is the place to link to
-bug trackers, source repositories, or links for supporting package development.
+bug trackers, source repositories, or where to support package development.
 The string of the key is the exact text that will be displayed on PyPI.
 
 
