@@ -305,10 +305,11 @@ project_urls
 ::
 
   project_urls={
-      'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
+      'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
       'Funding': 'https://donate.pypi.org',
       'Say Thanks!': 'http://saythanks.io/to/example',
       'Source': 'https://github.com/pypa/sampleproject/',
+      'Tracker': 'https://github.com/pypa/sampleproject/issues',
   },
 
 List additional relevant URLs about your project. This is the place to link to
