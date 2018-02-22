@@ -299,6 +299,24 @@ keywords
 List keywords that describe your project.
 
 
+project_urls
+~~~~~~~~~~~~
+
+::
+
+  project_urls={
+      'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
+      'Funding': 'https://donate.pypi.org',
+      'Say Thanks!': 'http://saythanks.io/to/example',
+      'Source': 'https://github.com/pypa/sampleproject/',
+      'Tracker': 'https://github.com/pypa/sampleproject/issues',
+  },
+
+List additional relevant URLs about your project. This is the place to link to
+bug trackers, source repositories, or where to support package development.
+The string of the key is the exact text that will be displayed on PyPI.
+
+
 packages
 ~~~~~~~~
 
