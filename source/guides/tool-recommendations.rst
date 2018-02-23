@@ -105,10 +105,10 @@ the migration, and the required settings for opting in to the migration early.
        choice for packaging.
 
 .. [7] :term:`PyPI <Python Package Index (PyPI)>` currently only allows
-       uploading Windows and macOS wheels, and they should be compatible with
-       the binary installers provided for download from python.org. Enhancements
-       will have to be made to the :pep:`wheel compatibility tagging scheme
-       <425>` before linux wheels will be allowed.
+       uploading Windows and macOS wheels. Wheels uploaded for Windows and
+       macOS should be compatible with the binary installers provided for
+       download from http://python.org. Binary wheels for Linux distributions
+       can be provided by using ``manylinux`` wheels as outlined in :pep:`513`.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
 .. _venv: https://docs.python.org/3/library/venv.html
