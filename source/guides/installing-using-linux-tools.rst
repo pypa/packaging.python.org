@@ -134,11 +134,15 @@ openSUSE
 Debian/Ubuntu
 ~~~~~~~~~~~~~
 
-::
 
-  sudo apt-get install python-pip
+* Python 2::
 
-Replace "python" with "python3" for Python 3.
+    sudo apt install python-pip
+
+
+* Python 3::
+
+    sudo apt install python3-venv python3-pip
 
 
 .. warning::
