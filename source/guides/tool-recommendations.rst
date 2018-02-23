@@ -8,6 +8,16 @@ If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
 
 
+Application Dependency Management
+=================================
+
+Use :ref:`pipenv` to manage library dependencies when developing Python
+applications. See :doc:`../tutorials/managing-dependencies` for more details
+on using ``pipenv``.
+
+Consider other tools such as :ref:`pip` when ``pipenv`` does not meet your use
+case.
+
 Installation Tool Recommendations
 =================================
 
@@ -26,7 +36,6 @@ Installation Tool Recommendations
 
   * :ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused
     on the scientific community.
-
 
 
 Packaging Tool Recommendations
