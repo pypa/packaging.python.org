@@ -295,3 +295,13 @@ For interim guidance on this topic, see the discussion in
    mention the fact that Linux distros have a requirement to build from
    source in their own build systems, so binary-only releases are strongly
    discouraged
+
+External Links
+==============
+
+For a more in depth explanation of how extension modules are used by cpython on
+a debian system, see the following articles:
+
+* `What are (c)python extension modules? <https://thomasnyberg.com/what_are_extension_modules.html>`_
+* `Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_
+* `Writing cpython extension modules using C++ <https://thomasnyberg.com/cpp_extension_modules.html>`_
