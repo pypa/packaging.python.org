@@ -296,11 +296,21 @@ For interim guidance on this topic, see the discussion in
    source in their own build systems, so binary-only releases are strongly
    discouraged
 
-External Links
-==============
 
-For a more in depth explanation of how extension modules are used by cpython on
-a debian system, see the following articles:
+Additional Resources
+====================
+
+Cross-platform development and distribution of extension modules is a complex topic,
+so this guide focuses primarily on providing pointers to various tools that automate
+dealing with the underlying technical challenges. The additional resources in this
+section are instead intended for developers looking to understand more about the
+underlying binary interfaces that those systems rely on at runtime.
+
+Introduction to C/C++ extension modules
+---------------------------------------
+
+For a more in depth explanation of how extension modules are used by CPython on
+a Debian system, see the following articles:
 
 * `What are (c)python extension modules? <https://thomasnyberg.com/what_are_extension_modules.html>`_
 * `Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_
