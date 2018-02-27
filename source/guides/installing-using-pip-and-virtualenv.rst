@@ -231,7 +231,7 @@ To install pre-release versions of packages, use the ``--pre`` flag:
 Installing extras
 -----------------
 
-Some packages have optioanl `extras`_. You can tell pip to install these by
+Some packages have optional `extras`_. You can tell pip to install these by
 specifying the extra in brackets:
 
 .. code-block:: bash
