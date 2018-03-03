@@ -12,6 +12,13 @@ Fields defined in the following specification should be considered valid,
 complete and not subject to change. Fields should be considered "optional" for
 versions which predate their introduction.
 
+.. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
+   field format specification was relaxed to accept the syntax used by popular
+   publishing tools (namely to remove the requirement that version specifiers
+   must be surrounded by parentheses). Metadata consumers may want to use the
+   more relaxed formatting rules even for metadata files that are nominally
+   less than version 2.1.
+
 .. contents:: Contents
    :local:
 
@@ -118,6 +125,8 @@ Description (optional)
 ======================
 
 .. versionadded:: 1.0
+.. versionchanged:: 2.1
+   This field may be specified in the message body instead.
 
 A longer description of the distribution that can run to several
 paragraphs.  Software that deals with metadata should not assume
@@ -150,6 +159,10 @@ Example::
 This encoding implies that any occurrences of a CRLF followed by 7 spaces
 and a pipe char have to be replaced by a single CRLF when the field is unfolded
 using a RFC822 reader.
+
+Alternatively, the distribution's description may instead be provided in the
+message body (i.e., after a completely blank line following the headers, with
+no indentation or other special formatting necessary).
 
 
 Description-Content-Type (optional)
@@ -389,6 +402,9 @@ Requires-Dist (multiple use)
 ============================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string naming some other distutils
 project required by this distribution.
@@ -426,6 +442,9 @@ Provides-Dist (multiple use)
 ============================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string naming a Distutils project which
 is contained within this distribution.  This field *must* include
@@ -464,6 +483,9 @@ Obsoletes-Dist (multiple use)
 =============================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string describing a distutils project's distribution
 which this distribution renders obsolete, meaning that the two projects
@@ -511,6 +533,9 @@ Requires-External (multiple use)
 ================================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string describing some dependency in the
 system that the distribution is to be used.  This field is intended to
