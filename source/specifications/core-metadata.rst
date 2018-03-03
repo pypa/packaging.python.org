@@ -4,7 +4,7 @@
 Core Metadata Specifications
 ============================
 
-The current core metadata file format, version 1.3, is specified in :pep:`566`.
+The current core metadata file format, version 2.1, is specified in :pep:`566`.
 It defines the following specification as the canonical source for the core
 metadata file format.
 
@@ -21,7 +21,7 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1", "1.2" and "1.3".
+Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -35,14 +35,14 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 1.3
+    Metadata-Version: 2.1
 
 
 Name
 ====
 
 .. versionadded:: 1.0
-.. versionchanged:: 1.3
+.. versionchanged:: 2.1
    Added additional restrictions on format from :pep:`508`
 
 The name of the distribution. The name field is the primary identifier for a
@@ -153,7 +153,7 @@ using a RFC822 reader.
 Description-Content-Type (optional)
 ===================================
 
-.. versionadded:: 1.3
+.. versionadded:: 2.1
 
 A string stating the markup syntax (if any) used in the distribution's
 description, so that tools can intelligently render the description.
@@ -554,7 +554,7 @@ The label is a free text limited to 32 signs.
 Provides-Extra (optional, multiple use)
 =======================================
 
-.. versionadded:: 1.3
+.. versionadded:: 2.1
 
 A string containing the name of an optional feature. Must be a valid Python
 identifier. May be used to make a dependency conditional on whether the
