@@ -4,16 +4,13 @@
 Core Metadata Specifications
 ============================
 
-The current core metadata file format, version 1.2, is specified in :pep:`345`.
+The current core metadata file format, version 2.1, is specified in :pep:`566`.
 
 However, in a forthcoming PEP, the following specification will be defined as
-the canonical source for the core metadata file format. Fields which are
-defined in this specification, but do not currently appear in any accepted PEP,
-are marked as "New in version 1.3".
-
-Fields defined in the following specification should be considered valid,
-complete and not subject to change. Fields should be considered "optional" for
-versions which predate their introduction.
+the canonical source for the core metadata file format. Fields defined in the
+following specification should be considered valid, complete and not subject
+to change. Fields should be considered "optional" for versions which predate
+their introduction.
 
 .. contents:: Contents
    :local:
@@ -24,7 +21,7 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1" and "1.2".
+Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -38,7 +35,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 1.2
+    Metadata-Version: 2.1
 
 
 Name
@@ -150,7 +147,7 @@ using a RFC822 reader.
 Description-Content-Type (optional)
 ===================================
 
-.. versionadded:: 1.3
+.. versionadded:: 2.1
 
 A string stating the markup syntax (if any) used in the distribution's
 description, so that tools can intelligently render the description.
@@ -551,7 +548,7 @@ The label is a free text limited to 32 signs.
 Provides-Extra (optional, multiple use)
 =======================================
 
-.. versionadded:: 1.3
+.. versionadded:: 2.1
 
 A string containing the name of an optional feature. Must be a valid Python
 identifier. May be used to make a dependency conditional on whether the
