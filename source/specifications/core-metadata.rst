@@ -46,7 +46,9 @@ Name
    Added additional restrictions on format from :pep:`508`
 
 The name of the distribution. The name field is the primary identifier for a
-distribution. Distribution names are limited to those which match the following
+distribution. A valid name consists only of ASCII letters and numbers, period,
+underscore and hyphen. It must start and end with a letter or number.
+Distribution names are limited to those which match the following
 regex (run with ``re.IGNORECASE``)::
 
     ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
