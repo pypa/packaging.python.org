@@ -4,16 +4,20 @@
 Core Metadata Specifications
 ============================
 
-The current core metadata file format, version 1.2, is specified in :pep:`345`.
-
-However, in a forthcoming PEP, the following specification will be defined as
-the canonical source for the core metadata file format. Fields which are
-defined in this specification, but do not currently appear in any accepted PEP,
-are marked as "New in version 1.3".
+The current core metadata file format, version 2.1, is specified in :pep:`566`.
+It defines the following specification as the canonical source for the core
+metadata file format.
 
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. Fields should be considered "optional" for
 versions which predate their introduction.
+
+.. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
+   field format specification was relaxed to accept the syntax used by popular
+   publishing tools (namely to remove the requirement that version specifiers
+   must be surrounded by parentheses). Metadata consumers may want to use the
+   more relaxed formatting rules even for metadata files that are nominally
+   less than version 2.1.
 
 .. contents:: Contents
    :local:
@@ -24,7 +28,7 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1" and "1.2".
+Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -38,15 +42,23 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 1.2
+    Metadata-Version: 2.1
 
 
 Name
 ====
 
 .. versionadded:: 1.0
+.. versionchanged:: 2.1
+   Added additional restrictions on format from :pep:`508`
 
-The name of the distributions.
+The name of the distribution. The name field is the primary identifier for a
+distribution. A valid name consists only of ASCII letters and numbers, period,
+underscore and hyphen. It must start and end with a letter or number.
+Distribution names are limited to those which match the following
+regex (run with ``re.IGNORECASE``)::
+
+    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
 
 Example::
 
@@ -113,6 +125,8 @@ Description (optional)
 ======================
 
 .. versionadded:: 1.0
+.. versionchanged:: 2.1
+   This field may be specified in the message body instead.
 
 A longer description of the distribution that can run to several
 paragraphs.  Software that deals with metadata should not assume
@@ -146,11 +160,15 @@ This encoding implies that any occurrences of a CRLF followed by 7 spaces
 and a pipe char have to be replaced by a single CRLF when the field is unfolded
 using a RFC822 reader.
 
+Alternatively, the distribution's description may instead be provided in the
+message body (i.e., after a completely blank line following the headers, with
+no indentation or other special formatting necessary).
+
 
 Description-Content-Type (optional)
 ===================================
 
-.. versionadded:: 1.3
+.. versionadded:: 2.1
 
 A string stating the markup syntax (if any) used in the distribution's
 description, so that tools can intelligently render the description.
@@ -384,6 +402,9 @@ Requires-Dist (multiple use)
 ============================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string naming some other distutils
 project required by this distribution.
@@ -421,6 +442,9 @@ Provides-Dist (multiple use)
 ============================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string naming a Distutils project which
 is contained within this distribution.  This field *must* include
@@ -459,6 +483,9 @@ Obsoletes-Dist (multiple use)
 =============================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string describing a distutils project's distribution
 which this distribution renders obsolete, meaning that the two projects
@@ -506,6 +533,9 @@ Requires-External (multiple use)
 ================================
 
 .. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
 
 Each entry contains a string describing some dependency in the
 system that the distribution is to be used.  This field is intended to
@@ -551,7 +581,7 @@ The label is a free text limited to 32 signs.
 Provides-Extra (optional, multiple use)
 =======================================
 
-.. versionadded:: 1.3
+.. versionadded:: 2.1
 
 A string containing the name of an optional feature. Must be a valid Python
 identifier. May be used to make a dependency conditional on whether the
