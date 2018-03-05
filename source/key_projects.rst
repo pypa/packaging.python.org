@@ -50,6 +50,7 @@ stdlib, but was removed shortly before Python 3.3 entered beta testing.
 packaging
 =========
 
+`Docs <https://packaging.pypa.io>`__ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `Github <https://github.com/pypa/packaging>`__ |
