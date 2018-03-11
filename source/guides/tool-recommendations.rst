@@ -46,7 +46,7 @@ Packaging Tool Recommendations
 
 * Use the ``bdist_wheel`` :ref:`setuptools` extension available from the
   :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is
-  especially beneficial, if your project contains binary extensions. [7]_
+  especially beneficial, if your project contains binary extensions.
 
 * Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
@@ -103,12 +103,6 @@ the migration, and the required settings for opting in to the migration early.
 .. [6] `distribute`_ (a fork of setuptools) was merged back into
        :ref:`setuptools` in June 2013, thereby making setuptools the default
        choice for packaging.
-
-.. [7] :term:`PyPI <Python Package Index (PyPI)>` currently only allows
-       uploading Windows and macOS wheels. Wheels uploaded for Windows and
-       macOS should be compatible with the binary installers provided for
-       download from http://python.org. Binary wheels for Linux distributions
-       can be provided by using ``manylinux`` wheels as outlined in :pep:`513`.
 
 .. _distribute: https://pypi.python.org/pypi/distribute
 .. _venv: https://docs.python.org/3/library/venv.html
