@@ -219,10 +219,11 @@ if you publish your project. On ``pypi.org``, the user interface displays
 ``description`` in the grey banner and ``long_description`` in the section
 named "Project Description".
 
-``description`` is also displayed in lists of projects, e.g., search results
-like https://pypi.org/search/?q=jupyter, the front-page lists of trending
-projects and new releases, and the list of projects you maintain within your
-account profile, e.g., https://pypi.org/user/jaraco/.
+``description`` is also displayed in lists of projects. For example, it's
+visible in the search results pages such as https://pypi.org/search/?q=jupyter,
+the front-page lists of trending projects and new releases, and the list of
+projects you maintain within your account profile (such as
+https://pypi.org/user/jaraco/).
 
 url
 ~~~
