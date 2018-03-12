@@ -212,11 +212,17 @@ description
   description='A sample Python project',
   long_description=long_description,
 
-Give a short and long description for your project.  These values will be
-displayed on :term:`PyPI <Python Package Index (PyPI)>` if you publish your
-project. On ``pypi.org``, the user interface displays ``description`` in
-the grey banner and ``long_description`` in the section named
-"Project Description".
+Give a short and long description for your project.
+
+These values will be displayed on :term:`PyPI <Python Package Index (PyPI)>`
+if you publish your project. On ``pypi.org``, the user interface displays
+``description`` in the grey banner and ``long_description`` in the section
+named "Project Description".
+
+``description`` is also displayed in lists of projects, e.g., search results
+like https://pypi.org/search/?q=jupyter, the front-page lists of trending
+projects and new releases, and the list of projects you maintain within your
+account profile, e.g., https://pypi.org/user/jaraco/.
 
 url
 ~~~
