@@ -214,8 +214,9 @@ description
 
 Give a short and long description for your project.  These values will be
 displayed on :term:`PyPI <Python Package Index (PyPI)>` if you publish your
-project.
-
+project. On ``pypi.org``, the user interface displays ``description`` in
+the grey banner and ``long_description`` in the section named
+"Project Description".
 
 url
 ~~~
