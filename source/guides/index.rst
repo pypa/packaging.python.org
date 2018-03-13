@@ -15,6 +15,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    multi-version-installs
    single-sourcing-package-version
    supporting-multiple-python-versions
+   dropping-older-python-versions
    packaging-binary-extensions
    supporting-windows-using-appveyor
    packaging-namespace-packages
