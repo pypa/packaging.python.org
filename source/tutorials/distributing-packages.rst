@@ -49,17 +49,17 @@ Initial Files
 setup.py
 ~~~~~~~~
 
-The most important file is ``setup.py`` which exists at the root of your project
-directory. For an example, see the `setup.py
+The most important file is :file:`setup.py` which exists at the root of your
+project directory. For an example, see the `setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-``setup.py`` serves two primary functions:
+:file:`setup.py` serves two primary functions:
 
 1. It's the file where various aspects of your project are configured. The
-   primary feature of ``setup.py`` is that it contains a global ``setup()``
-   function.  The keyword arguments to this function are how specific details of
-   your project are defined.  The most relevant arguments are explained in
+   primary feature of :file:`setup.py` is that it contains a global ``setup()``
+   function.  The keyword arguments to this function are how specific details
+   of your project are defined.  The most relevant arguments are explained in
    :ref:`the section below <setup() args>`.
 
 2. It's the command line interface for running various commands that
@@ -70,8 +70,8 @@ sample project <https://github.com/pypa/sampleproject>`_.
 setup.cfg
 ~~~~~~~~~
 
-``setup.cfg`` is an ini file that contains option defaults for ``setup.py``
-commands.  For an example, see the `setup.cfg
+:file:`setup.cfg` is an ini file that contains option defaults for
+:file:`setup.py` commands.  For an example, see the `setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
@@ -110,7 +110,8 @@ For an example, see the `MANIFEST.in
 <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-For details on writing a ``MANIFEST.in`` file, see the `The MANIFEST.in template
+For details on writing a :file:`MANIFEST.in` file, see the `The MANIFEST.in
+template
 <https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
 section from the :ref:`distutils` documentation.
 
@@ -146,8 +147,8 @@ included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 setup() args
 ------------
 
-As mentioned above, the primary feature of ``setup.py`` is that it contains a
-global ``setup()`` function.  The keyword arguments to this function are how
+As mentioned above, the primary feature of :file:`setup.py` is that it contains
+a global ``setup()`` function.  The keyword arguments to this function are how
 specific details of your project are defined.
 
 The most relevant arguments are explained below. The snippets given are taken
@@ -202,8 +203,8 @@ See :ref:`Choosing a versioning scheme` for more information on ways to use vers
 compatibility information to your users.
 
 If the project code itself needs run-time access to the version, the simplest
-way is to keep the version in both ``setup.py`` and your code. If you'd rather
-not duplicate the value, there are a few ways to manage this. See the
+way is to keep the version in both :file:`setup.py` and your code. If you'd
+rather not duplicate the value, there are a few ways to manage this. See the
 ":ref:`Single sourcing the version`" Advanced Topics section.
 
 .. _`description`:
@@ -446,12 +447,12 @@ cases you may need to place data files *outside* of your :term:`packages
 <Import Package>`.  The ``data_files`` directive allows you to do that.
 
 Each (directory, files) pair in the sequence specifies the installation
-directory and the files to install there. If directory is a relative path, it is
-interpreted relative to the installation prefix (Python’s ``sys.prefix`` for
-pure-Python :term:`distributions <Distribution Package>`, ``sys.exec_prefix`` for
-distributions that contain extension modules). Each file name in files is
-interpreted relative to the ``setup.py`` script at the top of the project source
-distribution.
+directory and the files to install there. If directory is a relative path, it
+is interpreted relative to the installation prefix (Python’s ``sys.prefix`` for
+pure-Python :term:`distributions <Distribution Package>`, ``sys.exec_prefix``
+for distributions that contain extension modules). Each file name in files is
+interpreted relative to the :file:`setup.py` script at the top of the project
+source distribution.
 
 For more information see the distutils section on `Installing Additional Files
 <http://docs.python.org/3/distutils/setupscript.html#installing-additional-files>`_.
@@ -720,10 +721,10 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
  python setup.py sdist
 
 
-A "source distribution" is unbuilt (i.e. it's not a :term:`Built Distribution`),
-and requires a build step when installed by pip.  Even if the distribution is
-pure Python (i.e. contains no extensions), it still involves a build step to
-build out the installation metadata from ``setup.py``.
+A "source distribution" is unbuilt (i.e. it's not a :term:`Built
+Distribution`), and requires a build step when installed by pip.  Even if the
+distribution is pure Python (i.e. contains no extensions), it still involves a
+build step to build out the installation metadata from :file:`setup.py`.
 
 
 Wheels
@@ -768,8 +769,8 @@ To build the wheel:
 
   python setup.py bdist_wheel --universal
 
-You can also permanently set the ``--universal`` flag in ``setup.cfg`` (e.g., see
-`sampleproject/setup.cfg
+You can also permanently set the ``--universal`` flag in :file:`setup.cfg`
+(e.g., see `sampleproject/setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
 
 .. code-block:: text
@@ -856,7 +857,7 @@ distribution file(s) to upload.
 
 .. note:: These files are only created when you run the command to create your
   distribution. This means that any time you change the source of your project
-  or the configuration in your ``setup.py`` file, you will need to rebuild
+  or the configuration in your :file:`setup.py` file, you will need to rebuild
   these files again before you can distribute the changes to PyPI.
 
 .. note:: Before releasing on main PyPI repo, you might prefer
@@ -874,8 +875,8 @@ distribution file(s) to upload.
   Furthermore, to ensure safety of all users, certain kinds of URLs and
   directives are forbidden or stripped out (e.g., the ``.. raw::``
   directive). **Before** trying to upload your distribution, you should check
-  to see if your brief / long descriptions provided in ``setup.py`` are valid.
-  You can do this by following the instructions for the
+  to see if your brief / long descriptions provided in :file:`setup.py` are
+  valid.  You can do this by following the instructions for the
   `pypa/readme_renderer <https://github.com/pypa/readme_renderer>`_ tool.
 
 Create an account

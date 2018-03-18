@@ -81,7 +81,7 @@ Native namespace packages
 
 Python 3.3 added **implicit** namespace packages from :pep:`420`. All that is
 required to create a native namespace package is that you just omit
-``__init__.py`` from the namespace package directory. An example file
+:file:`__init__.py` from the namespace package directory. An example file
 structure:
 
 .. code-block:: text
@@ -95,13 +95,13 @@ structure:
             module.py
 
 It is extremely important that every distribution that uses the namespace
-package omits the ``__init__.py`` or uses a pkgutil-style ``__init__.py``. If
-any distribution does not, it will cause the namespace logic to fail and the
-other sub-packages will not be importable.
+package omits the :file:`__init__.py` or uses a pkgutil-style
+:file:`__init__.py`. If any distribution does not, it will cause the namespace
+logic to fail and the other sub-packages will not be importable.
 
-Because ``mynamespace`` doesn't contain an ``__init__.py``,
+Because ``mynamespace`` doesn't contain an :file:`__init__.py`,
 :func:`setuptools.find_packages` won't find the sub-package. You must
-explicitly list all packages in your ``setup.py``. For example:
+explicitly list all packages in your :file:`setup.py`. For example:
 
 .. code-block:: python
 
@@ -133,7 +133,7 @@ packages that need to be compatible with both Python 2.3+ and Python 3. This
 is the recommended approach for the highest level of compatibility.
 
 To create a pkgutil-style namespace package, you need to provide an
-``__init__.py`` file for the namespace package:
+:file:`__init__.py` file for the namespace package:
 
 .. code-block:: text
 
@@ -144,17 +144,17 @@ To create a pkgutil-style namespace package, you need to provide an
             __init__.py  # Sub-package __init__.py
             module.py
 
-The ``__init__.py`` file for the namespace package needs to contain **only**
-the following:
+The :file:`__init__.py` file for the namespace package needs to contain
+**only** the following:
 
 .. code-block:: python
 
     __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 
 **Every** distribution that uses the namespace package must include an
-identical ``__init__.py``. If any distribution does not, it will cause the
-namespace logic to fail and the other sub-packages will not be importable. Any
-additional code in ``__init__.py`` will be inaccessible.
+identical :file:`__init__.py`. If any distribution does not, it will cause the
+namespace logic to fail and the other sub-packages will not be importable.  Any
+additional code in :file:`__init__.py` will be inaccessible.
 
 A complete working example of two pkgutil-style namespace packages can be found
 in the `pkgutil namespace example project`_.
@@ -179,7 +179,7 @@ methods are not cross-compatible and it's not advisable to try to migrate an
 existing package.
 
 To create a pkg_resources-style namespace package, you need to provide an
-``__init__.py`` file for the namespace package:
+:file:`__init__.py` file for the namespace package:
 
 .. code-block:: text
 
@@ -190,20 +190,20 @@ To create a pkg_resources-style namespace package, you need to provide an
             __init__.py  # Sub-package __init__.py
             module.py
 
-The ``__init__.py`` file for the namespace package needs to contain **only**
-the following:
+The :file:`__init__.py` file for the namespace package needs to contain
+**only** the following:
 
 .. code-block:: python
 
     __import__('pkg_resources').declare_namespace(__name__)
 
 **Every** distribution that uses the namespace package must include an
-identical ``__init__.py``. If any distribution does not, it will cause the
-namespace logic to fail and the other sub-packages will not be importable. Any
-additional code in ``__init__.py`` will be inaccessible.
+identical :file:`__init__.py`. If any distribution does not, it will cause the
+namespace logic to fail and the other sub-packages will not be importable.  Any
+additional code in :file:`__init__.py` will be inaccessible.
 
 .. note:: Some older recommendations advise the following in the namespace
-    package ``__init__.py``:
+    package :file:`__init__.py`:
 
     .. code-block:: python
 
@@ -220,7 +220,7 @@ additional code in ``__init__.py`` will be inaccessible.
     ``install_requires``.
 
 Finally, every distribution must provide the ``namespace_packages`` argument
-to :func:`~setuptools.setup` in ``setup.py``. For example:
+to :func:`~setuptools.setup` in :file:`setup.py`. For example:
 
 .. code-block:: python
 

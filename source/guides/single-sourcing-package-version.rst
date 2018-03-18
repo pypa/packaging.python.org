@@ -8,9 +8,10 @@ Single-sourcing the package version
 There are many techniques to maintain a single source of truth for the version
 number of your project:
 
-#.  Read the file in ``setup.py`` and parse the version with a regex. Example (
-    from `pip setup.py <https://github.com/pypa/pip/blob/master/setup.py#L12>`_)::
-    
+#.  Read the file in :file:`setup.py` and parse the version with a regex.
+    Example ( from `pip setup.py
+    <https://github.com/pypa/pip/blob/master/setup.py#L12>`_)::
+
         here = os.path.abspath(os.path.dirname(__file__))
 
         def read(*parts):
@@ -44,8 +45,8 @@ number of your project:
 
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
-    your project (e.g. ``version.py``), then have ``setup.py`` read and ``exec`` the
-    value into a variable.
+    your project (e.g. :file:`version.py`), then have :file:`setup.py` read and
+    ``exec`` the value into a variable.
 
     Using ``execfile``:
 
@@ -66,8 +67,8 @@ number of your project:
 
     Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_.
 
-#.  Place the value in a simple ``VERSION`` text file and have both ``setup.py``
-    and the project code read it.
+#.  Place the value in a simple ``VERSION`` text file and have both
+    :file:`setup.py` and the project code read it.
 
     ::
 
@@ -81,9 +82,9 @@ number of your project:
 
         With this approach you must make sure that the ``VERSION`` file is included in
         all your source and binary distributions (e.g. add ``include VERSION`` to your
-        ``MANIFEST.in``).
+        :file:`MANIFEST.in`).
 
-#.  Set the value in ``setup.py``, and have the project code use the
+#.  Set the value in :file:`setup.py`, and have the project code use the
     ``pkg_resources`` API.
 
     ::
@@ -97,7 +98,7 @@ number of your project:
 
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
-    ``sample`` in ``setup.py``.
+    ``sample`` in :file:`setup.py`.
 
     ::
 
@@ -110,8 +111,8 @@ number of your project:
 
     Although this technique is common, beware that it will fail if
     ``sample/__init__.py`` imports packages from ``install_requires``
-    dependencies, which will very likely not be installed yet when ``setup.py``
-    is run.
+    dependencies, which will very likely not be installed yet when
+    :file:`setup.py` is run.
 
 
 #.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)

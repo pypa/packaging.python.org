@@ -54,9 +54,9 @@ Adding Appveyor support to your project
 =======================================
 
 In order to define how Appveyor should build your project, you need to add an
-``appveyor.yml`` file to your project. The full details of what can be included
-in the file are covered in the Appveyor documentation. This guide will provide
-the details necessary to set up wheel builds.
+:file:`appveyor.yml` file to your project. The full details of what can be
+included in the file are covered in the Appveyor documentation. This guide will
+provide the details necessary to set up wheel builds.
 
 Appveyor includes by default all of the compiler toolchains needed to build
 extensions for Python. For Python 2.7, 3.5+ and 32-bit versions of 3.3 and 3.4,
@@ -74,7 +74,7 @@ appveyor.yml
 
 This file can be downloaded from `here <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/appveyor.yml>`__.
 
-The ``appveyor.yml`` file must be located in the root directory of your
+The :file:`appveyor.yml` file must be located in the root directory of your
 project. It is in ``YAML`` format, and consists of a number of sections.
 
 The ``environment`` section is the key to defining the Python versions for
@@ -101,10 +101,10 @@ The ``test_script`` section is where you will run your project's tests. The
 supplied file runs your test suite using ``setup.py test``. If you are only
 interested in building wheels, and not in running your tests on Windows, you
 can replace this section with a dummy command such as ``echo Skipped Tests``.
-You may wish to use another test tool, such as ``nose`` or ``py.test``. Or you
-may wish to use a test driver like ``tox`` - however if you are using ``tox``
-there are some additional configuration changes you will need to consider,
-which are described below.
+You may wish to use another test tool, such as ``nose`` or :file:`py.test`.  Or
+you may wish to use a test driver like ``tox`` - however if you are using
+``tox`` there are some additional configuration changes you will need to
+consider, which are described below.
 
 The ``after_test`` runs once your tests have completed, and so is where the
 wheels should be built. Assuming your project uses the recommended tools
@@ -118,10 +118,10 @@ tests to fail on Windows, you can skip them as described above.
 Support script
 --------------
 
-The ``appveyor.yml`` file relies on a single support script, which sets up the
-environment to use the SDK compiler for 64-bit builds on Python 3.3 and 3.4.
-For projects which do not need a compiler, or which don't support 3.3 or 3.4 on
-64-bit Windows, only the ``appveyor.yml`` file is needed.
+The :file:`appveyor.yml` file relies on a single support script, which sets up
+the environment to use the SDK compiler for 64-bit builds on Python 3.3 and
+3.4.  For projects which do not need a compiler, or which don't support 3.3 or
+3.4 on 64-bit Windows, only the :file:`appveyor.yml` file is needed.
 
 `build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/build.cmd>`__
 is a Windows batch script that runs a single command in an environment with the
@@ -172,10 +172,11 @@ other CI systems).
         - ``INCLUDE``
         - ``LIB``
 
-    The ``passenv`` option can be set in your ``tox.ini``, or if you prefer to avoid
-    adding Windows-specific settings to your general project files, it can be set by
-    setting the ``TOX_TESTENV_PASSENV`` environment variable. The supplied ``build.cmd``
-    script does this by default whenever ``DISTUTILS_USE_SDK`` is set.
+    The ``passenv`` option can be set in your :file:`tox.ini`, or if you prefer
+    to avoid adding Windows-specific settings to your general project files, it
+    can be set by setting the ``TOX_TESTENV_PASSENV`` environment variable. The
+    supplied :file:`build.cmd` script does this by default whenever
+    ``DISTUTILS_USE_SDK`` is set.
 
 2. When used interactively, ``tox`` allows you to run your tests against multiple
    environments (often, this means multiple Python versions). This feature is not as
@@ -194,21 +195,22 @@ other CI systems).
     will be run with the configured interpreter.
 
     In order to support running under the ``py`` environment, it is possible that
-    projects with complex ``tox`` configurations might need to modify their ``tox.ini``
-    file. Doing so is, however, outside the scope of this document.
+    projects with complex ``tox`` configurations might need to modify their
+    :file:`tox.ini` file. Doing so is, however, outside the scope of this
+    document.
 
 Automatically uploading wheels
 ------------------------------
 
 It is possible to request Appveyor to automatically upload wheels. There is a
-``deployment`` step available in ``appveyor.yml`` that can be used to (for
+``deployment`` step available in :file:`appveyor.yml` that can be used to (for
 example) copy the built artifacts to a FTP site, or an Amazon S3 instance.
 Documentation on how to do this is included in the Appveyor guides.
 
 Alternatively, it would be possible to add a ``twine upload`` step to the
-build.  The supplied ``appveyor.yml`` does not do this, as it is not clear that
-uploading new wheels after every commit is desirable (although some projects
-may wish to do this).
+build.  The supplied :file:`appveyor.yml` does not do this, as it is not clear
+that uploading new wheels after every commit is desirable (although some
+projects may wish to do this).
 
 External dependencies
 ---------------------
@@ -216,11 +218,12 @@ External dependencies
 The supplied scripts will successfully build any distribution that does not
 rely on 3rd party external libraries for the build.
 
-It is possible to add steps to the ``appveyor.yml`` configuration (typically
-in the "install" section) to download and/or build external libraries needed by
-the distribution. And if needed, it is possible to add extra configuration for
-the build to supply the location of these libraries to the compiler. However,
-this level of configuration is beyond the scope of this document.
+It is possible to add steps to the :file:`appveyor.yml` configuration
+(typically in the "install" section) to download and/or build external
+libraries needed by the distribution. And if needed, it is possible to add
+extra configuration for the build to supply the location of these libraries to
+the compiler. However, this level of configuration is beyond the scope of this
+document.
 
 
 Support scripts
