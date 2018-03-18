@@ -49,12 +49,12 @@ Initial Files
 setup.py
 ~~~~~~~~
 
-The most important file is "setup.py" which exists at the root of your project
+The most important file is ``setup.py`` which exists at the root of your project
 directory. For an example, see the `setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-"setup.py" serves two primary functions:
+``setup.py`` serves two primary functions:
 
 1. It's the file where various aspects of your project are configured. The
    primary feature of ``setup.py`` is that it contains a global ``setup()``
@@ -70,22 +70,25 @@ sample project <https://github.com/pypa/sampleproject>`_.
 setup.cfg
 ~~~~~~~~~
 
-"setup.cfg" is an ini file that contains option defaults for ``setup.py``
+``setup.cfg`` is an ini file that contains option defaults for ``setup.py``
 commands.  For an example, see the `setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 
-README.rst
-~~~~~~~~~~
+README.rst / README.md
+~~~~~~~~~~~~~~~~~~~~~~
 
-All projects should contain a readme file that covers the goal of the
-project. The most common format is `reStructuredText
+All projects should contain a readme file that covers the goal of the project.
+The most common format is `reStructuredText
 <http://docutils.sourceforge.net/rst.html>`_ with an "rst" extension, although
-this is not a requirement.
+this is not a requirement; the `CommonMark <http://spec.commonmark.org/>`_
+dialect of `Markdown <https://daringfireball.net/projects/markdown/>`_ is
+supported as well (look at ``setup()``'s :ref:`long_description_content_type
+<description>` argument).
 
-For an example, see `README.rst
-<https://github.com/pypa/sampleproject/blob/master/README.rst>`_ from the `PyPA
+For an example, see `README.md
+<https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 .. note:: Projects using :ref:`setuptools` have :file:`README.rst` included in
@@ -203,6 +206,7 @@ way is to keep the version in both ``setup.py`` and your code. If you'd rather
 not duplicate the value, there are a few ways to manage this. See the
 ":ref:`Single sourcing the version`" Advanced Topics section.
 
+.. _`description`:
 
 description
 ~~~~~~~~~~~
@@ -211,6 +215,7 @@ description
 
   description='A sample Python project',
   long_description=long_description,
+  long_description_content_type='text/x-rst',
 
 Give a short and long description for your project.
 
@@ -224,6 +229,15 @@ visible in the search results pages such as https://pypi.org/search/?q=jupyter,
 the front-page lists of trending projects and new releases, and the list of
 projects you maintain within your account profile (such as
 https://pypi.org/user/jaraco/).
+
+A `content type
+<https://packaging.python.org/specifications/core-metadata/#description-content-type-optional>`_
+can be specified with the ``long_description_content_type`` argument, which can
+be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
+to no formatting, `reStructuredText (reST)
+<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#reference-names>`_,
+and the `CommonMark <http://spec.commonmark.org/>`_ dialect of `Markdown
+<https://daringfireball.net/projects/markdown/>`_ respectively.
 
 url
 ~~~
@@ -433,8 +447,8 @@ cases you may need to place data files *outside* of your :term:`packages
 
 Each (directory, files) pair in the sequence specifies the installation
 directory and the files to install there. If directory is a relative path, it is
-interpreted relative to the installation prefix (Python’s sys.prefix for
-pure-Python :term:`distributions <Distribution Package>`, sys.exec_prefix for
+interpreted relative to the installation prefix (Python’s ``sys.prefix`` for
+pure-Python :term:`distributions <Distribution Package>`, ``sys.exec_prefix`` for
 distributions that contain extension modules). Each file name in files is
 interpreted relative to the ``setup.py`` script at the top of the project source
 distribution.
@@ -754,7 +768,7 @@ To build the wheel:
 
   python setup.py bdist_wheel --universal
 
-You can also permanently set the ``--universal`` flag in "setup.cfg" (e.g., see
+You can also permanently set the ``--universal`` flag in ``setup.cfg`` (e.g., see
 `sampleproject/setup.cfg
 <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
 
