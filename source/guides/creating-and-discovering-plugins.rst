@@ -105,11 +105,11 @@ but it's not recommended to make your project's main top-level package (
 ``myapp`` in this case) a namespace package for the purpose of plugins, as one
 bad plugin could cause the entire namespace to break which would in turn make
 your project unimportable. For the "namespace sub-package" approach to work,
-the plugin packages must omit the ``__init__.py`` for your top-level package
-directory (``myapp`` in this case) and include the namespace-package style
-``__init__.py`` in the namespace sub-package directory (``myapp/plugins``).
-This also means that plugins will need to explicitly pass a list of packages
-to :func:`setup`'s ``packages`` argument instead of using
+the plugin packages must omit the :file:`__init__.py` for your top-level
+package directory (``myapp`` in this case) and include the namespace-package
+style :file:`__init__.py` in the namespace sub-package directory
+(``myapp/plugins``).  This also means that plugins will need to explicitly pass
+a list of packages to :func:`setup`'s ``packages`` argument instead of using
 :func:`setuptools.find_packages`.
 
 .. warning:: Namespace packages are a complex feature and there are several
@@ -121,11 +121,11 @@ Using package metadata
 ======================
 
 `Setuptools`_ provides `special support`_ for plugins. By
-providing the ``entry_points`` argument to :func:`setup` in ``setup.py``
+providing the ``entry_points`` argument to :func:`setup` in :file:`setup.py`
 plugins can register themselves for discovery.
 
 For example if you have a package named ``myapp-plugin-a`` and it includes
-in its ``setup.py``:
+in its :file:`setup.py`:
 
 .. code-block:: python
 
@@ -156,9 +156,9 @@ In this example, ``plugins`` would be :
         'a': <module: 'myapp_plugin_a'>,
     }
 
-.. note:: The ``entry_point`` specification in ``setup.py`` is fairly flexible
-    and has a lot of options. It's recommended to read over the entire section
-    on `entry points`_.
+.. note:: The ``entry_point`` specification in :file:`setup.py` is fairly
+    flexible and has a lot of options. It's recommended to read over the entire
+    section on `entry points`_.
 
 .. _Setuptools: http://setuptools.readthedocs.io
 .. _special support:

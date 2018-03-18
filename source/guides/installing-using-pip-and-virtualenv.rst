@@ -337,7 +337,7 @@ Using requirements files
 
 Instead of installing packages individually, pip allows you to declare all
 dependencies in a :ref:`Requirements File <pip:Requirements Files>`. For
-example you could create a ``requirements.txt`` file containing:
+example you could create a :file:`requirements.txt` file containing:
 
 .. code-block:: text
 

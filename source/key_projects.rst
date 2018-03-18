@@ -100,9 +100,9 @@ Pipfile
 
 `Source <https://github.com/pypa/pipfile>`__
 
-``Pipfile`` and its sister ``Pipfile.lock`` are a higher-level
+:file:`Pipfile` and its sister :file:`Pipfile.lock` are a higher-level
 application-centric alternative to :ref:`pip`'s lower-level
-``requirements.txt`` file.
+:file:`requirements.txt` file.
 
 
 Python Packaging User Guide
@@ -332,11 +332,11 @@ pex
 `Github <https://github.com/pantsbuild/pex/>`__ |
 `PyPI <https://pypi.python.org/pypi/pex>`__
 
-pex is both a library and tool for generating ``.pex`` (Python EXecutable)
+pex is both a library and tool for generating :file:`.pex` (Python EXecutable)
 files, standalone Python environments in the spirit of :ref:`virtualenv`.
-``.pex`` files are just carefully constructed zip files with a
-``#!/usr/bin/env python`` and special ``__main__.py``, and are designed to make
-deployment of Python applications as simple as ``cp``.
+:file:`.pex` files are just carefully constructed zip files with a
+``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
+make deployment of Python applications as simple as ``cp``.
 
 
 .. _spack:

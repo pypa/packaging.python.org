@@ -129,8 +129,8 @@ when you share your project with others. You should get output similar to this
 Using installed packages
 ------------------------
 
-Now that Requests is installed you can create a simple ``main.py`` file to
-use it:
+Now that Requests is installed you can create a simple :file:`main.py` file
+to use it:
 
 .. code-block:: python
 
