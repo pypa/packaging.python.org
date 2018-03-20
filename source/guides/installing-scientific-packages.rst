@@ -4,9 +4,6 @@
 Installing Scientific Packages
 ==============================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-07-24
-
 .. contents:: Contents
    :local:
 
@@ -22,23 +19,16 @@ for most of the software in the `scientific Python stack
 to interoperate with different FORTRAN libraries, and can take advantage
 of different levels of vectorised instructions available in modern CPUs.
 
-Unfortunately, as of December 2013, given NumPy's current build and
-distribution model, the standard tools currently aren't quite up to the
-task of distributing pre-built NumPy binaries, as most users aren't going
-to know which version they need, and the ``wheel`` format currently doesn't
-allow the installer to make that decision on the user's behalf at install
-time.
+Starting with version 1.10.4 of NumPy and version 1.0.0 of SciPy, pre-built
+32-bit and 64-bit binaries in the ``wheel`` format are available for all major
+operating systems (Windows, macOS, and Linux) on PyPI. Note, however, that on
+Windows, NumPy binaries are linked against the `ATLAS
+<http://www.netlib.org/atlas/>` BLAS/LAPACK library, restricted to SSE2
+instructions, so they may not provide optimal linear algebra performance.
 
-It is expected that this situation will eventually be resolved either by
-future iterations of the standard tools providing full support for the
-intricacies of NumPy's current build and distribution process, or by the
-NumPy developers choosing one build variant as the "lowest acceptable
-common denominator" and publishing that as a wheel file on PyPI.
-
-In the meantime, however, there are a number of alternative options for
-obtaining scientific Python libraries (or any other Python libraries that
-require a compilation environment to install from source and don't provide
-pre-built wheel files on PyPI).
+There are a number of alternative options for obtaining scientific Python
+libraries (or any other Python libraries that require a compilation environment
+to install from source and don't provide pre-built wheel files on PyPI).
 
 
 Building from source
@@ -121,7 +111,7 @@ Spack
 designed to support multiple versions, configurations, platforms, and compilers.
 It was built to support the needs of large supercomputing centers and scientific
 application teams, who must often build software many different ways.
-Spack is not limited to Python; it can install packages for ``C``, ``C++``, 
+Spack is not limited to Python; it can install packages for ``C``, ``C++``,
 ``Fortran``, ``R``, and other languages.  It is non-destructive; installing
 a new version of one package does not break existing installations, so many
 configurations can coexist on the same system.
@@ -137,21 +127,21 @@ be loaded and unloaded from the user's environment.
 The conda cross-platform package manager
 ----------------------------------------
 
-`Anaconda <https://store.continuum.io/cshop/anaconda/>`__ is a Python 
-distribution published by Continuum Analytics. It is a stable collection of  
-Open Source packages for big data and scientific use.  About 100 are 
-installed with Anaconda 2.2, and a total of 279 can be installed and 
-updated from the Anaconda repository. 
+`Anaconda <https://www.anaconda.com/download/>`_ is a Python distribution
+published by Continuum Analytics. It is a stable collection of Open Source
+packages for big data and scientific use.  As of the 5.0 release of Anaconda,
+about 200 packages are installed by default, and a total of 400-500 can be
+installed and updated from the Anaconda repository.
 
-``conda`` an open source (BSD licensed) package management system and 
-environment management system included in Anaconda that allows users to 
-install multiple versions of binary software packages and their dependencies, 
-and easily switch between them. It is a cross-platform tool working on Windows, 
+``conda`` is an open source (BSD licensed) package management system and
+environment management system included in Anaconda that allows users to install
+multiple versions of binary software packages and their dependencies, and
+easily switch between them. It is a cross-platform tool working on Windows,
 macOS, and Linux. Conda can be used to package up and distribute all kinds of
-packages, it is not limited to just Python packages.   It has full support 
-for native virtual environments. Conda makes environments first-class citizens, 
-making it easy to create independent environments even for C libraries. It is 
-written in Python, but is Python-agnostic. Conda manages Python itself as a 
-package, so that `conda update python` is possible, in contrast to pip, which only 
-manages Python packages. Conda is available in Anaconda and Miniconda 
-(an easy-to-install download with just Python and conda). 
+packages, it is not limited to just Python packages. It has full support for
+native virtual environments. Conda makes environments first-class citizens,
+making it easy to create independent environments even for C libraries. It is
+written in Python, but is Python-agnostic. Conda manages Python itself as a
+package, so that `conda update python` is possible, in contrast to pip, which
+only manages Python packages. Conda is available in Anaconda and Miniconda (an
+easy-to-install download with just Python and conda).
