@@ -77,7 +77,7 @@ Validate that the following is in place, before publishing the package:
 4. Using Twine to publish
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Twine has a number of advantages, apart from being faster it is now now the supported method for publishing packages.
+Twine has a number of advantages, apart from being faster it is now the supported method for publishing packages.
 
 Make sure you are using the newest version of Twine, at least 1.9.
 
