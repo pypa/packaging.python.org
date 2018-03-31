@@ -121,6 +121,8 @@ Example::
     Summary: A module for collecting votes from beagles.
 
 
+.. _metadata_description:
+
 Description (optional)
 ======================
 
@@ -164,6 +166,8 @@ Alternatively, the distribution's description may instead be provided in the
 message body (i.e., after a completely blank line following the headers, with
 no indentation or other special formatting necessary).
 
+
+.. _metadata_description_content_type:
 
 Description-Content-Type (optional)
 ===================================

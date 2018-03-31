@@ -24,3 +24,4 @@ introduction to packaging, see :doc:`/tutorials/index`.
    hosting-your-own-index
    migrating-to-pypi-org
    using-testpypi
+   making-a-pypi-friendly-readme
