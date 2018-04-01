@@ -82,10 +82,9 @@ README.rst / README.md
 All projects should contain a readme file that covers the goal of the project.
 The most common format is `reStructuredText
 <http://docutils.sourceforge.net/rst.html>`_ with an "rst" extension, although
-this is not a requirement; the `CommonMark <http://spec.commonmark.org/>`_
-dialect of `Markdown <https://daringfireball.net/projects/markdown/>`_ is
-supported as well (look at ``setup()``'s :ref:`long_description_content_type
-<description>` argument).
+this is not a requirement; multiple variants of `Markdown
+<https://daringfireball.net/projects/markdown/>`_ are supported as well (look
+at ``setup()``'s :ref:`long_description_content_type <description>` argument).
 
 For an example, see `README.md
 <https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA
@@ -237,7 +236,7 @@ can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the `CommonMark <http://spec.commonmark.org/>`_ dialect of `Markdown
+and the Github-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
 url
