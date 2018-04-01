@@ -24,7 +24,7 @@ Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_ren
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
   or `CommonMark <http://commonmark.org/>`_)
 
-It's customary to save your README file in the root of your project, in the same directory as your ``setup.py`` file.
+It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
 
 
 Write your README file
@@ -46,23 +46,24 @@ Including your README in your package's metadata
 ------------------------------------------------
 
 To include your README's contents as your package description,
-set your project's ``Description`` and ``Description-Content-Type`` metadata.
-
-For example, to set these values in your package's ``setup.py`` file,
-use ``setup()``'s ``long_description`` and ``long_description_content_type``.
-
-Set the value of ``long_description`` to the contents of the README file itself.
-Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
-such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdown``.
+set your project's ``Description`` and ``Description-Content-Type`` metadata,
+typically in your project's :file:`setup.py` file.
 
 .. seealso::
 
    * :any:`metadata_description`
    * :any:`metadata_description_content_type`
 
-For example, see this example :file:`setup.py` file,
-which reads the contents of :file:`README.md` as ``long_description`` and
-identifies the markup as GitHub-flavored markdown:
+For example, to set these values in a package's :file:`setup.py` file,
+use ``setup()``'s ``long_description`` and ``long_description_content_type``.
+
+Set the value of ``long_description`` to the contents of the README file itself.
+Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
+such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdown``.
+
+For example, see this :file:`setup.py` file,
+which reads the contents of :file:`README.md` as ``long_description``
+and identifies the markup as GitHub-flavored Markdown:
 
 .. code-block:: python
 
