@@ -209,9 +209,11 @@ be ``UTF-8``.
 
 Other parameters might be specific to the chosen subtype. For example, for the
 ``markdown`` subtype, there is an optional ``variant`` parameter that allows
-specifying the variant of Markdown in use (defaults to ``CommonMark`` if not
-specified). Currently, the only value that is recognized is:
+specifying the variant of Markdown in use (defaults to ``GFM`` if not
+specified). Currently, two variants are recognized:
 
+- ``GFM`` for `Github-flavored Markdown
+  <https://tools.ietf.org/html/rfc7764#section-3.2>`_
 - ``CommonMark`` for `CommonMark
   <https://tools.ietf.org/html/rfc7764#section-3.5>`_
 
@@ -225,7 +227,7 @@ Example::
 
 Example::
 
-    Description-Content-Type: text/markdown; charset=UTF-8; variant=CommonMark
+    Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
 
 Example::
 
@@ -241,10 +243,10 @@ with an unrecognized value).
 
 If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is not
 specified or is set to an unrecognized value, then the assumed ``variant`` is
-``CommonMark``.
+``GFM``.
 
 So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
-``variant`` defaults to ``CommonMark`` and thus it is equivalent to the example
+``variant`` defaults to ``GFM`` and thus it is equivalent to the example
 before it.
 
 
