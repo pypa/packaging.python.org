@@ -57,7 +57,7 @@ typically in your project's :file:`setup.py` file.
 For example, to set these values in a package's :file:`setup.py` file,
 use ``setup()``'s ``long_description`` and ``long_description_content_type``.
 
-Set the value of ``long_description`` to the contents of the README file itself.
+Set the value of ``long_description`` to the contents (not the path) of the README file itself.
 Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
 such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdown``.
 
