@@ -79,5 +79,5 @@ and identifies the markup as GitHub-flavored Markdown:
        name='an_example_package',
        # other arguments omitted
        long_description=long_description,
-       long_description_content_type='text/markdown; variant=gfm'
+       long_description_content_type='text/markdown'
    )
