@@ -12,9 +12,7 @@ This guide helps you:
 Creating a README file
 ----------------------
 
-README files are often named ``README`` or ``README.txt`` for plain-text READMEs,
-or :samp:`README.{extension}` where *extension* indicates a markup language
-(such as ``rst`` for reStructuredText or ``md`` for Markdown).
+README files for Python projects are often named ``README``, ``README.txt``, ``README.rst``, or ``README.md``.
 
 For your README to display properly on PyPI, choose a markup language supported by PyPI.
 Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_renderer>`_ are:
