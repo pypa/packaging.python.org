@@ -11,6 +11,8 @@ in the package metadata. If they do not match, it will attempt to install the la
 
 This mechanism can be used to drop support for older Python versions, by amending the "Requires-Python" attribute in the package metadata.
 
+This guide is specifically for users of :ref:`setuptools`, other packaging tools such as ``flit`` may offer similar functionality but users will need to consult relevant documentation.
+
 Requirements
 ------------
 
