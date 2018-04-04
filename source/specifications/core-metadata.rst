@@ -368,7 +368,7 @@ Text indicating the license covering the distribution where the license
 is not a selection from the "License" Trove classifiers. See
 :ref:`"Classifier" <metadata-classifier>` below.
 This field may also be used to specify a
-particular version of a licencse which is named via the ``Classifier``
+particular version of a license which is named via the ``Classifier``
 field, or to indicate a variation or exception to such a license.
 
 Examples::
