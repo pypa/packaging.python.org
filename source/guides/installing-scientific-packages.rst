@@ -1,7 +1,7 @@
 .. _`NumPy and the Science Stack`:
 
 ==============================
-Installing Scientific Packages
+Installing scientific packages
 ==============================
 
 .. contents:: Contents
