@@ -1,4 +1,4 @@
-.. _`Dropping Support for Older Python Versions`:
+.. _`Dropping support for older Python versions`:
 
 ==========================================
 Dropping Support for Older Python Versions
