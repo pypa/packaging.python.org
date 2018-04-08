@@ -1,7 +1,7 @@
 
-.. _`Multi-version Installs`:
+.. _`Multi-version installs`:
 
-Multi-version Installs
+Multi-version installs
 ======================
 
 
