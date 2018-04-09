@@ -911,24 +911,6 @@ registering the project.
 
     twine upload dist/*
 
-
-.. note:: Twine allows you to pre-sign your distribution files using gpg:
-
-  .. code-block:: text
-
-      gpg --detach-sign -a dist/package-1.0.1.tar.gz
-
-  and pass the gpg-created .asc files into the command line invocation:
-
-  .. code-block:: text
-
-      twine upload dist/package-1.0.1.tar.gz package-1.0.1.tar.gz.asc
-
-  This enables you to be assured that you're only ever typing your gpg
-  passphrase into gpg itself and not anything else since *you* will be
-  the one directly executing the ``gpg`` command.
-
-
 You can see if your package has successfully uploaded by navigating to the URL
 ``https://pypi.org/project/<sampleproject>`` where ``sampleproject`` is
 the name of your project that you uploaded. It may take a minute or two for
