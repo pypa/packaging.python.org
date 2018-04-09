@@ -2,7 +2,7 @@
 .. _declaring-build-dependencies:
 
 ===================================
-Declaring Build System Dependencies
+Declaring build system dependencies
 ===================================
 
 `pyproject.toml` is a build system independent file format defined in :pep:`518`

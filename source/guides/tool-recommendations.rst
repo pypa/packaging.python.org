@@ -8,7 +8,7 @@ If you're familiar with Python packaging and installation, and just want to know
 what tools are currently recommended, then here it is.
 
 
-Application Dependency Management
+Application dependency management
 =================================
 
 Use :ref:`pipenv` to manage library dependencies when developing Python
@@ -18,7 +18,7 @@ on using ``pipenv``.
 Consider other tools such as :ref:`pip` when ``pipenv`` does not meet your use
 case.
 
-Installation Tool Recommendations
+Installation tool recommendations
 =================================
 
 * Use :ref:`pip` to install Python :term:`packages <Distribution Package>` from
@@ -38,7 +38,7 @@ Installation Tool Recommendations
     on the scientific community.
 
 
-Packaging Tool Recommendations
+Packaging tool recommendations
 ==============================
 
 * Use :ref:`setuptools` to define projects and create :term:`Source Distributions
@@ -52,7 +52,7 @@ Packaging Tool Recommendations
   to :term:`PyPI <Python Package Index (PyPI)>`.
 
 
-Publishing Platform Migration
+Publishing platform migration
 =============================
 
 The original Python Package Index implementation (hosted at

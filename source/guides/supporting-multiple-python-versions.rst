@@ -45,7 +45,7 @@ correctly on all the target Python versions (and OSs!) could be very
 time-consuming. Fortunately, several tools are available for dealing with
 this, and these will briefly be discussed here.
 
-Automated Testing and Continuous Integration
+Automated testing and continuous integration
 --------------------------------------------
 
 Several hosted services for automated testing are available. These services
@@ -120,7 +120,7 @@ package: with python-future_, the ``futurize`` script can be called with the
 provides for forward-compatibility to Python 3. Any remaining compatibility
 problems would require manual changes.
 
-What's in Which Python?
+What's in which Python?
 -----------------------
 
 Ned Batchelder provides a list of changes in each Python release for

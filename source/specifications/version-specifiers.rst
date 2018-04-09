@@ -2,7 +2,7 @@
 .. _version-specifiers:
 
 ==================
-Version Specifiers
+Version specifiers
 ==================
 
 Version numbering requirements and the semantics for specifying comparisons
