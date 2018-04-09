@@ -1,7 +1,7 @@
 .. _distributing-packages:
 
 ===================================
-Packaging and Distributing Projects
+Packaging and distributing projects
 ===================================
 
 This section covers the basics of how to configure, package and distribute your
@@ -22,7 +22,7 @@ Packaging User Guide.
    :local:
 
 
-Requirements for Packaging and Distributing
+Requirements for packaging and distributing
 ===========================================
 
 1. First, make sure you have already fulfilled the :ref:`requirements for
@@ -39,11 +39,11 @@ Requirements for Packaging and Distributing
    <Uploading your Project to PyPI>`).
 
 
-Configuring your Project
+Configuring your project
 ========================
 
 
-Initial Files
+Initial files
 -------------
 
 setup.py
@@ -647,7 +647,7 @@ For example::
    1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
-Working in "Development Mode"
+Working in "development mode"
 =============================
 
 Although not required, it's common to locally install your project in "editable"
@@ -697,9 +697,9 @@ For more information, see the `Development Mode
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_ section
 of the `setuptools docs <https://setuptools.readthedocs.io>`_.
 
-.. _`Packaging Your Project`:
+.. _`Packaging your project`:
 
-Packaging your Project
+Packaging your project
 ======================
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
@@ -709,7 +709,7 @@ project.
 
 
 
-Source Distributions
+Source distributions
 --------------------
 
 Minimally, you should create a :term:`Source Distribution <Source Distribution (or

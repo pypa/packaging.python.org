@@ -1,7 +1,7 @@
 .. _`core-metadata`:
 
 ============================
-Core Metadata Specifications
+Core metadata specifications
 ============================
 
 The current core metadata file format, version 2.1, is specified in :pep:`566`.

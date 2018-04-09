@@ -1,4 +1,4 @@
-PyPA Specifications
+PyPA specifications
 ###################
 
 This is a list of currently active interoperability specifications maintained

@@ -2,7 +2,7 @@
 .. _platform-compatibility-tags:
 
 ===========================
-Platform Compatibility Tags
+Platform compatibility tags
 ===========================
 
 The platform compatibility tagging model used for ``wheel`` distribution is

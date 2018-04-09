@@ -1,7 +1,7 @@
 .. _`Dropping support for older Python versions`:
 
 ==========================================
-Dropping Support for Older Python Versions
+Dropping support for older Python versions
 ==========================================
 
 Dropping support for older Python versions is supported by the standard :ref:`core-metadata` 1.2 specification via a "Requires-Python" attribute.

@@ -36,7 +36,7 @@ Supporting multiple hardware platforms
 
 
 
-OS Packaging & Installers
+OS packaging & installers
 =========================
 
 ::
@@ -77,7 +77,7 @@ There are several examples for different kinds of programs (console, GUI) in
 the `documentation <https://pynsist.readthedocs.io>`__. The tool is released
 under the MIT-licence.
 
-Application Bundles
+Application bundles
 ===================
 
 ::
@@ -88,7 +88,7 @@ Application Bundles
   - wheels kinda/sorta
 
 
-Configuration Management
+Configuration management
 ========================
 
 ::

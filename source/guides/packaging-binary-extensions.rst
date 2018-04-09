@@ -297,7 +297,7 @@ For interim guidance on this topic, see the discussion in
    discouraged
 
 
-Additional Resources
+Additional resources
 ====================
 
 Cross-platform development and distribution of extension modules is a complex topic,

@@ -2,7 +2,7 @@
 .. _dependency-specifiers:
 
 =====================
-Dependency Specifiers
+Dependency specifiers
 =====================
 
 The dependency specifier format used to declare a dependency on another

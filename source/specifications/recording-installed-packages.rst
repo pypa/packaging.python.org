@@ -2,7 +2,7 @@
 .. _recording-installed-packages:
 
 =================================
-Recording Installed Distributions
+Recording installed distributions
 =================================
 
 The format used to record installed packages and their contents is defined in

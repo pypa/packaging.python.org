@@ -2,11 +2,11 @@
 .. _distribution-formats:
 
 ====================
-Distribution Formats
+Distribution formats
 ====================
 
 
-Source Distribution Format
+Source distribution format
 ==========================
 
 The source distribution format (``sdist``) is not currently formally defined.
@@ -15,7 +15,7 @@ standard library's ``distutils`` module when executing the ``setup.py sdist``
 command.
 
 
-Binary Distribution Format
+Binary distribution format
 ==========================
 
 The binary distribution format (``wheel``) is defined in :pep:`427`.
