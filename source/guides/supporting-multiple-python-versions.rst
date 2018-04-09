@@ -124,9 +124,9 @@ What's in Which Python?
 -----------------------
 
 Ned Batchelder provides a list of changes in each Python release for
-`Python 2 <http://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__
-and separately
-for `Python 3 <http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__.
+`Python 2 <https://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__,
+`Python 3.0-3.3 <https://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__ and
+`Python 3.4-3.6 <https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html>`__.
 These lists may be used to check whether any changes between Python versions
 may affect your package.
 
