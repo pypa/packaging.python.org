@@ -2,11 +2,7 @@ Making a PyPI-friendly README
 =============================
 
 README files can help your users understand your project and can be used to set your project's description on PyPI.
-This guide helps you:
-
-* create a README in a PyPI-friendly format
-* include your README in your package so it appears on PyPI
-* find resources for writing README content that will help your users
+This guide helps you create a README in a PyPI-friendly format and include your README in your package so it appears on PyPI.
 
 
 Creating a README file
@@ -23,21 +19,6 @@ Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_ren
   or `CommonMark <http://commonmark.org/>`_)
 
 It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
-
-
-Write your README file
-----------------------
-
-Your README file can contain whatever you want, but it's common to include information that helps your reader understand:
-
-* what your project is and how it can help them
-* how to install or use your project
-* where to go to contribute or get help
-
-For more information about writing READMEs, check out these resources:
-
-* `README checklist <https://github.com/ddbeck/readme-checklist>`_
-* `Awesome README <https://github.com/matiassingers/awesome-readme>`_
 
 
 Including your README in your package's metadata
