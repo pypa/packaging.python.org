@@ -9,8 +9,13 @@ It defines the following specification as the canonical source for the core
 metadata file format.
 
 Fields defined in the following specification should be considered valid,
-complete and not subject to change. Fields should be considered "optional" for
-versions which predate their introduction.
+complete and not subject to change. The required fields are:
+
+- ``Metadata-Version``
+- ``Name``
+- ``Version``
+
+All the other fields are optional.
 
 .. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
    field format specification was relaxed to accept the syntax used by popular
@@ -21,7 +26,6 @@ versions which predate their introduction.
 
 .. contents:: Contents
    :local:
-
 
 Metadata-Version
 ================
@@ -120,9 +124,16 @@ Example::
 
     Summary: A module for collecting votes from beagles.
 
+.. Some of these headings used to have a suffix "(optional)". This became part
+   of links (...#description-optional). We have changed the headings (required
+   fields are now listed at the start of the specification), but added explicit
+   link targets like this one, so that links to the individual sections are not
+   broken.
 
-Description (optional)
-======================
+.. _description-optional:
+
+Description
+===========
 
 .. versionadded:: 1.0
 .. versionchanged:: 2.1
@@ -164,9 +175,10 @@ Alternatively, the distribution's description may instead be provided in the
 message body (i.e., after a completely blank line following the headers, with
 no indentation or other special formatting necessary).
 
+.. _description-content-type-optional:
 
-Description-Content-Type (optional)
-===================================
+Description-Content-Type
+========================
 
 .. versionadded:: 2.1
 
@@ -249,9 +261,10 @@ So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
 ``variant`` defaults to ``GFM`` and thus it is equivalent to the example
 before it.
 
+.. _keywords-optional:
 
-Keywords (optional)
-===================
+Keywords
+========
 
 .. versionadded:: 1.0
 
@@ -262,9 +275,10 @@ Example::
 
     Keywords: dog puppy voting election
 
+.. _home-page-optional:
 
-Home-page (optional)
-====================
+Home-page
+=========
 
 .. versionadded:: 1.0
 
@@ -284,9 +298,10 @@ A string containing the URL from which this version of the distribution
 can be downloaded.  (This means that the URL can't be something like
 ".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
 
+.. _author-optional:
 
-Author (optional)
-=================
+Author
+======
 
 .. versionadded:: 1.0
 
@@ -298,9 +313,10 @@ Example::
     Author: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+.. _author-email-optional:
 
-Author-email (optional)
-=======================
+Author-email
+============
 
 .. versionadded:: 1.0
 
@@ -317,9 +333,10 @@ addresses::
 
     Author-email: cschultz@example.com, snoopy@peanuts.com
 
+.. _maintainer-optional:
 
-Maintainer (optional)
-=====================
+Maintainer
+==========
 
 .. versionadded:: 1.2
 
@@ -335,9 +352,10 @@ Example::
     Maintainer: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+.. _maintainer-email-optional:
 
-Maintainer-email (optional)
-===========================
+Maintainer-email
+================
 
 .. versionadded:: 1.2
 
@@ -358,9 +376,10 @@ addresses::
 
     Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
+.. _license-optional:
 
-License (optional)
-==================
+License
+=======
 
 .. versionadded:: 1.0
 
@@ -580,8 +599,10 @@ The label is a free text limited to 32 signs.
 
 .. _metadata_provides_extra:
 
-Provides-Extra (optional, multiple use)
-=======================================
+.. _provides-extra-optional-multiple-use:
+
+Provides-Extra (multiple use)
+=============================
 
 .. versionadded:: 2.1
 
