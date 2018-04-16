@@ -48,7 +48,7 @@ Packaging tool recommendations
   :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is
   especially beneficial, if your project contains binary extensions.
 
-* Use `twine <https://pypi.python.org/pypi/twine>`_ for uploading distributions
+* Use `twine <https://pypi.org/project/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
 
 

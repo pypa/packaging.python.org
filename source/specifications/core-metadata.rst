@@ -638,7 +638,7 @@ It is legal to specify ``Provides-Extra:`` without referencing it in any
 .. [1] reStructuredText markup:
    http://docutils.sourceforge.net/
 
-.. _`Python Package Index`: http://pypi.python.org/pypi/
+.. _`Python Package Index`: http://pypi.org/
 
 .. [2] RFC 822 Long Header Fields:
    http://www.freesoft.org/CIE/RFC/822/7.htm
