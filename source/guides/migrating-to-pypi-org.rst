@@ -114,7 +114,7 @@ Browsing packages
 -----------------
 
 While ``pypi.python.org`` is may still be used in links from other PyPA
-documentation, etc, the default interface for browsing packages is ``pypi.org``. During the transition, at some point``pypi.python.org`` will automatically be redirected to ``pypi.org``).
+documentation, etc, the default interface for browsing packages is ``pypi.org``. The domain pypi.python.org now redirects to pypi.org, and may be disabled sometime in the future.
 
 
 Downloading packages
