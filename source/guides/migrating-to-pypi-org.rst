@@ -87,9 +87,11 @@ uploading artifacts.
 Using TestPyPI
 --------------
 
-If you use TestPyPI, you must update your ``$HOME/.pypirc`` to handle
-TestPyPI's new location, by replacing ``https://testpypi.python.org/pypi``
-with ``https://test.pypi.org/legacy/``, for example:
+Legacy TestPyPI (testpypi.python.org) is no longer available; use
+`test.pypi.org <https://test.pypi.org>`_ instead. If you use TestPyPI,
+you must update your ``$HOME/.pypirc`` to handle TestPyPI's new
+location, by replacing ``https://testpypi.python.org/pypi`` with
+``https://test.pypi.org/legacy/``, for example:
 
 .. code::
 
@@ -132,3 +134,11 @@ Managing published packages and releases
 ``pypi.org`` provides a fully functional interface for logged in users to
 manage their published packages and releases.
 
+Visiting legacy PyPI
+--------------------
+
+A temporary installation of the legacy PyPI codebase is `available at
+legacy.pypi.org <http://legacy.pypi.org/>`_ until 30 April 2018, when
+it will be shut down. It reads from the same database backend and file
+store as pypi.org. See `the Warehouse roadmap
+<https://wiki.python.org/psf/WarehouseRoadmap>`_ for further details.
