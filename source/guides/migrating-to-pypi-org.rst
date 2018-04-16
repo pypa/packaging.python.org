@@ -3,21 +3,17 @@
 Migrating to PyPI.org
 =====================
 
-:term:`PyPI.org` is a new, rewritten version of PyPI that is replacing the
-legacy code base located at `pypi.python.org`. As it becomes the default, and
-eventually only, version of PyPI people are expected to interact with, there
-will be a transition period where tooling and processes are expected to need to
-update to deal with the new location.
-
-This section covers how to migrate to the new PyPI.org for different tasks.
-
+:term:`PyPI.org` is the new, rewritten version of PyPI that has replaced the
+legacy PyPI code base. It is the default version of PyPI that people are
+expected to use. These are the tools and processes that people will need to
+interact with ``PyPI.org``.
 
 Publishing releases
 -------------------
 
-``pypi.org`` became the default upload platform in September 2016.
+``pypi.org`` is the default upload platform as of September 2016.
 
-Uploads through ``pypi.python.org`` were *switched off* on **July 3, 2017**.
+Uploads through ``pypi.python.org`` were *switched off* on **July 3, 2017**. As of April 13th, 2018,``pypi.org`` is the URL for PyPI.
 
 The recommended way to migrate to PyPI.org for uploading is to ensure that you
 are using a new enough version of your upload tool.
@@ -111,46 +107,24 @@ Registering new user accounts
 -----------------------------
 
 In order to help mitigate spam attacks against PyPI, new user registration
-through ``pypi.python.org`` was *switched off* on **February 20, 2018**.
+through ``pypi.python.org`` was *switched off* on **February 20, 2018**. New user registrations at ``pypi.org`` are open.
 
 
 Browsing packages
 -----------------
 
-``pypi.python.org`` is currently still the default interface for browsing packages
-(used in links from other PyPA documentation, etc).
-
-``pypi.org`` is fully functional for purposes of browsing available packages, and
-some users may choose to opt in to using it.
-
-``pypi.org`` is expected to become the default recommended interface for browsing
-once the limitations in the next section are addressed (at which point
-attempts to access ``pypi.python.org`` will automatically be redirected to
-``pypi.org``).
+While ``pypi.python.org`` is may still be used in links from other PyPA
+documentation, etc, the default interface for browsing packages is ``pypi.org``. During the transition, at some point``pypi.python.org`` will automatically be redirected to ``pypi.org``).
 
 
 Downloading packages
 --------------------
 
-``pypi.python.org`` is currently still the default host for downloading packages.
-
-``pypi.org`` is fully functional for purposes of downloading packages, and some users
-may choose to opt in to using it, but its current hosting setup isn't capable of
-handling the full bandwidth requirements of being the default download source (even
-after accounting for the Fastly CDN).
-
-``pypi.org`` is expected to become the default host for downloading
-packages once it has been redeployed into an environment capable of
-handling the associated network load. The setup work is being tracked
-as part of the `Launch milestone
-<https://github.com/pypa/warehouse/milestone/1>`_.
-
+``pypi.org`` is the default host for downloading packages.
 
 Managing published packages and releases
 ----------------------------------------
 
-``pypi.python.org`` provides an interface for logged in users to manage their
-published packages and releases.
+``pypi.org`` provides a fully functional interface for logged in users to
+manage their published packages and releases.
 
-``pypi.org`` also provides such an interface which is fully functional, and
-some users may choose to opt in to using it.
