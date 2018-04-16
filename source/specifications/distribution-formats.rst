@@ -9,7 +9,7 @@ Distribution Formats
 Source Distribution Format
 ==========================
 
-Given :pep:`517`, a new style of source tree format is defeined
+Given :pep:`517`, a new style of source tree format is defined
 based in ``pyproject.toml`` which is defined in :pep:`518`.
 
 But the legacy source distribution format still exists and
