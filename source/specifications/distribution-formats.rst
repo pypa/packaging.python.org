@@ -9,13 +9,14 @@ Distribution Formats
 Source Distribution Format
 ==========================
 
-Given :pep:`517`, a new style of source tree format is defined
-based in ``pyproject.toml`` which is defined in :pep:`518`.
+With adoption of :pep:`517`, a new style of source tree format is defined
+based in ``pyproject.toml`` which is defined on :pep:`518`.
 
-But the legacy source distribution format still exists and
+However, the legacy source distribution format still exists and
 is defined using ``setup.py``.
-It's format is implicitly defined by the behaviour of the
-standard library's ``distutils`` module when executing the ``setup.py sdist``.
+Its format is implicitly defined by the behaviour of the
+``distutils`` module in the standard library when executing
+the ``setup.py sdist``.
 
 
 Binary Distribution Format
