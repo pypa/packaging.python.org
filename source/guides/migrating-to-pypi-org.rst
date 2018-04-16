@@ -13,7 +13,8 @@ Publishing releases
 
 ``pypi.org`` is the default upload platform as of September 2016.
 
-Uploads through ``pypi.python.org`` were *switched off* on **July 3, 2017**. As of April 13th, 2018,``pypi.org`` is the URL for PyPI.
+Uploads through ``pypi.python.org`` were *switched off* on **July 3, 2017**.
+As of April 13th, 2018,``pypi.org`` is the URL for PyPI.
 
 The recommended way to migrate to PyPI.org for uploading is to ensure that you
 are using a new enough version of your upload tool.
@@ -107,14 +108,17 @@ Registering new user accounts
 -----------------------------
 
 In order to help mitigate spam attacks against PyPI, new user registration
-through ``pypi.python.org`` was *switched off* on **February 20, 2018**. New user registrations at ``pypi.org`` are open.
+through ``pypi.python.org`` was *switched off* on **February 20, 2018**.
+New user registrations at ``pypi.org`` are open.
 
 
 Browsing packages
 -----------------
 
 While ``pypi.python.org`` is may still be used in links from other PyPA
-documentation, etc, the default interface for browsing packages is ``pypi.org``. The domain pypi.python.org now redirects to pypi.org, and may be disabled sometime in the future.
+documentation, etc, the default interface for browsing packages is
+``pypi.org``. The domain pypi.python.org now redirects to pypi.org,
+and may be disabled sometime in the future.
 
 
 Downloading packages
