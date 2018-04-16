@@ -9,10 +9,13 @@ Distribution Formats
 Source Distribution Format
 ==========================
 
-The source distribution format (``sdist``) is not currently formally defined.
-Instead, its format is implicitly defined by the behaviour of the
-standard library's ``distutils`` module when executing the ``setup.py sdist``
-command.
+Given :pep:`517`, a new style of source tree format is defeined
+based in ``pyproject.toml`` which is defined in :pep:`518`.
+
+But the legacy source distribution format still exists and
+is defined using ``setup.py``.
+It's format is implicitly defined by the behaviour of the
+standard library's ``distutils`` module when executing the ``setup.py sdist``.
 
 
 Binary Distribution Format
