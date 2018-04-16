@@ -55,14 +55,12 @@ Packaging tool recommendations
 Publishing platform migration
 =============================
 
-The original Python Package Index implementation (hosted at
-`pypi.python.org <https://pypi.python.org>`_) is being phased out in favour
-of an updated implementation hosted at `pypi.org <https://pypi.org>`_. Both
-interfaces share a common database backend and file store, allowing the latter
-to assume more default responsibilities as it becomes more capable.
+The original Python Package Index implementation (previously hosted at
+`pypi.python.org <https://pypi.python.org>`_) has been phased out in favour
+of an updated implementation hosted at `pypi.org <https://pypi.org>`_.
 
-See :ref:`Migrating to PyPI.org` for more information on the current status of
-the migration, and the required settings for opting in to the migration early.
+See :ref:`Migrating to PyPI.org` for more information on the status of the
+migration, and what settings to change in your clients.
 
 ----
 
