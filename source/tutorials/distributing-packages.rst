@@ -903,9 +903,14 @@ Upload your distributions
 -------------------------
 
 Once you have an account you can upload your distributions to
-:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`. If this is
-your first time uploading a distribution for a new project, twine will handle
-registering the project.
+:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`.
+
+The process for uploading a release is the same regardless of whether
+or not the project already exists on PyPI - if it doesn't exist yet,
+it will be automatically created when the first release is uploaded.
+
+For the second and subsequent releases, PyPI only requires that the
+version number of the new release differ from any previous releases.
 
 .. code-block:: text
 
