@@ -40,7 +40,7 @@ configured in a file located at ``$HOME/.pypirc``. If you see a file like:
         pypi
 
     [pypi]
-    repository:https://pypi.python.org/pypi
+    repository:https://pypi.org/pypi
     username:yourusername
     password:yourpassword
 
