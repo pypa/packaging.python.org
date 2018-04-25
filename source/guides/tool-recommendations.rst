@@ -102,5 +102,5 @@ migration, and what settings to change in your clients.
        :ref:`setuptools` in June 2013, thereby making setuptools the default
        choice for packaging.
 
-.. _distribute: https://pypi.python.org/pypi/distribute
+.. _distribute: https://pypi.org/project/distribute
 .. _venv: https://docs.python.org/3/library/venv.html

@@ -93,7 +93,7 @@ for wrapping over the differences between Python 2 and Python 3. The six_
 package has enjoyed widespread use and may be regarded as a reliable way to
 write a single-source Python module that can be use in both Python 2 and 3.
 The six_ module can be used from as early as Python 2.5. A tool called
-`modernize <https://pypi.python.org/pypi/modernize>`_, developed by Armin
+`modernize <https://pypi.org/project/modernize>`_, developed by Armin
 Ronacher, can be used to automatically apply the code modifications provided
 by six_.
 

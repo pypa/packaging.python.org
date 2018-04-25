@@ -302,7 +302,7 @@ classifiers
   ],
 
 Provide a list of classifiers that categorize your project. For a full listing,
-see https://pypi.python.org/pypi?%3Aaction=list_classifiers.
+see https://pypi.org/classifiers/.
 
 Although the list of classifiers is often used to declare what Python versions
 a project supports, this information is only used for searching & browsing
