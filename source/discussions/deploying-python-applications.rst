@@ -60,7 +60,7 @@ Windows
 Pynsist
 ^^^^^^^
 
-`Pynsist <https://pypi.org/pypi/pynsist>`__ is a tool that bundles Python
+`Pynsist <https://pypi.org/project/pynsist>`__ is a tool that bundles Python
 programs together with the Python-interpreter into a single installer based on
 NSIS. In most cases, packaging only requires the user to choose a version of
 the Python-interpreter and declare the dependencies of the program. The tool

@@ -21,7 +21,7 @@ bandersnatch
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/bandersnatch/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/bandersnatch>`__ |
-`PyPI <https://pypi.org/pypi/bandersnatch>`__
+`PyPI <https://pypi.org/project/bandersnatch>`__
 
 bandersnatch is a PyPI mirroring client designed to efficiently create a
 complete mirror of the contents of PyPI.
@@ -36,11 +36,11 @@ distlib
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
-`PyPI <https://pypi.org/pypi/distlib>`__
+`PyPI <https://pypi.org/project/distlib>`__
 
 Distlib is a library which implements low-level functions that relate to
 packaging and distribution of Python software.  It consists in part of the
-functions from the `distutils2 <https://pypi.org/pypi/Distutils2>`_
+functions from the `distutils2 <https://pypi.org/project/Distutils2>`_
 project, which was intended to be released as ``packaging`` in the Python 3.3
 stdlib, but was removed shortly before Python 3.3 entered beta testing.
 
@@ -54,7 +54,7 @@ packaging
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `Github <https://github.com/pypa/packaging>`__ |
-`PyPI <https://pypi.org/pypi/packaging>`__ |
+`PyPI <https://pypi.org/project/packaging>`__ |
 User irc:#pypa |
 Dev irc:#pypa-dev
 
@@ -71,7 +71,7 @@ pip
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `Github <https://github.com/pypa/pip>`__ |
-`PyPI <https://pypi.org/pypi/pip/>`__ |
+`PyPI <https://pypi.org/project/pip/>`__ |
 User irc:#pypa |
 Dev irc:#pypa-dev
 
@@ -86,7 +86,7 @@ Pipenv
 `Docs <https://docs.pipenv.org>`__ |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
-`PyPI <https://pypi.org/pypi/pipenv>`__
+`PyPI <https://pypi.org/project/pipenv>`__
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
 Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
@@ -129,7 +129,7 @@ setuptools
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
-`PyPI <https://pypi.org/pypi/setuptools>`__ |
+`PyPI <https://pypi.org/project/setuptools>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
@@ -150,7 +150,7 @@ twine
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
 `Github <https://github.com/pypa/twine>`__ |
-`PyPI <https://pypi.org/pypi/twine>`__
+`PyPI <https://pypi.org/project/twine>`__
 
 Twine is a utility for interacting with PyPI, that offers a secure replacement for
 ``setup.py upload``.
@@ -167,7 +167,7 @@ virtualenv
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `Github <https://github.com/pypa/virtualenv>`__ |
-`PyPI <https://pypi.org/pypi/virtualenv/>`__ |
+`PyPI <https://pypi.org/project/virtualenv/>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
@@ -199,7 +199,7 @@ wheel
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/wheel/issues>`__ |
 `Bitbucket <https://github.com/pypa/wheel>`__ |
-`PyPI <https://pypi.org/pypi/wheel>`__ |
+`PyPI <https://pypi.org/project/wheel>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
@@ -221,7 +221,7 @@ bento
 `Mailing list <http://librelist.com/browser/bento>`__ |
 `Issues <https://github.com/cournape/Bento/issues>`__ |
 `Github <https://github.com/cournape/Bento>`__ |
-`PyPI <https://pypi.org/pypi/bento>`__
+`PyPI <https://pypi.org/project/bento>`__
 
 Bento is a packaging tool solution for Python software, targeted as an
 alternative to distutils, setuptools, distribute, etc....  Bento's philosophy is
@@ -235,7 +235,7 @@ buildout
 `Docs <http://www.buildout.org/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
-`PyPI <https://pypi.org/pypi/zc.buildout>`__ |
+`PyPI <https://pypi.org/project/zc.buildout>`__ |
 irc:#buildout
 
 Buildout is a Python-based build system for creating, assembling and deploying
@@ -273,7 +273,7 @@ devpi
 `Docs <http://doc.devpi.net/latest/>`__ |
 `Mailing List <https://groups.google.com/forum/#!forum/devpi-dev>`__ |
 `Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
-`PyPI <https://pypi.org/pypi/devpi>`__
+`PyPI <https://pypi.org/project/devpi>`__
 
 devpi features a powerful PyPI-compatible server and PyPI proxy cache with
 a complimentary command line tool to drive packaging, testing and release
@@ -285,7 +285,7 @@ flit
 
 `Docs <https://flit.readthedocs.io/en/latest/>`__ |
 `Issues <https://github.com/takluyver/flit/issues>`__ |
-`PyPI <https://pypi.org/pypi/flit>`__
+`PyPI <https://pypi.org/project/flit>`__
 
 Flit is a simple way to put Python packages and modules on PyPI. Flit packages
 a single importable module or package at a time, using the import name as the
@@ -298,7 +298,7 @@ enscons
 
 `Source <https://bitbucket.org/dholth/enscons/src>`__ |
 `Issues <https://bitbucket.org/dholth/enscons/issues>`__ |
-`PyPI <https://pypi.org/pypi/enscons>`__
+`PyPI <https://pypi.org/project/enscons>`__
 
 Enscons is a Python packaging tool based on `SCons`_. It builds pip-compatible
 source distributions and wheels without using distutils or setuptools,
@@ -330,7 +330,7 @@ pex
 
 `Docs <https://pex.readthedocs.io/en/latest/>`__ |
 `Github <https://github.com/pantsbuild/pex/>`__ |
-`PyPI <https://pypi.org/pypi/pex>`__
+`PyPI <https://pypi.org/project/pex>`__
 
 pex is both a library and tool for generating :file:`.pex` (Python EXecutable)
 files, standalone Python environments in the spirit of :ref:`virtualenv`.
@@ -416,4 +416,4 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 .. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
 
 
-.. _distribute: https://pypi.org/pypi/distribute
+.. _distribute: https://pypi.org/project/distribute

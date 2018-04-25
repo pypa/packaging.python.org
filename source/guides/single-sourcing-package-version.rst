@@ -40,8 +40,8 @@ number of your project:
     offers an API that both locations can use.
 
     Few tools you could use, in no particular order, and not necessarily complete:
-    `bumpversion <https://pypi.org/pypi/bumpversion>`_,
-    `changes <https://pypi.org/pypi/changes>`_, `zest.releaser <https://pypi.org/pypi/zest.releaser>`_.
+    `bumpversion <https://pypi.org/project/bumpversion>`_,
+    `changes <https://pypi.org/project/changes>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_.
 
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
@@ -117,4 +117,4 @@ number of your project:
 
 #.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)
     instead of in the code, and automatically extract it from there using
-    `setuptools_scm <https://pypi.org/pypi/setuptools_scm>`_.
+    `setuptools_scm <https://pypi.org/project/setuptools_scm>`_.

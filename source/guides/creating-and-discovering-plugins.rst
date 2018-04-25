@@ -51,7 +51,7 @@ naming convention.
 
 .. _flask: https://flask.pocoo.org
 .. _Flask-SQLAlchemy: https://flask-sqlalchemy.pocoo.org/
-.. _Flask-Talisman: https://pypi.org/pypi/flask-talisman
+.. _Flask-Talisman: https://pypi.org/project/flask-talisman
 .. _simple API: https://www.python.org/dev/peps/pep-0503/#specification
 
 
