@@ -45,7 +45,7 @@ correctly on all the target Python versions (and OSs!) could be very
 time-consuming. Fortunately, several tools are available for dealing with
 this, and these will briefly be discussed here.
 
-Automated Testing and Continuous Integration
+Automated testing and continuous integration
 --------------------------------------------
 
 Several hosted services for automated testing are available. These services
@@ -93,7 +93,7 @@ for wrapping over the differences between Python 2 and Python 3. The six_
 package has enjoyed widespread use and may be regarded as a reliable way to
 write a single-source Python module that can be use in both Python 2 and 3.
 The six_ module can be used from as early as Python 2.5. A tool called
-`modernize <https://pypi.python.org/pypi/modernize>`_, developed by Armin
+`modernize <https://pypi.org/project/modernize>`_, developed by Armin
 Ronacher, can be used to automatically apply the code modifications provided
 by six_.
 
@@ -120,13 +120,13 @@ package: with python-future_, the ``futurize`` script can be called with the
 provides for forward-compatibility to Python 3. Any remaining compatibility
 problems would require manual changes.
 
-What's in Which Python?
+What's in which Python?
 -----------------------
 
 Ned Batchelder provides a list of changes in each Python release for
-`Python 2 <http://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__
-and separately
-for `Python 3 <http://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__.
+`Python 2 <https://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__,
+`Python 3.0-3.3 <https://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__ and
+`Python 3.4-3.6 <https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html>`__.
 These lists may be used to check whether any changes between Python versions
 may affect your package.
 

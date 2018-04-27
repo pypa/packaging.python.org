@@ -21,7 +21,7 @@ valid HTTPS. At this time, the security of your user's installations depends on
 all repositories using a valid HTTPS setup.
 
 
-"Manual" Repository
+"Manual" repository
 ===================
 
 The directory layout is fairly simple, within a root directory you need to

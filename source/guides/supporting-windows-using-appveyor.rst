@@ -34,7 +34,7 @@ using Appveyor as a build service (even if not using it for testing) it is
 possible for projects without a dedicated Windows environment to provide
 Windows-targeted binaries.
 
-Setting Up
+Setting up
 ==========
 
 In order to use Appveyor to build Windows wheels for your project, you must
@@ -143,7 +143,7 @@ of links, one of which is "Artifacts". That page will include a list of links
 to the wheels for that Python version / architecture. You can download those
 wheels and upload them to PyPI as part of your release process.
 
-Additional Notes
+Additional notes
 ================
 
 Testing with tox

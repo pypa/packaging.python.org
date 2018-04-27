@@ -77,7 +77,7 @@ There are currently three different approaches to creating namespace packages:
     same namespace.
 
 Native namespace packages
---------------------------------
+-------------------------
 
 Python 3.3 added **implicit** namespace packages from :pep:`420`. All that is
 required to create a native namespace package is that you just omit

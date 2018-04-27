@@ -36,7 +36,7 @@ Supporting multiple hardware platforms
 
 
 
-OS Packaging & Installers
+OS packaging & installers
 =========================
 
 ::
@@ -60,7 +60,7 @@ Windows
 Pynsist
 ^^^^^^^
 
-`Pynsist <https://pypi.python.org/pypi/pynsist>`__ is a tool that bundles Python
+`Pynsist <https://pypi.org/project/pynsist>`__ is a tool that bundles Python
 programs together with the Python-interpreter into a single installer based on
 NSIS. In most cases, packaging only requires the user to choose a version of
 the Python-interpreter and declare the dependencies of the program. The tool
@@ -77,7 +77,7 @@ There are several examples for different kinds of programs (console, GUI) in
 the `documentation <https://pynsist.readthedocs.io>`__. The tool is released
 under the MIT-licence.
 
-Application Bundles
+Application bundles
 ===================
 
 ::
@@ -88,7 +88,7 @@ Application Bundles
   - wheels kinda/sorta
 
 
-Configuration Management
+Configuration management
 ========================
 
 ::

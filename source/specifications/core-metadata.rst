@@ -1,7 +1,7 @@
 .. _`core-metadata`:
 
 ============================
-Core Metadata Specifications
+Core metadata specifications
 ============================
 
 The current core metadata file format, version 2.1, is specified in :pep:`566`.
@@ -9,8 +9,13 @@ It defines the following specification as the canonical source for the core
 metadata file format.
 
 Fields defined in the following specification should be considered valid,
-complete and not subject to change. Fields should be considered "optional" for
-versions which predate their introduction.
+complete and not subject to change. The required fields are:
+
+- ``Metadata-Version``
+- ``Name``
+- ``Version``
+
+All the other fields are optional.
 
 .. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
    field format specification was relaxed to accept the syntax used by popular
@@ -21,7 +26,6 @@ versions which predate their introduction.
 
 .. contents:: Contents
    :local:
-
 
 Metadata-Version
 ================
@@ -120,11 +124,16 @@ Example::
 
     Summary: A module for collecting votes from beagles.
 
+.. Some of these headings used to have a suffix "(optional)". This became part
+   of links (...#description-optional). We have changed the headings (required
+   fields are now listed at the start of the specification), but added explicit
+   link targets like this one, so that links to the individual sections are not
+   broken.
 
-.. _metadata_description:
+.. _description-optional:
 
-Description (optional)
-======================
+Description
+===========
 
 .. versionadded:: 1.0
 .. versionchanged:: 2.1
@@ -166,11 +175,10 @@ Alternatively, the distribution's description may instead be provided in the
 message body (i.e., after a completely blank line following the headers, with
 no indentation or other special formatting necessary).
 
+.. _description-content-type-optional:
 
-.. _metadata_description_content_type:
-
-Description-Content-Type (optional)
-===================================
+Description-Content-Type
+========================
 
 .. versionadded:: 2.1
 
@@ -213,9 +221,11 @@ be ``UTF-8``.
 
 Other parameters might be specific to the chosen subtype. For example, for the
 ``markdown`` subtype, there is an optional ``variant`` parameter that allows
-specifying the variant of Markdown in use (defaults to ``CommonMark`` if not
-specified). Currently, the only value that is recognized is:
+specifying the variant of Markdown in use (defaults to ``GFM`` if not
+specified). Currently, two variants are recognized:
 
+- ``GFM`` for `Github-flavored Markdown
+  <https://tools.ietf.org/html/rfc7764#section-3.2>`_
 - ``CommonMark`` for `CommonMark
   <https://tools.ietf.org/html/rfc7764#section-3.5>`_
 
@@ -229,7 +239,7 @@ Example::
 
 Example::
 
-    Description-Content-Type: text/markdown; charset=UTF-8; variant=CommonMark
+    Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
 
 Example::
 
@@ -245,15 +255,16 @@ with an unrecognized value).
 
 If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is not
 specified or is set to an unrecognized value, then the assumed ``variant`` is
-``CommonMark``.
+``GFM``.
 
 So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
-``variant`` defaults to ``CommonMark`` and thus it is equivalent to the example
+``variant`` defaults to ``GFM`` and thus it is equivalent to the example
 before it.
 
+.. _keywords-optional:
 
-Keywords (optional)
-===================
+Keywords
+========
 
 .. versionadded:: 1.0
 
@@ -264,9 +275,10 @@ Example::
 
     Keywords: dog puppy voting election
 
+.. _home-page-optional:
 
-Home-page (optional)
-====================
+Home-page
+=========
 
 .. versionadded:: 1.0
 
@@ -286,9 +298,10 @@ A string containing the URL from which this version of the distribution
 can be downloaded.  (This means that the URL can't be something like
 ".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
 
+.. _author-optional:
 
-Author (optional)
-=================
+Author
+======
 
 .. versionadded:: 1.0
 
@@ -300,9 +313,10 @@ Example::
     Author: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+.. _author-email-optional:
 
-Author-email (optional)
-=======================
+Author-email
+============
 
 .. versionadded:: 1.0
 
@@ -319,9 +333,10 @@ addresses::
 
     Author-email: cschultz@example.com, snoopy@peanuts.com
 
+.. _maintainer-optional:
 
-Maintainer (optional)
-=====================
+Maintainer
+==========
 
 .. versionadded:: 1.2
 
@@ -337,9 +352,10 @@ Example::
     Maintainer: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+.. _maintainer-email-optional:
 
-Maintainer-email (optional)
-===========================
+Maintainer-email
+================
 
 .. versionadded:: 1.2
 
@@ -360,9 +376,10 @@ addresses::
 
     Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
+.. _license-optional:
 
-License (optional)
-==================
+License
+=======
 
 .. versionadded:: 1.0
 
@@ -370,7 +387,7 @@ Text indicating the license covering the distribution where the license
 is not a selection from the "License" Trove classifiers. See
 :ref:`"Classifier" <metadata-classifier>` below.
 This field may also be used to specify a
-particular version of a licencse which is named via the ``Classifier``
+particular version of a license which is named via the ``Classifier``
 field, or to indicate a variation or exception to such a license.
 
 Examples::
@@ -392,7 +409,7 @@ Classifier (multiple use)
 Each entry is a string giving a single classification value
 for the distribution.  Classifiers are described in :pep:`301`,
 and the Python Package Index publishes a dynamic list of
-`currently defined classifiers <https://pypi.python.org/pypi?%3Aaction=list_classifiers>`__.
+`currently defined classifiers <https://pypi.org/classifiers/>`__.
 
 This field may be followed by an environment marker after a semicolon.
 
@@ -582,8 +599,10 @@ The label is a free text limited to 32 signs.
 
 .. _metadata_provides_extra:
 
-Provides-Extra (optional, multiple use)
-=======================================
+.. _provides-extra-optional-multiple-use:
+
+Provides-Extra (multiple use)
+=============================
 
 .. versionadded:: 2.1
 
@@ -619,7 +638,7 @@ It is legal to specify ``Provides-Extra:`` without referencing it in any
 .. [1] reStructuredText markup:
    http://docutils.sourceforge.net/
 
-.. _`Python Package Index`: http://pypi.python.org/pypi/
+.. _`Python Package Index`: http://pypi.org/
 
 .. [2] RFC 822 Long Header Fields:
    http://www.freesoft.org/CIE/RFC/822/7.htm

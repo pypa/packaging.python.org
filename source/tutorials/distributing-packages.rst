@@ -1,7 +1,7 @@
 .. _distributing-packages:
 
 ===================================
-Packaging and Distributing Projects
+Packaging and distributing projects
 ===================================
 
 This section covers the basics of how to configure, package and distribute your
@@ -22,7 +22,7 @@ Packaging User Guide.
    :local:
 
 
-Requirements for Packaging and Distributing
+Requirements for packaging and distributing
 ===========================================
 
 1. First, make sure you have already fulfilled the :ref:`requirements for
@@ -39,11 +39,11 @@ Requirements for Packaging and Distributing
    <Uploading your Project to PyPI>`).
 
 
-Configuring your Project
+Configuring your project
 ========================
 
 
-Initial Files
+Initial files
 -------------
 
 setup.py
@@ -82,10 +82,9 @@ README.rst / README.md
 All projects should contain a readme file that covers the goal of the project.
 The most common format is `reStructuredText
 <http://docutils.sourceforge.net/rst.html>`_ with an "rst" extension, although
-this is not a requirement; the `CommonMark <http://spec.commonmark.org/>`_
-dialect of `Markdown <https://daringfireball.net/projects/markdown/>`_ is
-supported as well (look at ``setup()``'s :ref:`long_description_content_type
-<description>` argument).
+this is not a requirement; multiple variants of `Markdown
+<https://daringfireball.net/projects/markdown/>`_ are supported as well (look
+at ``setup()``'s :ref:`long_description_content_type <description>` argument).
 
 For an example, see `README.md
 <https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA
@@ -237,7 +236,7 @@ can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
 <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the `CommonMark <http://spec.commonmark.org/>`_ dialect of `Markdown
+and the Github-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
 url
@@ -303,7 +302,7 @@ classifiers
   ],
 
 Provide a list of classifiers that categorize your project. For a full listing,
-see https://pypi.python.org/pypi?%3Aaction=list_classifiers.
+see https://pypi.org/classifiers/.
 
 Although the list of classifiers is often used to declare what Python versions
 a project supports, this information is only used for searching & browsing
@@ -648,7 +647,7 @@ For example::
    1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
-Working in "Development Mode"
+Working in "development mode"
 =============================
 
 Although not required, it's common to locally install your project in "editable"
@@ -698,9 +697,9 @@ For more information, see the `Development Mode
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_ section
 of the `setuptools docs <https://setuptools.readthedocs.io>`_.
 
-.. _`Packaging Your Project`:
+.. _`Packaging your project`:
 
-Packaging your Project
+Packaging your project
 ======================
 
 To have your project installable from a :term:`Package Index` like :term:`PyPI
@@ -710,7 +709,7 @@ project.
 
 
 
-Source Distributions
+Source distributions
 --------------------
 
 Minimally, you should create a :term:`Source Distribution <Source Distribution (or
@@ -904,31 +903,18 @@ Upload your distributions
 -------------------------
 
 Once you have an account you can upload your distributions to
-:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`. If this is
-your first time uploading a distribution for a new project, twine will handle
-registering the project.
+:term:`PyPI <Python Package Index (PyPI)>` using :ref:`twine`.
+
+The process for uploading a release is the same regardless of whether
+or not the project already exists on PyPI - if it doesn't exist yet,
+it will be automatically created when the first release is uploaded.
+
+For the second and subsequent releases, PyPI only requires that the
+version number of the new release differ from any previous releases.
 
 .. code-block:: text
 
     twine upload dist/*
-
-
-.. note:: Twine allows you to pre-sign your distribution files using gpg:
-
-  .. code-block:: text
-
-      gpg --detach-sign -a dist/package-1.0.1.tar.gz
-
-  and pass the gpg-created .asc files into the command line invocation:
-
-  .. code-block:: text
-
-      twine upload dist/package-1.0.1.tar.gz package-1.0.1.tar.gz.asc
-
-  This enables you to be assured that you're only ever typing your gpg
-  passphrase into gpg itself and not anything else since *you* will be
-  the one directly executing the ``gpg`` command.
-
 
 You can see if your package has successfully uploaded by navigating to the URL
 ``https://pypi.org/project/<sampleproject>`` where ``sampleproject`` is
