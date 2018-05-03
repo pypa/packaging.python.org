@@ -90,10 +90,12 @@ For an example, see `README.md
 <https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
-.. note:: Projects using :ref:`setuptools` have :file:`README.rst` included in
-   source distributions by default (since 0.6.27). The built-in :ref:`distutils`
-   library adopts this behavior beginning in Python 3.7. If you are using
-   setuptools, you don't need to list :file:`README.rst` in :file:`MANIFEST.in`.
+.. note:: Projects using :ref:`setuptools` 0.6.27+ have standard readme files
+   (:file:`README.rst`, :file:`README.txt`, or :file:`README`) included in
+   source distributions by default. The built-in :ref:`distutils` library adopts
+   this behavior beginning in Python 3.7. Additionally, :ref:`setuptools`
+   36.4.0+ will include a :file:`README.md` if found. If you are using
+   setuptools, you don't need to list your readme file in :file:`MANIFEST.in`.
    Otherwise, include it to be explicit.
 
 MANIFEST.in
