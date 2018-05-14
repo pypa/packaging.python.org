@@ -166,8 +166,14 @@ development environments on a collaborative Python project! ✨ 🍰 ✨
 If you find this particular approach isn't working well for you or your use
 case, you may want to explore these other approaches:
 
-* `pip-tools <https://github.com/jazzband/pip-tools>`_
-* `hatch <https://github.com/ofek/hatch>`_
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
+  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `poetry <https://github.com/sdispater/poetry>`_ for ``pip``-installable
+  Python libraries that are also usable as standalone applications (most
+  ``pipenv`` based applications are not expected to be ``pip``-installable)
+* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
+  more steps in the project management workflow (such as incrementing versions,
+  tagging releases, and creating new skeleton projects from project templates)
 
 If you're interesting in creating and distributing your own Python packages, see
 the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
