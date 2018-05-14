@@ -270,7 +270,20 @@ license
 
   license='MIT',
 
-Provide the type of license you are using.
+The ``license`` argument doesn't have to indicate the license under
+which your package is being released, although you may optionally do
+so if you want.  If you're using a standard, well-known license, then
+your main indication can and should be via the ``classifiers``
+argument. Classifiers exist for all major open-source licenses.
+
+The "license" argument is more typically used to indicate differences
+from well-known licenses, or to include your own, unique license. As a
+general rule, it's a good idea to use a standard, well-known license,
+both to avoid confusion and because some organizations avoid software
+whose license is unapproved.
+
+See :ref:`"Classifier" <metadata-classifier>` for some examples of
+values for ``license``.
 
 
 classifiers
