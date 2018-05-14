@@ -21,5 +21,5 @@ def build(session):
 def preview(session):
     session.reuse_existing_virtualenv = True
     build(session)
-    session.chdir('build/html')
+    session.chdir('build')
     session.run('python', '-m', 'http.server')
