@@ -3,6 +3,7 @@
 # Attribution-ShareAlike license:
 #   http://creativecommons.org/licenses/by-sa/3.0.
 
+import shutil
 import nox
 
 
@@ -12,7 +13,8 @@ def build(session):
     session.install('-r', 'requirements.txt')
     # Treat warnings as errors.
     session.env['SPHINXOPTS'] = '-W'
-    session.run('make', 'clean', 'html')
+    session.run(shutil.rmtree, 'build', ignore_errors=True)
+    session.run('sphinx-build', '-W', '-b', 'html', 'source', 'build')
 
 
 @nox.session

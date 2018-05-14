@@ -30,8 +30,8 @@ typically in your project's :file:`setup.py` file.
 
 .. seealso::
 
-   * :any:`metadata_description`
-   * :any:`metadata_description_content_type`
+   * :ref:`description-optional`
+   * :ref:`description-content-type-optional`
 
 For example, to set these values in a package's :file:`setup.py` file,
 use ``setup()``'s ``long_description`` and ``long_description_content_type``.
