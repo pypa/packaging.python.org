@@ -28,6 +28,78 @@ other unprofessional conduct is not acceptable.
 .. __: https://www.pypa.io/en/latest/code-of-conduct/
 
 
+Documentation types
+===================
+
+This project consists of four distinct documentation types with specific
+purposes. When proposing new additions to the project please pick the
+appropriate documentation type.
+
+Tutorials
+---------
+
+Tutorials are focused on teaching the reader new concepts by accomplishing a
+goal. They are opinionated step-by-step guides. They do not include extraneous
+warnings or information. `example tutorial-style document`_.
+
+.. _example tutorial-style document: https://docs.djangoproject.com/en/1.11/intro/
+
+Guides
+------
+
+Guides are focused on accomplishing a specific task and can assume some level of
+pre-requisite knowledge. These are similar to tutorials, but have a narrow and
+clear focus and can provide lots of caveats and additional information as
+needed. They may also discuss multiple approaches to accomplishing the task.
+`example guide-style document`_.
+
+.. _example guide-style document: https://packaging.python.org/namespace_packages/
+
+Discussions
+-----------
+
+Discussions are focused on understanding and information. These explore a
+specific topic without a specific goal in mind. `example discussion-style
+document`_.
+
+.. _example discussion-style document: https://packaging.python.org/requirements/
+
+Building the guide locally
+==========================
+
+Though not required to contribute, it may be useful to build this guide locally
+in order to test your changes. In order to build this guide locally, you'll
+need:
+
+1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
+   nox using ``pip``::
+
+      pip install --user nox-automation
+
+2. Python 3.6. Our build scripts are designed to work with Python 3.6 only.
+   See the `Hitchhiker's Guide to Python installation instructions`_ to install
+   Python 3.6 on your operating system.
+
+.. _Hitchhiker's Guide to Python installation instructions:
+    http://docs.python-guide.org/en/latest/starting/installation/
+
+To build the guide, run the following bash command in the source folder::
+
+  nox -s build
+
+After the process has completed you can find the HTML output in the
+``./build/html`` directory. You can open the ``index.html`` file to view the
+guide in web browser, but it's recommended to serve the guide using an HTTP
+server.
+
+You can build the guide and serve it via an HTTP server using the following
+command::
+
+  nox -s preview
+
+The guide will be browsable via http://localhost:8000.
+
+
 .. _contributing_style_guide:
 
 Style guide
