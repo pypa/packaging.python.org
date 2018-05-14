@@ -159,7 +159,7 @@ rather than being installed globally.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
-install everything into /usr/lib/python2.7/site-packages (or whatever your
+install everything into /usr/lib/python3.6/site-packages (or whatever your
 platform’s standard location is), it’s easy to end up in a situation where you
 unintentionally upgrade an application that shouldn’t be upgraded.
 
@@ -204,6 +204,13 @@ Using `venv`_:
 
 For more information, see the `virtualenv <http://virtualenv.pypa.io>`_ docs or
 the `venv`_ docs.
+
+In both of the above cases, Windows users should _not_ use the
+`source` command, but should rather run the `activate` script directly
+from the command shell. The use of `source` under Unix shells ensures
+that the virtual environment's variables are set within the current
+shell, and not in a subprocess (which then disappears, having no
+useful effect).
 
 Managing multiple virtual environments directly can become tedious, so the
 :ref:`dependency management tutorial <managing-dependencies>` introduces a
