@@ -51,18 +51,24 @@ Guides are focused on accomplishing a specific task and can assume some level of
 pre-requisite knowledge. These are similar to tutorials, but have a narrow and
 clear focus and can provide lots of caveats and additional information as
 needed. They may also discuss multiple approaches to accomplishing the task.
-`example guide-style document`_.
-
-.. _example guide-style document: https://packaging.python.org/namespace_packages/
+:doc:`example guide-style document <guides/packaging-namespace-packages>`.
 
 Discussions
 -----------
 
 Discussions are focused on understanding and information. These explore a
-specific topic without a specific goal in mind. `example discussion-style
-document`_.
+specific topic without a specific goal in mind. :doc:`example discussion-style
+document <discussions/install-requires-vs-requirements>`.
 
-.. _example discussion-style document: https://packaging.python.org/requirements/
+Specifications
+--------------
+
+Specifications are reference documention focused on comprehensively documenting
+an agreed-upon iterface for interoperability between packaging tools.
+:doc:`example specification-style document <specifications/core-metadata>`.
+
+
+
 
 Building the guide locally
 ==========================
