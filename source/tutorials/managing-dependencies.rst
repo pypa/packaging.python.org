@@ -171,8 +171,9 @@ they (and their dependencies) can be added to your ``pipenv`` environment with
 ``pipenv install -e <relative-path-to-source-directory>`` (e.g.
 ``pipenv install -e .`` or ``pipenv install -e src``).
 
-If you find the particular approach to managing application dependencies described
-in this tutorial isn't working well for you or your use case, you may want to explore these other tools and techniques to see if one of them is a better fit:
+If you find this particular approach to managing application dependencies isn't
+working well for you or your use case, you may want to explore these other tools
+and techniques to see if one of them is a better fit:
 
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
   custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
