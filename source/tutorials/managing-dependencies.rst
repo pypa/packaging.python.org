@@ -163,17 +163,26 @@ Next steps
 Congratulations, you now know how to effectively manage dependencies and
 development environments on a collaborative Python project! ✨ 🍰 ✨
 
-If you find this particular approach isn't working well for you or your use
-case, you may want to explore these other approaches:
+If you're interested in creating and distributing your own Python packages, see
+the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
+
+Note that when your application includes definitions of Python source packages,
+they (and their dependencies) can be added to your ``pipenv`` environment with
+``pipenv install -e <relative-path-to-source-directory>`` (e.g.
+``pipenv install -e .`` or ``pipenv install -e src``).
+
+If you find this particular approach to managing application dependencies isn't
+working well for you or your use case, you may want to explore these other tools
+and techniques to see if one of them is a better fit:
 
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
   custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
-* `poetry <https://github.com/sdispater/poetry>`_ for ``pip``-installable
-  Python libraries that are also usable as standalone applications (most
-  ``pipenv`` based applications are not expected to be ``pip``-installable)
 * `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
   more steps in the project management workflow (such as incrementing versions,
   tagging releases, and creating new skeleton projects from project templates)
-
-If you're interesting in creating and distributing your own Python packages, see
-the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
+* `poetry <https://github.com/sdispater/poetry>`_ for Python developer focused
+  components that are designed primarily for publication to a Python package index
+  (``pipenv`` deliberately avoids making the assumption that the application
+  being worked on will support distribution as a ``pip``-installable Python package,
+  while ``poetry`` based applications rely explicitly on their Python packaging
+  metadata to describe their application structure and dependencies)
