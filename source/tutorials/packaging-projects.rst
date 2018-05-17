@@ -1,19 +1,19 @@
-Packaging Python Libraries
-==========================
+Packaging Python Projects
+=========================
 
-This tutorial walks you through how to package a simple Python library. It will
+This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index.
 
 
-A simple library
+A simple project
 ----------------
 
-This tutorial uses a simple library named `example_pkg`. If you are unfamiliar
+This tutorial uses a simple project named `example_pkg`. If you are unfamiliar
 with Python's modules and :term:`import packages <import package>`, take a few
 minutes to read over the `Python documentation for packages and modules`_.
 
-To create this library locally, create the following file structure:
+To create this project locally, create the following file structure:
 
 .. code-block:: text
 
@@ -42,7 +42,7 @@ tutorial.
 Creating the package files
 --------------------------
 
-You will now create a handful of files to package up this library and prepare it
+You will now create a handful of files to package up this project and prepare it
 for distribution. Create the new files listed below - you will add content to
 them in the following steps.
 
@@ -97,7 +97,7 @@ minimal set:
 - ``name`` is the name of your package. This can be any name as long as only
   contains letters, numbers, ``_`` , and ``-``. It also must not already
   taken on pypi.org.
-- ``version`` is the package version see PEPTODO for more details on
+- ``version`` is the package version see :pep:`440` for more details on
   versions.
 - ``author`` and ``author_email`` are used to identify the author of the
   package.
@@ -139,7 +139,8 @@ if you'd like.
     # Example Package
 
     This is a simple example package. You can use
-    [Github-flavored Markdown](http://TODO) to write your content.
+    [Github-flavored Markdown](http://https://guides.github.com/features/mastering-markdown/)
+    to write your content.
 
 
 Creating a LICENSE
@@ -148,8 +149,9 @@ Creating a LICENSE
 It's important for every package uploaded to the Python Package Index to include
 a license. This tells users who install your package the terms under which they
 can use your package. For help picking a license, see
-https://choosealicense.com/. For now, open :file:`LICENSE` and enter the
-following content - which is the MIT license.
+https://choosealicense.com/. Once you have chosen a license, open
+:file:`LICENSE` and enter the license text. For example, if you had chosen the
+MIT license:
 
 .. code-block:: text
 
@@ -215,14 +217,12 @@ files in the :file:`dist` directory:
   https://github.com/pypa/packaging-problems/issues/new?title=Trouble+following+packaging+libraries+tutorial
 
 
-The ``tar.gz`` file is a :term:`source archive` - it is intended mostly for
-downstream packagers (such as Linux distros) or users who have disabled
-installing built distributions. The ``.whl`` file is a :term:`built
-distribution`. Newer :ref:`pip` versions preferentially installs built
-distributions, but will fall back to source distributions if needed. For
-pure-Python packages, like our example package, the broadest compatibility is
-achieved by creating and uploading both source and built distributions.
-
+The ``tar.gz`` file is a :term:`source archive` whereas the ``.whl`` file is a
+:term:`built distribution`. Newer :ref:`pip` versions preferentially install
+built distributions, but will fall back to source archives if needed. You
+should always upload a source archive and provide built archives for the
+platforms your project is compatible with. In this case, our example package is
+compatible with Python on any platform so only one built distribution is needed.
 
 Uploading the distribution archives
 -----------------------------------
@@ -239,13 +239,13 @@ any packages.  For more details on Test PyPI, see
 :doc:`/guides/using-testpypi`.
 
 Now that you are registered, you can use :ref:`twine` to upload the
-distribution packages. You'll need to install twine:
+distribution packages. You'll need to install Twine:
 
 .. code-block:: bash
 
     python3 -m pip install --user --upgrade twine
 
-Once install, run twine to upload all of the archives under :file:`dist`:
+Once installed, run Twine to upload all of the archives under :file:`dist`:
 
 .. code-block:: bash
 
@@ -313,23 +313,24 @@ And then import the module and print out the ``name`` property. This should be
 the same regardless of what you name you gave your :term:`distribution package`
 in :file:`setup.py` because your :term:`import package` is ``example_pkg``.
 
-
 .. code-block:: python
 
     >>> import example_pkg
     >>> example_pkg.name
     'example_pkg'
 
+
 Next steps
 ----------
 
-**Congratulations, you've packaged and distributed a Python library!**
+**Congratulations, you've packaged and distributed a Python project!**
 ✨ 🍰 ✨
 
 If you want to upload your package to the real Python Package Index you can do
 it by registering an account on https://pypi.org and following the same
 instructions above but omitting the ``--repository-url`` argument to ``twine``
-and the ``--index-url`` argument to ``pip``.
+and the ``--index-url`` argument to ``pip``. Note that Test PyPI is emphermal
+and it's not unusual for packages and accounts to be deleted occasionally.
 
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:

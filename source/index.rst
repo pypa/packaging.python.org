@@ -40,7 +40,7 @@ covered in our :doc:`tutorials/index` section:
 * to learn how to manage dependencies in a version controlled project, see the
   :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`.
 * to learn how to package and distribute your projects, see the
-  :doc:`tutorial on packaging and distributing <tutorials/packaging-libraries>`
+  :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
 
 Learn more
 ==========

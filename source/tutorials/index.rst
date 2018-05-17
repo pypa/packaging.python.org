@@ -10,4 +10,4 @@ topics, see :doc:`/guides/index`.
 
     installing-packages
     managing-dependencies
-    packaging-libraries
+    packaging-projects
