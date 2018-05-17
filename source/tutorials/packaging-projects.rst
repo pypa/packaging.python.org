@@ -9,7 +9,7 @@ to build the package, and how to upload it to the Python Package Index.
 A simple project
 ----------------
 
-This tutorial uses a simple project named `example_pkg`. If you are unfamiliar
+This tutorial uses a simple project named ``example_pkg``. If you are unfamiliar
 with Python's modules and :term:`import packages <import package>`, take a few
 minutes to read over the `Python documentation for packages and modules`_.
 
@@ -303,7 +303,7 @@ something like this:
 You can test that it was installed correctly by importing the module and
 referencing the ``name`` property you put in :file:`__init__.py` earlier.
 
-Run python (make sure you're still in your virtualenv):
+Run the Python interpreter (make sure you're still in your virtualenv):
 
 .. code-block:: bash
 
