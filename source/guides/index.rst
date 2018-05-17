@@ -13,6 +13,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
+   distributing-packages-using-setuptools
    single-sourcing-package-version
    supporting-multiple-python-versions
    dropping-older-python-versions
