@@ -23,7 +23,7 @@ To create this project locally, create the following file structure:
 
 
 Once you create this structure, you'll want to run all of the commands in this
-tutorial within the top-level folder - so be sure to ``cd example-pkg``.
+tutorial within the top-level folder - so be sure to ``cd example_pkg``.
 
 You should also edit :file:`example_pkg/__init__.py` and put the following
 code in there:
