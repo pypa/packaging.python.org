@@ -280,6 +280,8 @@ a complimentary command line tool to drive packaging, testing and release
 activities with Python.
 
 
+.. _flit:
+
 flit
 ====
 
