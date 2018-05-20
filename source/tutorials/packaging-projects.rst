@@ -326,11 +326,12 @@ Next steps
 **Congratulations, you've packaged and distributed a Python project!**
 ✨ 🍰 ✨
 
-If you want to upload your package to the real Python Package Index you can do
-it by registering an account on https://pypi.org and following the same
-instructions above but omitting the ``--repository-url`` argument to ``twine``
-and the ``--index-url`` argument to ``pip``. Note that Test PyPI is emphermal
-and it's not unusual for packages and accounts to be deleted occasionally.
+Keep in mind that this tutorial showed you how to upload your package to Test
+PyPI and Test PyPI is ephemeral. It's not unusual for packages and accounts to
+be deleted occasionally. If you want to upload your package to the real Python
+Package Index you can do it by registering an account on https://pypi.org and
+following the same instructions above but omitting the ``--repository-url``
+argument to ``twine`` and the ``--index-url`` argument to ``pip``.
 
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
