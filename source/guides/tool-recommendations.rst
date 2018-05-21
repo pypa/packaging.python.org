@@ -90,8 +90,8 @@ migration, and what settings to change in your clients.
        correctly that are provided by ``setuptools``. Being outside the
        standard library, ``setuptools`` also offers a more consistent feature
        set across different versions of Python, and (unlike ``distutils``),
-       ``setuptools`` will be updated to produce the upcoming "Metadata 2.0"
-       standard formats on all supported versions.
+       recent versions of ``setuptools`` support all of the modern metadata
+       fields described in :ref:`core-metadata`.
 
        Even for projects that do choose to use ``distutils``, when :ref:`pip`
        installs such projects directly from source (rather than installing
