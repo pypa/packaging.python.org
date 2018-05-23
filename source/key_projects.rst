@@ -198,7 +198,7 @@ wheel
 `Docs <https://wheel.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/wheel/issues>`__ |
-`Bitbucket <https://github.com/pypa/wheel>`__ |
+`Github <https://github.com/pypa/wheel>`__ |
 `PyPI <https://pypi.org/project/wheel>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
