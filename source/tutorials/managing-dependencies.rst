@@ -170,9 +170,9 @@ and techniques to see if one of them is a better fit:
 * `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
   more steps in the project management workflow (such as incrementing versions,
   tagging releases, and creating new skeleton projects from project templates)
-* `poetry <https://github.com/sdispater/poetry>`_ for Python developer focused
-  components that are designed primarily for publication to a Python package index
-  (``pipenv`` deliberately avoids making the assumption that the application
-  being worked on will support distribution as a ``pip``-installable Python package,
-  while ``poetry`` based applications rely explicitly on their Python packaging
-  metadata to describe their application structure and dependencies)
+* `poetry <https://github.com/sdispater/poetry>`_ for a tool comparable in scope
+  to `pipenv` that focuses more directly on use cases where the repository being
+  managed is structured as a Python project with a valid ``pyproject.toml`` file
+  (by contrast, ``pipenv`` explicitly avoids making the assumption that the
+  application being worked on that's depending on components from PyPI will
+  itself support distribution as a ``pip``-installable Python package).
