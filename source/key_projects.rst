@@ -19,9 +19,10 @@ bandersnatch
 ============
 
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <https://bitbucket.org/pypa/bandersnatch/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/pypa/bandersnatch>`__ |
-`PyPI <https://pypi.org/project/bandersnatch>`__
+`Issues <https://github.com/pypa/bandersnatch/issues>`__ |
+`Github <https://github.com/pypa/bandersnatch>`__ |
+`PyPI <https://pypi.org/project/bandersnatch>`__ | 
+Dev irc:#bandersnatch
 
 bandersnatch is a PyPI mirroring client designed to efficiently create a
 complete mirror of the contents of PyPI.
