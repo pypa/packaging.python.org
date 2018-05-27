@@ -117,7 +117,7 @@ minimal set:
   to automatically discover all packages and subpackages. In this case, the
   list of packages will be `example_pkg` as that's the only package present.
 - ``classifiers`` tell the index and :ref:`pip` some additional metadata
-  about your pckage. In this case, the package is only compatible with Python
+  about your package. In this case, the package is only compatible with Python
   3, is licensed under the MIT license, and is OS-independent. You should
   always include at least which version(s) of Python your package works on,
   which license your package is available under, and which operating systems
