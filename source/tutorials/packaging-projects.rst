@@ -330,8 +330,10 @@ Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI and Test PyPI is ephemeral. It's not unusual for packages and accounts to
 be deleted occasionally. If you want to upload your package to the real Python
 Package Index you can do it by registering an account on https://pypi.org and
-following the same instructions above but omitting the ``--repository-url``
-argument to ``twine`` and the ``--index-url`` argument to ``pip``.
+following the same instructions, however, use ``twine upload dist/*`` to upload
+your package and enter your credentials for the account you registered on the
+real PyPI. You can install your package from the real PyPI using
+``pip install your-package``.
 
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
