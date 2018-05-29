@@ -459,76 +459,6 @@ Examples::
     Requires-Dist: pywin32 >1.0; sys_platform == 'win32'
 
 
-Provides-Dist (multiple use)
-============================
-
-.. versionadded:: 1.2
-.. versionchanged:: 2.1
-   The field format specification was relaxed to accept the syntax used by
-   popular publishing tools.
-
-Each entry contains a string naming a Distutils project which
-is contained within this distribution.  This field *must* include
-the project identified in the ``Name`` field, followed by the
-version : Name (Version).
-
-A distribution may provide additional names, e.g. to indicate that
-multiple projects have been bundled together.  For instance, source
-distributions of the ``ZODB`` project have historically included
-the ``transaction`` project, which is now available as a separate
-distribution.  Installing such a source distribution satisfies
-requirements for both ``ZODB`` and ``transaction``.
-
-A distribution may also provide a "virtual" project name, which does
-not correspond to any separately-distributed project:  such a name
-might be used to indicate an abstract capability which could be supplied
-by one of multiple projects.  E.g., multiple projects might supply
-RDBMS bindings for use by a given ORM:  each project might declare
-that it provides ``ORM-bindings``, allowing other projects to depend
-only on having at most one of them installed.
-
-A version declaration may be supplied and must follow the rules described
-in :doc:`version-specifiers`. The distribution's version number will be implied
-if none is specified.
-
-This field may be followed by an environment marker after a semicolon.
-
-Examples::
-
-    Provides-Dist: OtherProject
-    Provides-Dist: AnotherProject (3.4)
-    Provides-Dist: virtual_package; python_version >= "3.4"
-
-
-Obsoletes-Dist (multiple use)
-=============================
-
-.. versionadded:: 1.2
-.. versionchanged:: 2.1
-   The field format specification was relaxed to accept the syntax used by
-   popular publishing tools.
-
-Each entry contains a string describing a distutils project's distribution
-which this distribution renders obsolete, meaning that the two projects
-should not be installed at the same time.
-
-Version declarations can be supplied.  Version numbers must be in the
-format specified in :doc:`version-specifiers`.
-
-This field may be followed by an environment marker after a semicolon.
-
-The most common use of this field will be in case a project name
-changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0.
-When you install Torqued Python, the Gorgon distribution should be
-removed.
-
-Examples::
-
-    Obsoletes-Dist: Gorgon
-    Obsoletes-Dist: OtherProject (<3.0)
-    Obsoletes-Dist: Foo; os_name == "posix"
-
-
 Requires-Python
 ===============
 
@@ -632,6 +562,91 @@ respectively.
 It is legal to specify ``Provides-Extra:`` without referencing it in any
 ``Requires-Dist:``.
 
+
+Rarely Used Fields
+==================
+
+The fields in this section are currently rarely used, as their design
+was inspired by comparable mechanisms in Linux package management systems,
+and it isn't at all clear how tools should interpret them in the context
+of an open index server such as `PyPI <https://pypi.org>`__.
+
+As a result, popular installation tools ignore them completely, which in
+turn means there is little incentive for package publishers to set them
+appropriately. However, they're retained in the metadata specification,
+as they're still potentially useful for informational purposes, and can
+also be used for their originally intended purpose in combination with
+a curated package repository.
+
+
+Provides-Dist (multiple use)
+----------------------------
+
+.. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
+
+Each entry contains a string naming a Distutils project which
+is contained within this distribution.  This field *must* include
+the project identified in the ``Name`` field, followed by the
+version : Name (Version).
+
+A distribution may provide additional names, e.g. to indicate that
+multiple projects have been bundled together.  For instance, source
+distributions of the ``ZODB`` project have historically included
+the ``transaction`` project, which is now available as a separate
+distribution.  Installing such a source distribution satisfies
+requirements for both ``ZODB`` and ``transaction``.
+
+A distribution may also provide a "virtual" project name, which does
+not correspond to any separately-distributed project:  such a name
+might be used to indicate an abstract capability which could be supplied
+by one of multiple projects.  E.g., multiple projects might supply
+RDBMS bindings for use by a given ORM:  each project might declare
+that it provides ``ORM-bindings``, allowing other projects to depend
+only on having at most one of them installed.
+
+A version declaration may be supplied and must follow the rules described
+in :doc:`version-specifiers`. The distribution's version number will be implied
+if none is specified.
+
+This field may be followed by an environment marker after a semicolon.
+
+Examples::
+
+    Provides-Dist: OtherProject
+    Provides-Dist: AnotherProject (3.4)
+    Provides-Dist: virtual_package; python_version >= "3.4"
+
+
+Obsoletes-Dist (multiple use)
+-----------------------------
+
+.. versionadded:: 1.2
+.. versionchanged:: 2.1
+   The field format specification was relaxed to accept the syntax used by
+   popular publishing tools.
+
+Each entry contains a string describing a distutils project's distribution
+which this distribution renders obsolete, meaning that the two projects
+should not be installed at the same time.
+
+Version declarations can be supplied.  Version numbers must be in the
+format specified in :doc:`version-specifiers`.
+
+This field may be followed by an environment marker after a semicolon.
+
+The most common use of this field will be in case a project name
+changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0.
+When you install Torqued Python, the Gorgon distribution should be
+removed.
+
+Examples::
+
+    Obsoletes-Dist: Gorgon
+    Obsoletes-Dist: OtherProject (<3.0)
+    Obsoletes-Dist: Foo; os_name == "posix"
 
 ----
 
