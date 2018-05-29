@@ -562,17 +562,22 @@ respectively.
 It is legal to specify ``Provides-Extra:`` without referencing it in any
 ``Requires-Dist:``.
 
-Fields for Private Use Only
-===========================
 
-The current design of the fields in this section doesn't take into account
-the potential for distributions on a public index server (such as
-`PyPI <https://pypi.org>`__) to include disputed or deliberately misleading
-information.
+Rarely Used Fields
+==================
 
-As a result, they should only be used in combination with curated
-package repositories, and installation tools are expected to ignore
-them when working with public index servers.
+The fields in this section are currently rarely used, as their design
+was inspired by comparable mechanisms in Linux package management systems,
+and it isn't at all clear how tools should interpret them in the context
+of an open index server such as `PyPI <https://pypi.org>`__).
+
+As a result, popular installation tools ignore them completely, which in
+turn means there is little incentive for package publishers to set them
+appropriately. However, they're retained in the metadata specification,
+as they're still potentially useful for informational purposes, and can
+also be used for their originally intended purpose in combination with
+a curated package repository.
+
 
 Provides-Dist (multiple use)
 ----------------------------
