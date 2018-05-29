@@ -569,7 +569,7 @@ Rarely Used Fields
 The fields in this section are currently rarely used, as their design
 was inspired by comparable mechanisms in Linux package management systems,
 and it isn't at all clear how tools should interpret them in the context
-of an open index server such as `PyPI <https://pypi.org>`__).
+of an open index server such as `PyPI <https://pypi.org>`__.
 
 As a result, popular installation tools ignore them completely, which in
 turn means there is little incentive for package publishers to set them
