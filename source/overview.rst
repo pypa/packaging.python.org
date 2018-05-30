@@ -107,8 +107,22 @@ The best way to organize these application packaging options is by the
 way they depend on the target environment. That's how we'll approach
 the coming sections.
 
-Depending on a service platform
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Depending on a framework
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some types of Python applications, like web sites and services, are
+common enough that they have frameworks to enable their development
+and packaging. Other types of applications, like web and mobile
+clients, are advanced enough that the framework is more or less a
+necessity.
+
+In all these cases, it makes sense to work backwards, from the
+framework's packaging and deployment story. Frameworks wrap the
+technologies outlined in the rest of the guide, and can make your
+production experience easier and more reliable.
+
+Service platforms
+*****************
 
 If you're developing a "Platform-as-a-Service" or "PaaS" like Heroku
 or Google App Engine, you are going to want to follow their respective
@@ -126,6 +140,25 @@ below.
 
 If you're developing software that will be deployed to machines you
 own, users' personal computers, or any other arrangement, read on.
+
+Web and mobile platforms
+************************
+
+Python's advances are leading it into new spaces. These days you can
+write a mobile app or web application frontend in Python. While the
+language may be familiar, the packaging and deployment practices are
+brand new.
+
+If you're using one of the following frameworks, you'll want to refer
+to their packaging guides:
+
+* Kivy
+* Brython
+* Beeware
+
+If you are *not* interested in using a framework or platform, or just
+wonder about some of the technologies and techniques utilized by the
+frameworks above, continue reading below.
 
 Depending on a pre-installed Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
