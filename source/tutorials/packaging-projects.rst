@@ -182,7 +182,7 @@ Generating distribution archives
 --------------------------------
 
 The next step is to generate :term:`distribution packages <distribution
-package>` for the package. These are archives that are uploaded the the Package
+package>` for the package. These are archives that are uploaded to the Package
 Index and can be installed by :ref:`pip`.
 
 Make sure you have the latest versions of ``setuptools`` and ``wheel``
