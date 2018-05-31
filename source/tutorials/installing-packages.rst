@@ -69,6 +69,11 @@ please install the latest 3.x version from `python.org`_ or refer to the
                 !{sys.executable} --version
         Python 3.6.3
 
+   It's recommended to write ``{sys.executable}`` rather than plain ``python`` in
+   order to ensure that commands are run in the Python installation matching
+   the currently running notebook (which may not be the same Python
+   installation that the ``python`` command refers to).
+
 .. Note:: Due to the way most Linux distributions are handling the Python 3
    migration, Linux users using the system Python without creating a virtual
    environment first should replace the ``python`` command in this tutorial
