@@ -64,7 +64,7 @@ distribution*, or *sdist* for short.
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
 pure-Python, and you only depend on other Python packages, you can `go
-here to learn more<TODO>`_.
+here to learn more <TODO>`_.
 
 If you rely on any non-Python code, or non-Python packages (such as
 libxml2 in the case of lxml, or BLAS libraries in the case of numpy),
@@ -84,10 +84,10 @@ Fortran, Rust, and other languages. This is why wheels exist.
 Packaging Applications
 ----------------------
 
-So far we've only discussed Python-native distribution. Based on our
-introduction, you would be correct to infer we're only targeting
-environments which have Python. More importantly we're assuming an
-audience who knows how to install Python packages.
+So far we've only discussed Python's native distribution tools. Based
+on our introduction, you would be correct to infer we're only
+targeting environments which have Python. More importantly we're
+assuming an audience who knows how to install Python packages.
 
 With the variety of operating systems, configurations, and people out
 there, this assumption is only safe when targeting a developer
@@ -97,7 +97,7 @@ Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. We can piggyback
 **tools**, or basic applications for developers, on top of Python's
 library packaging, using technologies like `setuptools entry_points
-<http://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation`_.
+<http://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_.
 
 Generally libraries are building blocks, and not complete
 applications. For distributing applications, there's a whole world of
@@ -106,6 +106,13 @@ technologies out there.
 The best way to organize these application packaging options is by the
 way they depend on the target environment. That's how we'll approach
 the coming sections.
+
+.. TODO: Another way of thinking about packaging solutions is by how
+   much they include. All solutions include your code, plus some
+   amount of your code's library and service dependencies. PEX
+   includes Python libraries. RPM includes a list of dependencies on
+   libraries and local services. Images can be built to include
+   everything.
 
 Depending on a framework
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,23 +170,40 @@ frameworks above, continue reading below.
 Depending on a pre-installed Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Depending on the host system to have Python installed. Common in
+controlled environments like data centers, and local environments of
+tech savvy people. Technically includes pretty much every major Linux
+and Mac OS version for many years now.
+
 * PEX
-* zipapp
-* shiv
+* zipapp (doesn't include library dependencies, requires Python 3.5+)
+* shiv (requires Python 3)
 
 Depending on a new Python ecosystem
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Depending on the host system to have an alternative ecosystem
+installed, like Anaconda. Increasingly common in academic, analytical,
+and other data-oriented environments. Also used in production services.
 
 * conda/Anaconda
 
 Bringing your own Python
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+Depending on the host system to be able to run a program in which
+we've embedded Python. Operating systems have been designed to run
+programs for a very long time, so this approach offers wide
+compatibility, if you're willing to work at it.
+
 * Freezers
 * Omnibus
 
 Bringing your own userspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Depending on the host system to be able to run a lightweight image in
+a relatively modern arrangement often referred to as containerization.
 
 * AppImage
 * Flatpak
@@ -189,7 +213,9 @@ Bringing your own userspace
 Bringing your own kernel
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Virtualization!
+Depending on the host system to have a hypervisor and run a virtual
+machine. This type of virtualization is mature and widespread in data
+center environments.
 
 * Vagrant
 * AMIs
@@ -198,11 +224,11 @@ Virtualization!
 Bringing your own hardware
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Embedded!
+Depending on your host to have electricity.
 
-You can always put your code on an Adafruit or a Micropython, or some
-other hardware, and just ship it to the datacenter, or your users'
-homes, and call it good.
+Embed your code on an Adafruit or a Micropython, or some other
+hardware, and just ship it to the datacenter, or your users' homes,
+and call it good.
 
 What about...
 -------------
