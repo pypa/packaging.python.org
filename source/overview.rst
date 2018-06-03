@@ -47,8 +47,9 @@ Python source distributions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If your code consists of multiple Python files, it's usually organized
-into a *package*. A package is any directory containing Python files,
-as long as one of those files is named ``__init__.py``.
+into a directory structure. Any directory containing Python files,
+provided one of those files is named ``__init__.py``, comprises an
+:term:`import package`.
 
 Because packages consist of multiple files, they are harder to
 distribute. Most protocols support transferring only one file at a
@@ -58,8 +59,8 @@ to guarantee code integrity at the destination.
 
 So long as your code contains nothing but pure Python code, and you
 know your deployment environment supports your version of Python, then
-you can use Python's native packaging tools to create a *source
-distribution*, or *sdist* for short.
+you can use Python's native packaging tools to create a *source*
+:term:`distribution package`, or *sdist* for short.
 
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
@@ -124,21 +125,26 @@ clients, are advanced enough that the framework is more or less a
 necessity.
 
 In all these cases, it makes sense to work backwards, from the
-framework's packaging and deployment story. Frameworks wrap the
-technologies outlined in the rest of the guide, and can make your
-production experience easier and more reliable.
+framework's packaging and deployment story. Some frameworks include a
+deployment system which wraps the technologies outlined in the rest of
+the guide. In these cases, you'll want to defer to your framework's
+packaging guide for the easiest and most reliable production experience.
+
+If you ever wonder how these platforms and frameworks work under the
+hood, you can always read the sections beyond.
 
 Service platforms
 *****************
 
-If you're developing a "Platform-as-a-Service" or "PaaS" like Heroku
-or Google App Engine, you are going to want to follow their respective
-packaging guides.
+If you're developing for a "Platform-as-a-Service" or "PaaS" like
+Heroku or Google App Engine, you are going to want to follow their
+respective packaging guides.
 
 * Heroku
 * Google App Engine
 * PythonAnywhere
 * OpenShift
+* "Serverless" frameworks like Zappa
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
@@ -148,20 +154,22 @@ below.
 If you're developing software that will be deployed to machines you
 own, users' personal computers, or any other arrangement, read on.
 
-Web and mobile platforms
-************************
+Web browsers and mobile applications
+************************************
 
-Python's advances are leading it into new spaces. These days you can
-write a mobile app or web application frontend in Python. While the
-language may be familiar, the packaging and deployment practices are
-brand new.
+Python's steady advances are leading it into new spaces. These days
+you can write a mobile app or web application frontend in
+Python. While the language may be familiar, the packaging and
+deployment practices are brand new.
 
-If you're using one of the following frameworks, you'll want to refer
-to their packaging guides:
+If you're planning on releasing to these new frontiers, you'll want to
+check out the following frameworks, and refer to their packaging
+guides:
 
 * Kivy
-* Brython
 * Beeware
+* Brython
+* Flexx
 
 If you are *not* interested in using a framework or platform, or just
 wonder about some of the technologies and techniques utilized by the
