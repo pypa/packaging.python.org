@@ -2,7 +2,7 @@
 Packaging Python
 ================
 
-Python is a general-purpose programming lanaguage, meaning you can use
+Python is a general-purpose programming language, meaning you can use
 it for many things. You can build robots or server software or a game
 for your friends to play.
 
@@ -27,7 +27,7 @@ combination of circumstances has its own solutions.
 Packaging libraries and tools
 -----------------------------
 
-You may have heard about PyPI and ``setup.py`` and wheel files. These
+You may have heard about PyPI, ``setup.py``, and wheel files. These
 are just a few of the tools Python's ecosystem provides for
 distributing Python code to developers.
 
