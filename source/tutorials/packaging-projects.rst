@@ -139,7 +139,7 @@ if you'd like.
     # Example Package
 
     This is a simple example package. You can use
-    [Github-flavored Markdown](http://https://guides.github.com/features/mastering-markdown/)
+    [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
     to write your content.
 
 
@@ -229,7 +229,7 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register and account on `Test PyPI`. Test
+The first thing you'll need to do is register an account on `Test PyPI`. Test
 PyPI is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to
