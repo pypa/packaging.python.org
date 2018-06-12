@@ -344,7 +344,7 @@ example you could create a :file:`requirements.txt` file containing:
     requests==2.18.4
     google-auth==1.1.0
 
-And tell pip too install all of the packages in this file using the ``-r`` flag:
+And tell pip to install all of the packages in this file using the ``-r`` flag:
 
 .. code-block:: bash
 
