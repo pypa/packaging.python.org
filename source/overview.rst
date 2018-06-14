@@ -1,18 +1,18 @@
-================
-Packaging Python
-================
+===================================
+An Overview of Packaging for Python
+===================================
 
 Python is a general-purpose programming language, meaning you can use
 it for many things. You can build robots or server software or a game
-for your friends to play.
-
-For this reason, the first step in every Python project must be to
-think about the project's audience and the corresponding target
-environment. Using this information, this overview will guide you to
-the packaging technologies best suited to your project.
+for your friends to play. For this reason, the first step in every
+Python project must be to think about the project's audience and the
+corresponding target environment. Using this information, this
+overview will guide you to the packaging technologies best suited to
+your project.
 
 It might seem strange to think about packaging before writing code,
-but this process does wonders for avoiding headaches later on.
+but this process does wonders for avoiding headaches later on. Some of
+the questions you'll want to answer are:
 
 * Who are your software's users? Are they other developers doing
   software development, operations people in a datacenter, or some
@@ -77,9 +77,17 @@ you will want to read on.
 Python binary distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Python's real power comes from its ability to integrate with the
-software ecosystem, in particular libraries written in C, C++,
-Fortran, Rust, and other languages. This is why wheels exist.
+So much of Python's practical power comes from its ability to
+integrate with the software ecosystem, in particular libraries written
+in C, C++, Fortran, Rust, and other languages.
+
+(TODO: This is why wheels exist, etc.)
+
+Binary distributions are best when they come with source distributions
+to match. This way, even if you don't upload pre-built versions of
+your code for every operating system, users of other platforms can
+still build it for themselves. Python and PyPI make it easy to upload
+both.
 
 
 Packaging Applications
