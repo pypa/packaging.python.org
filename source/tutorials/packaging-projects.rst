@@ -249,7 +249,7 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
 .. code-block:: bash
 
-    twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
 You will be prompted for the username and password you registered with Test
 PyPI. After the command completes, you should see output similar to this:
