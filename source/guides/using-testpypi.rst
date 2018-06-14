@@ -28,7 +28,7 @@ in the ``--repository-url`` flag
 
 .. code::
 
-    $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    $ twine upload --repository-url https://upload.pypi.org/legacy/ dist/*
 
 The ``legacy`` in the URL above refers to the legacy API for PyPI, which may
 change as the Warehouse project progresses.
