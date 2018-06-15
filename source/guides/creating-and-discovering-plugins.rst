@@ -49,8 +49,8 @@ Using naming convention for plugins also allows you to query the
 Python Package Index's `simple API`_ for all packages that conform to your
 naming convention.
 
-.. _flask: https://flask.pocoo.org
-.. _Flask-SQLAlchemy: https://flask-sqlalchemy.pocoo.org/
+.. _Flask: https://pypi.org/project/Flask/
+.. _Flask-SQLAlchemy: https://pypi.org/project/Flask-SQLAlchemy/
 .. _Flask-Talisman: https://pypi.org/project/flask-talisman
 .. _simple API: https://www.python.org/dev/peps/pep-0503/#specification
 
