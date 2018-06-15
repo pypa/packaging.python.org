@@ -40,6 +40,27 @@ Set the value of ``long_description`` to the contents (not the path) of the READ
 Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
 such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdown``.
 
+.. note::
+
+   If you're using GitHub-flavored Markdown to write a project's description, ensure you upgrade
+   the following tools:
+
+   .. code-block:: bash
+
+      python3 -m pip install --user --upgrade setuptools wheel twine
+
+   The minimum required versions of the respective tools are:
+   
+    - ``setuptools >= 38.6.0``
+    - ``wheel >= 0.31.0``
+    - ``twine >= 1.11.0``
+
+   It's recommended that you use ``twine`` to upload the project's distribution packages:
+
+   .. code-block:: bash
+
+      twine upload dist/*
+
 For example, see this :file:`setup.py` file,
 which reads the contents of :file:`README.md` as ``long_description``
 and identifies the markup as GitHub-flavored Markdown:
