@@ -224,8 +224,8 @@ guide includes an introduction to writing a
 Building binary extensions
 ==========================
 
-Setting up a build environment on Windows
------------------------------------------
+Binary extensions for Windows
+-----------------------------
 
 Before it is possible to build a binary extension, it is necessary to ensure
 that you have a suitable compiler available. On Windows, Visual C is used to
@@ -270,15 +270,28 @@ Note that from Python 3.5 onwards, Visual Studio works in a backward
 compatible way, which means that any future version of Visual Studio will
 be able to build Python extensions for all Python versions from 3.5 onwards.
 
-::
+Building with the recommended compiler on Windows ensures that a compatible C library
+is used throughout the Python process.
 
-   FIXME
+Binary extensions for Linux
+---------------------------
 
-   cover Windows binary compatibility requirements
-   cover macOS binary compatibility requirements
-   cover the vagaries of Linux distros and other *nix systems
+Linux binaries must use a sufficiently old glibc to be compatible with older
+distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker
+images provide a build environment with a glibc old enough to support most
+current Linux distributions on common architectures.
 
+Binary extensions for macOS
+---------------------------
 
+Binary compatibility on macOS is determined by the target minimum deployment
+system, e.g. *10.9*, which is often specified with the
+``MACOSX_DEPLOYMENT_TARGET`` environmental variable when building binaries on
+macOS. When building with setuptools / distutils, the deployment target is
+specified with the flag ``--plat-name``, e.g. ``macosx-10.9-x86_64``. For
+common deployment targets for macOS Python distributions, see the `MacPython
+Spinning Wheels wiki
+<https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_.
 
 Publishing binary extensions
 ============================
@@ -292,6 +305,7 @@ For interim guidance on this topic, see the discussion in
 
    cover publishing as wheel files on PyPI or a custom index server
    cover creation of Windows and macOS installers
+   cover weak linking
    mention the fact that Linux distros have a requirement to build from
    source in their own build systems, so binary-only releases are strongly
    discouraged
