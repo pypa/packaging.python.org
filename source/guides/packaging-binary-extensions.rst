@@ -233,7 +233,7 @@ build the official CPython interpreter, and should be used to build compatible
 binary extensions.
 
 Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010,
-and Python 3.5+ uses Visual Studio 2015. Unfortunately, older versions of
+and Python 3.5+ uses Visual Studio 2015 or later. Unfortunately, older versions of
 Visual Studio are no longer easily available from Microsoft, so for versions
 of Python prior to 3.5, the compilers must be obtained differently if you do
 not already have a copy of the relevant version of Visual Studio.
@@ -261,7 +261,7 @@ To set up a build environment for binary extensions, the steps are as follows:
 
     For Python 3.5
 
-        1. Install `Visual Studio 2015 Community Edition 
+        1. Install `Visual Studio 2015 Community Edition
            <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
            (or any later version, when these are released).
         2. Done.
