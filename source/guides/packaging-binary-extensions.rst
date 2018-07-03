@@ -320,6 +320,16 @@ dealing with the underlying technical challenges. The additional resources in th
 section are instead intended for developers looking to understand more about the
 underlying binary interfaces that those systems rely on at runtime.
 
+Cross-platform wheel generation with scikit-build
+-------------------------------------------------
+
+The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package
+helps abstract cross-platform build operations and provides additional capabilities
+when creating binary extension packages. Additional documentation is also available on
+the `C runtime, compiler, and build system generator
+<https://scikit-build.readthedocs.io/en/latest/generators.html>`_ for Python
+binary extension modules.
+
 Introduction to C/C++ extension modules
 ---------------------------------------
 
