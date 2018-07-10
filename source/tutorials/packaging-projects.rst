@@ -81,7 +81,7 @@ the values if you want:
         description="A small example package",
         long_description=long_description,
         long_description_content_type="text/markdown",
-        url="https://github.com/pypa/example-project",
+        url="https://github.com/pypa/sampleproject",
         packages=setuptools.find_packages(),
         classifiers=(
             "Programming Language :: Python :: 3",
