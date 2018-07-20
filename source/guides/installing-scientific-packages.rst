@@ -128,7 +128,7 @@ The conda cross-platform package manager
 ----------------------------------------
 
 `Anaconda <https://www.anaconda.com/download/>`_ is a Python distribution
-published by Continuum Analytics. It is a stable collection of Open Source
+published by Anaconda, Inc. It is a stable collection of Open Source
 packages for big data and scientific use.  As of the 5.0 release of Anaconda,
 about 200 packages are installed by default, and a total of 400-500 can be
 installed and updated from the Anaconda repository.
