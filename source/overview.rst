@@ -156,8 +156,8 @@ respective packaging guides.
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
-not fit these templates, hence the existence of all the other options
-below.
+not fit one of these templates, hence the existence of all the other
+options below.
 
 If you're developing software that will be deployed to machines you
 own, users' personal computers, or any other arrangement, read on.
@@ -186,34 +186,68 @@ frameworks above, continue reading below.
 Depending on a pre-installed Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the host system to have Python installed. Common in
-controlled environments like data centers, and local environments of
-tech savvy people. Technically includes pretty much every major Linux
-and Mac OS version for many years now.
+Pick an arbitrary computer, and depending the context, there's a very
+good chance Python is already installed. Included by default in most
+Linux and Mac operating systems for many years now, you can reasonably
+depend on Python preexisting in your data centers or on the personal
+machines of developers and data scientists.
 
-* PEX
-* zipapp (doesn't include library dependencies, requires Python 3.5+)
-* shiv (requires Python 3)
+Technologies which support this model:
+
+* `PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)
+* `zipapp <https://docs.python.org/3/library/zipapp.html>`_ (does not help manage dependencies, requires Python 3.5+)
+* `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
 
 Depending on a new Python ecosystem
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the host system to have an alternative ecosystem
-installed, like Anaconda. Increasingly common in academic, analytical,
-and other data-oriented environments. Also used in production services.
+For a long time many operating systems, including Mac and Windows,
+lacked built-in package management. Only recently did these OSes gain
+so-called "app stores", but even those focus on consumer applications
+and offer little for developers.
 
-* conda/Anaconda
+Developers long sought remedies, and in this struggle, emerged with
+new their own package management solutions -- with some notable
+benefits for Python developers in particular. The most prominent, an
+alternative package ecosystem called Anaconda is built around Python
+and is increasingly common in academic, analytical, and other
+data-oriented environments, even making its way into server-oriented
+environments.
+
+Instructions on building for the Anaconda ecosystem:
+
+* `Building libraries and applications with conda <https://conda.io/docs/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_
+
+A similar model involves installing an alternative Python
+distribution, but does not support arbitrary operating system-level
+packages:
+
+* `Enthought Canopy <https://www.enthought.com/product/canopy/>`_
+* `ActiveState ActivePython <https://www.activestate.com/activepython>`_
+* `WinPython <http://winpython.github.io/>`_
 
 Bringing your own Python
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the host system to be able to run a program in which
-we've embedded Python. Operating systems have been designed to run
-programs for a very long time, so this approach offers wide
-compatibility, if you're willing to work at it.
+Computing as we know it is defined by the ability to execute
+programs. Every operating system natively supports one or more formats
+of program they can natively execute.
 
-* Freezers
-* Omnibus
+There are many techniques and technologies which turn your Python
+program into one of these formats, most of which involve embedding the
+Python interpreter and any other dependencies into a single executable
+file.
+
+This approach offers wide compatiblity and seamless user experience,
+though often through a panel of technologies, and a good amount of
+effort.
+
+* Freezers (Links TODO, maybe separate doc?)
+
+For server applications, see `Chef Omnibus
+<https://github.com/chef/omnibus#-omnibus>`_.
+
 
 Bringing your own userspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
