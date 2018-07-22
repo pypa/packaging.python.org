@@ -252,24 +252,39 @@ For server applications, see `Chef Omnibus
 Bringing your own userspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the host system to be able to run a lightweight image in
-a relatively modern arrangement often referred to as containerization.
+An increasing number of operating systems -- including Linux, Mac OS,
+and Windows -- can be set up to run applications packaged as
+lightweight images, using a relatively modern arrangement often
+referred to as `operating-system-level virtualization
+<https://en.wikipedia.org/wiki/Operating-system-level_virtualization>`_,
+or containerization for short.
 
-* AppImage
-* Flatpak
-* Snappy
-* Docker
+As this level is packaging whole OS filesystems, techniques are mostly
+Python agnostic.
+
+Adoption is most extensive among Linux servers, where the technology
+originated and where the technologies below work best:
+
+* `AppImage <https://appimage.org/>`_
+* `Docker <https://www.fullstackpython.com/docker.html>`_
+* `Flatpak <https://flatpak.org/>`_
+* `Snapcraft <https://snapcraft.io/>`_
 
 Bringing your own kernel
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the host system to have a hypervisor and run a virtual
-machine. This type of virtualization is mature and widespread in data
-center environments.
+Most operating systems support some form of classical virtualization,
+running applications packaged as images containing a full operating
+system of their own. Running these virtual machines, or VMs, is a
+mature approach, widespread in data center environments.
 
-* Vagrant
-* AMIs
-* OpenStack
+These techniques are mostly reserved for larger scale deployments in
+data centers, though certain complex applications can benefit from
+this packaging. Technologies are Python agnostic, and include:
+
+* `Vagrant <https://www.vagrantup.com/>`_
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other formats <https://docs.openstack.org/image-guide/image-formats.html>`_
+* `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
 
 Bringing your own hardware
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
