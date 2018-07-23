@@ -2,39 +2,48 @@
 An Overview of Packaging for Python
 ===================================
 
-Python is a general-purpose programming language, meaning you can use
-it for many things. You can build robots or server software or a game
-for your friends to play. For this reason, the first step in every
-Python project must be to think about the project's audience and the
-corresponding target environment. Using this information, this
-overview will guide you to the packaging technologies best suited to
-your project.
+As a general-purpose programming language, Python is designed to be
+used it for many things. You can build robots or web sites or a
+game for your friends to play.
 
-It might seem strange to think about packaging before writing code,
-but this process does wonders for avoiding headaches later on. Some of
-the questions you'll want to answer are:
+Python's flexibility is why the first step in every Python project
+must be to think about the project's audience and the corresponding
+environment where the project will run. It might seem strange to think
+about packaging before writing code, but this process does wonders for
+avoiding headaches later on.
 
-* Who are your software's users? Are they other developers doing
-  software development, operations people in a datacenter, or some
-  less software-savvy group?
-* Is your software meant for servers, desktops, or embedded devices?
-* Is your software installed individually, or to many computers at once?
+Thinking about deployment
+-------------------------
+
+Packages exist to be installed (or *deployed*), so before you package
+anything, you'll want to have some answers to the deployment questions
+below:
+
+* Who are your software's users? Will your software be installed by
+  other developers doing software development, operations people in a
+  datacenter, or a less software-savvy group?
+* Is your software intended to run on servers, desktops, or embedded
+  in dedicated devices?
+* Is your software installed individually, or in large deployment batches?
 
 Packaging is all about target environment and deployment
 experience. There are many answers to the questions above and each
-combination of circumstances has its own solutions.
+combination of circumstances has its own solutions. With this
+information, the following overview will guide you to the packaging
+technologies best suited to your project.
 
 Packaging libraries and tools
 -----------------------------
 
-You may have heard about PyPI, ``setup.py``, and wheel files. These
-are just a few of the tools Python's ecosystem provides for
-distributing Python code to developers.
+You may have heard about PyPI, ``setup.py``, and ``wheel``
+files. These are just a few of the tools Python's ecosystem provides
+for distributing Python code to developers, which you can read about in
+:doc:`guides/distributing-packages-using-setuptools`.
 
-The following classes of code are libraries and tools, meant for a
-technical audience, in a development setting. Skip ahead to
-Application packaging if you're looking for ways to package Python for
-a production setting.
+The following approaches to packaging are meant for libraries and
+tools used by technical audience in a development setting. If you're
+looking for ways to package Python for a non-technical audience and/or
+a production setting, skip ahead to :ref:`packaging-applications`.
 
 Python modules
 ^^^^^^^^^^^^^^
@@ -89,14 +98,23 @@ your code for every operating system, users of other platforms can
 still build it for themselves. Python and PyPI make it easy to upload
 both.
 
+.. figure:: assets/py_pkg_tools_and_libs.png
+   :width: 80%
+   :alt: A summary of Python's packaging capabilities for tools and libraries.
+
+   Python's recommended built-in library and tool packaging
+   technologies. Excerpted from `The Packaging Gradient (2017)
+   <https://www.youtube.com/watch?v=iLVNWfPWAC8>`_.
+
+.. _packaging-applications:
 
 Packaging Applications
 ----------------------
 
 So far we've only discussed Python's native distribution tools. Based
-on our introduction, you would be correct to infer we're only
-targeting environments which have Python. More importantly we're
-assuming an audience who knows how to install Python packages.
+on our introduction, you would be correct to infer these built-in
+approaches only target environments which have Python, and an audience
+audience who knows how to install Python packages.
 
 With the variety of operating systems, configurations, and people out
 there, this assumption is only safe when targeting a developer
@@ -289,11 +307,25 @@ this packaging. Technologies are Python agnostic, and include:
 Bringing your own hardware
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on your host to have electricity.
+The most all-encompassing way to ship your software would be to ship
+it already-installed on some hardware. This way, your software's user
+would require only electricity.
 
-Embed your code on an Adafruit or a Micropython, or some other
-hardware, and just ship it to the datacenter, or your users' homes,
-and call it good.
+Whereas the virtual machines described above are primarily reserved
+for the tech-savvy, hardware appliances used by the most advanced data
+centers to the youngest children.
+
+Embed your code on an `Adafruit
+<https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_,
+`MicroPython <https://micropython.org/>`_, or more-powerful hardware
+running Python, then ship it to the datacenter or your users'
+homes. They plug and play, and you can call it a day.
+
+.. figure:: assets/py_pkg_applications.png
+   :width: 80%
+   :alt: A summary of technologies used to package Python applications.
+
+   The simplified gamut of technologies used to package Python applications.
 
 What about...
 -------------

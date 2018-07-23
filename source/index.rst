@@ -6,6 +6,7 @@ Python Packaging User Guide
    :maxdepth: 2
    :hidden:
 
+   overview
    tutorials/index
    guides/index
    discussions/index
