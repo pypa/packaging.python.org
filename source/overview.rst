@@ -261,13 +261,23 @@ program into one of these formats, most of which involve embedding the
 Python interpreter and any other dependencies into a single executable
 file.
 
-This approach offers wide compatiblity and seamless user experience,
-though often through a panel of technologies, and a good amount of
-effort.
+This approach, called *freezing*, offers wide compatiblity and
+seamless user experience, though often through a panel of
+technologies, and a good amount of effort.
 
-* Freezers (Links TODO, maybe separate doc?)
+A selection of Python freezers:
 
-For server applications, see `Chef Omnibus
+* `pyInstaller <http://www.pyinstaller.org/>`_ - Cross-platform
+* `cx_Freeze <https://anthony-tuininga.github.io/cx_Freeze/>`_ - Cross-platform
+* `constructor <https://github.com/conda/constructor>`_ - For command-line installers
+* `py2exe <http://www.py2exe.org/>`_ - Windows only
+* `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only
+* `bbFreeze <https://pypi.python.org/pypi/bbfreeze>`_ - Windows, Linux, Python 2 only
+* `osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac
+* `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
+
+Most of the above imply single-user deployments. For multi-component
+server applications, see `Chef Omnibus
 <https://github.com/chef/omnibus#-omnibus>`_.
 
 
