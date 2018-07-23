@@ -166,11 +166,11 @@ If you're developing for a "Platform-as-a-Service" or "PaaS" like
 Heroku or Google App Engine, you are going to want to follow their
 respective packaging guides.
 
-* Heroku
-* Google App Engine
-* PythonAnywhere
-* OpenShift
-* "Serverless" frameworks like Zappa
+* `Heroku <https://devcenter.heroku.com/articles/getting-started-with-python>`_
+* `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
+* `PythonAnywhere <https://www.pythonanywhere.com/>`_
+* `OpenShift <https://blog.openshift.com/getting-started-python/>`_
+* "Serverless" frameworks like `Zappa <https://www.zappa.io/>`_
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
@@ -192,10 +192,10 @@ If you're planning on releasing to these new frontiers, you'll want to
 check out the following frameworks, and refer to their packaging
 guides:
 
-* Kivy
-* Beeware
-* Brython
-* Flexx
+* `Kivy <https://kivy.org/#home>`_
+* `Beeware <https://pybee.org/>`_
+* `Brython <https://brython.info/>`_
+* `Flexx <http://flexx.readthedocs.io/en/latest/>`_
 
 If you are *not* interested in using a framework or platform, or just
 wonder about some of the technologies and techniques utilized by the
@@ -215,6 +215,8 @@ Technologies which support this model:
 * `PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)
 * `zipapp <https://docs.python.org/3/library/zipapp.html>`_ (does not help manage dependencies, requires Python 3.5+)
 * `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
+
+.. _depending-on-a-new-python:
 
 Depending on a new Python ecosystem
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -244,6 +246,8 @@ packages:
 * `Enthought Canopy <https://www.enthought.com/product/canopy/>`_
 * `ActiveState ActivePython <https://www.activestate.com/activepython>`_
 * `WinPython <http://winpython.github.io/>`_
+
+.. _bringing-your-own-python:
 
 Bringing your own Python
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -330,15 +334,59 @@ homes. They plug and play, and you can call it a day.
 What about...
 -------------
 
-* Operating-system packages (deb/rpm)
-* virtualenv
-* Security considerations
+The sections above can only summarize so much, and you might be wondering about some of the more conspicuous gaps.
+
+Operating systems packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As mentioned in :ref:`depending-on-a-new-python` above, some operating
+have package managers of their own. If you're very sure of the
+operating system you're targeting, you can depend directly on a format
+like `deb <https://en.wikipedia.org/wiki/Deb_(file_format)>`_ (for
+Debian, Ubuntu, etc.) or `RPM
+<https://en.wikipedia.org/wiki/RPM_Package_Manager>`_ (for Red Hat,
+Fedora, etc.), and use that built-in package manager to take care of
+installation, and even deployment.
+
+In most deployment pipelines, the OS package manager is just one piece
+of the puzzle.
+
+virtualenv
+^^^^^^^^^^
+
+`Virtualenvs
+<http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have
+been an indispensible tool for multiple generations of Python
+developer, but are slowly fading from view, as they are being wrapped
+by higher-level tools. With packaging in particular, virtualenvs are
+used as a primitive in `the dh-virtualenv tool
+<http://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html>`_ and
+`osnap <https://github.com/jamesabel/osnap>`_, both of which wrap
+virtualenvs in a self-contained way.
+
+For production deployments, do not rely on running ``pip install``
+from the Internet into a virtualenv, as one might do in a development
+environment. The overview above is full of much better solutions.
+
+Security
+^^^^^^^^
+
+The further down the gradient you come, the harder it gets to update
+components of your package. Everything is more tightly bound together.
+
+For example, if a kernel security issue emerges, and you're deploying
+containers, the host system's kernel can be updated without requiring
+a new build on behalf of the application. If you deploy VM images,
+you'll need a new build. Whether or not this dynamic makes one option
+more secure is still a bit of an old debate, going back to the
+still-unsettled matter of `static versus dynamic linking
+<https://www.google.com/search?channel=fs&q=static+vs+dynamic+linking>`_.
 
 Summary
 -------
 
 Packaging in Python has a bit of a reputation for being a bumpy
-ride. This is mostly a confused side effect of Python's
+ride. This impression is mostly a byproduct of Python's
 versatility. Once you understand the natural boundaries between each
 packaging solution, you begin to realize that the varied landscape is
 a small price Python programmers pay for using the most balanced,
