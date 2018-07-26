@@ -33,8 +33,10 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 Get started
 ===========
 
-Essential tools and concepts for working with the Python packaging ecosystem are
-covered in our :doc:`tutorials/index` section:
+Thinking about shipping a new Python library or application? Start with :doc:`overview`.
+
+Essential tools and concepts for working within the Python
+development ecosystem are covered in our :doc:`tutorials/index` section:
 
 * to learn how to install packages, see the
   :doc:`tutorial on installing packages <tutorials/installing-packages>`.
