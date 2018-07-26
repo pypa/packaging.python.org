@@ -3,14 +3,22 @@ An Overview of Packaging for Python
 ===================================
 
 As a general-purpose programming language, Python is designed to be
-used it for many things. You can build robots or web sites or a
-game for your friends to play.
+used in many ways. You can build web sites or industrial robots or a
+game for your friends to play, and much more, all using the same
+core technology.
 
 Python's flexibility is why the first step in every Python project
 must be to think about the project's audience and the corresponding
 environment where the project will run. It might seem strange to think
 about packaging before writing code, but this process does wonders for
 avoiding headaches later on.
+
+This overview provides a general-purpose decision tree for reasoning
+about Python's plethora of packaging options. Read on to choose the best
+technology for your next project.
+
+.. contents:: Contents
+   :local:
 
 Thinking about deployment
 -------------------------
@@ -74,11 +82,12 @@ you can use Python's native packaging tools to create a *source*
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
 pure-Python, and you only depend on other Python packages, you can `go
-here to learn more <TODO>`_.
+here to learn more <https://docs.python.org/3/distutils/sourcedist.html>`_.
 
 If you rely on any non-Python code, or non-Python packages (such as
-libxml2 in the case of lxml, or BLAS libraries in the case of numpy),
-you will want to read on.
+`libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
+`lxml <https://pypi.org/project/lxml/>`_, or BLAS libraries in the
+case of `numpy <https://pypi.org/project/numpy>`_), you will want to read on.
 
 .. TODO: "Did you know?" about distributions providing multiple
    versions of the same package. Python packaging superpower!
@@ -90,13 +99,20 @@ So much of Python's practical power comes from its ability to
 integrate with the software ecosystem, in particular libraries written
 in C, C++, Fortran, Rust, and other languages.
 
-(TODO: This is why wheels exist, etc.)
+Not all developers have the right tools or experiences to build these
+components written in these compiled languages, so Python created the
+:term:`wheel`, a package format designed to ship libraries with
+compiled artifacts. In fact, Python's package installer, ``pip``,
+always prefers wheels because installation is always faster.
 
 Binary distributions are best when they come with source distributions
-to match. This way, even if you don't upload pre-built versions of
-your code for every operating system, users of other platforms can
-still build it for themselves. Python and PyPI make it easy to upload
-both.
+to match. Even if you don't upload wheels of your code for every
+operating system, by uploading the sdist, you're enabling users of
+other platforms to still build it for themselves.
+
+Python and PyPI make it easy to upload both wheels and sdists
+together. Just follow the :doc:`tutorials/packaging-projects`
+tutorial.
 
 .. figure:: assets/py_pkg_tools_and_libs.png
    :width: 80%
@@ -249,8 +265,8 @@ packages:
 
 .. _bringing-your-own-python:
 
-Bringing your own Python
-^^^^^^^^^^^^^^^^^^^^^^^^
+Bringing your own Python executable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Computing as we know it is defined by the ability to execute
 programs. Every operating system natively supports one or more formats
@@ -346,8 +362,8 @@ What about...
 
 The sections above can only summarize so much, and you might be wondering about some of the more conspicuous gaps.
 
-Operating systems packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Operating system packages
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As mentioned in :ref:`depending-on-a-new-python` above, some operating
 have package managers of their own. If you're very sure of the
@@ -392,7 +408,7 @@ more secure is still a bit of an old debate, going back to the
 still-unsettled matter of `static versus dynamic linking
 <https://www.google.com/search?channel=fs&q=static+vs+dynamic+linking>`_.
 
-Summary
+Wrap up
 -------
 
 Packaging in Python has a bit of a reputation for being a bumpy
