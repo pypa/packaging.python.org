@@ -59,14 +59,20 @@ please install the latest 3.x version from `python.org`_ or refer to the
     an introduction to using your operating system's shell and interacting with
     Python.
 
-    If you're using an enhanced shell like IPython or the Jupyter notebook, you
-    can run system commands like those in this tutorial by prefacing them with
-    a ``!`` character:
+.. Note:: If you're using an enhanced shell like IPython or the Jupyter
+   notebook, you can run system commands like those in this tutorial by
+   prefacing them with a ``!`` character:
 
     ::
 
-        In [1]: !python --version
+        In [1]: import sys
+                !{sys.executable} --version
         Python 3.6.3
+
+   It's recommended to write ``{sys.executable}`` rather than plain ``python`` in
+   order to ensure that commands are run in the Python installation matching
+   the currently running notebook (which may not be the same Python
+   installation that the ``python`` command refers to).
 
 .. Note:: Due to the way most Linux distributions are handling the Python 3
    migration, Linux users using the system Python without creating a virtual

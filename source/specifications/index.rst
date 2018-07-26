@@ -4,6 +4,9 @@ PyPA specifications
 This is a list of currently active interoperability specifications maintained
 by the Python Packaging Authority.
 
+Package Distribution Metadata
+-----------------------------
+
 .. toctree::
    :maxdepth: 1
 
@@ -14,5 +17,13 @@ by the Python Packaging Authority.
    distribution-formats
    platform-compatibility-tags
    recording-installed-packages
-   simple-repository-api
    entry-points
+
+
+Package Index Interfaces
+------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   simple-repository-api

@@ -81,7 +81,7 @@ the values if you want:
         description="A small example package",
         long_description=long_description,
         long_description_content_type="text/markdown",
-        url="https://github.com/pypa/example-project",
+        url="https://github.com/pypa/sampleproject",
         packages=setuptools.find_packages(),
         classifiers=(
             "Programming Language :: Python :: 3",
@@ -117,7 +117,7 @@ minimal set:
   to automatically discover all packages and subpackages. In this case, the
   list of packages will be `example_pkg` as that's the only package present.
 - ``classifiers`` tell the index and :ref:`pip` some additional metadata
-  about your pckage. In this case, the package is only compatible with Python
+  about your package. In this case, the package is only compatible with Python
   3, is licensed under the MIT license, and is OS-independent. You should
   always include at least which version(s) of Python your package works on,
   which license your package is available under, and which operating systems
@@ -139,7 +139,7 @@ if you'd like.
     # Example Package
 
     This is a simple example package. You can use
-    [Github-flavored Markdown](http://https://guides.github.com/features/mastering-markdown/)
+    [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
     to write your content.
 
 
@@ -182,7 +182,7 @@ Generating distribution archives
 --------------------------------
 
 The next step is to generate :term:`distribution packages <distribution
-package>` for the package. These are archives that are uploaded the the Package
+package>` for the package. These are archives that are uploaded to the Package
 Index and can be installed by :ref:`pip`.
 
 Make sure you have the latest versions of ``setuptools`` and ``wheel``
@@ -229,7 +229,7 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register and account on `Test PyPI`. Test
+The first thing you'll need to do is register an account on `Test PyPI`. Test
 PyPI is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to
@@ -330,8 +330,10 @@ Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI and Test PyPI is ephemeral. It's not unusual for packages and accounts to
 be deleted occasionally. If you want to upload your package to the real Python
 Package Index you can do it by registering an account on https://pypi.org and
-following the same instructions above but omitting the ``--repository-url``
-argument to ``twine`` and the ``--index-url`` argument to ``pip``.
+following the same instructions, however, use ``twine upload dist/*`` to upload
+your package and enter your credentials for the account you registered on the
+real PyPI. You can install your package from the real PyPI using
+``pip install your-package``.
 
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:

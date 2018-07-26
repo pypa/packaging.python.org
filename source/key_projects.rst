@@ -251,9 +251,9 @@ conda
 `Docs <http://conda.pydata.org/docs/>`__
 
 conda is the package management tool for `Anaconda
-<http://docs.continuum.io/anaconda/index.html>`__ Python installations.
-Anaconda Python is a distribution from `Continuum Analytics
-<http://continuum.io/downloads>`__ specifically aimed at the scientific
+<https://docs.anaconda.com/anaconda/>`__ Python installations.
+Anaconda Python is a distribution from `Anaconda, Inc
+<https://www.anaconda.com/download>`__ specifically aimed at the scientific
 community, and in particular on Windows where the installation of binary
 extensions is often difficult.
 
@@ -262,7 +262,7 @@ many of their combined features in terms of package management, virtual environm
 management and deployment of binary extensions.
 
 Conda does not install packages from PyPI and can install only from
-the official Continuum repositories, or anaconda.org (a place for
+the official Anaconda repositories, or anaconda.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
 However, note that pip can be installed into, and work side-by-side with conda
 for managing distributions from PyPI.
@@ -341,6 +341,24 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 ``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
 make deployment of Python applications as simple as ``cp``.
 
+.. _scikit-build:
+
+scikit-build
+============
+
+`Docs <https://scikit-build.readthedocs.io/en/latest/>`__ |
+`Mailing list <https://groups.google.com/forum/#!forum/scikit-build>`__ |
+`Github <https://github.com/scikit-build/scikit-build/>`__ |
+`PyPI <https://pypi.org/project/scikit-build>`__
+
+Scikit-build is an improved build system generator for CPython
+C/C++/Fortran/Cython extensions that integrates with :ref:`setuptools`, :ref:`wheel`
+and :ref:`pip`. It internally uses `cmake <https://pypi.org/project/cmake>`__ (available
+on PyPI) to provide better support for additional compilers, build systems,
+cross compilation, and locating dependencies and their associated
+build requirements. To speed up and parallelize the build of large projects,
+the user can install `ninja <https://pypi.org/project/ninja>`__ (also available
+on PyPI).
 
 .. _spack:
 
