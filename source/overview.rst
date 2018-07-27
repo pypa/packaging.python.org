@@ -89,11 +89,19 @@ If you rely on any non-Python code, or non-Python packages (such as
 `lxml <https://pypi.org/project/lxml/>`_, or BLAS libraries in the
 case of `numpy <https://pypi.org/project/numpy>`_), you will want to read on.
 
-.. TODO: "Did you know?" about distributions providing multiple
-   versions of the same package. Python packaging superpower!
+.. note:: Python and PyPI support multiple distributions providing
+   different implementations of the same package. For instance the
+   unmaintained-but-seminal `PIL distribution
+   <https://pypi.org/project/PIL/>`_ provides the PIL package, and so
+   does `Pillow <https://pypi.org/project/Pillow/>`_, an
+   actively-maintained fork of PIL!
 
-Python binary distribution
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+   This Python packaging superpower makes it possible for Pillow to be
+   a drop-in replacement for PIL, just by changing your project's
+   `q`install_requires`` or ``requirements.txt``.
+
+Python binary distributions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So much of Python's practical power comes from its ability to
 integrate with the software ecosystem, in particular libraries written
@@ -142,20 +150,13 @@ code, called libraries, between developers. We can piggyback
 library packaging, using technologies like `setuptools entry_points
 <http://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_.
 
-Generally libraries are building blocks, and not complete
-applications. For distributing applications, there's a whole world of
-technologies out there.
+Libraries are building blocks, not complete applications. For
+distributing applications, there's a whole new world of technologies
+out there.
 
 The best way to organize these application packaging options is by the
 way they depend on the target environment. That's how we'll approach
 the coming sections.
-
-.. TODO: Another way of thinking about packaging solutions is by how
-   much they include. All solutions include your code, plus some
-   amount of your code's library and service dependencies. PEX
-   includes Python libraries. RPM includes a list of dependencies on
-   libraries and local services. Images can be built to include
-   everything.
 
 Depending on a framework
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,8 +164,8 @@ Depending on a framework
 Some types of Python applications, like web sites and services, are
 common enough that they have frameworks to enable their development
 and packaging. Other types of applications, like web and mobile
-clients, are advanced enough that the framework is more or less a
-necessity.
+clients, are advanced enough that a framework becomes more than a
+convenience.
 
 In all these cases, it makes sense to work backwards, from the
 framework's packaging and deployment story. Some frameworks include a
@@ -232,6 +233,15 @@ Technologies which support this model:
 * `zipapp <https://docs.python.org/3/library/zipapp.html>`_ (does not help manage dependencies, requires Python 3.5+)
 * `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
 
+.. note:: Of all the approaches here, depending on a pre-installed
+          Python relies the most on the target environment. Of course,
+          this also makes for the smallest package, as small as
+          single-digit megabytes, or even kilobytes.
+
+          In general, decreasing the dependency on the target system
+          increases the size of our package, so the solutions here
+          are roughly arranged by increasing size of output.
+
 .. _depending-on-a-new-python:
 
 Depending on a new Python ecosystem
@@ -278,8 +288,8 @@ Python interpreter and any other dependencies into a single executable
 file.
 
 This approach, called *freezing*, offers wide compatiblity and
-seamless user experience, though often through a panel of
-technologies, and a good amount of effort.
+seamless user experience, though often requires multiple technologies,
+and a good amount of effort.
 
 A selection of Python freezers:
 
@@ -288,7 +298,7 @@ A selection of Python freezers:
 * `constructor <https://github.com/conda/constructor>`_ - For command-line installers
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
 * `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only
-* `bbFreeze <https://pypi.python.org/pypi/bbfreeze>`_ - Windows, Linux, Python 2 only
+* `bbFreeze <https://pypi.org/project/bbfreeze>`_ - Windows, Linux, Python 2 only
 * `osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac
 * `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
 
