@@ -98,7 +98,7 @@ case of `numpy <https://pypi.org/project/numpy>`_), you will want to read on.
 
    This Python packaging superpower makes it possible for Pillow to be
    a drop-in replacement for PIL, just by changing your project's
-   `q`install_requires`` or ``requirements.txt``.
+   ``install_requires`` or ``requirements.txt``.
 
 Python binary distributions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
