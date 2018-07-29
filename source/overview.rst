@@ -98,7 +98,9 @@ here to learn more <https://docs.python.org/3/distutils/sourcedist.html>`_.
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
 `lxml <https://pypi.org/project/lxml/>`_, or BLAS libraries in the
-case of `numpy <https://pypi.org/project/numpy>`_), you will want to read on.
+case of `numpy <https://pypi.org/project/numpy>`_), you will need to
+use the format detailed in the next section, which also has many
+advantages for pure-Python libraries.
 
 .. note:: Python and PyPI support multiple distributions providing
    different implementations of the same package. For instance the
@@ -122,7 +124,8 @@ Not all developers have the right tools or experiences to build these
 components written in these compiled languages, so Python created the
 :term:`wheel`, a package format designed to ship libraries with
 compiled artifacts. In fact, Python's package installer, ``pip``,
-always prefers wheels because installation is always faster.
+always prefers wheels because installation is always faster, so even
+pure-Python packages work better with wheels.
 
 Binary distributions are best when they come with source distributions
 to match. Even if you don't upload wheels of your code for every
