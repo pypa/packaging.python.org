@@ -30,8 +30,8 @@ below:
 * Who are your software's users? Will your software be installed by
   other developers doing software development, operations people in a
   datacenter, or a less software-savvy group?
-* Is your software intended to run on servers, desktops, or embedded
-  in dedicated devices?
+* Is your software intended to run on servers, desktops, mobile
+  clients (phones, tablets, etc.), or embedded in dedicated devices?
 * Is your software installed individually, or in large deployment batches?
 
 Packaging is all about target environment and deployment
@@ -58,15 +58,26 @@ Python modules
 
 A Python file, provided it only relies on the standard library, can be
 redistributed and reused. You will also need to ensure it's written
-for the right version of Python.
+for the right version of Python, and only relies on the standard
+library.
+
+This is great for sharing simple scripts and snippets between people
+who both have compatible Python versions (such as via email,
+StackOverflow, or GitHub gists). There are even some entire Python
+libraries that offer this as an option, such as `bottle.py
+<https://bottlepy.org/docs/dev/>`_ and `boltons
+<http://boltons.readthedocs.io/en/latest/architecture.html#architecture>`_.
+
+However, this pattern won't scale for projects that consist of
+multiple files, need additional libraries, or need a specific version
+of Python, hence the options below.
 
 Python source distributions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If your code consists of multiple Python files, it's usually organized
-into a directory structure. Any directory containing Python files,
-provided one of those files is named ``__init__.py``, comprises an
-:term:`import package`.
+into a directory structure. Any directory containing Python files can
+comprise an :term:`import package`.
 
 Because packages consist of multiple files, they are harder to
 distribute. Most protocols support transferring only one file at a
@@ -221,7 +232,7 @@ frameworks above, continue reading below.
 Depending on a pre-installed Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pick an arbitrary computer, and depending the context, there's a very
+Pick an arbitrary computer, and depending on the context, there's a very
 good chance Python is already installed. Included by default in most
 Linux and Mac operating systems for many years now, you can reasonably
 depend on Python preexisting in your data centers or on the personal
@@ -242,10 +253,10 @@ Technologies which support this model:
           increases the size of our package, so the solutions here
           are roughly arranged by increasing size of output.
 
-.. _depending-on-a-new-python:
+.. _depending-on-a-new-ecosystem:
 
-Depending on a new Python ecosystem
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Depending on a new software distribution ecosystem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For a long time many operating systems, including Mac and Windows,
 lacked built-in package management. Only recently did these OSes gain
@@ -352,8 +363,8 @@ it already-installed on some hardware. This way, your software's user
 would require only electricity.
 
 Whereas the virtual machines described above are primarily reserved
-for the tech-savvy, hardware appliances used by the most advanced data
-centers to the youngest children.
+for the tech-savvy, you can find hardware appliances being used by
+everyone from the most advanced data centers to the youngest children.
 
 Embed your code on an `Adafruit
 <https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_,
@@ -375,14 +386,16 @@ The sections above can only summarize so much, and you might be wondering about 
 Operating system packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned in :ref:`depending-on-a-new-python` above, some operating
-have package managers of their own. If you're very sure of the
+As mentioned in :ref:`depending-on-a-new-ecosystem` above, some operating
+systems have package managers of their own. If you're very sure of the
 operating system you're targeting, you can depend directly on a format
 like `deb <https://en.wikipedia.org/wiki/Deb_(file_format)>`_ (for
 Debian, Ubuntu, etc.) or `RPM
 <https://en.wikipedia.org/wiki/RPM_Package_Manager>`_ (for Red Hat,
 Fedora, etc.), and use that built-in package manager to take care of
-installation, and even deployment.
+installation, and even deployment. You can even use `FPM
+<https://fpm.readthedocs.io/en/latest/source/virtualenv.html>`_ to
+generate both deb and RPMs from the same source.
 
 In most deployment pipelines, the OS package manager is just one piece
 of the puzzle.
@@ -425,5 +438,5 @@ Packaging in Python has a bit of a reputation for being a bumpy
 ride. This impression is mostly a byproduct of Python's
 versatility. Once you understand the natural boundaries between each
 packaging solution, you begin to realize that the varied landscape is
-a small price Python programmers pay for using the most balanced,
-flexible language available.
+a small price Python programmers pay for using one of the most
+balanced, flexible language available.
