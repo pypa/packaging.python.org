@@ -175,11 +175,11 @@ the coming sections.
 Depending on a framework
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Some types of Python applications, like web sites and services, are
-common enough that they have frameworks to enable their development
-and packaging. Other types of applications, like web and mobile
-clients, are advanced enough that a framework becomes more than a
-convenience.
+Some types of Python applications, like web site backends and other
+network services, are common enough that they have frameworks to
+enable their development and packaging. Other types of applications,
+like dynamic web frontends and mobile clients, are complex enough to
+target that a framework becomes more than a convenience.
 
 In all these cases, it makes sense to work backwards, from the
 framework's packaging and deployment story. Some frameworks include a
