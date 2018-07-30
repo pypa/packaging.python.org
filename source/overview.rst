@@ -256,10 +256,10 @@ Technologies which support this model:
           increases the size of our package, so the solutions here
           are roughly arranged by increasing size of output.
 
-.. _depending-on-a-new-ecosystem:
+.. _depending-on-a-separate-ecosystem:
 
-Depending on a new software distribution ecosystem
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Depending on a separate software distribution ecosystem
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For a long time many operating systems, including Mac and Windows,
 lacked built-in package management. Only recently did these OSes gain
@@ -267,14 +267,16 @@ so-called "app stores", but even those focus on consumer applications
 and offer little for developers.
 
 Developers long sought remedies, and in this struggle, emerged with
-new their own package management solutions -- with some notable
-benefits for Python developers in particular. The most prominent, an
-alternative package ecosystem called Anaconda is built around Python
-and is increasingly common in academic, analytical, and other
-data-oriented environments, even making its way into server-oriented
-environments.
+their own package management solutions, such as `Homebrew
+<https://brew.sh/>`_. The most relevant alternative for Python
+developers is a package ecosystem called `Anaconda
+<https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)>`_. Anaconda
+is built around Python and is increasingly common in academic,
+analytical, and other data-oriented environments, even making its way
+`into server-oriented environments
+<https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
 
-Instructions on building for the Anaconda ecosystem:
+Instructions on building and publishing for the Anaconda ecosystem:
 
 * `Building libraries and applications with conda <https://conda.io/docs/user-guide/tutorials/index.html>`_
 * `Transitioning a native Python package to Anaconda <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_
@@ -384,12 +386,13 @@ homes. They plug and play, and you can call it a day.
 What about...
 -------------
 
-The sections above can only summarize so much, and you might be wondering about some of the more conspicuous gaps.
+The sections above can only summarize so much, and you might be
+wondering about some of the more conspicuous gaps.
 
 Operating system packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned in :ref:`depending-on-a-new-ecosystem` above, some operating
+As mentioned in :ref:`depending-on-a-separate-ecosystem` above, some operating
 systems have package managers of their own. If you're very sure of the
 operating system you're targeting, you can depend directly on a format
 like `deb <https://en.wikipedia.org/wiki/Deb_(file_format)>`_ (for
