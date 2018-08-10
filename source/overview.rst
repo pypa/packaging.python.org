@@ -130,7 +130,10 @@ pure-Python packages work better with wheels.
 Binary distributions are best when they come with source distributions
 to match. Even if you don't upload wheels of your code for every
 operating system, by uploading the sdist, you're enabling users of
-other platforms to still build it for themselves.
+other platforms to still build it for themselves. Default to
+publishing both sdist and wheel archives together, *unless* you're
+creating artifacts for a very specific use case where you know the
+recipient only needs one or the other.
 
 Python and PyPI make it easy to upload both wheels and sdists
 together. Just follow the :doc:`tutorials/packaging-projects`
