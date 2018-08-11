@@ -164,7 +164,7 @@ there, this assumption is only safe when targeting a developer
 audience.
 
 Python's native packaging is mostly built for distributing reusable
-code, called libraries, between developers. We can piggyback
+code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
 library packaging, using technologies like `setuptools entry_points
 <http://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_.
@@ -490,6 +490,23 @@ balanced, flexible language available.
    summary of accepted knowledge regarding its subject." Emphasis on
    the summary, plus ideally many links to other practical resources
    for more details.
+
+   Finally, unlike an encyclopedia, this guide takes some style points
+   from JupyterLab's metadocumentation, which at the time of writing
+   says:
+
+   - The documentation should be written in the second person,
+   referring to the reader as “you” and not using the first person
+   plural “we.” The author of the documentation is not sitting next to
+   the user, so using “we” can lead to frustration when things don’t
+   work as expected.
+
+   - Avoid words that trivialize using JupyterLab
+   such as “simply” or “just.” Tasks that developers find simple or
+   easy may not be for users."
+
+   Among other useful points. Read more here:
+   https://jupyterlab.readthedocs.io/en/latest/developer/documentation.html
 
    At its initial publication in 2018, this document was largely based
    on "The Many Layers of Packaging" essay, here:
