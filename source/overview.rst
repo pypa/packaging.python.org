@@ -13,7 +13,7 @@ Python's flexibility is why the first step in every Python project
 must be to think about the project's audience and the corresponding
 environment where the project will run. It might seem strange to think
 about packaging before writing code, but this process does wonders for
-avoiding headaches later on.
+avoiding future headaches.
 
 This overview provides a general-purpose decision tree for reasoning
 about Python's plethora of packaging options. Read on to choose the best
@@ -173,9 +173,9 @@ Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies
 out there.
 
-The best way to organize these application packaging options is by the
-way they depend on the target environment. That's how we'll approach
-the coming sections.
+The next few sections organize these application packaging options
+their dependencies on the target environment, so you can choose the
+right one for your project.
 
 Depending on a framework
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -336,10 +336,10 @@ and Windows -- can be set up to run applications packaged as
 lightweight images, using a relatively modern arrangement often
 referred to as `operating-system-level virtualization
 <https://en.wikipedia.org/wiki/Operating-system-level_virtualization>`_,
-or containerization for short.
+or *containerization*.
 
-As this level is packaging whole OS filesystems, techniques are mostly
-Python agnostic.
+These techniques are mostly Python agnostic, because they package
+whole OS filesystems, not just Python or Python packages.
 
 Adoption is most extensive among Linux servers, where the technology
 originated and where the technologies below work best:
@@ -481,6 +481,15 @@ balanced, flexible language available.
    not so much competing, as they are trying to cover a
    highly-variable and often very strict set of requirements. "Complex
    and nuanced" is an improvement on "arbitrary and complicated".
+
+   As far as content and tone, the aim is to provide a modicum of
+   background information in an encyclopedic fashion. Be correct and
+   practical, but as they say on Wikipedia, "Information should not be
+   included ... solely because it is true or useful. [An article]
+   should not be a complete exposition of all possible details, but a
+   summary of accepted knowledge regarding its subject." Emphasis on
+   the summary, plus ideally many links to other practical resources
+   for more details.
 
    At its initial publication in 2018, this document was largely based
    on "The Many Layers of Packaging" essay, here:
