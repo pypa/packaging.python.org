@@ -2,6 +2,8 @@
 An Overview of Packaging for Python
 ===================================
 
+.. Editors, see notes at the bottom of the document for maintenance info.
+
 As a general-purpose programming language, Python is designed to be
 used in many ways. You can build web sites or industrial robots or a
 game for your friends to play, and much more, all using the same
@@ -40,8 +42,8 @@ combination of circumstances has its own solutions. With this
 information, the following overview will guide you to the packaging
 technologies best suited to your project.
 
-Packaging libraries and tools
------------------------------
+Packaging Python libraries and tools
+------------------------------------
 
 You may have heard about PyPI, ``setup.py``, and ``wheel``
 files. These are just a few of the tools Python's ecosystem provides
@@ -149,8 +151,8 @@ tutorial.
 
 .. _packaging-applications:
 
-Packaging Applications
-----------------------
+Packaging Python applications
+-----------------------------
 
 So far we've only discussed Python's native distribution tools. Based
 on our introduction, you would be correct to infer these built-in
@@ -449,3 +451,37 @@ versatility. Once you understand the natural boundaries between each
 packaging solution, you begin to realize that the varied landscape is
 a small price Python programmers pay for using one of the most
 balanced, flexible language available.
+
+
+.. Editing notes:
+
+   Some notes to keep in mind when updating the Python Packaging Overview:
+
+   This document targets at an intermediate audience,
+   lower-mid-level to early-advanced Python developers. It's expected
+   that most developers finding this document will have already
+   encountered several packaging technologies, through package
+   managers, app stores, pip, and so forth. They may have even
+   shipped a few packages of their own. They are smart enough to have
+   built something to ship, and experienced (or frustrated) enough to
+   know to search for prior art.
+
+   In the spirit of being a succinct, "to-the-point" overview, we
+   forego the basics (like, "what is packaging?"). True beginners
+   rarely try to ship their very first lines of code, and when they
+   do, they are often working according to a text and/or framework
+   with its own directions and affordances.
+
+   Meanwhile, the target audience of intermediate
+   developers/apprentice packagers will benefit most from a framework
+   that helps them sort out the differences and reasons for such a
+   wide variety of technologies.
+
+   We want to foster an understanding that packaging technologies are
+   not so much competing, as they are trying to cover a
+   highly-variable and often very strict set of requirements. "Complex
+   and nuanced" is an improvement on "arbitrary and complicated".
+
+   At its initial publication in 2018, this document was largely based
+   on "The Many Layers of Packaging" essay, here:
+   http://sedimental.org/the_packaging_gradient.html
