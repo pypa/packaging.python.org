@@ -1,6 +1,110 @@
 News
 ====
 
+July 2018
+---------
+
+- Changed Continuum Analytics's references to Anaconda. (:pr:`534`)
+- Updated URL to the example setup.py. (:pr:`533`)
+- Improved binary extension docs. (:pr:`531`)
+- Added scikit-build to key projects. (:pr:`530`)
+
+June 2018
+---------
+
+- Fixed categories of interop PEP for pypa.io. (:pr:`527`)
+- Explained specific requirements for Markdown descriptions. (:pr:`522`)
+- Updated PyPI links for Flask. (:pr:`524`)
+
+May 2018
+--------
+
+- Updated system command for Jupyter notebook. (:pr:`516`)
+- Noted issues with Provides-Dist and Obsoletes-Dist. (:pr:`513`)
+- Expanded the commands for uploading to PyPI. (:pr:`515`)
+- Updated bandersnatch links in key_projects.rst. (:pr:`512`)
+- Reworded cross-reference to the poetry project. (:pr:`508`)
+- Updated Wheel location from Bitbucket to GitHub. (:pr:`509`)
+- Updated setuptools recommendation footnote. (:pr:`505`)
+- Removed outdated warning about Python version mixing with Pipenv. (:pr:`501`)
+- Simplified packaging tutorial. (:pr:`498`)
+- Upgraded to the latest Sphinx. (:pr:`499`)
+- Revised "Next Steps" for app dependency management. (:pr:`496`)
+- Updated alternate app dep manager recommendations. (:pr:`495`)
+- Updated Windows users instructions for clarity. (:pr:`493`)
+- Updated the license section description for completeness. (:pr:`492`)
+- Fixed Nox preview command. (:pr:`491`)
+- Added specification-style document to contributing section. (:pr:`489`)
+- Fixed section on data_files. (:pr:`490`)
+- Updated Nox build session for Windows. (:pr:`488`)
+- Fixed Thea's name in authors.txt. (:pr:`487`)
+- Removed unused link monitor script. (:pr:`486`)
+- Added documentation types to contributing guide. (:pr:`485`)
+- Updated note about README inclusion. (:pr:`483`)
+
+April 2018
+----------
+
+- Removed pointer to legacy PyPI. (:pr:`482`)
+- Added README guide. (:pr:`461`)
+- Updated pypi.python.org links to pypi.org links. (:pr:`477`)
+- Reworded upload section in uploading distribution tutorial. (:pr:`478`)
+- Updated sdist specification to refer PEP 517. (:pr:`472`)
+- Updated instructions and status for PyPI launch. (:pr:`475`)
+- Added instructions for Warehouse. (:pr:`471`)
+- Added manylinux2010 in platform tags specification. (:pr:`470`)
+- Updated the required metadata fields description. (:pr:`469`)
+- Removed GPG references from publishing tutorial. (:pr:`466`)
+- Added 'What’s in which Python 3.4–3.6?'. (:pr:`468`)
+- Added a guide for phasing out Python versions. (:pr:`459`)
+- Made default Description-Content-Type variant GFM. (:pr:`462`)
+
+March 2018
+----------
+
+- Fixed "installing packages" link. (:pr:`460`)
+- Updated "installing scientific packages". (:pr:`455`)
+- Changed \`\`filename\`\` to \:file\:\`filename\`. (:pr:`457`)
+- Added `long_description_content_type` to follow PEP 556. (:pr:`457`)
+- Clarified a long description classifier on pypi.org. (:pr:`456`)
+- Added a link to packaging's documentation. (:pr:`451`)
+- Updated Core Metadata spec to follw PEP 556. (:pr:`412`)
+
+February 2018
+-------------
+
+- Added external links to extension module guide. (:pr:`446`)
+- Added python3-venv and python3-pip to Debian installation instructions. (:pr:`445`)
+- Updated wheel footnoes to mention manylinux. (:pr:`444`)
+- Added pipenv to the Tool Recommendations guide. (:pr:`443`)
+- Documented `project_urls` as an option to setup.py. (:pr:`441`)
+- Updated PyPI links in distribution tutorial. (:pr:`440`)
+- Updated PyPI migration info. (:pr:`439`)
+- Updated links for pipenv. (:pr:`438`)
+- Consolidated PyPI migration info. (:pr:`436`)
+- Provided pointer to Google BigQuery download statistics. (:pr:`433`)
+- Added a warning about managing multiple versions with pipenv. (:pr:`430`)
+- Added a link to PyPI after the "Upload Your Distributions" step. (:pr:`431`)
+- Added example of multiple emails to Core Metadata. (:pr:`429`)
+- Added explanation of "legacy" in test.pypi.org/legacy. (:pr:`426`)
+
+January 2018
+------------
+
+- Added a link to PyPI's list of classifiers. (:pr:`425`)
+- Fixed link to latest Python 3 docs and explained README.rst. (:pr:`419`)
+
+December 2017
+-------------
+
+- Replaced `~` with `$HOME` in guides and tutorials.  (:pr:`418`)
+- Added note about needing to rebuild changes. (:pr:`417`)
+- Noted which fields can be used with environment markers. (:pr:`416`)
+- Updated Wheel link to GitHub. (:pr:`408`)
+- Updated Requires-Python section. (:pr:`414`)
+- Fixed broken link to Pipenv docs. (:pr:`405`)
+- Added news page. (:pr:`404`)
+
 November 2017
 -------------
 
