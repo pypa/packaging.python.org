@@ -33,8 +33,6 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 Get started
 ===========
 
-Thinking about shipping a new Python library or application? Start with :doc:`overview`.
-
 Essential tools and concepts for working within the Python
 development ecosystem are covered in our :doc:`tutorials/index` section:
 
@@ -44,6 +42,9 @@ development ecosystem are covered in our :doc:`tutorials/index` section:
   :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`.
 * to learn how to package and distribute your projects, see the
   :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
+* to get an overview of Python's packaging options, see the
+  :doc:`Overview of Python Packaging <overview>`.
+
 
 Learn more
 ==========
