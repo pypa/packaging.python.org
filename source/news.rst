@@ -1,6 +1,71 @@
 News
 ====
 
+July 2018
+---------
+
+- Improved binary extension docs. (:pr:`531`)
+- Added scikit-build to key projects. (:pr:`530`)
+
+June 2018
+---------
+
+- Fixed categories of interop PEP for pypa.io. (:pr:`527`)
+- Updated Markdown descriptions explanation. (:pr:`522`)
+
+May 2018
+--------
+
+- Noted issues with Provides-Dist and Obsoletes-Dist. (:pr:`513`)
+- Removed outdated warning about Python version mixing with Pipenv. (:pr:`501`)
+- Simplified packaging tutorial. (:pr:`498`)
+- Updated Windows users instructions for clarity. (:pr:`493`)
+- Updated the license section description for completeness. (:pr:`492`)
+- Added specification-style document to contributing section. (:pr:`489`)
+- Added documentation types to contributing guide. (:pr:`485`)
+
+April 2018
+----------
+
+- Added README guide. (:pr:`461`)
+- Updated instructions and status for PyPI launch. (:pr:`475`)
+- Added instructions for Warehouse. (:pr:`471`)
+- Removed GPG references from publishing tutorial. (:pr:`466`)
+- Added 'What’s in which Python 3.4–3.6?'. (:pr:`468`)
+- Added a guide for phasing out Python versions. (:pr:`459`)
+- Made default Description-Content-Type variant GFM. (:pr:`462`)
+
+March 2018
+----------
+
+- Updated "installing scientific packages". (:pr:`455`)
+- Added `long_description_content_type` to follow PEP 556. (:pr:`457`)
+- Clarified a long description classifier on pypi.org. (:pr:`456`)
+- Updated Core Metadata spec to follw PEP 556. (:pr:`412`)
+
+February 2018
+-------------
+
+- Added python3-venv and python3-pip to Debian installation instructions. (:pr:`445`)
+- Updated PyPI migration info. (:pr:`439`)
+- Added a warning about managing multiple versions with pipenv. (:pr:`430`)
+- Added example of multiple emails to Core Metadata. (:pr:`429`)
+- Added explanation of "legacy" in test.pypi.org/legacy. (:pr:`426`)
+
+January 2018
+------------
+
+- Added a link to PyPI's list of classifiers. (:pr:`425`)
+- Updated README.rst explanation. (:pr:`419`)
+
+December 2017
+-------------
+
+- Replaced `~` with `$HOME` in guides and tutorials.  (:pr:`418`)
+- Noted which fields can be used with environment markers. (:pr:`416`)
+- Updated Requires-Python section. (:pr:`414`)
+- Added news page. (:pr:`404`)
+
 November 2017
 -------------
 
