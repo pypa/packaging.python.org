@@ -42,7 +42,7 @@ development ecosystem are covered in our :doc:`tutorials/index` section:
   :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`.
 * to learn how to package and distribute your projects, see the
   :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
-* to get an overview of Python's packaging options, see the
+* to get an overview of packaging options for Python libraries and applications, see the
   :doc:`Overview of Python Packaging <overview>`.
 
 
