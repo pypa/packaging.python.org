@@ -59,7 +59,7 @@ you're testing has dependencies:
 Setting up TestPyPI in pypirc
 -----------------------------
 
-If you want to avoid entering the TestPyPI url and your username and password
+If you want to avoid entering the TestPyPI url and your username
 you can configure TestPyPI in your ``$HOME/.pypirc``.
 
 Create or modify ``$HOME/.pypirc`` with the following:
@@ -74,11 +74,10 @@ Create or modify ``$HOME/.pypirc`` with the following:
     [testpypi]
     repository: https://test.pypi.org/legacy/
     username: your testpypi username
-    password: your testpypi password
 
 
-.. Warning:: This stores your password in plaintext. It's recommended to set
-    narrow permissions on this file.
+.. Warning:: Do not store passwords in the pypirc file.
+    Storing passwords in plain text is never a good idea.
 
 You can then tell :ref:`twine` to upload to TestPyPI by specifying the
 ``--repository`` flag:
