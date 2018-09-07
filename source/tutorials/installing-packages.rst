@@ -248,21 +248,21 @@ To install the latest version of "SomeProject":
 
 ::
 
- pip install 'SomeProject'
+ pip install "SomeProject"
 
 
 To install a specific version:
 
 ::
 
- pip install 'SomeProject==1.4'
+ pip install "SomeProject==1.4"
 
 
 To install greater than or equal to one version and less than another:
 
 ::
 
- pip install 'SomeProject>=1,<2'
+ pip install "SomeProject>=1,<2"
 
 
 To install a version that's :pep:`"compatible" <440#compatible-release>`
@@ -270,7 +270,7 @@ with a certain version: [4]_
 
 ::
 
- pip install 'SomeProject~=1.4.2'
+ pip install "SomeProject~=1.4.2"
 
 In this case, this means to install any version "==1.4.*" version that's also
 ">=1.4.2".
