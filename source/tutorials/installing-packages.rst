@@ -323,28 +323,28 @@ from the pip docs.
 Note that the ``--user`` flag has no effect when inside a virtual environment
 - all installation commands will affect the virtual environment.
 
-.. Note:: If ``SomeProject`` defines any command-line scripts or console entry
-    points, ``--user`` will cause them to be installed inside the `user
-    base`_'s binary directory, which may or may not already be present in your
-    shell's :envvar:`PATH`.  If the scripts are not available in your shell
-    after installation, you'll need to add the directory to your
-    :envvar:`PATH`.
+If ``SomeProject`` defines any command-line scripts or console entry points,
+``--user`` will cause them to be installed inside the `user base`_'s binary
+directory, which may or may not already be present in your shell's
+:envvar:`PATH`.  (Starting in version 10, pip displays a warning when
+installing any scripts to a directory outside :envvar:`PATH`.)  If the scripts
+are not available in your shell after installation, you'll need to add the
+directory to your :envvar:`PATH`:
 
-    On Linux and macOS you can find the user base binary directory by running
-    ``python -m site --user-base`` and adding ``bin`` to the end. For example,
-    this will typically print ``~/.local`` (with ``~`` expanded to the
-    absolute path to your home directory) so you'll need to add
-    ``~/.local/bin`` to your ``PATH``. You can set your ``PATH`` permanently by
-    `modifying ~/.profile`_.
+- On Linux and macOS you can find the user base binary directory by running
+  ``python -m site --user-base`` and adding ``bin`` to the end. For example,
+  this will typically print ``~/.local`` (with ``~`` expanded to the absolute
+  path to your home directory) so you'll need to add ``~/.local/bin`` to your
+  ``PATH``.  You can set your ``PATH`` permanently by `modifying ~/.profile`_.
 
-    On Windows you can find the user base binary directory by running
-    ``py -m site --user-site`` and replacing ``site-packages`` with
-    ``Scripts``. For example, this could return
-    ``C:\Users\Username\AppData\Roaming\Python36\site-packages`` so you would
-    need to set your ``PATH`` to include
-    ``C:\Users\Username\AppData\Roaming\Python36\Scripts``. You can set your
-    user ``PATH`` permanently in the `Control Panel`_. You may need to log
-    out for the ``PATH`` changes to take effect.
+- On Windows you can find the user base binary directory by running ``py -m
+  site --user-site`` and replacing ``site-packages`` with ``Scripts``. For
+  example, this could return
+  ``C:\Users\Username\AppData\Roaming\Python36\site-packages`` so you would
+  need to set your ``PATH`` to include
+  ``C:\Users\Username\AppData\Roaming\Python36\Scripts``. You can set your user
+  ``PATH`` permanently in the `Control Panel`_. You may need to log out for the
+  ``PATH`` changes to take effect.
 
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
 .. _modifying ~/.profile: https://stackoverflow.com/a/14638025
