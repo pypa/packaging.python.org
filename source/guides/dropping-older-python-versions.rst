@@ -69,7 +69,7 @@ The file contains a set of keys and values, the list of keys is part of the PyPa
 
 You can see the contents of the generated file like this::
 
-    tar xvfz dist/my-package-1.0.0.tar.gz -O | cat */PKG-INFO
+    tar xfz dist/my-package-1.0.0.tar.gz --wildcards --no-wildcards-match-slash -O '*/PKG-INFO'
 
 Validate that the following is in place, before publishing the package:
 
