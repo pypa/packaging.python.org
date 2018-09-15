@@ -152,8 +152,8 @@ As mentioned above, the primary feature of :file:`setup.py` is that it contains
 a global ``setup()`` function.  The keyword arguments to this function are how
 specific details of your project are defined.
 
-The most relevant arguments are explained below. The snippets given are taken
-from the `setup.py
+The most relevant arguments are explained below. Most of the snippets given are
+taken from the `setup.py
 <https://github.com/pypa/sampleproject/blob/master/setup.py>`_ contained in the
 `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
@@ -361,12 +361,23 @@ packages
 
   packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
 
+Set ``packages`` to a list of all :term:`packages <Import Package>` in your
+project, including their subpackages, sub-subpackages, etc.  Although the
+packages can be listed manually, ``setuptools.find_packages()`` finds them
+automatically.  Use the ``exclude`` keyword argument to omit packages that are
+not intended to be released and installed.
 
-It is required to list the :term:`packages <Import Package>` to be included
-in your project.  Although they can be listed manually,
-``setuptools.find_packages`` finds them automatically.  Use the ``exclude``
-keyword argument to omit packages that are not intended to be released and
-installed.
+
+py_modules
+~~~~~~~~~~
+
+::
+
+    py_modules=["six"],
+
+If your project contains any single-file Python modules that aren't part of a
+package, set ``py_modules`` to a list of the names of the modules (minus the
+``.py`` extension) in order to make :ref:`setuptools` aware of them.
 
 
 install_requires
@@ -489,16 +500,6 @@ Although ``setup()`` supports a `scripts
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
-
-py_modules
-~~~~~~~~~~
-
-::
-
-    py_modules=["six"],
-
-It is required to list the names of single file modules that are to be included
-in your project.
 
 entry_points
 ~~~~~~~~~~~~
