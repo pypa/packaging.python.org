@@ -81,3 +81,23 @@ and identifies the markup as GitHub-flavored Markdown:
        long_description=long_description,
        long_description_content_type='text/markdown'
    )
+
+
+Validating reStructuredText markup
+----------------------------------
+
+If your README is written in reStructuredText, any invalid markup will prevent
+it from rendering, causing PyPI to instead just show the README's raw source.
+You can check your README for markup errors before uploading as follows:
+
+1. Install `readme_renderer <https://github.com/pypa/readme_renderer>`_, the
+   README rendering library used by PyPI::
+
+        pip install readme_renderer
+
+2. Run::
+
+        python setup.py check -r -s
+
+    This command will report any problems rendering your README.  If nothing is
+    reported, your markup renders fine.
