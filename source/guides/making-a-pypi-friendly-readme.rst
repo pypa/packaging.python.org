@@ -90,14 +90,18 @@ If your README is written in reStructuredText, any invalid markup will prevent
 it from rendering, causing PyPI to instead just show the README's raw source.
 You can check your README for markup errors before uploading as follows:
 
-1. Install `readme_renderer <https://github.com/pypa/readme_renderer>`_, the
-   README rendering library used by PyPI::
+1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
+   version 1.12.0 or higher is required::
 
-        pip install readme_renderer
+        pip install --upgrade twine
 
-2. Run::
+2. Build the sdist and wheel for your project as described under
+   :ref:`Packaging Your Project`.
 
-        python setup.py check -r -s
+3. Run ``twine check`` on the sdist and wheel::
 
-    This command will report any problems rendering your README.  If nothing is
-    reported, your markup renders fine.
+        twine check dist/*
+
+   This command will report any problems rendering your README.  If your markup
+   renders fine, the command will output ``Checking distribution FILENAME:
+   Passed``.
