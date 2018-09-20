@@ -84,11 +84,11 @@ the BigQuery free tier without a credit card
 - Navigate to the `BigQuery web UI`_.
 - Create a new project.
 - Enable the `BigQuery API
-  <https://console.developers.google.com/apis/api/bigquery-json.googleapis.com/overview>`__.
+  <https://console.developers.google.com/apis/library/bigquery-json.googleapis.com>`__.
 
 For more detailed instructions on how to get started with BigQuery, check out
 the `BigQuery quickstart guide
-<https://cloud.google.com/bigquery/quickstart-web-ui>`__.
+<https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`__.
 
 Useful queries
 ==============
@@ -239,7 +239,7 @@ Other libraries
 .. _PyPI package dataset: https://bigquery.cloud.google.com/dataset/the-psf:pypi
 .. _bandersnatch: /key_projects/#bandersnatch
 .. _Google BigQuery: https://cloud.google.com/bigquery
-.. _BigQuery web UI: http://bigquery.cloud.google.com/
+.. _BigQuery web UI: https://console.cloud.google.com/bigquery
 .. _pypinfo: https://github.com/ofek/pypinfo/blob/master/README.rst
 .. _google-cloud-bigquery: https://cloud.google.com/bigquery/docs/reference/libraries
 .. _pandas-gbq: https://pandas-gbq.readthedocs.io/en/latest/
