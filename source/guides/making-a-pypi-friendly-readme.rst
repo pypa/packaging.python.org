@@ -81,3 +81,27 @@ and identifies the markup as GitHub-flavored Markdown:
        long_description=long_description,
        long_description_content_type='text/markdown'
    )
+
+
+Validating reStructuredText markup
+----------------------------------
+
+If your README is written in reStructuredText, any invalid markup will prevent
+it from rendering, causing PyPI to instead just show the README's raw source.
+You can check your README for markup errors before uploading as follows:
+
+1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
+   version 1.12.0 or higher is required::
+
+        pip install --upgrade twine
+
+2. Build the sdist and wheel for your project as described under
+   :ref:`Packaging Your Project`.
+
+3. Run ``twine check`` on the sdist and wheel::
+
+        twine check dist/*
+
+   This command will report any problems rendering your README.  If your markup
+   renders fine, the command will output ``Checking distribution FILENAME:
+   Passed``.
