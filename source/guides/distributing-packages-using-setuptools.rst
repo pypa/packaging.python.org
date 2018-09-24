@@ -477,7 +477,9 @@ Each ``(directory, files)`` pair in the sequence specifies the installation
 directory and the files to install there. The ``directory`` must be a relative
 path (although this may change in the future, see
 `wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_).
-and it is interpreted relative to the installation prefix (Python’s ``sys.prefix``).
+and it is interpreted relative to the installation prefix
+(Python’s ``sys.prefix`` for a default installation;
+``site.USER_BASE`` for a user installation).
 Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
