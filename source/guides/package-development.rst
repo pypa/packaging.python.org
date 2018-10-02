@@ -71,6 +71,35 @@ tests ``included``, ``src``
 
 An example package in this cathegory is Matplotlib.
 
+Prepare (once)
+--------------
+
+::
+
+    git clone https://github.com/matplotlib/matplotlib
+    conda create -y -n mpl python=3.7 pytest numpy cycler kiwisolver pyparsing python-dateutil six cython
+    cd matplotlib
+    conda activate mpl
+    pip install -e .
+
+Develop (every day)
+-------------------
+
+Start::
+
+    cd matplotlib
+    conda activate mpl
+
+Workflow:
+
+1. Modify some files, say, the ``lib/matplotlib/colorbar.py`` file
+2. Test these particular changes:
+
+        pytest lib/matplotlib/tests/test_colorbar.py
+
+Repeat 1. and 2. The ``mpl`` environment has both the dependencies and the
+``matplotlib`` package in the development mode.
+
 tests ``separate``, ``non-src``
 ===============================
 
