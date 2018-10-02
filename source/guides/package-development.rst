@@ -74,7 +74,7 @@ An example package in this cathegory is Matplotlib.
 tests ``separate``, ``non-src``
 ===============================
 
-An example package in this cathegory is ?.
+An example package in this cathegory is Flit.
 
 tests ``separate``, ``src``
 ===========================
