@@ -10,20 +10,23 @@ directory (``src`` / ``non-src``) and the tests can be part of the package itsel
 or separate (tests ``included`` / ``separate``):
 
 * tests ``included``, ``non-src``
-* tests ``included``, ``src``
 * tests ``separate``, ``non-src``
+* tests ``included``, ``src``
 * tests ``separate``, ``src``
 
 We now examine each of these 4 cases and describe the possible workflows of
 each and the pros/cons.
 
-tests ``included``, ``non-src``
-===============================
+``non-src``
+===========
+
+tests ``included``
+------------------
 
 An example package in this cathegory is SymPy.
 
 Prepare (once)
---------------
+~~~~~~~~~~~~~~
 
 ::
 
@@ -31,7 +34,7 @@ Prepare (once)
     conda create -y -n sympy python=3.7 mpmath pytest
 
 Develop (every day)
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 Start:
 
@@ -49,7 +52,7 @@ Repeat 1. and 2. The ``sympy`` environment only has the dependencies, it
 doesn't get modified and doesn't have the ``sympy`` package.
 
 Pros / Cons
------------
+~~~~~~~~~~~
 
 Pros:
 
@@ -62,17 +65,40 @@ Pros:
 Cons:
 
 * By installing the package and running ``pytest``, one will run the local
-  version of sympy. One has to go to a different directory and do either
+  version of ``sympy``. One has to go to a different directory and do either
   ``import sympy; sympy.test()`` or ``pytest --pyargs sympy`` to run tests of
   the installed package.
 
-tests ``included``, ``src``
-===========================
+
+tests ``separate``
+------------------
+
+An example package in this cathegory is Flit.
+
+Pros / Cons
+~~~~~~~~~~~
+
+Pros:
+
+* One can import the package locally, no need to install and pollute some
+  environment
+
+Cons:
+
+* By installing the package and running ``pytest``, one will run the local
+  version of ``flit``. One has to remove the ``flit`` directory with ``rm -r
+  flit`` to test the installed version.
+
+``src``
+=======
+
+tests ``included``
+------------------
 
 An example package in this cathegory is Matplotlib.
 
 Prepare (once)
---------------
+~~~~~~~~~~~~~~
 
 ::
 
@@ -83,7 +109,7 @@ Prepare (once)
     pip install -e .
 
 Develop (every day)
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 Start::
 
@@ -100,18 +126,13 @@ Workflow:
 Repeat 1. and 2. The ``mpl`` environment has both the dependencies and the
 ``matplotlib`` package in the development mode.
 
-tests ``separate``, ``non-src``
-===============================
-
-An example package in this cathegory is Flit.
-
-tests ``separate``, ``src``
-===========================
+tests ``separate``
+------------------
 
 An example package in this cathegory is Flake8.
 
 Prepare (once)
---------------
+~~~~~~~~~~~~~~
 
 ::
 
@@ -122,7 +143,7 @@ Prepare (once)
     pip install -e .
 
 Develop (every day)
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 Start::
 
@@ -140,7 +161,7 @@ Repeat 1. and 2. The ``flake8`` environment has both the dependencies and the
 ``flake8`` package in the development mode.
 
 Pros / Cons
------------
+~~~~~~~~~~~
 
 Pros:
 
