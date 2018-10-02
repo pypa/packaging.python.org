@@ -73,7 +73,8 @@ Cons:
 tests ``separate``
 ------------------
 
-An example package in this cathegory is Flit.
+An example package in this cathegory is Flit, others are
+https://github.com/bokeh/bokeh/ and https://github.com/plotly/dash.
 
 Prepare (once)
 ~~~~~~~~~~~~~~
