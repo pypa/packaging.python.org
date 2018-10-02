@@ -1,0 +1,128 @@
+===================
+Package Development
+===================
+
+This guide documents the most common workflows that are available for
+developing a Python package and how to structure the project.
+
+There are 4 basic cases: the package can be at the root level of in the `src`
+directory (``src`` / ``non-src``) and the tests can be part of the package itself
+or separate (tests ``included`` / ``separate``):
+
+* tests ``included``, ``non-src``
+* tests ``included``, ``src``
+* tests ``separate``, ``non-src``
+* tests ``separate``, ``src``
+
+We now examine each of these 4 cases and describe the possible workflows of
+each and the pros/cons.
+
+tests ``included``, ``non-src``
+===============================
+
+An example package in this cathegory is SymPy.
+
+Prepare (once)
+--------------
+
+::
+
+    git clone https://github.com/sympy/sympy
+    conda create -y -n sympy python=3.7 mpmath pytest
+
+Develop (every day)
+-------------------
+
+Start:
+
+    cd sympy
+    conda activate sympy
+
+Workflow:
+
+1. Modify some files, say, in the ``sympy/polys`` directory
+2. Test these particular changes:
+
+        pytest sympy/polys/tests/test_solvers.py
+
+Repeat 1. and 2. The ``sympy`` environment only has the dependencies, it
+doesn't get modified and doesn't have the ``sympy`` package.
+
+Pros / Cons
+-----------
+
+Pros:
+
+* One can import the package locally, no need to install and pollute some
+  environment
+* One can still install the package to test it if one wants to
+* Distributing the tests with the package allows easy testing of installed
+  package by ``import sympy; sympy.test()``.
+
+Cons:
+
+* By installing the package and running ``pytest``, one will run the local
+  version of sympy. One has to go to a different directory and do either
+  ``import sympy; sympy.test()`` or ``pytest --pyargs sympy`` to run tests of
+  the installed package.
+
+tests ``included``, ``src``
+===========================
+
+An example package in this cathegory is Matplotlib.
+
+tests ``separate``, ``non-src``
+===============================
+
+An example package in this cathegory is ?.
+
+tests ``separate``, ``src``
+===========================
+
+An example package in this cathegory is Flake8.
+
+Prepare (once)
+--------------
+
+::
+
+    git clone https://gitlab.com/pycqa/flake8
+    conda create -y -n flake8 python=3.7 pytest pyflakes pycodestyle mccabe
+    cd flake8
+    conda activate flake8
+    pip install -e .
+
+Develop (every day)
+-------------------
+
+Start::
+
+    cd flake8
+    conda activate flake8
+
+Workflow:
+
+1. Modify some files, say, the ``src/flake8/statistics.py`` file
+2. Test these particular changes:
+
+        pytest tests/unit/test_statistics.py
+
+Repeat 1. and 2. The ``flake8`` environment has both the dependencies and the
+``flake8`` package in the development mode.
+
+Pros / Cons
+-----------
+
+Pros:
+
+* Unlike the tests ``non-src`` case (both ``separate`` and ``included``), one
+  cannot accidentally run tests with the local package instead of the
+  installed one. environment
+
+Cons:
+
+* One can't import the package without installing it into an environment (what
+  can do it by setting ``PYTHONPATH`` which is not as simple as importing the
+  package directly). That means that one will have an environment with a
+  development version of the package, causing possible issues down the road
+  when the environment is used for another purpose.
