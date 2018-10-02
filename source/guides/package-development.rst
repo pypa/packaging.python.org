@@ -75,6 +75,32 @@ tests ``separate``
 
 An example package in this cathegory is Flit.
 
+Prepare (once)
+~~~~~~~~~~~~~~
+
+::
+
+    git clone https://github.com/takluyver/flit
+    conda create -y -n flit python=3.7 pytest requests requests_download testpath responses docutils pytoml pytest-cov
+
+Develop (every day)
+~~~~~~~~~~~~~~~~~~~
+
+Start:
+
+    cd flit
+    conda activate flit
+
+Workflow:
+
+1. Modify some files, say, the ``flit/upload.py`` file
+2. Test these particular changes:
+
+        pytest tests/test_upload.py
+
+Repeat 1. and 2. The ``flit`` environment only has the dependencies, it
+doesn't get modified and doesn't have the ``flit`` package.
+
 Pros / Cons
 ~~~~~~~~~~~
 
