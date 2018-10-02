@@ -27,3 +27,4 @@ introduction to packaging, see :doc:`/tutorials/index`.
    migrating-to-pypi-org
    using-testpypi
    making-a-pypi-friendly-readme
+   package-development.rst
