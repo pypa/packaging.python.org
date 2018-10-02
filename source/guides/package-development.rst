@@ -203,3 +203,12 @@ Cons:
   package directly). That means that one will have an environment with a
   development version of the package, causing possible issues down the road
   when the environment is used for another purpose.
+
+Notes
+=====
+
+* It would be nice if ``pytest`` added an option to ignore the local package,
+  so that one does not have to do the ugly ``rm -r flit`` hack for ``separate``
+  / ``non-src``. See this `comment
+  <https://github.com/pypa/python-packaging-user-guide/issues/320#issuecomment-426429307>`_
+  for more details.
