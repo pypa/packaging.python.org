@@ -1,6 +1,21 @@
 News
 ====
 
+September 2018
+--------------
+- Added a section on checking RST markup. (:pr:`554`)
+- Updated user installs page. (:pr:`558`)
+- Updated Google BigQuery urls. (:pr:`556`)
+- Replaced tar command with working command. (:pr:`552`)
+- Changed to double quotes in the pip install SomeProject==1.4. (:pr:`550`)
+
+August 2018
+-----------
+- Removed the recommendation to store passwords in cleartext. (:pr:`546`)
+- Moved the Overview to a task based lead in along with the others. (:pr:`540`)
+- Updated Python version supported by virtualenv. (:pr:`538`)
+- Added outline/rough draft of new Overview page. (:pr:`519`)
+
 July 2018
 ---------
 
