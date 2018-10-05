@@ -14,7 +14,7 @@ For your README to display properly on PyPI, choose a markup language supported 
 Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_renderer>`_ are:
 
 * plain text
-* `reStructuredText <http://docutils.sourceforge.net/rst.html>`_
+* `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ (without Sphinx extensions)
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
   or `CommonMark <http://commonmark.org/>`_)
 
@@ -88,6 +88,12 @@ Validating reStructuredText markup
 
 If your README is written in reStructuredText, any invalid markup will prevent
 it from rendering, causing PyPI to instead just show the README's raw source.
+
+Note that Sphinx extensions used in docstrings, such as
+`directives and roles <http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ 
+(e.g., "``:py:func:`getattr```" or "``:ref:`my-reference-label```"), are not allowed here and will result in error
+messages like "``Error: Unknown interpreted text role "py:func".``".
+
 You can check your README for markup errors before uploading as follows:
 
 1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
