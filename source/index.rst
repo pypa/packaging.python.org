@@ -2,6 +2,10 @@
 Python Packaging User Guide
 ===========================
 
+.. meta::
+   :description: The Python Packaging User Guide (PyPUG) is a collection of tutorials and guides for packaging Python software.
+   :keywords: python, packaging, guide, tutorial
+
 .. toctree::
    :maxdepth: 2
    :hidden:
