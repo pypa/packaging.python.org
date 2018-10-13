@@ -122,7 +122,7 @@ Cons:
 tests ``included``
 ------------------
 
-An example package in this cathegory is Matplotlib.
+An example package in this category is Matplotlib.
 
 Prepare (once)
 ~~~~~~~~~~~~~~
