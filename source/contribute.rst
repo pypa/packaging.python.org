@@ -80,7 +80,7 @@ need:
 1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
    nox using ``pip``::
 
-      pip install --user nox-automation
+      pip install --user nox
 
 2. Python 3.6. Our build scripts are designed to work with Python 3.6 only.
    See the `Hitchhiker's Guide to Python installation instructions`_ to install
