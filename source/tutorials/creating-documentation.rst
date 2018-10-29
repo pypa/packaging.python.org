@@ -13,7 +13,7 @@ Installing Sphinx
 -----------------
 Use ``pip`` to install Sphinx:
 
-.. code-block:: python
+.. code-block:: bash
 
 	pip install -U sphinx
 
@@ -26,14 +26,14 @@ Getting Started With Sphinx
 
 Create a ``doc`` directory inside your project to hold your documentation:
 
-.. code-block:: python
+.. code-block:: bash
 
 	cd /path/to/project
 	mkdir docs
 
 Run ``spinx-quickstart`` inside the ``docs`` directory:
 
-.. code-block:: python
+.. code-block:: bash
 
 	cd docs
 	sphinx-quickstart
@@ -42,7 +42,7 @@ This sets up a source directory, walks you through some basic configurations, an
 
 You can add some information about your project in ``index.rst``, then build them:
 
-.. code-block:: python
+.. code-block:: bash
 
 	make html
 
