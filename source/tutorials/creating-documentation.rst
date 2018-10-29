@@ -11,7 +11,7 @@ This section covers the basics of how to create documentation using `Sphinx`_ an
 
 Installing Sphinx
 -----------------
-Use `pip` to install Sphinx:
+Use ``pip`` to install Sphinx:
 
 .. code-block:: python
 
@@ -24,23 +24,23 @@ For other installation methods, see this `installation guide`_ by Sphinx.
 Getting Started With Sphinx
 ---------------------------
 
-Create a `doc` directory inside your project to hold your documentation:
+Create a ``doc`` directory inside your project to hold your documentation:
 
 .. code-block:: python
 
 	cd /path/to/project
 	mkdir docs
 
-Run `spinx-quickstart` inside the `docs` directory:
+Run ``spinx-quickstart`` inside the ``docs`` directory:
 
 .. code-block:: python
 
 	cd docs
 	sphinx-quickstart
 
-This sets up a source directory, walks you through some basic configurations, and creates a `index.rst` file as well as a `conf.py` file.
+This sets up a source directory, walks you through some basic configurations, and creates an ``index.rst`` file as well as a ``conf.py`` file.
 
-You can add some information about your project in `index.rst`, then build them:
+You can add some information about your project in ``index.rst``, then build them:
 
 .. code-block:: python
 
