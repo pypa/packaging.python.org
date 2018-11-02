@@ -109,10 +109,12 @@ number of your project:
             ...
         )
 
-    Although this technique is common, beware that it will fail if
-    ``sample/__init__.py`` imports packages from ``install_requires``
-    dependencies, which will very likely not be installed yet when
-    :file:`setup.py` is run.
+    .. warning::
+
+        Although this technique is common, beware that it will fail if
+        ``sample/__init__.py`` imports packages from ``install_requires``
+        dependencies, which will very likely not be installed yet when
+        :file:`setup.py` is run.
 
 
 #.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)
