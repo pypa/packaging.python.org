@@ -49,3 +49,14 @@ You can add some information about your project in ``index.rst``, then build the
 For more details on the build process, see this `guide`_ by Read The Docs.
 
 .. _guide: https://docs.readthedocs.io/en/latest/intro/import-guide.html
+
+Other Sources
+-------------
+
+For a more detailed guide on how to use Sphinx and reStructuredText, please see this `documentation tutorial`_ on Hitchhiker's Guide to Python. 
+
+.. _documentation tutorial: https://docs.python-guide.org/writing/documentation/
+
+
+
+
