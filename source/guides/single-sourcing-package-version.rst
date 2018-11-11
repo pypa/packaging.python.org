@@ -8,33 +8,27 @@ Single-sourcing the package version
 There are many techniques to maintain a single source of truth for the version
 number of your project:
 
-#.  Read the file in :file:`setup.py` and parse the version with a regex.
-    Example ( from `pip setup.py
-    <https://github.com/pypa/pip/blob/master/setup.py#L12>`_)::
+#.  Read the file with version info in :file:`setup.py` and parse version line.
+    Example::
 
-        here = os.path.abspath(os.path.dirname(__file__))
+        import os
 
-        def read(*parts):
-            with codecs.open(os.path.join(here, *parts), 'r') as fp:
-                return fp.read()
-
-        def find_version(*file_paths):
-            version_file = read(*file_paths)
-            version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
-                                      version_file, re.M)
-            if version_match:
-                return version_match.group(1)
-            raise RuntimeError("Unable to find version string.")
+        def get_version(rel_path):
+            current_dir = os.path.abspath(os.path.dirname(__file__))
+            version_file = os.path.join(current_dir, rel_path)
+            for line in open(version_file, 'rb'):
+                # Decode to unicode for PY2/PY3 in a fail-safe way
+                line = line.decode('cp437')
+                if line.startswith('__version__'):
+                    # __version__ = "0.9"
+                    delim = '\"' if '\"' in line else '\''
+                    return line.split(delim)[1]
 
         setup(
            ...
-           version=find_version("package", "__init__.py")
+           version=get_version("package/__init__.py"),
            ...
         )
-
-    .. note::
-
-        This technique has the disadvantage of having to deal with complexities of regular expressions.
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
