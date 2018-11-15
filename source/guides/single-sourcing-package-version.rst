@@ -96,6 +96,8 @@ number of your project:
     installation metadata, which is not necessarily the code that's currently
     imported.
 
+    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_.
+
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
     ``sample`` in :file:`setup.py`.
