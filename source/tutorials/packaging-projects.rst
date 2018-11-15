@@ -53,7 +53,7 @@ them in the following steps.
         __init__.py
       setup.py
       LICENSE
-      README.md
+      README.rst
 
 
 Creating setup.py
@@ -70,7 +70,7 @@ the values if you want:
 
     import setuptools
 
-    with open("README.md", "r") as fh:
+    with open("README.rst", "r") as fh:
         long_description = fh.read()
 
     setuptools.setup(
@@ -80,7 +80,7 @@ the values if you want:
         author_email="author@example.com",
         description="A small example package",
         long_description=long_description,
-        long_description_content_type="text/markdown",
+        long_description_content_type="text/x-rst",
         url="https://github.com/pypa/sampleproject",
         packages=setuptools.find_packages(),
         classifiers=[
@@ -104,15 +104,15 @@ minimal set:
 - ``description`` is a short, one-sentence summary of the package.
 - ``long_description`` is a detailed description of the package. This is
   shown on the package detail package on the Python Package Index. In
-  this case, the long description is loaded from :file:`README.md` which is
-  a common pattern.
+  this case, the long description is loaded from :file:`README.rst`.
 - ``long_description_content_type`` tells the index what type of markup is
-  used for the long description. In this case, it's Markdown.
+  used for the long description. In this case, it's `reStructuredText
+  <http://docutils.sourceforge.net/rst.html>`_.
 - ``url`` is the URL for the homepage of the project. For many projects, this
   will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
   service.
 - ``packages`` is a list of all Python :term:`import packages <Import
-  Package>` that should be included in the :term:`distribution package`. 
+  Package>` that should be included in the :term:`distribution package`.
   Instead of listing each package manually, we can use :func:`find_packages`
   to automatically discover all packages and subpackages. In this case, the
   list of packages will be `example_pkg` as that's the only package present.
@@ -128,18 +128,20 @@ There are many more than the ones mentioned here. See
 :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
 
-Creating README.md
-------------------
+Creating README.rst
+-------------------
 
-Open :file:`README.md` and enter the following content. You can customize this
+Open :file:`README.rst` and enter the following content. You can customize this
 if you'd like.
 
-.. code-block:: md
+.. code-block:: rest
 
-    # Example Package
+    ===============
+    Example Package
+    ===============
 
-    This is a simple example package. You can use
-    [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+    This is a simple example package. You can use the `reStructuredText
+    <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.htmlreStructuredText Primer>`_
     to write your content.
 
 
