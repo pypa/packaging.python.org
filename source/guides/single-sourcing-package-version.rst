@@ -40,7 +40,7 @@ number of your project:
     offers an API that both locations can use.
 
     Few tools you could use, in no particular order, and not necessarily complete:
-    `bumpversion <https://pypi.org/project/bumpversion>`_,
+    `bump2version <https://pypi.org/project/bump2version>`_,
     `changes <https://pypi.org/project/changes>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_.
 
 
