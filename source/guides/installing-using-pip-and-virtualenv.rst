@@ -104,13 +104,15 @@ On macOS and Linux:
 
 .. code-block:: bash
 
-    python3 -m virtualenv env
+    python3 -m venv env
+    OR
+    python -m virtualenv env
 
 On Windows:
 
 .. code-block:: bash
 
-    py -m virtualenv env
+    py -m venv env
 
 The second argument is the location to create the virtualenv. Generally, you
 can just create this in your project and call it ``env``.
