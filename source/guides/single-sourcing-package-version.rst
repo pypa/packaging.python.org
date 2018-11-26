@@ -17,12 +17,10 @@ number of your project:
             current_dir = os.path.abspath(os.path.dirname(__file__))
             version_file = os.path.join(current_dir, rel_path)
             for line in open(version_file, 'rb'):
-                # Decode to unicode for PY2/PY3 in a fail-safe way
-                line = line.decode('cp437')
-                if line.startswith('__version__'):
+                if line.startswith(b'__version__'):
                     # __version__ = "0.9"
-                    delim = '\"' if '\"' in line else '\''
-                    return line.split(delim)[1]
+                    delim = b'\"' if b'\"' in line else b'\''
+                    return line.split(delim)[1].decode()
 
         setup(
            ...
