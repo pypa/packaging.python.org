@@ -56,8 +56,9 @@ Pros / Cons
 
 Pros:
 
-* One can import the package locally, no need to install and pollute some
-  environment
+* One can import the package directly without extra tooling or configuration
+  (e.g., no need to modify `PYTHONPATH` or to install and pollute some
+  environment)
 * One can still install the package to test it if one wants to
 * Distributing the tests with the package allows easy testing of installed
   package by ``import sympy; sympy.test()``.
