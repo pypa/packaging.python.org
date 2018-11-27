@@ -157,7 +157,9 @@ Repeat 1. and 2. The ``mpl`` environment has both the dependencies and the
 tests ``separate``
 ------------------
 
-An example package in this cathegory is Flake8.
+An example package in this cathegory is Flake8 or Pillow.
+
+First an example with Flake8:
 
 Prepare (once)
 ~~~~~~~~~~~~~~
@@ -187,6 +189,120 @@ Workflow:
 
 Repeat 1. and 2. The ``flake8`` environment has both the dependencies and the
 ``flake8`` package in the development mode.
+
+Unfortunately, the ``flake8`` package does not seem to work locally::
+
+	$ PYTHONPATH=src pytest tests/unit/test_statistics.py
+	============================= test session starts ==============================
+	platform linux -- Python 3.7.1, pytest-4.0.0, py-1.7.0, pluggy-0.8.0
+	rootdir: /home/certik/repos/flake8, inifile: pytest.ini
+	collected 0 items / 1 errors
+
+	==================================== ERRORS ====================================
+	________________ ERROR collecting tests/unit/test_statistics.py ________________
+	ImportError while importing test module '/home/certik/repos/flake8/tests/unit/test_statistics.py'.
+	Hint: make sure your test modules/packages have valid Python names.
+	Traceback:
+	tests/unit/test_statistics.py:4: in <module>
+		from flake8 import statistics as stats
+	E   ImportError: cannot import name 'statistics' from 'flake8' (/home/certik/repos/flake8/src/flake8/__init__.py)
+	!!!!!!!!!!!!!!!!!!! Interrupted: 1 errors during collection !!!!!!!!!!!!!!!!!!!!
+	=========================== 1 error in 0.09 seconds ============================
+
+one has to always install it into some environment.
+
+For this reason, here are instructions how develop ``Pillow``, both as
+installed, or locally. First installed:
+
+Prepare (once)
+~~~~~~~~~~~~~~
+
+::
+
+    git clone https://github.com/python-pillow/Pillow
+    conda create -y -n pillow python=3.7 pytest
+    cd Pillow
+    conda activate pillow
+    pip install -e .
+
+Develop (every day)
+~~~~~~~~~~~~~~~~~~~
+
+Start::
+
+    cd pillow
+    conda activate pillow
+
+Workflow:
+
+1. Modify some files, say, the ``src/PIL/Image.py`` file::
+
+	diff --git a/src/PIL/Image.py b/src/PIL/Image.py
+	index 541c62c4..49a46a8d 100644
+	--- a/src/PIL/Image.py
+	+++ b/src/PIL/Image.py
+	@@ -1828,7 +1828,7 @@ class Image(object):
+				 if angle == 0:
+					 return self.copy()
+				 if angle == 180:
+	-                return self.transpose(ROTATE_180)
+	+                return self.transpose(ROTATE_90)
+				 if angle == 90 and expand:
+					 return self.transpose(ROTATE_90)
+				 if angle == 270 and expand:
+
+2. Test these particular changes:
+
+		pytest -k test_image_rotate.py
+
+Repeat 1. and 2. The ``pillow`` environment has both the dependencies and the
+``pillow`` package in the development mode.
+
+Here is how to develop Pillow locally:
+
+Prepare (once)
+~~~~~~~~~~~~~~
+
+::
+
+    git clone https://github.com/python-pillow/Pillow
+    conda create -y -n pillow python=3.7 pytest
+    cd Pillow
+    conda activate pillow
+
+Develop (every day)
+~~~~~~~~~~~~~~~~~~~
+
+Start::
+
+    cd pillow
+    conda activate pillow
+    python setup.py build_ext --inplace
+
+Workflow:
+
+1. Modify some files, say, the ``src/PIL/Image.py`` file::
+
+	diff --git a/src/PIL/Image.py b/src/PIL/Image.py
+	index 541c62c4..49a46a8d 100644
+	--- a/src/PIL/Image.py
+	+++ b/src/PIL/Image.py
+	@@ -1828,7 +1828,7 @@ class Image(object):
+				 if angle == 0:
+					 return self.copy()
+				 if angle == 180:
+	-                return self.transpose(ROTATE_180)
+	+                return self.transpose(ROTATE_90)
+				 if angle == 90 and expand:
+					 return self.transpose(ROTATE_90)
+				 if angle == 270 and expand:
+
+2. Test these particular changes:
+
+		PYTHONPATH=src pytest -k test_image_rotate.py
+
+Repeat 1. and 2. The ``pillow`` environment has only the dependencies, but not
+the ``pillow`` package.
 
 Pros / Cons
 ~~~~~~~~~~~
