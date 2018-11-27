@@ -195,15 +195,15 @@ Pros:
 
 * Unlike the tests ``non-src`` case (both ``separate`` and ``included``), one
   cannot accidentally run tests with the local package instead of the
-  installed one. environment
+  installed one in an environment
 
 Cons:
 
-* One can't import the package without installing it into an environment (what
-  can do it by setting ``PYTHONPATH`` which is not as simple as importing the
-  package directly). That means that one will have an environment with a
-  development version of the package, causing possible issues down the road
-  when the environment is used for another purpose.
+* One cannot import the package without installing it into an environment using
+  `pip install -e .` (one can do it by setting ``PYTHONPATH`` which is not as
+  simple as importing the package directly). That means that one will have an
+  environment with a development version of the package, causing possible
+  issues down the road when the environment is used for another purpose.
 
 Notes
 =====
