@@ -17,13 +17,13 @@ To create this project locally, create the following file structure:
 
 .. code-block:: text
 
-    /example_pkg
+    /packaging_tutorial
       /example_pkg
         __init__.py
 
 
 Once you create this structure, you'll want to run all of the commands in this
-tutorial within the top-level folder - so be sure to ``cd example_pkg``.
+tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
 You should also edit :file:`example_pkg/__init__.py` and put the following
 code in there:
@@ -48,7 +48,7 @@ them in the following steps.
 
 .. code-block:: text
 
-    /example_pkg
+    /packaging_tutorial
       /example_pkg
         __init__.py
       setup.py
