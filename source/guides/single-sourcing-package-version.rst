@@ -65,7 +65,7 @@ number of your project:
             exec(fp.read(), version)
         # later on we use: version['__version__']
 
-    Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/master/warehouse/__about__.py>`_.
+    Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_.
 
 #.  Place the value in a simple ``VERSION`` text file and have both
     :file:`setup.py` and the project code read it.
