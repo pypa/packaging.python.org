@@ -287,7 +287,7 @@ detailed instructions) and install your package from TestPyPI:
 
     python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg
 
-.. note:: If you used a different package name in the preview step, replace
+.. note:: If you used a different package name in the previous step, replace
   ``example_pkg`` in the command above with your package name.
 
 pip should install the package from Test PyPI and the output should look
