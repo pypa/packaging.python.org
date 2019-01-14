@@ -504,7 +504,7 @@ for this field are **not** required to conform to the format
 specified in PEP 440:  they should correspond to the
 version scheme used by the external dependency.
 
-Notice that there's is no particular rule on the strings to be used.
+Notice that there is no particular rule on the strings to be used.
 
 Examples::
 
