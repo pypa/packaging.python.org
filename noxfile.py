@@ -7,24 +7,23 @@ import shutil
 import nox
 
 
-@nox.session
+@nox.session(py="3")
 def build(session, autobuild=False):
-    session.interpreter = 'python3.6'
-    session.install('-r', 'requirements.txt')
+    session.install("-r", "requirements.txt")
     # Treat warnings as errors.
-    session.env['SPHINXOPTS'] = '-W'
-    session.run(shutil.rmtree, 'build', ignore_errors=True)
+    session.env["SPHINXOPTS"] = "-W"
+
+    shutil.rmtree("build", ignore_errors=True)
 
     if autobuild:
-        command = 'sphinx-autobuild'
+        command = "sphinx-autobuild"
     else:
-        command = 'sphinx-build'
+        command = "sphinx-build"
 
-    session.run(command, '-W', '-b', 'html', 'source', 'build')
+    session.run(command, "-W", "-b", "html", "source", "build")
 
 
-@nox.session
+@nox.session(py="3")
 def preview(session):
-    session.reuse_existing_virtualenv = True
     session.install("sphinx-autobuild")
     build(session, autobuild=True)
