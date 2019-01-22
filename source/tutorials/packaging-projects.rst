@@ -11,7 +11,7 @@ A simple project
 
 This tutorial uses a simple project named ``example_pkg``. If you are unfamiliar
 with Python's modules and :term:`import packages <import package>`, take a few
-minutes to read over the `Python documentation for packages and modules`_.
+minutes to read over the `Python documentation for packages and modules`_. Even if you already have a project that you want to package up, we recommend following this tutorial as-is using this example package and then trying with your own package.
 
 To create this project locally, create the following file structure:
 
@@ -29,7 +29,7 @@ You should also edit :file:`example_pkg/__init__.py` and put the following
 code in there:
 
 .. code-block:: python
-    
+
     name = "example_pkg"
 
 This is just so that you can verify that it installed correctly later in this
@@ -63,8 +63,7 @@ Creating setup.py
 about your package (such as the name and version) as well as which code files
 to include.
 
-Open :file:`setup.py` and enter the following content, you can personalize
-the values if you want:
+Open :file:`setup.py` and enter the following content. You **should** update the package name to include your username (for example, ``example-pkg-theacodes``. You can personalize the other values if you'd like:
 
 .. code-block:: python
 
@@ -74,7 +73,7 @@ the values if you want:
         long_description = fh.read()
 
     setuptools.setup(
-        name="example_pkg",
+        name="example-pkg-your-username",
         version="0.0.1",
         author="Example Author",
         author_email="author@example.com",
@@ -94,9 +93,9 @@ the values if you want:
 :func:`setup` takes several arguments. This example package uses a relatively
 minimal set:
 
-- ``name`` is the name of your package. This can be any name as long as only
+- ``name`` is the *distribution name* of your package. This can be any name as long as only
   contains letters, numbers, ``_`` , and ``-``. It also must not already
-  taken on pypi.org.
+  taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't run into any name collisions when you upload the package.
 - ``version`` is the package version see :pep:`440` for more details on
   versions.
 - ``author`` and ``author_email`` are used to identify the author of the
@@ -112,7 +111,7 @@ minimal set:
   will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
   service.
 - ``packages`` is a list of all Python :term:`import packages <Import
-  Package>` that should be included in the :term:`distribution package`. 
+  Package>` that should be included in the :term:`distribution package`.
   Instead of listing each package manually, we can use :func:`find_packages`
   to automatically discover all packages and subpackages. In this case, the
   list of packages will be `example_pkg` as that's the only package present.
@@ -207,8 +206,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_pkg-0.0.1-py3-none-any.whl
-      example_pkg-0.0.1.tar.gz
+      example_pkg_your_username-0.0.1-py3-none-any.whl
+      example_pkg_your_username-0.0.1.tar.gz
 
 .. note:: If you run into trouble here, please copy the output and file an issue
   over on `packaging problems`_ and we'll do our best to help you!
@@ -259,21 +258,14 @@ PyPI. After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example_pkg-0.0.1-py3-none-any.whl
+    Uploading example_pkg_your_username-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example_pkg-0.0.1.tar.gz
+    Uploading example_pkg_your_username-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
-
-.. note:: If you get an error that says ``The user '[your username]' isn't
-  allowed to upload to project 'example-pkg'``, you'll need to go and pick
-  a unique name for your package. A good choice is
-  ``example_pkg_your_username``. Update the ``name`` argument in
-  :file:`setup.py`, remove the :file:`dist` folder, and
-  :ref:`regenerate the archives <generating archives>`.
 
 
 Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example-pkg
+https://test.pypi.org/project/example-pkg-your-username
 
 
 Installing your newly uploaded package
@@ -285,20 +277,19 @@ detailed instructions) and install your package from TestPyPI:
 
 .. code-block:: bash
 
-    python3 -m pip install --index-url https://test.pypi.org/simple/ example_pkg
+    python3 -m pip install --index-url https://test.pypi.org/simple/ example-pkg-your-username
 
-.. note:: If you used a different package name in the previous step, replace
-  ``example_pkg`` in the command above with your package name.
+Make sure to specify your username in the package name!
 
 pip should install the package from Test PyPI and the output should look
 something like this:
 
 .. code-block:: text
 
-    Collecting example_pkg
-      Downloading https://test-files.pythonhosted.org/packages/.../example_pkg-0.0.1-py3-none-any.whl
-    Installing collected packages: example-pkg
-    Successfully installed example-pkg-0.0.1
+    Collecting example-pkg-your-username
+      Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-your-username-0.0.1-py3-none-any.whl
+    Installing collected packages: example-pkg-your-username
+    Successfully installed example-pkg-your-username-0.0.1
 
 You can test that it was installed correctly by importing the module and
 referencing the ``name`` property you put in :file:`__init__.py` earlier.
@@ -311,7 +302,7 @@ Run the Python interpreter (make sure you're still in your virtualenv):
 
 And then import the module and print out the ``name`` property. This should be
 the same regardless of what you name you gave your :term:`distribution package`
-in :file:`setup.py` because your :term:`import package` is ``example_pkg``.
+in :file:`setup.py` (in this case, ``example-pkg-your-username``) because your :term:`import package` is ``example_pkg``.
 
 .. code-block:: python
 
@@ -327,7 +318,7 @@ Next steps
 ✨ 🍰 ✨
 
 Keep in mind that this tutorial showed you how to upload your package to Test
-PyPI, which isn't a permanent storage. The Test system occasionally deletes 
+PyPI, which isn't a permanent storage. The Test system occasionally deletes
 packages and accounts. If you want to upload your package to the real Python
 Package Index you can do it by registering an account on https://pypi.org and
 following the same instructions, however, use ``twine upload dist/*`` to upload
