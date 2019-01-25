@@ -277,7 +277,7 @@ detailed instructions) and install your package from TestPyPI:
 
 .. code-block:: bash
 
-    python3 -m pip install --index-url https://test.pypi.org/simple/ example-pkg-your-username
+    python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-your-username
 
 Make sure to specify your username in the package name!
 
@@ -290,6 +290,8 @@ something like this:
       Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-your-username-0.0.1-py3-none-any.whl
     Installing collected packages: example-pkg-your-username
     Successfully installed example-pkg-your-username-0.0.1
+
+.. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have the same packages as the live PyPI, it's possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn't have any dependencies, it's a good practice to avoid installing dependencies when using TestPyPI.
 
 You can test that it was installed correctly by importing the module and
 referencing the ``name`` property you put in :file:`__init__.py` earlier.
