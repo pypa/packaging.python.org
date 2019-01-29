@@ -161,7 +161,9 @@ Creating Virtual Environments
 
 Python "Virtual Environments" allow Python :term:`packages <Distribution
 Package>` to be installed in an isolated location for a particular application,
-rather than being installed globally.
+rather than being installed globally. If you are looking to safely install
+global command line tools,
+see :doc:`/guides/installing-stand-alone-command-line-tools`.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
@@ -471,49 +473,6 @@ Install `setuptools extras`_.
   $ pip install SomePackage[PDF]==3.0
   $ pip install -e .[PDF]==3.0  # editable project in current directory
 
-
-Installing Python Command Line Applications Globally
-==========================================================
-
-Many packages have command line entry points. Examples of this type of application are
-`mypy <https://github.com/python/mypy>`_,
-`flake8 <https://github.com/PyCQA/flake8>`_, and
-`black <https://github.com/ambv/black>`_.
-
-Usually you want to be able to access these from anywhere,
-but it is not ideal to install the packages and their dependencies to the same
-environment.
-
-``pipx-app`` solves this by creating a virtual environment for
-each package. It then makes the entry points globally accessible by adding them
-to your $PATH. This allows each package to be upgraded or uninstalled without
-causing conflicts with other packages, and allows you to safely run the program
-from anywhere.
-
-.. Note:: ``pipx-app`` only works with Python 3.6+.
-
-Install ``pipx-app`` with the following commands:
-
-::
-
-  $ pip install --user pipx-bootstrap
-  $ pipx-bootstrap
-  $ pip uninstall pipx-bootstrap
-
-Now you can install packages and access their entry points from anywhere.
-
-::
-
-  $ pipx install PACKAGE
-  $ ENTRYPOINT_OF_PACKAGE
-
-To see instructions on how to use ``pipx``, run
-
-::
-
-  $ pipx --help
-
-You can learn more about ``pipx`` at its homepage, https://github.com/cs01/pipx.
 
 ----
 
