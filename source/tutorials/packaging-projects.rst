@@ -87,6 +87,7 @@ Open :file:`setup.py` and enter the following content. You **should** update the
             "License :: OSI Approved :: MIT License",
             "Operating System :: OS Independent",
         ],
+        data_files = [("", ["LICENSE"])],
     )
 
 
