@@ -174,8 +174,8 @@ distributing applications, there's a whole new world of technologies
 out there.
 
 The next few sections organize these application packaging options
-their dependencies on the target environment, so you can choose the
-right one for your project.
+according to their dependencies on the target environment,
+so you can choose the right one for your project.
 
 Depending on a framework
 ^^^^^^^^^^^^^^^^^^^^^^^^
