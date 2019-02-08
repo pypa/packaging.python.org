@@ -346,9 +346,9 @@ make deployment of Python applications as simple as ``cp``.
 pipx
 ====
 
-`Docs <https://github.com/pipxproject/pipx-app>`__ |
-`Github <https://github.com/pipxproject/pipx-app>`__ |
-`PyPI <https://pypi.org/project/pipx-app/>`__
+`Docs <https://github.com/pipxproject/pipx>`__ |
+`Github <https://github.com/pipxproject/pipx>`__ |
+`PyPI <https://pypi.org/project/pipx/>`__
 
 pipx is a tool to safely install and run Python CLI applications globally.
 
