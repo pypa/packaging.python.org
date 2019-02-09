@@ -12,9 +12,9 @@ but installing packages and their dependencies to the same global environment
 can cause version conflicts and break dependencies the operating system has
 on Python packages.
 
-`pipx <https://github.com/pipxproject/pipx>`_ solves this by creating a virtual environment for
-each package. It then makes the entry points globally accessible by adding them
-to your $PATH. This allows each package to be upgraded or uninstalled without
+`pipx <https://github.com/pipxproject/pipx>`_ solves this by creating a virtual
+environment for each package. It then symlinks each package's applications to a directory
+that is on your ``$PATH``. This allows each package to be upgraded or uninstalled without
 causing conflicts with other packages, and allows you to safely run the program
 from anywhere.
 
@@ -87,7 +87,7 @@ To upgrade or uninstall the package
 
 ::
 
-  $ pip upgrade pipx
+  $ pip install -U pipx
   $ pip uninstall pipx
 
 ``pipx`` also allows you to install and run the latest version of a cli tool
