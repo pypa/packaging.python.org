@@ -13,10 +13,10 @@ can cause version conflicts and break dependencies the operating system has
 on Python packages.
 
 `pipx <https://github.com/pipxproject/pipx>`_ solves this by creating a virtual
-environment for each package. It then symlinks each package's applications to a directory
-that is on your ``$PATH``. This allows each package to be upgraded or uninstalled without
-causing conflicts with other packages, and allows you to safely run the program
-from anywhere.
+environment for each package, while also ensuring that package's applications
+are accessible through a directory that is on your ``$PATH``. This allows each
+package to be upgraded or uninstalled without causing conflicts with other
+packages, and allows you to safely run the program from anywhere.
 
 .. Note:: pipx only works with Python 3.6+.
 
