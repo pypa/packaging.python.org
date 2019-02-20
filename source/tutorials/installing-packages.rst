@@ -161,7 +161,9 @@ Creating Virtual Environments
 
 Python "Virtual Environments" allow Python :term:`packages <Distribution
 Package>` to be installed in an isolated location for a particular application,
-rather than being installed globally.
+rather than being installed globally. If you are looking to safely install
+global command line tools,
+see :doc:`/guides/installing-stand-alone-command-line-tools`.
 
 Imagine you have an application that needs version 1 of LibFoo, but another
 application requires version 2. How can you use both these applications? If you
@@ -470,7 +472,6 @@ Install `setuptools extras`_.
   $ pip install SomePackage[PDF]
   $ pip install SomePackage[PDF]==3.0
   $ pip install -e .[PDF]==3.0  # editable project in current directory
-
 
 
 ----
