@@ -323,13 +323,17 @@ Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI, which isn't a permanent storage. The Test system occasionally deletes
 packages and accounts. It is best to use Test PyPI for testing and experiments like this tutorial.
 
-When you are ready to upload a real package to the Python
-Package Index you can do much the same as you did in this tutorial, but with these important differences:
+When you are ready to upload a real package to the Python Package Index you can
+do much the same as you did in this tutorial, but with these important
+differences:
 
-* Choose a memorable and unique name for your package. You don't have to append your username as you did in the tutorial.
-* Register an account on https://pypi.org - note that these are two separate servers and the login details from the test server are not shared with the main server.
-* Use ``twine upload dist/*`` to upload your package and enter your credentials for the account you registered on the
-real PyPI.
+* Choose a memorable and unique name for your package. You don't have to append
+  your username as you did in the tutorial.
+* Register an account on https://pypi.org - note that these are two separate
+  servers and the login details from the test server are not shared with the
+  main server.
+* Use ``twine upload dist/*`` to upload your package and enter your credentials
+  for the account you registered on the real PyPI.
 * Install your package from the real PyPI using ``pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are
