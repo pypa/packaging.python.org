@@ -63,7 +63,7 @@ Creating setup.py
 about your package (such as the name and version) as well as which code files
 to include.
 
-Open :file:`setup.py` and enter the following content. To avoid lots of projects with the same name from people doing this tutorial, you **should** update the package name to include your username (for example, ``example-pkg-theacodes``). You can personalize the other values if you'd like:
+Open :file:`setup.py` and enter the following content. Update the package name to include your username (for example, ``example-pkg-theacodes``), this ensures that you have a unique package name and that your package doesn't conflict with packages uploaded by other people following this tutorial.
 
 .. code-block:: python
 
@@ -95,7 +95,7 @@ minimal set:
 
 - ``name`` is the *distribution name* of your package. This can be any name as long as only
   contains letters, numbers, ``_`` , and ``-``. It also must not already
-  taken on pypi.org. Update the package name to include your username (for example, ``example-pkg-theacodes``), this ensures that you have a unique package name and that your package doesn't conflict with packages uploaded by other people following this tutorial.
+  taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't try to upload a package with the same name as one which already exists when you upload the package.
 - ``version`` is the package version see :pep:`440` for more details on
   versions.
 - ``author`` and ``author_email`` are used to identify the author of the
