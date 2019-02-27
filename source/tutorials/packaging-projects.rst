@@ -328,8 +328,7 @@ Package Index you can do much the same as you did in this tutorial, but with the
 
 * Choose a memorable and unique name for your package. You don't have to append your username as you did in the tutorial.
 * Register an account on https://pypi.org - note that these are two separate servers and the login details from the test server are not shared with the main server.
-* Use ``twine upload dist/*`` to upload
-your package and enter your credentials for the account you registered on the
+* Use ``twine upload dist/*`` to upload your package and enter your credentials for the account you registered on the
 real PyPI.
 * Install your package from the real PyPI using ``pip install [your-package]``.
 
