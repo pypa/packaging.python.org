@@ -33,7 +33,7 @@ code in there:
     name = "example_pkg"
 
 This is just so that you can verify that it installed correctly later in this
-tutorial.
+tutorial and is not used by PyPI.
 
 .. _Python documentation for packages and modules:
     https://docs.python.org/3/tutorial/modules.html#packages
@@ -63,7 +63,7 @@ Creating setup.py
 about your package (such as the name and version) as well as which code files
 to include.
 
-Open :file:`setup.py` and enter the following content. You **should** update the package name to include your username (for example, ``example-pkg-theacodes``. You can personalize the other values if you'd like:
+Open :file:`setup.py` and enter the following content. Update the package name to include your username (for example, ``example-pkg-theacodes``), this ensures that you have a unique package name and that your package doesn't conflict with packages uploaded by other people following this tutorial.
 
 .. code-block:: python
 
@@ -95,7 +95,7 @@ minimal set:
 
 - ``name`` is the *distribution name* of your package. This can be any name as long as only
   contains letters, numbers, ``_`` , and ``-``. It also must not already
-  taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't run into any name collisions when you upload the package.
+  taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't try to upload a package with the same name as one which already exists when you upload the package.
 - ``version`` is the package version see :pep:`440` for more details on
   versions.
 - ``author`` and ``author_email`` are used to identify the author of the
@@ -115,7 +115,7 @@ minimal set:
   Instead of listing each package manually, we can use :func:`find_packages`
   to automatically discover all packages and subpackages. In this case, the
   list of packages will be `example_pkg` as that's the only package present.
-- ``classifiers`` tell the index and :ref:`pip` some additional metadata
+- ``classifiers`` gives the index and :ref:`pip` some additional metadata
   about your package. In this case, the package is only compatible with Python
   3, is licensed under the MIT license, and is OS-independent. You should
   always include at least which version(s) of Python your package works on,
@@ -321,12 +321,20 @@ Next steps
 
 Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI, which isn't a permanent storage. The Test system occasionally deletes
-packages and accounts. If you want to upload your package to the real Python
-Package Index you can do it by registering an account on https://pypi.org and
-following the same instructions, however, use ``twine upload dist/*`` to upload
-your package and enter your credentials for the account you registered on the
-real PyPI. You can install your package from the real PyPI using
-``pip install [your-package]``.
+packages and accounts. It is best to use Test PyPI for testing and experiments like this tutorial.
+
+When you are ready to upload a real package to the Python Package Index you can
+do much the same as you did in this tutorial, but with these important
+differences:
+
+* Choose a memorable and unique name for your package. You don't have to append
+  your username as you did in the tutorial.
+* Register an account on https://pypi.org - note that these are two separate
+  servers and the login details from the test server are not shared with the
+  main server.
+* Use ``twine upload dist/*`` to upload your package and enter your credentials
+  for the account you registered on the real PyPI.
+* Install your package from the real PyPI using ``pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
