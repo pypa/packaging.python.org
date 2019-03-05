@@ -106,6 +106,12 @@ command::
 The guide will be browsable via http://localhost:8000.
 
 
+Where the guide is deployed
+===========================
+
+The guide is deployed via ReadTheDocs and the configuration lives at https://readthedocs.org/projects/python-packaging-user-guide/. It's served from a custom domain and fronted by Fast.ly.
+
+
 .. _contributing_style_guide:
 
 Style guide
