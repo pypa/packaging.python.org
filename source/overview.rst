@@ -156,7 +156,7 @@ Packaging Python applications
 
 So far we've only discussed Python's native distribution tools. Based
 on our introduction, you would be correct to infer these built-in
-approaches only target environments which have Python, and an audience
+approaches only target environments which have Python, and an
 audience who knows how to install Python packages.
 
 With the variety of operating systems, configurations, and people out
