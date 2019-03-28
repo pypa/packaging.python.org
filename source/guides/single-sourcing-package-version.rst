@@ -51,8 +51,7 @@ number of your project:
     ::
 
         version = {}
-        with open("...sample/version.py") as fp:
-            exec(fp.read(), version)
+        exec(open("...sample/version.py").read(), version)
         # later on we use: version['__version__']
 
     Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_.
