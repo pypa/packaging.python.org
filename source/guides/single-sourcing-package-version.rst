@@ -48,16 +48,6 @@ number of your project:
     your project (e.g. :file:`version.py`), then have :file:`setup.py` read and
     ``exec`` the value into a variable.
 
-    Using ``execfile``:
-
-    ::
-
-        execfile('...sample/version.py')
-        # now we have a `__version__` variable
-        # later on we use: __version__
-
-    Using ``exec``:
-
     ::
 
         version = {}
