@@ -1,8 +1,9 @@
-Installing packages using pip and virtualenv
-============================================
+Installing packages using pip and virtual environments
+======================================================
 
 This guide discusses how to install packages using :ref:`pip` and
-:ref:`virtualenv`. These are the lowest-level tools for managing Python
+a virtual environment manager: either :ref:`venv` for Python 3 or :ref:`virtualenv`
+for Python 2. These are the lowest-level tools for managing Python
 packages and are recommended if higher-level tools do not suit your needs.
 
 .. note:: This doc uses the term **package** to refer to a
@@ -63,6 +64,12 @@ Afterwards, you should have the newest pip installed in your user site:
 Installing virtualenv
 ---------------------
 
+.. Note:: If you are using Python 3.3 or newer, the :mod:`venv` module is
+    the preferred way to create and manage virtual environments.
+    venv is included in the Python standard library and requires no additional installation.
+    If you are using venv, you may skip this section.
+
+
 :ref:`virtualenv` is used to manage Python packages for different projects.
 Using virtualenv allows you to avoid installing Python packages globally
 which could break system tools or other projects. You can install virtualenv
@@ -81,51 +88,50 @@ On Windows:
     py -m pip install --user virtualenv
 
 
-.. Note:: If you are using Python 3.3 or newer the :mod:`venv` module is
-    included in the Python standard library. This can also create and manage
-    virtual environments, however, it only supports Python 3.
 
+Creating a virtual environment
+------------------------------
 
-Creating a virtualenv
----------------------
-
-:ref:`virtualenv` allows you to manage separate package installations for
-different projects. It essentially allows you to create a "virtual" isolated
+:ref:`venv` (for Python 3) and :ref:`virtualenv` (for Python 2) allow
+you to manage separate package installations for
+different projects. They essentially allow you to create a "virtual" isolated
 Python installation and install packages into that virtual installation. When
 you switch projects, you can simply create a new virtual environment and not
 have to worry about breaking the packages installed in the other environments.
-It is always recommended to use a virtualenv while developing Python
+It is always recommended to use a virtual environment while developing Python
 applications.
 
 To create a virtual environment, go to your project's directory and run
-virtualenv.
+venv. If you are using Python 2, replace ``venv`` with ``virtualenv``
+in the below commands.
 
 On macOS and Linux:
 
 .. code-block:: bash
 
-    python3 -m virtualenv env
+    python3 -m venv env
 
 On Windows:
 
 .. code-block:: bash
 
-    py -m virtualenv env
+    py -m venv env
 
-The second argument is the location to create the virtualenv. Generally, you
+The second argument is the location to create the virtual environment. Generally, you
 can just create this in your project and call it ``env``.
 
-virtualenv will create a virtual Python installation in the ``env`` folder.
+venv will create a virtual Python installation in the ``env`` folder.
 
-.. Note:: You should exclude your virtualenv directory from your version
+.. Note:: You should exclude your virtual environment directory from your version
     control system using ``.gitignore`` or similar.
 
 
-Activating a virtualenv
------------------------
+Activating a virtual environment
+--------------------------------
 
-Before you can start installing or using packages in your virtualenv you'll
-need to *activate* it. Activating a virtualenv will put the virtualenv-specific
+Before you can start installing or using packages in your virtual environment you'll
+need to *activate* it. Activating a virtual environment will put the
+virtual environment-specific
 ``python`` and ``pip`` executables into your shell's ``PATH``.
 
 On macOS and Linux:
@@ -138,7 +144,7 @@ On Windows::
 
     .\env\Scripts\activate
 
-You can confirm you're in the virtualenv by checking the location of your
+You can confirm you're in the virtual environment by checking the location of your
 Python interpreter, it should point to the ``env`` directory.
 
 On macOS and Linux:
@@ -156,28 +162,28 @@ On Windows:
     .../env/bin/python.exe
 
 
-As long as your virtualenv is activated pip will install packages into that
+As long as your virtual environment is activated pip will install packages into that
 specific environment and you'll be able to import and use packages in your
 Python application.
 
 
-Leaving the virtualenv
-----------------------
+Leaving the virtual environment
+-------------------------------
 
-If you want to switch projects or otherwise leave your virtualenv, simply run:
+If you want to switch projects or otherwise leave your virtual environment, simply run:
 
 .. code-block:: bash
 
     deactivate
 
-If you want to re-enter the virtualenv just follow the same instructions above
-about activating a virtualenv. There's no need to re-create the virtualenv.
+If you want to re-enter the virtual environment just follow the same instructions above
+about activating a virtual environment. There's no need to re-create the virtual environment.
 
 
 Installing packages
 -------------------
 
-Now that you're in your virtualenv you can install packages. Let's install the
+Now that you're in your virtual environment you can install packages. Let's install the
 excellent `Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
 .. code-block:: bash
