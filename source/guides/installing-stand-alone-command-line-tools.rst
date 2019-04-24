@@ -25,7 +25,7 @@ packages, and allows you to safely run the program from anywhere.
 ::
 
   $ pip install --user pipx
-  $ pipx ensurepath  # ensures the path of the CLI application directory is on your $PATH
+  $ userpath ~/.local/bin  # ensures the path of the CLI application directory is on your $PATH
 
 .. Note:: You may need to restart your terminal for the path updates to take effect.
 
