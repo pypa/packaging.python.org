@@ -371,6 +371,19 @@ build requirements. To speed up and parallelize the build of large projects,
 the user can install `ninja <https://pypi.org/project/ninja>`__ (also available
 on PyPI).
 
+.. _shiv:
+
+shiv
+====
+
+`Docs <https://shiv.readthedocs.io/en/latest/>`__ |
+`Github <https://github.com/linkedin/shiv>`__ |
+`PyPI <https://pypi.org/project/shiv/>`__
+
+shiv is a command line utility for building fully self contained Python zipapps as outlined in PEP
+441, but with all their dependencies included. It's primary goal is making distributing Python
+applications and command line tools fast & easy.
+
 .. _spack:
 
 Spack
