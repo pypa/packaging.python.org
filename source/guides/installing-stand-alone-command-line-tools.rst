@@ -25,7 +25,7 @@ packages, and allows you to safely run the program from anywhere.
 ::
 
   $ python3 -m pip install --user pipx
-  $ python3 -m userpath ~/.local/bin  # ensures the path of the CLI application directory is on your $PATH
+  $ python3 -m userpath append ~/.local/bin  # ensures the path of the CLI application directory is on your $PATH
 
 .. Note:: You may need to restart your terminal for the path updates to take effect.
 
