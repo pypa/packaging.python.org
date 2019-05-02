@@ -78,7 +78,12 @@ filename characters (on Unix, everything except forward slash; on Windows,
 everything except backslash and colon); ``?`` matches a single regular filename
 character, and ``[chars]`` matches any one of the characters between the square
 brackets (which may contain character ranges, e.g., ``[a-z]`` or
-``[a-fA-F0-9]``).
+``[a-fA-F0-9]``).  Setuptools also has undocumented support for ``**`` matching
+zero or more characters including forward slash, backslash, and colon.
+
+Directory patterns are relative to the root of the project directory; e.g.,
+``graft example*`` will include a directory named :file:`examples` in the
+project root but will not include :file:`docs/examples/`.
 
 File & directory names in :file:`MANIFEST.in` should be ``/``-separated;
 setuptools will automatically convert the slashes to the local platform's
