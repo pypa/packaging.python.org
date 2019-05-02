@@ -15,6 +15,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    installing-scientific-packages
    multi-version-installs
    distributing-packages-using-setuptools
+   using-manifest-in
    single-sourcing-package-version
    supporting-multiple-python-versions
    dropping-older-python-versions

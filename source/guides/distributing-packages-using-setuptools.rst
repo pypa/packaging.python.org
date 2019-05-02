@@ -101,20 +101,14 @@ sample project <https://github.com/pypa/sampleproject>`_.
 MANIFEST.in
 ~~~~~~~~~~~
 
-A :file:`MANIFEST.in` is needed when you need to package
-additional files that are not automatically included in a source distribution.
-To see a list of what's included by default, see the `Specifying the files to
-distribute <https://docs.python.org/3/distutils/sourcedist.html#specifying-the-files-to-distribute>`_
-section from the :ref:`distutils` documentation.
+A :file:`MANIFEST.in` is needed when you need to package additional files that
+are not automatically included in a source distribution.  For details on
+writing a :file:`MANIFEST.in` file, including a list of what's included by
+default, see ":ref:`Using MANIFEST.in`".
 
 For an example, see the `MANIFEST.in
 <https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
-
-For details on writing a :file:`MANIFEST.in` file, see the `The MANIFEST.in
-template
-<https://docs.python.org/2/distutils/sourcedist.html#the-manifest-in-template>`_
-section from the :ref:`distutils` documentation.
 
 .. note:: :file:`MANIFEST.in` does not affect binary distributions such as wheels.
 
