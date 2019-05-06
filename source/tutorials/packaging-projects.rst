@@ -87,6 +87,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
             "License :: OSI Approved :: MIT License",
             "Operating System :: OS Independent",
         ],
+        python_requires='>=3.6',
     )
 
 
