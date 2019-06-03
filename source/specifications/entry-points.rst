@@ -77,8 +77,8 @@ newer tools such as pip and virtualenv use a different model.
 File format
 ===========
 
-Entry points are defined in a file called :file:``entry_points.txt`` in the
-:file:``*.dist-info`` directory of the distribution. This is the directory
+Entry points are defined in a file called :file:`entry_points.txt` in the
+:file:`*.dist-info` directory of the distribution. This is the directory
 described in :pep:`376` for installed distributions, and in :pep:`427` for
 wheels.  The file uses the UTF-8 character encoding.
 
