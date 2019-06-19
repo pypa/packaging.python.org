@@ -49,11 +49,13 @@ them in the following steps.
 .. code-block:: text
 
     /packaging_tutorial
-      /example_pkg
-        __init__.py
       setup.py
       LICENSE
       README.md
+      
+      /example_pkg
+        __init__.py
+
 
 
 Creating setup.py
@@ -195,7 +197,7 @@ installed:
 .. tip:: IF you have trouble installing these, see the
    :doc:`installing-packages` tutorial.
 
-Now run this command from the same directory where :file:`setup.py` is located:
+Now run this command from the same directory where :file:`setup.py` is located (packaging_tutorial):
 
 .. code-block:: bash
 
