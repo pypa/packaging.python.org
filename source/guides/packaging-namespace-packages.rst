@@ -100,7 +100,8 @@ package omits the :file:`__init__.py` or uses a pkgutil-style
 logic to fail and the other sub-packages will not be importable.
 
 Because ``mynamespace`` doesn't contain an :file:`__init__.py`,
-:func:`setuptools.find_packages` won't find the sub-package. You must
+:func:`setuptools.find_packages` won't find the sub-package. To get the
+sub-packages, you must either use :func:`setuptools.find_namespace_packages` or
 explicitly list all packages in your :file:`setup.py`. For example:
 
 .. code-block:: python
