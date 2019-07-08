@@ -354,7 +354,6 @@ texinfo_documents = [
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.6', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    'pypa': ('https://pypa.io/en/latest/', None),
 }
 
 
