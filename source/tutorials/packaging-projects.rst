@@ -17,8 +17,8 @@ To create this project locally, create the following file structure:
 
 .. code-block:: text
 
-    /packaging_tutorial
-      /example_pkg
+    packaging_tutorial/
+      example_pkg/
         __init__.py
 
 
@@ -48,8 +48,8 @@ them in the following steps.
 
 .. code-block:: text
 
-    /packaging_tutorial
-      /example_pkg
+    packaging_tutorial/
+      example_pkg/
         __init__.py
       setup.py
       LICENSE
