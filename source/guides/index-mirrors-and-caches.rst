@@ -58,7 +58,7 @@ bandersnatch will set up a complete local mirror of all PyPI :term:`packages
 <Distribution Package>` (externally-hosted packages are not mirrored). See
 the `bandersnatch documentation for getting that going`__.
 
-__ https://bitbucket.org/pypa/bandersnatch/overview
+__ https://github.com/pypa/bandersnatch/
 
 A benefit of devpi is that it will create a mirror which includes
 :term:`packages <Distribution Package>` that are external to PyPI, unlike
