@@ -13,7 +13,7 @@ Jargon
 - System Python
 - Selected Python
 - Environments (None, virtual, conda)
-- Package manager/tool (pipenv, pip, conda, others)
+- Package manager/tool (pipenv, pip, conda, miniconda, others)
 - Advanced installation cases
 
 Installation using PyPA Tools
