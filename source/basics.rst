@@ -39,11 +39,11 @@ Wrap up
 
 .. Editing notes:
 
-   This document targets at an intermediate audience,
-   lower-mid-level to early-advanced Python developers. It's expected
-   that most developers finding this document will have already
-   encountered several packaging technologies, through package
-   managers, app stores, pip, and so forth. They may have even
-   shipped a few packages of their own. They are smart enough to have
-   built something to ship, and experienced (or frustrated) enough to
-   know to search for prior art.
+   This document targets at a novice audience especially scientists who may
+   not have a computer development background. It's expected
+   that most developers finding this document will have experience installing
+   applications and apps, but may not have installed a Python package before
+   or be familiar with the command line.
+
+   For specific how-to information refer to the documentation of the desired
+   package for installation.
