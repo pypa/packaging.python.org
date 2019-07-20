@@ -35,16 +35,18 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 
 .. note:: **Navigating the User Guide**
 
-   The *Python Packaging User Guide* is divided into several sections:
+   The *Python Packaging User Guide* is organized into several sections:
 
-   - **Tutorials** introduce packaging concepts through opinionated,
+   - :doc:`tutorials/index` introduce packaging concepts through opinionated,
      step-by-step guides, such as *Installing Packages* and *Packaging Projects*.
-   - **Guides** focus on accomplishing a specific task, such as *Making a
+   - :doc:`guides/index` focus on accomplishing a specific task, such as *Making a
      PyPI friendly README* and *Installing Scientific Packages*.
-   - **Discussions** provide comprehensive information about a specific topic
+   - :doc:`discussions/index` provide comprehensive information about a specific topic
      such as *install_requires vs requirements files* and *Wheel vs Egg*.
-   - **Specifications** document interoperability and standards, such as
+   - :doc:`specifications/index` document interoperability and standards, such as
      *Entry points specification* and *Platform compatibility tags*.
+   - :doc:`key_projects` highlights PyPA maintained projects and mentions notable
+     third-party maintained projects.
 
    The :doc:`glossary` also helps the reader understand any unfamiliar terms or
    jargon.
@@ -57,16 +59,16 @@ Many readers will find the :doc:`tutorials/index` section a good starting place
 to learn more about Python packaging. It provides step-by-step information about
 the essential tools and concepts of installing and packaging Python projects:
 
-* :doc:`tutorial on installing packages <tutorials/installing-packages>`
-* :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`
+* :doc:`tutorial on Installing Packages <tutorials/installing-packages>`
+* :doc:`tutorial on Managing Application Dependencies <tutorials/managing-dependencies>`
   in a version controlled project
-* :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
+* :doc:`tutorial on Packaging and Distributing <tutorials/packaging-projects>`
   your projects
 
 The :doc:`Basics of Installation <basics>` discusses the methods of
 installing a Python package for different use cases, such as web, scientific
 applications, devops, and more. New developers are encouraged to read this
-section before the :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+section before the :doc:`tutorial on Installing Packages <tutorials/installing-packages>`.
 
 Intermediate to advanced Python developers interested in creating a Python
 package will benefit from reviewing the :doc:`Overview of Python Packaging <overview>`
