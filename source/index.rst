@@ -11,6 +11,7 @@ Python Packaging User Guide
    :hidden:
 
    overview
+   basics
    tutorials/index
    guides/index
    discussions/index
@@ -32,26 +33,51 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 .. _Python Packaging Authority: https://pypa.io
 
 
+.. note:: **Navigating the User Guide**
+
+   The *Python Packaging User Guide* is divided into several sections:
+
+   - **Tutorials** introduce packaging concepts through opinionated,
+     step-by-step guides, such as *Installing Packages* and *Packaging Projects*.
+   - **Guides** focus on accomplishing a specific task, such as *Making a
+     PyPI friendly README* and *Installing Scientific Packages*.
+   - **Discussions** provide comprehensive information about a specific topic
+     such as *install_requires vs requirements files* and *Wheel vs Egg*.
+   - **Specifications** document interoperability and standards, such as
+     *Entry points specification* and *Platform compatibility tags*.
+
+   The :doc:`glossary` also helps the reader understand any unfamiliar terms or
+   jargon.
+
+
 Get started
 ===========
 
-Essential tools and concepts for working within the Python
-development ecosystem are covered in our :doc:`tutorials/index` section:
+Many readers will find the :doc:`tutorials/index` section a good starting place
+to learn more about Python packaging. It provides step-by-step information about
+the essential tools and concepts of installing and packaging Python projects:
 
-* to learn how to install packages, see the
-  :doc:`tutorial on installing packages <tutorials/installing-packages>`.
-* to learn how to manage dependencies in a version controlled project, see the
-  :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`.
-* to learn how to package and distribute your projects, see the
-  :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
-* to get an overview of packaging options for Python libraries and
-  applications, see the :doc:`Overview of Python Packaging <overview>`.
+* :doc:`tutorial on installing packages <tutorials/installing-packages>`
+* :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`
+  in a version controlled project
+* :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
+  your projects
+
+The :doc:`Basics of Installation <basics>` discusses the methods of
+installing a Python package for different use cases, such as web, scientific
+applications, devops, and more. New developers are encouraged to read this
+section before the :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+
+Intermediate to advanced Python developers interested in creating a Python
+package will benefit from reviewing the :doc:`Overview of Python Packaging <overview>`
+and its guidance on planning development for packaging.
 
 
 Learn more
 ==========
 
-Beyond our :doc:`tutorials/index`, this guide has several other resources:
+Beyond our :doc:`tutorials/index`, this User Guide has several resource
+sections with topical and in-depth information:
 
 * the :doc:`guides/index` section for walk throughs, such as
   :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`
