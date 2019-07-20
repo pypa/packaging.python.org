@@ -39,7 +39,7 @@ Wrap up
 
 .. Editing notes:
 
-   This document targets at a novice audience especially scientists who may
+   This document targets a novice audience especially scientists who may
    not have a computer development background. It's expected
    that most developers finding this document will have experience installing
    applications and apps, but may not have installed a Python package before
