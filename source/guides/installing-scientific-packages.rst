@@ -43,8 +43,8 @@ libraries (or any other Python libraries that require a compilation environment
 to install from source and don't provide pre-built wheel files on PyPI).
 
 
-Building from source
---------------------
+Building and installing from source
+-----------------------------------
 
 The same complexity which makes it difficult to distribute NumPy (and many
 of the projects that depend on it) as wheel files also make them difficult
@@ -52,9 +52,16 @@ to build from source yourself. However, for intrepid folks that are willing
 to spend the time wrangling compilers and linkers for both C and FORTRAN,
 building from source is always an option.
 
+Installation options by operating system
+----------------------------------------
+
+Scientific packages may use multiple programming languages. In addition,
+the use of different operating systems increases the complexity of installation.
+Therefore, the selection of installation tool and method will often depend on
+several factors including those already mentioned.
 
 Linux distribution packages
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For Linux users, the system package manager will often have pre-compiled
 versions of various pieces of scientific software, including NumPy and
@@ -66,7 +73,7 @@ installed into the system Python when using virtual environments).
 
 
 Windows installers
-------------------
+~~~~~~~~~~~~~~~~~~
 
 Many Python projects that don't (or can't) currently publish wheel files at
 least publish Windows installers, either on PyPI or on their project
@@ -95,7 +102,7 @@ convert a Windows `bdist_wininst` installer to a wheel.
 .. _mac-os-x-installers-and-package-managers:
 
 macOS installers and package managers
--------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Similar to the situation on Windows, many projects (including NumPy) publish
 macOS installers that are compatible with the macOS CPython binaries
@@ -120,25 +127,8 @@ and ``virtualenv`` based toolchain.
 Third-party package managers
 ----------------------------
 
-Spack
-~~~~~
-
-`Spack <https://github.com/LLNL/spack/>`_ is a flexible package manager
-designed to support multiple versions, configurations, platforms, and compilers.
-It was built to support the needs of large supercomputing centers and scientific
-application teams, who must often build software many different ways.
-Spack is not limited to Python; it can install packages for ``C``, ``C++``,
-``Fortran``, ``R``, and other languages.  It is non-destructive; installing
-a new version of one package does not break existing installations, so many
-configurations can coexist on the same system.
-
-Spack offers a simple but powerful syntax that allows users to specify
-versions and configuration options concisely. Package files are written in
-pure Python, and they are templated so that it is easy to swap compilers,
-dependency implementations (like MPI), versions, and build options with a single
-package file.  Spack also generates *module* files so that packages can
-be loaded and unloaded from the user's environment.
-
+Often a third-party package manager, maintained by groups other than PyPA, may
+be an expedient solution for installing scientific and data science packages.
 
 The conda cross-platform package manager
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -161,3 +151,51 @@ written in Python, but is Python-agnostic. Conda manages Python itself as a
 package, so that `conda update python` is possible, in contrast to pip, which
 only manages Python packages. Conda is available in Anaconda and Miniconda (an
 easy-to-install download with just Python and conda).
+
+Miniconda
+~~~~~~~~~
+
+A lighter-weight option for conda installs and often using conda-forge as the
+preferred channel.
+
+Spack
+~~~~~
+
+`Spack <https://github.com/LLNL/spack/>`_ is a flexible package manager
+designed to support multiple versions, configurations, platforms, and compilers.
+It was built to support the needs of large supercomputing centers and scientific
+application teams, who must often build software many different ways.
+Spack is not limited to Python; it can install packages for ``C``, ``C++``,
+``Fortran``, ``R``, and other languages.  It is non-destructive; installing
+a new version of one package does not break existing installations, so many
+configurations can coexist on the same system.
+
+Spack offers a simple but powerful syntax that allows users to specify
+versions and configuration options concisely. Package files are written in
+pure Python, and they are templated so that it is easy to swap compilers,
+dependency implementations (like MPI), versions, and build options with a single
+package file.  Spack also generates *module* files so that packages can
+be loaded and unloaded from the user's environment.
+
+Conda-forge
+-----------
+
+Maintained and tested scientific packages by the conda-forge community. A
+good source for finding up-to-date builds for package installation.
+
+DockerHub
+---------
+
+Docker and other container technologies are used within the sciences to spin
+up a predetermined container of packages. This often can be an aid to
+reproducibility of results.
+
+What's next
+-----------
+
+A wise recommendation for installing Scientific packages would be to follow
+the installation recommendations provided in the package's documentation.
+Another practical next step for users who are new to installing Python Scientific
+packages would be to consult a recent tutorial or talk from a prior PyCon,
+SciPy, or PyData conference which describes the current state of installing
+scientific packages and tools.
