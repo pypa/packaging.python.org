@@ -7,11 +7,23 @@ Installing scientific packages
 .. contents:: Contents
    :local:
 
+Overview
+--------
 
 Scientific software tends to have more complex dependencies than most, and
 it will often have multiple build options to take advantage of different
 kinds of hardware, or to interoperate with different pieces of external
 software.
+
+Prerequisites
+-------------
+
+A basic understanding of the Scientific Python stack as well as installation
+of packages using tools such as pip or conda and using hosting repositories
+like PyPI and conda-forge.
+
+Complexity, NumPy, and SciPy
+----------------------------
 
 In particular, `NumPy <http://www.numpy.org/>`__, which provides the basis
 for most of the software in the `scientific Python stack
@@ -105,8 +117,12 @@ end users in an easy to use and update format.
 Some of these distributions may not be compatible with the standard ``pip``
 and ``virtualenv`` based toolchain.
 
+Third-party package managers
+----------------------------
+
 Spack
-------
+~~~~~
+
 `Spack <https://github.com/LLNL/spack/>`_ is a flexible package manager
 designed to support multiple versions, configurations, platforms, and compilers.
 It was built to support the needs of large supercomputing centers and scientific
@@ -125,7 +141,7 @@ be loaded and unloaded from the user's environment.
 
 
 The conda cross-platform package manager
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Anaconda <https://www.anaconda.com/download/>`_ is a Python distribution
 published by Anaconda, Inc. It is a stable collection of Open Source
