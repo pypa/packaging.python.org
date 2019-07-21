@@ -33,23 +33,34 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 .. _Python Packaging Authority: https://pypa.io
 
 
-.. note:: **Navigating the User Guide**
+Navigating the User Guide
+=========================
 
-   The *Python Packaging User Guide* is organized into several sections:
+The *Python Packaging User Guide* is organized into several sections:
 
-   - :doc:`tutorials/index` introduce packaging concepts through opinionated,
-     step-by-step guides, such as *Installing Packages* and *Packaging Projects*.
-   - :doc:`guides/index` focus on accomplishing a specific task, such as *Making a
-     PyPI friendly README* and *Installing Scientific Packages*.
-   - :doc:`discussions/index` provide comprehensive information about a specific topic
-     such as *install_requires vs requirements files* and *Wheel vs Egg*.
-   - :doc:`specifications/index` document interoperability and standards, such as
-     *Entry points specification* and *Platform compatibility tags*.
-   - :doc:`key_projects` highlights PyPA maintained projects and mentions notable
-     third-party maintained projects.
-
-   The :doc:`glossary` also helps the reader understand any unfamiliar terms or
-   jargon.
++------------------------------+----------------------------------------------------------+
+| Section                      | Description                                              |
++------------------------------+----------------------------------------------------------+
+| :doc:`tutorials/index`       | Introduce packaging concepts through opinionated,        |
+|                              | step-by-step guides, such as *Installing Packages*       |
+|                              | and *Packaging Projects*.                                |
++------------------------------+----------------------------------------------------------+
+| :doc:`guides/index`          | Focus on accomplishing a specific task, such as          |
+|                              | *Making a PyPI friendly README* and *Installing*         |
+|                              | *Scientific Packages*.                                   |
++------------------------------+----------------------------------------------------------+
+| :doc:`discussions/index`     | Provide comprehensive information about a specific topic |
+|                              | such as *install_requires vs requirements files* and     |
+|                              | *Wheel vs Egg*.                                          |
++------------------------------+----------------------------------------------------------+
+| :doc:`specifications/index`  | Document interoperability and standards, such as         |
+|                              | *Entry points specification*                             |
++------------------------------+----------------------------------------------------------+
+| :doc:`key_projects`          | Highlights PyPA maintained projects and mentions notable |
+|                              | third-party maintained projects.                         |
++------------------------------+----------------------------------------------------------+
+| :doc:`glossary`              | Define unfamiliar terms or jargon                        |
++------------------------------+----------------------------------------------------------+
 
 
 Get started
