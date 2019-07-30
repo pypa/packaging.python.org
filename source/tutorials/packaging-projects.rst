@@ -25,15 +25,13 @@ To create this project locally, create the following file structure:
 Once you create this structure, you'll want to run all of the commands in this
 tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
-You should also edit :file:`example_pkg/__init__.py` and put the following
-code in there:
+Next edit :file:`example_pkg/__init__.py` and insert the following code:
 
 .. code-block:: python
 
-    name = "example_pkg"
+    test_string = "hello"
 
-This is just so that you can verify that it installed correctly later in this
-tutorial and is not used by PyPI.
+We'll use this later in the tutorial to verify that the package installed correctly.
 
 .. _Python documentation for packages and modules:
     https://docs.python.org/3/tutorial/modules.html#packages
@@ -303,15 +301,15 @@ Run the Python interpreter (make sure you're still in your virtualenv):
 
     python
 
-And then import the module and print out the ``__name__`` property. This should be
-the same regardless of what you name you gave your :term:`distribution package`
+And then import the module and print out the ``test_string`` property of our example. The module name
+should be the same regardless of what name you gave your :term:`distribution package`
 in :file:`setup.py` (in this case, ``example-pkg-your-username``) because your :term:`import package` is ``example_pkg``.
 
 .. code-block:: python
 
     >>> import example_pkg
-    >>> example_pkg.__name__
-    'example_pkg'
+    >>> example_pkg.test_string
+    'hello'
 
 
 Next steps
