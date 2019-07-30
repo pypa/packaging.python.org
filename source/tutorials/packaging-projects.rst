@@ -303,14 +303,14 @@ Run the Python interpreter (make sure you're still in your virtualenv):
 
     python
 
-And then import the module and print out the ``name`` property. This should be
+And then import the module and print out the ``__name__`` property. This should be
 the same regardless of what you name you gave your :term:`distribution package`
 in :file:`setup.py` (in this case, ``example-pkg-your-username``) because your :term:`import package` is ``example_pkg``.
 
 .. code-block:: python
 
     >>> import example_pkg
-    >>> example_pkg.name
+    >>> example_pkg.__name__
     'example_pkg'
 
 
