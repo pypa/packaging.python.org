@@ -4,6 +4,8 @@
 Core metadata specifications
 ============================
 
+This is the specification for core metadata, version 2.2.
+
 The current core metadata file format, version 2.1, is specified in :pep:`566`.
 It defines the following specification as the canonical source for the core
 metadata file format.
@@ -22,7 +24,7 @@ All the other fields are optional.
    publishing tools (namely to remove the requirement that version specifiers
    must be surrounded by parentheses). Metadata consumers may want to use the
    more relaxed formatting rules even for metadata files that are nominally
-   less than version 2.1.
+   less than version 2.2.
 
 .. contents:: Contents
    :local:
@@ -31,8 +33,9 @@ Metadata-Version
 ================
 
 .. versionadded:: 1.0
+.. versionchanged:: 2.2
 
-Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
+Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1" and "2.2".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -46,7 +49,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.1
+    Metadata-Version: 2.2
 
 
 Name
@@ -382,6 +385,8 @@ License
 =======
 
 .. versionadded:: 1.0
+.. versionchanged:: 2.2
+   This field will be deprecated in the future in favor of the License-Expression field.
 
 Text indicating the license covering the distribution where the license
 is not a selection from the "License" Trove classifiers. See
@@ -399,12 +404,39 @@ Examples::
     License: GPL version 3, excluding DRM provisions
 
 
+.. _license-expression-optional:
+
+License-Expression
+==================
+
+.. versionadded:: 2.2
+
+A string with the license expression using `SPDX license expression syntax and
+identifiers <https://spdx.org/ids>`__ that indicates the license(s) covering the
+distribution. The license expressions are specified in the `SPDX specification 
+<https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60>`_.
+SPDX also publishes a companion `list of license ids <https://spdx.org/license-list>`_
+for use in license expressions. This field is not case sensitive though the
+normalized representation of a license expression is case-sensitive.
+
+Examples::
+
+    License-Expression: BSD-3-Clause
+
+    License-Expression: MIT OR GPL-2.0-or-later AND (FSFUL AND BSD-2-Clause)
+
+    License-Expression: GPL-3.0-or-later WITH Classpath-Exception-2.0 OR BSD-3-Clause
+
+
 .. _metadata-classifier:
 
 Classifier (multiple use)
 =========================
 
 .. versionadded:: 1.1
+.. versionchanged:: 2.2
+   The license-related classifiers will be removed and deprecated in the future
+   in favor of using the License-Expression field.
 
 Each entry is a string giving a single classification value
 for the distribution.  Classifiers are described in :pep:`301`,
