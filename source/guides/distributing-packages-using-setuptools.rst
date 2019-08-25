@@ -353,7 +353,7 @@ packages
 
 ::
 
-  packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+  packages=find_packages(exclude=['contrib', 'docs', 'test', 'test.*', 'tests', 'tests.*']),
 
 Set ``packages`` to a list of all :term:`packages <Import Package>` in your
 project, including their subpackages, sub-subpackages, etc.  Although the
