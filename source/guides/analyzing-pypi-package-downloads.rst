@@ -30,7 +30,7 @@ collect and display accurately. Reasons for this are included in the
               the utility of the CDN
         - Highly inaccurate
             - A number of things prevent the download counts from being
-              inaccurate, some of which include:
+              accurate, some of which include:
 
                 - pip download cache
                 - Internal or unofficial mirrors
