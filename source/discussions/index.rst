@@ -1,14 +1,21 @@
-Discussions
-###########
+Concepts
+########
 
-**Discussions** are focused on providing comprehensive information about a
-specific topic. If you're just trying to get stuff done, see
-:doc:`/guides/index`.
+The **Concepts** section discusses fundamental information about specific
+topics.
+
+The goals of this section include providing background information, describing
+important technical concepts, and highlighting usage tradeoffs.
+
+Contents include:
 
 .. toctree::
    :maxdepth: 1
 
-   deploying-python-applications
-   pip-vs-easy-install
    install-requires-vs-requirements
+   pip-vs-easy-install
    wheel-vs-egg
+   deploying-python-applications
+
+Alternatively, if you're trying to get a specific task done, see
+:doc:`/guides/index`.

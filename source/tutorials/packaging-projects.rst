@@ -201,6 +201,9 @@ Now run this command from the same directory where :file:`setup.py` is located:
 
     python3 setup.py sdist bdist_wheel
 
+.. TODO where to document setup.py  sdist / bdist_wheel -> python -m pep517.build  -s -b
+   probably in a guide re: scientific python
+
 This command should output a lot of text and once completed should generate two
 files in the :file:`dist` directory:
 

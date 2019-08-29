@@ -1,9 +1,10 @@
-Guides
-######
+Tasks
+#####
 
-**Guides** are focused on accomplishing a specific task and assume that you are
-already familiar with the basics of Python packaging. If you're looking for an
-introduction to packaging, see :doc:`/tutorials/index`.
+**Tasks** guides focus on accomplishing specific tasks.
+
+The guides in this Tasks section assume that you are already familiar with the
+basics of Python packaging. Contents include:
 
 .. toctree::
    :maxdepth: 1
@@ -28,4 +29,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    hosting-your-own-index
    migrating-to-pypi-org
    using-testpypi
+   creating-documentation
    making-a-pypi-friendly-readme
+
+If you're looking for an introduction to packaging, see :doc:`/tutorials/index`.

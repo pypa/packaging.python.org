@@ -33,8 +33,8 @@ packages.
 Ensure you can run Python from the command line
 -----------------------------------------------
 
-Before you go any further, make sure you have Python and that the expected
-version is available from your command line. You can check this by running:
+Before you go any further, make sure you have Python and the expected
+version available from your command line. You can check this by running:
 
 .. code-block:: bash
 
@@ -44,7 +44,8 @@ You should get some output like ``Python 3.6.3``. If you do not have Python,
 please install the latest 3.x version from `python.org`_ or refer to the
 `Installing Python`_ section of the Hitchhiker's Guide to Python.
 
-.. Note:: If you're a newcomer and you get an error like this:
+.. Note:: If you are new to Python or the command line and the system returns
+   an error like this:
 
     .. code-block:: python
 
@@ -53,26 +54,30 @@ please install the latest 3.x version from `python.org`_ or refer to the
           File "<stdin>", line 1, in <module>
         NameError: name 'python' is not defined
 
-    It's because this command and other suggested commands in this tutorial
-    are intended to be run in a *shell* (also called a *terminal* or
+    It is due to running ``python --version`` in the Python REPL
+    instead of a *shell*, like bash. This command and others in this
+    tutorial should be run in a *shell* (also called a *terminal* or
     *console*). See the Python for Beginners `getting started tutorial`_ for
     an introduction to using your operating system's shell and interacting with
     Python.
 
 .. Note:: If you're using an enhanced shell like IPython or the Jupyter
-   notebook, you can run system commands like those in this tutorial by
-   prefacing them with a ``!`` character:
+   notebook, you can run system commands, like those in this tutorial, by
+   prefacing the command with a ``!`` character:
 
     ::
 
         In [1]: import sys
-                !{sys.executable} --version
+
+        In [2]: !{sys.executable} --version
+
         Python 3.6.3
 
-   It's recommended to write ``{sys.executable}`` rather than plain ``python`` in
-   order to ensure that commands are run in the Python installation matching
-   the currently running notebook (which may not be the same Python
-   installation that the ``python`` command refers to).
+   It's recommended to substitute ``{sys.executable}`` for ``python``. This
+   helps to ensure that commands are run in the same Python installation as
+   the currently running notebook. Running ``python`` as a command in the
+   notebook may execute in the same Python installation that the
+   notebook is running which will cause confusion or unexpected results.
 
 .. Note:: Due to the way most Linux distributions are handling the Python 3
    migration, Linux users using the system Python without creating a virtual
