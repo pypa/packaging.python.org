@@ -353,13 +353,14 @@ packages
 
 ::
 
-  packages=find_packages(exclude=['contrib', 'docs', 'tests*']),
+  packages=find_packages(include=['sample', 'sample.*']),
 
 Set ``packages`` to a list of all :term:`packages <Import Package>` in your
 project, including their subpackages, sub-subpackages, etc.  Although the
 packages can be listed manually, ``setuptools.find_packages()`` finds them
-automatically.  Use the ``exclude`` keyword argument to omit packages that are
-not intended to be released and installed.
+automatically.  Use the ``include`` keyword argument to find only the given
+packages.  Use the ``exclude`` keyword argument to omit packages that are not
+intended to be released and installed.
 
 
 py_modules
