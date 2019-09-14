@@ -95,7 +95,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
 minimal set:
 
 - ``name`` is the *distribution name* of your package. This can be any name as long as only
-  contains letters, numbers, ``_`` , and ``-``. It also must not already
+  contains letters, numbers, ``_`` , and ``-``. It also must not already be
   taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't try to upload a package with the same name as one which already exists when you upload the package.
 - ``version`` is the package version see :pep:`440` for more details on
   versions.
