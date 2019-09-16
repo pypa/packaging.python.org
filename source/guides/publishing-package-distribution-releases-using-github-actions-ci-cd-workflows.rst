@@ -18,7 +18,7 @@ package whenever a tagged commit is pushed.
 
    At the time of writing, `GitHub Actions CI/CD`_
    is in public beta. If you don't have it enabled,
-   you should join the waitlist to gain access.
+   you should `join the waitlist`_ to gain access.
 
    GitHub Actions will be generally available on November
    13th, 2019.
@@ -142,6 +142,7 @@ sure that your release pipeline remains healthy!
 
 .. _API token: https://pypi.org/help/#apitoken
 .. _GitHub Actions CI/CD: https://github.com/features/actions
+.. _join the waitlist: https://github.com/features/actions/signup
 .. _pypa/gh-action-pypi-publish:
 .. _Secrets:
    https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables
