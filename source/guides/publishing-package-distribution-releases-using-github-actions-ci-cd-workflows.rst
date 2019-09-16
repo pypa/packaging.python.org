@@ -57,14 +57,14 @@ Creating a workflow definition
 GitHub CI/CD workflows are declared in YAML files stored under
 ``.github/workflows/`` of your repository.
 
+Let's create ``.github/workflows/publish-to-test-pypi.yml`` file.
+
 Start it with a meaningful name and define the event that
 should make GitHub run this workflow:
 
-.. code-block:: yaml
-
-   name: Publish Python 🐍 distribution package 📦 to PyPIs
-
-   on: push
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :end-before: jobs:
 
 
 Defining a workflow job environment
@@ -74,11 +74,10 @@ Now, let's add initial setup for our job. It's a process that
 will execute commands that we'll define later.
 In this guide, we'll choose to use Ubuntu 18.04:
 
-.. code-block:: yaml
-
-   build-n-publish:
-     name: Build and publish Python 🐛 dist 📦 to PyPIs
-     runs-on: ubuntu-18.04
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :start-after: on:
+   :end-before: steps:
 
 
 Checking out the project and building dists
@@ -86,14 +85,10 @@ Checking out the project and building dists
 
 Then, add the following under the ``build-n-publish`` section:
 
-.. code-block:: yaml
-
-     steps:
-     - uses: actions/checkout@master
-     - name: Set up Python 3.7
-       uses: actions/setup-python@v1
-       with:
-         version: 3.7
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :start-after: runs-on:
+   :end-before: Install pep517
 
 This will download your repository into the CI runner and then
 install and activate Python 3.7.
@@ -109,22 +104,10 @@ use ``pep517`` package, *assuming that your project has a ``pyproject.toml`` pro
 
 So add this to the steps list:
 
-.. code-block:: yaml
-
-     - name: Install pep517
-       run: >-
-         python -m
-         pip install
-         pep517
-         --user
-     - name: Build a binary wheel and a source tarball
-       run: >-
-         python -m
-         pep517.build
-         --source
-         --binary
-         --out-dir dist/
-         .
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :start-after: version: 3.7
+   :end-before: Actualy publish to PyPIs
 
 
 Publishing dist to Test PyPI and production PyPI
@@ -132,18 +115,9 @@ Publishing dist to Test PyPI and production PyPI
 
 Finally, add the following steps at the end:
 
-.. code-block:: yaml
-
-     - name: Publish 📦 to Test PyPI
-       uses: pypa/gh-action-pypi-publish@master
-       with:
-         password: ${{ secrets.test_pypi_password }}
-         repository_url: https://test.pypi.org/legacy/
-     - name: Publish 📦 to production PyPI
-       if: startsWith(github.event.ref, 'refs/tags')
-       uses: pypa/gh-action-pypi-publish@master
-       with:
-         password: ${{ secrets.pypi_password }}
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :start-after: Actualy publish to PyPIs
 
 These two steps use the `pypa/gh-action-pypi-publish`_ GitHub
 Action: the first one uploads contents of the ``dist/`` folder
