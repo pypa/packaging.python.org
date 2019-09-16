@@ -1,5 +1,5 @@
-Publishing package distribution 📦 releases using GitHub Actions CI/CD workflows 🤖
-===================================================================================
+Publishing package distribution releases using GitHub Actions CI/CD workflows
+=============================================================================
 
 `GitHub Actions CI/CD`_ allow you to run a series of commands
 whenever an event occurs on the GitHub platform. One
