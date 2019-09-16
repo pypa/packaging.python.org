@@ -94,7 +94,7 @@ This will download your repository into the CI runner and then
 install and activate Python 3.7.
 
 And now we can build dists from source. In this example, we'll
-use ``pep517`` package, *assuming that your project has a ``pyproject.toml`` properly set up (see :pep:`517`/:pep:`518`)*.
+use ``pep517`` package, assuming that your project has a ``pyproject.toml`` properly set up (see :pep:`517`/:pep:`518`).
 
 .. tip::
 
