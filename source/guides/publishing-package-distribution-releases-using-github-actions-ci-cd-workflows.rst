@@ -20,7 +20,8 @@ package whenever a tagged commit is pushed.
    is in public beta. If you don't have it enabled,
    you should join the waitlist to gain access.
 
-   GitHub Actions will be generally available on November 13th, 2019.
+   GitHub Actions will be generally available on November
+   13th, 2019.
 
 
 Saving credentials on GitHub
@@ -28,7 +29,8 @@ Saving credentials on GitHub
 
 In this guide, we'll demonstrate uploading to both production
 PyPI and Test PyPI meaning that we'll have two separate sets
-of creds. And we'll need to save them in the GitHub repo settings.
+of creds. And we'll need to save them in the GitHub repo
+settings.
 
 Let's begin! 🚀
 
@@ -57,7 +59,8 @@ Creating a workflow definition
 GitHub CI/CD workflows are declared in YAML files stored under
 ``.github/workflows/`` of your repository.
 
-Let's create ``.github/workflows/publish-to-test-pypi.yml`` file.
+Let's create ``.github/workflows/publish-to-test-pypi.yml``
+file.
 
 Start it with a meaningful name and define the event that
 should make GitHub run this workflow:
@@ -94,13 +97,15 @@ This will download your repository into the CI runner and then
 install and activate Python 3.7.
 
 And now we can build dists from source. In this example, we'll
-use ``pep517`` package, assuming that your project has a ``pyproject.toml`` properly set up (see :pep:`517`/:pep:`518`).
+use ``pep517`` package, assuming that your project has a
+``pyproject.toml`` properly set up (see
+:pep:`517`/:pep:`518`).
 
 .. tip::
 
    You can use any other method for building dists as long as
-   it produces ready-to-upload artifacts saved into the ``dist/``
-   folder.
+   it produces ready-to-upload artifacts saved into the
+   ``dist/`` folder.
 
 So add this to the steps list:
 
