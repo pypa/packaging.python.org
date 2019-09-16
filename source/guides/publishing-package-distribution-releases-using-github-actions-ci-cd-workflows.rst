@@ -1,3 +1,4 @@
+=============================================================================
 Publishing package distribution releases using GitHub Actions CI/CD workflows
 =============================================================================
 
@@ -23,7 +24,7 @@ package whenever a tagged commit is pushed.
 
 
 Saving credentials on GitHub
-----------------------------
+============================
 
 In this guide, we'll demonstrate uploading to both production
 PyPI and Test PyPI meaning that we'll have two separate sets
@@ -51,7 +52,7 @@ Let's begin! 🚀
 
 
 Creating a workflow definition
-------------------------------
+==============================
 
 GitHub CI/CD workflows are declared in YAML files stored under
 ``.github/workflows/`` of your repository.
@@ -67,7 +68,7 @@ should make GitHub run this workflow:
 
 
 Defining a workflow job environment
------------------------------------
+===================================
 
 Now, let's add initial setup for our job. It's a process that
 will execute commands that we'll define later.
@@ -81,7 +82,7 @@ In this guide, we'll choose to use Ubuntu 18.04:
 
 
 Checking out the project and building dists
--------------------------------------------
+===========================================
 
 Then, add the following under the ``build-n-publish`` section:
 
@@ -127,7 +128,7 @@ So add this to the steps list:
 
 
 Publishing dist to Test PyPI and production PyPI
-------------------------------------------------
+================================================
 
 Finally, add the following steps at the end:
 
@@ -151,7 +152,7 @@ production PyPI but only if the current commit is tagged.
 
 
 That's all, folks!
-------------------
+==================
 
 Now, whenever you push a tagged commit to your Git repo remote
 on GitHub, this workflow will publish it to PyPI.
