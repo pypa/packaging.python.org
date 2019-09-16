@@ -1,11 +1,11 @@
-Publishing Package Distribution 📦 Releases Using GitHub Actions CI/CD Workflows 🤖
+Publishing package distribution 📦 releases using GitHub Actions CI/CD workflows 🤖
 ===================================================================================
 
 `GitHub Actions CI/CD`_ allow you to run a series of commands
-whenever an event occurs in the GitHub Platform. One of the
-popular choices is having a workflow that's triggered by a
+whenever an event occurs on the GitHub platform. One
+popular choice is having a workflow that's triggered by a
 ``push`` event.
-This guide will show you how to publish a Python distribution
+This guide shows you how to publish a Python distribution
 package whenever a tagged commit is pushed.
 
 .. attention::
@@ -15,12 +15,11 @@ package whenever a tagged commit is pushed.
 
 .. warning::
 
-   At the time of writing this guide, `GitHub Actions CI/CD`_
-   is still in public beta. If you don't have it enabled,
-   you should join the waitlist in order to gain the access.
+   At the time of writing, `GitHub Actions CI/CD`_
+   is in public beta. If you don't have it enabled,
+   you should join the waitlist to gain access.
 
-   N.B. It is known that GitHub is going to make Actions
-   publicly available on the Nov 13th, 2019.
+   GitHub Actions will be generally available on November 13th, 2019.
 
 
 Saving credentials on GitHub
@@ -28,14 +27,14 @@ Saving credentials on GitHub
 
 In this guide, we'll demonstrate uploading to both production
 PyPI and Test PyPI meaning that we'll have two separate sets
-of creds. And we'll need to save them in GitHub repo settings.
+of creds. And we'll need to save them in the GitHub repo settings.
 
 Let's begin! 🚀
 
 1. Go to https://pypi.org/manage/account/#api-tokens and
    create a new `API token`_. If you have the project on PyPI
-   already, please limit the token scope to just that project.
-   You can call it smth like
+   already, limit the token scope to just that project.
+   You can call it something like
    ``GitHub Actions CI/CD — project-org/project-repo``
    in order for it to be easily distinguishable in the token
    list.
@@ -54,15 +53,15 @@ Let's begin! 🚀
 Creating a workflow definition
 ------------------------------
 
-GitHub CI/CD Workflows are declared in YAML files stored under
-``.github/`` of your repository.
+GitHub CI/CD workflows are declared in YAML files stored under
+``.github/workflows/`` of your repository.
 
-Start it with a meaningful name and define the even that
+Start it with a meaningful name and define the event that
 should make GitHub run this workflow:
 
 .. code-block:: yaml
 
-   name: Publish Python 🐛 distribution package 📦 to PyPIs
+   name: Publish Python 🐍 distribution package 📦 to PyPIs
 
    on: push
 
@@ -104,7 +103,7 @@ use ``pep517`` package, *assuming that your project has a ``pyproject.toml`` pro
 .. tip::
 
    You can use any other method for building dists as long as
-   it produces ready-to-upload artifacts saved into ``dist/``
+   it produces ready-to-upload artifacts saved into the ``dist/``
    folder.
 
 So add this to the steps list:
@@ -130,7 +129,7 @@ So add this to the steps list:
 Publishing dist to Test PyPI and production PyPI
 ------------------------------------------------
 
-Finally, add the following steps in the end:
+Finally, add the following steps at the end:
 
 .. code-block:: yaml
 
@@ -145,8 +144,8 @@ Finally, add the following steps in the end:
        with:
          password: ${{ secrets.pypi_password }}
 
-These two steps use `pypa/gh-action-pypi-publish`_ GitHub
-Action: the first one uploads contents of the `dist/` folder
+These two steps use the `pypa/gh-action-pypi-publish`_ GitHub
+Action: the first one uploads contents of the ``dist/`` folder
 into Test PyPI unconditionally and the second does that to
 production PyPI but only if the current commit is tagged.
 
@@ -158,7 +157,7 @@ Now, whenever you push a tagged commit to your Git repo remote
 on GitHub, this workflow will publish it to PyPI.
 And it'll publish any push to Test PyPI which is useful for
 providing test builds to your alpha users as well as making
-sure that your release pipeline keeps being healthy! 
+sure that your release pipeline remains healthy! 
 
 
 .. _API token: https://pypi.org/help/#apitoken
