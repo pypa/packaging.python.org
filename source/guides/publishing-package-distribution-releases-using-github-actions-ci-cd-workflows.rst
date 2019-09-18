@@ -2,7 +2,7 @@
 Publishing package distribution releases using GitHub Actions CI/CD workflows
 =============================================================================
 
-`GitHub Actions CI/CD`_ allow you to run a series of commands
+`GitHub Actions CI/CD`_ allows you to run a series of commands
 whenever an event occurs on the GitHub platform. One
 popular choice is having a workflow that's triggered by a
 ``push`` event.
@@ -59,7 +59,7 @@ Creating a workflow definition
 GitHub CI/CD workflows are declared in YAML files stored under
 ``.github/workflows/`` of your repository.
 
-Let's create ``.github/workflows/publish-to-test-pypi.yml``
+Let's create a ``.github/workflows/publish-to-test-pypi.yml``
 file.
 
 Start it with a meaningful name and define the event that
@@ -75,7 +75,7 @@ Defining a workflow job environment
 
 Now, let's add initial setup for our job. It's a process that
 will execute commands that we'll define later.
-In this guide, we'll choose to use Ubuntu 18.04:
+In this guide, we'll use Ubuntu 18.04:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
