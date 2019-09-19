@@ -20,9 +20,6 @@ whenever a tagged commit is pushed.
    is in public beta. If you don't have it enabled,
    you should `join the waitlist`_ to gain access.
 
-   GitHub Actions will be generally available on November
-   13th, 2019.
-
 
 Saving credentials on GitHub
 ============================
