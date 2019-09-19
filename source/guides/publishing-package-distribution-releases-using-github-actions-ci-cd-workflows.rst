@@ -12,7 +12,7 @@ package whenever a tagged commit is pushed.
 .. attention::
 
    This guide *assumes* that you already have a project that
-   you know how to build dists for and *it lives on GitHub*.
+   you know how to build distributions for and *it lives on GitHub*.
 
 .. warning::
 
@@ -29,7 +29,7 @@ Saving credentials on GitHub
 
 In this guide, we'll demonstrate uploading to both production
 PyPI and TestPyPI, meaning that we'll have two separate sets
-of creds. And we'll need to save them in the GitHub repo
+of credentials. And we'll need to save them in the GitHub repository
 settings.
 
 Let's begin! 🚀
@@ -83,8 +83,8 @@ In this guide, we'll use Ubuntu 18.04:
    :end-before: steps:
 
 
-Checking out the project and building dists
-===========================================
+Checking out the project and building distributions
+===================================================
 
 Then, add the following under the ``build-n-publish`` section:
 
@@ -103,7 +103,7 @@ use ``pep517`` package, assuming that your project has a
 
 .. tip::
 
-   You can use any other method for building dists as long as
+   You can use any other method for building distributions as long as
    it produces ready-to-upload artifacts saved into the
    ``dist/`` folder.
 
@@ -133,7 +133,7 @@ production PyPI but only if the current commit is tagged.
 That's all, folks!
 ==================
 
-Now, whenever you push a tagged commit to your Git repo remote
+Now, whenever you push a tagged commit to your Git repository remote
 on GitHub, this workflow will publish it to PyPI.
 And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
