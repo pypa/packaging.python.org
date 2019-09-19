@@ -7,7 +7,7 @@ whenever an event occurs on the GitHub platform. One
 popular choice is having a workflow that's triggered by a
 ``push`` event.
 This guide shows you how to publish a Python distribution
-package whenever a tagged commit is pushed.
+whenever a tagged commit is pushed.
 
 .. attention::
 
@@ -27,7 +27,7 @@ package whenever a tagged commit is pushed.
 Saving credentials on GitHub
 ============================
 
-In this guide, we'll demonstrate uploading to both production
+In this guide, we'll demonstrate uploading to both
 PyPI and TestPyPI, meaning that we'll have two separate sets
 of credentials. And we'll need to save them in the GitHub repository
 settings.
@@ -56,8 +56,8 @@ Let's begin! 🚀
 Creating a workflow definition
 ==============================
 
-GitHub CI/CD workflows are declared in YAML files stored under
-``.github/workflows/`` of your repository.
+GitHub CI/CD workflows are declared in YAML files stored in the
+``.github/workflows/`` directory of your repository.
 
 Let's create a ``.github/workflows/publish-to-test-pypi.yml``
 file.
@@ -127,7 +127,7 @@ Finally, add the following steps at the end:
 These two steps use the `pypa/gh-action-pypi-publish`_ GitHub
 Action: the first one uploads contents of the ``dist/`` folder
 into TestPyPI unconditionally and the second does that to
-production PyPI but only if the current commit is tagged.
+PyPI, but only if the current commit is tagged.
 
 
 That's all, folks!
