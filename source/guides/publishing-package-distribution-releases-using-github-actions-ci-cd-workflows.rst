@@ -52,6 +52,11 @@ Let's begin! 🚀
    and repeat the steps. Save that TestPyPI token on GitHub
    as ``test_pypi_password``.
 
+   .. attention::
+
+      If you don't have a TestPyPI account, you'll need to
+      create it. It's not the same as a regular PyPI account.
+
 
 Creating a workflow definition
 ==============================
