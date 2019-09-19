@@ -28,7 +28,7 @@ Saving credentials on GitHub
 ============================
 
 In this guide, we'll demonstrate uploading to both production
-PyPI and Test PyPI meaning that we'll have two separate sets
+PyPI and TestPyPI, meaning that we'll have two separate sets
 of creds. And we'll need to save them in the GitHub repo
 settings.
 
@@ -49,7 +49,7 @@ Let's begin! 🚀
 3. Create a new secret called ``pypi_password`` and copy-paste
    the token from the fist step.
 4. Now, go to https://test.pypi.org/manage/account/#api-tokens
-   and repeat the steps. Save that Test PyPI token on GitHub
+   and repeat the steps. Save that TestPyPI token on GitHub
    as ``test_pypi_password``.
 
 
@@ -112,21 +112,21 @@ So add this to the steps list:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: version: 3.7
-   :end-before: Actualy publish to PyPIs
+   :end-before: Actually publish to PyPI/TestPyPI
 
 
-Publishing dist to Test PyPI and production PyPI
+Publishing the distribution to PyPI and TestPyPI
 ================================================
 
 Finally, add the following steps at the end:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: Actualy publish to PyPIs
+   :start-after: Actually publish to PyPI/TestPyPI
 
 These two steps use the `pypa/gh-action-pypi-publish`_ GitHub
 Action: the first one uploads contents of the ``dist/`` folder
-into Test PyPI unconditionally and the second does that to
+into TestPyPI unconditionally and the second does that to
 production PyPI but only if the current commit is tagged.
 
 
@@ -135,7 +135,7 @@ That's all, folks!
 
 Now, whenever you push a tagged commit to your Git repo remote
 on GitHub, this workflow will publish it to PyPI.
-And it'll publish any push to Test PyPI which is useful for
+And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
 sure that your release pipeline remains healthy! 
 
