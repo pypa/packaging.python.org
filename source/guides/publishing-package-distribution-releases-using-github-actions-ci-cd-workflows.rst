@@ -147,6 +147,7 @@ sure that your release pipeline remains healthy!
 .. _GitHub Actions CI/CD: https://github.com/features/actions
 .. _join the waitlist: https://github.com/features/actions/signup
 .. _pypa/gh-action-pypi-publish:
+   https://github.com/pypa/gh-action-pypi-publish
 .. _`pypa/gh-action-pypi-publish GitHub Action`:
    https://github.com/marketplace/actions/pypi-publish
 .. _Secrets:
