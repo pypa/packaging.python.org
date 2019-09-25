@@ -8,6 +8,7 @@ popular choice is having a workflow that's triggered by a
 ``push`` event.
 This guide shows you how to publish a Python distribution
 whenever a tagged commit is pushed.
+It will use the `pypa/gh-action-pypi-publish GitHub Action`_ https://github.com/marketplace/actions/pypi-publish
 
 .. attention::
 
@@ -146,5 +147,7 @@ sure that your release pipeline remains healthy!
 .. _GitHub Actions CI/CD: https://github.com/features/actions
 .. _join the waitlist: https://github.com/features/actions/signup
 .. _pypa/gh-action-pypi-publish:
+.. _`pypa/gh-action-pypi-publish GitHub Action`:
+   https://github.com/marketplace/actions/pypi-publish
 .. _Secrets:
    https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables
