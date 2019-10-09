@@ -212,12 +212,20 @@ Using :ref:`virtualenv`:
 
 For more information, see the `venv`_ docs or the `virtualenv <http://virtualenv.pypa.io>`_ docs.
 
-In both of the above cases, Windows users should _not_ use the
-`source` command, but should rather run the `activate` script directly
-from the command shell. The use of `source` under Unix shells ensures
+The use of `source` under Unix shells ensures
 that the virtual environment's variables are set within the current
 shell, and not in a subprocess (which then disappears, having no
 useful effect).
+
+In both of the above cases, Windows users should _not_ use the
+`source` command, but should rather run the `activate` script directly
+from the command shell like so:
+
+::
+
+ <DIR>\Scripts\activate
+
+
 
 Managing multiple virtual environments directly can become tedious, so the
 :ref:`dependency management tutorial <managing-dependencies>` introduces a
