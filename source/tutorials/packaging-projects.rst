@@ -334,7 +334,9 @@ differences:
   servers and the login details from the test server are not shared with the
   main server.
 * Use ``twine upload dist/*`` to upload your package and enter your credentials
-  for the account you registered on the real PyPI.
+  for the account you registered on the real PyPI.  Now that you're uploading
+  the package in production, you don't need to specify ``--repository-url``; the
+  package will upload to https://pypi.org/ by default.
 * Install your package from the real PyPI using ``pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are
