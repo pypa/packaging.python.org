@@ -9,16 +9,25 @@ Platform compatibility tags allow build tools to mark distributions as being
 compatible with specific platforms, and allows installers to understand which
 distributions are compatible with the system they are running on.
 
-General platform tags
-=====================
-
 The platform compatibility tagging model used for the ``wheel`` distribution
 format is defined in :pep:`425`.
 
-.. _manylinux:
+Platform tags for Windows
+-------------------------
 
-Platform tags for Linux platforms
-=================================
+The scheme defined in :pep:`425` covers public distribution of wheel files to
+systems running Windows.
+
+Platform tags for macOS (Mac OS X)
+----------------------------------
+
+The scheme defined in :pep:`425` covers public distribution of wheel files to
+systems running macOS (previously known as Mac OS X).
+
+Platform tags for common Linux distributions
+--------------------------------------------
+
+.. _manylinux:
 
 The scheme defined in :pep:`425` is insufficient for public distribution of
 wheel files (and \*nix wheel files in general) to Linux platforms, due to the
@@ -70,6 +79,15 @@ Tool        ``manylinux1``  ``manylinux2010``  ``manylinux2014``
 pip         ``>=8.1.0``     ``>=19.0``         ``>=19.3`` [#]_
 auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0`` [#]_
 ==========  ==============  =================  =================
+
+Platform tags for other \*nix platforms
+---------------------------------------
+
+The scheme defined in :pep:`425` is not generally sufficient for public
+distribution of wheel files to other \*nix platforms. Efforts are currently
+(albeit intermittently) under way to define improved compatibility tagging
+schemes for AIX and for Alpine Linux.
+
 
 .. [#] https://wiki.centos.org/About/Product
 .. [#] Not yet released.
