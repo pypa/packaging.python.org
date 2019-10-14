@@ -34,7 +34,7 @@ April 2019
 March 2019
 ----------
 - Moved single-sourcing guide version option to Python 3. (:pr:`605`)
-- Covered RTD details for contributing. (:pr:`600`) 
+- Covered RTD details for contributing. (:pr:`600`)
 
 February 2019
 -------------
