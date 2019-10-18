@@ -237,6 +237,7 @@ buildout
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
 `PyPI <https://pypi.org/project/zc.buildout>`__ |
+`GitHub <https://github.com/buildout/buildout/>`__ |
 irc:#buildout
 
 Buildout is a Python-based build system for creating, assembling and deploying
