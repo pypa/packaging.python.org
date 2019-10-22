@@ -73,7 +73,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
         long_description = fh.read()
 
     setuptools.setup(
-        name="example-pkg-your-username",
+        name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
         version="0.0.1",
         author="Example Author",
         author_email="author@example.com",
