@@ -266,7 +266,7 @@ PyPI. After the command completes, you should see output similar to this:
 
 
 Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example-pkg-your-username
+https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE
 
 
 Installing your newly uploaded package
@@ -278,7 +278,7 @@ detailed instructions) and install your package from TestPyPI:
 
 .. code-block:: bash
 
-    python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-your-username
+    python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
 
 Make sure to specify your username in the package name!
 
@@ -287,10 +287,10 @@ something like this:
 
 .. code-block:: text
 
-    Collecting example-pkg-your-username
-      Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-your-username-0.0.1-py3-none-any.whl
-    Installing collected packages: example-pkg-your-username
-    Successfully installed example-pkg-your-username-0.0.1
+    Collecting example-pkg-YOUR-USERNAME-HERE
+      Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+    Installing collected packages: example-pkg-YOUR-USERNAME-HERE
+    Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have the same packages as the live PyPI, it's possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn't have any dependencies, it's a good practice to avoid installing dependencies when using TestPyPI.
 
@@ -305,7 +305,7 @@ Run the Python interpreter (make sure you're still in your virtualenv):
 
 And then import the module and print out the ``name`` property. This should be
 the same regardless of what you name you gave your :term:`distribution package`
-in :file:`setup.py` (in this case, ``example-pkg-your-username``) because your :term:`import package` is ``example_pkg``.
+in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``) because your :term:`import package` is ``example_pkg``.
 
 .. code-block:: python
 
