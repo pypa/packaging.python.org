@@ -523,7 +523,7 @@ separated by a comma.
 
 Example::
 
-    Bug Tracker, http://bitbucket.org/tarek/distribute/issues/
+    Project-URL: Bug Tracker, http://bitbucket.org/tarek/distribute/issues/
 
 The label is a free text limited to 32 signs.
 
