@@ -207,8 +207,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_pkg_your_username-0.0.1-py3-none-any.whl
-      example_pkg_your_username-0.0.1.tar.gz
+      example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+      example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 .. note:: If you run into trouble here, please copy the output and file an issue
   over on `packaging problems`_ and we'll do our best to help you!
@@ -259,9 +259,9 @@ PyPI. After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example_pkg_your_username-0.0.1-py3-none-any.whl
+    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example_pkg_your_username-0.0.1.tar.gz
+    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
