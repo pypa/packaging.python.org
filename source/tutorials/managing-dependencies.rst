@@ -95,8 +95,7 @@ when you share your project with others. You should get output similar to this
 
     Adding requests to Pipfile's [packages]...
 
-.. _Requests: https://python-requests.org
-.. _pipenv-tox: https://docs.pipenv.org/advanced/#tox-automation-project
+.. _Requests: https://pypi.org/project/requests/
 
 
 Using installed packages
