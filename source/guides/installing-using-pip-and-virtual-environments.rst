@@ -184,7 +184,7 @@ Installing packages
 -------------------
 
 Now that you're in your virtual environment you can install packages. Let's install the
-excellent `Requests`_ library from the :term:`Python Package Index (PyPI)`:
+`Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
 .. code-block:: bash
 
