@@ -14,7 +14,7 @@ Publishing releases
 ``pypi.org`` is the default upload platform as of September 2016.
 
 Uploads through ``pypi.python.org`` were *switched off* on **July 3, 2017**.
-As of April 13th, 2018,``pypi.org`` is the URL for PyPI.
+As of April 13th, 2018, ``pypi.org`` is the URL for PyPI.
 
 The recommended way to migrate to PyPI.org for uploading is to ensure that you
 are using a new enough version of your upload tool.

@@ -75,7 +75,7 @@ Version
 .. versionadded:: 1.0
 
 A string containing the distribution's version number.  This
-field  must be in the format specified in PEP 440.
+field  must be in the format specified in :pep:`440`.
 
 Example::
 
@@ -501,7 +501,7 @@ This field may be followed by an environment marker after a semicolon.
 
 Because they refer to non-Python software releases, version numbers
 for this field are **not** required to conform to the format
-specified in PEP 440:  they should correspond to the
+specified in :pep:`440`:  they should correspond to the
 version scheme used by the external dependency.
 
 Notice that there is no particular rule on the strings to be used.
@@ -523,7 +523,7 @@ separated by a comma.
 
 Example::
 
-    Bug Tracker, http://bitbucket.org/tarek/distribute/issues/
+    Project-URL: Bug Tracker, http://bitbucket.org/tarek/distribute/issues/
 
 The label is a free text limited to 32 signs.
 
