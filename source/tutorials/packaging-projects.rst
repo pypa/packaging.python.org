@@ -25,6 +25,9 @@ To create this project locally, create the following file structure:
 Once you create this structure, you'll want to run all of the commands in this
 tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
+:file:`example_pkg/__init__.py` is required to import the directory as a package,
+and can simply be an empty file.
+
 .. _Python documentation for packages and modules:
     https://docs.python.org/3/tutorial/modules.html#packages
 
