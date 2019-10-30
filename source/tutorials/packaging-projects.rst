@@ -25,14 +25,6 @@ To create this project locally, create the following file structure:
 Once you create this structure, you'll want to run all of the commands in this
 tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
-Next edit :file:`example_pkg/__init__.py` and insert the following code:
-
-.. code-block:: python
-
-    test_string = "hello"
-
-We'll use this later in the tutorial to verify that the package installed correctly.
-
 .. _Python documentation for packages and modules:
     https://docs.python.org/3/tutorial/modules.html#packages
 
@@ -292,25 +284,21 @@ something like this:
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have the same packages as the live PyPI, it's possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn't have any dependencies, it's a good practice to avoid installing dependencies when using TestPyPI.
 
-You can test that it was installed correctly by importing the module and
-referencing the ``name`` property you put in :file:`__init__.py` earlier.
-
+You can test that it was installed correctly by importing the package.
 Run the Python interpreter (make sure you're still in your virtualenv):
 
 .. code-block:: bash
 
     python
 
-And then import the module and print out the ``name`` property. This should be
-the same regardless of what you name you gave your :term:`distribution package`
-in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``) because your :term:`import package` is ``example_pkg``.
+and from the interpreter shell import the package:
 
 .. code-block:: python
 
     >>> import example_pkg
-    >>> example_pkg.test_string
-    'hello'
 
+Note that the :term:`import package` is ``example_pkg`` regardless of what name you gave your :term:`distribution package`
+in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
