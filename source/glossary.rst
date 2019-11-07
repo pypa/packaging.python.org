@@ -193,7 +193,7 @@ Glossary
     Source Archive
 
         An archive containing the raw source code for a :term:`Release`, prior
-        to creation of an :term:`Source Distribution <Source Distribution (or
+        to creation of a :term:`Source Distribution <Source Distribution (or
         "sdist")>` or :term:`Built Distribution`.
 
 
