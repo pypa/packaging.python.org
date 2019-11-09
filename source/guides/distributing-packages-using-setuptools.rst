@@ -327,7 +327,7 @@ keywords
 
   keywords='sample setuptools development',
 
-List keywords that describe your project.
+Space separated list (string) of keywords that describe your project.
 
 
 project_urls
