@@ -898,18 +898,6 @@ First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. You
 can create an account
 `using the form on the PyPI website <https://pypi.org/account/register/>`_.
 
-.. Note:: If you want to avoid entering your username and password when
-  uploading, you can create a ``$HOME/.pypirc`` file with your username and
-  password:
-
-  .. code-block:: text
-
-    [pypi]
-    username = <username>
-    password = <password>
-
-  **Be aware that this stores your password in plaintext.**
-
 .. _register-your-project:
 
 Upload your distributions
