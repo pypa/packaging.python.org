@@ -120,6 +120,15 @@ minimal set:
 There are many more than the ones mentioned here. See
 :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
+.. note::
+
+   You may see some existing projects or other Python packaging tutorials that
+   import their ``setup`` function from ``distutils.core`` rather than
+   ``setuptools``. This is a legacy approach that installers [1]_ still support
+   for backwards compatibility purposes, but using the legacy ``distutils`` API
+   directly in new projects is strongly discouraged, as it means that newer
+   build commands, like ``setup.py bdist_wheel``, won't work.
+
 
 Creating README.md
 ------------------
@@ -339,3 +348,15 @@ some things you can do:
 
 .. _hatch: https://github.com/ofek/hatch
 .. _poetry: https://github.com/sdispater/poetry
+
+
+----
+
+.. [1] Some legacy Python environments may not have ``setuptools``
+       pre-installed, and the operators of those environments may still be
+       requiring users to install packages by running ``setup.py install``
+       commands, rather than providing an installer like ``pip`` that
+       automatically installes required build dependendencies. These
+       environments will not be able to use many published packages until the
+       environment is updated to provide an up to date Python package
+       installation client (e.g. by running ``python -m ensurepip``).
