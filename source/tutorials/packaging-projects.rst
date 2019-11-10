@@ -124,11 +124,12 @@ There are many more than the ones mentioned here. See
 
    You may see some existing projects or other Python packaging tutorials that
    import their ``setup`` function from ``distutils.core`` rather than
-   ``setuptools``. This is a legacy approach that installers [1]_ still support
+   ``setuptools``. This is a `legacy approach`_ that installers [1]_ support
    for backwards compatibility purposes, but using the legacy ``distutils`` API
    directly in new projects is strongly discouraged, as it means that newer
    build commands, like ``setup.py bdist_wheel``, won't work.
 
+.. _legacy approach: https://docs.python.org/3/library/distutils.html
 
 Creating README.md
 ------------------
