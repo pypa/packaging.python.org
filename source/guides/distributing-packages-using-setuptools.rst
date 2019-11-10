@@ -4,9 +4,11 @@
 Packaging and distributing projects
 ===================================
 
-This section covers the basics of how to configure, package and distribute your
-own Python projects.  It assumes that you are already familiar with the contents
-of the :doc:`/tutorials/installing-packages` page.
+This section covers some additional details on configuring, packaging and
+distributing Python projects with ``setuptools`` that aren't covered by the
+introductory tutorial in :doc:`/tutorials/packaging-projects`.  It still assumes
+that you are already familiar with the contents of the
+:doc:`/tutorials/installing-packages` page.
 
 The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
