@@ -69,7 +69,7 @@ the dependencies in a single Windows-executable installer.
 
 The installed program can be started from a shortcut that the installer adds to
 the start-menu. It uses a Python interpreter installed within its application
-directory, indepedent of any other Python installation on the computer.
+directory, independent of any other Python installation on the computer.
 
 A big advantage of Pynsist is that the Windows packages can be built on Linux.
 There are several examples for different kinds of programs (console, GUI) in
