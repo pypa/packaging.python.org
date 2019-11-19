@@ -268,12 +268,19 @@ Keywords
 
 .. versionadded:: 1.0
 
-A list of additional keywords to be used to assist searching
-for the distribution in a larger catalog.
+A list of additional keywords, separated by commas, to be used to assist
+searching for the distribution in a larger catalog.
 
 Example::
 
-    Keywords: dog puppy voting election
+    Keywords: dog,puppy,voting,election
+
+.. note::
+
+   The specification previously showed keywords separated by spaces,
+   but distutils and setuptools implemented it with commas.
+   These tools have been very widely used for many years, so it was
+   easier to update the specification to match the de facto standard.
 
 .. _home-page-optional:
 
