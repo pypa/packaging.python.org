@@ -28,7 +28,7 @@ discover all of the Flask plugins installed:
     import importlib
     import pkgutil
 
-    flask_plugins = {
+    plugins = {
         name: importlib.import_module(name)
         for finder, name, ispkg
         in pkgutil.iter_modules()
@@ -36,7 +36,7 @@ discover all of the Flask plugins installed:
     }
 
 If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins installed
-then ``flask_plugins`` would be:
+then ``plugins`` would be:
 
 .. code-block:: python
 
@@ -80,7 +80,7 @@ under that namespace:
         # the name.
         return pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + ".")
 
-    myapp_plugins = {
+    plugins = {
         name: importlib.import_module(name)
         for finder, name, ispkg
         in iter_namespace(myapp.plugins)
@@ -88,8 +88,8 @@ under that namespace:
 
 Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` causes
 it to only look for the modules directly under that namespace. For example,
-if you have installed distributions that provide the modules ``myapp.plugin.a``
-and ``myapp.plugin.b`` then ``myapp_plugins`` in this case would be:
+if you have installed distributions that provide the modules ``myapp.plugins.a``
+and ``myapp.plugins.b`` then ``plugins`` in this case would be:
 
 .. code-block:: python
 
@@ -98,11 +98,11 @@ and ``myapp.plugin.b`` then ``myapp_plugins`` in this case would be:
         'b': <module: 'myapp.plugins.b'>,
     }
 
-This sample uses a sub-package as the namespace package (``myapp.plugin``), but
+This sample uses a sub-package as the namespace package (``myapp.plugins``), but
 it's also possible to use a top-level package for this purpose (such as
 ``myapp_plugins``). How to pick the namespace to use is a matter of preference,
-but it's not recommended to make your project's main top-level package (
-``myapp`` in this case) a namespace package for the purpose of plugins, as one
+but it's not recommended to make your project's main top-level package
+(``myapp`` in this case) a namespace package for the purpose of plugins, as one
 bad plugin could cause the entire namespace to break which would in turn make
 your project unimportable. For the "namespace sub-package" approach to work,
 the plugin packages must omit the :file:`__init__.py` for your top-level
