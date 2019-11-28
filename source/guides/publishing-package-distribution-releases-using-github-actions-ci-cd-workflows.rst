@@ -15,13 +15,6 @@ It will use the `pypa/gh-action-pypi-publish GitHub Action`_ https://github.com/
    This guide *assumes* that you already have a project that
    you know how to build distributions for and *it lives on GitHub*.
 
-.. warning::
-
-   At the time of writing, `GitHub Actions CI/CD`_
-   is in public beta. If you don't have it enabled,
-   you should `join the waitlist`_ to gain access.
-
-
 Saving credentials on GitHub
 ============================
 
