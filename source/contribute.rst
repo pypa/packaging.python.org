@@ -126,10 +126,8 @@ contributions to be accepted into the project.
 Purpose
 -------
 
-The purpose of the |PyPUG| is
-
-    to be the authoritative resource on how to package, publish, and install
-    Python projects using current tools.
+The purpose of the |PyPUG| is to be the authoritative resource on how to
+package, publish, and install Python projects using current tools.
 
 
 Scope
