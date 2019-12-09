@@ -28,7 +28,7 @@ discover all of the Flask plugins installed:
     import importlib
     import pkgutil
 
-    plugins = {
+    discovered_plugins = {
         name: importlib.import_module(name)
         for finder, name, ispkg
         in pkgutil.iter_modules()
@@ -36,7 +36,7 @@ discover all of the Flask plugins installed:
     }
 
 If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins installed
-then ``plugins`` would be:
+then ``discovered_plugins`` would be:
 
 .. code-block:: python
 
@@ -80,7 +80,7 @@ under that namespace:
         # the name.
         return pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + ".")
 
-    plugins = {
+    discovered_plugins = {
         name: importlib.import_module(name)
         for finder, name, ispkg
         in iter_namespace(myapp.plugins)
@@ -89,7 +89,7 @@ under that namespace:
 Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` causes
 it to only look for the modules directly under that namespace. For example,
 if you have installed distributions that provide the modules ``myapp.plugins.a``
-and ``myapp.plugins.b`` then ``plugins`` in this case would be:
+and ``myapp.plugins.b`` then ``discovered_plugins`` in this case would be:
 
 .. code-block:: python
 
@@ -142,13 +142,13 @@ Then you can discover and load all of the registered entry points by using
 
     import pkg_resources
 
-    plugins = {
+    discovered_plugins = {
         entry_point.name: entry_point.load()
         for entry_point
         in pkg_resources.iter_entry_points('myapp.plugins')
     }
 
-In this example, ``plugins`` would be :
+In this example, ``discovered_plugins`` would be:
 
 .. code-block:: python
 
