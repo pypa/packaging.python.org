@@ -32,6 +32,8 @@ The following files are included in a source distribution by default:
   arguments
 - the file specified by the ``license_file`` option in :file:`setup.cfg`
   (setuptools 40.8.0+)
+- all files specified by the ``license_files`` option in :file:`setup.cfg`
+  (setuptools 42.0.0+)
 - all files matching the pattern :file:`test/test*.py`
 - :file:`setup.py` (or whatever you called your setup script)
 - :file:`setup.cfg`
