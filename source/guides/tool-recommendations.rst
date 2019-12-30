@@ -15,8 +15,11 @@ Use :ref:`pipenv` to manage library dependencies when developing Python
 applications. See :doc:`../tutorials/managing-dependencies` for more details
 on using ``pipenv``.
 
-Consider other tools such as :ref:`pip` when ``pipenv`` does not meet your use
-case.
+When :ref:`pip` and ``pipenv`` do not meet your use case consider other tools:
+
+* `pip-tools <https://github.com/jazzband/pip-tools>`_
+
+* `Poetry <https://python-poetry.org/>`_
 
 Installation tool recommendations
 =================================
