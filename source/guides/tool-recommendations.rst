@@ -17,6 +17,8 @@ on using ``pipenv``.
 
 When ``pipenv`` does not meet your use case, consider other tools like:
 
+* :ref:`pip`
+
 * `pip-tools <https://github.com/jazzband/pip-tools>`_
 
 * `Poetry <https://python-poetry.org/>`_
