@@ -41,6 +41,7 @@ The following files are included in a source distribution by default:
 - :file:`README.txt`
 - :file:`README.rst` (Python 3.7+ or setuptools 0.6.27+)
 - :file:`README.md` (setuptools 36.4.0+)
+- :file:`pyproject.toml` (setuptools 43.0.0+)
 - :file:`MANIFEST.in`
 
 After adding the above files to the sdist, the commands in :file:`MANIFEST.in`
