@@ -76,8 +76,8 @@ the various ``manylinux`` standards:
 ==========  ==============  =================  =================
 Tool        ``manylinux1``  ``manylinux2010``  ``manylinux2014``
 ==========  ==============  =================  =================
-pip         ``>=8.1.0``     ``>=19.0``         ``>=19.3`` [#]_
-auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0`` [#]_
+pip         ``>=8.1.0``     ``>=19.0``         ``>=19.3``
+auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``
 ==========  ==============  =================  =================
 
 Platform tags for other \*nix platforms
@@ -90,5 +90,3 @@ schemes for AIX and for Alpine Linux.
 
 
 .. [#] https://wiki.centos.org/About/Product
-.. [#] Not yet released.
-.. [#] Not yet released.
