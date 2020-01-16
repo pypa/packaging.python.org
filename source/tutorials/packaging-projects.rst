@@ -231,6 +231,18 @@ You will also need to verify your email address before you're able to upload
 any packages.  For more details on Test PyPI, see
 :doc:`/guides/using-testpypi`.
 
+Now you'll create a PyPI `API token`_ so you will be able to securely upload
+your project.
+
+Go to https://test.pypi.org/manage/account/#api-tokens and create a new
+`API token`_; don't limit its scope to a particular project, since you
+are creating a new project.
+
+**Don't close the page until you have copied and saved the token — you
+won't see that token again.**
+
+.. _API token: https://test.pypi.org/help/#apitoken
+
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
 
@@ -244,8 +256,11 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
     python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 
-You will be prompted for the username and password you registered with Test
-PyPI. After the command completes, you should see output similar to this:
+You will be prompted for a username and password. For the username,
+use ``__token__``. For the password, use the token value, including
+the ``pypi-`` prefix.
+
+After the command completes, you should see output similar to this:
 
 .. code-block:: bash
 
