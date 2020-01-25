@@ -23,6 +23,7 @@ Package Distribution Metadata
    platform-compatibility-tags
    recording-installed-packages
    entry-points
+   direct-url
 
 
 Package Distribution File Formats
