@@ -20,7 +20,7 @@ bandersnatch
 
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/bandersnatch/issues>`__ |
-`Github <https://github.com/pypa/bandersnatch>`__ |
+`GitHub <https://github.com/pypa/bandersnatch>`__ |
 `PyPI <https://pypi.org/project/bandersnatch>`__ |
 Dev irc:#bandersnatch
 
@@ -39,12 +39,17 @@ distlib
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
 
-Distlib is a library which implements low-level functions that relate to
-packaging and distribution of Python software.  It consists in part of the
-functions from the `distutils2 <https://pypi.org/project/Distutils2>`_
-project, which was intended to be released as ``packaging`` in the Python 3.3
-stdlib, but was removed shortly before Python 3.3 entered beta testing.
-
+Distlib is a library which implements low-level functions that relate
+to packaging and distribution of Python software.  It consists in part
+of the functions from the `distutils2
+<https://pypi.org/project/Distutils2>`_ project, which was intended to
+be released as ``packaging`` in the Python 3.3 stdlib, but was removed
+shortly before Python 3.3 entered beta testing. distlib implements
+several relevant PEPs (Python Enhancement Proposal standards) and is
+useful for developers of third-party packaging tools to make and
+upload binary and source distributions, achieve interoperability,
+resolve dependencies, manage package resources, and do other similar
+functions.
 
 .. _packaging:
 
@@ -54,13 +59,20 @@ packaging
 `Docs <https://packaging.pypa.io>`__ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
-`Github <https://github.com/pypa/packaging>`__ |
+`GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__ |
 User irc:#pypa |
 Dev irc:#pypa-dev
 
 Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 
+The core utilities in the packaging bundle handle version handling,
+specifiers, markers, requirements, tags, and similar attributes and
+tasks for Python packages. Most Python users rely on this bundle
+without needing to explicitly call it; developers of the other Python
+packaging, distribution, and installation tools listed here often use
+its functionality to parse, discover, and otherwise handle dependency
+attributes.
 
 .. _pip:
 
@@ -71,12 +83,13 @@ pip
 `User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
-`Github <https://github.com/pypa/pip>`__ |
+`GitHub <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.org/project/pip/>`__ |
 User irc:#pypa |
 Dev irc:#pypa-dev
 
-A tool for installing Python packages.
+The most popular tool for installing Python packages, and the one
+included with modern versions of Python.
 
 
 .. _Pipenv:
@@ -112,7 +125,7 @@ Python Packaging User Guide
 `Docs <https://packaging.python.org/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ |
 `Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
-`Github <https://github.com/pypa/python-packaging-user-guide>`__ |
+`GitHub <https://github.com/pypa/python-packaging-user-guide>`__ |
 User irc:#pypa |
 Dev irc:#pypa-dev
 
@@ -150,7 +163,7 @@ twine
 
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
-`Github <https://github.com/pypa/twine>`__ |
+`GitHub <https://github.com/pypa/twine>`__ |
 `PyPI <https://pypi.org/project/twine>`__
 
 Twine is a utility for interacting with PyPI, that offers a secure replacement for
@@ -167,7 +180,7 @@ virtualenv
 `User list <http://groups.google.com/group/python-virtualenv>`__ |
 `Dev list <http://groups.google.com/group/pypa-dev>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
-`Github <https://github.com/pypa/virtualenv>`__ |
+`GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
@@ -183,7 +196,7 @@ Warehouse
 `Docs <https://warehouse.pypa.io/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/warehouse/issues>`__ |
-`Github <https://github.com/pypa/warehouse>`__ |
+`GitHub <https://github.com/pypa/warehouse>`__ |
 Dev irc:#pypa-dev
 
 
@@ -199,15 +212,21 @@ wheel
 `Docs <https://wheel.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/wheel/issues>`__ |
-`Github <https://github.com/pypa/wheel>`__ |
+`GitHub <https://github.com/pypa/wheel>`__ |
 `PyPI <https://pypi.org/project/wheel>`__ |
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
-
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
 creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
 command line utility for creating and installing wheels.
+
+See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool
+that package developers use to check and fix Python packages they are
+making in the binary wheel format. It provides functionality to
+discover dependencies, check metadata for compliance, and repair the
+wheel and metadata to properly link and include external shared
+libraries in a package.
 
 
 Non-PyPA Projects
@@ -221,7 +240,7 @@ bento
 `Docs <http://cournape.github.io/Bento/>`__ |
 `Mailing list <http://librelist.com/browser/bento>`__ |
 `Issues <https://github.com/cournape/Bento/issues>`__ |
-`Github <https://github.com/cournape/Bento>`__ |
+`GitHub <https://github.com/cournape/Bento>`__ |
 `PyPI <https://pypi.org/project/bento>`__
 
 Bento is a packaging tool solution for Python software, targeted as an
@@ -320,7 +339,7 @@ Hashdist
 ========
 
 `Docs <https://hashdist.readthedocs.io/en/latest/>`__ |
-`Github <https://github.com/hashdist/hashdist/>`__
+`GitHub <https://github.com/hashdist/hashdist/>`__
 
 Hashdist is a library for building non-root software distributions. Hashdist is
 trying to be “the Debian of choice for cases where Debian technology doesn’t
@@ -333,7 +352,7 @@ pex
 ===
 
 `Docs <https://pex.readthedocs.io/en/latest/>`__ |
-`Github <https://github.com/pantsbuild/pex/>`__ |
+`GitHub <https://github.com/pantsbuild/pex/>`__ |
 `PyPI <https://pypi.org/project/pex>`__
 
 pex is both a library and tool for generating :file:`.pex` (Python EXecutable)
@@ -348,7 +367,7 @@ pipx
 ====
 
 `Docs <https://github.com/pipxproject/pipx>`__ |
-`Github <https://github.com/pipxproject/pipx>`__ |
+`GitHub <https://github.com/pipxproject/pipx>`__ |
 `PyPI <https://pypi.org/project/pipx/>`__
 
 pipx is a tool to safely install and run Python CLI applications globally.
@@ -360,7 +379,7 @@ scikit-build
 
 `Docs <https://scikit-build.readthedocs.io/en/latest/>`__ |
 `Mailing list <https://groups.google.com/forum/#!forum/scikit-build>`__ |
-`Github <https://github.com/scikit-build/scikit-build/>`__ |
+`GitHub <https://github.com/scikit-build/scikit-build/>`__ |
 `PyPI <https://pypi.org/project/scikit-build>`__
 
 Scikit-build is an improved build system generator for CPython
@@ -378,11 +397,11 @@ shiv
 ====
 
 `Docs <https://shiv.readthedocs.io/en/latest/>`__ |
-`Github <https://github.com/linkedin/shiv>`__ |
+`GitHub <https://github.com/linkedin/shiv>`__ |
 `PyPI <https://pypi.org/project/shiv/>`__
 
 shiv is a command line utility for building fully self contained Python zipapps as outlined in PEP
-441, but with all their dependencies included. It's primary goal is making distributing Python
+441, but with all their dependencies included. Its primary goal is making distributing Python
 applications and command line tools fast & easy.
 
 .. _spack:
@@ -390,8 +409,8 @@ applications and command line tools fast & easy.
 Spack
 =====
 
-`Docs <http://software.llnl.gov/spack/>`__ |
-`Github <https://github.com/llnl/spack/>`__ |
+`Docs <https://spack.readthedocs.io/>`__ |
+`GitHub <https://github.com/llnl/spack/>`__ |
 `Paper <http://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf>`__ |
 `Slides <https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf>`__
 
@@ -435,7 +454,7 @@ distutils
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
-A package in the Python Standard Library that has support for creating and
+A module in the Python Standard Library that has support for creating and
 installing :term:`distributions <Distribution Package>`. :ref:`Setuptools`
 provides enhancements to distutils, and is much more commonly used than just
 using distutils by itself.
