@@ -40,16 +40,19 @@ distlib
 `PyPI <https://pypi.org/project/distlib>`__
 
 Distlib is a library which implements low-level functions that relate
-to packaging and distribution of Python software.  It consists in part
-of the functions from the `distutils2
-<https://pypi.org/project/Distutils2>`_ project, which was intended to
-be released as ``packaging`` in the Python 3.3 stdlib, but was removed
-shortly before Python 3.3 entered beta testing. distlib implements
+to packaging and distribution of Python software.  distlib implements
 several relevant PEPs (Python Enhancement Proposal standards) and is
 useful for developers of third-party packaging tools to make and
-upload binary and source distributions, achieve interoperability,
-resolve dependencies, manage package resources, and do other similar
-functions.
+upload binary and source :term:`distributions <Distribution Package>`,
+achieve interoperability, resolve dependencies, manage package
+resources, and do other similar functions.
+
+Unlike the stricter :ref:`packaging` project (below), which
+specifically implements modern Python packaging interoperability
+standards, ``distlib`` also attempts to provide reasonable fallback
+behaviours when asked to handle legacy packages and metadata that
+predate the modern interoperability standards and fall into the subset
+of packages that are incompatible with those standards.
 
 .. _packaging:
 
@@ -74,6 +77,15 @@ packaging, distribution, and installation tools listed here often use
 its functionality to parse, discover, and otherwise handle dependency
 attributes.
 
+This project specifically focuses on implementing the modern Python
+packaging interoperability standards defined at
+:ref:`packaging-specifications`, and will report errors for
+sufficiently old legacy packages that are incompatible with those
+standards. In contrast, the :ref:`distlib` project is a more
+permissive library that attempts to provide a plausible reading of
+ambiguous metadata in cases where ``packaging`` will instead report on
+error.
+
 .. _pip:
 
 pip
@@ -91,6 +103,10 @@ Dev irc:#pypa-dev
 The most popular tool for installing Python packages, and the one
 included with modern versions of Python.
 
+It provides the essential core features for finding, downloading, and
+installing packages from pypi.org and other index servers, and can be
+incorporated into a wide range of development workflows via its
+command-line interface (CLI).
 
 .. _Pipenv:
 
@@ -148,9 +164,10 @@ User irc:#pypa  |
 Dev irc:#pypa-dev
 
 
-setuptools (which includes ``easy_install``) is a collection of enhancements to
-the Python distutils that allow you to more easily build and distribute Python
-distributions, especially ones that have dependencies on other packages.
+setuptools (which includes ``easy_install``) is a collection of
+enhancements to the Python distutils that allow you to more easily
+build and distribute Python :term:`distributions <Distribution
+Package>`, especially ones that have dependencies on other packages.
 
 `distribute`_ was a fork of setuptools that was merged back into setuptools (in
 v0.7), thereby making setuptools the primary choice for Python packaging.
@@ -166,9 +183,11 @@ twine
 `GitHub <https://github.com/pypa/twine>`__ |
 `PyPI <https://pypi.org/project/twine>`__
 
-Twine is a utility for interacting with PyPI, that offers a secure replacement for
-``setup.py upload``.
-
+Twine is the primary tool developers use to upload packages to the
+Python Package Index or other Python package indexes. It is a
+command-line program that passes program files and metadata to a web
+API. Developers use it because it's the official PyPI upload tool,
+it's fast and secure, it's maintained, and it reliably works.
 
 
 .. _virtualenv:
@@ -454,10 +473,17 @@ distutils
 User irc:#pypa  |
 Dev irc:#pypa-dev
 
-A module in the Python Standard Library that has support for creating and
-installing :term:`distributions <Distribution Package>`. :ref:`Setuptools`
-provides enhancements to distutils, and is much more commonly used than just
-using distutils by itself.
+The original Python packaging system, added to the standard library in
+Python 2.0.
+
+Due to the challenges of maintaining a packaging system
+where feature updates are tightly coupled to language runtime updates,
+direct usage of ``distutils`` is now actively discouraged, with
+:ref:`Setuptools` being the preferred replacement. :ref:`Setuptools`
+not only provides features that plain ``distutils`` doesn't offer
+(such as dependency declarations and entry point declarations), it
+also provides a consistent build interface and feature set across all
+supported Python versions.
 
 
 .. _venv:
