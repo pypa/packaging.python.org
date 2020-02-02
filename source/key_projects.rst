@@ -304,7 +304,7 @@ Conda does not install packages from PyPI and can install only from
 the official Anaconda repositories, or anaconda.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package server.
 However, note that pip can be installed into, and work side-by-side with conda
-for managing distributions from PyPI.
+for managing :term:`distributions <Distribution Package>` from PyPI.
 
 
 devpi
@@ -393,6 +393,46 @@ pipx is a tool to safely install and run Python CLI applications globally.
 
 .. _scikit-build:
 
+piwheels
+========
+
+`Website <https://piwheels.org/>`__ |
+`Docs <https://piwheels.readthedocs.io/>`__ |
+`GitHub <https://github.com/piwheels/piwheels/>`__
+
+Piwheels is a website, and software underpinning it, that fetches
+source code distribution packages from the Python Package Index and
+compiles them into binary wheels that are optimized for installation
+onto Raspberry Pi computers. Many Raspberry Pi users who use or
+develop Python tools to run on Raspbian use piwheels as their primary
+Python package index.
+
+poetry
+======
+
+`Docs <https://python-poetry.org/>`__ |
+`GitHub <https://github.com/python-poetry/poetry>`__ |
+`PyPI <https://pypi.org/project/poetry/>`__
+
+poetry is a tool to handle dependency installation as well as building
+and packaging of Python packages. It uses ``pyproject.toml`` and
+provides its own dependency resolver.
+
+pypiserver
+==========
+
+`Docs <https://github.com/pypiserver/pypiserver/blob/master/README.rst>`__ |
+`GitHub <https://github.com/pypiserver/pypiserver>`__ |
+`PyPI <https://pypi.org/project/pypiserver/>`__
+
+pypiserver is a minimalist application that serves as a private Python
+package index within organizations, implementing a simple API and
+browser interface. Developers can upload private packages using
+standard upload tools, and users can download and install them with
+pip, without publishing them publicly. Organizations who use
+pypiserver usually download packages both from pypiserver and from
+PyPI.
+
 scikit-build
 ============
 
@@ -444,6 +484,19 @@ scientific applications on clusters and supercomputers.
 Spack is not in PyPI (yet), but it requires no installation and can be
 used immediately after cloning from github.
 
+
+zest.releaser
+=============
+
+`Docs <https://zestreleaser.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/zestsoftware/zest.releaser/>`__ |
+`PyPI <https://pypi.org/project/zest.releaser/>`__
+
+zest.releaser is a Python package release tool providing an
+abstraction layer on top of twine. Python developers use zest.releaser
+to automate incrementing package version numbers, updating changelogs,
+tagging releases in source control, and uploading new packages to
+PyPI.
 
 Standard Library Projects
 #########################
