@@ -1,3 +1,5 @@
+.. _`packaging-specifications`:
+
 PyPA specifications
 ###################
 
