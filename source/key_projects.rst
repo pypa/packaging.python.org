@@ -113,7 +113,7 @@ command-line interface (CLI).
 Pipenv
 ======
 
-`Docs <https://docs.pipenv.org>`__ |
+`Docs <https://docs.pipenv.org>`__ [3]_ |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
 `PyPI <https://pypi.org/project/pipenv>`__
@@ -563,5 +563,9 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 
 .. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
 
+.. [3] The pipenv docs usually live at `http://docs.pipenv.org/
+       <http://docs.pipenv.org/>`__ but that is currently an expired
+       domain name. `This temporary workaround
+       <https://pipenv.kennethreitz.org/en/latest/>`__ works.
 
 .. _distribute: https://pypi.org/project/distribute
