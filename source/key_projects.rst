@@ -484,8 +484,8 @@ run on Raspbian use Piwheels as their primary Python package index.
 
     Note that Piwheels `does not yet fully support
 <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
-thus some wheels have trouble with inconsistent ``Requires-Python``
-specifications.)
+thus some users have trouble installing certain wheels; this is in
+progress.)
 
 poetry
 ======
