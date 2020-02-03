@@ -24,11 +24,11 @@ bandersnatch
 `PyPI <https://pypi.org/project/bandersnatch>`__ |
 Dev irc:#bandersnatch
 
-bandersnatch is a PyPI mirroring client designed to efficiently create
-a complete mirror of the contents of PyPI. Organizations thus save
-bandwidth and latency on package downloads (especially in the context
-of automated tests) and to prevent heavily loading PyPI's Content
-Delivery Network (CDN).
+``bandersnatch`` is a PyPI mirroring client designed to efficiently
+create a complete mirror of the contents of PyPI. Organizations thus
+save bandwidth and latency on package downloads (especially in the
+context of automated tests) and to prevent heavily loading PyPI's
+Content Delivery Network (CDN).
 
 
 .. _distlib:
@@ -42,13 +42,14 @@ distlib
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
 
-Distlib is a library which implements low-level functions that relate
-to packaging and distribution of Python software.  distlib implements
-several relevant PEPs (Python Enhancement Proposal standards) and is
-useful for developers of third-party packaging tools to make and
-upload binary and source :term:`distributions <Distribution Package>`,
-achieve interoperability, resolve dependencies, manage package
-resources, and do other similar functions.
+``distlib`` is a library which implements low-level functions that
+relate to packaging and distribution of Python software.  ``distlib``
+implements several relevant PEPs (Python Enhancement Proposal
+standards) and is useful for developers of third-party packaging tools
+to make and upload binary and source :term:`distributions
+<Distribution Package>`, achieve interoperability, resolve
+dependencies, manage package resources, and do other similar
+functions.
 
 Unlike the stricter :ref:`packaging` project (below), which
 specifically implements modern Python packaging interoperability
@@ -86,8 +87,8 @@ packaging interoperability standards defined at
 sufficiently old legacy packages that are incompatible with those
 standards. In contrast, the :ref:`distlib` project is a more
 permissive library that attempts to provide a plausible reading of
-ambiguous metadata in cases where ``packaging`` will instead report on
-error.
+ambiguous metadata in cases where :ref:`packaging` will instead report
+on error.
 
 .. _pip:
 
@@ -157,9 +158,7 @@ Dev irc:#pypa-dev
 
 This guide!
 
-
-.. _setuptools:
-.. _easy_install:
+.. _readme_renderer:
 
 readme_renderer
 ===============
@@ -170,8 +169,12 @@ readme_renderer
 ``readme_renderer`` is a library that package developers use to render
 their user documentation (README) files into HTML from markup
 languages such as Markdown or reStructuredText. Developers call it on
-its own or via twine, as part of their release management process, to
-check that their package descriptions will properly display on PyPI.
+its own or via :ref:`twine`, as part of their release management
+process, to check that their package descriptions will properly
+display on PyPI.
+
+.. _setuptools:
+.. _easy_install:
 
 setuptools
 ==========
@@ -228,8 +231,8 @@ Dev irc:#pypa-dev
 
 virtualenv is a tool which uses the command-line path environment
 variable to create isolated Python :term:`Virtual Environments
-<Virtual Environment>`, much as ``venv`` does. virtualenv provides
-additional functionality, compared to ``venv``, by supporting Python
+<Virtual Environment>`, much as :ref:`venv` does. virtualenv provides
+additional functionality, compared to :ref:`venv`, by supporting Python
 2.7 and by providing convenient features for configuring, maintaining,
 duplicating, and troubleshooting the virtual environments. For more
 information, see the section on :ref:`Creating and using Virtual
@@ -248,8 +251,9 @@ Warehouse
 Dev irc:#pypa-dev
 
 
-The current codebase powering the :term:`Python Package Index (PyPI)`. It is
-hosted at `pypi.org <https://pypi.org/>`_.
+The current codebase powering the :term:`Python Package Index
+(PyPI)`. It is hosted at `pypi.org <https://pypi.org/>`_. The default
+source for :ref:`pip` downloads.
 
 
 .. _wheel:
@@ -292,8 +296,9 @@ bento
 `PyPI <https://pypi.org/project/bento>`__
 
 Bento is a packaging tool solution for Python software, targeted as an
-alternative to distutils, setuptools, distribute, etc....  Bento's philosophy is
-reproducibility, extensibility and simplicity (in that order).
+alternative to :ref:`distutils`, :ref:`setuptools`, etc....  Bento's
+philosophy is reproducibility, extensibility and simplicity (in that
+order).
 
 .. _buildout:
 
@@ -325,20 +330,21 @@ Anaconda Python is a distribution from `Anaconda, Inc
 community, and in particular on Windows where the installation of binary
 extensions is often difficult.
 
-Conda is a completely separate tool to pip, virtualenv and wheel, but provides
+Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, but provides
 many of their combined features in terms of package management, virtual environment
 management and deployment of binary extensions.
 
 Conda does not install packages from PyPI and can install only from
 the official Anaconda repositories, or anaconda.org (a place for
 user-contributed *conda* packages), or a local (e.g. intranet) package
-server.  However, note that pip can be installed into, and work
+server.  However, note that :ref:`pip` can be installed into, and work
 side-by-side with conda for managing :term:`distributions
 <Distribution Package>` from PyPI. Also, `conda skeleton
 <https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`__
 is a tool to make Python packages installable by conda by first
 fetching them from PyPI and modifying their metadata.
 
+.. _devpi:
 
 devpi
 =====
@@ -370,12 +376,14 @@ automatically. Flit requires Python 3, but you can use it to distribute modules
 for Python 2, so long as they can be imported on Python 3.
 
 Flit provides its own implementation (instead of calling
-``distutils``, ``distlib``, or ``twine`` abstractions) of PyPI package
+:ref:`distutils`, :ref:`distlib`, or :ref:`twine` abstractions) of PyPI package
 upload functionality. You can use it to quickly set up package
 configuration files for simple packages (instead of manually writing a
-file that works with setuptools), and build and upload packages to
+file that works with :ref:`setuptools`), and build and upload packages to
 PyPI. All wheels built by flit are reproducible, which provides added
 verifiability.
+
+.. _enscons:
 
 enscons
 =======
@@ -384,13 +392,15 @@ enscons
 `Issues <https://bitbucket.org/dholth/enscons/issues>`__ |
 `PyPI <https://pypi.org/project/enscons>`__
 
-Enscons is a Python packaging tool based on `SCons`_. It builds pip-compatible
-source distributions and wheels without using distutils or setuptools,
-including distributions with C extensions. Enscons has a different architecture
-and philosophy than distutils. Rather than adding build features to a Python
-packaging system, enscons adds Python packaging to a general purpose build
-system. Enscons helps you to build sdists that can be automatically built by
-pip, and wheels that are independent of enscons.
+Enscons is a Python packaging tool based on `SCons`_. It builds
+:ref:`pip`-compatible source distributions and wheels without using
+distutils or setuptools, including distributions with C
+extensions. Enscons has a different architecture and philosophy than
+:ref:`distutils`. Rather than adding build features to a Python
+packaging system, enscons adds Python packaging to a general purpose
+build system. Enscons helps you to build sdists that can be
+automatically built by :ref:`pip`, and wheels that are independent of
+enscons.
 
 .. _SCons: http://scons.org/
 
@@ -406,12 +416,12 @@ Hashdist is a library for building non-root software
 distributions. Hashdist is trying to be “the Debian of choice for
 cases where Debian technology doesn’t work”. The best way for
 Pythonistas to think about Hashdist may be a more powerful hybrid of
-virtualenv and buildout. It is aimed at solving the problem of
-installing scientific software, and making package distribution
-stateless, cached, and branchable. It is used by some researchers but
-has been lacking in maintenance since 2016.
+:ref:`virtualenv` and :ref:`buildout`. It is aimed at solving the
+problem of installing scientific software, and making package
+distribution stateless, cached, and branchable. It is used by some
+researchers but has been lacking in maintenance since 2016.
 
-.. _pex:
+.. _hatch:
 
 hatch
 =====
@@ -423,8 +433,10 @@ Hatch is a unified command-line tool meant to conveniently manage
 dependencies and environment isolation for Python developers. Python
 package developers use Hatch to configure, version, specify
 dependencies for, and publish packages to PyPI. Under the hood, it
-uses ``Twine`` to upload packages to PyPI, and pip to download and
+uses :ref:`twine` to upload packages to PyPI, and :ref:`pip` to download and
 install packages.
+
+.. _pex:
 
 pex
 ===
@@ -450,7 +462,7 @@ pipx
 
 pipx is a tool to safely install and run Python CLI applications globally.
 
-.. _scikit-build:
+.. _pip-tools:
 
 pip-tools
 =========
@@ -464,8 +476,10 @@ deterministic yet stay up to date with new versions of their
 dependencies. Users can specify particular release of their
 dependencies via hash, conveniently make a properly formatted list of
 requirements from information in other parts of their program, update
-all dependencies (a feature pip currently does not provide), and
+all dependencies (a feature :ref:`pip` currently does not provide), and
 create layers of constraints for the program to obey.
+
+.. _piwheels:
 
 piwheels
 ========
@@ -483,9 +497,11 @@ run on Raspbian use Piwheels as their primary Python package index.
   .. warning::
 
     Note that Piwheels `does not yet fully support
-<https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
-thus some users have trouble installing certain wheels; this is in
-progress.)
+    <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
+    thus some users have trouble installing certain wheels; this is in
+    progress.)
+
+.. _poetry:
 
 poetry
 ======
@@ -497,10 +513,12 @@ poetry
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
 uses ``pyproject.toml`` and provides its own dependency resolver, and,
-instead of depending on the resolver functionality within pip,
+instead of depending on the resolver functionality within :ref:`pip`,
 provides its own dependency resolver. It attempts to speed users'
 experience of installation and dependency resolution by locally
 caching metadata about dependencies.
+
+.. _pypiserver:
 
 pypiserver
 ==========
@@ -512,9 +530,11 @@ pypiserver
 pypiserver is a minimalist application that serves as a private Python
 package index within organizations, implementing a simple API and
 browser interface. You can upload private packages using standard
-upload tools, and users can download and install them with pip,
+upload tools, and users can download and install them with :ref:`pip`,
 without publishing them publicly. Organizations who use pypiserver
 usually download packages both from pypiserver and from PyPI.
+
+.. _scikit-build:
 
 scikit-build
 ============
@@ -568,6 +588,7 @@ scientific applications on clusters and supercomputers.
 Spack is not in PyPI (yet), but it requires no installation and can be
 used immediately after cloning from GitHub.
 
+.. _zestreleaser:
 
 zest.releaser
 =============
@@ -577,10 +598,10 @@ zest.releaser
 `PyPI <https://pypi.org/project/zest.releaser/>`__
 
 ``zest.releaser`` is a Python package release tool providing an
-abstraction layer on top of twine. Python developers use zest.releaser
-to automate incrementing package version numbers, updating changelogs,
-tagging releases in source control, and uploading new packages to
-PyPI.
+abstraction layer on top of :ref:`twine`. Python developers use
+``zest.releaser`` to automate incrementing package version numbers,
+updating changelogs, tagging releases in source control, and uploading
+new packages to PyPI.
 
 Standard Library Projects
 #########################
@@ -615,9 +636,9 @@ Python 2.0.
 
 Due to the challenges of maintaining a packaging system
 where feature updates are tightly coupled to language runtime updates,
-direct usage of ``distutils`` is now actively discouraged, with
+direct usage of :ref:`distutils` is now actively discouraged, with
 :ref:`Setuptools` being the preferred replacement. :ref:`Setuptools`
-not only provides features that plain ``distutils`` doesn't offer
+not only provides features that plain :ref:`distutils` doesn't offer
 (such as dependency declarations and entry point declarations), it
 also provides a consistent build interface and feature set across all
 supported Python versions.
