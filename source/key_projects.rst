@@ -492,7 +492,7 @@ zest.releaser
 `GitHub <https://github.com/zestsoftware/zest.releaser/>`__ |
 `PyPI <https://pypi.org/project/zest.releaser/>`__
 
-zest.releaser is a Python package release tool providing an
+``zest.releaser`` is a Python package release tool providing an
 abstraction layer on top of twine. Python developers use zest.releaser
 to automate incrementing package version numbers, updating changelogs,
 tagging releases in source control, and uploading new packages to
