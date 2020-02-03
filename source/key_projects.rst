@@ -479,7 +479,9 @@ binary wheels that are optimized for installation onto Raspberry Pi
 computers. Many Raspberry Pi users who use or develop Python tools to
 run on Raspbian use Piwheels as their primary Python package index.
 
-(Note that Piwheels `does not yet fully support
+  .. warning::
+
+    Note that Piwheels `does not yet fully support
 <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
 thus some wheels have trouble with inconsistent ``Requires-Python``
 specifications.)
