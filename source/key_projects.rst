@@ -401,11 +401,15 @@ piwheels
 `GitHub <https://github.com/piwheels/piwheels/>`__
 
 Piwheels is a website, and software underpinning it, that fetches
-source code distribution packages from PyPI and
-compiles them into binary wheels that are optimized for installation
-onto Raspberry Pi computers. Many Raspberry Pi users who use or
-develop Python tools to run on Raspbian use piwheels as their primary
-Python package index.
+source code distribution packages from PyPI and compiles them into
+binary wheels that are optimized for installation onto Raspberry Pi
+computers. Many Raspberry Pi users who use or develop Python tools to
+run on Raspbian use Piwheels as their primary Python package index.
+
+(Note that Piwheels `does not yet fully support
+<https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
+thus some wheels have trouble with inconsistent ``Requires-Python``
+specifications.)
 
 poetry
 ======
