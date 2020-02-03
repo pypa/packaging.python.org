@@ -385,7 +385,7 @@ make deployment of Python applications as simple as ``cp``.
 pipx
 ====
 
-`Docs <https://github.com/pipxproject/pipx>`__ |
+`Docs <https://pipxproject.github.io/pipx/>`__ |
 `GitHub <https://github.com/pipxproject/pipx>`__ |
 `PyPI <https://pypi.org/project/pipx/>`__
 
