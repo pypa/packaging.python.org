@@ -104,7 +104,7 @@ The most popular tool for installing Python packages, and the one
 included with modern versions of Python.
 
 It provides the essential core features for finding, downloading, and
-installing packages from pypi.org and other index servers, and can be
+installing packages from PyPI and other Python package indexes, and can be
 incorporated into a wide range of development workflows via its
 command-line interface (CLI).
 
