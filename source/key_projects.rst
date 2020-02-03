@@ -71,7 +71,7 @@ Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 
 The core utilities in the packaging library handle version handling,
 specifiers, markers, requirements, tags, and similar attributes and
-tasks for Python packages. Most Python users rely on this bundle
+tasks for Python packages. Most Python users rely on this library
 without needing to explicitly call it; developers of the other Python
 packaging, distribution, and installation tools listed here often use
 its functionality to parse, discover, and otherwise handle dependency
