@@ -227,12 +227,13 @@ User irc:#pypa  |
 Dev irc:#pypa-dev
 
 virtualenv is a tool which uses the command-line path environment
-variable to (like venv) create isolated Python :term:`Virtual
-Environments <Virtual Environment>`. virtualenv goes beyond venv by
-supporting Python 2.7 and by providing convenient features for
-configuring, maintaining, duplicating, and troubleshooting the virtual
-environments. For more information, see the section on :ref:`Creating
-and using Virtual Environments`.
+variable to create isolated Python :term:`Virtual Environments
+<Virtual Environment>`, much as ``venv`` does. virtualenv provides
+additional functionality, compared to ``venv``, by supporting Python
+2.7 and by providing convenient features for configuring, maintaining,
+duplicating, and troubleshooting the virtual environments. For more
+information, see the section on :ref:`Creating and using Virtual
+Environments`.
 
 
 .. _warehouse:
