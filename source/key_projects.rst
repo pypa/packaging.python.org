@@ -485,19 +485,19 @@ create layers of constraints for the program to obey.
 piwheels
 ========
 
-`Website <https://piwheels.org/>`__ |
+`Website <https://www.piwheels.org/>`__ |
 `Docs <https://piwheels.readthedocs.io/>`__ |
 `GitHub <https://github.com/piwheels/piwheels/>`__
 
-Piwheels is a website, and software underpinning it, that fetches
+piwheels is a website, and software underpinning it, that fetches
 source code distribution packages from PyPI and compiles them into
 binary wheels that are optimized for installation onto Raspberry Pi
-computers. Many Raspberry Pi users who use or develop Python tools to
-run on Raspbian use Piwheels as their primary Python package index.
+computers. pip in Raspbian is pre-configured to use piwheels.org as
+an additional index to PyPI.
 
   .. warning::
 
-    Note that Piwheels `does not yet fully support
+    Note that piwheels `does not yet fully support
     <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
     thus some users have trouble installing certain wheels; this is in
     progress.
