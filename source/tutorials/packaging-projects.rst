@@ -44,7 +44,7 @@ them in the following steps.
     packaging_tutorial/
       example_pkg/
         __init__.py
-      test/
+      tests/
       setup.py
       LICENSE
       README.md
@@ -52,7 +52,8 @@ them in the following steps.
 
 Creating a test folder
 ----------------------
-:file:`test/` is a placeholder for unit test files. Leave it empty for now.
+
+:file:`tests/` is a placeholder for unit test files. Leave it empty for now.
 
 
 Creating setup.py
