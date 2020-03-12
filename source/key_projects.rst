@@ -437,6 +437,19 @@ dependencies for, and publish packages to PyPI. Under the hood, it
 uses :ref:`twine` to upload packages to PyPI, and :ref:`pip` to download and
 install packages.
 
+.. _micropipenv:
+
+`GitHub and Docs <https://github.com/thoth-station/micropipenv>`__ |
+`PyPI <https://pypi.org/project/micropipenv>`__
+
+micropipenv is a tool that unifies installation of dependencies in Python
+applications. Designed and suited primarily for containerized applications (but
+not limited to just them) where the overall container image size and software
+present in it matters.  Besides its name, it supports :ref:`pip-tools`,
+:ref:`poetry` and :ref:`pipenv` style lock files for describing application
+dependencies - a tool that combines all the dependency managers into a single
+Python script with one optional dependency.
+
 .. _pex:
 
 pex
