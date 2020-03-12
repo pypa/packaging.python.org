@@ -86,7 +86,37 @@ number of your project:
     installation metadata, which is not necessarily the code that's currently
     imported.
 
+    Note that if the project uses ``pkg_resources`` to fetch its own version at
+    runtime, then ``setuptools`` (the project that provides ``pkg_resources``)
+    must be added to the project's ``install_requires`` list.
+
     Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_.
+
+    A more efficient alternative to ``pkg_resources`` is the
+    ``importlib.metadata`` package introduced in Python 3.8 and available to
+    older versions as the ``importlib-metadata`` project.  An installed
+    project's version can be fetched with it as follows::
+
+        try:
+            from importlib import metadata
+        except ImportError:
+            import importlib_metadata as metadata
+
+        assert metadata.version('pip') == '1.2.0'
+
+    If a project uses this method to fetch its version at runtime, then its
+    ``install_requires`` value needs to be edited to install
+    ``importlib-metadata`` on pre-3.8 versions of Python like so::
+
+        setup(
+            ...
+            install_requires=[
+                ...
+                'importlib-metadata ~= 1.0 ; python_version < "3.8"',
+                ...
+            ],
+            ...
+        )
 
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
