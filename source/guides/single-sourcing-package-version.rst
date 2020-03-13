@@ -75,34 +75,22 @@ number of your project:
         :file:`MANIFEST.in`).
 
 #.  Set the value in :file:`setup.py`, and have the project code use the
-    ``pkg_resources`` API.
-
-    ::
-
-        import pkg_resources
-        assert pkg_resources.get_distribution('pip').version == '1.2.0'
-
-    Be aware that the ``pkg_resources`` API only knows about what's in the
-    installation metadata, which is not necessarily the code that's currently
-    imported.
-
-    Note that if the project uses ``pkg_resources`` to fetch its own version at
-    runtime, then ``setuptools`` (the project that provides ``pkg_resources``)
-    must be added to the project's ``install_requires`` list.
-
-    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_.
-
-    A more efficient alternative to ``pkg_resources`` is the
-    ``importlib.metadata`` package introduced in Python 3.8 and available to
-    older versions as the ``importlib-metadata`` project.  An installed
-    project's version can be fetched with it as follows::
+    ``importlib.metadata`` API to fetch the value at runtime.
+    (``importlib.metadata`` was introduced in Python 3.8 and is available to
+    older versions as the ``importlib-metadata`` project.)  An installed
+    project's version can be fetched with the API as follows::
 
         try:
             from importlib import metadata
         except ImportError:
+            # Running on pre-3.8 Python; use importlib-metadata package
             import importlib_metadata as metadata
 
         assert metadata.version('pip') == '1.2.0'
+
+    Be aware that the ``importlib.metadata`` API only knows about what's in the
+    installation metadata, which is not necessarily the code that's currently
+    imported.
 
     If a project uses this method to fetch its version at runtime, then its
     ``install_requires`` value needs to be edited to install
@@ -117,6 +105,18 @@ number of your project:
             ],
             ...
         )
+
+    An older (and less efficient) alternative to ``importlib.metadata`` is the
+    ``pkg_resources`` API provided by ``setuptools``::
+
+        import pkg_resources
+        assert pkg_resources.get_distribution('pip').version == '1.2.0'
+
+    If a project uses ``pkg_resources`` to fetch its own version at runtime,
+    then ``setuptools`` must be added to the project's ``install_requires``
+    list.
+
+    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_.
 
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
