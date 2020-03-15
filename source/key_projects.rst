@@ -373,8 +373,7 @@ flit
 Flit provides a simple way to upload pure Python packages and modules to PyPI.
 It focuses on `making the easy things easy <flit-rationale_>`_ for packaging.
 Flit can generate a configuration file to quickly set up a simple project, build
-source distributions and wheels, and upload them to PyPI. Flit can also produce
-wheels in a reproducible manner, which provides added verifiability.
+source distributions and wheels, and upload them to PyPI.
 
 Flit uses ``pyproject.toml`` to configure a project. Flit does not rely on tools
 such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
