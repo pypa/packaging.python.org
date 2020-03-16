@@ -34,7 +34,10 @@ number of your project:
 
     .. note::
 
-        This technique has the disadvantage of having to deal with complexities of regular expressions.
+        This technique has the disadvantage of having to deal with the
+        complexities of regular expressions.  The `read_version
+        <https://pypi.org/project/read_version>`_ library provides a function
+        that does this for you.
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
