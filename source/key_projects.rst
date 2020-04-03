@@ -370,19 +370,17 @@ flit
 `Issues <https://github.com/takluyver/flit/issues>`__ |
 `PyPI <https://pypi.org/project/flit>`__
 
-Flit is a simple way to put Python packages and modules on PyPI. Flit packages
-a single importable module or package at a time, using the import name as the
-name on PyPI. All subpackages and data files within a package are included
-automatically. Flit requires Python 3, but you can use it to distribute modules
-for Python 2, so long as they can be imported on Python 3.
+Flit provides a simple way to upload pure Python packages and modules to PyPI.
+It focuses on `making the easy things easy <flit-rationale_>`_ for packaging.
+Flit can generate a configuration file to quickly set up a simple project, build
+source distributions and wheels, and upload them to PyPI.
 
-Flit provides its own implementation (instead of calling
-:ref:`distutils`, :ref:`distlib`, or :ref:`twine` abstractions) of PyPI package
-upload functionality. You can use it to quickly set up package
-configuration files for simple packages (instead of manually writing a
-file that works with :ref:`setuptools`), and build and upload packages to
-PyPI. All wheels built by flit are reproducible, which provides added
-verifiability.
+Flit uses ``pyproject.toml`` to configure a project. Flit does not rely on tools
+such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
+to PyPI. Flit requires Python 3, but you can use it to distribute modules for
+Python 2, so long as they can be imported on Python 3.
+
+.. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
 
 .. _enscons:
 
