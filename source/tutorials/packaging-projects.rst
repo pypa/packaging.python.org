@@ -360,4 +360,4 @@ some things you can do:
   and `poetry`_.
 
 .. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://github.com/sdispater/poetry
+.. _poetry: https://github.com/python-poetry/poetry
