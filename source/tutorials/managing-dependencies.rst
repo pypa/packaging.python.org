@@ -21,8 +21,35 @@ applicable to the development and deployment of network services (including
 web applications), but is also very well suited to managing development and
 testing environments for any kind of project.
 
-.. Note:: This guide is written for Python 3, however, these instructions
-    should also work on Python 2.7.
+Developers of Python libraries, or of applications that support distribution
+as Python libraries, should also consider the
+`poetry <https://github.com/python-poetry/poetry>`_ project as a possible dependency
+management solution.
+
+
+Recommendation caveats (as of April 2020)
+-----------------------------------------
+
+While this tutorial covers the ``pipenv`` project as a tool that focuses
+primarily on the needs of Python application development rather than Python
+library development, the project itself is currently working through several
+`process and maintenance issues <https://github.com/pypa/pipenv/issues/3369>`_
+that are preventing bug fixes and new features from being published (with the
+entirety of 2019 passing without a new release).
+
+This means that in the near term, ``pipenv`` still suffers from several quirks
+and performance problems without a clear timeline for resolution of those isses.
+
+While this remains the case, project maintainers are likely to want to
+investigate :ref:`other-dependency-management-tools` for use instead of, or
+together with, ``pipenv``.
+
+Assuming the April 2020 ``pipenv`` release goes ahead as planned, and the
+release after that also remains on track, then this caveat on the tutorial will
+be removed. If those releases *don't* remain on track, then the tutorial itself
+will be removed, and replaced with a discussion page on the available dependency
+management options.
+
 
 Installing Pipenv
 -----------------
@@ -143,18 +170,24 @@ they (and their dependencies) can be added to your ``pipenv`` environment with
 ``pipenv install -e <relative-path-to-source-directory>`` (e.g.
 ``pipenv install -e .`` or ``pipenv install -e src``).
 
+
+.. _other-dependency-management-tools:
+
+Other Tools for Application Dependency Management
+-------------------------------------------------
+
 If you find this particular approach to managing application dependencies isn't
 working well for you or your use case, you may want to explore these other tools
 and techniques to see if one of them is a better fit:
 
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
-  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
-* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
-  more steps in the project management workflow (such as incrementing versions,
-  tagging releases, and creating new skeleton projects from project templates)
-* `poetry <https://github.com/sdispater/poetry>`_ for a tool comparable in scope
-  to `pipenv` that focuses more directly on use cases where the repository being
+* `poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
+  to ``pipenv`` that focuses more directly on use cases where the repository being
   managed is structured as a Python project with a valid ``pyproject.toml`` file
   (by contrast, ``pipenv`` explicitly avoids making the assumption that the
   application being worked on that's depending on components from PyPI will
   itself support distribution as a ``pip``-installable Python package).
+* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
+  more steps in the project management workflow (such as incrementing versions,
+  tagging releases, and creating new skeleton projects from project templates)
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
+  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
