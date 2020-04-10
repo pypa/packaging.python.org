@@ -23,7 +23,7 @@ testing environments for any kind of project.
 
 Developers of Python libraries, or of applications that support distribution
 as Python libraries, should also consider the
-`poetry <https://github.com/python-poetry/poetry>`_ project as a possible dependency
+`poetry <https://github.com/python-poetry/poetry>`_ project as an alternative dependency
 management solution.
 
 
