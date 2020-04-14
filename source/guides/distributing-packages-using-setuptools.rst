@@ -133,7 +133,7 @@ Python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
 For an example, see the `sample
-<https://github.com/pypa/sampleproject/tree/master/sample>`_ package that's
+<https://github.com/pypa/sampleproject/tree/master/src/sample>`_ package that's
 included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
