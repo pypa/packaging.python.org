@@ -81,7 +81,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
         long_description=long_description,
         long_description_content_type="text/markdown",
         url="https://github.com/pypa/sampleproject",
-        packages=setuptools.find_packages(),
+        packages=setuptools.find_packages(exclude=('tests', 'tests.*')),
         classifiers=[
             "Programming Language :: Python :: 3",
             "License :: OSI Approved :: MIT License",
