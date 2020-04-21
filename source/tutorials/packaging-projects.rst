@@ -261,7 +261,7 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
 .. code-block:: bash
 
-    python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    python3 -m twine upload --repository testpypi dist/*
 
 You will be prompted for a username and password. For the username,
 use ``__token__``. For the password, use the token value, including
@@ -346,7 +346,7 @@ differences:
   main server.
 * Use ``twine upload dist/*`` to upload your package and enter your credentials
   for the account you registered on the real PyPI.  Now that you're uploading
-  the package in production, you don't need to specify ``--repository-url``; the
+  the package in production, you don't need to specify ``--repository``; the
   package will upload to https://pypi.org/ by default.
 * Install your package from the real PyPI using ``pip install [your-package]``.
 
