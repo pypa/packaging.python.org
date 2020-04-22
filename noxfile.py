@@ -16,11 +16,9 @@ def build(session, autobuild=False):
     shutil.rmtree("build", ignore_errors=True)
 
     if autobuild:
-        command = "sphinx-autobuild"
+        session.run("sphinx-autobuild","-H0.0.0.0", "-W", "-b", "html", "source", "build")
     else:
-        command = "sphinx-build"
-
-    session.run(command, "-W", "-b", "html", "source", "build")
+        session.run("sphinx-build", "-W", "-b", "html", "source", "build")
 
 
 @nox.session(py="3")
