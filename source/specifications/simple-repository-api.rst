@@ -5,5 +5,7 @@
 Simple repository API
 =====================
 
-The current interface for querying available package versions and retrieving packages
-from an index server is defined in :pep:`503`.
+The current interface for querying available package versions and
+retrieving packages from an index server is defined in :pep:`503`,
+with the addition of "yank" support (allowing a kind of file deletion)
+as defined in :pep:`592`.
