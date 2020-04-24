@@ -14,11 +14,13 @@ def build(session, autobuild=False):
     session.env["SPHINXOPTS"] = "-W"
 
     shutil.rmtree("build", ignore_errors=True)
-
     if autobuild:
-        session.run("sphinx-autobuild","-H0.0.0.0", "-W", "-b", "html", "source", "build")
+        command = "sphinx-autobuild"
+        extra_args = "-H", "0.0.0.0"
     else:
-        session.run("sphinx-build", "-W", "-b", "html", "source", "build")
+        command = "sphinx-build"
+        extra_args = ()
+    session.run(command, *extra_args, "-W", "-b", "html", "source", "build")
 
 
 @nox.session(py="3")
