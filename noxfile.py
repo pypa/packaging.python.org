@@ -14,6 +14,7 @@ def build(session, autobuild=False):
     session.env["SPHINXOPTS"] = "-W"
 
     shutil.rmtree("build", ignore_errors=True)
+    
     if autobuild:
         command = "sphinx-autobuild"
         extra_args = "-H", "0.0.0.0"
