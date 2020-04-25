@@ -20,6 +20,7 @@ def build(session, autobuild=False):
     else:
         command = "sphinx-build"
         extra_args = ()
+
     session.run(command, *extra_args, "-W", "-b", "html", "source", "build")
 
 
