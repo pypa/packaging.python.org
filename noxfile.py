@@ -17,10 +17,12 @@ def build(session, autobuild=False):
 
     if autobuild:
         command = "sphinx-autobuild"
+        extra_args = "-H", "0.0.0.0"
     else:
         command = "sphinx-build"
+        extra_args = ()
 
-    session.run(command, "-W", "-b", "html", "source", "build")
+    session.run(command, *extra_args, "-W", "-b", "html", "source", "build")
 
 
 @nox.session(py="3")
