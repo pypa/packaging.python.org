@@ -781,9 +781,7 @@ To build the wheel:
 
   python setup.py bdist_wheel --universal
 
-You can also permanently set the ``--universal`` flag in :file:`setup.cfg`
-(e.g., see `sampleproject/setup.cfg
-<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
+You can also permanently set the ``--universal`` flag in :file:`setup.cfg`:
 
 .. code-block:: text
 
