@@ -29,9 +29,9 @@ management solution.
 Recommendation caveats (circa June 2020)	
 -----------------------------------------	
 
-At present, the ``pipenv`` project team is `staging multiple bug fixes and features <https://github.com/pypa/pipenv/issues/3369>`_, so the tool continues to suffer from several quirks and performance problems. The latest updates are in pre-release stage after long hiatus in its project activity.
+At present, the ``pipenv`` project team is `staging multiple bug fixes and features <https://github.com/pypa/pipenv/issues/3369>`_, so the tool continues to suffer from several quirks and performance problems. The latest updates are in pre-release stage after long hiatus.
 
-Because of these issues, you may find you need to troubleshoot the tool itself. While this tutorial covers ``pipenv`` project as a tool for Python *application* development, the abovementioned troubleshooting may necessitate thinking of ``pipenv`` itself as a *library* in development. If you run into a bug that `appears to be addressed <https://github.com/pypa/pipenv/releases/latest>`_ by the latest preview version, you may want to try the `latest Pipenv <https://pypi.org/project/pipenv/#history>`_. In such a case, you may want to install the pre-release by specifying the version string in `pip` as follows:
+Because of these issues, you may find you need to troubleshoot the tool itself. While this tutorial covers ``pipenv`` for Python *application* development, troubleshooting necessitates thinking of ``pipenv`` itself as a *library* in development. If you run into a bug that `appears to be addressed <https://github.com/pypa/pipenv/releases/latest>`_ by the latest preview version, you may want to try the `latest Pipenv <https://pypi.org/project/pipenv/#history>`_. In such a case, you would install the pre-release by specifying the version string in `pip` as follows:
 
 .. code-block:: python
 
