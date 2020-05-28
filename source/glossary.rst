@@ -122,8 +122,8 @@ Glossary
 
     Pure Module
 
-        A :term:`module` written in Python and contained in a single .py file (and
-        possibly associated .pyc and/or .pyo files).
+        A :term:`module` written in Python and contained in a single `.py` file (and
+        possibly associated `.pyc` and/or `.pyo` files).
 
 
     Python Packaging Authority (PyPA)
