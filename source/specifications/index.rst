@@ -31,4 +31,5 @@ Package Index Interfaces
 .. toctree::
    :maxdepth: 1
 
+   pypirc
    simple-repository-api

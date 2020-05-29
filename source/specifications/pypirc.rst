@@ -1,0 +1,122 @@
+
+.. _pypirc:
+
+========================
+The :file:`.pypirc` file
+========================
+
+**TODO** Link this document from references to :file:`.pypirc` in other docs
+
+**TODO** Normalize format of :file:`.pypirc` examples in other docs
+
+Creating a :file:`$HOME/.pypirc` file allows you to define the configuration for
+:term:`package indexes <Package Index>` (referred to here as "repositories"), so
+that you don't have to enter the URL, username, or password whenever you upload
+a package with :ref:`twine` or :ref:`flit`.
+
+The format (originally defined by the :ref:`distutils` package) is:
+
+.. code-block:: ini
+
+    [distutils]
+    index-servers =
+        first-repository
+        second-repository
+
+    [first-repository]
+    repository = <first-repository URL>
+    username = <first-repository username>
+    password = <first-repository password>
+
+    [second-repository]
+    repository = <second-repository URL>
+    username = <second-repository username>
+    password = <second-repository password>
+
+The ``distutils`` section defines an ``index-servers`` setting that lists the
+name of all sections describing a repository.
+
+Each section describing a repository defines three settings:
+
+- ``repository``: The URL of the repository.
+- ``username``: The registered username on the repository.
+- ``password``: The password that will used to authenticate the username.
+
+.. warning::
+
+    Be aware that this stores your password in plain text. For better security,
+    consider an alternative like `keyring`_, setting environment variables, or
+    providing the password on the command line.
+
+.. _keyring: https://pypi.org/project/keyring/
+
+Using :file:`.pypirc` with Twine
+--------------------------------
+
+Twine's default configuration defines repository settings for PyPI and TestPyPI:
+
+.. code-block:: ini
+
+    [distutils]
+    index-servers =
+        pypi
+        testpypi
+
+    [pypi]
+    repository = https://upload.pypi.org/legacy/
+
+    [testpypi]
+    repository = https://test.pypi.org/legacy/
+
+This means that you can set your `API token`_ for PyPI by creating a
+:file:`$HOME/.pypirc` similar to:
+
+.. code-block:: ini
+
+    [pypi]
+    username = __token__
+    password = <PyPI token>
+
+To configure an additional repository, you will need to redefine the
+``index-servers`` setting to include the repository name. Here is a complete
+example of a :file:`$HOME/.pypirc` for PyPI, TestPyPI, and a private repository:
+
+.. code-block:: ini
+
+    [distutils]
+    index-servers =
+        pypi
+        testpypi
+        private-repository
+
+    [pypi]
+    username = __token__
+    password = <PyPI token>
+
+    [testpypi]
+    username = __token__
+    password = <TestPyPI token>
+
+    [private-repository]
+    repository = <private-repository URL>
+    username = <private-repository username>
+    password = <private-repository password>
+
+.. warning::
+
+    Instead of using the ``password`` setting, consider saving your API tokens
+    and passwords securely using `keyring`_ (which is installed by Twine):
+
+    .. code-block:: bash
+
+        keyring set https://upload.pypi.org/legacy/ __token__
+        keyring set https://test.pypi.org/legacy/ __token__
+        keyring set <private-repository URL> <private-repository username>
+
+Twine defaults to uploading to PyPI. To upload to the private repository, run:
+
+.. code-block:: bash
+
+    twine upload --repository private-repository dist/*
+
+.. _API token: https://pypi.org/help/#apitoken
