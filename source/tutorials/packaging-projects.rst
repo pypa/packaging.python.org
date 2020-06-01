@@ -36,8 +36,8 @@ Creating the package files
 --------------------------
 
 You will now create a handful of files to package up this project and prepare it
-for distribution. Create the new files listed below - you will add content to
-them in the following steps.
+for distribution. Create the new files listed below and place them in the project's root directory
+- you will add content to them in the following steps.
 
 .. code-block:: text
 
