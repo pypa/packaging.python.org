@@ -17,9 +17,9 @@ To create this project locally, create the following file structure:
 
 .. code-block:: text
 
-    packaging_tutorial/
-      example_pkg/
-        __init__.py
+    packaging_tutorial
+    └── example_pkg
+        └── __init__.py
 
 
 Once you create this structure, you'll want to run all of the commands in this
@@ -41,13 +41,13 @@ for distribution. Create the new files listed below and place them in the projec
 
 .. code-block:: text
 
-    packaging_tutorial/
-      example_pkg/
-        __init__.py
-      tests/
-      setup.py
-      LICENSE
-      README.md
+    packaging_tutorial
+    ├── LICENSE
+    ├── README.md
+    ├── example_pkg
+    │   └── __init__.py
+    ├── setup.py
+    └── tests
 
 
 Creating a test folder
