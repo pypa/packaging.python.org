@@ -9,10 +9,10 @@ The :file:`.pypirc` file
 
 **TODO** Normalize format of :file:`.pypirc` examples in other docs
 
-Creating a :file:`$HOME/.pypirc` file allows you to define the configuration for
-:term:`package indexes <Package Index>` (referred to here as "repositories"), so
-that you don't have to enter the URL, username, or password whenever you upload
-a package with :ref:`twine` or :ref:`flit`.
+A :file:`.pypirc` file allows you to define the configuration for :term:`package
+indexes <Package Index>` (referred to here as "repositories"), so that you don't
+have to enter the URL, username, or password whenever you upload a package with
+:ref:`twine` or :ref:`flit`.
 
 The format (originally defined by the :ref:`distutils` package) is:
 
@@ -33,10 +33,10 @@ The format (originally defined by the :ref:`distutils` package) is:
     username = <second-repository username>
     password = <second-repository password>
 
-The ``distutils`` section defines an ``index-servers`` setting that lists the
+The ``distutils`` section defines an ``index-servers`` field that lists the
 name of all sections describing a repository.
 
-Each section describing a repository defines three settings:
+Each section describing a repository defines three fields:
 
 - ``repository``: The URL of the repository.
 - ``username``: The registered username on the repository.
@@ -50,10 +50,17 @@ Each section describing a repository defines three settings:
 
 .. _keyring: https://pypi.org/project/keyring/
 
-Using :file:`.pypirc` with Twine
---------------------------------
+Common configurations
+---------------------
 
-Twine's default configuration defines repository settings for PyPI and TestPyPI:
+.. note::
+
+    These instructions are for :ref:`twine`, and projects like :ref:`hatch` that
+    use it under the hood. Other projects (e.g. :ref:`flit`) may provide a
+    similar workflow; please refer to their documention.
+
+Twine's default configuration mimics a :file:`.pypirc` with repository sections
+for PyPI and TestPyPI:
 
 .. code-block:: ini
 
@@ -68,8 +75,11 @@ Twine's default configuration defines repository settings for PyPI and TestPyPI:
     [testpypi]
     repository = https://test.pypi.org/legacy/
 
-This means that you can set your `API token`_ for PyPI by creating a
-:file:`$HOME/.pypirc` similar to:
+Twine will add additional configuration from :file:`$HOME/.pypirc`, the command
+line, and environment variables to this default configuration.
+
+So, to set your `API token`_ for PyPI, you can create a :file:`$HOME/.pypirc`
+similar to:
 
 .. code-block:: ini
 
@@ -77,8 +87,8 @@ This means that you can set your `API token`_ for PyPI by creating a
     username = __token__
     password = <PyPI token>
 
-To configure an additional repository, you will need to redefine the
-``index-servers`` setting to include the repository name. Here is a complete
+To configure an additional repository, you'll need to redefine the
+``index-servers`` field to include the repository name. Here is a complete
 example of a :file:`$HOME/.pypirc` for PyPI, TestPyPI, and a private repository:
 
 .. code-block:: ini
@@ -104,7 +114,7 @@ example of a :file:`$HOME/.pypirc` for PyPI, TestPyPI, and a private repository:
 
 .. warning::
 
-    Instead of using the ``password`` setting, consider saving your API tokens
+    Instead of using the ``password`` field, consider saving your API tokens
     and passwords securely using `keyring`_ (which is installed by Twine):
 
     .. code-block:: bash
