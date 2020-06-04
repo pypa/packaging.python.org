@@ -907,7 +907,7 @@ are creating a new project.
 won't see that token again.**
 
 .. Note:: To avoid having to copy and paste the token every time you
-  upload, you can create a ``$HOME/.pypirc`` file:
+  upload, you can create a :file:`$HOME/.pypirc` file:
 
   .. code-block:: text
 
@@ -916,6 +916,8 @@ won't see that token again.**
     password = <the token value, including the `pypi-` prefix>
 
   **Be aware that this stores your token in plaintext.**
+
+  For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.
 
 .. _register-your-project:
 .. _API token: https://pypi.org/help/#apitoken

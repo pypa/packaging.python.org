@@ -53,19 +53,15 @@ you're testing has dependencies:
 
     pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package
 
-Setting up TestPyPI in pypirc
------------------------------
+Setting up TestPyPI in :file:`.pypirc`
+--------------------------------------
 
 If you want to avoid entering your username, you can configure TestPyPI in
-your ``$HOME/.pypirc``.
-
-Create or modify ``$HOME/.pypirc`` with the following:
+your :file:`$HOME/.pypirc`:
 
 .. code::
 
     [testpypi]
-    username: your testpypi username
+    username = <your TestPyPI username>
 
-
-.. Warning:: Do not store passwords in the pypirc file.
-    Storing passwords in plain text is never a good idea.
+For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.

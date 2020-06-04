@@ -5,10 +5,6 @@
 The :file:`.pypirc` file
 ========================
 
-**TODO** Link this document from references to :file:`.pypirc` in other docs
-
-**TODO** Normalize format of :file:`.pypirc` examples in other docs
-
 A :file:`.pypirc` file allows you to define the configuration for :term:`package
 indexes <Package Index>` (referred to here as "repositories"), so that you don't
 have to enter the URL, username, or password whenever you upload a package with
