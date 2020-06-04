@@ -198,6 +198,32 @@ Package>`, especially ones that have dependencies on other packages.
 v0.7), thereby making setuptools the primary choice for Python packaging.
 
 
+.. _trove-classifiers:
+
+trove-classifiers
+=================
+
+`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub
+<https://github.com/pypa/trove-classifiers>`__ | `PyPI
+<https://pypi.org/project/trove-classifiers/>`__
+
+trove-classifiers is the canonical source for `classifiers on PyPI
+<https://pypi.org/classifiers/>`_, which project maintainers use to
+`systematically describe their projects
+<https://packaging.python.org/specifications/core-metadata/#classifier-multiple-use>`_
+so that users can better find projects that match their needs on the PyPI.
+
+The trove-classifiers package contains a list of valid classifiers and
+deprecated classifiers (which are paired with the classifiers that replace
+them).  Use this package to validate classifiers used in packages intended for
+uploading to PyPI. As this list of classifiers is published as code, you
+can install and import it, giving you a more convenient workflow compared to
+referring to the `list published on PyPI <https://pypi.org/classifiers/>`_. The
+`issue tracker <https://github.com/pypa/trove-classifiers/issues>`_ for the
+project hosts discussions on proposed classifiers and requests for new
+classifiers.
+
+
 .. _twine:
 
 twine
