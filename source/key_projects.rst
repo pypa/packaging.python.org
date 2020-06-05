@@ -203,6 +203,7 @@ v0.7), thereby making setuptools the primary choice for Python packaging.
 twine
 =====
 
+`Docs <https://twine.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
 `GitHub <https://github.com/pypa/twine>`__ |

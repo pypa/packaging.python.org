@@ -47,13 +47,14 @@ Each section describing a repository defines three fields:
 .. _keyring: https://pypi.org/project/keyring/
 
 Common configurations
----------------------
+=====================
 
 .. note::
 
-    These instructions are for :ref:`twine`, and projects like :ref:`hatch` that
-    use it under the hood. Other projects (e.g. :ref:`flit`) may provide a
-    similar workflow; please refer to their documention.
+    These examples apply to :ref:`twine`, and projects like :ref:`hatch` that
+    use it under the hood. Other projects (e.g. :ref:`flit`) also use
+    :file:`.pypirc`, but with different defaults. Please refer to each project's
+    documentation for more details and usage instructions.
 
 Twine's default configuration mimics a :file:`.pypirc` with repository sections
 for PyPI and TestPyPI:
@@ -74,7 +75,10 @@ for PyPI and TestPyPI:
 Twine will add additional configuration from :file:`$HOME/.pypirc`, the command
 line, and environment variables to this default configuration.
 
-So, to set your `API token`_ for PyPI, you can create a :file:`$HOME/.pypirc`
+Using a PyPI token
+------------------
+
+To set your `API token`_ for PyPI, you can create a :file:`$HOME/.pypirc`
 similar to:
 
 .. code-block:: ini
@@ -82,6 +86,14 @@ similar to:
     [pypi]
     username = __token__
     password = <PyPI token>
+
+For :ref:`TestPyPI <using-test-pypi>`, add a ``[testpypi]`` section, using the
+API token from your TestPyPI account.
+
+.. _API token: https://pypi.org/help/#apitoken
+
+Using another package index
+---------------------------
 
 To configure an additional repository, you'll need to redefine the
 ``index-servers`` field to include the repository name. Here is a complete
@@ -118,11 +130,3 @@ example of a :file:`$HOME/.pypirc` for PyPI, TestPyPI, and a private repository:
         keyring set https://upload.pypi.org/legacy/ __token__
         keyring set https://test.pypi.org/legacy/ __token__
         keyring set <private-repository URL> <private-repository username>
-
-Twine defaults to uploading to PyPI. To upload to the private repository, run:
-
-.. code-block:: bash
-
-    twine upload --repository private-repository dist/*
-
-.. _API token: https://pypi.org/help/#apitoken
