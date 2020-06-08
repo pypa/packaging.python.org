@@ -44,6 +44,13 @@ Each section describing a repository defines three fields:
     consider an alternative like `keyring`_, setting environment variables, or
     providing the password on the command line.
 
+    Otherwise, set the permissions on :file:`.pypirc` so that only you can view
+    or modify it. For example, on Linux or macOS, run:
+
+    .. code-block:: bash
+
+        chmod 600 ~/.pypirc
+
 .. _keyring: https://pypi.org/project/keyring/
 
 Common configurations
