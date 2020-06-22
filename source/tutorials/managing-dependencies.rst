@@ -26,31 +26,6 @@ as Python libraries, should also consider the
 `poetry <https://github.com/python-poetry/poetry>`_ project as an alternative dependency
 management solution.
 
-
-Recommendation caveats (as of April 2020)
------------------------------------------
-
-While this tutorial covers the ``pipenv`` project as a tool that focuses
-primarily on the needs of Python application development rather than Python
-library development, the project itself is currently working through several
-`process and maintenance issues <https://github.com/pypa/pipenv/issues/3369>`_
-that are preventing bug fixes and new features from being published (with the
-entirety of 2019 passing without a new release).
-
-This means that in the near term, ``pipenv`` still suffers from several quirks
-and performance problems without a clear timeline for resolution of those isses.
-
-While this remains the case, project maintainers are likely to want to
-investigate :ref:`other-dependency-management-tools` for use instead of, or
-together with, ``pipenv``.
-
-Assuming the April 2020 ``pipenv`` release goes ahead as planned, and the
-release after that also remains on track, then this caveat on the tutorial will
-be removed. If those releases *don't* remain on track, then the tutorial itself
-will be removed, and replaced with a discussion page on the available dependency
-management options.
-
-
 Installing Pipenv
 -----------------
 
