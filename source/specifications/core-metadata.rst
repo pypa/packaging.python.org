@@ -532,7 +532,7 @@ Example::
 
     Project-URL: Bug Tracker, http://bitbucket.org/tarek/distribute/issues/
 
-The label is a free text limited to 32 signs.
+The label is free text limited to 32 characters.
 
 .. _metadata_provides_extra:
 
