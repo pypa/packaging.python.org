@@ -64,7 +64,7 @@ packaging
 =========
 
 `Docs <https://packaging.pypa.io>`__ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__ |
@@ -97,7 +97,7 @@ pip
 
 `Docs <https://pip.pypa.io/en/stable/>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.org/project/pip/>`__ |
@@ -181,7 +181,7 @@ setuptools
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__ |
@@ -249,7 +249,7 @@ virtualenv
 
 `Docs <https://virtualenv.pypa.io/en/stable/>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__ |
