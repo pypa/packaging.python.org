@@ -63,18 +63,18 @@ A :file:`MANIFEST.in` file consists of commands, one per line, instructing
 setuptools to add or remove some set of files from the sdist.  The commands
 are:
 
-===============================================  ==================================================================================================
-Command                                          Description
-===============================================  ==================================================================================================
-``include pat1 pat2 ...``                        Add all files matching any of the listed patterns
-``exclude pat1 pat2 ...``                        Remove all files matching any of the listed patterns
-``recursive-include dir-pattern pat1 pat2 ...``  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
-``recursive-exclude dir-pattern pat1 pat2 ...``  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
-``global-include pat1 pat2 ...``                 Add all files anywhere in the source tree matching any of the listed patterns
-``global-exclude pat1 pat2 ...``                 Remove all files anywhere in the source tree matching any of the listed patterns
-``graft dir-pattern``                            Add all files under directories matching ``dir-pattern``
-``prune dir-pattern``                            Remove all files under directories matching ``dir-pattern``
-===============================================  ==================================================================================================
+=========================================================  ==================================================================================================
+Command                                                    Description
+=========================================================  ==================================================================================================
+:samp:`include {pat1} {pat2} ...`                          Add all files matching any of the listed patterns
+:samp:`exclude {pat1} {pat2} ...`                          Remove all files matching any of the listed patterns
+:samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
+:samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
+:samp:`global-include {pat1} {pat2} ...`                   Add all files anywhere in the source tree matching any of the listed patterns
+:samp:`global-exclude {pat1} {pat2} ...`                   Remove all files anywhere in the source tree matching any of the listed patterns
+:samp:`graft {dir-pattern}`                                Add all files under directories matching ``dir-pattern``
+:samp:`prune {dir-pattern}`                                Remove all files under directories matching ``dir-pattern``
+=========================================================  ==================================================================================================
 
 The patterns here are glob-style patterns: ``*`` matches zero or more regular
 filename characters (on Unix, everything except forward slash; on Windows,
