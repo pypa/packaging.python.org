@@ -66,14 +66,14 @@ are:
 ===============================================  ==================================================================================================
 Command                                          Description
 ===============================================  ==================================================================================================
-``include pat1 pat2 ...``                        Include all files matching any of the listed patterns
-``exclude pat1 pat2 ...``                        Exclude all files matching any of the listed patterns
-``recursive-include dir-pattern pat1 pat2 ...``  Include all files under directories matching ``dir-pattern`` that match any of the listed patterns
-``recursive-exclude dir-pattern pat1 pat2 ...``  Exclude all files under directories matching ``dir-pattern`` that match any of the listed patterns
-``global-include pat1 pat2 ...``                 Include all files anywhere in the source tree matching any of the listed patterns
-``global-exclude pat1 pat2 ...``                 Exclude all files anywhere in the source tree matching any of the listed patterns
-``graft dir-pattern``                            Include all files under directories matching ``dir-pattern``
-``prune dir-pattern``                            Exclude all files under directories matching ``dir-pattern``
+``include pat1 pat2 ...``                        Add all files matching any of the listed patterns
+``exclude pat1 pat2 ...``                        Remove all files matching any of the listed patterns
+``recursive-include dir-pattern pat1 pat2 ...``  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
+``recursive-exclude dir-pattern pat1 pat2 ...``  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
+``global-include pat1 pat2 ...``                 Add all files anywhere in the source tree matching any of the listed patterns
+``global-exclude pat1 pat2 ...``                 Remove all files anywhere in the source tree matching any of the listed patterns
+``graft dir-pattern``                            Add all files under directories matching ``dir-pattern``
+``prune dir-pattern``                            Remove all files under directories matching ``dir-pattern``
 ===============================================  ==================================================================================================
 
 The patterns here are glob-style patterns: ``*`` matches zero or more regular
