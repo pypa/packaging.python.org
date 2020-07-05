@@ -23,15 +23,12 @@ https://test.pypi.org/account/register/ to register your account.
 Using TestPyPI with Twine
 -------------------------
 
-You can upload your distributions to TestPyPI using :ref:`twine` by passing
-in the ``--repository-url`` flag
+You can upload your distributions to TestPyPI using :ref:`twine` by specifying
+the ``--repository`` flag
 
 .. code::
 
-    $ twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-
-The ``legacy`` in the URL above refers to the legacy API for PyPI, which may
-change as the Warehouse project progresses.
+    $ twine upload --repository testpypi dist/*
 
 You can see if your package has successfully uploaded by navigating to the URL
 ``https://test.pypi.org/project/<sampleproject>`` where ``sampleproject`` is
@@ -56,32 +53,15 @@ you're testing has dependencies:
 
     pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package
 
-Setting up TestPyPI in pypirc
------------------------------
+Setting up TestPyPI in :file:`.pypirc`
+--------------------------------------
 
-If you want to avoid entering the TestPyPI url and your username
-you can configure TestPyPI in your ``$HOME/.pypirc``.
-
-Create or modify ``$HOME/.pypirc`` with the following:
+If you want to avoid entering your username, you can configure TestPyPI in
+your :file:`$HOME/.pypirc`:
 
 .. code::
-
-    [distutils]
-    index-servers=
-        pypi
-        testpypi
 
     [testpypi]
-    repository: https://test.pypi.org/legacy/
-    username: your testpypi username
+    username = <your TestPyPI username>
 
-
-.. Warning:: Do not store passwords in the pypirc file.
-    Storing passwords in plain text is never a good idea.
-
-You can then tell :ref:`twine` to upload to TestPyPI by specifying the
-``--repository`` flag:
-
-.. code::
-
-    $ twine upload --repository testpypi dist/*
+For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.

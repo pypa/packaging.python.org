@@ -17,23 +17,16 @@ To create this project locally, create the following file structure:
 
 .. code-block:: text
 
-    packaging_tutorial/
-      example_pkg/
-        __init__.py
+    packaging_tutorial
+    └── example_pkg
+        └── __init__.py
 
 
 Once you create this structure, you'll want to run all of the commands in this
 tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
-You should also edit :file:`example_pkg/__init__.py` and put the following
-code in there:
-
-.. code-block:: python
-
-    name = "example_pkg"
-
-This is just so that you can verify that it installed correctly later in this
-tutorial and is not used by PyPI.
+:file:`example_pkg/__init__.py` is required to import the directory as a package,
+and can simply be an empty file.
 
 .. _Python documentation for packages and modules:
     https://docs.python.org/3/tutorial/modules.html#packages
@@ -43,17 +36,24 @@ Creating the package files
 --------------------------
 
 You will now create a handful of files to package up this project and prepare it
-for distribution. Create the new files listed below - you will add content to
-them in the following steps.
+for distribution. Create the new files listed below and place them in the project's root directory
+- you will add content to them in the following steps.
 
 .. code-block:: text
 
-    packaging_tutorial/
-      example_pkg/
-        __init__.py
-      setup.py
-      LICENSE
-      README.md
+    packaging_tutorial
+    ├── LICENSE
+    ├── README.md
+    ├── example_pkg
+    │   └── __init__.py
+    ├── setup.py
+    └── tests
+
+
+Creating a test folder
+----------------------
+
+:file:`tests/` is a placeholder for unit test files. Leave it empty for now.
 
 
 Creating setup.py
@@ -73,7 +73,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
         long_description = fh.read()
 
     setuptools.setup(
-        name="example-pkg-your-username",
+        name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
         version="0.0.1",
         author="Example Author",
         author_email="author@example.com",
@@ -95,7 +95,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
 minimal set:
 
 - ``name`` is the *distribution name* of your package. This can be any name as long as only
-  contains letters, numbers, ``_`` , and ``-``. It also must not already
+  contains letters, numbers, ``_`` , and ``-``. It also must not already be
   taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't try to upload a package with the same name as one which already exists when you upload the package.
 - ``version`` is the package version see :pep:`440` for more details on
   versions.
@@ -207,8 +207,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_pkg_your_username-0.0.1-py3-none-any.whl
-      example_pkg_your_username-0.0.1.tar.gz
+      example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+      example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 .. note:: If you run into trouble here, please copy the output and file an issue
   over on `packaging problems`_ and we'll do our best to help you!
@@ -238,6 +238,18 @@ You will also need to verify your email address before you're able to upload
 any packages.  For more details on Test PyPI, see
 :doc:`/guides/using-testpypi`.
 
+Now you'll create a PyPI `API token`_ so you will be able to securely upload
+your project.
+
+Go to https://test.pypi.org/manage/account/#api-tokens and create a new
+`API token`_; don't limit its scope to a particular project, since you
+are creating a new project.
+
+**Don't close the page until you have copied and saved the token — you
+won't see that token again.**
+
+.. _API token: https://test.pypi.org/help/#apitoken
+
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
 
@@ -249,24 +261,27 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
 .. code-block:: bash
 
-    python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    python3 -m twine upload --repository testpypi dist/*
 
-You will be prompted for the username and password you registered with Test
-PyPI. After the command completes, you should see output similar to this:
+You will be prompted for a username and password. For the username,
+use ``__token__``. For the password, use the token value, including
+the ``pypi-`` prefix.
+
+After the command completes, you should see output similar to this:
 
 .. code-block:: bash
 
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example_pkg_your_username-0.0.1-py3-none-any.whl
+    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example_pkg_your_username-0.0.1.tar.gz
+    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
 Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example-pkg-your-username
+https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE
 
 
 Installing your newly uploaded package
@@ -278,7 +293,7 @@ detailed instructions) and install your package from TestPyPI:
 
 .. code-block:: bash
 
-    python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-your-username
+    python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
 
 Make sure to specify your username in the package name!
 
@@ -287,32 +302,28 @@ something like this:
 
 .. code-block:: text
 
-    Collecting example-pkg-your-username
-      Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-your-username-0.0.1-py3-none-any.whl
-    Installing collected packages: example-pkg-your-username
-    Successfully installed example-pkg-your-username-0.0.1
+    Collecting example-pkg-YOUR-USERNAME-HERE
+      Downloading https://test-files.pythonhosted.org/packages/.../example-pkg-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+    Installing collected packages: example-pkg-YOUR-USERNAME-HERE
+    Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have the same packages as the live PyPI, it's possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn't have any dependencies, it's a good practice to avoid installing dependencies when using TestPyPI.
 
-You can test that it was installed correctly by importing the module and
-referencing the ``name`` property you put in :file:`__init__.py` earlier.
-
+You can test that it was installed correctly by importing the package.
 Run the Python interpreter (make sure you're still in your virtualenv):
 
 .. code-block:: bash
 
     python
 
-And then import the module and print out the ``name`` property. This should be
-the same regardless of what you name you gave your :term:`distribution package`
-in :file:`setup.py` (in this case, ``example-pkg-your-username``) because your :term:`import package` is ``example_pkg``.
+and from the interpreter shell import the package:
 
 .. code-block:: python
 
     >>> import example_pkg
-    >>> example_pkg.name
-    'example_pkg'
 
+Note that the :term:`import package` is ``example_pkg`` regardless of what name you gave your :term:`distribution package`
+in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
@@ -335,7 +346,7 @@ differences:
   main server.
 * Use ``twine upload dist/*`` to upload your package and enter your credentials
   for the account you registered on the real PyPI.  Now that you're uploading
-  the package in production, you don't need to specify ``--repository-url``; the
+  the package in production, you don't need to specify ``--repository``; the
   package will upload to https://pypi.org/ by default.
 * Install your package from the real PyPI using ``pip install [your-package]``.
 
@@ -349,4 +360,4 @@ some things you can do:
   and `poetry`_.
 
 .. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://github.com/sdispater/poetry
+.. _poetry: https://github.com/python-poetry/poetry

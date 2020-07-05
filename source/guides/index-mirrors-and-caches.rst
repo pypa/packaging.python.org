@@ -30,8 +30,8 @@ pip provides a number of facilities for speeding up installation by using local
 cached copies of :term:`packages <Distribution Package>`:
 
 1. `Fast & local installs
-   <https://pip.pypa.io/en/latest/user_guide.html#fast-local-installs>`_ by
-   downloading all the requirements for a project and then pointing pip at
+   <https://pip.pypa.io/en/latest/user_guide/#installing-from-local-packages>`_
+   by downloading all the requirements for a project and then pointing pip at
    those downloaded files instead of going to PyPI.
 2. A variation on the above which pre-builds the installation files for
    the requirements using `pip wheel

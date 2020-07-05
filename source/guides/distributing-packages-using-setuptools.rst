@@ -133,7 +133,7 @@ Python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
 For an example, see the `sample
-<https://github.com/pypa/sampleproject/tree/master/sample>`_ package that's
+<https://github.com/pypa/sampleproject/tree/master/src/sample>`_ package that's
 included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -251,8 +251,8 @@ author
 
 ::
 
-  author='The Python Packaging Authority',
-  author_email='pypa-dev@googlegroups.com',
+  author='A. Random Developer',
+  author_email='author@example.com',
 
 Provide details about the author.
 
@@ -781,9 +781,7 @@ To build the wheel:
 
   python setup.py bdist_wheel --universal
 
-You can also permanently set the ``--universal`` flag in :file:`setup.cfg`
-(e.g., see `sampleproject/setup.cfg
-<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
+You can also permanently set the ``--universal`` flag in :file:`setup.cfg`:
 
 .. code-block:: text
 
@@ -898,19 +896,31 @@ First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. You
 can create an account
 `using the form on the PyPI website <https://pypi.org/account/register/>`_.
 
-.. Note:: If you want to avoid entering your username and password when
-  uploading, you can create a ``$HOME/.pypirc`` file with your username and
-  password:
+Now you'll create a PyPI `API token`_ so you will be able to securely upload
+your project.
+
+Go to https://pypi.org/manage/account/#api-tokens and create a new
+`API token`_; don't limit its scope to a particular project, since you
+are creating a new project.
+
+**Don't close the page until you have copied and saved the token — you
+won't see that token again.**
+
+.. Note:: To avoid having to copy and paste the token every time you
+  upload, you can create a :file:`$HOME/.pypirc` file:
 
   .. code-block:: text
 
     [pypi]
-    username = <username>
-    password = <password>
+    username = __token__
+    password = <the token value, including the `pypi-` prefix>
 
-  **Be aware that this stores your password in plaintext.**
+  **Be aware that this stores your token in plaintext.**
+
+  For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.
 
 .. _register-your-project:
+.. _API token: https://pypi.org/help/#apitoken
 
 Upload your distributions
 -------------------------

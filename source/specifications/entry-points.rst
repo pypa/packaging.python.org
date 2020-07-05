@@ -44,7 +44,7 @@ Conceptually, an entry point is defined by three required properties:
   name, the consumer decides how to handle such conflicts. The name may contain
   any characters except ``=``, but it cannot start or end with any whitespace
   character, or start with ``[``. For new entry points, it is recommended to
-  use only letters, numbers, underscores, dashes and dots (regex ``[\w-.]+``).
+  use only letters, numbers, underscores, dots and dashes (regex ``[\w.-]+``).
 
 - The **object reference** points to a Python object. It is either in the form
   ``importable.module``, or ``importable.module:object.attr``. Each of the parts
