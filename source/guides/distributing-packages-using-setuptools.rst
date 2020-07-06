@@ -276,9 +276,6 @@ general rule, it's a good idea to use a standard, well-known license,
 both to avoid confusion and because some organizations avoid software
 whose license is unapproved.
 
-See :ref:`"Classifier" <metadata-classifier>` for some examples of
-values for ``license``.
-
 
 classifiers
 ~~~~~~~~~~~
