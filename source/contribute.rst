@@ -23,7 +23,7 @@ the guide, please read the :ref:`style guide <contributing_style_guide>`.
 
 By contributing to the |PyPUG|, you're expected to follow the Python Packaging
 Authority's `Contributor Code of Conduct`__. Harassment, personal attacks, and
-other unprofessional conduct is not acceptable.
+other unprofessional conduct are not acceptable.
 
 .. __: https://www.pypa.io/en/latest/code-of-conduct/
 
@@ -64,7 +64,7 @@ Specifications
 --------------
 
 Specifications are reference documention focused on comprehensively documenting
-an agreed-upon iterface for interoperability between packaging tools.
+an agreed-upon interface for interoperability between packaging tools.
 :doc:`example specification-style document <specifications/core-metadata>`.
 
 
