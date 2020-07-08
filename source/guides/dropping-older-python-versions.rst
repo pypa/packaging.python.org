@@ -88,7 +88,7 @@ Dropping a Python release
 
 Once you have published a package with the Requires-Python metadata, you can then make a further update removing that Python runtime from support.
 
-It must be done in this order for the automated fail-back to work.
+It must be done in this order for the automated fallback to work.
 
 For example, you published the Requires-Python: ">=2.7" as version 1.0.0 of your package.
 
