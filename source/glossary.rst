@@ -102,11 +102,10 @@ Glossary
         packaged into a :term:`Distribution <Distribution Package>`.
 
         Since most projects create :term:`Distributions <Distribution Package>`
-        using :ref:`distutils` or :ref:`setuptools`, another practical way to
-        define projects currently is something that contains a :term:`setup.py`
-        at the root of the project src directory, where "setup.py" is the
-        project specification filename used by :ref:`distutils` and
-        :ref:`setuptools`.
+        using either :pep:`518` ``build-system``, :ref:`distutils` or
+        :ref:`setuptools`, another practical way to define projects currently
+        is something that contains a :term:`pyproject.toml`, :term:`setup.py`,
+        or :term:`setup.cfg` file at the root of the project source directory.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
@@ -151,6 +150,11 @@ Glossary
         domain name, `pypi.python.org`, in 2017. It is powered by
         :ref:`warehouse`.
 
+    pyproject.toml
+
+        The tool-agnostic :term:`project` specification file.
+        Defined in :pep:`518`.
+
     Release
 
         A snapshot of a :term:`Project` at a particular point in time, denoted
@@ -189,8 +193,10 @@ Glossary
 
 
     setup.py
+    setup.cfg
 
-        The project specification file for :ref:`distutils` and :ref:`setuptools`.
+        The project specification files for :ref:`distutils` and :ref:`setuptools`.
+        See also :term:`pyproject.toml`.
 
 
     Source Archive
