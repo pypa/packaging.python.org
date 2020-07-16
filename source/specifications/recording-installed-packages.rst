@@ -56,7 +56,7 @@ Additional installer-specific files may be present.
    The :ref:`binary-distribution-format` specification describes additional
    files that may appear in the ``.dist-info`` directory of a :term:`wheel`.
    Such files may be copied to the ``.dist-info`` directory of an
-installed project.
+   installed project.
 
 
 The METADATA file
