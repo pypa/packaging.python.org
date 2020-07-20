@@ -42,12 +42,13 @@ number of your project:
        .. code-block:: ini
 
            [metadata]
-           version = attr:package.__version__
+           version = attr: package.__version__
 
        Earlier versions of setuptools implemented the ``attr:`` directive by
        importing the module, but setuptools 46.4.0 added rudimentary AST
        analysis so that ``attr:`` can function without having to import any of
        the package's dependencies.
+
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
