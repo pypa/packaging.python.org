@@ -166,3 +166,7 @@ and techniques to see if one of them is a better fit:
   tagging releases, and creating new skeleton projects from project templates)
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
   custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `micropipenv <https://github.com/thoth-station/micropipenv>`_ is a lightweight
+  wrapper for pip to support requirements.txt, Pipenv and Poetry lock files or
+  converting them to pip-tools compatible output. Designed for containerized
+  Python applications but not limited to them.
