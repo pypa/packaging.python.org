@@ -21,11 +21,11 @@ the guide, please read the :ref:`style guide <contributing_style_guide>`.
 .. __: https://github.com/pypa/python-packaging-user-guide/issues
 .. __: https://github.com/pypa/python-packaging-user-guide/pulls
 
-By contributing to the |PyPUG|, you're expected to follow the Python Packaging
-Authority's `Contributor Code of Conduct`__. Harassment, personal attacks, and
+By contributing to the |PyPUG|, you're expected to follow the PSF's
+`Code of Conduct`__. Harassment, personal attacks, and
 other unprofessional conduct are not acceptable.
 
-.. __: https://www.pypa.io/en/latest/code-of-conduct/
+.. __: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
 
 
 Documentation types
