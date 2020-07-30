@@ -22,8 +22,7 @@ the guide, please read the :ref:`style guide <contributing_style_guide>`.
 .. __: https://github.com/pypa/python-packaging-user-guide/pulls
 
 By contributing to the |PyPUG|, you're expected to follow the PSF's
-`Code of Conduct`__. Harassment, personal attacks, and
-other unprofessional conduct are not acceptable.
+`Code of Conduct`__.
 
 .. __: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
 
