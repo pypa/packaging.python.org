@@ -47,6 +47,8 @@ below:
 * ``METADATA``: contains project metadata
 * ``RECORD``: records the list of installed files.
 * ``INSTALLER``: records the name of the tool used to install the project.
+* ``REQUESTED``: indicates that the project installation was explicitly
+  requested (i.e., not installed as a dependency).
 
 Only the ``METADATA`` file is mandatory.
 Additional installer-specific files may be present.
@@ -159,3 +161,25 @@ This value should be used for informational purposes only.
 For example, if a tool is asked to uninstall a project but finds no ``RECORD``
 file, it may suggest that the tool named in ``INSTALLER`` may be able to do the
 uninstallation.
+
+
+The REQUESTED file
+==================
+
+Some install tools automatically detect unfulfilled dependencies and install
+them. In these cases, it is useful to track which distributions were installed
+purely as a dependency, so if their dependent distribution is later
+uninstalled, the user can be alerted of the orphaned dependency.
+
+If a distribution is installed by direct user request (the usual case), a
+file named ``REQUESTED`` must be added to the ``.dist-info`` directory of the
+installed distribution.
+The ``REQUESTED`` file may be empty, or may contain a marker comment line
+beginning with the ``"#"`` character.
+
+If an install tool installs a distribution automatically, as a dependency of
+another distribution, the ``REQUESTED`` file should not be created.
+
+If a distribution that was already installed on the system as a dependency
+is later installed by name, tools should create the ``REQUESTED`` file in the
+``.dist-info`` directory of the existing installation.
