@@ -56,10 +56,10 @@ Fine-Grained Method
 
 The fine-grained method allows you to specify package data file patterns on a
 per-package basis through the ``package_data`` argument to ``setup()``.
-``package_data`` must be a `dict` mapping import package or subpackage names
-(or the empty string, to specify all packages & subpackages) to lists of glob
-patterns indicating which files within those packages to include in the sdist
-and wheel.
+``package_data`` must be a :py:class:`dict` mapping import package or
+subpackage names (or the empty string, to specify all packages & subpackages)
+to lists of glob patterns indicating which files within those packages to
+include in the sdist and wheel.
 
 A sample ``package_data`` looks like this:
 
@@ -107,10 +107,10 @@ Excluding Files
 
 The ``exclude_package_data`` argument to ``setup()`` can be used in conjunction
 with either of the above methods to prevent one or more files from being
-treated as package data.  ``exclude_package_data`` takes a `dict` with the same
-structure as ``package_data``, and any matched files are excluded from wheels.
-Matched files are also excluded from sdists if they are not already matched by
-the project's :file:`MANIFEST.in`.
+treated as package data.  ``exclude_package_data`` takes a :py:class:`dict`
+with the same structure as ``package_data``, and any matched files are excluded
+from wheels.  Matched files are also excluded from sdists if they are not
+already matched by the project's :file:`MANIFEST.in`.
 
 
 Accessing package data
@@ -181,8 +181,8 @@ To access a package data file in your project, start by calling
     # The argument can optionally refer to a subpackage in the form
     # "packagename.subpackage".
 
-This gives you an object with a subset of `pathlib.Path`'s methods for
-traversing package data files.  To refer to a :file:`data.csv` file in a
+This gives you an object with a subset of :py:class:`pathlib.Path`'s methods
+for traversing package data files.  To refer to a :file:`data.csv` file in a
 ``data/`` directory in your package, write:
 
 .. code-block:: python
@@ -199,14 +199,15 @@ anything out of it?
     with pkg_data_file.open() as fp:
         # Do things with fp
 
-- To get the file's contents as `bytes`, call the ``read_bytes()`` method:
+- To get the file's contents as :py:class:`bytes`, call the ``read_bytes()``
+  method:
 
   .. code-block:: python
 
     b = pkg_data_file.read_bytes()
 
-- To get the file's contents as a `str`, call the ``read_text()`` method,
-  optionally with an ``encoding`` argument:
+- To get the file's contents as a :py:class:`str`, call the ``read_text()``
+  method, optionally with an ``encoding`` argument:
 
   .. code-block:: python
 
