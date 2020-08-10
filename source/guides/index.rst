@@ -30,3 +30,4 @@ introduction to packaging, see :doc:`/tutorials/index`.
    using-testpypi
    making-a-pypi-friendly-readme
    publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
+   using-package-data
