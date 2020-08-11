@@ -382,3 +382,17 @@ intersphinx_mapping = {
 # The default is False.
 
 todo_include_todos = True
+
+nitpicky = True
+
+# NOTE: consider having a separate ignore file
+# Ref: https://stackoverflow.com/a/30624034/595220
+nitpick_ignore = [
+    ('envvar', 'PATH'),
+    ('py:func', 'find_packages'),
+    ('py:func', 'pkg_resources.iter_entry_points'),
+    ('py:func', 'setup'),
+    ('py:func', 'setuptools.find_namespace_packages'),
+    ('py:func', 'setuptools.find_packages'),
+    ('py:func', 'setuptools.setup'),
+]

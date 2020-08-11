@@ -30,6 +30,7 @@ def build(session, autobuild=False):
         # Ref: https://github.com/pypa/pypa-docs-theme/issues/17
         # "-j", "auto",  # parallelize the build
         "-b", "html",  # use HTML builder
+        "-n",  # nitpicky warn about all missing references
         "-W",  # Treat warnings as errors.
         "source",  # where the rst files are located
         target_build_dir,  # where to put the html output
