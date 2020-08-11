@@ -31,6 +31,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
 ]
@@ -50,6 +51,16 @@ source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
+
+# -- Project information -----------------------------------------------------
+
+github_url = 'https://github.com'
+github_repo_org = 'pypa'
+github_repo_name = 'packaging.python.org'
+github_repo_slug = f'{github_repo_org}/{github_repo_name}'
+github_repo_url = f'{github_url}/{github_repo_slug}'
+github_repo_issues_url = f'{github_url}/{github_repo_slug}/issues'
+github_sponsors_url = f'{github_url}/sponsors'
 
 # General information about the project.
 project = u'Python Packaging User Guide'
@@ -132,7 +143,7 @@ html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs': True,
     'navigation_depth': 2,
-    'issues_url': 'https://github.com/pypa/python-packaging-user-guide/issues'
+    'issues_url': github_repo_issues_url,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -350,6 +361,15 @@ texinfo_documents = [
 #
 # texinfo_no_detailmenu = False
 
+# -- Options for extlinks extension ---------------------------------------
+extlinks = {
+    'issue': (f'{github_repo_issues_url}/%s', '#'),  # noqa: WPS323
+    'pr': (f'{github_repo_url}/pull/%s', 'PR #'),  # noqa: WPS323
+    'commit': (f'{github_repo_url}/commit/%s', ''),  # noqa: WPS323
+    'gh': (f'{github_url}/%s', 'GitHub: '),  # noqa: WPS323
+    'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
+}
+
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
@@ -362,31 +382,3 @@ intersphinx_mapping = {
 # The default is False.
 
 todo_include_todos = True
-
-# Configure the GitHub PR role to point to our project.
-
-pr_role_github_org_and_project = 'pypa/python-packaging-user-guide'
-
-#
-# Custom plugin code below.
-#
-
-
-def setup(app):
-    app.add_config_value('pr_role_github_org_and_project', None, 'html')
-    app.add_role('pr', pr_role)
-
-
-def pr_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-    """Transforms ':pr:`number`'' to a hyperlink to the referenced pull request
-    on GitHub."""
-    from docutils import nodes
-
-    app = inliner.document.settings.env
-    project = app.config.pr_role_github_org_and_project
-    title = '#{}'.format(text)
-
-    uri = 'https://github.com/{}/pull/{}'.format(project, text)
-    rn = nodes.reference(
-        title, title, internal=False, refuri=uri, classes=['pr'])
-    return [rn], []
