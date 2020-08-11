@@ -10,8 +10,6 @@ import nox
 @nox.session(py="3")
 def build(session, autobuild=False):
     session.install("-r", "requirements.txt")
-    # Treat warnings as errors.
-    session.env["SPHINXOPTS"] = "-W"
 
     shutil.rmtree("build", ignore_errors=True)
 
