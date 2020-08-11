@@ -64,7 +64,7 @@ github_sponsors_url = f'{github_url}/sponsors'
 
 # General information about the project.
 project = u'Python Packaging User Guide'
-copyright = u'2013–2019, PyPA'
+copyright = u'2013–2020, PyPA'
 author = 'Python Packaging Authority'
 
 # The version info for the project you're documenting, acts as replacement for
