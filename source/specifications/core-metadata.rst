@@ -562,7 +562,7 @@ Example::
     Requires-Dist: beaglevote[pdf]
     Requires-Dist: libexample[test, doc]
 
-Two feature names `test` and `doc` are reserved to mark dependencies that
+Two feature names ``test`` and ``doc`` are reserved to mark dependencies that
 are needed for running automated tests and generating documentation,
 respectively.
 

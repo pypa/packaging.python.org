@@ -115,7 +115,7 @@ minimal set:
   Package>` that should be included in the :term:`distribution package`.
   Instead of listing each package manually, we can use :func:`find_packages`
   to automatically discover all packages and subpackages. In this case, the
-  list of packages will be `example_pkg` as that's the only package present.
+  list of packages will be ``example_pkg`` as that's the only package present.
 - ``classifiers`` gives the index and :ref:`pip` some additional metadata
   about your package. In this case, the package is only compatible with Python
   3, is licensed under the MIT license, and is OS-independent. You should
@@ -229,7 +229,7 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register an account on `Test PyPI`. Test
+The first thing you'll need to do is register an account on ``Test PyPI``. Test
 PyPI is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to

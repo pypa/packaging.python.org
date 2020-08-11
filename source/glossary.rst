@@ -121,8 +121,8 @@ Glossary
 
     Pure Module
 
-        A :term:`module` written in Python and contained in a single `.py` file (and
-        possibly associated `.pyc` and/or `.pyo` files).
+        A :term:`module` written in Python and contained in a single ``.py`` file (and
+        possibly associated ``.pyc`` and/or ``.pyo`` files).
 
 
     Python Packaging Authority (PyPA)
@@ -147,7 +147,7 @@ Glossary
 
         `pypi.org <https://pypi.org>`_ is the domain name for the
         :term:`Python Package Index (PyPI)`. It replaced the legacy index
-        domain name, `pypi.python.org`, in 2017. It is powered by
+        domain name, ``pypi.python.org``, in 2017. It is powered by
         :ref:`warehouse`.
 
     pyproject.toml

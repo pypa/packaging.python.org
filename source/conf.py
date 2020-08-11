@@ -99,8 +99,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
-#
-# default_role = None
+# Ref: python-attrs/attrs#571
+default_role = 'any'  # makes single backticks autofind targets
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #

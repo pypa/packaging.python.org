@@ -4,7 +4,7 @@
 Using TestPyPI
 ==============
 
-`TestPyPI` is a separate instance of the :term:`Python Package Index (PyPI)`
+``TestPyPI`` is a separate instance of the :term:`Python Package Index (PyPI)`
 that allows you to try out the distribution tools and process without worrying
 about affecting the real index. TestPyPI is hosted at
 `test.pypi.org <https://test.pypi.org>`_

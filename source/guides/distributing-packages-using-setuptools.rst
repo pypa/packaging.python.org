@@ -815,10 +815,10 @@ To build the wheel:
  python setup.py bdist_wheel
 
 
-`bdist_wheel` will detect that the code is pure Python, and build a wheel that's
-named such that it's usable on any Python installation with the same major
-version (Python 2 or Python 3) as the version you used to build the wheel.  For
-details on the naming of wheel files, see :pep:`425`.
+``bdist_wheel`` will detect that the code is pure Python, and build a wheel
+that's named such that it's usable on any Python installation with the same
+major version (Python 2 or Python 3) as the version you used to build the
+wheel.  For details on the naming of wheel files, see :pep:`425`.
 
 If your code supports both Python 2 and 3, but with different code (e.g., you
 use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
@@ -842,9 +842,9 @@ To build the wheel:
  python setup.py bdist_wheel
 
 
-`bdist_wheel` will detect that the code is not pure Python, and build a wheel
-that's named such that it's only usable on the platform that it was built
-on. For details on the naming of wheel files, see :pep:`425`.
+:command:`bdist_wheel` will detect that the code is not pure Python, and build
+a wheel that's named such that it's only usable on the platform that it was
+built on. For details on the naming of wheel files, see :pep:`425`.
 
 .. note::
 
