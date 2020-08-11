@@ -11,7 +11,9 @@ import nox
 def build(session, autobuild=False):
     session.install("-r", "requirements.txt")
 
-    shutil.rmtree("build", ignore_errors=True)
+    target_build_dir = "build"
+
+    shutil.rmtree(target_build_dir, ignore_errors=True)
 
     if autobuild:
         command = "sphinx-autobuild"
@@ -20,7 +22,13 @@ def build(session, autobuild=False):
         command = "sphinx-build"
         extra_args = ()
 
-    session.run(command, *extra_args, "-W", "-b", "html", "source", "build")
+    session.run(
+        command, *extra_args,
+        "-b", "html",  # use HTML builder
+        "-W",  # Treat warnings as errors.
+        "source",  # where the rst files are located
+        target_build_dir,  # where to put the html output
+    )
 
 
 @nox.session(py="3")
