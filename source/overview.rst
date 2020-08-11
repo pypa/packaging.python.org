@@ -79,7 +79,7 @@ Python source distributions
 
 If your code consists of multiple Python files, it's usually organized
 into a directory structure. Any directory containing Python files can
-comprise an :term:`import package`.
+comprise an :term:`Import Package`.
 
 Because packages consist of multiple files, they are harder to
 distribute. Most protocols support transferring only one file at a
@@ -90,7 +90,7 @@ to guarantee code integrity at the destination.
 So long as your code contains nothing but pure Python code, and you
 know your deployment environment supports your version of Python, then
 you can use Python's native packaging tools to create a *source*
-:term:`distribution package`, or *sdist* for short.
+:term:`Distribution Package`, or *sdist* for short.
 
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
@@ -124,7 +124,7 @@ in C, C++, Fortran, Rust, and other languages.
 
 Not all developers have the right tools or experiences to build these
 components written in these compiled languages, so Python created the
-:term:`wheel`, a package format designed to ship libraries with
+:term:`Wheel`, a package format designed to ship libraries with
 compiled artifacts. In fact, Python's package installer, ``pip``,
 always prefers wheels because installation is always faster, so even
 pure-Python packages work better with wheels.

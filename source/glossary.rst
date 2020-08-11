@@ -27,7 +27,7 @@ Glossary
     Distribution Package
 
         A versioned archive file that contains Python :term:`packages <Import
-        Package>`, :term:`modules <module>`, and other resource files that are
+        Package>`, :term:`modules <Module>`, and other resource files that are
         used to distribute a :term:`Release`. The archive file is what an
         end-user will download from the internet and install.
 
@@ -49,7 +49,7 @@ Glossary
 
     Extension Module
 
-        A :term:`module` written in the low-level language of the Python implementation:
+        A :term:`Module` written in the low-level language of the Python implementation:
         C/C++ for Python, Java for Jython. Typically contained in a single
         dynamically loadable pre-compiled file, e.g.  a shared object (.so) file
         for Python extensions on Unix, a DLL (given the .pyd extension) for
@@ -121,7 +121,7 @@ Glossary
 
     Pure Module
 
-        A :term:`module` written in Python and contained in a single ``.py`` file (and
+        A :term:`Module` written in Python and contained in a single ``.py`` file (and
         possibly associated ``.pyc`` and/or ``.pyo`` files).
 
 
@@ -152,7 +152,7 @@ Glossary
 
     pyproject.toml
 
-        The tool-agnostic :term:`project` specification file.
+        The tool-agnostic :term:`Project` specification file.
         Defined in :pep:`518`.
 
     Release

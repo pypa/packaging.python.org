@@ -76,7 +76,7 @@ environments. Allowing access to distributions installed into the system Python
 when using virtual environments is a common approach to working around this
 limitation.
 
-The :term:`wheel` project also provides a :command:`wheel convert` subcommand that can
+The :term:`Wheel` project also provides a :command:`wheel convert` subcommand that can
 convert a Windows :command:`bdist_wininst` installer to a wheel.
 
 .. preserve old links to this heading
