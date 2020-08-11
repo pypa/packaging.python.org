@@ -20,7 +20,9 @@ def build(session, autobuild=False):
         extra_args = "-H", "0.0.0.0"
     else:
         command = "sphinx-build"
-        extra_args = ()
+        extra_args = (
+            "--color",  # colorize the output, unsupported by autobuild
+        )
 
     session.run(
         command, *extra_args,
