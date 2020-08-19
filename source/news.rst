@@ -164,7 +164,7 @@ September 2017
 
 - Encouraged using ``readme_renderer`` to validate :file:`README.rst`.
   (:pr:`379`)
-- Recommended using the `--user-base` option. (:pr:`374`)
+- Recommended using the ``--user-base`` option. (:pr:`374`)
 
 August 2017
 -----------

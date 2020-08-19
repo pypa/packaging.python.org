@@ -212,14 +212,14 @@ Using :ref:`virtualenv`:
 
 For more information, see the `venv`_ docs or the `virtualenv <http://virtualenv.pypa.io>`_ docs.
 
-The use of `source` under Unix shells ensures
+The use of :command:`source` under Unix shells ensures
 that the virtual environment's variables are set within the current
 shell, and not in a subprocess (which then disappears, having no
 useful effect).
 
 In both of the above cases, Windows users should _not_ use the
-`source` command, but should rather run the `activate` script directly
-from the command shell like so:
+:command:`source` command, but should rather run the :command:`activate`
+script directly from the command shell like so:
 
 ::
 
@@ -305,7 +305,7 @@ in the future.
 Upgrading packages
 ==================
 
-Upgrade an already installed `SomeProject` to the latest from PyPI.
+Upgrade an already installed ``SomeProject`` to the latest from PyPI.
 
 ::
 
@@ -484,8 +484,8 @@ Install `setuptools extras`_.
 ----
 
 .. [1] "Secure" in this context means using a modern browser or a
-       tool like `curl` that verifies SSL certificates when downloading from
-       https URLs.
+       tool like :command:`curl` that verifies SSL certificates when
+       downloading from https URLs.
 
 .. [2] Depending on your platform, this may require root or Administrator
        access. :ref:`pip` is currently considering changing this by `making user

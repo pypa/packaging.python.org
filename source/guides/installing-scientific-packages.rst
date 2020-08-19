@@ -23,7 +23,7 @@ Starting with version 1.10.4 of NumPy and version 1.0.0 of SciPy, pre-built
 32-bit and 64-bit binaries in the ``wheel`` format are available for all major
 operating systems (Windows, macOS, and Linux) on PyPI. Note, however, that on
 Windows, NumPy binaries are linked against the `ATLAS
-<http://www.netlib.org/atlas/>` BLAS/LAPACK library, restricted to SSE2
+<http://www.netlib.org/atlas/>`__ BLAS/LAPACK library, restricted to SSE2
 instructions, so they may not provide optimal linear algebra performance.
 
 There are a number of alternative options for obtaining scientific Python
@@ -76,8 +76,8 @@ environments. Allowing access to distributions installed into the system Python
 when using virtual environments is a common approach to working around this
 limitation.
 
-The `wheel` project also provides a `wheel convert` subcommand that can
-convert a Windows `bdist_wininst` installer to a wheel.
+The :term:`Wheel` project also provides a :command:`wheel convert` subcommand that can
+convert a Windows :command:`bdist_wininst` installer to a wheel.
 
 .. preserve old links to this heading
 .. _mac-os-x-installers-and-package-managers:
@@ -142,6 +142,6 @@ packages, it is not limited to just Python packages. It has full support for
 native virtual environments. Conda makes environments first-class citizens,
 making it easy to create independent environments even for C libraries. It is
 written in Python, but is Python-agnostic. Conda manages Python itself as a
-package, so that `conda update python` is possible, in contrast to pip, which
-only manages Python packages. Conda is available in Anaconda and Miniconda (an
-easy-to-install download with just Python and conda).
+package, so that :command:`conda update python` is possible, in contrast to
+pip, which only manages Python packages. Conda is available in Anaconda and
+Miniconda (an easy-to-install download with just Python and conda).

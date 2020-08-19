@@ -3,7 +3,7 @@
 Migrating to PyPI.org
 =====================
 
-:term:`PyPI.org` is the new, rewritten version of PyPI that has replaced the
+:term:`pypi.org` is the new, rewritten version of PyPI that has replaced the
 legacy PyPI code base. It is the default version of PyPI that people are
 expected to use. These are the tools and processes that people will need to
 interact with ``PyPI.org``.
