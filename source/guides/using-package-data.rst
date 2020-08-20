@@ -117,16 +117,13 @@ Accessing package data
 ======================
 
 There have been multiple ways to access package data over the years, from
-|pkg_resources' ResourceManager API|__ to |pkgutil.get_data()|__, but the most
-recent and currently-recommended way is with the `importlib-resources`__
-package.
+|pkg_resources' ResourceManager API|__ to :py:func:`pkgutil.get_data()`, but
+the most recent and currently-recommended way is with the
+`importlib-resources`__ package.
 
 .. |pkg_resources' ResourceManager API| replace:: ``pkg_resources``' ``ResourceManager`` API
 .. __: https://setuptools.readthedocs.io/en/latest/pkg_resources.html
        #resourcemanager-api
-
-.. |pkgutil.get_data()| replace:: ``pkgutil.get_data()``
-.. __: https://docs.python.org/3/library/pkgutil.html#pkgutil.get_data
 
 .. __: http://importlib-resources.readthedocs.io
 
