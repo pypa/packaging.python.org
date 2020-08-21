@@ -59,7 +59,7 @@ Additional installer-specific files may be present.
 .. note::
 
    The :ref:`binary-distribution-format` specification describes additional
-   files that may appear in the ``.dist-info`` directory of a :term:`wheel`.
+   files that may appear in the ``.dist-info`` directory of a :term:`Wheel`.
    Such files may be copied to the ``.dist-info`` directory of an
    installed project.
 
