@@ -81,7 +81,8 @@ The RECORD file
 The ``RECORD`` file holds the list of installed files.
 It is a CSV file containing one record (line) per installed file.
 
-The CSV dialect must be readable with the default `reader` of Python's `csv` module:
+The CSV dialect must be readable with the default ``reader`` of Python's
+``csv`` module:
 
 * field delimiter: ``,`` (comma),
 * quoting char: ``"`` (straight double quote),
@@ -110,7 +111,7 @@ For other files, leaving the information out is discouraged, as it
 prevents verifying the integrity of the installed project.
 
 If the ``RECORD`` file is present, it must list all installed files of the
-project, except `.pyc` files corresponding to `.py` files listed in
+project, except ``.pyc`` files corresponding to ``.py`` files listed in
 ``RECORD``, which are optional.
 Notably, the contents of the ``.dist-info`` directory (including the ``RECORD``
 file itself) must be listed.
