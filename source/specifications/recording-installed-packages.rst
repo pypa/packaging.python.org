@@ -50,7 +50,10 @@ below:
 * ``REQUESTED``: indicates that the project installation was explicitly
   requested (i.e., not installed as a dependency).
 
-Only the ``METADATA`` file is mandatory.
+The ``METADATA`` file is mandatory.
+The ``REQUESTED`` file must be written when applicable
+(see the corresponding section).
+All other files may be omitted at the installing tool's discretion.
 Additional installer-specific files may be present.
 
 .. note::
@@ -103,7 +106,7 @@ as a base 10 integer.
 For any file, either or both of the *hash* and *size* fields may be left empty.
 Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself have empty
 *hash* and *size*.
-For other files, leaving the information out is not recommended, as it
+For other files, leaving the information out is discouraged, as it
 prevents verifying the integrity of the installed project.
 
 If the ``RECORD`` file is present, it must list all installed files of the
@@ -136,6 +139,11 @@ Here is an example snippet of a possible ``RECORD`` file::
     blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
     blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
     blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530
+
+If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must not
+atempt to uninstall or upgrade the package.
+(This does not apply to tools that rely on other sources of information,
+such as system package managers in Linux distros.)
 
 
 The INSTALLER file
@@ -179,6 +187,9 @@ beginning with the ``"#"`` character.
 
 If an install tool installs a distribution automatically, as a dependency of
 another distribution, the ``REQUESTED`` file should not be created.
+
+If an install tool cannot determine whether installation was requested
+by the user, it must default to creating the ``REQUESTED`` file.
 
 If a distribution that was already installed on the system as a dependency
 is later installed by name, tools should create the ``REQUESTED`` file in the
