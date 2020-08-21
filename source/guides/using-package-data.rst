@@ -13,6 +13,12 @@ are included in & accessed from your project as follows.
 Including package data
 ======================
 
+.. note::
+
+    The following instructions only pertain to projects built with setuptools.
+    Users of flit, Poetry, and other tools must consult the respective
+    backend's documentation to see how to include package data.
+
 The first requirement for being able to include package data in your package is
 for the files to be located somewhere inside the directory that is your
 project's :term:`import package <Import Package>`.  If your project is a
@@ -23,19 +29,26 @@ Once your package data is inside the import package, you must tell setuptools
 to include the files in both the :term:`wheel <Wheel>` (so that the files will
 be installed when your package is installed) and :term:`sdist <Source
 Distribution (or "sdist")>` (so that the files can be included in the wheel
-when building from an sdist).  There are two ways to do this: a blanket
-"include all" method and a fine-grained method.
+when building from an sdist).  There are two main ways to do this: a blanket
+"include all" method (in which package data is configured through the
+:file:`MANIFEST.in` file) and a fine-grained method (in which package data is
+configured in :file:`setup.py` or :file:`setup.cfg` one package & subpackage at
+a time).
 
 
-Blanket Method
+Blanket method
 --------------
 
 There are two steps to this method:
 
 1. In your :file:`setup.py`, pass ``include_package_data=True`` to the
-   ``setup()`` function.  This tells setuptools that any non-Python files found
-   inside your import package that are included in the sdist should also be
-   included in the wheel.
+   ``setup()`` function.   If you are placing your project configuration in
+   :file:`setup.cfg` instead, set ``include_package_data = True`` in the
+   ``[options]`` section of :file:`setup.cfg`.
+
+   Doing this tells setuptools that any non-Python files found inside your
+   import package that are included in the sdist should also be included in the
+   wheel.
 
 2. Create or edit your project's :file:`MANIFEST.in` file with the proper
    commands so that all of your package data files are included in the
@@ -51,7 +64,7 @@ There are two steps to this method:
    are not included.
 
 
-Fine-Grained Method
+Fine-grained method
 -------------------
 
 The fine-grained method allows you to specify package data file patterns on a
@@ -79,12 +92,34 @@ A sample ``package_data`` looks like this:
         "mypkg": ["data/*.dat"],
     }
 
+If your are placing your project configuration in :file:`setup.cfg`, you must
+instead specify ``package_data`` via an ``[options.package_data]`` section in
+which the keys are the package & subpackage names — using ``*`` instead of the
+empty string to signify all packages — and the values are comma-separated glob
+patterns.  The above ``setup.py`` sample translates to ``setup.cfg`` as
+follows:
+
+.. code-block:: ini
+
+    [options.package_data]
+    # If any package or subpackage contains *.txt or *.rst files, include them:
+    * = *.txt, *.rst
+    # Include any *.msg files found in the "hello" package (but not in its
+    # subpackages):
+    hello = *.msg
+    # Include any *.csv files found in the "hello.utils" package:
+    hello.utils = *.csv
+    # Include any *.dat files found in the "data" subdirectory of the "mypkg"
+    # package:
+    mypkg = data/*.dat
+
 Note that glob patterns only select files located directly within the given
 package (or in the given subdirectory of the package, if the pattern includes a
 directory path); e.g., ``"hello": ["*.msg"]`` selects ``*.msg`` files in the
 ``hello`` package but not in any of its subpackages.  To select files in
 subpackages, you must either include an entry for each subpackage or else use
-the empty string key to specify a pattern for all packages & subpackages.
+the empty string key (or asterisk key in :file:`setup.cfg`) to specify a
+pattern for all packages & subpackages.
 
 If a pattern contains any directory components, the forward slash (``/``) must
 be used as the directory separator, even on Windows.
@@ -102,7 +137,7 @@ file must be listed in ``package_data`` in the form
     sdists; you must instead list them in your :file:`MANIFEST.in`.
 
 
-Excluding Files
+Excluding files
 ---------------
 
 The ``exclude_package_data`` argument to ``setup()`` can be used in conjunction
@@ -111,6 +146,27 @@ treated as package data.  ``exclude_package_data`` takes a :py:class:`dict`
 with the same structure as ``package_data``, and any matched files are excluded
 from wheels.  Matched files are also excluded from sdists if they are not
 already matched by the project's :file:`MANIFEST.in`.
+
+In a :file:`setup.cfg`, ``exclude_package_data`` becomes an
+``[options.exclude_package_data]`` section whose contents have the same
+structure as ``[options.package_data]``.
+
+
+Including files via setuptools plugins
+--------------------------------------
+
+As an alternative to the above methods, you can use a plugin for setuptools
+that automatically recognizes & includes package data in sdists & wheels,
+usually based on what files in the project directory are under verson control.
+One example of such a plugin is setuptools_scm_, which automatically finds all
+files under version control in a Git or Mercurial repository and augments the
+project's :file:`MANIFEST.in` (if any) with the found files.  This eliminates
+the need to write a :file:`MANIFEST.in` manually (unless there are files under
+version control that you want to exclude from sdists or wheels), though you
+still need to set ``include_package_data`` to ``True`` for files in your import
+package directory to be included in wheels.
+
+.. _setuptools_scm: https://github.com/pypa/setuptools_scm
 
 
 Accessing package data
