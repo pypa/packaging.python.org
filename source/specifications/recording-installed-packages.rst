@@ -5,7 +5,7 @@ Recording installed projects
 ============================
 
 This document specifies a common format of recording information
-about Python :term:`projects <project>` installed in an environment.
+about Python :term:`projects <Project>` installed in an environment.
 A common metadata format allows tools to query, manage or uninstall projects,
 regardless of how they were installed.
 
