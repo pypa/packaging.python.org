@@ -47,12 +47,8 @@ below:
 * ``METADATA``: contains project metadata
 * ``RECORD``: records the list of installed files.
 * ``INSTALLER``: records the name of the tool used to install the project.
-* ``REQUESTED``: indicates that the project installation was explicitly
-  requested (i.e., not installed as a dependency).
 
 The ``METADATA`` file is mandatory.
-The ``REQUESTED`` file must be written when applicable
-(see the corresponding section).
 All other files may be omitted at the installing tool's discretion.
 Additional installer-specific files may be present.
 
@@ -62,6 +58,11 @@ Additional installer-specific files may be present.
    files that may appear in the ``.dist-info`` directory of a :term:`Wheel`.
    Such files may be copied to the ``.dist-info`` directory of an
    installed project.
+
+The previous versions of this specification also specified a ``REQUESTED``
+file. This file is now considered a tool-specific extension, but may be
+standardized again in the future. See `PEP 376 <https://www.python.org/dev/peps/pep-0376/#requested>`_
+for its original meaning.
 
 
 The METADATA file
@@ -170,28 +171,3 @@ This value should be used for informational purposes only.
 For example, if a tool is asked to uninstall a project but finds no ``RECORD``
 file, it may suggest that the tool named in ``INSTALLER`` may be able to do the
 uninstallation.
-
-
-The REQUESTED file
-==================
-
-Some install tools automatically detect unfulfilled dependencies and install
-them. In these cases, it is useful to track which distributions were installed
-purely as a dependency, so if their dependent distribution is later
-uninstalled, the user can be alerted of the orphaned dependency.
-
-If a distribution is installed by direct user request (the usual case), a
-file named ``REQUESTED`` must be added to the ``.dist-info`` directory of the
-installed distribution.
-The ``REQUESTED`` file may be empty, or may contain a marker comment line
-beginning with the ``"#"`` character.
-
-If an install tool installs a distribution automatically, as a dependency of
-another distribution, the ``REQUESTED`` file should not be created.
-
-If an install tool cannot determine whether installation was requested
-by the user, it must default to creating the ``REQUESTED`` file.
-
-If a distribution that was already installed on the system as a dependency
-is later installed by name, tools should create the ``REQUESTED`` file in the
-``.dist-info`` directory of the existing installation.
