@@ -59,9 +59,12 @@ There are two steps to this method:
    package to be treated as package data — you can simply include your entire
    import package in your sdist with the :file:`MANIFEST.in` command
    ":samp:`graft {packagename}`" (or ":samp:`graft src`" if you're using a
-   ``src/`` layout).  If you use this command, you should also follow it with
+   |src/ layout|_).  If you use this command, you should also follow it with
    ":samp:`global-exclude *.py[cod]`" so that compiled Python bytecode files
    are not included.
+
+   .. |src/ layout| replace:: ``src/`` layout
+   .. _src/ layout: https://hynek.me/articles/testing-packaging/
 
 
 Fine-grained method
