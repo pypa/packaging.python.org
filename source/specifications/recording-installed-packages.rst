@@ -34,12 +34,14 @@ backwards compatibility considerations.
 The .dist-info directory
 ========================
 
-Each project installed from a distribution shall, in addition to files,
-install a "``.dist-info``" directory located alongside Importable modules and
+Each project installed from a distribution must, in addition to files,
+install a "``.dist-info``" directory located alongside importable modules and
 packages (commonly, the ``site-packages`` directory).
 
 This directory is named as ``{name}-{version}.dist-info``, with `name` and
 `version` fields corresponding to :ref:`core-metadata`.
+The name field must be in normalized form (see `PEP 503 <https://www.python.org/dev/peps/pep-0503/#normalized-names>`_
+for the definition of normalization).
 
 This ``.dist-info`` directory can contain these files, described in detail
 below:
@@ -73,7 +75,7 @@ specification, version 1.1 or greater.
 
 The ``METADATA`` file is mandatory.
 If it cannot be created, or if required core metadata is not available,
-no ``.dist-info`` directory should be created at all.
+installers must report an error and fail to install the project.
 
 
 The RECORD file
