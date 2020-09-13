@@ -477,14 +477,13 @@ picking which version of a project to install.
 
 The value must be in the format specified in :doc:`version-specifiers`.
 
-This field may be followed by an environment marker after a semicolon.
+This field cannot be followed by an environment marker.
 
 Examples::
 
     Requires-Python: >=3
     Requires-Python: >2.6,!=3.0.*,!=3.1.*
     Requires-Python: ~=2.6
-    Requires-Python: >=3; sys_platform == 'win32'
 
 
 Requires-External (multiple use)
