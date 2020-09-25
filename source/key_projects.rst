@@ -517,15 +517,8 @@ piwheels
 piwheels is a website, and software underpinning it, that fetches
 source code distribution packages from PyPI and compiles them into
 binary wheels that are optimized for installation onto Raspberry Pi
-computers. pip in Raspbian is pre-configured to use piwheels.org as
+computers. Raspberry Pi OS pre-configures pip to use piwheels.org as
 an additional index to PyPI.
-
-  .. warning::
-
-    Note that piwheels `does not yet fully support
-    <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
-    thus some users have trouble installing certain wheels; this is in
-    progress.
 
 .. _poetry:
 
