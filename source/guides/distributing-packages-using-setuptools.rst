@@ -446,7 +446,7 @@ that should be copied into the package. The paths are interpreted as relative to
 the directory containing the package.
 
 For more information, see `Including Data Files
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files>`_
+<https://setuptools.readthedocs.io/en/latest/userguide/datafiles.html>`_
 from the `setuptools docs <https://setuptools.readthedocs.io>`_ or :ref:`Using
 package data` in this guide.
 
