@@ -24,14 +24,14 @@ For other installation methods, see this `installation guide`_ by Sphinx.
 Getting Started With Sphinx
 ---------------------------
 
-Create a ``doc`` directory inside your project to hold your documentation:
+Create a ``docs`` directory inside your project to hold your documentation:
 
 .. code-block:: bash
 
 	cd /path/to/project
 	mkdir docs
 
-Run ``spinx-quickstart`` inside the ``docs`` directory:
+Run ``sphinx-quickstart`` inside the ``docs`` directory:
 
 .. code-block:: bash
 
