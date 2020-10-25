@@ -38,10 +38,22 @@ Each project installed from a distribution must, in addition to files,
 install a "``.dist-info``" directory located alongside importable modules and
 packages (commonly, the ``site-packages`` directory).
 
-This directory is named as ``{name}-{version}.dist-info``, with `name` and
-`version` fields corresponding to :ref:`core-metadata`.
-The name field must be in normalized form (see `PEP 503 <https://www.python.org/dev/peps/pep-0503/#normalized-names>`_
-for the definition of normalization).
+This directory is named as ``{name}-{version}.dist-info``, with ``name`` and
+``version`` fields corresponding to :ref:`core-metadata`. Both fields must be
+normalized (see :pep:`PEP 503 <503#normalized-names>` and
+:pep:`PEP 440 <440#normalization>` for the definition of normalization for
+each field respectively), and replace dash (``-``) characters with
+underscore (``_``) chacaters, so the ``.dist-info`` directory always has
+exactly one dash (``-``) character in its stem, separating the ``name`` and
+``version`` fields.
+
+Historically, tools have failed to replace dot characters or normalize case in
+the ``name`` field, or not perform normalization in the ``version`` field.
+Tools consuming ``.dist-info`` directories should expect those fields to be
+unnormalized, and treat them as equivalent to their normalized counterparts.
+New tools that write ``.dist-info`` directories MUST normalize both ``name``
+and ``version`` fields using the rules described above, and existing tools are
+encouraged to start normalizing those fields.
 
 This ``.dist-info`` directory can contain these files, described in detail
 below:
