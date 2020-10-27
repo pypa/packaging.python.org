@@ -68,23 +68,25 @@ the `BigQuery quickstart guide
 Data schema
 -----------
 
-Linehaul writes an entry in a ``the-psf.pypi.downloadsYYYYMMDD`` table for each
+Linehaul writes an entry in a ``the-psf.pypi.file_downloads`` table for each
 download. The table contains information about what file was downloaded and how
 it was downloaded. Some useful columns from the `table schema
-<https://console.cloud.google.com/bigquery?pli=1&p=the-psf&d=pypi&t=downloads&page=table>`__
+<https://console.cloud.google.com/bigquery?pli=1&p=the-psf&d=pypi&t=file_downloads&page=table>`__
 include:
 
-+------------------------+-----------------+-----------------------+
-| Column                 | Description     | Examples              |
-+========================+=================+=======================+
-| file.project           | Project name    | ``pipenv``, ``nose``  |
-+------------------------+-----------------+-----------------------+
-| file.version           | Package version | ``0.1.6``, ``1.4.2``  |
-+------------------------+-----------------+-----------------------+
-| details.installer.name | Installer       | pip, `bandersnatch`_  |
-+------------------------+-----------------+-----------------------+
-| details.python         | Python version  | ``2.7.12``, ``3.6.4`` |
-+------------------------+-----------------+-----------------------+
++------------------------+-----------------+-----------------------------+
+| Column                 | Description     | Examples                    |
++========================+=================+=============================+
+| timestamp              | Date and time   | ``2020-03-09 00:33:03 UTC`` |
++------------------------+-----------------+-----------------------------+
+| file.project           | Project name    | ``pipenv``, ``nose``        |
++------------------------+-----------------+-----------------------------+
+| file.version           | Package version | ``0.1.6``, ``1.4.2``        |
++------------------------+-----------------+-----------------------------+
+| details.installer.name | Installer       | pip, `bandersnatch`_        |
++------------------------+-----------------+-----------------------------+
+| details.python         | Python version  | ``2.7.12``, ``3.6.4``       |
++------------------------+-----------------+-----------------------------+
 
 
 Useful queries
@@ -92,11 +94,9 @@ Useful queries
 
 Run queries in the `BigQuery web UI`_ by clicking the "Compose query" button.
 
-Note that the rows are stored in separate tables for each day, which helps
+Note that the rows are stored in a partitioned, which helps
 limit the cost of queries. These example queries analyze downloads from
-recent history by using `wildcard tables
-<https://cloud.google.com/bigquery/docs/querying-wildcard-tables>`__ to
-select all tables and then filter by ``_TABLE_SUFFIX``.
+recent history by filtering on the ``timestamp`` column.
 
 Counting package downloads
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,18 +108,17 @@ The following query counts the total number of downloads for the project
 
     #standardSQL
     SELECT COUNT(*) AS num_downloads
-    FROM `the-psf.pypi.downloads*`
+    FROM `the-psf.pypi.file_downloads`
     WHERE file.project = 'pytest'
       -- Only query the last 30 days of history
-      AND _TABLE_SUFFIX
-        BETWEEN FORMAT_DATE(
-          '%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY))
-        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())
+      AND DATE(timestamp)
+        BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        AND CURRENT_DATE())
 
 +---------------+
 | num_downloads |
 +===============+
-| 2117807       |
+| 20531925      |
 +---------------+
 
 To only count downloads from pip, filter on the ``details.installer.name``
@@ -129,71 +128,94 @@ column.
 
     #standardSQL
     SELECT COUNT(*) AS num_downloads
-    FROM `the-psf.pypi.downloads*`
+    FROM `the-psf.pypi.file_downloads`
     WHERE file.project = 'pytest'
       AND details.installer.name = 'pip'
       -- Only query the last 30 days of history
-      AND _TABLE_SUFFIX
-        BETWEEN FORMAT_DATE(
-          '%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY))
-        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())
+      AND DATE(timestamp)
+        BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        AND CURRENT_DATE())
 
 +---------------+
 | num_downloads |
 +===============+
-| 1829322       |
+| 19391645      |
 +---------------+
 
 Package downloads over time
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To group by monthly downloads, use the ``_TABLE_SUFFIX`` pseudo-column. Also
-use the pseudo-column to limit the tables queried and the corresponding
-costs.
+To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also
+filtering by this column reduces corresponding costs.
 
 ::
 
     #standardSQL
     SELECT
       COUNT(*) AS num_downloads,
-      SUBSTR(_TABLE_SUFFIX, 1, 6) AS `month`
-    FROM `the-psf.pypi.downloads*`
+      DATE_TRUNC(DATE(timestamp), MONTH) AS `month`
+    FROM `the-psf.pypi.file_downloads`
     WHERE
       file.project = 'pytest'
       -- Only query the last 6 months of history
-      AND _TABLE_SUFFIX
-        BETWEEN FORMAT_DATE(
-          '%Y%m01', DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH))
-        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())
+      AND DATE(timestamp)
+        BETWEEN DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH), MONTH)
+        AND CURRENT_DATE()
     GROUP BY `month`
     ORDER BY `month` DESC
 
-+---------------+--------+
-| num_downloads | month  |
-+===============+========+
-| 1956741       | 201801 |
-+---------------+--------+
-| 2344692       | 201712 |
-+---------------+--------+
-| 1730398       | 201711 |
-+---------------+--------+
-| 2047310       | 201710 |
-+---------------+--------+
-| 1744443       | 201709 |
-+---------------+--------+
-| 1916952       | 201708 |
-+---------------+--------+
++---------------+------------+
+| num_downloads | month      |
++===============+============+
+| 1956741       | 2018-01-01 |
++---------------+------------+
+| 2344692       | 2017-12-01 |
++---------------+------------+
+| 1730398       | 2017-11-01 |
++---------------+------------+
+| 2047310       | 2017-10-01 |
++---------------+------------+
+| 1744443       | 2017-09-01 |
++---------------+------------+
+| 1916952       | 2017-08-01 |
++---------------+------------+
 
-More queries
-~~~~~~~~~~~~
+Python versions over time
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- `Data driven decisions using PyPI download statistics
-  <https://langui.sh/2016/12/09/data-driven-decisions/>`__
-- `PyPI queries gist <https://gist.github.com/alex/4f100a9592b05e9b4d63>`__
-- `Python versions over time
-  <https://github.com/tswast/code-snippets/blob/master/2018/python-community-insights/Python%20Community%20Insights.ipynb>`__
-- `Non-Windows downloads, grouped by platform
-  <https://bigquery.cloud.google.com/savedquery/51422494423:ff1976af63614ad4a1258d8821dd7785>`__
+Extract the Python version from the ``details.python`` column. Warning: This
+query processes over 500 GB of data.
+
+::
+
+    #standardSQL
+    SELECT
+      REGEXP_EXTRACT(details.python, r"[0-9]+\.[0-9]+") AS python_version,
+      COUNT(*) AS num_downloads,
+    FROM `the-psf.pypi.file_downloads`
+    WHERE
+      -- Only query the last 6 months of history
+      DATE(timestamp)
+        BETWEEN DATE_TRUNC(DATE_SUB(CURRENT_DATE(), INTERVAL 6 MONTH), MONTH)
+        AND CURRENT_DATE()
+    GROUP BY `python_version`
+    ORDER BY `num_downloads` DESC
+
++--------+---------------+
+| python | num_downloads |
++========+===============+
+| 3.7    | 12990683561   |
++--------+---------------+
+| 3.6    | 9035598511    |
++--------+---------------+
+| 2.7    | 8467785320    |
++--------+---------------+
+| 3.8    | 4581627740    |
++--------+---------------+
+| 3.5    | 2412533601    |
++--------+---------------+
+| null   | 1641456718    |
++--------+---------------+
 
 Caveats
 =======
@@ -229,13 +251,12 @@ the official Python client library for BigQuery.
 
     query_job = client.query("""
     SELECT COUNT(*) AS num_downloads
-    FROM `the-psf.pypi.downloads*`
+    FROM `the-psf.pypi.file_downloads`
     WHERE file.project = 'pytest'
-    -- Only query the last 30 days of history
-    AND _TABLE_SUFFIX
-        BETWEEN FORMAT_DATE(
-            '%Y%m%d', DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY))
-        AND FORMAT_DATE('%Y%m%d', CURRENT_DATE())""")
+      -- Only query the last 30 days of history
+      AND DATE(timestamp)
+        BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+        AND CURRENT_DATE()""")
 
     results = query_job.result()  # Waits for job to complete.
     for row in results:
