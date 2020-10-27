@@ -146,8 +146,7 @@ Package downloads over time
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also
-filtering by this column reduces corresponding costs. (Warning: This query
-processes over 500 GB of data.)
+filtering by this column reduces corresponding costs.
 
 ::
 
@@ -184,7 +183,8 @@ processes over 500 GB of data.)
 Python versions over time
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Extract the Python version from the ``details.python`` column.
+Extract the Python version from the ``details.python`` column. Warning: This
+query processes over 500 GB of data.
 
 ::
 
