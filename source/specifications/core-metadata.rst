@@ -102,6 +102,9 @@ the metadata of the sdist from which the wheel was built. If a field is named in
 ``Dynamic`` in the sdist, then there is no constraint on what value that field
 may have in wheels built from the sdist.
 
+If the sdist metadata version is older than version 2.2, then there are no
+constraints on the metadata of wheels built from that sdist.
+
 
 Platform (multiple use)
 =======================
