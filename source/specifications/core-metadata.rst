@@ -4,10 +4,6 @@
 Core metadata specifications
 ============================
 
-The current core metadata file format, version 2.1, is specified in :pep:`566`.
-It defines the following specification as the canonical source for the core
-metadata file format.
-
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
 
@@ -32,7 +28,8 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
+Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1"
+and "2.2".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -46,7 +43,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.1
+    Metadata-Version: 2.2
 
 
 Name
@@ -80,6 +77,30 @@ field  must be in the format specified in :pep:`440`.
 Example::
 
     Version: 1.0a2
+
+
+Dynamic (multiple use)
+======================
+
+.. versionadded:: 2.2
+
+Only permitted in source distribution (sdist) file metadata.
+
+A string containing the name of another core metadata field. Only the following
+metadata field names may be used as the value of the ``Dynamic`` field.
+
+* ``Platform``
+* ``Supported-Platform``
+* ``Requires-Dist``
+* ``Requires-External``
+* ``Provides-Extra``
+* ``Provides-Dist``
+* ``Obsoletes-Dist``
+
+Unless specified via ``Dynamic``, *all* metadata in a wheel must be identical to
+the metadata of the sdist from which the wheel was built. If a field is named in
+``Dynamic`` in the sdist, then there is no constraint on what value that field
+may have in wheels built from the sdist.
 
 
 Platform (multiple use)
