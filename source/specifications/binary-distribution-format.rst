@@ -5,4 +5,4 @@
 Binary distribution format
 ==========================
 
-The binary distribution format (``wheel``) is defined in :pep:`427`.
+The binary distribution format (:term:`wheel <Wheel>`) is defined in :pep:`427`.
