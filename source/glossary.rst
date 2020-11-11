@@ -44,7 +44,7 @@ Glossary
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
         which is being replaced by :term:`Wheel`.  For details, see `The
         Internal Structure of Python Eggs
-        <https://setuptools.readthedocs.io/en/latest/formats.html>`_ and
+        <https://setuptools.readthedocs.io/en/latest/deprecated/python_eggs.html>`_ and
         `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
     Extension Module
