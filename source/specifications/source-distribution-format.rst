@@ -6,16 +6,17 @@ Source distribution format
 ==========================
 
 The current standard format of source distribution format is identified by the
-presence of a ``pyproject.toml`` file in the distribution archive.  The layout
+presence of a :file:`pyproject.toml` file in the distribution archive.  The layout
 of such a distribution was originally specified in :pep:`517` and is formally
 documented here.
 
 There is also the legacy source distribution format, implicitly defined by the
 behaviour of ``distutils`` module in the standard library, when executing
-``setup.py sdist``. This document does not attempt to standardise this format,
-except to note that if a legacy source distribution contains a ``PKG-INFO``
-file holding metadata version 2.2 or later, then it MUST follow the rules
-applicable to source distributions defined in the metadata specification.
+:command:`setup.py sdist`. This document does not attempt to standardise this
+format, except to note that if a legacy source distribution contains a
+``PKG-INFO`` file using metadata version 2.2 or later, then it MUST follow
+the rules applicable to source distributions defined in the metadata
+specification.
 
 Source distributions are also known as *sdists* for short.
 
@@ -36,7 +37,7 @@ Source distribution file format
 A ``.tar.gz`` source distribution (sdist) contains a single top-level directory
 called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of
 the package. The name and version MUST match the metadata stored in the file.
-This directory must also contain a ``pyproject.toml`` in the format defined in
+This directory must also contain a :file:`pyproject.toml` in the format defined in
 :ref:`declaring-build-dependencies`, and a ``PKG-INFO`` file containing
 metadata in the format described in the :ref:`core-metadata` specification. The
 metadata MUST conform to at least version 2.2 of the metadata specification.
