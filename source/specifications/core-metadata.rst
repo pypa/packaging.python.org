@@ -84,26 +84,29 @@ Dynamic (multiple use)
 
 .. versionadded:: 2.2
 
-Only permitted in source distribution (sdist) file metadata.
+A string containing the name of another core metadata field. The field
+names ``Name`` and ``Version`` may not be specified in this field.
 
-A string containing the name of another core metadata field. Only the following
-metadata field names may be used as the value of the ``Dynamic`` field.
+When found in the metadata of a source distribution, the following
+rules apply:
 
-* ``Platform``
-* ``Supported-Platform``
-* ``Requires-Dist``
-* ``Requires-External``
-* ``Provides-Extra``
-* ``Provides-Dist``
-* ``Obsoletes-Dist``
+1. If a field is *not* marked as ``Dynamic``, then the value of the field
+   in any wheel built from the sdist MUST match the value in the sdist.
+   If the field is not in the sdist, and not marked as ``Dynamic``, then
+   it MUST NOT be present in the wheel.
+2. If a field is marked as ``Dynamic``, it may contain any valid value in
+   a wheel built from the sdist (including not being present at all).
 
-Unless specified via ``Dynamic``, *all* metadata in a wheel must be identical to
-the metadata of the sdist from which the wheel was built. If a field is named in
-``Dynamic`` in the sdist, then there is no constraint on what value that field
-may have in wheels built from the sdist.
+If the sdist metadata version is older than version 2.2, then all fields should
+be treated as if they were specified with ``Dynamic`` (i.e. there are no special
+restrictions on the metadata of wheels built from the sdist).
 
-If the sdist metadata version is older than version 2.2, then there are no
-constraints on the metadata of wheels built from that sdist.
+In any context other than a source distribution, ``Dynamic`` is for information
+only, and indicates that the field value was calculated at wheel build time,
+and may not be the same as the value in the sdist or in other wheels for the
+project.
+
+Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
 
 Platform (multiple use)

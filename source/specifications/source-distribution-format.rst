@@ -13,9 +13,9 @@ documented here.
 There is also the legacy source distribution format, implicitly defined by the
 behaviour of ``distutils`` module in the standard library, when executing
 ``setup.py sdist``. This document does not attempt to standardise this format,
-except to note that if a legacy sdist contains a ``PKG-INFO`` file holding
-metadata version 2.2 or later, that sdist MUST follow the rules for sdists
-defined by the metadata specification.
+except to note that if a legacy source distribution contains a ``PKG-INFO``
+file holding metadata version 2.2 or later, then it MUST follow the rules
+applicable to source distributions defined in the metadata specification.
 
 Source distributions are also known as *sdists* for short.
 
@@ -33,7 +33,7 @@ in the metadata contained in the file.
 Source distribution file format
 ===============================
 
-A .tar.gz source distribution (sdist) contains a single top-level directory
+A ``.tar.gz`` source distribution (sdist) contains a single top-level directory
 called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of
 the package. The name and version MUST match the metadata stored in the file.
 This directory must also contain a ``pyproject.toml`` in the format defined in
