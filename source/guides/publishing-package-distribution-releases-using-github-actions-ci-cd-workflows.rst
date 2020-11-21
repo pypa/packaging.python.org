@@ -87,7 +87,7 @@ Then, add the following under the ``build-n-publish`` section:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: runs-on:
-   :end-before: Install build
+   :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
 install and activate Python 3.7.
