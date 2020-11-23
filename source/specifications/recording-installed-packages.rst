@@ -55,6 +55,17 @@ New tools that write ``.dist-info`` directories MUST normalize both ``name``
 and ``version`` fields using the rules described above, and existing tools are
 encouraged to start normalizing those fields.
 
+.. note::
+
+    The ``.dist-info`` directory's name is formatted to unambigiously represent
+    a distribution as a filesystem path. Tools presenting a distribution name
+    to a user should avoid using the normalized name, and instead present the
+    specified name (when needed prior to resolution to an installed package),
+    or read the respective fields in Core Metadata, since values listed there
+    are unescaped and accurately reflect the distribution. Libraries should
+    provide API for such tools to consume, so tools can have access to the
+    unnormalized name when displaying distrubution information.
+
 This ``.dist-info`` directory can contain these files, described in detail
 below:
 
