@@ -114,7 +114,7 @@ tools MUST raise an error for unsupported content-types.
 The Python version requirements of the project.
 
 
-``licene``
+``license``
 ==========
 
 - TOML_ type: table
