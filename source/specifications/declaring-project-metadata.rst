@@ -9,6 +9,12 @@ Declaring project metadata
 packaging-related tools to consume. It defines the following
 specification as the canonical source for the format used.
 
+There are two kinds of metadata: *static* and *dynamic*. Static
+metadata is specified in the ``pyproject.toml`` file directly and
+cannot be specified or changed by a tool. Dynamic metadata is listed
+via the ``dynamic`` field (defined later in this specification) and
+represents metadata that a tool will later provide.
+
 The fields defined in this specification MUST be in a table named
 ``[project]`` in ``pyproject.toml``. No tools may add fields to this
 table which are not defined by this specification. For tools wishing
@@ -77,21 +83,22 @@ The summary description of the project.
 The full description of the project (i.e. the README).
 
 The field accepts either a string or a table. If it is a string then
-it is the relative path to a text file containing the full
-description. Tools MUST assume the file's encoding is UTF-8. If the
-file path ends in a case-insensitive ``.md`` suffix, then tools MUST
-assume the content-type is ``text/markdown``. If the file path ends in
-a case-insensitive ``.rst``, then tools MUST assume the content-type
-is ``text/x-rst``. If a tool recognizes more extensions than this PEP,
-they MAY infer the content-type for the user without specifying this
-field as ``dynamic``. For all unrecognized suffixes when a
-content-type is not provided, tools MUST raise an error.
+it is a path relative to ``pyproject.toml`` to a text file containing
+the full description. Tools MUST assume the file's encoding is UTF-8.
+If the file path ends in a case-insensitive ``.md`` suffix, then tools
+MUST assume the content-type is ``text/markdown``. If the file path
+ends in a case-insensitive ``.rst``, then tools MUST assume the
+content-type is ``text/x-rst``. If a tool recognizes more extensions
+than this PEP, they MAY infer the content-type for the user without
+specifying this field as ``dynamic``. For all unrecognized suffixes
+when a content-type is not provided, tools MUST raise an error.
 
 The ``readme`` field may also take a table. The ``file`` key has a
-string value representing a relative path to a file containing the
-full description. The ``text`` key has a string value which is the
-full description. These keys are mutually-exclusive, thus tools MUST
-raise an error if the metadata specifies both keys.
+string value representing a path relative to ``pyproject.toml`` to a
+file containing the full description. The ``text`` key has a string
+value which is the full description. These keys are
+mutually-exclusive, thus tools MUST raise an error if the metadata
+specifies both keys.
 
 A table specified in the ``readme`` field also has a ``content-type``
 field which takes a string specifying the content-type of the full
@@ -115,18 +122,18 @@ The Python version requirements of the project.
 
 
 ``license``
-==========
+===========
 
 - TOML_ type: table
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`License <core-metadata-license>`
 
 The table may have one of two keys. The ``file`` key has a string
-value that is a relative file path to the file which contains the
-license for the project. Tools MUST assume the file's encoding is
-UTF-8. The ``text`` key has a string value which is the license of the
-project.  These keys are mutually exclusive, so a tool MUST raise an
-error if the metadata specifies both keys.
+value that is a file path relative to ``pyproject.toml`` to the file
+which contains the license for the project. Tools MUST assume the
+file's encoding is UTF-8. The ``text`` key has a string value which is
+the license of the project.  These keys are mutually exclusive, so a
+tool MUST raise an error if the metadata specifies both keys.
 
 
 ``authors``/``maintainers``
@@ -291,8 +298,9 @@ provided via tooling later on.
   (i.e. ``dynamic`` is the only way to allow a tool to fill in
   metadata and the user must opt into the filling in).
 - Build back-ends MUST raise an error if the metadata specifies a
-  field in dynamic but the build back-end was unable to provide the
-  data for it.
+  field in ``dynamic`` but the build back-end was unable to determine
+  the data for it (omitting the data, if determined to be the accurate
+  value, is acceptable).
 
 
 .. _RFC 822: https://tools.ietf.org/html/rfc822
