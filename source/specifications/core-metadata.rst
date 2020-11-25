@@ -49,6 +49,8 @@ Example::
     Metadata-Version: 2.1
 
 
+.. _core-metadata-name:
+
 Name
 ====
 
@@ -68,6 +70,8 @@ Example::
 
     Name: BeagleVote
 
+
+.. _core-metadata-version:
 
 Version
 =======
@@ -113,6 +117,8 @@ Example::
     Supported-Platform: i386-win32-2791
 
 
+.. _core-metadata-summary:
+
 Summary
 =======
 
@@ -130,7 +136,9 @@ Example::
    link targets like this one, so that links to the individual sections are not
    broken.
 
+
 .. _description-optional:
+.. _core-metadata-description:
 
 Description
 ===========
@@ -175,7 +183,9 @@ Alternatively, the distribution's description may instead be provided in the
 message body (i.e., after a completely blank line following the headers, with
 no indentation or other special formatting necessary).
 
+
 .. _description-content-type-optional:
+.. _core-metadata-description-content-type:
 
 Description-Content-Type
 ========================
@@ -261,7 +271,9 @@ So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
 ``variant`` defaults to ``GFM`` and thus it is equivalent to the example
 before it.
 
+
 .. _keywords-optional:
+.. _core-metadata-keywords:
 
 Keywords
 ========
@@ -305,7 +317,9 @@ A string containing the URL from which this version of the distribution
 can be downloaded.  (This means that the URL can't be something like
 ".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
 
+
 .. _author-optional:
+.. _core-metadata-author:
 
 Author
 ======
@@ -320,7 +334,9 @@ Example::
     Author: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+
 .. _author-email-optional:
+.. _core-metadata-author-email:
 
 Author-email
 ============
@@ -340,7 +356,9 @@ addresses::
 
     Author-email: cschultz@example.com, snoopy@peanuts.com
 
+
 .. _maintainer-optional:
+.. _core-metadata-maintainer:
 
 Maintainer
 ==========
@@ -359,7 +377,9 @@ Example::
     Maintainer: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+
 .. _maintainer-email-optional:
+.. _core-metadata-maintainer-email:
 
 Maintainer-email
 ================
@@ -383,7 +403,9 @@ addresses::
 
     Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
+
 .. _license-optional:
+.. _core-metadata-license:
 
 License
 =======
@@ -407,6 +429,7 @@ Examples::
 
 
 .. _metadata-classifier:
+.. _core-metadata-classifier:
 
 Classifier (multiple use)
 =========================
@@ -425,6 +448,8 @@ Examples::
     Classifier: Development Status :: 4 - Beta
     Classifier: Environment :: Console (Text Based)
 
+
+.. _core-metadata-requires-dist:
 
 Requires-Dist (multiple use)
 ============================
@@ -465,6 +490,8 @@ Examples::
     Requires-Dist: zope.interface (>3.5.0)
     Requires-Dist: pywin32 >1.0; sys_platform == 'win32'
 
+
+.. _core-metadata-requires-python:
 
 Requires-Python
 ===============
@@ -519,6 +546,8 @@ Examples::
     Requires-External: make; sys_platform != "win32"
 
 
+.. _core-metadata-project-url:
+
 Project-URL (multiple-use)
 ==========================
 
@@ -533,8 +562,9 @@ Example::
 
 The label is free text limited to 32 characters.
 
-.. _metadata_provides_extra:
 
+.. _metadata_provides_extra:
+.. _core-metadata-provides-extra:
 .. _provides-extra-optional-multiple-use:
 
 Provides-Extra (multiple use)
