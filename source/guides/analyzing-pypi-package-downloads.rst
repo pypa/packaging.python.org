@@ -113,7 +113,7 @@ The following query counts the total number of downloads for the project
       -- Only query the last 30 days of history
       AND DATE(timestamp)
         BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
-        AND CURRENT_DATE())
+        AND CURRENT_DATE()
 
 +---------------+
 | num_downloads |
@@ -134,7 +134,7 @@ column.
       -- Only query the last 30 days of history
       AND DATE(timestamp)
         BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
-        AND CURRENT_DATE())
+        AND CURRENT_DATE()
 
 +---------------+
 | num_downloads |
