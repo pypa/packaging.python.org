@@ -508,9 +508,8 @@ entry_points
 Use this keyword to specify any plugins that your project provides for any named
 entry points that may be defined by your project or others that you depend on.
 
-For more information, see the section on `Dynamic Discovery of Services and
-Plugins
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+For more information, see the section on `Advertising Behavior
+<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html#dynamic-discovery-of-services-and-plugins>`_
 from the :ref:`setuptools` docs.
 
 The most commonly used entry point is "console_scripts" (see below).
