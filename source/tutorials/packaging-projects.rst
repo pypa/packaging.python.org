@@ -10,16 +10,16 @@ A simple project
 ----------------
 
 This tutorial uses a simple project named ``example_pkg``. If you are unfamiliar
-with Python's modules and :term:`import packages <import package>`, take a few
+with Python's modules and :term:`import packages <Import Package>`, take a few
 minutes to read over the `Python documentation for packages and modules`_. Even if you already have a project that you want to package up, we recommend following this tutorial as-is using this example package and then trying with your own package.
 
 To create this project locally, create the following file structure:
 
 .. code-block:: text
 
-    packaging_tutorial/
-      example_pkg/
-        __init__.py
+    packaging_tutorial
+    └── example_pkg
+        └── __init__.py
 
 
 Once you create this structure, you'll want to run all of the commands in this
@@ -36,18 +36,18 @@ Creating the package files
 --------------------------
 
 You will now create a handful of files to package up this project and prepare it
-for distribution. Create the new files listed below - you will add content to
-them in the following steps.
+for distribution. Create the new files listed below and place them in the project's root directory
+- you will add content to them in the following steps.
 
 .. code-block:: text
 
-    packaging_tutorial/
-      example_pkg/
-        __init__.py
-      tests/
-      setup.py
-      LICENSE
-      README.md
+    packaging_tutorial
+    ├── LICENSE
+    ├── README.md
+    ├── example_pkg
+    │   └── __init__.py
+    ├── setup.py
+    └── tests
 
 
 Creating a test folder
@@ -69,7 +69,7 @@ Open :file:`setup.py` and enter the following content. Update the package name t
 
     import setuptools
 
-    with open("README.md", "r") as fh:
+    with open("README.md", "r", encoding="utf-8") as fh:
         long_description = fh.read()
 
     setuptools.setup(
@@ -112,10 +112,10 @@ minimal set:
   will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
   service.
 - ``packages`` is a list of all Python :term:`import packages <Import
-  Package>` that should be included in the :term:`distribution package`.
+  Package>` that should be included in the :term:`Distribution Package`.
   Instead of listing each package manually, we can use :func:`find_packages`
   to automatically discover all packages and subpackages. In this case, the
-  list of packages will be `example_pkg` as that's the only package present.
+  list of packages will be ``example_pkg`` as that's the only package present.
 - ``classifiers`` gives the index and :ref:`pip` some additional metadata
   about your package. In this case, the package is only compatible with Python
   3, is licensed under the MIT license, and is OS-independent. You should
@@ -181,8 +181,8 @@ MIT license:
 Generating distribution archives
 --------------------------------
 
-The next step is to generate :term:`distribution packages <distribution
-package>` for the package. These are archives that are uploaded to the Package
+The next step is to generate :term:`distribution packages <Distribution
+Package>` for the package. These are archives that are uploaded to the Package
 Index and can be installed by :ref:`pip`.
 
 Make sure you have the latest versions of ``setuptools`` and ``wheel``
@@ -217,8 +217,8 @@ files in the :file:`dist` directory:
   https://github.com/pypa/packaging-problems/issues/new?title=Trouble+following+packaging+libraries+tutorial
 
 
-The ``tar.gz`` file is a :term:`source archive` whereas the ``.whl`` file is a
-:term:`built distribution`. Newer :ref:`pip` versions preferentially install
+The ``tar.gz`` file is a :term:`Source Archive` whereas the ``.whl`` file is a
+:term:`Built Distribution`. Newer :ref:`pip` versions preferentially install
 built distributions, but will fall back to source archives if needed. You
 should always upload a source archive and provide built archives for the
 platforms your project is compatible with. In this case, our example package is
@@ -229,7 +229,7 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register an account on `Test PyPI`. Test
+The first thing you'll need to do is register an account on ``Test PyPI``. Test
 PyPI is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to
@@ -261,7 +261,7 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
 .. code-block:: bash
 
-    python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+    python3 -m twine upload --repository testpypi dist/*
 
 You will be prompted for a username and password. For the username,
 use ``__token__``. For the password, use the token value, including
@@ -322,7 +322,8 @@ and from the interpreter shell import the package:
 
     >>> import example_pkg
 
-Note that the :term:`import package` is ``example_pkg`` regardless of what name you gave your :term:`distribution package`
+Note that the :term:`Import Package` is ``example_pkg`` regardless of what
+name you gave your :term:`Distribution Package`
 in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
 
 Next steps
@@ -346,7 +347,7 @@ differences:
   main server.
 * Use ``twine upload dist/*`` to upload your package and enter your credentials
   for the account you registered on the real PyPI.  Now that you're uploading
-  the package in production, you don't need to specify ``--repository-url``; the
+  the package in production, you don't need to specify ``--repository``; the
   package will upload to https://pypi.org/ by default.
 * Install your package from the real PyPI using ``pip install [your-package]``.
 
@@ -360,4 +361,4 @@ some things you can do:
   and `poetry`_.
 
 .. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://github.com/sdispater/poetry
+.. _poetry: https://github.com/python-poetry/poetry

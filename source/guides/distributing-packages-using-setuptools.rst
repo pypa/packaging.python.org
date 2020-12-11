@@ -133,7 +133,7 @@ Python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
 For an example, see the `sample
-<https://github.com/pypa/sampleproject/tree/master/sample>`_ package that's
+<https://github.com/pypa/sampleproject/tree/master/src/sample>`_ package that's
 included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -251,8 +251,8 @@ author
 
 ::
 
-  author='The Python Packaging Authority',
-  author_email='pypa-dev@googlegroups.com',
+  author='A. Random Developer',
+  author_email='author@example.com',
 
 Provide details about the author.
 
@@ -275,9 +275,6 @@ from well-known licenses, or to include your own, unique license. As a
 general rule, it's a good idea to use a standard, well-known license,
 both to avoid confusion and because some organizations avoid software
 whose license is unapproved.
-
-See :ref:`"Classifier" <metadata-classifier>` for some examples of
-values for ``license``.
 
 
 classifiers
@@ -511,9 +508,8 @@ entry_points
 Use this keyword to specify any plugins that your project provides for any named
 entry points that may be defined by your project or others that you depend on.
 
-For more information, see the section on `Dynamic Discovery of Services and
-Plugins
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+For more information, see the section on `Advertising Behavior
+<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html#dynamic-discovery-of-services-and-plugins>`_
 from the :ref:`setuptools` docs.
 
 The most commonly used entry point is "console_scripts" (see below).
@@ -781,9 +777,7 @@ To build the wheel:
 
   python setup.py bdist_wheel --universal
 
-You can also permanently set the ``--universal`` flag in :file:`setup.cfg`
-(e.g., see `sampleproject/setup.cfg
-<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_):
+You can also permanently set the ``--universal`` flag in :file:`setup.cfg`:
 
 .. code-block:: text
 
@@ -820,10 +814,10 @@ To build the wheel:
  python setup.py bdist_wheel
 
 
-`bdist_wheel` will detect that the code is pure Python, and build a wheel that's
-named such that it's usable on any Python installation with the same major
-version (Python 2 or Python 3) as the version you used to build the wheel.  For
-details on the naming of wheel files, see :pep:`425`.
+``bdist_wheel`` will detect that the code is pure Python, and build a wheel
+that's named such that it's usable on any Python installation with the same
+major version (Python 2 or Python 3) as the version you used to build the
+wheel.  For details on the naming of wheel files, see :pep:`425`.
 
 If your code supports both Python 2 and 3, but with different code (e.g., you
 use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
@@ -847,9 +841,9 @@ To build the wheel:
  python setup.py bdist_wheel
 
 
-`bdist_wheel` will detect that the code is not pure Python, and build a wheel
-that's named such that it's only usable on the platform that it was built
-on. For details on the naming of wheel files, see :pep:`425`.
+:command:`bdist_wheel` will detect that the code is not pure Python, and build
+a wheel that's named such that it's only usable on the platform that it was
+built on. For details on the naming of wheel files, see :pep:`425`.
 
 .. note::
 
@@ -909,7 +903,7 @@ are creating a new project.
 won't see that token again.**
 
 .. Note:: To avoid having to copy and paste the token every time you
-  upload, you can create a ``$HOME/.pypirc`` file:
+  upload, you can create a :file:`$HOME/.pypirc` file:
 
   .. code-block:: text
 
@@ -918,6 +912,8 @@ won't see that token again.**
     password = <the token value, including the `pypi-` prefix>
 
   **Be aware that this stores your token in plaintext.**
+
+  For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.
 
 .. _register-your-project:
 .. _API token: https://pypi.org/help/#apitoken

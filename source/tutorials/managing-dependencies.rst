@@ -21,8 +21,10 @@ applicable to the development and deployment of network services (including
 web applications), but is also very well suited to managing development and
 testing environments for any kind of project.
 
-.. Note:: This guide is written for Python 3, however, these instructions
-    should also work on Python 2.7.
+Developers of Python libraries, or of applications that support distribution
+as Python libraries, should also consider the
+`poetry <https://github.com/python-poetry/poetry>`_ project as an alternative dependency
+management solution.
 
 Installing Pipenv
 -----------------
@@ -143,18 +145,28 @@ they (and their dependencies) can be added to your ``pipenv`` environment with
 ``pipenv install -e <relative-path-to-source-directory>`` (e.g.
 ``pipenv install -e .`` or ``pipenv install -e src``).
 
+
+.. _other-dependency-management-tools:
+
+Other Tools for Application Dependency Management
+-------------------------------------------------
+
 If you find this particular approach to managing application dependencies isn't
 working well for you or your use case, you may want to explore these other tools
 and techniques to see if one of them is a better fit:
 
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
-  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
-* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
-  more steps in the project management workflow (such as incrementing versions,
-  tagging releases, and creating new skeleton projects from project templates)
-* `poetry <https://github.com/sdispater/poetry>`_ for a tool comparable in scope
-  to `pipenv` that focuses more directly on use cases where the repository being
+* `poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
+  to ``pipenv`` that focuses more directly on use cases where the repository being
   managed is structured as a Python project with a valid ``pyproject.toml`` file
   (by contrast, ``pipenv`` explicitly avoids making the assumption that the
   application being worked on that's depending on components from PyPI will
   itself support distribution as a ``pip``-installable Python package).
+* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
+  more steps in the project management workflow (such as incrementing versions,
+  tagging releases, and creating new skeleton projects from project templates)
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
+  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `micropipenv <https://github.com/thoth-station/micropipenv>`_ is a lightweight
+  wrapper for pip to support requirements.txt, Pipenv and Poetry lock files or
+  converting them to pip-tools compatible output. Designed for containerized
+  Python applications but not limited to them.

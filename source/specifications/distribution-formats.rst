@@ -17,6 +17,8 @@ There is also the legacy source distribution format, implicitly defined by
 the behaviour of ``distutils`` module in the standard library,
 when executing ``setup.py sdist``.
 
+.. _binary-distribution-format:
+
 Binary distribution format
 ==========================
 

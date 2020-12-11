@@ -31,6 +31,22 @@ context of automated tests) and to prevent heavily loading PyPI's
 Content Delivery Network (CDN).
 
 
+.. _build:
+
+build
+=====
+
+`Docs <https://pypa-build.readthedocs.io/>`__ |
+`Issues <https://github.com/pypa/build/issues>`__ |
+`GitHub <https://github.com/pypa/build>`__ |
+`PyPI <https://pypi.org/project/build>`__ |
+User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
+Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+
+``build`` is a PEP-517 compatible Python package builder. It provides a CLI to
+build packages, as well as a Python API.
+
+
 .. _distlib:
 
 distlib
@@ -64,7 +80,7 @@ packaging
 =========
 
 `Docs <https://packaging.pypa.io>`__ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__ |
@@ -97,7 +113,7 @@ pip
 
 `Docs <https://pip.pypa.io/en/stable/>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.org/project/pip/>`__ |
@@ -117,7 +133,7 @@ command-line interface (CLI).
 Pipenv
 ======
 
-`Docs <https://docs.pipenv.org>`__ [3]_ |
+`Docs <https://pipenv.pypa.io/>`__ |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
 `PyPI <https://pypi.org/project/pipenv>`__
@@ -181,7 +197,7 @@ setuptools
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__ |
@@ -198,11 +214,38 @@ Package>`, especially ones that have dependencies on other packages.
 v0.7), thereby making setuptools the primary choice for Python packaging.
 
 
+.. _trove-classifiers:
+
+trove-classifiers
+=================
+
+`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub
+<https://github.com/pypa/trove-classifiers>`__ | `PyPI
+<https://pypi.org/project/trove-classifiers/>`__
+
+trove-classifiers is the canonical source for `classifiers on PyPI
+<https://pypi.org/classifiers/>`_, which project maintainers use to
+`systematically describe their projects
+<https://packaging.python.org/specifications/core-metadata/#classifier-multiple-use>`_
+so that users can better find projects that match their needs on the PyPI.
+
+The trove-classifiers package contains a list of valid classifiers and
+deprecated classifiers (which are paired with the classifiers that replace
+them).  Use this package to validate classifiers used in packages intended for
+uploading to PyPI. As this list of classifiers is published as code, you
+can install and import it, giving you a more convenient workflow compared to
+referring to the `list published on PyPI <https://pypi.org/classifiers/>`_. The
+`issue tracker <https://github.com/pypa/trove-classifiers/issues>`_ for the
+project hosts discussions on proposed classifiers and requests for new
+classifiers.
+
+
 .. _twine:
 
 twine
 =====
 
+`Docs <https://twine.readthedocs.io/en/latest/>`__ |
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
 `GitHub <https://github.com/pypa/twine>`__ |
@@ -222,7 +265,7 @@ virtualenv
 
 `Docs <https://virtualenv.pypa.io/en/stable/>`__ |
 `User list <http://groups.google.com/group/python-virtualenv>`__ |
-`Dev list <http://groups.google.com/group/pypa-dev>`__ |
+`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__ |
@@ -370,19 +413,17 @@ flit
 `Issues <https://github.com/takluyver/flit/issues>`__ |
 `PyPI <https://pypi.org/project/flit>`__
 
-Flit is a simple way to put Python packages and modules on PyPI. Flit packages
-a single importable module or package at a time, using the import name as the
-name on PyPI. All subpackages and data files within a package are included
-automatically. Flit requires Python 3, but you can use it to distribute modules
-for Python 2, so long as they can be imported on Python 3.
+Flit provides a simple way to upload pure Python packages and modules to PyPI.
+It focuses on `making the easy things easy <flit-rationale_>`_ for packaging.
+Flit can generate a configuration file to quickly set up a simple project, build
+source distributions and wheels, and upload them to PyPI.
 
-Flit provides its own implementation (instead of calling
-:ref:`distutils`, :ref:`distlib`, or :ref:`twine` abstractions) of PyPI package
-upload functionality. You can use it to quickly set up package
-configuration files for simple packages (instead of manually writing a
-file that works with :ref:`setuptools`), and build and upload packages to
-PyPI. All wheels built by flit are reproducible, which provides added
-verifiability.
+Flit uses ``pyproject.toml`` to configure a project. Flit does not rely on tools
+such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
+to PyPI. Flit requires Python 3, but you can use it to distribute modules for
+Python 2, so long as they can be imported on Python 3.
+
+.. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
 
 .. _enscons:
 
@@ -492,15 +533,8 @@ piwheels
 piwheels is a website, and software underpinning it, that fetches
 source code distribution packages from PyPI and compiles them into
 binary wheels that are optimized for installation onto Raspberry Pi
-computers. pip in Raspbian is pre-configured to use piwheels.org as
+computers. Raspberry Pi OS pre-configures pip to use piwheels.org as
 an additional index to PyPI.
-
-  .. warning::
-
-    Note that piwheels `does not yet fully support
-    <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
-    thus some users have trouble installing certain wheels; this is in
-    progress.
 
 .. _poetry:
 
@@ -513,11 +547,10 @@ poetry
 
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
-uses ``pyproject.toml`` and provides its own dependency resolver, and,
-instead of depending on the resolver functionality within :ref:`pip`,
-provides its own dependency resolver. It attempts to speed users'
-experience of installation and dependency resolution by locally
-caching metadata about dependencies.
+uses ``pyproject.toml`` and, instead of depending on the resolver
+functionality within :ref:`pip`, provides its own dependency resolver.
+It attempts to speed users' experience of installation and dependency
+resolution by locally caching metadata about dependencies.
 
 .. _pypiserver:
 
@@ -664,10 +697,5 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
        the virtualenv mailing list, and it's stuck ever since.
 
 .. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
-
-.. [3] The pipenv docs usually live at `http://docs.pipenv.org/
-       <http://docs.pipenv.org/>`__ but that is currently an expired
-       domain name. `This temporary workaround
-       <https://pipenv.kennethreitz.org/en/latest/>`__ works.
 
 .. _distribute: https://pypi.org/project/distribute

@@ -79,7 +79,7 @@ Python source distributions
 
 If your code consists of multiple Python files, it's usually organized
 into a directory structure. Any directory containing Python files can
-comprise an :term:`import package`.
+comprise an :term:`Import Package`.
 
 Because packages consist of multiple files, they are harder to
 distribute. Most protocols support transferring only one file at a
@@ -90,7 +90,7 @@ to guarantee code integrity at the destination.
 So long as your code contains nothing but pure Python code, and you
 know your deployment environment supports your version of Python, then
 you can use Python's native packaging tools to create a *source*
-:term:`distribution package`, or *sdist* for short.
+:term:`Distribution Package`, or *sdist* for short.
 
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
@@ -124,7 +124,7 @@ in C, C++, Fortran, Rust, and other languages.
 
 Not all developers have the right tools or experiences to build these
 components written in these compiled languages, so Python created the
-:term:`wheel`, a package format designed to ship libraries with
+:term:`Wheel`, a package format designed to ship libraries with
 compiled artifacts. In fact, Python's package installer, ``pip``,
 always prefers wheels because installation is always faster, so even
 pure-Python packages work better with wheels.
@@ -167,7 +167,7 @@ Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
 library packaging, using technologies like `setuptools entry_points
-<http://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_.
+<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html>`_.
 
 Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies
@@ -308,14 +308,14 @@ program into one of these formats, most of which involve embedding the
 Python interpreter and any other dependencies into a single executable
 file.
 
-This approach, called *freezing*, offers wide compatiblity and
+This approach, called *freezing*, offers wide compatibility and
 seamless user experience, though often requires multiple technologies,
 and a good amount of effort.
 
 A selection of Python freezers:
 
 * `pyInstaller <http://www.pyinstaller.org/>`_ - Cross-platform
-* `cx_Freeze <https://anthony-tuininga.github.io/cx_Freeze/>`_ - Cross-platform
+* `cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - Cross-platform
 * `constructor <https://github.com/conda/constructor>`_ - For command-line installers
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
 * `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only

@@ -3,7 +3,7 @@
 Migrating to PyPI.org
 =====================
 
-:term:`PyPI.org` is the new, rewritten version of PyPI that has replaced the
+:term:`pypi.org` is the new, rewritten version of PyPI that has replaced the
 legacy PyPI code base. It is the default version of PyPI that people are
 expected to use. These are the tools and processes that people will need to
 interact with ``PyPI.org``.
@@ -31,7 +31,7 @@ The default upload settings switched to ``pypi.org`` in the following versions:
 In addition to ensuring you're on a new enough version of the tool for the
 tool's default to have switched, you must also make sure that you have not
 configured the tool to override its default upload URL. Typically this is
-configured in a file located at ``$HOME/.pypirc``. If you see a file like:
+configured in a file located at :file:`$HOME/.pypirc`. If you see a file like:
 
 .. code::
 
@@ -40,9 +40,9 @@ configured in a file located at ``$HOME/.pypirc``. If you see a file like:
         pypi
 
     [pypi]
-    repository:https://pypi.python.org/pypi
-    username:yourusername
-    password:yourpassword
+    repository = https://pypi.python.org/pypi
+    username = <your PyPI username>
+    password = <your PyPI username>
 
 
 Then simply delete the line starting with ``repository`` and you will use
@@ -50,7 +50,7 @@ your upload tool's default URL.
 
 If for some reason you're unable to upgrade the version of your tool
 to a version that defaults to using PyPI.org, then you may edit
-``$HOME/.pypirc`` and include the ``repository:`` line, but use the
+:file:`$HOME/.pypirc` and include the ``repository:`` line, but use the
 value ``https://upload.pypi.org/legacy/`` instead:
 
 .. code::
@@ -60,13 +60,14 @@ value ``https://upload.pypi.org/legacy/`` instead:
         pypi
 
     [pypi]
-    repository: https://upload.pypi.org/legacy/
-    username: your username
-    password: your password
+    repository = https://upload.pypi.org/legacy/
+    username = <your PyPI username>
+    password = <your PyPI password>
 
 (``legacy`` in this URL refers to the fact that this is the new server
 implementation's emulation of the legacy server implementation's upload API.)
 
+For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.
 
 Registering package names & metadata
 ------------------------------------
@@ -89,7 +90,7 @@ Using TestPyPI
 
 Legacy TestPyPI (testpypi.python.org) is no longer available; use
 `test.pypi.org <https://test.pypi.org>`_ instead. If you use TestPyPI,
-you must update your ``$HOME/.pypirc`` to handle TestPyPI's new
+you must update your :file:`$HOME/.pypirc` to handle TestPyPI's new
 location, by replacing ``https://testpypi.python.org/pypi`` with
 ``https://test.pypi.org/legacy/``, for example:
 
@@ -101,9 +102,11 @@ location, by replacing ``https://testpypi.python.org/pypi`` with
         testpypi
 
     [testpypi]
-    repository: https://test.pypi.org/legacy/
-    username: your testpypi username
-    password: your testpypi password
+    repository = https://test.pypi.org/legacy/
+    username = <your TestPyPI username>
+    password = <your TestPyPI password>
+
+For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.
 
 
 Registering new user accounts
