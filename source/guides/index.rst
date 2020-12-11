@@ -14,6 +14,8 @@ introduction to packaging, see :doc:`/tutorials/index`.
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
+   index-mirrors-and-caches
+   hosting-your-own-index
 
 .. toctree::
    :maxdepth: 1
@@ -39,5 +41,3 @@ introduction to packaging, see :doc:`/tutorials/index`.
 
    tool-recommendations
    analyzing-pypi-package-downloads
-   index-mirrors-and-caches
-   hosting-your-own-index
