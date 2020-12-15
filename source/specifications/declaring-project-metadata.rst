@@ -20,7 +20,7 @@ The fields defined in this specification MUST be in a table named
 table which are not defined by this specification. For tools wishing
 to store their own settings in ``pyproject.toml``, they may use the
 ``[tool]`` table as defined in the
-:ref:`build dependency decleration specification <declaring-build-dependencies>`.
+:ref:`build dependency declaration specification <declaring-build-dependencies>`.
 The lack of a ``[project]`` table implicitly means the build back-end
 will dynamically provide all fields.
 

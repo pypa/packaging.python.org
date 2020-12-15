@@ -416,7 +416,7 @@ virtualenv
 
 `Virtualenvs
 <http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have
-been an indispensible tool for multiple generations of Python
+been an indispensable tool for multiple generations of Python
 developer, but are slowly fading from view, as they are being wrapped
 by higher-level tools. With packaging in particular, virtualenvs are
 used as a primitive in `the dh-virtualenv tool
