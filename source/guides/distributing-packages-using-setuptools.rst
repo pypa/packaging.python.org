@@ -659,24 +659,27 @@ For example::
 Working in "development mode"
 =============================
 
-Although not required, it's common to locally install your project in "editable"
-or "develop" mode while you're working on it.  This allows your project to be
-both installed and editable in project form.
+You can install a project in "editable"
+or "develop" mode while you're working on it.
+When installed as editable, a project can be
+edited in-place without reinstallation: 
+changes to Python source files in projects installed as editable will be reflected the next time an interpreter process is started.
 
-Assuming you're in the root of your project directory, then run:
+To install a Python package in "editable"/"development" mode
+Change directory to the root of the project directory and run ``pip install -e .``:
 
 ::
 
  pip install -e .
 
 
-Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
+The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
 to the current working directory, so together, it means to install the current
 directory (i.e. your project) in editable mode.  This will also install any
 dependencies declared with "install_requires" and any scripts declared with
 "console_scripts".  Dependencies will be installed in the usual, non-editable mode.
 
-It's fairly common to also want to install some of your dependencies in editable
+You may want to install some of your dependencies in editable
 mode as well. For example, supposing your project requires "foo" and "bar", but
 you want "bar" installed from VCS in editable mode, then you could construct a
 requirements file like so::
