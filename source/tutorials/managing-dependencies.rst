@@ -39,7 +39,7 @@ Use ``pip`` to install Pipenv:
 
 .. code-block:: python
 
-    pip install --user pipenv
+    python -m pip install --user pipenv
 
 .. _pipenv-user-base:
 

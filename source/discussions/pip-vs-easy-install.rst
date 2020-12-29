@@ -27,13 +27,13 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Installs from :term:`Wheels   |Yes                                   |No                             |
 |<Wheel>`                      |                                      |                               |
 +------------------------------+--------------------------------------+-------------------------------+
-|Uninstall Packages            |Yes (``pip uninstall``)               |No                             |
+|Uninstall Packages            |Yes (``python -m pip uninstall``)     |No                             |
 +------------------------------+--------------------------------------+-------------------------------+
 |Dependency Overrides          |Yes (:ref:`Requirements Files         |No                             |
 |                              |<pip:Requirements Files>`)            |                               |
 +------------------------------+--------------------------------------+-------------------------------+
-|List Installed Packages       |Yes (``pip list`` and ``pip           |No                             |
-|                              |freeze``)                             |                               |
+|List Installed Packages       |Yes (``python -m pip list`` and       |No                             |
+|                              |``python -m pip freeze``)             |                               |
 +------------------------------+--------------------------------------+-------------------------------+
 |:pep:`438`                    |Yes                                   |No                             |
 |Support                       |                                      |                               |

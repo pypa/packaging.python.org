@@ -15,7 +15,7 @@ Use ``pip`` to install Sphinx:
 
 .. code-block:: bash
 
-	pip install -U sphinx
+	python -m pip install -U sphinx
 
 For other installation methods, see this `installation guide`_ by Sphinx.
 

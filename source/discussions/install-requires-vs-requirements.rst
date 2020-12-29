@@ -64,7 +64,7 @@ Requirements files
 ------------------
 
 :ref:`Requirements Files <pip:Requirements Files>` described most simply, are
-just a list of :ref:`pip:pip install` arguments placed into a file.
+just a list of :ref:`pip:python -m pip install` arguments placed into a file.
 
 Whereas ``install_requires`` defines the dependencies for a single project,
 :ref:`Requirements Files <pip:Requirements Files>` are often used to define
@@ -83,7 +83,7 @@ packages. [1]_
 
 Whereas ``install_requires`` metadata is automatically analyzed by pip during an
 install, requirements files are not, and only are used when a user specifically
-installs them using ``pip install -r``.
+installs them using ``python -m pip install -r``.
 
 ----
 
