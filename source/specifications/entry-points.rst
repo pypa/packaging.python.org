@@ -1,3 +1,5 @@
+.. _entry-points:
+
 ==========================
 Entry points specification
 ==========================
@@ -108,12 +110,12 @@ For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
 
 For example::
-  
+
     [console_scripts]
     foo = foomod:main
     # One which depends on extras:
     foobar = foomod:main_bar [bar,baz]
-    
+
     # pytest plugins refer to a module, so there is no ':obj'
     [pytest11]
     nbval = nbval.plugin

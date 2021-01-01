@@ -37,11 +37,11 @@ Let's begin! 🚀
 2. In a separate browser tab or window, go to the ``Settings``
    tab of your target repository and then click on `Secrets`_
    in the left sidebar.
-3. Create a new secret called ``pypi_password`` and copy-paste
-   the token from the fist step.
+3. Create a new secret called ``PYPI_API_TOKEN`` and copy-paste
+   the token from the first step.
 4. Now, go to https://test.pypi.org/manage/account/#api-tokens
    and repeat the steps. Save that TestPyPI token on GitHub
-   as ``test_pypi_password``.
+   as ``TEST_PYPI_API_TOKEN``.
 
    .. attention::
 
@@ -87,13 +87,13 @@ Then, add the following under the ``build-n-publish`` section:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: runs-on:
-   :end-before: Install pep517
+   :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
 install and activate Python 3.7.
 
 And now we can build dists from source. In this example, we'll
-use ``pep517`` package, assuming that your project has a
+use ``build`` package, assuming that your project has a
 ``pyproject.toml`` properly set up (see
 :pep:`517`/:pep:`518`).
 

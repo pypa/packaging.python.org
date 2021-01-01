@@ -31,6 +31,22 @@ context of automated tests) and to prevent heavily loading PyPI's
 Content Delivery Network (CDN).
 
 
+.. _build:
+
+build
+=====
+
+`Docs <https://pypa-build.readthedocs.io/>`__ |
+`Issues <https://github.com/pypa/build/issues>`__ |
+`GitHub <https://github.com/pypa/build>`__ |
+`PyPI <https://pypi.org/project/build>`__ |
+User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
+Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+
+``build`` is a PEP-517 compatible Python package builder. It provides a CLI to
+build packages, as well as a Python API.
+
+
 .. _distlib:
 
 distlib
@@ -531,11 +547,10 @@ poetry
 
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
-uses ``pyproject.toml`` and provides its own dependency resolver, and,
-instead of depending on the resolver functionality within :ref:`pip`,
-provides its own dependency resolver. It attempts to speed users'
-experience of installation and dependency resolution by locally
-caching metadata about dependencies.
+uses ``pyproject.toml`` and, instead of depending on the resolver
+functionality within :ref:`pip`, provides its own dependency resolver.
+It attempts to speed users' experience of installation and dependency
+resolution by locally caching metadata about dependencies.
 
 .. _pypiserver:
 

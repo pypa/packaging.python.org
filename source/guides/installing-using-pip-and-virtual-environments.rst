@@ -7,7 +7,7 @@ for Python 2. These are the lowest-level tools for managing Python
 packages and are recommended if higher-level tools do not suit your needs.
 
 .. note:: This doc uses the term **package** to refer to a
-    :term:`Distribution Package`  which is different from a :term:`Import
+    :term:`Distribution Package`  which is different from an :term:`Import
     Package` that which is used to import modules in your Python source code.
 
 

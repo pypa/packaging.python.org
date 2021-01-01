@@ -112,7 +112,7 @@ profiling has identified the code where the speed increase is worth
 additional maintenance effort), a number of other alternatives should
 also be considered:
 
-* look for existing optimised alternatives. The CPython standard libary
+* look for existing optimised alternatives. The CPython standard library
   includes a number of optimised data structures and algorithms (especially
   in the builtins and the ``collections`` and ``itertools`` modules). The
   Python Package Index also offers additional alternatives. Sometimes, the

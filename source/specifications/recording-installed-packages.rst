@@ -21,7 +21,7 @@ History and change workflow
 ===========================
 
 The metadata described here was first specified in :pep:`376`, and later
-ammended in :pep:`627`.
+amended in :pep:`627`.
 It was formerly known as *Database of Installed Python Distributions*.
 Further amendments (except trivial language or typography fixes) must be made
 through the PEP process (see :pep:`1`).

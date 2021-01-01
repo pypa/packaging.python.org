@@ -19,6 +19,7 @@ Package Distribution Metadata
    version-specifiers
    dependency-specifiers
    declaring-build-dependencies
+   declaring-project-metadata
    platform-compatibility-tags
    recording-installed-packages
    entry-points
