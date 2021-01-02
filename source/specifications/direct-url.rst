@@ -64,13 +64,6 @@ as a dictionary with the following keys:
   based revision identifiers, such commit-hash MUST be used as
   ``commit_id`` in order to reference the immutable
   version of the source code that was installed.
-- If the installer could discover additional information about
-  the requested revision, it MAY add a ``resolved_revision`` and/or
-  ``resolved_revision_type`` field. If no revision was provided in
-  the requested URL, ``resolved_revision`` MAY contain the default branch
-  that was installed, and ``resolved_revision_type`` will be ``branch``.
-  If the installer determines that ``requested_revision`` was a tag, it MAY
-  add ``resolved_revision_type`` with value ``tag``.
 
 When ``url`` refers to a source archive or a wheel, the ``archive_info`` key
 MUST be present as a dictionary with the following key:
@@ -255,7 +248,6 @@ Git URL with tag and commit-hash:
         "vcs_info": {
             "vcs": "git",
             "requested_revision": "1.3.1",
-            "resolved_revision_type": "tag",
             "commit_id": "7921be1537eac1e97bc40179a57f0349c2aee67d"
         }
     }
