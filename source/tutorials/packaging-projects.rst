@@ -103,7 +103,7 @@ minimal set:
   package.
 - ``description`` is a short, one-sentence summary of the package.
 - ``long_description`` is a detailed description of the package. This is
-  shown on the package detail package on the Python Package Index. In
+  shown on the package detail page on the Python Package Index. In
   this case, the long description is loaded from :file:`README.md` which is
   a common pattern.
 - ``long_description_content_type`` tells the index what type of markup is
