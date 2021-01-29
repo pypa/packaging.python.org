@@ -11,7 +11,10 @@ A simple project
 
 This tutorial uses a simple project named ``example_pkg``. If you are unfamiliar
 with Python's modules and :term:`import packages <Import Package>`, take a few
-minutes to read over the `Python documentation for packages and modules`_. Even if you already have a project that you want to package up, we recommend following this tutorial as-is using this example package and then trying with your own package.
+minutes to read over the `Python documentation for packages and modules`_. Even
+if you already have a project that you want to package up, we recommend
+following this tutorial as-is using this example package and then trying with
+your own package.
 
 To create this project locally, create the following file structure:
 
@@ -36,8 +39,8 @@ Creating the package files
 --------------------------
 
 You will now create a handful of files to package up this project and prepare it
-for distribution. Create the new files listed below and place them in the project's root directory
-- you will add content to them in the following steps.
+for distribution. Create the new files listed below and place them in the
+project's root directory - you will add content to them in the following steps.
 
 .. code-block:: text
 
@@ -46,6 +49,7 @@ for distribution. Create the new files listed below and place them in the projec
     ├── README.md
     ├── example_pkg
     │   └── __init__.py
+    ├── pyproject.toml
     ├── setup.py
     └── tests
 
@@ -56,6 +60,39 @@ Creating a test folder
 :file:`tests/` is a placeholder for unit test files. Leave it empty for now.
 
 
+Creating pyproject.toml
+-----------------------
+
+:file:`pyproject.toml` is the file that tells build tools (like ``pip`` 10+ and
+``build``) what system you are using and what it required for building. The
+default if this file is missing is to assume a classic setuptools build system,
+but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
+will be able to rely on ``wheel`` and other packages being present.
+
+This file should be ideal for most setuptools projects:
+
+
+.. code-block:: toml
+
+    [build-system]
+    requires = [
+        "setuptools>=42",
+        "wheel"
+    ]
+    build-backend = "setuptools.build_meta"
+
+
+``build-system.requires`` gives a list of packages that are needed to build your
+package. Listing something here will *only* make it available during the build,
+not after it is installed.
+
+``build-system.build-backend`` is technically optional, but you will get
+``setuptools.build_meta:__legacy__`` instead if you forget to include it, so
+always include it. If you were to use a different build system, such as
+:ref:`flit` or `poetry`_, those would go here, and the configuration details
+would be completely different than the setuptools configuration described
+below. See :pep:`517` and :pep:`518` for background and details.
+
 Creating setup.py
 -----------------
 
@@ -63,7 +100,10 @@ Creating setup.py
 about your package (such as the name and version) as well as which code files
 to include.
 
-Open :file:`setup.py` and enter the following content. Update the package name to include your username (for example, ``example-pkg-theacodes``), this ensures that you have a unique package name and that your package doesn't conflict with packages uploaded by other people following this tutorial.
+Open :file:`setup.py` and enter the following content. Update the package name
+to include your username (for example, ``example-pkg-theacodes``), this ensures
+that you have a unique package name and that your package doesn't conflict with
+packages uploaded by other people following this tutorial.
 
 .. code-block:: python
 
@@ -94,9 +134,11 @@ Open :file:`setup.py` and enter the following content. Update the package name t
 :func:`setup` takes several arguments. This example package uses a relatively
 minimal set:
 
-- ``name`` is the *distribution name* of your package. This can be any name as long as only
-  contains letters, numbers, ``_`` , and ``-``. It also must not already be
-  taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't try to upload a package with the same name as one which already exists when you upload the package.
+- ``name`` is the *distribution name* of your package. This can be any name as
+  long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+  already be taken on pypi.org. **Be sure to update this with your username,**
+  as this ensures you won't try to upload a package with the same name as one
+  which already exists when you upload the package.
 - ``version`` is the package version see :pep:`440` for more details on
   versions.
 - ``author`` and ``author_email`` are used to identify the author of the
@@ -185,21 +227,20 @@ The next step is to generate :term:`distribution packages <Distribution
 Package>` for the package. These are archives that are uploaded to the Package
 Index and can be installed by :ref:`pip`.
 
-Make sure you have the latest versions of ``setuptools`` and ``wheel``
-installed:
+Make sure you have the latest versions of PyPA's ``build`` installed:
 
 .. code-block:: bash
 
-    python3 -m pip install --user --upgrade setuptools wheel
+    python3 -m pip install --upgrade build
 
-.. tip:: IF you have trouble installing these, see the
+.. tip:: If you have trouble installing these, see the
    :doc:`installing-packages` tutorial.
 
-Now run this command from the same directory where :file:`setup.py` is located:
+Now run this command from the same directory where :file:`pyproject.toml` is located:
 
 .. code-block:: bash
 
-    python3 setup.py sdist bdist_wheel
+    python3 -m build
 
 This command should output a lot of text and once completed should generate two
 files in the :file:`dist` directory:
@@ -307,7 +348,12 @@ something like this:
     Installing collected packages: example-pkg-YOUR-USERNAME-HERE
     Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
 
-.. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have the same packages as the live PyPI, it's possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn't have any dependencies, it's a good practice to avoid installing dependencies when using TestPyPI.
+.. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of
+   live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't
+   have the same packages as the live PyPI, it's possible that attempting to
+   install dependencies may fail or install something unexpected. While our
+   example package doesn't have any dependencies, it's a good practice to avoid
+   installing dependencies when using TestPyPI.
 
 You can test that it was installed correctly by importing the package.
 Run the Python interpreter (make sure you're still in your virtualenv):
@@ -334,7 +380,8 @@ Next steps
 
 Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI, which isn't a permanent storage. The Test system occasionally deletes
-packages and accounts. It is best to use Test PyPI for testing and experiments like this tutorial.
+packages and accounts. It is best to use Test PyPI for testing and experiments
+like this tutorial.
 
 When you are ready to upload a real package to the Python Package Index you can
 do much the same as you did in this tutorial, but with these important
@@ -361,4 +408,4 @@ some things you can do:
   and `poetry`_.
 
 .. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://github.com/python-poetry/poetry
+.. _poetry: https://python-poetry.org
