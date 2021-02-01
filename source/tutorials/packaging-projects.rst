@@ -98,12 +98,16 @@ below. See :pep:`517` and :pep:`518` for background and details.
 Configuring metadata
 --------------------
 
-You can place the metadata for your project in one of two places. Static
-information should be placed in :file:`setup.cfg`. This is simpler, easier to
-read, and avoids many common errors, like encoding errors. Any items that are
-dynamic, as well as extension modules or extensions to setuptools, need to go
-into :file:`setup.py`. You can completely configure via :file:`setup.py` if you
-really want to; both methods are shown below.
+There are two types of metadata: static and dynamic.
+
+* Static metadata (:file:`setup.cfg`): guaranteed to be the same every time. This is
+  simpler, easier to read, and avoids many common errors, like encoding errors.
+* Dynamic metadata (:file:`setup.py`): possibly non-deterministic. Any items that are
+  dynamic or determined at install-time, as well as extension modules or
+  extensions to setuptools, need to go into :file:`setup.py`.
+
+Static metadata should be preferred and dynamic metadata should be used only as
+an escape hatch when absolutely necessary.
 
 .. tabs::
 
