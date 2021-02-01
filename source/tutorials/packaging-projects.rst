@@ -95,8 +95,8 @@ would be completely different than the setuptools configuration described
 below. See :pep:`517` and :pep:`518` for background and details.
 
 
-Creating setup.cfg and setup.py
--------------------------------
+Configuring metadata
+--------------------
 
 You can place the metadata for your project in one of two places. Static
 information should be placed in :file:`setup.cfg`. This is simpler, easier to
@@ -107,7 +107,7 @@ really want to; both methods are shown below.
 
 .. tabs::
 
-  .. tab:: Configure with setup.cfg (static)
+  .. tab:: setup.cfg (static)
 
     :file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells
     setuptools about your package (such as the name and version) as well as which
@@ -197,7 +197,7 @@ really want to; both methods are shown below.
 
         setuptools.setup()
 
-  .. tab:: Configure with setup.py (dynamic)
+  .. tab:: setup.py (dynamic)
 
     :file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
     about your package (such as the name and version) as well as which code files
