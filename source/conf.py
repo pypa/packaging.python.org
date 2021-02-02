@@ -34,7 +34,7 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx_tabs.tabs',
+    'sphinx_inline_tabs',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
