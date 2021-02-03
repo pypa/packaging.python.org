@@ -49,6 +49,8 @@ number of your project:
        analysis so that ``attr:`` can function without having to import any of
        the package's dependencies.
 
+       Also, please be aware that declarative config indicators, including the
+       ``attr:`` directive, are not supported in parameters to ``setup.py``.
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
