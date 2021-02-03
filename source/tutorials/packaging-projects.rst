@@ -11,7 +11,10 @@ A simple project
 
 This tutorial uses a simple project named ``example_pkg``. If you are unfamiliar
 with Python's modules and :term:`import packages <Import Package>`, take a few
-minutes to read over the `Python documentation for packages and modules`_. Even if you already have a project that you want to package up, we recommend following this tutorial as-is using this example package and then trying with your own package.
+minutes to read over the `Python documentation for packages and modules`_. Even
+if you already have a project that you want to package up, we recommend
+following this tutorial as-is using this example package and then trying with
+your own package.
 
 To create this project locally, create the following file structure:
 
@@ -36,8 +39,8 @@ Creating the package files
 --------------------------
 
 You will now create a handful of files to package up this project and prepare it
-for distribution. Create the new files listed below and place them in the project's root directory
-- you will add content to them in the following steps.
+for distribution. Create the new files listed below and place them in the
+project's root directory - you will add content to them in the following steps.
 
 .. code-block:: text
 
@@ -46,6 +49,8 @@ for distribution. Create the new files listed below and place them in the projec
     ├── README.md
     ├── example_pkg
     │   └── __init__.py
+    ├── pyproject.toml
+    ├── setup.cfg
     ├── setup.py
     └── tests
 
@@ -56,77 +61,219 @@ Creating a test folder
 :file:`tests/` is a placeholder for unit test files. Leave it empty for now.
 
 
-Creating setup.py
------------------
+Creating pyproject.toml
+-----------------------
 
-:file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
-about your package (such as the name and version) as well as which code files
-to include.
+:file:`pyproject.toml` is the file that tells build tools (like ``pip`` 10+ and
+``build``) what system you are using and what it required for building. The
+default if this file is missing is to assume a classic setuptools build system,
+but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
+will be able to rely on ``wheel`` and other packages being present.
 
-Open :file:`setup.py` and enter the following content. Update the package name to include your username (for example, ``example-pkg-theacodes``), this ensures that you have a unique package name and that your package doesn't conflict with packages uploaded by other people following this tutorial.
-
-.. code-block:: python
-
-    import setuptools
-
-    with open("README.md", "r") as fh:
-        long_description = fh.read()
-
-    setuptools.setup(
-        name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
-        version="0.0.1",
-        author="Example Author",
-        author_email="author@example.com",
-        description="A small example package",
-        long_description=long_description,
-        long_description_content_type="text/markdown",
-        url="https://github.com/pypa/sampleproject",
-        packages=setuptools.find_packages(),
-        classifiers=[
-            "Programming Language :: Python :: 3",
-            "License :: OSI Approved :: MIT License",
-            "Operating System :: OS Independent",
-        ],
-        python_requires='>=3.6',
-    )
+This file should be ideal for most setuptools projects:
 
 
-:func:`setup` takes several arguments. This example package uses a relatively
-minimal set:
+.. code-block:: toml
 
-- ``name`` is the *distribution name* of your package. This can be any name as long as only
-  contains letters, numbers, ``_`` , and ``-``. It also must not already be
-  taken on pypi.org. **Be sure to update this with your username,** as this ensures you won't try to upload a package with the same name as one which already exists when you upload the package.
-- ``version`` is the package version see :pep:`440` for more details on
-  versions.
-- ``author`` and ``author_email`` are used to identify the author of the
-  package.
-- ``description`` is a short, one-sentence summary of the package.
-- ``long_description`` is a detailed description of the package. This is
-  shown on the package detail package on the Python Package Index. In
-  this case, the long description is loaded from :file:`README.md` which is
-  a common pattern.
-- ``long_description_content_type`` tells the index what type of markup is
-  used for the long description. In this case, it's Markdown.
-- ``url`` is the URL for the homepage of the project. For many projects, this
-  will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
-  service.
-- ``packages`` is a list of all Python :term:`import packages <Import
-  Package>` that should be included in the :term:`Distribution Package`.
-  Instead of listing each package manually, we can use :func:`find_packages`
-  to automatically discover all packages and subpackages. In this case, the
-  list of packages will be ``example_pkg`` as that's the only package present.
-- ``classifiers`` gives the index and :ref:`pip` some additional metadata
-  about your package. In this case, the package is only compatible with Python
-  3, is licensed under the MIT license, and is OS-independent. You should
-  always include at least which version(s) of Python your package works on,
-  which license your package is available under, and which operating systems
-  your package will work on. For a complete list of classifiers, see
-  https://pypi.org/classifiers/.
+    [build-system]
+    requires = [
+        "setuptools>=42",
+        "wheel"
+    ]
+    build-backend = "setuptools.build_meta"
 
-There are many more than the ones mentioned here. See
-:doc:`/guides/distributing-packages-using-setuptools` for more details.
 
+``build-system.requires`` gives a list of packages that are needed to build your
+package. Listing something here will *only* make it available during the build,
+not after it is installed.
+
+``build-system.build-backend`` is technically optional, but you will get
+``setuptools.build_meta:__legacy__`` instead if you forget to include it, so
+always include it. If you were to use a different build system, such as
+:ref:`flit` or `poetry`_, those would go here, and the configuration details
+would be completely different than the setuptools configuration described
+below. See :pep:`517` and :pep:`518` for background and details.
+
+
+Configuring metadata
+--------------------
+
+There are two types of metadata: static and dynamic.
+
+* Static metadata (:file:`setup.cfg`): guaranteed to be the same every time. This is
+  simpler, easier to read, and avoids many common errors, like encoding errors.
+* Dynamic metadata (:file:`setup.py`): possibly non-deterministic. Any items that are
+  dynamic or determined at install-time, as well as extension modules or
+  extensions to setuptools, need to go into :file:`setup.py`.
+
+Static metadata should be preferred and dynamic metadata should be used only as
+an escape hatch when absolutely necessary.
+
+
+.. tab:: setup.cfg (static)
+
+    :file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells
+    setuptools about your package (such as the name and version) as well as which
+    code files to include. Eventually much of this configuration may be able to move
+    to :file:`pyproject.toml`.
+
+    Open :file:`setup.py` and enter the following content. Update the package name
+    to include your username (for example, ``example-pkg-theacodes``), this ensures
+    that you have a unique package name and that your package doesn't conflict with
+    packages uploaded by other people following this tutorial.
+
+    .. code-block:: python
+
+        [metadata]
+        # replace with your username:
+        name = example-pkg-YOUR-USERNAME-HERE
+        version = 0.0.1
+        url = https://github.com/pypa/sampleproject
+        author = Example Author
+        author_email = author@example.com
+        classifiers =
+            Programming Language :: Python :: 3
+            License :: OSI Approved :: MIT License
+            Operating System :: OS Independent
+        description = A small example package
+        long_description = file: README.md
+        long_description_content_type = text/markdown
+
+        [options]
+        python_requires = >=3.6
+
+
+    There are a `variety of metadata and options
+    <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
+    supported here. This is in configparser format; do not place quotes around values.
+    This example package uses a relatively minimal set of options:
+
+    - ``name`` is the *distribution name* of your package. This can be any name as
+      long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+      already be taken on pypi.org. **Be sure to update this with your username,**
+      as this ensures you won't try to upload a package with the same name as one
+      which already exists when you upload the package.
+    - ``version`` is the package version see :pep:`440` for more details on
+      versions. You can use ``file:`` or ``attr:`` directives to read from a file or
+      package attribute (simple attributes do not require import).
+    - ``author`` and ``author_email`` are used to identify the author of the
+      package.
+    - ``description`` is a short, one-sentence summary of the package.
+    - ``long_description`` is a detailed description of the package. This is
+      shown on the package detail page on the Python Package Index. In
+      this case, the long description is loaded from :file:`README.md` which is
+      a common pattern, using the ``file:`` directive.
+    - ``long_description_content_type`` tells the index what type of markup is
+      used for the long description. In this case, it's Markdown.
+    - ``url`` is the URL for the homepage of the project. For many projects, this
+      will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
+      service.
+    - ``packages`` is a list of all Python :term:`import packages <Import
+      Package>` that should be included in the :term:`Distribution Package`.
+      Instead of listing each package manually, we can use the ``find:`` directive
+      to automatically discover all packages and subpackages. In this case, the
+      list of packages will be ``example_pkg`` as that's the only package present.
+    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
+      about your package. In this case, the package is only compatible with Python
+      3, is licensed under the MIT license, and is OS-independent. You should
+      always include at least which version(s) of Python your package works on,
+      which license your package is available under, and which operating systems
+      your package will work on. For a complete list of classifiers, see
+      https://pypi.org/classifiers/.
+
+    There are many more than the ones mentioned here. See
+    :doc:`/guides/distributing-packages-using-setuptools` for more details.
+
+
+    If you create a :file:`setup.py` file, this will enable direct interaction
+    with :file:`setup.py` (which generally should be avoided), and editable
+    installs. This file used to be required, but can be omitted in modern
+    setuptools.
+
+    Anything you set in :file:`setup.cfg` can instead be set via keyword argument to
+    :func:`setup()`; this enables computed values to be used. You will also need
+    :func:`setup()` for setting up extension modules for compilation.
+
+    .. code-block:: python
+
+        import setuptools
+
+        setuptools.setup()
+
+.. tab:: setup.py (dynamic)
+
+    :file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
+    about your package (such as the name and version) as well as which code files
+    to include.
+
+    Open :file:`setup.py` and enter the following content. Update the package name
+    to include your username (for example, ``example-pkg-theacodes``), this ensures
+    that you have a unique package name and that your package doesn't conflict with
+    packages uploaded by other people following this tutorial.
+
+    .. code-block:: python
+
+        import setuptools
+
+        with open("README.md", "r", encoding="utf-8") as fh:
+            long_description = fh.read()
+
+        setuptools.setup(
+            name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
+            version="0.0.1",
+            author="Example Author",
+            author_email="author@example.com",
+            description="A small example package",
+            long_description=long_description,
+            long_description_content_type="text/markdown",
+            url="https://github.com/pypa/sampleproject",
+            packages=setuptools.find_packages(),
+            classifiers=[
+                "Programming Language :: Python :: 3",
+                "License :: OSI Approved :: MIT License",
+                "Operating System :: OS Independent",
+            ],
+            python_requires='>=3.6',
+        )
+
+
+    :func:`setup` takes several arguments. This example package uses a relatively
+    minimal set:
+
+    - ``name`` is the *distribution name* of your package. This can be any name as
+      long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+      already be taken on pypi.org. **Be sure to update this with your username,**
+      as this ensures you won't try to upload a package with the same name as one
+      which already exists when you upload the package.
+    - ``version`` is the package version see :pep:`440` for more details on
+      versions.
+    - ``author`` and ``author_email`` are used to identify the author of the
+      package.
+    - ``description`` is a short, one-sentence summary of the package.
+    - ``long_description`` is a detailed description of the package. This is
+      shown on the package detail page on the Python Package Index. In
+      this case, the long description is loaded from :file:`README.md` which is
+      a common pattern.
+    - ``long_description_content_type`` tells the index what type of markup is
+      used for the long description. In this case, it's Markdown.
+    - ``url`` is the URL for the homepage of the project. For many projects, this
+      will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
+      service.
+    - ``packages`` is a list of all Python :term:`import packages <Import
+      Package>` that should be included in the :term:`Distribution Package`.
+      Instead of listing each package manually, we can use :func:`find_packages`
+      to automatically discover all packages and subpackages. In this case, the
+      list of packages will be ``example_pkg`` as that's the only package present.
+    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
+      about your package. In this case, the package is only compatible with Python
+      3, is licensed under the MIT license, and is OS-independent. You should
+      always include at least which version(s) of Python your package works on,
+      which license your package is available under, and which operating systems
+      your package will work on. For a complete list of classifiers, see
+      https://pypi.org/classifiers/.
+
+    There are many more than the ones mentioned here. See
+    :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
 Creating README.md
 ------------------
@@ -185,21 +332,20 @@ The next step is to generate :term:`distribution packages <Distribution
 Package>` for the package. These are archives that are uploaded to the Package
 Index and can be installed by :ref:`pip`.
 
-Make sure you have the latest versions of ``setuptools`` and ``wheel``
-installed:
+Make sure you have the latest versions of PyPA's ``build`` installed:
 
 .. code-block:: bash
 
-    python3 -m pip install --user --upgrade setuptools wheel
+    python3 -m pip install --upgrade build
 
-.. tip:: IF you have trouble installing these, see the
+.. tip:: If you have trouble installing these, see the
    :doc:`installing-packages` tutorial.
 
-Now run this command from the same directory where :file:`setup.py` is located:
+Now run this command from the same directory where :file:`pyproject.toml` is located:
 
 .. code-block:: bash
 
-    python3 setup.py sdist bdist_wheel
+    python3 -m build
 
 This command should output a lot of text and once completed should generate two
 files in the :file:`dist` directory:
@@ -307,7 +453,12 @@ something like this:
     Installing collected packages: example-pkg-YOUR-USERNAME-HERE
     Successfully installed example-pkg-YOUR-USERNAME-HERE-0.0.1
 
-.. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have the same packages as the live PyPI, it's possible that attempting to install dependencies may fail or install something unexpected. While our example package doesn't have any dependencies, it's a good practice to avoid installing dependencies when using TestPyPI.
+.. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of
+   live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't
+   have the same packages as the live PyPI, it's possible that attempting to
+   install dependencies may fail or install something unexpected. While our
+   example package doesn't have any dependencies, it's a good practice to avoid
+   installing dependencies when using TestPyPI.
 
 You can test that it was installed correctly by importing the package.
 Run the Python interpreter (make sure you're still in your virtualenv):
@@ -334,7 +485,8 @@ Next steps
 
 Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI, which isn't a permanent storage. The Test system occasionally deletes
-packages and accounts. It is best to use Test PyPI for testing and experiments like this tutorial.
+packages and accounts. It is best to use Test PyPI for testing and experiments
+like this tutorial.
 
 When you are ready to upload a real package to the Python Package Index you can
 do much the same as you did in this tutorial, but with these important
@@ -361,4 +513,4 @@ some things you can do:
   and `poetry`_.
 
 .. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://github.com/python-poetry/poetry
+.. _poetry: https://python-poetry.org

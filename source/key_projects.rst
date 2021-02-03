@@ -31,6 +31,22 @@ context of automated tests) and to prevent heavily loading PyPI's
 Content Delivery Network (CDN).
 
 
+.. _build:
+
+build
+=====
+
+`Docs <https://pypa-build.readthedocs.io/>`__ |
+`Issues <https://github.com/pypa/build/issues>`__ |
+`GitHub <https://github.com/pypa/build>`__ |
+`PyPI <https://pypi.org/project/build>`__ |
+User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
+Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+
+``build`` is a PEP-517 compatible Python package builder. It provides a CLI to
+build packages, as well as a Python API.
+
+
 .. _distlib:
 
 distlib
@@ -517,15 +533,8 @@ piwheels
 piwheels is a website, and software underpinning it, that fetches
 source code distribution packages from PyPI and compiles them into
 binary wheels that are optimized for installation onto Raspberry Pi
-computers. pip in Raspbian is pre-configured to use piwheels.org as
+computers. Raspberry Pi OS pre-configures pip to use piwheels.org as
 an additional index to PyPI.
-
-  .. warning::
-
-    Note that piwheels `does not yet fully support
-    <https://github.com/piwheels/piwheels/issues/208>`__ :pep:`503` and
-    thus some users have trouble installing certain wheels; this is in
-    progress.
 
 .. _poetry:
 
@@ -538,11 +547,10 @@ poetry
 
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
-uses ``pyproject.toml`` and provides its own dependency resolver, and,
-instead of depending on the resolver functionality within :ref:`pip`,
-provides its own dependency resolver. It attempts to speed users'
-experience of installation and dependency resolution by locally
-caching metadata about dependencies.
+uses ``pyproject.toml`` and, instead of depending on the resolver
+functionality within :ref:`pip`, provides its own dependency resolver.
+It attempts to speed users' experience of installation and dependency
+resolution by locally caching metadata about dependencies.
 
 .. _pypiserver:
 

@@ -4,10 +4,6 @@
 Core metadata specifications
 ============================
 
-The current core metadata file format, version 2.1, is specified in :pep:`566`.
-It defines the following specification as the canonical source for the core
-metadata file format.
-
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
 
@@ -32,7 +28,8 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
+Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1"
+and "2.2".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -46,8 +43,10 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.1
+    Metadata-Version: 2.2
 
+
+.. _core-metadata-name:
 
 Name
 ====
@@ -69,6 +68,8 @@ Example::
     Name: BeagleVote
 
 
+.. _core-metadata-version:
+
 Version
 =======
 
@@ -80,6 +81,36 @@ field  must be in the format specified in :pep:`440`.
 Example::
 
     Version: 1.0a2
+
+
+Dynamic (multiple use)
+======================
+
+.. versionadded:: 2.2
+
+A string containing the name of another core metadata field. The field
+names ``Name`` and ``Version`` may not be specified in this field.
+
+When found in the metadata of a source distribution, the following
+rules apply:
+
+1. If a field is *not* marked as ``Dynamic``, then the value of the field
+   in any wheel built from the sdist MUST match the value in the sdist.
+   If the field is not in the sdist, and not marked as ``Dynamic``, then
+   it MUST NOT be present in the wheel.
+2. If a field is marked as ``Dynamic``, it may contain any valid value in
+   a wheel built from the sdist (including not being present at all).
+
+If the sdist metadata version is older than version 2.2, then all fields should
+be treated as if they were specified with ``Dynamic`` (i.e. there are no special
+restrictions on the metadata of wheels built from the sdist).
+
+In any context other than a source distribution, ``Dynamic`` is for information
+only, and indicates that the field value was calculated at wheel build time,
+and may not be the same as the value in the sdist or in other wheels for the
+project.
+
+Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
 
 Platform (multiple use)
@@ -113,6 +144,8 @@ Example::
     Supported-Platform: i386-win32-2791
 
 
+.. _core-metadata-summary:
+
 Summary
 =======
 
@@ -130,7 +163,9 @@ Example::
    link targets like this one, so that links to the individual sections are not
    broken.
 
+
 .. _description-optional:
+.. _core-metadata-description:
 
 Description
 ===========
@@ -175,7 +210,9 @@ Alternatively, the distribution's description may instead be provided in the
 message body (i.e., after a completely blank line following the headers, with
 no indentation or other special formatting necessary).
 
+
 .. _description-content-type-optional:
+.. _core-metadata-description-content-type:
 
 Description-Content-Type
 ========================
@@ -261,7 +298,9 @@ So for the last example above, the ``charset`` defaults to ``UTF-8`` and the
 ``variant`` defaults to ``GFM`` and thus it is equivalent to the example
 before it.
 
+
 .. _keywords-optional:
+.. _core-metadata-keywords:
 
 Keywords
 ========
@@ -305,7 +344,9 @@ A string containing the URL from which this version of the distribution
 can be downloaded.  (This means that the URL can't be something like
 ".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
 
+
 .. _author-optional:
+.. _core-metadata-author:
 
 Author
 ======
@@ -320,7 +361,9 @@ Example::
     Author: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+
 .. _author-email-optional:
+.. _core-metadata-author-email:
 
 Author-email
 ============
@@ -340,7 +383,9 @@ addresses::
 
     Author-email: cschultz@example.com, snoopy@peanuts.com
 
+
 .. _maintainer-optional:
+.. _core-metadata-maintainer:
 
 Maintainer
 ==========
@@ -359,7 +404,9 @@ Example::
     Maintainer: C. Schultz, Universal Features Syndicate,
             Los Angeles, CA <cschultz@peanuts.example.com>
 
+
 .. _maintainer-email-optional:
+.. _core-metadata-maintainer-email:
 
 Maintainer-email
 ================
@@ -383,7 +430,9 @@ addresses::
 
     Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
+
 .. _license-optional:
+.. _core-metadata-license:
 
 License
 =======
@@ -407,6 +456,7 @@ Examples::
 
 
 .. _metadata-classifier:
+.. _core-metadata-classifier:
 
 Classifier (multiple use)
 =========================
@@ -425,6 +475,8 @@ Examples::
     Classifier: Development Status :: 4 - Beta
     Classifier: Environment :: Console (Text Based)
 
+
+.. _core-metadata-requires-dist:
 
 Requires-Dist (multiple use)
 ============================
@@ -465,6 +517,8 @@ Examples::
     Requires-Dist: zope.interface (>3.5.0)
     Requires-Dist: pywin32 >1.0; sys_platform == 'win32'
 
+
+.. _core-metadata-requires-python:
 
 Requires-Python
 ===============
@@ -519,6 +573,8 @@ Examples::
     Requires-External: make; sys_platform != "win32"
 
 
+.. _core-metadata-project-url:
+
 Project-URL (multiple-use)
 ==========================
 
@@ -533,8 +589,9 @@ Example::
 
 The label is free text limited to 32 characters.
 
-.. _metadata_provides_extra:
 
+.. _metadata_provides_extra:
+.. _core-metadata-provides-extra:
 .. _provides-extra-optional-multiple-use:
 
 Provides-Extra (multiple use)
