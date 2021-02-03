@@ -50,7 +50,7 @@ number of your project:
        the package's dependencies.
 
        Also, please be aware that declarative config indicators, including the
-       ``attr:`` directive, are not supported in parameters to setup.py.
+       ``attr:`` directive, are not supported in parameters to ``setup.py``.
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
