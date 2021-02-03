@@ -20,10 +20,20 @@ Package Distribution Metadata
    dependency-specifiers
    declaring-build-dependencies
    declaring-project-metadata
-   distribution-formats
    platform-compatibility-tags
    recording-installed-packages
    entry-points
+   direct-url
+
+
+Package Distribution File Formats
+---------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   source-distribution-format
+   binary-distribution-format
 
 
 Package Index Interfaces

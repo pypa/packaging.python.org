@@ -4,10 +4,6 @@
 Core metadata specifications
 ============================
 
-The current core metadata file format, version 2.1, is specified in :pep:`566`.
-It defines the following specification as the canonical source for the core
-metadata file format.
-
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
 
@@ -32,7 +28,8 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1", "1.2" and "2.1".
+Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1"
+and "2.2".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -46,7 +43,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.1
+    Metadata-Version: 2.2
 
 
 .. _core-metadata-name:
@@ -84,6 +81,36 @@ field  must be in the format specified in :pep:`440`.
 Example::
 
     Version: 1.0a2
+
+
+Dynamic (multiple use)
+======================
+
+.. versionadded:: 2.2
+
+A string containing the name of another core metadata field. The field
+names ``Name`` and ``Version`` may not be specified in this field.
+
+When found in the metadata of a source distribution, the following
+rules apply:
+
+1. If a field is *not* marked as ``Dynamic``, then the value of the field
+   in any wheel built from the sdist MUST match the value in the sdist.
+   If the field is not in the sdist, and not marked as ``Dynamic``, then
+   it MUST NOT be present in the wheel.
+2. If a field is marked as ``Dynamic``, it may contain any valid value in
+   a wheel built from the sdist (including not being present at all).
+
+If the sdist metadata version is older than version 2.2, then all fields should
+be treated as if they were specified with ``Dynamic`` (i.e. there are no special
+restrictions on the metadata of wheels built from the sdist).
+
+In any context other than a source distribution, ``Dynamic`` is for information
+only, and indicates that the field value was calculated at wheel build time,
+and may not be the same as the value in the sdist or in other wheels for the
+project.
+
+Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
 
 Platform (multiple use)
