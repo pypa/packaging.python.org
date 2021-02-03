@@ -19,7 +19,7 @@ jobs:
         with:
           path: ~/.cache/pip
           key:
-            ${{ matrix.os }}-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}
+            ${{ matrix.os }}-${{ matrix.python-version }}-${{ hashFiles('**/requirements.txt') }}-${{ hashFiles('noxfile.py') }}
           restore-keys: |
             ${{ matrix.os }}-${{ matrix.python-version }}-
 
