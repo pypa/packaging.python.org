@@ -50,6 +50,7 @@ project's root directory - you will add content to them in the following steps.
     ├── example_pkg
     │   └── __init__.py
     ├── pyproject.toml
+    ├── setup.cfg
     ├── setup.py
     └── tests
 
@@ -93,82 +94,186 @@ always include it. If you were to use a different build system, such as
 would be completely different than the setuptools configuration described
 below. See :pep:`517` and :pep:`518` for background and details.
 
-Creating setup.py
------------------
 
-:file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
-about your package (such as the name and version) as well as which code files
-to include.
+Configuring metadata
+--------------------
 
-Open :file:`setup.py` and enter the following content. Update the package name
-to include your username (for example, ``example-pkg-theacodes``), this ensures
-that you have a unique package name and that your package doesn't conflict with
-packages uploaded by other people following this tutorial.
+There are two types of metadata: static and dynamic.
 
-.. code-block:: python
+* Static metadata (:file:`setup.cfg`): guaranteed to be the same every time. This is
+  simpler, easier to read, and avoids many common errors, like encoding errors.
+* Dynamic metadata (:file:`setup.py`): possibly non-deterministic. Any items that are
+  dynamic or determined at install-time, as well as extension modules or
+  extensions to setuptools, need to go into :file:`setup.py`.
 
-    import setuptools
-
-    with open("README.md", "r", encoding="utf-8") as fh:
-        long_description = fh.read()
-
-    setuptools.setup(
-        name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
-        version="0.0.1",
-        author="Example Author",
-        author_email="author@example.com",
-        description="A small example package",
-        long_description=long_description,
-        long_description_content_type="text/markdown",
-        url="https://github.com/pypa/sampleproject",
-        packages=setuptools.find_packages(),
-        classifiers=[
-            "Programming Language :: Python :: 3",
-            "License :: OSI Approved :: MIT License",
-            "Operating System :: OS Independent",
-        ],
-        python_requires='>=3.6',
-    )
+Static metadata should be preferred and dynamic metadata should be used only as
+an escape hatch when absolutely necessary.
 
 
-:func:`setup` takes several arguments. This example package uses a relatively
-minimal set:
+.. tab:: setup.cfg (static)
 
-- ``name`` is the *distribution name* of your package. This can be any name as
-  long as only contains letters, numbers, ``_`` , and ``-``. It also must not
-  already be taken on pypi.org. **Be sure to update this with your username,**
-  as this ensures you won't try to upload a package with the same name as one
-  which already exists when you upload the package.
-- ``version`` is the package version see :pep:`440` for more details on
-  versions.
-- ``author`` and ``author_email`` are used to identify the author of the
-  package.
-- ``description`` is a short, one-sentence summary of the package.
-- ``long_description`` is a detailed description of the package. This is
-  shown on the package detail page on the Python Package Index. In
-  this case, the long description is loaded from :file:`README.md` which is
-  a common pattern.
-- ``long_description_content_type`` tells the index what type of markup is
-  used for the long description. In this case, it's Markdown.
-- ``url`` is the URL for the homepage of the project. For many projects, this
-  will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
-  service.
-- ``packages`` is a list of all Python :term:`import packages <Import
-  Package>` that should be included in the :term:`Distribution Package`.
-  Instead of listing each package manually, we can use :func:`find_packages`
-  to automatically discover all packages and subpackages. In this case, the
-  list of packages will be ``example_pkg`` as that's the only package present.
-- ``classifiers`` gives the index and :ref:`pip` some additional metadata
-  about your package. In this case, the package is only compatible with Python
-  3, is licensed under the MIT license, and is OS-independent. You should
-  always include at least which version(s) of Python your package works on,
-  which license your package is available under, and which operating systems
-  your package will work on. For a complete list of classifiers, see
-  https://pypi.org/classifiers/.
+    :file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells
+    setuptools about your package (such as the name and version) as well as which
+    code files to include. Eventually much of this configuration may be able to move
+    to :file:`pyproject.toml`.
 
-There are many more than the ones mentioned here. See
-:doc:`/guides/distributing-packages-using-setuptools` for more details.
+    Open :file:`setup.py` and enter the following content. Update the package name
+    to include your username (for example, ``example-pkg-theacodes``), this ensures
+    that you have a unique package name and that your package doesn't conflict with
+    packages uploaded by other people following this tutorial.
 
+    .. code-block:: python
+
+        [metadata]
+        # replace with your username:
+        name = example-pkg-YOUR-USERNAME-HERE
+        version = 0.0.1
+        url = https://github.com/pypa/sampleproject
+        author = Example Author
+        author_email = author@example.com
+        classifiers =
+            Programming Language :: Python :: 3
+            License :: OSI Approved :: MIT License
+            Operating System :: OS Independent
+        description = A small example package
+        long_description = file: README.md
+        long_description_content_type = text/markdown
+
+        [options]
+        python_requires = >=3.6
+
+
+    There are a `variety of metadata and options
+    <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
+    supported here. This is in configparser format; do not place quotes around values.
+    This example package uses a relatively minimal set of options:
+
+    - ``name`` is the *distribution name* of your package. This can be any name as
+      long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+      already be taken on pypi.org. **Be sure to update this with your username,**
+      as this ensures you won't try to upload a package with the same name as one
+      which already exists when you upload the package.
+    - ``version`` is the package version see :pep:`440` for more details on
+      versions. You can use ``file:`` or ``attr:`` directives to read from a file or
+      package attribute (simple attributes do not require import).
+    - ``author`` and ``author_email`` are used to identify the author of the
+      package.
+    - ``description`` is a short, one-sentence summary of the package.
+    - ``long_description`` is a detailed description of the package. This is
+      shown on the package detail page on the Python Package Index. In
+      this case, the long description is loaded from :file:`README.md` which is
+      a common pattern, using the ``file:`` directive.
+    - ``long_description_content_type`` tells the index what type of markup is
+      used for the long description. In this case, it's Markdown.
+    - ``url`` is the URL for the homepage of the project. For many projects, this
+      will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
+      service.
+    - ``packages`` is a list of all Python :term:`import packages <Import
+      Package>` that should be included in the :term:`Distribution Package`.
+      Instead of listing each package manually, we can use the ``find:`` directive
+      to automatically discover all packages and subpackages. In this case, the
+      list of packages will be ``example_pkg`` as that's the only package present.
+    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
+      about your package. In this case, the package is only compatible with Python
+      3, is licensed under the MIT license, and is OS-independent. You should
+      always include at least which version(s) of Python your package works on,
+      which license your package is available under, and which operating systems
+      your package will work on. For a complete list of classifiers, see
+      https://pypi.org/classifiers/.
+
+    There are many more than the ones mentioned here. See
+    :doc:`/guides/distributing-packages-using-setuptools` for more details.
+
+
+    If you create a :file:`setup.py` file, this will enable direct interaction
+    with :file:`setup.py` (which generally should be avoided), and editable
+    installs. This file used to be required, but can be omitted in modern
+    setuptools.
+
+    Anything you set in :file:`setup.cfg` can instead be set via keyword argument to
+    :func:`setup()`; this enables computed values to be used. You will also need
+    :func:`setup()` for setting up extension modules for compilation.
+
+    .. code-block:: python
+
+        import setuptools
+
+        setuptools.setup()
+
+.. tab:: setup.py (dynamic)
+
+    :file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
+    about your package (such as the name and version) as well as which code files
+    to include.
+
+    Open :file:`setup.py` and enter the following content. Update the package name
+    to include your username (for example, ``example-pkg-theacodes``), this ensures
+    that you have a unique package name and that your package doesn't conflict with
+    packages uploaded by other people following this tutorial.
+
+    .. code-block:: python
+
+        import setuptools
+
+        with open("README.md", "r", encoding="utf-8") as fh:
+            long_description = fh.read()
+
+        setuptools.setup(
+            name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
+            version="0.0.1",
+            author="Example Author",
+            author_email="author@example.com",
+            description="A small example package",
+            long_description=long_description,
+            long_description_content_type="text/markdown",
+            url="https://github.com/pypa/sampleproject",
+            packages=setuptools.find_packages(),
+            classifiers=[
+                "Programming Language :: Python :: 3",
+                "License :: OSI Approved :: MIT License",
+                "Operating System :: OS Independent",
+            ],
+            python_requires='>=3.6',
+        )
+
+
+    :func:`setup` takes several arguments. This example package uses a relatively
+    minimal set:
+
+    - ``name`` is the *distribution name* of your package. This can be any name as
+      long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+      already be taken on pypi.org. **Be sure to update this with your username,**
+      as this ensures you won't try to upload a package with the same name as one
+      which already exists when you upload the package.
+    - ``version`` is the package version see :pep:`440` for more details on
+      versions.
+    - ``author`` and ``author_email`` are used to identify the author of the
+      package.
+    - ``description`` is a short, one-sentence summary of the package.
+    - ``long_description`` is a detailed description of the package. This is
+      shown on the package detail page on the Python Package Index. In
+      this case, the long description is loaded from :file:`README.md` which is
+      a common pattern.
+    - ``long_description_content_type`` tells the index what type of markup is
+      used for the long description. In this case, it's Markdown.
+    - ``url`` is the URL for the homepage of the project. For many projects, this
+      will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
+      service.
+    - ``packages`` is a list of all Python :term:`import packages <Import
+      Package>` that should be included in the :term:`Distribution Package`.
+      Instead of listing each package manually, we can use :func:`find_packages`
+      to automatically discover all packages and subpackages. In this case, the
+      list of packages will be ``example_pkg`` as that's the only package present.
+    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
+      about your package. In this case, the package is only compatible with Python
+      3, is licensed under the MIT license, and is OS-independent. You should
+      always include at least which version(s) of Python your package works on,
+      which license your package is available under, and which operating systems
+      your package will work on. For a complete list of classifiers, see
+      https://pypi.org/classifiers/.
+
+    There are many more than the ones mentioned here. See
+    :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
 Creating README.md
 ------------------
