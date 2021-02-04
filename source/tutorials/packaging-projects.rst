@@ -117,7 +117,7 @@ an escape hatch when absolutely necessary.
     code files to include. Eventually much of this configuration may be able to move
     to :file:`pyproject.toml`.
 
-    Open :file:`setup.py` and enter the following content. Update the package name
+    Open :file:`setup.cfg` and enter the following content. Update the package name
     to include your username (for example, ``example-pkg-theacodes``), this ensures
     that you have a unique package name and that your package doesn't conflict with
     packages uploaded by other people following this tutorial.
