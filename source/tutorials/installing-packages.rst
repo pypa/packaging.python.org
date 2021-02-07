@@ -77,7 +77,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
 .. Note:: Due to the way most Linux distributions are handling the Python 3
    migration, Linux users using the system Python without creating a virtual
    environment first should replace the ``python`` command in this tutorial
-   with ``python3`` and the ``python -m pip`` command with ``python3 -m pip3 --user``. Do *not*
+   with ``python3`` and the ``python -m pip`` command with ``python3 -m pip --user``. Do *not*
    run any of the commands in this tutorial with ``sudo``: if you get a
    permissions error, come back to the section on creating virtual environments,
    set one up, and then continue with the tutorial as written.
