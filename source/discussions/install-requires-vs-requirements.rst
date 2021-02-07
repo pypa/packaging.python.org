@@ -64,7 +64,7 @@ Requirements files
 ------------------
 
 :ref:`Requirements Files <pip:Requirements Files>` described most simply, are
-just a list of :ref:`pip:python -m pip install` arguments placed into a file.
+just a list of :ref:`pip:pip install` arguments placed into a file.
 
 Whereas ``install_requires`` defines the dependencies for a single project,
 :ref:`Requirements Files <pip:Requirements Files>` are often used to define
