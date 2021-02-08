@@ -501,7 +501,7 @@ differences:
   for the account you registered on the real PyPI.  Now that you're uploading
   the package in production, you don't need to specify ``--repository``; the
   package will upload to https://pypi.org/ by default.
-* Install your package from the real PyPI using ``pip install [your-package]``.
+* Install your package from the real PyPI using ``python3 -m pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:

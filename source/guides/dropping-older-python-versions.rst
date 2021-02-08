@@ -32,7 +32,7 @@ Ensure that before you generate source distributions or binary distributions, yo
 
 Steps::
 
-   pip install --upgrade setuptools twine
+   python -m pip install --upgrade setuptools twine
 
 `setuptools` version should be above 24.0.0.
 
