@@ -7,14 +7,15 @@ Installing Packages
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
 
-It's important to note that the term "package" in this context is being used as
-a synonym for a :term:`distribution <Distribution Package>` (i.e. a bundle of
-software to be installed), not to refer to the kind of :term:`package <Import
-Package>` that you import in your Python source code (i.e. a container of
-modules). It is common in the Python community to refer to a :term:`distribution
-<Distribution Package>` using the term "package".  Using the term "distribution"
-is often not preferred, because it can easily be confused with a Linux
-distribution, or another larger software distribution like Python itself.
+It's important to note that the term "package" in this context is being used to
+describe a bundle of software to be installed (i.e. as a synonym for a
+:term:`distribution <Distribution Package>`). It does not to refer to the kind
+of :term:`package <Import Package>` that you import in your Python source code
+(i.e. a container of modules). It is common in the Python community to refer to
+a :term:`distribution <Distribution Package>` using the term "package".  Using
+the term "distribution" is often not preferred, because it can easily be
+confused with a Linux distribution, or another larger software distribution
+like Python itself.
 
 
 .. contents:: Contents
