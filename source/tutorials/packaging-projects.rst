@@ -128,25 +128,26 @@ an escape hatch when absolutely necessary.
         # replace with your username:
         name = example-pkg-YOUR-USERNAME-HERE
         version = 0.0.1
-        url = https://github.com/pypa/sampleproject
         author = Example Author
         author_email = author@example.com
+        description = A small example package
+        long_description = file: README.md
+        long_description_content_type = text/markdown
+        url = https://github.com/pypa/sampleproject
         classifiers =
             Programming Language :: Python :: 3
             License :: OSI Approved :: MIT License
             Operating System :: OS Independent
-        description = A small example package
-        long_description = file: README.md
-        long_description_content_type = text/markdown
 
         [options]
+        packages = find:
         python_requires = >=3.6
 
 
     There are a `variety of metadata and options
     <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
     supported here. This is in configparser format; do not place quotes around values.
-    This example package uses a relatively minimal set of options:
+    This example package uses a relatively minimal set of metadata:
 
     - ``name`` is the *distribution name* of your package. This can be any name as
       long as only contains letters, numbers, ``_`` , and ``-``. It also must not
@@ -168,11 +169,6 @@ an escape hatch when absolutely necessary.
     - ``url`` is the URL for the homepage of the project. For many projects, this
       will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
       service.
-    - ``packages`` is a list of all Python :term:`import packages <Import
-      Package>` that should be included in the :term:`Distribution Package`.
-      Instead of listing each package manually, we can use the ``find:`` directive
-      to automatically discover all packages and subpackages. In this case, the
-      list of packages will be ``example_pkg`` as that's the only package present.
     - ``classifiers`` gives the index and :ref:`pip` some additional metadata
       about your package. In this case, the package is only compatible with Python
       3, is licensed under the MIT license, and is OS-independent. You should
@@ -180,6 +176,17 @@ an escape hatch when absolutely necessary.
       which license your package is available under, and which operating systems
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
+
+    In the options category, we have controls for setuptools itself:
+
+    - ``packages`` is a list of all Python :term:`import packages <Import
+      Package>` that should be included in the :term:`Distribution Package`.
+      Instead of listing each package manually, we can use the ``find:`` directive
+      to automatically discover all packages and subpackages. In this case, the
+      list of packages will be ``example_pkg`` as that's the only package present.
+    - ``python_requires`` gives the versions of Python supported by your
+      project. Installers like pip will look back though older versions of
+      packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
@@ -227,12 +234,12 @@ an escape hatch when absolutely necessary.
             long_description=long_description,
             long_description_content_type="text/markdown",
             url="https://github.com/pypa/sampleproject",
-            packages=setuptools.find_packages(),
             classifiers=[
                 "Programming Language :: Python :: 3",
                 "License :: OSI Approved :: MIT License",
                 "Operating System :: OS Independent",
             ],
+            packages=setuptools.find_packages(),
             python_requires='>=3.6',
         )
 
@@ -259,11 +266,6 @@ an escape hatch when absolutely necessary.
     - ``url`` is the URL for the homepage of the project. For many projects, this
       will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
       service.
-    - ``packages`` is a list of all Python :term:`import packages <Import
-      Package>` that should be included in the :term:`Distribution Package`.
-      Instead of listing each package manually, we can use :func:`find_packages`
-      to automatically discover all packages and subpackages. In this case, the
-      list of packages will be ``example_pkg`` as that's the only package present.
     - ``classifiers`` gives the index and :ref:`pip` some additional metadata
       about your package. In this case, the package is only compatible with Python
       3, is licensed under the MIT license, and is OS-independent. You should
@@ -271,6 +273,14 @@ an escape hatch when absolutely necessary.
       which license your package is available under, and which operating systems
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
+    - ``packages`` is a list of all Python :term:`import packages <Import
+      Package>` that should be included in the :term:`Distribution Package`.
+      Instead of listing each package manually, we can use :func:`find_packages`
+      to automatically discover all packages and subpackages. In this case, the
+      list of packages will be ``example_pkg`` as that's the only package present.
+    - ``python_requires`` gives the versions of Python supported by your
+      project. Installers like pip will look back though older versions of
+      packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
