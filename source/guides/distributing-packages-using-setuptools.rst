@@ -32,7 +32,7 @@ Requirements for packaging and distributing
 
    ::
 
-    pip install twine
+    python -m pip install twine
 
    You'll need this to upload your project :term:`distributions <Distribution
    Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below
@@ -667,7 +667,7 @@ Assuming you're in the root of your project directory, then run:
 
 ::
 
- pip install -e .
+ python -m pip install -e .
 
 
 Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
@@ -699,7 +699,7 @@ see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
 Lastly, if you don't want to install any dependencies at all, you can run::
 
-   pip install -e . --no-deps
+   python -m pip install -e . --no-deps
 
 
 For more information, see the `Development Mode
@@ -759,7 +759,7 @@ Before you can build wheels for your project, you'll need to install the
 
 .. code-block:: text
 
-  pip install wheel
+  python -m pip install wheel
 
 
 .. _`Universal Wheels`:

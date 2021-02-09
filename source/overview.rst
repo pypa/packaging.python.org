@@ -424,7 +424,7 @@ used as a primitive in `the dh-virtualenv tool
 `osnap <https://github.com/jamesabel/osnap>`_, both of which wrap
 virtualenvs in a self-contained way.
 
-For production deployments, do not rely on running ``pip install``
+For production deployments, do not rely on running ``python -m pip install``
 from the Internet into a virtualenv, as one might do in a development
 environment. The overview above is full of much better solutions.
 
