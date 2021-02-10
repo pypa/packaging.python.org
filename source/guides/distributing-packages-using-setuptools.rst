@@ -652,7 +652,7 @@ maintained by a redistributor.
 A local version identifier takes the form ``<public version identifier>+<local version label>``.
 For example::
 
-   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commmit since 1.2.0.dev1 release
+   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commit since 1.2.0.dev1 release
    1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
