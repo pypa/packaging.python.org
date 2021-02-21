@@ -51,7 +51,10 @@ representing the common subset of Linux platforms at a given point in time:
   and ``s390x``) and updates the base platform to a compatible Linux platform
   from 2014.
 
-``manylinux_x_y`` (:pep:`600`) supersedes all previous PEPs to define a future-proof standard. It defines ``x`` and ``y`` as glibc major an minor versions supported (e.g. ``manylinux_2_24`` should work on any distro using glibc 2.24+). Previous tags are still supported for backward compatibility.
+``manylinux_x_y`` (:pep:`600`) supersedes all previous PEPs to define a
+future-proof standard. It defines ``x`` and ``y`` as glibc major an minor
+versions supported (e.g. ``manylinux_2_24`` should work on any distro using
+glibc 2.24+). Previous tags are still supported for backward compatibility.
 
 In general, distributions built for older versions of the specification are
 forwards-compatible (meaning that ``manylinux1`` distributions should continue
