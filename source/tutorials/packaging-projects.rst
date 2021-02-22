@@ -195,21 +195,22 @@ an escape hatch when absolutely necessary.
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
-
     If you create a :file:`setup.py` file, this will enable direct interaction
     with :file:`setup.py` (which generally should be avoided), and editable
     installs. This file used to be required, but can be omitted in modern
-    setuptools.
-
-    Anything you set in :file:`setup.cfg` can instead be set via keyword argument to
-    :func:`setup()`; this enables computed values to be used. You will also need
-    :func:`setup()` for setting up extension modules for compilation.
+    setuptools. If you include the file, you must have a call to
+    :func:`setup()` in it:
 
     .. code-block:: python
 
         import setuptools
 
         setuptools.setup()
+
+    Anything you set in :file:`setup.cfg` can instead be set via keyword argument to
+    :func:`setup()`; this enables computed values to be used. You will also need
+    :func:`setup()` for setting up extension modules for compilation.
+
 
 .. tab:: setup.py (dynamic)
 
