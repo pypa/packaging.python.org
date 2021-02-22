@@ -6,12 +6,12 @@ pip vs easy_install
 ===================
 
 
-`easy_install` was released in 2004, as part of :ref:`setuptools`.  It was
+:ref:`easy_install <easy_install>` was released in 2004, as part of :ref:`setuptools`.  It was
 notable at the time for installing :term:`packages <Distribution Package>` from
 :term:`PyPI <Python Package Index (PyPI)>` using requirement specifiers, and
 automatically installing dependencies.
 
-:ref:`pip` came later in 2008, as alternative to `easy_install`, although still
+:ref:`pip` came later in 2008, as alternative to :ref:`easy_install <easy_install>`, although still
 largely built on top of :ref:`setuptools` components.  It was notable at the
 time for *not* installing packages as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but
 rather simply as 'flat' packages from :term:`sdists <Source Distribution (or
@@ -27,13 +27,13 @@ Here's a breakdown of the important differences between pip and easy_install now
 |Installs from :term:`Wheels   |Yes                                   |No                             |
 |<Wheel>`                      |                                      |                               |
 +------------------------------+--------------------------------------+-------------------------------+
-|Uninstall Packages            |Yes (``pip uninstall``)               |No                             |
+|Uninstall Packages            |Yes (``python -m pip uninstall``)     |No                             |
 +------------------------------+--------------------------------------+-------------------------------+
 |Dependency Overrides          |Yes (:ref:`Requirements Files         |No                             |
 |                              |<pip:Requirements Files>`)            |                               |
 +------------------------------+--------------------------------------+-------------------------------+
-|List Installed Packages       |Yes (``pip list`` and ``pip           |No                             |
-|                              |freeze``)                             |                               |
+|List Installed Packages       |Yes (``python -m pip list`` and       |No                             |
+|                              |``python -m pip freeze``)             |                               |
 +------------------------------+--------------------------------------+-------------------------------+
 |:pep:`438`                    |Yes                                   |No                             |
 |Support                       |                                      |                               |

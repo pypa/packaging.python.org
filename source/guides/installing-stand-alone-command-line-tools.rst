@@ -87,8 +87,8 @@ To upgrade or uninstall the package
 
 ::
 
-  $ pip install -U pipx
-  $ pip uninstall pipx
+  $ python3 -m pip install -U pipx
+  $ python3 -m pip uninstall pipx
 
 ``pipx`` also allows you to install and run the latest version of a cli tool
 in a temporary, ephemeral environment.

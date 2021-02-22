@@ -21,7 +21,7 @@ History and change workflow
 ===========================
 
 The metadata described here was first specified in :pep:`376`, and later
-ammended in :pep:`627`.
+amended in :pep:`627`.
 It was formerly known as *Database of Installed Python Distributions*.
 Further amendments (except trivial language or typography fixes) must be made
 through the PEP process (see :pep:`1`).
@@ -196,3 +196,14 @@ This value should be used for informational purposes only.
 For example, if a tool is asked to uninstall a project but finds no ``RECORD``
 file, it may suggest that the tool named in ``INSTALLER`` may be able to do the
 uninstallation.
+
+The direct_url.json file
+========================
+
+This file MUST be created by installers when installing a distribution from a
+requirement specifying a direct URL reference (including a VCS URL).
+
+This file MUST NOT be created when installing a distribution from an other type
+of requirement (i.e. name plus version specifier).
+
+Its detailed specification is at :ref:`direct-url`.

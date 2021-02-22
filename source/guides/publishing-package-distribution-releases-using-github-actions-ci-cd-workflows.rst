@@ -37,11 +37,11 @@ Let's begin! 🚀
 2. In a separate browser tab or window, go to the ``Settings``
    tab of your target repository and then click on `Secrets`_
    in the left sidebar.
-3. Create a new secret called ``pypi_password`` and copy-paste
-   the token from the fist step.
+3. Create a new secret called ``PYPI_API_TOKEN`` and copy-paste
+   the token from the first step.
 4. Now, go to https://test.pypi.org/manage/account/#api-tokens
    and repeat the steps. Save that TestPyPI token on GitHub
-   as ``test_pypi_password``.
+   as ``TEST_PYPI_API_TOKEN``.
 
    .. attention::
 

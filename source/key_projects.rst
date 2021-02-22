@@ -43,7 +43,7 @@ build
 User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
 Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
 
-``build`` is a PEP-517 compatible Python package builder. It provides a CLI to
+``build`` is a :pep:`517` compatible Python package builder. It provides a CLI to
 build packages, as well as a Python API.
 
 
@@ -547,11 +547,10 @@ poetry
 
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
-uses ``pyproject.toml`` and provides its own dependency resolver, and,
-instead of depending on the resolver functionality within :ref:`pip`,
-provides its own dependency resolver. It attempts to speed users'
-experience of installation and dependency resolution by locally
-caching metadata about dependencies.
+uses ``pyproject.toml`` and, instead of depending on the resolver
+functionality within :ref:`pip`, provides its own dependency resolver.
+It attempts to speed users' experience of installation and dependency
+resolution by locally caching metadata about dependencies.
 
 .. _pypiserver:
 

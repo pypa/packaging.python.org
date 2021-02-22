@@ -99,7 +99,7 @@ You can check your README for markup errors before uploading as follows:
 1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
    version 1.12.0 or higher is required::
 
-        pip install --upgrade twine
+        python3 -m pip install --upgrade twine
 
 2. Build the sdist and wheel for your project as described under
    :ref:`Packaging Your Project`.

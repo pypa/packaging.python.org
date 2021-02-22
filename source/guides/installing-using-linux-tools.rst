@@ -98,7 +98,7 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
 (using yum) then there are two options:
 
 
-1. Use the "Sofware Collections" feature to enable a parallel collection that
+1. Use the "Software Collections" feature to enable a parallel collection that
    includes pip, setuptools, and wheel.
 
    * For Redhat, see here:
