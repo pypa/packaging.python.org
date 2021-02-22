@@ -43,7 +43,7 @@ build
 User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
 Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
 
-``build`` is a PEP-517 compatible Python package builder. It provides a CLI to
+``build`` is a :pep:`517` compatible Python package builder. It provides a CLI to
 build packages, as well as a Python API.
 
 

@@ -26,7 +26,7 @@ all repositories using a valid HTTPS setup.
 
 The directory layout is fairly simple, within a root directory you need to
 create a directory for each project. This directory should be the normalized
-name (as defined by PEP 503) of the project. Within each of these directories
+name (as defined by :pep:`503`) of the project. Within each of these directories
 simply place each of the downloadable files. If you have the projects "Foo"
 (with the versions 1.0 and 2.0) and "bar" (with the version 0.1) You should
 end up with a structure that looks like::
@@ -46,7 +46,7 @@ instruct users to add the URL to their installer's configuration.
 ----
 
 .. [1] For complete documentation of the simple repository protocol, see
-       PEP 503.
+       :pep:`503`.
 
 
 .. _devpi: http://doc.devpi.net/latest/
