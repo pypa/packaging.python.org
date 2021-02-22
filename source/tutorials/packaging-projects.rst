@@ -134,6 +134,8 @@ an escape hatch when absolutely necessary.
         long_description = file: README.md
         long_description_content_type = text/markdown
         url = https://github.com/pypa/sampleproject
+        project_urls =
+            Bug Tracker = https://github.com/pypa/sampleproject/issues
         classifiers =
             Programming Language :: Python :: 3
             License :: OSI Approved :: MIT License
@@ -169,6 +171,8 @@ an escape hatch when absolutely necessary.
     - ``url`` is the URL for the homepage of the project. For many projects, this
       will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
       service.
+    - ``project_urls`` lets you list any number of extra links to show on PyPI.
+      Generally this could be to documentation, issue trackers, etc.
     - ``classifiers`` gives the index and :ref:`pip` some additional metadata
       about your package. In this case, the package is only compatible with Python
       3, is licensed under the MIT license, and is OS-independent. You should
@@ -235,6 +239,9 @@ an escape hatch when absolutely necessary.
             long_description=long_description,
             long_description_content_type="text/markdown",
             url="https://github.com/pypa/sampleproject",
+            project_urls={
+                "Bug Tracker": https://github.com/pypa/sampleproject/issues",
+            }
             classifiers=[
                 "Programming Language :: Python :: 3",
                 "License :: OSI Approved :: MIT License",
@@ -267,6 +274,8 @@ an escape hatch when absolutely necessary.
     - ``url`` is the URL for the homepage of the project. For many projects, this
       will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
       service.
+    - ``project_urls`` lets you list any number of extra links to show on PyPI.
+      Generally this could be to documentation, issue trackers, etc.
     - ``classifiers`` gives the index and :ref:`pip` some additional metadata
       about your package. In this case, the package is only compatible with Python
       3, is licensed under the MIT license, and is OS-independent. You should
