@@ -12,11 +12,10 @@ The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
-For more reference material, see `Building and Distributing Packages
-<https://setuptools.readthedocs.io/en/latest/setuptools.html>`_ in the
-:ref:`setuptools` docs, but note that some advisory content there may be
-outdated. In the event of conflicts, prefer the advice in the Python
-Packaging User Guide.
+For more reference material, see :std:doc:`Building and Distributing
+Packages <userguide/index>` in the :ref:`setuptools` docs, but note
+that some advisory content there may be outdated. In the event of
+conflicts, prefer the advice in the Python Packaging User Guide.
 
 .. contents:: Contents
    :local:
@@ -445,9 +444,9 @@ The value must be a mapping from package name to a list of relative path names
 that should be copied into the package. The paths are interpreted as relative to
 the directory containing the package.
 
-For more information, see `Including Data Files
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files>`_
-from the `setuptools docs <https://setuptools.readthedocs.io>`_.
+For more information, see :std:doc:`Including Data Files
+<setuptools:userguide/datafiles>` from the
+:std:doc:`setuptools docs <setuptools:index>`.
 
 
 .. _`Data Files`:
