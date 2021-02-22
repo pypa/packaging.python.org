@@ -171,7 +171,7 @@ an escape hatch when absolutely necessary.
     - ``url`` is the URL for the homepage of the project. For many projects, this
       will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
       service.
-    - ``project_urls`` lets you list any number of extra links to show in PyPI.
+    - ``project_urls`` lets you list any number of extra links to show on PyPI.
       Generally this could be to documentation, issue trackers, etc.
     - ``classifiers`` gives the index and :ref:`pip` some additional metadata
       about your package. In this case, the package is only compatible with Python
@@ -273,7 +273,7 @@ an escape hatch when absolutely necessary.
     - ``url`` is the URL for the homepage of the project. For many projects, this
       will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
       service.
-    - ``project_urls`` lets you list any number of extra links to show in PyPI.
+    - ``project_urls`` lets you list any number of extra links to show on PyPI.
       Generally this could be to documentation, issue trackers, etc.
     - ``classifiers`` gives the index and :ref:`pip` some additional metadata
       about your package. In this case, the package is only compatible with Python
