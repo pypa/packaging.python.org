@@ -13,7 +13,7 @@ development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
 For more reference material, see `Building and Distributing Packages
-<https://setuptools.readthedocs.io/en/latest/setuptools.html>`_ in the
+<https://setuptools.readthedocs.io/en/latest/userguide/index.html>`_ in the
 :ref:`setuptools` docs, but note that some advisory content there may be
 outdated. In the event of conflicts, prefer the advice in the Python
 Packaging User Guide.
