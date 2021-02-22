@@ -424,7 +424,7 @@ used as a primitive in `the dh-virtualenv tool
 `osnap <https://github.com/jamesabel/osnap>`_, both of which wrap
 virtualenvs in a self-contained way.
 
-For production deployments, do not rely on running ``pip install``
+For production deployments, do not rely on running ``python -m pip install``
 from the Internet into a virtualenv, as one might do in a development
 environment. The overview above is full of much better solutions.
 
@@ -450,7 +450,7 @@ ride. This impression is mostly a byproduct of Python's
 versatility. Once you understand the natural boundaries between each
 packaging solution, you begin to realize that the varied landscape is
 a small price Python programmers pay for using one of the most
-balanced, flexible language available.
+balanced, flexible languages available.
 
 
 .. Editing notes:
@@ -503,7 +503,7 @@ balanced, flexible language available.
 
    - Avoid words that trivialize using JupyterLab
    such as “simply” or “just.” Tasks that developers find simple or
-   easy may not be for users."
+   easy may not be for users.
 
    Among other useful points. Read more here:
    https://jupyterlab.readthedocs.io/en/latest/developer/documentation.html

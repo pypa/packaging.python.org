@@ -29,7 +29,7 @@ extensions.
 
 Windows users typically do not have access to a C compiler, and therefore are
 reliant on projects that use C extensions distributing binary wheels on PyPI in
-order for the distribution to be installable via ``pip install <dist>``. By
+order for the distribution to be installable via ``python -m pip install <dist>``. By
 using Appveyor as a build service (even if not using it for testing) it is
 possible for projects without a dedicated Windows environment to provide
 Windows-targeted binaries.

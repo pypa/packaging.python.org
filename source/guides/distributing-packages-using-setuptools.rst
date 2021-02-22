@@ -12,11 +12,10 @@ The section does *not* aim to cover best practices for Python project
 development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
-For more reference material, see `Building and Distributing Packages
-<https://setuptools.readthedocs.io/en/latest/setuptools.html>`_ in the
-:ref:`setuptools` docs, but note that some advisory content there may be
-outdated. In the event of conflicts, prefer the advice in the Python
-Packaging User Guide.
+For more reference material, see :std:doc:`Building and Distributing
+Packages <userguide/index>` in the :ref:`setuptools` docs, but note
+that some advisory content there may be outdated. In the event of
+conflicts, prefer the advice in the Python Packaging User Guide.
 
 .. contents:: Contents
    :local:
@@ -32,7 +31,7 @@ Requirements for packaging and distributing
 
    ::
 
-    pip install twine
+    python -m pip install twine
 
    You'll need this to upload your project :term:`distributions <Distribution
    Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below
@@ -445,9 +444,9 @@ The value must be a mapping from package name to a list of relative path names
 that should be copied into the package. The paths are interpreted as relative to
 the directory containing the package.
 
-For more information, see `Including Data Files
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files>`_
-from the `setuptools docs <https://setuptools.readthedocs.io>`_.
+For more information, see :std:doc:`Including Data Files
+<setuptools:userguide/datafiles>` from the
+:std:doc:`setuptools docs <setuptools:index>`.
 
 
 .. _`Data Files`:
@@ -652,7 +651,7 @@ maintained by a redistributor.
 A local version identifier takes the form ``<public version identifier>+<local version label>``.
 For example::
 
-   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commmit since 1.2.0.dev1 release
+   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commit since 1.2.0.dev1 release
    1.2.1+fedora.4                # Package with downstream Fedora patches applied
 
 
@@ -670,7 +669,7 @@ Change directory to the root of the project directory and run ``pip install -e .
 
 ::
 
- pip install -e .
+ python -m pip install -e .
 
 
 The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
@@ -702,7 +701,7 @@ see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
 Lastly, if you don't want to install any dependencies at all, you can run::
 
-   pip install -e . --no-deps
+   python -m pip install -e . --no-deps
 
 
 For more information, see the `Development Mode
@@ -762,7 +761,7 @@ Before you can build wheels for your project, you'll need to install the
 
 .. code-block:: text
 
-  pip install wheel
+  python -m pip install wheel
 
 
 .. _`Universal Wheels`:
