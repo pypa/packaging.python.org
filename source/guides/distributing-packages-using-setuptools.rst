@@ -881,8 +881,10 @@ distribution file(s) to upload.
   directives are forbidden or stripped out (e.g., the ``.. raw::``
   directive). **Before** trying to upload your distribution, you should check
   to see if your brief / long descriptions provided in :file:`setup.py` are
-  valid.  You can do this by following the instructions for the
-  `pypa/readme_renderer <https://github.com/pypa/readme_renderer>`_ tool.
+  valid.  You can do this by running :std:doc:`twine check <index>` on
+  your package files::
+
+    twine check dist/*
 
 Create an account
 -----------------
