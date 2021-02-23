@@ -27,7 +27,7 @@ Glossary
     Distribution Package
 
         A versioned archive file that contains Python :term:`packages <Import
-        Package>`, :term:`modules <module>`, and other resource files that are
+        Package>`, :term:`modules <Module>`, and other resource files that are
         used to distribute a :term:`Release`. The archive file is what an
         end-user will download from the internet and install.
 
@@ -44,12 +44,12 @@ Glossary
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
         which is being replaced by :term:`Wheel`.  For details, see `The
         Internal Structure of Python Eggs
-        <https://setuptools.readthedocs.io/en/latest/formats.html>`_ and
+        <https://setuptools.readthedocs.io/en/latest/deprecated/python_eggs.html>`_ and
         `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
     Extension Module
 
-        A :term:`module` written in the low-level language of the Python implementation:
+        A :term:`Module` written in the low-level language of the Python implementation:
         C/C++ for Python, Java for Jython. Typically contained in a single
         dynamically loadable pre-compiled file, e.g.  a shared object (.so) file
         for Python extensions on Unix, a DLL (given the .pyd extension) for
@@ -102,11 +102,10 @@ Glossary
         packaged into a :term:`Distribution <Distribution Package>`.
 
         Since most projects create :term:`Distributions <Distribution Package>`
-        using :ref:`distutils` or :ref:`setuptools`, another practical way to
-        define projects currently is something that contains a :term:`setup.py`
-        at the root of the project src directory, where "setup.py" is the
-        project specification filename used by :ref:`distutils` and
-        :ref:`setuptools`.
+        using either :pep:`518` ``build-system``, :ref:`distutils` or
+        :ref:`setuptools`, another practical way to define projects currently
+        is something that contains a :term:`pyproject.toml`, :term:`setup.py`,
+        or :term:`setup.cfg` file at the root of the project source directory.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
@@ -122,8 +121,8 @@ Glossary
 
     Pure Module
 
-        A :term:`module` written in Python and contained in a single `.py` file (and
-        possibly associated `.pyc` and/or `.pyo` files).
+        A :term:`Module` written in Python and contained in a single ``.py`` file (and
+        possibly associated ``.pyc`` and/or ``.pyo`` files).
 
 
     Python Packaging Authority (PyPA)
@@ -148,8 +147,13 @@ Glossary
 
         `pypi.org <https://pypi.org>`_ is the domain name for the
         :term:`Python Package Index (PyPI)`. It replaced the legacy index
-        domain name, `pypi.python.org`, in 2017. It is powered by
+        domain name, ``pypi.python.org``, in 2017. It is powered by
         :ref:`warehouse`.
+
+    pyproject.toml
+
+        The tool-agnostic :term:`Project` specification file.
+        Defined in :pep:`518`.
 
     Release
 
@@ -189,8 +193,10 @@ Glossary
 
 
     setup.py
+    setup.cfg
 
-        The project specification file for :ref:`distutils` and :ref:`setuptools`.
+        The project specification files for :ref:`distutils` and :ref:`setuptools`.
+        See also :term:`pyproject.toml`.
 
 
     Source Archive
