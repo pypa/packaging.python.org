@@ -34,6 +34,7 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
+    'sphinx_inline_tabs',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -196,8 +197,8 @@ html_last_updated_fmt = ''
 
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
-    '**': ['localtoc.html', 'relations.html'],
-    'index': ['localtoc.html']
+    '**': ['globaltoc.html', 'relations.html'],
+    'index': ['globaltoc.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to
@@ -375,6 +376,7 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
+    'setuptools': ('https://setuptools.rtfd.io/en/latest/', None),
 }
 
 

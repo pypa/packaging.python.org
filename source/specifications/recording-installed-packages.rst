@@ -21,7 +21,7 @@ History and change workflow
 ===========================
 
 The metadata described here was first specified in :pep:`376`, and later
-ammended in :pep:`627`.
+amended in :pep:`627`.
 It was formerly known as *Database of Installed Python Distributions*.
 Further amendments (except trivial language or typography fixes) must be made
 through the PEP process (see :pep:`1`).
@@ -38,10 +38,33 @@ Each project installed from a distribution must, in addition to files,
 install a "``.dist-info``" directory located alongside importable modules and
 packages (commonly, the ``site-packages`` directory).
 
-This directory is named as ``{name}-{version}.dist-info``, with `name` and
-`version` fields corresponding to :ref:`core-metadata`.
-The name field must be in normalized form (see `PEP 503 <https://www.python.org/dev/peps/pep-0503/#normalized-names>`_
-for the definition of normalization).
+This directory is named as ``{name}-{version}.dist-info``, with ``name`` and
+``version`` fields corresponding to :ref:`core-metadata`. Both fields must be
+normalized (see :pep:`PEP 503 <503#normalized-names>` and
+:pep:`PEP 440 <440#normalization>` for the definition of normalization for
+each field respectively), and replace dash (``-``) characters with
+underscore (``_``) chacaters, so the ``.dist-info`` directory always has
+exactly one dash (``-``) character in its stem, separating the ``name`` and
+``version`` fields.
+
+Historically, tools have failed to replace dot characters or normalize case in
+the ``name`` field, or not perform normalization in the ``version`` field.
+Tools consuming ``.dist-info`` directories should expect those fields to be
+unnormalized, and treat them as equivalent to their normalized counterparts.
+New tools that write ``.dist-info`` directories MUST normalize both ``name``
+and ``version`` fields using the rules described above, and existing tools are
+encouraged to start normalizing those fields.
+
+.. note::
+
+    The ``.dist-info`` directory's name is formatted to unambigiously represent
+    a distribution as a filesystem path. Tools presenting a distribution name
+    to a user should avoid using the normalized name, and instead present the
+    specified name (when needed prior to resolution to an installed package),
+    or read the respective fields in Core Metadata, since values listed there
+    are unescaped and accurately reflect the distribution. Libraries should
+    provide API for such tools to consume, so tools can have access to the
+    unnormalized name when displaying distrubution information.
 
 This ``.dist-info`` directory can contain these files, described in detail
 below:
@@ -173,3 +196,14 @@ This value should be used for informational purposes only.
 For example, if a tool is asked to uninstall a project but finds no ``RECORD``
 file, it may suggest that the tool named in ``INSTALLER`` may be able to do the
 uninstallation.
+
+The direct_url.json file
+========================
+
+This file MUST be created by installers when installing a distribution from a
+requirement specifying a direct URL reference (including a VCS URL).
+
+This file MUST NOT be created when installing a distribution from an other type
+of requirement (i.e. name plus version specifier).
+
+Its detailed specification is at :ref:`direct-url`.
