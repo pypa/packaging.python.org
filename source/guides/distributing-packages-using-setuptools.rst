@@ -887,7 +887,7 @@ distribution file(s) to upload.
   directive). **Before** trying to upload your distribution, you should check
   to see if your brief / long descriptions provided in :file:`setup.py` are
   valid.  You can do this by running `twine check
-  <https://twine.readthedocs.io/en/latest/#twine-check>`_ on your package files:
+  <https://twine.readthedocs.io/en/stable/#twine-check>`_ on your package files:
   ::
 
     twine check dist/*
