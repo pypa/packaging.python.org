@@ -31,8 +31,10 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
+    'sphinx_inline_tabs',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -51,9 +53,19 @@ source_suffix = '.rst'
 # The master toctree document.
 master_doc = 'index'
 
+# -- Project information -----------------------------------------------------
+
+github_url = 'https://github.com'
+github_repo_org = 'pypa'
+github_repo_name = 'packaging.python.org'
+github_repo_slug = f'{github_repo_org}/{github_repo_name}'
+github_repo_url = f'{github_url}/{github_repo_slug}'
+github_repo_issues_url = f'{github_url}/{github_repo_slug}/issues'
+github_sponsors_url = f'{github_url}/sponsors'
+
 # General information about the project.
 project = u'Python Packaging User Guide'
-copyright = u'2013–2019, PyPA'
+copyright = u'2013–2020, PyPA'
 author = 'Python Packaging Authority'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -88,8 +100,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
-#
-# default_role = None
+# Ref: python-attrs/attrs#571
+default_role = 'any'  # makes single backticks autofind targets
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 #
@@ -132,7 +144,7 @@ html_theme_options = {
     'collapsiblesidebar': True,
     'externalrefs': True,
     'navigation_depth': 2,
-    'issues_url': 'https://github.com/pypa/python-packaging-user-guide/issues'
+    'issues_url': github_repo_issues_url,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -185,8 +197,8 @@ html_last_updated_fmt = ''
 
 # Custom sidebar templates, filenames relative to this file.
 html_sidebars = {
-    '**': ['localtoc.html', 'relations.html'],
-    'index': ['localtoc.html']
+    '**': ['globaltoc.html', 'relations.html'],
+    'index': ['globaltoc.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to
@@ -350,10 +362,21 @@ texinfo_documents = [
 #
 # texinfo_no_detailmenu = False
 
+# -- Options for extlinks extension ---------------------------------------
+extlinks = {
+    'issue': (f'{github_repo_issues_url}/%s', '#'),  # noqa: WPS323
+    'pr': (f'{github_repo_url}/pull/%s', 'PR #'),  # noqa: WPS323
+    'commit': (f'{github_repo_url}/commit/%s', ''),  # noqa: WPS323
+    'gh': (f'{github_url}/%s', 'GitHub: '),  # noqa: WPS323
+    'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
+}
+
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.6', None),
+    'python': ('https://docs.python.org/3', None),
+    'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
+    'setuptools': ('https://setuptools.rtfd.io/en/latest/', None),
 }
 
 
@@ -362,30 +385,16 @@ intersphinx_mapping = {
 
 todo_include_todos = True
 
-# Configure the GitHub PR role to point to our project.
+nitpicky = True
 
-pr_role_github_org_and_project = 'pypa/python-packaging-user-guide'
-
-#
-# Custom plugin code below.
-#
-
-
-def setup(app):
-    app.add_config_value('pr_role_github_org_and_project', None, 'html')
-    app.add_role('pr', pr_role)
-
-
-def pr_role(name, rawtext, text, lineno, inliner, options={}, content=[]):
-    """Transforms ':pr:`number`'' to a hyperlink to the referenced pull request
-    on GitHub."""
-    from docutils import nodes
-
-    app = inliner.document.settings.env
-    project = app.config.pr_role_github_org_and_project
-    title = '#{}'.format(text)
-
-    uri = 'https://github.com/{}/pull/{}'.format(project, text)
-    rn = nodes.reference(
-        title, title, internal=False, refuri=uri, classes=['pr'])
-    return [rn], []
+# NOTE: consider having a separate ignore file
+# Ref: https://stackoverflow.com/a/30624034/595220
+nitpick_ignore = [
+    ('envvar', 'PATH'),
+    ('py:func', 'find_packages'),
+    ('py:func', 'pkg_resources.iter_entry_points'),
+    ('py:func', 'setup'),
+    ('py:func', 'setuptools.find_namespace_packages'),
+    ('py:func', 'setuptools.find_packages'),
+    ('py:func', 'setuptools.setup'),
+]

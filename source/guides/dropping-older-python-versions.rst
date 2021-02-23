@@ -32,7 +32,7 @@ Ensure that before you generate source distributions or binary distributions, yo
 
 Steps::
 
-   pip install --upgrade setuptools twine
+   python -m pip install --upgrade setuptools twine
 
 `setuptools` version should be above 24.0.0.
 
@@ -46,8 +46,9 @@ Examples::
     Requires-Python: ">=3"
     Requires-Python: ">2.7,!=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
-The way to set those values is within the call to `setup` within your setup.py script. This will insert the Requires-Python
-metadata values based on the argument you provide in `python_requires`.
+The way to set those values is within the call to ``setup`` within your
+:file:`setup.py` script. This will insert the ``Requires-Python``
+metadata values based on the argument you provide in ``python_requires``.
 
 .. code-block:: python
 
@@ -88,7 +89,7 @@ Dropping a Python release
 
 Once you have published a package with the Requires-Python metadata, you can then make a further update removing that Python runtime from support.
 
-It must be done in this order for the automated fail-back to work.
+It must be done in this order for the automated fallback to work.
 
 For example, you published the Requires-Python: ">=2.7" as version 1.0.0 of your package.
 

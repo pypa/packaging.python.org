@@ -7,14 +7,15 @@ Installing Packages
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
 
-It's important to note that the term "package" in this context is being used as
-a synonym for a :term:`distribution <Distribution Package>` (i.e. a bundle of
-software to be installed), not to refer to the kind of :term:`package <Import
-Package>` that you import in your Python source code (i.e. a container of
-modules). It is common in the Python community to refer to a :term:`distribution
-<Distribution Package>` using the term "package".  Using the term "distribution"
-is often not preferred, because it can easily be confused with a Linux
-distribution, or another larger software distribution like Python itself.
+It's important to note that the term "package" in this context is being used to
+describe a bundle of software to be installed (i.e. as a synonym for a
+:term:`distribution <Distribution Package>`). It does not to refer to the kind
+of :term:`package <Import Package>` that you import in your Python source code
+(i.e. a container of modules). It is common in the Python community to refer to
+a :term:`distribution <Distribution Package>` using the term "package".  Using
+the term "distribution" is often not preferred, because it can easily be
+confused with a Linux distribution, or another larger software distribution
+like Python itself.
 
 
 .. contents:: Contents
@@ -77,7 +78,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
 .. Note:: Due to the way most Linux distributions are handling the Python 3
    migration, Linux users using the system Python without creating a virtual
    environment first should replace the ``python`` command in this tutorial
-   with ``python3`` and the ``pip`` command with ``pip3 --user``. Do *not*
+   with ``python3`` and the ``python -m pip`` command with ``python3 -m pip --user``. Do *not*
    run any of the commands in this tutorial with ``sudo``: if you get a
    permissions error, come back to the section on creating virtual environments,
    set one up, and then continue with the tutorial as written.
@@ -93,7 +94,7 @@ check this by running:
 
 .. code-block:: bash
 
-    pip --version
+    python -m pip --version
 
 If you installed Python from source, with an installer from `python.org`_, or
 via `Homebrew`_ you should already have pip. If you're on Linux and installed
@@ -110,7 +111,7 @@ standard library:
 
     python -m ensurepip --default-pip
 
-If that still doesn't allow you to run ``pip``:
+If that still doesn't allow you to run ``python -m pip``:
 
  * Securely Download `get-pip.py
    <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
@@ -212,14 +213,14 @@ Using :ref:`virtualenv`:
 
 For more information, see the `venv`_ docs or the `virtualenv <http://virtualenv.pypa.io>`_ docs.
 
-The use of `source` under Unix shells ensures
+The use of :command:`source` under Unix shells ensures
 that the virtual environment's variables are set within the current
 shell, and not in a subprocess (which then disappears, having no
 useful effect).
 
 In both of the above cases, Windows users should _not_ use the
-`source` command, but should rather run the `activate` script directly
-from the command shell like so:
+:command:`source` command, but should rather run the :command:`activate`
+script directly from the command shell like so:
 
 ::
 
@@ -257,21 +258,21 @@ To install the latest version of "SomeProject":
 
 ::
 
- pip install "SomeProject"
+ python -m pip install "SomeProject"
 
 
 To install a specific version:
 
 ::
 
- pip install "SomeProject==1.4"
+ python -m pip install "SomeProject==1.4"
 
 
 To install greater than or equal to one version and less than another:
 
 ::
 
- pip install "SomeProject>=1,<2"
+ python -m pip install "SomeProject>=1,<2"
 
 
 To install a version that's :pep:`"compatible" <440#compatible-release>`
@@ -279,7 +280,7 @@ with a certain version: [4]_
 
 ::
 
- pip install "SomeProject~=1.4.2"
+ python -m pip install "SomeProject~=1.4.2"
 
 In this case, this means to install any version "==1.4.*" version that's also
 ">=1.4.2".
@@ -305,11 +306,11 @@ in the future.
 Upgrading packages
 ==================
 
-Upgrade an already installed `SomeProject` to the latest from PyPI.
+Upgrade an already installed ``SomeProject`` to the latest from PyPI.
 
 ::
 
- pip install --upgrade SomeProject
+ python -m pip install --upgrade SomeProject
 
 
 .. _`Installing to the User Site`:
@@ -322,7 +323,7 @@ current user, use the ``--user`` flag:
 
 ::
 
-  pip install --user SomeProject
+  python -m pip install --user SomeProject
 
 
 For more information see the `User Installs
@@ -367,7 +368,7 @@ Install a list of requirements specified in a :ref:`Requirements File
 
 ::
 
- pip install -r requirements.txt
+ python -m pip install -r requirements.txt
 
 
 Installing from VCS
@@ -378,10 +379,10 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
 ::
 
- pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
- pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
- pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
- pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+ python -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
+ python -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
+ python -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
+ python -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
 
 
 Installing from other Indexes
@@ -391,7 +392,7 @@ Install from an alternate index
 
 ::
 
- pip install --index-url http://my.package.repo/simple/ SomeProject
+ python -m pip install --index-url http://my.package.repo/simple/ SomeProject
 
 
 Search an additional index during install, in addition to :term:`PyPI <Python
@@ -399,7 +400,7 @@ Package Index (PyPI)>`
 
 ::
 
- pip install --extra-index-url http://my.package.repo/simple SomeProject
+ python -m pip install --extra-index-url http://my.package.repo/simple SomeProject
 
 
 
@@ -414,14 +415,14 @@ still editable from the src tree.
 
 ::
 
- pip install -e <path>
+ python -m pip install -e <path>
 
 
 You can also install normally from src
 
 ::
 
- pip install <path>
+ python -m pip install <path>
 
 
 Installing from local archives
@@ -431,7 +432,7 @@ Install a particular source archive file.
 
 ::
 
- pip install ./downloads/SomeProject-1.0.4.tar.gz
+ python -m pip install ./downloads/SomeProject-1.0.4.tar.gz
 
 
 Install from a local directory containing archives (and don't check :term:`PyPI
@@ -439,9 +440,9 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 
 ::
 
- pip install --no-index --find-links=file:///local/dir/ SomeProject
- pip install --no-index --find-links=/local/dir/ SomeProject
- pip install --no-index --find-links=relative/dir/ SomeProject
+ python -m pip install --no-index --find-links=file:///local/dir/ SomeProject
+ python -m pip install --no-index --find-links=/local/dir/ SomeProject
+ python -m pip install --no-index --find-links=relative/dir/ SomeProject
 
 
 Installing from other sources
@@ -455,7 +456,7 @@ that index.
 ::
 
  ./s3helper --port=7777
- pip install --extra-index-url http://localhost:7777 SomeProject
+ python -m pip install --extra-index-url http://localhost:7777 SomeProject
 
 
 Installing Prereleases
@@ -466,7 +467,7 @@ default, pip only finds stable versions.
 
 ::
 
- pip install --pre SomeProject
+ python -m pip install --pre SomeProject
 
 
 Installing Setuptools "Extras"
@@ -476,16 +477,16 @@ Install `setuptools extras`_.
 
 ::
 
-  $ pip install SomePackage[PDF]
-  $ pip install SomePackage[PDF]==3.0
-  $ pip install -e .[PDF]==3.0  # editable project in current directory
+  $ python -m pip install SomePackage[PDF]
+  $ python -m pip install SomePackage[PDF]==3.0
+  $ python -m pip install -e .[PDF]==3.0  # editable project in current directory
 
 
 ----
 
 .. [1] "Secure" in this context means using a modern browser or a
-       tool like `curl` that verifies SSL certificates when downloading from
-       https URLs.
+       tool like :command:`curl` that verifies SSL certificates when
+       downloading from https URLs.
 
 .. [2] Depending on your platform, this may require root or Administrator
        access. :ref:`pip` is currently considering changing this by `making user

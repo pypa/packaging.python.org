@@ -83,7 +83,7 @@ packages. [1]_
 
 Whereas ``install_requires`` metadata is automatically analyzed by pip during an
 install, requirements files are not, and only are used when a user specifically
-installs them using ``pip install -r``.
+installs them using ``python -m pip install -r``.
 
 ----
 

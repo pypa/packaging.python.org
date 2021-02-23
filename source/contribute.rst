@@ -21,11 +21,10 @@ the guide, please read the :ref:`style guide <contributing_style_guide>`.
 .. __: https://github.com/pypa/python-packaging-user-guide/issues
 .. __: https://github.com/pypa/python-packaging-user-guide/pulls
 
-By contributing to the |PyPUG|, you're expected to follow the Python Packaging
-Authority's `Contributor Code of Conduct`__. Harassment, personal attacks, and
-other unprofessional conduct is not acceptable.
+By contributing to the |PyPUG|, you're expected to follow the PSF's
+`Code of Conduct`__.
 
-.. __: https://www.pypa.io/en/latest/code-of-conduct/
+.. __: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
 
 
 Documentation types
@@ -64,7 +63,7 @@ Specifications
 --------------
 
 Specifications are reference documention focused on comprehensively documenting
-an agreed-upon iterface for interoperability between packaging tools.
+an agreed-upon interface for interoperability between packaging tools.
 :doc:`example specification-style document <specifications/core-metadata>`.
 
 
@@ -80,7 +79,7 @@ need:
 1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
    nox using ``pip``::
 
-      pip install --user nox
+      python -m pip install --user nox
 
 2. Python 3.6. Our build scripts are designed to work with Python 3.6 only.
    See the `Hitchhiker's Guide to Python installation instructions`_ to install

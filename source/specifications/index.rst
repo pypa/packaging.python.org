@@ -19,10 +19,21 @@ Package Distribution Metadata
    version-specifiers
    dependency-specifiers
    declaring-build-dependencies
-   distribution-formats
+   declaring-project-metadata
    platform-compatibility-tags
    recording-installed-packages
    entry-points
+   direct-url
+
+
+Package Distribution File Formats
+---------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   source-distribution-format
+   binary-distribution-format
 
 
 Package Index Interfaces
@@ -31,4 +42,5 @@ Package Index Interfaces
 .. toctree::
    :maxdepth: 1
 
+   pypirc
    simple-repository-api
