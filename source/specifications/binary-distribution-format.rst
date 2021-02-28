@@ -155,10 +155,17 @@ package's basic interpreter requirements and are detailed in PEP 425.
 Escaping and Unicode
 ''''''''''''''''''''
 
-Each component of the filename is escaped by replacing runs of
-non-alphanumeric characters with an underscore ``_``::
+As the components of the filename are separated by a dash (``-``, HYPHEN-MINUS),
+this character cannot appear within any component. This is handled as follows:
 
-    re.sub("[^\w\d.]+", "_", distribution, re.UNICODE)
+- In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
+  and FULL STOP) should be replaced with ``_`` (LOW LINE). This is equivalent
+  to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
+- Version numbers should be normalised according to :pep:`440`, and then ``-``
+  characters should be replaced with ``_`` (LOW LINE). Normalised version
+  numbers cannot contain ``_``, so the replacement does not lose information.
+- The remaining components may not contain ``-`` characters, so no escaping
+  is necessary.
 
 The archive filename is Unicode.  It will be some time before the tools
 are updated to support non-ASCII filenames, but they are supported in
@@ -436,6 +443,14 @@ Is it possible to import Python code directly from a wheel file?
     certainly don't need it. If you *do* decide to use it anyway, be
     aware that many projects will require a failure to be reproduced with
     a fully installed package before accepting it as a genuine bug.
+
+Changes
+=======
+
+Since :pep:`427`, this specification has changed as follows:
+
+- The rules on escaping in wheel filenames were revised, to bring them into line
+  with what popular tools actually do (February 2021).
 
 
 References
