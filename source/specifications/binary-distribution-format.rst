@@ -161,11 +161,13 @@ this character cannot appear within any component. This is handled as follows:
 - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
   and FULL STOP) should be replaced with ``_`` (LOW LINE). This is equivalent
   to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
-- Version numbers should be normalised according to :pep:`440`, and then ``-``
-  characters should be replaced with ``_`` (LOW LINE). Normalised version
-  numbers cannot contain ``_``, so the replacement does not lose information.
+- Version numbers should be normalised according to :pep:`440`. Normalised
+  version numbers cannot contain ``-``.
 - The remaining components may not contain ``-`` characters, so no escaping
   is necessary.
+
+Tools producing wheels should verify that the filename components do not contain
+``-``, as the resulting file may not be processed correctly if they do.
 
 The archive filename is Unicode.  It will be some time before the tools
 are updated to support non-ASCII filenames, but they are supported in
