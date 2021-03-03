@@ -397,15 +397,10 @@ versions.  For example, if your package is for Python 3+ only, write::
 
     python_requires='>=3',
 
-If your package is for Python 3.3 and up but you're not willing to commit to
-Python 4 support yet, write::
-
-    python_requires='~=3.3',
-
 If your package is for Python 2.6, 2.7, and all versions of Python 3 starting
 with 3.3, write::
 
-    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4',
+    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*',
 
 And so on.
 
