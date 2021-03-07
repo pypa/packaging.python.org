@@ -13,6 +13,20 @@ complete and not subject to change. The required fields are:
 
 All the other fields are optional.
 
+The standard file format for metadata (including in :doc:`wheels
+<binary-distribution-format>` and :doc:`installed projects
+<recording-installed-packages>`) is based on the format of email headers.
+However, email formats have been revised several times, and exactly which email
+RFC applies to packaging metadata is not specified. In the absence of a precise
+definition, the practical standard is set by what the standard library
+:mod:`python:email.parser` module can parse using the
+:data:`~.python:email.policy.compat32` policy.
+
+Although :pep:`566` defined a way to transform metadata into a JSON-compatible
+dictionary, this is not yet used as a standard interchange format. The need for
+tools to work with years worth of existing packages makes it difficult to shift
+to a new format.
+
 .. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
    field format specification was relaxed to accept the syntax used by popular
    publishing tools (namely to remove the requirement that version specifiers
