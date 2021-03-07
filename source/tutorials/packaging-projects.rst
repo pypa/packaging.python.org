@@ -156,7 +156,7 @@ an escape hatch when absolutely necessary.
       already be taken on pypi.org. **Be sure to update this with your username,**
       as this ensures you won't try to upload a package with the same name as one
       which already exists when you upload the package.
-    - ``version`` is the package version see :pep:`440` for more details on
+    - ``version`` is the package version. See :pep:`440` for more details on
       versions. You can use ``file:`` or ``attr:`` directives to read from a file or
       package attribute (simple attributes do not require import).
     - ``author`` and ``author_email`` are used to identify the author of the
