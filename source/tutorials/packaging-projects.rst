@@ -65,7 +65,7 @@ Creating pyproject.toml
 -----------------------
 
 :file:`pyproject.toml` is the file that tells build tools (like ``pip`` 10+ and
-``build``) what system you are using and what it requires for building. The
+``build``) what system you are using and what is required for building. The
 default if this file is missing is to assume a classic setuptools build system,
 but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
 will be able to rely on ``wheel`` and other packages being present.
