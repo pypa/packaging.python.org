@@ -202,7 +202,7 @@ an escape hatch when absolutely necessary.
 
     .. warning::
 
-        If you include the file, you must have a call to :func:`setup()` in it,
+        If you include the file, you **must have** a call to :func:`setup()` in it,
         even if there are no arguments:
 
         .. code-block:: python
