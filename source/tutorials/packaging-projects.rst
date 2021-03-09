@@ -51,7 +51,7 @@ project's root directory - you will add content to them in the following steps.
     │   └── __init__.py
     ├── pyproject.toml
     ├── setup.cfg
-    ├── setup.py  # optional
+    ├── setup.py  # optional, needed to make editable pip installs work
     └── tests
 
 
