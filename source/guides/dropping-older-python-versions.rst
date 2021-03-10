@@ -27,14 +27,14 @@ Dealing with the universal wheels
 
 Traditionally, projects providing Python code that is semantically
 compatible with both Python 2 and Python 3, produce :term:`wheels
-<Wheel>` that have ``py2.py3`` tag in their names. When dropping
+<Wheel>` that have a ``py2.py3`` tag in their names. When dropping
 support for Python 2, it is important not to forget to change this tag
 to just ``py3``. It is often configured within :file:`setup.cfg` under
 the ``[bdist_wheel]`` section by setting ``universal = 1`` :ref:`if they
 use setuptools <Universal Wheels>`.
 
-If you use this method, either remove the said option or section, or
-set the ``universal`` setting to ``0`` explicitly:
+If you use this method, either remove this option or section, or
+explicitly set ``universal`` to ``0``:
 
 .. code-block:: ini
 
