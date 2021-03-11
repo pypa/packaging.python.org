@@ -21,14 +21,14 @@ To create this project locally, create the following file structure:
 .. code-block:: text
 
     packaging_tutorial
-    └── example_pkg
-        └── __init__.py
-
+    └── src
+        └── example_pkg
+            └── __init__.py
 
 Once you create this structure, you'll want to run all of the commands in this
 tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
-:file:`example_pkg/__init__.py` is required to import the directory as a package,
+:file:`src/example_pkg/__init__.py` is required to import the directory as a package,
 and can simply be an empty file.
 
 .. _Python documentation for packages and modules:
@@ -46,12 +46,13 @@ project's root directory - you will add content to them in the following steps.
 
     packaging_tutorial
     ├── LICENSE
-    ├── README.md
-    ├── example_pkg
-    │   └── __init__.py
     ├── pyproject.toml
+    ├── README.md
     ├── setup.cfg
     ├── setup.py  # optional, needed to make editable pip installs work
+    ├── src
+    │   └── example_pkg
+    │       └── __init__.py
     └── tests
 
 
@@ -142,9 +143,13 @@ an escape hatch when absolutely necessary.
             Operating System :: OS Independent
 
         [options]
+        package_dir =
+            = src
         packages = find:
         python_requires = >=3.6
 
+        [options.packages.find]
+        where = src
 
     There are a `variety of metadata and options
     <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
@@ -252,7 +257,8 @@ an escape hatch when absolutely necessary.
                 "License :: OSI Approved :: MIT License",
                 "Operating System :: OS Independent",
             ],
-            packages=setuptools.find_packages(),
+            package_dir={"": "src"},
+            packages=setuptools.find_packages(where="src"),
             python_requires=">=3.6",
         )
 
