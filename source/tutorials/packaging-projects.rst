@@ -188,11 +188,16 @@ an escape hatch when absolutely necessary.
 
     In the options category, we have controls for setuptools itself:
 
+    - ``package_dir`` is a collection of package names and directories.
+      An empty package name represents the "root package", so in this
+      case the root package is in the ``src`` directory.
     - ``packages`` is a list of all Python :term:`import packages <Import
       Package>` that should be included in the :term:`Distribution Package`.
       Instead of listing each package manually, we can use the ``find:`` directive
-      to automatically discover all packages and subpackages. In this case, the
-      list of packages will be ``example_pkg`` as that's the only package present.
+      to automatically discover all packages and subpackages and
+      ``options.packages.find`` to specify the ``package_dir`` to use. In this
+      case, the list of packages will be ``example_pkg`` as that's the only
+      package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like pip will look back though older versions of
       packages until it finds one that has a matching Python version.
@@ -294,11 +299,15 @@ an escape hatch when absolutely necessary.
       which license your package is available under, and which operating systems
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
+    - ``package_dir`` is a dictionary with package names for keys and directories
+      for values. An empty package name represents the "root package", so in this
+      case the root package is in the ``src`` directory.
     - ``packages`` is a list of all Python :term:`import packages <Import
       Package>` that should be included in the :term:`Distribution Package`.
       Instead of listing each package manually, we can use :func:`find_packages`
-      to automatically discover all packages and subpackages. In this case, the
-      list of packages will be ``example_pkg`` as that's the only package present.
+      to automatically discover all packages and subpackages under ``package_dir``.
+      In this case, the list of packages will be ``example_pkg`` as that's the
+      only package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like pip will look back though older versions of
       packages until it finds one that has a matching Python version.
