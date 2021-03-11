@@ -21,14 +21,14 @@ To create this project locally, create the following file structure:
 .. code-block:: text
 
     packaging_tutorial
-    └── example_pkg
-        └── __init__.py
-
+    └── src
+        └── example_pkg
+            └── __init__.py
 
 Once you create this structure, you'll want to run all of the commands in this
 tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
 
-:file:`example_pkg/__init__.py` is required to import the directory as a package,
+:file:`src/example_pkg/__init__.py` is required to import the directory as a package,
 and can simply be an empty file.
 
 .. _Python documentation for packages and modules:
@@ -46,12 +46,13 @@ project's root directory - you will add content to them in the following steps.
 
     packaging_tutorial
     ├── LICENSE
-    ├── README.md
-    ├── example_pkg
-    │   └── __init__.py
     ├── pyproject.toml
+    ├── README.md
     ├── setup.cfg
     ├── setup.py  # optional, needed to make editable pip installs work
+    ├── src
+    │   └── example_pkg
+    │       └── __init__.py
     └── tests
 
 
@@ -142,9 +143,13 @@ an escape hatch when absolutely necessary.
             Operating System :: OS Independent
 
         [options]
+        package_dir =
+            = src
         packages = find:
         python_requires = >=3.6
 
+        [options.packages.find]
+        where = src
 
     There are a `variety of metadata and options
     <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
@@ -183,11 +188,16 @@ an escape hatch when absolutely necessary.
 
     In the options category, we have controls for setuptools itself:
 
+    - ``package_dir`` is a collection of package names and directories.
+      An empty package name represents the "root package", so in this
+      case the root package is in the ``src`` directory.
     - ``packages`` is a list of all Python :term:`import packages <Import
       Package>` that should be included in the :term:`Distribution Package`.
       Instead of listing each package manually, we can use the ``find:`` directive
-      to automatically discover all packages and subpackages. In this case, the
-      list of packages will be ``example_pkg`` as that's the only package present.
+      to automatically discover all packages and subpackages and
+      ``options.packages.find`` to specify the ``package_dir`` to use. In this
+      case, the list of packages will be ``example_pkg`` as that's the only
+      package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like pip will look back though older versions of
       packages until it finds one that has a matching Python version.
@@ -252,7 +262,8 @@ an escape hatch when absolutely necessary.
                 "License :: OSI Approved :: MIT License",
                 "Operating System :: OS Independent",
             ],
-            packages=setuptools.find_packages(),
+            package_dir={"": "src"},
+            packages=setuptools.find_packages(where="src"),
             python_requires=">=3.6",
         )
 
@@ -288,11 +299,15 @@ an escape hatch when absolutely necessary.
       which license your package is available under, and which operating systems
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
+    - ``package_dir`` is a dictionary with package names for keys and directories
+      for values. An empty package name represents the "root package", so in this
+      case the root package is in the ``src`` directory.
     - ``packages`` is a list of all Python :term:`import packages <Import
       Package>` that should be included in the :term:`Distribution Package`.
       Instead of listing each package manually, we can use :func:`find_packages`
-      to automatically discover all packages and subpackages. In this case, the
-      list of packages will be ``example_pkg`` as that's the only package present.
+      to automatically discover all packages and subpackages under ``package_dir``.
+      In this case, the list of packages will be ``example_pkg`` as that's the
+      only package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like pip will look back though older versions of
       packages until it finds one that has a matching Python version.
