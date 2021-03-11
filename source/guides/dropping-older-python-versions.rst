@@ -22,6 +22,33 @@ This workflow requires that:
 2. The latest version of :ref:`twine` is used to upload the package,
 3. The user installing the package has at least Pip 9.0, or a client that supports the Metadata 1.2 specification.
 
+Dealing with the universal wheels
+---------------------------------
+
+Traditionally, projects providing Python code that is semantically
+compatible with both Python 2 and Python 3, produce :term:`wheels
+<Wheel>` that have a ``py2.py3`` tag in their names. When dropping
+support for Python 2, it is important not to forget to change this tag
+to just ``py3``. It is often configured within :file:`setup.cfg` under
+the ``[bdist_wheel]`` section by setting ``universal = 1`` :ref:`if they
+use setuptools <Universal Wheels>`.
+
+If you use this method, either remove this option or section, or
+explicitly set ``universal`` to ``0``:
+
+.. code-block:: ini
+
+   # setup.cfg
+
+   [bdist_wheel]
+   universal = 0  # Make the generated wheels have `py3` tag
+
+.. tip::
+
+   Since it is possible to override the :file:`setup.cfg` settings via
+   CLI flags, make sure that your scripts don't have ``--universal`` in
+   your package creation scripts.
+
 Defining the Python version required
 ------------------------------------
 
