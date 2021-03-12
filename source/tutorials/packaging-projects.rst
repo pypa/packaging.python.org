@@ -20,9 +20,9 @@ To create this project locally, create the following file structure:
 
 .. code-block:: text
 
-    packaging_tutorial
-    └── src
-        └── example_pkg
+    packaging_tutorial/
+    └── src/
+        └── example_pkg/
             └── __init__.py
 
 Once you create this structure, you'll want to run all of the commands in this
@@ -44,16 +44,16 @@ project's root directory - you will add content to them in the following steps.
 
 .. code-block:: text
 
-    packaging_tutorial
+    packaging_tutorial/
     ├── LICENSE
     ├── pyproject.toml
     ├── README.md
     ├── setup.cfg
     ├── setup.py  # optional, needed to make editable pip installs work
-    ├── src
-    │   └── example_pkg
+    ├── src/
+    │   └── example_pkg/
     │       └── __init__.py
-    └── tests
+    └── tests/
 
 
 Creating a test folder
@@ -188,9 +188,10 @@ an escape hatch when absolutely necessary.
 
     In the options category, we have controls for setuptools itself:
 
-    - ``package_dir`` is a collection of package names and directories.
-      An empty package name represents the "root package", so in this
-      case the root package is in the ``src`` directory.
+    - ``package_dir`` is a mapping of package names and directories.
+      An empty package name represents the "root package" --- the directory in
+      the project that contains all Python source files for the package --- so
+      in this case the ``src`` directory is designated the root package.
     - ``packages`` is a list of all Python :term:`import packages <Import
       Package>` that should be included in the :term:`Distribution Package`.
       Instead of listing each package manually, we can use the ``find:`` directive
@@ -300,8 +301,10 @@ an escape hatch when absolutely necessary.
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
     - ``package_dir`` is a dictionary with package names for keys and directories
-      for values. An empty package name represents the "root package", so in this
-      case the root package is in the ``src`` directory.
+      for values. An empty package name represents the "root package" --- the
+      directory in the project that contains all Python source files for the
+      package --- so in this case the ``src`` directory is designated the root
+      package.
     - ``packages`` is a list of all Python :term:`import packages <Import
       Package>` that should be included in the :term:`Distribution Package`.
       Instead of listing each package manually, we can use :func:`find_packages`
