@@ -291,7 +291,8 @@ Source Distributions vs Wheels
 
 :ref:`pip` can install from either :term:`Source Distributions (sdist) <Source
 Distribution (or "sdist")>` or :term:`Wheels <Wheel>`, but if both are present
-on PyPI, pip will prefer a compatible :term:`wheel <Wheel>`.
+on PyPI, pip will prefer a compatible :term:`wheel <Wheel>`. You can override
+pip`s default behavior by e.g. using its `--no-binary`_ option.
 
 :term:`Wheels <Wheel>` are a pre-built :term:`distribution <Distribution
 Package>` format that provides faster installation compared to :term:`Source
@@ -301,6 +302,8 @@ project contains compiled extensions.
 If :ref:`pip` does not find a wheel to install, it will locally build a wheel
 and cache it for future installs, instead of rebuilding the source distribution
 in the future.
+
+.. _--no-binary: https://pip.pypa.io/en/stable/reference/pip_install/#cmdoption-no-binary
 
 
 Upgrading packages
