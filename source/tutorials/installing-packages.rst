@@ -304,8 +304,6 @@ If :ref:`pip` does not find a wheel to install, it will locally build a wheel
 and cache it for future installs, instead of rebuilding the source distribution
 in the future.
 
-.. _--no-binary: https://pip.pypa.io/en/stable/reference/pip_install/#cmdoption-no-binary
-
 
 Upgrading packages
 ==================
