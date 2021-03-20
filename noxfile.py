@@ -19,9 +19,11 @@ def build(session, autobuild=False):
         command = "sphinx-autobuild"
         extra_args = "-H", "0.0.0.0"
     else:
+        # NOTE: This branch adds options that are unsupported by autobuild
         command = "sphinx-build"
         extra_args = (
-            "--color",  # colorize the output, unsupported by autobuild
+            "--color",  # colorize the output
+            "--keep-going",  # don't interrupt the build on the first warning
         )
 
     session.run(
