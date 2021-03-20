@@ -26,9 +26,7 @@ def build(session, autobuild=False):
 
     session.run(
         command, *extra_args,
-        # FIXME: uncomment once the theme is fixed
-        # Ref: https://github.com/pypa/pypa-docs-theme/issues/17
-        # "-j", "auto",  # parallelize the build
+        "-j", "auto",  # parallelize the build
         "-b", "html",  # use HTML builder
         "-n",  # nitpicky warn about all missing references
         "-W",  # Treat warnings as errors.
