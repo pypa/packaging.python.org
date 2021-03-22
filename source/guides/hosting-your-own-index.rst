@@ -12,9 +12,19 @@ generate an autoindex.
 
 In either case, since you'll be hosting a repository that is likely not in
 your user's default repositories, you should instruct them in your project's
-description to configure their installer appropriately. For example with pip::
+description to configure their installer appropriately. For example with pip
 
-    python -m pip install --extra-index-url https://python.example.com/ foobar
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install --extra-index-url https://python.example.com/ foobar
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --extra-index-url https://python.example.com/ foobar
 
 In addition, it is **highly** recommended that you serve your repository with
 valid HTTPS. At this time, the security of your user's installations depends on

@@ -57,9 +57,19 @@ Defining the Python version required
 
 Ensure that before you generate source distributions or binary distributions, you update Setuptools and install twine.
 
-Steps::
+Steps
 
-   python -m pip install --upgrade setuptools twine
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install --upgrade setuptools twine
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --upgrade setuptools twine
 
 `setuptools` version should be above 24.0.0.
 

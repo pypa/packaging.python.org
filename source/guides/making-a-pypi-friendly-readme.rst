@@ -45,9 +45,17 @@ such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdow
    If you're using GitHub-flavored Markdown to write a project's description, ensure you upgrade
    the following tools:
 
-   .. code-block:: bash
+   .. tab:: Unix/macOS
 
-      python3 -m pip install --user --upgrade setuptools wheel twine
+      .. code-block:: bash
+
+         python3 -m pip install --user --upgrade setuptools wheel twine
+
+   .. tab:: Windows
+
+      .. code-block:: bash
+
+         py -m pip install --user --upgrade setuptools wheel twine
 
    The minimum required versions of the respective tools are:
    
@@ -97,9 +105,19 @@ messages like "``Error: Unknown interpreted text role "py:func".``".
 You can check your README for markup errors before uploading as follows:
 
 1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
-   version 1.12.0 or higher is required::
+   version 1.12.0 or higher is required
 
-        python3 -m pip install --upgrade twine
+   .. tab:: Unix/macOS
+
+      .. code-block:: bash
+
+            python3 -m pip install --upgrade twine
+
+   .. tab:: Windows
+
+      .. code-block:: bash
+
+            py -m pip install --upgrade twine
 
 2. Build the sdist and wheel for your project as described under
    :ref:`Packaging Your Project`.

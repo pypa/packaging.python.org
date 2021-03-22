@@ -41,17 +41,33 @@ Using TestPyPI with pip
 You can tell pip to download packages from TestPyPI instead of PyPI by
 specifying the ``--index-url`` flag
 
-.. code::
+.. tab:: Unix/macOS
 
-    $ python -m pip install --index-url https://test.pypi.org/simple/ your-package
+    .. code-block:: bash
+
+        python3 -m pip install --index-url https://test.pypi.org/simple/ your-package
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --index-url https://test.pypi.org/simple/ your-package
 
 If you want to allow pip to also pull other packages from PyPI you can
 specify ``--extra-index-url`` to point to PyPI. This is useful when the package
 you're testing has dependencies:
 
-.. code::
+.. tab:: Unix/macOS
 
-    python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package
+    .. code-block:: bash
+
+        python3 -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package
 
 Setting up TestPyPI in :file:`.pypirc`
 --------------------------------------

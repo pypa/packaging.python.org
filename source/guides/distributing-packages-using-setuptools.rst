@@ -23,15 +23,23 @@ conflicts, prefer the advice in the Python Packaging User Guide.
 
 Requirements for packaging and distributing
 ===========================================
-
+ 
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
-2. Install "twine" [1]_:
+2.  Install "twine" [1]_:
 
-   ::
+    .. tab:: Unix/macOS
 
-    python -m pip install twine
+        .. code-block:: bash
+
+            python3 -m pip install twine
+
+    .. tab:: Windows
+
+        .. code-block:: bash
+
+            py -m pip install twine
 
    You'll need this to upload your project :term:`distributions <Distribution
    Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below
@@ -751,10 +759,17 @@ called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
 Before you can build wheels for your project, you'll need to install the
 ``wheel`` package:
 
-.. code-block:: text
+.. tab:: Unix/macOS
 
-  python -m pip install wheel
+    .. code-block:: bash
 
+        python3 -m pip install wheel
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install wheel
 
 .. _`Universal Wheels`:
 
@@ -767,9 +782,17 @@ anywhere by :ref:`pip`.
 
 To build the wheel:
 
-.. code-block:: text
+.. tab:: Unix/macOS
 
-  python setup.py bdist_wheel --universal
+    .. code-block:: bash
+
+        python3 setup.py bdist_wheel --universal
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py setup.py bdist_wheel --universal
 
 You can also permanently set the ``--universal`` flag in :file:`setup.cfg`:
 
@@ -803,10 +826,17 @@ and 3.
 
 To build the wheel:
 
-::
+.. tab:: Unix/macOS
 
- python setup.py bdist_wheel
+    .. code-block:: bash
 
+        python3 setup.py bdist_wheel
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py setup.py bdist_wheel
 
 ``bdist_wheel`` will detect that the code is pure Python, and build a wheel
 that's named such that it's usable on any Python installation with the same
@@ -830,9 +860,17 @@ macOS, or Windows, usually due to containing compiled extensions.
 
 To build the wheel:
 
-::
+.. tab:: Unix/macOS
 
- python setup.py bdist_wheel
+    .. code-block:: bash
+
+        python3 setup.py bdist_wheel
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py setup.py bdist_wheel
 
 
 :command:`bdist_wheel` will detect that the code is not pure Python, and build

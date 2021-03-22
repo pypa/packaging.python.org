@@ -37,9 +37,18 @@ Ensure you can run Python from the command line
 Before you go any further, make sure you have Python and that the expected
 version is available from your command line. You can check this by running:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python --version
+    .. code-block:: bash
+
+        python3 --version
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py --version
+
 
 You should get some output like ``Python 3.6.3``. If you do not have Python,
 please install the latest 3.x version from `python.org`_ or refer to the
@@ -92,9 +101,17 @@ Ensure you can run pip from the command line
 Additionally, you'll need to make sure you have :ref:`pip` available. You can
 check this by running:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python -m pip --version
+    .. code-block:: bash
+
+        python3 -m pip --version
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip --version
 
 If you installed Python from source, with an installer from `python.org`_, or
 via `Homebrew`_ you should already have pip. If you're on Linux and installed
@@ -107,9 +124,17 @@ using your OS package manager, you may have to install pip separately, see
 If ``pip`` isn't already installed, then first try to bootstrap it from the
 standard library:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python -m ensurepip --default-pip
+    .. code-block:: bash
+
+        python3 -m ensurepip --default-pip
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m ensurepip --default-pip
 
 If that still doesn't allow you to run ``python -m pip``:
 
@@ -146,10 +171,19 @@ Optionally, create a virtual environment
 See :ref:`section below <Creating and using Virtual Environments>` for details,
 but here's the basic `venv`_ [3]_ command to use on a typical Linux system:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m venv tutorial_env
-    source tutorial_env/bin/activate
+    .. code-block:: bash
+
+        python3 -m venv tutorial_env
+        source tutorial_env/bin/activate
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m venv tutorial_env
+        tutorial_env\Scripts\activate
 
 This will create a new virtual environment in the ``tutorial_env`` subdirectory,
 and configure the current shell to use it as the default ``python`` environment.
@@ -197,19 +231,35 @@ The basic usage is like so:
 
 Using `venv`_:
 
-::
+.. tab:: Unix/macOS
 
- python3 -m venv <DIR>
- source <DIR>/bin/activate
+    .. code-block:: bash
+
+        python3 -m venv <DIR>
+        source <DIR>/bin/activate
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m venv <DIR>
+        <DIR>\Scripts\activate
 
 Using :ref:`virtualenv`:
 
-::
+.. tab:: Unix/macOS
 
- virtualenv <DIR>
- source <DIR>/bin/activate
+    .. code-block:: bash
 
+        python3 -m venv <DIR>
+        source <DIR>/bin/activate
 
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        virtualenv <DIR>
+        <DIR>\Scripts\activate
 
 For more information, see the `venv`_ docs or the `virtualenv <http://virtualenv.pypa.io>`_ docs.
 
@@ -256,31 +306,61 @@ of the currently supported specifiers. Below are some examples.
 
 To install the latest version of "SomeProject":
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install "SomeProject"
+    .. code-block:: bash
 
+        python3 -m pip install "SomeProject"
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install "SomeProject"
 
 To install a specific version:
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install "SomeProject==1.4"
+    .. code-block:: bash
 
+        python3 -m pip install "SomeProject==1.4"
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install "SomeProject==1.4"
 
 To install greater than or equal to one version and less than another:
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install "SomeProject>=1,<2"
+    .. code-block:: bash
+
+        python3 -m pip install "SomeProject>=1,<2"
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install "SomeProject>=1,<2"
 
 
 To install a version that's :pep:`"compatible" <440#compatible-release>`
 with a certain version: [4]_
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install "SomeProject~=1.4.2"
+    .. code-block:: bash
+
+        python3 -m pip install "SomeProject~=1.4.2"
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install "SomeProject~=1.4.2"
 
 In this case, this means to install any version "==1.4.*" version that's also
 ">=1.4.2".
@@ -310,10 +390,17 @@ Upgrading packages
 
 Upgrade an already installed ``SomeProject`` to the latest from PyPI.
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install --upgrade SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --upgrade SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --upgrade SomeProject
 
 .. _`Installing to the User Site`:
 
@@ -323,10 +410,17 @@ Installing to the User Site
 To install :term:`packages <Distribution Package>` that are isolated to the
 current user, use the ``--user`` flag:
 
-::
+.. tab:: Unix/macOS
 
-  python -m pip install --user SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --user SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --user SomeProject
 
 For more information see the `User Installs
 <https://pip.readthedocs.io/en/latest/user_guide.html#user-installs>`_ section
@@ -368,10 +462,17 @@ Requirements files
 Install a list of requirements specified in a :ref:`Requirements File
 <pip:Requirements Files>`.
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install -r requirements.txt
+    .. code-block:: bash
 
+        python3 -m pip install -r requirements.txt
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install -r requirements.txt
 
 Installing from VCS
 ===================
@@ -379,32 +480,55 @@ Installing from VCS
 Install a project from VCS in "editable" mode.  For a full breakdown of the
 syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
- python -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
- python -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
- python -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+    .. code-block:: bash
 
+        python3 -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
+        python3 -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
+        python3 -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
+        python3 -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
+        py -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
+        py -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
+        py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
 
 Installing from other Indexes
 =============================
 
 Install from an alternate index
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install --index-url http://my.package.repo/simple/ SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --index-url http://my.package.repo/simple/ SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --index-url http://my.package.repo/simple/ SomeProject
 
 Search an additional index during install, in addition to :term:`PyPI <Python
 Package Index (PyPI)>`
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install --extra-index-url http://my.package.repo/simple SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --extra-index-url http://my.package.repo/simple SomeProject
 
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --extra-index-url http://my.package.repo/simple SomeProject
 
 Installing from a local src tree
 ================================
@@ -415,37 +539,67 @@ Installing from local src in `Development Mode
 i.e. in such a way that the project appears to be installed, but yet is
 still editable from the src tree.
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install -e <path>
+    .. code-block:: bash
 
+        python3 -m pip install -e <path>
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install -e <path>
 
 You can also install normally from src
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install <path>
+    .. code-block:: bash
 
+        python3 -m pip install <path>
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install <path>
 
 Installing from local archives
 ==============================
 
 Install a particular source archive file.
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install ./downloads/SomeProject-1.0.4.tar.gz
+    .. code-block:: bash
 
+        python3 -m pip install ./downloads/SomeProject-1.0.4.tar.gz
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install ./downloads/SomeProject-1.0.4.tar.gz
 
 Install from a local directory containing archives (and don't check :term:`PyPI
 <Python Package Index (PyPI)>`)
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install --no-index --find-links=file:///local/dir/ SomeProject
- python -m pip install --no-index --find-links=/local/dir/ SomeProject
- python -m pip install --no-index --find-links=relative/dir/ SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --no-index --find-links=file:///local/dir/ SomeProject
+        python3 -m pip install --no-index --find-links=/local/dir/ SomeProject
+        python3 -m pip install --no-index --find-links=relative/dir/ SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --no-index --find-links=file:///local/dir/ SomeProject
+        py -m pip install --no-index --find-links=/local/dir/ SomeProject
+        py -m pip install --no-index --find-links=relative/dir/ SomeProject
 
 Installing from other sources
 =============================
@@ -467,22 +621,38 @@ Installing Prereleases
 Find pre-release and development versions, in addition to stable versions.  By
 default, pip only finds stable versions.
 
-::
+.. tab:: Unix/macOS
 
- python -m pip install --pre SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --pre SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --pre SomeProject
 
 Installing Setuptools "Extras"
 ==============================
 
 Install `setuptools extras`_.
 
-::
+.. tab:: Unix/macOS
 
-  $ python -m pip install SomePackage[PDF]
-  $ python -m pip install SomePackage[PDF]==3.0
-  $ python -m pip install -e .[PDF]==3.0  # editable project in current directory
+    .. code-block:: bash
 
+        python3 -m pip install SomePackage[PDF]
+        python3 -m pip install SomePackage[PDF]==3.0
+        python3 -m pip install -e .[PDF]==3.0  # editable project in current directory
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install SomePackage[PDF]
+        py -m pip install SomePackage[PDF]==3.0
+        py -m pip install -e .[PDF]==3.0  # editable project in current directory
 
 ----
 
