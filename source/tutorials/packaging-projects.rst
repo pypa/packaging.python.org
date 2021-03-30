@@ -377,7 +377,7 @@ Including other files
 ---------------------
 
 The files listed above will be included automatically in your
-:term:`Source Distribution (or "sdist")`. If you want to control what goes in this
+:term:`source distribution <Source Distribution (or "sdist")>`. If you want to control what goes in this
 explicitly, see :ref:`Using MANIFEST.in`.
 
 The final :term:`Built Distribution`  will have the Python files in the
