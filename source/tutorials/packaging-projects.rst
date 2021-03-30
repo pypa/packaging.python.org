@@ -373,6 +373,18 @@ MIT license:
     SOFTWARE.
 
 
+Including other files
+---------------------
+
+The files listed above will be included automatically in your source
+distribution (SDist). If you want to control what goes in the SDist, see
+:ref:`Using MANIFEST.in`.
+
+The final wheel will have the Python files in the discovered or listed Python
+packages. If you want to control what goes in the wheel, such as to add data
+files, see :std:doc:`Including Data Files <setuptools:userguide/datafiles>`
+from the :std:doc:`setuptools docs <setuptools:index>`.
+
 .. _generating archives:
 
 Generating distribution archives
