@@ -37,9 +37,17 @@ simplifies dependency management for common use cases.
 
 Use ``pip`` to install Pipenv:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python -m pip install --user pipenv
+    .. code-block:: bash
+
+        python3 -m pip install --user pipenv
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --user pipenv
 
 .. _pipenv-user-base:
 

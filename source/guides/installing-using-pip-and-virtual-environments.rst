@@ -186,9 +186,17 @@ Installing packages
 Now that you're in your virtual environment you can install packages. Let's install the
 `Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install requests
+    .. code-block:: bash
+
+        python3 -m pip install requests
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install requests
 
 pip should download requests and all of its dependencies and install them:
 
@@ -217,21 +225,45 @@ pip allows you to specify which version of a package to install using
 :term:`version specifiers <Version Specifier>`. For example, to install
 a specific version of ``requests``:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install requests==2.18.4
+    .. code-block:: bash
+
+        python3 -m pip install requests==2.18.4
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install requests==2.18.4
 
 To install the latest ``2.x`` release of requests:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install requests>=2.0.0,<3.0.0
+    .. code-block:: bash
+
+        python3 -m pip install requests>=2.0.0,<3.0.0
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install requests>=2.0.0,<3.0.0
 
 To install pre-release versions of packages, use the ``--pre`` flag:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --pre requests
+    .. code-block:: bash
+
+        python3 -m pip install --pre requests
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --pre requests
 
 
 Installing extras
@@ -240,9 +272,17 @@ Installing extras
 Some packages have optional `extras`_. You can tell pip to install these by
 specifying the extra in brackets:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install requests[security]
+    .. code-block:: bash
+
+        python3 -m pip install requests[security]
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install requests[security]
 
 .. _extras:
     https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
@@ -253,19 +293,35 @@ Installing from source
 
 pip can install a package directly from source, for example:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    cd google-auth
-    python3 -m pip install .
+    .. code-block:: bash
+
+        cd google-auth
+        python3 -m pip install .
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        cd google-auth
+        py -m pip install .
 
 Additionally, pip can install packages from source in `development mode`_,
 meaning that changes to the source directory will immediately affect the
 installed package without needing to re-install:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --editable .
+    .. code-block:: bash
 
+        python3 -m pip install --editable .
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --editable .
 
 .. _development mode:
     https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode
@@ -291,17 +347,33 @@ Installing from local archives
 If you have a local copy of a :term:`Distribution Package`'s archive (a zip,
 wheel, or tar file) you can install it directly with pip:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install requests-2.18.4.tar.gz
+    .. code-block:: bash
+
+        python3 -m pip install requests-2.18.4.tar.gz
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install requests-2.18.4.tar.gz
 
 If you have a directory containing archives of multiple packages, you can tell
 pip to look for packages there and not to use the
 :term:`Python Package Index (PyPI)` at all:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --no-index --find-links=/local/dir/ requests
+    .. code-block:: bash
+
+        python3 -m pip install --no-index --find-links=/local/dir/ requests
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --no-index --find-links=/local/dir/ requests
 
 This is useful if you are installing packages on a system with limited
 connectivity or if you want to strictly control the origin of distribution
@@ -314,18 +386,33 @@ Using other package indexes
 If you want to download packages from a different index than the
 :term:`Python Package Index (PyPI)`, you can use the ``--index-url`` flag:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --index-url http://index.example.com/simple/ SomeProject
+    .. code-block:: bash
+
+        python3 -m pip install --index-url http://index.example.com/simple/ SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --index-url http://index.example.com/simple/ SomeProject
 
 If you want to allow packages from both the :term:`Python Package Index (PyPI)`
 and a separate index, you can use the ``--extra-index-url`` flag instead:
 
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
 
 Upgrading packages
 ------------------
@@ -333,10 +420,17 @@ Upgrading packages
 pip can upgrade packages in-place using the ``--upgrade`` flag. For example, to
 install the latest version of ``requests`` and all of its dependencies:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --upgrade requests
+    .. code-block:: bash
 
+        python3 -m pip install --upgrade requests
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --upgrade requests
 
 Using requirements files
 ------------------------
@@ -352,10 +446,17 @@ example you could create a :file:`requirements.txt` file containing:
 
 And tell pip to install all of the packages in this file using the ``-r`` flag:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install -r requirements.txt
+    .. code-block:: bash
 
+        python3 -m pip install -r requirements.txt
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install -r requirements.txt
 
 Freezing dependencies
 ---------------------
@@ -363,9 +464,17 @@ Freezing dependencies
 Pip can export a list of all installed packages and their versions using the
 ``freeze`` command:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip freeze
+    .. code-block:: bash
+
+        python3 -m pip freeze
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip freeze
 
 Which will output a list of package specifiers such as:
 
