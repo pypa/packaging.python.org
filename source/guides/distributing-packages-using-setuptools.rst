@@ -23,7 +23,6 @@ conflicts, prefer the advice in the Python Packaging User Guide.
 
 Requirements for packaging and distributing
 ===========================================
- 
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
