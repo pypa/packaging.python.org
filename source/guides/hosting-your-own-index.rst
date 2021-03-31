@@ -12,7 +12,7 @@ generate an autoindex.
 
 In either case, since you'll be hosting a repository that is likely not in
 your user's default repositories, you should instruct them in your project's
-description to configure their installer appropriately. For example with pip
+description to configure their installer appropriately. For example with pip:
 
 .. tab:: Unix/macOS
 

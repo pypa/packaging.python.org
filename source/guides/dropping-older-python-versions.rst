@@ -57,7 +57,7 @@ Defining the Python version required
 
 Ensure that before you generate source distributions or binary distributions, you update Setuptools and install twine.
 
-Steps
+Steps:
 
 .. tab:: Unix/macOS
 
