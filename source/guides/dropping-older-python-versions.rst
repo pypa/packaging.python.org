@@ -63,13 +63,13 @@ Steps:
 
     .. code-block:: bash
 
-        python3 -m pip install --upgrade setuptools twine
+        python3 -m pip install  --upgrade setuptools twine
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py -m pip install --upgrade setuptools twine
+        py -m pip install  --upgrade setuptools twine
 
 `setuptools` version should be above 24.0.0.
 
