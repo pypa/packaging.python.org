@@ -1,10 +1,6 @@
-
 ========
 Glossary
 ========
-
-:Page Status: Complete
-:Last Reviewed: 2015-09-08
 
 
 .. glossary::
@@ -48,8 +44,8 @@ Glossary
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
         which is being replaced by :term:`Wheel`.  For details, see `The
         Internal Structure of Python Eggs
-        <http://pythonhosted.org/setuptools/formats.html>`_ and `Python Eggs
-        <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
+        <https://setuptools.readthedocs.io/en/latest/formats.html>`_ and
+        `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
     Extension Module
 
@@ -90,6 +86,13 @@ Glossary
 
         A repository of distributions with a web interface to automate
         :term:`package <Distribution Package>` discovery and consumption.
+
+
+    Per Project Index
+
+        A private or other non-canonical :term:`Package Index` indicated by
+        a specific :term:`Project` as the index preferred or required to
+        resolve dependencies of that project.
 
 
     Project
@@ -134,9 +137,16 @@ Glossary
 
     Python Package Index (PyPI)
 
-        `PyPI <https://pypi.python.org/pypi>`_ is the default :term:`Package
+        `PyPI <https://pypi.org>`_ is the default :term:`Package
         Index` for the Python community. It is open to all Python developers to
         consume and distribute their distributions.
+
+    pypi.org
+
+        `pypi.org <https://pypi.org>`_ is the domain name for the
+        :term:`Python Package Index (PyPI)`. It replaced the legacy index
+        domain name, `pypi.python.org`, in 2017. It is powered by
+        :ref:`warehouse`.
 
     Release
 
@@ -163,7 +173,7 @@ Glossary
        A format used by :ref:`pip` to install packages from a :term:`Package
        Index`. For an EBNF diagram of the format, see the
        `pkg_resources.Requirement
-       <https://pythonhosted.org/setuptools/pkg_resources.html#requirement-objects>`_
+       <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_
        entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
        requirement specifier, where "foo" is the project name, and the ">=1.3"
        portion is the :term:`Version Specifier`
