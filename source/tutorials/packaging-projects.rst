@@ -111,7 +111,7 @@ Static metadata should be preferred and dynamic metadata should be used only as
 an escape hatch when absolutely necessary.
 
 
-.. tab:: setup.cfg (static)
+.. tab:: :file:`setup.cfg` (static)
 
     :file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells
     setuptools about your package (such as the name and version) as well as which
@@ -228,7 +228,7 @@ an escape hatch when absolutely necessary.
     having this file also is required if you want to use editable installs with pip.
 
 
-.. tab:: setup.py (dynamic)
+.. tab:: :file:`setup.py` (dynamic)
 
     :file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
     about your package (such as the name and version) as well as which code files
