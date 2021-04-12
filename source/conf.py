@@ -393,8 +393,8 @@ nitpicky = True
 nitpick_ignore = [
     ('envvar', 'PATH'),
     ('py:func', 'find_packages'),
-    ('py:func', 'pkg_resources.iter_entry_points'),
     ('py:func', 'setup'),
+    ('py:func', 'importlib.metadata.entry_points'),  # remove when 3.10 is released
     ('py:func', 'setuptools.find_namespace_packages'),
     ('py:func', 'setuptools.find_packages'),
     ('py:func', 'setuptools.setup'),
