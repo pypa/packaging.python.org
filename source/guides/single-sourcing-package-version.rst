@@ -98,10 +98,11 @@ number of your project:
     older versions as the ``importlib-metadata`` project.)  An installed
     project's version can be fetched with the API as follows::
 
-        try:
+        import sys
+
+        if sys.version_info >= (3, 8):
             from importlib import metadata
-        except ImportError:
-            # Running on pre-3.8 Python; use importlib-metadata package
+        else:
             import importlib_metadata as metadata
 
         assert metadata.version('pip') == '1.2.0'
