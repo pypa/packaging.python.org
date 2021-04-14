@@ -136,17 +136,19 @@ in its :file:`setup.py`:
     )
 
 Then you can discover and load all of the registered entry points by using
-:func:`pkg_resources.iter_entry_points`:
+:func:`importlib.metadata.entry_points` (or the `backport`_
+``importlib_metadata >= 3.6`` for Python 3.6-3.9):
 
 .. code-block:: python
 
-    import pkg_resources
+    import sys
+    if sys.version_info < (3, 10):
+        from importlib_metadata import entry_points
+    else:
+        from importlib.metadata import entry_points
 
-    discovered_plugins = {
-        entry_point.name: entry_point.load()
-        for entry_point
-        in pkg_resources.iter_entry_points('myapp.plugins')
-    }
+    discovered_plugins = entry_points(group='myapp.plugins')
+
 
 In this example, ``discovered_plugins`` would be:
 
@@ -160,7 +162,9 @@ In this example, ``discovered_plugins`` would be:
     flexible and has a lot of options. It's recommended to read over the entire
     section on `entry points`_.
 
-.. _Setuptools: http://setuptools.readthedocs.io
+.. _Setuptools: https://setuptools.readthedocs.io
 .. _special support:
 .. _entry points:
-    http://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins
+    https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins
+.. _backport: https://importlib-metadata.readthedocs.io/en/latest/
+
