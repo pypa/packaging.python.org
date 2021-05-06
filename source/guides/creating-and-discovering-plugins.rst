@@ -150,21 +150,30 @@ Then you can discover and load all of the registered entry points by using
     discovered_plugins = entry_points(group='myapp.plugins')
 
 
-In this example, ``discovered_plugins`` would be:
+In this example, ``discovered_plugins`` would be a collection of type :class:`importlib.metadata.EntryPoints`:
 
 .. code-block:: python
 
-    {
-        'a': <module: 'myapp_plugin_a'>,
-    }
+    (
+        EntryPoint(name='a', value='myapp_plugin_a', group='myapp.plugins'),
+        ...
+    )
+
+Now the module of your choice can be imported by executing
+``discovered_plugins['a'].load()``.
 
 .. note:: The ``entry_point`` specification in :file:`setup.py` is fairly
     flexible and has a lot of options. It's recommended to read over the entire
     section on `entry points`_.
 
+.. note:: Since this specification is part of the `standard library`_, most
+   packaging tools other than setuptools provide support for defining entry
+   points.
+
 .. _Setuptools: https://setuptools.readthedocs.io
 .. _special support:
 .. _entry points:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins
+   https://setuptools.readthedocs.io/en/stable/userguide/entry_point.html
+.. _standard library: https://docs.python.org/3/library/importlib.metadata.html#entry-points
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/
 
