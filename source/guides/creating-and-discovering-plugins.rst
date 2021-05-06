@@ -120,9 +120,10 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-`Setuptools`_ provides `special support`_ for plugins. By
-providing the ``entry_points`` argument to :func:`setup` in :file:`setup.py`
-plugins can register themselves for discovery.
+`Setuptools`_ provides :doc:`special support
+<setuptools:userguide/entry_point>` for plugins. By providing the
+``entry_points`` argument to :func:`setup` in :file:`setup.py` plugins can
+register themselves for discovery.
 
 For example if you have a package named ``myapp-plugin-a`` and it includes
 in its :file:`setup.py`:
@@ -150,21 +151,25 @@ Then you can discover and load all of the registered entry points by using
     discovered_plugins = entry_points(group='myapp.plugins')
 
 
-In this example, ``discovered_plugins`` would be:
+In this example, ``discovered_plugins`` would be a collection of type :class:`importlib.metadata.EntryPoint`:
 
 .. code-block:: python
 
-    {
-        'a': <module: 'myapp_plugin_a'>,
-    }
+    (
+        EntryPoint(name='a', value='myapp_plugin_a', group='myapp.plugins'),
+        ...
+    )
+
+Now the module of your choice can be imported by executing
+``discovered_plugins['a'].load()``.
 
 .. note:: The ``entry_point`` specification in :file:`setup.py` is fairly
     flexible and has a lot of options. It's recommended to read over the entire
-    section on `entry points`_.
+    section on :doc:`entry points <setuptools:userguide/entry_point>` .
+
+.. note:: Since this specification is part of the :doc:`standard library
+   <python:library/importlib.metadata>`, most packaging tools other than setuptools
+   provide support for defining entry points.
 
 .. _Setuptools: https://setuptools.readthedocs.io
-.. _special support:
-.. _entry points:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/
-
