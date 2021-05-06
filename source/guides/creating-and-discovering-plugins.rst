@@ -151,7 +151,7 @@ Then you can discover and load all of the registered entry points by using
     discovered_plugins = entry_points(group='myapp.plugins')
 
 
-In this example, ``discovered_plugins`` would be a collection of type :class:`importlib.metadata.EntryPoints`:
+In this example, ``discovered_plugins`` would be a collection of type :class:`importlib.metadata.EntryPoint`:
 
 .. code-block:: python
 
@@ -173,4 +173,3 @@ Now the module of your choice can be imported by executing
 
 .. _Setuptools: https://setuptools.readthedocs.io
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/
-

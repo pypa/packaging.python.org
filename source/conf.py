@@ -395,7 +395,7 @@ nitpick_ignore = [
     ('py:func', 'find_packages'),
     ('py:func', 'setup'),
     ('py:func', 'importlib.metadata.entry_points'),  # remove when 3.10 is released
-    ('py:class', 'importlib.metadata.EntryPoints'),  # remove when 3.10 is released
+    ('py:class', 'importlib.metadata.EntryPoint'),  # remove when 3.10 is released
     ('py:func', 'setuptools.find_namespace_packages'),
     ('py:func', 'setuptools.find_packages'),
     ('py:func', 'setuptools.setup'),
