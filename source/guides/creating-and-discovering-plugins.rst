@@ -120,9 +120,10 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-`Setuptools`_ provides `special support`_ for plugins. By
-providing the ``entry_points`` argument to :func:`setup` in :file:`setup.py`
-plugins can register themselves for discovery.
+`Setuptools`_ provides :setuptools:doc:`special support
+<userguide/entry_point>` for plugins. By providing the ``entry_points``
+argument to :func:`setup` in :file:`setup.py` plugins can register themselves
+for discovery.
 
 For example if you have a package named ``myapp-plugin-a`` and it includes
 in its :file:`setup.py`:
@@ -164,16 +165,12 @@ Now the module of your choice can be imported by executing
 
 .. note:: The ``entry_point`` specification in :file:`setup.py` is fairly
     flexible and has a lot of options. It's recommended to read over the entire
-    section on `entry points`_.
+    section on :setuptools:doc:`entry points <userguide/entry_point>` .
 
-.. note:: Since this specification is part of the `standard library`_, most
-   packaging tools other than setuptools provide support for defining entry
-   points.
+.. note:: Since this specification is part of the :python:doc:`standard library
+   <library/importlib.metadata>`, most packaging tools other than setuptools
+   provide support for defining entry points.
 
 .. _Setuptools: https://setuptools.readthedocs.io
-.. _special support:
-.. _entry points:
-   https://setuptools.readthedocs.io/en/stable/userguide/entry_point.html
-.. _standard library: https://docs.python.org/3/library/importlib.metadata.html#entry-points
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/
 
