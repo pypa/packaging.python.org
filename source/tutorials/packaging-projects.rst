@@ -57,13 +57,13 @@ When you're done, the project structure will look like this:
 Creating a test directory
 -------------------------
 
-:file:`tests/` is a placeholder for unit test files. Leave it empty for now.
+:file:`tests/` is a placeholder for test files. Leave it empty for now.
 
 
 Creating pyproject.toml
 -----------------------
 
-:file:`pyproject.toml` is the file that tells build tools (like ``pip`` 10+ and
+:file:`pyproject.toml` is the file that tells build tools (like ``pip`` and
 ``build``) what system you are using and what is required for building. The
 default if this file is missing is to assume a classic setuptools build system,
 but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
@@ -155,20 +155,20 @@ an escape hatch when absolutely necessary.
     This example package uses a relatively minimal set of metadata:
 
     - ``name`` is the *distribution name* of your package. This can be any name as
-      long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+      long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
       already be taken on pypi.org. **Be sure to update this with your username,**
       as this ensures you won't try to upload a package with the same name as one
-      which already exists when you upload the package.
+      which already exists.
     - ``version`` is the package version. See :pep:`440` for more details on
       versions. You can use ``file:`` or ``attr:`` directives to read from a file or
-      package attribute (simple attributes do not require import).
+      package attribute.
     - ``author`` and ``author_email`` are used to identify the author of the
       package.
     - ``description`` is a short, one-sentence summary of the package.
     - ``long_description`` is a detailed description of the package. This is
       shown on the package detail page on the Python Package Index. In
-      this case, the long description is loaded from :file:`README.md` which is
-      a common pattern, using the ``file:`` directive.
+      this case, the long description is loaded from :file:`README.md` (which is
+      a common pattern) using the ``file:`` directive.
     - ``long_description_content_type`` tells the index what type of markup is
       used for the long description. In this case, it's Markdown.
     - ``url`` is the URL for the homepage of the project. For many projects, this
@@ -271,18 +271,18 @@ an escape hatch when absolutely necessary.
     minimal set:
 
     - ``name`` is the *distribution name* of your package. This can be any name as
-      long as only contains letters, numbers, ``_`` , and ``-``. It also must not
+      long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
       already be taken on pypi.org. **Be sure to update this with your username,**
       as this ensures you won't try to upload a package with the same name as one
-      which already exists when you upload the package.
-    - ``version`` is the package version see :pep:`440` for more details on
+      which already exists.
+    - ``version`` is the package version. See :pep:`440` for more details on
       versions.
     - ``author`` and ``author_email`` are used to identify the author of the
       package.
     - ``description`` is a short, one-sentence summary of the package.
     - ``long_description`` is a detailed description of the package. This is
       shown on the package detail page on the Python Package Index. In
-      this case, the long description is loaded from :file:`README.md` which is
+      this case, the long description is loaded from :file:`README.md`, which is
       a common pattern.
     - ``long_description_content_type`` tells the index what type of markup is
       used for the long description. In this case, it's Markdown.
@@ -378,12 +378,11 @@ The files listed above will be included automatically in your
 :term:`source distribution <Source Distribution (or "sdist")>`. If you want to control what goes in this
 explicitly, see :ref:`Using MANIFEST.in`.
 
-The final :term:`built distribution <Built Distribution>` will
-have the Python files in the
-discovered or listed Python packages. If you want to control what goes here,
-such as to add data files, see :std:doc:`Including Data Files
-<setuptools:userguide/datafiles>` from the :std:doc:`setuptools docs
-<setuptools:index>`.
+The final :term:`built distribution <Built Distribution>` will have the Python
+files in the discovered or listed Python packages. If you want to control what
+goes here, such as to add data files, see
+:std:doc:`Including Data Files <setuptools:userguide/datafiles>`
+from the :std:doc:`setuptools docs <setuptools:index>`.
 
 .. _generating archives:
 
@@ -391,8 +390,8 @@ Generating distribution archives
 --------------------------------
 
 The next step is to generate :term:`distribution packages <Distribution
-Package>` for the package. These are archives that are uploaded to the Package
-Index and can be installed by :ref:`pip`.
+Package>` for the package. These are archives that are uploaded to the Python
+Package Index and can be installed by :ref:`pip`.
 
 Make sure you have the latest versions of PyPA's ``build`` installed:
 
@@ -453,8 +452,8 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register an account on ``Test PyPI``. Test
-PyPI is a separate instance of the package index intended for testing and
+The first thing you'll need to do is register an account on Test PyPI, which
+is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to
 https://test.pypi.org/account/register/ and complete the steps on that page.
