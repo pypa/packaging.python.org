@@ -331,11 +331,10 @@ if you'd like.
     to write your content.
 
 
-Because our build script loads :file:`README.md` to provide a ``long_description``
-for :func:`setup`, the :file:`README.md` must be included along with your code
-when you `generate a source distribution <generating archives>`_.
-:ref:`setuptools` 36.4.0 or above will automatically include :file:`README.md`
-if it exists.
+Because our configuration loads :file:`README.md` to provide a
+``long_description``, :file:`README.md` must be included along with your
+code when you :ref:`generate a source distribution <generating archives>`.
+Recent versions of :ref:`setuptools` will do this automatically.
 
 
 Creating a LICENSE
