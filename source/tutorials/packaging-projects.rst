@@ -9,14 +9,11 @@ to build the package, and how to upload it to the Python Package Index.
 A simple project
 ----------------
 
-This tutorial uses a simple project named ``example_pkg``. If you are unfamiliar
-with Python's modules and :term:`import packages <Import Package>`, take a few
-minutes to read over the `Python documentation for packages and modules`_. Even
-if you already have a project that you want to package up, we recommend
-following this tutorial as-is using this example package and then trying with
-your own package.
+This tutorial uses a simple project named ``example_pkg``.  We recommend
+following this tutorial as-is using this project, before packaging your own
+project.
 
-To create this project locally, create the following file structure:
+Create the following file structure locally:
 
 .. code-block:: text
 
@@ -25,11 +22,13 @@ To create this project locally, create the following file structure:
         └── example_pkg/
             └── __init__.py
 
-Once you create this structure, you'll want to run all of the commands in this
-tutorial within the top-level folder - so be sure to ``cd packaging_tutorial``.
+:file:`src/example_pkg/__init__.py` is required to import the directory as a
+package, and should be empty. If you are unfamiliar with Python's modules and
+:term:`import packages <Import Package>`, take a few minutes to read over the
+`Python documentation for packages and modules`_.
 
-:file:`src/example_pkg/__init__.py` is required to import the directory as a package,
-and can simply be an empty file.
+Once you create this structure, you'll want to run all of the commands in this
+tutorial within the ``packaging_tutorial`` directory.
 
 .. _Python documentation for packages and modules:
     https://docs.python.org/3/tutorial/modules.html#packages
@@ -38,9 +37,8 @@ and can simply be an empty file.
 Creating the package files
 --------------------------
 
-You will now create a handful of files to package up this project and prepare it
-for distribution. Create the new files listed below and place them in the
-project's root directory - you will add content to them in the following steps.
+You will now add files that are used to prepare the project for distribution.
+When you're done, the project structure will look like this:
 
 .. code-block:: text
 
@@ -56,8 +54,8 @@ project's root directory - you will add content to them in the following steps.
     └── tests/
 
 
-Creating a test folder
-----------------------
+Creating a test directory
+-------------------------
 
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
 
