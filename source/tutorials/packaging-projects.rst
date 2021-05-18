@@ -459,14 +459,9 @@ You will also need to verify your email address before you're able to upload
 any packages.  For more details on Test PyPI, see
 :doc:`/guides/using-testpypi`.
 
-Now you'll create a PyPI `API token`_ so you will be able to securely upload
-your project.
-
-Go to https://test.pypi.org/manage/account/#api-tokens and create a new
-`API token`_; don't limit its scope to a particular project, since you
-are creating a new project.
-
-**Don't close the page until you have copied and saved the token — you
+To securely upload your project, you'll need a PyPI `API token`_. Create one at
+https://test.pypi.org/manage/account/#api-tokens, setting the "Scope" to "Entire
+account". **Don't close the page until you have copied and saved the token — you
 won't see that token again.**
 
 .. _API token: https://test.pypi.org/help/#apitoken
