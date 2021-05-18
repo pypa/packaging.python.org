@@ -116,15 +116,14 @@ an escape hatch when absolutely necessary.
     code files to include. Eventually much of this configuration may be able to move
     to :file:`pyproject.toml`.
 
-    Open :file:`setup.cfg` and enter the following content. Update the package name
-    to include your username (for example, ``example-pkg-theacodes``), this ensures
-    that you have a unique package name and that your package doesn't conflict with
-    packages uploaded by other people following this tutorial.
+    Open :file:`setup.cfg` and enter the following content. Change the ``name``
+    to include your username; this ensures that you have a unique package name
+    and that your package doesn't conflict with packages uploaded by other
+    people following this tutorial.
 
     .. code-block:: python
 
         [metadata]
-        # replace with your username:
         name = example-pkg-YOUR-USERNAME-HERE
         version = 0.0.1
         author = Example Author
@@ -232,10 +231,10 @@ an escape hatch when absolutely necessary.
     about your package (such as the name and version) as well as which code files
     to include.
 
-    Open :file:`setup.py` and enter the following content. Update the package name
-    to include your username (for example, ``example-pkg-theacodes``), this ensures
-    that you have a unique package name and that your package doesn't conflict with
-    packages uploaded by other people following this tutorial.
+    Open :file:`setup.py` and enter the following content.  Change the ``name``
+    to include your username; this ensures that you have a unique package name
+    and that your package doesn't conflict with packages uploaded by other
+    people following this tutorial.
 
     .. code-block:: python
 
@@ -245,7 +244,7 @@ an escape hatch when absolutely necessary.
             long_description = fh.read()
 
         setuptools.setup(
-            name="example-pkg-YOUR-USERNAME-HERE", # Replace with your own username
+            name="example-pkg-YOUR-USERNAME-HERE",
             version="0.0.1",
             author="Example Author",
             author_email="author@example.com",
