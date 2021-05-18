@@ -190,12 +190,12 @@ an escape hatch when absolutely necessary.
       the project that contains all Python source files for the package --- so
       in this case the ``src`` directory is designated the root package.
     - ``packages`` is a list of all Python :term:`import packages <Import
-      Package>` that should be included in the :term:`Distribution Package`.
-      Instead of listing each package manually, we can use the ``find:`` directive
-      to automatically discover all packages and subpackages and
-      ``options.packages.find`` to specify the ``package_dir`` to use. In this
-      case, the list of packages will be ``example_pkg`` as that's the only
-      package present.
+      Package>` that should be included in the :term:`distribution package
+      <Distribution Package>`. Instead of listing each package manually, we can
+      use the ``find:`` directive to automatically discover all packages and
+      subpackages and ``options.packages.find`` to specify the ``package_dir``
+      to use. In this case, the list of packages will be ``example_pkg`` as
+      that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like pip will look back though older versions of
       packages until it finds one that has a matching Python version.
@@ -303,11 +303,11 @@ an escape hatch when absolutely necessary.
       package --- so in this case the ``src`` directory is designated the root
       package.
     - ``packages`` is a list of all Python :term:`import packages <Import
-      Package>` that should be included in the :term:`Distribution Package`.
-      Instead of listing each package manually, we can use :func:`find_packages`
-      to automatically discover all packages and subpackages under ``package_dir``.
-      In this case, the list of packages will be ``example_pkg`` as that's the
-      only package present.
+      Package>` that should be included in the :term:`distribution package
+      <Distribution Package>`. Instead of listing each package manually, we can
+      use :func:`find_packages` to automatically discover all packages and
+      subpackages under ``package_dir``. In this case, the list of packages will
+      be ``example_pkg`` as that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like pip will look back though older versions of
       packages until it finds one that has a matching Python version.
@@ -438,12 +438,13 @@ files in the :file:`dist` directory:
   https://github.com/pypa/packaging-problems/issues/new?title=Trouble+following+packaging+libraries+tutorial
 
 
-The ``tar.gz`` file is a :term:`Source Archive` whereas the ``.whl`` file is a
-:term:`Built Distribution`. Newer :ref:`pip` versions preferentially install
-built distributions, but will fall back to source archives if needed. You
-should always upload a source archive and provide built archives for the
-platforms your project is compatible with. In this case, our example package is
-compatible with Python on any platform so only one built distribution is needed.
+The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the
+``.whl`` file is a :term:`built distribution <Built Distribution>`. Newer
+:ref:`pip` versions preferentially install built distributions, but will fall
+back to source archives if needed. You should always upload a source archive and
+provide built archives for the platforms your project is compatible with. In
+this case, our example package is compatible with Python on any platform so only
+one built distribution is needed.
 
 Uploading the distribution archives
 -----------------------------------
@@ -575,9 +576,9 @@ and from the interpreter shell import the package:
 
     >>> import example_pkg
 
-Note that the :term:`Import Package` is ``example_pkg`` regardless of what
-name you gave your :term:`Distribution Package`
-in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
+Note that the :term:`import package <Import Package>` is ``example_pkg``
+regardless of what name you gave your :term:`distribution package <Distribution
+Package>` in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
