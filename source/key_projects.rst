@@ -50,7 +50,7 @@ build packages, as well as a Python API.
 .. _cibuildwheel:
 
 cibuildwheel
-=====
+============
 
 `Docs <https://cibuildwheel.readthedocs.io/>`__ |
 `Issues <https://github.com/pypa/cibuildwheel/issues>`__ |
@@ -61,6 +61,7 @@ cibuildwheel
 
 ``cibuildwheel`` is a package that builds wheels for all common platforms and
 Python versions on most CI systems.
+
 
 .. _distlib:
 
