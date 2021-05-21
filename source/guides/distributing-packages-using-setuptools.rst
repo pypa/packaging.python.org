@@ -832,7 +832,7 @@ To build the wheel:
 
         py -m build --wheel
 
-The ``wheel`` package ill detect that the code is pure Python, and build a wheel
+The ``wheel`` package will detect that the code is pure Python, and build a wheel
 that's named such that it's usable on any Python installation with the same
 major version (Python 2 or Python 3) as the version you used to build the
 wheel.  For details on the naming of wheel files, see :pep:`425`.
