@@ -47,6 +47,21 @@ Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
 build packages, as well as a Python API.
 
 
+.. _cibuildwheel:
+
+cibuildwheel
+=====
+
+`Docs <https://cibuildwheel.readthedocs.io/>`__ |
+`Issues <https://github.com/pypa/cibuildwheel/issues>`__ |
+`GitHub <https://github.com/pypa/cibuildwheel>`__ |
+`PyPI <https://pypi.org/project/cibuildwheel>`__ |
+`Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
+`Discord #cibuildwheel<https://discord.com/invite/pypa>`__
+
+``cibuildwheel`` is a package that builds wheels for all common platforms and
+Python versions on most CI systems.
+
 .. _distlib:
 
 distlib
