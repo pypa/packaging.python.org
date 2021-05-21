@@ -57,7 +57,7 @@ cibuildwheel
 `GitHub <https://github.com/pypa/cibuildwheel>`__ |
 `PyPI <https://pypi.org/project/cibuildwheel>`__ |
 `Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
-`Discord #cibuildwheel<https://discord.com/invite/pypa>`__
+`Discord #cibuildwheel <https://discord.com/invite/pypa>`__
 
 ``cibuildwheel`` is a package that builds wheels for all common platforms and
 Python versions on most CI systems.
