@@ -251,7 +251,7 @@ Using :ref:`virtualenv`:
 
     .. code-block:: bash
 
-        python3 -m venv <DIR>
+        python3 -m virtualenv <DIR>
         source <DIR>/bin/activate
 
 .. tab:: Windows
