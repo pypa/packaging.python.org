@@ -79,7 +79,8 @@ migration, and what settings to change in your clients.
        later.  See the :pep:`rationale section <453#rationale>` from :pep:`453`
        as for why pip was chosen.
 
-.. [3] :ref:`get-pip.py <pip:get-pip>` and :ref:`virtualenv` install
+.. [3] `get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and
+       :ref:`virtualenv` install
        :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not
        currently.  Also, the common "python-pip" package that's found in various
        linux distros, does not depend on "python-wheel" currently.
