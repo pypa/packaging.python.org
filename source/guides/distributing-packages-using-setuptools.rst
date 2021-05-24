@@ -717,6 +717,20 @@ To have your project installable from a :term:`Package Index` like :term:`PyPI
 <Distribution Package>` (aka ":term:`Package <Distribution Package>`") for your
 project.
 
+Before you can build wheels and sdists for your project, you'll need to install the
+``build`` package:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install build
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install build
 
 
 Source distributions
@@ -725,15 +739,24 @@ Source distributions
 Minimally, you should create a :term:`Source Distribution <Source Distribution (or
 "sdist")>`:
 
-::
+.. tab:: Unix/macOS
 
- python setup.py sdist
+    .. code-block:: bash
+
+        python3 -m build --sdist
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m build --sdist
 
 
 A "source distribution" is unbuilt (i.e. it's not a :term:`Built
 Distribution`), and requires a build step when installed by pip.  Even if the
 distribution is pure Python (i.e. contains no extensions), it still involves a
-build step to build out the installation metadata from :file:`setup.py`.
+build step to build out the installation metadata from :file:`setup.py` and/or
+:file:`setup.cfg`.
 
 
 Wheels
@@ -755,20 +778,6 @@ Python Wheels>`.
 If your project contains compiled extensions, then you'll be creating what's
 called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
 
-Before you can build wheels for your project, you'll need to install the
-``wheel`` package:
-
-.. tab:: Unix/macOS
-
-    .. code-block:: bash
-
-        python3 -m pip install wheel
-
-.. tab:: Windows
-
-    .. code-block:: bash
-
-        py -m pip install wheel
 
 .. _`Universal Wheels`:
 
@@ -779,35 +788,21 @@ Universal Wheels
 extensions) and support Python 2 and 3. This is a wheel that can be installed
 anywhere by :ref:`pip`.
 
-To build the wheel:
-
-.. tab:: Unix/macOS
-
-    .. code-block:: bash
-
-        python3 setup.py bdist_wheel --universal
-
-.. tab:: Windows
-
-    .. code-block:: bash
-
-        py setup.py bdist_wheel --universal
-
-You can also permanently set the ``--universal`` flag in :file:`setup.cfg`:
+You should have the following setting in :file:`setup.cfg`:
 
 .. code-block:: text
 
   [bdist_wheel]
   universal=1
 
-Only use the ``--universal`` setting, if:
+Only use this setting if both are true:
 
 1. Your project runs on Python 2 and 3 with no changes (i.e. it does not
    require 2to3).
 2. Your project does not have any C extensions.
 
-Beware that ``bdist_wheel`` does not currently have any checks to warn if you
-use the setting inappropriately.
+Beware that there are not currently any checks to warn if you use the
+setting inappropriately.
 
 If your project has optional C extensions, it is recommended not to publish a
 universal wheel, because pip will prefer the wheel over a source installation,
@@ -829,25 +824,26 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python3 setup.py bdist_wheel
+        python -m build --wheel
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py setup.py bdist_wheel
+        py -m build --wheel
 
-``bdist_wheel`` will detect that the code is pure Python, and build a wheel
+The ``wheel`` package will detect that the code is pure Python, and build a wheel
 that's named such that it's usable on any Python installation with the same
 major version (Python 2 or Python 3) as the version you used to build the
 wheel.  For details on the naming of wheel files, see :pep:`425`.
 
 If your code supports both Python 2 and 3, but with different code (e.g., you
 use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
-``setup.py bdist_wheel`` twice, once with Python 2 and once with Python 3. This
+the build twice, once with Python 2 and once with Python 3. This
 will produce wheels for each version.
 
-
+If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both
+files for you; this is useful if you don't need multiple wheels.
 
 .. _`Platform Wheels`:
 
@@ -863,23 +859,23 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python3 setup.py bdist_wheel
+        python3 -m build --wheel
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py setup.py bdist_wheel
+        py -m build --wheel
 
 
-:command:`bdist_wheel` will detect that the code is not pure Python, and build
+The ``wheel`` package will detect that the code is not pure Python, and build
 a wheel that's named such that it's only usable on the platform that it was
 built on. For details on the naming of wheel files, see :pep:`425`.
 
 .. note::
 
   :term:`PyPI <Python Package Index (PyPI)>` currently supports uploads of
-  platform wheels for Windows, macOS, and the multi-distro ``manylinux1`` ABI.
+  platform wheels for Windows, macOS, and the multi-distro ``manylinux*`` ABI.
   Details of the latter are defined in :pep:`513`.
 
 
