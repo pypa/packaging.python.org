@@ -782,7 +782,7 @@ called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
      [bdist_wheel]
      universal=1
 
-  Only use this seeting if your project does not have any C extesions _and_
+  Only use this setting if your project does not have any C extesions _and_
   supports Python 2 and 3.
 
 
