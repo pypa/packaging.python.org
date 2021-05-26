@@ -30,8 +30,8 @@ compatible with both Python 2 and Python 3, produce :term:`wheels
 <Wheel>` that have a ``py2.py3`` tag in their names. When dropping
 support for Python 2, it is important not to forget to change this tag
 to just ``py3``. It is often configured within :file:`setup.cfg` under
-the ``[bdist_wheel]`` section by setting ``universal = 1`` :ref:`if they
-use setuptools <Universal Wheels>`.
+the ``[bdist_wheel]`` section by setting ``universal = 1`` if they
+use setuptools.
 
 If you use this method, either remove this option or section, or
 explicitly set ``universal`` to ``0``:
