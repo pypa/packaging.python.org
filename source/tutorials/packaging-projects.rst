@@ -375,13 +375,13 @@ Make sure you have the latest versions of PyPA's ``build`` installed:
 
     .. code-block:: bash
 
-        python3 -m pip install --upgrade build
+        python3 -m pip install --user --upgrade build
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py -m pip install --upgrade build
+        py -m pip install --user --upgrade build
 
 .. tip:: If you have trouble installing these, see the
    :doc:`installing-packages` tutorial.
