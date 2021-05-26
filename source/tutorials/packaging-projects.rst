@@ -498,8 +498,21 @@ https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE
 Installing your newly uploaded package
 --------------------------------------
 
-You can use :ref:`pip` to install your package and verify that it works.
-Create a new :ref:`virtualenv` (see :doc:`/tutorials/installing-packages` for
+You can use :ref:`pip` to install your package and verify that it works. Make sure you have the latest version installed:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install --upgrade pip
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --upgrade pip
+
+Now create a new :ref:`virtualenv` (see :doc:`/tutorials/installing-packages` for
 detailed instructions) and install your package from TestPyPI:
 
 .. tab:: Unix/macOS
