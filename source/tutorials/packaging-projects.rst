@@ -47,7 +47,6 @@ When you're done, the project structure will look like this:
     ├── pyproject.toml
     ├── README.md
     ├── setup.cfg
-    ├── setup.py  # optional, needed to make editable pip installs work
     ├── src/
     │   └── example_pkg/
     │       └── __init__.py
@@ -202,27 +201,6 @@ an escape hatch when absolutely necessary.
 
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
-
-    If you create a :file:`setup.py` file, this will enable direct interaction
-    with :file:`setup.py` (which generally should be avoided), and editable
-    installs. This file used to be required, but can be omitted in modern
-    setuptools.
-
-    .. warning::
-
-        If you include the file, you **must have** a call to :func:`setup()` in it,
-        even if there are no arguments:
-
-        .. code-block:: python
-
-           import setuptools
-
-           setuptools.setup()
-
-    Anything you set in :file:`setup.cfg` can instead be set via keyword argument to
-    :func:`setup()`; this enables computed values to be used. You will also need
-    :func:`setup()` for setting up extension modules for compilation. Currently,
-    having this file also is required if you want to use editable installs with pip.
 
 
 .. tab:: :file:`setup.py` (dynamic)
