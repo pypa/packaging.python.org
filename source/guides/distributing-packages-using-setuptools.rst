@@ -767,46 +767,23 @@ package <Built Distribution>` that can be installed without needing to go
 through the "build" process. Installing wheels is substantially faster for the
 end user than installing from a source distribution.
 
-If your project is pure Python (i.e. contains no compiled extensions) and
-natively supports both Python 2 and 3, then you'll be creating what's called a
-:ref:`*Universal Wheel* (see section below) <Universal Wheels>`.
-
-If your project is pure Python but does not natively support both Python 2 and
-3, then you'll be creating a :ref:`"Pure Python Wheel" (see section below) <Pure
-Python Wheels>`.
+If your project is pure Python then you'll be creating a
+:ref:`"Pure Python Wheel" (see section below) <Pure Python Wheels>`.
 
 If your project contains compiled extensions, then you'll be creating what's
 called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
 
+.. note:: If your project also supports Python 2 _and_ contains no C extensions,
+  then you should create what's called a *Universal Wheel* by adding the
+  following to your :file:`setup.cfg` file:
 
-.. _`Universal Wheels`:
+  .. code-block:: text
 
-Universal Wheels
-~~~~~~~~~~~~~~~~
+     [bdist_wheel]
+     universal=1
 
-*Universal Wheels* are wheels that are pure Python (i.e. contain no compiled
-extensions) and support Python 2 and 3. This is a wheel that can be installed
-anywhere by :ref:`pip`.
-
-You should have the following setting in :file:`setup.cfg`:
-
-.. code-block:: text
-
-  [bdist_wheel]
-  universal=1
-
-Only use this setting if both are true:
-
-1. Your project runs on Python 2 and 3 with no changes (i.e. it does not
-   require 2to3).
-2. Your project does not have any C extensions.
-
-Beware that there are not currently any checks to warn if you use the
-setting inappropriately.
-
-If your project has optional C extensions, it is recommended not to publish a
-universal wheel, because pip will prefer the wheel over a source installation,
-and prevent the possibility of building the extension.
+  Only use this seeting if your project does not have any C extesions _and_
+  supports Python 2 and 3.
 
 
 .. _`Pure Python Wheels`:
@@ -814,9 +791,8 @@ and prevent the possibility of building the extension.
 Pure Python Wheels
 ~~~~~~~~~~~~~~~~~~
 
-*Pure Python Wheels* that are not "universal" are wheels that are pure Python
-(i.e. contain no compiled extensions), but don't natively support both Python 2
-and 3.
+*Pure Python Wheels* contain no compiled extensions, and therefore only require a
+single Python wheel.
 
 To build the wheel:
 
@@ -832,18 +808,12 @@ To build the wheel:
 
         py -m build --wheel
 
-The ``wheel`` package will detect that the code is pure Python, and build a wheel
-that's named such that it's usable on any Python installation with the same
-major version (Python 2 or Python 3) as the version you used to build the
-wheel.  For details on the naming of wheel files, see :pep:`425`.
-
-If your code supports both Python 2 and 3, but with different code (e.g., you
-use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
-the build twice, once with Python 2 and once with Python 3. This
-will produce wheels for each version.
+The ``wheel`` package will detect that the code is pure Python, and build a
+wheel that's named such that it's usable on any Python 3 installation.  For
+details on the naming of wheel files, see :pep:`425`.
 
 If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both
-files for you; this is useful if you don't need multiple wheels.
+files for you; this is useful when you don't need multiple wheels.
 
 .. _`Platform Wheels`:
 
