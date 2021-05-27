@@ -5,6 +5,21 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index.
 
+Some of the commands require a recent version of :ref:`pip`, so start by making
+sure you have the latest version installed:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install --upgrade pip
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --upgrade pip
+
 
 A simple project
 ----------------
@@ -498,21 +513,8 @@ https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE
 Installing your newly uploaded package
 --------------------------------------
 
-You can use :ref:`pip` to install your package and verify that it works. Make sure you have the latest version installed:
-
-.. tab:: Unix/macOS
-
-    .. code-block:: bash
-
-        python3 -m pip install --upgrade pip
-
-.. tab:: Windows
-
-    .. code-block:: bash
-
-        py -m pip install --upgrade pip
-
-Now create a new :ref:`virtualenv` (see :doc:`/tutorials/installing-packages` for
+You can use :ref:`pip` to install your package and verify that it works.
+Create a new :ref:`virtualenv` (see :doc:`/tutorials/installing-packages` for
 detailed instructions) and install your package from TestPyPI:
 
 .. tab:: Unix/macOS
