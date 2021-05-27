@@ -119,8 +119,9 @@ There are two types of metadata: static and dynamic.
   dynamic or determined at install-time, as well as extension modules or
   extensions to setuptools, need to go into :file:`setup.py`.
 
-Static metadata should be preferred and dynamic metadata should be used only as
-an escape hatch when absolutely necessary.
+Static metadata (:file:`setup.cfg`) should be preferred. Dynamic metadata (:file:`setup.py`)
+should be used only as an escape hatch when absolutely necessary. :file:`setup.py` used to
+be required, but can be omitted in modern setuptools.
 
 
 .. tab:: :file:`setup.cfg` (static)
