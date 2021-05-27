@@ -5,7 +5,7 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index.
 
-Some of the commands require a recent version of :ref:`pip`, so start by making
+Some of the commands require a newer version of :ref:`pip`, so start by making
 sure you have the latest version installed:
 
 .. tab:: Unix/macOS
@@ -121,7 +121,7 @@ There are two types of metadata: static and dynamic.
 
 Static metadata (:file:`setup.cfg`) should be preferred. Dynamic metadata (:file:`setup.py`)
 should be used only as an escape hatch when absolutely necessary. :file:`setup.py` used to
-be required, but can be omitted in modern setuptools.
+be required, but can be omitted with newer versions of setuptools and pip.
 
 
 .. tab:: :file:`setup.cfg` (static)
@@ -327,7 +327,7 @@ if you'd like.
 Because our configuration loads :file:`README.md` to provide a
 ``long_description``, :file:`README.md` must be included along with your
 code when you :ref:`generate a source distribution <generating archives>`.
-Recent versions of :ref:`setuptools` will do this automatically.
+Newer versions of :ref:`setuptools` will do this automatically.
 
 
 Creating a LICENSE
@@ -385,7 +385,7 @@ The next step is to generate :term:`distribution packages <Distribution
 Package>` for the package. These are archives that are uploaded to the Python
 Package Index and can be installed by :ref:`pip`.
 
-Make sure you have the latest versions of PyPA's ``build`` installed:
+Make sure you have the latest version of PyPA's ``build`` installed:
 
 .. tab:: Unix/macOS
 
