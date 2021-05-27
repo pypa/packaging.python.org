@@ -571,8 +571,9 @@ and from the interpreter shell import the package:
     >>> import example_pkg
 
 Note that the :term:`import package <Import Package>` is ``example_pkg``
-regardless of what name you gave your :term:`distribution package <Distribution
-Package>` in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
+regardless of what ``name`` you gave your :term:`distribution package <Distribution
+Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
+``example-pkg-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
