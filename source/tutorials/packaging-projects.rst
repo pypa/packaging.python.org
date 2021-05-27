@@ -375,13 +375,13 @@ Make sure you have the latest versions of PyPA's ``build`` installed:
 
     .. code-block:: bash
 
-        python3 -m pip install --user --upgrade build
+        python3 -m pip install --upgrade build
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py -m pip install --user --upgrade build
+        py -m pip install --upgrade build
 
 .. tip:: If you have trouble installing these, see the
    :doc:`installing-packages` tutorial.
@@ -452,13 +452,13 @@ distribution packages. You'll need to install Twine:
 
     .. code-block:: bash
 
-        python3 -m pip install --user --upgrade twine
+        python3 -m pip install --upgrade twine
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py -m pip install --user --upgrade twine
+        py -m pip install --upgrade twine
 
 Once installed, run Twine to upload all of the archives under :file:`dist`:
 
