@@ -5,6 +5,21 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index.
 
+Some of the commands require a newer version of :ref:`pip`, so start by making
+sure you have the latest version installed:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install --upgrade pip
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --upgrade pip
+
 
 A simple project
 ----------------
@@ -47,7 +62,6 @@ When you're done, the project structure will look like this:
     ├── pyproject.toml
     ├── README.md
     ├── setup.cfg
-    ├── setup.py  # optional, needed to make editable pip installs work
     ├── src/
     │   └── example_pkg/
     │       └── __init__.py
@@ -105,8 +119,9 @@ There are two types of metadata: static and dynamic.
   dynamic or determined at install-time, as well as extension modules or
   extensions to setuptools, need to go into :file:`setup.py`.
 
-Static metadata should be preferred and dynamic metadata should be used only as
-an escape hatch when absolutely necessary.
+Static metadata (:file:`setup.cfg`) should be preferred. Dynamic metadata (:file:`setup.py`)
+should be used only as an escape hatch when absolutely necessary. :file:`setup.py` used to
+be required, but can be omitted with newer versions of setuptools and pip.
 
 
 .. tab:: :file:`setup.cfg` (static)
@@ -202,27 +217,6 @@ an escape hatch when absolutely necessary.
 
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
-
-    If you create a :file:`setup.py` file, this will enable direct interaction
-    with :file:`setup.py` (which generally should be avoided), and editable
-    installs. This file used to be required, but can be omitted in modern
-    setuptools.
-
-    .. warning::
-
-        If you include the file, you **must have** a call to :func:`setup()` in it,
-        even if there are no arguments:
-
-        .. code-block:: python
-
-           import setuptools
-
-           setuptools.setup()
-
-    Anything you set in :file:`setup.cfg` can instead be set via keyword argument to
-    :func:`setup()`; this enables computed values to be used. You will also need
-    :func:`setup()` for setting up extension modules for compilation. Currently,
-    having this file also is required if you want to use editable installs with pip.
 
 
 .. tab:: :file:`setup.py` (dynamic)
@@ -333,7 +327,7 @@ if you'd like.
 Because our configuration loads :file:`README.md` to provide a
 ``long_description``, :file:`README.md` must be included along with your
 code when you :ref:`generate a source distribution <generating archives>`.
-Recent versions of :ref:`setuptools` will do this automatically.
+Newer versions of :ref:`setuptools` will do this automatically.
 
 
 Creating a LICENSE
@@ -391,7 +385,7 @@ The next step is to generate :term:`distribution packages <Distribution
 Package>` for the package. These are archives that are uploaded to the Python
 Package Index and can be installed by :ref:`pip`.
 
-Make sure you have the latest versions of PyPA's ``build`` installed:
+Make sure you have the latest version of PyPA's ``build`` installed:
 
 .. tab:: Unix/macOS
 
@@ -474,13 +468,13 @@ distribution packages. You'll need to install Twine:
 
     .. code-block:: bash
 
-        python3 -m pip install --user --upgrade twine
+        python3 -m pip install --upgrade twine
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py -m pip install --user --upgrade twine
+        py -m pip install --upgrade twine
 
 Once installed, run Twine to upload all of the archives under :file:`dist`:
 
@@ -577,8 +571,9 @@ and from the interpreter shell import the package:
     >>> import example_pkg
 
 Note that the :term:`import package <Import Package>` is ``example_pkg``
-regardless of what name you gave your :term:`distribution package <Distribution
-Package>` in :file:`setup.py` (in this case, ``example-pkg-YOUR-USERNAME-HERE``).
+regardless of what ``name`` you gave your :term:`distribution package <Distribution
+Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
+``example-pkg-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
