@@ -162,7 +162,7 @@ While ``pip`` alone is sufficient to install from pre-built binary archives,
 up to date copies of the ``setuptools`` and ``wheel`` projects are useful
 to ensure you can also install from source archives::
 
-    python -m pip install --upgrade pip setuptools wheel
+    python3 -m pip install --upgrade pip setuptools wheel
 
 
 Optionally, create a virtual environment
