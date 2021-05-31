@@ -516,8 +516,8 @@ Installing your newly uploaded package
 --------------------------------------
 
 You can use :ref:`pip` to install your package and verify that it works.
-Create a new :ref:`virtualenv` (see :doc:`/tutorials/installing-packages` for
-detailed instructions) and install your package from TestPyPI:
+Create a :ref:`virtual environment <Creating and using Virtual Environments>`
+and install your package from TestPyPI:
 
 .. tab:: Unix/macOS
 
@@ -551,19 +551,19 @@ something like this:
    installing dependencies when using TestPyPI.
 
 You can test that it was installed correctly by importing the package.
-Run the Python interpreter (make sure you're still in your virtualenv):
+Make sure you're still in your virtual environment, then run Python:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        python3 
+        python3
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py 
+        py
 
 and import the package:
 
