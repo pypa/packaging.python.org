@@ -77,14 +77,9 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
-:file:`pyproject.toml` is the file that tells build tools (like :ref:`pip` and
-:ref:`build`) what system you are using and what is required for building. The
-default if this file is missing is to assume a :ref:`setuptools` build system,
-but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
-will be able to rely on :ref:`wheel` and other packages being present.
-
-This file should be ideal for most :ref:`setuptools` projects:
-
+:file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
+what is required to build your project. This tutorial uses :ref:`setuptools`,
+so open :file:`pyproject.toml` and enter the following content:
 
 .. code-block:: toml
 
@@ -100,12 +95,13 @@ This file should be ideal for most :ref:`setuptools` projects:
 package. Listing something here will *only* make it available during the build,
 not after it is installed.
 
-``build-system.build-backend`` is technically optional, but you will get
-``setuptools.build_meta:__legacy__`` instead if you forget to include it, so
-always include it. If you were to use a different build system, such as
+``build-system.build-backend`` is the name of Python object that will be used to
+perform the build. If you were to use a different build system, such as
 :ref:`flit` or :ref:`poetry`, those would go here, and the configuration details
 would be completely different than the :ref:`setuptools` configuration described
-below. See :pep:`517` and :pep:`518` for background and details.
+below.
+
+See :pep:`517` and :pep:`518` for background and details.
 
 
 Configuring metadata
