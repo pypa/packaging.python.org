@@ -77,13 +77,13 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
-:file:`pyproject.toml` is the file that tells build tools (like ``pip`` and
-``build``) what system you are using and what is required for building. The
-default if this file is missing is to assume a classic setuptools build system,
+:file:`pyproject.toml` is the file that tells build tools (like :ref:`pip` and
+:ref:`build`) what system you are using and what is required for building. The
+default if this file is missing is to assume a :ref:`setuptools` build system,
 but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
-will be able to rely on ``wheel`` and other packages being present.
+will be able to rely on :ref:`wheel` and other packages being present.
 
-This file should be ideal for most setuptools projects:
+This file should be ideal for most :ref:`setuptools` projects:
 
 
 .. code-block:: toml
@@ -103,8 +103,8 @@ not after it is installed.
 ``build-system.build-backend`` is technically optional, but you will get
 ``setuptools.build_meta:__legacy__`` instead if you forget to include it, so
 always include it. If you were to use a different build system, such as
-:ref:`flit` or `poetry`_, those would go here, and the configuration details
-would be completely different than the setuptools configuration described
+:ref:`flit` or :ref:`poetry`, those would go here, and the configuration details
+would be completely different than the :ref:`setuptools` configuration described
 below. See :pep:`517` and :pep:`518` for background and details.
 
 
@@ -165,8 +165,9 @@ be required, but can be omitted with newer versions of setuptools and pip.
 
     There are a `variety of metadata and options
     <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
-    supported here. This is in configparser format; do not place quotes around values.
-    This example package uses a relatively minimal set of metadata:
+    supported here. This is in :doc:`configparser <python:library/configparser>`
+    format; do not place quotes around values. This example package uses a
+    relatively minimal set of ``metadata``:
 
     - ``name`` is the *distribution name* of your package. This can be any name as
       long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
@@ -198,7 +199,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
 
-    In the options category, we have controls for setuptools itself:
+    In the ``options`` category, we have controls for setuptools itself:
 
     - ``package_dir`` is a mapping of package names and directories.
       An empty package name represents the "root package" --- the directory in
@@ -212,7 +213,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       to use. In this case, the list of packages will be ``example_pkg`` as
       that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like pip will look back though older versions of
+      project. Installers like :ref:`pip` will look back though older versions of
       packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
@@ -303,7 +304,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       subpackages under ``package_dir``. In this case, the list of packages will
       be ``example_pkg`` as that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like pip will look back though older versions of
+      project. Installers like :ref:`pip` will look back though older versions of
       packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
@@ -367,14 +368,14 @@ Including other files
 ---------------------
 
 The files listed above will be included automatically in your
-:term:`source distribution <Source Distribution (or "sdist")>`. If you want to control what goes in this
-explicitly, see :ref:`Using MANIFEST.in`.
+:term:`source distribution <Source Distribution (or "sdist")>`. If you want to
+control what goes in this explicitly, see :ref:`Using MANIFEST.in`.
 
 The final :term:`built distribution <Built Distribution>` will have the Python
 files in the discovered or listed Python packages. If you want to control what
 goes here, such as to add data files, see
-:std:doc:`Including Data Files <setuptools:userguide/datafiles>`
-from the :std:doc:`setuptools docs <setuptools:index>`.
+:doc:`Including Data Files <setuptools:userguide/datafiles>`
+from the :doc:`setuptools docs <setuptools:index>`.
 
 .. _generating archives:
 
@@ -385,7 +386,7 @@ The next step is to generate :term:`distribution packages <Distribution
 Package>` for the package. These are archives that are uploaded to the Python
 Package Index and can be installed by :ref:`pip`.
 
-Make sure you have the latest version of PyPA's ``build`` installed:
+Make sure you have the latest version of PyPA's :ref:`build` installed:
 
 .. tab:: Unix/macOS
 
@@ -564,7 +565,7 @@ Run the Python interpreter (make sure you're still in your virtualenv):
 
         py 
 
-and from the interpreter shell import the package:
+and import the package:
 
 .. code-block:: python
 
@@ -607,8 +608,5 @@ some things you can do:
 * Read more about using :ref:`setuptools` to package libraries in
   :doc:`/guides/distributing-packages-using-setuptools`.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, `hatch`_,
-  and `poetry`_.
-
-.. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://python-poetry.org
+* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`hatch`,
+  and :ref:`poetry`.
