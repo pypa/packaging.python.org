@@ -446,14 +446,13 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register an account on Test PyPI, which
+The first thing you'll need to do is register an account on TestPyPI, which
 is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to
 https://test.pypi.org/account/register/ and complete the steps on that page.
 You will also need to verify your email address before you're able to upload
-any packages.  For more details on Test PyPI, see
-:doc:`/guides/using-testpypi`.
+any packages.  For more details, see :doc:`/guides/using-testpypi`.
 
 To securely upload your project, you'll need a PyPI `API token`_. Create one at
 https://test.pypi.org/manage/account/#api-tokens, setting the "Scope" to "Entire
@@ -533,7 +532,7 @@ and install your package from TestPyPI:
 
 Make sure to specify your username in the package name!
 
-pip should install the package from Test PyPI and the output should look
+pip should install the package from TestPyPI and the output should look
 something like this:
 
 .. code-block:: text
@@ -584,7 +583,7 @@ Next steps
 
 Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI, which isn't a permanent storage. The Test system occasionally deletes
-packages and accounts. It is best to use Test PyPI for testing and experiments
+packages and accounts. It is best to use TestPyPI for testing and experiments
 like this tutorial.
 
 When you are ready to upload a real package to the Python Package Index you can
