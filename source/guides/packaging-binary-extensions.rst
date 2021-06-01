@@ -256,7 +256,7 @@ To set up a build environment for binary extensions, install
 recent version is fine.
 
 One caveat; if you use MSVC 2019+, your extension will depend on an "extra"
-file, `VCRUNTIME140_1.dll`, in addition to the `VCRUNTIME140.dll` all previous
+file, ``VCRUNTIME140_1.dll``, in addition to the ``VCRUNTIME140.dll`` all previous
 verisions back to 2015 depend on. This will add an extra requirement to using
 your extension on versions of CPython that do not include this extra file; you
 can add the compile-time argument ``/d2FH4-`` to avoid this link on 2019+.
