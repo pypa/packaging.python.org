@@ -232,6 +232,18 @@ guide includes an introduction to writing a
 Building binary extensions
 ==========================
 
+Building extensions in CI
+-------------------------
+
+If you plan to distribute your modules, you should provide builds for all the
+platforms you intend to support. For most extensions, this is at least one
+module per Python version times the number of OS and archetectures you support.
+These are usually built on continous integration (CI) systems. There are tools
+to help you build highly redistributable binaries from CI; these include
+`cibuildwheel <https://cibuildwheel.readthedocs.io>`__ and
+`multibuild <https://github.com/matthew-brett/multibuild>`__.
+
+
 Binary extensions for Windows
 -----------------------------
 
