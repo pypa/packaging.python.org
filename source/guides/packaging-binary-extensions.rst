@@ -240,43 +240,26 @@ that you have a suitable compiler available. On Windows, Visual C is used to
 build the official CPython interpreter, and should be used to build compatible
 binary extensions.
 
-Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010,
-and Python 3.5+ uses Visual Studio 2015 or later. Unfortunately, older versions of
-Visual Studio are no longer easily available from Microsoft, so for versions
-of Python prior to 3.5, the compilers must be obtained differently if you do
-not already have a copy of the relevant version of Visual Studio.
+Python 2.7 used Visual Studio 2008, and Python 3.5+ uses Visual Studio 2015 or
+later; since 2015 Microsoft has kept backward compatibility (with one exception,
+listed below). Unfortunately, older versions of Visual Studio are no longer
+available from Microsoft, so building for CPython < 3.5 is discouraged. If you do
+need to build for older versions, you can set ``DISTUTILS_USE_SDK=1`` and
+``MSSdk=1`` to force a the currently activated version of MSVC to be found,
+and you should exercize care when designing your extension not to malloc/free
+memory across different libraries, avoid relying on changed data structures,
+and so on. Tools for generating extension modules usually avoid these things
+for you.
 
-To set up a build environment for binary extensions, the steps are as follows:
+To set up a build environment for binary extensions, install
+`Visual Studio Community Edition <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__ - any
+recent version is fine.
 
-    For Python 2.7
-
-        1. Install "Visual C++ Compiler Package for Python 2.7",
-           which is available from
-           `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=44266>`__.
-        2. Use (a recent version of) setuptools in your setup.py (pip will
-           do this for you, in any case).
-        3. Done.
-
-    For Python 3.4
-
-        1. Install "Windows SDK for Windows 7 and .NET Framework 4" (v7.1),
-           which is available from
-           `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=8279>`__.
-        2. Work from an SDK command prompt (with the environment variables
-           set, and the SDK on PATH).
-        3. Set DISTUTILS_USE_SDK=1
-        4. Done.
-
-    For Python 3.5
-
-        1. Install `Visual Studio 2015 Community Edition
-           <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
-           (or any later version, when these are released).
-        2. Done.
-
-Note that from Python 3.5 onwards, Visual Studio works in a backward
-compatible way, which means that any future version of Visual Studio will
-be able to build Python extensions for all Python versions from 3.5 onwards.
+One caveat; if you use MSVC 2019+, your extension will depend on an "extra"
+file, `VCRUNTIME140_1.dll`, in addition to the `VCRUNTIME140.dll` all previous
+verisions back to 2015 depend on. This will add an extra requirement to using
+your extension on versions of CPython that do not include this extra file; you
+can add the compile-time argument ``/d2FH4-`` to avoid this link on 2019+.
 
 Building with the recommended compiler on Windows ensures that a compatible C library
 is used throughout the Python process.
