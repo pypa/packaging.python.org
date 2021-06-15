@@ -35,10 +35,22 @@ Create the following file structure locally:
     packaging_tutorial/
     └── src/
         └── example_package/
-            └── __init__.py
+            ├── __init__.py
+            └── example.py
 
-:file:`src/example_package/__init__.py` is required to import the directory as a
-package, and should be empty. If you are unfamiliar with Python's modules and
+:file:`__init__.py` is required to import the directory as a package, and
+should be empty.
+
+:file:`example.py` is an an example of a module within the package that could
+contain the logic (functions, classes, constants, etc.) of your package.
+Open that file and enter the following content:
+
+.. code-block:: python
+
+    def add_one(number):
+        return number + 1
+
+If you are unfamiliar with Python's :term:`modules <Module>` and
 :term:`import packages <Import Package>`, take a few minutes to read over the
 `Python documentation for packages and modules`_.
 
@@ -64,7 +76,8 @@ When you're done, the project structure will look like this:
     ├── setup.cfg
     ├── src/
     │   └── example_package/
-    │       └── __init__.py
+    │       ├── __init__.py
+    │       └── example.py
     └── tests/
 
 
@@ -564,7 +577,9 @@ and import the package:
 
 .. code-block:: python
 
-    >>> import example_package
+    >>> from example_package import example
+    >>> example.add_one(2)
+    3
 
 Note that the :term:`import package <Import Package>` is ``example_package``
 regardless of what ``name`` you gave your :term:`distribution package <Distribution
