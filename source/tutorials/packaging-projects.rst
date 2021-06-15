@@ -24,7 +24,7 @@ sure you have the latest version installed:
 A simple project
 ----------------
 
-This tutorial uses a simple project named ``example_pkg``.  We recommend
+This tutorial uses a simple project named ``example_package``.  We recommend
 following this tutorial as-is using this project, before packaging your own
 project.
 
@@ -34,10 +34,10 @@ Create the following file structure locally:
 
     packaging_tutorial/
     └── src/
-        └── example_pkg/
+        └── example_package/
             └── __init__.py
 
-:file:`src/example_pkg/__init__.py` is required to import the directory as a
+:file:`src/example_package/__init__.py` is required to import the directory as a
 package, and should be empty. If you are unfamiliar with Python's modules and
 :term:`import packages <Import Package>`, take a few minutes to read over the
 `Python documentation for packages and modules`_.
@@ -63,7 +63,7 @@ When you're done, the project structure will look like this:
     ├── README.md
     ├── setup.cfg
     ├── src/
-    │   └── example_pkg/
+    │   └── example_package/
     │       └── __init__.py
     └── tests/
 
@@ -206,7 +206,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       <Distribution Package>`. Instead of listing each package manually, we can
       use the ``find:`` directive to automatically discover all packages and
       subpackages and ``options.packages.find`` to specify the ``package_dir``
-      to use. In this case, the list of packages will be ``example_pkg`` as
+      to use. In this case, the list of packages will be ``example_package`` as
       that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like :ref:`pip` will look back though older versions of
@@ -298,7 +298,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       <Distribution Package>`. Instead of listing each package manually, we can
       use :func:`find_packages` to automatically discover all packages and
       subpackages under ``package_dir``. In this case, the list of packages will
-      be ``example_pkg`` as that's the only package present.
+      be ``example_package`` as that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
       project. Installers like :ref:`pip` will look back though older versions of
       packages until it finds one that has a matching Python version.
@@ -419,8 +419,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-      example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
+      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 .. note:: If you run into trouble here, please copy the output and file an issue
   over on `packaging problems`_ and we'll do our best to help you!
@@ -497,9 +497,9 @@ After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
@@ -564,9 +564,9 @@ and import the package:
 
 .. code-block:: python
 
-    >>> import example_pkg
+    >>> import example_package
 
-Note that the :term:`import package <Import Package>` is ``example_pkg``
+Note that the :term:`import package <Import Package>` is ``example_package``
 regardless of what ``name`` you gave your :term:`distribution package <Distribution
 Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
 ``example-pkg-YOUR-USERNAME-HERE``).
