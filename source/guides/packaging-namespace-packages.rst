@@ -101,16 +101,17 @@ logic to fail and the other sub-packages will not be importable.
 
 Because ``mynamespace`` doesn't contain an :file:`__init__.py`,
 :func:`setuptools.find_packages` won't find the sub-package. You must
-explicitly list all packages in your :file:`setup.py`. For example:
+use :func:`setuptools.find_namespace_packages` instead or explicitly
+list all packages in your :file:`setup.py`. For example:
 
 .. code-block:: python
 
-    from setuptools import setup
+    from setuptools import setup, find_namespace_packages
 
     setup(
         name='mynamespace-subpackage-a',
         ...
-        packages=['mynamespace.subpackage_a']
+        packages=find_namespace_packages(include=['mynamespace.*'])
     )
 
 A complete working example of two native namespace packages can be found in

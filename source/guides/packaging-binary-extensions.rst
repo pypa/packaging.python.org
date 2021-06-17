@@ -25,25 +25,33 @@ Use cases
 The typical use cases for binary extensions break down into just three
 conventional categories:
 
-* accelerator modules: these modules are completely self-contained, and
+* **accelerator modules**: these modules are completely self-contained, and
   are created solely to run faster than the equivalent pure Python code
   runs in CPython. Ideally, accelerator modules will always have a pure
   Python equivalent to use as a fallback if the accelerated version isn't
   available on a given system. The CPython standard library makes extensive
   use of accelerator modules.
-
-* wrapper modules: these modules are created to expose existing C interfaces
+  *Example*: When importing ``datetime``, Python falls back to the
+  `datetime.py <https://github.com/python/cpython/blob/master/Lib/datetime.py>`_
+  module if the C implementation (
+  `_datetimemodule.c <https://github.com/python/cpython/blob/master/Modules/_datetimemodule.c>`_)
+  is not available.
+* **wrapper modules**: these modules are created to expose existing C interfaces
   to Python code. They may either expose the underlying C interface directly,
   or else expose a more "Pythonic" API that makes use of Python language
   features to make the API easier to use. The CPython standard library makes
   extensive use of wrapper modules.
-
-* low level system access: these modules are created to access lower level
+  *Example*: `functools.py <https://github.com/python/cpython/blob/master/Lib/functools.py>`_
+  is a Python module wrapper for
+  `_functoolsmodule.c <https://github.com/python/cpython/blob/master/Modules/_functoolsmodule.c>`_.
+* **low-level system access**: these modules are created to access lower level
   features of the CPython runtime, the operating system, or the underlying
   hardware. Through platform specific code, extension modules may achieve
   things that aren't possible in pure Python code. A number of CPython
   standard library modules are written in C in order to access interpreter
   internals that aren't exposed at the language level.
+  *Example*: ``sys``, which comes from
+  `sysmodule.c <https://github.com/python/cpython/blob/master/Python/sysmodule.c>`_.
 
   One particularly notable feature of C extensions is that, when they don't
   need to call back into the interpreter runtime, they can release CPython's
@@ -104,7 +112,7 @@ profiling has identified the code where the speed increase is worth
 additional maintenance effort), a number of other alternatives should
 also be considered:
 
-* look for existing optimised alternatives. The CPython standard libary
+* look for existing optimised alternatives. The CPython standard library
   includes a number of optimised data structures and algorithms (especially
   in the builtins and the ``collections`` and ``itertools`` modules). The
   Python Package Index also offers additional alternatives. Sometimes, the
@@ -224,8 +232,8 @@ guide includes an introduction to writing a
 Building binary extensions
 ==========================
 
-Setting up a build environment on Windows
------------------------------------------
+Binary extensions for Windows
+-----------------------------
 
 Before it is possible to build a binary extension, it is necessary to ensure
 that you have a suitable compiler available. On Windows, Visual C is used to
@@ -233,7 +241,7 @@ build the official CPython interpreter, and should be used to build compatible
 binary extensions.
 
 Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010,
-and Python 3.5+ uses Visual Studio 2015. Unfortunately, older versions of
+and Python 3.5+ uses Visual Studio 2015 or later. Unfortunately, older versions of
 Visual Studio are no longer easily available from Microsoft, so for versions
 of Python prior to 3.5, the compilers must be obtained differently if you do
 not already have a copy of the relevant version of Visual Studio.
@@ -261,7 +269,7 @@ To set up a build environment for binary extensions, the steps are as follows:
 
     For Python 3.5
 
-        1. Install `Visual Studio 2015 Community Edition 
+        1. Install `Visual Studio 2015 Community Edition
            <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
            (or any later version, when these are released).
         2. Done.
@@ -270,15 +278,28 @@ Note that from Python 3.5 onwards, Visual Studio works in a backward
 compatible way, which means that any future version of Visual Studio will
 be able to build Python extensions for all Python versions from 3.5 onwards.
 
-::
+Building with the recommended compiler on Windows ensures that a compatible C library
+is used throughout the Python process.
 
-   FIXME
+Binary extensions for Linux
+---------------------------
 
-   cover Windows binary compatibility requirements
-   cover macOS binary compatibility requirements
-   cover the vagaries of Linux distros and other *nix systems
+Linux binaries must use a sufficiently old glibc to be compatible with older
+distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker
+images provide a build environment with a glibc old enough to support most
+current Linux distributions on common architectures.
 
+Binary extensions for macOS
+---------------------------
 
+Binary compatibility on macOS is determined by the target minimum deployment
+system, e.g. *10.9*, which is often specified with the
+``MACOSX_DEPLOYMENT_TARGET`` environmental variable when building binaries on
+macOS. When building with setuptools / distutils, the deployment target is
+specified with the flag ``--plat-name``, e.g. ``macosx-10.9-x86_64``. For
+common deployment targets for macOS Python distributions, see the `MacPython
+Spinning Wheels wiki
+<https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_.
 
 Publishing binary extensions
 ============================
@@ -292,6 +313,7 @@ For interim guidance on this topic, see the discussion in
 
    cover publishing as wheel files on PyPI or a custom index server
    cover creation of Windows and macOS installers
+   cover weak linking
    mention the fact that Linux distros have a requirement to build from
    source in their own build systems, so binary-only releases are strongly
    discouraged
@@ -305,6 +327,16 @@ so this guide focuses primarily on providing pointers to various tools that auto
 dealing with the underlying technical challenges. The additional resources in this
 section are instead intended for developers looking to understand more about the
 underlying binary interfaces that those systems rely on at runtime.
+
+Cross-platform wheel generation with scikit-build
+-------------------------------------------------
+
+The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package
+helps abstract cross-platform build operations and provides additional capabilities
+when creating binary extension packages. Additional documentation is also available on
+the `C runtime, compiler, and build system generator
+<https://scikit-build.readthedocs.io/en/latest/generators.html>`_ for Python
+binary extension modules.
 
 Introduction to C/C++ extension modules
 ---------------------------------------

@@ -11,3 +11,4 @@ topics, see :doc:`/guides/index`.
     installing-packages
     managing-dependencies
     packaging-projects
+    creating-documentation

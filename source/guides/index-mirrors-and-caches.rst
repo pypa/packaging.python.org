@@ -30,15 +30,15 @@ pip provides a number of facilities for speeding up installation by using local
 cached copies of :term:`packages <Distribution Package>`:
 
 1. `Fast & local installs
-   <https://pip.pypa.io/en/latest/user_guide.html#fast-local-installs>`_ by
-   downloading all the requirements for a project and then pointing pip at
+   <https://pip.pypa.io/en/latest/user_guide/#installing-from-local-packages>`_
+   by downloading all the requirements for a project and then pointing pip at
    those downloaded files instead of going to PyPI.
 2. A variation on the above which pre-builds the installation files for
-   the requirements using `pip wheel
+   the requirements using `python -m pip wheel
    <https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_::
 
-    $ pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
-    $ pip install --no-index --find-links=/tmp/wheelhouse SomeProject
+    $ python -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
+    $ python -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
 
 
 Caching with devpi
@@ -58,7 +58,7 @@ bandersnatch will set up a complete local mirror of all PyPI :term:`packages
 <Distribution Package>` (externally-hosted packages are not mirrored). See
 the `bandersnatch documentation for getting that going`__.
 
-__ https://bitbucket.org/pypa/bandersnatch/overview
+__ https://github.com/pypa/bandersnatch/
 
 A benefit of devpi is that it will create a mirror which includes
 :term:`packages <Distribution Package>` that are external to PyPI, unlike

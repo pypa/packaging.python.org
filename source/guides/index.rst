@@ -7,13 +7,22 @@ introduction to packaging, see :doc:`/tutorials/index`.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Installing Packages:
 
-   tool-recommendations
-   installing-using-pip-and-virtualenv
+   installing-using-pip-and-virtual-environments
+   installing-stand-alone-command-line-tools
    installing-using-linux-tools
    installing-scientific-packages
    multi-version-installs
+   index-mirrors-and-caches
+   hosting-your-own-index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Building and Publishing Projects:
+
    distributing-packages-using-setuptools
+   using-manifest-in
    single-sourcing-package-version
    supporting-multiple-python-versions
    dropping-older-python-versions
@@ -21,9 +30,14 @@ introduction to packaging, see :doc:`/tutorials/index`.
    supporting-windows-using-appveyor
    packaging-namespace-packages
    creating-and-discovering-plugins
-   analyzing-pypi-package-downloads
-   index-mirrors-and-caches
-   hosting-your-own-index
    migrating-to-pypi-org
    using-testpypi
    making-a-pypi-friendly-readme
+   publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Miscellaneous:
+
+   tool-recommendations
+   analyzing-pypi-package-downloads

@@ -15,8 +15,13 @@ Use :ref:`pipenv` to manage library dependencies when developing Python
 applications. See :doc:`../tutorials/managing-dependencies` for more details
 on using ``pipenv``.
 
-Consider other tools such as :ref:`pip` when ``pipenv`` does not meet your use
-case.
+When ``pipenv`` does not meet your use case, consider other tools like:
+
+* :ref:`pip`
+
+* `pip-tools <https://github.com/jazzband/pip-tools>`_
+
+* `Poetry <https://python-poetry.org/>`_
 
 Installation tool recommendations
 =================================
@@ -74,7 +79,8 @@ migration, and what settings to change in your clients.
        later.  See the :pep:`rationale section <453#rationale>` from :pep:`453`
        as for why pip was chosen.
 
-.. [3] :ref:`get-pip.py <pip:get-pip>` and :ref:`virtualenv` install
+.. [3] `get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and
+       :ref:`virtualenv` install
        :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not
        currently.  Also, the common "python-pip" package that's found in various
        linux distros, does not depend on "python-wheel" currently.

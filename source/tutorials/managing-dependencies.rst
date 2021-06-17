@@ -21,8 +21,10 @@ applicable to the development and deployment of network services (including
 web applications), but is also very well suited to managing development and
 testing environments for any kind of project.
 
-.. Note:: This guide is written for Python 3, however, these instructions
-    should also work on Python 2.7.
+Developers of Python libraries, or of applications that support distribution
+as Python libraries, should also consider the
+`poetry <https://github.com/python-poetry/poetry>`_ project as an alternative dependency
+management solution.
 
 Installing Pipenv
 -----------------
@@ -35,38 +37,29 @@ simplifies dependency management for common use cases.
 
 Use ``pip`` to install Pipenv:
 
-.. code-block:: python
+.. tab:: Unix/macOS
 
-    pip install --user pipenv
+    .. code-block:: bash
+
+        python3 -m pip install --user pipenv
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install --user pipenv
 
 .. _pipenv-user-base:
 
 .. Note:: This does a `user installation`_ to prevent breaking any system-wide
     packages. If ``pipenv`` isn't available in your shell after installation,
     you'll need to add the `user base`_'s binary directory to your ``PATH``.
-
-    On Linux and macOS you can find the user base binary directory by running
-    ``python -m site --user-base`` and adding ``bin`` to the end. For example,
-    this will typically print ``~/.local`` (with ``~`` expanded to the
-    absolute path to your home directory) so you'll need to add
-    ``~/.local/bin`` to your ``PATH``. You can set your ``PATH`` permanently by
-    `modifying ~/.profile`_.
-
-    On Windows you can find the user base binary directory by running
-    ``py -m site --user-site`` and replacing ``site-packages`` with
-    ``Scripts``. For example, this could return
-    ``C:\Users\Username\AppData\Roaming\Python36\site-packages`` so you would
-    need to set your ``PATH`` to include
-    ``C:\Users\Username\AppData\Roaming\Python36\Scripts``. You can set your
-    user ``PATH`` permanently in the `Control Panel`_. You may need to log
-    out for the ``PATH`` changes to take effect.
+    See :ref:`Installing to the User Site` for more information.
 
 .. _npm: https://www.npmjs.com/
 .. _bundler: http://bundler.io/
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
 .. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
-.. _modifying ~/.profile: https://stackoverflow.com/a/14638025
-.. _Control Panel: https://msdn.microsoft.com/en-us/library/windows/desktop/bb776899(v=vs.85).aspx
 
 Installing packages for your project
 ------------------------------------
@@ -112,8 +105,7 @@ when you share your project with others. You should get output similar to this
 
     Adding requests to Pipfile's [packages]...
 
-.. _Requests: https://python-requests.org
-.. _pipenv-tox: https://docs.pipenv.org/advanced/#tox-automation-project
+.. _Requests: https://pypi.org/project/requests/
 
 
 Using installed packages
@@ -161,18 +153,28 @@ they (and their dependencies) can be added to your ``pipenv`` environment with
 ``pipenv install -e <relative-path-to-source-directory>`` (e.g.
 ``pipenv install -e .`` or ``pipenv install -e src``).
 
+
+.. _other-dependency-management-tools:
+
+Other Tools for Application Dependency Management
+-------------------------------------------------
+
 If you find this particular approach to managing application dependencies isn't
 working well for you or your use case, you may want to explore these other tools
 and techniques to see if one of them is a better fit:
 
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
-  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
+  to ``pipenv`` that focuses more directly on use cases where the repository being
+  managed is structured as a Python project with a valid ``pyproject.toml`` file
+  (by contrast, ``pipenv`` explicitly avoids making the assumption that the
+  application being worked on that's depending on components from PyPI will
+  itself support distribution as a ``pip``-installable Python package).
 * `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
   more steps in the project management workflow (such as incrementing versions,
   tagging releases, and creating new skeleton projects from project templates)
-* `poetry <https://github.com/sdispater/poetry>`_ for Python developer focused
-  components that are designed primarily for publication to a Python package index
-  (``pipenv`` deliberately avoids making the assumption that the application
-  being worked on will support distribution as a ``pip``-installable Python package,
-  while ``poetry`` based applications rely explicitly on their Python packaging
-  metadata to describe their application structure and dependencies)
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
+  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `micropipenv <https://github.com/thoth-station/micropipenv>`_ is a lightweight
+  wrapper for pip to support requirements.txt, Pipenv and Poetry lock files or
+  converting them to pip-tools compatible output. Designed for containerized
+  Python applications but not limited to them.

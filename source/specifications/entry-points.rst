@@ -1,3 +1,5 @@
+.. _entry-points:
+
 ==========================
 Entry points specification
 ==========================
@@ -16,10 +18,10 @@ example:
 
 The entry point file format was originally developed to allow packages built
 with setuptools to provide integration point metadata that would be read at
-runtime with ``pkg_resources``. It is now defined as a PyPA interoperability
+runtime with ``importlib.metadata``. It is now defined as a PyPA interoperability
 specification in order to allow build tools other than setuptools to publish
-``pkg_resources`` compatible entry point metadata, and runtime libraries other
-than ``pkg_resources`` to portably read published entry point metadata
+``importlib.metadata`` compatible entry point metadata, and runtime libraries other
+than ``importlib.metadata`` to portably read published entry point metadata
 (potentially with different caching and conflict resolution strategies).
 
 Data model
@@ -44,7 +46,7 @@ Conceptually, an entry point is defined by three required properties:
   name, the consumer decides how to handle such conflicts. The name may contain
   any characters except ``=``, but it cannot start or end with any whitespace
   character, or start with ``[``. For new entry points, it is recommended to
-  use only letters, numbers, underscores, dashes and dots (regex ``[\w-.]+``).
+  use only letters, numbers, underscores, dots and dashes (regex ``[\w.-]+``).
 
 - The **object reference** points to a Python object. It is either in the form
   ``importable.module``, or ``importable.module:object.attr``. Each of the parts
@@ -77,8 +79,8 @@ newer tools such as pip and virtualenv use a different model.
 File format
 ===========
 
-Entry points are defined in a file called :file:``entry_points.txt`` in the
-:file:``*.dist-info`` directory of the distribution. This is the directory
+Entry points are defined in a file called :file:`entry_points.txt` in the
+:file:`*.dist-info` directory of the distribution. This is the directory
 described in :pep:`376` for installed distributions, and in :pep:`427` for
 wheels.  The file uses the UTF-8 character encoding.
 
@@ -108,12 +110,12 @@ For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
 
 For example::
-  
+
     [console_scripts]
     foo = foomod:main
     # One which depends on extras:
     foobar = foomod:main_bar [bar,baz]
-    
+
     # pytest plugins refer to a module, so there is no ':obj'
     [pytest11]
     nbval = nbval.plugin

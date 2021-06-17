@@ -22,6 +22,33 @@ This workflow requires that:
 2. The latest version of :ref:`twine` is used to upload the package,
 3. The user installing the package has at least Pip 9.0, or a client that supports the Metadata 1.2 specification.
 
+Dealing with the universal wheels
+---------------------------------
+
+Traditionally, projects providing Python code that is semantically
+compatible with both Python 2 and Python 3, produce :term:`wheels
+<Wheel>` that have a ``py2.py3`` tag in their names. When dropping
+support for Python 2, it is important not to forget to change this tag
+to just ``py3``. It is often configured within :file:`setup.cfg` under
+the ``[bdist_wheel]`` section by setting ``universal = 1`` if they
+use setuptools.
+
+If you use this method, either remove this option or section, or
+explicitly set ``universal`` to ``0``:
+
+.. code-block:: ini
+
+   # setup.cfg
+
+   [bdist_wheel]
+   universal = 0  # Make the generated wheels have `py3` tag
+
+.. tip::
+
+   Since it is possible to override the :file:`setup.cfg` settings via
+   CLI flags, make sure that your scripts don't have ``--universal`` in
+   your package creation scripts.
+
 Defining the Python version required
 ------------------------------------
 
@@ -30,9 +57,19 @@ Defining the Python version required
 
 Ensure that before you generate source distributions or binary distributions, you update Setuptools and install twine.
 
-Steps::
+Steps:
 
-   pip install --upgrade setuptools twine
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install  --upgrade setuptools twine
+
+.. tab:: Windows
+
+    .. code-block:: bash
+
+        py -m pip install  --upgrade setuptools twine
 
 `setuptools` version should be above 24.0.0.
 
@@ -46,8 +83,9 @@ Examples::
     Requires-Python: ">=3"
     Requires-Python: ">2.7,!=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
-The way to set those values is within the call to `setup` within your setup.py script. This will insert the Requires-Python
-metadata values based on the argument you provide in `python_requires`.
+The way to set those values is within the call to ``setup`` within your
+:file:`setup.py` script. This will insert the ``Requires-Python``
+metadata values based on the argument you provide in ``python_requires``.
 
 .. code-block:: python
 
@@ -69,7 +107,7 @@ The file contains a set of keys and values, the list of keys is part of the PyPa
 
 You can see the contents of the generated file like this::
 
-    tar xvfz dist/my-package-1.0.0.tar.gz -O | cat */PKG-INFO
+    tar xfO dist/my-package-1.0.0.tar.gz my-package-1.0.0/PKG-INFO
 
 Validate that the following is in place, before publishing the package:
 
@@ -88,7 +126,7 @@ Dropping a Python release
 
 Once you have published a package with the Requires-Python metadata, you can then make a further update removing that Python runtime from support.
 
-It must be done in this order for the automated fail-back to work.
+It must be done in this order for the automated fallback to work.
 
 For example, you published the Requires-Python: ">=2.7" as version 1.0.0 of your package.
 

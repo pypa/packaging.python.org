@@ -1,6 +1,148 @@
 News
 ====
 
+September 2019
+--------------
+- Added a guide about publishing dists via GitHub Actions. (:pr:`647`)
+
+August 2019
+-----------
+- Updated to use :file:`python3 -m` when installing pipx. (:pr:`631`)
+
+July 2019
+---------
+- Marked all PEP numbers with the :pep: role. (:pr:`629`)
+- Upgraded Sphinx version and removed pypa.io intersphinx. (:pr:`625`)
+- Mentioned :file:`find_namespace_packages`. (:pr:`622`)
+- Updated directory layout examples for consistency. (:pr:`611`)
+- Updated Bandersnatch link to GitHub. (:pr:`623`)
+
+June 2019
+---------
+- Fixed some typos. (:pr:`620`)
+
+May 2019
+--------
+- Added :file:`python_requires` usage to packaging tutorial. (:pr:`613`)
+- Added a MANIFEST.in guide page. (:pr:`609`)
+
+April 2019
+----------
+- Added a mention for :file:`shiv` in the key projects section. (:pr:`608`)
+- Reduced emphasis on virtualenv. (:pr:`606`)
+
+March 2019
+----------
+- Moved single-sourcing guide version option to Python 3. (:pr:`605`)
+- Covered RTD details for contributing. (:pr:`600`)
+
+February 2019
+-------------
+- Elaborate upon the differences between the tutorial and the real packaging process. (:pr:`602`)
+- Added instructions to install Python CLI applications. (:pr:`594`)
+
+January 2019
+------------
+- Added :file:`--no-deps` to the packaging tutorial. (:pr:`593`)
+- Updated Sphinx and Nox. (:pr:`591`)
+- Referenced Twine from Python3. (:pr:`581`)
+
+December 2018
+-------------
+- No programmers in the office!
+
+November 2018
+-------------
+- Removed landing page link to PyPI migration guide. (:pr:`575`)
+- Changed bumpversion to bump2version. (:pr:`572`)
+- Added single-sourcing package version example. (:pr:`573`)
+- Added a guide for creating documentation. (:pr:`568`)
+
+October 2018
+------------
+- Updated Nox package name. (:pr:`566`)
+- Mentioned Sphinx extensions in guides. (:pr:`562`)
+
+September 2018
+--------------
+- Added a section on checking RST markup. (:pr:`554`)
+- Updated user installs page. (:pr:`558`)
+- Updated Google BigQuery urls. (:pr:`556`)
+- Replaced tar command with working command. (:pr:`552`)
+- Changed to double quotes in the pip install SomeProject==1.4. (:pr:`550`)
+
+August 2018
+-----------
+- Removed the recommendation to store passwords in cleartext. (:pr:`546`)
+- Moved the Overview to a task based lead in along with the others. (:pr:`540`)
+- Updated Python version supported by virtualenv. (:pr:`538`)
+- Added outline/rough draft of new Overview page. (:pr:`519`)
+
+July 2018
+---------
+
+- Improved binary extension docs. (:pr:`531`)
+- Added scikit-build to key projects. (:pr:`530`)
+
+June 2018
+---------
+
+- Fixed categories of interop PEP for pypa.io. (:pr:`527`)
+- Updated Markdown descriptions explanation. (:pr:`522`)
+
+May 2018
+--------
+
+- Noted issues with Provides-Dist and Obsoletes-Dist. (:pr:`513`)
+- Removed outdated warning about Python version mixing with Pipenv. (:pr:`501`)
+- Simplified packaging tutorial. (:pr:`498`)
+- Updated Windows users instructions for clarity. (:pr:`493`)
+- Updated the license section description for completeness. (:pr:`492`)
+- Added specification-style document to contributing section. (:pr:`489`)
+- Added documentation types to contributing guide. (:pr:`485`)
+
+April 2018
+----------
+
+- Added README guide. (:pr:`461`)
+- Updated instructions and status for PyPI launch. (:pr:`475`)
+- Added instructions for Warehouse. (:pr:`471`)
+- Removed GPG references from publishing tutorial. (:pr:`466`)
+- Added 'What’s in which Python 3.4–3.6?'. (:pr:`468`)
+- Added a guide for phasing out Python versions. (:pr:`459`)
+- Made default Description-Content-Type variant GFM. (:pr:`462`)
+
+March 2018
+----------
+
+- Updated "installing scientific packages". (:pr:`455`)
+- Added :file:`long_description_content_type` to follow PEP 556. (:pr:`457`)
+- Clarified a long description classifier on pypi.org. (:pr:`456`)
+- Updated Core Metadata spec to follw PEP 556. (:pr:`412`)
+
+February 2018
+-------------
+
+- Added python3-venv and python3-pip to Debian installation instructions. (:pr:`445`)
+- Updated PyPI migration info. (:pr:`439`)
+- Added a warning about managing multiple versions with pipenv. (:pr:`430`)
+- Added example of multiple emails to Core Metadata. (:pr:`429`)
+- Added explanation of "legacy" in test.pypi.org/legacy. (:pr:`426`)
+
+January 2018
+------------
+
+- Added a link to PyPI's list of classifiers. (:pr:`425`)
+- Updated README.rst explanation. (:pr:`419`)
+
+December 2017
+-------------
+
+- Replaced :file:`~` with :file:`$HOME` in guides and tutorials.  (:pr:`418`)
+- Noted which fields can be used with environment markers. (:pr:`416`)
+- Updated Requires-Python section. (:pr:`414`)
+- Added news page. (:pr:`404`)
+
 November 2017
 -------------
 
@@ -22,7 +164,7 @@ September 2017
 
 - Encouraged using ``readme_renderer`` to validate :file:`README.rst`.
   (:pr:`379`)
-- Recommended using the `--user-base` option. (:pr:`374`)
+- Recommended using the ``--user-base`` option. (:pr:`374`)
 
 August 2017
 -----------

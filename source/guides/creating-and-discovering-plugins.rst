@@ -28,7 +28,7 @@ discover all of the Flask plugins installed:
     import importlib
     import pkgutil
 
-    flask_plugins = {
+    discovered_plugins = {
         name: importlib.import_module(name)
         for finder, name, ispkg
         in pkgutil.iter_modules()
@@ -36,7 +36,7 @@ discover all of the Flask plugins installed:
     }
 
 If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins installed
-then ``flask_plugins`` would be:
+then ``discovered_plugins`` would be:
 
 .. code-block:: python
 
@@ -49,8 +49,8 @@ Using naming convention for plugins also allows you to query the
 Python Package Index's `simple API`_ for all packages that conform to your
 naming convention.
 
-.. _flask: https://flask.pocoo.org
-.. _Flask-SQLAlchemy: https://flask-sqlalchemy.pocoo.org/
+.. _Flask: https://pypi.org/project/Flask/
+.. _Flask-SQLAlchemy: https://pypi.org/project/Flask-SQLAlchemy/
 .. _Flask-Talisman: https://pypi.org/project/flask-talisman
 .. _simple API: https://www.python.org/dev/peps/pep-0503/#specification
 
@@ -80,7 +80,7 @@ under that namespace:
         # the name.
         return pkgutil.iter_modules(ns_pkg.__path__, ns_pkg.__name__ + ".")
 
-    myapp_plugins = {
+    discovered_plugins = {
         name: importlib.import_module(name)
         for finder, name, ispkg
         in iter_namespace(myapp.plugins)
@@ -88,8 +88,8 @@ under that namespace:
 
 Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` causes
 it to only look for the modules directly under that namespace. For example,
-if you have installed distributions that provide the modules ``myapp.plugin.a``
-and ``myapp.plugin.b`` then ``myapp_plugins`` in this case would be:
+if you have installed distributions that provide the modules ``myapp.plugins.a``
+and ``myapp.plugins.b`` then ``discovered_plugins`` in this case would be:
 
 .. code-block:: python
 
@@ -98,11 +98,11 @@ and ``myapp.plugin.b`` then ``myapp_plugins`` in this case would be:
         'b': <module: 'myapp.plugins.b'>,
     }
 
-This sample uses a sub-package as the namespace package (``myapp.plugin``), but
+This sample uses a sub-package as the namespace package (``myapp.plugins``), but
 it's also possible to use a top-level package for this purpose (such as
 ``myapp_plugins``). How to pick the namespace to use is a matter of preference,
-but it's not recommended to make your project's main top-level package (
-``myapp`` in this case) a namespace package for the purpose of plugins, as one
+but it's not recommended to make your project's main top-level package
+(``myapp`` in this case) a namespace package for the purpose of plugins, as one
 bad plugin could cause the entire namespace to break which would in turn make
 your project unimportable. For the "namespace sub-package" approach to work,
 the plugin packages must omit the :file:`__init__.py` for your top-level
@@ -120,9 +120,10 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-`Setuptools`_ provides `special support`_ for plugins. By
-providing the ``entry_points`` argument to :func:`setup` in :file:`setup.py`
-plugins can register themselves for discovery.
+`Setuptools`_ provides :doc:`special support
+<setuptools:userguide/entry_point>` for plugins. By providing the
+``entry_points`` argument to :func:`setup` in :file:`setup.py` plugins can
+register themselves for discovery.
 
 For example if you have a package named ``myapp-plugin-a`` and it includes
 in its :file:`setup.py`:
@@ -136,31 +137,39 @@ in its :file:`setup.py`:
     )
 
 Then you can discover and load all of the registered entry points by using
-:func:`pkg_resources.iter_entry_points`:
+:func:`importlib.metadata.entry_points` (or the `backport`_
+``importlib_metadata >= 3.6`` for Python 3.6-3.9):
 
 .. code-block:: python
 
-    import pkg_resources
+    import sys
+    if sys.version_info < (3, 10):
+        from importlib_metadata import entry_points
+    else:
+        from importlib.metadata import entry_points
 
-    plugins = {
-        entry_point.name: entry_point.load()
-        for entry_point
-        in pkg_resources.iter_entry_points('myapp.plugins')
-    }
+    discovered_plugins = entry_points(group='myapp.plugins')
 
-In this example, ``plugins`` would be :
+
+In this example, ``discovered_plugins`` would be a collection of type :class:`importlib.metadata.EntryPoint`:
 
 .. code-block:: python
 
-    {
-        'a': <module: 'myapp_plugin_a'>,
-    }
+    (
+        EntryPoint(name='a', value='myapp_plugin_a', group='myapp.plugins'),
+        ...
+    )
+
+Now the module of your choice can be imported by executing
+``discovered_plugins['a'].load()``.
 
 .. note:: The ``entry_point`` specification in :file:`setup.py` is fairly
     flexible and has a lot of options. It's recommended to read over the entire
-    section on `entry points`_.
+    section on :doc:`entry points <setuptools:userguide/entry_point>` .
 
-.. _Setuptools: http://setuptools.readthedocs.io
-.. _special support:
-.. _entry points:
-    http://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins
+.. note:: Since this specification is part of the :doc:`standard library
+   <python:library/importlib.metadata>`, most packaging tools other than setuptools
+   provide support for defining entry points.
+
+.. _Setuptools: https://setuptools.readthedocs.io
+.. _backport: https://importlib-metadata.readthedocs.io/en/latest/
