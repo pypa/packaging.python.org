@@ -18,7 +18,6 @@ PyPA Projects
 bandersnatch
 ============
 
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/bandersnatch/issues>`__ |
 `GitHub <https://github.com/pypa/bandersnatch>`__ |
 `PyPI <https://pypi.org/project/bandersnatch>`__
@@ -66,7 +65,6 @@ distlib
 =======
 
 `Docs <http://pythonhosted.org/distlib/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
@@ -93,7 +91,6 @@ packaging
 =========
 
 `Docs <https://packaging.pypa.io>`__ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__
@@ -123,8 +120,6 @@ pip
 ===
 
 `Docs <https://pip.pypa.io/en/stable/>`__ |
-`User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.org/project/pip/>`__
@@ -175,7 +170,6 @@ Python Packaging User Guide
 ===========================
 
 `Docs <https://packaging.python.org/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ |
 `Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
 `GitHub <https://github.com/pypa/python-packaging-user-guide>`__
 
@@ -203,8 +197,6 @@ setuptools
 ==========
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
-`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
@@ -250,7 +242,6 @@ twine
 =====
 
 `Docs <https://twine.readthedocs.io/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
 `GitHub <https://github.com/pypa/twine>`__ |
 `PyPI <https://pypi.org/project/twine>`__
@@ -268,8 +259,6 @@ virtualenv
 ==========
 
 `Docs <https://virtualenv.pypa.io/en/stable/>`__ |
-`User list <http://groups.google.com/group/python-virtualenv>`__ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__
@@ -290,7 +279,6 @@ Warehouse
 =========
 
 `Docs <https://warehouse.pypa.io/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/warehouse/issues>`__ |
 `GitHub <https://github.com/pypa/warehouse>`__
 
@@ -305,7 +293,6 @@ wheel
 =====
 
 `Docs <https://wheel.readthedocs.io/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/wheel/issues>`__ |
 `GitHub <https://github.com/pypa/wheel>`__ |
 `PyPI <https://pypi.org/project/wheel>`__
@@ -331,7 +318,6 @@ bento
 =====
 
 `Docs <http://cournape.github.io/Bento/>`__ |
-`Mailing list <http://librelist.com/browser/bento>`__ |
 `Issues <https://github.com/cournape/Bento/issues>`__ |
 `GitHub <https://github.com/cournape/Bento>`__ |
 `PyPI <https://pypi.org/project/bento>`__
@@ -347,7 +333,6 @@ buildout
 ========
 
 `Docs <http://www.buildout.org/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
 `PyPI <https://pypi.org/project/zc.buildout>`__ |
 `GitHub <https://github.com/buildout/buildout/>`__
@@ -390,7 +375,6 @@ devpi
 =====
 
 `Docs <http://doc.devpi.net/latest/>`__ |
-`Mailing List <https://groups.google.com/forum/#!forum/devpi-dev>`__ |
 `Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
 `PyPI <https://pypi.org/project/devpi>`__
 
@@ -570,7 +554,6 @@ scikit-build
 ============
 
 `Docs <https://scikit-build.readthedocs.io/en/latest/>`__ |
-`Mailing list <https://groups.google.com/forum/#!forum/scikit-build>`__ |
 `GitHub <https://github.com/scikit-build/scikit-build/>`__ |
 `PyPI <https://pypi.org/project/scikit-build>`__
 
@@ -656,7 +639,6 @@ distutils
 =========
 
 `Docs <https://docs.python.org/3/library/distutils.html>`__ |
-`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <http://bugs.python.org>`__
 
 The original Python packaging system, added to the standard library in
@@ -686,10 +668,5 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 
 
 ----
-
-.. [1] pip was created by the same developer as virtualenv, and early on adopted
-       the virtualenv mailing list, and it's stuck ever since.
-
-.. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
 
 .. _distribute: https://pypi.org/project/distribute
