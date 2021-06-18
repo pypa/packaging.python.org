@@ -22,7 +22,7 @@ bandersnatch
 `Issues <https://github.com/pypa/bandersnatch/issues>`__ |
 `GitHub <https://github.com/pypa/bandersnatch>`__ |
 `PyPI <https://pypi.org/project/bandersnatch>`__ |
-Dev IRC:`#bandersnatch <https://webchat.freenode.net/?channels=%23bandersnatch>`__
+Dev IRC:`#bandersnatch <https://web.libera.chat/#bandersnatch>`__
 
 ``bandersnatch`` is a PyPI mirroring client designed to efficiently
 create a complete mirror of the contents of PyPI. Organizations thus
@@ -40,8 +40,8 @@ build
 `Issues <https://github.com/pypa/build/issues>`__ |
 `GitHub <https://github.com/pypa/build>`__ |
 `PyPI <https://pypi.org/project/build>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 ``build`` is a :pep:`517` compatible Python package builder. It provides a CLI to
 build packages, as well as a Python API.
@@ -100,8 +100,8 @@ packaging
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 
@@ -133,8 +133,8 @@ pip
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.org/project/pip/>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 The most popular tool for installing Python packages, and the one
 included with modern versions of Python.
@@ -185,8 +185,8 @@ Python Packaging User Guide
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ |
 `Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
 `GitHub <https://github.com/pypa/python-packaging-user-guide>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 This guide!
 
@@ -217,8 +217,8 @@ setuptools
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 
 setuptools (which includes ``easy_install``) is a collection of
@@ -285,8 +285,8 @@ virtualenv
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 virtualenv is a tool which uses the command-line path environment
 variable to create isolated Python :term:`Virtual Environments
@@ -307,7 +307,7 @@ Warehouse
 `Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/warehouse/issues>`__ |
 `GitHub <https://github.com/pypa/warehouse>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 
 
@@ -326,8 +326,8 @@ wheel
 `Issues <https://github.com/pypa/wheel/issues>`__ |
 `GitHub <https://github.com/pypa/wheel>`__ |
 `PyPI <https://pypi.org/project/wheel>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
 creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
@@ -370,7 +370,7 @@ buildout
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
 `PyPI <https://pypi.org/project/zc.buildout>`__ |
 `GitHub <https://github.com/buildout/buildout/>`__ |
-IRC:`#buildout <https://webchat.freenode.net/?channels=%23buildout>`__
+IRC:`#buildout <https://web.libera.chat/#buildout>`__
 
 Buildout is a Python-based build system for creating, assembling and deploying
 applications from multiple parts, some of which may be non-Python-based.  It
@@ -678,8 +678,8 @@ distutils
 `Docs <https://docs.python.org/3/library/distutils.html>`__ |
 `User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <http://bugs.python.org>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+User IRC:`#pypa <https://web.libera.chat/#pypa>`__ |
+Dev IRC:`#pypa-dev <https://web.libera.chat/#pypa-dev>`__
 
 The original Python packaging system, added to the standard library in
 Python 2.0.
