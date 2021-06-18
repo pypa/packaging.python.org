@@ -773,7 +773,7 @@ If your project is pure Python then you'll be creating a
 If your project contains compiled extensions, then you'll be creating what's
 called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
 
-.. note:: If your project also supports Python 2 _and_ contains no C extensions,
+.. note:: If your project also supports Python 2 *and* contains no C extensions,
   then you should create what's called a *Universal Wheel* by adding the
   following to your :file:`setup.cfg` file:
 
@@ -782,7 +782,7 @@ called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
      [bdist_wheel]
      universal=1
 
-  Only use this setting if your project does not have any C extesions _and_
+  Only use this setting if your project does not have any C extensions *and*
   supports Python 2 and 3.
 
 
