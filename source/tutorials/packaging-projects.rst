@@ -5,6 +5,12 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index.
 
+.. note:: If you have trouble running the commands in this tutoral, please copy the
+  command and its output, then `open an issue
+  <https://github.com/pypa/packaging-problems/issues/new?title=Trouble+with+packaging+tutorial>`_
+  on the `packaging-problems <https://github.com/pypa/packaging-problems>`_
+  repository on GitHub. We'll do our best to help you!
+
 Some of the commands require a newer version of :ref:`pip`, so start by making
 sure you have the latest version installed:
 
@@ -434,12 +440,6 @@ files in the :file:`dist` directory:
     dist/
       example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
       example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
-
-.. note:: If you run into trouble here, please copy the output and file an issue
-  over on `packaging problems`_ and we'll do our best to help you!
-
-.. _packaging problems:
-  https://github.com/pypa/packaging-problems/issues/new?title=Trouble+following+packaging+libraries+tutorial
 
 
 The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the
