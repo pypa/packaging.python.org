@@ -232,7 +232,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       to use. In this case, the list of packages will be ``example_package`` as
       that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like :ref:`pip` will look back though older versions of
+      project. Installers like :ref:`pip` will look back through older versions of
       packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
