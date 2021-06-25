@@ -51,7 +51,7 @@ Create the following file structure locally:
 :file:`__init__.py` is required to import the directory as a package, and
 should be empty.
 
-:file:`example.py` is an an example of a module within the package that could
+:file:`example.py` is an example of a module within the package that could
 contain the logic (functions, classes, constants, etc.) of your package.
 Open that file and enter the following content:
 
