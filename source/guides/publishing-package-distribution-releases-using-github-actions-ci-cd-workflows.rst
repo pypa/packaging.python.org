@@ -65,11 +65,6 @@ should make GitHub run this workflow:
    :language: yaml
    :end-before: jobs:
 
-The workflow only runs on push events for the ``main`` branch to avoid
-unnecessary publishes, like on a feature branch. If your primary
-branch is named something else, like ``master``, please replace ``main`` with
-the correct branch.
-
 
 Defining a workflow job environment
 ===================================
@@ -80,7 +75,7 @@ In this guide, we'll use Ubuntu 18.04:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: - main
+   :start-after: on:
    :end-before: steps:
 
 
@@ -130,6 +125,14 @@ Action: the first one uploads contents of the ``dist/`` folder
 into TestPyPI unconditionally and the second does that to
 PyPI, but only if the current commit is tagged.
 
+.. tip::
+
+   The conditional for TestPyPI is necessary because other branches may
+   trigger this. Without it, multiple pushes (say merges to main) would
+   attempt publishing the same version which would fail since updates to
+   pre-existing versions are blocked server side. Producing unique
+   versions for every commit would require more work that isn't covered
+   in this guide.
 
 That's all, folks!
 ==================
