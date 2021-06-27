@@ -159,7 +159,7 @@ Python interpreter, it should point to the ``env`` directory.
     .. code-block:: bash
 
         where python
-        .../env/Scripts/python.exe
+        ...\env\Scripts\python.exe
 
 As long as your virtual environment is activated pip will install packages into that
 specific environment and you'll be able to import and use packages in your
