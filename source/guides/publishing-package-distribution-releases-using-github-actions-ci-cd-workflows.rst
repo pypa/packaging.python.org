@@ -65,6 +65,11 @@ should make GitHub run this workflow:
    :language: yaml
    :end-before: jobs:
 
+The workflow only runs on push events for the ``main`` branch to avoid
+unnecessary publishes, like on a feature branch. If your primary
+branch is named something else, like ``master``, please replace ``main`` with
+the correct branch.
+
 
 Defining a workflow job environment
 ===================================
@@ -75,7 +80,7 @@ In this guide, we'll use Ubuntu 18.04:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: on:
+   :start-after: - main
    :end-before: steps:
 
 
