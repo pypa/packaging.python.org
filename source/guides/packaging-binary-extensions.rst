@@ -238,26 +238,26 @@ Binary extensions for Windows
 Before it is possible to build a binary extension, it is necessary to ensure
 that you have a suitable compiler available. On Windows, Visual C is used to
 build the official CPython interpreter, and should be used to build compatible
-binary extensions.
+binary extensions.  To set up a build environment for binary extensions, install
+`Visual Studio Community Edition <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
+- any recent version is fine.
+
+One caveat: if you use Visual Studio 2019 or later, your extension will depend
+on an "extra" file, ``VCRUNTIME140_1.dll``, in addition to the
+``VCRUNTIME140.dll`` that all previous versions back to 2015 depend on. This
+will add an extra requirement to using your extension on versions of CPython
+that do not include this extra file. To avoid this, you can add the
+compile-time argument ``/d2FH4-``. Recent versions of Python may include this
+file.
 
 Building for Python prior to 3.5 is discouraged, because older versions of
-Visual Studio are no longer available from Microsoft. If you do
-need to build for older versions, you can set ``DISTUTILS_USE_SDK=1`` and
-``MSSdk=1`` to force a the currently activated version of MSVC to be found,
-and you should exercise care when designing your extension not to malloc/free
-memory across different libraries, avoid relying on changed data structures,
-and so on. Tools for generating extension modules usually avoid these things
-for you.
+Visual Studio are no longer available from Microsoft. If you do need to build
+for older versions, you can set ``DISTUTILS_USE_SDK=1`` and ``MSSdk=1`` to
+force a the currently activated version of MSVC to be found, and you should
+exercise care when designing your extension not to malloc/free memory across
+different libraries, avoid relying on changed data structures, and so on. Tools
+for generating extension modules usually avoid these things for you.
 
-To set up a build environment for binary extensions, install
-`Visual Studio Community Edition <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__ - any
-recent version is fine.
-
-One caveat: if you use Visual Studio 2019 or later, your extension will depend on an "extra"
-file, ``VCRUNTIME140_1.dll``, in addition to the ``VCRUNTIME140.dll`` that all previous
-verisions back to 2015 depend on. This will add an extra requirement to using
-your extension on versions of CPython that do not include this extra file. To
-avoid this, you can add the compile-time argument ``/d2FH4-``.
 
 
 Binary extensions for Linux
