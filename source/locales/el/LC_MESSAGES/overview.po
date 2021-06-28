@@ -1,0 +1,787 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-28 08:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../overview.rst:3
+msgid "An Overview of Packaging for Python"
+msgstr ""
+
+#: ../../overview.rst:7
+msgid ""
+"As a general-purpose programming language, Python is designed to be used "
+"in many ways. You can build web sites or industrial robots or a game for "
+"your friends to play, and much more, all using the same core technology."
+msgstr ""
+
+#: ../../overview.rst:12
+msgid ""
+"Python's flexibility is why the first step in every Python project must "
+"be to think about the project's audience and the corresponding "
+"environment where the project will run. It might seem strange to think "
+"about packaging before writing code, but this process does wonders for "
+"avoiding future headaches."
+msgstr ""
+
+#: ../../overview.rst:18
+msgid ""
+"This overview provides a general-purpose decision tree for reasoning "
+"about Python's plethora of packaging options. Read on to choose the best "
+"technology for your next project."
+msgstr ""
+
+#: ../../overview.rst:23
+msgid "Contents"
+msgstr ""
+
+#: ../../overview.rst:26
+msgid "Thinking about deployment"
+msgstr ""
+
+#: ../../overview.rst:28
+msgid ""
+"Packages exist to be installed (or *deployed*), so before you package "
+"anything, you'll want to have some answers to the deployment questions "
+"below:"
+msgstr ""
+
+#: ../../overview.rst:32
+msgid ""
+"Who are your software's users? Will your software be installed by other "
+"developers doing software development, operations people in a datacenter,"
+" or a less software-savvy group?"
+msgstr ""
+
+#: ../../overview.rst:35
+msgid ""
+"Is your software intended to run on servers, desktops, mobile clients "
+"(phones, tablets, etc.), or embedded in dedicated devices?"
+msgstr ""
+
+#: ../../overview.rst:37
+msgid "Is your software installed individually, or in large deployment batches?"
+msgstr ""
+
+#: ../../overview.rst:39
+msgid ""
+"Packaging is all about target environment and deployment experience. "
+"There are many answers to the questions above and each combination of "
+"circumstances has its own solutions. With this information, the following"
+" overview will guide you to the packaging technologies best suited to "
+"your project."
+msgstr ""
+
+#: ../../overview.rst:46
+msgid "Packaging Python libraries and tools"
+msgstr ""
+
+#: ../../overview.rst:48
+msgid ""
+"You may have heard about PyPI, ``setup.py``, and ``wheel`` files. These "
+"are just a few of the tools Python's ecosystem provides for distributing "
+"Python code to developers, which you can read about in :doc:`guides"
+"/distributing-packages-using-setuptools`."
+msgstr ""
+
+#: ../../overview.rst:53
+msgid ""
+"The following approaches to packaging are meant for libraries and tools "
+"used by technical audience in a development setting. If you're looking "
+"for ways to package Python for a non-technical audience and/or a "
+"production setting, skip ahead to :ref:`packaging-applications`."
+msgstr ""
+
+#: ../../overview.rst:59
+msgid "Python modules"
+msgstr ""
+
+#: ../../overview.rst:61
+msgid ""
+"A Python file, provided it only relies on the standard library, can be "
+"redistributed and reused. You will also need to ensure it's written for "
+"the right version of Python, and only relies on the standard library."
+msgstr ""
+
+#: ../../overview.rst:66
+msgid ""
+"This is great for sharing simple scripts and snippets between people who "
+"both have compatible Python versions (such as via email, StackOverflow, "
+"or GitHub gists). There are even some entire Python libraries that offer "
+"this as an option, such as `bottle.py <https://bottlepy.org/docs/dev/>`_ "
+"and `boltons "
+"<http://boltons.readthedocs.io/en/latest/architecture.html#architecture>`_."
+msgstr ""
+
+#: ../../overview.rst:73
+msgid ""
+"However, this pattern won't scale for projects that consist of multiple "
+"files, need additional libraries, or need a specific version of Python, "
+"hence the options below."
+msgstr ""
+
+#: ../../overview.rst:78
+msgid "Python source distributions"
+msgstr ""
+
+#: ../../overview.rst:80
+msgid ""
+"If your code consists of multiple Python files, it's usually organized "
+"into a directory structure. Any directory containing Python files can "
+"comprise an :term:`Import Package`."
+msgstr ""
+
+#: ../../overview.rst:84
+msgid ""
+"Because packages consist of multiple files, they are harder to "
+"distribute. Most protocols support transferring only one file at a time "
+"(when was the last time you clicked a link and it downloaded multiple "
+"files?). It's easier to get incomplete transfers, and harder to guarantee"
+" code integrity at the destination."
+msgstr ""
+
+#: ../../overview.rst:90
+msgid ""
+"So long as your code contains nothing but pure Python code, and you know "
+"your deployment environment supports your version of Python, then you can"
+" use Python's native packaging tools to create a *source* "
+":term:`Distribution Package`, or *sdist* for short."
+msgstr ""
+
+#: ../../overview.rst:95
+msgid ""
+"Python's *sdists* are compressed archives (``.tar.gz`` files) containing "
+"one or more packages or modules. If your code is pure-Python, and you "
+"only depend on other Python packages, you can `go here to learn more "
+"<https://docs.python.org/3/distutils/sourcedist.html>`_."
+msgstr ""
+
+#: ../../overview.rst:100
+msgid ""
+"If you rely on any non-Python code, or non-Python packages (such as "
+"`libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of `lxml "
+"<https://pypi.org/project/lxml/>`_, or BLAS libraries in the case of "
+"`numpy <https://pypi.org/project/numpy>`_), you will need to use the "
+"format detailed in the next section, which also has many advantages for "
+"pure-Python libraries."
+msgstr ""
+
+#: ../../overview.rst:107
+msgid ""
+"Python and PyPI support multiple distributions providing different "
+"implementations of the same package. For instance the unmaintained-but-"
+"seminal `PIL distribution <https://pypi.org/project/PIL/>`_ provides the "
+"PIL package, and so does `Pillow <https://pypi.org/project/Pillow/>`_, an"
+" actively-maintained fork of PIL!"
+msgstr ""
+
+#: ../../overview.rst:114
+msgid ""
+"This Python packaging superpower makes it possible for Pillow to be a "
+"drop-in replacement for PIL, just by changing your project's "
+"``install_requires`` or ``requirements.txt``."
+msgstr ""
+
+#: ../../overview.rst:119
+msgid "Python binary distributions"
+msgstr ""
+
+#: ../../overview.rst:121
+msgid ""
+"So much of Python's practical power comes from its ability to integrate "
+"with the software ecosystem, in particular libraries written in C, C++, "
+"Fortran, Rust, and other languages."
+msgstr ""
+
+#: ../../overview.rst:125
+msgid ""
+"Not all developers have the right tools or experiences to build these "
+"components written in these compiled languages, so Python created the "
+":term:`Wheel`, a package format designed to ship libraries with compiled "
+"artifacts. In fact, Python's package installer, ``pip``, always prefers "
+"wheels because installation is always faster, so even pure-Python "
+"packages work better with wheels."
+msgstr ""
+
+#: ../../overview.rst:132
+msgid ""
+"Binary distributions are best when they come with source distributions to"
+" match. Even if you don't upload wheels of your code for every operating "
+"system, by uploading the sdist, you're enabling users of other platforms "
+"to still build it for themselves. Default to publishing both sdist and "
+"wheel archives together, *unless* you're creating artifacts for a very "
+"specific use case where you know the recipient only needs one or the "
+"other."
+msgstr ""
+
+#: ../../overview.rst:140
+msgid ""
+"Python and PyPI make it easy to upload both wheels and sdists together. "
+"Just follow the :doc:`tutorials/packaging-projects` tutorial."
+msgstr ""
+
+#: ../../overview.rst:148
+msgid "A summary of Python's packaging capabilities for tools and libraries."
+msgstr ""
+
+#: ../../overview.rst:148
+msgid ""
+"Python's recommended built-in library and tool packaging technologies. "
+"Excerpted from `The Packaging Gradient (2017) "
+"<https://www.youtube.com/watch?v=iLVNWfPWAC8>`_."
+msgstr ""
+
+#: ../../overview.rst:155
+msgid "Packaging Python applications"
+msgstr ""
+
+#: ../../overview.rst:157
+msgid ""
+"So far we've only discussed Python's native distribution tools. Based on "
+"our introduction, you would be correct to infer these built-in approaches"
+" only target environments which have Python, and an audience who knows "
+"how to install Python packages."
+msgstr ""
+
+#: ../../overview.rst:162
+msgid ""
+"With the variety of operating systems, configurations, and people out "
+"there, this assumption is only safe when targeting a developer audience."
+msgstr ""
+
+#: ../../overview.rst:166
+msgid ""
+"Python's native packaging is mostly built for distributing reusable code,"
+" called libraries, between developers. You can piggyback **tools**, or "
+"basic applications for developers, on top of Python's library packaging, "
+"using technologies like `setuptools entry_points "
+"<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html>`_."
+msgstr ""
+
+#: ../../overview.rst:172
+msgid ""
+"Libraries are building blocks, not complete applications. For "
+"distributing applications, there's a whole new world of technologies out "
+"there."
+msgstr ""
+
+#: ../../overview.rst:176
+msgid ""
+"The next few sections organize these application packaging options "
+"according to their dependencies on the target environment, so you can "
+"choose the right one for your project."
+msgstr ""
+
+#: ../../overview.rst:181
+msgid "Depending on a framework"
+msgstr ""
+
+#: ../../overview.rst:183
+msgid ""
+"Some types of Python applications, like web site backends and other "
+"network services, are common enough that they have frameworks to enable "
+"their development and packaging. Other types of applications, like "
+"dynamic web frontends and mobile clients, are complex enough to target "
+"that a framework becomes more than a convenience."
+msgstr ""
+
+#: ../../overview.rst:189
+msgid ""
+"In all these cases, it makes sense to work backwards, from the "
+"framework's packaging and deployment story. Some frameworks include a "
+"deployment system which wraps the technologies outlined in the rest of "
+"the guide. In these cases, you'll want to defer to your framework's "
+"packaging guide for the easiest and most reliable production experience."
+msgstr ""
+
+#: ../../overview.rst:195
+msgid ""
+"If you ever wonder how these platforms and frameworks work under the "
+"hood, you can always read the sections beyond."
+msgstr ""
+
+#: ../../overview.rst:199
+msgid "Service platforms"
+msgstr ""
+
+#: ../../overview.rst:201
+msgid ""
+"If you're developing for a \"Platform-as-a-Service\" or \"PaaS\" like "
+"Heroku or Google App Engine, you are going to want to follow their "
+"respective packaging guides."
+msgstr ""
+
+#: ../../overview.rst:205
+msgid ""
+"`Heroku <https://devcenter.heroku.com/articles/getting-started-with-"
+"python>`_"
+msgstr ""
+
+#: ../../overview.rst:206
+msgid "`Google App Engine <https://cloud.google.com/appengine/docs/python/>`_"
+msgstr ""
+
+#: ../../overview.rst:207
+msgid "`PythonAnywhere <https://www.pythonanywhere.com/>`_"
+msgstr ""
+
+#: ../../overview.rst:208
+msgid "`OpenShift <https://blog.openshift.com/getting-started-python/>`_"
+msgstr ""
+
+#: ../../overview.rst:209
+msgid "\"Serverless\" frameworks like `Zappa <https://www.zappa.io/>`_"
+msgstr ""
+
+#: ../../overview.rst:211
+msgid ""
+"In all these setups, the platform takes care of packaging and deployment,"
+" as long as you follow their patterns. Most software does not fit one of "
+"these templates, hence the existence of all the other options below."
+msgstr ""
+
+#: ../../overview.rst:216
+msgid ""
+"If you're developing software that will be deployed to machines you own, "
+"users' personal computers, or any other arrangement, read on."
+msgstr ""
+
+#: ../../overview.rst:220
+msgid "Web browsers and mobile applications"
+msgstr ""
+
+#: ../../overview.rst:222
+msgid ""
+"Python's steady advances are leading it into new spaces. These days you "
+"can write a mobile app or web application frontend in Python. While the "
+"language may be familiar, the packaging and deployment practices are "
+"brand new."
+msgstr ""
+
+#: ../../overview.rst:227
+msgid ""
+"If you're planning on releasing to these new frontiers, you'll want to "
+"check out the following frameworks, and refer to their packaging guides:"
+msgstr ""
+
+#: ../../overview.rst:231
+msgid "`Kivy <https://kivy.org/#home>`_"
+msgstr ""
+
+#: ../../overview.rst:232
+msgid "`Beeware <https://pybee.org/>`_"
+msgstr ""
+
+#: ../../overview.rst:233
+msgid "`Brython <https://brython.info/>`_"
+msgstr ""
+
+#: ../../overview.rst:234
+msgid "`Flexx <http://flexx.readthedocs.io/en/latest/>`_"
+msgstr ""
+
+#: ../../overview.rst:236
+msgid ""
+"If you are *not* interested in using a framework or platform, or just "
+"wonder about some of the technologies and techniques utilized by the "
+"frameworks above, continue reading below."
+msgstr ""
+
+#: ../../overview.rst:241
+msgid "Depending on a pre-installed Python"
+msgstr ""
+
+#: ../../overview.rst:243
+msgid ""
+"Pick an arbitrary computer, and depending on the context, there's a very "
+"good chance Python is already installed. Included by default in most "
+"Linux and Mac operating systems for many years now, you can reasonably "
+"depend on Python preexisting in your data centers or on the personal "
+"machines of developers and data scientists."
+msgstr ""
+
+#: ../../overview.rst:249
+msgid "Technologies which support this model:"
+msgstr ""
+
+#: ../../overview.rst:251
+msgid "`PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)"
+msgstr ""
+
+#: ../../overview.rst:252
+msgid ""
+"`zipapp <https://docs.python.org/3/library/zipapp.html>`_ (does not help "
+"manage dependencies, requires Python 3.5+)"
+msgstr ""
+
+#: ../../overview.rst:253
+msgid "`shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)"
+msgstr ""
+
+#: ../../overview.rst:255
+msgid ""
+"Of all the approaches here, depending on a pre-installed Python relies "
+"the most on the target environment. Of course, this also makes for the "
+"smallest package, as small as single-digit megabytes, or even kilobytes."
+msgstr ""
+
+#: ../../overview.rst:260
+msgid ""
+"In general, decreasing the dependency on the target system increases the "
+"size of our package, so the solutions here are roughly arranged by "
+"increasing size of output."
+msgstr ""
+
+#: ../../overview.rst:267
+msgid "Depending on a separate software distribution ecosystem"
+msgstr ""
+
+#: ../../overview.rst:269
+msgid ""
+"For a long time many operating systems, including Mac and Windows, lacked"
+" built-in package management. Only recently did these OSes gain so-called"
+" \"app stores\", but even those focus on consumer applications and offer "
+"little for developers."
+msgstr ""
+
+#: ../../overview.rst:274
+msgid ""
+"Developers long sought remedies, and in this struggle, emerged with their"
+" own package management solutions, such as `Homebrew "
+"<https://brew.sh/>`_. The most relevant alternative for Python developers"
+" is a package ecosystem called `Anaconda "
+"<https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)>`_. "
+"Anaconda is built around Python and is increasingly common in academic, "
+"analytical, and other data-oriented environments, even making its way "
+"`into server-oriented environments <https://www.paypal-"
+"engineering.com/2016/09/07/python-packaging-at-paypal/>`_."
+msgstr ""
+
+#: ../../overview.rst:284
+msgid "Instructions on building and publishing for the Anaconda ecosystem:"
+msgstr ""
+
+#: ../../overview.rst:286
+msgid ""
+"`Building libraries and applications with conda <https://conda.io/docs"
+"/user-guide/tutorials/index.html>`_"
+msgstr ""
+
+#: ../../overview.rst:287
+msgid ""
+"`Transitioning a native Python package to Anaconda <https://conda.io/docs"
+"/user-guide/tutorials/build-pkgs-skeleton.html>`_"
+msgstr ""
+
+#: ../../overview.rst:289
+msgid ""
+"A similar model involves installing an alternative Python distribution, "
+"but does not support arbitrary operating system-level packages:"
+msgstr ""
+
+#: ../../overview.rst:293
+msgid "`Enthought Canopy <https://www.enthought.com/product/canopy/>`_"
+msgstr ""
+
+#: ../../overview.rst:294
+msgid "`ActiveState ActivePython <https://www.activestate.com/activepython>`_"
+msgstr ""
+
+#: ../../overview.rst:295
+msgid "`WinPython <http://winpython.github.io/>`_"
+msgstr ""
+
+#: ../../overview.rst:300
+msgid "Bringing your own Python executable"
+msgstr ""
+
+#: ../../overview.rst:302
+msgid ""
+"Computing as we know it is defined by the ability to execute programs. "
+"Every operating system natively supports one or more formats of program "
+"they can natively execute."
+msgstr ""
+
+#: ../../overview.rst:306
+msgid ""
+"There are many techniques and technologies which turn your Python program"
+" into one of these formats, most of which involve embedding the Python "
+"interpreter and any other dependencies into a single executable file."
+msgstr ""
+
+#: ../../overview.rst:311
+msgid ""
+"This approach, called *freezing*, offers wide compatibility and seamless "
+"user experience, though often requires multiple technologies, and a good "
+"amount of effort."
+msgstr ""
+
+#: ../../overview.rst:315
+msgid "A selection of Python freezers:"
+msgstr ""
+
+#: ../../overview.rst:317
+msgid "`pyInstaller <http://www.pyinstaller.org/>`_ - Cross-platform"
+msgstr ""
+
+#: ../../overview.rst:318
+msgid ""
+"`cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - Cross-"
+"platform"
+msgstr ""
+
+#: ../../overview.rst:319
+msgid ""
+"`constructor <https://github.com/conda/constructor>`_ - For command-line "
+"installers"
+msgstr ""
+
+#: ../../overview.rst:320
+msgid "`py2exe <http://www.py2exe.org/>`_ - Windows only"
+msgstr ""
+
+#: ../../overview.rst:321
+msgid "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only"
+msgstr ""
+
+#: ../../overview.rst:322
+msgid ""
+"`bbFreeze <https://pypi.org/project/bbfreeze>`_ - Windows, Linux, Python "
+"2 only"
+msgstr ""
+
+#: ../../overview.rst:323
+msgid "`osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac"
+msgstr ""
+
+#: ../../overview.rst:324
+msgid "`pynsist <https://pypi.org/project/pynsist/>`_ - Windows only"
+msgstr ""
+
+#: ../../overview.rst:326
+msgid ""
+"Most of the above imply single-user deployments. For multi-component "
+"server applications, see `Chef Omnibus "
+"<https://github.com/chef/omnibus#-omnibus>`_."
+msgstr ""
+
+#: ../../overview.rst:332
+msgid "Bringing your own userspace"
+msgstr ""
+
+#: ../../overview.rst:334
+msgid ""
+"An increasing number of operating systems -- including Linux, Mac OS, and"
+" Windows -- can be set up to run applications packaged as lightweight "
+"images, using a relatively modern arrangement often referred to as "
+"`operating-system-level virtualization <https://en.wikipedia.org/wiki"
+"/Operating-system-level_virtualization>`_, or *containerization*."
+msgstr ""
+
+#: ../../overview.rst:341
+msgid ""
+"These techniques are mostly Python agnostic, because they package whole "
+"OS filesystems, not just Python or Python packages."
+msgstr ""
+
+#: ../../overview.rst:344
+msgid ""
+"Adoption is most extensive among Linux servers, where the technology "
+"originated and where the technologies below work best:"
+msgstr ""
+
+#: ../../overview.rst:347
+msgid "`AppImage <https://appimage.org/>`_"
+msgstr ""
+
+#: ../../overview.rst:348
+msgid "`Docker <https://www.fullstackpython.com/docker.html>`_"
+msgstr ""
+
+#: ../../overview.rst:349
+msgid "`Flatpak <https://flatpak.org/>`_"
+msgstr ""
+
+#: ../../overview.rst:350
+msgid "`Snapcraft <https://snapcraft.io/>`_"
+msgstr ""
+
+#: ../../overview.rst:353
+msgid "Bringing your own kernel"
+msgstr ""
+
+#: ../../overview.rst:355
+msgid ""
+"Most operating systems support some form of classical virtualization, "
+"running applications packaged as images containing a full operating "
+"system of their own. Running these virtual machines, or VMs, is a mature "
+"approach, widespread in data center environments."
+msgstr ""
+
+#: ../../overview.rst:360
+msgid ""
+"These techniques are mostly reserved for larger scale deployments in data"
+" centers, though certain complex applications can benefit from this "
+"packaging. Technologies are Python agnostic, and include:"
+msgstr ""
+
+#: ../../overview.rst:364
+msgid "`Vagrant <https://www.vagrantup.com/>`_"
+msgstr ""
+
+#: ../../overview.rst:365
+msgid ""
+"`VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI "
+"<https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other "
+"formats <https://docs.openstack.org/image-guide/image-formats.html>`_"
+msgstr ""
+
+#: ../../overview.rst:366
+msgid ""
+"`OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud "
+"management system in Python, with extensive VM support"
+msgstr ""
+
+#: ../../overview.rst:369
+msgid "Bringing your own hardware"
+msgstr ""
+
+#: ../../overview.rst:371
+msgid ""
+"The most all-encompassing way to ship your software would be to ship it "
+"already-installed on some hardware. This way, your software's user would "
+"require only electricity."
+msgstr ""
+
+#: ../../overview.rst:375
+msgid ""
+"Whereas the virtual machines described above are primarily reserved for "
+"the tech-savvy, you can find hardware appliances being used by everyone "
+"from the most advanced data centers to the youngest children."
+msgstr ""
+
+#: ../../overview.rst:379
+msgid ""
+"Embed your code on an `Adafruit "
+"<https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_, "
+"`MicroPython <https://micropython.org/>`_, or more-powerful hardware "
+"running Python, then ship it to the datacenter or your users' homes. They"
+" plug and play, and you can call it a day."
+msgstr ""
+
+#: ../../overview.rst:389
+msgid "A summary of technologies used to package Python applications."
+msgstr ""
+
+#: ../../overview.rst:389
+msgid "The simplified gamut of technologies used to package Python applications."
+msgstr ""
+
+#: ../../overview.rst:392
+msgid "What about..."
+msgstr ""
+
+#: ../../overview.rst:394
+msgid ""
+"The sections above can only summarize so much, and you might be wondering"
+" about some of the more conspicuous gaps."
+msgstr ""
+
+#: ../../overview.rst:398
+msgid "Operating system packages"
+msgstr ""
+
+#: ../../overview.rst:400
+msgid ""
+"As mentioned in :ref:`depending-on-a-separate-ecosystem` above, some "
+"operating systems have package managers of their own. If you're very sure"
+" of the operating system you're targeting, you can depend directly on a "
+"format like `deb <https://en.wikipedia.org/wiki/Deb_(file_format)>`_ (for"
+" Debian, Ubuntu, etc.) or `RPM "
+"<https://en.wikipedia.org/wiki/RPM_Package_Manager>`_ (for Red Hat, "
+"Fedora, etc.), and use that built-in package manager to take care of "
+"installation, and even deployment. You can even use `FPM "
+"<https://fpm.readthedocs.io/en/latest/source/virtualenv.html>`_ to "
+"generate both deb and RPMs from the same source."
+msgstr ""
+
+#: ../../overview.rst:411
+msgid ""
+"In most deployment pipelines, the OS package manager is just one piece of"
+" the puzzle."
+msgstr ""
+
+#: ../../overview.rst:415
+msgid "virtualenv"
+msgstr ""
+
+#: ../../overview.rst:417
+msgid ""
+"`Virtualenvs <http://python-"
+"guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have been an "
+"indispensable tool for multiple generations of Python developer, but are "
+"slowly fading from view, as they are being wrapped by higher-level tools."
+" With packaging in particular, virtualenvs are used as a primitive in "
+"`the dh-virtualenv tool <http://dh-"
+"virtualenv.readthedocs.io/en/1.0/tutorial.html>`_ and `osnap "
+"<https://github.com/jamesabel/osnap>`_, both of which wrap virtualenvs in"
+" a self-contained way."
+msgstr ""
+
+#: ../../overview.rst:427
+msgid ""
+"For production deployments, do not rely on running ``python -m pip "
+"install`` from the Internet into a virtualenv, as one might do in a "
+"development environment. The overview above is full of much better "
+"solutions."
+msgstr ""
+
+#: ../../overview.rst:432
+msgid "Security"
+msgstr ""
+
+#: ../../overview.rst:434
+msgid ""
+"The further down the gradient you come, the harder it gets to update "
+"components of your package. Everything is more tightly bound together."
+msgstr ""
+
+#: ../../overview.rst:437
+msgid ""
+"For example, if a kernel security issue emerges, and you're deploying "
+"containers, the host system's kernel can be updated without requiring a "
+"new build on behalf of the application. If you deploy VM images, you'll "
+"need a new build. Whether or not this dynamic makes one option more "
+"secure is still a bit of an old debate, going back to the still-unsettled"
+" matter of `static versus dynamic linking "
+"<https://www.google.com/search?channel=fs&q=static+vs+dynamic+linking>`_."
+msgstr ""
+
+#: ../../overview.rst:446
+msgid "Wrap up"
+msgstr ""
+
+#: ../../overview.rst:448
+msgid ""
+"Packaging in Python has a bit of a reputation for being a bumpy ride. "
+"This impression is mostly a byproduct of Python's versatility. Once you "
+"understand the natural boundaries between each packaging solution, you "
+"begin to realize that the varied landscape is a small price Python "
+"programmers pay for using one of the most balanced, flexible languages "
+"available."
+msgstr ""
+

@@ -1,0 +1,3421 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-28 08:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../specifications/binary-distribution-format.rst:6
+msgid "Binary distribution format"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:8
+msgid ""
+"The binary distribution format (:term:`wheel <Wheel>`) was originally "
+"defined in :pep:`427`. The current version of the specification is here."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:13
+msgid "Abstract"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:15
+msgid "This PEP describes a built-package format for Python called \"wheel\"."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:17
+msgid ""
+"A wheel is a ZIP-format archive with a specially formatted file name and "
+"the ``.whl`` extension.  It contains a single distribution nearly as it "
+"would be installed according to PEP 376 with a particular installation "
+"scheme.  Although a specialized installer is recommended, a wheel file "
+"may be installed by simply unpacking into site-packages with the standard"
+" 'unzip' tool while preserving enough information to spread its contents "
+"out onto their final paths at any later time."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:27
+msgid "PEP Acceptance"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:29
+msgid ""
+"This PEP was accepted, and the defined wheel version updated to 1.0, by "
+"Nick Coghlan on 16th February, 2013 [1]_"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:34
+msgid "Rationale"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:36
+msgid ""
+"Python needs a package format that is easier to install than sdist. "
+"Python's sdist packages are defined by and require the distutils and "
+"setuptools build systems, running arbitrary code to build-and-install, "
+"and re-compile, code just so it can be installed into a new virtualenv.  "
+"This system of conflating build-install is slow, hard to maintain, and "
+"hinders innovation in both build systems and installers."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:43
+msgid ""
+"Wheel attempts to remedy these problems by providing a simpler interface "
+"between the build system and the installer.  The wheel binary package "
+"format frees installers from having to know about the build system, saves"
+" time by amortizing compile time over many installations, and removes the"
+" need to install a build system in the target environment."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:52
+msgid "Details"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:55
+msgid "Installing a wheel 'distribution-1.0-py32-none-any.whl'"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:57
+msgid "Wheel installation notionally consists of two phases:"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:59
+msgid "Unpack."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:61
+msgid "Parse ``distribution-1.0.dist-info/WHEEL``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:62
+msgid ""
+"Check that installer is compatible with Wheel-Version.  Warn if minor "
+"version is greater, abort if major version is greater."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:64
+msgid "If Root-Is-Purelib == 'true', unpack archive into purelib (site-packages)."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:66
+msgid "Else unpack archive into platlib (site-packages)."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:68
+msgid "Spread."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:70
+msgid ""
+"Unpacked archive includes ``distribution-1.0.dist-info/`` and (if there "
+"is data) ``distribution-1.0.data/``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:72
+msgid ""
+"Move each subtree of ``distribution-1.0.data/`` onto its destination "
+"path. Each subdirectory of ``distribution-1.0.data/`` is a key into a "
+"dict of destination directories, such as "
+"``distribution-1.0.data/(purelib|platlib|headers|scripts|data)``. The "
+"initially supported paths are taken from ``distutils.command.install``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:78
+msgid ""
+"If applicable, update scripts starting with ``#!python`` to point to the "
+"correct interpreter."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:80
+msgid "Update ``distribution-1.0.dist-info/RECORD`` with the installed paths."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:82
+msgid "Remove empty ``distribution-1.0.data`` directory."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:83
+msgid ""
+"Compile any installed .py to .pyc. (Uninstallers should be smart enough "
+"to remove .pyc even if it is not mentioned in RECORD.)"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:87
+msgid "Recommended installer features"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:97
+msgid "Rewrite ``#!python``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:90
+msgid ""
+"In wheel, scripts are packaged in "
+"``{distribution}-{version}.data/scripts/``.  If the first line of a file "
+"in ``scripts/`` starts with exactly ``b'#!python'``, rewrite to point to "
+"the correct interpreter.  Unix installers may need to add the +x bit to "
+"these files if the archive was created on Windows."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:96
+msgid ""
+"The ``b'#!pythonw'`` convention is allowed. ``b'#!pythonw'`` indicates a "
+"GUI script instead of a console script."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:102
+msgid "Generate script wrappers."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:100
+msgid ""
+"In wheel, scripts packaged on Unix systems will certainly not have "
+"accompanying .exe wrappers.  Windows installers may want to add them "
+"during install."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:105
+msgid "Recommended archiver features"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:112
+msgid "Place ``.dist-info`` at the end of the archive."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:108
+msgid ""
+"Archivers are encouraged to place the ``.dist-info`` files physically at "
+"the end of the archive.  This enables some potentially interesting ZIP "
+"tricks including the ability to amend the metadata without rewriting the "
+"entire archive."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:115
+msgid "File Format"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:118
+msgid "File name convention"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:120
+msgid ""
+"The wheel filename is ``{distribution}-{version}(-{build tag})?-{python "
+"tag}-{abi tag}-{platform tag}.whl``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:124
+msgid "distribution"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:124
+msgid "Distribution name, e.g. 'django', 'pyramid'."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:127
+msgid "version"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:127
+msgid "Distribution version, e.g. 1.0."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:135
+msgid "build tag"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:130
+msgid ""
+"Optional build number.  Must start with a digit.  Acts as a tie-breaker "
+"if two wheel file names are the same in all other respects (i.e. name, "
+"version, and other tags).  Sort as an empty tuple if unspecified, else "
+"sort as a two-item tuple with the first item being the initial digits as "
+"an ``int``, and the second item being the remainder of the tag as a "
+"``str``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:138
+msgid "language implementation and version tag"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:138
+msgid "E.g. 'py27', 'py2', 'py3'."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:141
+msgid "abi tag"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:141
+msgid "E.g. 'cp33m', 'abi3', 'none'."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:144
+msgid "platform tag"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:144
+msgid "E.g. 'linux_x86_64', 'any'."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:146
+msgid ""
+"For example, ``distribution-1.0-1-py27-none-any.whl`` is the first build "
+"of a package called 'distribution', and is compatible with Python 2.7 "
+"(any Python 2.7 implementation), with no ABI (pure Python), on any CPU "
+"architecture."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:151
+msgid ""
+"The last three components of the filename before the extension are called"
+" \"compatibility tags.\"  The compatibility tags express the package's "
+"basic interpreter requirements and are detailed in PEP 425."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:156
+msgid "Escaping and Unicode"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:158
+msgid ""
+"As the components of the filename are separated by a dash (``-``, HYPHEN-"
+"MINUS), this character cannot appear within any component. This is "
+"handled as follows:"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:161
+msgid ""
+"In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW "
+"LINE and FULL STOP) should be replaced with ``_`` (LOW LINE). This is "
+"equivalent to :pep:`503` normalisation followed by replacing ``-`` with "
+"``_``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:164
+msgid ""
+"Version numbers should be normalised according to :pep:`440`. Normalised "
+"version numbers cannot contain ``-``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:166
+msgid ""
+"The remaining components may not contain ``-`` characters, so no escaping"
+" is necessary."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:169
+msgid ""
+"Tools producing wheels should verify that the filename components do not "
+"contain ``-``, as the resulting file may not be processed correctly if "
+"they do."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:172
+msgid ""
+"The archive filename is Unicode.  It will be some time before the tools "
+"are updated to support non-ASCII filenames, but they are supported in "
+"this specification."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:176
+msgid ""
+"The filenames *inside* the archive are encoded as UTF-8.  Although some "
+"ZIP clients in common use do not properly display UTF-8 filenames, the "
+"encoding is supported by both the ZIP specification and Python's "
+"``zipfile``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:182
+msgid "File contents"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:184
+msgid ""
+"The contents of a wheel file, where {distribution} is replaced with the "
+"name of the package, e.g. ``beaglevote`` and {version} is replaced with "
+"its version, e.g. ``1.0.0``, consist of:"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:188
+msgid ""
+"``/``, the root of the archive, contains all files to be installed in "
+"``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and "
+"``platlib`` are usually both ``site-packages``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:191
+msgid "``{distribution}-{version}.dist-info/`` contains metadata."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:192
+msgid ""
+"``{distribution}-{version}.data/`` contains one subdirectory for each "
+"non-empty install scheme key not already covered, where the subdirectory "
+"name is an index into a dictionary of install paths (e.g. ``data``, "
+"``scripts``, ``include``, ``purelib``, ``platlib``)."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:196
+msgid ""
+"Python scripts must appear in ``scripts`` and begin with exactly "
+"``b'#!python'`` in order to enjoy script wrapper generation and "
+"``#!python`` rewriting at install time.  They may have any or no "
+"extension."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:200
+msgid ""
+"``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1 "
+"or greater format metadata."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:202
+msgid ""
+"``{distribution}-{version}.dist-info/WHEEL`` is metadata about the "
+"archive itself in the same basic key: value format::"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:212
+msgid "``Wheel-Version`` is the version number of the Wheel specification."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:213
+msgid ""
+"``Generator`` is the name and optionally the version of the software that"
+" produced the archive."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:215
+msgid ""
+"``Root-Is-Purelib`` is true if the top level directory of the archive "
+"should be installed into purelib; otherwise the root should be installed "
+"into platlib."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:218
+msgid ""
+"``Tag`` is the wheel's expanded compatibility tags; in the example the "
+"filename would contain ``py2.py3-none-any``."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:220
+msgid "``Build`` is the build number and is omitted if there is no build number."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:221
+msgid ""
+"A wheel installer should warn if Wheel-Version is greater than the "
+"version it supports, and must fail if Wheel-Version has a greater major "
+"version than the version it supports."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:224
+msgid ""
+"Wheel, being an installation format that is intended to work across "
+"multiple versions of Python, does not generally include .pyc files."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:226
+msgid "Wheel does not contain setup.py or setup.cfg."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:228
+msgid ""
+"This version of the wheel specification is based on the distutils install"
+" schemes and does not define how to install files to other locations. The"
+" layout offers a superset of the functionality provided by the existing "
+"wininst and egg binary formats."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:235
+#: ../../specifications/recording-installed-packages.rst:35
+msgid "The .dist-info directory"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:237
+msgid ""
+"Wheel .dist-info directories include at a minimum METADATA, WHEEL, and "
+"RECORD."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:239
+msgid ""
+"METADATA is the package metadata, the same format as PKG-INFO as found at"
+" the root of sdists."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:241
+msgid "WHEEL is the wheel metadata specific to a build of the package."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:242
+msgid ""
+"RECORD is a list of (almost) all the files in the wheel and their secure "
+"hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a"
+" hash of itself, must include its hash.  The hash algorithm must be "
+"sha256 or better; specifically, md5 and sha1 are not permitted, as signed"
+" wheel files rely on the strong hashes in RECORD to validate the "
+"integrity of the archive."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:248
+msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:249
+msgid "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:251
+msgid ""
+"RECORD.p7s is allowed as a courtesy to anyone who would prefer to use "
+"S/MIME signatures to secure their wheel files.  It is not mentioned in "
+"RECORD."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:254
+msgid ""
+"During extraction, wheel installers verify all the hashes in RECORD "
+"against the file contents.  Apart from RECORD and its signatures, "
+"installation will fail if any file in the archive is not both mentioned "
+"and correctly hashed in RECORD."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:261
+msgid "The .data directory"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:263
+msgid ""
+"Any file that is not normally installed inside site-packages goes into "
+"the .data directory, named as the .dist-info directory but with the "
+".data/ extension::"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:271
+msgid ""
+"The .data directory contains subdirectories with the scripts, headers, "
+"documentation and so forth from the distribution.  During installation "
+"the contents of these subdirectories are moved onto their destination "
+"paths."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:277
+msgid "Signed wheel files"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:279
+msgid ""
+"Wheel files include an extended RECORD that enables digital signatures.  "
+"PEP 376's RECORD is altered to include a secure hash "
+"``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding "
+"with no trailing = characters) as the second column instead of an md5sum."
+"  All possible entries are hashed, including any generated files such as "
+".pyc files, but not RECORD which cannot contain its own hash. For "
+"example::"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:290
+msgid ""
+"The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in "
+"RECORD at all since they can only be added after RECORD is generated. "
+"Every other file in the archive must have a correct hash in RECORD or the"
+" installation will fail."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:295
+msgid ""
+"If JSON web signatures are used, one or more JSON Web Signature JSON "
+"Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent"
+" to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of "
+"RECORD as the signature's JSON payload::"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:302
+msgid "(The hash value is the same format used in RECORD.)"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:304
+msgid ""
+"If RECORD.p7s is used, it must contain a detached S/MIME format signature"
+" of RECORD."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:307
+msgid ""
+"A wheel installer is not required to understand digital signatures but "
+"MUST verify the hashes in RECORD against the extracted file contents. "
+"When the installer checks file hashes against RECORD, a separate "
+"signature checker only needs to establish that RECORD matches the "
+"signature."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:312
+msgid "See"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:314
+msgid "http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:315
+msgid "http://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:316
+msgid "http://self-issued.info/docs/draft-ietf-jose-json-web-key.html"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:317
+msgid "http://self-issued.info/docs/draft-jones-jose-json-private-key.html"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:321
+msgid "Comparison to .egg"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:323
+msgid ""
+"Wheel is an installation format; egg is importable.  Wheel archives do "
+"not need to include .pyc and are less tied to a specific Python version "
+"or implementation. Wheel can install (pure Python) packages built with "
+"previous versions of Python so you don't always have to wait for the "
+"packager to catch up."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:328
+msgid ""
+"Wheel uses .dist-info directories; egg uses .egg-info.  Wheel is "
+"compatible with the new world of Python packaging and the new concepts it"
+" brings."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:331
+msgid ""
+"Wheel has a richer file naming convention for today's multi-"
+"implementation world.  A single wheel archive can indicate its "
+"compatibility with a number of Python language versions and "
+"implementations, ABIs, and system architectures.  Historically the ABI "
+"has been specific to a CPython release, wheel is ready for the stable "
+"ABI."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:337
+msgid ""
+"Wheel is lossless.  The first wheel implementation bdist_wheel always "
+"generates egg-info, and then converts it to a .whl.  It is also possible "
+"to convert existing eggs and bdist_wininst distributions."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:341
+msgid ""
+"Wheel is versioned.  Every wheel file contains the version of the wheel "
+"specification and the implementation that packaged it. Hopefully the next"
+" migration can simply be to Wheel 2.0."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:344
+msgid "Wheel is a reference to the other Python."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:348
+msgid "FAQ"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:352
+msgid "Wheel defines a .data directory.  Should I put all my data there?"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:354
+msgid ""
+"This specification does not have an opinion on how you should organize "
+"your code.  The .data directory is just a place for any files that are "
+"not normally installed inside ``site-packages`` or on the PYTHONPATH. In "
+"other words, you may continue to use ``pkgutil.get_data(package, "
+"resource)`` even though *those* files will usually not be distributed in "
+"*wheel's* ``.data`` directory."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:363
+msgid "Why does wheel include attached signatures?"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:365
+msgid ""
+"Attached signatures are more convenient than detached signatures because "
+"they travel with the archive.  Since only the individual files are "
+"signed, the archive can be recompressed without invalidating the "
+"signature or individual files can be verified without having to download "
+"the whole archive."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:373
+msgid "Why does wheel allow JWS signatures?"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:375
+msgid ""
+"The JOSE specifications of which JWS is a part are designed to be easy to"
+" implement, a feature that is also one of wheel's primary design goals.  "
+"JWS yields a useful, concise pure-Python implementation."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:381
+msgid "Why does wheel also allow S/MIME signatures?"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:383
+msgid ""
+"S/MIME signatures are allowed for users who need or want to use existing "
+"public key infrastructure with wheel."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:386
+msgid ""
+"Signed packages are only a basic building block in a secure package "
+"update system.  Wheel only provides the building block."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:391
+msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:393
+msgid ""
+"Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
+"significant on some platforms. For example, Fedora installs pure Python "
+"packages to '/usr/lib/pythonX.Y/site-packages' and platform dependent "
+"packages to '/usr/lib64/pythonX.Y/site-packages'."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:398
+msgid ""
+"A wheel with \"Root-Is-Purelib: false\" with all its files in "
+"``{name}-{version}.data/purelib`` is equivalent to a wheel with \"Root-"
+"Is-Purelib: true\" with those same files in the root, and it is legal to "
+"have files in both the \"purelib\" and \"platlib\" categories."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:403
+msgid ""
+"In practice a wheel should have only one of \"purelib\" or \"platlib\" "
+"depending on whether it is pure Python or not and those files should be "
+"at the root with the appropriate setting given for \"Root-is-purelib\"."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:409
+msgid "Is it possible to import Python code directly from a wheel file?"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:411
+msgid ""
+"Technically, due to the combination of supporting installation via simple"
+" extraction and using an archive format that is compatible with "
+"``zipimport``, a subset of wheel files *do* support being placed directly"
+" on ``sys.path``. However, while this behaviour is a natural consequence "
+"of the format design, actually relying on it is generally discouraged."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:417
+msgid ""
+"Firstly, wheel *is* designed primarily as a distribution format, so "
+"skipping the installation step also means deliberately avoiding any "
+"reliance on features that assume full installation (such as being able to"
+" use standard tools like ``pip`` and ``virtualenv`` to capture and manage"
+" dependencies in a way that can be properly tracked for auditing and "
+"security update purposes, or integrating fully with the standard build "
+"machinery for C extensions by publishing header files in the appropriate "
+"place)."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:426
+msgid ""
+"Secondly, while some Python software is written to support running "
+"directly from a zip archive, it is still common for code to be written "
+"assuming it has been fully installed. When that assumption is broken by "
+"trying to run the software from a zip archive, the failures can often be "
+"obscure and hard to diagnose (especially when they occur in third party "
+"libraries). The two most common sources of problems with this are the "
+"fact that importing C extensions from a zip archive is *not* supported by"
+" CPython (since doing so is not supported directly by the dynamic loading"
+" machinery on any platform) and that when running from a zip archive the "
+"``__file__`` attribute no longer refers to an ordinary filesystem path, "
+"but to a combination path that includes both the location of the zip "
+"archive on the filesystem and the relative path to the module inside the "
+"archive. Even when software correctly uses the abstract resource APIs "
+"internally, interfacing with external components may still require the "
+"availability of an actual on-disk file."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:443
+msgid ""
+"Like metaclasses, monkeypatching and metapath importers, if you're not "
+"already sure you need to take advantage of this feature, you almost "
+"certainly don't need it. If you *do* decide to use it anyway, be aware "
+"that many projects will require a failure to be reproduced with a fully "
+"installed package before accepting it as a genuine bug."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:450
+msgid "Changes"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:452
+msgid "Since :pep:`427`, this specification has changed as follows:"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:454
+msgid ""
+"The rules on escaping in wheel filenames were revised, to bring them into"
+" line with what popular tools actually do (February 2021)."
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:459
+msgid "References"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:461
+msgid ""
+"PEP acceptance (https://mail.python.org/pipermail/python-"
+"dev/2013-February/124103.html)"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:466
+msgid "Appendix"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:468
+msgid "Example urlsafe-base64-nopad implementation::"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:482
+msgid "Copyright"
+msgstr ""
+
+#: ../../specifications/binary-distribution-format.rst:484
+msgid "This document has been placed into the public domain."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:5
+msgid "Core metadata specifications"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:7
+msgid ""
+"Fields defined in the following specification should be considered valid,"
+" complete and not subject to change. The required fields are:"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:10
+msgid "``Metadata-Version``"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:11
+msgid "``Name``"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:12
+msgid "``Version``"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:14
+msgid "All the other fields are optional."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:16
+msgid ""
+"The standard file format for metadata (including in :doc:`wheels <binary-"
+"distribution-format>` and :doc:`installed projects <recording-installed-"
+"packages>`) is based on the format of email headers. However, email "
+"formats have been revised several times, and exactly which email RFC "
+"applies to packaging metadata is not specified. In the absence of a "
+"precise definition, the practical standard is set by what the standard "
+"library :mod:`python:email.parser` module can parse using the "
+":data:`~.python:email.policy.compat32` policy."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:25
+msgid ""
+"Although :pep:`566` defined a way to transform metadata into a JSON-"
+"compatible dictionary, this is not yet used as a standard interchange "
+"format. The need for tools to work with years worth of existing packages "
+"makes it difficult to shift to a new format."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:30
+msgid ""
+"*Interpreting old metadata:* In :pep:`566`, the version specifier field "
+"format specification was relaxed to accept the syntax used by popular "
+"publishing tools (namely to remove the requirement that version "
+"specifiers must be surrounded by parentheses). Metadata consumers may "
+"want to use the more relaxed formatting rules even for metadata files "
+"that are nominally less than version 2.1."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:38
+#: ../../specifications/direct-url.rst:14
+msgid "Contents"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:41
+msgid "Metadata-Version"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:45
+msgid ""
+"Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
+"\"2.1\" and \"2.2\"."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:48
+msgid ""
+"Automated tools consuming metadata SHOULD warn if ``metadata_version`` is"
+" greater than the highest version they support, and MUST fail if "
+"``metadata_version`` has a greater major version than the highest version"
+" they support (as described in :pep:`440`, the major version is the value"
+" before the first dot)."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:54
+msgid ""
+"For broader compatibility, build tools MAY choose to produce distribution"
+" metadata using the lowest metadata version that includes all of the "
+"needed fields."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:58
+#: ../../specifications/core-metadata.rst:80
+#: ../../specifications/core-metadata.rst:95
+#: ../../specifications/core-metadata.rst:155
+#: ../../specifications/core-metadata.rst:170
+#: ../../specifications/core-metadata.rst:208
+#: ../../specifications/core-metadata.rst:283
+#: ../../specifications/core-metadata.rst:287
+#: ../../specifications/core-metadata.rst:291
+#: ../../specifications/core-metadata.rst:295
+#: ../../specifications/core-metadata.rst:327
+#: ../../specifications/core-metadata.rst:347
+#: ../../specifications/core-metadata.rst:373
+#: ../../specifications/core-metadata.rst:391
+#: ../../specifications/core-metadata.rst:416
+#: ../../specifications/core-metadata.rst:438
+#: ../../specifications/core-metadata.rst:600
+#: ../../specifications/core-metadata.rst:620
+#: ../../specifications/core-metadata.rst:630
+msgid "Example::"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:66
+msgid "Name"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:69
+msgid "Added additional restrictions on format from :pep:`508`"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:72
+msgid ""
+"The name of the distribution. The name field is the primary identifier "
+"for a distribution. A valid name consists only of ASCII letters and "
+"numbers, period, underscore and hyphen. It must start and end with a "
+"letter or number. Distribution names are limited to those which match the"
+" following regex (run with ``re.IGNORECASE``)::"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:88
+msgid "Version"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:92
+msgid ""
+"A string containing the distribution's version number.  This field  must "
+"be in the format specified in :pep:`440`."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:101
+msgid "Dynamic (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:105
+msgid ""
+"A string containing the name of another core metadata field. The field "
+"names ``Name`` and ``Version`` may not be specified in this field."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:108
+msgid ""
+"When found in the metadata of a source distribution, the following rules "
+"apply:"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:111
+msgid ""
+"If a field is *not* marked as ``Dynamic``, then the value of the field in"
+" any wheel built from the sdist MUST match the value in the sdist. If the"
+" field is not in the sdist, and not marked as ``Dynamic``, then it MUST "
+"NOT be present in the wheel."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:115
+msgid ""
+"If a field is marked as ``Dynamic``, it may contain any valid value in a "
+"wheel built from the sdist (including not being present at all)."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:118
+msgid ""
+"If the sdist metadata version is older than version 2.2, then all fields "
+"should be treated as if they were specified with ``Dynamic`` (i.e. there "
+"are no special restrictions on the metadata of wheels built from the "
+"sdist)."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:122
+msgid ""
+"In any context other than a source distribution, ``Dynamic`` is for "
+"information only, and indicates that the field value was calculated at "
+"wheel build time, and may not be the same as the value in the sdist or in"
+" other wheels for the project."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:127
+msgid "Full details of the semantics of ``Dynamic`` are described in :pep:`643`."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:131
+msgid "Platform (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:135
+msgid ""
+"A Platform specification describing an operating system supported by the "
+"distribution which is not listed in the \"Operating System\" Trove "
+"classifiers. See \"Classifier\" below."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:139
+#: ../../specifications/core-metadata.rst:463
+#: ../../specifications/core-metadata.rst:487
+#: ../../specifications/core-metadata.rst:527
+#: ../../specifications/core-metadata.rst:550
+#: ../../specifications/core-metadata.rst:583
+#: ../../specifications/core-metadata.rst:693
+#: ../../specifications/core-metadata.rst:722
+msgid "Examples::"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:146
+msgid "Supported-Platform (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:150
+msgid ""
+"Binary distributions containing a PKG-INFO file will use the Supported-"
+"Platform field in their metadata to specify the OS and CPU for which the "
+"binary distribution was compiled.  The semantics of the Supported-"
+"Platform field are not specified in this PEP."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:164
+msgid "Summary"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:168
+msgid "A one-line summary of what the distribution does."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:185
+msgid "Description"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:188
+msgid "This field may be specified in the message body instead."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:191
+msgid ""
+"A longer description of the distribution that can run to several "
+"paragraphs.  Software that deals with metadata should not assume any "
+"maximum size for this field, though people shouldn't include their "
+"instruction manual as the description."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:196
+msgid ""
+"The contents of this field can be written using reStructuredText markup "
+"[1]_.  For programs that work with the metadata, supporting markup is "
+"optional; programs can also display the contents of the field as-is.  "
+"This means that authors should be conservative in the markup they use."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:202
+msgid ""
+"To support empty lines and lines with indentation with respect to the RFC"
+" 822 format, any CRLF character has to be suffixed by 7 spaces followed "
+"by a pipe (\"|\") char. As a result, the Description field is encoded "
+"into a folded field that can be interpreted by RFC822 parser [2]_."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:219
+msgid ""
+"This encoding implies that any occurrences of a CRLF followed by 7 spaces"
+" and a pipe char have to be replaced by a single CRLF when the field is "
+"unfolded using a RFC822 reader."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:223
+msgid ""
+"Alternatively, the distribution's description may instead be provided in "
+"the message body (i.e., after a completely blank line following the "
+"headers, with no indentation or other special formatting necessary)."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:232
+msgid "Description-Content-Type"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:236
+msgid ""
+"A string stating the markup syntax (if any) used in the distribution's "
+"description, so that tools can intelligently render the description."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:239
+msgid ""
+"Historically, PyPI supported descriptions in plain text and "
+"`reStructuredText (reST) "
+"<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_, "
+"and could render reST into HTML. However, it is common for distribution "
+"authors to write the description in `Markdown "
+"<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763 "
+"<https://tools.ietf.org/html/rfc7763>`_) as many code hosting sites "
+"render Markdown READMEs, and authors would reuse the file for the "
+"description. PyPI didn't recognize the format and so could not render the"
+" description correctly. This resulted in many packages on PyPI with "
+"poorly-rendered descriptions when Markdown is left as plain text, or "
+"worse, was attempted to be rendered as reST. This field allows the "
+"distribution author to specify the format of their description, opening "
+"up the possibility for PyPI and other tools to be able to render Markdown"
+" and other formats."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:253
+msgid ""
+"The format of this field is the same as the ``Content-Type`` header in "
+"HTTP (i.e.: `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-"
+"Type.html>`_). Briefly, this means that it has a ``type/subtype`` part "
+"and then it can optionally have a number of parameters:"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:259
+msgid "Format::"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:263
+msgid "The ``type/subtype`` part has only a few legal values:"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:265
+msgid "``text/plain``"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:266
+msgid "``text/x-rst``"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:267
+msgid "``text/markdown``"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:269
+msgid ""
+"The ``charset`` parameter can be used to specify the character encoding "
+"of the description. The only legal value is ``UTF-8``. If omitted, it is "
+"assumed to be ``UTF-8``."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:273
+msgid ""
+"Other parameters might be specific to the chosen subtype. For example, "
+"for the ``markdown`` subtype, there is an optional ``variant`` parameter "
+"that allows specifying the variant of Markdown in use (defaults to "
+"``GFM`` if not specified). Currently, two variants are recognized:"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:278
+msgid ""
+"``GFM`` for `Github-flavored Markdown "
+"<https://tools.ietf.org/html/rfc7764#section-3.2>`_"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:280
+msgid ""
+"``CommonMark`` for `CommonMark "
+"<https://tools.ietf.org/html/rfc7764#section-3.5>`_"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:299
+msgid ""
+"If a ``Description-Content-Type`` is not specified, then applications "
+"should attempt to render it as ``text/x-rst; charset=UTF-8`` and fall "
+"back to ``text/plain`` if it is not valid rst."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:303
+msgid ""
+"If a ``Description-Content-Type`` is an unrecognized value, then the "
+"assumed content type is ``text/plain`` (Although PyPI will probably "
+"reject anything with an unrecognized value)."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:307
+msgid ""
+"If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` "
+"is not specified or is set to an unrecognized value, then the assumed "
+"``variant`` is ``GFM``."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:311
+msgid ""
+"So for the last example above, the ``charset`` defaults to ``UTF-8`` and "
+"the ``variant`` defaults to ``GFM`` and thus it is equivalent to the "
+"example before it."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:320
+msgid "Keywords"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:324
+msgid ""
+"A list of additional keywords, separated by commas, to be used to assist "
+"searching for the distribution in a larger catalog."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:333
+msgid ""
+"The specification previously showed keywords separated by spaces, but "
+"distutils and setuptools implemented it with commas. These tools have "
+"been very widely used for many years, so it was easier to update the "
+"specification to match the de facto standard."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:341
+msgid "Home-page"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:345
+msgid "A string containing the URL for the distribution's home page."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:353
+msgid "Download-URL"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:357
+msgid ""
+"A string containing the URL from which this version of the distribution "
+"can be downloaded.  (This means that the URL can't be something like "
+"\".../BeagleVote-latest.tgz\", but instead must be "
+"\".../BeagleVote-0.45.tgz\".)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:366
+msgid "Author"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:370
+msgid ""
+"A string containing the author's name at a minimum; additional contact "
+"information may be provided."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:383
+msgid "Author-email"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:387
+msgid ""
+"A string containing the author's e-mail address.  It can contain a name "
+"and e-mail address in the legal forms for a RFC-822 ``From:`` header."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:395
+#: ../../specifications/core-metadata.rst:442
+msgid ""
+"Per RFC-822, this field may contain multiple comma-separated e-mail "
+"addresses::"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:405
+msgid "Maintainer"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:409
+msgid ""
+"A string containing the maintainer's name at a minimum; additional "
+"contact information may be provided."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:412
+msgid ""
+"Note that this field is intended for use when a project is being "
+"maintained by someone other than the original author:  it should be "
+"omitted if it is identical to ``Author``."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:426
+msgid "Maintainer-email"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:430
+msgid ""
+"A string containing the maintainer's e-mail address.  It can contain a "
+"name and e-mail address in the legal forms for a RFC-822 ``From:`` "
+"header."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:434
+msgid ""
+"Note that this field is intended for use when a project is being "
+"maintained by someone other than the original author:  it should be "
+"omitted if it is identical to ``Author-email``."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:452
+msgid "License"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:456
+msgid ""
+"Text indicating the license covering the distribution where the license "
+"is not a selection from the \"License\" Trove classifiers. See "
+":ref:`\"Classifier\" <metadata-classifier>` below. This field may also be"
+" used to specify a particular version of a license which is named via the"
+" ``Classifier`` field, or to indicate a variation or exception to such a "
+"license."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:476
+msgid "Classifier (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:480
+msgid ""
+"Each entry is a string giving a single classification value for the "
+"distribution.  Classifiers are described in :pep:`301`, and the Python "
+"Package Index publishes a dynamic list of `currently defined classifiers "
+"<https://pypi.org/classifiers/>`__."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:485
+#: ../../specifications/core-metadata.rst:574
+#: ../../specifications/core-metadata.rst:691
+#: ../../specifications/core-metadata.rst:715
+msgid "This field may be followed by an environment marker after a semicolon."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:496
+msgid "Requires-Dist (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:499
+#: ../../specifications/core-metadata.rst:561
+#: ../../specifications/core-metadata.rst:663
+#: ../../specifications/core-metadata.rst:704
+msgid ""
+"The field format specification was relaxed to accept the syntax used by "
+"popular publishing tools."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:503
+msgid ""
+"Each entry contains a string naming some other distutils project required"
+" by this distribution."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:506
+msgid "The format of a requirement string contains from one to four parts:"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:508
+msgid ""
+"A project name, in the same format as the ``Name:`` field. The only "
+"mandatory part."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:510
+msgid ""
+"A comma-separated list of 'extra' names. These are defined by the "
+"required project, referring to specific features which may need extra "
+"dependencies."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:513
+msgid ""
+"A version specifier. Tools parsing the format should accept optional "
+"parentheses around this, but tools generating it should not use "
+"parentheses."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:516
+msgid ""
+"An environment marker after a semicolon. This means that the requirement "
+"is only needed in the specified conditions."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:519
+msgid "See :pep:`508` for full details of the allowed format."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:521
+msgid ""
+"The project names should correspond to names as found on the `Python "
+"Package Index`_."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:524
+msgid ""
+"Version specifiers must follow the rules described in :doc:`version-"
+"specifiers`."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:538
+msgid "Requires-Python"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:542
+msgid ""
+"This field specifies the Python version(s) that the distribution is "
+"guaranteed to be compatible with. Installation tools may look at this "
+"when picking which version of a project to install."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:546
+msgid "The value must be in the format specified in :doc:`version-specifiers`."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:548
+msgid "This field cannot be followed by an environment marker."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:558
+msgid "Requires-External (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:565
+msgid ""
+"Each entry contains a string describing some dependency in the system "
+"that the distribution is to be used.  This field is intended to serve as "
+"a hint to downstream project maintainers, and has no semantics which are "
+"meaningful to the ``distutils`` distribution."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:570
+msgid ""
+"The format of a requirement string is a name of an external dependency, "
+"optionally followed by a version declaration within parentheses."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:576
+msgid ""
+"Because they refer to non-Python software releases, version numbers for "
+"this field are **not** required to conform to the format specified in "
+":pep:`440`:  they should correspond to the version scheme used by the "
+"external dependency."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:581
+msgid "Notice that there is no particular rule on the strings to be used."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:593
+msgid "Project-URL (multiple-use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:597
+msgid ""
+"A string containing a browsable URL for the project and a label for it, "
+"separated by a comma."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:604
+msgid "The label is free text limited to 32 characters."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:612
+msgid "Provides-Extra (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:616
+msgid ""
+"A string containing the name of an optional feature. Must be a valid "
+"Python identifier. May be used to make a dependency conditional on "
+"whether the optional feature has been requested."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:625
+msgid ""
+"A second distribution requires an optional dependency by placing it "
+"inside square brackets, and can request multiple features by separating "
+"them with a comma (,). The requirements are evaluated for each requested "
+"feature and added to the set of requirements for the distribution."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:635
+msgid ""
+"Two feature names ``test`` and ``doc`` are reserved to mark dependencies "
+"that are needed for running automated tests and generating documentation,"
+" respectively."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:639
+msgid ""
+"It is legal to specify ``Provides-Extra:`` without referencing it in any "
+"``Requires-Dist:``."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:644
+msgid "Rarely Used Fields"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:646
+msgid ""
+"The fields in this section are currently rarely used, as their design was"
+" inspired by comparable mechanisms in Linux package management systems, "
+"and it isn't at all clear how tools should interpret them in the context "
+"of an open index server such as `PyPI <https://pypi.org>`__."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:651
+msgid ""
+"As a result, popular installation tools ignore them completely, which in "
+"turn means there is little incentive for package publishers to set them "
+"appropriately. However, they're retained in the metadata specification, "
+"as they're still potentially useful for informational purposes, and can "
+"also be used for their originally intended purpose in combination with a "
+"curated package repository."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:660
+msgid "Provides-Dist (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:667
+msgid ""
+"Each entry contains a string naming a Distutils project which is "
+"contained within this distribution.  This field *must* include the "
+"project identified in the ``Name`` field, followed by the version : Name "
+"(Version)."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:672
+msgid ""
+"A distribution may provide additional names, e.g. to indicate that "
+"multiple projects have been bundled together.  For instance, source "
+"distributions of the ``ZODB`` project have historically included the "
+"``transaction`` project, which is now available as a separate "
+"distribution.  Installing such a source distribution satisfies "
+"requirements for both ``ZODB`` and ``transaction``."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:679
+msgid ""
+"A distribution may also provide a \"virtual\" project name, which does "
+"not correspond to any separately-distributed project:  such a name might "
+"be used to indicate an abstract capability which could be supplied by one"
+" of multiple projects.  E.g., multiple projects might supply RDBMS "
+"bindings for use by a given ORM:  each project might declare that it "
+"provides ``ORM-bindings``, allowing other projects to depend only on "
+"having at most one of them installed."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:687
+msgid ""
+"A version declaration may be supplied and must follow the rules described"
+" in :doc:`version-specifiers`. The distribution's version number will be "
+"implied if none is specified."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:701
+msgid "Obsoletes-Dist (multiple use)"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:708
+msgid ""
+"Each entry contains a string describing a distutils project's "
+"distribution which this distribution renders obsolete, meaning that the "
+"two projects should not be installed at the same time."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:712
+msgid ""
+"Version declarations can be supplied.  Version numbers must be in the "
+"format specified in :doc:`version-specifiers`."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:717
+msgid ""
+"The most common use of this field will be in case a project name changes,"
+" e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
+"Torqued Python, the Gorgon distribution should be removed."
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:730
+msgid "reStructuredText markup: http://docutils.sourceforge.net/"
+msgstr ""
+
+#: ../../specifications/core-metadata.rst:735
+msgid "RFC 822 Long Header Fields: http://www.freesoft.org/CIE/RFC/822/7.htm"
+msgstr ""
+
+#: ../../specifications/declaring-build-dependencies.rst:6
+msgid "Declaring build system dependencies"
+msgstr ""
+
+#: ../../specifications/declaring-build-dependencies.rst:8
+msgid ""
+"`pyproject.toml` is a build system independent file format defined in "
+":pep:`518` that projects may provide in order to declare any Python level"
+" dependencies that must be installed in order to run the project's build "
+"system successfully."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:5
+msgid "Declaring project metadata"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:7
+msgid ""
+":pep:`621` specifies how to write a project's :ref:`core metadata <core-"
+"metadata>` in a ``pyproject.toml`` file for packaging-related tools to "
+"consume. It defines the following specification as the canonical source "
+"for the format used."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:12
+msgid ""
+"There are two kinds of metadata: *static* and *dynamic*. Static metadata "
+"is specified in the ``pyproject.toml`` file directly and cannot be "
+"specified or changed by a tool. Dynamic metadata is listed via the "
+"``dynamic`` field (defined later in this specification) and represents "
+"metadata that a tool will later provide."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:18
+msgid ""
+"The fields defined in this specification MUST be in a table named "
+"``[project]`` in ``pyproject.toml``. No tools may add fields to this "
+"table which are not defined by this specification. For tools wishing to "
+"store their own settings in ``pyproject.toml``, they may use the "
+"``[tool]`` table as defined in the :ref:`build dependency declaration "
+"specification <declaring-build-dependencies>`. The lack of a "
+"``[project]`` table implicitly means the build back-end will dynamically "
+"provide all fields."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:27
+msgid "The only fields required to be statically defined are:"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:29
+#: ../../specifications/declaring-project-metadata.rst:41
+msgid "``name``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:31
+msgid ""
+"The fields which are required but may be specified *either* statically or"
+" listed as dynamic are:"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:34
+#: ../../specifications/declaring-project-metadata.rst:54
+msgid "``version``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:36
+msgid ""
+"All other fields are considered optional and my be specified statically, "
+"listed as dynamic, or left unspecified."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:43
+#: ../../specifications/declaring-project-metadata.rst:56
+#: ../../specifications/declaring-project-metadata.rst:68
+#: ../../specifications/declaring-project-metadata.rst:117
+msgid "TOML_ type: string"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:44
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
+"<core-metadata-name>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:47
+msgid "The name of the project."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:49
+msgid ""
+"Tools SHOULD normalize this name, as specified by :pep:`503`, as soon as "
+"it is read for internal consistency."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:57
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version "
+"<core-metadata-version>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:60
+msgid "The version of the project as supported by :pep:`440`."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:62
+msgid "Users SHOULD prefer to specify already-normalized versions."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:66
+msgid "``description``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:69
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary "
+"<core-metadata-summary>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:72
+msgid "The summary description of the project."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:76
+msgid "``readme``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:78
+msgid "TOML_ type: string or table"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:79
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: "
+":ref:`Description <core-metadata-description>` and :ref:`Description-"
+"Content-Type <core-metadata-description-content-type>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:83
+msgid "The full description of the project (i.e. the README)."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:85
+msgid ""
+"The field accepts either a string or a table. If it is a string then it "
+"is a path relative to ``pyproject.toml`` to a text file containing the "
+"full description. Tools MUST assume the file's encoding is UTF-8. If the "
+"file path ends in a case-insensitive ``.md`` suffix, then tools MUST "
+"assume the content-type is ``text/markdown``. If the file path ends in a "
+"case-insensitive ``.rst``, then tools MUST assume the content-type is "
+"``text/x-rst``. If a tool recognizes more extensions than this PEP, they "
+"MAY infer the content-type for the user without specifying this field as "
+"``dynamic``. For all unrecognized suffixes when a content-type is not "
+"provided, tools MUST raise an error."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:96
+msgid ""
+"The ``readme`` field may also take a table. The ``file`` key has a string"
+" value representing a path relative to ``pyproject.toml`` to a file "
+"containing the full description. The ``text`` key has a string value "
+"which is the full description. These keys are mutually-exclusive, thus "
+"tools MUST raise an error if the metadata specifies both keys."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:103
+msgid ""
+"A table specified in the ``readme`` field also has a ``content-type`` "
+"field which takes a string specifying the content-type of the full "
+"description. A tool MUST raise an error if the metadata does not specify "
+"this field in the table. If the metadata does not specify the ``charset``"
+" parameter, then it is assumed to be UTF-8. Tools MAY support other "
+"encodings if they choose to. Tools MAY support alternative content-types "
+"which they can transform to a content-type as supported by the :ref:`core"
+" metadata <core-metadata>`. Otherwise tools MUST raise an error for "
+"unsupported content-types."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:115
+msgid "``requires-python``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:118
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+"Python <core-metadata-requires-python>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:121
+msgid "The Python version requirements of the project."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:125
+msgid "``license``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:127
+msgid "TOML_ type: table"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:128
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
+"<core-metadata-license>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:131
+msgid ""
+"The table may have one of two keys. The ``file`` key has a string value "
+"that is a file path relative to ``pyproject.toml`` to the file which "
+"contains the license for the project. Tools MUST assume the file's "
+"encoding is UTF-8. The ``text`` key has a string value which is the "
+"license of the project.  These keys are mutually exclusive, so a tool "
+"MUST raise an error if the metadata specifies both keys."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:140
+msgid "``authors``/``maintainers``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:142
+msgid "TOML_ type: Array of inline tables with string keys and values"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:143
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author "
+"<core-metadata-author>`, :ref:`Author-email <core-metadata-author-"
+"email>`, :ref:`Maintainer <core-metadata-maintainer>`, and :ref"
+":`Maintainer-email <core-metadata-maintainer-email>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:149
+msgid ""
+"The people or organizations considered to be the \"authors\" of the "
+"project. The exact meaning is open to interpretation — it may list the "
+"original or primary authors, current maintainers, or owners of the "
+"package."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:154
+msgid ""
+"The \"maintainers\" field is similar to \"authors\" in that its exact "
+"meaning is open to interpretation."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:157
+msgid ""
+"These fields accept an array of tables with 2 keys: ``name`` and "
+"``email``. Both values must be strings. The ``name`` value MUST be a "
+"valid email name (i.e. whatever can be put as a name, before an email, in"
+" `RFC 822`_) and not contain commas. The ``email`` value MUST be a valid "
+"email address. Both keys are optional."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:163
+msgid ""
+"Using the data to fill in :ref:`core metadata <core-metadata>` is as "
+"follows:"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:166
+msgid ""
+"If only ``name`` is provided, the value goes in :ref:`Author <core-"
+"metadata-author>` or :ref:`Maintainer <core-metadata-maintainer>` as "
+"appropriate."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:169
+msgid ""
+"If only ``email`` is provided, the value goes in :ref:`Author-email "
+"<core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
+"maintainer-email>` as appropriate."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:173
+msgid ""
+"If both ``email`` and ``name`` are provided, the value goes in :ref"
+":`Author-email <core-metadata-author-email>` or :ref:`Maintainer-email "
+"<core-metadata-maintainer-email>` as appropriate, with the format "
+"``{name} <{email}>``."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:177
+msgid "Multiple values should be separated by commas."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:181
+msgid "``keywords``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:183
+#: ../../specifications/declaring-project-metadata.rst:193
+msgid "TOML_ type: array of strings"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:184
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
+"<core-metadata-keywords>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:187
+msgid "The keywords for the project."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:191
+msgid "``classifiers``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:194
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: "
+":ref:`Classifier <core-metadata-classifier>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:197
+msgid "Trove classifiers which apply to the project."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:201
+msgid "``urls``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:203
+msgid "TOML_ type: table with keys and values of strings"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:204
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-"
+"URL <core-metadata-project-url>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:207
+msgid ""
+"A table of URLs where the key is the URL label and the value is the URL "
+"itself."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:212
+msgid "Entry points"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:214
+msgid ""
+"TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
+"``[project.entry-points]``)"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:216
+msgid ":ref:`Entry points specification <entry-points>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:218
+msgid ""
+"There are three tables related to entry points. The ``[project.scripts]``"
+" table corresponds to the ``console_scripts`` group in the :ref:`entry "
+"points specification <entry-points>`. The key of the table is the name of"
+" the entry point and the value is the object reference."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:224
+msgid ""
+"The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` "
+"group in the :ref:`entry points specification <entry-points>`. Its format"
+" is the same as ``[project.scripts]``."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:228
+msgid ""
+"The ``[project.entry-points]`` table is a collection of tables. Each sub-"
+"table's name is an entry point group. The key and value semantics are the"
+" same as ``[project.scripts]``. Users MUST NOT create nested sub-tables "
+"but instead keep the entry point groups to only one level deep."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:234
+msgid ""
+"Build back-ends MUST raise an error if the metadata defines a ``[project"
+".entry-points.console_scripts]`` or ``[project.entry-"
+"points.gui_scripts]`` table, as they would be ambiguous in the face of "
+"``[project.scripts]`` and ``[project.gui-scripts]``, respectively."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:242
+msgid "``dependencies``/``optional-dependencies``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:244
+msgid ""
+"TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table "
+"with values of arrays of :pep:`508` strings (``optional-dependencies``)"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:247
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+"Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-"
+"metadata-provides-extra>`"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:251
+msgid "The (optional) dependencies of the project."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:253
+msgid ""
+"For ``dependencies``, it is a key whose value is an array of strings. "
+"Each string represents a dependency of the project and MUST be formatted "
+"as a valid :pep:`508` string. Each string maps directly to a :ref"
+":`Requires-Dist <core-metadata-requires-dist>` entry."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:258
+msgid ""
+"For ``optional-dependencies``, it is a table where each key specifies an "
+"extra and whose value is an array of strings. The strings of the arrays "
+"must be valid :pep:`508` strings. The keys MUST be valid values for :ref"
+":`Provides-Extra <core-metadata-provides-extra>`. Each value in the array"
+" thus becomes a corresponding :ref:`Requires-Dist <core-metadata-"
+"requires-dist>` entry for the matching :ref:`Provides-Extra <core-"
+"metadata-provides-extra>` metadata."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:269
+msgid "``dynamic``"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:271
+msgid "TOML_ type: array of string"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:272
+msgid "A corresponding :ref:`core metadata <core-metadata>` field does not exist"
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:275
+msgid ""
+"Specifies which fields listed by this PEP were intentionally unspecified "
+"so another tool can/will provide such metadata dynamically. This clearly "
+"delineates which metadata is purposefully unspecified and expected to "
+"stay unspecified compared to being provided via tooling later on."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:281
+msgid ""
+"A build back-end MUST honour statically-specified metadata (which means "
+"the metadata did not list the field in ``dynamic``)."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:283
+msgid ""
+"A build back-end MUST raise an error if the metadata specifies ``name`` "
+"in ``dynamic``."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:285
+msgid ""
+"If the :ref:`core metadata <core-metadata>` specification lists a field "
+"as \"Required\", then the metadata MUST specify the field statically or "
+"list it in ``dynamic`` (build back-ends MUST raise an error otherwise, "
+"i.e. it should not be possible for a required field to not be listed "
+"somehow in the ``[project]`` table)."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:290
+msgid ""
+"If the :ref:`core metadata <core-metadata>` specification lists a field "
+"as \"Optional\", the metadata MAY list it in ``dynamic`` if the "
+"expectation is a build back-end will provide the data for the field "
+"later."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:294
+msgid ""
+"Build back-ends MUST raise an error if the metadata specifies a field "
+"statically as well as being listed in ``dynamic``."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:296
+msgid ""
+"If the metadata does not list a field in ``dynamic``, then a build back-"
+"end CANNOT fill in the requisite metadata on behalf of the user (i.e. "
+"``dynamic`` is the only way to allow a tool to fill in metadata and the "
+"user must opt into the filling in)."
+msgstr ""
+
+#: ../../specifications/declaring-project-metadata.rst:300
+msgid ""
+"Build back-ends MUST raise an error if the metadata specifies a field in "
+"``dynamic`` but the build back-end was unable to determine the data for "
+"it (omitting the data, if determined to be the accurate value, is "
+"acceptable)."
+msgstr ""
+
+#: ../../specifications/dependency-specifiers.rst:6
+msgid "Dependency specifiers"
+msgstr ""
+
+#: ../../specifications/dependency-specifiers.rst:8
+msgid ""
+"The dependency specifier format used to declare a dependency on another "
+"component is defined in :pep:`508`."
+msgstr ""
+
+#: ../../specifications/dependency-specifiers.rst:11
+msgid ""
+"The environment markers section in this PEP supersedes the environment "
+"markers section in :pep:`345`."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:6
+msgid "Recording the Direct URL Origin of installed distributions"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:8
+msgid ""
+"This document specifies a :file:`direct_url.json` file in the :file"
+":`*.dist-info` directory of an installed distribution, to record the "
+"Direct URL Origin of the distribution. The layout of this file was "
+"originally specified in :pep:`610` and is formally documented here."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:17
+msgid "Specification"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:19
+msgid ""
+"The :file:`direct_url.json` file MUST be created in the :file:`*.dist-"
+"info` directory by installers when installing a distribution from a "
+"requirement specifying a direct URL reference (including a VCS URL)."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:23
+#: ../../specifications/recording-installed-packages.rst:206
+msgid ""
+"This file MUST NOT be created when installing a distribution from an "
+"other type of requirement (i.e. name plus version specifier)."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:26
+msgid ""
+"This JSON file MUST be a dictionary, compliant with `RFC 8259 "
+"<https://tools.ietf.org/html/rfc8259>`_ and UTF-8 encoded."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:29
+msgid ""
+"If present, it MUST contain at least two fields. The first one is "
+"``url``, with type ``string``. Depending on what ``url`` refers to, the "
+"second field MUST be one of ``vcs_info`` (if ``url`` is a VCS reference),"
+" ``archive_info`` (if ``url`` is a source archives or a wheel), or "
+"``dir_info`` (if ``url``  is a local directory). These info fields have a"
+" (possibly empty) subdictionary as value, with the possible keys defined "
+"below."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:36
+msgid ""
+"``url`` MUST be stripped of any sensitive authentication information, for"
+" security reasons."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:39
+msgid ""
+"The user:password section of the URL MAY however be composed of "
+"environment variables, matching the following regular expression::"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:45
+msgid ""
+"Additionally, the user:password section of the URL MAY be a well-known, "
+"non security sensitive string. A typical example is ``git`` in the case "
+"of an URL such as ``ssh://git@gitlab.com/user/repo``."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:49
+msgid ""
+"When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
+"present as a dictionary with the following keys:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:52
+msgid ""
+"A ``vcs`` key (type ``string``) MUST be present, containing the name of "
+"the VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's "
+"SHOULD be registered by writing a PEP to amend this specification. The "
+"``url`` value MUST be compatible with the corresponding VCS, so an "
+"installer can hand it off without transformation to a checkout/download "
+"command of the VCS."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:58
+msgid ""
+"A ``requested_revision`` key (type ``string``) MAY be present naming a "
+"branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) "
+"to install."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:61
+msgid ""
+"A ``commit_id`` key (type ``string``) MUST be present, containing the "
+"exact commit/revision number that was installed. If the VCS supports "
+"commit-hash based revision identifiers, such commit-hash MUST be used as "
+"``commit_id`` in order to reference the immutable version of the source "
+"code that was installed."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:68
+msgid ""
+"When ``url`` refers to a source archive or a wheel, the ``archive_info`` "
+"key MUST be present as a dictionary with the following key:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:71
+msgid ""
+"A ``hash`` key (type ``string``) SHOULD be present, with value ``<hash-"
+"algorithm>=<expected-hash>``. It is RECOMMENDED that only hashes which "
+"are unconditionally provided by the latest version of the standard "
+"library's ``hashlib`` module be used for source archive hashes. At time "
+"of writing, that list consists of 'md5', 'sha1', 'sha224', 'sha256', "
+"'sha384', and 'sha512'."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:78
+msgid ""
+"When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
+"present as a dictionary with the following key:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:81
+msgid ""
+"``editable`` (type: ``boolean``): ``true`` if the distribution was "
+"installed in editable mode, ``false`` otherwise. If absent, default to "
+"``false``."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:84
+msgid ""
+"When ``url`` refers to a local directory, it MUST have the ``file`` sheme"
+" and be compliant with `RFC 8089 <https://tools.ietf.org/html/rfc8089>`_."
+" In particular, the path component must be absolute. Symbolic links "
+"SHOULD be preserved when making relative paths absolute."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:91
+msgid ""
+"When the requested URL has the file:// scheme and points to a local "
+"directory that happens to contain a VCS checkout, installers MUST NOT "
+"attempt to infer any VCS information and therefore MUST NOT output any "
+"VCS related information (such as ``vcs_info``) in "
+":file:`direct_url.json`."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:96
+msgid ""
+"A top-level ``subdirectory`` field MAY be present containing a directory "
+"path, relative to the root of the VCS repository, source archive or local"
+" directory, to specify where ``pyproject.toml`` or ``setup.py`` is "
+"located."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:102
+msgid ""
+"As a general rule, installers should as much as possible preserve the "
+"information that was provided in the requested URL when generating "
+":file:`direct_url.json`. For example user:password environment variables "
+"should be preserved and ``requested_revision`` should reflect the "
+"revision that was provided in the requested URL as faithfully as "
+"possible. This information is however *enriched* with more precise data, "
+"such as ``commit_id``."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:110
+msgid "Registered VCS"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:112
+msgid ""
+"This section lists the registered VCS's; expanded, VCS-specific "
+"information on how to use the ``vcs``, ``requested_revision``, and other "
+"fields of ``vcs_info``; and in some cases additional VCS-specific fields."
+" Tools MAY support other VCS's although it is RECOMMENDED to register "
+"them by writing a PEP to amend this specification. The ``vcs`` field "
+"SHOULD be the command name (lowercased). Additional fields that would be "
+"necessary to support such VCS SHOULD be prefixed with the VCS command "
+"name."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:122
+msgid "Git"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:124
+#: ../../specifications/direct-url.rst:156
+#: ../../specifications/direct-url.rst:179
+#: ../../specifications/direct-url.rst:202
+msgid "Home page"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:126
+msgid "https://git-scm.com/"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:128
+#: ../../specifications/direct-url.rst:160
+#: ../../specifications/direct-url.rst:183
+#: ../../specifications/direct-url.rst:206
+msgid "vcs command"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:130
+#: ../../specifications/direct-url.rst:134
+msgid "git"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:132
+#: ../../specifications/direct-url.rst:164
+#: ../../specifications/direct-url.rst:187
+#: ../../specifications/direct-url.rst:210
+msgid "``vcs`` field"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:136
+#: ../../specifications/direct-url.rst:168
+#: ../../specifications/direct-url.rst:191
+#: ../../specifications/direct-url.rst:214
+msgid "``requested_revision`` field"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:138
+msgid ""
+"A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
+"other commit-ish."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:141
+#: ../../specifications/direct-url.rst:172
+#: ../../specifications/direct-url.rst:195
+#: ../../specifications/direct-url.rst:219
+msgid "``commit_id`` field"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:143
+msgid "A commit hash (40 hexadecimal characters sha1)."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:147
+msgid ""
+"Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands"
+" to determine if the ``requested_revision`` corresponds to a Git ref. In "
+"turn, a ref beginning with ``refs/tags/`` corresponds to a tag, and a ref"
+" beginning with ``refs/remotes/origin/`` after cloning corresponds to a "
+"branch."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:154
+msgid "Mercurial"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:158
+msgid "https://www.mercurial-scm.org/"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:162
+#: ../../specifications/direct-url.rst:166
+msgid "hg"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:170
+msgid "A tag name, branch name, changeset ID, shortened changeset ID."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:174
+msgid "A changeset ID (40 hexadecimal characters)."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:177
+msgid "Bazaar"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:181
+msgid "https://bazaar.canonical.com/"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:185
+#: ../../specifications/direct-url.rst:189
+msgid "bzr"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:193
+msgid "A tag name, branch name, revision id."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:197
+msgid "A revision id."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:200
+msgid "Subversion"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:204
+msgid "https://subversion.apache.org/"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:208
+#: ../../specifications/direct-url.rst:212
+msgid "svn"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:216
+msgid ""
+"``requested_revision`` must be compatible with ``svn checkout`` "
+"``--revision`` option. In Subversion, branch or tag is part of ``url``."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:221
+msgid ""
+"Since Subversion does not support globally unique identifiers, this field"
+" is the Subversion revision number in the corresponding repository."
+msgstr ""
+
+#: ../../specifications/direct-url.rst:226
+msgid "Examples"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:229
+msgid "Example direct_url.json"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:231
+msgid "Source archive:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:242
+msgid "Git URL with tag and commit-hash:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:255
+msgid "Local directory:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:264
+msgid "Local directory installed in editable mode:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:277
+msgid "Example pip commands and their effect on direct_url.json"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:279
+msgid "Commands that generate a ``direct_url.json``:"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:281
+msgid "pip install https://example.com/app-1.0.tgz"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:282
+msgid "pip install https://example.com/app-1.0.whl"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:283
+msgid ""
+"pip install "
+"\"git+https://example.com/repo/app.git#egg=app&subdirectory=setup\""
+msgstr ""
+
+#: ../../specifications/direct-url.rst:284
+msgid "pip install ./app"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:285
+msgid "pip install file:///home/user/app"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:286
+msgid ""
+"pip install --editable "
+"\"git+https://example.com/repo/app.git#egg=app&subdirectory=setup\" (in "
+"which case, ``url`` will be the local directory where the git repository "
+"has been cloned to, and ``dir_info`` will be present with ``\"editable\":"
+" true`` and no ``vcs_info`` will be set)"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:290
+msgid "pip install -e ./app"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:292
+msgid "Commands that *do not* generate a ``direct_url.json``"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:294
+msgid "pip install app"
+msgstr ""
+
+#: ../../specifications/direct-url.rst:295
+msgid "pip install app --no-index --find-links https://example.com/"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:5
+msgid "Entry points specification"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:7
+msgid ""
+"*Entry points* are a mechanism for an installed distribution to advertise"
+" components it provides to be discovered and used by other code. For "
+"example:"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:11
+msgid ""
+"Distributions can specify ``console_scripts`` entry points, each "
+"referring to a function. When *pip* (or another console_scripts aware "
+"installer) installs the distribution, it will create a command-line "
+"wrapper for each entry point."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:14
+msgid ""
+"Applications can use entry points to load plugins; e.g. Pygments (a "
+"syntax highlighting tool) can use additional lexers and styles from "
+"separately installed packages. For more about this, see :doc:`/guides"
+"/creating-and-discovering-plugins`."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:19
+msgid ""
+"The entry point file format was originally developed to allow packages "
+"built with setuptools to provide integration point metadata that would be"
+" read at runtime with ``importlib.metadata``. It is now defined as a PyPA"
+" interoperability specification in order to allow build tools other than "
+"setuptools to publish ``importlib.metadata`` compatible entry point "
+"metadata, and runtime libraries other than ``importlib.metadata`` to "
+"portably read published entry point metadata (potentially with different "
+"caching and conflict resolution strategies)."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:28
+msgid "Data model"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:30
+msgid "Conceptually, an entry point is defined by three required properties:"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:32
+msgid ""
+"The **group** that an entry point belongs to indicates what sort of "
+"object it provides. For instance, the group ``console_scripts`` is for "
+"entry points referring to functions which can be used as a command, while"
+" ``pygments.styles`` is the group for classes defining pygments styles. "
+"The consumer typically defines the expected interface. To avoid clashes, "
+"consumers defining a new group should use names starting with a PyPI name"
+" owned by the consumer project, followed by ``.``. Group names must be "
+"one or more groups of letters, numbers and underscores, separated by dots"
+" (regex ``^\\w+(\\.\\w+)*$``)."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:42
+msgid ""
+"The **name** identifies this entry point within its group. The precise "
+"meaning of this is up to the consumer. For console scripts, the name of "
+"the entry point is the command that will be used to launch it. Within a "
+"distribution, entry point names should be unique. If different "
+"distributions provide the same name, the consumer decides how to handle "
+"such conflicts. The name may contain any characters except ``=``, but it "
+"cannot start or end with any whitespace character, or start with ``[``. "
+"For new entry points, it is recommended to use only letters, numbers, "
+"underscores, dots and dashes (regex ``[\\w.-]+``)."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:51
+msgid ""
+"The **object reference** points to a Python object. It is either in the "
+"form ``importable.module``, or ``importable.module:object.attr``. Each of"
+" the parts delimited by dots and the colon is a valid Python identifier. "
+"It is intended to be looked up like this::"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:64
+msgid ""
+"Some tools call this kind of object reference by itself an 'entry point',"
+" for want of a better term, especially where it points to a function to "
+"launch a program."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:68
+msgid ""
+"There is also an optional property: the **extras** are a set of strings "
+"identifying optional features of the distribution providing the entry "
+"point. If these are specified, the entry point requires the dependencies "
+"of those 'extras'. See the metadata field :ref:`metadata_provides_extra`."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:73
+msgid ""
+"Using extras for an entry point is no longer recommended. Consumers "
+"should support parsing them from existing distributions, but may then "
+"ignore them. New publishing tools need not support specifying extras. The"
+" functionality of handling extras was tied to setuptools' model of "
+"managing 'egg' packages, but newer tools such as pip and virtualenv use a"
+" different model."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:80
+msgid "File format"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:82
+msgid ""
+"Entry points are defined in a file called :file:`entry_points.txt` in the"
+" :file:`*.dist-info` directory of the distribution. This is the directory"
+" described in :pep:`376` for installed distributions, and in :pep:`427` "
+"for wheels.  The file uses the UTF-8 character encoding."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:87
+msgid ""
+"The file contents are in INI format, as read by Python's "
+":mod:`configparser` module. However, configparser treats names as case-"
+"insensitive by default, whereas entry point names are case sensitive. A "
+"case-sensitive config parser can be made like this::"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:97
+msgid ""
+"The entry points file must always use ``=`` to delimit names from values "
+"(whereas configparser also allows using ``:``)."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:100
+msgid ""
+"The sections of the config file represent entry point groups, the names "
+"are names, and the values encode both the object reference and the "
+"optional extras. If extras are used, they are a comma-separated list "
+"inside square brackets."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:104
+msgid ""
+"Within a value, readers must accept and ignore spaces (including multiple"
+" consecutive spaces) before or after the colon, between the object "
+"reference and the left square bracket, between the extra names and the "
+"square brackets and colons delimiting them, and after the right square "
+"bracket. The syntax for extras is formally specified as part of "
+":pep:`508` (as ``extras``). For tools writing the file, it is recommended"
+" only to insert a space between the object reference and the left square "
+"bracket."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:112
+msgid "For example::"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:124
+msgid "Use for scripts"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:126
+msgid ""
+"Two groups of entry points have special significance in packaging: "
+"``console_scripts`` and ``gui_scripts``. In both groups, the name of the "
+"entry point should be usable as a command in a system shell after the "
+"package is installed. The object reference points to a function which "
+"will be called with no arguments when this command is run. The function "
+"may return an integer to be used as a process exit code, and returning "
+"``None`` is equivalent to returning ``0``."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:134
+msgid ""
+"For instance, the entry point ``mycmd = mymod:main`` would create a "
+"command ``mycmd`` launching a script like this::"
+msgstr ""
+
+#: ../../specifications/entry-points.rst:141
+msgid ""
+"The difference between ``console_scripts`` and ``gui_scripts`` only "
+"affects Windows systems. ``console_scripts`` are wrapped in a console "
+"executable, so they are attached to a console and can use ``sys.stdin``, "
+"``sys.stdout`` and ``sys.stderr`` for input and output. ``gui_scripts`` "
+"are wrapped in a GUI executable, so they can be started without a "
+"console, but cannot use standard streams unless application code "
+"redirects them. Other platforms do not have the same distinction."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:149
+msgid ""
+"Install tools are expected to set up wrappers for both "
+"``console_scripts`` and ``gui_scripts`` in the scripts directory of the "
+"install scheme. They are not responsible for putting this directory in "
+"the ``PATH`` environment variable which defines where command-line tools "
+"are found."
+msgstr ""
+
+#: ../../specifications/entry-points.rst:154
+msgid ""
+"As files are created from the names, and some filesystems are case-"
+"insensitive, packages should avoid using names in these groups which "
+"differ only in case. The behaviour of install tools when names differ "
+"only in case is undefined."
+msgstr ""
+
+#: ../../specifications/index.rst:4
+msgid "PyPA specifications"
+msgstr ""
+
+#: ../../specifications/index.rst:6
+msgid ""
+"This is a list of currently active interoperability specifications "
+"maintained by the Python Packaging Authority. The process for updating "
+"these standards, and for proposing new ones, is documented on `pypa.io "
+"<https://www.pypa.io/en/latest/specifications/>`__."
+msgstr ""
+
+#: ../../specifications/index.rst:13
+msgid "Package Distribution Metadata"
+msgstr ""
+
+#: ../../specifications/index.rst:30
+msgid "Package Distribution File Formats"
+msgstr ""
+
+#: ../../specifications/index.rst:40
+msgid "Package Index Interfaces"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:6
+msgid "Platform compatibility tags"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:8
+msgid ""
+"Platform compatibility tags allow build tools to mark distributions as "
+"being compatible with specific platforms, and allows installers to "
+"understand which distributions are compatible with the system they are "
+"running on."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:12
+msgid ""
+"The platform compatibility tagging model used for the ``wheel`` "
+"distribution format is defined in :pep:`425`."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:16
+msgid "Platform tags for Windows"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:18
+msgid ""
+"The scheme defined in :pep:`425` covers public distribution of wheel "
+"files to systems running Windows."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:22
+msgid "Platform tags for macOS (Mac OS X)"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:24
+msgid ""
+"The scheme defined in :pep:`425` covers public distribution of wheel "
+"files to systems running macOS (previously known as Mac OS X)."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:28
+msgid "Platform tags for common Linux distributions"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:32
+msgid ""
+"The scheme defined in :pep:`425` is insufficient for public distribution "
+"of wheel files (and \\*nix wheel files in general) to Linux platforms, "
+"due to the large ecosystem of Linux platforms and subtle differences "
+"between them."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:36
+msgid ""
+"Instead, :pep:`600` defines the ``manylinux`` standard, which represents "
+"a common subset of Linux platforms, and allows building wheels tagged "
+"with the ``manylinux`` platform tag which can be used across most common "
+"Linux distributions."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:41
+msgid ""
+"There were multiple iterations of the ``manylinux`` specification, each "
+"representing the common subset of Linux platforms at a given point in "
+"time:"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:44
+msgid ""
+"``manylinux1`` (:pep:`513`) supports ``x86_64`` and ``i686`` "
+"architectures, and is based on a compatible Linux platform from 2007."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:46
+msgid ""
+"``manylinux2010`` (:pep:`571`) supports ``x86_64`` and ``i686`` "
+"architectures. and updates the previous specification to be based on a "
+"compatible Linux platform from 2010 instead."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:49
+msgid ""
+"``manylinux2014`` (:pep:`599`) adds support for a number of additional "
+"architectures (``aarch64``, ``armv7l``, ``ppc64``, ``ppc64le``, and "
+"``s390x``) and updates the base platform to a compatible Linux platform "
+"from 2014."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:54
+msgid ""
+"``manylinux_x_y`` (:pep:`600`) supersedes all previous PEPs to define a "
+"future-proof standard. It defines ``x`` and ``y`` as glibc major an minor"
+" versions supported (e.g. ``manylinux_2_24`` should work on any distro "
+"using glibc 2.24+). Previous tags are still supported for backward "
+"compatibility."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:59
+msgid ""
+"In general, distributions built for older versions of the specification "
+"are forwards-compatible (meaning that ``manylinux1`` distributions should"
+" continue to work on modern systems) but not backwards-compatible "
+"(meaning that ``manylinux2010`` distributions are not expected to work on"
+" platforms that existed before 2010)."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:65
+msgid ""
+"Package maintainers should attempt to target the most compatible "
+"specification possible, with the caveat that the provided build "
+"environment for ``manylinux1`` and ``manylinux2010`` have reached end-of-"
+"life meaning that these images will no longer receive security updates."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:71
+msgid "Manylinux compatibility support"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:74
+msgid ""
+"The ``manylinux2014`` specification is relatively new and is not yet "
+"widely recognised by install tools."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:76
+msgid ""
+"The ``manylinux_x_y`` specification is relatively new and is not yet "
+"widely recognised by install tools."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:79
+msgid ""
+"The following table shows the minimum versions of relevant projects to "
+"support the various ``manylinux`` standards:"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:83
+msgid "Tool"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:83
+msgid "``manylinux1``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:83
+msgid "``manylinux2010``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:83
+msgid "``manylinux2014``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:83
+msgid "``manylinux_x_y``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:85
+msgid "pip"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:85
+msgid "``>=8.1.0``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:85
+msgid "``>=19.0``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:85
+msgid "``>=19.3``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:85
+msgid "``>=20.3``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:86
+msgid "auditwheel"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:86
+msgid "``>=1.0.0``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:86
+msgid "``>=2.0.0``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:86
+msgid "``>=3.0.0``"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:86
+msgid "``>=3.3.0`` [#]_"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:90
+msgid "Platform tags for other \\*nix platforms"
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:92
+msgid ""
+"The scheme defined in :pep:`425` is not generally sufficient for public "
+"distribution of wheel files to other \\*nix platforms. Efforts are "
+"currently (albeit intermittently) under way to define improved "
+"compatibility tagging schemes for AIX and for Alpine Linux."
+msgstr ""
+
+#: ../../specifications/platform-compatibility-tags.rst:98
+msgid "Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:6
+msgid "The :file:`.pypirc` file"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:8
+msgid ""
+"A :file:`.pypirc` file allows you to define the configuration for "
+":term:`package indexes <Package Index>` (referred to here as "
+"\"repositories\"), so that you don't have to enter the URL, username, or "
+"password whenever you upload a package with :ref:`twine` or :ref:`flit`."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:13
+msgid "The format (originally defined by the :ref:`distutils` package) is:"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:32
+msgid ""
+"The ``distutils`` section defines an ``index-servers`` field that lists "
+"the name of all sections describing a repository."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:35
+msgid "Each section describing a repository defines three fields:"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:37
+msgid "``repository``: The URL of the repository."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:38
+msgid "``username``: The registered username on the repository."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:39
+msgid "``password``: The password that will used to authenticate the username."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:43
+msgid ""
+"Be aware that this stores your password in plain text. For better "
+"security, consider an alternative like `keyring`_, setting environment "
+"variables, or providing the password on the command line."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:47
+msgid ""
+"Otherwise, set the permissions on :file:`.pypirc` so that only you can "
+"view or modify it. For example, on Linux or macOS, run:"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:57
+msgid "Common configurations"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:61
+msgid ""
+"These examples apply to :ref:`twine`, and projects like :ref:`hatch` that"
+" use it under the hood. Other projects (e.g. :ref:`flit`) also use "
+":file:`.pypirc`, but with different defaults. Please refer to each "
+"project's documentation for more details and usage instructions."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:66
+msgid ""
+"Twine's default configuration mimics a :file:`.pypirc` with repository "
+"sections for PyPI and TestPyPI:"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:82
+msgid ""
+"Twine will add additional configuration from :file:`$HOME/.pypirc`, the "
+"command line, and environment variables to this default configuration."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:86
+msgid "Using a PyPI token"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:88
+msgid ""
+"To set your `API token`_ for PyPI, you can create a :file:`$HOME/.pypirc`"
+" similar to:"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:97
+msgid ""
+"For :ref:`TestPyPI <using-test-pypi>`, add a ``[testpypi]`` section, "
+"using the API token from your TestPyPI account."
+msgstr ""
+
+#: ../../specifications/pypirc.rst:103
+msgid "Using another package index"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:105
+msgid ""
+"To configure an additional repository, you'll need to redefine the "
+"``index-servers`` field to include the repository name. Here is a "
+"complete example of a :file:`$HOME/.pypirc` for PyPI, TestPyPI, and a "
+"private repository:"
+msgstr ""
+
+#: ../../specifications/pypirc.rst:132
+msgid ""
+"Instead of using the ``password`` field, consider saving your API tokens "
+"and passwords securely using `keyring`_ (which is installed by Twine):"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:5
+msgid "Recording installed projects"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:7
+msgid ""
+"This document specifies a common format of recording information about "
+"Python :term:`projects <Project>` installed in an environment. A common "
+"metadata format allows tools to query, manage or uninstall projects, "
+"regardless of how they were installed."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:12
+msgid ""
+"Almost all information is optional. This allows tools outside the Python "
+"ecosystem, such as Linux package managers, to integrate with Python "
+"tooling as much as possible. For example, even if an installer cannot "
+"easily provide a list of installed files in a format specific to Python "
+"tooling, it should still record the name and version of the installed "
+"project."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:21
+msgid "History and change workflow"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:23
+msgid ""
+"The metadata described here was first specified in :pep:`376`, and later "
+"amended in :pep:`627`. It was formerly known as *Database of Installed "
+"Python Distributions*. Further amendments (except trivial language or "
+"typography fixes) must be made through the PEP process (see :pep:`1`)."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:29
+msgid ""
+"While this document is the normative specification, these PEPs that "
+"introduce changes to it may include additional information such as "
+"rationales and backwards compatibility considerations."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:37
+msgid ""
+"Each project installed from a distribution must, in addition to files, "
+"install a \"``.dist-info``\" directory located alongside importable "
+"modules and packages (commonly, the ``site-packages`` directory)."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:41
+msgid ""
+"This directory is named as ``{name}-{version}.dist-info``, with ``name`` "
+"and ``version`` fields corresponding to :ref:`core-metadata`. Both fields"
+" must be normalized (see :pep:`PEP 503 <503#normalized-names>` and "
+":pep:`PEP 440 <440#normalization>` for the definition of normalization "
+"for each field respectively), and replace dash (``-``) characters with "
+"underscore (``_``) chacaters, so the ``.dist-info`` directory always has "
+"exactly one dash (``-``) character in its stem, separating the ``name`` "
+"and ``version`` fields."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:50
+msgid ""
+"Historically, tools have failed to replace dot characters or normalize "
+"case in the ``name`` field, or not perform normalization in the "
+"``version`` field. Tools consuming ``.dist-info`` directories should "
+"expect those fields to be unnormalized, and treat them as equivalent to "
+"their normalized counterparts. New tools that write ``.dist-info`` "
+"directories MUST normalize both ``name`` and ``version`` fields using the"
+" rules described above, and existing tools are encouraged to start "
+"normalizing those fields."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:60
+msgid ""
+"The ``.dist-info`` directory's name is formatted to unambigiously "
+"represent a distribution as a filesystem path. Tools presenting a "
+"distribution name to a user should avoid using the normalized name, and "
+"instead present the specified name (when needed prior to resolution to an"
+" installed package), or read the respective fields in Core Metadata, "
+"since values listed there are unescaped and accurately reflect the "
+"distribution. Libraries should provide API for such tools to consume, so "
+"tools can have access to the unnormalized name when displaying "
+"distrubution information."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:69
+msgid ""
+"This ``.dist-info`` directory can contain these files, described in "
+"detail below:"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:72
+msgid "``METADATA``: contains project metadata"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:73
+msgid "``RECORD``: records the list of installed files."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:74
+msgid "``INSTALLER``: records the name of the tool used to install the project."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:76
+msgid ""
+"The ``METADATA`` file is mandatory. All other files may be omitted at the"
+" installing tool's discretion. Additional installer-specific files may be"
+" present."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:82
+msgid ""
+"The :ref:`binary-distribution-format` specification describes additional "
+"files that may appear in the ``.dist-info`` directory of a :term:`Wheel`."
+" Such files may be copied to the ``.dist-info`` directory of an installed"
+" project."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:87
+msgid ""
+"The previous versions of this specification also specified a "
+"``REQUESTED`` file. This file is now considered a tool-specific "
+"extension, but may be standardized again in the future. See `PEP 376 "
+"<https://www.python.org/dev/peps/pep-0376/#requested>`_ for its original "
+"meaning."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:94
+msgid "The METADATA file"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:96
+msgid ""
+"The ``METADATA`` file contains metadata as described in the :ref:`core-"
+"metadata` specification, version 1.1 or greater."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:99
+msgid ""
+"The ``METADATA`` file is mandatory. If it cannot be created, or if "
+"required core metadata is not available, installers must report an error "
+"and fail to install the project."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:105
+msgid "The RECORD file"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:107
+msgid ""
+"The ``RECORD`` file holds the list of installed files. It is a CSV file "
+"containing one record (line) per installed file."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:110
+msgid ""
+"The CSV dialect must be readable with the default ``reader`` of Python's "
+"``csv`` module:"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:113
+msgid "field delimiter: ``,`` (comma),"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:114
+msgid "quoting char: ``\"`` (straight double quote),"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:115
+msgid "line terminator: either ``\\r\\n`` or ``\\n``."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:117
+msgid ""
+"Each record is composed of three elements: the file's **path**, the "
+"**hash** of the contents, and its **size**."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:120
+msgid ""
+"The *path* may be either absolute, or relative to the directory "
+"containing the ``.dist-info`` directory (commonly, the ``site-packages`` "
+"directory). On Windows, directories may be separated either by forward- "
+"or backslashes (``/`` or ``\\``)."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:125
+msgid ""
+"The *hash* is either an empty string or the name of a hash algorithm from"
+" ``hashlib.algorithms_guaranteed``, followed by the equals character "
+"``=`` and the digest of the file's contents, encoded with the urlsafe-"
+"base64-nopad encoding (``base64.urlsafe_b64encode(digest)`` with trailing"
+" ``=`` removed)."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:130
+msgid ""
+"The *size* is either the empty string, or file's size in bytes, as a base"
+" 10 integer."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:133
+msgid ""
+"For any file, either or both of the *hash* and *size* fields may be left "
+"empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file "
+"itself have empty *hash* and *size*. For other files, leaving the "
+"information out is discouraged, as it prevents verifying the integrity of"
+" the installed project."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:139
+msgid ""
+"If the ``RECORD`` file is present, it must list all installed files of "
+"the project, except ``.pyc`` files corresponding to ``.py`` files listed "
+"in ``RECORD``, which are optional. Notably, the contents of the ``.dist-"
+"info`` directory (including the ``RECORD`` file itself) must be listed. "
+"Directories should not be listed."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:146
+msgid ""
+"To completely uninstall a package, a tool needs to remove all files "
+"listed in ``RECORD``, all ``.pyc`` files (of all optimization levels) "
+"corresponding to removed ``.py`` files, and any directories emptied by "
+"the uninstallation."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:151
+msgid "Here is an example snippet of a possible ``RECORD`` file::"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:170
+msgid ""
+"If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must"
+" not atempt to uninstall or upgrade the package. (This does not apply to "
+"tools that rely on other sources of information, such as system package "
+"managers in Linux distros.)"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:177
+msgid "The INSTALLER file"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:179
+msgid ""
+"If present, ``INSTALLER`` is a single-line text file naming the tool used"
+" to install the project. If the installer is executable from the command "
+"line, ``INSTALLER`` should contain the command name. Otherwise, it should"
+" contain a printable ASCII string."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:185
+msgid "The file can be terminated by zero or more ASCII whitespace characters."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:187
+msgid "Here are examples of two possible ``INSTALLER`` files::"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:195
+msgid ""
+"This value should be used for informational purposes only. For example, "
+"if a tool is asked to uninstall a project but finds no ``RECORD`` file, "
+"it may suggest that the tool named in ``INSTALLER`` may be able to do the"
+" uninstallation."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:201
+msgid "The direct_url.json file"
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:203
+msgid ""
+"This file MUST be created by installers when installing a distribution "
+"from a requirement specifying a direct URL reference (including a VCS "
+"URL)."
+msgstr ""
+
+#: ../../specifications/recording-installed-packages.rst:209
+msgid "Its detailed specification is at :ref:`direct-url`."
+msgstr ""
+
+#: ../../specifications/simple-repository-api.rst:6
+msgid "Simple repository API"
+msgstr ""
+
+#: ../../specifications/simple-repository-api.rst:8
+msgid ""
+"The current interface for querying available package versions and "
+"retrieving packages from an index server is defined in :pep:`503`, with "
+"the addition of \"yank\" support (allowing a kind of file deletion) as "
+"defined in :pep:`592` and specifying the interface version provided by an"
+" index server in :pep:`629`."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:6
+msgid "Source distribution format"
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:8
+msgid ""
+"The current standard format of source distribution format is identified "
+"by the presence of a :file:`pyproject.toml` file in the distribution "
+"archive.  The layout of such a distribution was originally specified in "
+":pep:`517` and is formally documented here."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:13
+msgid ""
+"There is also the legacy source distribution format, implicitly defined "
+"by the behaviour of ``distutils`` module in the standard library, when "
+"executing :command:`setup.py sdist`. This document does not attempt to "
+"standardise this format, except to note that if a legacy source "
+"distribution contains a ``PKG-INFO`` file using metadata version 2.2 or "
+"later, then it MUST follow the rules applicable to source distributions "
+"defined in the metadata specification."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:21
+msgid "Source distributions are also known as *sdists* for short."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:24
+msgid "Source distribution file name"
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:26
+msgid ""
+"The file name of a sdist is not currently standardised, although the *de "
+"facto* form is ``{name}-{version}.tar.gz``, where ``{name}`` is the "
+"canonicalized form of the project name (see :pep:`503` for the "
+"canonicalization rules) with ``-`` characters replaced with ``_``, and "
+"``{version}`` is the project version."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:31
+msgid ""
+"The name and version components of the filename MUST match the values "
+"stored in the metadata contained in the file."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:35
+msgid "Source distribution file format"
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:37
+msgid ""
+"A ``.tar.gz`` source distribution (sdist) contains a single top-level "
+"directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the "
+"source files of the package. The name and version MUST match the metadata"
+" stored in the file. This directory must also contain a "
+":file:`pyproject.toml` in the format defined in :ref:`declaring-build-"
+"dependencies`, and a ``PKG-INFO`` file containing metadata in the format "
+"described in the :ref:`core-metadata` specification. The metadata MUST "
+"conform to at least version 2.2 of the metadata specification."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:45
+msgid ""
+"No other content of a sdist is required or defined. Build systems can "
+"store whatever information they need in the sdist to build the project."
+msgstr ""
+
+#: ../../specifications/source-distribution-format.rst:48
+msgid ""
+"The tarball should use the modern POSIX.1-2001 pax tar format, which "
+"specifies UTF-8 based file names."
+msgstr ""
+
+#: ../../specifications/version-specifiers.rst:6
+msgid "Version specifiers"
+msgstr ""
+
+#: ../../specifications/version-specifiers.rst:8
+msgid ""
+"Version numbering requirements and the semantics for specifying "
+"comparisons between versions are defined in :pep:`440`."
+msgstr ""
+
+#: ../../specifications/version-specifiers.rst:11
+msgid ""
+"The version specifiers section in this PEP supersedes the version "
+"specifiers section in :pep:`345`."
+msgstr ""
+
