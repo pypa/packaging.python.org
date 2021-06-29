@@ -1,0 +1,396 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../source/guides/packaging-binary-extensions.rst:5
+#: 80eff4cb5e6d43f78468a2f8cb1e62ef
+msgid "Packaging binary extensions"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:0
+#: a6ca2977944846488590914f32eb009c
+msgid "Page Status"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:7
+#: 389f4581af554e87a8260fc46a47dcec
+msgid "Incomplete"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:0
+#: b0f9464afe88437fa55f51e8ed6e2dfc
+msgid "Last Reviewed"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:8
+#: ab08eccf77fa491a84584021d40a119a
+msgid "2013-12-08"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:10
+#: 556a76dd05564d9a82564dd32605136f
+msgid "One of the features of the CPython reference interpreter is that, in addition to allowing the execution of Python code, it also exposes a rich C API for use by other software. One of the most common uses of this C API is to create importable C extensions that allow things which aren't always easy to achieve in pure Python code."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:17
+#: 71cdaf3954374a458f45602dbdf874cf
+msgid "Contents"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:20
+#: 0284d3b996ab4ab9a5a01281117593d7
+msgid "An overview of binary extensions"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:23
+#: ac4734be2d6c49ecaa9140dd04169a34
+msgid "Use cases"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:25
+#: 8c0d3c3bc25c4879afae97e398a0688d
+msgid "The typical use cases for binary extensions break down into just three conventional categories:"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:28
+#: 5dd394ec68fd49de88eae62cf2d6fb6c
+msgid "**accelerator modules**: these modules are completely self-contained, and are created solely to run faster than the equivalent pure Python code runs in CPython. Ideally, accelerator modules will always have a pure Python equivalent to use as a fallback if the accelerated version isn't available on a given system. The CPython standard library makes extensive use of accelerator modules. *Example*: When importing ``datetime``, Python falls back to the `datetime.py <https://github.com/python/cpython/blob/master/Lib/datetime.py>`_ module if the C implementation ( `_datetimemodule.c <https://github.com/python/cpython/blob/master/Modules/_datetimemodule.c>`_) is not available."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:39
+#: 015e1ed72c2f41f49b2a67b68dba7557
+msgid "**wrapper modules**: these modules are created to expose existing C interfaces to Python code. They may either expose the underlying C interface directly, or else expose a more \"Pythonic\" API that makes use of Python language features to make the API easier to use. The CPython standard library makes extensive use of wrapper modules. *Example*: `functools.py <https://github.com/python/cpython/blob/master/Lib/functools.py>`_ is a Python module wrapper for `_functoolsmodule.c <https://github.com/python/cpython/blob/master/Modules/_functoolsmodule.c>`_."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:47
+#: 52ceb57f1547453ba7629d36ba57f96c
+msgid "**low-level system access**: these modules are created to access lower level features of the CPython runtime, the operating system, or the underlying hardware. Through platform specific code, extension modules may achieve things that aren't possible in pure Python code. A number of CPython standard library modules are written in C in order to access interpreter internals that aren't exposed at the language level. *Example*: ``sys``, which comes from `sysmodule.c <https://github.com/python/cpython/blob/master/Python/sysmodule.c>`_."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:56
+#: 590412f49bb841eb8bdd6ab29c76f6c4
+msgid "One particularly notable feature of C extensions is that, when they don't need to call back into the interpreter runtime, they can release CPython's global interpreter lock around long-running operations (regardless of whether those operations are CPU or IO bound)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:61
+#: 4315a2237d184a7abc5318a127a180e5
+msgid "Not all extension modules will fit neatly into the above categories. The extension modules included with NumPy, for example, span all three use cases - they move inner loops to C for speed reasons, wrap external libraries written in C, FORTRAN and other languages, and use low level system interfaces for both CPython and the underlying operation system to support concurrent execution of vectorised operations and to tightly control the exact memory layout of created objects."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:71
+#: df9d4dde9c4a4fcdb8214fcf86644f1e
+msgid "Disadvantages"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:73
+#: 0d9bf938940d418caf88eff59e311f12
+msgid "The main disadvantage of using binary extensions is the fact that it makes subsequent distribution of the software more difficult. One of the advantages of using Python is that it is largely cross platform, and the languages used to write extension modules (typically C or C++, but really any language that can bind to the CPython C API) typically require that custom binaries be created for different platforms."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:80
+#: 746cd46a7af3489fac5950e0467293ce
+msgid "This means that binary extensions:"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:82
+#: 3eacfa60997c413fba0439fe1d92c577
+msgid "require that end users be able to either build them from source, or else that someone publish pre-built binaries for common platforms"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:85
+#: b6e21f58ca82439caf5418ad22cd4669
+msgid "may not be compatible with different builds of the CPython reference interpreter"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:88
+#: c82da55217af48438b34ead0f3a5acde
+msgid "often will not work correctly with alternative interpreters such as PyPy, IronPython or Jython"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:91
+#: c45e1c09cf0e49b79fc1c359e0833975
+msgid "if handcoded, make maintenance more difficult by requiring that maintainers be familiar not only with Python, but also with the language used to create the binary extension, as well as with the details of the CPython C API."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:96
+#: 2aa1fe20e7df4ef3be16497d7054abd3
+msgid "if a pure Python fallback implementation is provided, make maintenance more difficult by requiring that changes be implemented in two places, and introducing additional complexity in the test suite to ensure both versions are always executed."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:101
+#: 3a884369b8914d13a1a2984b92e0c33b
+msgid "Another disadvantage of relying on binary extensions is that alternative import mechanisms (such as the ability to import modules directly from zipfiles) often won't work for extension modules (as the dynamic loading mechanisms on most platforms can only load libraries from disk)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:108
+#: a5fae88b6af141c996e2564793eba1a8
+msgid "Alternatives to handcoded accelerator modules"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:110
+#: 21ceeee49053426b8f7c1e95586b2507
+msgid "When extension modules are just being used to make code run faster (after profiling has identified the code where the speed increase is worth additional maintenance effort), a number of other alternatives should also be considered:"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:115
+#: e2f4bb6b92244227aa2e171d5c5e8ce8
+msgid "look for existing optimised alternatives. The CPython standard library includes a number of optimised data structures and algorithms (especially in the builtins and the ``collections`` and ``itertools`` modules). The Python Package Index also offers additional alternatives. Sometimes, the appropriate choice of standard library or third party module can avoid the need to create your own accelerator module."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:122
+#: 8538002b956b4bc39097b6f575d61160
+msgid "for long running applications, the JIT compiled `PyPy interpreter <http://pypy.org/>`__ may offer a suitable alternative to the standard CPython runtime. The main barrier to adopting PyPy is typically reliance on other binary extension modules - while PyPy does emulate the CPython C API, modules that rely on that cause problems for the PyPy JIT, and the emulation layer can often expose latent defects in extension modules that CPython currently tolerates (frequently around reference counting errors - an object having one live reference instead of two often won't break anything, but no references instead of one is a major problem)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:132
+#: 7e46c57ecba44f1784b62f701e0e77dd
+msgid "`Cython <http://cython.org/>`__ is a mature static compiler that can compile most Python code to C extension modules. The initial compilation provides some speed increases (by bypassing the CPython interpreter layer), and Cython's optional static typing features can offer additional opportunities for speed increases. Using Cython still has the disadvantage of increasing the complexity of distributing the resulting application, but has the benefit of having a reduced barrier to entry for Python programmers (relative to other languages like C or C++)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:141
+#: d29373328db246989246a9310f5ca0f9
+msgid "`Numba <http://numba.pydata.org/>`__ is a newer tool, created by members of the scientific Python community, that aims to leverage LLVM to allow selective compilation of pieces of a Python application to native machine code at runtime. It requires that LLVM be available on the system where the code is running, but can provide significant speed increases, especially for operations that are amenable to vectorisation."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:150
+#: 8cb24a77f39e4056b1e047949844d7fd
+msgid "Alternatives to handcoded wrapper modules"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:152
+#: 0d12b23fe3b94e69ac0050b92ae6858b
+msgid "The C ABI (Application Binary Interface) is a common standard for sharing functionality between multiple applications. One of the strengths of the CPython C API (Application Programming Interface) is allowing Python users to tap into that functionality. However, wrapping modules by hand is quite tedious, so a number of other alternative approaches should be considered."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:158
+#: be86a780123d4f719290d9c7f0077bce
+msgid "The approaches described below don't simplify the distribution case at all, but they *can* significantly reduce the maintenance burden of keeping wrapper modules up to date."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:162
+#: d707ca9395054ceea4584e5cee71dada
+msgid "In addition to being useful for the creation of accelerator modules, `Cython <http://cython.org/>`__ is also useful for creating wrapper modules. It still involves wrapping the interfaces by hand, however, so may not be a good choice for wrapping large APIs."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:167
+#: 9ab763d465af4cceb5d9b1cf15911dbf
+msgid "`cffi <https://cffi.readthedocs.io/>`__ is a project created by some of the PyPy developers to make it straightforward for developers that already know both Python and C to expose their C modules to Python applications. It also makes it relatively straightforward to wrap a C module based on its header files, even if you don't know C yourself."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:173
+#: dc92539f0e4246489f84ecd0a0f1ab50
+msgid "One of the key advantages of ``cffi`` is that it is compatible with the PyPy JIT, allowing CFFI wrapper modules to participate fully in PyPy's tracing JIT optimisations."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:177
+#: 067cfa9a654d480eb3488dbd0d6adcc4
+msgid "`SWIG <http://www.swig.org/>`__ is a wrapper interface generator that allows a variety of programming languages, including Python, to interface with C *and C++* code."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:181
+#: e863dd0f8c714adab292f88d92acb095
+msgid "The standard library's ``ctypes`` module, while useful for getting access to C level interfaces when header information isn't available, suffers from the fact that it operates solely at the C ABI level, and thus has no automatic consistency checking between the interface actually being exported by the library and the one declared in the Python code. By contrast, the above alternatives are all able to operate at the C *API* level, using C header files to ensure consistency between the interface exported by the library being wrapped and the one expected by the Python wrapper module. While ``cffi`` *can* operate directly at the C ABI level, it suffers from the same interface inconsistency problems as ``ctypes`` when it is used that way."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:195
+#: f9edc7816d684ab0b6956602dc2aa2d3
+msgid "Alternatives for low level system access"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:197
+#: db7d2c21c0cd4d0593080ec0b7ad8632
+msgid "For applications that need low level system access (regardless of the reason), a binary extension module often *is* the best way to go about it. This is particularly true for low level access to the CPython runtime itself, since some operations (like releasing the Global Interpreter Lock) are simply invalid when the interpreter is running code, even if a module like ``ctypes`` or ``cffi`` is used to obtain access to the relevant C API interfaces."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:205
+#: f69b735ff8ab4ac8922bd441cbb64450
+msgid "For cases where the extension module is manipulating the underlying operating system or hardware (rather than the CPython runtime), it may sometimes be better to just write an ordinary C library (or a library in another systems programming language like C++ or Rust that can export a C compatible ABI), and then use one of the wrapping techniques described above to make the interface available as an importable Python module."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:214
+#: 1c66f4de96ec46fbba67b702b1324c03
+msgid "Implementing binary extensions"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:216
+#: 05146d6000cb47799ce4ee4dad209cdd
+msgid "The CPython `Extending and Embedding <https://docs.python.org/3/extending/>`_ guide includes an introduction to writing a `custom extension module in C <https://docs.python.org/3/extending/extending.html>`_."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:233
+#: 1ef62e2dc7d1404fa7f03858ff26ae64
+msgid "Building binary extensions"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:236
+#: 3692659e6ee247acb6a7250d45d9b9f7
+msgid "Binary extensions for Windows"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:238
+#: 063528ee4eb340fbbc6065f622205932
+msgid "Before it is possible to build a binary extension, it is necessary to ensure that you have a suitable compiler available. On Windows, Visual C is used to build the official CPython interpreter, and should be used to build compatible binary extensions."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:243
+#: e366ce0629574daab1c027d30a5b22f0
+msgid "Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010, and Python 3.5+ uses Visual Studio 2015 or later. Unfortunately, older versions of Visual Studio are no longer easily available from Microsoft, so for versions of Python prior to 3.5, the compilers must be obtained differently if you do not already have a copy of the relevant version of Visual Studio."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:249
+#: eb75bbf6134742eeb775cb299e3d4c52
+msgid "To set up a build environment for binary extensions, the steps are as follows:"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:251
+#: ca9deed9757549b3ba580319a25bd332
+msgid "For Python 2.7"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:253
+#: 186b764302494d6f930fc36f44ea9664
+msgid "Install \"Visual C++ Compiler Package for Python 2.7\", which is available from `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=44266>`__."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:256
+#: 50185a0ddc16412686349a50c885ba1f
+msgid "Use (a recent version of) setuptools in your setup.py (pip will do this for you, in any case)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:258
+#: ../source/guides/packaging-binary-extensions.rst:268
+#: ../source/guides/packaging-binary-extensions.rst:275
+#: 6465321ffb99419d8233153c4f42376b
+#: 595cdd33ca6240bbb892ecd28080013c
+#: c927c7a8c688452eb5650ef45b586315
+msgid "Done."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:260
+#: d454b7be90274c06839e43955dac4a1b
+msgid "For Python 3.4"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:262
+#: d8c63236fe85486ca3a7518feb085f1b
+msgid "Install \"Windows SDK for Windows 7 and .NET Framework 4\" (v7.1), which is available from `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=8279>`__."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:265
+#: 5aca808ca93340c4abe661dc0c6d44e5
+msgid "Work from an SDK command prompt (with the environment variables set, and the SDK on PATH)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:267
+#: 952c6b83f6e9473ba72e18cc4f9520e7
+msgid "Set DISTUTILS_USE_SDK=1"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:270
+#: 1267f6ae4bb1409c9a44a98b9f69d89f
+msgid "For Python 3.5"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:272
+#: f513754ddeee42a09136795ded2d049a
+msgid "Install `Visual Studio 2015 Community Edition <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__ (or any later version, when these are released)."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:277
+#: 3b4022b5f7824d679e0cacace7e6bc58
+msgid "Note that from Python 3.5 onwards, Visual Studio works in a backward compatible way, which means that any future version of Visual Studio will be able to build Python extensions for all Python versions from 3.5 onwards."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:281
+#: 3f84243f62cb4b898d42153bd5dfac80
+msgid "Building with the recommended compiler on Windows ensures that a compatible C library is used throughout the Python process."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:285
+#: fdb4472442da4e56aad8b110dbcff4da
+msgid "Binary extensions for Linux"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:287
+#: 95ad0be96d1743b5a7af826d567d787c
+msgid "Linux binaries must use a sufficiently old glibc to be compatible with older distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker images provide a build environment with a glibc old enough to support most current Linux distributions on common architectures."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:293
+#: e135bf842c0d46f6a1da5e9b03945af9
+msgid "Binary extensions for macOS"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:295
+#: bc9953f78326442db69baa432794a9fb
+msgid "Binary compatibility on macOS is determined by the target minimum deployment system, e.g. *10.9*, which is often specified with the ``MACOSX_DEPLOYMENT_TARGET`` environmental variable when building binaries on macOS. When building with setuptools / distutils, the deployment target is specified with the flag ``--plat-name``, e.g. ``macosx-10.9-x86_64``. For common deployment targets for macOS Python distributions, see the `MacPython Spinning Wheels wiki <https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:305
+#: 5d3161e8b68b4416957b8f528c614088
+msgid "Publishing binary extensions"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:307
+#: d6fe4937fd164b0cb49f13f65a097a07
+msgid "For interim guidance on this topic, see the discussion in `this issue <https://github.com/pypa/python-packaging-user-guide/issues/284>`_."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:323
+#: ff23ccbdb63447b7a3ed5e64f702c330
+msgid "Additional resources"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:325
+#: 731888aa32f2456db95f527283aba5e2
+msgid "Cross-platform development and distribution of extension modules is a complex topic, so this guide focuses primarily on providing pointers to various tools that automate dealing with the underlying technical challenges. The additional resources in this section are instead intended for developers looking to understand more about the underlying binary interfaces that those systems rely on at runtime."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:332
+#: 0774ae9d16f548a788eeb8d655240ac9
+msgid "Cross-platform wheel generation with scikit-build"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:334
+#: dd4357f6141c44bf8a39e54ae946e45f
+msgid "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package helps abstract cross-platform build operations and provides additional capabilities when creating binary extension packages. Additional documentation is also available on the `C runtime, compiler, and build system generator <https://scikit-build.readthedocs.io/en/latest/generators.html>`_ for Python binary extension modules."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:342
+#: 4674231430264963b5eb2f350ee80653
+msgid "Introduction to C/C++ extension modules"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:344
+#: 407b37e0413d4a78854544d19330ad85
+msgid "For a more in depth explanation of how extension modules are used by CPython on a Debian system, see the following articles:"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:347
+#: 6baa7394128d4a10a354660336fb824d
+msgid "`What are (c)python extension modules? <https://thomasnyberg.com/what_are_extension_modules.html>`_"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:348
+#: bc2631279a11488db4e3392749aaacb4
+msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:349
+#: 778d27ba7ddc42dbb7880a6b5ce57d86
+msgid "`Writing cpython extension modules using C++ <https://thomasnyberg.com/cpp_extension_modules.html>`_"
+msgstr ""

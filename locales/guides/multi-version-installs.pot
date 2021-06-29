@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../source/guides/multi-version-installs.rst:5
+#: 079c3ad651204d418e5bc990b8d9e3fc
+msgid "Multi-version installs"
+msgstr ""
+
+#: ../source/guides/multi-version-installs.rst:8
+#: ef482aba2f074c509065e4fc5aef6657
+msgid "easy_install allows simultaneous installation of different versions of the same project into a single environment shared by multiple programs which must ``require`` the appropriate version of the project at run time (using ``pkg_resources``)."
+msgstr ""
+
+#: ../source/guides/multi-version-installs.rst:13
+#: 29ef751e8d20422abbb849d89c1f1d86
+msgid "For many use cases, virtual environments address this need without the complication of the ``require`` directive. However, the advantage of parallel installations within the same environment is that it works for an environment shared by multiple applications, such as the system Python in a Linux distribution."
+msgstr ""
+
+#: ../source/guides/multi-version-installs.rst:19
+#: d8f306b22ee941178dd195ff423c0586
+msgid "The major limitation of ``pkg_resources`` based parallel installation is that as soon as you import ``pkg_resources`` it locks in the *default* version of everything which is already available on sys.path. This can cause problems, since ``setuptools`` created command line scripts use ``pkg_resources`` to find the entry point to execute. This means that, for example, you can't use ``require`` tests invoked through ``nose`` or a WSGI application invoked through ``gunicorn`` if your application needs a non-default version of anything that is available on the standard ``sys.path`` - the script wrapper for the main application will lock in the version that is available by default, so the subsequent ``require`` call in your own code fails with a spurious version conflict."
+msgstr ""
+
+#: ../source/guides/multi-version-installs.rst:31
+#: 8eed801ae1204073a4501b64ed622d4e
+msgid "This can be worked around by setting all dependencies in ``__main__.__requires__`` before importing ``pkg_resources`` for the first time, but that approach does mean that standard command line invocations of the affected tools can't be used - it's necessary to write a custom wrapper script or use ``python -c '<command>'`` to invoke the application's main entry point directly."
+msgstr ""
+
+#: ../source/guides/multi-version-installs.rst:38
+#: ae204202165f4cdd8d99689b7081f7c7
+msgid "Refer to the `pkg_resources documentation <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-objects>`__ for more details."
+msgstr ""

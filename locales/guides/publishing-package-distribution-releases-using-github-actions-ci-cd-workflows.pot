@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:3
+#: 976e752aa3c3434a942ccfb3f265cf15
+msgid "Publishing package distribution releases using GitHub Actions CI/CD workflows"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
+#: 2df906e003734bf686af6f0d2bbd26cb
+msgid "`GitHub Actions CI/CD`_ allows you to run a series of commands whenever an event occurs on the GitHub platform. One popular choice is having a workflow that's triggered by a ``push`` event. This guide shows you how to publish a Python distribution whenever a tagged commit is pushed. It will use the `pypa/gh-action-pypi-publish GitHub Action`_."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
+#: dee63422b7ce4441bda9226b2504f2ec
+msgid "This guide *assumes* that you already have a project that you know how to build distributions for and *it lives on GitHub*."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:19
+#: 8c72c4c92a364785b612d37214e08998
+msgid "Saving credentials on GitHub"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
+#: 24fefbf2073843879a8cffe32f8ac246
+msgid "In this guide, we'll demonstrate uploading to both PyPI and TestPyPI, meaning that we'll have two separate sets of credentials. And we'll need to save them in the GitHub repository settings."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:26
+#: 20cd013ca9104072a8dc2eeb213ebe58
+msgid "Let's begin! 🚀"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
+#: f49e0fc7ccf646328e8e77207430891f
+msgid "Go to https://pypi.org/manage/account/#api-tokens and create a new `API token`_. If you have the project on PyPI already, limit the token scope to just that project. You can call it something like ``GitHub Actions CI/CD — project-org/project-repo`` in order for it to be easily distinguishable in the token list. **Don't close the page just yet — you won't see that token again.**"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:37
+#: 172e9c70529a48b199aa5ca5552eedd6
+msgid "In a separate browser tab or window, go to the ``Settings`` tab of your target repository and then click on `Secrets`_ in the left sidebar."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:40
+#: 2a45f3915670437198f5ee0f8571139f
+msgid "Create a new secret called ``PYPI_API_TOKEN`` and copy-paste the token from the first step."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
+#: 453f7ad78345437aba24c7be5d774319
+msgid "Now, go to https://test.pypi.org/manage/account/#api-tokens and repeat the steps. Save that TestPyPI token on GitHub as ``TEST_PYPI_API_TOKEN``."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:48
+#: 226bd3f7edb540468720acf4c2c7e41e
+msgid "If you don't have a TestPyPI account, you'll need to create it. It's not the same as a regular PyPI account."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:53
+#: c011ab89a78a426c9bb5689dc9642e5a
+msgid "Creating a workflow definition"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
+#: 99185b66e9754174b2f18fe4019f6ebd
+msgid "GitHub CI/CD workflows are declared in YAML files stored in the ``.github/workflows/`` directory of your repository."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:58
+#: c69445a848c04ff0a49f7953e5f308d2
+msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
+#: e2472352af154dc68f03795427323d22
+msgid "Start it with a meaningful name and define the event that should make GitHub run this workflow:"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
+#: 4c4fa25fab774839a5d054e369915d81
+msgid "Defining a workflow job environment"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
+#: 3bfca5491a234dc3a72146a00163f352
+msgid "Now, let's add initial setup for our job. It's a process that will execute commands that we'll define later. In this guide, we'll use Ubuntu 18.04:"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:83
+#: fa421aaa5aeb4d068bcecf1ff7da633b
+msgid "Checking out the project and building distributions"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:85
+#: 57a2e02b04d748dd9bd0d2c04cd5fb81
+msgid "Then, add the following under the ``build-n-publish`` section:"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:92
+#: 1d7685700a5241e89b5c6e812dfe2d2e
+msgid "This will download your repository into the CI runner and then install and activate Python 3.7."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:95
+#: 95a34a556769478cb0e3ee2fb09a7c1f
+msgid "And now we can build dists from source. In this example, we'll use ``build`` package, assuming that your project has a ``pyproject.toml`` properly set up (see :pep:`517`/:pep:`518`)."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:102
+#: 8d3bdf0f7e7c4b4c99d21c2439e8e69e
+msgid "You can use any other method for building distributions as long as it produces ready-to-upload artifacts saved into the ``dist/`` folder."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:106
+#: 39c61b96697b4bd4960364602946b404
+msgid "So add this to the steps list:"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:115
+#: 77baa76b8c194affa3ccde5233c8f3a7
+msgid "Publishing the distribution to PyPI and TestPyPI"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:117
+#: f70f6e7dd4104ee492fea7630767b2cc
+msgid "Finally, add the following steps at the end:"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:123
+#: 0ab02d5434864bcc861b5f988aa048d5
+msgid "These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the first one uploads contents of the ``dist/`` folder into TestPyPI unconditionally and the second does that to PyPI, but only if the current commit is tagged."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#: dba9242249194b2ea20e467d73244da0
+msgid "That's all, folks!"
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:132
+#: c547c52550ed4abc804040aacb850fcb
+msgid "Now, whenever you push a tagged commit to your Git repository remote on GitHub, this workflow will publish it to PyPI. And it'll publish any push to TestPyPI which is useful for providing test builds to your alpha users as well as making sure that your release pipeline remains healthy!"
+msgstr ""

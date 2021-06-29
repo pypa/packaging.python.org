@@ -10,8 +10,9 @@ import nox
 def translation(session):
     session.install("sphinx-intl")
     session.install("sphinx-inline-tabs")
-    session.run("cd","source")
-    session.run("make","gettext")
+    target_dir = "locales"
+    session.run("sphinx-build", "-b", "gettext", "source/", target_dir)
+    
 
 @nox.session(py="3")
 def build(session, autobuild=False):
