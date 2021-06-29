@@ -85,7 +85,7 @@ release = ''
 locale_dirs = ['locales']
 language = None
 
-gettext_compact = False
+gettext_compact = "messages"
 gettext_uuid = True
 
 # There are two options for replacing |today|: either, you set today to some
