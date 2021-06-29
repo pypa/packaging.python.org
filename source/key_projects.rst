@@ -174,8 +174,8 @@ pipx
 `GitHub <https://github.com/pypa/pipx>`__ |
 `PyPI <https://pypi.org/project/pipx/>`__
 
-pipx is a tool to safely install and run Python CLI applications globally
-or even install and run them directly in a single line.
+pipx is a tool to install and run Python command-line applications without
+causing dependency conflicts with other packages installed on the system.
 
 
 Python Packaging User Guide
