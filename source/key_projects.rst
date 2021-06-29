@@ -55,7 +55,7 @@ cibuildwheel
 `Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
 `Discord #cibuildwheel <https://discord.com/invite/pypa>`__
 
-``cibuildwheel`` is a Python package that builds wheels for all common
+``cibuildwheel`` is a Python package that builds :term:`wheels <Wheels>` for all common
 platforms and Python versions on most CI systems. Also see :ref:`multibuild`.
 
 .. _distlib:
@@ -464,7 +464,7 @@ multibuild
 
 `GitHub <https://github.com/matthew-brett/multibuild>`__
 
-Multibuild is a set of CI scripts for building and testing Python Wheels for
+Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
 Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
 
 .. _pex:
