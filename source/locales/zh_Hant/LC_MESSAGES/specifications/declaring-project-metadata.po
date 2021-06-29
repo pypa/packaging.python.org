@@ -1,0 +1,583 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../source/specifications/declaring-project-metadata.rst:5
+#: 72338416547f496096a109c27c63d5c4
+msgid "Declaring project metadata"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:7
+#: ce1cfa39f1214232997ed4f4184193a8
+msgid ""
+":pep:`621` specifies how to write a project's :ref:`core metadata <core-"
+"metadata>` in a ``pyproject.toml`` file for packaging-related tools to "
+"consume. It defines the following specification as the canonical source "
+"for the format used."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:12
+#: 5355282f74694c548a4dfd51d1ded279
+msgid ""
+"There are two kinds of metadata: *static* and *dynamic*. Static metadata "
+"is specified in the ``pyproject.toml`` file directly and cannot be "
+"specified or changed by a tool. Dynamic metadata is listed via the "
+"``dynamic`` field (defined later in this specification) and represents "
+"metadata that a tool will later provide."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:18
+#: 15880a8f4d0045c6a4b2843187c06c0c
+msgid ""
+"The fields defined in this specification MUST be in a table named "
+"``[project]`` in ``pyproject.toml``. No tools may add fields to this "
+"table which are not defined by this specification. For tools wishing to "
+"store their own settings in ``pyproject.toml``, they may use the "
+"``[tool]`` table as defined in the :ref:`build dependency declaration "
+"specification <declaring-build-dependencies>`. The lack of a "
+"``[project]`` table implicitly means the build back-end will dynamically "
+"provide all fields."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:27
+#: d75d7db5f486483da6a5032e5232c17f
+msgid "The only fields required to be statically defined are:"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:29
+#: ../source/specifications/declaring-project-metadata.rst:41
+#: 91cae80b8bd3420bb5c519b865bdeb11 b7fcf208083b4ee999252f87131b1c9d
+msgid "``name``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:31
+#: e4b6f3fd60bd40c29a6cd2625d205148
+msgid ""
+"The fields which are required but may be specified *either* statically or"
+" listed as dynamic are:"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:34
+#: ../source/specifications/declaring-project-metadata.rst:54
+#: 818d73b29cfb412aaa5715f3389a95f7 d569540643a74d51806105570cc96c22
+msgid "``version``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:36
+#: a3a14bb7d21a48a492b1c83860edc268
+msgid ""
+"All other fields are considered optional and my be specified statically, "
+"listed as dynamic, or left unspecified."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:43
+#: ../source/specifications/declaring-project-metadata.rst:56
+#: ../source/specifications/declaring-project-metadata.rst:68
+#: ../source/specifications/declaring-project-metadata.rst:117
+#: 1f0058c1a15442768daa8a47b37697c6 b5faae8d79ce452eb5fecc480652d352
+#: c2c285a279524299a09c28e104980f7d cc847d1d53b34a928d4f1ee2b1a3ddc4
+msgid "TOML_ type: string"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:44
+#: 1c123b98a65d40deb02372cc76139849
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
+"<core-metadata-name>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:47
+#: f933eebb594648099936a4e1181a790a
+msgid "The name of the project."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:49
+#: 47c040797a89441fbcb8d4977b62a470
+msgid ""
+"Tools SHOULD normalize this name, as specified by :pep:`503`, as soon as "
+"it is read for internal consistency."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:57
+#: a8a7bb5a256540009ef1cab2826dab9e
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version "
+"<core-metadata-version>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:60
+#: c124cc8e16b64144b6660063bb7c450a
+msgid "The version of the project as supported by :pep:`440`."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:62
+#: 471b1e6973b54b878d7e62f6d8806f58
+msgid "Users SHOULD prefer to specify already-normalized versions."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:66
+#: c625e83c83984cf0a17e7f3b71671a18
+msgid "``description``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:69
+#: 82e48cb0ebca40e2b199cd2b6eb9d709
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary "
+"<core-metadata-summary>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:72
+#: a937e614d72c4e59be48146feb9fe53c
+msgid "The summary description of the project."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:76
+#: 8b83250bf75a4ca6bed4c2c9694a29c8
+msgid "``readme``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:78
+#: 24863e465e6641239dc53411ed5608c1
+msgid "TOML_ type: string or table"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:79
+#: 7759de48ace64bc8b1832ff6f2ef7692
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: "
+":ref:`Description <core-metadata-description>` and :ref:`Description-"
+"Content-Type <core-metadata-description-content-type>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:83
+#: 6746a1e6825e49989c8c07b1f4298724
+msgid "The full description of the project (i.e. the README)."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:85
+#: 51e124811af8439dab732747357342da
+msgid ""
+"The field accepts either a string or a table. If it is a string then it "
+"is a path relative to ``pyproject.toml`` to a text file containing the "
+"full description. Tools MUST assume the file's encoding is UTF-8. If the "
+"file path ends in a case-insensitive ``.md`` suffix, then tools MUST "
+"assume the content-type is ``text/markdown``. If the file path ends in a "
+"case-insensitive ``.rst``, then tools MUST assume the content-type is "
+"``text/x-rst``. If a tool recognizes more extensions than this PEP, they "
+"MAY infer the content-type for the user without specifying this field as "
+"``dynamic``. For all unrecognized suffixes when a content-type is not "
+"provided, tools MUST raise an error."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:96
+#: da9e7b62bf624e61b2b90715646684b1
+msgid ""
+"The ``readme`` field may also take a table. The ``file`` key has a string"
+" value representing a path relative to ``pyproject.toml`` to a file "
+"containing the full description. The ``text`` key has a string value "
+"which is the full description. These keys are mutually-exclusive, thus "
+"tools MUST raise an error if the metadata specifies both keys."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:103
+#: 43b9d1ad061a4b9893ceea44ec470c7e
+msgid ""
+"A table specified in the ``readme`` field also has a ``content-type`` "
+"field which takes a string specifying the content-type of the full "
+"description. A tool MUST raise an error if the metadata does not specify "
+"this field in the table. If the metadata does not specify the ``charset``"
+" parameter, then it is assumed to be UTF-8. Tools MAY support other "
+"encodings if they choose to. Tools MAY support alternative content-types "
+"which they can transform to a content-type as supported by the :ref:`core"
+" metadata <core-metadata>`. Otherwise tools MUST raise an error for "
+"unsupported content-types."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:115
+#: 99093e97441b4802b9a6833fe908eab4
+msgid "``requires-python``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:118
+#: f1f951eb0a2b47c6b718d4b3f632f213
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+"Python <core-metadata-requires-python>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:121
+#: aadfcb4b8cb6484e9acb5424cd0a1e9a
+msgid "The Python version requirements of the project."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:125
+#: fbb70b09c9a34ada8ea31e1747dc5c39
+msgid "``license``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:127
+#: 34dca37755d041b994da8816a1c10903
+msgid "TOML_ type: table"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:128
+#: dec42ae79a6041e3b9f86152d9c46037
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
+"<core-metadata-license>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:131
+#: 6f0cf7dfe40c4bd1a91d69b4582b5a24
+msgid ""
+"The table may have one of two keys. The ``file`` key has a string value "
+"that is a file path relative to ``pyproject.toml`` to the file which "
+"contains the license for the project. Tools MUST assume the file's "
+"encoding is UTF-8. The ``text`` key has a string value which is the "
+"license of the project.  These keys are mutually exclusive, so a tool "
+"MUST raise an error if the metadata specifies both keys."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:140
+#: 643e45d7c7d2464386442fc79af6fdee
+msgid "``authors``/``maintainers``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:142
+#: 1c829541a44e461c87a8dab133ffa867
+msgid "TOML_ type: Array of inline tables with string keys and values"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:143
+#: 2c06327b34004b539df5ffaa50a03870
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author "
+"<core-metadata-author>`, :ref:`Author-email <core-metadata-author-"
+"email>`, :ref:`Maintainer <core-metadata-maintainer>`, and :ref"
+":`Maintainer-email <core-metadata-maintainer-email>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:149
+#: 96c69eb751114b8a82174583b97415d6
+msgid ""
+"The people or organizations considered to be the \"authors\" of the "
+"project. The exact meaning is open to interpretation — it may list the "
+"original or primary authors, current maintainers, or owners of the "
+"package."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:154
+#: 913e0b1732794ac48c73168d3c34613c
+msgid ""
+"The \"maintainers\" field is similar to \"authors\" in that its exact "
+"meaning is open to interpretation."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:157
+#: 11920d5dc471401bb458d5ea44fb122a
+msgid ""
+"These fields accept an array of tables with 2 keys: ``name`` and "
+"``email``. Both values must be strings. The ``name`` value MUST be a "
+"valid email name (i.e. whatever can be put as a name, before an email, in"
+" `RFC 822`_) and not contain commas. The ``email`` value MUST be a valid "
+"email address. Both keys are optional."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:163
+#: b1d98506ad2a4f52acf0539ab510eb41
+msgid ""
+"Using the data to fill in :ref:`core metadata <core-metadata>` is as "
+"follows:"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:166
+#: 17ce8323339a445e9911284f1c30dd39
+msgid ""
+"If only ``name`` is provided, the value goes in :ref:`Author <core-"
+"metadata-author>` or :ref:`Maintainer <core-metadata-maintainer>` as "
+"appropriate."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:169
+#: 06e0f90a4a76473bbf9ea5aec2d08821
+msgid ""
+"If only ``email`` is provided, the value goes in :ref:`Author-email "
+"<core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
+"maintainer-email>` as appropriate."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:173
+#: dbbfc875e60f425f846da294ee1b4094
+msgid ""
+"If both ``email`` and ``name`` are provided, the value goes in :ref"
+":`Author-email <core-metadata-author-email>` or :ref:`Maintainer-email "
+"<core-metadata-maintainer-email>` as appropriate, with the format "
+"``{name} <{email}>``."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:177
+#: b5b9de8ea48d4db8b1dc7f1dcee5ce4a
+msgid "Multiple values should be separated by commas."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:181
+#: 1c9616276a97400bbde5bc60e994d626
+msgid "``keywords``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:183
+#: ../source/specifications/declaring-project-metadata.rst:193
+#: 42d76101b2b544d19107e48ec8162c92 b8908ac0fcb248acbae1d51b7eb28df7
+msgid "TOML_ type: array of strings"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:184
+#: e73e458729494d7eadf3272ac0ebcbdf
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
+"<core-metadata-keywords>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:187
+#: 326e78daa99844329ffd6b22fa950d11
+msgid "The keywords for the project."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:191
+#: 2900f259878a4a59b052378faea87048
+msgid "``classifiers``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:194
+#: bcb78ce530f246a28fe971bda419c3b4
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: "
+":ref:`Classifier <core-metadata-classifier>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:197
+#: ea3b050f98304629acf852b2216f707e
+msgid "Trove classifiers which apply to the project."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:201
+#: e1bb16f42675455fabe65cff37125694
+msgid "``urls``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:203
+#: b37a98b26fcf49c9b790f5cbf9df9eaf
+msgid "TOML_ type: table with keys and values of strings"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:204
+#: 8530f62dccdf478a89e73d52a883603b
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-"
+"URL <core-metadata-project-url>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:207
+#: 72c60a439f924b72a1fd44e6ba2200db
+msgid ""
+"A table of URLs where the key is the URL label and the value is the URL "
+"itself."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:212
+#: 61c18ed356554ababb1196e48cd6c145
+msgid "Entry points"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:214
+#: 827b777247644befa4574454bbdf63d8
+msgid ""
+"TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
+"``[project.entry-points]``)"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:216
+#: 825f638f7fef491aa94ef21b6da8266b
+msgid ":ref:`Entry points specification <entry-points>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:218
+#: c738b46ea68d498390ad4a51f22b8415
+msgid ""
+"There are three tables related to entry points. The ``[project.scripts]``"
+" table corresponds to the ``console_scripts`` group in the :ref:`entry "
+"points specification <entry-points>`. The key of the table is the name of"
+" the entry point and the value is the object reference."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:224
+#: 667e3f77f23341b3a66b46da12f03721
+msgid ""
+"The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` "
+"group in the :ref:`entry points specification <entry-points>`. Its format"
+" is the same as ``[project.scripts]``."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:228
+#: 83907993efbc4aa18e6662d47dbe8714
+msgid ""
+"The ``[project.entry-points]`` table is a collection of tables. Each sub-"
+"table's name is an entry point group. The key and value semantics are the"
+" same as ``[project.scripts]``. Users MUST NOT create nested sub-tables "
+"but instead keep the entry point groups to only one level deep."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:234
+#: 6146bc9c45e244bc8cec46e05588cb95
+msgid ""
+"Build back-ends MUST raise an error if the metadata defines a ``[project"
+".entry-points.console_scripts]`` or ``[project.entry-"
+"points.gui_scripts]`` table, as they would be ambiguous in the face of "
+"``[project.scripts]`` and ``[project.gui-scripts]``, respectively."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:242
+#: 842bb4b50fe348faba74b4de6f696e63
+msgid "``dependencies``/``optional-dependencies``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:244
+#: 615ded037a95450a97ce6110da3202d9
+msgid ""
+"TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table "
+"with values of arrays of :pep:`508` strings (``optional-dependencies``)"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:247
+#: eb6df0f5601c4a80a44903dab839748b
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+"Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-"
+"metadata-provides-extra>`"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:251
+#: bfd559a8a6054f39876c8755a7996cba
+msgid "The (optional) dependencies of the project."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:253
+#: e7f40a1570194b33a1e7e2e694ae0f7a
+msgid ""
+"For ``dependencies``, it is a key whose value is an array of strings. "
+"Each string represents a dependency of the project and MUST be formatted "
+"as a valid :pep:`508` string. Each string maps directly to a :ref"
+":`Requires-Dist <core-metadata-requires-dist>` entry."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:258
+#: 1058f7e32bd147ae87f0d45d8ef340d7
+msgid ""
+"For ``optional-dependencies``, it is a table where each key specifies an "
+"extra and whose value is an array of strings. The strings of the arrays "
+"must be valid :pep:`508` strings. The keys MUST be valid values for :ref"
+":`Provides-Extra <core-metadata-provides-extra>`. Each value in the array"
+" thus becomes a corresponding :ref:`Requires-Dist <core-metadata-"
+"requires-dist>` entry for the matching :ref:`Provides-Extra <core-"
+"metadata-provides-extra>` metadata."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:269
+#: f022a42ef41b4189b8e9ce9ea6edefdb
+msgid "``dynamic``"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:271
+#: 2af4aa4193d042f797a05141910145e1
+msgid "TOML_ type: array of string"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:272
+#: 5d22cb38b4f345ff9606614022baa378
+msgid "A corresponding :ref:`core metadata <core-metadata>` field does not exist"
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:275
+#: 86ea4521e1fe4106a31accb612e7ae1d
+msgid ""
+"Specifies which fields listed by this PEP were intentionally unspecified "
+"so another tool can/will provide such metadata dynamically. This clearly "
+"delineates which metadata is purposefully unspecified and expected to "
+"stay unspecified compared to being provided via tooling later on."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:281
+#: 2cfcc11ea499407b83de4c7c6f293503
+msgid ""
+"A build back-end MUST honour statically-specified metadata (which means "
+"the metadata did not list the field in ``dynamic``)."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:283
+#: ef91827bbd4f4768b11442c7c1c4e1d0
+msgid ""
+"A build back-end MUST raise an error if the metadata specifies ``name`` "
+"in ``dynamic``."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:285
+#: 250d7c7bb0934664a49acbce2a4ac1ef
+msgid ""
+"If the :ref:`core metadata <core-metadata>` specification lists a field "
+"as \"Required\", then the metadata MUST specify the field statically or "
+"list it in ``dynamic`` (build back-ends MUST raise an error otherwise, "
+"i.e. it should not be possible for a required field to not be listed "
+"somehow in the ``[project]`` table)."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:290
+#: ebf066e9cbb0409abb9ca103f94dcf2f
+msgid ""
+"If the :ref:`core metadata <core-metadata>` specification lists a field "
+"as \"Optional\", the metadata MAY list it in ``dynamic`` if the "
+"expectation is a build back-end will provide the data for the field "
+"later."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:294
+#: 7de2dda9b9a844929ef28e11024412cb
+msgid ""
+"Build back-ends MUST raise an error if the metadata specifies a field "
+"statically as well as being listed in ``dynamic``."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:296
+#: 083172f3aafb4657815f3e903d924f0e
+msgid ""
+"If the metadata does not list a field in ``dynamic``, then a build back-"
+"end CANNOT fill in the requisite metadata on behalf of the user (i.e. "
+"``dynamic`` is the only way to allow a tool to fill in metadata and the "
+"user must opt into the filling in)."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:300
+#: 0ff124ab543147d49ad508eefcc651e4
+msgid ""
+"Build back-ends MUST raise an error if the metadata specifies a field in "
+"``dynamic`` but the build back-end was unable to determine the data for "
+"it (omitting the data, if determined to be the accurate value, is "
+"acceptable)."
+msgstr ""
+

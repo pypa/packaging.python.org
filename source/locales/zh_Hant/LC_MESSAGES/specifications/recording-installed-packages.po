@@ -1,0 +1,357 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../source/specifications/recording-installed-packages.rst:5
+#: a72d887ca69c4832ab1e46d70a929667
+msgid "Recording installed projects"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:7
+#: 27a0a270745349d6aa63ad941cf42579
+msgid ""
+"This document specifies a common format of recording information about "
+"Python :term:`projects <Project>` installed in an environment. A common "
+"metadata format allows tools to query, manage or uninstall projects, "
+"regardless of how they were installed."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:12
+#: cb18ffd2893544b9b2feed174c44552e
+msgid ""
+"Almost all information is optional. This allows tools outside the Python "
+"ecosystem, such as Linux package managers, to integrate with Python "
+"tooling as much as possible. For example, even if an installer cannot "
+"easily provide a list of installed files in a format specific to Python "
+"tooling, it should still record the name and version of the installed "
+"project."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:21
+#: 420e1adbcd434b7680edab35d8d04a89
+msgid "History and change workflow"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:23
+#: 51871089be1c43318ea03b6bc8034d77
+msgid ""
+"The metadata described here was first specified in :pep:`376`, and later "
+"amended in :pep:`627`. It was formerly known as *Database of Installed "
+"Python Distributions*. Further amendments (except trivial language or "
+"typography fixes) must be made through the PEP process (see :pep:`1`)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:29
+#: d82cd16182ea499a9aa4f1b80c720d74
+msgid ""
+"While this document is the normative specification, these PEPs that "
+"introduce changes to it may include additional information such as "
+"rationales and backwards compatibility considerations."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:35
+#: b7f53a33e5ee408eae8accd079000d42
+msgid "The .dist-info directory"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:37
+#: fd22c1f4c4bd466f8eab7b5ae3a999f0
+msgid ""
+"Each project installed from a distribution must, in addition to files, "
+"install a \"``.dist-info``\" directory located alongside importable "
+"modules and packages (commonly, the ``site-packages`` directory)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:41
+#: 021da898cbd14489894b05fe0b073272
+msgid ""
+"This directory is named as ``{name}-{version}.dist-info``, with ``name`` "
+"and ``version`` fields corresponding to :ref:`core-metadata`. Both fields"
+" must be normalized (see :pep:`PEP 503 <503#normalized-names>` and "
+":pep:`PEP 440 <440#normalization>` for the definition of normalization "
+"for each field respectively), and replace dash (``-``) characters with "
+"underscore (``_``) chacaters, so the ``.dist-info`` directory always has "
+"exactly one dash (``-``) character in its stem, separating the ``name`` "
+"and ``version`` fields."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:50
+#: 78f9a54668804f1caec4751b0bb0677e
+msgid ""
+"Historically, tools have failed to replace dot characters or normalize "
+"case in the ``name`` field, or not perform normalization in the "
+"``version`` field. Tools consuming ``.dist-info`` directories should "
+"expect those fields to be unnormalized, and treat them as equivalent to "
+"their normalized counterparts. New tools that write ``.dist-info`` "
+"directories MUST normalize both ``name`` and ``version`` fields using the"
+" rules described above, and existing tools are encouraged to start "
+"normalizing those fields."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:60
+#: 292815fd138142378425b1b0e27a62f2
+msgid ""
+"The ``.dist-info`` directory's name is formatted to unambigiously "
+"represent a distribution as a filesystem path. Tools presenting a "
+"distribution name to a user should avoid using the normalized name, and "
+"instead present the specified name (when needed prior to resolution to an"
+" installed package), or read the respective fields in Core Metadata, "
+"since values listed there are unescaped and accurately reflect the "
+"distribution. Libraries should provide API for such tools to consume, so "
+"tools can have access to the unnormalized name when displaying "
+"distrubution information."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:69
+#: ea2bdd470b9145759c53e72006eb7b53
+msgid ""
+"This ``.dist-info`` directory can contain these files, described in "
+"detail below:"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:72
+#: 97141d0bba244aa69b0d033de1046230
+msgid "``METADATA``: contains project metadata"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:73
+#: fed9e18969b14c5c854df8451e7d02bd
+msgid "``RECORD``: records the list of installed files."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:74
+#: 2c8587477c4e4b9ea362a85422dbea21
+msgid "``INSTALLER``: records the name of the tool used to install the project."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:76
+#: 5211c7a0751644eea41b5fd7903d158d
+msgid ""
+"The ``METADATA`` file is mandatory. All other files may be omitted at the"
+" installing tool's discretion. Additional installer-specific files may be"
+" present."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:82
+#: 9801d9d2089c4815982a81815c61c251
+msgid ""
+"The :ref:`binary-distribution-format` specification describes additional "
+"files that may appear in the ``.dist-info`` directory of a :term:`Wheel`."
+" Such files may be copied to the ``.dist-info`` directory of an installed"
+" project."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:87
+#: 6159af0303f44358a91a5e38ae29424c
+msgid ""
+"The previous versions of this specification also specified a "
+"``REQUESTED`` file. This file is now considered a tool-specific "
+"extension, but may be standardized again in the future. See `PEP 376 "
+"<https://www.python.org/dev/peps/pep-0376/#requested>`_ for its original "
+"meaning."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:94
+#: 6d95a8041d36448aab5447d7be45f323
+msgid "The METADATA file"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:96
+#: 7d273caf22a248ee98e9a31de89d49c2
+msgid ""
+"The ``METADATA`` file contains metadata as described in the :ref:`core-"
+"metadata` specification, version 1.1 or greater."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:99
+#: 5f38908fe1b1413897fd4aca51a5dfc8
+msgid ""
+"The ``METADATA`` file is mandatory. If it cannot be created, or if "
+"required core metadata is not available, installers must report an error "
+"and fail to install the project."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:105
+#: 0d2af2c67b1d4f729838c241ab881ee3
+msgid "The RECORD file"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:107
+#: be827126130f4046a525ec572c22e1ed
+msgid ""
+"The ``RECORD`` file holds the list of installed files. It is a CSV file "
+"containing one record (line) per installed file."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:110
+#: 6da71f0c2417449db448dfb9e8f05028
+msgid ""
+"The CSV dialect must be readable with the default ``reader`` of Python's "
+"``csv`` module:"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:113
+#: 841b8bd634134e3fb37b15f85c677104
+msgid "field delimiter: ``,`` (comma),"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:114
+#: 4402886bf7434c3383eb85a9b9124417
+msgid "quoting char: ``\"`` (straight double quote),"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:115
+#: 7b81674836b240f3a06fbf09f94e560b
+msgid "line terminator: either ``\\r\\n`` or ``\\n``."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:117
+#: 37823c7fcafe40bc820693dd9ab5eb6a
+msgid ""
+"Each record is composed of three elements: the file's **path**, the "
+"**hash** of the contents, and its **size**."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:120
+#: 0660391cf6a04d99b85003ce54c8e421
+msgid ""
+"The *path* may be either absolute, or relative to the directory "
+"containing the ``.dist-info`` directory (commonly, the ``site-packages`` "
+"directory). On Windows, directories may be separated either by forward- "
+"or backslashes (``/`` or ``\\``)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:125
+#: cde8a15b8d074e2eb0dfe11402612b57
+msgid ""
+"The *hash* is either an empty string or the name of a hash algorithm from"
+" ``hashlib.algorithms_guaranteed``, followed by the equals character "
+"``=`` and the digest of the file's contents, encoded with the urlsafe-"
+"base64-nopad encoding (``base64.urlsafe_b64encode(digest)`` with trailing"
+" ``=`` removed)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:130
+#: f8448449e3fb4129943f4ccb39ca0f48
+msgid ""
+"The *size* is either the empty string, or file's size in bytes, as a base"
+" 10 integer."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:133
+#: 46931c12206e4c42b00de678be6f1457
+msgid ""
+"For any file, either or both of the *hash* and *size* fields may be left "
+"empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file "
+"itself have empty *hash* and *size*. For other files, leaving the "
+"information out is discouraged, as it prevents verifying the integrity of"
+" the installed project."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:139
+#: 5c0811e5332d436ba4dc708053066304
+msgid ""
+"If the ``RECORD`` file is present, it must list all installed files of "
+"the project, except ``.pyc`` files corresponding to ``.py`` files listed "
+"in ``RECORD``, which are optional. Notably, the contents of the ``.dist-"
+"info`` directory (including the ``RECORD`` file itself) must be listed. "
+"Directories should not be listed."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:146
+#: 3f955d69ce854a009887cb94cfc72366
+msgid ""
+"To completely uninstall a package, a tool needs to remove all files "
+"listed in ``RECORD``, all ``.pyc`` files (of all optimization levels) "
+"corresponding to removed ``.py`` files, and any directories emptied by "
+"the uninstallation."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:151
+#: c6275603d81d43619e1d4e7c26bd6ae1
+msgid "Here is an example snippet of a possible ``RECORD`` file::"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:170
+#: 4c991e5cf0f84e9595cede2e587b5a77
+msgid ""
+"If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must"
+" not atempt to uninstall or upgrade the package. (This does not apply to "
+"tools that rely on other sources of information, such as system package "
+"managers in Linux distros.)"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:177
+#: 62ddca93b4ea4090987632690fc379cd
+msgid "The INSTALLER file"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:179
+#: 8eca7710a02d40baa1d696d4d509fda3
+msgid ""
+"If present, ``INSTALLER`` is a single-line text file naming the tool used"
+" to install the project. If the installer is executable from the command "
+"line, ``INSTALLER`` should contain the command name. Otherwise, it should"
+" contain a printable ASCII string."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:185
+#: 2bd447088aed45c98a0f8084b4ecb0ec
+msgid "The file can be terminated by zero or more ASCII whitespace characters."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:187
+#: 857978314bfc40b9931768150516f0ba
+msgid "Here are examples of two possible ``INSTALLER`` files::"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:195
+#: edd87d2570724fa9a4f0d7a2e4a7458d
+msgid ""
+"This value should be used for informational purposes only. For example, "
+"if a tool is asked to uninstall a project but finds no ``RECORD`` file, "
+"it may suggest that the tool named in ``INSTALLER`` may be able to do the"
+" uninstallation."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:201
+#: d8fd7a5cd36e4274b33dafc8056e7140
+msgid "The direct_url.json file"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:203
+#: 580596da60e34194980105e9629a0bc2
+msgid ""
+"This file MUST be created by installers when installing a distribution "
+"from a requirement specifying a direct URL reference (including a VCS "
+"URL)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:206
+#: 026f1b6f9dd544048acdf96f4b42c646
+msgid ""
+"This file MUST NOT be created when installing a distribution from an "
+"other type of requirement (i.e. name plus version specifier)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:209
+#: c7017c2c132e4d39a7293caae0bdb111
+msgid "Its detailed specification is at :ref:`direct-url`."
+msgstr ""
+

@@ -1,0 +1,429 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../source/specifications/direct-url.rst:6 344c97454104432bbf6fc43ee7d88ff5
+msgid "Recording the Direct URL Origin of installed distributions"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:8 359c03cb55b44b1b9a3fd4c3f77f9d16
+msgid ""
+"This document specifies a :file:`direct_url.json` file in the :file"
+":`*.dist-info` directory of an installed distribution, to record the "
+"Direct URL Origin of the distribution. The layout of this file was "
+"originally specified in :pep:`610` and is formally documented here."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:14 aa65e7fb79e8449892e556750497fb3e
+msgid "Contents"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:17 de33505060c448b882c09db03b0158a2
+msgid "Specification"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:19 060ad330894140169440123007efce36
+msgid ""
+"The :file:`direct_url.json` file MUST be created in the :file:`*.dist-"
+"info` directory by installers when installing a distribution from a "
+"requirement specifying a direct URL reference (including a VCS URL)."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:23 4c0e40c326db4ffda3e5d9408d21b767
+msgid ""
+"This file MUST NOT be created when installing a distribution from an "
+"other type of requirement (i.e. name plus version specifier)."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:26 45db32b726b7406590fa174ae5a9296c
+msgid ""
+"This JSON file MUST be a dictionary, compliant with `RFC 8259 "
+"<https://tools.ietf.org/html/rfc8259>`_ and UTF-8 encoded."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:29 f699cefc79444c16b6cee25d6d80aa0d
+msgid ""
+"If present, it MUST contain at least two fields. The first one is "
+"``url``, with type ``string``. Depending on what ``url`` refers to, the "
+"second field MUST be one of ``vcs_info`` (if ``url`` is a VCS reference),"
+" ``archive_info`` (if ``url`` is a source archives or a wheel), or "
+"``dir_info`` (if ``url``  is a local directory). These info fields have a"
+" (possibly empty) subdictionary as value, with the possible keys defined "
+"below."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:36 632f46826145409ebca3dce7219f901c
+msgid ""
+"``url`` MUST be stripped of any sensitive authentication information, for"
+" security reasons."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:39 efa8b82d26264abba6c70d172cf74a68
+msgid ""
+"The user:password section of the URL MAY however be composed of "
+"environment variables, matching the following regular expression::"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:45 3f58a06be9b94ba7b08f624a85e6316d
+msgid ""
+"Additionally, the user:password section of the URL MAY be a well-known, "
+"non security sensitive string. A typical example is ``git`` in the case "
+"of an URL such as ``ssh://git@gitlab.com/user/repo``."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:49 215dbaa6abd140618c6eb6c4c652854c
+msgid ""
+"When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
+"present as a dictionary with the following keys:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:52 0984d23d306645a78b84d7019fdaf249
+msgid ""
+"A ``vcs`` key (type ``string``) MUST be present, containing the name of "
+"the VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's "
+"SHOULD be registered by writing a PEP to amend this specification. The "
+"``url`` value MUST be compatible with the corresponding VCS, so an "
+"installer can hand it off without transformation to a checkout/download "
+"command of the VCS."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:58 9af221c82b8f446ab7fdc456e5bcec01
+msgid ""
+"A ``requested_revision`` key (type ``string``) MAY be present naming a "
+"branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) "
+"to install."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:61 c4da3bf005f44e1585a53935f18eba10
+msgid ""
+"A ``commit_id`` key (type ``string``) MUST be present, containing the "
+"exact commit/revision number that was installed. If the VCS supports "
+"commit-hash based revision identifiers, such commit-hash MUST be used as "
+"``commit_id`` in order to reference the immutable version of the source "
+"code that was installed."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:68 ffffc57399e8454e9405883700faafe0
+msgid ""
+"When ``url`` refers to a source archive or a wheel, the ``archive_info`` "
+"key MUST be present as a dictionary with the following key:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:71 364d05ca7b3c41d987af73d213d48b13
+msgid ""
+"A ``hash`` key (type ``string``) SHOULD be present, with value ``<hash-"
+"algorithm>=<expected-hash>``. It is RECOMMENDED that only hashes which "
+"are unconditionally provided by the latest version of the standard "
+"library's ``hashlib`` module be used for source archive hashes. At time "
+"of writing, that list consists of 'md5', 'sha1', 'sha224', 'sha256', "
+"'sha384', and 'sha512'."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:78 cc21f9422499442b826ee66275851708
+msgid ""
+"When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
+"present as a dictionary with the following key:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:81 74e66d650aff4e388f79b3f8f6e5cbf6
+msgid ""
+"``editable`` (type: ``boolean``): ``true`` if the distribution was "
+"installed in editable mode, ``false`` otherwise. If absent, default to "
+"``false``."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:84 82612de4d6304ec89953e80869f65427
+msgid ""
+"When ``url`` refers to a local directory, it MUST have the ``file`` sheme"
+" and be compliant with `RFC 8089 <https://tools.ietf.org/html/rfc8089>`_."
+" In particular, the path component must be absolute. Symbolic links "
+"SHOULD be preserved when making relative paths absolute."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:91 d80ef8341b414774bee912dafd4d05b0
+msgid ""
+"When the requested URL has the file:// scheme and points to a local "
+"directory that happens to contain a VCS checkout, installers MUST NOT "
+"attempt to infer any VCS information and therefore MUST NOT output any "
+"VCS related information (such as ``vcs_info``) in "
+":file:`direct_url.json`."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:96 e4691d5dfda148368991da320bcfe6cf
+msgid ""
+"A top-level ``subdirectory`` field MAY be present containing a directory "
+"path, relative to the root of the VCS repository, source archive or local"
+" directory, to specify where ``pyproject.toml`` or ``setup.py`` is "
+"located."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:102 0f609b7b93ea4a5fb97927f7cf9bfb5a
+msgid ""
+"As a general rule, installers should as much as possible preserve the "
+"information that was provided in the requested URL when generating "
+":file:`direct_url.json`. For example user:password environment variables "
+"should be preserved and ``requested_revision`` should reflect the "
+"revision that was provided in the requested URL as faithfully as "
+"possible. This information is however *enriched* with more precise data, "
+"such as ``commit_id``."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:110 530ab65a05504fafb9dbac7de5c3abce
+msgid "Registered VCS"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:112 d1f19f32d39d42628f8f19759bc4b353
+msgid ""
+"This section lists the registered VCS's; expanded, VCS-specific "
+"information on how to use the ``vcs``, ``requested_revision``, and other "
+"fields of ``vcs_info``; and in some cases additional VCS-specific fields."
+" Tools MAY support other VCS's although it is RECOMMENDED to register "
+"them by writing a PEP to amend this specification. The ``vcs`` field "
+"SHOULD be the command name (lowercased). Additional fields that would be "
+"necessary to support such VCS SHOULD be prefixed with the VCS command "
+"name."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:122 cf964432074e481e82fd43093b7a86e2
+msgid "Git"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:124
+#: ../source/specifications/direct-url.rst:156
+#: ../source/specifications/direct-url.rst:179
+#: ../source/specifications/direct-url.rst:202 78b303b993454005b6ec5e95592fd21d
+#: 873107fca0fa4a4ca4034867be76495d 8fc49bf9f69945978e35cb59613f7e65
+#: b07b38dc1f194e29825ebf8eb086eae6
+msgid "Home page"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:126 b908aa6cc2684fa5a36dfa025dfbb30b
+msgid "https://git-scm.com/"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:128
+#: ../source/specifications/direct-url.rst:160
+#: ../source/specifications/direct-url.rst:183
+#: ../source/specifications/direct-url.rst:206 60f2c362049441c6926cb6d28a3ead67
+#: 982e14119e2f4a7db8c613ced108f0a6 b9465a4974524f3fa810ecee39500c22
+#: c2838c078665438eb8b79b0417682cf0
+msgid "vcs command"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:130
+#: ../source/specifications/direct-url.rst:134 23789f92a8cb4639bd1f72f44528e185
+#: a472224e72a04e8d93c19aa9e74c62f4
+msgid "git"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:132
+#: ../source/specifications/direct-url.rst:164
+#: ../source/specifications/direct-url.rst:187
+#: ../source/specifications/direct-url.rst:210 3da8b37d86a44f549c7413bb40b67ddb
+#: 7e4f77528dee4518993451e02fcc3e8d a57996cf0da446c39d12e1ec376bc117
+#: f701d35e2d8d49798639489a93c4a9bf
+msgid "``vcs`` field"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:136
+#: ../source/specifications/direct-url.rst:168
+#: ../source/specifications/direct-url.rst:191
+#: ../source/specifications/direct-url.rst:214 52306c88ee124354b15bbe9d36b7691d
+#: 56d2842a9428469699e8e0d4474b894e 9547832a32174b4b9c83bd51467a5e09
+#: bbf38e8209754a85b38e54e30df975f4
+msgid "``requested_revision`` field"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:138 4ecab0a9a2f0404bae9607533205a01e
+msgid ""
+"A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
+"other commit-ish."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:141
+#: ../source/specifications/direct-url.rst:172
+#: ../source/specifications/direct-url.rst:195
+#: ../source/specifications/direct-url.rst:219 4cdf7d804b1e4c14b84370ba84a7c22a
+#: 8514ec3bb4734bf8a197508e34a36bac caaea7862af942f3886619623d1e2275
+#: ff19c6697756420d8820a5ca12ac2b67
+msgid "``commit_id`` field"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:143 af571b2a3293441687158f91d90fc511
+msgid "A commit hash (40 hexadecimal characters sha1)."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:147 705f4a60eae54e94ae30e5d6b481e746
+msgid ""
+"Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands"
+" to determine if the ``requested_revision`` corresponds to a Git ref. In "
+"turn, a ref beginning with ``refs/tags/`` corresponds to a tag, and a ref"
+" beginning with ``refs/remotes/origin/`` after cloning corresponds to a "
+"branch."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:154 7ea2cd6676a349f0a93469ac7ddb8518
+msgid "Mercurial"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:158 cb28a1616a8e459cbd121f98ce431939
+msgid "https://www.mercurial-scm.org/"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:162
+#: ../source/specifications/direct-url.rst:166 67157a2a04064beb814f4c335f38aa8d
+#: cfad7a6469ad4d3aa12ffb601b4d9a41
+msgid "hg"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:170 f8d06b186060492da4a128999850ea20
+msgid "A tag name, branch name, changeset ID, shortened changeset ID."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:174 f689f2aaa3414c59a0f73c099121f712
+msgid "A changeset ID (40 hexadecimal characters)."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:177 7c557961667b4e0f809e73927fd9919e
+msgid "Bazaar"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:181 85f8bf8de9d94e0d95291a0e5c649a0a
+msgid "https://bazaar.canonical.com/"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:185
+#: ../source/specifications/direct-url.rst:189 026e91b166e44c90ac5d8a9a784c6ff7
+#: 65dcac6a90474ca5a704ea4eaf674ed2
+msgid "bzr"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:193 922923a5103b48aa928cdc3f2c8fe305
+msgid "A tag name, branch name, revision id."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:197 a1be339930ce49c891c387f722c7b9e4
+msgid "A revision id."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:200 7b05b04cdc264bb58d72f89dfe38ea35
+msgid "Subversion"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:204 ae762f52b5f941169f047041eb1086eb
+msgid "https://subversion.apache.org/"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:208
+#: ../source/specifications/direct-url.rst:212 85460296f063400cb03e401834bb2bd8
+#: aba5f0772414411fa734a891f4ec5a93
+msgid "svn"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:216 9e3746f146a0460faa619f1a969ab087
+msgid ""
+"``requested_revision`` must be compatible with ``svn checkout`` "
+"``--revision`` option. In Subversion, branch or tag is part of ``url``."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:221 b562440e474144a0a583cc09149db010
+msgid ""
+"Since Subversion does not support globally unique identifiers, this field"
+" is the Subversion revision number in the corresponding repository."
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:226 141f0e8a6fca46f797409242eb56d280
+msgid "Examples"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:229 35edcd872eb746bbb849dfe3d29bce1a
+msgid "Example direct_url.json"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:231 59c87a865b34470e8486a817144a9e03
+msgid "Source archive:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:242 38e5a645830947058444c5058c4eb0d8
+msgid "Git URL with tag and commit-hash:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:255 e0a73882fcdb4776b2a9721ad4779c87
+msgid "Local directory:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:264 7a9c8e8e8e054f5bb7d0fd9b1aeae481
+msgid "Local directory installed in editable mode:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:277 97976ec77d544a55b3a07dc8a37e49e6
+msgid "Example pip commands and their effect on direct_url.json"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:279 8155d2d94b1140f4b59acc5857e1f02f
+msgid "Commands that generate a ``direct_url.json``:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:281 b9f65a53ac2c4726b777cd2935b14454
+msgid "pip install https://example.com/app-1.0.tgz"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:282 2c702bf0835f4d609c6f760bc6637256
+msgid "pip install https://example.com/app-1.0.whl"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:283 aa87827f9d3142d990c69f8efeec9a0f
+msgid ""
+"pip install "
+"\"git+https://example.com/repo/app.git#egg=app&subdirectory=setup\""
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:284 c4b286fca5104ffbb5ee47846212f93a
+msgid "pip install ./app"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:285 77206d08cc6748dab40221af6e94645d
+msgid "pip install file:///home/user/app"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:286 202fbff30a4943c997f9f271c7f3dc91
+msgid ""
+"pip install --editable "
+"\"git+https://example.com/repo/app.git#egg=app&subdirectory=setup\" (in "
+"which case, ``url`` will be the local directory where the git repository "
+"has been cloned to, and ``dir_info`` will be present with ``\"editable\":"
+" true`` and no ``vcs_info`` will be set)"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:290 80cc9f39dfad44cb856831ab41b5e6fd
+msgid "pip install -e ./app"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:292 81799885bbfe4c6f82e46c78ac6037eb
+msgid "Commands that *do not* generate a ``direct_url.json``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:294 09e4d3fdce2443b1af8e57f4dc93b20b
+msgid "pip install app"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:295 cbf067fc5a904831843e59e9e1f9169b
+msgid "pip install app --no-index --find-links https://example.com/"
+msgstr ""
+

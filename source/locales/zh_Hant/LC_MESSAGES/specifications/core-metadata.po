@@ -1,0 +1,930 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../source/specifications/core-metadata.rst:5
+#: abd36aa915e6423296a151c1d2611f70
+msgid "Core metadata specifications"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:7
+#: 1407e1a4ae3449cbb8b9f0430d8f393b
+msgid ""
+"Fields defined in the following specification should be considered valid,"
+" complete and not subject to change. The required fields are:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:10
+#: adeb608f53a2420681ed23ae21ea615b
+msgid "``Metadata-Version``"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:11
+#: 1a4062aed19e4ebc9b0a07ac9b9c1797
+msgid "``Name``"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:12
+#: 21995ace7af74cb5bea4c8d0e212b90c
+msgid "``Version``"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:14
+#: ec4b49d8eb62427d8e53720e6f4aa444
+msgid "All the other fields are optional."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:16
+#: e143fbe8aa6748efba2215e500705fb3
+msgid ""
+"The standard file format for metadata (including in :doc:`wheels <binary-"
+"distribution-format>` and :doc:`installed projects <recording-installed-"
+"packages>`) is based on the format of email headers. However, email "
+"formats have been revised several times, and exactly which email RFC "
+"applies to packaging metadata is not specified. In the absence of a "
+"precise definition, the practical standard is set by what the standard "
+"library :mod:`python:email.parser` module can parse using the "
+":data:`~.python:email.policy.compat32` policy."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:25
+#: a96fe7298843468a9d27792731bff5d5
+msgid ""
+"Although :pep:`566` defined a way to transform metadata into a JSON-"
+"compatible dictionary, this is not yet used as a standard interchange "
+"format. The need for tools to work with years worth of existing packages "
+"makes it difficult to shift to a new format."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:30
+#: 9926b4eef7e34624b3b8bf5719626663
+msgid ""
+"*Interpreting old metadata:* In :pep:`566`, the version specifier field "
+"format specification was relaxed to accept the syntax used by popular "
+"publishing tools (namely to remove the requirement that version "
+"specifiers must be surrounded by parentheses). Metadata consumers may "
+"want to use the more relaxed formatting rules even for metadata files "
+"that are nominally less than version 2.1."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:38
+#: 501fc79038a0490db6d0fee7cb428e29
+msgid "Contents"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:41
+#: e9c96b3a565142548d46649274cf4867
+msgid "Metadata-Version"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:45
+#: 9893c76580be437fb3e0b1ee615884bb
+msgid ""
+"Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
+"\"2.1\" and \"2.2\"."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:48
+#: 26df78d242c443a5890fdce6f25b652d
+msgid ""
+"Automated tools consuming metadata SHOULD warn if ``metadata_version`` is"
+" greater than the highest version they support, and MUST fail if "
+"``metadata_version`` has a greater major version than the highest version"
+" they support (as described in :pep:`440`, the major version is the value"
+" before the first dot)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:54
+#: 924438c846b84d0d820dff6c57121db7
+msgid ""
+"For broader compatibility, build tools MAY choose to produce distribution"
+" metadata using the lowest metadata version that includes all of the "
+"needed fields."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:58
+#: ../source/specifications/core-metadata.rst:80
+#: ../source/specifications/core-metadata.rst:95
+#: ../source/specifications/core-metadata.rst:155
+#: ../source/specifications/core-metadata.rst:170
+#: ../source/specifications/core-metadata.rst:208
+#: ../source/specifications/core-metadata.rst:283
+#: ../source/specifications/core-metadata.rst:287
+#: ../source/specifications/core-metadata.rst:291
+#: ../source/specifications/core-metadata.rst:295
+#: ../source/specifications/core-metadata.rst:327
+#: ../source/specifications/core-metadata.rst:347
+#: ../source/specifications/core-metadata.rst:373
+#: ../source/specifications/core-metadata.rst:391
+#: ../source/specifications/core-metadata.rst:416
+#: ../source/specifications/core-metadata.rst:438
+#: ../source/specifications/core-metadata.rst:600
+#: ../source/specifications/core-metadata.rst:620
+#: ../source/specifications/core-metadata.rst:630
+#: 0bb54321592a4d60b325aa8d5cf6ac0e 1aae0b08bb3647c7bbd41b5b4ac34cfa
+#: 2096f40e2b0a4558bd41c990cfdc2ccd 2717fe81a4964ee8a8f44648c54ad28c
+#: 4d2774752fcd4d97baa96d765797ab7f 4db4c2d53c2b46649d156f1964c2f57a
+#: 507c8dba60334761a62245352a4b8c4e 5c03e03e98fa49e2bb7ef16d935753b3
+#: 6c74999f5238412a9c3f24d16bad4941 6ee1ef8d40c14e9b9255bdf165cfd6a4
+#: 77dfea0edf494853abc59b5ff1725b4a 7def4183fad1477f8d9e865205d60440
+#: 7f89587afab04f278256324823232650 80e87b6713b64b21959c76abd5052878
+#: 95987ff5ee044bc6b06cba472277cfd1 a2a8fd66e5834de8b5531f829c7ec802
+#: be0bc17edb2547a9aca9ebcfbe037ae2 c16e1240de9e4f798777496337735199
+#: e7655d1d6317435cbd05282aa4ab74f5
+msgid "Example::"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:66
+#: dca04b15e31f42eca76df9fd7a9a2db9
+msgid "Name"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:69
+#: 91e582e82f9f4ee19087a0cb390d8286
+msgid "Added additional restrictions on format from :pep:`508`"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:72
+#: 70d4eac5d82e4cb583693d0759a50b7e
+msgid ""
+"The name of the distribution. The name field is the primary identifier "
+"for a distribution. A valid name consists only of ASCII letters and "
+"numbers, period, underscore and hyphen. It must start and end with a "
+"letter or number. Distribution names are limited to those which match the"
+" following regex (run with ``re.IGNORECASE``)::"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:88
+#: 221c4da3fae8471ebe70b16c2610dafd
+msgid "Version"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:92
+#: 8f35cb7c7e23406f8b352c3a62a0e3e6
+msgid ""
+"A string containing the distribution's version number.  This field  must "
+"be in the format specified in :pep:`440`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:101
+#: feac33324c024e91a04532ac44ac908c
+msgid "Dynamic (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:105
+#: fe9c5ee7742d4a03a7c838782945c78f
+msgid ""
+"A string containing the name of another core metadata field. The field "
+"names ``Name`` and ``Version`` may not be specified in this field."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:108
+#: 7f827ecd066f4ea396c3f62ff17403d1
+msgid ""
+"When found in the metadata of a source distribution, the following rules "
+"apply:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:111
+#: 674b3596c6344b4caef6e1071673004b
+msgid ""
+"If a field is *not* marked as ``Dynamic``, then the value of the field in"
+" any wheel built from the sdist MUST match the value in the sdist. If the"
+" field is not in the sdist, and not marked as ``Dynamic``, then it MUST "
+"NOT be present in the wheel."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:115
+#: 8cebebf434554fbfa56fed7803edfb64
+msgid ""
+"If a field is marked as ``Dynamic``, it may contain any valid value in a "
+"wheel built from the sdist (including not being present at all)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:118
+#: 2423124a161546d9bea6e21d1c112c34
+msgid ""
+"If the sdist metadata version is older than version 2.2, then all fields "
+"should be treated as if they were specified with ``Dynamic`` (i.e. there "
+"are no special restrictions on the metadata of wheels built from the "
+"sdist)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:122
+#: a6b100d7ed824541a7d6c773d6d112ba
+msgid ""
+"In any context other than a source distribution, ``Dynamic`` is for "
+"information only, and indicates that the field value was calculated at "
+"wheel build time, and may not be the same as the value in the sdist or in"
+" other wheels for the project."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:127
+#: 95e120893d724ace9674e27d3bcc78dd
+msgid "Full details of the semantics of ``Dynamic`` are described in :pep:`643`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:131
+#: 36054274018941639b7dd0a414403982
+msgid "Platform (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:135
+#: d3ec09a36d72446c971d0588702d1916
+msgid ""
+"A Platform specification describing an operating system supported by the "
+"distribution which is not listed in the \"Operating System\" Trove "
+"classifiers. See \"Classifier\" below."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:139
+#: ../source/specifications/core-metadata.rst:463
+#: ../source/specifications/core-metadata.rst:487
+#: ../source/specifications/core-metadata.rst:527
+#: ../source/specifications/core-metadata.rst:550
+#: ../source/specifications/core-metadata.rst:583
+#: ../source/specifications/core-metadata.rst:693
+#: ../source/specifications/core-metadata.rst:722
+#: 0f2c784deebb4b29943e16b6bb04a326 255e7ff13e1548968631fd144ca8dae6
+#: 2a70adc6b2394c8d8652e3f4e5378325 2ece31d7657247708540a1c390989c7b
+#: 4e06f685acbf4915b7e7447f8568c861 7cac7c0d100441ae8f61f7c9caf4633d
+#: a33404a4e1794dd7960c55ff8b012944 d5250f6e2e974e2ea700ecbdf0d39b44
+msgid "Examples::"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:146
+#: a66448df02564e619b18f838e560a468
+msgid "Supported-Platform (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:150
+#: edf5d33cb1314fe08bd6708fcab6ae6f
+msgid ""
+"Binary distributions containing a PKG-INFO file will use the Supported-"
+"Platform field in their metadata to specify the OS and CPU for which the "
+"binary distribution was compiled.  The semantics of the Supported-"
+"Platform field are not specified in this PEP."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:164
+#: 9ffff83c4f1f4f3aa21802ce77bb05b0
+msgid "Summary"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:168
+#: a2fdbd2425014a3d8a6fb4fb6e9ee704
+msgid "A one-line summary of what the distribution does."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:185
+#: ed088349664a4aa882347d7890313819
+msgid "Description"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:188
+#: c0cb4df1834b4a818494dac7d9150538
+msgid "This field may be specified in the message body instead."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:191
+#: 30d56aa5fe1947c589bef14154cac2c3
+msgid ""
+"A longer description of the distribution that can run to several "
+"paragraphs.  Software that deals with metadata should not assume any "
+"maximum size for this field, though people shouldn't include their "
+"instruction manual as the description."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:196
+#: 98592a4837ef40cca9ebba8e12f505f8
+msgid ""
+"The contents of this field can be written using reStructuredText markup "
+"[1]_.  For programs that work with the metadata, supporting markup is "
+"optional; programs can also display the contents of the field as-is.  "
+"This means that authors should be conservative in the markup they use."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:202
+#: 8c2ac3c56ec14f088f66364cbd1cdcd0
+msgid ""
+"To support empty lines and lines with indentation with respect to the RFC"
+" 822 format, any CRLF character has to be suffixed by 7 spaces followed "
+"by a pipe (\"|\") char. As a result, the Description field is encoded "
+"into a folded field that can be interpreted by RFC822 parser [2]_."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:219
+#: dcf8447b4c1d412f9a9968de476ac646
+msgid ""
+"This encoding implies that any occurrences of a CRLF followed by 7 spaces"
+" and a pipe char have to be replaced by a single CRLF when the field is "
+"unfolded using a RFC822 reader."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:223
+#: 0fa5d7c37e134e6bbe64c6ad8132398b
+msgid ""
+"Alternatively, the distribution's description may instead be provided in "
+"the message body (i.e., after a completely blank line following the "
+"headers, with no indentation or other special formatting necessary)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:232
+#: 0e2f3565e4364d5694e2b9f0a011faca
+msgid "Description-Content-Type"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:236
+#: cefecee067994c3a8b9a0d8be1b71fcd
+msgid ""
+"A string stating the markup syntax (if any) used in the distribution's "
+"description, so that tools can intelligently render the description."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:239
+#: 1da09ba40aba4d8ea50d8bd83b50b7e0
+msgid ""
+"Historically, PyPI supported descriptions in plain text and "
+"`reStructuredText (reST) "
+"<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_, "
+"and could render reST into HTML. However, it is common for distribution "
+"authors to write the description in `Markdown "
+"<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763 "
+"<https://tools.ietf.org/html/rfc7763>`_) as many code hosting sites "
+"render Markdown READMEs, and authors would reuse the file for the "
+"description. PyPI didn't recognize the format and so could not render the"
+" description correctly. This resulted in many packages on PyPI with "
+"poorly-rendered descriptions when Markdown is left as plain text, or "
+"worse, was attempted to be rendered as reST. This field allows the "
+"distribution author to specify the format of their description, opening "
+"up the possibility for PyPI and other tools to be able to render Markdown"
+" and other formats."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:253
+#: 8ac74ac883d94b5d82a15214eb44ad99
+msgid ""
+"The format of this field is the same as the ``Content-Type`` header in "
+"HTTP (i.e.: `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-"
+"Type.html>`_). Briefly, this means that it has a ``type/subtype`` part "
+"and then it can optionally have a number of parameters:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:259
+#: 7411bdbc91fd47d0a100afceadd31dab
+msgid "Format::"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:263
+#: b0599c35732d4a3ab839f74025a92c47
+msgid "The ``type/subtype`` part has only a few legal values:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:265
+#: 09a9c2e5a0084de3b617837b61afc480
+msgid "``text/plain``"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:266
+#: 8e88b4bf816046b582585a3c9bd51a4b
+msgid "``text/x-rst``"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:267
+#: 318d836bf047421eb80bc28104680f86
+msgid "``text/markdown``"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:269
+#: 64ba0f35dde146738fa7f25222169bd3
+msgid ""
+"The ``charset`` parameter can be used to specify the character encoding "
+"of the description. The only legal value is ``UTF-8``. If omitted, it is "
+"assumed to be ``UTF-8``."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:273
+#: 16e42c71c58f40c7a0153dafaa6dc407
+msgid ""
+"Other parameters might be specific to the chosen subtype. For example, "
+"for the ``markdown`` subtype, there is an optional ``variant`` parameter "
+"that allows specifying the variant of Markdown in use (defaults to "
+"``GFM`` if not specified). Currently, two variants are recognized:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:278
+#: 5b7fa18c8979493daf3289f8a0b2f481
+msgid ""
+"``GFM`` for `Github-flavored Markdown "
+"<https://tools.ietf.org/html/rfc7764#section-3.2>`_"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:280
+#: 8efe9569c8654895b3441e4697daaa56
+msgid ""
+"``CommonMark`` for `CommonMark "
+"<https://tools.ietf.org/html/rfc7764#section-3.5>`_"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:299
+#: 6f1a80057fef48d0a8ae246e67861cf6
+msgid ""
+"If a ``Description-Content-Type`` is not specified, then applications "
+"should attempt to render it as ``text/x-rst; charset=UTF-8`` and fall "
+"back to ``text/plain`` if it is not valid rst."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:303
+#: 5538308b45404579869a4a75d01ad6c1
+msgid ""
+"If a ``Description-Content-Type`` is an unrecognized value, then the "
+"assumed content type is ``text/plain`` (Although PyPI will probably "
+"reject anything with an unrecognized value)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:307
+#: 2a79ccd66f594c7bbcbe6a856eb17261
+msgid ""
+"If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` "
+"is not specified or is set to an unrecognized value, then the assumed "
+"``variant`` is ``GFM``."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:311
+#: 23b62c471e354bd28fe0c81ee6c52a56
+msgid ""
+"So for the last example above, the ``charset`` defaults to ``UTF-8`` and "
+"the ``variant`` defaults to ``GFM`` and thus it is equivalent to the "
+"example before it."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:320
+#: 5e077ef280c946708c4e162d5a0d78eb
+msgid "Keywords"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:324
+#: 3592056ff6cc490098be8097adc0abca
+msgid ""
+"A list of additional keywords, separated by commas, to be used to assist "
+"searching for the distribution in a larger catalog."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:333
+#: daa5a405a6c3402db71d670871a38475
+msgid ""
+"The specification previously showed keywords separated by spaces, but "
+"distutils and setuptools implemented it with commas. These tools have "
+"been very widely used for many years, so it was easier to update the "
+"specification to match the de facto standard."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:341
+#: b1f1a46de23241ce839fef391e83b96d
+msgid "Home-page"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:345
+#: 1ec08e01230b46198cfd4013dbe3ceb8
+msgid "A string containing the URL for the distribution's home page."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:353
+#: 2c370d1a332a44378783d20d19597800
+msgid "Download-URL"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:357
+#: 927b3bfd59b9401cad54a5637676aec6
+msgid ""
+"A string containing the URL from which this version of the distribution "
+"can be downloaded.  (This means that the URL can't be something like "
+"\".../BeagleVote-latest.tgz\", but instead must be "
+"\".../BeagleVote-0.45.tgz\".)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:366
+#: 34d531bfd77f4fbb99f39f0599fd279d
+msgid "Author"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:370
+#: 29b27561647941998c6da311003dc871
+msgid ""
+"A string containing the author's name at a minimum; additional contact "
+"information may be provided."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:383
+#: 2335f2f43d5a4dba981fca6a89286992
+msgid "Author-email"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:387
+#: 2b5f1d5944e54c6abf81176b930d7578
+msgid ""
+"A string containing the author's e-mail address.  It can contain a name "
+"and e-mail address in the legal forms for a RFC-822 ``From:`` header."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:395
+#: ../source/specifications/core-metadata.rst:442
+#: e80ce00a71bc450d94d361318f734d34 eb1581f978484a518f95fa0a059d4ae5
+msgid ""
+"Per RFC-822, this field may contain multiple comma-separated e-mail "
+"addresses::"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:405
+#: 031e89acec5346bca6e93fa315086c2a
+msgid "Maintainer"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:409
+#: a6c5fc0a78454465af66bf38e00c0594
+msgid ""
+"A string containing the maintainer's name at a minimum; additional "
+"contact information may be provided."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:412
+#: da41a0860ea940a19cfe135777c7d169
+msgid ""
+"Note that this field is intended for use when a project is being "
+"maintained by someone other than the original author:  it should be "
+"omitted if it is identical to ``Author``."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:426
+#: 79a872e2c29045b6b7a5d5d65e5a44c7
+msgid "Maintainer-email"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:430
+#: 46ad799d1baf4381aa4a44b62333c10d
+msgid ""
+"A string containing the maintainer's e-mail address.  It can contain a "
+"name and e-mail address in the legal forms for a RFC-822 ``From:`` "
+"header."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:434
+#: 71688ee6beff41e3984e788d06187947
+msgid ""
+"Note that this field is intended for use when a project is being "
+"maintained by someone other than the original author:  it should be "
+"omitted if it is identical to ``Author-email``."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:452
+#: de8e19e655c44e5e9f711c91a23c9427
+msgid "License"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:456
+#: c5c767f904da4fdfb02a637a1c1771f6
+msgid ""
+"Text indicating the license covering the distribution where the license "
+"is not a selection from the \"License\" Trove classifiers. See "
+":ref:`\"Classifier\" <metadata-classifier>` below. This field may also be"
+" used to specify a particular version of a license which is named via the"
+" ``Classifier`` field, or to indicate a variation or exception to such a "
+"license."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:476
+#: 9ae0ae1fc214451dac56eadeb233784f
+msgid "Classifier (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:480
+#: c9ab191aba8e4ba49d52aea1a3e67735
+msgid ""
+"Each entry is a string giving a single classification value for the "
+"distribution.  Classifiers are described in :pep:`301`, and the Python "
+"Package Index publishes a dynamic list of `currently defined classifiers "
+"<https://pypi.org/classifiers/>`__."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:485
+#: ../source/specifications/core-metadata.rst:574
+#: ../source/specifications/core-metadata.rst:691
+#: ../source/specifications/core-metadata.rst:715
+#: 1183ed8560b84b46830a3f1ec041cc07 9068e60648b44f0b9347bad7fd83fdaf
+#: 9ebded4bf65c4c4ca5c8015daa05caa6 c16f4198c5fa48c8907899c9eea99f3d
+msgid "This field may be followed by an environment marker after a semicolon."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:496
+#: 673aa422524542f4b177dfc8dbe81dd5
+msgid "Requires-Dist (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:499
+#: ../source/specifications/core-metadata.rst:561
+#: ../source/specifications/core-metadata.rst:663
+#: ../source/specifications/core-metadata.rst:704
+#: 5a101a927e734ef5881c28ca1b13f112 80ff0e69110c4d0a90425630ecef7ec3
+#: f5f91810ec4446ab89cb036a04d36882 fc2d66c68ece40e7aa5f3571dfc8ff67
+msgid ""
+"The field format specification was relaxed to accept the syntax used by "
+"popular publishing tools."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:503
+#: 153def5bc49f48a3851fa5964db3efcd
+msgid ""
+"Each entry contains a string naming some other distutils project required"
+" by this distribution."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:506
+#: 052aee191bcc47c28da2e47d68d3885f
+msgid "The format of a requirement string contains from one to four parts:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:508
+#: dee055a4a10345c0b4148c7c6b877c25
+msgid ""
+"A project name, in the same format as the ``Name:`` field. The only "
+"mandatory part."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:510
+#: 2784d4e9bc61439180c3009812e0f530
+msgid ""
+"A comma-separated list of 'extra' names. These are defined by the "
+"required project, referring to specific features which may need extra "
+"dependencies."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:513
+#: afb6763357604f2a999244380489c4a4
+msgid ""
+"A version specifier. Tools parsing the format should accept optional "
+"parentheses around this, but tools generating it should not use "
+"parentheses."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:516
+#: 64ab5a4160c34a71b071b2c180a688e7
+msgid ""
+"An environment marker after a semicolon. This means that the requirement "
+"is only needed in the specified conditions."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:519
+#: bfbf9538cd8c4e4889ba42eaf0a84749
+msgid "See :pep:`508` for full details of the allowed format."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:521
+#: bf3deab71e0d46338055963afde59503
+msgid ""
+"The project names should correspond to names as found on the `Python "
+"Package Index`_."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:524
+#: 63a0577b740b4f7098a489299a7cf4c9
+msgid ""
+"Version specifiers must follow the rules described in :doc:`version-"
+"specifiers`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:538
+#: 4ec407ba01d0412ca46857e4c7939984
+msgid "Requires-Python"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:542
+#: 7da5841f5f4148f99664e65d14f5fa63
+msgid ""
+"This field specifies the Python version(s) that the distribution is "
+"guaranteed to be compatible with. Installation tools may look at this "
+"when picking which version of a project to install."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:546
+#: de8f3d5365434fe8aa6275804ca4570b
+msgid "The value must be in the format specified in :doc:`version-specifiers`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:548
+#: b077b86a72e6454288b22a2d5fc93058
+msgid "This field cannot be followed by an environment marker."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:558
+#: a2bc19c436bf4833ad6add7543a0560c
+msgid "Requires-External (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:565
+#: 0109f8dc8dd04a7d8389abee8a359397
+msgid ""
+"Each entry contains a string describing some dependency in the system "
+"that the distribution is to be used.  This field is intended to serve as "
+"a hint to downstream project maintainers, and has no semantics which are "
+"meaningful to the ``distutils`` distribution."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:570
+#: 715d63a44e4a429cae66deae387b8d33
+msgid ""
+"The format of a requirement string is a name of an external dependency, "
+"optionally followed by a version declaration within parentheses."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:576
+#: 34fdfee4d5144df69dd28edee95d6845
+msgid ""
+"Because they refer to non-Python software releases, version numbers for "
+"this field are **not** required to conform to the format specified in "
+":pep:`440`:  they should correspond to the version scheme used by the "
+"external dependency."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:581
+#: b8f5a005228d4d0ea87fa82028954e3b
+msgid "Notice that there is no particular rule on the strings to be used."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:593
+#: c070de3c6609447aa8ffb5ec83cd84dd
+msgid "Project-URL (multiple-use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:597
+#: 9d50ef6abf7e422cb81362e32e2e98a8
+msgid ""
+"A string containing a browsable URL for the project and a label for it, "
+"separated by a comma."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:604
+#: 2562a6f36f6b4ca69ed031d8ac03bf6b
+msgid "The label is free text limited to 32 characters."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:612
+#: 2119ae02aa83411f980b0323ebff3bec
+msgid "Provides-Extra (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:616
+#: 23c3c58035344699bb6d4ace9eecf6ca
+msgid ""
+"A string containing the name of an optional feature. Must be a valid "
+"Python identifier. May be used to make a dependency conditional on "
+"whether the optional feature has been requested."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:625
+#: 4f1e5eab85a6407ea8aba8852c6fb370
+msgid ""
+"A second distribution requires an optional dependency by placing it "
+"inside square brackets, and can request multiple features by separating "
+"them with a comma (,). The requirements are evaluated for each requested "
+"feature and added to the set of requirements for the distribution."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:635
+#: 89a2e391f1c24111b8f1ca839c05d6c5
+msgid ""
+"Two feature names ``test`` and ``doc`` are reserved to mark dependencies "
+"that are needed for running automated tests and generating documentation,"
+" respectively."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:639
+#: e69d4493c9474f85bd95b6373532beb1
+msgid ""
+"It is legal to specify ``Provides-Extra:`` without referencing it in any "
+"``Requires-Dist:``."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:644
+#: 17a7ef37d9eb4c818735ad5ff6d90318
+msgid "Rarely Used Fields"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:646
+#: 9fa3c4cc08ce4701a007e8bf5e06bfaf
+msgid ""
+"The fields in this section are currently rarely used, as their design was"
+" inspired by comparable mechanisms in Linux package management systems, "
+"and it isn't at all clear how tools should interpret them in the context "
+"of an open index server such as `PyPI <https://pypi.org>`__."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:651
+#: 280c8158741448369d570d14ac77d86e
+msgid ""
+"As a result, popular installation tools ignore them completely, which in "
+"turn means there is little incentive for package publishers to set them "
+"appropriately. However, they're retained in the metadata specification, "
+"as they're still potentially useful for informational purposes, and can "
+"also be used for their originally intended purpose in combination with a "
+"curated package repository."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:660
+#: 85910d4e24f441e49f4a9b0de380d60b
+msgid "Provides-Dist (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:667
+#: dff29d1a1bc34aba9369494153515562
+msgid ""
+"Each entry contains a string naming a Distutils project which is "
+"contained within this distribution.  This field *must* include the "
+"project identified in the ``Name`` field, followed by the version : Name "
+"(Version)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:672
+#: 3f727e5fa2f34ce0a51eaa586652794e
+msgid ""
+"A distribution may provide additional names, e.g. to indicate that "
+"multiple projects have been bundled together.  For instance, source "
+"distributions of the ``ZODB`` project have historically included the "
+"``transaction`` project, which is now available as a separate "
+"distribution.  Installing such a source distribution satisfies "
+"requirements for both ``ZODB`` and ``transaction``."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:679
+#: 0606b9cc7a5640d5b8cbdb501e3a9e5c
+msgid ""
+"A distribution may also provide a \"virtual\" project name, which does "
+"not correspond to any separately-distributed project:  such a name might "
+"be used to indicate an abstract capability which could be supplied by one"
+" of multiple projects.  E.g., multiple projects might supply RDBMS "
+"bindings for use by a given ORM:  each project might declare that it "
+"provides ``ORM-bindings``, allowing other projects to depend only on "
+"having at most one of them installed."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:687
+#: 31a1e902044b494e93b0d0e9cddecfeb
+msgid ""
+"A version declaration may be supplied and must follow the rules described"
+" in :doc:`version-specifiers`. The distribution's version number will be "
+"implied if none is specified."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:701
+#: fff91c89cb8443dab56600d486f705ea
+msgid "Obsoletes-Dist (multiple use)"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:708
+#: 9283f9e21ba14ef29fbd84adf2fc3f82
+msgid ""
+"Each entry contains a string describing a distutils project's "
+"distribution which this distribution renders obsolete, meaning that the "
+"two projects should not be installed at the same time."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:712
+#: f2e2d56e3c144f7d81b3182c1063e1e4
+msgid ""
+"Version declarations can be supplied.  Version numbers must be in the "
+"format specified in :doc:`version-specifiers`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:717
+#: cf5ebe48c245421bbfb94bfaea6489ff
+msgid ""
+"The most common use of this field will be in case a project name changes,"
+" e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
+"Torqued Python, the Gorgon distribution should be removed."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:730
+#: 9359d448fa4946458893cf122533ca84
+msgid "reStructuredText markup: http://docutils.sourceforge.net/"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:735
+#: af6e3890808c4747af7ac4132bd264b1
+msgid "RFC 822 Long Header Fields: http://www.freesoft.org/CIE/RFC/822/7.htm"
+msgstr ""
+

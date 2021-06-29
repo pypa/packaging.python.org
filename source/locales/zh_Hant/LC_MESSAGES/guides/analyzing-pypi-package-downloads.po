@@ -1,0 +1,578 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:3
+#: d79bc70ee89940048fa3a40055719296
+msgid "Analyzing PyPI package downloads"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:5
+#: 903b028324dc45d0b1b155de9517ec23
+msgid ""
+"This section covers how to use the public PyPI download statistics "
+"dataset to learn more about downloads of a package (or packages) hosted "
+"on PyPI. For example, you can use it to discover the distribution of "
+"Python versions used to download a package."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:12
+#: 2abf79a26c0e4c419c407eed3ac93af3
+msgid "Contents"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:15
+#: df62d52953b84250ba51b23d33addc26
+msgid "Background"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:17
+#: 4fc8467e783d4c2ca4d174106330be19
+msgid "PyPI does not display download statistics for a number of reasons: [#]_"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:19
+#: ae30f835d90a48e281d84408e7cad970
+msgid ""
+"**Inefficient to make work with a Content Distribution Network (CDN):** "
+"Download statistics change constantly. Including them in project pages, "
+"which are heavily cached, would require invalidating the cache more "
+"often, and reduce the overall effectiveness of the cache."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:24
+#: 245af5ec1e1a4813b2447da7deeca57e
+msgid ""
+"**Highly inaccurate:** A number of things prevent the download counts "
+"from being accurate, some of which include:"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:27
+#: 8f6c8c3d494f4883a164524ef3f1b4c1
+msgid "``pip``'s download cache (lowers download counts)"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:28
+#: 63c8dc71a35d47e78d72a9f1f0e3389f
+msgid "Internal or unofficial mirrors (can both raise or lower download counts)"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:29
+#: 6e507d7096e74dc9a96e4b63306e8d9e
+msgid "Packages not hosted on PyPI (for comparisons sake)"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:30
+#: 3252a232f69b4c7cacfceef6733e8706
+msgid ""
+"Unofficial scripts or attempts at download count inflation (raises "
+"download counts)"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:32
+#: 5ba587e8dd174afc9819c79475e19d0f
+msgid "Known historical data quality issues (lowers download counts)"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:34
+#: f68bce5dcc0d4c4bafa292ac44770bdc
+msgid ""
+"**Not particularly useful:** Just because a project has been downloaded a"
+" lot doesn't mean it's good; Similarly just because a project hasn't been"
+" downloaded a lot doesn't mean it's bad!"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:38
+#: 70411a23ff894cbfa4e90398b892f967
+msgid ""
+"In short, because it's value is low for various reasons, and the "
+"tradeoffs required to make it work are high, it has been not an effective"
+" use of limited resources."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:43
+#: b145cfd3459f44d7b080b50e86598295
+msgid "Public dataset"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:45
+#: c19ab16f91584a698bd5d5269e1c5f47
+msgid ""
+"As an alternative, the `Linehaul project "
+"<https://github.com/pypa/linehaul>`__ streams download logs from PyPI to "
+"`Google BigQuery`_ [#]_, where they are stored as a public dataset."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:50
+#: a035fd6f43d441ab8dc134633fc1e68e
+msgid "Getting set up"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:52
+#: 823b6135fbfb4b828c163c3454867b36
+msgid ""
+"In order to use `Google BigQuery`_ to query the `public PyPI download "
+"statistics dataset`_, you'll need a Google account and to enable the "
+"BigQuery API on a Google Cloud Platform project. You can run the up to "
+"1TB of queries per month `using the BigQuery free tier without a credit "
+"card <https://cloud.google.com/blog/big-data/2017/01/how-to-run-a"
+"-terabyte-of-google-bigquery-queries-each-month-without-a-credit-card>`__"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:58
+#: 1d22db854b044d61b2806e71486b6190
+msgid "Navigate to the `BigQuery web UI`_."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:59
+#: b5c7e378d7c246118a284b550d8f4b84
+msgid "Create a new project."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:60
+#: 2177cbcd8e464edca7c66db9b834ab3d
+msgid ""
+"Enable the `BigQuery API "
+"<https://console.developers.google.com/apis/library/bigquery-"
+"json.googleapis.com>`__."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:63
+#: c10287564d4f474e9cec2ffa75775fe1
+msgid ""
+"For more detailed instructions on how to get started with BigQuery, check"
+" out the `BigQuery quickstart guide "
+"<https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-"
+"ui>`__."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:69
+#: 1a03f4b488c444a9b92771f60e52b908
+msgid "Data schema"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:71
+#: 1597b10500c94ba0832eaf49af729161
+msgid ""
+"Linehaul writes an entry in a ``bigquery-public-"
+"data.pypi.file_downloads`` table for each download. The table contains "
+"information about what file was downloaded and how it was downloaded. "
+"Some useful columns from the `table schema "
+"<https://console.cloud.google.com/bigquery?pli=1&p=bigquery-public-"
+"data&d=pypi&t=file_downloads&page=table>`__ include:"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:78
+#: 51e8025c4ff6405e9db98dce9ea9d3e1
+msgid "Column"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:78
+#: 54a0b152256148f981321662be67903d
+msgid "Description"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:78
+#: adec61776b814eaabee72a62b272d673
+msgid "Examples"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:80
+#: 30d87be21cd6493da37272dd66e83551
+msgid "timestamp"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:80
+#: 22de2524eea54e52a3eca7e1a61acb49
+msgid "Date and time"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:80
+#: 3cca3d8ece884d7b8c9ac81f13973997
+msgid "``2020-03-09 00:33:03 UTC``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:82
+#: cd53b5e58cab4b73b34dcc3b87e38c1b
+msgid "file.project"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:82
+#: d97460b040e041f1bfa45d8c90311e2f
+msgid "Project name"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:82
+#: 74f5d7b8b5b94973be2cb6a1a3515edd
+msgid "``pipenv``, ``nose``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:84
+#: badb2bbe3b50464d9d0195f938f9dda0
+msgid "file.version"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:84
+#: 0ac260418d834ab5a9fa38c3f2d75d11
+msgid "Package version"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:84
+#: 40a7659b568c473b9c038ab7c25bf894
+msgid "``0.1.6``, ``1.4.2``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:86
+#: 8a4d483b6c35403499920894290e1e8e
+msgid "details.installer.name"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:86
+#: 3a7bf8d29b5244f882cef2f517990f6a
+msgid "Installer"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:86
+#: e4929a30f0e3452d82896a6711795cba
+msgid "pip, `bandersnatch`_"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:88
+#: a99eb0bcde214f12892c04e0741fdf69
+msgid "details.python"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:88
+#: 680879f1db0649b7a9d0f302fe4b477d
+msgid "Python version"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:88
+#: f4a4b01dc094426fad993886e51d92d5
+msgid "``2.7.12``, ``3.6.4``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:93
+#: f14446a4ab754c4c9b3355bda6249fd4
+msgid "Useful queries"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:95
+#: 381c31329e5f47c8b07f6599446eb36f
+msgid ""
+"Run queries in the `BigQuery web UI`_ by clicking the \"Compose query\" "
+"button."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:97
+#: 7beb846efbf84213a2d0e51f37ba8b4f
+msgid ""
+"Note that the rows are stored in a partitioned, which helps limit the "
+"cost of queries. These example queries analyze downloads from recent "
+"history by filtering on the ``timestamp`` column."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:102
+#: 2a97fd3bdd6240fc863c0e95ca237d4b
+msgid "Counting package downloads"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:104
+#: 8ddf5fd9add941798f09e0b11f5c0f85
+msgid ""
+"The following query counts the total number of downloads for the project "
+"\"pytest\"."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:119
+#: ../source/guides/analyzing-pypi-package-downloads.rst:140
+#: ../source/guides/analyzing-pypi-package-downloads.rst:168
+#: ../source/guides/analyzing-pypi-package-downloads.rst:205
+#: 1fa8662043f74915aaf6adec94b93513 450132bc822849c59d1894e9e129d840
+#: 6049de678464444494659a3c5ba54f2a e9e3784bc3034953a5f787f6e70bc9bf
+msgid "num_downloads"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:121
+#: fef6363a00384597aba9d85f9d4dd4c6
+msgid "26190085"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:124
+#: 32bb5a8cd5d64f3c8cbdb7df308e7bf7
+msgid ""
+"To only count downloads from pip, filter on the "
+"``details.installer.name`` column."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:142
+#: d90da96b8cb447c1b40b31ddb09fcbae
+msgid "24334215"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:146
+#: 2017d6a9a2dc458b918c7019911a9dc9
+msgid "Package downloads over time"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:148
+#: c2a06928e957425790bbe8aebef99976
+msgid ""
+"To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also"
+" filtering by this column reduces corresponding costs."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:168
+#: 9b0cd17b53dd44b883398ce0483fd113
+msgid "month"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:170
+#: 27262c11fff04c0ca9ab2df0dcb61fd6
+msgid "1956741"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:170
+#: 1210fe71b0754ed9abb5b4c7f21f9c09
+msgid "2018-01-01"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:172
+#: 6ae6c7fe2e6f45d6a3e1a9986eaa8048
+msgid "2344692"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:172
+#: f153ef37d8db4f2f9535bca70ad2dd93
+msgid "2017-12-01"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:174
+#: f01c6ac9ede04094aeddbef4ab83364f
+msgid "1730398"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:174
+#: 522c4ed3f7a94ed4abc047b0da181511
+msgid "2017-11-01"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:176
+#: 0ad40983f06746c988b6ce46af946b41
+msgid "2047310"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:176
+#: 7cd62a22e89044aa849874e82a04bed8
+msgid "2017-10-01"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:178
+#: c30f71f577d741bcb0f363bf59dd527e
+msgid "1744443"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:178
+#: 1d4eb831e28a45839b6841edbd1e578c
+msgid "2017-09-01"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:180
+#: e459fa6543a24d1d923cd9da628eff0a
+msgid "1916952"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:180
+#: 04321f34086646bd8feb78e8f03320d5
+msgid "2017-08-01"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:184
+#: f50c8b7f0ee14e13b447bd12c6d05f99
+msgid "Python versions over time"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:186
+#: 7cf963540b4d40da94d360135d5e8d02
+msgid ""
+"Extract the Python version from the ``details.python`` column. Warning: "
+"This query processes over 500 GB of data."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:205
+#: a3f9f78c634f4ff6a0374e6ddf97b36f
+msgid "python"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:207
+#: 11f39baee9864456bd20ce5d89f78641
+msgid "3.7"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:207
+#: dc87e0212f9d40c4aa355cc3b71a7c46
+msgid "18051328726"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:209
+#: 66acd13e626c497aacd6d5d8a0aabb2b
+msgid "3.6"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:209
+#: 9b136ee1e4b241b6a3e955abd38dacaa
+msgid "9635067203"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:211
+#: 44a129f257f245e3a0b26723ab5327b7
+msgid "3.8"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:211
+#: 58771b30c81246749cf5afbe89bcb706
+msgid "7781904681"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:213
+#: 96a629eda50f4437aaf6aa2b8e86d8f8
+msgid "2.7"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:213
+#: 23ff435a8ac8441da98a0491cae926ae
+msgid "6381252241"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:215
+#: e620af87a4874fa2b16243ed30e9f28c
+msgid "null"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:215
+#: 3bf94ea809f143ef902baff5d2b7bebe
+msgid "2026630299"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:217
+#: 4b3c6856a979433bb939e14036b0d950
+msgid "3.5"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:217
+#: a12cf25d5dcb4422b42b3e527e3dbe7a
+msgid "1894153540"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:221
+#: ba9aefdd0fa9445c9eca07c4f3101c34
+msgid "Caveats"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:223
+#: 94b75910f37f401597b89b300ad7b193
+msgid ""
+"In addition to the caveats listed in the background above, Linehaul "
+"suffered from a bug which caused it to significantly under-report "
+"download statistics prior to July 26, 2018. Downloads before this date "
+"are proportionally accurate (e.g. the percentage of Python 2 vs. Python 3"
+" downloads) but total numbers are lower than actual by an order of "
+"magnitude."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:231
+#: 1dd995e69df24babafcdc849a33e84bc
+msgid "Additional tools"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:233
+#: 2d7c2a20225941aebc1d90cd334ec33b
+msgid ""
+"Besides using the BigQuery console, there are some additional tools which"
+" may be useful when analyzing download statistics."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:237
+#: f7ecbb31119e4147862b5e07417e77fe
+msgid "``google-cloud-bigquery``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:239
+#: 41f79337392d42559834276c8022d81f
+msgid ""
+"You can also access the public PyPI download statistics dataset "
+"programmatically via the BigQuery API and the `google-cloud-bigquery`_ "
+"project, the official Python client library for BigQuery."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:267
+#: 9c7d9224d7694bafa269b11712d030bf
+msgid "``pypinfo``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:269
+#: c98abf22dc9544bb89295daa5ba3b46e
+msgid ""
+"`pypinfo`_ is a command-line tool which provides access to the dataset "
+"and can generate several useful queries. For example, you can query the "
+"total number of download for a package with the command ``pypinfo "
+"package_name``."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:273
+#: f8ac54a8b87c45c6bb640ba4037da7d6
+msgid "Install `pypinfo`_ using pip."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:279
+#: b36bb3d0d18e448983f540ac55aecfff
+msgid "Usage:"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:295
+#: 5c4988d0acaa4161bde271df70925ddd
+msgid "``pandas-gbq``"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:297
+#: ae260d9ec382434582209d91c6d240c4
+msgid ""
+"The `pandas-gbq`_ project allows for accessing query results via "
+"`Pandas`_."
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:301
+#: d5754a9f3e284854a5c843710e84a1d4
+msgid "References"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:303
+#: d973d52a003e41739dea2f2584214c42
+msgid ""
+"`PyPI Download Counts deprecation email "
+"<https://mail.python.org/pipermail/distutils-sig/2013-May/020855.html>`__"
+msgstr ""
+
+#: ../source/guides/analyzing-pypi-package-downloads.rst:304
+#: b916ad399ed34c3ab55678b9fcbf580e
+msgid ""
+"`PyPI BigQuery dataset announcement email "
+"<https://mail.python.org/pipermail/distutils-sig/2016-May/028986.html>`__"
+msgstr ""
+

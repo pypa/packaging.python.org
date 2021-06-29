@@ -1,0 +1,263 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2013–2020, PyPA
+# This file is distributed under the same license as the Python Packaging
+# User Guide package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python Packaging User Guide \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-29 15:34+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../source/guides/packaging-namespace-packages.rst:3
+#: 70b205dd7a8041248c633f2a12e79bed
+msgid "Packaging namespace packages"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:5
+#: deff1075330c4523969530e83259d6a3
+msgid ""
+"Namespace packages allow you to split the sub-packages and modules within"
+" a single :term:`package <Import Package>` across multiple, separate "
+":term:`distribution packages <Distribution Package>` (referred to as "
+"**distributions** in this document to avoid ambiguity). For example, if "
+"you have the following package structure:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:24
+#: 715426a9527e434eb814f2b6e45660b5
+msgid "And you use this package in your code like so::"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:29
+#: 8d827c28569f498db134767f7f5ef652
+msgid "Then you can break these sub-packages into two separate distributions:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:46
+#: 22ec0e36aebc4af7a594b05d1b63c75f
+msgid "Each sub-package can now be separately installed, used, and versioned."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:48
+#: 2f9c6cef09f14a8b895fc56a687c83b7
+msgid ""
+"Namespace packages can be useful for a large collection of loosely-"
+"related packages (such as a large corpus of client libraries for multiple"
+" products from a single company). However, namespace packages come with "
+"several caveats and are not appropriate in all cases. A simple "
+"alternative is to use a prefix on all of your distributions such as "
+"``import mynamespace_subpackage_a`` (you could even use ``import "
+"mynamespace_subpackage_a as subpackage_a`` to keep the import object "
+"short)."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:58
+#: 1b9fdb04c1c34ab29b3ae82ae67184a6
+msgid "Creating a namespace package"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:60
+#: 7758e635d5984f53b3ac6bd39f5fd129
+msgid ""
+"There are currently three different approaches to creating namespace "
+"packages:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:62
+#: 2246027af2484575becf6ffc00b00d02
+msgid ""
+"Use `native namespace packages`_. This type of namespace package is "
+"defined in :pep:`420` and is available in Python 3.3 and later. This is "
+"recommended if packages in your namespace only ever need to support "
+"Python 3 and installation via ``pip``."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:66
+#: f5ab1bb3db084fb6b87c8d36efeb163d
+msgid ""
+"Use `pkgutil-style namespace packages`_. This is recommended for new "
+"packages that need to support Python 2 and 3 and installation via both "
+"``pip`` and ``python setup.py install``."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:69
+#: 47464e52b7fd44c788432dedf3d8b8bf
+msgid ""
+"Use `pkg_resources-style namespace packages`_. This method is recommended"
+" if you need compatibility with packages already using this method or if "
+"your package needs to be zip-safe."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:73
+#: 556634ef9a814b5c8980cdafa4b4cb8c
+msgid ""
+"While native namespace packages and pkgutil-style namespace packages are "
+"largely compatible, pkg_resources-style namespace packages are not "
+"compatible with the other methods. It's inadvisable to use different "
+"methods in different distributions that provide packages to the same "
+"namespace."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:80
+#: 1ead423c603b4aecbef2a71cff6e92a3
+msgid "Native namespace packages"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:82
+#: bef9e33f862b40aea1b0d9d2b707500d
+msgid ""
+"Python 3.3 added **implicit** namespace packages from :pep:`420`. All "
+"that is required to create a native namespace package is that you just "
+"omit :file:`__init__.py` from the namespace package directory. An example"
+" file structure:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:97
+#: fd7a4e776bc040549a30a1e610ef2c1a
+msgid ""
+"It is extremely important that every distribution that uses the namespace"
+" package omits the :file:`__init__.py` or uses a pkgutil-style "
+":file:`__init__.py`. If any distribution does not, it will cause the "
+"namespace logic to fail and the other sub-packages will not be "
+"importable."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:102
+#: fa795b112eb848d08bca2ca8a9f7aa41
+msgid ""
+"Because ``mynamespace`` doesn't contain an :file:`__init__.py`, "
+":func:`setuptools.find_packages` won't find the sub-package. You must use"
+" :func:`setuptools.find_namespace_packages` instead or explicitly list "
+"all packages in your :file:`setup.py`. For example:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:117
+#: 338a3215395842c3a179f45d73a47796
+msgid ""
+"A complete working example of two native namespace packages can be found "
+"in the `native namespace package example project`_."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:123
+#: 6d1607d493d04103afd34199393f94b9
+msgid ""
+"Because native and pkgutil-style namespace packages are largely "
+"compatible, you can use native namespace packages in the distributions "
+"that only support Python 3 and pkgutil-style namespace packages in the "
+"distributions that need to support Python 2 and 3."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:129
+#: 8f0f299f975140b5ade3375e1eec3590
+msgid "pkgutil-style namespace packages"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:131
+#: 3648953617a845a09184906a7fec62f6
+msgid ""
+"Python 2.3 introduced the `pkgutil`_ module and the `extend_path`_ "
+"function. This can be used to declare namespace packages that need to be "
+"compatible with both Python 2.3+ and Python 3. This is the recommended "
+"approach for the highest level of compatibility."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:136
+#: d7437a9b722e4beeb20f214d9715a915
+msgid ""
+"To create a pkgutil-style namespace package, you need to provide an "
+":file:`__init__.py` file for the namespace package:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:148
+#: ../source/guides/packaging-namespace-packages.rst:194
+#: 41e8327ddbb144baa43767e11cd7809d b4e4762ddba745a9a6e4194dabacac14
+msgid ""
+"The :file:`__init__.py` file for the namespace package needs to contain "
+"**only** the following:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:155
+#: ../source/guides/packaging-namespace-packages.rst:201
+#: 0d7771b9e60547d285543b54793376f0 1b52282adbad43679724eb105ebdf1e8
+msgid ""
+"**Every** distribution that uses the namespace package must include an "
+"identical :file:`__init__.py`. If any distribution does not, it will "
+"cause the namespace logic to fail and the other sub-packages will not be "
+"importable.  Any additional code in :file:`__init__.py` will be "
+"inaccessible."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:160
+#: ecf355bbd31d49bc862adc537604e303
+msgid ""
+"A complete working example of two pkgutil-style namespace packages can be"
+" found in the `pkgutil namespace example project`_."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:171
+#: 8e54a758c6ce46618b9f02a9ae83f0fe
+msgid "pkg_resources-style namespace packages"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:173
+#: 6e68155badde43268e1237e1dcf9bc34
+msgid ""
+"`Setuptools`_ provides the `pkg_resources.declare_namespace`_ function "
+"and the ``namespace_packages`` argument to :func:`~setuptools.setup`. "
+"Together these can be used to declare namespace packages. While this "
+"approach is no longer recommended, it is widely present in most existing "
+"namespace packages. If you are creating a new distribution within an "
+"existing namespace package that uses this method then it's recommended to"
+" continue using this as the different methods are not cross-compatible "
+"and it's not advisable to try to migrate an existing package."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:182
+#: 7d05408ce739419988abfd343a8e7f7a
+msgid ""
+"To create a pkg_resources-style namespace package, you need to provide an"
+" :file:`__init__.py` file for the namespace package:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:206
+#: 09ae46c11aa9449daa490525e599f1b0
+msgid ""
+"Some older recommendations advise the following in the namespace package "
+":file:`__init__.py`:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:216
+#: 5300997c41c84a3bbe1bcfdd5d8d39e4
+msgid ""
+"The idea behind this was that in the rare case that setuptools isn't "
+"available packages would fall-back to the pkgutil-style packages. This "
+"isn't advisable because pkgutil and pkg_resources-style namespace "
+"packages are not cross-compatible. If the presence of setuptools is a "
+"concern then the package should just explicitly depend on setuptools via "
+"``install_requires``."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:223
+#: a7676fb0565042a99224155b6ed194e2
+msgid ""
+"Finally, every distribution must provide the ``namespace_packages`` "
+"argument to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:237
+#: 452dbd1a28644f73864a160f48312bc3
+msgid ""
+"A complete working example of two pkg_resources-style namespace packages "
+"can be found in the `pkg_resources namespace example project`_."
+msgstr ""
+
