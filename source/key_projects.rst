@@ -164,6 +164,18 @@ Pipfile
 application-centric alternative to :ref:`pip`'s lower-level
 :file:`requirements.txt` file.
 
+.. _pipx:
+
+pipx
+====
+
+`Docs <https://pypa.github.io/pipx/>`__ |
+`GitHub <https://github.com/pypa/pipx>`__ |
+`PyPI <https://pypi.org/project/pipx/>`__
+
+pipx is a tool to install and run Python command-line applications without
+causing dependency conflicts with other packages installed on the system.
+
 
 Python Packaging User Guide
 ===========================
@@ -481,17 +493,6 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 :file:`.pex` files are just carefully constructed zip files with a
 ``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
 make deployment of Python applications as simple as ``cp``.
-
-.. _pipx:
-
-pipx
-====
-
-`Docs <https://pipxproject.github.io/pipx/>`__ |
-`GitHub <https://github.com/pipxproject/pipx>`__ |
-`PyPI <https://pypi.org/project/pipx/>`__
-
-pipx is a tool to safely install and run Python CLI applications globally.
 
 .. _pip-tools:
 
