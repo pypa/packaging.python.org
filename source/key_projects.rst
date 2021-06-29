@@ -55,7 +55,7 @@ cibuildwheel
 `Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
 `Discord #cibuildwheel <https://discord.com/invite/pypa>`__
 
-``cibuildwheel`` is a Python package that builds :term:`wheels <Wheels>` for all common
+``cibuildwheel`` is a Python package that builds :term:`wheels <Wheel>` for all common
 platforms and Python versions on most CI systems. Also see :ref:`multibuild`.
 
 .. _distlib:
