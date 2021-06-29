@@ -6,6 +6,12 @@
 import shutil
 import nox
 
+@nox.session(py="3")
+def translation(session):
+    session.install("sphinx-intl")
+    session.install("sphinx-inline-tabs")
+    session.run("cd","source")
+    session.run("make","gettext")
 
 @nox.session(py="3")
 def build(session, autobuild=False):
@@ -41,10 +47,3 @@ def build(session, autobuild=False):
 def preview(session):
     session.install("sphinx-autobuild")
     build(session, autobuild=True)
-
-@nox.session(py="3")
-def translation(session):
-    session.install("sphinx-intl")
-    session.install("sphinx-inline-tabs")
-    session.run("cd","source")
-    session.run("make","gettext")

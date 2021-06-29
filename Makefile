@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = sphinx-intl
 SOURCEDIR     = source/
-BUILDDIR      = source/locales/
+BUILDDIR      = source/locales/template
 
 # Put it first so that "make" without argument is like "make help".
 help:
