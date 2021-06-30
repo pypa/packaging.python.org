@@ -30,6 +30,7 @@ jobs:
       - name: Nox Translation
         run: |
           python -m nox -s translation
+          git diff --quiet ./locales/messages.pot
 
       - name: Nox build
         run: |

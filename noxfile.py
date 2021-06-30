@@ -13,7 +13,6 @@ def translation(session):
     target_dir = "locales"
     session.run("sphinx-build", "-b", "gettext", "source/", target_dir)
     
-
 @nox.session(py="3")
 def build(session, autobuild=False):
     session.install("-r", "requirements.txt")
