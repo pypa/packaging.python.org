@@ -11,12 +11,13 @@ def translation(session):
     session.install("sphinx-intl")
     session.install("sphinx-inline-tabs")
     target_dir = "locales"
-    session.run("sphinx-build", 
-                "-b", 
-                "gettext", 
-                "source/", 
-                target_dir,
-                )
+    session.run(
+            "sphinx-build", 
+            "-b", 
+            "gettext", 
+            "source/",   # where the rst files are located
+            target_dir,  # where to put po files
+        )
     
 @nox.session(py="3")
 def build(session, autobuild=False):
