@@ -156,7 +156,7 @@ Python interpreter, it should point to the ``env`` directory.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         where python
         ...\env\Scripts\python.exe
