@@ -4,7 +4,7 @@ Installing stand alone command line tools
 Many packages have command line entry points. Examples of this type of application are
 `mypy <https://github.com/python/mypy>`_,
 `flake8 <https://github.com/PyCQA/flake8>`_,
-`pipenv <https://github.com/pypa/pipenv>`_,and
+:ref:`pipenv`,and
 `black <https://github.com/ambv/black>`_.
 
 Usually you want to be able to access these from anywhere,
@@ -12,13 +12,13 @@ but installing packages and their dependencies to the same global environment
 can cause version conflicts and break dependencies the operating system has
 on Python packages.
 
-`pipx <https://github.com/pipxproject/pipx>`_ solves this by creating a virtual
+:ref:`pipx` solves this by creating a virtual
 environment for each package, while also ensuring that package's applications
 are accessible through a directory that is on your ``$PATH``. This allows each
 package to be upgraded or uninstalled without causing conflicts with other
 packages, and allows you to safely run the program from anywhere.
 
-.. Note:: pipx only works with Python 3.6+.
+.. note:: pipx only works with Python 3.6+.
 
 ``pipx`` is installed with ``pip``:
 
@@ -110,4 +110,4 @@ To see the full list of commands ``pipx`` offers, run
   $ pipx --help
 
 You can learn more about ``pipx`` at its homepage,
-https://github.com/pipxproject/pipx.
+https://github.com/pypa/pipx.

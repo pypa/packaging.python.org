@@ -240,6 +240,18 @@ guide includes an introduction to writing a
 Building binary extensions
 ==========================
 
+Building extensions for multiple platforms
+------------------------------------------
+
+If you plan to distribute your extension, you should provide
+:term:`wheels <Wheel>` for all the platforms you intend to support. For most
+extensions, this is at least one package per Python version times the number of
+OS and architectures you support.  These are usually built on continuous
+integration (CI) systems. There are tools to help you build highly
+redistributable binaries from CI; these include :ref:`cibuildwheel` and
+:ref:`multibuild`.
+
+
 Binary extensions for Windows
 -----------------------------
 

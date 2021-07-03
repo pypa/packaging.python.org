@@ -189,7 +189,7 @@ This will create a new virtual environment in the ``tutorial_env`` subdirectory,
 and configure the current shell to use it as the default ``python`` environment.
 
 
-.. _`Creating and using Virtual Environments`:
+.. _Creating and using Virtual Environments:
 
 Creating Virtual Environments
 =============================

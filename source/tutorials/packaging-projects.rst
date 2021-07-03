@@ -5,6 +5,16 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index.
 
+.. tip::
+
+   If you have trouble running the commands in this tutoral, please copy the command
+   and its output, then `open an issue`_ on the `packaging-problems`_ repository on
+   GitHub. We'll do our best to help you!
+
+.. _open an issue: https://github.com/pypa/packaging-problems/issues/new?title=Trouble+with+packaging+tutorial
+
+.. _packaging-problems: https://github.com/pypa/packaging-problems
+
 Some of the commands require a newer version of :ref:`pip`, so start by making
 sure you have the latest version installed:
 
@@ -24,7 +34,7 @@ sure you have the latest version installed:
 A simple project
 ----------------
 
-This tutorial uses a simple project named ``example_pkg``.  We recommend
+This tutorial uses a simple project named ``example_package``.  We recommend
 following this tutorial as-is using this project, before packaging your own
 project.
 
@@ -34,11 +44,23 @@ Create the following file structure locally:
 
     packaging_tutorial/
     └── src/
-        └── example_pkg/
-            └── __init__.py
+        └── example_package/
+            ├── __init__.py
+            └── example.py
 
-:file:`src/example_pkg/__init__.py` is required to import the directory as a
-package, and should be empty. If you are unfamiliar with Python's modules and
+:file:`__init__.py` is required to import the directory as a package, and
+should be empty.
+
+:file:`example.py` is an example of a module within the package that could
+contain the logic (functions, classes, constants, etc.) of your package.
+Open that file and enter the following content:
+
+.. code-block:: python
+
+    def add_one(number):
+        return number + 1
+
+If you are unfamiliar with Python's :term:`modules <Module>` and
 :term:`import packages <Import Package>`, take a few minutes to read over the
 `Python documentation for packages and modules`_.
 
@@ -63,8 +85,9 @@ When you're done, the project structure will look like this:
     ├── README.md
     ├── setup.cfg
     ├── src/
-    │   └── example_pkg/
-    │       └── __init__.py
+    │   └── example_package/
+    │       ├── __init__.py
+    │       └── example.py
     └── tests/
 
 
@@ -77,14 +100,9 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
-:file:`pyproject.toml` is the file that tells build tools (like ``pip`` and
-``build``) what system you are using and what is required for building. The
-default if this file is missing is to assume a classic setuptools build system,
-but it is better to be explicit; if you have a :file:`pyproject.toml` file, you
-will be able to rely on ``wheel`` and other packages being present.
-
-This file should be ideal for most setuptools projects:
-
+:file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
+what is required to build your project. This tutorial uses :ref:`setuptools`,
+so open :file:`pyproject.toml` and enter the following content:
 
 .. code-block:: toml
 
@@ -100,12 +118,13 @@ This file should be ideal for most setuptools projects:
 package. Listing something here will *only* make it available during the build,
 not after it is installed.
 
-``build-system.build-backend`` is technically optional, but you will get
-``setuptools.build_meta:__legacy__`` instead if you forget to include it, so
-always include it. If you were to use a different build system, such as
-:ref:`flit` or `poetry`_, those would go here, and the configuration details
-would be completely different than the setuptools configuration described
-below. See :pep:`517` and :pep:`518` for background and details.
+``build-system.build-backend`` is the name of Python object that will be used to
+perform the build. If you were to use a different build system, such as
+:ref:`flit` or :ref:`poetry`, those would go here, and the configuration details
+would be completely different than the :ref:`setuptools` configuration described
+below.
+
+See :pep:`517` and :pep:`518` for background and details.
 
 
 Configuring metadata
@@ -165,8 +184,9 @@ be required, but can be omitted with newer versions of setuptools and pip.
 
     There are a `variety of metadata and options
     <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
-    supported here. This is in configparser format; do not place quotes around values.
-    This example package uses a relatively minimal set of metadata:
+    supported here. This is in :doc:`configparser <python:library/configparser>`
+    format; do not place quotes around values. This example package uses a
+    relatively minimal set of ``metadata``:
 
     - ``name`` is the *distribution name* of your package. This can be any name as
       long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
@@ -198,7 +218,7 @@ be required, but can be omitted with newer versions of setuptools and pip.
       your package will work on. For a complete list of classifiers, see
       https://pypi.org/classifiers/.
 
-    In the options category, we have controls for setuptools itself:
+    In the ``options`` category, we have controls for setuptools itself:
 
     - ``package_dir`` is a mapping of package names and directories.
       An empty package name represents the "root package" --- the directory in
@@ -209,10 +229,10 @@ be required, but can be omitted with newer versions of setuptools and pip.
       <Distribution Package>`. Instead of listing each package manually, we can
       use the ``find:`` directive to automatically discover all packages and
       subpackages and ``options.packages.find`` to specify the ``package_dir``
-      to use. In this case, the list of packages will be ``example_pkg`` as
+      to use. In this case, the list of packages will be ``example_package`` as
       that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like pip will look back though older versions of
+      project. Installers like :ref:`pip` will look back through older versions of
       packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
@@ -301,9 +321,9 @@ be required, but can be omitted with newer versions of setuptools and pip.
       <Distribution Package>`. Instead of listing each package manually, we can
       use :func:`find_packages` to automatically discover all packages and
       subpackages under ``package_dir``. In this case, the list of packages will
-      be ``example_pkg`` as that's the only package present.
+      be ``example_package`` as that's the only package present.
     - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like pip will look back though older versions of
+      project. Installers like :ref:`pip` will look back though older versions of
       packages until it finds one that has a matching Python version.
 
     There are many more than the ones mentioned here. See
@@ -367,14 +387,14 @@ Including other files
 ---------------------
 
 The files listed above will be included automatically in your
-:term:`source distribution <Source Distribution (or "sdist")>`. If you want to control what goes in this
-explicitly, see :ref:`Using MANIFEST.in`.
+:term:`source distribution <Source Distribution (or "sdist")>`. If you want to
+control what goes in this explicitly, see :ref:`Using MANIFEST.in`.
 
 The final :term:`built distribution <Built Distribution>` will have the Python
 files in the discovered or listed Python packages. If you want to control what
 goes here, such as to add data files, see
-:std:doc:`Including Data Files <setuptools:userguide/datafiles>`
-from the :std:doc:`setuptools docs <setuptools:index>`.
+:doc:`Including Data Files <setuptools:userguide/datafiles>`
+from the :doc:`setuptools docs <setuptools:index>`.
 
 .. _generating archives:
 
@@ -385,7 +405,7 @@ The next step is to generate :term:`distribution packages <Distribution
 Package>` for the package. These are archives that are uploaded to the Python
 Package Index and can be installed by :ref:`pip`.
 
-Make sure you have the latest version of PyPA's ``build`` installed:
+Make sure you have the latest version of PyPA's :ref:`build` installed:
 
 .. tab:: Unix/macOS
 
@@ -422,14 +442,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-      example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
-
-.. note:: If you run into trouble here, please copy the output and file an issue
-  over on `packaging problems`_ and we'll do our best to help you!
-
-.. _packaging problems:
-  https://github.com/pypa/packaging-problems/issues/new?title=Trouble+following+packaging+libraries+tutorial
+      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
 The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the
@@ -445,14 +459,13 @@ Uploading the distribution archives
 
 Finally, it's time to upload your package to the Python Package Index!
 
-The first thing you'll need to do is register an account on Test PyPI, which
+The first thing you'll need to do is register an account on TestPyPI, which
 is a separate instance of the package index intended for testing and
 experimentation. It's great for things like this tutorial where we don't
 necessarily want to upload to the real index. To register an account, go to
 https://test.pypi.org/account/register/ and complete the steps on that page.
 You will also need to verify your email address before you're able to upload
-any packages.  For more details on Test PyPI, see
-:doc:`/guides/using-testpypi`.
+any packages.  For more details, see :doc:`/guides/using-testpypi`.
 
 To securely upload your project, you'll need a PyPI `API token`_. Create one at
 https://test.pypi.org/manage/account/#api-tokens, setting the "Scope" to "Entire
@@ -501,9 +514,9 @@ After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example_pkg_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
@@ -515,8 +528,8 @@ Installing your newly uploaded package
 --------------------------------------
 
 You can use :ref:`pip` to install your package and verify that it works.
-Create a new :ref:`virtualenv` (see :doc:`/tutorials/installing-packages` for
-detailed instructions) and install your package from TestPyPI:
+Create a :ref:`virtual environment <Creating and using Virtual Environments>`
+and install your package from TestPyPI:
 
 .. tab:: Unix/macOS
 
@@ -532,7 +545,7 @@ detailed instructions) and install your package from TestPyPI:
 
 Make sure to specify your username in the package name!
 
-pip should install the package from Test PyPI and the output should look
+pip should install the package from TestPyPI and the output should look
 something like this:
 
 .. code-block:: text
@@ -550,27 +563,29 @@ something like this:
    installing dependencies when using TestPyPI.
 
 You can test that it was installed correctly by importing the package.
-Run the Python interpreter (make sure you're still in your virtualenv):
+Make sure you're still in your virtual environment, then run Python:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        python3 
+        python3
 
 .. tab:: Windows
 
     .. code-block:: bash
 
-        py 
+        py
 
-and from the interpreter shell import the package:
+and import the package:
 
 .. code-block:: python
 
-    >>> import example_pkg
+    >>> from example_package import example
+    >>> example.add_one(2)
+    3
 
-Note that the :term:`import package <Import Package>` is ``example_pkg``
+Note that the :term:`import package <Import Package>` is ``example_package``
 regardless of what ``name`` you gave your :term:`distribution package <Distribution
 Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
 ``example-pkg-YOUR-USERNAME-HERE``).
@@ -583,7 +598,7 @@ Next steps
 
 Keep in mind that this tutorial showed you how to upload your package to Test
 PyPI, which isn't a permanent storage. The Test system occasionally deletes
-packages and accounts. It is best to use Test PyPI for testing and experiments
+packages and accounts. It is best to use TestPyPI for testing and experiments
 like this tutorial.
 
 When you are ready to upload a real package to the Python Package Index you can
@@ -607,8 +622,5 @@ some things you can do:
 * Read more about using :ref:`setuptools` to package libraries in
   :doc:`/guides/distributing-packages-using-setuptools`.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, `hatch`_,
-  and `poetry`_.
-
-.. _hatch: https://github.com/ofek/hatch
-.. _poetry: https://python-poetry.org
+* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`hatch`,
+  and :ref:`poetry`.
