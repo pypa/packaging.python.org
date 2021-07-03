@@ -13,10 +13,9 @@ def translation(session):
     target_dir = "locales"
     session.run(
             "sphinx-build", 
-            "-b", 
-            "gettext", 
-            "source/",   # where the rst files are located
-            target_dir,  # where to put po files
+            "-b", "gettext",  # Build gettext-style message catalogs (.pot file)
+            "source/",  # where the rst files are located
+            target_dir, # where to put the .pot file
         )
     
 @nox.session(py="3")
