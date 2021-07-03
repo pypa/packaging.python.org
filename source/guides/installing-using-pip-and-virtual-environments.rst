@@ -19,46 +19,43 @@ update packages. You'll need to make sure you have the latest version of pip
 installed.
 
 
-Windows
-+++++++
+.. tab:: Unix/macOS
 
-The Python installers for Windows include pip. You should be able to access
-pip using:
+    Debian and most other distributions include a `python-pip`_ package, if you
+    want to use the Linux distribution-provided versions of pip see
+    :doc:`/guides/installing-using-linux-tools`.
 
-.. code-block:: bash
+    You can also install pip yourself to ensure you have the latest version. It's
+    recommended to use the system pip to bootstrap a user installation of pip:
 
-    py -m pip --version
-    pip 9.0.1 from c:\python36\lib\site-packages (Python 3.6.1)
+    .. code-block:: bash
 
-You can make sure that pip is up-to-date by running:
+        python3 -m pip install --user --upgrade pip
 
-.. code-block:: bash
+    Afterwards, you should have the newest pip installed in your user site:
 
-    py -m pip install --upgrade pip
+    .. code-block:: bash
 
+        python3 -m pip --version
+        pip 9.0.1 from $HOME/.local/lib/python3.6/site-packages (python 3.6)
 
-Linux and macOS
-++++++++++++++++
+    .. _python-pip: https://packages.debian.org/stable/python-pip
 
-Debian and most other distributions include a `python-pip`_ package, if you
-want to use the Linux distribution-provided versions of pip see
-:doc:`/guides/installing-using-linux-tools`.
+.. tab:: Windows
 
-You can also install pip yourself to ensure you have the latest version. It's
-recommended to use the system pip to bootstrap a user installation of pip:
+    The Python installers for Windows include pip. You should be able to access
+    pip using:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    python3 -m pip install --user --upgrade pip
+        py -m pip --version
+        pip 9.0.1 from c:\python36\lib\site-packages (Python 3.6.1)
 
-Afterwards, you should have the newest pip installed in your user site:
+    You can make sure that pip is up-to-date by running:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    python3 -m pip --version
-    pip 9.0.1 from $HOME/.local/lib/python3.6/site-packages (python 3.6)
-
-.. _python-pip: https://packages.debian.org/stable/python-pip
+        py -m pip install --upgrade pip
 
 
 Installing virtualenv
@@ -75,17 +72,18 @@ Using virtualenv allows you to avoid installing Python packages globally
 which could break system tools or other projects. You can install virtualenv
 using pip.
 
-On macOS and Linux:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --user virtualenv
+    .. code-block:: bash
 
-On Windows:
+        python3 -m pip install --user virtualenv
 
-.. code-block:: bash
+.. tab:: Windows
 
-    py -m pip install --user virtualenv
+    .. code-block:: bash
+
+        py -m pip install --user virtualenv
 
 
 
@@ -105,17 +103,17 @@ To create a virtual environment, go to your project's directory and run
 venv. If you are using Python 2, replace ``venv`` with ``virtualenv``
 in the below commands.
 
-On macOS and Linux:
+.. tab:: Unix/macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    python3 -m venv env
+        python3 -m venv env
 
-On Windows:
+.. tab:: Windows
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    py -m venv env
+        py -m venv env
 
 The second argument is the location to create the virtual environment. Generally, you
 can just create this in your project and call it ``env``.
@@ -134,33 +132,34 @@ need to *activate* it. Activating a virtual environment will put the
 virtual environment-specific
 ``python`` and ``pip`` executables into your shell's ``PATH``.
 
-On macOS and Linux:
+.. tab:: Unix/macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    source env/bin/activate
+        source env/bin/activate
 
-On Windows::
+.. tab:: Windows
 
-    .\env\Scripts\activate
+    .. code-block:: text
+
+        .\env\Scripts\activate
 
 You can confirm you're in the virtual environment by checking the location of your
 Python interpreter, it should point to the ``env`` directory.
 
-On macOS and Linux:
+.. tab:: Unix/macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    which python
-    .../env/bin/python
+        which python
+        .../env/bin/python
 
-On Windows:
+.. tab:: Windows
 
-.. code-block:: bash
+    .. code-block:: text
 
-    where python
-    .../env/bin/python.exe
-
+        where python
+        ...\env\Scripts\python.exe
 
 As long as your virtual environment is activated pip will install packages into that
 specific environment and you'll be able to import and use packages in your
