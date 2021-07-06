@@ -48,12 +48,14 @@ Packaging tool recommendations
 
 * Use :ref:`setuptools` to define projects. [5]_ [6]_
 
-* Use the :ref:`build` package to create  :term:`Source Distributions
-  <Source Distribution (or "sdist")>` and, if your project is pure
-  Python, also :term:`wheels <Wheel>`.
+* Use :ref:`build` to create :term:`Source Distributions
+  <Source Distribution (or "sdist")>` and :term:`wheels <Wheel>`.
   
-* Use the :ref:`cibuildwheel` to create distributable :term:`wheels <Wheel>`
+* Use :ref:`cibuildwheel` to create distributable :term:`wheels <Wheel>`
   for all the platforms that you support if your project contains binary extensions.
+  This automates the steps required to produce highly redistributable wheels with
+  sensible defaults, combining several other tools, such as build, manylinux,
+  auditwheel, and delocate.
 
 * Use `twine <https://pypi.org/project/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
