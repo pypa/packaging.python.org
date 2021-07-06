@@ -376,8 +376,8 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    'setuptools': ('https://setuptools.rtfd.io/en/latest/', None),
-    'twine': ('https://twine.rtfd.io/en/stable/', None),
+    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'twine': ('https://twine.readthedocs.io/en/stable/', None),
 }
 
 
