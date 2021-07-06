@@ -50,12 +50,10 @@ Packaging tool recommendations
 
 * Use :ref:`build` to create :term:`Source Distributions
   <Source Distribution (or "sdist")>` and :term:`wheels <Wheel>`.
-  
-* Use :ref:`cibuildwheel` to create distributable :term:`wheels <Wheel>`
-  for all the platforms that you support if your project contains binary extensions.
-  This automates the steps required to produce highly redistributable wheels with
-  sensible defaults, combining several other tools, such as build, manylinux,
-  auditwheel, and delocate.
+
+If you have binary extensions and want to distribute wheels for multiple
+platforms, use :ref:`cibuildwheel` as part of your CI setup to build
+distributable wheels.
 
 * Use `twine <https://pypi.org/project/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
