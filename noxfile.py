@@ -6,6 +6,17 @@
 import shutil
 import nox
 
+@nox.session(py="3")
+def translation(session):
+    session.install("-r", "requirements.txt")
+    target_dir = "locales"
+    session.run(
+        "sphinx-build", 
+        "-b", "gettext",  # build gettext-style message catalogs (.pot file)
+        "-d", ".nox/.doctrees/", # path to put the cache
+        "source/",  # where the rst files are located
+        target_dir, # where to put the .pot file
+    )
 
 @nox.session(py="3")
 def build(session, autobuild=False):

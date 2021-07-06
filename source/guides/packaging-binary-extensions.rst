@@ -161,8 +161,16 @@ wrapper modules up to date.
 
 * In addition to being useful for the creation of accelerator modules,
   `Cython <http://cython.org/>`__ is also useful for creating wrapper
-  modules. It still involves wrapping the interfaces by hand, however, so
-  may not be a good choice for wrapping large APIs.
+  modules for C or C++. It still involves wrapping the interfaces by
+  hand, however, and is very repetitive, so may not be a good choice for
+  wrapping large APIs.
+  
+* `pybind11 <https://pybind11.readthedocs.io>`__ is a pure C++11 library
+  that provides a clean C++ interface to the CPython (and PyPy) C API. It
+  does not require a pre-processing step; it is written entirely in
+  templated C++. Helpers are included for Setuptools or CMake builds. It
+  was based on `Boost.Python <https://www.boost.org/doc/libs/1_76_0/libs/python/doc/html/index.html>`__,
+  but doesn't require the Boost libraries or BJam.
 
 * `cffi <https://cffi.readthedocs.io/>`__ is a project created by some of the PyPy
   developers to make it straightforward for developers that already know
@@ -176,7 +184,7 @@ wrapper modules up to date.
 
 * `SWIG <http://www.swig.org/>`__ is a wrapper interface generator that
   allows a variety of programming languages, including Python, to interface
-  with C *and C++* code.
+  with C and C++ code.
 
 * The standard library's ``ctypes`` module, while useful for getting access
   to C level interfaces when header information isn't available, suffers
@@ -231,6 +239,18 @@ guide includes an introduction to writing a
 
 Building binary extensions
 ==========================
+
+Building extensions for multiple platforms
+------------------------------------------
+
+If you plan to distribute your extension, you should provide
+:term:`wheels <Wheel>` for all the platforms you intend to support. For most
+extensions, this is at least one package per Python version times the number of
+OS and architectures you support.  These are usually built on continuous
+integration (CI) systems. There are tools to help you build highly
+redistributable binaries from CI; these include :ref:`cibuildwheel` and
+:ref:`multibuild`.
+
 
 Binary extensions for Windows
 -----------------------------

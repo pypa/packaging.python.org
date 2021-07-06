@@ -84,6 +84,9 @@ release = ''
 # Usually you set "language" from the command line for these cases.
 language = None
 
+# making all documents use single text domain
+gettext_compact = "messages"
+
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
 #
@@ -376,8 +379,8 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    'setuptools': ('https://setuptools.rtfd.io/en/latest/', None),
-    'twine': ('https://twine.rtfd.io/en/stable/', None),
+    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'twine': ('https://twine.readthedocs.io/en/stable/', None),
 }
 
 

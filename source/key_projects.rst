@@ -55,9 +55,8 @@ cibuildwheel
 `Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
 `Discord #cibuildwheel <https://discord.com/invite/pypa>`__
 
-``cibuildwheel`` is a package that builds wheels for all common platforms and
-Python versions on most CI systems.
-
+``cibuildwheel`` is a Python package that builds :term:`wheels <Wheel>` for all common
+platforms and Python versions on most CI systems. Also see :ref:`multibuild`.
 
 .. _distlib:
 
@@ -164,6 +163,18 @@ Pipfile
 :file:`Pipfile` and its sister :file:`Pipfile.lock` are a higher-level
 application-centric alternative to :ref:`pip`'s lower-level
 :file:`requirements.txt` file.
+
+.. _pipx:
+
+pipx
+====
+
+`Docs <https://pypa.github.io/pipx/>`__ |
+`GitHub <https://github.com/pypa/pipx>`__ |
+`PyPI <https://pypi.org/project/pipx/>`__
+
+pipx is a tool to install and run Python command-line applications without
+causing dependency conflicts with other packages installed on the system.
 
 
 Python Packaging User Guide
@@ -458,6 +469,16 @@ dependencies for, and publish packages to PyPI. Under the hood, it
 uses :ref:`twine` to upload packages to PyPI, and :ref:`pip` to download and
 install packages.
 
+.. _multibuild:
+
+multibuild
+==========
+
+`GitHub <https://github.com/matthew-brett/multibuild>`__
+
+Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
+Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
+
 .. _pex:
 
 pex
@@ -472,17 +493,6 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 :file:`.pex` files are just carefully constructed zip files with a
 ``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
 make deployment of Python applications as simple as ``cp``.
-
-.. _pipx:
-
-pipx
-====
-
-`Docs <https://pipxproject.github.io/pipx/>`__ |
-`GitHub <https://github.com/pipxproject/pipx>`__ |
-`PyPI <https://pypi.org/project/pipx/>`__
-
-pipx is a tool to safely install and run Python CLI applications globally.
 
 .. _pip-tools:
 

@@ -46,12 +46,14 @@ Installation tool recommendations
 Packaging tool recommendations
 ==============================
 
-* Use :ref:`setuptools` to define projects and create :term:`Source Distributions
-  <Source Distribution (or "sdist")>`. [5]_ [6]_
+* Use :ref:`setuptools` to define projects. [5]_ [6]_
 
-* Use the ``bdist_wheel`` :ref:`setuptools` extension available from the
-  :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is
-  especially beneficial, if your project contains binary extensions.
+* Use :ref:`build` to create :term:`Source Distributions
+  <Source Distribution (or "sdist")>` and :term:`wheels <Wheel>`.
+
+If you have binary extensions and want to distribute wheels for multiple
+platforms, use :ref:`cibuildwheel` as part of your CI setup to build
+distributable wheels.
 
 * Use `twine <https://pypi.org/project/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
