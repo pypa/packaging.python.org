@@ -12,12 +12,11 @@ def translation(session):
     target_dir = "locales"
     session.run(
         "sphinx-build", 
-        "-b",  # select a builder
-        "gettext",  # build gettext-style message catalogs (.pot file)
+        "-b", "gettext",  # build gettext-style message catalogs (.pot file)
         "source/",  # where the rst files are located
-        target_dir, # where to put the .pot file
         "-d", 
-        ".nox/", # path to put the cache (.doctrees)
+        ".nox/.doctrees/", # path to put the cache
+        target_dir, # where to put the .pot file
     )
 
 @nox.session(py="3")
