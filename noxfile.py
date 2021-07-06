@@ -8,8 +8,7 @@ import nox
 
 @nox.session(py="3")
 def translation(session):
-    session.install("sphinx-intl")
-    session.install("sphinx-inline-tabs")
+    session.install("-r", "requirements.txt")
     target_dir = "locales"
     session.run(
             "sphinx-build", 
@@ -17,6 +16,8 @@ def translation(session):
             "gettext",  # build gettext-style message catalogs (.pot file)
             "source/",  # where the rst files are located
             target_dir, # where to put the .pot file
+            "-d", 
+            ".nox/", # path to put the cache
         )
 
 @nox.session(py="3")
