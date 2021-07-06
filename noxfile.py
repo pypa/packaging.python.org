@@ -13,9 +13,8 @@ def translation(session):
     session.run(
         "sphinx-build", 
         "-b", "gettext",  # build gettext-style message catalogs (.pot file)
+        "-d", ".nox/.doctrees/", # path to put the cache
         "source/",  # where the rst files are located
-        "-d", 
-        ".nox/.doctrees/", # path to put the cache
         target_dir, # where to put the .pot file
     )
 
