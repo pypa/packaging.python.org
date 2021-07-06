@@ -84,6 +84,9 @@ release = ''
 # Usually you set "language" from the command line for these cases.
 language = None
 
+# making all documents use single text domain
+gettext_compact = "messages"
+
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
 #
