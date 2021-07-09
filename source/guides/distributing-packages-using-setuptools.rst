@@ -36,7 +36,7 @@ Requirements for packaging and distributing
 
     .. tab:: Windows
 
-        .. code-block:: bash
+        .. code-block:: text
 
             py -m pip install twine
 
@@ -728,7 +728,7 @@ Before you can build wheels and sdists for your project, you'll need to install 
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install build
 
@@ -747,7 +747,7 @@ Minimally, you should create a :term:`Source Distribution <Source Distribution (
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m build --sdist
 
@@ -804,7 +804,7 @@ To build the wheel:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m build --wheel
 
@@ -833,7 +833,7 @@ To build the wheel:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m build --wheel
 

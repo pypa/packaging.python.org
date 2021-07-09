@@ -67,7 +67,7 @@ Steps:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install  --upgrade setuptools twine
 

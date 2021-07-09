@@ -53,7 +53,7 @@ such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdow
 
    .. tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: text
 
          py -m pip install --user --upgrade setuptools wheel twine
 
@@ -115,7 +115,7 @@ You can check your README for markup errors before uploading as follows:
 
    .. tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: text
 
             py -m pip install --upgrade twine
 

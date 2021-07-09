@@ -45,7 +45,7 @@ version is available from your command line. You can check this by running:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py --version
 
@@ -109,7 +109,7 @@ check this by running:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip --version
 
@@ -132,7 +132,7 @@ standard library:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m ensurepip --default-pip
 
@@ -180,7 +180,7 @@ but here's the basic `venv`_ [3]_ command to use on a typical Linux system:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m venv tutorial_env
         tutorial_env\Scripts\activate
@@ -240,7 +240,7 @@ Using `venv`_:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m venv <DIR>
         <DIR>\Scripts\activate
@@ -256,7 +256,7 @@ Using :ref:`virtualenv`:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         virtualenv <DIR>
         <DIR>\Scripts\activate
@@ -314,7 +314,7 @@ To install the latest version of "SomeProject":
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install "SomeProject"
 
@@ -328,7 +328,7 @@ To install a specific version:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install "SomeProject==1.4"
 
@@ -342,7 +342,7 @@ To install greater than or equal to one version and less than another:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install "SomeProject>=1,<2"
 
@@ -358,7 +358,7 @@ with a certain version: [4]_
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install "SomeProject~=1.4.2"
 
@@ -398,7 +398,7 @@ Upgrade an already installed ``SomeProject`` to the latest from PyPI.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --upgrade SomeProject
 
@@ -418,7 +418,7 @@ current user, use the ``--user`` flag:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --user SomeProject
 
@@ -470,7 +470,7 @@ Install a list of requirements specified in a :ref:`Requirements File
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install -r requirements.txt
 
@@ -491,7 +491,7 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
         py -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
@@ -511,7 +511,7 @@ Install from an alternate index
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --index-url http://my.package.repo/simple/ SomeProject
 
@@ -526,7 +526,7 @@ Package Index (PyPI)>`
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --extra-index-url http://my.package.repo/simple SomeProject
 
@@ -547,7 +547,7 @@ still editable from the src tree.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install -e <path>
 
@@ -561,7 +561,7 @@ You can also install normally from src
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install <path>
 
@@ -578,7 +578,7 @@ Install a particular source archive file.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install ./downloads/SomeProject-1.0.4.tar.gz
 
@@ -595,7 +595,7 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --no-index --find-links=file:///local/dir/ SomeProject
         py -m pip install --no-index --find-links=/local/dir/ SomeProject
@@ -629,7 +629,7 @@ default, pip only finds stable versions.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --pre SomeProject
 
@@ -648,7 +648,7 @@ Install `setuptools extras`_.
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install SomePackage[PDF]
         py -m pip install SomePackage[PDF]==3.0

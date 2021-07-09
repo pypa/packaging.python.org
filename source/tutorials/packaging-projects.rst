@@ -26,7 +26,7 @@ sure you have the latest version installed:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --upgrade pip
 
@@ -415,7 +415,7 @@ Make sure you have the latest version of PyPA's :ref:`build` installed:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --upgrade build
 
@@ -432,7 +432,7 @@ Now run this command from the same directory where :file:`pyproject.toml` is loc
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m build
 
@@ -485,7 +485,7 @@ distribution packages. You'll need to install Twine:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --upgrade twine
 
@@ -499,7 +499,7 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m twine upload --repository testpypi dist/*
 
@@ -539,7 +539,7 @@ and install your package from TestPyPI:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
 
@@ -573,7 +573,7 @@ Make sure you're still in your virtual environment, then run Python:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: text
 
         py
 
