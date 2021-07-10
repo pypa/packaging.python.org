@@ -151,17 +151,13 @@ virtual environment-specific
         .\env\Scripts\activate
 
 You can confirm you're in the virtual environment by checking the location of your
-Python interpreter, it should point to the ``env`` directory.
+Python interpreter:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
         which python
-    
-    .. code-block:: text
-
-        .../env/bin/python
 
 .. tab:: Windows
 
@@ -169,9 +165,20 @@ Python interpreter, it should point to the ``env`` directory.
 
         where python
     
+It should be in the ``env`` directory:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: text
+
+        .../env/bin/python
+
+.. tab:: Windows
+
     .. code-block:: text
         
         ...\env\Scripts\python.exe
+
 
 As long as your virtual environment is activated pip will install packages into that
 specific environment and you'll be able to import and use packages in your
