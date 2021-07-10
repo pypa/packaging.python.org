@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-06 19:32+0800\n"
+"POT-Creation-Date: 2021-07-10 08:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4166,54 +4166,58 @@ msgid "Packaging tool recommendations"
 msgstr ""
 
 #: ../source/guides/tool-recommendations.rst:49
-msgid "Use :ref:`setuptools` to define projects and create :term:`Source Distributions <Source Distribution (or \"sdist\")>`. [5]_ [6]_"
+msgid "Use :ref:`setuptools` to define projects. [5]_ [6]_"
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:52
-msgid "Use the ``bdist_wheel`` :ref:`setuptools` extension available from the :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is especially beneficial, if your project contains binary extensions."
+#: ../source/guides/tool-recommendations.rst:51
+msgid "Use :ref:`build` to create :term:`Source Distributions <Source Distribution (or \"sdist\")>` and :term:`wheels <Wheel>`."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:56
+#: ../source/guides/tool-recommendations.rst:54
+msgid "If you have binary extensions and want to distribute wheels for multiple platforms, use :ref:`cibuildwheel` as part of your CI setup to build distributable wheels."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:58
 msgid "Use `twine <https://pypi.org/project/twine>`_ for uploading distributions to :term:`PyPI <Python Package Index (PyPI)>`."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:61
+#: ../source/guides/tool-recommendations.rst:63
 msgid "Publishing platform migration"
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:63
+#: ../source/guides/tool-recommendations.rst:65
 msgid "The original Python Package Index implementation (previously hosted at `pypi.python.org <https://pypi.python.org>`_) has been phased out in favour of an updated implementation hosted at `pypi.org <https://pypi.org>`_."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:67
+#: ../source/guides/tool-recommendations.rst:69
 msgid "See :ref:`Migrating to PyPI.org` for more information on the status of the migration, and what settings to change in your clients."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:72
+#: ../source/guides/tool-recommendations.rst:74
 msgid "There are some cases where you might choose to use ``easy_install`` (from :ref:`setuptools`), e.g. if you need to install from :term:`Eggs <Egg>` (which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs easy_install`."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:77
+#: ../source/guides/tool-recommendations.rst:79
 msgid "The acceptance of :pep:`453` means that :ref:`pip` will be available by default in most installations of Python 3.4 or later.  See the :pep:`rationale section <453#rationale>` from :pep:`453` as for why pip was chosen."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:82
+#: ../source/guides/tool-recommendations.rst:84
 msgid "`get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and :ref:`virtualenv` install :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not currently.  Also, the common \"python-pip\" package that's found in various linux distros, does not depend on \"python-wheel\" currently."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:88
+#: ../source/guides/tool-recommendations.rst:90
 msgid "Beginning with Python 3.4, ``venv`` will create virtualenv environments with ``pip`` installed, thereby making it an equal alternative to :ref:`virtualenv`. However, using :ref:`virtualenv` will still be recommended for users that need cross-version consistency."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:93
+#: ../source/guides/tool-recommendations.rst:95
 msgid "Although you can use pure ``distutils`` for many projects, it does not support defining dependencies on other projects and is missing several convenience utilities for automatically populating distribution metadata correctly that are provided by ``setuptools``. Being outside the standard library, ``setuptools`` also offers a more consistent feature set across different versions of Python, and (unlike ``distutils``), recent versions of ``setuptools`` support all of the modern metadata fields described in :ref:`core-metadata`."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:102
+#: ../source/guides/tool-recommendations.rst:104
 msgid "Even for projects that do choose to use ``distutils``, when :ref:`pip` installs such projects directly from source (rather than installing from a prebuilt :term:`wheel <Wheel>` file), it will actually build your project using :ref:`setuptools` instead."
 msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:107
+#: ../source/guides/tool-recommendations.rst:109
 msgid "`distribute`_ (a fork of setuptools) was merged back into :ref:`setuptools` in June 2013, thereby making setuptools the default choice for packaging."
 msgstr ""
 
@@ -5733,6 +5737,10 @@ msgid "Python and PyPI make it easy to upload both wheels and sdists together. J
 msgstr ""
 
 #: ../source/overview.rst:148
+msgid "A summary of Python's packaging capabilities for tools and libraries."
+msgstr ""
+
+#: ../source/overview.rst:148
 msgid "Python's recommended built-in library and tool packaging technologies. Excerpted from `The Packaging Gradient (2017) <https://www.youtube.com/watch?v=iLVNWfPWAC8>`_."
 msgstr ""
 
@@ -6042,6 +6050,10 @@ msgstr ""
 
 #: ../source/overview.rst:379
 msgid "Embed your code on an `Adafruit <https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_, `MicroPython <https://micropython.org/>`_, or more-powerful hardware running Python, then ship it to the datacenter or your users' homes. They plug and play, and you can call it a day."
+msgstr ""
+
+#: ../source/overview.rst:389
+msgid "A summary of technologies used to package Python applications."
 msgstr ""
 
 #: ../source/overview.rst:389
