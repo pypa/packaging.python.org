@@ -21,8 +21,8 @@ installed.
 
 .. tab:: Unix/macOS
 
-    Debian and most other distributions include a `python-pip`_ package, if you
-    want to use the Linux distribution-provided versions of pip see
+    Debian and most other distributions include a `python-pip`_ package; if you
+    want to use the Linux distribution-provided versions of pip, see
     :doc:`/guides/installing-using-linux-tools`.
 
     You can also install pip yourself to ensure you have the latest version. It's
@@ -32,11 +32,10 @@ installed.
 
         python3 -m pip install --user --upgrade pip
 
-    Afterwards, you should have the newest pip installed in your user site:
-
-    .. code-block:: bash
-
         python3 -m pip --version
+
+    Afterwards, you should have the latest version of pip installed in your
+    user site:
 
     .. code-block:: text
 
@@ -46,22 +45,21 @@ installed.
 
 .. tab:: Windows
 
-    The Python installers for Windows include pip. You should be able to access
-    pip using:
+    The Python installers for Windows include pip. You can make sure that pip is
+    up-to-date by running:
 
     .. code-block:: text
 
+        py -m pip install --upgrade pip
+
         py -m pip --version
+
+    Afterwards, you should have the latest version of pip:
 
     .. code-block:: text
 
         pip 21.1.3 from c:\python39\lib\site-packages (Python 3.9.4)
 
-    You can make sure that pip is up-to-date by running:
-
-    .. code-block:: text
-
-        py -m pip install --upgrade pip
 
 
 Installing virtualenv
