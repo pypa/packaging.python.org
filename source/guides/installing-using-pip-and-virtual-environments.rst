@@ -38,7 +38,7 @@ installed.
 
         python3 -m pip --version
 
-    .. code-block:: bash
+    .. code-block:: text
 
         pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
 
