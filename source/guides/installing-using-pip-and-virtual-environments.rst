@@ -158,6 +158,9 @@ Python interpreter, it should point to the ``env`` directory.
     .. code-block:: bash
 
         which python
+    
+    .. code-block:: text
+
         .../env/bin/python
 
 .. tab:: Windows
@@ -165,6 +168,9 @@ Python interpreter, it should point to the ``env`` directory.
     .. code-block:: text
 
         where python
+    
+    .. code-block:: text
+        
         ...\env\Scripts\python.exe
 
 As long as your virtual environment is activated pip will install packages into that
