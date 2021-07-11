@@ -21,7 +21,7 @@ Use ``pip`` to install Sphinx:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install -U sphinx
 

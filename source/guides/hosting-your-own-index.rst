@@ -22,7 +22,7 @@ description to configure their installer appropriately. For example with pip:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --extra-index-url https://python.example.com/ foobar
 

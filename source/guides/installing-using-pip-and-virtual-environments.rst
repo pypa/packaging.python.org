@@ -48,7 +48,7 @@ installed.
     The Python installers for Windows include pip. You can make sure that pip is
     up-to-date by running:
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --upgrade pip
 
@@ -85,7 +85,7 @@ using pip.
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --user virtualenv
 
@@ -115,7 +115,7 @@ in the below commands.
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m venv env
 
@@ -144,7 +144,7 @@ virtual environment-specific
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         .\env\Scripts\activate
 
@@ -159,7 +159,7 @@ Python interpreter:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         where python
     
@@ -173,7 +173,7 @@ It should be in the ``env`` directory:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
         
         ...\env\Scripts\python.exe
 
@@ -210,7 +210,7 @@ Now that you're in your virtual environment you can install packages. Let's inst
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install requests
 
@@ -249,7 +249,7 @@ a specific version of ``requests``:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install requests==2.18.4
 
@@ -263,7 +263,7 @@ To install the latest ``2.x`` release of requests:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install requests>=2.0.0,<3.0.0
 
@@ -277,7 +277,7 @@ To install pre-release versions of packages, use the ``--pre`` flag:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --pre requests
 
@@ -296,7 +296,7 @@ specifying the extra in brackets:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install requests[security]
 
@@ -318,7 +318,7 @@ pip can install a package directly from source, for example:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         cd google-auth
         py -m pip install .
@@ -335,7 +335,7 @@ installed package without needing to re-install:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --editable .
 
@@ -371,7 +371,7 @@ wheel, or tar file) you can install it directly with pip:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install requests-2.18.4.tar.gz
 
@@ -387,7 +387,7 @@ pip to look for packages there and not to use the
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --no-index --find-links=/local/dir/ requests
 
@@ -410,7 +410,7 @@ If you want to download packages from a different index than the
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --index-url http://index.example.com/simple/ SomeProject
 
@@ -426,7 +426,7 @@ and a separate index, you can use the ``--extra-index-url`` flag instead:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
 
@@ -444,7 +444,7 @@ install the latest version of ``requests`` and all of its dependencies:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install --upgrade requests
 
@@ -470,7 +470,7 @@ And tell pip to install all of the packages in this file using the ``-r`` flag:
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip install -r requirements.txt
 
@@ -488,7 +488,7 @@ Pip can export a list of all installed packages and their versions using the
 
 .. tab:: Windows
 
-    .. code-block:: text
+    .. code-block:: bat
 
         py -m pip freeze
 
