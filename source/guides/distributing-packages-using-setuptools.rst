@@ -930,7 +930,7 @@ it will be automatically created when the first release is uploaded.
 For the second and subsequent releases, PyPI only requires that the
 version number of the new release differ from any previous releases.
 
-.. code-block:: text
+.. code-block:: bash
 
     twine upload dist/*
 

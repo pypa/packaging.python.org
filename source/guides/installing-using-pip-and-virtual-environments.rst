@@ -167,7 +167,7 @@ It should be in the ``env`` directory:
 
 .. tab:: Unix/macOS
 
-    .. code-block:: text
+    .. code-block:: bash
 
         .../env/bin/python
 
