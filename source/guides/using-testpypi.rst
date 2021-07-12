@@ -49,7 +49,7 @@ specifying the ``--index-url`` flag
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: bat
 
         py -m pip install --index-url https://test.pypi.org/simple/ your-package
 
@@ -65,7 +65,7 @@ you're testing has dependencies:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: bat
 
         py -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple your-package
 
