@@ -51,23 +51,23 @@ And then access the package's entry point(s) from anywhere.
 
 For example
 
-.. code-block:: console
+::
 
-      $ pipx install cowsay
-        installed package cowsay 2.0, Python 3.6.2+
-        These binaries are now globally available
-          - cowsay
-      done! ✨ 🌟 ✨
-      $ cowsay moo
-        ___
-      < moo >
-        ===
-              \
-              \
-                ^__^
-                (oo)\_______
-                (__)\       )\/       ||----w |
-                    ||     ||
+  $ pipx install cowsay
+    installed package cowsay 2.0, Python 3.6.2+
+    These binaries are now globally available
+      - cowsay
+  done! ✨ 🌟 ✨
+  $ cowsay moo
+    ___
+  < moo >
+    ===
+          \
+           \
+             ^__^
+             (oo)\_______
+             (__)\       )\/       ||----w |
+                 ||     ||
 
 To see a list of packages installed with pipx and which CLI applications are available, use ``pipx list``.
 
