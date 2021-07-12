@@ -800,7 +800,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python3 -m build --wheel
+        python -m build --wheel
 
 .. tab:: Windows
 
@@ -829,7 +829,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python -m build --wheel
+        python3 -m build --wheel
 
 .. tab:: Windows
 
