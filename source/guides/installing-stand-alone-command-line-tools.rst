@@ -26,8 +26,9 @@ packages, and allows you to safely run the program from anywhere.
 
   .. code-block:: bash
 
-      $ python3 -m pip install --user pipx
-      $ python3 -m pipx ensurepath  # ensures the path of the CLI application directory is on your $PATH
+      python3 -m pip install --user pipx
+
+      python3 -m pipx ensurepath  # ensures the path of the CLI application directory is on your $PATH
 
 .. tab:: Windows
 
