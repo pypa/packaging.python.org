@@ -447,7 +447,7 @@ are not available in your shell after installation, you'll need to add the
 directory to your :envvar:`PATH`:
 
 - On Linux and macOS you can find the user base binary directory by running
-  ``python3 -m site --user-base`` and adding ``bin`` to the end. For example,
+  ``python -m site --user-base`` and adding ``bin`` to the end. For example,
   this will typically print ``~/.local`` (with ``~`` expanded to the absolute
   path to your home directory) so you'll need to add ``~/.local/bin`` to your
   ``PATH``.  You can set your ``PATH`` permanently by `modifying ~/.profile`_.
@@ -621,7 +621,7 @@ that index.
 ::
 
  ./s3helper --port=7777
- python3 -m pip install --extra-index-url http://localhost:7777 SomeProject
+ python -m pip install --extra-index-url http://localhost:7777 SomeProject
 
 
 Installing Prereleases

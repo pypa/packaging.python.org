@@ -668,7 +668,7 @@ Assuming you're in the root of your project directory, then run:
 
 ::
 
- python3 -m pip install -e .
+ python -m pip install -e .
 
 
 Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
@@ -700,7 +700,7 @@ see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
 Lastly, if you don't want to install any dependencies at all, you can run::
 
-   python3 -m pip install -e . --no-deps
+   python -m pip install -e . --no-deps
 
 
 For more information, see the `Development Mode
@@ -829,7 +829,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python3 -m build --wheel
+        python -m build --wheel
 
 .. tab:: Windows
 

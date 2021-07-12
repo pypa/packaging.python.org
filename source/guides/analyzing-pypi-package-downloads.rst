@@ -274,7 +274,7 @@ Install `pypinfo`_ using pip.
 
 ::
 
-    python3 -m pip install pypinfo
+    python -m pip install pypinfo
 
 Usage:
 
