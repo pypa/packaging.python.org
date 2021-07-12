@@ -45,7 +45,7 @@ Use ``pip`` to install Pipenv:
 
 .. tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: bat
 
         py -m pip install --user pipenv
 
