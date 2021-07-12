@@ -42,12 +42,12 @@ packages, and allows you to safely run the program from anywhere.
 
 Now you can install packages with ``pipx install``::
 
-  pipx install PACKAGE
+  $ pipx install PACKAGE
 
 And then access the package's entry point(s) from anywhere.
 ::
 
-  ENTRYPOINT_OF_PACKAGE [ARGS]
+  $ ENTRYPOINT_OF_PACKAGE [ARGS]
 
 For example
 
@@ -93,8 +93,8 @@ To upgrade or uninstall the package
 
 ::
 
-  pipx upgrade PACKAGE
-  pipx uninstall PACKAGE
+  $ pipx upgrade PACKAGE
+  $ pipx uninstall PACKAGE
 
 ``pipx`` can be upgraded or uninstalled with pip
 
@@ -117,19 +117,19 @@ in a temporary, ephemeral environment.
 
 ::
 
-  pipx run PACKAGE [ARGS]
+  $ pipx run PACKAGE [ARGS]
 
 For example
 
 ::
 
-  pipx run cowsay moooo
+  $ pipx run cowsay moooo
 
 To see the full list of commands ``pipx`` offers, run
 
 ::
 
-  pipx --help
+  $ pipx --help
 
 You can learn more about ``pipx`` at its homepage,
 https://github.com/pypa/pipx.
