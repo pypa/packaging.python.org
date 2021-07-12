@@ -83,9 +83,48 @@ Application bundles
 
   FIXME
 
-  - py2exe/py2app/PEX
   - wheels kinda/sorta
 
+Windows
+-------
+
+py2exe
+^^^^^^
+
+`py2exe <https://pypi.org/project/py2exe/>`__ is a distutils extension which
+allows to build standalone Windows executable programs (32-bit and 64-bit) 
+from Python scripts. Python versions included in the official development 
+cycle are supported (from 3.6 to 3.9 included). py2exe can build console 
+executables and windows (GUI) executables. Building windows services, 
+and DLL/EXE COM servers might work but it is not actively supported.
+The distutils extension is released under the MIT-licence and Mozilla 
+Public License 2.0.
+
+Mac OS
+------
+
+py2app
+^^^^^^
+
+`py2app <https://pypi.org/project/py2app/>`__ is a Python setuptools 
+command which will allow you to make standalone Mac OS X application 
+bundles and plugins from Python scripts. Note that py2app MUST be used
+on OSX to build applications, it cannot create Mac applications on other
+platforms. py2app is released under the MIT-license.
+
+Unix (including Linux and Mac OS X)
+-----------------------------------
+
+pex
+^^^
+
+`pex <https://pypi.org/project/pex/>`__ is  a library for generating .pex 
+(Python EXecutable) files which are executable Python environments in the 
+spirit of virtualenvs. pex is an expansion upon the ideas outlined in PEP 441 
+and makes the deployment of Python applications as simple as cp. pex files may 
+even include multiple platform-specific Python distributions, meaning that a 
+single pex file can be portable across Linux and OS X. pex is released under the
+Apache License 2.0.
 
 Configuration management
 ========================
