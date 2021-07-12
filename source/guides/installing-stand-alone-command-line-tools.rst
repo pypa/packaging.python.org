@@ -35,6 +35,7 @@ packages, and allows you to safely run the program from anywhere.
   .. code-block:: bat
 
       py -m pip install --user pipx
+      
       py -m pipx ensurepath
 
 .. Note:: You may need to restart your terminal for the path updates to take effect.
