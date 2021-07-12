@@ -28,7 +28,7 @@ the ``--repository`` flag
 
 .. code::
 
-    $ twine upload --repository testpypi dist/*
+    twine upload --repository testpypi dist/*
 
 You can see if your package has successfully uploaded by navigating to the URL
 ``https://test.pypi.org/project/<sampleproject>`` where ``sampleproject`` is

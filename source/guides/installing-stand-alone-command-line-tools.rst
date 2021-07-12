@@ -39,12 +39,14 @@ packages, and allows you to safely run the program from anywhere.
 
 .. Note:: You may need to restart your terminal for the path updates to take effect.
 
-Now you can install packages with ``pipx install`` and access the package's entry point(s) from anywhere.
+Now you can install packages with ``pipx install``::
 
+  pipx install PACKAGE
+
+And then access the package's entry point(s) from anywhere.
 ::
 
-  $ pipx install PACKAGE
-  $ ENTRYPOINT_OF_PACKAGE [ARGS]
+  ENTRYPOINT_OF_PACKAGE [ARGS]
 
 For example
 
@@ -55,6 +57,7 @@ For example
     These binaries are now globally available
       - cowsay
   done! ✨ 🌟 ✨
+
   $ cowsay moo
     ___
   < moo >
@@ -90,8 +93,8 @@ To upgrade or uninstall the package
 
 ::
 
-  $ pipx upgrade PACKAGE
-  $ pipx uninstall PACKAGE
+  pipx upgrade PACKAGE
+  pipx uninstall PACKAGE
 
 ``pipx`` can be upgraded or uninstalled with pip
 
@@ -99,8 +102,8 @@ To upgrade or uninstall the package
 
   .. code-block:: bash
 
-      $ python3 -m pip install -U pipx
-      $ python3 -m pip uninstall pipx
+      python3 -m pip install -U pipx
+      python3 -m pip uninstall pipx
 
 .. tab:: Windows
 
@@ -114,19 +117,19 @@ in a temporary, ephemeral environment.
 
 ::
 
-  $ pipx run PACKAGE [ARGS]
+  pipx run PACKAGE [ARGS]
 
 For example
 
 ::
 
-  $ pipx run cowsay moooo
+  pipx run cowsay moooo
 
 To see the full list of commands ``pipx`` offers, run
 
 ::
 
-  $ pipx --help
+  pipx --help
 
 You can learn more about ``pipx`` at its homepage,
 https://github.com/pypa/pipx.
