@@ -94,11 +94,13 @@ py2exe
 `py2exe <https://pypi.org/project/py2exe/>`__ is a distutils extension which
 allows to build standalone Windows executable programs (32-bit and 64-bit) 
 from Python scripts. Python versions included in the official development 
-cycle are supported (from 3.6 to 3.9 included). py2exe can build console 
-executables and windows (GUI) executables. Building windows services, 
-and DLL/EXE COM servers might work but it is not actively supported.
+cycle are supported (refers to `Status of Python branches`__). py2exe can
+build console executables and windows (GUI) executables. Building windows
+services, and DLL/EXE COM servers might work but it is not actively supported.
 The distutils extension is released under the MIT-licence and Mozilla 
 Public License 2.0.
+
+.. __: https://devguide.python.org/#status-of-python-branches
 
 Mac OS
 ------
@@ -120,7 +122,7 @@ pex
 
 `pex <https://pypi.org/project/pex/>`__ is  a library for generating .pex 
 (Python EXecutable) files which are executable Python environments in the 
-spirit of virtualenvs. pex is an expansion upon the ideas outlined in PEP 441 
+spirit of virtualenvs. pex is an expansion upon the ideas outlined in :pep:`441` 
 and makes the deployment of Python applications as simple as cp. pex files may 
 even include multiple platform-specific Python distributions, meaning that a 
 single pex file can be portable across Linux and OS X. pex is released under the
