@@ -39,7 +39,7 @@ extensions = [
 ]
 
 # config for copy button
-copybutton_prompt_text = r">>> |\.\.\. "
+copybutton_prompt_text = r">>> |\.\.\. |\$ |> "
 copybutton_prompt_is_regexp = True
 
 # Add any paths that contain templates here, relative to this directory.
