@@ -40,13 +40,11 @@ packages, and allows you to safely run the program from anywhere.
 
 .. Note:: You may need to restart your terminal for the path updates to take effect.
 
-Now you can install packages with ``pipx install``::
+Now you can install packages with ``pipx install`` and access the package's entry point(s) from anywhere.
 
-  $ pipx install PACKAGE
-
-And then access the package's entry point(s) from anywhere.
 ::
 
+  $ pipx install PACKAGE
   $ ENTRYPOINT_OF_PACKAGE [ARGS]
 
 For example
