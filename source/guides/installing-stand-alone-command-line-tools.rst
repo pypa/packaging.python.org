@@ -22,10 +22,21 @@ packages, and allows you to safely run the program from anywhere.
 
 ``pipx`` is installed with ``pip``:
 
-::
+.. tab:: Unix/macOS
 
-  $ python3 -m pip install --user pipx
-  $ python3 -m pipx ensurepath  # ensures the path of the CLI application directory is on your $PATH
+  .. code-block:: bash
+
+      python3 -m pip install --user pipx
+
+      python3 -m pipx ensurepath  # ensures the path of the CLI application directory is on your $PATH
+
+.. tab:: Windows
+
+  .. code-block:: bat
+
+      py -m pip install --user pipx
+      
+      py -m pipx ensurepath
 
 .. Note:: You may need to restart your terminal for the path updates to take effect.
 
@@ -85,11 +96,20 @@ To upgrade or uninstall the package
 
 ``pipx`` can be upgraded or uninstalled with pip
 
-::
+.. tab:: Unix/macOS
 
-  $ python3 -m pip install -U pipx
-  $ python3 -m pip uninstall pipx
+  .. code-block:: bash
 
+      python3 -m pip install -U pipx
+      python3 -m pip uninstall pipx
+
+.. tab:: Windows
+
+  .. code-block:: bat
+
+      py -m pip install -U pipx
+      py -m pip uninstall pipx
+      
 ``pipx`` also allows you to install and run the latest version of a cli tool
 in a temporary, ephemeral environment.
 
