@@ -75,7 +75,6 @@ We use `Weblate`__ to manage translations of this project.
 Please visit the `packaging.python.org`__ project on Weblate to contribute.
 
 If you are experiencing issues while you are working on translations,
-please open an issue on `Github <https://github.com/pypa/packaging.python.org/issues>`.
 please open an issue on `Github`__.
 
 .. __: https://weblate.org/
