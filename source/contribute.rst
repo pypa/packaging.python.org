@@ -11,6 +11,7 @@ including:
 * Reviewing new contributions
 * Revising existing content
 * Writing new content
+* Translate the guide
 
 Most of the work on the |PyPUG| takes place on the
 `project's GitHub repository`__. To get started, check out the list of
@@ -67,6 +68,32 @@ an agreed-upon interface for interoperability between packaging tools.
 :doc:`example specification-style document <specifications/core-metadata>`.
 
 
+Translations
+============
+
+We use `Weblate`__ to manage translations of this project.
+Please visit the `packaging.python.org`__ project on Weblate to contribute.
+
+If you are experiencing issues while you are working on translations,
+please open an issue on `Github <https://github.com/pypa/packaging.python.org/issues>`.
+please open an issue on `Github`__.
+
+.. __: https://weblate.org/
+.. __: https://hosted.weblate.org/projects/pypa/packaging-python-org/
+.. __: https://github.com/pypa/packaging.python.org/issues
+
+Adding a language
+-----------------
+
+If your language is not listed on `Weblate`__, click the button
+"Start new translation" at the bottom of the languages list and add
+the language you want to translate.
+
+.. __: https://hosted.weblate.org/projects/pypa/packaging-python-org/
+
+.. Note:: Any translations of this project should follow `RST syntax`__.
+
+.. __: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 
 Building the guide locally
