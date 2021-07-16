@@ -65,7 +65,7 @@ Here's a breakdown of the important differences between pip and the deprecated e
 
 .. _deprecated: https://setuptools.readthedocs.io/en/latest/history.html#v42-0-0
 
-.. [1] https://setuptools.readthedocs.io/en/latest/easy_install.html#natural-script-launcher
+.. [1] https://setuptools.readthedocs.io/en/latest/deprecated/easy_install.html#natural-script-launcher
 
 
 .. _pylauncher support: https://bitbucket.org/vinay.sajip/pylauncher
