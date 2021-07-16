@@ -278,7 +278,7 @@ Install `pypinfo`_ using pip.
 
 Usage:
 
-::
+.. code-block:: console
 
     $ pypinfo requests
     Served from cache: False
