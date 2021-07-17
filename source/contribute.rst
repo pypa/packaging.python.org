@@ -77,9 +77,12 @@ Please visit the `packaging.python.org`__ project on Weblate to contribute.
 If you are experiencing issues while you are working on translations,
 please open an issue on `Github`__.
 
+.. Note:: Any translations of this project should follow `reStructuredText syntax`__.
+
 .. __: https://weblate.org/
 .. __: https://hosted.weblate.org/projects/pypa/packaging-python-org/
 .. __: https://github.com/pypa/packaging.python.org/issues
+.. __: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 Adding a language
 -----------------
@@ -90,10 +93,24 @@ the language you want to translate.
 
 .. __: https://hosted.weblate.org/projects/pypa/packaging-python-org/
 
-.. Note:: Any translations of this project should follow `RST syntax`__.
+Following reStructuredText syntax
+--------------------
 
-.. __: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+If you are not familiar with reStructuredText (RST) syntax, please read `this guide`__
+before translating on Weblate.
 
+Example:
+
+Wrong: Translate the following text directly::
+
+  `some ref`_ -> `TRANSLATED TEXT HERE`_
+
+Right: Translate the following text with your own language and add reference to the 
+original language::
+
+  `some ref`_ -> `TRANSLATED TEXT HERE <some ref>`_
+
+.. __: https://docutils.sourceforge.io/docs/user/rst/quickref.html
 
 Building the guide locally
 ==========================
