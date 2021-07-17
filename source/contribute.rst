@@ -94,7 +94,7 @@ the language you want to translate.
 .. __: https://hosted.weblate.org/projects/pypa/packaging-python-org/
 
 Following reStructuredText syntax
---------------------
+---------------------------------
 
 If you are not familiar with reStructuredText (RST) syntax, please read `this guide`__
 before translating on Weblate.
