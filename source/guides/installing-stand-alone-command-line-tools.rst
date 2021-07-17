@@ -89,7 +89,7 @@ To see a list of packages installed with pipx and which CLI applications are ava
 
 To upgrade or uninstall the package
 
-.. code::
+.. code-block:: bash
 
   pipx upgrade PACKAGE
   pipx uninstall PACKAGE
@@ -113,19 +113,19 @@ To upgrade or uninstall the package
 ``pipx`` also allows you to install and run the latest version of a cli tool
 in a temporary, ephemeral environment.
 
-.. code::
+.. code-block:: bash
 
   pipx run PACKAGE [ARGS]
 
 For example
 
-.. code::
+.. code-block:: bash
 
   pipx run cowsay moooo
 
 To see the full list of commands ``pipx`` offers, run
 
-.. code::
+.. code-block:: bash
 
   pipx --help
 

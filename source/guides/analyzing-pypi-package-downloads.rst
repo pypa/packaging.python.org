@@ -272,7 +272,7 @@ number of download for a package with the command ``pypinfo package_name``.
 
 Install `pypinfo`_ using pip.
 
-::
+.. code-block:: bash
 
     python -m pip install pypinfo
 

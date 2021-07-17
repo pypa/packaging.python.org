@@ -26,7 +26,7 @@ Using TestPyPI with Twine
 You can upload your distributions to TestPyPI using :ref:`twine` by specifying
 the ``--repository`` flag
 
-.. code::
+.. code-block:: bash
 
     twine upload --repository testpypi dist/*
 
