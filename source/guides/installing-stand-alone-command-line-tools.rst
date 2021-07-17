@@ -42,14 +42,14 @@ packages, and allows you to safely run the program from anywhere.
 
 Now you can install packages with ``pipx install`` and access the package's entry point(s) from anywhere.
 
-::
+.. code-block:: console
 
   $ pipx install PACKAGE
   $ ENTRYPOINT_OF_PACKAGE [ARGS]
 
 For example
 
-::
+.. code-block:: console
 
   $ pipx install cowsay
     installed package cowsay 2.0, Python 3.6.2+
@@ -69,7 +69,7 @@ For example
 
 To see a list of packages installed with pipx and which CLI applications are available, use ``pipx list``.
 
-::
+.. code-block:: console
 
   $ pipx list
   venvs are in /Users/user/.local/pipx/venvs
@@ -89,10 +89,10 @@ To see a list of packages installed with pipx and which CLI applications are ava
 
 To upgrade or uninstall the package
 
-::
+.. code-block:: bash
 
-  $ pipx upgrade PACKAGE
-  $ pipx uninstall PACKAGE
+  pipx upgrade PACKAGE
+  pipx uninstall PACKAGE
 
 ``pipx`` can be upgraded or uninstalled with pip
 
@@ -113,21 +113,21 @@ To upgrade or uninstall the package
 ``pipx`` also allows you to install and run the latest version of a cli tool
 in a temporary, ephemeral environment.
 
-::
+.. code-block:: bash
 
-  $ pipx run PACKAGE [ARGS]
+  pipx run PACKAGE [ARGS]
 
 For example
 
-::
+.. code-block:: bash
 
-  $ pipx run cowsay moooo
+  pipx run cowsay moooo
 
 To see the full list of commands ``pipx`` offers, run
 
-::
+.. code-block:: bash
 
-  $ pipx --help
+  pipx --help
 
 You can learn more about ``pipx`` at its homepage,
 https://github.com/pypa/pipx.
