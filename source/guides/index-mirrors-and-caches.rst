@@ -37,8 +37,8 @@ cached copies of :term:`packages <Distribution Package>`:
    the requirements using `python -m pip wheel
    <https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_::
 
-    $ python -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
-    $ python -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
+    python -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
+    python -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
 
 
 Caching with devpi
