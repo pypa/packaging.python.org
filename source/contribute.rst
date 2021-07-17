@@ -77,7 +77,9 @@ in order to test your changes. In order to build this guide locally, you'll
 need:
 
 1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
-   nox using ``pip``::
+   nox using ``pip``:
+
+   .. code-block:: bash
 
       python -m pip install --user nox
 
@@ -88,9 +90,11 @@ need:
 .. _Hitchhiker's Guide to Python installation instructions:
     http://docs.python-guide.org/en/latest/starting/installation/
 
-To build the guide, run the following bash command in the source folder::
+To build the guide, run the following bash command in the source folder:
 
-  nox -s build
+.. code-block:: bash
+
+   nox -s build
 
 After the process has completed you can find the HTML output in the
 ``./build/html`` directory. You can open the ``index.html`` file to view the
@@ -98,9 +102,11 @@ guide in web browser, but it's recommended to serve the guide using an HTTP
 server.
 
 You can build the guide and serve it via an HTTP server using the following
-command::
+command:
 
-  nox -s preview
+.. code-block:: bash
+
+   nox -s preview
 
 The guide will be browsable via http://localhost:8000.
 
