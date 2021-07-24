@@ -11,6 +11,7 @@ including:
 * Reviewing new contributions
 * Revising existing content
 * Writing new content
+* Translate the guide
 
 Most of the work on the |PyPUG| takes place on the
 `project's GitHub repository`__. To get started, check out the list of
@@ -67,7 +68,54 @@ an agreed-upon interface for interoperability between packaging tools.
 :doc:`example specification-style document <specifications/core-metadata>`.
 
 
+Translations
+============
 
+We use `Weblate`_ to manage translations of this project.
+Please visit the `packaging.python.org`_ project on Weblate to contribute.
+
+If you are experiencing issues while you are working on translations,
+please open an issue on `Github`_.
+
+.. tip::
+
+   Any translations of this project should follow `reStructuredText syntax`_.
+
+.. _Weblate: https://weblate.org/
+.. _packaging.python.org: https://hosted.weblate.org/projects/pypa/packaging-python-org/
+.. _Github: https://github.com/pypa/packaging.python.org/issues
+.. _reStructuredText syntax: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+
+Adding a language
+-----------------
+
+If your language is not listed on `packaging.python.org`_, click the button
+:guilabel:`Start new translation` at the bottom of the language list and add
+the language you want to translate.
+
+Following reStructuredText syntax
+---------------------------------
+
+If you are not familiar with reStructuredText (RST) syntax, please read `this guide`_
+before translating on Weblate.
+
+**Do not translate the text in reference directly**
+
+  When translating the text in reference, please do not translate them directly.
+
+  | Wrong: Translate the following text directly:
+
+  .. code-block:: rst
+
+      `some ref`_ -> `TRANSLATED TEXT HERE`_
+
+  | Right: Translate the following text with your own language and add the original reference:
+
+  .. code-block:: rst
+
+      `some ref`_ -> `TRANSLATED TEXT HERE <some ref>`_
+
+.. _this guide: https://docutils.sourceforge.io/docs/user/rst/quickref.html
 
 Building the guide locally
 ==========================
