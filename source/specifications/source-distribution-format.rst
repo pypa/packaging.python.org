@@ -20,6 +20,16 @@ specification.
 
 Source distributions are also known as *sdists* for short.
 
+Source trees
+============
+
+A *source tree* is a collection of files and directories -- like a version
+control system checkout -- which contains a :file:`pyproject.toml` file that
+can be use to build a source distribution from the contained files and
+directories. :pep:`517` and :pep:`518` specify what is required to meet the
+definition of what :file:`pyproject.toml` must contain for something to be
+deemed a source tree.
+
 Source distribution file name
 =============================
 

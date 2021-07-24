@@ -666,9 +666,9 @@ both installed and editable in project form.
 
 Assuming you're in the root of your project directory, then run:
 
-::
+.. code-block:: bash
 
- python -m pip install -e .
+   python -m pip install -e .
 
 
 Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
@@ -698,7 +698,9 @@ Otherwise, the dependency will be fulfilled from PyPI, due to the installation o
 <pip:Requirements Files>` section in the pip docs.  For more on VCS installs,
 see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
-Lastly, if you don't want to install any dependencies at all, you can run::
+Lastly, if you don't want to install any dependencies at all, you can run:
+
+.. code-block:: bash
 
    python -m pip install -e . --no-deps
 
@@ -880,9 +882,11 @@ distribution file(s) to upload.
   directive). **Before** trying to upload your distribution, you should check
   to see if your brief / long descriptions provided in :file:`setup.py` are
   valid.  You can do this by running :std:doc:`twine check <index>` on
-  your package files::
+  your package files:
 
-    twine check dist/*
+  .. code-block:: bash
+
+     twine check dist/*
 
 Create an account
 -----------------

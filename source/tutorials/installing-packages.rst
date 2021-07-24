@@ -281,9 +281,9 @@ In both of the above cases, Windows users should _not_ use the
 :command:`source` command, but should rather run the :command:`activate`
 script directly from the command shell like so:
 
-::
+.. code-block:: bat
 
- <DIR>\Scripts\activate
+   <DIR>\Scripts\activate
 
 
 
@@ -618,10 +618,10 @@ create a helper application that presents the data in a :pep:`503` compliant
 index format, and use the ``--extra-index-url`` flag to direct pip to use
 that index.
 
-::
+.. code-block:: bash
 
- ./s3helper --port=7777
- python -m pip install --extra-index-url http://localhost:7777 SomeProject
+   ./s3helper --port=7777
+   python -m pip install --extra-index-url http://localhost:7777 SomeProject
 
 
 Installing Prereleases
