@@ -105,7 +105,7 @@ before translating on Weblate.
 
   | Wrong: Translate the following text directly:
 
-  .. code-block::
+  .. code-block:: rst
 
       `some ref`_ -> `TRANSLATED TEXT HERE`_
 
