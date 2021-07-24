@@ -77,7 +77,7 @@ Please visit the `packaging.python.org`_ project on Weblate to contribute.
 If you are experiencing issues while you are working on translations,
 please open an issue on `Github`_.
 
-.. note::
+.. tip::
 
    Any translations of this project should follow `reStructuredText syntax`_.
 
