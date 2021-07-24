@@ -111,7 +111,7 @@ before translating on Weblate.
 
   | Right: Translate the following text with your own language and add the original reference:
 
-  .. code-block::
+  .. code-block:: rst
 
       `some ref`_ -> `TRANSLATED TEXT HERE <some ref>`_
 
