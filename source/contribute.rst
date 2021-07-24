@@ -90,7 +90,7 @@ Adding a language
 -----------------
 
 If your language is not listed on `packaging.python.org`_, click the button
-"Start new translation" at the bottom of the languages list and add
+:guilabel:`Start new translation` at the bottom of the language list and add
 the language you want to translate.
 
 Following reStructuredText syntax
