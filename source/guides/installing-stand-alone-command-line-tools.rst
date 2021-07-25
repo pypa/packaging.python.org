@@ -14,7 +14,7 @@ system has on Python packages.
 
 :ref:`pipx` solves this by creating a virtual environment for each package,
 while also ensuring that its applications are accessible through a directory
-that is on your :envvar:`PATH`. This allows each package to be upgraded or
+that is on your ``$PATH``. This allows each package to be upgraded or
 uninstalled without causing conflicts with other packages, and allows you to
 safely run the applications from anywhere.
 
@@ -38,10 +38,10 @@ pipx is installed with pip:
 
 .. note::
 
-   :command:`ensurepath` ensures that the application directory is on your :envvar:`PATH`.
+   ``ensurepath`` ensures that the application directory is on your ``$PATH``.
    You may need to restart your terminal for this update to take effect.
 
-Now you can install packages with :command:`pipx install` and run the package's
+Now you can install packages with ``pipx install`` and run the package's
 applications(s) from anywhere.
 
 .. code-block:: console
@@ -70,7 +70,7 @@ For example:
                  ||     ||
 
 To see a list of packages installed with pipx and which applications are
-available, use :command:`pipx list`:
+available, use ``pipx list``:
 
 .. code-block:: console
 
