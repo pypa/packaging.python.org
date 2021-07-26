@@ -32,19 +32,9 @@ Fedora
 
 * Fedora 33 & 34:
 
-  * Python 3:
-
     .. code-block:: bash
 
       sudo dnf install python3 python3-wheel
-
-  * Python 2:
-
-    .. code-block:: bash
-
-      sudo dnf upgrade python-setuptools
-      sudo dnf install python-pip python-wheel
-
 
 To get newer versions of pip, setuptools, and wheel for Python 2, you can enable
 the `PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using
@@ -55,7 +45,6 @@ the `Copr Repo instructions
 
   sudo dnf upgrade python-setuptools
   sudo dnf install python-pip python-wheel
-
 
 CentOS/RHEL
 ~~~~~~~~~~~
@@ -70,17 +59,10 @@ To install pip and wheel for the system Python, there are two options:
    <https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F>`__. On
    EPEL 6 and EPEL7, you can install pip like so:
 
-    * Python3:
-
       .. code-block:: bash
 
         sudo yum install python3-pip
 
-    * Python2:
-
-      .. code-block:: bash
-
-        sudo yum install python-pip
 
   On EPEL 7 (but not EPEL 6), you can install wheel like so:
 
@@ -137,17 +119,9 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
 openSUSE
 ~~~~~~~~
 
-* Python 3:
-
   .. code-block:: bash
  
     sudo zypper install python3-pip python3-setuptools python3-wheel
-
-* Python 2:
-
-  .. code-block:: bash
-
-    sudo zypper install python-pip python-setuptools python-wheel
 
 Debian/Ubuntu
 ~~~~~~~~~~~~~
@@ -157,19 +131,7 @@ Firstly, update and refresh repository lists by running this command:
 .. code-block:: bash
 
   sudo apt update
-
-* Python 3:
-
-  .. code-block:: bash
-
-    sudo apt install python3-venv python3-pip
-
-* Python 2:
-
-  .. code-block:: bash
-
-    sudo apt install python-pip
-
+  sudo apt install python3-venv python3-pip
 
 .. warning::
 
@@ -181,17 +143,9 @@ Firstly, update and refresh repository lists by running this command:
 Arch Linux
 ~~~~~~~~~~
 
-* Python 3:
-
   .. code-block:: bash
 
     sudo pacman -S python-pip
-
-* Python 2:
-
-  .. code-block:: bash
-
-    sudo pacman -S python2-pip
 
 ----
 
