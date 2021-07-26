@@ -4,6 +4,9 @@
 Installing pip/setuptools/wheel with Linux Package Managers
 ===========================================================
 
+:Page Status: Incomplete
+:Last Reviewed: 2021-07-26
+
 .. contents:: Contents
   :local:
 
@@ -30,21 +33,9 @@ versions.  When this is known, we will make note of it below.
 Fedora
 ~~~~~~
 
-* Fedora 33 & 34:
-
-    .. code-block:: bash
-
-      sudo dnf install python3 python3-wheel
-
-To get newer versions of pip, setuptools, and wheel for Python 2, you can enable
-the `PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using
-the `Copr Repo instructions
-<https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__, and then run:
-
 .. code-block:: bash
 
-  sudo dnf upgrade python-setuptools
-  sudo dnf install python-pip python-wheel
+  sudo dnf install python3 python3-wheel
 
 CentOS/RHEL
 ~~~~~~~~~~~
@@ -68,7 +59,7 @@ To install pip and wheel for the system Python, there are two options:
 
   .. code-block:: bash
 
-    sudo yum install python-wheel
+    sudo yum install python3-wheel
 
   Since EPEL only offers extra, non-conflicting packages, EPEL does not offer
   setuptools, since it's in the core repository.
@@ -81,13 +72,13 @@ To install pip and wheel for the system Python, there are two options:
 
    .. code-block:: bash
 
-     sudo yum install python-pip python-wheel
+     sudo yum install python3-pip python3-wheel
 
    To additionally upgrade setuptools, run:
 
    .. code-block:: bash
 
-     sudo yum upgrade python-setuptools
+     sudo yum upgrade python3-setuptools
 
 
 To install pip, wheel, and setuptools, in a parallel, non-system environment
