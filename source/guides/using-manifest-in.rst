@@ -93,7 +93,9 @@ setuptools will automatically convert the slashes to the local platform's
 appropriate directory separator.
 
 Commands are processed in the order they appear in the :file:`MANIFEST.in`
-file.  For example, given the commands::
+file.  For example, given the commands:
+
+.. code-block:: bash
 
     graft tests
     global-exclude *.py[cod]
