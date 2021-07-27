@@ -37,7 +37,7 @@ Fedora
 
   sudo dnf install python3 python3-wheel
 
-To learn more about Python in Fedora, please visit `official Fedora docs`_,
+To learn more about Python in Fedora, please visit the `official Fedora docs`_,
 `Python Classroom`_ or `Fedora Loves Python`_. 
 
 .. _official Fedora docs: https://developer.fedoraproject.org/tech/languages/python/python-installation.html
