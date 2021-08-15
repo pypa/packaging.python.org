@@ -466,14 +466,14 @@ cases you may need to place data files *outside* of your :term:`packages
 It is mostly useful if you need to install files which are used by other
 programs, which may be unaware of Python packages.
 
-Each ``(directory, files)`` pair in the sequence specifies the installation
-directory and the files to install there. The ``directory`` must be a relative
+Each "(directory, files)" pair in the sequence specifies the installation
+directory and the files to install there. The "directory" must be a relative
 path (although this may change in the future, see
-`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_).
+`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_),
 and it is interpreted relative to the installation prefix
 (Python’s ``sys.prefix`` for a default installation;
 ``site.USER_BASE`` for a user installation).
-Each file name in ``files`` is interpreted relative to the :file:`setup.py`
+Each file name in "files" is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
 For more information see the distutils section on `Installing Additional Files
