@@ -653,7 +653,7 @@ Install `setuptools extras`_.
 
         python3 -m pip install SomePackage[PDF]
         python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]==3.0  # editable project in current directory
+        python3 -m pip install -e .[PDF]  # editable project in current directory
 
 .. tab:: Windows
 
@@ -661,7 +661,7 @@ Install `setuptools extras`_.
 
         py -m pip install SomePackage[PDF]
         py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]==3.0  # editable project in current directory
+        py -m pip install -e .[PDF]  # editable project in current directory
 
 ----
 
