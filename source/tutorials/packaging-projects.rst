@@ -11,7 +11,7 @@ to build the package, and how to upload it to the Python Package Index.
    and its output, then `open an issue`_ on the `packaging-problems`_ repository on
    GitHub. We'll do our best to help you!
 
-.. _open an issue: https://github.com/pypa/packaging-problems/issues/new?title=Trouble+with+packaging+tutorial
+.. _open an issue: https://github.com/pypa/packaging-problems/issues/new?template=packaging_tutorial.yml&title=Trouble+with+the+packaging+tutorial&guide=https://packaging.python.org/tutorials/packaging-projects
 
 .. _packaging-problems: https://github.com/pypa/packaging-problems
 
