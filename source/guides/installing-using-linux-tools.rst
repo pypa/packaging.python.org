@@ -35,7 +35,7 @@ Fedora
 
 .. code-block:: bash
 
-  sudo dnf install python3 python3-wheel
+  sudo dnf install python3-pip python3-wheel
 
 To learn more about Python in Fedora, please visit the `official Fedora docs`_,
 `Python Classroom`_ or `Fedora Loves Python`_. 
@@ -55,19 +55,12 @@ To install pip and wheel for the system Python, there are two options:
 1. Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using
    `these instructions
    <https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F>`__. 
-   On EPEL 6 and EPEL 7, you can install pip like so:
+   On EPEL 7, you can install pip and wheel like so:
 
    .. code-block:: bash
 
-    sudo yum install python3-pip
-
-
-  On EPEL 7 (but not EPEL 6), you can install wheel like so:
-
-  .. code-block:: bash
-
-    sudo yum install python3-wheel
-
+    sudo dnf install python3-pip python3-wheel
+    
   Since EPEL only offers extra, non-conflicting packages, EPEL does not offer
   setuptools, since it's in the core repository.
 
@@ -79,13 +72,13 @@ To install pip and wheel for the system Python, there are two options:
 
    .. code-block:: bash
 
-     sudo yum install python3-pip python3-wheel
+     sudo dnf install python3-pip python3-wheel
 
    To additionally upgrade setuptools, run:
 
    .. code-block:: bash
 
-     sudo yum upgrade python3-setuptools
+     sudo dnf upgrade python3-setuptools
 
 
 To install pip, wheel, and setuptools, in a parallel, non-system environment
