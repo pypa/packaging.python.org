@@ -60,9 +60,9 @@ To install pip and wheel for the system Python, there are two options:
    .. code-block:: bash
 
     sudo dnf install python3-pip python3-wheel
-    
-  Since EPEL only offers extra, non-conflicting packages, EPEL does not offer
-  setuptools, since it's in the core repository.
+
+   Since EPEL only offers extra, non-conflicting packages, EPEL does not offer
+   setuptools, since it's in the core repository.
 
 
 2. Enable the `PyPA Copr Repo
