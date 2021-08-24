@@ -122,9 +122,11 @@ You can check your README for markup errors before uploading as follows:
 2. Build the sdist and wheel for your project as described under
    :ref:`Packaging Your Project`.
 
-3. Run ``twine check`` on the sdist and wheel::
+3. Run ``twine check`` on the sdist and wheel:
 
-        twine check dist/*
+   .. code-block:: bash
+
+      twine check dist/*
 
    This command will report any problems rendering your README.  If your markup
    renders fine, the command will output ``Checking distribution FILENAME:

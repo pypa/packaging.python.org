@@ -34,11 +34,12 @@ cached copies of :term:`packages <Distribution Package>`:
    by downloading all the requirements for a project and then pointing pip at
    those downloaded files instead of going to PyPI.
 2. A variation on the above which pre-builds the installation files for
-   the requirements using `python -m pip wheel
-   <https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_::
+   the requirements using :ref:`python -m pip wheel <pip:pip wheel>`:
 
-    $ python -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
-    $ python -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
+   .. code-block:: bash
+
+      python -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
+      python -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
 
 
 Caching with devpi

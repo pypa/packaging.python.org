@@ -160,8 +160,8 @@ taken from the `setup.py
 
 .. _`setup() name`:
 
-name
-~~~~
+``name``
+~~~~~~~~
 
 ::
 
@@ -186,8 +186,8 @@ declare a dependency on it using any of the following spellings::
     CoOl__-.-__sTuFF
 
 
-version
-~~~~~~~
+``version``
+~~~~~~~~~~~
 
 ::
 
@@ -210,8 +210,8 @@ rather not duplicate the value, there are a few ways to manage this. See the
 
 .. _`description`:
 
-description
-~~~~~~~~~~~
+``description``
+~~~~~~~~~~~~~~~
 
 ::
 
@@ -241,8 +241,8 @@ to no formatting, `reStructuredText (reST)
 and the Github-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
-url
-~~~
+``url``
+~~~~~~~
 
 ::
 
@@ -252,8 +252,8 @@ url
 Give a homepage URL for your project.
 
 
-author
-~~~~~~
+``author``
+~~~~~~~~~~
 
 ::
 
@@ -263,8 +263,8 @@ author
 Provide details about the author.
 
 
-license
-~~~~~~~
+``license``
+~~~~~~~~~~~
 
 ::
 
@@ -276,15 +276,15 @@ so if you want.  If you're using a standard, well-known license, then
 your main indication can and should be via the ``classifiers``
 argument. Classifiers exist for all major open-source licenses.
 
-The "license" argument is more typically used to indicate differences
+The ``license`` argument is more typically used to indicate differences
 from well-known licenses, or to include your own, unique license. As a
 general rule, it's a good idea to use a standard, well-known license,
 both to avoid confusion and because some organizations avoid software
 whose license is unapproved.
 
 
-classifiers
-~~~~~~~~~~~
+``classifiers``
+~~~~~~~~~~~~~~~
 
 ::
 
@@ -323,8 +323,8 @@ Python versions a project can be installed on, use the :ref:`python_requires`
 argument.
 
 
-keywords
-~~~~~~~~
+``keywords``
+~~~~~~~~~~~~
 
 ::
 
@@ -333,8 +333,8 @@ keywords
 List keywords that describe your project.
 
 
-project_urls
-~~~~~~~~~~~~
+``project_urls``
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -351,8 +351,8 @@ bug trackers, source repositories, or where to support package development.
 The string of the key is the exact text that will be displayed on PyPI.
 
 
-packages
-~~~~~~~~
+``packages``
+~~~~~~~~~~~~
 
 ::
 
@@ -366,8 +366,8 @@ packages.  Use the ``exclude`` keyword argument to omit packages that are not
 intended to be released and installed.
 
 
-py_modules
-~~~~~~~~~~
+``py_modules``
+~~~~~~~~~~~~~~
 
 ::
 
@@ -378,8 +378,8 @@ package, set ``py_modules`` to a list of the names of the modules (minus the
 ``.py`` extension) in order to make :ref:`setuptools` aware of them.
 
 
-install_requires
-~~~~~~~~~~~~~~~~
+``install_requires``
+~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -394,8 +394,8 @@ For more on using "install_requires" see :ref:`install_requires vs Requirements 
 
 .. _python_requires:
 
-python_requires
-~~~~~~~~~~~~~~~
+``python_requires``
+~~~~~~~~~~~~~~~~~~~
 
 If your project only runs on certain Python versions, setting the
 ``python_requires`` argument to the appropriate :pep:`440` version specifier
@@ -427,8 +427,8 @@ And so on.
 
 .. _`Package Data`:
 
-package_data
-~~~~~~~~~~~~
+``package_data``
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -453,8 +453,8 @@ For more information, see :std:doc:`Including Data Files
 
 .. _`Data Files`:
 
-data_files
-~~~~~~~~~~
+``data_files``
+~~~~~~~~~~~~~~
 
 ::
 
@@ -469,7 +469,7 @@ programs, which may be unaware of Python packages.
 Each ``(directory, files)`` pair in the sequence specifies the installation
 directory and the files to install there. The ``directory`` must be a relative
 path (although this may change in the future, see
-`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_).
+`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_),
 and it is interpreted relative to the installation prefix
 (Python’s ``sys.prefix`` for a default installation;
 ``site.USER_BASE`` for a user installation).
@@ -487,8 +487,8 @@ For more information see the distutils section on `Installing Additional Files
   then you need to pass the ``--old-and-unmanageable`` option.
 
 
-scripts
-~~~~~~~
+``scripts``
+~~~~~~~~~~~
 
 Although ``setup()`` supports a `scripts
 <http://docs.python.org/3/distutils/setupscript.html#installing-scripts>`_
@@ -496,8 +496,8 @@ keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
 
-entry_points
-~~~~~~~~~~~~
+``entry_points``
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -517,8 +517,8 @@ The most commonly used entry point is "console_scripts" (see below).
 
 .. _`console_scripts`:
 
-console_scripts
-***************
+``console_scripts``
+*******************
 
 ::
 
@@ -528,7 +528,7 @@ console_scripts
       ],
   },
 
-Use "console_script" `entry points
+Use ``console_script`` `entry points
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
 to register your script interfaces. You can then let the toolchain handle the
 work of turning these interfaces into actual scripts [2]_.  The scripts will be
@@ -666,16 +666,17 @@ both installed and editable in project form.
 
 Assuming you're in the root of your project directory, then run:
 
-::
+.. code-block:: bash
 
- python -m pip install -e .
+   python -m pip install -e .
 
 
 Although somewhat cryptic, ``-e`` is short for ``--editable``, and ``.`` refers
 to the current working directory, so together, it means to install the current
 directory (i.e. your project) in editable mode.  This will also install any
-dependencies declared with "install_requires" and any scripts declared with
-"console_scripts".  Dependencies will be installed in the usual, non-editable mode.
+dependencies declared with ``install_requires`` and any scripts declared with
+``console_scripts``.  Dependencies will be installed in the usual, non-editable
+mode.
 
 It's fairly common to also want to install some of your dependencies in editable
 mode as well. For example, supposing your project requires "foo" and "bar", but
@@ -698,7 +699,9 @@ Otherwise, the dependency will be fulfilled from PyPI, due to the installation o
 <pip:Requirements Files>` section in the pip docs.  For more on VCS installs,
 see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
-Lastly, if you don't want to install any dependencies at all, you can run::
+Lastly, if you don't want to install any dependencies at all, you can run:
+
+.. code-block:: bash
 
    python -m pip install -e . --no-deps
 
@@ -880,9 +883,11 @@ distribution file(s) to upload.
   directive). **Before** trying to upload your distribution, you should check
   to see if your brief / long descriptions provided in :file:`setup.py` are
   valid.  You can do this by running :std:doc:`twine check <index>` on
-  your package files::
+  your package files:
 
-    twine check dist/*
+  .. code-block:: bash
+
+     twine check dist/*
 
 Create an account
 -----------------
