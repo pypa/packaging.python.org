@@ -1,6 +1,13 @@
 name: Translation
 
 on:
+   workflow_run:
+     workflows:
+     - Test
+     branches:
+     - main
+     types:
+     - completed
    schedule:
      - cron: '00 00,00 * * sun' # Runs at 00:00 UTC on Sunday
 
