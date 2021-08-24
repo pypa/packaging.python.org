@@ -298,8 +298,7 @@ Use pip for Installing
 
 :ref:`pip` is the recommended installer.  Below, we'll cover the most common
 usage scenarios. For more detail, see the `pip docs <https://pip.pypa.io>`_,
-which includes a complete `Reference Guide
-<https://pip.pypa.io/en/latest/reference/index.html>`_.
+which includes a complete :std:doc:`Reference Guide <cli/index>`.
 
 
 Installing from PyPI
