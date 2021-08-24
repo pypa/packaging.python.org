@@ -35,7 +35,7 @@ cached copies of :term:`packages <Distribution Package>`:
    those downloaded files instead of going to PyPI.
 2. A variation on the above which pre-builds the installation files for
    the requirements using `python -m pip wheel
-   <https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_:
+   <https://pip.pypa.io/en/latest/cli/pip_wheel/>`_:
 
    .. code-block:: bash
 
