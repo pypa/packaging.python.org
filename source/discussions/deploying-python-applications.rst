@@ -102,19 +102,19 @@ Public License 2.0.
 
 .. __: https://devguide.python.org/#status-of-python-branches
 
-Mac OS
-------
+macOS
+-----
 
 py2app
 ^^^^^^
 
 `py2app <https://pypi.org/project/py2app/>`__ is a Python setuptools 
-command which will allow you to make standalone Mac OS X application 
+command which will allow you to make standalone macOS application 
 bundles and plugins from Python scripts. Note that py2app MUST be used
-on OSX to build applications, it cannot create Mac applications on other
+on macOS to build applications, it cannot create Mac applications on other
 platforms. py2app is released under the MIT-license.
 
-Unix (including Linux and Mac OS X)
+Unix (including Linux and macOS)
 -----------------------------------
 
 pex
@@ -125,7 +125,7 @@ pex
 spirit of virtualenvs. pex is an expansion upon the ideas outlined in :pep:`441` 
 and makes the deployment of Python applications as simple as cp. pex files may 
 even include multiple platform-specific Python distributions, meaning that a 
-single pex file can be portable across Linux and OS X. pex is released under the
+single pex file can be portable across Linux and macOS. pex is released under the
 Apache License 2.0.
 
 Configuration management
