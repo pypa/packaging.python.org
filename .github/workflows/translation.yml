@@ -28,7 +28,6 @@ jobs:
            git config --local user.name "github-actions[bot]"
            git_hash=$(git rev-parse --short "$GITHUB_SHA")
            git commit -m "Update messages.pot ${git_hash}" locales/messages.pot
-           
        - name: Check on failures
          if: failure()
          run: echo "No Changes!"
