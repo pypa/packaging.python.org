@@ -4,7 +4,7 @@ Deploying Python applications
 =============================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-11-11
+:Last Reviewed: 2021-8-24
 
 .. contents:: Contents
    :local:
