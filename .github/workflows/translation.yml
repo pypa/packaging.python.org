@@ -30,7 +30,7 @@ jobs:
            git commit -m "Update messages.pot ${git_hash}" locales/messages.pot
            
        - name: Check on failures
-         if: ${{job.status == 'failure'}}
+         if: failure()
          run: echo "No Changes!"
 
        - name: Push changes
