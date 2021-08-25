@@ -323,7 +323,8 @@ pip can install a package directly from source, for example:
         cd google-auth
         py -m pip install .
 
-Additionally, pip can install packages from source in `development mode`_,
+Additionally, pip can install packages from source in
+:doc:`development mode <setuptools:userguide/development_mode>`,
 meaning that changes to the source directory will immediately affect the
 installed package without needing to re-install:
 
@@ -338,9 +339,6 @@ installed package without needing to re-install:
     .. code-block:: bat
 
         py -m pip install --editable .
-
-.. _development mode:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode
 
 
 Installing from version control systems

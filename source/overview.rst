@@ -94,8 +94,8 @@ you can use Python's native packaging tools to create a *source*
 
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
-pure-Python, and you only depend on other Python packages, you can `go
-here to learn more <https://docs.python.org/3/distutils/sourcedist.html>`_.
+pure-Python, and you only depend on other Python packages, you can
+:doc:`go here to learn more <python:distutils/sourcedist>`.
 
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
@@ -166,8 +166,8 @@ audience.
 Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
-library packaging, using technologies like `setuptools entry_points
-<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html>`_.
+library packaging, using technologies like
+:doc:`setuptools entry_points <userguide/entry_point>`.
 
 Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies
@@ -249,7 +249,7 @@ machines of developers and data scientists.
 Technologies which support this model:
 
 * `PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)
-* `zipapp <https://docs.python.org/3/library/zipapp.html>`_ (does not help manage dependencies, requires Python 3.5+)
+* :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
 * `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
 
 .. note:: Of all the approaches here, depending on a pre-installed
