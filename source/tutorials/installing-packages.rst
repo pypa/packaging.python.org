@@ -298,8 +298,7 @@ Use pip for Installing
 
 :ref:`pip` is the recommended installer.  Below, we'll cover the most common
 usage scenarios. For more detail, see the `pip docs <https://pip.pypa.io>`_,
-which includes a complete `Reference Guide
-<https://pip.pypa.io/en/latest/reference/index.html>`_.
+which includes a complete :doc:`Reference Guide <pip:cli/index>`.
 
 
 Installing from PyPI
@@ -653,7 +652,7 @@ Install `setuptools extras`_.
 
         python3 -m pip install SomePackage[PDF]
         python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]==3.0  # editable project in current directory
+        python3 -m pip install -e .[PDF]  # editable project in current directory
 
 .. tab:: Windows
 
@@ -661,7 +660,7 @@ Install `setuptools extras`_.
 
         py -m pip install SomePackage[PDF]
         py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]==3.0  # editable project in current directory
+        py -m pip install -e .[PDF]  # editable project in current directory
 
 ----
 

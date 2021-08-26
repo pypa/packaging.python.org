@@ -7,7 +7,7 @@ to build the package, and how to upload it to the Python Package Index.
 
 .. tip::
 
-   If you have trouble running the commands in this tutoral, please copy the command
+   If you have trouble running the commands in this tutorial, please copy the command
    and its output, then `open an issue`_ on the `packaging-problems`_ repository on
    GitHub. We'll do our best to help you!
 

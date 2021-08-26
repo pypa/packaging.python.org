@@ -323,21 +323,6 @@ libraries in a package.
 Non-PyPA Projects
 #################
 
-.. _bento:
-
-bento
-=====
-
-`Docs <http://cournape.github.io/Bento/>`__ |
-`Issues <https://github.com/cournape/Bento/issues>`__ |
-`GitHub <https://github.com/cournape/Bento>`__ |
-`PyPI <https://pypi.org/project/bento>`__
-
-Bento is a packaging tool solution for Python software, targeted as an
-alternative to :ref:`distutils`, :ref:`setuptools`, etc....  Bento's
-philosophy is reproducibility, extensibility and simplicity (in that
-order).
-
 .. _buildout:
 
 buildout
