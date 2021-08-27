@@ -509,8 +509,8 @@ points (see below).
 Use this keyword to specify any plugins that your project provides for any named
 entry points that may be defined by your project or others that you depend on.
 
-For more information, see the section on `Advertising Behavior
-<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html#dynamic-discovery-of-services-and-plugins>`_
+For more information, see the section on
+:ref:`Advertising Behavior <setuptools:dynamic discovery of services and plugins>`
 from the :ref:`setuptools` docs.
 
 The most commonly used entry point is "console_scripts" (see below).
@@ -528,8 +528,8 @@ The most commonly used entry point is "console_scripts" (see below).
       ],
   },
 
-Use ``console_script`` `entry points
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+Use ``console_script``
+:ref:`entry points <setuptools:dynamic discovery of services and plugins>`
 to register your script interfaces. You can then let the toolchain handle the
 work of turning these interfaces into actual scripts [2]_.  The scripts will be
 generated during the install of your :term:`distribution <Distribution
@@ -537,7 +537,7 @@ Package>`.
 
 For more information, see `Automatic Script Creation
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_
-from the `setuptools docs <https://setuptools.readthedocs.io>`_.
+from the :doc:`setuptools docs <setuptools:index>`.
 
 .. _`Choosing a versioning scheme`:
 
@@ -706,9 +706,9 @@ Lastly, if you don't want to install any dependencies at all, you can run:
    python -m pip install -e . --no-deps
 
 
-For more information, see the `Development Mode
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_ section
-of the `setuptools docs <https://setuptools.readthedocs.io>`_.
+For more information, see the
+:doc:`<Development Mode <setuptools:userguide/development_mode>` section
+of the :doc:`setuptools docs <setuptools>`.
 
 .. _`Packaging your project`:
 
