@@ -665,7 +665,7 @@ edited in-place without reinstallation:
 changes to Python source files in projects installed as editable will be reflected the next time an interpreter process is started.
 
 To install a Python package in "editable"/"development" mode
-Change directory to the root of the project directory and run ``pip install -e .``:
+Change directory to the root of the project directory and run:
 
 ::
 
