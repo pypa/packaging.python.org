@@ -61,5 +61,5 @@ def linkcheck(session):
         "sphinx-build", 
         "-b", "linkcheck", # use linkcheck builder
         "source", # where the rst files are located
-        "check", # where to put the check output
+        "build/check", # where to put the check output
     )
