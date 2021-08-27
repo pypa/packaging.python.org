@@ -60,7 +60,6 @@ def linkcheck(session):
     session.run(
         "sphinx-build", 
         "-b", "linkcheck", # use linkcheck builder
-        "-d", ".nox/.doctrees/", # path to put the cache
         "source", # where the rst files are located
         "check", # where to put the check output
     )
