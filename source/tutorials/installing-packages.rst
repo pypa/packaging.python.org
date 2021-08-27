@@ -178,7 +178,7 @@ Optionally, create a virtual environment
 ----------------------------------------
 
 See :ref:`section below <Creating and using Virtual Environments>` for details,
-but here's the basic `venv`_ [3]_ command to use on a typical Linux system:
+but here's the basic :doc:`venv <python:library/venv>` [3]_ command to use on a typical Linux system:
 
 .. tab:: Unix/macOS
 
@@ -228,7 +228,7 @@ environments.
 
 Currently, there are two common tools for creating Python virtual environments:
 
-* `venv`_ is available by default in Python 3.3 and later, and installs
+* :doc:`venv <python:library/venv>` is available by default in Python 3.3 and later, and installs
   :ref:`pip` and :ref:`setuptools` into created virtual environments in
   Python 3.4 and later.
 * :ref:`virtualenv` needs to be installed separately, but supports Python 2.7+
@@ -238,7 +238,7 @@ Currently, there are two common tools for creating Python virtual environments:
 
 The basic usage is like so:
 
-Using `venv`_:
+Using :doc:`venv <python:library/venv>`:
 
 .. tab:: Unix/macOS
 
@@ -270,7 +270,8 @@ Using :ref:`virtualenv`:
         virtualenv <DIR>
         <DIR>\Scripts\activate
 
-For more information, see the `venv`_ docs or the `virtualenv <http://virtualenv.pypa.io>`_ docs.
+For more information, see the :doc:`venv <python:library/venv>` docs or
+the `virtualenv <http://virtualenv.pypa.io>`_ docs.
 
 The use of :command:`source` under Unix shells ensures
 that the virtual environment's variables are set within the current
@@ -281,9 +282,9 @@ In both of the above cases, Windows users should _not_ use the
 :command:`source` command, but should rather run the :command:`activate`
 script directly from the command shell like so:
 
-::
+.. code-block:: bat
 
- <DIR>\Scripts\activate
+   <DIR>\Scripts\activate
 
 
 
@@ -297,9 +298,8 @@ Use pip for Installing
 ======================
 
 :ref:`pip` is the recommended installer.  Below, we'll cover the most common
-usage scenarios. For more detail, see the `pip docs <https://pip.pypa.io>`_,
-which includes a complete `Reference Guide
-<https://pip.pypa.io/en/latest/reference/index.html>`_.
+usage scenarios. For more detail, see the :doc:`pip docs <pip:index>`,
+which includes a complete :doc:`Reference Guide <pip:cli/index>`.
 
 
 Installing from PyPI
@@ -543,8 +543,8 @@ Installing from a local src tree
 ================================
 
 
-Installing from local src in `Development Mode
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_,
+Installing from local src in
+:doc:`Development Mode <setuptools:userguide/development_mode>`,
 i.e. in such a way that the project appears to be installed, but yet is
 still editable from the src tree.
 
@@ -618,10 +618,10 @@ create a helper application that presents the data in a :pep:`503` compliant
 index format, and use the ``--extra-index-url`` flag to direct pip to use
 that index.
 
-::
+.. code-block:: bash
 
- ./s3helper --port=7777
- python -m pip install --extra-index-url http://localhost:7777 SomeProject
+   ./s3helper --port=7777
+   python -m pip install --extra-index-url http://localhost:7777 SomeProject
 
 
 Installing Prereleases
@@ -653,7 +653,7 @@ Install `setuptools extras`_.
 
         python3 -m pip install SomePackage[PDF]
         python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]==3.0  # editable project in current directory
+        python3 -m pip install -e .[PDF]  # editable project in current directory
 
 .. tab:: Windows
 
@@ -661,7 +661,7 @@ Install `setuptools extras`_.
 
         py -m pip install SomePackage[PDF]
         py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]==3.0  # editable project in current directory
+        py -m pip install -e .[PDF]  # editable project in current directory
 
 ----
 
@@ -683,5 +683,4 @@ Install `setuptools extras`_.
        and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
 
-.. _venv: https://docs.python.org/3/library/venv.html
 .. _setuptools extras: https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies

@@ -31,8 +31,8 @@ Installation tool recommendations
   is installed, you may need to also install :ref:`wheel` to get the benefit
   of wheel caching. [3]_
 
-* Use :ref:`virtualenv`, or `venv`_ to isolate application specific
-  dependencies from a shared Python installation. [4]_
+* Use :ref:`virtualenv`, or :doc:`venv <python:library/venv>` to isolate application
+  specific dependencies from a shared Python installation. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
   stacks, consider:
@@ -111,4 +111,3 @@ migration, and what settings to change in your clients.
        choice for packaging.
 
 .. _distribute: https://pypi.org/project/distribute
-.. _venv: https://docs.python.org/3/library/venv.html
