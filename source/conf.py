@@ -35,7 +35,12 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx_inline_tabs',
+    'sphinx_copybutton',
 ]
+
+# config for copy button
+copybutton_prompt_text = r">>> |\.\.\. |\$ |> "
+copybutton_prompt_is_regexp = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -83,6 +88,9 @@ release = ''
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = None
+
+# making all documents use single text domain
+gettext_compact = "messages"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -173,7 +181,9 @@ html_title = 'Python Packaging User Guide'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['_static']
+
+html_css_files = ['overrides.css']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -376,7 +386,8 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    'setuptools': ('https://setuptools.rtfd.io/en/latest/', None),
+    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'twine': ('https://twine.readthedocs.io/en/stable/', None),
 }
 
 
@@ -392,8 +403,9 @@ nitpicky = True
 nitpick_ignore = [
     ('envvar', 'PATH'),
     ('py:func', 'find_packages'),
-    ('py:func', 'pkg_resources.iter_entry_points'),
     ('py:func', 'setup'),
+    ('py:func', 'importlib.metadata.entry_points'),  # remove when 3.10 is released
+    ('py:class', 'importlib.metadata.EntryPoint'),  # remove when 3.10 is released
     ('py:func', 'setuptools.find_namespace_packages'),
     ('py:func', 'setuptools.find_packages'),
     ('py:func', 'setuptools.setup'),

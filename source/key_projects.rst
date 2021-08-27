@@ -18,11 +18,9 @@ PyPA Projects
 bandersnatch
 ============
 
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/bandersnatch/issues>`__ |
 `GitHub <https://github.com/pypa/bandersnatch>`__ |
-`PyPI <https://pypi.org/project/bandersnatch>`__ |
-Dev IRC:`#bandersnatch <https://webchat.freenode.net/?channels=%23bandersnatch>`__
+`PyPI <https://pypi.org/project/bandersnatch>`__
 
 ``bandersnatch`` is a PyPI mirroring client designed to efficiently
 create a complete mirror of the contents of PyPI. Organizations thus
@@ -39,13 +37,26 @@ build
 `Docs <https://pypa-build.readthedocs.io/>`__ |
 `Issues <https://github.com/pypa/build/issues>`__ |
 `GitHub <https://github.com/pypa/build>`__ |
-`PyPI <https://pypi.org/project/build>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`PyPI <https://pypi.org/project/build>`__
 
 ``build`` is a :pep:`517` compatible Python package builder. It provides a CLI to
 build packages, as well as a Python API.
 
+
+.. _cibuildwheel:
+
+cibuildwheel
+============
+
+`Docs <https://cibuildwheel.readthedocs.io/>`__ |
+`Issues <https://github.com/pypa/cibuildwheel/issues>`__ |
+`GitHub <https://github.com/pypa/cibuildwheel>`__ |
+`PyPI <https://pypi.org/project/cibuildwheel>`__ |
+`Discussions <https://github.com/pypa/cibuildwheel/discussions>`__ |
+`Discord #cibuildwheel <https://discord.com/invite/pypa>`__
+
+``cibuildwheel`` is a Python package that builds :term:`wheels <Wheel>` for all common
+platforms and Python versions on most CI systems. Also see :ref:`multibuild`.
 
 .. _distlib:
 
@@ -53,7 +64,6 @@ distlib
 =======
 
 `Docs <http://pythonhosted.org/distlib/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
@@ -80,12 +90,9 @@ packaging
 =========
 
 `Docs <https://packaging.pypa.io>`__ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
-`PyPI <https://pypi.org/project/packaging>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`PyPI <https://pypi.org/project/packaging>`__
 
 Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`.
 
@@ -112,13 +119,9 @@ pip
 ===
 
 `Docs <https://pip.pypa.io/en/stable/>`__ |
-`User list <http://groups.google.com/group/python-virtualenv>`__ [1]_ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
-`PyPI <https://pypi.org/project/pip/>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`PyPI <https://pypi.org/project/pip/>`__
 
 The most popular tool for installing Python packages, and the one
 included with modern versions of Python.
@@ -161,16 +164,25 @@ Pipfile
 application-centric alternative to :ref:`pip`'s lower-level
 :file:`requirements.txt` file.
 
+.. _pipx:
+
+pipx
+====
+
+`Docs <https://pypa.github.io/pipx/>`__ |
+`GitHub <https://github.com/pypa/pipx>`__ |
+`PyPI <https://pypi.org/project/pipx/>`__
+
+pipx is a tool to install and run Python command-line applications without
+causing dependency conflicts with other packages installed on the system.
+
 
 Python Packaging User Guide
 ===========================
 
 `Docs <https://packaging.python.org/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ |
 `Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
-`GitHub <https://github.com/pypa/python-packaging-user-guide>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`GitHub <https://github.com/pypa/python-packaging-user-guide>`__
 
 This guide!
 
@@ -196,14 +208,9 @@ setuptools
 ==========
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
-`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/setuptools/issues>`__ |
 `GitHub <https://github.com/pypa/setuptools>`__ |
-`PyPI <https://pypi.org/project/setuptools>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
-
+`PyPI <https://pypi.org/project/setuptools>`__
 
 setuptools (which includes ``easy_install``) is a collection of
 enhancements to the Python distutils that allow you to more easily
@@ -246,7 +253,6 @@ twine
 =====
 
 `Docs <https://twine.readthedocs.io/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/twine/issues>`__ |
 `GitHub <https://github.com/pypa/twine>`__ |
 `PyPI <https://pypi.org/project/twine>`__
@@ -264,13 +270,9 @@ virtualenv
 ==========
 
 `Docs <https://virtualenv.pypa.io/en/stable/>`__ |
-`User list <http://groups.google.com/group/python-virtualenv>`__ |
-`Dev list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
-`PyPI <https://pypi.org/project/virtualenv/>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`PyPI <https://pypi.org/project/virtualenv/>`__
 
 virtualenv is a tool which uses the command-line path environment
 variable to create isolated Python :term:`Virtual Environments
@@ -288,12 +290,8 @@ Warehouse
 =========
 
 `Docs <https://warehouse.pypa.io/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/warehouse/issues>`__ |
-`GitHub <https://github.com/pypa/warehouse>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
-
-
+`GitHub <https://github.com/pypa/warehouse>`__
 
 The current codebase powering the :term:`Python Package Index
 (PyPI)`. It is hosted at `pypi.org <https://pypi.org/>`_. The default
@@ -306,12 +304,9 @@ wheel
 =====
 
 `Docs <https://wheel.readthedocs.io/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://github.com/pypa/wheel/issues>`__ |
 `GitHub <https://github.com/pypa/wheel>`__ |
-`PyPI <https://pypi.org/project/wheel>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`PyPI <https://pypi.org/project/wheel>`__
 
 Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` extension for
 creating :term:`wheel distributions <Wheel>`.  Additionally, it offers its own
@@ -328,33 +323,15 @@ libraries in a package.
 Non-PyPA Projects
 #################
 
-.. _bento:
-
-bento
-=====
-
-`Docs <http://cournape.github.io/Bento/>`__ |
-`Mailing list <http://librelist.com/browser/bento>`__ |
-`Issues <https://github.com/cournape/Bento/issues>`__ |
-`GitHub <https://github.com/cournape/Bento>`__ |
-`PyPI <https://pypi.org/project/bento>`__
-
-Bento is a packaging tool solution for Python software, targeted as an
-alternative to :ref:`distutils`, :ref:`setuptools`, etc....  Bento's
-philosophy is reproducibility, extensibility and simplicity (in that
-order).
-
 .. _buildout:
 
 buildout
 ========
 
 `Docs <http://www.buildout.org/en/latest/>`__ |
-`Mailing list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
 `Issues <https://bugs.launchpad.net/zc.buildout>`__ |
 `PyPI <https://pypi.org/project/zc.buildout>`__ |
-`GitHub <https://github.com/buildout/buildout/>`__ |
-IRC:`#buildout <https://webchat.freenode.net/?channels=%23buildout>`__
+`GitHub <https://github.com/buildout/buildout/>`__
 
 Buildout is a Python-based build system for creating, assembling and deploying
 applications from multiple parts, some of which may be non-Python-based.  It
@@ -394,7 +371,6 @@ devpi
 =====
 
 `Docs <http://doc.devpi.net/latest/>`__ |
-`Mailing List <https://groups.google.com/forum/#!forum/devpi-dev>`__ |
 `Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
 `PyPI <https://pypi.org/project/devpi>`__
 
@@ -478,6 +454,16 @@ dependencies for, and publish packages to PyPI. Under the hood, it
 uses :ref:`twine` to upload packages to PyPI, and :ref:`pip` to download and
 install packages.
 
+.. _multibuild:
+
+multibuild
+==========
+
+`GitHub <https://github.com/matthew-brett/multibuild>`__
+
+Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
+Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
+
 .. _pex:
 
 pex
@@ -492,17 +478,6 @@ files, standalone Python environments in the spirit of :ref:`virtualenv`.
 :file:`.pex` files are just carefully constructed zip files with a
 ``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
 make deployment of Python applications as simple as ``cp``.
-
-.. _pipx:
-
-pipx
-====
-
-`Docs <https://pipxproject.github.io/pipx/>`__ |
-`GitHub <https://github.com/pipxproject/pipx>`__ |
-`PyPI <https://pypi.org/project/pipx/>`__
-
-pipx is a tool to safely install and run Python CLI applications globally.
 
 .. _pip-tools:
 
@@ -574,7 +549,6 @@ scikit-build
 ============
 
 `Docs <https://scikit-build.readthedocs.io/en/latest/>`__ |
-`Mailing list <https://groups.google.com/forum/#!forum/scikit-build>`__ |
 `GitHub <https://github.com/scikit-build/scikit-build/>`__ |
 `PyPI <https://pypi.org/project/scikit-build>`__
 
@@ -660,10 +634,7 @@ distutils
 =========
 
 `Docs <https://docs.python.org/3/library/distutils.html>`__ |
-`User list <http://mail.python.org/mailman/listinfo/distutils-sig>`__ [2]_ |
-`Issues <http://bugs.python.org>`__ |
-User IRC:`#pypa <https://webchat.freenode.net/?channels=%23pypa>`__ |
-Dev IRC:`#pypa-dev <https://webchat.freenode.net/?channels=%23pypa-dev>`__
+`Issues <http://bugs.python.org>`__
 
 The original Python packaging system, added to the standard library in
 Python 2.0.
@@ -692,10 +663,5 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 
 
 ----
-
-.. [1] pip was created by the same developer as virtualenv, and early on adopted
-       the virtualenv mailing list, and it's stuck ever since.
-
-.. [2] Multiple projects reuse the distutils-sig mailing list as their user list.
 
 .. _distribute: https://pypi.org/project/distribute

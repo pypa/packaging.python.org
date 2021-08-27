@@ -23,15 +23,22 @@ conflicts, prefer the advice in the Python Packaging User Guide.
 
 Requirements for packaging and distributing
 ===========================================
-
 1. First, make sure you have already fulfilled the :ref:`requirements for
    installing packages <installing_requirements>`.
 
-2. Install "twine" [1]_:
+2.  Install "twine" [1]_:
 
-   ::
+    .. tab:: Unix/macOS
 
-    python -m pip install twine
+        .. code-block:: bash
+
+            python3 -m pip install twine
+
+    .. tab:: Windows
+
+        .. code-block:: bat
+
+            py -m pip install twine
 
    You'll need this to upload your project :term:`distributions <Distribution
    Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below
@@ -153,8 +160,8 @@ taken from the `setup.py
 
 .. _`setup() name`:
 
-name
-~~~~
+``name``
+~~~~~~~~
 
 ::
 
@@ -179,8 +186,8 @@ declare a dependency on it using any of the following spellings::
     CoOl__-.-__sTuFF
 
 
-version
-~~~~~~~
+``version``
+~~~~~~~~~~~
 
 ::
 
@@ -203,8 +210,8 @@ rather not duplicate the value, there are a few ways to manage this. See the
 
 .. _`description`:
 
-description
-~~~~~~~~~~~
+``description``
+~~~~~~~~~~~~~~~
 
 ::
 
@@ -234,8 +241,8 @@ to no formatting, `reStructuredText (reST)
 and the Github-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
-url
-~~~
+``url``
+~~~~~~~
 
 ::
 
@@ -245,8 +252,8 @@ url
 Give a homepage URL for your project.
 
 
-author
-~~~~~~
+``author``
+~~~~~~~~~~
 
 ::
 
@@ -256,8 +263,8 @@ author
 Provide details about the author.
 
 
-license
-~~~~~~~
+``license``
+~~~~~~~~~~~
 
 ::
 
@@ -269,15 +276,15 @@ so if you want.  If you're using a standard, well-known license, then
 your main indication can and should be via the ``classifiers``
 argument. Classifiers exist for all major open-source licenses.
 
-The "license" argument is more typically used to indicate differences
+The ``license`` argument is more typically used to indicate differences
 from well-known licenses, or to include your own, unique license. As a
 general rule, it's a good idea to use a standard, well-known license,
 both to avoid confusion and because some organizations avoid software
 whose license is unapproved.
 
 
-classifiers
-~~~~~~~~~~~
+``classifiers``
+~~~~~~~~~~~~~~~
 
 ::
 
@@ -293,17 +300,17 @@ classifiers
       'Topic :: Software Development :: Build Tools',
 
       # Pick your license as you wish (should match "license" above)
-       'License :: OSI Approved :: MIT License',
+      'License :: OSI Approved :: MIT License',
 
       # Specify the Python versions you support here. In particular, ensure
       # that you indicate whether you support Python 2, Python 3 or both.
       'Programming Language :: Python :: 2',
-      'Programming Language :: Python :: 2.6',
       'Programming Language :: Python :: 2.7',
       'Programming Language :: Python :: 3',
-      'Programming Language :: Python :: 3.2',
-      'Programming Language :: Python :: 3.3',
-      'Programming Language :: Python :: 3.4',
+      'Programming Language :: Python :: 3.6',
+      'Programming Language :: Python :: 3.7',
+      'Programming Language :: Python :: 3.8',
+      'Programming Language :: Python :: 3.9',
   ],
 
 Provide a list of classifiers that categorize your project. For a full listing,
@@ -316,8 +323,8 @@ Python versions a project can be installed on, use the :ref:`python_requires`
 argument.
 
 
-keywords
-~~~~~~~~
+``keywords``
+~~~~~~~~~~~~
 
 ::
 
@@ -326,8 +333,8 @@ keywords
 List keywords that describe your project.
 
 
-project_urls
-~~~~~~~~~~~~
+``project_urls``
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -344,8 +351,8 @@ bug trackers, source repositories, or where to support package development.
 The string of the key is the exact text that will be displayed on PyPI.
 
 
-packages
-~~~~~~~~
+``packages``
+~~~~~~~~~~~~
 
 ::
 
@@ -359,8 +366,8 @@ packages.  Use the ``exclude`` keyword argument to omit packages that are not
 intended to be released and installed.
 
 
-py_modules
-~~~~~~~~~~
+``py_modules``
+~~~~~~~~~~~~~~
 
 ::
 
@@ -371,8 +378,8 @@ package, set ``py_modules`` to a list of the names of the modules (minus the
 ``.py`` extension) in order to make :ref:`setuptools` aware of them.
 
 
-install_requires
-~~~~~~~~~~~~~~~~
+``install_requires``
+~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -387,8 +394,8 @@ For more on using "install_requires" see :ref:`install_requires vs Requirements 
 
 .. _python_requires:
 
-python_requires
-~~~~~~~~~~~~~~~
+``python_requires``
+~~~~~~~~~~~~~~~~~~~
 
 If your project only runs on certain Python versions, setting the
 ``python_requires`` argument to the appropriate :pep:`440` version specifier
@@ -397,15 +404,10 @@ versions.  For example, if your package is for Python 3+ only, write::
 
     python_requires='>=3',
 
-If your package is for Python 3.3 and up but you're not willing to commit to
-Python 4 support yet, write::
-
-    python_requires='~=3.3',
-
 If your package is for Python 2.6, 2.7, and all versions of Python 3 starting
 with 3.3, write::
 
-    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4',
+    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*',
 
 And so on.
 
@@ -425,8 +427,8 @@ And so on.
 
 .. _`Package Data`:
 
-package_data
-~~~~~~~~~~~~
+``package_data``
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -451,8 +453,8 @@ For more information, see :std:doc:`Including Data Files
 
 .. _`Data Files`:
 
-data_files
-~~~~~~~~~~
+``data_files``
+~~~~~~~~~~~~~~
 
 ::
 
@@ -467,7 +469,7 @@ programs, which may be unaware of Python packages.
 Each ``(directory, files)`` pair in the sequence specifies the installation
 directory and the files to install there. The ``directory`` must be a relative
 path (although this may change in the future, see
-`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_).
+`wheel Issue #92 <https://github.com/pypa/wheel/issues/92>`_),
 and it is interpreted relative to the installation prefix
 (Python’s ``sys.prefix`` for a default installation;
 ``site.USER_BASE`` for a user installation).
@@ -485,8 +487,8 @@ For more information see the distutils section on `Installing Additional Files
   then you need to pass the ``--old-and-unmanageable`` option.
 
 
-scripts
-~~~~~~~
+``scripts``
+~~~~~~~~~~~
 
 Although ``setup()`` supports a `scripts
 <http://docs.python.org/3/distutils/setupscript.html#installing-scripts>`_
@@ -494,8 +496,8 @@ keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
 
-entry_points
-~~~~~~~~~~~~
+``entry_points``
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -507,16 +509,16 @@ entry_points
 Use this keyword to specify any plugins that your project provides for any named
 entry points that may be defined by your project or others that you depend on.
 
-For more information, see the section on `Advertising Behavior
-<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html#dynamic-discovery-of-services-and-plugins>`_
+For more information, see the section on
+:ref:`Advertising Behavior <setuptools:dynamic discovery of services and plugins>`
 from the :ref:`setuptools` docs.
 
 The most commonly used entry point is "console_scripts" (see below).
 
 .. _`console_scripts`:
 
-console_scripts
-***************
+``console_scripts``
+*******************
 
 ::
 
@@ -526,8 +528,8 @@ console_scripts
       ],
   },
 
-Use "console_script" `entry points
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins>`_
+Use ``console_script``
+:ref:`entry points <setuptools:dynamic discovery of services and plugins>`
 to register your script interfaces. You can then let the toolchain handle the
 work of turning these interfaces into actual scripts [2]_.  The scripts will be
 generated during the install of your :term:`distribution <Distribution
@@ -535,7 +537,7 @@ Package>`.
 
 For more information, see `Automatic Script Creation
 <https://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_
-from the `setuptools docs <https://setuptools.readthedocs.io>`_.
+from the :doc:`setuptools docs <setuptools:index>`.
 
 .. _`Choosing a versioning scheme`:
 
@@ -667,16 +669,17 @@ changes to Python source files in projects installed as editable will be reflect
 To install a Python package in "editable"/"development" mode
 Change directory to the root of the project directory and run:
 
-::
+.. code-block:: bash
 
- python -m pip install -e .
+   python -m pip install -e .
 
 
 The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
 to the current working directory, so together, it means to install the current
 directory (i.e. your project) in editable mode.  This will also install any
-dependencies declared with "install_requires" and any scripts declared with
-"console_scripts".  Dependencies will be installed in the usual, non-editable mode.
+dependencies declared with ``install_requires`` and any scripts declared with
+``console_scripts``.  Dependencies will be installed in the usual, non-editable
+mode.
 
 You may want to install some of your dependencies in editable
 mode as well. For example, supposing your project requires "foo" and "bar", but
@@ -699,14 +702,16 @@ Otherwise, the dependency will be fulfilled from PyPI, due to the installation o
 <pip:Requirements Files>` section in the pip docs.  For more on VCS installs,
 see the :ref:`VCS Support <pip:VCS Support>` section of the pip docs.
 
-Lastly, if you don't want to install any dependencies at all, you can run::
+Lastly, if you don't want to install any dependencies at all, you can run:
+
+.. code-block:: bash
 
    python -m pip install -e . --no-deps
 
 
-For more information, see the `Development Mode
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode>`_ section
-of the `setuptools docs <https://setuptools.readthedocs.io>`_.
+For more information, see the
+:doc:`<Development Mode <setuptools:userguide/development_mode>` section
+of the :doc:`setuptools docs <setuptools>`.
 
 .. _`Packaging your project`:
 
@@ -718,6 +723,20 @@ To have your project installable from a :term:`Package Index` like :term:`PyPI
 <Distribution Package>` (aka ":term:`Package <Distribution Package>`") for your
 project.
 
+Before you can build wheels and sdists for your project, you'll need to install the
+``build`` package:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip install build
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install build
 
 
 Source distributions
@@ -726,15 +745,24 @@ Source distributions
 Minimally, you should create a :term:`Source Distribution <Source Distribution (or
 "sdist")>`:
 
-::
+.. tab:: Unix/macOS
 
- python setup.py sdist
+    .. code-block:: bash
+
+        python3 -m build --sdist
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m build --sdist
 
 
 A "source distribution" is unbuilt (i.e. it's not a :term:`Built
 Distribution`), and requires a build step when installed by pip.  Even if the
 distribution is pure Python (i.e. contains no extensions), it still involves a
-build step to build out the installation metadata from :file:`setup.py`.
+build step to build out the installation metadata from :file:`setup.py` and/or
+:file:`setup.cfg`.
 
 
 Wheels
@@ -745,59 +773,23 @@ package <Built Distribution>` that can be installed without needing to go
 through the "build" process. Installing wheels is substantially faster for the
 end user than installing from a source distribution.
 
-If your project is pure Python (i.e. contains no compiled extensions) and
-natively supports both Python 2 and 3, then you'll be creating what's called a
-:ref:`*Universal Wheel* (see section below) <Universal Wheels>`.
-
-If your project is pure Python but does not natively support both Python 2 and
-3, then you'll be creating a :ref:`"Pure Python Wheel" (see section below) <Pure
-Python Wheels>`.
+If your project is pure Python then you'll be creating a
+:ref:`"Pure Python Wheel" (see section below) <Pure Python Wheels>`.
 
 If your project contains compiled extensions, then you'll be creating what's
 called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`.
 
-Before you can build wheels for your project, you'll need to install the
-``wheel`` package:
+.. note:: If your project also supports Python 2 *and* contains no C extensions,
+  then you should create what's called a *Universal Wheel* by adding the
+  following to your :file:`setup.cfg` file:
 
-.. code-block:: text
+  .. code-block:: text
 
-  python -m pip install wheel
+     [bdist_wheel]
+     universal=1
 
-
-.. _`Universal Wheels`:
-
-Universal Wheels
-~~~~~~~~~~~~~~~~
-
-*Universal Wheels* are wheels that are pure Python (i.e. contain no compiled
-extensions) and support Python 2 and 3. This is a wheel that can be installed
-anywhere by :ref:`pip`.
-
-To build the wheel:
-
-.. code-block:: text
-
-  python setup.py bdist_wheel --universal
-
-You can also permanently set the ``--universal`` flag in :file:`setup.cfg`:
-
-.. code-block:: text
-
-  [bdist_wheel]
-  universal=1
-
-Only use the ``--universal`` setting, if:
-
-1. Your project runs on Python 2 and 3 with no changes (i.e. it does not
-   require 2to3).
-2. Your project does not have any C extensions.
-
-Beware that ``bdist_wheel`` does not currently have any checks to warn if you
-use the setting inappropriately.
-
-If your project has optional C extensions, it is recommended not to publish a
-universal wheel, because pip will prefer the wheel over a source installation,
-and prevent the possibility of building the extension.
+  Only use this setting if your project does not have any C extensions *and*
+  supports Python 2 and 3.
 
 
 .. _`Pure Python Wheels`:
@@ -805,28 +797,29 @@ and prevent the possibility of building the extension.
 Pure Python Wheels
 ~~~~~~~~~~~~~~~~~~
 
-*Pure Python Wheels* that are not "universal" are wheels that are pure Python
-(i.e. contain no compiled extensions), but don't natively support both Python 2
-and 3.
+*Pure Python Wheels* contain no compiled extensions, and therefore only require a
+single Python wheel.
 
 To build the wheel:
 
-::
+.. tab:: Unix/macOS
 
- python setup.py bdist_wheel
+    .. code-block:: bash
 
+        python -m build --wheel
 
-``bdist_wheel`` will detect that the code is pure Python, and build a wheel
-that's named such that it's usable on any Python installation with the same
-major version (Python 2 or Python 3) as the version you used to build the
-wheel.  For details on the naming of wheel files, see :pep:`425`.
+.. tab:: Windows
 
-If your code supports both Python 2 and 3, but with different code (e.g., you
-use `"2to3" <https://docs.python.org/2/library/2to3.html>`_) you can run
-``setup.py bdist_wheel`` twice, once with Python 2 and once with Python 3. This
-will produce wheels for each version.
+    .. code-block:: bat
 
+        py -m build --wheel
 
+The ``wheel`` package will detect that the code is pure Python, and build a
+wheel that's named such that it's usable on any Python 3 installation.  For
+details on the naming of wheel files, see :pep:`425`.
+
+If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both
+files for you; this is useful when you don't need multiple wheels.
 
 .. _`Platform Wheels`:
 
@@ -838,19 +831,27 @@ macOS, or Windows, usually due to containing compiled extensions.
 
 To build the wheel:
 
-::
+.. tab:: Unix/macOS
 
- python setup.py bdist_wheel
+    .. code-block:: bash
+
+        python3 -m build --wheel
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m build --wheel
 
 
-:command:`bdist_wheel` will detect that the code is not pure Python, and build
+The ``wheel`` package will detect that the code is not pure Python, and build
 a wheel that's named such that it's only usable on the platform that it was
 built on. For details on the naming of wheel files, see :pep:`425`.
 
 .. note::
 
   :term:`PyPI <Python Package Index (PyPI)>` currently supports uploads of
-  platform wheels for Windows, macOS, and the multi-distro ``manylinux1`` ABI.
+  platform wheels for Windows, macOS, and the multi-distro ``manylinux*`` ABI.
   Details of the latter are defined in :pep:`513`.
 
 
@@ -884,8 +885,12 @@ distribution file(s) to upload.
   directives are forbidden or stripped out (e.g., the ``.. raw::``
   directive). **Before** trying to upload your distribution, you should check
   to see if your brief / long descriptions provided in :file:`setup.py` are
-  valid.  You can do this by following the instructions for the
-  `pypa/readme_renderer <https://github.com/pypa/readme_renderer>`_ tool.
+  valid.  You can do this by running :std:doc:`twine check <index>` on
+  your package files:
+
+  .. code-block:: bash
+
+     twine check dist/*
 
 Create an account
 -----------------
@@ -933,7 +938,7 @@ it will be automatically created when the first release is uploaded.
 For the second and subsequent releases, PyPI only requires that the
 version number of the new release differ from any previous releases.
 
-.. code-block:: text
+.. code-block:: bash
 
     twine upload dist/*
 

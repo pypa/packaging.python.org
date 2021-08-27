@@ -6,8 +6,8 @@ pip vs easy_install
 ===================
 
 
-:ref:`easy_install <easy_install>` was released in 2004, as part of :ref:`setuptools`.  It was
-notable at the time for installing :term:`packages <Distribution Package>` from
+:ref:`easy_install <easy_install>`, now `deprecated`_, was released in 2004 as part of :ref:`setuptools`.
+It was notable at the time for installing :term:`packages <Distribution Package>` from
 :term:`PyPI <Python Package Index (PyPI)>` using requirement specifiers, and
 automatically installing dependencies.
 
@@ -19,7 +19,7 @@ rather simply as 'flat' packages from :term:`sdists <Source Distribution (or
 <pip:Requirements Files>`, which gave users the power to easily replicate
 environments.
 
-Here's a breakdown of the important differences between pip and easy_install now:
+Here's a breakdown of the important differences between pip and the deprecated easy_install:
 
 +------------------------------+--------------------------------------+-------------------------------+
 |                              | **pip**                              | **easy_install**              |
@@ -63,7 +63,9 @@ Here's a breakdown of the important differences between pip and easy_install now
 
 ----
 
-.. [1] https://setuptools.readthedocs.io/en/latest/easy_install.html#natural-script-launcher
+.. _deprecated: https://setuptools.readthedocs.io/en/latest/history.html#v42-0-0
+
+.. [1] https://setuptools.readthedocs.io/en/latest/deprecated/easy_install.html#natural-script-launcher
 
 
 .. _pylauncher support: https://bitbucket.org/vinay.sajip/pylauncher

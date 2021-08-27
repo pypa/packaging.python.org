@@ -37,20 +37,28 @@ simplifies dependency management for common use cases.
 
 Use ``pip`` to install Pipenv:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python -m pip install --user pipenv
+    .. code-block:: bash
+
+        python3 -m pip install --user pipenv
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --user pipenv
 
 .. _pipenv-user-base:
 
 .. Note:: This does a `user installation`_ to prevent breaking any system-wide
     packages. If ``pipenv`` isn't available in your shell after installation,
-    you'll need to add the `user base`_'s binary directory to your ``PATH``.
+    you'll need to add the :py:data:`user base <python:site.USER_BASE>`'s
+    binary directory to your ``PATH``.
     See :ref:`Installing to the User Site` for more information.
 
 .. _npm: https://www.npmjs.com/
 .. _bundler: http://bundler.io/
-.. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
 .. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
 
 Installing packages for your project

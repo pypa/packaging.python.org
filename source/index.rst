@@ -39,13 +39,13 @@ Essential tools and concepts for working within the Python
 development ecosystem are covered in our :doc:`tutorials/index` section:
 
 * To learn how to install packages, see the
-  :doc:`tutorial on installing packages <tutorials/installing-packages>`.
+  :doc:`tutorial on installing packages <tutorials/installing-packages>`
 * To learn how to manage dependencies in a version controlled project, see the
-  :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`.
+  :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`
 * To learn how to package and distribute your projects, see the
-  :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`.
+  :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
 * To get an overview of packaging options for Python libraries and
-  applications, see the :doc:`Overview of Python Packaging <overview>`.
+  applications, see the :doc:`Overview of Python Packaging <overview>`
 
 
 Learn more

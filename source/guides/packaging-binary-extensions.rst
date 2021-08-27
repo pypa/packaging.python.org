@@ -161,8 +161,16 @@ wrapper modules up to date.
 
 * In addition to being useful for the creation of accelerator modules,
   `Cython <http://cython.org/>`__ is also useful for creating wrapper
-  modules. It still involves wrapping the interfaces by hand, however, so
-  may not be a good choice for wrapping large APIs.
+  modules for C or C++. It still involves wrapping the interfaces by
+  hand, however, and is very repetitive, so may not be a good choice for
+  wrapping large APIs.
+  
+* `pybind11 <https://pybind11.readthedocs.io>`__ is a pure C++11 library
+  that provides a clean C++ interface to the CPython (and PyPy) C API. It
+  does not require a pre-processing step; it is written entirely in
+  templated C++. Helpers are included for Setuptools or CMake builds. It
+  was based on `Boost.Python <https://www.boost.org/doc/libs/1_76_0/libs/python/doc/html/index.html>`__,
+  but doesn't require the Boost libraries or BJam.
 
 * `cffi <https://cffi.readthedocs.io/>`__ is a project created by some of the PyPy
   developers to make it straightforward for developers that already know
@@ -176,7 +184,7 @@ wrapper modules up to date.
 
 * `SWIG <http://www.swig.org/>`__ is a wrapper interface generator that
   allows a variety of programming languages, including Python, to interface
-  with C *and C++* code.
+  with C and C++ code.
 
 * The standard library's ``ctypes`` module, while useful for getting access
   to C level interfaces when header information isn't available, suffers
@@ -213,9 +221,9 @@ above to make the interface available as an importable Python module.
 Implementing binary extensions
 ==============================
 
-The CPython `Extending and Embedding <https://docs.python.org/3/extending/>`_
+The CPython :doc:`Extending and Embedding <python:extending/index>`
 guide includes an introduction to writing a
-`custom extension module in C <https://docs.python.org/3/extending/extending.html>`_.
+:doc:`custom extension module in C <python:extending/extending>`.
 
 ::
 
@@ -232,54 +240,45 @@ guide includes an introduction to writing a
 Building binary extensions
 ==========================
 
+Building extensions for multiple platforms
+------------------------------------------
+
+If you plan to distribute your extension, you should provide
+:term:`wheels <Wheel>` for all the platforms you intend to support. For most
+extensions, this is at least one package per Python version times the number of
+OS and architectures you support.  These are usually built on continuous
+integration (CI) systems. There are tools to help you build highly
+redistributable binaries from CI; these include :ref:`cibuildwheel` and
+:ref:`multibuild`.
+
+
 Binary extensions for Windows
 -----------------------------
 
 Before it is possible to build a binary extension, it is necessary to ensure
 that you have a suitable compiler available. On Windows, Visual C is used to
 build the official CPython interpreter, and should be used to build compatible
-binary extensions.
+binary extensions.  To set up a build environment for binary extensions, install
+`Visual Studio Community Edition <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
+- any recent version is fine.
 
-Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio 2010,
-and Python 3.5+ uses Visual Studio 2015 or later. Unfortunately, older versions of
-Visual Studio are no longer easily available from Microsoft, so for versions
-of Python prior to 3.5, the compilers must be obtained differently if you do
-not already have a copy of the relevant version of Visual Studio.
+One caveat: if you use Visual Studio 2019 or later, your extension will depend
+on an "extra" file, ``VCRUNTIME140_1.dll``, in addition to the
+``VCRUNTIME140.dll`` that all previous versions back to 2015 depend on. This
+will add an extra requirement to using your extension on versions of CPython
+that do not include this extra file. To avoid this, you can add the
+compile-time argument ``/d2FH4-``. Recent versions of Python may include this
+file.
 
-To set up a build environment for binary extensions, the steps are as follows:
+Building for Python prior to 3.5 is discouraged, because older versions of
+Visual Studio are no longer available from Microsoft. If you do need to build
+for older versions, you can set ``DISTUTILS_USE_SDK=1`` and ``MSSdk=1`` to
+force a the currently activated version of MSVC to be found, and you should
+exercise care when designing your extension not to malloc/free memory across
+different libraries, avoid relying on changed data structures, and so on. Tools
+for generating extension modules usually avoid these things for you.
 
-    For Python 2.7
 
-        1. Install "Visual C++ Compiler Package for Python 2.7",
-           which is available from
-           `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=44266>`__.
-        2. Use (a recent version of) setuptools in your setup.py (pip will
-           do this for you, in any case).
-        3. Done.
-
-    For Python 3.4
-
-        1. Install "Windows SDK for Windows 7 and .NET Framework 4" (v7.1),
-           which is available from
-           `Microsoft's website <https://www.microsoft.com/en-gb/download/details.aspx?id=8279>`__.
-        2. Work from an SDK command prompt (with the environment variables
-           set, and the SDK on PATH).
-        3. Set DISTUTILS_USE_SDK=1
-        4. Done.
-
-    For Python 3.5
-
-        1. Install `Visual Studio 2015 Community Edition
-           <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
-           (or any later version, when these are released).
-        2. Done.
-
-Note that from Python 3.5 onwards, Visual Studio works in a backward
-compatible way, which means that any future version of Visual Studio will
-be able to build Python extensions for all Python versions from 3.5 onwards.
-
-Building with the recommended compiler on Windows ensures that a compatible C library
-is used throughout the Python process.
 
 Binary extensions for Linux
 ---------------------------
