@@ -710,7 +710,7 @@ Lastly, if you don't want to install any dependencies at all, you can run:
 
 
 For more information, see the
-:doc:`<Development Mode <setuptools:userguide/development_mode>` section
+:doc:`Development Mode <setuptools:userguide/development_mode>` section
 of the :doc:`setuptools docs <setuptools>`.
 
 .. _`Packaging your project`:
