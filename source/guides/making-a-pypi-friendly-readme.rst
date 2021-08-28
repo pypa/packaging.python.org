@@ -78,10 +78,9 @@ and identifies the markup as GitHub-flavored Markdown:
    from setuptools import setup
 
    # read the contents of your README file
-   from os import path
-   this_directory = path.abspath(path.dirname(__file__))
-   with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-       long_description = f.read()
+   from pathlib import Path
+   this_directory = Path(__file__).parent
+   long_description = (this_directory / "README.md").read_text()
 
    setup(
        name='an_example_package',
