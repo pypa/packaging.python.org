@@ -60,6 +60,8 @@ def linkcheck(session):
     session.run(
         "sphinx-build", 
         "-b", "linkcheck", # use linkcheck builder
+        "--color",
+        "-n", "-W", "--keep-going",  # be strict
         "source", # where the rst files are located
         "build", # where to put the check output
     )
