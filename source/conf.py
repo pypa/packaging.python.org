@@ -381,6 +381,10 @@ extlinks = {
     'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
 }
 
+linkcheck_ignore = [
+    "http://localhost:8000",
+]
+
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
