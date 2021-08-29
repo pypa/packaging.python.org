@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 19:32+0800\n"
-"PO-Revision-Date: 2021-08-13 22:32+0000\n"
-"Last-Translator: meowmeowmeowcat <meowmeowcat1211@gmail.com>\n"
+"PO-Revision-Date: 2021-08-15 14:53+0000\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2722,7 +2722,7 @@ msgstr "description"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:222
 msgid "Give a short and long description for your project."
-msgstr ""
+msgstr "Da uma descrição curta e longa para seu projeto."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:224
 msgid ""
@@ -2731,6 +2731,10 @@ msgid ""
 "``description`` in the grey banner and ``long_description`` in the section "
 "named \"Project Description\"."
 msgstr ""
+"Esses valores serão exibidos no :term:`PyPI <Python Package Index (PyPI)>` "
+"se você publicar seu projeto. No ``pypi.org``, a interface do usuário exibe "
+"``description`` no banner cinza e ``long_description`` na seção chamada "
+"\"Descrição do Projeto\"."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:229
 msgid ""
@@ -2740,6 +2744,11 @@ msgid ""
 "the list of projects you maintain within your account profile (such as "
 "https://pypi.org/user/jaraco/)."
 msgstr ""
+"``description`` também é exibido em listas de projetos. Por exemplo, ele é "
+"visível nas páginas de resultados de pesquisa, como https://pypi.org/search/"
+"?q=jupyter, nas listas da página inicial de projetos populares e novos "
+"lançamentos e na lista de projetos que você mantém no perfil de sua conta ("
+"como https://pypi.org/user/jaraco/)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:235
 msgid ""
@@ -2752,6 +2761,14 @@ msgid ""
 "Markdown dialect of `Markdown <https://daringfireball.net/projects/markdown/"
 ">`_ respectively."
 msgstr ""
+"Um `tipo de conteúdo <https://packaging.python.org/specifications/"
+"core-metadata/#description-content-type-optional>`_ pode ser especificado "
+"com o argumento ``long_description_content_type``, que pode ser um de ``text/"
+"plain``, ``text/x-rst`` ou ``text/markdown``, correspondendo a nenhuma "
+"formatação, `reStructuredText (reST) <http://docutils.sourceforge.net/docs/"
+"ref/rst/restructuredtext.html#reference-names>`_, e o dialeto Markdown com "
+"sabor do GitHub de `Markdown <https://daringfireball.net/projects/markdown/>`"
+"_ respectivamente."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:245
 msgid "url"
@@ -2892,16 +2909,23 @@ msgid ""
 "minimally needs to run. When the project is installed by :ref:`pip`, this is "
 "the specification that is used to install its dependencies."
 msgstr ""
+"\"install_requires\" deve ser usado para especificar quais dependências um "
+"projeto precisa minimamente para ser executado. Quando o projeto é instalado "
+"pelo :ref:`pip`, esta é a especificação que é usada para instalar suas "
+"dependências."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:392
 msgid ""
 "For more on using \"install_requires\" see :ref:`install_requires vs "
 "Requirements files`."
 msgstr ""
+"Para mais informações sobre como usar \"install_requires\", veja :ref:`"
+"install_requires vs Arquivos de requisitos <install_requires vs Requirements "
+"files>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:398
 msgid "python_requires"
-msgstr ""
+msgstr "python_requires"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:400
 msgid ""
@@ -2910,16 +2934,23 @@ msgid ""
 "string will prevent :ref:`pip` from installing the project on other Python "
 "versions.  For example, if your package is for Python 3+ only, write::"
 msgstr ""
+"Se o seu projeto só funciona em certas versões do Python, definir o "
+"argumento ``python_requires`` para a string apropriada especificadora de "
+"versão da :pep:`440` impedirá :ref:`pip` de instalar o projeto em outras "
+"versões do Python. Por exemplo, se seu pacote for apenas para Python 3+, "
+"escreva::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:407
 msgid ""
 "If your package is for Python 2.6, 2.7, and all versions of Python 3 "
 "starting with 3.3, write::"
 msgstr ""
+"Se o seu pacote for para Python 2.6, 2.7 e todas as versões do Python 3 "
+"começando com 3.3, escreva::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:412
 msgid "And so on."
-msgstr ""
+msgstr "E por aí vai."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:416
 msgid ""
@@ -2929,6 +2960,11 @@ msgid ""
 "``python_requires`` argument to be recognized and the appropriate metadata "
 "generated."
 msgstr ""
+"O suporte para esse recurso é relativamente recente. As distribuições de "
+"código-fonte e wheels do seu projeto (veja :ref:`Empacotando seu projeto "
+"<Packaging Your Project>`) devem ser construídas usando pelo menos a versão "
+"24.2.0 do :ref:`setuptools` para que o argumento ``python_requires`` seja "
+"reconhecido e os metadados apropriados gerados."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:422
 msgid ""
@@ -2937,10 +2973,14 @@ msgid ""
 "able to download & install projects on any Python version regardless of the "
 "projects' ``python_requires`` values."
 msgstr ""
+"Além disso, apenas as versões 9.0.0 e superiores do :ref:`pip` reconhecem os "
+"metadados de ``python_requires``. Usuários com versões anteriores do pip "
+"serão capazes de baixar e instalar projetos em qualquer versão do Python, "
+"independentemente dos valores de ``python_requires`` dos projetos."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:431
 msgid "package_data"
-msgstr ""
+msgstr "package_data"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:440
 msgid ""
@@ -2950,6 +2990,11 @@ msgid ""
 "be of interest to programmers using the package. These files are called "
 "\"package data\"."
 msgstr ""
+"Frequentemente, arquivos adicionais precisam ser instalados em um :term:`"
+"pacote <Import Package>`. Esses arquivos geralmente são dados intimamente "
+"relacionados à implementação do pacote ou arquivos de texto contendo "
+"documentação que pode ser do interesse dos programadores que usam o pacote. "
+"Esses arquivos são chamados de \"dados do pacote\"."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:445
 msgid ""
@@ -2957,16 +3002,22 @@ msgid ""
 "names that should be copied into the package. The paths are interpreted as "
 "relative to the directory containing the package."
 msgstr ""
+"O valor deve ser um mapeamento do nome do pacote para uma lista de nomes de "
+"caminhos relativos que devem ser copiados para o pacote. Os caminhos são "
+"interpretados como relativos ao diretório que contém o pacote."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:449
 msgid ""
 "For more information, see :std:doc:`Including Data Files <setuptools:"
 "userguide/datafiles>` from the :std:doc:`setuptools docs <setuptools:index>`."
 msgstr ""
+"Para mais informações, veja :std:doc:`Incluindo arquivos de dados "
+"<setuptools:userguide/datafiles>` da :std:doc:`documentação do setuptools "
+"<setuptools:index>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:457
 msgid "data_files"
-msgstr ""
+msgstr "data_files"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:463
 msgid ""
@@ -2976,6 +3027,12 @@ msgid ""
 "that. It is mostly useful if you need to install files which are used by "
 "other programs, which may be unaware of Python packages."
 msgstr ""
+"Embora configurar :ref:`Dados de pacote <Package Data>` seja suficiente para "
+"a maioria das necessidades, em alguns casos você pode precisar colocar "
+"arquivos de dados *fora* de seus :term:`pacotes <Import Package>`. A "
+"diretiva ``data_files`` permite que você faça isso. É mais útil se você "
+"precisar instalar arquivos que são usados por outros programas, que podem "
+"não ter conhecimento dos pacotes Python."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:469
 msgid ""
@@ -2988,6 +3045,14 @@ msgid ""
 "``files`` is interpreted relative to the :file:`setup.py` script at the top "
 "of the project source distribution."
 msgstr ""
+"Cada par ``(directory, files)`` na sequência especifica o diretório de "
+"instalação e os arquivos a serem instalados nele. O ``directory`` deve ser "
+"um caminho relativo (embora isso possa mudar no futuro, consulte `relatório "
+"de problema #92 do wheel <https://github.com/pypa/wheel/issues/92>`_) e é "
+"interpretado em relação ao prefixo de instalação (``sys.prefix`` do Python "
+"para uma instalação padrão; ``site.USER_BASE`` para uma instalação do "
+"usuário). Cada nome de arquivo em ``files`` é interpretado em relação ao "
+"script :file:`setup.py` no topo da distribuição do código-fonte do projeto."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:479
 msgid ""
@@ -2995,6 +3060,9 @@ msgid ""
 "Files <http://docs.python.org/3/distutils/setupscript.html#installing-"
 "additional-files>`_."
 msgstr ""
+"Para obter mais informações, consulte a seção distutils em `Instalando "
+"arquivos adicionais <http://docs.python.org/3/distutils/setupscript.html"
+"#installing-additional-files>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:484
 msgid ""
@@ -3003,10 +3071,14 @@ msgid ""
 "Alternatively, if you must use ``python setup.py``, then you need to pass "
 "the ``--old-and-unmanageable`` option."
 msgstr ""
+"Ao instalar pacotes como ovo, ``data_files`` não é suportado. Então, se seu "
+"projeto usa :ref:`setuptools`, você deve usar ``pip`` para instalá-lo. "
+"Alternativamente, se você deve usar ``python setup.py``, então você precisa "
+"passar a opção ``--old-and-unmanageable``."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:491
 msgid "scripts"
-msgstr ""
+msgstr "scripts"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:493
 msgid ""
@@ -3015,10 +3087,15 @@ msgid ""
 "scripts to install, the recommended approach to achieve cross-platform "
 "compatibility is to use :ref:`console_scripts` entry points (see below)."
 msgstr ""
+"Embora ``setup()`` tenha suporte a uma palavra-chave `scripts <http://docs."
+"python.org/3/distutils/setupscript.html#installing-scripts>`_ para apontar "
+"para scripts pré-fabricados para instalar, o recomendado A abordagem para "
+"obter compatibilidade entre plataformas é usar pontos de entrada "
+":ref:`console_scripts` (veja abaixo)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:500
 msgid "entry_points"
-msgstr ""
+msgstr "entry_points"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:509
 msgid ""
@@ -3026,6 +3103,9 @@ msgid ""
 "named entry points that may be defined by your project or others that you "
 "depend on."
 msgstr ""
+"Use esta palavra-chave para especificar quaisquer plugins que seu projeto "
+"fornece para quaisquer pontos de entrada nomeados que podem ser definidos "
+"por seu projeto ou outros dos quais você depende."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:512
 msgid ""
@@ -3033,14 +3113,19 @@ msgid ""
 "setuptools.readthedocs.io/en/latest/userguide/entry_point.html#dynamic-"
 "discovery-of-services-and-plugins>`_ from the :ref:`setuptools` docs."
 msgstr ""
+"Para obter mais informações, consulte a seção sobre `Comportamento de "
+"Publicidade <https://setuptools.readthedocs.io/en/latest/userguide/"
+"entry_point.html#dynamic-discovery-of-services-and-plugins>`_ da "
+"documentação do :ref:`setuptools`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:516
 msgid "The most commonly used entry point is \"console_scripts\" (see below)."
 msgstr ""
+"O ponto de entrada mais comumente usado é \"console_scripts\" (veja abaixo)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:521
 msgid "console_scripts"
-msgstr ""
+msgstr "console_scripts"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:531
 msgid ""
@@ -3051,6 +3136,12 @@ msgid ""
 "be generated during the install of your :term:`distribution <Distribution "
 "Package>`."
 msgstr ""
+"Use `pontos de entrada <https://setuptools.readthedocs.io/en/latest/"
+"setuptools.html#dynamic-discovery-of-services-and-plugins>`_ \"console_script"
+"\" para registrar suas interfaces de script. Você pode então deixar o "
+"conjunto de ferramentas lidar com o trabalho de transformar essas interfaces "
+"em scripts reais [2]_. Os scripts serão gerados durante a instalação do seu "
+":term:`distribuição <Distribution Package>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:538
 msgid ""
@@ -3058,6 +3149,10 @@ msgid ""
 "readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_ from "
 "the `setuptools docs <https://setuptools.readthedocs.io>`_."
 msgstr ""
+"Para obter mais informações, consulte `Automatic Script Creation "
+"<https://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-"
+"script-creation>`_ da `documentação do setuptools <https: //"
+"setuptools.readthedocs. io>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:545
 msgid "Choosing a versioning scheme"
