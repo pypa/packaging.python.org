@@ -382,7 +382,7 @@ extlinks = {
 }
 
 linkcheck_ignore = [
-    "http://localhost:8000",
+    "http://localhost:\d+",
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.
