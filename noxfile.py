@@ -52,3 +52,16 @@ def build(session, autobuild=False):
 def preview(session):
     session.install("sphinx-autobuild")
     build(session, autobuild=True)
+
+
+@nox.session(py="3")
+def linkcheck(session):
+    session.install("-r", "requirements.txt")
+    session.run(
+        "sphinx-build", 
+        "-b", "linkcheck", # use linkcheck builder
+        "--color",
+        "-n", "-W", "--keep-going",  # be strict
+        "source", # where the rst files are located
+        "build", # where to put the check output
+    )
