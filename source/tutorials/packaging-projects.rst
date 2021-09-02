@@ -357,7 +357,7 @@ some things you can do:
        pre-installed, and the operators of those environments may still be
        requiring users to install packages by running ``setup.py install``
        commands, rather than providing an installer like ``pip`` that
-       automatically installes required build dependendencies. These
+       automatically installs required build dependendencies. These
        environments will not be able to use many published packages until the
        environment is updated to provide an up to date Python package
        installation client (e.g. by running ``python -m ensurepip``).
