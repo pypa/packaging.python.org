@@ -29,7 +29,7 @@ This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We
 happily accept any :doc:`contributions and feedback <contribute>`. 😊
 
 .. _GitHub: https://github.com/pypa/packaging.python.org
-.. _Python Packaging Authority: https://pypa.io
+.. _Python Packaging Authority: https://www.pypa.io/en/latest/
 
 
 Get started

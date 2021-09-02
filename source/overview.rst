@@ -206,7 +206,7 @@ respective packaging guides.
 * `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
 * `PythonAnywhere <https://www.pythonanywhere.com/>`_
 * `OpenShift <https://cloud.redhat.com/blog/getting-started-python>`_
-* "Serverless" frameworks like `Zappa <https://www.zappa.io/>`_
+* "Serverless" frameworks like `Zappa <https://github.com/zappa/Zappa>`_
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
