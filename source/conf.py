@@ -381,11 +381,16 @@ extlinks = {
     'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
 }
 
+linkcheck_anchors = False
+
 linkcheck_ignore = [
     "http://localhost:\d+",
     # Ignoring these links as they will redirect to login page if folks haven't logged in.
     "https://github.com/pypa/packaging-problems/issues/new?/*",
     "https://console.cloud.google.com/bigquery/*",
+    "https://console.developers.google.com/apis/library/bigquery-json.googleapis.com",
+    "https://test.pypi.org/manage/account/#api-tokens",
+    "https://pypi.org/manage/account/#api-tokens",
     # This shows that PyPI previously hosted at pypi.python.org
     "https://pypi.python.org",
     # Weblate has different UI for different languages
