@@ -43,6 +43,7 @@ def build(session, autobuild=False):
         "-b", "html",  # use HTML builder
         "-n",  # nitpicky warn about all missing references
         "-W",  # Treat warnings as errors.
+        *session.posargs,
         "source",  # where the rst files are located
         target_build_dir,  # where to put the html output
     )
