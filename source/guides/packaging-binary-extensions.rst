@@ -165,7 +165,7 @@ wrapper modules up to date.
   hand, however, and is very repetitive, so may not be a good choice for
   wrapping large APIs.
   
-* `pybind11 <https://pybind11.readthedocs.io/en/stable//en/stable/>`__ is a pure C++11 library
+* `pybind11 <https://pybind11.readthedocs.io/en/stable/>`__ is a pure C++11 library
   that provides a clean C++ interface to the CPython (and PyPy) C API. It
   does not require a pre-processing step; it is written entirely in
   templated C++. Helpers are included for Setuptools or CMake builds. It

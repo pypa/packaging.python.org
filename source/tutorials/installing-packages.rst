@@ -462,7 +462,7 @@ directory to your :envvar:`PATH`:
   ``PATH`` changes to take effect.
 
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
-.. _modifying ~/.profile: https://stackoverflow.com/a/14638025
+.. _modifying ~/.profile: https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix/14638025#14638025
 .. _Control Panel: https://docs.microsoft.com/en-us/windows/win32/shell/user-environment-variables?redirectedfrom=MSDN
 
 Requirements files

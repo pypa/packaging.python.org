@@ -290,7 +290,6 @@ A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
 packages:
 
-* `Enthought Canopy <https://www.enthought.com/product/canopy/>`_
 * `ActiveState ActivePython <https://www.activestate.com/products/python/>`_
 * `WinPython <http://winpython.github.io/>`_
 
@@ -362,7 +361,7 @@ data centers, though certain complex applications can benefit from
 this packaging. Technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
-* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other formats <https://docs.openstack.org/image-guide/image-formats.html>`_
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other formats <https://docs.openstack.org/glance/pike/user/formats.html>`_
 * `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
 
 Bringing your own hardware
@@ -405,7 +404,7 @@ Debian, Ubuntu, etc.) or `RPM
 <https://en.wikipedia.org/wiki/RPM_Package_Manager>`_ (for Red Hat,
 Fedora, etc.), and use that built-in package manager to take care of
 installation, and even deployment. You can even use `FPM
-<https://fpm.readthedocs.io/en/latest/source/virtualenv.html>`_ to
+<https://fpm.readthedocs.io/en/latest/cli-reference.html#virtualenv>`_ to
 generate both deb and RPMs from the same source.
 
 In most deployment pipelines, the OS package manager is just one piece
