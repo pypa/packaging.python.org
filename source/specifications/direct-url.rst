@@ -278,18 +278,18 @@ Example pip commands and their effect on direct_url.json
 
 Commands that generate a ``direct_url.json``:
 
-* pip install https://example.com/app-1.0.tgz
-* pip install https://example.com/app-1.0.whl
-* pip install "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"
-* pip install ./app
-* pip install file:///home/user/app
-* pip install --editable "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"
+* ``pip install https://example.com/app-1.0.tgz``
+* ``pip install https://example.com/app-1.0.whl``
+* ``pip install "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"``
+* ``pip install ./app``
+* ``pip install file:///home/user/app``
+* ``pip install --editable "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"``
   (in which case, ``url`` will be the local directory where the git repository has been
   cloned to, and ``dir_info`` will be present with ``"editable": true`` and no
   ``vcs_info`` will be set)
-* pip install -e ./app
+* ``pip install -e ./app``
 
 Commands that *do not* generate a ``direct_url.json``
 
-* pip install app
-* pip install app --no-index --find-links https://example.com/
+* ``pip install app``
+* ``pip install app --no-index --find-links https://example.com/``
