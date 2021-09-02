@@ -287,7 +287,7 @@ Commands that generate a ``direct_url.json``:
   (in which case, ``url`` will be the local directory where the git repository has been
   cloned to, and ``dir_info`` will be present with ``"editable": true`` and no
   ``vcs_info`` will be set)
-* ``pip install -e ./app``
+* ``pip install --editable ./app``
 
 Commands that *do not* generate a ``direct_url.json``
 
