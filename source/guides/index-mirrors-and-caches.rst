@@ -48,7 +48,7 @@ devpi is a caching proxy server which you run on your laptop, or some other
 machine you know will always be available to you. See the `devpi
 documentation for getting started`__.
 
-__ http://doc.devpi.net/latest/quickstart-pypimirror.html
+__ https://devpi.net/docs/devpi/devpi/latest/+d/quickstart-pypimirror.html
 
 
 Complete mirror with bandersnatch

@@ -34,7 +34,7 @@ Content Delivery Network (CDN).
 build
 =====
 
-`Docs <https://pypa-build.readthedocs.io/>`__ |
+`Docs <https://pypa-build.readthedocs.io/en/stable/>`__ |
 `Issues <https://github.com/pypa/build/issues>`__ |
 `GitHub <https://github.com/pypa/build>`__ |
 `PyPI <https://pypi.org/project/build>`__
@@ -48,7 +48,7 @@ build packages, as well as a Python API.
 cibuildwheel
 ============
 
-`Docs <https://cibuildwheel.readthedocs.io/>`__ |
+`Docs <https://cibuildwheel.readthedocs.io/en/stable/>`__ |
 `Issues <https://github.com/pypa/cibuildwheel/issues>`__ |
 `GitHub <https://github.com/pypa/cibuildwheel>`__ |
 `PyPI <https://pypi.org/project/cibuildwheel>`__ |
@@ -63,7 +63,7 @@ platforms and Python versions on most CI systems. Also see :ref:`multibuild`.
 distlib
 =======
 
-`Docs <http://pythonhosted.org/distlib/>`__ |
+`Docs <https://pythonhosted.org/distlib/>`__ |
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
@@ -89,7 +89,7 @@ of packages that are incompatible with those standards.
 packaging
 =========
 
-`Docs <https://packaging.pypa.io>`__ |
+`Docs <https://packaging.pypa.io/en/latest/>`__ |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__
@@ -136,7 +136,7 @@ command-line interface (CLI).
 Pipenv
 ======
 
-`Docs <https://pipenv.pypa.io/>`__ |
+`Docs <https://pipenv.pypa.io/en/latest/>`__ |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
 `PyPI <https://pypi.org/project/pipenv>`__
@@ -180,9 +180,9 @@ causing dependency conflicts with other packages installed on the system.
 Python Packaging User Guide
 ===========================
 
-`Docs <https://packaging.python.org/en/latest/>`__ |
-`Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
-`GitHub <https://github.com/pypa/python-packaging-user-guide>`__
+`Docs <https://packaging.python.org/>`__ |
+`Issues <https://github.com/pypa/packaging.python.org/issues>`__ |
+`GitHub <https://github.com/pypa/packaging.python.org>`__
 
 This guide!
 
@@ -192,7 +192,7 @@ readme_renderer
 ===============
 
 `GitHub and docs <https://github.com/pypa/readme_renderer/>`__ |
-`PyPI <https://pypi.org/project/readme_renderer/>`__
+`PyPI <https://pypi.org/project/readme-renderer/>`__
 
 ``readme_renderer`` is a library that package developers use to render
 their user documentation (README) files into HTML from markup
@@ -342,12 +342,12 @@ lets you create a buildout configuration and reproduce the same software later.
 conda
 =====
 
-`Docs <http://conda.pydata.org/docs/>`__
+`Docs <https://conda.io/en/latest/>`__
 
 conda is the package management tool for `Anaconda
 <https://docs.anaconda.com/anaconda/>`__ Python installations.
 Anaconda Python is a distribution from `Anaconda, Inc
-<https://www.anaconda.com/download>`__ specifically aimed at the scientific
+<https://www.anaconda.com/products/individual>`__ specifically aimed at the scientific
 community, and in particular on Windows where the installation of binary
 extensions is often difficult.
 
@@ -370,8 +370,8 @@ fetching them from PyPI and modifying their metadata.
 devpi
 =====
 
-`Docs <http://doc.devpi.net/latest/>`__ |
-`Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
+`Docs <https://devpi.net/docs/devpi/devpi/latest/%2Bd/index.html>`__ |
+`Issues <https://github.com/devpi/devpi/issues>`__ |
 `PyPI <https://pypi.org/project/devpi>`__
 
 devpi features a powerful PyPI-compatible server and PyPI proxy cache
@@ -406,8 +406,8 @@ Python 2, so long as they can be imported on Python 3.
 enscons
 =======
 
-`Source <https://bitbucket.org/dholth/enscons/src>`__ |
-`Issues <https://bitbucket.org/dholth/enscons/issues>`__ |
+`Source <https://github.com/dholth/enscons>`__ |
+`Issues <https://github.com/dholth/enscons/issues>`__ |
 `PyPI <https://pypi.org/project/enscons>`__
 
 Enscons is a Python packaging tool based on `SCons`_. It builds
@@ -420,7 +420,7 @@ build system. Enscons helps you to build sdists that can be
 automatically built by :ref:`pip`, and wheels that are independent of
 enscons.
 
-.. _SCons: http://scons.org/
+.. _SCons: https://scons.org/
 
 .. _hashdist:
 
@@ -502,7 +502,7 @@ piwheels
 ========
 
 `Website <https://www.piwheels.org/>`__ |
-`Docs <https://piwheels.readthedocs.io/>`__ |
+`Docs <https://piwheels.readthedocs.io/en/latest/>`__ |
 `GitHub <https://github.com/piwheels/piwheels/>`__
 
 piwheels is a website, and software underpinning it, that fetches
@@ -580,9 +580,9 @@ applications and command line tools fast & easy.
 Spack
 =====
 
-`Docs <https://spack.readthedocs.io/>`__ |
-`GitHub <https://github.com/llnl/spack/>`__ |
-`Paper <http://www.computer.org/csdl/proceedings/sc/2015/3723/00/2807623.pdf>`__ |
+`Docs <https://spack.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/spack/spack>`__ |
+`Paper <https://www.computer.org/csdl/proceedings-article/sc/2015/2807623/12OmNBf94Xq>`__ |
 `Slides <https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf>`__
 
 A flexible package manager designed to support multiple versions,
@@ -620,7 +620,7 @@ ensurepip
 =========
 
 `Docs <https://docs.python.org/3/library/ensurepip.html>`__ |
-`Issues <http://bugs.python.org>`__
+`Issues <https://bugs.python.org/>`__
 
 A package in the Python Standard Library that provides support for bootstrapping
 :ref:`pip` into an existing Python installation or virtual environment.  In most
@@ -634,7 +634,7 @@ distutils
 =========
 
 `Docs <https://docs.python.org/3/library/distutils.html>`__ |
-`Issues <http://bugs.python.org>`__
+`Issues <https://bugs.python.org/>`__
 
 The original Python packaging system, added to the standard library in
 Python 2.0.
@@ -655,7 +655,7 @@ venv
 ====
 
 `Docs <https://docs.python.org/3/library/venv.html>`__ |
-`Issues <http://bugs.python.org>`__
+`Issues <https://bugs.python.org/>`__
 
 A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more

@@ -18,9 +18,9 @@ Most of the work on the |PyPUG| takes place on the
 `open issues`__ and `pull requests`__. If you're planning to write or edit
 the guide, please read the :ref:`style guide <contributing_style_guide>`.
 
-.. __: https://github.com/pypa/python-packaging-user-guide/
-.. __: https://github.com/pypa/python-packaging-user-guide/issues
-.. __: https://github.com/pypa/python-packaging-user-guide/pulls
+.. __: https://github.com/pypa/packaging.python.org/
+.. __: https://github.com/pypa/packaging.python.org/issues
+.. __: https://github.com/pypa/packaging.python.org/pulls
 
 By contributing to the |PyPUG|, you're expected to follow the PSF's
 `Code of Conduct`__.
@@ -124,7 +124,7 @@ Though not required to contribute, it may be useful to build this guide locally
 in order to test your changes. In order to build this guide locally, you'll
 need:
 
-1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
+1. `Nox <https://nox.thea.codes/en/latest/>`_. You can install or upgrade
    nox using ``pip``:
 
    .. code-block:: bash
@@ -136,7 +136,7 @@ need:
    Python 3.6 on your operating system.
 
 .. _Hitchhiker's Guide to Python installation instructions:
-    http://docs.python-guide.org/en/latest/starting/installation/
+    https://docs.python-guide.org/starting/installation/
 
 To build the guide, run the following bash command in the source folder:
 

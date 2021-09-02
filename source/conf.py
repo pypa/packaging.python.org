@@ -383,6 +383,13 @@ extlinks = {
 
 linkcheck_ignore = [
     "http://localhost:\d+",
+    # Ignoring these links as they will redirect to login page if folks haven't logged in.
+    "https://github.com/pypa/packaging-problems/issues/new?template=general_issue.yml",
+    "https://github.com/pypa/packaging-problems/issues/new?template=packaging_tutorial.yml&title=Trouble+with+the+packaging+tutorial&guide=https://packaging.python.org/tutorials/packaging-projects",
+    # This shows that PyPI previously hosted at pypi.python.org
+    "https://pypi.python.org",
+    # Weblate has different UI for different languages
+    "https://weblate.org/",
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.

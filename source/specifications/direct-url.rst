@@ -24,7 +24,7 @@ This file MUST NOT be created when installing a distribution from an other
 type of requirement (i.e. name plus version specifier).
 
 This JSON file MUST be a dictionary, compliant with `RFC 8259
-<https://tools.ietf.org/html/rfc8259>`_ and UTF-8 encoded.
+<https://datatracker.ietf.org/doc/html/rfc8259>`_ and UTF-8 encoded.
 
 If present, it MUST contain at least two fields. The first one is ``url``, with
 type ``string``. Depending on what ``url`` refers to, the second field MUST be
@@ -82,7 +82,7 @@ present as a dictionary with the following key:
   in editable mode, ``false`` otherwise. If absent, default to ``false``.
 
 When ``url`` refers to a local directory, it MUST have the ``file`` sheme and
-be compliant with `RFC 8089 <https://tools.ietf.org/html/rfc8089>`_. In
+be compliant with `RFC 8089 <https://datatracker.ietf.org/doc/html/rfc8089>`_. In
 particular, the path component must be absolute. Symbolic links SHOULD be
 preserved when making relative paths absolute.
 
@@ -178,7 +178,7 @@ Bazaar
 
 Home page
 
-   https://bazaar.canonical.com/
+   https://bazaar.canonical.com/en/
 
 vcs command
 

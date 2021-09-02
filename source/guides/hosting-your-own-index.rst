@@ -59,5 +59,5 @@ instruct users to add the URL to their installer's configuration.
        :pep:`503`.
 
 
-.. _devpi: http://doc.devpi.net/latest/
-.. _Twisted: https://twistedmatrix.com/
+.. _devpi: https://devpi.net/docs/devpi/devpi/latest/%2Bd/index.html
+.. _Twisted: https://twistedmatrix.com/trac/

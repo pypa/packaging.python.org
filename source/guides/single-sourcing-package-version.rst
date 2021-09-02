@@ -9,7 +9,7 @@ There are many techniques to maintain a single source of truth for the version
 number of your project:
 
 #.  Read the file in :file:`setup.py` and get the version. Example (from `pip setup.py
-    <https://github.com/pypa/pip/blob/master/setup.py#L11>`_)::
+    <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
 
         import codecs
         import os.path
@@ -135,7 +135,7 @@ number of your project:
     then ``setuptools`` must be added to the project's ``install_requires``
     list.
 
-    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_.
+    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/main/setuptools/version.py>`_.
 
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
@@ -160,4 +160,4 @@ number of your project:
 
 #.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)
     instead of in the code, and automatically extract it from there using
-    `setuptools_scm <https://pypi.org/project/setuptools_scm>`_.
+    `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.

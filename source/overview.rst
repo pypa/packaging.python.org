@@ -68,7 +68,7 @@ who both have compatible Python versions (such as via email,
 StackOverflow, or GitHub gists). There are even some entire Python
 libraries that offer this as an option, such as `bottle.py
 <https://bottlepy.org/docs/dev/>`_ and `boltons
-<http://boltons.readthedocs.io/en/latest/architecture.html#architecture>`_.
+<https://boltons.readthedocs.io/en/latest/architecture.html#architecture>`_.
 
 However, this pattern won't scale for projects that consist of
 multiple files, need additional libraries, or need a specific version
@@ -205,7 +205,7 @@ respective packaging guides.
 * `Heroku <https://devcenter.heroku.com/articles/getting-started-with-python>`_
 * `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
 * `PythonAnywhere <https://www.pythonanywhere.com/>`_
-* `OpenShift <https://blog.openshift.com/getting-started-python/>`_
+* `OpenShift <https://cloud.redhat.com/blog/getting-started-python>`_
 * "Serverless" frameworks like `Zappa <https://www.zappa.io/>`_
 
 In all these setups, the platform takes care of packaging and
@@ -231,7 +231,7 @@ guides:
 * `Kivy <https://kivy.org/#home>`_
 * `Beeware <https://pybee.org/>`_
 * `Brython <https://brython.info/>`_
-* `Flexx <http://flexx.readthedocs.io/en/latest/>`_
+* `Flexx <https://flexx.readthedocs.io/en/latest/>`_
 
 If you are *not* interested in using a framework or platform, or just
 wonder about some of the technologies and techniques utilized by the
@@ -279,19 +279,19 @@ developers is a package ecosystem called `Anaconda
 is built around Python and is increasingly common in academic,
 analytical, and other data-oriented environments, even making its way
 `into server-oriented environments
-<https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
+<https://medium.com/paypal-tech/python-packaging-at-paypal-4a90352a7ca2>`_.
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
-* `Building libraries and applications with conda <https://conda.io/docs/user-guide/tutorials/index.html>`_
-* `Transitioning a native Python package to Anaconda <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_
+* `Building libraries and applications with conda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
 
 A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
 packages:
 
 * `Enthought Canopy <https://www.enthought.com/product/canopy/>`_
-* `ActiveState ActivePython <https://www.activestate.com/activepython>`_
+* `ActiveState ActivePython <https://www.activestate.com/products/python/>`_
 * `WinPython <http://winpython.github.io/>`_
 
 .. _bringing-your-own-python:
@@ -415,12 +415,12 @@ virtualenv
 ^^^^^^^^^^
 
 `Virtualenvs
-<http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have
+<https://python-guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have
 been an indispensable tool for multiple generations of Python
 developer, but are slowly fading from view, as they are being wrapped
 by higher-level tools. With packaging in particular, virtualenvs are
 used as a primitive in `the dh-virtualenv tool
-<http://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html>`_ and
+<https://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html>`_ and
 `osnap <https://github.com/jamesabel/osnap>`_, both of which wrap
 virtualenvs in a self-contained way.
 

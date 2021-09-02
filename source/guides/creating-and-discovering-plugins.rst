@@ -171,5 +171,5 @@ Now the module of your choice can be imported by executing
    <python:library/importlib.metadata>`, most packaging tools other than setuptools
    provide support for defining entry points.
 
-.. _Setuptools: https://setuptools.readthedocs.io
+.. _Setuptools: https://setuptools.readthedocs.io/en/latest/
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/

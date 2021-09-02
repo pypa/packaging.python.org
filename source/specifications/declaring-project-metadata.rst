@@ -303,5 +303,5 @@ provided via tooling later on.
   value, is acceptable).
 
 
-.. _RFC 822: https://tools.ietf.org/html/rfc822
-.. _TOML: https://toml.io/
+.. _RFC 822: https://datatracker.ietf.org/doc/html/rfc822
+.. _TOML: https://toml.io/en/
