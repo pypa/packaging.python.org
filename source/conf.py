@@ -389,6 +389,11 @@ extlinks = {
 
 linkcheck_ignore = [
     "http://localhost:\d+",
+    # This is an example that showing to the reader
+    "https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE",
+    # Ignoring it as it will redirect to login page if reader hasn't logged in.
+    "https://pypi.org/manage/*",
+    "https://test.pypi.org/manage/*",
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.
@@ -398,6 +403,9 @@ intersphinx_mapping = {
     'pip': ('https://pip.pypa.io/en/latest/', None),
     'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
     'twine': ('https://twine.readthedocs.io/en/stable/', None),
+    'tox': ('https://tox.readthedocs.io/en/latest/', None),
+    'scipy': ('https://www.scipy.org', None),
+    'openstack': ('https://docs.openstack.org/glance/latest/', None),
 }
 
 
