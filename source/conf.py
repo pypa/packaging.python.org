@@ -406,6 +406,14 @@ intersphinx_mapping = {
     'pip': ('https://pip.pypa.io/en/latest/', None),
     'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
     'twine': ('https://twine.readthedocs.io/en/stable/', None),
+    'pypa': ('https://www.pypa.io/en/latest/', None),
+    'nox': ('https://nox.thea.codes/en/latest/', None),
+    'pynsist': ('https://pynsist.readthedocs.io/en/latest/', None),
+    'scipy': ('https://www.scipy.org', None),
+    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
+    'pybind11': ('https://pybind11.readthedocs.io/en/stable/', None),
+    'cffi': ('https://cffi.readthedocs.io/en/latest/', None),
+    
 }
 
 
