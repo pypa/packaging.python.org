@@ -413,6 +413,7 @@ intersphinx_mapping = {
     'sphinx': ('https://www.sphinx-doc.org/en/master', None),
     'pybind11': ('https://pybind11.readthedocs.io/en/stable/', None),
     'cffi': ('https://cffi.readthedocs.io/en/latest/', None),
+    'python-guide': ('https://docs.python-guide.org', None),
     
 }
 
