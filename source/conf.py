@@ -89,6 +89,8 @@ release = ''
 # Usually you set "language" from the command line for these cases.
 language = None
 
+locale_dirs = ['../locales']
+
 # making all documents use single text domain
 gettext_compact = "messages"
 
