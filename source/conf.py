@@ -381,7 +381,6 @@ extlinks = {
     'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
 }
 
-linkcheck_anchors = False
 
 linkcheck_ignore = [
     "http://localhost:\d+",
