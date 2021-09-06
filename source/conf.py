@@ -398,14 +398,14 @@ linkcheck_ignore = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
+    'openstack': ('https://docs.openstack.org/glance/latest/', None),
     'python': ('https://docs.python.org/3', None),
     'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
-    'twine': ('https://twine.readthedocs.io/en/stable/', None),
-    'tox': ('https://tox.readthedocs.io/en/latest/', None),
     'scipy': ('https://www.scipy.org', None),
-    'openstack': ('https://docs.openstack.org/glance/latest/', None),
+    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'tox': ('https://tox.readthedocs.io/en/latest/', None),
+    'twine': ('https://twine.readthedocs.io/en/stable/', None),
 }
 
 
