@@ -133,7 +133,7 @@ Glossary
         <https://bitbucket.org/pypa>`_, and discuss issues on the
         `distutils-sig mailing list
         <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`_
-	and `the Python Discourse forum <https://discuss.python.org/c/packaging/14>`__.
+	and `the Python Discourse forum <https://discuss.python.org/c/packaging>`__.
 
 
     Python Package Index (PyPI)
