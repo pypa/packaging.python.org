@@ -91,8 +91,12 @@ language = None
 
 locale_dirs = ['../locales']
 
+gettext_auto_build = True  # Build MO files from PO on each build
+
 # making all documents use single text domain
 gettext_compact = "messages"
+
+gettext_location = True  # Include location info in the translation files
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
