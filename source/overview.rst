@@ -361,7 +361,7 @@ data centers, though certain complex applications can benefit from
 this packaging. Technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
-* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats <openstack:user/formats>`
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :ref:`other formats <openstack:user/formats#formats>`
 * `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
 
 Bringing your own hardware
