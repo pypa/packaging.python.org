@@ -83,7 +83,7 @@ include:
 +------------------------+-----------------+-----------------------------+
 | file.version           | Package version | ``0.1.6``, ``1.4.2``        |
 +------------------------+-----------------+-----------------------------+
-| details.installer.name | Installer       | pip, :ref:`bandersnatch`    |
+| details.installer.name | Installer       | pip, `bandersnatch`_        |
 +------------------------+-----------------+-----------------------------+
 | details.python         | Python version  | ``2.7.12``, ``3.6.4``       |
 +------------------------+-----------------+-----------------------------+
@@ -304,6 +304,7 @@ References
 .. [#] `PyPI BigQuery dataset announcement email <https://mail.python.org/pipermail/distutils-sig/2016-May/028986.html>`__
 
 .. _public PyPI download statistics dataset: https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=pypi&page=dataset
+.. _bandersnatch: /key_projects/#bandersnatch
 .. _Google BigQuery: https://cloud.google.com/bigquery
 .. _BigQuery web UI: https://console.cloud.google.com/bigquery
 .. _pypinfo: https://github.com/ofek/pypinfo/blob/master/README.rst

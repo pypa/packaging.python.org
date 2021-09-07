@@ -88,7 +88,7 @@ with a single-source strategy, there are a number of options.
 Tools for single-source Python packages
 ----------------------------------------
 
-`six <https://pypi.org/project/six/>`_ is a tool developed by Benjamin Peterson
+`six <http://pythonhosted.org/six/>`_ is a tool developed by Benjamin Peterson
 for wrapping over the differences between Python 2 and Python 3. The six_
 package has enjoyed widespread use and may be regarded as a reliable way to
 write a single-source Python module that can be use in both Python 2 and 3.

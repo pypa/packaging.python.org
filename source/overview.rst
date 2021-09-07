@@ -206,7 +206,7 @@ respective packaging guides.
 * `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
 * `PythonAnywhere <https://www.pythonanywhere.com/>`_
 * `OpenShift <https://blog.openshift.com/getting-started-python/>`_
-* "Serverless" frameworks like :gh:`Zappa <zappa/Zappa>`
+* "Serverless" frameworks like `Zappa <https://www.zappa.io/>`_
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
@@ -228,7 +228,7 @@ If you're planning on releasing to these new frontiers, you'll want to
 check out the following frameworks, and refer to their packaging
 guides:
 
-* `Kivy <https://kivy.org/>`_
+* `Kivy <https://kivy.org/#home>`_
 * `Beeware <https://pybee.org/>`_
 * `Brython <https://brython.info/>`_
 * `Flexx <http://flexx.readthedocs.io/en/latest/>`_
@@ -248,9 +248,9 @@ machines of developers and data scientists.
 
 Technologies which support this model:
 
-* :gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)
+* `PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)
 * :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
-* :gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)
+* `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
 
 .. note:: Of all the approaches here, depending on a pre-installed
           Python relies the most on the target environment. Of course,
@@ -290,6 +290,7 @@ A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
 packages:
 
+* `Enthought Canopy <https://www.enthought.com/product/canopy/>`_
 * `ActiveState ActivePython <https://www.activestate.com/activepython>`_
 * `WinPython <http://winpython.github.io/>`_
 
@@ -323,8 +324,8 @@ A selection of Python freezers:
 * `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
 
 Most of the above imply single-user deployments. For multi-component
-server applications, see :gh:`Chef Omnibus
-<chef/omnibus#user-content--omnibus>`.
+server applications, see `Chef Omnibus
+<https://github.com/chef/omnibus#-omnibus>`_.
 
 
 Bringing your own userspace
@@ -361,7 +362,7 @@ data centers, though certain complex applications can benefit from
 this packaging. Technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
-* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :ref:`other formats <openstack:user/formats#formats>`
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other formats <https://docs.openstack.org/image-guide/image-formats.html>`_
 * `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
 
 Bringing your own hardware
@@ -375,7 +376,8 @@ Whereas the virtual machines described above are primarily reserved
 for the tech-savvy, you can find hardware appliances being used by
 everyone from the most advanced data centers to the youngest children.
 
-Embed your code on an :gh:`Adafruit <adafruit/circuitpython>`,
+Embed your code on an `Adafruit
+<https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_,
 `MicroPython <https://micropython.org/>`_, or more-powerful hardware
 running Python, then ship it to the datacenter or your users'
 homes. They plug and play, and you can call it a day.
@@ -403,7 +405,7 @@ Debian, Ubuntu, etc.) or `RPM
 <https://en.wikipedia.org/wiki/RPM_Package_Manager>`_ (for Red Hat,
 Fedora, etc.), and use that built-in package manager to take care of
 installation, and even deployment. You can even use `FPM
-<https://fpm.readthedocs.io/en/latest/cli-reference.html#virtualenv>`_ to
+<https://fpm.readthedocs.io/en/latest/source/virtualenv.html>`_ to
 generate both deb and RPMs from the same source.
 
 In most deployment pipelines, the OS package manager is just one piece

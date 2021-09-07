@@ -238,6 +238,6 @@ in the `pkg_resources namespace example project`_.
 
 .. _setuptools: https://setuptools.readthedocs.io
 .. _pkg_resources.declare_namespace:
-    https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support
+    https://setuptools.readthedocs.io/en/latest/setuptools.html#namespace-packages
 .. _pkg_resources namespace example project:
     https://github.com/pypa/sample-namespace-packages/tree/master/pkg_resources

@@ -683,4 +683,4 @@ Install `setuptools extras`_.
        and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
 
-.. _setuptools extras: https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies
+.. _setuptools extras: https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
