@@ -144,4 +144,4 @@ sure that your release pipeline remains healthy!
 .. _`pypa/gh-action-pypi-publish GitHub Action`:
    https://github.com/marketplace/actions/pypi-publish
 .. _Secrets:
-   https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables
+   https://docs.github.com/en/actions/reference/encrypted-secrets

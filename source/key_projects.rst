@@ -371,7 +371,7 @@ devpi
 =====
 
 `Docs <http://doc.devpi.net/latest/>`__ |
-`Issues <https://bitbucket.org/hpk42/devpi/issues>`__ |
+:gh:`Issues <devpi/devpi/issues>` |
 `PyPI <https://pypi.org/project/devpi>`__
 
 devpi features a powerful PyPI-compatible server and PyPI proxy cache
@@ -406,8 +406,8 @@ Python 2, so long as they can be imported on Python 3.
 enscons
 =======
 
-`Source <https://bitbucket.org/dholth/enscons/src>`__ |
-`Issues <https://bitbucket.org/dholth/enscons/issues>`__ |
+:gh:`Source <dholth/enscons>` |
+:gh:`Issues <dholth/enscons/issues>` |
 `PyPI <https://pypi.org/project/enscons>`__
 
 Enscons is a Python packaging tool based on `SCons`_. It builds
