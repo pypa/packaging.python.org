@@ -301,7 +301,7 @@ specifying the extra in brackets:
         py -m pip install requests[security]
 
 .. _extras:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
+    https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies
 
 
 Installing from source
