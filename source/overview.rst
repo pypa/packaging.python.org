@@ -205,8 +205,8 @@ respective packaging guides.
 * `Heroku <https://devcenter.heroku.com/articles/getting-started-with-python>`_
 * `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
 * `PythonAnywhere <https://www.pythonanywhere.com/>`_
-* `OpenShift <https://cloud.redhat.com/blog/getting-started-python>`_
-* "Serverless" frameworks like `Zappa <https://github.com/zappa/Zappa>`_
+* `OpenShift <https://blog.openshift.com/getting-started-python/>`_
+* "Serverless" frameworks like :gh:`Zappa <zappa/Zappa>`
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
@@ -228,7 +228,7 @@ If you're planning on releasing to these new frontiers, you'll want to
 check out the following frameworks, and refer to their packaging
 guides:
 
-* `Kivy <https://kivy.org/#home>`_
+* `Kivy <https://kivy.org/>`_
 * `Beeware <https://pybee.org/>`_
 * `Brython <https://brython.info/>`_
 * `Flexx <https://flexx.readthedocs.io/en/latest/>`_
@@ -248,9 +248,9 @@ machines of developers and data scientists.
 
 Technologies which support this model:
 
-* `PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)
+* :gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)
 * :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
-* `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
+* :gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)
 
 .. note:: Of all the approaches here, depending on a pre-installed
           Python relies the most on the target environment. Of course,
@@ -290,7 +290,7 @@ A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
 packages:
 
-* `ActiveState ActivePython <https://www.activestate.com/products/python/>`_
+* `ActiveState ActivePython <https://www.activestate.com/activepython>`_
 * `WinPython <http://winpython.github.io/>`_
 
 .. _bringing-your-own-python:
@@ -323,8 +323,8 @@ A selection of Python freezers:
 * `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
 
 Most of the above imply single-user deployments. For multi-component
-server applications, see `Chef Omnibus
-<https://github.com/chef/omnibus#-omnibus>`_.
+server applications, see :gh:`Chef Omnibus
+<chef/omnibus#user-content--omnibus>`.
 
 
 Bringing your own userspace
@@ -361,7 +361,7 @@ data centers, though certain complex applications can benefit from
 this packaging. Technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
-* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other formats <https://docs.openstack.org/glance/pike/user/formats.html>`_
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats <openstack:user/formats>`
 * `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
 
 Bringing your own hardware
@@ -375,8 +375,7 @@ Whereas the virtual machines described above are primarily reserved
 for the tech-savvy, you can find hardware appliances being used by
 everyone from the most advanced data centers to the youngest children.
 
-Embed your code on an `Adafruit
-<https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_,
+Embed your code on an :gh:`Adafruit <adafruit/circuitpython>`,
 `MicroPython <https://micropython.org/>`_, or more-powerful hardware
 running Python, then ship it to the datacenter or your users'
 homes. They plug and play, and you can call it a day.

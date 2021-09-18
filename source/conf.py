@@ -389,26 +389,22 @@ extlinks = {
 
 linkcheck_ignore = [
     "http://localhost:\d+",
-    # Ignoring these links as they will redirect to login page if folks haven't logged in.
-    "https://github.com/pypa/packaging-problems/issues/new?/*",
-    "https://console.cloud.google.com/bigquery/*",
-    "https://console.developers.google.com/apis/library/bigquery-json.googleapis.com",
-    "https://test.pypi.org/manage/account/#api-tokens",
-    "https://pypi.org/manage/account/#api-tokens",
-    # This shows that PyPI previously hosted at pypi.python.org
-    "https://pypi.python.org",
-    # Weblate has different UI for different languages
-    "https://weblate.org/",
-    # This is an example that showing to folks
+    # This is an example that showing to the reader
     "https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE",
+    # Ignoring it as it will redirect to login page if reader hasn't logged in.
+    "https://pypi.org/manage/*",
+    "https://test.pypi.org/manage/*",
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
+    'openstack': ('https://docs.openstack.org/glance/latest/', None),
     'python': ('https://docs.python.org/3', None),
     'python2': ('https://docs.python.org/2', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
+    'scipy': ('https://www.scipy.org', None),
     'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'tox': ('https://tox.readthedocs.io/en/latest/', None),
     'twine': ('https://twine.readthedocs.io/en/stable/', None),
     'pypa': ('https://www.pypa.io/en/latest/', None),
     'nox': ('https://nox.thea.codes/en/latest/', None),

@@ -149,7 +149,7 @@ Additional notes
 Testing with tox
 ----------------
 
-Many projects use the `Tox`_ tool to run their tests. It ensures that tests
+Many projects use the :doc:`Tox <tox:index>` tool to run their tests. It ensures that tests
 are run in an isolated environment using the exact files that will be distributed
 by the project.
 
@@ -239,6 +239,6 @@ For reference, the SDK setup support script is listed here:
 
 .. _Appveyor: https://www.appveyor.com//
 .. _Travis: https://travis-ci.org/
-.. _Github: https://github.com/
+.. _Github: https://github.com
 .. _Bitbucket: https://bitbucket.org/
 .. _Tox: https://tox.readthedocs.io/en/latest/

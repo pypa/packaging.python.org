@@ -536,7 +536,7 @@ generated during the install of your :term:`distribution <Distribution
 Package>`.
 
 For more information, see `Automatic Script Creation
-<https://setuptools.readthedocs.io/en/latest/setuptools.html#automatic-script-creation>`_
+<https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html#entry-points-and-automatic-script-creation>`_
 from the :doc:`setuptools docs <setuptools:index>`.
 
 .. _`Choosing a versioning scheme`:

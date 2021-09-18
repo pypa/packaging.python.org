@@ -91,8 +91,8 @@ published on python.org.
 
 macOS users also have access to Linux distribution style package managers
 such as ``MacPorts``. The SciPy site has more details on using MacPorts to
-install the `scientific Python stack
-<https://www.scipy.org/install.html#mac>`__
+install the :ref:`scientific Python stack
+<scipy:mac>`
 
 
 SciPy distributions
