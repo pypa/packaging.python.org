@@ -304,4 +304,4 @@ provided via tooling later on.
 
 
 .. _RFC 822: https://datatracker.ietf.org/doc/html/rfc822
-.. _TOML: https://toml.io/en/
+.. _TOML: https://toml.io
