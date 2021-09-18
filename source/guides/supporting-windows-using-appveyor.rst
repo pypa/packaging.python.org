@@ -237,7 +237,7 @@ For reference, the SDK setup support script is listed here:
    :language: bat
    :linenos:
 
-.. _Appveyor: https://www.appveyor.com//
+.. _Appveyor: https://www.appveyor.com/
 .. _Travis: https://travis-ci.org/
 .. _Github: https://github.com
 .. _Bitbucket: https://bitbucket.org/
