@@ -59,4 +59,4 @@ instruct users to add the URL to their installer's configuration.
        :pep:`503`.
 
 
-.. _Twisted: https://twistedmatrix.com/trac/
+.. _Twisted: https://twistedmatrix.com/
