@@ -93,7 +93,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
    set one up, and then continue with the tutorial as written.
 
 .. _getting started tutorial: https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly
-.. _python.org: https://www.python.org/
+.. _python.org: https://www.python.org
 
 Ensure you can run pip from the command line
 --------------------------------------------
