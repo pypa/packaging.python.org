@@ -240,8 +240,7 @@ Historically, PyPI supported descriptions in plain text and `reStructuredText
 (reST) <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_,
 and could render reST into HTML. However, it is common for distribution
 authors to write the description in `Markdown
-<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763
-<https://datatracker.ietf.org/doc/html/rfc7763>`_) as many code hosting sites render
+<https://daringfireball.net/projects/markdown/>`_ (:rfc:`7763`) as many code hosting sites render
 Markdown READMEs, and authors would reuse the file for the description. PyPI
 didn't recognize the format and so could not render the description correctly.
 This resulted in many packages on PyPI with poorly-rendered descriptions when
@@ -275,10 +274,8 @@ Other parameters might be specific to the chosen subtype. For example, for the
 specifying the variant of Markdown in use (defaults to ``GFM`` if not
 specified). Currently, two variants are recognized:
 
-- ``GFM`` for `Github-flavored Markdown
-  <https://datatracker.ietf.org/doc/html/rfc7764#section-3.2>`_
-- ``CommonMark`` for `CommonMark
-  <https://datatracker.ietf.org/doc/html/rfc7764#section-3.5>`_
+- ``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`
+- ``CommonMark`` for :rfc:`CommonMark <rfc7764#section-3.5>`
 
 Example::
 

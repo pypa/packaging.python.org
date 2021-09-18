@@ -231,7 +231,7 @@ guides:
 * `Kivy <https://kivy.org/>`_
 * `Beeware <https://pybee.org/>`_
 * `Brython <https://brython.info/>`_
-* :py:module:`Flexx <flexx:flexx>`
+* `Flexx <https://flexx.readthedocs.io/en/latest/>`_
 
 If you are *not* interested in using a framework or platform, or just
 wonder about some of the technologies and techniques utilized by the
