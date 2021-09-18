@@ -14,8 +14,8 @@ kinds of hardware, or to interoperate with different pieces of external
 software.
 
 In particular, `NumPy <https://numpy.org/>`__, which provides the basis
-for most of the software in the `scientific Python stack
-<https://www.scipy.org/stackspec.html#stackspec>`__ can be configured
+for most of the software in the :doc:`scientific Python stack
+<scipy:stackspec>` can be configured
 to interoperate with different FORTRAN libraries, and can take advantage
 of different levels of vectorised instructions available in modern CPUs.
 
