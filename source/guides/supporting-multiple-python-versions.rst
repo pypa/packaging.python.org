@@ -78,7 +78,7 @@ Windows:
     document?
 
 Both `Travis CI`_ and Appveyor_ require a `YAML
-<https://yaml.org/>`_-formatted file as specification for the instructions
+<https://yaml.org>`_-formatted file as specification for the instructions
 for testing. If any tests fail, the output log for that specific configuration
 can be inspected.
 
