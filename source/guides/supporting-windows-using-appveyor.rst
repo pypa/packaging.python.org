@@ -241,4 +241,3 @@ For reference, the SDK setup support script is listed here:
 .. _Travis: https://travis-ci.org/
 .. _Github: https://github.com
 .. _Bitbucket: https://bitbucket.org/
-.. _Tox: https://tox.readthedocs.io/en/latest/

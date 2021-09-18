@@ -6,7 +6,7 @@ Hosting your own simple repository
 
 
 If you wish to host your own simple repository [1]_, you can either use a
-software package like `devpi`_ or you can use simply create the proper
+software package like :doc:`devpi <devpi:index>` or you can use simply create the proper
 directory structure and use any web server that can serve static files and
 generate an autoindex.
 
@@ -59,5 +59,4 @@ instruct users to add the URL to their installer's configuration.
        :pep:`503`.
 
 
-.. _devpi: https://devpi.net/docs/devpi/devpi/latest/%2Bd/index.html
 .. _Twisted: https://twistedmatrix.com/trac/

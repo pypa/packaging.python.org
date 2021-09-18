@@ -25,11 +25,10 @@ Welcome to the *Python Packaging User Guide*, a collection of tutorials and
 references to help you distribute and install Python packages with modern
 tools.
 
-This guide is maintained on `GitHub`_ by the `Python Packaging Authority`_. We
+This guide is maintained on `GitHub`_ by the :doc:`Python Packaging Authority <pypa:index>`. We
 happily accept any :doc:`contributions and feedback <contribute>`. 😊
 
 .. _GitHub: https://github.com/pypa/packaging.python.org
-.. _Python Packaging Authority: https://www.pypa.io/en/latest/
 
 
 Get started

@@ -98,8 +98,8 @@ install the :ref:`scientific Python stack
 SciPy distributions
 -------------------
 
-The SciPy site lists `several distributions
-<https://www.scipy.org/install.html>`__ that provide the full SciPy stack to
+The SciPy site lists :doc:`several distributions
+<scipy:install>` that provide the full SciPy stack to
 end users in an easy to use and update format.
 
 Some of these distributions may not be compatible with the standard ``pip``

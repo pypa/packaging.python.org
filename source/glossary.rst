@@ -128,7 +128,7 @@ Glossary
 
         PyPA is a working group that maintains many of the relevant
         projects in Python packaging. They maintain a site at
-        https://www.pypa.io/en/latest/, host projects on `GitHub
+        :doc:`pypa.io <pypa:index>`, host projects on `GitHub
         <https://github.com/pypa>`_ and `Bitbucket
         <https://bitbucket.org/pypa>`_, and discuss issues on the
         `distutils-sig mailing list

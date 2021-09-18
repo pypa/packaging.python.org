@@ -476,8 +476,8 @@ and it is interpreted relative to the installation prefix
 Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
-For more information see the distutils section on `Installing Additional Files
-<https://docs.python.org/3/distutils/setupscript.html#installing-additional-files>`_.
+For more information see the distutils section on :ref:`Installing Additional Files
+<python:distutils-additional-files>`.
 
 .. note::
 
@@ -490,8 +490,8 @@ For more information see the distutils section on `Installing Additional Files
 ``scripts``
 ~~~~~~~~~~~
 
-Although ``setup()`` supports a `scripts
-<https://docs.python.org/3/distutils/setupscript.html#installing-scripts>`_
+Although ``setup()`` supports a :ref:`scripts
+<python:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).

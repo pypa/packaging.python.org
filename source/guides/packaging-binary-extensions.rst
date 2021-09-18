@@ -165,14 +165,14 @@ wrapper modules up to date.
   hand, however, and is very repetitive, so may not be a good choice for
   wrapping large APIs.
   
-* `pybind11 <https://pybind11.readthedocs.io/en/stable/>`__ is a pure C++11 library
+* :doc:`pybind11 <pybind11:index>` is a pure C++11 library
   that provides a clean C++ interface to the CPython (and PyPy) C API. It
   does not require a pre-processing step; it is written entirely in
   templated C++. Helpers are included for Setuptools or CMake builds. It
   was based on `Boost.Python <https://www.boost.org/doc/libs/1_76_0/libs/python/doc/html/index.html>`__,
   but doesn't require the Boost libraries or BJam.
 
-* `cffi <https://cffi.readthedocs.io/en/latest/>`__ is a project created by some of the PyPy
+* :doc:`cffi <cffi:index>` is a project created by some of the PyPy
   developers to make it straightforward for developers that already know
   both Python and C to expose their C modules to Python applications. It
   also makes it relatively straightforward to wrap a C module based on its

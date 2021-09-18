@@ -34,7 +34,7 @@ Content Delivery Network (CDN).
 build
 =====
 
-`Docs <https://pypa-build.readthedocs.io/en/stable/>`__ |
+`Docs <build:index>` |
 `Issues <https://github.com/pypa/build/issues>`__ |
 `GitHub <https://github.com/pypa/build>`__ |
 `PyPI <https://pypi.org/project/build>`__
@@ -63,7 +63,7 @@ platforms and Python versions on most CI systems. Also see :ref:`multibuild`.
 distlib
 =======
 
-`Docs <https://pythonhosted.org/distlib/>`__ |
+:doc:`Docs <distlib:index>` |
 `Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
 `Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
@@ -89,7 +89,7 @@ of packages that are incompatible with those standards.
 packaging
 =========
 
-`Docs <https://packaging.pypa.io/en/latest/>`__ |
+:doc:`Docs <packaging:index>` |
 `Issues <https://github.com/pypa/packaging/issues>`__ |
 `GitHub <https://github.com/pypa/packaging>`__ |
 `PyPI <https://pypi.org/project/packaging>`__
@@ -136,7 +136,7 @@ command-line interface (CLI).
 Pipenv
 ======
 
-`Docs <https://pipenv.pypa.io/en/latest/>`__ |
+:doc:`Docs <pipenv:index>` |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
 `PyPI <https://pypi.org/project/pipenv>`__
@@ -180,7 +180,7 @@ causing dependency conflicts with other packages installed on the system.
 Python Packaging User Guide
 ===========================
 
-`Docs <https://packaging.python.org/>`__ |
+:doc:`Docs <packaging.python.org:index>` |
 `Issues <https://github.com/pypa/packaging.python.org/issues>`__ |
 `GitHub <https://github.com/pypa/packaging.python.org>`__
 
@@ -269,7 +269,7 @@ it's fast and secure, it's maintained, and it reliably works.
 virtualenv
 ==========
 
-`Docs <https://virtualenv.pypa.io/en/stable/>`__ |
+:doc:`Docs <virtualenv:index>` |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__
@@ -342,7 +342,7 @@ lets you create a buildout configuration and reproduce the same software later.
 conda
 =====
 
-`Docs <https://conda.io/en/latest/>`__
+:doc:`Docs <conda:index>`
 
 conda is the package management tool for `Anaconda
 <https://docs.anaconda.com/anaconda/>`__ Python installations.
@@ -502,7 +502,7 @@ piwheels
 ========
 
 `Website <https://www.piwheels.org/>`__ |
-`Docs <https://piwheels.readthedocs.io/en/latest/>`__ |
+:doc:`Docs <piwheels:index>` |
 `GitHub <https://github.com/piwheels/piwheels/>`__
 
 piwheels is a website, and software underpinning it, that fetches
@@ -580,7 +580,7 @@ applications and command line tools fast & easy.
 Spack
 =====
 
-`Docs <https://spack.readthedocs.io/en/latest/>`__ |
+:doc:`Docs <spack:index>` |
 `GitHub <https://github.com/spack/spack>`__ |
 `Paper <https://www.computer.org/csdl/proceedings-article/sc/2015/2807623/12OmNBf94Xq>`__ |
 `Slides <https://tgamblin.github.io/files/Gamblin-Spack-SC15-Talk.pdf>`__

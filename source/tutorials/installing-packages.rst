@@ -52,7 +52,7 @@ version is available from your command line. You can check this by running:
 
 You should get some output like ``Python 3.6.3``. If you do not have Python,
 please install the latest 3.x version from `python.org`_ or refer to the
-`Installing Python`_ section of the Hitchhiker's Guide to Python.
+:ref:`Installing Python <python-guide:installation>` section of the Hitchhiker's Guide to Python.
 
 .. Note:: If you're a newcomer and you get an error like this:
 
@@ -119,7 +119,6 @@ using your OS package manager, you may have to install pip separately, see
 :doc:`/guides/installing-using-linux-tools`.
 
 .. _Homebrew: https://brew.sh
-.. _Installing Python: https://docs.python-guide.org/starting/installation/
 
 If ``pip`` isn't already installed, then first try to bootstrap it from the
 standard library:
@@ -271,7 +270,7 @@ Using :ref:`virtualenv`:
         <DIR>\Scripts\activate
 
 For more information, see the :doc:`venv <python:library/venv>` docs or
-the `virtualenv <https://virtualenv.pypa.io/en/stable/>`_ docs.
+the :doc:`virtualenv <virtualenv:index>` docs.
 
 The use of :command:`source` under Unix shells ensures
 that the virtual environment's variables are set within the current
