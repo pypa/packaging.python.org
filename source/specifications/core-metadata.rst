@@ -730,4 +730,4 @@ Examples::
 .. _`Python Package Index`: https://pypi.org/
 
 .. [2] RFC 822 Long Header Fields:
-   https://www.freesoft.org/CIE/RFC/822/7.htm
+   :rfc:`822#section-3.1.1`
