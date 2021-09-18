@@ -275,7 +275,7 @@ specifying the variant of Markdown in use (defaults to ``GFM`` if not
 specified). Currently, two variants are recognized:
 
 - ``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`
-- ``CommonMark`` for :rfc:`CommonMark <rfc7764#section-3.5>`
+- ``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`
 
 Example::
 
