@@ -279,7 +279,7 @@ developers is a package ecosystem called `Anaconda
 is built around Python and is increasingly common in academic,
 analytical, and other data-oriented environments, even making its way
 `into server-oriented environments
-<https://medium.com/paypal-tech/python-packaging-at-paypal-4a90352a7ca2>`_.
+<https://web.archive.org/web/20190403064038/https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
