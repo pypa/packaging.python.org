@@ -178,7 +178,7 @@ Bazaar
 
 Home page
 
-   https://bazaar.canonical.com/en/
+   https://bazaar.canonical.com
 
 vcs command
 
