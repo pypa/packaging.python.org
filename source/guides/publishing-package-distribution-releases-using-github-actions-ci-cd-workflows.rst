@@ -145,4 +145,3 @@ sure that your release pipeline remains healthy!
    https://github.com/marketplace/actions/pypi-publish
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
-
