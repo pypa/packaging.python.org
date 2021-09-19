@@ -48,7 +48,7 @@ build packages, as well as a Python API.
 cibuildwheel
 ============
 
-`Docs <https://cibuildwheel.readthedocs.io/en/stable/>`__ |
+`Docs <https://cibuildwheel.readthedocs.io/>`__ |
 `Issues <https://github.com/pypa/cibuildwheel/issues>`__ |
 `GitHub <https://github.com/pypa/cibuildwheel>`__ |
 `PyPI <https://pypi.org/project/cibuildwheel>`__ |
@@ -118,7 +118,7 @@ on error.
 pip
 ===
 
-`Docs <https://pip.pypa.io/en/stable/>`__ |
+`Docs <https://pip.pypa.io/>`__ |
 `Issues <https://github.com/pypa/pip/issues>`__ |
 `GitHub <https://github.com/pypa/pip>`__ |
 `PyPI <https://pypi.org/project/pip/>`__
