@@ -304,7 +304,7 @@ Publishing binary extensions
 ============================
 
 For interim guidance on this topic, see the discussion in
-`this issue <https://github.com/pypa/packaging.python.org/issues/284>`_.
+:issue:`this issue <284>`.
 
 ::
 
