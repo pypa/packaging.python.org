@@ -7,7 +7,7 @@ Creating Documentation
 This section covers the basics of how to create documentation using `Sphinx`_ and
 host the documentation for free in `Read The Docs`_.
 
-.. _Sphinx: https://www.sphinx-doc.org/en/master/
+.. _Sphinx: https://www.sphinx-doc.org
 .. _Read The Docs: https://readthedocs.org/
 
 Installing Sphinx
