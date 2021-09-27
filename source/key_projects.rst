@@ -464,6 +464,21 @@ multibuild
 Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
 Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
 
+.. _pdm:
+
+pdm
+===
+
+`Docs <https://pdm.fming.dev/>`__ |
+`GitHub <https://github.com/pdm-project/pdm/>`__ |
+`PyPI <https://pypi.org/project/pdm>`__
+
+PDM is a modern Python package manager with PEP 582 support.
+It installs and manages packages in a similar way to npm that doesn't need
+to create a virtualenv at all. It uses a ``pyproject.toml`` to store project metadata
+as defined in PEP 621. With PDM, you can experience the state of art in the Python
+packaging world.
+
 .. _pex:
 
 pex
