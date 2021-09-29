@@ -52,6 +52,8 @@ It is not considered best practice to use ``install_requires`` to pin
 dependencies to specific versions, or to specify sub-dependencies
 (i.e. dependencies of your dependencies).  This is overly-restrictive, and
 prevents the user from gaining the benefit of dependency upgrades.
+However, it may be useful in security-critical projects,
+to prevent malicious updates. [2]_
 
 Lastly, it's important to understand that ``install_requires`` is a listing of
 "Abstract" requirements, i.e just names and version restrictions that don't
@@ -89,3 +91,4 @@ installs them using ``python -m pip install -r``.
 
 .. [1] For more on "Abstract" vs "Concrete" requirements, see
        https://caremad.io/2013/07/setup-vs-requirement/.
+.. [2] Sophos article on supply chain attacks: https://nakedsecurity.sophos.com/2021/03/07/poison-packages-supply-chain-risks-user-hits-python-community-with-4000-fake-modules/
