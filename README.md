@@ -6,26 +6,25 @@ http://packaging.python.org
 The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource on
 how to package and install distributions in Python using current tools.
 
-To follow the development of Python packaging, see the `Python
-Packaging Authority <https://www.pypa.io>`_.
+To follow the development of Python packaging, see the [Python
+Packaging Authority](https://www.pypa.io)
 
 Code of Conduct
 ---------------
 
 Everyone interacting in the Python Packaging User Guide project's codebases,
 issue trackers, chat rooms, and mailing lists are expected to follow the
-`PSF Code of Conduct`_.
+[PSF Code of Conduct](https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md)
 
-.. _PSF Code of Conduct: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
 
 Contributing
 ------------
 
 This guide is community-maintained and contributions are welcome! Please see the
-`contributing guide`_ for details on our writing style guide and how to build
+[contributing guide](https://github.com/pypa/packaging.python.org/blob/main/source/contribute.rst) for details on our writing style guide and how to build
 the guide locally to test your changes.
 
-.. _contributing guide: https://packaging.python.org/contribute
+
 
 License
 -------
