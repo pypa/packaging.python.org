@@ -557,6 +557,24 @@ upload tools, and users can download and install them with :ref:`pip`,
 without publishing them publicly. Organizations who use pypiserver
 usually download packages both from pypiserver and from PyPI.
 
+.. _pyscaffold:
+
+PyScaffold
+==========
+
+`Docs <https://pyscaffold.org>`__ |
+`GitHub <https://github.com/pyscaffold/pyscaffold>`__ |
+`PyPI <https://pypi.org/project/pyscaffold/>`__
+
+PyScaffold is a project generator for bootstrapping Python packages,
+ready to be shared on PyPI and installable via :ref:`pip`.
+It relies on a set of sane default configurations for established tools
+(such as :ref:`setuptools`, pytest_ and Sphinx_) to provide a productive
+environment so developers can start coding right away.
+PyScaffold can also be used with existing projects to make packaging
+easier.
+
+
 .. _scikit-build:
 
 scikit-build
@@ -679,3 +697,5 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 ----
 
 .. _distribute: https://pypi.org/project/distribute
+.. _Sphinx: https://www.sphinx-doc.org/en/master/
+.. _pytest: https://docs.pytest.org/en/stable/
