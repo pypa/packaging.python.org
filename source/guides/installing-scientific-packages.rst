@@ -13,9 +13,9 @@ it will often have multiple build options to take advantage of different
 kinds of hardware, or to interoperate with different pieces of external
 software.
 
-In particular, `NumPy <http://www.numpy.org/>`__, which provides the basis
-for most of the software in the `scientific Python stack
-<http://www.scipy.org/stackspec.html#stackspec>`__ can be configured
+In particular, `NumPy <https://numpy.org/>`__, which provides the basis
+for most of the software in the :doc:`scientific Python stack
+<scipy:stackspec>` can be configured
 to interoperate with different FORTRAN libraries, and can take advantage
 of different levels of vectorised instructions available in modern CPUs.
 
@@ -67,7 +67,7 @@ the CPython Windows installers published on python.org.
 For projects which don't provide their own Windows installers (and even
 some which do), Christoph Gohlke at the University of California provides
 a `collection of Windows installers
-<http://www.lfd.uci.edu/~gohlke/pythonlibs/>`__. Many Python users on
+<https://www.lfd.uci.edu/~gohlke/pythonlibs/>`__. Many Python users on
 Windows have reported a positive experience with these prebuilt versions.
 
 As with Linux system packages, the Windows installers will only install into a
@@ -98,8 +98,8 @@ install the :ref:`scientific Python stack
 SciPy distributions
 -------------------
 
-The SciPy site lists `several distributions
-<http://www.scipy.org/install.html>`__ that provide the full SciPy stack to
+The SciPy site lists :doc:`several distributions
+<scipy:install>` that provide the full SciPy stack to
 end users in an easy to use and update format.
 
 Some of these distributions may not be compatible with the standard ``pip``
@@ -107,7 +107,7 @@ and ``virtualenv`` based toolchain.
 
 Spack
 ------
-`Spack <https://github.com/LLNL/spack/>`_ is a flexible package manager
+`Spack <https://github.com/spack/spack>`_ is a flexible package manager
 designed to support multiple versions, configurations, platforms, and compilers.
 It was built to support the needs of large supercomputing centers and scientific
 application teams, who must often build software many different ways.
@@ -127,7 +127,7 @@ be loaded and unloaded from the user's environment.
 The conda cross-platform package manager
 ----------------------------------------
 
-`Anaconda <https://www.anaconda.com/download/>`_ is a Python distribution
+`Anaconda <https://www.anaconda.com/products/individual/>`_ is a Python distribution
 published by Anaconda, Inc. It is a stable collection of Open Source
 packages for big data and scientific use.  As of the 5.0 release of Anaconda,
 about 200 packages are installed by default, and a total of 400-500 can be

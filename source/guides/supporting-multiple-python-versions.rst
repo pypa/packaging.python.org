@@ -58,7 +58,7 @@ These services also offer facilities to run your project's test suite on
 will work, without the developer having to perform such tests themselves.
 
 Wikipedia has an extensive `comparison
-<http://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software>`_
+<https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software>`_
 of many continuous-integration systems. There are two hosted services which
 when used in conjunction provide automated testing across Linux, Mac and
 Windows:
@@ -66,7 +66,7 @@ Windows:
   - `Travis CI <https://travis-ci.org>`_ provides both a Linux and a macOS
     environment. The Linux environment is Ubuntu 12.04 LTS Server Edition 64 bit
     while the macOS is 10.9.2 at the time of writing.
-  - `Appveyor <http://www.appveyor.com>`_ provides a Windows environment
+  - `Appveyor <https://www.appveyor.com/>`_ provides a Windows environment
     (Windows Server 2012).
 
 ::
@@ -78,7 +78,7 @@ Windows:
     document?
 
 Both `Travis CI`_ and Appveyor_ require a `YAML
-<http://www.yaml.org>`_-formatted file as specification for the instructions
+<https://yaml.org>`_-formatted file as specification for the instructions
 for testing. If any tests fail, the output log for that specific configuration
 can be inspected.
 

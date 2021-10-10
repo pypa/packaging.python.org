@@ -32,18 +32,18 @@ conventional categories:
   available on a given system. The CPython standard library makes extensive
   use of accelerator modules.
   *Example*: When importing ``datetime``, Python falls back to the
-  `datetime.py <https://github.com/python/cpython/blob/master/Lib/datetime.py>`_
+  `datetime.py <https://github.com/python/cpython/blob/main/Lib/datetime.py>`_
   module if the C implementation (
-  `_datetimemodule.c <https://github.com/python/cpython/blob/master/Modules/_datetimemodule.c>`_)
+  `_datetimemodule.c <https://github.com/python/cpython/blob/main/Modules/_datetimemodule.c>`_)
   is not available.
 * **wrapper modules**: these modules are created to expose existing C interfaces
   to Python code. They may either expose the underlying C interface directly,
   or else expose a more "Pythonic" API that makes use of Python language
   features to make the API easier to use. The CPython standard library makes
   extensive use of wrapper modules.
-  *Example*: `functools.py <https://github.com/python/cpython/blob/master/Lib/functools.py>`_
+  *Example*: `functools.py <https://github.com/python/cpython/blob/main/Lib/functools.py>`_
   is a Python module wrapper for
-  `_functoolsmodule.c <https://github.com/python/cpython/blob/master/Modules/_functoolsmodule.c>`_.
+  `_functoolsmodule.c <https://github.com/python/cpython/blob/main/Modules/_functoolsmodule.c>`_.
 * **low-level system access**: these modules are created to access lower level
   features of the CPython runtime, the operating system, or the underlying
   hardware. Through platform specific code, extension modules may achieve
@@ -51,7 +51,7 @@ conventional categories:
   standard library modules are written in C in order to access interpreter
   internals that aren't exposed at the language level.
   *Example*: ``sys``, which comes from
-  `sysmodule.c <https://github.com/python/cpython/blob/master/Python/sysmodule.c>`_.
+  `sysmodule.c <https://github.com/python/cpython/blob/main/Python/sysmodule.c>`_.
 
   One particularly notable feature of C extensions is that, when they don't
   need to call back into the interpreter runtime, they can release CPython's
@@ -120,7 +120,7 @@ also be considered:
   need to create your own accelerator module.
 
 * for long running applications, the JIT compiled `PyPy interpreter
-  <http://pypy.org/>`__ may offer a suitable alternative to the standard
+  <https://www.pypy.org/>`__ may offer a suitable alternative to the standard
   CPython runtime. The main barrier to adopting PyPy is typically reliance
   on other binary extension modules - while PyPy does emulate the CPython
   C API, modules that rely on that cause problems for the PyPy JIT, and the
@@ -129,7 +129,7 @@ also be considered:
   an object having one live reference instead of two often won't break
   anything, but no references instead of one is a major problem).
 
-* `Cython <http://cython.org/>`__ is a mature static compiler that can
+* `Cython <https://cython.org/>`__ is a mature static compiler that can
   compile most Python code to C extension modules. The initial compilation
   provides some speed increases (by bypassing the CPython interpreter layer),
   and Cython's optional static typing features can offer additional
@@ -160,19 +160,19 @@ but they *can* significantly reduce the maintenance burden of keeping
 wrapper modules up to date.
 
 * In addition to being useful for the creation of accelerator modules,
-  `Cython <http://cython.org/>`__ is also useful for creating wrapper
+  `Cython <https://cython.org/>`__ is also useful for creating wrapper
   modules for C or C++. It still involves wrapping the interfaces by
   hand, however, and is very repetitive, so may not be a good choice for
   wrapping large APIs.
   
-* `pybind11 <https://pybind11.readthedocs.io>`__ is a pure C++11 library
+* :doc:`pybind11 <pybind11:index>` is a pure C++11 library
   that provides a clean C++ interface to the CPython (and PyPy) C API. It
   does not require a pre-processing step; it is written entirely in
   templated C++. Helpers are included for Setuptools or CMake builds. It
   was based on `Boost.Python <https://www.boost.org/doc/libs/1_76_0/libs/python/doc/html/index.html>`__,
   but doesn't require the Boost libraries or BJam.
 
-* `cffi <https://cffi.readthedocs.io/>`__ is a project created by some of the PyPy
+* :doc:`cffi <cffi:index>` is a project created by some of the PyPy
   developers to make it straightforward for developers that already know
   both Python and C to expose their C modules to Python applications. It
   also makes it relatively straightforward to wrap a C module based on its
@@ -259,7 +259,7 @@ Before it is possible to build a binary extension, it is necessary to ensure
 that you have a suitable compiler available. On Windows, Visual C is used to
 build the official CPython interpreter, and should be used to build compatible
 binary extensions.  To set up a build environment for binary extensions, install
-`Visual Studio Community Edition <https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx>`__
+`Visual Studio Community Edition <https://visualstudio.microsoft.com/downloads/>`__
 - any recent version is fine.
 
 One caveat: if you use Visual Studio 2019 or later, your extension will depend
@@ -304,7 +304,7 @@ Publishing binary extensions
 ============================
 
 For interim guidance on this topic, see the discussion in
-`this issue <https://github.com/pypa/python-packaging-user-guide/issues/284>`_.
+:issue:`this issue <284>`.
 
 ::
 

@@ -58,7 +58,7 @@ Use ``pip`` to install Pipenv:
     See :ref:`Installing to the User Site` for more information.
 
 .. _npm: https://www.npmjs.com/
-.. _bundler: http://bundler.io/
+.. _bundler: https://bundler.io/
 .. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
 
 Installing packages for your project
