@@ -552,13 +552,13 @@ PyScaffold
 `GitHub <https://github.com/pyscaffold/pyscaffold>`__ |
 `PyPI <https://pypi.org/project/pyscaffold/>`__
 
-PyScaffold is a project generator that focus on bootstrapping Python
-packages, ready to be shared on PyPI and installable via :ref:`pip`.
-It relies on a set of sane default configurations and conventions for existing
-and battle-proven tools (such as :ref:`setuptools`, pytest_ and Sphinx_) to
-provide a productive environment so developers can start coding right away.
-PyScaffold can also be used to upgrade existing code that was not originally
-planed as a Python package, helping with its distribution.
+PyScaffold is a project generator for bootstrapping Python packages,
+ready to be shared on PyPI and installable via :ref:`pip`.
+It relies on a set of sane default configurations for established tools
+(such as :ref:`setuptools`, pytest_ and Sphinx_) to provide a productive
+environment so developers can start coding right away.
+PyScaffold can also be used with existing projects to make packaging
+easier.
 
 
 .. _scikit-build:
