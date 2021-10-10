@@ -180,7 +180,7 @@ causing dependency conflicts with other packages installed on the system.
 Python Packaging User Guide
 ===========================
 
-`Docs <https://packaging.python.org/en/latest/>`__ |
+`Docs <https://packaging.python.org/>`__ |
 `Issues <https://github.com/pypa/python-packaging-user-guide/issues>`__ |
 `GitHub <https://github.com/pypa/python-packaging-user-guide>`__
 
