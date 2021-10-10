@@ -169,7 +169,7 @@ in the `pkgutil namespace example project`_.
 pkg_resources-style namespace packages
 --------------------------------------
 
-`Setuptools`_ provides the `pkg_resources.declare_namespace`_ function and
+:doc:`Setuptools <setuptools:index>` provides the `pkg_resources.declare_namespace`_ function and
 the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together
 these can be used to declare namespace packages. While this approach is no
 longer recommended, it is widely present in most existing namespace packages.
@@ -236,7 +236,6 @@ to :func:`~setuptools.setup` in :file:`setup.py`. For example:
 A complete working example of two pkg_resources-style namespace packages can be found
 in the `pkg_resources namespace example project`_.
 
-.. _setuptools: https://setuptools.readthedocs.io
 .. _pkg_resources.declare_namespace:
     https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support
 .. _pkg_resources namespace example project:

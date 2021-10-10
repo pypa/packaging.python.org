@@ -54,7 +54,7 @@ To install pip and wheel for the system Python, there are two options:
 
 1. Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using
    `these instructions
-   <https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F>`__. 
+   <https://docs.fedoraproject.org/en-US/epel/#how_can_i_use_these_extra_packages>`__. 
    On EPEL 7, you can install pip and wheel like so:
 
    .. code-block:: bash
@@ -66,8 +66,8 @@ To install pip and wheel for the system Python, there are two options:
 
 
 2. Enable the `PyPA Copr Repo
-   <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using `these instructions
-   <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__ [1]_. You can install
+   <https://copr.fedorainfracloud.org/coprs/pypa/pypa/>`_ using `these instructions
+   <https://fedoraproject.org/wiki/Infrastructure/Fedorahosted-retirement>`__ [1]_. You can install
    pip and wheel like so:
 
    .. code-block:: bash
@@ -89,7 +89,7 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
    includes pip, setuptools, and wheel.
 
    * For Redhat, see here:
-     http://developers.redhat.com/products/softwarecollections/overview/
+     https://developers.redhat.com/products/softwarecollections/overview
    * For CentOS, see here: https://www.softwarecollections.org/en/
 
    Be aware that collections may not contain the most recent versions.

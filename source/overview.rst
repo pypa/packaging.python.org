@@ -67,8 +67,8 @@ This is great for sharing simple scripts and snippets between people
 who both have compatible Python versions (such as via email,
 StackOverflow, or GitHub gists). There are even some entire Python
 libraries that offer this as an option, such as `bottle.py
-<https://bottlepy.org/docs/dev/>`_ and `boltons
-<http://boltons.readthedocs.io/en/latest/architecture.html#architecture>`_.
+<https://bottlepy.org/docs/dev/>`_ and :doc:`boltons
+<boltons:architecture>`.
 
 However, this pattern won't scale for projects that consist of
 multiple files, need additional libraries, or need a specific version
@@ -231,7 +231,7 @@ guides:
 * `Kivy <https://kivy.org/>`_
 * `Beeware <https://pybee.org/>`_
 * `Brython <https://brython.info/>`_
-* `Flexx <http://flexx.readthedocs.io/en/latest/>`_
+* `Flexx <https://flexx.readthedocs.io/en/latest/>`_
 
 If you are *not* interested in using a framework or platform, or just
 wonder about some of the technologies and techniques utilized by the
@@ -279,12 +279,12 @@ developers is a package ecosystem called `Anaconda
 is built around Python and is increasingly common in academic,
 analytical, and other data-oriented environments, even making its way
 `into server-oriented environments
-<https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
+<https://web.archive.org/web/20190403064038/https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
-* `Building libraries and applications with conda <https://conda.io/docs/user-guide/tutorials/index.html>`_
-* `Transitioning a native Python package to Anaconda <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_
+* `Building libraries and applications with conda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
 
 A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
@@ -411,13 +411,12 @@ of the puzzle.
 virtualenv
 ^^^^^^^^^^
 
-`Virtualenvs
-<http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have
+:doc:`Virtualenvs <python-guide:dev/virtualenvs>` have
 been an indispensable tool for multiple generations of Python
 developer, but are slowly fading from view, as they are being wrapped
 by higher-level tools. With packaging in particular, virtualenvs are
-used as a primitive in `the dh-virtualenv tool
-<http://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html>`_ and
+used as a primitive in :doc:`the dh-virtualenv tool
+<dh-virtualenv:tutorial>` and
 `osnap <https://github.com/jamesabel/osnap>`_, both of which wrap
 virtualenvs in a self-contained way.
 

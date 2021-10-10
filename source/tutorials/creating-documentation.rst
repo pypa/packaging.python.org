@@ -4,9 +4,10 @@
 Creating Documentation
 ======================
 
-This section covers the basics of how to create documentation using `Sphinx`_ and host the documentation for free in `Read The Docs`_.
+This section covers the basics of how to create documentation using `Sphinx`_ and
+host the documentation for free in `Read The Docs`_.
 
-.. _Sphinx: http://sphinx-doc.org/
+.. _Sphinx: https://www.sphinx-doc.org
 .. _Read The Docs: https://readthedocs.org/
 
 Installing Sphinx
@@ -25,9 +26,8 @@ Use ``pip`` to install Sphinx:
 
         py -m pip install -U sphinx
 
-For other installation methods, see this `installation guide`_ by Sphinx.
+For other installation methods, see this :doc:`installation guide <sphinx:usage/installation>` by Sphinx.
 
-.. _installation guide: http://www.sphinx-doc.org/en/master/usage/installation.html
 
 Getting Started With Sphinx
 ---------------------------

@@ -18,9 +18,9 @@ Most of the work on the |PyPUG| takes place on the
 `open issues`__ and `pull requests`__. If you're planning to write or edit
 the guide, please read the :ref:`style guide <contributing_style_guide>`.
 
-.. __: https://github.com/pypa/python-packaging-user-guide/
-.. __: https://github.com/pypa/python-packaging-user-guide/issues
-.. __: https://github.com/pypa/python-packaging-user-guide/pulls
+.. __: https://github.com/pypa/packaging.python.org/
+.. __: https://github.com/pypa/packaging.python.org/issues
+.. __: https://github.com/pypa/packaging.python.org/pulls
 
 By contributing to the |PyPUG|, you're expected to follow the PSF's
 `Code of Conduct`__.
@@ -124,7 +124,7 @@ Though not required to contribute, it may be useful to build this guide locally
 in order to test your changes. In order to build this guide locally, you'll
 need:
 
-1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
+1. :doc:`Nox <nox:index>`. You can install or upgrade
    nox using ``pip``:
 
    .. code-block:: bash
@@ -132,11 +132,8 @@ need:
       python -m pip install --user nox
 
 2. Python 3.6. Our build scripts are designed to work with Python 3.6 only.
-   See the `Hitchhiker's Guide to Python installation instructions`_ to install
-   Python 3.6 on your operating system.
-
-.. _Hitchhiker's Guide to Python installation instructions:
-    http://docs.python-guide.org/en/latest/starting/installation/
+   See the :doc:`Hitchhiker's Guide to Python installation instructions <python-guide:starting/installation>`
+   to install Python 3.6 on your operating system.
 
 To build the guide, run the following bash command in the source folder:
 
