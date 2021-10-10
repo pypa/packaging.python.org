@@ -318,7 +318,6 @@ A selection of Python freezers:
 * `constructor <https://github.com/conda/constructor>`_ - For command-line installers
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
 * `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only
-* `bbFreeze <https://pypi.org/project/bbfreeze>`_ - Windows, Linux, Python 2 only
 * `osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac
 * `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
 
