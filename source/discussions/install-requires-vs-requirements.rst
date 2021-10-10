@@ -88,4 +88,4 @@ installs them using ``python -m pip install -r``.
 ----
 
 .. [1] For more on "Abstract" vs "Concrete" requirements, see
-       https://caremad.io/2013/07/setup-vs-requirement/.
+       https://caremad.io/posts/2013/07/setup-vs-requirement/.

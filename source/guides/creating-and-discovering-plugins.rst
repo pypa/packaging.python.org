@@ -120,7 +120,7 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-`Setuptools`_ provides :doc:`special support
+:doc:`Setuptools <setuptools:index>` provides :doc:`special support
 <setuptools:userguide/entry_point>` for plugins. By providing the
 ``entry_points`` argument to :func:`setup` in :file:`setup.py` plugins can
 register themselves for discovery.
@@ -171,5 +171,4 @@ Now the module of your choice can be imported by executing
    <python:library/importlib.metadata>`, most packaging tools other than setuptools
    provide support for defining entry points.
 
-.. _Setuptools: https://setuptools.readthedocs.io
 .. _backport: https://importlib-metadata.readthedocs.io/en/latest/

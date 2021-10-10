@@ -57,7 +57,7 @@ setup.py
 
 The most important file is :file:`setup.py` which exists at the root of your
 project directory. For an example, see the `setup.py
-<https://github.com/pypa/sampleproject/blob/master/setup.py>`_ in the `PyPA
+<https://github.com/pypa/sampleproject/blob/main/setup.py>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 :file:`setup.py` serves two primary functions:
@@ -78,7 +78,7 @@ setup.cfg
 
 :file:`setup.cfg` is an ini file that contains option defaults for
 :file:`setup.py` commands.  For an example, see the `setup.cfg
-<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_ in the `PyPA
+<https://github.com/pypa/sampleproject/blob/main/setup.cfg>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -87,13 +87,13 @@ README.rst / README.md
 
 All projects should contain a readme file that covers the goal of the project.
 The most common format is `reStructuredText
-<http://docutils.sourceforge.net/rst.html>`_ with an "rst" extension, although
+<https://docutils.sourceforge.io/rst.html>`_ with an "rst" extension, although
 this is not a requirement; multiple variants of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ are supported as well (look
 at ``setup()``'s :ref:`long_description_content_type <description>` argument).
 
 For an example, see `README.md
-<https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA
+<https://github.com/pypa/sampleproject/blob/main/README.md>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 .. note:: Projects using :ref:`setuptools` 0.6.27+ have standard readme files
@@ -113,7 +113,7 @@ writing a :file:`MANIFEST.in` file, including a list of what's included by
 default, see ":ref:`Using MANIFEST.in`".
 
 For an example, see the `MANIFEST.in
-<https://github.com/pypa/sampleproject/blob/master/MANIFEST.in>`_ from the `PyPA
+<https://github.com/pypa/sampleproject/blob/main/MANIFEST.in>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 .. note:: :file:`MANIFEST.in` does not affect binary distributions such as wheels.
@@ -128,7 +128,7 @@ If you're unsure which license to choose, you can use resources such as
 `GitHub's Choose a License <https://choosealicense.com/>`_ or consult a lawyer.
 
 For an example, see the `LICENSE.txt
-<https://github.com/pypa/sampleproject/blob/master/LICENSE.txt>`_ from the `PyPA
+<https://github.com/pypa/sampleproject/blob/main/LICENSE.txt>`_ from the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 <your package>
@@ -139,7 +139,7 @@ Python modules and packages under a single top-level package that has the same
 :ref:`name <setup() name>` as your project, or something very close.
 
 For an example, see the `sample
-<https://github.com/pypa/sampleproject/tree/master/src/sample>`_ package that's
+<https://github.com/pypa/sampleproject/tree/main/src/sample>`_ package that's
 included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -154,7 +154,7 @@ specific details of your project are defined.
 
 The most relevant arguments are explained below. Most of the snippets given are
 taken from the `setup.py
-<https://github.com/pypa/sampleproject/blob/master/setup.py>`_ contained in the
+<https://github.com/pypa/sampleproject/blob/main/setup.py>`_ contained in the
 `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -237,7 +237,7 @@ A `content type
 can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
-<http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#reference-names>`_,
+<https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#reference-names>`_,
 and the Github-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
@@ -476,8 +476,8 @@ and it is interpreted relative to the installation prefix
 Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
-For more information see the distutils section on `Installing Additional Files
-<http://docs.python.org/3/distutils/setupscript.html#installing-additional-files>`_.
+For more information see the distutils section on :ref:`Installing Additional Files
+<python:distutils-additional-files>`.
 
 .. note::
 
@@ -490,8 +490,8 @@ For more information see the distutils section on `Installing Additional Files
 ``scripts``
 ~~~~~~~~~~~
 
-Although ``setup()`` supports a `scripts
-<http://docs.python.org/3/distutils/setupscript.html#installing-scripts>`_
+Although ``setup()`` supports a :ref:`scripts
+<python:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
@@ -576,7 +576,7 @@ Semantic versioning (preferred)
 *******************************
 
 For new projects, the recommended versioning scheme is based on `Semantic Versioning
-<http://semver.org>`_, but adopts a different approach to handling pre-releases and
+<https://semver.org/>`_, but adopts a different approach to handling pre-releases and
 build metadata.
 
 The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE numbering scheme,
@@ -592,7 +592,7 @@ Adopting this approach as a project author allows users to make use of :pep:`"co
 a matching MAJOR version.
 
 Python projects adopting semantic versioning should abide by clauses 1-8 of the
-`Semantic Versioning 2.0.0 specification <http://semver.org>`_.
+`Semantic Versioning 2.0.0 specification <https://semver.org/>`_.
 
 Date based versioning
 *********************

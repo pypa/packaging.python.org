@@ -39,7 +39,7 @@ Setting up
 
 In order to use Appveyor to build Windows wheels for your project, you must
 have an account on the service. Instructions on setting up an account are given
-in `the Appveyor documentation <http://www.appveyor.com/docs>`__. The free tier
+in `the Appveyor documentation <https://www.appveyor.com/docs/>`__. The free tier
 of account is perfectly adequate for open source projects.
 
 Appveyor provides integration with `Github`_ and `Bitbucket`_, so as long as
@@ -237,8 +237,7 @@ For reference, the SDK setup support script is listed here:
    :language: bat
    :linenos:
 
-.. _Appveyor: http://www.appveyor.com/
+.. _Appveyor: https://www.appveyor.com/
 .. _Travis: https://travis-ci.org/
 .. _Github: https://github.com
 .. _Bitbucket: https://bitbucket.org/
-.. _Tox: http://tox.testrun.org

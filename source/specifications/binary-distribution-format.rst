@@ -311,10 +311,10 @@ checker only needs to establish that RECORD matches the signature.
 
 See
 
-- http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
-- http://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html
-- http://self-issued.info/docs/draft-ietf-jose-json-web-key.html
-- http://self-issued.info/docs/draft-jones-jose-json-private-key.html
+- https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
+- https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html
+- https://self-issued.info/docs/draft-ietf-jose-json-web-key.html
+- https://self-issued.info/docs/draft-jones-jose-json-private-key.html
 
 
 Comparison to .egg

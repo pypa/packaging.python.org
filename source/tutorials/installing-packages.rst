@@ -52,7 +52,7 @@ version is available from your command line. You can check this by running:
 
 You should get some output like ``Python 3.6.3``. If you do not have Python,
 please install the latest 3.x version from `python.org`_ or refer to the
-`Installing Python`_ section of the Hitchhiker's Guide to Python.
+:ref:`Installing Python <python-guide:installation>` section of the Hitchhiker's Guide to Python.
 
 .. Note:: If you're a newcomer and you get an error like this:
 
@@ -93,7 +93,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
    set one up, and then continue with the tutorial as written.
 
 .. _getting started tutorial: https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly
-.. _python.org: https://python.org
+.. _python.org: https://www.python.org
 
 Ensure you can run pip from the command line
 --------------------------------------------
@@ -119,7 +119,6 @@ using your OS package manager, you may have to install pip separately, see
 :doc:`/guides/installing-using-linux-tools`.
 
 .. _Homebrew: https://brew.sh
-.. _Installing Python: http://docs.python-guide.org/en/latest/starting/installation/
 
 If ``pip`` isn't already installed, then first try to bootstrap it from the
 standard library:
@@ -271,7 +270,7 @@ Using :ref:`virtualenv`:
         <DIR>\Scripts\activate
 
 For more information, see the :doc:`venv <python:library/venv>` docs or
-the `virtualenv <http://virtualenv.pypa.io>`_ docs.
+the :doc:`virtualenv <virtualenv:index>` docs.
 
 The use of :command:`source` under Unix shells ensures
 that the virtual environment's variables are set within the current
@@ -432,7 +431,7 @@ current user, use the ``--user`` flag:
         py -m pip install --user SomeProject
 
 For more information see the `User Installs
-<https://pip.readthedocs.io/en/latest/user_guide.html#user-installs>`_ section
+<https://pip.pypa.io/en/latest/user_guide/#user-installs>`_ section
 from the pip docs.
 
 Note that the ``--user`` flag has no effect when inside a virtual environment
@@ -463,7 +462,7 @@ directory to your :envvar:`PATH`:
 
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
 .. _modifying ~/.profile: https://stackoverflow.com/a/14638025
-.. _Control Panel: https://msdn.microsoft.com/en-us/library/windows/desktop/bb776899(v=vs.85).aspx
+.. _Control Panel: https://docs.microsoft.com/en-us/windows/win32/shell/user-environment-variables?redirectedfrom=MSDN
 
 Requirements files
 ==================
