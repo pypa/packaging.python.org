@@ -67,7 +67,9 @@ are:
 Command                                                    Description
 =========================================================  ==================================================================================================
 :samp:`include {pat1} {pat2} ...`                          Add all files matching any of the listed patterns
+                                                           (Files must be given as paths relative to the root of the project)
 :samp:`exclude {pat1} {pat2} ...`                          Remove all files matching any of the listed patterns
+                                                           (Files must be given as paths relative to the root of the project)
 :samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
 :samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
 :samp:`global-include {pat1} {pat2} ...`                   Add all files anywhere in the source tree matching any of the listed patterns
