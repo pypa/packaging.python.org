@@ -411,7 +411,7 @@ intersphinx_mapping = {
     'packaging': ('https://packaging.pypa.io/en/latest/', None),
     'packaging.python.org': ('https://packaging.python.org/', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
-    'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
+    # 'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
     'piwheels': ('https://piwheels.readthedocs.io/en/latest/', None),
     'pybind11': ('https://pybind11.readthedocs.io/en/stable/', None),
     'pynsist': ('https://pynsist.readthedocs.io/en/latest/', None),
