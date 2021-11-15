@@ -26,7 +26,7 @@ def translation(session):
     )
 
 @nox.session()
-def build(session, autobuild=False):
+def build(session, language='en', autobuild=False):
     """
     Make the website.
     """
@@ -34,7 +34,7 @@ def build(session, autobuild=False):
 
     target_build_dir = "build"
 
-    shutil.rmtree(target_build_dir, ignore_errors=True)
+    #shutil.rmtree(target_build_dir, ignore_errors=True)
 
     if autobuild:
         command = "sphinx-autobuild"
@@ -47,6 +47,10 @@ def build(session, autobuild=False):
             "--keep-going",  # don't interrupt the build on the first warning
         )
 
+    if language:
+        # add language parameter; if empty do not add because it is English
+        extra_args = extra_args + ( "-D", "language=" + language)
+        target_build_dir = target_build_dir + '/' + language
     session.run(
         command, *extra_args,
         "-j", "auto",  # parallelize the build
@@ -58,6 +62,10 @@ def build(session, autobuild=False):
         target_build_dir,  # where to put the html output
     )
 
+@nox.session()
+@nox.parametrize("language", language_list)
+def l10n(session, language):
+    build(session, language=language)
 
 @nox.session()
 def preview(session):
