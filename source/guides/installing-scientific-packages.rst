@@ -91,7 +91,7 @@ published on python.org.
 
 macOS users also have access to Linux distribution style package managers
 such as ``Homebrew``. The SciPy site has more details on using Homebrew to
-`install SciPy on macOS <https://scipy.org/install/#mac-packages>`_.
+`install SciPy on macOS <https://scipy.org/install/#mac>`_.
 
 
 SciPy distributions
