@@ -112,9 +112,10 @@ are not automatically included in a source distribution.  For details on
 writing a :file:`MANIFEST.in` file, including a list of what's included by
 default, see ":ref:`Using MANIFEST.in`".
 
-For an example, see the `MANIFEST.in
-<https://github.com/pypa/sampleproject/blob/main/MANIFEST.in>`_ from the `PyPA
-sample project <https://github.com/pypa/sampleproject>`_.
+However, you may not have to use a :file:`MANIFEST.in`. For an example, the `PyPA
+sample project <https://github.com/pypa/sampleproject>`_ has removed its manifest
+file, since all the necessary files have been included by :ref:`setuptools` 43.0.0
+and newer.
 
 .. note:: :file:`MANIFEST.in` does not affect binary distributions such as wheels.
 
