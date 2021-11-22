@@ -419,7 +419,6 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
     'python-guide': ('https://docs.python-guide.org', None),
     'python2': ('https://docs.python.org/2', None),
-    'scipy': ('https://www.scipy.org', None),
     'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
     'spack': ('https://spack.readthedocs.io/en/latest/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master', None),
