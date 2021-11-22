@@ -90,9 +90,8 @@ macOS installers that are compatible with the macOS CPython binaries
 published on python.org.
 
 macOS users also have access to Linux distribution style package managers
-such as ``MacPorts``. The SciPy site has more details on using MacPorts to
-install the :ref:`scientific Python stack
-<scipy:mac>`
+such as ``Homebrew``. The SciPy site has more details on using Homebrew to
+`install SciPy on macOS <https://scipy.org/install/#mac-packages>`_.
 
 
 SciPy distributions
