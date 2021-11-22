@@ -142,7 +142,7 @@ To build the guide, run the following bash command in the source folder:
    nox -s build
 
 After the process has completed you can find the HTML output in the
-``./build/html`` directory. You can open the ``index.html`` file to view the
+``./build`` directory. You can open the ``index.html`` file to view the
 guide in web browser, but it's recommended to serve the guide using an HTTP
 server.
 
