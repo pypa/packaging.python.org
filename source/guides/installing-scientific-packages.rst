@@ -15,7 +15,7 @@ software.
 
 In particular, `NumPy <https://numpy.org/>`__, which provides the basis
 for most of the software in the `scientific Python stack
-<https://web.archive.org/web/https://scipy.org/stackspec.html>`__ can be configured
+<https://scientific-python.org>`_ can be configured
 to interoperate with different FORTRAN libraries, and can take advantage
 of different levels of vectorised instructions available in modern CPUs.
 
@@ -91,15 +91,15 @@ published on python.org.
 
 macOS users also have access to Linux distribution style package managers
 such as ``Homebrew``. The SciPy site has more details on using Homebrew to
-install the `scientific Python stack
-<https://scipy.org/install/>`__.
+`install SciPy on macOS <https://scipy.org/install/#mac>`_.
 
 
 SciPy distributions
 -------------------
 
 The SciPy site lists `several distributions
-<https://scipy.org/install/>`__ that provide the full SciPy stack to
+<https://scipy.org/install/#distributions>`_
+that provide the full SciPy stack to
 end users in an easy to use and update format.
 
 Some of these distributions may not be compatible with the standard ``pip``
