@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 19:32+0800\n"
-"PO-Revision-Date: 2021-11-22 17:23+0000\n"
+"PO-Revision-Date: 2021-11-25 00:21+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -1177,65 +1177,84 @@ msgstr "過去のデータ品質における既知の問題 (ダウンロード�
 #: ../source/guides/analyzing-pypi-package-downloads.rst:34
 msgid "**Not particularly useful:** Just because a project has been downloaded a lot doesn't mean it's good; Similarly just because a project hasn't been downloaded a lot doesn't mean it's bad!"
 msgstr ""
+"**とりわけ利用価値があるというわけではない** プロジェクト(の配布物、訳註。)がたくさんダウンロードされたからといってそれだけで良いことだと決まったわ"
+"けではありませんし、あまりダウンロードされなかったとしてもそれだけで悪いことだと決めつけることもできません！"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:38
 msgid "In short, because it's value is low for various reasons, and the tradeoffs required to make it work are high, it has been not an effective use of limited resources."
 msgstr ""
+"まとめると、様々な理由からそれ(訳註、ダウンロード統計)の価値が低い上、動作させるために犠牲になるものが多いので、限られた資源の効率的な利用にはならないの"
+"です。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:43
 msgid "Public dataset"
-msgstr ""
+msgstr "公開データセット"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:45
 msgid "As an alternative, the `Linehaul project <https://github.com/pypa/linehaul>`__ streams download logs from PyPI to `Google BigQuery`_ [#]_, where they are stored as a public dataset."
 msgstr ""
+"別の方法としては、 `Linehaulプロジェクト <https://github.com/pypa/linehaul>`__ "
+"がダウンロードのログをPyPIから `Google BigQuery`_ [#]_ へ連続的に取り出して、公開のデータセットとして保管しています。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:50
 msgid "Getting set up"
-msgstr ""
+msgstr "セットアップのやり方"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:52
 msgid "In order to use `Google BigQuery`_ to query the `public PyPI download statistics dataset`_, you'll need a Google account and to enable the BigQuery API on a Google Cloud Platform project. You can run the up to 1TB of queries per month `using the BigQuery free tier without a credit card <https://cloud.google.com/blog/big-data/2017/01/how-to-run-a-terabyte-of-google-bigquery-queries-each-month-without-a-credit-card>`__"
 msgstr ""
+"`Google BigQuery`_ を使って `PyPIダウンロード統計の公開データセット <public PyPI download "
+"statistics dataset>`_ にクエリを行うためには、まずGoogleアカウントが必要で、Google Cloud Platform "
+"(GCP)でBigQuery APIを有効にしておく必要があります。`クレジットカード登録なしのBigQuery 無料枠 <https://cloud."
+"google.com/blog/big-data/2017/01/how-to-run-a-terabyte-of-google-bigquery-"
+"queries-each-month-without-a-credit-card>`__ を使うと一ヶ月当たり1TBまでのクエリを走らせることができます。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:58
 msgid "Navigate to the `BigQuery web UI`_."
-msgstr ""
+msgstr "`BigQuery web UI`_ の使い方。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:59
 msgid "Create a new project."
-msgstr ""
+msgstr "新しいプロジェクトを作成する。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:60
 msgid "Enable the `BigQuery API <https://console.developers.google.com/apis/library/bigquery-json.googleapis.com>`__."
 msgstr ""
+"`BigQuery API <https://console.developers.google.com/apis/library/bigquery-"
+"json.googleapis.com>`__ を有効にする。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:63
 msgid "For more detailed instructions on how to get started with BigQuery, check out the `BigQuery quickstart guide <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`__."
 msgstr ""
+"BigQueryの始め方についてさらに詳しい指南が欲しい場合は、`Cloud Console を使用したクイックスタート <https://cloud."
+"google.com/bigquery/docs/quickstarts/quickstart-web-ui>`__ を参照してください。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:69
 msgid "Data schema"
-msgstr ""
+msgstr "データ構造"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:71
 msgid "Linehaul writes an entry in a ``bigquery-public-data.pypi.file_downloads`` table for each download. The table contains information about what file was downloaded and how it was downloaded. Some useful columns from the `table schema <https://console.cloud.google.com/bigquery?pli=1&p=bigquery-public-data&d=pypi&t=file_downloads&page=table>`__ include:"
 msgstr ""
+"それぞれのダウンロードの情報を格納した ``bigquery-public-data.pypi.file_downloads``テーブルについての説明をL"
+"inehaulが書きました。このテーブルは、どのファイルがどのようにダウンロードされたかに関する情報を格納しています。`テーブル構造 "
+"<https://console.cloud.google.com/bigquery?pli=1&p=bigquery-public-"
+"data&d=pypi&t=file_downloads&page=table>`__ から役に立つカラムをいくつか挙げると："
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 msgid "Column"
-msgstr ""
+msgstr "カラム"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/guides/using-manifest-in.rst:67
 #: ../source/specifications/core-metadata.rst:185
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/specifications/direct-url.rst:226
 msgid "Examples"
-msgstr ""
+msgstr "例"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:80
 msgid "timestamp"
@@ -1243,7 +1262,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:80
 msgid "Date and time"
-msgstr ""
+msgstr "日付と時刻"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:80
 msgid "``2020-03-09 00:33:03 UTC``"
@@ -1255,7 +1274,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:82
 msgid "Project name"
-msgstr ""
+msgstr "プロジェクト名"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:82
 msgid "``pipenv``, ``nose``"
@@ -1267,7 +1286,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:84
 msgid "Package version"
-msgstr ""
+msgstr "パッケージのバージョン"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:84
 msgid "``0.1.6``, ``1.4.2``"
@@ -1279,7 +1298,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:86
 msgid "Installer"
-msgstr ""
+msgstr "インストーラ"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:86
 msgid "pip, `bandersnatch`_"
@@ -1291,7 +1310,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:88
 msgid "Python version"
-msgstr ""
+msgstr "Pythonのバージョン"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:88
 msgid "``2.7.12``, ``3.6.4``"
@@ -1299,7 +1318,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:93
 msgid "Useful queries"
-msgstr ""
+msgstr "役に立つクエリ"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:95
 msgid "Run queries in the `BigQuery web UI`_ by clicking the \"Compose query\" button."
