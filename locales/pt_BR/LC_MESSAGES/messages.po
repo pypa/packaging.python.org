@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 19:32+0800\n"
-"PO-Revision-Date: 2021-11-25 00:21+0000\n"
+"PO-Revision-Date: 2021-11-27 14:42+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
@@ -13904,7 +13904,7 @@ msgid ""
 "the format used."
 msgstr ""
 "A :pep:`621` especifica como escrever :ref:`metadados principais <core-"
-"metadata>`de um projeto em um arquivo ``pyproject.toml`` para ferramentas "
+"metadata>` de um projeto em um arquivo ``pyproject.toml`` para ferramentas "
 "relacionadas ao empacotamento consumirem. Ele define a seguinte "
 "especificação como a fonte canônica para o formato usado."
 
@@ -14375,16 +14375,22 @@ msgid ""
 "table, as they would be ambiguous in the face of ``[project.scripts]`` and "
 "``[project.gui-scripts]``, respectively."
 msgstr ""
+"Backends de construção DEVEM levantar um erro se os metadados definem uma "
+"tabela ``[project.entry-points.console_scripts]`` ou ``[project.entry-points."
+"gui_scripts]``, pois elas seriam ambíguas perante ``[project.scripts]`` e "
+"``[project.gui-scripts]``, respectivamente."
 
 #: ../source/specifications/declaring-project-metadata.rst:242
 msgid "``dependencies``/``optional-dependencies``"
-msgstr ""
+msgstr "``dependencies``/``optional-dependencies``"
 
 #: ../source/specifications/declaring-project-metadata.rst:244
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
 "values of arrays of :pep:`508` strings (``optional-dependencies``)"
 msgstr ""
+"Tipo TOML_: Vetor de strings da :pep:`508` (``dependencies``) e uma tabela "
+"com valores de vetores de strings da :pep:`508` (``optional-dependencies``)"
 
 #: ../source/specifications/declaring-project-metadata.rst:247
 msgid ""
@@ -14392,10 +14398,13 @@ msgid ""
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`"
 msgstr ""
+"Campo correspondente dos :ref:`metadados principais <core-metadata>`: :ref"
+":`Requires-Dist <core-metadata-requires-dist>` e :ref:`Provides-Extra <core-"
+"metadata-provides-extra>`"
 
 #: ../source/specifications/declaring-project-metadata.rst:251
 msgid "The (optional) dependencies of the project."
-msgstr ""
+msgstr "As dependências (opcionais) do projeto."
 
 #: ../source/specifications/declaring-project-metadata.rst:253
 msgid ""
@@ -14404,6 +14413,10 @@ msgid ""
 "valid :pep:`508` string. Each string maps directly to a :ref:`Requires-Dist "
 "<core-metadata-requires-dist>` entry."
 msgstr ""
+"Para ``dependencies``, é uma chave cujo valor é um array de strings. Cada "
+"string representa uma dependência do projeto e DEVE ser formatada como uma "
+"string válida :pep:`508`. Cada string mapeia diretamente para um :ref"
+":`Requires-Dist <core-metadata-requires-dist>`."
 
 #: ../source/specifications/declaring-project-metadata.rst:258
 msgid ""
@@ -14415,19 +14428,28 @@ msgid ""
 "dist>` entry for the matching :ref:`Provides-Extra <core-metadata-provides-"
 "extra>` metadata."
 msgstr ""
+"Para ``optional-dependencies``, é uma tabela onde cada chave especifica um "
+"extra e cujo valor é um vetor de strings. As strings dos vetores devem ser "
+"strings válidas da :pep:`508`. As chaves DEVEM ser valores válidos para :ref"
+":`Provides-Extra <core-metadata-provides-extra>`. Cada valor no vetor torna-"
+"se assim uma entrada correspondente de :ref:`Requer-Dist <core-metadata-"
+"requires-dist>` para os metadados correspondentes de :ref:`Provides-Extra "
+"<core-metadata-provides-extra>`."
 
 #: ../source/specifications/declaring-project-metadata.rst:269
 msgid "``dynamic``"
-msgstr ""
+msgstr "``dynamic``"
 
 #: ../source/specifications/declaring-project-metadata.rst:271
 msgid "TOML_ type: array of string"
-msgstr ""
+msgstr "Tipo TOML_: vetor de string"
 
 #: ../source/specifications/declaring-project-metadata.rst:272
 msgid ""
 "A corresponding :ref:`core metadata <core-metadata>` field does not exist"
 msgstr ""
+"Não há um campo correspondente dos :ref:`metadados principais <core-"
+"metadata>`"
 
 #: ../source/specifications/declaring-project-metadata.rst:275
 msgid ""
@@ -14436,18 +14458,28 @@ msgid ""
 "delineates which metadata is purposefully unspecified and expected to stay "
 "unspecified compared to being provided via tooling later on."
 msgstr ""
+"Especifica quais campos listados por esta PEP foram intencionalmente não "
+"especificados para que outra ferramenta possa/vai fornecer tais metadados "
+"dinamicamente. Isso delineia claramente quais metadados são propositalmente "
+"não especificados e espera-se que permaneçam não especificados em comparação "
+"a serem fornecidos por meio de ferramentas posteriormente."
 
 #: ../source/specifications/declaring-project-metadata.rst:281
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the field in ``dynamic``)."
 msgstr ""
+"Um backend de construção DEVE respeitar metadados especificados "
+"estaticamente (o que significa que os metadados não listam o campo em "
+"``dynamic``)."
 
 #: ../source/specifications/declaring-project-metadata.rst:283
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
 msgstr ""
+"Um backend de construção DEVE gerar um erro se os metadados especificarem "
+"``name`` em ``dynamic``."
 
 #: ../source/specifications/declaring-project-metadata.rst:285
 msgid ""
@@ -14457,6 +14489,11 @@ msgid ""
 "should not be possible for a required field to not be listed somehow in the "
 "``[project]`` table)."
 msgstr ""
+"Se a especificação de :ref: `metadados principais <core-metadata>` lista um "
+"campo como \"Required\", então os metadados DEVEM especificar o campo "
+"estaticamente ou listá-lo em ``dynamic`` (backends de construção DEVEM gerar "
+"um erro, caso contrário , ou seja, não deve ser possível que um campo "
+"obrigatório não seja listado de alguma forma na tabela ``[project]``)."
 
 #: ../source/specifications/declaring-project-metadata.rst:290
 msgid ""
@@ -14464,12 +14501,18 @@ msgid ""
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
 "a build back-end will provide the data for the field later."
 msgstr ""
+"Se a especificação de :ref:`metadados principais <core-metadata>` listar um "
+"campo como \"Optional\", os metadados PODEM listá-lo em ``dynamic`` se a "
+"expectativa for um backend de construção fornecerá os dados para o campo "
+"mais tarde."
 
 #: ../source/specifications/declaring-project-metadata.rst:294
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a field "
 "statically as well as being listed in ``dynamic``."
 msgstr ""
+"Os backends de construção DEVEM levantar um erro se os metadados "
+"especificarem um campo estaticamente, além de serem listados em `` dynamic``."
 
 #: ../source/specifications/declaring-project-metadata.rst:296
 msgid ""
@@ -14478,6 +14521,10 @@ msgid ""
 "``dynamic`` is the only way to allow a tool to fill in metadata and the user "
 "must opt into the filling in)."
 msgstr ""
+"Se os metadados não listam um campo em ``dynamic``, então um backend de "
+"construção NÃO PODE preencher os metadados necessários em nome do usuário ("
+"ou seja, ``dynamic`` é a única maneira de permitir que uma ferramenta "
+"preencha metadados e o usuário deve optar pelo preenchimento)."
 
 #: ../source/specifications/declaring-project-metadata.rst:300
 msgid ""
@@ -14485,26 +14532,34 @@ msgid ""
 "``dynamic`` but the build back-end was unable to determine the data for it "
 "(omitting the data, if determined to be the accurate value, is acceptable)."
 msgstr ""
+"Os backends de construção DEVEM levantar um erro se os metadados "
+"especificarem um campo em ``dynamic``, mas o backend de construção não foi "
+"capaz de determinar os dados para ele (omitir os dados, se determinado como "
+"o valor exato, é aceitável) ."
 
 #: ../source/specifications/dependency-specifiers.rst:6
 msgid "Dependency specifiers"
-msgstr ""
+msgstr "Especificadores de dependência"
 
 #: ../source/specifications/dependency-specifiers.rst:8
 msgid ""
 "The dependency specifier format used to declare a dependency on another "
 "component is defined in :pep:`508`."
 msgstr ""
+"O formato do especificador de dependência usado para declarar uma "
+"dependência de outro componente é definido na :pep:`508`."
 
 #: ../source/specifications/dependency-specifiers.rst:11
 msgid ""
 "The environment markers section in this PEP supersedes the environment "
 "markers section in :pep:`345`."
 msgstr ""
+"A seção de marcadores de ambiente nesta PEP substitui a seção de marcadores "
+"de ambiente na :pep:`345`."
 
 #: ../source/specifications/direct-url.rst:6
 msgid "Recording the Direct URL Origin of installed distributions"
-msgstr ""
+msgstr "Gravando a Origem da URL Direta de distribuições instaladas"
 
 #: ../source/specifications/direct-url.rst:8
 msgid ""
@@ -14513,10 +14568,14 @@ msgid ""
 "Origin of the distribution. The layout of this file was originally specified "
 "in :pep:`610` and is formally documented here."
 msgstr ""
+"Este documento especifica um arquivo :file:`direct_url.json` no diretório "
+":file:`*.dist-info` de uma distribuição instalada, para registrar a origem "
+"da URL direta da distribuição. O layout deste arquivo foi originalmente "
+"especificado na :pep:`610` e está formalmente documentado aqui."
 
 #: ../source/specifications/direct-url.rst:17
 msgid "Specification"
-msgstr ""
+msgstr "Especificação"
 
 #: ../source/specifications/direct-url.rst:19
 msgid ""
@@ -14524,6 +14583,10 @@ msgid ""
 "directory by installers when installing a distribution from a requirement "
 "specifying a direct URL reference (including a VCS URL)."
 msgstr ""
+"O arquivo :file:`direct_url.json` DEVE ser criado no diretório :file:`*.dist-"
+"info` pelos instaladores ao instalar uma distribuição a partir de um "
+"requisito especificando uma referência de URL direta (incluindo uma URL de "
+"VCS)."
 
 #: ../source/specifications/direct-url.rst:23
 #: ../source/specifications/recording-installed-packages.rst:206
@@ -14531,12 +14594,16 @@ msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
 msgstr ""
+"Este arquivo NÃO DEVE ser criado ao instalar uma distribuição de outro tipo "
+"de requisito (ou seja, nome mais especificador de versão)."
 
 #: ../source/specifications/direct-url.rst:26
 msgid ""
 "This JSON file MUST be a dictionary, compliant with `RFC 8259 <https://tools."
 "ietf.org/html/rfc8259>`_ and UTF-8 encoded."
 msgstr ""
+"Este arquivo JSON DEVE ser um dicionário compatível com `RFC 8259 "
+"<https://tools.ietf.org/html/rfc8259>`_ e codificado em UTF-8."
 
 #: ../source/specifications/direct-url.rst:29
 msgid ""
@@ -14548,18 +14615,29 @@ msgid ""
 "(possibly empty) subdictionary as value, with the possible keys defined "
 "below."
 msgstr ""
+"Se presente, DEVE conter pelo menos dois campos. O primeiro é ``url``, com "
+"tipo ``string``. Dependendo de qual ``url`` se refere, o segundo campo DEVE "
+"ser um de ``vcs_info`` (se ``url`` é uma referência de VCS), ``archive_info``"
+" (se ``url`` é um arquivo de código-fonte ou um wheel) ou ``dir_info`` (se "
+"``url`` é um diretório local). Estes campos informacionais têm um "
+"subdicionário (possivelmente vazio) como valor, com as chaves possíveis "
+"definidas abaixo."
 
 #: ../source/specifications/direct-url.rst:36
 msgid ""
 "``url`` MUST be stripped of any sensitive authentication information, for "
 "security reasons."
 msgstr ""
+"``url`` DEVE ser podado a fim de retirar qualquer informação de autenticação "
+"sensível, por razões de segurança."
 
 #: ../source/specifications/direct-url.rst:39
 msgid ""
 "The user:password section of the URL MAY however be composed of environment "
 "variables, matching the following regular expression::"
 msgstr ""
+"A seção usuário:senha da URL PODE, entretanto, ser composta de variáveis de "
+"ambiente, correspondendo à seguinte expressão regular::"
 
 #: ../source/specifications/direct-url.rst:45
 msgid ""
@@ -14567,12 +14645,17 @@ msgid ""
 "security sensitive string. A typical example is ``git`` in the case of an "
 "URL such as ``ssh://git@gitlab.com/user/repo``."
 msgstr ""
+"Além disso, a seção usuário:senha da URL PODE ser uma string bem conhecida e "
+"não sensível à segurança. Um exemplo típico é ``git`` no caso de uma URL "
+"como ``ssh://git@gitlab.com/user/repo``."
 
 #: ../source/specifications/direct-url.rst:49
 msgid ""
 "When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
 "present as a dictionary with the following keys:"
 msgstr ""
+"Quando a ``url`` faz referência a um repositório VCS, a chave ``vcs_info`` "
+"DEVE estar presente como um dicionário com as seguintes chaves:"
 
 #: ../source/specifications/direct-url.rst:52
 msgid ""
@@ -14582,6 +14665,11 @@ msgid ""
 "MUST be compatible with the corresponding VCS, so an installer can hand it "
 "off without transformation to a checkout/download command of the VCS."
 msgstr ""
+"Uma chave ``vcs`` (tipo ``string``) DEVE estar presente, contendo o nome do "
+"VCS (ou seja, um de ``git``, ``hg``, ``bzr``, ``svn``). Outros VCS DEVERIAM "
+"ser registrados escrevendo uma PEP para alterar esta especificação. O valor "
+"``url`` DEVE ser compatível com o VCS correspondente, para que um instalador "
+"possa entregá-lo sem transformação em um comando de checkout/download do VCS."
 
 #: ../source/specifications/direct-url.rst:58
 msgid ""
@@ -14589,6 +14677,9 @@ msgid ""
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) to "
 "install."
 msgstr ""
+"Uma chave ``required_revision`` (tipo ``string``) PODE estar presente "
+"nomeando um branch/tag/ref/commit/revisão/etc (em um formato compatível com "
+"o VCS) para instalar."
 
 #: ../source/specifications/direct-url.rst:61
 msgid ""
@@ -14598,12 +14689,19 @@ msgid ""
 "in order to reference the immutable version of the source code that was "
 "installed."
 msgstr ""
+"Uma chave ``commit_id`` (tipo ``string``) DEVE estar presente, contendo o "
+"número exato de commit/revisão que foi instalado. Se o VCS oferecer suporte "
+"a identificadores de revisão baseados em hash de commit, tal hash de commit "
+"DEVE ser usado como ``commit_id`` para referenciar a versão imutável do "
+"código-fonte que foi instalado."
 
 #: ../source/specifications/direct-url.rst:68
 msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following key:"
 msgstr ""
+"Quando ``url`` se refere a um arquivo fonte ou wheel, a chave "
+"``archive_info`` DEVE estar presente como um dicionário com a seguinte chave:"
 
 #: ../source/specifications/direct-url.rst:71
 msgid ""
@@ -14614,18 +14712,29 @@ msgid ""
 "that list consists of 'md5', 'sha1', 'sha224', 'sha256', 'sha384', and "
 "'sha512'."
 msgstr ""
+"Uma chave ``hash`` (tipo ``string``) DEVE estar presente, com o valor "
+"``<algoritmo-hash>=<hash-esperada>``. É RECOMENDADO que apenas hashes que "
+"são fornecidos incondicionalmente pela última versão do módulo ``hashlib`` "
+"da biblioteca padrão sejam usados para hashes de arquivo fonte. No momento "
+"da escrita, essa lista consistia em 'md5', 'sha1', 'sha224', 'sha256', "
+"'sha384' e 'sha512'."
 
 #: ../source/specifications/direct-url.rst:78
 msgid ""
 "When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
 "present as a dictionary with the following key:"
 msgstr ""
+"Quando ``url`` se refere a um diretório local, a chave ``dir_info`` DEVE "
+"estar presente como um dicionário com a seguinte chave:"
 
 #: ../source/specifications/direct-url.rst:81
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was installed "
 "in editable mode, ``false`` otherwise. If absent, default to ``false``."
 msgstr ""
+"``editable`` (tipo: ``boolean``): ``true`` se a distribuição foi instalada "
+"em modo editável, ``false`` caso contrário. Se ausente, é usado o padrão "
+"``false``."
 
 #: ../source/specifications/direct-url.rst:84
 msgid ""
@@ -14634,6 +14743,11 @@ msgid ""
 "particular, the path component must be absolute. Symbolic links SHOULD be "
 "preserved when making relative paths absolute."
 msgstr ""
+"Quando ``url`` se refere a um diretório local, ele DEVE ter o esquema `` "
+"file`` e ser compatível com `RFC 8089 <https://tools.ietf.org/html/rfc8089>`"
+"_. Em particular, o componente do caminho deve ser absoluto. Links "
+"simbólicos DEVERIAM ser preservados ao tornar os caminhos relativos "
+"absolutos."
 
 #: ../source/specifications/direct-url.rst:91
 msgid ""
@@ -14642,6 +14756,10 @@ msgid ""
 "attempt to infer any VCS information and therefore MUST NOT output any VCS "
 "related information (such as ``vcs_info``) in :file:`direct_url.json`."
 msgstr ""
+"Quando a URL solicitada tem o esquema file:// e aponta para um diretório "
+"local que contém um checkout VCS, os instaladores NÃO DEVEM tentar inferir "
+"nenhuma informação VCS e, portanto, NÃO DEVEM emitir nenhuma informação "
+"relacionada ao VCS (como ``vcs_info``) in :file:` direct_url.json`."
 
 #: ../source/specifications/direct-url.rst:96
 msgid ""
@@ -14649,6 +14767,10 @@ msgid ""
 "path, relative to the root of the VCS repository, source archive or local "
 "directory, to specify where ``pyproject.toml`` or ``setup.py`` is located."
 msgstr ""
+"Um campo ``subdirectory`` de nível superior PODE estar presente contendo um "
+"caminho de diretório, relativo à raiz do repositório VCS, arquivo fonte ou "
+"diretório local, para especificar onde ``pyproject.toml`` ou ``setup.py`` "
+"está localizado."
 
 #: ../source/specifications/direct-url.rst:102
 msgid ""
@@ -14659,10 +14781,16 @@ msgid ""
 "provided in the requested URL as faithfully as possible. This information is "
 "however *enriched* with more precise data, such as ``commit_id``."
 msgstr ""
+"Como regra geral, os instaladores devem, tanto quanto possível, preservar as "
+"informações fornecidas na URL solicitada ao gerar :file:`direct_url.json`. "
+"Por exemplo, as variáveis de ambiente usuário:senha devem ser preservadas e "
+"``required_revision`` deve refletir a revisão que foi fornecida na URL "
+"solicitada o mais fielmente possível. No entanto, essas informações são "
+"*enriquecidas* com dados mais precisos, como ``commit_id``."
 
 #: ../source/specifications/direct-url.rst:110
 msgid "Registered VCS"
-msgstr ""
+msgstr "VCS registrados"
 
 #: ../source/specifications/direct-url.rst:112
 msgid ""
@@ -14674,64 +14802,74 @@ msgid ""
 "name (lowercased). Additional fields that would be necessary to support such "
 "VCS SHOULD be prefixed with the VCS command name."
 msgstr ""
+"Esta seção lista os VCS registrados; expandidos, informações específicas do "
+"VCS sobre como usar ``vcs``, ``required_revision`` e outros campos de "
+"``vcs_info``; e, em alguns casos, campos adicionais específicos de VCS. As "
+"ferramentas PODEM oferecer suporte a outros VCS, embora seja RECOMENDADO "
+"registrá-las escrevendo uma PEP para alterar esta especificação. O campo "
+"``vcs`` DEVERIA ser o nome do comando (em letras minúsculas). Os campos "
+"adicionais que seriam necessários para oferecer suporte a esse VCS DEVERIAM "
+"ser prefixados com o nome do comando VCS."
 
 #: ../source/specifications/direct-url.rst:122
 msgid "Git"
-msgstr ""
+msgstr "Git"
 
 #: ../source/specifications/direct-url.rst:124
 #: ../source/specifications/direct-url.rst:156
 #: ../source/specifications/direct-url.rst:179
 #: ../source/specifications/direct-url.rst:202
 msgid "Home page"
-msgstr ""
+msgstr "Site"
 
 #: ../source/specifications/direct-url.rst:126
 msgid "https://git-scm.com/"
-msgstr ""
+msgstr "https://git-scm.com/"
 
 #: ../source/specifications/direct-url.rst:128
 #: ../source/specifications/direct-url.rst:160
 #: ../source/specifications/direct-url.rst:183
 #: ../source/specifications/direct-url.rst:206
 msgid "vcs command"
-msgstr ""
+msgstr "Comando vcs"
 
 #: ../source/specifications/direct-url.rst:130
 #: ../source/specifications/direct-url.rst:134
 msgid "git"
-msgstr ""
+msgstr "git"
 
 #: ../source/specifications/direct-url.rst:132
 #: ../source/specifications/direct-url.rst:164
 #: ../source/specifications/direct-url.rst:187
 #: ../source/specifications/direct-url.rst:210
 msgid "``vcs`` field"
-msgstr ""
+msgstr "Campo ``vcs``"
 
 #: ../source/specifications/direct-url.rst:136
 #: ../source/specifications/direct-url.rst:168
 #: ../source/specifications/direct-url.rst:191
 #: ../source/specifications/direct-url.rst:214
 msgid "``requested_revision`` field"
-msgstr ""
+msgstr "Campo ``requested_revision``"
 
 #: ../source/specifications/direct-url.rst:138
 msgid ""
 "A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
 "other commit-ish."
 msgstr ""
+"Um nome de tag, nome de branch, ref Git, hash de commit, hash de commit "
+"encurtado ou outra coisa relacionada a commit."
 
 #: ../source/specifications/direct-url.rst:141
 #: ../source/specifications/direct-url.rst:172
 #: ../source/specifications/direct-url.rst:195
 #: ../source/specifications/direct-url.rst:219
 msgid "``commit_id`` field"
-msgstr ""
+msgstr "Campo ``commit_id``"
 
 #: ../source/specifications/direct-url.rst:143
 msgid "A commit hash (40 hexadecimal characters sha1)."
-msgstr ""
+msgstr "Um hash de confirmação (40 caracteres hexadecimais sha1)."
 
 #: ../source/specifications/direct-url.rst:147
 msgid ""
@@ -14740,48 +14878,54 @@ msgid ""
 "ref beginning with ``refs/tags/`` corresponds to a tag, and a ref beginning "
 "with ``refs/remotes/origin/`` after cloning corresponds to a branch."
 msgstr ""
+"Os instaladores podem usar os comandos ``git show-ref`` e ``git symbolic-"
+"ref`` para determinar se o ``required_revision`` corresponde a um ref Git. "
+"Por sua vez, um ref começando com ``refs/tags/`` corresponde a uma tag, e um "
+"ref começando com ``refs/remotes/origin/`` após a clonagem corresponde a um "
+"branch."
 
 #: ../source/specifications/direct-url.rst:154
 msgid "Mercurial"
-msgstr ""
+msgstr "Mercurial"
 
 #: ../source/specifications/direct-url.rst:158
 msgid "https://www.mercurial-scm.org/"
-msgstr ""
+msgstr "https://www.mercurial-scm.org/"
 
 #: ../source/specifications/direct-url.rst:162
 #: ../source/specifications/direct-url.rst:166
 msgid "hg"
-msgstr ""
+msgstr "hg"
 
 #: ../source/specifications/direct-url.rst:170
 msgid "A tag name, branch name, changeset ID, shortened changeset ID."
 msgstr ""
+"Um nome de tag, nome de branch, ID de changeset, ID de changeset abreviado."
 
 #: ../source/specifications/direct-url.rst:174
 msgid "A changeset ID (40 hexadecimal characters)."
-msgstr ""
+msgstr "Um ID de changeset (40 caracteres hexadecimais)."
 
 #: ../source/specifications/direct-url.rst:177
 msgid "Bazaar"
-msgstr ""
+msgstr "Bazaar"
 
 #: ../source/specifications/direct-url.rst:181
 msgid "https://bazaar.canonical.com/"
-msgstr ""
+msgstr "https://bazaar.canonical.com/"
 
 #: ../source/specifications/direct-url.rst:185
 #: ../source/specifications/direct-url.rst:189
 msgid "bzr"
-msgstr ""
+msgstr "bzr"
 
 #: ../source/specifications/direct-url.rst:193
 msgid "A tag name, branch name, revision id."
-msgstr ""
+msgstr "Um nome de tag, nome de branch, id de revisão."
 
 #: ../source/specifications/direct-url.rst:197
 msgid "A revision id."
-msgstr ""
+msgstr "Um id de revisão."
 
 #: ../source/specifications/direct-url.rst:200
 msgid "Subversion"
@@ -14794,69 +14938,76 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:208
 #: ../source/specifications/direct-url.rst:212
 msgid "svn"
-msgstr ""
+msgstr "svn"
 
 #: ../source/specifications/direct-url.rst:216
 msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
 msgstr ""
+"``requested_revision`` deve ser compatível com a opção ``--revision`` do ``"
+"svn checkout``. No Subversion, branch ou tag é parte de ``url``."
 
 #: ../source/specifications/direct-url.rst:221
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
 msgstr ""
+"Visto que o Subversion não oferece suporte a identificadores globalmente "
+"únicos, este campo é o número da revisão do Subversion no repositório "
+"correspondente."
 
 #: ../source/specifications/direct-url.rst:229
 msgid "Example direct_url.json"
-msgstr ""
+msgstr "Exemplo de direct_url.json"
 
 #: ../source/specifications/direct-url.rst:231
 msgid "Source archive:"
-msgstr ""
+msgstr "Arquivo fonte:"
 
 #: ../source/specifications/direct-url.rst:242
 msgid "Git URL with tag and commit-hash:"
-msgstr ""
+msgstr "URL Git com tag e hash de commit:"
 
 #: ../source/specifications/direct-url.rst:255
 msgid "Local directory:"
-msgstr ""
+msgstr "Diretório local:"
 
 #: ../source/specifications/direct-url.rst:264
 msgid "Local directory installed in editable mode:"
-msgstr ""
+msgstr "Diretório local instalado em modo editável:"
 
 #: ../source/specifications/direct-url.rst:277
 msgid "Example pip commands and their effect on direct_url.json"
-msgstr ""
+msgstr "Exemplo de comandos pip e seus efeitos em direct_url.json"
 
 #: ../source/specifications/direct-url.rst:279
 msgid "Commands that generate a ``direct_url.json``:"
-msgstr ""
+msgstr "Comandos que geram um ``direct_url.json``:"
 
 #: ../source/specifications/direct-url.rst:281
 msgid "pip install https://example.com/app-1.0.tgz"
-msgstr ""
+msgstr "pip install https://example.com/app-1.0.tgz"
 
 #: ../source/specifications/direct-url.rst:282
 msgid "pip install https://example.com/app-1.0.whl"
-msgstr ""
+msgstr "pip install https://example.com/app-1.0.whl"
 
 #: ../source/specifications/direct-url.rst:283
 msgid ""
 "pip install \"git+https://example.com/repo/app.git#egg=app&subdirectory=setup"
 "\""
 msgstr ""
+"pip install \"git+https://example.com/repo/app.git#egg=app&subdirectory="
+"setup\""
 
 #: ../source/specifications/direct-url.rst:284
 msgid "pip install ./app"
-msgstr ""
+msgstr "pip install ./app"
 
 #: ../source/specifications/direct-url.rst:285
 msgid "pip install file:///home/user/app"
-msgstr ""
+msgstr "pip install file:///home/user/app"
 
 #: ../source/specifications/direct-url.rst:286
 msgid ""
@@ -14865,32 +15016,39 @@ msgid ""
 "directory where the git repository has been cloned to, and ``dir_info`` will "
 "be present with ``\"editable\": true`` and no ``vcs_info`` will be set)"
 msgstr ""
+"pip install --editable \"git+https://example.com/repo/app."
+"git#egg=app&subdirectory=setup\" (caso em que, ``url`` será o diretório "
+"local para o qual o repositório git foi clonado e ``dir_info`` estará "
+"presente com ``\"editable\": true`` e nenhum ``vcs_info`` será definido)"
 
 #: ../source/specifications/direct-url.rst:290
 msgid "pip install -e ./app"
-msgstr ""
+msgstr "pip install -e ./app"
 
 #: ../source/specifications/direct-url.rst:292
 msgid "Commands that *do not* generate a ``direct_url.json``"
-msgstr ""
+msgstr "Comandos que *não* geram um ``direct_url.json``"
 
 #: ../source/specifications/direct-url.rst:294
 msgid "pip install app"
-msgstr ""
+msgstr "pip install app"
 
 #: ../source/specifications/direct-url.rst:295
 msgid "pip install app --no-index --find-links https://example.com/"
-msgstr ""
+msgstr "pip install app --no-index --find-links https://example.com/"
 
 #: ../source/specifications/entry-points.rst:5
 msgid "Entry points specification"
-msgstr ""
+msgstr "Especificação de pontos de entrada"
 
 #: ../source/specifications/entry-points.rst:7
 msgid ""
 "*Entry points* are a mechanism for an installed distribution to advertise "
 "components it provides to be discovered and used by other code. For example:"
 msgstr ""
+"*Pontos de entrada* são um mecanismo para uma distribuição instalada "
+"anunciar componentes que ela fornece para serem descobertos e usados por "
+"outro código. Por exemplo:"
 
 #: ../source/specifications/entry-points.rst:11
 msgid ""
@@ -14899,6 +15057,10 @@ msgid ""
 "installs the distribution, it will create a command-line wrapper for each "
 "entry point."
 msgstr ""
+"As distribuições podem especificar pontos de entrada ``console_scripts``, "
+"cada um referindo-se a uma função. Quando *pip* (ou outro instalador "
+"compatível com console_scripts) instala a distribuição, ele cria um wrapper "
+"de linha de comando para cada ponto de entrada."
 
 #: ../source/specifications/entry-points.rst:14
 msgid ""
@@ -14907,6 +15069,10 @@ msgid ""
 "installed packages. For more about this, see :doc:`/guides/creating-and-"
 "discovering-plugins`."
 msgstr ""
+"As aplicações podem usar pontos de entrada para carregar plug-ins; por "
+"exemplo, Pygments (uma ferramenta de realce de sintaxe) pode usar lexers e "
+"estilos adicionais de pacotes instalados separadamente. Para mais "
+"informações, consulte :doc:`/guides/creating-and-discovering-plugins`."
 
 #: ../source/specifications/entry-points.rst:19
 msgid ""
@@ -14919,14 +15085,26 @@ msgid ""
 "portably read published entry point metadata (potentially with different "
 "caching and conflict resolution strategies)."
 msgstr ""
+"O formato de arquivo de ponto de entrada foi originalmente desenvolvido para "
+"permitir que pacotes construídos com setuptools forneçam metadados de ponto "
+"de integração que seriam lidos em tempo de execução com ``importlib."
+"metadata``. Ele agora é definido como uma especificação de "
+"interoperabilidade PyPA a fim de permitir que outras ferramentas de "
+"construção além do setuptools publiquem metadados de ponto de entrada "
+"compatíveis com ``importlib.metadata`` e bibliotecas de tempo de execução "
+"diferentes de ``importlib.metadata`` para ler portavelmente publicado "
+"metadados de ponto de entrada (potencialmente com diferentes estratégias de "
+"cache e resolução de conflitos)."
 
 #: ../source/specifications/entry-points.rst:28
 msgid "Data model"
-msgstr ""
+msgstr "Modelo de dados"
 
 #: ../source/specifications/entry-points.rst:30
 msgid "Conceptually, an entry point is defined by three required properties:"
 msgstr ""
+"Conceitualmente, um ponto de entrada é definido por três propriedades "
+"necessárias:"
 
 #: ../source/specifications/entry-points.rst:32
 msgid ""
@@ -14940,6 +15118,15 @@ msgid ""
 "of letters, numbers and underscores, separated by dots (regex ``^\\w+(\\.\\w"
 "+)*$``)."
 msgstr ""
+"O **grupo** ao qual um ponto de entrada pertence indica que tipo de objeto "
+"ele fornece. Por exemplo, o grupo ``console_scripts`` é para pontos de "
+"entrada referentes a funções que podem ser usadas como um comando, enquanto "
+"``pygments.styles`` é o grupo para classes que definem estilos de pigmentos. "
+"O consumidor normalmente define a interface esperada. Para evitar conflitos, "
+"os consumidores que definem um novo grupo devem usar nomes começando com um "
+"nome PyPI pertencente ao projeto do consumidor, seguido por ``.``. Os nomes "
+"dos grupos devem ser um ou mais grupos de letras, números e sublinhados, "
+"separados por pontos (regex ``^\\w+(\\.\\w+)*$``)."
 
 #: ../source/specifications/entry-points.rst:42
 msgid ""
@@ -14953,6 +15140,15 @@ msgid ""
 "is recommended to use only letters, numbers, underscores, dots and dashes "
 "(regex ``[\\w.-]+``)."
 msgstr ""
+"O **nome** identifica este ponto de entrada em seu grupo. O significado "
+"preciso disso depende do cliente. Para scripts de console, o nome do ponto "
+"de entrada é o comando que será usado para iniciá-lo. Em uma distribuição, "
+"os nomes dos pontos de entrada devem ser exclusivos. Se distribuições "
+"diferentes fornecerem o mesmo nome, o consumidor decide como lidar com tais "
+"conflitos. O nome pode conter quaisquer caracteres, exceto ``=``, mas não "
+"pode começar ou terminar com nenhum caractere de espaço em branco, ou "
+"começar com ``[``. Para novos pontos de entrada, é recomendado usar apenas "
+"letras, números, sublinhados, pontos e travessões (regex ``[\\w.-]+``)."
 
 #: ../source/specifications/entry-points.rst:51
 msgid ""
