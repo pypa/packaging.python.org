@@ -71,5 +71,6 @@ jobs:
        - name: >-
            Push the updated POT file back to '${{ env.I18N_BRANCH }}'
            branch on GitHub
+         if: always()
          run: |
            git push --atomic origin 'HEAD:${{ env.I18N_BRANCH }}'
