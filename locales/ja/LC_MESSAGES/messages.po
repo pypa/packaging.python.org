@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 19:32+0800\n"
-"PO-Revision-Date: 2021-11-27 18:18+0000\n"
+"PO-Revision-Date: 2021-12-02 22:12+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -1519,196 +1519,275 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:273
 msgid "Install `pypinfo`_ using pip."
-msgstr ""
+msgstr "pipを用いて `pypinfo`_ をインストール。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:279
 msgid "Usage:"
-msgstr ""
+msgstr "使い方："
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:295
 msgid "``pandas-gbq``"
-msgstr ""
+msgstr "``pandas-gbq``"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:297
 msgid "The `pandas-gbq`_ project allows for accessing query results via `Pandas`_."
-msgstr ""
+msgstr "`pandas-bbq`_ プロジェクトを使えば `Pandas`_ 経由でクエリ結果を参照することができます。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:301
 #: ../source/specifications/binary-distribution-format.rst:459
 msgid "References"
-msgstr ""
+msgstr "参考文献"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:303
 msgid "`PyPI Download Counts deprecation email <https://mail.python.org/pipermail/distutils-sig/2013-May/020855.html>`__"
 msgstr ""
+"`PyPI ダウンロード統計を非推奨とするメール (PyPI Download Counts deprecation email) "
+"<https://mail.python.org/pipermail/distutils-sig/2013-May/020855.html>`__"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:304
 msgid "`PyPI BigQuery dataset announcement email <https://mail.python.org/pipermail/distutils-sig/2016-May/028986.html>`__"
 msgstr ""
+"`PyPI BigQueryデータセットをアナウンスするメール (PyPI BigQuery dataset announcement email) "
+"<https://mail.python.org/pipermail/distutils-sig/2016-May/028986.html>`__"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:3
 msgid "Creating and discovering plugins"
-msgstr ""
+msgstr "プラグイン作成と発見"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:5
 msgid "Often when creating a Python application or library you'll want the ability to provide customizations or extra features via **plugins**. Because Python packages can be separately distributed, your application or library may want to automatically **discover** all of the plugins available."
 msgstr ""
+"Pythonのアプリケーションまたはライブラリを作成する時には、カスタマイズができるようにしたり **プラグイン** "
+"を通じて機能を追加できるようにしたりすることがしばしばあります。Pythonのパッケージは別々に配布できますので、"
+"あなたのアプリケーションまたはライブラリが利用可能なすべてのプラグインを自動的に **探し出す** ようにしたくなるかもしれません。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:10
 msgid "There are three major approaches to doing automatic plugin discovery:"
-msgstr ""
+msgstr "プラグインの自動検出には大きく分けて３個の実現方法があります。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:12
 msgid "`Using naming convention`_."
-msgstr ""
+msgstr "`命名規則を用いるやり方 <Using naming convention>`_ 。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:13
 msgid "`Using namespace packages`_."
-msgstr ""
+msgstr "`namespaceパッケージを用いるやり方 <Using namespace packages>`_ 。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:14
 msgid "`Using package metadata`_."
-msgstr ""
+msgstr "`パッケージのメタデータを用いるやり方 <Using package metadata>`_ 。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:18
 msgid "Using naming convention"
-msgstr ""
+msgstr "命名規則を用いるやり方"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:20
 msgid "If all of the plugins for your application follow the same naming convention, you can use :func:`pkgutil.iter_modules` to discover all of the top-level modules that match the naming convention. For example, `Flask`_ uses the naming convention ``flask_{plugin_name}``. If you wanted to automatically discover all of the Flask plugins installed:"
 msgstr ""
+"あなたのアプリケーション用のすべてのプラグインが命名規則に従うのであれば、 :func:`pkgutil.iter_modules` "
+"を用いて命名規則に合致するトップレベルのすべてのモジュールを発見することができます。例えば、 `Flask`_ は命名規則として "
+"``flask_{plugin_name}`` を使います。もし、すべてのインストール済みFlask用プラグインを発見したいのであれば："
 
 #: ../source/guides/creating-and-discovering-plugins.rst:38
 msgid "If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins installed then ``discovered_plugins`` would be:"
 msgstr ""
+"もしあなたが `Flask-SQLAlchemy`_ と `Flask-Talisman`_ のふたつのプラグインをインストールしてあるなら、 "
+"``discovered_plugins`` は次のようになるでしょう："
 
 #: ../source/guides/creating-and-discovering-plugins.rst:48
 msgid "Using naming convention for plugins also allows you to query the Python Package Index's `simple API`_ for all packages that conform to your naming convention."
 msgstr ""
+"プラグインの命名規則を用いることで、あなたの命名規則に従うすべてのパッケージについてPython パッケージインデックスの `simple API`_ "
+"から検索することもできるようになります。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:59
 msgid "Using namespace packages"
-msgstr ""
+msgstr "namespaceパッケージを用いるやり方"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:61
 msgid ":doc:`Namespace packages <packaging-namespace-packages>` can be used to provide a convention for where to place plugins and also provides a way to perform discovery. For example, if you make the sub-package ``myapp.plugins`` a namespace package then other :term:`distributions <Distribution Package>` can provide modules and packages to that namespace. Once installed, you can use :func:`pkgutil.iter_modules` to discover all modules and packages installed under that namespace:"
 msgstr ""
+":doc:`Namespace パッケージ <packaging-namespace-packages>` "
+"を使えば、プラグインをどこに配置するかに関する規則や、発見するための方法も提供できます。例えば、あなたが名前空間を決めるサブパッケージ ``myapp."
+"plugins`` を作成したら、その名前空間に他の :term:`配布物 <Distribution Package>` "
+"がモジュールやパッケージを配置することができます。インストールが終われば、あなたは :func:`pkgutil.iter_modules` "
+"を用いてインストール済みの全てのモジュールやパッケージをその名前空間で発見できるでしょう。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:89
 msgid "Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` causes it to only look for the modules directly under that namespace. For example, if you have installed distributions that provide the modules ``myapp.plugins.a`` and ``myapp.plugins.b`` then ``discovered_plugins`` in this case would be:"
 msgstr ""
+":func:`~pkgutil.iter_modules` に ``myapp.plugins.__path__`` "
+"を指定すると、その名前空間の直下にあるモジュールだけを探索するようになります。例えば、あなたがモジュールの ``myapp.plugins.a`` と "
+"``myapp.plugins.b`` を提供する配布物をインストールしているとしたら、 ``discovered_plugins`` "
+"は次のようになるでしょう："
 
 #: ../source/guides/creating-and-discovering-plugins.rst:101
 msgid "This sample uses a sub-package as the namespace package (``myapp.plugins``), but it's also possible to use a top-level package for this purpose (such as ``myapp_plugins``). How to pick the namespace to use is a matter of preference, but it's not recommended to make your project's main top-level package (``myapp`` in this case) a namespace package for the purpose of plugins, as one bad plugin could cause the entire namespace to break which would in turn make your project unimportable. For the \"namespace sub-package\" approach to work, the plugin packages must omit the :file:`__init__.py` for your top-level package directory (``myapp`` in this case) and include the namespace-package style :file:`__init__.py` in the namespace sub-package directory (``myapp/plugins``).  This also means that plugins will need to explicitly pass a list of packages to :func:`setup`'s ``packages`` argument instead of using :func:`setuptools.find_packages`."
 msgstr ""
+"この例ではサブパッケージを名前空間を決めるパッケージ(``myapp.plugins``)として使っていますが、トップレベルのパッケージをこの(``mya"
+"pp_plugins``のような)目的に用いることも可能です。名前空間をどのようにして決めるかは好みの問題ですが、あなたのプロジェクトのトップレベルのパッ"
+"ケージ(この場合では``myapp``)をプラグインの名前空間を決めるために用いると、全体の名前空間を破壊するようなプラグインがひとつあるだけで、あなたの"
+"プロジェクトをインポートすることができなくなるのでお勧めしません。「名前空間を決めるサブパッケージ」の手法がうまく動作するためには、プラグインパッケージ側"
+"のトップレベルパッケージのディレクトリ(この場合には``myapp``)に :file:`__init__.py` "
+"が存在してはいけませんし、名前空間を決めるサブパッケージのディレクトリ(``myapp/plugins``)にある :file:`__init__."
+"py`をプラグインパッケージ側でインクルードしなければなりません。これはまた、 プラグインの側で:func:`setuptools."
+"find_packages` を使うのではなく、パッケージの名前を :func:`setup`の ``packages`` "
+"引数に明示的に渡す必要がある、ということを意味しています。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:115
 msgid "Namespace packages are a complex feature and there are several different ways to create them. It's highly recommended to read the :doc:`packaging-namespace-packages` documentation and clearly document which approach is preferred for plugins to your project."
 msgstr ""
+"名前空間を決めるパッケージは込み入った機能で、いくつかの異なる作成方法があります。 :doc:`packaging-namespace-packages`"
+" 文書を読むとともに、あなたのプロジェクト用のプラグインとしてはどちらの手法が好ましいのかを明白に文書化しておくことを強くお勧めします。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:121
 msgid "Using package metadata"
-msgstr ""
+msgstr "パッケージのメタデータを用いるやり方"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:123
 msgid "`Setuptools`_ provides :doc:`special support <setuptools:userguide/entry_point>` for plugins. By providing the ``entry_points`` argument to :func:`setup` in :file:`setup.py` plugins can register themselves for discovery."
 msgstr ""
+"`Setuptools`_ はプラグイン向けに :doc:`特別なサポート <setuptools:userguide/entry_point>` "
+"を提供しています。 :file:`setup.py` の中の :func:`setup`の ``entry_points`` "
+"引数を準備することで、プラグインが検出されるように登録することができます。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:128
 msgid "For example if you have a package named ``myapp-plugin-a`` and it includes in its :file:`setup.py`:"
 msgstr ""
+"例えば、``myapp-plugin-a`` という名前のパッケージが存在して、その :file:`setup.py` をインクルードする場合："
 
 #: ../source/guides/creating-and-discovering-plugins.rst:139
 msgid "Then you can discover and load all of the registered entry points by using :func:`importlib.metadata.entry_points` (or the `backport`_ ``importlib_metadata >= 3.6`` for Python 3.6-3.9):"
 msgstr ""
+"そして、 :func:`import lib.metadata.entry_points` (あるいはPython 3.6-3.9用の "
+"`backport`_ ``import lib_metadata>=3.6``)を使うことで、登録されたエントリポイントを全て検出することができます。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:154
 msgid "In this example, ``discovered_plugins`` would be a collection of type :class:`importlib.metadata.EntryPoint`:"
 msgstr ""
+"この例では、 ``discovered_plugins`` は :class:`import lib.metadata.EntryPoint` "
+"型の(オブジェクトの)集合となるでしょう。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:163
 msgid "Now the module of your choice can be imported by executing ``discovered_plugins['a'].load()``."
 msgstr ""
+"今や、``discovered_plugins['a'].load()`` を実行することで、あなたが選んだモジュールをインポートすることができます。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:166
 msgid "The ``entry_point`` specification in :file:`setup.py` is fairly flexible and has a lot of options. It's recommended to read over the entire section on :doc:`entry points <setuptools:userguide/entry_point>` ."
 msgstr ""
+":file:`setup.py` における ``entry_points`` の指定はかなり自由度が高く、オプションがたくさんあります。 :doc:`"
+"entry_point <setuptools:userguide/entry_point>` の全部のセクションに目を通すことをお勧めします。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:170
 msgid "Since this specification is part of the :doc:`standard library <python:library/importlib.metadata>`, most packaging tools other than setuptools provide support for defining entry points."
 msgstr ""
+"この仕様は :doc:`標準ライブラリ <python:library/importlib.metadata>` "
+"の一部なので、setuptools以外のほとんどのパッケージングツールでもエントリポイントを定義できる機能を提供しています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:5
 msgid "Packaging and distributing projects"
-msgstr ""
+msgstr "パッケージングとプロジェクトの配布"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:7
 msgid "This section covers the basics of how to configure, package and distribute your own Python projects.  It assumes that you are already familiar with the contents of the :doc:`/tutorials/installing-packages` page."
 msgstr ""
+"この節では、あなた自身のPythonパッケージを設定し、パッケージにまとめ、そして配布する方法の基本について説明します。あなたが既に :doc:`/"
+"tutorials/installing-packages` "
+"ページの内容については慣れ親しんでいるものと仮定して進めます(訳者による蛇足、まだの方は読んできてね)。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:11
 msgid "The section does *not* aim to cover best practices for Python project development as a whole.  For example, it does not provide guidance or tool recommendations for version control, documentation, or testing."
 msgstr ""
+"この節は、Pythonプロジェクトの開発についての全体的なベストプラクティスを説明しているわけではありません。例えば、バージョン管理や文書化、あるいは試験"
+"について、手引きとなったりツールを推奨するようなことはありません。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:15
 msgid "For more reference material, see :std:doc:`Building and Distributing Packages <userguide/index>` in the :ref:`setuptools` docs, but note that some advisory content there may be outdated. In the event of conflicts, prefer the advice in the Python Packaging User Guide."
 msgstr ""
+"より詳しい参考文献としては、:ref:`setuptools` の説明文書の中の :std:doc:`パッケージのビルドと配布 <userguide/"
+"index>` を挙げておきますが、推奨事項のいくつかはもはや古くなっているかもしれません。喰い違いがあった場合には、Python "
+"パッケージングユーザガイドの推奨事項を優先してください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:25
 msgid "Requirements for packaging and distributing"
-msgstr ""
+msgstr "パッケージングと配布に対する要求事項"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:26
 msgid "First, make sure you have already fulfilled the :ref:`requirements for installing packages <installing_requirements>`."
 msgstr ""
+"最初に、あなたが既に :ref:`パッケージをインストールする際の要求事項 <installing_requirements>` "
+"を満たしていることを確実にしてください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:29
 msgid "Install \"twine\" [1]_:"
-msgstr ""
+msgstr "\"twine\"をインストールする [1]_:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:43
 msgid "You'll need this to upload your project :term:`distributions <Distribution Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below <Uploading your Project to PyPI>`)."
 msgstr ""
+"あなたのプロジェクトの :term:`配布物 <Distribution Package>` を :term:`PyPI <Python Package "
+"Index (PyPI)>` にアップロードする( :ref:`後述 <Uploading your Project to PyPI>` "
+")ためにこれが必要になるでしょう。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:49
 msgid "Configuring your project"
-msgstr ""
+msgstr "あなたのプロジェクトを設定する"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:53
 msgid "Initial files"
-msgstr ""
+msgstr "最初に必要なファイル群"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:58
 msgid "The most important file is :file:`setup.py` which exists at the root of your project directory. For an example, see the `setup.py <https://github.com/pypa/sampleproject/blob/master/setup.py>`_ in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"最重要のファイルは、あなたのプロジェクトのディレクトリの一番上(ルート)にある :file:`setup.py` です。`PyPA サンプルプロジェクト "
+"<https://github.com/pypa/sampleproject>`_ の `setup.py <https://github.com/"
+"pypa/sampleproject/blob/master/setup.py>`_ に具体例があります。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:63
 msgid ":file:`setup.py` serves two primary functions:"
-msgstr ""
+msgstr ":file:`setup.py` はふたつの主要な機能を提供します。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:65
 msgid "It's the file where various aspects of your project are configured. The primary feature of :file:`setup.py` is that it contains a global ``setup()`` function.  The keyword arguments to this function are how specific details of your project are defined.  The most relevant arguments are explained in :ref:`the section below <setup() args>`."
 msgstr ""
+"まず、あなたのプロジェクトをさまざまな角度から設定するためのファイルです。 :file:`setup.py` の主要な機能は、グローバルな "
+"``setup()`` 関数を含んでいることです。この関数にキーワード引数を渡すことで、あなたのプロジェクトの特定の細部を定義することができます。"
+"適切な引数のほとんどについて :ref:`次節 <setup() args>` で説明します。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:71
 msgid "It's the command line interface for running various commands that relate to packaging tasks. To get a listing of available commands, run ``python setup.py --help-commands``."
 msgstr ""
+"それは、パッケージングする上での作業項目に関連したさまざまなコマンドを走らせるためのコマンドラインインタフェイスです。使用可能なコマンドを一覧するには、 "
+"``python setup.py --help-commands`` を実行してください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:79
 msgid ":file:`setup.cfg` is an ini file that contains option defaults for :file:`setup.py` commands.  For an example, see the `setup.cfg <https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_ in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+":file:`setup.cfg` は :file:`setup.py` のコマンド群に対するオプションの既定値を含みます。 `PyPA "
+"サンプルプロジェクト <https://github.com/pypa/sampleproject>`_ の中の `setup.cfg "
+"<https://github.com/pypa/sampleproject/blob/master/setup.cfg>`_ に使用例が出ています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:86
 msgid "README.rst / README.md"
-msgstr ""
+msgstr "README.rstとREADME.md"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:88
 msgid "All projects should contain a readme file that covers the goal of the project. The most common format is `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ with an \"rst\" extension, although this is not a requirement; multiple variants of `Markdown <https://daringfireball.net/projects/markdown/>`_ are supported as well (look at ``setup()``'s :ref:`long_description_content_type <description>` argument)."
 msgstr ""
+"すべてのプロジェクトは、プロジェクトのゴールを記したreadmeファイルを備えるべきです。一番良くあるフォーマットは拡張子が \"rst\" の `"
+"reStructuredText <http://docutils.sourceforge.net/rst.html>`_ "
+"ですが、これは(訳註、必須の)要求事項というわけではありません。他にも複数の種類の `マークダウン <https://daringfireball."
+"net/projects/markdown/>`_ フォーマットがサポートされています(``setup()`` の :ref:`"
+"long_description_content_type <description>` 引数を見てください)。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:95
 msgid "For an example, see `README.md <https://github.com/pypa/sampleproject/blob/master/README.md>`_ from the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"`PyPA sample project <https://github.com/pypa/sampleproject>`_ の中の `"
+"README.md <https://github.com/pypa/sampleproject/blob/master/README.md>`_ "
+"に例が出ています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:99
 msgid "Projects using :ref:`setuptools` 0.6.27+ have standard readme files (:file:`README.rst`, :file:`README.txt`, or :file:`README`) included in source distributions by default. The built-in :ref:`distutils` library adopts this behavior beginning in Python 3.7. Additionally, :ref:`setuptools` 36.4.0+ will include a :file:`README.md` if found. If you are using setuptools, you don't need to list your readme file in :file:`MANIFEST.in`. Otherwise, include it to be explicit."
@@ -1732,7 +1811,7 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:122
 msgid "LICENSE.txt"
-msgstr ""
+msgstr "LICENSE.txt"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:124
 msgid "Every package should include a license file detailing the terms of distribution. In many jurisdictions, packages without an explicit license can not be legally used or distributed by anyone other than the copyright holder. If you're unsure which license to choose, you can use resources such as `GitHub's Choose a License <https://choosealicense.com/>`_ or consult a lawyer."
