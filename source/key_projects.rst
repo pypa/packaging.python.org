@@ -136,7 +136,7 @@ command-line interface (CLI).
 Pipenv
 ======
 
-`Docs <https://web.archive.org/web/https://pipenv.pypa.io/en/latest/>`__ |
+:doc:`Docs <pipenv:index>` |
 `Source <https://github.com/pypa/pipenv>`__ |
 `Issues <https://github.com/pypa/pipenv/issues>`__ |
 `PyPI <https://pypi.org/project/pipenv>`__
