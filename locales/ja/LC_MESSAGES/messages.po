@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-06 19:32+0800\n"
-"PO-Revision-Date: 2021-12-04 07:51+0000\n"
+"PO-Revision-Date: 2021-12-05 05:06+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -1829,34 +1829,51 @@ msgstr "LICENSE.txt"
 #: ../source/guides/distributing-packages-using-setuptools.rst:124
 msgid "Every package should include a license file detailing the terms of distribution. In many jurisdictions, packages without an explicit license can not be legally used or distributed by anyone other than the copyright holder. If you're unsure which license to choose, you can use resources such as `GitHub's Choose a License <https://choosealicense.com/>`_ or consult a lawyer."
 msgstr ""
+"各パッケージは、配布の条件を指定するライセンスファイルを含んでいるべきです。多くの司法管轄区域(訳註、大雑把にいうと「多くの国」)では、明示的なライセンス"
+"条項がないと、著作権保持者でなければ誰にもパッケージを使用したり配布したりすることができません。どのライセンスを選択すればよいか分からない場合には、`Gi"
+"tHubの「オープンソースライセンスを選ぶには」 <https://choosealicense.com/>`_ "
+"などのリソースを見ることも、弁護士に相談することもできます。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:130
 msgid "For an example, see the `LICENSE.txt <https://github.com/pypa/sampleproject/blob/master/LICENSE.txt>`_ from the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"`PyPA サンプルプロジェクト <https://github.com/pypa/sampleproject>`_ の `LICENSE.txt "
+"<https://github.com/pypa/sampleproject/blob/master/LICENSE.txt>`_ "
+"を見れば、例が出ています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:135
 msgid "<your package>"
-msgstr ""
+msgstr "<あなたのパッケージ>"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:137
 msgid "Although it's not required, the most common practice is to include your Python modules and packages under a single top-level package that has the same :ref:`name <setup() name>` as your project, or something very close."
 msgstr ""
+"必ずそうしなければならないというわけではありませんが、あなたのプロジェクトと同じか非常に近い :ref:`名前 <setup() name>` "
+"の単一のプロジェクトをPythonのモジュールやパッケージのトップレベルに配置するということが共通の慣習になっています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:141
 msgid "For an example, see the `sample <https://github.com/pypa/sampleproject/tree/master/src/sample>`_ package that's included in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"`PyPA サンプルプロジェクト <https://github.com/pypa/sampleproject>`_ の中の `サンプル "
+"<https://github.com/pypa/sampleproject/tree/master/src/sample>`_ "
+"パッケージに例が出ています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:149
 msgid "setup() args"
-msgstr ""
+msgstr "setup() の引数"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:151
 msgid "As mentioned above, the primary feature of :file:`setup.py` is that it contains a global ``setup()`` function.  The keyword arguments to this function are how specific details of your project are defined."
 msgstr ""
+"上述の通り、:file:`setup.py` の第一の機能は、グローバルスコープの ``setup()`` "
+"関数を含むことです。この関数に与えるキーワード引数は、あなたのプロジェクトの特定の細部がどのように定義されているかを示すものです。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:155
 msgid "The most relevant arguments are explained below. Most of the snippets given are taken from the `setup.py <https://github.com/pypa/sampleproject/blob/master/setup.py>`_ contained in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"以下では、よく使われる引数について説明します。ほとんどのコードスニペットは `PyPA サンプルプロジェクト <https://github.com/"
+"pypa/sampleproject>`_ の `setup.py <https://github.com/pypa/sampleproject/"
+"blob/master/setup.py>`_ から切り出しました。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:164
 msgid "name"
@@ -1865,18 +1882,23 @@ msgstr ""
 #: ../source/guides/distributing-packages-using-setuptools.rst:170
 msgid "This is the name of your project, determining how your project is listed on :term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`508`, valid project names must:"
 msgstr ""
+"これは、あなたのプロジェクトが :term:`PyPI <Python Package Index (PyPI)>` "
+"でどこに並べられるかを決めるプロジェクトの名前です。 :pep:`508` に従えば、正当なプロジェクト名は以下の条件を満たさなければなりません："
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:174
 msgid "Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-``), and/or periods (``.``), and"
-msgstr ""
+msgstr "ASCII文字・数字・アンダースコア(``_``)・ハイフン(``-``)・ピリオド(``.``)だけを含むこと、かつ、"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:176
 msgid "Start & end with an ASCII letter or digit."
-msgstr ""
+msgstr "先頭と最後の文字がASCII文字ないし数字であること。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:178
 msgid "Comparison of project names is case insensitive and treats arbitrarily-long runs of underscores, hyphens, and/or periods as equal.  For example, if you register a project named ``cool-stuff``, users will be able to download it or declare a dependency on it using any of the following spellings::"
 msgstr ""
+"プロジェクト名の比較では、大文字小文字を区別せず、また、アンダースコア・ハイフン・ピリオドは何文字連続していても同じものとして扱います。例えば、あなたが "
+"``cool-stuff`` "
+"という名前のプロジェクトを登録したなら、利用者がダウンロードしたり依存関係を宣言したりするのに、次に挙げる綴りのどれでも使うことができます::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:190
 #: ../source/specifications/binary-distribution-format.rst:127
