@@ -333,8 +333,8 @@ be required, but can be omitted with newer versions of setuptools and pip.
 
    You may see some existing projects or other Python packaging tutorials that
    import their ``setup`` function from ``distutils.core`` rather than
-   ``setuptools``. This is a `legacy approach`_ that installers [1]_ support
-   for backwards compatibility purposes, but using the legacy ``distutils`` API
+   ``setuptools``. This is a `legacy approach`_ that installers support
+   for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
    directly in new projects is strongly discouraged, since ``distutils`` is
    deprecated as per :pep:`632` and will be removed from the standard library
    in Python 3.12.
