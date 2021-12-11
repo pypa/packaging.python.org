@@ -74,21 +74,59 @@ tutorial within the ``packaging_tutorial`` directory.
 Creating the package files
 --------------------------
 
+There are three choices for how you can configure your build backend that will
+be covered below. The simplest is using the project configuration, supported by
+:ref:`Flit` and several other tools. The classic, non-standards based
+configuration for setuptools comes in two forms; static (:file:`setup.cfg`) and
+dynamic (:file:`setup.py`). These can be mixed and matched. Setuptools does not
+support standard configuration via :file:`pyproject.toml` yet.
+
 You will now add files that are used to prepare the project for distribution.
 When you're done, the project structure will look like this:
 
-.. code-block:: text
+.. tab:: :file:`pyproject.toml` (Flit, others)
 
-    packaging_tutorial/
-    ├── LICENSE
-    ├── pyproject.toml
-    ├── README.md
-    ├── setup.cfg
-    ├── src/
-    │   └── example_package/
-    │       ├── __init__.py
-    │       └── example.py
-    └── tests/
+    .. code-block:: text
+
+        packaging_tutorial/
+        ├── LICENSE
+        ├── pyproject.toml
+        ├── README.md
+        ├── src/
+        │   └── example_package/
+        │       ├── __init__.py
+        │       └── example.py
+        └── tests/
+
+.. tab:: :file:`setup.cfg` (static)
+
+    .. code-block:: text
+
+        packaging_tutorial/
+        ├── LICENSE
+        ├── pyproject.toml
+        ├── README.md
+        ├── setup.cfg
+        ├── src/
+        │   └── example_package/
+        │       ├── __init__.py
+        │       └── example.py
+        └── tests/
+
+.. tab:: :file:`setup.py` (dynamic)
+
+    .. code-block:: text
+
+        packaging_tutorial/
+        ├── LICENSE
+        ├── pyproject.toml
+        ├── README.md
+        ├── setup.py
+        ├── src/
+        │   └── example_package/
+        │       ├── __init__.py
+        │       └── example.py
+        └── tests/
 
 
 Creating a test directory
@@ -101,17 +139,30 @@ Creating pyproject.toml
 -----------------------
 
 :file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
-what is required to build your project. This tutorial uses :ref:`setuptools`,
-so open :file:`pyproject.toml` and enter the following content:
+what is required to build your project.
 
-.. code-block:: toml
 
-    [build-system]
-    requires = [
-        "setuptools>=42",
-        "wheel"
-    ]
-    build-backend = "setuptools.build_meta"
+.. tab:: Flit
+
+    If you use  :ref:`Flit`, open :file:`pyproject.toml` and enter the
+    following content:
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["flit_core >=3.2"]
+        build-backend = "flit_core.buildapi"
+
+.. tab:: Setuptools
+
+    If you use  :ref:`setuptools`, open :file:`pyproject.toml` and enter the
+    following content:
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools>=42", "wheel"]
+        build-backend = "setuptools.build_meta"
 
 
 ``build-system.requires`` gives a list of packages that are needed to build your
@@ -120,9 +171,8 @@ not after it is installed.
 
 ``build-system.build-backend`` is the name of Python object that will be used to
 perform the build. If you were to use a different build system, such as
-:ref:`flit` or :ref:`poetry`, those would go here, and the configuration details
-would be completely different than the :ref:`setuptools` configuration described
-below.
+:ref:`pdm` or :ref:`poetry`, those would go here, and the configuration details
+will mostly be identical to the :pep:`621` standards below (except for Poetry).
 
 See :pep:`517` and :pep:`518` for background and details.
 
@@ -130,32 +180,124 @@ See :pep:`517` and :pep:`518` for background and details.
 Configuring metadata
 --------------------
 
-There are two types of metadata: static and dynamic.
+Three options will be shown below. New users should probably use Flit if
+possible, then fall back to setuptools with static metadata, followed by
+dynamic metadata as a last resort, usually for very complex packages or
+compiled extensions.
 
-* Static metadata (:file:`setup.cfg`): guaranteed to be the same every time. This is
-  simpler, easier to read, and avoids many common errors, like encoding errors.
-* Dynamic metadata (:file:`setup.py`): possibly non-deterministic. Any items that are
-  dynamic or determined at install-time, as well as extension modules or
-  extensions to setuptools, need to go into :file:`setup.py`.
+This is a summary of the three ways to define packages:
 
-Static metadata (:file:`setup.cfg`) should be preferred. Dynamic metadata (:file:`setup.py`)
-should be used only as an escape hatch when absolutely necessary. :file:`setup.py` used to
-be required, but can be omitted with newer versions of setuptools and pip.
+* :pep:`621`: provides a standard way to define metadata. Flit is used below, but
+  you can instead use any build system that follows :pep:`621`, like :ref:`PDM`.
+* Static metadata (:file:`setup.cfg`): Classic setuptools configuration;
+  guaranteed to be the same every time. This is simpler, easier to read, and
+  avoids many common errors, like encoding errors.
+* Dynamic metadata (:file:`setup.py`): Classic setuptools configuration;
+  possibly non-deterministic. Any items that are dynamic or determined at
+  install-time, as well as extension modules or extensions to setuptools, need
+  to go into :file:`setup.py`.
 
+:file:`setup.cfg` should be preferred over :file:`setup.py`; this should be
+used only as an escape hatch when absolutely necessary. A nominal
+:file:`setup.py` used to be required, but can be omitted with newer versions of
+setuptools and pip.
+
+.. tab:: :file:`pyproject.toml` (Flit, others)
+
+    :file:`pyproject.toml` holds a standard configuration format supported by many
+    tools, though setuptools does not support it yet. Confiigureation is stored
+    in the ``[project]`` table.
+
+    Open :file:`pyproject.toml` and enter the following content. Change the ``name``
+    to include your username; this ensures that you have a unique package name
+    and that your package doesn't conflict with packages uploaded by other
+    people following this tutorial.
+
+    .. code-block:: toml
+
+        [project]
+        name = "example-pkg-YOUR-USERNAME-HERE"
+        version = "0.0.1"
+        authors = [
+          {name="Example Author", email="author@example.com"},
+        ]
+        description = "A small example package"
+        readme = "README.md"
+        requires-python = ">=3.6"
+        classifiers = [
+            "Programming Language :: Python :: 3",
+            "License :: OSI Approved :: MIT License",
+            "Operating System :: OS Independent",
+        ]
+
+        [project.urls]
+        Source = "https://github.com/pypa/sampleproject"
+        Bug Tracker = "https://github.com/pypa/sampleproject/issues"
+
+    The options allowed here are defined in :pep:`621`. In short, they are:
+
+    - ``name`` is the *distribution name* of your package. This can be any name as
+      long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
+      already be taken on pypi.org. **Be sure to update this with your username,**
+      as this ensures you won't try to upload a package with the same name as one
+      which already exists.
+    - ``version`` is the package version. See :pep:`440` for more details on
+      versions. Some build backends allow it to be specified another way, such
+      as from a file or a git tag.
+    - ``authors`` is used to identify the author of the package.
+    - ``description`` is a short, one-sentence summary of the package.
+    - ``readme`` is a detailed description of the package. This is
+      shown on the package detail page on the Python Package Index. The long
+      description is loaded from :file:`README.md` (which is a common pattern).
+      There also is a more advanced table form described in :pep:`621`.
+    - ``requires-python`` gives the versions of Python supported by your
+      project. Installers like :ref:`pip` will look back through older versions of
+      packages until it finds one that has a matching Python version.
+    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
+      about your package. In this case, the package is only compatible with Python
+      3, is licensed under the MIT license, and is OS-independent. You should
+      always include at least which version(s) of Python your package works on,
+      which license your package is available under, and which operating systems
+      your package will work on. For a complete list of classifiers, see
+      https://pypi.org/classifiers/.
+    - ``urls`` lets you list any number of extra links to show on PyPI.
+      Generally this could be to the source, documentation, issue trackers, etc.
+
+    Besides the entries shown above, there are a few more:
+
+    - ``license`` is a table with either ``file=`` or ``text=``. Backends will often be
+      happy with a trove classifier too.
+    - ``maintainers`` is list of inline tables, with name and emails, just like ``authors``.
+    - ``keywords`` are a list of project keywords.
+    - ``scripts`` are the command-line scripts exported by the proejct as a table.
+    - ``gui-scripts`` are the graphical scripts exported by the project as a table.
+    - ``entry-points`` are non-script entry points as a table.
+    - ``dependencies`` are a list of required dependencies at install time. :pep:404 syntax.
+    - ``optional-dependencies`` is a table of extras.
+    
+    There is also one special entry: ``dynamic``. This is a list of fields
+    (from the above) tha are specified dynamically instead of being listed in
+    the static :file:`pyproject.toml`. For example, Flit allows version and
+    description to be dynamic.
+
+    :pep:`621` does not refer to package structure at all, only metadata, so
+    structure will depend on backend. Both :ref:`Flit` and :ref:`pdm`
+    automatically detect `<package>` and `src/<package>` structure, but other
+    backends might have other expectations or settings.
 
 .. tab:: :file:`setup.cfg` (static)
 
     :file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells
-    setuptools about your package (such as the name and version) as well as which
-    code files to include. Eventually much of this configuration may be able to move
-    to :file:`pyproject.toml`.
+    setuptools about your package (such as the name and version) as well as
+    which code files to include. Eventually setuptools may support
+    :file:`pyproject.toml` too.
 
     Open :file:`setup.cfg` and enter the following content. Change the ``name``
     to include your username; this ensures that you have a unique package name
     and that your package doesn't conflict with packages uploaded by other
     people following this tutorial.
 
-    .. code-block:: python
+    .. code-block:: ini
 
         [metadata]
         name = example-pkg-YOUR-USERNAME-HERE
@@ -388,7 +530,9 @@ Including other files
 
 The files listed above will be included automatically in your
 :term:`source distribution <Source Distribution (or "sdist")>`. If you want to
-control what goes in this explicitly, see :ref:`Using MANIFEST.in`.
+control what goes in this explicitly, see :ref:`Using MANIFEST.in` for setuptools.
+Other backends like Flit have methods to control this - :pep:`621` only covers
+metadata, not package structure.
 
 The final :term:`built distribution <Built Distribution>` will have the Python
 files in the discovered or listed Python packages. If you want to control what
