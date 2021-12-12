@@ -84,6 +84,27 @@ behaviours when asked to handle legacy packages and metadata that
 predate the modern interoperability standards and fall into the subset
 of packages that are incompatible with those standards.
 
+.. _flit:
+
+flit
+====
+
+`Docs <https://flit.readthedocs.io/en/latest/>`__ |
+`Issues <https://github.com/pypa/flit/issues>`__ |
+`PyPI <https://pypi.org/project/flit>`__
+
+Flit provides a simple way to create and upload pure Python packages and
+modules to PyPI.  It focuses on `making the easy things easy <flit-rationale_>`_
+for packaging.  Flit can generate a configuration file to quickly set up a
+simple project, build source distributions and wheels, and upload them to PyPI.
+
+Flit uses ``pyproject.toml`` to configure a project. Flit does not rely on tools
+such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
+to PyPI. Flit requires Python 3, but you can use it to distribute modules for
+Python 2, so long as they can be imported on Python 3.
+
+.. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
+
 .. _packaging:
 
 packaging
@@ -378,28 +399,6 @@ devpi features a powerful PyPI-compatible server and PyPI proxy cache
 with a complementary command line tool to drive packaging, testing and
 release activities with Python. devpi also provides a browsable and
 searchable web interface.
-
-
-.. _flit:
-
-flit
-====
-
-`Docs <https://flit.readthedocs.io/en/latest/>`__ |
-`Issues <https://github.com/takluyver/flit/issues>`__ |
-`PyPI <https://pypi.org/project/flit>`__
-
-Flit provides a simple way to upload pure Python packages and modules to PyPI.
-It focuses on `making the easy things easy <flit-rationale_>`_ for packaging.
-Flit can generate a configuration file to quickly set up a simple project, build
-source distributions and wheels, and upload them to PyPI.
-
-Flit uses ``pyproject.toml`` to configure a project. Flit does not rely on tools
-such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
-to PyPI. Flit requires Python 3, but you can use it to distribute modules for
-Python 2, so long as they can be imported on Python 3.
-
-.. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
 
 .. _enscons:
 
