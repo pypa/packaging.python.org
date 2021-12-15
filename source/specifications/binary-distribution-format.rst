@@ -162,6 +162,9 @@ this character cannot appear within any component. This is handled as follows:
   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
   characters should be replaced with corresponding lowercase ones. This is
   equivalent to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
+  Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
+  uppercase letters, however, as these were allowed by an earlier version of
+  this specification.
 - Version numbers should be normalised according to :pep:`440`. Normalised
   version numbers cannot contain ``-``.
 - The remaining components may not contain ``-`` characters, so no escaping
