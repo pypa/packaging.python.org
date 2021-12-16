@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-05 17:59+0000\n"
-"PO-Revision-Date: 2021-12-10 02:26+0000\n"
+"PO-Revision-Date: 2021-12-16 21:58+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.10\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -3515,16 +3515,20 @@ msgid ""
 "builds not intended for publication, or modified variants of a release "
 "maintained by a redistributor."
 msgstr ""
+"公的バージョン識別子は、 :term:`PyPI <Python Package Index (PyPI)>` "
+"を通じた配布をサポートするように設計されています。Pythonのソフトウェア配布ツール群は、"
+"ローカルでの開発でビルドごとの識別子や再配布者が維持管理している変種のリリースの識別子として用いるような :pep:`局所的バージョン識別子 <440"
+"#local-version-identifiers>` の考え方もサポートします。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:654
 msgid ""
 "A local version identifier takes the form ``<public version identifier>"
 "+<local version label>``. For example::"
-msgstr ""
+msgstr "ローカルバージョン識別子は、 ``<公的バージョン識別子>+<ローカルバージョンラベル>`` の形を取ります。例えば::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:662
 msgid "Working in \"development mode\""
-msgstr ""
+msgstr "開発モードで作業する"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:664
 msgid ""
@@ -3534,12 +3538,17 @@ msgid ""
 "as editable will be reflected the next time an interpreter process is "
 "started."
 msgstr ""
+"あなたがまだ作業している途中なら、プロジェクトを「編集可能」または「開発」モードでインストールすることができます。編集可能な状態でインストールされると、再"
+"インストールしなくてもプロジェクトをその場で編集することができます: "
+"編集可能状態でインストールされたプロジェクトのPythonソースコードに変更を加えると、次にインタープリターのプロセスが開始された時に反映されます。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:670
 msgid ""
 "To install a Python package in \"editable\"/\"development\" mode Change "
 "directory to the root of the project directory and run:"
 msgstr ""
+"Pythonのパッケージを「編集可能」/「開発」モードでインストールするには、そのプロジェクトのルートディレクトリへ移動して、次のコマンドを走らせてくださ"
+"い:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:678
 msgid ""
@@ -3550,6 +3559,10 @@ msgid ""
 "declared with ``console_scripts``.  Dependencies will be installed in the "
 "usual, non-editable mode."
 msgstr ""
+"pip のコマンドラインオプションの ``-e`` は ``--editable`` の省略形で、 ``.`` は現在作業をしているディレクトリのことです"
+"ので、まとめると「現在のディレクトリ(つまりあなたのプロジェクト)に編集可能モードでインストールせよ」ということになります。また、このコマンドによって "
+"``install_requires`` に宣言された依存先のパッケージや ``console_scripts`` "
+"に書かれたスクリプトもインストールされます。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:685
 msgid ""
@@ -3558,6 +3571,9 @@ msgid ""
 "want \"bar\" installed from VCS in editable mode, then you could construct a "
 "requirements file like so::"
 msgstr ""
+"依存先のプロジェクトも同様に編集可能モードでインストールしたい時があるかもしれません。例えば、あなたのプロジェクトが \"foo\" と \"bar\" "
+"というパッケージを要求していて、 \"bar\" についてはVCS (バージョンコントロールシステム) から編集可能モードでインストールしたい場合には、"
+"requirements ファイルを次のように構成すれば良いでしょう::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:693
 msgid ""
@@ -3565,6 +3581,8 @@ msgid ""
 "line overrides the \"bar\" dependency, such that it's fulfilled from VCS, "
 "not PyPI."
 msgstr ""
+"最初の行ではあなたのプロジェクトとその依存先をインストールするように指示しています。２行目で、 \"bar\" "
+"についてPyPIではなくVCSから充当するようにと依存関係を上書きしています。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:697
 msgid ""
@@ -3572,6 +3590,8 @@ msgid ""
 "mode, the requirements file should look like this, with the local paths at "
 "the top of the file::"
 msgstr ""
+"そうではなくて、 \"bar\" をローカルディレクトリから編集可能モードでインストールしたい場合には、 requirements "
+"ファイルの先頭にローカルのディレクトリパスを置いて次のようになるでしょう::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:702
 msgid ""
@@ -3581,21 +3601,27 @@ msgid ""
 "the pip docs.  For more on VCS installs, see the :ref:`VCS Support <pip:VCS "
 "Support>` section of the pip docs."
 msgstr ""
+"さもなければ requirements ファイルに書かれた順にインストールされてしまうので、依存先のパッケージが PyPI から充当されてしまいます。 "
+"requirements ファイルについてさらに詳しく知りたい場合は、 pipの解説文書の :ref:`Requirements ファイル <pip:"
+"Requirements Files>` の節を見てください。VCSからのインストールについては、同書の :ref:`VCSサポート <pip:VCS "
+"Support>` の節を見てください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:706
 msgid ""
 "Lastly, if you don't want to install any dependencies at all, you can run:"
-msgstr ""
+msgstr "最後に、もし依存先パッケージは何もインストールしたくないのであれば、このようにします:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:713
 msgid ""
 "For more information, see the :doc:`Development Mode <setuptools:userguide/"
 "development_mode>` section of the :doc:`setuptools docs <setuptools>`."
 msgstr ""
+"さらに詳しいことを知りたい場合は、 :doc:`setuptools解説文書 <setuptools>` の :doc:`開発モード "
+"<setuptools:userguide/development_mode>` の節を見てください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:720
 msgid "Packaging your project"
-msgstr ""
+msgstr "プロジェクトをパッケージングする"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:722
 msgid ""
@@ -3604,22 +3630,26 @@ msgid ""
 "`Distribution <Distribution Package>` (aka \":term:`Package <Distribution "
 "Package>`\") for your project."
 msgstr ""
+"あなたのプロジェクトを :term:`PyPI <Python Package Index (PyPI)>` のような :term:`"
+"パッケージインデックス <Package Index>` からインストールできるようにするには、 :term:`配布物 <Distribution "
+"Package>` (:term:`パッケージ <Distribution Package>`の名前でも知られる) を作成しなければならないでしょう。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:727
 msgid ""
 "Before you can build wheels and sdists for your project, you'll need to "
 "install the ``build`` package:"
-msgstr ""
+msgstr "あなたのプロジェクトでwheelsやsdistsをビルドする前に、 ``build`` パッケージをインストールする必要があります。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:744
 msgid "Source distributions"
-msgstr ""
+msgstr "ソースコード配布物"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:746
 msgid ""
 "Minimally, you should create a :term:`Source Distribution <Source "
 "Distribution (or \"sdist\")>`:"
 msgstr ""
+"少なくとも、 :term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` を作成するべきです:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:762
 msgid ""
