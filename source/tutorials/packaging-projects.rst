@@ -329,17 +329,17 @@ be required, but can be omitted with newer versions of setuptools and pip.
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
-.. warning::
+    .. warning::
 
-   You may see some existing projects or other Python packaging tutorials that
-   import their ``setup`` function from ``distutils.core`` rather than
-   ``setuptools``. This is a `legacy approach`_ that installers support
-   for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
-   directly in new projects is strongly discouraged, since ``distutils`` is
-   deprecated as per :pep:`632` and will be removed from the standard library
-   in Python 3.12.
+      You may see some existing projects or other Python packaging tutorials that
+      import their ``setup`` function from ``distutils.core`` rather than
+      ``setuptools``. This is a `legacy approach`_ that installers support
+      for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
+      directly in new projects is strongly discouraged, since ``distutils`` is
+      deprecated as per :pep:`632` and will be removed from the standard library
+      in Python 3.12.
 
-.. _legacy approach: https://docs.python.org/3.10/library/distutils.html
+    .. _legacy approach: https://docs.python.org/3.10/library/distutils.html
 
 Creating README.md
 ------------------
