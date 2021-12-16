@@ -329,6 +329,16 @@ be required, but can be omitted with newer versions of setuptools and pip.
     There are many more than the ones mentioned here. See
     :doc:`/guides/distributing-packages-using-setuptools` for more details.
 
+    .. warning::
+
+      You may see some existing projects or other Python packaging tutorials that
+      import their ``setup`` function from ``distutils.core`` rather than
+      ``setuptools``. This is a legacy approach that installers support
+      for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
+      directly in new projects is strongly discouraged, since ``distutils`` is
+      deprecated as per :pep:`632` and will be removed from the standard library
+      in Python 3.12.
+
 Creating README.md
 ------------------
 
@@ -624,3 +634,14 @@ some things you can do:
 * Read about :doc:`/guides/packaging-binary-extensions`.
 * Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`hatch`,
   and :ref:`poetry`.
+
+----
+
+.. [1] Some legacy Python environments may not have ``setuptools``
+       pre-installed, and the operators of those environments may still be
+       requiring users to install packages by running ``setup.py install``
+       commands, rather than providing an installer like ``pip`` that
+       automatically installs required build dependendencies. These
+       environments will not be able to use many published packages until the
+       environment is updated to provide an up to date Python package
+       installation client (e.g. by running ``python -m ensurepip``).
