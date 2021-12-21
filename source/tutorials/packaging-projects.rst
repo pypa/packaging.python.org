@@ -119,8 +119,9 @@ that supports :pep:`621` will work.
 
 .. tab:: PDM
 
-    If you use  :ref:`pdm`, open :file:`pyproject.toml` and enter the following
-    content:
+    If you want to use use :ref:`pdm`'s backend (not required to use PDM for
+    package management, any PEP 621 backend works), open :file:`pyproject.toml`
+    and enter the following content:
 
     .. code-block:: toml
 
@@ -220,7 +221,7 @@ the static :file:`pyproject.toml`. For example, Flit allows ``version`` and
 
 :pep:`621` does not refer to package structure at all, only metadata, so
 structure will depend on backend. Both :ref:`Flit` and :ref:`pdm`
-automatically detect `<package>` and `src/<package>` structure, but other
+automatically detect ``<package>`` and ``src/<package>`` structure, but other
 backends might have other expectations or settings.
 
     .. warning::
