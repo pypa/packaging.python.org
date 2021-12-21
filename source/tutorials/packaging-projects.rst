@@ -214,9 +214,9 @@ Besides the entries shown above, there are a few more:
 - ``optional-dependencies`` is a table of extras.
 
 There is also one special entry: ``dynamic``. This is a list of fields
-(from the above) tha are specified dynamically instead of being listed in
-the static :file:`pyproject.toml`. For example, Flit allows version and
-description to be dynamic.
+(from the above) tha are specified dynamically during the building of your project instead of being listed in
+the static :file:`pyproject.toml`. For example, Flit allows ``version`` and
+``description`` to be dynamic.
 
 :pep:`621` does not refer to package structure at all, only metadata, so
 structure will depend on backend. Both :ref:`Flit` and :ref:`pdm`
