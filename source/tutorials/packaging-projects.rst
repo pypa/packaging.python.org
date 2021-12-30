@@ -102,14 +102,25 @@ Creating pyproject.toml
 
 :file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
 what is required to build your project. You can select a variety of backends
-here; the tutorial will assume you are using :ref:`Flit`, though any backend
-that supports :pep:`621` will work.
+here; the tutorial will work identically on Setuptools, Flit, and PDM; most
+backends that support :pep:`621` should work. Your :file:`pyproject.toml` file
+should contain one of these build-system blocks:
 
+.. tab:: Setuptools
+
+    This is the classic backend for building projects; large, slow, but
+    powerful with many options.
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools >=TBD", "wheel>=TBD"]
+        build-backend = "setuptools.build_meta"
 
 .. tab:: Flit
 
-    If you use  :ref:`Flit`, open :file:`pyproject.toml` and enter the
-    following content:
+    :ref:`Flit` is a very lightweight, simple, and fast backend for pure Python
+    projects. It is 10x faster than setuptools, and has no dependencies at all.
 
     .. code-block:: toml
 
@@ -120,8 +131,8 @@ that supports :pep:`621` will work.
 .. tab:: PDM
 
     If you want to use use :ref:`pdm`'s backend (not required to use PDM for
-    package management, any PEP 621 backend works), open :file:`pyproject.toml`
-    and enter the following content:
+    package management, any PEP 621 backend works), it also has a standalone
+    backend for builds. It has some features not present in Flit.
 
     .. code-block:: toml
 
@@ -143,9 +154,8 @@ See :pep:`517` and :pep:`518` for background and details.
 Configuring metadata
 --------------------
 
-:pep:`621`: provides a standard way to define metadata. Flit is used below, but
-you can instead use any build system that follows :pep:`621`, like :ref:`PDM`.
-:file:`pyproject.toml` configuration is stored in the ``[project]`` table.
+:pep:`621` provides a standard way to define metadata.  :file:`pyproject.toml`
+configuration is stored in the ``[project]`` table.
 
 Open :file:`pyproject.toml` and enter the following content. Change the ``name``
 to include your username; this ensures that you have a unique package name
@@ -529,8 +539,8 @@ some things you can do:
 * Read more about using :ref:`setuptools` to package libraries in
   :doc:`/guides/distributing-packages-using-setuptools`.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`hatch`,
-  and :ref:`poetry`.
+* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`pdm`,
+  :ref:`hatch`, and :ref:`poetry`.
 
 ----
 
