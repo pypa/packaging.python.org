@@ -108,8 +108,7 @@ should contain one of these build-system blocks:
 
 .. tab:: Setuptools
 
-    This is the classic backend for building projects; large, slow, but
-    powerful with many options.
+    This is the classic backend for building projects; large, slow, complex.
 
     .. code-block:: toml
 
@@ -120,7 +119,7 @@ should contain one of these build-system blocks:
 .. tab:: Flit
 
     :ref:`Flit` is a very lightweight, simple, and fast backend for pure Python
-    projects. It is 10x faster than setuptools, and has no dependencies at all.
+    projects. It has no dependencies at all.
 
     .. code-block:: toml
 
@@ -130,9 +129,8 @@ should contain one of these build-system blocks:
 
 .. tab:: PDM
 
-    If you want to use use :ref:`pdm`'s backend (not required to use PDM for
-    package management, any PEP 621 backend works), it also has a standalone
-    backend for builds. It has some features not present in Flit.
+    :ref:`pdm` has a build backend as well (not required to use PDM for package
+    management, any PEP 621 backend works).
 
     .. code-block:: toml
 
@@ -154,8 +152,7 @@ See :pep:`517` and :pep:`518` for background and details.
 Configuring metadata
 --------------------
 
-:pep:`621` provides a standard way to define metadata.  :file:`pyproject.toml`
-configuration is stored in the ``[project]`` table.
+:pep:`621` provides a standard way to define metadata in :file:`pyproject.toml`.
 
 Open :file:`pyproject.toml` and enter the following content. Change the ``name``
 to include your username; this ensures that you have a unique package name
@@ -178,6 +175,7 @@ people following this tutorial.
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ]
+    license = {file = "LICENSE"}
 
     [project.urls]
     Homepage = "https://github.com/pypa/sampleproject"
@@ -209,40 +207,25 @@ The options allowed here are defined in :pep:`621`. In short, they are:
   which license your package is available under, and which operating systems
   your package will work on. For a complete list of classifiers, see
   https://pypi.org/classifiers/.
+- ``license`` is a table with either ``file=`` or ``text=``. Backends will often be
+  happy with a trove classifier too.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 
 Besides the entries shown above, there are a few more:
 
-- ``license`` is a table with either ``file=`` or ``text=``. Backends will often be
-  happy with a trove classifier too.
 - ``maintainers`` is list of inline tables, with name and emails, just like ``authors``.
-- ``keywords`` are a list of project keywords.
+- ``keywords`` is a list of project keywords.
 - ``scripts`` are the command-line scripts exported by the proejct as a table.
 - ``gui-scripts`` are the graphical scripts exported by the project as a table.
 - ``entry-points`` are non-script entry points as a table.
-- ``dependencies`` are a list of required dependencies at install time. :pep:404 syntax.
+- ``dependencies`` are a list of required dependencies at install time. :pep:`404` syntax.
 - ``optional-dependencies`` is a table of extras.
 
-There is also one special entry: ``dynamic``. This is a list of fields
-(from the above) tha are specified dynamically during the building of your project instead of being listed in
-the static :file:`pyproject.toml`. For example, Flit allows ``version`` and
-``description`` to be dynamic.
-
-:pep:`621` does not refer to package structure at all, only metadata, so
-structure will depend on backend. Both :ref:`Flit` and :ref:`pdm`
-automatically detect ``<package>`` and ``src/<package>`` structure, but other
-backends might have other expectations or settings.
-
-    .. warning::
-
-      You may see some existing projects or other Python packaging tutorials that
-      import their ``setup`` function from ``distutils.core`` rather than
-      ``setuptools``. This is a legacy approach that installers support
-      for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
-      directly in new projects is strongly discouraged, since ``distutils`` is
-      deprecated as per :pep:`632` and will be removed from the standard library
-      in Python 3.12.
+There is also one special entry: ``dynamic``. This is a list of fields (from
+the above) tha are specified dynamically during the building of your project
+instead of being listed in the static :file:`pyproject.toml`. For example, Flit
+allows ``version`` and ``description`` to be dynamic.
 
 Creating README.md
 ------------------
