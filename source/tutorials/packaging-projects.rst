@@ -150,7 +150,7 @@ See :pep:`517` and :pep:`518` for background and details.
 
 
 Configuring metadata
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 :pep:`621` provides a standard way to define metadata in :file:`pyproject.toml`.
 
@@ -525,13 +525,3 @@ some things you can do:
 * Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`pdm`,
   :ref:`hatch`, and :ref:`poetry`.
 
-----
-
-.. [1] Some legacy Python environments may not have ``setuptools``
-       pre-installed, and the operators of those environments may still be
-       requiring users to install packages by running ``setup.py install``
-       commands, rather than providing an installer like ``pip`` that
-       automatically installs required build dependendencies. These
-       environments will not be able to use many published packages until the
-       environment is updated to provide an up to date Python package
-       installation client (e.g. by running ``python -m ensurepip``).
