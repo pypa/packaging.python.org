@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 01:09+0000\n"
+"POT-Creation-Date: 2022-01-09 01:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -1793,7 +1793,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:301
-#: ../source/specifications/binary-distribution-format.rst:459
+#: ../source/specifications/binary-distribution-format.rst:463
 msgid "References"
 msgstr ""
 
@@ -9174,66 +9174,70 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:161
 msgid ""
 "In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE "
-"and FULL STOP) should be replaced with ``_`` (LOW LINE). This is equivalent "
-"to :pep:`503` normalisation followed by replacing ``-`` with ``_``."
+"and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase "
+"characters should be replaced with corresponding lowercase ones. This is "
+"equivalent to :pep:`503` normalisation followed by replacing ``-`` with "
+"``_``. Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) "
+"and uppercase letters, however, as these were allowed by an earlier version "
+"of this specification."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:164
+#: ../source/specifications/binary-distribution-format.rst:168
 msgid ""
 "Version numbers should be normalised according to :pep:`440`. Normalised "
 "version numbers cannot contain ``-``."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:166
+#: ../source/specifications/binary-distribution-format.rst:170
 msgid ""
 "The remaining components may not contain ``-`` characters, so no escaping is "
 "necessary."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:169
+#: ../source/specifications/binary-distribution-format.rst:173
 msgid ""
 "Tools producing wheels should verify that the filename components do not "
 "contain ``-``, as the resulting file may not be processed correctly if they "
 "do."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:172
+#: ../source/specifications/binary-distribution-format.rst:176
 msgid ""
 "The archive filename is Unicode.  It will be some time before the tools are "
 "updated to support non-ASCII filenames, but they are supported in this "
 "specification."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:176
+#: ../source/specifications/binary-distribution-format.rst:180
 msgid ""
 "The filenames *inside* the archive are encoded as UTF-8.  Although some ZIP "
 "clients in common use do not properly display UTF-8 filenames, the encoding "
 "is supported by both the ZIP specification and Python's ``zipfile``."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:182
+#: ../source/specifications/binary-distribution-format.rst:186
 msgid "File contents"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:184
+#: ../source/specifications/binary-distribution-format.rst:188
 msgid ""
 "The contents of a wheel file, where {distribution} is replaced with the name "
 "of the package, e.g. ``beaglevote`` and {version} is replaced with its "
 "version, e.g. ``1.0.0``, consist of:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:188
+#: ../source/specifications/binary-distribution-format.rst:192
 msgid ""
 "``/``, the root of the archive, contains all files to be installed in "
 "``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and "
 "``platlib`` are usually both ``site-packages``."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:191
+#: ../source/specifications/binary-distribution-format.rst:195
 msgid "``{distribution}-{version}.dist-info/`` contains metadata."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:192
+#: ../source/specifications/binary-distribution-format.rst:196
 msgid ""
 "``{distribution}-{version}.data/`` contains one subdirectory for each non-"
 "empty install scheme key not already covered, where the subdirectory name is "
@@ -9241,71 +9245,71 @@ msgid ""
 "``include``, ``purelib``, ``platlib``)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:196
+#: ../source/specifications/binary-distribution-format.rst:200
 msgid ""
 "Python scripts must appear in ``scripts`` and begin with exactly ``b'#!"
 "python'`` in order to enjoy script wrapper generation and ``#!python`` "
 "rewriting at install time.  They may have any or no extension."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:200
+#: ../source/specifications/binary-distribution-format.rst:204
 msgid ""
 "``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1 or "
 "greater format metadata."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:202
+#: ../source/specifications/binary-distribution-format.rst:206
 msgid ""
 "``{distribution}-{version}.dist-info/WHEEL`` is metadata about the archive "
 "itself in the same basic key: value format::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:212
+#: ../source/specifications/binary-distribution-format.rst:216
 msgid "``Wheel-Version`` is the version number of the Wheel specification."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:213
+#: ../source/specifications/binary-distribution-format.rst:217
 msgid ""
 "``Generator`` is the name and optionally the version of the software that "
 "produced the archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:215
+#: ../source/specifications/binary-distribution-format.rst:219
 msgid ""
 "``Root-Is-Purelib`` is true if the top level directory of the archive should "
 "be installed into purelib; otherwise the root should be installed into "
 "platlib."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:218
+#: ../source/specifications/binary-distribution-format.rst:222
 msgid ""
 "``Tag`` is the wheel's expanded compatibility tags; in the example the "
 "filename would contain ``py2.py3-none-any``."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:220
+#: ../source/specifications/binary-distribution-format.rst:224
 msgid ""
 "``Build`` is the build number and is omitted if there is no build number."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:221
+#: ../source/specifications/binary-distribution-format.rst:225
 msgid ""
 "A wheel installer should warn if Wheel-Version is greater than the version "
 "it supports, and must fail if Wheel-Version has a greater major version than "
 "the version it supports."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:224
+#: ../source/specifications/binary-distribution-format.rst:228
 msgid ""
 "Wheel, being an installation format that is intended to work across multiple "
 "versions of Python, does not generally include .pyc files."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:226
+#: ../source/specifications/binary-distribution-format.rst:230
 msgid "Wheel does not contain setup.py or setup.cfg."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:228
+#: ../source/specifications/binary-distribution-format.rst:232
 msgid ""
 "This version of the wheel specification is based on the distutils install "
 "schemes and does not define how to install files to other locations. The "
@@ -9313,28 +9317,28 @@ msgid ""
 "wininst and egg binary formats."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:235
+#: ../source/specifications/binary-distribution-format.rst:239
 #: ../source/specifications/recording-installed-packages.rst:35
 msgid "The .dist-info directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:237
+#: ../source/specifications/binary-distribution-format.rst:241
 msgid ""
 "Wheel .dist-info directories include at a minimum METADATA, WHEEL, and "
 "RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:239
+#: ../source/specifications/binary-distribution-format.rst:243
 msgid ""
 "METADATA is the package metadata, the same format as PKG-INFO as found at "
 "the root of sdists."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:241
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:242
+#: ../source/specifications/binary-distribution-format.rst:246
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
@@ -9343,22 +9347,22 @@ msgid ""
 "rely on the strong hashes in RECORD to validate the integrity of the archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:248
+#: ../source/specifications/binary-distribution-format.rst:252
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:249
+#: ../source/specifications/binary-distribution-format.rst:253
 msgid ""
 "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:251
+#: ../source/specifications/binary-distribution-format.rst:255
 msgid ""
 "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
 "signatures to secure their wheel files.  It is not mentioned in RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:254
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
 "the file contents.  Apart from RECORD and its signatures, installation will "
@@ -9366,29 +9370,29 @@ msgid ""
 "in RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:261
+#: ../source/specifications/binary-distribution-format.rst:265
 msgid "The .data directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
 "extension::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:271
+#: ../source/specifications/binary-distribution-format.rst:275
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
 "contents of these subdirectories are moved onto their destination paths."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:277
+#: ../source/specifications/binary-distribution-format.rst:281
 msgid "Signed wheel files"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:279
+#: ../source/specifications/binary-distribution-format.rst:283
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -9398,7 +9402,7 @@ msgid ""
 "files, but not RECORD which cannot contain its own hash. For example::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:290
+#: ../source/specifications/binary-distribution-format.rst:294
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -9406,7 +9410,7 @@ msgid ""
 "will fail."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:295
+#: ../source/specifications/binary-distribution-format.rst:299
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -9414,17 +9418,17 @@ msgid ""
 "as the signature's JSON payload::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:302
+#: ../source/specifications/binary-distribution-format.rst:306
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:304
+#: ../source/specifications/binary-distribution-format.rst:308
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:307
+#: ../source/specifications/binary-distribution-format.rst:311
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -9432,32 +9436,32 @@ msgid ""
 "only needs to establish that RECORD matches the signature."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:312
+#: ../source/specifications/binary-distribution-format.rst:316
 msgid "See"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:314
+#: ../source/specifications/binary-distribution-format.rst:318
 msgid "https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:315
+#: ../source/specifications/binary-distribution-format.rst:319
 msgid ""
 "https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:316
+#: ../source/specifications/binary-distribution-format.rst:320
 msgid "https://self-issued.info/docs/draft-ietf-jose-json-web-key.html"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:317
+#: ../source/specifications/binary-distribution-format.rst:321
 msgid "https://self-issued.info/docs/draft-jones-jose-json-private-key.html"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:321
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid "Comparison to .egg"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:323
+#: ../source/specifications/binary-distribution-format.rst:327
 msgid ""
 "Wheel is an installation format; egg is importable.  Wheel archives do not "
 "need to include .pyc and are less tied to a specific Python version or "
@@ -9466,13 +9470,13 @@ msgid ""
 "catch up."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:328
+#: ../source/specifications/binary-distribution-format.rst:332
 msgid ""
 "Wheel uses .dist-info directories; egg uses .egg-info.  Wheel is compatible "
 "with the new world of Python packaging and the new concepts it brings."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:331
+#: ../source/specifications/binary-distribution-format.rst:335
 msgid ""
 "Wheel has a richer file naming convention for today's multi-implementation "
 "world.  A single wheel archive can indicate its compatibility with a number "
@@ -9481,33 +9485,33 @@ msgid ""
 "wheel is ready for the stable ABI."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:337
+#: ../source/specifications/binary-distribution-format.rst:341
 msgid ""
 "Wheel is lossless.  The first wheel implementation bdist_wheel always "
 "generates egg-info, and then converts it to a .whl.  It is also possible to "
 "convert existing eggs and bdist_wininst distributions."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:341
+#: ../source/specifications/binary-distribution-format.rst:345
 msgid ""
 "Wheel is versioned.  Every wheel file contains the version of the wheel "
 "specification and the implementation that packaged it. Hopefully the next "
 "migration can simply be to Wheel 2.0."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:344
+#: ../source/specifications/binary-distribution-format.rst:348
 msgid "Wheel is a reference to the other Python."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:348
+#: ../source/specifications/binary-distribution-format.rst:352
 msgid "FAQ"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:352
+#: ../source/specifications/binary-distribution-format.rst:356
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:354
+#: ../source/specifications/binary-distribution-format.rst:358
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -9517,11 +9521,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:363
+#: ../source/specifications/binary-distribution-format.rst:367
 msgid "Why does wheel include attached signatures?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:365
+#: ../source/specifications/binary-distribution-format.rst:369
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -9530,38 +9534,38 @@ msgid ""
 "archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:373
+#: ../source/specifications/binary-distribution-format.rst:377
 msgid "Why does wheel allow JWS signatures?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:375
+#: ../source/specifications/binary-distribution-format.rst:379
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
 "yields a useful, concise pure-Python implementation."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:381
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:383
+#: ../source/specifications/binary-distribution-format.rst:387
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:386
+#: ../source/specifications/binary-distribution-format.rst:390
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:391
+#: ../source/specifications/binary-distribution-format.rst:395
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:397
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -9569,7 +9573,7 @@ msgid ""
 "packages to '/usr/lib64/pythonX.Y/site-packages'."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:398
+#: ../source/specifications/binary-distribution-format.rst:402
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -9577,18 +9581,18 @@ msgid ""
 "both the \"purelib\" and \"platlib\" categories."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:403
+#: ../source/specifications/binary-distribution-format.rst:407
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
 "the root with the appropriate setting given for \"Root-is-purelib\"."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:409
+#: ../source/specifications/binary-distribution-format.rst:413
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:411
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -9597,7 +9601,7 @@ msgid ""
 "format design, actually relying on it is generally discouraged."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:417
+#: ../source/specifications/binary-distribution-format.rst:421
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -9608,7 +9612,7 @@ msgid ""
 "extensions by publishing header files in the appropriate place)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:426
+#: ../source/specifications/binary-distribution-format.rst:430
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -9626,7 +9630,7 @@ msgid ""
 "components may still require the availability of an actual on-disk file."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:443
+#: ../source/specifications/binary-distribution-format.rst:447
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -9635,39 +9639,39 @@ msgid ""
 "package before accepting it as a genuine bug."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:450
+#: ../source/specifications/binary-distribution-format.rst:454
 msgid "Changes"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:452
+#: ../source/specifications/binary-distribution-format.rst:456
 msgid "Since :pep:`427`, this specification has changed as follows:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:454
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid ""
 "The rules on escaping in wheel filenames were revised, to bring them into "
 "line with what popular tools actually do (February 2021)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:461
+#: ../source/specifications/binary-distribution-format.rst:465
 msgid ""
 "PEP acceptance (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:466
+#: ../source/specifications/binary-distribution-format.rst:470
 msgid "Appendix"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:468
+#: ../source/specifications/binary-distribution-format.rst:472
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:482
+#: ../source/specifications/binary-distribution-format.rst:486
 msgid "Copyright"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:484
+#: ../source/specifications/binary-distribution-format.rst:488
 msgid "This document has been placed into the public domain."
 msgstr ""
 
