@@ -313,7 +313,7 @@ and a good amount of effort.
 
 A selection of Python freezers:
 
-* `pyInstaller <http://www.pyinstaller.org/>`_ - Cross-platform
+* `pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - Cross-platform
 * `cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - Cross-platform
 * `constructor <https://github.com/conda/constructor>`_ - For command-line installers
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
