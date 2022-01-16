@@ -390,7 +390,7 @@ extlinks = {
 linkcheck_ignore = [
     "http://localhost:\d+",
     # This is an example that showing to the reader
-    "https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE",
+    "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     # Ignoring it as it will redirect to login page if reader hasn't logged in.
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
