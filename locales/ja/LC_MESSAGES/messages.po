@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-16 20:01+0000\n"
-"PO-Revision-Date: 2022-01-16 19:57+0000\n"
+"PO-Revision-Date: 2022-01-20 13:09+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.10.1\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -6035,20 +6035,26 @@ msgid ""
 "script or use ``python -c '<command>'`` to invoke the application's main "
 "entry point directly."
 msgstr ""
+"最初に ``pkg_resources`` をインポートするよりも前に ``__main__.__requires__`` "
+"の中のすべての依存関係を設定しておくことでこの問題を回避することができますが、"
+"このアプローチでは影響を受けるツールを標準のコマンドラインからの呼び出しで使うことができないことになります - つまり、独自のラッパスクリプトを書くか、"
+"アプリケーションの main エントリポイントを直接に呼び出すための ``python -c '<command>'`` を使うかしなければなりません。"
 
 #: ../source/guides/multi-version-installs.rst:38
 msgid ""
 "Refer to the `pkg_resources documentation <https://setuptools.readthedocs.io/"
 "en/latest/pkg_resources.html#workingset-objects>`__ for more details."
 msgstr ""
+"さらに詳しい情報については、 `pkg_resources 説明文書 <https://setuptools.readthedocs.io/en/"
+"latest/pkg_resources.html#workingset-objects>`__ を参照してください。"
 
 #: ../source/guides/packaging-binary-extensions.rst:5
 msgid "Packaging binary extensions"
-msgstr ""
+msgstr "バイナリ拡張をパッケージングする"
 
 #: ../source/guides/packaging-binary-extensions.rst:8
 msgid "2013-12-08"
-msgstr ""
+msgstr "2013-12-08"
 
 #: ../source/guides/packaging-binary-extensions.rst:10
 msgid ""
@@ -6058,20 +6064,23 @@ msgid ""
 "to create importable C extensions that allow things which aren't always easy "
 "to achieve in pure Python code."
 msgstr ""
+"CPython の参照インタープリタの機能の一つは、Python のコードを実行することに加えて、他のソフトウェアによる利用のために豊富な C の "
+"API を露出することです。この C の API の最もよくある利用方法は、純粋な Python "
+"のコードでは必ずしも簡単には達成できないようなことをインポート可能な C 拡張として作成することです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:20
 msgid "An overview of binary extensions"
-msgstr ""
+msgstr "バイナリ拡張の概要"
 
 #: ../source/guides/packaging-binary-extensions.rst:23
 msgid "Use cases"
-msgstr ""
+msgstr "ユースケース"
 
 #: ../source/guides/packaging-binary-extensions.rst:25
 msgid ""
 "The typical use cases for binary extensions break down into just three "
 "conventional categories:"
-msgstr ""
+msgstr "バイナリ拡張の典型的なユースケースは、たった３個の伝統的なカテゴリに分類されます:"
 
 #: ../source/guides/packaging-binary-extensions.rst:28
 msgid ""
@@ -6086,6 +6095,12 @@ msgid ""
 "github.com/python/cpython/blob/main/Modules/_datetimemodule.c>`_) is not "
 "available."
 msgstr ""
+"**アクセラレータモジュール**: これらのモジュールは完全に自己完結型で、CPython で同機能の純粋なPython コードを走らせるよりも速く動作す"
+"るためにだけ作成されます。アクセラレートされたバージョンが当該システム上で動作しなかった時のために、アクセラレータモジュールには同機能の純粋なPython"
+"のコードを予備品として同梱していることが理想的です。CPython の標準ライブラリはアクセラレータモジュールを多用しています。*例*: "
+"``datetime`` をインポートする際、C での実装 (`_datetimemodule.c <https://github.com/python/"
+"cpython/blob/main/Modules/_datetimemodule.c>`_) が使えない時には、`datetime.py "
+"<https://github.com/python/cpython/blob/main/Lib/datetime.py>`_ にフォールバックします。"
 
 #: ../source/guides/packaging-binary-extensions.rst:39
 msgid ""
@@ -6098,6 +6113,12 @@ msgid ""
 "module wrapper for `_functoolsmodule.c <https://github.com/python/cpython/"
 "blob/main/Modules/_functoolsmodule.c>`_."
 msgstr ""
+"**ラッパモジュール**: これらのモジュールは、既存の C のインタフェースを Python に見せるために作られます。それらは C "
+"のインタフェースを直接に見せるか、または、Python 言語の機能を使ってAPI をより使いやすくするようなもっと \"Pythonic\" "
+"なやり方で見せるかします。CPython の標準ライブラリでは、ラッパモジュールを多用しています。 *例*: `functools.py "
+"<https://github.com/python/cpython/blob/main/Lib/functools.py>`_ は、 `"
+"_functoolsmodule.c <https://github.com/python/cpython/blob/main/Modules/"
+"_functoolsmodule.c>`_ のためのラッパモジュールです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:47
 msgid ""
@@ -6110,6 +6131,12 @@ msgid ""
 "which comes from `sysmodule.c <https://github.com/python/cpython/blob/main/"
 "Python/sysmodule.c>`_."
 msgstr ""
+"**低レベルシステムアクセス**: これらのモジュールは、CPython ランタイムやオペレーティングシステム、あるいはさらに下層のハードウェアの低レベル"
+"の機能にアクセスするために作成されています。プラットフォームに固有のコードを通して、純粋な Python "
+"コードでは不可能なことを拡張モジュールが達成できるかもしれません。結構な数の CPython の標準ライブラリモジュールが C "
+"で書かれていて、言語のレベルには提供されていないようなインタープリタの内部にアクセスできるようになっています。 *例*: ``sys`` は `"
+"sysmodule.c <https://github.com/python/cpython/blob/main/Python/sysmodule.c>`"
+"_ から来ています。"
 
 #: ../source/guides/packaging-binary-extensions.rst:56
 msgid ""
@@ -6118,6 +6145,8 @@ msgid ""
 "global interpreter lock around long-running operations (regardless of "
 "whether those operations are CPU or IO bound)."
 msgstr ""
+"C 言語拡張の特筆すべき機能は、インタプリタランタイムにコールバックする必要のない時には、 (CPU制約であろうとIO制約であろうと関わりなく) "
+"長時間走り続ける操作を包む CPython グローバルインタプリタロックを解放することができるということです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:61
 msgid ""
@@ -6129,10 +6158,15 @@ msgid ""
 "concurrent execution of vectorised operations and to tightly control the "
 "exact memory layout of created objects."
 msgstr ""
+"必ずしも全ての拡張モジュールが上記のカテゴリにぴたりと当て嵌まる訳ではありません。例えば NumPy "
+"に含まれる拡張モジュールは３個のカテゴリのすべてにまたがっています - 動作速度上の理由から内側のループを C 言語に移しているし、C 言語や "
+"FORTRAN "
+"言語その他で書かれた外部のライブラリをラップしているし、また、ベクタ演算の並列実行や生成したオブジェクトのメモリレイアウトを正確な管理のために、 "
+"CPython とその下にあるオペレーティングシステムの両方の低レベルなシステムインターフェイスを利用しています。"
 
 #: ../source/guides/packaging-binary-extensions.rst:71
 msgid "Disadvantages"
-msgstr ""
+msgstr "欠点"
 
 #: ../source/guides/packaging-binary-extensions.rst:73
 msgid ""
@@ -6143,28 +6177,33 @@ msgid ""
 "any language that can bind to the CPython C API) typically require that "
 "custom binaries be created for different platforms."
 msgstr ""
+"バイナリ拡張を使うことの主たる欠点は、引き続くソフトウェア配布がより難しくなることです。Python "
+"を使う利点のひとつは非常に広範囲のクロスプラットフォームである (訳注、同一の Python コードが広範囲の異種プラットフォームで動作する) "
+"ことですが、拡張モジュールを書くのに使われる言語 (典型的には C 言語や C++ だが、実際にはどんな言語でも CPython の C 言語 API "
+"にバインドできる) は異なるプラットフォームには異なるバイナリを作成しなければならないのが普通なのです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:80
 msgid "This means that binary extensions:"
-msgstr ""
+msgstr "これが意味するところは、バイナリ拡張は:"
 
 #: ../source/guides/packaging-binary-extensions.rst:82
 msgid ""
 "require that end users be able to either build them from source, or else "
 "that someone publish pre-built binaries for common platforms"
 msgstr ""
+"エンドユーザがソースコードからビルドできるか、または、誰かが共通のプラットフォーム向けにビルド済みのバイナリを公開するか、のいずれかでなければなりません"
 
 #: ../source/guides/packaging-binary-extensions.rst:85
 msgid ""
 "may not be compatible with different builds of the CPython reference "
 "interpreter"
-msgstr ""
+msgstr "CPython 参照インタプリタのビルドが異なると互換性がないかもしれません"
 
 #: ../source/guides/packaging-binary-extensions.rst:88
 msgid ""
 "often will not work correctly with alternative interpreters such as PyPy, "
 "IronPython or Jython"
-msgstr ""
+msgstr "PyPy ・ IronPython ・ Jython のような代替インタプリタ上では動作しないことがしばしばです"
 
 #: ../source/guides/packaging-binary-extensions.rst:91
 msgid ""
@@ -6172,6 +6211,8 @@ msgid ""
 "be familiar not only with Python, but also with the language used to create "
 "the binary extension, as well as with the details of the CPython C API."
 msgstr ""
+"もしハードコードされているなら、メンテナンス担当者が Python のみならずそのバイナリ拡張を作成するために使われている言語についてもCPython "
+"の C 言語 API についても慣れ親しんでいることが要求されるので、メンテナンスがより難しくなるでしょう。"
 
 #: ../source/guides/packaging-binary-extensions.rst:96
 msgid ""
@@ -6180,6 +6221,8 @@ msgid ""
 "introducing additional complexity in the test suite to ensure both versions "
 "are always executed."
 msgstr ""
+"純粋な Python で書かれた退避先実装が用意されているなら、変更を実装するべき場所が２箇所になるのと、両方の実装が常に実行されることを保証するテストス"
+"イートを準備するために複雑さが増加することになるので、メンテナンスがより一層困難になります。"
 
 #: ../source/guides/packaging-binary-extensions.rst:101
 msgid ""
@@ -6188,10 +6231,13 @@ msgid ""
 "zipfiles) often won't work for extension modules (as the dynamic loading "
 "mechanisms on most platforms can only load libraries from disk)."
 msgstr ""
+"バイナリ拡張に依存することによるさらなる欠点は、 (例えば zip ファイルから直接にインポートする能力など) 通常とは異なるインポート機構が、"
+"しばしば拡張モジュールでは動作しない (ほとんどのプラットフォームでは動的ロード機構はディスクからライブラリを読み込むことしかできないため) "
+"ということです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:108
 msgid "Alternatives to handcoded accelerator modules"
-msgstr ""
+msgstr "ハードコードされたアクセラレータモジュールの代わりとなるもの"
 
 #: ../source/guides/packaging-binary-extensions.rst:110
 msgid ""
@@ -6200,6 +6246,9 @@ msgid ""
 "additional maintenance effort), a number of other alternatives should also "
 "be considered:"
 msgstr ""
+"拡張モジュールが単純にプログラムを速く走らせるためだけに使われてい "
+"(て、プロファイリングの結果、メンテナンス工数が増えることを甘受しても速度を上げることに価値があると判断され) "
+"る時には、他の複数の選択肢も検討しておくべきです:"
 
 #: ../source/guides/packaging-binary-extensions.rst:115
 msgid ""
@@ -6210,6 +6259,10 @@ msgid ""
 "appropriate choice of standard library or third party module can avoid the "
 "need to create your own accelerator module."
 msgstr ""
+"既存の最適化された代替策を探す。CPython の標準ライブラリには、最適化されたデータ構造やアルゴリズム (特に組み込み済みのものや "
+"``collections`` および ``itertools`` モジュール) が多数含まれています。Python パッケージインデックスにも他の代替と"
+"なるパッケージがあります。時には、標準ライブラリや第三パーティのモジュールから適切なものを選択することで、自分自身でアクセラレータパッケージを作成する必要"
+"に迫られないで済むでしょう。"
 
 #: ../source/guides/packaging-binary-extensions.rst:122
 msgid ""
@@ -6223,6 +6276,13 @@ msgid ""
 "having one live reference instead of two often won't break anything, but no "
 "references instead of one is a major problem)."
 msgstr ""
+"長時間に渡って走り続けるアプリケーションに対しては、標準の CPython ランタイムの代わりに JIT コンパイルされた `PyPy インタープリタ "
+"<https://www.pypy.org/>`__ を使うことが適切な代替策となるかもしれません。 PyPy を適用しようとする時、"
+"典型的には他のバイナリ拡張モジュールへの依存が主たる障害になります - PyPy が CPython の C 言語 API をエミュレートする一方で、"
+"その API に依存するモジュールの側が PyPy の JIT に問題を引き起こし、また、エミュレーション層が CPython "
+"では現在は許容されているような拡張モジュール側の潜在的な瑕疵 (参照カウントに関係するエラーであることが多い - "
+"あるオブジェクトへの参照が２個あるはずのところが１個しかないという状態は何も悪さをしませんが、１個の参照のはずが参照なしとなる場合が主な問題になります) "
+"をしばしば暴露してしまうのです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:132
 msgid ""
@@ -6235,6 +6295,11 @@ msgid ""
 "has the benefit of having a reduced barrier to entry for Python programmers "
 "(relative to other languages like C or C++)."
 msgstr ""
+"`Cython <https://cython.org/>`__ は、ほとんどの Python コードを C "
+"言語の拡張モジュールに変換できる成熟した静的コンパイラです。当初のコンパイルでは、(CPython のインタプリタ層をバイパスすることによって) "
+"いくらかの速度向上が見込めるとともに、 Cython のオプション扱いの静的型付け機能によってさらに速度向上の機会があるかもしれません。Cython "
+"の使用には、アプリケーション配布の際の複雑さが増加するという欠点がまだ残っていますが、Python プログラマにとって (C 言語や C++ "
+"のような他言語に比べると) 参入障壁が低いという利点があります。"
 
 #: ../source/guides/packaging-binary-extensions.rst:141
 msgid ""
@@ -6245,10 +6310,14 @@ msgid ""
 "code is running, but can provide significant speed increases, especially for "
 "operations that are amenable to vectorisation."
 msgstr ""
+"`Numba <http://numba.pydata.org/>`__ は新しめのツールで、LLVM を活用して Python "
+"アプリケーションの一部分をランタイムに選択的にネイティブの機械コードにコンパイルできるようにすることを目指している科学分野の Python "
+"コミュニティによって作成されました。この取り組みでは、コードが動作するシステムに LLVM "
+"が存在していなければなりませんが、特にベクトル化が容易な操作について顕著な速度増加を提供することができます。"
 
 #: ../source/guides/packaging-binary-extensions.rst:150
 msgid "Alternatives to handcoded wrapper modules"
-msgstr ""
+msgstr "ハードコードされたラッパモジュールに対する代替策"
 
 #: ../source/guides/packaging-binary-extensions.rst:152
 msgid ""
