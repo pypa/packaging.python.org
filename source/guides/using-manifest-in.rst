@@ -46,7 +46,7 @@ The following files are included in a source distribution by default:
 
 After adding the above files to the sdist, the commands in :file:`MANIFEST.in`
 (if such a file exists) are executed in order to add and remove further files
-to & from the sdist.  Default files can even be removed from the sdist with the
+to and from the sdist.  Default files can even be removed from the sdist with the
 appropriate :file:`MANIFEST.in` command.
 
 After processing the :file:`MANIFEST.in` file, setuptools removes the
