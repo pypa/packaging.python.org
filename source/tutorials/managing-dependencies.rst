@@ -163,10 +163,10 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
 * `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
   more steps in the project management workflow, such as incrementing versions,
   tagging releases, and creating new skeleton projects from project templates.
-* `micropipenv <https://github.com/thoth-station/micropipenv>`_ is a lightweight
-  wrapper for pip to support requirements.txt, Pipenv and Poetry lock files or
-  converting them to pip-tools compatible output. Designed for containerized
-  Python applications but not limited to them.
+* `micropipenv <https://github.com/thoth-station/micropipenv>`_ for a lightweight
+  wrapper around pip that supports ``requirements.txt``, Pipenv and Poetry lock files,
+  or converting them to pip-tools compatible output. Designed for containerized
+  Python applications, but not limited to them.
 * `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package management
   tool supporting :pep:`582` (replacing virtual environments with ``__pypackages__``
   directory for package installation) and relying on standards such as :pep:`517` and
@@ -174,9 +174,8 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
   dependencies from a list of packages directly used in a project, and ensuring that
   only those dependencies are installed.
-* `poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
-  to ``pipenv`` that focuses more directly on use cases where the repository being
-  managed is structured as a Python project with a valid ``pyproject.toml`` file
-  (by contrast, ``pipenv`` explicitly avoids making the assumption that the
-  application being worked on that's depending on components from PyPI will
-  itself support distribution as a ``pip``-installable Python package).
+* `Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
+  to Pipenv that focuses more directly on use cases where the project being managed is
+  structured as a distributable Python package with a valid ``pyproject.toml`` file.
+  By contrast, Pipenv explicitly avoids making the assumption that the application
+  being worked on will support distribution as a ``pip``-installable Python package.
