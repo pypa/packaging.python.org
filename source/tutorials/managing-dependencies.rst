@@ -162,8 +162,8 @@ working well for you or your use case, you may want to explore these other tools
 and techniques, listed in alphabetical order, to see if one of them is a better fit:
 
 * `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
-  more steps in the project management workflow (such as incrementing versions,
-  tagging releases, and creating new skeleton projects from project templates)
+  more steps in the project management workflow, such as incrementing versions,
+  tagging releases, and creating new skeleton projects from project templates.
 * `micropipenv <https://github.com/thoth-station/micropipenv>`_ is a lightweight
   wrapper for pip to support requirements.txt, Pipenv and Poetry lock files or
   converting them to pip-tools compatible output. Designed for containerized
