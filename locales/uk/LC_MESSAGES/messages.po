@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-20 13:09+0000\n"
+"POT-Creation-Date: 2022-01-23 14:26+0000\n"
 "PO-Revision-Date: 2021-12-21 12:21+0000\n"
 "Last-Translator: Sviatoslav Sydorenko <wk+weblate.org@sydorenko.org.ua>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -13045,17 +13045,14 @@ msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:24
 msgid ""
-"Developers of Python libraries, or of applications that support distribution "
-"as Python libraries, should also consider the `poetry <https://github.com/"
-"python-poetry/poetry>`_ project as an alternative dependency management "
-"solution."
+"For alternatives, see `Other Tools for Application Dependency Management`_."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:30
+#: ../source/tutorials/managing-dependencies.rst:27
 msgid "Installing Pipenv"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:32
+#: ../source/tutorials/managing-dependencies.rst:29
 msgid ""
 ":ref:`Pipenv` is a dependency manager for Python projects. If you're "
 "familiar with Node.js' `npm`_ or Ruby's `bundler`_, it is similar in spirit "
@@ -13064,11 +13061,11 @@ msgid ""
 "that simplifies dependency management for common use cases."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:38
+#: ../source/tutorials/managing-dependencies.rst:35
 msgid "Use ``pip`` to install Pipenv:"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:54
+#: ../source/tutorials/managing-dependencies.rst:51
 msgid ""
 "This does a `user installation`_ to prevent breaking any system-wide "
 "packages. If ``pipenv`` isn't available in your shell after installation, "
@@ -13077,18 +13074,18 @@ msgid ""
 "information."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:65
+#: ../source/tutorials/managing-dependencies.rst:62
 msgid "Installing packages for your project"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:67
+#: ../source/tutorials/managing-dependencies.rst:64
 msgid ""
 "Pipenv manages dependencies on a per-project basis. To install packages, "
 "change into your project's directory (or just an empty directory for this "
 "tutorial) and run:"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:76
+#: ../source/tutorials/managing-dependencies.rst:73
 msgid ""
 "Pipenv will install the `Requests`_ library and create a ``Pipfile`` for you "
 "in your project's directory. The :ref:`Pipfile` is used to track which "
@@ -13097,50 +13094,50 @@ msgid ""
 "this (although the exact paths shown will vary):"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:112
+#: ../source/tutorials/managing-dependencies.rst:109
 msgid "Using installed packages"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:114
+#: ../source/tutorials/managing-dependencies.rst:111
 msgid ""
 "Now that Requests is installed you can create a simple :file:`main.py` file "
 "to use it:"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:125
+#: ../source/tutorials/managing-dependencies.rst:122
 msgid "Then you can run this script using ``pipenv run``:"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:131
+#: ../source/tutorials/managing-dependencies.rst:128
 msgid "You should get output similar to this:"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:137
+#: ../source/tutorials/managing-dependencies.rst:134
 msgid ""
 "Using ``pipenv run`` ensures that your installed packages are available to "
 "your script. It's also possible to spawn a new shell that ensures all "
 "commands have access to your installed packages with ``pipenv shell``."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:143
+#: ../source/tutorials/managing-dependencies.rst:140
 #: ../source/tutorials/packaging-projects.rst:604
 msgid "Next steps"
 msgstr "Наступні кроки"
 
-#: ../source/tutorials/managing-dependencies.rst:145
+#: ../source/tutorials/managing-dependencies.rst:142
 msgid ""
 "Congratulations, you now know how to effectively manage dependencies and "
 "development environments on a collaborative Python project! ✨ 🍰 ✨"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:148
+#: ../source/tutorials/managing-dependencies.rst:145
 msgid ""
 "If you're interested in creating and distributing your own Python packages, "
 "see the :ref:`tutorial on packaging and distributing packages <distributing-"
 "packages>`."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:151
+#: ../source/tutorials/managing-dependencies.rst:148
 msgid ""
 "Note that when your application includes definitions of Python source "
 "packages, they (and their dependencies) can be added to your ``pipenv`` "
@@ -13148,48 +13145,57 @@ msgid ""
 "(e.g. ``pipenv install -e .`` or ``pipenv install -e src``)."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:160
+#: ../source/tutorials/managing-dependencies.rst:157
 msgid "Other Tools for Application Dependency Management"
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:162
+#: ../source/tutorials/managing-dependencies.rst:159
 msgid ""
 "If you find this particular approach to managing application dependencies "
 "isn't working well for you or your use case, you may want to explore these "
-"other tools and techniques to see if one of them is a better fit:"
+"other tools and techniques, listed in alphabetical order, to see if one of "
+"them is a better fit:"
+msgstr ""
+
+#: ../source/tutorials/managing-dependencies.rst:163
+msgid ""
+"`hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even "
+"more steps in the project management workflow, such as incrementing "
+"versions, tagging releases, and creating new skeleton projects from project "
+"templates."
 msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:166
 msgid ""
-"`poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable "
-"in scope to ``pipenv`` that focuses more directly on use cases where the "
-"repository being managed is structured as a Python project with a valid "
-"``pyproject.toml`` file (by contrast, ``pipenv`` explicitly avoids making "
-"the assumption that the application being worked on that's depending on "
-"components from PyPI will itself support distribution as a ``pip``-"
-"installable Python package)."
+"`micropipenv <https://github.com/thoth-station/micropipenv>`_ for a "
+"lightweight wrapper around pip that supports ``requirements.txt``, Pipenv "
+"and Poetry lock files, or converting them to pip-tools compatible output. "
+"Designed for containerized Python applications, but not limited to them."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:172
+#: ../source/tutorials/managing-dependencies.rst:170
 msgid ""
-"`hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even "
-"more steps in the project management workflow (such as incrementing "
-"versions, tagging releases, and creating new skeleton projects from project "
-"templates)"
+"`PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package "
+"management tool supporting :pep:`582` (replacing virtual environments with "
+"``__pypackages__`` directory for package installation) and relying on "
+"standards such as :pep:`517` and :pep:`621`."
 msgstr ""
 
-#: ../source/tutorials/managing-dependencies.rst:175
+#: ../source/tutorials/managing-dependencies.rst:174
 msgid ""
-"`pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own "
-"custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``"
+"`pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock "
+"file of all dependencies from a list of packages directly used in a project, "
+"and ensuring that only those dependencies are installed."
 msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:177
 msgid ""
-"`micropipenv <https://github.com/thoth-station/micropipenv>`_ is a "
-"lightweight wrapper for pip to support requirements.txt, Pipenv and Poetry "
-"lock files or converting them to pip-tools compatible output. Designed for "
-"containerized Python applications but not limited to them."
+"`Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable "
+"in scope to Pipenv that focuses more directly on use cases where the project "
+"being managed is structured as a distributable Python package with a valid "
+"``pyproject.toml`` file. By contrast, Pipenv explicitly avoids making the "
+"assumption that the application being worked on will support distribution as "
+"a ``pip``-installable Python package."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:2
