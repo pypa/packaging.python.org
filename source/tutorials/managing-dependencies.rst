@@ -21,8 +21,7 @@ applicable to the development and deployment of network services (including
 web applications), but is also very well suited to managing development and
 testing environments for any kind of project.
 
-Alternative dependency management solutions can be found in a non-exhaustive list
-at the bottom of the page.
+For alternatives, see `Other Tools for Application Dependency Management`_.
 
 Installing Pipenv
 -----------------
