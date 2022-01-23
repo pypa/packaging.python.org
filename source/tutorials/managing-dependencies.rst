@@ -172,8 +172,9 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
   tool supporting :pep:`582` (replacing virtual environments with ``__pypackages__``
   directory for package installation) and relying on standards such as :pep:`517` and
   :pep:`621`.
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
-  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
+  dependencies from a list of packages directly used in a project, and ensuring that
+  only those dependencies are installed.
 * `poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
   to ``pipenv`` that focuses more directly on use cases where the repository being
   managed is structured as a Python project with a valid ``pyproject.toml`` file
