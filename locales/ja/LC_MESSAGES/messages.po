@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-23 14:26+0000\n"
-"PO-Revision-Date: 2022-01-24 18:57+0000\n"
+"PO-Revision-Date: 2022-01-28 01:53+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -6507,14 +6507,16 @@ msgid ""
 "includes an introduction to writing a :doc:`custom extension module in C "
 "<python:extending/extending>`."
 msgstr ""
+"CPython の :doc:`拡張と埋め込み <python:extending/index>` のガイドには、 :doc:`C "
+"言語による独自の拡張モジュール <python:extending/extending>` を書くための導入的な説明があります。"
 
 #: ../source/guides/packaging-binary-extensions.rst:241
 msgid "Building binary extensions"
-msgstr ""
+msgstr "バイナリ拡張をビルドする"
 
 #: ../source/guides/packaging-binary-extensions.rst:244
 msgid "Building extensions for multiple platforms"
-msgstr ""
+msgstr "複数のプラットフォーム向けに拡張モジュールをビルドする"
 
 #: ../source/guides/packaging-binary-extensions.rst:246
 msgid ""
@@ -6526,10 +6528,15 @@ msgid ""
 "redistributable binaries from CI; these include :ref:`cibuildwheel` and :ref:"
 "`multibuild`."
 msgstr ""
+"あなたが自分の書いた拡張モジュールを配布するつもりがあるなら、あたながサポートしようと思うすべてのプラットフォーム向けに :term:`wheels "
+"<Wheel>` を準備するべきでしょう。ほとんどの拡張モジュールにおいて、Python のバージョン毎にサポートする予定の OS "
+"とアーキテクチャの数を掛け算した分に少なくともひとつのパッケージが必要であるということになります。通常はこれらを継続的インテグレーション (CI) "
+"システム上でビルドします。:ref:`cibuildwheel` や :ref:`multibuild` のような CI "
+"から再配布が非常にやりやすいバイナリをビルドするのを補助するツールの存在が知られています。"
 
 #: ../source/guides/packaging-binary-extensions.rst:256
 msgid "Binary extensions for Windows"
-msgstr ""
+msgstr "Windows 向けのバイナリ拡張"
 
 #: ../source/guides/packaging-binary-extensions.rst:258
 msgid ""
@@ -6540,6 +6547,11 @@ msgid ""
 "extensions, install `Visual Studio Community Edition <https://visualstudio."
 "microsoft.com/downloads/>`__ - any recent version is fine."
 msgstr ""
+"バイナリ拡張をびるどできるようになる前に、適切なコンパイラが利用できるようになっていることを保証しなければなりません。Windows 上でCPython "
+"インタプリタをビルドするのに Visual C "
+"が使われていますが、互換性のあるバイナリ拡張をビルドする時にも同じコンパイラを使うべきです。バイナリ拡張のためのビルド環境を構築するためには、 `"
+"Visual Studio コミュニティエディション <https://visualstudio.microsoft.com/downloads/>`"
+"__ をインストールしてください - 最近のバージョンならどれでも構いません。"
 
 #: ../source/guides/packaging-binary-extensions.rst:265
 msgid ""
@@ -6550,6 +6562,11 @@ msgid ""
 "that do not include this extra file. To avoid this, you can add the compile-"
 "time argument ``/d2FH4-``. Recent versions of Python may include this file."
 msgstr ""
+"注意: Visual Studio 2019 またはこれ以降のバージョンを使う場合には、あなたの拡張モジュールは、2015 "
+"までのそれ以前のバージョンで依存していた `VCRUNTIME140.dll`` に加えて、\"追加的な\" ファイルである "
+"``VCRUNTIME140_1.dll`` にも依存するでしょう。この追加のファイルを同梱していないバージョンの CPython "
+"上であなたの拡張モジュールを使う場合には、要求事項が追加されることになります。コンパイル時に引数 ``/d2FH4`` "
+"を追加しておくことで、これを避けることができます。最近のバージョンの Python ならこのファイルを同梱しているかもしれません。"
 
 #: ../source/guides/packaging-binary-extensions.rst:273
 msgid ""
@@ -6562,10 +6579,15 @@ msgid ""
 "structures, and so on. Tools for generating extension modules usually avoid "
 "these things for you."
 msgstr ""
+"Visual Studio の古いバージョンがもはや Microsoft 社から入手できないので、3.5より古いバージョンの Python "
+"向けにビルドすることは推奨されません。どうしても古いバージョン向けにビルドする必要がある場合には、 ``DISTUTILS_USE_SDK=1`` "
+"および ``MSSdk=1`` をセットすることで現在も使用可能なバージョンの MSVC が見つかるようにすることと、"
+"あなたの拡張モジュールの中でライブラリを跨いでメモリを malloc/free することのないように設計を見直すこと、また、修正されたデータ構造に依存しな"
+"いようにすることなどが必要です。拡張モジュールを生成するツール群は、通常はこのようなことが起こらないようにしてくれています。"
 
 #: ../source/guides/packaging-binary-extensions.rst:284
 msgid "Binary extensions for Linux"
-msgstr ""
+msgstr "Linux 向けのバイナリ拡張"
 
 #: ../source/guides/packaging-binary-extensions.rst:286
 msgid ""
@@ -6574,10 +6596,13 @@ msgid ""
 "images provide a build environment with a glibc old enough to support most "
 "current Linux distributions on common architectures."
 msgstr ""
+"Linux のバイナリは、古い配布物と互換性を保つために十分に古い glibc を使わなければなりません。 `manylinux "
+"<https://github.com/pypa/manylinux>`_ の Docker イメージを使えば、よくあるアーキテクチャのほとんどの現行版 "
+"Linux 配布物をサポートするのに十分なほど古い glibc を伴ったビルド環境を準備できるでしょう。"
 
 #: ../source/guides/packaging-binary-extensions.rst:292
 msgid "Binary extensions for macOS"
-msgstr ""
+msgstr "macOS 向けのバイナリ拡張"
 
 #: ../source/guides/packaging-binary-extensions.rst:294
 msgid ""
@@ -6590,20 +6615,26 @@ msgid ""
 "Spinning Wheels wiki <https://github.com/MacPython/wiki/wiki/Spinning-"
 "wheels>`_."
 msgstr ""
+"macOS におけるバイナリ互換性は、 macOS のバイナリをビルドする際にしばしば ``MACOSX_DEPLOYMENT_TARGET`` "
+"環境変数で指定される例えば *10.9* のようなターゲットの最小デプロイメントシステムで決まります。 setuptools や distutils "
+"でビルドする時には、デプロイメントターゲットは ``--plat-name`` フラグを使って、例えば ``macosx-10.9-x86_64`` "
+"のように指定されます。 macOS 上の Python 配布物向けのよくあるデプロイメントターゲットについては、 `MacPython "
+"スピンニングホイール wiki <https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_ "
+"を見てください。"
 
 #: ../source/guides/packaging-binary-extensions.rst:304
 msgid "Publishing binary extensions"
-msgstr ""
+msgstr "バイナリ拡張を公開する"
 
 #: ../source/guides/packaging-binary-extensions.rst:306
 msgid ""
 "For interim guidance on this topic, see the discussion in :issue:`this issue "
 "<284>`."
-msgstr ""
+msgstr "この話題に関する暫定的なガイダンスが :issue:`この課題 <284>` にあります。"
 
 #: ../source/guides/packaging-binary-extensions.rst:322
 msgid "Additional resources"
-msgstr ""
+msgstr "追加のリソース"
 
 #: ../source/guides/packaging-binary-extensions.rst:324
 msgid ""
@@ -6614,10 +6645,13 @@ msgid ""
 "for developers looking to understand more about the underlying binary "
 "interfaces that those systems rely on at runtime."
 msgstr ""
+"拡張モジュールのプラットフォームを跨ぐ開発・配布は込み入った話題なので、このガイドでは主として背景にある技術的な課題の取り扱いを自動化するさまざまなツール"
+"へのポインタを提供することに重点を置くことにします。代わりに、この節のその他の部分では、そのようなシステムが実行時に依存するような下層のバイナリインタフェ"
+"ースについて開発者が理解を深めるために見ることを意図しています。"
 
 #: ../source/guides/packaging-binary-extensions.rst:331
 msgid "Cross-platform wheel generation with scikit-build"
-msgstr ""
+msgstr "sckit-build を用いたクロスプラットフォームな wheel の生成"
 
 #: ../source/guides/packaging-binary-extensions.rst:333
 msgid ""
@@ -6628,6 +6662,10 @@ msgid ""
 "system generator <https://scikit-build.readthedocs.io/en/latest/generators."
 "html>`_ for Python binary extension modules."
 msgstr ""
+"`scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ "
+"は、抽象的なビルド作業を補助し、バイナリ拡張のパッケージを作成する時に必要な追加的な能力を提供します。 Python "
+"のバイナリ拡張モジュールに関するさらなる説明文書は、 `C 言語におけるランタイム・コンパイラ・ビルドシステム生成器 <https://scikit-"
+"build.readthedocs.io/en/latest/generators.html>`_ にあります。"
 
 #: ../source/guides/packaging-binary-extensions.rst:341
 msgid "Introduction to C/C++ extension modules"
