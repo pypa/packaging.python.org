@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-23 14:26+0000\n"
-"PO-Revision-Date: 2022-01-30 07:54+0000\n"
+"PO-Revision-Date: 2022-02-03 01:55+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -6719,11 +6719,11 @@ msgstr "そして、このパッケージを自分のソースコード中で使
 
 #: ../source/guides/packaging-namespace-packages.rst:29
 msgid "Then you can break these sub-packages into two separate distributions:"
-msgstr ""
+msgstr "そうすることで、これらのサブパッケージ群を別々のふたつの配布物に分割することができます:"
 
 #: ../source/guides/packaging-namespace-packages.rst:46
 msgid "Each sub-package can now be separately installed, used, and versioned."
-msgstr ""
+msgstr "それぞれのサブパッケージは、今や、個別にインストール・使用・バージョン管理することができます。"
 
 #: ../source/guides/packaging-namespace-packages.rst:48
 msgid ""
@@ -6735,16 +6735,21 @@ msgid ""
 "mynamespace_subpackage_a`` (you could even use ``import "
 "mynamespace_subpackage_a as subpackage_a`` to keep the import object short)."
 msgstr ""
+"名前空間パッケージは、 (単独の会社から出ている複数の製品向けのクライアントライブラリの巨大な集積のような) 緩やかに関連したパッケージが多数含まれるコレ"
+"クションに役立つでしょう。しかしながら、名前空間パッケージにはいくつかの注意書きがあって、全ての場合に適切と言うわけではありません。単純明快な代替策は、"
+"あなたの配布物のすべてについて ``import mynamespace_subpackage_a`` のような接頭語を使うことです ("
+"インポートするオブジェクトの名前を短く保つために ``import mynamespace_subpackage_a as subpackage_a`` "
+"のようにインポートすることさえできます) 。"
 
 #: ../source/guides/packaging-namespace-packages.rst:58
 msgid "Creating a namespace package"
-msgstr ""
+msgstr "名前空間パッケージを作成する"
 
 #: ../source/guides/packaging-namespace-packages.rst:60
 msgid ""
 "There are currently three different approaches to creating namespace "
 "packages:"
-msgstr ""
+msgstr "現在、名前空間パッケージを作るには３個の異なる手法があります:"
 
 #: ../source/guides/packaging-namespace-packages.rst:62
 msgid ""
@@ -6753,6 +6758,9 @@ msgid ""
 "if packages in your namespace only ever need to support Python 3 and "
 "installation via ``pip``."
 msgstr ""
+"`組み込みの名前空間パッケージ <native namespace packages>`_ を用いる方法。この種の名前空間パッケージは "
+":pep:`420` で定義されていて、 Python 3.3 およびそれ以降で利用することができます。パッケージ中の名前空間が Python 3 "
+"だけをサポートすればよくて ``pip`` でインストールするのであれば、これが推奨される方法です。"
 
 #: ../source/guides/packaging-namespace-packages.rst:66
 msgid ""
@@ -6760,6 +6768,9 @@ msgid ""
 "packages that need to support Python 2 and 3 and installation via both "
 "``pip`` and ``python setup.py install``."
 msgstr ""
+"`pkgutil 型の名前空間パッケージ <pkgutil-style namespace packages>`_ を用いる方法。 Python 2 "
+"および 3 をサポートする必要があって ``pip`` でも ``python setup.py install`` "
+"でもインストールできるようにしたいなら、これが推奨される方法です。"
 
 #: ../source/guides/packaging-namespace-packages.rst:69
 msgid ""
@@ -6767,6 +6778,8 @@ msgid ""
 "you need compatibility with packages already using this method or if your "
 "package needs to be zip-safe."
 msgstr ""
+"`pkg_resources 型の名前空間パッケージ <pkg_resources-style namespace packages>`_ "
+"を使う方法。この手法を採用した既存のパッケージとの互換性を保つ必要がある場合か、あなたのパッケージに zip 耐性を持つ必要がある場合に推奨されます。"
 
 #: ../source/guides/packaging-namespace-packages.rst:73
 msgid ""
@@ -6775,10 +6788,12 @@ msgid ""
 "compatible with the other methods. It's inadvisable to use different methods "
 "in different distributions that provide packages to the same namespace."
 msgstr ""
+"組み込みの名前空間パッケージや pkgutil 型の名前空間パッケージは多くの点で互換性がありますが、 pkg_resources 型の名前空間パッケージ"
+"は他の手法とは互換性がありません。同じ名前空間向けにパッケージを提供するような複数の配布物で、異なる手法を用いることは推奨されません。"
 
 #: ../source/guides/packaging-namespace-packages.rst:80
 msgid "Native namespace packages"
-msgstr ""
+msgstr "組み込みの名前空間パッケージ"
 
 #: ../source/guides/packaging-namespace-packages.rst:82
 msgid ""
@@ -6787,6 +6802,9 @@ msgid ""
 "`__init__.py` from the namespace package directory. An example file "
 "structure:"
 msgstr ""
+"Python 3.3 では :pep:`420` から **暗黙の** "
+"名前空間パッケージを追加しました。組み込みの名前空間パッケージを作成するのに必要なことは、名前空間パッケージのディレクトリから "
+":file:`__init__.py` を取り除くことだけです。ファイル構造の例はこちら:"
 
 #: ../source/guides/packaging-namespace-packages.rst:97
 msgid ""
@@ -6795,6 +6813,9 @@ msgid ""
 "`__init__.py`. If any distribution does not, it will cause the namespace "
 "logic to fail and the other sub-packages will not be importable."
 msgstr ""
+"名前空間パッケージを用いる各配布物で :file:`__init__.py` を省くこと、または、 pkgutil 型の :file:`__init__."
+"py` "
+"を使用することが極めて重要です。もしいずれかの配布物でこれを忘れると、名前空間の論理が破綻して、他のサブパッケージをインポートすることができなくなります。"
 
 #: ../source/guides/packaging-namespace-packages.rst:102
 msgid ""
@@ -6803,12 +6824,18 @@ msgid ""
 "`setuptools.find_namespace_packages` instead or explicitly list all packages "
 "in your :file:`setup.py`. For example:"
 msgstr ""
+"``my namespace`` が :file:`__init__.py` を含まないので、 :func:`setuptools."
+"find_packages` はサブパッケージを検出しようとしません。代わりに :func:`setuptools."
+"find_namespace_packages` を使うか、または、 :file:`setup.py` "
+"にすべてのパッケージを明示的に列挙してください。例えば:"
 
 #: ../source/guides/packaging-namespace-packages.rst:117
 msgid ""
 "A complete working example of two native namespace packages can be found in "
 "the `native namespace package example project`_."
 msgstr ""
+"ふたつの名前空間パッケージの完全な動作例は、 `組み込みの名前空間パッケージの使用例プロジェクト <native namespace package "
+"example project>`_ にあります。"
 
 #: ../source/guides/packaging-namespace-packages.rst:123
 msgid ""
@@ -6817,10 +6844,13 @@ msgid ""
 "Python 3 and pkgutil-style namespace packages in the distributions that need "
 "to support Python 2 and 3."
 msgstr ""
+"組み込み名前空間パッケージと pkgutil 型の名前空間パッケージは、多くの部分で互換性があるので、 Python 3 "
+"しかサポートしない配布物では組み込み名前空間パッケージを使用し、 Python 2 と Python 3 の両方をサポートしなければならない配布物では "
+"pkgutil型名前空間パッケージを使うことが可能です。"
 
 #: ../source/guides/packaging-namespace-packages.rst:129
 msgid "pkgutil-style namespace packages"
-msgstr ""
+msgstr "pkgutil 型名前空間パッケージ"
 
 #: ../source/guides/packaging-namespace-packages.rst:131
 msgid ""
