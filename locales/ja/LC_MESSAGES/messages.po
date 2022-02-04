@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-23 14:26+0000\n"
-"PO-Revision-Date: 2022-02-03 01:55+0000\n"
+"PO-Revision-Date: 2022-02-04 23:51+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -6860,19 +6860,24 @@ msgid ""
 "and Python 3. This is the recommended approach for the highest level of "
 "compatibility."
 msgstr ""
+"Python 2.3 で :doc:`pkgutil <python:library/pkgutil>` モジュールと "
+":py:func:`python:pkgutil.extend_path` 関数が導入されました。Python 2.3+ と Python 3 の両方に互"
+"換性を持つ必要がある名前空間パッケージを宣言するのにこれが使えるかもしれません。これは、互換性のレベルが最も高くなるアプローチとして推奨されています。"
 
 #: ../source/guides/packaging-namespace-packages.rst:136
 msgid ""
 "To create a pkgutil-style namespace package, you need to provide an :file:"
 "`__init__.py` file for the namespace package:"
 msgstr ""
+"pkgutil 型の名前空間パッケージを作成するには、その名前空間パッケージ用に :file:`__init__.py` "
+"ファイルを準備する必要があります:"
 
 #: ../source/guides/packaging-namespace-packages.rst:148
 #: ../source/guides/packaging-namespace-packages.rst:193
 msgid ""
 "The :file:`__init__.py` file for the namespace package needs to contain "
 "**only** the following:"
-msgstr ""
+msgstr "名前空間パッケージ用の :file:`__init__.py` ファイルは、次に示すもの **だけ** を含んでいる必要があります:"
 
 #: ../source/guides/packaging-namespace-packages.rst:155
 #: ../source/guides/packaging-namespace-packages.rst:200
@@ -6882,16 +6887,21 @@ msgid ""
 "the namespace logic to fail and the other sub-packages will not be "
 "importable.  Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
+"名前空間パッケージを用いる **すべての** 配布物は、同一の :file:`__init__.py` "
+"を持たなければなりません。もしいずれかの配布物で異なっていれば、名前空間の論理破綻を招き、他のサブパッケージをインポートすることができなくなるでしょう。 "
+":file:`__init__.py` に他のコードを追加しても、それはアクセスできないものとなるでしょう。"
 
 #: ../source/guides/packaging-namespace-packages.rst:160
 msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
 msgstr ""
+"pkgutil 型の名前空間パッケージのふたつの動作例が `pkgutil 型名前空間を例示するプロジェクト <pkgutil namespace "
+"example project>`_ にあります。"
 
 #: ../source/guides/packaging-namespace-packages.rst:170
 msgid "pkg_resources-style namespace packages"
-msgstr ""
+msgstr "pkg_resources 型名前空間パッケージ"
 
 #: ../source/guides/packaging-namespace-packages.rst:172
 msgid ""
@@ -6904,6 +6914,11 @@ msgid ""
 "recommended to continue using this as the different methods are not cross-"
 "compatible and it's not advisable to try to migrate an existing package."
 msgstr ""
+":doc:`Setuptools <setuptools:index>` は、 `pkg_resources.declare_namespace`_ "
+"関数と :func:`~setuptools.setup` に渡す ``namespace_packages`` 引数を提供します。これらを一緒に使うこと"
+"で名前空間パッケージを宣言することができます。この手法はもはや推奨されていませんが、既存の名前空間パッケージのほとんどで使われています。この手法を採用して"
+"いる既存の名前空間パッケージの中に新しい配布物を作成する時には、異なる手法が相互に互換ではないために既存パッケージを移植しようとすることが推奨されていない"
+"ので、この手法を採用し続けることを推奨します。"
 
 #: ../source/guides/packaging-namespace-packages.rst:181
 msgid ""
