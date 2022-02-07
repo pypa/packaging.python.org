@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-23 14:26+0000\n"
-"PO-Revision-Date: 2022-02-06 10:01+0000\n"
+"PO-Revision-Date: 2022-02-10 00:51+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -6975,16 +6975,20 @@ msgid ""
 "Python distribution whenever a tagged commit is pushed. It will use the "
 "`pypa/gh-action-pypi-publish GitHub Action`_."
 msgstr ""
+"`GitHub Actions CI/CD`_ を使うと、 GitHub "
+"プラットフォームで何かイベントが発生するたびに一連のコマンドを実行することができます。よくある選択は、 ``push`` "
+"イベントを引き金にしてあるワークフローを行うというものです。このガイドでは、タグ付きのコミットが push されるたびに Python "
+"配布物を公開するやり方をお見せします。それには `pypa/gh-action-pypi-publish GitHub Action`_ を使います。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
 msgid ""
 "This guide *assumes* that you already have a project that you know how to "
 "build distributions for and *it lives on GitHub*."
-msgstr ""
+msgstr "このガイドでは、配布物をビルドするやり方がわかっているプロジェクトが *GitHub に置いてある* ことを *前提* にしています。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:19
 msgid "Saving credentials on GitHub"
-msgstr ""
+msgstr "GitHub に認証情報を保存する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 msgid ""
@@ -6992,10 +6996,12 @@ msgid ""
 "meaning that we'll have two separate sets of credentials. And we'll need to "
 "save them in the GitHub repository settings."
 msgstr ""
+"このガイドでは、 PyPI と TestPyPI の両方へのアップロードを実演するので、二組の別々の認証情報を持つことになります。そして、それらを "
+"GitHub のリポジトリ設定の中に保存する必要があります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:26
 msgid "Let's begin! 🚀"
-msgstr ""
+msgstr "始めましょう! 🚀"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
 msgid ""
@@ -7006,74 +7012,88 @@ msgid ""
 "the token list. **Don't close the page just yet — you won't see that token "
 "again.**"
 msgstr ""
+"https://pypi.org/manage/account/#api-tokens へ行って新しい `APIトークン <API token>`_ "
+"を作成してください。もう PyPI "
+"に自分のプロジェクトを持っているのであれば、トークンのスコープをそのプロジェクトだけに限定してください。トークンのリストの中で容易に見分けがつくように、"
+"何か ``GitHub Actions CI/CD — project-org/project-repo`` のような名前にしましょう。 **"
+"まだページを閉じないで -- トークンを再び見る機会はないですよ。**"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:37
 msgid ""
 "In a separate browser tab or window, go to the ``Settings`` tab of your "
 "target repository and then click on `Secrets`_ in the left sidebar."
 msgstr ""
+"ブラウザで別のタブかウィンドウを開いて、対象になっているリポジトリの ``Settings`` タブへ行き、左側のサイドバーにある `Secrets`_ "
+"の部分をクリックしてください。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:40
 msgid ""
 "Create a new secret called ``PYPI_API_TOKEN`` and copy-paste the token from "
 "the first step."
-msgstr ""
+msgstr "``PYPI_API_TOKEN`` と言う名前で新しい secret を作成し、先ほど作成したトークンをコピーしましょう。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
 msgid ""
 "Now, go to https://test.pypi.org/manage/account/#api-tokens and repeat the "
 "steps. Save that TestPyPI token on GitHub as ``TEST_PYPI_API_TOKEN``."
 msgstr ""
+"ここで https://test.pypi.org/manage/account/#api-tokens へ行って同様のステップを繰り返してください。"
+"ここではテスト用の PyPI トークンを GitHub 上で ``TEST_PYPI_API_TIKEN`` として保存します。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:48
 msgid ""
 "If you don't have a TestPyPI account, you'll need to create it. It's not the "
 "same as a regular PyPI account."
-msgstr ""
+msgstr "TestPyPI のアカウントを持っていなければ、新たに作成する必要があります。これは通常の PyPI のアカウントとは別のものです。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:53
 msgid "Creating a workflow definition"
-msgstr ""
+msgstr "ワークフロー定義を作成する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
 msgid ""
 "GitHub CI/CD workflows are declared in YAML files stored in the ``.github/"
 "workflows/`` directory of your repository."
 msgstr ""
+"GitHub CI/CD ワークフローは、リポジトリの ``.github/workflows/`` ディレクトリに置かれた YAML "
+"ファイルで宣言されます。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:58
 msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
-msgstr ""
+msgstr "``.github/workflows/publish-to-test-pypi.yml`` ファイルを作成しましょう。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
 msgid ""
 "Start it with a meaningful name and define the event that should make GitHub "
 "run this workflow:"
-msgstr ""
+msgstr "意味のある名前で始めて、 GitHub がこのワークフローを走らせるべきイベントを定義しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
 msgid "Defining a workflow job environment"
-msgstr ""
+msgstr "ワークフローのジョブ環境を定義する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
 msgid ""
 "Now, let's add initial setup for our job. It's a process that will execute "
 "commands that we'll define later. In this guide, we'll use Ubuntu 18.04:"
 msgstr ""
+"さて、我々のジョブについて最初の設定を追加しましょう。それは、我々が後で定義するであろうコマンドを実行するようなプロセスです。このガイドでは、 "
+"Ubuntu 18.04 を使います:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:83
 msgid "Checking out the project and building distributions"
-msgstr ""
+msgstr "プロジェクトをチェックアウトして配布物をビルドする"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:85
 msgid "Then, add the following under the ``build-n-publish`` section:"
-msgstr ""
+msgstr "それから、以下のものを ``build-n-publish`` 節に追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:92
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate Python 3.9."
 msgstr ""
+"これによって、あなたのリポジトリを CI ランナーにダウンロードして、 Python 3.9 をインストールしアクティベートすることになります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:95
 msgid ""
@@ -7081,24 +7101,28 @@ msgid ""
 "package, assuming that your project has a ``pyproject.toml`` properly set up "
 "(see :pep:`517`/:pep:`518`)."
 msgstr ""
+"そして、今や我々はソースコードから配布物をビルドすることができます。この例では、あなたのプロジェクトの ``pyproject.toml`` "
+"が適切に設定されている (:pep:`517` と :pep:`518` を参照してください) ことを仮定して、 ``build`` "
+"パッケージを用いることになります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:102
 msgid ""
 "You can use any other method for building distributions as long as it "
 "produces ready-to-upload artifacts saved into the ``dist/`` folder."
 msgstr ""
+"アップロードできる状態の創作物を ``dist/`` ディレクトリに保存するという条件を満たすのであれば、どのような方法で配布物をビルドしても構いません。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:106
 msgid "So add this to the steps list:"
-msgstr ""
+msgstr "そこでこれを手順のリストに追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:115
 msgid "Publishing the distribution to PyPI and TestPyPI"
-msgstr ""
+msgstr "PyPI と TestPyPI へ配布物を公開する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:117
 msgid "Finally, add the following steps at the end:"
-msgstr ""
+msgstr "最後に、次の手続きを末尾に追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:123
 msgid ""
@@ -7107,10 +7131,12 @@ msgid ""
 "unconditionally and the second does that to PyPI, but only if the current "
 "commit is tagged."
 msgstr ""
+"これらふたつの手順は、 `pypa/gh-action-pypi-publich`_ GitHub アクションを使います: 一つ目は ``dist/`` "
+"ディレクトリの中身を無条件に TestPyPI にアップロードする時で、二つ目はそのコミットがタグ付けされている場合に限って PyPI へ送る時です。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
 msgid "That's all, folks!"
-msgstr ""
+msgstr "これでできましたよ、皆さん!"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:132
 msgid ""
@@ -7119,22 +7145,27 @@ msgid ""
 "TestPyPI which is useful for providing test builds to your alpha users as "
 "well as making sure that your release pipeline remains healthy!"
 msgstr ""
+"これで、手元の Git リポジトリをリモートの GitHub にタグ付きのコミットをプッシュする時はいつでも、このワークフローがそれを PyPI "
+"へ公開します。そして、プッシュしさえすればいつでも TestPyPI で公開されますので、アルファ版のユーザにテストビルドを提供するためにも、あなたのリリ"
+"ースパイプラインが健全な状態に保たれていることを確認するためにも役に立ちます!"
 
 #: ../source/guides/single-sourcing-package-version.rst:5
 msgid "Single-sourcing the package version"
-msgstr ""
+msgstr "パッケージのバージョンを１箇所で管理する"
 
 #: ../source/guides/single-sourcing-package-version.rst:8
 msgid ""
 "There are many techniques to maintain a single source of truth for the "
 "version number of your project:"
-msgstr ""
+msgstr "プロジェクトのバージョン番号をたったひとつの真実の場所で管理するテクニックはたくさん存在しています:"
 
 #: ../source/guides/single-sourcing-package-version.rst:11
 msgid ""
 "Read the file in :file:`setup.py` and get the version. Example (from `pip "
 "setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::"
 msgstr ""
+":file:`setup.py` に書かれたファイルを読み込んでバージョンを得ましょう。( `pip setup.py <https://github."
+"com/pypa/pip/blob/main/setup.py#L11>`_ での) 例はこちら::"
 
 #: ../source/guides/single-sourcing-package-version.rst:38
 msgid ""
@@ -7142,6 +7173,8 @@ msgid ""
 "instead placing the following in the project's ``setup.cfg`` file (replacing "
 "\"package\" with the import name of the package):"
 msgstr ""
+"setuptools 46.4.0 のリリースでは、代わりに次のものを ``setup.cfg`` ファイルに置くことで同じことを達成できています ("
+"\"package\" をパッケージをインポートする際の名前で置き換えてください) :"
 
 #: ../source/guides/single-sourcing-package-version.rst:47
 msgid ""
@@ -7150,18 +7183,25 @@ msgid ""
 "so that ``attr:`` can function without having to import any of the package's "
 "dependencies."
 msgstr ""
+"setuptools の初期のバージョンでは、モジュールをインポートすることで ``attr:`` ディレクティブを実装していましたが、"
+"setuptools 46.4.0 で初歩的な AST 解析が追加されたので ``attr:`` "
+"が他の依存先パッケージをインポートしなくても機能するようになりました。"
 
 #: ../source/guides/single-sourcing-package-version.rst:52
 msgid ""
 "Also, please be aware that declarative config indicators, including the "
 "``attr:`` directive, are not supported in parameters to ``setup.py``."
 msgstr ""
+"また、 ``attr:`` ディレクティブを含む装飾的な設定指示子が、 ``setup.py`` "
+"向けのパラメータとしてはサポートされていないことに注意してください。"
 
 #: ../source/guides/single-sourcing-package-version.rst:55
 msgid ""
 "Use an external build tool that either manages updating both locations, or "
 "offers an API that both locations can use."
 msgstr ""
+"外部のビルドツールを使う場合は、両方の場所(ロケーション)を更新できるようなもの、あるいは、両方のサイトから使える API "
+"を提供しているものを使いましょう。"
 
 #: ../source/guides/single-sourcing-package-version.rst:58
 msgid ""
@@ -7170,6 +7210,10 @@ msgid ""
 "<https://pypi.org/project/changes>`_, `commitizen <https://pypi.org/project/"
 "commitizen>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_."
 msgstr ""
+"使えるかもしれない外部のビルドツールのリスト、ただし、順不同で、ここに挙げられていなくても使えるものがあるかもしれません: `bump2version "
+"<https://pypi.org/project/bump2version>`_, `changes <https://pypi.org/"
+"project/changes>`_, `commitizen <https://pypi.org/project/commitizen>`_, `"
+"zest.releaser <https://pypi.org/project/zest.releaser>`_."
 
 #: ../source/guides/single-sourcing-package-version.rst:65
 msgid ""
@@ -7177,24 +7221,30 @@ msgid ""
 "your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
 "``exec`` the value into a variable."
 msgstr ""
+"プロジェクト内にグローバル変数の ``__version__`` に値を設定した専用のモジュール (例えば :file:`version.py`) "
+"を作って :file:`setup.py` からそれを読み取って ``exec`` で値を変数に取り込むと良いでしょう。"
 
 #: ../source/guides/single-sourcing-package-version.rst:76
 msgid ""
 "Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
 msgstr ""
+"このテクニックを使っている例: `warehouse <https://github.com/pypa/warehouse/blob/"
+"64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_ 。"
 
 #: ../source/guides/single-sourcing-package-version.rst:78
 msgid ""
 "Place the value in a simple ``VERSION`` text file and have both :file:`setup."
 "py` and the project code read it."
 msgstr ""
+"単純に ``VERSION`` という名前のテキストファイルに値を書いておいて、 :file:`setup.py` "
+"とプロジェクトのソースコードの両方から読み込みます。"
 
 #: ../source/guides/single-sourcing-package-version.rst:86
 msgid ""
 "An advantage with this technique is that it's not specific to Python.  Any "
 "tool can read the version."
-msgstr ""
+msgstr "このテクニックを使う利点は、Python に限定されたやり方ではないということです。どんなツールでもバージョン番号を読み取ることができます。"
 
 #: ../source/guides/single-sourcing-package-version.rst:91
 msgid ""
