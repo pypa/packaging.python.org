@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-23 14:26+0000\n"
-"PO-Revision-Date: 2022-02-10 00:51+0000\n"
+"PO-Revision-Date: 2022-02-11 06:59+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -7252,6 +7252,8 @@ msgid ""
 "in all your source and binary distributions (e.g. add ``include VERSION`` to "
 "your :file:`MANIFEST.in`)."
 msgstr ""
+"このやり方を採用するなら、 ``VERSION`` ファイルがすべてのソースコードとバイナリの配布物に含まれているように気を付けてください (例えば "
+":file:`MANIFEST.in` に ``include VERSION`` を追加しておくなど)。"
 
 #: ../source/guides/single-sourcing-package-version.rst:95
 msgid ""
@@ -7261,6 +7263,10 @@ msgid ""
 "as the ``importlib-metadata`` project.)  An installed project's version can "
 "be fetched with the API as follows::"
 msgstr ""
+":file:`setup.py` に値を保存して、プロジェクトのソースコードが ``importlib.metadata`` API "
+"を使ってその値を動作中に取得するようにしましょう。 (``importlib.metadata`` は Python 3.8 で導入されていて、"
+"それより古いバージョンでは ``importlib-metadata`` プロジェクトとして利用可能になっています) "
+"インストール済みのプロジェクトのバージョン番号をこの API で取り込むには次のようにします::"
 
 #: ../source/guides/single-sourcing-package-version.rst:110
 msgid ""
@@ -7268,6 +7274,8 @@ msgid ""
 "installation metadata, which is not necessarily the code that's currently "
 "imported."
 msgstr ""
+"``importlib.metadata`` API が知っているのはインストールされたパッケージのメタデータだけであって、現在インポートされているソース"
+"コードについて知っているとは限らないことに注意してください。"
 
 #: ../source/guides/single-sourcing-package-version.rst:114
 msgid ""
@@ -7275,30 +7283,40 @@ msgid ""
 "``install_requires`` value needs to be edited to install ``importlib-"
 "metadata`` on pre-3.8 versions of Python like so::"
 msgstr ""
+"あるプロジェクトで動作中にバージョン番号を取得する方法を使っているのであれば、Python 3.8 よりも古いバージョンを使う場合はそのプロジェクトの "
+"``install_requires`` に ``importlib-metadata`` を書いておかなければなりません::"
 
 #: ../source/guides/single-sourcing-package-version.rst:128
 msgid ""
 "An older (and less efficient) alternative to ``importlib.metadata`` is the "
 "``pkg_resources`` API provided by ``setuptools``::"
 msgstr ""
+"``importlib.metadata`` に対するもっと古い (かつ、より非効率な) 代替策は、 ``setuptools`` が提供する "
+"``pkg_resources`` API です::"
 
 #: ../source/guides/single-sourcing-package-version.rst:134
 msgid ""
 "If a project uses ``pkg_resources`` to fetch its own version at runtime, "
 "then ``setuptools`` must be added to the project's ``install_requires`` list."
 msgstr ""
+"あるプロジェクトで自分自身のバージョン番号を動作中に取得するために ``pkg_resources`` を使っているなら、プロジェクトの "
+"``install_requires`` のリストには必ず ``setuptools`` が入っていないといけません。"
 
 #: ../source/guides/single-sourcing-package-version.rst:138
 msgid ""
 "Example using this technique: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
 msgstr ""
+"このテクニックを使っている例: `setuptools <https://github.com/pypa/setuptools/blob/main/"
+"setuptools/version.py>`_."
 
 #: ../source/guides/single-sourcing-package-version.rst:141
 msgid ""
 "Set the value to ``__version__`` in ``sample/__init__.py`` and import "
 "``sample`` in :file:`setup.py`."
 msgstr ""
+"``sample/__init__.py`` で ``__version__`` に値を設定して、 :file:`setup.py` から "
+"``sample`` をインポートしましょう。"
 
 #: ../source/guides/single-sourcing-package-version.rst:155
 msgid ""
@@ -7306,6 +7324,9 @@ msgid ""
 "__init__.py`` imports packages from ``install_requires`` dependencies, which "
 "will very likely not be installed yet when :file:`setup.py` is run."
 msgstr ""
+"このテクニックはよく知られたものだが、 ``install_requires`` で定義された依存先パッケージを ``sample/__init__."
+"py`` がインポートしている場合には、そのようなパッケージは :file:`setup.py` "
+"が実行される時点ではまだインストールされていない可能性が高いので、失敗するであろうということに注意してください。"
 
 #: ../source/guides/single-sourcing-package-version.rst:161
 msgid ""
@@ -7313,10 +7334,12 @@ msgid ""
 "Mercurial, etc) instead of in the code, and automatically extract it from "
 "there using `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_."
 msgstr ""
+"ソースコード内ではなくバージョンコントロールシステム (Git, Mercurialなど) のタグの中にバージョン番号を保持して、そこから `"
+"setuptools_scm <https://pypi.org/project/setuptools-scm/>`_ を使って取り出しましょう。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:5
 msgid "Supporting multiple Python versions"
-msgstr ""
+msgstr "複数の Python バージョンをサポートする"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:37
 msgid ""
