@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-23 14:26+0000\n"
-"PO-Revision-Date: 2022-02-12 22:25+0000\n"
+"PO-Revision-Date: 2022-02-15 05:42+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -7360,10 +7360,12 @@ msgid ""
 "time-consuming. Fortunately, several tools are available for dealing with "
 "this, and these will briefly be discussed here."
 msgstr ""
+"パッケージが対象となる Python バージョン (および OS 群！) で正しく動作することを確認するために要求されるテストを全て手動でやるとなると、大"
+"変に時間がかかるでしょう。幸いなことに、このようなテストを扱ういくつかのツールを利用することができますので、ここで簡単に議論しておきましょう。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:49
 msgid "Automated testing and continuous integration"
-msgstr ""
+msgstr "自動化されたテストと継続的インテグレーション"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:51
 msgid ""
@@ -7372,6 +7374,9 @@ msgid ""
 "github.com>`_ or `Bitbucket <https://bitbucket.org>`_) and run your "
 "project's test suite every time a new commit is made."
 msgstr ""
+"自動化されたテスト用のオンラインサービスがいくつか利用可能です。典型的には、これらのサービスがあなたのソースコードリポジトリ (例えば `Github "
+"<https://github.com>`_ や `Bitbucket <https://bitbucket.org>`_) "
+"を監視していて、新しいコミットが為されるたびにテストスイートを実行します。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:56
 msgid ""
@@ -7379,6 +7384,8 @@ msgid ""
 "*multiple versions of Python*, giving rapid feedback about whether the code "
 "will work, without the developer having to perform such tests themselves."
 msgstr ""
+"これらのサービスは、また、あなたのプロジェクトのテストスイートを *複数のバージョンの Python* "
+"で走らせる機能を提供しているので、開発者がそのようなテストを自分でやらなくてもソースコードが動作するか否かについて素早くフィードバックを返してくれます。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:60
 msgid ""
@@ -7387,6 +7394,9 @@ msgid ""
 "integration systems. There are two hosted services which when used in "
 "conjunction provide automated testing across Linux, Mac and Windows:"
 msgstr ""
+"Wikipedia には、数多くの継続的インテグレーションシステムを多方面から比較した `比較ページ <https://en.wikipedia.org/"
+"wiki/Comparison_of_continuous_integration_software>`_ があります。その中には、"
+"両方を一緒に使うことで Linux ・ Mac ・ Windows を跨いだ自動化されたテストを実行できるようなふたつのオンラインサービスもあります。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:66
 msgid ""
@@ -7394,12 +7404,16 @@ msgid ""
 "environment. The Linux environment is Ubuntu 12.04 LTS Server Edition 64 bit "
 "while the macOS is 10.9.2 at the time of writing."
 msgstr ""
+"`Travis CI <https://travis-ci.org>`_ は Linux と macOS の両方の環境を提供します。原稿執筆時点で、 "
+"Linux 環境は Ubuntu 12.04 LTS Server Edition 64 bit で、 macOS 環境は 10.9.2 です。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:69
 msgid ""
 "`Appveyor <https://www.appveyor.com/>`_ provides a Windows environment "
 "(Windows Server 2012)."
 msgstr ""
+"`Appveyor <https://www.appveyor.com/>`_ は、Windows 環境 (Windows Server 2012) "
+"を提供します。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:80
 msgid ""
@@ -7407,16 +7421,18 @@ msgid ""
 "formatted file as specification for the instructions for testing. If any "
 "tests fail, the output log for that specific configuration can be inspected."
 msgstr ""
+"`Travis CI`_ も Appveyor_ も、 `YAML <https://yaml.org>`_ "
+"形式のテスト仕様書を必要とします。いずれかのテストが失敗したら、そのテスト指示設定に関するログ出力を調査することができます。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:85
 msgid ""
 "For Python projects that are intended to be deployed on both Python 2 and 3 "
 "with a single-source strategy, there are a number of options."
-msgstr ""
+msgstr "単一のソースコードを Python 2 と 3 の両方で稼働させる戦略を目指す Python プロジェクトには、いくつかの方法論があります。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:89
 msgid "Tools for single-source Python packages"
-msgstr ""
+msgstr "単一ソースコード Python パッケージのためのツール"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:91
 msgid ""
@@ -7429,6 +7445,12 @@ msgid ""
 "Armin Ronacher, can be used to automatically apply the code modifications "
 "provided by six_."
 msgstr ""
+"`six <https://pypi.org/project/six/>`_ は、ベンジャミン・ピーターソン (Benjamin Peterson) "
+"が開発した Python 2 と Python 3 の間の差異を吸収するためのツールです。 six_ パッケージは広範囲に受け入れられていて、"
+"単一ソースコードの Python パッケージが Python 2 と Python 3 "
+"の両方で使えるようにするための信頼できる方法であるとみなされています。 six_ モジュールは早くも Python 2.5 から使えます。アーミン・"
+"ロンチャー (Armin Ronacher) が開発した `modernize <https://pypi.org/project/modernize>`"
+"_ という名前のツールは、 six_ が提供する修正を自動的にソースコードに適用するために使うことができます。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:100
 msgid ""
@@ -7438,14 +7460,18 @@ msgid ""
 "interoperability between Python 2 and Python 3 with a language syntax that "
 "matches one of the two Python versions: one may use"
 msgstr ""
+"six_ と同様に、`python-future <http://python-future.org/overview.html>`_ "
+"もソースコード上で Python 2 と Python 3 の間の互換を保つ層を提供するパッケージです; しかしながら、 six_ "
+"とは異なり、このパッケージでは、ふたつの Python バージョンのうちの片方の言語文法で Python 2 と Python 3 "
+"の間の相互互換性を提供しようとしています: 片方しか使えません"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:107
 msgid "a Python 2 (by syntax) module in a Python 3 project."
-msgstr ""
+msgstr "Python 3 のプロジェクトにおける Python 2 (文法による) モジュール。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:108
 msgid "a Python 3 (by syntax) module in a *Python 2* project."
-msgstr ""
+msgstr "*Python 2* で書かれたプロジェクトにおける、 Python 3 (文法による) モジュール。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:110
 msgid ""
