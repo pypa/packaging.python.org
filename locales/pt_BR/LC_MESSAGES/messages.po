@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2013–2020, PyPA
 # This file is distributed under the same license as the Python Packaging User Guide package.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2021.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2021, 2022.
 # meowmeowmeowcat <meowmeowcat1211@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-20 01:09+0000\n"
-"PO-Revision-Date: 2021-12-21 12:21+0000\n"
+"POT-Creation-Date: 2022-02-15 05:41+0000\n"
+"PO-Revision-Date: 2022-01-24 18:57+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -2252,7 +2252,7 @@ msgstr ""
 "O projeto `pandas-gbq`_ permite acessar resultados de pesquisa com `Pandas`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:301
-#: ../source/specifications/binary-distribution-format.rst:459
+#: ../source/specifications/binary-distribution-format.rst:463
 msgid "References"
 msgstr "Referências"
 
@@ -8579,8 +8579,8 @@ msgstr ":file:`MANIFEST.in`"
 msgid ""
 "After adding the above files to the sdist, the commands in :file:`MANIFEST."
 "in` (if such a file exists) are executed in order to add and remove further "
-"files to & from the sdist.  Default files can even be removed from the sdist "
-"with the appropriate :file:`MANIFEST.in` command."
+"files to and from the sdist.  Default files can even be removed from the "
+"sdist with the appropriate :file:`MANIFEST.in` command."
 msgstr ""
 "Depois de adicionar os arquivos acima ao sdist, os comandos em :file:"
 "`MANIFEST.in` (se tal arquivo existir) são executados para adicionar e "
@@ -11634,8 +11634,12 @@ msgid "A selection of Python freezers:"
 msgstr "Uma seleção de congeladores Python:"
 
 #: ../source/overview.rst:316
-msgid "`pyInstaller <http://www.pyinstaller.org/>`_ - Cross-platform"
-msgstr "`pyInstaller <http://www.pyinstaller.org/>`_ - Multiplataforma"
+msgid ""
+"`pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - Cross-"
+"platform"
+msgstr ""
+"`pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - "
+"Multiplataforma"
 
 #: ../source/overview.rst:317
 msgid ""
@@ -12306,15 +12310,22 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:161
 msgid ""
 "In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE "
-"and FULL STOP) should be replaced with ``_`` (LOW LINE). This is equivalent "
-"to :pep:`503` normalisation followed by replacing ``-`` with ``_``."
+"and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase "
+"characters should be replaced with corresponding lowercase ones. This is "
+"equivalent to :pep:`503` normalisation followed by replacing ``-`` with "
+"``_``. Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) "
+"and uppercase letters, however, as these were allowed by an earlier version "
+"of this specification."
 msgstr ""
 "Em nomes de distribuição, qualquer ocorrência de caracteres ``-_.`` (HYPHEN-"
-"MINUS, LOW LINE e FULL STOP) deve ser substituída por ``_`` (LOW LINE). Isso "
-"é equivalente à normalização da :pep:`503` seguida pela substituição de ``-"
-"`` por ``_``."
+"MINUS, LOW LINE e FULL STOP) deve ser substituída por ``_`` (LOW LINE) e "
+"caracteres maiúsculos devem ser substituídos pelos minúsculos "
+"correspondentes. Isso é equivalente à normalização da :pep:`503` seguida "
+"pela substituição de ``-`` por ``_``. Porém, ferramentas que usem wheels "
+"devem estar preparadas para aceitar ``.`` (FULL STOP) e letras maiúsculas, "
+"pois estes eram permitidos por uma versão anterior desta especificação."
 
-#: ../source/specifications/binary-distribution-format.rst:164
+#: ../source/specifications/binary-distribution-format.rst:168
 msgid ""
 "Version numbers should be normalised according to :pep:`440`. Normalised "
 "version numbers cannot contain ``-``."
@@ -12322,7 +12333,7 @@ msgstr ""
 "Os números de versão devem ser normalizados de acordo com a :pep:`440`. Os "
 "números de versão normalizados não podem conter ``-``."
 
-#: ../source/specifications/binary-distribution-format.rst:166
+#: ../source/specifications/binary-distribution-format.rst:170
 msgid ""
 "The remaining components may not contain ``-`` characters, so no escaping is "
 "necessary."
@@ -12330,7 +12341,7 @@ msgstr ""
 "Os componentes restantes não podem conter caracteres ``-``, portanto, nenhum "
 "escape é necessário."
 
-#: ../source/specifications/binary-distribution-format.rst:169
+#: ../source/specifications/binary-distribution-format.rst:173
 msgid ""
 "Tools producing wheels should verify that the filename components do not "
 "contain ``-``, as the resulting file may not be processed correctly if they "
@@ -12340,7 +12351,7 @@ msgstr ""
 "arquivo não contêm ``-``, pois o arquivo resultante pode não ser processado "
 "corretamente se contiverem."
 
-#: ../source/specifications/binary-distribution-format.rst:172
+#: ../source/specifications/binary-distribution-format.rst:176
 msgid ""
 "The archive filename is Unicode.  It will be some time before the tools are "
 "updated to support non-ASCII filenames, but they are supported in this "
@@ -12350,7 +12361,7 @@ msgstr ""
 "atualizadas para oferecer suporte a nomes de arquivos não ASCII, mas eles "
 "são suportados nesta especificação."
 
-#: ../source/specifications/binary-distribution-format.rst:176
+#: ../source/specifications/binary-distribution-format.rst:180
 msgid ""
 "The filenames *inside* the archive are encoded as UTF-8.  Although some ZIP "
 "clients in common use do not properly display UTF-8 filenames, the encoding "
@@ -12361,11 +12372,11 @@ msgstr ""
 "apropriadamente, a codificação é suportada pela especificação ZIP e pelo "
 "``zipfile`` do Python."
 
-#: ../source/specifications/binary-distribution-format.rst:182
+#: ../source/specifications/binary-distribution-format.rst:186
 msgid "File contents"
 msgstr "Conteúdo dos arquivos"
 
-#: ../source/specifications/binary-distribution-format.rst:184
+#: ../source/specifications/binary-distribution-format.rst:188
 msgid ""
 "The contents of a wheel file, where {distribution} is replaced with the name "
 "of the package, e.g. ``beaglevote`` and {version} is replaced with its "
@@ -12375,7 +12386,7 @@ msgstr ""
 "do pacote, por exemplo, ``beaglevote`` e {version} é substituído por sua "
 "versão, p.ex., ``1.0.0``, consiste em:"
 
-#: ../source/specifications/binary-distribution-format.rst:188
+#: ../source/specifications/binary-distribution-format.rst:192
 msgid ""
 "``/``, the root of the archive, contains all files to be installed in "
 "``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and "
@@ -12385,11 +12396,11 @@ msgstr ""
 "``purelib`` ou ``platlib`` conforme especificado em ``WHEEL``. ``purelib`` e "
 "``platlib`` são normalmente ``site-packages``."
 
-#: ../source/specifications/binary-distribution-format.rst:191
+#: ../source/specifications/binary-distribution-format.rst:195
 msgid "``{distribution}-{version}.dist-info/`` contains metadata."
 msgstr "``{distribuição}-{versão}.dist-info/`` contém metadados."
 
-#: ../source/specifications/binary-distribution-format.rst:192
+#: ../source/specifications/binary-distribution-format.rst:196
 msgid ""
 "``{distribution}-{version}.data/`` contains one subdirectory for each non-"
 "empty install scheme key not already covered, where the subdirectory name is "
@@ -12401,7 +12412,7 @@ msgstr ""
 "subdiretório é um índice em um dicionário de caminhos de instalação (p.ex., "
 "``data``, ``scripts``, ``include``, ``purelib``, ``platlib``)."
 
-#: ../source/specifications/binary-distribution-format.rst:196
+#: ../source/specifications/binary-distribution-format.rst:200
 msgid ""
 "Python scripts must appear in ``scripts`` and begin with exactly ``b'#!"
 "python'`` in order to enjoy script wrapper generation and ``#!python`` "
@@ -12412,7 +12423,7 @@ msgstr ""
 "python`` no momento da instalação. Eles podem ter qualquer ou nenhuma "
 "extensão."
 
-#: ../source/specifications/binary-distribution-format.rst:200
+#: ../source/specifications/binary-distribution-format.rst:204
 msgid ""
 "``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1 or "
 "greater format metadata."
@@ -12420,7 +12431,7 @@ msgstr ""
 "``{distribuição}-{versão}.dist-info/METADATA`` é Metadata versão 1.1 ou "
 "metadados de formato superior."
 
-#: ../source/specifications/binary-distribution-format.rst:202
+#: ../source/specifications/binary-distribution-format.rst:206
 msgid ""
 "``{distribution}-{version}.dist-info/WHEEL`` is metadata about the archive "
 "itself in the same basic key: value format::"
@@ -12428,11 +12439,11 @@ msgstr ""
 "``{distribuição}-{versão}.dist-info/WHEEL`` são metadados sobre p arquivo em "
 "si no mesmo formato \"chave: valor\"::"
 
-#: ../source/specifications/binary-distribution-format.rst:212
+#: ../source/specifications/binary-distribution-format.rst:216
 msgid "``Wheel-Version`` is the version number of the Wheel specification."
 msgstr "``Wheel-Version`` é o número de versão da especificação Wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:213
+#: ../source/specifications/binary-distribution-format.rst:217
 msgid ""
 "``Generator`` is the name and optionally the version of the software that "
 "produced the archive."
@@ -12440,7 +12451,7 @@ msgstr ""
 "``Generator`` é o nome e, opcionalmente, a versão do software que produziu o "
 "arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:215
+#: ../source/specifications/binary-distribution-format.rst:219
 msgid ""
 "``Root-Is-Purelib`` is true if the top level directory of the archive should "
 "be installed into purelib; otherwise the root should be installed into "
@@ -12450,7 +12461,7 @@ msgstr ""
 "deve ser instalado em purelib; caso contrário, a raiz deve ser instalada no "
 "platlib."
 
-#: ../source/specifications/binary-distribution-format.rst:218
+#: ../source/specifications/binary-distribution-format.rst:222
 msgid ""
 "``Tag`` is the wheel's expanded compatibility tags; in the example the "
 "filename would contain ``py2.py3-none-any``."
@@ -12458,14 +12469,14 @@ msgstr ""
 "``Tag`` são as tags de compatibilidade expandida do wheel; no exemplo, o "
 "nome do arquivo conteria ``py2.py3-none-any``."
 
-#: ../source/specifications/binary-distribution-format.rst:220
+#: ../source/specifications/binary-distribution-format.rst:224
 msgid ""
 "``Build`` is the build number and is omitted if there is no build number."
 msgstr ""
 "``Build`` é o número da construção e é omitido se não houver número da "
 "construção."
 
-#: ../source/specifications/binary-distribution-format.rst:221
+#: ../source/specifications/binary-distribution-format.rst:225
 msgid ""
 "A wheel installer should warn if Wheel-Version is greater than the version "
 "it supports, and must fail if Wheel-Version has a greater major version than "
@@ -12475,7 +12486,7 @@ msgstr ""
 "que ele suporta, e deve falhar se Wheel-Version tiver uma versão principal "
 "maior do que a versão que ele suporta."
 
-#: ../source/specifications/binary-distribution-format.rst:224
+#: ../source/specifications/binary-distribution-format.rst:228
 msgid ""
 "Wheel, being an installation format that is intended to work across multiple "
 "versions of Python, does not generally include .pyc files."
@@ -12483,11 +12494,11 @@ msgstr ""
 "O Wheel, sendo um formato de instalação destinado a funcionar em várias "
 "versões do Python, geralmente não inclui arquivos .pyc."
 
-#: ../source/specifications/binary-distribution-format.rst:226
+#: ../source/specifications/binary-distribution-format.rst:230
 msgid "Wheel does not contain setup.py or setup.cfg."
 msgstr "Wheel não contém setup.py ou setup.cfg."
 
-#: ../source/specifications/binary-distribution-format.rst:228
+#: ../source/specifications/binary-distribution-format.rst:232
 msgid ""
 "This version of the wheel specification is based on the distutils install "
 "schemes and does not define how to install files to other locations. The "
@@ -12499,12 +12510,12 @@ msgstr ""
 "oferece um superconjunto da funcionalidade fornecida pelos formatos binários "
 "wininst e egg existentes."
 
-#: ../source/specifications/binary-distribution-format.rst:235
+#: ../source/specifications/binary-distribution-format.rst:239
 #: ../source/specifications/recording-installed-packages.rst:35
 msgid "The .dist-info directory"
 msgstr "O diretório .dist-info"
 
-#: ../source/specifications/binary-distribution-format.rst:237
+#: ../source/specifications/binary-distribution-format.rst:241
 msgid ""
 "Wheel .dist-info directories include at a minimum METADATA, WHEEL, and "
 "RECORD."
@@ -12512,7 +12523,7 @@ msgstr ""
 "Os diretórios .dist-info de wheels incluem no mínimo METADATA, WHEEL e "
 "RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:239
+#: ../source/specifications/binary-distribution-format.rst:243
 msgid ""
 "METADATA is the package metadata, the same format as PKG-INFO as found at "
 "the root of sdists."
@@ -12520,12 +12531,12 @@ msgstr ""
 "METADATA são os metadados do pacote, o mesmo formato do PKG-INFO encontrado "
 "na raiz dos sdists."
 
-#: ../source/specifications/binary-distribution-format.rst:241
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr ""
 "WHEEL são os metadados de wheel específicos para uma construção do pacote."
 
-#: ../source/specifications/binary-distribution-format.rst:242
+#: ../source/specifications/binary-distribution-format.rst:246
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
@@ -12540,17 +12551,17 @@ msgstr ""
 "wheel assinados contam com hashes fortes em RECORD para validar a "
 "integridade do arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:248
+#: ../source/specifications/binary-distribution-format.rst:252
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr "INSTALLER e REQUESTED da PEP 376 não são incluídos no arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:249
+#: ../source/specifications/binary-distribution-format.rst:253
 msgid ""
 "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
 msgstr ""
 "RECORD.jws é usado para assinaturas digitais. Não é mencionado no RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:251
+#: ../source/specifications/binary-distribution-format.rst:255
 msgid ""
 "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
 "signatures to secure their wheel files.  It is not mentioned in RECORD."
@@ -12559,7 +12570,7 @@ msgstr ""
 "assinaturas S/MIME para proteger seus arquivos wheels. Não é mencionado no "
 "RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:254
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
 "the file contents.  Apart from RECORD and its signatures, installation will "
@@ -12571,11 +12582,11 @@ msgstr ""
 "a instalação falhará se qualquer arquivo no arquivo não for mencionado e com "
 "hash correto em RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:261
+#: ../source/specifications/binary-distribution-format.rst:265
 msgid "The .data directory"
 msgstr "O diretório .data"
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
@@ -12585,7 +12596,7 @@ msgstr ""
 "para o diretório .data, nomeado como o diretório .dist-info, mas com a "
 "extensão .data/::"
 
-#: ../source/specifications/binary-distribution-format.rst:271
+#: ../source/specifications/binary-distribution-format.rst:275
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -12595,11 +12606,11 @@ msgstr ""
 "documentação e assim por diante da distribuição. Durante a instalação, o "
 "conteúdo desses subdiretórios é movido para seus caminhos de destino."
 
-#: ../source/specifications/binary-distribution-format.rst:277
+#: ../source/specifications/binary-distribution-format.rst:281
 msgid "Signed wheel files"
 msgstr "Arquivos wheels assinados"
 
-#: ../source/specifications/binary-distribution-format.rst:279
+#: ../source/specifications/binary-distribution-format.rst:283
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -12616,7 +12627,7 @@ msgstr ""
 "gerados, como arquivos .pyc, mas não RECORD, que não pode conter seu próprio "
 "hash. Por exemplo::"
 
-#: ../source/specifications/binary-distribution-format.rst:290
+#: ../source/specifications/binary-distribution-format.rst:294
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -12628,7 +12639,7 @@ msgstr ""
 "outros arquivos no arquivo devem ter um hash correto em RECORD ou a "
 "instalação falhará."
 
-#: ../source/specifications/binary-distribution-format.rst:295
+#: ../source/specifications/binary-distribution-format.rst:299
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -12640,11 +12651,11 @@ msgstr ""
 "jws adjacente a RECORD. JWS é usado para assinar RECORD incluindo o hash "
 "SHA-256 de RECORD como a carga JSON da assinatura::"
 
-#: ../source/specifications/binary-distribution-format.rst:302
+#: ../source/specifications/binary-distribution-format.rst:306
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr "(O valor hash é o mesmo formato usado em RECORD.)"
 
-#: ../source/specifications/binary-distribution-format.rst:304
+#: ../source/specifications/binary-distribution-format.rst:308
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
@@ -12652,7 +12663,7 @@ msgstr ""
 "Se RECORD.p7s for usado, ele deve conter uma assinatura de formato S/MIME "
 "separada de RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:307
+#: ../source/specifications/binary-distribution-format.rst:311
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -12665,37 +12676,37 @@ msgstr ""
 "RECORD, um verificador de assinatura separado só precisa estabelecer se "
 "RECORD corresponde à assinatura."
 
-#: ../source/specifications/binary-distribution-format.rst:312
+#: ../source/specifications/binary-distribution-format.rst:316
 msgid "See"
 msgstr "Veja"
 
-#: ../source/specifications/binary-distribution-format.rst:314
+#: ../source/specifications/binary-distribution-format.rst:318
 #, fuzzy
 msgid "https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html"
 msgstr "http://self-issued.info/docs/draft-ietf-jose-json-web-signature.html"
 
-#: ../source/specifications/binary-distribution-format.rst:315
+#: ../source/specifications/binary-distribution-format.rst:319
 #, fuzzy
 msgid ""
 "https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html"
 msgstr ""
 "http://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html"
 
-#: ../source/specifications/binary-distribution-format.rst:316
+#: ../source/specifications/binary-distribution-format.rst:320
 #, fuzzy
 msgid "https://self-issued.info/docs/draft-ietf-jose-json-web-key.html"
 msgstr "http://self-issued.info/docs/draft-ietf-jose-json-web-key.html"
 
-#: ../source/specifications/binary-distribution-format.rst:317
+#: ../source/specifications/binary-distribution-format.rst:321
 #, fuzzy
 msgid "https://self-issued.info/docs/draft-jones-jose-json-private-key.html"
 msgstr "http://self-issued.info/docs/draft-jones-jose-json-private-key.html"
 
-#: ../source/specifications/binary-distribution-format.rst:321
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid "Comparison to .egg"
 msgstr "Comparação com .egg"
 
-#: ../source/specifications/binary-distribution-format.rst:323
+#: ../source/specifications/binary-distribution-format.rst:327
 msgid ""
 "Wheel is an installation format; egg is importable.  Wheel archives do not "
 "need to include .pyc and are less tied to a specific Python version or "
@@ -12709,7 +12720,7 @@ msgstr ""
 "construídos com versões anteriores do Python, portanto, você nem sempre "
 "precisa esperar que o empacotador os atualize."
 
-#: ../source/specifications/binary-distribution-format.rst:328
+#: ../source/specifications/binary-distribution-format.rst:332
 msgid ""
 "Wheel uses .dist-info directories; egg uses .egg-info.  Wheel is compatible "
 "with the new world of Python packaging and the new concepts it brings."
@@ -12717,7 +12728,7 @@ msgstr ""
 "O Wheel usa diretórios .dist-info; egg usa .egg-info. Wheel é compatível com "
 "o novo mundo da empacotamento de Python e os novos conceitos que ele traz."
 
-#: ../source/specifications/binary-distribution-format.rst:331
+#: ../source/specifications/binary-distribution-format.rst:335
 msgid ""
 "Wheel has a richer file naming convention for today's multi-implementation "
 "world.  A single wheel archive can indicate its compatibility with a number "
@@ -12731,7 +12742,7 @@ msgstr ""
 "ABIs e arquiteturas de sistema. Historicamente, a ABI tem sido específica "
 "para uma versão do CPython, o wheel estando pronto para a ABI estável."
 
-#: ../source/specifications/binary-distribution-format.rst:337
+#: ../source/specifications/binary-distribution-format.rst:341
 msgid ""
 "Wheel is lossless.  The first wheel implementation bdist_wheel always "
 "generates egg-info, and then converts it to a .whl.  It is also possible to "
@@ -12741,7 +12752,7 @@ msgstr ""
 "sempre gera egg-info e, então, as converte em .whl. Também é possível "
 "converter eggs existentes e distribuições de bdist_wininst."
 
-#: ../source/specifications/binary-distribution-format.rst:341
+#: ../source/specifications/binary-distribution-format.rst:345
 msgid ""
 "Wheel is versioned.  Every wheel file contains the version of the wheel "
 "specification and the implementation that packaged it. Hopefully the next "
@@ -12751,19 +12762,19 @@ msgstr ""
 "wheel e a implementação que a empacotou. Esperançosamente, a próxima "
 "migração pode ser simplesmente para Wheel 2.0."
 
-#: ../source/specifications/binary-distribution-format.rst:344
+#: ../source/specifications/binary-distribution-format.rst:348
 msgid "Wheel is a reference to the other Python."
 msgstr "Wheel é uma referência a outro Python."
 
-#: ../source/specifications/binary-distribution-format.rst:348
+#: ../source/specifications/binary-distribution-format.rst:352
 msgid "FAQ"
 msgstr "FAQ"
 
-#: ../source/specifications/binary-distribution-format.rst:352
+#: ../source/specifications/binary-distribution-format.rst:356
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr "Wheel define um diretório .data. Devo colocar todos os meus dados lá?"
 
-#: ../source/specifications/binary-distribution-format.rst:354
+#: ../source/specifications/binary-distribution-format.rst:358
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -12779,11 +12790,11 @@ msgstr ""
 "recurso)`` ainda que *esses* arquivos normalmente não sejam distribuídos no "
 "diretório ``.data`` do *wheel*."
 
-#: ../source/specifications/binary-distribution-format.rst:363
+#: ../source/specifications/binary-distribution-format.rst:367
 msgid "Why does wheel include attached signatures?"
 msgstr "Por que o wheel inclui assinaturas anexadas?"
 
-#: ../source/specifications/binary-distribution-format.rst:365
+#: ../source/specifications/binary-distribution-format.rst:369
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -12797,11 +12808,11 @@ msgstr ""
 "os arquivos individuais podem ser verificados sem ter que baixar todo o "
 "arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:373
+#: ../source/specifications/binary-distribution-format.rst:377
 msgid "Why does wheel allow JWS signatures?"
 msgstr "Por que wheel permite assinaturas JWS?"
 
-#: ../source/specifications/binary-distribution-format.rst:375
+#: ../source/specifications/binary-distribution-format.rst:379
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
@@ -12812,11 +12823,11 @@ msgstr ""
 "do projeto da roda. O JWS produz uma implementação puro Python concisa e "
 "útil."
 
-#: ../source/specifications/binary-distribution-format.rst:381
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr "Por que wheel também permite assinaturas S/MIME?"
 
-#: ../source/specifications/binary-distribution-format.rst:383
+#: ../source/specifications/binary-distribution-format.rst:387
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
@@ -12824,7 +12835,7 @@ msgstr ""
 "Assinaturas S/MIME são permitidas para usuários que precisam ou querem usar "
 "uma infraestrutura de chaves públicas existente com o wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:386
+#: ../source/specifications/binary-distribution-format.rst:390
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
@@ -12832,11 +12843,11 @@ msgstr ""
 "Pacotes assinados são apenas um bloco de construção básico em um sistema de "
 "atualização segura de pacotes. Wheel só fornece o bloco de construção."
 
-#: ../source/specifications/binary-distribution-format.rst:391
+#: ../source/specifications/binary-distribution-format.rst:395
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "Qual é a diferença entre \"purelib\" e \"platlib\"?"
 
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:397
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -12848,7 +12859,7 @@ msgstr ""
 "puro Python em '/usr/lib/pythonX.Y/site-packages' e pacotes dependentes de "
 "plataforma em '/usr/lib64/pythonX.Y/site-packages'."
 
-#: ../source/specifications/binary-distribution-format.rst:398
+#: ../source/specifications/binary-distribution-format.rst:402
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -12860,7 +12871,7 @@ msgstr ""
 "Purelib: true\" com os mesmos arquivos na raiz, e é válido ter arquivos nas "
 "categorias \"purelib\" e \"platlib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:403
+#: ../source/specifications/binary-distribution-format.rst:407
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -12870,11 +12881,11 @@ msgstr ""
 "dependendo se é puro Python ou não e esses arquivos devem estar na raiz com "
 "a configuração apropriada fornecida para \"Root-is-purelib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:409
+#: ../source/specifications/binary-distribution-format.rst:413
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "É possível importar código Python diretamente de um arquivo wheel?"
 
-#: ../source/specifications/binary-distribution-format.rst:411
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -12888,7 +12899,7 @@ msgstr ""
 "``sys.path``. No entanto, embora esse comportamento seja uma consequência "
 "natural do design do formato, não é recomendável confiar nele."
 
-#: ../source/specifications/binary-distribution-format.rst:417
+#: ../source/specifications/binary-distribution-format.rst:421
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -12907,7 +12918,7 @@ msgstr ""
 "segurança, ou integração completa com o maquinário de construção padrão para "
 "extensões C, publicando arquivos de cabeçalho no local apropriado)."
 
-#: ../source/specifications/binary-distribution-format.rst:426
+#: ../source/specifications/binary-distribution-format.rst:430
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -12941,7 +12952,7 @@ msgstr ""
 "abstratos internamente, a interface com componentes externos ainda pode "
 "exigir a disponibilidade de um arquivo real no disco."
 
-#: ../source/specifications/binary-distribution-format.rst:443
+#: ../source/specifications/binary-distribution-format.rst:447
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -12955,15 +12966,15 @@ msgstr ""
 "esteja ciente de que muitos projetos exigirão que uma falha seja reproduzida "
 "com um pacote totalmente instalado antes de aceitá-lo como um bug genuíno."
 
-#: ../source/specifications/binary-distribution-format.rst:450
+#: ../source/specifications/binary-distribution-format.rst:454
 msgid "Changes"
 msgstr "Alterações"
 
-#: ../source/specifications/binary-distribution-format.rst:452
+#: ../source/specifications/binary-distribution-format.rst:456
 msgid "Since :pep:`427`, this specification has changed as follows:"
 msgstr "Desde a :pep:`427`, esta especificação mudou da seguinte forma:"
 
-#: ../source/specifications/binary-distribution-format.rst:454
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid ""
 "The rules on escaping in wheel filenames were revised, to bring them into "
 "line with what popular tools actually do (February 2021)."
@@ -12972,7 +12983,7 @@ msgstr ""
 "para alinhá-las com o que as ferramentas populares realmente fazem "
 "(fevereiro de 2021)."
 
-#: ../source/specifications/binary-distribution-format.rst:461
+#: ../source/specifications/binary-distribution-format.rst:465
 msgid ""
 "PEP acceptance (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
@@ -12980,19 +12991,19 @@ msgstr ""
 "Aceitação da PEP (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
 
-#: ../source/specifications/binary-distribution-format.rst:466
+#: ../source/specifications/binary-distribution-format.rst:470
 msgid "Appendix"
 msgstr "Apêndice"
 
-#: ../source/specifications/binary-distribution-format.rst:468
+#: ../source/specifications/binary-distribution-format.rst:472
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Exemplo de implementação de urlsafe-base64-nopad::"
 
-#: ../source/specifications/binary-distribution-format.rst:482
+#: ../source/specifications/binary-distribution-format.rst:486
 msgid "Copyright"
 msgstr "Diretos autorais"
 
-#: ../source/specifications/binary-distribution-format.rst:484
+#: ../source/specifications/binary-distribution-format.rst:488
 msgid "This document has been placed into the public domain."
 msgstr "Este documento foi colocado em domínio público."
 
@@ -15930,13 +15941,23 @@ msgstr ""
 "importáveis (comumente, o diretório ``site-packages``)."
 
 #: ../source/specifications/recording-installed-packages.rst:41
+#, fuzzy
+#| msgid ""
+#| "This directory is named as ``{name}-{version}.dist-info``, with ``name`` "
+#| "and ``version`` fields corresponding to :ref:`core-metadata`. Both fields "
+#| "must be normalized (see :pep:`PEP 503 <503#normalized-names>` and :pep:"
+#| "`PEP 440 <440#normalization>` for the definition of normalization for "
+#| "each field respectively), and replace dash (``-``) characters with "
+#| "underscore (``_``) chacaters, so the ``.dist-info`` directory always has "
+#| "exactly one dash (``-``) character in its stem, separating the ``name`` "
+#| "and ``version`` fields."
 msgid ""
 "This directory is named as ``{name}-{version}.dist-info``, with ``name`` and "
 "``version`` fields corresponding to :ref:`core-metadata`. Both fields must "
 "be normalized (see :pep:`PEP 503 <503#normalized-names>` and :pep:`PEP 440 "
 "<440#normalization>` for the definition of normalization for each field "
 "respectively), and replace dash (``-``) characters with underscore (``_``) "
-"chacaters, so the ``.dist-info`` directory always has exactly one dash (``-"
+"characters, so the ``.dist-info`` directory always has exactly one dash (``-"
 "``) character in its stem, separating the ``name`` and ``version`` fields."
 msgstr ""
 "Este diretório é nomeado como ``{name}-{version}.dist-info``, com os campos "
@@ -17284,21 +17305,16 @@ msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:24
 msgid ""
-"Developers of Python libraries, or of applications that support distribution "
-"as Python libraries, should also consider the `poetry <https://github.com/"
-"python-poetry/poetry>`_ project as an alternative dependency management "
-"solution."
+"For alternatives, see `Other Tools for Application Dependency Management`_."
 msgstr ""
-"Desenvolvedores de bibliotecas Python, ou de aplicações que oferece suporte "
-"a distribuição como bibliotecas Python, também devem considerar o projeto "
-"`poetry <https://github.com/python-poetry/poetry>`_ como uma solução "
-"alternativa de gerenciamento de dependências."
+"Para alternativas, veja `Outras ferramentas para gerenciamento de "
+"dependências de aplicações`_."
 
-#: ../source/tutorials/managing-dependencies.rst:30
+#: ../source/tutorials/managing-dependencies.rst:27
 msgid "Installing Pipenv"
 msgstr "Instalando Pipenv"
 
-#: ../source/tutorials/managing-dependencies.rst:32
+#: ../source/tutorials/managing-dependencies.rst:29
 msgid ""
 ":ref:`Pipenv` is a dependency manager for Python projects. If you're "
 "familiar with Node.js' `npm`_ or Ruby's `bundler`_, it is similar in spirit "
@@ -17313,11 +17329,11 @@ msgstr ""
 "colaborativos por ser uma ferramenta de nível superior que simplifica o "
 "gerenciamento de dependências para casos de uso comuns."
 
-#: ../source/tutorials/managing-dependencies.rst:38
+#: ../source/tutorials/managing-dependencies.rst:35
 msgid "Use ``pip`` to install Pipenv:"
 msgstr "Use ``pip`` para instalar Pipenv:"
 
-#: ../source/tutorials/managing-dependencies.rst:54
+#: ../source/tutorials/managing-dependencies.rst:51
 msgid ""
 "This does a `user installation`_ to prevent breaking any system-wide "
 "packages. If ``pipenv`` isn't available in your shell after installation, "
@@ -17331,11 +17347,11 @@ msgstr ""
 "de usuário <python:site.USER_BASE>` ao seu ``PATH``. Veja :ref:`Instalando "
 "no Site do Usuário <Installing to the User Site>` para mais informações."
 
-#: ../source/tutorials/managing-dependencies.rst:65
+#: ../source/tutorials/managing-dependencies.rst:62
 msgid "Installing packages for your project"
 msgstr "Instalando pacotes para seu projeto"
 
-#: ../source/tutorials/managing-dependencies.rst:67
+#: ../source/tutorials/managing-dependencies.rst:64
 msgid ""
 "Pipenv manages dependencies on a per-project basis. To install packages, "
 "change into your project's directory (or just an empty directory for this "
@@ -17345,7 +17361,7 @@ msgstr ""
 "o diretório do seu projeto (ou apenas um diretório vazio para este tutorial) "
 "e execute:"
 
-#: ../source/tutorials/managing-dependencies.rst:76
+#: ../source/tutorials/managing-dependencies.rst:73
 msgid ""
 "Pipenv will install the `Requests`_ library and create a ``Pipfile`` for you "
 "in your project's directory. The :ref:`Pipfile` is used to track which "
@@ -17360,11 +17376,11 @@ msgstr ""
 "obter uma saída semelhante a esta (embora os caminhos exatos mostrados "
 "variem):"
 
-#: ../source/tutorials/managing-dependencies.rst:112
+#: ../source/tutorials/managing-dependencies.rst:109
 msgid "Using installed packages"
 msgstr "Usando pacotes instalados"
 
-#: ../source/tutorials/managing-dependencies.rst:114
+#: ../source/tutorials/managing-dependencies.rst:111
 msgid ""
 "Now that Requests is installed you can create a simple :file:`main.py` file "
 "to use it:"
@@ -17372,15 +17388,15 @@ msgstr ""
 "Agora que Requests está instalado você pode criar um :file:`main.py` simples "
 "para usá-lo:"
 
-#: ../source/tutorials/managing-dependencies.rst:125
+#: ../source/tutorials/managing-dependencies.rst:122
 msgid "Then you can run this script using ``pipenv run``:"
 msgstr "Então, você pode executar este script usando ``pipenv run``:"
 
-#: ../source/tutorials/managing-dependencies.rst:131
+#: ../source/tutorials/managing-dependencies.rst:128
 msgid "You should get output similar to this:"
 msgstr "Você deve obter uma saída similar a esta:"
 
-#: ../source/tutorials/managing-dependencies.rst:137
+#: ../source/tutorials/managing-dependencies.rst:134
 msgid ""
 "Using ``pipenv run`` ensures that your installed packages are available to "
 "your script. It's also possible to spawn a new shell that ensures all "
@@ -17390,12 +17406,12 @@ msgstr ""
 "para seu script. Também é possível gerar um novo shell que garante que todos "
 "os comandos tenham acesso aos seus pacotes instalados com ``pipenv shell``."
 
-#: ../source/tutorials/managing-dependencies.rst:143
+#: ../source/tutorials/managing-dependencies.rst:140
 #: ../source/tutorials/packaging-projects.rst:604
 msgid "Next steps"
 msgstr "Próximos passos"
 
-#: ../source/tutorials/managing-dependencies.rst:145
+#: ../source/tutorials/managing-dependencies.rst:142
 msgid ""
 "Congratulations, you now know how to effectively manage dependencies and "
 "development environments on a collaborative Python project! ✨ 🍰 ✨"
@@ -17403,7 +17419,7 @@ msgstr ""
 "Parabéns, agora você sabe como gerenciar dependências e ambientes de "
 "desenvolvimento com eficácia em um projeto colaborativo Python! ✨ 🍰 ✨"
 
-#: ../source/tutorials/managing-dependencies.rst:148
+#: ../source/tutorials/managing-dependencies.rst:145
 msgid ""
 "If you're interested in creating and distributing your own Python packages, "
 "see the :ref:`tutorial on packaging and distributing packages <distributing-"
@@ -17413,7 +17429,7 @@ msgstr ""
 "Python, veja o :ref:`tutorial sobre empacotamento e distribuição de pacotes "
 "<distributing-packages>`."
 
-#: ../source/tutorials/managing-dependencies.rst:151
+#: ../source/tutorials/managing-dependencies.rst:148
 msgid ""
 "Note that when your application includes definitions of Python source "
 "packages, they (and their dependencies) can be added to your ``pipenv`` "
@@ -17425,71 +17441,86 @@ msgstr ""
 "``pipenv`` com ``pipenv install -e <caminho-relativo-ao-diretório-fonte>`` "
 "(por exemplo, ``pipenv install -e .`` ou ``pipenv install -e src``)."
 
-#: ../source/tutorials/managing-dependencies.rst:160
+#: ../source/tutorials/managing-dependencies.rst:157
 msgid "Other Tools for Application Dependency Management"
 msgstr "Outras ferramentas para gerenciamento de dependências de aplicações"
 
-#: ../source/tutorials/managing-dependencies.rst:162
+#: ../source/tutorials/managing-dependencies.rst:159
 msgid ""
 "If you find this particular approach to managing application dependencies "
 "isn't working well for you or your use case, you may want to explore these "
-"other tools and techniques to see if one of them is a better fit:"
+"other tools and techniques, listed in alphabetical order, to see if one of "
+"them is a better fit:"
 msgstr ""
 "Se você achar que essa abordagem específica para gerenciar dependências de "
 "aplicações não está funcionando bem para você ou seu caso de uso, convém "
-"explorar essas outras ferramentas e técnicas para ver se uma delas se "
-"encaixa melhor:"
+"explorar essas outras ferramentas e técnicas, listadas em ordem alfabética, "
+"para ver se uma delas se encaixa melhor:"
+
+#: ../source/tutorials/managing-dependencies.rst:163
+msgid ""
+"`hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even "
+"more steps in the project management workflow, such as incrementing "
+"versions, tagging releases, and creating new skeleton projects from project "
+"templates."
+msgstr ""
+"`hatch <https://github.com/ofek/hatch>`_ para uma cobertura opinativa de "
+"ainda mais etapas no fluxo de trabalho de gerenciamento de projeto, como "
+"incrementar versões, marcar lançamentos e criar novos projetos básicos a "
+"partir de modelos de projeto."
 
 #: ../source/tutorials/managing-dependencies.rst:166
 msgid ""
-"`poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable "
-"in scope to ``pipenv`` that focuses more directly on use cases where the "
-"repository being managed is structured as a Python project with a valid "
-"``pyproject.toml`` file (by contrast, ``pipenv`` explicitly avoids making "
-"the assumption that the application being worked on that's depending on "
-"components from PyPI will itself support distribution as a ``pip``-"
-"installable Python package)."
+"`micropipenv <https://github.com/thoth-station/micropipenv>`_ for a "
+"lightweight wrapper around pip that supports ``requirements.txt``, Pipenv "
+"and Poetry lock files, or converting them to pip-tools compatible output. "
+"Designed for containerized Python applications, but not limited to them."
 msgstr ""
-"`poetry <https://github.com/python-poetry/poetry>`__ para uma ferramenta "
-"comparável em escopo a ``pipenv`` que se concentra mais diretamente em casos "
-"de uso onde o repositório sendo gerenciado é estruturado como um projeto "
-"Python com um arquivo ``pyproject.toml`` válido (por outro lado, ``pipenv`` "
-"explicitamente evita fazer a suposição de que a aplicação que está sendo "
-"trabalhado que depende dos componentes do PyPI será compatível com a "
-"distribuição como um pacote Python instalável com ``pip``)."
+"micropipenv <https://github.com/thoth-station/micropipenv>`_ para um "
+"invólucro leve do pip que oferece suporte a ``requirements.txt``, arquivos "
+"de bloqueio de Pipenv e de Poetry ou convertê-los em saída compatível com "
+"pip-tools. Projetado para aplicações em contêineres Python, mas não se "
+"limitando a elas."
 
-#: ../source/tutorials/managing-dependencies.rst:172
+#: ../source/tutorials/managing-dependencies.rst:170
 msgid ""
-"`hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even "
-"more steps in the project management workflow (such as incrementing "
-"versions, tagging releases, and creating new skeleton projects from project "
-"templates)"
+"`PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package "
+"management tool supporting :pep:`582` (replacing virtual environments with "
+"``__pypackages__`` directory for package installation) and relying on "
+"standards such as :pep:`517` and :pep:`621`."
 msgstr ""
-"`hatch <https://github.com/ofek/hatch>`_ para uma cobertura opinativa de "
-"ainda mais etapas no fluxo de trabalho de gerenciamento de projeto (como "
-"incrementar versões, marcar lançamentos e criar novos projetos básicos a "
-"partir de modelos de projeto)"
+"`PDM <https://github.com/pdm-project/pdm>`_ para uma ferramenta moderna de "
+"gerenciamento de pacotes Python que oferece suporte a :pep:`582` "
+"(substituindo ambientes virtuais pelo diretório ``__pypackages__`` para "
+"instalação de pacotes) e contando com padrões como :pep:`517` e :pep:`621`."
 
-#: ../source/tutorials/managing-dependencies.rst:175
+#: ../source/tutorials/managing-dependencies.rst:174
 msgid ""
-"`pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own "
-"custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``"
+"`pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock "
+"file of all dependencies from a list of packages directly used in a project, "
+"and ensuring that only those dependencies are installed."
 msgstr ""
-"`pip-tools <https://github.com/jazzband/pip-tools>`_ para construir seu "
-"próprio fluxo de trabalho personalizado a partir de peças de nível inferior "
-"como ``pip-compile`` e ``pip-sync``"
+"`pip-tools <https://github.com/jazzband/pip-tools>`_ para criar um arquivo "
+"de bloqueio de todas as dependências de uma lista de pacotes usados "
+"diretamente em um projeto e garantir que apenas essas dependências estão "
+"instalados."
 
 #: ../source/tutorials/managing-dependencies.rst:177
 msgid ""
-"`micropipenv <https://github.com/thoth-station/micropipenv>`_ is a "
-"lightweight wrapper for pip to support requirements.txt, Pipenv and Poetry "
-"lock files or converting them to pip-tools compatible output. Designed for "
-"containerized Python applications but not limited to them."
+"`Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable "
+"in scope to Pipenv that focuses more directly on use cases where the project "
+"being managed is structured as a distributable Python package with a valid "
+"``pyproject.toml`` file. By contrast, Pipenv explicitly avoids making the "
+"assumption that the application being worked on will support distribution as "
+"a ``pip``-installable Python package."
 msgstr ""
-"micropipenv <https://github.com/thoth-station/micropipenv>`_ é um invólucro "
-"leve para pip para oferecer suporte a requirements.txt, arquivos de bloqueio "
-"de Pipenv e de Poesia ou convertê-los em saída compatível com pip-tools. "
-"Projetado para aplicações em contêineres Python, mas não se limitando a elas."
+"`Poetry <https://github.com/python-poetry/poetry>`__ para uma ferramenta "
+"comparável em escopo a Pipenv que se concentra mais diretamente em casos de "
+"uso onde o projeto sendo gerenciado é estruturado como um pacote Python "
+"distribuível com um arquivo ``pyproject.toml`` válido. Por outro lado, "
+"Pipenv explicitamente evita fazer a suposição de que a aplicação na qual "
+"está sendo trabalhada será compatível com a distribuição como um pacote "
+"Python instalável com ``pip``."
 
 #: ../source/tutorials/packaging-projects.rst:2
 msgid "Packaging Python Projects"
@@ -18189,10 +18220,10 @@ msgstr ""
 #: ../source/tutorials/packaging-projects.rst:533
 msgid ""
 "Once uploaded your package should be viewable on TestPyPI, for example, "
-"https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE"
+"https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
 msgstr ""
 "Depois de enviado, seu pacote pode ser visto no Test PyPI, por exemplo, em "
-"https://test.pypi.org/project/example-pkg-YOUR-USERNAME-HERE"
+"https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
 
 #: ../source/tutorials/packaging-projects.rst:538
 msgid "Installing your newly uploaded package"
@@ -18252,12 +18283,12 @@ msgid ""
 "Note that the :term:`import package <Import Package>` is ``example_package`` "
 "regardless of what ``name`` you gave your :term:`distribution package "
 "<Distribution Package>` in :file:`setup.cfg` or :file:`setup.py` (in this "
-"case, ``example-pkg-YOUR-USERNAME-HERE``)."
+"case, ``example-package-YOUR-USERNAME-HERE``)."
 msgstr ""
 "Note que o :term:`pacote de importação <Pacote de Importação>` é "
 "``example_package`` independente de qual ``name`` você deu ao seu :term:"
 "`pacote de distribuição <Pacote de Distribuição>` no :file:`setup.cfg` ou :"
-"file:`setup.py` (neste caso, ``example-pkg-YOUR-USERNAME-HERE``)."
+"file:`setup.py` (neste caso, ``example-package-YOUR-USERNAME-HERE``)."
 
 #: ../source/tutorials/packaging-projects.rst:606
 msgid ""
@@ -18370,6 +18401,26 @@ msgstr ""
 "usar muitos pacotes publicados até que o ambiente seja atualizado para "
 "fornecer um cliente de instalação de pacote Python atualizado (por exemplo, "
 "executando ``python -m ensurepip``)."
+
+#~ msgid ""
+#~ "Developers of Python libraries, or of applications that support "
+#~ "distribution as Python libraries, should also consider the `poetry "
+#~ "<https://github.com/python-poetry/poetry>`_ project as an alternative "
+#~ "dependency management solution."
+#~ msgstr ""
+#~ "Desenvolvedores de bibliotecas Python, ou de aplicações que oferece "
+#~ "suporte a distribuição como bibliotecas Python, também devem considerar o "
+#~ "projeto `poetry <https://github.com/python-poetry/poetry>`_ como uma "
+#~ "solução alternativa de gerenciamento de dependências."
+
+#~ msgid ""
+#~ "`pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own "
+#~ "custom workflow from lower level pieces like ``pip-compile`` and ``pip-"
+#~ "sync``"
+#~ msgstr ""
+#~ "`pip-tools <https://github.com/jazzband/pip-tools>`_ para construir seu "
+#~ "próprio fluxo de trabalho personalizado a partir de peças de nível "
+#~ "inferior como ``pip-compile`` e ``pip-sync``"
 
 #~ msgid ""
 #~ "`Docs <https://flit.readthedocs.io/en/latest/>`__ | `Issues <https://"
