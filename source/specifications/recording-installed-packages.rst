@@ -43,7 +43,7 @@ This directory is named as ``{name}-{version}.dist-info``, with ``name`` and
 normalized (see :pep:`PEP 503 <503#normalized-names>` and
 :pep:`PEP 440 <440#normalization>` for the definition of normalization for
 each field respectively), and replace dash (``-``) characters with
-underscore (``_``) chacaters, so the ``.dist-info`` directory always has
+underscore (``_``) characters, so the ``.dist-info`` directory always has
 exactly one dash (``-``) character in its stem, separating the ``name`` and
 ``version`` fields.
 
