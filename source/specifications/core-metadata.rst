@@ -22,6 +22,9 @@ definition, the practical standard is set by what the standard library
 :mod:`python:email.parser` module can parse using the
 :data:`~.python:email.policy.compat32` policy.
 
+Whenever metadata is serialised to a byte stream (for example, to save
+to a file), strings must be serialised using the UTF-8 encoding.
+
 Although :pep:`566` defined a way to transform metadata into a JSON-compatible
 dictionary, this is not yet used as a standard interchange format. The need for
 tools to work with years worth of existing packages makes it difficult to shift
