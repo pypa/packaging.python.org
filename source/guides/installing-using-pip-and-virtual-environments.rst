@@ -41,7 +41,7 @@ installed.
 
         pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
 
-    .. _python-pip: https://packages.debian.org/stable/python-pip
+    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
 
 .. tab:: Windows
 
@@ -162,7 +162,7 @@ Python interpreter:
     .. code-block:: bat
 
         where python
-    
+
 It should be in the ``env`` directory:
 
 .. tab:: Unix/macOS
@@ -174,7 +174,7 @@ It should be in the ``env`` directory:
 .. tab:: Windows
 
     .. code-block:: bat
-        
+
         ...\env\Scripts\python.exe
 
 
