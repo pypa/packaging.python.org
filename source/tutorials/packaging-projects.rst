@@ -113,7 +113,7 @@ should contain one of these build-system blocks:
     .. code-block:: toml
 
         [build-system]
-        requires = ["setuptools >=TBD", "wheel>=TBD"]
+        requires = ["setuptools @ git+https://github.com/pypa/setuptools@experimental/support-pyproject"]
         build-backend = "setuptools.build_meta"
 
 .. tab:: Flit
@@ -126,6 +126,17 @@ should contain one of these build-system blocks:
         [build-system]
         requires = ["flit_core >=3.2"]
         build-backend = "flit_core.buildapi"
+
+.. tab:: Hatchling
+
+    :ref:`hatch` has a more feature-rich build backend than flit, supporting
+    SCM versioning and plugins.
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["hatchling>=0.7"]
+        build-backend = "hatchling.build"
 
 .. tab:: PDM
 
