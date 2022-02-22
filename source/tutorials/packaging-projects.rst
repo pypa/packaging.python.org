@@ -107,10 +107,7 @@ so open :file:`pyproject.toml` and enter the following content:
 .. code-block:: toml
 
     [build-system]
-    requires = [
-        "setuptools>=42",
-        "wheel"
-    ]
+    requires = ["setuptools>=42"]
     build-backend = "setuptools.build_meta"
 
 
