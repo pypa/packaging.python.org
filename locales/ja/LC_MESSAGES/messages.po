@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-15 05:41+0000\n"
-"PO-Revision-Date: 2022-02-15 05:42+0000\n"
+"PO-Revision-Date: 2022-02-26 14:55+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 4.11.1-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -644,6 +644,7 @@ msgstr "2021-8-24"
 #: ../source/overview.rst:23 ../source/specifications/core-metadata.rst:38
 #: ../source/specifications/direct-url.rst:14
 #: ../source/tutorials/installing-packages.rst:23
+#: ../source/specifications/core-metadata.rst:41
 msgid "Contents"
 msgstr "内容"
 
@@ -1915,6 +1916,7 @@ msgstr "カラム"
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/guides/using-manifest-in.rst:67
 #: ../source/specifications/core-metadata.rst:185
+#: ../source/specifications/core-metadata.rst:188
 msgid "Description"
 msgstr "説明"
 
@@ -4157,6 +4159,14 @@ msgstr ""
 #: ../source/specifications/core-metadata.rst:580
 #: ../source/specifications/core-metadata.rst:690
 #: ../source/specifications/core-metadata.rst:719
+#: ../source/specifications/core-metadata.rst:142
+#: ../source/specifications/core-metadata.rst:463
+#: ../source/specifications/core-metadata.rst:487
+#: ../source/specifications/core-metadata.rst:527
+#: ../source/specifications/core-metadata.rst:550
+#: ../source/specifications/core-metadata.rst:583
+#: ../source/specifications/core-metadata.rst:693
+#: ../source/specifications/core-metadata.rst:722
 msgid "Examples::"
 msgstr "例::"
 
@@ -7605,6 +7615,12 @@ msgid ""
 "``futurize`` and ``pasteurize`` that can be applied to either a Python 2 "
 "module or a Python 3 module respectively."
 msgstr ""
+"双方向性の故に、 python-future_ は Python 2 で書かれたパッケージをモジュール"
+"毎に Python 3 の文法に変換する通路を提供します。しかしながら、 six_ とは異な"
+"り、 python-future_ は Python 2.6 からしかサポートされていません。 six_ に対"
+"する modernize_ と同様に、 python-future_ は、Python 2 のモジュールに適用でき"
+"る ``futurize`` と Python 3 モジュールに適用できる ``pasteurize`` と呼ばれる"
+"ふたつのスクリプトを備えています。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:117
 msgid ""
@@ -7614,10 +7630,15 @@ msgid ""
 "provides for forward-compatibility to Python 3. Any remaining compatibility "
 "problems would require manual changes."
 msgstr ""
+"six_ ないし python-future_ を使用すると、追加的な動作時依存性がパッケージに追"
+"加されます: python-future_ では ``futurist`` スクリプトを ``--stage1`` オプ"
+"ションとともに呼び出すことで Python 2.6 以降に既に備えられた Python 3 との前"
+"方互換性を用いる修正だけを行うことができます。残りの互換性問題は、手作業で修"
+"正しなければなりません。"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:124
 msgid "What's in which Python?"
-msgstr ""
+msgstr "どの Python に何がある？"
 
 #: ../source/guides/supporting-multiple-python-versions.rst:126
 msgid ""
@@ -7628,14 +7649,21 @@ msgid ""
 "com/blog/201803/whats_in_which_python_3436.html>`__. These lists may be used "
 "to check whether any changes between Python versions may affect your package."
 msgstr ""
+"Ned Batchelder は、Python の各リリースのそれぞれに一連の修正、つまり、 "
+"`Python 2 <https://nedbatchelder.com/blog/201109/whats_in_which_python."
+"html>`__、 `Python 3.0-3.3 <https://nedbatchelder.com/blog/201310/"
+"whats_in_which_python_3.html>`__、 そして `Python 3.4-3.6 <https://"
+"nedbatchelder.com/blog/201803/whats_in_which_python_3436.html>`__ を加えるこ"
+"とができます。これらのリストは、 Python のバージョン間の変更が特定のパッケー"
+"ジに影響を与えるか否かを確認するためにも使えることでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:3
 msgid "Supporting Windows using Appveyor"
-msgstr ""
+msgstr "Appveyor を用いて Windows をサポートする"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:6
 msgid "2015-12-03"
-msgstr ""
+msgstr "2015-12-03"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:8
 msgid ""
@@ -7644,6 +7672,10 @@ msgid ""
 "the code on Windows, and building Windows-targeted binaries for projects "
 "that use C extensions."
 msgstr ""
+"この節では、無料の `Appveyor`_ 継続的インテグレーションサービスを使ってあなた"
+"のプロジェクトで Windows をサポートする方法について議論します。これには、 "
+"Windows におけるソースコードのテストや、 C 言語拡張を含むプロジェクトの "
+"Windows 向けのバイナリへのビルドを含みます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:20
 msgid ""
@@ -7651,6 +7683,10 @@ msgid ""
 "support can be a challenge, because setting up a suitable Windows test "
 "environment is non-trivial, and may require buying software licenses."
 msgstr ""
+"多くのプロジェクトが当然のように Unix 上で開発されており、適切なWindows のテ"
+"スト環境を準備することが簡単ではないこととソフトウェアライセンスを購入しなけ"
+"ればならないであろうことから Windows へのサポートを提供することはある種のチャ"
+"レンジになっています。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:24
 msgid ""
@@ -7660,6 +7696,11 @@ msgid ""
 "are Windows hosts and have the necessary compilers installed to build Python "
 "extensions."
 msgstr ""
+"Appveyor サービスは継続的インテグレーションのサービスであり、 `GitHub`_ にホ"
+"ストされたプロジェクトをテストするのによく使われよりよく知られている "
+"`Travis`_ サービスによく似ています。しかし、 Travis とは異なり、 Appveyor の"
+"ビルドワーカーは Windows であり、 Python の拡張モジュールをビルドするために必"
+"要なコンパイラもインストール済みです。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:30
 msgid ""
@@ -7670,10 +7711,16 @@ msgid ""
 "for testing) it is possible for projects without a dedicated Windows "
 "environment to provide Windows-targeted binaries."
 msgstr ""
+"Windows のユーザは C 言語のコンパイラを持っていないのが普通で、従って、C 言語"
+"拡張を使うプロジェクトについては PyPI でバイナリ wheel を配布していなければ "
+"``python -m pip install <dist>`` 経由で配布物をインスールすることができませ"
+"ん。 (たとえテスト目的では利用しなかったとしても) Appveyor をビルドサービスと"
+"して利用することで、専用の Windows 環境がなくても Windows 上で動作するバイナ"
+"リを準備することができます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:38
 msgid "Setting up"
-msgstr ""
+msgstr "設定する"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:40
 msgid ""
@@ -7682,6 +7729,10 @@ msgid ""
 "given in `the Appveyor documentation <https://www.appveyor.com/docs/>`__. "
 "The free tier of account is perfectly adequate for open source projects."
 msgstr ""
+"Appveyor を用いてプロジェクトの Windows 向けの wheel をビルドするためには、こ"
+"のサービスのアカウントを持っていなければなりません。アカウントの設定に関する"
+"説明は `the Appveyor documentation <https://www.appveyor.com/docs/>`__ にあり"
+"ます。オープンソースプロジェクトには無料アカウントで十分です。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:45
 msgid ""
@@ -7689,6 +7740,9 @@ msgid ""
 "your project is hosted on one of those two services, setting up Appveyor "
 "integration is straightforward."
 msgstr ""
+"Appveyor では `GitHub`_ や `BitBucket`_ との統合運用ができるので、プロジェク"
+"トがこれらのうちのいずれかにホストされている限りは Appveyor から統合運用する"
+"設定は簡単にできます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:49
 msgid ""
@@ -7696,10 +7750,13 @@ msgid ""
 "will automatically build your project each time a commit occurs. This "
 "behaviour will be familiar to users of Travis."
 msgstr ""
+"Appveyor のアカウントの設定とプロジェクトの追加が終われば、コミットが発生する"
+"たびに Appveyor が自動的にプロジェクトをビルドするようになります。Travis の"
+"ユーザはこのような動作に慣れていることでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:54
 msgid "Adding Appveyor support to your project"
-msgstr ""
+msgstr "プロジェクトに Appveyor サポートを追加する"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:56
 msgid ""
@@ -7708,6 +7765,9 @@ msgid ""
 "be included in the file are covered in the Appveyor documentation. This "
 "guide will provide the details necessary to set up wheel builds."
 msgstr ""
+"Appveyor がプロジェクトをビルドする方法を定義するためには、 :file:`appveyor.yml` "
+"ファイルをプロジェクトに追加する必要があります。このファイルに書くことができる項目の完全な細部は、 Appveyor "
+"の説明文書で説明されています。このガイドでは、wheel のビルドに必要な部分に限って細部を説明します。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:61
 msgid ""
@@ -7719,10 +7779,14 @@ msgid ""
 "version of Visual Studio used includes 64-bit compilers with no additional "
 "setup)."
 msgstr ""
+"Appveyor は、Python 向けの拡張モジュールをビルドするために必要なすべてのコンパイラ・ツールチェーンをデフォルトで含んでいます。 "
+"Python 2.7 ・ 3.5+ 、および 32 ビット版の 3.3 と 3.4 向けであれば、このツールはそのままで動作します。しかし、 64 "
+"ビット版の 3.3 と 3.4 では、 distutils が 64 ビット版のコンパイラを検出できるように少量の追加的な設定が必要です。( 3.5 "
+"以降については、追加の設定をしなくても Visual Studio の各バージョンに含まれている 64 ビット版コンパイラを使います)。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:69
 msgid "appveyor.yml"
-msgstr ""
+msgstr "appveyor.yml"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:75
 msgid ""
@@ -7730,12 +7794,17 @@ msgid ""
 "pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/"
 "appveyor.yml>`__."
 msgstr ""
+"このファイルは `ここ <https://raw.githubusercontent.com/pypa/"
+"python-packaging-user-guide/master/source/guides/appveyor-sample/appveyor."
+"yml>`__ からダウンロードすることができます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:77
 msgid ""
 "The :file:`appveyor.yml` file must be located in the root directory of your "
 "project. It is in ``YAML`` format, and consists of a number of sections."
 msgstr ""
+":file:`appveyor.yml` ファイルは、プロジェクトのルートディレクトリに置かなければなりません。このファイルは ``YAML`` "
+"フォーマットで書かれていて、数多くのセクションから構成されています。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:80
 msgid ""
@@ -7747,6 +7816,11 @@ msgid ""
 "support 2.6 in this document (as Windows users still using Python 2 are "
 "generally able to move to Python 2.7 without too much difficulty)."
 msgstr ""
+"``environment`` は、どのバージョンの Python 向けに wheel を生成するかを定義する鍵となるセクションです。 Appveyor "
+"には 32 ビット版と 64 ビット版の両方の Python 2.6, 2.7, 3.3, 3.4, 3.5 "
+"が予めインストールされています。例示したファイルでは、 Python 2.6 を除くこれらすべての環境向けにビルドするようになっています。 Python "
+"2.6 は pip を含まないので、これをインストールすることはより複雑です。このドキュメントでは、 Python 2.6 はサポートしません ("
+"Windows ユーザでまだ Python 2 を使っているユーザであれば、大抵は大した困難に遭遇せずに Python 2.7 へ移行できるからです) 。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:88
 msgid ""
@@ -7756,18 +7830,24 @@ msgid ""
 "circumstances (for example, to install additional build packages such as "
 "``Cython``, or test tools such as ``tox``)."
 msgstr ""
+"``install`` セクションは、プロジェクトが必要とする追加的なソフトウェアを pip を使ってインストールするのに使われます。 wheel "
+"をビルドするために必要なものは ``wheel`` プロジェクトだけですが、"
+"プロジェクトによっては特定の環境下ではこの項をカスタマイズしたいと思うかもしれません (例えば、 ``Cython`` "
+"のような追加的なビルド用パッケージないし ``tox`` のようなテストツールをインストールするために)。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:94
 msgid ""
 "The ``build`` section simply switches off builds - there is no build step "
 "needed for Python, unlike languages like ``C#``."
 msgstr ""
+"``build`` セクションでは単純にビルドのスイッチを切りましょう - ``C#`` のような言語とは異なり、Python "
+"にはビルドする段階は不要なのです。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:97
 msgid ""
 "The main sections that will need to be tailored to your project are "
 "``test_script`` and ``after_test``."
-msgstr ""
+msgstr "個々のプロジェクト向けに整える必要のある主なセクションは、 ``test_script`` と ``after_test`` です。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:100
 msgid ""
@@ -7780,6 +7860,12 @@ msgid ""
 "you are using ``tox`` there are some additional configuration changes you "
 "will need to consider, which are described below."
 msgstr ""
+"``test_script`` セクションは、プロジェクトのテストを走らせる場所です。与えられたファイルを使って ``setup.py test`` "
+"を走らせることで一連のテストを行います。wheel ファイルをビルドすることだけに興味があるのであれば、そして、 Windows "
+"でテストをしないのであれば、このセクションに ``echo Skipped Tests`` のようなダミーコマンドを書いておけば良いでしょう。 "
+"``nose`` や :file:`py.test` のような他のテストツールを使いたい場合があるかもしれません。あるいは、 ``tox`` "
+"のようなテストドライバを使いたいと思うかもしれません - しかしながら、 ``tox`` "
+"を使う場合には、後述の通り、もう少し追加の設定変更を検討する必要があることでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:109
 msgid ""
@@ -7788,16 +7874,21 @@ msgid ""
 "(specifically, ``setuptools``) then the ``setup.py bdist_wheel`` command "
 "will build your wheels."
 msgstr ""
+"``after_test`` は、テストが完了したあとに一度だけ走り、したがって、ここで wheel ファイルを生成するべきです。"
+"あなたのプロジェクトで推奨ツール (とりわけ ``setuptools``) を使っているなら、 ``setup.py bdist_wheel`` "
+"コマンドで wheel ファイルを生成できます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:114
 msgid ""
 "Note that wheels will only be built if your tests succeed. If you expect "
 "your tests to fail on Windows, you can skip them as described above."
 msgstr ""
+"テストが成功した場合にだけ wheel ファイルが生成されるという点に留意してください。 Windows "
+"ではテストが失敗するとわかっているなら、前述の通り、それを省略することができます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:119
 msgid "Support script"
-msgstr ""
+msgstr "サポートスクリプト"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:121
 msgid ""
@@ -7806,6 +7897,9 @@ msgid ""
 "and 3.4.  For projects which do not need a compiler, or which don't support "
 "3.3 or 3.4 on 64-bit Windows, only the :file:`appveyor.yml` file is needed."
 msgstr ""
+":file:`appveyor.yml` ファイルは、Python 3.3 と 3.4 上で 64 ビットでのビルドを行うために SDK "
+"のコンパイラを使う環境を構築するためのひとつのサポートスクリプトに依存しています。コンパイラを必要としないプロジェクトや64 ビット版の Windows "
+"上の 3.3 や 3.4 をサポートしないプロジェクトでは、 :file:`appveyor.yml` ファイルさえあれば良いことになります。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:126
 msgid ""
@@ -7818,16 +7912,22 @@ msgid ""
 "Python 3.3 or 3.4, so don't set the environment variable for any other "
 "builds."
 msgstr ""
+"`build.cmd <https://raw.githubusercontent.com/pypa/"
+"python-packaging-user-guide/master/source/guides/appveyor-sample/build.cmd>`"
+"__ は、選択されたバージョンの Python 用の適切なコンパイラが存在する環境内で単一のコマンドを実行するような Windows "
+"のバッチスクリプトです。やらなければならないことはたった一個の環境変数 ``DISTUTILS_USE_SDK`` の値を ``1`` "
+"に設定することだけで、残りはすべてこのスクリプトがやってくれます。スクリプトが Python 3.3 ないし 3.4 を 64 "
+"ビットでビルドするのに必要な SDK 環境を構築するので、他のビルドに使う環境変数を設定してはいけません。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:133
 msgid ""
 "You can simply download the batch file and include it in your project "
 "unchanged."
-msgstr ""
+msgstr "このバッチファイルは単純にダウンロードして修正なしにプロジェクト内に置くことができます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:137
 msgid "Access to the built wheels"
-msgstr ""
+msgstr "ビルドされたwheelファイルへのアクセス"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:139
 msgid ""
@@ -7839,14 +7939,18 @@ msgid ""
 "architecture. You can download those wheels and upload them to PyPI as part "
 "of your release process."
 msgstr ""
+"ビルドが終わると、出来上がった wheel ファイルは Appveyor のコントロールパネルの当該プロジェクトのページから取り出せるでしょう。ビルドのた"
+"びに生成されるビルド状況のページからも取り出せます。ビルド結果の出力ページの先頭には一連のリンクがあって、そのうちの \"Artifacts\" "
+"がそれです。そのページに行くと該当するバージョンの Python / アーキテクチャに応じた wheel ファイルへのリンクがあるはずです。ここから "
+"wheel ファイルをダウンロードして、あなたのリリース作業の一環として PyPI へアップロードすることができるでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:147
 msgid "Additional notes"
-msgstr ""
+msgstr "補遺"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:150
 msgid "Testing with tox"
-msgstr ""
+msgstr "tox を用いてテストする"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:152
 msgid ""
@@ -7854,6 +7958,8 @@ msgid ""
 "ensures that tests are run in an isolated environment using the exact files "
 "that will be distributed by the project."
 msgstr ""
+"多くのプロジェクトで :doc:`Tox <tox:index>` "
+"ツールを用いてテストを行っています。これを使えば、プロジェクトで配布するであろうファイル群そのものを使った独立した環境下でテストを実行することができます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:156
 msgid ""
@@ -7861,6 +7967,8 @@ msgid ""
 "considerations (in actual fact, these issues are not specific to Appveyor, "
 "and may well affect other CI systems)."
 msgstr ""
+"Appveyor 上で ``tox`` を使うためには、(実際のところは、Appveyor に限ったことではなく、他の CI システムにも影響します) "
+"いくつかの追加的な事項を検討しなければなりません。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:160
 msgid ""
@@ -7869,6 +7977,9 @@ msgid ""
 "control the compiler, this \"test isolation\" feature will cause the tests "
 "to use the wrong compiler by default."
 msgstr ""
+"デフォルトでは ``tox`` は、環境変数のうちのいくつかの選択されたサブセットだけをテストプロセスに渡します。 ``distutils`` "
+"がコンパイラを制御するのに環境変数を用いるので、この \"テスト環境分離\" "
+"の機能がデフォルトではテストに誤ったコンパイラを使ってしまう問題を引き起こすでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:165
 msgid ""
@@ -7877,22 +7988,24 @@ msgid ""
 "list the additional environment variables to be passed to the subprocess. "
 "For the SDK compilers, you need"
 msgstr ""
+"``tox`` がサブプロセスに必要な環境変数を渡すように強制するためには、 ``tox`` の設定オプションである ``passenv`` "
+"に追加的にサブプロセスに渡すべき環境変数のリストを設定する必要があります。SDK コンパイラを使うのであれば、このような設定が必要です"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:170
 msgid "``DISTUTILS_USE_SDK``"
-msgstr ""
+msgstr "``DISTUTILS_USE_SDK``"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:171
 msgid "``MSSdk``"
-msgstr ""
+msgstr "``MSSdk``"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:172
 msgid "``INCLUDE``"
-msgstr ""
+msgstr "``INCLUDE``"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:173
 msgid "``LIB``"
-msgstr ""
+msgstr "``LIB``"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:175
 msgid ""
@@ -7902,6 +8015,10 @@ msgid ""
 "supplied :file:`build.cmd` script does this by default whenever "
 "``DISTUTILS_USE_SDK`` is set."
 msgstr ""
+"``passenv`` オプションは、 :file:`tox.ini` ファイルでも設定可能で、あるいは、Windows "
+"特有の設定をプロジェクト全体のファイル群に追加したくなければ ``TOX_TESTENV_PASSENV`` 環境変数でも設定できます。 "
+"``DISTUTILS_USE_SDK`` が設定されていればいつでも、与えられた :file:`build.cmd` "
+"スクリプトがこの動作をデフォルトで実行します。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:181
 msgid ""
@@ -7913,6 +8030,10 @@ msgid ""
 "specify which environment to use (there are default environments for most "
 "versions of Python)."
 msgstr ""
+"``tox`` を対話的に使うと、複数の環境 (これはしばしば複数のバージョンの Python を意味します) でテストを実行することができます。"
+"設定ごとに独立した環境ですべてのテストを実行する Travis や Appveyor のような CI "
+"環境で見られるほどには、この機能は有用ではありません。結果として、しばしばプロジェクト側から ``-e ENVNAME`` 引数を ``tox`` "
+"に与えてどの環境を使うべきか (ほとんどのバージョンの Python に対応したデフォルトの環境群があります) を指定します。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:188
 msgid ""
@@ -7920,6 +8041,8 @@ msgid ""
 "where there are (for example) two installations of Python 3.4 (32-bit and 64-"
 "bit) available, but only one ``py34`` environment in ``tox``."
 msgstr ""
+"しかしながら、このやり方は、 Appveyor のような Windows 上の CI システムでは (例えば) Python 3.4 の (32 "
+"版ビットと64ビット版の) ふたつの実装が利用できるのに、 ``tox`` では ``py34`` 環境がひとつしかないので、うまく動きません。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:192
 msgid ""
@@ -7928,6 +8051,8 @@ msgid ""
 "that was used to run ``tox``. This will ensure that when Appveyor runs the "
 "tests, they will be run with the configured interpreter."
 msgstr ""
+"``tox`` を使ってテストを実行するためには、したがって、プロジェクトがおそらくは ``tox`` のデフォルトの ``py`` 環境、ここでは "
+"``tox`` を実行するために使われた Python インタープリタを使うことになりますが、その環境を使うべきでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:197
 msgid ""
@@ -7936,10 +8061,13 @@ msgid ""
 "their :file:`tox.ini` file. Doing so is, however, outside the scope of this "
 "document."
 msgstr ""
+"``py`` 環境下での動作をサポートするためには、複雑な ``tox`` "
+"設定を持つプロジェクトでは :file:`tox.ini` を修正する必要があるかもしれません"
+"。そのようにすることは、しかしながら、この文書の範囲を越えます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:203
 msgid "Automatically uploading wheels"
-msgstr ""
+msgstr "自動的に wheel ファイルをアップロードする"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:205
 msgid ""
@@ -7948,6 +8076,11 @@ msgid ""
 "(for example) copy the built artifacts to a FTP site, or an Amazon S3 "
 "instance. Documentation on how to do this is included in the Appveyor guides."
 msgstr ""
+"Appveyor に自動的に wheel ファイルをアップロードさせることができます。 "
+":file:`appveyor.yml` ファイルの中に ``deployment`` 段階があって、(例えば) "
+"ビルドした生成物を FTP サイトや Amazon S3 インスタンスへコピーするために使う"
+"ことができます。これをやるにはどうすれば良いかについては、 Appveyor "
+"ガイドに説明があります。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:210
 msgid ""
@@ -7956,16 +8089,22 @@ msgid ""
 "clear that uploading new wheels after every commit is desirable (although "
 "some projects may wish to do this)."
 msgstr ""
+"別のやり方としては、ビルドの際に ``twine upload`` "
+"段階を追加することができるでしょう。 "
+"(プロジェクトによってはそうしたいかもしれませんが) コミットのたびに新しい "
+"wheel ファイルをアップロードすることが望ましいかどうかがはっきりしないので、"
+"先ほどの :file:`appveyor.yml` ファイルはこれをやりません。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:216
 msgid "External dependencies"
-msgstr ""
+msgstr "外部への依存関係"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:218
 msgid ""
 "The supplied scripts will successfully build any distribution that does not "
 "rely on 3rd party external libraries for the build."
-msgstr ""
+msgstr "提供されたスクリプトを使えば、ビルド時にサードパーティの外部ライブラリに依存"
+"しない配布物ならどれでもビルドに成功するでしょう。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:221
 msgid ""
@@ -7976,32 +8115,39 @@ msgid ""
 "to the compiler. However, this level of configuration is beyond the scope of "
 "this document."
 msgstr ""
+":file:`appveyor.yml` ファイルでの設定 (典型的には \"install\" 段階) を加えて"
+"、配布物に必要な外部ライブラリをダウンロードないしビルドすることは可能です。"
+"そして、もし必要なら、このようなライブラリの位置ををコンパイラに伝えるための"
+"余分の設定を追加することもできます。しかしながら、このレベルの設定はこの文書"
+"の範囲を超えます。"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:230
 msgid "Support scripts"
-msgstr ""
+msgstr "サポートスクリプト"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:232
 msgid "For reference, the SDK setup support script is listed here:"
-msgstr ""
+msgstr "参照用に SDK を構築するサポートスクリプトをここに挙げておきます:"
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:234
 msgid "``appveyor-sample/build.cmd``"
-msgstr ""
+msgstr "``appveyor-sample/build.cmd``"
 
 #: ../source/guides/tool-recommendations.rst:5
 msgid "Tool recommendations"
-msgstr ""
+msgstr "オススメのツール"
 
 #: ../source/guides/tool-recommendations.rst:7
 msgid ""
 "If you're familiar with Python packaging and installation, and just want to "
 "know what tools are currently recommended, then here it is."
 msgstr ""
+"もしあなたが Python のパッケージングやインストールに慣れていて、今どんなツー"
+"ルが推奨されているかを知りたいだけなら、ここを見てください。"
 
 #: ../source/guides/tool-recommendations.rst:12
 msgid "Application dependency management"
-msgstr ""
+msgstr "アプリケーションの依存先管理"
 
 #: ../source/guides/tool-recommendations.rst:14
 msgid ""
@@ -8009,26 +8155,30 @@ msgid ""
 "applications. See :doc:`../tutorials/managing-dependencies` for more details "
 "on using ``pipenv``."
 msgstr ""
+"Python アプリケーションを開発する時にライブラリの依存関係を管理するには、 "
+":ref:`pipenv` を使いましょう。 ``pipenv`` について詳しくは :doc:`../"
+"tutorials/managing-dependencies` をご覧ください。"
 
 #: ../source/guides/tool-recommendations.rst:18
 msgid "When ``pipenv`` does not meet your use case, consider other tools like:"
-msgstr ""
+msgstr "``pipenv`` "
+"があなたの要望に合致しない場合は、以下のようなツールを検討してください:"
 
 #: ../source/guides/tool-recommendations.rst:20
 msgid ":ref:`pip`"
-msgstr ""
+msgstr ":ref:`pip`"
 
 #: ../source/guides/tool-recommendations.rst:22
 msgid "`pip-tools <https://github.com/jazzband/pip-tools>`_"
-msgstr ""
+msgstr "`pip-tools <https://github.com/jazzband/pip-tools>`_"
 
 #: ../source/guides/tool-recommendations.rst:24
 msgid "`Poetry <https://python-poetry.org/>`_"
-msgstr ""
+msgstr "`Poetry <https://python-poetry.org/>`_"
 
 #: ../source/guides/tool-recommendations.rst:27
 msgid "Installation tool recommendations"
-msgstr ""
+msgstr "推奨ツールのインストール"
 
 #: ../source/guides/tool-recommendations.rst:29
 msgid ""
@@ -8037,18 +8187,28 @@ msgid ""
 "ref:`pip` is installed, you may need to also install :ref:`wheel` to get the "
 "benefit of wheel caching. [3]_"
 msgstr ""
+":term:`PyPI <Python Package Index (PyPI)>` から :term:`パッケージ "
+"<Distribution Package>` をインストールするには :ref:`pip` を使いましょう。 "
+"[1]_ [2]_ :ref:`pip` がどのようにインストールされているかによっては、wheel "
+"のキャッシュの利益を得るために :ref:`wheel` "
+"を追加でインストールする必要があるかもしれません。 [3]_"
 
 #: ../source/guides/tool-recommendations.rst:34
 msgid ""
 "Use :ref:`virtualenv`, or :doc:`venv <python:library/venv>` to isolate "
 "application specific dependencies from a shared Python installation. [4]_"
 msgstr ""
+"共有された Python "
+"のインストール環境からアプリケーションに特有の依存関係を独立させるためには、 "
+":ref:`virtualenv` ないし :doc:`venv <python:library/venv>` を使いましょう。 "
+"[4]_"
 
 #: ../source/guides/tool-recommendations.rst:37
 msgid ""
 "If you're looking for management of fully integrated cross-platform software "
 "stacks, consider:"
-msgstr ""
+msgstr "完全に統合されたクロスプラットフォームなソフトウェアスタックの管理ツールを探"
+"しているのであれば、以下を検討してください:"
 
 #: ../source/guides/tool-recommendations.rst:40
 msgid ":ref:`buildout`: primarily focused on the web development community"
@@ -11630,6 +11790,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:25
+#: ../source/specifications/core-metadata.rst:28
 msgid ""
 "Although :pep:`566` defined a way to transform metadata into a JSON-"
 "compatible dictionary, this is not yet used as a standard interchange "
@@ -11638,6 +11799,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:30
+#: ../source/specifications/core-metadata.rst:33
 msgid ""
 "*Interpreting old metadata:* In :pep:`566`, the version specifier field "
 "format specification was relaxed to accept the syntax used by popular "
@@ -11648,16 +11810,19 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:41
+#: ../source/specifications/core-metadata.rst:44
 msgid "Metadata-Version"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:45
+#: ../source/specifications/core-metadata.rst:48
 msgid ""
 "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
 "\"2.1\" and \"2.2\"."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:48
+#: ../source/specifications/core-metadata.rst:51
 msgid ""
 "Automated tools consuming metadata SHOULD warn if ``metadata_version`` is "
 "greater than the highest version they support, and MUST fail if "
@@ -11667,6 +11832,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:54
+#: ../source/specifications/core-metadata.rst:57
 msgid ""
 "For broader compatibility, build tools MAY choose to produce distribution "
 "metadata using the lowest metadata version that includes all of the needed "
@@ -11692,18 +11858,40 @@ msgstr ""
 #: ../source/specifications/core-metadata.rst:597
 #: ../source/specifications/core-metadata.rst:617
 #: ../source/specifications/core-metadata.rst:627
+#: ../source/specifications/core-metadata.rst:61
+#: ../source/specifications/core-metadata.rst:83
+#: ../source/specifications/core-metadata.rst:98
+#: ../source/specifications/core-metadata.rst:158
+#: ../source/specifications/core-metadata.rst:173
+#: ../source/specifications/core-metadata.rst:211
+#: ../source/specifications/core-metadata.rst:283
+#: ../source/specifications/core-metadata.rst:287
+#: ../source/specifications/core-metadata.rst:291
+#: ../source/specifications/core-metadata.rst:295
+#: ../source/specifications/core-metadata.rst:327
+#: ../source/specifications/core-metadata.rst:347
+#: ../source/specifications/core-metadata.rst:373
+#: ../source/specifications/core-metadata.rst:391
+#: ../source/specifications/core-metadata.rst:416
+#: ../source/specifications/core-metadata.rst:438
+#: ../source/specifications/core-metadata.rst:600
+#: ../source/specifications/core-metadata.rst:620
+#: ../source/specifications/core-metadata.rst:630
 msgid "Example::"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:66
+#: ../source/specifications/core-metadata.rst:69
 msgid "Name"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:69
+#: ../source/specifications/core-metadata.rst:72
 msgid "Added additional restrictions on format from :pep:`508`"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:72
+#: ../source/specifications/core-metadata.rst:75
 msgid ""
 "The name of the distribution. The name field is the primary identifier for a "
 "distribution. A valid name consists only of ASCII letters and numbers, "
@@ -11713,32 +11901,38 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:88
+#: ../source/specifications/core-metadata.rst:91
 msgid "Version"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:92
+#: ../source/specifications/core-metadata.rst:95
 msgid ""
 "A string containing the distribution's version number.  This field  must be "
 "in the format specified in :pep:`440`."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:101
+#: ../source/specifications/core-metadata.rst:104
 msgid "Dynamic (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:105
+#: ../source/specifications/core-metadata.rst:108
 msgid ""
 "A string containing the name of another core metadata field. The field names "
 "``Name`` and ``Version`` may not be specified in this field."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:108
+#: ../source/specifications/core-metadata.rst:111
 msgid ""
 "When found in the metadata of a source distribution, the following rules "
 "apply:"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:111
+#: ../source/specifications/core-metadata.rst:114
 msgid ""
 "If a field is *not* marked as ``Dynamic``, then the value of the field in "
 "any wheel built from the sdist MUST match the value in the sdist. If the "
@@ -11747,12 +11941,14 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:115
+#: ../source/specifications/core-metadata.rst:118
 msgid ""
 "If a field is marked as ``Dynamic``, it may contain any valid value in a "
 "wheel built from the sdist (including not being present at all)."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:118
+#: ../source/specifications/core-metadata.rst:121
 msgid ""
 "If the sdist metadata version is older than version 2.2, then all fields "
 "should be treated as if they were specified with ``Dynamic`` (i.e. there are "
@@ -11760,6 +11956,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:122
+#: ../source/specifications/core-metadata.rst:125
 msgid ""
 "In any context other than a source distribution, ``Dynamic`` is for "
 "information only, and indicates that the field value was calculated at wheel "
@@ -11768,15 +11965,18 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:127
+#: ../source/specifications/core-metadata.rst:130
 msgid ""
 "Full details of the semantics of ``Dynamic`` are described in :pep:`643`."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:131
+#: ../source/specifications/core-metadata.rst:134
 msgid "Platform (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:135
+#: ../source/specifications/core-metadata.rst:138
 msgid ""
 "A Platform specification describing an operating system supported by the "
 "distribution which is not listed in the \"Operating System\" Trove "
@@ -11784,10 +11984,12 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:146
+#: ../source/specifications/core-metadata.rst:149
 msgid "Supported-Platform (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:150
+#: ../source/specifications/core-metadata.rst:153
 msgid ""
 "Binary distributions containing a PKG-INFO file will use the Supported-"
 "Platform field in their metadata to specify the OS and CPU for which the "
@@ -11796,18 +11998,22 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:164
+#: ../source/specifications/core-metadata.rst:167
 msgid "Summary"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:168
+#: ../source/specifications/core-metadata.rst:171
 msgid "A one-line summary of what the distribution does."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:188
+#: ../source/specifications/core-metadata.rst:191
 msgid "This field may be specified in the message body instead."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:191
+#: ../source/specifications/core-metadata.rst:194
 msgid ""
 "A longer description of the distribution that can run to several "
 "paragraphs.  Software that deals with metadata should not assume any maximum "
@@ -11816,6 +12022,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:196
+#: ../source/specifications/core-metadata.rst:199
 msgid ""
 "The contents of this field can be written using reStructuredText markup "
 "[1]_.  For programs that work with the metadata, supporting markup is "
@@ -11824,6 +12031,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:202
+#: ../source/specifications/core-metadata.rst:205
 msgid ""
 "To support empty lines and lines with indentation with respect to the RFC "
 "822 format, any CRLF character has to be suffixed by 7 spaces followed by a "
@@ -11832,6 +12040,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:219
+#: ../source/specifications/core-metadata.rst:222
 msgid ""
 "This encoding implies that any occurrences of a CRLF followed by 7 spaces "
 "and a pipe char have to be replaced by a single CRLF when the field is "
@@ -11839,6 +12048,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:223
+#: ../source/specifications/core-metadata.rst:226
 msgid ""
 "Alternatively, the distribution's description may instead be provided in the "
 "message body (i.e., after a completely blank line following the headers, "
@@ -11846,16 +12056,19 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:232
+#: ../source/specifications/core-metadata.rst:235
 msgid "Description-Content-Type"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:236
+#: ../source/specifications/core-metadata.rst:239
 msgid ""
 "A string stating the markup syntax (if any) used in the distribution's "
 "description, so that tools can intelligently render the description."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:239
+#: ../source/specifications/core-metadata.rst:242
 msgid ""
 "Historically, PyPI supported descriptions in plain text and "
 "`reStructuredText (reST) <https://docutils.sourceforge.io/docs/ref/rst/"
@@ -11873,6 +12086,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:252
+#: ../source/specifications/core-metadata.rst:255
 msgid ""
 "The format of this field is the same as the ``Content-Type`` header in HTTP "
 "(i.e.: `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type."
@@ -11881,26 +12095,32 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:258
+#: ../source/specifications/core-metadata.rst:261
 msgid "Format::"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:262
+#: ../source/specifications/core-metadata.rst:265
 msgid "The ``type/subtype`` part has only a few legal values:"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:264
+#: ../source/specifications/core-metadata.rst:267
 msgid "``text/plain``"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:265
+#: ../source/specifications/core-metadata.rst:268
 msgid "``text/x-rst``"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:266
+#: ../source/specifications/core-metadata.rst:269
 msgid "``text/markdown``"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:268
+#: ../source/specifications/core-metadata.rst:271
 msgid ""
 "The ``charset`` parameter can be used to specify the character encoding of "
 "the description. The only legal value is ``UTF-8``. If omitted, it is "
@@ -11908,6 +12128,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:272
+#: ../source/specifications/core-metadata.rst:275
 msgid ""
 "Other parameters might be specific to the chosen subtype. For example, for "
 "the ``markdown`` subtype, there is an optional ``variant`` parameter that "
@@ -11916,14 +12137,17 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:277
+#: ../source/specifications/core-metadata.rst:280
 msgid "``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:278
+#: ../source/specifications/core-metadata.rst:281
 msgid "``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:296
+#: ../source/specifications/core-metadata.rst:299
 msgid ""
 "If a ``Description-Content-Type`` is not specified, then applications should "
 "attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to "
@@ -11931,6 +12155,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:300
+#: ../source/specifications/core-metadata.rst:303
 msgid ""
 "If a ``Description-Content-Type`` is an unrecognized value, then the assumed "
 "content type is ``text/plain`` (Although PyPI will probably reject anything "
@@ -11938,6 +12163,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:304
+#: ../source/specifications/core-metadata.rst:307
 msgid ""
 "If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is "
 "not specified or is set to an unrecognized value, then the assumed "
@@ -11945,6 +12171,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:308
+#: ../source/specifications/core-metadata.rst:311
 msgid ""
 "So for the last example above, the ``charset`` defaults to ``UTF-8`` and the "
 "``variant`` defaults to ``GFM`` and thus it is equivalent to the example "
@@ -11952,16 +12179,19 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:317
+#: ../source/specifications/core-metadata.rst:320
 msgid "Keywords"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:321
+#: ../source/specifications/core-metadata.rst:324
 msgid ""
 "A list of additional keywords, separated by commas, to be used to assist "
 "searching for the distribution in a larger catalog."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:330
+#: ../source/specifications/core-metadata.rst:333
 msgid ""
 "The specification previously showed keywords separated by spaces, but "
 "distutils and setuptools implemented it with commas. These tools have been "
@@ -11970,18 +12200,22 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:338
+#: ../source/specifications/core-metadata.rst:341
 msgid "Home-page"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:342
+#: ../source/specifications/core-metadata.rst:345
 msgid "A string containing the URL for the distribution's home page."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:350
+#: ../source/specifications/core-metadata.rst:353
 msgid "Download-URL"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:354
+#: ../source/specifications/core-metadata.rst:357
 msgid ""
 "A string containing the URL from which this version of the distribution can "
 "be downloaded.  (This means that the URL can't be something like \".../"
@@ -11989,20 +12223,24 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:363
+#: ../source/specifications/core-metadata.rst:366
 msgid "Author"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:367
+#: ../source/specifications/core-metadata.rst:370
 msgid ""
 "A string containing the author's name at a minimum; additional contact "
 "information may be provided."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:380
+#: ../source/specifications/core-metadata.rst:383
 msgid "Author-email"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:384
+#: ../source/specifications/core-metadata.rst:387
 msgid ""
 "A string containing the author's e-mail address.  It can contain a name and "
 "e-mail address in the legal forms for a RFC-822 ``From:`` header."
@@ -12010,22 +12248,27 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:392
 #: ../source/specifications/core-metadata.rst:439
+#: ../source/specifications/core-metadata.rst:395
+#: ../source/specifications/core-metadata.rst:442
 msgid ""
 "Per RFC-822, this field may contain multiple comma-separated e-mail "
 "addresses::"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:402
+#: ../source/specifications/core-metadata.rst:405
 msgid "Maintainer"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:406
+#: ../source/specifications/core-metadata.rst:409
 msgid ""
 "A string containing the maintainer's name at a minimum; additional contact "
 "information may be provided."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:409
+#: ../source/specifications/core-metadata.rst:412
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
@@ -12033,16 +12276,19 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:423
+#: ../source/specifications/core-metadata.rst:426
 msgid "Maintainer-email"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:427
+#: ../source/specifications/core-metadata.rst:430
 msgid ""
 "A string containing the maintainer's e-mail address.  It can contain a name "
 "and e-mail address in the legal forms for a RFC-822 ``From:`` header."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:431
+#: ../source/specifications/core-metadata.rst:434
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
@@ -12050,10 +12296,12 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:449
+#: ../source/specifications/core-metadata.rst:452
 msgid "License"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:453
+#: ../source/specifications/core-metadata.rst:456
 msgid ""
 "Text indicating the license covering the distribution where the license is "
 "not a selection from the \"License\" Trove classifiers. See :ref:`"
@@ -12064,10 +12312,12 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:473
+#: ../source/specifications/core-metadata.rst:476
 msgid "Classifier (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:477
+#: ../source/specifications/core-metadata.rst:480
 msgid ""
 "Each entry is a string giving a single classification value for the "
 "distribution.  Classifiers are described in :pep:`301`, and the Python "
@@ -12079,10 +12329,15 @@ msgstr ""
 #: ../source/specifications/core-metadata.rst:571
 #: ../source/specifications/core-metadata.rst:688
 #: ../source/specifications/core-metadata.rst:712
+#: ../source/specifications/core-metadata.rst:485
+#: ../source/specifications/core-metadata.rst:574
+#: ../source/specifications/core-metadata.rst:691
+#: ../source/specifications/core-metadata.rst:715
 msgid "This field may be followed by an environment marker after a semicolon."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:493
+#: ../source/specifications/core-metadata.rst:496
 msgid "Requires-Dist (multiple use)"
 msgstr ""
 
@@ -12090,66 +12345,81 @@ msgstr ""
 #: ../source/specifications/core-metadata.rst:558
 #: ../source/specifications/core-metadata.rst:660
 #: ../source/specifications/core-metadata.rst:701
+#: ../source/specifications/core-metadata.rst:499
+#: ../source/specifications/core-metadata.rst:561
+#: ../source/specifications/core-metadata.rst:663
+#: ../source/specifications/core-metadata.rst:704
 msgid ""
 "The field format specification was relaxed to accept the syntax used by "
 "popular publishing tools."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:500
+#: ../source/specifications/core-metadata.rst:503
 msgid ""
 "Each entry contains a string naming some other distutils project required by "
 "this distribution."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:503
+#: ../source/specifications/core-metadata.rst:506
 msgid "The format of a requirement string contains from one to four parts:"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:505
+#: ../source/specifications/core-metadata.rst:508
 msgid ""
 "A project name, in the same format as the ``Name:`` field. The only "
 "mandatory part."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:507
+#: ../source/specifications/core-metadata.rst:510
 msgid ""
 "A comma-separated list of 'extra' names. These are defined by the required "
 "project, referring to specific features which may need extra dependencies."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:510
+#: ../source/specifications/core-metadata.rst:513
 msgid ""
 "A version specifier. Tools parsing the format should accept optional "
 "parentheses around this, but tools generating it should not use parentheses."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:513
+#: ../source/specifications/core-metadata.rst:516
 msgid ""
 "An environment marker after a semicolon. This means that the requirement is "
 "only needed in the specified conditions."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:516
+#: ../source/specifications/core-metadata.rst:519
 msgid "See :pep:`508` for full details of the allowed format."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:518
+#: ../source/specifications/core-metadata.rst:521
 msgid ""
 "The project names should correspond to names as found on the `Python Package "
 "Index`_."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:521
+#: ../source/specifications/core-metadata.rst:524
 msgid ""
 "Version specifiers must follow the rules described in :doc:`version-"
 "specifiers`."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:535
+#: ../source/specifications/core-metadata.rst:538
 msgid "Requires-Python"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:539
+#: ../source/specifications/core-metadata.rst:542
 msgid ""
 "This field specifies the Python version(s) that the distribution is "
 "guaranteed to be compatible with. Installation tools may look at this when "
@@ -12157,18 +12427,22 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:543
+#: ../source/specifications/core-metadata.rst:546
 msgid "The value must be in the format specified in :doc:`version-specifiers`."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:545
+#: ../source/specifications/core-metadata.rst:548
 msgid "This field cannot be followed by an environment marker."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:555
+#: ../source/specifications/core-metadata.rst:558
 msgid "Requires-External (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:562
+#: ../source/specifications/core-metadata.rst:565
 msgid ""
 "Each entry contains a string describing some dependency in the system that "
 "the distribution is to be used.  This field is intended to serve as a hint "
@@ -12177,12 +12451,14 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:567
+#: ../source/specifications/core-metadata.rst:570
 msgid ""
 "The format of a requirement string is a name of an external dependency, "
 "optionally followed by a version declaration within parentheses."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:573
+#: ../source/specifications/core-metadata.rst:576
 msgid ""
 "Because they refer to non-Python software releases, version numbers for this "
 "field are **not** required to conform to the format specified in :pep:"
@@ -12191,28 +12467,34 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:578
+#: ../source/specifications/core-metadata.rst:581
 msgid "Notice that there is no particular rule on the strings to be used."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:590
+#: ../source/specifications/core-metadata.rst:593
 msgid "Project-URL (multiple-use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:594
+#: ../source/specifications/core-metadata.rst:597
 msgid ""
 "A string containing a browsable URL for the project and a label for it, "
 "separated by a comma."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:601
+#: ../source/specifications/core-metadata.rst:604
 msgid "The label is free text limited to 32 characters."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:609
+#: ../source/specifications/core-metadata.rst:612
 msgid "Provides-Extra (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:613
+#: ../source/specifications/core-metadata.rst:616
 msgid ""
 "A string containing the name of an optional feature. Must be a valid Python "
 "identifier. May be used to make a dependency conditional on whether the "
@@ -12220,6 +12502,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:622
+#: ../source/specifications/core-metadata.rst:625
 msgid ""
 "A second distribution requires an optional dependency by placing it inside "
 "square brackets, and can request multiple features by separating them with a "
@@ -12228,6 +12511,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:632
+#: ../source/specifications/core-metadata.rst:635
 msgid ""
 "Two feature names ``test`` and ``doc`` are reserved to mark dependencies "
 "that are needed for running automated tests and generating documentation, "
@@ -12235,16 +12519,19 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:636
+#: ../source/specifications/core-metadata.rst:639
 msgid ""
 "It is legal to specify ``Provides-Extra:`` without referencing it in any "
 "``Requires-Dist:``."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:641
+#: ../source/specifications/core-metadata.rst:644
 msgid "Rarely Used Fields"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:643
+#: ../source/specifications/core-metadata.rst:646
 msgid ""
 "The fields in this section are currently rarely used, as their design was "
 "inspired by comparable mechanisms in Linux package management systems, and "
@@ -12253,6 +12540,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:648
+#: ../source/specifications/core-metadata.rst:651
 msgid ""
 "As a result, popular installation tools ignore them completely, which in "
 "turn means there is little incentive for package publishers to set them "
@@ -12263,10 +12551,12 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:657
+#: ../source/specifications/core-metadata.rst:660
 msgid "Provides-Dist (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:664
+#: ../source/specifications/core-metadata.rst:667
 msgid ""
 "Each entry contains a string naming a Distutils project which is contained "
 "within this distribution.  This field *must* include the project identified "
@@ -12274,6 +12564,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:669
+#: ../source/specifications/core-metadata.rst:672
 msgid ""
 "A distribution may provide additional names, e.g. to indicate that multiple "
 "projects have been bundled together.  For instance, source distributions of "
@@ -12283,6 +12574,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:676
+#: ../source/specifications/core-metadata.rst:679
 msgid ""
 "A distribution may also provide a \"virtual\" project name, which does not "
 "correspond to any separately-distributed project:  such a name might be used "
@@ -12294,6 +12586,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:684
+#: ../source/specifications/core-metadata.rst:687
 msgid ""
 "A version declaration may be supplied and must follow the rules described "
 "in :doc:`version-specifiers`. The distribution's version number will be "
@@ -12301,10 +12594,12 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:698
+#: ../source/specifications/core-metadata.rst:701
 msgid "Obsoletes-Dist (multiple use)"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:705
+#: ../source/specifications/core-metadata.rst:708
 msgid ""
 "Each entry contains a string describing a distutils project's distribution "
 "which this distribution renders obsolete, meaning that the two projects "
@@ -12312,12 +12607,14 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:709
+#: ../source/specifications/core-metadata.rst:712
 msgid ""
 "Version declarations can be supplied.  Version numbers must be in the format "
 "specified in :doc:`version-specifiers`."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:714
+#: ../source/specifications/core-metadata.rst:717
 msgid ""
 "The most common use of this field will be in case a project name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -12325,10 +12622,12 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:727
+#: ../source/specifications/core-metadata.rst:730
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:732
+#: ../source/specifications/core-metadata.rst:735
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr ""
 
@@ -15534,6 +15833,12 @@ msgid ""
 "build dependendencies. These environments will not be able to use many "
 "published packages until the environment is updated to provide an up to date "
 "Python package installation client (e.g. by running ``python -m ensurepip``)."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:25
+msgid ""
+"Whenever metadata is serialised to a byte stream (for example, to save to a "
+"file), strings must be serialised using the UTF-8 encoding."
 msgstr ""
 
 #~ msgid "2014-11-11"
