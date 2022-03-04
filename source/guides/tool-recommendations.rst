@@ -11,17 +11,18 @@ what tools are currently recommended, then here it is.
 Application dependency management
 =================================
 
-Use :ref:`pipenv` to manage library dependencies when developing Python
-applications. See :doc:`../tutorials/managing-dependencies` for more details
-on using ``pipenv``.
+* Use :ref:`pip` in a `secure manner`_ to install a Python application and its
+  dependencies during deployment.
 
-When ``pipenv`` does not meet your use case, consider other tools like:
+* Use :ref:`virtualenv`, or :doc:`venv <python:library/venv>` to isolate application
+  specific dependencies from a shared Python installation. [4]_
 
-* :ref:`pip`
+* Use `pip-tools`_, :ref:`pipenv`, or `poetry`_ to generate the fully-specified
+  application-specific dependencies, when developing Python applications.
 
-* `pip-tools <https://github.com/jazzband/pip-tools>`_
-
-* `Poetry <https://python-poetry.org/>`_
+.. _secure manner: https://pip.pypa.io/en/latest/topics/secure-installs/
+.. _pip-tools: https://github.com/jazzband/pip-tools
+.. _Poetry: https://python-poetry.org/
 
 Installation tool recommendations
 =================================
