@@ -106,7 +106,7 @@ Dynamic (multiple use)
 .. versionadded:: 2.2
 
 A string containing the name of another core metadata field. The field
-names ``Name`` and ``Version`` may not be specified in this field.
+names ``Name`` and ``Metadata-Version`` may not be specified in this field.
 
 When found in the metadata of a source distribution, the following
 rules apply:
