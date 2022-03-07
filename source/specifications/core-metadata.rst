@@ -107,6 +107,7 @@ Dynamic (multiple use)
 
 A string containing the name of another core metadata field. The field
 names ``Name`` and ``Metadata-Version`` may not be specified in this field.
+The ``Version`` field may not be specified in wheel metadata.
 
 When found in the metadata of a source distribution, the following
 rules apply:
