@@ -106,8 +106,8 @@ Dynamic (multiple use)
 .. versionadded:: 2.2
 
 A string containing the name of another core metadata field. The field
-names ``Name`` and ``Metadata-Version`` may not be specified in this field.
-The ``Version`` field may not be specified in wheel metadata.
+names ``Name``, ``Version``, and ``Metadata-Version`` may not be specified
+in this field.
 
 When found in the metadata of a source distribution, the following
 rules apply:
