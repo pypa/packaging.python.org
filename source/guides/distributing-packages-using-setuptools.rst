@@ -325,6 +325,10 @@ projects on PyPI, not for installing projects.  To actually restrict what
 Python versions a project can be installed on, use the :ref:`python_requires`
 argument.
 
+To prevent a package from being uploaded to PyPI, use the special
+``'Private :: Do Not Upload'`` classifier. PyPI will always reject packages with
+classifiers beginning with ``"Private ::'``.
+
 
 ``keywords``
 ~~~~~~~~~~~~
