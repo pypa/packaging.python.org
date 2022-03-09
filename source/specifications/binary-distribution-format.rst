@@ -315,10 +315,10 @@ checker only needs to establish that RECORD matches the signature.
 
 See
 
-- https://self-issued.info/docs/draft-ietf-jose-json-web-signature.html
-- https://self-issued.info/docs/draft-jones-jose-jws-json-serialization.html
-- https://self-issued.info/docs/draft-ietf-jose-json-web-key.html
-- https://self-issued.info/docs/draft-jones-jose-json-private-key.html
+- https://datatracker.ietf.org/doc/html/rfc7515
+- https://tools.ietf.org/id/draft-jones-json-web-signature-json-serialization-01.html
+- https://datatracker.ietf.org/doc/html/rfc7517
+- https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html
 
 
 Comparison to .egg
