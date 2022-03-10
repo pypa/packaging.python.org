@@ -133,8 +133,8 @@ also be considered:
   compile most Python code to C extension modules. The initial compilation
   provides some speed increases (by bypassing the CPython interpreter layer),
   and Cython's optional static typing features can offer additional
-  opportunities for speed increases. Using Cython still has the disadvantages
-  that binary extensions generally impose on distributing the resulting application,
+  opportunities for speed increases. Using Cython still carries the
+  `disadvantages`_ associated with using binary extensions,
   but has the benefit of having a reduced barrier to entry for Python
   programmers (relative to other languages like C or C++).
 
@@ -166,8 +166,9 @@ wrapper modules up to date.
   the wrapper code, but may not be a good choice for wrapping very
   large APIs quickly. See the
   `list of third-party tools <https://github.com/cython/cython/wiki/AutoPxd>`_
-  for automatic wrapping with Cython. Several Python implementations are
-  supported that provide a CPython-like C-API, most notably PyPy and Pyston.
+  for automatic wrapping with Cython. It also supports performance-oriented
+  Python implementations that provide a CPython-like C-API, such as PyPy
+  and Pyston.
   
 * :doc:`pybind11 <pybind11:index>` is a pure C++11 library
   that provides a clean C++ interface to the CPython (and PyPy) C API. It
