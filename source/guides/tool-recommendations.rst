@@ -14,8 +14,8 @@ Application dependency management
 * Use :ref:`pip` in a `secure manner`_ to install a Python application and its
   dependencies during deployment.
 
-* Use :ref:`virtualenv`, or :doc:`venv <python:library/venv>` to isolate application
-  specific dependencies from a shared Python installation. [4]_
+* Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
+  application-specific dependencies from a shared Python installation. [4]_
 
 * Use `pip-tools`_, :ref:`pipenv`, or `poetry`_ to generate the fully-specified
   application-specific dependencies, when developing Python applications.
@@ -32,8 +32,8 @@ Installation tool recommendations
   is installed, you may need to also install :ref:`wheel` to get the benefit
   of wheel caching. [3]_
 
-* Use :ref:`virtualenv`, or :doc:`venv <python:library/venv>` to isolate application
-  specific dependencies from a shared Python installation. [4]_
+* Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
+  application-specific dependencies from a shared Python installation. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
   stacks, consider:
