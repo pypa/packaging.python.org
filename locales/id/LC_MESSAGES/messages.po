@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-11 18:06+0000\n"
+"POT-Creation-Date: 2022-03-11 19:35+0000\n"
 "PO-Revision-Date: 2022-01-15 21:54+0000\n"
 "Last-Translator: ravihidayat <naufalravi@graduate.utm.my>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/pypa/"
@@ -4817,9 +4817,9 @@ msgid ""
 "compile most Python code to C extension modules. The initial compilation "
 "provides some speed increases (by bypassing the CPython interpreter layer), "
 "and Cython's optional static typing features can offer additional "
-"opportunities for speed increases. Using Cython still has the disadvantage "
-"of increasing the complexity of distributing the resulting application, but "
-"has the benefit of having a reduced barrier to entry for Python programmers "
+"opportunities for speed increases. Using Cython still carries the "
+"`disadvantages`_ associated with using binary extensions, but has the "
+"benefit of having a reduced barrier to entry for Python programmers "
 "(relative to other languages like C or C++)."
 msgstr ""
 
@@ -4856,12 +4856,16 @@ msgstr ""
 #: ../source/guides/packaging-binary-extensions.rst:162
 msgid ""
 "In addition to being useful for the creation of accelerator modules, `Cython "
-"<https://cython.org/>`__ is also useful for creating wrapper modules for C "
-"or C++. It still involves wrapping the interfaces by hand, however, and is "
-"very repetitive, so may not be a good choice for wrapping large APIs."
+"<https://cython.org/>`__ is also widely used for creating wrapper modules "
+"for C or C++ APIs. It involves wrapping the interfaces by hand, which gives "
+"a wide range of freedom in designing and optimising the wrapper code, but "
+"may not be a good choice for wrapping very large APIs quickly. See the `list "
+"of third-party tools <https://github.com/cython/cython/wiki/AutoPxd>`_ for "
+"automatic wrapping with Cython. It also supports performance-oriented Python "
+"implementations that provide a CPython-like C-API, such as PyPy and Pyston."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:168
+#: ../source/guides/packaging-binary-extensions.rst:173
 msgid ""
 ":doc:`pybind11 <pybind11:index>` is a pure C++11 library that provides a "
 "clean C++ interface to the CPython (and PyPy) C API. It does not require a "
@@ -4871,7 +4875,7 @@ msgid ""
 "but doesn't require the Boost libraries or BJam."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:175
+#: ../source/guides/packaging-binary-extensions.rst:180
 msgid ""
 ":doc:`cffi <cffi:index>` is a project created by some of the PyPy developers "
 "to make it straightforward for developers that already know both Python and "
@@ -4880,21 +4884,21 @@ msgid ""
 "even if you don't know C yourself."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:181
+#: ../source/guides/packaging-binary-extensions.rst:186
 msgid ""
 "One of the key advantages of ``cffi`` is that it is compatible with the PyPy "
 "JIT, allowing CFFI wrapper modules to participate fully in PyPy's tracing "
 "JIT optimisations."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:185
+#: ../source/guides/packaging-binary-extensions.rst:190
 msgid ""
 "`SWIG <http://www.swig.org/>`__ is a wrapper interface generator that allows "
 "a variety of programming languages, including Python, to interface with C "
 "and C++ code."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:189
+#: ../source/guides/packaging-binary-extensions.rst:194
 msgid ""
 "The standard library's ``ctypes`` module, while useful for getting access to "
 "C level interfaces when header information isn't available, suffers from the "
@@ -4908,11 +4912,11 @@ msgid ""
 "interface inconsistency problems as ``ctypes`` when it is used that way."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:203
+#: ../source/guides/packaging-binary-extensions.rst:208
 msgid "Alternatives for low level system access"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:205
+#: ../source/guides/packaging-binary-extensions.rst:210
 msgid ""
 "For applications that need low level system access (regardless of the "
 "reason), a binary extension module often *is* the best way to go about it. "
@@ -4923,7 +4927,7 @@ msgid ""
 "interfaces."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:213
+#: ../source/guides/packaging-binary-extensions.rst:218
 msgid ""
 "For cases where the extension module is manipulating the underlying "
 "operating system or hardware (rather than the CPython runtime), it may "
@@ -4933,26 +4937,26 @@ msgid ""
 "to make the interface available as an importable Python module."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:222
+#: ../source/guides/packaging-binary-extensions.rst:227
 msgid "Implementing binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:224
+#: ../source/guides/packaging-binary-extensions.rst:229
 msgid ""
 "The CPython :doc:`Extending and Embedding <python:extending/index>` guide "
 "includes an introduction to writing a :doc:`custom extension module in C "
 "<python:extending/extending>`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:241
+#: ../source/guides/packaging-binary-extensions.rst:246
 msgid "Building binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:244
+#: ../source/guides/packaging-binary-extensions.rst:249
 msgid "Building extensions for multiple platforms"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:246
+#: ../source/guides/packaging-binary-extensions.rst:251
 msgid ""
 "If you plan to distribute your extension, you should provide :term:`wheels "
 "<Wheel>` for all the platforms you intend to support. For most extensions, "
@@ -4963,11 +4967,11 @@ msgid ""
 "`multibuild`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:256
+#: ../source/guides/packaging-binary-extensions.rst:261
 msgid "Binary extensions for Windows"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:258
+#: ../source/guides/packaging-binary-extensions.rst:263
 msgid ""
 "Before it is possible to build a binary extension, it is necessary to ensure "
 "that you have a suitable compiler available. On Windows, Visual C is used to "
@@ -4977,7 +4981,7 @@ msgid ""
 "microsoft.com/downloads/>`__ - any recent version is fine."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:265
+#: ../source/guides/packaging-binary-extensions.rst:270
 msgid ""
 "One caveat: if you use Visual Studio 2019 or later, your extension will "
 "depend on an \"extra\" file, ``VCRUNTIME140_1.dll``, in addition to the "
@@ -4987,7 +4991,7 @@ msgid ""
 "time argument ``/d2FH4-``. Recent versions of Python may include this file."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:273
+#: ../source/guides/packaging-binary-extensions.rst:278
 msgid ""
 "Building for Python prior to 3.5 is discouraged, because older versions of "
 "Visual Studio are no longer available from Microsoft. If you do need to "
@@ -4999,11 +5003,11 @@ msgid ""
 "these things for you."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:284
+#: ../source/guides/packaging-binary-extensions.rst:289
 msgid "Binary extensions for Linux"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:286
+#: ../source/guides/packaging-binary-extensions.rst:291
 msgid ""
 "Linux binaries must use a sufficiently old glibc to be compatible with older "
 "distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker "
@@ -5011,11 +5015,11 @@ msgid ""
 "current Linux distributions on common architectures."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:292
+#: ../source/guides/packaging-binary-extensions.rst:297
 msgid "Binary extensions for macOS"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:294
+#: ../source/guides/packaging-binary-extensions.rst:299
 msgid ""
 "Binary compatibility on macOS is determined by the target minimum deployment "
 "system, e.g. *10.9*, which is often specified with the "
@@ -5027,21 +5031,21 @@ msgid ""
 "wheels>`_."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:304
+#: ../source/guides/packaging-binary-extensions.rst:309
 msgid "Publishing binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:306
+#: ../source/guides/packaging-binary-extensions.rst:311
 msgid ""
 "For interim guidance on this topic, see the discussion in :issue:`this issue "
 "<284>`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:322
+#: ../source/guides/packaging-binary-extensions.rst:327
 msgid "Additional resources"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:324
+#: ../source/guides/packaging-binary-extensions.rst:329
 msgid ""
 "Cross-platform development and distribution of extension modules is a "
 "complex topic, so this guide focuses primarily on providing pointers to "
@@ -5051,11 +5055,11 @@ msgid ""
 "interfaces that those systems rely on at runtime."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:331
+#: ../source/guides/packaging-binary-extensions.rst:336
 msgid "Cross-platform wheel generation with scikit-build"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:333
+#: ../source/guides/packaging-binary-extensions.rst:338
 msgid ""
 "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package "
 "helps abstract cross-platform build operations and provides additional "
@@ -5065,27 +5069,27 @@ msgid ""
 "html>`_ for Python binary extension modules."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:341
+#: ../source/guides/packaging-binary-extensions.rst:346
 msgid "Introduction to C/C++ extension modules"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:343
+#: ../source/guides/packaging-binary-extensions.rst:348
 msgid ""
 "For a more in depth explanation of how extension modules are used by CPython "
 "on a Debian system, see the following articles:"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:346
+#: ../source/guides/packaging-binary-extensions.rst:351
 msgid ""
 "`What are (c)python extension modules? <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:347
+#: ../source/guides/packaging-binary-extensions.rst:352
 msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:348
+#: ../source/guides/packaging-binary-extensions.rst:353
 msgid ""
 "`Writing cpython extension modules using C++ <https://thomasnyberg.com/"
 "cpp_extension_modules.html>`_"

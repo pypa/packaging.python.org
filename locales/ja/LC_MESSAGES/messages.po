@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-11 18:06+0000\n"
+"POT-Creation-Date: 2022-03-11 19:35+0000\n"
 "PO-Revision-Date: 2022-03-11 10:39+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -6328,14 +6328,24 @@ msgstr ""
 "参照なしとなる場合が主な問題になります) をしばしば暴露してしまうのです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:132
+#, fuzzy
+#| msgid ""
+#| "`Cython <https://cython.org/>`__ is a mature static compiler that can "
+#| "compile most Python code to C extension modules. The initial compilation "
+#| "provides some speed increases (by bypassing the CPython interpreter "
+#| "layer), and Cython's optional static typing features can offer additional "
+#| "opportunities for speed increases. Using Cython still has the "
+#| "disadvantage of increasing the complexity of distributing the resulting "
+#| "application, but has the benefit of having a reduced barrier to entry for "
+#| "Python programmers (relative to other languages like C or C++)."
 msgid ""
 "`Cython <https://cython.org/>`__ is a mature static compiler that can "
 "compile most Python code to C extension modules. The initial compilation "
 "provides some speed increases (by bypassing the CPython interpreter layer), "
 "and Cython's optional static typing features can offer additional "
-"opportunities for speed increases. Using Cython still has the disadvantage "
-"of increasing the complexity of distributing the resulting application, but "
-"has the benefit of having a reduced barrier to entry for Python programmers "
+"opportunities for speed increases. Using Cython still carries the "
+"`disadvantages`_ associated with using binary extensions, but has the "
+"benefit of having a reduced barrier to entry for Python programmers "
 "(relative to other languages like C or C++)."
 msgstr ""
 "`Cython <https://cython.org/>`__ は、ほとんどの Python コードを C 言語の拡張"
@@ -6393,11 +6403,22 @@ msgstr ""
 "できるものです。"
 
 #: ../source/guides/packaging-binary-extensions.rst:162
+#, fuzzy
+#| msgid ""
+#| "In addition to being useful for the creation of accelerator modules, "
+#| "`Cython <https://cython.org/>`__ is also useful for creating wrapper "
+#| "modules for C or C++. It still involves wrapping the interfaces by hand, "
+#| "however, and is very repetitive, so may not be a good choice for wrapping "
+#| "large APIs."
 msgid ""
 "In addition to being useful for the creation of accelerator modules, `Cython "
-"<https://cython.org/>`__ is also useful for creating wrapper modules for C "
-"or C++. It still involves wrapping the interfaces by hand, however, and is "
-"very repetitive, so may not be a good choice for wrapping large APIs."
+"<https://cython.org/>`__ is also widely used for creating wrapper modules "
+"for C or C++ APIs. It involves wrapping the interfaces by hand, which gives "
+"a wide range of freedom in designing and optimising the wrapper code, but "
+"may not be a good choice for wrapping very large APIs quickly. See the `list "
+"of third-party tools <https://github.com/cython/cython/wiki/AutoPxd>`_ for "
+"automatic wrapping with Cython. It also supports performance-oriented Python "
+"implementations that provide a CPython-like C-API, such as PyPy and Pyston."
 msgstr ""
 "アクセラレータモジュールの作成に役に立つことに加えて、 `Cython <https://"
 "cython.org/>`__ は C 言語や C++ で書かれたものをラップするモジュールを作成す"
@@ -6405,7 +6426,7 @@ msgstr ""
 "しがおおくて退屈であることから、大量の API をラップするためにはあまり良い選択"
 "ではないかもしれません。"
 
-#: ../source/guides/packaging-binary-extensions.rst:168
+#: ../source/guides/packaging-binary-extensions.rst:173
 msgid ""
 ":doc:`pybind11 <pybind11:index>` is a pure C++11 library that provides a "
 "clean C++ interface to the CPython (and PyPy) C API. It does not require a "
@@ -6422,7 +6443,7 @@ msgstr ""
 "index.html>`__ を基礎にしていますが、Boost ライブラリや BJam がなくてはダメと"
 "いうことはありません。"
 
-#: ../source/guides/packaging-binary-extensions.rst:175
+#: ../source/guides/packaging-binary-extensions.rst:180
 msgid ""
 ":doc:`cffi <cffi:index>` is a project created by some of the PyPy developers "
 "to make it straightforward for developers that already know both Python and "
@@ -6436,7 +6457,7 @@ msgstr ""
 "モジュールをそのヘッダファイルに基づいてラップすることもいくらか簡単になりま"
 "した。"
 
-#: ../source/guides/packaging-binary-extensions.rst:181
+#: ../source/guides/packaging-binary-extensions.rst:186
 msgid ""
 "One of the key advantages of ``cffi`` is that it is compatible with the PyPy "
 "JIT, allowing CFFI wrapper modules to participate fully in PyPy's tracing "
@@ -6445,7 +6466,7 @@ msgstr ""
 "``cffi`` の最も重要な利点のひとつはPyPy JIT と一緒に使えることで、CFFI ラッパ"
 "モジュールが PyPy の実行中の JIT 最適化に同居できるのです。"
 
-#: ../source/guides/packaging-binary-extensions.rst:185
+#: ../source/guides/packaging-binary-extensions.rst:190
 msgid ""
 "`SWIG <http://www.swig.org/>`__ is a wrapper interface generator that allows "
 "a variety of programming languages, including Python, to interface with C "
@@ -6455,7 +6476,7 @@ msgstr ""
 "語から C 言語や C++ のコードへのインタフェースを生成できるラッパインタフェー"
 "ス生成ツールです。"
 
-#: ../source/guides/packaging-binary-extensions.rst:189
+#: ../source/guides/packaging-binary-extensions.rst:194
 msgid ""
 "The standard library's ``ctypes`` module, while useful for getting access to "
 "C level interfaces when header information isn't available, suffers from the "
@@ -6479,11 +6500,11 @@ msgstr ""
 "ABI のレベルで直接に動作する *ことができる* 一方で、そのように使った場合には "
 "``ctypes`` と同じく一貫性を欠いたインタフェースの問題を孕みます。"
 
-#: ../source/guides/packaging-binary-extensions.rst:203
+#: ../source/guides/packaging-binary-extensions.rst:208
 msgid "Alternatives for low level system access"
 msgstr "低レベルのシステムアクセスを行う代替策"
 
-#: ../source/guides/packaging-binary-extensions.rst:205
+#: ../source/guides/packaging-binary-extensions.rst:210
 msgid ""
 "For applications that need low level system access (regardless of the "
 "reason), a binary extension module often *is* the best way to go about it. "
@@ -6501,7 +6522,7 @@ msgstr ""
 "いる時には無効であるということだけを見ても、CPython ランタイム自身の低レベル"
 "部分にアクセスする際によく当てはまると言えます。"
 
-#: ../source/guides/packaging-binary-extensions.rst:213
+#: ../source/guides/packaging-binary-extensions.rst:218
 msgid ""
 "For cases where the extension module is manipulating the underlying "
 "operating system or hardware (rather than the CPython runtime), it may "
@@ -6517,11 +6538,11 @@ msgstr ""
 "ジュールとしてインタフェースを構築できるラッピングテクニックを使う方が良いと"
 "いう場合もあるでしょう。"
 
-#: ../source/guides/packaging-binary-extensions.rst:222
+#: ../source/guides/packaging-binary-extensions.rst:227
 msgid "Implementing binary extensions"
 msgstr "バイナリ拡張を実装する"
 
-#: ../source/guides/packaging-binary-extensions.rst:224
+#: ../source/guides/packaging-binary-extensions.rst:229
 msgid ""
 "The CPython :doc:`Extending and Embedding <python:extending/index>` guide "
 "includes an introduction to writing a :doc:`custom extension module in C "
@@ -6531,15 +6552,15 @@ msgstr ""
 "doc:`C 言語による独自の拡張モジュール <python:extending/extending>` を書くた"
 "めの導入的な説明があります。"
 
-#: ../source/guides/packaging-binary-extensions.rst:241
+#: ../source/guides/packaging-binary-extensions.rst:246
 msgid "Building binary extensions"
 msgstr "バイナリ拡張をビルドする"
 
-#: ../source/guides/packaging-binary-extensions.rst:244
+#: ../source/guides/packaging-binary-extensions.rst:249
 msgid "Building extensions for multiple platforms"
 msgstr "複数のプラットフォーム向けに拡張モジュールをビルドする"
 
-#: ../source/guides/packaging-binary-extensions.rst:246
+#: ../source/guides/packaging-binary-extensions.rst:251
 msgid ""
 "If you plan to distribute your extension, you should provide :term:`wheels "
 "<Wheel>` for all the platforms you intend to support. For most extensions, "
@@ -6558,11 +6579,11 @@ msgstr ""
 "`multibuild` のような CI から再配布が非常にやりやすいバイナリをビルドするのを"
 "補助するツールの存在が知られています。"
 
-#: ../source/guides/packaging-binary-extensions.rst:256
+#: ../source/guides/packaging-binary-extensions.rst:261
 msgid "Binary extensions for Windows"
 msgstr "Windows 向けのバイナリ拡張"
 
-#: ../source/guides/packaging-binary-extensions.rst:258
+#: ../source/guides/packaging-binary-extensions.rst:263
 msgid ""
 "Before it is possible to build a binary extension, it is necessary to ensure "
 "that you have a suitable compiler available. On Windows, Visual C is used to "
@@ -6579,7 +6600,7 @@ msgstr ""
 "microsoft.com/downloads/>`__ をインストールしてください - 最近のバージョンな"
 "らどれでも構いません。"
 
-#: ../source/guides/packaging-binary-extensions.rst:265
+#: ../source/guides/packaging-binary-extensions.rst:270
 msgid ""
 "One caveat: if you use Visual Studio 2019 or later, your extension will "
 "depend on an \"extra\" file, ``VCRUNTIME140_1.dll``, in addition to the "
@@ -6596,7 +6617,7 @@ msgstr ""
 "ル時に引数 ``/d2FH4`` を追加しておくことで、これを避けることができます。最近"
 "のバージョンの Python ならこのファイルを同梱しているかもしれません。"
 
-#: ../source/guides/packaging-binary-extensions.rst:273
+#: ../source/guides/packaging-binary-extensions.rst:278
 msgid ""
 "Building for Python prior to 3.5 is discouraged, because older versions of "
 "Visual Studio are no longer available from Microsoft. If you do need to "
@@ -6616,11 +6637,11 @@ msgstr ""
 "に依存しないようにすることなどが必要です。拡張モジュールを生成するツール群"
 "は、通常はこのようなことが起こらないようにしてくれています。"
 
-#: ../source/guides/packaging-binary-extensions.rst:284
+#: ../source/guides/packaging-binary-extensions.rst:289
 msgid "Binary extensions for Linux"
 msgstr "Linux 向けのバイナリ拡張"
 
-#: ../source/guides/packaging-binary-extensions.rst:286
+#: ../source/guides/packaging-binary-extensions.rst:291
 msgid ""
 "Linux binaries must use a sufficiently old glibc to be compatible with older "
 "distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker "
@@ -6632,11 +6653,11 @@ msgstr ""
 "イメージを使えば、よくあるアーキテクチャのほとんどの現行版 Linux 配布物をサ"
 "ポートするのに十分なほど古い glibc を伴ったビルド環境を準備できるでしょう。"
 
-#: ../source/guides/packaging-binary-extensions.rst:292
+#: ../source/guides/packaging-binary-extensions.rst:297
 msgid "Binary extensions for macOS"
 msgstr "macOS 向けのバイナリ拡張"
 
-#: ../source/guides/packaging-binary-extensions.rst:294
+#: ../source/guides/packaging-binary-extensions.rst:299
 msgid ""
 "Binary compatibility on macOS is determined by the target minimum deployment "
 "system, e.g. *10.9*, which is often specified with the "
@@ -6656,22 +6677,22 @@ msgstr ""
 "イール wiki <https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_ を見て"
 "ください。"
 
-#: ../source/guides/packaging-binary-extensions.rst:304
+#: ../source/guides/packaging-binary-extensions.rst:309
 msgid "Publishing binary extensions"
 msgstr "バイナリ拡張を公開する"
 
-#: ../source/guides/packaging-binary-extensions.rst:306
+#: ../source/guides/packaging-binary-extensions.rst:311
 msgid ""
 "For interim guidance on this topic, see the discussion in :issue:`this issue "
 "<284>`."
 msgstr ""
 "この話題に関する暫定的なガイダンスが :issue:`この課題 <284>` にあります。"
 
-#: ../source/guides/packaging-binary-extensions.rst:322
+#: ../source/guides/packaging-binary-extensions.rst:327
 msgid "Additional resources"
 msgstr "追加のリソース"
 
-#: ../source/guides/packaging-binary-extensions.rst:324
+#: ../source/guides/packaging-binary-extensions.rst:329
 msgid ""
 "Cross-platform development and distribution of extension modules is a "
 "complex topic, so this guide focuses primarily on providing pointers to "
@@ -6686,11 +6707,11 @@ msgstr ""
 "他の部分では、そのようなシステムが実行時に依存するような下層のバイナリインタ"
 "フェースについて開発者が理解を深めるために見ることを意図しています。"
 
-#: ../source/guides/packaging-binary-extensions.rst:331
+#: ../source/guides/packaging-binary-extensions.rst:336
 msgid "Cross-platform wheel generation with scikit-build"
 msgstr "sckit-build を用いたクロスプラットフォームな wheel の生成"
 
-#: ../source/guides/packaging-binary-extensions.rst:333
+#: ../source/guides/packaging-binary-extensions.rst:338
 msgid ""
 "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package "
 "helps abstract cross-platform build operations and provides additional "
@@ -6705,11 +6726,11 @@ msgstr ""
 "`C 言語におけるランタイム・コンパイラ・ビルドシステム生成器 <https://scikit-"
 "build.readthedocs.io/en/latest/generators.html>`_ にあります。"
 
-#: ../source/guides/packaging-binary-extensions.rst:341
+#: ../source/guides/packaging-binary-extensions.rst:346
 msgid "Introduction to C/C++ extension modules"
 msgstr "C/C++ による拡張モジュールの紹介"
 
-#: ../source/guides/packaging-binary-extensions.rst:343
+#: ../source/guides/packaging-binary-extensions.rst:348
 msgid ""
 "For a more in depth explanation of how extension modules are used by CPython "
 "on a Debian system, see the following articles:"
@@ -6717,7 +6738,7 @@ msgstr ""
 "Debian システム上で CPython がどのようにして拡張モジュールを使うのかについ"
 "て、もっと深掘りした説明が次の記事に出ています:"
 
-#: ../source/guides/packaging-binary-extensions.rst:346
+#: ../source/guides/packaging-binary-extensions.rst:351
 msgid ""
 "`What are (c)python extension modules? <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
@@ -6725,12 +6746,12 @@ msgstr ""
 "`(c)python の拡張モジュールとはどんなものか？ <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
 
-#: ../source/guides/packaging-binary-extensions.rst:347
+#: ../source/guides/packaging-binary-extensions.rst:352
 msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
 msgstr ""
 "`gil をリリースする <https://thomasnyberg.com/releasing_the_gil.html>`_"
 
-#: ../source/guides/packaging-binary-extensions.rst:348
+#: ../source/guides/packaging-binary-extensions.rst:353
 msgid ""
 "`Writing cpython extension modules using C++ <https://thomasnyberg.com/"
 "cpp_extension_modules.html>`_"
