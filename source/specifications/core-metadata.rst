@@ -40,6 +40,7 @@ to a new format.
 .. contents:: Contents
    :local:
 
+
 Metadata-Version
 ================
 
@@ -53,10 +54,6 @@ greater than the highest version they support, and MUST fail if
 ``metadata_version`` has a greater major version than the highest
 version they support (as described in :pep:`440`, the major version is the
 value before the first dot).
-
-For broader compatibility, build tools MAY choose to produce
-distribution metadata using the lowest metadata version that includes
-all of the needed fields.
 
 Example::
 
