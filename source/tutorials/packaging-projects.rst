@@ -108,7 +108,8 @@ should contain one of these build-system blocks:
 
 .. tab:: Setuptools
 
-    This is the classic backend for building projects; large, slow, complex.
+    This is the original backend for building projects, with C extension
+    support and many plugins, like :ref:`setuptools_scm`.
 
     .. code-block:: toml
 
@@ -129,7 +130,7 @@ should contain one of these build-system blocks:
 
 .. tab:: Hatchling
 
-    :ref:`hatch` has a more feature-rich build backend than flit, supporting
+    :ref:`hatch` has a more feature-rich build backend than Flit, supporting
     SCM versioning and plugins.
 
     .. code-block:: toml
