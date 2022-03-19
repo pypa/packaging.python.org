@@ -33,7 +33,7 @@ Installation tool recommendations
   of wheel caching. [3]_
 
 * Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
-  application-specific dependencies from a shared Python installation. [4]_
+  project-specific dependencies from a shared Python installation. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
   stacks, consider:
