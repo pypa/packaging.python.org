@@ -109,12 +109,12 @@ should contain one of these build-system blocks:
 .. tab:: Setuptools
 
     This is the original backend for building projects, with C extension
-    support and many plugins, like :ref:`setuptools_scm`.
+    support and many plugins, like :ref:`setuptools_scm`. EXPERIMENTAL.
 
     .. code-block:: toml
 
         [build-system]
-        requires = ["setuptools @ git+https://github.com/pypa/setuptools@experimental/support-pyproject"]
+        requires = ["setuptools >=61.0"]
         build-backend = "setuptools.build_meta"
 
 .. tab:: Flit
