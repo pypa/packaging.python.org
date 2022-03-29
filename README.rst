@@ -7,7 +7,7 @@ The "Python Packaging User Guide" (PyPUG) aims to be the authoritative resource 
 how to package and install distributions in Python using current tools.
 
 To follow the development of Python packaging, see the `Python
-Packaging Authority <https://www.pypa.io>`_.
+Packaging Authority <https://www.pypa.io/en/latest/>`_.
 
 Code of Conduct
 ---------------

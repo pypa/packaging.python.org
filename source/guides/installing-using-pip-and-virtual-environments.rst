@@ -19,46 +19,47 @@ update packages. You'll need to make sure you have the latest version of pip
 installed.
 
 
-Windows
-+++++++
+.. tab:: Unix/macOS
 
-The Python installers for Windows include pip. You should be able to access
-pip using:
+    Debian and most other distributions include a `python-pip`_ package; if you
+    want to use the Linux distribution-provided versions of pip, see
+    :doc:`/guides/installing-using-linux-tools`.
 
-.. code-block:: bash
+    You can also install pip yourself to ensure you have the latest version. It's
+    recommended to use the system pip to bootstrap a user installation of pip:
 
-    py -m pip --version
-    pip 9.0.1 from c:\python36\lib\site-packages (Python 3.6.1)
+    .. code-block:: bash
 
-You can make sure that pip is up-to-date by running:
+        python3 -m pip install --user --upgrade pip
 
-.. code-block:: bash
+        python3 -m pip --version
 
-    py -m pip install --upgrade pip
+    Afterwards, you should have the latest version of pip installed in your
+    user site:
 
+    .. code-block:: text
 
-Linux and macOS
-++++++++++++++++
+        pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
 
-Debian and most other distributions include a `python-pip`_ package, if you
-want to use the Linux distribution-provided versions of pip see
-:doc:`/guides/installing-using-linux-tools`.
+    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
 
-You can also install pip yourself to ensure you have the latest version. It's
-recommended to use the system pip to bootstrap a user installation of pip:
+.. tab:: Windows
 
-.. code-block:: bash
+    The Python installers for Windows include pip. You can make sure that pip is
+    up-to-date by running:
 
-    python3 -m pip install --user --upgrade pip
+    .. code-block:: bat
 
-Afterwards, you should have the newest pip installed in your user site:
+        py -m pip install --upgrade pip
 
-.. code-block:: bash
+        py -m pip --version
 
-    python3 -m pip --version
-    pip 9.0.1 from $HOME/.local/lib/python3.6/site-packages (python 3.6)
+    Afterwards, you should have the latest version of pip:
 
-.. _python-pip: https://packages.debian.org/stable/python-pip
+    .. code-block:: text
+
+        pip 21.1.3 from c:\python39\lib\site-packages (Python 3.9.4)
+
 
 
 Installing virtualenv
@@ -75,17 +76,18 @@ Using virtualenv allows you to avoid installing Python packages globally
 which could break system tools or other projects. You can install virtualenv
 using pip.
 
-On macOS and Linux:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    python3 -m pip install --user virtualenv
+    .. code-block:: bash
 
-On Windows:
+        python3 -m pip install --user virtualenv
 
-.. code-block:: bash
+.. tab:: Windows
 
-    py -m pip install --user virtualenv
+    .. code-block:: bat
+
+        py -m pip install --user virtualenv
 
 
 
@@ -105,17 +107,17 @@ To create a virtual environment, go to your project's directory and run
 venv. If you are using Python 2, replace ``venv`` with ``virtualenv``
 in the below commands.
 
-On macOS and Linux:
+.. tab:: Unix/macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    python3 -m venv env
+        python3 -m venv env
 
-On Windows:
+.. tab:: Windows
 
-.. code-block:: bash
+    .. code-block:: bat
 
-    py -m venv env
+        py -m venv env
 
 The second argument is the location to create the virtual environment. Generally, you
 can just create this in your project and call it ``env``.
@@ -134,32 +136,46 @@ need to *activate* it. Activating a virtual environment will put the
 virtual environment-specific
 ``python`` and ``pip`` executables into your shell's ``PATH``.
 
-On macOS and Linux:
+.. tab:: Unix/macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    source env/bin/activate
+        source env/bin/activate
 
-On Windows::
+.. tab:: Windows
 
-    .\env\Scripts\activate
+    .. code-block:: bat
+
+        .\env\Scripts\activate
 
 You can confirm you're in the virtual environment by checking the location of your
-Python interpreter, it should point to the ``env`` directory.
+Python interpreter:
 
-On macOS and Linux:
+.. tab:: Unix/macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    which python
-    .../env/bin/python
+        which python
 
-On Windows:
+.. tab:: Windows
 
-.. code-block:: bash
+    .. code-block:: bat
 
-    where python
-    .../env/bin/python.exe
+        where python
+
+It should be in the ``env`` directory:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        .../env/bin/python
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        ...\env\Scripts\python.exe
 
 
 As long as your virtual environment is activated pip will install packages into that
@@ -186,9 +202,17 @@ Installing packages
 Now that you're in your virtual environment you can install packages. Let's install the
 `Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install requests
+    .. code-block:: bash
+
+        python3 -m pip install requests
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install requests
 
 pip should download requests and all of its dependencies and install them:
 
@@ -217,21 +241,45 @@ pip allows you to specify which version of a package to install using
 :term:`version specifiers <Version Specifier>`. For example, to install
 a specific version of ``requests``:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install requests==2.18.4
+    .. code-block:: bash
+
+        python3 -m pip install requests==2.18.4
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install requests==2.18.4
 
 To install the latest ``2.x`` release of requests:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install requests>=2.0.0,<3.0.0
+    .. code-block:: bash
+
+        python3 -m pip install requests>=2.0.0,<3.0.0
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install requests>=2.0.0,<3.0.0
 
 To install pre-release versions of packages, use the ``--pre`` flag:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install --pre requests
+    .. code-block:: bash
+
+        python3 -m pip install --pre requests
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --pre requests
 
 
 Installing extras
@@ -240,12 +288,20 @@ Installing extras
 Some packages have optional `extras`_. You can tell pip to install these by
 specifying the extra in brackets:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install requests[security]
+    .. code-block:: bash
+
+        python3 -m pip install requests[security]
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install requests[security]
 
 .. _extras:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#declaring-extras-optional-features-with-their-own-dependencies
+    https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies
 
 
 Installing from source
@@ -253,22 +309,36 @@ Installing from source
 
 pip can install a package directly from source, for example:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    cd google-auth
-    pip install .
+    .. code-block:: bash
 
-Additionally, pip can install packages from source in `development mode`_,
+        cd google-auth
+        python3 -m pip install .
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        cd google-auth
+        py -m pip install .
+
+Additionally, pip can install packages from source in
+:doc:`development mode <setuptools:userguide/development_mode>`,
 meaning that changes to the source directory will immediately affect the
 installed package without needing to re-install:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install --editable .
+    .. code-block:: bash
 
+        python3 -m pip install --editable .
 
-.. _development mode:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --editable .
 
 
 Installing from version control systems
@@ -291,17 +361,33 @@ Installing from local archives
 If you have a local copy of a :term:`Distribution Package`'s archive (a zip,
 wheel, or tar file) you can install it directly with pip:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install requests-2.18.4.tar.gz
+    .. code-block:: bash
+
+        python3 -m pip install requests-2.18.4.tar.gz
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install requests-2.18.4.tar.gz
 
 If you have a directory containing archives of multiple packages, you can tell
 pip to look for packages there and not to use the
 :term:`Python Package Index (PyPI)` at all:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install --no-index --find-links=/local/dir/ requests
+    .. code-block:: bash
+
+        python3 -m pip install --no-index --find-links=/local/dir/ requests
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --no-index --find-links=/local/dir/ requests
 
 This is useful if you are installing packages on a system with limited
 connectivity or if you want to strictly control the origin of distribution
@@ -314,18 +400,33 @@ Using other package indexes
 If you want to download packages from a different index than the
 :term:`Python Package Index (PyPI)`, you can use the ``--index-url`` flag:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install --index-url http://index.example.com/simple/ SomeProject
+    .. code-block:: bash
+
+        python3 -m pip install --index-url http://index.example.com/simple/ SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --index-url http://index.example.com/simple/ SomeProject
 
 If you want to allow packages from both the :term:`Python Package Index (PyPI)`
 and a separate index, you can use the ``--extra-index-url`` flag instead:
 
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install --extra-index-url http://index.example.com/simple/ SomeProject
+    .. code-block:: bash
 
+        python3 -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --extra-index-url http://index.example.com/simple/ SomeProject
 
 Upgrading packages
 ------------------
@@ -333,10 +434,17 @@ Upgrading packages
 pip can upgrade packages in-place using the ``--upgrade`` flag. For example, to
 install the latest version of ``requests`` and all of its dependencies:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install --upgrade requests
+    .. code-block:: bash
 
+        python3 -m pip install --upgrade requests
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --upgrade requests
 
 Using requirements files
 ------------------------
@@ -352,10 +460,17 @@ example you could create a :file:`requirements.txt` file containing:
 
 And tell pip to install all of the packages in this file using the ``-r`` flag:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip install -r requirements.txt
+    .. code-block:: bash
 
+        python3 -m pip install -r requirements.txt
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install -r requirements.txt
 
 Freezing dependencies
 ---------------------
@@ -363,9 +478,17 @@ Freezing dependencies
 Pip can export a list of all installed packages and their versions using the
 ``freeze`` command:
 
-.. code-block:: bash
+.. tab:: Unix/macOS
 
-    pip freeze
+    .. code-block:: bash
+
+        python3 -m pip freeze
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip freeze
 
 Which will output a list of package specifiers such as:
 

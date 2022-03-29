@@ -67,8 +67,8 @@ This is great for sharing simple scripts and snippets between people
 who both have compatible Python versions (such as via email,
 StackOverflow, or GitHub gists). There are even some entire Python
 libraries that offer this as an option, such as `bottle.py
-<https://bottlepy.org/docs/dev/>`_ and `boltons
-<http://boltons.readthedocs.io/en/latest/architecture.html#architecture>`_.
+<https://bottlepy.org/docs/dev/>`_ and :doc:`boltons
+<boltons:architecture>`.
 
 However, this pattern won't scale for projects that consist of
 multiple files, need additional libraries, or need a specific version
@@ -94,8 +94,8 @@ you can use Python's native packaging tools to create a *source*
 
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
-pure-Python, and you only depend on other Python packages, you can `go
-here to learn more <https://docs.python.org/3/distutils/sourcedist.html>`_.
+pure-Python, and you only depend on other Python packages, you can
+:doc:`go here to learn more <python:distutils/sourcedist>`.
 
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
@@ -166,8 +166,8 @@ audience.
 Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
-library packaging, using technologies like `setuptools entry_points
-<https://setuptools.readthedocs.io/en/latest/userguide/entry_point.html>`_.
+library packaging, using technologies like
+:doc:`setuptools entry_points <userguide/entry_point>`.
 
 Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies
@@ -206,7 +206,7 @@ respective packaging guides.
 * `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
 * `PythonAnywhere <https://www.pythonanywhere.com/>`_
 * `OpenShift <https://blog.openshift.com/getting-started-python/>`_
-* "Serverless" frameworks like `Zappa <https://www.zappa.io/>`_
+* "Serverless" frameworks like :gh:`Zappa <zappa/Zappa>`
 
 In all these setups, the platform takes care of packaging and
 deployment, as long as you follow their patterns. Most software does
@@ -228,10 +228,10 @@ If you're planning on releasing to these new frontiers, you'll want to
 check out the following frameworks, and refer to their packaging
 guides:
 
-* `Kivy <https://kivy.org/#home>`_
+* `Kivy <https://kivy.org/>`_
 * `Beeware <https://pybee.org/>`_
 * `Brython <https://brython.info/>`_
-* `Flexx <http://flexx.readthedocs.io/en/latest/>`_
+* `Flexx <https://flexx.readthedocs.io/en/latest/>`_
 
 If you are *not* interested in using a framework or platform, or just
 wonder about some of the technologies and techniques utilized by the
@@ -248,9 +248,9 @@ machines of developers and data scientists.
 
 Technologies which support this model:
 
-* `PEX <https://github.com/pantsbuild/pex#pex>`_ (Python EXecutable)
-* `zipapp <https://docs.python.org/3/library/zipapp.html>`_ (does not help manage dependencies, requires Python 3.5+)
-* `shiv <https://github.com/linkedin/shiv#shiv>`_ (requires Python 3)
+* :gh:`PEX <pantsbuild/pex#user-content-pex>` (Python EXecutable)
+* :doc:`zipapp <python:library/zipapp>` (does not help manage dependencies, requires Python 3.5+)
+* :gh:`shiv <linkedin/shiv#user-content-shiv>` (requires Python 3)
 
 .. note:: Of all the approaches here, depending on a pre-installed
           Python relies the most on the target environment. Of course,
@@ -279,18 +279,17 @@ developers is a package ecosystem called `Anaconda
 is built around Python and is increasingly common in academic,
 analytical, and other data-oriented environments, even making its way
 `into server-oriented environments
-<https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
+<https://web.archive.org/web/20190403064038/https://www.paypal-engineering.com/2016/09/07/python-packaging-at-paypal/>`_.
 
 Instructions on building and publishing for the Anaconda ecosystem:
 
-* `Building libraries and applications with conda <https://conda.io/docs/user-guide/tutorials/index.html>`_
-* `Transitioning a native Python package to Anaconda <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_
+* `Building libraries and applications with conda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/index.html>`_
+* `Transitioning a native Python package to Anaconda <https://conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`_
 
 A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
 packages:
 
-* `Enthought Canopy <https://www.enthought.com/product/canopy/>`_
 * `ActiveState ActivePython <https://www.activestate.com/activepython>`_
 * `WinPython <http://winpython.github.io/>`_
 
@@ -314,18 +313,17 @@ and a good amount of effort.
 
 A selection of Python freezers:
 
-* `pyInstaller <http://www.pyinstaller.org/>`_ - Cross-platform
+* `pyInstaller <https://pyinstaller.readthedocs.io/en/stable/>`_ - Cross-platform
 * `cx_Freeze <https://marcelotduarte.github.io/cx_Freeze/>`_ - Cross-platform
 * `constructor <https://github.com/conda/constructor>`_ - For command-line installers
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
 * `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only
-* `bbFreeze <https://pypi.org/project/bbfreeze>`_ - Windows, Linux, Python 2 only
 * `osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac
 * `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
 
 Most of the above imply single-user deployments. For multi-component
-server applications, see `Chef Omnibus
-<https://github.com/chef/omnibus#-omnibus>`_.
+server applications, see :gh:`Chef Omnibus
+<chef/omnibus#user-content--omnibus>`.
 
 
 Bringing your own userspace
@@ -362,7 +360,7 @@ data centers, though certain complex applications can benefit from
 this packaging. Technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
-* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and `other formats <https://docs.openstack.org/image-guide/image-formats.html>`_
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats <openstack:user/formats>`
 * `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
 
 Bringing your own hardware
@@ -376,8 +374,7 @@ Whereas the virtual machines described above are primarily reserved
 for the tech-savvy, you can find hardware appliances being used by
 everyone from the most advanced data centers to the youngest children.
 
-Embed your code on an `Adafruit
-<https://github.com/adafruit/circuitpython#adafruit-circuitpython>`_,
+Embed your code on an :gh:`Adafruit <adafruit/circuitpython>`,
 `MicroPython <https://micropython.org/>`_, or more-powerful hardware
 running Python, then ship it to the datacenter or your users'
 homes. They plug and play, and you can call it a day.
@@ -405,7 +402,7 @@ Debian, Ubuntu, etc.) or `RPM
 <https://en.wikipedia.org/wiki/RPM_Package_Manager>`_ (for Red Hat,
 Fedora, etc.), and use that built-in package manager to take care of
 installation, and even deployment. You can even use `FPM
-<https://fpm.readthedocs.io/en/latest/source/virtualenv.html>`_ to
+<https://fpm.readthedocs.io/en/latest/cli-reference.html#virtualenv>`_ to
 generate both deb and RPMs from the same source.
 
 In most deployment pipelines, the OS package manager is just one piece
@@ -414,17 +411,16 @@ of the puzzle.
 virtualenv
 ^^^^^^^^^^
 
-`Virtualenvs
-<http://python-guide.readthedocs.io/en/latest/dev/virtualenvs/>`_ have
+:doc:`Virtualenvs <python-guide:dev/virtualenvs>` have
 been an indispensable tool for multiple generations of Python
 developer, but are slowly fading from view, as they are being wrapped
 by higher-level tools. With packaging in particular, virtualenvs are
-used as a primitive in `the dh-virtualenv tool
-<http://dh-virtualenv.readthedocs.io/en/1.0/tutorial.html>`_ and
+used as a primitive in :doc:`the dh-virtualenv tool
+<dh-virtualenv:tutorial>` and
 `osnap <https://github.com/jamesabel/osnap>`_, both of which wrap
 virtualenvs in a self-contained way.
 
-For production deployments, do not rely on running ``pip install``
+For production deployments, do not rely on running ``python -m pip install``
 from the Internet into a virtualenv, as one might do in a development
 environment. The overview above is full of much better solutions.
 

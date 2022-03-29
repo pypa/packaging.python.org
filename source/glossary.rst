@@ -42,9 +42,8 @@ Glossary
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
-        which is being replaced by :term:`Wheel`.  For details, see `The
-        Internal Structure of Python Eggs
-        <https://setuptools.readthedocs.io/en/latest/deprecated/python_eggs.html>`_ and
+        which is being replaced by :term:`Wheel`.  For details, see `
+        :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` and
         `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
     Extension Module
@@ -129,7 +128,7 @@ Glossary
 
         PyPA is a working group that maintains many of the relevant
         projects in Python packaging. They maintain a site at
-        https://www.pypa.io, host projects on `GitHub
+        :doc:`pypa.io <pypa:index>`, host projects on `GitHub
         <https://github.com/pypa>`_ and `Bitbucket
         <https://bitbucket.org/pypa>`_, and discuss issues on the
         `distutils-sig mailing list

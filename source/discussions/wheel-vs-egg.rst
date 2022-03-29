@@ -39,7 +39,7 @@ Here's a breakdown of the important differences between :term:`Wheel` and :term:
   specification and the implementation that packaged it.
 
 * :term:`Wheel` is internally organized by `sysconfig path type
-  <http://docs.python.org/2/library/sysconfig.html#installation-paths>`_,
+  <https://docs.python.org/2/library/sysconfig.html#installation-paths>`_,
   therefore making it easier to convert to other formats.
 
 ----

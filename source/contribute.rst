@@ -11,15 +11,16 @@ including:
 * Reviewing new contributions
 * Revising existing content
 * Writing new content
+* Translate the guide
 
 Most of the work on the |PyPUG| takes place on the
 `project's GitHub repository`__. To get started, check out the list of
 `open issues`__ and `pull requests`__. If you're planning to write or edit
 the guide, please read the :ref:`style guide <contributing_style_guide>`.
 
-.. __: https://github.com/pypa/python-packaging-user-guide/
-.. __: https://github.com/pypa/python-packaging-user-guide/issues
-.. __: https://github.com/pypa/python-packaging-user-guide/pulls
+.. __: https://github.com/pypa/packaging.python.org/
+.. __: https://github.com/pypa/packaging.python.org/issues
+.. __: https://github.com/pypa/packaging.python.org/pulls
 
 By contributing to the |PyPUG|, you're expected to follow the PSF's
 `Code of Conduct`__.
@@ -67,7 +68,54 @@ an agreed-upon interface for interoperability between packaging tools.
 :doc:`example specification-style document <specifications/core-metadata>`.
 
 
+Translations
+============
 
+We use `Weblate`_ to manage translations of this project.
+Please visit the `packaging.python.org`_ project on Weblate to contribute.
+
+If you are experiencing issues while you are working on translations,
+please open an issue on `Github`_.
+
+.. tip::
+
+   Any translations of this project should follow `reStructuredText syntax`_.
+
+.. _Weblate: https://weblate.org/
+.. _packaging.python.org: https://hosted.weblate.org/projects/pypa/packaging-python-org/
+.. _Github: https://github.com/pypa/packaging.python.org/issues
+.. _reStructuredText syntax: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+
+Adding a language
+-----------------
+
+If your language is not listed on `packaging.python.org`_, click the button
+:guilabel:`Start new translation` at the bottom of the language list and add
+the language you want to translate.
+
+Following reStructuredText syntax
+---------------------------------
+
+If you are not familiar with reStructuredText (RST) syntax, please read `this guide`_
+before translating on Weblate.
+
+**Do not translate the text in reference directly**
+
+  When translating the text in reference, please do not translate them directly.
+
+  | Wrong: Translate the following text directly:
+
+  .. code-block:: rst
+
+      `some ref`_ -> `TRANSLATED TEXT HERE`_
+
+  | Right: Translate the following text with your own language and add the original reference:
+
+  .. code-block:: rst
+
+      `some ref`_ -> `TRANSLATED TEXT HERE <some ref>`_
+
+.. _this guide: https://docutils.sourceforge.io/docs/user/rst/quickref.html
 
 Building the guide locally
 ==========================
@@ -76,21 +124,22 @@ Though not required to contribute, it may be useful to build this guide locally
 in order to test your changes. In order to build this guide locally, you'll
 need:
 
-1. `Nox <https://nox.readthedocs.io/en/latest/>`_. You can install or upgrade
-   nox using ``pip``::
+1. :doc:`Nox <nox:index>`. You can install or upgrade
+   nox using ``pip``:
 
-      pip install --user nox
+   .. code-block:: bash
 
-2. Python 3.6. Our build scripts are designed to work with Python 3.6 only.
-   See the `Hitchhiker's Guide to Python installation instructions`_ to install
-   Python 3.6 on your operating system.
+      python -m pip install --user nox
 
-.. _Hitchhiker's Guide to Python installation instructions:
-    http://docs.python-guide.org/en/latest/starting/installation/
+2. Python 3.8. Our build scripts are usually tested with Python 3.8 only.
+   See the :doc:`Hitchhiker's Guide to Python installation instructions <python-guide:starting/installation>`
+   to install Python 3.8 on your operating system.
 
-To build the guide, run the following bash command in the source folder::
+To build the guide, run the following bash command in the source folder:
 
-  nox -s build
+.. code-block:: bash
+
+   nox -s build
 
 After the process has completed you can find the HTML output in the
 ``./build/html`` directory. You can open the ``index.html`` file to view the
@@ -98,9 +147,11 @@ guide in web browser, but it's recommended to serve the guide using an HTTP
 server.
 
 You can build the guide and serve it via an HTTP server using the following
-command::
+command:
 
-  nox -s preview
+.. code-block:: bash
+
+   nox -s preview
 
 The guide will be browsable via http://localhost:8000.
 

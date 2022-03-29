@@ -90,7 +90,7 @@ Then, add the following under the ``build-n-publish`` section:
    :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
-install and activate Python 3.7.
+install and activate Python 3.9.
 
 And now we can build dists from source. In this example, we'll
 use ``build`` package, assuming that your project has a
@@ -107,7 +107,7 @@ So add this to the steps list:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: version: 3.7
+   :start-after: version: 3.9
    :end-before: Actually publish to PyPI/TestPyPI
 
 
@@ -144,4 +144,4 @@ sure that your release pipeline remains healthy!
 .. _`pypa/gh-action-pypi-publish GitHub Action`:
    https://github.com/marketplace/actions/pypi-publish
 .. _Secrets:
-   https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables
+   https://docs.github.com/en/actions/reference/encrypted-secrets

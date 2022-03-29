@@ -34,7 +34,13 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
+    'sphinx_inline_tabs',
+    'sphinx_copybutton',
 ]
+
+# config for copy button
+copybutton_prompt_text = r">>> |\.\.\. |\$ |> "
+copybutton_prompt_is_regexp = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -82,6 +88,15 @@ release = ''
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 language = None
+
+locale_dirs = ['../locales']
+
+gettext_auto_build = True  # Build MO files from PO on each build
+
+# making all documents use single text domain
+gettext_compact = "messages"
+
+gettext_location = True  # Include location info in the translation files
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -172,7 +187,9 @@ html_title = 'Python Packaging User Guide'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['_static']
+
+html_css_files = ['overrides.css']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -370,11 +387,44 @@ extlinks = {
     'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
 }
 
+linkcheck_ignore = [
+    "http://localhost:\d+",
+    # This is an example that showing to the reader
+    "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
+    # Ignoring it as it will redirect to login page if reader hasn't logged in.
+    "https://pypi.org/manage/*",
+    "https://test.pypi.org/manage/*",
+]
+
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3', None),
-    'python2': ('https://docs.python.org/2', None),
+    'boltons': ('https://boltons.readthedocs.io/en/latest/', None),
+    'build': ('https://pypa-build.readthedocs.io/en/stable/', None),
+    'cffi': ('https://cffi.readthedocs.io/en/latest/', None),
+    'conda': ('https://conda.io/en/latest/', None),
+    'devpi': ('https://devpi.net/docs/devpi/devpi/latest/+doc', None),
+    'dh-virtualenv': ('https://dh-virtualenv.readthedocs.io/en/latest/', None),
+    'distlib': ('https://distlib.readthedocs.io/en/latest/', None),
+    'flexx': ('https://flexx.readthedocs.io/en/latest/', None),
+    'nox': ('https://nox.thea.codes/en/latest/', None),
+    'openstack': ('https://docs.openstack.org/glance/latest/', None),
+    'packaging': ('https://packaging.pypa.io/en/latest/', None),
+    'packaging.python.org': ('https://packaging.python.org/', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
+    'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
+    'piwheels': ('https://piwheels.readthedocs.io/en/latest/', None),
+    'pybind11': ('https://pybind11.readthedocs.io/en/stable/', None),
+    'pynsist': ('https://pynsist.readthedocs.io/en/latest/', None),
+    'pypa': ('https://www.pypa.io/en/latest/', None),
+    'python': ('https://docs.python.org/3', None),
+    'python-guide': ('https://docs.python-guide.org', None),
+    'python2': ('https://docs.python.org/2', None),
+    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'spack': ('https://spack.readthedocs.io/en/latest/', None),
+    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
+    'tox': ('https://tox.readthedocs.io/en/latest/', None),
+    'twine': ('https://twine.readthedocs.io/en/stable/', None),
+    'virtualenv': ('https://virtualenv.pypa.io/en/stable/', None),
 }
 
 
@@ -390,8 +440,9 @@ nitpicky = True
 nitpick_ignore = [
     ('envvar', 'PATH'),
     ('py:func', 'find_packages'),
-    ('py:func', 'pkg_resources.iter_entry_points'),
     ('py:func', 'setup'),
+    ('py:func', 'importlib.metadata.entry_points'),  # remove when 3.10 is released
+    ('py:class', 'importlib.metadata.EntryPoint'),  # remove when 3.10 is released
     ('py:func', 'setuptools.find_namespace_packages'),
     ('py:func', 'setuptools.find_packages'),
     ('py:func', 'setuptools.setup'),

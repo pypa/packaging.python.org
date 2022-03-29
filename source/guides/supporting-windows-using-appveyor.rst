@@ -29,7 +29,7 @@ extensions.
 
 Windows users typically do not have access to a C compiler, and therefore are
 reliant on projects that use C extensions distributing binary wheels on PyPI in
-order for the distribution to be installable via ``pip install <dist>``. By
+order for the distribution to be installable via ``python -m pip install <dist>``. By
 using Appveyor as a build service (even if not using it for testing) it is
 possible for projects without a dedicated Windows environment to provide
 Windows-targeted binaries.
@@ -39,7 +39,7 @@ Setting up
 
 In order to use Appveyor to build Windows wheels for your project, you must
 have an account on the service. Instructions on setting up an account are given
-in `the Appveyor documentation <http://www.appveyor.com/docs>`__. The free tier
+in `the Appveyor documentation <https://www.appveyor.com/docs/>`__. The free tier
 of account is perfectly adequate for open source projects.
 
 Appveyor provides integration with `Github`_ and `Bitbucket`_, so as long as
@@ -149,7 +149,7 @@ Additional notes
 Testing with tox
 ----------------
 
-Many projects use the `Tox`_ tool to run their tests. It ensures that tests
+Many projects use the :doc:`Tox <tox:index>` tool to run their tests. It ensures that tests
 are run in an isolated environment using the exact files that will be distributed
 by the project.
 
@@ -237,8 +237,7 @@ For reference, the SDK setup support script is listed here:
    :language: bat
    :linenos:
 
-.. _Appveyor: http://www.appveyor.com/
+.. _Appveyor: https://www.appveyor.com/
 .. _Travis: https://travis-ci.org/
-.. _Github: https://github.org/
+.. _Github: https://github.com
 .. _Bitbucket: https://bitbucket.org/
-.. _Tox: http://tox.testrun.org

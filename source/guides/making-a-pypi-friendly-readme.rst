@@ -14,9 +14,9 @@ For your README to display properly on PyPI, choose a markup language supported 
 Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_renderer>`_ are:
 
 * plain text
-* `reStructuredText <http://docutils.sourceforge.net/rst.html>`_ (without Sphinx extensions)
+* `reStructuredText <https://docutils.sourceforge.io/rst.html>`_ (without Sphinx extensions)
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
-  or `CommonMark <http://commonmark.org/>`_)
+  or `CommonMark <https://commonmark.org/>`_)
 
 It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
 
@@ -45,9 +45,17 @@ such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdow
    If you're using GitHub-flavored Markdown to write a project's description, ensure you upgrade
    the following tools:
 
-   .. code-block:: bash
+   .. tab:: Unix/macOS
 
-      python3 -m pip install --user --upgrade setuptools wheel twine
+      .. code-block:: bash
+
+         python3 -m pip install --user --upgrade setuptools wheel twine
+
+   .. tab:: Windows
+
+      .. code-block:: bat
+
+         py -m pip install --user --upgrade setuptools wheel twine
 
    The minimum required versions of the respective tools are:
    
@@ -70,10 +78,9 @@ and identifies the markup as GitHub-flavored Markdown:
    from setuptools import setup
 
    # read the contents of your README file
-   from os import path
-   this_directory = path.abspath(path.dirname(__file__))
-   with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
-       long_description = f.read()
+   from pathlib import Path
+   this_directory = Path(__file__).parent
+   long_description = (this_directory / "README.md").read_text()
 
    setup(
        name='an_example_package',
@@ -90,23 +97,35 @@ If your README is written in reStructuredText, any invalid markup will prevent
 it from rendering, causing PyPI to instead just show the README's raw source.
 
 Note that Sphinx extensions used in docstrings, such as
-`directives and roles <http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_ 
+:doc:`directives and roles <sphinx:usage/restructuredtext/index>`
 (e.g., "``:py:func:`getattr```" or "``:ref:`my-reference-label```"), are not allowed here and will result in error
 messages like "``Error: Unknown interpreted text role "py:func".``".
 
 You can check your README for markup errors before uploading as follows:
 
 1. Install the latest version of `twine <https://github.com/pypa/twine>`_;
-   version 1.12.0 or higher is required::
+   version 1.12.0 or higher is required:
 
-        pip install --upgrade twine
+   .. tab:: Unix/macOS
+
+      .. code-block:: bash
+
+            python3 -m pip install --upgrade twine
+
+   .. tab:: Windows
+
+      .. code-block:: bat
+
+            py -m pip install --upgrade twine
 
 2. Build the sdist and wheel for your project as described under
    :ref:`Packaging Your Project`.
 
-3. Run ``twine check`` on the sdist and wheel::
+3. Run ``twine check`` on the sdist and wheel:
 
-        twine check dist/*
+   .. code-block:: bash
+
+      twine check dist/*
 
    This command will report any problems rendering your README.  If your markup
    renders fine, the command will output ``Checking distribution FILENAME:

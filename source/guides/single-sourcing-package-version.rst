@@ -9,7 +9,7 @@ There are many techniques to maintain a single source of truth for the version
 number of your project:
 
 #.  Read the file in :file:`setup.py` and get the version. Example (from `pip setup.py
-    <https://github.com/pypa/pip/blob/master/setup.py#L11>`_)::
+    <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
 
         import codecs
         import os.path
@@ -49,13 +49,17 @@ number of your project:
        analysis so that ``attr:`` can function without having to import any of
        the package's dependencies.
 
+       Also, please be aware that declarative config indicators, including the
+       ``attr:`` directive, are not supported in parameters to ``setup.py``.
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
 
     Few tools you could use, in no particular order, and not necessarily complete:
     `bump2version <https://pypi.org/project/bump2version>`_,
-    `changes <https://pypi.org/project/changes>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_.
+    `changes <https://pypi.org/project/changes>`_,
+    `commitizen <https://pypi.org/project/commitizen>`_,
+    `zest.releaser <https://pypi.org/project/zest.releaser>`_.
 
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
@@ -94,10 +98,11 @@ number of your project:
     older versions as the ``importlib-metadata`` project.)  An installed
     project's version can be fetched with the API as follows::
 
-        try:
+        import sys
+
+        if sys.version_info >= (3, 8):
             from importlib import metadata
-        except ImportError:
-            # Running on pre-3.8 Python; use importlib-metadata package
+        else:
             import importlib_metadata as metadata
 
         assert metadata.version('pip') == '1.2.0'
@@ -114,7 +119,7 @@ number of your project:
             ...
             install_requires=[
                 ...
-                'importlib-metadata ~= 1.0 ; python_version < "3.8"',
+                'importlib-metadata >= 1.0 ; python_version < "3.8"',
                 ...
             ],
             ...
@@ -130,7 +135,7 @@ number of your project:
     then ``setuptools`` must be added to the project's ``install_requires``
     list.
 
-    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/master/setuptools/version.py>`_.
+    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/main/setuptools/version.py>`_.
 
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
@@ -155,4 +160,4 @@ number of your project:
 
 #.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)
     instead of in the code, and automatically extract it from there using
-    `setuptools_scm <https://pypi.org/project/setuptools_scm>`_.
+    `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.

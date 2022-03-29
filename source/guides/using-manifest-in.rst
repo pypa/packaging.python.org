@@ -46,7 +46,7 @@ The following files are included in a source distribution by default:
 
 After adding the above files to the sdist, the commands in :file:`MANIFEST.in`
 (if such a file exists) are executed in order to add and remove further files
-to & from the sdist.  Default files can even be removed from the sdist with the
+to and from the sdist.  Default files can even be removed from the sdist with the
 appropriate :file:`MANIFEST.in` command.
 
 After processing the :file:`MANIFEST.in` file, setuptools removes the
@@ -63,18 +63,20 @@ A :file:`MANIFEST.in` file consists of commands, one per line, instructing
 setuptools to add or remove some set of files from the sdist.  The commands
 are:
 
-===============================================  ==================================================================================================
-Command                                          Description
-===============================================  ==================================================================================================
-``include pat1 pat2 ...``                        Include all files matching any of the listed patterns
-``exclude pat1 pat2 ...``                        Exclude all files matching any of the listed patterns
-``recursive-include dir-pattern pat1 pat2 ...``  Include all files under directories matching ``dir-pattern`` that match any of the listed patterns
-``recursive-exclude dir-pattern pat1 pat2 ...``  Exclude all files under directories matching ``dir-pattern`` that match any of the listed patterns
-``global-include pat1 pat2 ...``                 Include all files anywhere in the source tree matching any of the listed patterns
-``global-exclude pat1 pat2 ...``                 Exclude all files anywhere in the source tree matching any of the listed patterns
-``graft dir-pattern``                            Include all files under directories matching ``dir-pattern``
-``prune dir-pattern``                            Exclude all files under directories matching ``dir-pattern``
-===============================================  ==================================================================================================
+=========================================================  ==================================================================================================
+Command                                                    Description
+=========================================================  ==================================================================================================
+:samp:`include {pat1} {pat2} ...`                          Add all files matching any of the listed patterns
+                                                           (Files must be given as paths relative to the root of the project)
+:samp:`exclude {pat1} {pat2} ...`                          Remove all files matching any of the listed patterns
+                                                           (Files must be given as paths relative to the root of the project)
+:samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
+:samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
+:samp:`global-include {pat1} {pat2} ...`                   Add all files anywhere in the source tree matching any of the listed patterns
+:samp:`global-exclude {pat1} {pat2} ...`                   Remove all files anywhere in the source tree matching any of the listed patterns
+:samp:`graft {dir-pattern}`                                Add all files under directories matching ``dir-pattern``
+:samp:`prune {dir-pattern}`                                Remove all files under directories matching ``dir-pattern``
+=========================================================  ==================================================================================================
 
 The patterns here are glob-style patterns: ``*`` matches zero or more regular
 filename characters (on Unix, everything except forward slash; on Windows,
@@ -93,7 +95,9 @@ setuptools will automatically convert the slashes to the local platform's
 appropriate directory separator.
 
 Commands are processed in the order they appear in the :file:`MANIFEST.in`
-file.  For example, given the commands::
+file.  For example, given the commands:
+
+.. code-block:: bash
 
     graft tests
     global-exclude *.py[cod]

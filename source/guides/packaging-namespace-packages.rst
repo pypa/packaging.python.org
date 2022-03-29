@@ -128,8 +128,8 @@ the `native namespace package example project`_.
 pkgutil-style namespace packages
 --------------------------------
 
-Python 2.3 introduced the `pkgutil`_ module and the
-`extend_path`_ function. This can be used to declare namespace
+Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and the
+:py:func:`python:pkgutil.extend_path` function. This can be used to declare namespace
 packages that need to be compatible with both Python 2.3+ and Python 3. This
 is the recommended approach for the highest level of compatibility.
 
@@ -160,7 +160,6 @@ additional code in :file:`__init__.py` will be inaccessible.
 A complete working example of two pkgutil-style namespace packages can be found
 in the `pkgutil namespace example project`_.
 
-.. _pkgutil: https://docs.python.org/3/library/pkgutil.html
 .. _extend_path:
     https://docs.python.org/3/library/pkgutil.html#pkgutil.extend_path
 .. _pkgutil namespace example project:
@@ -170,7 +169,7 @@ in the `pkgutil namespace example project`_.
 pkg_resources-style namespace packages
 --------------------------------------
 
-`Setuptools`_ provides the `pkg_resources.declare_namespace`_ function and
+:doc:`Setuptools <setuptools:index>` provides the `pkg_resources.declare_namespace`_ function and
 the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together
 these can be used to declare namespace packages. While this approach is no
 longer recommended, it is widely present in most existing namespace packages.
@@ -237,8 +236,7 @@ to :func:`~setuptools.setup` in :file:`setup.py`. For example:
 A complete working example of two pkg_resources-style namespace packages can be found
 in the `pkg_resources namespace example project`_.
 
-.. _setuptools: https://setuptools.readthedocs.io
 .. _pkg_resources.declare_namespace:
-    https://setuptools.readthedocs.io/en/latest/setuptools.html#namespace-packages
+    https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support
 .. _pkg_resources namespace example project:
     https://github.com/pypa/sample-namespace-packages/tree/master/pkg_resources

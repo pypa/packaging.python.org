@@ -13,6 +13,23 @@ complete and not subject to change. The required fields are:
 
 All the other fields are optional.
 
+The standard file format for metadata (including in :doc:`wheels
+<binary-distribution-format>` and :doc:`installed projects
+<recording-installed-packages>`) is based on the format of email headers.
+However, email formats have been revised several times, and exactly which email
+RFC applies to packaging metadata is not specified. In the absence of a precise
+definition, the practical standard is set by what the standard library
+:mod:`python:email.parser` module can parse using the
+:data:`~.python:email.policy.compat32` policy.
+
+Whenever metadata is serialised to a byte stream (for example, to save
+to a file), strings must be serialised using the UTF-8 encoding.
+
+Although :pep:`566` defined a way to transform metadata into a JSON-compatible
+dictionary, this is not yet used as a standard interchange format. The need for
+tools to work with years worth of existing packages makes it difficult to shift
+to a new format.
+
 .. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
    field format specification was relaxed to accept the syntax used by popular
    publishing tools (namely to remove the requirement that version specifiers
@@ -89,7 +106,8 @@ Dynamic (multiple use)
 .. versionadded:: 2.2
 
 A string containing the name of another core metadata field. The field
-names ``Name`` and ``Version`` may not be specified in this field.
+names ``Name``, ``Version``, and ``Metadata-Version`` may not be specified
+in this field.
 
 When found in the metadata of a source distribution, the following
 rules apply:
@@ -223,11 +241,10 @@ A string stating the markup syntax (if any) used in the distribution's
 description, so that tools can intelligently render the description.
 
 Historically, PyPI supported descriptions in plain text and `reStructuredText
-(reST) <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html>`_,
+(reST) <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html>`_,
 and could render reST into HTML. However, it is common for distribution
 authors to write the description in `Markdown
-<https://daringfireball.net/projects/markdown/>`_ (`RFC 7763
-<https://tools.ietf.org/html/rfc7763>`_) as many code hosting sites render
+<https://daringfireball.net/projects/markdown/>`_ (:rfc:`7763`) as many code hosting sites render
 Markdown READMEs, and authors would reuse the file for the description. PyPI
 didn't recognize the format and so could not render the description correctly.
 This resulted in many packages on PyPI with poorly-rendered descriptions when
@@ -261,10 +278,8 @@ Other parameters might be specific to the chosen subtype. For example, for the
 specifying the variant of Markdown in use (defaults to ``GFM`` if not
 specified). Currently, two variants are recognized:
 
-- ``GFM`` for `Github-flavored Markdown
-  <https://tools.ietf.org/html/rfc7764#section-3.2>`_
-- ``CommonMark`` for `CommonMark
-  <https://tools.ietf.org/html/rfc7764#section-3.5>`_
+- ``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`
+- ``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`
 
 Example::
 
@@ -714,9 +729,9 @@ Examples::
 ----
 
 .. [1] reStructuredText markup:
-   http://docutils.sourceforge.net/
+   https://docutils.sourceforge.io/
 
-.. _`Python Package Index`: http://pypi.org/
+.. _`Python Package Index`: https://pypi.org/
 
 .. [2] RFC 822 Long Header Fields:
-   http://www.freesoft.org/CIE/RFC/822/7.htm
+   :rfc:`822#section-3.1.1`

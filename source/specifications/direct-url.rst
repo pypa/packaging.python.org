@@ -23,8 +23,7 @@ specifying a direct URL reference (including a VCS URL).
 This file MUST NOT be created when installing a distribution from an other
 type of requirement (i.e. name plus version specifier).
 
-This JSON file MUST be a dictionary, compliant with `RFC 8259
-<https://tools.ietf.org/html/rfc8259>`_ and UTF-8 encoded.
+This JSON file MUST be a dictionary, compliant with :rfc:`8259` and UTF-8 encoded.
 
 If present, it MUST contain at least two fields. The first one is ``url``, with
 type ``string``. Depending on what ``url`` refers to, the second field MUST be
@@ -82,7 +81,7 @@ present as a dictionary with the following key:
   in editable mode, ``false`` otherwise. If absent, default to ``false``.
 
 When ``url`` refers to a local directory, it MUST have the ``file`` sheme and
-be compliant with `RFC 8089 <https://tools.ietf.org/html/rfc8089>`_. In
+be compliant with :rfc:`8089`. In
 particular, the path component must be absolute. Symbolic links SHOULD be
 preserved when making relative paths absolute.
 
@@ -178,7 +177,7 @@ Bazaar
 
 Home page
 
-   https://bazaar.canonical.com/
+   https://bazaar.canonical.com
 
 vcs command
 
@@ -278,18 +277,18 @@ Example pip commands and their effect on direct_url.json
 
 Commands that generate a ``direct_url.json``:
 
-* pip install https://example.com/app-1.0.tgz
-* pip install https://example.com/app-1.0.whl
-* pip install "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"
-* pip install ./app
-* pip install file:///home/user/app
-* pip install --editable "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"
+* ``pip install https://example.com/app-1.0.tgz``
+* ``pip install https://example.com/app-1.0.whl``
+* ``pip install "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"``
+* ``pip install ./app``
+* ``pip install file:///home/user/app``
+* ``pip install --editable "git+https://example.com/repo/app.git#egg=app&subdirectory=setup"``
   (in which case, ``url`` will be the local directory where the git repository has been
   cloned to, and ``dir_info`` will be present with ``"editable": true`` and no
   ``vcs_info`` will be set)
-* pip install -e ./app
+* ``pip install -e ./app``
 
 Commands that *do not* generate a ``direct_url.json``
 
-* pip install app
-* pip install app --no-index --find-links https://example.com/
+* ``pip install app``
+* ``pip install app --no-index --find-links https://example.com/``

@@ -1,0 +1,77 @@
+name: Translation
+
+on:
+  workflow_run:
+    workflows:
+    - Test
+    branches:
+    - main
+    types:
+    - completed
+
+env:
+  I18N_BRANCH: translation/source
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Grab the repo src
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # To reach the common commit
+    - name: Set up git user as [bot]
+      # Refs:
+      # * https://github.community/t/github-actions-bot-email-address/17204/6
+      # * https://github.com/actions/checkout/issues/13#issuecomment-724415212
+      uses: fregante/setup-git-user@v1.0.1
+
+    - name: Switch to the translation source branch
+      run: |
+        sh -x
+
+        git fetch origin \
+          '+refs/heads/${{
+              env.I18N_BRANCH
+          }}:refs/remotes/origin/${{
+              env.I18N_BRANCH
+          }}'
+
+        git checkout -B '${{ env.I18N_BRANCH }}' \
+          'origin/${{ env.I18N_BRANCH }}'
+
+    - name: >-
+        Merge '${{ github.event.repository.default_branch }}'
+        to '${{ env.I18N_BRANCH }}'
+      run: |
+        sh -x
+
+        git merge '${{ github.event.repository.default_branch }}'
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: >-
+          3.10
+
+    - name: Install Python tooling
+      run: python -m pip install --upgrade nox virtualenv
+
+    - name: Generate a fresh POT file out of RST documents
+      run: python -m nox -s translation
+
+    - name: Commit the POT file to Git
+      run: |
+        git_hash=$(git rev-parse --short "${GITHUB_SHA}")
+        git add --force locales/messages.pot
+        git commit \
+          -m "Update messages.pot as of version ${git_hash}" \
+          locales/messages.pot
+
+    - name: >-
+        Push the updated POT file back to '${{ env.I18N_BRANCH }}'
+        branch on GitHub
+      if: always()
+      run: |
+        git push --atomic origin 'HEAD:${{ env.I18N_BRANCH }}'

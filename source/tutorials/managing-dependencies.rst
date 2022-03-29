@@ -21,10 +21,7 @@ applicable to the development and deployment of network services (including
 web applications), but is also very well suited to managing development and
 testing environments for any kind of project.
 
-Developers of Python libraries, or of applications that support distribution
-as Python libraries, should also consider the
-`poetry <https://github.com/python-poetry/poetry>`_ project as an alternative dependency
-management solution.
+For alternatives, see `Other Tools for Application Dependency Management`_.
 
 Installing Pipenv
 -----------------
@@ -37,20 +34,28 @@ simplifies dependency management for common use cases.
 
 Use ``pip`` to install Pipenv:
 
-.. code-block:: python
+.. tab:: Unix/macOS
 
-    pip install --user pipenv
+    .. code-block:: bash
+
+        python3 -m pip install --user pipenv
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip install --user pipenv
 
 .. _pipenv-user-base:
 
 .. Note:: This does a `user installation`_ to prevent breaking any system-wide
     packages. If ``pipenv`` isn't available in your shell after installation,
-    you'll need to add the `user base`_'s binary directory to your ``PATH``.
+    you'll need to add the :py:data:`user base <python:site.USER_BASE>`'s
+    binary directory to your ``PATH``.
     See :ref:`Installing to the User Site` for more information.
 
 .. _npm: https://www.npmjs.com/
-.. _bundler: http://bundler.io/
-.. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
+.. _bundler: https://bundler.io/
 .. _user installation: https://pip.pypa.io/en/stable/user_guide/#user-installs
 
 Installing packages for your project
@@ -153,20 +158,24 @@ Other Tools for Application Dependency Management
 
 If you find this particular approach to managing application dependencies isn't
 working well for you or your use case, you may want to explore these other tools
-and techniques to see if one of them is a better fit:
+and techniques, listed in alphabetical order, to see if one of them is a better fit:
 
-* `poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
-  to ``pipenv`` that focuses more directly on use cases where the repository being
-  managed is structured as a Python project with a valid ``pyproject.toml`` file
-  (by contrast, ``pipenv`` explicitly avoids making the assumption that the
-  application being worked on that's depending on components from PyPI will
-  itself support distribution as a ``pip``-installable Python package).
 * `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
-  more steps in the project management workflow (such as incrementing versions,
-  tagging releases, and creating new skeleton projects from project templates)
-* `pip-tools <https://github.com/jazzband/pip-tools>`_ to build your own
-  custom workflow from lower level pieces like ``pip-compile`` and ``pip-sync``
-* `micropipenv <https://github.com/thoth-station/micropipenv>`_ is a lightweight
-  wrapper for pip to support requirements.txt, Pipenv and Poetry lock files or
-  converting them to pip-tools compatible output. Designed for containerized
-  Python applications but not limited to them.
+  more steps in the project management workflow, such as incrementing versions,
+  tagging releases, and creating new skeleton projects from project templates.
+* `micropipenv <https://github.com/thoth-station/micropipenv>`_ for a lightweight
+  wrapper around pip that supports ``requirements.txt``, Pipenv and Poetry lock files,
+  or converting them to pip-tools compatible output. Designed for containerized
+  Python applications, but not limited to them.
+* `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package management
+  tool supporting :pep:`582` (replacing virtual environments with ``__pypackages__``
+  directory for package installation) and relying on standards such as :pep:`517` and
+  :pep:`621`.
+* `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
+  dependencies from a list of packages directly used in a project, and ensuring that
+  only those dependencies are installed.
+* `Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
+  to Pipenv that focuses more directly on use cases where the project being managed is
+  structured as a distributable Python package with a valid ``pyproject.toml`` file.
+  By contrast, Pipenv explicitly avoids making the assumption that the application
+  being worked on will support distribution as a ``pip``-installable Python package.

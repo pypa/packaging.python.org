@@ -53,7 +53,7 @@ In order to use `Google BigQuery`_ to query the `public PyPI download
 statistics dataset`_, you'll need a Google account and to enable the BigQuery
 API on a Google Cloud Platform project. You can run the up to 1TB of queries
 per month `using the BigQuery free tier without a credit card
-<https://cloud.google.com/blog/big-data/2017/01/how-to-run-a-terabyte-of-google-bigquery-queries-each-month-without-a-credit-card>`__
+<https://cloud.google.com/blog/products/data-analytics/query-without-a-credit-card-introducing-bigquery-sandbox>`__
 
 - Navigate to the `BigQuery web UI`_.
 - Create a new project.
@@ -68,10 +68,10 @@ the `BigQuery quickstart guide
 Data schema
 -----------
 
-Linehaul writes an entry in a ``the-psf.pypi.file_downloads`` table for each
+Linehaul writes an entry in a ``bigquery-public-data.pypi.file_downloads`` table for each
 download. The table contains information about what file was downloaded and how
 it was downloaded. Some useful columns from the `table schema
-<https://console.cloud.google.com/bigquery?pli=1&p=the-psf&d=pypi&t=file_downloads&page=table>`__
+<https://console.cloud.google.com/bigquery?pli=1&p=bigquery-public-data&d=pypi&t=file_downloads&page=table>`__
 include:
 
 +------------------------+-----------------+-----------------------------+
@@ -83,7 +83,7 @@ include:
 +------------------------+-----------------+-----------------------------+
 | file.version           | Package version | ``0.1.6``, ``1.4.2``        |
 +------------------------+-----------------+-----------------------------+
-| details.installer.name | Installer       | pip, `bandersnatch`_        |
+| details.installer.name | Installer       | pip, :ref:`bandersnatch`    |
 +------------------------+-----------------+-----------------------------+
 | details.python         | Python version  | ``2.7.12``, ``3.6.4``       |
 +------------------------+-----------------+-----------------------------+
@@ -108,7 +108,7 @@ The following query counts the total number of downloads for the project
 
     #standardSQL
     SELECT COUNT(*) AS num_downloads
-    FROM `the-psf.pypi.file_downloads`
+    FROM `bigquery-public-data.pypi.file_downloads`
     WHERE file.project = 'pytest'
       -- Only query the last 30 days of history
       AND DATE(timestamp)
@@ -118,7 +118,7 @@ The following query counts the total number of downloads for the project
 +---------------+
 | num_downloads |
 +===============+
-| 20531925      |
+| 26190085      |
 +---------------+
 
 To only count downloads from pip, filter on the ``details.installer.name``
@@ -128,7 +128,7 @@ column.
 
     #standardSQL
     SELECT COUNT(*) AS num_downloads
-    FROM `the-psf.pypi.file_downloads`
+    FROM `bigquery-public-data.pypi.file_downloads`
     WHERE file.project = 'pytest'
       AND details.installer.name = 'pip'
       -- Only query the last 30 days of history
@@ -139,7 +139,7 @@ column.
 +---------------+
 | num_downloads |
 +===============+
-| 19391645      |
+| 24334215      |
 +---------------+
 
 Package downloads over time
@@ -154,7 +154,7 @@ filtering by this column reduces corresponding costs.
     SELECT
       COUNT(*) AS num_downloads,
       DATE_TRUNC(DATE(timestamp), MONTH) AS `month`
-    FROM `the-psf.pypi.file_downloads`
+    FROM `bigquery-public-data.pypi.file_downloads`
     WHERE
       file.project = 'pytest'
       -- Only query the last 6 months of history
@@ -192,7 +192,7 @@ query processes over 500 GB of data.
     SELECT
       REGEXP_EXTRACT(details.python, r"[0-9]+\.[0-9]+") AS python_version,
       COUNT(*) AS num_downloads,
-    FROM `the-psf.pypi.file_downloads`
+    FROM `bigquery-public-data.pypi.file_downloads`
     WHERE
       -- Only query the last 6 months of history
       DATE(timestamp)
@@ -204,17 +204,17 @@ query processes over 500 GB of data.
 +--------+---------------+
 | python | num_downloads |
 +========+===============+
-| 3.7    | 12990683561   |
+| 3.7    | 18051328726   |
 +--------+---------------+
-| 3.6    | 9035598511    |
+| 3.6    | 9635067203    |
 +--------+---------------+
-| 2.7    | 8467785320    |
+| 3.8    | 7781904681    |
 +--------+---------------+
-| 3.8    | 4581627740    |
+| 2.7    | 6381252241    |
 +--------+---------------+
-| 3.5    | 2412533601    |
+| null   | 2026630299    |
 +--------+---------------+
-| null   | 1641456718    |
+| 3.5    | 1894153540    |
 +--------+---------------+
 
 Caveats
@@ -251,7 +251,7 @@ the official Python client library for BigQuery.
 
     query_job = client.query("""
     SELECT COUNT(*) AS num_downloads
-    FROM `the-psf.pypi.file_downloads`
+    FROM `bigquery-public-data.pypi.file_downloads`
     WHERE file.project = 'pytest'
       -- Only query the last 30 days of history
       AND DATE(timestamp)
@@ -272,13 +272,13 @@ number of download for a package with the command ``pypinfo package_name``.
 
 Install `pypinfo`_ using pip.
 
-::
+.. code-block:: bash
 
-    pip install pypinfo
+    python -m pip install pypinfo
 
 Usage:
 
-::
+.. code-block:: console
 
     $ pypinfo requests
     Served from cache: False
@@ -303,8 +303,7 @@ References
 .. [#] `PyPI Download Counts deprecation email <https://mail.python.org/pipermail/distutils-sig/2013-May/020855.html>`__
 .. [#] `PyPI BigQuery dataset announcement email <https://mail.python.org/pipermail/distutils-sig/2016-May/028986.html>`__
 
-.. _public PyPI download statistics dataset: https://console.cloud.google.com/bigquery?p=the-psf&d=pypi&page=dataset
-.. _bandersnatch: /key_projects/#bandersnatch
+.. _public PyPI download statistics dataset: https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=pypi&page=dataset
 .. _Google BigQuery: https://cloud.google.com/bigquery
 .. _BigQuery web UI: https://console.cloud.google.com/bigquery
 .. _pypinfo: https://github.com/ofek/pypinfo/blob/master/README.rst

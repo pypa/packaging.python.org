@@ -5,8 +5,10 @@ Installing pip/setuptools/wheel with Linux Package Managers
 ===========================================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2015-09-17
+:Last Reviewed: 2021-07-26
 
+.. contents:: Contents
+  :local:
 
 This section covers how to install :ref:`pip`, :ref:`setuptools`, and
 :ref:`wheel` using Linux package managers.
@@ -31,33 +33,16 @@ versions.  When this is known, we will make note of it below.
 Fedora
 ~~~~~~
 
-* Fedora 21:
+.. code-block:: bash
 
-  * Python 2::
+  sudo dnf install python3-pip python3-wheel
 
-      sudo yum upgrade python-setuptools
-      sudo yum install python-pip python-wheel
+To learn more about Python in Fedora, please visit the `official Fedora docs`_,
+`Python Classroom`_ or `Fedora Loves Python`_. 
 
-  * Python 3: ``sudo yum install python3 python3-wheel``
-
-* Fedora 22:
-
-  * Python 2::
-
-      sudo dnf upgrade python-setuptools
-      sudo dnf install python-pip python-wheel
-
-  * Python 3: ``sudo dnf install python3 python3-wheel``
-
-
-To get newer versions of pip, setuptools, and wheel for Python 2, you can enable
-the `PyPA Copr Repo <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using
-the `Copr Repo instructions
-<https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__, and then run::
-
-  sudo yum|dnf upgrade python-setuptools
-  sudo yum|dnf install python-pip python-wheel
-
+.. _official Fedora docs: https://developer.fedoraproject.org/tech/languages/python/python-installation.html
+.. _Python Classroom: https://labs.fedoraproject.org/en/python-classroom/
+.. _Fedora Loves Python: https://fedoralovespython.org
 
 CentOS/RHEL
 ~~~~~~~~~~~
@@ -69,29 +54,31 @@ To install pip and wheel for the system Python, there are two options:
 
 1. Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using
    `these instructions
-   <https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F>`__. On
-   EPEL 6 and EPEL7, you can install pip like so::
+   <https://docs.fedoraproject.org/en-US/epel/#how_can_i_use_these_extra_packages>`__. 
+   On EPEL 7, you can install pip and wheel like so:
 
-     sudo yum install python-pip
+   .. code-block:: bash
 
-   On EPEL 7 (but not EPEL 6), you can install wheel like so::
-
-     sudo yum install python-wheel
+     sudo dnf install python3-pip python3-wheel
 
    Since EPEL only offers extra, non-conflicting packages, EPEL does not offer
    setuptools, since it's in the core repository.
 
 
 2. Enable the `PyPA Copr Repo
-   <https://copr.fedoraproject.org/coprs/pypa/pypa/>`_ using `these instructions
-   <https://fedorahosted.org/copr/wiki/HowToEnableRepo>`__ [1]_. You can install
-   pip and wheel like so::
+   <https://copr.fedorainfracloud.org/coprs/pypa/pypa/>`_ using `these instructions
+   <https://fedoraproject.org/wiki/Infrastructure/Fedorahosted-retirement>`__ [1]_. You can install
+   pip and wheel like so:
 
-     sudo yum install python-pip python-wheel
+   .. code-block:: bash
 
-   To additionally upgrade setuptools, run::
+     sudo dnf install python3-pip python3-wheel
 
-     sudo yum upgrade python-setuptools
+   To additionally upgrade setuptools, run:
+
+   .. code-block:: bash
+
+     sudo dnf upgrade python3-setuptools
 
 
 To install pip, wheel, and setuptools, in a parallel, non-system environment
@@ -102,18 +89,20 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
    includes pip, setuptools, and wheel.
 
    * For Redhat, see here:
-     http://developers.redhat.com/products/softwarecollections/overview/
+     https://developers.redhat.com/products/softwarecollections/overview
    * For CentOS, see here: https://www.softwarecollections.org/en/
 
    Be aware that collections may not contain the most recent versions.
 
-2. Enable the `IUS repository <https://ius.io/GettingStarted/>`_ and
+2. Enable the `IUS repository <https://ius.io/setup>`_ and
    install one of the `parallel-installable
-   <https://ius.io/SafeRepo/#parallel-installable-package>`_
+   <https://ius.io/usage#parallel-installable-packages>`_
    Pythons, along with pip, setuptools, and wheel, which are kept fairly up to
    date.
 
-   For example, for Python 3.4 on CentOS7/RHEL7::
+   For example, for Python 3.4 on CentOS7/RHEL7:
+
+   .. code-block:: bash
 
      sudo yum install python34u python34u-wheel
 
@@ -121,29 +110,19 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
 openSUSE
 ~~~~~~~~
 
-* Python 2::
-
-    sudo zypper install python-pip python-setuptools python-wheel
-
-
-* Python 3::
+  .. code-block:: bash
  
     sudo zypper install python3-pip python3-setuptools python3-wheel
-
 
 Debian/Ubuntu
 ~~~~~~~~~~~~~
 
+Firstly, update and refresh repository lists by running this command:
 
-* Python 2::
+.. code-block:: bash
 
-    sudo apt install python-pip
-
-
-* Python 3::
-
-    sudo apt install python3-venv python3-pip
-
+  sudo apt update
+  sudo apt install python3-venv python3-pip
 
 .. warning::
 
@@ -155,11 +134,7 @@ Debian/Ubuntu
 Arch Linux
 ~~~~~~~~~~
 
-* Python 2::
-
-    sudo pacman -S python2-pip
-
-* Python 3::
+  .. code-block:: bash
 
     sudo pacman -S python-pip
 

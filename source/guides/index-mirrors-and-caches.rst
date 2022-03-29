@@ -29,16 +29,16 @@ Caching with pip
 pip provides a number of facilities for speeding up installation by using local
 cached copies of :term:`packages <Distribution Package>`:
 
-1. `Fast & local installs
-   <https://pip.pypa.io/en/latest/user_guide/#installing-from-local-packages>`_
+1. :ref:`Fast & local installs <pip:installing from local packages>`
    by downloading all the requirements for a project and then pointing pip at
    those downloaded files instead of going to PyPI.
 2. A variation on the above which pre-builds the installation files for
-   the requirements using `pip wheel
-   <https://pip.readthedocs.io/en/latest/reference/pip_wheel.html>`_::
+   the requirements using :ref:`python -m pip wheel <pip:pip wheel>`:
 
-    $ pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
-    $ pip install --no-index --find-links=/tmp/wheelhouse SomeProject
+   .. code-block:: bash
+
+      python -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
+      python -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
 
 
 Caching with devpi
@@ -48,7 +48,7 @@ devpi is a caching proxy server which you run on your laptop, or some other
 machine you know will always be available to you. See the `devpi
 documentation for getting started`__.
 
-__ http://doc.devpi.net/latest/quickstart-pypimirror.html
+__ https://devpi.net/docs/devpi/devpi/latest/+d/quickstart-pypimirror.html
 
 
 Complete mirror with bandersnatch

@@ -11,17 +11,18 @@ what tools are currently recommended, then here it is.
 Application dependency management
 =================================
 
-Use :ref:`pipenv` to manage library dependencies when developing Python
-applications. See :doc:`../tutorials/managing-dependencies` for more details
-on using ``pipenv``.
+* Use :ref:`pip` in a `secure manner`_ to install a Python application and its
+  dependencies during deployment.
 
-When ``pipenv`` does not meet your use case, consider other tools like:
+* Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
+  application-specific dependencies from a shared Python installation. [4]_
 
-* :ref:`pip`
+* Use `pip-tools`_, :ref:`pipenv`, or `poetry`_ to generate the fully-specified
+  application-specific dependencies, when developing Python applications.
 
-* `pip-tools <https://github.com/jazzband/pip-tools>`_
-
-* `Poetry <https://python-poetry.org/>`_
+.. _secure manner: https://pip.pypa.io/en/latest/topics/secure-installs/
+.. _pip-tools: https://github.com/jazzband/pip-tools
+.. _Poetry: https://python-poetry.org/
 
 Installation tool recommendations
 =================================
@@ -31,8 +32,8 @@ Installation tool recommendations
   is installed, you may need to also install :ref:`wheel` to get the benefit
   of wheel caching. [3]_
 
-* Use :ref:`virtualenv`, or `venv`_ to isolate application specific
-  dependencies from a shared Python installation. [4]_
+* Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
+  project-specific dependencies from a shared Python installation. [4]_
 
 * If you're looking for management of fully integrated cross-platform software
   stacks, consider:
@@ -46,12 +47,14 @@ Installation tool recommendations
 Packaging tool recommendations
 ==============================
 
-* Use :ref:`setuptools` to define projects and create :term:`Source Distributions
-  <Source Distribution (or "sdist")>`. [5]_ [6]_
+* Use :ref:`setuptools` to define projects. [5]_ [6]_
 
-* Use the ``bdist_wheel`` :ref:`setuptools` extension available from the
-  :ref:`wheel project <wheel>` to create :term:`wheels <Wheel>`.  This is
-  especially beneficial, if your project contains binary extensions.
+* Use :ref:`build` to create :term:`Source Distributions
+  <Source Distribution (or "sdist")>` and :term:`wheels <Wheel>`.
+
+If you have binary extensions and want to distribute wheels for multiple
+platforms, use :ref:`cibuildwheel` as part of your CI setup to build
+distributable wheels.
 
 * Use `twine <https://pypi.org/project/twine>`_ for uploading distributions
   to :term:`PyPI <Python Package Index (PyPI)>`.
@@ -79,7 +82,8 @@ migration, and what settings to change in your clients.
        later.  See the :pep:`rationale section <453#rationale>` from :pep:`453`
        as for why pip was chosen.
 
-.. [3] :ref:`get-pip.py <pip:get-pip>` and :ref:`virtualenv` install
+.. [3] `get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and
+       :ref:`virtualenv` install
        :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not
        currently.  Also, the common "python-pip" package that's found in various
        linux distros, does not depend on "python-wheel" currently.
@@ -108,4 +112,3 @@ migration, and what settings to change in your clients.
        choice for packaging.
 
 .. _distribute: https://pypi.org/project/distribute
-.. _venv: https://docs.python.org/3/library/venv.html
