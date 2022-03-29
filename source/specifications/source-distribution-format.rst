@@ -36,7 +36,8 @@ Source distribution file name
 The file name of a sdist is not currently standardised, although the *de facto*
 form is ``{name}-{version}.tar.gz``, where ``{name}`` is the canonicalized form
 of the project name (see :pep:`503` for the canonicalization rules) with ``-``
-characters replaced with ``_``, and ``{version}`` is the project version.
+characters replaced with ``_``, and ``{version}`` is the canonicalized form of
+the project version (see :ref:`version-specifiers`).
 
 The name and version components of the filename MUST match the values stored
 in the metadata contained in the file.
