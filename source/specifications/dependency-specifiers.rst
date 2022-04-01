@@ -10,3 +10,5 @@ component is defined in :pep:`508`.
 
 The environment markers section in this PEP supersedes the environment markers
 section in :pep:`345`.
+
+Restrictions on names for extras is defined in :pep:`685`.
