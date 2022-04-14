@@ -45,8 +45,8 @@ Metadata-Version
 
 .. versionadded:: 1.0
 
-Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1"
-and "2.2".
+Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
+"2.2", and "2.3".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -60,7 +60,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.2
+    Metadata-Version: 2.3
 
 
 .. _core-metadata-name:
@@ -84,6 +84,12 @@ Example::
 
     Name: BeagleVote
 
+To normalize a distribution name for comparison purposes, it should be
+lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with
+a single ``-`` character. This can be done using the following snippet of code
+(as specified in :pep:`503`)::
+
+    re.sub(r"[-_.]+", "-", name).lower()
 
 .. _core-metadata-version:
 
@@ -510,7 +516,8 @@ The format of a requirement string contains from one to four parts:
   The only mandatory part.
 * A comma-separated list of 'extra' names. These are defined by
   the required project, referring to specific features which may
-  need extra dependencies.
+  need extra dependencies. The names MUST conform to the restrictions
+  specified by the ``Provides-Extra:`` field.
 * A version specifier. Tools parsing the format should accept optional
   parentheses around this, but tools generating it should not use
   parentheses.
@@ -613,9 +620,20 @@ Provides-Extra (multiple use)
 =============================
 
 .. versionadded:: 2.1
+.. versionchanged:: 2.3
+   :pep:`685` restricted valid values to be unambiguous (i.e. no normalization
+   required). For older metadata versions, value restrictions were brought into
+   line with ``Name:`` and normalization rules were introduced.
 
-A string containing the name of an optional feature. Must be a valid Python
-identifier. May be used to make a dependency conditional on whether the
+A string containing the name of an optional feature. A valid name consists only
+of lowercase ASCII letters, ASCII numbers, and hyphen. It must start and end
+with a letter or number. Hyphens cannot be followed by another hyphen. Names are
+limited to those which match the following regex (which guarantees unambiguity)::
+
+    ^([a-z0-9]|[a-z0-9]([a-z0-9-](?!-))*[a-z0-9])$
+
+
+The specified name may be used to make a dependency conditional on whether the
 optional feature has been requested.
 
 Example::
@@ -639,6 +657,17 @@ respectively.
 
 It is legal to specify ``Provides-Extra:`` without referencing it in any
 ``Requires-Dist:``.
+
+When writing data for older metadata versions, names MUST be normalized
+following the same rules used for the ``Name:`` field when performing
+comparisons. Tools writing metadata MUST raise an error if two
+``Provides-Extra:`` entries would clash after being normalized.
+
+When reading data for older metadata versions, tools SHOULD warn when values
+for this field would be invalid under newer metadata versions. If a value would
+be invalid following the rules for ``Name:`` in any core metadata version, the
+user SHOULD be warned and the value ignored to avoid ambiguity. Tools MAY choose
+to raise an error when reading an invalid name for older metadata versions.
 
 
 Rarely Used Fields
