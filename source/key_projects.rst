@@ -449,7 +449,7 @@ hatch
 Hatch is a unified command-line tool meant to conveniently manage
 dependencies and environment isolation for Python developers. Python
 package developers use Hatch to configure, version, specify
-dependencies for, and publish packages to PyPI. It's plugin system
+dependencies for, and publish packages to PyPI. Its plugin system
 allows for easily extending functionality.
 
 .. _multibuild:
