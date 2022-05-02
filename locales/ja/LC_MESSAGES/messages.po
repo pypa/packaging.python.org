@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-19 10:04+0000\n"
-"PO-Revision-Date: 2022-04-29 10:09+0000\n"
+"PO-Revision-Date: 2022-05-04 01:41+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.12.1-dev\n"
+"X-Generator: Weblate 4.12.1\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -11829,6 +11829,9 @@ msgid ""
 "The further down the gradient you come, the harder it gets to update "
 "components of your package. Everything is more tightly bound together."
 msgstr ""
+"あなたのパッケージの部品を更新することは、ここまで積み上げてきたものよりさら"
+"に困難なものになるでしょう。あらゆるものがより緊密に互いに固着しているのです"
+"。"
 
 #: ../source/overview.rst:433
 msgid ""
@@ -11840,10 +11843,18 @@ msgid ""
 "versus dynamic linking <https://www.google.com/search?channel=fs&q=static+vs"
 "+dynamic+linking>`_."
 msgstr ""
+"例えば、仮にあなたがコンテナ型の仮想環境を配置していて、カーネルのセキュリテ"
+"ィ問題が発生したとすれば、アプリケーションに新たなビルドを要求することなくホ"
+"スト側のカーネルが更新されるかもしれません。もしあなたが VM イメージを配置し"
+"ているなら、それを再ビルドする必要があるかもしれません。このような動的な挙動"
+"をよりセキュアにするひとつのオプションは、"
+"以前から少々議論の的になっているがまだ決着のついていない `"
+"静的リンク対動的リンク <https://www.google.com/"
+"search?channel=fs&q=static+vs+dynamic+linking>`_ ということになります。"
 
 #: ../source/overview.rst:442
 msgid "Wrap up"
-msgstr ""
+msgstr "まとめ"
 
 #: ../source/overview.rst:444
 msgid ""
@@ -11853,24 +11864,33 @@ msgid ""
 "to realize that the varied landscape is a small price Python programmers pay "
 "for using one of the most balanced, flexible languages available."
 msgstr ""
+"Python におけるパッケージングは、凸凹道を車で行くようなもので苦労が多いという"
+"評判も少しあります。このような感想は、ほとんどの場合は Python が多用途に使え"
+"ることの裏返しです。それぞれのパッケージング方法の間にある自然な境界線を理解"
+"しさえすれば、さまざまに異なる風景が、"
+"もっともバランスが取れていて自由度の高い言語を使うということのために Python "
+"プログラマが支払う小さな代償であることに気づくことでしょう。"
 
 #: ../source/specifications/binary-distribution-format.rst:6
 msgid "Binary distribution format"
-msgstr ""
+msgstr "バイナリ配布物のフォーマット"
 
 #: ../source/specifications/binary-distribution-format.rst:8
 msgid ""
 "The binary distribution format (:term:`wheel <Wheel>`) was originally "
 "defined in :pep:`427`. The current version of the specification is here."
 msgstr ""
+"バイナリ配布物のフォーマット (:term:`wheel <Wheel>`) は、元々は :pep:`427` "
+"で定義されました。仕様の現在のバージョンはここにあります。"
 
 #: ../source/specifications/binary-distribution-format.rst:13
 msgid "Abstract"
-msgstr ""
+msgstr "要約"
 
 #: ../source/specifications/binary-distribution-format.rst:15
 msgid "This PEP describes a built-package format for Python called \"wheel\"."
-msgstr ""
+msgstr "この PEP は、 Python 向けコンパイル済みパッケージの \"wheel\" "
+"と呼ばれるフォーマットについて記述しています。"
 
 #: ../source/specifications/binary-distribution-format.rst:17
 msgid ""
@@ -11882,20 +11902,28 @@ msgid ""
 "tool while preserving enough information to spread its contents out onto "
 "their final paths at any later time."
 msgstr ""
+"wheel は、特別にフォーマットされたファイル名と ``.whl`` 拡張子を持った ZIP "
+"フォーマットのアーカイブです。 PEP 376 にほぼ従ってインストールされる単一の配"
+"布物を含んでいます。特別なインストーラを使うことが推奨されていますが、 wheel "
+"ファイルは、いつでも後でその最終的なパス名の場所に内容物を展開するに足りる情"
+"報を保存しつつ、サイトパッケージを置くべき場所に標準の 'unxip' "
+"ツールで単純にアンパックすればインストールできます。"
 
 #: ../source/specifications/binary-distribution-format.rst:27
 msgid "PEP Acceptance"
-msgstr ""
+msgstr "PEP の受諾"
 
 #: ../source/specifications/binary-distribution-format.rst:29
 msgid ""
 "This PEP was accepted, and the defined wheel version updated to 1.0, by Nick "
 "Coghlan on 16th February, 2013 [1]_"
 msgstr ""
+"この PEP は受諾され、定義された wheel のバージョンが 1.0 に2013年2月16日に "
+"Nick Coghlan によって更新されました"
 
 #: ../source/specifications/binary-distribution-format.rst:34
 msgid "Rationale"
-msgstr ""
+msgstr "理論的根拠"
 
 #: ../source/specifications/binary-distribution-format.rst:36
 msgid ""
@@ -11906,6 +11934,14 @@ msgid ""
 "conflating build-install is slow, hard to maintain, and hinders innovation "
 "in both build systems and installers."
 msgstr ""
+"Python には sdist "
+"よりも簡単にインストールすることができるパッケージフォーマットが必要です。 "
+"Python の sdist パッケージは、ソースコードをビルドしたりインストールしたり再"
+"コンパイルしたりするために任意のコードを実行し、そうすることで新しい "
+"virtualenv 環境にインストールできるように、 distutiles と setuptools によるビ"
+"ルドシステムによって定義され、かつ、これらのツールを必要とします。このような"
+"ビルドとインストールを合成したシステムは動作が遅く、維持管理が困難であり、ビ"
+"ルドシステムとインストーラの双方における技術革新を阻害します。"
 
 #: ../source/specifications/binary-distribution-format.rst:43
 msgid ""
@@ -11915,51 +11951,62 @@ msgid ""
 "amortizing compile time over many installations, and removes the need to "
 "install a build system in the target environment."
 msgstr ""
+"Wheel は、ビルドシステムとインストーラの間により単純なインタフェイスを提供す"
+"ることで、これらの問題を癒すことを試みます。 wheel バイナリパッケージのフォー"
+"マットは、インストーラがビルドシステムについて知らなくても済むようにし、何度"
+"もインストールするとしてもコンパイルにかかる時間を節約できるようにし、また、"
+"インストール先の環境にビルドシステムをインストールする必要を取り除きます。"
 
 #: ../source/specifications/binary-distribution-format.rst:52
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #: ../source/specifications/binary-distribution-format.rst:55
 msgid "Installing a wheel 'distribution-1.0-py32-none-any.whl'"
-msgstr ""
+msgstr "wheel の 'distribution-1.0-py32-none-any.whl' をインストールする"
 
 #: ../source/specifications/binary-distribution-format.rst:57
 msgid "Wheel installation notionally consists of two phases:"
-msgstr ""
+msgstr "Wheel によるインストールは、概念上、ふたつの段階から構成されています:"
 
 #: ../source/specifications/binary-distribution-format.rst:59
 msgid "Unpack."
-msgstr ""
+msgstr "アンパックする。"
 
 #: ../source/specifications/binary-distribution-format.rst:61
 msgid "Parse ``distribution-1.0.dist-info/WHEEL``."
-msgstr ""
+msgstr "``distribution-1.0.dist-info/WHEEL`` をパースします。"
 
 #: ../source/specifications/binary-distribution-format.rst:62
 msgid ""
 "Check that installer is compatible with Wheel-Version.  Warn if minor "
 "version is greater, abort if major version is greater."
 msgstr ""
+"インストーラが Wheel のバージョンと互換であることを確認します。マイナーバージ"
+"ョンが大きければ警告し、メジャーバージョンが大きければ処理を中断します。"
 
 #: ../source/specifications/binary-distribution-format.rst:64
 msgid ""
 "If Root-Is-Purelib == 'true', unpack archive into purelib (site-packages)."
 msgstr ""
+"もし、 Root-Is-Purelib == 'true' であれば、アーカイブを purelib (site-"
+"packages) へアンパックします。"
 
 #: ../source/specifications/binary-distribution-format.rst:66
 msgid "Else unpack archive into platlib (site-packages)."
-msgstr ""
+msgstr "そうでなければ、アーカイブを platlib (site-packages) へアンパックします。"
 
 #: ../source/specifications/binary-distribution-format.rst:68
 msgid "Spread."
-msgstr ""
+msgstr "広げる。"
 
 #: ../source/specifications/binary-distribution-format.rst:70
 msgid ""
 "Unpacked archive includes ``distribution-1.0.dist-info/`` and (if there is "
 "data) ``distribution-1.0.data/``."
 msgstr ""
+"アンパックされたアーカイブは、 ``distribution-1.0.dist-info/`` と "
+"(データ部分があれば) ``distribution-1.0.data/`` を含んでいます。"
 
 #: ../source/specifications/binary-distribution-format.rst:72
 msgid ""
@@ -11969,34 +12016,45 @@ msgid ""
 "headers|scripts|data)``. The initially supported paths are taken from "
 "``distutils.command.install``."
 msgstr ""
+"``distribution-1.0.data/`` "
+"の下の全てのサブツリーを、その目的地となるディレクトリパスに移動します。 "
+"``distribution-1.0.data/(purelib|platlib|headers|scripts|data)`` のような "
+"``distribution-1.0.data/`` の下のそれぞれのサブディレクトリは、目的地となるデ"
+"ィレクトリパスの辞書になっています。初期状態でサポートされているパスは "
+"``distutils.command.install`` から取り込まれます。"
 
 #: ../source/specifications/binary-distribution-format.rst:78
 msgid ""
 "If applicable, update scripts starting with ``#!python`` to point to the "
 "correct interpreter."
-msgstr ""
+msgstr "もし該当するならば、 ``#!python`` "
+"から始まるスクリプト群が適切なインタープリタを指し示すように更新します。"
 
 #: ../source/specifications/binary-distribution-format.rst:80
 msgid "Update ``distribution-1.0.dist-info/RECORD`` with the installed paths."
-msgstr ""
+msgstr "``distribution-1.0.dist-info/RECORD`` "
+"をインストール先のディレクトリパスに更新します。"
 
 #: ../source/specifications/binary-distribution-format.rst:82
 msgid "Remove empty ``distribution-1.0.data`` directory."
-msgstr ""
+msgstr "空の ``distribution-1.0.data`` ディレクトリを削除します。"
 
 #: ../source/specifications/binary-distribution-format.rst:83
 msgid ""
 "Compile any installed .py to .pyc. (Uninstallers should be smart enough to "
 "remove .pyc even if it is not mentioned in RECORD.)"
 msgstr ""
+"インストールされた .py のファイルを全て .pyc にコンパイルします。 "
+"(アンインストーラは、 RECORD で言及されていなくても .pyc "
+"ファイルを削除できるほどに賢くあるべきです。)"
 
 #: ../source/specifications/binary-distribution-format.rst:87
 msgid "Recommended installer features"
-msgstr ""
+msgstr "推奨されるインストーラの機能"
 
 #: ../source/specifications/binary-distribution-format.rst:97
 msgid "Rewrite ``#!python``."
-msgstr ""
+msgstr "``#!python`` を書き換えます。"
 
 #: ../source/specifications/binary-distribution-format.rst:90
 msgid ""
@@ -12005,16 +12063,24 @@ msgid ""
 "python'``, rewrite to point to the correct interpreter.  Unix installers may "
 "need to add the +x bit to these files if the archive was created on Windows."
 msgstr ""
+"wheel では、スクリプトは ``{distribution}-{version}.data/scripts/`` "
+"にパッケージされます。 ``scripts/`` "
+"ディレクトリにあるファイルの先頭行が正確に ``b'#!python'`` で始まっている場合"
+"には、正確なインタープリタを指し示すように書き換えられます。アーカイブが "
+"Windows で作成されていれば、 Unix でのインストーラがこのようなファイルに +x "
+"ビットを追加設定する必要があるでしょう。"
 
 #: ../source/specifications/binary-distribution-format.rst:96
 msgid ""
 "The ``b'#!pythonw'`` convention is allowed. ``b'#!pythonw'`` indicates a GUI "
 "script instead of a console script."
 msgstr ""
+"``b'#!pythonw'`` と書く慣習も許容されています。 ``b'#!pythonw'`` "
+"というのはコンソール版ではなくて GUI 版のスクリプトであることを示します。"
 
 #: ../source/specifications/binary-distribution-format.rst:102
 msgid "Generate script wrappers."
-msgstr ""
+msgstr "スクリプトラッパを生成します。"
 
 #: ../source/specifications/binary-distribution-format.rst:100
 msgid ""
