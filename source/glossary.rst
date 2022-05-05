@@ -1,10 +1,6 @@
-
 ========
 Glossary
 ========
-
-:Page Status: Complete
-:Last Reviewed: 2015-09-08
 
 
 .. glossary::
@@ -23,15 +19,15 @@ Glossary
         target system, to be installed. :term:`Wheel` is such a format, whereas
         distutil's :term:`Source Distribution <Source Distribution (or
         "sdist")>` is not, in that it requires a build step before it can be
-        installed.  This format does not imply that python files have to be
+        installed.  This format does not imply that Python files have to be
         precompiled (:term:`Wheel` intentionally does not include compiled
-        python files).
+        Python files).
 
 
     Distribution Package
 
         A versioned archive file that contains Python :term:`packages <Import
-        Package>`, :term:`modules <module>`, and other resource files that are
+        Package>`, :term:`modules <Module>`, and other resource files that are
         used to distribute a :term:`Release`. The archive file is what an
         end-user will download from the internet and install.
 
@@ -46,14 +42,13 @@ Glossary
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
-        which is being replaced by :term:`Wheel`.  For details, see `The
-        Internal Structure of Python Eggs
-        <http://pythonhosted.org/setuptools/formats.html>`_ and `Python Eggs
-        <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
+        which is being replaced by :term:`Wheel`.  For details, see `
+        :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` and
+        `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
     Extension Module
 
-        A :term:`module` written in the low-level language of the Python implementation:
+        A :term:`Module` written in the low-level language of the Python implementation:
         C/C++ for Python, Java for Jython. Typically contained in a single
         dynamically loadable pre-compiled file, e.g.  a shared object (.so) file
         for Python extensions on Unix, a DLL (given the .pyd extension) for
@@ -92,6 +87,13 @@ Glossary
         :term:`package <Distribution Package>` discovery and consumption.
 
 
+    Per Project Index
+
+        A private or other non-canonical :term:`Package Index` indicated by
+        a specific :term:`Project` as the index preferred or required to
+        resolve dependencies of that project.
+
+
     Project
 
         A library, framework, script, plugin, application, or collection of data
@@ -99,11 +101,10 @@ Glossary
         packaged into a :term:`Distribution <Distribution Package>`.
 
         Since most projects create :term:`Distributions <Distribution Package>`
-        using :ref:`distutils` or :ref:`setuptools`, another practical way to
-        define projects currently is something that contains a :term:`setup.py`
-        at the root of the project src directory, where "setup.py" is the
-        project specification filename used by :ref:`distutils` and
-        :ref:`setuptools`.
+        using either :pep:`518` ``build-system``, :ref:`distutils` or
+        :ref:`setuptools`, another practical way to define projects currently
+        is something that contains a :term:`pyproject.toml`, :term:`setup.py`,
+        or :term:`setup.cfg` file at the root of the project source directory.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
@@ -119,24 +120,39 @@ Glossary
 
     Pure Module
 
-        A :term:`module` written in Python and contained in a single .py file (and
-        possibly associated .pyc and/or .pyo files).
+        A :term:`Module` written in Python and contained in a single ``.py`` file (and
+        possibly associated ``.pyc`` and/or ``.pyo`` files).
 
 
     Python Packaging Authority (PyPA)
 
-        PyPA is a working group that maintains many of the relevant projects in
-        Python packaging. They maintain a site at https://www.pypa.io, host projects
-        on `github <https://github.com/pypa>`_ and `bitbucket
-        <https://bitbucket.org/pypa>`_, and discuss issues on the `pypa-dev
-        mailing list <https://groups.google.com/forum/#!forum/pypa-dev>`_.
+        PyPA is a working group that maintains many of the relevant
+        projects in Python packaging. They maintain a site at
+        :doc:`pypa.io <pypa:index>`, host projects on `GitHub
+        <https://github.com/pypa>`_ and `Bitbucket
+        <https://bitbucket.org/pypa>`_, and discuss issues on the
+        `distutils-sig mailing list
+        <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`_
+	and `the Python Discourse forum <https://discuss.python.org/c/packaging>`__.
 
 
     Python Package Index (PyPI)
 
-        `PyPI <https://pypi.python.org/pypi>`_ is the default :term:`Package
+        `PyPI <https://pypi.org>`_ is the default :term:`Package
         Index` for the Python community. It is open to all Python developers to
         consume and distribute their distributions.
+
+    pypi.org
+
+        `pypi.org <https://pypi.org>`_ is the domain name for the
+        :term:`Python Package Index (PyPI)`. It replaced the legacy index
+        domain name, ``pypi.python.org``, in 2017. It is powered by
+        :ref:`warehouse`.
+
+    pyproject.toml
+
+        The tool-agnostic :term:`Project` specification file.
+        Defined in :pep:`518`.
 
     Release
 
@@ -163,7 +179,7 @@ Glossary
        A format used by :ref:`pip` to install packages from a :term:`Package
        Index`. For an EBNF diagram of the format, see the
        `pkg_resources.Requirement
-       <https://pythonhosted.org/setuptools/pkg_resources.html#requirement-objects>`_
+       <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_
        entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
        requirement specifier, where "foo" is the project name, and the ">=1.3"
        portion is the :term:`Version Specifier`
@@ -176,14 +192,16 @@ Glossary
 
 
     setup.py
+    setup.cfg
 
-        The project specification file for :ref:`distutils` and :ref:`setuptools`.
+        The project specification files for :ref:`distutils` and :ref:`setuptools`.
+        See also :term:`pyproject.toml`.
 
 
     Source Archive
 
         An archive containing the raw source code for a :term:`Release`, prior
-        to creation of an :term:`Source Distribution <Source Distribution (or
+        to creation of a :term:`Source Distribution <Source Distribution (or
         "sdist")>` or :term:`Built Distribution`.
 
 

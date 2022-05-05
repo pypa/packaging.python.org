@@ -2,11 +2,10 @@
 How to Get Support
 ==================
 
-:Page Status: Complete
-:Last Reviewed: 2015-09-08
-
 For support related to a specific project, see the links on the :doc:`Projects
-<projects>` page.
+<key_projects>` page.
 
-For something more general, or when you're just not sure, use the `distutils-sig
-<http://mail.python.org/mailman/listinfo/distutils-sig>`_ list.
+For something more general, or when you're just not sure, please
+`open an issue <https://github.com/pypa/packaging-problems/issues/new?template=general_issue.yml>`_ on
+the `packaging-problems <https://github.com/pypa/packaging-problems>`_
+repository on GitHub.
