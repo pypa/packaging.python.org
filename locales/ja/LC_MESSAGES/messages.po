@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-19 10:04+0000\n"
-"PO-Revision-Date: 2022-05-04 01:41+0000\n"
+"PO-Revision-Date: 2022-05-07 19:43+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -12088,14 +12088,17 @@ msgid ""
 "accompanying .exe wrappers.  Windows installers may want to add them during "
 "install."
 msgstr ""
+"wheel では、 Unix システム上でパッケージされたスクリプトには .exe "
+"ラッパーが随伴していないことが普通でしょう。 Windows "
+"インストーラは、インストールする際にそれらを追加したくなるかもしれません。"
 
 #: ../source/specifications/binary-distribution-format.rst:105
 msgid "Recommended archiver features"
-msgstr ""
+msgstr "推奨されるアーカイバの機能"
 
 #: ../source/specifications/binary-distribution-format.rst:112
 msgid "Place ``.dist-info`` at the end of the archive."
-msgstr ""
+msgstr "アーカイブの末尾に ``.dist-info`` を置くこと。"
 
 #: ../source/specifications/binary-distribution-format.rst:108
 msgid ""
@@ -12104,20 +12107,28 @@ msgid ""
 "including the ability to amend the metadata without rewriting the entire "
 "archive."
 msgstr ""
+"アーカイバには、 ``.dist-info`` ファイルをアーカイブの物理的な末尾に置くこと"
+"が推奨されています。こうすることで、アーカイブ全体を書き換えなくてもメタデー"
+"タを修正することができる点を含む、 ZIP "
+"のいくつかの潜在的に興味深いトリックを使うことができるようになります。"
 
 #: ../source/specifications/binary-distribution-format.rst:115
 msgid "File Format"
-msgstr ""
+msgstr "ファイルフォーマット"
 
 #: ../source/specifications/binary-distribution-format.rst:118
 msgid "File name convention"
-msgstr ""
+msgstr "ファイル名の慣習"
 
 #: ../source/specifications/binary-distribution-format.rst:120
 msgid ""
 "The wheel filename is ``{distribution}-{version}(-{build tag})?-{python tag}-"
 "{abi tag}-{platform tag}.whl``."
 msgstr ""
+"wheel のファイル名は(訳注、慣習として) "
+"``{配布物}-{バージョン}(-{ビルドタグ})?-{python タグ}-{abi "
+"タグ}-{プラットフォームタグ}.whl <{distribution}-{version}(-{build tag})?-{"
+"python tag}-{abi tag}-{platform tag}.whl>`` です。"
 
 #: ../source/specifications/binary-distribution-format.rst:124
 msgid "distribution"
@@ -12125,7 +12136,7 @@ msgstr "配布物"
 
 #: ../source/specifications/binary-distribution-format.rst:124
 msgid "Distribution name, e.g. 'django', 'pyramid'."
-msgstr ""
+msgstr "配布物の名前、例えば 'django' や 'pyramid' 。"
 
 #: ../source/specifications/binary-distribution-format.rst:127
 msgid "version"
@@ -12133,11 +12144,11 @@ msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:127
 msgid "Distribution version, e.g. 1.0."
-msgstr ""
+msgstr "配布物のバージョン、例えば 1.0 。"
 
 #: ../source/specifications/binary-distribution-format.rst:135
 msgid "build tag"
-msgstr ""
+msgstr "ビルドタグ"
 
 #: ../source/specifications/binary-distribution-format.rst:130
 msgid ""
@@ -12147,30 +12158,37 @@ msgid ""
 "item tuple with the first item being the initial digits as an ``int``, and "
 "the second item being the remainder of the tag as a ``str``."
 msgstr ""
+"省略可能なビルドナンバー。数字で始まらなければなりません。ふたつの wheel "
+"ファイルのファイル名がこの部分を除いて "
+"(すなわち名称やバージョンやその他のタグが) 同一であった場合のタイブレーカ "
+"(訳注、いずれかに決めるための方法) として働きます。"
+"指定されていれば先頭の数字を ``int`` として解釈して第１要素とし残りを ``str``"
+" として解釈して第２要素とするような要素数が２個のタプルとして解釈され、指定さ"
+"れていない場合には空欄のタプルとして解釈されます。"
 
 #: ../source/specifications/binary-distribution-format.rst:138
 msgid "language implementation and version tag"
-msgstr ""
+msgstr "言語の実装とバージョンタグ"
 
 #: ../source/specifications/binary-distribution-format.rst:138
 msgid "E.g. 'py27', 'py2', 'py3'."
-msgstr ""
+msgstr "例えば、 'py27' ・ 'py2' ・ 'py3' 。"
 
 #: ../source/specifications/binary-distribution-format.rst:141
 msgid "abi tag"
-msgstr ""
+msgstr "abi タグ"
 
 #: ../source/specifications/binary-distribution-format.rst:141
 msgid "E.g. 'cp33m', 'abi3', 'none'."
-msgstr ""
+msgstr "例えば、 'cp33m' ・ 'abi3' ・ 'none' 。"
 
 #: ../source/specifications/binary-distribution-format.rst:144
 msgid "platform tag"
-msgstr ""
+msgstr "プラットフォームタグ"
 
 #: ../source/specifications/binary-distribution-format.rst:144
 msgid "E.g. 'linux_x86_64', 'any'."
-msgstr ""
+msgstr "例えば、 'linux_x86_64' ・ 'any' 。"
 
 #: ../source/specifications/binary-distribution-format.rst:146
 msgid ""
@@ -12179,6 +12197,10 @@ msgid ""
 "Python 2.7 implementation), with no ABI (pure Python), on any CPU "
 "architecture."
 msgstr ""
+"例えば、 ``distribution-1.0.1-py27-none-any.whl`` とは、 'distribution' "
+"と呼ばれるパッケージの最初のビルドであって、 Python 2.7 (任意の Python 2.7 "
+"実装) で動作し、 ABI を持たず (即ち純 Python) 、任意の CPU "
+"アーキテクチャで動作するということです。"
 
 #: ../source/specifications/binary-distribution-format.rst:151
 msgid ""
@@ -12186,10 +12208,13 @@ msgid ""
 "\"compatibility tags.\"  The compatibility tags express the package's basic "
 "interpreter requirements and are detailed in PEP 425."
 msgstr ""
+"ファイル名の拡張子を除いて最後の３個の構成要素は、\"互換性タグ\" と呼ばれます"
+"。互換性タグは、インタープリタに対するそのパッケージの基本的な要求事項を表現"
+"しており、 PEP 425 に詳しく書かれています。"
 
 #: ../source/specifications/binary-distribution-format.rst:156
 msgid "Escaping and Unicode"
-msgstr ""
+msgstr "エスケープとユニコード"
 
 #: ../source/specifications/binary-distribution-format.rst:158
 msgid ""
@@ -12197,6 +12222,9 @@ msgid ""
 "MINUS), this character cannot appear within any component. This is handled "
 "as follows:"
 msgstr ""
+"ファイル名の構成要素がダッシュ (``-`` つまり HYPHEN-MINUS) で分離されているの"
+"で、この文字は構成要素の中に出現してはなりません。これは次のように取り扱われ"
+"ます:"
 
 #: ../source/specifications/binary-distribution-format.rst:161
 msgid ""
@@ -12208,18 +12236,28 @@ msgid ""
 "and uppercase letters, however, as these were allowed by an earlier version "
 "of this specification."
 msgstr ""
+"配布物の名前の部分では、 ``-_.`` という (HYPHEN-MINUS 、 LOW LINE に FULL "
+"STOP が続く) 文字列はすべて ``_`` (LOW LINE) で置き換えられ、また、大文字はす"
+"べて対応する小文字に置き換えらなければなりません。これは、 ``-`` を ``_`` "
+"で置き換えるという :pep:`503` における正規化の考え方と同じです。 wheel "
+"ファイルを入力とするツールは、 ``.`` (FULL STOP) や大文字を受け入れる準備がで"
+"きていなければなりませんが、しかし、それはこの仕様のかなり初期のバージョンで"
+"許されていたからに過ぎません。"
 
 #: ../source/specifications/binary-distribution-format.rst:168
 msgid ""
 "Version numbers should be normalised according to :pep:`440`. Normalised "
 "version numbers cannot contain ``-``."
 msgstr ""
+"バージョン番号は、 :pep:`440` に従って正規化されなければなりません。"
+"正規化済みのバージョン番号は ``-`` を含んでいてはなりません。"
 
 #: ../source/specifications/binary-distribution-format.rst:170
 msgid ""
 "The remaining components may not contain ``-`` characters, so no escaping is "
 "necessary."
-msgstr ""
+msgstr "残りの構成要素は、 ``-`` "
+"文字を含んでいてはいけないので、エスケープ処理を行う必要がありません。"
 
 #: ../source/specifications/binary-distribution-format.rst:173
 msgid ""
@@ -12227,6 +12265,9 @@ msgid ""
 "contain ``-``, as the resulting file may not be processed correctly if they "
 "do."
 msgstr ""
+"wheel ファイルを生成するツールはファイル名部分の構成要素が ``-`` を含んでいな"
+"いことを検証しなければなりませんが、これは、もし含んでいれば結果として生成さ"
+"れたファイルが正しく処理されないかもしれないからです。"
 
 #: ../source/specifications/binary-distribution-format.rst:176
 msgid ""
@@ -12234,6 +12275,9 @@ msgid ""
 "updated to support non-ASCII filenames, but they are supported in this "
 "specification."
 msgstr ""
+"アーカイブのファイル名は Unicode です。いくつかのツールでは非 ASCII 文字のフ"
+"ァイル名をサポートするように更新されるまでに幾らかの時間がかかるかもしれませ"
+"んが、しかし、この仕様ではサポートされているのです。"
 
 #: ../source/specifications/binary-distribution-format.rst:180
 msgid ""
@@ -12241,10 +12285,14 @@ msgid ""
 "clients in common use do not properly display UTF-8 filenames, the encoding "
 "is supported by both the ZIP specification and Python's ``zipfile``."
 msgstr ""
+"アーカイブの *中にある* ファイルのファイル名は、 UTF-8 "
+"でエンコードされています。 ZIP クライアントのいくつかは共通して UTF-8 "
+"のファイル名を正常に表示しませんが、このエンコーディングは ZIP の仕様でも "
+"Python の ``zipfile`` の仕様でも、共にサポートされています。"
 
 #: ../source/specifications/binary-distribution-format.rst:186
 msgid "File contents"
-msgstr ""
+msgstr "ファイルの内容"
 
 #: ../source/specifications/binary-distribution-format.rst:188
 msgid ""
@@ -12252,6 +12300,9 @@ msgid ""
 "of the package, e.g. ``beaglevote`` and {version} is replaced with its "
 "version, e.g. ``1.0.0``, consist of:"
 msgstr ""
+"{distribution} の部分を例えば ``beaglevote`` のようなパッケージ名で置き換え、"
+" {version} の部分を例えば `1.0.0`` のようなバージョン番号で置き換えた wheel "
+"ファイルの内容は次のもので構成されています:"
 
 #: ../source/specifications/binary-distribution-format.rst:192
 msgid ""
@@ -12259,10 +12310,14 @@ msgid ""
 "``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and "
 "``platlib`` are usually both ``site-packages``."
 msgstr ""
+"アーカイブのルートディレクトリに当たる ``/`` は、``WHEEL`` "
+"で指定されている通り ``purelib`` または ``platlib`` "
+"にインストールされるファイルをすべて含んでいます。通常は、 ``purelib`` や "
+"``platlib`` はいずれも ``site-packages`` です。"
 
 #: ../source/specifications/binary-distribution-format.rst:195
 msgid "``{distribution}-{version}.dist-info/`` contains metadata."
-msgstr ""
+msgstr "``{distribution}-{version}.dist-info/`` はメタデータを含んでいます。"
 
 #: ../source/specifications/binary-distribution-format.rst:196
 msgid ""
@@ -12271,6 +12326,11 @@ msgid ""
 "an index into a dictionary of install paths (e.g. ``data``, ``scripts``, "
 "``headers``, ``purelib``, ``platlib``)."
 msgstr ""
+"``{distribution}-{version}.data/`` は、すでにカバーされているものは別として、"
+"サブディレクトリ名がインストールパスの辞書への (例えば、 ``data``, "
+"``scripts``, ``headers``, ``purelib``, ``platlib`` のような) 指示子になってい"
+"るような、空ではないそれぞれのインストールスキームに対応したディレクトリを含"
+"みます。"
 
 #: ../source/specifications/binary-distribution-format.rst:200
 msgid ""
@@ -12278,28 +12338,37 @@ msgid ""
 "python'`` in order to enjoy script wrapper generation and ``#!python`` "
 "rewriting at install time.  They may have any or no extension."
 msgstr ""
+"Python スクリプトは ``scripts`` ディレクトリに置かなければならず、また、"
+"インストール時のスクリプトラッパの生成や ``#!python`` "
+"書き換えといった利点を活用するために、正確に ``b'#!python'`` "
+"で始まっていなければなりません。"
 
 #: ../source/specifications/binary-distribution-format.rst:204
 msgid ""
 "``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1 or "
 "greater format metadata."
 msgstr ""
+"``{distribution}-{version}.dist-info/METADATA`` は、バージョン 1.1 "
+"またはそれ以上のフォーマットのメタデータです。"
 
 #: ../source/specifications/binary-distribution-format.rst:206
 msgid ""
 "``{distribution}-{version}.dist-info/WHEEL`` is metadata about the archive "
 "itself in the same basic key: value format::"
 msgstr ""
+"``{distribution}-{version}.dist-info/WHEEL`` は、同様のキー:バリュー形式で表"
+"現されたアーカイブそのものに関するメタデータです::"
 
 #: ../source/specifications/binary-distribution-format.rst:216
 msgid "``Wheel-Version`` is the version number of the Wheel specification."
-msgstr ""
+msgstr "``Wheel-Version`` は、Wheel の仕様のバージョン番号です。"
 
 #: ../source/specifications/binary-distribution-format.rst:217
 msgid ""
 "``Generator`` is the name and optionally the version of the software that "
 "produced the archive."
-msgstr ""
+msgstr "``Generator`` は、そのアーカイブを作成したソフトウェアの名前で、バージョン番"
+"号を付加しても構いません。"
 
 #: ../source/specifications/binary-distribution-format.rst:219
 msgid ""
@@ -12307,17 +12376,21 @@ msgid ""
 "be installed into purelib; otherwise the root should be installed into "
 "platlib."
 msgstr ""
+"``Root-Is-Purelib`` は、アーカイブの最上位のディレクトリが pure lib "
+"へインストールされるべきものであれば true で、そうでなければ platlib "
+"へインストールされます。"
 
 #: ../source/specifications/binary-distribution-format.rst:222
 msgid ""
 "``Tag`` is the wheel's expanded compatibility tags; in the example the "
 "filename would contain ``py2.py3-none-any``."
-msgstr ""
+msgstr "``Tag`` は、 wheel の拡張互換性タグで、例の中ではファイル名の ``py2.py3-none-"
+"any`` の部分です。"
 
 #: ../source/specifications/binary-distribution-format.rst:224
 msgid ""
 "``Build`` is the build number and is omitted if there is no build number."
-msgstr ""
+msgstr "``Build`` は、ビルドナンバーで、もしビルドナンバーがなければ省略されます。"
 
 #: ../source/specifications/binary-distribution-format.rst:225
 msgid ""
@@ -12325,16 +12398,22 @@ msgid ""
 "it supports, and must fail if Wheel-Version has a greater major version than "
 "the version it supports."
 msgstr ""
+"wheel インストーラは、もし自身がサポートしているものより Wheel-Version "
+"が大きければ警告するべきですし、 Wheel-Version のメジャーバージョンがサポート"
+"しているものより大きい場合にはフェイルするべきです。"
 
 #: ../source/specifications/binary-distribution-format.rst:228
 msgid ""
 "Wheel, being an installation format that is intended to work across multiple "
 "versions of Python, does not generally include .pyc files."
 msgstr ""
+"Wheel は複数のバージョンの Python "
+"を跨いでも動作するように意図されたインストール用のフォーマットですが、通常は "
+".pyc ファイルを含みません。"
 
 #: ../source/specifications/binary-distribution-format.rst:230
 msgid "Wheel does not contain setup.py or setup.cfg."
-msgstr ""
+msgstr "Wheel は、 setup.py ないし setup.cfg を含みません。"
 
 #: ../source/specifications/binary-distribution-format.rst:232
 msgid ""
@@ -12343,27 +12422,33 @@ msgid ""
 "layout offers a superset of the functionality provided by the existing "
 "wininst and egg binary formats."
 msgstr ""
+"このバージョンの wheel 仕様は、distutils のインストール方法論に基づいていて、"
+"ファイルを他の場所にインストールする方法については定義していません。既存の "
+"wininst や egg "
+"バイナリフォーマットが提供する機能の上位互換のレイアウトを提案します。"
 
 #: ../source/specifications/binary-distribution-format.rst:239
 #: ../source/specifications/recording-installed-packages.rst:35
 msgid "The .dist-info directory"
-msgstr ""
+msgstr ".dist-info ディレクトリ"
 
 #: ../source/specifications/binary-distribution-format.rst:241
 msgid ""
 "Wheel .dist-info directories include at a minimum METADATA, WHEEL, and "
 "RECORD."
-msgstr ""
+msgstr "Wheel の .dist-info ディレクトリは、最低限でも METADATA ・ WHEEL ・RECORD "
+"を含みます。"
 
 #: ../source/specifications/binary-distribution-format.rst:243
 msgid ""
 "METADATA is the package metadata, the same format as PKG-INFO as found at "
 "the root of sdists."
-msgstr ""
+msgstr "METADATA はパッケージのメタデータで、 sdists のルートディレクトリにある PKG-"
+"INFO と同じフォーマットで記述されます。"
 
 #: ../source/specifications/binary-distribution-format.rst:245
 msgid "WHEEL is the wheel metadata specific to a build of the package."
-msgstr ""
+msgstr "WHEEL は、パッケージをビルドする部分に特化した wheel のメタデータです。"
 
 #: ../source/specifications/binary-distribution-format.rst:246
 msgid ""
@@ -12373,21 +12458,31 @@ msgid ""
 "better; specifically, md5 and sha1 are not permitted, as signed wheel files "
 "rely on the strong hashes in RECORD to validate the integrity of the archive."
 msgstr ""
+"RECORD は、 wheel に含まれる (ほとんど) "
+"全てのファイルとそのセキュアなハッシュ値のリストです。 PEP 376 とは異なり、"
+"自分自身のハッシュ値を内包することは不可能な RECORD "
+"を除く各ファイルのハッシュ値が含まれていなければなりません。署名済みの wheel "
+"ファイルがアーカイブの完全性を検証するのに RECORD "
+"内の暗号学的に強いハッシュ値に依存しているので、ハッシュ計算のアルゴリズムは "
+"sha256 以上でなければならず、特に md5 とsha1 は許されません。"
 
 #: ../source/specifications/binary-distribution-format.rst:252
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
-msgstr ""
+msgstr "PEP 376 の INSTALLER と REQUESTED はアーカイブに含まれません。"
 
 #: ../source/specifications/binary-distribution-format.rst:253
 msgid ""
 "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
-msgstr ""
+msgstr "RECORD.jws は、デジタル署名のために使われます。これについては RECORD "
+"では触れられません。"
 
 #: ../source/specifications/binary-distribution-format.rst:255
 msgid ""
 "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
 "signatures to secure their wheel files.  It is not mentioned in RECORD."
 msgstr ""
+"自分の wheel ファイルを S/MIME 署名でセキュアにすることを好む人は、 "
+"RECORD.p7s を使うことができます。これについては RECORD では触れられません。"
 
 #: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
@@ -12396,10 +12491,14 @@ msgid ""
 "fail if any file in the archive is not both mentioned and correctly hashed "
 "in RECORD."
 msgstr ""
+"展開中に wheel インストーラは RECORD 内のハッシュ値と実際のファイルの内容 "
+"(のハッシュ値) をすべて検証します。 RECORD とその署名による検証に加えて、"
+"アーカイブの中のいずれかのファイルが RECORD にリストされていないか、または、"
+"正しくハッシュされていない時にはインストールがフェイルするでしょう。"
 
 #: ../source/specifications/binary-distribution-format.rst:265
 msgid "The .data directory"
-msgstr ""
+msgstr ".data ディレクトリ"
 
 #: ../source/specifications/binary-distribution-format.rst:267
 msgid ""
@@ -12407,6 +12506,9 @@ msgid ""
 "data directory, named as the .dist-info directory but with the .data/ "
 "extension::"
 msgstr ""
+"site-packages 内に通常通りにインストールされなかったファイルはどれでも"
+"、.dist-info ディレクトリと同様に命名されるが .data/ 拡張子をつけられて ."
+"data ディレクトリに行きます::"
 
 #: ../source/specifications/binary-distribution-format.rst:275
 msgid ""
@@ -12414,10 +12516,13 @@ msgid ""
 "documentation and so forth from the distribution.  During installation the "
 "contents of these subdirectories are moved onto their destination paths."
 msgstr ""
+".data ディレクトリでは、配布物からのスクリプト・ヘッダー・説明文書などをサブ"
+"ディレクトリに収めています。インストール中に、これらのサブディレクトリの内容"
+"を行き先となるパスへ動かします。"
 
 #: ../source/specifications/binary-distribution-format.rst:281
 msgid "Signed wheel files"
-msgstr ""
+msgstr "署名済み wheel ファイル"
 
 #: ../source/specifications/binary-distribution-format.rst:283
 msgid ""
@@ -12428,6 +12533,13 @@ msgid ""
 "possible entries are hashed, including any generated files such as .pyc "
 "files, but not RECORD which cannot contain its own hash. For example::"
 msgstr ""
+"Wheel ファイルは、デジタル署名を可能にした拡張 RECORD ファイルを含みます。 "
+"PEP 376 の RECORD は、 md5sum の代わりにセキュアなハッシュ値 "
+"``digestname=urlsafe_b64encode_nopad(digest)`` (末尾に = 文字を追加しない "
+"url セーフな base64 エンコード) を二つ目のカラムとするように修正されました。"
+"生成された .pyc "
+"ファイルなども含むすべての可能なエントリにハッシュ値が付加されていますが、 "
+"RECORD は自身のハッシュ値を含むことができないので例外です。例えば::"
 
 #: ../source/specifications/binary-distribution-format.rst:294
 msgid ""
@@ -12436,6 +12548,11 @@ msgid ""
 "file in the archive must have a correct hash in RECORD or the installation "
 "will fail."
 msgstr ""
+"署名用のファイルである RECORD.jws と RECORD.p7s は、 RECORD "
+"ファイルが作成された後にしか追加できないので、RECORD ファイル内で言及されるこ"
+"とは全くありません。アーカイブの中の他のファイルはすべて、RECORD ファイル内に"
+"正しいハッシュ値を持たなければならず、そうでなければインストールに失敗します"
+"。"
 
 #: ../source/specifications/binary-distribution-format.rst:299
 msgid ""
@@ -12444,16 +12561,22 @@ msgid ""
 "RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of RECORD "
 "as the signature's JSON payload::"
 msgstr ""
+"JSON ウェブ署名が使われる場合には、ひとつかそれ以上の JSON Web Signature "
+"JSON Serialization (JWS-JS) 署名が RECORD ファイルの隣にある RECORD.jws "
+"ファイルの中に保存されます。 RECORD ファイルの SHA-256 ハッシュ値を署名の "
+"JSON ペイロードに含むことで RECORD ファイルに署名するために JWS "
+"が使われます::"
 
 #: ../source/specifications/binary-distribution-format.rst:306
 msgid "(The hash value is the same format used in RECORD.)"
-msgstr ""
+msgstr "(ハッシュ値の書き方のフォーマットは RECORD で使われるものと同じです。)"
 
 #: ../source/specifications/binary-distribution-format.rst:308
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
-msgstr ""
+msgstr "RECORD.p7s を使う場合は、このファイルに RECORD ファイルに関する分離型の S/"
+"MIME 署名を入れておかなければなりません。"
 
 #: ../source/specifications/binary-distribution-format.rst:311
 msgid ""
@@ -12462,6 +12585,12 @@ msgid ""
 "installer checks file hashes against RECORD, a separate signature checker "
 "only needs to establish that RECORD matches the signature."
 msgstr ""
+"wheel インストーラはデジタル署名を理解することを要求されてはいませんが、 "
+"RECORD ファイル内のハッシュ値が展開されたファイル内容に対して妥当であることを"
+"検証しなければなりません。インストーラが RECORD "
+"ファイルに対するハッシュ値を確認する際には、"
+"別途用意された署名検証プログラムは RECORD "
+"ファイルが署名に対して妥当であることだけを確認すれば十分です。"
 
 #: ../source/specifications/binary-distribution-format.rst:316
 msgid "See"
