@@ -105,6 +105,20 @@ Python 2, so long as they can be imported on Python 3.
 
 .. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
 
+.. _hatch:
+
+hatch
+=====
+
+`GitHub and Docs <https://github.com/pypa/hatch>`__ |
+`PyPI <https://pypi.org/project/hatch>`__
+
+Hatch is a unified command-line tool meant to conveniently manage
+dependencies and environment isolation for Python developers. Python
+package developers use Hatch and its build backend Hatchling to
+configure, version, specify dependencies for, and publish packages
+to PyPI. Its plugin system allows for easily extending functionality.
+
 .. _packaging:
 
 packaging
@@ -437,20 +451,6 @@ Pythonistas to think about Hashdist may be a more powerful hybrid of
 problem of installing scientific software, and making package
 distribution stateless, cached, and branchable. It is used by some
 researchers but has been lacking in maintenance since 2016.
-
-.. _hatch:
-
-hatch
-=====
-
-`GitHub and Docs <https://github.com/ofek/hatch>`__ |
-`PyPI <https://pypi.org/project/hatch>`__
-
-Hatch is a unified command-line tool meant to conveniently manage
-dependencies and environment isolation for Python developers. Python
-package developers use Hatch to configure, version, specify
-dependencies for, and publish packages to PyPI. Its plugin system
-allows for easily extending functionality.
 
 .. _multibuild:
 
