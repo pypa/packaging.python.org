@@ -630,7 +630,7 @@ of lowercase ASCII letters, ASCII numbers, and hyphen. It must start and end
 with a letter or number. Hyphens cannot be followed by another hyphen. Names are
 limited to those which match the following regex (which guarantees unambiguity)::
 
-    ^([a-z0-9]|[a-z0-9]([a-z0-9-](?!-))*[a-z0-9])$
+    ^([a-z0-9]|[a-z0-9]([a-z0-9-](?!--))*[a-z0-9])$
 
 
 The specified name may be used to make a dependency conditional on whether the
