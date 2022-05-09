@@ -102,20 +102,20 @@ Creating pyproject.toml
 
 :file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
 what is required to build your project. You can select a variety of backends
-here; the tutorial will work identically on Setuptools, Flit, and PDM; most
-backends that support :pep:`621` should work. Your :file:`pyproject.toml` file
-should contain one of these build-system blocks:
+here; the tutorial will work identically on Hatchling, Flit, PDM, and
+Setuptools; most backends that support :pep:`621` should work. Your
+:file:`pyproject.toml` file should contain one of these build-system blocks:
 
-.. tab:: Setuptools
+.. tab:: Hatchling
 
-    This is the original backend for building projects, with C extension
-    support and many plugins, like :ref:`setuptools_scm`. EXPERIMENTAL.
+    :ref:`hatch` has a feature-rich build backend, supporting
+    SCM versioning and plugins.
 
     .. code-block:: toml
 
         [build-system]
-        requires = ["setuptools >=61.0"]
-        build-backend = "setuptools.build_meta"
+        requires = ["hatchling"]
+        build-backend = "hatchling.build"
 
 .. tab:: Flit
 
@@ -125,19 +125,9 @@ should contain one of these build-system blocks:
     .. code-block:: toml
 
         [build-system]
-        requires = ["flit_core >=3.2"]
+        requires = ["flit_core>=3.2"]
         build-backend = "flit_core.buildapi"
 
-.. tab:: Hatchling
-
-    :ref:`hatch` has a more feature-rich build backend than Flit, supporting
-    SCM versioning and plugins.
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling>=0.7"]
-        build-backend = "hatchling.build"
 
 .. tab:: PDM
 
@@ -149,6 +139,17 @@ should contain one of these build-system blocks:
         [build-system]
         requires = ["pdm-pep517"]
         build-backend = "pdm.pep517.api"
+
+.. tab:: Setuptools
+
+    This is the original backend for building projects, with C extension
+    support and many plugins, like :ref:`setuptools_scm`. EXPERIMENTAL.
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools>=61.0"]
+        build-backend = "setuptools.build_meta"
 
 
 ``build-system.requires`` gives a list of packages that are needed to build your
