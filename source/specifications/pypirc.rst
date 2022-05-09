@@ -58,8 +58,7 @@ Common configurations
 
 .. note::
 
-    These examples apply to :ref:`twine`, and projects like :ref:`hatch` that
-    use it under the hood. Other projects (e.g. :ref:`flit`) also use
+    These examples apply to :ref:`twine`. Other projects (e.g. :ref:`flit`) also use
     :file:`.pypirc`, but with different defaults. Please refer to each project's
     documentation for more details and usage instructions.
 

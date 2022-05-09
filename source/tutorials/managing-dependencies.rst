@@ -160,9 +160,9 @@ If you find this particular approach to managing application dependencies isn't
 working well for you or your use case, you may want to explore these other tools
 and techniques, listed in alphabetical order, to see if one of them is a better fit:
 
-* `hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even
-  more steps in the project management workflow, such as incrementing versions,
-  tagging releases, and creating new skeleton projects from project templates.
+* `hatch <https://github.com/pypa/hatch>`_ for opinionated coverage of even
+  more steps in the project management workflow, such as incrementing versions
+  and creating new skeleton projects from project templates.
 * `micropipenv <https://github.com/thoth-station/micropipenv>`_ for a lightweight
   wrapper around pip that supports ``requirements.txt``, Pipenv and Poetry lock files,
   or converting them to pip-tools compatible output. Designed for containerized
