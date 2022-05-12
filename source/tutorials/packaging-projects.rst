@@ -143,7 +143,7 @@ Setuptools; most backends that support :pep:`621` should work. Your
 .. tab:: Setuptools
 
     This is the original backend for building projects, with C extension
-    support and many plugins, like :ref:`setuptools_scm`. EXPERIMENTAL.
+    support and many plugins, like :ref:`setuptools_scm`.
 
     .. code-block:: toml
 
@@ -194,14 +194,14 @@ people following this tutorial.
     Homepage = "https://github.com/pypa/sampleproject"
     Bug Tracker = "https://github.com/pypa/sampleproject/issues"
 
-The options allowed here are defined in :pep:`621`. In short, they are:
+The options allowed here are defined in the :ref:`project metadata specification <declaring-project-metadata>`. In short, they are:
 
 - ``name`` is the *distribution name* of your package. This can be any name as
   long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
   already be taken on pypi.org. **Be sure to update this with your username,**
   as this ensures you won't try to upload a package with the same name as one
   which already exists.
-- ``version`` is the package version. See :pep:`440` for more details on
+- ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>` for more details on
   versions. Some build backends allow it to be specified another way, such
   as from a file or a git tag.
 - ``authors`` is used to identify the author of the package.
@@ -209,7 +209,7 @@ The options allowed here are defined in :pep:`621`. In short, they are:
 - ``readme`` is a detailed description of the package. This is
   shown on the package detail page on the Python Package Index. The long
   description is loaded from :file:`README.md` (which is a common pattern).
-  There also is a more advanced table form described in :pep:`621`.
+  There also is a more advanced table form described in the :ref:`project metadata specification <declaring-project-metadata>`.
 - ``requires-python`` gives the versions of Python supported by your
   project. Installers like :ref:`pip` will look back through older versions of
   packages until it finds one that has a matching Python version.
@@ -236,7 +236,7 @@ Besides the entries shown above, there are a few more:
 - ``optional-dependencies`` is a table of extras.
 
 There is also one special entry: ``dynamic``. This is a list of fields (from
-the above) tha are specified dynamically during the building of your project
+the above) that are specified dynamically during the building of your project
 instead of being listed in the static :file:`pyproject.toml`. For example, Flit
 allows ``version`` and ``description`` to be dynamic.
 
