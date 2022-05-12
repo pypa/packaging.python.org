@@ -535,6 +535,6 @@ some things you can do:
 * Read more about using :ref:`setuptools` to package libraries in
   :doc:`/guides/distributing-packages-using-setuptools`.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`pdm`,
-  :ref:`hatch`, and :ref:`poetry`.
+* Consider alternatives to :ref:`setuptools` such as :ref:`hatch`, :ref:`flit`,
+  :ref:`pdm`, and :ref:`poetry`.
 
