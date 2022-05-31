@@ -150,7 +150,7 @@ people following this tutorial.
 
     [project.urls]
     Home = "https://github.com/pypa/sampleproject"
-    Bug Tracker = https://github.com/pypa/sampleproject/issues
+    BugTracker = https://github.com/pypa/sampleproject/issues
 
 
 
