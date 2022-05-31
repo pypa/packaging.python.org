@@ -182,8 +182,8 @@ uses a relatively minimal set of ``metadata``:
 - ``project.urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to documentation, issue trackers, etc.
 
-There are many more than the ones mentioned here. See
-:doc:`/guides/distributing-packages-using-setuptools` for more details.
+There are many more options than the ones mentioned here. See
+https://peps.python.org/pep-0621/ for more details.
 
 
 Creating README.md
