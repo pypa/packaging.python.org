@@ -103,7 +103,7 @@ Creating pyproject.toml
 :file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
 what is required to build your project. You can select a variety of backends
 here; the tutorial will work identically on Hatchling, Flit, PDM, and
-Setuptools; most backends that support :pep:`621` should work. Your
+Setuptools; most backends that support the ``project`` table should work. Your
 :file:`pyproject.toml` file should contain one of these build-system blocks:
 
 .. tab:: Hatchling
@@ -132,7 +132,7 @@ Setuptools; most backends that support :pep:`621` should work. Your
 .. tab:: PDM
 
     :ref:`pdm` has a build backend as well (not required to use PDM for package
-    management, any PEP 621 backend works).
+    management, any standards-compliant backend works).
 
     .. code-block:: toml
 
@@ -165,7 +165,7 @@ See :pep:`517` and :pep:`518` for background and details.
 Configuring metadata
 ^^^^^^^^^^^^^^^^^^^^
 
-:pep:`621` provides a standard way to define metadata in :file:`pyproject.toml`.
+There is a standard way to define metadata in :file:`pyproject.toml`.
 
 Open :file:`pyproject.toml` and enter the following content. Change the ``name``
 to include your username; this ensures that you have a unique package name
@@ -178,7 +178,7 @@ people following this tutorial.
     name = "example-pkg-YOUR-USERNAME-HERE"
     version = "0.0.1"
     authors = [
-      {name="Example Author", email="author@example.com"},
+      { name="Example Author", email="author@example.com" },
     ]
     description = "A small example package"
     readme = "README.md"
@@ -188,7 +188,6 @@ people following this tutorial.
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ]
-    license = {file = "LICENSE"}
 
     [project.urls]
     Homepage = "https://github.com/pypa/sampleproject"
@@ -204,7 +203,9 @@ The options allowed here are defined in the :ref:`project metadata specification
 - ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>` for more details on
   versions. Some build backends allow it to be specified another way, such
   as from a file or a git tag.
-- ``authors`` is used to identify the author of the package.
+- ``authors`` is used to identify the author of the package; you specify a name
+  and an email for each author. You can also list ``maintainers`` in the same
+  format.
 - ``description`` is a short, one-sentence summary of the package.
 - ``readme`` is a detailed description of the package. This is
   shown on the package detail page on the Python Package Index. The long
@@ -220,25 +221,20 @@ The options allowed here are defined in the :ref:`project metadata specification
   which license your package is available under, and which operating systems
   your package will work on. For a complete list of classifiers, see
   https://pypi.org/classifiers/.
-- ``license`` is a table with either ``file=`` or ``text=``. Backends will often be
-  happy with a trove classifier too.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 
-Besides the entries shown above, there are a few more:
-
-- ``maintainers`` is list of inline tables, with name and emails, just like ``authors``.
-- ``keywords`` is a list of project keywords.
-- ``scripts`` are the command-line scripts exported by the proejct as a table.
-- ``gui-scripts`` are the graphical scripts exported by the project as a table.
-- ``entry-points`` are non-script entry points as a table.
-- ``dependencies`` are a list of required dependencies at install time. :pep:`404` syntax.
-- ``optional-dependencies`` is a table of extras.
+Besides the entries shown above, there are a few more. You can use ``keywords``
+to list keywords to improve discoverability.  You can make a list of
+``dependencies`` that are required to install your package.  You can list
+``scripts``/``gui-scripts`` or general plugin-like ``entry-points``; see
+:ref:`project metadata specification <declaring-project-metadata>` for details
+on these and a little more.
 
 There is also one special entry: ``dynamic``. This is a list of fields (from
 the above) that are specified dynamically during the building of your project
-instead of being listed in the static :file:`pyproject.toml`. For example, Flit
-allows ``version`` and ``description`` to be dynamic.
+instead of being listed in the static :file:`pyproject.toml`. Some backends allow
+``version`` to be dynamic, and pull it from a file or your Version Control System.
 
 Creating README.md
 ------------------
@@ -300,7 +296,7 @@ Including other files
 The files listed above will be included automatically in your
 :term:`source distribution <Source Distribution (or "sdist")>`. If you want to
 control what goes in this explicitly, see :ref:`Using MANIFEST.in` for setuptools.
-Other backends like Flit have methods to control this - :pep:`621` only covers
+Other backends like Flit have methods to control this - the ``project`` table covers
 metadata, not package structure.
 
 The final :term:`built distribution <Built Distribution>` will have the Python
