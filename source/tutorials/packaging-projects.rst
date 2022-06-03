@@ -109,13 +109,24 @@ Setuptools; most backends that support the ``project`` table should work. Your
 .. tab:: Hatchling
 
     :ref:`hatch` has a feature-rich build backend, supporting
-    SCM versioning and plugins.
+    SCM versioning and plugins. Recommended for beginners.
 
     .. code-block:: toml
 
         [build-system]
         requires = ["hatchling"]
         build-backend = "hatchling.build"
+
+.. tab:: Setuptools
+
+    This is the original backend for building projects, with C extension
+    support and many plugins, like :ref:`setuptools_scm`.
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools>=61.0"]
+        build-backend = "setuptools.build_meta"
 
 .. tab:: Flit
 
@@ -139,17 +150,6 @@ Setuptools; most backends that support the ``project`` table should work. Your
         [build-system]
         requires = ["pdm-pep517"]
         build-backend = "pdm.pep517.api"
-
-.. tab:: Setuptools
-
-    This is the original backend for building projects, with C extension
-    support and many plugins, like :ref:`setuptools_scm`.
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools>=61.0"]
-        build-backend = "setuptools.build_meta"
 
 
 ``build-system.requires`` gives a list of packages that are needed to build your
