@@ -71,7 +71,8 @@ Defining a workflow job environment
 
 Now, let's add initial setup for our job. It's a process that
 will execute commands that we'll define later.
-In this guide, we'll use Ubuntu 18.04:
+In this guide, we'll use the latest stable Ubuntu LTS version
+provided by GitHub Actions:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
@@ -90,7 +91,7 @@ Then, add the following under the ``build-n-publish`` section:
    :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
-install and activate Python 3.9.
+install and activate Python 3.10.
 
 And now we can build dists from source. In this example, we'll
 use ``build`` package, assuming that your project has a
@@ -107,7 +108,7 @@ So add this to the steps list:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: version: 3.9
+   :start-after: version: "3.10"
    :end-before: Actually publish to PyPI/TestPyPI
 
 
