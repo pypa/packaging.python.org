@@ -104,6 +104,7 @@ Creating pyproject.toml
 .. TODO: Clarify ``project`` table (described in "Configuring metadata")
 .. TODO: Refine backend copy
 .. TODO: Add/update links to backends
+.. TODO: Add a note to check the tools' documentation for the current snippet
 
 :file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
 what is required to build your project. You can select a variety of backends
@@ -514,6 +515,6 @@ some things you can do:
 .. TODO: Add links to other guides
 
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider packaging tools that with project management features, such as
+* Consider packaging tools with project management features, such as
   :ref:`hatch`, :ref:`flit`, :ref:`pdm`, and :ref:`poetry`.
 
