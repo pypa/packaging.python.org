@@ -3,7 +3,7 @@ Packaging Python Projects
 
 This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
-to build the package, and how to upload it to the Python Package Index.
+to build the package, and how to upload it to the Python Package Index (PyPI).
 
 .. tip::
 
@@ -100,11 +100,16 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
+.. TODO: Define "backend" (first reference)
+.. TODO: Clarify ``project`` table (described in "Configuring metadata")
+.. TODO: Refine backend copy
+.. TODO: Add/update links to backends
+
 :file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
 what is required to build your project. You can select a variety of backends
 here; the tutorial will work identically on Hatchling, Flit, PDM, and
 Setuptools; most backends that support the ``project`` table should work. Your
-:file:`pyproject.toml` file should contain one of these build-system blocks:
+:file:`pyproject.toml` file should contain one of these ``build-system`` blocks:
 
 .. tab:: Hatchling
 
@@ -152,12 +157,9 @@ Setuptools; most backends that support the ``project`` table should work. Your
         build-backend = "pdm.pep517.api"
 
 
-``build-system.requires`` gives a list of packages that are needed to build your
-package. Listing something here will *only* make it available during the build,
-not after it is installed.
-
-``build-system.build-backend`` is the name of Python object that will be used to
-perform the build. 
+``build-system.requires`` is a list of packages that are needed to build your
+package. ``build-system.build-backend`` is the name of Python object that will
+be used to perform the build.
 
 See :pep:`517` and :pep:`518` for background and details.
 
@@ -193,24 +195,26 @@ people following this tutorial.
     Homepage = "https://github.com/pypa/sampleproject"
     Bug Tracker = "https://github.com/pypa/sampleproject/issues"
 
-The options allowed here are defined in the :ref:`project metadata specification <declaring-project-metadata>`. In short, they are:
+The fields allowed here are defined in the :ref:`project metadata specification <declaring-project-metadata>`.
+In short, they are:
 
 - ``name`` is the *distribution name* of your package. This can be any name as
   long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
-  already be taken on pypi.org. **Be sure to update this with your username,**
+  already be taken on PyPI. **Be sure to update this with your username,**
   as this ensures you won't try to upload a package with the same name as one
   which already exists.
-- ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>` for more details on
-  versions. Some build backends allow it to be specified another way, such
-  as from a file or a git tag.
+- ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>`
+  for more details on versions. Some build backends allow it to be specified
+  another way, such as from a file or a git tag.
 - ``authors`` is used to identify the author of the package; you specify a name
   and an email for each author. You can also list ``maintainers`` in the same
   format.
 - ``description`` is a short, one-sentence summary of the package.
-- ``readme`` is a detailed description of the package. This is
-  shown on the package detail page on the Python Package Index. The long
-  description is loaded from :file:`README.md` (which is a common pattern).
-  There also is a more advanced table form described in the :ref:`project metadata specification <declaring-project-metadata>`.
+- ``readme`` is a path to a file containing a detailed description of the
+  package. This is shown on the package detail page on PyPI.
+  In this case, the description is loaded from :file:`README.md` (which is a
+  common pattern). There also is a more advanced table form described in the
+  :ref:`project metadata specification <declaring-project-metadata>`.
 - ``requires-python`` gives the versions of Python supported by your
   project. Installers like :ref:`pip` will look back through older versions of
   packages until it finds one that has a matching Python version.
@@ -224,17 +228,10 @@ The options allowed here are defined in the :ref:`project metadata specification
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 
-Besides the entries shown above, there are a few more. You can use ``keywords``
-to list keywords to improve discoverability.  You can make a list of
-``dependencies`` that are required to install your package.  You can list
-``scripts``/``gui-scripts`` or general plugin-like ``entry-points``; see
-:ref:`project metadata specification <declaring-project-metadata>` for details
-on these and a little more.
-
-There is also one special entry: ``dynamic``. This is a list of fields (from
-the above) that are specified dynamically during the building of your project
-instead of being listed in the static :file:`pyproject.toml`. Some backends allow
-``version`` to be dynamic, and pull it from a file or your Version Control System.
+See the :ref:`project metadata specification <declaring-project-metadata>` for
+details on all of the fields that can be defined in the ``project`` table. Some
+other common ones are ``keywords`` to improve discoverability and the
+``dependencies`` that are required to install your package.
 
 Creating README.md
 ------------------
@@ -249,12 +246,6 @@ if you'd like.
     This is a simple example package. You can use
     [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
     to write your content.
-
-
-Because our configuration loads :file:`README.md` to provide a
-``long_description``, :file:`README.md` must be included along with your
-code when you :ref:`generate a source distribution <generating archives>`.
-Newer versions of :ref:`setuptools` will do this automatically.
 
 
 Creating a LICENSE
@@ -295,15 +286,7 @@ Including other files
 
 The files listed above will be included automatically in your
 :term:`source distribution <Source Distribution (or "sdist")>`. If you want to
-control what goes in this explicitly, see :ref:`Using MANIFEST.in` for setuptools.
-Other backends like Flit have methods to control this - the ``project`` table covers
-metadata, not package structure.
-
-The final :term:`built distribution <Built Distribution>` will have the Python
-files in the discovered or listed Python packages. If you want to control what
-goes here, such as to add data files, see
-:doc:`Including Data Files <setuptools:userguide/datafiles>`
-from the :doc:`setuptools docs <setuptools:index>`.
+include additional files, see the documentation for your build backend.
 
 .. _generating archives:
 
@@ -528,9 +511,9 @@ differences:
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
 
-* Read more about using :ref:`setuptools` to package libraries in
-  :doc:`/guides/distributing-packages-using-setuptools`.
+.. TODO: Add links to other guides
+
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider alternatives to :ref:`setuptools` such as :ref:`hatch`, :ref:`flit`,
-  :ref:`pdm`, and :ref:`poetry`.
+* Consider packaging tools that with project management features, such as
+  :ref:`hatch`, :ref:`flit`, :ref:`pdm`, and :ref:`poetry`.
 
