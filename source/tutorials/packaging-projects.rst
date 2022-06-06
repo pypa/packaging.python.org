@@ -293,8 +293,8 @@ include additional files, see the documentation for your build backend.
 Generating distribution archives
 --------------------------------
 
-The next step is to generate :term:`distribution packages <Distribution
-Package>` for the package. These are archives that are uploaded to the Python
+The next step is to generate :term:`distribution packages <Distribution Package>`
+for the package. These are archives that are uploaded to the Python
 Package Index and can be installed by :ref:`pip`.
 
 Make sure you have the latest version of PyPA's :ref:`build` installed:
@@ -338,13 +338,13 @@ files in the :file:`dist` directory:
       example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
 
 
-The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the
-``.whl`` file is a :term:`built distribution <Built Distribution>`. Newer
-:ref:`pip` versions preferentially install built distributions, but will fall
-back to source archives if needed. You should always upload a source archive and
-provide built archives for the platforms your project is compatible with. In
-this case, our example package is compatible with Python on any platform so only
-one built distribution is needed.
+The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
+whereas the ``.whl`` file is a :term:`built distribution <Built Distribution>`.
+Newer :ref:`pip` versions preferentially install built distributions, but will
+fall back to source distributions if needed. You should always upload a source
+distribution and provide built distributions for the platforms your project is
+compatible with. In this case, our example package is compatible with Python on
+any platform so only one built distribution is needed.
 
 Uploading the distribution archives
 -----------------------------------
