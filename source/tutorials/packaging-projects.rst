@@ -168,8 +168,6 @@ See :pep:`517` and :pep:`518` for background and details.
 Configuring metadata
 ^^^^^^^^^^^^^^^^^^^^
 
-There is a standard way to define metadata in :file:`pyproject.toml`.
-
 Open :file:`pyproject.toml` and enter the following content. Change the ``name``
 to include your username; this ensures that you have a unique package name
 and that your package doesn't conflict with packages uploaded by other
@@ -178,7 +176,7 @@ people following this tutorial.
 .. code-block:: toml
 
     [project]
-    name = "example-pkg-YOUR-USERNAME-HERE"
+    name = "example-package-YOUR-USERNAME-HERE"
     version = "0.0.1"
     authors = [
       { name="Example Author", email="author@example.com" },
@@ -193,11 +191,8 @@ people following this tutorial.
     ]
 
     [project.urls]
-    Homepage = "https://github.com/pypa/sampleproject"
-    Bug Tracker = "https://github.com/pypa/sampleproject/issues"
-
-The fields allowed here are defined in the :ref:`project metadata specification <declaring-project-metadata>`.
-In short, they are:
+    "Homepage" = "https://github.com/pypa/sampleproject"
+    "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
 
 - ``name`` is the *distribution name* of your package. This can be any name as
   long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
@@ -230,8 +225,8 @@ In short, they are:
   Generally this could be to the source, documentation, issue trackers, etc.
 
 See the :ref:`project metadata specification <declaring-project-metadata>` for
-details on all of the fields that can be defined in the ``project`` table. Some
-other common ones are ``keywords`` to improve discoverability and the
+details on these and other fields that can be defined in the ``[project]``
+table. Other common fields are ``keywords`` to improve discoverability and the
 ``dependencies`` that are required to install your package.
 
 Creating README.md
