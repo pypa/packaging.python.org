@@ -100,22 +100,17 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
-.. TODO: Define "backend" (first reference)
-.. TODO: Clarify ``project`` table (described in "Configuring metadata")
-.. TODO: Refine backend copy
-.. TODO: Add/update links to backends
-.. TODO: Add a note to check the tools' documentation for the current snippet
+:file:`pyproject.toml` tells tools like :ref:`pip` and :ref:`build` what 
+"build backend" to use to create :term:`distribution packages <Distribution Package>`
+for your project. You can choose from a number of backends; this tutorial
+recommends :ref:`Hatchling <hatch>` for its simplicity and speed, but it will
+work identically with :ref:`setuptools`, :ref:`Flit <flit>`, :ref:`PDM <pdm>`,
+and others that support the ``[project]`` table for :ref:`metadata <configuring
+metadata>`.
 
-:file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
-what is required to build your project. You can select a variety of backends
-here; the tutorial will work identically on Hatchling, Flit, PDM, and
-Setuptools; most backends that support the ``project`` table should work. Your
-:file:`pyproject.toml` file should contain one of these ``build-system`` blocks:
+Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
 
 .. tab:: Hatchling
-
-    :ref:`hatch` has a feature-rich build backend, supporting
-    SCM versioning and plugins. Recommended for beginners.
 
     .. code-block:: toml
 
@@ -123,10 +118,7 @@ Setuptools; most backends that support the ``project`` table should work. Your
         requires = ["hatchling"]
         build-backend = "hatchling.build"
 
-.. tab:: Setuptools
-
-    This is the original backend for building projects, with C extension
-    support and many plugins, like :ref:`setuptools_scm`.
+.. tab:: setuptools
 
     .. code-block:: toml
 
@@ -135,9 +127,6 @@ Setuptools; most backends that support the ``project`` table should work. Your
         build-backend = "setuptools.build_meta"
 
 .. tab:: Flit
-
-    :ref:`Flit` is a very lightweight, simple, and fast backend for pure Python
-    projects. It has no dependencies at all.
 
     .. code-block:: toml
 
@@ -148,9 +137,6 @@ Setuptools; most backends that support the ``project`` table should work. Your
 
 .. tab:: PDM
 
-    :ref:`pdm` has a build backend as well (not required to use PDM for package
-    management, any standards-compliant backend works).
-
     .. code-block:: toml
 
         [build-system]
@@ -158,12 +144,13 @@ Setuptools; most backends that support the ``project`` table should work. Your
         build-backend = "pdm.pep517.api"
 
 
-``build-system.requires`` is a list of packages that are needed to build your
-package. ``build-system.build-backend`` is the name of Python object that will
-be used to perform the build.
+``requires`` is a list of packages that are needed to build your package.
+``build-backend`` is the name of Python object that will be used to perform the
+build. See :pep:`517` and :pep:`518` for background and details.
 
-See :pep:`517` and :pep:`518` for background and details.
+.. TODO: Add note to check the tools' documentation for the current snippet?
 
+.. _configuring metadata:
 
 Configuring metadata
 ^^^^^^^^^^^^^^^^^^^^
