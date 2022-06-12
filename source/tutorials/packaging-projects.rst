@@ -106,7 +106,7 @@ so open :file:`pyproject.toml` and enter the following content:
 .. code-block:: toml
 
     [build-system]
-    requires = ["setuptools>=42"]
+    requires = ["setuptools>=61.0"]
     build-backend = "setuptools.build_meta"
 
 
