@@ -34,9 +34,11 @@ sure you have the latest version installed:
 A simple project
 ----------------
 
-This tutorial uses a simple project named ``example_package``.  We recommend
-following this tutorial as-is using this project, before packaging your own
-project.
+This tutorial uses a simple project named
+``example_package_YOUR_USERNAME_HERE``; if your username is ``me``, then the
+package would be ``example_package_me``; this ensures a unique name for
+uploading to TestPyPI at the end. We recommend following this tutorial as-is
+using this project, before packaging your own project.
 
 Create the following file structure locally:
 
@@ -44,9 +46,13 @@ Create the following file structure locally:
 
     packaging_tutorial/
     └── src/
-        └── example_package/
+        └── example_package_YOUR_USERNAME_HERE/
             ├── __init__.py
             └── example.py
+
+The folder containing the Python module should match the package name, both
+to avoid extra configuration and to avoid confusing users who expect the pip
+install name to match the importable name.
 
 :file:`__init__.py` is required to import the directory as a package, and
 should be empty.
@@ -85,7 +91,7 @@ When you're done, the project structure will look like this:
     ├── pyproject.toml
     ├── README.md
     ├── src/
-    │   └── example_package/
+    │   └── example_package_YOUR_USERNAME_HERE/
     │       ├── __init__.py
     │       └── example.py
     └── tests/
@@ -163,7 +169,7 @@ people following this tutorial.
 .. code-block:: toml
 
     [project]
-    name = "example-package-YOUR-USERNAME-HERE"
+    name = "example_package_YOUR_USERNAME_HERE"
     version = "0.0.1"
     authors = [
       { name="Example Author", email="author@example.com" },
@@ -317,8 +323,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
-      example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
+      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
 The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
@@ -389,14 +395,14 @@ After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
 Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE
+https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE
 
 
 Installing your newly uploaded package
@@ -426,9 +432,9 @@ something like this:
 .. code-block:: text
 
     Collecting example-package-YOUR-USERNAME-HERE
-      Downloading https://test-files.pythonhosted.org/packages/.../example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
-    Installing collected packages: example-package-YOUR-USERNAME-HERE
-    Successfully installed example-package-YOUR-USERNAME-HERE-0.0.1
+      Downloading https://test-files.pythonhosted.org/packages/.../example_package_YOUR_USERNAME_HERE_0.0.1-py3-none-any.whl
+    Installing collected packages: example_package_YOUR_USERNAME_HERE
+    Successfully installed example_package_YOUR_USERNAME_HERE-0.0.1
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of
    live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't
@@ -456,14 +462,10 @@ and import the package:
 
 .. code-block:: python
 
-    >>> from example_package import example
+    >>> from example_package_YOUR_USERNAME_HERE import example
     >>> example.add_one(2)
     3
 
-Note that the :term:`import package <Import Package>` is ``example_package``
-regardless of what ``name`` you gave your :term:`distribution package <Distribution
-Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
-``example-package-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
@@ -481,7 +483,7 @@ do much the same as you did in this tutorial, but with these important
 differences:
 
 * Choose a memorable and unique name for your package. You don't have to append
-  your username as you did in the tutorial.
+  your username as you did in the tutorial. But you can't take an existing name.
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
