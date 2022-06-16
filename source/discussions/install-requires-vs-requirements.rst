@@ -72,7 +72,7 @@ the requirements for a complete Python environment.
 
 Whereas ``install_requires`` requirements are minimal, requirements files
 often contain an exhaustive listing of pinned versions for the purpose of
-achieving :ref:`repeatable installations <pip:Repeatability>` of a complete
+achieving :ref:`repeatable installations <pip:0-repeatability>` of a complete
 environment.
 
 Whereas ``install_requires`` requirements are "Abstract", i.e. not associated
