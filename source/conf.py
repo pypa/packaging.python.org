@@ -394,6 +394,8 @@ linkcheck_ignore = [
     # Ignoring it as it will redirect to login page if reader hasn't logged in.
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
+    # This is a placeholder
+    "https://test.pypi.org/project/example_package_your_username_here",
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.

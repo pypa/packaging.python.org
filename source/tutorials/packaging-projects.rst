@@ -176,7 +176,7 @@ people following this tutorial.
     ]
     description = "A small example package"
     readme = "README.md"
-    requires-python = ">=3.6"
+    requires-python = ">=3.7"
     classifiers = [
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
@@ -188,10 +188,10 @@ people following this tutorial.
     "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
 
 - ``name`` is the *distribution name* of your package. This can be any name as
-  long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
-  already be taken on PyPI. **Be sure to update this with your username,**
-  as this ensures you won't try to upload a package with the same name as one
-  which already exists.
+  long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also
+  must not already be taken on PyPI. **Be sure to update this with your
+  username** for this tutorial, as this ensures you won't try to upload a
+  package with the same name as one which already exists.
 - ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>`
   for more details on versions. Some build backends allow it to be specified
   another way, such as from a file or a git tag.
@@ -402,7 +402,7 @@ After the command completes, you should see output similar to this:
 
 
 Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE
+https://test.pypi.org/project/example_package_your_username_here.
 
 
 Installing your newly uploaded package
