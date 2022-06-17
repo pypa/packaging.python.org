@@ -483,7 +483,7 @@ do much the same as you did in this tutorial, but with these important
 differences:
 
 * Choose a memorable and unique name for your package. You don't have to append
-  your username as you did in the tutorial. But you can't take an existing name.
+  your username as you did in the tutorial, but you can't take an existing name.
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
