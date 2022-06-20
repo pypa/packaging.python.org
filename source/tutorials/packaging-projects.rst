@@ -35,10 +35,11 @@ A simple project
 ----------------
 
 This tutorial uses a simple project named
-``example_package_YOUR_USERNAME_HERE``; if your username is ``me``, then the
-package would be ``example_package_me``; this ensures a unique name for
-uploading to TestPyPI at the end. We recommend following this tutorial as-is
-using this project, before packaging your own project.
+``example_package_YOUR_USERNAME_HERE``. If your username is ``me``, then the
+package would be ``example_package_me``; this ensures that you have a unique
+package name that doesn't conflict with packages uploaded by other people
+following this tutorial. We recommend following this tutorial as-is using this
+project, before packaging your own project.
 
 Create the following file structure locally:
 
@@ -50,9 +51,8 @@ Create the following file structure locally:
             ├── __init__.py
             └── example.py
 
-The folder containing the Python module should match the package name, both
-to avoid extra configuration and to avoid confusing users who expect the pip
-install name to match the importable name.
+The directory containing the Python files should match the project name. This
+simplifies the configuration and is more obvious to users who install the package.
 
 :file:`__init__.py` is required to import the directory as a package, and
 should be empty.
@@ -91,9 +91,9 @@ When you're done, the project structure will look like this:
     ├── pyproject.toml
     ├── README.md
     ├── src/
-    │   └── example_package_YOUR_USERNAME_HERE/
-    │       ├── __init__.py
-    │       └── example.py
+    │   └── example_package_YOUR_USERNAME_HERE/
+    │       ├── __init__.py
+    │       └── example.py
     └── tests/
 
 
@@ -106,13 +106,23 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
-:file:`pyproject.toml` tells tools like :ref:`pip` and :ref:`build` what 
-"build backend" to use to create :term:`distribution packages <Distribution Package>`
-for your project. You can choose from a number of backends; this tutorial
-recommends :ref:`Hatchling <hatch>` for its simplicity and speed, but it will
-work identically with :ref:`setuptools`, :ref:`Flit <flit>`, :ref:`PDM <pdm>`,
-and others that support the ``[project]`` table for :ref:`metadata <configuring
-metadata>`.
+.. TODO: Add an intro sentence about pyproject.toml, and a sub-heading for
+   "Configuring build tools"
+
+:file:`pyproject.toml` tells tools "frontend" build tools like :ref:`pip` and
+:ref:`build` what "backend" tool to use to create
+:term:`distribution packages <Distribution Package>` for your project.
+You can choose from a number of backends; this tutorial uses :ref:`Hatchling
+<hatch>` by default, but it will work identically with :ref:`setuptools`,
+:ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
+table for :ref:`metadata <configuring metadata>`.
+
+.. note::
+
+   Some build backends are part of larger tools that provide a command-line
+   interface with additional features like project initialization and version
+   management, as well as building, uploading, and installing packages. This
+   tutorial uses single-purpose tools that work independently.
 
 Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
 
@@ -140,7 +150,6 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
         requires = ["flit_core>=3.2"]
         build-backend = "flit_core.buildapi"
 
-
 .. tab:: PDM
 
     .. code-block:: toml
@@ -150,9 +159,11 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
         build-backend = "pdm.pep517.api"
 
 
-``requires`` is a list of packages that are needed to build your package.
-``build-backend`` is the name of Python object that will be used to perform the
-build. See :pep:`517` and :pep:`518` for background and details.
+- ``requires`` is a list of packages that are needed to build your package. You
+  don't need to install them; build frontends like :ref:`pip` will install them
+  automatically in a temporary, isolated virtual environment.
+- ``build-backend`` is the name of the Python object that frontends will use to
+  perform the build.
 
 .. TODO: Add note to check the tools' documentation for the current snippet?
 
@@ -162,9 +173,9 @@ Configuring metadata
 ^^^^^^^^^^^^^^^^^^^^
 
 Open :file:`pyproject.toml` and enter the following content. Change the ``name``
-to include your username; this ensures that you have a unique package name
-and that your package doesn't conflict with packages uploaded by other
-people following this tutorial.
+to include your username; this ensures that you have a unique
+package name that doesn't conflict with packages uploaded by other people
+following this tutorial.
 
 .. code-block:: toml
 
@@ -497,8 +508,10 @@ At this point if you want to read more on packaging Python libraries here are
 some things you can do:
 
 .. TODO: Add links to other guides
+.. TODO: Add links to backend configuration docs
 
-* Read about :doc:`/guides/packaging-binary-extensions`.
 * Consider packaging tools with project management features, such as
   :ref:`hatch`, :ref:`flit`, :ref:`pdm`, and :ref:`poetry`.
+* See :pep:`517` and :pep:`518` for background and details on build tool configuration.
+* Read about :doc:`/guides/packaging-binary-extensions`.
 
