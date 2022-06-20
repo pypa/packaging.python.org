@@ -412,8 +412,8 @@ After the command completes, you should see output similar to this:
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
-Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example_package_your_username_here.
+Once uploaded your package should be viewable on TestPyPI; for example:
+``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
 
 
 Installing your newly uploaded package
