@@ -161,7 +161,8 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
 
 - ``requires`` is a list of packages that are needed to build your package. You
   don't need to install them; build frontends like :ref:`pip` will install them
-  automatically in a temporary, isolated virtual environment.
+  automatically in a temporary, isolated virtual environment for use during the
+  build process.
 - ``build-backend`` is the name of the Python object that frontends will use to
   perform the build.
 
@@ -494,7 +495,7 @@ do much the same as you did in this tutorial, but with these important
 differences:
 
 * Choose a memorable and unique name for your package. You don't have to append
-  your username as you did in the tutorial, but you can't take an existing name.
+  your username as you did in the tutorial, but you can't use an existing name.
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
@@ -510,8 +511,9 @@ some things you can do:
 .. TODO: Add links to other guides
 .. TODO: Add links to backend configuration docs
 
-* Consider packaging tools with project management features, such as
-  :ref:`hatch`, :ref:`flit`, :ref:`pdm`, and :ref:`poetry`.
-* See :pep:`517` and :pep:`518` for background and details on build tool configuration.
+* Consider packaging tools that provide a single command-line interface for
+  project management and packaging, such as :ref:`hatch`, :ref:`flit`,
+  :ref:`pdm`, and :ref:`poetry`.
+* Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
 * Read about :doc:`/guides/packaging-binary-extensions`.
 
