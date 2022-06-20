@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-09 12:27+0000\n"
+"POT-Creation-Date: 2022-06-20 19:47+0000\n"
 "PO-Revision-Date: 2021-08-20 01:32+0000\n"
 "Last-Translator: GUILHERME FERNANDES NETO <gfneto4@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -12982,7 +12982,7 @@ msgid ""
 msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:601
+#: ../source/tutorials/packaging-projects.rst:483
 msgid "Next steps"
 msgstr ""
 
@@ -13068,7 +13068,7 @@ msgid ""
 "This tutorial walks you through how to package a simple Python project. It "
 "will show you how to add the necessary files and structure to create the "
 "package, how to build the package, and how to upload it to the Python "
-"Package Index."
+"Package Index (PyPI)."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:10
@@ -13090,206 +13090,168 @@ msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:37
 msgid ""
-"This tutorial uses a simple project named ``example_package``.  We recommend "
-"following this tutorial as-is using this project, before packaging your own "
-"project."
+"This tutorial uses a simple project named "
+"``example_package_YOUR_USERNAME_HERE``. If your username is ``me``, then the "
+"package would be ``example_package_me``; this ensures that you have a unique "
+"package name that doesn't conflict with packages uploaded by other people "
+"following this tutorial. We recommend following this tutorial as-is using "
+"this project, before packaging your own project."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:41
+#: ../source/tutorials/packaging-projects.rst:44
 msgid "Create the following file structure locally:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:51
+#: ../source/tutorials/packaging-projects.rst:54
+msgid ""
+"The directory containing the Python files should match the project name. "
+"This simplifies the configuration and is more obvious to users who install "
+"the package."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:57
 msgid ""
 ":file:`__init__.py` is required to import the directory as a package, and "
 "should be empty."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:54
+#: ../source/tutorials/packaging-projects.rst:60
 msgid ""
 ":file:`example.py` is an example of a module within the package that could "
 "contain the logic (functions, classes, constants, etc.) of your package. "
 "Open that file and enter the following content:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:63
+#: ../source/tutorials/packaging-projects.rst:69
 msgid ""
 "If you are unfamiliar with Python's :term:`modules <Module>` and :term:"
 "`import packages <Import Package>`, take a few minutes to read over the "
 "`Python documentation for packages and modules`_."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:67
+#: ../source/tutorials/packaging-projects.rst:73
 msgid ""
 "Once you create this structure, you'll want to run all of the commands in "
 "this tutorial within the ``packaging_tutorial`` directory."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:75
+#: ../source/tutorials/packaging-projects.rst:81
 msgid "Creating the package files"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:77
+#: ../source/tutorials/packaging-projects.rst:83
 msgid ""
 "You will now add files that are used to prepare the project for "
 "distribution. When you're done, the project structure will look like this:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:95
+#: ../source/tutorials/packaging-projects.rst:101
 msgid "Creating a test directory"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:97
+#: ../source/tutorials/packaging-projects.rst:103
 msgid ":file:`tests/` is a placeholder for test files. Leave it empty for now."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:101
+#: ../source/tutorials/packaging-projects.rst:107
 msgid "Creating pyproject.toml"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:103
+#: ../source/tutorials/packaging-projects.rst:112
 msgid ""
-":file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`) "
-"what is required to build your project. This tutorial uses :ref:"
-"`setuptools`, so open :file:`pyproject.toml` and enter the following content:"
+":file:`pyproject.toml` tells tools \"frontend\" build tools like :ref:`pip` "
+"and :ref:`build` what \"backend\" tool to use to create :term:`distribution "
+"packages <Distribution Package>` for your project. You can choose from a "
+"number of backends; this tutorial uses :ref:`Hatchling <hatch>` by default, "
+"but it will work identically with :ref:`setuptools`, :ref:`Flit <flit>`, :"
+"ref:`PDM <pdm>`, and others that support the ``[project]`` table for :ref:"
+"`metadata <configuring metadata>`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:114
+#: ../source/tutorials/packaging-projects.rst:122
 msgid ""
-"``build-system.requires`` gives a list of packages that are needed to build "
-"your package. Listing something here will *only* make it available during "
-"the build, not after it is installed."
+"Some build backends are part of larger tools that provide a command-line "
+"interface with additional features like project initialization and version "
+"management, as well as building, uploading, and installing packages. This "
+"tutorial uses single-purpose tools that work independently."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:118
+#: ../source/tutorials/packaging-projects.rst:127
 msgid ""
-"``build-system.build-backend`` is the name of Python object that will be "
-"used to perform the build. If you were to use a different build system, such "
-"as :ref:`flit` or :ref:`poetry`, those would go here, and the configuration "
-"details would be completely different than the :ref:`setuptools` "
-"configuration described below."
+"Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:124
-msgid "See :pep:`517` and :pep:`518` for background and details."
+#: ../source/tutorials/packaging-projects.rst:162
+msgid ""
+"``requires`` is a list of packages that are needed to build your package. "
+"You don't need to install them; build frontends like :ref:`pip` will install "
+"them automatically in a temporary, isolated virtual environment for use "
+"during the build process."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:128
+#: ../source/tutorials/packaging-projects.rst:166
+msgid ""
+"``build-backend`` is the name of the Python object that frontends will use "
+"to perform the build."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:174
 msgid "Configuring metadata"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:130
-msgid "There are two types of metadata: static and dynamic."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:132
+#: ../source/tutorials/packaging-projects.rst:176
 msgid ""
-"Static metadata (:file:`setup.cfg`): guaranteed to be the same every time. "
-"This is simpler, easier to read, and avoids many common errors, like "
-"encoding errors."
+"Open :file:`pyproject.toml` and enter the following content. Change the "
+"``name`` to include your username; this ensures that you have a unique "
+"package name that doesn't conflict with packages uploaded by other people "
+"following this tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:134
-msgid ""
-"Dynamic metadata (:file:`setup.py`): possibly non-deterministic. Any items "
-"that are dynamic or determined at install-time, as well as extension modules "
-"or extensions to setuptools, need to go into :file:`setup.py`."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:138
-msgid ""
-"Static metadata (:file:`setup.cfg`) should be preferred. Dynamic metadata (:"
-"file:`setup.py`) should be used only as an escape hatch when absolutely "
-"necessary. :file:`setup.py` used to be required, but can be omitted with "
-"newer versions of setuptools and pip."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:145
-msgid ""
-":file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells "
-"setuptools about your package (such as the name and version) as well as "
-"which code files to include. Eventually much of this configuration may be "
-"able to move to :file:`pyproject.toml`."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:150
-msgid ""
-"Open :file:`setup.cfg` and enter the following content. Change the ``name`` "
-"to include your username; this ensures that you have a unique package name "
-"and that your package doesn't conflict with packages uploaded by other "
-"people following this tutorial."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:182
-msgid ""
-"There are a `variety of metadata and options <https://setuptools.readthedocs."
-"io/en/latest/userguide/declarative_config.html>`_ supported here. This is "
-"in :doc:`configparser <python:library/configparser>` format; do not place "
-"quotes around values. This example package uses a relatively minimal set of "
-"``metadata``:"
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:188
-#: ../source/tutorials/packaging-projects.rst:283
+#: ../source/tutorials/packaging-projects.rst:202
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
-"long as it only contains letters, numbers, ``_`` , and ``-``. It also must "
-"not already be taken on pypi.org. **Be sure to update this with your "
-"username,** as this ensures you won't try to upload a package with the same "
-"name as one which already exists."
+"long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
+"must not already be taken on PyPI. **Be sure to update this with your "
+"username** for this tutorial, as this ensures you won't try to upload a "
+"package with the same name as one which already exists."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:193
+#: ../source/tutorials/packaging-projects.rst:207
 msgid ""
-"``version`` is the package version. See :pep:`440` for more details on "
-"versions. You can use ``file:`` or ``attr:`` directives to read from a file "
-"or package attribute."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:196
-#: ../source/tutorials/packaging-projects.rst:290
-msgid ""
-"``author`` and ``author_email`` are used to identify the author of the "
-"package."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:198
-#: ../source/tutorials/packaging-projects.rst:292
-msgid "``description`` is a short, one-sentence summary of the package."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:199
-msgid ""
-"``long_description`` is a detailed description of the package. This is shown "
-"on the package detail page on the Python Package Index. In this case, the "
-"long description is loaded from :file:`README.md` (which is a common "
-"pattern) using the ``file:`` directive."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:203
-#: ../source/tutorials/packaging-projects.rst:297
-msgid ""
-"``long_description_content_type`` tells the index what type of markup is "
-"used for the long description. In this case, it's Markdown."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:205
-#: ../source/tutorials/packaging-projects.rst:299
-msgid ""
-"``url`` is the URL for the homepage of the project. For many projects, this "
-"will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting "
-"service."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:208
-#: ../source/tutorials/packaging-projects.rst:302
-msgid ""
-"``project_urls`` lets you list any number of extra links to show on PyPI. "
-"Generally this could be to documentation, issue trackers, etc."
+"``version`` is the package version. See the :ref:`version specifier "
+"specification <version-specifiers>` for more details on versions. Some build "
+"backends allow it to be specified another way, such as from a file or a git "
+"tag."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:210
-#: ../source/tutorials/packaging-projects.rst:304
+msgid ""
+"``authors`` is used to identify the author of the package; you specify a "
+"name and an email for each author. You can also list ``maintainers`` in the "
+"same format."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:213
+msgid "``description`` is a short, one-sentence summary of the package."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:214
+msgid ""
+"``readme`` is a path to a file containing a detailed description of the "
+"package. This is shown on the package detail page on PyPI. In this case, the "
+"description is loaded from :file:`README.md` (which is a common pattern). "
+"There also is a more advanced table form described in the :ref:`project "
+"metadata specification <declaring-project-metadata>`."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:219
+msgid ""
+"``requires-python`` gives the versions of Python supported by your project. "
+"Installers like :ref:`pip` will look back through older versions of packages "
+"until it finds one that has a matching Python version."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:222
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -13300,137 +13262,36 @@ msgid ""
 "pypi.org/classifiers/."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:218
-msgid "In the ``options`` category, we have controls for setuptools itself:"
+#: ../source/tutorials/packaging-projects.rst:229
+msgid ""
+"``urls`` lets you list any number of extra links to show on PyPI. Generally "
+"this could be to the source, documentation, issue trackers, etc."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:220
+#: ../source/tutorials/packaging-projects.rst:232
 msgid ""
-"``package_dir`` is a mapping of package names and directories. An empty "
-"package name represents the \"root package\" --- the directory in the "
-"project that contains all Python source files for the package --- so in this "
-"case the ``src`` directory is designated the root package."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:224
-msgid ""
-"``packages`` is a list of all Python :term:`import packages <Import "
-"Package>` that should be included in the :term:`distribution package "
-"<Distribution Package>`. Instead of listing each package manually, we can "
-"use the ``find:`` directive to automatically discover all packages and "
-"subpackages and ``options.packages.find`` to specify the ``package_dir`` to "
-"use. In this case, the list of packages will be ``example_package`` as "
-"that's the only package present."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:231
-msgid ""
-"``python_requires`` gives the versions of Python supported by your project. "
-"Installers like :ref:`pip` will look back through older versions of packages "
-"until it finds one that has a matching Python version."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:235
-#: ../source/tutorials/packaging-projects.rst:326
-msgid ""
-"There are many more than the ones mentioned here. See :doc:`/guides/"
-"distributing-packages-using-setuptools` for more details."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:241
-msgid ""
-":file:`setup.py` is the build script for :ref:`setuptools`. It tells "
-"setuptools about your package (such as the name and version) as well as "
-"which code files to include."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:245
-msgid ""
-"Open :file:`setup.py` and enter the following content.  Change the ``name`` "
-"to include your username; this ensures that you have a unique package name "
-"and that your package doesn't conflict with packages uploaded by other "
-"people following this tutorial."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:280
-msgid ""
-":func:`setup` takes several arguments. This example package uses a "
-"relatively minimal set:"
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:288
-msgid ""
-"``version`` is the package version. See :pep:`440` for more details on "
-"versions."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:293
-msgid ""
-"``long_description`` is a detailed description of the package. This is shown "
-"on the package detail page on the Python Package Index. In this case, the "
-"long description is loaded from :file:`README.md`, which is a common pattern."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:311
-msgid ""
-"``package_dir`` is a dictionary with package names for keys and directories "
-"for values. An empty package name represents the \"root package\" --- the "
-"directory in the project that contains all Python source files for the "
-"package --- so in this case the ``src`` directory is designated the root "
+"See the :ref:`project metadata specification <declaring-project-metadata>` "
+"for details on these and other fields that can be defined in the "
+"``[project]`` table. Other common fields are ``keywords`` to improve "
+"discoverability and the ``dependencies`` that are required to install your "
 "package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:316
-msgid ""
-"``packages`` is a list of all Python :term:`import packages <Import "
-"Package>` that should be included in the :term:`distribution package "
-"<Distribution Package>`. Instead of listing each package manually, we can "
-"use :func:`find_packages` to automatically discover all packages and "
-"subpackages under ``package_dir``. In this case, the list of packages will "
-"be ``example_package`` as that's the only package present."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:322
-msgid ""
-"``python_requires`` gives the versions of Python supported by your project. "
-"Installers like :ref:`pip` will look back though older versions of packages "
-"until it finds one that has a matching Python version."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:331
-msgid ""
-"You may see some existing projects or other Python packaging tutorials that "
-"import their ``setup`` function from ``distutils.core`` rather than "
-"``setuptools``. This is a legacy approach that installers support for "
-"backwards compatibility purposes [1]_, but using the legacy ``distutils`` "
-"API directly in new projects is strongly discouraged, since ``distutils`` is "
-"deprecated as per :pep:`632` and will be removed from the standard library "
-"in Python 3.12."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:340
+#: ../source/tutorials/packaging-projects.rst:238
 msgid "Creating README.md"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:342
+#: ../source/tutorials/packaging-projects.rst:240
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:354
-msgid ""
-"Because our configuration loads :file:`README.md` to provide a "
-"``long_description``, :file:`README.md` must be included along with your "
-"code when you :ref:`generate a source distribution <generating archives>`. "
-"Newer versions of :ref:`setuptools` will do this automatically."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:361
+#: ../source/tutorials/packaging-projects.rst:253
 msgid "Creating a LICENSE"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:363
+#: ../source/tutorials/packaging-projects.rst:255
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -13439,79 +13300,71 @@ msgid ""
 "and enter the license text. For example, if you had chosen the MIT license:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:394
+#: ../source/tutorials/packaging-projects.rst:286
 msgid "Including other files"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:396
+#: ../source/tutorials/packaging-projects.rst:288
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
-"distribution <Source Distribution (or \"sdist\")>`. If you want to control "
-"what goes in this explicitly, see :ref:`Using MANIFEST.in`."
+"distribution <Source Distribution (or \"sdist\")>`. If you want to include "
+"additional files, see the documentation for your build backend."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:400
-msgid ""
-"The final :term:`built distribution <Built Distribution>` will have the "
-"Python files in the discovered or listed Python packages. If you want to "
-"control what goes here, such as to add data files, see :doc:`Including Data "
-"Files <setuptools:userguide/datafiles>` from the :doc:`setuptools docs "
-"<setuptools:index>`."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:409
+#: ../source/tutorials/packaging-projects.rst:295
 msgid "Generating distribution archives"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:411
+#: ../source/tutorials/packaging-projects.rst:297
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
 "Python Package Index and can be installed by :ref:`pip`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:415
+#: ../source/tutorials/packaging-projects.rst:301
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:429
+#: ../source/tutorials/packaging-projects.rst:315
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:432
+#: ../source/tutorials/packaging-projects.rst:318
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:446
+#: ../source/tutorials/packaging-projects.rst:332
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:456
+#: ../source/tutorials/packaging-projects.rst:342
 msgid ""
-"The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the "
-"``.whl`` file is a :term:`built distribution <Built Distribution>`. Newer :"
-"ref:`pip` versions preferentially install built distributions, but will fall "
-"back to source archives if needed. You should always upload a source archive "
-"and provide built archives for the platforms your project is compatible "
-"with. In this case, our example package is compatible with Python on any "
-"platform so only one built distribution is needed."
+"The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
+"\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
+"Distribution>`. Newer :ref:`pip` versions preferentially install built "
+"distributions, but will fall back to source distributions if needed. You "
+"should always upload a source distribution and provide built distributions "
+"for the platforms your project is compatible with. In this case, our example "
+"package is compatible with Python on any platform so only one built "
+"distribution is needed."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:465
+#: ../source/tutorials/packaging-projects.rst:351
 msgid "Uploading the distribution archives"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:467
+#: ../source/tutorials/packaging-projects.rst:353
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:469
+#: ../source/tutorials/packaging-projects.rst:355
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -13522,7 +13375,7 @@ msgid ""
 "any packages.  For more details, see :doc:`/guides/using-testpypi`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:477
+#: ../source/tutorials/packaging-projects.rst:363
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -13530,56 +13383,56 @@ msgid ""
 "saved the token — you won't see that token again.**"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:484
+#: ../source/tutorials/packaging-projects.rst:370
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:499
+#: ../source/tutorials/packaging-projects.rst:385
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:513
+#: ../source/tutorials/packaging-projects.rst:399
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
 "`` prefix."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:517
+#: ../source/tutorials/packaging-projects.rst:403
 msgid "After the command completes, you should see output similar to this:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:530
+#: ../source/tutorials/packaging-projects.rst:416
 msgid ""
-"Once uploaded your package should be viewable on TestPyPI, for example, "
-"https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
+"Once uploaded your package should be viewable on TestPyPI; for example: "
+"``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:535
+#: ../source/tutorials/packaging-projects.rst:421
 msgid "Installing your newly uploaded package"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:537
+#: ../source/tutorials/packaging-projects.rst:423
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
 "Environments>` and install your package from TestPyPI:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:553
+#: ../source/tutorials/packaging-projects.rst:439
 msgid "Make sure to specify your username in the package name!"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:555
+#: ../source/tutorials/packaging-projects.rst:441
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:565
+#: ../source/tutorials/packaging-projects.rst:451
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -13589,30 +13442,22 @@ msgid ""
 "installing dependencies when using TestPyPI."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:572
+#: ../source/tutorials/packaging-projects.rst:458
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:587
+#: ../source/tutorials/packaging-projects.rst:473
 msgid "and import the package:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:595
-msgid ""
-"Note that the :term:`import package <Import Package>` is ``example_package`` "
-"regardless of what ``name`` you gave your :term:`distribution package "
-"<Distribution Package>` in :file:`setup.cfg` or :file:`setup.py` (in this "
-"case, ``example-package-YOUR-USERNAME-HERE``)."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:603
+#: ../source/tutorials/packaging-projects.rst:485
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 ✨"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:606
+#: ../source/tutorials/packaging-projects.rst:488
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -13620,27 +13465,28 @@ msgid ""
 "experiments like this tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:611
+#: ../source/tutorials/packaging-projects.rst:493
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
 "differences:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:615
+#: ../source/tutorials/packaging-projects.rst:497
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
-"append your username as you did in the tutorial."
+"append your username as you did in the tutorial, but you can't use an "
+"existing name."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:617
+#: ../source/tutorials/packaging-projects.rst:499
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
 "main server."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:620
+#: ../source/tutorials/packaging-projects.rst:502
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -13648,41 +13494,31 @@ msgid ""
 "repository``; the package will upload to https://pypi.org/ by default."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:624
+#: ../source/tutorials/packaging-projects.rst:506
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:626
+#: ../source/tutorials/packaging-projects.rst:508
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:629
+#: ../source/tutorials/packaging-projects.rst:514
 msgid ""
-"Read more about using :ref:`setuptools` to package libraries in :doc:`/"
-"guides/distributing-packages-using-setuptools`."
+"Consider packaging tools that provide a single command-line interface for "
+"project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
+"`pdm`, and :ref:`poetry`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:631
+#: ../source/tutorials/packaging-projects.rst:517
+msgid ""
+"Read :pep:`517` and :pep:`518` for background and details on build tool "
+"configuration."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:518
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:632
-msgid ""
-"Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:"
-"`hatch`, and :ref:`poetry`."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:637
-msgid ""
-"Some legacy Python environments may not have ``setuptools`` pre-installed, "
-"and the operators of those environments may still be requiring users to "
-"install packages by running ``setup.py install`` commands, rather than "
-"providing an installer like ``pip`` that automatically installs required "
-"build dependendencies. These environments will not be able to use many "
-"published packages until the environment is updated to provide an up to date "
-"Python package installation client (e.g. by running ``python -m ensurepip``)."
 msgstr ""
