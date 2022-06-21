@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-20 19:47+0000\n"
-"PO-Revision-Date: 2022-06-20 19:47+0000\n"
+"PO-Revision-Date: 2022-06-22 12:47+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15765,6 +15765,10 @@ msgid ""
 "use :file:`.pypirc`, but with different defaults. Please refer to each "
 "project's documentation for more details and usage instructions."
 msgstr ""
+"これらの例は :ref:`twine` に当てはまります。他のプロジェクト (例えば "
+":ref:`flit`) でも :file:`.pypirc` ファイルを利用しますが、デフォルトの値が異"
+"なります。もっと詳しい情報や使い方の指南については、それぞれのプロジェクトの"
+"説明文書を参照してください。"
 
 #: ../source/specifications/pypirc.rst:65
 msgid ""
@@ -17407,6 +17411,10 @@ msgid ""
 "more steps in the project management workflow, such as incrementing versions "
 "and creating new skeleton projects from project templates."
 msgstr ""
+"`hatch <https://github.com/pypa/hatch>`_ は、プロジェクト管理のワークフローに"
+"おいて、バージョン番号の増やし方やテンプレートから新しいスケルトンプロジェク"
+"トを作成するやり方など、ステップ数は増えてもこだわりのあるやり方でやろうとす"
+"るツールです。"
 
 #: ../source/tutorials/managing-dependencies.rst:166
 msgid ""
@@ -17465,12 +17473,6 @@ msgid "Packaging Python Projects"
 msgstr "Python のプロジェクトをパッケージングする"
 
 #: ../source/tutorials/packaging-projects.rst:4
-#, fuzzy
-#| msgid ""
-#| "This tutorial walks you through how to package a simple Python project. "
-#| "It will show you how to add the necessary files and structure to create "
-#| "the package, how to build the package, and how to upload it to the Python "
-#| "Package Index."
 msgid ""
 "This tutorial walks you through how to package a simple Python project. It "
 "will show you how to add the necessary files and structure to create the "
@@ -17480,7 +17482,8 @@ msgstr ""
 "このチュートリアルでは、簡単な Python プロジェクトをどのようにしてパッケージ"
 "するのかについて、一通り見て回ります。パッケージを構成するために必要なファイ"
 "ルやディレクトリを追加する方法や、パッケージをビルドする方法、そして、Python "
-"パッケージインデックスにパッケージをアップロードする方法をお見せします。"
+"パッケージインデックス (PyPI) "
+"にパッケージをアップロードする方法をお見せします。"
 
 #: ../source/tutorials/packaging-projects.rst:10
 msgid ""
@@ -17488,16 +17491,22 @@ msgid ""
 "command and its output, then `open an issue`_ on the `packaging-problems`_ "
 "repository on GitHub. We'll do our best to help you!"
 msgstr ""
+"このチュートリアルに出てくるコマンドを実行したら問題が発生したという場合には"
+"、コマンドと結果出力をコピーして、 GitHub の `packaging-problems`_ "
+"リポジトリで `新たな課題 <open an issue>`_ "
+"を追加してください。我々が全力であなたをお助けします！"
 
 #: ../source/tutorials/packaging-projects.rst:18
 msgid ""
 "Some of the commands require a newer version of :ref:`pip`, so start by "
 "making sure you have the latest version installed:"
 msgstr ""
+"コマンドの中のいくつかは新しめのバージョンの :ref:`pip` でないとだめなので、"
+"最新版をインストールして使っていることを最初に確認しておいてください:"
 
 #: ../source/tutorials/packaging-projects.rst:35
 msgid "A simple project"
-msgstr ""
+msgstr "単純なプロジェクト"
 
 #: ../source/tutorials/packaging-projects.rst:37
 msgid ""
@@ -17508,10 +17517,17 @@ msgid ""
 "following this tutorial. We recommend following this tutorial as-is using "
 "this project, before packaging your own project."
 msgstr ""
+"このチュートリアルは、 ``example_package_YOUR_USERNAME_HERE`` "
+"という名前の単純なプロジェクトを使っています。もしあなたのユーザ名が ``me`` "
+"であるなら、パッケージの名前は ``example_package_me`` となるでしょう; こうす"
+"ることで、このチュートリアルに従っている他の人たちがアップロードするパッケー"
+"ジ群と名前が衝突することのない一意なパッケージ名を使っていることを保証できま"
+"す。自分自身のプロジェクトのパッケージングを始める前に、このプロジェクト名を"
+"使ってこのチュートリアルに沿った練習をすることをお勧めします。"
 
 #: ../source/tutorials/packaging-projects.rst:44
 msgid "Create the following file structure locally:"
-msgstr ""
+msgstr "ローカルに以下のファイル構造を作成する:"
 
 #: ../source/tutorials/packaging-projects.rst:54
 msgid ""
@@ -17519,12 +17535,17 @@ msgid ""
 "This simplifies the configuration and is more obvious to users who install "
 "the package."
 msgstr ""
+"Python ファイル群を格納するディレクトリは、プロジェクト名と同じ名前であるべき"
+"です。こうすることで設定が簡単になり、また、パッケージをインストールするユー"
+"ザから見てより明白になります。"
 
 #: ../source/tutorials/packaging-projects.rst:57
 msgid ""
 ":file:`__init__.py` is required to import the directory as a package, and "
 "should be empty."
 msgstr ""
+"パッケージとしてのディレクトリをインポートするには :file:`__init__.py` "
+"が存在していなければならず、また、それは空であるべきです。"
 
 #: ../source/tutorials/packaging-projects.rst:60
 msgid ""
@@ -17532,6 +17553,9 @@ msgid ""
 "contain the logic (functions, classes, constants, etc.) of your package. "
 "Open that file and enter the following content:"
 msgstr ""
+":file:`example.py` は、パッケージの中であなたのパッケージのロジック "
+"(関数・クラス・定数・その他) を含むであろうモジュールの例です。このファイルを"
+"開いて、以下の内容を入力してください:"
 
 #: ../source/tutorials/packaging-projects.rst:69
 msgid ""
@@ -17539,34 +17563,43 @@ msgid ""
 "`import packages <Import Package>`, take a few minutes to read over the "
 "`Python documentation for packages and modules`_."
 msgstr ""
+"Python における :term:`モジュール <Module>` や :term:`パッケージのインポート "
+"<Import Package>` に馴染みがなければ、数分を費やして `"
+"パッケージとモジュールに関する Python の説明文書 <Python documentation for "
+"packages and modules>`_ を読み通してください。"
 
 #: ../source/tutorials/packaging-projects.rst:73
 msgid ""
 "Once you create this structure, you'll want to run all of the commands in "
 "this tutorial within the ``packaging_tutorial`` directory."
 msgstr ""
+"この構造さえ作れば、このチュートリアルに出てくるすべてのコマンドを "
+"``packaging_tutorial`` ディレクトリで実行したくなるでしょう。"
 
 #: ../source/tutorials/packaging-projects.rst:81
 msgid "Creating the package files"
-msgstr ""
+msgstr "パッケージファイルを作成する"
 
 #: ../source/tutorials/packaging-projects.rst:83
 msgid ""
 "You will now add files that are used to prepare the project for "
 "distribution. When you're done, the project structure will look like this:"
 msgstr ""
+"ここで、プロジェクトの配布を準備するために使われるファイル群を追加しましょう"
+"。それが終わったら、プロジェクトの構造はこんな風になっていることでしょう:"
 
 #: ../source/tutorials/packaging-projects.rst:101
 msgid "Creating a test directory"
-msgstr ""
+msgstr "test ディレクトリを作成する"
 
 #: ../source/tutorials/packaging-projects.rst:103
 msgid ":file:`tests/` is a placeholder for test files. Leave it empty for now."
-msgstr ""
+msgstr ":file:`tests/` は、テスト用のファイルを置くためのプレースホルダーです。現段階"
+"では、空のままにしておいてください。"
 
 #: ../source/tutorials/packaging-projects.rst:107
 msgid "Creating pyproject.toml"
-msgstr ""
+msgstr "pyproject.toml を作成する"
 
 #: ../source/tutorials/packaging-projects.rst:112
 msgid ""
@@ -17578,6 +17611,15 @@ msgid ""
 "ref:`PDM <pdm>`, and others that support the ``[project]`` table for :ref:"
 "`metadata <configuring metadata>`."
 msgstr ""
+":file:`pyproject.toml` は、 :ref:`pip` や :ref:`build` のような "
+"\"フロントエンド\" のビルドツールに対して、どの \"backend\" "
+"ツールを使ってそのプロジェクトの :term:`配布パッケージ <Distribution "
+"Package>` を作成するべきかを指定します。バックエンドの選択肢は多数あります; "
+"このチュートリアルでは :ref:`Hatchling <hatch>` "
+"をデフォルトとして使っていますが、 :ref:`メタデータの設定 <configuring "
+"metadata>` のための ``[project]`` テーブルをサポートしてさえいれば "
+":ref:`setuptools` ・ :ref:`Flit <flit>` ・ :ref:`PDM <pdm>` "
+"やその他のツールでも同じように動作することでしょう。"
 
 #: ../source/tutorials/packaging-projects.rst:122
 msgid ""
@@ -17586,11 +17628,17 @@ msgid ""
 "management, as well as building, uploading, and installing packages. This "
 "tutorial uses single-purpose tools that work independently."
 msgstr ""
+"ビルド・アップロード・インストールと並んでプロジェクト初期化やバージョン管理"
+"のような追加機能を伴ったコマンドラインインタフェースを提供する、もっと大きな"
+"ツールの一部を構成するビルドバックエンドもあります。このチュートリアルでは、"
+"独立に動作する単一目的のツールを扱います。"
 
 #: ../source/tutorials/packaging-projects.rst:127
 msgid ""
 "Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:"
 msgstr ""
+":file:`pyproject.toml` を開いて、これらの ``[build-system]`` "
+"テーブルのうちのひとつを入力してください:"
 
 #: ../source/tutorials/packaging-projects.rst:162
 msgid ""
@@ -17599,16 +17647,22 @@ msgid ""
 "them automatically in a temporary, isolated virtual environment for use "
 "during the build process."
 msgstr ""
+"``requires`` は、当該パッケージをビルドするために必要となるパッケージ群を列挙"
+"したものです。これらを自分でインストールする必要はなく; :ref:`pip` のようなビ"
+"ルドフロントエンドが、ビルド作業の一環として、一時的で隔離された仮想環境に自"
+"動的にインストールしてくれることでしょう。"
 
 #: ../source/tutorials/packaging-projects.rst:166
 msgid ""
 "``build-backend`` is the name of the Python object that frontends will use "
 "to perform the build."
-msgstr ""
+msgstr "``build-backend`` は、"
+"そのフロントエンドがビルドを実行するにあたって使用するであろう Python "
+"オブジェクトの名前です。"
 
 #: ../source/tutorials/packaging-projects.rst:174
 msgid "Configuring metadata"
-msgstr ""
+msgstr "メタデータを設定する"
 
 #: ../source/tutorials/packaging-projects.rst:176
 msgid ""
@@ -17617,6 +17671,10 @@ msgid ""
 "package name that doesn't conflict with packages uploaded by other people "
 "following this tutorial."
 msgstr ""
+":file:`pyproject.toml` を開いて、以下の内容を入力してください。 ``name`` "
+"の値はあなたのユーザ名に書き換えてください; こうすることで、このチュートリア"
+"ルを履修している他の人たちがアップロードするパッケージと衝突を起こさない一意"
+"なパッケージ名を使っていることを保証することができます。"
 
 #: ../source/tutorials/packaging-projects.rst:202
 msgid ""
@@ -17626,6 +17684,13 @@ msgid ""
 "username** for this tutorial, as this ensures you won't try to upload a "
 "package with the same name as one which already exists."
 msgstr ""
+"``name`` は、あなたのパッケージの *配布物の名前* です。これは、文字・数字・ "
+"``.`` ・ ``_`` ・ ``-`` "
+"だけで構成されている限りは、どんな名前でも構いません。また、 PyPI "
+"上に既に存在するものであってはなりません。このチュートリアルでは、"
+"あなたのユーザ名を使って更新していることを **確実にしてください** 、というの"
+"は、そうすることで、既存の名前と同じ名前のパッケージのアップロードを試みるこ"
+"とがないと保証できるからです。"
 
 #: ../source/tutorials/packaging-projects.rst:207
 msgid ""
@@ -17634,6 +17699,10 @@ msgid ""
 "backends allow it to be specified another way, such as from a file or a git "
 "tag."
 msgstr ""
+"``version`` は、パッケージのバージョン番号です。バージョン番号についてもっと"
+"詳細に知りたい場合は、 :ref:`バージョン指定子 <version-specifiers>` "
+"を見てください。ビルドバックエンドの中には、ファイルから、もしくは、 git "
+"のタグからのように、別の方法で指定することを許容するものもあります。"
 
 #: ../source/tutorials/packaging-projects.rst:210
 msgid ""
@@ -17641,10 +17710,13 @@ msgid ""
 "name and an email for each author. You can also list ``maintainers`` in the "
 "same format."
 msgstr ""
+"``authors`` は、パッケージの作者を識別するために使われます; "
+"作者の一人一人について名前と電子メールアドレスを指定します。"
+"同じフォーマットで ``maintainers`` を列挙することもできます。"
 
 #: ../source/tutorials/packaging-projects.rst:213
 msgid "``description`` is a short, one-sentence summary of the package."
-msgstr ""
+msgstr "``description`` は、１文で短くパッケージを説明するものです。"
 
 #: ../source/tutorials/packaging-projects.rst:214
 msgid ""
@@ -17654,6 +17726,11 @@ msgid ""
 "There also is a more advanced table form described in the :ref:`project "
 "metadata specification <declaring-project-metadata>`."
 msgstr ""
+"``readme`` は、パッケージに関する詳細な説明を含んだファイルへのパスです。 "
+"PyPI 上のパッケージ詳細のページにこの内容が表示されます。この場合、"
+"説明の文言は :file:`README.md` (これがよくあるパターンです) "
+"からロードされます。他にも、 :ref:`プロジェクトのメタデータの仕様 <declaring-"
+"project-metadata>` に記述されているもっと先進的なテーブル形式があります。"
 
 #: ../source/tutorials/packaging-projects.rst:219
 msgid ""
@@ -17661,6 +17738,9 @@ msgid ""
 "Installers like :ref:`pip` will look back through older versions of packages "
 "until it finds one that has a matching Python version."
 msgstr ""
+"``requires-python`` は、そのプロジェクトがサポートしている Python "
+"のバージョンを与えます。 :ref:`pip` のようなインストーラは、 Python "
+"バージョンが合致するものまでパッケージのバージョンを遡って探索します。"
 
 #: ../source/tutorials/packaging-projects.rst:222
 msgid ""
@@ -17672,12 +17752,22 @@ msgid ""
 "your package will work on. For a complete list of classifiers, see https://"
 "pypi.org/classifiers/."
 msgstr ""
+"``classifiers`` は、インデックスと :ref:`pip` に、そのパッケージに関する追加"
+"的なメタデータをいくつか与えます。この場合には、当該パッケージは Python 3 "
+"でのみ動作し、 MIT ライセンスの下に従うものであり、 OS "
+"には依らず独立のものです。どのバージョンの Python 上でそのパッケージが動作す"
+"るのか、どのライセンスに従うのか、どのオペレーティングシステムで動作するのか"
+"を示しておくことは、常に最低限それだけはやるべきことです。 classifiers "
+"の完全なリストについては、 https://pypi.org/classifiers/ を見てください。"
 
 #: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
 msgstr ""
+"``urls`` には、 PyPI で表示するその他のリンクを幾つでも列挙しておくことができ"
+"ます。一般的に、ソースコードや説明文書、課題追跡システムその他へのリンクを挙"
+"げておけばよいでしょう。"
 
 #: ../source/tutorials/packaging-projects.rst:232
 msgid ""
