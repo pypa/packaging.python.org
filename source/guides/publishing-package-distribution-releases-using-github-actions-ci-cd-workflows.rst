@@ -14,6 +14,8 @@ It will use the `pypa/gh-action-pypi-publish GitHub Action`_.
 
    This guide *assumes* that you already have a project that
    you know how to build distributions for and *it lives on GitHub*.
+   This guide also assumes you have a pure Python project. If you
+   have binary compoents, check out :ref:`cibuildwheel`.
 
 Saving credentials on GitHub
 ============================
@@ -94,9 +96,7 @@ This will download your repository into the CI runner and then
 install and activate Python 3.10.
 
 And now we can build dists from source. In this example, we'll
-use ``build`` package, assuming that your project has a
-``pyproject.toml`` properly set up (see
-:pep:`517`/:pep:`518`).
+use ``build`` package.
 
 .. tip::
 
