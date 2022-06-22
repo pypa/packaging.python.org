@@ -109,7 +109,7 @@ Creating pyproject.toml
 .. TODO: Add an intro sentence about pyproject.toml, and a sub-heading for
    "Configuring build tools"
 
-:file:`pyproject.toml` tells tools "frontend" build tools like :ref:`pip` and
+:file:`pyproject.toml` tells "frontend" build tools like :ref:`pip` and
 :ref:`build` what "backend" tool to use to create
 :term:`distribution packages <Distribution Package>` for your project.
 You can choose from a number of backends; this tutorial uses :ref:`Hatchling
