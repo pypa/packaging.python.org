@@ -1,7 +1,11 @@
+:orphan:
+
 .. _`Migrating to PyPI.org`:
 
 Migrating to PyPI.org
 =====================
+
+:Page Status: Obsolete
 
 :term:`pypi.org` is the new, rewritten version of PyPI that has replaced the
 legacy PyPI code base. It is the default version of PyPI that people are

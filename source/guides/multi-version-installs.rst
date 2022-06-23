@@ -1,8 +1,11 @@
+:orphan:
 
 .. _`Multi-version installs`:
 
 Multi-version installs
 ======================
+
+:Page Status: Obsolete
 
 
 easy_install allows simultaneous installation of different versions of the same

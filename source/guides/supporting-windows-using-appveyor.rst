@@ -1,8 +1,10 @@
+:orphan:
+
 =================================
 Supporting Windows using Appveyor
 =================================
 
-:Page Status: Incomplete
+:Page Status: Obsolete
 :Last Reviewed: 2015-12-03
 
 This section covers how to use the free `Appveyor`_ continuous integration
