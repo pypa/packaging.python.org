@@ -3,7 +3,7 @@ Packaging Python Projects
 
 This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
-to build the package, and how to upload it to the Python Package Index.
+to build the package, and how to upload it to the Python Package Index (PyPI).
 
 .. tip::
 
@@ -34,9 +34,12 @@ sure you have the latest version installed:
 A simple project
 ----------------
 
-This tutorial uses a simple project named ``example_package``.  We recommend
-following this tutorial as-is using this project, before packaging your own
-project.
+This tutorial uses a simple project named
+``example_package_YOUR_USERNAME_HERE``. If your username is ``me``, then the
+package would be ``example_package_me``; this ensures that you have a unique
+package name that doesn't conflict with packages uploaded by other people
+following this tutorial. We recommend following this tutorial as-is using this
+project, before packaging your own project.
 
 Create the following file structure locally:
 
@@ -44,9 +47,12 @@ Create the following file structure locally:
 
     packaging_tutorial/
     └── src/
-        └── example_package/
+        └── example_package_YOUR_USERNAME_HERE/
             ├── __init__.py
             └── example.py
+
+The directory containing the Python files should match the project name. This
+simplifies the configuration and is more obvious to users who install the package.
 
 :file:`__init__.py` is required to import the directory as a package, and
 should be empty.
@@ -77,17 +83,17 @@ Creating the package files
 You will now add files that are used to prepare the project for distribution.
 When you're done, the project structure will look like this:
 
+
 .. code-block:: text
 
     packaging_tutorial/
     ├── LICENSE
     ├── pyproject.toml
     ├── README.md
-    ├── setup.cfg
     ├── src/
-    │   └── example_package/
-    │       ├── __init__.py
-    │       └── example.py
+    │   └── example_package_YOUR_USERNAME_HERE/
+    │       ├── __init__.py
+    │       └── example.py
     └── tests/
 
 
@@ -100,241 +106,133 @@ Creating a test directory
 Creating pyproject.toml
 -----------------------
 
-:file:`pyproject.toml` tells build tools (like :ref:`pip` and :ref:`build`)
-what is required to build your project. This tutorial uses :ref:`setuptools`,
-so open :file:`pyproject.toml` and enter the following content:
+.. TODO: Add an intro sentence about pyproject.toml, and a sub-heading for
+   "Configuring build tools"
+
+:file:`pyproject.toml` tells "frontend" build tools like :ref:`pip` and
+:ref:`build` what "backend" tool to use to create
+:term:`distribution packages <Distribution Package>` for your project.
+You can choose from a number of backends; this tutorial uses :ref:`Hatchling
+<hatch>` by default, but it will work identically with :ref:`setuptools`,
+:ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
+table for :ref:`metadata <configuring metadata>`.
+
+.. note::
+
+   Some build backends are part of larger tools that provide a command-line
+   interface with additional features like project initialization and version
+   management, as well as building, uploading, and installing packages. This
+   tutorial uses single-purpose tools that work independently.
+
+Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
+
+.. tab:: Hatchling
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["hatchling"]
+        build-backend = "hatchling.build"
+
+.. tab:: setuptools
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools>=61.0"]
+        build-backend = "setuptools.build_meta"
+
+.. tab:: Flit
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["flit_core>=3.2"]
+        build-backend = "flit_core.buildapi"
+
+.. tab:: PDM
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["pdm-pep517"]
+        build-backend = "pdm.pep517.api"
+
+
+- ``requires`` is a list of packages that are needed to build your package. You
+  don't need to install them; build frontends like :ref:`pip` will install them
+  automatically in a temporary, isolated virtual environment for use during the
+  build process.
+- ``build-backend`` is the name of the Python object that frontends will use to
+  perform the build.
+
+.. TODO: Add note to check the tools' documentation for the current snippet?
+
+.. _configuring metadata:
+
+Configuring metadata
+^^^^^^^^^^^^^^^^^^^^
+
+Open :file:`pyproject.toml` and enter the following content. Change the ``name``
+to include your username; this ensures that you have a unique
+package name that doesn't conflict with packages uploaded by other people
+following this tutorial.
 
 .. code-block:: toml
 
-    [build-system]
-    requires = ["setuptools>=42"]
-    build-backend = "setuptools.build_meta"
+    [project]
+    name = "example_package_YOUR_USERNAME_HERE"
+    version = "0.0.1"
+    authors = [
+      { name="Example Author", email="author@example.com" },
+    ]
+    description = "A small example package"
+    readme = "README.md"
+    requires-python = ">=3.7"
+    classifiers = [
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ]
 
+    [project.urls]
+    "Homepage" = "https://github.com/pypa/sampleproject"
+    "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
 
-``build-system.requires`` gives a list of packages that are needed to build your
-package. Listing something here will *only* make it available during the build,
-not after it is installed.
+- ``name`` is the *distribution name* of your package. This can be any name as
+  long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also
+  must not already be taken on PyPI. **Be sure to update this with your
+  username** for this tutorial, as this ensures you won't try to upload a
+  package with the same name as one which already exists.
+- ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>`
+  for more details on versions. Some build backends allow it to be specified
+  another way, such as from a file or a git tag.
+- ``authors`` is used to identify the author of the package; you specify a name
+  and an email for each author. You can also list ``maintainers`` in the same
+  format.
+- ``description`` is a short, one-sentence summary of the package.
+- ``readme`` is a path to a file containing a detailed description of the
+  package. This is shown on the package detail page on PyPI.
+  In this case, the description is loaded from :file:`README.md` (which is a
+  common pattern). There also is a more advanced table form described in the
+  :ref:`project metadata specification <declaring-project-metadata>`.
+- ``requires-python`` gives the versions of Python supported by your
+  project. Installers like :ref:`pip` will look back through older versions of
+  packages until it finds one that has a matching Python version.
+- ``classifiers`` gives the index and :ref:`pip` some additional metadata
+  about your package. In this case, the package is only compatible with Python
+  3, is licensed under the MIT license, and is OS-independent. You should
+  always include at least which version(s) of Python your package works on,
+  which license your package is available under, and which operating systems
+  your package will work on. For a complete list of classifiers, see
+  https://pypi.org/classifiers/.
+- ``urls`` lets you list any number of extra links to show on PyPI.
+  Generally this could be to the source, documentation, issue trackers, etc.
 
-``build-system.build-backend`` is the name of Python object that will be used to
-perform the build. If you were to use a different build system, such as
-:ref:`flit` or :ref:`poetry`, those would go here, and the configuration details
-would be completely different than the :ref:`setuptools` configuration described
-below.
-
-See :pep:`517` and :pep:`518` for background and details.
-
-
-Configuring metadata
---------------------
-
-There are two types of metadata: static and dynamic.
-
-* Static metadata (:file:`setup.cfg`): guaranteed to be the same every time. This is
-  simpler, easier to read, and avoids many common errors, like encoding errors.
-* Dynamic metadata (:file:`setup.py`): possibly non-deterministic. Any items that are
-  dynamic or determined at install-time, as well as extension modules or
-  extensions to setuptools, need to go into :file:`setup.py`.
-
-Static metadata (:file:`setup.cfg`) should be preferred. Dynamic metadata (:file:`setup.py`)
-should be used only as an escape hatch when absolutely necessary. :file:`setup.py` used to
-be required, but can be omitted with newer versions of setuptools and pip.
-
-
-.. tab:: :file:`setup.cfg` (static)
-
-    :file:`setup.cfg` is the configuration file for :ref:`setuptools`. It tells
-    setuptools about your package (such as the name and version) as well as which
-    code files to include. Eventually much of this configuration may be able to move
-    to :file:`pyproject.toml`.
-
-    Open :file:`setup.cfg` and enter the following content. Change the ``name``
-    to include your username; this ensures that you have a unique package name
-    and that your package doesn't conflict with packages uploaded by other
-    people following this tutorial.
-
-    .. code-block:: python
-
-        [metadata]
-        name = example-package-YOUR-USERNAME-HERE
-        version = 0.0.1
-        author = Example Author
-        author_email = author@example.com
-        description = A small example package
-        long_description = file: README.md
-        long_description_content_type = text/markdown
-        url = https://github.com/pypa/sampleproject
-        project_urls =
-            Bug Tracker = https://github.com/pypa/sampleproject/issues
-        classifiers =
-            Programming Language :: Python :: 3
-            License :: OSI Approved :: MIT License
-            Operating System :: OS Independent
-
-        [options]
-        package_dir =
-            = src
-        packages = find:
-        python_requires = >=3.6
-
-        [options.packages.find]
-        where = src
-
-    There are a `variety of metadata and options
-    <https://setuptools.readthedocs.io/en/latest/userguide/declarative_config.html>`_
-    supported here. This is in :doc:`configparser <python:library/configparser>`
-    format; do not place quotes around values. This example package uses a
-    relatively minimal set of ``metadata``:
-
-    - ``name`` is the *distribution name* of your package. This can be any name as
-      long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
-      already be taken on pypi.org. **Be sure to update this with your username,**
-      as this ensures you won't try to upload a package with the same name as one
-      which already exists.
-    - ``version`` is the package version. See :pep:`440` for more details on
-      versions. You can use ``file:`` or ``attr:`` directives to read from a file or
-      package attribute.
-    - ``author`` and ``author_email`` are used to identify the author of the
-      package.
-    - ``description`` is a short, one-sentence summary of the package.
-    - ``long_description`` is a detailed description of the package. This is
-      shown on the package detail page on the Python Package Index. In
-      this case, the long description is loaded from :file:`README.md` (which is
-      a common pattern) using the ``file:`` directive.
-    - ``long_description_content_type`` tells the index what type of markup is
-      used for the long description. In this case, it's Markdown.
-    - ``url`` is the URL for the homepage of the project. For many projects, this
-      will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
-      service.
-    - ``project_urls`` lets you list any number of extra links to show on PyPI.
-      Generally this could be to documentation, issue trackers, etc.
-    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
-      about your package. In this case, the package is only compatible with Python
-      3, is licensed under the MIT license, and is OS-independent. You should
-      always include at least which version(s) of Python your package works on,
-      which license your package is available under, and which operating systems
-      your package will work on. For a complete list of classifiers, see
-      https://pypi.org/classifiers/.
-
-    In the ``options`` category, we have controls for setuptools itself:
-
-    - ``package_dir`` is a mapping of package names and directories.
-      An empty package name represents the "root package" --- the directory in
-      the project that contains all Python source files for the package --- so
-      in this case the ``src`` directory is designated the root package.
-    - ``packages`` is a list of all Python :term:`import packages <Import
-      Package>` that should be included in the :term:`distribution package
-      <Distribution Package>`. Instead of listing each package manually, we can
-      use the ``find:`` directive to automatically discover all packages and
-      subpackages and ``options.packages.find`` to specify the ``package_dir``
-      to use. In this case, the list of packages will be ``example_package`` as
-      that's the only package present.
-    - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like :ref:`pip` will look back through older versions of
-      packages until it finds one that has a matching Python version.
-
-    There are many more than the ones mentioned here. See
-    :doc:`/guides/distributing-packages-using-setuptools` for more details.
-
-
-.. tab:: :file:`setup.py` (dynamic)
-
-    :file:`setup.py` is the build script for :ref:`setuptools`. It tells setuptools
-    about your package (such as the name and version) as well as which code files
-    to include.
-
-    Open :file:`setup.py` and enter the following content.  Change the ``name``
-    to include your username; this ensures that you have a unique package name
-    and that your package doesn't conflict with packages uploaded by other
-    people following this tutorial.
-
-    .. code-block:: python
-
-        import setuptools
-
-        with open("README.md", "r", encoding="utf-8") as fh:
-            long_description = fh.read()
-
-        setuptools.setup(
-            name="example-package-YOUR-USERNAME-HERE",
-            version="0.0.1",
-            author="Example Author",
-            author_email="author@example.com",
-            description="A small example package",
-            long_description=long_description,
-            long_description_content_type="text/markdown",
-            url="https://github.com/pypa/sampleproject",
-            project_urls={
-                "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
-            },
-            classifiers=[
-                "Programming Language :: Python :: 3",
-                "License :: OSI Approved :: MIT License",
-                "Operating System :: OS Independent",
-            ],
-            package_dir={"": "src"},
-            packages=setuptools.find_packages(where="src"),
-            python_requires=">=3.6",
-        )
-
-
-    :func:`setup` takes several arguments. This example package uses a relatively
-    minimal set:
-
-    - ``name`` is the *distribution name* of your package. This can be any name as
-      long as it only contains letters, numbers, ``_`` , and ``-``. It also must not
-      already be taken on pypi.org. **Be sure to update this with your username,**
-      as this ensures you won't try to upload a package with the same name as one
-      which already exists.
-    - ``version`` is the package version. See :pep:`440` for more details on
-      versions.
-    - ``author`` and ``author_email`` are used to identify the author of the
-      package.
-    - ``description`` is a short, one-sentence summary of the package.
-    - ``long_description`` is a detailed description of the package. This is
-      shown on the package detail page on the Python Package Index. In
-      this case, the long description is loaded from :file:`README.md`, which is
-      a common pattern.
-    - ``long_description_content_type`` tells the index what type of markup is
-      used for the long description. In this case, it's Markdown.
-    - ``url`` is the URL for the homepage of the project. For many projects, this
-      will just be a link to GitHub, GitLab, Bitbucket, or similar code hosting
-      service.
-    - ``project_urls`` lets you list any number of extra links to show on PyPI.
-      Generally this could be to documentation, issue trackers, etc.
-    - ``classifiers`` gives the index and :ref:`pip` some additional metadata
-      about your package. In this case, the package is only compatible with Python
-      3, is licensed under the MIT license, and is OS-independent. You should
-      always include at least which version(s) of Python your package works on,
-      which license your package is available under, and which operating systems
-      your package will work on. For a complete list of classifiers, see
-      https://pypi.org/classifiers/.
-    - ``package_dir`` is a dictionary with package names for keys and directories
-      for values. An empty package name represents the "root package" --- the
-      directory in the project that contains all Python source files for the
-      package --- so in this case the ``src`` directory is designated the root
-      package.
-    - ``packages`` is a list of all Python :term:`import packages <Import
-      Package>` that should be included in the :term:`distribution package
-      <Distribution Package>`. Instead of listing each package manually, we can
-      use :func:`find_packages` to automatically discover all packages and
-      subpackages under ``package_dir``. In this case, the list of packages will
-      be ``example_package`` as that's the only package present.
-    - ``python_requires`` gives the versions of Python supported by your
-      project. Installers like :ref:`pip` will look back though older versions of
-      packages until it finds one that has a matching Python version.
-
-    There are many more than the ones mentioned here. See
-    :doc:`/guides/distributing-packages-using-setuptools` for more details.
-
-    .. warning::
-
-      You may see some existing projects or other Python packaging tutorials that
-      import their ``setup`` function from ``distutils.core`` rather than
-      ``setuptools``. This is a legacy approach that installers support
-      for backwards compatibility purposes [1]_, but using the legacy ``distutils`` API
-      directly in new projects is strongly discouraged, since ``distutils`` is
-      deprecated as per :pep:`632` and will be removed from the standard library
-      in Python 3.12.
+See the :ref:`project metadata specification <declaring-project-metadata>` for
+details on these and other fields that can be defined in the ``[project]``
+table. Other common fields are ``keywords`` to improve discoverability and the
+``dependencies`` that are required to install your package.
 
 Creating README.md
 ------------------
@@ -349,12 +247,6 @@ if you'd like.
     This is a simple example package. You can use
     [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
     to write your content.
-
-
-Because our configuration loads :file:`README.md` to provide a
-``long_description``, :file:`README.md` must be included along with your
-code when you :ref:`generate a source distribution <generating archives>`.
-Newer versions of :ref:`setuptools` will do this automatically.
 
 
 Creating a LICENSE
@@ -395,21 +287,15 @@ Including other files
 
 The files listed above will be included automatically in your
 :term:`source distribution <Source Distribution (or "sdist")>`. If you want to
-control what goes in this explicitly, see :ref:`Using MANIFEST.in`.
-
-The final :term:`built distribution <Built Distribution>` will have the Python
-files in the discovered or listed Python packages. If you want to control what
-goes here, such as to add data files, see
-:doc:`Including Data Files <setuptools:userguide/datafiles>`
-from the :doc:`setuptools docs <setuptools:index>`.
+include additional files, see the documentation for your build backend.
 
 .. _generating archives:
 
 Generating distribution archives
 --------------------------------
 
-The next step is to generate :term:`distribution packages <Distribution
-Package>` for the package. These are archives that are uploaded to the Python
+The next step is to generate :term:`distribution packages <Distribution Package>`
+for the package. These are archives that are uploaded to the Python
 Package Index and can be installed by :ref:`pip`.
 
 Make sure you have the latest version of PyPA's :ref:`build` installed:
@@ -449,17 +335,17 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
-      example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
+      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
-The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas the
-``.whl`` file is a :term:`built distribution <Built Distribution>`. Newer
-:ref:`pip` versions preferentially install built distributions, but will fall
-back to source archives if needed. You should always upload a source archive and
-provide built archives for the platforms your project is compatible with. In
-this case, our example package is compatible with Python on any platform so only
-one built distribution is needed.
+The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
+whereas the ``.whl`` file is a :term:`built distribution <Built Distribution>`.
+Newer :ref:`pip` versions preferentially install built distributions, but will
+fall back to source distributions if needed. You should always upload a source
+distribution and provide built distributions for the platforms your project is
+compatible with. In this case, our example package is compatible with Python on
+any platform so only one built distribution is needed.
 
 Uploading the distribution archives
 -----------------------------------
@@ -521,14 +407,14 @@ After the command completes, you should see output similar to this:
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: [your username]
     Enter your password:
-    Uploading example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
-    Uploading example-package-YOUR-USERNAME-HERE-0.0.1.tar.gz
+    Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
     100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
 
 
-Once uploaded your package should be viewable on TestPyPI, for example,
-https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE
+Once uploaded your package should be viewable on TestPyPI; for example:
+``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
 
 
 Installing your newly uploaded package
@@ -558,9 +444,9 @@ something like this:
 .. code-block:: text
 
     Collecting example-package-YOUR-USERNAME-HERE
-      Downloading https://test-files.pythonhosted.org/packages/.../example-package-YOUR-USERNAME-HERE-0.0.1-py3-none-any.whl
-    Installing collected packages: example-package-YOUR-USERNAME-HERE
-    Successfully installed example-package-YOUR-USERNAME-HERE-0.0.1
+      Downloading https://test-files.pythonhosted.org/packages/.../example_package_YOUR_USERNAME_HERE_0.0.1-py3-none-any.whl
+    Installing collected packages: example_package_YOUR_USERNAME_HERE
+    Successfully installed example_package_YOUR_USERNAME_HERE-0.0.1
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of
    live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't
@@ -588,14 +474,10 @@ and import the package:
 
 .. code-block:: python
 
-    >>> from example_package import example
+    >>> from example_package_YOUR_USERNAME_HERE import example
     >>> example.add_one(2)
     3
 
-Note that the :term:`import package <Import Package>` is ``example_package``
-regardless of what ``name`` you gave your :term:`distribution package <Distribution
-Package>` in :file:`setup.cfg` or :file:`setup.py` (in this case,
-``example-package-YOUR-USERNAME-HERE``).
 
 Next steps
 ----------
@@ -613,7 +495,7 @@ do much the same as you did in this tutorial, but with these important
 differences:
 
 * Choose a memorable and unique name for your package. You don't have to append
-  your username as you did in the tutorial.
+  your username as you did in the tutorial, but you can't use an existing name.
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
@@ -626,19 +508,12 @@ differences:
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
 
-* Read more about using :ref:`setuptools` to package libraries in
-  :doc:`/guides/distributing-packages-using-setuptools`.
+.. TODO: Add links to other guides
+.. TODO: Add links to backend configuration docs
+
+* Consider packaging tools that provide a single command-line interface for
+  project management and packaging, such as :ref:`hatch`, :ref:`flit`,
+  :ref:`pdm`, and :ref:`poetry`.
+* Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Consider alternatives to :ref:`setuptools` such as :ref:`flit`, :ref:`hatch`,
-  and :ref:`poetry`.
 
-----
-
-.. [1] Some legacy Python environments may not have ``setuptools``
-       pre-installed, and the operators of those environments may still be
-       requiring users to install packages by running ``setup.py install``
-       commands, rather than providing an installer like ``pip`` that
-       automatically installs required build dependendencies. These
-       environments will not be able to use many published packages until the
-       environment is updated to provide an up to date Python package
-       installation client (e.g. by running ``python -m ensurepip``).
