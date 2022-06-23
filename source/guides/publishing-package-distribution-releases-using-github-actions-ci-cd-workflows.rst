@@ -12,10 +12,10 @@ It will use the `pypa/gh-action-pypi-publish GitHub Action`_.
 
 .. attention::
 
-   This guide *assumes* that you already have a project that
-   you know how to build distributions for and *it lives on GitHub*.
-   This guide also assumes you have a pure Python project. If you
-   have binary compoents, check out :ref:`cibuildwheel`.
+   This guide *assumes* that you already have a project that you know how to
+   build distributions for and *it lives on GitHub*.  This guide also avoids
+   details of building platform specific projects. If you have binary
+   components, check out :ref:`cibuildwheel`'s GitHub Action examples.
 
 Saving credentials on GitHub
 ============================
@@ -102,13 +102,15 @@ use ``build`` package.
 
    You can use any other method for building distributions as long as
    it produces ready-to-upload artifacts saved into the
-   ``dist/`` folder.
+   ``dist/`` folder. You can even use ``actions/upload-artifact`` and
+   ``actions/download-artifact`` to tranfer files between jobs or make them
+   accessable for download from the web CI interface.
 
 So add this to the steps list:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: version: "3.10"
+   :start-after: version: "3.x"
    :end-before: Actually publish to PyPI/TestPyPI
 
 
@@ -124,7 +126,9 @@ Finally, add the following steps at the end:
 These two steps use the `pypa/gh-action-pypi-publish`_ GitHub
 Action: the first one uploads contents of the ``dist/`` folder
 into TestPyPI unconditionally and the second does that to
-PyPI, but only if the current commit is tagged.
+PyPI, but only if the current commit is tagged. It is recommended
+you use the latest release tag; a tool like GitHub's dependabot can keep
+these updated regularly.
 
 
 That's all, folks!
