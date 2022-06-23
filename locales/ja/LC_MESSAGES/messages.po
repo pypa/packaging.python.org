@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-22 12:47+0000\n"
+"POT-Creation-Date: 2022-06-23 09:37+0000\n"
 "PO-Revision-Date: 2022-06-22 12:47+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -7171,31 +7171,41 @@ msgid "Defining a workflow job environment"
 msgstr "ワークフローのジョブ環境を定義する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
+#, fuzzy
+#| msgid ""
+#| "Now, let's add initial setup for our job. It's a process that will "
+#| "execute commands that we'll define later. In this guide, we'll use Ubuntu "
+#| "18.04:"
 msgid ""
 "Now, let's add initial setup for our job. It's a process that will execute "
-"commands that we'll define later. In this guide, we'll use Ubuntu 18.04:"
+"commands that we'll define later. In this guide, we'll use the latest stable "
+"Ubuntu LTS version provided by GitHub Actions:"
 msgstr ""
 "さて、我々のジョブについて最初の設定を追加しましょう。それは、我々が後で定義"
 "するであろうコマンドを実行するようなプロセスです。このガイドでは、 Ubuntu "
 "18.04 を使います:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:83
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:84
 msgid "Checking out the project and building distributions"
 msgstr "プロジェクトをチェックアウトして配布物をビルドする"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:85
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
 msgid "Then, add the following under the ``build-n-publish`` section:"
 msgstr "それから、以下のものを ``build-n-publish`` 節に追加しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:92
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
+#, fuzzy
+#| msgid ""
+#| "This will download your repository into the CI runner and then install "
+#| "and activate Python 3.9."
 msgid ""
 "This will download your repository into the CI runner and then install and "
-"activate Python 3.9."
+"activate Python 3.10."
 msgstr ""
 "これによって、あなたのリポジトリを CI ランナーにダウンロードして、 Python "
 "3.9 をインストールしアクティベートすることになります。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:95
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:96
 msgid ""
 "And now we can build dists from source. In this example, we'll use ``build`` "
 "package, assuming that your project has a ``pyproject.toml`` properly set up "
@@ -7206,7 +7216,7 @@ msgstr ""
 "`517` と :pep:`518` を参照してください) ことを仮定して、 ``build`` パッケージ"
 "を用いることになります。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:102
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
 msgid ""
 "You can use any other method for building distributions as long as it "
 "produces ready-to-upload artifacts saved into the ``dist/`` folder."
@@ -7214,19 +7224,19 @@ msgstr ""
 "アップロードできる状態の創作物を ``dist/`` ディレクトリに保存するという条件を"
 "満たすのであれば、どのような方法で配布物をビルドしても構いません。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:106
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:107
 msgid "So add this to the steps list:"
 msgstr "そこでこれを手順のリストに追加しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:115
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:116
 msgid "Publishing the distribution to PyPI and TestPyPI"
 msgstr "PyPI と TestPyPI へ配布物を公開する"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:117
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 msgid "Finally, add the following steps at the end:"
 msgstr "最後に、次の手続きを末尾に追加しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:123
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:124
 msgid ""
 "These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
 "first one uploads contents of the ``dist/`` folder into TestPyPI "
@@ -7238,11 +7248,11 @@ msgstr ""
 "する時で、二つ目はそのコミットがタグ付けされている場合に限って PyPI へ送る時"
 "です。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:131
 msgid "That's all, folks!"
 msgstr "これでできましたよ、皆さん!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:132
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:133
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
