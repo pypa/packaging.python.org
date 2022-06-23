@@ -188,6 +188,7 @@ following this tutorial.
     ]
     description = "A small example package"
     readme = "README.md"
+    license = { file="LICENSE" }
     requires-python = ">=3.7"
     classifiers = [
         "Programming Language :: Python :: 3",
@@ -216,6 +217,8 @@ following this tutorial.
   In this case, the description is loaded from :file:`README.md` (which is a
   common pattern). There also is a more advanced table form described in the
   :ref:`project metadata specification <declaring-project-metadata>`.
+- ``license.file`` USA path to the license file :file:`LICENSE`, described
+  below. See the project metadata specification for more advanced usage.
 - ``requires-python`` gives the versions of Python supported by your
   project. Installers like :ref:`pip` will look back through older versions of
   packages until it finds one that has a matching Python version.
