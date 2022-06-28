@@ -38,10 +38,10 @@ The steps to achieve this are as follows:
   these are made by a build tool/system using the configuration file
   from the previous step
 
+- upload the build artifacts to the package distribution service
+
 .. _source distribution ("sdist"): https://packaging.python.org/en/latest/glossary/#term-Source-Distribution-or-sdist
 .. _built distributions ("wheel" files): https://packaging.python.org/en/latest/glossary/#term-Built-Distribution
-
-- upload the build artifacts to the package distribution service
 
 At that point the package is present on the package distribution service.
 To use the package, end users must:
@@ -74,7 +74,9 @@ The Configuration File
 
 The configuration file depends on the tool used to build the build artifacts.
 Modern practice is a ``pyproject.toml`` file in `TOML format`_
-whose contents are specified by `PEP 517`_, `PEP 518`_ and `PEP 621`_.
+whose contents are specified by
+`PEP 517`_ and `PEP 518`_ (specifying a build system),
+and `PEP 621`_ (storing project metadata in ``pyproject.toml``).
 
 .. _TOML format: https://github.com/toml-lang/toml
 .. _PEP 517: https://peps.python.org/pep-0517/
@@ -82,11 +84,13 @@ whose contents are specified by `PEP 517`_, `PEP 518`_ and `PEP 621`_.
 .. _PEP 621: https://peps.python.org/pep-0621/
 
 At a minimum, the ``pyproject.toml`` file needs:
-- a ``[project]`` table containing the `Core Metadata`_ for the project
+
+* a ``[project]`` table containing the `Core Metadata`_ for the project
   (name, version, author and so forth);
   the fields used in ``pyproject.toml``
   are described in `PEP 621`_
-- a ``[build-system]`` table specifying your build tool,
+
+* a ``[build-system]`` table specifying your build tool,
   which you will use to create the build artifacts
   and which an installer such as `pip` will use
   to complete an install from a source distribution
@@ -109,7 +113,7 @@ There are several choices available, including but not limited to:
 .. _trampolim: https://pypi.org/project/trampolim/
 .. _whey: https://pypi.org/project/whey/
 
-For example, ere is a table for using ``setuptools`` (see the `Setuptools documentation`_)::
+For example, here is a table for using ``setuptools`` (see the `Setuptools documentation`_)::
 
     [build-system]
     requires = [
