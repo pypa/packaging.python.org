@@ -3,7 +3,7 @@ The Packaging Flow
 ==================
 
 The document aims to outline the flow involved in publishing a package,
-usually to the `Python Package Index (PyPI)`_
+usually to the `Python Package Index (PyPI)`_.
 
 .. _Python Package Index (PyPI): https://pypi.org/
 
@@ -116,11 +116,7 @@ There are several choices available, including but not limited to:
 For example, here is a table for using ``setuptools`` (see the `Setuptools documentation`_)::
 
     [build-system]
-    requires = [
-        "setuptools >= 61.0",
-        "trove-classifiers",
-        "wheel",
-    ]
+    requires = ["setuptools>=61.2""]
     build-backend = "setuptools.build_meta"
 
 .. _Setuptools documentation: https://setuptools.pypa.io/en/latest/userguide/index.html
@@ -141,8 +137,9 @@ when installing a source distribution.
 .. _build: https://pypi.org/project/build/
 
 The particular build system you choose dictates what additional information is required.
-For example, ``setuptools`` wants a ``setup.cfg`` file containing package metadata
-and it is also prudent to provide a stub ``setup.py`` containing::
+For example, if using ``setuptools`` you might want to add a ``setup.cfg`` file
+containing package metadata and/or a small ``setup.py`` stub for backward
+compatibility, for example::
 
     from setuptools import setup
     setup()
