@@ -11,6 +11,7 @@ Python Packaging User Guide
    :hidden:
 
    overview
+   flow
    tutorials/index
    guides/index
    discussions/index
