@@ -2,9 +2,10 @@
 The Packaging Flow
 ==================
 
-The document aims to outline the flow involved in publishing a package,
-usually to the `Python Package Index (PyPI)`_.
+The document aims to outline the flow involved in publishing/distributing
+a `distribution package`_, usually to the `Python Package Index (PyPI)`_.
 
+.. _distribution package: https://packaging.python.org/en/latest/glossary/#term-Distribution-Package
 .. _Python Package Index (PyPI): https://pypi.org/
 
 While the `tutorial`_
