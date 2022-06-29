@@ -110,7 +110,8 @@ Python 2, so long as they can be imported on Python 3.
 hatch
 =====
 
-`GitHub and Docs <https://github.com/pypa/hatch>`__ |
+`Docs <https://hatch.pypa.io/latest/>`__ |
+`GitHub <https://github.com/pypa/hatch>`__ |
 `PyPI <https://pypi.org/project/hatch>`__
 
 Hatch is a unified command-line tool meant to conveniently manage
