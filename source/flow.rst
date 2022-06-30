@@ -86,17 +86,22 @@ and `PEP 621`_ (storing project metadata in ``pyproject.toml``).
 
 At a minimum, the ``pyproject.toml`` file needs:
 
-* a ``[project]`` table containing the `Core Metadata`_ for the project
-  (name, version, author and so forth);
-  the fields used in ``pyproject.toml``
-  are described in `PEP 621`_
-
 * a ``[build-system]`` table specifying your build tool,
-  which you will use to create the build artifacts
-  and which an installer such as `pip` will use
+  which *you* will use to create the build artifacts
+  and which an *installer* such as `pip` will use
   to complete an install from a source distribution
 
+Very frequently you might also specify in ``pyproject.toml``
+(depending on the tools you use):
+
+* a ``[project]`` table containing project `Core Metadata`_
+  (name, version, author and so forth);
+  see `Declaring project metadata`_ for more detail
+
+* a ``[tool]`` table containing tool-specific configuration options
+
 .. _Core Metadata: https://packaging.python.org/en/latest/specifications/core-metadata/
+.. _Declaring project metadata: https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 
 The Build System
 ----------------
