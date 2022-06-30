@@ -76,13 +76,10 @@ The Configuration File
 The configuration file depends on the tool used to build the build artifacts.
 Modern practice is a ``pyproject.toml`` file in `TOML format`_
 whose contents are specified by
-`PEP 517`_ and `PEP 518`_ (specifying a build system),
-and `PEP 621`_ (storing project metadata in ``pyproject.toml``).
+:pep:`517`_ and :pep:`518`_ (specifying a build system),
+and :pep:`621`_ (storing project metadata in ``pyproject.toml``).
 
 .. _TOML format: https://github.com/toml-lang/toml
-.. _PEP 517: https://peps.python.org/pep-0517/
-.. _PEP 518: https://peps.python.org/pep-0518/
-.. _PEP 621: https://peps.python.org/pep-0621/
 
 At a minimum, the ``pyproject.toml`` file needs:
 
