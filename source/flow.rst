@@ -31,7 +31,7 @@ The steps to achieve this are as follows:
   simple and hand maintained as part of the source tree
 
 - create build artifacts to be sent to the package distribution service 
-  (usually PyPI); this will normally be a :term:`source distribution ("sdist") <Source Distribution>`
+  (usually PyPI); this will normally be a :term:`source distribution ("sdist") <Source Distribution (or "sdist")>`
   and a number of :term:`built distributions ("wheel" files) <Built Distribution>`
   often there is just one generic wheel for a pure Python package;
   these are made by a build tool/system using the configuration file
@@ -71,8 +71,8 @@ The Configuration File
 The configuration file depends on the tool used to build the build artifacts.
 Modern practice is a ``pyproject.toml`` file in `TOML format`_
 whose contents are specified by
-:pep:`517`_ and :pep:`518`_ (specifying a build system),
-and :pep:`621`_ (storing project metadata in ``pyproject.toml``).
+:pep:`517` and :pep:`518` (specifying a build system),
+and :pep:`621` (storing project metadata in ``pyproject.toml``).
 
 .. _TOML format: https://github.com/toml-lang/toml
 
