@@ -3,17 +3,15 @@ The Packaging Flow
 ==================
 
 The document aims to outline the flow involved in publishing/distributing
-a `distribution package`_, usually to the `Python Package Index (PyPI)`_.
+a :term:`distribution package <Distribution Package>`,
+usually to the `Python Package Index (PyPI)`_.
 
-.. _distribution package: https://packaging.python.org/en/latest/glossary/#term-Distribution-Package
 .. _Python Package Index (PyPI): https://pypi.org/
 
-While the `tutorial`_
+While the :doc:`tutorial </tutorials/installing-packages/>`
 walks through the process of preparing a simple package for release
 it does not fully enumerate what steps and files are required,
 and for what purpose.
-
-.. _tutorial: https://packaging.python.org/en/latest/tutorials/installing-packages/
 
 This guide is aimed at package publishers, and for simplification
 presumes that that is also the package author.
@@ -33,16 +31,13 @@ The steps to achieve this are as follows:
   simple and hand maintained as part of the source tree
 
 - create build artifacts to be sent to the package distribution service 
-  (usually PyPI); this will normally be a `source distribution ("sdist")`_
-  and a number of `built distributions ("wheel" files)`_
+  (usually PyPI); this will normally be a :term:`source distribution ("sdist") <Source Distribution>`
+  and a number of :term:`built distributions ("wheel" files) <Built Distribution>`
   often there is just one generic wheel for a pure Python package;
   these are made by a build tool/system using the configuration file
   from the previous step
 
 - upload the build artifacts to the package distribution service
-
-.. _source distribution ("sdist"): https://packaging.python.org/en/latest/glossary/#term-Source-Distribution-or-sdist
-.. _built distributions ("wheel" files): https://packaging.python.org/en/latest/glossary/#term-Built-Distribution
 
 At that point the package is present on the package distribution service.
 To use the package, end users must:
@@ -91,14 +86,11 @@ At a minimum, the ``pyproject.toml`` file needs:
 Very frequently you might also specify in ``pyproject.toml``
 (depending on the tools you use):
 
-* a ``[project]`` table containing project `Core Metadata`_
+* a ``[project]`` table containing project :doc:`Core Metadata </specifications/core-metadata/>`
   (name, version, author and so forth);
-  see `Declaring project metadata`_ for more detail
+  see :doc:`Declaring project metadata </specifications/declaring-project-metadata/>` for more detail
 
 * a ``[tool]`` table containing tool-specific configuration options
-
-.. _Core Metadata: https://packaging.python.org/en/latest/specifications/core-metadata/
-.. _Declaring project metadata: https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 
 The Build System
 ----------------
