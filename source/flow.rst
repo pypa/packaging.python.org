@@ -107,6 +107,11 @@ The Build System
 ----------------
 
 The build tool itself is specified by the required table ``[build-system]``.
+Most build tools provide a "build frontend" such as a command line mode
+for creating the build artifacts.
+All can also be used via the `build`_ module
+which understands the ``[build-system]`` table.
+
 There are several choices available, including but not limited to:
 `flit`_, `hatch`_, `pdm`_, `poetry`_, `setuptools`_, `trampolim`_,
 `whey`_.
