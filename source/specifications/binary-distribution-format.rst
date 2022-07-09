@@ -121,7 +121,7 @@ The wheel filename is ``{distribution}-{version}(-{build
 tag})?-{python tag}-{abi tag}-{platform tag}.whl``.
 
 distribution
-    Distribution name, e.g. 'django', 'pyramid'.
+    Distribution name, e.g. 'Django', 'pyramid'.
 
 version
     Distribution version, e.g. 1.0.
@@ -158,15 +158,19 @@ Escaping and Unicode
 As the components of the filename are separated by a dash (``-``, HYPHEN-MINUS),
 this character cannot appear within any component. This is handled as follows:
 
-- In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
-  and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
-  characters should be replaced with corresponding lowercase ones. This is
-  equivalent to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
-  Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
-  uppercase letters, however, as these were allowed by an earlier version of
-  this specification.
-- Version numbers should be normalised according to :pep:`440`. Normalised
-  version numbers cannot contain ``-``.
+- In distribution names, any run of ``-_`` characters (HYPHEN-MINUS and LOW LINE)
+  **MUST** be replaced with ``_`` (LOW LINE).
+
+  Tools that produce these distribution names **MAY** choose to emit them
+  in any form that would result in the same result when using :pep:`503`
+  normalization rules.
+
+  Tools that are consuming these distribution names **MUST** treat two names
+  that the normalization rules in :pep:`503` would produce the same result
+  for, as the same name.
+- Version numbers **SHOULD** be normalised according to :pep:`440`. Normalised
+  version numbers cannot contain ``-``. Version numbers that have not been
+  normalized **MUST** have ``-`` replaced with ``_``.
 - The remaining components may not contain ``-`` characters, so no escaping
   is necessary.
 
@@ -457,6 +461,8 @@ Since :pep:`427`, this specification has changed as follows:
 
 - The rules on escaping in wheel filenames were revised, to bring them into line
   with what popular tools actually do (February 2021).
+- The rules on escaping in wheel filenames were further revised to bring them
+  into line with what popular tools actually do (July 2022).
 
 
 References
