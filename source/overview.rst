@@ -290,7 +290,7 @@ A similar model involves installing an alternative Python
 distribution, but does not support arbitrary operating system-level
 packages:
 
-* `ActiveState ActivePython <https://www.activestate.com/activepython>`_
+* `ActiveState ActivePython <https://www.activestate.com/products/python/>`_
 * `WinPython <http://winpython.github.io/>`_
 
 .. _bringing-your-own-python:
