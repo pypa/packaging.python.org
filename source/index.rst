@@ -38,7 +38,7 @@ Get started
 Essential tools and concepts for working within the Python
 development ecosystem are covered in our :doc:`tutorials/index` section:
 
-* To get an overview of the publishing flow used to publish your code, see the
+* To get an overview of the flow used to publish your code, see the
   :doc:`packaging flow <flow>`
 * To learn how to install packages, see the
   :doc:`tutorial on installing packages <tutorials/installing-packages>`
