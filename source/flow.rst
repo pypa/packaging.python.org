@@ -1,20 +1,17 @@
-.. TODO: Reformat to 78 character line length used in in other docs
-
 ==================
 The Packaging Flow
 ==================
 
-The document aims to outline the flow involved in publishing/distributing
-a :term:`distribution package <Distribution Package>`,
-usually to the `Python Package Index (PyPI)`_. It is written for package
-publishers, who are assumed to be the package author.
+The document aims to outline the flow involved in publishing/distributing a
+:term:`distribution package <Distribution Package>`, usually to the `Python
+Package Index (PyPI)`_. It is written for package publishers, who are assumed
+to be the package author.
 
 .. _Python Package Index (PyPI): https://pypi.org/
 
-While the :doc:`tutorial <tutorials/packaging-projects>`
-walks through the process of preparing a simple package for release,
-it does not fully enumerate what steps and files are required,
-and for what purpose.
+While the :doc:`tutorial <tutorials/packaging-projects>` walks through the
+process of preparing a simple package for release, it does not fully enumerate
+what steps and files are required, and for what purpose.
 
 Publishing a package requires a flow from the author's source code to an end
 user's Python environment. The steps to achieve this are:
@@ -22,30 +19,30 @@ user's Python environment. The steps to achieve this are:
 - Have a source tree containing the package. This is typically a checkout from
   a version control system (VCS).
 
-- Prepare a configuration file describing the package metadata
-  (name, version and so forth) and how to create the build artifacts.
-  For most packages, this will be a :file:`pyproject.toml` file,
-  maintained maunally in the source tree.
+- Prepare a configuration file describing the package metadata (name, version
+  and so forth) and how to create the build artifacts. For most packages, this
+  will be a :file:`pyproject.toml` file, maintained maunally in the source
+  tree.
 
 - Create build artifacts to be sent to the package distribution service 
   (usually PyPI); these will normally be a
   :term:`source distribution ("sdist") <Source Distribution (or "sdist")>`
   and one or more :term:`built distributions ("wheels") <Built Distribution>`.
-  These are made by a build tool using the configuration file
-  from the previous step. Often there is just one generic wheel for a
-  pure Python package.
+  These are made by a build tool using the configuration file from the
+  previous step. Often there is just one generic wheel for a pure Python
+  package.
 
 - Upload the build artifacts to the package distribution service.
 
 At that point, the package is present on the package distribution service.
 To use the package, end users must:
 
-- Download one of the package's build artifacts from the package
-  distribution service.
+- Download one of the package's build artifacts from the package distribution
+  service.
 
 - Install it in their Python environment, usually in its ``site-packages``
-  directory. This step may involve a build/compile step which,
-  if needed, must be described by the package metadata.
+  directory. This step may involve a build/compile step which, if needed, must
+  be described by the package metadata.
 
 The steps above are described in more detail below.
 
@@ -72,8 +69,8 @@ format`_ whose contents are specified by :pep:`517`, :pep:`518`, and
 
 At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
 specifying your build tool, which *you* will use to create the build artifacts
-and which an *installer* such as ``pip`` will use to install from
-a source distribution.
+and which an *installer* such as ``pip`` will use to install from a source
+distribution.
 
 .. TODO: Move "build tool" content here?
 
@@ -95,9 +92,8 @@ The build tool
 .. TODO: Link tools to project summaries (key_projects.rst), e.g. :ref:`flit`?
 
 The build tool itself is specified by the required table ``[build-system]``.
-There are several choices available, including but not limited to:
-`flit`_, `hatch`_, `pdm`_, `poetry`_, `setuptools`_, `trampolim`_,
-`whey`_.
+There are several choices available, including but not limited to: `flit`_,
+`hatch`_, `pdm`_, `poetry`_, `setuptools`_, `trampolim`_, `whey`_.
 
 .. _flit: https://pypi.org/project/flit/
 .. _hatch: https://github.com/pypa/hatch
@@ -128,10 +124,9 @@ or for using ``flit`` (see the `Flit documentation`_)::
 
 .. TODO: Should we use "build frontend" here?
 
-With such a table in the :file:`pyproject.toml` file, a tool like `build`_
-can run your chosen build tool to create the build artifacts,
-and an install tool like ``pip`` can run the build tool
-when installing a source distribution.
+With such a table in the :file:`pyproject.toml` file, a tool like `build`_ can
+run your chosen build tool to create the build artifacts, and an install tool
+like ``pip`` can run the build tool when installing a source distribution.
 
 .. _build: https://pypi.org/project/build/
 
@@ -205,9 +200,9 @@ Or, your build tool may provide its own interface for uploading.
 Download and install
 ====================
 
-Now that the package is published,
-end users can download and install the package into their Python environment.
-Typically this is done with `pip`_, using a command like:
+Now that the package is published, end users can download and install the
+package into their Python environment. Typically this is done with `pip`_,
+using a command like:
 
 .. code-block:: bash
 
