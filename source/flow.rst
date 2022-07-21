@@ -65,35 +65,15 @@ format`_ whose contents are specified by :pep:`517`, :pep:`518`, and
 
 .. _TOML format: https://github.com/toml-lang/toml
 
-.. TODO: Normalize "you" (a person) and "installer" (a tool)
-
-At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
-specifying your build tool, which *you* will use to create the build artifacts
-and which an *installer* such as ``pip`` will use to install from a source
-distribution.
-
-.. TODO: Move "build tool" content here?
-
-Depending on the tools you use, you might also specify:
-
-* a ``[project]`` table containing project
-  :doc:`Core Metadata </specifications/core-metadata/>`
-  (name, version, author and so forth); see
-  :doc:`Declaring project metadata </specifications/declaring-project-metadata/>`
-  for more detail
-
-* a ``[tool]`` table containing tool-specific configuration options
-
-The build tool
---------------
-
 .. TODO: Instead of "build tool", should we use "build backend"?
-
 .. TODO: Link tools to project summaries (key_projects.rst), e.g. :ref:`flit`?
 
-The build tool itself is specified by the required table ``[build-system]``.
-There are several choices available, including but not limited to: `flit`_,
-`hatch`_, `pdm`_, `poetry`_, `setuptools`_, `trampolim`_, `whey`_.
+At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
+specifying your build tool, which you will use to create the build artifacts,
+and which an install tool such as ``pip`` will use to install your package
+from a source distribution. There are many build tools available, including
+but not limited to: `flit`_, `hatch`_, `pdm`_, `poetry`_, `setuptools`_,
+`trampolim`_, `whey`_.
 
 .. _flit: https://pypi.org/project/flit/
 .. _hatch: https://github.com/pypa/hatch
@@ -131,7 +111,15 @@ like ``pip`` can run the build tool when installing a source distribution.
 .. _build: https://pypi.org/project/build/
 
 The particular build tool you choose dictates what additional information is
-required in the :file:`pyproject.toml` file.
+required in the :file:`pyproject.toml` file. For example, you might specify:
+
+* a ``[project]`` table containing project
+  :doc:`Core Metadata </specifications/core-metadata/>`
+  (name, version, author and so forth); see
+  :doc:`Declaring project metadata </specifications/declaring-project-metadata/>`
+  for more detail
+
+* a ``[tool]`` table containing tool-specific configuration options
 
 Build artifacts
 ===============
