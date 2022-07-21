@@ -158,7 +158,8 @@ These fields accept an array of tables with 2 keys: ``name`` and
 ``email``. Both values must be strings. The ``name`` value MUST be a
 valid email name (i.e. whatever can be put as a name, before an email,
 in :rfc:`822`) and not contain commas. The ``email`` value MUST be a
-valid email address. Both keys are optional.
+valid email address. Both keys are optional, but at least one of the
+keys must be specified in the table.
 
 Using the data to fill in :ref:`core metadata <core-metadata>` is as
 follows:
