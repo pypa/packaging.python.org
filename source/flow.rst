@@ -75,8 +75,9 @@ from a source distribution. There are many build tools available, including
 but not limited to: `flit`_, `hatch`_, `pdm`_, `poetry`_, `setuptools`_,
 `trampolim`_, `whey`_.
 
+.. _pip: https://pip.pypa.io/en/stable/
 .. _flit: https://pypi.org/project/flit/
-.. _hatch: https://github.com/pypa/hatch
+.. _hatch: https://pypi.org/project/hatch/
 .. _pdm: https://pypi.org/project/pdm/
 .. _poetry: https://pypi.org/project/poetry/
 .. _setuptools: https://pypi.org/project/setuptools/
@@ -189,14 +190,12 @@ Download and install
 ====================
 
 Now that the package is published, end users can download and install the
-package into their Python environment. Typically this is done with `pip`_,
+package into their Python environment. Typically this is done with ``pip``,
 using a command like:
 
 .. code-block:: bash
 
     python3 -m pip install package-name
-
-.. _pip: https://pip.pypa.io/en/stable/
 
 .. TODO: Briefly describe typical behavior of using a virtual environment,
 .. and maybe link to one or more of:
