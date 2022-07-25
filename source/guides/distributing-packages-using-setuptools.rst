@@ -357,6 +357,34 @@ List additional relevant URLs about your project. This is the place to link to
 bug trackers, source repositories, or where to support package development.
 The string of the key is the exact text that will be displayed on PyPI.
 
+PyPI provides icons based on the name of the URL or the URL's domain. Currently
+the following names will have a special icon:
+
+- Homepage, home or home page
+- Changelog, change log, changes, release notes, news, what's new, history
+- Docs, documentation
+- Bug, issue, tracker, report
+- Funding, donate, donation, sponsor
+
+And the following urls will have a special icon:
+
+- any url that starts with `docs.` or `documentation.`
+- any url from readthedocs
+- any url from github
+- any url from bitbucket
+- any url from gitlab
+- any url from reddit.com
+- any url from slack.com
+- any url from twitter.com
+- any url from youtube.com
+
+Changelog = "https://example.com/"
+Documentation = "https://example.com/"
+Download = "https://example.com/"
+Sponsor = "https://example.com/"
+Source = "https://github.com/patrick91/links-demo"
+Issues = "https://example.com/"
+
 
 ``packages``
 ~~~~~~~~~~~~
