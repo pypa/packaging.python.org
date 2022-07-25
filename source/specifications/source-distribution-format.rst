@@ -6,9 +6,9 @@ Source distribution format
 ==========================
 
 The current standard format of source distribution format is identified by the
-presence of a :file:`pyproject.toml` file in the distribution archive.  The layout
-of such a distribution was originally specified in :pep:`517` and is formally
-documented here.
+presence of a :term:`pyproject.toml` file in the distribution archive.
+The layout of such a distribution was originally specified in :pep:`517`
+and is formally documented here.
 
 There is also the legacy source distribution format, implicitly defined by the
 behaviour of ``distutils`` module in the standard library, when executing
@@ -23,12 +23,13 @@ Source distributions are also known as *sdists* for short.
 Source trees
 ============
 
-A *source tree* is a collection of files and directories -- like a version
-control system checkout -- which contains a :file:`pyproject.toml` file that
-can be use to build a source distribution from the contained files and
-directories. :pep:`517` and :pep:`518` specify what is required to meet the
-definition of what :file:`pyproject.toml` must contain for something to be
-deemed a source tree.
+A :term:`source tree` is a collection of files and directories
+(typically a version control system checkout)
+which contains a :term:`pyproject.toml` file that can be used
+to build a source distribution from the contained files and directories.
+:ref:`pyproject-toml-config-file` specifies what is required to meet the
+definition of what :file:`pyproject.toml` must contain
+for something to be deemed a source tree.
 
 Source distribution file name
 =============================
@@ -48,8 +49,8 @@ Source distribution file format
 A ``.tar.gz`` source distribution (sdist) contains a single top-level directory
 called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of
 the package. The name and version MUST match the metadata stored in the file.
-This directory must also contain a :file:`pyproject.toml` in the format defined in
-:ref:`declaring-build-dependencies`, and a ``PKG-INFO`` file containing
+This directory must also contain a :term:`pyproject.toml` in the format defined
+in :ref:`pyproject-toml-config-file`, and a ``PKG-INFO`` file containing
 metadata in the format described in the :ref:`core-metadata` specification. The
 metadata MUST conform to at least version 2.2 of the metadata specification.
 

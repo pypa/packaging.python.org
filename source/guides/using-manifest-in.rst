@@ -4,8 +4,8 @@
 Including files in source distributions with ``MANIFEST.in``
 ============================================================
 
-When building a :term:`source distribution <Source Distribution (or "sdist")>`
-for your package, by default only a minimal set of files are included.  You may
+When building a :term:`Source Distribution` for your package,
+by default only a minimal set of files are included.  You may
 find yourself wanting to include extra files in the source distribution, such
 as an authors/contributors file, a :file:`docs/` directory, or a directory of
 data files used for testing purposes.  There may even be extra files that you
@@ -72,7 +72,7 @@ Command                                                    Description
                                                            (Files must be given as paths relative to the root of the project)
 :samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`  Add all files under directories matching ``dir-pattern`` that match any of the listed patterns
 :samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`  Remove all files under directories matching ``dir-pattern`` that match any of the listed patterns
-:samp:`global-include {pat1} {pat2} ...`                   Add all files anywhere in the source tree matching any of the listed patterns
+:samp:`global-include {pat1} {pat2} ...`                   Add all files anywhere in the :term:`Source Tree` matching any of the listed patterns
 :samp:`global-exclude {pat1} {pat2} ...`                   Remove all files anywhere in the source tree matching any of the listed patterns
 :samp:`graft {dir-pattern}`                                Add all files under directories matching ``dir-pattern``
 :samp:`prune {dir-pattern}`                                Remove all files under directories matching ``dir-pattern``

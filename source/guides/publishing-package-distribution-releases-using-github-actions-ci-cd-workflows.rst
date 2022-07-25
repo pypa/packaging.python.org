@@ -95,8 +95,8 @@ install and activate Python 3.10.
 
 And now we can build dists from source. In this example, we'll
 use ``build`` package, assuming that your project has a
-``pyproject.toml`` properly set up (see
-:pep:`517`/:pep:`518`).
+:term:`pyproject.toml` properly set up
+(see :ref:`pyproject-toml-config-file` for full details).
 
 .. tip::
 
@@ -134,7 +134,7 @@ Now, whenever you push a tagged commit to your Git repository remote
 on GitHub, this workflow will publish it to PyPI.
 And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
-sure that your release pipeline remains healthy! 
+sure that your release pipeline remains healthy!
 
 
 .. _API token: https://pypi.org/help/#apitoken

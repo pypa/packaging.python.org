@@ -114,6 +114,8 @@ Place ``.dist-info`` at the end of the archive.
 File Format
 -----------
 
+.. _wheel-file-name-convention:
+
 File name convention
 ''''''''''''''''''''
 
@@ -235,6 +237,8 @@ The layout offers a superset of the functionality provided by the existing
 wininst and egg binary formats.
 
 
+.. _wheel-dist-info-directory:
+
 The .dist-info directory
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -276,6 +280,8 @@ The .data directory contains subdirectories with the scripts, headers,
 documentation and so forth from the distribution.  During installation the
 contents of these subdirectories are moved onto their destination paths.
 
+
+.. _wheel-signed-wheel-files:
 
 Signed wheel files
 ------------------

@@ -169,13 +169,13 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
   Python applications, but not limited to them.
 * `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package management
   tool supporting :pep:`582` (replacing virtual environments with ``__pypackages__``
-  directory for package installation) and relying on standards such as :pep:`517` and
-  :pep:`621`.
+  directory for package installation) and relying on standards such as
+  the :ref:`build-interface` and :ref:`declaring-project-metadata` specifications.
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
   dependencies from a list of packages directly used in a project, and ensuring that
   only those dependencies are installed.
 * `Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
   to Pipenv that focuses more directly on use cases where the project being managed is
-  structured as a distributable Python package with a valid ``pyproject.toml`` file.
+  structured as a distributable Python package with a valid :term:`pyproject.toml` file.
   By contrast, Pipenv explicitly avoids making the assumption that the application
   being worked on will support distribution as a ``pip``-installable Python package.

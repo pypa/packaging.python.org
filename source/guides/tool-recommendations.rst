@@ -49,8 +49,8 @@ Packaging tool recommendations
 
 * Use :ref:`setuptools` to define projects. [5]_ [6]_
 
-* Use :ref:`build` to create :term:`Source Distributions
-  <Source Distribution (or "sdist")>` and :term:`wheels <Wheel>`.
+* Use :ref:`build` to create :term:`Source Distribution`\s
+  and :term:`Wheel`\s.
 
 If you have binary extensions and want to distribute wheels for multiple
 platforms, use :ref:`cibuildwheel` as part of your CI setup to build

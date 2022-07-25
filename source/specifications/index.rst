@@ -16,24 +16,26 @@ Package Distribution Metadata
    :maxdepth: 1
 
    core-metadata
+   declaring-project-metadata
    version-specifiers
    dependency-specifiers
-   declaring-build-dependencies
-   declaring-project-metadata
    platform-compatibility-tags
-   recording-installed-packages
    entry-points
    direct-url
 
 
-Package Distribution File Formats
----------------------------------
+Building and Installing
+-----------------------
 
 .. toctree::
    :maxdepth: 1
 
+   pyproject-toml-config-file
+   declaring-build-dependencies
+   build-interface
    source-distribution-format
    binary-distribution-format
+   recording-installed-packages
 
 
 Package Index Interfaces

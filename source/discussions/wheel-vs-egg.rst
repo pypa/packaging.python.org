@@ -26,7 +26,7 @@ Here's a breakdown of the important differences between :term:`Wheel` and :term:
 * :term:`Wheel` archives do not include .pyc files. Therefore, when the
   distribution only contains Python files (i.e. no compiled extensions), and is
   compatible with Python 2 and 3, it's possible for a wheel to be "universal",
-  similar to an :term:`sdist <Source Distribution (or "sdist")>`.
+  similar to an :term:`Sdist`.
 
 * :term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info``
   directories. Egg used ``.egg-info``.
