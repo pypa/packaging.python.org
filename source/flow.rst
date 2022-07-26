@@ -64,7 +64,6 @@ format`_.
 
 .. _TOML format: https://github.com/toml-lang/toml
 
-.. TODO: Instead of "build tool", should we use "build backend"?
 At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
 specifying your build tool, which you will use to create the build artifacts,
 and which an install tool such as :ref:`pip` will use to install your package
@@ -78,6 +77,12 @@ but not limited to: :ref:`flit`, :ref:`hatch`, :ref:`pdm`,
 .. _whey: https://pypi.org/project/whey/
 
 .. TODO: Use hatchling and setuptools, ala the packaging tutorial?
+Usually a build tool provides both
+a "build frontend" (something you can invoke, such as a command)
+and a "build backend" (something a program can call, as specified by :pep:`517`).
+
+For example, both :ref:`pip` and :ref:`build` know how to invoke your build tool
+from the information in ``[build-system]`` table.
 
 For example, here is a table for using ``setuptools`` (see the `Setuptools
 documentation`_)::
@@ -99,8 +104,8 @@ or for using ``flit`` (see the `Flit documentation`_)::
 .. TODO: Should we use "build frontend" here?
 
 With such a table in the :file:`pyproject.toml` file, a tool like `build`_ can
-run your chosen build tool to create the build artifacts, and an install tool
-like ``pip`` can run the build tool when installing a source distribution.
+run your chosen build tool's backend to create the build artifacts, and an install tool
+like ``pip`` can run the build backend when installing a source distribution.
 
 .. _build: https://pypi.org/project/build/
 
