@@ -76,7 +76,6 @@ but not limited to: :ref:`flit`, :ref:`hatch`, :ref:`pdm`,
 .. _trampolim: https://pypi.org/project/trampolim/
 .. _whey: https://pypi.org/project/whey/
 
-.. TODO: Use hatchling and setuptools, ala the packaging tutorial?
 Usually a build tool provides both
 a "build frontend" (something you can invoke, such as a command)
 and a "build backend" (something a program can call, as specified by :pep:`517`).
@@ -87,21 +86,33 @@ from the information in ``[build-system]`` table.
 For example, here is a table for using ``setuptools`` (see the `Setuptools
 documentation`_)::
 
-    [build-system]
-    requires = ["setuptools>=61.2""]
-    build-backend = "setuptools.build_meta"
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools>=61.2""]
+        build-backend = "setuptools.build_meta"
 
 .. _Setuptools documentation: https://setuptools.pypa.io/en/latest/userguide/index.html
 
 or for using ``flit`` (see the `Flit documentation`_)::
 
-    [build-system]
-    requires = ["flit_core >=3.2,<4"]
-    build-backend = "flit_core.buildapi"
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["flit_core >=3.2,<4"]
+        build-backend = "flit_core.buildapi"
 
 .. _Flit documentation: https://flit.pypa.io/en/latest/
 
-.. TODO: Should we use "build frontend" here?
+or for using :ref:`Hatchling <hatch>` (see the `Hatch documentation`_)::
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["hatchling"]
+        build-backend = "hatchling.build"
+
+.. _Hatch documentation: https://hatch.pypa.io/latest/
 
 With such a table in the :file:`pyproject.toml` file, a tool like `build`_ can
 run your chosen build tool's backend to create the build artifacts, and an install tool
