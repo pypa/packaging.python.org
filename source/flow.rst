@@ -44,6 +44,8 @@ To use the package, end users must:
   directory. This step may involve a build/compile step which, if needed, must
   be described by the package metadata.
 
+These last 2 steps are typically performed by a tool like :ref:`pip`.
+
 The steps above are described in more detail below.
 
 The source tree
