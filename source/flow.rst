@@ -58,12 +58,9 @@ will typically be a checkout based on a tag associated with the version.
 The configuration file
 ======================
 
-.. TODO: Are the PEP links useful?
-
 The configuration file depends on the tool used to create the build artifacts.
 The standard practice is to use a :file:`pyproject.toml` file in the `TOML
-format`_ whose contents are specified by :pep:`517`, :pep:`518`, and
-:pep:`621`.
+format`_.
 
 .. _TOML format: https://github.com/toml-lang/toml
 
