@@ -65,21 +65,15 @@ format`_.
 .. _TOML format: https://github.com/toml-lang/toml
 
 .. TODO: Instead of "build tool", should we use "build backend"?
-.. TODO: Link tools to project summaries (key_projects.rst), e.g. :ref:`flit`?
-
 At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
 specifying your build tool, which you will use to create the build artifacts,
-and which an install tool such as ``pip`` will use to install your package
-from a source distribution. There are many build tools available, including
-but not limited to: `flit`_, `hatch`_, `pdm`_, `poetry`_, `setuptools`_,
-`trampolim`_, `whey`_.
+and which an install tool such as :ref:`pip` will use to install your package
+from a source distribution.
 
-.. _pip: https://pip.pypa.io/en/stable/
-.. _flit: https://pypi.org/project/flit/
-.. _hatch: https://pypi.org/project/hatch/
-.. _pdm: https://pypi.org/project/pdm/
-.. _poetry: https://pypi.org/project/poetry/
-.. _setuptools: https://pypi.org/project/setuptools/
+There are many build tools available, including
+but not limited to: :ref:`flit`, :ref:`hatch`, :ref:`pdm`,
+:ref:`poetry`, :ref:`setuptools`, `trampolim`_, `whey`_.
+
 .. _trampolim: https://pypi.org/project/trampolim/
 .. _whey: https://pypi.org/project/whey/
 
