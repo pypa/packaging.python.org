@@ -156,8 +156,6 @@ Or, your build tool may provide its own interface for creating an sdist.
 The built distributions (wheels)
 --------------------------------
 
-.. TODO: Clarify "end user system", maybe with an example, e.g. OS and architecture
-
 A built distribution contains only the files needed for a specific end user
 system; no compilation steps are required during the install, and the wheel
 file can simply be unpacked into the ``site-packages`` directory. This makes
@@ -165,6 +163,12 @@ the install faster and more convenient for end users. A pure Python package
 only needs one wheel for "generic" systems. If a suitable wheel file is not
 available, tools like ``pip`` will fall back to installing the source
 distribtion.
+
+An "end user system" is the end user's local environment.
+A pure Python package only needs "generic", but packages with
+compiled extensions might build wheels for various environments they support
+described by a "python tag" such as `py3`, an "ABI tag" such as `abi3`
+and a "platform tag" such as `win32` as detailed by :pep:`425`.
 
 The ``build`` package knows how to invoke your build tool to create one of
 these:
