@@ -44,6 +44,8 @@ To use the package, end users must:
   directory. This step may involve a build/compile step which, if needed, must
   be described by the package metadata.
 
+.. TODO: All other tools in the steps above are mentioned later
+
 These last 2 steps are typically performed by a tool like :ref:`pip`.
 
 The steps above are described in more detail below.
@@ -69,54 +71,60 @@ specifying your build tool, which you will use to create the build artifacts,
 and which an install tool such as :ref:`pip` will use to install your package
 from a source distribution.
 
-There are many build tools available, including
-but not limited to: :ref:`flit`, :ref:`hatch`, :ref:`pdm`,
-:ref:`poetry`, :ref:`setuptools`, `trampolim`_, `whey`_.
+.. TODO: Remove trampolim and whey?
+
+There are many build tools available, including but not limited to:
+:ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:`poetry`, :ref:`setuptools`,
+`trampolim`_, and `whey`_.
 
 .. _trampolim: https://pypi.org/project/trampolim/
 .. _whey: https://pypi.org/project/whey/
 
-Usually a build tool provides both
-a "build frontend" (something you can invoke, such as a command)
-and a "build backend" (something a program can call, as specified by :pep:`517`).
+.. TODO: Rework/move this paragraph
 
-For example, both :ref:`pip` and :ref:`build` know how to invoke your build tool
-from the information in ``[build-system]`` table.
+Usually a build tool provides both a "build frontend" (something you can
+invoke, such as a command) and a "build backend" (something a program can
+call, as specified by :pep:`517`).
+
+.. TODO: Only show Hatchling, or use tabs ala packaging tutorial?
 
 For example, here is a table for using ``setuptools`` (see the `Setuptools
-documentation`_)::
+documentation`_):
 
-    .. code-block:: toml
+.. code-block:: toml
 
-        [build-system]
-        requires = ["setuptools>=61.2""]
-        build-backend = "setuptools.build_meta"
+    [build-system]
+    requires = ["setuptools>=61.2"]
+    build-backend = "setuptools.build_meta"
 
 .. _Setuptools documentation: https://setuptools.pypa.io/en/latest/userguide/index.html
 
-or for using ``flit`` (see the `Flit documentation`_)::
+or for using ``flit`` (see the `Flit documentation`_):
 
-    .. code-block:: toml
+.. code-block:: toml
 
-        [build-system]
-        requires = ["flit_core >=3.2,<4"]
-        build-backend = "flit_core.buildapi"
+    [build-system]
+    requires = ["flit_core >=3.2,<4"]
+    build-backend = "flit_core.buildapi"
 
 .. _Flit documentation: https://flit.pypa.io/en/latest/
 
-or for using :ref:`Hatchling <hatch>` (see the `Hatch documentation`_)::
+or for using :ref:`Hatchling <hatch>` (see the `Hatch documentation`_):
 
-    .. code-block:: toml
+.. code-block:: toml
 
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
+    [build-system]
+    requires = ["hatchling"]
+    build-backend = "hatchling.build"
 
 .. _Hatch documentation: https://hatch.pypa.io/latest/
 
+.. TODO: Use :ref: everywhere
+
 With such a table in the :file:`pyproject.toml` file, a tool like `build`_ can
-run your chosen build tool's backend to create the build artifacts, and an install tool
-like ``pip`` can run the build backend when installing a source distribution.
+run your chosen build tool's backend to create the build artifacts, and an
+install tool like ``pip`` can run the build backend when installing a source
+distribution.
 
 .. _build: https://pypi.org/project/build/
 
@@ -164,11 +172,13 @@ only needs one wheel for "generic" systems. If a suitable wheel file is not
 available, tools like ``pip`` will fall back to installing the source
 distribtion.
 
-An "end user system" is the end user's local environment.
-A pure Python package only needs "generic", but packages with
-compiled extensions might build wheels for various environments they support
-described by a "python tag" such as `py3`, an "ABI tag" such as `abi3`
-and a "platform tag" such as `win32` as detailed by :pep:`425`.
+.. TODO: Try again; this is too long and specific
+
+An "end user system" is the end user's local environment. A pure Python
+package only needs "generic", but packages with compiled extensions might
+build wheels for various environments they support described by a "python tag"
+such as ``py3``, an "ABI tag" such as ``abi3`` and a "platform tag" such as
+``win32`` as detailed by :pep:`425`.
 
 The ``build`` package knows how to invoke your build tool to create one of
 these:
