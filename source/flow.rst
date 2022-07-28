@@ -86,8 +86,8 @@ For example, here is a table for using :ref:`hatch`:
 With such a table in the :file:`pyproject.toml` file, a "frontend" tool like
 :ref:`build` can run your chosen build tool's "backend" to create the build
 artifacts. Your build tool may also provide its own frontend. An install tool
-like ``pip`` also acts as a frontend when it runs your build tool's backend to
-install from a source distribution.
+like :ref:`pip` also acts as a frontend when it runs your build tool's backend
+to install from a source distribution.
 
 The particular build tool you choose dictates what additional information is
 required in the :file:`pyproject.toml` file. For example, you might specify:
@@ -112,7 +112,7 @@ also include tests and documentation. These are useful for end users wanting
 to develop your sources, and for end user systems where some local compilation
 step is required (such as a C extension).
 
-The ``build`` package knows how to invoke your build tool to create one of
+The :ref:`build` package knows how to invoke your build tool to create one of
 these:
 
 .. code-block:: bash
@@ -133,10 +133,10 @@ makes the install faster and more convenient for end users.
 A pure Python package typically needs only one "generic" wheel. A package with
 compiled binary extensions needs a wheel for each supported combination of
 Python interprerter, operating system, and CPU architecture that it supports.
-If a suitable wheel file is not available, tools like ``pip`` will fall back
-to installing the source distribtion.
+If a suitable wheel file is not available, tools like :ref:`pip` will fall
+back to installing the source distribtion.
 
-The ``build`` package knows how to invoke your build tool to create one of
+The :ref:`build` package knows how to invoke your build tool to create one of
 these:
 
 .. code-block:: bash
@@ -147,9 +147,9 @@ Or, your build tool may provide its own interface for creating a wheel.
 
 .. note::
 
-  The default behaviour of ``build`` is to make both an sdist and a wheel from
-  the source in the current directory; the above examples are deliberately
-  specific.
+  The default behaviour of :ref:`build` is to make both an sdist and a wheel
+  from the source in the current directory; the above examples are
+  deliberately specific.
 
 Upload to the package distribution service
 ==========================================
@@ -167,7 +167,7 @@ Download and install
 ====================
 
 Now that the package is published, end users can download and install the
-package into their Python environment. Typically this is done with ``pip``,
+package into their Python environment. Typically this is done with :ref:`pip`,
 using a command like:
 
 .. code-block:: bash
