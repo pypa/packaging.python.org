@@ -67,24 +67,12 @@ format`_.
 .. _TOML format: https://github.com/toml-lang/toml
 
 At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
-specifying your build tool, which you will use to create the build artifacts,
-and which an install tool such as :ref:`pip` will use to install your package
-from a source distribution.
-
-.. TODO: Remove trampolim and whey?
-
-There are many build tools available, including but not limited to:
-:ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:`poetry`, :ref:`setuptools`,
-`trampolim`_, and `whey`_.
+specifying your build tool. There are many build tools available, including
+but not limited to :ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:`poetry`,
+:ref:`setuptools`, `trampolim`_, and `whey`_.
 
 .. _trampolim: https://pypi.org/project/trampolim/
 .. _whey: https://pypi.org/project/whey/
-
-.. TODO: Rework/move this paragraph
-
-Usually a build tool provides both a "build frontend" (something you can
-invoke, such as a command) and a "build backend" (something a program can
-call, as specified by :pep:`517`).
 
 .. TODO: Only show Hatchling, or use tabs ala packaging tutorial?
 
@@ -119,10 +107,11 @@ or for using :ref:`Hatchling <hatch>` (see the `Hatch documentation`_):
 
 .. _Hatch documentation: https://hatch.pypa.io/latest/
 
-With such a table in the :file:`pyproject.toml` file, a tool like :ref:`build`
-can run your chosen build tool's backend to create the build artifacts, and an
-install tool like ``pip`` can run the build backend when installing a source
-distribution.
+With such a table in the :file:`pyproject.toml` file, a "frontend" tool like
+:ref:`build` can run your chosen build tool's "backend" to create the build
+artifacts. Your build tool may also provide its own frontend. An install tool
+like ``pip`` also acts as a frontend when it runs your build tool's backend to
+install from a source distribution.
 
 The particular build tool you choose dictates what additional information is
 required in the :file:`pyproject.toml` file. For example, you might specify:
