@@ -119,14 +119,10 @@ or for using :ref:`Hatchling <hatch>` (see the `Hatch documentation`_):
 
 .. _Hatch documentation: https://hatch.pypa.io/latest/
 
-.. TODO: Use :ref: everywhere
-
-With such a table in the :file:`pyproject.toml` file, a tool like `build`_ can
-run your chosen build tool's backend to create the build artifacts, and an
+With such a table in the :file:`pyproject.toml` file, a tool like :ref:`build`
+can run your chosen build tool's backend to create the build artifacts, and an
 install tool like ``pip`` can run the build backend when installing a source
 distribution.
-
-.. _build: https://pypi.org/project/build/
 
 The particular build tool you choose dictates what additional information is
 required in the :file:`pyproject.toml` file. For example, you might specify:
@@ -198,14 +194,12 @@ Or, your build tool may provide its own interface for creating a wheel.
 Upload to the package distribution service
 ==========================================
 
-The `twine`_ tool can upload build artifacts to PyPI for distribution, using a
-command like:
+The :ref:`twine` tool can upload build artifacts to PyPI for distribution,
+using a command like:
 
 .. code-block:: bash
 
     twine upload dist/package-name-version.tar.gz dist/package-name-version-py3-none-any.whl
-
-.. _twine: https://pypi.org/project/twine/
 
 Or, your build tool may provide its own interface for uploading.
 
