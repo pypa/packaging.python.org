@@ -24,7 +24,7 @@ user's Python environment. The steps to achieve this are:
   will be a :file:`pyproject.toml` file, maintained maunally in the source
   tree.
 
-- Create build artifacts to be sent to the package distribution service 
+- Create build artifacts to be sent to the package distribution service
   (usually PyPI); these will normally be a
   :term:`source distribution ("sdist") <Source Distribution (or "sdist")>`
   and one or more :term:`built distributions ("wheels") <Built Distribution>`.
@@ -69,43 +69,19 @@ format`_.
 At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
 specifying your build tool. There are many build tools available, including
 but not limited to :ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:`poetry`,
-:ref:`setuptools`, `trampolim`_, and `whey`_.
+:ref:`setuptools`, `trampolim`_, and `whey`_. Each tool's documentation will
+show what to put in the ``[build-system]`` table.
 
 .. _trampolim: https://pypi.org/project/trampolim/
 .. _whey: https://pypi.org/project/whey/
 
-.. TODO: Only show Hatchling, or use tabs ala packaging tutorial?
-
-For example, here is a table for using ``setuptools`` (see the `Setuptools
-documentation`_):
-
-.. code-block:: toml
-
-    [build-system]
-    requires = ["setuptools>=61.2"]
-    build-backend = "setuptools.build_meta"
-
-.. _Setuptools documentation: https://setuptools.pypa.io/en/latest/userguide/index.html
-
-or for using ``flit`` (see the `Flit documentation`_):
-
-.. code-block:: toml
-
-    [build-system]
-    requires = ["flit_core >=3.2,<4"]
-    build-backend = "flit_core.buildapi"
-
-.. _Flit documentation: https://flit.pypa.io/en/latest/
-
-or for using :ref:`Hatchling <hatch>` (see the `Hatch documentation`_):
+For example, here is a table for using :ref:`hatch`:
 
 .. code-block:: toml
 
     [build-system]
     requires = ["hatchling"]
     build-backend = "hatchling.build"
-
-.. _Hatch documentation: https://hatch.pypa.io/latest/
 
 With such a table in the :file:`pyproject.toml` file, a "frontend" tool like
 :ref:`build` can run your chosen build tool's "backend" to create the build
