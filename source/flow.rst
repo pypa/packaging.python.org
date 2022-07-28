@@ -44,8 +44,6 @@ To use the package, end users must:
   directory. This step may involve a build/compile step which, if needed, must
   be described by the package metadata.
 
-.. TODO: All other tools in the steps above are mentioned later
-
 These last 2 steps are typically performed by a tool like :ref:`pip`.
 
 The steps above are described in more detail below.
@@ -174,10 +172,5 @@ using a command like:
 
     python3 -m pip install package-name
 
-.. TODO: Briefly describe typical behavior of using a virtual environment,
-.. and maybe link to one or more of:
-.. tutorials/installing-packages
-.. guides/installing-using-pip-and-virtual-environments
-.. guides/installing-stand-alone-command-line-tools.html
-
-.. TODO: Mention poetry, pdm, and pipenv as other methods?
+End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or
+:ref:`pdm`.
