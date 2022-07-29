@@ -127,7 +127,7 @@ plugins can register themselves for discovery.
 For example if you have a package named ``myapp-plugin-a`` and it includes
 the following in its setup file:
 
-.. tab:: :file:`pyproject.toml` (:pep:`621`)
+.. tab:: :file:`pyproject.toml` (PEP 621)
 
     .. code-block:: toml
 
