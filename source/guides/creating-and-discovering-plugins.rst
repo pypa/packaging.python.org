@@ -120,21 +120,30 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-:doc:`Setuptools <setuptools:index>` provides :doc:`special support
-<setuptools:userguide/entry_point>` for plugins. By providing the
-``entry_points`` argument to :func:`setup` in :file:`setup.py` plugins can
-register themselves for discovery.
+Packages have metadata for plugins described in the
+:doc:`/specifications/entry-points`.
+By telling your package’s build backend,
+plugins can register themselves for discovery.
 
 For example if you have a package named ``myapp-plugin-a`` and it includes
-in its :file:`setup.py`:
+the following in its setup file:
 
-.. code-block:: python
+.. tab:: :file:`pyproject.toml` (:pep:`621`)
 
-    setup(
-        ...
-        entry_points={'myapp.plugins': 'a = myapp_plugin_a'},
-        ...
-    )
+    .. code-block:: toml
+
+         [project.entry-points.'myapp.plugins']
+         a = 'myapp_plugin_a'
+
+.. tab:: :file:`setup.py` (setuptools)
+
+    .. code-block:: toml
+
+        setup(
+            ...
+            entry_points={'myapp.plugins': 'a = myapp_plugin_a'},
+            ...
+        )
 
 Then you can discover and load all of the registered entry points by using
 :func:`importlib.metadata.entry_points` (or the `backport`_
