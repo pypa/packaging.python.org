@@ -120,8 +120,7 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-Packages have metadata for plugins described in the
-:doc:`/specifications/entry-points`.
+Packages have metadata for plugins described in the :doc:`entry-points`.
 By telling your package’s build backend,
 plugins can register themselves for discovery.
 
