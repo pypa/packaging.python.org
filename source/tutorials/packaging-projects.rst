@@ -337,8 +337,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    ├── example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    └── example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
 The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
