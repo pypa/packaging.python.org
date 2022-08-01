@@ -42,7 +42,7 @@ limited resources.
 Public dataset
 ==============
 
-As an alternative, the `Linehaul project <https://github.com/pypa/linehaul>`__
+As an alternative, the `Linehaul project <https://github.com/pypa/linehaul-cloud-function/>`__
 streams download logs from PyPI to `Google BigQuery`_ [#]_, where they are
 stored as a public dataset.
 
