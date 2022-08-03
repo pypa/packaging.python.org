@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the Python Packaging User Guide package.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2021, 2022.
 # meowmeowmeowcat <meowmeowcat1211@gmail.com>, 2021.
+# miiguel <isqne@pm.me>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-21 16:46+0000\n"
-"PO-Revision-Date: 2022-05-12 18:10+0000\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2022-08-03 18:50+0000\n"
+"PO-Revision-Date: 2022-07-27 23:22+0000\n"
+"Last-Translator: miiguel <isqne@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1226,6 +1227,251 @@ msgstr ""
 "oficial a isso no momento <427#is-it-possible-to-import-python-code-directly-"
 "from-a-wheel-file>`."
 
+#: ../source/flow.rst:3
+msgid "The Packaging Flow"
+msgstr ""
+
+#: ../source/flow.rst:5
+msgid ""
+"The document aims to outline the flow involved in publishing/distributing a :"
+"term:`distribution package <Distribution Package>`, usually to the `Python "
+"Package Index (PyPI)`_. It is written for package publishers, who are "
+"assumed to be the package author."
+msgstr ""
+
+#: ../source/flow.rst:12
+msgid ""
+"While the :doc:`tutorial <tutorials/packaging-projects>` walks through the "
+"process of preparing a simple package for release, it does not fully "
+"enumerate what steps and files are required, and for what purpose."
+msgstr ""
+
+#: ../source/flow.rst:16
+msgid ""
+"Publishing a package requires a flow from the author's source code to an end "
+"user's Python environment. The steps to achieve this are:"
+msgstr ""
+
+#: ../source/flow.rst:19
+msgid ""
+"Have a source tree containing the package. This is typically a checkout from "
+"a version control system (VCS)."
+msgstr ""
+
+#: ../source/flow.rst:22
+msgid ""
+"Prepare a configuration file describing the package metadata (name, version "
+"and so forth) and how to create the build artifacts. For most packages, this "
+"will be a :file:`pyproject.toml` file, maintained maunally in the source "
+"tree."
+msgstr ""
+
+#: ../source/flow.rst:27
+msgid ""
+"Create build artifacts to be sent to the package distribution service "
+"(usually PyPI); these will normally be a :term:`source distribution (\"sdist"
+"\") <Source Distribution (or \"sdist\")>` and one or more :term:`built "
+"distributions (\"wheels\") <Built Distribution>`. These are made by a build "
+"tool using the configuration file from the previous step. Often there is "
+"just one generic wheel for a pure Python package."
+msgstr ""
+
+#: ../source/flow.rst:35
+msgid "Upload the build artifacts to the package distribution service."
+msgstr ""
+
+#: ../source/flow.rst:37
+msgid ""
+"At that point, the package is present on the package distribution service. "
+"To use the package, end users must:"
+msgstr ""
+
+#: ../source/flow.rst:40
+msgid ""
+"Download one of the package's build artifacts from the package distribution "
+"service."
+msgstr ""
+
+#: ../source/flow.rst:43
+msgid ""
+"Install it in their Python environment, usually in its ``site-packages`` "
+"directory. This step may involve a build/compile step which, if needed, must "
+"be described by the package metadata."
+msgstr ""
+
+#: ../source/flow.rst:47
+msgid ""
+"These last 2 steps are typically performed by :ref:`pip` when an end user "
+"runs ``pip install``."
+msgstr ""
+
+#: ../source/flow.rst:50
+msgid "The steps above are described in more detail below."
+msgstr ""
+
+#: ../source/flow.rst:53
+#, fuzzy
+#| msgid "Source trees"
+msgid "The source tree"
+msgstr "Árvores fonte"
+
+#: ../source/flow.rst:55
+msgid ""
+"The source tree contains the package source code, usually a checkout from a "
+"VCS. The particular version of the code used to create the build artifacts "
+"will typically be a checkout based on a tag associated with the version."
+msgstr ""
+
+#: ../source/flow.rst:60
+#, fuzzy
+#| msgid "Common configurations"
+msgid "The configuration file"
+msgstr "Configurações comuns"
+
+#: ../source/flow.rst:62
+msgid ""
+"The configuration file depends on the tool used to create the build "
+"artifacts. The standard practice is to use a :file:`pyproject.toml` file in "
+"the `TOML format`_."
+msgstr ""
+
+#: ../source/flow.rst:68
+msgid ""
+"At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` "
+"table specifying your build tool. There are many build tools available, "
+"including but not limited to :ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:"
+"`poetry`, :ref:`setuptools`, `trampolim`_, and `whey`_. Each tool's "
+"documentation will show what to put in the ``[build-system]`` table."
+msgstr ""
+
+#: ../source/flow.rst:77
+msgid "For example, here is a table for using :ref:`hatch`:"
+msgstr ""
+
+#: ../source/flow.rst:85
+msgid ""
+"With such a table in the :file:`pyproject.toml` file, a \"frontend\" tool "
+"like :ref:`build` can run your chosen build tool's \"backend\" to create the "
+"build artifacts. Your build tool may also provide its own frontend. An "
+"install tool like :ref:`pip` also acts as a frontend when it runs your build "
+"tool's backend to install from a source distribution."
+msgstr ""
+
+#: ../source/flow.rst:91
+msgid ""
+"The particular build tool you choose dictates what additional information is "
+"required in the :file:`pyproject.toml` file. For example, you might specify:"
+msgstr ""
+
+#: ../source/flow.rst:94
+msgid ""
+"a ``[project]`` table containing project :doc:`Core Metadata </"
+"specifications/core-metadata/>` (name, version, author and so forth); see :"
+"doc:`Declaring project metadata </specifications/declaring-project-metadata/"
+">` for more detail"
+msgstr ""
+
+#: ../source/flow.rst:100
+msgid "a ``[tool]`` table containing tool-specific configuration options"
+msgstr ""
+
+#: ../source/flow.rst:103
+msgid "Build artifacts"
+msgstr ""
+
+#: ../source/flow.rst:106
+#, fuzzy
+#| msgid "Source Distribution (or \"sdist\")"
+msgid "The source distribution (sdist)"
+msgstr "Distribuição Fonte (ou \"sdist\")"
+
+#: ../source/flow.rst:108
+msgid ""
+"A source distribution contains enough to install the package from source in "
+"an end user's Python environment. As such, it needs the package source, and "
+"may also include tests and documentation. These are useful for end users "
+"wanting to develop your sources, and for end user systems where some local "
+"compilation step is required (such as a C extension)."
+msgstr ""
+
+#: ../source/flow.rst:114 ../source/flow.rst:138
+msgid ""
+"The :ref:`build` package knows how to invoke your build tool to create one "
+"of these:"
+msgstr ""
+
+#: ../source/flow.rst:121
+msgid ""
+"Or, your build tool may provide its own interface for creating an sdist."
+msgstr ""
+
+#: ../source/flow.rst:125
+#, fuzzy
+#| msgid "Source Distributions vs Wheels"
+msgid "The built distributions (wheels)"
+msgstr "Distribuições de fonte vs Wheels"
+
+#: ../source/flow.rst:127
+msgid ""
+"A built distribution contains only the files needed for an end user's Python "
+"environment. No compilation steps are required during the install, and the "
+"wheel file can simply be unpacked into the ``site-packages`` directory. This "
+"makes the install faster and more convenient for end users."
+msgstr ""
+
+#: ../source/flow.rst:132
+msgid ""
+"A pure Python package typically needs only one \"generic\" wheel. A package "
+"with compiled binary extensions needs a wheel for each supported combination "
+"of Python interprerter, operating system, and CPU architecture that it "
+"supports. If a suitable wheel file is not available, tools like :ref:`pip` "
+"will fall back to installing the source distribtion."
+msgstr ""
+
+#: ../source/flow.rst:145
+msgid "Or, your build tool may provide its own interface for creating a wheel."
+msgstr ""
+
+#: ../source/flow.rst:149
+msgid ""
+"The default behaviour of :ref:`build` is to make both an sdist and a wheel "
+"from the source in the current directory; the above examples are "
+"deliberately specific."
+msgstr ""
+
+#: ../source/flow.rst:154
+#, fuzzy
+#| msgid "Uploading the distribution archives"
+msgid "Upload to the package distribution service"
+msgstr "Enviando os arquivos de distribuição"
+
+#: ../source/flow.rst:156
+msgid ""
+"The :ref:`twine` tool can upload build artifacts to PyPI for distribution, "
+"using a command like:"
+msgstr ""
+
+#: ../source/flow.rst:163
+msgid "Or, your build tool may provide its own interface for uploading."
+msgstr ""
+
+#: ../source/flow.rst:166
+msgid "Download and install"
+msgstr ""
+
+#: ../source/flow.rst:168
+msgid ""
+"Now that the package is published, end users can download and install the "
+"package into their Python environment. Typically this is done with :ref:"
+"`pip`, using a command like:"
+msgstr ""
+
+#: ../source/flow.rst:176
+msgid ""
+"End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or :"
+"ref:`pdm`."
+msgstr ""
+
 #: ../source/glossary.rst:3
 msgid "Glossary"
 msgstr "Glossário"
@@ -1840,10 +2086,15 @@ msgid "Public dataset"
 msgstr "Conjunto de dados públicos"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:45
+#, fuzzy
+#| msgid ""
+#| "As an alternative, the `Linehaul project <https://github.com/pypa/"
+#| "linehaul>`__ streams download logs from PyPI to `Google BigQuery`_ [#]_, "
+#| "where they are stored as a public dataset."
 msgid ""
-"As an alternative, the `Linehaul project <https://github.com/pypa/"
-"linehaul>`__ streams download logs from PyPI to `Google BigQuery`_ [#]_, "
-"where they are stored as a public dataset."
+"As an alternative, the `Linehaul project <https://github.com/pypa/linehaul-"
+"cloud-function/>`__ streams download logs from PyPI to `Google BigQuery`_ "
+"[#]_, where they are stored as a public dataset."
 msgstr ""
 "Como alternativa, o `projeto Linehaul <https://github.com/pypa/linehaul>`__ "
 "transmite registros de download do PyPI para o `Google BigQuery`_ [#]_, onde "
@@ -5798,7 +6049,7 @@ msgstr "Migrando para PyPI.org"
 #: ../source/guides/supporting-multiple-python-versions.rst:9
 #: ../source/guides/supporting-windows-using-appveyor.rst:7
 msgid "Obsolete"
-msgstr ""
+msgstr "Obsoleto"
 
 #: ../source/guides/migrating-to-pypi-org.rst:10
 msgid ""
@@ -8917,7 +9168,7 @@ msgstr ""
 msgid "python, packaging, guide, tutorial"
 msgstr "python, packaging, guide, tutorial, empacotamento, guia"
 
-#: ../source/index.rst:24
+#: ../source/index.rst:25
 msgid ""
 "Welcome to the *Python Packaging User Guide*, a collection of tutorials and "
 "references to help you distribute and install Python packages with modern "
@@ -8927,7 +9178,7 @@ msgstr ""
 "coleção de tutoriais e referências para lhe ajudar a distribuir e instalar "
 "pacotes Python com ferramentas modernas."
 
-#: ../source/index.rst:28
+#: ../source/index.rst:29
 msgid ""
 "This guide is maintained on `GitHub`_ by the :doc:`Python Packaging "
 "Authority <pypa:index>`. We happily accept any :doc:`contributions and "
@@ -8936,11 +9187,11 @@ msgstr ""
 "Este guia é mantido no `GitHub`_ pela :doc:`Python Packaging Authority <pypa:"
 "index>`. Aceitamos toda :doc:`contribuição e feedback <contribute>`. 😊"
 
-#: ../source/index.rst:35
+#: ../source/index.rst:36
 msgid "Get started"
 msgstr "Primeiros passos"
 
-#: ../source/index.rst:37
+#: ../source/index.rst:38
 msgid ""
 "Essential tools and concepts for working within the Python development "
 "ecosystem are covered in our :doc:`tutorials/index` section:"
@@ -8949,7 +9200,13 @@ msgstr ""
 "desenvolvimento do Python são abordados em nossa seção de :doc:`tutorials/"
 "index`:"
 
-#: ../source/index.rst:40
+#: ../source/index.rst:41
+msgid ""
+"To get an overview of the flow used to publish your code, see the :doc:"
+"`packaging flow <flow>`"
+msgstr ""
+
+#: ../source/index.rst:43
 msgid ""
 "To learn how to install packages, see the :doc:`tutorial on installing "
 "packages <tutorials/installing-packages>`"
@@ -8957,7 +9214,7 @@ msgstr ""
 "Para saber como instalar pacotes, veja o :doc:`tutorial sobre como instalar "
 "pacotes <tutorials/installing-packages>`"
 
-#: ../source/index.rst:42
+#: ../source/index.rst:45
 msgid ""
 "To learn how to manage dependencies in a version controlled project, see "
 "the :doc:`tutorial on managing application dependencies <tutorials/managing-"
@@ -8967,7 +9224,7 @@ msgstr ""
 "veja o :doc:`tutorial sobre como gerenciar dependências de aplicações "
 "<tutorials/managing-dependencies>`"
 
-#: ../source/index.rst:44
+#: ../source/index.rst:47
 msgid ""
 "To learn how to package and distribute your projects, see the :doc:`tutorial "
 "on packaging and distributing <tutorials/packaging-projects>`"
@@ -8975,7 +9232,7 @@ msgstr ""
 "Para saber como empacotar e distribuir seus projetos, veja o :doc:`tutorial "
 "sobre como empacotar e distribuir <tutorials/packaging-projects>`"
 
-#: ../source/index.rst:46
+#: ../source/index.rst:49
 msgid ""
 "To get an overview of packaging options for Python libraries and "
 "applications, see the :doc:`Overview of Python Packaging <overview>`"
@@ -8984,18 +9241,18 @@ msgstr ""
 "aplicações Python, veja a :doc:`Visão geral de empacotamento no Python "
 "<overview>`"
 
-#: ../source/index.rst:51
+#: ../source/index.rst:54
 msgid "Learn more"
 msgstr "Saiba mais"
 
-#: ../source/index.rst:53
+#: ../source/index.rst:56
 msgid ""
 "Beyond our :doc:`tutorials/index`, this guide has several other resources:"
 msgstr ""
 "Além de nossos :doc:`tutorials/index`, este guia possui vários outros "
 "recursos:"
 
-#: ../source/index.rst:55
+#: ../source/index.rst:58
 msgid ""
 "The :doc:`guides/index` section for walk throughs, such as :doc:`guides/"
 "installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`."
@@ -9003,7 +9260,7 @@ msgstr ""
 "A seção :doc:`guides/index` para passos a passos, tal como :doc:`guides/"
 "installing-using-linux-tools` ou :doc:`guides/packaging-binary-extensions`."
 
-#: ../source/index.rst:57
+#: ../source/index.rst:60
 msgid ""
 "The :doc:`discussions/index` section for in-depth references on topics such "
 "as :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-"
@@ -9013,7 +9270,7 @@ msgstr ""
 "como :doc:`discussions/deploying-python-applications` ou :doc:`discussions/"
 "pip-vs-easy-install`."
 
-#: ../source/index.rst:59
+#: ../source/index.rst:62
 msgid ""
 "The :doc:`specifications/index` section for packaging interoperability "
 "specifications."
@@ -9021,7 +9278,7 @@ msgstr ""
 "A seção :doc:`specifications/index` para especificações de "
 "interoperabilidade de empacotamento."
 
-#: ../source/index.rst:61
+#: ../source/index.rst:64
 msgid ""
 "Additionally, there is a list of :doc:`other projects <key_projects>` "
 "maintained by members of the Python Packaging Authority."
@@ -16338,9 +16595,15 @@ msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr "Aqui está um trecho de exemplo de um possível arquivo ``RECORD``::"
 
 #: ../source/specifications/recording-installed-packages.rst:170
+#, fuzzy
+#| msgid ""
+#| "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
+#| "not atempt to uninstall or upgrade the package. (This does not apply to "
+#| "tools that rely on other sources of information, such as system package "
+#| "managers in Linux distros.)"
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
-"not atempt to uninstall or upgrade the package. (This does not apply to "
+"not attempt to uninstall or upgrade the package. (This does not apply to "
 "tools that rely on other sources of information, such as system package "
 "managers in Linux distros.)"
 msgstr ""
@@ -17542,7 +17805,7 @@ msgstr ""
 "os comandos tenham acesso aos seus pacotes instalados com ``pipenv shell``."
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:485
+#: ../source/tutorials/packaging-projects.rst:483
 msgid "Next steps"
 msgstr "Próximos passos"
 
@@ -18167,23 +18430,23 @@ msgstr ""
 "Depois que o comando for concluído, você deverá ver uma saída semelhante a "
 "esta:"
 
-#: ../source/tutorials/packaging-projects.rst:418
+#: ../source/tutorials/packaging-projects.rst:416
 #, fuzzy
 #| msgid ""
 #| "Once uploaded your package should be viewable on TestPyPI, for example, "
 #| "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
 msgid ""
-"Once uploaded your package should be viewable on TestPyPI; for example: "
+"Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
 msgstr ""
 "Depois de enviado, seu pacote pode ser visto no Test PyPI, por exemplo, em "
 "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
 
-#: ../source/tutorials/packaging-projects.rst:423
+#: ../source/tutorials/packaging-projects.rst:421
 msgid "Installing your newly uploaded package"
 msgstr "Instalando seu pacote recém-enviado"
 
-#: ../source/tutorials/packaging-projects.rst:425
+#: ../source/tutorials/packaging-projects.rst:423
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -18193,18 +18456,18 @@ msgstr ""
 "funciona. Crie um :ref:`ambiente virtual <Creating and using Virtual "
 "Environments>` e instale seu pacote a partir do Test PyPI:"
 
-#: ../source/tutorials/packaging-projects.rst:441
+#: ../source/tutorials/packaging-projects.rst:439
 msgid "Make sure to specify your username in the package name!"
 msgstr "Certifique-se de especificar seu nome de usuário no nome do pacote!"
 
-#: ../source/tutorials/packaging-projects.rst:443
+#: ../source/tutorials/packaging-projects.rst:441
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
 msgstr ""
 "pip deve instalar o pacote de Test PyPI e a saída deve ser semelhante a esta:"
 
-#: ../source/tutorials/packaging-projects.rst:453
+#: ../source/tutorials/packaging-projects.rst:451
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -18220,7 +18483,7 @@ msgstr ""
 "pacote de exemplo não tenha nenhuma dependência, é uma boa prática evitar "
 "instalar dependências ao usar o Test PyPI."
 
-#: ../source/tutorials/packaging-projects.rst:460
+#: ../source/tutorials/packaging-projects.rst:458
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -18228,16 +18491,16 @@ msgstr ""
 "Você pode testar se ele foi instalado corretamente importando o pacote. "
 "Certifique-se de que ainda está em seu ambiente virtual e execute o Python:"
 
-#: ../source/tutorials/packaging-projects.rst:475
+#: ../source/tutorials/packaging-projects.rst:473
 msgid "and import the package:"
 msgstr "e importe o pacote:"
 
-#: ../source/tutorials/packaging-projects.rst:487
+#: ../source/tutorials/packaging-projects.rst:485
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 ✨"
 msgstr "**Parabéns, você empacotou e distribuiu um projeto Python!** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:490
+#: ../source/tutorials/packaging-projects.rst:488
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -18249,7 +18512,7 @@ msgstr ""
 "ocasionalmente exclui pacotes e contas. É melhor usar Test PyPI para testes "
 "e experimentos como este tutorial."
 
-#: ../source/tutorials/packaging-projects.rst:495
+#: ../source/tutorials/packaging-projects.rst:493
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -18259,7 +18522,7 @@ msgstr ""
 "do Python, você pode fazer quase o mesmo que fez neste tutorial, mas com "
 "estas diferenças importantes:"
 
-#: ../source/tutorials/packaging-projects.rst:499
+#: ../source/tutorials/packaging-projects.rst:497
 #, fuzzy
 #| msgid ""
 #| "Choose a memorable and unique name for your package. You don't have to "
@@ -18272,7 +18535,7 @@ msgstr ""
 "Escolha um nome único e memorável para o seu pacote. Você não precisa "
 "acrescentar seu nome de usuário como fez no tutorial."
 
-#: ../source/tutorials/packaging-projects.rst:501
+#: ../source/tutorials/packaging-projects.rst:499
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -18282,7 +18545,7 @@ msgstr ""
 "servidores separados e os detalhes de login do servidor de teste não são "
 "compartilhados com o servidor principal."
 
-#: ../source/tutorials/packaging-projects.rst:504
+#: ../source/tutorials/packaging-projects.rst:502
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -18294,7 +18557,7 @@ msgstr ""
 "pacote em produção, você não precisa especificar ``--repository``; o pacote "
 "será enviado para https://pypi.org/ por padrão."
 
-#: ../source/tutorials/packaging-projects.rst:508
+#: ../source/tutorials/packaging-projects.rst:506
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -18302,7 +18565,7 @@ msgstr ""
 "Instale seu pacote a partir do PyPI real usando ``python3 -m pip install "
 "[seu-pacote]``."
 
-#: ../source/tutorials/packaging-projects.rst:510
+#: ../source/tutorials/packaging-projects.rst:508
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -18310,14 +18573,14 @@ msgstr ""
 "Neste ponto, se você quiser ler mais sobre o empacotamento de bibliotecas "
 "Python, aqui estão algumas coisas que você pode fazer:"
 
-#: ../source/tutorials/packaging-projects.rst:516
+#: ../source/tutorials/packaging-projects.rst:514
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
 "`pdm`, and :ref:`poetry`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:519
+#: ../source/tutorials/packaging-projects.rst:517
 #, fuzzy
 #| msgid "See :pep:`517` and :pep:`518` for background and details."
 msgid ""
@@ -18325,7 +18588,7 @@ msgid ""
 "configuration."
 msgstr "Veja :pep:`517` e :pep:`518` para um informações e detalhes."
 
-#: ../source/tutorials/packaging-projects.rst:520
+#: ../source/tutorials/packaging-projects.rst:518
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 
