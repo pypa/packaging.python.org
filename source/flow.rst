@@ -21,7 +21,7 @@ user's Python environment. The steps to achieve this are:
 
 - Prepare a configuration file describing the package metadata (name, version
   and so forth) and how to create the build artifacts. For most packages, this
-  will be a :file:`pyproject.toml` file, maintained maunally in the source
+  will be a :file:`pyproject.toml` file, maintained manually in the source
   tree.
 
 - Create build artifacts to be sent to the package distribution service
@@ -131,9 +131,9 @@ makes the install faster and more convenient for end users.
 
 A pure Python package typically needs only one "generic" wheel. A package with
 compiled binary extensions needs a wheel for each supported combination of
-Python interprerter, operating system, and CPU architecture that it supports.
+Python interpreter, operating system, and CPU architecture that it supports.
 If a suitable wheel file is not available, tools like :ref:`pip` will fall
-back to installing the source distribtion.
+back to installing the source distribution.
 
 The :ref:`build` package knows how to invoke your build tool to create one of
 these:
