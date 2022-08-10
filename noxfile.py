@@ -6,8 +6,15 @@
 import shutil
 import nox
 
-@nox.session(py="3")
+
+nox.options.sessions = []
+
+
+@nox.session()
 def translation(session):
+    """
+    Build the gettext .pot files.
+    """
     session.install("-r", "requirements.txt")
     target_dir = "locales"
     session.run(
@@ -18,8 +25,11 @@ def translation(session):
         target_dir, # where to put the .pot file
     )
 
-@nox.session(py="3")
+@nox.session()
 def build(session, autobuild=False):
+    """
+    Make the website.
+    """
     session.install("-r", "requirements.txt")
 
     target_build_dir = "build"
@@ -49,14 +59,20 @@ def build(session, autobuild=False):
     )
 
 
-@nox.session(py="3")
+@nox.session()
 def preview(session):
+    """
+    Make and preview the website.
+    """
     session.install("sphinx-autobuild")
     build(session, autobuild=True)
 
 
-@nox.session(py="3")
+@nox.session()
 def linkcheck(session):
+    """
+    Check for broken links.
+    """
     session.install("-r", "requirements.txt")
     session.run(
         "sphinx-build", 
