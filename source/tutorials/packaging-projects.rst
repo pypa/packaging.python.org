@@ -337,8 +337,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    ├── example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    └── example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
 The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
@@ -404,18 +404,16 @@ the ``pypi-`` prefix.
 
 After the command completes, you should see output similar to this:
 
-.. code-block:: bash
+.. code-block::
 
     Uploading distributions to https://test.pypi.org/legacy/
-    Enter your username: [your username]
-    Enter your password:
+    Enter your username: __token__
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-    100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
+    100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.2/8.2 kB • 00:01 • ?
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
-    100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
+    100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 kB • 00:00 • ?
 
-
-Once uploaded your package should be viewable on TestPyPI; for example:
+Once uploaded, your package should be viewable on TestPyPI; for example:
 ``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
 
 
