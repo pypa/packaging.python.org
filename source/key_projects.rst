@@ -685,7 +685,7 @@ venv
 ====
 
 `Docs <https://docs.python.org/3/library/venv.html>`__ |
-`Issues <https://bugs.python.org/>`__
+`Issues <https://github.com/python/cpython/issues>`__
 
 A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more
