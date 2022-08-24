@@ -97,7 +97,7 @@ If your README is written in reStructuredText, any invalid markup will prevent
 it from rendering, causing PyPI to instead just show the README's raw source.
 
 Note that Sphinx extensions used in docstrings, such as
-:doc:`directives and roles <sphinx:usage/restructuredtext/index>`
+:doc:`directives <sphinx:usage/restructuredtext/directives>` and :doc:`roles <sphinx:usage/restructuredtext/roles>`
 (e.g., "``:py:func:`getattr```" or "``:ref:`my-reference-label```"), are not allowed here and will result in error
 messages like "``Error: Unknown interpreted text role "py:func".``".
 
