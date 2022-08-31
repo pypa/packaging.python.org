@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-31 09:55+0000\n"
+"POT-Creation-Date: 2022-08-31 10:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3587,91 +3587,136 @@ msgstr ""
 msgid "The CPython :doc:`Extending and Embedding <python:extending/index>` guide includes an introduction to writing a :doc:`custom extension module in C <python:extending/extending>`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:246
+#: ../source/guides/packaging-binary-extensions.rst:235
+#: ../source/guides/packaging-binary-extensions.rst:318
+msgid "FIXME"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:237
+msgid "mention the stable ABI (3.2+, link to the CPython C API docs)"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:238
+msgid "mention the module lifecycle"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:239
+msgid "mention the challenges of shared static state and subinterpreters"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:240
+msgid "mention the implications of the GIL for extension modules"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:241
+msgid "mention the memory allocation APIs in 3.4+"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:243
+msgid "mention again that all this is one of the reasons why you probably *don't* want to handcode your extension modules :)"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:248
 msgid "Building binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:249
+#: ../source/guides/packaging-binary-extensions.rst:251
 msgid "Building extensions for multiple platforms"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:251
+#: ../source/guides/packaging-binary-extensions.rst:253
 msgid "If you plan to distribute your extension, you should provide :term:`wheels <Wheel>` for all the platforms you intend to support. For most extensions, this is at least one package per Python version times the number of OS and architectures you support.  These are usually built on continuous integration (CI) systems. There are tools to help you build highly redistributable binaries from CI; these include :ref:`cibuildwheel` and :ref:`multibuild`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:261
+#: ../source/guides/packaging-binary-extensions.rst:263
 msgid "Binary extensions for Windows"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:263
+#: ../source/guides/packaging-binary-extensions.rst:265
 msgid "Before it is possible to build a binary extension, it is necessary to ensure that you have a suitable compiler available. On Windows, Visual C is used to build the official CPython interpreter, and should be used to build compatible binary extensions.  To set up a build environment for binary extensions, install `Visual Studio Community Edition <https://visualstudio.microsoft.com/downloads/>`__ - any recent version is fine."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:270
+#: ../source/guides/packaging-binary-extensions.rst:272
 msgid "One caveat: if you use Visual Studio 2019 or later, your extension will depend on an \"extra\" file, ``VCRUNTIME140_1.dll``, in addition to the ``VCRUNTIME140.dll`` that all previous versions back to 2015 depend on. This will add an extra requirement to using your extension on versions of CPython that do not include this extra file. To avoid this, you can add the compile-time argument ``/d2FH4-``. Recent versions of Python may include this file."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:278
+#: ../source/guides/packaging-binary-extensions.rst:280
 msgid "Building for Python prior to 3.5 is discouraged, because older versions of Visual Studio are no longer available from Microsoft. If you do need to build for older versions, you can set ``DISTUTILS_USE_SDK=1`` and ``MSSdk=1`` to force a the currently activated version of MSVC to be found, and you should exercise care when designing your extension not to malloc/free memory across different libraries, avoid relying on changed data structures, and so on. Tools for generating extension modules usually avoid these things for you."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:289
+#: ../source/guides/packaging-binary-extensions.rst:291
 msgid "Binary extensions for Linux"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:291
+#: ../source/guides/packaging-binary-extensions.rst:293
 msgid "Linux binaries must use a sufficiently old glibc to be compatible with older distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker images provide a build environment with a glibc old enough to support most current Linux distributions on common architectures."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:297
+#: ../source/guides/packaging-binary-extensions.rst:299
 msgid "Binary extensions for macOS"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:299
+#: ../source/guides/packaging-binary-extensions.rst:301
 msgid "Binary compatibility on macOS is determined by the target minimum deployment system, e.g. *10.9*, which is often specified with the ``MACOSX_DEPLOYMENT_TARGET`` environmental variable when building binaries on macOS. When building with setuptools / distutils, the deployment target is specified with the flag ``--plat-name``, e.g. ``macosx-10.9-x86_64``. For common deployment targets for macOS Python distributions, see the `MacPython Spinning Wheels wiki <https://github.com/MacPython/wiki/wiki/Spinning-wheels>`_."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:309
+#: ../source/guides/packaging-binary-extensions.rst:311
 msgid "Publishing binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:311
+#: ../source/guides/packaging-binary-extensions.rst:313
 msgid "For interim guidance on this topic, see the discussion in :issue:`this issue <284>`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:327
-msgid "Additional resources"
+#: ../source/guides/packaging-binary-extensions.rst:320
+msgid "cover publishing as wheel files on PyPI or a custom index server"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:321
+msgid "cover creation of Windows and macOS installers"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:322
+msgid "cover weak linking"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:323
+msgid "mention the fact that Linux distros have a requirement to build from source in their own build systems, so binary-only releases are strongly discouraged"
 msgstr ""
 
 #: ../source/guides/packaging-binary-extensions.rst:329
+msgid "Additional resources"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:331
 msgid "Cross-platform development and distribution of extension modules is a complex topic, so this guide focuses primarily on providing pointers to various tools that automate dealing with the underlying technical challenges. The additional resources in this section are instead intended for developers looking to understand more about the underlying binary interfaces that those systems rely on at runtime."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:336
+#: ../source/guides/packaging-binary-extensions.rst:338
 msgid "Cross-platform wheel generation with scikit-build"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:338
+#: ../source/guides/packaging-binary-extensions.rst:340
 msgid "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package helps abstract cross-platform build operations and provides additional capabilities when creating binary extension packages. Additional documentation is also available on the `C runtime, compiler, and build system generator <https://scikit-build.readthedocs.io/en/latest/generators.html>`_ for Python binary extension modules."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:346
+#: ../source/guides/packaging-binary-extensions.rst:348
 msgid "Introduction to C/C++ extension modules"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:348
+#: ../source/guides/packaging-binary-extensions.rst:350
 msgid "For a more in depth explanation of how extension modules are used by CPython on a Debian system, see the following articles:"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:351
+#: ../source/guides/packaging-binary-extensions.rst:353
 msgid "`What are (c)python extension modules? <https://thomasnyberg.com/what_are_extension_modules.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:352
+#: ../source/guides/packaging-binary-extensions.rst:354
 msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:353
+#: ../source/guides/packaging-binary-extensions.rst:355
 msgid "`Writing cpython extension modules using C++ <https://thomasnyberg.com/cpp_extension_modules.html>`_"
 msgstr ""
 
