@@ -230,16 +230,18 @@ The CPython :doc:`Extending and Embedding <python:extending/index>`
 guide includes an introduction to writing a
 :doc:`custom extension module in C <python:extending/extending>`.
 
-::
+..
 
-   mention the stable ABI (3.2+, link to the CPython C API docs)
-   mention the module lifecycle
-   mention the challenges of shared static state and subinterpreters
-   mention the implications of the GIL for extension modules
-   mention the memory allocation APIs in 3.4+
+   FIXME
 
-   mention again that all this is one of the reasons why you probably
-   *don't* want to handcode your extension modules :)
+   * mention the stable ABI (3.2+, link to the CPython C API docs)
+   * mention the module lifecycle
+   * mention the challenges of shared static state and subinterpreters
+   * mention the implications of the GIL for extension modules
+   * mention the memory allocation APIs in 3.4+
+
+   * mention again that all this is one of the reasons why you probably *don't*
+     want to handcode your extension modules :)
 
 
 Building binary extensions
@@ -311,16 +313,16 @@ Publishing binary extensions
 For interim guidance on this topic, see the discussion in
 :issue:`this issue <284>`.
 
-::
+..
 
    FIXME
 
-   cover publishing as wheel files on PyPI or a custom index server
-   cover creation of Windows and macOS installers
-   cover weak linking
-   mention the fact that Linux distros have a requirement to build from
-   source in their own build systems, so binary-only releases are strongly
-   discouraged
+   * cover publishing as wheel files on PyPI or a custom index server
+   * cover creation of Windows and macOS installers
+   * cover weak linking
+   * mention the fact that Linux distros have a requirement to build from
+     source in their own build systems, so binary-only releases are strongly
+     discouraged
 
 
 Additional resources
