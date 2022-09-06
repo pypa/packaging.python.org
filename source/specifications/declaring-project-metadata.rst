@@ -33,7 +33,7 @@ or listed as dynamic are:
 
 - ``version``
 
-All other fields are considered optional and my be specified
+All other fields are considered optional and may be specified
 statically, listed as dynamic, or left unspecified.
 
 
