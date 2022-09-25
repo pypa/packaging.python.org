@@ -281,6 +281,9 @@ MIT license:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
+Most build backends automatically include license files in packages. See your
+backend's documentation for more details.
+
 
 Including other files
 ---------------------
