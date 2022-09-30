@@ -3,8 +3,8 @@ src layout vs flat layout
 =========================
 
 The "flat layout" refers to organising a project's files in a folder or
-repository, such that the various configuration files and importable
-modules/packages are all in the top-level directory.
+repository, such that the various configuration files and
+:term:`import packages <Import Package>` are all in the top-level directory.
 
 ::
 
@@ -21,8 +21,9 @@ modules/packages are all in the top-level directory.
         └── decrease_world_suck.py
 
 The "src layout" deviates from the flat layout by moving the code that is
-intended to be importable (i.e. ``import awesome_package``) into a subdirectory,
-typically ``src/`` (hence the name).
+intended to be importable (i.e. ``import awesome_package``, also known as
+:term:`import packages <Import Package>`) into a subdirectory. This
+subdirectory is typically named ``src/``, hence "src layout".
 
 ::
 
@@ -46,24 +47,27 @@ layout and the flat layout:
   code, and the flat layout does not.
 
   This means that the src layout involves an additional step in the
-  development workflow of a project (typically, an editable installation
+  development workflow of a project (typically, an
+  :doc:`editable installation <setuptools:userguide/development_mode>`
   is used for development and a regular installation is used for testing).
 
 * The src layout helps prevent accidental usage of the in-development copy of
   the code.
 
-  This helps avoids issues around improper packaging of a project, like not
-  including a file in a release distribution due to misconfiguration of the
-  project's packaging tooling.
+  This is relevant since the Python interpreter includes the current working
+  directory as the first item on the import path. This means that if an import
+  package exists in the current working directory with the same name as an
+  installed import package, the variant from the current working directory will
+  be used. This can lead to subtle  misconfiguration of the project's packaging
+  tooling, which could result in files not being included in a distribution.
 
-  The Python interpreter includes the current working directory as the first
-  item on the import path. Thus, if an import package/module exists
-  in the current working directory with the same name as the import package,
-  it will be used instead of an installed copy, which can be a source of
-  packaging issues with the flat layout.
+  The src layout helps avoid this by keeping import packages in a directory
+  separate from the root directory of the project, ensuring that the installed
+  copy is used.
 
-* The src layout helps enforce that editable installations are only able to
-  import files that were meant to be importable.
+* The src layout helps enforce that an
+  :doc:`editable installation <setuptools:userguide/development_mode>` is only
+  able to import files that were meant to be importable.
 
   This is especially relevant when the editable installation is implemented
   using a `path configuration file <https://docs.python.org/3/library/site.html#index-2>`_
