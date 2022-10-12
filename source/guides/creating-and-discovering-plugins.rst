@@ -120,12 +120,12 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-Packages have metadata for plugins described in the :doc:`entry-points`.
-By telling your package’s build backend,
-plugins can register themselves for discovery.
+Packages can have metadata for plugins described in the :doc:`entry-points`.
+By specifying them, a package announces that it contains a specific kind of plugin.
+Another package supporting this kind of plugin can use the metadata to discover that plugin.
 
 For example if you have a package named ``myapp-plugin-a`` and it includes
-the following in its setup file:
+the following in its ``pyproject.toml``:
 
 .. code-block:: toml
 
@@ -133,7 +133,7 @@ the following in its setup file:
     a = 'myapp_plugin_a'
 
 Then you can discover and load all of the registered entry points by using
-:func:`importlib.metadata.entry_points` (or the `backport`_
+:func:`importlib.metadata.entry_points` (or the backport_
 ``importlib_metadata >= 3.6`` for Python 3.6-3.9):
 
 .. code-block:: python
