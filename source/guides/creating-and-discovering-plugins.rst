@@ -127,22 +127,10 @@ plugins can register themselves for discovery.
 For example if you have a package named ``myapp-plugin-a`` and it includes
 the following in its setup file:
 
-.. tab:: :file:`pyproject.toml` (PEP 621)
+.. code-block:: toml
 
-    .. code-block:: toml
-
-         [project.entry-points.'myapp.plugins']
-         a = 'myapp_plugin_a'
-
-.. tab:: :file:`setup.py` (setuptools)
-
-    .. code-block:: toml
-
-        setup(
-            ...
-            entry_points={'myapp.plugins': 'a = myapp_plugin_a'},
-            ...
-        )
+    [project.entry-points.'myapp.plugins']
+    a = 'myapp_plugin_a'
 
 Then you can discover and load all of the registered entry points by using
 :func:`importlib.metadata.entry_points` (or the `backport`_
