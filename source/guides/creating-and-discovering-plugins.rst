@@ -120,7 +120,7 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
 Using package metadata
 ======================
 
-Packages can have metadata for plugins described in the :doc:`entry-points`.
+Packages can have metadata for plugins described in the :ref:`entry-points`.
 By specifying them, a package announces that it contains a specific kind of plugin.
 Another package supporting this kind of plugin can use the metadata to discover that plugin.
 
