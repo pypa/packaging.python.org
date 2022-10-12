@@ -168,7 +168,7 @@ Here is an example snippet of a possible ``RECORD`` file::
     blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530
 
 If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must not
-atempt to uninstall or upgrade the package.
+attempt to uninstall or upgrade the package.
 (This does not apply to tools that rely on other sources of information,
 such as system package managers in Linux distros.)
 

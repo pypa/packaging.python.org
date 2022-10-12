@@ -542,8 +542,7 @@ work of turning these interfaces into actual scripts [2]_.  The scripts will be
 generated during the install of your :term:`distribution <Distribution
 Package>`.
 
-For more information, see `Automatic Script Creation
-<https://setuptools.readthedocs.io/en/latest/userguide/quickstart.html#entry-points-and-automatic-script-creation>`_
+For more information, see :doc:`Entry Points <setuptools:userguide/entry_point>`
 from the :doc:`setuptools docs <setuptools:index>`.
 
 .. _`Choosing a versioning scheme`:

@@ -316,9 +316,9 @@ checker only needs to establish that RECORD matches the signature.
 See
 
 - https://datatracker.ietf.org/doc/html/rfc7515
-- https://tools.ietf.org/id/draft-jones-json-web-signature-json-serialization-01.html
+- https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-serialization-01
 - https://datatracker.ietf.org/doc/html/rfc7517
-- https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html
+- https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01
 
 
 Comparison to .egg

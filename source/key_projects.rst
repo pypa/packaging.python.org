@@ -179,15 +179,14 @@ Pipenv
 
 Pipenv is a project that aims to bring the best of all packaging worlds to the
 Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:`virtualenv`
-into one single toolchain. It features very pretty terminal colors.
+into one single toolchain. It can autoimport ``requirements.txt`` and also
+check for CVEs in `Pipfile` using `safety <https://pyup.io/safety>`_.
 
 Pipenv aims to help users manage environments, dependencies, and
 imported packages on the command line. It also works well on Windows
 (which other tools often underserve), makes and checkes file hashes,
 to ensure compliance with hash-locked dependency specifiers, and eases
-uninstallation of packages and dependencies. It is used by Python
-users and system administrators, but has been less maintained since
-late 2018.
+uninstallation of packages and dependencies.
 
 .. _Pipfile:
 
@@ -686,7 +685,7 @@ venv
 ====
 
 `Docs <https://docs.python.org/3/library/venv.html>`__ |
-`Issues <https://bugs.python.org/>`__
+`Issues <https://github.com/python/cpython/issues>`__
 
 A package in the Python Standard Library (starting with Python 3.3) for
 creating :term:`Virtual Environments <Virtual Environment>`.  For more
