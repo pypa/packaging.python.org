@@ -641,10 +641,13 @@ default, pip only finds stable versions.
 
         py -m pip install --pre SomeProject
 
-Installing Setuptools "Extras"
-==============================
+Installing "Extras"
+===================
 
-Install `setuptools extras`_.
+Extras are optional "variants" of a package, which may include
+additional dependencies, and thereby enable additional functionality
+from the package.  If you wish to install an extra for a package which
+you know publishes one, you can include it in the pip installation command:
 
 .. tab:: Unix/macOS
 
@@ -681,5 +684,3 @@ Install `setuptools extras`_.
 .. [4] The compatible release specifier was accepted in :pep:`440`
        and support was released in :ref:`setuptools` v8.0 and
        :ref:`pip` v6.0
-
-.. _setuptools extras: https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies

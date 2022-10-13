@@ -188,7 +188,6 @@ following this tutorial.
     ]
     description = "A small example package"
     readme = "README.md"
-    license = { file="LICENSE" }
     requires-python = ">=3.7"
     classifiers = [
         "Programming Language :: Python :: 3",
@@ -217,7 +216,6 @@ following this tutorial.
   In this case, the description is loaded from :file:`README.md` (which is a
   common pattern). There also is a more advanced table form described in the
   :ref:`project metadata specification <declaring-project-metadata>`.
-- ``license`` is the path to the :file:`LICENSE` file, described below.
 - ``requires-python`` gives the versions of Python supported by your
   project. Installers like :ref:`pip` will look back through older versions of
   packages until it finds one that has a matching Python version.
@@ -283,6 +281,9 @@ MIT license:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
+Most build backends automatically include license files in packages. See your
+backend's documentation for more details.
+
 
 Including other files
 ---------------------
@@ -337,8 +338,8 @@ files in the :file:`dist` directory:
 .. code-block:: text
 
     dist/
-      example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-      example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    ├── example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    └── example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
 The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
@@ -404,18 +405,16 @@ the ``pypi-`` prefix.
 
 After the command completes, you should see output similar to this:
 
-.. code-block:: bash
+.. code-block::
 
     Uploading distributions to https://test.pypi.org/legacy/
-    Enter your username: [your username]
-    Enter your password:
+    Enter your username: __token__
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
-    100%|█████████████████████| 4.65k/4.65k [00:01<00:00, 2.88kB/s]
+    100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.2/8.2 kB • 00:01 • ?
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
-    100%|█████████████████████| 4.25k/4.25k [00:01<00:00, 3.05kB/s]
+    100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 kB • 00:00 • ?
 
-
-Once uploaded your package should be viewable on TestPyPI; for example:
+Once uploaded, your package should be viewable on TestPyPI; for example:
 ``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
 
 
