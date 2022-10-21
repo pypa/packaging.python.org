@@ -13,13 +13,14 @@
 # Eric <alchemillatruth@purelymail.com>, 2022.
 # 王玎珰 <1330274738@qq.com>, 2022.
 # Xu ZhuoHan <yylteam@hotmail.com>, 2022.
+# Harvey Li <harvey.li@beaconos.org>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-06 22:09+0000\n"
-"PO-Revision-Date: 2022-09-22 10:15+0000\n"
-"Last-Translator: Xu ZhuoHan <yylteam@hotmail.com>\n"
+"POT-Creation-Date: 2022-10-03 19:48+0000\n"
+"PO-Revision-Date: 2022-10-03 19:48+0000\n"
+"Last-Translator: Harvey Li <harvey.li@beaconos.org>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "pypa/packaging-python-org/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1036,6 +1037,91 @@ msgstr ""
 "https://setuptools.readthedocs.io/en/latest/deprecated/easy_install."
 "html#natural-script-launcher"
 
+#: ../source/discussions/src-layout-vs-flat-layout.rst:3
+msgid "src layout vs flat layout"
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:5
+msgid ""
+"The \"flat layout\" refers to organising a project's files in a folder or "
+"repository, such that the various configuration files and :term:`import "
+"packages <Import Package>` are all in the top-level directory."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:23
+msgid ""
+"The \"src layout\" deviates from the flat layout by moving the code that is "
+"intended to be importable (i.e. ``import awesome_package``, also known as :"
+"term:`import packages <Import Package>`) into a subdirectory. This "
+"subdirectory is typically named ``src/``, hence \"src layout\"."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:43
+msgid ""
+"Here's a breakdown of the important behaviour differences between the src "
+"layout and the flat layout:"
+msgstr "以下详解 src 布局和平面布局之间重要行为差异："
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:46
+msgid ""
+"The src layout requires installation of the project to be able to run its "
+"code, and the flat layout does not."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:49
+msgid ""
+"This means that the src layout involves an additional step in the "
+"development workflow of a project (typically, an :doc:`editable installation "
+"<setuptools:userguide/development_mode>` is used for development and a "
+"regular installation is used for testing)."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:54
+msgid ""
+"The src layout helps prevent accidental usage of the in-development copy of "
+"the code."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:57
+msgid ""
+"This is relevant since the Python interpreter includes the current working "
+"directory as the first item on the import path. This means that if an import "
+"package exists in the current working directory with the same name as an "
+"installed import package, the variant from the current working directory "
+"will be used. This can lead to subtle  misconfiguration of the project's "
+"packaging tooling, which could result in files not being included in a "
+"distribution."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:64
+msgid ""
+"The src layout helps avoid this by keeping import packages in a directory "
+"separate from the root directory of the project, ensuring that the installed "
+"copy is used."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:68
+msgid ""
+"The src layout helps enforce that an :doc:`editable installation <setuptools:"
+"userguide/development_mode>` is only able to import files that were meant to "
+"be importable."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:72
+msgid ""
+"This is especially relevant when the editable installation is implemented "
+"using a `path configuration file <https://docs.python.org/3/library/site."
+"html#index-2>`_ that adds the directory to the import path."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:76
+msgid ""
+"The flat layout would add the other project files (eg: ``README.md``, ``tox."
+"ini``) and packaging/tooling configuration files (eg: ``setup.py``, "
+"``noxfile.py``) on the import path. This would make certain imports work in "
+"editable installations but not regular installations."
+msgstr ""
+
 #: ../source/discussions/wheel-vs-egg.rst:5
 msgid "Wheel vs Egg"
 msgstr "Wheel 与 Egg"
@@ -1153,6 +1239,9 @@ msgid ""
 "Package Index (PyPI)`_. It is written for package publishers, who are "
 "assumed to be the package author."
 msgstr ""
+"该文件旨在概述通常在 `Python 包索引 (PyPI)`_ 上发布/分发一个 :term:`分发包 "
+"<Distribution Package>`所涉及的流程。它是为包发布者编写的，而他们被认为是包的"
+"作者。"
 
 #: ../source/flow.rst:12
 msgid ""
@@ -1254,10 +1343,10 @@ msgid ""
 "`poetry`, :ref:`setuptools`, `trampolim`_, and `whey`_. Each tool's "
 "documentation will show what to put in the ``[build-system]`` table."
 msgstr ""
-":file:`pyproject.toml` 文件至少需要一个指定构建工具的 ``[build-system]`` "
-"表。有许多可用的构建工具，包括但不限于 :ref:`flit`、 :ref:`hatch`、 "
-":ref:`pdm`、 :ref:`poetry`、 :ref:`setuptools`、` trampolim`_ 和 `whey`_ 。"
-"每个工具的文档都会显示需要在 ``[build-system]`` 表中放置的内容。"
+":file:`pyproject.toml` 文件至少需要一个指定构建工具的 ``[build-system]`` 表。"
+"有许多可用的构建工具，包括但不限于 :ref:`flit`、 :ref:`hatch`、 :ref:"
+"`pdm`、 :ref:`poetry`、 :ref:`setuptools`、` trampolim`_ 和 `whey`_ 。每个工"
+"具的文档都会显示需要在 ``[build-system]`` 表中放置的内容。"
 
 #: ../source/flow.rst:77
 msgid "For example, here is a table for using :ref:`hatch`:"
@@ -1387,7 +1476,7 @@ msgstr "词汇表"
 
 #: ../source/glossary.rst:8
 msgid "Binary Distribution"
-msgstr "二进制分布 （Binary Distribution）"
+msgstr "二进制发行版"
 
 #: ../source/glossary.rst:11
 msgid ""
@@ -1397,7 +1486,7 @@ msgstr "一种特定的术语：`Build Distribution'，包含编译的扩展。"
 
 #: ../source/glossary.rst:14
 msgid "Built Distribution"
-msgstr "构建分布（Built Distribution）"
+msgstr "编译发行版"
 
 #: ../source/glossary.rst:17
 msgid ""
@@ -1417,7 +1506,7 @@ msgstr ""
 
 #: ../source/glossary.rst:26
 msgid "Distribution Package"
-msgstr "分发软件包"
+msgstr "发行版"
 
 #: ../source/glossary.rst:29
 msgid ""
@@ -1527,7 +1616,7 @@ msgstr ""
 
 #: ../source/glossary.rst:83
 msgid "Package Index"
-msgstr "包索引 (Package Index)"
+msgstr "包索引"
 
 #: ../source/glossary.rst:86
 msgid ""
@@ -3292,6 +3381,8 @@ msgid ""
 "``pip`` and other modern Python package installers ignore pre-releases by "
 "default when deciding which versions of dependencies to install."
 msgstr ""
+"``pip`` 和其他现代的 Python 软件包安装程序在决定安装哪些版本的依赖项时，默认"
+"会忽略预发布版本（pre-releases）。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:650
 msgid "Local version identifiers"
@@ -7614,7 +7705,7 @@ msgstr ""
 
 #: ../source/key_projects.rst:126
 msgid "packaging"
-msgstr ""
+msgstr "打包"
 
 #: ../source/key_projects.rst:128
 msgid ""
@@ -13086,12 +13177,11 @@ msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:36
 msgid ""
-"The file name of a sdist is not currently standardised, although the *de "
-"facto* form is ``{name}-{version}.tar.gz``, where ``{name}`` is the "
-"canonicalized form of the project name (see :pep:`503` for the "
-"canonicalization rules) with ``-`` characters replaced with ``_``, and "
-"``{version}`` is the canonicalized form of the project version (see :ref:"
-"`version-specifiers`)."
+"The file name of a sdist was standardised in :pep:`625`. The file name must "
+"be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised "
+"according to the same rules as for binary distributions (see :ref:`binary-"
+"distribution-format`), and ``{version}`` is the canonicalized form of the "
+"project version (see :ref:`version-specifiers`)."
 msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:42
@@ -13100,12 +13190,25 @@ msgid ""
 "in the metadata contained in the file."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:46
+#: ../source/specifications/source-distribution-format.rst:45
+msgid ""
+"Code that produces a source distribution file MUST give the file a name that "
+"matches this specification. This includes the ``build_sdist`` hook of a "
+"build backend."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:48
+msgid ""
+"Code that processes source distribution files MAY recognise source "
+"distribution files by the ``.tar.gz`` suffix and the presence of precisely "
+"*one* hyphen in the filename. Code that does this may then use the "
+"distribution name and version from the filename without further verification."
+msgstr ""
+
 #: ../source/specifications/source-distribution-format.rst:54
 msgid "Source distribution file format"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:48
 #: ../source/specifications/source-distribution-format.rst:56
 msgid ""
 "A ``.tar.gz`` source distribution (sdist) contains a single top-level "
@@ -13118,17 +13221,18 @@ msgid ""
 "2.2 of the metadata specification."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:56
 #: ../source/specifications/source-distribution-format.rst:64
 msgid ""
 "No other content of a sdist is required or defined. Build systems can store "
 "whatever information they need in the sdist to build the project."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:59
+#: ../source/specifications/source-distribution-format.rst:67
 msgid ""
 "The tarball should use the modern POSIX.1-2001 pax tar format, which "
-"specifies UTF-8 based file names."
+"specifies UTF-8 based file names. In particular, source distribution files "
+"must be readable using the standard library tarfile module with the open "
+"flag 'r:gz'."
 msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:6
@@ -13867,7 +13971,7 @@ msgid ""
 msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:483
+#: ../source/tutorials/packaging-projects.rst:484
 msgid "Next steps"
 msgstr ""
 
@@ -14092,7 +14196,7 @@ msgid ""
 "following this tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:203
+#: ../source/tutorials/packaging-projects.rst:202
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -14101,7 +14205,7 @@ msgid ""
 "package with the same name as one which already exists."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:208
+#: ../source/tutorials/packaging-projects.rst:207
 msgid ""
 "``version`` is the package version. See the :ref:`version specifier "
 "specification <version-specifiers>` for more details on versions. Some build "
@@ -14109,18 +14213,18 @@ msgid ""
 "tag."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:211
+#: ../source/tutorials/packaging-projects.rst:210
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
 "same format."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:214
+#: ../source/tutorials/packaging-projects.rst:213
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:215
+#: ../source/tutorials/packaging-projects.rst:214
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -14129,18 +14233,14 @@ msgid ""
 "metadata specification <declaring-project-metadata>`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:220
-msgid "``license`` is the path to the :file:`LICENSE` file, described below."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:221
+#: ../source/tutorials/packaging-projects.rst:219
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "Installers like :ref:`pip` will look back through older versions of packages "
 "until it finds one that has a matching Python version."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:224
+#: ../source/tutorials/packaging-projects.rst:222
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -14151,13 +14251,13 @@ msgid ""
 "pypi.org/classifiers/."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:231
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:234
+#: ../source/tutorials/packaging-projects.rst:232
 msgid ""
 "See the :ref:`project metadata specification <declaring-project-metadata>` "
 "for details on these and other fields that can be defined in the "
@@ -14166,21 +14266,21 @@ msgid ""
 "package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:240
+#: ../source/tutorials/packaging-projects.rst:238
 msgid "Creating README.md"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:242
+#: ../source/tutorials/packaging-projects.rst:240
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:255
+#: ../source/tutorials/packaging-projects.rst:253
 msgid "Creating a LICENSE"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:257
+#: ../source/tutorials/packaging-projects.rst:255
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -14189,52 +14289,58 @@ msgid ""
 "and enter the license text. For example, if you had chosen the MIT license:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:288
+#: ../source/tutorials/packaging-projects.rst:284
+msgid ""
+"Most build backends automatically include license files in packages. See "
+"your backend's documentation for more details."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:289
 msgid "Including other files"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:290
+#: ../source/tutorials/packaging-projects.rst:291
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
 "additional files, see the documentation for your build backend."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:297
+#: ../source/tutorials/packaging-projects.rst:298
 msgid "Generating distribution archives"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:299
+#: ../source/tutorials/packaging-projects.rst:300
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
 "Python Package Index and can be installed by :ref:`pip`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:303
+#: ../source/tutorials/packaging-projects.rst:304
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr "确保你安装了最新版本的 PyPA 的 :ref:`build`："
 
-#: ../source/tutorials/packaging-projects.rst:317
+#: ../source/tutorials/packaging-projects.rst:318
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
 msgstr ""
 "如果你在安装这些东西时遇到困难，请查看 :doc:`installing-packages`教程。"
 
-#: ../source/tutorials/packaging-projects.rst:320
+#: ../source/tutorials/packaging-projects.rst:321
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:334
+#: ../source/tutorials/packaging-projects.rst:335
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:344
+#: ../source/tutorials/packaging-projects.rst:345
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -14246,15 +14352,15 @@ msgid ""
 "distribution is needed."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:353
+#: ../source/tutorials/packaging-projects.rst:354
 msgid "Uploading the distribution archives"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:355
+#: ../source/tutorials/packaging-projects.rst:356
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr "最后，是时候把你的软件包上传到 Python Package Index 了！"
 
-#: ../source/tutorials/packaging-projects.rst:357
+#: ../source/tutorials/packaging-projects.rst:358
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -14265,7 +14371,7 @@ msgid ""
 "any packages.  For more details, see :doc:`/guides/using-testpypi`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:366
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -14273,30 +14379,30 @@ msgid ""
 "saved the token — you won't see that token again.**"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:372
+#: ../source/tutorials/packaging-projects.rst:373
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
 msgstr ""
 "现在你已经注册了，你可以使用 :ref:`twine` 来上传发行包。你需要安装 Twine："
 
-#: ../source/tutorials/packaging-projects.rst:387
+#: ../source/tutorials/packaging-projects.rst:388
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr "安装完毕后，运行 Twine 以上传 :file:`dist`下的所有档案："
 
-#: ../source/tutorials/packaging-projects.rst:401
+#: ../source/tutorials/packaging-projects.rst:402
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
 "`` prefix."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:405
+#: ../source/tutorials/packaging-projects.rst:406
 msgid "After the command completes, you should see output similar to this:"
 msgstr "命令完成后，你应该会看到类似这样的输出："
 
-#: ../source/tutorials/packaging-projects.rst:416
+#: ../source/tutorials/packaging-projects.rst:417
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -14304,28 +14410,28 @@ msgstr ""
 "一旦上传，你的包应在 TestPyPI 上可见；比如：``https://test.pypi.org/project/"
 "example_package_YOUR_USERNAME_HERE``。"
 
-#: ../source/tutorials/packaging-projects.rst:421
+#: ../source/tutorials/packaging-projects.rst:422
 msgid "Installing your newly uploaded package"
 msgstr "安装你新上传的软件包"
 
-#: ../source/tutorials/packaging-projects.rst:423
+#: ../source/tutorials/packaging-projects.rst:424
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
 "Environments>` and install your package from TestPyPI:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:439
+#: ../source/tutorials/packaging-projects.rst:440
 msgid "Make sure to specify your username in the package name!"
 msgstr "请确保在软件包名称中指定你的用户名!"
 
-#: ../source/tutorials/packaging-projects.rst:441
+#: ../source/tutorials/packaging-projects.rst:442
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
 msgstr "pip应该会安装 TestPyPI 的软件包，输出结果应该是这样的："
 
-#: ../source/tutorials/packaging-projects.rst:451
+#: ../source/tutorials/packaging-projects.rst:452
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -14335,22 +14441,22 @@ msgid ""
 "installing dependencies when using TestPyPI."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:458
+#: ../source/tutorials/packaging-projects.rst:459
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:473
+#: ../source/tutorials/packaging-projects.rst:474
 msgid "and import the package:"
 msgstr "并导入该软件包："
 
-#: ../source/tutorials/packaging-projects.rst:485
+#: ../source/tutorials/packaging-projects.rst:486
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 ✨"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:488
+#: ../source/tutorials/packaging-projects.rst:489
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -14358,28 +14464,28 @@ msgid ""
 "experiments like this tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:493
+#: ../source/tutorials/packaging-projects.rst:494
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
 "differences:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:497
+#: ../source/tutorials/packaging-projects.rst:498
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
 "existing name."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:499
+#: ../source/tutorials/packaging-projects.rst:500
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
 "main server."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:502
+#: ../source/tutorials/packaging-projects.rst:503
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -14387,66 +14493,50 @@ msgid ""
 "repository``; the package will upload to https://pypi.org/ by default."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:506
+#: ../source/tutorials/packaging-projects.rst:507
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:508
+#: ../source/tutorials/packaging-projects.rst:509
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:514
+#: ../source/tutorials/packaging-projects.rst:515
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
 "`pdm`, and :ref:`poetry`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:517
+#: ../source/tutorials/packaging-projects.rst:518
 msgid ""
 "Read :pep:`517` and :pep:`518` for background and details on build tool "
 "configuration."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:519
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:36
+#: ../source/guides/analyzing-pypi-package-downloads.rst:52
+#, fuzzy
 msgid ""
-"The file name of a sdist was standardised in :pep:`625`. The file name must "
-"be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised "
-"according to the same rules as for binary distributions (see :ref:`binary-"
-"distribution-format`), and ``{version}`` is the canonicalized form of the "
-"project version (see :ref:`version-specifiers`)."
+"In order to use `Google BigQuery`_ to query the `public PyPI download "
+"statistics dataset`_, you'll need a Google account and to enable the "
+"BigQuery API on a Google Cloud Platform project. You can run up to 1TB of "
+"queries per month `using the BigQuery free tier without a credit card "
+"<https://cloud.google.com/blog/products/data-analytics/query-without-a-"
+"credit-card-introducing-bigquery-sandbox>`__"
 msgstr ""
-
-#: ../source/specifications/source-distribution-format.rst:45
-msgid ""
-"Code that produces a source distribution file MUST give the file a name that "
-"matches this specification. This includes the ``build_sdist`` hook of a "
-"build backend."
-msgstr ""
-
-#: ../source/specifications/source-distribution-format.rst:48
-msgid ""
-"Code that processes source distribution files MAY recognise source "
-"distribution files by the ``.tar.gz`` suffix and the presence of precisely "
-"*one* hyphen in the filename. Code that does this may then use the "
-"distribution name and version from the filename without further verification."
-msgstr ""
-
-#: ../source/specifications/source-distribution-format.rst:67
-msgid ""
-"The tarball should use the modern POSIX.1-2001 pax tar format, which "
-"specifies UTF-8 based file names. In particular, source distribution files "
-"must be readable using the standard library tarfile module with the open "
-"flag 'r:gz'."
-msgstr ""
+"为了使用 `Google BigQuery`_ 来查询 `公共PyPI下载统计数据集 <public PyPI "
+"download statistics dataset>`_ ，你需要一个 Google 账户，并在 Google Cloud "
+"Platform 上启用 BigQuery API 。你可以每月运行高达 1TB 的查询 `使用 BigQuery "
+"免费套餐，无需信用卡<https://cloud.google.com/blog/products/data-analytics/"
+"query-without-a-credit-card-introducing-bigquery-sandbox>`__"
 
 #~ msgid ""
 #~ "`GitHub and Docs <https://github.com/pypa/hatch>`__ | `PyPI <https://pypi."

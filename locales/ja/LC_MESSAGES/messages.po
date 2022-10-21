@@ -6,17 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 13:58+0000\n"
-"PO-Revision-Date: 2022-09-19 07:16+0000\n"
+"POT-Creation-Date: 2022-10-19 18:53+0000\n"
+"PO-Revision-Date: 2022-10-17 00:55+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1108,6 +1108,130 @@ msgstr ""
 "https://setuptools.readthedocs.io/en/latest/deprecated/easy_install."
 "html#natural-script-launcher"
 
+#: ../source/discussions/src-layout-vs-flat-layout.rst:3
+msgid "src layout vs flat layout"
+msgstr "src レイアウト対フラットレイアウト"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:5
+msgid ""
+"The \"flat layout\" refers to organising a project's files in a folder or "
+"repository, such that the various configuration files and :term:`import "
+"packages <Import Package>` are all in the top-level directory."
+msgstr ""
+"「フラットレイアウト」とは、さまざまな設定ファイルや :term:`インポートパッ"
+"ケージ <Import Package>` をすべてトップレベルのディレクトリに置くようなやり方"
+"で、プロジェクトのファイル群をひとつのフォルダまたはリポジトリに配置すること"
+"です。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:23
+msgid ""
+"The \"src layout\" deviates from the flat layout by moving the code that is "
+"intended to be importable (i.e. ``import awesome_package``, also known as :"
+"term:`import packages <Import Package>`) into a subdirectory. This "
+"subdirectory is typically named ``src/``, hence \"src layout\"."
+msgstr ""
+"「src レイアウト」は、インポート可能 (すなわち ``import awesome_package`` 、"
+"別名 :term:`インポートパッケージ <Import Package>`) にするつもりのソースコー"
+"ドをサブディレクトリに置く点でフラットレイアウトとは異なります。このサブディ"
+"レクトリは、典型的には ``src/`` と命名されるので、「src レイアウト」と呼ばれ"
+"るのです。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:43
+msgid ""
+"Here's a breakdown of the important behaviour differences between the src "
+"layout and the flat layout:"
+msgstr ""
+"ここで、src レイアウトとフラットレイアウトの動作の違いで重要なものを掲出して"
+"おきましょう:"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:46
+msgid ""
+"The src layout requires installation of the project to be able to run its "
+"code, and the flat layout does not."
+msgstr ""
+"src レイアウトではそのソースコードを走らせるためにプロジェクトのインストール"
+"が要求されますが、フラットレイアウトではそのようなことはありません。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:49
+msgid ""
+"This means that the src layout involves an additional step in the "
+"development workflow of a project (typically, an :doc:`editable installation "
+"<setuptools:userguide/development_mode>` is used for development and a "
+"regular installation is used for testing)."
+msgstr ""
+"これが意味するところは、src レイアウトの場合にはプロジェクトの開発ワークフ"
+"ローに追加的なステップ (典型的には、開発には :doc:`編集可能なインストール "
+"<setuptools:userguide/development_mode>` を使い、テストには通常のインストール"
+"を用いる) が必要になるということです。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:54
+msgid ""
+"The src layout helps prevent accidental usage of the in-development copy of "
+"the code."
+msgstr ""
+"src レイアウトを採用することは、今まさに開発中のソースコードを使ってしまうと"
+"いう事故を防ぐことを助けます。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:57
+msgid ""
+"This is relevant since the Python interpreter includes the current working "
+"directory as the first item on the import path. This means that if an import "
+"package exists in the current working directory with the same name as an "
+"installed import package, the variant from the current working directory "
+"will be used. This can lead to subtle  misconfiguration of the project's "
+"packaging tooling, which could result in files not being included in a "
+"distribution."
+msgstr ""
+"Python インタープリタはカレントワーキングディレクトリをインポートパスの先頭に"
+"含むので、これは妥当なことです。これが意味するところは、もしインストール済み"
+"のパッケージと同名のものがカレントワーキングディレクトリに存在するならば、カ"
+"レントワーキングディレクトリにあるものが使われるであろうということです。これ"
+"によって、配布物に一部ファイル群が含まれない結果に終わるという、プロジェクト"
+"のパッケージングツールの微妙な誤設定をもたらしかねません。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:64
+msgid ""
+"The src layout helps avoid this by keeping import packages in a directory "
+"separate from the root directory of the project, ensuring that the installed "
+"copy is used."
+msgstr ""
+"src レイアウトを使えば、パッケージ群をプロジェクトのルートディレクトリとは異"
+"なるディレクトリに置くので、インストール済みのパッケージの方を使用することが"
+"保証され、このような誤設定を避ける助けになります。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:68
+msgid ""
+"The src layout helps enforce that an :doc:`editable installation <setuptools:"
+"userguide/development_mode>` is only able to import files that were meant to "
+"be importable."
+msgstr ""
+"src レイアウトを使うことで、インポートしようと意図した :doc:`編集可能なインス"
+"トール <setuptools:userguide/development_mode>` だけをインポートするように強"
+"制することを助けます。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:72
+msgid ""
+"This is especially relevant when the editable installation is implemented "
+"using a `path configuration file <https://docs.python.org/3/library/site."
+"html#index-2>`_ that adds the directory to the import path."
+msgstr ""
+"これは、編集可能なインストール (のパッケージ) がインポートパスにそのディレク"
+"トリを追加するように動く `パス設定ファイル <https://docs.python.org/3/"
+"library/site.html#index-2>`_ を使って実装されている場合に、特に適切です。"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:76
+msgid ""
+"The flat layout would add the other project files (eg: ``README.md``, ``tox."
+"ini``) and packaging/tooling configuration files (eg: ``setup.py``, "
+"``noxfile.py``) on the import path. This would make certain imports work in "
+"editable installations but not regular installations."
+msgstr ""
+"フラットレイアウトでは、インポートパスに他のプロジェクトファイル群 (例えば "
+"``README.md`` や ``tox.ini``) や、パッケージング/ツール使用の設定ファイル (例"
+"えば ``setup.py`` や ``noxfile.py``) を追加します。こうすることによって、ある"
+"インポートが、通常のインストールではなくて編集可能なインストールの側を使うこ"
+"とを確実にするでしょう。"
+
 #: ../source/discussions/wheel-vs-egg.rst:5
 msgid "Wheel vs Egg"
 msgstr "Wheel対Egg"
@@ -2176,11 +2300,19 @@ msgid "Getting set up"
 msgstr "セットアップのやり方"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:52
+#, fuzzy
+#| msgid ""
+#| "In order to use `Google BigQuery`_ to query the `public PyPI download "
+#| "statistics dataset`_, you'll need a Google account and to enable the "
+#| "BigQuery API on a Google Cloud Platform project. You can run the up to "
+#| "1TB of queries per month `using the BigQuery free tier without a credit "
+#| "card <https://cloud.google.com/blog/products/data-analytics/query-without-"
+#| "a-credit-card-introducing-bigquery-sandbox>`__"
 msgid ""
 "In order to use `Google BigQuery`_ to query the `public PyPI download "
 "statistics dataset`_, you'll need a Google account and to enable the "
-"BigQuery API on a Google Cloud Platform project. You can run the up to 1TB "
-"of queries per month `using the BigQuery free tier without a credit card "
+"BigQuery API on a Google Cloud Platform project. You can run up to 1TB of "
+"queries per month `using the BigQuery free tier without a credit card "
 "<https://cloud.google.com/blog/products/data-analytics/query-without-a-"
 "credit-card-introducing-bigquery-sandbox>`__"
 msgstr ""
@@ -16714,9 +16846,9 @@ msgstr ""
 "``{name}-{version}.tar.gz`` の形をしていなければならず、この中の ``{name}`` "
 "はバイナリ配布物のファイル名に関するルールと同様のルールに従って正規化されて"
 "いなければならず (:ref:`バイナリ配布物のフォーマット <binray-distribution-"
-"format>` を見てください) 、かつ、 ``{version}`` "
-"はプロジェクトのバージョンの形に正規化されていなければなりません (:ref:`"
-"バージョン指定子 <version-specifires>` を見てください) 。"
+"format>` を見てください) 、かつ、 ``{version}`` はプロジェクトのバージョンの"
+"形に正規化されていなければなりません (:ref:`バージョン指定子 <version-"
+"specifires>` を見てください) 。"
 
 #: ../source/specifications/source-distribution-format.rst:42
 msgid ""
@@ -16733,8 +16865,8 @@ msgid ""
 "build backend."
 msgstr ""
 "ソースコード配布物を生成するソースコードは、この仕様に合致した名前をファイル"
-"に与えなければなりません。これは、ビルドバックエンドの ``build_sdist`` "
-"フックにも当てはまります。"
+"に与えなければなりません。これは、ビルドバックエンドの ``build_sdist`` フック"
+"にも当てはまります。"
 
 #: ../source/specifications/source-distribution-format.rst:48
 msgid ""
@@ -16743,11 +16875,11 @@ msgid ""
 "*one* hyphen in the filename. Code that does this may then use the "
 "distribution name and version from the filename without further verification."
 msgstr ""
-"ソースコード配布物を生成するソースコードは、 ``.tar.gz`` "
-"拡張子がついていてファイル名の中に正確に *ひとつ* のハイフンが存在しているこ"
-"とを以て、ソースコード配布物のファイルであると認識しても構いません。これを行"
-"うソースコードは、この場合には、ファイル名から得た配布物の名前とバージョンを"
-"それ以上の検証をせずに使用しても構いません。"
+"ソースコード配布物を生成するソースコードは、 ``.tar.gz`` 拡張子がついていて"
+"ファイル名の中に正確に *ひとつ* のハイフンが存在していることを以て、ソース"
+"コード配布物のファイルであると認識しても構いません。これを行うソースコード"
+"は、この場合には、ファイル名から得た配布物の名前とバージョンをそれ以上の検証"
+"をせずに使用しても構いません。"
 
 #: ../source/specifications/source-distribution-format.rst:54
 msgid "Source distribution file format"
@@ -16792,8 +16924,8 @@ msgid ""
 msgstr ""
 "tar ボールでは、ファイル名に UTF-8 を使える近代的な POSIX.1-2001 pax tar "
 "フォーマットを使用するべきです。とりわけ、ソースコード配布物のファイル群は、"
-"標準ライブラリの tarfile モジュールに open flag 'r:gz' "
-"を与えることで読み込めるものでなければなりません。"
+"標準ライブラリの tarfile モジュールに open flag 'r:gz' を与えることで読み込め"
+"るものでなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:6
 msgid "Version specifiers"
@@ -17795,7 +17927,7 @@ msgstr ""
 "らゆるコマンドからインストール済みパッケージへのアクセスが保証されます。"
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:483
+#: ../source/tutorials/packaging-projects.rst:484
 msgid "Next steps"
 msgstr "次なる一歩"
 
@@ -18117,7 +18249,7 @@ msgstr ""
 "履修している他の人たちがアップロードするパッケージと衝突を起こさない一意な"
 "パッケージ名を使っていることを保証することができます。"
 
-#: ../source/tutorials/packaging-projects.rst:203
+#: ../source/tutorials/packaging-projects.rst:202
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -18132,7 +18264,7 @@ msgstr ""
 "いうのは、そうすることで、既存の名前と同じ名前のパッケージのアップロードを試"
 "みることがないと保証できるからです。"
 
-#: ../source/tutorials/packaging-projects.rst:208
+#: ../source/tutorials/packaging-projects.rst:207
 msgid ""
 "``version`` is the package version. See the :ref:`version specifier "
 "specification <version-specifiers>` for more details on versions. Some build "
@@ -18144,7 +18276,7 @@ msgstr ""
 "ださい。ビルドバックエンドの中には、ファイルから、もしくは、 git のタグからの"
 "ように、別の方法で指定することを許容するものもあります。"
 
-#: ../source/tutorials/packaging-projects.rst:211
+#: ../source/tutorials/packaging-projects.rst:210
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -18154,11 +18286,11 @@ msgstr ""
 "ついて名前と電子メールアドレスを指定します。同じフォーマットで "
 "``maintainers`` を列挙することもできます。"
 
-#: ../source/tutorials/packaging-projects.rst:214
+#: ../source/tutorials/packaging-projects.rst:213
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` は、１文で短くパッケージを説明するものです。"
 
-#: ../source/tutorials/packaging-projects.rst:215
+#: ../source/tutorials/packaging-projects.rst:214
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -18172,12 +18304,7 @@ msgstr ""
 "も、 :ref:`プロジェクトのメタデータの仕様 <declaring-project-metadata>` に記"
 "述されているもっと先進的なテーブル形式があります。"
 
-#: ../source/tutorials/packaging-projects.rst:220
-msgid "``license`` is the path to the :file:`LICENSE` file, described below."
-msgstr ""
-"``license`` は、下に記述するように、 :file:`LICENSE` ファイルへのパスです。"
-
-#: ../source/tutorials/packaging-projects.rst:221
+#: ../source/tutorials/packaging-projects.rst:219
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "Installers like :ref:`pip` will look back through older versions of packages "
@@ -18187,7 +18314,7 @@ msgstr ""
 "ンを与えます。 :ref:`pip` のようなインストーラは、 Python バージョンが合致す"
 "るものまでパッケージのバージョンを遡って探索します。"
 
-#: ../source/tutorials/packaging-projects.rst:224
+#: ../source/tutorials/packaging-projects.rst:222
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -18205,7 +18332,7 @@ msgstr ""
 "に最低限それだけはやるべきことです。 classifiers の完全なリストについては、 "
 "https://pypi.org/classifiers/ を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:231
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -18214,7 +18341,7 @@ msgstr ""
 "ます。一般的に、ソースコードや説明文書、課題追跡システムその他へのリンクを挙"
 "げておけばよいでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:234
+#: ../source/tutorials/packaging-projects.rst:232
 msgid ""
 "See the :ref:`project metadata specification <declaring-project-metadata>` "
 "for details on these and other fields that can be defined in the "
@@ -18228,11 +18355,11 @@ msgstr ""
 "は、検索にかかりやすくするための ``keywords`` や、当該パッケージをインストー"
 "ルするために必須のパッケージを示す ``dependencies`` があります。"
 
-#: ../source/tutorials/packaging-projects.rst:240
+#: ../source/tutorials/packaging-projects.rst:238
 msgid "Creating README.md"
 msgstr "README.md を作成する"
 
-#: ../source/tutorials/packaging-projects.rst:242
+#: ../source/tutorials/packaging-projects.rst:240
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -18240,11 +18367,11 @@ msgstr ""
 ":file:`README.md` を開いて、以下の内容を入力してください。そうしたければ、カ"
 "スタマイズした内容でも構いません。"
 
-#: ../source/tutorials/packaging-projects.rst:255
+#: ../source/tutorials/packaging-projects.rst:253
 msgid "Creating a LICENSE"
 msgstr "LICENSE ファイルを作成する"
 
-#: ../source/tutorials/packaging-projects.rst:257
+#: ../source/tutorials/packaging-projects.rst:255
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -18260,11 +18387,20 @@ msgstr ""
 "ら、 :file:`LICENSE` ファイルを開いてそのライセンス条項を書き込んでください。"
 "例えば、 MIT ライセンスを選択したなら次のようにします:"
 
-#: ../source/tutorials/packaging-projects.rst:288
+#: ../source/tutorials/packaging-projects.rst:284
+msgid ""
+"Most build backends automatically include license files in packages. See "
+"your backend's documentation for more details."
+msgstr ""
+"ほとんどのビルドバックエンドは、パッケージ群のライセンスファイルを自動的に取"
+"り込みます。詳細については、あなたが使うバックエンドの説明文書を見てくださ"
+"い。"
+
+#: ../source/tutorials/packaging-projects.rst:289
 msgid "Including other files"
 msgstr "その他のファイルを包含する"
 
-#: ../source/tutorials/packaging-projects.rst:290
+#: ../source/tutorials/packaging-projects.rst:291
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
@@ -18274,11 +18410,11 @@ msgstr ""
 "\"sdist\")>` に自動的に含まれるでしょう。他のファイルも含めておきたいなら、"
 "使っているビルドバックエンドの説明文書を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:297
+#: ../source/tutorials/packaging-projects.rst:298
 msgid "Generating distribution archives"
 msgstr "配布物アーカイブを生成する"
 
-#: ../source/tutorials/packaging-projects.rst:299
+#: ../source/tutorials/packaging-projects.rst:300
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -18288,12 +18424,12 @@ msgstr ""
 "Package>` を生成します。これらは、 Python パッケージインデックスへアップロー"
 "ドされ、 :ref:`pip` でインストールされることができるものです。"
 
-#: ../source/tutorials/packaging-projects.rst:303
+#: ../source/tutorials/packaging-projects.rst:304
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr ""
 "PyPA の :ref:`build` の最新版がインストールされていることを確認してください:"
 
-#: ../source/tutorials/packaging-projects.rst:317
+#: ../source/tutorials/packaging-projects.rst:318
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
@@ -18301,7 +18437,7 @@ msgstr ""
 "これらをインストールするのに困難を感じるようなら、 :doc:`パッケージをインス"
 "トールする <installing-packages>` チュートリアルを見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:320
+#: ../source/tutorials/packaging-projects.rst:321
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -18309,7 +18445,7 @@ msgstr ""
 "さて、 :file:`pyproject.toml` ファイルがあるのと同じディレクトリでこのコマン"
 "ドを実行しましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:334
+#: ../source/tutorials/packaging-projects.rst:335
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -18317,7 +18453,7 @@ msgstr ""
 "このコマンドから多くのテキストメッセージが出力されますが、実行が終われば :"
 "file:`dist` ディレクトリにふたつのファイルが生成されていることでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:344
+#: ../source/tutorials/packaging-projects.rst:345
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -18337,17 +18473,17 @@ msgstr ""
 "するべきです。我々の例示のためのパッケージはすべてのプラットフォーム上の "
 "Python で動作するものなので、ビルド済配布物がひとつあれば十分です。"
 
-#: ../source/tutorials/packaging-projects.rst:353
+#: ../source/tutorials/packaging-projects.rst:354
 msgid "Uploading the distribution archives"
 msgstr "配布物アーカイブをアップロードする"
 
-#: ../source/tutorials/packaging-projects.rst:355
+#: ../source/tutorials/packaging-projects.rst:356
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr ""
 "ついにあなたのパッケージを Python パッケージインデックスへアップロードする時"
 "が来ました！"
 
-#: ../source/tutorials/packaging-projects.rst:357
+#: ../source/tutorials/packaging-projects.rst:358
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -18367,7 +18503,7 @@ msgstr ""
 "しょう。もっと詳しいことが知りたければ、 :doc:`/guides/using-testpypi` を見て"
 "ください。"
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:366
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -18380,7 +18516,7 @@ msgstr ""
 "成してください。 **トークンをコピーして保存するまで、ページを閉じないでくださ"
 "い — トークンは二度と表示されません。**"
 
-#: ../source/tutorials/packaging-projects.rst:372
+#: ../source/tutorials/packaging-projects.rst:373
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -18388,14 +18524,14 @@ msgstr ""
 "ユーザ登録が済んだら、 :ref:`twine` で配布物パッケージをアップロードすること"
 "ができます。Twine のインストールが必要ならこのようにしてください:"
 
-#: ../source/tutorials/packaging-projects.rst:387
+#: ../source/tutorials/packaging-projects.rst:388
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 "インストールできたら、 :file:`dist` ディレクトリ内にあるアーカイブファイルを"
 "すべてアップとーどしてください:"
 
-#: ../source/tutorials/packaging-projects.rst:401
+#: ../source/tutorials/packaging-projects.rst:402
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
@@ -18405,11 +18541,11 @@ msgstr ""
 "を使ってください。パスワードには接頭子の ``pypi-`` を含めたトークンの値を使っ"
 "てください。"
 
-#: ../source/tutorials/packaging-projects.rst:405
+#: ../source/tutorials/packaging-projects.rst:406
 msgid "After the command completes, you should see output similar to this:"
 msgstr "コマンド実行完了後、これに似た出力を見ることになるでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:416
+#: ../source/tutorials/packaging-projects.rst:417
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -18418,11 +18554,11 @@ msgstr ""
 "す; 例えば: ``https://test.pypi.org/project/"
 "example_package_YOUR_USERNAME_HERE`` 。"
 
-#: ../source/tutorials/packaging-projects.rst:421
+#: ../source/tutorials/packaging-projects.rst:422
 msgid "Installing your newly uploaded package"
 msgstr "新しくアップロードしたあなたのパッケージをインストールする"
 
-#: ../source/tutorials/packaging-projects.rst:423
+#: ../source/tutorials/packaging-projects.rst:424
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -18432,11 +18568,11 @@ msgstr ""
 "できます。 :ref:`仮想環境 <Creating and using Virtual Environments>` を作成し"
 "て、 TestPyPI からあなたのパッケージをインストールしましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:439
+#: ../source/tutorials/packaging-projects.rst:440
 msgid "Make sure to specify your username in the package name!"
 msgstr "パッケージ名の中にあなたのユーザ名を指定するのをお忘れなく！"
 
-#: ../source/tutorials/packaging-projects.rst:441
+#: ../source/tutorials/packaging-projects.rst:442
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
@@ -18444,7 +18580,7 @@ msgstr ""
 "pip でパッケージを TestPyPI からインストールできるはずで、その出力は何か次の"
 "ようなものに見えるでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:451
+#: ../source/tutorials/packaging-projects.rst:452
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -18461,7 +18597,7 @@ msgstr ""
 "として使っているパッケージには依存先がないので、 TestPyPI を使う時には依存先"
 "をインストールしないように指定しておくことは良いやり方です。"
 
-#: ../source/tutorials/packaging-projects.rst:458
+#: ../source/tutorials/packaging-projects.rst:459
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -18470,18 +18606,18 @@ msgstr ""
 "することができます。まだ仮想環境内にいることを確認してから Python を走らせま"
 "しょう:"
 
-#: ../source/tutorials/packaging-projects.rst:473
+#: ../source/tutorials/packaging-projects.rst:474
 msgid "and import the package:"
 msgstr "そして、パッケージをインポートしましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:485
+#: ../source/tutorials/packaging-projects.rst:486
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 ✨"
 msgstr ""
 "**おめでとうございます、あなたは Python のプロジェクトをパッケージングし、配"
 "布することができました！** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:488
+#: ../source/tutorials/packaging-projects.rst:489
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -18493,7 +18629,7 @@ msgstr ""
 "でください。テストシステムは、時折パッケージやアカウントを削除します。 Test "
 "PyPI は、このチュートリアルのような試行や実験のために使うのがベストです。"
 
-#: ../source/tutorials/packaging-projects.rst:493
+#: ../source/tutorials/packaging-projects.rst:494
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -18503,7 +18639,7 @@ msgstr ""
 "たら、このチュートリアルでやったのと概ね同じことをやれば大丈夫ですが、次のよ"
 "うな重要な違いがあります:"
 
-#: ../source/tutorials/packaging-projects.rst:497
+#: ../source/tutorials/packaging-projects.rst:498
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
@@ -18513,7 +18649,7 @@ msgstr ""
 "やったようにあなたのユーザ名を追記する必要はありませんが、既存の名前は使えま"
 "せん。"
 
-#: ../source/tutorials/packaging-projects.rst:499
+#: ../source/tutorials/packaging-projects.rst:500
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -18523,7 +18659,7 @@ msgstr ""
 "バであって、テストサーバ側のログイン情報はメインサーバに共有されてはいませ"
 "ん。"
 
-#: ../source/tutorials/packaging-projects.rst:502
+#: ../source/tutorials/packaging-projects.rst:503
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -18536,7 +18672,7 @@ msgstr ""
 "要はありません; 指定しないことでパッケージはデフォルトの https://pypi.org/ へ"
 "アップロードされるでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:506
+#: ../source/tutorials/packaging-projects.rst:507
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -18544,7 +18680,7 @@ msgstr ""
 "``python3 -m pip install [your-package`` を使って、あなたのパッケージを本番環"
 "境の PyPI からインストールしましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:508
+#: ../source/tutorials/packaging-projects.rst:509
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -18552,7 +18688,7 @@ msgstr ""
 "ここまで読み進めてきて、もっと Python でのパッケージングについて読みたいので"
 "あれば、次のようなものがあります:"
 
-#: ../source/tutorials/packaging-projects.rst:514
+#: ../source/tutorials/packaging-projects.rst:515
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
@@ -18562,7 +18698,7 @@ msgstr ""
 "マンドラインインタフェースでプロジェクト管理もパッケージングもできるパッケー"
 "ジングツールについて検討しましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:517
+#: ../source/tutorials/packaging-projects.rst:518
 msgid ""
 "Read :pep:`517` and :pep:`518` for background and details on build tool "
 "configuration."
@@ -18570,9 +18706,15 @@ msgstr ""
 "ビルドツールの設定に関する背景情報や詳細情報については、 :pep:`517` や :pep:"
 "`518` を読みましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:519
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ":doc:`/guides/packaging-binary-extensions` について読みましょう。"
+
+#~ msgid ""
+#~ "``license`` is the path to the :file:`LICENSE` file, described below."
+#~ msgstr ""
+#~ "``license`` は、下に記述するように、 :file:`LICENSE` ファイルへのパスで"
+#~ "す。"
 
 #~ msgid ""
 #~ "For more information, see `Automatic Script Creation <https://setuptools."

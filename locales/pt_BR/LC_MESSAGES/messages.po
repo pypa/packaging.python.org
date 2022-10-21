@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-17 13:58+0000\n"
+"POT-Creation-Date: 2022-10-19 18:53+0000\n"
 "PO-Revision-Date: 2022-07-27 23:22+0000\n"
 "Last-Translator: miiguel <isqne@pm.me>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -1109,6 +1109,97 @@ msgstr ""
 "https://setuptools.readthedocs.io/en/latest/deprecated/easy_install."
 "html#natural-script-launcher"
 
+#: ../source/discussions/src-layout-vs-flat-layout.rst:3
+msgid "src layout vs flat layout"
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:5
+msgid ""
+"The \"flat layout\" refers to organising a project's files in a folder or "
+"repository, such that the various configuration files and :term:`import "
+"packages <Import Package>` are all in the top-level directory."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:23
+msgid ""
+"The \"src layout\" deviates from the flat layout by moving the code that is "
+"intended to be importable (i.e. ``import awesome_package``, also known as :"
+"term:`import packages <Import Package>`) into a subdirectory. This "
+"subdirectory is typically named ``src/``, hence \"src layout\"."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:43
+#, fuzzy
+#| msgid ""
+#| "Here's a breakdown of the important differences between pip and the "
+#| "deprecated easy_install:"
+msgid ""
+"Here's a breakdown of the important behaviour differences between the src "
+"layout and the flat layout:"
+msgstr ""
+"Aqui está uma análise das diferenças importantes entre o pip e o "
+"descontinuado easy_install:"
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:46
+msgid ""
+"The src layout requires installation of the project to be able to run its "
+"code, and the flat layout does not."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:49
+msgid ""
+"This means that the src layout involves an additional step in the "
+"development workflow of a project (typically, an :doc:`editable installation "
+"<setuptools:userguide/development_mode>` is used for development and a "
+"regular installation is used for testing)."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:54
+msgid ""
+"The src layout helps prevent accidental usage of the in-development copy of "
+"the code."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:57
+msgid ""
+"This is relevant since the Python interpreter includes the current working "
+"directory as the first item on the import path. This means that if an import "
+"package exists in the current working directory with the same name as an "
+"installed import package, the variant from the current working directory "
+"will be used. This can lead to subtle  misconfiguration of the project's "
+"packaging tooling, which could result in files not being included in a "
+"distribution."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:64
+msgid ""
+"The src layout helps avoid this by keeping import packages in a directory "
+"separate from the root directory of the project, ensuring that the installed "
+"copy is used."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:68
+msgid ""
+"The src layout helps enforce that an :doc:`editable installation <setuptools:"
+"userguide/development_mode>` is only able to import files that were meant to "
+"be importable."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:72
+msgid ""
+"This is especially relevant when the editable installation is implemented "
+"using a `path configuration file <https://docs.python.org/3/library/site."
+"html#index-2>`_ that adds the directory to the import path."
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:76
+msgid ""
+"The flat layout would add the other project files (eg: ``README.md``, ``tox."
+"ini``) and packaging/tooling configuration files (eg: ``setup.py``, "
+"``noxfile.py``) on the import path. This would make certain imports work in "
+"editable installations but not regular installations."
+msgstr ""
+
 #: ../source/discussions/wheel-vs-egg.rst:5
 msgid "Wheel vs Egg"
 msgstr "Wheel vs Egg"
@@ -2105,11 +2196,19 @@ msgid "Getting set up"
 msgstr "Preparando-se"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:52
+#, fuzzy
+#| msgid ""
+#| "In order to use `Google BigQuery`_ to query the `public PyPI download "
+#| "statistics dataset`_, you'll need a Google account and to enable the "
+#| "BigQuery API on a Google Cloud Platform project. You can run the up to "
+#| "1TB of queries per month `using the BigQuery free tier without a credit "
+#| "card <https://cloud.google.com/blog/products/data-analytics/query-without-"
+#| "a-credit-card-introducing-bigquery-sandbox>`__"
 msgid ""
 "In order to use `Google BigQuery`_ to query the `public PyPI download "
 "statistics dataset`_, you'll need a Google account and to enable the "
-"BigQuery API on a Google Cloud Platform project. You can run the up to 1TB "
-"of queries per month `using the BigQuery free tier without a credit card "
+"BigQuery API on a Google Cloud Platform project. You can run up to 1TB of "
+"queries per month `using the BigQuery free tier without a credit card "
 "<https://cloud.google.com/blog/products/data-analytics/query-without-a-"
 "credit-card-introducing-bigquery-sandbox>`__"
 msgstr ""
@@ -17933,7 +18032,7 @@ msgstr ""
 "os comandos tenham acesso aos seus pacotes instalados com ``pipenv shell``."
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:483
+#: ../source/tutorials/packaging-projects.rst:484
 msgid "Next steps"
 msgstr "Próximos passos"
 
@@ -18239,7 +18338,7 @@ msgstr ""
 "exclusivo e que seu pacote não entre em conflito com os pacotes carregados "
 "por outras pessoas que seguem este tutorial."
 
-#: ../source/tutorials/packaging-projects.rst:203
+#: ../source/tutorials/packaging-projects.rst:202
 #, fuzzy
 #| msgid ""
 #| "``name`` is the *distribution name* of your package. This can be any name "
@@ -18260,7 +18359,7 @@ msgstr ""
 "usuário**, pois isso garante que você não tentará enviar um pacote com o "
 "mesmo nome de um que já existe."
 
-#: ../source/tutorials/packaging-projects.rst:208
+#: ../source/tutorials/packaging-projects.rst:207
 #, fuzzy
 #| msgid ""
 #| "``version`` is the package version. See :pep:`440` for more details on "
@@ -18276,18 +18375,18 @@ msgstr ""
 "detalhes sobre as versões. Você pode usar as diretivas ``file:`` ou ``attr:"
 "`` para ler um arquivo ou atributo de pacote."
 
-#: ../source/tutorials/packaging-projects.rst:211
+#: ../source/tutorials/packaging-projects.rst:210
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
 "same format."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:214
+#: ../source/tutorials/packaging-projects.rst:213
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` é um resumo curto do pacote contendo apenas uma frase."
 
-#: ../source/tutorials/packaging-projects.rst:215
+#: ../source/tutorials/packaging-projects.rst:214
 #, fuzzy
 #| msgid ""
 #| "``long_description`` is a detailed description of the package. This is "
@@ -18306,11 +18405,7 @@ msgstr ""
 "descrição longa é carregada de :file:`README.md` (que é um padrão comum) "
 "usando a diretiva ``file:``."
 
-#: ../source/tutorials/packaging-projects.rst:220
-msgid "``license`` is the path to the :file:`LICENSE` file, described below."
-msgstr ""
-
-#: ../source/tutorials/packaging-projects.rst:221
+#: ../source/tutorials/packaging-projects.rst:219
 #, fuzzy
 #| msgid ""
 #| "``python_requires`` gives the versions of Python supported by your "
@@ -18325,7 +18420,7 @@ msgstr ""
 "projeto. Instaladores como :ref:`pip` olharão para as versões anteriores dos "
 "pacotes até encontrar um que tenha uma versão correspondente do Python."
 
-#: ../source/tutorials/packaging-projects.rst:224
+#: ../source/tutorials/packaging-projects.rst:222
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -18343,7 +18438,7 @@ msgstr ""
 "sistemas operacionais seu pacote funcionará. Para obter uma lista completa "
 "de classificadores, consulte https://pypi.org/classifiers/."
 
-#: ../source/tutorials/packaging-projects.rst:231
+#: ../source/tutorials/packaging-projects.rst:229
 #, fuzzy
 #| msgid ""
 #| "``project_urls`` lets you list any number of extra links to show on PyPI. "
@@ -18356,7 +18451,7 @@ msgstr ""
 "no PyPI. Geralmente, isso pode ser para documentação, rastreadores de "
 "problemas, etc."
 
-#: ../source/tutorials/packaging-projects.rst:234
+#: ../source/tutorials/packaging-projects.rst:232
 msgid ""
 "See the :ref:`project metadata specification <declaring-project-metadata>` "
 "for details on these and other fields that can be defined in the "
@@ -18365,11 +18460,11 @@ msgid ""
 "package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:240
+#: ../source/tutorials/packaging-projects.rst:238
 msgid "Creating README.md"
 msgstr "Criando README.md"
 
-#: ../source/tutorials/packaging-projects.rst:242
+#: ../source/tutorials/packaging-projects.rst:240
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -18377,11 +18472,11 @@ msgstr ""
 "Abra :file:`README.md` e insira o seguinte conteúdo. Você pode personalizar "
 "isso se desejar."
 
-#: ../source/tutorials/packaging-projects.rst:255
+#: ../source/tutorials/packaging-projects.rst:253
 msgid "Creating a LICENSE"
 msgstr "Criando um LICENSE"
 
-#: ../source/tutorials/packaging-projects.rst:257
+#: ../source/tutorials/packaging-projects.rst:255
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -18396,11 +18491,17 @@ msgstr ""
 "licença, abra :file:`LICENSE` e digite o texto da licença. Por exemplo, se "
 "você escolheu a licença MIT:"
 
-#: ../source/tutorials/packaging-projects.rst:288
+#: ../source/tutorials/packaging-projects.rst:284
+msgid ""
+"Most build backends automatically include license files in packages. See "
+"your backend's documentation for more details."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:289
 msgid "Including other files"
 msgstr "Incluindo outros arquivos"
 
-#: ../source/tutorials/packaging-projects.rst:290
+#: ../source/tutorials/packaging-projects.rst:291
 #, fuzzy
 #| msgid ""
 #| "The files listed above will be included automatically in your :term:"
@@ -18415,11 +18516,11 @@ msgstr ""
 "`distribuição fonte <Distribuição Fonte (ou \"sdist\")>`. Se você deseja "
 "controlar o que entra explicitamente, consulte :ref:`Using MANIFEST.in`."
 
-#: ../source/tutorials/packaging-projects.rst:297
+#: ../source/tutorials/packaging-projects.rst:298
 msgid "Generating distribution archives"
 msgstr "Gerando arquivos de distribuição"
 
-#: ../source/tutorials/packaging-projects.rst:299
+#: ../source/tutorials/packaging-projects.rst:300
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -18429,13 +18530,13 @@ msgstr ""
 "Distribuição>` para o pacote. Estes são arquivos que são enviados para o "
 "Índice de Pacotes do Python e podem ser instalados pelo :ref:`pip`."
 
-#: ../source/tutorials/packaging-projects.rst:303
+#: ../source/tutorials/packaging-projects.rst:304
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr ""
 "Certifique-se de que você tenha a versão mais recente da :ref:`construção "
 "<build>` do PyPA instalada:"
 
-#: ../source/tutorials/packaging-projects.rst:317
+#: ../source/tutorials/packaging-projects.rst:318
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
@@ -18443,7 +18544,7 @@ msgstr ""
 "Se você tiver problemas ao instalá-los, veja o tutorial :doc:`installing-"
 "packages`."
 
-#: ../source/tutorials/packaging-projects.rst:320
+#: ../source/tutorials/packaging-projects.rst:321
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -18451,7 +18552,7 @@ msgstr ""
 "Agora, execute este comando a partir do mesmo diretório no qual :file:"
 "`pyproject.toml` está localizado:"
 
-#: ../source/tutorials/packaging-projects.rst:334
+#: ../source/tutorials/packaging-projects.rst:335
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -18459,7 +18560,7 @@ msgstr ""
 "Este comando deve produzir muito texto e, uma vez concluído, deve gerar dois "
 "arquivos no diretório :file:`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:344
+#: ../source/tutorials/packaging-projects.rst:345
 #, fuzzy
 #| msgid ""
 #| "The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas "
@@ -18488,16 +18589,16 @@ msgstr ""
 "caso, nosso pacote de exemplo é compatível com Python em qualquer "
 "plataforma, portanto, apenas uma distribuição construída é necessária."
 
-#: ../source/tutorials/packaging-projects.rst:353
+#: ../source/tutorials/packaging-projects.rst:354
 msgid "Uploading the distribution archives"
 msgstr "Enviando os arquivos de distribuição"
 
-#: ../source/tutorials/packaging-projects.rst:355
+#: ../source/tutorials/packaging-projects.rst:356
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr ""
 "Finalmente, é hora de enviar seu pacote para o Índice de Pacotes do Python!"
 
-#: ../source/tutorials/packaging-projects.rst:357
+#: ../source/tutorials/packaging-projects.rst:358
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -18515,7 +18616,7 @@ msgstr ""
 "Você também precisará verificar seu endereço de e-mail antes de enviar "
 "qualquer pacote. Para mais detalhes, veja :doc:`/guides/using-testpypi`."
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:366
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -18527,7 +18628,7 @@ msgstr ""
 "definindo o \"Escopo\" como \"Toda a conta\". **Não feche a página antes de "
 "copiar e salvar o token -- você não verá o token novamente.**"
 
-#: ../source/tutorials/packaging-projects.rst:372
+#: ../source/tutorials/packaging-projects.rst:373
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -18535,14 +18636,14 @@ msgstr ""
 "Agora que você está registrado, você pode usar :ref:`twine` para enviar os "
 "pacotes de distribuição. Você precisará instalar o Twine:"
 
-#: ../source/tutorials/packaging-projects.rst:387
+#: ../source/tutorials/packaging-projects.rst:388
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 "Uma vez instalado, execute o Twine para enviar de todos os arquivos em :file:"
 "`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:401
+#: ../source/tutorials/packaging-projects.rst:402
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
@@ -18552,13 +18653,13 @@ msgstr ""
 "de usuário, use ``__token__``. Para a senha, use o valor do token, incluindo "
 "o prefixo ``pypi-``."
 
-#: ../source/tutorials/packaging-projects.rst:405
+#: ../source/tutorials/packaging-projects.rst:406
 msgid "After the command completes, you should see output similar to this:"
 msgstr ""
 "Depois que o comando for concluído, você deverá ver uma saída semelhante a "
 "esta:"
 
-#: ../source/tutorials/packaging-projects.rst:416
+#: ../source/tutorials/packaging-projects.rst:417
 #, fuzzy
 #| msgid ""
 #| "Once uploaded your package should be viewable on TestPyPI, for example, "
@@ -18570,11 +18671,11 @@ msgstr ""
 "Depois de enviado, seu pacote pode ser visto no Test PyPI, por exemplo, em "
 "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
 
-#: ../source/tutorials/packaging-projects.rst:421
+#: ../source/tutorials/packaging-projects.rst:422
 msgid "Installing your newly uploaded package"
 msgstr "Instalando seu pacote recém-enviado"
 
-#: ../source/tutorials/packaging-projects.rst:423
+#: ../source/tutorials/packaging-projects.rst:424
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -18584,18 +18685,18 @@ msgstr ""
 "funciona. Crie um :ref:`ambiente virtual <Creating and using Virtual "
 "Environments>` e instale seu pacote a partir do Test PyPI:"
 
-#: ../source/tutorials/packaging-projects.rst:439
+#: ../source/tutorials/packaging-projects.rst:440
 msgid "Make sure to specify your username in the package name!"
 msgstr "Certifique-se de especificar seu nome de usuário no nome do pacote!"
 
-#: ../source/tutorials/packaging-projects.rst:441
+#: ../source/tutorials/packaging-projects.rst:442
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
 msgstr ""
 "pip deve instalar o pacote de Test PyPI e a saída deve ser semelhante a esta:"
 
-#: ../source/tutorials/packaging-projects.rst:451
+#: ../source/tutorials/packaging-projects.rst:452
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -18611,7 +18712,7 @@ msgstr ""
 "pacote de exemplo não tenha nenhuma dependência, é uma boa prática evitar "
 "instalar dependências ao usar o Test PyPI."
 
-#: ../source/tutorials/packaging-projects.rst:458
+#: ../source/tutorials/packaging-projects.rst:459
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -18619,16 +18720,16 @@ msgstr ""
 "Você pode testar se ele foi instalado corretamente importando o pacote. "
 "Certifique-se de que ainda está em seu ambiente virtual e execute o Python:"
 
-#: ../source/tutorials/packaging-projects.rst:473
+#: ../source/tutorials/packaging-projects.rst:474
 msgid "and import the package:"
 msgstr "e importe o pacote:"
 
-#: ../source/tutorials/packaging-projects.rst:485
+#: ../source/tutorials/packaging-projects.rst:486
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 ✨"
 msgstr "**Parabéns, você empacotou e distribuiu um projeto Python!** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:488
+#: ../source/tutorials/packaging-projects.rst:489
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -18640,7 +18741,7 @@ msgstr ""
 "ocasionalmente exclui pacotes e contas. É melhor usar Test PyPI para testes "
 "e experimentos como este tutorial."
 
-#: ../source/tutorials/packaging-projects.rst:493
+#: ../source/tutorials/packaging-projects.rst:494
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -18650,7 +18751,7 @@ msgstr ""
 "do Python, você pode fazer quase o mesmo que fez neste tutorial, mas com "
 "estas diferenças importantes:"
 
-#: ../source/tutorials/packaging-projects.rst:497
+#: ../source/tutorials/packaging-projects.rst:498
 #, fuzzy
 #| msgid ""
 #| "Choose a memorable and unique name for your package. You don't have to "
@@ -18663,7 +18764,7 @@ msgstr ""
 "Escolha um nome único e memorável para o seu pacote. Você não precisa "
 "acrescentar seu nome de usuário como fez no tutorial."
 
-#: ../source/tutorials/packaging-projects.rst:499
+#: ../source/tutorials/packaging-projects.rst:500
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -18673,7 +18774,7 @@ msgstr ""
 "servidores separados e os detalhes de login do servidor de teste não são "
 "compartilhados com o servidor principal."
 
-#: ../source/tutorials/packaging-projects.rst:502
+#: ../source/tutorials/packaging-projects.rst:503
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -18685,7 +18786,7 @@ msgstr ""
 "pacote em produção, você não precisa especificar ``--repository``; o pacote "
 "será enviado para https://pypi.org/ por padrão."
 
-#: ../source/tutorials/packaging-projects.rst:506
+#: ../source/tutorials/packaging-projects.rst:507
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -18693,7 +18794,7 @@ msgstr ""
 "Instale seu pacote a partir do PyPI real usando ``python3 -m pip install "
 "[seu-pacote]``."
 
-#: ../source/tutorials/packaging-projects.rst:508
+#: ../source/tutorials/packaging-projects.rst:509
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -18701,14 +18802,14 @@ msgstr ""
 "Neste ponto, se você quiser ler mais sobre o empacotamento de bibliotecas "
 "Python, aqui estão algumas coisas que você pode fazer:"
 
-#: ../source/tutorials/packaging-projects.rst:514
+#: ../source/tutorials/packaging-projects.rst:515
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
 "`pdm`, and :ref:`poetry`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:517
+#: ../source/tutorials/packaging-projects.rst:518
 #, fuzzy
 #| msgid "See :pep:`517` and :pep:`518` for background and details."
 msgid ""
@@ -18716,7 +18817,7 @@ msgid ""
 "configuration."
 msgstr "Veja :pep:`517` e :pep:`518` para um informações e detalhes."
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:519
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 
