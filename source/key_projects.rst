@@ -64,8 +64,8 @@ distlib
 =======
 
 :doc:`Docs <distlib:index>` |
-`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
+`Issues <https://github.com/pypa/distlib/issues>`__ |
+`GitHub <https://github.com/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
 
 ``distlib`` is a library which implements low-level functions that
