@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-19 18:53+0000\n"
-"PO-Revision-Date: 2022-07-27 23:22+0000\n"
-"Last-Translator: miiguel <isqne@pm.me>\n"
+"PO-Revision-Date: 2022-10-22 01:10+0000\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.14.2-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1111,7 +1111,7 @@ msgstr ""
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:3
 msgid "src layout vs flat layout"
-msgstr ""
+msgstr "layout src vs layout plano"
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:5
 msgid ""
@@ -1119,6 +1119,10 @@ msgid ""
 "repository, such that the various configuration files and :term:`import "
 "packages <Import Package>` are all in the top-level directory."
 msgstr ""
+"O \"layout plano\" (em inglês, *flat layout*) refere-se à organização dos "
+"arquivos de um projeto em uma pasta ou repositório, de forma que os vários "
+"arquivos de configuração e :term:`pacotes de importação <Import Package>` "
+"estejam todos no diretório de nível superior."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:23
 msgid ""
@@ -1127,24 +1131,27 @@ msgid ""
 "term:`import packages <Import Package>`) into a subdirectory. This "
 "subdirectory is typically named ``src/``, hence \"src layout\"."
 msgstr ""
+"O \"layout src\" (em inglês, *layout src*)se desvia do layout plano movendo "
+"o código que se destina a ser importável (ou seja, ``import awesome_package``"
+", também conhecido como :term:`pacotes de importação <Import Package>`) para "
+"um subdiretório. Este subdiretório é normalmente chamado de ``src/``, daí "
+"\"layout src\"."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:43
-#, fuzzy
-#| msgid ""
-#| "Here's a breakdown of the important differences between pip and the "
-#| "deprecated easy_install:"
 msgid ""
 "Here's a breakdown of the important behaviour differences between the src "
 "layout and the flat layout:"
 msgstr ""
-"Aqui está uma análise das diferenças importantes entre o pip e o "
-"descontinuado easy_install:"
+"Aqui está uma análise das diferenças de comportamento importantes entre o "
+"layout src e o layout plano:"
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:46
 msgid ""
 "The src layout requires installation of the project to be able to run its "
 "code, and the flat layout does not."
 msgstr ""
+"O layout src requer a instalação do projeto para poder executar seu código, "
+"e o layout plano não."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:49
 msgid ""
@@ -1153,12 +1160,18 @@ msgid ""
 "<setuptools:userguide/development_mode>` is used for development and a "
 "regular installation is used for testing)."
 msgstr ""
+"Isso significa que o layout src envolve uma etapa adicional no fluxo de "
+"trabalho de desenvolvimento de um projeto (normalmente, uma :doc:`instalação "
+"editável <setuptools:userguide/development_mode>` é usada para "
+"desenvolvimento e uma instalação regular é usada para teste) ."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:54
 msgid ""
 "The src layout helps prevent accidental usage of the in-development copy of "
 "the code."
 msgstr ""
+"O layout src ajuda a evitar o uso acidental da cópia em desenvolvimento do "
+"código."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:57
 msgid ""
@@ -1170,6 +1183,13 @@ msgid ""
 "packaging tooling, which could result in files not being included in a "
 "distribution."
 msgstr ""
+"Isso é relevante, pois o interpretador Python inclui o diretório de trabalho "
+"atual como o primeiro item no caminho de importação. Isso significa que se "
+"existir um pacote de importação no diretório de trabalho atual com o mesmo "
+"nome de um pacote de importação instalado, a variante do diretório de "
+"trabalho atual será usada. Isso pode levar a uma configuração incorreta "
+"sutil das ferramentas de empacotamento do projeto, o que pode resultar na "
+"não inclusão de arquivos em uma distribuição."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:64
 msgid ""
@@ -1177,6 +1197,9 @@ msgid ""
 "separate from the root directory of the project, ensuring that the installed "
 "copy is used."
 msgstr ""
+"O layout src ajuda a evitar isso mantendo os pacotes de importação em um "
+"diretório separado do diretório raiz do projeto, garantindo que a cópia "
+"instalada seja usada."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:68
 msgid ""
@@ -1184,6 +1207,9 @@ msgid ""
 "userguide/development_mode>` is only able to import files that were meant to "
 "be importable."
 msgstr ""
+"O layout src ajuda a reforçar que uma :doc:`instalação editável <setuptools:"
+"userguide/development_mode>` só é capaz de importar arquivos que deveriam "
+"ser importados."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:72
 msgid ""
@@ -1191,6 +1217,10 @@ msgid ""
 "using a `path configuration file <https://docs.python.org/3/library/site."
 "html#index-2>`_ that adds the directory to the import path."
 msgstr ""
+"Isso é especialmente relevante quando a instalação editável é implementada "
+"usando um `arquivo de configuração de caminho <https://docs.python.org/pt-br/"
+"3/library/site.html#index-2>`_ que adiciona o diretório ao caminho de "
+"importação."
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:76
 msgid ""
@@ -1199,6 +1229,11 @@ msgid ""
 "``noxfile.py``) on the import path. This would make certain imports work in "
 "editable installations but not regular installations."
 msgstr ""
+"O layout plano adicionaria os outros arquivos de projeto (por exemplo: "
+"``README.md``, ``tox.ini``) e arquivos de configuração de pacotes/"
+"ferramentas (por exemplo: ``setup.py``, ``noxfile.py``) no caminho de "
+"importação. Isso faria com que certas importações funcionassem em "
+"instalações editáveis, mas não em instalações regulares."
 
 #: ../source/discussions/wheel-vs-egg.rst:5
 msgid "Wheel vs Egg"
@@ -1320,7 +1355,7 @@ msgstr ""
 
 #: ../source/flow.rst:3
 msgid "The Packaging Flow"
-msgstr ""
+msgstr "O fluxo do empacotamento"
 
 #: ../source/flow.rst:5
 msgid ""
@@ -1329,6 +1364,10 @@ msgid ""
 "Package Index (PyPI)`_. It is written for package publishers, who are "
 "assumed to be the package author."
 msgstr ""
+"O documento visa delinear o fluxo envolvido na publicação/distribuição de um "
+":term:`pacote de distribuição <Distribution Package>`, geralmente para o `"
+"Python Package Index (PyPI)`_. Ele é escrito para editores de pacotes, que "
+"são considerados os autores do pacote."
 
 #: ../source/flow.rst:12
 msgid ""
@@ -1336,18 +1375,25 @@ msgid ""
 "process of preparing a simple package for release, it does not fully "
 "enumerate what steps and files are required, and for what purpose."
 msgstr ""
+"Enquanto o :doc:`tutorial <tutorials/packaging-projects>` percorre o "
+"processo de preparação de um pacote simples para lançamento, ele não enumera "
+"completamente quais etapas e arquivos são necessários e para qual finalidade."
 
 #: ../source/flow.rst:16
 msgid ""
 "Publishing a package requires a flow from the author's source code to an end "
 "user's Python environment. The steps to achieve this are:"
 msgstr ""
+"A publicação de um pacote requer um fluxo do código-fonte do autor para o "
+"ambiente Python de um usuário final. Os passos para conseguir isso são:"
 
 #: ../source/flow.rst:19
 msgid ""
 "Have a source tree containing the package. This is typically a checkout from "
 "a version control system (VCS)."
 msgstr ""
+"Tenha uma árvore de fontes contendo o pacote. Este é normalmente um checkout "
+"de um sistema de controle de versão (VCS)."
 
 #: ../source/flow.rst:22
 msgid ""
@@ -1356,6 +1402,10 @@ msgid ""
 "will be a :file:`pyproject.toml` file, maintained manually in the source "
 "tree."
 msgstr ""
+"Prepare um arquivo de configuração descrevendo os metadados do pacote (nome, "
+"versão e assim por diante) e como criar os artefatos de construção. Para a "
+"maioria dos pacotes, este será um arquivo :file:`pyproject.toml`, mantido "
+"manualmente na árvore de fontes."
 
 #: ../source/flow.rst:27
 msgid ""
