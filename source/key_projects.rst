@@ -496,7 +496,8 @@ make deployment of Python applications as simple as ``cp``.
 pip-tools
 =========
 
-`GitHub and Docs <https://github.com/jazzband/pip-tools/>`__ |
+`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/jazzband/pip-tools/>`__ |
 `PyPI <https://pypi.org/project/pip-tools/>`__
 
 pip-tools is a suite of tools meant for Python system administrators
