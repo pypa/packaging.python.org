@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-22 01:09+0000\n"
-"PO-Revision-Date: 2022-10-22 01:10+0000\n"
+"PO-Revision-Date: 2022-10-24 16:04+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
@@ -1416,22 +1416,34 @@ msgid ""
 "tool using the configuration file from the previous step. Often there is "
 "just one generic wheel for a pure Python package."
 msgstr ""
+"Crie artefatos de construção para serem enviados ao serviço de distribuição "
+"de pacotes (geralmente PyPI); normalmente serão uma :term:`distribuição "
+"fonte (\"sdist\") <Distribuição Fonte (ou \"sdist\")>` e uma ou mais :term:`"
+"distribuições construídas (\"wheels\") <Distribuição Construída>`. Eles são "
+"feitos por uma ferramenta de construção usando o arquivo de configuração da "
+"etapa anterior. Muitas vezes, há apenas uma wheel genérica para um pacote "
+"puro Python."
 
 #: ../source/flow.rst:35
 msgid "Upload the build artifacts to the package distribution service."
 msgstr ""
+"Envie os artefatos de construção para o serviço de distribuição de pacotes."
 
 #: ../source/flow.rst:37
 msgid ""
 "At that point, the package is present on the package distribution service. "
 "To use the package, end users must:"
 msgstr ""
+"Nesse ponto, o pacote está presente no serviço de distribuição de pacotes. "
+"Para usar o pacote, os usuários finais devem:"
 
 #: ../source/flow.rst:40
 msgid ""
 "Download one of the package's build artifacts from the package distribution "
 "service."
 msgstr ""
+"Baixe um dos artefatos de construção do pacote do serviço de distribuição de "
+"pacotes."
 
 #: ../source/flow.rst:43
 msgid ""
@@ -1439,22 +1451,25 @@ msgid ""
 "directory. This step may involve a build/compile step which, if needed, must "
 "be described by the package metadata."
 msgstr ""
+"Instale-o em seu ambiente Python, geralmente em seu diretório ``site-"
+"packages``. Esta etapa pode envolver uma etapa de construção/compilação que, "
+"se necessário, deve ser descrita pelos metadados do pacote."
 
 #: ../source/flow.rst:47
 msgid ""
 "These last 2 steps are typically performed by :ref:`pip` when an end user "
 "runs ``pip install``."
 msgstr ""
+"Estes últimos 2 passos são normalmente executados por :ref:`pip` quando um "
+"usuário final executa ``pip install``."
 
 #: ../source/flow.rst:50
 msgid "The steps above are described in more detail below."
-msgstr ""
+msgstr "As etapas acima são descritas com mais detalhes abaixo."
 
 #: ../source/flow.rst:53
-#, fuzzy
-#| msgid "Source trees"
 msgid "The source tree"
-msgstr "Árvores fonte"
+msgstr "A árvore fonte"
 
 #: ../source/flow.rst:55
 msgid ""
@@ -1462,12 +1477,14 @@ msgid ""
 "VCS. The particular version of the code used to create the build artifacts "
 "will typically be a checkout based on a tag associated with the version."
 msgstr ""
+"A árvore fonte contém o código-fonte do pacote, geralmente um checkout de um "
+"VCS. A versão específica do código usado para criar os artefatos de "
+"compilação normalmente será um checkout com base em uma tag associada à "
+"versão."
 
 #: ../source/flow.rst:60
-#, fuzzy
-#| msgid "Common configurations"
 msgid "The configuration file"
-msgstr "Configurações comuns"
+msgstr "O arquivo de configuração"
 
 #: ../source/flow.rst:62
 msgid ""
@@ -1475,6 +1492,9 @@ msgid ""
 "artifacts. The standard practice is to use a :file:`pyproject.toml` file in "
 "the `TOML format`_."
 msgstr ""
+"O arquivo de configuração depende da ferramenta usada para criar os "
+"artefatos de construção. A prática padrão é usar um arquivo :file:`pyproject."
+"toml` no `formato TOML`_."
 
 #: ../source/flow.rst:68
 msgid ""
@@ -1484,10 +1504,16 @@ msgid ""
 "`poetry`, :ref:`setuptools`, `trampolim`_, and `whey`_. Each tool's "
 "documentation will show what to put in the ``[build-system]`` table."
 msgstr ""
+"No mínimo, o arquivo :file:`pyproject.toml` precisa de uma tabela ``[build-"
+"system]`` especificando sua ferramenta de construção. Existem muitas "
+"ferramentas de construção disponíveis, incluindo, mas não se limitando a "
+":ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:`poetry`, :ref:`setuptools`, ` "
+"trampolim`_ e `whey`_. A documentação de cada ferramenta mostrará o que "
+"colocar na tabela ``[build-system]``."
 
 #: ../source/flow.rst:77
 msgid "For example, here is a table for using :ref:`hatch`:"
-msgstr ""
+msgstr "Por exemplo, aqui está uma tabela para usar :ref:`hatch`:"
 
 #: ../source/flow.rst:85
 msgid ""
@@ -1497,12 +1523,22 @@ msgid ""
 "install tool like :ref:`pip` also acts as a frontend when it runs your build "
 "tool's backend to install from a source distribution."
 msgstr ""
+"Com tal tabela no arquivo :file:`pyproject.toml`, uma ferramenta \"frontend\""
+" como :ref:`build` pode executar o \"backend\" da ferramenta de compilação "
+"escolhida para criar os artefatos de compilação. Sua ferramenta de "
+"compilação também pode fornecer seu próprio frontend. Uma ferramenta de "
+"instalação como :ref:`pip` também atua como frontend quando executa o "
+"backend da sua ferramenta de construção para instalar a partir de uma "
+"distribuição fonte."
 
 #: ../source/flow.rst:91
 msgid ""
 "The particular build tool you choose dictates what additional information is "
 "required in the :file:`pyproject.toml` file. For example, you might specify:"
 msgstr ""
+"A ferramenta de construção específica que você escolhe determina quais "
+"informações adicionais são necessárias no arquivo :file:`pyproject.toml`. "
+"Por exemplo, você pode especificar:"
 
 #: ../source/flow.rst:94
 msgid ""
@@ -1511,20 +1547,24 @@ msgid ""
 "doc:`Declaring project metadata </specifications/declaring-project-metadata/"
 ">` for more detail"
 msgstr ""
+"uma tabela ``[project]`` contendo os :doc:`Metadados Principais </"
+"specifications/core-metadata/>` (nome, versão, autor e assim por diante) do "
+"projeto; veja :doc:`Declarando os metadados do projeto </specifications/"
+"declaring-project-metadata/>` para mais detalhes"
 
 #: ../source/flow.rst:100
 msgid "a ``[tool]`` table containing tool-specific configuration options"
 msgstr ""
+"uma tabela ``[tool]`` contendo opções de configuração específicas da "
+"ferramenta"
 
 #: ../source/flow.rst:103
 msgid "Build artifacts"
-msgstr ""
+msgstr "Artefatos de construção"
 
 #: ../source/flow.rst:106
-#, fuzzy
-#| msgid "Source Distribution (or \"sdist\")"
 msgid "The source distribution (sdist)"
-msgstr "Distribuição Fonte (ou \"sdist\")"
+msgstr "A distribuição fonte (sdist)"
 
 #: ../source/flow.rst:108
 msgid ""
@@ -1534,23 +1574,31 @@ msgid ""
 "wanting to develop your sources, and for end user systems where some local "
 "compilation step is required (such as a C extension)."
 msgstr ""
+"Uma distribuição fonte contém o suficiente para instalar o pacote fonte no "
+"ambiente Python de um usuário final. Como tal, ele precisa da fonte do "
+"pacote e também pode incluir testes e documentação. Eles são úteis para "
+"usuários finais que desejam desenvolver suas fontes e para sistemas de "
+"usuários finais onde alguma etapa de compilação local é necessária (como uma "
+"extensão C)."
 
 #: ../source/flow.rst:114 ../source/flow.rst:138
 msgid ""
 "The :ref:`build` package knows how to invoke your build tool to create one "
 "of these:"
 msgstr ""
+"O pacote :ref:`build` sabe como invocar sua ferramenta de construção para "
+"criar uma destas:"
 
 #: ../source/flow.rst:121
 msgid ""
 "Or, your build tool may provide its own interface for creating an sdist."
 msgstr ""
+"Ou sua ferramenta de construção pode fornecer sua própria interface para "
+"criar um sdist."
 
 #: ../source/flow.rst:125
-#, fuzzy
-#| msgid "Source Distributions vs Wheels"
 msgid "The built distributions (wheels)"
-msgstr "Distribuições de fonte vs Wheels"
+msgstr "As distribuições de construídas (wheels)"
 
 #: ../source/flow.rst:127
 msgid ""
@@ -1559,6 +1607,11 @@ msgid ""
 "wheel file can simply be unpacked into the ``site-packages`` directory. This "
 "makes the install faster and more convenient for end users."
 msgstr ""
+"Uma distribuição construída contém apenas os arquivos necessários para o "
+"ambiente Python de um usuário final. Nenhuma etapa de compilação é "
+"necessária durante a instalação, e o arquivo wheel pode simplesmente ser "
+"descompactado no diretório ``site-packages``. Isso torna a instalação mais "
+"rápida e conveniente para os usuários finais."
 
 #: ../source/flow.rst:132
 msgid ""
@@ -1568,10 +1621,18 @@ msgid ""
 "supports. If a suitable wheel file is not available, tools like :ref:`pip` "
 "will fall back to installing the source distribution."
 msgstr ""
+"Um pacote puro Python normalmente precisa apenas de um wheel \"genérico\". "
+"Um pacote com extensões binárias compiladas precisa de um wheel para cada "
+"combinação suportada de interpretador Python, sistema operacional e "
+"arquitetura de CPU que ele suporta. Se um arquivo wheel adequado não estiver "
+"disponível, ferramentas como :ref:`pip` voltarão a instalar a distribuição "
+"fonte."
 
 #: ../source/flow.rst:145
 msgid "Or, your build tool may provide its own interface for creating a wheel."
 msgstr ""
+"Ou sua ferramenta de construção pode fornecer sua própria interface para "
+"criar um wheel."
 
 #: ../source/flow.rst:149
 msgid ""
@@ -1579,10 +1640,11 @@ msgid ""
 "from the source in the current directory; the above examples are "
 "deliberately specific."
 msgstr ""
+"O comportamento padrão do :ref:`build` é fazer tanto um sdist quanto um "
+"wheel da fonte no diretório atual; os exemplos acima são deliberadamente "
+"específicos."
 
 #: ../source/flow.rst:154
-#, fuzzy
-#| msgid "Uploading the distribution archives"
 msgid "Upload to the package distribution service"
 msgstr "Enviando os arquivos de distribuição"
 
@@ -1591,14 +1653,18 @@ msgid ""
 "The :ref:`twine` tool can upload build artifacts to PyPI for distribution, "
 "using a command like:"
 msgstr ""
+"A ferramenta :ref:`twine` pode enviar artefatos de construção para PyPI para "
+"distribuição, usando um comando como:"
 
 #: ../source/flow.rst:163
 msgid "Or, your build tool may provide its own interface for uploading."
 msgstr ""
+"Ou sua ferramenta de construção pode fornecer sua própria interface para "
+"envio."
 
 #: ../source/flow.rst:166
 msgid "Download and install"
-msgstr ""
+msgstr "Baixando e instalando"
 
 #: ../source/flow.rst:168
 msgid ""
@@ -1606,12 +1672,17 @@ msgid ""
 "package into their Python environment. Typically this is done with :ref:"
 "`pip`, using a command like:"
 msgstr ""
+"Agora que o pacote foi publicado, os usuários finais podem baixar e instalar "
+"o pacote em seu ambiente Python. Normalmente isso é feito com :ref:`pip`, "
+"usando um comando como:"
 
 #: ../source/flow.rst:176
 msgid ""
 "End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or :"
 "ref:`pdm`."
 msgstr ""
+"Os usuários finais também podem usar outras ferramentas como :ref:`pipenv`, "
+":ref:`poetry` ou :ref:`pdm`."
 
 #: ../source/glossary.rst:3
 msgid "Glossary"
@@ -2227,33 +2298,21 @@ msgid "Public dataset"
 msgstr "Conjunto de dados públicos"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:45
-#, fuzzy
-#| msgid ""
-#| "As an alternative, the `Linehaul project <https://github.com/pypa/"
-#| "linehaul>`__ streams download logs from PyPI to `Google BigQuery`_ [#]_, "
-#| "where they are stored as a public dataset."
 msgid ""
 "As an alternative, the `Linehaul project <https://github.com/pypa/linehaul-"
 "cloud-function/>`__ streams download logs from PyPI to `Google BigQuery`_ "
 "[#]_, where they are stored as a public dataset."
 msgstr ""
-"Como alternativa, o `projeto Linehaul <https://github.com/pypa/linehaul>`__ "
-"transmite registros de download do PyPI para o `Google BigQuery`_ [#]_, onde "
-"são armazenados como um conjunto de dados público."
+"Como alternativa, o `projeto Linehaul <https://github.com/pypa/"
+"linehaul-cloud-function/>`__ transmite registros de download do PyPI para o `"
+"Google BigQuery`_ [#]_, onde são armazenados como um conjunto de dados "
+"público."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:50
 msgid "Getting set up"
 msgstr "Preparando-se"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:52
-#, fuzzy
-#| msgid ""
-#| "In order to use `Google BigQuery`_ to query the `public PyPI download "
-#| "statistics dataset`_, you'll need a Google account and to enable the "
-#| "BigQuery API on a Google Cloud Platform project. You can run the up to "
-#| "1TB of queries per month `using the BigQuery free tier without a credit "
-#| "card <https://cloud.google.com/blog/products/data-analytics/query-without-"
-#| "a-credit-card-introducing-bigquery-sandbox>`__"
 msgid ""
 "In order to use `Google BigQuery`_ to query the `public PyPI download "
 "statistics dataset`_, you'll need a Google account and to enable the "
@@ -2262,13 +2321,13 @@ msgid ""
 "<https://cloud.google.com/blog/products/data-analytics/query-without-a-"
 "credit-card-introducing-bigquery-sandbox>`__"
 msgstr ""
-"Para usar o `Google BigQuery`_ para consultar o `conjunto de dados de "
-"estatísticas de download PyPI público <public PyPI download statistics "
+"Para usar o `Google BigQuery`_ para consultar o `conjunto de dados público "
+"de estatísticas de download do PyPI <public PyPI download statistics "
 "dataset>`_, você precisará de uma conta do Google e habilitar a API do "
 "BigQuery em um projeto do Google Cloud Platform. Você pode executar até 1 TB "
 "de consultas por mês `usando o free tier do BigQuery sem um cartão de "
-"crédito <https://cloud.google.com/blog/products/data-analytics/query-without-"
-"a-credit-card-introducing-bigquery-sandbox>`__"
+"crédito <https://cloud.google.com/blog/products/data-analytics/query-"
+"without-a-credit-card-introducing-bigquery-sandbox>`__"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:58
 msgid "Navigate to the `BigQuery web UI`_."
@@ -3718,18 +3777,13 @@ msgstr ""
 "durante a instalação do seu :term:`distribuição <Distribution Package>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:545
-#, fuzzy
-#| msgid ""
-#| "For more information, see :std:doc:`Including Data Files <setuptools:"
-#| "userguide/datafiles>` from the :std:doc:`setuptools docs <setuptools:"
-#| "index>`."
 msgid ""
 "For more information, see :doc:`Entry Points <setuptools:userguide/"
 "entry_point>` from the :doc:`setuptools docs <setuptools:index>`."
 msgstr ""
-"Para mais informações, veja :std:doc:`Incluindo arquivos de dados "
-"<setuptools:userguide/datafiles>` da :std:doc:`documentação do setuptools "
-"<setuptools:index>`."
+"Para mais informações, veja :doc:`Entry Points <setuptools:userguide/"
+"entry_point>` (pontos de entrada, em português) da :doc:`documentação do "
+"setuptools <setuptools:index>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:551
 msgid "Choosing a versioning scheme"
@@ -5105,11 +5159,6 @@ msgstr ""
 "macOS publicados em python.org."
 
 #: ../source/guides/installing-scientific-packages.rst:92
-#, fuzzy
-#| msgid ""
-#| "macOS users also have access to Linux distribution style package managers "
-#| "such as ``Homebrew``. The SciPy site has more details on using Homebrew "
-#| "to `install SciPy on macOS <https://scipy.org/install/#mac>`_."
 msgid ""
 "macOS users also have access to Linux distribution style package managers "
 "such as ``Homebrew``. The SciPy site has more details on using Homebrew to "
@@ -5117,8 +5166,8 @@ msgid ""
 msgstr ""
 "Os usuários do macOS também têm acesso aos gerenciadores de pacotes de "
 "estilo de distribuição Linux, como ``Homebrew``. O site SciPy tem mais "
-"detalhes sobre como usar Hombrew para `instalar SciPy no macOS <https://"
-"scipy.org/install/#mac>`_."
+"detalhes sobre como usar Homebrew para `instalar SciPy no macOS "
+"<https://scipy.org/install/#macos>`_."
 
 #: ../source/guides/installing-scientific-packages.rst:98
 msgid "SciPy distributions"
@@ -6147,13 +6196,6 @@ msgstr ""
 "fonte não tratado do README."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:99
-#, fuzzy
-#| msgid ""
-#| "Note that Sphinx extensions used in docstrings, such as :doc:`directives "
-#| "and roles <sphinx:usage/restructuredtext/index>` (e.g., \"``:py:func:"
-#| "`getattr```\" or \"``:ref:`my-reference-label```\"), are not allowed here "
-#| "and will result in error messages like \"``Error: Unknown interpreted "
-#| "text role \"py:func\".``\"."
 msgid ""
 "Note that Sphinx extensions used in docstrings, such as :doc:`directives "
 "<sphinx:usage/restructuredtext/directives>` and :doc:`roles <sphinx:usage/"
@@ -6161,11 +6203,12 @@ msgid ""
 "reference-label```\"), are not allowed here and will result in error "
 "messages like \"``Error: Unknown interpreted text role \"py:func\".``\"."
 msgstr ""
-"Observe que as extensões Sphinx usadas em docstrings, como :doc:`diretivas e "
-"funções <sphinx:usage/restructuredtext/index>` (por exemplo, \"``:py:func:"
-"`getattr```\" ou \"``:ref:`my-reference-label```\"), não são permitidas aqui "
-"e resultarão em mensagens de erro como \"``Error: Unknown interpreted text "
-"role \"py:func\".``\"."
+"Observe que as extensões Sphinx usadas em docstrings, como :doc:`diretivas "
+"<sphinx:usage/restructuredtext/directives>` e :doc:`funções <sphinx:usage/"
+"restructuredtext/roles>` (por exemplo, \"``:py:func:`getattr```\" ou \"``:ref"
+":`my-reference-label```\"), não são permitidas aqui e resultarão em "
+"mensagens de erro como \"``Error: Unknown interpreted text role \"py:func\""
+".``\"."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:104
 msgid ""
@@ -7001,35 +7044,37 @@ msgstr ""
 #: ../source/guides/packaging-binary-extensions.rst:235
 #: ../source/guides/packaging-binary-extensions.rst:318
 msgid "FIXME"
-msgstr ""
+msgstr "FIXME"
 
 #: ../source/guides/packaging-binary-extensions.rst:237
 msgid "mention the stable ABI (3.2+, link to the CPython C API docs)"
 msgstr ""
+"mencionar a ABI estável (3.2+, link para os documentos da API CPython C)"
 
 #: ../source/guides/packaging-binary-extensions.rst:238
 msgid "mention the module lifecycle"
-msgstr ""
+msgstr "mencionar o ciclo de vida dos módulos"
 
 #: ../source/guides/packaging-binary-extensions.rst:239
 msgid "mention the challenges of shared static state and subinterpreters"
 msgstr ""
+"mencionar os desafios do estado estático compartilhado e subinterpretadores"
 
 #: ../source/guides/packaging-binary-extensions.rst:240
-#, fuzzy
-#| msgid "Introduction to C/C++ extension modules"
 msgid "mention the implications of the GIL for extension modules"
-msgstr "Introdução a módulos de extensão C/C++"
+msgstr "mencionar as implicações do GIL para módulos de extensão"
 
 #: ../source/guides/packaging-binary-extensions.rst:241
 msgid "mention the memory allocation APIs in 3.4+"
-msgstr ""
+msgstr "mencionar as APIs de alocação de memória em 3.4+"
 
 #: ../source/guides/packaging-binary-extensions.rst:243
 msgid ""
 "mention again that all this is one of the reasons why you probably *don't* "
 "want to handcode your extension modules :)"
 msgstr ""
+"mencionar novamente que tudo isso é uma das razões pelas quais você "
+"provavelmente *não* deseja codificar manualmente seus módulos de extensão :)"
 
 #: ../source/guides/packaging-binary-extensions.rst:248
 msgid "Building binary extensions"
@@ -7171,20 +7216,25 @@ msgstr ""
 #: ../source/guides/packaging-binary-extensions.rst:320
 msgid "cover publishing as wheel files on PyPI or a custom index server"
 msgstr ""
+"cobrir a publicação como arquivos wheel no PyPI ou um servidor de indexação "
+"personalizado"
 
 #: ../source/guides/packaging-binary-extensions.rst:321
 msgid "cover creation of Windows and macOS installers"
-msgstr ""
+msgstr "cobrir a criação de instaladores do Windows e do macOS"
 
 #: ../source/guides/packaging-binary-extensions.rst:322
 msgid "cover weak linking"
-msgstr ""
+msgstr "cobrir ligação fraca"
 
 #: ../source/guides/packaging-binary-extensions.rst:323
 msgid ""
 "mention the fact that Linux distros have a requirement to build from source "
 "in their own build systems, so binary-only releases are strongly discouraged"
 msgstr ""
+"mencionar o fato de que as distribuições Linux têm um requisito para "
+"construir a partir da fonte em seus próprios sistemas de construção, "
+"portanto, versões somente binárias são fortemente desencorajadas"
 
 #: ../source/guides/packaging-binary-extensions.rst:329
 msgid "Additional resources"
@@ -7689,11 +7739,6 @@ msgid "Defining a workflow job environment"
 msgstr "Definindo um ambiente de tarefa do fluxo de trabalho"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
-#, fuzzy
-#| msgid ""
-#| "Now, let's add initial setup for our job. It's a process that will "
-#| "execute commands that we'll define later. In this guide, we'll use Ubuntu "
-#| "18.04:"
 msgid ""
 "Now, let's add initial setup for our job. It's a process that will execute "
 "commands that we'll define later. In this guide, we'll use the latest stable "
@@ -7701,7 +7746,8 @@ msgid ""
 msgstr ""
 "Agora, vamos adicionar a configuração inicial para nosso trabalho. É um "
 "processo que executará comandos que definiremos mais tarde. Neste guia, "
-"usaremos o Ubuntu 18.04:"
+"usaremos a versão estável mais recente do Ubuntu LTS fornecido pelo GitHub "
+"Actions:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:84
 msgid "Checking out the project and building distributions"
@@ -7712,16 +7758,12 @@ msgid "Then, add the following under the ``build-n-publish`` section:"
 msgstr "Então, adicione o seguinte sob a seção ``build-n-publish``:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
-#, fuzzy
-#| msgid ""
-#| "This will download your repository into the CI runner and then install "
-#| "and activate Python 3.9."
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate Python 3.10."
 msgstr ""
 "Isso fará o download do seu repositório no executor de CI e, em seguida, "
-"instalará e ativará o Python 3.9."
+"instalará e ativará o Python 3.10."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:96
 msgid ""
@@ -9419,6 +9461,8 @@ msgid ""
 "To get an overview of the flow used to publish your code, see the :doc:"
 "`packaging flow <flow>`"
 msgstr ""
+"Para obter uma visão geral do fluxo usado para publicar seu código, consulte "
+"o :doc:`fluxo de empacotamento <flow>`"
 
 #: ../source/index.rst:43
 msgid ""
@@ -9598,19 +9642,14 @@ msgid "distlib"
 msgstr "distlib"
 
 #: ../source/key_projects.rst:66
-#, fuzzy
-#| msgid ""
-#| "`Docs <build:index>` | `Issues <https://github.com/pypa/build/issues>`__ "
-#| "| `GitHub <https://github.com/pypa/build>`__ | `PyPI <https://pypi.org/"
-#| "project/build>`__"
 msgid ""
 ":doc:`Docs <distlib:index>` | `Issues <https://github.com/pypa/distlib/"
 "issues>`__ | `GitHub <https://github.com/pypa/distlib>`__ | `PyPI <https://"
 "pypi.org/project/distlib>`__"
 msgstr ""
-"`Documentação <build:index>` | `Issues <https://github.com/pypa/build/"
-"issues>`__ | `GitHub <https://github.com/pypa/build>`__ | `PyPI <https://"
-"pypi.org/project/build>`__"
+":doc:`Documentação <distlib:index>` | `Issues <https://github.com/pypa/"
+"distlib/issues>`__ | `GitHub <https://github.com/pypa/distlib>`__ | `PyPI "
+"<https://pypi.org/project/distlib>`__"
 
 #: ../source/key_projects.rst:71
 msgid ""
@@ -9690,26 +9729,14 @@ msgid "hatch"
 msgstr "hatch"
 
 #: ../source/key_projects.rst:113
-#, fuzzy
-#| msgid ""
-#| "`Docs <https://pypa.github.io/pipx/>`__ | `GitHub <https://github.com/"
-#| "pypa/pipx>`__ | `PyPI <https://pypi.org/project/pipx/>`__"
 msgid ""
 "`Docs <https://hatch.pypa.io/latest/>`__ | `GitHub <https://github.com/pypa/"
 "hatch>`__ | `PyPI <https://pypi.org/project/hatch>`__"
 msgstr ""
-"`Documentação <https://pypa.github.io/pipx/>`__ | `GitHub <https://github."
-"com/pypa/pipx>`__ | `PyPI <https://pypi.org/project/pipx/>`__"
+"`Documentação <https://hatch.pypa.io/latest/>`__ | `GitHub <https://github."
+"com/pypa/hatch>`__ | `PyPI <https://pypi.org/project/hatch/>`__"
 
 #: ../source/key_projects.rst:117
-#, fuzzy
-#| msgid ""
-#| "Hatch is a unified command-line tool meant to conveniently manage "
-#| "dependencies and environment isolation for Python developers. Python "
-#| "package developers use Hatch to configure, version, specify dependencies "
-#| "for, and publish packages to PyPI. Under the hood, it uses :ref:`twine` "
-#| "to upload packages to PyPI, and :ref:`pip` to download and install "
-#| "packages."
 msgid ""
 "Hatch is a unified command-line tool meant to conveniently manage "
 "dependencies and environment isolation for Python developers. Python package "
@@ -9719,10 +9746,10 @@ msgid ""
 msgstr ""
 "Hatch é uma ferramenta de linha de comando unificada destinada a gerenciar "
 "convenientemente dependências e isolamento de ambiente para desenvolvedores "
-"Python. Os desenvolvedores de pacotes Python usam o Hatch para configurar, "
-"criar versões, especificar dependências e publicar pacotes no PyPI. Por "
-"baixo do capô, ele usa :ref:`twine` para enviar pacotes para PyPI, e :ref:"
-"`pip` para baixar e instalar pacotes."
+"Python. Os desenvolvedores de pacotes Python usam o Hatch e seu backend de "
+"construção para configurar, criar versões, especificar dependências e "
+"publicar pacotes no PyPI. Seu sistema de plugins permite estender facilmente "
+"a funcionalidade."
 
 #: ../source/key_projects.rst:126
 msgid "packaging"
@@ -9830,12 +9857,6 @@ msgstr ""
 "<https://pypi.org/project/pipenv>`__"
 
 #: ../source/key_projects.rst:180
-#, fuzzy
-#| msgid ""
-#| "Pipenv is a project that aims to bring the best of all packaging worlds "
-#| "to the Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:"
-#| "`virtualenv` into one single toolchain. It features very pretty terminal "
-#| "colors."
 msgid ""
 "Pipenv is a project that aims to bring the best of all packaging worlds to "
 "the Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:"
@@ -9844,19 +9865,12 @@ msgid ""
 "safety>`_."
 msgstr ""
 "Pipenv é um projeto que visa trazer o melhor de todos os mundos de "
-"empacotamento para o mundo Python. Ele agrega :ref:`Pipfile`, :ref:`pip` e :"
-"ref:`virtualenv` em um único conjunto de ferramentas. Possui cores de "
-"terminal muito bonitas."
+"empacotamento para o mundo Python. Ele agrega :ref:`Pipfile`, :ref:`pip` e "
+":ref:`virtualenv` em um único conjunto de ferramentas. Possui pode "
+"autoimportar ``requirements.txt`` e também pode verificar por CVEs no "
+"`Pipfile` usando `safety <https://pyup.io/safety>`_."
 
 #: ../source/key_projects.rst:185
-#, fuzzy
-#| msgid ""
-#| "Pipenv aims to help users manage environments, dependencies, and imported "
-#| "packages on the command line. It also works well on Windows (which other "
-#| "tools often underserve), makes and checkes file hashes, to ensure "
-#| "compliance with hash-locked dependency specifiers, and eases "
-#| "uninstallation of packages and dependencies. It is used by Python users "
-#| "and system administrators, but has been less maintained since late 2018."
 msgid ""
 "Pipenv aims to help users manage environments, dependencies, and imported "
 "packages on the command line. It also works well on Windows (which other "
@@ -9865,12 +9879,10 @@ msgid ""
 "and dependencies."
 msgstr ""
 "O Pipenv visa ajudar os usuários a gerenciar ambientes, dependências e "
-"pacotes importados na linha de comando. Ele também funciona bem no Windows "
-"(que outras ferramentas muitas vezes não atendem), cria e verifica hashes de "
+"pacotes importados na linha de comando. Ele também funciona bem no Windows ("
+"que outras ferramentas muitas vezes não atendem), cria e verifica hashes de "
 "arquivo, para garantir a conformidade com especificadores de dependência "
-"bloqueados por hash e facilita a desinstalação de pacotes e dependências. "
-"Ele é usado por usuários Python e administradores de sistema, mas tem menos "
-"manutenção desde o final de 2018."
+"bloqueados por hash e facilita a desinstalação de pacotes e dependências."
 
 #: ../source/key_projects.rst:194
 msgid "Pipfile"
@@ -10741,16 +10753,12 @@ msgid "venv"
 msgstr "venv"
 
 #: ../source/key_projects.rst:687
-#, fuzzy
-#| msgid ""
-#| "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
-#| "bugs.python.org/>`__"
 msgid ""
 "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
 "github.com/python/cpython/issues>`__"
 msgstr ""
-"`Documentação <https://docs.python.org/pt-br/3/library/venv.html>`__ | "
-"`Issues <https://bugs.python.org/>`__"
+"`Documentação <https://docs.python.org/pt-br/3/library/venv.html>`__ | `"
+"Issues <https://github.com/python/cpython/issues>`__"
 
 #: ../source/key_projects.rst:690
 msgid ""
@@ -12127,12 +12135,10 @@ msgstr ""
 "operacional:"
 
 #: ../source/overview.rst:293
-#, fuzzy
-#| msgid ""
-#| "`ActiveState ActivePython <https://www.activestate.com/activepython>`_"
 msgid ""
 "`ActiveState ActivePython <https://www.activestate.com/products/python/>`_"
-msgstr "`ActiveState ActivePython <https://www.activestate.com/activepython>`_"
+msgstr ""
+"`ActiveState ActivePython <https://www.activestate.com/products/python/>`_"
 
 #: ../source/overview.rst:294
 msgid "`WinPython <http://winpython.github.io/>`_"
@@ -13229,27 +13235,22 @@ msgid "https://datatracker.ietf.org/doc/html/rfc7515"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
 
 #: ../source/specifications/binary-distribution-format.rst:319
-#, fuzzy
-#| msgid ""
-#| "https://tools.ietf.org/id/draft-jones-json-web-signature-json-"
-#| "serialization-01.html"
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
 msgstr ""
-"https://tools.ietf.org/id/draft-jones-json-web-signature-json-"
-"serialization-01.html"
+"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+"serialization-01"
 
 #: ../source/specifications/binary-distribution-format.rst:320
 msgid "https://datatracker.ietf.org/doc/html/rfc7517"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
 
 #: ../source/specifications/binary-distribution-format.rst:321
-#, fuzzy
-#| msgid "https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html"
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-msgstr "https://tools.ietf.org/id/draft-jones-jose-json-private-key-01.html"
+msgstr ""
+"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
 #: ../source/specifications/binary-distribution-format.rst:325
 msgid "Comparison to .egg"
@@ -14699,10 +14700,6 @@ msgstr ""
 "estaticamente ou listados como dinâmicos são:"
 
 #: ../source/specifications/declaring-project-metadata.rst:36
-#, fuzzy
-#| msgid ""
-#| "All other fields are considered optional and my be specified statically, "
-#| "listed as dynamic, or left unspecified."
 msgid ""
 "All other fields are considered optional and may be specified statically, "
 "listed as dynamic, or left unspecified."
@@ -14933,13 +14930,6 @@ msgstr ""
 "significado exato está aberto à interpretação."
 
 #: ../source/specifications/declaring-project-metadata.rst:157
-#, fuzzy
-#| msgid ""
-#| "These fields accept an array of tables with 2 keys: ``name`` and "
-#| "``email``. Both values must be strings. The ``name`` value MUST be a "
-#| "valid email name (i.e. whatever can be put as a name, before an email, "
-#| "in :rfc:`822`) and not contain commas. The ``email`` value MUST be a "
-#| "valid email address. Both keys are optional."
 msgid ""
 "These fields accept an array of tables with 2 keys: ``name`` and ``email``. "
 "Both values must be strings. The ``name`` value MUST be a valid email name "
@@ -14951,7 +14941,8 @@ msgstr ""
 "Ambos os valores devem ser strings. O valor ``name`` DEVE ser um nome de e-"
 "mail válido (ou seja, o que quer que possa ser colocado como um nome, antes "
 "de um e-mail, em :rfc:`822`) e não conter vírgulas. O valor ``email`` DEVE "
-"ser um endereço de email válido. Ambas as chaves são opcionais."
+"ser um endereço de email válido. Ambas as chaves são opcionais, mas ao menos "
+"uma das chaves deve ser especificada na tabela."
 
 #: ../source/specifications/declaring-project-metadata.rst:164
 msgid ""
@@ -16444,21 +16435,15 @@ msgid "Common configurations"
 msgstr "Configurações comuns"
 
 #: ../source/specifications/pypirc.rst:61
-#, fuzzy
-#| msgid ""
-#| "These examples apply to :ref:`twine`, and projects like :ref:`hatch` that "
-#| "use it under the hood. Other projects (e.g. :ref:`flit`) also use :file:`."
-#| "pypirc`, but with different defaults. Please refer to each project's "
-#| "documentation for more details and usage instructions."
 msgid ""
 "These examples apply to :ref:`twine`. Other projects (e.g. :ref:`flit`) also "
 "use :file:`.pypirc`, but with different defaults. Please refer to each "
 "project's documentation for more details and usage instructions."
 msgstr ""
-"Esses exemplos se aplicam a :ref:`twine` e projetos como :ref:`hatch` que o "
-"usam sob o capô. Outros projetos (por exemplo, :ref:`flit`) também usam :"
-"file:`.pypirc`, mas com padrões diferentes. Consulte a documentação de cada "
-"projeto para obter mais detalhes e instruções de uso."
+"Esses exemplos se aplicam a :ref:`twine`. Outros projetos (por exemplo, "
+":ref:`flit`) também usam :file:`.pypirc`, mas com padrões diferentes. "
+"Consulte a documentação de cada projeto para obter mais detalhes e "
+"instruções de uso."
 
 #: ../source/specifications/pypirc.rst:65
 msgid ""
@@ -16843,21 +16828,15 @@ msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr "Aqui está um trecho de exemplo de um possível arquivo ``RECORD``::"
 
 #: ../source/specifications/recording-installed-packages.rst:170
-#, fuzzy
-#| msgid ""
-#| "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
-#| "not atempt to uninstall or upgrade the package. (This does not apply to "
-#| "tools that rely on other sources of information, such as system package "
-#| "managers in Linux distros.)"
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
 "not attempt to uninstall or upgrade the package. (This does not apply to "
 "tools that rely on other sources of information, such as system package "
 "managers in Linux distros.)"
 msgstr ""
-"Se o arquivo ``RECORD`` estiver faltando, as ferramentas que dependem de ``."
-"dist-info`` não devem tentar desinstalar ou atualizar o pacote. (Isso não se "
-"aplica a ferramentas que dependem de outras fontes de informação, como "
+"Se o arquivo ``RECORD`` estiver faltando, as ferramentas que dependem de "
+"``.dist-info`` não devem tentar desinstalar ou atualizar o pacote. (Isso não "
+"se aplica a ferramentas que dependem de outras fontes de informação, como "
 "gerenciadores de pacotes do sistema em distros Linux.)"
 
 #: ../source/specifications/recording-installed-packages.rst:177
@@ -16997,14 +16976,6 @@ msgid "Source distribution file name"
 msgstr "Nome de arquivo da distribuição fonte"
 
 #: ../source/specifications/source-distribution-format.rst:36
-#, fuzzy
-#| msgid ""
-#| "The file name of a sdist is not currently standardised, although the *de "
-#| "facto* form is ``{name}-{version}.tar.gz``, where ``{name}`` is the "
-#| "canonicalized form of the project name (see :pep:`503` for the "
-#| "canonicalization rules) with ``-`` characters replaced with ``_``, and "
-#| "``{version}`` is the canonicalized form of the project version (see :ref:"
-#| "`version-specifiers`)."
 msgid ""
 "The file name of a sdist was standardised in :pep:`625`. The file name must "
 "be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised "
@@ -17012,11 +16983,11 @@ msgid ""
 "distribution-format`), and ``{version}`` is the canonicalized form of the "
 "project version (see :ref:`version-specifiers`)."
 msgstr ""
-"O nome do arquivo de um sdist não está padronizado atualmente, embora a "
-"forma *de fato* seja ``{name}-{version}.tar.gz``, onde ``{name}`` é a forma "
-"canônica do nome do projeto (veja :pep:`503` para as regras de canonização) "
-"com caracteres ``-`` substituídos por ``_`` e ``{version}`` é a forma "
-"canonizada da versão do projeto (veja :ref:`version-specifiers`)."
+"O nome do arquivo de um sdist foi padronizado na :pep:`625`. O nome do "
+"arquivo deve estar no formato ``{name}-{version}.tar.gz``, sendo ``{name}`` "
+"normalizado de acordo com as mesmas regras das distribuições binárias (veja "
+":ref:`binary -distribution-format`) e ``{version}`` é a forma canonizada da "
+"versão do projeto (veja :ref:`version-specifiers`)."
 
 #: ../source/specifications/source-distribution-format.rst:42
 msgid ""
@@ -17032,6 +17003,9 @@ msgid ""
 "matches this specification. This includes the ``build_sdist`` hook of a "
 "build backend."
 msgstr ""
+"O código que produz um arquivo de distribuição de origem DEVE dar ao arquivo "
+"um nome que corresponda a essa especificação. Isso inclui o gancho "
+"``build_sdist`` de um backend de construção."
 
 #: ../source/specifications/source-distribution-format.rst:48
 msgid ""
@@ -17040,6 +17014,10 @@ msgid ""
 "*one* hyphen in the filename. Code that does this may then use the "
 "distribution name and version from the filename without further verification."
 msgstr ""
+"Código que processa arquivos de distribuição fonte PODE reconhecer arquivos "
+"de distribuição fonte pelo sufixo ``.tar.gz`` e a presença de precisamente "
+"*um* hífen no nome do arquivo. O código que faz isso pode usar o nome e "
+"versão da distribuição a partir do nome do arquivo sem verificação adicional."
 
 #: ../source/specifications/source-distribution-format.rst:54
 msgid "Source distribution file format"
@@ -17075,10 +17053,6 @@ msgstr ""
 "construir o projeto."
 
 #: ../source/specifications/source-distribution-format.rst:67
-#, fuzzy
-#| msgid ""
-#| "The tarball should use the modern POSIX.1-2001 pax tar format, which "
-#| "specifies UTF-8 based file names."
 msgid ""
 "The tarball should use the modern POSIX.1-2001 pax tar format, which "
 "specifies UTF-8 based file names. In particular, source distribution files "
@@ -17086,7 +17060,9 @@ msgid ""
 "flag 'r:gz'."
 msgstr ""
 "O tarball deve usar o formato tar pax POSIX.1-2001 moderno, que especifica "
-"nomes de arquivo baseados em UTF-8."
+"nomes de arquivo baseados em UTF-8. Em particular, os arquivos de "
+"distribuição fonte devem ser legíveis usando o módulo tarfile de biblioteca "
+"padrão com o sinalizador aberto 'r:gz'."
 
 #: ../source/specifications/version-specifiers.rst:6
 msgid "Version specifiers"
@@ -17890,10 +17866,8 @@ msgstr ""
 "estáveis. Por padrão, pip só encontra versões estáveis."
 
 #: ../source/tutorials/installing-packages.rst:645
-#, fuzzy
-#| msgid "Installing extras"
 msgid "Installing \"Extras\""
-msgstr "Instalando extras"
+msgstr "Instalando \"Extras\""
 
 #: ../source/tutorials/installing-packages.rst:647
 msgid ""
@@ -17902,6 +17876,10 @@ msgid ""
 "If you wish to install an extra for a package which you know publishes one, "
 "you can include it in the pip installation command:"
 msgstr ""
+"Extras são \"variantes\" opcionais de um pacote, que podem incluir "
+"dependências adicionais e, assim, habilitar funcionalidades adicionais do "
+"pacote. Se você deseja instalar um extra para um pacote que você sabe que "
+"publica um, você pode incluí-lo no comando de instalação pip:"
 
 #: ../source/tutorials/installing-packages.rst:670
 msgid ""
@@ -18138,21 +18116,15 @@ msgstr ""
 "para ver se uma delas se encaixa melhor:"
 
 #: ../source/tutorials/managing-dependencies.rst:163
-#, fuzzy
-#| msgid ""
-#| "`hatch <https://github.com/ofek/hatch>`_ for opinionated coverage of even "
-#| "more steps in the project management workflow, such as incrementing "
-#| "versions, tagging releases, and creating new skeleton projects from "
-#| "project templates."
 msgid ""
 "`hatch <https://github.com/pypa/hatch>`_ for opinionated coverage of even "
 "more steps in the project management workflow, such as incrementing versions "
 "and creating new skeleton projects from project templates."
 msgstr ""
-"`hatch <https://github.com/ofek/hatch>`_ para uma cobertura opinativa de "
+"`hatch <https://github.com/pypa/hatch>`_ para uma cobertura opinativa de "
 "ainda mais etapas no fluxo de trabalho de gerenciamento de projeto, como "
-"incrementar versões, marcar lançamentos e criar novos projetos básicos a "
-"partir de modelos de projeto."
+"incrementar versões e criar novos projetos básicos a partir de modelos de "
+"projeto."
 
 #: ../source/tutorials/managing-dependencies.rst:166
 msgid ""
@@ -18212,12 +18184,6 @@ msgid "Packaging Python Projects"
 msgstr "Empacotando projetos Python"
 
 #: ../source/tutorials/packaging-projects.rst:4
-#, fuzzy
-#| msgid ""
-#| "This tutorial walks you through how to package a simple Python project. "
-#| "It will show you how to add the necessary files and structure to create "
-#| "the package, how to build the package, and how to upload it to the Python "
-#| "Package Index."
 msgid ""
 "This tutorial walks you through how to package a simple Python project. It "
 "will show you how to add the necessary files and structure to create the "
@@ -18226,7 +18192,8 @@ msgid ""
 msgstr ""
 "Este tutorial mostra como empacotar um projeto Python simples. Ele mostrará "
 "como adicionar os arquivos e a estrutura necessários para criar o pacote, "
-"como construir o pacote e como enviá-lo para o Índice de Pacotes do Python."
+"como construir o pacote e como enviá-lo para o Índice de Pacotes do Python "
+"(PyPI)."
 
 #: ../source/tutorials/packaging-projects.rst:10
 msgid ""
@@ -18259,6 +18226,12 @@ msgid ""
 "following this tutorial. We recommend following this tutorial as-is using "
 "this project, before packaging your own project."
 msgstr ""
+"Este tutorial usa um projeto simples chamado "
+"``example_package_YOUR_USERNAME_HERE``. Se seu nome de usuário for ``me``, "
+"então o pacote seria ``example_package_me``; isso garante que você tenha um "
+"nome de pacote exclusivo que não entre em conflito com os pacotes carregados "
+"por outras pessoas seguindo este tutorial. Recomendamos seguir este tutorial "
+"como está usando este projeto, antes de empacotar seu próprio projeto."
 
 #: ../source/tutorials/packaging-projects.rst:44
 msgid "Create the following file structure locally:"
@@ -18270,6 +18243,9 @@ msgid ""
 "This simplifies the configuration and is more obvious to users who install "
 "the package."
 msgstr ""
+"O diretório que contém os arquivos Python deve corresponder ao nome do "
+"projeto. Isso simplifica a configuração e é mais óbvio para os usuários que "
+"instalam o pacote."
 
 #: ../source/tutorials/packaging-projects.rst:57
 msgid ""
@@ -18343,6 +18319,13 @@ msgid ""
 "ref:`PDM <pdm>`, and others that support the ``[project]`` table for :ref:"
 "`metadata <configuring metadata>`."
 msgstr ""
+":file:`pyproject.toml` diz a ferramentas de construção \"frontend\" como "
+":ref:`pip` e :ref:`build` qual ferramenta \"backend\" usar para criar :term:`"
+"pacotes de distribuição <Pacote de Distribuição>` para o seu projeto. Você "
+"pode escolher entre vários backends; este tutorial usa :ref:`Hatchling "
+"<hatch>` por padrão, mas funcionará de forma idêntica com :ref:`setuptools`, "
+":ref:`Flit <flit>`, :ref:`PDM <pdm>` e outros que oferecem suporte à tabela "
+"``[project]`` para :ref:`metadados <configuring metadata>`."
 
 #: ../source/tutorials/packaging-projects.rst:122
 msgid ""
@@ -18351,11 +18334,17 @@ msgid ""
 "management, as well as building, uploading, and installing packages. This "
 "tutorial uses single-purpose tools that work independently."
 msgstr ""
+"Alguns backends de construção fazem parte de ferramentas maiores que "
+"fornecem uma interface de linha de comando com recursos adicionais, como "
+"inicialização de projeto e gerenciamento de versão, além de construção, "
+"envio e instalação de pacotes. Este tutorial usa ferramentas de propósito "
+"único que funcionam de forma independente."
 
 #: ../source/tutorials/packaging-projects.rst:127
 msgid ""
 "Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:"
 msgstr ""
+"Abra :file:`pyproject.toml` e insira uma destas tabelas ``[build-system]``:"
 
 #: ../source/tutorials/packaging-projects.rst:162
 msgid ""
@@ -18364,43 +18353,36 @@ msgid ""
 "them automatically in a temporary, isolated virtual environment for use "
 "during the build process."
 msgstr ""
+"``requires`` é uma lista de pacotes que são necessários para construir seu "
+"pacote. Você não precisa instalá-los; frontends de construção como :ref:`pip`"
+" irá instalá-los automaticamente em um ambiente virtual isolado temporário "
+"para uso durante o processo de compilação."
 
 #: ../source/tutorials/packaging-projects.rst:166
 msgid ""
 "``build-backend`` is the name of the Python object that frontends will use "
 "to perform the build."
 msgstr ""
+"``build-backend`` é o nome do objeto Python que os frontends usarão para "
+"executar a construção."
 
 #: ../source/tutorials/packaging-projects.rst:174
 msgid "Configuring metadata"
 msgstr "Configurando metadados"
 
 #: ../source/tutorials/packaging-projects.rst:176
-#, fuzzy
-#| msgid ""
-#| "Open :file:`setup.cfg` and enter the following content. Change the "
-#| "``name`` to include your username; this ensures that you have a unique "
-#| "package name and that your package doesn't conflict with packages "
-#| "uploaded by other people following this tutorial."
 msgid ""
 "Open :file:`pyproject.toml` and enter the following content. Change the "
 "``name`` to include your username; this ensures that you have a unique "
 "package name that doesn't conflict with packages uploaded by other people "
 "following this tutorial."
 msgstr ""
-"Abra :file:`setup.cfg` e insira o seguinte conteúdo. Mude o ``name`` para "
-"incluir seu nome de usuário; isso garante que você tenha um nome de pacote "
-"exclusivo e que seu pacote não entre em conflito com os pacotes carregados "
-"por outras pessoas que seguem este tutorial."
+"Abra :file:`pyproject.toml` e insira o seguinte conteúdo. Mude o ``name`` "
+"para incluir seu nome de usuário; isso garante que você tenha um nome de "
+"pacote exclusivo que não entre em conflito com os pacotes carregados por "
+"outras pessoas que seguem este tutorial."
 
 #: ../source/tutorials/packaging-projects.rst:202
-#, fuzzy
-#| msgid ""
-#| "``name`` is the *distribution name* of your package. This can be any name "
-#| "as long as it only contains letters, numbers, ``_`` , and ``-``. It also "
-#| "must not already be taken on pypi.org. **Be sure to update this with your "
-#| "username,** as this ensures you won't try to upload a package with the "
-#| "same name as one which already exists."
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -18409,26 +18391,22 @@ msgid ""
 "package with the same name as one which already exists."
 msgstr ""
 "``name`` é o *nome da distribuição* do seu pacote. Pode ser qualquer nome, "
-"desde que contenha apenas letras, números, ``_`` e ``-``. Também não deve "
-"ser feito em pypi.org. **Certifique-se de atualizá-lo com seu nome de "
-"usuário**, pois isso garante que você não tentará enviar um pacote com o "
-"mesmo nome de um que já existe."
+"desde que contenha apenas letras, números, ``.``, ``_`` e ``-``. Também não "
+"deve ser feito em PyPI. **Certifique-se de atualizá-lo com seu nome de "
+"usuário** para este tutorial, pois isso garante que você não tentará enviar "
+"um pacote com o mesmo nome de um que já existe."
 
 #: ../source/tutorials/packaging-projects.rst:207
-#, fuzzy
-#| msgid ""
-#| "``version`` is the package version. See :pep:`440` for more details on "
-#| "versions. You can use ``file:`` or ``attr:`` directives to read from a "
-#| "file or package attribute."
 msgid ""
 "``version`` is the package version. See the :ref:`version specifier "
 "specification <version-specifiers>` for more details on versions. Some build "
 "backends allow it to be specified another way, such as from a file or a git "
 "tag."
 msgstr ""
-"``version`` é a versão do pacote. Consulte a :pep:`440` para obter mais "
-"detalhes sobre as versões. Você pode usar as diretivas ``file:`` ou ``attr:"
-"`` para ler um arquivo ou atributo de pacote."
+"``version`` é a versão do pacote. Veja a :ref:`especificação de "
+"especificadores de versão <version-specifiers>` para mais detalhes sobre as "
+"versões. Alguns backends de construção permitem que ela seja especificada de "
+"outra maneira, como a partir de um arquivo ou de uma tag git."
 
 #: ../source/tutorials/packaging-projects.rst:210
 msgid ""
@@ -18436,18 +18414,15 @@ msgid ""
 "name and an email for each author. You can also list ``maintainers`` in the "
 "same format."
 msgstr ""
+"``authors`` é usado para identificar o autor do pacote; você especifica um "
+"nome e um e-mail para cada autor. Você também pode listar ``maintainers`` no "
+"mesmo formato."
 
 #: ../source/tutorials/packaging-projects.rst:213
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` é um resumo curto do pacote contendo apenas uma frase."
 
 #: ../source/tutorials/packaging-projects.rst:214
-#, fuzzy
-#| msgid ""
-#| "``long_description`` is a detailed description of the package. This is "
-#| "shown on the package detail page on the Python Package Index. In this "
-#| "case, the long description is loaded from :file:`README.md` (which is a "
-#| "common pattern) using the ``file:`` directive."
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -18455,23 +18430,19 @@ msgid ""
 "There also is a more advanced table form described in the :ref:`project "
 "metadata specification <declaring-project-metadata>`."
 msgstr ""
-"``long_description`` é uma descrição detalhada do pacote. Isso é mostrado na "
-"página de detalhes do pacote no Índice do Pacotes Python. Neste caso, a "
-"descrição longa é carregada de :file:`README.md` (que é um padrão comum) "
-"usando a diretiva ``file:``."
+"``readme`` é um caminho para um arquivo contendo uma descrição detalhada do "
+"pacote. Isso é mostrado na página de detalhes do pacote em PyPI. Neste caso, "
+"a descrição é carregada de :file:`README.md` (que é um padrão comum). Há "
+"também um formulário de tabela mais avançado descrito na :ref:`especificação "
+"de metadados do projeto <declaring-project-metadata>`."
 
 #: ../source/tutorials/packaging-projects.rst:219
-#, fuzzy
-#| msgid ""
-#| "``python_requires`` gives the versions of Python supported by your "
-#| "project. Installers like :ref:`pip` will look back through older versions "
-#| "of packages until it finds one that has a matching Python version."
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "Installers like :ref:`pip` will look back through older versions of packages "
 "until it finds one that has a matching Python version."
 msgstr ""
-"``python_requires`` fornece as versões do Python suportadas pelo seu "
+"``requires-python`` fornece as versões do Python suportadas pelo seu "
 "projeto. Instaladores como :ref:`pip` olharão para as versões anteriores dos "
 "pacotes até encontrar um que tenha uma versão correspondente do Python."
 
@@ -18494,17 +18465,13 @@ msgstr ""
 "de classificadores, consulte https://pypi.org/classifiers/."
 
 #: ../source/tutorials/packaging-projects.rst:229
-#, fuzzy
-#| msgid ""
-#| "``project_urls`` lets you list any number of extra links to show on PyPI. "
-#| "Generally this could be to documentation, issue trackers, etc."
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
 msgstr ""
-"``project_urls`` permite listar qualquer número de links extras para mostrar "
-"no PyPI. Geralmente, isso pode ser para documentação, rastreadores de "
-"problemas, etc."
+"``urls`` permite listar qualquer número de links extras para mostrar no "
+"PyPI. Geralmente, isso pode ser para o código-fonte, a documentação, os "
+"rastreadores de problemas, etc."
 
 #: ../source/tutorials/packaging-projects.rst:232
 msgid ""
@@ -18514,6 +18481,11 @@ msgid ""
 "discoverability and the ``dependencies`` that are required to install your "
 "package."
 msgstr ""
+"Veja a :ref:`especificação de metadados do projeto <declaring-project-"
+"metadata>` para detalhes sobre estes e outros campos que podem ser definidos "
+"na tabela ``[project]``. Outros campos comuns são ``keywords`` para melhorar "
+"a descoberta e as ``dependencies`` que são necessárias para instalar seu "
+"pacote."
 
 #: ../source/tutorials/packaging-projects.rst:238
 msgid "Creating README.md"
@@ -18551,25 +18523,24 @@ msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details."
 msgstr ""
+"A maioria dos backends de construção inclui automaticamente arquivos de "
+"licença em pacotes. Consulte a documentação do seu backend para obter mais "
+"detalhes."
 
 #: ../source/tutorials/packaging-projects.rst:289
 msgid "Including other files"
 msgstr "Incluindo outros arquivos"
 
 #: ../source/tutorials/packaging-projects.rst:291
-#, fuzzy
-#| msgid ""
-#| "The files listed above will be included automatically in your :term:"
-#| "`source distribution <Source Distribution (or \"sdist\")>`. If you want "
-#| "to control what goes in this explicitly, see :ref:`Using MANIFEST.in`."
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
 "additional files, see the documentation for your build backend."
 msgstr ""
-"Os arquivos listados acima serão incluídos automaticamente em sua :term:"
-"`distribuição fonte <Distribuição Fonte (ou \"sdist\")>`. Se você deseja "
-"controlar o que entra explicitamente, consulte :ref:`Using MANIFEST.in`."
+"Os arquivos listados acima serão incluídos automaticamente em sua :term:`"
+"distribuição fonte <Distribuição Fonte (ou \"sdist\")>`. Se você deseja "
+"incluir arquivos adicionais, veja a documentação para seu backend de "
+"construção."
 
 #: ../source/tutorials/packaging-projects.rst:298
 msgid "Generating distribution archives"
@@ -18616,15 +18587,6 @@ msgstr ""
 "arquivos no diretório :file:`dist`:"
 
 #: ../source/tutorials/packaging-projects.rst:345
-#, fuzzy
-#| msgid ""
-#| "The ``tar.gz`` file is a :term:`source archive <Source Archive>` whereas "
-#| "the ``.whl`` file is a :term:`built distribution <Built Distribution>`. "
-#| "Newer :ref:`pip` versions preferentially install built distributions, but "
-#| "will fall back to source archives if needed. You should always upload a "
-#| "source archive and provide built archives for the platforms your project "
-#| "is compatible with. In this case, our example package is compatible with "
-#| "Python on any platform so only one built distribution is needed."
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -18635,14 +18597,15 @@ msgid ""
 "package is compatible with Python on any platform so only one built "
 "distribution is needed."
 msgstr ""
-"O arquivo ``tar.gz`` é um :term:`arquivo fonte <Arquivo Fonte>` enquanto o "
-"arquivo ``.whl`` é uma :term:`distribuição construída <Distribuição "
-"Construída>`. As versões :ref:`pip` mais recentes instalam preferencialmente "
-"distribuições construídas, mas irão recorrer aos arquivos fonte se "
-"necessário. Você deve sempre enviar um arquivo fonte e fornecer arquivos "
-"construídos para as plataformas com as quais seu projeto é compatível. Neste "
-"caso, nosso pacote de exemplo é compatível com Python em qualquer "
-"plataforma, portanto, apenas uma distribuição construída é necessária."
+"O arquivo ``tar.gz`` é um :term:`distribuição fonte <Distribuição Fonte <ou "
+"\"sdist\")>` enquanto o arquivo ``.whl`` é uma :term:`distribuição "
+"construída <Distribuição Construída>`. As versões :ref:`pip` mais recentes "
+"instalam preferencialmente distribuições construídas, mas irão recorrer às "
+"distribuições fonte se necessário. Você deve sempre enviar uma distribuição "
+"fonte e fornecer distribuições construídas para as plataformas com as quais "
+"seu projeto é compatível. Neste caso, nosso pacote de exemplo é compatível "
+"com Python em qualquer plataforma, portanto, apenas uma distribuição "
+"construída é necessária."
 
 #: ../source/tutorials/packaging-projects.rst:354
 msgid "Uploading the distribution archives"
@@ -18715,16 +18678,12 @@ msgstr ""
 "esta:"
 
 #: ../source/tutorials/packaging-projects.rst:417
-#, fuzzy
-#| msgid ""
-#| "Once uploaded your package should be viewable on TestPyPI, for example, "
-#| "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
 msgstr ""
-"Depois de enviado, seu pacote pode ser visto no Test PyPI, por exemplo, em "
-"https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE"
+"Depois de enviado, seu pacote pode ser visto no Test PyPI; por exemplo: "
+"``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
 
 #: ../source/tutorials/packaging-projects.rst:422
 msgid "Installing your newly uploaded package"
@@ -18807,17 +18766,14 @@ msgstr ""
 "estas diferenças importantes:"
 
 #: ../source/tutorials/packaging-projects.rst:498
-#, fuzzy
-#| msgid ""
-#| "Choose a memorable and unique name for your package. You don't have to "
-#| "append your username as you did in the tutorial."
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
 "existing name."
 msgstr ""
 "Escolha um nome único e memorável para o seu pacote. Você não precisa "
-"acrescentar seu nome de usuário como fez no tutorial."
+"acrescentar seu nome de usuário como fez no tutorial, mas você não pode usar "
+"um nome existente."
 
 #: ../source/tutorials/packaging-projects.rst:500
 msgid ""
@@ -18863,14 +18819,17 @@ msgid ""
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
 "`pdm`, and :ref:`poetry`."
 msgstr ""
+"Considere as ferramentas de empacotamento que fornecem uma única interface "
+"de linha de comando para gerenciamento e empacotamento de projetos, como "
+":ref:`hatch`, :ref:`flit`, :ref:`pdm` e :ref:`poetry`."
 
 #: ../source/tutorials/packaging-projects.rst:518
-#, fuzzy
-#| msgid "See :pep:`517` and :pep:`518` for background and details."
 msgid ""
 "Read :pep:`517` and :pep:`518` for background and details on build tool "
 "configuration."
-msgstr "Veja :pep:`517` e :pep:`518` para um informações e detalhes."
+msgstr ""
+"Leia a :pep:`517` e a :pep:`518` para um informações e detalhes sobre a "
+"configuração de ferramenta de construção."
 
 #: ../source/tutorials/packaging-projects.rst:519
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
