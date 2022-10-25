@@ -135,7 +135,7 @@ need:
    See the :doc:`Hitchhiker's Guide to Python installation instructions <python-guide:starting/installation>`
    to install Python 3.8 on your operating system.
 
-To build the guide, run the following bash command in the source folder:
+To build the guide, run the following shell command in the project's root folder:
 
 .. code-block:: bash
 
