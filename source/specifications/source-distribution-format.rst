@@ -33,14 +33,22 @@ deemed a source tree.
 Source distribution file name
 =============================
 
-The file name of a sdist is not currently standardised, although the *de facto*
-form is ``{name}-{version}.tar.gz``, where ``{name}`` is the canonicalized form
-of the project name (see :pep:`503` for the canonicalization rules) with ``-``
-characters replaced with ``_``, and ``{version}`` is the canonicalized form of
-the project version (see :ref:`version-specifiers`).
+The file name of a sdist was standardised in :pep:`625`. The file name must be in
+the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised according to
+the same rules as for binary distributions (see :ref:`binary-distribution-format`),
+and ``{version}`` is the canonicalized form of the project version (see
+:ref:`version-specifiers`).
 
 The name and version components of the filename MUST match the values stored
 in the metadata contained in the file.
+
+Code that produces a source distribution file MUST give the file a name that matches
+this specification. This includes the ``build_sdist`` hook of a build backend.
+
+Code that processes source distribution files MAY recognise source distribution files
+by the ``.tar.gz`` suffix and the presence of precisely *one* hyphen in the filename.
+Code that does this may then use the distribution name and version from the filename
+without further verification.
 
 Source distribution file format
 ===============================
@@ -57,4 +65,5 @@ No other content of a sdist is required or defined. Build systems can store
 whatever information they need in the sdist to build the project.
 
 The tarball should use the modern POSIX.1-2001 pax tar format, which specifies
-UTF-8 based file names.
+UTF-8 based file names. In particular, source distribution files must be readable
+using the standard library tarfile module with the open flag 'r:gz'.

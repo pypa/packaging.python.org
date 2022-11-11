@@ -188,7 +188,6 @@ following this tutorial.
     ]
     description = "A small example package"
     readme = "README.md"
-    license = { file="LICENSE" }
     requires-python = ">=3.7"
     classifiers = [
         "Programming Language :: Python :: 3",
@@ -217,7 +216,6 @@ following this tutorial.
   In this case, the description is loaded from :file:`README.md` (which is a
   common pattern). There also is a more advanced table form described in the
   :ref:`project metadata specification <declaring-project-metadata>`.
-- ``license`` is the path to the :file:`LICENSE` file, described below.
 - ``requires-python`` gives the versions of Python supported by your
   project. Installers like :ref:`pip` will look back through older versions of
   packages until it finds one that has a matching Python version.
@@ -282,6 +280,9 @@ MIT license:
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
+
+Most build backends automatically include license files in packages. See your
+backend's documentation for more details.
 
 
 Including other files

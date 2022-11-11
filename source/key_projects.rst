@@ -64,8 +64,8 @@ distlib
 =======
 
 :doc:`Docs <distlib:index>` |
-`Issues <https://bitbucket.org/pypa/distlib/issues?status=new&status=open>`__ |
-`Bitbucket <https://bitbucket.org/pypa/distlib>`__ |
+`Issues <https://github.com/pypa/distlib/issues>`__ |
+`GitHub <https://github.com/pypa/distlib>`__ |
 `PyPI <https://pypi.org/project/distlib>`__
 
 ``distlib`` is a library which implements low-level functions that
@@ -496,7 +496,8 @@ make deployment of Python applications as simple as ``cp``.
 pip-tools
 =========
 
-`GitHub and Docs <https://github.com/jazzband/pip-tools/>`__ |
+`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/jazzband/pip-tools/>`__ |
 `PyPI <https://pypi.org/project/pip-tools/>`__
 
 pip-tools is a suite of tools meant for Python system administrators
