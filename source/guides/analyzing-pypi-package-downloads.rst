@@ -51,7 +51,7 @@ Getting set up
 
 In order to use `Google BigQuery`_ to query the `public PyPI download
 statistics dataset`_, you'll need a Google account and to enable the BigQuery
-API on a Google Cloud Platform project. You can run the up to 1TB of queries
+API on a Google Cloud Platform project. You can run up to 1TB of queries
 per month `using the BigQuery free tier without a credit card
 <https://cloud.google.com/blog/products/data-analytics/query-without-a-credit-card-introducing-bigquery-sandbox>`__
 
