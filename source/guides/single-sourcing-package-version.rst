@@ -52,6 +52,17 @@ number of your project:
        Also, please be aware that declarative config indicators, including the
        ``attr:`` directive, are not supported in parameters to ``setup.py``.
 
+       One can also specify the version dynamically in ``pyproject.toml``:
+
+       .. code-block:: toml
+
+            [project]
+            name = "package"
+            dynamic = ["version"]
+
+            [tool.setuptools.dynamic]
+            version = {attr = "package.__version__"}
+
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
 
