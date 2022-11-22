@@ -32,9 +32,9 @@ def build(session, language='en', autobuild=False):
     """
     session.install("-r", "requirements.txt")
 
-    target_build_dir = "build"
+    target_build_dir = "build/" + language
 
-    #shutil.rmtree(target_build_dir, ignore_errors=True)
+    shutil.rmtree(target_build_dir, ignore_errors=True)
 
     if autobuild:
         command = "sphinx-autobuild"
@@ -47,25 +47,21 @@ def build(session, language='en', autobuild=False):
             "--keep-going",  # don't interrupt the build on the first warning
         )
 
-    if language:
-        # add language parameter; if empty do not add because it is English
-        extra_args = extra_args + ( "-D", "language=" + language)
-        target_build_dir = target_build_dir + '/' + language
     session.run(
         command, *extra_args,
         "-j", "auto",  # parallelize the build
         "-b", "html",  # use HTML builder
         "-n",  # nitpicky warn about all missing references
         "-W",  # Treat warnings as errors.
+        "-D", "language=" + language, # build in the give language
         *session.posargs,
         "source",  # where the rst files are located
         target_build_dir,  # where to put the html output
     )
 
 @nox.session()
-@nox.parametrize("language", language_list)
-def l10n(session, language):
-    build(session, language=language)
+def l10n(session):
+    build(session, language=session.posargs.pop(0))
 
 @nox.session()
 def preview(session):
