@@ -306,66 +306,66 @@ provided via tooling later on.
   field in ``dynamic`` but the build back-end was unable to determine
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
+
+
+Example
+=======
+
+.. code-block:: toml
   
-  
-  Example
-  =======
-  
-  .. code-block:: toml
-  
-      [project]
-      name = "spam"
-      version = "2020.0.0"
-      description = "Lovely Spam! Wonderful Spam!"
-      readme = "README.rst"
-      requires-python = ">=3.8"
-      license = {file = "LICENSE.txt"}
-      keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
-      authors = [
-        {email = "pradyun@example.com"},
-        {name = "Tzu-Ping Chung"}
-      ]
-      maintainers = [
-        {name = "Brett Cannon", email = "brett@python.org"}
-      ]
-      classifiers = [
-        "Development Status :: 4 - Beta",
-        "Programming Language :: Python"
-      ]
+    [project]
+    name = "spam"
+    version = "2020.0.0"
+    description = "Lovely Spam! Wonderful Spam!"
+    readme = "README.rst"
+    requires-python = ">=3.8"
+    license = {file = "LICENSE.txt"}
+    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
+    authors = [
+      {email = "pradyun@example.com"},
+      {name = "Tzu-Ping Chung"}
+    ]
+    maintainers = [
+      {name = "Brett Cannon", email = "brett@python.org"}
+    ]
+    classifiers = [
+      "Development Status :: 4 - Beta",
+      "Programming Language :: Python"
+    ]
 
-      dependencies = [
-        "httpx",
-        "gidgethub[httpx]>4.0.0",
-        "django>2.1; os_name != 'nt'",
-        "django>2.0; os_name == 'nt'"
-      ]
-      
-      # dynamic = ["version", "description"]
+    dependencies = [
+      "httpx",
+      "gidgethub[httpx]>4.0.0",
+      "django>2.1; os_name != 'nt'",
+      "django>2.0; os_name == 'nt'"
+    ]
 
-      [project.optional-dependencies]
-      test = [
-        "pytest > 5.0.0",
-        "pytest-cov[all]"
-      ]
-      doc = [
-        "sphinx",
-        "furo"
-      ]
+    # dynamic = ["version", "description"]
 
-      [project.urls]
-      homepage = "https://example.com"
-      documentation = "https://readthedocs.org"
-      repository = "https://github.com/me/spam.git"
-      changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+    [project.optional-dependencies]
+    test = [
+      "pytest > 5.0.0",
+      "pytest-cov[all]"
+    ]
+    doc = [
+      "sphinx",
+      "furo"
+    ]
 
-      [project.scripts]
-      spam-cli = "spam:main_cli"
+    [project.urls]
+    homepage = "https://example.com"
+    documentation = "https://readthedocs.org"
+    repository = "https://github.com/me/spam.git"
+    changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
-      [project.gui-scripts]
-      spam-gui = "spam:main_gui"
+    [project.scripts]
+    spam-cli = "spam:main_cli"
 
-      [project.entry-points."spam.magical"]
-      tomatoes = "spam:main_tomatoes"
+    [project.gui-scripts]
+    spam-gui = "spam:main_gui"
+
+    [project.entry-points."spam.magical"]
+    tomatoes = "spam:main_tomatoes"
 
 
 .. _TOML: https://toml.io
