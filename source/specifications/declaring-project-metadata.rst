@@ -16,29 +16,49 @@ Specification
 There are two kinds of metadata: *static* and *dynamic*. Static
 metadata is specified in the ``pyproject.toml`` file directly and
 cannot be specified or changed by a tool. Dynamic metadata is listed
-via the ``dynamic`` field (defined later in this specification) and
+via the ``dynamic`` key (defined later in this specification) and
 represents metadata that a tool will later provide.
 
-The fields defined in this specification MUST be in a table named
-``[project]`` in ``pyproject.toml``. No tools may add fields to this
+The keys defined in this specification MUST be in a table named
+``[project]`` in ``pyproject.toml``. No tools may add keys to this
 table which are not defined by this specification. For tools wishing
 to store their own settings in ``pyproject.toml``, they may use the
 ``[tool]`` table as defined in the
 :ref:`build dependency declaration specification <declaring-build-dependencies>`.
 The lack of a ``[project]`` table implicitly means the build back-end
-will dynamically provide all fields.
+will dynamically provide all keys.
 
-The only fields required to be statically defined are:
+The only keys required to be statically defined are:
 
 - ``name``
 
-The fields which are required but may be specified *either* statically
+The keys which are required but may be specified *either* statically
 or listed as dynamic are:
 
 - ``version``
 
-All other fields are considered optional and may be specified
+All other keys are considered optional and may be specified
 statically, listed as dynamic, or left unspecified.
+
+The complete list of keys allowed in the ``[project]`` table are:
+
+- ``authors``
+- ``classifiers``
+- ``dependencies``
+- ``description``
+- ``dynamic``
+- ``entry-points``
+- ``gui-scripts``
+- ``keywords``
+- ``license``
+- ``maintainers``
+- ``name``
+- ``optional-dependencies``
+- ``readme``
+- ``requires-python``
+- ``scripts``
+- ``urls``
+- ``version``
 
 
 ``name``
@@ -86,7 +106,7 @@ The summary description of the project.
 
 The full description of the project (i.e. the README).
 
-The field accepts either a string or a table. If it is a string then
+The key accepts either a string or a table. If it is a string then
 it is a path relative to ``pyproject.toml`` to a text file containing
 the full description. Tools MUST assume the file's encoding is UTF-8.
 If the file path ends in a case-insensitive ``.md`` suffix, then tools
@@ -94,20 +114,20 @@ MUST assume the content-type is ``text/markdown``. If the file path
 ends in a case-insensitive ``.rst``, then tools MUST assume the
 content-type is ``text/x-rst``. If a tool recognizes more extensions
 than this PEP, they MAY infer the content-type for the user without
-specifying this field as ``dynamic``. For all unrecognized suffixes
+specifying this key as ``dynamic``. For all unrecognized suffixes
 when a content-type is not provided, tools MUST raise an error.
 
-The ``readme`` field may also take a table. The ``file`` key has a
+The ``readme`` key may also take a table. The ``file`` key has a
 string value representing a path relative to ``pyproject.toml`` to a
 file containing the full description. The ``text`` key has a string
 value which is the full description. These keys are
 mutually-exclusive, thus tools MUST raise an error if the metadata
 specifies both keys.
 
-A table specified in the ``readme`` field also has a ``content-type``
-field which takes a string specifying the content-type of the full
+A table specified in the ``readme`` key also has a ``content-type``
+key which takes a string specifying the content-type of the full
 description. A tool MUST raise an error if the metadata does not
-specify this field in the table. If the metadata does not specify the
+specify this key in the table. If the metadata does not specify the
 ``charset`` parameter, then it is assumed to be UTF-8. Tools MAY
 support other encodings if they choose to. Tools MAY support
 alternative content-types which they can transform to a content-type
@@ -155,10 +175,10 @@ project. The exact meaning is open to interpretation — it may list the
 original or primary authors, current maintainers, or owners of the
 package.
 
-The "maintainers" field is similar to "authors" in that its exact
+The "maintainers" key is similar to "authors" in that its exact
 meaning is open to interpretation.
 
-These fields accept an array of tables with 2 keys: ``name`` and
+These keys accept an array of tables with 2 keys: ``name`` and
 ``email``. Both values must be strings. The ``name`` value MUST be a
 valid email name (i.e. whatever can be put as a name, before an email,
 in :rfc:`822`) and not contain commas. The ``email`` value MUST be a
@@ -274,36 +294,36 @@ metadata.
 -----------
 
 - TOML_ type: array of string
-- A corresponding :ref:`core metadata <core-metadata>` field does not
-  exist
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`Dynamic <core-metadata-dynamic>`
 
-Specifies which fields listed by this PEP were intentionally
+Specifies which keys listed by this PEP were intentionally
 unspecified so another tool can/will provide such metadata
 dynamically. This clearly delineates which metadata is purposefully
 unspecified and expected to stay unspecified compared to being
 provided via tooling later on.
 
 - A build back-end MUST honour statically-specified metadata (which
-  means the metadata did not list the field in ``dynamic``).
+  means the metadata did not list the key in ``dynamic``).
 - A build back-end MUST raise an error if the metadata specifies
   ``name`` in ``dynamic``.
 - If the :ref:`core metadata <core-metadata>` specification lists a
-  field as "Required", then the metadata MUST specify the field
+  field as "Required", then the metadata MUST specify the key
   statically or list it in ``dynamic`` (build back-ends MUST raise an
-  error otherwise, i.e. it should not be possible for a required field
+  error otherwise, i.e. it should not be possible for a required key
   to not be listed somehow in the ``[project]`` table).
 - If the :ref:`core metadata <core-metadata>` specification lists a
   field as "Optional", the metadata MAY list it in ``dynamic`` if the
-  expectation is a build back-end will provide the data for the field
+  expectation is a build back-end will provide the data for the key
   later.
 - Build back-ends MUST raise an error if the metadata specifies a
-  field statically as well as being listed in ``dynamic``.
-- If the metadata does not list a field in ``dynamic``, then a build
+  key statically as well as being listed in ``dynamic``.
+- If the metadata does not list a key in ``dynamic``, then a build
   back-end CANNOT fill in the requisite metadata on behalf of the user
   (i.e. ``dynamic`` is the only way to allow a tool to fill in
   metadata and the user must opt into the filling in).
 - Build back-ends MUST raise an error if the metadata specifies a
-  field in ``dynamic`` but the build back-end was unable to determine
+  key in ``dynamic`` but the build back-end was unable to determine
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
 
@@ -312,7 +332,7 @@ Example
 =======
 
 .. code-block:: toml
-  
+
     [project]
     name = "spam"
     version = "2020.0.0"
