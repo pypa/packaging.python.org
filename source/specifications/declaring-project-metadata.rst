@@ -9,6 +9,10 @@ Declaring project metadata
 packaging-related tools to consume. It defines the following
 specification as the canonical source for the format used.
 
+
+Specification
+=============
+
 There are two kinds of metadata: *static* and *dynamic*. Static
 metadata is specified in the ``pyproject.toml`` file directly and
 cannot be specified or changed by a tool. Dynamic metadata is listed
@@ -38,7 +42,7 @@ statically, listed as dynamic, or left unspecified.
 
 
 ``name``
-========
+--------
 
 - TOML_ type: string
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -51,7 +55,7 @@ as it is read for internal consistency.
 
 
 ``version``
-===========
+-----------
 
 - TOML_ type: string
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -63,7 +67,7 @@ Users SHOULD prefer to specify already-normalized versions.
 
 
 ``description``
-===============
+---------------
 
 - TOML_ type: string
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -73,7 +77,7 @@ The summary description of the project.
 
 
 ``readme``
-==========
+----------
 
 - TOML_ type: string or table
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -112,7 +116,7 @@ tools MUST raise an error for unsupported content-types.
 
 
 ``requires-python``
-===================
+-------------------
 
 - TOML_ type: string
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -122,7 +126,7 @@ The Python version requirements of the project.
 
 
 ``license``
-===========
+-----------
 
 - TOML_ type: table
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -137,7 +141,7 @@ tool MUST raise an error if the metadata specifies both keys.
 
 
 ``authors``/``maintainers``
-===========================
+---------------------------
 
 - TOML_ type: Array of inline tables with string keys and values
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -179,7 +183,7 @@ follows:
 
 
 ``keywords``
-============
+------------
 
 - TOML_ type: array of strings
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -189,7 +193,7 @@ The keywords for the project.
 
 
 ``classifiers``
-===============
+---------------
 
 - TOML_ type: array of strings
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -199,7 +203,7 @@ Trove classifiers which apply to the project.
 
 
 ``urls``
-========
+--------
 
 - TOML_ type: table with keys and values of strings
 - Corresponding :ref:`core metadata <core-metadata>` field:
@@ -210,7 +214,7 @@ URL itself.
 
 
 Entry points
-============
+------------
 
 - TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``,
   and ``[project.entry-points]``)
@@ -240,7 +244,7 @@ be ambiguous in the face of ``[project.scripts]`` and
 
 
 ``dependencies``/``optional-dependencies``
-==========================================
+------------------------------------------
 
 - TOML_ type: Array of :pep:`508` strings (``dependencies``), and a
   table with values of arrays of :pep:`508` strings
@@ -267,7 +271,7 @@ metadata.
 
 
 ``dynamic``
-===========
+-----------
 
 - TOML_ type: array of string
 - A corresponding :ref:`core metadata <core-metadata>` field does not
@@ -302,6 +306,66 @@ provided via tooling later on.
   field in ``dynamic`` but the build back-end was unable to determine
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
+  
+  
+  Example
+  =======
+  
+  .. code-block:: toml
+  
+      [project]
+      name = "spam"
+      version = "2020.0.0"
+      description = "Lovely Spam! Wonderful Spam!"
+      readme = "README.rst"
+      requires-python = ">=3.8"
+      license = {file = "LICENSE.txt"}
+      keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
+      authors = [
+        {email = "pradyun@example.com"},
+        {name = "Tzu-Ping Chung"}
+      ]
+      maintainers = [
+        {name = "Brett Cannon", email = "brett@python.org"}
+      ]
+      classifiers = [
+        "Development Status :: 4 - Beta",
+        "Programming Language :: Python"
+      ]
+
+      dependencies = [
+        "httpx",
+        "gidgethub[httpx]>4.0.0",
+        "django>2.1; os_name != 'nt'",
+        "django>2.0; os_name == 'nt'"
+      ]
+      
+      # dynamic = ["version", "description"]
+
+      [project.optional-dependencies]
+      test = [
+        "pytest > 5.0.0",
+        "pytest-cov[all]"
+      ]
+      doc = [
+        "sphinx",
+        "furo"
+      ]
+
+      [project.urls]
+      homepage = "https://example.com"
+      documentation = "https://readthedocs.org"
+      repository = "https://github.com/me/spam.git"
+      changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+      [project.scripts]
+      spam-cli = "spam:main_cli"
+
+      [project.gui-scripts]
+      spam-gui = "spam:main_gui"
+
+      [project.entry-points."spam.magical"]
+      tomatoes = "spam:main_tomatoes"
 
 
 .. _TOML: https://toml.io
