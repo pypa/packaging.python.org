@@ -228,6 +228,7 @@ column, which includes the hash and artifact filename.
 
 .. note::
    The URL generated here is not guaranteed to be stable, but currently aligns with the URL where PyPI artifacts are hosted.
+
 ::
 
     SELECT
