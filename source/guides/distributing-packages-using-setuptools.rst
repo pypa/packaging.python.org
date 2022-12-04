@@ -59,7 +59,7 @@ setup.py
 
 The most important file is :file:`setup.py` which exists at the root of your
 project directory. For an example, see the `setup.py
-<https://github.com/pypa/sampleproject/blob/main/setup.py>`_ in the `PyPA
+<https://github.com/pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 :file:`setup.py` serves two primary functions:
@@ -80,7 +80,7 @@ setup.cfg
 
 :file:`setup.cfg` is an ini file that contains option defaults for
 :file:`setup.py` commands.  For an example, see the `setup.cfg
-<https://github.com/pypa/sampleproject/blob/main/setup.cfg>`_ in the `PyPA
+<https://github.com/pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.cfg>`_ in the `PyPA
 sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -157,7 +157,7 @@ specific details of your project are defined.
 
 The most relevant arguments are explained below. Most of the snippets given are
 taken from the `setup.py
-<https://github.com/pypa/sampleproject/blob/main/setup.py>`_ contained in the
+<https://github.com/pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ contained in the
 `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
@@ -669,7 +669,7 @@ Working in "development mode"
 You can install a project in "editable"
 or "develop" mode while you're working on it.
 When installed as editable, a project can be
-edited in-place without reinstallation: 
+edited in-place without reinstallation:
 changes to Python source files in projects installed as editable will be reflected the next time an interpreter process is started.
 
 To install a Python package in "editable"/"development" mode
