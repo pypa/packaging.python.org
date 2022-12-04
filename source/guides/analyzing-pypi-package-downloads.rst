@@ -217,6 +217,43 @@ query processes over 500 GB of data.
 | 3.5    | 1894153540    |
 +--------+---------------+
 
+
+Getting absolute links to artifacts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It's sometimes helpful to be able to get the absolute links to download
+artifacts from PyPI based on their hashes, e.g. if a particular project or
+release has been deleted from PyPI. The metadata table includes the ``path``
+column, which includes the hash and artifact filename.
+
+.. note::
+   The URL generated here is not guaranteed to be stable, but currently aligns with the URL where PyPI artifacts are hosted.
+
+::
+
+    SELECT
+      CONCAT('https://files.pythonhosted.org/packages', path) as url
+    FROM
+      `bigquery-public-data.pypi.distribution_metadata`
+    WHERE
+      filename LIKE 'sampleproject%'
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| url                                                                                                                                                               |
++===================================================================================================================================================================+
+| https://files.pythonhosted.org/packages/eb/45/79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/sampleproject-1.2.0.tar.gz                             |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| https://files.pythonhosted.org/packages/56/0a/178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/sampleproject_nomura-1.2.0-py2.py3-none-any.whl        |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| https://files.pythonhosted.org/packages/63/88/3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/sampleproject_nomura-1.2.0.tar.gz                      |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| https://files.pythonhosted.org/packages/21/e9/2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/sampleproject_doubleyoung18-1.3.0-py2.py3-none-any.whl |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| https://files.pythonhosted.org/packages/6f/5b/2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/sampleproject-1.3.1.tar.gz                             |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 Caveats
 =======
 
