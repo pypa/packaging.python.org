@@ -5,7 +5,7 @@ Declaring project metadata
 ==========================
 
 :pep:`621` specifies how to write a project's
-:ref:`core metadata <core-metadata>` in a ``pyproject.toml`` file for
+:ref:`core metadata <core-metadata>` in a :term:`pyproject.toml` file for
 packaging-related tools to consume. It defines the following
 specification as the canonical source for the format used.
 
@@ -18,9 +18,9 @@ represents metadata that a tool will later provide.
 The fields defined in this specification MUST be in a table named
 ``[project]`` in ``pyproject.toml``. No tools may add fields to this
 table which are not defined by this specification. For tools wishing
-to store their own settings in ``pyproject.toml``, they may use the
-``[tool]`` table as defined in the
-:ref:`build dependency declaration specification <declaring-build-dependencies>`.
+to store their own settings in ``pyproject.toml``,
+they may use the ``[tool]`` table
+as :ref:`defined in the pyproject.toml specification <pyproject-toml-tool>`.
 The lack of a ``[project]`` table implicitly means the build back-end
 will dynamically provide all fields.
 
@@ -83,7 +83,7 @@ The summary description of the project.
 The full description of the project (i.e. the README).
 
 The field accepts either a string or a table. If it is a string then
-it is a path relative to ``pyproject.toml`` to a text file containing
+it is a path relative to :term:`pyproject.toml` to a text file containing
 the full description. Tools MUST assume the file's encoding is UTF-8.
 If the file path ends in a case-insensitive ``.md`` suffix, then tools
 MUST assume the content-type is ``text/markdown``. If the file path
@@ -94,7 +94,7 @@ specifying this field as ``dynamic``. For all unrecognized suffixes
 when a content-type is not provided, tools MUST raise an error.
 
 The ``readme`` field may also take a table. The ``file`` key has a
-string value representing a path relative to ``pyproject.toml`` to a
+string value representing a path relative to :term:`pyproject.toml` to a
 file containing the full description. The ``text`` key has a string
 value which is the full description. These keys are
 mutually-exclusive, thus tools MUST raise an error if the metadata
@@ -129,7 +129,7 @@ The Python version requirements of the project.
   :ref:`License <core-metadata-license>`
 
 The table may have one of two keys. The ``file`` key has a string
-value that is a file path relative to ``pyproject.toml`` to the file
+value that is a file path relative to :term:`pyproject.toml` to the file
 which contains the license for the project. Tools MUST assume the
 file's encoding is UTF-8. The ``text`` key has a string value which is
 the license of the project.  These keys are mutually exclusive, so a

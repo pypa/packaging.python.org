@@ -78,7 +78,8 @@ When ``url`` refers to a local directory, the ``dir_info`` key MUST be
 present as a dictionary with the following key:
 
 - ``editable`` (type: ``boolean``): ``true`` if the distribution was installed
-  in editable mode, ``false`` otherwise. If absent, default to ``false``.
+  in :term:`Editable Mode`, ``false`` otherwise.
+  If absent, default to ``false``.
 
 When ``url`` refers to a local directory, it MUST have the ``file`` sheme and
 be compliant with :rfc:`8089`. In
@@ -94,7 +95,8 @@ preserved when making relative paths absolute.
 
 A top-level ``subdirectory`` field MAY be present containing a directory path,
 relative to the root of the VCS repository, source archive or local directory,
-to specify where ``pyproject.toml`` or ``setup.py`` is located.
+to specify where :term:`pyproject.toml`, :term:`setup.cfg` or :term:`setup.py`
+is located.
 
 .. note::
 
@@ -260,7 +262,7 @@ Local directory:
        "dir_info": {}
    }
 
-Local directory installed in editable mode:
+Local directory installed in :term:`Editable Mode`:
 
 .. code::
 

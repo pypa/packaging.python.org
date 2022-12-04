@@ -39,8 +39,8 @@ build
 `GitHub <https://github.com/pypa/build>`__ |
 `PyPI <https://pypi.org/project/build>`__
 
-``build`` is a :pep:`517` compatible Python package builder. It provides a CLI to
-build packages, as well as a Python API.
+``build`` is a :ref:`build-interface`-compatible Python package builder.
+It provides a CLI to build packages, as well as a Python API.
 
 
 .. _cibuildwheel:
@@ -98,7 +98,8 @@ modules to PyPI.  It focuses on `making the easy things easy <flit-rationale_>`_
 for packaging.  Flit can generate a configuration file to quickly set up a
 simple project, build source distributions and wheels, and upload them to PyPI.
 
-Flit uses ``pyproject.toml`` to configure a project. Flit does not rely on tools
+Flit uses :term:`pyproject.toml` to configure a project.
+Flit does not rely on tools
 such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
 to PyPI. Flit requires Python 3, but you can use it to distribute modules for
 Python 2, so long as they can be imported on Python 3.
@@ -116,7 +117,7 @@ hatch
 
 Hatch is a unified command-line tool meant to conveniently manage
 dependencies and environment isolation for Python developers. Python
-package developers use Hatch and its build backend Hatchling to
+package developers use Hatch and its :term:`Build Backend` Hatchling to
 configure, version, specify dependencies for, and publish packages
 to PyPI. Its plugin system allows for easily extending functionality.
 
@@ -473,7 +474,8 @@ pdm
 
 PDM is a modern Python package manager with :pep:`582` support. It installs and
 manages packages in a similar way to ``npm`` that doesn't need to create a
-:term:`virtual environment` at all. It also uses :term:`pyproject.toml` to store
+:term:`virtual environment` at all.
+It also uses :term:`pyproject.toml` to store
 project metadata as defined in :pep:`621`.
 
 .. _pex:
@@ -535,7 +537,7 @@ poetry
 
 poetry is a command-line tool to handle dependency installation and
 isolation as well as building and packaging of Python packages. It
-uses ``pyproject.toml`` and, instead of depending on the resolver
+uses :term:`pyproject.toml` and, instead of depending on the resolver
 functionality within :ref:`pip`, provides its own dependency resolver.
 It attempts to speed users' experience of installation and dependency
 resolution by locally caching metadata about dependencies.

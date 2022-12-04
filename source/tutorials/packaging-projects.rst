@@ -109,9 +109,9 @@ Creating pyproject.toml
 .. TODO: Add an intro sentence about pyproject.toml, and a sub-heading for
    "Configuring build tools"
 
-:file:`pyproject.toml` tells "frontend" build tools like :ref:`pip` and
-:ref:`build` what "backend" tool to use to create
-:term:`distribution packages <Distribution Package>` for your project.
+The :term:`pyproject.toml` file tells :term:`Build Frontend` tools
+like :ref:`pip` and :ref:`build` what :term:`Build Backend` tool to use to
+create :term:`Distribution Package`\s for your project.
 You can choose from a number of backends; this tutorial uses :ref:`Hatchling
 <hatch>` by default, but it will work identically with :ref:`setuptools`,
 :ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
@@ -159,12 +159,12 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
         build-backend = "pdm.pep517.api"
 
 
-- ``requires`` is a list of packages that are needed to build your package. You
-  don't need to install them; build frontends like :ref:`pip` will install them
-  automatically in a temporary, isolated virtual environment for use during the
-  build process.
-- ``build-backend`` is the name of the Python object that frontends will use to
-  perform the build.
+- ``requires`` is a list of packages that are needed to build your package.
+  You don't need to install them; :term:`Build Frontend`\s like :ref:`pip`
+  will install them automatically in a temporary, isolated virtual environment
+  for use during the build process.
+- ``build-backend`` is the name of the Python :term:`Build Backend` object
+  that frontends will use to perform the build.
 
 .. TODO: Add note to check the tools' documentation for the current snippet?
 
@@ -205,8 +205,8 @@ following this tutorial.
   username** for this tutorial, as this ensures you won't try to upload a
   package with the same name as one which already exists.
 - ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>`
-  for more details on versions. Some build backends allow it to be specified
-  another way, such as from a file or a git tag.
+  for more details on versions. Some :term:`Build Backend`\s
+  allow it to be specified another way, such as from a file or a git tag.
 - ``authors`` is used to identify the author of the package; you specify a name
   and an email for each author. You can also list ``maintainers`` in the same
   format.
@@ -289,8 +289,9 @@ Including other files
 ---------------------
 
 The files listed above will be included automatically in your
-:term:`source distribution <Source Distribution (or "sdist")>`. If you want to
-include additional files, see the documentation for your build backend.
+:term:`Source Distribution`.
+If you want to include additional files,
+see the documentation for your :term:`Build Backend`.
 
 .. _generating archives:
 
@@ -342,8 +343,8 @@ files in the :file:`dist` directory:
     └── example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
 
 
-The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "sdist")>`
-whereas the ``.whl`` file is a :term:`built distribution <Built Distribution>`.
+The ``tar.gz`` file is a :term:`Source Distribution`,
+whereas the ``.whl`` file is a :term:`Built Distribution`.
 Newer :ref:`pip` versions preferentially install built distributions, but will
 fall back to source distributions if needed. You should always upload a source
 distribution and provide built distributions for the platforms your project is
@@ -515,6 +516,7 @@ some things you can do:
 * Consider packaging tools that provide a single command-line interface for
   project management and packaging, such as :ref:`hatch`, :ref:`flit`,
   :ref:`pdm`, and :ref:`poetry`.
-* Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
+* Read :ref:`pyproject-toml-config-file` and its linked specifications
+  for background and details on project and build tool configuration.
 * Read about :doc:`/guides/packaging-binary-extensions`.
 
