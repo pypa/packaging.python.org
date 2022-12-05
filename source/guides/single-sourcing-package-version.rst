@@ -36,23 +36,17 @@ number of your project:
     .. note::
 
        As of the release of setuptools 46.4.0, one can accomplish the same
-       thing by instead placing the following in the project's ``setup.cfg``
-       file (replacing "package" with the import name of the package):
+       thing by instead placing the following in the project's
+       :file:`setup.cfg` file (replacing "package" with the import name of the
+       package):
 
        .. code-block:: ini
 
            [metadata]
            version = attr: package.__version__
 
-       Earlier versions of setuptools implemented the ``attr:`` directive by
-       importing the module, but setuptools 46.4.0 added rudimentary AST
-       analysis so that ``attr:`` can function without having to import any of
-       the package's dependencies.
-
-       Also, please be aware that declarative config indicators, including the
-       ``attr:`` directive, are not supported in parameters to ``setup.py``.
-
-       One can also specify the version dynamically in ``pyproject.toml``:
+       As of the release of setuptools 61.0.0, one can specify the
+       version dynamically in the project's :file:`pyproject.toml` file.
 
        .. code-block:: toml
 
@@ -62,6 +56,10 @@ number of your project:
 
             [tool.setuptools.dynamic]
             version = {attr = "package.__version__"}
+
+       Please be aware that declarative config indicators, including the
+       ``attr:`` directive, are not supported in parameters to
+       :file:`setup.py`.
 
 #.  Use an external build tool that either manages updating both locations, or
     offers an API that both locations can use.
