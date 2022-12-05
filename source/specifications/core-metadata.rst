@@ -770,7 +770,7 @@ Each entry contains a string describing some other module or package required
 by this package.
 
 The format of a requirement string is identical to that of a module or package
-name usable with the ‘import’ statement, optionally followed by a version
+name usable with the ``import`` statement, optionally followed by a version
 declaration within parentheses.
 
 A version declaration is a series of conditional operators and version numbers,
