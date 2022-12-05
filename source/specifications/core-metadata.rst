@@ -91,6 +91,7 @@ a single ``-`` character. This can be done using the following snippet of code
 
     re.sub(r"[-_.]+", "-", name).lower()
 
+
 .. _core-metadata-version:
 
 Version
@@ -105,6 +106,8 @@ Example::
 
     Version: 1.0a2
 
+
+.. _core-metadata-dynamic:
 
 Dynamic (multiple use)
 ======================
