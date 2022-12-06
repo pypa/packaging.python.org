@@ -4,9 +4,8 @@
 Dependency specifiers
 =====================
 
-*Formerly known as PEP 508*
-
-This document describes the dependency specifiers format.
+This document describes the dependency specifiers format as originally specified
+in :pep:`508`.
 
 The job of a dependency is to enable tools like pip [#pip]_ to find the right
 package to install. Sometimes this is very loose - just specifying a name, and
