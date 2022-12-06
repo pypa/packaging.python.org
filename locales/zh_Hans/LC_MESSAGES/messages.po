@@ -6385,12 +6385,14 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:55
+#: ../source/guides/single-sourcing-package-version.rst:64
 msgid ""
 "Use an external build tool that either manages updating both locations, or "
 "offers an API that both locations can use."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:58
+#: ../source/guides/single-sourcing-package-version.rst:67
 msgid ""
 "Few tools you could use, in no particular order, and not necessarily "
 "complete: `bump2version <https://pypi.org/project/bump2version>`_, `changes "
@@ -6399,6 +6401,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:65
+#: ../source/guides/single-sourcing-package-version.rst:74
 msgid ""
 "Set the value to a ``__version__`` global variable in a dedicated module in "
 "your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
@@ -6406,24 +6409,28 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:76
+#: ../source/guides/single-sourcing-package-version.rst:85
 msgid ""
 "Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:78
+#: ../source/guides/single-sourcing-package-version.rst:87
 msgid ""
 "Place the value in a simple ``VERSION`` text file and have both :file:`setup."
 "py` and the project code read it."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:86
+#: ../source/guides/single-sourcing-package-version.rst:95
 msgid ""
 "An advantage with this technique is that it's not specific to Python.  Any "
 "tool can read the version."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:91
+#: ../source/guides/single-sourcing-package-version.rst:100
 msgid ""
 "With this approach you must make sure that the ``VERSION`` file is included "
 "in all your source and binary distributions (e.g. add ``include VERSION`` to "
@@ -6431,6 +6438,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:95
+#: ../source/guides/single-sourcing-package-version.rst:104
 msgid ""
 "Set the value in :file:`setup.py`, and have the project code use the "
 "``importlib.metadata`` API to fetch the value at runtime. (``importlib."
@@ -6440,6 +6448,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:110
+#: ../source/guides/single-sourcing-package-version.rst:119
 msgid ""
 "Be aware that the ``importlib.metadata`` API only knows about what's in the "
 "installation metadata, which is not necessarily the code that's currently "
@@ -6447,6 +6456,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:114
+#: ../source/guides/single-sourcing-package-version.rst:123
 msgid ""
 "If a project uses this method to fetch its version at runtime, then its "
 "``install_requires`` value needs to be edited to install ``importlib-"
@@ -6454,30 +6464,35 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:128
+#: ../source/guides/single-sourcing-package-version.rst:137
 msgid ""
 "An older (and less efficient) alternative to ``importlib.metadata`` is the "
 "``pkg_resources`` API provided by ``setuptools``::"
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:134
+#: ../source/guides/single-sourcing-package-version.rst:143
 msgid ""
 "If a project uses ``pkg_resources`` to fetch its own version at runtime, "
 "then ``setuptools`` must be added to the project's ``install_requires`` list."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:138
+#: ../source/guides/single-sourcing-package-version.rst:147
 msgid ""
 "Example using this technique: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:141
+#: ../source/guides/single-sourcing-package-version.rst:150
 msgid ""
 "Set the value to ``__version__`` in ``sample/__init__.py`` and import "
 "``sample`` in :file:`setup.py`."
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:155
+#: ../source/guides/single-sourcing-package-version.rst:164
 msgid ""
 "Although this technique is common, beware that it will fail if ``sample/"
 "__init__.py`` imports packages from ``install_requires`` dependencies, which "
@@ -6485,6 +6500,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:161
+#: ../source/guides/single-sourcing-package-version.rst:170
 msgid ""
 "Keep the version number in the tags of a version control system (Git, "
 "Mercurial, etc) instead of in the code, and automatically extract it from "
@@ -14645,6 +14661,25 @@ msgstr ""
 "取代。 详见 :doc:`Python Eggs 的内部结构<setuptools :deprecated/"
 "python_eggs>` 和 `Python Eggs <http://peak.telecommunity.com/DevCenter/"
 "PythonEggs>`_"
+
+#: ../source/guides/single-sourcing-package-version.rst:38
+msgid ""
+"As of the release of setuptools 46.4.0, one can accomplish the same thing by "
+"instead placing the following in the project's :file:`setup.cfg` file "
+"(replacing \"package\" with the import name of the package):"
+msgstr ""
+
+#: ../source/guides/single-sourcing-package-version.rst:48
+msgid ""
+"As of the release of setuptools 61.0.0, one can specify the version "
+"dynamically in the project's :file:`pyproject.toml` file."
+msgstr ""
+
+#: ../source/guides/single-sourcing-package-version.rst:60
+msgid ""
+"Please be aware that declarative config indicators, including the ``attr:`` "
+"directive, are not supported in parameters to :file:`setup.py`."
+msgstr ""
 
 #~ msgid ""
 #~ "To build the guide, run the following bash command in the source folder:"
