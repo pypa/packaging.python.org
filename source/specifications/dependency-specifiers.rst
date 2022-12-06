@@ -105,6 +105,8 @@ field::
     extras_list   = identifier (wsp* ',' wsp* identifier)*
     extras        = '[' wsp* extras_list? wsp* ']'
 
+Restrictions on names for extras is defined in :pep:`685`.
+
 Giving us a rule for name based requirements::
 
     name_req      = name wsp* extras? wsp* versionspec? wsp* quoted_marker?
@@ -281,6 +283,9 @@ The ``implementation_version`` marker variable is derived from
         implementation_version = format_full_version(sys.implementation.version)
     else:
         implementation_version = "0"
+
+This environment markers section, initially defined through :pep:`508`, supersedes the environment markers
+section in :pep:`345`.
 
 Complete Grammar
 ================
