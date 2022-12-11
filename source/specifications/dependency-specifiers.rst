@@ -70,7 +70,7 @@ URI is defined in :rfc:`std-66 <3986>`)::
 Environment markers allow making a specification only take effect in some
 environments::
 
-    marker_op     = version_cmp | (wsp+ 'in') | (wsp+ 'not' wsp+ 'in')
+    marker_op     = version_cmp | (wsp+ 'in' wsp+) | (wsp+ 'not' wsp+ 'in' wsp+)
     python_str_c  = (wsp | letter | digit | '(' | ')' | '.' | '{' | '}' |
                      '-' | '_' | '*' | '#' | ':' | ';' | ',' | '/' | '?' |
                      '[' | ']' | '!' | '~' | '`' | '@' | '$' | '%' | '^' |
