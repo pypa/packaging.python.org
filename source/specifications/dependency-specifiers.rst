@@ -113,7 +113,7 @@ Giving us a rule for name based requirements::
 
 And a rule for direct reference specifications::
 
-    url_req       = name wsp* extras? wsp* urlspec wsp+ quoted_marker?
+    url_req       = name wsp* extras? wsp* urlspec (wsp+ quoted_marker?)?
 
 Leading to the unified rule that can specify a dependency.::
 
