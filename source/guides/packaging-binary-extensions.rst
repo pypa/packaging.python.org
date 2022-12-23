@@ -284,6 +284,8 @@ the Limited API and the exact contents of the "Limited API".
 Building binary extensions
 ==========================
 
+FIXME: Cover the build-backends available for building extensions.
+
 Building extensions for multiple platforms
 ------------------------------------------
 
