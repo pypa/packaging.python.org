@@ -169,7 +169,7 @@ wrapper modules up to date.
   for automatic wrapping with Cython. It also supports performance-oriented
   Python implementations that provide a CPython-like C-API, such as PyPy
   and Pyston.
-  
+
 * :doc:`pybind11 <pybind11:index>` is a pure C++11 library
   that provides a clean C++ interface to the CPython (and PyPy) C API. It
   does not require a pre-processing step; it is written entirely in
@@ -230,18 +230,55 @@ The CPython :doc:`Extending and Embedding <python:extending/index>`
 guide includes an introduction to writing a
 :doc:`custom extension module in C <python:extending/extending>`.
 
-..
+FIXME: Elaborate that all this is one of the reasons why you probably
+*don't* want to handcode your extension modules :)
 
-   FIXME
 
-   * mention the stable ABI (3.2+, link to the CPython C API docs)
-   * mention the module lifecycle
-   * mention the challenges of shared static state and subinterpreters
-   * mention the implications of the GIL for extension modules
-   * mention the memory allocation APIs in 3.4+
+Extension module lifecycle
+--------------------------
 
-   * mention again that all this is one of the reasons why you probably *don't*
-     want to handcode your extension modules :)
+FIXME: This section needs to be fleshed out.
+
+
+Implications of shared static state and subinterpreters
+-------------------------------------------------------
+
+FIXME: This section needs to be fleshed out.
+
+
+Implications of the GIL
+-----------------------
+
+FIXME: This section needs to be fleshed out.
+
+
+Memory allocation APIs
+----------------------
+
+FIXME: This section needs to be fleshed out.
+
+
+.. _cpython-stable-abi:
+
+ABI Compatibility
+-----------------
+
+The CPython C API does not guarantee ABI stability between minor releases
+(3.2, 3.3, 3.4, etc.). This means that, typically, if you build an
+extension module against one version of Python, it is only guaranteed to
+work with the same minor version of Python and not with any other minor
+versions.
+
+Python 3.2 introduced the Limited API, with is a well-defined subset of
+Python's C API. The symbols needed for the Limited API form the
+"Stable ABI" which is guaranteed to be compatible across all Python 3.x
+versions. Wheels containing extensions built against the stable ABI use
+the ``abi3`` ABI tag, to reflect that they're compatible with all Python
+3.x versions.
+
+CPython's :doc:`C API stability<python:c-api/stable>` page provides
+detailed information about the API / ABI stability guarantees, how to use
+the Limited API and the exact contents of the "Limited API".
 
 
 Building binary extensions
