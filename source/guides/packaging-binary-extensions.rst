@@ -288,13 +288,22 @@ Building extensions for multiple platforms
 ------------------------------------------
 
 If you plan to distribute your extension, you should provide
-:term:`wheels <Wheel>` for all the platforms you intend to support. For most
-extensions, this is at least one package per Python version times the number of
-OS and architectures you support.  These are usually built on continuous
-integration (CI) systems. There are tools to help you build highly
-redistributable binaries from CI; these include :ref:`cibuildwheel` and
-:ref:`multibuild`.
+:term:`wheels <Wheel>` for all the platforms you intend to support. These
+are usually built on continuous integration (CI) systems. There are tools
+to help you build highly redistributable binaries from CI; these include
+:ref:`cibuildwheel` and :ref:`multibuild`.
 
+For most extensions, you will need to build wheels for all the platforms
+you intend to support. This means that the number of wheels you need to
+build is the product of::
+
+  count(Python minor versions) * count(OS) * count(architectures)
+
+Using CPython's :ref:`Stable ABI <cpython-stable-abi>` can help significantly
+reduce the number of wheels you need to provide, since a single wheel on a
+platform can be used with all Python minor versions; eliminating one dimension
+of the matrix. It also removes the need to generate new wheels for each new
+minor version of Python.
 
 Binary extensions for Windows
 -----------------------------
