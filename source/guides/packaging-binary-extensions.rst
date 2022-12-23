@@ -356,20 +356,24 @@ Spinning Wheels wiki
 Publishing binary extensions
 ============================
 
-For interim guidance on this topic, see the discussion in
-:issue:`this issue <284>`.
+Publishing binary extensions through PyPI uses the same upload mechanisms as
+publishing pure Python packages. You build a wheel file for your extension
+using the build-backend and upload it to PyPI using
+`twine <https://twine.readthedocs.io/>`_.
 
-..
+Avoid binary-only releases
+--------------------------
 
-   FIXME
+It is strongly recommended that you publish your binary extensions as
+well as the source code that was used to build them. This allows users to
+build the extension from source if they need to. Notably, this is required
+for certain Linux distributions that build from source within their
+own build systems for the distro package repositories.
 
-   * cover publishing as wheel files on PyPI or a custom index server
-   * cover creation of Windows and macOS installers
-   * cover weak linking
-   * mention the fact that Linux distros have a requirement to build from
-     source in their own build systems, so binary-only releases are strongly
-     discouraged
+Weak linking
+------------
 
+FIXME: This section needs to be fleshed out.
 
 Additional resources
 ====================
