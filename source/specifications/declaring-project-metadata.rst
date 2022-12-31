@@ -342,8 +342,10 @@ Example
     license = {file = "LICENSE.txt"}
     keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
     authors = [
-      {email = "pradyun@example.com"},
-      {name = "Tzu-Ping Chung"}
+      {name = "Pradyun Gedam", email = "pradyun@example.com"},
+      {name = "Tzu-Ping Chung", email = "tzu-ping@example.com"},
+      {name = "Another person"},
+      {email = "different.person@example.com"},
     ]
     maintainers = [
       {name = "Brett Cannon", email = "brett@python.org"}
