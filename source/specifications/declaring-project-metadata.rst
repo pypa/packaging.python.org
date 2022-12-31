@@ -73,6 +73,10 @@ The name of the project.
 Tools SHOULD normalize this name, as specified by :pep:`503`, as soon
 as it is read for internal consistency.
 
+.. code-block:: toml
+
+    [project]
+    name = "spam"
 
 ``version``
 -----------
@@ -85,6 +89,10 @@ The version of the project as supported by :pep:`440`.
 
 Users SHOULD prefer to specify already-normalized versions.
 
+.. code-block:: toml
+
+    [project]
+    version = "2020.0.0"
 
 ``description``
 ---------------
@@ -95,6 +103,10 @@ Users SHOULD prefer to specify already-normalized versions.
 
 The summary description of the project.
 
+.. code-block:: toml
+
+    [project]
+    description = "Lovely Spam! Wonderful Spam!"
 
 ``readme``
 ----------
@@ -134,6 +146,13 @@ alternative content-types which they can transform to a content-type
 as supported by the :ref:`core metadata <core-metadata>`. Otherwise
 tools MUST raise an error for unsupported content-types.
 
+.. code-block:: toml
+
+    [project]
+    # A single pyproject.toml file can only have one of the following.
+    readme = "README.md"
+    readme = "README.rst"
+    readme = {file = "README.txt", content-type = "text/markdown"}
 
 ``requires-python``
 -------------------
@@ -144,6 +163,10 @@ tools MUST raise an error for unsupported content-types.
 
 The Python version requirements of the project.
 
+.. code-block:: toml
+
+    [project]
+    requires-python = ">=3.8"
 
 ``license``
 -----------
@@ -159,6 +182,12 @@ file's encoding is UTF-8. The ``text`` key has a string value which is
 the license of the project.  These keys are mutually exclusive, so a
 tool MUST raise an error if the metadata specifies both keys.
 
+.. code-block:: toml
+
+    [project]
+    # A single pyproject.toml file can only have one of the following.
+    license = {file = "LICENSE"}
+    license = {text = "MIT License"}
 
 ``authors``/``maintainers``
 ---------------------------
@@ -201,6 +230,19 @@ follows:
    as appropriate, with the format ``{name} <{email}>``.
 4. Multiple values should be separated by commas.
 
+.. code-block:: toml
+
+    [project]
+    authors = [
+      {name = "Pradyun Gedam", email = "pradyun@example.com"},
+      {name = "Tzu-Ping Chung", email = "tzu-ping@example.com"},
+      {name = "Another person"},
+      {email = "different.person@example.com"},
+    ]
+    maintainers = [
+      {name = "Brett Cannon", email = "brett@python.org"}
+    ]
+
 
 ``keywords``
 ------------
@@ -211,6 +253,10 @@ follows:
 
 The keywords for the project.
 
+.. code-block:: toml
+
+    [project]
+    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
 
 ``classifiers``
 ---------------
@@ -221,6 +267,12 @@ The keywords for the project.
 
 Trove classifiers which apply to the project.
 
+.. code-block:: toml
+
+    classifiers = [
+      "Development Status :: 4 - Beta",
+      "Programming Language :: Python"
+    ]
 
 ``urls``
 --------
@@ -232,6 +284,13 @@ Trove classifiers which apply to the project.
 A table of URLs where the key is the URL label and the value is the
 URL itself.
 
+.. code-block:: toml
+
+    [project.urls]
+    homepage = "https://example.com"
+    documentation = "https://readthedocs.org"
+    repository = "https://github.com/me/spam.git"
+    changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
 Entry points
 ------------
@@ -262,6 +321,17 @@ Build back-ends MUST raise an error if the metadata defines a
 be ambiguous in the face of ``[project.scripts]`` and
 ``[project.gui-scripts]``, respectively.
 
+.. code-block:: toml
+
+    [project.scripts]
+    spam-cli = "spam:main_cli"
+
+    [project.gui-scripts]
+    spam-gui = "spam:main_gui"
+
+    [project.entry-points."spam.magical"]
+    tomatoes = "spam:main_tomatoes"
+
 
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
@@ -289,6 +359,22 @@ in the array thus becomes a corresponding
 matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
+.. code-block:: toml
+
+    [project]
+    dependencies = [
+      "httpx",
+      "gidgethub[httpx]>4.0.0",
+      "django>2.1; os_name != 'nt'",
+      "django>2.0; os_name == 'nt'",
+    ]
+
+    [project.optional-dependencies]
+    gui = ["PyQt5"]
+    cli = [
+      "rich",
+      "click",
+    ]
 
 ``dynamic``
 -----------
@@ -327,6 +413,10 @@ provided via tooling later on.
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
 
+.. code-block:: toml
+
+    dynamic = ["version", "description", "optional-dependencies"]
+
 
 Example
 =======
@@ -359,19 +449,16 @@ Example
       "httpx",
       "gidgethub[httpx]>4.0.0",
       "django>2.1; os_name != 'nt'",
-      "django>2.0; os_name == 'nt'"
+      "django>2.0; os_name == 'nt'",
     ]
 
     # dynamic = ["version", "description"]
 
     [project.optional-dependencies]
-    test = [
-      "pytest > 5.0.0",
-      "pytest-cov[all]"
-    ]
-    doc = [
-      "sphinx",
-      "furo"
+    gui = ["PyQt5"]
+    cli = [
+      "rich",
+      "click",
     ]
 
     [project.urls]
