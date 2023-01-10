@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-07 22:05+0000\n"
-"PO-Revision-Date: 2023-01-07 00:54+0000\n"
+"PO-Revision-Date: 2023-01-12 00:44+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -15474,14 +15474,19 @@ msgid ""
 "requests being installed, and requests own dependencies, and also any "
 "dependencies that are listed in the \"security\" extra of requests."
 msgstr ""
+"追加物 <extras> の依存関係の合併とは、その追加物が添付されている配布物 "
+"<distribution> の依存関係と一緒に定義されることです。上に示した例では、"
+"結果として requests がインストールされることになり、requests "
+"は自身の依存関係を持つので requests の \"security\" 追加物 <extra> "
+"に列挙されたすべての依存関係 (先) もインストールされることになります。"
 
 #: ../source/specifications/dependency-specifiers.rst:157
 msgid ""
 "If multiple extras are listed, all the dependencies are unioned together."
-msgstr ""
+msgstr "複数の追加物 <extra> "
+"が列挙されている場合には、すべての依存関係の合併集合が依存関係になります。"
 
 #: ../source/specifications/dependency-specifiers.rst:160
-#, fuzzy
 msgid "Versions"
 msgstr "バージョン指定子"
 
@@ -15494,10 +15499,17 @@ msgid ""
 "optional brackets around a version are present for compatibility with :pep:"
 "`345` but should not be generated, only accepted."
 msgstr ""
+"バージョン番号やその比較方法について、詳しくは :pep:`440` をみてください。バ"
+"ージョン仕様は、配布物のバージョンとして使うことができる範囲を定めています。"
+"これは、名前によって参照される配布物にのみ適用されるのであって、URL を通じて"
+"指定されるものには適用されません。バージョン番号の比較は、また、マーカー機能"
+"においても使われます。バージョンの周囲にある必須でない括弧は :pep:`345` との"
+"互換性を保つために存在していますが、そのようなものを生成すべきではなくて受容"
+"するだけにとどめるべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:170
 msgid "Environment Markers"
-msgstr ""
+msgstr "環境マーカ"
 
 #: ../source/specifications/dependency-specifiers.rst:172
 msgid ""
@@ -15507,12 +15519,18 @@ msgid ""
 "older Python versions it has to be installed as a dependency. This can be "
 "expressed as so::"
 msgstr ""
+"環境マーカは、依存関係の指定においてその依存関係がいつ使われるべきであるかを"
+"記述する規則を提供します。例えば、あるパッケージが argparse "
+"を必要とするとしましょう。Python 2.7 では argparse は常に存在します。"
+"もっと古いバージョンの Python では依存関係としてインストールされなければなり"
+"ません。これは次のように表現することができます::"
 
 #: ../source/specifications/dependency-specifiers.rst:179
 msgid ""
 "A marker expression evaluates to either True or False. When it evaluates to "
 "False, the dependency specification should be ignored."
-msgstr ""
+msgstr "マーカ表現は評価されると真か偽に帰着します。偽と評価された場合には、その依存"
+"関係の指定は無視されなければなりません。"
 
 #: ../source/specifications/dependency-specifiers.rst:182
 msgid ""
