@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-12 00:35+0000\n"
-"PO-Revision-Date: 2023-01-16 14:03+0000\n"
+"PO-Revision-Date: 2023-01-19 10:50+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.15.1\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -15606,12 +15606,18 @@ msgid ""
 "are defined on all Python versions today - it is an error in the "
 "implementation of markers if a value is not defined."
 msgstr ""
+"\"os_name\" のようなマーカの文法内の変数は、 Python "
+"のランタイム内でルックアップすることで値へと解決されます。 \"extra\" "
+"を例外として、すべての値は現在のすべてのバージョンの Python "
+"で定義されています - "
+"もし値が定義されていなければ、それはマーカの実装のエラーです。"
 
 #: ../source/specifications/dependency-specifiers.rst:211
 msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
 "that evaluates to True or False."
-msgstr ""
+msgstr "未知の変数は、評価して真 <True> か偽 <False> "
+"となる比較の結果を返すのではなく、エラーを生成しなければなりません。"
 
 #: ../source/specifications/dependency-specifiers.rst:214
 msgid ""
@@ -15619,6 +15625,9 @@ msgid ""
 "should evaluate to ``0`` for versions, and an empty string for all other "
 "variables."
 msgstr ""
+"特定の Python 実装で値を計算することができない変数は、バージョンについては "
+"``0`` "
+"として、その他のすべての変数については空文字列として評価されるべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:218
 msgid ""
@@ -15629,55 +15638,61 @@ msgid ""
 "this special handling is taking place, the \"extra\" variable should result "
 "in an error like all other unknown variables."
 msgstr ""
+"\"extra\" 変数は、扱いが特別です。それは wheel ファイルにおいて、その wheel "
+"の ``METADATA`` ファイル内の特定の追加物 <extra> "
+"にどの仕様を適用するべきであるかを知らせるために使われますが、 ``METADATA`` "
+"ファイルの様式が :pep:`426` のドラフトバージョンに基づいているので、現時点で"
+"はその仕様が存在していないのです。それにも関わらず、この特別な扱いが行われる"
+"場所ではない文脈においては、 \"extra\" "
+"変数はその他の未知の変数と同様にエラーに帰着するべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:228
 msgid "Marker"
-msgstr ""
+msgstr "マーカ <Marker>"
 
 #: ../source/specifications/dependency-specifiers.rst:229
-#, fuzzy
 msgid "Python equivalent"
-msgstr "Pythonのバージョン"
+msgstr "Python 同等物"
 
 #: ../source/specifications/dependency-specifiers.rst:230
 msgid "Sample values"
-msgstr ""
+msgstr "値の例"
 
 #: ../source/specifications/dependency-specifiers.rst:231
-#, fuzzy
 msgid "``os_name``"
-msgstr "``名称``"
+msgstr "``OS の名称 <os_name>``"
 
 #: ../source/specifications/dependency-specifiers.rst:232
-#, fuzzy
 msgid "``os.name``"
-msgstr "``名称``"
+msgstr "``os.name``"
 
 #: ../source/specifications/dependency-specifiers.rst:233
 msgid "``posix``, ``java``"
-msgstr ""
+msgstr "``posix``, ``java``"
 
 #: ../source/specifications/dependency-specifiers.rst:234
 msgid "``sys_platform``"
-msgstr ""
+msgstr "``sys_platform``"
 
 #: ../source/specifications/dependency-specifiers.rst:235
 msgid "``sys.platform``"
-msgstr ""
+msgstr "``sys.platform``"
 
 #: ../source/specifications/dependency-specifiers.rst:236
 msgid ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
 "from Python3 and \"linux2\" from Python2)"
 msgstr ""
+"``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (\"linux\" は Python3 "
+"から、\"linux2\" は Python2 からであることに注意してください)"
 
 #: ../source/specifications/dependency-specifiers.rst:238
 msgid "``platform_machine``"
-msgstr ""
+msgstr "``platform_machine``"
 
 #: ../source/specifications/dependency-specifiers.rst:239
 msgid "``platform.machine()``"
-msgstr ""
+msgstr "``platform.machine()``"
 
 #: ../source/specifications/dependency-specifiers.rst:240
 msgid "``x86_64``"
