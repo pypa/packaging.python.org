@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-22 19:53+0000\n"
+"POT-Creation-Date: 2023-01-22 19:56+0000\n"
 "PO-Revision-Date: 2022-11-19 08:28+0000\n"
 "Last-Translator: RedFurrFox <redfurryfoxgaming@gmail.com>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1816,7 +1816,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/guides/using-manifest-in.rst:67
-#: ../source/specifications/core-metadata.rst:198
+#: ../source/specifications/core-metadata.rst:192
 msgid "Description"
 msgstr ""
 
@@ -3586,14 +3586,14 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:81
-#: ../source/specifications/core-metadata.rst:152
-#: ../source/specifications/core-metadata.rst:473
-#: ../source/specifications/core-metadata.rst:497
-#: ../source/specifications/core-metadata.rst:538
-#: ../source/specifications/core-metadata.rst:561
-#: ../source/specifications/core-metadata.rst:594
-#: ../source/specifications/core-metadata.rst:726
-#: ../source/specifications/core-metadata.rst:755
+#: ../source/specifications/core-metadata.rst:146
+#: ../source/specifications/core-metadata.rst:467
+#: ../source/specifications/core-metadata.rst:491
+#: ../source/specifications/core-metadata.rst:532
+#: ../source/specifications/core-metadata.rst:555
+#: ../source/specifications/core-metadata.rst:588
+#: ../source/specifications/core-metadata.rst:720
+#: ../source/specifications/core-metadata.rst:749
 msgid "Examples::"
 msgstr ""
 
@@ -3715,14 +3715,14 @@ msgstr ""
 #: ../source/guides/hosting-your-own-index.rst:37
 msgid ""
 "The directory layout is fairly simple, within a root directory you need to "
-"create a directory for each project. This directory should be the normalized "
-"name (as defined by :pep:`503`) of the project. Within each of these "
+"create a directory for each project. This directory should be the :ref:"
+"`normalized name <name-normalization>` of the project. Within each of these "
 "directories simply place each of the downloadable files. If you have the "
 "projects \"Foo\" (with the versions 1.0 and 2.0) and \"bar\" (with the "
 "version 0.1) You should end up with a structure that looks like::"
 msgstr ""
 
-#: ../source/guides/hosting-your-own-index.rst:51
+#: ../source/guides/hosting-your-own-index.rst:50
 msgid ""
 "Once you have this layout, simply configure your webserver to serve the root "
 "directory with autoindex enabled. For an example using the built in Web "
@@ -3730,7 +3730,7 @@ msgid ""
 "then instruct users to add the URL to their installer's configuration."
 msgstr ""
 
-#: ../source/guides/hosting-your-own-index.rst:58
+#: ../source/guides/hosting-your-own-index.rst:57
 msgid ""
 "For complete documentation of the simple repository protocol, see :pep:`503`."
 msgstr ""
@@ -9648,10 +9648,10 @@ msgid ""
 "In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE "
 "and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase "
 "characters should be replaced with corresponding lowercase ones. This is "
-"equivalent to :pep:`503` normalisation followed by replacing ``-`` with "
-"``_``. Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) "
-"and uppercase letters, however, as these were allowed by an earlier version "
-"of this specification."
+"equivalent to regular :ref:`name normalization <name-normalization>` "
+"followed by replacing ``-`` with ``_``. Tools consuming wheels must be "
+"prepared to accept ``.`` (FULL STOP) and uppercase letters, however, as "
+"these were allowed by an earlier version of this specification."
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:168
@@ -10239,23 +10239,23 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:61
 #: ../source/specifications/core-metadata.rst:83
-#: ../source/specifications/core-metadata.rst:105
-#: ../source/specifications/core-metadata.rst:168
-#: ../source/specifications/core-metadata.rst:183
-#: ../source/specifications/core-metadata.rst:221
-#: ../source/specifications/core-metadata.rst:293
-#: ../source/specifications/core-metadata.rst:297
-#: ../source/specifications/core-metadata.rst:301
-#: ../source/specifications/core-metadata.rst:305
-#: ../source/specifications/core-metadata.rst:337
-#: ../source/specifications/core-metadata.rst:357
-#: ../source/specifications/core-metadata.rst:383
-#: ../source/specifications/core-metadata.rst:401
-#: ../source/specifications/core-metadata.rst:426
-#: ../source/specifications/core-metadata.rst:448
-#: ../source/specifications/core-metadata.rst:611
-#: ../source/specifications/core-metadata.rst:642
-#: ../source/specifications/core-metadata.rst:652
+#: ../source/specifications/core-metadata.rst:99
+#: ../source/specifications/core-metadata.rst:162
+#: ../source/specifications/core-metadata.rst:177
+#: ../source/specifications/core-metadata.rst:215
+#: ../source/specifications/core-metadata.rst:287
+#: ../source/specifications/core-metadata.rst:291
+#: ../source/specifications/core-metadata.rst:295
+#: ../source/specifications/core-metadata.rst:299
+#: ../source/specifications/core-metadata.rst:331
+#: ../source/specifications/core-metadata.rst:351
+#: ../source/specifications/core-metadata.rst:377
+#: ../source/specifications/core-metadata.rst:395
+#: ../source/specifications/core-metadata.rst:420
+#: ../source/specifications/core-metadata.rst:442
+#: ../source/specifications/core-metadata.rst:605
+#: ../source/specifications/core-metadata.rst:636
+#: ../source/specifications/core-metadata.rst:646
 msgid "Example::"
 msgstr ""
 
@@ -10278,40 +10278,38 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:87
 msgid ""
-"To normalize a distribution name for comparison purposes, it should be "
-"lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced "
-"with a single ``-`` character. This can be done using the following snippet "
-"of code (as specified in :pep:`503`)::"
+"For comparison purposes, the names should be :ref:`normalized <name-"
+"normalization>` before comparing."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:98
+#: ../source/specifications/core-metadata.rst:92
 msgid "Version"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:102
+#: ../source/specifications/core-metadata.rst:96
 msgid ""
 "A string containing the distribution's version number.  This field  must be "
 "in the format specified in :pep:`440`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:113
+#: ../source/specifications/core-metadata.rst:107
 msgid "Dynamic (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:117
+#: ../source/specifications/core-metadata.rst:111
 msgid ""
 "A string containing the name of another core metadata field. The field names "
 "``Name``, ``Version``, and ``Metadata-Version`` may not be specified in this "
 "field."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:121
+#: ../source/specifications/core-metadata.rst:115
 msgid ""
 "When found in the metadata of a source distribution, the following rules "
 "apply:"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:124
+#: ../source/specifications/core-metadata.rst:118
 msgid ""
 "If a field is *not* marked as ``Dynamic``, then the value of the field in "
 "any wheel built from the sdist MUST match the value in the sdist. If the "
@@ -10319,20 +10317,20 @@ msgid ""
 "be present in the wheel."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:128
+#: ../source/specifications/core-metadata.rst:122
 msgid ""
 "If a field is marked as ``Dynamic``, it may contain any valid value in a "
 "wheel built from the sdist (including not being present at all)."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:131
+#: ../source/specifications/core-metadata.rst:125
 msgid ""
 "If the sdist metadata version is older than version 2.2, then all fields "
 "should be treated as if they were specified with ``Dynamic`` (i.e. there are "
 "no special restrictions on the metadata of wheels built from the sdist)."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:135
+#: ../source/specifications/core-metadata.rst:129
 msgid ""
 "In any context other than a source distribution, ``Dynamic`` is for "
 "information only, and indicates that the field value was calculated at wheel "
@@ -10340,27 +10338,27 @@ msgid ""
 "wheels for the project."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:140
+#: ../source/specifications/core-metadata.rst:134
 msgid ""
 "Full details of the semantics of ``Dynamic`` are described in :pep:`643`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:144
+#: ../source/specifications/core-metadata.rst:138
 msgid "Platform (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:148
+#: ../source/specifications/core-metadata.rst:142
 msgid ""
 "A Platform specification describing an operating system supported by the "
 "distribution which is not listed in the \"Operating System\" Trove "
 "classifiers. See \"Classifier\" below."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:159
+#: ../source/specifications/core-metadata.rst:153
 msgid "Supported-Platform (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:163
+#: ../source/specifications/core-metadata.rst:157
 msgid ""
 "Binary distributions containing a PKG-INFO file will use the Supported-"
 "Platform field in their metadata to specify the OS and CPU for which the "
@@ -10368,19 +10366,19 @@ msgid ""
 "field are not specified in this PEP."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:177
+#: ../source/specifications/core-metadata.rst:171
 msgid "Summary"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:181
+#: ../source/specifications/core-metadata.rst:175
 msgid "A one-line summary of what the distribution does."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:201
+#: ../source/specifications/core-metadata.rst:195
 msgid "This field may be specified in the message body instead."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:204
+#: ../source/specifications/core-metadata.rst:198
 msgid ""
 "A longer description of the distribution that can run to several "
 "paragraphs.  Software that deals with metadata should not assume any maximum "
@@ -10388,7 +10386,7 @@ msgid ""
 "manual as the description."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:209
+#: ../source/specifications/core-metadata.rst:203
 msgid ""
 "The contents of this field can be written using reStructuredText markup "
 "[1]_.  For programs that work with the metadata, supporting markup is "
@@ -10396,7 +10394,7 @@ msgid ""
 "means that authors should be conservative in the markup they use."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:215
+#: ../source/specifications/core-metadata.rst:209
 msgid ""
 "To support empty lines and lines with indentation with respect to the RFC "
 "822 format, any CRLF character has to be suffixed by 7 spaces followed by a "
@@ -10404,31 +10402,31 @@ msgid ""
 "folded field that can be interpreted by RFC822 parser [2]_."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:232
+#: ../source/specifications/core-metadata.rst:226
 msgid ""
 "This encoding implies that any occurrences of a CRLF followed by 7 spaces "
 "and a pipe char have to be replaced by a single CRLF when the field is "
 "unfolded using a RFC822 reader."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:236
+#: ../source/specifications/core-metadata.rst:230
 msgid ""
 "Alternatively, the distribution's description may instead be provided in the "
 "message body (i.e., after a completely blank line following the headers, "
 "with no indentation or other special formatting necessary)."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:245
+#: ../source/specifications/core-metadata.rst:239
 msgid "Description-Content-Type"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:249
+#: ../source/specifications/core-metadata.rst:243
 msgid ""
 "A string stating the markup syntax (if any) used in the distribution's "
 "description, so that tools can intelligently render the description."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:252
+#: ../source/specifications/core-metadata.rst:246
 msgid ""
 "Historically, PyPI supported descriptions in plain text and "
 "`reStructuredText (reST) <https://docutils.sourceforge.io/docs/ref/rst/"
@@ -10445,7 +10443,7 @@ msgid ""
 "formats."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:265
+#: ../source/specifications/core-metadata.rst:259
 msgid ""
 "The format of this field is the same as the ``Content-Type`` header in HTTP "
 "(i.e.: `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type."
@@ -10453,34 +10451,34 @@ msgid ""
 "it can optionally have a number of parameters:"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:271
+#: ../source/specifications/core-metadata.rst:265
 msgid "Format::"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:275
+#: ../source/specifications/core-metadata.rst:269
 msgid "The ``type/subtype`` part has only a few legal values:"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:277
+#: ../source/specifications/core-metadata.rst:271
 msgid "``text/plain``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:278
+#: ../source/specifications/core-metadata.rst:272
 msgid "``text/x-rst``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:279
+#: ../source/specifications/core-metadata.rst:273
 msgid "``text/markdown``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:281
+#: ../source/specifications/core-metadata.rst:275
 msgid ""
 "The ``charset`` parameter can be used to specify the character encoding of "
 "the description. The only legal value is ``UTF-8``. If omitted, it is "
 "assumed to be ``UTF-8``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:285
+#: ../source/specifications/core-metadata.rst:279
 msgid ""
 "Other parameters might be specific to the chosen subtype. For example, for "
 "the ``markdown`` subtype, there is an optional ``variant`` parameter that "
@@ -10488,53 +10486,53 @@ msgid ""
 "specified). Currently, two variants are recognized:"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:290
+#: ../source/specifications/core-metadata.rst:284
 msgid "``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:291
+#: ../source/specifications/core-metadata.rst:285
 msgid "``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:309
+#: ../source/specifications/core-metadata.rst:303
 msgid ""
 "If a ``Description-Content-Type`` is not specified, then applications should "
 "attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to "
 "``text/plain`` if it is not valid rst."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:313
+#: ../source/specifications/core-metadata.rst:307
 msgid ""
 "If a ``Description-Content-Type`` is an unrecognized value, then the assumed "
 "content type is ``text/plain`` (Although PyPI will probably reject anything "
 "with an unrecognized value)."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:317
+#: ../source/specifications/core-metadata.rst:311
 msgid ""
 "If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is "
 "not specified or is set to an unrecognized value, then the assumed "
 "``variant`` is ``GFM``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:321
+#: ../source/specifications/core-metadata.rst:315
 msgid ""
 "So for the last example above, the ``charset`` defaults to ``UTF-8`` and the "
 "``variant`` defaults to ``GFM`` and thus it is equivalent to the example "
 "before it."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:330
+#: ../source/specifications/core-metadata.rst:324
 msgid "Keywords"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:334
+#: ../source/specifications/core-metadata.rst:328
 msgid ""
 "A list of additional keywords, separated by commas, to be used to assist "
 "searching for the distribution in a larger catalog."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:343
+#: ../source/specifications/core-metadata.rst:337
 msgid ""
 "The specification previously showed keywords separated by spaces, but "
 "distutils and setuptools implemented it with commas. These tools have been "
@@ -10542,91 +10540,91 @@ msgid ""
 "specification to match the de facto standard."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:351
+#: ../source/specifications/core-metadata.rst:345
 msgid "Home-page"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:355
+#: ../source/specifications/core-metadata.rst:349
 msgid "A string containing the URL for the distribution's home page."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:363
+#: ../source/specifications/core-metadata.rst:357
 msgid "Download-URL"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:367
+#: ../source/specifications/core-metadata.rst:361
 msgid ""
 "A string containing the URL from which this version of the distribution can "
 "be downloaded.  (This means that the URL can't be something like \".../"
 "BeagleVote-latest.tgz\", but instead must be \".../BeagleVote-0.45.tgz\".)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:376
+#: ../source/specifications/core-metadata.rst:370
 msgid "Author"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:380
+#: ../source/specifications/core-metadata.rst:374
 msgid ""
 "A string containing the author's name at a minimum; additional contact "
 "information may be provided."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:393
+#: ../source/specifications/core-metadata.rst:387
 msgid "Author-email"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:397
+#: ../source/specifications/core-metadata.rst:391
 msgid ""
 "A string containing the author's e-mail address.  It can contain a name and "
 "e-mail address in the legal forms for a RFC-822 ``From:`` header."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:405
-#: ../source/specifications/core-metadata.rst:452
+#: ../source/specifications/core-metadata.rst:399
+#: ../source/specifications/core-metadata.rst:446
 msgid ""
 "Per RFC-822, this field may contain multiple comma-separated e-mail "
 "addresses::"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:415
+#: ../source/specifications/core-metadata.rst:409
 msgid "Maintainer"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:419
+#: ../source/specifications/core-metadata.rst:413
 msgid ""
 "A string containing the maintainer's name at a minimum; additional contact "
 "information may be provided."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:422
+#: ../source/specifications/core-metadata.rst:416
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
 "identical to ``Author``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:436
+#: ../source/specifications/core-metadata.rst:430
 msgid "Maintainer-email"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:440
+#: ../source/specifications/core-metadata.rst:434
 msgid ""
 "A string containing the maintainer's e-mail address.  It can contain a name "
 "and e-mail address in the legal forms for a RFC-822 ``From:`` header."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:444
+#: ../source/specifications/core-metadata.rst:438
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
 "identical to ``Author-email``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:462
+#: ../source/specifications/core-metadata.rst:456
 msgid "License"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:466
+#: ../source/specifications/core-metadata.rst:460
 msgid ""
 "Text indicating the license covering the distribution where the license is "
 "not a selection from the \"License\" Trove classifiers. See :ref:`"
@@ -10636,11 +10634,11 @@ msgid ""
 "license."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:486
+#: ../source/specifications/core-metadata.rst:480
 msgid "Classifier (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:490
+#: ../source/specifications/core-metadata.rst:484
 msgid ""
 "Each entry is a string giving a single classification value for the "
 "distribution.  Classifiers are described in :pep:`301`, and the Python "
@@ -10648,43 +10646,43 @@ msgid ""
 "<https://pypi.org/classifiers/>`__."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:495
-#: ../source/specifications/core-metadata.rst:585
-#: ../source/specifications/core-metadata.rst:724
-#: ../source/specifications/core-metadata.rst:748
+#: ../source/specifications/core-metadata.rst:489
+#: ../source/specifications/core-metadata.rst:579
+#: ../source/specifications/core-metadata.rst:718
+#: ../source/specifications/core-metadata.rst:742
 msgid "This field may be followed by an environment marker after a semicolon."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:506
+#: ../source/specifications/core-metadata.rst:500
 msgid "Requires-Dist (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:509
-#: ../source/specifications/core-metadata.rst:572
-#: ../source/specifications/core-metadata.rst:696
-#: ../source/specifications/core-metadata.rst:737
+#: ../source/specifications/core-metadata.rst:503
+#: ../source/specifications/core-metadata.rst:566
+#: ../source/specifications/core-metadata.rst:690
+#: ../source/specifications/core-metadata.rst:731
 msgid ""
 "The field format specification was relaxed to accept the syntax used by "
 "popular publishing tools."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:513
+#: ../source/specifications/core-metadata.rst:507
 msgid ""
 "Each entry contains a string naming some other distutils project required by "
 "this distribution."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:516
+#: ../source/specifications/core-metadata.rst:510
 msgid "The format of a requirement string contains from one to four parts:"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:518
+#: ../source/specifications/core-metadata.rst:512
 msgid ""
 "A project name, in the same format as the ``Name:`` field. The only "
 "mandatory part."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:520
+#: ../source/specifications/core-metadata.rst:514
 msgid ""
 "A comma-separated list of 'extra' names. These are defined by the required "
 "project, referring to specific features which may need extra dependencies. "
@@ -10692,58 +10690,58 @@ msgid ""
 "`` field."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:524
+#: ../source/specifications/core-metadata.rst:518
 msgid ""
 "A version specifier. Tools parsing the format should accept optional "
 "parentheses around this, but tools generating it should not use parentheses."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:527
+#: ../source/specifications/core-metadata.rst:521
 msgid ""
 "An environment marker after a semicolon. This means that the requirement is "
 "only needed in the specified conditions."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:530
+#: ../source/specifications/core-metadata.rst:524
 msgid "See :pep:`508` for full details of the allowed format."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:532
+#: ../source/specifications/core-metadata.rst:526
 msgid ""
 "The project names should correspond to names as found on the `Python Package "
 "Index`_."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:535
+#: ../source/specifications/core-metadata.rst:529
 msgid ""
 "Version specifiers must follow the rules described in :doc:`version-"
 "specifiers`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:549
+#: ../source/specifications/core-metadata.rst:543
 msgid "Requires-Python"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:553
+#: ../source/specifications/core-metadata.rst:547
 msgid ""
 "This field specifies the Python version(s) that the distribution is "
 "guaranteed to be compatible with. Installation tools may look at this when "
 "picking which version of a project to install."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:557
+#: ../source/specifications/core-metadata.rst:551
 msgid "The value must be in the format specified in :doc:`version-specifiers`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:559
+#: ../source/specifications/core-metadata.rst:553
 msgid "This field cannot be followed by an environment marker."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:569
+#: ../source/specifications/core-metadata.rst:563
 msgid "Requires-External (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:576
+#: ../source/specifications/core-metadata.rst:570
 msgid ""
 "Each entry contains a string describing some dependency in the system that "
 "the distribution is to be used.  This field is intended to serve as a hint "
@@ -10751,13 +10749,13 @@ msgid ""
 "to the ``distutils`` distribution."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:581
+#: ../source/specifications/core-metadata.rst:575
 msgid ""
 "The format of a requirement string is a name of an external dependency, "
 "optionally followed by a version declaration within parentheses."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:587
+#: ../source/specifications/core-metadata.rst:581
 msgid ""
 "Because they refer to non-Python software releases, version numbers for this "
 "field are **not** required to conform to the format specified in :pep:"
@@ -10765,36 +10763,36 @@ msgid ""
 "dependency."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:592
+#: ../source/specifications/core-metadata.rst:586
 msgid "Notice that there is no particular rule on the strings to be used."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:604
+#: ../source/specifications/core-metadata.rst:598
 msgid "Project-URL (multiple-use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:608
+#: ../source/specifications/core-metadata.rst:602
 msgid ""
 "A string containing a browsable URL for the project and a label for it, "
 "separated by a comma."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:615
+#: ../source/specifications/core-metadata.rst:609
 msgid "The label is free text limited to 32 characters."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:623
+#: ../source/specifications/core-metadata.rst:617
 msgid "Provides-Extra (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:626
+#: ../source/specifications/core-metadata.rst:620
 msgid ""
 ":pep:`685` restricted valid values to be unambiguous (i.e. no normalization "
 "required). For older metadata versions, value restrictions were brought into "
 "line with ``Name:`` and normalization rules were introduced."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:631
+#: ../source/specifications/core-metadata.rst:625
 msgid ""
 "A string containing the name of an optional feature. A valid name consists "
 "only of lowercase ASCII letters, ASCII numbers, and hyphen. It must start "
@@ -10803,13 +10801,13 @@ msgid ""
 "guarantees unambiguity)::"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:639
+#: ../source/specifications/core-metadata.rst:633
 msgid ""
 "The specified name may be used to make a dependency conditional on whether "
 "the optional feature has been requested."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:647
+#: ../source/specifications/core-metadata.rst:641
 msgid ""
 "A second distribution requires an optional dependency by placing it inside "
 "square brackets, and can request multiple features by separating them with a "
@@ -10817,20 +10815,20 @@ msgid ""
 "added to the set of requirements for the distribution."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:657
+#: ../source/specifications/core-metadata.rst:651
 msgid ""
 "Two feature names ``test`` and ``doc`` are reserved to mark dependencies "
 "that are needed for running automated tests and generating documentation, "
 "respectively."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:661
+#: ../source/specifications/core-metadata.rst:655
 msgid ""
 "It is legal to specify ``Provides-Extra:`` without referencing it in any "
 "``Requires-Dist:``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:664
+#: ../source/specifications/core-metadata.rst:658
 msgid ""
 "When writing data for older metadata versions, names MUST be normalized "
 "following the same rules used for the ``Name:`` field when performing "
@@ -10838,7 +10836,7 @@ msgid ""
 "Extra:`` entries would clash after being normalized."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:669
+#: ../source/specifications/core-metadata.rst:663
 msgid ""
 "When reading data for older metadata versions, tools SHOULD warn when values "
 "for this field would be invalid under newer metadata versions. If a value "
@@ -10848,11 +10846,11 @@ msgid ""
 "metadata versions."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:677
+#: ../source/specifications/core-metadata.rst:671
 msgid "Rarely Used Fields"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:679
+#: ../source/specifications/core-metadata.rst:673
 msgid ""
 "The fields in this section are currently rarely used, as their design was "
 "inspired by comparable mechanisms in Linux package management systems, and "
@@ -10860,7 +10858,7 @@ msgid ""
 "open index server such as `PyPI <https://pypi.org>`__."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:684
+#: ../source/specifications/core-metadata.rst:678
 msgid ""
 "As a result, popular installation tools ignore them completely, which in "
 "turn means there is little incentive for package publishers to set them "
@@ -10870,18 +10868,18 @@ msgid ""
 "package repository."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:693
+#: ../source/specifications/core-metadata.rst:687
 msgid "Provides-Dist (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:700
+#: ../source/specifications/core-metadata.rst:694
 msgid ""
 "Each entry contains a string naming a Distutils project which is contained "
 "within this distribution.  This field *must* include the project identified "
 "in the ``Name`` field, followed by the version : Name (Version)."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:705
+#: ../source/specifications/core-metadata.rst:699
 msgid ""
 "A distribution may provide additional names, e.g. to indicate that multiple "
 "projects have been bundled together.  For instance, source distributions of "
@@ -10890,7 +10888,7 @@ msgid ""
 "distribution satisfies requirements for both ``ZODB`` and ``transaction``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:712
+#: ../source/specifications/core-metadata.rst:706
 msgid ""
 "A distribution may also provide a \"virtual\" project name, which does not "
 "correspond to any separately-distributed project:  such a name might be used "
@@ -10901,42 +10899,42 @@ msgid ""
 "them installed."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:720
+#: ../source/specifications/core-metadata.rst:714
 msgid ""
 "A version declaration may be supplied and must follow the rules described "
 "in :doc:`version-specifiers`. The distribution's version number will be "
 "implied if none is specified."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:734
+#: ../source/specifications/core-metadata.rst:728
 msgid "Obsoletes-Dist (multiple use)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:741
+#: ../source/specifications/core-metadata.rst:735
 msgid ""
 "Each entry contains a string describing a distutils project's distribution "
 "which this distribution renders obsolete, meaning that the two projects "
 "should not be installed at the same time."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:745
+#: ../source/specifications/core-metadata.rst:739
 msgid ""
 "Version declarations can be supplied.  Version numbers must be in the format "
 "specified in :doc:`version-specifiers`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:750
+#: ../source/specifications/core-metadata.rst:744
 msgid ""
 "The most common use of this field will be in case a project name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
 "Torqued Python, the Gorgon distribution should be removed."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:763
+#: ../source/specifications/core-metadata.rst:757
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:768
+#: ../source/specifications/core-metadata.rst:762
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr ""
 
@@ -11073,7 +11071,7 @@ msgstr ""
 
 #: ../source/specifications/declaring-project-metadata.rst:73
 msgid ""
-"Tools SHOULD normalize this name, as specified by :pep:`503`, as soon as it "
+"Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon as it "
 "is read for internal consistency."
 msgstr ""
 
@@ -12512,12 +12510,78 @@ msgstr ""
 msgid "Package Distribution Metadata"
 msgstr ""
 
-#: ../source/specifications/index.rst:30
+#: ../source/specifications/index.rst:31
 msgid "Package Distribution File Formats"
 msgstr ""
 
-#: ../source/specifications/index.rst:40
+#: ../source/specifications/index.rst:41
 msgid "Package Index Interfaces"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:5
+msgid "Package name normalization"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:7
+msgid ""
+"Project names are \"normalized\" for use in various contexts. This document "
+"describes how project names should be normalized."
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:10
+msgid "Valid non-normalized names"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:12
+msgid ""
+"A valid name consists only of ASCII letters and numbers, period, underscore "
+"and hyphen. It must start and end with a letter or number. This means that "
+"valid project names are limited to those which match the following regex "
+"(run with ``re.IGNORECASE``)::"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:20
+msgid "Normalization"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:22
+msgid ""
+"The name should be lowercased with all runs of the characters ``.``, ``-``, "
+"or ``_`` replaced with a single ``-`` character. This can be implemented in "
+"Python with the re module:"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:31
+msgid "This means that the following names are all equivalent:"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:33
+msgid "``friendly-bard``  (normalized form)"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:34
+msgid "``Friendly-Bard``"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:35
+msgid "``FRIENDLY-BARD``"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:36
+msgid "``friendly.bard``"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:37
+msgid "``friendly_bard``"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:38
+msgid "``friendly--bard``"
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:39
+msgid ""
+"``FrIeNdLy-._.-bArD`` (a _terrible_ way to write a name, but it is valid)"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:6
@@ -12880,7 +12944,7 @@ msgstr ""
 msgid ""
 "This directory is named as ``{name}-{version}.dist-info``, with ``name`` and "
 "``version`` fields corresponding to :ref:`core-metadata`. Both fields must "
-"be normalized (see :pep:`PEP 503 <503#normalized-names>` and :pep:`PEP 440 "
+"be normalized (see :ref:`name-normalization` and :pep:`PEP 440 "
 "<440#normalization>` for the definition of normalization for each field "
 "respectively), and replace dash (``-``) characters with underscore (``_``) "
 "characters, so the ``.dist-info`` directory always has exactly one dash (``-"
