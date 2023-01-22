@@ -15,6 +15,7 @@ Package Distribution Metadata
 .. toctree::
    :maxdepth: 1
 
+   name-normalization
    core-metadata
    version-specifiers
    dependency-specifiers
