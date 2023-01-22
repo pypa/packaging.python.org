@@ -84,13 +84,7 @@ Example::
 
     Name: BeagleVote
 
-To normalize a distribution name for comparison purposes, it should be
-lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with
-a single ``-`` character. This can be done using the following snippet of code
-(as specified in :pep:`503`)::
-
-    re.sub(r"[-_.]+", "-", name).lower()
-
+For comparison purposes, the names should be :ref:`normalized <name-normalization>` before comparing.
 
 .. _core-metadata-version:
 

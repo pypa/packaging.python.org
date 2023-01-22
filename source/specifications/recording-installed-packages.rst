@@ -40,7 +40,7 @@ packages (commonly, the ``site-packages`` directory).
 
 This directory is named as ``{name}-{version}.dist-info``, with ``name`` and
 ``version`` fields corresponding to :ref:`core-metadata`. Both fields must be
-normalized (see :pep:`PEP 503 <503#normalized-names>` and
+normalized (see :ref:`name-normalization` and
 :pep:`PEP 440 <440#normalization>` for the definition of normalization for
 each field respectively), and replace dash (``-``) characters with
 underscore (``_``) characters, so the ``.dist-info`` directory always has
