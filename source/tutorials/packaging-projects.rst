@@ -147,7 +147,7 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
     .. code-block:: toml
 
         [build-system]
-        requires = ["flit_core>=3.2"]
+        requires = ["flit_core>=3.4"]
         build-backend = "flit_core.buildapi"
 
 .. tab:: PDM
