@@ -452,6 +452,21 @@ problem of installing scientific software, and making package
 distribution stateless, cached, and branchable. It is used by some
 researchers but has been lacking in maintenance since 2016.
 
+.. _meson-python:
+
+meson-python
+============
+
+`Docs <https://meson-python.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/mesonbuild/meson-python>`__
+
+``meson-python`` is a build backend that uses the Meson_ build system. It enables
+Python package authors to use Meson_ as the build system for their package. It
+supports a wide variety of languages, including C, and is able to fill the needs
+of most complex build configurations.
+
+.. _Meson: https://github.com/mesonbuild/meson
+
 .. _multibuild:
 
 multibuild
