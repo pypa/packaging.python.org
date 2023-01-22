@@ -70,7 +70,7 @@ The complete list of keys allowed in the ``[project]`` table are:
 
 The name of the project.
 
-Tools SHOULD normalize this name, as specified by :pep:`503`, as soon
+Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon
 as it is read for internal consistency.
 
 .. code-block:: toml
