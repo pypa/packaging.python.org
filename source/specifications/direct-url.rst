@@ -316,9 +316,7 @@ Commands that *do not* generate a ``direct_url.json``
 History
 =======
 
-The layout of this file was originally specified in :pep:`610` and is formally
-documented here.
-
-This specification was updated in January 2023 to add the ``archive_info.hashes`` key.
-This change was formally approved at
-https://discuss.python.org/t/draft-pep-amendment-to-the-pep-610-direct-url-json-data-structure/22299/4.
+- March 2020: the ``direct_url.json`` metadata file was originally specified in
+  :pep:`610` and is formally documented here.
+- January 2023: Added the ``archive_info.hashes`` key
+  (`discussion <https://discuss.python.org/t/22299>`__).
