@@ -25,6 +25,7 @@ Package Distribution Metadata
    recording-installed-packages
    entry-points
    direct-url
+   direct-url-data-structure
 
 
 Package Distribution File Formats
