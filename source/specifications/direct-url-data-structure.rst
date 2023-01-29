@@ -9,6 +9,10 @@ This document specifies a JSON-serializable abstract data structure that can rep
 URLs to python projects and distribution artifacts such as VCS source trees, local
 source trees, source distributions and wheels.
 
+The representation of the components of this data structure as a :rfc:`1738` URL
+is not formally specified at time of writing. A common representation is the pip URL
+format. Other examples are provided in :pep:`440`.
+
 .. contents:: Contents
    :local:
 
@@ -25,7 +29,7 @@ one of ``vcs_info`` (if ``url`` is a VCS reference), ``archive_info`` (if
 local directory). These info fields have a (possibly empty) subdictionary as
 value, with the possible keys defined below.
 
-``url`` MUST be stripped of any sensitive authentication information,
+When persisted, ``url`` MUST be stripped of any sensitive authentication information,
 for security reasons.
 
 The user:password section of the URL MAY however
@@ -38,6 +42,9 @@ Additionally, the user:password section of the URL MAY be a
 well-known, non security sensitive string. A typical example is ``git``
 in the case of an URL such as ``ssh://git@gitlab.com/user/repo``.
 
+VCS URLs
+--------
+
 When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be present
 as a dictionary with the following keys:
 
@@ -48,14 +55,16 @@ as a dictionary with the following keys:
   so an installer can hand it off without transformation to a
   checkout/download command of the VCS.
 - A ``requested_revision`` key (type ``string``) MAY be present naming a
-  branch/tag/ref/commit/revision/etc (in a format compatible with the VCS)
-  to install.
+  branch/tag/ref/commit/revision/etc (in a format compatible with the VCS).
 - A ``commit_id`` key (type ``string``) MUST be present, containing the
-  exact commit/revision number that was installed.
+  exact commit/revision number that was/is to be installed.
   If the VCS supports commit-hash
   based revision identifiers, such commit-hash MUST be used as
-  ``commit_id`` in order to reference the immutable
-  version of the source code that was installed.
+  ``commit_id`` in order to reference an immutable
+  version of the source code.
+
+Archive URLs
+------------
 
 When ``url`` refers to a source archive or a wheel, the ``archive_info`` key
 MUST be present as a dictionary with the following keys:
@@ -86,16 +95,22 @@ When both the ``hash`` and ``hashes`` keys are present, the hash represented in 
 ``hash`` key MUST also be present in the ``hashes`` dictionary, so consumers can
 consider the ``hashes`` key only if it is present, and fall back to ``hash`` otherwise.
 
+Local directories
+-----------------
+
 When ``url`` refers to a local directory, the ``dir_info`` key MUST be
 present as a dictionary with the following key:
 
-- ``editable`` (type: ``boolean``): ``true`` if the distribution was installed
+- ``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be installed
   in editable mode, ``false`` otherwise. If absent, default to ``false``.
 
 When ``url`` refers to a local directory, it MUST have the ``file`` sheme and
 be compliant with :rfc:`8089`. In
 particular, the path component must be absolute. Symbolic links SHOULD be
 preserved when making relative paths absolute.
+
+Projects in subdirectories
+--------------------------
 
 A top-level ``subdirectory`` field MAY be present containing a directory path,
 relative to the root of the VCS repository, source archive or local directory,
@@ -139,7 +154,7 @@ vcs command
 
 .. note::
 
-   Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands
+   Tools can use the ``git show-ref`` and ``git symbolic-ref`` commands
    to determine if the ``requested_revision`` corresponds to a Git ref.
    In turn, a ref beginning with ``refs/tags/`` corresponds to a tag, and
    a ref beginning with ``refs/remotes/origin/`` after cloning corresponds
@@ -255,7 +270,7 @@ Local directory:
        "dir_info": {}
    }
 
-Local directory installed in editable mode:
+Local directory in editable mode:
 
 .. code::
 
