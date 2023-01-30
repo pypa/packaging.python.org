@@ -7,8 +7,7 @@ Recording the Direct URL Origin of installed distributions
 
 This document specifies a :file:`direct_url.json` file in the
 :file:`*.dist-info` directory of an installed distribution, to record the
-Direct URL Origin of the distribution. The layout of this file was originally
-specified in :pep:`610` and is formally documented here.
+Direct URL Origin of the distribution.
 
 .. contents:: Contents
    :local:
@@ -65,14 +64,33 @@ as a dictionary with the following keys:
   version of the source code that was installed.
 
 When ``url`` refers to a source archive or a wheel, the ``archive_info`` key
-MUST be present as a dictionary with the following key:
+MUST be present as a dictionary with the following keys:
 
-- A ``hash`` key (type ``string``) SHOULD be present, with value
-  ``<hash-algorithm>=<expected-hash>``.
-  It is RECOMMENDED that only hashes which are unconditionally provided by
-  the latest version of the standard library's ``hashlib`` module be used for
-  source archive hashes. At time of writing, that list consists of 'md5',
-  'sha1', 'sha224', 'sha256', 'sha384', and 'sha512'.
+- A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a hex
+  encoded digest of the file. 
+  
+  Multiple hashes can be included, and it is up to the consumer to decide what to do
+  with multiple hashes (it may validate all of them or a subset of them, or nothing at
+  all). 
+  
+  These hash names SHOULD always be normalized to be lowercase. 
+  
+  Any hash algorithm available via ``hashlib`` (specifically any that can be passed to
+  ``hashlib.new()`` and do not require additional parameters) can be used as a key for
+  the hashes dictionary. At least one secure algorithm from
+  ``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of writing,
+  ``sha256`` specifically is recommended.
+  
+- A deprecated ``hash`` key (type ``string``) MAY be present for backwards compatibility
+  purposes, with value ``<hash-algorithm>=<expected-hash>``.
+
+Producers of the data structure SHOULD emit the ``hashes`` key whether one or multiple
+hashes are available. Producers SHOULD continue to emit the ``hash`` key in contexts
+where they did so before, so as to keep backwards compatibility for existing clients.
+
+When both the ``hash`` and ``hashes`` keys are present, the hash represented in the
+``hash`` key MUST also be present in the ``hashes`` dictionary, so consumers can
+consider the ``hashes`` key only if it is present, and fall back to ``hash`` otherwise.
 
 When ``url`` refers to a local directory, the ``dir_info`` key MUST be
 present as a dictionary with the following key:
@@ -234,7 +252,9 @@ Source archive:
     {
         "url": "https://github.com/pypa/pip/archive/1.3.1.zip",
         "archive_info": {
-            "hash": "sha256=2dc6b5a470a1bde68946f263f1af1515a2574a150a30d6ce02c6ff742fcc0db8"
+            "hashes": {
+                "sha256": "2dc6b5a470a1bde68946f263f1af1515a2574a150a30d6ce02c6ff742fcc0db8"
+            }
         }
     }
 
@@ -292,3 +312,11 @@ Commands that *do not* generate a ``direct_url.json``
 
 * ``pip install app``
 * ``pip install app --no-index --find-links https://example.com/``
+
+History
+=======
+
+- March 2020: the ``direct_url.json`` metadata file was originally specified in
+  :pep:`610` and is formally documented here.
+- January 2023: Added the ``archive_info.hashes`` key
+  (`discussion <https://discuss.python.org/t/22299>`__).
