@@ -11,16 +11,20 @@ Package index mirrors and caches
    :local:
 
 
-Mirroring or caching of PyPI can be used to speed up local package installation,
-allow offline work, handle corporate firewalls or just plain Internet flakiness.
+Mirroring or caching of PyPI (and other package indexes) can be used to speed
+up local package installation, allow offline work, work with corporate
+firewalls or handle just plain internet flakiness.
 
-Three options are available in this area:
+There are multiple classes of options in this area:
 
-1. pip provides local caching options,
-2. devpi provides higher-level caching option, potentially shared amongst
-   many users or machines, and
-3. bandersnatch provides a local complete mirror of all PyPI :term:`packages
-   <Distribution Package>`.
+1. local/hosted caching of package indexes.
+
+2. local/hosted mirroring of a package index. A mirror is a (whole or
+   partial) copy of a package index, which can be used in place of the
+   original index.
+
+3. private package index with fall-through to public package indexes (for
+   example, to mitigate dependency confusion attacks).
 
 
 Caching with pip
@@ -50,17 +54,150 @@ documentation for getting started`__.
 
 __ https://devpi.net/docs/devpi/devpi/latest/+d/quickstart-pypimirror.html
 
+devpi has additional funcionality, such as mirroring package indexes, running
+multiple indexes with a concept of inheritance, syncing between multiple
+servers, index replication and fail-over, and package upload.
+
+* `devpi on PyPI <https://pypi.org/project/devpi/>`_
+* `devpi source <https://github.com/devpi/devpi>`_
+
 
 Complete mirror with bandersnatch
 ----------------------------------
 
-bandersnatch will set up a complete local mirror of all PyPI :term:`packages
+bandersnatch will set up a complete local (or `AWS S3`_) mirror of all PyPI
+:term:`packages
 <Distribution Package>` (externally-hosted packages are not mirrored). See
 the `bandersnatch documentation for getting that going`__.
 
-__ https://github.com/pypa/bandersnatch/
+__ https://bandersnatch.readthedocs.io/en/latest/
 
 A benefit of devpi is that it will create a mirror which includes
 :term:`packages <Distribution Package>` that are external to PyPI, unlike
 bandersnatch which will only cache :term:`packages <Distribution Package>`
 hosted on PyPI.
+
+* `bandersnatch on PyPI <https://pypi.org/project/bandersnatch/>`_
+* `bandersnatch source <https://github.com/pypa/bandersnatch/>`_
+
+
+Other package index servers
+---------------------------
+
+In the following
+
+simpleindex
+^^^^^^^^^^^
+
+Routes URLs to multiple package indexes (including PyPI), serves local (or
+`AWS S3`_, with a plugin) directory of packages, no caching without custom
+plugins, no mirroring.
+
+* `simpleindex on PyPI <https://pypi.org/project/simpleindex/>`_
+* `simpleindex source / documentation
+  <https://github.com/uranusjr/simpleindex>`_
+
+pypiserver
+^^^^^^^^^^
+
+Serves local directory of packages, no fall-through to package indexes
+(including PyPI), supports package upload.
+
+* `pypiserver on PyPI <https://pypi.org/project/pypiserver/>`_
+* `pypiserver source / documentation
+  <https://github.com/pypiserver/pypiserver>`_
+
+pypiprivate
+^^^^^^^^^^^
+
+Serves local (or `AWS S3`_-hosted) directory of packages, no fall-through to
+package indexes (including PyPI).
+
+* `pypiprivate on PyPI <https://pypi.org/project/pypiprivate/>`_
+* `pypiprivate source / documentation
+  <https://github.com/helpshift/pypiprivate>`_
+
+Python package index plugin for Pulp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Supports local/`AWS S3`_ mirrors, package upload, proxying to multiple indexes, no
+caching.
+
+* `pulp_python on PyPI <https://pypi.org/project/pulp-python/>`_
+* `pulp_python documentation <https://docs.pulpproject.org/pulp_python/>`_
+* `pulp_python source <https://github.com/pulp/pulp_python>`_
+
+pip2pi
+^^^^^^
+
+Manual syncing of specific packages, no proxy.
+
+* `pip2pi on PyPI <https://pypi.org/project/pip2pi/>`_
+* `pip2pi source / documenation <https://github.com/wolever/pip2pi>`_
+
+proxpi
+^^^^^^
+
+Package index caching proxy, supports multiple indexes, no mirroring.
+
+* `proxpi on PyPI <https://pypi.org/project/proxpi/>`_
+* `proxpi source <https://github.com/EpicWink/proxpi>`_
+
+Flask-Pypi-Proxy
+^^^^^^^^^^^^^^^^
+
+.. warning:: Not maintained, project archived
+
+Caches PyPI. No cache size limit, no caching index pages.
+
+* `Flask-Pypi-Proxy on PyPI <https://pypi.org/project/Flask-Pypi-Proxy/>`_
+* `Flask-Pypi-Proxy documentation
+  <https://flask-pypi-proxy.readthedocs.io/en/latest/index.html>`_
+* `Flask-Pypi-Proxy source <https://github.com/tzulberti/Flask-PyPi-Proxy>`_
+
+http.server
+^^^^^^^^^^^
+
+Standard-library, hosts directory exactly as laid out, no proxy to package
+indexes (eg PyPI). See more in :ref:`Hosting your Own Simple Repository`.
+
+* `http.server documentation
+  <https://docs.python.org/3/library/http.server.html>`_
+
+Apache
+^^^^^^
+
+Using
+`mod_rewrite <https://httpd.apache.org/docs/current/mod/mod_rewrite.html>`_ and
+`mod_cache_disk
+<https://httpd.apache.org/docs/current/mod/mod_cache_disk.html>`_,
+you can cache requests to package indexes through an Apache server.
+
+Gemfury
+^^^^^^^
+
+Hosted and managed solution. Private indexes are not free, documentation
+doesn't say anything about fall-through.
+
+* `Host Python packages on Gemfury <https://fury.co/l/pypi-server>`_
+* `Gemfure PyPI documentation <https://gemfury.com/help/pypi-server>`_
+
+GitLab Package Registry
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Hosted and managed solution. Private and public package index with
+optional fall-through, permissioning.
+
+* `GitLab documentation
+  <https://docs.gitlab.com/ee/user/packages/pypi_repository/>`_
+
+Azure Artifacts
+^^^^^^^^^^^^^^^
+
+Hosted and managed solution. Private package index with optional
+fall-through.
+
+* `Azure documentation
+  <https://learn.microsoft.com/en-us/azure/devops/artifacts/quickstarts/python-packages>`_
+
+.. _`AWS S3`: https://aws.amazon.com/s3/
