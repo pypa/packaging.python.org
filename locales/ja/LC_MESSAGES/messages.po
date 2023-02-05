@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-01-30 10:16+0000\n"
-"PO-Revision-Date: 2023-01-30 10:16+0000\n"
+"PO-Revision-Date: 2023-02-05 16:55+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15882,21 +15882,15 @@ msgid "Recording the Direct URL Origin of installed distributions"
 msgstr "インストールされた配布物の配布元へ直接アクセスする URL を記録する"
 
 #: ../source/specifications/direct-url.rst:8
-#, fuzzy
-#| msgid ""
-#| "This document specifies a :file:`direct_url.json` file in the :file:`*."
-#| "dist-info` directory of an installed distribution, to record the Direct "
-#| "URL Origin of the distribution. The layout of this file was originally "
-#| "specified in :pep:`610` and is formally documented here."
 msgid ""
 "This document specifies a :file:`direct_url.json` file in the :file:`*.dist-"
 "info` directory of an installed distribution, to record the Direct URL "
 "Origin of the distribution."
 msgstr ""
-"この説明文書では、インストール済みの配布物の :file:`*.dist-info` ディレクトリ"
-"にある :file:`direct_url.json` ファイルによって配布物の配布元へ直接アクセスす"
-"る URL を記録する方法を指定します。このファイルのレイアウトは、元々は :pep:"
-"`610` で仕様化され、ここで公式に文書化されます。"
+"この説明文書では、インストール済みの配布物の :file:`*.dist-info` "
+"ディレクトリにある :file:`direct_url.json` "
+"ファイルによって配布物の配布元へ直接アクセスする URL "
+"を記録する方法を指定します。"
 
 #: ../source/specifications/direct-url.rst:18
 msgid ""
@@ -16018,23 +16012,20 @@ msgstr ""
 "``commit_id`` として使わなければなりません。"
 
 #: ../source/specifications/direct-url.rst:66
-#, fuzzy
-#| msgid ""
-#| "When ``url`` refers to a source archive or a wheel, the ``archive_info`` "
-#| "key MUST be present as a dictionary with the following key:"
 msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following keys:"
 msgstr ""
 "``url`` がソースコードのアーカイブや wheel ファイルを指し示す場合には、 "
-"``archive_info`` キーが次のようなキーを持つ辞書の形で存在しなければなりませ"
-"ん:"
+"``archive_info`` "
+"キーが次のようなキーを持つ辞書の形で存在しなければなりません:"
 
 #: ../source/specifications/direct-url.rst:69
 msgid ""
 "A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
 "hex encoded digest of the file."
-msgstr ""
+msgstr "``hashes`` キーは、ハッシュ名から16進数表記のファイルハッシュ値への対応を保持"
+"する辞書として存在するべきです。"
 
 #: ../source/specifications/direct-url.rst:72
 msgid ""
@@ -16042,10 +16033,14 @@ msgid ""
 "to do with multiple hashes (it may validate all of them or a subset of them, "
 "or nothing at all)."
 msgstr ""
+"複数のハッシュ値を含めることが可能で、"
+"そのような複数のハッシュ値を使って何をするか (すべてのハッシュ値を検証しても"
+"一部だけを検証しても構いませんし、何もしなくても構いません) "
+"については利用する側次第です。"
 
 #: ../source/specifications/direct-url.rst:76
 msgid "These hash names SHOULD always be normalized to be lowercase."
-msgstr ""
+msgstr "これらのハッシュの名前は、常に小文字に正規化されているべきです。"
 
 #: ../source/specifications/direct-url.rst:78
 msgid ""
@@ -16055,12 +16050,21 @@ msgid ""
 "``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of "
 "writing, ``sha256`` specifically is recommended."
 msgstr ""
+"``hash lib`` 経由で利用可能なハッシュアルゴリズム (とりわけ、 ``hashlib."
+"new()`` に渡すことができて、かつ、追加的なパラメータを必要としないもの) "
+"はどれでも、ハッシュ値を格納する辞書のキーとして用いることができます。 "
+"``hashlib.algorithms_garanteed`` "
+"から安全なアルゴリズムを少なくともひとつ選択して "
+"(訳注、ハッシュ値格納用辞書に) 含めるべきです。執筆時点では、 ``sha256`` "
+"が特に推奨されています。"
 
 #: ../source/specifications/direct-url.rst:84
 msgid ""
 "A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
 "compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
 msgstr ""
+"非推奨となった ``hash`` キー (``string`` 型) は、後方互換性を保つ目的でなら "
+"``<hash-algorithm>=<expected-hash>`` を値に取る形で存在していても構いません。"
 
 #: ../source/specifications/direct-url.rst:87
 msgid ""
@@ -16069,6 +16073,10 @@ msgid ""
 "``hash`` key in contexts where they did so before, so as to keep backwards "
 "compatibility for existing clients."
 msgstr ""
+"データ構造を生成する側では、ひとつまたは複数のハッシュが利用できるなら "
+"``hashes`` キーを生成するべきです。以前からそうしていたので既存のクライアント"
+"のために後方互換性を保つためなら、生成側は ``hash`` "
+"キーの生成を継続するべきです。"
 
 #: ../source/specifications/direct-url.rst:91
 msgid ""
@@ -16077,6 +16085,10 @@ msgid ""
 "consumers can consider the ``hashes`` key only if it is present, and fall "
 "back to ``hash`` otherwise."
 msgstr ""
+"``hash`` と ``hashes`` の両方のキーが存在する時は、 ``hash`` "
+"キーの中に現れるハッシュは、 ``hashes`` の辞書の中にも存在しなければならず、"
+"そうすることで利用する側では ``hashes`` キーがあればそれだけを考慮し、"
+"なければ ``hash`` にフォールバックすることが可能になります。"
 
 #: ../source/specifications/direct-url.rst:95
 msgid ""
@@ -16393,7 +16405,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:317
 msgid "History"
-msgstr ""
+msgstr "歴史"
 
 #: ../source/specifications/direct-url.rst:319
 msgid ""
