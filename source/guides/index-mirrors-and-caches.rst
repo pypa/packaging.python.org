@@ -182,6 +182,28 @@ doesn't say anything about fall-through.
 * `Host Python packages on Gemfury <https://fury.co/l/pypi-server>`_
 * `Gemfure PyPI documentation <https://gemfury.com/help/pypi-server>`_
 
+Artifactory
+^^^^^^^^^^^
+
+Hosted and managed solution. Proxy (with caching) multiple package indexes, and
+host a new package index (supporting upload) with fall-through. Can be
+self-hosted (not for free).
+
+* `JFrog Artifactory <https://jfrog.com/artifactory/>`_
+* `PyPI Repositories on Artifactory documentation
+  <https://www.jfrog.com/confluence/display/JFROG/PyPI+Repositories>`_
+
+Nexus Repository Manager
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Hosted and managed solution. Proxy (with caching) multiple package indexes, and
+host a new package index (supporting upload) with fall-through.
+
+* `Sonatype Nexus repository
+  <https://www.sonatype.com/products/nexus-repository>`_
+* `PyPI documentation for Nexus
+  <https://help.sonatype.com/repomanager3/nexus-repository-administration/formats/pypi-repositories>`_
+
 GitLab Package Registry
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -191,13 +213,34 @@ optional fall-through, permissioning.
 * `GitLab documentation
   <https://docs.gitlab.com/ee/user/packages/pypi_repository/>`_
 
+AWS CodeArtifact
+^^^^^^^^^^^^^^^^
+
+Hosted and managed solution. Private package index with optional cached
+fall-through to PyPI.
+
+* `AWS CodeArtifact <https://aws.amazon.com/codeartifact/>`_
+* `Python packages on CodeArtifact documentation
+  <https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html>`_
+
 Azure Artifacts
 ^^^^^^^^^^^^^^^
 
-Hosted and managed solution. Private package index with optional
-fall-through.
+Hosted and managed solution. Private package index with optional fall-through.
 
-* `Azure documentation
+* `Azure Artifacts
+  <https://azure.microsoft.com/en-us/products/devops/artifacts/>`_
+* `Python packages on Azure Artifacts documentation
   <https://learn.microsoft.com/en-us/azure/devops/artifacts/quickstarts/python-packages>`_
+
+Google Artifact Registry
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Hosted and managed solution. Private package index with no fall-through nor
+mirroring.
+
+* `Google Artifact Registry <https://cloud.google.com/artifact-registry/>`_
+* `Python packages on Artifact Registry documentation
+  <https://cloud.google.com/artifact-registry/docs/python>`_
 
 .. _`AWS S3`: https://aws.amazon.com/s3/
