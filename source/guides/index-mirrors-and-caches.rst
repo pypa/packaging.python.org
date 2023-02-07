@@ -24,7 +24,8 @@ There are multiple classes of options in this area:
    original index.
 
 3. private package index with fall-through to public package indexes (for
-   example, to mitigate dependency confusion attacks).
+   example, to mitigate dependency confusion attacks), also known as a
+   proxy.
 
 
 Caching with pip
