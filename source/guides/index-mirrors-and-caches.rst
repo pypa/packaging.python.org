@@ -85,8 +85,6 @@ hosted on PyPI.
 Other package index servers
 ---------------------------
 
-In the following
-
 simpleindex
 ^^^^^^^^^^^
 
