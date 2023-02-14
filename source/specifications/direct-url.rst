@@ -299,10 +299,10 @@ Commands that generate a ``direct_url.json``:
 
 * ``pip install https://example.com/app-1.0.tgz``
 * ``pip install https://example.com/app-1.0.whl``
-* ``pip install "app&subdirectory=setup @ git+https://example.com/repo/app.git"``
+* ``pip install "app @ git+https://example.com/repo/app.git#subdirectory=setup"``
 * ``pip install ./app``
 * ``pip install file:///home/user/app``
-* ``pip install --editable "app&subdirectory=setup @ git+https://example.com/repo/app.git"``
+* ``pip install --editable "app @ git+https://example.com/repo/app.git#subdirectory=setup"``
   (in which case, ``url`` will be the local directory where the git repository has been
   cloned to, and ``dir_info`` will be present with ``"editable": true`` and no
   ``vcs_info`` will be set)
