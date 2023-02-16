@@ -292,13 +292,13 @@ specifying the extra in brackets:
 
     .. code-block:: bash
 
-        python3 -m pip install requests[security]
+        python3 -m pip install 'requests[security]'
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install requests[security]
+        py -m pip install "requests[security]"
 
 .. _extras:
     https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies
