@@ -349,7 +349,7 @@ example, you can install directly from a git repository:
 
 .. code-block:: bash
 
-    git+https://github.com/GoogleCloudPlatform/google-auth-library-python.git#egg=google-auth
+    google-auth @ git+https://github.com/GoogleCloudPlatform/google-auth-library-python.git
 
 For more information on supported version control systems and syntax, see pip's
 documentation on :ref:`VCS Support <pip:VCS Support>`.
