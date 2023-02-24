@@ -140,8 +140,8 @@ PyPI server, backed by GitHub or local files. No proxy or mirror.
 Python package index plugin for Pulp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Supports local/`AWS S3`_ mirrors, package upload, proxying to multiple indexes, no
-caching.
+Supports local/`AWS S3`_ mirrors, package upload, proxying to multiple indexes,
+no caching.
 
 * `pulp_python on PyPI <https://pypi.org/project/pulp-python/>`_
 * `pulp_python documentation <https://docs.pulpproject.org/pulp_python/>`_
@@ -225,7 +225,7 @@ host a new package index (supporting upload) with fall-through.
   <https://help.sonatype.com/repomanager3/nexus-repository-administration/formats/pypi-repositories>`_
 
 Coherent Minds PyPI Filter
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Hosted and managed solution. Only filters requests, redirecting to PyPI if not
 filtered, and blocking requests otherwise.
