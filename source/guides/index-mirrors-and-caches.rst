@@ -116,6 +116,27 @@ package indexes (including PyPI).
 * `pypiprivate source / documentation
   <https://github.com/helpshift/pypiprivate>`_
 
+PyPI Cloud
+^^^^^^^^^^
+
+PyPI server, backed by `AWS S3`_, another cloud storage service, or local
+files. Supports redirect/cached proxying, authentication and authorisation, no
+mirroring.
+
+* `PyPI Cloud on PyPI <https://pypi.org/project/pypicloud/>`_
+* `PyPI Cloud source <https://github.com/stevearc/pypicloud>`_
+* `PyPI Cloud documentation <https://pypicloud.readthedocs.io>`_
+
+pywharf
+^^^^^^^
+
+.. warning:: Not maintained, project archived
+
+PyPI server, backed by GitHub or local files. No proxy or mirror.
+
+* `pywharf on PyPI <https://pypi.org/project/pywharf/>`_
+* `pywharf source <https://github.com/pywharf/pywharf>`_
+
 Python package index plugin for Pulp
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -202,6 +223,14 @@ host a new package index (supporting upload) with fall-through.
   <https://www.sonatype.com/products/nexus-repository>`_
 * `PyPI documentation for Nexus
   <https://help.sonatype.com/repomanager3/nexus-repository-administration/formats/pypi-repositories>`_
+
+Coherent Minds PyPI Filter
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Hosted and managed solution. Only filters requests, redirecting to PyPI if not
+filtered, and blocking requests otherwise.
+
+* `Coherent Minds PyPI filter <https://pypi.coherentminds.de/redoc>`_
 
 GitLab Package Registry
 ^^^^^^^^^^^^^^^^^^^^^^^
