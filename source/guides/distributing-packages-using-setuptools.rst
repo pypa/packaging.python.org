@@ -693,7 +693,7 @@ you want "bar" installed from VCS in editable mode, then you could construct a
 requirements file like so::
 
   -e .
-  -e git+https://somerepo/bar.git#egg=bar
+  -e bar @ git+https://somerepo/bar.git
 
 The first line says to install your project and any dependencies. The second
 line overrides the "bar" dependency, such that it's fulfilled from VCS, not
