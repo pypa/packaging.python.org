@@ -612,10 +612,10 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 Installing from other sources
 =============================
 
-To install from other data sources (for example Amazon S3 storage) you can
-create a helper application that presents the data in a :pep:`503` compliant
-index format, and use the ``--extra-index-url`` flag to direct pip to use
-that index.
+To install from other data sources (for example Amazon S3 storage)
+you can create a helper application that presents the data
+in a format compliant with the :ref:`simple repository API <simple-repository-api>`:,
+and use the ``--extra-index-url`` flag to direct pip to use that index.
 
 .. code-block:: bash
 
