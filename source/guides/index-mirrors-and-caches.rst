@@ -89,8 +89,8 @@ simpleindex
 ^^^^^^^^^^^
 
 Routes URLs to multiple package indexes (including PyPI), serves local (or
-`AWS S3`_, with a plugin) directory of packages, no caching without custom
-plugins, no mirroring.
+cloud-hosted, for example `AWS S3`_, with a custom plugin) directory of
+packages, no caching without custom plugins, no mirroring.
 
 * `simpleindex on PyPI <https://pypi.org/project/simpleindex/>`_
 * `simpleindex source / documentation
