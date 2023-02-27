@@ -55,7 +55,7 @@ documentation for getting started`__.
 
 __ https://devpi.net/docs/devpi/devpi/latest/+d/quickstart-pypimirror.html
 
-devpi has additional funcionality, such as mirroring package indexes, running
+devpi has additional functionality, such as mirroring package indexes, running
 multiple indexes with a concept of inheritance, syncing between multiple
 servers, index replication and fail-over, and package upload.
 
