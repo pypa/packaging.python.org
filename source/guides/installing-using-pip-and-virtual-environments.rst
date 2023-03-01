@@ -31,7 +31,6 @@ installed.
     .. code-block:: bash
 
         python3 -m pip install --user --upgrade pip
-
         python3 -m pip --version
 
     Afterwards, you should have the latest version of pip installed in your
@@ -51,7 +50,6 @@ installed.
     .. code-block:: bat
 
         py -m pip install --upgrade pip
-
         py -m pip --version
 
     Afterwards, you should have the latest version of pip:
