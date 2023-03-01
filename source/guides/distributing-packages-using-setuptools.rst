@@ -72,7 +72,7 @@ sample project <https://github.com/pypa/sampleproject>`_.
 
 2. It's the command line interface for running various commands that
    relate to packaging tasks. To get a listing of available commands, run
-   ``python setup.py --help-commands``.
+   ``python3 setup.py --help-commands``.
 
 
 setup.cfg
@@ -677,7 +677,7 @@ Change directory to the root of the project directory and run:
 
 .. code-block:: bash
 
-   python -m pip install -e .
+   python3 -m pip install -e .
 
 
 The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
@@ -712,7 +712,7 @@ Lastly, if you don't want to install any dependencies at all, you can run:
 
 .. code-block:: bash
 
-   python -m pip install -e . --no-deps
+   python3 -m pip install -e . --no-deps
 
 
 For more information, see the
@@ -812,7 +812,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python -m build --wheel
+        python3 -m build --wheel
 
 .. tab:: Windows
 
