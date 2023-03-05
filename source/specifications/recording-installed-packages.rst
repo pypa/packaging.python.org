@@ -206,7 +206,7 @@ The entry_points.txt file
 =========================
 
 This file MAY be created by installers to indicate when packages contain
-components intended or discovery and use by other code, including console
+components intended for discovery and use by other code, including console
 scripts and other applications that the installer has made available for
 execution.
 
