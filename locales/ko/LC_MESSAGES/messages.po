@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 12:07+0000\n"
+"POT-Creation-Date: 2023-03-06 12:51+0000\n"
 "PO-Revision-Date: 2022-11-14 05:40+0000\n"
 "Last-Translator: Tanat <shrbwjd05@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -560,6 +560,7 @@ msgid "Contents"
 msgstr ""
 
 #: ../source/discussions/deploying-python-applications.rst:14
+#: ../source/specifications/platform-compatibility-tags.rst:21
 msgid "Overview"
 msgstr ""
 
@@ -7344,7 +7345,7 @@ msgid ""
 msgstr ""
 
 #: ../source/key_projects.rst:155
-#: ../source/specifications/platform-compatibility-tags.rst:85
+#: ../source/specifications/platform-compatibility-tags.rst:161
 msgid "pip"
 msgstr ""
 
@@ -9464,6 +9465,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:52
+#: ../source/specifications/platform-compatibility-tags.rst:46
 msgid "Details"
 msgstr ""
 
@@ -9638,6 +9640,7 @@ msgid "E.g. 'py27', 'py2', 'py3'."
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:141
+#: ../source/specifications/platform-compatibility-tags.rst:27
 msgid "abi tag"
 msgstr ""
 
@@ -9646,6 +9649,7 @@ msgid "E.g. 'cp33m', 'abi3', 'none'."
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:144
+#: ../source/specifications/platform-compatibility-tags.rst:30
 msgid "platform tag"
 msgstr ""
 
@@ -10014,6 +10018,7 @@ msgid "Wheel is a reference to the other Python."
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:352
+#: ../source/specifications/platform-compatibility-tags.rst:242
 msgid "FAQ"
 msgstr ""
 
@@ -12722,43 +12727,190 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:12
-msgid ""
-"The platform compatibility tagging model used for the ``wheel`` distribution "
-"format is defined in :pep:`425`."
+msgid "The following PEPs contributed to this spec:"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:14
+msgid ":pep:`425`"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:15
+msgid ":pep:`513`"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:16
-msgid "Platform tags for Windows"
+msgid ":pep:`571`"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:17
+msgid ":pep:`599`"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:18
-msgid ""
-"The scheme defined in :pep:`425` covers public distribution of wheel files "
-"to systems running Windows."
+msgid ":pep:`600`"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:22
-msgid "Platform tags for macOS (Mac OS X)"
+#: ../source/specifications/platform-compatibility-tags.rst:23
+msgid "The tag format is ``{python tag}-{abi tag}-{platform tag}``."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:24
-msgid ""
-"The scheme defined in :pep:`425` covers public distribution of wheel files "
-"to systems running macOS (previously known as Mac OS X)."
+#: ../source/specifications/platform-compatibility-tags.rst:25
+msgid "python tag"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:26
+msgid "'py27', 'cp33'"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:28
-msgid "Platform tags for common Linux distributions"
+msgid "'cp32dmu', 'none'"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:30
+msgid "'linux_x86_64', 'any'"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:32
 msgid ""
-"The scheme defined in :pep:`425` is insufficient for public distribution of "
+"For example, the tag ``py27-none-any`` indicates compatibility with Python "
+"2.7 (any Python 2.7 implementation) with no abi requirement, on any platform."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:36
+#: ../source/specifications/platform-compatibility-tags.rst:168
+msgid "Use"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:38
+msgid ""
+"The ``wheel`` built package format includes these tags in its filenames, of "
+"the form ``{distribution}-{version}(-{build tag})?-{python tag}-{abitag}-"
+"{platform tag}.whl``. Other package formats may have their own conventions."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:43
+msgid "Any potential spaces in any tag should be replaced with ``_``."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:49
+msgid "Python Tag"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:51
+msgid ""
+"The Python tag indicates the implementation and version required by a "
+"distribution.  Major implementations have abbreviated codes, initially:"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:54
+msgid "py: Generic Python (does not require implementation-specific features)"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:55
+msgid "cp: CPython"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:56
+msgid "ip: IronPython"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:57
+msgid "pp: PyPy"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:58
+msgid "jy: Jython"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:60
+msgid "Other Python implementations should use ``sys.implementation.name``."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:62
+msgid ""
+"The version is ``py_version_nodot``.  CPython gets away with no dot, but if "
+"one is needed the underscore ``_`` is used instead.  PyPy should probably "
+"use its own versions here ``pp18``, ``pp19``."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:66
+msgid ""
+"The version can be just the major version ``2`` or ``3`` ``py2``, ``py3`` "
+"for many pure-Python distributions."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:69
+msgid ""
+"Importantly, major-version-only tags like ``py2`` and ``py3`` are not "
+"shorthand for ``py20`` and ``py30``.  Instead, these tags mean the packager "
+"intentionally released a cross-version-compatible distribution."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:73
+msgid ""
+"A single-source Python 2/3 compatible distribution can use the compound tag "
+"``py2.py3``.  See `Compressed Tag Sets`_, below."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:77
+msgid "ABI Tag"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:79
+msgid ""
+"The ABI tag indicates which Python ABI is required by any included extension "
+"modules.  For implementation-specific ABIs, the implementation is "
+"abbreviated in the same way as the Python Tag, e.g. ``cp33d`` would be the "
+"CPython 3.3 ABI with debugging."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:84
+msgid "The CPython stable ABI is ``abi3`` as in the shared library suffix."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:86
+msgid ""
+"Implementations with a very unstable ABI may use the first 6 bytes (as 8 "
+"base64-encoded characters) of the SHA-256 hash of their source code revision "
+"and compiler flags, etc, but will probably not have a great need to "
+"distribute binary distributions. Each implementation's community may decide "
+"how to best use the ABI tag."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:93
+msgid "Platform Tag"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:95
+msgid ""
+"The platform tag is simply ``distutils.util.get_platform()`` with all "
+"hyphens ``-`` and periods ``.`` replaced with underscore ``_``."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:98
+msgid "win32"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:99
+msgid "linux_i386"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:100
+msgid "linux_x86_64"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:105
+msgid "``manylinux``"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:108
+msgid ""
+"The scheme defined in :pep:`425` was insufficient for public distribution of "
 "wheel files (and \\*nix wheel files in general) to Linux platforms, due to "
 "the large ecosystem of Linux platforms and subtle differences between them."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:36
+#: ../source/specifications/platform-compatibility-tags.rst:112
 msgid ""
 "Instead, :pep:`600` defines the ``manylinux`` standard, which represents a "
 "common subset of Linux platforms, and allows building wheels tagged with the "
@@ -12766,26 +12918,26 @@ msgid ""
 "distributions."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:41
+#: ../source/specifications/platform-compatibility-tags.rst:117
 msgid ""
 "There were multiple iterations of the ``manylinux`` specification, each "
 "representing the common subset of Linux platforms at a given point in time:"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:44
+#: ../source/specifications/platform-compatibility-tags.rst:120
 msgid ""
 "``manylinux1`` (:pep:`513`) supports ``x86_64`` and ``i686`` architectures, "
 "and is based on a compatible Linux platform from 2007."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:46
+#: ../source/specifications/platform-compatibility-tags.rst:122
 msgid ""
 "``manylinux2010`` (:pep:`571`) supports ``x86_64`` and ``i686`` "
 "architectures. and updates the previous specification to be based on a "
 "compatible Linux platform from 2010 instead."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:49
+#: ../source/specifications/platform-compatibility-tags.rst:125
 msgid ""
 "``manylinux2014`` (:pep:`599`) adds support for a number of additional "
 "architectures (``aarch64``, ``armv7l``, ``ppc64``, ``ppc64le``, and "
@@ -12793,7 +12945,7 @@ msgid ""
 "2014."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:54
+#: ../source/specifications/platform-compatibility-tags.rst:130
 msgid ""
 "``manylinux_x_y`` (:pep:`600`) supersedes all previous PEPs to define a "
 "future-proof standard. It defines ``x`` and ``y`` as glibc major an minor "
@@ -12801,7 +12953,7 @@ msgid ""
 "glibc 2.24+). Previous tags are still supported for backward compatibility."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:59
+#: ../source/specifications/platform-compatibility-tags.rst:135
 msgid ""
 "In general, distributions built for older versions of the specification are "
 "forwards-compatible (meaning that ``manylinux1`` distributions should "
@@ -12810,7 +12962,7 @@ msgid ""
 "that existed before 2010)."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:65
+#: ../source/specifications/platform-compatibility-tags.rst:141
 msgid ""
 "Package maintainers should attempt to target the most compatible "
 "specification possible, with the caveat that the provided build environment "
@@ -12818,98 +12970,332 @@ msgid ""
 "that these images will no longer receive security updates."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:71
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid "Manylinux compatibility support"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:74
+#: ../source/specifications/platform-compatibility-tags.rst:150
 msgid ""
 "The ``manylinux2014`` specification is relatively new and is not yet widely "
 "recognised by install tools."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:76
+#: ../source/specifications/platform-compatibility-tags.rst:152
 msgid ""
 "The ``manylinux_x_y`` specification is relatively new and is not yet widely "
 "recognised by install tools."
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:79
+#: ../source/specifications/platform-compatibility-tags.rst:155
 msgid ""
 "The following table shows the minimum versions of relevant projects to "
 "support the various ``manylinux`` standards:"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:83
+#: ../source/specifications/platform-compatibility-tags.rst:159
 msgid "Tool"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:83
+#: ../source/specifications/platform-compatibility-tags.rst:159
 msgid "``manylinux1``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:83
+#: ../source/specifications/platform-compatibility-tags.rst:159
 msgid "``manylinux2010``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:83
+#: ../source/specifications/platform-compatibility-tags.rst:159
 msgid "``manylinux2014``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:83
+#: ../source/specifications/platform-compatibility-tags.rst:159
 msgid "``manylinux_x_y``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:85
+#: ../source/specifications/platform-compatibility-tags.rst:161
 msgid "``>=8.1.0``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:85
+#: ../source/specifications/platform-compatibility-tags.rst:161
 msgid "``>=19.0``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:85
+#: ../source/specifications/platform-compatibility-tags.rst:161
 msgid "``>=19.3``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:85
+#: ../source/specifications/platform-compatibility-tags.rst:161
 msgid "``>=20.3``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:86
+#: ../source/specifications/platform-compatibility-tags.rst:162
 msgid "auditwheel"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:86
+#: ../source/specifications/platform-compatibility-tags.rst:162
 msgid "``>=1.0.0``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:86
+#: ../source/specifications/platform-compatibility-tags.rst:162
 msgid "``>=2.0.0``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:86
+#: ../source/specifications/platform-compatibility-tags.rst:162
 msgid "``>=3.0.0``"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:86
+#: ../source/specifications/platform-compatibility-tags.rst:162
 msgid "``>=3.3.0`` [#]_"
 msgstr ""
 
-#: ../source/specifications/platform-compatibility-tags.rst:90
-msgid "Platform tags for other \\*nix platforms"
-msgstr ""
-
-#: ../source/specifications/platform-compatibility-tags.rst:92
-msgid ""
-"The scheme defined in :pep:`425` is not generally sufficient for public "
-"distribution of wheel files to other \\*nix platforms. Efforts are currently "
-"(albeit intermittently) under way to define improved compatibility tagging "
-"schemes for AIX and for Alpine Linux."
-msgstr ""
-
-#: ../source/specifications/platform-compatibility-tags.rst:98
+#: ../source/specifications/platform-compatibility-tags.rst:165
 msgid "Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:170
+msgid ""
+"The tags are used by installers to decide which built distribution (if any) "
+"to download from a list of potential built distributions. The installer "
+"maintains a list of (pyver, abi, arch) tuples that it will support.  If the "
+"built distribution's tag is ``in`` the list, then it can be installed."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:176
+msgid ""
+"It is recommended that installers try to choose the most feature complete "
+"built distribution available (the one most specific to the installation "
+"environment) by default before falling back to pure Python versions "
+"published for older Python releases. Installers are also recommended to "
+"provide a way to configure and re-order the list of allowed compatibility "
+"tags; for example, a user might accept only the ``*-none-any`` tags to only "
+"download built packages that advertise themselves as being pure Python."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:184
+msgid ""
+"Another desirable installer feature might be to include \"re-compile from "
+"source if possible\" as more preferable than some of the compatible but "
+"legacy pre-built options."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:188
+msgid ""
+"This example list is for an installer running under CPython 3.3 on a "
+"linux_x86_64 system. It is in order from most-preferred (a distribution with "
+"a compiled extension module, built for the current version of Python) to "
+"least-preferred (a pure-Python distribution built with an older version of "
+"Python):"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:194
+msgid "cp33-cp33m-linux_x86_64"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:195
+msgid "cp33-abi3-linux_x86_64"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:196
+msgid "cp3-abi3-linux_x86_64"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:197
+msgid "cp33-none-linux_x86_64*"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:198
+msgid "cp3-none-linux_x86_64*"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:199
+msgid "py33-none-linux_x86_64*"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:200
+msgid "py3-none-linux_x86_64*"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:201
+msgid "cp33-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:202
+msgid "cp3-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:203
+msgid "py33-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:204
+msgid "py3-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:205
+msgid "py32-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:206
+msgid "py31-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:207
+msgid "py30-none-any"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:209
+msgid ""
+"Built distributions may be platform specific for reasons other than C "
+"extensions, such as by including a native executable invoked as a subprocess."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:213
+msgid ""
+"Sometimes there will be more than one supported built distribution for a "
+"particular version of a package.  For example, a packager could release a "
+"package tagged ``cp33-abi3-linux_x86_64`` that contains an optional C "
+"extension and the same distribution tagged ``py3-none-any`` that does not. "
+"The index of the tag in the supported tags list breaks the tie, and the "
+"package with the C extension is installed in preference to the package "
+"without because that tag appears first in the list."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:222
+msgid "Compressed Tag Sets"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:224
+msgid ""
+"To allow for compact filenames of bdists that work with more than one "
+"compatibility tag triple, each tag in a filename can instead be a '.'-"
+"separated, sorted, set of tags.  For example, pip, a pure-Python package "
+"that is written to run under Python 2 and 3 with the same source code, could "
+"distribute a bdist with the tag ``py2.py3-none-any``. The full list of "
+"simple tags is::"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:236
+msgid ""
+"A bdist format that implements this scheme should include the expanded tags "
+"in bdist-specific metadata.  This compression scheme can generate large "
+"numbers of unsupported tags and \"impossible\" tags that are supported by no "
+"Python implementation e.g. \"cp33-cp31u-win64\", so use it sparingly."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:249
+msgid "What tags are used by default?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:245
+msgid ""
+"Tools should use the most-preferred architecture dependent tag e.g. ``cp33-"
+"cp33m-win32`` or the most-preferred pure python tag e.g. ``py33-none-any`` "
+"by default.  If the packager overrides the default it indicates that they "
+"intended to provide cross-Python compatibility."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:259
+msgid ""
+"What tag do I use if my distribution uses a feature exclusive to the newest "
+"version of Python?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:252
+msgid ""
+"Compatibility tags aid installers in selecting the *most compatible* build "
+"of a *single version* of a distribution. For example, when there is no "
+"Python 3.3 compatible build of ``beaglevote-1.2.0`` (it uses a Python 3.4 "
+"exclusive feature) it may still use the ``py3-none-any`` tag instead of the "
+"``py34-none-any`` tag. A Python 3.3 user must combine other qualifiers, such "
+"as a requirement for the older release ``beaglevote-1.1.0`` that does not "
+"use the new feature, to get a compatible build."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:264
+msgid "Why isn't there a ``.`` in the Python version number?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:262
+msgid ""
+"CPython has lasted 20+ years without a 3-digit major release. This should "
+"continue for some time.  Other implementations may use _ as a delimiter, "
+"since both - and . delimit the surrounding filename."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:270
+msgid ""
+"Why normalise hyphens and other non-alphanumeric characters to underscores?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:267
+msgid ""
+"To avoid conflicting with the ``.`` and ``-`` characters that separate "
+"components of the filename, and for better compatibility with the widest "
+"range of filesystem limitations for filenames (including being usable in URL "
+"paths without quoting)."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:279
+msgid "Why not use special character <X> rather than ``.`` or ``-``?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:273
+msgid ""
+"Either because that character is inconvenient or potentially confusing in "
+"some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used to "
+"denote the user's home directory in POSIX), or because the advantages "
+"weren't sufficiently compelling to justify changing the existing reference "
+"implementation for the wheel format defined in :pep:427 (for example, using "
+"``,`` rather than ``.`` to separate components in a compressed tag)."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:284
+msgid "Who will maintain the registry of abbreviated implementations?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:282
+msgid ""
+"New two-letter abbreviations can be requested on the python-dev mailing "
+"list.  As a rule of thumb, abbreviations are reserved for the current 4 most "
+"prominent implementations."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:289
+msgid "Does the compatibility tag go into METADATA or PKG-INFO?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:287
+msgid ""
+"No.  The compatibility tag is part of the built distribution's metadata.  "
+"METADATA / PKG-INFO should be valid for an entire distribution, not a single "
+"build of that distribution."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:295
+msgid "Why didn't you mention my favorite Python implementation?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:292
+msgid ""
+"The abbreviated tags facilitate sharing compiled Python code in a public "
+"index.  Your Python implementation can use this specification too, but with "
+"longer tags. Recall that all \"pure Python\" built distributions just use "
+"``py``."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:301
+msgid ""
+"Why is the ABI tag (the second tag) sometimes \"none\" in the reference "
+"implementation?"
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:298
+msgid ""
+"Since Python 2 does not have an easy way to get to the SOABI (the concept "
+"comes from newer versions of Python 3) the reference implementation at the "
+"time of writing guesses \"none\".  Ideally it would detect \"py27(d|m|u)\" "
+"analogous to newer versions of Python, but in the meantime \"none\" is a "
+"good enough way to say \"don't know\"."
 msgstr ""
 
 #: ../source/specifications/pypirc.rst:6
