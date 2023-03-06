@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-14 20:56+0000\n"
+"POT-Creation-Date: 2023-03-06 12:07+0000\n"
 "PO-Revision-Date: 2022-10-22 01:10+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/pypa/"
@@ -519,7 +519,7 @@ msgstr ""
 #: ../source/guides/supporting-multiple-python-versions.rst:14
 #: ../source/guides/supporting-windows-using-appveyor.rst:17
 #: ../source/overview.rst:23 ../source/specifications/core-metadata.rst:41
-#: ../source/specifications/direct-url.rst:13
+#: ../source/specifications/direct-url.rst:14
 #: ../source/tutorials/installing-packages.rst:23
 msgid "Contents"
 msgstr ""
@@ -1819,7 +1819,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/specifications/dependency-specifiers.rst:27
-#: ../source/specifications/direct-url.rst:243
+#: ../source/specifications/direct-url.rst:244
 msgid "Examples"
 msgstr ""
 
@@ -9787,7 +9787,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:239
-#: ../source/specifications/recording-installed-packages.rst:35
+#: ../source/specifications/recording-installed-packages.rst:37
 msgid "The .dist-info directory"
 msgstr ""
 
@@ -10961,7 +10961,7 @@ msgstr ""
 
 #: ../source/specifications/declaring-project-metadata.rst:14
 #: ../source/specifications/dependency-specifiers.rst:24
-#: ../source/specifications/direct-url.rst:16
+#: ../source/specifications/direct-url.rst:17
 msgid "Specification"
 msgstr ""
 
@@ -11919,32 +11919,33 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:8
 msgid ""
-"This document specifies a :file:`direct_url.json` file in the :file:`*.dist-"
-"info` directory of an installed distribution, to record the Direct URL "
-"Origin of the distribution."
+"This document specifies a :file:`direct_url.json` file in the ``*.dist-"
+"info`` directory of an installed distribution, to record the Direct URL "
+"Origin of the distribution. The general structure and usage of ``*.dist-"
+"info`` directories is described in :ref:`recording-installed-packages`."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:18
+#: ../source/specifications/direct-url.rst:19
 msgid ""
 "The :file:`direct_url.json` file MUST be created in the :file:`*.dist-info` "
 "directory by installers when installing a distribution from a requirement "
 "specifying a direct URL reference (including a VCS URL)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:22
-#: ../source/specifications/recording-installed-packages.rst:206
+#: ../source/specifications/direct-url.rst:23
+#: ../source/specifications/recording-installed-packages.rst:222
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:25
+#: ../source/specifications/direct-url.rst:26
 msgid ""
 "This JSON file MUST be a dictionary, compliant with :rfc:`8259` and UTF-8 "
 "encoded."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:27
+#: ../source/specifications/direct-url.rst:28
 msgid ""
 "If present, it MUST contain at least two fields. The first one is ``url``, "
 "with type ``string``. Depending on what ``url`` refers to, the second field "
@@ -11955,32 +11956,32 @@ msgid ""
 "below."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:34
+#: ../source/specifications/direct-url.rst:35
 msgid ""
 "``url`` MUST be stripped of any sensitive authentication information, for "
 "security reasons."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:37
+#: ../source/specifications/direct-url.rst:38
 msgid ""
 "The user:password section of the URL MAY however be composed of environment "
 "variables, matching the following regular expression::"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:43
+#: ../source/specifications/direct-url.rst:44
 msgid ""
 "Additionally, the user:password section of the URL MAY be a well-known, non "
 "security sensitive string. A typical example is ``git`` in the case of an "
 "URL such as ``ssh://git@gitlab.com/user/repo``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:47
+#: ../source/specifications/direct-url.rst:48
 msgid ""
 "When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
 "present as a dictionary with the following keys:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:50
+#: ../source/specifications/direct-url.rst:51
 msgid ""
 "A ``vcs`` key (type ``string``) MUST be present, containing the name of the "
 "VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's SHOULD be "
@@ -11989,14 +11990,14 @@ msgid ""
 "off without transformation to a checkout/download command of the VCS."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:56
+#: ../source/specifications/direct-url.rst:57
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) to "
 "install."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:59
+#: ../source/specifications/direct-url.rst:60
 msgid ""
 "A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
 "commit/revision number that was installed. If the VCS supports commit-hash "
@@ -12005,30 +12006,30 @@ msgid ""
 "installed."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:66
+#: ../source/specifications/direct-url.rst:67
 msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following keys:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:69
+#: ../source/specifications/direct-url.rst:70
 msgid ""
 "A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
 "hex encoded digest of the file."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:72
+#: ../source/specifications/direct-url.rst:73
 msgid ""
 "Multiple hashes can be included, and it is up to the consumer to decide what "
 "to do with multiple hashes (it may validate all of them or a subset of them, "
 "or nothing at all)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:76
+#: ../source/specifications/direct-url.rst:77
 msgid "These hash names SHOULD always be normalized to be lowercase."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:78
+#: ../source/specifications/direct-url.rst:79
 msgid ""
 "Any hash algorithm available via ``hashlib`` (specifically any that can be "
 "passed to ``hashlib.new()`` and do not require additional parameters) can be "
@@ -12037,13 +12038,13 @@ msgid ""
 "writing, ``sha256`` specifically is recommended."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:84
+#: ../source/specifications/direct-url.rst:85
 msgid ""
 "A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
 "compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:87
+#: ../source/specifications/direct-url.rst:88
 msgid ""
 "Producers of the data structure SHOULD emit the ``hashes`` key whether one "
 "or multiple hashes are available. Producers SHOULD continue to emit the "
@@ -12051,7 +12052,7 @@ msgid ""
 "compatibility for existing clients."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:91
+#: ../source/specifications/direct-url.rst:92
 msgid ""
 "When both the ``hash`` and ``hashes`` keys are present, the hash represented "
 "in the ``hash`` key MUST also be present in the ``hashes`` dictionary, so "
@@ -12059,19 +12060,19 @@ msgid ""
 "back to ``hash`` otherwise."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:95
+#: ../source/specifications/direct-url.rst:96
 msgid ""
 "When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
 "present as a dictionary with the following key:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:98
+#: ../source/specifications/direct-url.rst:99
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was installed "
 "in editable mode, ``false`` otherwise. If absent, default to ``false``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:101
+#: ../source/specifications/direct-url.rst:102
 msgid ""
 "When ``url`` refers to a local directory, it MUST have the ``file`` sheme "
 "and be compliant with :rfc:`8089`. In particular, the path component must be "
@@ -12079,7 +12080,7 @@ msgid ""
 "absolute."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:108
+#: ../source/specifications/direct-url.rst:109
 msgid ""
 "When the requested URL has the file:// scheme and points to a local "
 "directory that happens to contain a VCS checkout, installers MUST NOT "
@@ -12087,14 +12088,14 @@ msgid ""
 "related information (such as ``vcs_info``) in :file:`direct_url.json`."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:113
+#: ../source/specifications/direct-url.rst:114
 msgid ""
 "A top-level ``subdirectory`` field MAY be present containing a directory "
 "path, relative to the root of the VCS repository, source archive or local "
 "directory, to specify where ``pyproject.toml`` or ``setup.py`` is located."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:119
+#: ../source/specifications/direct-url.rst:120
 msgid ""
 "As a general rule, installers should as much as possible preserve the "
 "information that was provided in the requested URL when generating :file:"
@@ -12104,11 +12105,11 @@ msgid ""
 "however *enriched* with more precise data, such as ``commit_id``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:127
+#: ../source/specifications/direct-url.rst:128
 msgid "Registered VCS"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:129
+#: ../source/specifications/direct-url.rst:130
 msgid ""
 "This section lists the registered VCS's; expanded, VCS-specific information "
 "on how to use the ``vcs``, ``requested_revision``, and other fields of "
@@ -12119,65 +12120,65 @@ msgid ""
 "VCS SHOULD be prefixed with the VCS command name."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:139
+#: ../source/specifications/direct-url.rst:140
 msgid "Git"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:141
-#: ../source/specifications/direct-url.rst:173
-#: ../source/specifications/direct-url.rst:196
-#: ../source/specifications/direct-url.rst:219
+#: ../source/specifications/direct-url.rst:142
+#: ../source/specifications/direct-url.rst:174
+#: ../source/specifications/direct-url.rst:197
+#: ../source/specifications/direct-url.rst:220
 msgid "Home page"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:143
+#: ../source/specifications/direct-url.rst:144
 msgid "https://git-scm.com/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:145
-#: ../source/specifications/direct-url.rst:177
-#: ../source/specifications/direct-url.rst:200
-#: ../source/specifications/direct-url.rst:223
+#: ../source/specifications/direct-url.rst:146
+#: ../source/specifications/direct-url.rst:178
+#: ../source/specifications/direct-url.rst:201
+#: ../source/specifications/direct-url.rst:224
 msgid "vcs command"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:147
-#: ../source/specifications/direct-url.rst:151
+#: ../source/specifications/direct-url.rst:148
+#: ../source/specifications/direct-url.rst:152
 msgid "git"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:149
-#: ../source/specifications/direct-url.rst:181
-#: ../source/specifications/direct-url.rst:204
-#: ../source/specifications/direct-url.rst:227
+#: ../source/specifications/direct-url.rst:150
+#: ../source/specifications/direct-url.rst:182
+#: ../source/specifications/direct-url.rst:205
+#: ../source/specifications/direct-url.rst:228
 msgid "``vcs`` field"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:153
-#: ../source/specifications/direct-url.rst:185
-#: ../source/specifications/direct-url.rst:208
-#: ../source/specifications/direct-url.rst:231
+#: ../source/specifications/direct-url.rst:154
+#: ../source/specifications/direct-url.rst:186
+#: ../source/specifications/direct-url.rst:209
+#: ../source/specifications/direct-url.rst:232
 msgid "``requested_revision`` field"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:155
+#: ../source/specifications/direct-url.rst:156
 msgid ""
 "A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
 "other commit-ish."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:158
-#: ../source/specifications/direct-url.rst:189
-#: ../source/specifications/direct-url.rst:212
-#: ../source/specifications/direct-url.rst:236
+#: ../source/specifications/direct-url.rst:159
+#: ../source/specifications/direct-url.rst:190
+#: ../source/specifications/direct-url.rst:213
+#: ../source/specifications/direct-url.rst:237
 msgid "``commit_id`` field"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:160
+#: ../source/specifications/direct-url.rst:161
 msgid "A commit hash (40 hexadecimal characters sha1)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:164
+#: ../source/specifications/direct-url.rst:165
 msgid ""
 "Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
@@ -12185,124 +12186,124 @@ msgid ""
 "with ``refs/remotes/origin/`` after cloning corresponds to a branch."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:171
+#: ../source/specifications/direct-url.rst:172
 msgid "Mercurial"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:175
+#: ../source/specifications/direct-url.rst:176
 msgid "https://www.mercurial-scm.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:179
-#: ../source/specifications/direct-url.rst:183
+#: ../source/specifications/direct-url.rst:180
+#: ../source/specifications/direct-url.rst:184
 msgid "hg"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:187
+#: ../source/specifications/direct-url.rst:188
 msgid "A tag name, branch name, changeset ID, shortened changeset ID."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:191
+#: ../source/specifications/direct-url.rst:192
 msgid "A changeset ID (40 hexadecimal characters)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:194
+#: ../source/specifications/direct-url.rst:195
 msgid "Bazaar"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:198
+#: ../source/specifications/direct-url.rst:199
 msgid "https://bazaar.canonical.com"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:202
-#: ../source/specifications/direct-url.rst:206
+#: ../source/specifications/direct-url.rst:203
+#: ../source/specifications/direct-url.rst:207
 msgid "bzr"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:210
+#: ../source/specifications/direct-url.rst:211
 msgid "A tag name, branch name, revision id."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:214
+#: ../source/specifications/direct-url.rst:215
 msgid "A revision id."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:217
+#: ../source/specifications/direct-url.rst:218
 msgid "Subversion"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:221
+#: ../source/specifications/direct-url.rst:222
 msgid "https://subversion.apache.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:225
-#: ../source/specifications/direct-url.rst:229
+#: ../source/specifications/direct-url.rst:226
+#: ../source/specifications/direct-url.rst:230
 msgid "svn"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:233
+#: ../source/specifications/direct-url.rst:234
 msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:238
+#: ../source/specifications/direct-url.rst:239
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:246
+#: ../source/specifications/direct-url.rst:247
 msgid "Example direct_url.json"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:248
+#: ../source/specifications/direct-url.rst:249
 msgid "Source archive:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:261
+#: ../source/specifications/direct-url.rst:262
 msgid "Git URL with tag and commit-hash:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:274
+#: ../source/specifications/direct-url.rst:275
 msgid "Local directory:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:283
+#: ../source/specifications/direct-url.rst:284
 msgid "Local directory installed in editable mode:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:296
+#: ../source/specifications/direct-url.rst:297
 msgid "Example pip commands and their effect on direct_url.json"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:298
+#: ../source/specifications/direct-url.rst:299
 msgid "Commands that generate a ``direct_url.json``:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:300
+#: ../source/specifications/direct-url.rst:301
 msgid "``pip install https://example.com/app-1.0.tgz``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:301
+#: ../source/specifications/direct-url.rst:302
 msgid "``pip install https://example.com/app-1.0.whl``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:302
+#: ../source/specifications/direct-url.rst:303
 msgid ""
 "``pip install \"app @ git+https://example.com/repo/app.git#subdirectory=setup"
 "\"``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:303
+#: ../source/specifications/direct-url.rst:304
 msgid "``pip install ./app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:304
+#: ../source/specifications/direct-url.rst:305
 msgid "``pip install file:///home/user/app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:305
+#: ../source/specifications/direct-url.rst:306
 msgid ""
 "``pip install --editable \"app @ git+https://example.com/repo/app."
 "git#subdirectory=setup\"`` (in which case, ``url`` will be the local "
@@ -12310,33 +12311,33 @@ msgid ""
 "be present with ``\"editable\": true`` and no ``vcs_info`` will be set)"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:309
+#: ../source/specifications/direct-url.rst:310
 msgid "``pip install -e ./app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:311
+#: ../source/specifications/direct-url.rst:312
 msgid "Commands that *do not* generate a ``direct_url.json``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:313
+#: ../source/specifications/direct-url.rst:314
 msgid "``pip install app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:314
+#: ../source/specifications/direct-url.rst:315
 msgid "``pip install app --no-index --find-links https://example.com/``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:317
+#: ../source/specifications/direct-url.rst:318
 msgid "History"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:319
+#: ../source/specifications/direct-url.rst:320
 msgid ""
 "March 2020: the ``direct_url.json`` metadata file was originally specified "
 "in :pep:`610` and is formally documented here."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:321
+#: ../source/specifications/direct-url.rst:322
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
 "discuss.python.org/t/22299>`__)."
@@ -12454,11 +12455,12 @@ msgstr ""
 msgid ""
 "Entry points are defined in a file called :file:`entry_points.txt` in the :"
 "file:`*.dist-info` directory of the distribution. This is the directory "
-"described in :pep:`376` for installed distributions, and in :pep:`427` for "
-"wheels.  The file uses the UTF-8 character encoding."
+"described in :ref:`recording-installed-packages` for installed "
+"distributions, and in :ref:`binary-distribution-format` for wheels. The file "
+"uses the UTF-8 character encoding."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:87
+#: ../source/specifications/entry-points.rst:88
 msgid ""
 "The file contents are in INI format, as read by Python's :mod:`configparser` "
 "module. However, configparser treats names as case-insensitive by default, "
@@ -12466,13 +12468,13 @@ msgid ""
 "can be made like this::"
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:97
+#: ../source/specifications/entry-points.rst:98
 msgid ""
 "The entry points file must always use ``=`` to delimit names from values "
 "(whereas configparser also allows using ``:``)."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:100
+#: ../source/specifications/entry-points.rst:101
 msgid ""
 "The sections of the config file represent entry point groups, the names are "
 "names, and the values encode both the object reference and the optional "
@@ -12480,7 +12482,7 @@ msgid ""
 "brackets."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:104
+#: ../source/specifications/entry-points.rst:105
 msgid ""
 "Within a value, readers must accept and ignore spaces (including multiple "
 "consecutive spaces) before or after the colon, between the object reference "
@@ -12492,15 +12494,15 @@ msgid ""
 "the left square bracket."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:113
+#: ../source/specifications/entry-points.rst:114
 msgid "For example::"
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:125
+#: ../source/specifications/entry-points.rst:126
 msgid "Use for scripts"
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:127
+#: ../source/specifications/entry-points.rst:128
 msgid ""
 "Two groups of entry points have special significance in packaging: "
 "``console_scripts`` and ``gui_scripts``. In both groups, the name of the "
@@ -12511,13 +12513,13 @@ msgid ""
 "is equivalent to returning ``0``."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:135
+#: ../source/specifications/entry-points.rst:136
 msgid ""
 "For instance, the entry point ``mycmd = mymod:main`` would create a command "
 "``mycmd`` launching a script like this::"
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:142
+#: ../source/specifications/entry-points.rst:143
 msgid ""
 "The difference between ``console_scripts`` and ``gui_scripts`` only affects "
 "Windows systems. ``console_scripts`` are wrapped in a console executable, so "
@@ -12528,7 +12530,7 @@ msgid ""
 "not have the same distinction."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:150
+#: ../source/specifications/entry-points.rst:151
 msgid ""
 "Install tools are expected to set up wrappers for both ``console_scripts`` "
 "and ``gui_scripts`` in the scripts directory of the install scheme. They are "
@@ -12536,12 +12538,41 @@ msgid ""
 "variable which defines where command-line tools are found."
 msgstr ""
 
-#: ../source/specifications/entry-points.rst:155
+#: ../source/specifications/entry-points.rst:156
 msgid ""
 "As files are created from the names, and some filesystems are case-"
 "insensitive, packages should avoid using names in these groups which differ "
 "only in case. The behaviour of install tools when names differ only in case "
 "is undefined."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:6
+msgid "Externally Managed Environments"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:8
+msgid ""
+"While some Python installations are entirely managed by the user that "
+"installed Python, others may be provided and managed by another means (such "
+"as the operating system package manager in a Linux distribution, or as a "
+"bundled Python environment in an application with a dedicated installer)."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:13
+msgid ""
+"Attempting to use conventional Python packaging tools to manipulate such "
+"environments can be confusing at best and outright break the entire "
+"underlying operating system at worst. Documentation and interoperability "
+"guides only go so far in resolving such problems."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:18
+msgid ""
+":pep:`668` defined an ``EXTERNALLY-MANAGED`` marker file that allows a "
+"Python installation to indicate to Python-specific tools such as ``pip`` "
+"that they neither install nor remove packages into the interpreter’s default "
+"installation environment, and should instead guide the end user towards "
+"using :ref:`virtual-environments`."
 msgstr ""
 
 #: ../source/specifications/index.rst:4
@@ -12560,11 +12591,15 @@ msgstr ""
 msgid "Package Distribution Metadata"
 msgstr ""
 
-#: ../source/specifications/index.rst:31
+#: ../source/specifications/index.rst:27
+msgid "Package Installation Environment Metadata"
+msgstr ""
+
+#: ../source/specifications/index.rst:39
 msgid "Package Distribution File Formats"
 msgstr ""
 
-#: ../source/specifications/index.rst:41
+#: ../source/specifications/index.rst:49
 msgid "Package Index Interfaces"
 msgstr ""
 
@@ -12971,26 +13006,29 @@ msgstr ""
 #: ../source/specifications/recording-installed-packages.rst:23
 msgid ""
 "The metadata described here was first specified in :pep:`376`, and later "
-"amended in :pep:`627`. It was formerly known as *Database of Installed "
-"Python Distributions*. Further amendments (except trivial language or "
-"typography fixes) must be made through the PEP process (see :pep:`1`)."
+"amended in :pep:`627` (and other PEPs). It was formerly known as *Database "
+"of Installed Python Distributions*. As with other PyPA specifications, "
+"editorial amendments with no functional impact may be made through the "
+"GitHub pull request workflow. Proposals for functional changes that would "
+"require amendments to package building and/or installation tools must be "
+"made through the PEP process (see :pep:`1`)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:29
+#: ../source/specifications/recording-installed-packages.rst:31
 msgid ""
-"While this document is the normative specification, these PEPs that "
-"introduce changes to it may include additional information such as "
-"rationales and backwards compatibility considerations."
+"While this document is the normative specification, the PEPs that introduce "
+"changes to it may include additional information such as rationales and "
+"backwards compatibility considerations."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:37
+#: ../source/specifications/recording-installed-packages.rst:39
 msgid ""
 "Each project installed from a distribution must, in addition to files, "
 "install a \"``.dist-info``\" directory located alongside importable modules "
 "and packages (commonly, the ``site-packages`` directory)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:41
+#: ../source/specifications/recording-installed-packages.rst:43
 msgid ""
 "This directory is named as ``{name}-{version}.dist-info``, with ``name`` and "
 "``version`` fields corresponding to :ref:`core-metadata`. Both fields must "
@@ -13001,7 +13039,7 @@ msgid ""
 "``) character in its stem, separating the ``name`` and ``version`` fields."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:50
+#: ../source/specifications/recording-installed-packages.rst:52
 msgid ""
 "Historically, tools have failed to replace dot characters or normalize case "
 "in the ``name`` field, or not perform normalization in the ``version`` "
@@ -13012,7 +13050,7 @@ msgid ""
 "existing tools are encouraged to start normalizing those fields."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:60
+#: ../source/specifications/recording-installed-packages.rst:62
 msgid ""
 "The ``.dist-info`` directory's name is formatted to unambigiously represent "
 "a distribution as a filesystem path. Tools presenting a distribution name to "
@@ -13024,33 +13062,41 @@ msgid ""
 "name when displaying distrubution information."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:69
+#: ../source/specifications/recording-installed-packages.rst:71
 msgid ""
-"This ``.dist-info`` directory can contain these files, described in detail "
-"below:"
-msgstr ""
-
-#: ../source/specifications/recording-installed-packages.rst:72
-msgid "``METADATA``: contains project metadata"
-msgstr ""
-
-#: ../source/specifications/recording-installed-packages.rst:73
-msgid "``RECORD``: records the list of installed files."
+"This ``.dist-info`` directory may contain the following files, described in "
+"detail below:"
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:74
+msgid "``METADATA``: contains project metadata"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:75
+msgid "``RECORD``: records the list of installed files."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:76
 msgid ""
 "``INSTALLER``: records the name of the tool used to install the project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:76
+#: ../source/specifications/recording-installed-packages.rst:77
+msgid "``entry_points.txt``: see :ref:`entry-points` for details"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:78
+msgid "``direct_url.json``: see :ref:`direct-url` for details"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:80
 msgid ""
 "The ``METADATA`` file is mandatory. All other files may be omitted at the "
 "installing tool's discretion. Additional installer-specific files may be "
 "present."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:82
+#: ../source/specifications/recording-installed-packages.rst:86
 msgid ""
 "The :ref:`binary-distribution-format` specification describes additional "
 "files that may appear in the ``.dist-info`` directory of a :term:`Wheel`. "
@@ -13058,7 +13104,7 @@ msgid ""
 "project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:87
+#: ../source/specifications/recording-installed-packages.rst:91
 msgid ""
 "The previous versions of this specification also specified a ``REQUESTED`` "
 "file. This file is now considered a tool-specific extension, but may be "
@@ -13066,58 +13112,58 @@ msgid ""
 "peps/pep-0376/#requested>`_ for its original meaning."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:94
+#: ../source/specifications/recording-installed-packages.rst:98
 msgid "The METADATA file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:96
+#: ../source/specifications/recording-installed-packages.rst:100
 msgid ""
 "The ``METADATA`` file contains metadata as described in the :ref:`core-"
 "metadata` specification, version 1.1 or greater."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:99
+#: ../source/specifications/recording-installed-packages.rst:103
 msgid ""
 "The ``METADATA`` file is mandatory. If it cannot be created, or if required "
 "core metadata is not available, installers must report an error and fail to "
 "install the project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:105
+#: ../source/specifications/recording-installed-packages.rst:109
 msgid "The RECORD file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:107
+#: ../source/specifications/recording-installed-packages.rst:111
 msgid ""
 "The ``RECORD`` file holds the list of installed files. It is a CSV file "
 "containing one record (line) per installed file."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:110
+#: ../source/specifications/recording-installed-packages.rst:114
 msgid ""
 "The CSV dialect must be readable with the default ``reader`` of Python's "
 "``csv`` module:"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:113
+#: ../source/specifications/recording-installed-packages.rst:117
 msgid "field delimiter: ``,`` (comma),"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:114
+#: ../source/specifications/recording-installed-packages.rst:118
 msgid "quoting char: ``\"`` (straight double quote),"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:115
+#: ../source/specifications/recording-installed-packages.rst:119
 msgid "line terminator: either ``\\r\\n`` or ``\\n``."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:117
+#: ../source/specifications/recording-installed-packages.rst:121
 msgid ""
 "Each record is composed of three elements: the file's **path**, the **hash** "
 "of the contents, and its **size**."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:120
+#: ../source/specifications/recording-installed-packages.rst:124
 msgid ""
 "The *path* may be either absolute, or relative to the directory containing "
 "the ``.dist-info`` directory (commonly, the ``site-packages`` directory). On "
@@ -13125,7 +13171,7 @@ msgid ""
 "`` or ``\\``)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:125
+#: ../source/specifications/recording-installed-packages.rst:129
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from "
 "``hashlib.algorithms_guaranteed``, followed by the equals character ``=`` "
@@ -13133,13 +13179,13 @@ msgid ""
 "encoding (``base64.urlsafe_b64encode(digest)`` with trailing ``=`` removed)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:130
+#: ../source/specifications/recording-installed-packages.rst:134
 msgid ""
 "The *size* is either the empty string, or file's size in bytes, as a base 10 "
 "integer."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:133
+#: ../source/specifications/recording-installed-packages.rst:137
 msgid ""
 "For any file, either or both of the *hash* and *size* fields may be left "
 "empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself "
@@ -13148,7 +13194,7 @@ msgid ""
 "project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:139
+#: ../source/specifications/recording-installed-packages.rst:143
 msgid ""
 "If the ``RECORD`` file is present, it must list all installed files of the "
 "project, except ``.pyc`` files corresponding to ``.py`` files listed in "
@@ -13157,30 +13203,30 @@ msgid ""
 "should not be listed."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:146
+#: ../source/specifications/recording-installed-packages.rst:150
 msgid ""
 "To completely uninstall a package, a tool needs to remove all files listed "
 "in ``RECORD``, all ``.pyc`` files (of all optimization levels) corresponding "
 "to removed ``.py`` files, and any directories emptied by the uninstallation."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:151
+#: ../source/specifications/recording-installed-packages.rst:155
 msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:170
+#: ../source/specifications/recording-installed-packages.rst:174
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
-"not attempt to uninstall or upgrade the package. (This does not apply to "
-"tools that rely on other sources of information, such as system package "
-"managers in Linux distros.)"
+"not attempt to uninstall or upgrade the package. (This restriction does not "
+"apply to tools that rely on other sources of information, such as system "
+"package managers in Linux distros.)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:177
+#: ../source/specifications/recording-installed-packages.rst:181
 msgid "The INSTALLER file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:179
+#: ../source/specifications/recording-installed-packages.rst:183
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -13188,15 +13234,15 @@ msgid ""
 "a printable ASCII string."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:185
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:187
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:195
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -13204,18 +13250,82 @@ msgid ""
 "uninstallation."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:201
+#: ../source/specifications/recording-installed-packages.rst:206
+msgid "The entry_points.txt file"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:208
+msgid ""
+"This file MAY be created by installers to indicate when packages contain "
+"components intended for discovery and use by other code, including console "
+"scripts and other applications that the installer has made available for "
+"execution."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:213
+msgid "Its detailed specification is at :ref:`entry-points`."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:217
 msgid "The direct_url.json file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:203
+#: ../source/specifications/recording-installed-packages.rst:219
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:209
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "Its detailed specification is at :ref:`direct-url`."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:229
+msgid "Intentionally preventing changes to installed packages"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:231
+msgid ""
+"In some cases (such as when needing to manage external dependencies in "
+"addition to Python ecosystem dependencies), it is desirable for a tool that "
+"installs packages into a Python environment to ensure that other tools are "
+"not used to uninstall or otherwise modify that installed package, as doing "
+"so may cause compatibility problems with the wider environment."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:237
+msgid "To achieve this, affected tools should take the folllowing steps:"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:239
+msgid ""
+"Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
+"g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
+"tool itself needs the information, or omitting the file entirely if the "
+"package contents are tracked and managed via other means)"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:243
+msgid ""
+"Write an ``INSTALLER`` file indicating the name of the tool that should be "
+"used to manage the package (this allows ``RECORD``-aware tools to provide "
+"better error notices when asked to modify affected packages)"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:247
+msgid ""
+"Python runtime providers may also prevent inadvertent modification of "
+"platform provided packages by modifying the default Python package "
+"installation scheme to use a location other than that used by platform "
+"provided packages (while also ensuring both locations appear on the default "
+"Python import path)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:252
+msgid ""
+"In some circumstances, it may be desirable to block even installation of "
+"additional packages via Python-specific tools. For these cases refer to :ref:"
+"`externally-managed-environments`"
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:6
@@ -13350,6 +13460,75 @@ msgstr ""
 msgid ""
 "The version specifiers section in this PEP supersedes the version specifiers "
 "section in :pep:`345`."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:6
+msgid "Python Virtual Environments"
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:8
+msgid ""
+"For Python 3.3 and later versions, :pep:`405` introduced interpreter level "
+"support for the concept of \"Python Virtual Environments\". Each virtual "
+"environment has its own Python binary (allowing creation of environments "
+"with various Python versions) and can have its own independent set of "
+"installed Python packages in its site directories, but shares the standard "
+"library with the base installed Python. While the concept of virtual "
+"environments existed prior to this update, there was no previously "
+"standardised mechanism for declaring or discovering them."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:18
+msgid "Runtime detection of virtual environments"
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:20
+msgid ""
+"At runtime, virtual environments can be identified by virtue of ``sys."
+"prefix`` (the filesystem location of the running interpreter) having a "
+"different value from ``sys.base_prefix`` (the default filesytem location of "
+"the standard library directories)."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:25
+msgid ""
+":ref:`venv-explanation` in the Python standard library documentation for "
+"the :py:mod:`venv` module covers this along with the concept of \"activating"
+"\" a virtual environment in an interactive operating system shell (this "
+"activation step is optional and hence the changes it makes can't be reliably "
+"used to detect whether a Python program is running in a virtual environment "
+"or not)."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:33
+msgid "Declaring installation environments as Python virtual environments"
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:35
+msgid ""
+"As described in :pep:`405`, a Python virtual environment in its simplest "
+"form consists of nothing more than a copy or symlink of the Python binary "
+"accompanied by a ``site-packages`` directory and a ``pyvenv.cfg`` file with "
+"a ``home`` key that indicates where to find the Python standard library "
+"modules."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:40
+msgid ""
+"While designed to meet the needs of the standard :py:mod:`venv` module, this "
+"split installation and ``pyvenv.cfg`` file approach can be used by *any* "
+"Python installation provider that desires Python-specific tools to be aware "
+"that they are already operating in a virtual environment and no further "
+"environment nesting is required or desired."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:46
+msgid ""
+"Even in the absence of a ``pyvenv.cfg`` file, any approach (e.g. "
+"``sitecustomize.py``, patching the installed Python runtime) that results in "
+"``sys.prefix`` and ``sys.base_prefix`` having different values, while still "
+"providing a matching default package installation scheme in ``sysconfig``, "
+"will be detected and behave as a Python virtual environment."
 msgstr ""
 
 #: ../source/support.rst:3

@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-14 20:56+0000\n"
+"POT-Creation-Date: 2023-03-06 12:07+0000\n"
 "PO-Revision-Date: 2023-02-15 07:52+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -643,7 +643,7 @@ msgstr "2021-8-24"
 #: ../source/guides/supporting-multiple-python-versions.rst:14
 #: ../source/guides/supporting-windows-using-appveyor.rst:17
 #: ../source/overview.rst:23 ../source/specifications/core-metadata.rst:41
-#: ../source/specifications/direct-url.rst:13
+#: ../source/specifications/direct-url.rst:14
 #: ../source/tutorials/installing-packages.rst:23
 msgid "Contents"
 msgstr "内容"
@@ -2374,7 +2374,7 @@ msgstr "説明"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/specifications/dependency-specifiers.rst:27
-#: ../source/specifications/direct-url.rst:243
+#: ../source/specifications/direct-url.rst:244
 msgid "Examples"
 msgstr "例"
 
@@ -13056,7 +13056,7 @@ msgstr ""
 "します。"
 
 #: ../source/specifications/binary-distribution-format.rst:239
-#: ../source/specifications/recording-installed-packages.rst:35
+#: ../source/specifications/recording-installed-packages.rst:37
 msgid "The .dist-info directory"
 msgstr ".dist-info ディレクトリ"
 
@@ -14633,7 +14633,7 @@ msgstr ""
 
 #: ../source/specifications/declaring-project-metadata.rst:14
 #: ../source/specifications/dependency-specifiers.rst:24
-#: ../source/specifications/direct-url.rst:16
+#: ../source/specifications/direct-url.rst:17
 msgid "Specification"
 msgstr "仕様"
 
@@ -15882,16 +15882,22 @@ msgid "Recording the Direct URL Origin of installed distributions"
 msgstr "インストールされた配布物の配布元へ直接アクセスする URL を記録する"
 
 #: ../source/specifications/direct-url.rst:8
+#, fuzzy
+#| msgid ""
+#| "This document specifies a :file:`direct_url.json` file in the :file:`*."
+#| "dist-info` directory of an installed distribution, to record the Direct "
+#| "URL Origin of the distribution."
 msgid ""
-"This document specifies a :file:`direct_url.json` file in the :file:`*.dist-"
-"info` directory of an installed distribution, to record the Direct URL "
-"Origin of the distribution."
+"This document specifies a :file:`direct_url.json` file in the ``*.dist-"
+"info`` directory of an installed distribution, to record the Direct URL "
+"Origin of the distribution. The general structure and usage of ``*.dist-"
+"info`` directories is described in :ref:`recording-installed-packages`."
 msgstr ""
 "この説明文書では、インストール済みの配布物の :file:`*.dist-info` ディレクトリ"
 "にある :file:`direct_url.json` ファイルによって配布物の配布元へ直接アクセスす"
 "る URL を記録する方法を指定します。"
 
-#: ../source/specifications/direct-url.rst:18
+#: ../source/specifications/direct-url.rst:19
 msgid ""
 "The :file:`direct_url.json` file MUST be created in the :file:`*.dist-info` "
 "directory by installers when installing a distribution from a requirement "
@@ -15901,8 +15907,8 @@ msgstr ""
 "を含む) 参照 URL からインストールしている時に、インストーラによって :file:`*."
 "dist-info` ディレクトリに生成されなければなりません。"
 
-#: ../source/specifications/direct-url.rst:22
-#: ../source/specifications/recording-installed-packages.rst:206
+#: ../source/specifications/direct-url.rst:23
+#: ../source/specifications/recording-installed-packages.rst:222
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
@@ -15910,7 +15916,7 @@ msgstr ""
 "他のタイプの要求事項 (すなわち、名前とバージョン指定子) から配布物をインス"
 "トールする際には、このファイルを生成してはなりません。"
 
-#: ../source/specifications/direct-url.rst:25
+#: ../source/specifications/direct-url.rst:26
 msgid ""
 "This JSON file MUST be a dictionary, compliant with :rfc:`8259` and UTF-8 "
 "encoded."
@@ -15918,7 +15924,7 @@ msgstr ""
 "この JSON ファイルは、:rfc:`8259` を満足する辞書になっていて、かつ、 UTF-8 エ"
 "ンコーディングでなければなりません。"
 
-#: ../source/specifications/direct-url.rst:27
+#: ../source/specifications/direct-url.rst:28
 msgid ""
 "If present, it MUST contain at least two fields. The first one is ``url``, "
 "with type ``string``. Depending on what ``url`` refers to, the second field "
@@ -15937,7 +15943,7 @@ msgstr ""
 "なりません。これらの情報フィールドは、以下に定義する取り得るキーと共に、 (空"
 "であることも可能ですが) サブディレクトリを値に取ります。"
 
-#: ../source/specifications/direct-url.rst:34
+#: ../source/specifications/direct-url.rst:35
 msgid ""
 "``url`` MUST be stripped of any sensitive authentication information, for "
 "security reasons."
@@ -15945,7 +15951,7 @@ msgstr ""
 "``url`` は、セキュリティ上の理由から、機微に関わる認証情報をすべて削除してお"
 "かなければなりません。"
 
-#: ../source/specifications/direct-url.rst:37
+#: ../source/specifications/direct-url.rst:38
 msgid ""
 "The user:password section of the URL MAY however be composed of environment "
 "variables, matching the following regular expression::"
@@ -15953,7 +15959,7 @@ msgstr ""
 "しかしながら、次に述べる正規表現に合致する形で URL の user:password の部分を"
 "環境変数から構成しても構いません::"
 
-#: ../source/specifications/direct-url.rst:43
+#: ../source/specifications/direct-url.rst:44
 msgid ""
 "Additionally, the user:password section of the URL MAY be a well-known, non "
 "security sensitive string. A typical example is ``git`` in the case of an "
@@ -15963,7 +15969,7 @@ msgstr ""
 "文字列であっても構いません。典型的な例としては、 ``ssh://git@gitlab.com/user/"
 "repo`` のような URL における ``git`` を挙げることができます。"
 
-#: ../source/specifications/direct-url.rst:47
+#: ../source/specifications/direct-url.rst:48
 msgid ""
 "When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
 "present as a dictionary with the following keys:"
@@ -15971,7 +15977,7 @@ msgstr ""
 "``url`` が VCS リポジトリを参照している場合、 以下のキー群を伴った "
 "``vcs_info`` キーが辞書に存在していなければなりません:"
 
-#: ../source/specifications/direct-url.rst:50
+#: ../source/specifications/direct-url.rst:51
 msgid ""
 "A ``vcs`` key (type ``string``) MUST be present, containing the name of the "
 "VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's SHOULD be "
@@ -15986,7 +15992,7 @@ msgstr ""
 "手を離してしまえるようにするために、 ``url`` の値は対応する VCS と齟齬のない"
 "ものでなければなりません。"
 
-#: ../source/specifications/direct-url.rst:56
+#: ../source/specifications/direct-url.rst:57
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) to "
@@ -15996,7 +16002,7 @@ msgstr ""
 "ンス・コミット・リビジョンその他をインストールするのかを指定するために存在し"
 "ていても構いません。"
 
-#: ../source/specifications/direct-url.rst:59
+#: ../source/specifications/direct-url.rst:60
 msgid ""
 "A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
 "commit/revision number that was installed. If the VCS supports commit-hash "
@@ -16010,7 +16016,7 @@ msgstr ""
 "ドの不変のバージョンを指し示す目的で、そのようなコミットハッシュを "
 "``commit_id`` として使わなければなりません。"
 
-#: ../source/specifications/direct-url.rst:66
+#: ../source/specifications/direct-url.rst:67
 msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following keys:"
@@ -16019,7 +16025,7 @@ msgstr ""
 "``archive_info`` キーが次のようなキーを持つ辞書の形で存在しなければなりませ"
 "ん:"
 
-#: ../source/specifications/direct-url.rst:69
+#: ../source/specifications/direct-url.rst:70
 msgid ""
 "A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
 "hex encoded digest of the file."
@@ -16027,7 +16033,7 @@ msgstr ""
 "``hashes`` キーは、ハッシュ名から16進数表記のファイルハッシュ値への対応を保持"
 "する辞書として存在するべきです。"
 
-#: ../source/specifications/direct-url.rst:72
+#: ../source/specifications/direct-url.rst:73
 msgid ""
 "Multiple hashes can be included, and it is up to the consumer to decide what "
 "to do with multiple hashes (it may validate all of them or a subset of them, "
@@ -16037,11 +16043,11 @@ msgstr ""
 "するか (すべてのハッシュ値を検証しても一部だけを検証しても構いませんし、何も"
 "しなくても構いません) については利用する側次第です。"
 
-#: ../source/specifications/direct-url.rst:76
+#: ../source/specifications/direct-url.rst:77
 msgid "These hash names SHOULD always be normalized to be lowercase."
 msgstr "これらのハッシュの名前は、常に小文字に正規化されているべきです。"
 
-#: ../source/specifications/direct-url.rst:78
+#: ../source/specifications/direct-url.rst:79
 msgid ""
 "Any hash algorithm available via ``hashlib`` (specifically any that can be "
 "passed to ``hashlib.new()`` and do not require additional parameters) can be "
@@ -16056,7 +16062,7 @@ msgstr ""
 "注、ハッシュ値格納用辞書に) 含めるべきです。執筆時点では、 ``sha256`` が特に"
 "推奨されています。"
 
-#: ../source/specifications/direct-url.rst:84
+#: ../source/specifications/direct-url.rst:85
 msgid ""
 "A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
 "compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
@@ -16064,7 +16070,7 @@ msgstr ""
 "非推奨となった ``hash`` キー (``string`` 型) は、後方互換性を保つ目的でなら "
 "``<hash-algorithm>=<expected-hash>`` を値に取る形で存在していても構いません。"
 
-#: ../source/specifications/direct-url.rst:87
+#: ../source/specifications/direct-url.rst:88
 msgid ""
 "Producers of the data structure SHOULD emit the ``hashes`` key whether one "
 "or multiple hashes are available. Producers SHOULD continue to emit the "
@@ -16076,7 +16082,7 @@ msgstr ""
 "のために後方互換性を保つためなら、生成側は ``hash`` キーの生成を継続するべき"
 "です。"
 
-#: ../source/specifications/direct-url.rst:91
+#: ../source/specifications/direct-url.rst:92
 msgid ""
 "When both the ``hash`` and ``hashes`` keys are present, the hash represented "
 "in the ``hash`` key MUST also be present in the ``hashes`` dictionary, so "
@@ -16088,7 +16094,7 @@ msgstr ""
 "用する側では ``hashes`` キーがあればそれだけを考慮し、なければ ``hash`` に"
 "フォールバックすることが可能になります。"
 
-#: ../source/specifications/direct-url.rst:95
+#: ../source/specifications/direct-url.rst:96
 msgid ""
 "When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
 "present as a dictionary with the following key:"
@@ -16096,7 +16102,7 @@ msgstr ""
 "``url`` がローカルのディレクトリを参照している場合には、以下のキーを含む辞書"
 "として ``dir_info`` キーが存在していなければなりません。"
 
-#: ../source/specifications/direct-url.rst:98
+#: ../source/specifications/direct-url.rst:99
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was installed "
 "in editable mode, ``false`` otherwise. If absent, default to ``false``."
@@ -16105,7 +16111,7 @@ msgstr ""
 "場合には ``true`` 、そうでなければ ``false`` 。存在していない場合のデフォルト"
 "は ``false`` です。"
 
-#: ../source/specifications/direct-url.rst:101
+#: ../source/specifications/direct-url.rst:102
 msgid ""
 "When ``url`` refers to a local directory, it MUST have the ``file`` sheme "
 "and be compliant with :rfc:`8089`. In particular, the path component must be "
@@ -16117,7 +16123,7 @@ msgstr ""
 "ません。相対パスを絶対パスに変換する際には、シンボリックリンクはそのまま保存"
 "されるべきです。"
 
-#: ../source/specifications/direct-url.rst:108
+#: ../source/specifications/direct-url.rst:109
 msgid ""
 "When the requested URL has the file:// scheme and points to a local "
 "directory that happens to contain a VCS checkout, installers MUST NOT "
@@ -16129,7 +16135,7 @@ msgstr ""
 "報をも推定してはならず、従って、いかなる (``vcs_info`` のような) VCS 関連情報"
 "をも :file:`direct_url.json` に出力してはなりません。"
 
-#: ../source/specifications/direct-url.rst:113
+#: ../source/specifications/direct-url.rst:114
 msgid ""
 "A top-level ``subdirectory`` field MAY be present containing a directory "
 "path, relative to the root of the VCS repository, source archive or local "
@@ -16140,7 +16146,7 @@ msgstr ""
 "アーカイブやローカルのディレクトリのルートディレクトリに対する相対パスとして"
 "示したディレクトリパスを値とするものとして存在することが許されています。"
 
-#: ../source/specifications/direct-url.rst:119
+#: ../source/specifications/direct-url.rst:120
 msgid ""
 "As a general rule, installers should as much as possible preserve the "
 "information that was provided in the requested URL when generating :file:"
@@ -16156,11 +16162,11 @@ msgstr ""
 "極力そのまま反映するべきです。しかしながら、この情報は (``commit_id`` のよう"
 "な) もっと精密なデータを使って *精製* されます。"
 
-#: ../source/specifications/direct-url.rst:127
+#: ../source/specifications/direct-url.rst:128
 msgid "Registered VCS"
 msgstr "登録済みの VCS"
 
-#: ../source/specifications/direct-url.rst:129
+#: ../source/specifications/direct-url.rst:130
 msgid ""
 "This section lists the registered VCS's; expanded, VCS-specific information "
 "on how to use the ``vcs``, ``requested_revision``, and other fields of "
@@ -16179,48 +16185,48 @@ msgstr ""
 "ポートするのに必要であると思われるその他のフィールドについては、当該 VCS のコ"
 "マンド名で始まる名前にするべきです。"
 
-#: ../source/specifications/direct-url.rst:139
+#: ../source/specifications/direct-url.rst:140
 msgid "Git"
 msgstr "Git"
 
-#: ../source/specifications/direct-url.rst:141
-#: ../source/specifications/direct-url.rst:173
-#: ../source/specifications/direct-url.rst:196
-#: ../source/specifications/direct-url.rst:219
+#: ../source/specifications/direct-url.rst:142
+#: ../source/specifications/direct-url.rst:174
+#: ../source/specifications/direct-url.rst:197
+#: ../source/specifications/direct-url.rst:220
 msgid "Home page"
 msgstr "ホームページ"
 
-#: ../source/specifications/direct-url.rst:143
+#: ../source/specifications/direct-url.rst:144
 msgid "https://git-scm.com/"
 msgstr "https://git-scm.com/"
 
-#: ../source/specifications/direct-url.rst:145
-#: ../source/specifications/direct-url.rst:177
-#: ../source/specifications/direct-url.rst:200
-#: ../source/specifications/direct-url.rst:223
+#: ../source/specifications/direct-url.rst:146
+#: ../source/specifications/direct-url.rst:178
+#: ../source/specifications/direct-url.rst:201
+#: ../source/specifications/direct-url.rst:224
 msgid "vcs command"
 msgstr "vcs コマンド"
 
-#: ../source/specifications/direct-url.rst:147
-#: ../source/specifications/direct-url.rst:151
+#: ../source/specifications/direct-url.rst:148
+#: ../source/specifications/direct-url.rst:152
 msgid "git"
 msgstr "git"
 
-#: ../source/specifications/direct-url.rst:149
-#: ../source/specifications/direct-url.rst:181
-#: ../source/specifications/direct-url.rst:204
-#: ../source/specifications/direct-url.rst:227
+#: ../source/specifications/direct-url.rst:150
+#: ../source/specifications/direct-url.rst:182
+#: ../source/specifications/direct-url.rst:205
+#: ../source/specifications/direct-url.rst:228
 msgid "``vcs`` field"
 msgstr "``vcs`` フィールド"
 
-#: ../source/specifications/direct-url.rst:153
-#: ../source/specifications/direct-url.rst:185
-#: ../source/specifications/direct-url.rst:208
-#: ../source/specifications/direct-url.rst:231
+#: ../source/specifications/direct-url.rst:154
+#: ../source/specifications/direct-url.rst:186
+#: ../source/specifications/direct-url.rst:209
+#: ../source/specifications/direct-url.rst:232
 msgid "``requested_revision`` field"
 msgstr "``requested_revision`` フィールド"
 
-#: ../source/specifications/direct-url.rst:155
+#: ../source/specifications/direct-url.rst:156
 msgid ""
 "A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
 "other commit-ish."
@@ -16228,18 +16234,18 @@ msgstr ""
 "タグ名・ブランチ名・Git 参照・コミットハッシュ・短縮型コミットハッシュ・その"
 "他のコミットハッシュ的なもの。"
 
-#: ../source/specifications/direct-url.rst:158
-#: ../source/specifications/direct-url.rst:189
-#: ../source/specifications/direct-url.rst:212
-#: ../source/specifications/direct-url.rst:236
+#: ../source/specifications/direct-url.rst:159
+#: ../source/specifications/direct-url.rst:190
+#: ../source/specifications/direct-url.rst:213
+#: ../source/specifications/direct-url.rst:237
 msgid "``commit_id`` field"
 msgstr "``commit_id`` フィールド"
 
-#: ../source/specifications/direct-url.rst:160
+#: ../source/specifications/direct-url.rst:161
 msgid "A commit hash (40 hexadecimal characters sha1)."
 msgstr "コミットハッシュ (16進数で40文字のSHA1)。"
 
-#: ../source/specifications/direct-url.rst:164
+#: ../source/specifications/direct-url.rst:165
 msgid ""
 "Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
@@ -16251,62 +16257,62 @@ msgstr ""
 "ます。さらに、 ``refs/tags/`` で始まる参照はタグに対応し、クローンした後に "
 "``refs/remotes/origin/`` で始まる参照はブランチに対応します。"
 
-#: ../source/specifications/direct-url.rst:171
+#: ../source/specifications/direct-url.rst:172
 msgid "Mercurial"
 msgstr "Mercurial"
 
-#: ../source/specifications/direct-url.rst:175
+#: ../source/specifications/direct-url.rst:176
 msgid "https://www.mercurial-scm.org/"
 msgstr "https://www.mercurial-scm.org/"
 
-#: ../source/specifications/direct-url.rst:179
-#: ../source/specifications/direct-url.rst:183
+#: ../source/specifications/direct-url.rst:180
+#: ../source/specifications/direct-url.rst:184
 msgid "hg"
 msgstr "hg"
 
-#: ../source/specifications/direct-url.rst:187
+#: ../source/specifications/direct-url.rst:188
 msgid "A tag name, branch name, changeset ID, shortened changeset ID."
 msgstr "タグ名・ブランチ名・チェンジセット ID ・短縮型チェンジセット ID。"
 
-#: ../source/specifications/direct-url.rst:191
+#: ../source/specifications/direct-url.rst:192
 msgid "A changeset ID (40 hexadecimal characters)."
 msgstr "チェンジセット ID (16 進数で 40 文字)。"
 
-#: ../source/specifications/direct-url.rst:194
+#: ../source/specifications/direct-url.rst:195
 msgid "Bazaar"
 msgstr "Bazaar"
 
-#: ../source/specifications/direct-url.rst:198
+#: ../source/specifications/direct-url.rst:199
 msgid "https://bazaar.canonical.com"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:202
-#: ../source/specifications/direct-url.rst:206
+#: ../source/specifications/direct-url.rst:203
+#: ../source/specifications/direct-url.rst:207
 msgid "bzr"
 msgstr "bzr"
 
-#: ../source/specifications/direct-url.rst:210
+#: ../source/specifications/direct-url.rst:211
 msgid "A tag name, branch name, revision id."
 msgstr "タグ名・ブランチ名・リビジョン id 。"
 
-#: ../source/specifications/direct-url.rst:214
+#: ../source/specifications/direct-url.rst:215
 msgid "A revision id."
 msgstr "リビジョン id 。"
 
-#: ../source/specifications/direct-url.rst:217
+#: ../source/specifications/direct-url.rst:218
 msgid "Subversion"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:221
+#: ../source/specifications/direct-url.rst:222
 msgid "https://subversion.apache.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:225
-#: ../source/specifications/direct-url.rst:229
+#: ../source/specifications/direct-url.rst:226
+#: ../source/specifications/direct-url.rst:230
 msgid "svn"
 msgstr "svn"
 
-#: ../source/specifications/direct-url.rst:233
+#: ../source/specifications/direct-url.rst:234
 msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
@@ -16315,7 +16321,7 @@ msgstr ""
 "でなければなりません。 Subversion では、ブランチまたはタグは ``url`` の一部で"
 "す。"
 
-#: ../source/specifications/direct-url.rst:238
+#: ../source/specifications/direct-url.rst:239
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
@@ -16323,59 +16329,59 @@ msgstr ""
 "Subversion は大域的にユニークな識別子をサポートしていないので、このフィールド"
 "は当該リポジトリにおける Subversion のリビジョン番号です。"
 
-#: ../source/specifications/direct-url.rst:246
+#: ../source/specifications/direct-url.rst:247
 msgid "Example direct_url.json"
 msgstr "direct_url.json の例"
 
-#: ../source/specifications/direct-url.rst:248
+#: ../source/specifications/direct-url.rst:249
 msgid "Source archive:"
 msgstr "ソースコードアーカイブ:"
 
-#: ../source/specifications/direct-url.rst:261
+#: ../source/specifications/direct-url.rst:262
 msgid "Git URL with tag and commit-hash:"
 msgstr "タグおよびコミットハッシュ付きの Git のURL:"
 
-#: ../source/specifications/direct-url.rst:274
+#: ../source/specifications/direct-url.rst:275
 msgid "Local directory:"
 msgstr "ローカルディレクトリ:"
 
-#: ../source/specifications/direct-url.rst:283
+#: ../source/specifications/direct-url.rst:284
 msgid "Local directory installed in editable mode:"
 msgstr "編集可能モードでインストールされたローカルディレクトリ:"
 
-#: ../source/specifications/direct-url.rst:296
+#: ../source/specifications/direct-url.rst:297
 msgid "Example pip commands and their effect on direct_url.json"
 msgstr "pip コマンドの例と direct_url.json に与える影響"
 
-#: ../source/specifications/direct-url.rst:298
+#: ../source/specifications/direct-url.rst:299
 msgid "Commands that generate a ``direct_url.json``:"
 msgstr "``direct_url.json`` を生成するコマンド:"
 
-#: ../source/specifications/direct-url.rst:300
+#: ../source/specifications/direct-url.rst:301
 msgid "``pip install https://example.com/app-1.0.tgz``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:301
+#: ../source/specifications/direct-url.rst:302
 msgid "``pip install https://example.com/app-1.0.whl``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:302
+#: ../source/specifications/direct-url.rst:303
 msgid ""
 "``pip install \"app @ git+https://example.com/repo/app.git#subdirectory=setup"
 "\"``"
 msgstr ""
-"``pip install \"app @ git+https://example.com/repo/app.git#subdirectory="
-"setup\"``"
+"``pip install \"app @ git+https://example.com/repo/app.git#subdirectory=setup"
+"\"``"
 
-#: ../source/specifications/direct-url.rst:303
+#: ../source/specifications/direct-url.rst:304
 msgid "``pip install ./app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:304
+#: ../source/specifications/direct-url.rst:305
 msgid "``pip install file:///home/user/app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:305
+#: ../source/specifications/direct-url.rst:306
 msgid ""
 "``pip install --editable \"app @ git+https://example.com/repo/app."
 "git#subdirectory=setup\"`` (in which case, ``url`` will be the local "
@@ -16383,32 +16389,31 @@ msgid ""
 "be present with ``\"editable\": true`` and no ``vcs_info`` will be set)"
 msgstr ""
 "``pip install --editable \"app @ git+https://example.com/repo/app."
-"git#subdirectory=setup\"`` (この場合、 ``url`` は git "
-"リポジトリのクローン先のローカルディレクトリになり、 ``dir_info`` は ``"
-"\"editable\": true`` という形で存在し、 ``vcs_info`` "
-"は設定されないということになるでしょう)"
+"git#subdirectory=setup\"`` (この場合、 ``url`` は git リポジトリのクローン先"
+"のローカルディレクトリになり、 ``dir_info`` は ``\"editable\": true`` という"
+"形で存在し、 ``vcs_info`` は設定されないということになるでしょう)"
 
-#: ../source/specifications/direct-url.rst:309
+#: ../source/specifications/direct-url.rst:310
 msgid "``pip install -e ./app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:311
+#: ../source/specifications/direct-url.rst:312
 msgid "Commands that *do not* generate a ``direct_url.json``"
 msgstr "``direct_url.json`` を *生成しない* コマンド"
 
-#: ../source/specifications/direct-url.rst:313
+#: ../source/specifications/direct-url.rst:314
 msgid "``pip install app``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:314
+#: ../source/specifications/direct-url.rst:315
 msgid "``pip install app --no-index --find-links https://example.com/``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:317
+#: ../source/specifications/direct-url.rst:318
 msgid "History"
 msgstr "歴史"
 
-#: ../source/specifications/direct-url.rst:319
+#: ../source/specifications/direct-url.rst:320
 msgid ""
 "March 2020: the ``direct_url.json`` metadata file was originally specified "
 "in :pep:`610` and is formally documented here."
@@ -16416,7 +16421,7 @@ msgstr ""
 "2020年3月: ``direct_url.json`` メタデータファイルは、当初は :pep:`610` で仕様"
 "を指定されていましたが、ここで正式に文書化されました。"
 
-#: ../source/specifications/direct-url.rst:321
+#: ../source/specifications/direct-url.rst:322
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
 "discuss.python.org/t/22299>`__)."
@@ -16590,18 +16595,25 @@ msgid "File format"
 msgstr "ファイルフォーマット"
 
 #: ../source/specifications/entry-points.rst:82
+#, fuzzy
+#| msgid ""
+#| "Entry points are defined in a file called :file:`entry_points.txt` in "
+#| "the :file:`*.dist-info` directory of the distribution. This is the "
+#| "directory described in :pep:`376` for installed distributions, and in :"
+#| "pep:`427` for wheels.  The file uses the UTF-8 character encoding."
 msgid ""
 "Entry points are defined in a file called :file:`entry_points.txt` in the :"
 "file:`*.dist-info` directory of the distribution. This is the directory "
-"described in :pep:`376` for installed distributions, and in :pep:`427` for "
-"wheels.  The file uses the UTF-8 character encoding."
+"described in :ref:`recording-installed-packages` for installed "
+"distributions, and in :ref:`binary-distribution-format` for wheels. The file "
+"uses the UTF-8 character encoding."
 msgstr ""
 "エントリポイントは、配布物の :file:`*.dist-info` ディレクトリの中の :file:"
 "`entry_points.txt` と呼ばれるファイル内で定義されます。これは、インストール済"
 "みの配布物に関しては :pep:`376` 、 wheels に関しては :pep:`427` に記述された"
 "ディレクトリです。このファイルでは UTF-8 エンコーディングを使います。"
 
-#: ../source/specifications/entry-points.rst:87
+#: ../source/specifications/entry-points.rst:88
 msgid ""
 "The file contents are in INI format, as read by Python's :mod:`configparser` "
 "module. However, configparser treats names as case-insensitive by default, "
@@ -16613,7 +16625,7 @@ msgstr ""
 "を大文字小文字の区別をせずに扱う一方で、エントリポイントでは区別をします。大"
 "文字小文字の区別をする configparser はこのようにして作成できます::"
 
-#: ../source/specifications/entry-points.rst:97
+#: ../source/specifications/entry-points.rst:98
 msgid ""
 "The entry points file must always use ``=`` to delimit names from values "
 "(whereas configparser also allows using ``:``)."
@@ -16621,7 +16633,7 @@ msgstr ""
 "エントリポイントのファイルでは、名前と値を区切るのに常に ``=`` を使わなければ"
 "なりません (他方で configparser は ``:`` で区切ることも許容します) 。"
 
-#: ../source/specifications/entry-points.rst:100
+#: ../source/specifications/entry-points.rst:101
 msgid ""
 "The sections of the config file represent entry point groups, the names are "
 "names, and the values encode both the object reference and the optional "
@@ -16632,7 +16644,7 @@ msgstr ""
 "名前であり、値はオブジェクトへの参照と任意の extras の両方をエンコードしま"
 "す。 extras が使われる場合には、角括弧の中にコンマ区切りで列挙します。"
 
-#: ../source/specifications/entry-points.rst:104
+#: ../source/specifications/entry-points.rst:105
 msgid ""
 "Within a value, readers must accept and ignore spaces (including multiple "
 "consecutive spaces) before or after the colon, between the object reference "
@@ -16651,15 +16663,15 @@ msgstr ""
 "オブジェクト参照と左角括弧の間に限って空白文字を挿入することが推奨されていま"
 "す。"
 
-#: ../source/specifications/entry-points.rst:113
+#: ../source/specifications/entry-points.rst:114
 msgid "For example::"
 msgstr "例えば::"
 
-#: ../source/specifications/entry-points.rst:125
+#: ../source/specifications/entry-points.rst:126
 msgid "Use for scripts"
 msgstr "スクリプト向けの使用法"
 
-#: ../source/specifications/entry-points.rst:127
+#: ../source/specifications/entry-points.rst:128
 msgid ""
 "Two groups of entry points have special significance in packaging: "
 "``console_scripts`` and ``gui_scripts``. In both groups, the name of the "
@@ -16677,7 +16689,7 @@ msgstr ""
 "は、プロセスの終了コードとして使われる整数を返しても構わず、 ``None`` を返す"
 "と ``0`` を返したのと同じに扱われます。"
 
-#: ../source/specifications/entry-points.rst:135
+#: ../source/specifications/entry-points.rst:136
 msgid ""
 "For instance, the entry point ``mycmd = mymod:main`` would create a command "
 "``mycmd`` launching a script like this::"
@@ -16685,7 +16697,7 @@ msgstr ""
 "例えば、 ``micmd = memo:main`` というエントリポイントは、 ``micmd`` というコ"
 "マンドを生成し、このようにスクリプトを起動することになるでしょう::"
 
-#: ../source/specifications/entry-points.rst:142
+#: ../source/specifications/entry-points.rst:143
 msgid ""
 "The difference between ``console_scripts`` and ``gui_scripts`` only affects "
 "Windows systems. ``console_scripts`` are wrapped in a console executable, so "
@@ -16703,7 +16715,7 @@ msgstr ""
 "ション側でリダイレクトして置かない限りは標準入出力を使うことができません。他"
 "のプラットフォームではこのような区別をしません。"
 
-#: ../source/specifications/entry-points.rst:150
+#: ../source/specifications/entry-points.rst:151
 msgid ""
 "Install tools are expected to set up wrappers for both ``console_scripts`` "
 "and ``gui_scripts`` in the scripts directory of the install scheme. They are "
@@ -16716,7 +16728,7 @@ msgstr ""
 "ンドラインツールを探索するために定義される ``PATH`` 環境変数に入れることにつ"
 "いては責任を持ちません。"
 
-#: ../source/specifications/entry-points.rst:155
+#: ../source/specifications/entry-points.rst:156
 msgid ""
 "As files are created from the names, and some filesystems are case-"
 "insensitive, packages should avoid using names in these groups which differ "
@@ -16727,6 +16739,37 @@ msgstr ""
 "を区別しないことから、パッケージはこれらのグループについては大文字か小文字か"
 "の違いしかないような名前を使うことを避けるべきです。名前が大文字小文字しか違"
 "わない場合のインストールツールの挙動は未定義です。"
+
+#: ../source/specifications/externally-managed-environments.rst:6
+#, fuzzy
+#| msgid "Virtual Environment"
+msgid "Externally Managed Environments"
+msgstr "仮想環境"
+
+#: ../source/specifications/externally-managed-environments.rst:8
+msgid ""
+"While some Python installations are entirely managed by the user that "
+"installed Python, others may be provided and managed by another means (such "
+"as the operating system package manager in a Linux distribution, or as a "
+"bundled Python environment in an application with a dedicated installer)."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:13
+msgid ""
+"Attempting to use conventional Python packaging tools to manipulate such "
+"environments can be confusing at best and outright break the entire "
+"underlying operating system at worst. Documentation and interoperability "
+"guides only go so far in resolving such problems."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:18
+msgid ""
+":pep:`668` defined an ``EXTERNALLY-MANAGED`` marker file that allows a "
+"Python installation to indicate to Python-specific tools such as ``pip`` "
+"that they neither install nor remove packages into the interpreter’s default "
+"installation environment, and should instead guide the end user towards "
+"using :ref:`virtual-environments`."
+msgstr ""
 
 #: ../source/specifications/index.rst:4
 msgid "PyPA specifications"
@@ -16748,11 +16791,17 @@ msgstr ""
 msgid "Package Distribution Metadata"
 msgstr "パッケージ配布物のメタデータ"
 
-#: ../source/specifications/index.rst:31
+#: ../source/specifications/index.rst:27
+#, fuzzy
+#| msgid "Package Distribution Metadata"
+msgid "Package Installation Environment Metadata"
+msgstr "パッケージ配布物のメタデータ"
+
+#: ../source/specifications/index.rst:39
 msgid "Package Distribution File Formats"
 msgstr "パッケージ配布物のファイルフォーマット"
 
-#: ../source/specifications/index.rst:41
+#: ../source/specifications/index.rst:49
 msgid "Package Index Interfaces"
 msgstr "パッケージインデックスのインタフェース"
 
@@ -17258,11 +17307,20 @@ msgid "History and change workflow"
 msgstr "ワークフローの履歴と変更"
 
 #: ../source/specifications/recording-installed-packages.rst:23
+#, fuzzy
+#| msgid ""
+#| "The metadata described here was first specified in :pep:`376`, and later "
+#| "amended in :pep:`627`. It was formerly known as *Database of Installed "
+#| "Python Distributions*. Further amendments (except trivial language or "
+#| "typography fixes) must be made through the PEP process (see :pep:`1`)."
 msgid ""
 "The metadata described here was first specified in :pep:`376`, and later "
-"amended in :pep:`627`. It was formerly known as *Database of Installed "
-"Python Distributions*. Further amendments (except trivial language or "
-"typography fixes) must be made through the PEP process (see :pep:`1`)."
+"amended in :pep:`627` (and other PEPs). It was formerly known as *Database "
+"of Installed Python Distributions*. As with other PyPA specifications, "
+"editorial amendments with no functional impact may be made through the "
+"GitHub pull request workflow. Proposals for functional changes that would "
+"require amendments to package building and/or installation tools must be "
+"made through the PEP process (see :pep:`1`)."
 msgstr ""
 "ここで述べるメタデータは、 :pep:`376` で初めて定義されたもので、後に :pep:"
 "`627` で改訂されました。以前は *インストール済みの Python 配布物のデータベー"
@@ -17270,16 +17328,21 @@ msgstr ""
 "のような本質的でないものを除いて) PEP プロセス (:pep:`1` を見てください) に"
 "則って行わなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:29
+#: ../source/specifications/recording-installed-packages.rst:31
+#, fuzzy
+#| msgid ""
+#| "While this document is the normative specification, these PEPs that "
+#| "introduce changes to it may include additional information such as "
+#| "rationales and backwards compatibility considerations."
 msgid ""
-"While this document is the normative specification, these PEPs that "
-"introduce changes to it may include additional information such as "
-"rationales and backwards compatibility considerations."
+"While this document is the normative specification, the PEPs that introduce "
+"changes to it may include additional information such as rationales and "
+"backwards compatibility considerations."
 msgstr ""
 "この説明文書が規範的な仕様書である一方で、これらの PEP 群は、理論的根拠や後方"
 "互換性を保つための考慮点のような追加的な情報を含む変更を行う場合があります。"
 
-#: ../source/specifications/recording-installed-packages.rst:37
+#: ../source/specifications/recording-installed-packages.rst:39
 msgid ""
 "Each project installed from a distribution must, in addition to files, "
 "install a \"``.dist-info``\" directory located alongside importable modules "
@@ -17289,7 +17352,7 @@ msgstr ""
 "ト可能なモジュールやパッケージの隣に位置する \"``.dist-info``\" ディレクトリ"
 "もインストールします (通常は ``site-packages`` ディレクトリ) 。"
 
-#: ../source/specifications/recording-installed-packages.rst:41
+#: ../source/specifications/recording-installed-packages.rst:43
 msgid ""
 "This directory is named as ``{name}-{version}.dist-info``, with ``name`` and "
 "``version`` fields corresponding to :ref:`core-metadata`. Both fields must "
@@ -17308,7 +17371,7 @@ msgstr ""
 "ひとつだけのダッシュ (``-``) 文字をそのファイル名基幹部に持ち、それによって "
 "``name`` と ``version`` フィールドを分割していなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:50
+#: ../source/specifications/recording-installed-packages.rst:52
 msgid ""
 "Historically, tools have failed to replace dot characters or normalize case "
 "in the ``name`` field, or not perform normalization in the ``version`` "
@@ -17327,7 +17390,7 @@ msgstr ""
 "と ``version`` の両方のフィールドを上記の規則に従って正規化しなければならず、"
 "既存のツールもこれらのフィールドの正規化を始めることが推奨されています。"
 
-#: ../source/specifications/recording-installed-packages.rst:60
+#: ../source/specifications/recording-installed-packages.rst:62
 msgid ""
 "The ``.dist-info`` directory's name is formatted to unambigiously represent "
 "a distribution as a filesystem path. Tools presenting a distribution name to "
@@ -17347,30 +17410,42 @@ msgstr ""
 "は、配布物の情報を表示する時にツールが正規化されていない名前にアクセスできる"
 "ように、そのようなツール群が利用できるような API を提供するべきです。"
 
-#: ../source/specifications/recording-installed-packages.rst:69
+#: ../source/specifications/recording-installed-packages.rst:71
+#, fuzzy
+#| msgid ""
+#| "This ``.dist-info`` directory can contain these files, described in "
+#| "detail below:"
 msgid ""
-"This ``.dist-info`` directory can contain these files, described in detail "
-"below:"
+"This ``.dist-info`` directory may contain the following files, described in "
+"detail below:"
 msgstr ""
 "この ``.dist-info`` ディレクトリには、以下に詳細を述べるこれらのファイルを置"
 "くことができます:"
 
-#: ../source/specifications/recording-installed-packages.rst:72
+#: ../source/specifications/recording-installed-packages.rst:74
 msgid "``METADATA``: contains project metadata"
 msgstr "``METADATA``: プロジェクトのメタデータを含みます"
 
-#: ../source/specifications/recording-installed-packages.rst:73
+#: ../source/specifications/recording-installed-packages.rst:75
 msgid "``RECORD``: records the list of installed files."
 msgstr "``RECORD``: インストールされるファイルを列挙して記録します。"
 
-#: ../source/specifications/recording-installed-packages.rst:74
+#: ../source/specifications/recording-installed-packages.rst:76
 msgid ""
 "``INSTALLER``: records the name of the tool used to install the project."
 msgstr ""
 "``INSTALLER``: プロジェクトをインストールするのに使われるツールの名前を記録し"
 "ます。"
 
-#: ../source/specifications/recording-installed-packages.rst:76
+#: ../source/specifications/recording-installed-packages.rst:77
+msgid "``entry_points.txt``: see :ref:`entry-points` for details"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:78
+msgid "``direct_url.json``: see :ref:`direct-url` for details"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:80
 msgid ""
 "The ``METADATA`` file is mandatory. All other files may be omitted at the "
 "installing tool's discretion. Additional installer-specific files may be "
@@ -17380,7 +17455,7 @@ msgstr ""
 "ルの最良で省略可能です。インストーラ独自のファイルが他に存在しても構いませ"
 "ん。"
 
-#: ../source/specifications/recording-installed-packages.rst:82
+#: ../source/specifications/recording-installed-packages.rst:86
 msgid ""
 "The :ref:`binary-distribution-format` specification describes additional "
 "files that may appear in the ``.dist-info`` directory of a :term:`Wheel`. "
@@ -17392,7 +17467,7 @@ msgstr ""
 "ようなファイルをインストールされたプロジェクトの ``.dist-info`` ディレクトリ"
 "にコピーしても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:87
+#: ../source/specifications/recording-installed-packages.rst:91
 msgid ""
 "The previous versions of this specification also specified a ``REQUESTED`` "
 "file. This file is now considered a tool-specific extension, but may be "
@@ -17404,11 +17479,11 @@ msgstr ""
 "標準化されるかもしれません。その元々の意味するところについては、 `PEP 376 "
 "<https://www.python.org/dev/peps/pep-0376/#requested>`_ を見てください。"
 
-#: ../source/specifications/recording-installed-packages.rst:94
+#: ../source/specifications/recording-installed-packages.rst:98
 msgid "The METADATA file"
 msgstr "METADATA ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:96
+#: ../source/specifications/recording-installed-packages.rst:100
 msgid ""
 "The ``METADATA`` file contains metadata as described in the :ref:`core-"
 "metadata` specification, version 1.1 or greater."
@@ -17416,7 +17491,7 @@ msgstr ""
 "``METADATA`` ファイルには、 :ref:`コアとなるメタデータ <core-metadata>` 仕様"
 "のバージョン 1.1 またはそれ以降で記述されているようなメタデータを含みます。"
 
-#: ../source/specifications/recording-installed-packages.rst:99
+#: ../source/specifications/recording-installed-packages.rst:103
 msgid ""
 "The ``METADATA`` file is mandatory. If it cannot be created, or if required "
 "core metadata is not available, installers must report an error and fail to "
@@ -17426,11 +17501,11 @@ msgstr ""
 "合や、必須のコアとなるメタデータが入手できない場合には、インストーラはエラー"
 "を発生させてプロジェクトのインストールを失敗させなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:105
+#: ../source/specifications/recording-installed-packages.rst:109
 msgid "The RECORD file"
 msgstr "RECORD ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:107
+#: ../source/specifications/recording-installed-packages.rst:111
 msgid ""
 "The ``RECORD`` file holds the list of installed files. It is a CSV file "
 "containing one record (line) per installed file."
@@ -17438,7 +17513,7 @@ msgstr ""
 "``RECORD`` ファイルには、インストールされたファイル群を列挙します。CSV ファイ"
 "ルで、インストールされたファイルを１行に一つずつ書き込みます。"
 
-#: ../source/specifications/recording-installed-packages.rst:110
+#: ../source/specifications/recording-installed-packages.rst:114
 msgid ""
 "The CSV dialect must be readable with the default ``reader`` of Python's "
 "``csv`` module:"
@@ -17446,19 +17521,19 @@ msgstr ""
 "CSV の亜種としては、 Python の ``csv`` モジュールの ``reader`` で読めるもので"
 "なければなりません:"
 
-#: ../source/specifications/recording-installed-packages.rst:113
+#: ../source/specifications/recording-installed-packages.rst:117
 msgid "field delimiter: ``,`` (comma),"
 msgstr "フィールド区切り文字: ``,`` (コンマ)、"
 
-#: ../source/specifications/recording-installed-packages.rst:114
+#: ../source/specifications/recording-installed-packages.rst:118
 msgid "quoting char: ``\"`` (straight double quote),"
 msgstr "引用符: ``\"`` (ストレートダブルクォート)、"
 
-#: ../source/specifications/recording-installed-packages.rst:115
+#: ../source/specifications/recording-installed-packages.rst:119
 msgid "line terminator: either ``\\r\\n`` or ``\\n``."
 msgstr "行末文字: ``\\r\\n`` か ``\\n`` のいずれか一方。"
 
-#: ../source/specifications/recording-installed-packages.rst:117
+#: ../source/specifications/recording-installed-packages.rst:121
 msgid ""
 "Each record is composed of three elements: the file's **path**, the **hash** "
 "of the contents, and its **size**."
@@ -17466,7 +17541,7 @@ msgstr ""
 "各レコードは３個の要素から構成されます: ファイルの **パス** 、内容の **ハッ"
 "シュ値** 、そして、その **サイズ** です。"
 
-#: ../source/specifications/recording-installed-packages.rst:120
+#: ../source/specifications/recording-installed-packages.rst:124
 msgid ""
 "The *path* may be either absolute, or relative to the directory containing "
 "the ``.dist-info`` directory (commonly, the ``site-packages`` directory). On "
@@ -17478,7 +17553,7 @@ msgstr ""
 "Windows では、ディレクトリはスラッシュで区切ってもバックスラッシュで区切って"
 "も構いません (``/`` または ``\\``) 。"
 
-#: ../source/specifications/recording-installed-packages.rst:125
+#: ../source/specifications/recording-installed-packages.rst:129
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from "
 "``hashlib.algorithms_guaranteed``, followed by the equals character ``=`` "
@@ -17491,7 +17566,7 @@ msgstr ""
 "urlsafe_b64encode(digest)`` の結果から末尾の ``=`` を取り除いたもの) で記した"
 "ものです。"
 
-#: ../source/specifications/recording-installed-packages.rst:130
+#: ../source/specifications/recording-installed-packages.rst:134
 msgid ""
 "The *size* is either the empty string, or file's size in bytes, as a base 10 "
 "integer."
@@ -17499,7 +17574,7 @@ msgstr ""
 "*size* は、空文字列か、または、ファイルサイズを 10 進数のバイト数で書いたもの"
 "です。"
 
-#: ../source/specifications/recording-installed-packages.rst:133
+#: ../source/specifications/recording-installed-packages.rst:137
 msgid ""
 "For any file, either or both of the *hash* and *size* fields may be left "
 "empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself "
@@ -17513,7 +17588,7 @@ msgstr ""
 "なっています。その他のファイルについては、インストールされたプロジェクトに関"
 "する完全性を検証するために情報を与えておくことが推奨されています。"
 
-#: ../source/specifications/recording-installed-packages.rst:139
+#: ../source/specifications/recording-installed-packages.rst:143
 msgid ""
 "If the ``RECORD`` file is present, it must list all installed files of the "
 "project, except ``.pyc`` files corresponding to ``.py`` files listed in "
@@ -17528,7 +17603,7 @@ msgstr ""
 "ル自身を含む) については、書いておかなければなりません。ディレクトリについて"
 "は記入してはなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:146
+#: ../source/specifications/recording-installed-packages.rst:150
 msgid ""
 "To completely uninstall a package, a tool needs to remove all files listed "
 "in ``RECORD``, all ``.pyc`` files (of all optimization levels) corresponding "
@@ -17539,27 +17614,33 @@ msgstr ""
 "``.pyc`` ファイルと、アンインストールによって空になったすべてのディレクトリを"
 "削除する必要があります。"
 
-#: ../source/specifications/recording-installed-packages.rst:151
+#: ../source/specifications/recording-installed-packages.rst:155
 msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr "ありうる ``RECORD`` ファイルの一部を切り出した例をここに掲げます::"
 
-#: ../source/specifications/recording-installed-packages.rst:170
+#: ../source/specifications/recording-installed-packages.rst:174
+#, fuzzy
+#| msgid ""
+#| "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
+#| "not attempt to uninstall or upgrade the package. (This does not apply to "
+#| "tools that rely on other sources of information, such as system package "
+#| "managers in Linux distros.)"
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
-"not attempt to uninstall or upgrade the package. (This does not apply to "
-"tools that rely on other sources of information, such as system package "
-"managers in Linux distros.)"
+"not attempt to uninstall or upgrade the package. (This restriction does not "
+"apply to tools that rely on other sources of information, such as system "
+"package managers in Linux distros.)"
 msgstr ""
 "``RECORD`` ファイルが存在しない場合は、 ``.dist-info`` に依存するツールはアン"
 "インストールやアップグレードを試みてはなりません。(これは、 Linux ディストロ"
 "におけるシステムのパッケージ管理機構のような、それ以外の情報源に依存するツー"
 "ルには適用されません。)"
 
-#: ../source/specifications/recording-installed-packages.rst:177
+#: ../source/specifications/recording-installed-packages.rst:181
 msgid "The INSTALLER file"
 msgstr "INSTALLER ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:179
+#: ../source/specifications/recording-installed-packages.rst:183
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -17571,16 +17652,16 @@ msgstr ""
 "動されるなら、 ``INSTALLER`` はそのコマンドの名前を含んでいるべきです。そうで"
 "なければ印刷可能な ASCII 文字を含んでいるべきです。"
 
-#: ../source/specifications/recording-installed-packages.rst:185
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 "ファイルは、0個またはそれ以上の ASCII 空白文字で終端することができます。"
 
-#: ../source/specifications/recording-installed-packages.rst:187
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr "``INSTALLER`` ファイルについて、二つの可能な例を示します::"
 
-#: ../source/specifications/recording-installed-packages.rst:195
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -17592,11 +17673,29 @@ msgstr ""
 "場合には、そのツールは ``INSTALLER`` ファイルに書いてある (別の) ツールを使え"
 "ばアンインストールができるかもしれないと示唆しても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:201
+#: ../source/specifications/recording-installed-packages.rst:206
+msgid "The entry_points.txt file"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:208
+msgid ""
+"This file MAY be created by installers to indicate when packages contain "
+"components intended for discovery and use by other code, including console "
+"scripts and other applications that the installer has made available for "
+"execution."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:213
+#, fuzzy
+#| msgid "Its detailed specification is at :ref:`direct-url`."
+msgid "Its detailed specification is at :ref:`entry-points`."
+msgstr "その詳細な仕様は :ref:`direct-url` です。"
+
+#: ../source/specifications/recording-installed-packages.rst:217
 msgid "The direct_url.json file"
 msgstr "direct_url.json ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:203
+#: ../source/specifications/recording-installed-packages.rst:219
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
@@ -17604,9 +17703,57 @@ msgstr ""
 "このファイルは、要求事項が指定するダイレクト URL (VCS の URL を含む) から配布"
 "物をインストールする際に、インストーラによって生成されなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:209
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr "その詳細な仕様は :ref:`direct-url` です。"
+
+#: ../source/specifications/recording-installed-packages.rst:229
+msgid "Intentionally preventing changes to installed packages"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:231
+msgid ""
+"In some cases (such as when needing to manage external dependencies in "
+"addition to Python ecosystem dependencies), it is desirable for a tool that "
+"installs packages into a Python environment to ensure that other tools are "
+"not used to uninstall or otherwise modify that installed package, as doing "
+"so may cause compatibility problems with the wider environment."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:237
+msgid "To achieve this, affected tools should take the folllowing steps:"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:239
+msgid ""
+"Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
+"g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
+"tool itself needs the information, or omitting the file entirely if the "
+"package contents are tracked and managed via other means)"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:243
+msgid ""
+"Write an ``INSTALLER`` file indicating the name of the tool that should be "
+"used to manage the package (this allows ``RECORD``-aware tools to provide "
+"better error notices when asked to modify affected packages)"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:247
+msgid ""
+"Python runtime providers may also prevent inadvertent modification of "
+"platform provided packages by modifying the default Python package "
+"installation scheme to use a location other than that used by platform "
+"provided packages (while also ensuring both locations appear on the default "
+"Python import path)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:252
+msgid ""
+"In some circumstances, it may be desirable to block even installation of "
+"additional packages via Python-specific tools. For these cases refer to :ref:"
+"`externally-managed-environments`"
+msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
@@ -17802,6 +17949,81 @@ msgid ""
 msgstr ""
 "この PEP のバージョン指定子の節は、 :pep:`345` のバージョン指定子の節を置き換"
 "えるものです。"
+
+#: ../source/specifications/virtual-environments.rst:6
+#, fuzzy
+#| msgid "Virtual Environment"
+msgid "Python Virtual Environments"
+msgstr "仮想環境"
+
+#: ../source/specifications/virtual-environments.rst:8
+msgid ""
+"For Python 3.3 and later versions, :pep:`405` introduced interpreter level "
+"support for the concept of \"Python Virtual Environments\". Each virtual "
+"environment has its own Python binary (allowing creation of environments "
+"with various Python versions) and can have its own independent set of "
+"installed Python packages in its site directories, but shares the standard "
+"library with the base installed Python. While the concept of virtual "
+"environments existed prior to this update, there was no previously "
+"standardised mechanism for declaring or discovering them."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:18
+#, fuzzy
+#| msgid "Activating a virtual environment"
+msgid "Runtime detection of virtual environments"
+msgstr "仮想環境を活性化する"
+
+#: ../source/specifications/virtual-environments.rst:20
+msgid ""
+"At runtime, virtual environments can be identified by virtue of ``sys."
+"prefix`` (the filesystem location of the running interpreter) having a "
+"different value from ``sys.base_prefix`` (the default filesytem location of "
+"the standard library directories)."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:25
+msgid ""
+":ref:`venv-explanation` in the Python standard library documentation for "
+"the :py:mod:`venv` module covers this along with the concept of \"activating"
+"\" a virtual environment in an interactive operating system shell (this "
+"activation step is optional and hence the changes it makes can't be reliably "
+"used to detect whether a Python program is running in a virtual environment "
+"or not)."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:33
+#, fuzzy
+#| msgid "Installing packages using pip and virtual environments"
+msgid "Declaring installation environments as Python virtual environments"
+msgstr "pip と仮想環境を使ってパッケージをインストールする"
+
+#: ../source/specifications/virtual-environments.rst:35
+msgid ""
+"As described in :pep:`405`, a Python virtual environment in its simplest "
+"form consists of nothing more than a copy or symlink of the Python binary "
+"accompanied by a ``site-packages`` directory and a ``pyvenv.cfg`` file with "
+"a ``home`` key that indicates where to find the Python standard library "
+"modules."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:40
+msgid ""
+"While designed to meet the needs of the standard :py:mod:`venv` module, this "
+"split installation and ``pyvenv.cfg`` file approach can be used by *any* "
+"Python installation provider that desires Python-specific tools to be aware "
+"that they are already operating in a virtual environment and no further "
+"environment nesting is required or desired."
+msgstr ""
+
+#: ../source/specifications/virtual-environments.rst:46
+msgid ""
+"Even in the absence of a ``pyvenv.cfg`` file, any approach (e.g. "
+"``sitecustomize.py``, patching the installed Python runtime) that results in "
+"``sys.prefix`` and ``sys.base_prefix`` having different values, while still "
+"providing a matching default package installation scheme in ``sysconfig``, "
+"will be detected and behave as a Python virtual environment."
+msgstr ""
 
 #: ../source/support.rst:3
 msgid "How to Get Support"
