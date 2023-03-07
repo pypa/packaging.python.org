@@ -58,10 +58,10 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
     .. code-block:: python
 
-        >>> python --version
+        >>> python3 --version
         Traceback (most recent call last):
           File "<stdin>", line 1, in <module>
-        NameError: name 'python' is not defined
+        NameError: name 'python3' is not defined
 
     It's because this command and other suggested commands in this tutorial
     are intended to be run in a *shell* (also called a *terminal* or
