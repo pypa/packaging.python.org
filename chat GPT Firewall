@@ -1,0 +1,14 @@
+from flask import Flask, request, jsonify
+from chat_gpt import chat_with_gpt
+
+app = Flask(__name__)
+
+@app.route("/chat", methods=["POST"])
+def chat():
+    data = request.json
+    prompt = data["prompt"]
+    response = chat_with_gpt(prompt)
+    return jsonify({"response": response})
+
+if __name__ == "__main__":
+    app.run()
