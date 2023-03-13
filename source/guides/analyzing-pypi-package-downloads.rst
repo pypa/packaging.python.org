@@ -343,7 +343,7 @@ References
 .. _public PyPI download statistics dataset: https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=pypi&page=dataset
 .. _Google BigQuery: https://cloud.google.com/bigquery
 .. _BigQuery web UI: https://console.cloud.google.com/bigquery
-.. _pypinfo: https://github.com/ofek/pypinfo/blob/master/README.rst
+.. _pypinfo: https://github.com/ofek/pypinfo
 .. _google-cloud-bigquery: https://cloud.google.com/bigquery/docs/reference/libraries
 .. _pandas-gbq: https://pandas-gbq.readthedocs.io/en/latest/
 .. _Pandas: https://pandas.pydata.org/
