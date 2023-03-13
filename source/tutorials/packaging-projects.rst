@@ -114,8 +114,8 @@ Creating pyproject.toml
 :term:`distribution packages <Distribution Package>` for your project.
 You can choose from a number of backends; this tutorial uses :ref:`Hatchling
 <hatch>` by default, but it will work identically with :ref:`setuptools`,
-:ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
-table for :ref:`metadata <configuring metadata>`.
+:ref:`Flit-core <flit>`, :ref:`PDM-backend <pdm>`, and others that support the
+``[project]`` table for :ref:`metadata <configuring metadata>`.
 
 .. note::
 
@@ -155,8 +155,8 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
     .. code-block:: toml
 
         [build-system]
-        requires = ["pdm-pep517"]
-        build-backend = "pdm.pep517.api"
+        requires = ["pdm-backend"]
+        build-backend = "pdm.backend"
 
 
 - ``requires`` is a list of packages that are needed to build your package. You
