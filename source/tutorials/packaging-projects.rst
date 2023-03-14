@@ -114,8 +114,8 @@ Creating pyproject.toml
 :term:`distribution packages <Distribution Package>` for your project.
 You can choose from a number of backends; this tutorial uses :ref:`Hatchling
 <hatch>` by default, but it will work identically with :ref:`setuptools`,
-:ref:`Flit-core <flit>`, :ref:`PDM-backend <pdm>`, and others that support the
-``[project]`` table for :ref:`metadata <configuring metadata>`.
+:ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
+table for :ref:`metadata <configuring metadata>`.
 
 .. note::
 
