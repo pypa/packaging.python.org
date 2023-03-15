@@ -653,17 +653,17 @@ you know publishes one, you can include it in the pip installation command:
 
     .. code-block:: bash
 
-        python3 -m pip install SomePackage[PDF]
-        python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]  # editable project in current directory
+        python3 -m pip install 'SomePackage[PDF]'
+        python3 -m pip install 'SomePackage[PDF]==3.0'
+        python3 -m pip install -e '.[PDF]'  # editable project in current directory
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install SomePackage[PDF]
-        py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]  # editable project in current directory
+        py -m pip install "SomePackage[PDF]"
+        py -m pip install "SomePackage[PDF]==3.0"
+        py -m pip install -e ".[PDF]"  # editable project in current directory
 
 ----
 
