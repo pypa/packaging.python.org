@@ -32,6 +32,7 @@ Package Installation Environment Metadata
    recording-installed-packages
    entry-points
    direct-url
+   direct-url-data-structure
    virtual-environments
    externally-managed-environments
 
