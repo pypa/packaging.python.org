@@ -104,7 +104,7 @@ present as a dictionary with the following key:
 - ``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be installed
   in editable mode, ``false`` otherwise. If absent, default to ``false``.
 
-When ``url`` refers to a local directory, it MUST have the ``file`` sheme and
+When ``url`` refers to a local directory, it MUST have the ``file`` scheme and
 be compliant with :rfc:`8089`. In
 particular, the path component must be absolute. Symbolic links SHOULD be
 preserved when making relative paths absolute.
