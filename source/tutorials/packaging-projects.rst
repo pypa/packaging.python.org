@@ -155,8 +155,8 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
     .. code-block:: toml
 
         [build-system]
-        requires = ["pdm-pep517"]
-        build-backend = "pdm.pep517.api"
+        requires = ["pdm-backend"]
+        build-backend = "pdm.backend"
 
 
 - ``requires`` is a list of packages that are needed to build your package. You
