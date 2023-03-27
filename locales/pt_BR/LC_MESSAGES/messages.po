@@ -7717,10 +7717,12 @@ msgstr ""
 "construir distribuições e *ele reside no GitHub*."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:19
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 msgid "Saving credentials on GitHub"
 msgstr "Salvando credenciais no GitHub"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:23
 msgid ""
 "In this guide, we'll demonstrate uploading to both PyPI and TestPyPI, "
 "meaning that we'll have two separate sets of credentials. And we'll need to "
@@ -7731,10 +7733,12 @@ msgstr ""
 "los nas configurações do repositório do GitHub."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:26
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
 msgid "Let's begin! 🚀"
 msgstr "Vamos começar! 🚀"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:30
 msgid ""
 "Go to https://pypi.org/manage/account/#api-tokens and create a new `API "
 "token`_. If you have the project on PyPI already, limit the token scope to "
@@ -7750,6 +7754,7 @@ msgstr ""
 "tokens. **Não feche a página ainda -- você não verá esse token novamente.**"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:37
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:39
 msgid ""
 "In a separate browser tab or window, go to the ``Settings`` tab of your "
 "target repository and then click on `Secrets`_ in the left sidebar."
@@ -7759,6 +7764,7 @@ msgstr ""
 "esquerda."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:40
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
 msgid ""
 "Create a new secret called ``PYPI_API_TOKEN`` and copy-paste the token from "
 "the first step."
@@ -7767,6 +7773,7 @@ msgstr ""
 "primeira etapa."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:44
 msgid ""
 "Now, go to https://test.pypi.org/manage/account/#api-tokens and repeat the "
 "steps. Save that TestPyPI token on GitHub as ``TEST_PYPI_API_TOKEN``."
@@ -7775,6 +7782,7 @@ msgstr ""
 "etapas. Salve esse token de TestePyPI no GitHub como ``TEST_PYPI_API_TOKEN``."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:48
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:50
 msgid ""
 "If you don't have a TestPyPI account, you'll need to create it. It's not the "
 "same as a regular PyPI account."
@@ -7783,10 +7791,12 @@ msgstr ""
 "uma conta do PyPI comum."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:53
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
 msgid "Creating a workflow definition"
 msgstr "Criando uma definição de fluxo de trabalho"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:57
 msgid ""
 "GitHub CI/CD workflows are declared in YAML files stored in the ``.github/"
 "workflows/`` directory of your repository."
@@ -7795,12 +7805,14 @@ msgstr ""
 "armazenados no diretório ``.github/workflows/`` do seu repositório."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:58
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:60
 msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
 msgstr ""
 "Vamos criar um arquivo chamado ``.github/workflows/publish-to-test-pypi."
 "yml``."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:63
 msgid ""
 "Start it with a meaningful name and define the event that should make GitHub "
 "run this workflow:"
@@ -7809,10 +7821,12 @@ msgstr ""
 "executar este fluxo de trabalho:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
 msgid "Defining a workflow job environment"
 msgstr "Definindo um ambiente de tarefa do fluxo de trabalho"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:74
 msgid ""
 "Now, let's add initial setup for our job. It's a process that will execute "
 "commands that we'll define later. In this guide, we'll use the latest stable "
@@ -7824,14 +7838,17 @@ msgstr ""
 "Actions:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:84
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
 msgid "Checking out the project and building distributions"
 msgstr "Fazendo checkout do projeto e construindo as distribuições"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:88
 msgid "Then, add the following under the ``build-n-publish`` section:"
 msgstr "Então, adicione o seguinte sob a seção ``build-n-publish``:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:95
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate Python 3.10."
@@ -7858,14 +7875,17 @@ msgstr ""
 "produza artefatos prontos para enviar, salvos na pasta ``dist/``."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:107
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:109
 msgid "So add this to the steps list:"
 msgstr "Então, adicione isso à lista de etapas:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:116
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 msgid "Publishing the distribution to PyPI and TestPyPI"
 msgstr "Publicando a distribuição para PyPI e TestPyPI"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:120
 msgid "Finally, add the following steps at the end:"
 msgstr "Finalmente, adicione as seguintes etapas ao final:"
 
@@ -7882,10 +7902,12 @@ msgstr ""
 "atual estiver marcado."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:131
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "That's all, folks!"
 msgstr "Isso é tudo, pessoal!"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:133
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:137
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -16006,10 +16028,6 @@ msgstr "Gravando a Origem da URL Direta de distribuições instaladas"
 
 #: ../source/specifications/direct-url.rst:8
 #, fuzzy
-#| msgid ""
-#| "This document specifies a :file:`direct_url.json` file in the :file:`*."
-#| "dist-info` directory of an installed distribution, to record the Direct "
-#| "URL Origin of the distribution."
 msgid ""
 "This document specifies a :file:`direct_url.json` file in the ``*.dist-"
 "info`` directory of an installed distribution, to record the Direct URL "
@@ -16180,14 +16198,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:25
 #, fuzzy
-#| msgid ""
-#| "If present, it MUST contain at least two fields. The first one is "
-#| "``url``, with type ``string``. Depending on what ``url`` refers to, the "
-#| "second field MUST be one of ``vcs_info`` (if ``url`` is a VCS reference), "
-#| "``archive_info`` (if ``url`` is a source archives or a wheel), or "
-#| "``dir_info`` (if ``url``  is a local directory). These info fields have a "
-#| "(possibly empty) subdictionary as value, with the possible keys defined "
-#| "below."
 msgid ""
 "It MUST contain at least two fields. The first one is ``url``, with type "
 "``string``. Depending on what ``url`` refers to, the second field MUST be "
@@ -16206,9 +16216,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:32
 #, fuzzy
-#| msgid ""
-#| "``url`` MUST be stripped of any sensitive authentication information, for "
-#| "security reasons."
 msgid ""
 "When persisted, ``url`` MUST be stripped of any sensitive authentication "
 "information, for security reasons."
@@ -16262,10 +16269,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:57
 #, fuzzy
-#| msgid ""
-#| "A ``requested_revision`` key (type ``string``) MAY be present naming a "
-#| "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) "
-#| "to install."
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS)."
@@ -16276,12 +16279,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:59
 #, fuzzy
-#| msgid ""
-#| "A ``commit_id`` key (type ``string``) MUST be present, containing the "
-#| "exact commit/revision number that was installed. If the VCS supports "
-#| "commit-hash based revision identifiers, such commit-hash MUST be used as "
-#| "``commit_id`` in order to reference the immutable version of the source "
-#| "code that was installed."
 msgid ""
 "A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
 "commit/revision number that was/is to be installed. If the VCS supports "
@@ -16379,7 +16376,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:99
 #, fuzzy
-#| msgid "Local directory:"
 msgid "Local directories"
 msgstr "Diretório local:"
 
@@ -16393,10 +16389,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:104
 #, fuzzy
-#| msgid ""
-#| "``editable`` (type: ``boolean``): ``true`` if the distribution was "
-#| "installed in editable mode, ``false`` otherwise. If absent, default to "
-#| "``false``."
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be "
 "installed in editable mode, ``false`` otherwise. If absent, default to "
@@ -16408,11 +16400,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:107
 #, fuzzy
-#| msgid ""
-#| "When ``url`` refers to a local directory, it MUST have the ``file`` sheme "
-#| "and be compliant with :rfc:`8089`. In particular, the path component must "
-#| "be absolute. Symbolic links SHOULD be preserved when making relative "
-#| "paths absolute."
 msgid ""
 "When ``url`` refers to a local directory, it MUST have the ``file`` scheme "
 "and be compliant with :rfc:`8089`. In particular, the path component must be "
@@ -16426,7 +16413,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:113
 #, fuzzy
-#| msgid "Project Summaries"
 msgid "Projects in subdirectories"
 msgstr "Resumos de projetos"
 
@@ -16526,12 +16512,6 @@ msgstr "Um hash de confirmação (40 caracteres hexadecimais sha1)."
 
 #: ../source/specifications/direct-url-data-structure.rst:157
 #, fuzzy
-#| msgid ""
-#| "Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands "
-#| "to determine if the ``requested_revision`` corresponds to a Git ref. In "
-#| "turn, a ref beginning with ``refs/tags/`` corresponds to a tag, and a ref "
-#| "beginning with ``refs/remotes/origin/`` after cloning corresponds to a "
-#| "branch."
 msgid ""
 "Tools can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
@@ -16632,15 +16612,11 @@ msgstr "Diretório local:"
 
 #: ../source/specifications/direct-url-data-structure.rst:273
 #, fuzzy
-#| msgid "Local directory installed in editable mode:"
 msgid "Local directory in editable mode:"
 msgstr "Diretório local instalado em modo editável:"
 
 #: ../source/specifications/direct-url-data-structure.rst:287
 #, fuzzy
-#| msgid ""
-#| "March 2020: the ``direct_url.json`` metadata file was originally "
-#| "specified in :pep:`610` and is formally documented here."
 msgid ""
 "March 2020: this data structure was originally specified as part of the "
 "``direct_url.json`` metadata file in :pep:`610` and is formally documented "
@@ -16651,9 +16627,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:289
 #, fuzzy
-#| msgid ""
-#| "January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
-#| "discuss.python.org/t/22299>`__)."
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key ([discussion](https://"
 "discuss.python.org/t/22299))."
@@ -16830,11 +16803,6 @@ msgstr "Formato de arquivo"
 
 #: ../source/specifications/entry-points.rst:82
 #, fuzzy
-#| msgid ""
-#| "Entry points are defined in a file called :file:`entry_points.txt` in "
-#| "the :file:`*.dist-info` directory of the distribution. This is the "
-#| "directory described in :pep:`376` for installed distributions, and in :"
-#| "pep:`427` for wheels.  The file uses the UTF-8 character encoding."
 msgid ""
 "Entry points are defined in a file called :file:`entry_points.txt` in the :"
 "file:`*.dist-info` directory of the distribution. This is the directory "
@@ -16981,7 +16949,6 @@ msgstr ""
 
 #: ../source/specifications/externally-managed-environments.rst:6
 #, fuzzy
-#| msgid "Virtual Environment"
 msgid "Externally Managed Environments"
 msgstr "Ambiente Virtual"
 
@@ -17032,7 +16999,6 @@ msgstr "Metadados de distribuição de pacotes"
 
 #: ../source/specifications/index.rst:27
 #, fuzzy
-#| msgid "Package Distribution Metadata"
 msgid "Package Installation Environment Metadata"
 msgstr "Metadados de distribuição de pacotes"
 
@@ -17162,9 +17128,6 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:23
 #, fuzzy
-#| msgid ""
-#| "The wheel filename is ``{distribution}-{version}(-{build tag})?-{python "
-#| "tag}-{abi tag}-{platform tag}.whl``."
 msgid "The tag format is ``{python tag}-{abi tag}-{platform tag}``."
 msgstr ""
 "O nome de arquivo do wheel é ``{distribution}-{version}(-{build tag})?-"
@@ -17172,35 +17135,26 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:25
 #, fuzzy
-#| msgid "python"
 msgid "python tag"
 msgstr "python"
 
 #: ../source/specifications/platform-compatibility-tags.rst:26
 #, fuzzy
-#| msgid "E.g. 'py27', 'py2', 'py3'."
 msgid "'py27', 'cp33'"
 msgstr "p.ex., 'py27', 'py2', 'py3'."
 
 #: ../source/specifications/platform-compatibility-tags.rst:28
 #, fuzzy
-#| msgid "E.g. 'cp33m', 'abi3', 'none'."
 msgid "'cp32dmu', 'none'"
 msgstr "p.ex., 'cp33m', 'abi3', 'none'."
 
 #: ../source/specifications/platform-compatibility-tags.rst:30
 #, fuzzy
-#| msgid "E.g. 'linux_x86_64', 'any'."
 msgid "'linux_x86_64', 'any'"
 msgstr "p.ex., 'linux_x86_64', 'any'."
 
 #: ../source/specifications/platform-compatibility-tags.rst:32
 #, fuzzy
-#| msgid ""
-#| "For example, ``distribution-1.0-1-py27-none-any.whl`` is the first build "
-#| "of a package called 'distribution', and is compatible with Python 2.7 "
-#| "(any Python 2.7 implementation), with no ABI (pure Python), on any CPU "
-#| "architecture."
 msgid ""
 "For example, the tag ``py27-none-any`` indicates compatibility with Python "
 "2.7 (any Python 2.7 implementation) with no abi requirement, on any platform."
@@ -17213,15 +17167,11 @@ msgstr ""
 #: ../source/specifications/platform-compatibility-tags.rst:36
 #: ../source/specifications/platform-compatibility-tags.rst:168
 #, fuzzy
-#| msgid "Usage:"
 msgid "Use"
 msgstr "Uso:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:38
 #, fuzzy
-#| msgid ""
-#| "The wheel filename is ``{distribution}-{version}(-{build tag})?-{python "
-#| "tag}-{abi tag}-{platform tag}.whl``."
 msgid ""
 "The ``wheel`` built package format includes these tags in its filenames, of "
 "the form ``{distribution}-{version}(-{build tag})?-{python tag}-{abitag}-"
@@ -17236,7 +17186,6 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:49
 #, fuzzy
-#| msgid "Python 2::"
 msgid "Python Tag"
 msgstr "Python 2::"
 
@@ -17252,13 +17201,11 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:55
 #, fuzzy
-#| msgid "python"
 msgid "cp: CPython"
 msgstr "python"
 
 #: ../source/specifications/platform-compatibility-tags.rst:56
 #, fuzzy
-#| msgid "python"
 msgid "ip: IronPython"
 msgstr "python"
 
@@ -17268,7 +17215,6 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:58
 #, fuzzy
-#| msgid "python"
 msgid "jy: Jython"
 msgstr "python"
 
@@ -17329,7 +17275,6 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:93
 #, fuzzy
-#| msgid "platform tag"
 msgid "Platform Tag"
 msgstr "platform tag"
 
@@ -17349,23 +17294,16 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:100
 #, fuzzy
-#| msgid "E.g. 'linux_x86_64', 'any'."
 msgid "linux_x86_64"
 msgstr "p.ex., 'linux_x86_64', 'any'."
 
 #: ../source/specifications/platform-compatibility-tags.rst:105
 #, fuzzy
-#| msgid "``manylinux1``"
 msgid "``manylinux``"
 msgstr "``manylinux1``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:108
 #, fuzzy
-#| msgid ""
-#| "The scheme defined in :pep:`425` is insufficient for public distribution "
-#| "of wheel files (and \\*nix wheel files in general) to Linux platforms, "
-#| "due to the large ecosystem of Linux platforms and subtle differences "
-#| "between them."
 msgid ""
 "The scheme defined in :pep:`425` was insufficient for public distribution of "
 "wheel files (and \\*nix wheel files in general) to Linux platforms, due to "
@@ -17975,11 +17913,6 @@ msgstr "Histórico e fluxo de trabalho de mudança"
 
 #: ../source/specifications/recording-installed-packages.rst:23
 #, fuzzy
-#| msgid ""
-#| "The metadata described here was first specified in :pep:`376`, and later "
-#| "amended in :pep:`627`. It was formerly known as *Database of Installed "
-#| "Python Distributions*. Further amendments (except trivial language or "
-#| "typography fixes) must be made through the PEP process (see :pep:`1`)."
 msgid ""
 "The metadata described here was first specified in :pep:`376`, and later "
 "amended in :pep:`627` (and other PEPs). It was formerly known as *Database "
@@ -17997,10 +17930,6 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:31
 #, fuzzy
-#| msgid ""
-#| "While this document is the normative specification, these PEPs that "
-#| "introduce changes to it may include additional information such as "
-#| "rationales and backwards compatibility considerations."
 msgid ""
 "While this document is the normative specification, the PEPs that introduce "
 "changes to it may include additional information such as rationales and "
@@ -18082,9 +18011,6 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:71
 #, fuzzy
-#| msgid ""
-#| "This ``.dist-info`` directory can contain these files, described in "
-#| "detail below:"
 msgid ""
 "This ``.dist-info`` directory may contain the following files, described in "
 "detail below:"
@@ -18288,11 +18214,6 @@ msgstr "Aqui está um trecho de exemplo de um possível arquivo ``RECORD``::"
 
 #: ../source/specifications/recording-installed-packages.rst:174
 #, fuzzy
-#| msgid ""
-#| "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
-#| "not attempt to uninstall or upgrade the package. (This does not apply to "
-#| "tools that rely on other sources of information, such as system package "
-#| "managers in Linux distros.)"
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
 "not attempt to uninstall or upgrade the package. (This restriction does not "
@@ -18356,7 +18277,6 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:213
 #, fuzzy
-#| msgid "Its detailed specification is at :ref:`direct-url`."
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr "Sua especificação detalhada está em :ref:`direct-url`."
 
@@ -18617,7 +18537,6 @@ msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:6
 #, fuzzy
-#| msgid "Virtual Environment"
 msgid "Python Virtual Environments"
 msgstr "Ambiente Virtual"
 
@@ -18635,7 +18554,6 @@ msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:18
 #, fuzzy
-#| msgid "Activating a virtual environment"
 msgid "Runtime detection of virtual environments"
 msgstr "Ativando um ambiente virtual"
 
@@ -18659,7 +18577,6 @@ msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:33
 #, fuzzy
-#| msgid "Installing packages using pip and virtual environments"
 msgid "Declaring installation environments as Python virtual environments"
 msgstr "Instalando pacotes usando pip e ambientes virtuais"
 
@@ -20441,6 +20358,53 @@ msgstr ""
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
+#, fuzzy
+msgid ""
+"This guide *assumes* that you already have a project that you know how to "
+"build distributions for and *it lives on GitHub*.  This guide also avoids "
+"details of building platform specific projects. If you have binary "
+"components, check out :ref:`cibuildwheel`'s GitHub Action examples."
+msgstr ""
+"Este guia *presume* que você já tem um projeto para o qual sabe como "
+"construir distribuições e *ele reside no GitHub*."
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:98
+#, fuzzy
+msgid ""
+"And now we can build dists from source. In this example, we'll use ``build`` "
+"package."
+msgstr ""
+"E agora podemos construir dists a partir da fonte. Neste exemplo, usaremos o "
+"pacote ``build``, presumindo que seu projeto tem um ``pyproject.toml`` "
+"configurado corretamente (veja :pep:`517` /:pep:`518`)."
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
+#, fuzzy
+msgid ""
+"You can use any other method for building distributions as long as it "
+"produces ready-to-upload artifacts saved into the ``dist/`` folder. You can "
+"even use ``actions/upload-artifact`` and ``actions/download-artifact`` to "
+"tranfer files between jobs or make them accessable for download from the web "
+"CI interface."
+msgstr ""
+"Você pode usar qualquer outro método para construir distribuições, desde que "
+"produza artefatos prontos para enviar, salvos na pasta ``dist/``."
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
+#, fuzzy
+msgid ""
+"These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
+"first one uploads contents of the ``dist/`` folder into TestPyPI "
+"unconditionally and the second does that to PyPI, but only if the current "
+"commit is tagged. It is recommended you use the latest release tag; a tool "
+"like GitHub's dependabot can keep these updated regularly."
+msgstr ""
+"Essas duas etapas usam a GitHub Action `pypa/gh-action-pypi-publish`_: a "
+"primeira carrega o conteúdo da pasta ``dist /`` para TestPyPI "
+"incondicionalmente e a segunda faz isso para PyPI, mas apenas se o commit "
+"atual estiver marcado."
+
 #~ msgid ""
 #~ "This JSON file MUST be a dictionary, compliant with :rfc:`8259` and UTF-8 "
 #~ "encoded."
@@ -21253,3 +21217,92 @@ msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 
 #~ msgid "Using `venv`_:"
 #~ msgstr "Usando `venv`_:"
+
+#~ msgid ""
+#~ "If present, it MUST contain at least two fields. The first one is "
+#~ "``url``, with type ``string``. Depending on what ``url`` refers to, the "
+#~ "second field MUST be one of ``vcs_info`` (if ``url`` is a VCS reference), "
+#~ "``archive_info`` (if ``url`` is a source archives or a wheel), or "
+#~ "``dir_info`` (if ``url``  is a local directory). These info fields have a "
+#~ "(possibly empty) subdictionary as value, with the possible keys defined "
+#~ "below."
+#~ msgstr ""
+#~ "Se presente, DEVE conter pelo menos dois campos. O primeiro é ``url``, "
+#~ "com tipo ``string``. Dependendo de qual ``url`` se refere, o segundo "
+#~ "campo DEVE ser um de ``vcs_info`` (se ``url`` é uma referência de VCS), "
+#~ "``archive_info`` (se ``url`` é um arquivo de código-fonte ou um wheel) ou "
+#~ "``dir_info`` (se ``url`` é um diretório local). Estes campos "
+#~ "informacionais têm um subdicionário (possivelmente vazio) como valor, com "
+#~ "as chaves possíveis definidas abaixo."
+
+#~ msgid ""
+#~ "``url`` MUST be stripped of any sensitive authentication information, for "
+#~ "security reasons."
+#~ msgstr ""
+#~ "``url`` DEVE ser podado a fim de retirar qualquer informação de "
+#~ "autenticação sensível, por razões de segurança."
+
+#~ msgid ""
+#~ "A ``requested_revision`` key (type ``string``) MAY be present naming a "
+#~ "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) "
+#~ "to install."
+#~ msgstr ""
+#~ "Uma chave ``required_revision`` (tipo ``string``) PODE estar presente "
+#~ "nomeando um branch/tag/ref/commit/revisão/etc (em um formato compatível "
+#~ "com o VCS) para instalar."
+
+#~ msgid ""
+#~ "A ``commit_id`` key (type ``string``) MUST be present, containing the "
+#~ "exact commit/revision number that was installed. If the VCS supports "
+#~ "commit-hash based revision identifiers, such commit-hash MUST be used as "
+#~ "``commit_id`` in order to reference the immutable version of the source "
+#~ "code that was installed."
+#~ msgstr ""
+#~ "Uma chave ``commit_id`` (tipo ``string``) DEVE estar presente, contendo o "
+#~ "número exato de commit/revisão que foi instalado. Se o VCS oferecer "
+#~ "suporte a identificadores de revisão baseados em hash de commit, tal hash "
+#~ "de commit DEVE ser usado como ``commit_id`` para referenciar a versão "
+#~ "imutável do código-fonte que foi instalado."
+
+#~ msgid ""
+#~ "``editable`` (type: ``boolean``): ``true`` if the distribution was "
+#~ "installed in editable mode, ``false`` otherwise. If absent, default to "
+#~ "``false``."
+#~ msgstr ""
+#~ "``editable`` (tipo: ``boolean``): ``true`` se a distribuição foi "
+#~ "instalada em modo editável, ``false`` caso contrário. Se ausente, é usado "
+#~ "o padrão ``false``."
+
+#~ msgid ""
+#~ "When ``url`` refers to a local directory, it MUST have the ``file`` sheme "
+#~ "and be compliant with :rfc:`8089`. In particular, the path component must "
+#~ "be absolute. Symbolic links SHOULD be preserved when making relative "
+#~ "paths absolute."
+#~ msgstr ""
+#~ "Quando ``url`` se refere a um diretório local, ele DEVE ter o esquema "
+#~ "``file`` e ser compatível com :rfc:`8089` Em particular, o componente do "
+#~ "caminho deve ser absoluto. Links simbólicos DEVERIAM ser preservados ao "
+#~ "tornar os caminhos relativos absolutos."
+
+#~ msgid ""
+#~ "Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands "
+#~ "to determine if the ``requested_revision`` corresponds to a Git ref. In "
+#~ "turn, a ref beginning with ``refs/tags/`` corresponds to a tag, and a ref "
+#~ "beginning with ``refs/remotes/origin/`` after cloning corresponds to a "
+#~ "branch."
+#~ msgstr ""
+#~ "Os instaladores podem usar os comandos ``git show-ref`` e ``git symbolic-"
+#~ "ref`` para determinar se o ``required_revision`` corresponde a um ref "
+#~ "Git. Por sua vez, um ref começando com ``refs/tags/`` corresponde a uma "
+#~ "tag, e um ref começando com ``refs/remotes/origin/`` após a clonagem "
+#~ "corresponde a um branch."
+
+#~ msgid "Local directory installed in editable mode:"
+#~ msgstr "Diretório local instalado em modo editável:"
+
+#~ msgid ""
+#~ "January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
+#~ "discuss.python.org/t/22299>`__)."
+#~ msgstr ""
+#~ "Janeiro de 2023: Adicionada a chave ``archive_info.hashes`` (`discussão "
+#~ "<https://discuss.python.org/t/22299>`__)."

@@ -7670,10 +7670,12 @@ msgstr ""
 "に置いてある* ことを *前提* にしています。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:19
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 msgid "Saving credentials on GitHub"
 msgstr "GitHub に認証情報を保存する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:23
 msgid ""
 "In this guide, we'll demonstrate uploading to both PyPI and TestPyPI, "
 "meaning that we'll have two separate sets of credentials. And we'll need to "
@@ -7684,10 +7686,12 @@ msgstr ""
 "定の中に保存する必要があります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:26
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
 msgid "Let's begin! 🚀"
 msgstr "始めましょう! 🚀"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:30
 msgid ""
 "Go to https://pypi.org/manage/account/#api-tokens and create a new `API "
 "token`_. If you have the project on PyPI already, limit the token scope to "
@@ -7704,6 +7708,7 @@ msgstr ""
 "トークンを再び見る機会はないですよ。**"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:37
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:39
 msgid ""
 "In a separate browser tab or window, go to the ``Settings`` tab of your "
 "target repository and then click on `Secrets`_ in the left sidebar."
@@ -7713,6 +7718,7 @@ msgstr ""
 "てください。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:40
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
 msgid ""
 "Create a new secret called ``PYPI_API_TOKEN`` and copy-paste the token from "
 "the first step."
@@ -7721,6 +7727,7 @@ msgstr ""
 "をコピーしましょう。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:44
 msgid ""
 "Now, go to https://test.pypi.org/manage/account/#api-tokens and repeat the "
 "steps. Save that TestPyPI token on GitHub as ``TEST_PYPI_API_TOKEN``."
@@ -7730,6 +7737,7 @@ msgstr ""
 "``TEST_PYPI_API_TIKEN`` として保存します。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:48
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:50
 msgid ""
 "If you don't have a TestPyPI account, you'll need to create it. It's not the "
 "same as a regular PyPI account."
@@ -7738,10 +7746,12 @@ msgstr ""
 "通常の PyPI のアカウントとは別のものです。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:53
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
 msgid "Creating a workflow definition"
 msgstr "ワークフロー定義を作成する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:57
 msgid ""
 "GitHub CI/CD workflows are declared in YAML files stored in the ``.github/"
 "workflows/`` directory of your repository."
@@ -7750,11 +7760,13 @@ msgstr ""
 "に置かれた YAML ファイルで宣言されます。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:58
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:60
 msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
 msgstr ""
 "``.github/workflows/publish-to-test-pypi.yml`` ファイルを作成しましょう。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:63
 msgid ""
 "Start it with a meaningful name and define the event that should make GitHub "
 "run this workflow:"
@@ -7763,10 +7775,12 @@ msgstr ""
 "義しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
 msgid "Defining a workflow job environment"
 msgstr "ワークフローのジョブ環境を定義する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:74
 msgid ""
 "Now, let's add initial setup for our job. It's a process that will execute "
 "commands that we'll define later. In this guide, we'll use the latest stable "
@@ -7777,14 +7791,17 @@ msgstr ""
 "Actions で提供される Ubuntu LTS の最新版を使います:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:84
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
 msgid "Checking out the project and building distributions"
 msgstr "プロジェクトをチェックアウトして配布物をビルドする"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:88
 msgid "Then, add the following under the ``build-n-publish`` section:"
 msgstr "それから、以下のものを ``build-n-publish`` 節に追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:95
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate Python 3.10."
@@ -7812,14 +7829,17 @@ msgstr ""
 "満たすのであれば、どのような方法で配布物をビルドしても構いません。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:107
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:109
 msgid "So add this to the steps list:"
 msgstr "そこでこれを手順のリストに追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:116
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 msgid "Publishing the distribution to PyPI and TestPyPI"
 msgstr "PyPI と TestPyPI へ配布物を公開する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:120
 msgid "Finally, add the following steps at the end:"
 msgstr "最後に、次の手続きを末尾に追加しましょう:"
 
@@ -7836,10 +7856,12 @@ msgstr ""
 "です。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:131
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "That's all, folks!"
 msgstr "これでできましたよ、皆さん!"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:133
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:137
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -20437,6 +20459,54 @@ msgid ""
 msgstr ""
 "2023年1月: ``archive_info.hashes`` キーを追加しました (`議論 <https://"
 "discuss.python.org/t/22299>`__) 。"
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
+#, fuzzy
+msgid ""
+"This guide *assumes* that you already have a project that you know how to "
+"build distributions for and *it lives on GitHub*.  This guide also avoids "
+"details of building platform specific projects. If you have binary "
+"components, check out :ref:`cibuildwheel`'s GitHub Action examples."
+msgstr ""
+"このガイドでは、配布物をビルドするやり方がわかっているプロジェクトが *GitHub "
+"に置いてある* ことを *前提* にしています。"
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:98
+#, fuzzy
+msgid ""
+"And now we can build dists from source. In this example, we'll use ``build`` "
+"package."
+msgstr ""
+"そして、今や我々はソースコードから配布物をビルドすることができます。この例で"
+"は、あなたのプロジェクトの ``pyproject.toml`` が適切に設定されている (:pep:"
+"`517` と :pep:`518` を参照してください) ことを仮定して、 ``build`` パッケージ"
+"を用いることになります。"
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
+#, fuzzy
+msgid ""
+"You can use any other method for building distributions as long as it "
+"produces ready-to-upload artifacts saved into the ``dist/`` folder. You can "
+"even use ``actions/upload-artifact`` and ``actions/download-artifact`` to "
+"tranfer files between jobs or make them accessable for download from the web "
+"CI interface."
+msgstr ""
+"アップロードできる状態の創作物を ``dist/`` ディレクトリに保存するという条件を"
+"満たすのであれば、どのような方法で配布物をビルドしても構いません。"
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
+#, fuzzy
+msgid ""
+"These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
+"first one uploads contents of the ``dist/`` folder into TestPyPI "
+"unconditionally and the second does that to PyPI, but only if the current "
+"commit is tagged. It is recommended you use the latest release tag; a tool "
+"like GitHub's dependabot can keep these updated regularly."
+msgstr ""
+"これらふたつの手順は、 `pypa/gh-action-pypi-publich`_ GitHub アクションを使い"
+"ます: 一つ目は ``dist/`` ディレクトリの中身を無条件に TestPyPI にアップロード"
+"する時で、二つ目はそのコミットがタグ付けされている場合に限って PyPI へ送る時"
+"です。"
 
 #~ msgid ""
 #~ "The platform compatibility tagging model used for the ``wheel`` "
