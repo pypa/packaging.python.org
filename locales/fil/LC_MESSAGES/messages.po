@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-06 12:51+0000\n"
+"POT-Creation-Date: 2023-03-17 20:48+0000\n"
 "PO-Revision-Date: 2022-11-19 08:28+0000\n"
 "Last-Translator: RedFurrFox <redfurryfoxgaming@gmail.com>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -523,6 +523,7 @@ msgstr ""
 #: ../source/guides/supporting-windows-using-appveyor.rst:17
 #: ../source/overview.rst:23 ../source/specifications/core-metadata.rst:41
 #: ../source/specifications/direct-url.rst:14
+#: ../source/specifications/direct-url-data-structure.rst:17
 #: ../source/tutorials/installing-packages.rst:23
 msgid "Contents"
 msgstr ""
@@ -1823,7 +1824,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:78
 #: ../source/specifications/dependency-specifiers.rst:27
-#: ../source/specifications/direct-url.rst:244
+#: ../source/specifications/direct-url-data-structure.rst:236
 msgid "Examples"
 msgstr ""
 
@@ -10970,6 +10971,7 @@ msgstr ""
 #: ../source/specifications/declaring-project-metadata.rst:14
 #: ../source/specifications/dependency-specifiers.rst:24
 #: ../source/specifications/direct-url.rst:17
+#: ../source/specifications/direct-url-data-structure.rst:20
 msgid "Specification"
 msgstr ""
 
@@ -11949,146 +11951,11 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:26
 msgid ""
-"This JSON file MUST be a dictionary, compliant with :rfc:`8259` and UTF-8 "
-"encoded."
+"This JSON file MUST be a UTF-8 encoded, :rfc:`8259` compliant, serialization "
+"of the :doc:`direct-url-data-structure`."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:28
-msgid ""
-"If present, it MUST contain at least two fields. The first one is ``url``, "
-"with type ``string``. Depending on what ``url`` refers to, the second field "
-"MUST be one of ``vcs_info`` (if ``url`` is a VCS reference), "
-"``archive_info`` (if ``url`` is a source archives or a wheel), or "
-"``dir_info`` (if ``url``  is a local directory). These info fields have a "
-"(possibly empty) subdictionary as value, with the possible keys defined "
-"below."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:35
-msgid ""
-"``url`` MUST be stripped of any sensitive authentication information, for "
-"security reasons."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:38
-msgid ""
-"The user:password section of the URL MAY however be composed of environment "
-"variables, matching the following regular expression::"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:44
-msgid ""
-"Additionally, the user:password section of the URL MAY be a well-known, non "
-"security sensitive string. A typical example is ``git`` in the case of an "
-"URL such as ``ssh://git@gitlab.com/user/repo``."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:48
-msgid ""
-"When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
-"present as a dictionary with the following keys:"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:51
-msgid ""
-"A ``vcs`` key (type ``string``) MUST be present, containing the name of the "
-"VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's SHOULD be "
-"registered by writing a PEP to amend this specification. The ``url`` value "
-"MUST be compatible with the corresponding VCS, so an installer can hand it "
-"off without transformation to a checkout/download command of the VCS."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:57
-msgid ""
-"A ``requested_revision`` key (type ``string``) MAY be present naming a "
-"branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) to "
-"install."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:60
-msgid ""
-"A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
-"commit/revision number that was installed. If the VCS supports commit-hash "
-"based revision identifiers, such commit-hash MUST be used as ``commit_id`` "
-"in order to reference the immutable version of the source code that was "
-"installed."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:67
-msgid ""
-"When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
-"MUST be present as a dictionary with the following keys:"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:70
-msgid ""
-"A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
-"hex encoded digest of the file."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:73
-msgid ""
-"Multiple hashes can be included, and it is up to the consumer to decide what "
-"to do with multiple hashes (it may validate all of them or a subset of them, "
-"or nothing at all)."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:77
-msgid "These hash names SHOULD always be normalized to be lowercase."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:79
-msgid ""
-"Any hash algorithm available via ``hashlib`` (specifically any that can be "
-"passed to ``hashlib.new()`` and do not require additional parameters) can be "
-"used as a key for the hashes dictionary. At least one secure algorithm from "
-"``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of "
-"writing, ``sha256`` specifically is recommended."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:85
-msgid ""
-"A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
-"compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:88
-msgid ""
-"Producers of the data structure SHOULD emit the ``hashes`` key whether one "
-"or multiple hashes are available. Producers SHOULD continue to emit the "
-"``hash`` key in contexts where they did so before, so as to keep backwards "
-"compatibility for existing clients."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:92
-msgid ""
-"When both the ``hash`` and ``hashes`` keys are present, the hash represented "
-"in the ``hash`` key MUST also be present in the ``hashes`` dictionary, so "
-"consumers can consider the ``hashes`` key only if it is present, and fall "
-"back to ``hash`` otherwise."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:96
-msgid ""
-"When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
-"present as a dictionary with the following key:"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:99
-msgid ""
-"``editable`` (type: ``boolean``): ``true`` if the distribution was installed "
-"in editable mode, ``false`` otherwise. If absent, default to ``false``."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:102
-msgid ""
-"When ``url`` refers to a local directory, it MUST have the ``file`` sheme "
-"and be compliant with :rfc:`8089`. In particular, the path component must be "
-"absolute. Symbolic links SHOULD be preserved when making relative paths "
-"absolute."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:109
+#: ../source/specifications/direct-url.rst:31
 msgid ""
 "When the requested URL has the file:// scheme and points to a local "
 "directory that happens to contain a VCS checkout, installers MUST NOT "
@@ -12096,14 +11963,7 @@ msgid ""
 "related information (such as ``vcs_info``) in :file:`direct_url.json`."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:114
-msgid ""
-"A top-level ``subdirectory`` field MAY be present containing a directory "
-"path, relative to the root of the VCS repository, source archive or local "
-"directory, to specify where ``pyproject.toml`` or ``setup.py`` is located."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:120
+#: ../source/specifications/direct-url.rst:38
 msgid ""
 "As a general rule, installers should as much as possible preserve the "
 "information that was provided in the requested URL when generating :file:"
@@ -12113,11 +11973,256 @@ msgid ""
 "however *enriched* with more precise data, such as ``commit_id``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:128
+#: ../source/specifications/direct-url.rst:47
+msgid "Example pip commands and their effect on direct_url.json"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:49
+msgid "Commands that generate a ``direct_url.json``:"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:51
+msgid "``pip install https://example.com/app-1.0.tgz``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:52
+msgid "``pip install https://example.com/app-1.0.whl``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:53
+msgid ""
+"``pip install \"app @ git+https://example.com/repo/app.git#subdirectory=setup"
+"\"``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:54
+msgid "``pip install ./app``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:55
+msgid "``pip install file:///home/user/app``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:56
+msgid ""
+"``pip install --editable \"app @ git+https://example.com/repo/app."
+"git#subdirectory=setup\"`` (in which case, ``url`` will be the local "
+"directory where the git repository has been cloned to, and ``dir_info`` will "
+"be present with ``\"editable\": true`` and no ``vcs_info`` will be set)"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:60
+msgid "``pip install -e ./app``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:62
+msgid "Commands that *do not* generate a ``direct_url.json``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:64
+msgid "``pip install app``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:65
+msgid "``pip install app --no-index --find-links https://example.com/``"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:68
+#: ../source/specifications/direct-url-data-structure.rst:285
+msgid "History"
+msgstr ""
+
+#: ../source/specifications/direct-url.rst:70
+msgid ""
+"March 2020: the ``direct_url.json`` metadata file was originally specified "
+"in :pep:`610` and is formally documented here."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:6
+msgid "Direct URL Data Structure"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:8
+msgid ""
+"This document specifies a JSON-serializable abstract data structure that can "
+"represent URLs to python projects and distribution artifacts such as VCS "
+"source trees, local source trees, source distributions and wheels."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:12
+msgid ""
+"The representation of the components of this data structure as a :rfc:`1738` "
+"URL is not formally specified at time of writing. A common representation is "
+"the pip URL format. Other examples are provided in :pep:`440`."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:22
+msgid ""
+"The Direct URL Data Structure MUST be a dictionary, serializable to JSON "
+"according to :rfc:`8259`."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:25
+msgid ""
+"It MUST contain at least two fields. The first one is ``url``, with type "
+"``string``. Depending on what ``url`` refers to, the second field MUST be "
+"one of ``vcs_info`` (if ``url`` is a VCS reference), ``archive_info`` (if "
+"``url`` is a source archives or a wheel), or ``dir_info`` (if ``url``  is a "
+"local directory). These info fields have a (possibly empty) subdictionary as "
+"value, with the possible keys defined below."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:32
+msgid ""
+"When persisted, ``url`` MUST be stripped of any sensitive authentication "
+"information, for security reasons."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:35
+msgid ""
+"The user:password section of the URL MAY however be composed of environment "
+"variables, matching the following regular expression::"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:41
+msgid ""
+"Additionally, the user:password section of the URL MAY be a well-known, non "
+"security sensitive string. A typical example is ``git`` in the case of an "
+"URL such as ``ssh://git@gitlab.com/user/repo``."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:46
+msgid "VCS URLs"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:48
+msgid ""
+"When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
+"present as a dictionary with the following keys:"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:51
+msgid ""
+"A ``vcs`` key (type ``string``) MUST be present, containing the name of the "
+"VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's SHOULD be "
+"registered by writing a PEP to amend this specification. The ``url`` value "
+"MUST be compatible with the corresponding VCS, so an installer can hand it "
+"off without transformation to a checkout/download command of the VCS."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:57
+msgid ""
+"A ``requested_revision`` key (type ``string``) MAY be present naming a "
+"branch/tag/ref/commit/revision/etc (in a format compatible with the VCS)."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:59
+msgid ""
+"A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
+"commit/revision number that was/is to be installed. If the VCS supports "
+"commit-hash based revision identifiers, such commit-hash MUST be used as "
+"``commit_id`` in order to reference an immutable version of the source code."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:67
+msgid "Archive URLs"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:69
+msgid ""
+"When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
+"MUST be present as a dictionary with the following keys:"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:72
+msgid ""
+"A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
+"hex encoded digest of the file."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:75
+msgid ""
+"Multiple hashes can be included, and it is up to the consumer to decide what "
+"to do with multiple hashes (it may validate all of them or a subset of them, "
+"or nothing at all)."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:79
+msgid "These hash names SHOULD always be normalized to be lowercase."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:81
+msgid ""
+"Any hash algorithm available via ``hashlib`` (specifically any that can be "
+"passed to ``hashlib.new()`` and do not require additional parameters) can be "
+"used as a key for the hashes dictionary. At least one secure algorithm from "
+"``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of "
+"writing, ``sha256`` specifically is recommended."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:87
+msgid ""
+"A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
+"compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:90
+msgid ""
+"Producers of the data structure SHOULD emit the ``hashes`` key whether one "
+"or multiple hashes are available. Producers SHOULD continue to emit the "
+"``hash`` key in contexts where they did so before, so as to keep backwards "
+"compatibility for existing clients."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:94
+msgid ""
+"When both the ``hash`` and ``hashes`` keys are present, the hash represented "
+"in the ``hash`` key MUST also be present in the ``hashes`` dictionary, so "
+"consumers can consider the ``hashes`` key only if it is present, and fall "
+"back to ``hash`` otherwise."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:99
+msgid "Local directories"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:101
+msgid ""
+"When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
+"present as a dictionary with the following key:"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:104
+msgid ""
+"``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be "
+"installed in editable mode, ``false`` otherwise. If absent, default to "
+"``false``."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:107
+msgid ""
+"When ``url`` refers to a local directory, it MUST have the ``file`` scheme "
+"and be compliant with :rfc:`8089`. In particular, the path component must be "
+"absolute. Symbolic links SHOULD be preserved when making relative paths "
+"absolute."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:113
+msgid "Projects in subdirectories"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:115
+msgid ""
+"A top-level ``subdirectory`` field MAY be present containing a directory "
+"path, relative to the root of the VCS repository, source archive or local "
+"directory, to specify where ``pyproject.toml`` or ``setup.py`` is located."
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:120
 msgid "Registered VCS"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:130
+#: ../source/specifications/direct-url-data-structure.rst:122
 msgid ""
 "This section lists the registered VCS's; expanded, VCS-specific information "
 "on how to use the ``vcs``, ``requested_revision``, and other fields of "
@@ -12128,227 +12233,166 @@ msgid ""
 "VCS SHOULD be prefixed with the VCS command name."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:140
+#: ../source/specifications/direct-url-data-structure.rst:132
 msgid "Git"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:142
-#: ../source/specifications/direct-url.rst:174
-#: ../source/specifications/direct-url.rst:197
-#: ../source/specifications/direct-url.rst:220
+#: ../source/specifications/direct-url-data-structure.rst:134
+#: ../source/specifications/direct-url-data-structure.rst:166
+#: ../source/specifications/direct-url-data-structure.rst:189
+#: ../source/specifications/direct-url-data-structure.rst:212
 msgid "Home page"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:144
+#: ../source/specifications/direct-url-data-structure.rst:136
 msgid "https://git-scm.com/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:146
-#: ../source/specifications/direct-url.rst:178
-#: ../source/specifications/direct-url.rst:201
-#: ../source/specifications/direct-url.rst:224
+#: ../source/specifications/direct-url-data-structure.rst:138
+#: ../source/specifications/direct-url-data-structure.rst:170
+#: ../source/specifications/direct-url-data-structure.rst:193
+#: ../source/specifications/direct-url-data-structure.rst:216
 msgid "vcs command"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:148
-#: ../source/specifications/direct-url.rst:152
+#: ../source/specifications/direct-url-data-structure.rst:140
+#: ../source/specifications/direct-url-data-structure.rst:144
 msgid "git"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:150
-#: ../source/specifications/direct-url.rst:182
-#: ../source/specifications/direct-url.rst:205
-#: ../source/specifications/direct-url.rst:228
+#: ../source/specifications/direct-url-data-structure.rst:142
+#: ../source/specifications/direct-url-data-structure.rst:174
+#: ../source/specifications/direct-url-data-structure.rst:197
+#: ../source/specifications/direct-url-data-structure.rst:220
 msgid "``vcs`` field"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:154
-#: ../source/specifications/direct-url.rst:186
-#: ../source/specifications/direct-url.rst:209
-#: ../source/specifications/direct-url.rst:232
+#: ../source/specifications/direct-url-data-structure.rst:146
+#: ../source/specifications/direct-url-data-structure.rst:178
+#: ../source/specifications/direct-url-data-structure.rst:201
+#: ../source/specifications/direct-url-data-structure.rst:224
 msgid "``requested_revision`` field"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:156
+#: ../source/specifications/direct-url-data-structure.rst:148
 msgid ""
 "A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
 "other commit-ish."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:159
-#: ../source/specifications/direct-url.rst:190
-#: ../source/specifications/direct-url.rst:213
-#: ../source/specifications/direct-url.rst:237
+#: ../source/specifications/direct-url-data-structure.rst:151
+#: ../source/specifications/direct-url-data-structure.rst:182
+#: ../source/specifications/direct-url-data-structure.rst:205
+#: ../source/specifications/direct-url-data-structure.rst:229
 msgid "``commit_id`` field"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:161
+#: ../source/specifications/direct-url-data-structure.rst:153
 msgid "A commit hash (40 hexadecimal characters sha1)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:165
+#: ../source/specifications/direct-url-data-structure.rst:157
 msgid ""
-"Installers can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
+"Tools can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
 "ref beginning with ``refs/tags/`` corresponds to a tag, and a ref beginning "
 "with ``refs/remotes/origin/`` after cloning corresponds to a branch."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:172
+#: ../source/specifications/direct-url-data-structure.rst:164
 msgid "Mercurial"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:176
+#: ../source/specifications/direct-url-data-structure.rst:168
 msgid "https://www.mercurial-scm.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:180
-#: ../source/specifications/direct-url.rst:184
+#: ../source/specifications/direct-url-data-structure.rst:172
+#: ../source/specifications/direct-url-data-structure.rst:176
 msgid "hg"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:188
+#: ../source/specifications/direct-url-data-structure.rst:180
 msgid "A tag name, branch name, changeset ID, shortened changeset ID."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:192
+#: ../source/specifications/direct-url-data-structure.rst:184
 msgid "A changeset ID (40 hexadecimal characters)."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:195
+#: ../source/specifications/direct-url-data-structure.rst:187
 msgid "Bazaar"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:199
+#: ../source/specifications/direct-url-data-structure.rst:191
 msgid "https://bazaar.canonical.com"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:203
-#: ../source/specifications/direct-url.rst:207
+#: ../source/specifications/direct-url-data-structure.rst:195
+#: ../source/specifications/direct-url-data-structure.rst:199
 msgid "bzr"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:211
+#: ../source/specifications/direct-url-data-structure.rst:203
 msgid "A tag name, branch name, revision id."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:215
+#: ../source/specifications/direct-url-data-structure.rst:207
 msgid "A revision id."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:218
+#: ../source/specifications/direct-url-data-structure.rst:210
 msgid "Subversion"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:222
+#: ../source/specifications/direct-url-data-structure.rst:214
 msgid "https://subversion.apache.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:226
-#: ../source/specifications/direct-url.rst:230
+#: ../source/specifications/direct-url-data-structure.rst:218
+#: ../source/specifications/direct-url-data-structure.rst:222
 msgid "svn"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:234
+#: ../source/specifications/direct-url-data-structure.rst:226
 msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:239
+#: ../source/specifications/direct-url-data-structure.rst:231
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:247
-msgid "Example direct_url.json"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:249
+#: ../source/specifications/direct-url-data-structure.rst:238
 msgid "Source archive:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:262
+#: ../source/specifications/direct-url-data-structure.rst:251
 msgid "Git URL with tag and commit-hash:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:275
+#: ../source/specifications/direct-url-data-structure.rst:264
 msgid "Local directory:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:284
-msgid "Local directory installed in editable mode:"
+#: ../source/specifications/direct-url-data-structure.rst:273
+msgid "Local directory in editable mode:"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:297
-msgid "Example pip commands and their effect on direct_url.json"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:299
-msgid "Commands that generate a ``direct_url.json``:"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:301
-msgid "``pip install https://example.com/app-1.0.tgz``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:302
-msgid "``pip install https://example.com/app-1.0.whl``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:303
+#: ../source/specifications/direct-url-data-structure.rst:287
 msgid ""
-"``pip install \"app @ git+https://example.com/repo/app.git#subdirectory=setup"
-"\"``"
+"March 2020: this data structure was originally specified as part of the "
+"``direct_url.json`` metadata file in :pep:`610` and is formally documented "
+"here."
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:304
-msgid "``pip install ./app``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:305
-msgid "``pip install file:///home/user/app``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:306
+#: ../source/specifications/direct-url-data-structure.rst:289
 msgid ""
-"``pip install --editable \"app @ git+https://example.com/repo/app."
-"git#subdirectory=setup\"`` (in which case, ``url`` will be the local "
-"directory where the git repository has been cloned to, and ``dir_info`` will "
-"be present with ``\"editable\": true`` and no ``vcs_info`` will be set)"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:310
-msgid "``pip install -e ./app``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:312
-msgid "Commands that *do not* generate a ``direct_url.json``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:314
-msgid "``pip install app``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:315
-msgid "``pip install app --no-index --find-links https://example.com/``"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:318
-msgid "History"
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:320
-msgid ""
-"March 2020: the ``direct_url.json`` metadata file was originally specified "
-"in :pep:`610` and is formally documented here."
-msgstr ""
-
-#: ../source/specifications/direct-url.rst:322
-msgid ""
-"January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
-"discuss.python.org/t/22299>`__)."
+"January 2023: Added the ``archive_info.hashes`` key ([discussion](https://"
+"discuss.python.org/t/22299))."
 msgstr ""
 
 #: ../source/specifications/entry-points.rst:5
@@ -12603,11 +12647,11 @@ msgstr ""
 msgid "Package Installation Environment Metadata"
 msgstr ""
 
-#: ../source/specifications/index.rst:39
+#: ../source/specifications/index.rst:40
 msgid "Package Distribution File Formats"
 msgstr ""
 
-#: ../source/specifications/index.rst:49
+#: ../source/specifications/index.rst:50
 msgid "Package Index Interfaces"
 msgstr ""
 
