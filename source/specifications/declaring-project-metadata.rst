@@ -15,9 +15,11 @@ Specification
 
 There are two kinds of metadata: *static* and *dynamic*. Static
 metadata is specified in the ``pyproject.toml`` file directly and
-cannot be specified or changed by a tool. Dynamic metadata is listed
-via the ``dynamic`` key (defined later in this specification) and
-represents metadata that a tool will later provide.
+cannot be specified or changed by a tool (this includes data
+*referred* to by the metadata, e.g. the contents of files referenced
+by the metadata). Dynamic metadata is listed via the ``dynamic`` key
+(defined later in this specification) and represents metadata that a
+tool will later provide.
 
 The keys defined in this specification MUST be in a table named
 ``[project]`` in ``pyproject.toml``. No tools may add keys to this
