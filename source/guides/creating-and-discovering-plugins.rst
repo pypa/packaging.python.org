@@ -41,7 +41,7 @@ then ``discovered_plugins`` would be:
 .. code-block:: python
 
     {
-        'flask_sqlachemy': <module: 'flask_sqlalchemy'>,
+        'flask_sqlalchemy': <module: 'flask_sqlalchemy'>,
         'flask_talisman': <module: 'flask_talisman'>,
     }
 
