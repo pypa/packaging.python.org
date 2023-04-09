@@ -312,19 +312,19 @@ composed of a project name followed by an optional :term:`version specifier
 specification <440#version-specifiers>`
 of the currently supported specifiers. Below are some examples.
 
-To install the latest version of "SomeProject":
+To install the latest version of ``SomeProject``:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        python3 -m pip install "SomeProject"
+        python3 -m pip install SomeProject
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install "SomeProject"
+        py -m pip install SomeProject
 
 To install a specific version:
 
@@ -332,13 +332,13 @@ To install a specific version:
 
     .. code-block:: bash
 
-        python3 -m pip install "SomeProject==1.4"
+        python3 -m pip install SomeProject==1.4
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install "SomeProject==1.4"
+        py -m pip install SomeProject==1.4
 
 To install greater than or equal to one version and less than another:
 
@@ -346,13 +346,13 @@ To install greater than or equal to one version and less than another:
 
     .. code-block:: bash
 
-        python3 -m pip install "SomeProject>=1,<2"
+        python3 -m pip install SomeProject>=1,<2
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install "SomeProject>=1,<2"
+        py -m pip install SomeProject>=1,<2
 
 
 To install a version that's :pep:`"compatible" <440#compatible-release>`
@@ -362,13 +362,13 @@ with a certain version: [4]_
 
     .. code-block:: bash
 
-        python3 -m pip install "SomeProject~=1.4.2"
+        python3 -m pip install SomeProject~=1.4.2
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install "SomeProject~=1.4.2"
+        py -m pip install SomeProject~=1.4.2
 
 In this case, this means to install any version "==1.4.*" version that's also
 ">=1.4.2".
