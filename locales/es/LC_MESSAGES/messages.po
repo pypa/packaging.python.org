@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-17 20:48+0000\n"
+"POT-Creation-Date: 2023-03-28 21:11+0000\n"
 "PO-Revision-Date: 2023-03-05 21:38+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -2615,9 +2615,9 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:167
-#: ../source/specifications/declaring-project-metadata.rst:33
-#: ../source/specifications/declaring-project-metadata.rst:55
-#: ../source/specifications/declaring-project-metadata.rst:65
+#: ../source/specifications/declaring-project-metadata.rst:35
+#: ../source/specifications/declaring-project-metadata.rst:57
+#: ../source/specifications/declaring-project-metadata.rst:67
 msgid "``name``"
 msgstr ""
 
@@ -2647,9 +2647,9 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:193
-#: ../source/specifications/declaring-project-metadata.rst:38
-#: ../source/specifications/declaring-project-metadata.rst:61
-#: ../source/specifications/declaring-project-metadata.rst:82
+#: ../source/specifications/declaring-project-metadata.rst:40
+#: ../source/specifications/declaring-project-metadata.rst:63
+#: ../source/specifications/declaring-project-metadata.rst:84
 msgid "``version``"
 msgstr ""
 
@@ -2681,8 +2681,8 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:217
-#: ../source/specifications/declaring-project-metadata.rst:48
-#: ../source/specifications/declaring-project-metadata.rst:98
+#: ../source/specifications/declaring-project-metadata.rst:50
+#: ../source/specifications/declaring-project-metadata.rst:100
 msgid "``description``"
 msgstr ""
 
@@ -2736,8 +2736,8 @@ msgid "Provide details about the author."
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:270
-#: ../source/specifications/declaring-project-metadata.rst:53
-#: ../source/specifications/declaring-project-metadata.rst:172
+#: ../source/specifications/declaring-project-metadata.rst:55
+#: ../source/specifications/declaring-project-metadata.rst:174
 msgid "``license``"
 msgstr ""
 
@@ -2760,8 +2760,8 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:290
-#: ../source/specifications/declaring-project-metadata.rst:46
-#: ../source/specifications/declaring-project-metadata.rst:262
+#: ../source/specifications/declaring-project-metadata.rst:48
+#: ../source/specifications/declaring-project-metadata.rst:264
 msgid "``classifiers``"
 msgstr ""
 
@@ -2788,8 +2788,8 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:334
-#: ../source/specifications/declaring-project-metadata.rst:52
-#: ../source/specifications/declaring-project-metadata.rst:248
+#: ../source/specifications/declaring-project-metadata.rst:54
+#: ../source/specifications/declaring-project-metadata.rst:250
 msgid "``keywords``"
 msgstr ""
 
@@ -2956,7 +2956,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:498
-#: ../source/specifications/declaring-project-metadata.rst:59
+#: ../source/specifications/declaring-project-metadata.rst:61
 msgid "``scripts``"
 msgstr ""
 
@@ -5800,15 +5800,15 @@ msgstr ""
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
 msgid ""
 "This guide *assumes* that you already have a project that you know how to "
-"build distributions for and *it lives on GitHub*."
+"build distributions for and *it lives on GitHub*.  This guide also avoids "
+"details of building platform specific projects. If you have binary "
+"components, check out :ref:`cibuildwheel`'s GitHub Action examples."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:19
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 msgid "Saving credentials on GitHub"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:23
 msgid ""
 "In this guide, we'll demonstrate uploading to both PyPI and TestPyPI, "
@@ -5816,12 +5816,10 @@ msgid ""
 "save them in the GitHub repository settings."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:26
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
 msgid "Let's begin! 🚀"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:28
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:30
 msgid ""
 "Go to https://pypi.org/manage/account/#api-tokens and create a new `API "
@@ -5832,64 +5830,54 @@ msgid ""
 "again.**"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:37
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:39
 msgid ""
 "In a separate browser tab or window, go to the ``Settings`` tab of your "
 "target repository and then click on `Secrets`_ in the left sidebar."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:40
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
 msgid ""
 "Create a new secret called ``PYPI_API_TOKEN`` and copy-paste the token from "
 "the first step."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:44
 msgid ""
 "Now, go to https://test.pypi.org/manage/account/#api-tokens and repeat the "
 "steps. Save that TestPyPI token on GitHub as ``TEST_PYPI_API_TOKEN``."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:48
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:50
 msgid ""
 "If you don't have a TestPyPI account, you'll need to create it. It's not the "
 "same as a regular PyPI account."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:53
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
 msgid "Creating a workflow definition"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:55
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:57
 msgid ""
 "GitHub CI/CD workflows are declared in YAML files stored in the ``.github/"
 "workflows/`` directory of your repository."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:58
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:60
 msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:63
 msgid ""
 "Start it with a meaningful name and define the event that should make GitHub "
 "run this workflow:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
 msgid "Defining a workflow job environment"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:74
 msgid ""
 "Now, let's add initial setup for our job. It's a process that will execute "
@@ -5897,65 +5885,60 @@ msgid ""
 "Ubuntu LTS version provided by GitHub Actions:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:84
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
 msgid "Checking out the project and building distributions"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:86
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:88
 msgid "Then, add the following under the ``build-n-publish`` section:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:95
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate Python 3.10."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:96
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:98
 msgid ""
 "And now we can build dists from source. In this example, we'll use ``build`` "
-"package, assuming that your project has a ``pyproject.toml`` properly set up "
-"(see :pep:`517`/:pep:`518`)."
+"package."
 msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
 msgid ""
 "You can use any other method for building distributions as long as it "
-"produces ready-to-upload artifacts saved into the ``dist/`` folder."
+"produces ready-to-upload artifacts saved into the ``dist/`` folder. You can "
+"even use ``actions/upload-artifact`` and ``actions/download-artifact`` to "
+"tranfer files between jobs or make them accessable for download from the web "
+"CI interface."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:107
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:109
 msgid "So add this to the steps list:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:116
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 msgid "Publishing the distribution to PyPI and TestPyPI"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:120
 msgid "Finally, add the following steps at the end:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:124
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
 msgid ""
 "These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
 "first one uploads contents of the ``dist/`` folder into TestPyPI "
 "unconditionally and the second does that to PyPI, but only if the current "
-"commit is tagged."
+"commit is tagged. It is recommended you use the latest release tag; a tool "
+"like GitHub's dependabot can keep these updated regularly."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:131
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "That's all, folks!"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:133
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:137
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
@@ -11057,12 +11040,13 @@ msgstr "Especificación"
 msgid ""
 "There are two kinds of metadata: *static* and *dynamic*. Static metadata is "
 "specified in the ``pyproject.toml`` file directly and cannot be specified or "
-"changed by a tool. Dynamic metadata is listed via the ``dynamic`` key "
-"(defined later in this specification) and represents metadata that a tool "
-"will later provide."
+"changed by a tool (this includes data *referred* to by the metadata, e.g. "
+"the contents of files referenced by the metadata). Dynamic metadata is "
+"listed via the ``dynamic`` key (defined later in this specification) and "
+"represents metadata that a tool will later provide."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:22
+#: ../source/specifications/declaring-project-metadata.rst:24
 msgid ""
 "The keys defined in this specification MUST be in a table named "
 "``[project]`` in ``pyproject.toml``. No tools may add keys to this table "
@@ -11073,136 +11057,136 @@ msgid ""
 "implicitly means the build back-end will dynamically provide all keys."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:31
+#: ../source/specifications/declaring-project-metadata.rst:33
 msgid "The only keys required to be statically defined are:"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:35
+#: ../source/specifications/declaring-project-metadata.rst:37
 msgid ""
 "The keys which are required but may be specified *either* statically or "
 "listed as dynamic are:"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:40
+#: ../source/specifications/declaring-project-metadata.rst:42
 msgid ""
 "All other keys are considered optional and may be specified statically, "
 "listed as dynamic, or left unspecified."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:43
+#: ../source/specifications/declaring-project-metadata.rst:45
 msgid "The complete list of keys allowed in the ``[project]`` table are:"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:45
+#: ../source/specifications/declaring-project-metadata.rst:47
 msgid "``authors``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:47
+#: ../source/specifications/declaring-project-metadata.rst:49
 #, fuzzy
 msgid "``dependencies``"
 msgstr "Dependencias externas"
 
-#: ../source/specifications/declaring-project-metadata.rst:49
-#: ../source/specifications/declaring-project-metadata.rst:380
+#: ../source/specifications/declaring-project-metadata.rst:51
+#: ../source/specifications/declaring-project-metadata.rst:382
 msgid "``dynamic``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:50
+#: ../source/specifications/declaring-project-metadata.rst:52
 msgid "``entry-points``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:51
+#: ../source/specifications/declaring-project-metadata.rst:53
 msgid "``gui-scripts``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:54
+#: ../source/specifications/declaring-project-metadata.rst:56
 #, fuzzy
 msgid "``maintainers``"
 msgstr "Responsable"
 
-#: ../source/specifications/declaring-project-metadata.rst:56
+#: ../source/specifications/declaring-project-metadata.rst:58
 #, fuzzy
 msgid "``optional-dependencies``"
 msgstr "Dependencias externas"
 
-#: ../source/specifications/declaring-project-metadata.rst:57
-#: ../source/specifications/declaring-project-metadata.rst:112
+#: ../source/specifications/declaring-project-metadata.rst:59
+#: ../source/specifications/declaring-project-metadata.rst:114
 msgid "``readme``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:58
-#: ../source/specifications/declaring-project-metadata.rst:158
+#: ../source/specifications/declaring-project-metadata.rst:60
+#: ../source/specifications/declaring-project-metadata.rst:160
 msgid "``requires-python``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:60
-#: ../source/specifications/declaring-project-metadata.rst:278
+#: ../source/specifications/declaring-project-metadata.rst:62
+#: ../source/specifications/declaring-project-metadata.rst:280
 msgid "``urls``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:67
-#: ../source/specifications/declaring-project-metadata.rst:84
-#: ../source/specifications/declaring-project-metadata.rst:100
-#: ../source/specifications/declaring-project-metadata.rst:160
+#: ../source/specifications/declaring-project-metadata.rst:69
+#: ../source/specifications/declaring-project-metadata.rst:86
+#: ../source/specifications/declaring-project-metadata.rst:102
+#: ../source/specifications/declaring-project-metadata.rst:162
 msgid "TOML_ type: string"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:68
+#: ../source/specifications/declaring-project-metadata.rst:70
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name <core-"
 "metadata-name>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:71
+#: ../source/specifications/declaring-project-metadata.rst:73
 msgid "The name of the project."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:73
+#: ../source/specifications/declaring-project-metadata.rst:75
 msgid ""
 "Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon as it "
 "is read for internal consistency."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:85
+#: ../source/specifications/declaring-project-metadata.rst:87
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version "
 "<core-metadata-version>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:88
+#: ../source/specifications/declaring-project-metadata.rst:90
 msgid "The version of the project as supported by :pep:`440`."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:90
+#: ../source/specifications/declaring-project-metadata.rst:92
 msgid "Users SHOULD prefer to specify already-normalized versions."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:101
+#: ../source/specifications/declaring-project-metadata.rst:103
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary "
 "<core-metadata-summary>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:104
+#: ../source/specifications/declaring-project-metadata.rst:106
 msgid "The summary description of the project."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:114
+#: ../source/specifications/declaring-project-metadata.rst:116
 msgid "TOML_ type: string or table"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:115
+#: ../source/specifications/declaring-project-metadata.rst:117
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description "
 "<core-metadata-description>` and :ref:`Description-Content-Type <core-"
 "metadata-description-content-type>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:119
+#: ../source/specifications/declaring-project-metadata.rst:121
 msgid "The full description of the project (i.e. the README)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:121
+#: ../source/specifications/declaring-project-metadata.rst:123
 msgid ""
 "The key accepts either a string or a table. If it is a string then it is a "
 "path relative to ``pyproject.toml`` to a text file containing the full "
@@ -11216,7 +11200,7 @@ msgid ""
 "MUST raise an error."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:132
+#: ../source/specifications/declaring-project-metadata.rst:134
 msgid ""
 "The ``readme`` key may also take a table. The ``file`` key has a string "
 "value representing a path relative to ``pyproject.toml`` to a file "
@@ -11225,7 +11209,7 @@ msgid ""
 "raise an error if the metadata specifies both keys."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:139
+#: ../source/specifications/declaring-project-metadata.rst:141
 msgid ""
 "A table specified in the ``readme`` key also has a ``content-type`` key "
 "which takes a string specifying the content-type of the full description. A "
@@ -11237,27 +11221,27 @@ msgid ""
 "Otherwise tools MUST raise an error for unsupported content-types."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:161
+#: ../source/specifications/declaring-project-metadata.rst:163
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Python <core-metadata-requires-python>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:164
+#: ../source/specifications/declaring-project-metadata.rst:166
 msgid "The Python version requirements of the project."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:174
+#: ../source/specifications/declaring-project-metadata.rst:176
 msgid "TOML_ type: table"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:175
+#: ../source/specifications/declaring-project-metadata.rst:177
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
 "<core-metadata-license>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:178
+#: ../source/specifications/declaring-project-metadata.rst:180
 msgid ""
 "The table may have one of two keys. The ``file`` key has a string value that "
 "is a file path relative to ``pyproject.toml`` to the file which contains the "
@@ -11267,15 +11251,15 @@ msgid ""
 "specifies both keys."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:193
+#: ../source/specifications/declaring-project-metadata.rst:195
 msgid "``authors``/``maintainers``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:195
+#: ../source/specifications/declaring-project-metadata.rst:197
 msgid "TOML_ type: Array of inline tables with string keys and values"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:196
+#: ../source/specifications/declaring-project-metadata.rst:198
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-"
 "metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:"
@@ -11283,20 +11267,20 @@ msgid ""
 "metadata-maintainer-email>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:202
+#: ../source/specifications/declaring-project-metadata.rst:204
 msgid ""
 "The people or organizations considered to be the \"authors\" of the project. "
 "The exact meaning is open to interpretation — it may list the original or "
 "primary authors, current maintainers, or owners of the package."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:207
+#: ../source/specifications/declaring-project-metadata.rst:209
 msgid ""
 "The \"maintainers\" key is similar to \"authors\" in that its exact meaning "
 "is open to interpretation."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:210
+#: ../source/specifications/declaring-project-metadata.rst:212
 msgid ""
 "These keys accept an array of tables with 2 keys: ``name`` and ``email``. "
 "Both values must be strings. The ``name`` value MUST be a valid email name "
@@ -11305,91 +11289,91 @@ msgid ""
 "are optional, but at least one of the keys must be specified in the table."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:217
+#: ../source/specifications/declaring-project-metadata.rst:219
 msgid ""
 "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:220
+#: ../source/specifications/declaring-project-metadata.rst:222
 msgid ""
 "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-"
 "author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:223
+#: ../source/specifications/declaring-project-metadata.rst:225
 msgid ""
 "If only ``email`` is provided, the value goes in :ref:`Author-email <core-"
 "metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-"
 "email>` as appropriate."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:227
+#: ../source/specifications/declaring-project-metadata.rst:229
 msgid ""
 "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-"
 "email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
 "maintainer-email>` as appropriate, with the format ``{name} <{email}>``."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:231
+#: ../source/specifications/declaring-project-metadata.rst:233
 msgid "Multiple values should be separated by commas."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:250
-#: ../source/specifications/declaring-project-metadata.rst:264
+#: ../source/specifications/declaring-project-metadata.rst:252
+#: ../source/specifications/declaring-project-metadata.rst:266
 msgid "TOML_ type: array of strings"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:251
+#: ../source/specifications/declaring-project-metadata.rst:253
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
 "<core-metadata-keywords>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:254
+#: ../source/specifications/declaring-project-metadata.rst:256
 msgid "The keywords for the project."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:265
+#: ../source/specifications/declaring-project-metadata.rst:267
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier "
 "<core-metadata-classifier>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:268
+#: ../source/specifications/declaring-project-metadata.rst:270
 msgid "Trove classifiers which apply to the project."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:280
+#: ../source/specifications/declaring-project-metadata.rst:282
 msgid "TOML_ type: table with keys and values of strings"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:281
+#: ../source/specifications/declaring-project-metadata.rst:283
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL "
 "<core-metadata-project-url>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:284
+#: ../source/specifications/declaring-project-metadata.rst:286
 msgid ""
 "A table of URLs where the key is the URL label and the value is the URL "
 "itself."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:296
+#: ../source/specifications/declaring-project-metadata.rst:298
 msgid "Entry points"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:298
+#: ../source/specifications/declaring-project-metadata.rst:300
 msgid ""
 "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
 "``[project.entry-points]``)"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:300
+#: ../source/specifications/declaring-project-metadata.rst:302
 msgid ":ref:`Entry points specification <entry-points>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:302
+#: ../source/specifications/declaring-project-metadata.rst:304
 msgid ""
 "There are three tables related to entry points. The ``[project.scripts]`` "
 "table corresponds to the ``console_scripts`` group in the :ref:`entry points "
@@ -11397,14 +11381,14 @@ msgid ""
 "point and the value is the object reference."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:308
+#: ../source/specifications/declaring-project-metadata.rst:310
 msgid ""
 "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group "
 "in the :ref:`entry points specification <entry-points>`. Its format is the "
 "same as ``[project.scripts]``."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:312
+#: ../source/specifications/declaring-project-metadata.rst:314
 msgid ""
 "The ``[project.entry-points]`` table is a collection of tables. Each sub-"
 "table's name is an entry point group. The key and value semantics are the "
@@ -11412,7 +11396,7 @@ msgid ""
 "instead keep the entry point groups to only one level deep."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:318
+#: ../source/specifications/declaring-project-metadata.rst:320
 msgid ""
 "Build back-ends MUST raise an error if the metadata defines a ``[project."
 "entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` "
@@ -11420,28 +11404,28 @@ msgid ""
 "``[project.gui-scripts]``, respectively."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:337
+#: ../source/specifications/declaring-project-metadata.rst:339
 msgid "``dependencies``/``optional-dependencies``"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:339
+#: ../source/specifications/declaring-project-metadata.rst:341
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
 "values of arrays of :pep:`508` strings (``optional-dependencies``)"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:342
+#: ../source/specifications/declaring-project-metadata.rst:344
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:346
+#: ../source/specifications/declaring-project-metadata.rst:348
 msgid "The (optional) dependencies of the project."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:348
+#: ../source/specifications/declaring-project-metadata.rst:350
 msgid ""
 "For ``dependencies``, it is a key whose value is an array of strings. Each "
 "string represents a dependency of the project and MUST be formatted as a "
@@ -11449,7 +11433,7 @@ msgid ""
 "<core-metadata-requires-dist>` entry."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:353
+#: ../source/specifications/declaring-project-metadata.rst:355
 msgid ""
 "For ``optional-dependencies``, it is a table where each key specifies an "
 "extra and whose value is an array of strings. The strings of the arrays must "
@@ -11460,17 +11444,17 @@ msgid ""
 "extra>` metadata."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:382
+#: ../source/specifications/declaring-project-metadata.rst:384
 msgid "TOML_ type: array of string"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:383
+#: ../source/specifications/declaring-project-metadata.rst:385
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:386
+#: ../source/specifications/declaring-project-metadata.rst:388
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -11478,19 +11462,19 @@ msgid ""
 "unspecified compared to being provided via tooling later on."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:392
+#: ../source/specifications/declaring-project-metadata.rst:394
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:394
+#: ../source/specifications/declaring-project-metadata.rst:396
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:396
+#: ../source/specifications/declaring-project-metadata.rst:398
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -11499,20 +11483,20 @@ msgid ""
 "``[project]`` table)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:401
+#: ../source/specifications/declaring-project-metadata.rst:403
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
 "a build back-end will provide the data for the key later."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:405
+#: ../source/specifications/declaring-project-metadata.rst:407
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:407
+#: ../source/specifications/declaring-project-metadata.rst:409
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -11520,14 +11504,14 @@ msgid ""
 "must opt into the filling in)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:411
+#: ../source/specifications/declaring-project-metadata.rst:413
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
 "(omitting the data, if determined to be the accurate value, is acceptable)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:422
+#: ../source/specifications/declaring-project-metadata.rst:424
 #, fuzzy
 msgid "Example"
 msgstr "Ejemplos"
@@ -15331,38 +15315,6 @@ msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:519
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
-msgstr ""
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
-msgid ""
-"This guide *assumes* that you already have a project that you know how to "
-"build distributions for and *it lives on GitHub*.  This guide also avoids "
-"details of building platform specific projects. If you have binary "
-"components, check out :ref:`cibuildwheel`'s GitHub Action examples."
-msgstr ""
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:98
-msgid ""
-"And now we can build dists from source. In this example, we'll use ``build`` "
-"package."
-msgstr ""
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
-msgid ""
-"You can use any other method for building distributions as long as it "
-"produces ready-to-upload artifacts saved into the ``dist/`` folder. You can "
-"even use ``actions/upload-artifact`` and ``actions/download-artifact`` to "
-"tranfer files between jobs or make them accessable for download from the web "
-"CI interface."
-msgstr ""
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
-msgid ""
-"These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
-"first one uploads contents of the ``dist/`` folder into TestPyPI "
-"unconditionally and the second does that to PyPI, but only if the current "
-"commit is tagged. It is recommended you use the latest release tag; a tool "
-"like GitHub's dependabot can keep these updated regularly."
 msgstr ""
 
 #~ msgid "Platform tags for Windows"
