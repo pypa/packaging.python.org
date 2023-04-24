@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-03-28 21:11+0000\n"
-"PO-Revision-Date: 2023-03-26 22:40+0000\n"
+"PO-Revision-Date: 2023-04-24 08:21+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -7661,15 +7661,17 @@ msgstr ""
 "ます。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
-#, fuzzy
 msgid ""
 "This guide *assumes* that you already have a project that you know how to "
 "build distributions for and *it lives on GitHub*.  This guide also avoids "
 "details of building platform specific projects. If you have binary "
 "components, check out :ref:`cibuildwheel`'s GitHub Action examples."
 msgstr ""
-"このガイドでは、配布物をビルドするやり方がわかっているプロジェクトが *GitHub "
-"に置いてある* ことを *前提* にしています。"
+"このガイドでは、配布物をビルドするやり方を知っているプロジェクトが既にそんざ"
+"いして、それが *GitHub に置いてある* ことを *前提* にしています。このガイドは"
+"、また、特定のプロジェクトをビルドするプラットフォームの詳細に立ち入ることは"
+"しません。もしあなたがバイナリのコンポーネントを持っているなら、 "
+":ref:`cibuildwheel` にある GitHub Action の例を調べてみてください。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 msgid "Saving credentials on GitHub"
@@ -7795,18 +7797,13 @@ msgstr ""
 "3.10 をインストールしアクティベートすることになります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:98
-#, fuzzy
 msgid ""
 "And now we can build dists from source. In this example, we'll use ``build`` "
 "package."
-msgstr ""
-"そして、今や我々はソースコードから配布物をビルドすることができます。この例で"
-"は、あなたのプロジェクトの ``pyproject.toml`` が適切に設定されている (:pep:"
-"`517` と :pep:`518` を参照してください) ことを仮定して、 ``build`` パッケージ"
-"を用いることになります。"
+msgstr "そして、今や我々はソースコードから配布物をビルドすることができます。この例で"
+"は、パッケージを ``build`` します。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
-#, fuzzy
 msgid ""
 "You can use any other method for building distributions as long as it "
 "produces ready-to-upload artifacts saved into the ``dist/`` folder. You can "
@@ -7815,7 +7812,11 @@ msgid ""
 "CI interface."
 msgstr ""
 "アップロードできる状態の創作物を ``dist/`` ディレクトリに保存するという条件を"
-"満たすのであれば、どのような方法で配布物をビルドしても構いません。"
+"満たすのであれば、他のどのような方法で配布物をビルドしても構いません。"
+"ジョブからジョブへファイルを転送するのに ``actions/upload-artifact`` や ``"
+"actions/download-artifact`` を使ったり、ウェブの CI インタフェースからダウン"
+"ロードできるようにすることでそれらにアクセスすることを可能にしたりすることさ"
+"えできます。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:109
 msgid "So add this to the steps list:"
@@ -7830,7 +7831,6 @@ msgid "Finally, add the following steps at the end:"
 msgstr "最後に、次の手続きを末尾に追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
-#, fuzzy
 msgid ""
 "These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
 "first one uploads contents of the ``dist/`` folder into TestPyPI "
@@ -7838,10 +7838,13 @@ msgid ""
 "commit is tagged. It is recommended you use the latest release tag; a tool "
 "like GitHub's dependabot can keep these updated regularly."
 msgstr ""
-"これらふたつの手順は、 `pypa/gh-action-pypi-publich`_ GitHub アクションを使い"
-"ます: 一つ目は ``dist/`` ディレクトリの中身を無条件に TestPyPI にアップロード"
-"する時で、二つ目はそのコミットがタグ付けされている場合に限って PyPI へ送る時"
-"です。"
+"これらふたつの手順は、 `pypa/gh-action-pypi-publich`_ GitHub "
+"アクションを使います: 一つ目は ``dist/`` ディレクトリの中身を無条件に "
+"TestPyPI にアップロードする時で、"
+"二つ目はそのコミットがタグ付けされている場合に限って PyPI "
+"へ送る時です。最新のリリースタグを用いることが推奨されています; GitHub "
+"のdependabot "
+"のようなツールが恒常的に更新されている状態を保つことができるのです。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "That's all, folks!"
@@ -14654,13 +14657,6 @@ msgid "Specification"
 msgstr "仕様"
 
 #: ../source/specifications/declaring-project-metadata.rst:16
-#, fuzzy
-#| msgid ""
-#| "There are two kinds of metadata: *static* and *dynamic*. Static metadata "
-#| "is specified in the ``pyproject.toml`` file directly and cannot be "
-#| "specified or changed by a tool. Dynamic metadata is listed via the "
-#| "``dynamic`` key (defined later in this specification) and represents "
-#| "metadata that a tool will later provide."
 msgid ""
 "There are two kinds of metadata: *static* and *dynamic*. Static metadata is "
 "specified in the ``pyproject.toml`` file directly and cannot be specified or "
@@ -14669,11 +14665,13 @@ msgid ""
 "listed via the ``dynamic`` key (defined later in this specification) and "
 "represents metadata that a tool will later provide."
 msgstr ""
-"メタデータにはふたつの種類があります: *静的* なものと *動的* なものです。静的"
-"なメタデータは ``pyproject.toml`` ファイルで直接指定されていて、ツール側では"
-"指定したり変更したりできません。動的なメタデータは ``dynamic`` キー (この仕様"
-"内で後で定義します) を経由して一覧化されていて、ツール側が後から提供すること"
-"になるでしょう。"
+"メタデータにはふたつの種類があります: *静的* なものと *動的* なものです。"
+"静的なメタデータは ``pyproject.toml`` ファイルで直接指定されていて、"
+"ツール側では指定したり変更したりできません "
+"(これは、例えばメタデータが参照するファイルの内容のような、"
+"メタデータによって *参照* されるデータを含みます)。動的なメタデータは "
+"``dynamic`` キー (この仕様内で後で定義します) "
+"を経由して一覧化されていて、ツール側が後から提供することになるでしょう。"
 
 #: ../source/specifications/declaring-project-metadata.rst:24
 msgid ""
@@ -16068,15 +16066,18 @@ msgid ""
 "URL is not formally specified at time of writing. A common representation is "
 "the pip URL format. Other examples are provided in :pep:`440`."
 msgstr ""
+"この :roc:`1738` URL としてのデータ構造の部分の表現方法は、本所執筆時点では、"
+"公式に指定されていません。よくある表現方法は pip での URL フォーマットです。"
+"他の例が :pep:`440` で提供されています。"
 
 #: ../source/specifications/direct-url-data-structure.rst:22
 msgid ""
 "The Direct URL Data Structure MUST be a dictionary, serializable to JSON "
 "according to :rfc:`8259`."
-msgstr ""
+msgstr "直接 URL データ構造は辞書でなければならず、 :rfc:`8259` に従って JSON "
+"にシリアライズできなければなりません。"
 
 #: ../source/specifications/direct-url-data-structure.rst:25
-#, fuzzy
 msgid ""
 "It MUST contain at least two fields. The first one is ``url``, with type "
 "``string``. Depending on what ``url`` refers to, the second field MUST be "
@@ -16085,23 +16086,23 @@ msgid ""
 "local directory). These info fields have a (possibly empty) subdictionary as "
 "value, with the possible keys defined below."
 msgstr ""
-"もし存在すれば、それは少なくともふたつのフィールドを含んでいなければなりませ"
-"ん。第１のものは ``string`` 型の ``url`` です。 ``url`` が何を参照しているか"
-"によって、第２のフィールドは、 (``url`` が VCS への参照であるなら) "
-"``vcs_info`` であるか、 (``url`` がソースコードのアーカイブまたは wheel を参"
-"照しているなら) ``archive_info`` であるか、または、 (``url`` がローカルのディ"
-"レクトリを参照しているなら) ``dir_info`` であるか、このうちのひとつでなければ"
-"なりません。これらの情報フィールドは、以下に定義する取り得るキーと共に、 (空"
-"であることも可能ですが) サブディレクトリを値に取ります。"
+"それは少なくともふたつのフィールドを含んでいなければなりません。"
+"第１のフィールドは ``string`` 型の ``url`` です。 ``url`` "
+"が何を参照しているかによって、第２のフィールドは、 (``url`` が VCS "
+"への参照であるなら) ``vcs_info`` であるか、 (``url`` "
+"がソースコードのアーカイブまたは wheel を参照しているなら) ``archive_info`` "
+"であるか、または、 (``url`` がローカルのディレクトリを参照しているなら) "
+"``dir_info`` "
+"であるかのうちのひとつでなければなりません。これらの情報フィールドは、 "
+"(空であることも可能ですが) "
+"以下に定義するような取り得るキーを持った下位の辞書を値に取ります。"
 
 #: ../source/specifications/direct-url-data-structure.rst:32
-#, fuzzy
 msgid ""
 "When persisted, ``url`` MUST be stripped of any sensitive authentication "
 "information, for security reasons."
-msgstr ""
-"``url`` は、セキュリティ上の理由から、機微に関わる認証情報をすべて削除してお"
-"かなければなりません。"
+msgstr "固持する場合には、``url`` は、セキュリティ上の理由から、機微に関わる認証情報"
+"をすべて削除しておかなければなりません。"
 
 #: ../source/specifications/direct-url-data-structure.rst:35
 msgid ""
@@ -16123,7 +16124,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:46
 msgid "VCS URLs"
-msgstr ""
+msgstr "VCS URL群"
 
 #: ../source/specifications/direct-url-data-structure.rst:48
 msgid ""
@@ -16149,17 +16150,16 @@ msgstr ""
 "ものでなければなりません。"
 
 #: ../source/specifications/direct-url-data-structure.rst:57
-#, fuzzy
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS)."
 msgstr ""
-"``requested_revision`` キー (``string`` 型) は、どのブランチ・タグ・リファレ"
-"ンス・コミット・リビジョンその他をインストールするのかを指定するために存在し"
-"ていても構いません。"
+"``requested_revision`` キー (``string`` 型) "
+"は、ブランチ・タグ・リファレンス・コミット・"
+"リビジョンその他を指定するために存在していても構いません (VCS "
+"と互換性を持つフォーマットにて)。"
 
 #: ../source/specifications/direct-url-data-structure.rst:59
-#, fuzzy
 msgid ""
 "A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
 "commit/revision number that was/is to be installed. If the VCS supports "
@@ -16167,14 +16167,14 @@ msgid ""
 "``commit_id`` in order to reference an immutable version of the source code."
 msgstr ""
 "``commit_id`` キー (``string`` 型) は、正確にどのコミットまたはリビジョンがイ"
-"ンストールされたかを示すもので、必須のキーです。 VCS がリビジョン識別子に基づ"
-"くコミットハッシュをサポートしているなら、インストールされたもののソースコー"
-"ドの不変のバージョンを指し示す目的で、そのようなコミットハッシュを "
+"ンストールされた/されるかを示すもので、必須のキーです。 VCS がリビジョン識別"
+"子に基づくコミットハッシュをサポートしているなら、インストールされたもののソ"
+"ースコードの不変のバージョンを指し示す目的で、そのようなコミットハッシュを "
 "``commit_id`` として使わなければなりません。"
 
 #: ../source/specifications/direct-url-data-structure.rst:67
 msgid "Archive URLs"
-msgstr ""
+msgstr "アーカイブ URL 群"
 
 #: ../source/specifications/direct-url-data-structure.rst:69
 msgid ""
@@ -16255,9 +16255,8 @@ msgstr ""
 "フォールバックすることが可能になります。"
 
 #: ../source/specifications/direct-url-data-structure.rst:99
-#, fuzzy
 msgid "Local directories"
-msgstr "ローカルディレクトリ:"
+msgstr "ローカルディレクトリ"
 
 #: ../source/specifications/direct-url-data-structure.rst:101
 msgid ""
@@ -16268,18 +16267,16 @@ msgstr ""
 "として ``dir_info`` キーが存在していなければなりません。"
 
 #: ../source/specifications/direct-url-data-structure.rst:104
-#, fuzzy
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be "
 "installed in editable mode, ``false`` otherwise. If absent, default to "
 "``false``."
 msgstr ""
-"``editable`` (``boolean`` 型): 配布物が編集可能モードでインストールされている"
-"場合には ``true`` 、そうでなければ ``false`` 。存在していない場合のデフォルト"
-"は ``false`` です。"
+"配布物が編集可能モードでインストールされた/される場合には ``editable`` "
+"(``boolean`` 型): ``true`` 、そうでなければ ``false`` 。"
+"存在していない場合のデフォルトは ``false`` です。"
 
 #: ../source/specifications/direct-url-data-structure.rst:107
-#, fuzzy
 msgid ""
 "When ``url`` refers to a local directory, it MUST have the ``file`` scheme "
 "and be compliant with :rfc:`8089`. In particular, the path component must be "
@@ -16287,14 +16284,13 @@ msgid ""
 "absolute."
 msgstr ""
 "``url`` がローカルのディレクトリを参照している場合、 :rfc:``8089` に適合する "
-"``file`` が存在していなければなりません。特にパス部分は絶対パスでなければなり"
-"ません。相対パスを絶対パスに変換する際には、シンボリックリンクはそのまま保存"
-"されるべきです。"
+"``file`` スキームが存在していなければなりません。特にパス部分は絶対パスでなけ"
+"ればなりません。相対パスを絶対パスに変換する際には、シンボリックリンクはその"
+"まま保存されているべきです。"
 
 #: ../source/specifications/direct-url-data-structure.rst:113
-#, fuzzy
 msgid "Projects in subdirectories"
-msgstr "プロジェクト概要"
+msgstr "サブディレクトリ内のプロジェクト群"
 
 #: ../source/specifications/direct-url-data-structure.rst:115
 msgid ""
@@ -16391,17 +16387,17 @@ msgid "A commit hash (40 hexadecimal characters sha1)."
 msgstr "コミットハッシュ (16進数で40文字のSHA1)。"
 
 #: ../source/specifications/direct-url-data-structure.rst:157
-#, fuzzy
 msgid ""
 "Tools can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
 "ref beginning with ``refs/tags/`` corresponds to a tag, and a ref beginning "
 "with ``refs/remotes/origin/`` after cloning corresponds to a branch."
 msgstr ""
-"インストーラは、 ``requested_revision`` が Git 参照に対応しているか否かを判断"
-"するために ``git show-ref`` や ``git symbolic-ref`` コマンドを使うことができ"
-"ます。さらに、 ``refs/tags/`` で始まる参照はタグに対応し、クローンした後に "
-"``refs/remotes/origin/`` で始まる参照はブランチに対応します。"
+"ツールは、 ``requested_revision`` が Git "
+"参照に対応しているか否かを判断するために ``git show-ref`` や ``git symbolic-"
+"ref`` コマンドを使うことができます。さらに、 ``refs/tags/`` "
+"で始まる参照はタグに対応し、クローンした後に ``refs/remotes/origin/`` "
+"で始まる参照はブランチに対応します。"
 
 #: ../source/specifications/direct-url-data-structure.rst:164
 msgid "Mercurial"
@@ -16488,9 +16484,8 @@ msgid "Local directory:"
 msgstr "ローカルディレクトリ:"
 
 #: ../source/specifications/direct-url-data-structure.rst:273
-#, fuzzy
 msgid "Local directory in editable mode:"
-msgstr "編集可能モードでインストールされたローカルディレクトリ:"
+msgstr "編集可能モード状態にあるローカルディレクトリ:"
 
 #: ../source/specifications/direct-url-data-structure.rst:287
 #, fuzzy
