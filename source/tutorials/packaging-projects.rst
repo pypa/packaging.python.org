@@ -147,7 +147,7 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
     .. code-block:: toml
 
         [build-system]
-        requires = ["flit_core>=3.2"]
+        requires = ["flit_core>=3.4"]
         build-backend = "flit_core.buildapi"
 
 .. tab:: PDM
@@ -155,8 +155,8 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
     .. code-block:: toml
 
         [build-system]
-        requires = ["pdm-pep517"]
-        build-backend = "pdm.pep517.api"
+        requires = ["pdm-backend"]
+        build-backend = "pdm.backend"
 
 
 - ``requires`` is a list of packages that are needed to build your package. You
