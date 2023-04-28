@@ -300,7 +300,7 @@ Bringing your own Python executable
 
 Computing as we know it is defined by the ability to execute
 programs. Every operating system natively supports one or more formats
-of the program they can natively execute.
+of programs they can natively execute.
 
 There are many techniques and technologies which turn your Python
 program into one of these formats, most of which involve embedding the
