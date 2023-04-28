@@ -300,7 +300,7 @@ Bringing your own Python executable
 
 Computing as we know it is defined by the ability to execute
 programs. Every operating system natively supports one or more formats
-of program they can natively execute.
+of the program they can natively execute.
 
 There are many techniques and technologies which turn your Python
 program into one of these formats, most of which involve embedding the
@@ -357,7 +357,7 @@ mature approach, widespread in data center environments.
 
 These techniques are mostly reserved for larger scale deployments in
 data centers, though certain complex applications can benefit from
-this packaging. Technologies are Python agnostic, and include:
+this packaging. The technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
 * `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats <openstack:user/formats>`
