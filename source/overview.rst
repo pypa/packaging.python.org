@@ -67,7 +67,7 @@ This is great for sharing simple scripts and snippets between people
 who both have compatible Python versions (such as via email,
 StackOverflow, or GitHub gists). There are even some entire Python
 libraries that offer this as an option, such as `bottle.py
-<https://bottlepy.org/docs/dev/>`_ and :doc:`boltons
+<https://pypi.org/project/bottle/>`_ and :doc:`boltons
 <boltons:architecture>`.
 
 However, this pattern won't scale for projects that consist of
