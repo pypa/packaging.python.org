@@ -13,7 +13,7 @@ concurrency:
 jobs:
   build:
     name: ${{ matrix.noxenv }}
-    if: ${{ (github.repository_owner == 'pypa' && github.event_name == 'schedule') || github.event_name != 'schedule' }}
+    if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
