@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-09 13:29+0000\n"
-"PO-Revision-Date: 2023-03-04 05:36+0000\n"
-"Last-Translator: Felipe Nogueira <contato.fnog@gmail.com>\n"
+"PO-Revision-Date: 2023-05-11 00:47+0000\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -5608,10 +5608,8 @@ msgstr ""
 "softwarecollections/overview"
 
 #: ../source/guides/installing-using-linux-tools.rst:93
-#, fuzzy
-#| msgid "For CentOS, see here: https://www.softwarecollections.org/en/"
 msgid "For CentOS, see here: https://github.com/sclorg"
-msgstr "Para CentOS, veja aqui: https://www.softwarecollections.org/en/"
+msgstr "Para CentOS, veja aqui: https://github.com/sclorg"
 
 #: ../source/guides/installing-using-linux-tools.rst:95
 msgid "Be aware that collections may not contain the most recent versions."
@@ -7711,7 +7709,6 @@ msgstr ""
 "enviado. Ele usará o `GitHub Action pypa/gh-action-pypi-publish`_."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:15
-#, fuzzy
 msgid ""
 "This guide *assumes* that you already have a project that you know how to "
 "build distributions for and *it lives on GitHub*.  This guide also avoids "
@@ -7719,7 +7716,10 @@ msgid ""
 "components, check out :ref:`cibuildwheel`'s GitHub Action examples."
 msgstr ""
 "Este guia *presume* que você já tem um projeto para o qual sabe como "
-"construir distribuições e *ele reside no GitHub*."
+"construir distribuições e *ele reside no GitHub*. Este guia também evita "
+"detalhes da construção de projetos específicos da plataforma. Se você tiver "
+"componentes binários, confira os exemplos de GitHub Action do "
+":ref:`cibuildwheel`."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:21
 msgid "Saving credentials on GitHub"
@@ -7845,17 +7845,14 @@ msgstr ""
 "instalará e ativará o Python 3.10."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:98
-#, fuzzy
 msgid ""
 "And now we can build dists from source. In this example, we'll use ``build`` "
 "package."
 msgstr ""
 "E agora podemos construir dists a partir da fonte. Neste exemplo, usaremos o "
-"pacote ``build``, presumindo que seu projeto tem um ``pyproject.toml`` "
-"configurado corretamente (veja :pep:`517` /:pep:`518`)."
+"pacote ``build``."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
-#, fuzzy
 msgid ""
 "You can use any other method for building distributions as long as it "
 "produces ready-to-upload artifacts saved into the ``dist/`` folder. You can "
@@ -7864,7 +7861,10 @@ msgid ""
 "CI interface."
 msgstr ""
 "Você pode usar qualquer outro método para construir distribuições, desde que "
-"produza artefatos prontos para enviar, salvos na pasta ``dist/``."
+"produza artefatos prontos para enviar, salvos na pasta ``dist/``. Você pode "
+"até mesmo usar ``actions/upload-artifact`` e ``actions/download-artifact`` "
+"para transferir arquivos entre trabalhos ou torná-los acessíveis para "
+"download a partir da interface web de CI."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:109
 msgid "So add this to the steps list:"
@@ -7879,7 +7879,6 @@ msgid "Finally, add the following steps at the end:"
 msgstr "Finalmente, adicione as seguintes etapas ao final:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
-#, fuzzy
 msgid ""
 "These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
 "first one uploads contents of the ``dist/`` folder into TestPyPI "
@@ -7890,7 +7889,9 @@ msgstr ""
 "Essas duas etapas usam a GitHub Action `pypa/gh-action-pypi-publish`_: a "
 "primeira carrega o conteúdo da pasta ``dist /`` para TestPyPI "
 "incondicionalmente e a segunda faz isso para PyPI, mas apenas se o commit "
-"atual estiver marcado."
+"atual estiver marcado. É recomendado que você use a tag de lançamento mais "
+"recente; uma ferramenta como o dependabot do GitHub pode mantê-los "
+"atualizados regularmente."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "That's all, folks!"
@@ -11725,13 +11726,6 @@ msgstr ""
 "padrão."
 
 #: ../source/overview.rst:66
-#, fuzzy
-#| msgid ""
-#| "This is great for sharing simple scripts and snippets between people who "
-#| "both have compatible Python versions (such as via email, StackOverflow, "
-#| "or GitHub gists). There are even some entire Python libraries that offer "
-#| "this as an option, such as `bottle.py <https://bottlepy.org/docs/dev/>`_ "
-#| "and :doc:`boltons <boltons:architecture>`."
 msgid ""
 "This is great for sharing simple scripts and snippets between people who "
 "both have compatible Python versions (such as via email, StackOverflow, or "
@@ -11742,8 +11736,8 @@ msgstr ""
 "Isso é ótimo para compartilhar scripts e trechos simples entre pessoas que "
 "possuem versões Python compatíveis (como via e-mail, StackOverflow ou gists "
 "do GitHub). Existem até algumas bibliotecas Python inteiras que oferecem "
-"isso como uma opção, como `bottle.py <https://bottlepy.org/docs/dev/>`_ e :"
-"doc:`boltons <boltons:architecture>`."
+"isso como uma opção, como :doc:`bottle.py<bottle:tutorial>` e :doc:`boltons "
+"<boltons:architecture>`."
 
 #: ../source/overview.rst:73
 msgid ""
@@ -12263,11 +12257,6 @@ msgid "Bringing your own Python executable"
 msgstr "Trazendo seu próprio executável Python"
 
 #: ../source/overview.rst:301
-#, fuzzy
-#| msgid ""
-#| "Computing as we know it is defined by the ability to execute programs. "
-#| "Every operating system natively supports one or more formats of program "
-#| "they can natively execute."
 msgid ""
 "Computing as we know it is defined by the ability to execute programs. Every "
 "operating system natively supports one or more formats of programs they can "
@@ -12275,7 +12264,7 @@ msgid ""
 msgstr ""
 "A computação como a conhecemos é definida pela capacidade de executar "
 "programas. Cada sistema operacional oferece suporte nativamente a um ou mais "
-"formatos de programa que eles podem executar nativamente."
+"formatos de programas que eles podem executar nativamente."
 
 #: ../source/overview.rst:305
 msgid ""
@@ -12419,11 +12408,6 @@ msgstr ""
 "de datacenter."
 
 #: ../source/overview.rst:358
-#, fuzzy
-#| msgid ""
-#| "These techniques are mostly reserved for larger scale deployments in data "
-#| "centers, though certain complex applications can benefit from this "
-#| "packaging. Technologies are Python agnostic, and include:"
 msgid ""
 "These techniques are mostly reserved for larger scale deployments in data "
 "centers, though certain complex applications can benefit from this "
@@ -14785,13 +14769,6 @@ msgid "Specification"
 msgstr "Especificação"
 
 #: ../source/specifications/declaring-project-metadata.rst:16
-#, fuzzy
-#| msgid ""
-#| "There are two kinds of metadata: *static* and *dynamic*. Static metadata "
-#| "is specified in the ``pyproject.toml`` file directly and cannot be "
-#| "specified or changed by a tool. Dynamic metadata is listed via the "
-#| "``dynamic`` key (defined later in this specification) and represents "
-#| "metadata that a tool will later provide."
 msgid ""
 "There are two kinds of metadata: *static* and *dynamic*. Static metadata is "
 "specified in the ``pyproject.toml`` file directly and cannot be specified or "
@@ -14802,10 +14779,11 @@ msgid ""
 msgstr ""
 "Existem dois tipos de metadados: *estáticos* e *dinâmicos*. Metadados "
 "estáticos são especificados diretamente no arquivo ``pyproject.toml`` e não "
-"podem ser especificados ou alterados por uma ferramenta. Os metadados "
-"dinâmicos são listados por meio da chave ``dynamic`` (definido "
-"posteriormente nesta especificação) e representam os metadados que uma "
-"ferramenta fornecerá posteriormente."
+"podem ser especificados ou alterados por uma ferramenta (isso inclui dados "
+"*referenciados* pelo metadados, por exemplo, o conteúdo de arquivos "
+"referenciados pelos metadados). Os metadados dinâmicos são listados por meio "
+"da chave ``dynamic`` (definido posteriormente nesta especificação) e "
+"representam os metadados que uma ferramenta fornecerá posteriormente."
 
 #: ../source/specifications/declaring-project-metadata.rst:24
 msgid ""
@@ -16041,16 +16019,16 @@ msgid "Recording the Direct URL Origin of installed distributions"
 msgstr "Gravando a Origem da URL Direta de distribuições instaladas"
 
 #: ../source/specifications/direct-url.rst:8
-#, fuzzy
 msgid ""
 "This document specifies a :file:`direct_url.json` file in the ``*.dist-"
 "info`` directory of an installed distribution, to record the Direct URL "
 "Origin of the distribution. The general structure and usage of ``*.dist-"
 "info`` directories is described in :ref:`recording-installed-packages`."
 msgstr ""
-"Este documento especifica um arquivo :file:`direct_url.json` no diretório :"
-"file:`*.dist-info` de uma distribuição instalada, para registrar a origem da "
-"URL direta da distribuição."
+"Este documento especifica um arquivo :file:`direct_url.json` no diretório "
+"``*.dist-info`` de uma distribuição instalada, para registrar a origem da "
+"URL direta da distribuição. A estrutura geral e uso de diretórios ``*.dist-"
+"info`` é descrita em :ref:`recording-installed-packages`."
 
 #: ../source/specifications/direct-url.rst:19
 msgid ""
@@ -16077,6 +16055,8 @@ msgid ""
 "This JSON file MUST be a UTF-8 encoded, :rfc:`8259` compliant, serialization "
 "of the :doc:`direct-url-data-structure`."
 msgstr ""
+"Este arquivo JSON DEVE ser codificado em UTF-8, compatível com :rfc:`8259`, "
+"serialização da :doc:`direct-url-data-structure`."
 
 #: ../source/specifications/direct-url.rst:31
 msgid ""
@@ -16188,7 +16168,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:6
 msgid "Direct URL Data Structure"
-msgstr ""
+msgstr "Estrutura de dados de URL direta"
 
 #: ../source/specifications/direct-url-data-structure.rst:8
 msgid ""
@@ -16196,6 +16176,10 @@ msgid ""
 "represent URLs to python projects and distribution artifacts such as VCS "
 "source trees, local source trees, source distributions and wheels."
 msgstr ""
+"Este documento especifica uma estrutura de dados abstrata serializável em "
+"JSON que pode representar URLs para projetos python e artefatos de "
+"distribuição, como árvores de fonte VCS, árvores de fonte local, "
+"distribuições fonte e wheels."
 
 #: ../source/specifications/direct-url-data-structure.rst:12
 msgid ""
@@ -16203,12 +16187,18 @@ msgid ""
 "URL is not formally specified at time of writing. A common representation is "
 "the pip URL format. Other examples are provided in :pep:`440`."
 msgstr ""
+"A representação dos componentes desta estrutura de dados como uma URL "
+":rfc:`1738` não é especificada formalmente no momento da escrita. Uma "
+"representação comum é o formato de URL pip. Outros exemplos são fornecidos "
+"em :pep:`440`."
 
 #: ../source/specifications/direct-url-data-structure.rst:22
 msgid ""
 "The Direct URL Data Structure MUST be a dictionary, serializable to JSON "
 "according to :rfc:`8259`."
 msgstr ""
+"A estrutura de dados da URL direta DEVE ser um dicionário serializável para "
+"JSON de acordo com :rfc:`8259`."
 
 #: ../source/specifications/direct-url-data-structure.rst:25
 #, fuzzy
