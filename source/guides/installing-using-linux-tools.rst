@@ -114,8 +114,11 @@ openSUSE
  
     sudo zypper install python3-pip python3-setuptools python3-wheel
 
-Debian/Ubuntu
-~~~~~~~~~~~~~
+
+.. _debian-ubuntu:
+
+Debian/Ubuntu and derivatives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Firstly, update and refresh repository lists by running this command:
 
