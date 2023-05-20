@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-20 10:27+0000\n"
+"POT-Creation-Date: 2023-05-20 10:29+0000\n"
 "PO-Revision-Date: 2022-09-29 05:18+0000\n"
 "Last-Translator: Aryan 'Ba3a' Kumar <aryan.ak434@gmail.com>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1007,10 +1007,12 @@ msgid ""
 msgstr ""
 
 #: ../source/discussions/wheel-vs-egg.rst:20
-msgid ":term:`Wheel` has an :pep:`official PEP <427>`. :term:`Egg` did not."
+msgid ""
+":term:`Wheel` has an :doc:`official standard specification </specifications/"
+"binary-distribution-format>`. :term:`Egg` did not."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:22
+#: ../source/discussions/wheel-vs-egg.rst:24
 msgid ""
 ":term:`Wheel` is a :term:`distribution <Distribution Package>` format, i.e a "
 "packaging format. [1]_ :term:`Egg` was both a distribution format and a "
@@ -1018,7 +1020,7 @@ msgid ""
 "importable."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:26
+#: ../source/discussions/wheel-vs-egg.rst:28
 msgid ""
 ":term:`Wheel` archives do not include .pyc files. Therefore, when the "
 "distribution only contains Python files (i.e. no compiled extensions), and "
@@ -1027,37 +1029,37 @@ msgid ""
 "\")>`."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:31
+#: ../source/discussions/wheel-vs-egg.rst:33
 msgid ""
 ":term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info`` directories. "
 "Egg used ``.egg-info``."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:34
+#: ../source/discussions/wheel-vs-egg.rst:36
 msgid ""
 ":term:`Wheel` has a :pep:`richer file naming convention <425>`. A single "
 "wheel archive can indicate its compatibility with a number of Python "
 "language versions and implementations, ABIs, and system architectures."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:38
+#: ../source/discussions/wheel-vs-egg.rst:40
 msgid ""
 ":term:`Wheel` is versioned. Every wheel file contains the version of the "
 "wheel specification and the implementation that packaged it."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:41
+#: ../source/discussions/wheel-vs-egg.rst:43
 msgid ""
 ":term:`Wheel` is internally organized by `sysconfig path type <https://docs."
 "python.org/2/library/sysconfig.html#installation-paths>`_, therefore making "
 "it easier to convert to other formats."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:47
+#: ../source/discussions/wheel-vs-egg.rst:49
 msgid ""
 "Circumstantially, in some cases, wheels can be used as an importable runtime "
-"format, although :pep:`this is not officially supported at this time <427#is-"
-"it-possible-to-import-python-code-directly-from-a-wheel-file>`."
+"format, although :ref:`this is not officially supported at this time <binary-"
+"distribution-format-import-wheel>`."
 msgstr ""
 
 #: ../source/flow.rst:3
@@ -1661,16 +1663,17 @@ msgstr ""
 
 #: ../source/glossary.rst:240
 msgid ""
-"A :term:`Built Distribution` format introduced by :pep:`427`, which is "
+"A :term:`Built Distribution` format introduced by an official :doc:`standard "
+"specification </specifications/binary-distribution-format/>`, which is "
 "intended to replace the :term:`Egg` format.  Wheel is currently supported "
 "by :ref:`pip`."
 msgstr ""
 
-#: ../source/glossary.rst:243
+#: ../source/glossary.rst:245
 msgid "Working Set"
 msgstr ""
 
-#: ../source/glossary.rst:246
+#: ../source/glossary.rst:248
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -2177,7 +2180,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:338
-#: ../source/specifications/binary-distribution-format.rst:463
+#: ../source/specifications/binary-distribution-format.rst:465
 #: ../source/specifications/dependency-specifiers.rst:480
 msgid "References"
 msgstr ""
@@ -10070,11 +10073,11 @@ msgid ""
 "the root with the appropriate setting given for \"Root-is-purelib\"."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:413
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:417
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -10083,7 +10086,7 @@ msgid ""
 "format design, actually relying on it is generally discouraged."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:423
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -10094,7 +10097,7 @@ msgid ""
 "extensions by publishing header files in the appropriate place)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:432
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -10112,7 +10115,7 @@ msgid ""
 "components may still require the availability of an actual on-disk file."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:447
+#: ../source/specifications/binary-distribution-format.rst:449
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -10121,39 +10124,39 @@ msgid ""
 "package before accepting it as a genuine bug."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:454
+#: ../source/specifications/binary-distribution-format.rst:456
 msgid "Changes"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:456
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid "Since :pep:`427`, this specification has changed as follows:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:460
 msgid ""
 "The rules on escaping in wheel filenames were revised, to bring them into "
 "line with what popular tools actually do (February 2021)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:465
+#: ../source/specifications/binary-distribution-format.rst:467
 msgid ""
 "PEP acceptance (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:470
+#: ../source/specifications/binary-distribution-format.rst:472
 msgid "Appendix"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:472
+#: ../source/specifications/binary-distribution-format.rst:474
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:486
+#: ../source/specifications/binary-distribution-format.rst:488
 msgid "Copyright"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:488
+#: ../source/specifications/binary-distribution-format.rst:490
 msgid "This document has been placed into the public domain."
 msgstr ""
 
@@ -13257,8 +13260,8 @@ msgid ""
 "some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used to "
 "denote the user's home directory in POSIX), or because the advantages "
 "weren't sufficiently compelling to justify changing the existing reference "
-"implementation for the wheel format defined in :pep:427 (for example, using "
-"``,`` rather than ``.`` to separate components in a compressed tag)."
+"implementation for the wheel format defined in :pep:`427` (for example, "
+"using ``,`` rather than ``.`` to separate components in a compressed tag)."
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:284

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-20 10:27+0000\n"
+"POT-Creation-Date: 2023-05-20 10:29+0000\n"
 "PO-Revision-Date: 2023-05-20 00:51+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1274,12 +1274,16 @@ msgid ""
 msgstr ":term:`Wheel`と :term:`Egg`の重要な差異について以下にまとめます。"
 
 #: ../source/discussions/wheel-vs-egg.rst:20
-msgid ":term:`Wheel` has an :pep:`official PEP <427>`. :term:`Egg` did not."
+#, fuzzy
+#| msgid ":term:`Wheel` has an :pep:`official PEP <427>`. :term:`Egg` did not."
+msgid ""
+":term:`Wheel` has an :doc:`official standard specification </specifications/"
+"binary-distribution-format>`. :term:`Egg` did not."
 msgstr ""
 ":term:`Wheel`には :pep:`公式PEP <427>`が存在します。 :term:`Egg`には対応する"
 "PEPがありません。"
 
-#: ../source/discussions/wheel-vs-egg.rst:22
+#: ../source/discussions/wheel-vs-egg.rst:24
 msgid ""
 ":term:`Wheel` is a :term:`distribution <Distribution Package>` format, i.e a "
 "packaging format. [1]_ :term:`Egg` was both a distribution format and a "
@@ -1291,7 +1295,7 @@ msgstr ""
 "り、かつ、(もし圧縮されたままであれば)実行時のインストールフォーマットであっ"
 "てimportができるように設計されています。"
 
-#: ../source/discussions/wheel-vs-egg.rst:26
+#: ../source/discussions/wheel-vs-egg.rst:28
 msgid ""
 ":term:`Wheel` archives do not include .pyc files. Therefore, when the "
 "distribution only contains Python files (i.e. no compiled extensions), and "
@@ -1304,7 +1308,7 @@ msgstr ""
 "2と3で使用可能ですので、 :term:`sdist <Source Distribution (or \"sdist\")>`と"
 "同様にwheelは「汎用」であると言うことができます。"
 
-#: ../source/discussions/wheel-vs-egg.rst:31
+#: ../source/discussions/wheel-vs-egg.rst:33
 msgid ""
 ":term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info`` directories. "
 "Egg used ``.egg-info``."
@@ -1312,7 +1316,7 @@ msgstr ""
 ":term:`Wheel`は :pep:`PEP376-compliant <376>`に従って ``.dist-info`` ディレク"
 "トリを用います。Eggは ``.egg-info`` を用います。"
 
-#: ../source/discussions/wheel-vs-egg.rst:34
+#: ../source/discussions/wheel-vs-egg.rst:36
 msgid ""
 ":term:`Wheel` has a :pep:`richer file naming convention <425>`. A single "
 "wheel archive can indicate its compatibility with a number of Python "
@@ -1322,7 +1326,7 @@ msgstr ""
 "のwheelアーカイブはPython言語のバージョンや実装、ABI、そしてシステムのアーキ"
 "テクチャとの互換性を表示することができます。"
 
-#: ../source/discussions/wheel-vs-egg.rst:38
+#: ../source/discussions/wheel-vs-egg.rst:40
 msgid ""
 ":term:`Wheel` is versioned. Every wheel file contains the version of the "
 "wheel specification and the implementation that packaged it."
@@ -1330,7 +1334,7 @@ msgstr ""
 ":term:`Wheel`はバージョン付けされています。それぞれのwheelファイルは、それを"
 "パッケージしたwheelの仕様や実装のバージョンを保持しています。"
 
-#: ../source/discussions/wheel-vs-egg.rst:41
+#: ../source/discussions/wheel-vs-egg.rst:43
 msgid ""
 ":term:`Wheel` is internally organized by `sysconfig path type <https://docs."
 "python.org/2/library/sysconfig.html#installation-paths>`_, therefore making "
@@ -1340,11 +1344,17 @@ msgstr ""
 "sysconfig.html#installation-paths>`_で整理されているので、他のフォーマットに"
 "変換するのがより簡単になっています。"
 
-#: ../source/discussions/wheel-vs-egg.rst:47
+#: ../source/discussions/wheel-vs-egg.rst:49
+#, fuzzy
+#| msgid ""
+#| "Circumstantially, in some cases, wheels can be used as an importable "
+#| "runtime format, although :pep:`this is not officially supported at this "
+#| "time <427#is-it-possible-to-import-python-code-directly-from-a-wheel-"
+#| "file>`."
 msgid ""
 "Circumstantially, in some cases, wheels can be used as an importable runtime "
-"format, although :pep:`this is not officially supported at this time <427#is-"
-"it-possible-to-import-python-code-directly-from-a-wheel-file>`."
+"format, although :ref:`this is not officially supported at this time <binary-"
+"distribution-format-import-wheel>`."
 msgstr ""
 ":pep:`Wheelファイルから直接にimportすることは現時点では公式にサポートされてい"
 "ません<427#is-it-possible-to-import-python-code-directly-from-a-wheel-file>`"
@@ -2168,19 +2178,25 @@ msgid "Wheel"
 msgstr "Wheel"
 
 #: ../source/glossary.rst:240
+#, fuzzy
+#| msgid ""
+#| "A :term:`Built Distribution` format introduced by :pep:`427`, which is "
+#| "intended to replace the :term:`Egg` format.  Wheel is currently supported "
+#| "by :ref:`pip`."
 msgid ""
-"A :term:`Built Distribution` format introduced by :pep:`427`, which is "
+"A :term:`Built Distribution` format introduced by an official :doc:`standard "
+"specification </specifications/binary-distribution-format/>`, which is "
 "intended to replace the :term:`Egg` format.  Wheel is currently supported "
 "by :ref:`pip`."
 msgstr ""
 ":term:`Egg` フォーマットを代替することを意図して :pep:`427` で導入された :"
 "term:`ビルド済配布物`。現在、:ref:`pip`はWheelをサポートしている。"
 
-#: ../source/glossary.rst:243
+#: ../source/glossary.rst:245
 msgid "Working Set"
 msgstr "動作可能セット"
 
-#: ../source/glossary.rst:246
+#: ../source/glossary.rst:248
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -2789,7 +2805,7 @@ msgstr ""
 "できます。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:338
-#: ../source/specifications/binary-distribution-format.rst:463
+#: ../source/specifications/binary-distribution-format.rst:465
 #: ../source/specifications/dependency-specifiers.rst:480
 msgid "References"
 msgstr "参考文献"
@@ -13461,13 +13477,13 @@ msgstr ""
 "\"purelib\" または \"platlib\" のいずれか一方しか持たず、 \"Root-Is-purelib"
 "\" を適切に設定しつつファイル群をルートディレクトリに置くべきです。"
 
-#: ../source/specifications/binary-distribution-format.rst:413
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr ""
 "Python のソースコードを wheel ファイルから直接にインポートすることはできます"
 "か？"
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:417
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -13481,7 +13497,7 @@ msgstr ""
 "す* 。しかし、このような動作はフォーマット設計の自然な結果とはいうものの、実"
 "際にはこれに依存することは一般的には推奨されていません。"
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:423
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -13499,7 +13515,7 @@ msgstr ""
 "を適切な場所に公開することによって C 言語拡張をビルドする標準的な機構を完全に"
 "統合する機能) への信頼を故意に避けることになります。"
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:432
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -13532,7 +13548,7 @@ msgstr ""
 "イスは依然として実際にディスク上に存在するファイルがないと動作できないかもし"
 "れません。"
 
-#: ../source/specifications/binary-distribution-format.rst:447
+#: ../source/specifications/binary-distribution-format.rst:449
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -13547,15 +13563,15 @@ msgstr ""
 "バグであると認めてもらう前に、多くのプロジェクトではそれを完全インストールの"
 "状態で再現するように要求されるであろうということを認識しておいてください。"
 
-#: ../source/specifications/binary-distribution-format.rst:454
+#: ../source/specifications/binary-distribution-format.rst:456
 msgid "Changes"
 msgstr "変更点"
 
-#: ../source/specifications/binary-distribution-format.rst:456
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid "Since :pep:`427`, this specification has changed as follows:"
 msgstr ":pep:`427` 以来、この仕様には次のような修正が加えられました:"
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:460
 msgid ""
 "The rules on escaping in wheel filenames were revised, to bring them into "
 "line with what popular tools actually do (February 2021)."
@@ -13563,7 +13579,7 @@ msgstr ""
 "他の普及しているツールが実際にやるのと同じやり方に合わせて、 wheel のファイル"
 "名におけるエスケーピングの規則が修正されました。"
 
-#: ../source/specifications/binary-distribution-format.rst:465
+#: ../source/specifications/binary-distribution-format.rst:467
 msgid ""
 "PEP acceptance (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
@@ -13571,19 +13587,19 @@ msgstr ""
 "PEP 受諾 (https://mail.python.org/pipermail/python-dev/2013-February/124103."
 "html)"
 
-#: ../source/specifications/binary-distribution-format.rst:470
+#: ../source/specifications/binary-distribution-format.rst:472
 msgid "Appendix"
 msgstr "補遺"
 
-#: ../source/specifications/binary-distribution-format.rst:472
+#: ../source/specifications/binary-distribution-format.rst:474
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "urlsafe-base64-nopad の実装の例::"
 
-#: ../source/specifications/binary-distribution-format.rst:486
+#: ../source/specifications/binary-distribution-format.rst:488
 msgid "Copyright"
 msgstr "著作権"
 
-#: ../source/specifications/binary-distribution-format.rst:488
+#: ../source/specifications/binary-distribution-format.rst:490
 msgid "This document has been placed into the public domain."
 msgstr "この文書はパブリックドメインに位置付けられる。"
 
@@ -17645,13 +17661,22 @@ msgid "Why not use special character <X> rather than ``.`` or ``-``?"
 msgstr "何故、 ``.`` や ``-`` の代わりに特殊な文字 <X> を使わないのですか？"
 
 #: ../source/specifications/platform-compatibility-tags.rst:273
+#, fuzzy
+#| msgid ""
+#| "Either because that character is inconvenient or potentially confusing in "
+#| "some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used "
+#| "to denote the user's home directory in POSIX), or because the advantages "
+#| "weren't sufficiently compelling to justify changing the existing "
+#| "reference implementation for the wheel format defined in :pep:427 (for "
+#| "example, using ``,`` rather than ``.`` to separate components in a "
+#| "compressed tag)."
 msgid ""
 "Either because that character is inconvenient or potentially confusing in "
 "some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used to "
 "denote the user's home directory in POSIX), or because the advantages "
 "weren't sufficiently compelling to justify changing the existing reference "
-"implementation for the wheel format defined in :pep:427 (for example, using "
-"``,`` rather than ``.`` to separate components in a compressed tag)."
+"implementation for the wheel format defined in :pep:`427` (for example, "
+"using ``,`` rather than ``.`` to separate components in a compressed tag)."
 msgstr ""
 "それは、その文字が不便であるかコンテクストによっては潜在的に混乱を招きやすい "
 "(例えば ``+`` は URL 内ではクォートしなければなりませんし、 ``~`` は POSIX で"
