@@ -94,7 +94,7 @@ Useful queries
 
 Run queries in the `BigQuery web UI`_ by clicking the "Compose query" button.
 
-Note that the rows are stored in a partitioned, which helps
+Note that the rows are stored in a partitioned table, which helps
 limit the cost of queries. These example queries analyze downloads from
 recent history by filtering on the ``timestamp`` column.
 
@@ -121,7 +121,7 @@ The following query counts the total number of downloads for the project
 | 26190085      |
 +---------------+
 
-To only count downloads from pip, filter on the ``details.installer.name``
+To count downloads from pip only, filter on the ``details.installer.name``
 column.
 
 ::
@@ -311,7 +311,7 @@ Install `pypinfo`_ using pip.
 
 .. code-block:: bash
 
-    python -m pip install pypinfo
+    python3 -m pip install pypinfo
 
 Usage:
 

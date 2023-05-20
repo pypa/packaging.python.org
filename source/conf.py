@@ -397,6 +397,7 @@ linkcheck_ignore = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'boltons': ('https://boltons.readthedocs.io/en/latest/', None),
+    'bottle': ('https://bottlepy.org/docs/dev/', None),
     'build': ('https://pypa-build.readthedocs.io/en/stable/', None),
     'cffi': ('https://cffi.readthedocs.io/en/latest/', None),
     'conda': ('https://conda.io/en/latest/', None),
@@ -407,7 +408,7 @@ intersphinx_mapping = {
     'nox': ('https://nox.thea.codes/en/latest/', None),
     'openstack': ('https://docs.openstack.org/glance/latest/', None),
     'packaging': ('https://packaging.pypa.io/en/latest/', None),
-    'packaging.python.org': ('https://packaging.python.org/', None),
+    'packaging.python.org': ('https://packaging.python.org/en/latest/', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
     'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
     'piwheels': ('https://piwheels.readthedocs.io/en/latest/', None),
@@ -416,10 +417,10 @@ intersphinx_mapping = {
     'pypa': ('https://www.pypa.io/en/latest/', None),
     'python': ('https://docs.python.org/3', None),
     'python-guide': ('https://docs.python-guide.org', None),
-    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'setuptools': ('https://setuptools.pypa.io/en/latest/', None),
     'spack': ('https://spack.readthedocs.io/en/latest/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'tox': ('https://tox.readthedocs.io/en/latest/', None),
+    'tox': ('https://tox.wiki/en/latest/', None),
     'twine': ('https://twine.readthedocs.io/en/stable/', None),
     'virtualenv': ('https://virtualenv.pypa.io/en/stable/', None),
 }

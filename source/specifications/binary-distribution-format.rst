@@ -409,6 +409,8 @@ What's the deal with "purelib" vs. "platlib"?
     be at the root with the appropriate setting given for "Root-is-purelib".
 
 
+.. _binary-distribution-format-import-wheel:
+
 Is it possible to import Python code directly from a wheel file?
 ----------------------------------------------------------------
 

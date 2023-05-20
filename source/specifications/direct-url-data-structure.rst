@@ -188,7 +188,7 @@ Bazaar
 
 Home page
 
-   https://bazaar.canonical.com
+   _`https://bazaar.canonical.com` *(Not responding as of 5/2023)*
 
 vcs command
 
