@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-20 12:09+0000\n"
+"POT-Creation-Date: 2023-05-20 12:30+0000\n"
 "PO-Revision-Date: 2022-11-19 08:28+0000\n"
 "Last-Translator: RedFurrFox <redfurryfoxgaming@gmail.com>\n"
 "Language-Team: Filipino <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -2250,15 +2250,15 @@ msgstr ""
 #: ../source/guides/creating-and-discovering-plugins.rst:48
 msgid ""
 "Using naming convention for plugins also allows you to query the Python "
-"Package Index's `simple API`_ for all packages that conform to your naming "
-"convention."
+"Package Index's :ref:`simple repository API <simple-repository-api>` for all "
+"packages that conform to your naming convention."
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:59
+#: ../source/guides/creating-and-discovering-plugins.rst:58
 msgid "Using namespace packages"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:61
+#: ../source/guides/creating-and-discovering-plugins.rst:60
 msgid ""
 ":doc:`Namespace packages <packaging-namespace-packages>` can be used to "
 "provide a convention for where to place plugins and also provides a way to "
@@ -2269,7 +2269,7 @@ msgid ""
 "and packages installed under that namespace:"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:89
+#: ../source/guides/creating-and-discovering-plugins.rst:88
 msgid ""
 "Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` "
 "causes it to only look for the modules directly under that namespace. For "
@@ -2278,7 +2278,7 @@ msgid ""
 "this case would be:"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:101
+#: ../source/guides/creating-and-discovering-plugins.rst:100
 msgid ""
 "This sample uses a sub-package as the namespace package (``myapp.plugins``), "
 "but it's also possible to use a top-level package for this purpose (such as "
@@ -2295,7 +2295,7 @@ msgid ""
 "instead of using :func:`setuptools.find_packages`."
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:115
+#: ../source/guides/creating-and-discovering-plugins.rst:114
 msgid ""
 "Namespace packages are a complex feature and there are several different "
 "ways to create them. It's highly recommended to read the :doc:`packaging-"
@@ -2303,11 +2303,11 @@ msgid ""
 "preferred for plugins to your project."
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:121
+#: ../source/guides/creating-and-discovering-plugins.rst:120
 msgid "Using package metadata"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:123
+#: ../source/guides/creating-and-discovering-plugins.rst:122
 msgid ""
 "Packages can have metadata for plugins described in the :ref:`entry-points`. "
 "By specifying them, a package announces that it contains a specific kind of "
@@ -2315,39 +2315,39 @@ msgid ""
 "to discover that plugin."
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:127
+#: ../source/guides/creating-and-discovering-plugins.rst:126
 msgid ""
 "For example if you have a package named ``myapp-plugin-a`` and it includes "
 "the following in its ``pyproject.toml``:"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:135
+#: ../source/guides/creating-and-discovering-plugins.rst:134
 msgid ""
 "Then you can discover and load all of the registered entry points by using :"
 "func:`importlib.metadata.entry_points` (or the backport_ "
 "``importlib_metadata >= 3.6`` for Python 3.6-3.9):"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:150
+#: ../source/guides/creating-and-discovering-plugins.rst:149
 msgid ""
 "In this example, ``discovered_plugins`` would be a collection of type :class:"
 "`importlib.metadata.EntryPoint`:"
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:159
+#: ../source/guides/creating-and-discovering-plugins.rst:158
 msgid ""
 "Now the module of your choice can be imported by executing "
 "``discovered_plugins['a'].load()``."
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:162
+#: ../source/guides/creating-and-discovering-plugins.rst:161
 msgid ""
 "The ``entry_point`` specification in :file:`setup.py` is fairly flexible and "
 "has a lot of options. It's recommended to read over the entire section on :"
 "doc:`entry points <setuptools:userguide/entry_point>` ."
 msgstr ""
 
-#: ../source/guides/creating-and-discovering-plugins.rst:166
+#: ../source/guides/creating-and-discovering-plugins.rst:165
 msgid ""
 "Since this specification is part of the :doc:`standard library <python:"
 "library/importlib.metadata>`, most packaging tools other than setuptools "
@@ -3737,7 +3737,8 @@ msgstr ""
 
 #: ../source/guides/hosting-your-own-index.rst:57
 msgid ""
-"For complete documentation of the simple repository protocol, see :pep:`503`."
+"For complete documentation of the simple repository protocol, see :ref:"
+"`simple repository API <simple-repository-api>`."
 msgstr ""
 
 #: ../source/guides/index.rst:8
@@ -14530,9 +14531,9 @@ msgstr ""
 #: ../source/tutorials/installing-packages.rst:615
 msgid ""
 "To install from other data sources (for example Amazon S3 storage) you can "
-"create a helper application that presents the data in a :pep:`503` compliant "
-"index format, and use the ``--extra-index-url`` flag to direct pip to use "
-"that index."
+"create a helper application that presents the data in a format compliant "
+"with the :ref:`simple repository API <simple-repository-api>`:, and use the "
+"``--extra-index-url`` flag to direct pip to use that index."
 msgstr ""
 
 #: ../source/tutorials/installing-packages.rst:627
