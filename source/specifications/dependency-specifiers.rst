@@ -147,7 +147,7 @@ many extras as they wish, and each extra results in the declaration of
 additional dependencies of the distribution **when** the extra is used in a
 dependency specification. For instance::
 
-    requests[security]
+    requests[security,tests]
 
 Extras union in the dependencies they define with the dependencies of the
 distribution they are attached to. The example above would result in requests
