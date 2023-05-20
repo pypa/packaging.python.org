@@ -274,7 +274,7 @@ Why not use special character <X> rather than ``.`` or ``-``?
     in some contexts (for example, ``+`` must be quoted in URLs, ``~`` is
     used to denote the user's home directory in POSIX), or because the
     advantages weren't sufficiently compelling to justify changing the
-    existing reference implementation for the wheel format defined in :pep:427
+    existing reference implementation for the wheel format defined in :pep:`427`
     (for example, using ``,`` rather than ``.`` to separate components
     in a compressed tag).
 
