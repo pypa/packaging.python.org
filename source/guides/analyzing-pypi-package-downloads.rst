@@ -311,7 +311,7 @@ Install `pypinfo`_ using pip.
 
 .. code-block:: bash
 
-    python -m pip install pypinfo
+    python3 -m pip install pypinfo
 
 Usage:
 
