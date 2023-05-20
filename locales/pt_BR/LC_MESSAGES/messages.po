@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-20 12:09+0000\n"
+"POT-Creation-Date: 2023-05-20 12:30+0000\n"
 "PO-Revision-Date: 2023-05-20 12:10+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -2880,20 +2880,25 @@ msgstr ""
 "instalados, então ``discover_plugins`` seria:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:48
+#, fuzzy
+#| msgid ""
+#| "Using naming convention for plugins also allows you to query the Python "
+#| "Package Index's `simple API`_ for all packages that conform to your "
+#| "naming convention."
 msgid ""
 "Using naming convention for plugins also allows you to query the Python "
-"Package Index's `simple API`_ for all packages that conform to your naming "
-"convention."
+"Package Index's :ref:`simple repository API <simple-repository-api>` for all "
+"packages that conform to your naming convention."
 msgstr ""
 "Usar a convenção de nomenclatura para plugins também permite que você "
 "consulte a `API simples`_ do Índice de Pacotes Python para todos os pacotes "
 "que estão em conformidade com a sua convenção de nomenclatura."
 
-#: ../source/guides/creating-and-discovering-plugins.rst:59
+#: ../source/guides/creating-and-discovering-plugins.rst:58
 msgid "Using namespace packages"
 msgstr "Usando pacotes de espaço de nomes"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:61
+#: ../source/guides/creating-and-discovering-plugins.rst:60
 msgid ""
 ":doc:`Namespace packages <packaging-namespace-packages>` can be used to "
 "provide a convention for where to place plugins and also provides a way to "
@@ -2912,7 +2917,7 @@ msgstr ""
 "iter_modules` para descobrir todos os módulos e pacotes instalados sob esse "
 "espaço de nomes:"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:89
+#: ../source/guides/creating-and-discovering-plugins.rst:88
 msgid ""
 "Specifying ``myapp.plugins.__path__`` to :func:`~pkgutil.iter_modules` "
 "causes it to only look for the modules directly under that namespace. For "
@@ -2926,7 +2931,7 @@ msgstr ""
 "``myapp.plugins.a`` e ``myapp.plugins.b``, então ``found_plugins`` neste "
 "caso seria:"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:101
+#: ../source/guides/creating-and-discovering-plugins.rst:100
 msgid ""
 "This sample uses a sub-package as the namespace package (``myapp.plugins``), "
 "but it's also possible to use a top-level package for this purpose (such as "
@@ -2958,7 +2963,7 @@ msgstr ""
 "pacotes para o argumento ``packages`` de :func:`setup` ao invés de usar :"
 "func:`setuptools.find_packages`."
 
-#: ../source/guides/creating-and-discovering-plugins.rst:115
+#: ../source/guides/creating-and-discovering-plugins.rst:114
 msgid ""
 "Namespace packages are a complex feature and there are several different "
 "ways to create them. It's highly recommended to read the :doc:`packaging-"
@@ -2970,11 +2975,11 @@ msgstr ""
 "de :doc:`packaging-namespace-packages` e documentar claramente qual "
 "abordagem é preferida para plugins em seu projeto."
 
-#: ../source/guides/creating-and-discovering-plugins.rst:121
+#: ../source/guides/creating-and-discovering-plugins.rst:120
 msgid "Using package metadata"
 msgstr "Usando metadados de pacote"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:123
+#: ../source/guides/creating-and-discovering-plugins.rst:122
 msgid ""
 "Packages can have metadata for plugins described in the :ref:`entry-points`. "
 "By specifying them, a package announces that it contains a specific kind of "
@@ -2986,7 +2991,7 @@ msgstr ""
 "de plug-in. Outro pacote que suporta esse tipo de plug-in pode usar os "
 "metadados para descobrir esse plug-in."
 
-#: ../source/guides/creating-and-discovering-plugins.rst:127
+#: ../source/guides/creating-and-discovering-plugins.rst:126
 msgid ""
 "For example if you have a package named ``myapp-plugin-a`` and it includes "
 "the following in its ``pyproject.toml``:"
@@ -2994,7 +2999,7 @@ msgstr ""
 "Por exemplo, se você tem um pacote chamado ``myapp-plugin-a`` e ele inclui o "
 "seguinte em seu :file:`pyproject.toml`:"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:135
+#: ../source/guides/creating-and-discovering-plugins.rst:134
 msgid ""
 "Then you can discover and load all of the registered entry points by using :"
 "func:`importlib.metadata.entry_points` (or the backport_ "
@@ -3004,7 +3009,7 @@ msgstr ""
 "usando :func:`importlib.metadata.entry_points` (ou o backport_ "
 "``importlib_metadata >= 3.6`` para Python 3.6-3.9):"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:150
+#: ../source/guides/creating-and-discovering-plugins.rst:149
 msgid ""
 "In this example, ``discovered_plugins`` would be a collection of type :class:"
 "`importlib.metadata.EntryPoint`:"
@@ -3012,7 +3017,7 @@ msgstr ""
 "Neste exemplo, ``discover_plugins`` seria uma coleção do tipo :class:"
 "`importlib.metadata.EntryPoint`:"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:159
+#: ../source/guides/creating-and-discovering-plugins.rst:158
 msgid ""
 "Now the module of your choice can be imported by executing "
 "``discovered_plugins['a'].load()``."
@@ -3020,7 +3025,7 @@ msgstr ""
 "Agora o módulo de sua escolha pode ser importado executando "
 "``discovered_plugins['a'].Load()``."
 
-#: ../source/guides/creating-and-discovering-plugins.rst:162
+#: ../source/guides/creating-and-discovering-plugins.rst:161
 msgid ""
 "The ``entry_point`` specification in :file:`setup.py` is fairly flexible and "
 "has a lot of options. It's recommended to read over the entire section on :"
@@ -3030,7 +3035,7 @@ msgstr ""
 "tem muitas opções. É recomendado ler toda a seção sobre :doc:`pontos de "
 "entrada <setuptools:userguide/entry_point>` ."
 
-#: ../source/guides/creating-and-discovering-plugins.rst:166
+#: ../source/guides/creating-and-discovering-plugins.rst:165
 msgid ""
 "Since this specification is part of the :doc:`standard library <python:"
 "library/importlib.metadata>`, most packaging tools other than setuptools "
@@ -3146,10 +3151,6 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:73
 #, fuzzy
-#| msgid ""
-#| "It's the command line interface for running various commands that relate "
-#| "to packaging tasks. To get a listing of available commands, run ``python "
-#| "setup.py --help-commands``."
 msgid ""
 "It's the command line interface for running various commands that relate to "
 "packaging tasks. To get a listing of available commands, run ``python3 setup."
@@ -4936,8 +4937,13 @@ msgstr ""
 "seu instalador."
 
 #: ../source/guides/hosting-your-own-index.rst:57
+#, fuzzy
+#| msgid ""
+#| "For complete documentation of the simple repository protocol, see :pep:"
+#| "`503`."
 msgid ""
-"For complete documentation of the simple repository protocol, see :pep:`503`."
+"For complete documentation of the simple repository protocol, see :ref:"
+"`simple repository API <simple-repository-api>`."
 msgstr ""
 "Para a documentação completa do protocolo de repositório simples, veja :pep:"
 "`503`."
@@ -5032,9 +5038,6 @@ msgstr ""
 
 #: ../source/guides/index-mirrors-and-caches.rst:35
 #, fuzzy
-#| msgid ""
-#| "A variation on the above which pre-builds the installation files for the "
-#| "requirements using :ref:`python -m pip wheel <pip:pip wheel>`:"
 msgid ""
 "A variation on the above which pre-builds the installation files for the "
 "requirements using :ref:`python3 -m pip wheel <pip:pip wheel>`:"
@@ -6616,13 +6619,6 @@ msgstr ""
 
 #: ../source/guides/multi-version-installs.rst:34
 #, fuzzy
-#| msgid ""
-#| "This can be worked around by setting all dependencies in ``__main__."
-#| "__requires__`` before importing ``pkg_resources`` for the first time, but "
-#| "that approach does mean that standard command line invocations of the "
-#| "affected tools can't be used - it's necessary to write a custom wrapper "
-#| "script or use ``python -c '<command>'`` to invoke the application's main "
-#| "entry point directly."
 msgid ""
 "This can be worked around by setting all dependencies in ``__main__."
 "__requires__`` before importing ``pkg_resources`` for the first time, but "
@@ -19389,11 +19385,17 @@ msgid "Installing from other sources"
 msgstr "Instalando a partir de outras fontes"
 
 #: ../source/tutorials/installing-packages.rst:615
+#, fuzzy
+#| msgid ""
+#| "To install from other data sources (for example Amazon S3 storage) you "
+#| "can create a helper application that presents the data in a :pep:`503` "
+#| "compliant index format, and use the ``--extra-index-url`` flag to direct "
+#| "pip to use that index."
 msgid ""
 "To install from other data sources (for example Amazon S3 storage) you can "
-"create a helper application that presents the data in a :pep:`503` compliant "
-"index format, and use the ``--extra-index-url`` flag to direct pip to use "
-"that index."
+"create a helper application that presents the data in a format compliant "
+"with the :ref:`simple repository API <simple-repository-api>`:, and use the "
+"``--extra-index-url`` flag to direct pip to use that index."
 msgstr ""
 "Para instalar a partir de outras fontes de dados (por exemplo, armazenamento "
 "Amazon S3), você pode criar uma aplicação auxiliar que apresente os dados em "
@@ -20490,6 +20492,37 @@ msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 #~ "ativas mantidas pela Python Packaging Authority. O processo de "
 #~ "atualização desses padrões e de proposição de novos está documentado em "
 #~ "`pypa.io <https://www.pypa.io/en/latest/specifications/>`__."
+
+#~ msgid ""
+#~ "It's the command line interface for running various commands that relate "
+#~ "to packaging tasks. To get a listing of available commands, run ``python "
+#~ "setup.py --help-commands``."
+#~ msgstr ""
+#~ "É a interface de linha de comando para executar vários comandos "
+#~ "relacionados a tarefas de empacotamento. Para obter uma lista dos "
+#~ "comandos disponíveis, execute ``python setup.py --help-commands``."
+
+#~ msgid ""
+#~ "A variation on the above which pre-builds the installation files for the "
+#~ "requirements using :ref:`python -m pip wheel <pip:pip wheel>`:"
+#~ msgstr ""
+#~ "Uma variação acima, que pré-constrói os arquivos de instalação para os "
+#~ "requisitos usando :ref:`python -m pip wheel <pip:pip wheel>`:"
+
+#~ msgid ""
+#~ "This can be worked around by setting all dependencies in ``__main__."
+#~ "__requires__`` before importing ``pkg_resources`` for the first time, but "
+#~ "that approach does mean that standard command line invocations of the "
+#~ "affected tools can't be used - it's necessary to write a custom wrapper "
+#~ "script or use ``python -c '<command>'`` to invoke the application's main "
+#~ "entry point directly."
+#~ msgstr ""
+#~ "Isso pode ser contornado definindo todas as dependências em ``__main__.__ "
+#~ "require__`` antes de importar ``pkg_resources`` pela primeira vez, mas "
+#~ "essa abordagem significa que as invocações de linha de comando padrão das "
+#~ "ferramentas afetadas não podem ser usadas -- é necessário escrever um "
+#~ "script wrapper personalizado ou usar ``python -c '<comando>'`` para "
+#~ "invocar o ponto de entrada principal da aplicação diretamente."
 
 #, fuzzy
 #~ msgid ""
