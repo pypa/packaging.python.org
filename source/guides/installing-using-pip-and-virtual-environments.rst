@@ -31,7 +31,6 @@ installed.
     .. code-block:: bash
 
         python3 -m pip install --user --upgrade pip
-
         python3 -m pip --version
 
     Afterwards, you should have the latest version of pip installed in your
@@ -51,7 +50,6 @@ installed.
     .. code-block:: bat
 
         py -m pip install --upgrade pip
-
         py -m pip --version
 
     Afterwards, you should have the latest version of pip:
@@ -245,13 +243,13 @@ a specific version of ``requests``:
 
     .. code-block:: bash
 
-        python3 -m pip install requests==2.18.4
+        python3 -m pip install 'requests==2.18.4'
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install requests==2.18.4
+        py -m pip install "requests==2.18.4"
 
 To install the latest ``2.x`` release of requests:
 
@@ -259,13 +257,13 @@ To install the latest ``2.x`` release of requests:
 
     .. code-block:: bash
 
-        python3 -m pip install requests>=2.0.0,<3.0.0
+        python3 -m pip install 'requests>=2.0.0,<3.0.0'
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install requests>=2.0.0,<3.0.0
+        py -m pip install "requests>=2.0.0,<3.0.0"
 
 To install pre-release versions of packages, use the ``--pre`` flag:
 
@@ -292,13 +290,13 @@ specifying the extra in brackets:
 
     .. code-block:: bash
 
-        python3 -m pip install requests[security]
+        python3 -m pip install 'requests[security]'
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install requests[security]
+        py -m pip install "requests[security]"
 
 .. _extras:
     https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies
