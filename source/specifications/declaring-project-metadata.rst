@@ -289,10 +289,10 @@ URL itself.
 .. code-block:: toml
 
     [project.urls]
-    homepage = "https://example.com"
-    documentation = "https://readthedocs.org"
-    repository = "https://github.com/me/spam.git"
-    changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+    Homepage = "https://example.com"
+    Documentation = "https://readthedocs.org"
+    Repository = "https://github.com/me/spam.git"
+    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
 Entry points
 ------------
@@ -464,10 +464,10 @@ Example
     ]
 
     [project.urls]
-    homepage = "https://example.com"
-    documentation = "https://readthedocs.org"
-    repository = "https://github.com/me/spam.git"
-    changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+    Homepage = "https://example.com"
+    Documentation = "https://readthedocs.org"
+    Repository = "https://github.com/me/spam.git"
+    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
     [project.scripts]
     spam-cli = "spam:main_cli"
