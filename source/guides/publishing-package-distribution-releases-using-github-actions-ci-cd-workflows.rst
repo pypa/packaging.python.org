@@ -93,7 +93,7 @@ Then, add the following under the ``build-n-publish`` section:
    :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
-install and activate Python 3.10.
+install and activate the newest available Python 3 release.
 
 And now we can build dists from source. In this example, we'll
 use ``build`` package.
