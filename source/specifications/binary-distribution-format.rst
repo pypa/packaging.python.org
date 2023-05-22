@@ -161,7 +161,7 @@ this character cannot appear within any component. This is handled as follows:
 - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
   characters should be replaced with corresponding lowercase ones. This is
-  equivalent to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
+  equivalent to regular :ref:`name normalization <name-normalization>` followed by replacing ``-`` with ``_``.
   Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
   uppercase letters, however, as these were allowed by an earlier version of
   this specification.
@@ -408,6 +408,8 @@ What's the deal with "purelib" vs. "platlib"?
     depending on whether it is pure Python or not and those files should
     be at the root with the appropriate setting given for "Root-is-purelib".
 
+
+.. _binary-distribution-format-import-wheel:
 
 Is it possible to import Python code directly from a wheel file?
 ----------------------------------------------------------------

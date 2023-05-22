@@ -1,6 +1,10 @@
 name: Test
 
-on: [push, pull_request]
+on: 
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * *" # daily at 6am
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
@@ -9,6 +13,7 @@ concurrency:
 jobs:
   build:
     name: ${{ matrix.noxenv }}
+    if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:

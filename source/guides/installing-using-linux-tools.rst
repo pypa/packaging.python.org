@@ -90,7 +90,7 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
 
    * For Redhat, see here:
      https://developers.redhat.com/products/softwarecollections/overview
-   * For CentOS, see here: https://www.softwarecollections.org/en/
+   * For CentOS, see here: https://github.com/sclorg
 
    Be aware that collections may not contain the most recent versions.
 
@@ -114,8 +114,11 @@ openSUSE
  
     sudo zypper install python3-pip python3-setuptools python3-wheel
 
-Debian/Ubuntu
-~~~~~~~~~~~~~
+
+.. _debian-ubuntu:
+
+Debian/Ubuntu and derivatives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Firstly, update and refresh repository lists by running this command:
 

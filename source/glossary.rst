@@ -42,7 +42,7 @@ Glossary
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
-        which is being replaced by :term:`Wheel`.  For details, see `
+        which is being replaced by :term:`Wheel`.  For details, see 
         :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` and
         `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
 
@@ -237,7 +237,9 @@ Glossary
 
     Wheel
 
-        A :term:`Built Distribution` format introduced by :pep:`427`,
+        A :term:`Built Distribution` format introduced by an official
+        :doc:`standard specification
+        </specifications/binary-distribution-format/>`,
         which is intended to replace the :term:`Egg` format.  Wheel is currently
         supported by :ref:`pip`.
 

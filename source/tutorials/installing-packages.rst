@@ -58,10 +58,10 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
     .. code-block:: python
 
-        >>> python --version
+        >>> python3 --version
         Traceback (most recent call last):
           File "<stdin>", line 1, in <module>
-        NameError: name 'python' is not defined
+        NameError: name 'python3' is not defined
 
     It's because this command and other suggested commands in this tutorial
     are intended to be run in a *shell* (also called a *terminal* or
@@ -492,19 +492,19 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
     .. code-block:: bash
 
-        python3 -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
-        python3 -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
-        python3 -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
-        python3 -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+        python3 -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git          # from git
+        python3 -m pip install -e SomeProject @ hg+https://hg.repo/some_pkg                # from mercurial
+        python3 -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
+        python3 -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
-        py -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
-        py -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
-        py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+        py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git          # from git
+        py -m pip install -e SomeProject @ hg+https://hg.repo/some_pkg                # from mercurial
+        py -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
+        py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
 
 Installing from other Indexes
 =============================
@@ -612,10 +612,10 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 Installing from other sources
 =============================
 
-To install from other data sources (for example Amazon S3 storage) you can
-create a helper application that presents the data in a :pep:`503` compliant
-index format, and use the ``--extra-index-url`` flag to direct pip to use
-that index.
+To install from other data sources (for example Amazon S3 storage)
+you can create a helper application that presents the data
+in a format compliant with the :ref:`simple repository API <simple-repository-api>`:,
+and use the ``--extra-index-url`` flag to direct pip to use that index.
 
 .. code-block:: bash
 
@@ -653,17 +653,17 @@ you know publishes one, you can include it in the pip installation command:
 
     .. code-block:: bash
 
-        python3 -m pip install SomePackage[PDF]
-        python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]  # editable project in current directory
+        python3 -m pip install 'SomePackage[PDF]'
+        python3 -m pip install 'SomePackage[PDF]==3.0'
+        python3 -m pip install -e '.[PDF]'  # editable project in current directory
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install SomePackage[PDF]
-        py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]  # editable project in current directory
+        py -m pip install "SomePackage[PDF]"
+        py -m pip install "SomePackage[PDF]==3.0"
+        py -m pip install -e ".[PDF]"  # editable project in current directory
 
 ----
 
