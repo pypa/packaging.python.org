@@ -486,9 +486,7 @@ pdm
 `GitHub <https://github.com/pdm-project/pdm/>`__ |
 `PyPI <https://pypi.org/project/pdm>`__
 
-PDM is a modern Python package manager with :pep:`582` support. It installs and
-manages packages in a similar way to ``npm`` that doesn't need to create a
-:term:`virtual environment` at all. It also uses :term:`pyproject.toml` to store
+PDM is a modern Python package manager. It uses :term:`pyproject.toml` to store
 project metadata as defined in :pep:`621`.
 
 .. _pex:
