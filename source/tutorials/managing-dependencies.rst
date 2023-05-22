@@ -167,10 +167,8 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
   wrapper around pip that supports ``requirements.txt``, Pipenv and Poetry lock files,
   or converting them to pip-tools compatible output. Designed for containerized
   Python applications, but not limited to them.
-* `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package management
-  tool supporting :pep:`582` (replacing virtual environments with ``__pypackages__``
-  directory for package installation) and relying on standards such as :pep:`517` and
-  :pep:`621`.
+* `PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package
+  management relying on standards such as :pep:`517` and :pep:`621`.
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
   dependencies from a list of packages directly used in a project, and ensuring that
   only those dependencies are installed.
