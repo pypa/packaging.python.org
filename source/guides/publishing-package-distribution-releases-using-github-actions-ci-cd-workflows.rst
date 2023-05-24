@@ -51,6 +51,31 @@ Let's begin! 🚀
       create it. It's not the same as a regular PyPI account.
 
 
+Using trusted publishing
+------------------------
+
+It is also possible to authenticate to PyPI without having to provide 
+an `API token`_. This can be done using 
+PyPI's `trusted publishing`_ implementation. This is recommended
+also for security reasons, since the generated tokens are created for each of your projects
+individually and expire automatically. 
+
+The following steps will lead you through creating a "pending" publisher.
+
+1. Go to https://pypi.org/manage/account/publishing/
+2. Now fill in the name you wish to publish your new project under,
+   your repository data and the name of the release workflow file 
+   under the ``.github/`` folder, see :ref:`workflow-definition`. 
+   Finally add the name of the GitHub Actions environment
+   running under your repository. 
+   Add the trusted publisher.   
+3. Your "pending" publisher is no ready for its first use and will 
+   create your project automatically once you use it 
+   for the first time.
+
+
+.. _workflow-definition:
+
 Creating a workflow definition
 ==============================
 
@@ -150,3 +175,4 @@ sure that your release pipeline remains healthy!
    https://github.com/marketplace/actions/pypi-publish
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
+.. _trusted publishing: https://docs.pypi.org/trusted-publishers/
