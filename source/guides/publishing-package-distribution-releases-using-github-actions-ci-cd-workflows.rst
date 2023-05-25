@@ -17,61 +17,39 @@ It will use the `pypa/gh-action-pypi-publish GitHub Action`_.
    details of building platform specific projects. If you have binary
    components, check out :ref:`cibuildwheel`'s GitHub Action examples.
 
-Saving credentials on GitHub
-============================
+Configuring trusted publishing
+==============================
 
-In this guide, we'll demonstrate uploading to both
-PyPI and TestPyPI, meaning that we'll have two separate sets
-of credentials. And we'll need to save them in the GitHub repository
-settings.
+This guide relies on PyPI's `trusted publishing`_ implementation to connect
+to `GitHub Actions CI/CD`_. This is recommended for security reasons, since 
+the generated tokens are created for each of your projects
+individually and expire automatically. Otherwise you'll need to generate an
+`API token`_ or provide a username/password combination for both PyPI and
+TestPyPI. 
+
+Since this guide will demonstrate uploading to both
+PyPI and TestPyPI, we'll need two trusted publishers configured. 
+The following steps will lead you through creating the "pending" publishers.
 
 Let's begin! 🚀
 
-1. Go to https://pypi.org/manage/account/#api-tokens and
-   create a new `API token`_. If you have the project on PyPI
-   already, limit the token scope to just that project.
-   You can call it something like
-   ``GitHub Actions CI/CD — project-org/project-repo``
-   in order for it to be easily distinguishable in the token
-   list.
-   **Don't close the page just yet — you won't see that token
-   again.**
-2. In a separate browser tab or window, go to the ``Settings``
-   tab of your target repository and then click on `Secrets`_
-   in the left sidebar.
-3. Create a new secret called ``PYPI_API_TOKEN`` and copy-paste
-   the token from the first step.
-4. Now, go to https://test.pypi.org/manage/account/#api-tokens
-   and repeat the steps. Save that TestPyPI token on GitHub
-   as ``TEST_PYPI_API_TOKEN``.
+1. Go to https://pypi.org/manage/account/publishing/
+2. Fill in the name you wish to publish your new project under,
+   your repository data and the name of the release workflow file 
+   under the ``.github/`` folder, see :ref:`workflow-definition`. 
+   Finally add the name of the GitHub Actions environment
+   running under your repository. 
+   Register the trusted publisher.
+3. Now, go to https://test.pypi.org/manage/account/publishing/ and repeat
+   the second step.   
+4. Your "pending" publishers are now ready for their first use and will 
+   create your projects automatically once you use them 
+   for the first time.
 
    .. attention::
 
       If you don't have a TestPyPI account, you'll need to
       create it. It's not the same as a regular PyPI account.
-
-
-Using trusted publishing
-------------------------
-
-It is also possible to authenticate to PyPI without having to provide 
-an `API token`_. This can be done using 
-PyPI's `trusted publishing`_ implementation. This is recommended
-also for security reasons, since the generated tokens are created for each of your projects
-individually and expire automatically. 
-
-The following steps will lead you through creating a "pending" publisher.
-
-1. Go to https://pypi.org/manage/account/publishing/
-2. Now fill in the name you wish to publish your new project under,
-   your repository data and the name of the release workflow file 
-   under the ``.github/`` folder, see :ref:`workflow-definition`. 
-   Finally add the name of the GitHub Actions environment
-   running under your repository. 
-   Add the trusted publisher.   
-3. Your "pending" publisher is no ready for its first use and will 
-   create your project automatically once you use it 
-   for the first time.
 
 
 .. _workflow-definition:
