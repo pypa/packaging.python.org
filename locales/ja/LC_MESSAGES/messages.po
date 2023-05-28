@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-20 12:09+0000\n"
-"PO-Revision-Date: 2023-05-26 12:50+0000\n"
+"PO-Revision-Date: 2023-05-28 08:54+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -17738,7 +17738,6 @@ msgid "Why not use special character <X> rather than ``.`` or ``-``?"
 msgstr "何故、 ``.`` や ``-`` の代わりに特殊な文字 <X> を使わないのですか？"
 
 #: ../source/specifications/platform-compatibility-tags.rst:273
-#, fuzzy
 msgid ""
 "Either because that character is inconvenient or potentially confusing in "
 "some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used to "
@@ -17748,11 +17747,12 @@ msgid ""
 "using ``,`` rather than ``.`` to separate components in a compressed tag)."
 msgstr ""
 "それは、その文字が不便であるかコンテクストによっては潜在的に混乱を招きやすい "
-"(例えば ``+`` は URL 内ではクォートしなければなりませんし、 ``~`` は POSIX で"
-"ユーザのホームディレクトリを示すために使われます) から、あるいは、 :pep:427 "
-"で定義された wheel フォーマットを参照して作成された既存の実装を変更すること "
-"(例えば、圧縮タグで部分部分を分割するのに ``.`` ではなく ``,`` を使うようにす"
-"ること) を正当化するに足りるだけのアドバンテージがないから、のいずれかです。"
+"(例えば ``+`` は URL 内ではクォートしなければなりませんし、 ``~`` は POSIX "
+"でユーザのホームディレクトリを示すために使われます) から、あるいは、 "
+":pep:`427` で定義された wheel "
+"フォーマットを参照して作成された既存の参照実装を変更すること (例えば、"
+"圧縮タグで部分部分を分割するのに ``.`` ではなく ``,`` を使うようにすること) "
+"を正当化するに足りるだけのアドバンテージがないから、のいずれかです。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:284
 msgid "Who will maintain the registry of abbreviated implementations?"
@@ -18419,6 +18419,10 @@ msgid ""
 "used to manage the package (this allows ``RECORD``-aware tools to provide "
 "better error notices when asked to modify affected packages)"
 msgstr ""
+"そのパッケージを管理するのに使用されるべきツールの名前を示すように``INSTALLER"
+"`` ファイルを書いてください (これによって、 ``RECORD`` を参照できるツール群が"
+"影響を被るパッケージを修正するように言われた時により良いエラー通知を提供でき"
+"ます)"
 
 #: ../source/specifications/recording-installed-packages.rst:247
 msgid ""
@@ -18428,6 +18432,10 @@ msgid ""
 "provided packages (while also ensuring both locations appear on the default "
 "Python import path)."
 msgstr ""
+"Python ランタイムの提供者は、デフォルトの Python パッケージのインストレーショ"
+"ンスキームを修正してプラットフォームが提供するパッケージ群で使われるものとは"
+"別の場所を使うようにすることで、プラットフォームが提供するパッケージ群を意図"
+"せずに修正してしまうことを防いでも構いません。"
 
 #: ../source/specifications/recording-installed-packages.rst:252
 msgid ""
@@ -18435,6 +18443,10 @@ msgid ""
 "additional packages via Python-specific tools. For these cases refer to :ref:"
 "`externally-managed-environments`"
 msgstr ""
+"いくつかの環境では、 Python 特有のツール群を経由した追加パッケージのインスト"
+"ールさえもブロックすることが望ましいかもしれません。"
+"このようなケースについては :ref:`外部から管理される環境 <externally-managed-"
+"environments>` を参照してください"
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
@@ -18632,9 +18644,8 @@ msgstr ""
 "えるものです。"
 
 #: ../source/specifications/virtual-environments.rst:6
-#, fuzzy
 msgid "Python Virtual Environments"
-msgstr "仮想環境"
+msgstr "Python 仮想環境"
 
 #: ../source/specifications/virtual-environments.rst:8
 msgid ""
@@ -18647,11 +18658,21 @@ msgid ""
 "environments existed prior to this update, there was no previously "
 "standardised mechanism for declaring or discovering them."
 msgstr ""
+"Python 3.3 およびそれ以降のバージョンでは、 :pep:`405` で \"Python 仮想環境 "
+"<Python Virtual Environment>\" "
+"の概念に対するサポートがインタープリタのレベルで導入されました。"
+"それぞれの仮想環境が独自の Python バイナリを持ち ("
+"従ってさまざまなバージョンの Python 環境を作成することが可能) 、"
+"そのサイトディレクトリの中にそれぞれ独立した Python "
+"パッケージ群をインストールすることができ、同時に、"
+"ベースシステムにインストールされた Python と標準ライブラリを共有することがで"
+"きます。仮想環境の概念はこのアップデートに先立って存在していましたが、(訳註、"
+"仮想環境を) 宣言したり発見したりするための標準化されたメカニズムはそれまで存"
+"在しなかったのです。"
 
 #: ../source/specifications/virtual-environments.rst:18
-#, fuzzy
 msgid "Runtime detection of virtual environments"
-msgstr "仮想環境を活性化する"
+msgstr "仮想環境のランタイムを識別する"
 
 #: ../source/specifications/virtual-environments.rst:20
 msgid ""
@@ -18660,6 +18681,10 @@ msgid ""
 "different value from ``sys.base_prefix`` (the default filesytem location of "
 "the standard library directories)."
 msgstr ""
+"ランタイムには、仮想環境は ``sys.prefix`` "
+"(動作中のインタープリタのファイルシステム上の場所) が ``sys.base_prefix`` "
+"(標準ライブラリのディレクトリのデフォルトでのファイルシステム上の場所) "
+"とは異なる値を持つおかげで識別可能です。"
 
 #: ../source/specifications/virtual-environments.rst:25
 msgid ""
