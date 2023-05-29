@@ -3,9 +3,12 @@ name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
 on: push
 
 jobs:
-  build-n-publish:
-    name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+  build-n-publish-pypi:
+    name: Build and publish Python 🐍 distributions 📦 to PyPI
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/<package-name>
     permissions:
       id-token: write
 
@@ -29,11 +32,40 @@ jobs:
         --wheel
         --outdir dist/
         .
-    # Actually publish to PyPI/TestPyPI
+    # Actually publish to PyPI
+    - name: Publish distribution 📦 to PyPI
+      if: startsWith(github.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@release/v1
+  build-n-publish-testpypi:
+    name: Build and publish Python 🐍 distributions 📦 to TestPyPI
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/<package-name>
+    permissions:
+      id-token: write
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+    - name: Install pypa/build
+      run: >-
+        python3 -m
+        pip install
+        build
+        --user
+    - name: Build a binary wheel and a source tarball
+      run: >-
+        python3 -m
+        build
+        --sdist
+        --wheel
+        --outdir dist/
+        .
     - name: Publish distribution 📦 to Test PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         repository-url: https://test.pypi.org/legacy/
-    - name: Publish distribution 📦 to PyPI
-      if: startsWith(github.ref, 'refs/tags')
-      uses: pypa/gh-action-pypi-publish@release/v1
