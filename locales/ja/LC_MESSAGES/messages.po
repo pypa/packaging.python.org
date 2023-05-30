@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-20 12:09+0000\n"
-"PO-Revision-Date: 2023-05-28 08:54+0000\n"
+"PO-Revision-Date: 2023-05-30 06:08+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -18695,11 +18695,12 @@ msgid ""
 "used to detect whether a Python program is running in a virtual environment "
 "or not)."
 msgstr ""
+"Python 標準ライブラリの :py:mod:`venv` モジュールに関する説明文書の :ref"
+":`venv-explanation` は、"
 
 #: ../source/specifications/virtual-environments.rst:33
-#, fuzzy
 msgid "Declaring installation environments as Python virtual environments"
-msgstr "pip と仮想環境を使ってパッケージをインストールする"
+msgstr "インストール先の環境がPython 仮想環境であることを宣言する"
 
 #: ../source/specifications/virtual-environments.rst:35
 msgid ""
@@ -18709,6 +18710,11 @@ msgid ""
 "a ``home`` key that indicates where to find the Python standard library "
 "modules."
 msgstr ""
+":pep:`405` で述べられているように、最も単純な形式での Python 仮想環境は、 "
+"Python バイナリのコピーかシンボリックリンクに、 ``site-packages`` "
+"ディレクトリと、 Python "
+"標準ライブラリのモジュール群がどこで見つかるかを指し示す ``home`` "
+"キーを伴った ``pyvenv.cfg`` ファイルが随伴しているだけのもので構成されます。"
 
 #: ../source/specifications/virtual-environments.rst:40
 msgid ""
@@ -18718,6 +18724,12 @@ msgid ""
 "that they are already operating in a virtual environment and no further "
 "environment nesting is required or desired."
 msgstr ""
+"標準である :py:mod:`venv` "
+"モジュールの要求するものに合うように設計されている一方で、この分割実装と "
+"``pyvenv.cfg`` ファイルのアプローチは、Python "
+"に特化したツール群が自身がすでに仮想環境の中で動作していて、それ以上の入れ子"
+"環境は要求もされておらず望ましくもないことを認識するようにしたいと望む "
+"Python 実装提供者なら *誰でも* 採用することができます。"
 
 #: ../source/specifications/virtual-environments.rst:46
 msgid ""
@@ -18727,6 +18739,11 @@ msgid ""
 "providing a matching default package installation scheme in ``sysconfig``, "
 "will be detected and behave as a Python virtual environment."
 msgstr ""
+"``pyvenv.cfg`` ファイルがない場合であっても、 ``sys.prefix`` と ``sys."
+"base_prefix`` が相異なる値を持つような結果となる一方で以前として対応するパッ"
+"ケージ実装スキームを ``sysconfig`` 内で提供するアプローチ (例えば Python "
+"ランタイムにパッチを当てる ``sitecustomize.py``) であればどれでも、"
+"それと認識されて Python 仮想環境として振る舞います。"
 
 #: ../source/support.rst:3
 msgid "How to Get Support"
@@ -20494,36 +20511,35 @@ msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ":doc:`/guides/packaging-binary-extensions` について読みましょう。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:48
-#, fuzzy
 msgid ""
 "Using naming convention for plugins also allows you to query the Python "
 "Package Index's :ref:`simple repository API <simple-repository-api>` for all "
 "packages that conform to your naming convention."
 msgstr ""
-"プラグインの命名規則を用いることで、あなたの命名規則に従うすべてのパッケージ"
-"についてPython パッケージインデックスの `simple API`_ から検索することもでき"
-"るようになります。"
+"プラグインの命名規則を用いることで、"
+"あなたの命名規則に従うすべてのパッケージについてPython "
+"パッケージインデックスの :ref:`simple repository API <simple-repository-api>`"
+" から検索することもできるようになります。"
 
 #: ../source/guides/hosting-your-own-index.rst:57
-#, fuzzy
 msgid ""
 "For complete documentation of the simple repository protocol, see :ref:"
 "`simple repository API <simple-repository-api>`."
 msgstr ""
-"単純なリポジトリプロトコルの完全な説明文書としては、 :pep:`503` を見てくださ"
-"い。"
+"単純なリポジトリプロトコルの完全な説明文書としては、 :ref:`simple repository "
+"API <simple-repository-api>` を見てください。"
 
 #: ../source/tutorials/installing-packages.rst:615
-#, fuzzy
 msgid ""
 "To install from other data sources (for example Amazon S3 storage) you can "
 "create a helper application that presents the data in a format compliant "
 "with the :ref:`simple repository API <simple-repository-api>`:, and use the "
 "``--extra-index-url`` flag to direct pip to use that index."
 msgstr ""
-":pep:`503` 準拠のインデックスフォーマットに合わせてデータを表現するようなヘル"
-"パーアプリケーションを作成すれば、 pip を ``--extra-index-url`` フラグでその"
-"インデックスへ向け直すことで、他のデータソース (例えば Amazon S3 ストレージ) "
+":ref:`simple repository API <simple-repository-api>` 準拠のフォーマットに合わ"
+"せてデータを表現するようなヘルパーアプリケーションを作成して、 pip を "
+"``--extra-index-url`` フラグでそのインデックスへ向け直すことで、"
+"他のデータソース (例えば Amazon S3 ストレージ) "
 "からインストールすることができます。"
 
 #: ../source/discussions/install-requires-vs-requirements.rst:41
@@ -20713,29 +20729,24 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:191
 msgid "https://bazaar.canonical.com"
-msgstr ""
+msgstr "https://bazaar.canonical.com"
 
 #: ../source/key_projects.rst:489
-#, fuzzy
 msgid ""
 "PDM is a modern Python package manager. It uses :term:`pyproject.toml` to "
 "store project metadata as defined in :pep:`621`."
 msgstr ""
-"PDM は、近代的な Python パッケージ管理ソフトで、 :pep:`582` をサポートしてい"
-"ます。 :term:`仮想環境 <virtual environment>` を作る必要が全くない ``npm`` と"
-"似たやり方でパッケージをインストール・管理します。 :pep:`621` で定義されてい"
-"るように、プロジェクトのメタデータを :term:`pyproject.toml` に保存します。"
+"PDM は近代的な Python パッケージ管理ソフトです。 :pep:`621` "
+"で定義されている形でプロジェクトのメタデータを :term:`pyproject.toml` "
+"に保存します。"
 
 #: ../source/tutorials/managing-dependencies.rst:170
-#, fuzzy
 msgid ""
 "`PDM <https://github.com/pdm-project/pdm>`_ for a modern Python package "
 "management relying on standards such as :pep:`517` and :pep:`621`."
 msgstr ""
-"`PDM <https://github.com/pdm-project/pdm>`_ は、近代的な Python パッケージ管"
-"理ツールで、 (パッケージインストールのための ``__pypackages__`` ディレクトリ"
-"を採用した仮想環境を置き換える) :pep:`582` をサポートしており、 :pep:`517` "
-"や :pep:`621` のような標準に立脚しています。"
+"`PDM <https://github.com/pdm-project/pdm>`_ は、 :pep:`517` や :pep:`621` "
+"のような標準に立脚した近代的な Python パッケージ管理ツールです。"
 
 #~ msgid ""
 #~ "This guide *assumes* that you already have a project that you know how to "
