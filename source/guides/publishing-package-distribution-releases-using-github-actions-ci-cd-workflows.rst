@@ -79,7 +79,8 @@ Defining a workflow job environment
 ===================================
 
 We will have to define two jobs to publish to PyPI 
-and TestPyPI respectively.
+and TestPyPI respectively, and an additional job to 
+build the distribution packages.
 
 Now, let's add initial setup for our job that will publish to PyPI.
 It's a process that will execute commands that we'll define later.
