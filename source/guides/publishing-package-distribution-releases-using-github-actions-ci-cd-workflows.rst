@@ -8,7 +8,9 @@ popular choice is having a workflow that's triggered by a
 ``push`` event.
 This guide shows you how to publish a Python distribution
 whenever a tagged commit is pushed.
-It will use the `pypa/gh-action-pypi-publish GitHub Action`_.
+It will use the `pypa/gh-action-pypi-publish GitHub Action`_ for
+publishing and `upload-artifact`_ and `download-artifact`_ actions 
+for temporarily storing and downloading the source packages.
 
 .. attention::
 
@@ -74,59 +76,47 @@ should make GitHub run this workflow:
    :language: yaml
    :end-before: jobs:
 
-
-Defining a workflow job environment
-===================================
+Checking out the project and building distributions
+===================================================
 
 We will have to define two jobs to publish to PyPI 
 and TestPyPI respectively, and an additional job to 
 build the distribution packages.
 
-Now, let's add initial setup for our job that will publish to PyPI.
-It's a process that will execute commands that we'll define later.
-In this guide, we'll use the latest stable Ubuntu LTS version
-provided by GitHub Actions:
+First, we'll define the job for building the dist packages of 
+your project and storing them for later use:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: on:
-   :end-before: environment:
-
-
-Checking out the project and building distributions
-===================================================
-
-Then, add the following under the ``build-n-publish-pypi`` section:
-
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
-   :language: yaml
-   :start-after: runs-on:
+   :start-after: jobs:
    :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
-install and activate the newest available Python 3 release. It 
-also defines the package index to publish to, PyPI, and grants
-a permission to the action that is mandatory for trusted 
-publishing.
+install and activate the newest available Python 3 release.
 
-And now we can build dists from source. In this example, we'll
-use ``build`` package.
-
-.. tip::
-
-   You can use any other method for building distributions as long as
-   it produces ready-to-upload artifacts saved into the
-   ``dist/`` folder. You can even use ``actions/upload-artifact`` and
-   ``actions/download-artifact`` to tranfer files between jobs or make them
-   accessable for download from the web CI interface.
-
+And now we can build the dists from source and store them.
+In this example, we'll use the ``build`` package.
 So add this to the steps list:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: version: "3.x"
-   :end-before: Actually publish to PyPI
+   :end-before: build-n-publish-pypi
 
+Defining a workflow job environment
+===================================
+
+Now, let's add initial setup for our job that will publish to PyPI.
+It's a process that will execute commands that we'll define later.
+In this guide, we'll use the latest stable Ubuntu LTS version
+provided by GitHub Actions. This also defines the package index 
+to publish to, PyPI, and grants a permission to the action that 
+is mandatory for trusted publishing.
+
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :start-after: name: python-package-distributions
+   :end-before: steps:
 
 Publishing the distribution to PyPI
 ===================================
@@ -135,14 +125,14 @@ Finally, add the following steps at the end:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: Actually publish to PyPI
-   :end-before: build-n-publish-testpypi
+   :lines: 39-47
 
 This step uses the `pypa/gh-action-pypi-publish`_ GitHub
-Action: It uploads the contents of the ``dist/`` folder
-into PyPI unconditionally, but only if the current commit 
-is tagged. It is recommended you use the latest release 
-tag; a tool like GitHub's dependabot can keep
+Action: After the stored distribution package has been 
+downloaded by the `download-artifact`_ action, it uploads 
+the contents of the ``dist/`` folder into PyPI unconditionally, 
+but only if the current commit is tagged. It is recommended you 
+use the latest release tag; a tool like GitHub's dependabot can keep
 these updated regularly.
 
 Separate workflow for publishing to TestPyPI
@@ -173,6 +163,10 @@ sure that your release pipeline remains healthy!
    https://github.com/pypa/gh-action-pypi-publish
 .. _`pypa/gh-action-pypi-publish GitHub Action`:
    https://github.com/marketplace/actions/pypi-publish
+.. _`download-artifact`:
+   https://github.com/actions/download-artifact
+.. _`upload-artifact`:
+   https://github.com/actions/upload-artifact
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
 .. _trusted publishing: https://docs.pypi.org/trusted-publishers/
