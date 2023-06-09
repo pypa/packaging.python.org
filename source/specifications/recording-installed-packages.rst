@@ -234,7 +234,7 @@ packages into a Python environment to ensure that other tools are not used to
 uninstall or otherwise modify that installed package, as doing so may cause
 compatibility problems with the wider environment.
 
-To achieve this, affected tools should take the folllowing steps:
+To achieve this, affected tools should take the following steps:
 
 * Rename or remove the ``RECORD`` file to prevent changes via other tools (e.g.
   appending a suffix to create a non-standard ``RECORD.tool`` file if the tool
@@ -246,7 +246,7 @@ To achieve this, affected tools should take the folllowing steps:
 
 Python runtime providers may also prevent inadvertent modification of platform
 provided packages by modifying the default Python package installation scheme
-to use a location other than that used by platform provided packages (while also
+to use a location other than that used by distribution packages (while also
 ensuring both locations appear on the default Python import path).
 
 In some circumstances, it may be desirable to block even installation of
