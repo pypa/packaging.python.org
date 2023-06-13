@@ -44,10 +44,11 @@ Let's begin! 🚀
    the name of the release workflow file under
    the ``.github/`` folder, see :ref:`workflow-definition`.
    Finally add the name of the GitHub Actions environment
-   set up under your repository.
+   (``pypi``) we're going set up under your repository.
    Register the trusted publisher.
 3. Now, go to https://test.pypi.org/manage/account/publishing/ and repeat
-   the second step.   
+   the second step, but now enter ``testpypi`` as the name of the
+   GitHub Actions environment.
 4. Your "pending" publishers are now ready for their first use and will 
    create your projects automatically once you use them 
    for the first time.
@@ -76,6 +77,11 @@ should make GitHub run this workflow:
    :language: yaml
    :end-before: jobs:
 
+This will also assure that the release workflow is only triggered
+if the current commit is tagged. It is recommended you use the
+latest release tag; a tool like GitHub's dependabot can keep
+these updated regularly.
+
 Checking out the project and building distributions
 ===================================================
 
@@ -101,7 +107,7 @@ So add this to the steps list:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: version: "3.x"
-   :end-before: build-n-publish-pypi
+   :end-before: publish-to-pypi
 
 Defining a workflow job environment
 ===================================
@@ -125,15 +131,12 @@ Finally, add the following steps at the end:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :lines: 39-47
+   :lines: 41-48
 
 This step uses the `pypa/gh-action-pypi-publish`_ GitHub
 Action: After the stored distribution package has been 
 downloaded by the `download-artifact`_ action, it uploads 
-the contents of the ``dist/`` folder into PyPI unconditionally, 
-but only if the current commit is tagged. It is recommended you 
-use the latest release tag; a tool like GitHub's dependabot can keep
-these updated regularly.
+the contents of the ``dist/`` folder into PyPI unconditionally.
 
 Separate workflow for publishing to TestPyPI
 ============================================

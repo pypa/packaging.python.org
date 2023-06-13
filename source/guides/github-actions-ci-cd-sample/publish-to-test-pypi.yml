@@ -2,6 +2,9 @@ name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
 
 on: push
 
+# Only trigger this for tag changes.
+if: startsWith(github.ref, 'refs/tags/')
+
 jobs:
   build:
     name: Build the source package
@@ -42,7 +45,6 @@ jobs:
         name: python-package-distributions
         path: dist/
     - name: Publish distribution 📦 to PyPI
-      if: startsWith(github.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@release/v1
   publish-to-testpypi:
     name: Build and publish Python 🐍 distributions 📦 to TestPyPI
