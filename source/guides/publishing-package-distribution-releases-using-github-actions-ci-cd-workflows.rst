@@ -9,7 +9,7 @@ popular choice is having a workflow that's triggered by a
 This guide shows you how to publish a Python distribution
 whenever a tagged commit is pushed.
 It will use the `pypa/gh-action-pypi-publish GitHub Action`_ for
-publishing and `upload-artifact`_ and `download-artifact`_ actions 
+publishing. It also uses GitHub's `upload-artifact`_ and `download-artifact`_ actions 
 for temporarily storing and downloading the source packages.
 
 .. attention::
@@ -40,11 +40,11 @@ Let's begin! 🚀
 
 1. Go to https://pypi.org/manage/account/publishing/.
 2. Fill in the name you wish to publish your new project under,
-   your GitHub username and repository name and 
-   the name of the release workflow file under 
-   the ``.github/`` folder, see :ref:`workflow-definition`. 
+   your GitHub username and repository name and
+   the name of the release workflow file under
+   the ``.github/`` folder, see :ref:`workflow-definition`.
    Finally add the name of the GitHub Actions environment
-   running under your repository. 
+   set up under your repository.
    Register the trusted publisher.
 3. Now, go to https://test.pypi.org/manage/account/publishing/ and repeat
    the second step.   
