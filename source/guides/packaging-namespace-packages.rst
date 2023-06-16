@@ -9,7 +9,7 @@ single :term:`package <Import Package>` across multiple, separate
 have the following package structure:
 
 .. code-block:: text
-    
+
     mynamespace/
         __init__.py
         subpackage_a/
@@ -29,7 +29,7 @@ And you use this package in your code like so::
 Then you can break these sub-packages into two separate distributions:
 
 .. code-block:: text
-    
+
     mynamespace-subpackage-a/
         setup.py
         mynamespace/
