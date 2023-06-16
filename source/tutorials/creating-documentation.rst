@@ -61,7 +61,7 @@ For more details on the build process, see this `guide`_ by Read The Docs.
 Other Sources
 -------------
 
-For a more detailed guide on how to use Sphinx and reStructuredText, please see this `documentation tutorial`_ on Hitchhiker's Guide to Python. 
+For a more detailed guide on how to use Sphinx and reStructuredText, please see this `documentation tutorial`_ on Hitchhiker's Guide to Python.
 
 .. _documentation tutorial: https://docs.python-guide.org/writing/documentation/
 

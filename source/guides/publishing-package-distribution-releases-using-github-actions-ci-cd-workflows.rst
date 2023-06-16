@@ -138,7 +138,7 @@ Now, whenever you push a tagged commit to your Git repository remote
 on GitHub, this workflow will publish it to PyPI.
 And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
-sure that your release pipeline remains healthy! 
+sure that your release pipeline remains healthy!
 
 
 .. _API token: https://pypi.org/help/#apitoken
