@@ -169,7 +169,7 @@ wrapper modules up to date.
   for automatic wrapping with Cython. It also supports performance-oriented
   Python implementations that provide a CPython-like C-API, such as PyPy
   and Pyston.
-  
+
 * :doc:`pybind11 <pybind11:index>` is a pure C++11 library
   that provides a clean C++ interface to the CPython (and PyPy) C API. It
   does not require a pre-processing step; it is written entirely in
