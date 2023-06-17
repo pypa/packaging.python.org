@@ -17,7 +17,9 @@ Distribution>` and :term:`binary <Binary Distribution>` packaging for Python.
 Here's a breakdown of the important differences between :term:`Wheel` and :term:`Egg`.
 
 
-* :term:`Wheel` has an :pep:`official PEP <427>`. :term:`Egg` did not.
+* :term:`Wheel` has an :doc:`official standard specification
+  </specifications/binary-distribution-format>`.
+  :term:`Egg` did not.
 
 * :term:`Wheel` is a :term:`distribution <Distribution Package>` format, i.e a packaging
   format. [1]_ :term:`Egg` was both a distribution format and a runtime
@@ -45,5 +47,5 @@ Here's a breakdown of the important differences between :term:`Wheel` and :term:
 ----
 
 .. [1] Circumstantially, in some cases, wheels can be used as an importable
-       runtime format, although :pep:`this is not officially supported at this time
-       <427#is-it-possible-to-import-python-code-directly-from-a-wheel-file>`.
+       runtime format, although :ref:`this is not officially supported at this time
+       <binary-distribution-format-import-wheel>`.

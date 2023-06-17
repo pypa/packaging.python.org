@@ -55,7 +55,7 @@ instruct users to add the URL to their installer's configuration.
 ----
 
 .. [1] For complete documentation of the simple repository protocol, see
-       :pep:`503`.
+       :ref:`simple repository API <simple-repository-api>`.
 
 
 .. _Twisted: https://twistedmatrix.com/

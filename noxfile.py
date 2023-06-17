@@ -18,12 +18,13 @@ def translation(session):
     session.install("-r", "requirements.txt")
     target_dir = "locales"
     session.run(
-        "sphinx-build", 
+        "sphinx-build",
         "-b", "gettext",  # build gettext-style message catalogs (.pot file)
         "-d", ".nox/.doctrees/", # path to put the cache
         "source/",  # where the rst files are located
         target_dir, # where to put the .pot file
     )
+
 
 @nox.session()
 def build(session, autobuild=False):
@@ -75,10 +76,24 @@ def linkcheck(session):
     """
     session.install("-r", "requirements.txt")
     session.run(
-        "sphinx-build", 
+        "sphinx-build",
         "-b", "linkcheck", # use linkcheck builder
         "--color",
         "-n", "-W", "--keep-going",  # be strict
         "source", # where the rst files are located
         "build", # where to put the check output
+    )
+
+
+@nox.session()
+def checkqa(session):
+    """
+    Format the guide using pre-commit.
+    """
+    session.install("pre-commit")
+    session.run(
+        "pre-commit",
+        "run",
+        "--all-files",
+        "--show-diff-on-failure",
     )

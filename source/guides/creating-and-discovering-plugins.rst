@@ -41,18 +41,17 @@ then ``discovered_plugins`` would be:
 .. code-block:: python
 
     {
-        'flask_sqlachemy': <module: 'flask_sqlalchemy'>,
+        'flask_sqlalchemy': <module: 'flask_sqlalchemy'>,
         'flask_talisman': <module: 'flask_talisman'>,
     }
 
-Using naming convention for plugins also allows you to query the
-Python Package Index's `simple API`_ for all packages that conform to your
-naming convention.
+Using naming convention for plugins also allows you to query
+the Python Package Index's :ref:`simple repository API <simple-repository-api>`
+for all packages that conform to your naming convention.
 
 .. _Flask: https://pypi.org/project/Flask/
 .. _Flask-SQLAlchemy: https://pypi.org/project/Flask-SQLAlchemy/
 .. _Flask-Talisman: https://pypi.org/project/flask-talisman
-.. _simple API: https://www.python.org/dev/peps/pep-0503/#specification
 
 
 Using namespace packages

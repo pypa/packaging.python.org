@@ -18,13 +18,13 @@ Use ``pip`` to install Sphinx:
 
     .. code-block:: bash
 
-        python3 -m pip install -U sphinx
+        python3 -m pip install --upgrade sphinx
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install -U sphinx
+        py -m pip install --upgrade sphinx
 
 For other installation methods, see this :doc:`installation guide <sphinx:usage/installation>` by Sphinx.
 
@@ -61,7 +61,7 @@ For more details on the build process, see this `guide`_ by Read The Docs.
 Other Sources
 -------------
 
-For a more detailed guide on how to use Sphinx and reStructuredText, please see this `documentation tutorial`_ on Hitchhiker's Guide to Python. 
+For a more detailed guide on how to use Sphinx and reStructuredText, please see this `documentation tutorial`_ on Hitchhiker's Guide to Python.
 
 .. _documentation tutorial: https://docs.python-guide.org/writing/documentation/
 

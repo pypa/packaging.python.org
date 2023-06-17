@@ -1,6 +1,6 @@
 name: Test
 
-on: 
+on:
   push:
   pull_request:
   schedule:
@@ -13,6 +13,7 @@ concurrency:
 jobs:
   build:
     name: ${{ matrix.noxenv }}
+    if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
