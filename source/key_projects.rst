@@ -386,7 +386,7 @@ compiled libraries and extensions. It is used as the basis of the `Anaconda
 <https://docs.anaconda.com/anaconda/>`__ Python distribution from `Anaconda, Inc
 <https://www.anaconda.com/products/individual>`__ specifically aimed at the scientific
 community, but can also be used on its own, or with the
-`miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ distribution. It is available
+:doc:`miniconda <conda:miniconda>` distribution. It is available
 for Windows, Mac and Linux systems.
 
 Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, but provides
