@@ -394,9 +394,9 @@ many of their combined features, such as package management, virtual environment
 management and deployment of binary extensions and other binary code.
 
 Conda does not install packages from PyPI -- it can only manage packages built specifically
-for conda, which can be made available on a "conda channel", such as those hosted by
+for conda, which can be made available on a "conda channel", such as those hosted on
 `anaconda.org <https://anaconda.org/>`_ or a local (e.g. intranet) package server. In additon
-to the "defults" channel managed by `Anaconda, Inc <https://www.anaconda.com/>`_, there are
+to the "default" channels managed by `Anaconda, Inc <https://www.anaconda.com/>`_, there are
 a wide variety of packages from the community supported
 `conda-forge project <https://conda-forge.org/>`__
 
