@@ -33,13 +33,25 @@ username/password combination.
 Since this guide will demonstrate uploading to both
 PyPI and TestPyPI, we'll need two trusted publishers configured. 
 The following steps will lead you through creating the "pending" publishers
-for your new project. However it is also possible to add `trusted publishing`_
-to any pre-existing project, if you are its owner.
+for your new :term:`PyPI project <Project>`.
+However it is also possible to add `trusted publishing`_ to any
+pre-existing project, if you are its owner.
+
+   .. attention::
+
+      If you followed earlier versions of this guide, you will
+      have created the secrets ``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN``
+      for direct PyPI and TestPyPI access. These are obsolete now and
+      you should remove them from your GitHub repository and revoke
+      them in your PyPI and TestPyPI account settings.
+
 
 Let's begin! 🚀
 
 1. Go to https://pypi.org/manage/account/publishing/.
-2. Fill in the name you wish to publish your new project under,
+2. Fill in the name you wish to publish your new
+   :term:`PyPI project <Project>` under
+   (the ``name`` value in your ``setup.cfg`` or ``pyproject.toml``),
    your GitHub username and repository name and
    the name of the release workflow file under
    the ``.github/`` folder, see :ref:`workflow-definition`.
@@ -53,10 +65,16 @@ Let's begin! 🚀
    create your projects automatically once you use them 
    for the first time.
 
-   .. attention::
+   .. note::
 
       If you don't have a TestPyPI account, you'll need to
       create it. It's not the same as a regular PyPI account.
+
+
+   .. hint::
+
+      For security reasons, you should require manual approval
+      on each run for the ``pypi`` environment.
 
 
 .. _workflow-definition:
@@ -79,8 +97,7 @@ should make GitHub run this workflow:
 
 This will also ensure that the release workflow is only triggered
 if the current commit is tagged. It is recommended you use the
-latest release tag; a tool like GitHub's dependabot can keep
-these updated regularly.
+latest release tag.
 
 Checking out the project and building distributions
 ===================================================
@@ -123,7 +140,7 @@ implement secretless trusted publishing to PyPI.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: name: python-package-distributions
+   :start-after: path: dist/
    :end-before: steps:
 
 Publishing the distribution to PyPI
@@ -133,13 +150,15 @@ Finally, add the following steps at the end:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :lines: 41-48
+   :start-after: id-token: write
+   :end-before:  publish-to-testpypi:
 
 This step uses the `pypa/gh-action-pypi-publish`_ GitHub
 Action: after the stored distribution package has been 
 downloaded by the `download-artifact`_ action, it uploads 
 the contents of the ``dist/`` folder into PyPI unconditionally.
-This job also signs the artifacts with Sigstore right after publishing them to PyPI.
+This job also signs the artifacts with the `sigstore/gh-action-sigstore-python`_
+GitHub Action publishing them to PyPI.
 
 Separate workflow for publishing to TestPyPI
 ============================================
@@ -150,7 +169,8 @@ section:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: uses: pypa/gh-action-pypi-publish@release/v1
+   :start-after: ./dist/*.whl
+
 
 That's all, folks!
 ==================
@@ -173,6 +193,8 @@ sure that your release pipeline remains healthy!
    https://github.com/actions/download-artifact
 .. _`upload-artifact`:
    https://github.com/actions/upload-artifact
+.. _`sigstore/gh-action-sigstore-python`:
+   https://github.com/marketplace/actions/gh-action-sigstore-python
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
 .. _trusted publishing: https://docs.pypi.org/trusted-publishers/
