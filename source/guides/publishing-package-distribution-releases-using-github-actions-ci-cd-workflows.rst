@@ -25,9 +25,9 @@ Configuring trusted publishing
 This guide relies on PyPI's `trusted publishing`_ implementation to connect
 to `GitHub Actions CI/CD`_. This is recommended for security reasons, since 
 the generated tokens are created for each of your projects
-individually and expire automatically. Otherwise you'll need to generate an
+individually and expire automatically. Otherwise, you'll need to generate an
 `API token`_ for both PyPI and TestPyPI. In case of publishing to third-party
-indexes like :doc:`devpi <devpi:index>`, you will need to provide a
+indexes like :doc:`devpi <devpi:index>`, you may need to provide a
 username/password combination.
 
 Since this guide will demonstrate uploading to both
@@ -77,7 +77,7 @@ should make GitHub run this workflow:
    :language: yaml
    :end-before: jobs:
 
-This will also assure that the release workflow is only triggered
+This will also ensure that the release workflow is only triggered
 if the current commit is tagged. It is recommended you use the
 latest release tag; a tool like GitHub's dependabot can keep
 these updated regularly.
@@ -115,9 +115,11 @@ Defining a workflow job environment
 Now, let's add initial setup for our job that will publish to PyPI.
 It's a process that will execute commands that we'll define later.
 In this guide, we'll use the latest stable Ubuntu LTS version
-provided by GitHub Actions. This also defines the package index 
-to publish to, PyPI, and grants a permission to the action that 
-is mandatory for trusted publishing.
+provided by GitHub Actions. This also defines a GitHub Environment
+for the job to run in its context and a URL to be displayed in GitHub's
+UI nicely. Additionally, it allows aqcuiring an OpenID Connect token
+which is mandartory that the ``pypi-publish`` actions needs to
+implement secretless trusted publishing to PyPI.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
@@ -134,9 +136,10 @@ Finally, add the following steps at the end:
    :lines: 41-48
 
 This step uses the `pypa/gh-action-pypi-publish`_ GitHub
-Action: After the stored distribution package has been 
+Action: after the stored distribution package has been 
 downloaded by the `download-artifact`_ action, it uploads 
 the contents of the ``dist/`` folder into PyPI unconditionally.
+This job also signs the artifacts with Sigstore right after publishing them to PyPI.
 
 Separate workflow for publishing to TestPyPI
 ============================================
