@@ -6,17 +6,51 @@ Single-sourcing the package version
 
 
 There are many techniques to maintain a single source of truth for the version
-number of your project:
+number of your projects:
 
-#.  Read the file in :file:`setup.py` and get the version. Example (from `pip setup.py
-    <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
 
-        import codecs
-        import os.path
+Auto extract the version string from the source
+-----------------------------------------------
+
+One way of single sourcing is to specify the version somewhere in the source code, e.g. ``my_package/__init__.py``. Then it can be found at runtime with ``my_package.__version__``, and that same value can be used to set the version when building the package.
+
+#. Declare to read the version from the source in ``setuptools.cfg`` or ``pyproject.toml``
+
+   With recent versions of setuptools (since 46.4.0), one can add a declaration
+   to the project's :file:`setup.cfg` file (replacing "package" with the import
+   name of the package):
+
+   .. code-block:: ini
+
+       [metadata]
+       version = attr: package.__version__
+
+   As of the release of setuptools 61.0.0, one can also specify the
+   version dynamically in the project's :file:`pyproject.toml` file.
+
+   .. code-block:: toml
+
+        [project]
+        name = "package"
+        dynamic = ["version"]
+
+        [tool.setuptools.dynamic]
+        version = {attr = "package.__version__"}
+
+   Please be aware that declarative config indicators, including the
+   ``attr:`` directive, are not supported in parameters to
+   :file:`setup.py`.
+
+
+#.  While the modern standard is to use declarative files (such as ``setup.cfg``),
+    with older versions of setuptools, you may need to add a version-reading
+    function to setup.py: Example adapted from (from `pip setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
+
+        from pathlib import Path
 
         def read(rel_path):
-            here = os.path.abspath(os.path.dirname(__file__))
-            with codecs.open(os.path.join(here, rel_path), 'r') as fp:
+            here = Path(__file__).parent.absolute()
+            with open(here / rel_path), 'r') as fp:
                 return fp.read()
 
         def get_version(rel_path):
@@ -33,43 +67,56 @@ number of your project:
            ...
         )
 
-    .. note::
+Generate the version string from the SCM
+----------------------------------------
 
-       As of the release of setuptools 46.4.0, one can accomplish the same
-       thing by instead placing the following in the project's
-       :file:`setup.cfg` file (replacing "package" with the import name of the
-       package):
+Most projects use a Source Code Management System (SCM), such as git or mercurial to manage the code and also manage releases.
+In order to keep the versioning of releases in sync with your package, the version number can be kept in the tags of a version control system, and automatically extracted with a tool such as
+`setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.
 
-       .. code-block:: ini
+.. NOTE: maybe put in an example using setuptools_scm?
 
-           [metadata]
-           version = attr: package.__version__
+.. NOTE2: Is setuptools_scm the only one now?
 
-       As of the release of setuptools 61.0.0, one can specify the
-       version dynamically in the project's :file:`pyproject.toml` file.
+Use an external version management tool
+---------------------------------------
 
-       .. code-block:: toml
+An external build tool can be used that manages the version in both the SCM and source code, either directly or via an API:
 
-            [project]
-            name = "package"
-            dynamic = ["version"]
+A few tools you could use, in no particular order, and not necessarily complete:
+`bump2version <https://pypi.org/project/bump2version>`_,
+`changes <https://pypi.org/project/changes>`_,
+`commitizen <https://pypi.org/project/commitizen>`_,
+`versioneer <https://github.com/python-versioneer/python-versioneer>_`
+`zest.releaser <https://pypi.org/project/zest.releaser>`_,
 
-            [tool.setuptools.dynamic]
-            version = {attr = "package.__version__"}
+.. NOTE: are these all still being maintained??
 
-       Please be aware that declarative config indicators, including the
-       ``attr:`` directive, are not supported in parameters to
-       :file:`setup.py`.
+Dedicated file for the version string
+-------------------------------------
 
-#.  Use an external build tool that either manages updating both locations, or
-    offers an API that both locations can use.
+Place the value in a simple ``VERSION`` text file and have both
+:file:`setup.py` and the project code read it.
 
-    Few tools you could use, in no particular order, and not necessarily complete:
-    `bump2version <https://pypi.org/project/bump2version>`_,
-    `changes <https://pypi.org/project/changes>`_,
-    `commitizen <https://pypi.org/project/commitizen>`_,
-    `zest.releaser <https://pypi.org/project/zest.releaser>`_.
+::
 
+    with open(os.path.join(mypackage_root_dir, 'VERSION')) as version_file:
+        version = version_file.read().strip()
+
+An advantage with this technique is that it's not specific to Python.  Any
+tool can read the version.
+
+.. warning::
+
+    With this approach you must make sure that the ``VERSION`` file is included in
+    all your source and binary distributions (e.g. add ``include VERSION`` to your
+    :file:`MANIFEST.in`).
+
+
+No longer recommend methods
+---------------------------
+
+These methods rely on importing of code during the build process, or dynamically genrated the version at run time. These methods are prone to errors and security issues, but you may encounter them in older code bases.
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
     your project (e.g. :file:`version.py`), then have :file:`setup.py` read and
@@ -84,22 +131,6 @@ number of your project:
 
     Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_.
 
-#.  Place the value in a simple ``VERSION`` text file and have both
-    :file:`setup.py` and the project code read it.
-
-    ::
-
-        with open(os.path.join(mypackage_root_dir, 'VERSION')) as version_file:
-            version = version_file.read().strip()
-
-    An advantage with this technique is that it's not specific to Python.  Any
-    tool can read the version.
-
-    .. warning::
-
-        With this approach you must make sure that the ``VERSION`` file is included in
-        all your source and binary distributions (e.g. add ``include VERSION`` to your
-        :file:`MANIFEST.in`).
 
 #.  Set the value in :file:`setup.py`, and have the project code use the
     ``importlib.metadata`` API to fetch the value at runtime.
@@ -165,8 +196,3 @@ number of your project:
         ``sample/__init__.py`` imports packages from ``install_requires``
         dependencies, which will very likely not be installed yet when
         :file:`setup.py` is run.
-
-
-#.  Keep the version number in the tags of a version control system (Git, Mercurial, etc)
-    instead of in the code, and automatically extract it from there using
-    `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.
