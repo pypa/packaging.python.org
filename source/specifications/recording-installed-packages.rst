@@ -59,14 +59,14 @@ encouraged to start normalizing those fields.
 
 .. note::
 
-    The ``.dist-info`` directory's name is formatted to unambigiously represent
+    The ``.dist-info`` directory's name is formatted to unambiguously represent
     a distribution as a filesystem path. Tools presenting a distribution name
     to a user should avoid using the normalized name, and instead present the
     specified name (when needed prior to resolution to an installed package),
     or read the respective fields in Core Metadata, since values listed there
     are unescaped and accurately reflect the distribution. Libraries should
     provide API for such tools to consume, so tools can have access to the
-    unnormalized name when displaying distrubution information.
+    unnormalized name when displaying distribution information.
 
 This ``.dist-info`` directory may contain the following files, described in
 detail below:
@@ -234,7 +234,7 @@ packages into a Python environment to ensure that other tools are not used to
 uninstall or otherwise modify that installed package, as doing so may cause
 compatibility problems with the wider environment.
 
-To achieve this, affected tools should take the folllowing steps:
+To achieve this, affected tools should take the following steps:
 
 * Rename or remove the ``RECORD`` file to prevent changes via other tools (e.g.
   appending a suffix to create a non-standard ``RECORD.tool`` file if the tool

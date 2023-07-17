@@ -63,7 +63,7 @@ document <discussions/install-requires-vs-requirements>`.
 Specifications
 --------------
 
-Specifications are reference documention focused on comprehensively documenting
+Specifications are reference documentation focused on comprehensively documenting
 an agreed-upon interface for interoperability between packaging tools.
 :doc:`example specification-style document <specifications/core-metadata>`.
 

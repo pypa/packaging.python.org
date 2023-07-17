@@ -103,8 +103,8 @@ use ``build`` package.
    You can use any other method for building distributions as long as
    it produces ready-to-upload artifacts saved into the
    ``dist/`` folder. You can even use ``actions/upload-artifact`` and
-   ``actions/download-artifact`` to tranfer files between jobs or make them
-   accessable for download from the web CI interface.
+   ``actions/download-artifact`` to transfer files between jobs or make them
+   accessible for download from the web CI interface.
 
 So add this to the steps list:
 
