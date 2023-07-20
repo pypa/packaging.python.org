@@ -134,6 +134,18 @@ build tag
     the first item being the initial digits as an ``int``, and the
     second item being the remainder of the tag as a ``str``.
 
+    .. warning::
+
+        Build numbers are not a part of the distribution version and thus are difficult
+        to reference externally, especially so outside the Python ecosystem of tools and standards.
+        A common case where a distribution would need to referenced externally is when
+        resolving a security vulnerability.
+
+        Due to this limitation new distributions which need to be referenced externally
+        **should not** use build numbers when building the new distribution.
+        Instead a **new distribution version** should be created for such cases.
+
+
 language implementation and version tag
     E.g. 'py27', 'py2', 'py3'.
 
