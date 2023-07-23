@@ -141,7 +141,7 @@ build tag
         A common case where a distribution would need to referenced externally is when
         resolving a security vulnerability.
 
-        Due to this limitation new distributions which need to be referenced externally
+        Due to this limitation, new distributions which need to be referenced externally
         **should not** use build numbers when building the new distribution.
         Instead a **new distribution version** should be created for such cases.
 
