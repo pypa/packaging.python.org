@@ -39,11 +39,11 @@ pre-existing project, if you are its owner.
 
    .. attention::
 
-      If you followed earlier versions of this guide, you will
+      If you followed earlier versions of this guide, you
       have created the secrets ``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN``
       for direct PyPI and TestPyPI access. These are obsolete now and
       you should remove them from your GitHub repository and revoke
-      them in your PyPI and TestPyPI account settings.
+      them in your PyPI and TestPyPI account settings in case you are replacing your old setup with the new one.
 
 
 Let's begin! 🚀
@@ -135,7 +135,7 @@ In this guide, we'll use the latest stable Ubuntu LTS version
 provided by GitHub Actions. This also defines a GitHub Environment
 for the job to run in its context and a URL to be displayed in GitHub's
 UI nicely. Additionally, it allows aqcuiring an OpenID Connect token
-which is mandartory that the ``pypi-publish`` actions needs to
+which is mandatory that the ``pypi-publish`` actions needs to
 implement secretless trusted publishing to PyPI.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
