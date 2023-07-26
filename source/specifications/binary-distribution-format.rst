@@ -134,6 +134,11 @@ build tag
     the first item being the initial digits as an ``int``, and the
     second item being the remainder of the tag as a ``str``.
 
+    A common use-case for build numbers is rebuilding a binary
+    distribution due to a change in the build environment,
+    like when using the manylinux image to build
+    distributions using pre-release CPython versions.
+
     .. warning::
 
         Build numbers are not a part of the distribution version and thus are difficult
