@@ -44,6 +44,10 @@ Here's a breakdown of the important differences between :term:`Wheel` and :term:
   <https://docs.python.org/2/library/sysconfig.html#installation-paths>`_,
   therefore making it easier to convert to other formats.
 
+* :term:`Egg` uploads have been disabled for upload to PyPI, per :pep:`715`.
+  Read the `deprecation notice <https://blog.pypi.org/posts/2023-06-26-deprecate-egg-uploads/>`_
+  for more information.
+
 ----
 
 .. [1] Circumstantially, in some cases, wheels can be used as an importable
