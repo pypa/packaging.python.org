@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 17:50+0000\n"
+"POT-Creation-Date: 2023-08-03 17:33+0000\n"
 "PO-Revision-Date: 2023-07-08 02:49+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -1349,7 +1349,14 @@ msgstr ""
 "<https://docs.python.org/2/library/sysconfig.html#installation-paths>`_, "
 "portanto tornando mais fácil converter para outros formatos."
 
-#: ../source/discussions/wheel-vs-egg.rst:49
+#: ../source/discussions/wheel-vs-egg.rst:47
+msgid ""
+":term:`Egg` uploads have been disabled for upload to PyPI, per :pep:`715`. "
+"Read the `deprecation notice <https://blog.pypi.org/posts/2023-06-26-"
+"deprecate-egg-uploads/>`_ for more information."
+msgstr ""
+
+#: ../source/discussions/wheel-vs-egg.rst:53
 msgid ""
 "Circumstantially, in some cases, wheels can be used as an importable runtime "
 "format, although :ref:`this is not officially supported at this time <binary-"
@@ -2796,7 +2803,7 @@ msgstr ""
 "O projeto `pandas-gbq`_ permite acessar resultados de pesquisa com `Pandas`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:338
-#: ../source/specifications/binary-distribution-format.rst:465
+#: ../source/specifications/binary-distribution-format.rst:482
 #: ../source/specifications/dependency-specifiers.rst:480
 msgid "References"
 msgstr "Referências"
@@ -7930,9 +7937,13 @@ msgstr ""
 "do seu projeto:"
 
 #: ../source/guides/single-sourcing-package-version.rst:11
+#, fuzzy
+#| msgid ""
+#| "Read the file in :file:`setup.py` and get the version. Example (from `pip "
+#| "setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::"
 msgid ""
 "Read the file in :file:`setup.py` and get the version. Example (from `pip "
-"setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::"
+"setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
 msgstr ""
 "Leia o arquivo em :file:`setup.py` e obtenha a versão. Exemplo (de `pip "
 "setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::"
@@ -10495,9 +10506,9 @@ msgid ""
 "PDM is a modern Python package manager. It uses :term:`pyproject.toml` to "
 "store project metadata as defined in :pep:`621`."
 msgstr ""
-"PDM é um gerenciador de pacotes Python moderno. Ele também usa "
-":term:`pyproject.toml` para armazenar metadados do projeto conforme definido "
-"em :pep:`621`."
+"PDM é um gerenciador de pacotes Python moderno. Ele também usa :term:"
+"`pyproject.toml` para armazenar metadados do projeto conforme definido em :"
+"pep:`621`."
 
 #: ../source/key_projects.rst:497
 msgid ""
@@ -12889,7 +12900,7 @@ msgstr "version"
 msgid "Distribution version, e.g. 1.0."
 msgstr "Versão da distribuição (p.ex., 1.0)."
 
-#: ../source/specifications/binary-distribution-format.rst:135
+#: ../source/specifications/binary-distribution-format.rst:152
 msgid "build tag"
 msgstr "build tag"
 
@@ -12908,33 +12919,56 @@ msgstr ""
 "tupla de dois itens com o primeiro item sendo os dígitos iniciais como um "
 "``int``, e o segundo item sendo o restante da tag como um ``str``."
 
-#: ../source/specifications/binary-distribution-format.rst:138
+#: ../source/specifications/binary-distribution-format.rst:137
+msgid ""
+"A common use-case for build numbers is rebuilding a binary distribution due "
+"to a change in the build environment, like when using the manylinux image to "
+"build distributions using pre-release CPython versions."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:144
+msgid ""
+"Build numbers are not a part of the distribution version and thus are "
+"difficult to reference externally, especially so outside the Python "
+"ecosystem of tools and standards. A common case where a distribution would "
+"need to referenced externally is when resolving a security vulnerability."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:149
+msgid ""
+"Due to this limitation, new distributions which need to be referenced "
+"externally **should not** use build numbers when building the new "
+"distribution. Instead a **new distribution version** should be created for "
+"such cases."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:155
 msgid "language implementation and version tag"
 msgstr "implementação da linguagem e tag de versão"
 
-#: ../source/specifications/binary-distribution-format.rst:138
+#: ../source/specifications/binary-distribution-format.rst:155
 msgid "E.g. 'py27', 'py2', 'py3'."
 msgstr "p.ex., 'py27', 'py2', 'py3'."
 
-#: ../source/specifications/binary-distribution-format.rst:141
+#: ../source/specifications/binary-distribution-format.rst:158
 #: ../source/specifications/platform-compatibility-tags.rst:27
 msgid "abi tag"
 msgstr "abi tag"
 
-#: ../source/specifications/binary-distribution-format.rst:141
+#: ../source/specifications/binary-distribution-format.rst:158
 msgid "E.g. 'cp33m', 'abi3', 'none'."
 msgstr "p.ex., 'cp33m', 'abi3', 'none'."
 
-#: ../source/specifications/binary-distribution-format.rst:144
+#: ../source/specifications/binary-distribution-format.rst:161
 #: ../source/specifications/platform-compatibility-tags.rst:30
 msgid "platform tag"
 msgstr "platform tag"
 
-#: ../source/specifications/binary-distribution-format.rst:144
+#: ../source/specifications/binary-distribution-format.rst:161
 msgid "E.g. 'linux_x86_64', 'any'."
 msgstr "p.ex., 'linux_x86_64', 'any'."
 
-#: ../source/specifications/binary-distribution-format.rst:146
+#: ../source/specifications/binary-distribution-format.rst:163
 msgid ""
 "For example, ``distribution-1.0-1-py27-none-any.whl`` is the first build of "
 "a package called 'distribution', and is compatible with Python 2.7 (any "
@@ -12946,7 +12980,7 @@ msgstr ""
 "(qualquer implementação Python 2.7), com sem ABI (puro Python), em qualquer "
 "arquitetura de CPU."
 
-#: ../source/specifications/binary-distribution-format.rst:151
+#: ../source/specifications/binary-distribution-format.rst:168
 msgid ""
 "The last three components of the filename before the extension are called "
 "\"compatibility tags.\"  The compatibility tags express the package's basic "
@@ -12957,11 +12991,11 @@ msgstr ""
 "expressam os requisitos básicos do interpretador do pacote e são detalhadas "
 "na PEP 425."
 
-#: ../source/specifications/binary-distribution-format.rst:156
+#: ../source/specifications/binary-distribution-format.rst:173
 msgid "Escaping and Unicode"
 msgstr "Escape e Unicode"
 
-#: ../source/specifications/binary-distribution-format.rst:158
+#: ../source/specifications/binary-distribution-format.rst:175
 msgid ""
 "As the components of the filename are separated by a dash (``-``, HYPHEN-"
 "MINUS), this character cannot appear within any component. This is handled "
@@ -12971,7 +13005,7 @@ msgstr ""
 "HYPHEN-MINUS), este caractere não pode aparecer em nenhum componente. Isso é "
 "tratado da seguinte maneira:"
 
-#: ../source/specifications/binary-distribution-format.rst:161
+#: ../source/specifications/binary-distribution-format.rst:178
 msgid ""
 "In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE "
 "and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase "
@@ -12990,7 +13024,7 @@ msgstr ""
 "aceitar ``.`` (FULL STOP) e letras maiúsculas, pois estes eram permitidos "
 "por uma versão anterior desta especificação."
 
-#: ../source/specifications/binary-distribution-format.rst:168
+#: ../source/specifications/binary-distribution-format.rst:185
 msgid ""
 "Version numbers should be normalised according to :pep:`440`. Normalised "
 "version numbers cannot contain ``-``."
@@ -12998,7 +13032,7 @@ msgstr ""
 "Os números de versão devem ser normalizados de acordo com a :pep:`440`. Os "
 "números de versão normalizados não podem conter ``-``."
 
-#: ../source/specifications/binary-distribution-format.rst:170
+#: ../source/specifications/binary-distribution-format.rst:187
 msgid ""
 "The remaining components may not contain ``-`` characters, so no escaping is "
 "necessary."
@@ -13006,7 +13040,7 @@ msgstr ""
 "Os componentes restantes não podem conter caracteres ``-``, portanto, nenhum "
 "escape é necessário."
 
-#: ../source/specifications/binary-distribution-format.rst:173
+#: ../source/specifications/binary-distribution-format.rst:190
 msgid ""
 "Tools producing wheels should verify that the filename components do not "
 "contain ``-``, as the resulting file may not be processed correctly if they "
@@ -13016,7 +13050,7 @@ msgstr ""
 "arquivo não contêm ``-``, pois o arquivo resultante pode não ser processado "
 "corretamente se contiverem."
 
-#: ../source/specifications/binary-distribution-format.rst:176
+#: ../source/specifications/binary-distribution-format.rst:193
 msgid ""
 "The archive filename is Unicode.  It will be some time before the tools are "
 "updated to support non-ASCII filenames, but they are supported in this "
@@ -13026,7 +13060,7 @@ msgstr ""
 "atualizadas para oferecer suporte a nomes de arquivos não ASCII, mas eles "
 "são suportados nesta especificação."
 
-#: ../source/specifications/binary-distribution-format.rst:180
+#: ../source/specifications/binary-distribution-format.rst:197
 msgid ""
 "The filenames *inside* the archive are encoded as UTF-8.  Although some ZIP "
 "clients in common use do not properly display UTF-8 filenames, the encoding "
@@ -13037,11 +13071,11 @@ msgstr ""
 "apropriadamente, a codificação é suportada pela especificação ZIP e pelo "
 "``zipfile`` do Python."
 
-#: ../source/specifications/binary-distribution-format.rst:186
+#: ../source/specifications/binary-distribution-format.rst:203
 msgid "File contents"
 msgstr "Conteúdo dos arquivos"
 
-#: ../source/specifications/binary-distribution-format.rst:188
+#: ../source/specifications/binary-distribution-format.rst:205
 msgid ""
 "The contents of a wheel file, where {distribution} is replaced with the name "
 "of the package, e.g. ``beaglevote`` and {version} is replaced with its "
@@ -13051,7 +13085,7 @@ msgstr ""
 "do pacote, por exemplo, ``beaglevote`` e {version} é substituído por sua "
 "versão, p.ex., ``1.0.0``, consiste em:"
 
-#: ../source/specifications/binary-distribution-format.rst:192
+#: ../source/specifications/binary-distribution-format.rst:209
 msgid ""
 "``/``, the root of the archive, contains all files to be installed in "
 "``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and "
@@ -13061,11 +13095,11 @@ msgstr ""
 "``purelib`` ou ``platlib`` conforme especificado em ``WHEEL``. ``purelib`` e "
 "``platlib`` são normalmente ``site-packages``."
 
-#: ../source/specifications/binary-distribution-format.rst:195
+#: ../source/specifications/binary-distribution-format.rst:212
 msgid "``{distribution}-{version}.dist-info/`` contains metadata."
 msgstr "``{distribution}-{version}.dist-info/`` contém metadados."
 
-#: ../source/specifications/binary-distribution-format.rst:196
+#: ../source/specifications/binary-distribution-format.rst:213
 msgid ""
 "``{distribution}-{version}.data/`` contains one subdirectory for each non-"
 "empty install scheme key not already covered, where the subdirectory name is "
@@ -13077,7 +13111,7 @@ msgstr ""
 "subdiretório é um índice em um dicionário de caminhos de instalação (p.ex., "
 "``data``, ``scripts``, ``headers``, ``purelib``, ``platlib``)."
 
-#: ../source/specifications/binary-distribution-format.rst:200
+#: ../source/specifications/binary-distribution-format.rst:217
 msgid ""
 "Python scripts must appear in ``scripts`` and begin with exactly ``b'#!"
 "python'`` in order to enjoy script wrapper generation and ``#!python`` "
@@ -13088,7 +13122,7 @@ msgstr ""
 "python`` no momento da instalação. Eles podem ter qualquer ou nenhuma "
 "extensão."
 
-#: ../source/specifications/binary-distribution-format.rst:204
+#: ../source/specifications/binary-distribution-format.rst:221
 msgid ""
 "``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1 or "
 "greater format metadata."
@@ -13096,7 +13130,7 @@ msgstr ""
 "``{distribution}-{version}.dist-info/METADATA`` é Metadata versão 1.1 ou "
 "metadados de formato superior."
 
-#: ../source/specifications/binary-distribution-format.rst:206
+#: ../source/specifications/binary-distribution-format.rst:223
 msgid ""
 "``{distribution}-{version}.dist-info/WHEEL`` is metadata about the archive "
 "itself in the same basic key: value format::"
@@ -13104,11 +13138,11 @@ msgstr ""
 "``{distribution}-{version}.dist-info/WHEEL`` são metadados sobre p arquivo "
 "em si no mesmo formato \"chave: valor\"::"
 
-#: ../source/specifications/binary-distribution-format.rst:216
+#: ../source/specifications/binary-distribution-format.rst:233
 msgid "``Wheel-Version`` is the version number of the Wheel specification."
 msgstr "``Wheel-Version`` é o número de versão da especificação Wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:217
+#: ../source/specifications/binary-distribution-format.rst:234
 msgid ""
 "``Generator`` is the name and optionally the version of the software that "
 "produced the archive."
@@ -13116,7 +13150,7 @@ msgstr ""
 "``Generator`` é o nome e, opcionalmente, a versão do software que produziu o "
 "arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:219
+#: ../source/specifications/binary-distribution-format.rst:236
 msgid ""
 "``Root-Is-Purelib`` is true if the top level directory of the archive should "
 "be installed into purelib; otherwise the root should be installed into "
@@ -13126,7 +13160,7 @@ msgstr ""
 "deve ser instalado em purelib; caso contrário, a raiz deve ser instalada no "
 "platlib."
 
-#: ../source/specifications/binary-distribution-format.rst:222
+#: ../source/specifications/binary-distribution-format.rst:239
 msgid ""
 "``Tag`` is the wheel's expanded compatibility tags; in the example the "
 "filename would contain ``py2.py3-none-any``."
@@ -13134,14 +13168,14 @@ msgstr ""
 "``Tag`` são as tags de compatibilidade expandida do wheel; no exemplo, o "
 "nome do arquivo conteria ``py2.py3-none-any``."
 
-#: ../source/specifications/binary-distribution-format.rst:224
+#: ../source/specifications/binary-distribution-format.rst:241
 msgid ""
 "``Build`` is the build number and is omitted if there is no build number."
 msgstr ""
 "``Build`` é o número da construção e é omitido se não houver número da "
 "construção."
 
-#: ../source/specifications/binary-distribution-format.rst:225
+#: ../source/specifications/binary-distribution-format.rst:242
 msgid ""
 "A wheel installer should warn if Wheel-Version is greater than the version "
 "it supports, and must fail if Wheel-Version has a greater major version than "
@@ -13151,7 +13185,7 @@ msgstr ""
 "que ele suporta, e deve falhar se Wheel-Version tiver uma versão principal "
 "maior do que a versão que ele suporta."
 
-#: ../source/specifications/binary-distribution-format.rst:228
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid ""
 "Wheel, being an installation format that is intended to work across multiple "
 "versions of Python, does not generally include .pyc files."
@@ -13159,11 +13193,11 @@ msgstr ""
 "O Wheel, sendo um formato de instalação destinado a funcionar em várias "
 "versões do Python, geralmente não inclui arquivos .pyc."
 
-#: ../source/specifications/binary-distribution-format.rst:230
+#: ../source/specifications/binary-distribution-format.rst:247
 msgid "Wheel does not contain setup.py or setup.cfg."
 msgstr "Wheel não contém setup.py ou setup.cfg."
 
-#: ../source/specifications/binary-distribution-format.rst:232
+#: ../source/specifications/binary-distribution-format.rst:249
 msgid ""
 "This version of the wheel specification is based on the distutils install "
 "schemes and does not define how to install files to other locations. The "
@@ -13175,12 +13209,12 @@ msgstr ""
 "oferece um superconjunto da funcionalidade fornecida pelos formatos binários "
 "wininst e egg existentes."
 
-#: ../source/specifications/binary-distribution-format.rst:239
+#: ../source/specifications/binary-distribution-format.rst:256
 #: ../source/specifications/recording-installed-packages.rst:37
 msgid "The .dist-info directory"
 msgstr "O diretório .dist-info"
 
-#: ../source/specifications/binary-distribution-format.rst:241
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "Wheel .dist-info directories include at a minimum METADATA, WHEEL, and "
 "RECORD."
@@ -13188,7 +13222,7 @@ msgstr ""
 "Os diretórios .dist-info de wheels incluem no mínimo METADATA, WHEEL e "
 "RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:243
+#: ../source/specifications/binary-distribution-format.rst:260
 msgid ""
 "METADATA is the package metadata, the same format as PKG-INFO as found at "
 "the root of sdists."
@@ -13196,12 +13230,12 @@ msgstr ""
 "METADATA são os metadados do pacote, o mesmo formato do PKG-INFO encontrado "
 "na raiz dos sdists."
 
-#: ../source/specifications/binary-distribution-format.rst:245
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr ""
 "WHEEL são os metadados de wheel específicos para uma construção do pacote."
 
-#: ../source/specifications/binary-distribution-format.rst:246
+#: ../source/specifications/binary-distribution-format.rst:263
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
@@ -13216,17 +13250,17 @@ msgstr ""
 "wheel assinados contam com hashes fortes em RECORD para validar a "
 "integridade do arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:252
+#: ../source/specifications/binary-distribution-format.rst:269
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr "INSTALLER e REQUESTED da PEP 376 não são incluídos no arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:253
+#: ../source/specifications/binary-distribution-format.rst:270
 msgid ""
 "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
 msgstr ""
 "RECORD.jws é usado para assinaturas digitais. Não é mencionado no RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:255
+#: ../source/specifications/binary-distribution-format.rst:272
 msgid ""
 "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
 "signatures to secure their wheel files.  It is not mentioned in RECORD."
@@ -13235,7 +13269,7 @@ msgstr ""
 "assinaturas S/MIME para proteger seus arquivos wheels. Não é mencionado no "
 "RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:258
+#: ../source/specifications/binary-distribution-format.rst:275
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
 "the file contents.  Apart from RECORD and its signatures, installation will "
@@ -13247,11 +13281,11 @@ msgstr ""
 "a instalação falhará se qualquer arquivo no arquivo não for mencionado e com "
 "hash correto em RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:282
 msgid "The .data directory"
 msgstr "O diretório .data"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:284
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
@@ -13261,7 +13295,7 @@ msgstr ""
 "para o diretório .data, nomeado como o diretório .dist-info, mas com a "
 "extensão .data/::"
 
-#: ../source/specifications/binary-distribution-format.rst:275
+#: ../source/specifications/binary-distribution-format.rst:292
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -13271,11 +13305,11 @@ msgstr ""
 "documentação e assim por diante da distribuição. Durante a instalação, o "
 "conteúdo desses subdiretórios é movido para seus caminhos de destino."
 
-#: ../source/specifications/binary-distribution-format.rst:281
+#: ../source/specifications/binary-distribution-format.rst:298
 msgid "Signed wheel files"
 msgstr "Arquivos wheels assinados"
 
-#: ../source/specifications/binary-distribution-format.rst:283
+#: ../source/specifications/binary-distribution-format.rst:300
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -13292,7 +13326,7 @@ msgstr ""
 "gerados, como arquivos .pyc, mas não RECORD, que não pode conter seu próprio "
 "hash. Por exemplo::"
 
-#: ../source/specifications/binary-distribution-format.rst:294
+#: ../source/specifications/binary-distribution-format.rst:311
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -13304,7 +13338,7 @@ msgstr ""
 "outros arquivos no arquivo devem ter um hash correto em RECORD ou a "
 "instalação falhará."
 
-#: ../source/specifications/binary-distribution-format.rst:299
+#: ../source/specifications/binary-distribution-format.rst:316
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -13316,11 +13350,11 @@ msgstr ""
 "jws adjacente a RECORD. JWS é usado para assinar RECORD incluindo o hash "
 "SHA-256 de RECORD como a carga JSON da assinatura::"
 
-#: ../source/specifications/binary-distribution-format.rst:306
+#: ../source/specifications/binary-distribution-format.rst:323
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr "(O valor hash é o mesmo formato usado em RECORD.)"
 
-#: ../source/specifications/binary-distribution-format.rst:308
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
@@ -13328,7 +13362,7 @@ msgstr ""
 "Se RECORD.p7s for usado, ele deve conter uma assinatura de formato S/MIME "
 "separada de RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:311
+#: ../source/specifications/binary-distribution-format.rst:328
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -13341,15 +13375,15 @@ msgstr ""
 "RECORD, um verificador de assinatura separado só precisa estabelecer se "
 "RECORD corresponde à assinatura."
 
-#: ../source/specifications/binary-distribution-format.rst:316
+#: ../source/specifications/binary-distribution-format.rst:333
 msgid "See"
 msgstr "Veja"
 
-#: ../source/specifications/binary-distribution-format.rst:318
+#: ../source/specifications/binary-distribution-format.rst:335
 msgid "https://datatracker.ietf.org/doc/html/rfc7515"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
 
-#: ../source/specifications/binary-distribution-format.rst:319
+#: ../source/specifications/binary-distribution-format.rst:336
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
@@ -13357,21 +13391,21 @@ msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
 
-#: ../source/specifications/binary-distribution-format.rst:320
+#: ../source/specifications/binary-distribution-format.rst:337
 msgid "https://datatracker.ietf.org/doc/html/rfc7517"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
 
-#: ../source/specifications/binary-distribution-format.rst:321
+#: ../source/specifications/binary-distribution-format.rst:338
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
-#: ../source/specifications/binary-distribution-format.rst:325
+#: ../source/specifications/binary-distribution-format.rst:342
 msgid "Comparison to .egg"
 msgstr "Comparação com .egg"
 
-#: ../source/specifications/binary-distribution-format.rst:327
+#: ../source/specifications/binary-distribution-format.rst:344
 msgid ""
 "Wheel is an installation format; egg is importable.  Wheel archives do not "
 "need to include .pyc and are less tied to a specific Python version or "
@@ -13385,7 +13419,7 @@ msgstr ""
 "construídos com versões anteriores do Python, portanto, você nem sempre "
 "precisa esperar que o empacotador os atualize."
 
-#: ../source/specifications/binary-distribution-format.rst:332
+#: ../source/specifications/binary-distribution-format.rst:349
 msgid ""
 "Wheel uses .dist-info directories; egg uses .egg-info.  Wheel is compatible "
 "with the new world of Python packaging and the new concepts it brings."
@@ -13393,7 +13427,7 @@ msgstr ""
 "O Wheel usa diretórios .dist-info; egg usa .egg-info. Wheel é compatível com "
 "o novo mundo da empacotamento de Python e os novos conceitos que ele traz."
 
-#: ../source/specifications/binary-distribution-format.rst:335
+#: ../source/specifications/binary-distribution-format.rst:352
 msgid ""
 "Wheel has a richer file naming convention for today's multi-implementation "
 "world.  A single wheel archive can indicate its compatibility with a number "
@@ -13407,7 +13441,7 @@ msgstr ""
 "ABIs e arquiteturas de sistema. Historicamente, a ABI tem sido específica "
 "para uma versão do CPython, o wheel estando pronto para a ABI estável."
 
-#: ../source/specifications/binary-distribution-format.rst:341
+#: ../source/specifications/binary-distribution-format.rst:358
 msgid ""
 "Wheel is lossless.  The first wheel implementation bdist_wheel always "
 "generates egg-info, and then converts it to a .whl.  It is also possible to "
@@ -13417,7 +13451,7 @@ msgstr ""
 "sempre gera egg-info e, então, as converte em .whl. Também é possível "
 "converter eggs existentes e distribuições de bdist_wininst."
 
-#: ../source/specifications/binary-distribution-format.rst:345
+#: ../source/specifications/binary-distribution-format.rst:362
 msgid ""
 "Wheel is versioned.  Every wheel file contains the version of the wheel "
 "specification and the implementation that packaged it. Hopefully the next "
@@ -13427,20 +13461,20 @@ msgstr ""
 "wheel e a implementação que a empacotou. Esperançosamente, a próxima "
 "migração pode ser simplesmente para Wheel 2.0."
 
-#: ../source/specifications/binary-distribution-format.rst:348
+#: ../source/specifications/binary-distribution-format.rst:365
 msgid "Wheel is a reference to the other Python."
 msgstr "Wheel é uma referência a outro Python."
 
-#: ../source/specifications/binary-distribution-format.rst:352
+#: ../source/specifications/binary-distribution-format.rst:369
 #: ../source/specifications/platform-compatibility-tags.rst:242
 msgid "FAQ"
 msgstr "FAQ"
 
-#: ../source/specifications/binary-distribution-format.rst:356
+#: ../source/specifications/binary-distribution-format.rst:373
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr "Wheel define um diretório .data. Devo colocar todos os meus dados lá?"
 
-#: ../source/specifications/binary-distribution-format.rst:358
+#: ../source/specifications/binary-distribution-format.rst:375
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -13456,11 +13490,11 @@ msgstr ""
 "resource)`` ainda que *esses* arquivos normalmente não sejam distribuídos no "
 "diretório ``.data`` do *wheel*."
 
-#: ../source/specifications/binary-distribution-format.rst:367
+#: ../source/specifications/binary-distribution-format.rst:384
 msgid "Why does wheel include attached signatures?"
 msgstr "Por que o wheel inclui assinaturas anexadas?"
 
-#: ../source/specifications/binary-distribution-format.rst:369
+#: ../source/specifications/binary-distribution-format.rst:386
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -13474,11 +13508,11 @@ msgstr ""
 "os arquivos individuais podem ser verificados sem ter que baixar todo o "
 "arquivo."
 
-#: ../source/specifications/binary-distribution-format.rst:377
+#: ../source/specifications/binary-distribution-format.rst:394
 msgid "Why does wheel allow JWS signatures?"
 msgstr "Por que wheel permite assinaturas JWS?"
 
-#: ../source/specifications/binary-distribution-format.rst:379
+#: ../source/specifications/binary-distribution-format.rst:396
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
@@ -13489,11 +13523,11 @@ msgstr ""
 "do projeto da roda. O JWS produz uma implementação puro Python concisa e "
 "útil."
 
-#: ../source/specifications/binary-distribution-format.rst:385
+#: ../source/specifications/binary-distribution-format.rst:402
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr "Por que wheel também permite assinaturas S/MIME?"
 
-#: ../source/specifications/binary-distribution-format.rst:387
+#: ../source/specifications/binary-distribution-format.rst:404
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
@@ -13501,7 +13535,7 @@ msgstr ""
 "Assinaturas S/MIME são permitidas para usuários que precisam ou querem usar "
 "uma infraestrutura de chaves públicas existente com o wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:390
+#: ../source/specifications/binary-distribution-format.rst:407
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
@@ -13509,11 +13543,11 @@ msgstr ""
 "Pacotes assinados são apenas um bloco de construção básico em um sistema de "
 "atualização segura de pacotes. Wheel só fornece o bloco de construção."
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:412
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "Qual é a diferença entre \"purelib\" e \"platlib\"?"
 
-#: ../source/specifications/binary-distribution-format.rst:397
+#: ../source/specifications/binary-distribution-format.rst:414
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -13525,7 +13559,7 @@ msgstr ""
 "puro Python em '/usr/lib/pythonX.Y/site-packages' e pacotes dependentes de "
 "plataforma em '/usr/lib64/pythonX.Y/site-packages'."
 
-#: ../source/specifications/binary-distribution-format.rst:402
+#: ../source/specifications/binary-distribution-format.rst:419
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -13537,7 +13571,7 @@ msgstr ""
 "Purelib: true\" com os mesmos arquivos na raiz, e é válido ter arquivos nas "
 "categorias \"purelib\" e \"platlib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:407
+#: ../source/specifications/binary-distribution-format.rst:424
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -13547,11 +13581,11 @@ msgstr ""
 "dependendo se é puro Python ou não e esses arquivos devem estar na raiz com "
 "a configuração apropriada fornecida para \"Root-is-purelib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:432
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "É possível importar código Python diretamente de um arquivo wheel?"
 
-#: ../source/specifications/binary-distribution-format.rst:417
+#: ../source/specifications/binary-distribution-format.rst:434
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -13565,7 +13599,7 @@ msgstr ""
 "``sys.path``. No entanto, embora esse comportamento seja uma consequência "
 "natural do design do formato, não é recomendável confiar nele."
 
-#: ../source/specifications/binary-distribution-format.rst:423
+#: ../source/specifications/binary-distribution-format.rst:440
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -13584,7 +13618,7 @@ msgstr ""
 "segurança, ou integração completa com o maquinário de construção padrão para "
 "extensões C, publicando arquivos de cabeçalho no local apropriado)."
 
-#: ../source/specifications/binary-distribution-format.rst:432
+#: ../source/specifications/binary-distribution-format.rst:449
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -13618,7 +13652,7 @@ msgstr ""
 "abstratos internamente, a interface com componentes externos ainda pode "
 "exigir a disponibilidade de um arquivo real no disco."
 
-#: ../source/specifications/binary-distribution-format.rst:449
+#: ../source/specifications/binary-distribution-format.rst:466
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -13632,15 +13666,15 @@ msgstr ""
 "esteja ciente de que muitos projetos exigirão que uma falha seja reproduzida "
 "com um pacote totalmente instalado antes de aceitá-lo como um bug genuíno."
 
-#: ../source/specifications/binary-distribution-format.rst:456
+#: ../source/specifications/binary-distribution-format.rst:473
 msgid "Changes"
 msgstr "Alterações"
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:475
 msgid "Since :pep:`427`, this specification has changed as follows:"
 msgstr "Desde a :pep:`427`, esta especificação mudou da seguinte forma:"
 
-#: ../source/specifications/binary-distribution-format.rst:460
+#: ../source/specifications/binary-distribution-format.rst:477
 msgid ""
 "The rules on escaping in wheel filenames were revised, to bring them into "
 "line with what popular tools actually do (February 2021)."
@@ -13649,7 +13683,7 @@ msgstr ""
 "para alinhá-las com o que as ferramentas populares realmente fazem "
 "(fevereiro de 2021)."
 
-#: ../source/specifications/binary-distribution-format.rst:467
+#: ../source/specifications/binary-distribution-format.rst:484
 msgid ""
 "PEP acceptance (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
@@ -13657,19 +13691,19 @@ msgstr ""
 "Aceitação da PEP (https://mail.python.org/pipermail/python-dev/2013-"
 "February/124103.html)"
 
-#: ../source/specifications/binary-distribution-format.rst:472
+#: ../source/specifications/binary-distribution-format.rst:489
 msgid "Appendix"
 msgstr "Apêndice"
 
-#: ../source/specifications/binary-distribution-format.rst:474
+#: ../source/specifications/binary-distribution-format.rst:491
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Exemplo de implementação de urlsafe-base64-nopad::"
 
-#: ../source/specifications/binary-distribution-format.rst:488
+#: ../source/specifications/binary-distribution-format.rst:505
 msgid "Copyright"
 msgstr "Diretos autorais"
 
-#: ../source/specifications/binary-distribution-format.rst:490
+#: ../source/specifications/binary-distribution-format.rst:507
 msgid "This document has been placed into the public domain."
 msgstr "Este documento foi colocado em domínio público."
 
@@ -16995,12 +17029,12 @@ msgid ""
 "This is a list of currently active interoperability specifications "
 "maintained by the Python Packaging Authority. The process for updating these "
 "standards, and for proposing new ones, is documented on `pypa.io <https://"
-"www.pypa.io/en/latest/specifications.html>`__."
+"www.pypa.io/en/latest/specifications/>`__."
 msgstr ""
 "Esta é uma lista de especificações de interoperabilidade atualmente ativas "
 "mantidas pela Python Packaging Authority. O processo de atualização desses "
 "padrões e de proposição de novos está documentado em `pypa.io <https://www."
-"pypa.io/en/latest/specifications.html>`__."
+"pypa.io/en/latest/specifications/>`__."
 
 #: ../source/specifications/index.rst:13
 msgid "Package Distribution Metadata"
@@ -17159,9 +17193,9 @@ msgid ""
 "For example, the tag ``py27-none-any`` indicates compatibility with Python "
 "2.7 (any Python 2.7 implementation) with no abi requirement, on any platform."
 msgstr ""
-"Por exemplo, a tag ``py27-none-any`` indica compatibilidade com Python 2.7 ("
-"qualquer implementação Python 2.7), com nenhum requisito de ABI, em qualquer "
-"plataforma."
+"Por exemplo, a tag ``py27-none-any`` indica compatibilidade com Python 2.7 "
+"(qualquer implementação Python 2.7), com nenhum requisito de ABI, em "
+"qualquer plataforma."
 
 #: ../source/specifications/platform-compatibility-tags.rst:36
 #: ../source/specifications/platform-compatibility-tags.rst:168
@@ -17175,9 +17209,9 @@ msgid ""
 "{platform tag}.whl``. Other package formats may have their own conventions."
 msgstr ""
 "O formato de pacote construído ``wheel`` inclui essas tags em seus nomes de "
-"arquivo, no formato ``{distribution}-{version}(-{build tag})?-{python "
-"tag}-{abitag}-{platform tag} .whl``. Outros formatos de pacote podem ter "
-"suas próprias convenções."
+"arquivo, no formato ``{distribution}-{version}(-{build tag})?-{python tag}-"
+"{abitag}-{platform tag} .whl``. Outros formatos de pacote podem ter suas "
+"próprias convenções."
 
 #: ../source/specifications/platform-compatibility-tags.rst:43
 msgid "Any potential spaces in any tag should be replaced with ``_``."
@@ -17287,8 +17321,8 @@ msgid ""
 "distribute binary distributions. Each implementation's community may decide "
 "how to best use the ABI tag."
 msgstr ""
-"Implementações com uma ABI muito instável podem usar os primeiros 6 bytes ("
-"como 8 caracteres codificados em base64) do hash SHA-256 de sua revisão de "
+"Implementações com uma ABI muito instável podem usar os primeiros 6 bytes "
+"(como 8 caracteres codificados em base64) do hash SHA-256 de sua revisão de "
 "código-fonte e sinalizadores de compilador, etc, mas provavelmente não terão "
 "uma grande necessidade de distribuir distribuições binárias. A comunidade de "
 "cada implementação pode decidir como usar melhor a tag ABI."
@@ -20382,6 +20416,17 @@ msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 
 #~ msgid ""
+#~ "This is a list of currently active interoperability specifications "
+#~ "maintained by the Python Packaging Authority. The process for updating "
+#~ "these standards, and for proposing new ones, is documented on `pypa.io "
+#~ "<https://www.pypa.io/en/latest/specifications.html>`__."
+#~ msgstr ""
+#~ "Esta é uma lista de especificações de interoperabilidade atualmente "
+#~ "ativas mantidas pela Python Packaging Authority. O processo de "
+#~ "atualização desses padrões e de proposição de novos está documentado em "
+#~ "`pypa.io <https://www.pypa.io/en/latest/specifications.html>`__."
+
+#~ msgid ""
 #~ "It may also be known that project A follows semantic versioning, and that "
 #~ "v2 of 'A' will indicate a break in compatibility, so it makes sense to "
 #~ "not allow v2:"
@@ -20478,17 +20523,6 @@ msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 #, fuzzy
 #~ msgid "https://bazaar.canonical.com"
 #~ msgstr "https://bazaar.canonical.com/"
-
-#~ msgid ""
-#~ "This is a list of currently active interoperability specifications "
-#~ "maintained by the Python Packaging Authority. The process for updating "
-#~ "these standards, and for proposing new ones, is documented on `pypa.io "
-#~ "<https://www.pypa.io/en/latest/specifications/>`__."
-#~ msgstr ""
-#~ "Esta é uma lista de especificações de interoperabilidade atualmente "
-#~ "ativas mantidas pela Python Packaging Authority. O processo de "
-#~ "atualização desses padrões e de proposição de novos está documentado em "
-#~ "`pypa.io <https://www.pypa.io/en/latest/specifications/>`__."
 
 #~ msgid ""
 #~ "It's the command line interface for running various commands that relate "
