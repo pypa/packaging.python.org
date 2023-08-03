@@ -137,3 +137,13 @@ Further hints
 
 Tool authors are encouraged to consider how *hints for further
 verification* in ``tarfile`` documentation apply for their tool.
+
+
+History
+=======
+
+* August 2023: Stanardized the source distribution archive features (:pep:`721`)
+* September 2022: Stanardized the filename of a source distribution (:pep:`625`)
+* July 2021: Defined what a source tree is
+* November 2020: PEP 643 converted to this specification
+* December 2000: Source distributions standardized in :pep:`643`
