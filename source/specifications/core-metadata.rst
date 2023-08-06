@@ -564,7 +564,7 @@ Examples::
     Requires-Python: >2.6,!=3.0.*,!=3.1.*
     Requires-Python: ~=2.6
 
-.. _core-metadata-requires-external
+.. _core-metadata-requires-external:
 
 Requires-External (multiple use)
 ================================
@@ -689,7 +689,7 @@ as they're still potentially useful for informational purposes, and can
 also be used for their originally intended purpose in combination with
 a curated package repository.
 
-.. _core-metadata-provides-dist
+.. _core-metadata-provides-dist:
 
 Provides-Dist (multiple use)
 ----------------------------
@@ -731,7 +731,7 @@ Examples::
     Provides-Dist: AnotherProject (3.4)
     Provides-Dist: virtual_package; python_version >= "3.4"
 
-.. _core-metadata-obsoletes-dist
+.. _core-metadata-obsoletes-dist:
 
 Obsoletes-Dist (multiple use)
 -----------------------------
