@@ -100,7 +100,7 @@ this section.
 (At the time of this writing, the ``data`` filter also follows this section,
 but it may get out of sync in the future.)
 
-The following files are invalid in an ``sdist`` archive.
+The following files are invalid in an *sdist* archive.
 Upon encountering such an entry, tools SHOULD notify the user,
 MUST NOT unpack the entry, and MAY abort with a failure:
 
@@ -117,7 +117,7 @@ but are NOT REQUIRED to do so:
 Tools MAY unpack links (symbolic or hard) as regular files,
 using content from the archive.
 
-When extracting ``sdist`` archives:
+When extracting *sdist* archives:
 
 - Leading slashes in file names MUST be dropped.
   (This is nowadays standard behaviour for ``tar`` unpacking.)
