@@ -67,3 +67,83 @@ whatever information they need in the sdist to build the project.
 The tarball should use the modern POSIX.1-2001 pax tar format, which specifies
 UTF-8 based file names. In particular, source distribution files must be readable
 using the standard library tarfile module with the open flag 'r:gz'.
+
+
+.. _sdist-archive-features:
+
+Source distribution archive features
+====================================
+
+Because extracting tar files as-is is dangerous, and the results are
+platform-specific, archive features of source distributions are limited.
+
+Unpacking with the data filter
+------------------------------
+
+When extracting a source distribution, tools MUST either use
+:py:func:`tarfile.data_filter` (e.g. :py:meth:`TarFile.extractall(..., filter='data') <tarfile.TarFile.extractall>`), OR
+follow the *Unpacking without the data filter* section below.
+
+As an exception, on Python interpreters without :py:func:`hasattr(tarfile, 'data_filter') <tarfile.data_filter>`
+(:pep:`706`), tools that normally use that filter (directly on indirectly)
+MAY warn the user and ignore this specification.
+The trade-off between usability (e.g. fully trusting the archive) and
+security (e.g. refusing to unpack) is left up to the tool in this case.
+
+
+Unpacking without the data filter
+---------------------------------
+
+Tools that do not use the ``data`` filter directly (e.g. for backwards
+compatibility, allowing additional features, or not using Python) MUST follow
+this section.
+(At the time of this writing, the ``data`` filter also follows this section,
+but it may get out of sync in the future.)
+
+The following files are invalid in an *sdist* archive.
+Upon encountering such an entry, tools SHOULD notify the user,
+MUST NOT unpack the entry, and MAY abort with a failure:
+
+- Files that would be placed outside the destination directory.
+- Links (symbolic or hard) pointing outside the destination directory.
+- Device files (including pipes).
+
+The following are also invalid. Tools MAY treat them as above,
+but are NOT REQUIRED to do so:
+
+- Files with a ``..`` component in the filename or link target.
+- Links pointing to a file that is not part of the archive.
+
+Tools MAY unpack links (symbolic or hard) as regular files,
+using content from the archive.
+
+When extracting *sdist* archives:
+
+- Leading slashes in file names MUST be dropped.
+  (This is nowadays standard behaviour for ``tar`` unpacking.)
+- For each ``mode`` (Unix permission) bit, tools MUST either:
+
+  - use the platform's default for a new file/directory (respectively),
+  - set the bit according to the archive, or
+  - use the bit from ``rw-r--r--`` (``0o644``) for non-executable files or
+    ``rwxr-xr-x`` (``0o755``) for executable files and directories.
+
+- High ``mode`` bits (setuid, setgid, sticky) MUST be cleared.
+- It is RECOMMENDED to preserve the user *executable* bit.
+
+
+Further hints
+-------------
+
+Tool authors are encouraged to consider how *hints for further
+verification* in ``tarfile`` documentation apply to their tool.
+
+
+History
+=======
+
+* August 2023: Standardized the source distribution archive features (:pep:`721`)
+* September 2022: Standardized the filename of a source distribution (:pep:`625`)
+* July 2021: Defined what a source tree is
+* November 2020: :pep:`643` converted to this specification
+* December 2000: Source distributions standardized in :pep:`643`
