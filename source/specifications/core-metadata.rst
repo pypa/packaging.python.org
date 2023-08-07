@@ -40,6 +40,8 @@ to a new format.
 .. contents:: Contents
    :local:
 
+.. _core-metadata-metadata-version:
+
 Metadata-Version
 ================
 
@@ -133,6 +135,7 @@ project.
 
 Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
+.. _core-metadata-platform:
 
 Platform (multiple use)
 =======================
@@ -148,6 +151,7 @@ Examples::
     Platform: ObscureUnix
     Platform: RareDOS
 
+.. _core-metadata-supported-platform:
 
 Supported-Platform (multiple use)
 =================================
@@ -340,6 +344,7 @@ Example::
    easier to update the specification to match the de facto standard.
 
 .. _home-page-optional:
+.. _core-metadata-home-page:
 
 Home-page
 =========
@@ -352,6 +357,7 @@ Example::
 
     Home-page: http://www.example.com/~cschultz/bvote/
 
+.. _core-metadata-download-url:
 
 Download-URL
 ============
@@ -558,6 +564,7 @@ Examples::
     Requires-Python: >2.6,!=3.0.*,!=3.1.*
     Requires-Python: ~=2.6
 
+.. _core-metadata-requires-external:
 
 Requires-External (multiple use)
 ================================
@@ -682,6 +689,7 @@ as they're still potentially useful for informational purposes, and can
 also be used for their originally intended purpose in combination with
 a curated package repository.
 
+.. _core-metadata-provides-dist:
 
 Provides-Dist (multiple use)
 ----------------------------
@@ -723,6 +731,7 @@ Examples::
     Provides-Dist: AnotherProject (3.4)
     Provides-Dist: virtual_package; python_version >= "3.4"
 
+.. _core-metadata-obsoletes-dist:
 
 Obsoletes-Dist (multiple use)
 -----------------------------
