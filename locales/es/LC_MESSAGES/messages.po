@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-06 23:46+0000\n"
+"POT-Creation-Date: 2023-08-07 14:33+0000\n"
 "PO-Revision-Date: 2023-03-05 21:38+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -12133,6 +12133,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:68
 #: ../source/specifications/direct-url-data-structure.rst:285
+#: ../source/specifications/source-distribution-format.rst:143
 msgid "History"
 msgstr ""
 
@@ -13992,6 +13993,161 @@ msgid ""
 "specifies UTF-8 based file names. In particular, source distribution files "
 "must be readable using the standard library tarfile module with the open "
 "flag 'r:gz'."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:75
+#, fuzzy
+#| msgid "Package Distribution File Formats"
+msgid "Source distribution archive features"
+msgstr "Formatos de archivo de distribución de paquetes"
+
+#: ../source/specifications/source-distribution-format.rst:77
+msgid ""
+"Because extracting tar files as-is is dangerous, and the results are "
+"platform-specific, archive features of source distributions are limited."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:81
+msgid "Unpacking with the data filter"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:83
+msgid ""
+"When extracting a source distribution, tools MUST either use :py:func:"
+"`tarfile.data_filter` (e.g. :py:meth:`TarFile.extractall(..., filter='data') "
+"<tarfile.TarFile.extractall>`), OR follow the *Unpacking without the data "
+"filter* section below."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:87
+msgid ""
+"As an exception, on Python interpreters without :py:func:`hasattr(tarfile, "
+"'data_filter') <tarfile.data_filter>` (:pep:`706`), tools that normally use "
+"that filter (directly on indirectly) MAY warn the user and ignore this "
+"specification. The trade-off between usability (e.g. fully trusting the "
+"archive) and security (e.g. refusing to unpack) is left up to the tool in "
+"this case."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:95
+msgid "Unpacking without the data filter"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:97
+msgid ""
+"Tools that do not use the ``data`` filter directly (e.g. for backwards "
+"compatibility, allowing additional features, or not using Python) MUST "
+"follow this section. (At the time of this writing, the ``data`` filter also "
+"follows this section, but it may get out of sync in the future.)"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:103
+msgid ""
+"The following files are invalid in an *sdist* archive. Upon encountering "
+"such an entry, tools SHOULD notify the user, MUST NOT unpack the entry, and "
+"MAY abort with a failure:"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:107
+msgid "Files that would be placed outside the destination directory."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:108
+msgid "Links (symbolic or hard) pointing outside the destination directory."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:109
+msgid "Device files (including pipes)."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:111
+msgid ""
+"The following are also invalid. Tools MAY treat them as above, but are NOT "
+"REQUIRED to do so:"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:114
+msgid "Files with a ``..`` component in the filename or link target."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:115
+msgid "Links pointing to a file that is not part of the archive."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:117
+msgid ""
+"Tools MAY unpack links (symbolic or hard) as regular files, using content "
+"from the archive."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:120
+msgid "When extracting *sdist* archives:"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:122
+msgid ""
+"Leading slashes in file names MUST be dropped. (This is nowadays standard "
+"behaviour for ``tar`` unpacking.)"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:124
+msgid "For each ``mode`` (Unix permission) bit, tools MUST either:"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:126
+msgid "use the platform's default for a new file/directory (respectively),"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:127
+msgid "set the bit according to the archive, or"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:128
+msgid ""
+"use the bit from ``rw-r--r--`` (``0o644``) for non-executable files or "
+"``rwxr-xr-x`` (``0o755``) for executable files and directories."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:131
+msgid "High ``mode`` bits (setuid, setgid, sticky) MUST be cleared."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:132
+msgid "It is RECOMMENDED to preserve the user *executable* bit."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:136
+msgid "Further hints"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:138
+msgid ""
+"Tool authors are encouraged to consider how *hints for further verification* "
+"in ``tarfile`` documentation apply to their tool."
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:145
+msgid ""
+"August 2023: Standardized the source distribution archive features (:pep:"
+"`721`)"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:146
+msgid ""
+"September 2022: Standardized the filename of a source distribution (:pep:"
+"`625`)"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:147
+msgid "July 2021: Defined what a source tree is"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:148
+msgid "November 2020: :pep:`643` converted to this specification"
+msgstr ""
+
+#: ../source/specifications/source-distribution-format.rst:149
+msgid "December 2000: Source distributions standardized in :pep:`643`"
 msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:6
