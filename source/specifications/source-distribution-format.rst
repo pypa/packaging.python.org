@@ -81,10 +81,10 @@ Unpacking with the data filter
 ------------------------------
 
 When extracting a source distribution, tools MUST either use
-``tarfile.data_filter`` (e.g. ``TarFile.extractall(..., filter='data')``), OR
+:py:func:`tarfile.data_filter` (e.g. :py:meth:`TarFile.extractall(..., filter='data') <tarfile.TarFile.extractall>`), OR
 follow the *Unpacking without the data filter* section below.
 
-As an exception, on Python interpreters without ``hasattr(tarfile, 'data_filter')``
+As an exception, on Python interpreters without :py:func:`hasattr(tarfile, 'data_filter') <tarfile.data_filter>`
 (:pep:`706`), tools that normally use that filter (directly on indirectly)
 MAY warn the user and ignore this specification.
 The trade-off between usability (e.g. fully trusting the archive) and
@@ -136,14 +136,14 @@ Further hints
 -------------
 
 Tool authors are encouraged to consider how *hints for further
-verification* in ``tarfile`` documentation apply for their tool.
+verification* in ``tarfile`` documentation apply to their tool.
 
 
 History
 =======
 
-* August 2023: Stanardized the source distribution archive features (:pep:`721`)
-* September 2022: Stanardized the filename of a source distribution (:pep:`625`)
+* August 2023: Standardized the source distribution archive features (:pep:`721`)
+* September 2022: Standardized the filename of a source distribution (:pep:`625`)
 * July 2021: Defined what a source tree is
-* November 2020: PEP 643 converted to this specification
+* November 2020: :pep:`643` converted to this specification
 * December 2000: Source distributions standardized in :pep:`643`
