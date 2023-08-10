@@ -188,7 +188,7 @@ Bazaar
 
 Home page
 
-   _`https://bazaar.canonical.com` *(Not responding as of 5/2023)*
+   https://www.breezy-vcs.org/
 
 vcs command
 
