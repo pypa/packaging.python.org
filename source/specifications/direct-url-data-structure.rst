@@ -70,20 +70,20 @@ When ``url`` refers to a source archive or a wheel, the ``archive_info`` key
 MUST be present as a dictionary with the following keys:
 
 - A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a hex
-  encoded digest of the file. 
-  
+  encoded digest of the file.
+
   Multiple hashes can be included, and it is up to the consumer to decide what to do
   with multiple hashes (it may validate all of them or a subset of them, or nothing at
-  all). 
-  
-  These hash names SHOULD always be normalized to be lowercase. 
-  
+  all).
+
+  These hash names SHOULD always be normalized to be lowercase.
+
   Any hash algorithm available via ``hashlib`` (specifically any that can be passed to
   ``hashlib.new()`` and do not require additional parameters) can be used as a key for
   the hashes dictionary. At least one secure algorithm from
   ``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of writing,
   ``sha256`` specifically is recommended.
-  
+
 - A deprecated ``hash`` key (type ``string``) MAY be present for backwards compatibility
   purposes, with value ``<hash-algorithm>=<expected-hash>``.
 
@@ -188,7 +188,7 @@ Bazaar
 
 Home page
 
-   _`https://bazaar.canonical.com` *(Not responding as of 5/2023)*
+   https://www.breezy-vcs.org/
 
 vcs command
 
