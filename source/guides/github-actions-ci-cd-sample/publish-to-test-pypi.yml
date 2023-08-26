@@ -1,10 +1,10 @@
-name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
+name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on: push
 
 jobs:
   build:
-    name: Build distribution packages
+    name: Build distribution 📦
     runs-on: ubuntu-latest
 
     steps:
@@ -30,34 +30,52 @@ jobs:
   publish-to-pypi:
     name: >-
       Publish Python 🐍 distribution 📦 to PyPI
-      and sign them with Sigstore
+    if: startsWith(github.ref, 'refs/tags/')  # only publish to PyPI on tag pushes
     needs:
     - build
     runs-on: ubuntu-latest
     environment:
       name: pypi
+      # Fill in your project (e.g. repository) name
+      # for <package-name>
       url: https://pypi.org/p/<package-name>
     permissions:
       id-token: write
 
     steps:
      - name: Download all the dists
-      uses: actions/download-artifact@v3
-      with:
-        name: python-package-distributions
-        path: dist/
-    - name: Publish distribution 📦 to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
-    - name: Sign the dists with Sigstore
-      uses: sigstore/gh-action-sigstore-python@v1.2.3
-      with:
-        inputs: >-
-          ./dist/*.tar.gz
-          ./dist/*.whl
+       uses: actions/download-artifact@v3
+       with:
+         name: python-package-distributions
+         path: dist/
+     - name: Publish distribution 📦 to PyPI
+       uses: pypa/gh-action-pypi-publish@release/v1
+
+  github-release:
+    name: >-
+      Sign the Python 🐍 distribution 📦 with Sigstore
+      and upload them to GitHub Release
+    needs:
+    - publish-to-pypi
+    steps:
+     - name: Sign the dists with Sigstore
+       uses: sigstore/gh-action-sigstore-python@v1.2.3
+       with:
+         inputs: >-
+           ./dist/*.tar.gz
+           ./dist/*.whl
+     - name: Upload artifact signatures to GitHub Release
+       # Confusingly, this action also supports updating releases, not
+       # just creating them. This is what we want here, since we've manually
+       # created the release above.
+       uses: softprops/action-gh-release@v1
+       with:
+         # dist/ contains the built packages, which smoketest-artifacts/
+         # contains the signatures and certificates.
+         files: dist/**
 
   publish-to-testpypi:
-    name: Build and publish Python 🐍 distributions 📦 to TestPyPI
-    if: startsWith(github.ref, 'refs/tags/')  # only publish to PyPI on tag pushes
+    name: Publish Python 🐍 distribution 📦 to TestPyPI
     needs:
     - build
     runs-on: ubuntu-latest

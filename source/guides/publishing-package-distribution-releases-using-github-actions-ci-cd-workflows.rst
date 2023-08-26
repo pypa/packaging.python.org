@@ -9,7 +9,7 @@ popular choice is having a workflow that's triggered by a
 This guide shows you how to publish a Python distribution
 whenever a tagged commit is pushed.
 It will use the `pypa/gh-action-pypi-publish GitHub Action`_ for
-publishing. It also uses GitHub's `upload-artifact`_ and `download-artifact`_ actions 
+publishing. It also uses GitHub's `upload-artifact`_ and `download-artifact`_ actions
 for temporarily storing and downloading the source packages.
 
 .. attention::
@@ -23,7 +23,7 @@ Configuring trusted publishing
 ==============================
 
 This guide relies on PyPI's `trusted publishing`_ implementation to connect
-to `GitHub Actions CI/CD`_. This is recommended for security reasons, since 
+to `GitHub Actions CI/CD`_. This is recommended for security reasons, since
 the generated tokens are created for each of your projects
 individually and expire automatically. Otherwise, you'll need to generate an
 `API token`_ for both PyPI and TestPyPI. In case of publishing to third-party
@@ -31,7 +31,7 @@ indexes like :doc:`devpi <devpi:index>`, you may need to provide a
 username/password combination.
 
 Since this guide will demonstrate uploading to both
-PyPI and TestPyPI, we'll need two trusted publishers configured. 
+PyPI and TestPyPI, we'll need two trusted publishers configured.
 The following steps will lead you through creating the "pending" publishers
 for your new :term:`PyPI project <Project>`.
 However it is also possible to add `trusted publishing`_ to any
@@ -52,8 +52,8 @@ Let's begin! 🚀
 2. Fill in the name you wish to publish your new
    :term:`PyPI project <Project>` under
    (the ``name`` value in your ``setup.cfg`` or ``pyproject.toml``),
-   your GitHub username and repository name and
-   the name of the release workflow file under
+   the GitHub repository owner's name (org or user)
+   and repository name and the name of the release workflow file under
    the ``.github/`` folder, see :ref:`workflow-definition`.
    Finally add the name of the GitHub Actions environment
    (``pypi``) we're going set up under your repository.
@@ -61,8 +61,8 @@ Let's begin! 🚀
 3. Now, go to https://test.pypi.org/manage/account/publishing/ and repeat
    the second step, but now enter ``testpypi`` as the name of the
    GitHub Actions environment.
-4. Your "pending" publishers are now ready for their first use and will 
-   create your projects automatically once you use them 
+4. Your "pending" publishers are now ready for their first use and will
+   create your projects automatically once you use them
    for the first time.
 
    .. note::
@@ -95,23 +95,19 @@ should make GitHub run this workflow:
    :language: yaml
    :end-before: jobs:
 
-This will also ensure that the release workflow is only triggered
-if the current commit is tagged. It is recommended you use the
-latest release tag.
-
 Checking out the project and building distributions
 ===================================================
 
-We will have to define two jobs to publish to PyPI 
-and TestPyPI respectively, and an additional job to 
+We will have to define two jobs to publish to PyPI
+and TestPyPI respectively, and an additional job to
 build the distribution packages.
 
-First, we'll define the job for building the dist packages of 
+First, we'll define the job for building the dist packages of
 your project and storing them for later use:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: jobs:
+   :start-at: jobs:
    :end-before: Install pypa/build
 
 This will download your repository into the CI runner and then
@@ -123,7 +119,7 @@ So add this to the steps list:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: version: "3.x"
+   :start-at: Install pypa/build
    :end-before: publish-to-pypi
 
 Defining a workflow job environment
@@ -135,13 +131,17 @@ In this guide, we'll use the latest stable Ubuntu LTS version
 provided by GitHub Actions. This also defines a GitHub Environment
 for the job to run in its context and a URL to be displayed in GitHub's
 UI nicely. Additionally, it allows aqcuiring an OpenID Connect token
-which is mandatory that the ``pypi-publish`` actions needs to
-implement secretless trusted publishing to PyPI.
+that the ``pypi-publish`` actions needs to implement secretless
+trusted publishing to PyPI.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: path: dist/
    :end-before: steps:
+
+This will also ensure that the PyPI publishing workflow is only triggered
+if the current commit is tagged. It is recommended you use the
+latest release tag.
 
 Publishing the distribution to PyPI
 ===================================
@@ -151,14 +151,24 @@ Finally, add the following steps at the end:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-after: id-token: write
-   :end-before:  publish-to-testpypi:
+   :end-before:  github-release:
 
 This step uses the `pypa/gh-action-pypi-publish`_ GitHub
-Action: after the stored distribution package has been 
-downloaded by the `download-artifact`_ action, it uploads 
+Action: after the stored distribution package has been
+downloaded by the `download-artifact`_ action, it uploads
 the contents of the ``dist/`` folder into PyPI unconditionally.
-This job also signs the artifacts with the `sigstore/gh-action-sigstore-python`_
-GitHub Action publishing them to PyPI.
+
+Signing the distribution packages
+=================================
+
+This additional job signs the distribution packages with the
+`sigstore/gh-action-sigstore-python GitHub Action`_ and then uploads
+them to GitHub Release.
+
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+   :language: yaml
+   :start-at: github-release:
+   :end-before:  publish-to-testpypi
 
 Separate workflow for publishing to TestPyPI
 ============================================
@@ -169,8 +179,15 @@ section:
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
-   :start-after: ./dist/*.whl
+   :start-at: publish-to-testpypi
 
+The whole CD workflow
+=====================
+
+.. collapse:: Load file
+
+    .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+       :language: yaml
 
 That's all, folks!
 ==================
@@ -193,7 +210,7 @@ sure that your release pipeline remains healthy!
    https://github.com/actions/download-artifact
 .. _`upload-artifact`:
    https://github.com/actions/upload-artifact
-.. _`sigstore/gh-action-sigstore-python`:
+.. _`sigstore/gh-action-sigstore-python GitHub Action`:
    https://github.com/marketplace/actions/gh-action-sigstore-python
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
