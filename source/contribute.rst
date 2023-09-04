@@ -131,9 +131,9 @@ need:
 
       python -m pip install --user nox
 
-2. Python 3.8. Our build scripts are usually tested with Python 3.8 only.
+2. Python 3.11. Our build scripts are usually tested with Python 3.11 only.
    See the :doc:`Hitchhiker's Guide to Python installation instructions <python-guide:starting/installation>`
-   to install Python 3.8 on your operating system.
+   to install Python 3.11 on your operating system.
 
 To build the guide, run the following shell command in the project's root folder:
 
