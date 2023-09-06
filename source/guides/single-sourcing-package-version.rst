@@ -5,16 +5,15 @@ Single-sourcing the package version
 ===================================
 
 
-There are many techniques to maintain a single source of truth for the version
-number of your projects:
+There are many techniques to maintain a single source of truth for the version string of your projects:
 
 
 Auto extract the version string from the source
 -----------------------------------------------
 
-One way of single sourcing is to specify the version somewhere in the source code, e.g. ``my_package/__init__.py``. Then it can be found at runtime with ``my_package.__version__``, and that same value can be used to set the version when building the package.
+One way of single sourcing is to specify the version string somewhere in the source code, e.g. ``my_package/__init__.py``. Then it can be found at runtime with ``my_package.__version__``, and that same value can be used to set the version when building the package.
 
-#. Declare to read the version from the source in ``setuptools.cfg`` or ``pyproject.toml``
+#. Declare to read the version string  from the source in ``setuptools.cfg`` or ``pyproject.toml``
 
    With recent versions of setuptools (since 46.4.0), one can add a declaration
    to the project's :file:`setup.cfg` file (replacing "package" with the import
@@ -71,7 +70,7 @@ Generate the version string from the SCM
 ----------------------------------------
 
 Most projects use a Source Code Management System (SCM), such as git or mercurial to manage the code and also manage releases.
-In order to keep the versioning of releases in sync with your package, the version number can be kept in the tags of a version control system, and automatically extracted with a tool such as
+In order to keep the versioning of releases in sync with your package, the version string can be kept in the tags of a version control system, and automatically extracted with a tool such as
 `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.
 
 .. NOTE: maybe put in an example using setuptools_scm?
@@ -81,13 +80,13 @@ In order to keep the versioning of releases in sync with your package, the versi
 Use an external version management tool
 ---------------------------------------
 
-An external build tool can be used that manages the version in both the SCM and source code, either directly or via an API:
+An external build tool can be used that manages the version string in both the SCM and source code, either directly or via an API:
 
 A few tools you could use, in no particular order, and not necessarily complete:
 `bump2version <https://pypi.org/project/bump2version>`_,
 `changes <https://pypi.org/project/changes>`_,
 `commitizen <https://pypi.org/project/commitizen>`_,
-`versioneer <https://github.com/python-versioneer/python-versioneer>_`
+`versioneer <https://github.com/python-versioneer/python-versioneer>`_,
 `zest.releaser <https://pypi.org/project/zest.releaser>`_,
 
 .. NOTE: are these all still being maintained??
@@ -104,7 +103,7 @@ Place the value in a simple ``VERSION`` text file and have both
         version = version_file.read().strip()
 
 An advantage with this technique is that it's not specific to Python.  Any
-tool can read the version.
+tool can read the version string.
 
 .. warning::
 
@@ -116,7 +115,7 @@ tool can read the version.
 No longer recommend methods
 ---------------------------
 
-These methods rely on importing of code during the build process, or dynamically genrated the version at run time. These methods are prone to errors and security issues, but you may encounter them in older code bases.
+These methods rely on importing of code during the build process, or dynamically generating the version at build time. These methods are prone to errors and security issues, but you may encounter them in older code bases.
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
     your project (e.g. :file:`version.py`), then have :file:`setup.py` read and
@@ -133,7 +132,7 @@ These methods rely on importing of code during the build process, or dynamically
 
 
 #.  Set the value in :file:`setup.py`, and have the project code use the
-    ``importlib.metadata`` API to fetch the value at runtime.
+    ``importlib.metadata`` API to fetch the value at build time.
     (``importlib.metadata`` was introduced in Python 3.8 and is available to
     older versions as the ``importlib-metadata`` project.)  An installed
     project's version can be fetched with the API as follows::
@@ -151,7 +150,7 @@ These methods rely on importing of code during the build process, or dynamically
     installation metadata, which is not necessarily the code that's currently
     imported.
 
-    If a project uses this method to fetch its version at runtime, then its
+    If a project uses this method to fetch its version string at build time, then its
     ``install_requires`` value needs to be edited to install
     ``importlib-metadata`` on pre-3.8 versions of Python like so::
 
@@ -192,7 +191,7 @@ These methods rely on importing of code during the build process, or dynamically
 
     .. warning::
 
-        Although this technique is common, beware that it will fail if
+        Although this technique was common, beware that it will fail if
         ``sample/__init__.py`` imports packages from ``install_requires``
         dependencies, which will very likely not be installed yet when
         :file:`setup.py` is run.
