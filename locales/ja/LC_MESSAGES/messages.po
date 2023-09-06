@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-10 14:57+0000\n"
-"PO-Revision-Date: 2023-05-30 06:08+0000\n"
+"PO-Revision-Date: 2023-08-25 00:56+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1348,6 +1348,10 @@ msgid ""
 "Read the `deprecation notice <https://blog.pypi.org/posts/2023-06-26-"
 "deprecate-egg-uploads/>`_ for more information."
 msgstr ""
+":term:`Egg` によるアップロードは、 :pep:`715` に従って PyPI "
+"へのアップロードとしては無効になっています。もっと情報が欲しい場合は、 `"
+"非推奨のお知らせ <deprecation notice> <https://blog.pypi.org/posts/"
+"2023-06-26-deprecate-egg-uploads/>`_ を読んでください。"
 
 #: ../source/discussions/wheel-vs-egg.rst:53
 msgid ""
@@ -7886,16 +7890,12 @@ msgstr ""
 "たくさん存在しています:"
 
 #: ../source/guides/single-sourcing-package-version.rst:11
-#, fuzzy
-#| msgid ""
-#| "Read the file in :file:`setup.py` and get the version. Example (from `pip "
-#| "setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::"
 msgid ""
 "Read the file in :file:`setup.py` and get the version. Example (from `pip "
 "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
 msgstr ""
-":file:`setup.py` に書かれたファイルを読み込んでバージョンを得ましょう。"
-"( `pip setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_ での) "
+":file:`setup.py` に書かれたファイルを読み込んでバージョンを得ましょう。( `"
+"pip setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_ での) "
 "例はこちら::"
 
 #: ../source/guides/single-sourcing-package-version.rst:38
@@ -12822,6 +12822,9 @@ msgid ""
 "to a change in the build environment, like when using the manylinux image to "
 "build distributions using pre-release CPython versions."
 msgstr ""
+"ビルド番号に係るよくあるユースケースは、CPython "
+"のリリース前のバージョンを使って manylinux で配布物をビルドしている場合のよう"
+"に、ビルド環境に変化があったためにバイナリ配布物を再ビルドする時です。"
 
 #: ../source/specifications/binary-distribution-format.rst:144
 msgid ""
@@ -12830,6 +12833,10 @@ msgid ""
 "ecosystem of tools and standards. A common case where a distribution would "
 "need to referenced externally is when resolving a security vulnerability."
 msgstr ""
+"ビルド番号は、配布物のバージョンの一部ではなく、従って外部からの、特に "
+"Python エコシステムのツール類や標準類の外側からの参照は困難です。配布物が外部"
+"からの参照を必要とするようなケースとしては、セキュリティ上の脆弱性を解決しよ"
+"うとする場合がよくあるケースです。"
 
 #: ../source/specifications/binary-distribution-format.rst:149
 msgid ""
@@ -12838,6 +12845,10 @@ msgid ""
 "distribution. Instead a **new distribution version** should be created for "
 "such cases."
 msgstr ""
+"この制約のゆえに、外部から参照される必要がある新たな配布物は、"
+"新しい配布物をビルドする際にビルド番号を使う **べきではありません** "
+"。そのような場合には、代わりに **新しい配布物バージョン** "
+"が作成されるべきです。"
 
 #: ../source/specifications/binary-distribution-format.rst:155
 msgid "language implementation and version tag"
@@ -16455,10 +16466,8 @@ msgid "Bazaar"
 msgstr "Bazaar"
 
 #: ../source/specifications/direct-url-data-structure.rst:191
-#, fuzzy
-#| msgid "https://www.mercurial-scm.org/"
 msgid "https://www.breezy-vcs.org/"
-msgstr "https://www.mercurial-scm.org/"
+msgstr "https://www.breezy-vcs.org/"
 
 #: ../source/specifications/direct-url-data-structure.rst:195
 #: ../source/specifications/direct-url-data-structure.rst:199
@@ -18554,20 +18563,21 @@ msgstr ""
 "るものでなければなりません。"
 
 #: ../source/specifications/source-distribution-format.rst:75
-#, fuzzy
-#| msgid "Source distribution file format"
 msgid "Source distribution archive features"
-msgstr "ソースコード配布物のファイルフォーマット"
+msgstr "ソースコード配布物アーカイブの機能"
 
 #: ../source/specifications/source-distribution-format.rst:77
 msgid ""
 "Because extracting tar files as-is is dangerous, and the results are "
 "platform-specific, archive features of source distributions are limited."
 msgstr ""
+"tar ファイルをそのまま展開することは危険を伴うため、また、展開結果がプラット"
+"フォーム依存になるため、ソースコード配布物アーカイブの機能は制限されています"
+"。"
 
 #: ../source/specifications/source-distribution-format.rst:81
 msgid "Unpacking with the data filter"
-msgstr ""
+msgstr "データフィルタしながらアンパックする"
 
 #: ../source/specifications/source-distribution-format.rst:83
 msgid ""
@@ -18576,6 +18586,11 @@ msgid ""
 "<tarfile.TarFile.extractall>`), OR follow the *Unpacking without the data "
 "filter* section below."
 msgstr ""
+"ソースコード配布物を展開する時には、ツール類は、 :py:func:`tarfile."
+"data_filter` (例えば :py:meth:`TarFile.extractall(..., filter='data') "
+"<tarfile.TarFile.extractall>`) か、あるいは、後述する *"
+"データフィルタなしでアンパックする<Unpacking without the data filter>* "
+"節に従うか、いずれかを行わなければなりません。"
 
 #: ../source/specifications/source-distribution-format.rst:87
 msgid ""
@@ -18586,10 +18601,16 @@ msgid ""
 "archive) and security (e.g. refusing to unpack) is left up to the tool in "
 "this case."
 msgstr ""
+"例外として、 :py:func:`hasattr(tarfile, 'data_filter') <tarfile.data_filter>`"
+" (:pep:`706`) を持たない Python インタープリタ上では、通常ならそのようなフィ"
+"ルタを使うはずのツール類はユーザに対して警告した上でこの仕様を無視しても構い"
+"ません。利便性 (例えばアーカイブを完全に信頼すること) とセキュリティ "
+"(例えばアンパックすることを拒否すること) "
+"の間のトレードオフは、この場合にはツールに委ねられています。"
 
 #: ../source/specifications/source-distribution-format.rst:95
 msgid "Unpacking without the data filter"
-msgstr ""
+msgstr "データフィルタなしでアンパックする"
 
 #: ../source/specifications/source-distribution-format.rst:97
 msgid ""
@@ -18598,6 +18619,11 @@ msgid ""
 "follow this section. (At the time of this writing, the ``data`` filter also "
 "follows this section, but it may get out of sync in the future.)"
 msgstr ""
+"(例えば、後方互換性のためであったり、追加的な機能を許容するためであったり、"
+"あるいは Python を使わない場合であったりで) ``データ <data>`` フィルタを直接"
+"には使わないツール類は、この節の内容に従わなければなりません。(執筆時点では、"
+" ``データ <data>`` フィルタもこの節の内容に従うものになっていますが、将来には"
+"この同期が外れるかもしれません。)"
 
 #: ../source/specifications/source-distribution-format.rst:103
 msgid ""
@@ -18605,110 +18631,126 @@ msgid ""
 "such an entry, tools SHOULD notify the user, MUST NOT unpack the entry, and "
 "MAY abort with a failure:"
 msgstr ""
+"以下に述べるファイル群は、 *sdist* アーカイブの中に置くには不適格です。そのよ"
+"うなエントリに遭遇した場合には、ツール類はユーザに通知するべきであり、そのエ"
+"ントリをアンパックしてはならず、そして、エラー (failure) "
+"とともに処理を中断しても構いません:"
 
 #: ../source/specifications/source-distribution-format.rst:107
 msgid "Files that would be placed outside the destination directory."
-msgstr ""
+msgstr "宛先となるディレクトリの外側に置かれるファイル群。"
 
 #: ../source/specifications/source-distribution-format.rst:108
 msgid "Links (symbolic or hard) pointing outside the destination directory."
-msgstr ""
+msgstr "宛先となるディレクトリの外側を指し示すリンク (シンボリックでもハードでも)。"
 
 #: ../source/specifications/source-distribution-format.rst:109
 msgid "Device files (including pipes)."
-msgstr ""
+msgstr "デバイスファイル (パイプを含む)。"
 
 #: ../source/specifications/source-distribution-format.rst:111
 msgid ""
 "The following are also invalid. Tools MAY treat them as above, but are NOT "
 "REQUIRED to do so:"
-msgstr ""
+msgstr "以下に示すものもまた、不適格です。ツール類はこれらを上記のように扱っても構い"
+"ませんが、そうすることを要求されているわけではありません:"
 
 #: ../source/specifications/source-distribution-format.rst:114
 msgid "Files with a ``..`` component in the filename or link target."
-msgstr ""
+msgstr "ファイル名の一部に ``..`` を含むファイルまたはリンクのターゲット。"
 
 #: ../source/specifications/source-distribution-format.rst:115
 msgid "Links pointing to a file that is not part of the archive."
-msgstr ""
+msgstr "当該アーカイブの一部ではないファイルを指し示すリンク。"
 
 #: ../source/specifications/source-distribution-format.rst:117
 msgid ""
 "Tools MAY unpack links (symbolic or hard) as regular files, using content "
 "from the archive."
-msgstr ""
+msgstr "ツール類は、アーカイブから得た内容を使って、リンク類 "
+"(シンボリックまたはハード) をアンパックしても構いません。"
 
 #: ../source/specifications/source-distribution-format.rst:120
-#, fuzzy
-#| msgid "Generating distribution archives"
 msgid "When extracting *sdist* archives:"
-msgstr "配布物アーカイブを生成する"
+msgstr "*sdist* アーカイブを展開する時:"
 
 #: ../source/specifications/source-distribution-format.rst:122
 msgid ""
 "Leading slashes in file names MUST be dropped. (This is nowadays standard "
 "behaviour for ``tar`` unpacking.)"
-msgstr ""
+msgstr "ファイル名の先頭のスラッシュは、必ず削除しなければなりません。 (これは、 "
+"``tar`` を展開する時の今日的な標準的な振る舞いです。)"
 
 #: ../source/specifications/source-distribution-format.rst:124
 msgid "For each ``mode`` (Unix permission) bit, tools MUST either:"
-msgstr ""
+msgstr "``モード <mode>`` (UNIXでのパーミッション) "
+"の各ビットについて、ツール類は以下のうちのいずれかをしなければなりません:"
 
 #: ../source/specifications/source-distribution-format.rst:126
 msgid "use the platform's default for a new file/directory (respectively),"
-msgstr ""
+msgstr "プラットフォームの既定値を新しく作るファイル/ディレクトリに (それぞれ) "
+"適用するか、"
 
 #: ../source/specifications/source-distribution-format.rst:127
 msgid "set the bit according to the archive, or"
-msgstr ""
+msgstr "アーカイブにおける (パーミッション) ビットに従って設定するか、または、"
 
 #: ../source/specifications/source-distribution-format.rst:128
 msgid ""
 "use the bit from ``rw-r--r--`` (``0o644``) for non-executable files or "
 "``rwxr-xr-x`` (``0o755``) for executable files and directories."
 msgstr ""
+"非実行ファイルには ``rw-r--r--`` (``0o644``) の (パーミッション) "
+"ビットを設定し、実行ファイルとディレクトリには ``rwxr-xr-x`` (``0o755``) "
+"を設定する。"
 
 #: ../source/specifications/source-distribution-format.rst:131
 msgid "High ``mode`` bits (setuid, setgid, sticky) MUST be cleared."
 msgstr ""
+"特殊な ``モード <mode>`` ビット (setups, setgid, sticky) については、削除 "
+"(クリア) しなければなりません。"
 
 #: ../source/specifications/source-distribution-format.rst:132
 msgid "It is RECOMMENDED to preserve the user *executable* bit."
-msgstr ""
+msgstr "ユーザ (多分オーナのこと) *実行* "
+"ビットについては、そのまま保存することが推奨されています。"
 
 #: ../source/specifications/source-distribution-format.rst:136
 msgid "Further hints"
-msgstr ""
+msgstr "さらなるヒント"
 
 #: ../source/specifications/source-distribution-format.rst:138
 msgid ""
 "Tool authors are encouraged to consider how *hints for further verification* "
 "in ``tarfile`` documentation apply to their tool."
 msgstr ""
+"ツールの作成者は、自分たちのツールに適用する ``tarfile`` "
+"説明文書の中に、*さらなる検証を行うためのヒント集* "
+"を含めることを検討するように推奨されています。"
 
 #: ../source/specifications/source-distribution-format.rst:145
 msgid ""
 "August 2023: Standardized the source distribution archive features (:pep:"
 "`721`)"
-msgstr ""
+msgstr "2023-08: ソースコード配布物のアーカイブの機能について標準化 (: pep:`721`)"
 
 #: ../source/specifications/source-distribution-format.rst:146
 msgid ""
 "September 2022: Standardized the filename of a source distribution (:pep:"
 "`625`)"
-msgstr ""
+msgstr "2022-09: ソースコード配布物のファイル名について標準化 (:pep:`625`)"
 
 #: ../source/specifications/source-distribution-format.rst:147
 msgid "July 2021: Defined what a source tree is"
-msgstr ""
+msgstr "2021-07: ソースコードツリーとは何であるかを定義"
 
 #: ../source/specifications/source-distribution-format.rst:148
 msgid "November 2020: :pep:`643` converted to this specification"
-msgstr ""
+msgstr "2020-11: :pep:`643` をこの仕様に変換"
 
 #: ../source/specifications/source-distribution-format.rst:149
 msgid "December 2000: Source distributions standardized in :pep:`643`"
-msgstr ""
+msgstr "2000-12: ソースコード配布物について :pep:`643` で標準化"
 
 #: ../source/specifications/version-specifiers.rst:6
 msgid "Version specifiers"
