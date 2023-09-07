@@ -551,18 +551,17 @@ Requires-Python
 .. versionadded:: 1.2
 
 This field specifies the Python version(s) that the distribution is
-guaranteed to be compatible with. Installation tools may look at this when
+compatible with. Installation tools may look at this when
 picking which version of a project to install.
 
 The value must be in the format specified in :doc:`version-specifiers`.
 
+For example, if a distribution uses `f-strings <https://docs.python.org/3/whatsnew/3.6.html#pep-498-formatted-string-literals>`_
+then it may prevent installation on Python < 3.6 by specifying:
+
+    Requires-Python: >=3.6
+
 This field cannot be followed by an environment marker.
-
-Examples::
-
-    Requires-Python: >=3
-    Requires-Python: >2.6,!=3.0.*,!=3.1.*
-    Requires-Python: ~=2.6
 
 .. _core-metadata-requires-external:
 
