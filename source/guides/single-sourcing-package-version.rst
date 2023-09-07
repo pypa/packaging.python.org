@@ -112,7 +112,7 @@ tool can read the version string.
     :file:`MANIFEST.in`).
 
 
-No longer recommend methods
+Nearly extinct methods
 ---------------------------
 
 These methods rely on importing of code during the build process, or dynamically generating the version at build time. These methods are prone to errors and security issues, but you may encounter them in older code bases.
