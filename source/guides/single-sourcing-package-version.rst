@@ -41,14 +41,14 @@ One way of single sourcing is to specify the version string somewhere in the sou
    :file:`setup.py`.
 
 
-#.  While the modern standard is to use declarative files (such as ``setup.cfg``),
+#.  While the modern standard is to use declarative files (such as ``pyproject.toml``),
     with older versions of setuptools, you may need to add a version-reading
     function to setup.py: Example adapted from (from `pip setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
 
         from pathlib import Path
 
         def read(rel_path):
-            here = Path(__file__).parent.absolute()
+            here = Path(__file__).parent.resolve()
             with open(here / rel_path), 'r') as fp:
                 return fp.read()
 
@@ -70,7 +70,7 @@ Generate the version string from the SCM
 ----------------------------------------
 
 Most projects use a Source Code Management System (SCM), such as git or mercurial to manage the code and also manage releases.
-In order to keep the versioning of releases in sync with your package, the version string can be kept in the tags of a version control system, and automatically extracted with a tool such as
+In order to keep the versioning of releases in sync with your package, the version string can be kept in the tags of an SCM, and automatically extracted with a tool such as
 `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.
 
 .. NOTE: maybe put in an example using setuptools_scm?
@@ -83,13 +83,14 @@ Use an external version management tool
 An external build tool can be used that manages the version string in both the SCM and source code, either directly or via an API:
 
 A few tools you could use, in no particular order, and not necessarily complete:
-`bump2version <https://pypi.org/project/bump2version>`_,
-`changes <https://pypi.org/project/changes>`_,
+.. this one is maintained
 `commitizen <https://pypi.org/project/commitizen>`_,
+.. as is this one.
 `versioneer <https://github.com/python-versioneer/python-versioneer>`_,
+.. and this
 `zest.releaser <https://pypi.org/project/zest.releaser>`_,
 
-.. NOTE: are these all still being maintained??
+.. NOTE: are there othjers that should be looked into
 
 Dedicated file for the version string
 -------------------------------------
@@ -113,9 +114,9 @@ tool can read the version string.
 
 
 Nearly extinct methods
----------------------------
+----------------------
 
-These methods rely on importing of code during the build process, or dynamically generating the version at build time. These methods are prone to errors and security issues, but you may encounter them in older code bases.
+These methods rely on importing of code during the build process, or dynamically generating the version string at build time with custom code. These methods are prone to errors and security issues, but you may encounter them in older code bases.
 
 #.  Set the value to a ``__version__`` global variable in a dedicated module in
     your project (e.g. :file:`version.py`), then have :file:`setup.py` read and
@@ -128,7 +129,9 @@ These methods rely on importing of code during the build process, or dynamically
             exec(fp.read(), version)
         # later on we use: version['__version__']
 
-    Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_.
+.. NOTE: this example is from a (very!) old version of warehouse -- at a glance, I couldn't tell how warehouse does it now, but it's not this.
+
+..    Example using this technique: `warehouse <https://github.com/pypa/warehouse/blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_.
 
 
 #.  Set the value in :file:`setup.py`, and have the project code use the
@@ -163,18 +166,6 @@ These methods rely on importing of code during the build process, or dynamically
             ],
             ...
         )
-
-    An older (and less efficient) alternative to ``importlib.metadata`` is the
-    ``pkg_resources`` API provided by ``setuptools``::
-
-        import pkg_resources
-        assert pkg_resources.get_distribution('pip').version == '1.2.0'
-
-    If a project uses ``pkg_resources`` to fetch its own version at runtime,
-    then ``setuptools`` must be added to the project's ``install_requires``
-    list.
-
-    Example using this technique: `setuptools <https://github.com/pypa/setuptools/blob/main/setuptools/version.py>`_.
 
 
 #.  Set the value to ``__version__`` in ``sample/__init__.py`` and import
