@@ -132,7 +132,7 @@ These methods rely on importing of code during the build process, or dynamically
 
 
 #.  Set the value in :file:`setup.py`, and have the project code use the
-    ``importlib.metadata`` API to fetch the value at build time.
+    ``importlib.metadata`` API to fetch the value at runtime.
     (``importlib.metadata`` was introduced in Python 3.8 and is available to
     older versions as the ``importlib-metadata`` project.)  An installed
     project's version can be fetched with the API as follows::
