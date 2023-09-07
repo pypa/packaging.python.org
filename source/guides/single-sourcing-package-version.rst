@@ -191,7 +191,7 @@ These methods rely on importing of code during the build process, or dynamically
 
     .. warning::
 
-        Although this technique was common, beware that it will fail if
+        Although this technique used to be common, beware that it will fail if
         ``sample/__init__.py`` imports packages from ``install_requires``
         dependencies, which will very likely not be installed yet when
         :file:`setup.py` is run.
