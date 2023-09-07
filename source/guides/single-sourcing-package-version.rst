@@ -150,7 +150,7 @@ These methods rely on importing of code during the build process, or dynamically
     installation metadata, which is not necessarily the code that's currently
     imported.
 
-    If a project uses this method to fetch its version string at build time, then its
+    If a project uses this method to fetch its version string at runtime, then its
     ``install_requires`` value needs to be edited to install
     ``importlib-metadata`` on pre-3.8 versions of Python like so::
 
