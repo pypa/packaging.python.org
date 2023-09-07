@@ -94,7 +94,7 @@ A few tools you could use, in no particular order, and not necessarily complete:
 Dedicated file for the version string
 -------------------------------------
 
-Place the value in a simple ``VERSION`` text file and have both
+Place the value in a simple :file:`VERSION` text file and have both
 :file:`setup.py` and the project code read it.
 
 ::
