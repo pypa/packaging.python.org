@@ -172,6 +172,9 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
 * `pip-tools <https://github.com/jazzband/pip-tools>`_ for creating a lock file of all
   dependencies from a list of packages directly used in a project, and ensuring that
   only those dependencies are installed.
+  Complex projects may benefit from
+  `pip-compile-multi <https://github.com/peterdemin/pip-compile-multi>`_ wrapper
+  that scales pip-tools to multiple cross-referencing requirements files.
 * `Poetry <https://github.com/python-poetry/poetry>`__ for a tool comparable in scope
   to Pipenv that focuses more directly on use cases where the project being managed is
   structured as a distributable Python package with a valid ``pyproject.toml`` file.
