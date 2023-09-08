@@ -48,7 +48,7 @@ One way of single sourcing is to specify the version string somewhere in the sou
         from pathlib import Path
 
         def read(rel_path):
-            here = Path(__file__).parent.resolve()
+            here = Path(__file__).parent
             with open(here / rel_path), 'r') as fp:
                 return fp.read()
 
@@ -90,7 +90,7 @@ A few tools you could use, in no particular order, and not necessarily complete:
 .. and this
 `zest.releaser <https://pypi.org/project/zest.releaser>`_,
 
-.. NOTE: are there othjers that should be looked into
+.. NOTE: are there others that should be included?
 
 Dedicated file for the version string
 -------------------------------------
