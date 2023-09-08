@@ -13,16 +13,7 @@ Auto extract the version string from the source
 
 One way of single sourcing is to specify the version string somewhere in the source code, e.g. ``my_package/__init__.py``. Then it can be found at runtime with ``my_package.__version__``, and that same value can be used to set the version when building the package.
 
-#. Declare to read the version string  from the source in ``setuptools.cfg`` or ``pyproject.toml``
-
-   With recent versions of setuptools (since 46.4.0), one can add a declaration
-   to the project's :file:`setup.cfg` file (replacing "package" with the import
-   name of the package):
-
-   .. code-block:: ini
-
-       [metadata]
-       version = attr: package.__version__
+#. Declare to read the version string from the source in ``pyproject.toml`` or ``setuptools.cfg``
 
    As of the release of setuptools 61.0.0, one can also specify the
    version dynamically in the project's :file:`pyproject.toml` file.
@@ -40,17 +31,25 @@ One way of single sourcing is to specify the version string somewhere in the sou
    ``attr:`` directive, are not supported in parameters to
    :file:`setup.py`.
 
+   With older versions of setuptools the declaration can be added to
+   the project's :file:`setup.cfg` file (replacing "package" with the import
+   name of the package):
+
+   .. code-block:: ini
+
+       [metadata]
+       version = attr: package.__version__
+
+    Note that the use of :file:`setup.cfg` is being depricated by setuptools -- new projects should use :file:`pyproject.toml`.
 
 #.  While the modern standard is to use declarative files (such as ``pyproject.toml``),
     with older versions of setuptools, you may need to add a version-reading
-    function to setup.py: Example adapted from (from `pip setup.py <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
+    function to :file`setup.py`: Example adapted from (from `pip setup.py <https://github.com/pypa/pip/blob/6f3a7181b6bfa0e95d479b3269baa0e551ff2cb2/setup.py#L11>`_)::
 
         from pathlib import Path
 
         def read(rel_path):
-            here = Path(__file__).parent
-            with open(here / rel_path), 'r') as fp:
-                return fp.read()
+            return (here / rel_path).read_text(encoding='utf-8')
 
         def get_version(rel_path):
             for line in read(rel_path).splitlines():
@@ -71,16 +70,17 @@ Generate the version string from the SCM
 
 Most projects use a Source Code Management System (SCM), such as git or mercurial to manage the code and also manage releases.
 In order to keep the versioning of releases in sync with your package, the version string can be kept in the tags of an SCM, and automatically extracted with a tool such as
-`setuptools_scm <https://pypi.org/project/setuptools-scm/>`_.
+`setuptools_scm <https://pypi.org/project/setuptools-scm/>`_
+or  `hatch-vcs <https://pypi.org/project/hatch-vcs/>`_
 
 .. NOTE: maybe put in an example using setuptools_scm?
 
-.. NOTE2: Is setuptools_scm the only one now?
+.. NOTE2: Other back-end examples we should include?
 
 Use an external version management tool
 ---------------------------------------
 
-An external build tool can be used that manages the version string in both the SCM and source code, either directly or via an API:
+An external build tool can be used that manages the version string in both the SCM and source code, either directly or via an API.
 
 A few tools you could use, in no particular order, and not necessarily complete:
 .. this one is maintained
@@ -100,8 +100,7 @@ Place the value in a simple :file:`VERSION` text file and have both
 
 ::
 
-    with open(os.path.join(mypackage_root_dir, 'VERSION')) as version_file:
-        version = version_file.read().strip()
+    version = (mypackage_root_dir / 'VERSION').read_text(encoding='utf-8').strip()
 
 An advantage with this technique is that it's not specific to Python.  Any
 tool can read the version string.
