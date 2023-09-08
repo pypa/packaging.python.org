@@ -15,32 +15,30 @@ One way of single sourcing is to specify the version string somewhere in the sou
 
 #. Declare to read the version string from the source in ``pyproject.toml`` or ``setuptools.cfg``
 
-   As of the release of setuptools 61.0.0, one can also specify the
+   As of the release of setuptools 61.0.0, one can specify the
    version dynamically in the project's :file:`pyproject.toml` file.
 
    .. code-block:: toml
 
         [project]
-        name = "package"
+        name = "my_package"
         dynamic = ["version"]
 
         [tool.setuptools.dynamic]
-        version = {attr = "package.__version__"}
+        version = {attr = "my_package.__version__"}
 
    Please be aware that declarative config indicators, including the
-   ``attr:`` directive, are not supported in parameters to
-   :file:`setup.py`.
+   ``attr:`` directive, are not supported in parameters to :file:`setup.py`.
 
-   With older versions of setuptools the declaration can be added to
-   the project's :file:`setup.cfg` file (replacing "package" with the import
-   name of the package):
+   The declaration can alternatively be added to the project's :file:`setup.cfg` file (replacing "my_package" with the import name of the package):
 
    .. code-block:: ini
 
        [metadata]
-       version = attr: package.__version__
+       version = attr: my_package.__version__
 
-    Note that the use of :file:`setup.cfg` is being depricated by setuptools -- new projects should use :file:`pyproject.toml`.
+
+   Note that the use of :file:`setup.cfg` is being deprecated by setuptools -- new projects should use :file:`pyproject.toml`.
 
 #.  While the modern standard is to use declarative files (such as ``pyproject.toml``),
     with older versions of setuptools, you may need to add a version-reading
@@ -80,15 +78,14 @@ or  `hatch-vcs <https://pypi.org/project/hatch-vcs/>`_
 Use an external version management tool
 ---------------------------------------
 
-An external build tool can be used that manages the version string in both the SCM and source code, either directly or via an API.
+An external build tool can be used that manages the version string in both the SCM and source code, either directly or via an API. For example (not a complete list):
 
-A few tools you could use, in no particular order, and not necessarily complete:
-.. this one is maintained
-`commitizen <https://pypi.org/project/commitizen>`_,
-.. as is this one.
-`versioneer <https://github.com/python-versioneer/python-versioneer>`_,
-.. and this
-`zest.releaser <https://pypi.org/project/zest.releaser>`_,
+
+ - `commitizen <https://pypi.org/project/commitizen>`_,
+
+ - `versioneer <https://github.com/python-versioneer/python-versioneer>`_,
+
+ - `zest.releaser <https://pypi.org/project/zest.releaser>`_,
 
 .. NOTE: are there others that should be included?
 
