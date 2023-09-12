@@ -184,7 +184,7 @@ check for CVEs in `Pipfile` using `safety <https://pyup.io/safety>`_.
 
 Pipenv aims to help users manage environments, dependencies, and
 imported packages on the command line. It also works well on Windows
-(which other tools often underserve), makes and checkes file hashes,
+(which other tools often underserve), makes and checks file hashes,
 to ensure compliance with hash-locked dependency specifiers, and eases
 uninstallation of packages and dependencies.
 
@@ -558,7 +558,6 @@ resolution by locally caching metadata about dependencies.
 pypiserver
 ==========
 
-`Docs <https://github.com/pypiserver/pypiserver/blob/master/README.rst>`__ |
 `GitHub <https://github.com/pypiserver/pypiserver>`__ |
 `PyPI <https://pypi.org/project/pypiserver/>`__
 

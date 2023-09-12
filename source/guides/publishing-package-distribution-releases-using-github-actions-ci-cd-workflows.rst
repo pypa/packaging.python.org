@@ -161,9 +161,9 @@ the contents of the ``dist/`` folder into PyPI unconditionally.
 Signing the distribution packages
 =================================
 
-This additional job signs the distribution packages with the
-`sigstore/gh-action-sigstore-python GitHub Action`_ and then uploads
-them to GitHub Release.
+This additional job signs the distribution packages with `Sigstore`_,
+using the `sigstore/gh-action-sigstore-python GitHub Action`_,
+and then uploads them to GitHub Release.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
@@ -220,6 +220,7 @@ sure that your release pipeline remains healthy!
    https://github.com/actions/download-artifact
 .. _`upload-artifact`:
    https://github.com/actions/upload-artifact
+.. _Sigstore: https://www.sigstore.dev/
 .. _`sigstore/gh-action-sigstore-python GitHub Action`:
    https://github.com/marketplace/actions/gh-action-sigstore-python
 .. _Secrets:
