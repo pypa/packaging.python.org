@@ -40,16 +40,16 @@ jobs:
       # for <package-name>
       url: https://pypi.org/p/<package-name>
     permissions:
-      id-token: write
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
 
     steps:
-     - name: Download all the dists
-       uses: actions/download-artifact@v3
-       with:
-         name: python-package-distributions
-         path: dist/
-     - name: Publish distribution 📦 to PyPI
-       uses: pypa/gh-action-pypi-publish@release/v1
+    - name: Download all the dists
+      uses: actions/download-artifact@v3
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Publish distribution 📦 to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
 
   github-release:
     name: >-
@@ -57,6 +57,12 @@ jobs:
       and upload them to GitHub Release
     needs:
     - publish-to-pypi
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  # IMPORTANT: mandatory for making GitHub Releases
+      id-token: write  # IMPORTANT: mandatory for sigstore
+
     steps:
      - name: Sign the dists with Sigstore
        uses: sigstore/gh-action-sigstore-python@v1.2.3
@@ -70,8 +76,8 @@ jobs:
        # created the release above.
        uses: softprops/action-gh-release@v1
        with:
-         # dist/ contains the built packages, which smoketest-artifacts/
-         # contains the signatures and certificates.
+         # `dist/` contains the built packages, and the
+         # sigstore-produced signatures and certificates.
          files: dist/**
 
   publish-to-testpypi:
@@ -79,11 +85,13 @@ jobs:
     needs:
     - build
     runs-on: ubuntu-latest
+
     environment:
       name: testpypi
       url: https://test.pypi.org/p/<package-name>
+
     permissions:
-      id-token: write
+      id-token: write  # IMPORTANT: mandatory for trusted publishing
 
     steps:
     - name: Download all the dists
