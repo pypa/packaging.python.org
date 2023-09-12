@@ -170,6 +170,14 @@ them to GitHub Release.
    :start-at: github-release:
    :end-before:  publish-to-testpypi
 
+
+.. note::
+
+   This is a replacement for GPG signatures, for which support has been
+   `removed <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_ by PyPI.
+   However, this job is not mandatory for defining the workflow.
+
+
 Separate workflow for publishing to TestPyPI
 ============================================
 
@@ -181,10 +189,12 @@ section:
    :language: yaml
    :start-at: publish-to-testpypi
 
-The whole CD workflow
-=====================
+The whole CI/CD workflow
+========================
 
-.. collapse:: Load file
+This paragraph showcases the whole workflow after following the above guide.
+
+.. collapse:: Click here to display the entire GitHub Actions CI/CD workflow definition
 
     .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
        :language: yaml

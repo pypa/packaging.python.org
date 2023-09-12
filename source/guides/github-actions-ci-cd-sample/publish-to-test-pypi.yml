@@ -36,8 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      # Fill in your project (e.g. repository) name
-      # for <package-name>
+      # Fill in your project (e.g. repository) name for <package-name>
       url: https://pypi.org/p/<package-name>
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
@@ -64,21 +63,24 @@ jobs:
       id-token: write  # IMPORTANT: mandatory for sigstore
 
     steps:
-     - name: Sign the dists with Sigstore
-       uses: sigstore/gh-action-sigstore-python@v1.2.3
-       with:
-         inputs: >-
-           ./dist/*.tar.gz
-           ./dist/*.whl
-     - name: Upload artifact signatures to GitHub Release
-       # Confusingly, this action also supports updating releases, not
-       # just creating them. This is what we want here, since we've manually
-       # created the release above.
-       uses: softprops/action-gh-release@v1
-       with:
-         # `dist/` contains the built packages, and the
-         # sigstore-produced signatures and certificates.
-         files: dist/**
+    - name: Download all the dists
+      uses: actions/download-artifact@v3
+      with:
+        name: python-package-distributions
+        path: dist/
+    - name: Sign the dists with Sigstore
+      uses: sigstore/gh-action-sigstore-python@v1.2.3
+      with:
+        inputs: >-
+          ./dist/*.tar.gz
+          ./dist/*.whl
+    - name: Upload artifact signatures to GitHub Release
+      env:
+        GH_TOKEN: ${{ github.token }}
+      # Upload to GitHub Release using the `gh` CLI.
+      # `dist/` contains the built packages, and the
+      # sigstore-produced signatures and certificates.
+      run: gh release upload "${{ github.ref_name }}" dist/** --repo "${{ github.repository }}"
 
   publish-to-testpypi:
     name: Publish Python 🐍 distribution 📦 to TestPyPI
