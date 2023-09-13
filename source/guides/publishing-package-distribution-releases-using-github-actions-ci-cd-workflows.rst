@@ -52,15 +52,15 @@ Let's begin! 🚀
 2. Fill in the name you wish to publish your new
    :term:`PyPI project <Project>` under
    (the ``name`` value in your ``setup.cfg`` or ``pyproject.toml``),
-   the GitHub repository owner's name (org or user)
-   and repository name and the name of the release workflow file under
+   the GitHub repository owner's name (org or user),
+   and repository name, and the name of the release workflow file under
    the ``.github/`` folder, see :ref:`workflow-definition`.
-   Finally add the name of the GitHub Actions environment
+   Finally, add the name of the GitHub Environment
    (``pypi``) we're going set up under your repository.
    Register the trusted publisher.
 3. Now, go to https://test.pypi.org/manage/account/publishing/ and repeat
-   the second step, but now enter ``testpypi`` as the name of the
-   GitHub Actions environment.
+   the second step, but this time, enter ``testpypi`` as the name of the
+   GitHub Environment.
 4. Your "pending" publishers are now ready for their first use and will
    create your projects automatically once you use them
    for the first time.
@@ -71,9 +71,9 @@ Let's begin! 🚀
       create it. It's not the same as a regular PyPI account.
 
 
-   .. hint::
+   .. attention::
 
-      For security reasons, you should require manual approval
+      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules>`_
       on each run for the ``pypi`` environment.
 
 
@@ -140,7 +140,7 @@ trusted publishing to PyPI.
    :end-before: steps:
 
 This will also ensure that the PyPI publishing workflow is only triggered
-if the current commit is tagged. It is recommended you use the
+if the current commit is tagged. It is recommended that you commit using the
 latest release tag.
 
 Publishing the distribution to PyPI
@@ -161,9 +161,11 @@ the contents of the ``dist/`` folder into PyPI unconditionally.
 Signing the distribution packages
 =================================
 
-This additional job signs the distribution packages with `Sigstore`_,
-using the `sigstore/gh-action-sigstore-python GitHub Action`_,
-and then uploads them to GitHub Release.
+The following job signs the distribution packages with `Sigstore`_,
+the same artifact signing system `used to sign CPython <https://www.python.org/download/sigstore/>`_.
+
+It uses the `sigstore/gh-action-sigstore-python GitHub Action`_,
+and then uploads them to a GitHub Release.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
@@ -174,8 +176,8 @@ and then uploads them to GitHub Release.
 .. note::
 
    This is a replacement for GPG signatures, for which support has been
-   `removed <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_ by PyPI.
-   However, this job is not mandatory for defining the workflow.
+   `removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_.
+   However, this job is not mandatory for uploading to PyPI and can be omitted.
 
 
 Separate workflow for publishing to TestPyPI
@@ -188,6 +190,11 @@ section:
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml
    :start-at: publish-to-testpypi
+
+.. tip::
+
+   Requiring manual approvals in the ``testpypi`` GitHub Environment is typically unnecessary as it's designed to run on each commit to the main branch and is often used to indicate a healthy release publishing pipeline.
+
 
 The whole CI/CD workflow
 ========================

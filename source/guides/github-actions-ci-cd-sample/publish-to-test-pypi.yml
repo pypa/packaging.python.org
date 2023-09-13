@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      # Fill in your project (e.g. repository) name for <package-name>
+      # Replace <package-name> below with your PyPI project name:
       url: https://pypi.org/p/<package-name>
     permissions:
       id-token: write  # IMPORTANT: mandatory for trusted publishing
@@ -76,11 +76,11 @@ jobs:
           ./dist/*.whl
     - name: Upload artifact signatures to GitHub Release
       env:
-        GH_TOKEN: ${{ github.token }}
+        GITHUB_TOKEN: ${{ github.token }}
       # Upload to GitHub Release using the `gh` CLI.
       # `dist/` contains the built packages, and the
       # sigstore-produced signatures and certificates.
-      run: gh release upload "${{ github.ref_name }}" dist/** --repo "${{ github.repository }}"
+      run: gh release upload "${{ github.ref_name }}" dist/**
 
   publish-to-testpypi:
     name: Publish Python 🐍 distribution 📦 to TestPyPI
