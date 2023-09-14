@@ -140,8 +140,7 @@ trusted publishing to PyPI.
    :end-before: steps:
 
 This will also ensure that the PyPI publishing workflow is only triggered
-if the current commit is tagged. It is recommended that you commit using the
-latest release tag.
+if the current commit is tagged.
 
 Publishing the distribution to PyPI
 ===================================
@@ -214,6 +213,11 @@ on GitHub, this workflow will publish it to PyPI.
 And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
 sure that your release pipeline remains healthy!
+
+.. note::
+
+   It is recommended to keep the integrated GitHub Actions at their latest
+   versions, updating them frequently.
 
 
 .. _API token: https://pypi.org/help/#apitoken
