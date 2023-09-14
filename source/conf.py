@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx_inline_tabs',
     'sphinx_copybutton',
+    'sphinx_toolbox.collapse',
 ]
 
 # config for copy button
