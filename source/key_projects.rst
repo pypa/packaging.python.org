@@ -558,6 +558,7 @@ resolution by locally caching metadata about dependencies.
 pypiserver
 ==========
 
+`Docs <https://github.com/pypiserver/pypiserver/blob/master/README.md>`__ |
 `GitHub <https://github.com/pypiserver/pypiserver>`__ |
 `PyPI <https://pypi.org/project/pypiserver/>`__
 
