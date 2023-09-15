@@ -19,7 +19,7 @@ Runtime detection of virtual environments
 
 At runtime, virtual environments can be identified by virtue of ``sys.prefix``
 (the filesystem location of the running interpreter) having a different value
-from ``sys.base_prefix`` (the default filesytem location of the standard library
+from ``sys.base_prefix`` (the default filesystem location of the standard library
 directories).
 
 :ref:`venv-explanation` in the Python standard library documentation for the
