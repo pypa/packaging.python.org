@@ -130,7 +130,7 @@ It's a process that will execute commands that we'll define later.
 In this guide, we'll use the latest stable Ubuntu LTS version
 provided by GitHub Actions. This also defines a GitHub Environment
 for the job to run in its context and a URL to be displayed in GitHub's
-UI nicely. Additionally, it allows aqcuiring an OpenID Connect token
+UI nicely. Additionally, it allows acquiring an OpenID Connect token
 that the ``pypi-publish`` actions needs to implement secretless
 trusted publishing to PyPI.
 
