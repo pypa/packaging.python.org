@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-18 14:25+0000\n"
-"PO-Revision-Date: 2023-09-18 13:15+0000\n"
+"PO-Revision-Date: 2023-10-07 12:11+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -7725,6 +7725,12 @@ msgid ""
 "<Project>`. However it is also possible to add `trusted publishing`_ to any "
 "pre-existing project, if you are its owner."
 msgstr ""
+"このガイドではPyPIとTestPyPIの両方へのアップロードを実証しますので、ふたつの"
+"信頼あるパブリッシャが設定されていることが必要になるでしょう。以下に示すス"
+"テップによって、新しい :term:`PyPI プロジェクト <Project>` 用の \" ペンディン"
+"グされた\" パブリッシャ群を作成する手順を一通りお見せします。しかしながら、あ"
+"なたが所有者であるならば、任意の既存プロジェクトに `信頼ある出版 <trusted "
+"publishing>` を追加することが可能でもあります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
 msgid ""
@@ -7734,6 +7740,12 @@ msgid ""
 "repository and revoke them in your PyPI and TestPyPI account settings in "
 "case you are replacing your old setup with the new one."
 msgstr ""
+"このガイドの以前のバージョンを読み通したことがあるのであれば、PyPI や "
+"TestPyPI への直接のアクセスをするために ``PYPI_API_TOKEN`` と "
+"``TEST_PYPOI_API_TOKEN`` という秘密のトークンを作成したことでしょう。今ではこ"
+"れらは過去のものとなっていて、旧来の設定を新しいものに置き換える際に GitHub "
+"リポジトリから削除し、 PyPI や TestPyPI のアカウント設定から取り除くべきで"
+"す。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:49
 msgid "Let's begin! 🚀"
@@ -7753,26 +7765,26 @@ msgid ""
 "(``pypi``) we're going set up under your repository. Register the trusted "
 "publisher."
 msgstr ""
+"新しい :term:`PyPI プロジェクト <Project>` 向けに発行したいと思う名前を、 "
+"(``setup.cfg`` か ``pyproject.toml`` の中の ``名称 <name>`` の値として、"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
-#, fuzzy
-#| msgid ""
-#| "Now, go to https://test.pypi.org/manage/account/#api-tokens and repeat "
-#| "the steps. Save that TestPyPI token on GitHub as ``TEST_PYPI_API_TOKEN``."
 msgid ""
 "Now, go to https://test.pypi.org/manage/account/publishing/ and repeat the "
 "second step, but this time, enter ``testpypi`` as the name of the GitHub "
 "Environment."
 msgstr ""
-"ここで https://test.pypi.org/manage/account/#api-tokens へ行って同様のステッ"
-"プを繰り返してください。ここではテスト用の PyPI トークンを GitHub 上で "
-"``TEST_PYPI_API_TIKEN`` として保存します。"
+"ここで https://test.pypi.org/manage/account/publishing/ へ行って第２のステッ"
+"プを繰り返してください、ただし、今回は GitHub 環境の名称として ``testpypi`` "
+"を入力します。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:64
 msgid ""
 "Your \"pending\" publishers are now ready for their first use and will "
 "create your projects automatically once you use them for the first time."
 msgstr ""
+"ペンディングされたパブリッシャは今やその初回使用の準備ができており、初回使用"
+"を行えば自動的にあなたのプロジェクトを生成します。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
 msgid ""
@@ -7789,6 +7801,10 @@ msgid ""
 "environments-for-deployment#deployment-protection-rules>`_ on each run for "
 "the ``pypi`` environment."
 msgstr ""
+"セキュリティ上の理由から、``pypi`` 環境での実行の度に、 `手動での承認 "
+"<https://docs.github.com/en/actions/deployment/targeting-different-"
+"environments/using-environments-for-deployment#deployment-protection-"
+"rules>`_ を要求しなければなりません。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:83
 msgid "Creating a workflow definition"
@@ -7824,12 +7840,17 @@ msgid ""
 "We will have to define two jobs to publish to PyPI and TestPyPI "
 "respectively, and an additional job to build the distribution packages."
 msgstr ""
+"PyPI と TestPyPI に向けて出版 <publish> するためには、二つのジョブを定義しな"
+"ければならず、また、配布物のパッケージ群をビルドするための追加のジョブも定義"
+"しなければなりません。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:105
 msgid ""
 "First, we'll define the job for building the dist packages of your project "
 "and storing them for later use:"
 msgstr ""
+"最初に、あなたのプロジェクトの dist パッケージをビルドして、その後の使用のた"
+"めに保存するジョブを定義しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:113
 msgid ""
@@ -7840,16 +7861,13 @@ msgstr ""
 "最新の Python 3 リリースをインストールしアクティベートすることになります。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:116
-#, fuzzy
-#| msgid ""
-#| "And now we can build dists from source. In this example, we'll use "
-#| "``build`` package."
 msgid ""
 "And now we can build the dists from source and store them. In this example, "
 "we'll use the ``build`` package. So add this to the steps list:"
 msgstr ""
-"そして、今や我々はソースコードから配布物をビルドすることができます。この例で"
-"は、パッケージを ``build`` します。"
+"そして、今や我々はソースコードから dist 配布物をビルドして保存しておくことが"
+"できます。この例では、パッケージを ``build`` することになります。ですから、こ"
+"れをステップリストに加えましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
 msgid "Defining a workflow job environment"
@@ -7865,46 +7883,40 @@ msgid ""
 "acquiring an OpenID Connect token that the ``pypi-publish`` actions needs to "
 "implement secretless trusted publishing to PyPI."
 msgstr ""
+"さて、PyPI へ発行 <publish> される予定のジョブに初期設定を追加しましょう。そ"
+"れは、後ほど定義するであろうコマンドを実行するプロセスになるでしょう。このガ"
+"イド文書では、"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:142
 msgid ""
 "This will also ensure that the PyPI publishing workflow is only triggered if "
 "the current commit is tagged."
-msgstr ""
+msgstr "これは、当該コミットがタグ付きである時にだけ PyPI 公開 <publishing> "
+"ワークフローが起動されることをも保証するものです。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:146
-#, fuzzy
-#| msgid "Publishing the distribution to PyPI and TestPyPI"
 msgid "Publishing the distribution to PyPI"
-msgstr "PyPI と TestPyPI へ配布物を公開する"
+msgstr "PyPI へ配布物を公開する <publishng>"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:148
 msgid "Finally, add the following steps at the end:"
 msgstr "最後に、次の手続きを末尾に追加しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:155
-#, fuzzy
-#| msgid ""
-#| "These two steps use the `pypa/gh-action-pypi-publish`_ GitHub Action: the "
-#| "first one uploads contents of the ``dist/`` folder into TestPyPI "
-#| "unconditionally and the second does that to PyPI, but only if the current "
-#| "commit is tagged."
 msgid ""
 "This step uses the `pypa/gh-action-pypi-publish`_ GitHub Action: after the "
 "stored distribution package has been downloaded by the `download-artifact`_ "
 "action, it uploads the contents of the ``dist/`` folder into PyPI "
 "unconditionally."
 msgstr ""
-"これらふたつの手順は、 `pypa/gh-action-pypi-publich`_ GitHub アクションを使い"
-"ます: 一つ目は ``dist/`` ディレクトリの中身を無条件に TestPyPI にアップロード"
-"する時で、二つ目はそのコミットがタグ付けされている場合に限って PyPI へ送る時"
-"です。"
+"この手順では、保存されている配布パッケージが `download-artifact`_ "
+"アクションによってダウンロードされた後に `pypa/gh-action-pypi-publish`_ "
+"という GitHub Action: を使って、 ``dist/`` フォルダの内容物を無条件に PyPI "
+"へアップロードします。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:161
-#, fuzzy
-#| msgid "Linux distribution packages"
 msgid "Signing the distribution packages"
-msgstr "Linux 配布パッケージ"
+msgstr "配布パッケージに署名する"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
 msgid ""
@@ -10014,12 +10026,6 @@ msgstr ""
 
 #: ../source/key_projects.rst:185
 #, fuzzy
-#| msgid ""
-#| "Pipenv aims to help users manage environments, dependencies, and imported "
-#| "packages on the command line. It also works well on Windows (which other "
-#| "tools often underserve), makes and checkes file hashes, to ensure "
-#| "compliance with hash-locked dependency specifiers, and eases "
-#| "uninstallation of packages and dependencies."
 msgid ""
 "Pipenv aims to help users manage environments, dependencies, and imported "
 "packages on the command line. It also works well on Windows (which other "
@@ -10660,9 +10666,6 @@ msgstr "pypiserver"
 
 #: ../source/key_projects.rst:561
 #, fuzzy
-#| msgid ""
-#| "`GitHub and docs <https://github.com/pypa/readme_renderer/>`__ | `PyPI "
-#| "<https://pypi.org/project/readme-renderer/>`__"
 msgid ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI <https://pypi."
 "org/project/pypiserver/>`__"
@@ -11265,7 +11268,6 @@ msgstr ""
 
 #: ../source/news.rst:121
 #, fuzzy
-#| msgid "Updated Core Metadata spec to follw PEP 556. (:pr:`412`)"
 msgid "Updated Core Metadata spec to follow PEP 556. (:pr:`412`)"
 msgstr "コアとなるメタデータ仕様が PEP 556 に従うように更新した。 (:pr:`412`)"
 
@@ -11589,9 +11591,6 @@ msgstr ""
 
 #: ../source/news.rst:217
 #, fuzzy
-#| msgid ""
-#| "Swaped order of :file:`setup.py` arguments for the upload command, as "
-#| "order is significant. (:pr:`260`)"
 msgid ""
 "Swapped order of :file:`setup.py` arguments for the upload command, as order "
 "is significant. (:pr:`260`)"
@@ -14767,13 +14766,11 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:766
 #, fuzzy
-#| msgid "Rarely Used Fields"
 msgid "Deprecated Fields"
 msgstr "稀に使われるフィールド"
 
 #: ../source/specifications/core-metadata.rst:769
 #, fuzzy
-#| msgid "Requirements"
 msgid "Requires"
 msgstr "要求事項"
 
@@ -14783,9 +14780,6 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:775
 #, fuzzy
-#| msgid ""
-#| "Each entry contains a string naming some other distutils project required "
-#| "by this distribution."
 msgid ""
 "Each entry contains a string describing some other module or package "
 "required by this package."
@@ -14795,9 +14789,6 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:778
 #, fuzzy
-#| msgid ""
-#| "The format of a requirement string is a name of an external dependency, "
-#| "optionally followed by a version declaration within parentheses."
 msgid ""
 "The format of a requirement string is identical to that of a module or "
 "package name usable with the ``import`` statement, optionally followed by a "
@@ -14854,7 +14845,6 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:831
 #, fuzzy
-#| msgid "Obsolete"
 msgid "Obsoletes"
 msgstr "古い情報"
 
@@ -14864,10 +14854,6 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:837
 #, fuzzy
-#| msgid ""
-#| "Each entry contains a string describing a distutils project's "
-#| "distribution which this distribution renders obsolete, meaning that the "
-#| "two projects should not be installed at the same time."
 msgid ""
 "Each entry contains a string describing a package or module that this "
 "package renders obsolete, meaning that the two packages should not be "
@@ -14879,10 +14865,6 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:841
 #, fuzzy
-#| msgid ""
-#| "The most common use of this field will be in case a project name changes, "
-#| "e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
-#| "Torqued Python, the Gorgon distribution should be removed."
 msgid ""
 "The most common use of this field will be in case a package name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -16318,6 +16300,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:68
 #: ../source/specifications/direct-url-data-structure.rst:285
 #: ../source/specifications/source-distribution-format.rst:143
+#: ../source/specifications/name-normalization.rst:42
 msgid "History"
 msgstr "歴史"
 
@@ -18249,16 +18232,6 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:62
 #, fuzzy
-#| msgid ""
-#| "The ``.dist-info`` directory's name is formatted to unambigiously "
-#| "represent a distribution as a filesystem path. Tools presenting a "
-#| "distribution name to a user should avoid using the normalized name, and "
-#| "instead present the specified name (when needed prior to resolution to an "
-#| "installed package), or read the respective fields in Core Metadata, since "
-#| "values listed there are unescaped and accurately reflect the "
-#| "distribution. Libraries should provide API for such tools to consume, so "
-#| "tools can have access to the unnormalized name when displaying "
-#| "distrubution information."
 msgid ""
 "The ``.dist-info`` directory's name is formatted to unambiguously represent "
 "a distribution as a filesystem path. Tools presenting a distribution name to "
@@ -18588,7 +18561,6 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:237
 #, fuzzy
-#| msgid "To achieve this, affected tools should take the folllowing steps:"
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr ""
 "これを達成するために、影響を被るツール群は次のような段階を踏むべきです:"
@@ -18653,13 +18625,6 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:12
 #, fuzzy
-#| msgid ""
-#| "The current interface for querying available package versions and "
-#| "retrieving packages from an index server is defined in :pep:`503`, with "
-#| "the addition of \"yank\" support (allowing a kind of file deletion) in :"
-#| "pep:`592`, specifying the interface version provided by an index server "
-#| "in :pep:`629`, and providing package metadata independently from a "
-#| "package in :pep:`658`."
 msgid ""
 "The HTML format is defined in :pep:`503`, with the addition of \"yank\" "
 "support (allowing a kind of file deletion) in :pep:`592`, specifying the "
@@ -19085,11 +19050,6 @@ msgstr "仮想環境のランタイムを識別する"
 
 #: ../source/specifications/virtual-environments.rst:20
 #, fuzzy
-#| msgid ""
-#| "At runtime, virtual environments can be identified by virtue of ``sys."
-#| "prefix`` (the filesystem location of the running interpreter) having a "
-#| "different value from ``sys.base_prefix`` (the default filesytem location "
-#| "of the standard library directories)."
 msgid ""
 "At runtime, virtual environments can be identified by virtue of ``sys."
 "prefix`` (the filesystem location of the running interpreter) having a "
@@ -20920,6 +20880,20 @@ msgstr ""
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ":doc:`/guides/packaging-binary-extensions` について読みましょう。"
 
+#: ../source/specifications/name-normalization.rst:44
+msgid ""
+"`September 2015 <https://mail.python.org/pipermail/distutils-sig/2015-"
+"September/026899.html>`_: normalized name was originally specified in :pep:"
+"`503#normalized-names`."
+msgstr ""
+
+#: ../source/specifications/name-normalization.rst:45
+msgid ""
+"`November 2015 <https://mail.python.org/pipermail/distutils-sig/2015-"
+"November/027868.html>`_: valid non-normalized name was originally specified "
+"in :pep:`508#names`."
+msgstr ""
+
 #~ msgid "Saving credentials on GitHub"
 #~ msgstr "GitHub に認証情報を保存する"
 
@@ -20975,12 +20949,6 @@ msgstr ":doc:`/guides/packaging-binary-extensions` について読みましょ�
 #~ msgstr "それから、以下のものを ``build-n-publish`` 節に追加しましょう:"
 
 #, fuzzy
-#~| msgid ""
-#~| "You can use any other method for building distributions as long as it "
-#~| "produces ready-to-upload artifacts saved into the ``dist/`` folder. You "
-#~| "can even use ``actions/upload-artifact`` and ``actions/download-"
-#~| "artifact`` to tranfer files between jobs or make them accessable for "
-#~| "download from the web CI interface."
 #~ msgid ""
 #~ "You can use any other method for building distributions as long as it "
 #~ "produces ready-to-upload artifacts saved into the ``dist/`` folder. You "
