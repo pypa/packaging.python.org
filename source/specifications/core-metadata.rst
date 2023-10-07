@@ -556,8 +556,8 @@ picking which version of a project to install.
 
 The value must be in the format specified in :doc:`version-specifiers`.
 
-For example, if a distribution uses `f-strings <https://docs.python.org/3/whatsnew/3.6.html#pep-498-formatted-string-literals>`_
-then it may prevent installation on Python < 3.6 by specifying:
+For example, if a distribution uses :ref:`f-strings <whatsnew36-pep498>`
+then it may prevent installation on Python < 3.6 by specifying::
 
     Requires-Python: >=3.6
 
