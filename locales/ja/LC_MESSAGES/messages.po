@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-18 14:25+0000\n"
-"PO-Revision-Date: 2023-10-07 12:11+0000\n"
+"PO-Revision-Date: 2023-10-10 20:31+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -7924,12 +7924,17 @@ msgid ""
 "artifact signing system `used to sign CPython <https://www.python.org/"
 "download/sigstore/>`_."
 msgstr ""
+"以下に述べるジョブは、`CPython <https://www.python.org/download/sigstore/> "
+"に署名するのに使われる`_ ものと同じアーティファクトである `Sigstore`_ "
+"を使って配布パッケージに署名します。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:166
 msgid ""
 "It uses the `sigstore/gh-action-sigstore-python GitHub Action`_, and then "
 "uploads them to a GitHub Release."
 msgstr ""
+"それには `sigstore/gh-action-sigstore-python GitHub Action`_ を使い、"
+"それから GitHub Release にアップロードします。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:177
 msgid ""
@@ -7937,16 +7942,23 @@ msgid ""
 "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
 "However, this job is not mandatory for uploading to PyPI and can be omitted."
 msgstr ""
+"これは、 `PyPI から削除された <https://blog.pypi.org/posts/"
+"2023-05-23-removing-pgp/>`_ GPG 署名を代替するものです。しかしながら、"
+"このジョブは PyPI "
+"へアップロードする時に必須のものと言うわけではなく、省略することもできます。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:183
 msgid "Separate workflow for publishing to TestPyPI"
-msgstr ""
+msgstr "TestPyPI へ公開 <publish> するもうひとつのワークフロー"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:185
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
 msgstr ""
+"さて、これらのステップを繰り返して、 ``jobs`` セクションに TestPyPI "
+"パッケージインデックスに公開 <publish> "
+"するようなもうひとつのジョブを作成しましょう:"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:195
 msgid ""
@@ -7954,15 +7966,20 @@ msgid ""
 "typically unnecessary as it's designed to run on each commit to the main "
 "branch and is often used to indicate a healthy release publishing pipeline."
 msgstr ""
+"``testpypi`` Github 環境において手動の承認を要求することは、main ブランチへの"
+"コミット毎に走るように設計されていることから、典型的な場合には不必要とされて"
+"いて、使われるとすればリリースの公開 <publish> "
+"パイプラインが健全であることを示すためであることが多いのです。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:199
 msgid "The whole CI/CD workflow"
-msgstr ""
+msgstr "CI/CD ワークフローの全体像"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:201
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
-msgstr ""
+msgstr "この段落には、上述のガイド文書に従った場合のワークフローの全体像を披露します"
+"。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:209
 msgid "That's all, folks!"
@@ -7985,7 +8002,8 @@ msgstr ""
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
-msgstr ""
+msgstr "統合された GitHub Actions "
+"を最新版に保ち、頻繁にアップデートすることを推奨します。"
 
 #: ../source/guides/single-sourcing-package-version.rst:5
 msgid "Single-sourcing the package version"
@@ -10025,7 +10043,6 @@ msgstr ""
 "safety>`_ を使って `Pipfile` 中の CVE を確認することができます。"
 
 #: ../source/key_projects.rst:185
-#, fuzzy
 msgid ""
 "Pipenv aims to help users manage environments, dependencies, and imported "
 "packages on the command line. It also works well on Windows (which other "
@@ -10034,10 +10051,10 @@ msgid ""
 "and dependencies."
 msgstr ""
 "Pipenv は、ユーザがコマンドラインで環境・依存関係・インポートされたパッケージ"
-"を管理することを補助することを目的としています。 (他のツールが往々にしてうま"
-"く動かない) Windows 上でもきちんと動作し、ファイルのハッシュ値を計算し確認す"
-"ることでハッシュ値による依存関係識別子との互換性を確保し、パッケージの依存関"
-"係先のアンインストールを容易にします。"
+"を管理することを補助することを目的としています。 "
+"(他のツールが往々にしてうまく動かない) Windows 上でもきちんと動作し、ファイル"
+"のハッシュ値を計算し確認することでハッシュ値による依存関係識別子との互換性を"
+"確保し、パッケージの依存関係先のアンインストールを容易にします。"
 
 #: ../source/key_projects.rst:194
 msgid "Pipfile"
@@ -10665,13 +10682,12 @@ msgid "pypiserver"
 msgstr "pypiserver"
 
 #: ../source/key_projects.rst:561
-#, fuzzy
 msgid ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI <https://pypi."
 "org/project/pypiserver/>`__"
 msgstr ""
-"`GitHub および説明文書 <https://github.com/pypa/readme_renderer/>`__ | `PyPI "
-"<https://pypi.org/project/readme-renderer/>`__"
+"`GitHub <https://github.com/pypiserver/pypiserver/>`__ | `PyPI <https://pypi."
+"org/project/pypiserver/>`__"
 
 #: ../source/key_projects.rst:564
 msgid ""
@@ -11267,7 +11283,6 @@ msgstr ""
 "pypi.org における long description 分類子について明確化した。 (:pr:`456`)"
 
 #: ../source/news.rst:121
-#, fuzzy
 msgid "Updated Core Metadata spec to follow PEP 556. (:pr:`412`)"
 msgstr "コアとなるメタデータ仕様が PEP 556 に従うように更新した。 (:pr:`412`)"
 
@@ -11590,13 +11605,11 @@ msgstr ""
 "を ``.org`` から ``.io`` に変更した。 (:pr:`239`)"
 
 #: ../source/news.rst:217
-#, fuzzy
 msgid ""
 "Swapped order of :file:`setup.py` arguments for the upload command, as order "
 "is significant. (:pr:`260`)"
-msgstr ""
-"順序が意味を持つので、アップロードコマンドの :file:`setup.py` の引数の順序を"
-"入れ替えた。 (:pr:`260`)"
+msgstr "順序が意味を持つので、アップロードコマンドの :file:`setup.py` "
+"の引数の順序を入れ替えた。 (:pr:`260`)"
 
 #: ../source/news.rst:219
 msgid ""
@@ -14765,37 +14778,33 @@ msgstr ""
 "きです。"
 
 #: ../source/specifications/core-metadata.rst:766
-#, fuzzy
 msgid "Deprecated Fields"
-msgstr "稀に使われるフィールド"
+msgstr "非推奨となったフィールド"
 
 #: ../source/specifications/core-metadata.rst:769
-#, fuzzy
 msgid "Requires"
 msgstr "要求事項"
 
 #: ../source/specifications/core-metadata.rst:772
 msgid "in favour of ``Requires-Dist``"
-msgstr ""
+msgstr "``Requires-Dist`` に従って"
 
 #: ../source/specifications/core-metadata.rst:775
-#, fuzzy
 msgid ""
 "Each entry contains a string describing some other module or package "
 "required by this package."
-msgstr ""
-"それぞれのエントリは、この配布物が要求する他の distutils のプロジェクトを名指"
-"しする文字列を含みます。"
+msgstr "それぞれのエントリは、このパッケージが必要とする他のモジュールやパッケージを"
+"記述した文字列を含みます。"
 
 #: ../source/specifications/core-metadata.rst:778
-#, fuzzy
 msgid ""
 "The format of a requirement string is identical to that of a module or "
 "package name usable with the ``import`` statement, optionally followed by a "
 "version declaration within parentheses."
 msgstr ""
-"要求事項の文字列のフォーマットは外部の依存先の名前で、必須ではありませんが括"
-"弧に入れたバージョンの宣言を後ろにつけても構いません。"
+"要求事項の文字列のフォーマットは、 ``import`` ステートメントで使うことができ"
+"るモジュールやパッケージの名前のフォーマットと同一のもので、オプションとして"
+"カッコ内に入れたバージョン宣言を伴うことがあります。"
 
 #: ../source/specifications/core-metadata.rst:782
 msgid ""
@@ -14807,6 +14816,12 @@ msgid ""
 "on the end consisting of the letter 'a' or 'b' followed by a number. Example "
 "version numbers are \"1.0\", \"2.3a2\", \"1.3.99\","
 msgstr ""
+"バージョン宣言は、一連の比較演算子とバージョン番号をカンマで区切ったものです"
+"。比較演算子は、\"<\", \">\", \"<=\", \">=\", \"==\", \"!=\" "
+"のいずれかひとつでなければなりません。バージョン番号は、オプションとして 'a' "
+"か 'b' の後ろに数字が続く形の \"pre-release\" タグを末尾につけた、二つか三つ"
+"の数字部分をドットで区切ったものです。バージョン番号の例としては、 \"1.0\" "
+"や \"2.3a2\" や \"1.3.99\" 、"
 
 #: ../source/specifications/core-metadata.rst:790
 msgid ""
