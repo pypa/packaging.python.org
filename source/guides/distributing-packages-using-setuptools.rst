@@ -484,7 +484,7 @@ Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
 For more information see the distutils section on :ref:`Installing Additional Files
-<python:distutils-additional-files>`.
+<setuptools:distutils-additional-files>`.
 
 .. note::
 
@@ -498,7 +498,7 @@ For more information see the distutils section on :ref:`Installing Additional Fi
 ~~~~~~~~~~~
 
 Although ``setup()`` supports a :ref:`scripts
-<python:distutils-installing-scripts>`
+<setuptools:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
