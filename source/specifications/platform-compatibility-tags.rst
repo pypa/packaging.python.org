@@ -92,8 +92,10 @@ decide how to best use the ABI tag.
 Platform Tag
 ------------
 
-The platform tag is simply ``distutils.util.get_platform()`` with all
+The platform tag is simply ``sysconfig.get_platform()`` with all
 hyphens ``-`` and periods ``.`` replaced with underscore ``_``.
+Until the removal of :ref:`distutils` in Python 3.12, this
+was ``distutils.util.get_platform()``.
 
 * win32
 * linux_i386

@@ -93,7 +93,7 @@ migration, and what settings to change in your clients.
        :ref:`virtualenv`. However, using :ref:`virtualenv` will still be
        recommended for users that need cross-version consistency.
 
-.. [5] Although you can use pure ``distutils`` for many projects, it does not
+.. [5] Although you can use pure :ref:`distutils` for many projects, it does not
        support defining dependencies on other projects and is missing several
        convenience utilities for automatically populating distribution metadata
        correctly that are provided by ``setuptools``. Being outside the
