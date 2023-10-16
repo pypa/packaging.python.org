@@ -676,21 +676,20 @@ build of the Python distribution.
 distutils
 =========
 
-`Docs <https://docs.python.org/3/library/distutils.html>`__ |
-`Issues <https://bugs.python.org/>`__
-
 The original Python packaging system, added to the standard library in
 Python 2.0.
 
 Due to the challenges of maintaining a packaging system
 where feature updates are tightly coupled to language runtime updates,
-direct usage of :ref:`distutils` is now actively discouraged, with
+direct usage of :ref:`distutils` has been actively discouraged, with
 :ref:`Setuptools` being the preferred replacement. :ref:`Setuptools`
 not only provides features that plain :ref:`distutils` doesn't offer
 (such as dependency declarations and entry point declarations), it
 also provides a consistent build interface and feature set across all
 supported Python versions.
 
+Consequently, :ref:`distutils` was deprecated in Python 3.10 by :pep:`632` and
+has been :doc:`removed <python:whatsnew/3.12>` from the standard library in Python 3.12.
 
 .. _venv:
 
