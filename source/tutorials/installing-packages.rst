@@ -9,7 +9,7 @@ This section covers the basics of how to install Python :term:`packages
 
 It's important to note that the term "package" in this context is being used to
 describe a bundle of software to be installed (i.e. as a synonym for a
-:term:`distribution <Distribution Package>`). It does not to refer to the kind
+:term:`distribution <Distribution Package>`). It does not refer to the kind
 of :term:`package <Import Package>` that you import in your Python source code
 (i.e. a container of modules). It is common in the Python community to refer to
 a :term:`distribution <Distribution Package>` using the term "package".  Using
