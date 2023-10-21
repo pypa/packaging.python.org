@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-16 07:05+0000\n"
-"PO-Revision-Date: 2023-10-16 07:05+0000\n"
+"PO-Revision-Date: 2023-10-16 11:35+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ja/>\n"
@@ -2121,21 +2121,16 @@ msgstr ""
 "`ソースコード配布物 (またはsdist) <Source Distribution (or \"sdist\")>`"
 
 #: ../source/glossary.rst:210
-#, fuzzy
-#| msgid ""
-#| "A :term:`distribution <Distribution Package>` format (usually generated "
-#| "using ``python setup.py sdist``) that provides metadata and the essential "
-#| "source files needed for installing by a tool like :ref:`pip`, or for "
-#| "generating a :term:`Built Distribution`."
 msgid ""
 "A :term:`distribution <Distribution Package>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
 "source files needed for installing by a tool like :ref:`pip`, or for "
 "generating a :term:`Built Distribution`."
 msgstr ""
-":ref:`pip`のようなツールでインストールするか :term:`ビルド配布物 <Build "
-"Distribution>` を生成するのに必要なメタデータと必須ソースコードを提供する :"
-"term:`配布物 <Distribution Package>` フォーマット。"
+":ref:`pip`のようなツールでインストールする時や :term:`ビルド配布物 <Build "
+"Distribution>` を生成する時に必要なメタデータと必須ソースコードを提供する、"
+"(通常は ``python -m build --sdist`` を使って生成される) :term:`配布物 "
+"<Distribution Package>` フォーマット 。"
 
 #: ../source/glossary.rst:215
 msgid "System Package"
@@ -14876,15 +14871,19 @@ msgid ""
 "(without a comparison operator); the package’s version number will be "
 "implied if none is specified."
 msgstr ""
+"それぞれのエントリには、そのパッケージをインストールすると提供されるであろう"
+"パッケージなりモジュールなりについて記述した文字列を含みます。このような文字"
+"列は、Requirements フィールドで使われるものに合致しているべきです。 (比較演算"
+"子なしなら) バージョン宣言もあっても構いません; もしバージョン宣言がなけれ"
+"ば、そのパッケージのバージョン番号を援用します。"
 
 #: ../source/specifications/core-metadata.rst:831
-#, fuzzy
 msgid "Obsoletes"
-msgstr "古い情報"
+msgstr "古くなった <Obsoletes>"
 
 #: ../source/specifications/core-metadata.rst:834
 msgid "in favour of ``Obsoletes-Dist``"
-msgstr ""
+msgstr "``Obsoletes-Dist`` に従って"
 
 #: ../source/specifications/core-metadata.rst:837
 #, fuzzy
@@ -17482,9 +17481,6 @@ msgstr "プラットフォームタグ"
 
 #: ../source/specifications/platform-compatibility-tags.rst:95
 #, fuzzy
-#| msgid ""
-#| "The platform tag is simply ``distutils.util.get_platform()`` with all "
-#| "hyphens ``-`` and periods ``.`` replaced with underscore ``_``."
 msgid ""
 "The platform tag is simply ``sysconfig.get_platform()`` with all hyphens ``-"
 "`` and periods ``.`` replaced with underscore ``_``. Until the removal of :"
@@ -20932,6 +20928,29 @@ msgstr ""
 #: ../source/tutorials/packaging-projects.rst:519
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ":doc:`/guides/packaging-binary-extensions` について読みましょう。"
+
+#: ../source/tutorials/installing-packages.rst:10
+#, fuzzy
+msgid ""
+"It's important to note that the term \"package\" in this context is being "
+"used to describe a bundle of software to be installed (i.e. as a synonym for "
+"a :term:`distribution <Distribution Package>`). It does not refer to the "
+"kind of :term:`package <Import Package>` that you import in your Python "
+"source code (i.e. a container of modules). It is common in the Python "
+"community to refer to a :term:`distribution <Distribution Package>` using "
+"the term \"package\".  Using the term \"distribution\" is often not "
+"preferred, because it can easily be confused with a Linux distribution, or "
+"another larger software distribution like Python itself."
+msgstr ""
+"この文脈では、 \"パッケージ\" という用語が、インストールされるソフトウェアの"
+"束を表すものである (すなわち、 :term:`配布物 <Distribution Package>` の同義語"
+"である) ことを注記しておくことは重要です。 Python のなんらかのソースコードを"
+"インポートする (つまり、モジュール群の) 容れ物としての :term:`パッケージ "
+"<Import Package>` のことを指してはいないのです。 Python のコミュニティで"
+"は、 :term:`配布物 <Distribution Package>` のことを \"パッケージ\" という用語"
+"で呼ぶことは一般的に行われています。 Linux ディストロや、 Python そのもののよ"
+"うなその他の大きなソフトウェア配布物と紛らわしいので、 \"配布物\" という用語"
+"を使うことはしばしば歓迎されません。"
 
 #~ msgid ""
 #~ "`Docs <https://docs.python.org/3/library/distutils.html>`__ | `Issues "
