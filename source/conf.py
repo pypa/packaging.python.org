@@ -393,6 +393,9 @@ linkcheck_ignore = [
     # Ignoring it as it will redirect to login page if reader hasn't logged in.
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
+    # Temporarily ignored. Ref:
+    # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
+    "https://www.breezy-vcs.org/*",
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.
