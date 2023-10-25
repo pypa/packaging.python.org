@@ -103,8 +103,8 @@ such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
 to PyPI. Flit requires Python 3, but you can use it to distribute modules for
 Python 2, so long as they can be imported on Python 3.
 
-The flit packaged is lifted by `Matthias Bussonnier
-<https://github.com/Carreau>`__ since October 2023 on the `tidelift paltform
+The flit package is lifted by `Matthias Bussonnier
+<https://github.com/Carreau>`__ since October 2023 on the `tidelift platform
 `<https://tidelift.com/lifter/search/pypi/flit`__, and funds sent to the PSF and
 earmarked for PyPA usage.
 
