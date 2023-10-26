@@ -61,6 +61,9 @@ jobs:
       contents: write  # IMPORTANT: mandatory for making GitHub Releases
       id-token: write  # IMPORTANT: mandatory for sigstore
 
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+
     steps:
     - name: Download all the dists
       uses: actions/download-artifact@v3
@@ -80,8 +83,6 @@ jobs:
         --repo '${{ github.repository }}'
         --notes ""
     - name: Upload artifact signatures to GitHub Release
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
       # Upload to GitHub Release using the `gh` CLI.
       # `dist/` contains the built packages, and the
       # sigstore-produced signatures and certificates.
