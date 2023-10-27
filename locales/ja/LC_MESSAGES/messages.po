@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-16 07:05+0000\n"
+"POT-Creation-Date: 2023-10-24 09:37+0000\n"
 "PO-Revision-Date: 2023-10-23 07:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7932,13 +7932,18 @@ msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:166
 msgid ""
-"It uses the `sigstore/gh-action-sigstore-python GitHub Action`_, and then "
-"uploads them to a GitHub Release."
+"Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ to "
+"sign the distribution packages. In the next step, an empty GitHub Release "
+"from the current tag is created using the ``gh`` CLI. Note this step can be "
+"further customised. See the `gh release documentation <https://cli.github."
+"com/manual/gh_release>`_ as a reference."
 msgstr ""
-"それには `sigstore/gh-action-sigstore-python GitHub Action`_ を使い、それか"
-"ら GitHub Release にアップロードします。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:177
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
+msgid "Finally, the signed distributions are uploaded to the GitHub Release."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
 msgid ""
 "This is a replacement for GPG signatures, for which support has been "
 "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
@@ -7948,11 +7953,11 @@ msgstr ""
 "removing-pgp/>`_ GPG 署名を代替するものです。しかしながら、このジョブは PyPI "
 "へアップロードする時に必須のものと言うわけではなく、省略することもできます。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:183
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "TestPyPI へ公開 <publish> するもうひとつのワークフロー"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:185
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -7960,7 +7965,7 @@ msgstr ""
 "さて、これらのステップを繰り返して、 ``jobs`` セクションに TestPyPI パッケー"
 "ジインデックスに公開 <publish> するようなもうひとつのジョブを作成しましょう:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:195
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -7971,22 +7976,22 @@ msgstr ""
 "いて、使われるとすればリリースの公開 <publish> パイプラインが健全であることを"
 "示すためであることが多いのです。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:199
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:204
 msgid "The whole CI/CD workflow"
 msgstr "CI/CD ワークフローの全体像"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:201
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:206
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "この段落には、上述のガイド文書に従った場合のワークフローの全体像を披露しま"
 "す。"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:209
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
 msgid "That's all, folks!"
 msgstr "これでできましたよ、皆さん!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:211
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -7999,7 +8004,7 @@ msgstr ""
 "にテストビルドを提供するためにも、あなたのリリースパイプラインが健全な状態に"
 "保たれていることを確認するためにも役に立ちます!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:219
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -14891,10 +14896,10 @@ msgid ""
 "package renders obsolete, meaning that the two packages should not be "
 "installed at the same time. Version declarations can be supplied."
 msgstr ""
-"それぞれのエントリには、あるパッケージなりモジュールなりがあることで、"
-"このパッケージが使われなくなっている <obsolete> ということを記述する、すなわ"
-"ち、これら二つのパッケージは同時にはインストールされるべきではないことを示す"
-"、そのような文字列が含まれます。バージョン宣言を書いておくことができます。"
+"それぞれのエントリには、あるパッケージなりモジュールなりがあることで、この"
+"パッケージが使われなくなっている <obsolete> ということを記述する、すなわち、"
+"これら二つのパッケージは同時にはインストールされるべきではないことを示す、そ"
+"のような文字列が含まれます。バージョン宣言を書いておくことができます。"
 
 #: ../source/specifications/core-metadata.rst:841
 msgid ""
@@ -14904,8 +14909,8 @@ msgid ""
 msgstr ""
 "このフィールドの最もよくある使い方は、例えば Gorgon 2.3 が Torqued Python "
 "1.0 の一部として組み込まれた時のように、プロジェクトの名前が変更された場合で"
-"しょう。 Torqued Python をインストールするなら、 Gorgon "
-"パッケージは削除されるべきです。"
+"しょう。 Torqued Python をインストールするなら、 Gorgon パッケージは削除され"
+"るべきです。"
 
 #: ../source/specifications/core-metadata.rst:852
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
@@ -16331,6 +16336,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:68
 #: ../source/specifications/direct-url-data-structure.rst:285
+#: ../source/specifications/externally-managed-environments.rst:25
 #: ../source/specifications/name-normalization.rst:42
 #: ../source/specifications/source-distribution-format.rst:143
 msgid "History"
@@ -17153,6 +17159,14 @@ msgstr ""
 "仮想環境 <virtual-environment>` を使う方向に向かうべきであると促すことができ"
 "るようになります。"
 
+#: ../source/specifications/externally-managed-environments.rst:26
+msgid ""
+"`June 2022 <https://discuss.python.org/t/pep-668-marking-python-base-"
+"environments-as-externally-managed/10302/44>`_: ``EXTERNALLY-MANAGED`` "
+"marker file was originally specified in :pep:`668#marking-an-interpreter-as-"
+"using-an-external-package-manager`."
+msgstr ""
+
 #: ../source/specifications/index.rst:4
 msgid "PyPA specifications"
 msgstr "PyPA 仕様"
@@ -17266,9 +17280,9 @@ msgid ""
 "September/026899.html>`_: normalized name was originally specified in :pep:"
 "`503#normalized-names`."
 msgstr ""
-"`2015年9月 <https://mail.python.org/pipermail/distutils-sig/2015-September/"
-"026899.html>`_: 正規化された名称は、元々は :pep:`503#normalized-names` "
-"で仕様化されていました。"
+"`2015年9月 <https://mail.python.org/pipermail/distutils-sig/2015-"
+"September/026899.html>`_: 正規化された名称は、元々は :pep:`503#normalized-"
+"names` で仕様化されていました。"
 
 #: ../source/specifications/name-normalization.rst:45
 msgid ""
@@ -17276,9 +17290,9 @@ msgid ""
 "November/027868.html>`_: valid non-normalized name was originally specified "
 "in :pep:`508#names`."
 msgstr ""
-"`2015年11月 <https://mail.python.org/pipermail/distutils-sig/2015-November/"
-"027868.html>`_: 正当であるが正規化されてはいない名称は、元々は "
-":pep:`508#names` で仕様化されていました。"
+"`2015年11月 <https://mail.python.org/pipermail/distutils-sig/2015-"
+"November/027868.html>`_: 正当であるが正規化されてはいない名称は、元々は :pep:"
+"`508#names` で仕様化されていました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:6
 msgid "Platform compatibility tags"
@@ -17490,9 +17504,9 @@ msgid ""
 "`` and periods ``.`` replaced with underscore ``_``. Until the removal of :"
 "ref:`distutils` in Python 3.12, this was ``distutils.util.get_platform()``."
 msgstr ""
-"プラットフォームタグは、すべてのハイフン ``-`` とピリオド ``.`` "
-"をアンダースコア ``_`` で単純に置き換えた ``sysconfig.get_platform()`` です。"
-" :ref:`distutils` が Python 3.12 で削除されるまでは、これは ``distutils.util."
+"プラットフォームタグは、すべてのハイフン ``-`` とピリオド ``.`` をアンダース"
+"コア ``_`` で単純に置き換えた ``sysconfig.get_platform()`` です。 :ref:"
+"`distutils` が Python 3.12 で削除されるまでは、これは ``distutils.util."
 "get_platform()`` でした。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:100
@@ -19298,10 +19312,11 @@ msgstr ""
 "ルする方法の基本について示します。"
 
 #: ../source/tutorials/installing-packages.rst:10
+#, fuzzy
 msgid ""
 "It's important to note that the term \"package\" in this context is being "
 "used to describe a bundle of software to be installed (i.e. as a synonym for "
-"a :term:`distribution <Distribution Package>`). It does not to refer to the "
+"a :term:`distribution <Distribution Package>`). It does not refer to the "
 "kind of :term:`package <Import Package>` that you import in your Python "
 "source code (i.e. a container of modules). It is common in the Python "
 "community to refer to a :term:`distribution <Distribution Package>` using "
@@ -20934,28 +20949,33 @@ msgstr ""
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ":doc:`/guides/packaging-binary-extensions` について読みましょう。"
 
-#: ../source/tutorials/installing-packages.rst:10
-#, fuzzy
-msgid ""
-"It's important to note that the term \"package\" in this context is being "
-"used to describe a bundle of software to be installed (i.e. as a synonym for "
-"a :term:`distribution <Distribution Package>`). It does not refer to the "
-"kind of :term:`package <Import Package>` that you import in your Python "
-"source code (i.e. a container of modules). It is common in the Python "
-"community to refer to a :term:`distribution <Distribution Package>` using "
-"the term \"package\".  Using the term \"distribution\" is often not "
-"preferred, because it can easily be confused with a Linux distribution, or "
-"another larger software distribution like Python itself."
-msgstr ""
-"この文脈では、 \"パッケージ\" という用語が、インストールされるソフトウェアの"
-"束を表すものである (すなわち、 :term:`配布物 <Distribution Package>` の同義語"
-"である) ことを注記しておくことは重要です。 Python のなんらかのソースコードを"
-"インポートする (つまり、モジュール群の) 容れ物としての :term:`パッケージ "
-"<Import Package>` のことを指してはいないのです。 Python のコミュニティで"
-"は、 :term:`配布物 <Distribution Package>` のことを \"パッケージ\" という用語"
-"で呼ぶことは一般的に行われています。 Linux ディストロや、 Python そのもののよ"
-"うなその他の大きなソフトウェア配布物と紛らわしいので、 \"配布物\" という用語"
-"を使うことはしばしば歓迎されません。"
+#~ msgid ""
+#~ "It uses the `sigstore/gh-action-sigstore-python GitHub Action`_, and then "
+#~ "uploads them to a GitHub Release."
+#~ msgstr ""
+#~ "それには `sigstore/gh-action-sigstore-python GitHub Action`_ を使い、それ"
+#~ "から GitHub Release にアップロードします。"
+
+#~ msgid ""
+#~ "It's important to note that the term \"package\" in this context is being "
+#~ "used to describe a bundle of software to be installed (i.e. as a synonym "
+#~ "for a :term:`distribution <Distribution Package>`). It does not to refer "
+#~ "to the kind of :term:`package <Import Package>` that you import in your "
+#~ "Python source code (i.e. a container of modules). It is common in the "
+#~ "Python community to refer to a :term:`distribution <Distribution "
+#~ "Package>` using the term \"package\".  Using the term \"distribution\" is "
+#~ "often not preferred, because it can easily be confused with a Linux "
+#~ "distribution, or another larger software distribution like Python itself."
+#~ msgstr ""
+#~ "この文脈では、 \"パッケージ\" という用語が、インストールされるソフトウェア"
+#~ "の束を表すものである (すなわち、 :term:`配布物 <Distribution Package>` の"
+#~ "同義語である) ことを注記しておくことは重要です。 Python のなんらかのソース"
+#~ "コードをインポートする (つまり、モジュール群の) 容れ物としての :term:`パッ"
+#~ "ケージ <Import Package>` のことを指してはいないのです。 Python のコミュニ"
+#~ "ティでは、 :term:`配布物 <Distribution Package>` のことを \"パッケージ\" "
+#~ "という用語で呼ぶことは一般的に行われています。 Linux ディストロや、 "
+#~ "Python そのもののようなその他の大きなソフトウェア配布物と紛らわしいので、 "
+#~ "\"配布物\" という用語を使うことはしばしば歓迎されません。"
 
 #~ msgid ""
 #~ "`Docs <https://docs.python.org/3/library/distutils.html>`__ | `Issues "

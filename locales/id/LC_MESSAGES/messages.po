@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-16 11:35+0000\n"
+"POT-Creation-Date: 2023-10-24 09:37+0000\n"
 "PO-Revision-Date: 2022-04-19 10:04+0000\n"
 "Last-Translator: SimpleXtra <simplextra25@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/pypa/"
@@ -5961,48 +5961,55 @@ msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:166
 msgid ""
-"It uses the `sigstore/gh-action-sigstore-python GitHub Action`_, and then "
-"uploads them to a GitHub Release."
+"Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ to "
+"sign the distribution packages. In the next step, an empty GitHub Release "
+"from the current tag is created using the ``gh`` CLI. Note this step can be "
+"further customised. See the `gh release documentation <https://cli.github."
+"com/manual/gh_release>`_ as a reference."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:177
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
+msgid "Finally, the signed distributions are uploaded to the GitHub Release."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
 msgid ""
 "This is a replacement for GPG signatures, for which support has been "
 "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
 "However, this job is not mandatory for uploading to PyPI and can be omitted."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:183
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:185
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:195
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
 "branch and is often used to indicate a healthy release publishing pipeline."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:199
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:204
 msgid "The whole CI/CD workflow"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:201
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:206
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:209
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
 msgid "That's all, folks!"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:211
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -6010,7 +6017,7 @@ msgid ""
 "well as making sure that your release pipeline remains healthy!"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:219
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -12275,6 +12282,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:68
 #: ../source/specifications/direct-url-data-structure.rst:285
+#: ../source/specifications/externally-managed-environments.rst:25
 #: ../source/specifications/name-normalization.rst:42
 #: ../source/specifications/source-distribution-format.rst:143
 msgid "History"
@@ -12873,6 +12881,14 @@ msgid ""
 "that they neither install nor remove packages into the interpreter’s default "
 "installation environment, and should instead guide the end user towards "
 "using :ref:`virtual-environments`."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:26
+msgid ""
+"`June 2022 <https://discuss.python.org/t/pep-668-marking-python-base-"
+"environments-as-externally-managed/10302/44>`_: ``EXTERNALLY-MANAGED`` "
+"marker file was originally specified in :pep:`668#marking-an-interpreter-as-"
+"using-an-external-package-manager`."
 msgstr ""
 
 #: ../source/specifications/index.rst:4
