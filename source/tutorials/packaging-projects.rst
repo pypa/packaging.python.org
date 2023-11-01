@@ -107,12 +107,13 @@ Choosing a build backend
 -----------------------
 
 Tools like :ref:`pip` and :ref:`build` do not actually convert your sources
-into a :term:`distribution package <Distribution Package>`; 
+into a :term:`distribution package <Distribution Package>` (like a wheel); 
 that job is performed by a _build backend_. The build backend determines how
 your project will specify its configuration, including metadata (information
 about the project, for example, the name and tags that are displayed on PyPI)
-and input files. Build backends have different levels of functionality, and
-you should choose one that suits your needs, but also meets your preferences.
+and input files. Build backends have different levels of functionality, such as
+whether they support building :term:`extension modules <Extension Module>`, and
+you should choose one that suits your needs and preferences.
 
 You can choose from a number of backends; this tutorial uses :ref:`Hatchling
 <hatch>` by default, but it will work identically with :ref:`setuptools`,
@@ -165,7 +166,9 @@ for more details.
 
 
 The ``requires`` key is a list of packages that are needed to build your package.
-The front end should install them automatically when building your package.
+The frontend should install them automatically when building your package.
+Frontends usually run builds in isolated environments, so omitting dependencies
+here may cause build-time errors.
 This should always include your backend's package, and might have other build-time
 dependencies.
 
