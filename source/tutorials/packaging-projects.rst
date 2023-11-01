@@ -103,8 +103,8 @@ Creating a test directory
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
 
 
-Creating pyproject.toml
------------------------
+Choosing your build backend
+---------------------------
 
 .. TODO: Add an intro sentence about pyproject.toml, and a sub-heading for
    "Configuring build tools"
