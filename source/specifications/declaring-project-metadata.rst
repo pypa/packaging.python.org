@@ -27,7 +27,7 @@ table which are not defined by this specification. For tools wishing
 to store their own settings in ``pyproject.toml``, they may use the
 ``[tool]`` table as defined in the
 :ref:`build dependency declaration specification <declaring-build-dependencies>`.
-The lack of a ``[project]`` table implicitly means the build back-end
+The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>`
 will dynamically provide all keys.
 
 The only keys required to be statically defined are:

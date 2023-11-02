@@ -140,7 +140,7 @@ hatch
 
 Hatch is a unified command-line tool meant to conveniently manage
 dependencies and environment isolation for Python developers. Python
-package developers use Hatch and its build backend Hatchling to
+package developers use Hatch and its :term:`build backend <Build Backend>` Hatchling to
 configure, version, specify dependencies for, and publish packages
 to PyPI. Its plugin system allows for easily extending functionality.
 
