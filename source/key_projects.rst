@@ -84,6 +84,30 @@ behaviours when asked to handle legacy packages and metadata that
 predate the modern interoperability standards and fall into the subset
 of packages that are incompatible with those standards.
 
+
+.. _distutils:
+
+distutils
+=========
+
+The original Python packaging system, added to the standard library in
+Python 2.0 and removed in 3.12.
+
+Due to the challenges of maintaining a packaging system
+where feature updates are tightly coupled to language runtime updates,
+direct usage of :ref:`distutils` has been actively discouraged, with
+:ref:`Setuptools` being the preferred replacement. :ref:`Setuptools`
+not only provides features that plain :ref:`distutils` doesn't offer
+(such as dependency declarations and entry point declarations), it
+also provides a consistent build interface and feature set across all
+supported Python versions.
+
+Consequently, :ref:`distutils` was deprecated in Python 3.10 by :pep:`632` and
+has been :doc:`removed <python:whatsnew/3.12>` from the standard library in
+Python 3.12.  Setuptools bundles the standalone copy of distutils, and it is
+injected even on Python < 3.12 if you import setuptools first or use pip.
+
+
 .. _flit:
 
 flit
@@ -452,6 +476,19 @@ problem of installing scientific software, and making package
 distribution stateless, cached, and branchable. It is used by some
 researchers but has been lacking in maintenance since 2016.
 
+.. _maturin:
+
+Maturin
+=======
+
+`Docs <https://www.maturin.rs>`__ |
+`GitHub <https://github.com/PyO3/maturin>`__
+
+Maturin is a build backend for Rust extension modules, also written in
+Rust. It supports building wheels for python 3.7+ on Windows, Linux, macOS and
+FreeBSD, can upload them to PyPI and has basic PyPy and GraalPy support.
+
+
 .. _meson-python:
 
 meson-python
@@ -472,7 +509,7 @@ of most complex build configurations.
 multibuild
 ==========
 
-`GitHub <https://github.com/matthew-brett/multibuild>`__
+`GitHub <https://github.com/multi-build/multibuild>`__
 
 Multibuild is a set of CI scripts for building and testing Python :term:`wheels <Wheel>` for
 Linux, macOS, and (less flexibly) Windows. Also see :ref:`cibuildwheel`.
@@ -595,14 +632,29 @@ scikit-build
 `GitHub <https://github.com/scikit-build/scikit-build/>`__ |
 `PyPI <https://pypi.org/project/scikit-build>`__
 
-Scikit-build is an improved build system generator for CPython
-C/C++/Fortran/Cython extensions that integrates with :ref:`setuptools`, :ref:`wheel`
-and :ref:`pip`. It internally uses `cmake <https://pypi.org/project/cmake>`__ (available
-on PyPI) to provide better support for additional compilers, build systems,
-cross compilation, and locating dependencies and their associated
-build requirements. To speed up and parallelize the build of large projects,
-the user can install `ninja <https://pypi.org/project/ninja>`__ (also available
-on PyPI).
+Scikit-build is a :ref:`setuptools` wrapper for CPython that builds
+C/C++/Fortran/Cython extensions It uses
+`cmake <https://pypi.org/project/cmake>`__ (available on PyPI) to provide
+better support for additional compilers, build systems, cross compilation, and
+locating dependencies and their associated build requirements. To speed up and
+parallelize the build of large projects, the user can install `ninja
+<https://pypi.org/project/ninja>`__ (also available on PyPI).
+
+.. _scikit-build-core:
+
+scikit-build-core
+=================
+
+`Docs <https://scikit-build-core.readthedocs.io/en/latest/>`__ |
+`GitHub <https://github.com/scikit-build/scikit-build-core/>`__ |
+`PyPI <https://pypi.org/project/scikit-build-core>`__
+
+Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython
+extensions.  It enables users to write extensions with `cmake
+<https://pypi.org/project/cmake>`__ (available on PyPI) to provide better
+support for additional compilers, build systems, cross compilation, and
+locating dependencies and their associated build requirements. CMake/Ninja
+are automatically downloaded from PyPI if not available on the system.
 
 .. _shiv:
 
@@ -670,26 +722,6 @@ A package in the Python Standard Library that provides support for bootstrapping
 cases, end users won't use this module, but rather it will be used during the
 build of the Python distribution.
 
-
-.. _distutils:
-
-distutils
-=========
-
-The original Python packaging system, added to the standard library in
-Python 2.0.
-
-Due to the challenges of maintaining a packaging system
-where feature updates are tightly coupled to language runtime updates,
-direct usage of :ref:`distutils` has been actively discouraged, with
-:ref:`Setuptools` being the preferred replacement. :ref:`Setuptools`
-not only provides features that plain :ref:`distutils` doesn't offer
-(such as dependency declarations and entry point declarations), it
-also provides a consistent build interface and feature set across all
-supported Python versions.
-
-Consequently, :ref:`distutils` was deprecated in Python 3.10 by :pep:`632` and
-has been :doc:`removed <python:whatsnew/3.12>` from the standard library in Python 3.12.
 
 .. _venv:
 
