@@ -103,12 +103,6 @@ Creating a test directory
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
 
 
-Installing the build backend
-----------------------------
-
-As mentioned, this tutorial uses the Hatchling build tool.  Go to https://hatch.pypa.io/latest/install/ and follow the instructions to install it.  (Or, install a different build tool and adapt the example below, following the documentation for that tool.)
-
-
 Creating pyproject.toml
 -----------------------
 
