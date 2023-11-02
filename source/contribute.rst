@@ -75,7 +75,7 @@ We use `Weblate`_ to manage translations of this project.
 Please visit the `packaging.python.org`_ project on Weblate to contribute.
 
 If you are experiencing issues while you are working on translations,
-please open an issue on `Github`_.
+please open an issue on `GitHub`_.
 
 .. tip::
 
@@ -83,7 +83,7 @@ please open an issue on `Github`_.
 
 .. _Weblate: https://weblate.org/
 .. _packaging.python.org: https://hosted.weblate.org/projects/pypa/packaging-python-org/
-.. _Github: https://github.com/pypa/packaging.python.org/issues
+.. _GitHub: https://github.com/pypa/packaging.python.org/issues
 .. _reStructuredText syntax: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 Adding a language
