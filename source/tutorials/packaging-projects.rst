@@ -104,11 +104,11 @@ Creating a test directory
 
 
 Choosing a build backend
------------------------
+------------------------
 
 Tools like :ref:`pip` and :ref:`build` do not actually convert your sources
 into a :term:`distribution package <Distribution Package>` (like a wheel); 
-that job is performed by a _build backend_. The build backend determines how
+that job is performed by a *build backend*. The build backend determines how
 your project will specify its configuration, including metadata (information
 about the project, for example, the name and tags that are displayed on PyPI)
 and input files. Build backends have different levels of functionality, such as
