@@ -39,7 +39,7 @@ def build(session, autobuild=False):
 
     if autobuild:
         command = "sphinx-autobuild"
-        extra_args = "-H", "0.0.0.0"
+        extra_args = "--host", "0.0.0.0"
     else:
         # NOTE: This branch adds options that are unsupported by autobuild
         command = "sphinx-build"
