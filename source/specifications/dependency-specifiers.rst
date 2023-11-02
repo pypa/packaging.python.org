@@ -488,4 +488,3 @@ References
 .. [#future_versions] Future Python versions might be problematic with the
    definition of Environment Marker Variable ``python_version``
    (https://github.com/python/peps/issues/560)
-
