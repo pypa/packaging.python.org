@@ -1,9 +1,9 @@
 Packaging Python Projects
 =========================
 
-This tutorial walks you through how to package a simple Python project. It will
-show you how to add the necessary files and structure to create the package, how
-to build the package, and how to upload it to the Python Package Index (PyPI).
+The tools required for building and distributing packages are third-party tools not included with Python.  This tutorial uses Hatchling, which is one among several such tools.  If you are already using different build tools, or you want to for whatever reason, you will need to look at the documentation for those tools.  In many cases it will be fairly easy to adapt this example.
+
+This tutorial walks you through how to package a simple Python project --- that is, one that contains only Python code (although it may depend on libraries that include extensions written in other languages).  If you need to package a project that has parts written in a language other than Python (such as a C extension), please look for third-party tools.  But, for a simple pure Python project, this tutorial show you how to add the necessary files and structure to create the package, how to build the package, and how to upload it to the Python Package Index (PyPI).
 
 .. tip::
 
@@ -103,6 +103,12 @@ Creating a test directory
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
 
 
+Installing the build backend
+----------------------------
+
+As mentioned, this tutorial uses the Hatchling build tool.  Go to https://hatch.pypa.io/latest/install/ and follow the instructions to install it.  (Or, install a different build tool and adapt the example below, following the documentation for that tool.)
+
+
 Creating pyproject.toml
 -----------------------
 
@@ -113,7 +119,7 @@ Creating pyproject.toml
 :ref:`build` what "backend" tool to use to create
 :term:`distribution packages <Distribution Package>` for your project.
 You can choose from a number of backends; this tutorial uses :ref:`Hatchling
-<hatch>` by default, but it will work identically with :ref:`setuptools`,
+<hatch>` by default, but the example can be adapted without much change for :ref:`setuptools`,
 :ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
 table for :ref:`metadata <configuring metadata>`.
 
@@ -124,40 +130,13 @@ table for :ref:`metadata <configuring metadata>`.
    management, as well as building, uploading, and installing packages. This
    tutorial uses single-purpose tools that work independently.
 
-Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
+Open :file:`pyproject.toml` and enter the following:
 
-.. tab:: Hatchling
+.. code-block:: toml
 
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
-.. tab:: setuptools
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools>=61.0"]
-        build-backend = "setuptools.build_meta"
-
-.. tab:: Flit
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["flit_core>=3.4"]
-        build-backend = "flit_core.buildapi"
-
-.. tab:: PDM
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["pdm-backend"]
-        build-backend = "pdm.backend"
-
+    [build-system]
+    requires = ["hatchling"]
+    build-backend = "hatchling.build"
 
 - ``requires`` is a list of packages that are needed to build your package. You
   don't need to install them; build frontends like :ref:`pip` will install them
@@ -165,6 +144,8 @@ Open :file:`pyproject.toml` and enter one of these ``[build-system]`` tables:
   build process.
 - ``build-backend`` is the name of the Python object that frontends will use to
   perform the build.
+
+If you use a different build backend, you'll need to change this section to reflect that.  See the documentation for your chosen build backend for information on how to do that.
 
 .. TODO: Add note to check the tools' documentation for the current snippet?
 
