@@ -484,7 +484,7 @@ Maturin
 `Docs <https://www.maturin.rs>`__ |
 `GitHub <https://github.com/PyO3/maturin>`__
 
-Maturin is a PEP 517 build backend for Rust extension modules, also written in
+Maturin is a build backend for Rust extension modules, also written in
 Rust. It supports building wheels for python 3.7+ on Windows, Linux, macOS and
 FreeBSD, can upload them to PyPI and has basic PyPy and GraalPy support.
 
@@ -632,14 +632,13 @@ scikit-build
 `GitHub <https://github.com/scikit-build/scikit-build/>`__ |
 `PyPI <https://pypi.org/project/scikit-build>`__
 
-Scikit-build is an improved build system generator for CPython
-C/C++/Fortran/Cython extensions that integrates with :ref:`setuptools`, :ref:`wheel`
-and :ref:`pip`. It internally uses `cmake <https://pypi.org/project/cmake>`__ (available
-on PyPI) to provide better support for additional compilers, build systems,
-cross compilation, and locating dependencies and their associated
-build requirements. To speed up and parallelize the build of large projects,
-the user can install `ninja <https://pypi.org/project/ninja>`__ (also available
-on PyPI).
+Scikit-build is a :ref:`setuptools` wrapper for CPython that builds
+C/C++/Fortran/Cython extensions It uses
+`cmake <https://pypi.org/project/cmake>`__ (available on PyPI) to provide
+better support for additional compilers, build systems, cross compilation, and
+locating dependencies and their associated build requirements. To speed up and
+parallelize the build of large projects, the user can install `ninja
+<https://pypi.org/project/ninja>`__ (also available on PyPI).
 
 .. _scikit-build-core:
 
@@ -650,7 +649,7 @@ scikit-build-core
 `GitHub <https://github.com/scikit-build/scikit-build-core/>`__ |
 `PyPI <https://pypi.org/project/scikit-build-core>`__
 
-Scikit-build-core is a PEP 517 backend for CPython C/C++/Fortran/Cython
+Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython
 extensions.  It enables users to write extensions with `cmake
 <https://pypi.org/project/cmake>`__ (available on PyPI) to provide better
 support for additional compilers, build systems, cross compilation, and
