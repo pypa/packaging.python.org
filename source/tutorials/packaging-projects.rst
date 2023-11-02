@@ -245,7 +245,7 @@ if you'd like.
     # Example Package
 
     This is a simple example package. You can use
-    [Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+    [GitHub-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
     to write your content.
 
 
@@ -517,4 +517,3 @@ some things you can do:
   :ref:`pdm`, and :ref:`poetry`.
 * Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-

@@ -52,7 +52,7 @@ Automated testing and continuous integration
 
 Several hosted services for automated testing are available. These services
 will typically monitor your source code repository (e.g. at
-`Github <https://github.com>`_ or `Bitbucket <https://bitbucket.org>`_)
+`GitHub <https://github.com>`_ or `Bitbucket <https://bitbucket.org>`_)
 and run your project's test suite every time a new commit is made.
 
 These services also offer facilities to run your project's test suite on

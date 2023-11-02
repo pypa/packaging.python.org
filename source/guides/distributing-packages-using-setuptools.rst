@@ -241,7 +241,7 @@ can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the Github-flavored Markdown dialect of `Markdown
+and the GitHub-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
 ``url``
