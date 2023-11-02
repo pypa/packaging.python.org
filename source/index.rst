@@ -32,34 +32,48 @@ happily accept any :doc:`contributions and feedback <contribute>`. 😊
 .. _GitHub: https://github.com/pypa/packaging.python.org
 
 
-Get started
-===========
+Overview
+========
+
+* To get an overview of packaging options for Python libraries and
+  applications, see the :doc:`Overview of Python Packaging <overview>`
+
+Tutorials
+=========
 
 Essential tools and concepts for working within the Python
-development ecosystem are covered in our :doc:`tutorials/index` section:
+development ecosystem are covered in our :doc:`tutorials/index` section.
 
-* To get an overview of the flow used to publish your code, see the
-  :doc:`packaging flow <flow>`
 * To learn how to install packages, see the
   :doc:`tutorial on installing packages <tutorials/installing-packages>`
 * To learn how to manage dependencies in a version controlled project, see the
   :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`
 * To learn how to package and distribute your projects, see the
   :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
-* To get an overview of packaging options for Python libraries and
-  applications, see the :doc:`Overview of Python Packaging <overview>`
 
-
-Learn more
-==========
-
-Beyond our :doc:`tutorials/index`, this guide has several other resources:
+Guides
+======
 
 * The :doc:`guides/index` section for walk throughs, such as
   :doc:`guides/installing-using-linux-tools` or :doc:`guides/packaging-binary-extensions`.
+
+Explanations and Discussions
+============================
+
+* To get an overview of the flow used to publish your code, see the
+  :doc:`packaging flow <flow>`
 * The :doc:`discussions/index` section for in-depth references on topics such as
   :doc:`discussions/deploying-python-applications` or :doc:`discussions/pip-vs-easy-install`.
-* The :doc:`specifications/index` section for packaging interoperability specifications.
 
-Additionally, there is a list of :doc:`other projects <key_projects>` maintained
+Reference
+=========
+
+* The :doc:`specifications/index` section for packaging interoperability specifications.
+* Additionally, there is a list of :doc:`other projects <key_projects>` maintained
 by members of the Python Packaging Authority.
+
+Get started
+===========
+
+
+
