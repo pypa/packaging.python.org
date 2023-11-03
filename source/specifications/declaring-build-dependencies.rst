@@ -18,8 +18,10 @@ Tables not defined by PyPA specifications are reserved for future use.
 build-system table
 ------------------
 
+.. TODO: merge with PEP 517
+
 The ``[build-system]`` table is used to store build-related data.
-Currently,  only one key of the table is be valid and is mandatory
+Initially,  only one key of the table is valid and is mandatory
 for the table: ``requires``. This key must have a value of a list
 of strings representing dependencies required to execute the
 build system. The strings in this list follow the :ref:`version specifier
