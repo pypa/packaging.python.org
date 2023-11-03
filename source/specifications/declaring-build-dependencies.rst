@@ -32,7 +32,7 @@ An example ``build-system`` table for a project built with
 
    [build-system]
    # Minimum requirements for the build system to execute.
-   requires = ["setuptools", "wheel"]
+   requires = ["setuptools"]
 
 Build tools are expected to use the example configuration file above as
 their default semantics when a ``pyproject.toml`` file is not present.
