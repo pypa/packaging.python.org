@@ -1,43 +1,15 @@
-
 .. _version-specifiers:
 
 ==================
 Version specifiers
 ==================
 
-Version numbering requirements and the semantics for specifying comparisons
-between versions are defined in :pep:`440`.
-
-The version specifiers section in this PEP supersedes the version specifiers
-section in :pep:`345`.
-
-
-PEP: 440
-Title: Version Identification and Dependency Specification
-Author: Alyssa Coghlan <ncoghlan@gmail.com>,
-        Donald Stufft <donald@stufft.io>
-BDFL-Delegate: Alyssa Coghlan <ncoghlan@gmail.com>
-Discussions-To: distutils-sig@python.org
-Status: Final
-Type: Standards Track
-Topic: Packaging
-Content-Type: text/x-rst
-Created: 18-Mar-2013
-Post-History: 30-Mar-2013, 27-May-2013, 20-Jun-2013,
-              21-Dec-2013, 28-Jan-2014, 08-Aug-2014,
-              22-Aug-2014
-Replaces: 386
-Resolution: https://mail.python.org/pipermail/distutils-sig/2014-August/024673.html
-
 
 Abstract
 ========
 
-This PEP describes a scheme for identifying versions of Python software
+This specification describes a scheme for identifying versions of Python software
 distributions, and declaring dependencies on particular versions.
-
-This document addresses several limitations of the previous attempt at a
-standardized approach to versioning, as described in :pep:`345` and :pep:`386`.
 
 
 Definitions
@@ -46,17 +18,6 @@ Definitions
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this
 document are to be interpreted as described in :rfc:`2119`.
-
-"Projects" are software components that are made available for integration.
-Projects include Python libraries, frameworks, scripts, plugins,
-applications, collections of data or other resources, and various
-combinations thereof. Public Python projects are typically registered on
-the `Python Package Index <https://pypi.org/>`__.
-
-"Releases" are uniquely identified snapshots of a project.
-
-"Distributions" are the packaged files which are used to publish
-and distribute a release.
 
 "Build tools" are automated tools intended to run on development systems,
 producing source and binary distribution archives. Build tools may also be
@@ -78,6 +39,7 @@ system.
 publication tools, integration tools and any other software that produces
 or consumes distribution version and dependency metadata.
 
+
 Version scheme
 ==============
 
@@ -89,6 +51,8 @@ provided by a particular distribution archive, as well as to place
 constraints on the version of dependencies needed in order to build or
 run the software.
 
+
+.. _public-version-identifiers:
 
 Public version identifiers
 --------------------------
@@ -107,10 +71,10 @@ this scheme but MUST also include the normalizations specified below.
 Installation tools MAY warn the user when non-compliant or ambiguous versions
 are detected.
 
-See also ``Appendix B : Parsing version strings with regular expressions``
-which provides a regular expression to check strict conformance with the
-canonical format, as well as a more permissive regular expression accepting
-inputs that may require subsequent normalization.
+See also :ref:`version-specifiers-regex` which provides a regular
+expression to check strict conformance with the canonical format, as
+well as a more permissive regular expression accepting inputs that may
+require subsequent normalization.
 
 Public version identifiers are separated into up to five segments:
 
@@ -726,7 +690,7 @@ a project to determine which versions it should install. These requirements
 necessitate a standardization across one parsing mechanism to be used for all
 versions of a project.
 
-Due to the above, this PEP MUST be used for all versions of metadata and
+Due to the above, this specification MUST be used for all versions of metadata and
 supersedes :pep:`386` even for metadata v1.2. Tools SHOULD ignore any versions
 which cannot be parsed by the rules in this PEP, but MAY fall back to
 implementation defined version parsing and ordering schemes if no versions
@@ -765,7 +729,7 @@ are fully compatible with the version scheme defined in this PEP, and abiding
 by these aspects is encouraged.
 
 Semantic versions containing a hyphen (pre-releases - clause 10) or a
-plus sign (builds - clause 11) are *not* compatible with this PEP
+plus sign (builds - clause 11) are *not* compatible with this specification
 and are not permitted in the public version field.
 
 One possible mechanism to translate such semantic versioning based source
@@ -1200,26 +1164,17 @@ part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \*nix on
 Windows the ``<host>`` parameter may be used to specify a file residing on a
 network share. In other words, in order to translate ``\\machine\volume\file``
 to a ``file://`` url, it would end up as ``file://machine/volume/file``. For
-more information on ``file://`` URLs on Windows see MSDN [4]_.
+more information on ``file://`` URLs on Windows see
+`MSDN <https://web.archive.org/web/20130321051043/http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`_.
 
-
-Updating the versioning specification
-=====================================
-
-The versioning specification may be updated with clarifications without
-requiring a new PEP or a change to the metadata version.
-
-Any technical changes that impact the version identification and comparison
-syntax and semantics would require an updated versioning scheme to be
-defined in a new PEP.
 
 
 Summary of differences from pkg_resources.parse_version
 =======================================================
 
 * Note: this comparison is to ``pkg_resourses.parse_version`` as it existed at
-  the time the PEP was written. After the PEP was accepted, setuptools 6.0 and
-  later versions adopted the behaviour described in this PEP.
+  the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 and
+  later versions adopted the behaviour described here.
 
 * Local versions sort differently, this PEP requires that they sort as greater
   than the same version without a local version, whereas
@@ -1234,390 +1189,17 @@ Summary of differences from pkg_resources.parse_version
   single use of each type and they must exist in a certain order.
 
 
-Summary of differences from PEP 386
-===================================
 
-* Moved the description of version specifiers into the versioning PEP
+.. _version-specifiers-regex:
 
-* Added the "direct reference" concept as a standard notation for direct
-  references to resources (rather than each tool needing to invent its own)
+Appendix: Parsing version strings with regular expressions
+==========================================================
 
-* Added the "local version identifier" and "local version label" concepts to
-  allow system integrators to indicate patched builds in a way that is
-  supported by the upstream tools, as well as to allow the incorporation of
-  build tags into the versioning of binary distributions.
-
-* Added the "compatible release" clause
-
-* Added the trailing wildcard syntax for prefix based version matching
-  and exclusion
-
-* Changed the top level sort position of the ``.devN`` suffix
-
-* Allowed single value version numbers
-
-* Explicit exclusion of leading or trailing whitespace
-
-* Explicit support for date based versions
-
-* Explicit normalisation rules to improve compatibility with
-  existing version metadata on PyPI where it doesn't introduce
-  ambiguity
-
-* Implicitly exclude pre-releases unless they're already present or
-  needed to satisfy a dependency
-
-* Treat post releases the same way as unqualified releases
-
-* Discuss ordering and dependencies across metadata versions
-
-* Switch from preferring ``c`` to ``rc``.
-
-The rationale for major changes is given in the following sections.
-
-
-Changing the version scheme
----------------------------
-
-One key change in the version scheme in this PEP relative to that in
-:pep:`386` is to sort top level developmental releases like ``X.Y.devN`` ahead
-of alpha releases like ``X.Ya1``. This is a far more logical sort order, as
-projects already using both development releases and alphas/betas/release
-candidates do not want their developmental releases sorted in
-between their release candidates and their final releases. There is no
-rationale for using ``dev`` releases in that position rather than
-merely creating additional release candidates.
-
-The updated sort order also means the sorting of ``dev`` versions is now
-consistent between the metadata standard and the pre-existing behaviour
-of ``pkg_resources`` (and hence the behaviour of current installation
-tools).
-
-Making this change should make it easier for affected existing projects to
-migrate to the latest version of the metadata standard.
-
-Another change to the version scheme is to allow single number
-versions, similar to those used by non-Python projects like Mozilla
-Firefox, Google Chrome and the Fedora Linux distribution. This is actually
-expected to be more useful for version specifiers, but it is easier to
-allow it for both version specifiers and release numbers, rather than
-splitting the two definitions.
-
-The exclusion of leading and trailing whitespace was made explicit after
-a couple of projects with version identifiers differing only in a
-trailing ``\n`` character were found on PyPI.
-
-Various other normalisation rules were also added as described in the
-separate section on version normalisation below.
-
-``Appendix A`` shows detailed results of an analysis of PyPI distribution
-version information, as collected on 8th August, 2014. This analysis
-compares the behavior of the explicitly ordered version scheme defined in
-this PEP with the de facto standard defined by the behavior of setuptools.
-These metrics are useful, as the intent of this PEP is to follow existing
-setuptools behavior as closely as is feasible, while still throwing
-exceptions for unorderable versions (rather than trying to guess an
-appropriate order as setuptools does).
-
-
-A more opinionated description of the versioning scheme
--------------------------------------------------------
-
-As in :pep:`386`, the primary focus is on codifying existing practices to make
-them more amenable to automation, rather than demanding that existing
-projects make non-trivial changes to their workflow. However, the
-standard scheme allows significantly more flexibility than is needed
-for the vast majority of simple Python packages (which often don't even
-need maintenance releases - many users are happy with needing to upgrade to a
-new feature release to get bug fixes).
-
-For the benefit of novice developers, and for experienced developers
-wishing to better understand the various use cases, the specification
-now goes into much greater detail on the components of the defined
-version scheme, including examples of how each component may be used
-in practice.
-
-The PEP also explicitly guides developers in the direction of
-semantic versioning (without requiring it), and discourages the use of
-several aspects of the full versioning scheme that have largely been
-included in order to cover esoteric corner cases in the practices of
-existing projects and in repackaging software for Linux distributions.
-
-
-Describing version specifiers alongside the versioning scheme
--------------------------------------------------------------
-
-The main reason to even have a standardised version scheme in the first place
-is to make it easier to do reliable automated dependency analysis. It makes
-more sense to describe the primary use case for version identifiers alongside
-their definition.
-
-
-Changing the interpretation of version specifiers
--------------------------------------------------
-
-The previous interpretation of version specifiers made it very easy to
-accidentally download a pre-release version of a dependency. This in
-turn made it difficult for developers to publish pre-release versions
-of software to the Python Package Index, as even marking the package as
-hidden wasn't enough to keep automated tools from downloading it, and also
-made it harder for users to obtain the test release manually through the
-main PyPI web interface.
-
-The previous interpretation also excluded post-releases from some version
-specifiers for no adequately justified reason.
-
-The updated interpretation is intended to make it difficult to accidentally
-accept a pre-release version as satisfying a dependency, while still
-allowing pre-release versions to be retrieved automatically when that's the
-only way to satisfy a dependency.
-
-The "some forward compatibility assumed" version constraint is derived from the
-Ruby community's "pessimistic version constraint" operator [2]_ to allow
-projects to take a cautious approach to forward compatibility promises, while
-still easily setting a minimum required version for their dependencies. The
-spelling of the compatible release clause (``~=``) is inspired by the Ruby
-(``~>``) and PHP (``~``) equivalents.
-
-Further improvements are also planned to the handling of parallel
-installation of multiple versions of the same library, but these will
-depend on updates to the installation database definition along with
-improved tools for dynamic path manipulation.
-
-The trailing wildcard syntax to request prefix based version matching was
-added to make it possible to sensibly define compatible release clauses.
-
-
-Support for date based version identifiers
-------------------------------------------
-
-Excluding date based versions caused significant problems in migrating
-``pytz`` to the new metadata standards. It also caused concerns for the
-OpenStack developers, as they use a date based versioning scheme and would
-like to be able to migrate to the new metadata standards without changing
-it.
-
-
-Adding version epochs
----------------------
-
-Version epochs are added for the same reason they are part of other
-versioning schemes, such as those of the Fedora and Debian Linux
-distributions: to allow projects to gracefully change their approach to
-numbering releases, without having a new release appear to have a lower
-version number than previous releases and without having to change the name
-of the project.
-
-In particular, supporting version epochs allows a project that was previously
-using date based versioning to switch to semantic versioning by specifying
-a new version epoch.
-
-The ``!`` character was chosen to delimit an epoch version rather than the
-``:`` character, which is commonly used in other systems, due to the fact that
-``:`` is not a valid character in a Windows directory name.
-
-
-Adding direct references
-------------------------
-
-Direct references are added as an "escape clause" to handle messy real
-world situations that don't map neatly to the standard distribution model.
-This includes dependencies on unpublished software for internal use, as well
-as handling the more complex compatibility issues that may arise when
-wrapping third party libraries as C extensions (this is of especial concern
-to the scientific community).
-
-Index servers are deliberately given a lot of freedom to disallow direct
-references, since they're intended primarily as a tool for integrators
-rather than publishers. PyPI in particular is currently going through the
-process of *eliminating* dependencies on external references, as unreliable
-external services have the effect of slowing down installation operations,
-as well as reducing PyPI's own apparent reliability.
-
-
-Adding arbitrary equality
--------------------------
-
-Arbitrary equality is added as an "escape clause" to handle the case where
-someone needs to install a project which uses a non compliant version. Although
-this PEP is able to attain ~97% compatibility with the versions that are
-already on PyPI there are still ~3% of versions which cannot be parsed. This
-operator gives a simple and effective way to still depend on them without
-having to "guess" at the semantics of what they mean (which would be required
-if anything other than strict string based equality was supported).
-
-
-Adding local version identifiers
---------------------------------
-
-It's a fact of life that downstream integrators often need to backport
-upstream bug fixes to older versions. It's one of the services that gets
-Linux distro vendors paid, and application developers may also apply patches
-they need to bundled dependencies.
-
-Historically, this practice has been invisible to cross-platform language
-specific distribution tools - the reported "version" in the upstream
-metadata is the same as for the unmodified code. This inaccuracy can then
-cause problems when attempting to work with a mixture of integrator
-provided code and unmodified upstream code, or even just attempting to
-identify exactly which version of the software is installed.
-
-The introduction of local version identifiers and "local version labels"
-into the versioning scheme, with the corresponding ``python.integrator``
-metadata extension allows this kind of activity to be represented
-accurately, which should improve interoperability between the upstream
-tools and various integrated platforms.
-
-The exact scheme chosen is largely modeled on the existing behavior of
-``pkg_resources.parse_version`` and ``pkg_resources.parse_requirements``,
-with the main distinction being that where ``pkg_resources`` currently always
-takes the suffix into account when comparing versions for exact matches,
-the PEP requires that the local version label of the candidate version be
-ignored when no local version label is present in the version specifier
-clause. Furthermore, the PEP does not attempt to impose any structure on
-the local version labels (aside from limiting the set of permitted
-characters and defining their ordering).
-
-This change is designed to ensure that an integrator provided version like
-``pip 1.5+1`` or ``pip 1.5+1.git.abc123de`` will still satisfy a version
-specifier like ``pip>=1.5``.
-
-The plus is chosen primarily for readability of local version identifiers.
-It was chosen instead of the hyphen to prevent
-``pkg_resources.parse_version`` from parsing it as a prerelease, which is
-important for enabling a successful migration to the new, more structured,
-versioning scheme. The plus was chosen instead of a tilde because of the
-significance of the tilde in Debian's version ordering algorithm.
-
-
-Providing explicit version normalization rules
-----------------------------------------------
-
-Historically, the de facto standard for parsing versions in Python has been the
-``pkg_resources.parse_version`` command from the setuptools project. This does
-not attempt to reject *any* version and instead tries to make something
-meaningful, with varying levels of success, out of whatever it is given. It has
-a few simple rules but otherwise it more or less relies largely on string
-comparison.
-
-The normalization rules provided in this PEP exist primarily to either increase
-the compatibility with ``pkg_resources.parse_version``, particularly in
-documented use cases such as ``rev``, ``r``, ``pre``, etc or to do something
-more reasonable with versions that already exist on PyPI.
-
-All possible normalization rules were weighed against whether or not they were
-*likely* to cause any ambiguity (e.g. while someone might devise a scheme where
-``v1.0`` and ``1.0`` are considered distinct releases, the likelihood of anyone
-actually doing that, much less on any scale that is noticeable, is fairly low).
-They were also weighed against how ``pkg_resources.parse_version`` treated a
-particular version string, especially with regards to how it was sorted. Finally
-each rule was weighed against the kinds of additional versions it allowed, how
-"ugly" those versions looked, how hard there were to parse (both mentally and
-mechanically) and how much additional compatibility it would bring.
-
-The breadth of possible normalizations were kept to things that could easily
-be implemented as part of the parsing of the version and not pre-parsing
-transformations applied to the versions. This was done to limit the side
-effects of each transformation as simple search and replace style transforms
-increase the likelihood of ambiguous or "junk" versions.
-
-For an extended discussion on the various types of normalizations that were
-considered, please see the proof of concept for :pep:`440` within pip [5]_.
-
-
-Allowing Underscore in Normalization
-------------------------------------
-
-There are not a lot of projects on PyPI which utilize a ``_`` in the version
-string. However this PEP allows its use anywhere that ``-`` is acceptable. The
-reason for this is that the Wheel normalization scheme specifies that ``-``
-gets normalized to a ``_`` to enable easier parsing of the filename.
-
-
-Summary of changes to PEP 440
-=============================
-
-The following changes were made to this PEP based on feedback received after
-the initial reference implementation was released in setuptools 8.0 and pip
-6.0:
-
-* The exclusive ordered comparisons were updated to no longer imply a ``!=V.*``
-  which was deemed to be surprising behavior which was too hard to accurately
-  describe. Instead the exclusive ordered comparisons will simply disallow
-  matching pre-releases, post-releases, and local versions of the specified
-  version (unless the specified version is itself a pre-release, post-release
-  or local version). For an extended discussion see the threads on
-  distutils-sig [6]_ [7]_.
-
-* The normalized form for release candidates was updated from 'c' to 'rc'.
-  This change was based on user feedback received when setuptools 8.0
-  started applying normalisation to the release metadata generated when
-  preparing packages for publication on PyPI [8]_.
-
-* The PEP text and the ``is_canonical`` regex were updated to be explicit
-  that numeric components are specifically required to be represented as
-  sequences of ASCII digits, not arbitrary Unicode [Nd] code points. This
-  was previously implied by the version parsing regex in Appendix B, but
-  not stated explicitly [10]_.
-
-
-
-References
-==========
-
-The initial attempt at a standardised version scheme, along with the
-justifications for needing such a standard can be found in :pep:`386`.
-
-.. [2] `Version compatibility analysis script
-   <https://github.com/pypa/packaging/blob/master/tasks/check.py>`__
-
-.. [4] `File URIs in Windows
-   <https://web.archive.org/web/20130321051043/http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`__
-
-.. [5] `Proof of Concept: PEP 440 within pip
-    <https://github.com/pypa/pip/pull/1894>`__
-
-.. [6] `PEP440: foo-X.Y.Z does not satisfy "foo>X.Y"
-    <https://mail.python.org/pipermail/distutils-sig/2014-December/025451.html>`__
-
-.. [7] `PEP440: >1.7 vs >=1.7
-    <https://mail.python.org/pipermail/distutils-sig/2014-December/025507.html>`__
-
-.. [8] `Amend PEP 440 with Wider Feedback on Release Candidates
-   <https://mail.python.org/pipermail/distutils-sig/2014-December/025409.html>`__
-
-.. [10] `PEP 440: regex should not permit Unicode [Nd] characters
-   <https://github.com/python/peps/pull/966>`__
-
-* `Reference Implementation of PEP 440 Versions and Specifiers
-  <https://github.com/pypa/packaging/pull/1>`__
-
-* `Pessimistic version constraint
-  <https://web.archive.org/web/20130509214125/http://docs.rubygems.org/read/chapter/16>`__
-
-* `Changing the status of PEP 440 to Provisional
-  <https://mail.python.org/pipermail/distutils-sig/2014-December/025412.html>`__
-
-Appendix A
-==========
-
-Metadata v2.0 guidelines versus setuptools::
-
-    $ invoke check.pep440
-    Total Version Compatibility:              245806/250521 (98.12%)
-    Total Sorting Compatibility (Unfiltered): 45441/47114 (96.45%)
-    Total Sorting Compatibility (Filtered):   47057/47114 (99.88%)
-    Projects with No Compatible Versions:     498/47114 (1.06%)
-    Projects with Differing Latest Version:   688/47114 (1.46%)
-
-Appendix B : Parsing version strings with regular expressions
-=============================================================
-
-As noted earlier in the ``Public version identifiers`` section, published
-version identifiers SHOULD use the canonical format. This section provides
-regular expressions that can be used to test whether a version is already
-in that form, and if it's not, extract the various components for subsequent
-normalization.
+As noted earlier in the :ref:`public-version-identifiers` section,
+published version identifiers SHOULD use the canonical format. This
+section provides regular expressions that can be used to test whether a
+version is already in that form, and if it's not, extract the various
+components for subsequent normalization.
 
 To test whether a version identifier is in the canonical format, you can use
 the following function::
@@ -1667,7 +1249,11 @@ project)::
     )
 
 
-Copyright
-=========
 
-This document has been placed in the public domain.
+History
+=======
+
+This specification was originally approved as :pep:`440`,
+addressing several limitations of the previous attempt
+at standardized versioning, as described in :pep:`345`
+and :pep:`386`.
