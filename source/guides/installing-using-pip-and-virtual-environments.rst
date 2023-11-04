@@ -1,12 +1,12 @@
-Installing packages using pip and venv
-======================================
+Install packages in a virtual environment using pip and venv
+============================================================
 
-This guide discusses how to install packages using :ref:`pip` and
-the standard library's virtual environment :ref:`venv`. The guide
-covers how to:
+This guide discusses how to create and activate a virtual environment using
+the standard library's virtual environment :ref:`venv` and install packages.
+The guide covers how to:
 
-* Install and update pip
-* Create and use a virtual environment
+* Create and activate a virtual environment
+* Prepare pip
 * Install packages into a virtual environment using the ``pip`` command
 * Use and create a requirements file
 
@@ -21,52 +21,11 @@ covers how to:
     import modules in your Python source code.
 
 
-Install and update pip
-----------------------
-
-:ref:`pip` is the reference Python package manager.
-It's used to install and update packages.
-Make sure you have the latest version of pip installed.
-
-
-.. tab:: Unix/macOS
-
-    Debian and most other distributions include a `python-pip`_ package; if you
-    want to use the Linux distribution-provided versions of pip, see
-    :doc:`/guides/installing-using-linux-tools`.
-
-    You can also install pip yourself to ensure you have the latest version. It's
-    recommended to use the system pip to bootstrap a user installation of pip:
-
-    .. code-block:: bash
-
-        python3 -m pip install --user --upgrade pip
-        python3 -m pip --version
-
-    Afterwards, you should have the latest version of pip installed in your
-    user site:
-
-    .. code-block:: text
-
-        pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
-
-    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
-
-.. tab:: Windows
-
-    The Python installers for Windows include pip. You can make sure that pip is
-    up-to-date by running:
-
-    .. code-block:: bat
-
-        py -m pip install --upgrade pip
-        py -m pip --version
-
-    Afterwards, you should have the latest version of pip:
-
-    .. code-block:: text
-
-        pip 21.1.3 from c:\python39\lib\site-packages (Python 3.9.4)
+.. important::
+    This guide has the prerequisite that an official Python version from
+    <https://www.python.org/downloads/>. If you are using your operating
+    system's package manager to install Python, please ensure that Python is
+    installed before proceeding with these steps.
 
 
 Create and Use Virtual Environments
@@ -80,7 +39,7 @@ different projects. It creates a "virtual" isolated Python installation. When
 you switch projects, you can create a new virtual environment which is isolated
 from other virtual environments. You benefit from the virtual environment
 since packages can be installed confidently and will not interfere with the
-other project environments.
+another project's environment.
 
 .. tip::
    It is recommended to use a virtual environment when working with third
@@ -183,6 +142,72 @@ Reactivate a virtual environment
 If you want to reactivate an existing virtual environment, follow the same
 instructions about activating a virtual environment. There's no need to create
 a new virtual environment.
+
+
+Prepare pip
+-----------
+
+:ref:`pip` is the reference Python package manager.
+It's used to install and update packages into a virtual environment.
+
+
+.. tab:: Unix
+
+    Debian and most other distributions include a `python-pip`_ package; if you
+    want to use the Linux distribution-provided versions of pip, see
+    :doc:`/guides/installing-using-linux-tools`.
+
+    You can also install pip yourself to ensure you have the latest version. It's
+    recommended to use the system pip to bootstrap a user installation of pip:
+
+    .. code-block:: bash
+
+        python3 -m pip install --user --upgrade pip
+        python3 -m pip --version
+
+    Afterwards, you should have the latest version of pip installed in your
+    user site:
+
+    .. code-block:: text
+
+        pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
+
+    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
+
+.. tab:: macOS
+
+    The Python installers for macOS include pip. You can make sure that pip is
+    up-to-date by running:
+
+    .. code-block:: bash
+
+        python3 -m pip install --upgrade pip
+        python3 -m pip --version
+
+    Afterwards, you should have the latest version of pip installed in your
+    user site:
+
+    .. code-block:: text
+
+        pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
+
+    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
+
+.. tab:: Windows
+
+    The Python installers for Windows include pip. You can make sure that pip is
+    up-to-date by running:
+
+    .. code-block:: bat
+
+        py -m pip install --upgrade pip
+        py -m pip --version
+
+    Afterwards, you should have the latest version of pip:
+
+    .. code-block:: text
+
+        pip 21.1.3 from c:\python39\lib\site-packages (Python 3.9.4)
 
 
 Install packages using pip
