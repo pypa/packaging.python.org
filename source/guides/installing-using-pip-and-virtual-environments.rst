@@ -2,7 +2,7 @@ Installing packages using pip and venv
 ======================================
 
 This guide discusses how to install packages using :ref:`pip` and
-the standard library's virtual environment manager :ref:`venv`. The guide
+the standard library's virtual environment :ref:`venv`. The guide
 covers how to:
 
 * Install and update pip
@@ -83,8 +83,8 @@ since packages can be installed confidently and will not interfere with the
 other project environments.
 
 .. tip::
-   It is always recommended to use a virtual environment while developing Python
-   applications.
+   It is recommended to use a virtual environment when working with third
+   party packages.
 
 To create a virtual environment, go to your project's directory and run
 ``venv``.
