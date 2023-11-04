@@ -379,6 +379,9 @@ metadata.
       "click",
     ]
 
+
+.. _declaring-project-metadata-dynamic:
+
 ``dynamic``
 -----------
 
