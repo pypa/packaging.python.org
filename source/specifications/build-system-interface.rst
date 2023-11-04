@@ -7,30 +7,8 @@ tools like ``pip`` to interact with package source trees and source
 distributions.
 
 
-=======================
- Terminology and goals
-=======================
-
-A *source tree* is something like a VCS checkout. We need a standard
-interface for installing from this format, to support usages like
-``pip install some-directory/``.
-
-A *source distribution* is a static snapshot representing a particular
-release of some source code, like ``lxml-3.4.4.tar.gz``. Source
-distributions serve many purposes: they form an archival record of
-releases, they provide a stupid-simple de facto standard for tools
-that want to ingest and process large corpora of code, possibly
-written in many languages (e.g. code search), they act as the input to
-downstream packaging systems like Debian/Fedora/Conda/..., and so
-forth. In the Python ecosystem they additionally have a particularly
-important role to play, because packaging tools like ``pip`` are able
-to use source distributions to fulfill binary dependencies, e.g. if
-there is a distribution ``foo.whl`` which declares a dependency on
-``bar``, then we need to support the case where ``pip install bar`` or
-``pip install foo`` automatically locates the sdist for ``bar``,
-downloads it, builds it, and installs the resulting package.
-
-Source distributions are also known as *sdists* for short.
+Terminology
+===========
 
 A *build frontend* is a tool that users might run that takes arbitrary
 source trees or source distributions and builds wheels from them. The
@@ -213,21 +191,6 @@ build_sdist
 Must build a .tar.gz source distribution and place it in the specified
 ``sdist_directory``. It must return the basename (not the full path) of the
 ``.tar.gz`` file it creates, as a unicode string.
-
-A .tar.gz source distribution (sdist) contains a single top-level directory called
-``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of the
-package. This directory must also contain the
-``pyproject.toml`` from the build directory, and a PKG-INFO file containing
-metadata in the format described in
-:pep:`345`. Although historically
-zip files have also been used as sdists, this hook should produce a gzipped
-tarball. This is already the more common format for sdists, and having a
-consistent format makes for simpler tooling.
-
-The generated tarball should use the modern POSIX.1-2001 pax tar format, which
-specifies UTF-8 based file names. This is not yet the default for the tarfile
-module shipped with Python 3.6, so backends using the tarfile module need to
-explicitly pass ``format=tarfile.PAX_FORMAT``.
 
 Some backends may have extra requirements for creating sdists, such as version
 control tools. However, some frontends may prefer to make intermediate sdists
@@ -530,33 +493,6 @@ second restriction above is specifically to ensure that this is how the feature
 is used. Front ends MAY enforce this check, but are not required to. Doing so
 would typically involve checking the backend's ``__file__`` attribute against
 the locations in ``backend-path``.
-
-
-======================
- Source distributions
-======================
-
-We continue with the legacy sdist format, adding some new restrictions.
-This format is mostly
-undefined, but basically comes down to: a file named
-``{NAME}-{VERSION}.{EXT}``, which unpacks into a buildable source tree
-called ``{NAME}-{VERSION}/``. Traditionally these have always
-contained ``setup.py``\-style source trees; we now allow them to also
-contain ``pyproject.toml``\-style source trees.
-
-Integration frontends require that an sdist named
-``{NAME}-{VERSION}.{EXT}`` will generate a wheel named
-``{NAME}-{VERSION}-{COMPAT-INFO}.whl``.
-
-The new restrictions for sdists built by :pep:`517` backends are:
-
-- They will be gzipped tar archives, with the ``.tar.gz`` extension. Zip
-  archives, or other compression formats for tarballs, are not allowed at
-  present.
-- Tar archives must be created in the modern POSIX.1-2001 pax tar format, which
-  uses UTF-8 for file names.
-- The source tree contained in an sdist is expected to include the
-  ``pyproject.toml`` file.
 
 
 ===============================
