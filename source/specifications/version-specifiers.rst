@@ -5,9 +5,6 @@ Version specifiers
 ==================
 
 
-Abstract
-========
-
 This specification describes a scheme for identifying versions of Python software
 distributions, and declaring dependencies on particular versions.
 
