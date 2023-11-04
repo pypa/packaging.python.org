@@ -2,7 +2,7 @@ Install packages in a virtual environment using pip and venv
 ============================================================
 
 This guide discusses how to create and activate a virtual environment using
-the standard library's virtual environment :ref:`venv` and install packages.
+the standard library's virtual environment tool :ref:`venv` and install packages.
 The guide covers how to:
 
 * Create and activate a virtual environment
