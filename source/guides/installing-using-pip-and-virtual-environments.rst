@@ -22,7 +22,7 @@ The guide covers how to:
 
 
 .. important::
-    This guide has the prerequisite that an official Python version from
+    This guide has the prerequisite that you are using an official Python version obtained from
     <https://www.python.org/downloads/> is installed. If you are using your operating
     system's package manager to install Python, please ensure that Python is
     installed before proceeding with these steps.
