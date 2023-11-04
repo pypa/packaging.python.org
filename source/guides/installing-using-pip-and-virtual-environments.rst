@@ -338,7 +338,7 @@ installed package without needing to re-install:
 
 
 Install from version control systems
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 pip can install packages directly from their version control system. For
 example, you can install directly from a git repository:
