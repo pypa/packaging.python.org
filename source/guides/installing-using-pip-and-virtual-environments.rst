@@ -1,22 +1,32 @@
-Installing packages using pip and virtual environments
-======================================================
+Installing packages using pip and venv
+======================================
 
 This guide discusses how to install packages using :ref:`pip` and
-a virtual environment manager: either :ref:`venv` for Python 3 or :ref:`virtualenv`
-for Python 2. These are the lowest-level tools for managing Python
-packages and are recommended if higher-level tools do not suit your needs.
+the standard library's virtual environment manager :ref:`venv`. The guide
+covers how to:
 
-.. note:: This doc uses the term **package** to refer to a
-    :term:`Distribution Package`  which is different from an :term:`Import
-    Package` that which is used to import modules in your Python source code.
+* Install and update pip
+* Create and use a virtual environment
+* Install packages into a virtual environment using the ``pip`` command
+* Use and create a requirements file
 
 
-Installing pip
---------------
+.. note:: This guide applies to Python 3.3 and higher. If using a
+    legacy version of Python 2.x, consider using :ref:`virtualenv`.
 
-:ref:`pip` is the reference Python package manager. It's used to install and
-update packages. You'll need to make sure you have the latest version of pip
-installed.
+
+.. note:: This guide uses the term **package** to refer to a
+    :term:`Distribution Package`, which commonly is installed from an external
+    host. This differs from the term :term:`Import Package` which refers to
+    import modules in your Python source code.
+
+
+Install and update pip
+----------------------
+
+:ref:`pip` is the reference Python package manager.
+It's used to install and update packages.
+Make sure you have the latest version of pip installed.
 
 
 .. tab:: Unix/macOS
@@ -59,94 +69,68 @@ installed.
         pip 21.1.3 from c:\python39\lib\site-packages (Python 3.9.4)
 
 
+Create and Use Virtual Environments
+-----------------------------------
 
-Installing virtualenv
----------------------
+Create a new virtual environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Note:: If you are using Python 3.3 or newer, the :mod:`venv` module is
-    the preferred way to create and manage virtual environments.
-    venv is included in the Python standard library and requires no additional installation.
-    If you are using venv, you may skip this section.
+:ref:`venv` (for Python 3) allows you to manage separate package installations for
+different projects. It creates a "virtual" isolated Python installation. When
+you switch projects, you can create a new virtual environment which is isolated
+from other virtual environments. You benefit from the virtual environment
+since packages can be installed confidently and will not interfere with the
+other project environments.
 
-
-:ref:`virtualenv` is used to manage Python packages for different projects.
-Using virtualenv allows you to avoid installing Python packages globally
-which could break system tools or other projects. You can install virtualenv
-using pip.
-
-
-.. tab:: Unix/macOS
-
-    .. code-block:: bash
-
-        python3 -m pip install --user virtualenv
-
-.. tab:: Windows
-
-    .. code-block:: bat
-
-        py -m pip install --user virtualenv
-
-
-
-Creating a virtual environment
-------------------------------
-
-:ref:`venv` (for Python 3) and :ref:`virtualenv` (for Python 2) allow
-you to manage separate package installations for
-different projects. They essentially allow you to create a "virtual" isolated
-Python installation and install packages into that virtual installation. When
-you switch projects, you can simply create a new virtual environment and not
-have to worry about breaking the packages installed in the other environments.
-It is always recommended to use a virtual environment while developing Python
-applications.
+.. tip::
+   It is always recommended to use a virtual environment while developing Python
+   applications.
 
 To create a virtual environment, go to your project's directory and run
-venv. If you are using Python 2, replace ``venv`` with ``virtualenv``
-in the below commands.
+``venv``.
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        python3 -m venv env
+        python3 -m venv .venv
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m venv env
+        py -m venv .venv
 
 The second argument is the location to create the virtual environment. Generally, you
-can just create this in your project and call it ``env``.
+can just create this in your project and call it ``.venv``.
 
-venv will create a virtual Python installation in the ``env`` folder.
+``venv`` will create a virtual Python installation in the ``.venv`` folder.
 
 .. Note:: You should exclude your virtual environment directory from your version
     control system using ``.gitignore`` or similar.
 
 
-Activating a virtual environment
---------------------------------
+Activate a virtual environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Before you can start installing or using packages in your virtual environment you'll
-need to *activate* it. Activating a virtual environment will put the
-virtual environment-specific
-``python`` and ``pip`` executables into your shell's ``PATH``.
+need to ``activate`` it. Activating a virtual environment will put the
+virtual environment-specific ``python`` and ``pip`` executables into your
+shell's ``PATH``.
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        source env/bin/activate
+        source .venv/bin/activate
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        .\env\Scripts\activate
+        .\.venv\Scripts\activate
 
-You can confirm you're in the virtual environment by checking the location of your
+To confirm the virtual environment is activated, check the location of your
 Python interpreter:
 
 .. tab:: Unix/macOS
@@ -161,43 +145,56 @@ Python interpreter:
 
         where python
 
-It should be in the ``env`` directory:
+When the virtual environment is activated, the location will include
+the ``.venv`` directory:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        .../env/bin/python
+        .../.venv/bin/python
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        ...\env\Scripts\python.exe
+        ...\.venv\Scripts\python.exe
 
 
-As long as your virtual environment is activated pip will install packages into that
-specific environment and you'll be able to import and use packages in your
+While a virtual environment is activated, pip will install packages into that
+specific environment. This enables you to import and use packages in your
 Python application.
 
 
-Leaving the virtual environment
--------------------------------
+Deactivate a virtual environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to switch projects or otherwise leave your virtual environment, simply run:
+If you want to switch projects or leave your virtual environment,
+``deactivate`` the environment:
 
 .. code-block:: bash
 
     deactivate
 
-If you want to re-enter the virtual environment just follow the same instructions above
-about activating a virtual environment. There's no need to re-create the virtual environment.
+
+Reactivate a virtual environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to reactivate an existing virtual environment, follow the same
+instructions about activating a virtual environment. There's no need to create
+a new virtual environment.
 
 
-Installing packages
--------------------
+Install packages using pip
+--------------------------
 
-Now that you're in your virtual environment you can install packages. Let's install the
+When your virtual environment is activated, you can install packages. Use the
+``pip install`` command to install packages.
+
+Install a package
+~~~~~~~~~~~~~~~~~
+
+For example,let's install the
 `Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
 .. tab:: Unix/macOS
@@ -232,8 +229,8 @@ pip should download requests and all of its dependencies and install them:
 .. _Requests: https://pypi.org/project/requests/
 
 
-Installing specific versions
------------------------------
+Install a specific package version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 pip allows you to specify which version of a package to install using
 :term:`version specifiers <Version Specifier>`. For example, to install
@@ -280,8 +277,8 @@ To install pre-release versions of packages, use the ``--pre`` flag:
         py -m pip install --pre requests
 
 
-Installing extras
------------------
+Install extras
+~~~~~~~~~~~~~~
 
 Some packages have optional `extras`_. You can tell pip to install these by
 specifying the extra in brackets:
@@ -302,10 +299,11 @@ specifying the extra in brackets:
     https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies
 
 
-Installing from source
-----------------------
+Install a package from source
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-pip can install a package directly from source, for example:
+pip can install a package directly from its source code. For example, to install
+the source code in the ``google-auth`` directory:
 
 .. tab:: Unix/macOS
 
@@ -339,8 +337,8 @@ installed package without needing to re-install:
         py -m pip install --editable .
 
 
-Installing from version control systems
----------------------------------------
+Install from version control systems
+------------------------------------
 
 pip can install packages directly from their version control system. For
 example, you can install directly from a git repository:
@@ -353,8 +351,8 @@ For more information on supported version control systems and syntax, see pip's
 documentation on :ref:`VCS Support <pip:VCS Support>`.
 
 
-Installing from local archives
-------------------------------
+Install from local archives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you have a local copy of a :term:`Distribution Package`'s archive (a zip,
 wheel, or tar file) you can install it directly with pip:
@@ -392,8 +390,8 @@ connectivity or if you want to strictly control the origin of distribution
 packages.
 
 
-Using other package indexes
----------------------------
+Install from other package indexes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to download packages from a different index than the
 :term:`Python Package Index (PyPI)`, you can use the ``--index-url`` flag:
@@ -444,8 +442,8 @@ install the latest version of ``requests`` and all of its dependencies:
 
         py -m pip install --upgrade requests
 
-Using requirements files
-------------------------
+Using a requirements file
+-------------------------
 
 Instead of installing packages individually, pip allows you to declare all
 dependencies in a :ref:`Requirements File <pip:Requirements Files>`. For
@@ -504,5 +502,5 @@ Which will output a list of package specifiers such as:
     six==1.11.0
     urllib3==1.22
 
-This is useful for creating :ref:`pip:Requirements Files` that can re-create
-the exact versions of all packages installed in an environment.
+The ``pip freeze`` command is useful for creating :ref:`pip:Requirements Files`
+that can re-create the exact versions of all packages installed in an environment.
