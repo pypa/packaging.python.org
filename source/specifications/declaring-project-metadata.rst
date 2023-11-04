@@ -87,7 +87,8 @@ as it is read for internal consistency.
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`Version <core-metadata-version>`
 
-The version of the project as supported by :pep:`440`.
+The version of the project, as defined in the
+:ref:`Version specifier specification <version-specifiers>`.
 
 Users SHOULD prefer to specify already-normalized versions.
 

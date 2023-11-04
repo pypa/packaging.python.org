@@ -385,6 +385,9 @@ from an earlier epoch::
     1!1.1
     1!2.0
 
+
+.. _version-specifiers-normalization:
+
 Normalization
 -------------
 
@@ -804,6 +807,8 @@ permitted in version specifiers, and local version labels MUST be ignored
 entirely when checking if candidate versions match a given version
 specifier.
 
+
+.. _version-specifiers-compatible-release:
 
 Compatible release
 ------------------
