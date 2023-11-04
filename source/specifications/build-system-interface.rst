@@ -24,9 +24,8 @@ combination of wheels and sdists. In a command like ``pip install
 lxml==2.4.0``, pip is acting as an integration frontend.
 
 
-==============
- Source trees
-==============
+Source trees
+============
 
 There is an existing, legacy source tree format involving
 ``setup.py``. We don't try to specify it further; its de facto
@@ -128,19 +127,18 @@ Typically this will involve specifying themselves as an in-tree backend, and
 avoiding external build dependencies (usually by vendoring them).
 
 
-=========================
- Build backend interface
-=========================
+Build backend interface
+========================
 
 The build backend object is expected to have attributes which provide
 some or all of the following hooks. The common ``config_settings``
 argument is described after the individual hooks.
 
 Mandatory hooks
-===============
+---------------
 
 build_wheel
------------
+'''''''''''
 
 ::
 
@@ -181,7 +179,7 @@ temporary directories. The presence or absence of any caches should not
 make a material difference to the final result of the build.
 
 build_sdist
------------
+'''''''''''
 
 ::
 
@@ -204,10 +202,10 @@ The backend does not need to define this exception type if it would never raise
 it.
 
 Optional hooks
-==============
+--------------
 
 get_requires_for_build_wheel
-----------------------------
+''''''''''''''''''''''''''''
 
 ::
 
@@ -227,7 +225,7 @@ Example::
 If not defined, the default implementation is equivalent to ``return []``.
 
 prepare_metadata_for_build_wheel
---------------------------------
+''''''''''''''''''''''''''''''''
 
 ::
 
@@ -254,7 +252,7 @@ not defined, it should call ``build_wheel`` and look at the resulting
 metadata directly.
 
 get_requires_for_build_sdist
-----------------------------
+''''''''''''''''''''''''''''
 
 ::
 
@@ -281,7 +279,7 @@ If not defined, the default implementation is equivalent to ``return []``.
    need from the backend to do so.
 
 Config settings
-===============
+---------------
 
 ::
 
@@ -342,7 +340,7 @@ then this indicates an error.
 
 
 Build environment
-=================
+-----------------
 
 One of the responsibilities of a build frontend is to set up the
 Python environment in which the build backend will run.
@@ -399,7 +397,7 @@ working directory). A Python library will be provided which frontends can use
 to easily call hooks this way.
 
 Recommendations for build frontends (non-normative)
----------------------------------------------------
+'''''''''''''''''''''''''''''''''''''''''''''''''''
 
 A build frontend MAY use any mechanism for setting up a build
 environment that meets the above criteria. For example, simply
@@ -454,7 +452,7 @@ hood and apply duct tape when necessary.
 
 
 In-tree build backends
-======================
+----------------------
 
 In certain circumstances, projects may wish to include the source code for the
 build backend directly in the source tree, rather than referencing the backend
@@ -495,9 +493,8 @@ would typically involve checking the backend's ``__file__`` attribute against
 the locations in ``backend-path``.
 
 
-===============================
- Summary of changes to PEP 517
-===============================
+History
+=======
 
 The following changes were made to this PEP after the initial reference
 implementation was released in pip 19.0.
