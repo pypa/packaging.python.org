@@ -23,7 +23,7 @@ The guide covers how to:
 
 .. important::
     This guide has the prerequisite that you are using an official Python version obtained from
-    <https://www.python.org/downloads/> is installed. If you are using your operating
+    <https://www.python.org/downloads/>. If you are using your operating
     system's package manager to install Python, please ensure that Python is
     installed before proceeding with these steps.
 
@@ -46,7 +46,7 @@ another project's environment.
    party packages.
 
 To create a virtual environment, go to your project's directory and run
-``venv``.
+``venv``. This will create a new virtual environment in a local folder ``.venv``:
 
 .. tab:: Unix/macOS
 
@@ -87,7 +87,7 @@ shell's ``PATH``.
 
     .. code-block:: bat
 
-        .\.venv\Scripts\activate
+        .venv\bin\Activate.bat
 
 To confirm the virtual environment is activated, check the location of your
 Python interpreter:
@@ -117,7 +117,7 @@ the ``.venv`` directory:
 
     .. code-block:: bat
 
-        ...\.venv\Scripts\python.exe
+        ...\.venv\bin\python.exe
 
 
 While a virtual environment is activated, pip will install packages into that
@@ -135,6 +135,10 @@ If you want to switch projects or leave your virtual environment,
 
     deactivate
 
+.. note::
+    Closing your shell will deactivate the virtual environment. If
+    you open a new shell window and want to use the virtual environment,
+    reactivate it.
 
 Reactivate a virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,16 +157,11 @@ It's used to install and update packages into a virtual environment.
 
 .. tab:: Unix
 
-    Debian and most other distributions include a `python-pip`_ package; if you
-    want to use the Linux distribution-provided versions of pip, see
-    :doc:`/guides/installing-using-linux-tools`.
-
-    You can also install pip yourself to ensure you have the latest version. It's
-    recommended to use the system pip to bootstrap a user installation of pip:
+    You can make sure that pip is up-to-date by running:
 
     .. code-block:: bash
 
-        python3 -m pip install --user --upgrade pip
+        python3 -m pip install --upgrade pip
         python3 -m pip --version
 
     Afterwards, you should have the latest version of pip installed in your
@@ -170,9 +169,7 @@ It's used to install and update packages into a virtual environment.
 
     .. code-block:: text
 
-        pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
-
-    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
+        pip 21.1.3 from ../.venv/lib/python3.9/site-packages (python 3.9)
 
 .. tab:: macOS
 
@@ -189,9 +186,7 @@ It's used to install and update packages into a virtual environment.
 
     .. code-block:: text
 
-        pip 21.1.3 from $HOME/.local/lib/python3.9/site-packages (python 3.9)
-
-    .. _python-pip: https://packages.debian.org/stable/python/python3-pip
+        pip 23.3.1 from $HOME/.venv/lib/python3.9/site-packages (python 3.9)
 
 .. tab:: Windows
 
@@ -207,7 +202,7 @@ It's used to install and update packages into a virtual environment.
 
     .. code-block:: text
 
-        pip 21.1.3 from c:\python39\lib\site-packages (Python 3.9.4)
+        pip 23.3.1 from .venv\lib\site-packages (Python 3.9.4)
 
 
 Install packages using pip
