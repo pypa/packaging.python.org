@@ -32,8 +32,11 @@ Documentation types
 ===================
 
 This project consists of four distinct documentation types with specific
-purposes. When proposing new additions to the project please pick the
+purposes. The project aspires to follow the `Diátaxis process`_
+for creating quality documentation. When proposing new additions to the project please pick the
 appropriate documentation type.
+
+.. _Diátaxis process: https://diataxis.fr/
 
 Tutorials
 ---------
