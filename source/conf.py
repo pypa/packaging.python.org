@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx_inline_tabs',
     'sphinx_copybutton',
+    'sphinx_reredirects',
     'sphinx_toolbox.collapse',
 ]
 
@@ -446,3 +447,8 @@ nitpick_ignore = [
     ('py:func', 'setuptools.find_packages'),
     ('py:func', 'setuptools.setup'),
 ]
+
+# Redirects for deleted/moved pages
+redirects = {
+    "guides/dropping-older-python-versions": "../specifications/declaring-project-metadata.html#requires-python",
+}

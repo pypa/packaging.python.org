@@ -23,7 +23,6 @@ introduction to packaging, see :doc:`/tutorials/index`.
    distributing-packages-using-setuptools
    using-manifest-in
    single-sourcing-package-version
-   dropping-older-python-versions
    packaging-binary-extensions
    packaging-namespace-packages
    creating-and-discovering-plugins
