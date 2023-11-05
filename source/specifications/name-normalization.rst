@@ -36,7 +36,7 @@ This means that the following names are all equivalent:
 * ``friendly.bard``
 * ``friendly_bard``
 * ``friendly--bard``
-* ``FrIeNdLy-._.-bArD`` (a _terrible_ way to write a name, but it is valid)
+* ``FrIeNdLy-._.-bArD`` (a *terrible* way to write a name, but it is valid)
 
 History
 =======
