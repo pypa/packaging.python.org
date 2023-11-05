@@ -134,6 +134,23 @@ build tag
     the first item being the initial digits as an ``int``, and the
     second item being the remainder of the tag as a ``str``.
 
+    A common use-case for build numbers is rebuilding a binary
+    distribution due to a change in the build environment,
+    like when using the manylinux image to build
+    distributions using pre-release CPython versions.
+
+    .. warning::
+
+        Build numbers are not a part of the distribution version and thus are difficult
+        to reference externally, especially so outside the Python ecosystem of tools and standards.
+        A common case where a distribution would need to referenced externally is when
+        resolving a security vulnerability.
+
+        Due to this limitation, new distributions which need to be referenced externally
+        **should not** use build numbers when building the new distribution.
+        Instead a **new distribution version** should be created for such cases.
+
+
 language implementation and version tag
     E.g. 'py27', 'py2', 'py3'.
 
@@ -161,7 +178,7 @@ this character cannot appear within any component. This is handled as follows:
 - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
   characters should be replaced with corresponding lowercase ones. This is
-  equivalent to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
+  equivalent to regular :ref:`name normalization <name-normalization>` followed by replacing ``-`` with ``_``.
   Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
   uppercase letters, however, as these were allowed by an earlier version of
   this specification.
@@ -408,6 +425,8 @@ What's the deal with "purelib" vs. "platlib"?
     depending on whether it is pure Python or not and those files should
     be at the root with the appropriate setting given for "Root-is-purelib".
 
+
+.. _binary-distribution-format-import-wheel:
 
 Is it possible to import Python code directly from a wheel file?
 ----------------------------------------------------------------

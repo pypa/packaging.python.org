@@ -13,8 +13,6 @@ introduction to packaging, see :doc:`/tutorials/index`.
    installing-stand-alone-command-line-tools
    installing-using-linux-tools
    installing-scientific-packages
-   index-mirrors-and-caches
-   hosting-your-own-index
 
 .. toctree::
    :maxdepth: 1
@@ -30,6 +28,13 @@ introduction to packaging, see :doc:`/tutorials/index`.
    using-testpypi
    making-a-pypi-friendly-readme
    publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Hosting
+
+   index-mirrors-and-caches
+   hosting-your-own-index
 
 .. toctree::
    :maxdepth: 1

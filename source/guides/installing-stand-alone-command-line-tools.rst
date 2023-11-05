@@ -66,8 +66,10 @@ For example:
            \
              ^__^
              (oo)\_______
-             (__)\       )\/       ||----w |
+             (__)\       )\/
                  ||     ||
+                 ||----w |
+
 
 To see a list of packages installed with pipx and which applications are
 available, use ``pipx list``:
@@ -103,14 +105,14 @@ pipx can be upgraded or uninstalled with pip:
 
   .. code-block:: bash
 
-      python3 -m pip install -U pipx
+      python3 -m pip install --upgrade pipx
       python3 -m pip uninstall pipx
 
 .. tab:: Windows
 
   .. code-block:: bat
 
-      py -m pip install -U pipx
+      py -m pip install --upgrade pipx
       py -m pip uninstall pipx
 
 pipx also allows you to install and run the latest version of an application

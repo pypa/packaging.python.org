@@ -72,7 +72,7 @@ sample project <https://github.com/pypa/sampleproject>`_.
 
 2. It's the command line interface for running various commands that
    relate to packaging tasks. To get a listing of available commands, run
-   ``python setup.py --help-commands``.
+   ``python3 setup.py --help-commands``.
 
 
 setup.cfg
@@ -241,7 +241,7 @@ can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the Github-flavored Markdown dialect of `Markdown
+and the GitHub-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
 ``url``
@@ -484,7 +484,7 @@ Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
 For more information see the distutils section on :ref:`Installing Additional Files
-<python:distutils-additional-files>`.
+<setuptools:distutils-additional-files>`.
 
 .. note::
 
@@ -498,7 +498,7 @@ For more information see the distutils section on :ref:`Installing Additional Fi
 ~~~~~~~~~~~
 
 Although ``setup()`` supports a :ref:`scripts
-<python:distutils-installing-scripts>`
+<setuptools:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
@@ -677,7 +677,7 @@ Change directory to the root of the project directory and run:
 
 .. code-block:: bash
 
-   python -m pip install -e .
+   python3 -m pip install -e .
 
 
 The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
@@ -693,7 +693,7 @@ you want "bar" installed from VCS in editable mode, then you could construct a
 requirements file like so::
 
   -e .
-  -e git+https://somerepo/bar.git#egg=bar
+  -e bar @ git+https://somerepo/bar.git
 
 The first line says to install your project and any dependencies. The second
 line overrides the "bar" dependency, such that it's fulfilled from VCS, not
@@ -712,7 +712,7 @@ Lastly, if you don't want to install any dependencies at all, you can run:
 
 .. code-block:: bash
 
-   python -m pip install -e . --no-deps
+   python3 -m pip install -e . --no-deps
 
 
 For more information, see the
@@ -812,7 +812,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python -m build --wheel
+        python3 -m build --wheel
 
 .. tab:: Windows
 

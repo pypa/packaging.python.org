@@ -15,16 +15,26 @@ Package Distribution Metadata
 .. toctree::
    :maxdepth: 1
 
+   name-normalization
    core-metadata
    version-specifiers
    dependency-specifiers
    declaring-build-dependencies
    declaring-project-metadata
    platform-compatibility-tags
+
+Package Installation Environment Metadata
+-----------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+
    recording-installed-packages
    entry-points
    direct-url
-
+   direct-url-data-structure
+   virtual-environments
+   externally-managed-environments
 
 Package Distribution File Formats
 ---------------------------------

@@ -118,7 +118,7 @@ March 2018
 - Updated "installing scientific packages". (:pr:`455`)
 - Added :file:`long_description_content_type` to follow PEP 556. (:pr:`457`)
 - Clarified a long description classifier on pypi.org. (:pr:`456`)
-- Updated Core Metadata spec to follw PEP 556. (:pr:`412`)
+- Updated Core Metadata spec to follow PEP 556. (:pr:`412`)
 
 February 2018
 -------------
@@ -214,7 +214,7 @@ April 2017
 - Added documentation explaining prominently how to install ``pip`` in ``/usr/local``. (:pr:`230`)
 - Updated development mode documentation to mention that order of local packages matters. (:pr:`208`)
 - Convert readthedocs link for their ``.org`` -> ``.io`` migration for hosted projects (:pr:`239`)
-- Swaped order of :file:`setup.py` arguments for the upload command, as order
+- Swapped order of :file:`setup.py` arguments for the upload command, as order
   is significant. (:pr:`260`)
 - Explained how to install from unsupported sources using a helper application. (:pr:`289`)
 

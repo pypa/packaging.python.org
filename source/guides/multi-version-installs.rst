@@ -35,7 +35,7 @@ This can be worked around by setting all dependencies in
 ``__main__.__requires__`` before importing ``pkg_resources`` for the first
 time, but that approach does mean that standard command line invocations of
 the affected tools can't be used - it's necessary to write a custom
-wrapper script or use ``python -c '<command>'`` to invoke the application's
+wrapper script or use ``python3 -c '<command>'`` to invoke the application's
 main entry point directly.
 
 Refer to the `pkg_resources documentation
