@@ -285,7 +285,7 @@ Other parameters might be specific to the chosen subtype. For example, for the
 specifying the variant of Markdown in use (defaults to ``GFM`` if not
 specified). Currently, two variants are recognized:
 
-- ``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`
+- ``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`
 - ``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`
 
 Example::

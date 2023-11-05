@@ -64,7 +64,3 @@ Other Sources
 For a more detailed guide on how to use Sphinx and reStructuredText, please see this `documentation tutorial`_ on Hitchhiker's Guide to Python.
 
 .. _documentation tutorial: https://docs.python-guide.org/writing/documentation/
-
-
-
-

@@ -95,7 +95,7 @@ you can use Python's native packaging tools to create a *source*
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
 pure-Python, and you only depend on other Python packages, you can
-:doc:`go here to learn more <python:distutils/sourcedist>`.
+go to the :ref:`source-distribution-format` specification to learn more.
 
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of

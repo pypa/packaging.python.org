@@ -208,7 +208,7 @@ Glossary
     Source Distribution (or "sdist")
 
         A :term:`distribution <Distribution Package>` format (usually generated
-        using ``python setup.py sdist``) that provides metadata and the
+        using ``python -m build --sdist``) that provides metadata and the
         essential source files needed for installing by a tool like :ref:`pip`,
         or for generating a :term:`Built Distribution`.
 

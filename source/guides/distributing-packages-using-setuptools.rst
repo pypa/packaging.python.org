@@ -241,7 +241,7 @@ can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the Github-flavored Markdown dialect of `Markdown
+and the GitHub-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
 ``url``
@@ -484,7 +484,7 @@ Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
 For more information see the distutils section on :ref:`Installing Additional Files
-<python:distutils-additional-files>`.
+<setuptools:distutils-additional-files>`.
 
 .. note::
 
@@ -498,7 +498,7 @@ For more information see the distutils section on :ref:`Installing Additional Fi
 ~~~~~~~~~~~
 
 Although ``setup()`` supports a :ref:`scripts
-<python:distutils-installing-scripts>`
+<setuptools:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).

@@ -20,3 +20,7 @@ installation to indicate to Python-specific tools such as ``pip`` that they
 neither install nor remove packages into the interpreter’s default installation
 environment, and should instead guide the end user towards using
 :ref:`virtual-environments`.
+
+History
+=======
+- `June 2022 <https://discuss.python.org/t/pep-668-marking-python-base-environments-as-externally-managed/10302/44>`_: ``EXTERNALLY-MANAGED`` marker file was originally specified in :pep:`668#marking-an-interpreter-as-using-an-external-package-manager`.
