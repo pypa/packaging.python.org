@@ -18,6 +18,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    :maxdepth: 1
    :caption: Building and Publishing Projects:
 
+   writing-pyproject-toml
    distributing-packages-using-setuptools
    using-manifest-in
    single-sourcing-package-version

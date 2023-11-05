@@ -9,6 +9,12 @@ Declaring project metadata
 packaging-related tools to consume. It defines the following
 specification as the canonical source for the format used.
 
+.. warning::
+
+   This is a **technical, formal specification**. For a gentle,
+   user-friendly guide to ``pyproject.toml``, see
+   :ref:`writing-pyproject-toml`.
+
 
 Specification
 =============
@@ -75,11 +81,6 @@ The name of the project.
 Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon
 as it is read for internal consistency.
 
-.. code-block:: toml
-
-    [project]
-    name = "spam"
-
 ``version``
 -----------
 
@@ -91,10 +92,6 @@ The version of the project as supported by :pep:`440`.
 
 Users SHOULD prefer to specify already-normalized versions.
 
-.. code-block:: toml
-
-    [project]
-    version = "2020.0.0"
 
 ``description``
 ---------------
@@ -105,10 +102,6 @@ Users SHOULD prefer to specify already-normalized versions.
 
 The summary description of the project.
 
-.. code-block:: toml
-
-    [project]
-    description = "Lovely Spam! Wonderful Spam!"
 
 ``readme``
 ----------
@@ -148,13 +141,6 @@ alternative content-types which they can transform to a content-type
 as supported by the :ref:`core metadata <core-metadata>`. Otherwise
 tools MUST raise an error for unsupported content-types.
 
-.. code-block:: toml
-
-    [project]
-    # A single pyproject.toml file can only have one of the following.
-    readme = "README.md"
-    readme = "README.rst"
-    readme = {file = "README.txt", content-type = "text/markdown"}
 
 ``requires-python``
 -------------------
@@ -165,10 +151,6 @@ tools MUST raise an error for unsupported content-types.
 
 The Python version requirements of the project.
 
-.. code-block:: toml
-
-    [project]
-    requires-python = ">=3.8"
 
 ``license``
 -----------
@@ -184,12 +166,6 @@ file's encoding is UTF-8. The ``text`` key has a string value which is
 the license of the project.  These keys are mutually exclusive, so a
 tool MUST raise an error if the metadata specifies both keys.
 
-.. code-block:: toml
-
-    [project]
-    # A single pyproject.toml file can only have one of the following.
-    license = {file = "LICENSE"}
-    license = {text = "MIT License"}
 
 ``authors``/``maintainers``
 ---------------------------
@@ -232,19 +208,6 @@ follows:
    as appropriate, with the format ``{name} <{email}>``.
 4. Multiple values should be separated by commas.
 
-.. code-block:: toml
-
-    [project]
-    authors = [
-      {name = "Pradyun Gedam", email = "pradyun@example.com"},
-      {name = "Tzu-Ping Chung", email = "tzu-ping@example.com"},
-      {name = "Another person"},
-      {email = "different.person@example.com"},
-    ]
-    maintainers = [
-      {name = "Brett Cannon", email = "brett@python.org"}
-    ]
-
 
 ``keywords``
 ------------
@@ -255,10 +218,6 @@ follows:
 
 The keywords for the project.
 
-.. code-block:: toml
-
-    [project]
-    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
 
 ``classifiers``
 ---------------
@@ -269,12 +228,6 @@ The keywords for the project.
 
 Trove classifiers which apply to the project.
 
-.. code-block:: toml
-
-    classifiers = [
-      "Development Status :: 4 - Beta",
-      "Programming Language :: Python"
-    ]
 
 ``urls``
 --------
@@ -286,13 +239,6 @@ Trove classifiers which apply to the project.
 A table of URLs where the key is the URL label and the value is the
 URL itself.
 
-.. code-block:: toml
-
-    [project.urls]
-    Homepage = "https://example.com"
-    Documentation = "https://readthedocs.org"
-    Repository = "https://github.com/me/spam.git"
-    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
 Entry points
 ------------
@@ -323,17 +269,6 @@ Build back-ends MUST raise an error if the metadata defines a
 be ambiguous in the face of ``[project.scripts]`` and
 ``[project.gui-scripts]``, respectively.
 
-.. code-block:: toml
-
-    [project.scripts]
-    spam-cli = "spam:main_cli"
-
-    [project.gui-scripts]
-    spam-gui = "spam:main_gui"
-
-    [project.entry-points."spam.magical"]
-    tomatoes = "spam:main_tomatoes"
-
 
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
@@ -361,22 +296,6 @@ in the array thus becomes a corresponding
 matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
-.. code-block:: toml
-
-    [project]
-    dependencies = [
-      "httpx",
-      "gidgethub[httpx]>4.0.0",
-      "django>2.1; os_name != 'nt'",
-      "django>2.0; os_name == 'nt'",
-    ]
-
-    [project.optional-dependencies]
-    gui = ["PyQt5"]
-    cli = [
-      "rich",
-      "click",
-    ]
 
 ``dynamic``
 -----------
@@ -415,68 +334,6 @@ provided via tooling later on.
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
 
-.. code-block:: toml
-
-    dynamic = ["version", "description", "optional-dependencies"]
-
-
-Example
-=======
-
-.. code-block:: toml
-
-    [project]
-    name = "spam"
-    version = "2020.0.0"
-    description = "Lovely Spam! Wonderful Spam!"
-    readme = "README.rst"
-    requires-python = ">=3.8"
-    license = {file = "LICENSE.txt"}
-    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
-    authors = [
-      {name = "Pradyun Gedam", email = "pradyun@example.com"},
-      {name = "Tzu-Ping Chung", email = "tzu-ping@example.com"},
-      {name = "Another person"},
-      {email = "different.person@example.com"},
-    ]
-    maintainers = [
-      {name = "Brett Cannon", email = "brett@python.org"}
-    ]
-    classifiers = [
-      "Development Status :: 4 - Beta",
-      "Programming Language :: Python"
-    ]
-
-    dependencies = [
-      "httpx",
-      "gidgethub[httpx]>4.0.0",
-      "django>2.1; os_name != 'nt'",
-      "django>2.0; os_name == 'nt'",
-    ]
-
-    # dynamic = ["version", "description"]
-
-    [project.optional-dependencies]
-    gui = ["PyQt5"]
-    cli = [
-      "rich",
-      "click",
-    ]
-
-    [project.urls]
-    Homepage = "https://example.com"
-    Documentation = "https://readthedocs.org"
-    Repository = "https://github.com/me/spam.git"
-    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
-
-    [project.scripts]
-    spam-cli = "spam:main_cli"
-
-    [project.gui-scripts]
-    spam-gui = "spam:main_gui"
-
-    [project.entry-points."spam.magical"]
-    tomatoes = "spam:main_tomatoes"
 
 
 .. _TOML: https://toml.io
