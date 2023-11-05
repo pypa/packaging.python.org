@@ -11,8 +11,8 @@ The guide covers how to:
 * Use and create a requirements file
 
 
-.. note:: This guide applies to Python 3.3 and higher. If using a
-    legacy version of Python 2.x, consider using :ref:`virtualenv`.
+.. note:: This guide applies to supported versions of Python, currently 3.8
+    and higher.
 
 
 .. note:: This guide uses the term **package** to refer to a
