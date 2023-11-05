@@ -9,7 +9,7 @@ This guide discusses how to install packages using :ref:`pip` and
     under development. Please refer to the `virtualenv's documentation`_ for
     details on installation and usage.
 
-    .. virtualenv's documentation:: https://virtualenv.pypa.io/
+    .. virtualenv's documentation: https://virtualenv.pypa.io/
 
 
 .. note:: This doc uses the term **package** to refer to a
