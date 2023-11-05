@@ -169,7 +169,7 @@ It's used to install and update packages into a virtual environment.
 
     .. code-block:: text
 
-        pip 21.1.3 from ../.venv/lib/python3.9/site-packages (python 3.9)
+        pip 23.3.1 from .../.venv/lib/python3.9/site-packages (python 3.9)
 
 .. tab:: macOS
 
@@ -186,7 +186,7 @@ It's used to install and update packages into a virtual environment.
 
     .. code-block:: text
 
-        pip 23.3.1 from $HOME/.venv/lib/python3.9/site-packages (python 3.9)
+        pip 23.3.1 from .../.venv/lib/python3.9/site-packages (python 3.9)
 
 .. tab:: Windows
 
