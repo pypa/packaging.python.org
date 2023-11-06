@@ -38,7 +38,7 @@ Create a new virtual environment
 different projects. It creates a "virtual" isolated Python installation. When
 you switch projects, you can create a new virtual environment which is isolated
 from other virtual environments. You benefit from the virtual environment
-since packages can be installed confidently and will not interfere with the
+since packages can be installed confidently and will not interfere with
 another project's environment.
 
 .. tip::
