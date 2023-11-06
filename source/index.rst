@@ -31,9 +31,8 @@ happily accept :doc:`contributions and feedback <contribute>`. 😊
 
 .. _GitHub: https://github.com/pypa/packaging.python.org
 
-
-Overview and Flow
-=================
+Overview
+========
 
 .. note::
 
@@ -68,13 +67,17 @@ The :doc:`tutorials/index` section includes:
 Guides
 ======
 
-Guides provide steps to perform a specific task. Guides are more focused on
+"How to" guides provide steps to perform a specific task. Guides are more focused on
 users who are already familiar with Python packaging and are looking for
 specific information.
 
-The :doc:`guides/index` section provides "how to" instructions in three major
-areas: package installation; building and distributing packages; miscellaneous
-topics.
+The :doc:`guides/index` section provides "how to" instructions in these
+areas:
+
+* package installation
+* building and distributing packages
+* hosting
+* miscellaneous topics
 
 Explanations and Discussions
 ============================
@@ -85,9 +88,21 @@ about topics, such as:
 * :doc:`discussions/deploying-python-applications`
 * :doc:`discussions/pip-vs-easy-install`
 
+Specifications
+==============
+
+The :doc:`specifications/index` for packaging interoperability specifications
+and grouped into these categories:
+
+* Package Distribution Metadata
+* Package Installation Environment Metadata
+* Package Distribution File Formats
+* Package Index Interfaces
+
 Reference
 =========
 
-* The :doc:`specifications/index` section for packaging interoperability specifications.
-* The list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
+* The :doc:`key_projects` includes many projects used for installation
+  and packaging. It notes which packages are maintained by members of the
+  Python Packaging Authority.
 * The :doc:`glossary` for definitions of terms used in Python packaging.
