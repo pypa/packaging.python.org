@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 20:45+0000\n"
+"POT-Creation-Date: 2023-11-06 02:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -869,83 +869,83 @@ msgid "For example, here is a table for using :ref:`hatch`:"
 msgstr ""
 
 #: ../source/flow.rst:85
-msgid "With such a table in the :file:`pyproject.toml` file, a \"frontend\" tool like :ref:`build` can run your chosen build tool's \"backend\" to create the build artifacts. Your build tool may also provide its own frontend. An install tool like :ref:`pip` also acts as a frontend when it runs your build tool's backend to install from a source distribution."
-msgstr ""
-
-#: ../source/flow.rst:91
-msgid "The particular build tool you choose dictates what additional information is required in the :file:`pyproject.toml` file. For example, you might specify:"
+msgid "With such a table in the :file:`pyproject.toml` file, a \":term:`frontend <Build Frontend>`\" tool like :ref:`build` can run your chosen build tool's \":term:`backend <Build Backend>`\" to create the build artifacts. Your build tool may also provide its own frontend. An install tool like :ref:`pip` also acts as a frontend when it runs your build tool's backend to install from a source distribution."
 msgstr ""
 
 #: ../source/flow.rst:94
+msgid "The particular build tool you choose dictates what additional information is required in the :file:`pyproject.toml` file. For example, you might specify:"
+msgstr ""
+
+#: ../source/flow.rst:97
 msgid "a ``[project]`` table containing project :doc:`Core Metadata </specifications/core-metadata/>` (name, version, author and so forth); see :doc:`Declaring project metadata </specifications/declaring-project-metadata/>` for more detail"
 msgstr ""
 
-#: ../source/flow.rst:100
+#: ../source/flow.rst:103
 msgid "a ``[tool]`` table containing tool-specific configuration options"
 msgstr ""
 
-#: ../source/flow.rst:103
+#: ../source/flow.rst:106
 msgid "Build artifacts"
 msgstr ""
 
-#: ../source/flow.rst:106
+#: ../source/flow.rst:109
 msgid "The source distribution (sdist)"
 msgstr ""
 
-#: ../source/flow.rst:108
+#: ../source/flow.rst:111
 msgid "A source distribution contains enough to install the package from source in an end user's Python environment. As such, it needs the package source, and may also include tests and documentation. These are useful for end users wanting to develop your sources, and for end user systems where some local compilation step is required (such as a C extension)."
 msgstr ""
 
-#: ../source/flow.rst:114
-#: ../source/flow.rst:138
+#: ../source/flow.rst:117
+#: ../source/flow.rst:141
 msgid "The :ref:`build` package knows how to invoke your build tool to create one of these:"
 msgstr ""
 
-#: ../source/flow.rst:121
+#: ../source/flow.rst:124
 msgid "Or, your build tool may provide its own interface for creating an sdist."
 msgstr ""
 
-#: ../source/flow.rst:125
+#: ../source/flow.rst:128
 msgid "The built distributions (wheels)"
 msgstr ""
 
-#: ../source/flow.rst:127
+#: ../source/flow.rst:130
 msgid "A built distribution contains only the files needed for an end user's Python environment. No compilation steps are required during the install, and the wheel file can simply be unpacked into the ``site-packages`` directory. This makes the install faster and more convenient for end users."
 msgstr ""
 
-#: ../source/flow.rst:132
+#: ../source/flow.rst:135
 msgid "A pure Python package typically needs only one \"generic\" wheel. A package with compiled binary extensions needs a wheel for each supported combination of Python interpreter, operating system, and CPU architecture that it supports. If a suitable wheel file is not available, tools like :ref:`pip` will fall back to installing the source distribution."
 msgstr ""
 
-#: ../source/flow.rst:145
+#: ../source/flow.rst:148
 msgid "Or, your build tool may provide its own interface for creating a wheel."
 msgstr ""
 
-#: ../source/flow.rst:149
+#: ../source/flow.rst:152
 msgid "The default behaviour of :ref:`build` is to make both an sdist and a wheel from the source in the current directory; the above examples are deliberately specific."
 msgstr ""
 
-#: ../source/flow.rst:154
+#: ../source/flow.rst:157
 msgid "Upload to the package distribution service"
 msgstr ""
 
-#: ../source/flow.rst:156
+#: ../source/flow.rst:159
 msgid "The :ref:`twine` tool can upload build artifacts to PyPI for distribution, using a command like:"
 msgstr ""
 
-#: ../source/flow.rst:163
+#: ../source/flow.rst:166
 msgid "Or, your build tool may provide its own interface for uploading."
 msgstr ""
 
-#: ../source/flow.rst:166
+#: ../source/flow.rst:169
 msgid "Download and install"
 msgstr ""
 
-#: ../source/flow.rst:168
+#: ../source/flow.rst:171
 msgid "Now that the package is published, end users can download and install the package into their Python environment. Typically this is done with :ref:`pip`, using a command like:"
 msgstr ""
 
-#: ../source/flow.rst:176
+#: ../source/flow.rst:179
 msgid "End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or :ref:`pdm`."
 msgstr ""
 
@@ -962,248 +962,272 @@ msgid "A specific kind of :term:`Built Distribution` that contains compiled exte
 msgstr ""
 
 #: ../source/glossary.rst:14
-msgid "Built Distribution"
+msgid "Build Backend"
 msgstr ""
 
 #: ../source/glossary.rst:17
-msgid "A :term:`Distribution <Distribution Package>` format containing files and metadata that only need to be moved to the correct location on the target system, to be installed. :term:`Wheel` is such a format, whereas distutil's :term:`Source Distribution <Source Distribution (or \"sdist\")>` is not, in that it requires a build step before it can be installed.  This format does not imply that Python files have to be precompiled (:term:`Wheel` intentionally does not include compiled Python files)."
+msgid "A library that takes a source tree or :term:`source distribution <Source Distribution (or \"sdist\")>` and builds a source distribution or :term:`wheel <Wheel>` from it. The build is delegated to the backend by a :term:`frontend <Build Frontend>`. All backends offer a standardized interface."
 msgstr ""
 
-#: ../source/glossary.rst:26
-msgid "Distribution Package"
+#: ../source/glossary.rst:24
+msgid "Examples of build backends are :ref:`flit's flit-core <flit>`, :ref:`hatch's hatchling <hatch>`, :ref:`maturin`, :ref:`meson-python`, :ref:`scikit-build-core`, and :ref:`setuptools`."
 msgstr ""
 
-#: ../source/glossary.rst:29
-msgid "A versioned archive file that contains Python :term:`packages <Import Package>`, :term:`modules <Module>`, and other resource files that are used to distribute a :term:`Release`. The archive file is what an end-user will download from the internet and install."
+#: ../source/glossary.rst:32
+msgid "Build Frontend"
 msgstr ""
 
-#: ../source/glossary.rst:34
-msgid "A distribution package is more commonly referred to with the single words \"package\" or \"distribution\", but this guide may use the expanded term when more clarity is needed to prevent confusion with an :term:`Import Package` (which is also commonly called a \"package\") or another kind of distribution (e.g. a Linux distribution or the Python language distribution), which are often referred to with the single term \"distribution\"."
+#: ../source/glossary.rst:35
+msgid "A tool that users might run that takes arbitrary source trees or :term:`source distributions <Source Distribution (or \"sdist\")>` and builds source distributions or :term:`wheels <Wheel>` from them. The actual building is delegated to each source tree's :term:`build backend <Build Backend>`."
 msgstr ""
 
-#: ../source/glossary.rst:41
-msgid "Egg"
+#: ../source/glossary.rst:42
+msgid "Examples of build frontends are :ref:`pip` and :ref:`build`."
 msgstr ""
 
 #: ../source/glossary.rst:44
+msgid "Built Distribution"
+msgstr ""
+
+#: ../source/glossary.rst:47
+msgid "A :term:`Distribution <Distribution Package>` format containing files and metadata that only need to be moved to the correct location on the target system, to be installed. :term:`Wheel` is such a format, whereas distutil's :term:`Source Distribution <Source Distribution (or \"sdist\")>` is not, in that it requires a build step before it can be installed.  This format does not imply that Python files have to be precompiled (:term:`Wheel` intentionally does not include compiled Python files)."
+msgstr ""
+
+#: ../source/glossary.rst:56
+msgid "Distribution Package"
+msgstr ""
+
+#: ../source/glossary.rst:59
+msgid "A versioned archive file that contains Python :term:`packages <Import Package>`, :term:`modules <Module>`, and other resource files that are used to distribute a :term:`Release`. The archive file is what an end-user will download from the internet and install."
+msgstr ""
+
+#: ../source/glossary.rst:64
+msgid "A distribution package is more commonly referred to with the single words \"package\" or \"distribution\", but this guide may use the expanded term when more clarity is needed to prevent confusion with an :term:`Import Package` (which is also commonly called a \"package\") or another kind of distribution (e.g. a Linux distribution or the Python language distribution), which are often referred to with the single term \"distribution\"."
+msgstr ""
+
+#: ../source/glossary.rst:71
+msgid "Egg"
+msgstr ""
+
+#: ../source/glossary.rst:74
 msgid "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which is being replaced by :term:`Wheel`.  For details, see :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` and `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 msgstr ""
 
-#: ../source/glossary.rst:48
+#: ../source/glossary.rst:78
 msgid "Extension Module"
 msgstr ""
 
-#: ../source/glossary.rst:51
+#: ../source/glossary.rst:81
 msgid "A :term:`Module` written in the low-level language of the Python implementation: C/C++ for Python, Java for Jython. Typically contained in a single dynamically loadable pre-compiled file, e.g.  a shared object (.so) file for Python extensions on Unix, a DLL (given the .pyd extension) for Python extensions on Windows, or a Java class file for Jython extensions."
 msgstr ""
 
-#: ../source/glossary.rst:58
+#: ../source/glossary.rst:88
 msgid "Known Good Set (KGS)"
 msgstr ""
 
-#: ../source/glossary.rst:61
+#: ../source/glossary.rst:91
 msgid "A set of distributions at specified versions which are compatible with each other. Typically a test suite will be run which passes all tests before a specific set of packages is declared a known good set. This term is commonly used by frameworks and toolkits which are comprised of multiple individual distributions."
 msgstr ""
 
-#: ../source/glossary.rst:67
+#: ../source/glossary.rst:97
 msgid "Import Package"
 msgstr ""
 
-#: ../source/glossary.rst:70
+#: ../source/glossary.rst:100
 msgid "A Python module which can contain other modules or recursively, other packages."
 msgstr ""
 
-#: ../source/glossary.rst:73
+#: ../source/glossary.rst:103
 msgid "An import package is more commonly referred to with the single word \"package\", but this guide will use the expanded term when more clarity is needed to prevent confusion with a :term:`Distribution Package` which is also commonly called a \"package\"."
 msgstr ""
 
-#: ../source/glossary.rst:77
+#: ../source/glossary.rst:107
 msgid "Module"
 msgstr ""
 
-#: ../source/glossary.rst:80
+#: ../source/glossary.rst:110
 msgid "The basic unit of code reusability in Python, existing in one of two types: :term:`Pure Module`, or :term:`Extension Module`."
 msgstr ""
 
-#: ../source/glossary.rst:83
+#: ../source/glossary.rst:113
 msgid "Package Index"
 msgstr ""
 
-#: ../source/glossary.rst:86
+#: ../source/glossary.rst:116
 msgid "A repository of distributions with a web interface to automate :term:`package <Distribution Package>` discovery and consumption."
 msgstr ""
 
-#: ../source/glossary.rst:89
+#: ../source/glossary.rst:119
 msgid "Per Project Index"
 msgstr ""
 
-#: ../source/glossary.rst:92
+#: ../source/glossary.rst:122
 msgid "A private or other non-canonical :term:`Package Index` indicated by a specific :term:`Project` as the index preferred or required to resolve dependencies of that project."
 msgstr ""
 
-#: ../source/glossary.rst:96
+#: ../source/glossary.rst:126
 msgid "Project"
 msgstr ""
 
-#: ../source/glossary.rst:99
+#: ../source/glossary.rst:129
 msgid "A library, framework, script, plugin, application, or collection of data or other resources, or some combination thereof that is intended to be packaged into a :term:`Distribution <Distribution Package>`."
 msgstr ""
 
-#: ../source/glossary.rst:103
+#: ../source/glossary.rst:133
 msgid "Since most projects create :term:`Distributions <Distribution Package>` using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:`setuptools`, another practical way to define projects currently is something that contains a :term:`pyproject.toml`, :term:`setup.py`, or :term:`setup.cfg` file at the root of the project source directory."
 msgstr ""
 
-#: ../source/glossary.rst:109
+#: ../source/glossary.rst:139
 msgid "Python projects must have unique names, which are registered on :term:`PyPI <Python Package Index (PyPI)>`. Each project will then contain one or more :term:`Releases <Release>`, and each release may comprise one or more :term:`distributions <Distribution Package>`."
 msgstr ""
 
-#: ../source/glossary.rst:114
+#: ../source/glossary.rst:144
 msgid "Note that there is a strong convention to name a project after the name of the package that is imported to run that project. However, this doesn't have to hold true. It's possible to install a distribution from the project 'foo' and have it provide a package importable only as 'bar'."
 msgstr ""
 
-#: ../source/glossary.rst:120
+#: ../source/glossary.rst:150
 msgid "Pure Module"
 msgstr ""
 
-#: ../source/glossary.rst:123
+#: ../source/glossary.rst:153
 msgid "A :term:`Module` written in Python and contained in a single ``.py`` file (and possibly associated ``.pyc`` and/or ``.pyo`` files)."
 msgstr ""
 
-#: ../source/glossary.rst:126
+#: ../source/glossary.rst:156
 msgid "Python Packaging Authority (PyPA)"
 msgstr ""
 
-#: ../source/glossary.rst:129
+#: ../source/glossary.rst:159
 msgid "PyPA is a working group that maintains many of the relevant projects in Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host projects on `GitHub <https://github.com/pypa>`_ and `Bitbucket <https://bitbucket.org/pypa>`_, and discuss issues on the `distutils-sig mailing list <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`_ and `the Python Discourse forum <https://discuss.python.org/c/packaging>`__."
 msgstr ""
 
-#: ../source/glossary.rst:138
+#: ../source/glossary.rst:168
 msgid "Python Package Index (PyPI)"
 msgstr ""
 
-#: ../source/glossary.rst:141
+#: ../source/glossary.rst:171
 msgid "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the Python community. It is open to all Python developers to consume and distribute their distributions."
 msgstr ""
 
-#: ../source/glossary.rst:144
+#: ../source/glossary.rst:174
 msgid "pypi.org"
 msgstr ""
 
-#: ../source/glossary.rst:147
+#: ../source/glossary.rst:177
 msgid "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi.python.org``, in 2017. It is powered by :ref:`warehouse`."
 msgstr ""
 
-#: ../source/glossary.rst:151
+#: ../source/glossary.rst:181
 msgid "pyproject.toml"
 msgstr ""
 
-#: ../source/glossary.rst:154
+#: ../source/glossary.rst:184
 msgid "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
 
-#: ../source/glossary.rst:156
+#: ../source/glossary.rst:186
 msgid "Release"
 msgstr ""
 
-#: ../source/glossary.rst:159
+#: ../source/glossary.rst:189
 msgid "A snapshot of a :term:`Project` at a particular point in time, denoted by a version identifier."
 msgstr ""
 
-#: ../source/glossary.rst:162
+#: ../source/glossary.rst:192
 msgid "Making a release may entail the publishing of multiple :term:`Distributions <Distribution Package>`.  For example, if version 1.0 of a project was released, it could be available in both a source distribution format and a Windows installer distribution format."
 msgstr ""
 
-#: ../source/glossary.rst:167
+#: ../source/glossary.rst:197
 msgid "Requirement"
 msgstr ""
 
-#: ../source/glossary.rst:170
+#: ../source/glossary.rst:200
 msgid "A specification for a :term:`package <Distribution Package>` to be installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` recommended installer, allows various forms of specification that can all be considered a \"requirement\". For more information, see the :ref:`pip:pip install` reference."
 msgstr ""
 
-#: ../source/glossary.rst:176
+#: ../source/glossary.rst:206
 msgid "Requirement Specifier"
 msgstr ""
 
-#: ../source/glossary.rst:179
+#: ../source/glossary.rst:209
 msgid "A format used by :ref:`pip` to install packages from a :term:`Package Index`. For an EBNF diagram of the format, see the `pkg_resources.Requirement <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_ entry in the :ref:`setuptools` docs. For example, \"foo>=1.3\" is a requirement specifier, where \"foo\" is the project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
 
-#: ../source/glossary.rst:186
+#: ../source/glossary.rst:216
 msgid "Requirements File"
 msgstr ""
 
-#: ../source/glossary.rst:189
+#: ../source/glossary.rst:219
 msgid "A file containing a list of :term:`Requirements <Requirement>` that can be installed using :ref:`pip`. For more information, see the :ref:`pip` docs on :ref:`pip:Requirements Files`."
 msgstr ""
 
-#: ../source/glossary.rst:193
+#: ../source/glossary.rst:223
 #: ../source/guides/distributing-packages-using-setuptools.rst:58
 msgid "setup.py"
 msgstr ""
 
-#: ../source/glossary.rst:194
+#: ../source/glossary.rst:224
 #: ../source/guides/distributing-packages-using-setuptools.rst:79
 msgid "setup.cfg"
 msgstr ""
 
-#: ../source/glossary.rst:197
+#: ../source/glossary.rst:227
 msgid "The project specification files for :ref:`distutils` and :ref:`setuptools`. See also :term:`pyproject.toml`."
 msgstr ""
 
-#: ../source/glossary.rst:200
+#: ../source/glossary.rst:230
 msgid "Source Archive"
 msgstr ""
 
-#: ../source/glossary.rst:203
+#: ../source/glossary.rst:233
 msgid "An archive containing the raw source code for a :term:`Release`, prior to creation of a :term:`Source Distribution <Source Distribution (or \"sdist\")>` or :term:`Built Distribution`."
 msgstr ""
 
-#: ../source/glossary.rst:207
+#: ../source/glossary.rst:237
 msgid "Source Distribution (or \"sdist\")"
 msgstr ""
 
-#: ../source/glossary.rst:210
+#: ../source/glossary.rst:240
 msgid "A :term:`distribution <Distribution Package>` format (usually generated using ``python -m build --sdist``) that provides metadata and the essential source files needed for installing by a tool like :ref:`pip`, or for generating a :term:`Built Distribution`."
 msgstr ""
 
-#: ../source/glossary.rst:215
+#: ../source/glossary.rst:245
 msgid "System Package"
 msgstr ""
 
-#: ../source/glossary.rst:218
+#: ../source/glossary.rst:248
 msgid "A package provided in a format native to the operating system, e.g. an rpm or dpkg file."
 msgstr ""
 
-#: ../source/glossary.rst:221
+#: ../source/glossary.rst:251
 msgid "Version Specifier"
 msgstr ""
 
-#: ../source/glossary.rst:224
+#: ../source/glossary.rst:254
 msgid "The version component of a :term:`Requirement Specifier`. For example, the \">=1.3\" portion of \"foo>=1.3\".  :pep:`440` contains a :pep:`full specification <440#version-specifiers>` of the specifiers that Python packaging currently supports.  Support for PEP440 was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0."
 msgstr ""
 
-#: ../source/glossary.rst:230
+#: ../source/glossary.rst:260
 msgid "Virtual Environment"
 msgstr ""
 
-#: ../source/glossary.rst:233
+#: ../source/glossary.rst:263
 msgid "An isolated Python environment that allows packages to be installed for use by a particular application, rather than being installed system wide. For more information, see the section on :ref:`Creating and using Virtual Environments`."
 msgstr ""
 
-#: ../source/glossary.rst:237
+#: ../source/glossary.rst:267
 msgid "Wheel"
 msgstr ""
 
-#: ../source/glossary.rst:240
+#: ../source/glossary.rst:270
 msgid "A :term:`Built Distribution` format introduced by an official :doc:`standard specification </specifications/binary-distribution-format/>`, which is intended to replace the :term:`Egg` format.  Wheel is currently supported by :ref:`pip`."
 msgstr ""
 
-#: ../source/glossary.rst:245
+#: ../source/glossary.rst:275
 msgid "Working Set"
 msgstr ""
 
-#: ../source/glossary.rst:248
+#: ../source/glossary.rst:278
 msgid "A collection of :term:`distributions <Distribution Package>` available for importing. These are the distributions that are on the `sys.path` variable. At most, one :term:`Distribution <Distribution Package>` for a project is possible in a working set."
 msgstr ""
 
@@ -5032,7 +5056,7 @@ msgid "`Docs <https://hatch.pypa.io/latest/>`__ | `GitHub <https://github.com/py
 msgstr ""
 
 #: ../source/key_projects.rst:141
-msgid "Hatch is a unified command-line tool meant to conveniently manage dependencies and environment isolation for Python developers. Python package developers use Hatch and its build backend Hatchling to configure, version, specify dependencies for, and publish packages to PyPI. Its plugin system allows for easily extending functionality."
+msgid "Hatch is a unified command-line tool meant to conveniently manage dependencies and environment isolation for Python developers. Python package developers use Hatch and its :term:`build backend <Build Backend>` Hatchling to configure, version, specify dependencies for, and publish packages to PyPI. Its plugin system allows for easily extending functionality."
 msgstr ""
 
 #: ../source/key_projects.rst:150
@@ -7728,7 +7752,7 @@ msgid "There are two kinds of metadata: *static* and *dynamic*. Static metadata 
 msgstr ""
 
 #: ../source/specifications/declaring-project-metadata.rst:24
-msgid "The keys defined in this specification MUST be in a table named ``[project]`` in ``pyproject.toml``. No tools may add keys to this table which are not defined by this specification. For tools wishing to store their own settings in ``pyproject.toml``, they may use the ``[tool]`` table as defined in the :ref:`build dependency declaration specification <declaring-build-dependencies>`. The lack of a ``[project]`` table implicitly means the build back-end will dynamically provide all keys."
+msgid "The keys defined in this specification MUST be in a table named ``[project]`` in ``pyproject.toml``. No tools may add keys to this table which are not defined by this specification. For tools wishing to store their own settings in ``pyproject.toml``, they may use the ``[tool]`` table as defined in the :ref:`build dependency declaration specification <declaring-build-dependencies>`. The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>` will dynamically provide all keys."
 msgstr ""
 
 #: ../source/specifications/declaring-project-metadata.rst:33
@@ -8481,7 +8505,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:68
 #: ../source/specifications/externally-managed-environments.rst:25
 #: ../source/specifications/name-normalization.rst:42
-#: ../source/specifications/source-distribution-format.rst:143
+#: ../source/specifications/source-distribution-format.rst:144
 msgid "History"
 msgstr ""
 
@@ -9754,146 +9778,146 @@ msgid "The name and version components of the filename MUST match the values sto
 msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:45
-msgid "Code that produces a source distribution file MUST give the file a name that matches this specification. This includes the ``build_sdist`` hook of a build backend."
+msgid "Code that produces a source distribution file MUST give the file a name that matches this specification. This includes the ``build_sdist`` hook of a :term:`build backend <Build Backend>`."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:48
+#: ../source/specifications/source-distribution-format.rst:49
 msgid "Code that processes source distribution files MAY recognise source distribution files by the ``.tar.gz`` suffix and the presence of precisely *one* hyphen in the filename. Code that does this may then use the distribution name and version from the filename without further verification."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:54
+#: ../source/specifications/source-distribution-format.rst:55
 msgid "Source distribution file format"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:56
+#: ../source/specifications/source-distribution-format.rst:57
 msgid "A ``.tar.gz`` source distribution (sdist) contains a single top-level directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of the package. The name and version MUST match the metadata stored in the file. This directory must also contain a :file:`pyproject.toml` in the format defined in :ref:`declaring-build-dependencies`, and a ``PKG-INFO`` file containing metadata in the format described in the :ref:`core-metadata` specification. The metadata MUST conform to at least version 2.2 of the metadata specification."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:64
+#: ../source/specifications/source-distribution-format.rst:65
 msgid "No other content of a sdist is required or defined. Build systems can store whatever information they need in the sdist to build the project."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:67
+#: ../source/specifications/source-distribution-format.rst:68
 msgid "The tarball should use the modern POSIX.1-2001 pax tar format, which specifies UTF-8 based file names. In particular, source distribution files must be readable using the standard library tarfile module with the open flag 'r:gz'."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:75
+#: ../source/specifications/source-distribution-format.rst:76
 msgid "Source distribution archive features"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:77
+#: ../source/specifications/source-distribution-format.rst:78
 msgid "Because extracting tar files as-is is dangerous, and the results are platform-specific, archive features of source distributions are limited."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:81
+#: ../source/specifications/source-distribution-format.rst:82
 msgid "Unpacking with the data filter"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:83
+#: ../source/specifications/source-distribution-format.rst:84
 msgid "When extracting a source distribution, tools MUST either use :py:func:`tarfile.data_filter` (e.g. :py:meth:`TarFile.extractall(..., filter='data') <tarfile.TarFile.extractall>`), OR follow the *Unpacking without the data filter* section below."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:87
+#: ../source/specifications/source-distribution-format.rst:88
 msgid "As an exception, on Python interpreters without :py:func:`hasattr(tarfile, 'data_filter') <tarfile.data_filter>` (:pep:`706`), tools that normally use that filter (directly on indirectly) MAY warn the user and ignore this specification. The trade-off between usability (e.g. fully trusting the archive) and security (e.g. refusing to unpack) is left up to the tool in this case."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:95
+#: ../source/specifications/source-distribution-format.rst:96
 msgid "Unpacking without the data filter"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:97
+#: ../source/specifications/source-distribution-format.rst:98
 msgid "Tools that do not use the ``data`` filter directly (e.g. for backwards compatibility, allowing additional features, or not using Python) MUST follow this section. (At the time of this writing, the ``data`` filter also follows this section, but it may get out of sync in the future.)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:103
+#: ../source/specifications/source-distribution-format.rst:104
 msgid "The following files are invalid in an *sdist* archive. Upon encountering such an entry, tools SHOULD notify the user, MUST NOT unpack the entry, and MAY abort with a failure:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:107
+#: ../source/specifications/source-distribution-format.rst:108
 msgid "Files that would be placed outside the destination directory."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:108
+#: ../source/specifications/source-distribution-format.rst:109
 msgid "Links (symbolic or hard) pointing outside the destination directory."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:109
+#: ../source/specifications/source-distribution-format.rst:110
 msgid "Device files (including pipes)."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:111
+#: ../source/specifications/source-distribution-format.rst:112
 msgid "The following are also invalid. Tools MAY treat them as above, but are NOT REQUIRED to do so:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:114
+#: ../source/specifications/source-distribution-format.rst:115
 msgid "Files with a ``..`` component in the filename or link target."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:115
+#: ../source/specifications/source-distribution-format.rst:116
 msgid "Links pointing to a file that is not part of the archive."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:117
+#: ../source/specifications/source-distribution-format.rst:118
 msgid "Tools MAY unpack links (symbolic or hard) as regular files, using content from the archive."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:120
+#: ../source/specifications/source-distribution-format.rst:121
 msgid "When extracting *sdist* archives:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:122
+#: ../source/specifications/source-distribution-format.rst:123
 msgid "Leading slashes in file names MUST be dropped. (This is nowadays standard behaviour for ``tar`` unpacking.)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:124
+#: ../source/specifications/source-distribution-format.rst:125
 msgid "For each ``mode`` (Unix permission) bit, tools MUST either:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:126
+#: ../source/specifications/source-distribution-format.rst:127
 msgid "use the platform's default for a new file/directory (respectively),"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:127
+#: ../source/specifications/source-distribution-format.rst:128
 msgid "set the bit according to the archive, or"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:128
+#: ../source/specifications/source-distribution-format.rst:129
 msgid "use the bit from ``rw-r--r--`` (``0o644``) for non-executable files or ``rwxr-xr-x`` (``0o755``) for executable files and directories."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:131
+#: ../source/specifications/source-distribution-format.rst:132
 msgid "High ``mode`` bits (setuid, setgid, sticky) MUST be cleared."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:132
+#: ../source/specifications/source-distribution-format.rst:133
 msgid "It is RECOMMENDED to preserve the user *executable* bit."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:136
+#: ../source/specifications/source-distribution-format.rst:137
 msgid "Further hints"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:138
+#: ../source/specifications/source-distribution-format.rst:139
 msgid "Tool authors are encouraged to consider how *hints for further verification* in ``tarfile`` documentation apply to their tool."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:145
+#: ../source/specifications/source-distribution-format.rst:146
 msgid "August 2023: Standardized the source distribution archive features (:pep:`721`)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:146
+#: ../source/specifications/source-distribution-format.rst:147
 msgid "September 2022: Standardized the filename of a source distribution (:pep:`625`)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:147
+#: ../source/specifications/source-distribution-format.rst:148
 msgid "July 2021: Defined what a source tree is"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:148
+#: ../source/specifications/source-distribution-format.rst:149
 msgid "November 2020: :pep:`643` converted to this specification"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:149
+#: ../source/specifications/source-distribution-format.rst:150
 msgid "December 2000: Source distributions standardized in :pep:`643`"
 msgstr ""
 
@@ -10487,7 +10511,7 @@ msgid "Choosing a build backend"
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:109
-msgid "Tools like :ref:`pip` and :ref:`build` do not actually convert your sources into a :term:`distribution package <Distribution Package>` (like a wheel); that job is performed by a *build backend*. The build backend determines how your project will specify its configuration, including metadata (information about the project, for example, the name and tags that are displayed on PyPI) and input files. Build backends have different levels of functionality, such as whether they support building :term:`extension modules <Extension Module>`, and you should choose one that suits your needs and preferences."
+msgid "Tools like :ref:`pip` and :ref:`build` do not actually convert your sources into a :term:`distribution package <Distribution Package>` (like a wheel); that job is performed by a :term:`build backend <Build Backend>`. The build backend determines how your project will specify its configuration, including metadata (information about the project, for example, the name and tags that are displayed on PyPI) and input files. Build backends have different levels of functionality, such as whether they support building :term:`extension modules <Extension Module>`, and you should choose one that suits your needs and preferences."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:118
@@ -10499,11 +10523,11 @@ msgid "Some build backends are part of larger tools that provide a command-line 
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:130
-msgid "The :file:`pyproject.toml` tells \"front end\" build tools like :ref:`pip` and :ref:`build` which backend to use for your project. Below are some examples for common build backends, but check your backend's own documentation for more details."
+msgid "The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` tools like :ref:`pip` and :ref:`build` which backend to use for your project. Below are some examples for common build backends, but check your backend's own documentation for more details."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:168
-msgid "The ``requires`` key is a list of packages that are needed to build your package. The frontend should install them automatically when building your package. Frontends usually run builds in isolated environments, so omitting dependencies here may cause build-time errors. This should always include your backend's package, and might have other build-time dependencies."
+msgid "The ``requires`` key is a list of packages that are needed to build your package. The :term:`frontend <Build Frontend>` should install them automatically when building your package. Frontends usually run builds in isolated environments, so omitting dependencies here may cause build-time errors. This should always include your backend's package, and might have other build-time dependencies."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:175
