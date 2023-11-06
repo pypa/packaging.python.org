@@ -9,9 +9,6 @@ Supporting multiple Python versions
 :Page Status: Obsolete
 :Last Reviewed: 2014-12-24
 
-.. contents:: Contents
-   :local:
-
 
 ::
 

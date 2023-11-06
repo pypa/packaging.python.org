@@ -19,8 +19,6 @@ Packages <setuptools:userguide/index>` in the :ref:`setuptools` docs, but note
 that some advisory content there may be outdated. In the event of
 conflicts, prefer the advice in the Python Packaging User Guide.
 
-.. contents:: Contents
-   :local:
 
 
 Requirements for packaging and distributing

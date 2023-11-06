@@ -4,9 +4,6 @@
 Installing scientific packages
 ==============================
 
-.. contents:: Contents
-   :local:
-
 
 Scientific software tends to have more complex dependencies than most, and
 it will often have multiple build options to take advantage of different
