@@ -5,8 +5,11 @@
 Project Summaries
 =================
 
-Summaries and links for the most relevant projects in the space of Python
-installation and packaging.
+This document presents summaries and links for projects in the Python
+installation and packaging space.
+
+.. contents:: Projects
+  :local:
 
 .. _pypa_projects:
 
