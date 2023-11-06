@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 20:45+0000\n"
+"POT-Creation-Date: 2023-11-06 11:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -616,7 +616,7 @@ msgid "Unix (including Linux and macOS)"
 msgstr ""
 
 #: ../source/discussions/deploying-python-applications.rst:121
-#: ../source/key_projects.rst:532
+#: ../source/key_projects.rst:537
 msgid "pex"
 msgstr ""
 
@@ -1190,20 +1190,21 @@ msgstr ""
 
 #: ../source/flow.rst:85
 msgid ""
-"With such a table in the :file:`pyproject.toml` file, a \"frontend\" tool "
-"like :ref:`build` can run your chosen build tool's \"backend\" to create the "
-"build artifacts. Your build tool may also provide its own frontend. An "
-"install tool like :ref:`pip` also acts as a frontend when it runs your build "
-"tool's backend to install from a source distribution."
+"With such a table in the :file:`pyproject.toml` file, a \":term:`frontend "
+"<Build Frontend>`\" tool like :ref:`build` can run your chosen build tool's "
+"\":term:`backend <Build Backend>`\" to create the build artifacts. Your "
+"build tool may also provide its own frontend. An install tool like :ref:"
+"`pip` also acts as a frontend when it runs your build tool's backend to "
+"install from a source distribution."
 msgstr ""
 
-#: ../source/flow.rst:91
+#: ../source/flow.rst:94
 msgid ""
 "The particular build tool you choose dictates what additional information is "
 "required in the :file:`pyproject.toml` file. For example, you might specify:"
 msgstr ""
 
-#: ../source/flow.rst:94
+#: ../source/flow.rst:97
 msgid ""
 "a ``[project]`` table containing project :doc:`Core Metadata </"
 "specifications/core-metadata/>` (name, version, author and so forth); see :"
@@ -1211,19 +1212,19 @@ msgid ""
 ">` for more detail"
 msgstr ""
 
-#: ../source/flow.rst:100
+#: ../source/flow.rst:103
 msgid "a ``[tool]`` table containing tool-specific configuration options"
 msgstr ""
 
-#: ../source/flow.rst:103
+#: ../source/flow.rst:106
 msgid "Build artifacts"
 msgstr ""
 
-#: ../source/flow.rst:106
+#: ../source/flow.rst:109
 msgid "The source distribution (sdist)"
 msgstr ""
 
-#: ../source/flow.rst:108
+#: ../source/flow.rst:111
 msgid ""
 "A source distribution contains enough to install the package from source in "
 "an end user's Python environment. As such, it needs the package source, and "
@@ -1232,22 +1233,22 @@ msgid ""
 "compilation step is required (such as a C extension)."
 msgstr ""
 
-#: ../source/flow.rst:114 ../source/flow.rst:138
+#: ../source/flow.rst:117 ../source/flow.rst:141
 msgid ""
 "The :ref:`build` package knows how to invoke your build tool to create one "
 "of these:"
 msgstr ""
 
-#: ../source/flow.rst:121
+#: ../source/flow.rst:124
 msgid ""
 "Or, your build tool may provide its own interface for creating an sdist."
 msgstr ""
 
-#: ../source/flow.rst:125
+#: ../source/flow.rst:128
 msgid "The built distributions (wheels)"
 msgstr ""
 
-#: ../source/flow.rst:127
+#: ../source/flow.rst:130
 msgid ""
 "A built distribution contains only the files needed for an end user's Python "
 "environment. No compilation steps are required during the install, and the "
@@ -1255,7 +1256,7 @@ msgid ""
 "makes the install faster and more convenient for end users."
 msgstr ""
 
-#: ../source/flow.rst:132
+#: ../source/flow.rst:135
 msgid ""
 "A pure Python package typically needs only one \"generic\" wheel. A package "
 "with compiled binary extensions needs a wheel for each supported combination "
@@ -1264,43 +1265,43 @@ msgid ""
 "will fall back to installing the source distribution."
 msgstr ""
 
-#: ../source/flow.rst:145
+#: ../source/flow.rst:148
 msgid "Or, your build tool may provide its own interface for creating a wheel."
 msgstr ""
 
-#: ../source/flow.rst:149
+#: ../source/flow.rst:152
 msgid ""
 "The default behaviour of :ref:`build` is to make both an sdist and a wheel "
 "from the source in the current directory; the above examples are "
 "deliberately specific."
 msgstr ""
 
-#: ../source/flow.rst:154
+#: ../source/flow.rst:157
 msgid "Upload to the package distribution service"
 msgstr ""
 
-#: ../source/flow.rst:156
+#: ../source/flow.rst:159
 msgid ""
 "The :ref:`twine` tool can upload build artifacts to PyPI for distribution, "
 "using a command like:"
 msgstr ""
 
-#: ../source/flow.rst:163
+#: ../source/flow.rst:166
 msgid "Or, your build tool may provide its own interface for uploading."
 msgstr ""
 
-#: ../source/flow.rst:166
+#: ../source/flow.rst:169
 msgid "Download and install"
 msgstr ""
 
-#: ../source/flow.rst:168
+#: ../source/flow.rst:171
 msgid ""
 "Now that the package is published, end users can download and install the "
 "package into their Python environment. Typically this is done with :ref:"
 "`pip`, using a command like:"
 msgstr ""
 
-#: ../source/flow.rst:176
+#: ../source/flow.rst:179
 msgid ""
 "End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or :"
 "ref:`pdm`."
@@ -1321,10 +1322,46 @@ msgid ""
 msgstr ""
 
 #: ../source/glossary.rst:14
-msgid "Built Distribution"
+msgid "Build Backend"
 msgstr ""
 
 #: ../source/glossary.rst:17
+msgid ""
+"A library that takes a source tree or :term:`source distribution <Source "
+"Distribution (or \"sdist\")>` and builds a source distribution or :term:"
+"`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
+"`frontend <Build Frontend>`. All backends offer a standardized interface."
+msgstr ""
+
+#: ../source/glossary.rst:24
+msgid ""
+"Examples of build backends are :ref:`flit's flit-core <flit>`, :ref:`hatch's "
+"hatchling <hatch>`, :ref:`maturin`, :ref:`meson-python`, :ref:`scikit-build-"
+"core`, and :ref:`setuptools`."
+msgstr ""
+
+#: ../source/glossary.rst:32
+msgid "Build Frontend"
+msgstr ""
+
+#: ../source/glossary.rst:35
+msgid ""
+"A tool that users might run that takes arbitrary source trees or :term:"
+"`source distributions <Source Distribution (or \"sdist\")>` and builds "
+"source distributions or :term:`wheels <Wheel>` from them. The actual "
+"building is delegated to each source tree's :term:`build backend <Build "
+"Backend>`."
+msgstr ""
+
+#: ../source/glossary.rst:42
+msgid "Examples of build frontends are :ref:`pip` and :ref:`build`."
+msgstr ""
+
+#: ../source/glossary.rst:44
+msgid "Built Distribution"
+msgstr ""
+
+#: ../source/glossary.rst:47
 msgid ""
 "A :term:`Distribution <Distribution Package>` format containing files and "
 "metadata that only need to be moved to the correct location on the target "
@@ -1335,11 +1372,11 @@ msgid ""
 "intentionally does not include compiled Python files)."
 msgstr ""
 
-#: ../source/glossary.rst:26
+#: ../source/glossary.rst:56
 msgid "Distribution Package"
 msgstr ""
 
-#: ../source/glossary.rst:29
+#: ../source/glossary.rst:59
 msgid ""
 "A versioned archive file that contains Python :term:`packages <Import "
 "Package>`, :term:`modules <Module>`, and other resource files that are used "
@@ -1347,7 +1384,7 @@ msgid ""
 "download from the internet and install."
 msgstr ""
 
-#: ../source/glossary.rst:34
+#: ../source/glossary.rst:64
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -1358,11 +1395,11 @@ msgid ""
 "\"distribution\"."
 msgstr ""
 
-#: ../source/glossary.rst:41
+#: ../source/glossary.rst:71
 msgid "Egg"
 msgstr ""
 
-#: ../source/glossary.rst:44
+#: ../source/glossary.rst:74
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which "
 "is being replaced by :term:`Wheel`.  For details, see :doc:`The Internal "
@@ -1370,11 +1407,11 @@ msgid ""
 "Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 msgstr ""
 
-#: ../source/glossary.rst:48
+#: ../source/glossary.rst:78
 msgid "Extension Module"
 msgstr ""
 
-#: ../source/glossary.rst:51
+#: ../source/glossary.rst:81
 msgid ""
 "A :term:`Module` written in the low-level language of the Python "
 "implementation: C/C++ for Python, Java for Jython. Typically contained in a "
@@ -1383,11 +1420,11 @@ msgid ""
 "Python extensions on Windows, or a Java class file for Jython extensions."
 msgstr ""
 
-#: ../source/glossary.rst:58
+#: ../source/glossary.rst:88
 msgid "Known Good Set (KGS)"
 msgstr ""
 
-#: ../source/glossary.rst:61
+#: ../source/glossary.rst:91
 msgid ""
 "A set of distributions at specified versions which are compatible with each "
 "other. Typically a test suite will be run which passes all tests before a "
@@ -1396,17 +1433,17 @@ msgid ""
 "distributions."
 msgstr ""
 
-#: ../source/glossary.rst:67
+#: ../source/glossary.rst:97
 msgid "Import Package"
 msgstr ""
 
-#: ../source/glossary.rst:70
+#: ../source/glossary.rst:100
 msgid ""
 "A Python module which can contain other modules or recursively, other "
 "packages."
 msgstr ""
 
-#: ../source/glossary.rst:73
+#: ../source/glossary.rst:103
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -1414,49 +1451,49 @@ msgid ""
 "also commonly called a \"package\"."
 msgstr ""
 
-#: ../source/glossary.rst:77
+#: ../source/glossary.rst:107
 msgid "Module"
 msgstr ""
 
-#: ../source/glossary.rst:80
+#: ../source/glossary.rst:110
 msgid ""
 "The basic unit of code reusability in Python, existing in one of two types: :"
 "term:`Pure Module`, or :term:`Extension Module`."
 msgstr ""
 
-#: ../source/glossary.rst:83
+#: ../source/glossary.rst:113
 msgid "Package Index"
 msgstr ""
 
-#: ../source/glossary.rst:86
+#: ../source/glossary.rst:116
 msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
 msgstr ""
 
-#: ../source/glossary.rst:89
+#: ../source/glossary.rst:119
 msgid "Per Project Index"
 msgstr ""
 
-#: ../source/glossary.rst:92
+#: ../source/glossary.rst:122
 msgid ""
 "A private or other non-canonical :term:`Package Index` indicated by a "
 "specific :term:`Project` as the index preferred or required to resolve "
 "dependencies of that project."
 msgstr ""
 
-#: ../source/glossary.rst:96
+#: ../source/glossary.rst:126
 msgid "Project"
 msgstr ""
 
-#: ../source/glossary.rst:99
+#: ../source/glossary.rst:129
 msgid ""
 "A library, framework, script, plugin, application, or collection of data or "
 "other resources, or some combination thereof that is intended to be packaged "
 "into a :term:`Distribution <Distribution Package>`."
 msgstr ""
 
-#: ../source/glossary.rst:103
+#: ../source/glossary.rst:133
 msgid ""
 "Since most projects create :term:`Distributions <Distribution Package>` "
 "using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:"
@@ -1465,7 +1502,7 @@ msgid ""
 "`setup.cfg` file at the root of the project source directory."
 msgstr ""
 
-#: ../source/glossary.rst:109
+#: ../source/glossary.rst:139
 msgid ""
 "Python projects must have unique names, which are registered on :term:`PyPI "
 "<Python Package Index (PyPI)>`. Each project will then contain one or more :"
@@ -1473,7 +1510,7 @@ msgid ""
 "`distributions <Distribution Package>`."
 msgstr ""
 
-#: ../source/glossary.rst:114
+#: ../source/glossary.rst:144
 msgid ""
 "Note that there is a strong convention to name a project after the name of "
 "the package that is imported to run that project. However, this doesn't have "
@@ -1481,21 +1518,21 @@ msgid ""
 "and have it provide a package importable only as 'bar'."
 msgstr ""
 
-#: ../source/glossary.rst:120
+#: ../source/glossary.rst:150
 msgid "Pure Module"
 msgstr ""
 
-#: ../source/glossary.rst:123
+#: ../source/glossary.rst:153
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file "
 "(and possibly associated ``.pyc`` and/or ``.pyo`` files)."
 msgstr ""
 
-#: ../source/glossary.rst:126
+#: ../source/glossary.rst:156
 msgid "Python Packaging Authority (PyPA)"
 msgstr ""
 
-#: ../source/glossary.rst:129
+#: ../source/glossary.rst:159
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host "
@@ -1505,48 +1542,48 @@ msgid ""
 "`the Python Discourse forum <https://discuss.python.org/c/packaging>`__."
 msgstr ""
 
-#: ../source/glossary.rst:138
+#: ../source/glossary.rst:168
 msgid "Python Package Index (PyPI)"
 msgstr ""
 
-#: ../source/glossary.rst:141
+#: ../source/glossary.rst:171
 msgid ""
 "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the "
 "Python community. It is open to all Python developers to consume and "
 "distribute their distributions."
 msgstr ""
 
-#: ../source/glossary.rst:144
+#: ../source/glossary.rst:174
 msgid "pypi.org"
 msgstr ""
 
-#: ../source/glossary.rst:147
+#: ../source/glossary.rst:177
 msgid ""
 "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python "
 "Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi."
 "python.org``, in 2017. It is powered by :ref:`warehouse`."
 msgstr ""
 
-#: ../source/glossary.rst:151
+#: ../source/glossary.rst:181
 msgid "pyproject.toml"
 msgstr ""
 
-#: ../source/glossary.rst:154
+#: ../source/glossary.rst:184
 msgid ""
 "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
 
-#: ../source/glossary.rst:156
+#: ../source/glossary.rst:186
 msgid "Release"
 msgstr ""
 
-#: ../source/glossary.rst:159
+#: ../source/glossary.rst:189
 msgid ""
 "A snapshot of a :term:`Project` at a particular point in time, denoted by a "
 "version identifier."
 msgstr ""
 
-#: ../source/glossary.rst:162
+#: ../source/glossary.rst:192
 msgid ""
 "Making a release may entail the publishing of multiple :term:`Distributions "
 "<Distribution Package>`.  For example, if version 1.0 of a project was "
@@ -1554,11 +1591,11 @@ msgid ""
 "Windows installer distribution format."
 msgstr ""
 
-#: ../source/glossary.rst:167
+#: ../source/glossary.rst:197
 msgid "Requirement"
 msgstr ""
 
-#: ../source/glossary.rst:170
+#: ../source/glossary.rst:200
 msgid ""
 "A specification for a :term:`package <Distribution Package>` to be "
 "installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` "
@@ -1567,11 +1604,11 @@ msgid ""
 "install` reference."
 msgstr ""
 
-#: ../source/glossary.rst:176
+#: ../source/glossary.rst:206
 msgid "Requirement Specifier"
 msgstr ""
 
-#: ../source/glossary.rst:179
+#: ../source/glossary.rst:209
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see the `pkg_resources."
@@ -1581,49 +1618,49 @@ msgid ""
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
 
-#: ../source/glossary.rst:186
+#: ../source/glossary.rst:216
 msgid "Requirements File"
 msgstr ""
 
-#: ../source/glossary.rst:189
+#: ../source/glossary.rst:219
 msgid ""
 "A file containing a list of :term:`Requirements <Requirement>` that can be "
 "installed using :ref:`pip`. For more information, see the :ref:`pip` docs "
 "on :ref:`pip:Requirements Files`."
 msgstr ""
 
-#: ../source/glossary.rst:193
+#: ../source/glossary.rst:223
 #: ../source/guides/distributing-packages-using-setuptools.rst:58
 msgid "setup.py"
 msgstr ""
 
-#: ../source/glossary.rst:194
+#: ../source/glossary.rst:224
 #: ../source/guides/distributing-packages-using-setuptools.rst:79
 msgid "setup.cfg"
 msgstr ""
 
-#: ../source/glossary.rst:197
+#: ../source/glossary.rst:227
 msgid ""
 "The project specification files for :ref:`distutils` and :ref:`setuptools`. "
 "See also :term:`pyproject.toml`."
 msgstr ""
 
-#: ../source/glossary.rst:200
+#: ../source/glossary.rst:230
 msgid "Source Archive"
 msgstr ""
 
-#: ../source/glossary.rst:203
+#: ../source/glossary.rst:233
 msgid ""
 "An archive containing the raw source code for a :term:`Release`, prior to "
 "creation of a :term:`Source Distribution <Source Distribution (or "
 "\"sdist\")>` or :term:`Built Distribution`."
 msgstr ""
 
-#: ../source/glossary.rst:207
+#: ../source/glossary.rst:237
 msgid "Source Distribution (or \"sdist\")"
 msgstr ""
 
-#: ../source/glossary.rst:210
+#: ../source/glossary.rst:240
 msgid ""
 "A :term:`distribution <Distribution Package>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
@@ -1631,21 +1668,21 @@ msgid ""
 "generating a :term:`Built Distribution`."
 msgstr ""
 
-#: ../source/glossary.rst:215
+#: ../source/glossary.rst:245
 msgid "System Package"
 msgstr ""
 
-#: ../source/glossary.rst:218
+#: ../source/glossary.rst:248
 msgid ""
 "A package provided in a format native to the operating system, e.g. an rpm "
 "or dpkg file."
 msgstr ""
 
-#: ../source/glossary.rst:221
+#: ../source/glossary.rst:251
 msgid "Version Specifier"
 msgstr ""
 
-#: ../source/glossary.rst:224
+#: ../source/glossary.rst:254
 msgid ""
 "The version component of a :term:`Requirement Specifier`. For example, the "
 "\">=1.3\" portion of \"foo>=1.3\".  :pep:`440` contains a :pep:`full "
@@ -1654,11 +1691,11 @@ msgid ""
 "`setuptools` v8.0 and :ref:`pip` v6.0."
 msgstr ""
 
-#: ../source/glossary.rst:230
+#: ../source/glossary.rst:260
 msgid "Virtual Environment"
 msgstr ""
 
-#: ../source/glossary.rst:233
+#: ../source/glossary.rst:263
 msgid ""
 "An isolated Python environment that allows packages to be installed for use "
 "by a particular application, rather than being installed system wide. For "
@@ -1666,11 +1703,11 @@ msgid ""
 "Environments`."
 msgstr ""
 
-#: ../source/glossary.rst:237
+#: ../source/glossary.rst:267
 msgid "Wheel"
 msgstr ""
 
-#: ../source/glossary.rst:240
+#: ../source/glossary.rst:270
 msgid ""
 "A :term:`Built Distribution` format introduced by an official :doc:`standard "
 "specification </specifications/binary-distribution-format/>`, which is "
@@ -1678,11 +1715,11 @@ msgid ""
 "by :ref:`pip`."
 msgstr ""
 
-#: ../source/glossary.rst:245
+#: ../source/glossary.rst:275
 msgid "Working Set"
 msgstr ""
 
-#: ../source/glossary.rst:248
+#: ../source/glossary.rst:278
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -4002,7 +4039,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/installing-scientific-packages.rst:103
-#: ../source/key_projects.rst:676
+#: ../source/key_projects.rst:681
 msgid "Spack"
 msgstr ""
 
@@ -5340,61 +5377,106 @@ msgid ""
 "<python:extending/extending>`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:235
-#: ../source/guides/packaging-binary-extensions.rst:318
-msgid "FIXME"
-msgstr ""
-
-#: ../source/guides/packaging-binary-extensions.rst:237
-msgid "mention the stable ABI (3.2+, link to the CPython C API docs)"
+#: ../source/guides/packaging-binary-extensions.rst:233
+msgid ""
+"FIXME: Elaborate that all this is one of the reasons why you probably "
+"*don't* want to handcode your extension modules :)"
 msgstr ""
 
 #: ../source/guides/packaging-binary-extensions.rst:238
-msgid "mention the module lifecycle"
-msgstr ""
-
-#: ../source/guides/packaging-binary-extensions.rst:239
-msgid "mention the challenges of shared static state and subinterpreters"
+msgid "Extension module lifecycle"
 msgstr ""
 
 #: ../source/guides/packaging-binary-extensions.rst:240
-msgid "mention the implications of the GIL for extension modules"
+#: ../source/guides/packaging-binary-extensions.rst:246
+#: ../source/guides/packaging-binary-extensions.rst:252
+#: ../source/guides/packaging-binary-extensions.rst:258
+#: ../source/guides/packaging-binary-extensions.rst:378
+msgid "FIXME: This section needs to be fleshed out."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:241
-msgid "mention the memory allocation APIs in 3.4+"
+#: ../source/guides/packaging-binary-extensions.rst:244
+msgid "Implications of shared static state and subinterpreters"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:243
+#: ../source/guides/packaging-binary-extensions.rst:250
+msgid "Implications of the GIL"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:256
+msgid "Memory allocation APIs"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:264
+msgid "ABI Compatibility"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:266
 msgid ""
-"mention again that all this is one of the reasons why you probably *don't* "
-"want to handcode your extension modules :)"
+"The CPython C API does not guarantee ABI stability between minor releases "
+"(3.2, 3.3, 3.4, etc.). This means that, typically, if you build an extension "
+"module against one version of Python, it is only guaranteed to work with the "
+"same minor version of Python and not with any other minor versions."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:248
+#: ../source/guides/packaging-binary-extensions.rst:272
+msgid ""
+"Python 3.2 introduced the Limited API, with is a well-defined subset of "
+"Python's C API. The symbols needed for the Limited API form the \"Stable "
+"ABI\" which is guaranteed to be compatible across all Python 3.x versions. "
+"Wheels containing extensions built against the stable ABI use the ``abi3`` "
+"ABI tag, to reflect that they're compatible with all Python 3.x versions."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:279
+msgid ""
+"CPython's :doc:`C API stability<python:c-api/stable>` page provides detailed "
+"information about the API / ABI stability guarantees, how to use the Limited "
+"API and the exact contents of the \"Limited API\"."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:285
 msgid "Building binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:251
+#: ../source/guides/packaging-binary-extensions.rst:287
+msgid "FIXME: Cover the build-backends available for building extensions."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:290
 msgid "Building extensions for multiple platforms"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:253
+#: ../source/guides/packaging-binary-extensions.rst:292
 msgid ""
 "If you plan to distribute your extension, you should provide :term:`wheels "
-"<Wheel>` for all the platforms you intend to support. For most extensions, "
-"this is at least one package per Python version times the number of OS and "
-"architectures you support.  These are usually built on continuous "
-"integration (CI) systems. There are tools to help you build highly "
-"redistributable binaries from CI; these include :ref:`cibuildwheel` and :ref:"
-"`multibuild`."
+"<Wheel>` for all the platforms you intend to support. These are usually "
+"built on continuous integration (CI) systems. There are tools to help you "
+"build highly redistributable binaries from CI; these include :ref:"
+"`cibuildwheel` and :ref:`multibuild`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:263
+#: ../source/guides/packaging-binary-extensions.rst:298
+msgid ""
+"For most extensions, you will need to build wheels for all the platforms you "
+"intend to support. This means that the number of wheels you need to build is "
+"the product of::"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:304
+msgid ""
+"Using CPython's :ref:`Stable ABI <cpython-stable-abi>` can help "
+"significantly reduce the number of wheels you need to provide, since a "
+"single wheel on a platform can be used with all Python minor versions; "
+"eliminating one dimension of the matrix. It also removes the need to "
+"generate new wheels for each new minor version of Python."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:311
 msgid "Binary extensions for Windows"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:265
+#: ../source/guides/packaging-binary-extensions.rst:313
 msgid ""
 "Before it is possible to build a binary extension, it is necessary to ensure "
 "that you have a suitable compiler available. On Windows, Visual C is used to "
@@ -5404,7 +5486,7 @@ msgid ""
 "microsoft.com/downloads/>`__ - any recent version is fine."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:272
+#: ../source/guides/packaging-binary-extensions.rst:320
 msgid ""
 "One caveat: if you use Visual Studio 2019 or later, your extension will "
 "depend on an \"extra\" file, ``VCRUNTIME140_1.dll``, in addition to the "
@@ -5414,7 +5496,7 @@ msgid ""
 "time argument ``/d2FH4-``. Recent versions of Python may include this file."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:280
+#: ../source/guides/packaging-binary-extensions.rst:328
 msgid ""
 "Building for Python prior to 3.5 is discouraged, because older versions of "
 "Visual Studio are no longer available from Microsoft. If you do need to "
@@ -5426,11 +5508,11 @@ msgid ""
 "these things for you."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:291
+#: ../source/guides/packaging-binary-extensions.rst:339
 msgid "Binary extensions for Linux"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:293
+#: ../source/guides/packaging-binary-extensions.rst:341
 msgid ""
 "Linux binaries must use a sufficiently old glibc to be compatible with older "
 "distributions. The `manylinux <https://github.com/pypa/manylinux>`_ Docker "
@@ -5438,11 +5520,11 @@ msgid ""
 "current Linux distributions on common architectures."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:299
+#: ../source/guides/packaging-binary-extensions.rst:347
 msgid "Binary extensions for macOS"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:301
+#: ../source/guides/packaging-binary-extensions.rst:349
 msgid ""
 "Binary compatibility on macOS is determined by the target minimum deployment "
 "system, e.g. *10.9*, which is often specified with the "
@@ -5454,39 +5536,40 @@ msgid ""
 "wheels>`_."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:311
+#: ../source/guides/packaging-binary-extensions.rst:359
 msgid "Publishing binary extensions"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:313
+#: ../source/guides/packaging-binary-extensions.rst:361
 msgid ""
-"For interim guidance on this topic, see the discussion in :issue:`this issue "
-"<284>`."
+"Publishing binary extensions through PyPI uses the same upload mechanisms as "
+"publishing pure Python packages. You build a wheel file for your extension "
+"using the build-backend and upload it to PyPI using :doc:`twine <twine:"
+"index>`."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:320
-msgid "cover publishing as wheel files on PyPI or a custom index server"
+#: ../source/guides/packaging-binary-extensions.rst:367
+msgid "Avoid binary-only releases"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:321
-msgid "cover creation of Windows and macOS installers"
-msgstr ""
-
-#: ../source/guides/packaging-binary-extensions.rst:322
-msgid "cover weak linking"
-msgstr ""
-
-#: ../source/guides/packaging-binary-extensions.rst:323
+#: ../source/guides/packaging-binary-extensions.rst:369
 msgid ""
-"mention the fact that Linux distros have a requirement to build from source "
-"in their own build systems, so binary-only releases are strongly discouraged"
+"It is strongly recommended that you publish your binary extensions as well "
+"as the source code that was used to build them. This allows users to build "
+"the extension from source if they need to. Notably, this is required for "
+"certain Linux distributions that build from source within their own build "
+"systems for the distro package repositories."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:329
+#: ../source/guides/packaging-binary-extensions.rst:376
+msgid "Weak linking"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:381
 msgid "Additional resources"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:331
+#: ../source/guides/packaging-binary-extensions.rst:383
 msgid ""
 "Cross-platform development and distribution of extension modules is a "
 "complex topic, so this guide focuses primarily on providing pointers to "
@@ -5496,11 +5579,11 @@ msgid ""
 "interfaces that those systems rely on at runtime."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:338
+#: ../source/guides/packaging-binary-extensions.rst:390
 msgid "Cross-platform wheel generation with scikit-build"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:340
+#: ../source/guides/packaging-binary-extensions.rst:392
 msgid ""
 "The `scikit-build <https://scikit-build.readthedocs.io/en/latest/>`_ package "
 "helps abstract cross-platform build operations and provides additional "
@@ -5510,27 +5593,27 @@ msgid ""
 "html>`_ for Python binary extension modules."
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:348
+#: ../source/guides/packaging-binary-extensions.rst:400
 msgid "Introduction to C/C++ extension modules"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:350
+#: ../source/guides/packaging-binary-extensions.rst:402
 msgid ""
 "For a more in depth explanation of how extension modules are used by CPython "
 "on a Debian system, see the following articles:"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:353
+#: ../source/guides/packaging-binary-extensions.rst:405
 msgid ""
 "`What are (c)python extension modules? <https://thomasnyberg.com/"
 "what_are_extension_modules.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:354
+#: ../source/guides/packaging-binary-extensions.rst:406
 msgid "`Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-binary-extensions.rst:355
+#: ../source/guides/packaging-binary-extensions.rst:407
 msgid ""
 "`Writing cpython extension modules using C++ <https://thomasnyberg.com/"
 "cpp_extension_modules.html>`_"
@@ -7151,7 +7234,7 @@ msgstr ""
 msgid "python, packaging, guide, tutorial"
 msgstr ""
 
-#: ../source/index.rst:3 ../source/key_projects.rst:240
+#: ../source/index.rst:3 ../source/key_projects.rst:245
 msgid "Python Packaging User Guide"
 msgstr ""
 
@@ -7429,42 +7512,50 @@ msgid ""
 "distribute modules for Python 2, so long as they can be imported on Python 3."
 msgstr ""
 
-#: ../source/key_projects.rst:135
+#: ../source/key_projects.rst:130
+msgid ""
+"The flit package is lifted by `Matthias Bussonnier <https://github.com/"
+"Carreau>`__ since October 2023 on the `tidelift platform <https://tidelift."
+"com/lifter/search/pypi/flit>`__, and funds sent to the PSF and earmarked for "
+"PyPA usage."
+msgstr ""
+
+#: ../source/key_projects.rst:140
 msgid "hatch"
 msgstr ""
 
-#: ../source/key_projects.rst:137
+#: ../source/key_projects.rst:142
 msgid ""
 "`Docs <https://hatch.pypa.io/latest/>`__ | `GitHub <https://github.com/pypa/"
 "hatch>`__ | `PyPI <https://pypi.org/project/hatch>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:141
+#: ../source/key_projects.rst:146
 msgid ""
 "Hatch is a unified command-line tool meant to conveniently manage "
 "dependencies and environment isolation for Python developers. Python package "
-"developers use Hatch and its build backend Hatchling to configure, version, "
-"specify dependencies for, and publish packages to PyPI. Its plugin system "
-"allows for easily extending functionality."
+"developers use Hatch and its :term:`build backend <Build Backend>` Hatchling "
+"to configure, version, specify dependencies for, and publish packages to "
+"PyPI. Its plugin system allows for easily extending functionality."
 msgstr ""
 
-#: ../source/key_projects.rst:150
+#: ../source/key_projects.rst:155
 msgid "packaging"
 msgstr ""
 
-#: ../source/key_projects.rst:152
+#: ../source/key_projects.rst:157
 msgid ""
 ":doc:`Docs <packaging:index>` | `Issues <https://github.com/pypa/packaging/"
 "issues>`__ | `GitHub <https://github.com/pypa/packaging>`__ | `PyPI <https://"
 "pypi.org/project/packaging>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:157
+#: ../source/key_projects.rst:162
 msgid ""
 "Core utilities for Python packaging used by :ref:`pip` and :ref:`setuptools`."
 msgstr ""
 
-#: ../source/key_projects.rst:159
+#: ../source/key_projects.rst:164
 msgid ""
 "The core utilities in the packaging library handle version handling, "
 "specifiers, markers, requirements, tags, and similar attributes and tasks "
@@ -7474,7 +7565,7 @@ msgid ""
 "to parse, discover, and otherwise handle dependency attributes."
 msgstr ""
 
-#: ../source/key_projects.rst:167
+#: ../source/key_projects.rst:172
 msgid ""
 "This project specifically focuses on implementing the modern Python "
 "packaging interoperability standards defined at :ref:`packaging-"
@@ -7485,25 +7576,25 @@ msgid ""
 "report on error."
 msgstr ""
 
-#: ../source/key_projects.rst:179
+#: ../source/key_projects.rst:184
 #: ../source/specifications/platform-compatibility-tags.rst:163
 msgid "pip"
 msgstr ""
 
-#: ../source/key_projects.rst:181
+#: ../source/key_projects.rst:186
 msgid ""
 "`Docs <https://pip.pypa.io/>`__ | `Issues <https://github.com/pypa/pip/"
 "issues>`__ | `GitHub <https://github.com/pypa/pip>`__ | `PyPI <https://pypi."
 "org/project/pip/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:186
+#: ../source/key_projects.rst:191
 msgid ""
 "The most popular tool for installing Python packages, and the one included "
 "with modern versions of Python."
 msgstr ""
 
-#: ../source/key_projects.rst:189
+#: ../source/key_projects.rst:194
 msgid ""
 "It provides the essential core features for finding, downloading, and "
 "installing packages from PyPI and other Python package indexes, and can be "
@@ -7511,18 +7602,18 @@ msgid ""
 "interface (CLI)."
 msgstr ""
 
-#: ../source/key_projects.rst:197
+#: ../source/key_projects.rst:202
 msgid "Pipenv"
 msgstr ""
 
-#: ../source/key_projects.rst:199
+#: ../source/key_projects.rst:204
 msgid ""
 ":doc:`Docs <pipenv:index>` | `Source <https://github.com/pypa/pipenv>`__ | "
 "`Issues <https://github.com/pypa/pipenv/issues>`__ | `PyPI <https://pypi.org/"
 "project/pipenv>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:204
+#: ../source/key_projects.rst:209
 msgid ""
 "Pipenv is a project that aims to bring the best of all packaging worlds to "
 "the Python world. It harnesses :ref:`Pipfile`, :ref:`pip`, and :ref:"
@@ -7531,7 +7622,7 @@ msgid ""
 "safety>`_."
 msgstr ""
 
-#: ../source/key_projects.rst:209
+#: ../source/key_projects.rst:214
 msgid ""
 "Pipenv aims to help users manage environments, dependencies, and imported "
 "packages on the command line. It also works well on Windows (which other "
@@ -7540,59 +7631,59 @@ msgid ""
 "and dependencies."
 msgstr ""
 
-#: ../source/key_projects.rst:218
+#: ../source/key_projects.rst:223
 msgid "Pipfile"
 msgstr ""
 
-#: ../source/key_projects.rst:220
+#: ../source/key_projects.rst:225
 msgid "`Source <https://github.com/pypa/pipfile>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:222
+#: ../source/key_projects.rst:227
 msgid ""
 ":file:`Pipfile` and its sister :file:`Pipfile.lock` are a higher-level "
 "application-centric alternative to :ref:`pip`'s lower-level :file:"
 "`requirements.txt` file."
 msgstr ""
 
-#: ../source/key_projects.rst:229
+#: ../source/key_projects.rst:234
 msgid "pipx"
 msgstr ""
 
-#: ../source/key_projects.rst:231
+#: ../source/key_projects.rst:236
 msgid ""
 "`Docs <https://pypa.github.io/pipx/>`__ | `GitHub <https://github.com/pypa/"
 "pipx>`__ | `PyPI <https://pypi.org/project/pipx/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:235
+#: ../source/key_projects.rst:240
 msgid ""
 "pipx is a tool to install and run Python command-line applications without "
 "causing dependency conflicts with other packages installed on the system."
 msgstr ""
 
-#: ../source/key_projects.rst:242
+#: ../source/key_projects.rst:247
 msgid ""
 ":doc:`Docs <packaging.python.org:index>` | `Issues <https://github.com/pypa/"
 "packaging.python.org/issues>`__ | `GitHub <https://github.com/pypa/packaging."
 "python.org>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:246
+#: ../source/key_projects.rst:251
 msgid "This guide!"
 msgstr ""
 
-#: ../source/key_projects.rst:251
+#: ../source/key_projects.rst:256
 msgid "readme_renderer"
 msgstr ""
 
-#: ../source/key_projects.rst:253
+#: ../source/key_projects.rst:258
 msgid ""
 "`GitHub and docs <https://github.com/pypa/readme_renderer/>`__ | `PyPI "
 "<https://pypi.org/project/readme-renderer/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:256
+#: ../source/key_projects.rst:261
 msgid ""
 "``readme_renderer`` is a library that package developers use to render their "
 "user documentation (README) files into HTML from markup languages such as "
@@ -7601,18 +7692,18 @@ msgid ""
 "package descriptions will properly display on PyPI."
 msgstr ""
 
-#: ../source/key_projects.rst:267
+#: ../source/key_projects.rst:272
 msgid "setuptools"
 msgstr ""
 
-#: ../source/key_projects.rst:269
+#: ../source/key_projects.rst:274
 msgid ""
 "`Docs <https://setuptools.readthedocs.io/en/latest/>`__ | `Issues <https://"
 "github.com/pypa/setuptools/issues>`__ | `GitHub <https://github.com/pypa/"
 "setuptools>`__ | `PyPI <https://pypi.org/project/setuptools>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:274
+#: ../source/key_projects.rst:279
 msgid ""
 "setuptools (which includes ``easy_install``) is a collection of enhancements "
 "to the Python distutils that allow you to more easily build and distribute "
@@ -7620,24 +7711,24 @@ msgid ""
 "have dependencies on other packages."
 msgstr ""
 
-#: ../source/key_projects.rst:279
+#: ../source/key_projects.rst:284
 msgid ""
 "`distribute`_ was a fork of setuptools that was merged back into setuptools "
 "(in v0.7), thereby making setuptools the primary choice for Python packaging."
 msgstr ""
 
-#: ../source/key_projects.rst:286
+#: ../source/key_projects.rst:291
 msgid "trove-classifiers"
 msgstr ""
 
-#: ../source/key_projects.rst:288
+#: ../source/key_projects.rst:293
 msgid ""
 "`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub "
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
 "project/trove-classifiers/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:292
+#: ../source/key_projects.rst:297
 msgid ""
 "trove-classifiers is the canonical source for `classifiers on PyPI <https://"
 "pypi.org/classifiers/>`_, which project maintainers use to `systematically "
@@ -7646,7 +7737,7 @@ msgid ""
 "that match their needs on the PyPI."
 msgstr ""
 
-#: ../source/key_projects.rst:298
+#: ../source/key_projects.rst:303
 msgid ""
 "The trove-classifiers package contains a list of valid classifiers and "
 "deprecated classifiers (which are paired with the classifiers that replace "
@@ -7659,18 +7750,18 @@ msgid ""
 "classifiers."
 msgstr ""
 
-#: ../source/key_projects.rst:312
+#: ../source/key_projects.rst:317
 msgid "twine"
 msgstr ""
 
-#: ../source/key_projects.rst:314
+#: ../source/key_projects.rst:319
 msgid ""
 "`Docs <https://twine.readthedocs.io/en/latest/>`__ | `Issues <https://github."
 "com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/twine>`__ | "
 "`PyPI <https://pypi.org/project/twine>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:319
+#: ../source/key_projects.rst:324
 msgid ""
 "Twine is the primary tool developers use to upload packages to the Python "
 "Package Index or other Python package indexes. It is a command-line program "
@@ -7679,18 +7770,18 @@ msgid ""
 "maintained, and it reliably works."
 msgstr ""
 
-#: ../source/key_projects.rst:329 ../source/overview.rst:412
+#: ../source/key_projects.rst:334 ../source/overview.rst:412
 msgid "virtualenv"
 msgstr ""
 
-#: ../source/key_projects.rst:331
+#: ../source/key_projects.rst:336
 msgid ""
 ":doc:`Docs <virtualenv:index>` | `Issues <https://github.com/pypa/virtualenv/"
 "issues>`__ | `GitHub <https://github.com/pypa/virtualenv>`__ | `PyPI "
 "<https://pypi.org/project/virtualenv/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:336
+#: ../source/key_projects.rst:341
 msgid ""
 "virtualenv is a tool which uses the command-line path environment variable "
 "to create isolated Python :term:`Virtual Environments <Virtual "
@@ -7701,42 +7792,42 @@ msgid ""
 "section on :ref:`Creating and using Virtual Environments`."
 msgstr ""
 
-#: ../source/key_projects.rst:349
+#: ../source/key_projects.rst:354
 msgid "Warehouse"
 msgstr ""
 
-#: ../source/key_projects.rst:351
+#: ../source/key_projects.rst:356
 msgid ""
 "`Docs <https://warehouse.pypa.io/>`__ | `Issues <https://github.com/pypa/"
 "warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:355
+#: ../source/key_projects.rst:360
 msgid ""
 "The current codebase powering the :term:`Python Package Index (PyPI)`. It is "
 "hosted at `pypi.org <https://pypi.org/>`_. The default source for :ref:`pip` "
 "downloads."
 msgstr ""
 
-#: ../source/key_projects.rst:363
+#: ../source/key_projects.rst:368
 msgid "wheel"
 msgstr ""
 
-#: ../source/key_projects.rst:365
+#: ../source/key_projects.rst:370
 msgid ""
 "`Docs <https://wheel.readthedocs.io/en/latest/>`__ | `Issues <https://github."
 "com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/wheel>`__ | "
 "`PyPI <https://pypi.org/project/wheel>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:370
+#: ../source/key_projects.rst:375
 msgid ""
 "Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` "
 "extension for creating :term:`wheel distributions <Wheel>`.  Additionally, "
 "it offers its own command line utility for creating and installing wheels."
 msgstr ""
 
-#: ../source/key_projects.rst:374
+#: ../source/key_projects.rst:379
 msgid ""
 "See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool that "
 "package developers use to check and fix Python packages they are making in "
@@ -7745,22 +7836,22 @@ msgid ""
 "link and include external shared libraries in a package."
 msgstr ""
 
-#: ../source/key_projects.rst:383
+#: ../source/key_projects.rst:388
 msgid "Non-PyPA Projects"
 msgstr ""
 
-#: ../source/key_projects.rst:388
+#: ../source/key_projects.rst:393
 msgid "buildout"
 msgstr ""
 
-#: ../source/key_projects.rst:390
+#: ../source/key_projects.rst:395
 msgid ""
 "`Docs <http://www.buildout.org/en/latest/>`__ | `Issues <https://bugs."
 "launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/zc."
 "buildout>`__ | `GitHub <https://github.com/buildout/buildout/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:395
+#: ../source/key_projects.rst:400
 msgid ""
 "Buildout is a Python-based build system for creating, assembling and "
 "deploying applications from multiple parts, some of which may be non-Python-"
@@ -7768,15 +7859,15 @@ msgid ""
 "software later."
 msgstr ""
 
-#: ../source/key_projects.rst:402
+#: ../source/key_projects.rst:407
 msgid "conda"
 msgstr ""
 
-#: ../source/key_projects.rst:404
+#: ../source/key_projects.rst:409
 msgid ":doc:`Docs <conda:index>`"
 msgstr ""
 
-#: ../source/key_projects.rst:406
+#: ../source/key_projects.rst:411
 msgid ""
 "conda is the package management tool for `Anaconda <https://docs.anaconda."
 "com/anaconda/>`__ Python installations. Anaconda Python is a distribution "
@@ -7785,14 +7876,14 @@ msgid ""
 "where the installation of binary extensions is often difficult."
 msgstr ""
 
-#: ../source/key_projects.rst:413
+#: ../source/key_projects.rst:418
 msgid ""
 "Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, "
 "but provides many of their combined features in terms of package management, "
 "virtual environment management and deployment of binary extensions."
 msgstr ""
 
-#: ../source/key_projects.rst:417
+#: ../source/key_projects.rst:422
 msgid ""
 "Conda does not install packages from PyPI and can install only from the "
 "official Anaconda repositories, or anaconda.org (a place for user-"
@@ -7805,17 +7896,17 @@ msgid ""
 "modifying their metadata."
 msgstr ""
 
-#: ../source/key_projects.rst:430
+#: ../source/key_projects.rst:435
 msgid "devpi"
 msgstr ""
 
-#: ../source/key_projects.rst:432
+#: ../source/key_projects.rst:437
 msgid ""
 "`Docs <http://doc.devpi.net/latest/>`__ | :gh:`Issues <devpi/devpi/issues>` "
 "| `PyPI <https://pypi.org/project/devpi>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:436
+#: ../source/key_projects.rst:441
 msgid ""
 "devpi features a powerful PyPI-compatible server and PyPI proxy cache with a "
 "complementary command line tool to drive packaging, testing and release "
@@ -7823,17 +7914,17 @@ msgid ""
 "interface."
 msgstr ""
 
-#: ../source/key_projects.rst:444
+#: ../source/key_projects.rst:449
 msgid "enscons"
 msgstr ""
 
-#: ../source/key_projects.rst:446
+#: ../source/key_projects.rst:451
 msgid ""
 ":gh:`Source <dholth/enscons>` | :gh:`Issues <dholth/enscons/issues>` | `PyPI "
 "<https://pypi.org/project/enscons>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:450
+#: ../source/key_projects.rst:455
 msgid ""
 "Enscons is a Python packaging tool based on `SCons`_. It builds :ref:`pip`-"
 "compatible source distributions and wheels without using distutils or "
@@ -7845,17 +7936,17 @@ msgid ""
 "independent of enscons."
 msgstr ""
 
-#: ../source/key_projects.rst:465
+#: ../source/key_projects.rst:470
 msgid "Hashdist"
 msgstr ""
 
-#: ../source/key_projects.rst:467
+#: ../source/key_projects.rst:472
 msgid ""
 "`Docs <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/hashdist/hashdist/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:470
+#: ../source/key_projects.rst:475
 msgid ""
 "Hashdist is a library for building non-root software distributions. Hashdist "
 "is trying to be “the Debian of choice for cases where Debian technology "
@@ -7866,34 +7957,34 @@ msgid ""
 "researchers but has been lacking in maintenance since 2016."
 msgstr ""
 
-#: ../source/key_projects.rst:482
+#: ../source/key_projects.rst:487
 msgid "Maturin"
 msgstr ""
 
-#: ../source/key_projects.rst:484
+#: ../source/key_projects.rst:489
 msgid ""
 "`Docs <https://www.maturin.rs>`__ | `GitHub <https://github.com/PyO3/"
 "maturin>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:487
+#: ../source/key_projects.rst:492
 msgid ""
 "Maturin is a build backend for Rust extension modules, also written in Rust. "
 "It supports building wheels for python 3.7+ on Windows, Linux, macOS and "
 "FreeBSD, can upload them to PyPI and has basic PyPy and GraalPy support."
 msgstr ""
 
-#: ../source/key_projects.rst:495
+#: ../source/key_projects.rst:500
 msgid "meson-python"
 msgstr ""
 
-#: ../source/key_projects.rst:497
+#: ../source/key_projects.rst:502
 msgid ""
 "`Docs <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/mesonbuild/meson-python>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:500
+#: ../source/key_projects.rst:505
 msgid ""
 "``meson-python`` is a build backend that uses the Meson_ build system. It "
 "enables Python package authors to use Meson_ as the build system for their "
@@ -7901,44 +7992,44 @@ msgid ""
 "to fill the needs of most complex build configurations."
 msgstr ""
 
-#: ../source/key_projects.rst:510
+#: ../source/key_projects.rst:515
 msgid "multibuild"
 msgstr ""
 
-#: ../source/key_projects.rst:512
+#: ../source/key_projects.rst:517
 msgid "`GitHub <https://github.com/multi-build/multibuild>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:514
+#: ../source/key_projects.rst:519
 msgid ""
 "Multibuild is a set of CI scripts for building and testing Python :term:"
 "`wheels <Wheel>` for Linux, macOS, and (less flexibly) Windows. Also see :"
 "ref:`cibuildwheel`."
 msgstr ""
 
-#: ../source/key_projects.rst:520
+#: ../source/key_projects.rst:525
 msgid "pdm"
 msgstr ""
 
-#: ../source/key_projects.rst:522
+#: ../source/key_projects.rst:527
 msgid ""
 "`Docs <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-project/"
 "pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:526
+#: ../source/key_projects.rst:531
 msgid ""
 "PDM is a modern Python package manager. It uses :term:`pyproject.toml` to "
 "store project metadata as defined in :pep:`621`."
 msgstr ""
 
-#: ../source/key_projects.rst:534
+#: ../source/key_projects.rst:539
 msgid ""
 "`Docs <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://github."
 "com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:538
+#: ../source/key_projects.rst:543
 msgid ""
 "pex is both a library and tool for generating :file:`.pex` (Python "
 "EXecutable) files, standalone Python environments in the spirit of :ref:"
@@ -7947,18 +8038,18 @@ msgid ""
 "designed to make deployment of Python applications as simple as ``cp``."
 msgstr ""
 
-#: ../source/key_projects.rst:547
+#: ../source/key_projects.rst:552
 msgid "pip-tools"
 msgstr ""
 
-#: ../source/key_projects.rst:549
+#: ../source/key_projects.rst:554
 msgid ""
 "`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/project/pip-"
 "tools/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:553
+#: ../source/key_projects.rst:558
 msgid ""
 "pip-tools is a suite of tools meant for Python system administrators and "
 "release managers who particularly want to keep their builds deterministic "
@@ -7969,17 +8060,17 @@ msgid ""
 "not provide), and create layers of constraints for the program to obey."
 msgstr ""
 
-#: ../source/key_projects.rst:565
+#: ../source/key_projects.rst:570
 msgid "piwheels"
 msgstr ""
 
-#: ../source/key_projects.rst:567
+#: ../source/key_projects.rst:572
 msgid ""
 "`Website <https://www.piwheels.org/>`__ | :doc:`Docs <piwheels:index>` | "
 "`GitHub <https://github.com/piwheels/piwheels/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:571
+#: ../source/key_projects.rst:576
 msgid ""
 "piwheels is a website, and software underpinning it, that fetches source "
 "code distribution packages from PyPI and compiles them into binary wheels "
@@ -7987,17 +8078,17 @@ msgid ""
 "Pi OS pre-configures pip to use piwheels.org as an additional index to PyPI."
 msgstr ""
 
-#: ../source/key_projects.rst:580
+#: ../source/key_projects.rst:585
 msgid "poetry"
 msgstr ""
 
-#: ../source/key_projects.rst:582
+#: ../source/key_projects.rst:587
 msgid ""
 "`Docs <https://python-poetry.org/>`__ | `GitHub <https://github.com/python-"
 "poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:586
+#: ../source/key_projects.rst:591
 msgid ""
 "poetry is a command-line tool to handle dependency installation and "
 "isolation as well as building and packaging of Python packages. It uses "
@@ -8007,17 +8098,17 @@ msgid ""
 "caching metadata about dependencies."
 msgstr ""
 
-#: ../source/key_projects.rst:596
+#: ../source/key_projects.rst:601
 msgid "pypiserver"
 msgstr ""
 
-#: ../source/key_projects.rst:598
+#: ../source/key_projects.rst:603
 msgid ""
 "`GitHub <https://github.com/pypiserver/pypiserver>`__ | `PyPI <https://pypi."
 "org/project/pypiserver/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:601
+#: ../source/key_projects.rst:606
 msgid ""
 "pypiserver is a minimalist application that serves as a private Python "
 "package index within organizations, implementing a simple API and browser "
@@ -8027,17 +8118,17 @@ msgid ""
 "from pypiserver and from PyPI."
 msgstr ""
 
-#: ../source/key_projects.rst:611
+#: ../source/key_projects.rst:616
 msgid "PyScaffold"
 msgstr ""
 
-#: ../source/key_projects.rst:613
+#: ../source/key_projects.rst:618
 msgid ""
 "`Docs <https://pyscaffold.org>`__ | `GitHub <https://github.com/pyscaffold/"
 "pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:617
+#: ../source/key_projects.rst:622
 msgid ""
 "PyScaffold is a project generator for bootstrapping Python packages, ready "
 "to be shared on PyPI and installable via :ref:`pip`. It relies on a set of "
@@ -8047,18 +8138,18 @@ msgid ""
 "existing projects to make packaging easier."
 msgstr ""
 
-#: ../source/key_projects.rst:629
+#: ../source/key_projects.rst:634
 msgid "scikit-build"
 msgstr ""
 
-#: ../source/key_projects.rst:631
+#: ../source/key_projects.rst:636
 msgid ""
 "`Docs <https://scikit-build.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/project/"
 "scikit-build>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:635
+#: ../source/key_projects.rst:640
 msgid ""
 "Scikit-build is a :ref:`setuptools` wrapper for CPython that builds C/C++/"
 "Fortran/Cython extensions It uses `cmake <https://pypi.org/project/cmake>`__ "
@@ -8069,18 +8160,18 @@ msgid ""
 "ninja>`__ (also available on PyPI)."
 msgstr ""
 
-#: ../source/key_projects.rst:646
+#: ../source/key_projects.rst:651
 msgid "scikit-build-core"
 msgstr ""
 
-#: ../source/key_projects.rst:648
+#: ../source/key_projects.rst:653
 msgid ""
 "`Docs <https://scikit-build-core.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/scikit-build/scikit-build-core/>`__ | `PyPI <https://"
 "pypi.org/project/scikit-build-core>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:652
+#: ../source/key_projects.rst:657
 msgid ""
 "Scikit-build-core is a build backend for CPython C/C++/Fortran/Cython "
 "extensions.  It enables users to write extensions with `cmake <https://pypi."
@@ -8090,17 +8181,17 @@ msgid ""
 "automatically downloaded from PyPI if not available on the system."
 msgstr ""
 
-#: ../source/key_projects.rst:662
+#: ../source/key_projects.rst:667
 msgid "shiv"
 msgstr ""
 
-#: ../source/key_projects.rst:664
+#: ../source/key_projects.rst:669
 msgid ""
 "`Docs <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://github."
 "com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:668
+#: ../source/key_projects.rst:673
 msgid ""
 "shiv is a command line utility for building fully self contained Python "
 "zipapps as outlined in :pep:`441`, but with all their dependencies included. "
@@ -8108,7 +8199,7 @@ msgid ""
 "tools fast & easy."
 msgstr ""
 
-#: ../source/key_projects.rst:678
+#: ../source/key_projects.rst:683
 msgid ""
 ":doc:`Docs <spack:index>` | `GitHub <https://github.com/spack/spack>`__ | "
 "`Paper <https://www.computer.org/csdl/proceedings-article/"
@@ -8116,7 +8207,7 @@ msgid ""
 "Gamblin-Spack-SC15-Talk.pdf>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:683
+#: ../source/key_projects.rst:688
 msgid ""
 "A flexible package manager designed to support multiple versions, "
 "configurations, platforms, and compilers.  Spack is like Homebrew, but "
@@ -8127,24 +8218,24 @@ msgid ""
 "supercomputers."
 msgstr ""
 
-#: ../source/key_projects.rst:691
+#: ../source/key_projects.rst:696
 msgid ""
 "Spack is not in PyPI (yet), but it requires no installation and can be used "
 "immediately after cloning from GitHub."
 msgstr ""
 
-#: ../source/key_projects.rst:697
+#: ../source/key_projects.rst:702
 msgid "zest.releaser"
 msgstr ""
 
-#: ../source/key_projects.rst:699
+#: ../source/key_projects.rst:704
 msgid ""
 "`Docs <https://zestreleaser.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://pypi.org/project/"
 "zest.releaser/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:703
+#: ../source/key_projects.rst:708
 msgid ""
 "``zest.releaser`` is a Python package release tool providing an abstraction "
 "layer on top of :ref:`twine`. Python developers use ``zest.releaser`` to "
@@ -8152,21 +8243,21 @@ msgid ""
 "releases in source control, and uploading new packages to PyPI."
 msgstr ""
 
-#: ../source/key_projects.rst:710
+#: ../source/key_projects.rst:715
 msgid "Standard Library Projects"
 msgstr ""
 
-#: ../source/key_projects.rst:715
+#: ../source/key_projects.rst:720
 msgid "ensurepip"
 msgstr ""
 
-#: ../source/key_projects.rst:717
+#: ../source/key_projects.rst:722
 msgid ""
 "`Docs <https://docs.python.org/3/library/ensurepip.html>`__ | `Issues "
 "<https://bugs.python.org/>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:720
+#: ../source/key_projects.rst:725
 msgid ""
 "A package in the Python Standard Library that provides support for "
 "bootstrapping :ref:`pip` into an existing Python installation or virtual "
@@ -8174,17 +8265,17 @@ msgid ""
 "will be used during the build of the Python distribution."
 msgstr ""
 
-#: ../source/key_projects.rst:729
+#: ../source/key_projects.rst:734
 msgid "venv"
 msgstr ""
 
-#: ../source/key_projects.rst:731
+#: ../source/key_projects.rst:736
 msgid ""
 "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
 "github.com/python/cpython/issues>`__"
 msgstr ""
 
-#: ../source/key_projects.rst:734
+#: ../source/key_projects.rst:739
 msgid ""
 "A package in the Python Standard Library (starting with Python 3.3) for "
 "creating :term:`Virtual Environments <Virtual Environment>`.  For more "
@@ -11294,7 +11385,8 @@ msgid ""
 "their own settings in ``pyproject.toml``, they may use the ``[tool]`` table "
 "as defined in the :ref:`build dependency declaration specification "
 "<declaring-build-dependencies>`. The lack of a ``[project]`` table "
-"implicitly means the build back-end will dynamically provide all keys."
+"implicitly means the :term:`build backend <Build Backend>` will dynamically "
+"provide all keys."
 msgstr ""
 
 #: ../source/specifications/declaring-project-metadata.rst:33
@@ -12333,7 +12425,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:68
 #: ../source/specifications/externally-managed-environments.rst:25
 #: ../source/specifications/name-normalization.rst:42
-#: ../source/specifications/source-distribution-format.rst:143
+#: ../source/specifications/source-distribution-format.rst:144
 msgid "History"
 msgstr ""
 
@@ -14178,11 +14270,11 @@ msgstr ""
 #: ../source/specifications/source-distribution-format.rst:45
 msgid ""
 "Code that produces a source distribution file MUST give the file a name that "
-"matches this specification. This includes the ``build_sdist`` hook of a "
-"build backend."
+"matches this specification. This includes the ``build_sdist`` hook of a :"
+"term:`build backend <Build Backend>`."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:48
+#: ../source/specifications/source-distribution-format.rst:49
 msgid ""
 "Code that processes source distribution files MAY recognise source "
 "distribution files by the ``.tar.gz`` suffix and the presence of precisely "
@@ -14190,11 +14282,11 @@ msgid ""
 "distribution name and version from the filename without further verification."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:54
+#: ../source/specifications/source-distribution-format.rst:55
 msgid "Source distribution file format"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:56
+#: ../source/specifications/source-distribution-format.rst:57
 msgid ""
 "A ``.tar.gz`` source distribution (sdist) contains a single top-level "
 "directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the "
@@ -14206,13 +14298,13 @@ msgid ""
 "2.2 of the metadata specification."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:64
+#: ../source/specifications/source-distribution-format.rst:65
 msgid ""
 "No other content of a sdist is required or defined. Build systems can store "
 "whatever information they need in the sdist to build the project."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:67
+#: ../source/specifications/source-distribution-format.rst:68
 msgid ""
 "The tarball should use the modern POSIX.1-2001 pax tar format, which "
 "specifies UTF-8 based file names. In particular, source distribution files "
@@ -14220,21 +14312,21 @@ msgid ""
 "flag 'r:gz'."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:75
+#: ../source/specifications/source-distribution-format.rst:76
 msgid "Source distribution archive features"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:77
+#: ../source/specifications/source-distribution-format.rst:78
 msgid ""
 "Because extracting tar files as-is is dangerous, and the results are "
 "platform-specific, archive features of source distributions are limited."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:81
+#: ../source/specifications/source-distribution-format.rst:82
 msgid "Unpacking with the data filter"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:83
+#: ../source/specifications/source-distribution-format.rst:84
 msgid ""
 "When extracting a source distribution, tools MUST either use :py:func:"
 "`tarfile.data_filter` (e.g. :py:meth:`TarFile.extractall(..., filter='data') "
@@ -14242,7 +14334,7 @@ msgid ""
 "filter* section below."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:87
+#: ../source/specifications/source-distribution-format.rst:88
 msgid ""
 "As an exception, on Python interpreters without :py:func:`hasattr(tarfile, "
 "'data_filter') <tarfile.data_filter>` (:pep:`706`), tools that normally use "
@@ -14252,11 +14344,11 @@ msgid ""
 "this case."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:95
+#: ../source/specifications/source-distribution-format.rst:96
 msgid "Unpacking without the data filter"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:97
+#: ../source/specifications/source-distribution-format.rst:98
 msgid ""
 "Tools that do not use the ``data`` filter directly (e.g. for backwards "
 "compatibility, allowing additional features, or not using Python) MUST "
@@ -14264,112 +14356,112 @@ msgid ""
 "follows this section, but it may get out of sync in the future.)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:103
+#: ../source/specifications/source-distribution-format.rst:104
 msgid ""
 "The following files are invalid in an *sdist* archive. Upon encountering "
 "such an entry, tools SHOULD notify the user, MUST NOT unpack the entry, and "
 "MAY abort with a failure:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:107
+#: ../source/specifications/source-distribution-format.rst:108
 msgid "Files that would be placed outside the destination directory."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:108
+#: ../source/specifications/source-distribution-format.rst:109
 msgid "Links (symbolic or hard) pointing outside the destination directory."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:109
+#: ../source/specifications/source-distribution-format.rst:110
 msgid "Device files (including pipes)."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:111
+#: ../source/specifications/source-distribution-format.rst:112
 msgid ""
 "The following are also invalid. Tools MAY treat them as above, but are NOT "
 "REQUIRED to do so:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:114
+#: ../source/specifications/source-distribution-format.rst:115
 msgid "Files with a ``..`` component in the filename or link target."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:115
+#: ../source/specifications/source-distribution-format.rst:116
 msgid "Links pointing to a file that is not part of the archive."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:117
+#: ../source/specifications/source-distribution-format.rst:118
 msgid ""
 "Tools MAY unpack links (symbolic or hard) as regular files, using content "
 "from the archive."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:120
+#: ../source/specifications/source-distribution-format.rst:121
 msgid "When extracting *sdist* archives:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:122
+#: ../source/specifications/source-distribution-format.rst:123
 msgid ""
 "Leading slashes in file names MUST be dropped. (This is nowadays standard "
 "behaviour for ``tar`` unpacking.)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:124
+#: ../source/specifications/source-distribution-format.rst:125
 msgid "For each ``mode`` (Unix permission) bit, tools MUST either:"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:126
+#: ../source/specifications/source-distribution-format.rst:127
 msgid "use the platform's default for a new file/directory (respectively),"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:127
+#: ../source/specifications/source-distribution-format.rst:128
 msgid "set the bit according to the archive, or"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:128
+#: ../source/specifications/source-distribution-format.rst:129
 msgid ""
 "use the bit from ``rw-r--r--`` (``0o644``) for non-executable files or "
 "``rwxr-xr-x`` (``0o755``) for executable files and directories."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:131
+#: ../source/specifications/source-distribution-format.rst:132
 msgid "High ``mode`` bits (setuid, setgid, sticky) MUST be cleared."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:132
+#: ../source/specifications/source-distribution-format.rst:133
 msgid "It is RECOMMENDED to preserve the user *executable* bit."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:136
+#: ../source/specifications/source-distribution-format.rst:137
 msgid "Further hints"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:138
+#: ../source/specifications/source-distribution-format.rst:139
 msgid ""
 "Tool authors are encouraged to consider how *hints for further verification* "
 "in ``tarfile`` documentation apply to their tool."
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:145
+#: ../source/specifications/source-distribution-format.rst:146
 msgid ""
 "August 2023: Standardized the source distribution archive features (:pep:"
 "`721`)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:146
+#: ../source/specifications/source-distribution-format.rst:147
 msgid ""
 "September 2022: Standardized the filename of a source distribution (:pep:"
 "`625`)"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:147
+#: ../source/specifications/source-distribution-format.rst:148
 msgid "July 2021: Defined what a source tree is"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:148
+#: ../source/specifications/source-distribution-format.rst:149
 msgid "November 2020: :pep:`643` converted to this specification"
 msgstr ""
 
-#: ../source/specifications/source-distribution-format.rst:149
+#: ../source/specifications/source-distribution-format.rst:150
 msgid "December 2000: Source distributions standardized in :pep:`643`"
 msgstr ""
 
@@ -15298,13 +15390,13 @@ msgstr ""
 msgid ""
 "Tools like :ref:`pip` and :ref:`build` do not actually convert your sources "
 "into a :term:`distribution package <Distribution Package>` (like a wheel); "
-"that job is performed by a *build backend*. The build backend determines how "
-"your project will specify its configuration, including metadata (information "
-"about the project, for example, the name and tags that are displayed on "
-"PyPI) and input files. Build backends have different levels of "
-"functionality, such as whether they support building :term:`extension "
-"modules <Extension Module>`, and you should choose one that suits your needs "
-"and preferences."
+"that job is performed by a :term:`build backend <Build Backend>`. The build "
+"backend determines how your project will specify its configuration, "
+"including metadata (information about the project, for example, the name and "
+"tags that are displayed on PyPI) and input files. Build backends have "
+"different levels of functionality, such as whether they support building :"
+"term:`extension modules <Extension Module>`, and you should choose one that "
+"suits your needs and preferences."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:118
@@ -15325,19 +15417,20 @@ msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:130
 msgid ""
-"The :file:`pyproject.toml` tells \"front end\" build tools like :ref:`pip` "
-"and :ref:`build` which backend to use for your project. Below are some "
-"examples for common build backends, but check your backend's own "
-"documentation for more details."
+"The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` "
+"tools like :ref:`pip` and :ref:`build` which backend to use for your "
+"project. Below are some examples for common build backends, but check your "
+"backend's own documentation for more details."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:168
 msgid ""
 "The ``requires`` key is a list of packages that are needed to build your "
-"package. The frontend should install them automatically when building your "
-"package. Frontends usually run builds in isolated environments, so omitting "
-"dependencies here may cause build-time errors. This should always include "
-"your backend's package, and might have other build-time dependencies."
+"package. The :term:`frontend <Build Frontend>` should install them "
+"automatically when building your package. Frontends usually run builds in "
+"isolated environments, so omitting dependencies here may cause build-time "
+"errors. This should always include your backend's package, and might have "
+"other build-time dependencies."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:175
