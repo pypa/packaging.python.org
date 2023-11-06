@@ -361,7 +361,7 @@ Publishing binary extensions
 Publishing binary extensions through PyPI uses the same upload mechanisms as
 publishing pure Python packages. You build a wheel file for your extension
 using the build-backend and upload it to PyPI using
-`twine <https://twine.readthedocs.io/>`_.
+:doc:`twine <twine:index>`.
 
 Avoid binary-only releases
 --------------------------
