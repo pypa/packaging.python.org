@@ -7,9 +7,6 @@ Installing pip/setuptools/wheel with Linux Package Managers
 :Page Status: Incomplete
 :Last Reviewed: 2021-07-26
 
-.. contents:: Contents
-  :local:
-
 This section covers how to install :ref:`pip`, :ref:`setuptools`, and
 :ref:`wheel` using Linux package managers.
 

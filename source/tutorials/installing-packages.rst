@@ -18,10 +18,6 @@ confused with a Linux distribution, or another larger software distribution
 like Python itself.
 
 
-.. contents:: Contents
-   :local:
-
-
 .. _installing_requirements:
 
 Requirements for Installing Packages

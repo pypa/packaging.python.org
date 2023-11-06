@@ -7,9 +7,6 @@ to learn more about downloads of a package (or packages) hosted on PyPI. For
 example, you can use it to discover the distribution of Python versions used to
 download a package.
 
-.. contents:: Contents
-   :local:
-
 
 Background
 ==========

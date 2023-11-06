@@ -13,8 +13,6 @@ The representation of the components of this data structure as a :rfc:`1738` URL
 is not formally specified at time of writing. A common representation is the pip URL
 format. Other examples are provided in :pep:`440`.
 
-.. contents:: Contents
-   :local:
 
 Specification
 =============

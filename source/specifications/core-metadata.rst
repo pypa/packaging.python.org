@@ -37,8 +37,6 @@ to a new format.
    more relaxed formatting rules even for metadata files that are nominally
    less than version 2.1.
 
-.. contents:: Contents
-   :local:
 
 .. _core-metadata-metadata-version:
 
