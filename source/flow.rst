@@ -1,6 +1,6 @@
-==================
-The Packaging Flow
-==================
+==============
+Packaging Flow
+==============
 
 The document aims to outline the flow involved in publishing/distributing a
 :term:`distribution package <Distribution Package>`, usually to the `Python

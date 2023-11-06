@@ -150,17 +150,17 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pypa_theme'
+html_theme = 'pydata_sphinx_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {
-    'collapsiblesidebar': True,
-    'externalrefs': True,
-    'navigation_depth': 2,
-    'issues_url': github_repo_issues_url,
-}
+#html_theme_options = {
+#    'collapsiblesidebar': True,
+#    'externalrefs': True,
+#    'navigation_depth': 2,
+#    'issues_url': github_repo_issues_url,
+#}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = ['themes']
@@ -211,10 +211,10 @@ html_last_updated_fmt = ''
 #
 
 # Custom sidebar templates, filenames relative to this file.
-html_sidebars = {
-    '**': ['globaltoc.html', 'relations.html'],
-    'index': ['globaltoc.html']
-}
+#html_sidebars = {
+#    '**': ['globaltoc.html', 'relations.html'],
+#    'index': ['globaltoc.html']
+#}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
