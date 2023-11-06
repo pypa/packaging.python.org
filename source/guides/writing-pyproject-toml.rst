@@ -338,8 +338,6 @@ A full example
      "Programming Language :: Python"
    ]
 
-   # dynamic = ["version", "description"]
-
    [project.optional-dependencies]
    gui = ["PyQt5"]
    cli = [
