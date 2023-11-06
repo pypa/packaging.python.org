@@ -104,7 +104,7 @@ texinfo_documents = [
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
 
 linkcheck_ignore = [
-    "http://localhost:\d+",
+    "http://localhost:\\d+",
     "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
