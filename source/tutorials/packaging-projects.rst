@@ -54,8 +54,8 @@ Create the following file structure locally:
 The directory containing the Python files should match the project name. This
 simplifies the configuration and is more obvious to users who install the package.
 
-:file:`__init__.py` is required to import the directory as a package,
-even if as is our case for this tutorial that file is empty.
+:file:`__init__.py` is recommended to import the directory as a regular package,
+even if as is our case for this tutorial that file is empty [#namespace-packages]_.
 
 :file:`example.py` is an example of a module within the package that could
 contain the logic (functions, classes, constants, etc.) of your package.
@@ -535,3 +535,15 @@ some things you can do:
   :ref:`pdm`, and :ref:`poetry`.
 * Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
 * Read about :doc:`/guides/packaging-binary-extensions`.
+
+
+----
+
+.. rubric:: Notes
+
+.. [#namespace-packages]
+   Technically, you can also create Python packages without an ``__init__.py`` file,
+   but those are called :doc:`namespace packages </guides/packaging-namespace-packages>`
+   and considered an **advanced topic** (not covered in this tutorial).
+   If you are only getting started with Python packaging, it is recommended to
+   stick with *regular packages* and ``__init__.py`` (even if the file is empty).
