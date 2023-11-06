@@ -19,9 +19,6 @@ This overview provides a general-purpose decision tree for reasoning
 about Python's plethora of packaging options. Read on to choose the best
 technology for your next project.
 
-.. contents:: Contents
-   :local:
-
 Thinking about deployment
 -------------------------
 

@@ -4,9 +4,6 @@
 install_requires vs requirements files
 ======================================
 
-.. contents:: Contents
-   :local:
-
 
 install_requires
 ----------------
