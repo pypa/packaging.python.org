@@ -41,7 +41,7 @@ explicitly set ``universal`` to ``0``:
    # setup.cfg
 
    [bdist_wheel]
-   universal = 0  # Make the generated wheels have `py3` tag
+   universal = 0  # Make the generated wheels have "py3" tag
 
 .. tip::
 
@@ -71,7 +71,7 @@ Steps:
 
         py -m pip install --upgrade setuptools twine
 
-`setuptools` version should be above 24.0.0.
+``setuptools`` version should be above 24.0.0.
 
 2. Specify the version ranges for supported Python distributions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
