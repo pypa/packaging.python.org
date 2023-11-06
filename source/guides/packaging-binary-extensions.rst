@@ -230,34 +230,82 @@ The CPython :doc:`Extending and Embedding <python:extending/index>`
 guide includes an introduction to writing a
 :doc:`custom extension module in C <python:extending/extending>`.
 
-..
+FIXME: Elaborate that all this is one of the reasons why you probably
+*don't* want to handcode your extension modules :)
 
-   FIXME
 
-   * mention the stable ABI (3.2+, link to the CPython C API docs)
-   * mention the module lifecycle
-   * mention the challenges of shared static state and subinterpreters
-   * mention the implications of the GIL for extension modules
-   * mention the memory allocation APIs in 3.4+
+Extension module lifecycle
+--------------------------
 
-   * mention again that all this is one of the reasons why you probably *don't*
-     want to handcode your extension modules :)
+FIXME: This section needs to be fleshed out.
+
+
+Implications of shared static state and subinterpreters
+-------------------------------------------------------
+
+FIXME: This section needs to be fleshed out.
+
+
+Implications of the GIL
+-----------------------
+
+FIXME: This section needs to be fleshed out.
+
+
+Memory allocation APIs
+----------------------
+
+FIXME: This section needs to be fleshed out.
+
+
+.. _cpython-stable-abi:
+
+ABI Compatibility
+-----------------
+
+The CPython C API does not guarantee ABI stability between minor releases
+(3.2, 3.3, 3.4, etc.). This means that, typically, if you build an
+extension module against one version of Python, it is only guaranteed to
+work with the same minor version of Python and not with any other minor
+versions.
+
+Python 3.2 introduced the Limited API, with is a well-defined subset of
+Python's C API. The symbols needed for the Limited API form the
+"Stable ABI" which is guaranteed to be compatible across all Python 3.x
+versions. Wheels containing extensions built against the stable ABI use
+the ``abi3`` ABI tag, to reflect that they're compatible with all Python
+3.x versions.
+
+CPython's :doc:`C API stability<python:c-api/stable>` page provides
+detailed information about the API / ABI stability guarantees, how to use
+the Limited API and the exact contents of the "Limited API".
 
 
 Building binary extensions
 ==========================
 
+FIXME: Cover the build-backends available for building extensions.
+
 Building extensions for multiple platforms
 ------------------------------------------
 
 If you plan to distribute your extension, you should provide
-:term:`wheels <Wheel>` for all the platforms you intend to support. For most
-extensions, this is at least one package per Python version times the number of
-OS and architectures you support.  These are usually built on continuous
-integration (CI) systems. There are tools to help you build highly
-redistributable binaries from CI; these include :ref:`cibuildwheel` and
-:ref:`multibuild`.
+:term:`wheels <Wheel>` for all the platforms you intend to support. These
+are usually built on continuous integration (CI) systems. There are tools
+to help you build highly redistributable binaries from CI; these include
+:ref:`cibuildwheel` and :ref:`multibuild`.
 
+For most extensions, you will need to build wheels for all the platforms
+you intend to support. This means that the number of wheels you need to
+build is the product of::
+
+  count(Python minor versions) * count(OS) * count(architectures)
+
+Using CPython's :ref:`Stable ABI <cpython-stable-abi>` can help significantly
+reduce the number of wheels you need to provide, since a single wheel on a
+platform can be used with all Python minor versions; eliminating one dimension
+of the matrix. It also removes the need to generate new wheels for each new
+minor version of Python.
 
 Binary extensions for Windows
 -----------------------------
@@ -310,20 +358,24 @@ Spinning Wheels wiki
 Publishing binary extensions
 ============================
 
-For interim guidance on this topic, see the discussion in
-:issue:`this issue <284>`.
+Publishing binary extensions through PyPI uses the same upload mechanisms as
+publishing pure Python packages. You build a wheel file for your extension
+using the build-backend and upload it to PyPI using
+:doc:`twine <twine:index>`.
 
-..
+Avoid binary-only releases
+--------------------------
 
-   FIXME
+It is strongly recommended that you publish your binary extensions as
+well as the source code that was used to build them. This allows users to
+build the extension from source if they need to. Notably, this is required
+for certain Linux distributions that build from source within their
+own build systems for the distro package repositories.
 
-   * cover publishing as wheel files on PyPI or a custom index server
-   * cover creation of Windows and macOS installers
-   * cover weak linking
-   * mention the fact that Linux distros have a requirement to build from
-     source in their own build systems, so binary-only releases are strongly
-     discouraged
+Weak linking
+------------
 
+FIXME: This section needs to be fleshed out.
 
 Additional resources
 ====================
