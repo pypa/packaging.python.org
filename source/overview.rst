@@ -167,7 +167,7 @@ Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
 library packaging, using technologies like
-:doc:`setuptools entry_points <userguide/entry_point>`.
+:doc:`setuptools entry_points <setuptools:userguide/entry_point>`.
 
 Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies

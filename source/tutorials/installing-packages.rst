@@ -277,7 +277,7 @@ that the virtual environment's variables are set within the current
 shell, and not in a subprocess (which then disappears, having no
 useful effect).
 
-In both of the above cases, Windows users should _not_ use the
+In both of the above cases, Windows users should *not* use the
 :command:`source` command, but should rather run the :command:`activate`
 script directly from the command shell like so:
 
