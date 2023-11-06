@@ -12,6 +12,36 @@ Glossary
         extensions.
 
 
+    Build Backend
+
+        A library that takes a source tree or
+        :term:`source distribution <Source Distribution (or "sdist")>`
+        and builds a source distribution or :term:`wheel <Wheel>` from it.
+        The build is delegated to the backend by a
+        :term:`frontend <Build Frontend>`.
+        All backends offer a standardized interface.
+
+        Examples of build backends are
+        :ref:`flit's flit-core <flit>`,
+        :ref:`hatch's hatchling <hatch>`,
+        :ref:`maturin`,
+        :ref:`meson-python`,
+        :ref:`scikit-build-core`,
+        and :ref:`setuptools`.
+
+
+    Build Frontend
+
+        A tool that users might run
+        that takes arbitrary source trees or
+        :term:`source distributions <Source Distribution (or "sdist")>`
+        and builds source distributions or :term:`wheels <Wheel>` from them.
+        The actual building is delegated to each source tree's
+        :term:`build backend <Build Backend>`.
+
+        Examples of build frontends are :ref:`pip` and :ref:`build`.
+
+
     Built Distribution
 
         A :term:`Distribution <Distribution Package>` format containing files
