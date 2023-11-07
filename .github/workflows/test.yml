@@ -1,7 +1,10 @@
 name: Test
 
-on: 
+on:
+  merge_group:
   push:
+    branches-ignore:
+    - gh-readonly-queue/**  # Temporary merge queue-related GH-made branches
   pull_request:
   schedule:
     - cron: "0 6 * * *" # daily at 6am
@@ -13,6 +16,7 @@ concurrency:
 jobs:
   build:
     name: ${{ matrix.noxenv }}
+    if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -26,7 +30,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: "3.11"
           cache: 'pip'
           cache-dependency-path: 'requirements.txt'
 
@@ -37,3 +41,21 @@ jobs:
       - name: Nox ${{ matrix.noxenv }}
         run: |
           python -m nox -s ${{ matrix.noxenv }}
+
+
+  check:
+    # This job does nothing and is only used for the branch protection
+    # or multi-stage CI jobs, like making sure that all tests pass before
+    # a publishing job is started.
+    if: always()
+
+    needs:
+    - build
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Decide whether the needed jobs succeeded or failed
+      uses: re-actors/alls-green@release/v1
+      with:
+        jobs: ${{ toJSON(needs) }}

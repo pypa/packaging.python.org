@@ -6,9 +6,6 @@ Deploying Python applications
 :Page Status: Incomplete
 :Last Reviewed: 2021-8-24
 
-.. contents:: Contents
-   :local:
-
 
 Overview
 ========
@@ -73,7 +70,7 @@ directory, independent of any other Python installation on the computer.
 
 A big advantage of Pynsist is that the Windows packages can be built on Linux.
 There are several examples for different kinds of programs (console, GUI) in
-the `documentation <pynsist:index>`. The tool is released
+the :any:`documentation <pynsist:index>`. The tool is released
 under the MIT-licence.
 
 Application bundles
@@ -92,12 +89,12 @@ py2exe
 ^^^^^^
 
 `py2exe <https://pypi.org/project/py2exe/>`__ is a distutils extension which
-allows to build standalone Windows executable programs (32-bit and 64-bit) 
-from Python scripts. Python versions included in the official development 
+allows to build standalone Windows executable programs (32-bit and 64-bit)
+from Python scripts. Python versions included in the official development
 cycle are supported (refers to `Status of Python branches`__). py2exe can
 build console executables and windows (GUI) executables. Building windows
 services, and DLL/EXE COM servers might work but it is not actively supported.
-The distutils extension is released under the MIT-licence and Mozilla 
+The distutils extension is released under the MIT-licence and Mozilla
 Public License 2.0.
 
 .. __: https://devguide.python.org/#status-of-python-branches
@@ -108,8 +105,8 @@ macOS
 py2app
 ^^^^^^
 
-`py2app <https://pypi.org/project/py2app/>`__ is a Python setuptools 
-command which will allow you to make standalone macOS application 
+`py2app <https://pypi.org/project/py2app/>`__ is a Python setuptools
+command which will allow you to make standalone macOS application
 bundles and plugins from Python scripts. Note that py2app MUST be used
 on macOS to build applications, it cannot create Mac applications on other
 platforms. py2app is released under the MIT-license.
@@ -120,11 +117,11 @@ Unix (including Linux and macOS)
 pex
 ^^^
 
-`pex <https://pypi.org/project/pex/>`__ is  a library for generating .pex 
-(Python EXecutable) files which are executable Python environments in the 
-spirit of virtualenvs. pex is an expansion upon the ideas outlined in :pep:`441` 
-and makes the deployment of Python applications as simple as cp. pex files may 
-even include multiple platform-specific Python distributions, meaning that a 
+`pex <https://pypi.org/project/pex/>`__ is  a library for generating .pex
+(Python EXecutable) files which are executable Python environments in the
+spirit of virtualenvs. pex is an expansion upon the ideas outlined in :pep:`441`
+and makes the deployment of Python applications as simple as cp. pex files may
+even include multiple platform-specific Python distributions, meaning that a
 single pex file can be portable across Linux and macOS. pex is released under the
 Apache License 2.0.
 

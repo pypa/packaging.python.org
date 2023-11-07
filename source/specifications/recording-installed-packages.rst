@@ -21,12 +21,14 @@ History and change workflow
 ===========================
 
 The metadata described here was first specified in :pep:`376`, and later
-amended in :pep:`627`.
+amended in :pep:`627` (and other PEPs).
 It was formerly known as *Database of Installed Python Distributions*.
-Further amendments (except trivial language or typography fixes) must be made
-through the PEP process (see :pep:`1`).
+As with other PyPA specifications, editorial amendments with no functional
+impact may be made through the GitHub pull request workflow. Proposals for
+functional changes that would require amendments to package building and/or
+installation tools must be made through the PEP process (see :pep:`1`).
 
-While this document is the normative specification, these PEPs that introduce
+While this document is the normative specification, the PEPs that introduce
 changes to it may include additional information such as rationales and
 backwards compatibility considerations.
 
@@ -57,21 +59,23 @@ encouraged to start normalizing those fields.
 
 .. note::
 
-    The ``.dist-info`` directory's name is formatted to unambigiously represent
+    The ``.dist-info`` directory's name is formatted to unambiguously represent
     a distribution as a filesystem path. Tools presenting a distribution name
     to a user should avoid using the normalized name, and instead present the
     specified name (when needed prior to resolution to an installed package),
     or read the respective fields in Core Metadata, since values listed there
     are unescaped and accurately reflect the distribution. Libraries should
     provide API for such tools to consume, so tools can have access to the
-    unnormalized name when displaying distrubution information.
+    unnormalized name when displaying distribution information.
 
-This ``.dist-info`` directory can contain these files, described in detail
-below:
+This ``.dist-info`` directory may contain the following files, described in
+detail below:
 
 * ``METADATA``: contains project metadata
 * ``RECORD``: records the list of installed files.
 * ``INSTALLER``: records the name of the tool used to install the project.
+* ``entry_points.txt``: see :ref:`entry-points` for details
+* ``direct_url.json``: see :ref:`direct-url` for details
 
 The ``METADATA`` file is mandatory.
 All other files may be omitted at the installing tool's discretion.
@@ -169,7 +173,7 @@ Here is an example snippet of a possible ``RECORD`` file::
 
 If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must not
 attempt to uninstall or upgrade the package.
-(This does not apply to tools that rely on other sources of information,
+(This restriction does not apply to tools that rely on other sources of information,
 such as system package managers in Linux distros.)
 
 
@@ -197,6 +201,18 @@ For example, if a tool is asked to uninstall a project but finds no ``RECORD``
 file, it may suggest that the tool named in ``INSTALLER`` may be able to do the
 uninstallation.
 
+
+The entry_points.txt file
+=========================
+
+This file MAY be created by installers to indicate when packages contain
+components intended for discovery and use by other code, including console
+scripts and other applications that the installer has made available for
+execution.
+
+Its detailed specification is at :ref:`entry-points`.
+
+
 The direct_url.json file
 ========================
 
@@ -207,3 +223,32 @@ This file MUST NOT be created when installing a distribution from an other type
 of requirement (i.e. name plus version specifier).
 
 Its detailed specification is at :ref:`direct-url`.
+
+
+Intentionally preventing changes to installed packages
+======================================================
+
+In some cases (such as when needing to manage external dependencies in addition
+to Python ecosystem dependencies), it is desirable for a tool that installs
+packages into a Python environment to ensure that other tools are not used to
+uninstall or otherwise modify that installed package, as doing so may cause
+compatibility problems with the wider environment.
+
+To achieve this, affected tools should take the following steps:
+
+* Rename or remove the ``RECORD`` file to prevent changes via other tools (e.g.
+  appending a suffix to create a non-standard ``RECORD.tool`` file if the tool
+  itself needs the information, or omitting the file entirely if the package
+  contents are tracked and managed via other means)
+* Write an ``INSTALLER`` file indicating the name of the tool that should be used
+  to manage the package (this allows ``RECORD``-aware tools to provide better
+  error notices when asked to modify affected packages)
+
+Python runtime providers may also prevent inadvertent modification of platform
+provided packages by modifying the default Python package installation scheme
+to use a location other than that used by platform provided packages (while also
+ensuring both locations appear on the default Python import path).
+
+In some circumstances, it may be desirable to block even installation of
+additional packages via Python-specific tools. For these cases refer to
+:ref:`externally-managed-environments`

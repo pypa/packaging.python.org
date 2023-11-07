@@ -15,9 +15,11 @@ Specification
 
 There are two kinds of metadata: *static* and *dynamic*. Static
 metadata is specified in the ``pyproject.toml`` file directly and
-cannot be specified or changed by a tool. Dynamic metadata is listed
-via the ``dynamic`` key (defined later in this specification) and
-represents metadata that a tool will later provide.
+cannot be specified or changed by a tool (this includes data
+*referred* to by the metadata, e.g. the contents of files referenced
+by the metadata). Dynamic metadata is listed via the ``dynamic`` key
+(defined later in this specification) and represents metadata that a
+tool will later provide.
 
 The keys defined in this specification MUST be in a table named
 ``[project]`` in ``pyproject.toml``. No tools may add keys to this
@@ -25,7 +27,7 @@ table which are not defined by this specification. For tools wishing
 to store their own settings in ``pyproject.toml``, they may use the
 ``[tool]`` table as defined in the
 :ref:`build dependency declaration specification <declaring-build-dependencies>`.
-The lack of a ``[project]`` table implicitly means the build back-end
+The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>`
 will dynamically provide all keys.
 
 The only keys required to be statically defined are:
@@ -287,10 +289,10 @@ URL itself.
 .. code-block:: toml
 
     [project.urls]
-    homepage = "https://example.com"
-    documentation = "https://readthedocs.org"
-    repository = "https://github.com/me/spam.git"
-    changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+    Homepage = "https://example.com"
+    Documentation = "https://readthedocs.org"
+    Repository = "https://github.com/me/spam.git"
+    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
 Entry points
 ------------
@@ -462,10 +464,10 @@ Example
     ]
 
     [project.urls]
-    homepage = "https://example.com"
-    documentation = "https://readthedocs.org"
-    repository = "https://github.com/me/spam.git"
-    changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+    Homepage = "https://example.com"
+    Documentation = "https://readthedocs.org"
+    Repository = "https://github.com/me/spam.git"
+    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
     [project.scripts]
     spam-cli = "spam:main_cli"

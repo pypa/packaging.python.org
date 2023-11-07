@@ -9,17 +9,13 @@ This section covers the basics of how to install Python :term:`packages
 
 It's important to note that the term "package" in this context is being used to
 describe a bundle of software to be installed (i.e. as a synonym for a
-:term:`distribution <Distribution Package>`). It does not to refer to the kind
+:term:`distribution <Distribution Package>`). It does not refer to the kind
 of :term:`package <Import Package>` that you import in your Python source code
 (i.e. a container of modules). It is common in the Python community to refer to
 a :term:`distribution <Distribution Package>` using the term "package".  Using
 the term "distribution" is often not preferred, because it can easily be
 confused with a Linux distribution, or another larger software distribution
 like Python itself.
-
-
-.. contents:: Contents
-   :local:
 
 
 .. _installing_requirements:
@@ -58,10 +54,10 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
     .. code-block:: python
 
-        >>> python --version
+        >>> python3 --version
         Traceback (most recent call last):
           File "<stdin>", line 1, in <module>
-        NameError: name 'python' is not defined
+        NameError: name 'python3' is not defined
 
     It's because this command and other suggested commands in this tutorial
     are intended to be run in a *shell* (also called a *terminal* or
@@ -277,7 +273,7 @@ that the virtual environment's variables are set within the current
 shell, and not in a subprocess (which then disappears, having no
 useful effect).
 
-In both of the above cases, Windows users should _not_ use the
+In both of the above cases, Windows users should *not* use the
 :command:`source` command, but should rather run the :command:`activate`
 script directly from the command shell like so:
 
@@ -612,10 +608,10 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 Installing from other sources
 =============================
 
-To install from other data sources (for example Amazon S3 storage) you can
-create a helper application that presents the data in a :pep:`503` compliant
-index format, and use the ``--extra-index-url`` flag to direct pip to use
-that index.
+To install from other data sources (for example Amazon S3 storage)
+you can create a helper application that presents the data
+in a format compliant with the :ref:`simple repository API <simple-repository-api>`:,
+and use the ``--extra-index-url`` flag to direct pip to use that index.
 
 .. code-block:: bash
 
@@ -653,17 +649,17 @@ you know publishes one, you can include it in the pip installation command:
 
     .. code-block:: bash
 
-        python3 -m pip install SomePackage[PDF]
-        python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]  # editable project in current directory
+        python3 -m pip install 'SomePackage[PDF]'
+        python3 -m pip install 'SomePackage[PDF]==3.0'
+        python3 -m pip install -e '.[PDF]'  # editable project in current directory
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install SomePackage[PDF]
-        py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]  # editable project in current directory
+        py -m pip install "SomePackage[PDF]"
+        py -m pip install "SomePackage[PDF]==3.0"
+        py -m pip install -e ".[PDF]"  # editable project in current directory
 
 ----
 

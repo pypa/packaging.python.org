@@ -37,8 +37,8 @@ to a new format.
    more relaxed formatting rules even for metadata files that are nominally
    less than version 2.1.
 
-.. contents:: Contents
-   :local:
+
+.. _core-metadata-metadata-version:
 
 Metadata-Version
 ================
@@ -133,6 +133,7 @@ project.
 
 Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
+.. _core-metadata-platform:
 
 Platform (multiple use)
 =======================
@@ -148,6 +149,7 @@ Examples::
     Platform: ObscureUnix
     Platform: RareDOS
 
+.. _core-metadata-supported-platform:
 
 Supported-Platform (multiple use)
 =================================
@@ -281,7 +283,7 @@ Other parameters might be specific to the chosen subtype. For example, for the
 specifying the variant of Markdown in use (defaults to ``GFM`` if not
 specified). Currently, two variants are recognized:
 
-- ``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`
+- ``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`
 - ``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`
 
 Example::
@@ -340,6 +342,7 @@ Example::
    easier to update the specification to match the de facto standard.
 
 .. _home-page-optional:
+.. _core-metadata-home-page:
 
 Home-page
 =========
@@ -352,6 +355,7 @@ Example::
 
     Home-page: http://www.example.com/~cschultz/bvote/
 
+.. _core-metadata-download-url:
 
 Download-URL
 ============
@@ -558,6 +562,7 @@ Examples::
     Requires-Python: >2.6,!=3.0.*,!=3.1.*
     Requires-Python: ~=2.6
 
+.. _core-metadata-requires-external:
 
 Requires-External (multiple use)
 ================================
@@ -682,6 +687,7 @@ as they're still potentially useful for informational purposes, and can
 also be used for their originally intended purpose in combination with
 a curated package repository.
 
+.. _core-metadata-provides-dist:
 
 Provides-Dist (multiple use)
 ----------------------------
@@ -723,6 +729,7 @@ Examples::
     Provides-Dist: AnotherProject (3.4)
     Provides-Dist: virtual_package; python_version >= "3.4"
 
+.. _core-metadata-obsoletes-dist:
 
 Obsoletes-Dist (multiple use)
 -----------------------------
@@ -751,6 +758,92 @@ Examples::
     Obsoletes-Dist: Gorgon
     Obsoletes-Dist: OtherProject (<3.0)
     Obsoletes-Dist: Foo; os_name == "posix"
+
+
+Deprecated Fields
+=================
+
+Requires
+--------
+
+.. versionadded:: 1.1
+.. deprecated:: 1.2
+   in favour of ``Requires-Dist``
+
+Each entry contains a string describing some other module or package required
+by this package.
+
+The format of a requirement string is identical to that of a module or package
+name usable with the ``import`` statement, optionally followed by a version
+declaration within parentheses.
+
+A version declaration is a series of conditional operators and version numbers,
+separated by commas. Conditional operators must be one of "<", ">"', "<=",
+">=", "==", and "!=". Version numbers must be in the format accepted by the
+``distutils.version.StrictVersion`` class: two or three dot-separated numeric
+components, with an optional "pre-release" tag on the end consisting of the
+letter 'a' or 'b' followed by a number. Example version numbers are "1.0",
+"2.3a2", "1.3.99",
+
+Any number of conditional operators can be specified, e.g. the string ">1.0,
+!=1.3.4, <2.0" is a legal version declaration.
+
+All of the following are possible requirement strings: "rfc822", "zlib
+(>=1.1.4)", "zope".
+
+There’s no canonical list of what strings should be used; the Python community
+is left to choose its own standards.
+
+Examples::
+
+    Requires: re
+    Requires: sys
+    Requires: zlib
+    Requires: xml.parsers.expat (>1.0)
+    Requires: psycopg
+
+
+Provides
+--------
+
+.. versionadded:: 1.1
+.. deprecated:: 1.2
+   in favour of ``Provides-Dist``
+
+Each entry contains a string describing a package or module that will be
+provided by this package once it is installed. These strings should match the
+ones used in Requirements fields. A version declaration may be supplied
+(without a comparison operator); the package’s version number will be implied
+if none is specified.
+
+Examples::
+
+    Provides: xml
+    Provides: xml.utils
+    Provides: xml.utils.iso8601
+    Provides: xml.dom
+    Provides: xmltools (1.3)
+
+
+Obsoletes
+---------
+
+.. versionadded:: 1.1
+.. deprecated:: 1.2
+   in favour of ``Obsoletes-Dist``
+
+Each entry contains a string describing a package or module that this package
+renders obsolete, meaning that the two packages should not be installed at the
+same time. Version declarations can be supplied.
+
+The most common use of this field will be in case a package name changes, e.g.
+Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install Torqued
+Python, the Gorgon package should be removed.
+
+Example::
+
+    Obsoletes: Gorgon
+
 
 ----
 

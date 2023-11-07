@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx_inline_tabs',
     'sphinx_copybutton',
+    'sphinx_toolbox.collapse',
 ]
 
 # config for copy button
@@ -87,7 +88,7 @@ release = ''
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 locale_dirs = ['../locales']
 
@@ -132,7 +133,7 @@ default_role = 'any'  # makes single backticks autofind targets
 # show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+#pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -149,16 +150,14 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pypa_theme'
+html_theme = 'furo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'collapsiblesidebar': True,
-    'externalrefs': True,
-    'navigation_depth': 2,
-    'issues_url': github_repo_issues_url,
+    "sidebar_hide_name": True,
+    # 'issues_url': github_repo_issues_url,  # FIXME: support this in furo?
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -176,7 +175,7 @@ html_title = 'Python Packaging User Guide'
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-# html_logo = None
+html_logo = 'assets/py.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -210,10 +209,10 @@ html_last_updated_fmt = ''
 #
 
 # Custom sidebar templates, filenames relative to this file.
-html_sidebars = {
-    '**': ['globaltoc.html', 'relations.html'],
-    'index': ['globaltoc.html']
-}
+# html_sidebars = {
+#     '**': ['globaltoc.html', 'relations.html'],
+#     'index': ['globaltoc.html']
+# }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -378,11 +377,11 @@ texinfo_documents = [
 
 # -- Options for extlinks extension ---------------------------------------
 extlinks = {
-    'issue': (f'{github_repo_issues_url}/%s', '#'),  # noqa: WPS323
-    'pr': (f'{github_repo_url}/pull/%s', 'PR #'),  # noqa: WPS323
-    'commit': (f'{github_repo_url}/commit/%s', ''),  # noqa: WPS323
-    'gh': (f'{github_url}/%s', 'GitHub: '),  # noqa: WPS323
-    'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
+    'issue': (f'{github_repo_issues_url}/%s', '#%s'),  # noqa: WPS323
+    'pr': (f'{github_repo_url}/pull/%s', 'PR #%s'),  # noqa: WPS323
+    'commit': (f'{github_repo_url}/commit/%s', '%s'),  # noqa: WPS323
+    'gh': (f'{github_url}/%s', 'GitHub: %s'),  # noqa: WPS323
+    'user': (f'{github_sponsors_url}/%s', '@%s'),  # noqa: WPS323
 }
 
 linkcheck_ignore = [
@@ -397,6 +396,7 @@ linkcheck_ignore = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'boltons': ('https://boltons.readthedocs.io/en/latest/', None),
+    'bottle': ('https://bottlepy.org/docs/dev/', None),
     'build': ('https://pypa-build.readthedocs.io/en/stable/', None),
     'cffi': ('https://cffi.readthedocs.io/en/latest/', None),
     'conda': ('https://conda.io/en/latest/', None),
@@ -407,7 +407,7 @@ intersphinx_mapping = {
     'nox': ('https://nox.thea.codes/en/latest/', None),
     'openstack': ('https://docs.openstack.org/glance/latest/', None),
     'packaging': ('https://packaging.pypa.io/en/latest/', None),
-    'packaging.python.org': ('https://packaging.python.org/', None),
+    'packaging.python.org': ('https://packaging.python.org/en/latest/', None),
     'pip': ('https://pip.pypa.io/en/latest/', None),
     'pipenv': ('https://pipenv.pypa.io/en/latest/', None),
     'piwheels': ('https://piwheels.readthedocs.io/en/latest/', None),
@@ -416,10 +416,10 @@ intersphinx_mapping = {
     'pypa': ('https://www.pypa.io/en/latest/', None),
     'python': ('https://docs.python.org/3', None),
     'python-guide': ('https://docs.python-guide.org', None),
-    'setuptools': ('https://setuptools.readthedocs.io/en/latest/', None),
+    'setuptools': ('https://setuptools.pypa.io/en/latest/', None),
     'spack': ('https://spack.readthedocs.io/en/latest/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'tox': ('https://tox.readthedocs.io/en/latest/', None),
+    'tox': ('https://tox.wiki/en/latest/', None),
     'twine': ('https://twine.readthedocs.io/en/stable/', None),
     'virtualenv': ('https://virtualenv.pypa.io/en/stable/', None),
 }

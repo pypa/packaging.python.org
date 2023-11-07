@@ -15,12 +15,10 @@ development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
 For more reference material, see :std:doc:`Building and Distributing
-Packages <userguide/index>` in the :ref:`setuptools` docs, but note
+Packages <setuptools:userguide/index>` in the :ref:`setuptools` docs, but note
 that some advisory content there may be outdated. In the event of
 conflicts, prefer the advice in the Python Packaging User Guide.
 
-.. contents:: Contents
-   :local:
 
 
 Requirements for packaging and distributing
@@ -72,7 +70,7 @@ sample project <https://github.com/pypa/sampleproject>`_.
 
 2. It's the command line interface for running various commands that
    relate to packaging tasks. To get a listing of available commands, run
-   ``python setup.py --help-commands``.
+   ``python3 setup.py --help-commands``.
 
 
 setup.cfg
@@ -241,7 +239,7 @@ can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
 <https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the Github-flavored Markdown dialect of `Markdown
+and the GitHub-flavored Markdown dialect of `Markdown
 <https://daringfireball.net/projects/markdown/>`_ respectively.
 
 ``url``
@@ -484,7 +482,7 @@ Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
 For more information see the distutils section on :ref:`Installing Additional Files
-<python:distutils-additional-files>`.
+<setuptools:distutils-additional-files>`.
 
 .. note::
 
@@ -498,7 +496,7 @@ For more information see the distutils section on :ref:`Installing Additional Fi
 ~~~~~~~~~~~
 
 Although ``setup()`` supports a :ref:`scripts
-<python:distutils-installing-scripts>`
+<setuptools:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
@@ -677,7 +675,7 @@ Change directory to the root of the project directory and run:
 
 .. code-block:: bash
 
-   python -m pip install -e .
+   python3 -m pip install -e .
 
 
 The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
@@ -712,12 +710,12 @@ Lastly, if you don't want to install any dependencies at all, you can run:
 
 .. code-block:: bash
 
-   python -m pip install -e . --no-deps
+   python3 -m pip install -e . --no-deps
 
 
 For more information, see the
 :doc:`Development Mode <setuptools:userguide/development_mode>` section
-of the :doc:`setuptools docs <setuptools>`.
+of the :ref:`setuptools` docs.
 
 .. _`Packaging your project`:
 
@@ -812,7 +810,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python -m build --wheel
+        python3 -m build --wheel
 
 .. tab:: Windows
 

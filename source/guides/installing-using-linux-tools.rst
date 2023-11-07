@@ -7,9 +7,6 @@ Installing pip/setuptools/wheel with Linux Package Managers
 :Page Status: Incomplete
 :Last Reviewed: 2021-07-26
 
-.. contents:: Contents
-  :local:
-
 This section covers how to install :ref:`pip`, :ref:`setuptools`, and
 :ref:`wheel` using Linux package managers.
 
@@ -38,7 +35,7 @@ Fedora
   sudo dnf install python3-pip python3-wheel
 
 To learn more about Python in Fedora, please visit the `official Fedora docs`_,
-`Python Classroom`_ or `Fedora Loves Python`_. 
+`Python Classroom`_ or `Fedora Loves Python`_.
 
 .. _official Fedora docs: https://developer.fedoraproject.org/tech/languages/python/python-installation.html
 .. _Python Classroom: https://labs.fedoraproject.org/en/python-classroom/
@@ -54,7 +51,7 @@ To install pip and wheel for the system Python, there are two options:
 
 1. Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using
    `these instructions
-   <https://docs.fedoraproject.org/en-US/epel/#how_can_i_use_these_extra_packages>`__. 
+   <https://docs.fedoraproject.org/en-US/epel/#how_can_i_use_these_extra_packages>`__.
    On EPEL 7, you can install pip and wheel like so:
 
    .. code-block:: bash
@@ -90,7 +87,7 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
 
    * For Redhat, see here:
      https://developers.redhat.com/products/softwarecollections/overview
-   * For CentOS, see here: https://www.softwarecollections.org/en/
+   * For CentOS, see here: https://github.com/sclorg
 
    Be aware that collections may not contain the most recent versions.
 
@@ -111,11 +108,14 @@ openSUSE
 ~~~~~~~~
 
   .. code-block:: bash
- 
+
     sudo zypper install python3-pip python3-setuptools python3-wheel
 
-Debian/Ubuntu
-~~~~~~~~~~~~~
+
+.. _debian-ubuntu:
+
+Debian/Ubuntu and derivatives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Firstly, update and refresh repository lists by running this command:
 
