@@ -33,10 +33,6 @@ def build(session, autobuild=False):
     """
     session.install("-r", "requirements.txt")
 
-    target_build_dir = "build"
-
-    shutil.rmtree(target_build_dir, ignore_errors=True)
-
     if autobuild:
         command = "sphinx-autobuild"
         extra_args = "--host", "0.0.0.0"
@@ -56,7 +52,7 @@ def build(session, autobuild=False):
         "-W",  # Treat warnings as errors.
         *session.posargs,
         "source",  # where the rst files are located
-        target_build_dir,  # where to put the html output
+        "build",  # where to put the html output
     )
 
 
