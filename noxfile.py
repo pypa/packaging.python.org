@@ -3,7 +3,6 @@
 # Attribution-ShareAlike license:
 #   http://creativecommons.org/licenses/by-sa/3.0.
 
-import shutil
 
 import nox
 
@@ -19,10 +18,12 @@ def translation(session):
     target_dir = "locales"
     session.run(
         "sphinx-build",
-        "-b", "gettext",  # build gettext-style message catalogs (.pot file)
-        "-d", session.cache_dir / ".doctrees", # path to put the cache
+        "-b",
+        "gettext",  # build gettext-style message catalogs (.pot file)
+        "-d",
+        session.cache_dir / ".doctrees",  # path to put the cache
         "source/",  # where the rst files are located
-        target_dir, # where to put the .pot file
+        target_dir,  # where to put the .pot file
     )
 
 
@@ -45,10 +46,14 @@ def build(session, autobuild=False):
         )
 
     session.run(
-        command, *extra_args,
-        "-j", "auto",  # parallelize the build
-        "-b", "html",  # use HTML builder
-        "-d", session.cache_dir / ".doctrees", # path to put the cache
+        command,
+        *extra_args,
+        "-j",
+        "auto",  # parallelize the build
+        "-b",
+        "html",  # use HTML builder
+        "-d",
+        session.cache_dir / ".doctrees",  # path to put the cache
         "-n",  # nitpicky warn about all missing references
         "-W",  # Treat warnings as errors.
         *session.posargs,
@@ -74,12 +79,16 @@ def linkcheck(session):
     session.install("-r", "requirements.txt")
     session.run(
         "sphinx-build",
-        "-b", "linkcheck", # use linkcheck builder
-        "-d", session.cache_dir / ".doctrees", # path to put the cache
+        "-b",
+        "linkcheck",  # use linkcheck builder
+        "-d",
+        session.cache_dir / ".doctrees",  # path to put the cache
         "--color",
-        "-n", "-W", "--keep-going",  # be strict
-        "source", # where the rst files are located
-        "build", # where to put the check output
+        "-n",
+        "-W",
+        "--keep-going",  # be strict
+        "source",  # where the rst files are located
+        "build",  # where to put the check output
     )
 
 
