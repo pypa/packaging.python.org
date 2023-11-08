@@ -52,10 +52,81 @@ directory with autoindex enabled. For an example using the built in Web server
 in `Twisted`_, you would simply run ``twistd -n web --path .`` and then
 instruct users to add the URL to their installer's configuration.
 
+
+Existing projects
+=================
+
+.. list-table::
+   :header-rows: 1
+
+   * - Project
+     - Package upload
+     - PyPI fall-through [2]_
+     - Additional notes
+
+   * - :ref:`devpi`
+     - ✔
+     - ✔
+     - multiple indexes with inheritance, with syncing, replication, fail-over;
+       mirroring
+
+   * - :ref:`simpleindex`
+     -
+     - ✔
+     -
+
+   * - :ref:`pypiserver`
+     - ✔
+     -
+     -
+
+   * - :ref:`pypiprivate`
+     -
+     -
+     -
+
+   * - :ref:`pypicloud`
+     -
+     -
+     - unmaintained; also cached proxying; authentication, authorisation
+
+   * - :ref:`pywharf`
+     -
+     -
+     - unmaintained; serve files in GitHub
+
+   * - :ref:`pulppython`
+     - ✔
+     -
+     - also mirroring, proxying; plugin for Pulp
+
+   * - :ref:`pip2pi`
+     -
+     -
+     - also mirroring; manual synchronisation
+
+   * - :ref:`httpserver`
+     -
+     -
+     - standard-library
+
+   * - `Apache <https://httpd.apache.org/>`_
+     -
+     - ✔
+     - using
+       `mod_rewrite
+       <https://httpd.apache.org/docs/current/mod/mod_rewrite.html>`_
+       and
+       `mod_cache_disk
+       <https://httpd.apache.org/docs/current/mod/mod_cache_disk.html>`_,
+       you can cache requests to package indexes through an Apache server
+
 ----
 
 .. [1] For complete documentation of the simple repository protocol, see
        :ref:`simple repository API <simple-repository-api>`.
 
+.. [2] Can be configured to fall-back to PyPI (or another package index)
+       if a requested package is missing.
 
 .. _Twisted: https://twistedmatrix.com/

@@ -5,19 +5,24 @@ Package index mirrors and caches
 ================================
 
 :Page Status: Incomplete
-:Last Reviewed: 2014-12-24
+:Last Reviewed: 2023-11-08
 
-
-Mirroring or caching of PyPI can be used to speed up local package installation,
+Mirroring or caching of PyPI (and other
+:term:`package indexes <Package Index>`) can be used to speed up local
+package installation,
 allow offline work, handle corporate firewalls or just plain Internet flakiness.
 
-Three options are available in this area:
+There are multiple classes of options in this area:
 
-1. pip provides local caching options,
-2. devpi provides higher-level caching option, potentially shared amongst
-   many users or machines, and
-3. bandersnatch provides a local complete mirror of all PyPI :term:`packages
-   <Distribution Package>`.
+1. local/hosted caching of package indexes.
+
+2. local/hosted mirroring of a package index. A mirror is a (whole or
+   partial) copy of a package index, which can be used in place of the
+   original index.
+
+3. private package index with fall-through to public package indexes (for
+   example, to mitigate dependency confusion attacks), also known as a
+   proxy.
 
 
 Caching with pip
@@ -38,26 +43,75 @@ cached copies of :term:`packages <Distribution Package>`:
       python3 -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject
 
 
-Caching with devpi
-------------------
+Existing projects
+-----------------
 
-devpi is a caching proxy server which you run on your laptop, or some other
-machine you know will always be available to you. See the `devpi
-documentation for getting started`__.
+.. list-table::
+   :header-rows: 1
 
-__ https://devpi.net/docs/devpi/devpi/latest/+d/quickstart-pypimirror.html
+   * - Project
+     - Cache
+     - Mirror
+     - Proxy
+     - Additional notes
 
+   * - :ref:`devpi`
+     - ✔
+     - ✔
+     -
+     - multiple indexes with inheritance; syncing, replication, fail-over;
+       package upload
 
-Complete mirror with bandersnatch
-----------------------------------
+   * - :ref:`bandersnatch`
+     - ✔
+     - ✔
+     -
+     -
 
-bandersnatch will set up a complete local mirror of all PyPI :term:`packages
-<Distribution Package>` (externally-hosted packages are not mirrored). See
-the `bandersnatch documentation for getting that going`__.
+   * - :ref:`simpleindex`
+     -
+     -
+     - ✔
+     - custom plugin enables caching; re-routing to other package indexes
 
-__ https://github.com/pypa/bandersnatch/
+   * - :ref:`pypicloud`
+     - ✔
+     -
+     - ✔
+     - unmaintained; authentication, authorisation
 
-A benefit of devpi is that it will create a mirror which includes
-:term:`packages <Distribution Package>` that are external to PyPI, unlike
-bandersnatch which will only cache :term:`packages <Distribution Package>`
-hosted on PyPI.
+   * - :ref:`pulppython`
+     -
+     - ✔
+     - ✔
+     - plugin for Pulp; multiple proxied indexes; package upload
+
+   * - :ref:`proxpi`
+     - ✔
+     -
+     - ✔
+     - multiple proxied indexes
+
+   * - :ref:`nginx_pypi_cache`
+     - ✔
+     -
+     - ✔
+     - multiple proxied indexes
+
+   * - :ref:`flaskpypiproxy`
+     - ✔
+     -
+     - ✔
+     - unmaintained
+
+   * - `Apache <https://httpd.apache.org/>`_
+     - ✔
+     -
+     - ✔
+     - using
+       `mod_rewrite
+       <https://httpd.apache.org/docs/current/mod/mod_rewrite.html>`_
+       and
+       `mod_cache_disk
+       <https://httpd.apache.org/docs/current/mod/mod_cache_disk.html>`_,
+       you can cache requests to package indexes through an Apache server
