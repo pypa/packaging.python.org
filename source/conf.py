@@ -88,7 +88,7 @@ release = ''
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 locale_dirs = ['../locales']
 
@@ -133,7 +133,7 @@ default_role = 'any'  # makes single backticks autofind targets
 # show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+#pygments_style = 'sphinx'
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -150,16 +150,14 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'pypa_theme'
+html_theme = 'furo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'collapsiblesidebar': True,
-    'externalrefs': True,
-    'navigation_depth': 2,
-    'issues_url': github_repo_issues_url,
+    "sidebar_hide_name": True,
+    # 'issues_url': github_repo_issues_url,  # FIXME: support this in furo?
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -183,7 +181,7 @@ html_title = 'Python Packaging User Guide'
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-# html_favicon = None
+html_favicon = 'assets/py.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -211,10 +209,10 @@ html_last_updated_fmt = ''
 #
 
 # Custom sidebar templates, filenames relative to this file.
-html_sidebars = {
-    '**': ['globaltoc.html', 'relations.html'],
-    'index': ['globaltoc.html']
-}
+# html_sidebars = {
+#     '**': ['globaltoc.html', 'relations.html'],
+#     'index': ['globaltoc.html']
+# }
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -379,11 +377,11 @@ texinfo_documents = [
 
 # -- Options for extlinks extension ---------------------------------------
 extlinks = {
-    'issue': (f'{github_repo_issues_url}/%s', '#'),  # noqa: WPS323
-    'pr': (f'{github_repo_url}/pull/%s', 'PR #'),  # noqa: WPS323
-    'commit': (f'{github_repo_url}/commit/%s', ''),  # noqa: WPS323
-    'gh': (f'{github_url}/%s', 'GitHub: '),  # noqa: WPS323
-    'user': (f'{github_sponsors_url}/%s', '@'),  # noqa: WPS323
+    'issue': (f'{github_repo_issues_url}/%s', '#%s'),  # noqa: WPS323
+    'pr': (f'{github_repo_url}/pull/%s', 'PR #%s'),  # noqa: WPS323
+    'commit': (f'{github_repo_url}/commit/%s', '%s'),  # noqa: WPS323
+    'gh': (f'{github_url}/%s', 'GitHub: %s'),  # noqa: WPS323
+    'user': (f'{github_sponsors_url}/%s', '@%s'),  # noqa: WPS323
 }
 
 linkcheck_ignore = [

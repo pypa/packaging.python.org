@@ -6,9 +6,6 @@ Deploying Python applications
 :Page Status: Incomplete
 :Last Reviewed: 2021-8-24
 
-.. contents:: Contents
-   :local:
-
 
 Overview
 ========
@@ -73,7 +70,7 @@ directory, independent of any other Python installation on the computer.
 
 A big advantage of Pynsist is that the Windows packages can be built on Linux.
 There are several examples for different kinds of programs (console, GUI) in
-the `documentation <pynsist:index>`. The tool is released
+the :any:`documentation <pynsist:index>`. The tool is released
 under the MIT-licence.
 
 Application bundles

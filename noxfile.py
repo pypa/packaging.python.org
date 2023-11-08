@@ -4,8 +4,8 @@
 #   http://creativecommons.org/licenses/by-sa/3.0.
 
 import shutil
-import nox
 
+import nox
 
 nox.options.sessions = []
 
@@ -20,7 +20,7 @@ def translation(session):
     session.run(
         "sphinx-build",
         "-b", "gettext",  # build gettext-style message catalogs (.pot file)
-        "-d", ".nox/.doctrees/", # path to put the cache
+        "-d", session.cache_dir / ".doctrees", # path to put the cache
         "source/",  # where the rst files are located
         target_dir, # where to put the .pot file
     )
@@ -33,13 +33,9 @@ def build(session, autobuild=False):
     """
     session.install("-r", "requirements.txt")
 
-    target_build_dir = "build"
-
-    shutil.rmtree(target_build_dir, ignore_errors=True)
-
     if autobuild:
         command = "sphinx-autobuild"
-        extra_args = "-H", "0.0.0.0"
+        extra_args = "--host", "0.0.0.0"
     else:
         # NOTE: This branch adds options that are unsupported by autobuild
         command = "sphinx-build"
@@ -52,11 +48,12 @@ def build(session, autobuild=False):
         command, *extra_args,
         "-j", "auto",  # parallelize the build
         "-b", "html",  # use HTML builder
+        "-d", session.cache_dir / ".doctrees", # path to put the cache
         "-n",  # nitpicky warn about all missing references
         "-W",  # Treat warnings as errors.
         *session.posargs,
         "source",  # where the rst files are located
-        target_build_dir,  # where to put the html output
+        "build",  # where to put the html output
     )
 
 
@@ -78,6 +75,7 @@ def linkcheck(session):
     session.run(
         "sphinx-build",
         "-b", "linkcheck", # use linkcheck builder
+        "-d", session.cache_dir / ".doctrees", # path to put the cache
         "--color",
         "-n", "-W", "--keep-going",  # be strict
         "source", # where the rst files are located

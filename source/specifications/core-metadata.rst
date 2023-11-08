@@ -37,8 +37,6 @@ to a new format.
    more relaxed formatting rules even for metadata files that are nominally
    less than version 2.1.
 
-.. contents:: Contents
-   :local:
 
 .. _core-metadata-metadata-version:
 
@@ -53,8 +51,9 @@ Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
 ``metadata_version`` has a greater major version than the highest
-version they support (as described in :pep:`440`, the major version is the
-value before the first dot).
+version they support (as described in the
+:ref:`Version specifier specification <version-specifiers>`,
+the major version is the value before the first dot).
 
 For broader compatibility, build tools MAY choose to produce
 distribution metadata using the lowest metadata version that includes
@@ -96,7 +95,8 @@ Version
 .. versionadded:: 1.0
 
 A string containing the distribution's version number.  This
-field  must be in the format specified in :pep:`440`.
+field  must be in the format specified in the
+:ref:`Version specifier specification <version-specifiers>`.
 
 Example::
 
@@ -285,7 +285,7 @@ Other parameters might be specific to the chosen subtype. For example, for the
 specifying the variant of Markdown in use (defaults to ``GFM`` if not
 specified). Currently, two variants are recognized:
 
-- ``GFM`` for :rfc:`Github-flavored Markdown <7764#section-3.2>`
+- ``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`
 - ``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`
 
 Example::
@@ -587,8 +587,8 @@ This field may be followed by an environment marker after a semicolon.
 
 Because they refer to non-Python software releases, version numbers
 for this field are **not** required to conform to the format
-specified in :pep:`440`:  they should correspond to the
-version scheme used by the external dependency.
+specified in the :ref:`Version specifier specification <version-specifiers>`:
+they should correspond to the version scheme used by the external dependency.
 
 Notice that there is no particular rule on the strings to be used.
 

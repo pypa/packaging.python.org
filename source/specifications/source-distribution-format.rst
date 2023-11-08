@@ -43,7 +43,8 @@ The name and version components of the filename MUST match the values stored
 in the metadata contained in the file.
 
 Code that produces a source distribution file MUST give the file a name that matches
-this specification. This includes the ``build_sdist`` hook of a build backend.
+this specification. This includes the ``build_sdist`` hook of a
+:term:`build backend <Build Backend>`.
 
 Code that processes source distribution files MAY recognise source distribution files
 by the ``.tar.gz`` suffix and the presence of precisely *one* hyphen in the filename.
