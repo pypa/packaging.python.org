@@ -5,7 +5,7 @@ Package index mirrors and caches
 ================================
 
 :Page Status: Ongoing
-:Last Reviewed: 2023-02-27
+:Last Reviewed: 2023-11-08
 
 
 Mirroring or caching of PyPI (and other package indexes) can be used to speed
@@ -159,6 +159,13 @@ Package index caching proxy, supports multiple indexes, no mirroring.
 
 * `proxpi on PyPI <https://pypi.org/project/proxpi/>`_
 * `proxpi source <https://github.com/EpicWink/proxpi>`_
+
+nginx_pypi_cache
+^^^^^^^^^^^^^^^^
+
+Package index caching proxy using `nginx <https://nginx.org/en/>`_
+
+* `nginx_pypi_cache source <https://github.com/hauntsaninja/nginx_pypi_cache>`_
 
 Flask-Pypi-Proxy
 ^^^^^^^^^^^^^^^^
