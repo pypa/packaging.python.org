@@ -182,8 +182,8 @@ this character cannot appear within any component. This is handled as follows:
   Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
   uppercase letters, however, as these were allowed by an earlier version of
   this specification.
-- Version numbers should be normalised according to :pep:`440`. Normalised
-  version numbers cannot contain ``-``.
+- Version numbers should be normalised according to the :ref:`Version specifier
+  specification <version-specifiers>`. Normalised version numbers cannot contain ``-``.
 - The remaining components may not contain ``-`` characters, so no escaping
   is necessary.
 
