@@ -10,6 +10,7 @@ introduction to packaging, see :doc:`/tutorials/index`.
    :caption: Installing Packages:
 
    installing-using-pip-and-virtual-environments
+   installing-using-virtualenv
    installing-stand-alone-command-line-tools
    installing-using-linux-tools
    installing-scientific-packages
