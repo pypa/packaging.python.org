@@ -41,7 +41,7 @@ Overview and Flow
    continuous improvement are key to success. The overview and flow sections
    provide a starting point for understanding the Python packaging ecosystem.
 
-The :doc:`Overview of Python Packaging <overview>` explains Python packaging
+The :doc:`overview` explains Python packaging
 and its use when preparing and distributing projects.
 This section helps you build understanding about selecting the tools and
 processes that are most suitable for your use case.
