@@ -4,8 +4,8 @@
 Package index mirrors and caches
 ================================
 
-:Page Status: Incomplete
-:Last Reviewed: 2014-12-24
+:Page Status: Ongoing
+:Last Reviewed: 2023-02-27
 
 
 Mirroring or caching of PyPI (and other package indexes) can be used to speed
