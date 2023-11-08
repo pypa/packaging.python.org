@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-08 15:27+0000\n"
+"POT-Creation-Date: 2023-11-08 19:03+0000\n"
 "PO-Revision-Date: 2023-11-04 00:37+0000\n"
 "Last-Translator: Eric <zxmegaxqug@hldrive.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1047,6 +1047,221 @@ msgid ""
 msgstr ""
 "https://setuptools.readthedocs.io/en/latest/deprecated/easy_install."
 "html#natural-script-launcher"
+
+#: ../source/discussions/setup-py-deprecated.rst:6
+msgid "Is ``setup.py`` deprecated?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:8
+msgid ""
+"No, :term:`setup.py` is not deprecated, it is a valid configuration file "
+"for :ref:`setuptools` that happens to be written in Python, instead of in "
+"*TOML* for example (a similar practice is used by other tools like *nox* and "
+"its :file:`nox.py` configuration file, or *pytest* and :file:`conftest.py`)."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:15
+msgid "And of course *setuptools* itself is not deprecated either."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:17
+msgid ""
+"It is however deprecated to run ``python setup.py`` as a command line tool."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:19
+msgid ""
+"This means for example that the following commands **MUST NOT** be run "
+"anymore:"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:21
+#: ../source/discussions/setup-py-deprecated.rst:33
+#, fuzzy
+#| msgid "Yes (``python -m pip uninstall``)"
+msgid "``python setup.py install``"
+msgstr "有(``python -m pip uninstall``)"
+
+#: ../source/discussions/setup-py-deprecated.rst:22
+#: ../source/discussions/setup-py-deprecated.rst:35
+msgid "``python setup.py develop``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:23
+#: ../source/discussions/setup-py-deprecated.rst:37
+#, fuzzy
+#| msgid "``python_version``"
+msgid "``python setup.py sdist``"
+msgstr "``python_version``"
+
+#: ../source/discussions/setup-py-deprecated.rst:24
+#: ../source/discussions/setup-py-deprecated.rst:39
+msgid "``python setup.py bdist_wheel``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:28
+msgid "What commands should be used instead?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:31
+msgid "Deprecated"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:31
+#, fuzzy
+#| msgid "Creating Documentation"
+msgid "Current recommendation"
+msgstr "创建文档"
+
+#: ../source/discussions/setup-py-deprecated.rst:33
+#, fuzzy
+#| msgid "Yes (``python -m pip uninstall``)"
+msgid "``python -m pip install .``"
+msgstr "有(``python -m pip uninstall``)"
+
+#: ../source/discussions/setup-py-deprecated.rst:35
+#, fuzzy
+#| msgid "Yes (``python -m pip uninstall``)"
+msgid "``python -m pip install --editable .``"
+msgstr "有(``python -m pip uninstall``)"
+
+#: ../source/discussions/setup-py-deprecated.rst:37
+msgid "``python -m build`` [#needs-build]_"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:43
+msgid ""
+"This requires the :ref:`build` dependency. It is recommended to always build "
+"and publish both the source distribution and wheel of a project, which is "
+"what ``python -m build`` does. If necessary the ``--sdist`` and ``--wheel`` "
+"options can be used to generate only one or the other."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:50
+msgid ""
+"In order to install a setuptools based project, it was common to run :file:"
+"`setup.py`'s ``install`` command such as: ``python setup.py install``. "
+"Nowadays, the recommended method is to use :ref:`pip` directly with a "
+"command like this one: ``python -m pip install .``. Where the dot ``.`` is "
+"actually a file system path, it is the path notation for the current "
+"directory. Indeed, *pip* accepts a path to a project's source tree directory "
+"on the local filesystem as argument to its ``install`` sub-command. So this "
+"would also be a valid command: ``python -m pip install path/to/project``."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:63
+msgid ""
+"As for the installation in *develop* mode aka *editable* mode, instead of "
+"``python setup.py develop`` one can use the ``--editable`` option of pip's "
+"*install* sub-command: ``python -m pip install --editable .``."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:68
+msgid ""
+"One recommended, simple, and straightforward method of building :term:"
+"`source distributions <Source Distribution (or \"sdist\")>` and :term:"
+"`wheels <Wheel>` is to use the :ref:`build` tool with a command like "
+"``python -m build`` which triggers the generation of both distribution "
+"formats. If necessary the ``--sdist`` and ``--wheel`` options can be used to "
+"generate only one or the other. Note that the build tool needs to be "
+"installed separately."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:78
+msgid ""
+"The command ``python setup.py install`` was deprecated in setuptools version "
+"*58.3.0*."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:83
+msgid "What about custom commands?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:85
+msgid ""
+"Likewise, custom :file:`setup.py` commands are deprecated. The "
+"recommendation is to migrate those custom commands to a task runner tool or "
+"any other similar tool. Some examples of such tools are: chuy, make, nox or "
+"tox, pydoit, pyinvoke, taskipy, and thx."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:93
+msgid "What about custom build steps?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:95
+msgid ""
+"Custom build steps that for example either overwrite existing steps such as "
+"``build_py``, ``build_ext``, and ``bdist_wheel`` or add new build steps are "
+"not deprecated. Those will be automatically called as expected."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:102
+msgid "Should ``setup.py`` be deleted?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:104
+msgid ""
+"Although the usage of :file:`setup.py` as an executable script is "
+"deprecated, its usage as a configuration file for setuptools is absolutely "
+"fine. There is likely no modification needed in :file:`setup.py`."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:108
+#: ../source/discussions/setup-py-deprecated.rst:127
+msgid "Todo"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:110
+msgid "Link to a \"How to modernize a setup.py based project?\""
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:114
+#, fuzzy
+#| msgid "pyproject.toml"
+msgid "Is ``pyproject.toml`` mandatory?"
+msgstr "pyproject.toml"
+
+#: ../source/discussions/setup-py-deprecated.rst:116
+msgid ""
+"While it is not technically necessary yet, it is **STRONGLY RECOMMENDED** "
+"for a project to have a :file:`pyproject.toml` file at the root of its "
+"source tree with a content like this:"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:129
+msgid "Link to \"How to modernize a setup.py based project?\""
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:132
+msgid ""
+"The standard fallback behavior for a :term:`build frontend <Build Frontend>` "
+"in the absence of a :file:`pyproject.toml` file and its ``[build-system]`` "
+"table is to assume that the :term:`build backend <Build Backend>` is "
+"setuptools."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:138
+msgid "Why? What does it all mean?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:140
+msgid ""
+"One way to look at it is that the scope of setuptools has now been reduced "
+"to the role of a build backend."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:145
+msgid "Where to read more about this?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:147
+msgid "https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:149
+msgid ":doc:`setuptools:deprecated/commands`"
+msgstr ""
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:3
 msgid "src layout vs flat layout"
