@@ -50,11 +50,7 @@ gettext_location = True
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_title = "Python Packaging User Guide"
-
 html_theme = "furo"
-html_theme_options = {
-    "sidebar_hide_name": True,
-}
 
 html_favicon = "assets/py.png"
 html_last_updated_fmt = ""
