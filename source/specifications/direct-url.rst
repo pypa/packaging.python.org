@@ -10,8 +10,6 @@ This document specifies a :file:`direct_url.json` file in the
 Direct URL Origin of the distribution. The general structure and usage of
 ``*.dist-info`` directories is described in :ref:`recording-installed-packages`.
 
-.. contents:: Contents
-   :local:
 
 Specification
 =============

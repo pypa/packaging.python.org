@@ -18,10 +18,6 @@ confused with a Linux distribution, or another larger software distribution
 like Python itself.
 
 
-.. contents:: Contents
-   :local:
-
-
 .. _installing_requirements:
 
 Requirements for Installing Packages
@@ -308,9 +304,9 @@ The most common usage of :ref:`pip` is to install from the :term:`Python Package
 Index <Python Package Index (PyPI)>` using a :term:`requirement specifier
 <Requirement Specifier>`. Generally speaking, a requirement specifier is
 composed of a project name followed by an optional :term:`version specifier
-<Version Specifier>`.  :pep:`440` contains a :pep:`full
-specification <440#version-specifiers>`
-of the currently supported specifiers. Below are some examples.
+<Version Specifier>`.  A full description of the supported specifiers can be
+found in the :ref:`Version specifier specification <version-specifiers>`.
+Below are some examples.
 
 To install the latest version of "SomeProject":
 
@@ -355,7 +351,7 @@ To install greater than or equal to one version and less than another:
         py -m pip install "SomeProject>=1,<2"
 
 
-To install a version that's :pep:`"compatible" <440#compatible-release>`
+To install a version that's :ref:`compatible <version-specifiers-compatible-release>`
 with a certain version: [4]_
 
 .. tab:: Unix/macOS

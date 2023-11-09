@@ -127,6 +127,11 @@ such as :ref:`setuptools` to build distributions, or :ref:`twine` to upload them
 to PyPI. Flit requires Python 3, but you can use it to distribute modules for
 Python 2, so long as they can be imported on Python 3.
 
+The flit package is lifted by `Matthias Bussonnier
+<https://github.com/Carreau>`__ since October 2023 on the `tidelift platform
+<https://tidelift.com/lifter/search/pypi/flit>`__, and funds sent to the PSF and
+earmarked for PyPA usage.
+
 .. _flit-rationale: https://flit.readthedocs.io/en/latest/rationale.html
 
 .. _hatch:
@@ -140,7 +145,7 @@ hatch
 
 Hatch is a unified command-line tool meant to conveniently manage
 dependencies and environment isolation for Python developers. Python
-package developers use Hatch and its build backend Hatchling to
+package developers use Hatch and its :term:`build backend <Build Backend>` Hatchling to
 configure, version, specify dependencies for, and publish packages
 to PyPI. Its plugin system allows for easily extending functionality.
 

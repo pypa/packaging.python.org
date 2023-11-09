@@ -15,12 +15,10 @@ development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
 For more reference material, see :std:doc:`Building and Distributing
-Packages <userguide/index>` in the :ref:`setuptools` docs, but note
+Packages <setuptools:userguide/index>` in the :ref:`setuptools` docs, but note
 that some advisory content there may be outdated. In the event of
 conflicts, prefer the advice in the Python Packaging User Guide.
 
-.. contents:: Contents
-   :local:
 
 
 Requirements for packaging and distributing
@@ -717,7 +715,7 @@ Lastly, if you don't want to install any dependencies at all, you can run:
 
 For more information, see the
 :doc:`Development Mode <setuptools:userguide/development_mode>` section
-of the :doc:`setuptools docs <setuptools>`.
+of the :ref:`setuptools` docs.
 
 .. _`Packaging your project`:
 

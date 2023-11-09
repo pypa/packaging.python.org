@@ -12,9 +12,6 @@ service to provide Windows support for your project. This includes testing
 the code on Windows, and building Windows-targeted binaries for projects
 that use C extensions.
 
-.. contents:: Contents
-   :local:
-
 
 Background
 ==========

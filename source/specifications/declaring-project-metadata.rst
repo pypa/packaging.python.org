@@ -33,7 +33,7 @@ table which are not defined by this specification. For tools wishing
 to store their own settings in ``pyproject.toml``, they may use the
 ``[tool]`` table as defined in the
 :ref:`build dependency declaration specification <declaring-build-dependencies>`.
-The lack of a ``[project]`` table implicitly means the build back-end
+The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>`
 will dynamically provide all keys.
 
 The only keys required to be statically defined are:
@@ -88,7 +88,8 @@ as it is read for internal consistency.
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`Version <core-metadata-version>`
 
-The version of the project as supported by :pep:`440`.
+The version of the project, as defined in the
+:ref:`Version specifier specification <version-specifiers>`.
 
 Users SHOULD prefer to specify already-normalized versions.
 
