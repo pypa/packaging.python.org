@@ -850,7 +850,7 @@ build of the Python distribution.
 http.server
 ===========
 
-`Docs <python:library/http.server.html>`__ |
+:doc:`Docs <python:library/http.server>` |
 :gh:`Issues <python/cpython/issues>`
 
 A package and command-line interface which can host a directory as a
