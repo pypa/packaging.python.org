@@ -115,7 +115,7 @@ could use, e.g., ``pip install your-project-name[gui]`` to install your
 project with GUI support, adding the PyQt5 dependency.
 
 
-``python-requires``
+``requires-python``
 -------------------
 
 This lets you declare the minimum version of Python that you support
