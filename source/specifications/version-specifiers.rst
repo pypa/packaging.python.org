@@ -101,7 +101,7 @@ aside from always being the lowest possible value in the version ordering.
    across existing public and private Python projects.
 
    Accordingly, some of the versioning practices which are technically
-   permitted by the PEP are strongly discouraged for new projects. Where
+   permitted by the specification are strongly discouraged for new projects. Where
    this is the case, the relevant details are noted in the following
    sections.
 
@@ -631,7 +631,7 @@ are permitted and MUST be ordered as shown::
 Note that ``c`` is considered to be semantically equivalent to ``rc`` and must
 be sorted as if it were ``rc``. Tools MAY reject the case of having the same
 ``N`` for both a ``c`` and a ``rc`` in the same release segment as ambiguous
-and remain in compliance with the PEP.
+and remain in compliance with the specification.
 
 Within an alpha (``1.0a1``), beta (``1.0b1``), or release candidate
 (``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be
@@ -692,9 +692,9 @@ versions of a project.
 
 Due to the above, this specification MUST be used for all versions of metadata and
 supersedes :pep:`386` even for metadata v1.2. Tools SHOULD ignore any versions
-which cannot be parsed by the rules in this PEP, but MAY fall back to
+which cannot be parsed by the rules in this specification, but MAY fall back to
 implementation defined version parsing and ordering schemes if no versions
-complying with this PEP are available.
+complying with this specification are available.
 
 Distribution users may wish to explicitly remove non-compliant versions from
 any private package indexes they control.
@@ -705,7 +705,7 @@ Compatibility with other version schemes
 
 Some projects may choose to use a version scheme which requires
 translation in order to comply with the public version scheme defined in
-this PEP. In such cases, the project specific version can be stored in the
+this specification. In such cases, the project specific version can be stored in the
 metadata while the translated public version is published in the version field.
 
 This allows automated distribution tools to provide consistently correct
@@ -717,15 +717,15 @@ Semantic versioning
 ~~~~~~~~~~~~~~~~~~~
 
 `Semantic versioning`_ is a popular version identification scheme that is
-more prescriptive than this PEP regarding the significance of different
+more prescriptive than this specification regarding the significance of different
 elements of a release number. Even if a project chooses not to abide by
 the details of semantic versioning, the scheme is worth understanding as
 it covers many of the issues that can arise when depending on other
 distributions, and when publishing a distribution that others rely on.
 
-The "Major.Minor.Patch" (described in this PEP as "major.minor.micro")
+The "Major.Minor.Patch" (described in this specification as "major.minor.micro")
 aspects of semantic versioning (clauses 1-8 in the 2.0.0 specification)
-are fully compatible with the version scheme defined in this PEP, and abiding
+are fully compatible with the version scheme defined in this specification, and abiding
 by these aspects is encouraged.
 
 Semantic versions containing a hyphen (pre-releases - clause 10) or a
@@ -1011,10 +1011,10 @@ local versions. This operator also does not support prefix matching as the
 ``==`` operator does.
 
 The primary use case for arbitrary equality is to allow for specifying a
-version which cannot otherwise be represented by this PEP. This operator is
+version which cannot otherwise be represented by this specification. This operator is
 special and acts as an escape hatch to allow someone using a tool which
-implements this PEP to still install a legacy version which is otherwise
-incompatible with this PEP.
+implements this specification to still install a legacy version which is otherwise
+incompatible with this specification.
 
 An example would be ``===foobar`` which would match a version of ``foobar``.
 
@@ -1178,16 +1178,16 @@ Summary of differences from pkg_resources.parse_version
   the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 and
   later versions adopted the behaviour described here.
 
-* Local versions sort differently, this PEP requires that they sort as greater
+* Local versions sort differently, this specification requires that they sort as greater
   than the same version without a local version, whereas
   ``pkg_resources.parse_version`` considers it a pre-release marker.
 
-* This PEP purposely restricts the syntax which constitutes a valid version
+* This specification purposely restricts the syntax which constitutes a valid version
   while ``pkg_resources.parse_version`` attempts to provide some meaning from
   *any* arbitrary string.
 
 * ``pkg_resources.parse_version`` allows arbitrarily deeply nested version
-  signifiers like ``1.0.dev1.post1.dev5``. This PEP however allows only a
+  signifiers like ``1.0.dev1.post1.dev5``. This specification however allows only a
   single use of each type and they must exist in a certain order.
 
 
