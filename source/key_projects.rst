@@ -790,7 +790,7 @@ simpleindex
 
 simpleindex is a :term:`package index <Package Index>` which routes URLs to
 multiple package indexes (including PyPI), serves local (or cloud-hosted,
-for example `AWS S3`_, with a custom plugin) directory of packages, and
+for example `AWS S3`_, with a custom plugin) directories of packages, and
 supports custom plugins.
 
 .. _spack:
