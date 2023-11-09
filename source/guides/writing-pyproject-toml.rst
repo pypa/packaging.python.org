@@ -4,12 +4,10 @@
 Writing your ``pyproject.toml``
 ===============================
 
-.. TODO: link :term:`build backends` when that's merged
-
 ``pyproject.toml`` is a configuration file used by packaging tools. Most
-build backends [#poetry-special]_ allow you to specify your project's
-basic metadata, such as the dependencies, your name, etc., in the ``[project]``
-table of your ``pyproject.toml``.
+:term:`build backends <build backend>` [#poetry-special]_ allow you to specify
+your project's basic metadata, such as the dependencies, your name, etc.,
+in the ``[project]`` table of your ``pyproject.toml``.
 
 .. note::
 
@@ -17,9 +15,9 @@ table of your ``pyproject.toml``.
    build backend. For new projects, it is recommended to use ``pyproject.toml``
    for basic metadata, and keep ``setup.py`` only if some programmatic configuration
    is needed (especially building C extensions). However, putting basic project
-   metadata in ``setup.py`` or ``setup.cfg`` is still valid.
+   metadata in ``setup.py`` or ``setup.cfg`` is still valid. See
+   :ref:`setup-py-deprecated`.
 
-.. TODO: link to "is setup.py deprecated?" page when merged
 
 Static vs. dynamic metadata
 ===========================
