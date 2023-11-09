@@ -850,8 +850,8 @@ build of the Python distribution.
 http.server
 ===========
 
-`Docs <https://docs.python.org/3/library/http.server.html>`__ |
-`Issues <https://github.com/python/cpython/issues>`__
+`Docs <python:library/http.server.html>`__ |
+:gh:`Issues <python/cpython/issues>`
 
 A package and command-line interface which can host a directory as a
 website, for example as a :term:`package index <Package Index>` (see
