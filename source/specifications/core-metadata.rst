@@ -51,8 +51,9 @@ Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
 ``metadata_version`` has a greater major version than the highest
-version they support (as described in :pep:`440`, the major version is the
-value before the first dot).
+version they support (as described in the
+:ref:`Version specifier specification <version-specifiers>`,
+the major version is the value before the first dot).
 
 For broader compatibility, build tools MAY choose to produce
 distribution metadata using the lowest metadata version that includes
@@ -94,7 +95,8 @@ Version
 .. versionadded:: 1.0
 
 A string containing the distribution's version number.  This
-field  must be in the format specified in :pep:`440`.
+field  must be in the format specified in the
+:ref:`Version specifier specification <version-specifiers>`.
 
 Example::
 
@@ -549,18 +551,17 @@ Requires-Python
 .. versionadded:: 1.2
 
 This field specifies the Python version(s) that the distribution is
-guaranteed to be compatible with. Installation tools may look at this when
+compatible with. Installation tools may look at this when
 picking which version of a project to install.
 
 The value must be in the format specified in :doc:`version-specifiers`.
 
+For example, if a distribution uses :ref:`f-strings <whatsnew36-pep498>`
+then it may prevent installation on Python < 3.6 by specifying::
+
+    Requires-Python: >=3.6
+
 This field cannot be followed by an environment marker.
-
-Examples::
-
-    Requires-Python: >=3
-    Requires-Python: >2.6,!=3.0.*,!=3.1.*
-    Requires-Python: ~=2.6
 
 .. _core-metadata-requires-external:
 
@@ -585,8 +586,8 @@ This field may be followed by an environment marker after a semicolon.
 
 Because they refer to non-Python software releases, version numbers
 for this field are **not** required to conform to the format
-specified in :pep:`440`:  they should correspond to the
-version scheme used by the external dependency.
+specified in the :ref:`Version specifier specification <version-specifiers>`:
+they should correspond to the version scheme used by the external dependency.
 
 Notice that there is no particular rule on the strings to be used.
 

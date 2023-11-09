@@ -252,11 +252,10 @@ Glossary
     Version Specifier
 
        The version component of a :term:`Requirement Specifier`. For example,
-       the ">=1.3" portion of "foo>=1.3".  :pep:`440` contains
-       a :pep:`full specification
-       <440#version-specifiers>` of the
-       specifiers that Python packaging currently supports.  Support for PEP440
-       was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
+       the ">=1.3" portion of "foo>=1.3".  Read the :ref:`Version specifier specification
+       <version-specifiers>` for a full description of the
+       specifiers that Python packaging currently supports.  Support for this
+       specification was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
 
     Virtual Environment
 

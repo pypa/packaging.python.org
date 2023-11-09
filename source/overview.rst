@@ -1,6 +1,6 @@
-===================================
-An Overview of Packaging for Python
-===================================
+============================
+Overview of Python Packaging
+============================
 
 .. Editors, see notes at the bottom of the document for maintenance info.
 
