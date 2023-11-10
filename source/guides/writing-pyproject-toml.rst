@@ -274,8 +274,7 @@ A list of PyPI classifiers that apply to your project. Check the
 --------
 
 A list of URLs associated with your project, displayed on the left
-sidebar of your PyPI project page. If the key contains spaces, don't
-forget to quote it.
+sidebar of your PyPI project page.
 
 .. code-block:: toml
 
@@ -283,8 +282,13 @@ forget to quote it.
     Homepage = "https://example.com"
     Documentation = "https://readthedocs.org"
     Repository = "https://github.com/me/spam.git"
-    "Bug Tracker" = "https://github.com/me/spam/issues"
+    Issues = "https://github.com/me/spam/issues"
     Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+Note that if the key contains spaces, it needs to be quoted, e.g.,
+``Website = "https://example.com"`` but
+``"Official Website" = "https://example.com"``.
+
 
 
 Advanced plugins
