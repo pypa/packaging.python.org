@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-11 04:18+0000\n"
+"POT-Creation-Date: 2023-11-11 04:23+0000\n"
 "PO-Revision-Date: 2023-08-11 15:50+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -983,23 +983,27 @@ msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:21
 #: ../source/discussions/setup-py-deprecated.rst:33
+#: ../source/guides/modernize-setup-py-project.rst:32
 #, fuzzy
 msgid "``python setup.py install``"
 msgstr "Sírvase de ``pip`` para instalar Sphinx:"
 
 #: ../source/discussions/setup-py-deprecated.rst:22
 #: ../source/discussions/setup-py-deprecated.rst:35
+#: ../source/guides/modernize-setup-py-project.rst:34
 msgid "``python setup.py develop``"
 msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:23
 #: ../source/discussions/setup-py-deprecated.rst:37
+#: ../source/guides/modernize-setup-py-project.rst:36
 #, fuzzy
 msgid "``python setup.py sdist``"
 msgstr "Versión de Python"
 
 #: ../source/discussions/setup-py-deprecated.rst:24
 #: ../source/discussions/setup-py-deprecated.rst:39
+#: ../source/guides/modernize-setup-py-project.rst:38
 msgid "``python setup.py bdist_wheel``"
 msgstr ""
 
@@ -1008,21 +1012,25 @@ msgid "What commands should be used instead?"
 msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:31
+#: ../source/guides/modernize-setup-py-project.rst:30
 msgid "Deprecated"
 msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:31
+#: ../source/guides/modernize-setup-py-project.rst:30
 #, fuzzy
 #| msgid "Tool recommendations"
 msgid "Current recommendation"
 msgstr "Recomendaciones de herramientas"
 
 #: ../source/discussions/setup-py-deprecated.rst:33
+#: ../source/guides/modernize-setup-py-project.rst:32
 #, fuzzy
 msgid "``python -m pip install .``"
 msgstr "Sírvase de ``pip`` para instalar Sphinx:"
 
 #: ../source/discussions/setup-py-deprecated.rst:35
+#: ../source/guides/modernize-setup-py-project.rst:34
 msgid "``python -m pip install --editable .``"
 msgstr ""
 
@@ -1098,6 +1106,7 @@ msgid ""
 msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:102
+#: ../source/guides/modernize-setup-py-project.rst:21
 msgid "Should ``setup.py`` be deleted?"
 msgstr ""
 
@@ -1108,31 +1117,23 @@ msgid ""
 "fine. There is likely no modification needed in :file:`setup.py`."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:108
-#: ../source/discussions/setup-py-deprecated.rst:127
-msgid "Todo"
-msgstr ""
-
 #: ../source/discussions/setup-py-deprecated.rst:110
-msgid "Link to a \"How to modernize a setup.py based project?\""
-msgstr ""
-
-#: ../source/discussions/setup-py-deprecated.rst:114
 msgid "Is ``pyproject.toml`` mandatory?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:116
+#: ../source/discussions/setup-py-deprecated.rst:112
 msgid ""
 "While it is not technically necessary yet, it is **STRONGLY RECOMMENDED** "
 "for a project to have a :file:`pyproject.toml` file at the root of its "
 "source tree with a content like this:"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:129
-msgid "Link to \"How to modernize a setup.py based project?\""
+#: ../source/discussions/setup-py-deprecated.rst:123
+msgid ""
+"The guide :ref:`modernize-setup-py-project` has more details about this."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:132
+#: ../source/discussions/setup-py-deprecated.rst:125
 msgid ""
 "The standard fallback behavior for a :term:`build frontend <Build Frontend>` "
 "in the absence of a :file:`pyproject.toml` file and its ``[build-system]`` "
@@ -1140,25 +1141,26 @@ msgid ""
 "setuptools."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:138
+#: ../source/discussions/setup-py-deprecated.rst:131
 msgid "Why? What does it all mean?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:140
+#: ../source/discussions/setup-py-deprecated.rst:133
 msgid ""
 "One way to look at it is that the scope of setuptools has now been reduced "
 "to the role of a build backend."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:145
+#: ../source/discussions/setup-py-deprecated.rst:138
+#: ../source/guides/modernize-setup-py-project.rst:244
 msgid "Where to read more about this?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:147
+#: ../source/discussions/setup-py-deprecated.rst:140
 msgid "https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:149
+#: ../source/discussions/setup-py-deprecated.rst:142
 msgid ":doc:`setuptools:deprecated/commands`"
 msgstr ""
 
@@ -5357,6 +5359,211 @@ msgstr ""
 msgid ""
 "``pypi.org`` provides a fully functional interface for logged in users to "
 "manage their published packages and releases."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:6
+msgid "How to modernize a ``setup.py`` based project?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:10
+msgid "Should ``pyproject.toml`` be added?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:12
+msgid ""
+"A :term:`pyproject.toml` file is strongly recommended. The presence of a :"
+"file:`pyproject.toml` file itself does not bring much. [#]_ What is actually "
+"strongly recommended is the ``[build-system]`` table in :file:`pyproject."
+"toml`."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:16
+msgid ""
+"Note that it has influence on the build isolation feature of *pip*, see "
+"below."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:23
+msgid ""
+"No, :file:`setup.py` can exist in a modern :ref:`setuptools` based project. "
+"The :term:`setup.py` file is a valid configuration file for setuptools that "
+"happens to be written in Python. However, the following commands are "
+"deprecated and **MUST NOT** be run anymore, and their recommended "
+"replacement commands can be used instead:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:36
+#, fuzzy
+msgid "``python -m build``"
+msgstr "Sírvase de ``pip`` para instalar Sphinx:"
+
+#: ../source/guides/modernize-setup-py-project.rst:42
+#: ../source/guides/modernize-setup-py-project.rst:66
+#: ../source/guides/modernize-setup-py-project.rst:111
+#: ../source/guides/modernize-setup-py-project.rst:129
+#: ../source/guides/modernize-setup-py-project.rst:221
+msgid "For more details:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:44
+msgid ":ref:`setup-py-deprecated`"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:48
+msgid "Where to start?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:50
+msgid ""
+"The :term:`project` must contain a :file:`pyproject.toml` file at the root "
+"of its source tree that contains a ``[build-system]`` table like so:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:60
+msgid ""
+"This is the standardized method of letting :term:`build frontends <Build "
+"Frontend>` know that :ref:`setuptools` is the :term:`build backend <Build "
+"Backend>` for this project."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:63
+msgid ""
+"Note that the presence of a :file:`pyproject.toml` file (even if empty) "
+"triggers :ref:`pip` to change its default behavior to use *build isolation*."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:68
+#, fuzzy
+#| msgid "Distribution Package"
+msgid ":ref:`distributing-packages`"
+msgstr "Paquete de Distribución"
+
+#: ../source/guides/modernize-setup-py-project.rst:69
+#: ../source/guides/modernize-setup-py-project.rst:113
+#: ../source/guides/modernize-setup-py-project.rst:246
+#, fuzzy
+msgid ":ref:`declaring-build-dependencies`"
+msgstr "Dependencias externas"
+
+#: ../source/guides/modernize-setup-py-project.rst:70
+#: ../source/guides/modernize-setup-py-project.rst:131
+#: ../source/guides/modernize-setup-py-project.rst:248
+msgid ":doc:`pip:reference/build-system/pyproject-toml`"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:74
+msgid "How to handle additional build-time dependencies?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:76
+msgid ""
+"On top of setuptools itself, if :file:`setup.py` depends on other third-"
+"party libraries (outside of Python's standard library), those must be listed "
+"in the ``requires`` list of the ``[build-system]`` table, so that the build "
+"frontend knows to install them when building the :term:`distributions "
+"<Distribution Package>`."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:82
+#: ../source/guides/modernize-setup-py-project.rst:139
+#: ../source/guides/modernize-setup-py-project.rst:174
+msgid "For example, a :file:`setup.py` file such as this:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:99
+msgid ""
+"requires a :file:`pyproject.toml` file like this (:file:`setup.py` stays "
+"unchanged):"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:117
+msgid "What is the build isolation feature?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:119
+msgid ""
+"Build frontends typically create an ephemeral virtual environment where they "
+"install only the build dependencies (and their dependencies) that are listed "
+"under ``build-sytem.requires`` and trigger the build in that environment."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:124
+msgid ""
+"For some projects this isolation is unwanted and it can be deactivated as "
+"follows:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:126
+#, fuzzy
+msgid "``python -m build --no-isolation``"
+msgstr "Sírvase de ``pip`` para instalar Sphinx:"
+
+#: ../source/guides/modernize-setup-py-project.rst:127
+#, fuzzy
+msgid "``python -m install --no-build-isolation``"
+msgstr "Sírvase de ``pip`` para instalar Sphinx:"
+
+#: ../source/guides/modernize-setup-py-project.rst:135
+msgid "How to handle packaging metadata?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:137
+msgid ""
+"All static metadata can optionally be moved to a ``[project]`` table in :"
+"file:`pyproject.toml`."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:151
+msgid "can be entirely replaced by a :file:`pyproject.toml` file like this:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:164
+msgid ""
+"Read :ref:`declaring-project-metadata` for the full specification of the "
+"content allowed in the ``[project]`` table."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:169
+msgid "How to handle dynamic metadata?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:171
+msgid ""
+"If some packaging metadata fields are not static they need to be listed as "
+"``dynamic`` in this ``[project]`` table."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:191
+msgid "can be modernized as follows:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:223
+msgid ":ref:`declaring-project-metadata-dynamic`"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:227
+msgid "What if something that can not be changed expects a ``setup.py`` file?"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:229
+msgid ""
+"For example, a process exists that can not be changed easily and it needs to "
+"execute a command such as ``python setup.py --name``."
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:232
+msgid ""
+"It is perfectly fine to leave a :file:`setup.py` file in the project source "
+"tree even after all its content has been moved to :file:`pyproject.toml`. "
+"This file can be as minimalistic as this:"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:247
+msgid ":ref:`declaring-project-metadata`"
+msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:249
+msgid ":doc:`setuptools:build_meta`"
 msgstr ""
 
 #: ../source/guides/multi-version-installs.rst:6
@@ -11874,7 +12081,7 @@ msgid "``dependencies``"
 msgstr "Dependencias externas"
 
 #: ../source/specifications/declaring-project-metadata.rst:51
-#: ../source/specifications/declaring-project-metadata.rst:383
+#: ../source/specifications/declaring-project-metadata.rst:386
 msgid "``dynamic``"
 msgstr ""
 
@@ -12233,17 +12440,17 @@ msgid ""
 "extra>` metadata."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:385
+#: ../source/specifications/declaring-project-metadata.rst:388
 msgid "TOML_ type: array of string"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:386
+#: ../source/specifications/declaring-project-metadata.rst:389
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:389
+#: ../source/specifications/declaring-project-metadata.rst:392
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -12251,19 +12458,19 @@ msgid ""
 "unspecified compared to being provided via tooling later on."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:395
+#: ../source/specifications/declaring-project-metadata.rst:398
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:397
+#: ../source/specifications/declaring-project-metadata.rst:400
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:399
+#: ../source/specifications/declaring-project-metadata.rst:402
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -12272,20 +12479,20 @@ msgid ""
 "``[project]`` table)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:404
+#: ../source/specifications/declaring-project-metadata.rst:407
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
 "a build back-end will provide the data for the key later."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:408
+#: ../source/specifications/declaring-project-metadata.rst:411
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:410
+#: ../source/specifications/declaring-project-metadata.rst:413
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -12293,14 +12500,14 @@ msgid ""
 "must opt into the filling in)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:414
+#: ../source/specifications/declaring-project-metadata.rst:417
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
 "(omitting the data, if determined to be the accurate value, is acceptable)."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:425
+#: ../source/specifications/declaring-project-metadata.rst:428
 #, fuzzy
 msgid "Example"
 msgstr "Ejemplos"
@@ -17436,8 +17643,9 @@ msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:57
 msgid ""
-":file:`__init__.py` is required to import the directory as a package, even "
-"if as is our case for this tutorial that file is empty."
+":file:`__init__.py` is recommended to import the directory as a regular "
+"package, even if as is our case for this tutorial that file is empty "
+"[#namespace-packages]_."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:60
@@ -17885,6 +18093,20 @@ msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:537
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:543
+msgid "Notes"
+msgstr ""
+
+#: ../source/tutorials/packaging-projects.rst:545
+msgid ""
+"Technically, you can also create Python packages without an ``__init__.py`` "
+"file, but those are called :doc:`namespace packages </guides/packaging-"
+"namespace-packages>` and considered an **advanced topic** (not covered in "
+"this tutorial). If you are only getting started with Python packaging, it is "
+"recommended to stick with *regular packages* and ``__init__.py`` (even if "
+"the file is empty)."
 msgstr ""
 
 #~ msgid "Contents"
