@@ -155,25 +155,10 @@ Prepare pip
 It's used to install and update packages into a virtual environment.
 
 
-.. tab:: Unix
+.. tab:: Unix/macOS
 
-    You can make sure that pip is up-to-date by running:
-
-    .. code-block:: bash
-
-        python3 -m pip install --upgrade pip
-        python3 -m pip --version
-
-    Afterwards, you should have the latest version of pip installed in your
-    user site:
-
-    .. code-block:: text
-
-        pip 23.3.1 from .../.venv/lib/python3.9/site-packages (python 3.9)
-
-.. tab:: macOS
-
-    The Python installers for macOS include pip. You can make sure that pip is
+    The Python installers for macOS include pip. On Linux, you may have to install
+    an additional package such as ``python3-pip``. You can make sure that pip is
     up-to-date by running:
 
     .. code-block:: bash
