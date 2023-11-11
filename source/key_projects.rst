@@ -401,7 +401,7 @@ a wide variety of packages from the community supported
 `conda-forge project <https://conda-forge.org/>`__
 
 Note that :ref:`pip` can be installed into, and work side-by-side with conda
-for managing :term:`distributions <Distribution Package>` from PyPI. It is also straightforward
+for managing :term:`distributions <Distribution Package>` from PyPI. It is also possible
 to build conda packages from Python source packages using tools provided by conda.
 
 
