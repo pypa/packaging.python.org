@@ -105,10 +105,6 @@ Although the usage of :file:`setup.py` as an executable script is deprecated,
 its usage as a configuration file for setuptools is absolutely fine.
 There is likely no modification needed in :file:`setup.py`.
 
-.. todo::
-
-    Link to a "How to modernize a setup.py based project?"
-
 
 Is ``pyproject.toml`` mandatory?
 ================================
@@ -124,10 +120,7 @@ at the root of its source tree with a content like this:
     build-backend = "setuptools.build_meta"
 
 
-.. todo::
-
-    Link to "How to modernize a setup.py based project?"
-
+The guide :ref:`modernize-setup-py-project` has more details about this.
 
 The standard fallback behavior for a :term:`build frontend <Build Frontend>`
 in the absence of a :file:`pyproject.toml` file and its ``[build-system]`` table
