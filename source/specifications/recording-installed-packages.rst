@@ -246,7 +246,7 @@ To achieve this, affected tools should take the following steps:
 
 Python runtime providers may also prevent inadvertent modification of platform
 provided packages by modifying the default Python package installation scheme
-to use a location other than that used by distribution packages (while also
+to use a location other than that used by platform provided packages (while also
 ensuring both locations appear on the default Python import path).
 
 In some circumstances, it may be desirable to block even installation of
