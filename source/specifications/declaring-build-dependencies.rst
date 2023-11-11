@@ -50,6 +50,8 @@ should consider it an error.
 
 .. TODO: move elsewhere
 
+.. _pyproject-tool-table:
+
 tool table
 ----------
 
