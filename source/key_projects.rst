@@ -379,7 +379,7 @@ conda
 
 :doc:`Docs <conda:index>`
 
-conda is a package, dependency, and environment management system for any language—Python, R,
+conda is a package, dependency, and environment management system for any language — Python, R,
 Ruby, C/C++, Fortran, and more. It is written in Python and
 widely used in the Python scientific computing community, due to its support for non-Python
 compiled libraries and extensions. It is used as the basis of the `Anaconda
