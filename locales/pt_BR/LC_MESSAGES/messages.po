@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-09 16:09+0000\n"
+"POT-Creation-Date: 2023-11-11 04:18+0000\n"
 "PO-Revision-Date: 2023-08-04 18:07+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -6006,129 +6006,100 @@ msgstr ""
 "conforme descrito."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:2
-msgid "Installing packages using pip and virtual environments"
+#, fuzzy
+#| msgid "Installing packages using pip and virtual environments"
+msgid "Install packages in a virtual environment using pip and venv"
 msgstr "Instalando pacotes usando pip e ambientes virtuais"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:4
 msgid ""
-"This guide discusses how to install packages using :ref:`pip` and a virtual "
-"environment manager: either :ref:`venv` for Python 3 or :ref:`virtualenv` "
-"for Python 2. These are the lowest-level tools for managing Python packages "
-"and are recommended if higher-level tools do not suit your needs."
+"This guide discusses how to create and activate a virtual environment using "
+"the standard library's virtual environment tool :ref:`venv` and install "
+"packages. The guide covers how to:"
 msgstr ""
-"Este guia discute como instalar pacotes usando :ref:`pip` e um gerenciador "
-"de ambiente virtual: ou :ref:`venv` para Python 3 ou :ref:`virtualenv` para "
-"Python 2 Estas são as ferramentas de nível mais baixo para gerenciar pacotes "
-"Python e são recomendadas se as ferramentas de nível mais alto não atenderem "
-"às suas necessidades."
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:8
+#, fuzzy
+#| msgid "Creating a virtual environment"
+msgid "Create and activate a virtual environment"
+msgstr "Criando um ambiente virtual"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:9
-#: ../source/guides/installing-using-virtualenv.rst:13
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:152
+msgid "Prepare pip"
+msgstr ""
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:10
+#, fuzzy
+#| msgid "Installing packages using pip and virtual environments"
+msgid "Install packages into a virtual environment using the ``pip`` command"
+msgstr "Instalando pacotes usando pip e ambientes virtuais"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:11
+#, fuzzy
+#| msgid "Using requirements files"
+msgid "Use and create a requirements file"
+msgstr "Usando arquivos de requisitos"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:14
 msgid ""
-"This doc uses the term **package** to refer to a :term:`Distribution "
-"Package`  which is different from an :term:`Import Package` that which is "
-"used to import modules in your Python source code."
+"This guide applies to supported versions of Python, currently 3.8 and higher."
+msgstr ""
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:18
+#, fuzzy
+#| msgid ""
+#| "This doc uses the term **package** to refer to a :term:`Distribution "
+#| "Package`  which is different from an :term:`Import Package` that which is "
+#| "used to import modules in your Python source code."
+msgid ""
+"This guide uses the term **package** to refer to a :term:`Distribution "
+"Package`, which commonly is installed from an external host. This differs "
+"from the term :term:`Import Package` which refers to import modules in your "
+"Python source code."
 msgstr ""
 "Este documento usa o termo **pacote** para se referir a um :term:`Pacote de "
 "Distribuição` que é diferente de um :term:`Pacote de Importação` que é usado "
 "para importar módulos em seu código-fonte do Python."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:15
-msgid "Installing pip"
-msgstr "Instalando pip"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:17
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:25
 msgid ""
-":ref:`pip` is the reference Python package manager. It's used to install and "
-"update packages. You'll need to make sure you have the latest version of pip "
-"installed."
+"This guide has the prerequisite that you are using an official Python "
+"version obtained from <https://www.python.org/downloads/>. If you are using "
+"your operating system's package manager to install Python, please ensure "
+"that Python is installed before proceeding with these steps."
 msgstr ""
-":ref:`pip` é o gerenciador de pacotes de referência Python. É usado para "
-"instalar e atualizar pacotes. Você precisará certificar-se de que possui a "
-"versão mais recente do pip instalada."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:24
-msgid ""
-"Debian and most other distributions include a `python-pip`_ package; if you "
-"want to use the Linux distribution-provided versions of pip, see :doc:`/"
-"guides/installing-using-linux-tools`."
-msgstr ""
-"O Debian e a maioria das outras distribuições incluem um pacote `python-"
-"pip`_; se você deseja usar as versões fornecidas pela distribuição Linux do "
-"pip, consulte :doc:`/guides/installing-using-linux-tools`."
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:32
+#, fuzzy
+#| msgid "Creating Virtual Environments"
+msgid "Create and Use Virtual Environments"
+msgstr "Criando ambientes virtuais"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:28
-msgid ""
-"You can also install pip yourself to ensure you have the latest version. "
-"It's recommended to use the system pip to bootstrap a user installation of "
-"pip:"
-msgstr ""
-"Você também pode instalar o pip por conta própria para garantir que possui a "
-"versão mais recente. É recomendado usar o sistema pip para inicializar uma "
-"instalação de usuário do pip:"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:36
-msgid ""
-"Afterwards, you should have the latest version of pip installed in your user "
-"site:"
-msgstr ""
-"Depois disso, você deve ter a versão mais recente do pip instalado em seu "
-"site de usuário:"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:47
-msgid ""
-"The Python installers for Windows include pip. You can make sure that pip is "
-"up-to-date by running:"
-msgstr ""
-"Os instaladores do Python para Windows incluem pip. Você pode garantir que o "
-"pip está atualizado usando:"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:55
-msgid "Afterwards, you should have the latest version of pip:"
-msgstr "Depois disso, você deve ter a versão mais recente do pip:"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:64
-msgid "Installing virtualenv"
-msgstr "Instalando virtualenv"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:66
-msgid ""
-"If you are using Python 3.3 or newer, the :mod:`venv` module is the "
-"preferred way to create and manage virtual environments. venv is included in "
-"the Python standard library and requires no additional installation. If you "
-"are using venv, you may skip this section."
-msgstr ""
-"Se você estiver usando o Python 3.3 ou mais recente, o módulo :mod:`venv` é "
-"a forma preferida de criar e gerenciar ambientes virtuais. venv está "
-"incluído na biblioteca padrão Python e não requer instalação adicional. Se "
-"você estiver usando venv, pode pular esta seção."
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:72
-msgid ""
-":ref:`virtualenv` is used to manage Python packages for different projects. "
-"Using virtualenv allows you to avoid installing Python packages globally "
-"which could break system tools or other projects. You can install virtualenv "
-"using pip."
-msgstr ""
-":ref:`virtualenv` é usado para gerenciar pacotes Python para diferentes "
-"projetos. O uso do virtualenv permite que você evite instalar pacotes Python "
-"globalmente, o que poderia quebrar as ferramentas do sistema ou outros "
-"projetos. Você pode instalar virtualenv usando pip."
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:93
-msgid "Creating a virtual environment"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:35
+#, fuzzy
+#| msgid "Creating a virtual environment"
+msgid "Create a new virtual environment"
 msgstr "Criando um ambiente virtual"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:95
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:37
+#, fuzzy
+#| msgid ""
+#| ":ref:`venv` (for Python 3) and :ref:`virtualenv` (for Python 2) allow you "
+#| "to manage separate package installations for different projects. They "
+#| "essentially allow you to create a \"virtual\" isolated Python "
+#| "installation and install packages into that virtual installation. When "
+#| "you switch projects, you can simply create a new virtual environment and "
+#| "not have to worry about breaking the packages installed in the other "
+#| "environments. It is always recommended to use a virtual environment while "
+#| "developing Python applications."
 msgid ""
-":ref:`venv` (for Python 3) and :ref:`virtualenv` (for Python 2) allow you to "
-"manage separate package installations for different projects. They "
-"essentially allow you to create a \"virtual\" isolated Python installation "
-"and install packages into that virtual installation. When you switch "
-"projects, you can simply create a new virtual environment and not have to "
-"worry about breaking the packages installed in the other environments. It is "
-"always recommended to use a virtual environment while developing Python "
-"applications."
+":ref:`venv` (for Python 3) allows you to manage separate package "
+"installations for different projects. It creates a \"virtual\" isolated "
+"Python installation. When you switch projects, you can create a new virtual "
+"environment which is isolated from other virtual environments. You benefit "
+"from the virtual environment since packages can be installed confidently and "
+"will not interfere with another project's environment."
 msgstr ""
 ":ref:`venv` (para Python 3) e :ref:`virtualenv` (para Python 2) permitem que "
 "você gerencie instalações de pacotes separadas para projetos diferentes. "
@@ -6138,29 +6109,48 @@ msgstr ""
 "se preocupar em quebrar os pacotes instalados nos outros ambientes. É sempre "
 "recomendável usar um ambiente virtual ao desenvolver aplicações Python."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:104
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:45
+msgid ""
+"It is recommended to use a virtual environment when working with third party "
+"packages."
+msgstr ""
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:48
+#, fuzzy
+#| msgid ""
+#| "To create a virtual environment, go to your project's directory and run "
+#| "venv. If you are using Python 2, replace ``venv`` with ``virtualenv`` in "
+#| "the below commands."
 msgid ""
 "To create a virtual environment, go to your project's directory and run "
-"venv. If you are using Python 2, replace ``venv`` with ``virtualenv`` in the "
-"below commands."
+"``venv``. This will create a new virtual environment in a local folder ``."
+"venv``:"
 msgstr ""
 "Para criar um ambiente virtual, vá até o diretório do seu projeto e execute "
 "venv. Se você estiver usando Python 2, substitua ``venv`` por ``virtualenv`` "
 "nos comandos abaixo."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:120
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:63
+#, fuzzy
+#| msgid ""
+#| "The second argument is the location to create the virtual environment. "
+#| "Generally, you can just create this in your project and call it ``env``."
 msgid ""
 "The second argument is the location to create the virtual environment. "
-"Generally, you can just create this in your project and call it ``env``."
+"Generally, you can just create this in your project and call it ``.venv``."
 msgstr ""
 "O segundo argumento é o local para criar o ambiente virtual. Geralmente, "
 "você pode apenas criar isso em seu projeto e chamá-lo de ``env``."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:123
-msgid "venv will create a virtual Python installation in the ``env`` folder."
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:66
+#, fuzzy
+#| msgid ""
+#| "venv will create a virtual Python installation in the ``env`` folder."
+msgid ""
+"``venv`` will create a virtual Python installation in the ``.venv`` folder."
 msgstr "venv irá criar uma instalação virtual Python na pasta ``env``."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:125
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:68
 msgid ""
 "You should exclude your virtual environment directory from your version "
 "control system using ``.gitignore`` or similar."
@@ -6168,14 +6158,22 @@ msgstr ""
 "Você deve excluir seu diretório de ambiente virtual de seu sistema de "
 "controle de versão usando ``.gitignore`` ou similar."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:130
-msgid "Activating a virtual environment"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:73
+#, fuzzy
+#| msgid "Activating a virtual environment"
+msgid "Activate a virtual environment"
 msgstr "Ativando um ambiente virtual"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:132
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:75
+#, fuzzy
+#| msgid ""
+#| "Before you can start installing or using packages in your virtual "
+#| "environment you'll need to *activate* it. Activating a virtual "
+#| "environment will put the virtual environment-specific ``python`` and "
+#| "``pip`` executables into your shell's ``PATH``."
 msgid ""
 "Before you can start installing or using packages in your virtual "
-"environment you'll need to *activate* it. Activating a virtual environment "
+"environment you'll need to ``activate`` it. Activating a virtual environment "
 "will put the virtual environment-specific ``python`` and ``pip`` executables "
 "into your shell's ``PATH``."
 msgstr ""
@@ -6184,73 +6182,187 @@ msgstr ""
 "``python`` e ``pip`` específicos do ambiente virtual no ``PATH`` de seu "
 "shell."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:149
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:92
+#, fuzzy
+#| msgid ""
+#| "You can confirm you're in the virtual environment by checking the "
+#| "location of your Python interpreter:"
 msgid ""
-"You can confirm you're in the virtual environment by checking the location "
-"of your Python interpreter:"
+"To confirm the virtual environment is activated, check the location of your "
+"Python interpreter:"
 msgstr ""
 "Você pode confirmar que está no ambiente virtual verificando a localização "
 "do seu interpretador Python:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:164
-msgid "It should be in the ``env`` directory:"
-msgstr "Deve estar no diretório ``env``:"
-
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:179
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:107
 msgid ""
-"As long as your virtual environment is activated pip will install packages "
-"into that specific environment and you'll be able to import and use packages "
-"in your Python application."
+"When the virtual environment is activated, the location will include the ``."
+"venv`` directory:"
+msgstr ""
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:123
+#, fuzzy
+#| msgid ""
+#| "As long as your virtual environment is activated pip will install "
+#| "packages into that specific environment and you'll be able to import and "
+#| "use packages in your Python application."
+msgid ""
+"While a virtual environment is activated, pip will install packages into "
+"that specific environment. This enables you to import and use packages in "
+"your Python application."
 msgstr ""
 "Contanto que seu ambiente virtual esteja ativado, pip instalará pacotes "
 "naquele ambiente específico e você poderá importar e usar pacotes em sua "
 "aplicação Python."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:185
-msgid "Leaving the virtual environment"
-msgstr "Saindo do ambiente virtual"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:129
+#, fuzzy
+#| msgid "Activating a virtual environment"
+msgid "Deactivate a virtual environment"
+msgstr "Ativando um ambiente virtual"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:187
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:131
+#, fuzzy
+#| msgid ""
+#| "If you want to switch projects or otherwise leave your virtual "
+#| "environment, simply run:"
 msgid ""
-"If you want to switch projects or otherwise leave your virtual environment, "
-"simply run:"
+"If you want to switch projects or leave your virtual environment, "
+"``deactivate`` the environment:"
 msgstr ""
 "Se você deseja trocar de projeto ou de outra forma deixar seu ambiente "
 "virtual, basta executar:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:193
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:139
 msgid ""
-"If you want to re-enter the virtual environment just follow the same "
-"instructions above about activating a virtual environment. There's no need "
-"to re-create the virtual environment."
+"Closing your shell will deactivate the virtual environment. If you open a "
+"new shell window and want to use the virtual environment, reactivate it."
+msgstr ""
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:144
+#, fuzzy
+#| msgid "Activating a virtual environment"
+msgid "Reactivate a virtual environment"
+msgstr "Ativando um ambiente virtual"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:146
+#, fuzzy
+#| msgid ""
+#| "If you want to re-enter the virtual environment just follow the same "
+#| "instructions above about activating a virtual environment. There's no "
+#| "need to re-create the virtual environment."
+msgid ""
+"If you want to reactivate an existing virtual environment, follow the same "
+"instructions about activating a virtual environment. There's no need to "
+"create a new virtual environment."
 msgstr ""
 "Se você deseja entrar novamente no ambiente virtual, basta seguir as mesmas "
 "instruções acima sobre como ativar um ambiente virtual. Não há necessidade "
 "de recriar o ambiente virtual."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:198
-msgid "Installing packages"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:154
+#, fuzzy
+#| msgid ""
+#| ":ref:`pip` is the reference Python package manager. It's used to install "
+#| "and update packages. You'll need to make sure you have the latest version "
+#| "of pip installed."
+msgid ""
+":ref:`pip` is the reference Python package manager. It's used to install and "
+"update packages into a virtual environment."
+msgstr ""
+":ref:`pip` é o gerenciador de pacotes de referência Python. É usado para "
+"instalar e atualizar pacotes. Você precisará certificar-se de que possui a "
+"versão mais recente do pip instalada."
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:160
+msgid "You can make sure that pip is up-to-date by running:"
+msgstr "Você pode ter certeza de que o pip está atualizado executando:"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:167
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:184
+msgid ""
+"Afterwards, you should have the latest version of pip installed in your user "
+"site:"
+msgstr ""
+"Depois disso, você deve ter a versão mais recente do pip instalado em seu "
+"site de usuário:"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:176
+#, fuzzy
+#| msgid ""
+#| "The Python installers for Windows include pip. You can make sure that pip "
+#| "is up-to-date by running:"
+msgid ""
+"The Python installers for macOS include pip. You can make sure that pip is "
+"up-to-date by running:"
+msgstr ""
+"Os instaladores do Python para Windows incluem pip. Você pode garantir que o "
+"pip está atualizado usando:"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:193
+msgid ""
+"The Python installers for Windows include pip. You can make sure that pip is "
+"up-to-date by running:"
+msgstr ""
+"Os instaladores do Python para Windows incluem pip. Você pode garantir que o "
+"pip está atualizado usando:"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:201
+msgid "Afterwards, you should have the latest version of pip:"
+msgstr "Depois disso, você deve ter a versão mais recente do pip:"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:209
+#, fuzzy
+#| msgid "Installing packages using pip and virtual environments"
+msgid "Install packages using pip"
+msgstr "Instalando pacotes usando pip e ambientes virtuais"
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:211
+#, fuzzy
+#| msgid ""
+#| "As long as your virtual environment is activated pip will install "
+#| "packages into that specific environment and you'll be able to import and "
+#| "use packages in your Python application."
+msgid ""
+"When your virtual environment is activated, you can install packages. Use "
+"the ``pip install`` command to install packages."
+msgstr ""
+"Contanto que seu ambiente virtual esteja ativado, pip instalará pacotes "
+"naquele ambiente específico e você poderá importar e usar pacotes em sua "
+"aplicação Python."
+
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:215
+#, fuzzy
+#| msgid "Installing packages"
+msgid "Install a package"
 msgstr "Instalando pacotes"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:200
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:217
+#, fuzzy
+#| msgid ""
+#| "Now that you're in your virtual environment you can install packages. "
+#| "Let's install the `Requests`_ library from the :term:`Python Package "
+#| "Index (PyPI)`:"
 msgid ""
-"Now that you're in your virtual environment you can install packages. Let's "
-"install the `Requests`_ library from the :term:`Python Package Index (PyPI)`:"
+"For example,let's install the `Requests`_ library from the :term:`Python "
+"Package Index (PyPI)`:"
 msgstr ""
 "Agora que você está em seu ambiente virtual, pode instalar pacotes. Vamos "
 "instalar a biblioteca `Requests`_ do :term:`Python Package Index (PyPI)`:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:215
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:232
 msgid ""
 "pip should download requests and all of its dependencies and install them:"
 msgstr ""
 "pip deve baixar solicitações e todas as suas dependências e instalá-los:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:236
-msgid "Installing specific versions"
-msgstr "Instalando versões específicas"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:253
+#, fuzzy
+#| msgid "To install a specific version:"
+msgid "Install a specific package version"
+msgstr "Para instalar uma versão específica:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:238
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:255
 msgid ""
 "pip allows you to specify which version of a package to install using :term:"
 "`version specifiers <Version Specifier>`. For example, to install a specific "
@@ -6260,21 +6372,23 @@ msgstr ""
 "term:`especificadores de versão <Especificador de Versão>`. Por exemplo, "
 "para instalar uma versão específica do ``requests``:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:254
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:271
 msgid "To install the latest ``2.x`` release of requests:"
 msgstr "Para instalar a versão ``2.x`` mais recente do requests:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:268
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:285
 msgid "To install pre-release versions of packages, use the ``--pre`` flag:"
 msgstr ""
 "Para instalar versões de pré-lançamento de pacotes, use o sinalizador ``--"
 "pre``:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:284
-msgid "Installing extras"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:301
+#, fuzzy
+#| msgid "Installing extras"
+msgid "Install extras"
 msgstr "Instalando extras"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:286
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:303
 msgid ""
 "Some packages have optional `extras`_. You can tell pip to install these by "
 "specifying the extra in brackets:"
@@ -6282,15 +6396,25 @@ msgstr ""
 "Alguns pacotes possuem `extras`_ opcionais. Você pode dizer ao pip para "
 "instalá-los especificando o extra entre colchetes:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:306
-msgid "Installing from source"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:323
+#, fuzzy
+#| msgid "Installing from source"
+msgid "Install a package from source"
 msgstr "Instalando a partir do código-fonte"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:308
-msgid "pip can install a package directly from source, for example:"
-msgstr "pip pode instalar um pacote diretamente do código-fonte, por exemplo:"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:325
+#, fuzzy
+#| msgid ""
+#| "pip can install packages directly from their version control system. For "
+#| "example, you can install directly from a git repository:"
+msgid ""
+"pip can install a package directly from its source code. For example, to "
+"install the source code in the ``google-auth`` directory:"
+msgstr ""
+"pip pode instalar pacotes diretamente de seu sistema de controle de versão. "
+"Por exemplo, você pode instalar diretamente de um repositório git:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:324
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:342
 msgid ""
 "Additionally, pip can install packages from source in :doc:`development mode "
 "<setuptools:userguide/development_mode>`, meaning that changes to the source "
@@ -6302,11 +6426,13 @@ msgstr ""
 "que as mudanças no diretório de código-fonte afetarão imediatamente o pacote "
 "instalado sem a necessidade de reinstalar:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:343
-msgid "Installing from version control systems"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:361
+#, fuzzy
+#| msgid "Installing from version control systems"
+msgid "Install from version control systems"
 msgstr "Instalando a partir de sistemas de controle de versão"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:345
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:363
 msgid ""
 "pip can install packages directly from their version control system. For "
 "example, you can install directly from a git repository:"
@@ -6314,7 +6440,7 @@ msgstr ""
 "pip pode instalar pacotes diretamente de seu sistema de controle de versão. "
 "Por exemplo, você pode instalar diretamente de um repositório git:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:352
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:370
 msgid ""
 "For more information on supported version control systems and syntax, see "
 "pip's documentation on :ref:`VCS Support <pip:VCS Support>`."
@@ -6323,12 +6449,13 @@ msgstr ""
 "sintaxe, consulte a documentação do pip em :ref:`Suporte VCS <pip:VCS "
 "Support>`."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:357
-#: ../source/tutorials/installing-packages.rst:573
-msgid "Installing from local archives"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:375
+#, fuzzy
+#| msgid "Installing from local archives"
+msgid "Install from local archives"
 msgstr "Instalando de arquivos locais"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:359
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:377
 msgid ""
 "If you have a local copy of a :term:`Distribution Package`'s archive (a zip, "
 "wheel, or tar file) you can install it directly with pip:"
@@ -6337,7 +6464,7 @@ msgstr ""
 "Distribuição` (um arquivo zip, wheel ou tar), você pode instalá-lo "
 "diretamente com pip:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:374
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:392
 msgid ""
 "If you have a directory containing archives of multiple packages, you can "
 "tell pip to look for packages there and not to use the :term:`Python Package "
@@ -6347,7 +6474,7 @@ msgstr ""
 "dizer ao pip para procurar por pacotes lá e não usar o :term:`Python Package "
 "Index (PyPI)` de forma alguma:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:390
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:408
 msgid ""
 "This is useful if you are installing packages on a system with limited "
 "connectivity or if you want to strictly control the origin of distribution "
@@ -6357,11 +6484,13 @@ msgstr ""
 "conectividade limitada ou se quiser controlar estritamente a origem dos "
 "pacotes de distribuição."
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:396
-msgid "Using other package indexes"
-msgstr "Usando outros índices de pacotes"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:414
+#, fuzzy
+#| msgid "Installing from other Indexes"
+msgid "Install from other package indexes"
+msgstr "Instalando a partir de outros índices"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:398
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:416
 msgid ""
 "If you want to download packages from a different index than the :term:"
 "`Python Package Index (PyPI)`, you can use the ``--index-url`` flag:"
@@ -6369,7 +6498,7 @@ msgstr ""
 "Se você quiser baixar pacotes de um índice diferente do :term:`Python "
 "Package Index (PyPI)`, você pode usar o sinalizador ``--index-url``:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:413
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:431
 msgid ""
 "If you want to allow packages from both the :term:`Python Package Index "
 "(PyPI)` and a separate index, you can use the ``--extra-index-url`` flag "
@@ -6379,12 +6508,12 @@ msgstr ""
 "um índice separado, você pode usar a sinalização ``--extra-index-url`` em "
 "seu lugar:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:430
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:448
 #: ../source/tutorials/installing-packages.rst:393
 msgid "Upgrading packages"
 msgstr "Atualizando pacotes"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:432
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:450
 msgid ""
 "pip can upgrade packages in-place using the ``--upgrade`` flag. For example, "
 "to install the latest version of ``requests`` and all of its dependencies:"
@@ -6393,11 +6522,13 @@ msgstr ""
 "exemplo, para instalar a versão mais recente de ``requests`` e todas as suas "
 "dependências:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:448
-msgid "Using requirements files"
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:466
+#, fuzzy
+#| msgid "Using requirements files"
+msgid "Using a requirements file"
 msgstr "Usando arquivos de requisitos"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:450
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:468
 msgid ""
 "Instead of installing packages individually, pip allows you to declare all "
 "dependencies in a :ref:`Requirements File <pip:Requirements Files>`. For "
@@ -6408,7 +6539,7 @@ msgstr ""
 "Files>`. Por exemplo, você pode criar um arquivo :file:`requirements.txt` "
 "contendo:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:459
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:477
 msgid ""
 "And tell pip to install all of the packages in this file using the ``-r`` "
 "flag:"
@@ -6416,11 +6547,11 @@ msgstr ""
 "E diga ao pip para instalar todos os pacotes neste arquivo usando o "
 "sinalizador ``-r``:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:474
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:492
 msgid "Freezing dependencies"
 msgstr "Congelando dependências"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:476
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:494
 msgid ""
 "Pip can export a list of all installed packages and their versions using the "
 "``freeze`` command:"
@@ -6428,14 +6559,19 @@ msgstr ""
 "Pip pode exportar uma lista de todos os pacotes instalados e suas versões "
 "usando o comando ``freeze``:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:491
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:509
 msgid "Which will output a list of package specifiers such as:"
 msgstr "O que resultará em uma lista de especificadores de pacote, como:"
 
-#: ../source/guides/installing-using-pip-and-virtual-environments.rst:507
+#: ../source/guides/installing-using-pip-and-virtual-environments.rst:525
+#, fuzzy
+#| msgid ""
+#| "This is useful for creating :ref:`pip:Requirements Files` that can re-"
+#| "create the exact versions of all packages installed in an environment."
 msgid ""
-"This is useful for creating :ref:`pip:Requirements Files` that can re-create "
-"the exact versions of all packages installed in an environment."
+"The ``pip freeze`` command is useful for creating :ref:`pip:Requirements "
+"Files` that can re-create the exact versions of all packages installed in an "
+"environment."
 msgstr ""
 "Isso é útil para criar :ref:`pip:Requirements Files` que podem recriar as "
 "versões exatas de todos os pacotes instalados em um ambiente."
@@ -6458,6 +6594,16 @@ msgid ""
 "under development. Please refer to the :ref:`virtualenv` documentation for "
 "details on installation and usage."
 msgstr ""
+
+#: ../source/guides/installing-using-virtualenv.rst:13
+msgid ""
+"This doc uses the term **package** to refer to a :term:`Distribution "
+"Package`  which is different from an :term:`Import Package` that which is "
+"used to import modules in your Python source code."
+msgstr ""
+"Este documento usa o termo **pacote** para se referir a um :term:`Pacote de "
+"Distribuição` que é diferente de um :term:`Pacote de Importação` que é usado "
+"para importar módulos em seu código-fonte do Python."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:2
 msgid "Making a PyPI-friendly README"
@@ -22290,6 +22436,10 @@ msgstr ""
 msgid "You can also install normally from src"
 msgstr "Você também pode instalar normalmente a partir dos fontes"
 
+#: ../source/tutorials/installing-packages.rst:573
+msgid "Installing from local archives"
+msgstr "Instalando de arquivos locais"
+
 #: ../source/tutorials/installing-packages.rst:575
 msgid "Install a particular source archive file."
 msgstr "Instale um arquivo de pacote fonte em particular."
@@ -23360,6 +23510,81 @@ msgstr ""
 #: ../source/tutorials/packaging-projects.rst:537
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
+
+#~ msgid ""
+#~ "This guide discusses how to install packages using :ref:`pip` and a "
+#~ "virtual environment manager: either :ref:`venv` for Python 3 or :ref:"
+#~ "`virtualenv` for Python 2. These are the lowest-level tools for managing "
+#~ "Python packages and are recommended if higher-level tools do not suit "
+#~ "your needs."
+#~ msgstr ""
+#~ "Este guia discute como instalar pacotes usando :ref:`pip` e um "
+#~ "gerenciador de ambiente virtual: ou :ref:`venv` para Python 3 ou :ref:"
+#~ "`virtualenv` para Python 2 Estas são as ferramentas de nível mais baixo "
+#~ "para gerenciar pacotes Python e são recomendadas se as ferramentas de "
+#~ "nível mais alto não atenderem às suas necessidades."
+
+#~ msgid "Installing pip"
+#~ msgstr "Instalando pip"
+
+#~ msgid ""
+#~ "Debian and most other distributions include a `python-pip`_ package; if "
+#~ "you want to use the Linux distribution-provided versions of pip, see :doc:"
+#~ "`/guides/installing-using-linux-tools`."
+#~ msgstr ""
+#~ "O Debian e a maioria das outras distribuições incluem um pacote `python-"
+#~ "pip`_; se você deseja usar as versões fornecidas pela distribuição Linux "
+#~ "do pip, consulte :doc:`/guides/installing-using-linux-tools`."
+
+#~ msgid ""
+#~ "You can also install pip yourself to ensure you have the latest version. "
+#~ "It's recommended to use the system pip to bootstrap a user installation "
+#~ "of pip:"
+#~ msgstr ""
+#~ "Você também pode instalar o pip por conta própria para garantir que "
+#~ "possui a versão mais recente. É recomendado usar o sistema pip para "
+#~ "inicializar uma instalação de usuário do pip:"
+
+#~ msgid "Installing virtualenv"
+#~ msgstr "Instalando virtualenv"
+
+#~ msgid ""
+#~ "If you are using Python 3.3 or newer, the :mod:`venv` module is the "
+#~ "preferred way to create and manage virtual environments. venv is included "
+#~ "in the Python standard library and requires no additional installation. "
+#~ "If you are using venv, you may skip this section."
+#~ msgstr ""
+#~ "Se você estiver usando o Python 3.3 ou mais recente, o módulo :mod:`venv` "
+#~ "é a forma preferida de criar e gerenciar ambientes virtuais. venv está "
+#~ "incluído na biblioteca padrão Python e não requer instalação adicional. "
+#~ "Se você estiver usando venv, pode pular esta seção."
+
+#~ msgid ""
+#~ ":ref:`virtualenv` is used to manage Python packages for different "
+#~ "projects. Using virtualenv allows you to avoid installing Python packages "
+#~ "globally which could break system tools or other projects. You can "
+#~ "install virtualenv using pip."
+#~ msgstr ""
+#~ ":ref:`virtualenv` é usado para gerenciar pacotes Python para diferentes "
+#~ "projetos. O uso do virtualenv permite que você evite instalar pacotes "
+#~ "Python globalmente, o que poderia quebrar as ferramentas do sistema ou "
+#~ "outros projetos. Você pode instalar virtualenv usando pip."
+
+#~ msgid "It should be in the ``env`` directory:"
+#~ msgstr "Deve estar no diretório ``env``:"
+
+#~ msgid "Leaving the virtual environment"
+#~ msgstr "Saindo do ambiente virtual"
+
+#~ msgid "Installing specific versions"
+#~ msgstr "Instalando versões específicas"
+
+#~ msgid "pip can install a package directly from source, for example:"
+#~ msgstr ""
+#~ "pip pode instalar um pacote diretamente do código-fonte, por exemplo:"
+
+#~ msgid "Using other package indexes"
+#~ msgstr "Usando outros índices de pacotes"
 
 #~ msgid "Installing Packages:"
 #~ msgstr "Instalando pacotes:"
@@ -24469,9 +24694,6 @@ msgstr "Leia sobre :doc:`/guides/packaging-binary-extensions`."
 
 #~ msgid "Python 3::"
 #~ msgstr "Python 3::"
-
-#~ msgid "You can make sure that pip is up-to-date by running:"
-#~ msgstr "Você pode ter certeza de que o pip está atualizado executando:"
 
 #~ msgid ""
 #~ "Python 2.7 used Visual Studio 2008, Python 3.3 and 3.4 used Visual Studio "
