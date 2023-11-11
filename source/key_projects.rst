@@ -383,7 +383,7 @@ conda is a package, dependency, and environment management system for any langua
 Ruby, C/C++, Fortran, and more. It is written in Python and
 widely used in the Python scientific computing community, due to its support for non-Python
 compiled libraries and extensions. It is used as the basis of the `Anaconda
-<https://docs.anaconda.com/anaconda/>`__ Python distribution from `Anaconda, Inc
+<https://docs.anaconda.com/anaconda/>`__ Python distribution from `Anaconda, Inc.
 <https://www.anaconda.com/products/individual>`__ specifically aimed at the scientific
 community, but can also be used on its own, or with the
 :doc:`miniconda <conda:miniconda>` distribution. It is available
