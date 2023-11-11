@@ -180,7 +180,7 @@ an email address.
       {email = "different.person@example.com"},
     ]
     maintainers = [
-      {name = "Brett Cannon", email = "brett@python.org"}
+      {name = "Brett Cannon", email = "brett@example.com"}
     ]
 
 
@@ -329,7 +329,7 @@ A full example
      {email = "different.person@example.com"},
    ]
    maintainers = [
-     {name = "Brett Cannon", email = "brett@python.org"}
+     {name = "Brett Cannon", email = "brett@example.com"}
    ]
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
