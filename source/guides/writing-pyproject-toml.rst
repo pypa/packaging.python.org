@@ -67,6 +67,10 @@ Put the version of your project.
     [project]
     version = "2020.0.0"
 
+Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha
+release) are possible; see the :ref:`specification <version-specifiers>`
+for full details.
+
 This field is required, although it is often marked as dynamic using
 
 .. code-block:: toml
