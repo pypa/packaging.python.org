@@ -156,7 +156,7 @@ the `native namespace package example project`_.
 Legacy namespace packages
 -------------------------
 
-These to methods, that were used to create namespace packages prior to :pep:`420`,
+These two methods, that were used to create namespace packages prior to :pep:`420`,
 are now considered to be obsolete and should not be used unless you need compatibility
 with packages already using this method. Also, :doc:`pkg_resources <setuptools:pkg_resources>`
 has been deprecated.
