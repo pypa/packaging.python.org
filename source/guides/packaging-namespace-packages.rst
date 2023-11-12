@@ -19,7 +19,7 @@ have the following package structure:
             __init__.py
             ...
         module_b.py
-    setup.py
+    pyproject.toml
 
 And you use this package in your code like so::
 
@@ -31,17 +31,19 @@ Then you can break these sub-packages into two separate distributions:
 .. code-block:: text
 
     mynamespace-subpackage-a/
-        setup.py
-        mynamespace/
-            subpackage_a/
-                __init__.py
+        pyproject.toml
+        src/
+            mynamespace/
+                subpackage_a/
+                    __init__.py
 
     mynamespace-subpackage-b/
-        setup.py
-        mynamespace/
-            subpackage_b/
-                __init__.py
-            module_b.py
+        pyproject.toml
+        src/
+            mynamespace/
+                subpackage_b/
+                    __init__.py
+                module_b.py
 
 Each sub-package can now be separately installed, used, and versioned.
 
@@ -73,44 +75,29 @@ Native namespace packages
 Python 3.3 added **implicit** namespace packages from :pep:`420`. All that is
 required to create a native namespace package is that you just omit
 :file:`__init__.py` from the namespace package directory. An example file
-structure:
+structure (following :ref:`src-layout <setuptools:src-layout>`):
 
 .. code-block:: text
 
     mynamespace-subpackage-a/
-        setup.py # AND/OR pyproject.toml, setup.cfg
-        mynamespace/ # namespace package
-        # No __init__.py here.
-            subpackage_a/
-                # Sub-packages have an __init__.py.
-                __init__.py
-                module.py
+        pyproject.toml # AND/OR setup.py, setup.cfg
+        src/
+            mynamespace/ # namespace package
+            # No __init__.py here.
+                subpackage_a/
+                    # Sub-packages have an __init__.py.
+                    __init__.py
+                    module.py
 
 It is extremely important that every distribution that uses the namespace
 package omits the :file:`__init__.py` or uses a pkgutil-style
 :file:`__init__.py`. If any distribution does not, it will cause the namespace
 logic to fail and the other sub-packages will not be importable.
 
-Because ``mynamespace`` doesn't contain an :file:`__init__.py`,
-:func:`setuptools.find_packages` won't find the sub-package. You must
-use :func:`setuptools.find_namespace_packages` instead or explicitly
-list all packages in your :file:`setup.py`. For example:
-
-.. code-block:: python
-
-    from setuptools import setup, find_namespace_packages
-
-    setup(
-        name='mynamespace-subpackage-a',
-        ...
-        packages=find_namespace_packages(include=['mynamespace.*'])
-        # or list a single package explicitly:
-        # packages=['mynamespace.subpackage_a'],
-    )
-
-The same can be accomplished by replacing the :file:`setup.py` in the
-namespace packages' parent directory with a :file:`pyproject.toml`,
-with the following contents:
+The ``src-layout`` directory structure allows automatic discovery of packages
+by most :term:`build backends <Build Backend>`. If however you want to manage
+exclusions or inclusions of packages yourself, this is possible to be configured
+in the top-level :file:`pyproject.toml`:
 
 .. code-block:: toml
 
@@ -119,12 +106,37 @@ with the following contents:
     build-backend = "setuptools.build_meta"
 
     [tool.setuptools.packages.find]
-    where = ["."]
-    include = ["mynamespace.*"]
+    where = ["src/"]
+    include = ["mynamespace.subpackage_a"]
 
     [project]
     name = "mynamespace-subpackage-a"
     ...
+
+The same can be accomplished with a :file:`setup.cfg`:
+
+.. code-block:: ini
+
+   [options]
+    package_dir =
+        =src
+    packages = find_namespace:
+
+    [options.packages.find]
+    where = src
+
+Or :file:`setup.py`:
+
+.. code-block:: python
+
+    from setuptools import setup, find_namespace_packages
+
+    setup(
+        name='mynamespace-subpackage-a',
+        ...
+        packages=find_namespace_packages(where='src/', include=['mynamespace.subpackage_a']),
+        package_dir={"": "src"},
+    )
 
 :ref:`setuptools` will search the directory structure for implicit namespace
 packages by default.
@@ -170,12 +182,14 @@ To create a pkgutil-style namespace package, you need to provide an
 
 .. code-block:: text
 
-    setup.py # AND/OR pyproject.toml, setup.cfg
-    mynamespace/
-        __init__.py  # Namespace package __init__.py
-        subpackage_a/
-            __init__.py  # Sub-package __init__.py
-            module.py
+    mynamespace-subpackage-a/
+        src/
+            pyproject.toml # AND/OR setup.cfg, setup.py
+            mynamespace/
+                __init__.py  # Namespace package __init__.py
+                subpackage_a/
+                    __init__.py  # Sub-package __init__.py
+                    module.py
 
 The :file:`__init__.py` file for the namespace package needs to contain
 the following:
@@ -215,22 +229,24 @@ To create a pkg_resources-style namespace package, you need to provide an
 
 .. code-block:: text
 
-    setup.py # AND/OR pyproject.toml, setup.cfg
-    mynamespace/
-        __init__.py  # Namespace package __init__.py
-        subpackage_a/
-            __init__.py  # Sub-package __init__.py
-            module.py
+    mynamespace-subpackage-a/
+        src/
+            pyproject.toml # AND/OR setup.cfg, setup.py
+            mynamespace/
+                __init__.py  # Namespace package __init__.py
+                subpackage_a/
+                    __init__.py  # Sub-package __init__.py
+                    module.py
 
 The :file:`__init__.py` file for the namespace package needs to contain
-**only** the following:
+the following:
 
 .. code-block:: python
 
     __import__('pkg_resources').declare_namespace(__name__)
 
-**Every** distribution that uses the namespace package must include an
-identical :file:`__init__.py`. If any distribution does not, it will cause the
+**Every** distribution that uses the namespace package must include such an
+:file:`__init__.py`. If any distribution does not, it will cause the
 namespace logic to fail and the other sub-packages will not be importable.  Any
 additional code in :file:`__init__.py` will be inaccessible.
 
