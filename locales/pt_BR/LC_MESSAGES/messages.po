@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-11 22:27+0000\n"
+"POT-Creation-Date: 2023-11-12 10:47+0000\n"
 "PO-Revision-Date: 2023-08-04 18:07+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -655,6 +655,7 @@ msgid "2021-8-24"
 msgstr "2021-8-24"
 
 #: ../source/discussions/deploying-python-applications.rst:11
+#: ../source/specifications/externally-managed-environments.rst:130
 #: ../source/specifications/platform-compatibility-tags.rst:21
 msgid "Overview"
 msgstr "Visão geral"
@@ -14814,6 +14815,7 @@ msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Exemplo de implementação de urlsafe-base64-nopad::"
 
 #: ../source/specifications/binary-distribution-format.rst:505
+#: ../source/specifications/externally-managed-environments.rst:464
 msgid "Copyright"
 msgstr "Diretos autorais"
 
@@ -17587,7 +17589,7 @@ msgstr "pip install app --no-index --find-links https://example.com/"
 
 #: ../source/specifications/direct-url-data-structure.rst:283
 #: ../source/specifications/direct-url.rst:66
-#: ../source/specifications/externally-managed-environments.rst:25
+#: ../source/specifications/externally-managed-environments.rst:472
 #: ../source/specifications/name-normalization.rst:42
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1256
@@ -18416,9 +18418,16 @@ msgstr ""
 "resolução de tais problemas."
 
 #: ../source/specifications/externally-managed-environments.rst:18
+#, fuzzy
+#| msgid ""
+#| ":pep:`668` defined an ``EXTERNALLY-MANAGED`` marker file that allows a "
+#| "Python installation to indicate to Python-specific tools such as ``pip`` "
+#| "that they neither install nor remove packages into the interpreter’s "
+#| "default installation environment, and should instead guide the end user "
+#| "towards using :ref:`virtual-environments`."
 msgid ""
-":pep:`668` defined an ``EXTERNALLY-MANAGED`` marker file that allows a "
-"Python installation to indicate to Python-specific tools such as ``pip`` "
+"This specification defines an ``EXTERNALLY-MANAGED`` marker file that allows "
+"a Python installation to indicate to Python-specific tools such as ``pip`` "
 "that they neither install nor remove packages into the interpreter’s default "
 "installation environment, and should instead guide the end user towards "
 "using :ref:`virtual-environments`."
@@ -18429,12 +18438,589 @@ msgstr ""
 "instalação padrão do interpretador, e deve orientar o usuário final para "
 "usar :ref:`virtual-environments`."
 
-#: ../source/specifications/externally-managed-environments.rst:26
+#: ../source/specifications/externally-managed-environments.rst:24
 msgid ""
-"`June 2022 <https://discuss.python.org/t/pep-668-marking-python-base-"
-"environments-as-externally-managed/10302/44>`_: ``EXTERNALLY-MANAGED`` "
-"marker file was originally specified in :pep:`668#marking-an-interpreter-as-"
-"using-an-external-package-manager`."
+"It also standardizes an interpretation of the ``sysconfig`` schemes so that, "
+"if a Python-specific package manager is about to install a package in an "
+"interpreter-wide context, it can do so in a manner that will avoid "
+"conflicting with the external package manager and reduces the risk of "
+"breaking software shipped by the external package manager."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:32
+msgid "Terminology"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:34
+msgid ""
+"A few terms used in this specification have multiple meanings in the "
+"contexts that it spans. For clarity, this specification uses the following "
+"terms in specific ways:"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:61
+#, fuzzy
+#| msgid "distribution"
+msgid "distro"
+msgstr "distribution"
+
+#: ../source/specifications/externally-managed-environments.rst:39
+msgid ""
+"Short for \"distribution,\" a collection of various sorts of software, "
+"ideally designed to work properly together, including (in contexts relevant "
+"to this document) the Python interpreter itself, software written in Python, "
+"and software written in other languages. That is, this is the sense used in "
+"phrases such as \"Linux distro\" or \"Berkeley Software Distribution.\""
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:46
+msgid ""
+"A distro can be an operating system (OS) of its own, such as Debian, Fedora, "
+"or FreeBSD. It can also be an overlay distribution that installs on top of "
+"an existing OS, such as Homebrew or MacPorts."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:51
+msgid ""
+"This document uses the short term \"distro,\" because the term "
+"\"distribution\" has another meaning in Python packaging contexts: a source "
+"or binary distribution package of a single piece of Python language "
+"software, that is, in the sense of ``setuptools.dist.Distribution`` or "
+"\"sdist\". To avoid confusion, this document does not use the plain term "
+"\"distribution\" at all. In the Python packaging sense, it uses the full "
+"phrase \"distribution package\" or just \"package\" (see below)."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:60
+msgid ""
+"The provider of a distro - the team or company that collects and publishes "
+"the software and makes any needed modifications - is its **distributor**."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:79
+#, fuzzy
+#| msgid "packaging"
+msgid "package"
+msgstr "empacotamento"
+
+#: ../source/specifications/externally-managed-environments.rst:64
+msgid ""
+"A unit of software that can be installed and used within Python. That is, "
+"this refers to what Python-specific packaging tools tend to call a :term:"
+"`distribution package` or simply a \"distribution\"; the colloquial "
+"abbreviation \"package\" is used in the sense of the Python Package Index."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:70
+msgid ""
+"This document does not use \"package\" in the sense of an importable name "
+"that contains Python modules, though in many cases, a distribution package "
+"consists of a single importable package of the same name."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:75
+msgid ""
+"This document generally does not use the term \"package\" to refer to units "
+"of installation by a distro's package manager (such as ``.deb`` or ``.rpm`` "
+"files). When needed, it uses phrasing such as \"a distro's package."
+"\" (Again, in many cases, a Python package is shipped inside a distro's "
+"package named something like ``python-`` plus the Python package name.)"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:102
+#, fuzzy
+#| msgid "The conda cross-platform package manager"
+msgid "Python-specific package manager"
+msgstr "O gerenciador de pacotes multiplataforma conda"
+
+#: ../source/specifications/externally-managed-environments.rst:82
+msgid ""
+"A tool for installing, upgrading, and/or removing Python packages in a "
+"manner that conforms to Python packaging standards. The most popular Python-"
+"specific package manager is pip_; other examples include the old `Easy "
+"Install command <easy-install_>`_ as well as direct usage of a ``setup.py`` "
+"command."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:92
+msgid ""
+"(Note that the ``easy_install`` command was removed in setuptools version "
+"52, released 23 January 2021.)"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:96
+msgid ""
+"(Conda_ is a bit of a special case, as the ``conda`` command can install "
+"much more than just Python packages, making it more like a distro package "
+"manager in some senses. Since the ``conda`` command generally only operates "
+"on Conda-created environments, most of the concerns in this document do not "
+"apply to ``conda`` when acting as a Python-specific package manager.)"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:118
+#, fuzzy
+#| msgid "macOS installers and package managers"
+msgid "distro package manager"
+msgstr "Instaladores e gerenciadores de pacote para macOS"
+
+#: ../source/specifications/externally-managed-environments.rst:105
+msgid ""
+"A tool for installing, upgrading, and/or removing a distro's packages in an "
+"installed instance of that distro, which is capable of installing Python "
+"packages as well as non-Python packages, and therefore generally has its own "
+"database of installed software unrelated to the :ref:`database of installed "
+"distributions <recording-installed-packages>`. Examples include ``apt``, "
+"``dpkg``, ``dnf``, ``rpm``, ``pacman``, and ``brew``. The salient feature is "
+"that if a package was installed by a distro package manager, removing or "
+"upgrading it in a way that would satisfy a Python-specific package manager "
+"will generally leave a distro package manager in an inconsistent state."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:117
+msgid ""
+"This document also uses phrases like \"external package manager\" or "
+"\"system's package manager\" to refer to a distro package manager in certain "
+"contexts."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:127
+msgid "shadow"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:121
+msgid ""
+"To shadow an installed Python package is to cause some other package to be "
+"preferred for imports without removing any files from the shadowed package. "
+"This requires multiple entries on ``sys.path``: if package A 2.0 installs "
+"module ``a.py`` in one ``sys.path`` entry, and package A 1.0 installs module "
+"``a.py`` in a later ``sys.path`` entry, then ``import a`` returns the module "
+"from the former, and we say that A 2.0 shadows A 1.0."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:132
+#, fuzzy
+#| msgid "PyPA specifications"
+msgid "This specification is twofold."
+msgstr "Especificações do PyPA"
+
+#: ../source/specifications/externally-managed-environments.rst:134
+msgid ""
+"First, it describes **a way for distributors of a Python interpreter to mark "
+"that interpreter as having its packages managed by means external to "
+"Python**, such that Python-specific tools like pip should not change the "
+"installed packages in the interpreter's global ``sys.path`` in any way (add, "
+"upgrade/downgrade, or remove) unless specifically overridden. It also "
+"provides a means for the distributor to indicate how to use a virtual "
+"environment as an alternative."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:142
+msgid ""
+"This is an opt-in mechanism: by default, the Python interpreter compiled "
+"from upstream sources will not be so marked, and so running ``pip install`` "
+"with a self-compiled interpreter, or with a distro that has not explicitly "
+"marked its interpreter, will work as it always has worked."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:148
+msgid ""
+"Second, it sets the rule that when installing packages to an interpreter's "
+"global context (either to an unmarked interpreter, or if overriding the "
+"marking), **Python-specific package managers should modify or delete files "
+"only within the directories of the sysconfig scheme in which they would "
+"create files**. This permits a distributor of a Python interpreter to set up "
+"two directories, one for its own managed packages, and one for unmanaged "
+"packages installed by the end user, and ensure that installing unmanaged "
+"packages will not delete (or overwrite) files owned by the external package "
+"manager."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:160
+msgid "Marking an interpreter as using an external package manager"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:162
+msgid ""
+"Before a Python-specific package installer (that is, a tool such as pip - "
+"not an external tool such as apt) installs a package into a certain Python "
+"context, it should make the following checks by default:"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:167
+msgid ""
+"Is it running outside of a virtual environment? It can determine this by "
+"whether ``sys.prefix == sys.base_prefix``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:170
+msgid ""
+"Is there an ``EXTERNALLY-MANAGED`` file in the directory identified by "
+"``sysconfig.get_path(\"stdlib\", sysconfig.get_default_scheme())``?"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:173
+msgid ""
+"If both of these conditions are true, the installer should exit with an "
+"error message indicating that package installation into this Python "
+"interpreter's directory are disabled outside of a virtual environment."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:177
+msgid ""
+"The installer should have a way for the user to override these rules, such "
+"as a command-line flag ``--break-system-packages``. This option should not "
+"be enabled by default and should carry some connotation that its use is "
+"risky."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:182
+msgid ""
+"The ``EXTERNALLY-MANAGED`` file is an INI-style metadata file intended to be "
+"parsable by the standard library configparser_ module. If the file can be "
+"parsed by ``configparser.ConfigParser(interpolation=None)`` using the UTF-8 "
+"encoding, and it contains a section ``[externally-managed]``, then the "
+"installer should look for an error message specified in the file and output "
+"it as part of its error. If the first element of the tuple returned by "
+"``locale.getlocale(locale.LC_MESSAGES)``, i.e., the language code, is not "
+"``None``, it should look for the error message as the value of a key named "
+"``Error-`` followed by the language code. If that key does not exist, and if "
+"the language code contains underscore or hyphen, it should look for a key "
+"named ``Error-`` followed by the portion of the language code before the "
+"underscore or hyphen. If it cannot find either of those, or if the language "
+"code is ``None``, it should look for a key simply named ``Error``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:200
+msgid ""
+"If the installer cannot find an error message in the file (either because "
+"the file cannot be parsed or because no suitable error key exists), then the "
+"installer should just use a pre-defined error message of its own, which "
+"should suggest that the user create a virtual environment to install "
+"packages."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:206
+msgid ""
+"Software distributors who have a non-Python-specific package manager that "
+"manages libraries in the ``sys.path`` of their Python package should, in "
+"general, ship a ``EXTERNALLY-MANAGED`` file in their standard library "
+"directory. For instance, Debian may ship a file in ``/usr/lib/python3.9/"
+"EXTERNALLY-MANAGED`` consisting of something like"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:230
+msgid ""
+"which provides useful and distro-relevant information to a user trying to "
+"install a package. Optionally, translations can be provided in the same file:"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:240
+msgid ""
+"In certain contexts, such as single-application container images that aren't "
+"updated after creation, a distributor may choose not to ship an ``EXTERNALLY-"
+"MANAGED`` file, so that users can install whatever they like (as they can "
+"today) without having to manually override this rule."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:247
+msgid "Writing to only the target ``sysconfig`` scheme"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:249
+msgid ""
+"Usually, a Python package installer installs to directories in a scheme "
+"returned by the ``sysconfig`` standard library package. Ordinarily, this is "
+"the scheme returned by ``sysconfig.get_default_scheme()``, but based on "
+"configuration (e.g. ``pip install --user``), it may use a different scheme."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:255
+msgid ""
+"Whenever the installer is installing to a ``sysconfig`` scheme, this "
+"specification declares that the installer should never modify or delete "
+"files outside of that scheme. For instance, if it's upgrading a package, and "
+"the package is already installed in a directory outside that scheme (perhaps "
+"in a directory from another scheme), it should leave the existing files "
+"alone."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:262
+msgid ""
+"If the installer does end up shadowing an existing installation during an "
+"upgrade, we recommend that it produces a warning at the end of its run."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:266
+msgid ""
+"If the installer is installing to a location outside of a ``sysconfig`` "
+"scheme (e.g., ``pip install --target``), then this subsection does not apply."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:271
+msgid "Recommendations for distros"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:273
+msgid ""
+"This section is non-normative. It provides best practices we believe distros "
+"should follow unless they have a specific reason otherwise."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:277
+msgid "Mark the installation as externally managed"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:279
+msgid ""
+"Distros should create an ``EXTERNALLY-MANAGED`` file in their ``stdlib`` "
+"directory."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:283
+#, fuzzy
+msgid "Guide users towards virtual environments"
+msgstr "Ativando um ambiente virtual"
+
+#: ../source/specifications/externally-managed-environments.rst:285
+msgid ""
+"The file should contain a useful and distro-relevant error message "
+"indicating both how to install system-wide packages via the distro's package "
+"manager and how to set up a virtual environment. If your distro is often "
+"used by users in a state where the ``python3`` command is available (and "
+"especially where ``pip`` or ``get-pip`` is available) but ``python3 -m "
+"venv`` does not work, the message should indicate clearly how to make "
+"``python3 -m venv`` work properly."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:293
+msgid ""
+"Consider packaging pipx_, a tool for installing Python-language "
+"applications, and suggesting it in the error. pipx automatically creates a "
+"virtual environment for that application alone, which is a much better "
+"default for end users who want to install some Python-language software "
+"(which isn't available in the distro) but are not themselves Python users. "
+"Packaging pipx in the distro avoids the irony of instructing users to ``pip "
+"install --user --break-system-packages pipx`` to *avoid* breaking system "
+"packages. Consider arranging things so your distro's package / environment "
+"for Python for end users (e.g., ``python3`` on Fedora or ``python3-full`` on "
+"Debian) depends on pipx."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:308
+msgid "Keep the marker file in container images"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:310
+msgid ""
+"Distros that produce official images for single-application containers (e."
+"g., Docker container images) should keep the ``EXTERNALLY-MANAGED`` file, "
+"preferably in a way that makes it not go away if a user of that image "
+"installs package updates inside their image (think ``RUN apt-get dist-"
+"upgrade``)."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:317
+msgid "Create separate distro and local directories"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:319
+msgid ""
+"Distros should place two separate paths on the system interpreter's ``sys."
+"path``, one for distro-installed packages and one for packages installed by "
+"the local system administrator, and configure ``sysconfig."
+"get_default_scheme()`` to point at the latter path. This ensures that tools "
+"like pip will not modify distro-installed packages. The path for the local "
+"system administrator should come before the distro path on ``sys.path`` so "
+"that local installs take preference over distro packages."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:328
+msgid ""
+"For example, Fedora and Debian (and their derivatives) both implement this "
+"split by using ``/usr/local`` for locally-installed packages and ``/usr`` "
+"for distro-installed packages. Fedora uses ``/usr/local/lib/python3.x/site-"
+"packages`` vs. ``/usr/lib/python3.x/site-packages``. (Debian uses ``/usr/"
+"local/lib/python3/dist-packages`` vs. ``/usr/lib/python3/dist-packages`` as "
+"an additional layer of separation from a locally-compiled Python "
+"interpreter: if you build and install upstream CPython in ``/usr/local/"
+"bin``, it will look at ``/usr/local/lib/python3/site-packages``, and Debian "
+"wishes to make sure that packages installed via the locally-built "
+"interpreter don't show up on ``sys.path`` for the distro interpreter.)"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:341
+msgid ""
+"Note that the ``/usr/local`` vs. ``/usr`` split is analogous to how the "
+"``PATH`` environment variable typically includes ``/usr/local/bin:/usr/bin`` "
+"and non-distro software installs to ``/usr/local`` by default. This split is "
+"`recommended by the Filesystem Hierarchy Standard`__."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:349
+msgid ""
+"There are two ways you could do this. One is, if you are building and "
+"packaging Python libraries directly (e.g., your packaging helpers unpack a "
+"wheel or call ``setup.py install``), arrange for those tools to use a "
+"directory that is not in a ``sysconfig`` scheme but is still on ``sys.path``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:355
+msgid ""
+"The other is to arrange for the default ``sysconfig`` scheme to change when "
+"running inside a package build versus when running on an installed system. "
+"The ``sysconfig`` customization hooks from bpo-43976_ should make this easy "
+"(once accepted and implemented): make your packaging tool set an environment "
+"variable or some other detectable configuration, and define a "
+"``get_preferred_schemes`` function to return a different scheme when called "
+"from inside a package build. Then you can use ``pip install`` as part of "
+"your distro packaging."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:367
+msgid ""
+"We propose adding a ``--scheme=...`` option to instruct pip to run against a "
+"specific scheme. (See `Implementation Notes`_ below for how pip currently "
+"determines schemes.) Once that's available, for local testing and possibly "
+"for actual packaging, you would be able to run something like ``pip install "
+"--scheme=posix_distro`` to explicitly install a package into your distro's "
+"location (bypassing ``get_preferred_schemes``). One could also, if "
+"absolutely needed, use ``pip uninstall --scheme=posix_distro`` to use pip to "
+"remove packages from the system-managed directory."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:377
+msgid ""
+"To install packages with pip, you would also need to either suppress the "
+"``EXTERNALLY-MANAGED`` marker file to allow pip to run or to override it on "
+"the command line. You may want to use the same means for suppressing the "
+"marker file in build chroots as you do in container images."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:383
+msgid ""
+"The advantage of setting these up to be automatic (suppressing the marker "
+"file in your build environment and having ``get_preferred_schemes`` "
+"automatically return your distro's scheme) is that an unadorned ``pip "
+"install`` will work inside a package build, which generally means that an "
+"unmodified upstream build script that happens to internally call ``pip "
+"install`` will do the right thing. You can, of course, just ensure that your "
+"packaging process always calls ``pip install --scheme=posix_distro --break-"
+"system-packages``, which would work too."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:393
+msgid ""
+"The best approach here depends a lot on your distro's conventions and "
+"mechanisms for packaging."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:396
+msgid ""
+"Similarly, the ``sysconfig`` paths that are not for importable Python code - "
+"that is, ``include``, ``platinclude``, ``scripts``, and ``data`` - should "
+"also have two variants, one for use by distro-packaged software and one for "
+"use for locally-installed software, and the distro should be set up such "
+"that both are usable. For instance, a typical FHS-compliant distro will use "
+"``/usr/local/include`` for the default scheme's ``include`` and ``/usr/"
+"include`` for distro-packaged headers and place both on the compiler's "
+"search path, and it will use ``/usr/local/bin`` for the default scheme's "
+"``scripts`` and ``/usr/bin`` for distro-packaged entry points and place both "
+"on ``$PATH``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:410
+#, fuzzy
+#| msgid "Documentation types"
+msgid "Implementation Notes"
+msgstr "Tipos de documentação"
+
+#: ../source/specifications/externally-managed-environments.rst:412
+msgid ""
+"This section is non-normative and contains notes relevant to both the "
+"specification and potential implementations."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:415
+msgid ""
+"Currently (as of May 2021), pip does not directly expose a way to choose a "
+"target ``sysconfig`` scheme, but it has three ways of looking up schemes "
+"when installing:"
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:422
+#, fuzzy
+msgid "``pip install``"
+msgstr "pip install app"
+
+#: ../source/specifications/externally-managed-environments.rst:420
+msgid ""
+"Calls ``sysconfig.get_default_scheme()``, which is usually (in upstream "
+"CPython and most current distros) the same as "
+"``get_preferred_scheme('prefix')``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:425
+#, fuzzy
+msgid "``pip install --prefix=/some/path``"
+msgstr "pip install -e ./app"
+
+#: ../source/specifications/externally-managed-environments.rst:425
+msgid "Calls ``sysconfig.get_preferred_scheme('prefix')``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:428
+#, fuzzy
+msgid "``pip install --user``"
+msgstr "pip install -e ./app"
+
+#: ../source/specifications/externally-managed-environments.rst:428
+msgid "Calls ``sysconfig.get_preferred_scheme('user')``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:430
+msgid ""
+"Finally, ``pip install --target=/some/path`` writes directly to ``/some/"
+"path`` without looking up any schemes."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:433
+msgid ""
+"Debian currently carries a `patch to change the default install location "
+"inside a virtual environment`__, using a few heuristics (including checking "
+"for the ``VIRTUAL_ENV`` environment variable), largely so that the directory "
+"used in a virtual environment remains ``site-packages`` and not ``dist-"
+"packages``. This does not particularly affect this proposal, because the "
+"implementation of that patch does not actually change the default "
+"``sysconfig`` scheme, and notably does not change the result of ``sysconfig."
+"get_path(\"stdlib\")``."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:445
+msgid ""
+"Fedora currently carries a `patch to change the default install location "
+"when not running inside rpmbuild`__, which they use to implement the two-"
+"system-wide-directories approach. This is conceptually the sort of hook "
+"envisioned by bpo-43976_, except implemented as a code patch to "
+"``distutils`` instead of as a changed ``sysconfig`` scheme."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:454
+msgid ""
+"The implementation of ``is_virtual_environment`` above, as well as the logic "
+"to load the ``EXTERNALLY-MANAGED`` file and find the error message from it, "
+"may as well get added to the standard library (``sys`` and ``sysconfig``, "
+"respectively), to centralize their implementations, but they don't need to "
+"be added yet."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:466
+msgid ""
+"This document is placed in the public domain or under the CC0-1.0-Universal "
+"license, whichever is more permissive."
+msgstr ""
+
+#: ../source/specifications/externally-managed-environments.rst:474
+msgid "This specification was originally approved as :pep:`668`."
 msgstr ""
 
 #: ../source/specifications/index.rst:4
