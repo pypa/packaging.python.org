@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-12 10:47+0000\n"
-"PO-Revision-Date: 2023-11-11 04:18+0000\n"
+"PO-Revision-Date: 2023-11-14 15:42+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1113,85 +1113,80 @@ msgid ""
 "*TOML* for example (a similar practice is used by other tools like *nox* and "
 "its :file:`nox.py` configuration file, or *pytest* and :file:`conftest.py`)."
 msgstr ""
+"いいえ、 :term:`setup.py` は非推奨ではありませんし、例えば *TOML* "
+"の代わりにたまたま Python で書かれている :ref:`setuptools` "
+"向けの正当な設定ファイルです (*nox* とその設定ファイルである :file:`nox.py` "
+"や *pytest* と :file:`conftest` "
+"のような他のツール類でも、よく似たパターンが使われています)。"
 
 #: ../source/discussions/setup-py-deprecated.rst:15
 msgid "And of course *setuptools* itself is not deprecated either."
-msgstr ""
+msgstr "そして、 *setuptools* それ自身もまた、非推奨ではないのはもちろんのことです。"
 
 #: ../source/discussions/setup-py-deprecated.rst:17
 msgid ""
 "It is however deprecated to run ``python setup.py`` as a command line tool."
-msgstr ""
+msgstr "しかしながら、コマンドラインツールとしての ``python setup.py`` "
+"を実行することは非推奨になっています。"
 
 #: ../source/discussions/setup-py-deprecated.rst:19
 msgid ""
 "This means for example that the following commands **MUST NOT** be run "
 "anymore:"
-msgstr ""
+msgstr "その意味するところは、例えば、次のようなコマンドを実行することはもはや "
+"**許されない** ということです:"
 
 #: ../source/discussions/setup-py-deprecated.rst:21
 #: ../source/discussions/setup-py-deprecated.rst:33
 #: ../source/guides/modernize-setup-py-project.rst:32
-#, fuzzy
-#| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python setup.py install``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``python setup.py install``"
 
 #: ../source/discussions/setup-py-deprecated.rst:22
 #: ../source/discussions/setup-py-deprecated.rst:35
 #: ../source/guides/modernize-setup-py-project.rst:34
 msgid "``python setup.py develop``"
-msgstr ""
+msgstr "``python setup.py develop``"
 
 #: ../source/discussions/setup-py-deprecated.rst:23
 #: ../source/discussions/setup-py-deprecated.rst:37
 #: ../source/guides/modernize-setup-py-project.rst:36
-#, fuzzy
-#| msgid "``python_version``"
 msgid "``python setup.py sdist``"
-msgstr "``python_version``"
+msgstr "``python setup.py sdist``"
 
 #: ../source/discussions/setup-py-deprecated.rst:24
 #: ../source/discussions/setup-py-deprecated.rst:39
 #: ../source/guides/modernize-setup-py-project.rst:38
 msgid "``python setup.py bdist_wheel``"
-msgstr ""
+msgstr "``python setup.py bdist_wheel``"
 
 #: ../source/discussions/setup-py-deprecated.rst:28
 msgid "What commands should be used instead?"
-msgstr ""
+msgstr "代わりにどのようなコマンドを使うべきでしょうか？"
 
 #: ../source/discussions/setup-py-deprecated.rst:31
 #: ../source/guides/modernize-setup-py-project.rst:30
-#, fuzzy
-#| msgid "Deprecated Fields"
 msgid "Deprecated"
-msgstr "非推奨となったフィールド"
+msgstr "非推奨"
 
 #: ../source/discussions/setup-py-deprecated.rst:31
 #: ../source/guides/modernize-setup-py-project.rst:30
-#, fuzzy
-#| msgid "Tool recommendations"
 msgid "Current recommendation"
-msgstr "オススメのツール"
+msgstr "現在の推奨項目"
 
 #: ../source/discussions/setup-py-deprecated.rst:33
 #: ../source/guides/modernize-setup-py-project.rst:32
-#, fuzzy
-#| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python -m pip install .``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``python -m pip install .``"
 
 #: ../source/discussions/setup-py-deprecated.rst:35
 #: ../source/guides/modernize-setup-py-project.rst:34
-#, fuzzy
-#| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python -m pip install --editable .``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``python -m pip install --editable .``"
 
 #: ../source/discussions/setup-py-deprecated.rst:37
 msgid "``python -m build`` [#needs-build]_"
-msgstr ""
+msgstr "``python -m build`` [#needs-build]_"
 
 #: ../source/discussions/setup-py-deprecated.rst:43
 msgid ""
@@ -1200,6 +1195,10 @@ msgid ""
 "what ``python -m build`` does. If necessary the ``--sdist`` and ``--wheel`` "
 "options can be used to generate only one or the other."
 msgstr ""
+"これは、:ref:`build` の依存関係を要求します。 ``python -m build`` を実行すれ"
+"ばそうなりますが、プロジェクトにおいては常にソースコード配布物とwheelの両方を"
+"公開することを推奨します。もし必要であれば、いずれか片方を生成するのに "
+"``--sdist`` や ``--wheel`` のオプションを使うことができます。"
 
 #: ../source/discussions/setup-py-deprecated.rst:50
 msgid ""
@@ -1212,6 +1211,15 @@ msgid ""
 "on the local filesystem as argument to its ``install`` sub-command. So this "
 "would also be a valid command: ``python -m pip install path/to/project``."
 msgstr ""
+"setuptools ベースのプロジェクトをインストールするためには、``python setup.py "
+"install`` のように :file:`setup.py` の ``install`` "
+"コマンドを使うことが普通でした。今日では、``python -m pip install .`` "
+"のように :ref:`pip` を直接に使う方法が推奨されています。ここでドット ``.`` は"
+"、実際にはファイルシステム上のパスなので、これはカレントディレクトリを示すパ"
+"ス表現です。なんと、 *pip* は ``install`` サブコマンドへの引数の形で、ローカ"
+"ルのファイルシステム上のパスをプロジェクトのソースコードツリーを置くべき場所"
+"として受け付けるのです。そういうことですから、これもまた正当なコマンドという"
+"ことになります: ``python -m pip install path/to/project``。"
 
 #: ../source/discussions/setup-py-deprecated.rst:63
 msgid ""
@@ -1219,6 +1227,10 @@ msgid ""
 "``python setup.py develop`` one can use the ``--editable`` option of pip's "
 "*install* sub-command: ``python -m pip install --editable .``."
 msgstr ""
+"*編集可能 <editable>* モードとしても知られる *開発 <develop>* "
+"モードでのインストールのためには、 ``python setup.py develop`` の代わりに "
+"pip の *install* サブコマンドの ``--editable`` "
+"オプションを使うことができます: ``python -m pip install --editable .``。"
 
 #: ../source/discussions/setup-py-deprecated.rst:68
 msgid ""
@@ -1230,6 +1242,13 @@ msgid ""
 "generate only one or the other. Note that the build tool needs to be "
 "installed separately."
 msgstr ""
+":term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` および "
+":term:`wheels <Wheel>` "
+"をビルドする方法で推奨されていて単純かつ直截なひとつのやり方は、 :ref:`build`"
+" ツールを ``python -m build`` のようなコマンドから使って両方の配布物フォーマ"
+"ットの生成を開始することです。いずれか片方の配布物だけを生成するのであれば、"
+"必要に応じて ``--sdist`` や ``--wheel`` のオプションを使うことができます。"
+"build ツールは個別にインストールする必要があることに注意してください。"
 
 #: ../source/discussions/setup-py-deprecated.rst:78
 msgid ""
