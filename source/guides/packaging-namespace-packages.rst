@@ -96,7 +96,7 @@ logic to fail and the other sub-packages will not be importable.
 
 The ``src-layout`` directory structure allows automatic discovery of packages
 by most :term:`build backends <Build Backend>`. See :ref:`src-layout-vs-flat-layout`
-for more information. If however you want to manage exclusions or inclusions of packages 
+for more information. If however you want to manage exclusions or inclusions of packages
 yourself, this is possible to be configured in the top-level :file:`pyproject.toml`:
 
 .. code-block:: toml
