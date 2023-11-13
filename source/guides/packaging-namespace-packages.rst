@@ -83,7 +83,7 @@ structure (following :ref:`src-layout <setuptools:src-layout>`):
         pyproject.toml # AND/OR setup.py, setup.cfg
         src/
             mynamespace/ # namespace package
-            # No __init__.py here.
+                # No __init__.py here.
                 subpackage_a/
                     # Sub-packages have an __init__.py.
                     __init__.py
@@ -117,7 +117,7 @@ The same can be accomplished with a :file:`setup.cfg`:
 
 .. code-block:: ini
 
-   [options]
+    [options]
     package_dir =
         =src
     packages = find_namespace:
@@ -135,7 +135,7 @@ Or :file:`setup.py`:
         name='mynamespace-subpackage-a',
         ...
         packages=find_namespace_packages(where='src/', include=['mynamespace.subpackage_a']),
-        package_dir={"": "src"},
+        package_dir={'': 'src'},
     )
 
 :ref:`setuptools` will search the directory structure for implicit namespace
