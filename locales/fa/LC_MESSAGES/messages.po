@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 17:48+0000\n"
+"POT-Creation-Date: 2023-11-14 17:51+0000\n"
 "PO-Revision-Date: 2023-02-15 07:52+0000\n"
 "Last-Translator: Arsalan Dehghani <arsalan.dehghani@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1087,18 +1087,18 @@ msgstr ""
 msgid ":doc:`setuptools:deprecated/commands`"
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:3
+#: ../source/discussions/src-layout-vs-flat-layout.rst:5
 msgid "src layout vs flat layout"
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:5
+#: ../source/discussions/src-layout-vs-flat-layout.rst:7
 msgid ""
 "The \"flat layout\" refers to organising a project's files in a folder or "
 "repository, such that the various configuration files and :term:`import "
 "packages <Import Package>` are all in the top-level directory."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:23
+#: ../source/discussions/src-layout-vs-flat-layout.rst:25
 msgid ""
 "The \"src layout\" deviates from the flat layout by moving the code that is "
 "intended to be importable (i.e. ``import awesome_package``, also known as :"
@@ -1106,19 +1106,19 @@ msgid ""
 "subdirectory is typically named ``src/``, hence \"src layout\"."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:43
+#: ../source/discussions/src-layout-vs-flat-layout.rst:45
 msgid ""
 "Here's a breakdown of the important behaviour differences between the src "
 "layout and the flat layout:"
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:46
+#: ../source/discussions/src-layout-vs-flat-layout.rst:48
 msgid ""
 "The src layout requires installation of the project to be able to run its "
 "code, and the flat layout does not."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:49
+#: ../source/discussions/src-layout-vs-flat-layout.rst:51
 msgid ""
 "This means that the src layout involves an additional step in the "
 "development workflow of a project (typically, an :doc:`editable installation "
@@ -1126,13 +1126,13 @@ msgid ""
 "regular installation is used for testing)."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:54
+#: ../source/discussions/src-layout-vs-flat-layout.rst:56
 msgid ""
 "The src layout helps prevent accidental usage of the in-development copy of "
 "the code."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:57
+#: ../source/discussions/src-layout-vs-flat-layout.rst:59
 msgid ""
 "This is relevant since the Python interpreter includes the current working "
 "directory as the first item on the import path. This means that if an import "
@@ -1143,28 +1143,28 @@ msgid ""
 "distribution."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:64
+#: ../source/discussions/src-layout-vs-flat-layout.rst:66
 msgid ""
 "The src layout helps avoid this by keeping import packages in a directory "
 "separate from the root directory of the project, ensuring that the installed "
 "copy is used."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:68
+#: ../source/discussions/src-layout-vs-flat-layout.rst:70
 msgid ""
 "The src layout helps enforce that an :doc:`editable installation <setuptools:"
 "userguide/development_mode>` is only able to import files that were meant to "
 "be importable."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:72
+#: ../source/discussions/src-layout-vs-flat-layout.rst:74
 msgid ""
 "This is especially relevant when the editable installation is implemented "
 "using a `path configuration file <https://docs.python.org/3/library/site."
 "html#index-2>`_ that adds the directory to the import path."
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:76
+#: ../source/discussions/src-layout-vs-flat-layout.rst:78
 msgid ""
 "The flat layout would add the other project files (eg: ``README.md``, ``tox."
 "ini``) and packaging/tooling configuration files (eg: ``setup.py``, "
@@ -6080,11 +6080,11 @@ msgstr ""
 msgid "Then you can break these sub-packages into two separate distributions:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:46
+#: ../source/guides/packaging-namespace-packages.rst:48
 msgid "Each sub-package can now be separately installed, used, and versioned."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:48
+#: ../source/guides/packaging-namespace-packages.rst:50
 msgid ""
 "Namespace packages can be useful for a large collection of loosely-related "
 "packages (such as a large corpus of client libraries for multiple products "
@@ -6095,17 +6095,17 @@ msgid ""
 "mynamespace_subpackage_a as subpackage_a`` to keep the import object short)."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:58
+#: ../source/guides/packaging-namespace-packages.rst:60
 msgid "Creating a namespace package"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:60
+#: ../source/guides/packaging-namespace-packages.rst:62
 msgid ""
-"There are currently three different approaches to creating namespace "
-"packages:"
+"There are currently two different approaches to creating namespace packages, "
+"from which the latter is discouraged:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:62
+#: ../source/guides/packaging-namespace-packages.rst:65
 msgid ""
 "Use `native namespace packages`_. This type of namespace package is defined "
 "in :pep:`420` and is available in Python 3.3 and later. This is recommended "
@@ -6113,41 +6113,25 @@ msgid ""
 "installation via ``pip``."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:66
-msgid ""
-"Use `pkgutil-style namespace packages`_. This is recommended for new "
-"packages that need to support Python 2 and 3 and installation via both "
-"``pip`` and ``python setup.py install``."
-msgstr ""
-
 #: ../source/guides/packaging-namespace-packages.rst:69
 msgid ""
-"Use `pkg_resources-style namespace packages`_. This method is recommended if "
-"you need compatibility with packages already using this method or if your "
-"package needs to be zip-safe."
+"Use `legacy namespace packages`_. This comprises `pkgutil-style namespace "
+"packages`_ and `pkg_resources-style namespace packages`_."
 msgstr ""
 
 #: ../source/guides/packaging-namespace-packages.rst:73
-msgid ""
-"While native namespace packages and pkgutil-style namespace packages are "
-"largely compatible, pkg_resources-style namespace packages are not "
-"compatible with the other methods. It's inadvisable to use different methods "
-"in different distributions that provide packages to the same namespace."
-msgstr ""
-
-#: ../source/guides/packaging-namespace-packages.rst:80
 msgid "Native namespace packages"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:82
+#: ../source/guides/packaging-namespace-packages.rst:75
 msgid ""
 "Python 3.3 added **implicit** namespace packages from :pep:`420`. All that "
 "is required to create a native namespace package is that you just omit :file:"
 "`__init__.py` from the namespace package directory. An example file "
-"structure:"
+"structure (following :ref:`src-layout <setuptools:src-layout>`):"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:97
+#: ../source/guides/packaging-namespace-packages.rst:92
 msgid ""
 "It is extremely important that every distribution that uses the namespace "
 "package omits the :file:`__init__.py` or uses a pkgutil-style :file:"
@@ -6155,21 +6139,36 @@ msgid ""
 "logic to fail and the other sub-packages will not be importable."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:102
+#: ../source/guides/packaging-namespace-packages.rst:97
 msgid ""
-"Because ``mynamespace`` doesn't contain an :file:`__init__.py`, :func:"
-"`setuptools.find_packages` won't find the sub-package. You must use :func:"
-"`setuptools.find_namespace_packages` instead or explicitly list all packages "
-"in your :file:`setup.py`. For example:"
+"The ``src-layout`` directory structure allows automatic discovery of "
+"packages by most :term:`build backends <Build Backend>`. See :ref:`src-"
+"layout-vs-flat-layout` for more information. If however you want to manage "
+"exclusions or inclusions of packages yourself, this is possible to be "
+"configured in the top-level :file:`pyproject.toml`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:117
+#: ../source/guides/packaging-namespace-packages.rst:115
+msgid "The same can be accomplished with a :file:`setup.cfg`:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:127
+msgid "Or :file:`setup.py`:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:140
+msgid ""
+":ref:`setuptools` will search the directory structure for implicit namespace "
+"packages by default."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:143
 msgid ""
 "A complete working example of two native namespace packages can be found in "
 "the `native namespace package example project`_."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:123
+#: ../source/guides/packaging-namespace-packages.rst:149
 msgid ""
 "Because native and pkgutil-style namespace packages are largely compatible, "
 "you can use native namespace packages in the distributions that only support "
@@ -6177,11 +6176,37 @@ msgid ""
 "to support Python 2 and 3."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:129
+#: ../source/guides/packaging-namespace-packages.rst:156
+msgid "Legacy namespace packages"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:158
+msgid ""
+"These two methods, that were used to create namespace packages prior to :pep:"
+"`420`, are now considered to be obsolete and should not be used unless you "
+"need compatibility with packages already using this method. Also, :doc:"
+"`pkg_resources <setuptools:pkg_resources>` has been deprecated."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:163
+msgid ""
+"To migrate an existing package, all packages sharing the namespace must be "
+"migrated simultaneously."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:165
+msgid ""
+"While native namespace packages and pkgutil-style namespace packages are "
+"largely compatible, pkg_resources-style namespace packages are not "
+"compatible with the other methods. It's inadvisable to use different methods "
+"in different distributions that provide packages to the same namespace."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:172
 msgid "pkgutil-style namespace packages"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:131
+#: ../source/guides/packaging-namespace-packages.rst:174
 msgid ""
 "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and "
 "the :py:func:`python:pkgutil.extend_path` function. This can be used to "
@@ -6190,39 +6215,39 @@ msgid ""
 "compatibility."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:136
+#: ../source/guides/packaging-namespace-packages.rst:179
 msgid ""
 "To create a pkgutil-style namespace package, you need to provide an :file:"
 "`__init__.py` file for the namespace package:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:148
 #: ../source/guides/packaging-namespace-packages.rst:193
+#: ../source/guides/packaging-namespace-packages.rst:240
 msgid ""
-"The :file:`__init__.py` file for the namespace package needs to contain "
-"**only** the following:"
+"The :file:`__init__.py` file for the namespace package needs to contain the "
+"following:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:155
 #: ../source/guides/packaging-namespace-packages.rst:200
+#: ../source/guides/packaging-namespace-packages.rst:247
 msgid ""
-"**Every** distribution that uses the namespace package must include an "
-"identical :file:`__init__.py`. If any distribution does not, it will cause "
-"the namespace logic to fail and the other sub-packages will not be "
-"importable.  Any additional code in :file:`__init__.py` will be inaccessible."
+"**Every** distribution that uses the namespace package must include such an :"
+"file:`__init__.py`. If any distribution does not, it will cause the "
+"namespace logic to fail and the other sub-packages will not be importable.  "
+"Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:160
+#: ../source/guides/packaging-namespace-packages.rst:205
 msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:170
+#: ../source/guides/packaging-namespace-packages.rst:215
 msgid "pkg_resources-style namespace packages"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:172
+#: ../source/guides/packaging-namespace-packages.rst:217
 msgid ""
 ":doc:`Setuptools <setuptools:index>` provides the `pkg_resources."
 "declare_namespace`_ function and the ``namespace_packages`` argument to :"
@@ -6234,19 +6259,19 @@ msgid ""
 "compatible and it's not advisable to try to migrate an existing package."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:181
+#: ../source/guides/packaging-namespace-packages.rst:226
 msgid ""
 "To create a pkg_resources-style namespace package, you need to provide an :"
 "file:`__init__.py` file for the namespace package:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:205
+#: ../source/guides/packaging-namespace-packages.rst:252
 msgid ""
 "Some older recommendations advise the following in the namespace package :"
 "file:`__init__.py`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:215
+#: ../source/guides/packaging-namespace-packages.rst:262
 msgid ""
 "The idea behind this was that in the rare case that setuptools isn't "
 "available packages would fall-back to the pkgutil-style packages. This isn't "
@@ -6255,13 +6280,13 @@ msgid ""
 "package should just explicitly depend on setuptools via ``install_requires``."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:222
+#: ../source/guides/packaging-namespace-packages.rst:269
 msgid ""
 "Finally, every distribution must provide the ``namespace_packages`` argument "
 "to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:236
+#: ../source/guides/packaging-namespace-packages.rst:283
 msgid ""
 "A complete working example of two pkg_resources-style namespace packages can "
 "be found in the `pkg_resources namespace example project`_."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 17:48+0000\n"
+"POT-Creation-Date: 2023-11-14 17:51+0000\n"
 "PO-Revision-Date: 2023-11-14 15:42+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1342,11 +1342,11 @@ msgstr ""
 msgid ":doc:`setuptools:deprecated/commands`"
 msgstr ""
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:3
+#: ../source/discussions/src-layout-vs-flat-layout.rst:5
 msgid "src layout vs flat layout"
 msgstr "src レイアウト対フラットレイアウト"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:5
+#: ../source/discussions/src-layout-vs-flat-layout.rst:7
 msgid ""
 "The \"flat layout\" refers to organising a project's files in a folder or "
 "repository, such that the various configuration files and :term:`import "
@@ -1357,7 +1357,7 @@ msgstr ""
 "で、プロジェクトのファイル群をひとつのフォルダまたはリポジトリに配置すること"
 "です。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:23
+#: ../source/discussions/src-layout-vs-flat-layout.rst:25
 msgid ""
 "The \"src layout\" deviates from the flat layout by moving the code that is "
 "intended to be importable (i.e. ``import awesome_package``, also known as :"
@@ -1370,7 +1370,7 @@ msgstr ""
 "レクトリは、典型的には ``src/`` と命名されるので、「src レイアウト」と呼ばれ"
 "るのです。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:43
+#: ../source/discussions/src-layout-vs-flat-layout.rst:45
 msgid ""
 "Here's a breakdown of the important behaviour differences between the src "
 "layout and the flat layout:"
@@ -1378,7 +1378,7 @@ msgstr ""
 "ここで、src レイアウトとフラットレイアウトの動作の違いで重要なものを掲出して"
 "おきましょう:"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:46
+#: ../source/discussions/src-layout-vs-flat-layout.rst:48
 msgid ""
 "The src layout requires installation of the project to be able to run its "
 "code, and the flat layout does not."
@@ -1386,7 +1386,7 @@ msgstr ""
 "src レイアウトではそのソースコードを走らせるためにプロジェクトのインストール"
 "が要求されますが、フラットレイアウトではそのようなことはありません。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:49
+#: ../source/discussions/src-layout-vs-flat-layout.rst:51
 msgid ""
 "This means that the src layout involves an additional step in the "
 "development workflow of a project (typically, an :doc:`editable installation "
@@ -1398,7 +1398,7 @@ msgstr ""
 "<setuptools:userguide/development_mode>` を使い、テストには通常のインストール"
 "を用いる) が必要になるということです。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:54
+#: ../source/discussions/src-layout-vs-flat-layout.rst:56
 msgid ""
 "The src layout helps prevent accidental usage of the in-development copy of "
 "the code."
@@ -1406,7 +1406,7 @@ msgstr ""
 "src レイアウトを採用することは、今まさに開発中のソースコードを使ってしまうと"
 "いう事故を防ぐことを助けます。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:57
+#: ../source/discussions/src-layout-vs-flat-layout.rst:59
 msgid ""
 "This is relevant since the Python interpreter includes the current working "
 "directory as the first item on the import path. This means that if an import "
@@ -1423,7 +1423,7 @@ msgstr ""
 "によって、配布物に一部ファイル群が含まれない結果に終わるという、プロジェクト"
 "のパッケージングツールの微妙な誤設定をもたらしかねません。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:64
+#: ../source/discussions/src-layout-vs-flat-layout.rst:66
 msgid ""
 "The src layout helps avoid this by keeping import packages in a directory "
 "separate from the root directory of the project, ensuring that the installed "
@@ -1433,7 +1433,7 @@ msgstr ""
 "なるディレクトリに置くので、インストール済みのパッケージの方を使用することが"
 "保証され、このような誤設定を避ける助けになります。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:68
+#: ../source/discussions/src-layout-vs-flat-layout.rst:70
 msgid ""
 "The src layout helps enforce that an :doc:`editable installation <setuptools:"
 "userguide/development_mode>` is only able to import files that were meant to "
@@ -1443,7 +1443,7 @@ msgstr ""
 "トール <setuptools:userguide/development_mode>` だけをインポートするように強"
 "制することを助けます。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:72
+#: ../source/discussions/src-layout-vs-flat-layout.rst:74
 msgid ""
 "This is especially relevant when the editable installation is implemented "
 "using a `path configuration file <https://docs.python.org/3/library/site."
@@ -1453,7 +1453,7 @@ msgstr ""
 "トリを追加するように動く `パス設定ファイル <https://docs.python.org/3/"
 "library/site.html#index-2>`_ を使って実装されている場合に、特に適切です。"
 
-#: ../source/discussions/src-layout-vs-flat-layout.rst:76
+#: ../source/discussions/src-layout-vs-flat-layout.rst:78
 msgid ""
 "The flat layout would add the other project files (eg: ``README.md``, ``tox."
 "ini``) and packaging/tooling configuration files (eg: ``setup.py``, "
@@ -8124,13 +8124,13 @@ msgstr ""
 "そうすることで、これらのサブパッケージ群を別々のふたつの配布物に分割すること"
 "ができます:"
 
-#: ../source/guides/packaging-namespace-packages.rst:46
+#: ../source/guides/packaging-namespace-packages.rst:48
 msgid "Each sub-package can now be separately installed, used, and versioned."
 msgstr ""
 "それぞれのサブパッケージは、今や、個別にインストール・使用・バージョン管理す"
 "ることができます。"
 
-#: ../source/guides/packaging-namespace-packages.rst:48
+#: ../source/guides/packaging-namespace-packages.rst:50
 msgid ""
 "Namespace packages can be useful for a large collection of loosely-related "
 "packages (such as a large corpus of client libraries for multiple products "
@@ -8149,17 +8149,21 @@ msgstr ""
 "mynamespace_subpackage_a as subpackage_a`` のようにインポートすることさえでき"
 "ます) 。"
 
-#: ../source/guides/packaging-namespace-packages.rst:58
+#: ../source/guides/packaging-namespace-packages.rst:60
 msgid "Creating a namespace package"
 msgstr "名前空間パッケージを作成する"
 
-#: ../source/guides/packaging-namespace-packages.rst:60
+#: ../source/guides/packaging-namespace-packages.rst:62
+#, fuzzy
+#| msgid ""
+#| "There are currently three different approaches to creating namespace "
+#| "packages:"
 msgid ""
-"There are currently three different approaches to creating namespace "
-"packages:"
+"There are currently two different approaches to creating namespace packages, "
+"from which the latter is discouraged:"
 msgstr "現在、名前空間パッケージを作るには３個の異なる手法があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:62
+#: ../source/guides/packaging-namespace-packages.rst:65
 msgid ""
 "Use `native namespace packages`_. This type of namespace package is defined "
 "in :pep:`420` and is available in Python 3.3 and later. This is recommended "
@@ -8172,57 +8176,35 @@ msgstr ""
 "ポートすればよくて ``pip`` でインストールするのであれば、これが推奨される方法"
 "です。"
 
-#: ../source/guides/packaging-namespace-packages.rst:66
-msgid ""
-"Use `pkgutil-style namespace packages`_. This is recommended for new "
-"packages that need to support Python 2 and 3 and installation via both "
-"``pip`` and ``python setup.py install``."
-msgstr ""
-"`pkgutil 型の名前空間パッケージ <pkgutil-style namespace packages>`_ を用いる"
-"方法。 Python 2 および 3 をサポートする必要があって ``pip`` でも ``python "
-"setup.py install`` でもインストールできるようにしたいなら、これが推奨される方"
-"法です。"
-
 #: ../source/guides/packaging-namespace-packages.rst:69
 msgid ""
-"Use `pkg_resources-style namespace packages`_. This method is recommended if "
-"you need compatibility with packages already using this method or if your "
-"package needs to be zip-safe."
+"Use `legacy namespace packages`_. This comprises `pkgutil-style namespace "
+"packages`_ and `pkg_resources-style namespace packages`_."
 msgstr ""
-"`pkg_resources 型の名前空間パッケージ <pkg_resources-style namespace "
-"packages>`_ を使う方法。この手法を採用した既存のパッケージとの互換性を保つ必"
-"要がある場合か、あなたのパッケージに zip 耐性を持つ必要がある場合に推奨されま"
-"す。"
 
 #: ../source/guides/packaging-namespace-packages.rst:73
-msgid ""
-"While native namespace packages and pkgutil-style namespace packages are "
-"largely compatible, pkg_resources-style namespace packages are not "
-"compatible with the other methods. It's inadvisable to use different methods "
-"in different distributions that provide packages to the same namespace."
-msgstr ""
-"組み込みの名前空間パッケージや pkgutil 型の名前空間パッケージは多くの点で互換"
-"性がありますが、 pkg_resources 型の名前空間パッケージは他の手法とは互換性があ"
-"りません。同じ名前空間向けにパッケージを提供するような複数の配布物で、異なる"
-"手法を用いることは推奨されません。"
-
-#: ../source/guides/packaging-namespace-packages.rst:80
 msgid "Native namespace packages"
 msgstr "組み込みの名前空間パッケージ"
 
-#: ../source/guides/packaging-namespace-packages.rst:82
+#: ../source/guides/packaging-namespace-packages.rst:75
+#, fuzzy
+#| msgid ""
+#| "Python 3.3 added **implicit** namespace packages from :pep:`420`. All "
+#| "that is required to create a native namespace package is that you just "
+#| "omit :file:`__init__.py` from the namespace package directory. An example "
+#| "file structure:"
 msgid ""
 "Python 3.3 added **implicit** namespace packages from :pep:`420`. All that "
 "is required to create a native namespace package is that you just omit :file:"
 "`__init__.py` from the namespace package directory. An example file "
-"structure:"
+"structure (following :ref:`src-layout <setuptools:src-layout>`):"
 msgstr ""
 "Python 3.3 では :pep:`420` から **暗黙の** 名前空間パッケージを追加しました。"
 "組み込みの名前空間パッケージを作成するのに必要なことは、名前空間パッケージの"
 "ディレクトリから :file:`__init__.py` を取り除くことだけです。ファイル構造の例"
 "はこちら:"
 
-#: ../source/guides/packaging-namespace-packages.rst:97
+#: ../source/guides/packaging-namespace-packages.rst:92
 msgid ""
 "It is extremely important that every distribution that uses the namespace "
 "package omits the :file:`__init__.py` or uses a pkgutil-style :file:"
@@ -8234,19 +8216,32 @@ msgstr ""
 "ずれかの配布物でこれを忘れると、名前空間の論理が破綻して、他のサブパッケージ"
 "をインポートすることができなくなります。"
 
-#: ../source/guides/packaging-namespace-packages.rst:102
+#: ../source/guides/packaging-namespace-packages.rst:97
 msgid ""
-"Because ``mynamespace`` doesn't contain an :file:`__init__.py`, :func:"
-"`setuptools.find_packages` won't find the sub-package. You must use :func:"
-"`setuptools.find_namespace_packages` instead or explicitly list all packages "
-"in your :file:`setup.py`. For example:"
+"The ``src-layout`` directory structure allows automatic discovery of "
+"packages by most :term:`build backends <Build Backend>`. See :ref:`src-"
+"layout-vs-flat-layout` for more information. If however you want to manage "
+"exclusions or inclusions of packages yourself, this is possible to be "
+"configured in the top-level :file:`pyproject.toml`:"
 msgstr ""
-"``my namespace`` が :file:`__init__.py` を含まないので、 :func:`setuptools."
-"find_packages` はサブパッケージを検出しようとしません。代わりに :func:"
-"`setuptools.find_namespace_packages` を使うか、または、 :file:`setup.py` にす"
-"べてのパッケージを明示的に列挙してください。例えば:"
 
-#: ../source/guides/packaging-namespace-packages.rst:117
+#: ../source/guides/packaging-namespace-packages.rst:115
+msgid "The same can be accomplished with a :file:`setup.cfg`:"
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:127
+#, fuzzy
+#| msgid ":file:`setup.cfg`"
+msgid "Or :file:`setup.py`:"
+msgstr ":file:`setup.cfg` ファイル"
+
+#: ../source/guides/packaging-namespace-packages.rst:140
+msgid ""
+":ref:`setuptools` will search the directory structure for implicit namespace "
+"packages by default."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:143
 msgid ""
 "A complete working example of two native namespace packages can be found in "
 "the `native namespace package example project`_."
@@ -8254,7 +8249,7 @@ msgstr ""
 "ふたつの名前空間パッケージの完全な動作例は、 `組み込みの名前空間パッケージの"
 "使用例プロジェクト <native namespace package example project>`_ にあります。"
 
-#: ../source/guides/packaging-namespace-packages.rst:123
+#: ../source/guides/packaging-namespace-packages.rst:149
 msgid ""
 "Because native and pkgutil-style namespace packages are largely compatible, "
 "you can use native namespace packages in the distributions that only support "
@@ -8266,11 +8261,43 @@ msgstr ""
 "ケージを使用し、 Python 2 と Python 3 の両方をサポートしなければならない配布"
 "物では pkgutil型名前空間パッケージを使うことが可能です。"
 
-#: ../source/guides/packaging-namespace-packages.rst:129
+#: ../source/guides/packaging-namespace-packages.rst:156
+#, fuzzy
+#| msgid "Using namespace packages"
+msgid "Legacy namespace packages"
+msgstr "namespaceパッケージを用いるやり方"
+
+#: ../source/guides/packaging-namespace-packages.rst:158
+msgid ""
+"These two methods, that were used to create namespace packages prior to :pep:"
+"`420`, are now considered to be obsolete and should not be used unless you "
+"need compatibility with packages already using this method. Also, :doc:"
+"`pkg_resources <setuptools:pkg_resources>` has been deprecated."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:163
+msgid ""
+"To migrate an existing package, all packages sharing the namespace must be "
+"migrated simultaneously."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:165
+msgid ""
+"While native namespace packages and pkgutil-style namespace packages are "
+"largely compatible, pkg_resources-style namespace packages are not "
+"compatible with the other methods. It's inadvisable to use different methods "
+"in different distributions that provide packages to the same namespace."
+msgstr ""
+"組み込みの名前空間パッケージや pkgutil 型の名前空間パッケージは多くの点で互換"
+"性がありますが、 pkg_resources 型の名前空間パッケージは他の手法とは互換性があ"
+"りません。同じ名前空間向けにパッケージを提供するような複数の配布物で、異なる"
+"手法を用いることは推奨されません。"
+
+#: ../source/guides/packaging-namespace-packages.rst:172
 msgid "pkgutil-style namespace packages"
 msgstr "pkgutil 型名前空間パッケージ"
 
-#: ../source/guides/packaging-namespace-packages.rst:131
+#: ../source/guides/packaging-namespace-packages.rst:174
 msgid ""
 "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and "
 "the :py:func:`python:pkgutil.extend_path` function. This can be used to "
@@ -8284,7 +8311,7 @@ msgstr ""
 "しれません。これは、互換性のレベルが最も高くなるアプローチとして推奨されてい"
 "ます。"
 
-#: ../source/guides/packaging-namespace-packages.rst:136
+#: ../source/guides/packaging-namespace-packages.rst:179
 msgid ""
 "To create a pkgutil-style namespace package, you need to provide an :file:"
 "`__init__.py` file for the namespace package:"
@@ -8292,22 +8319,33 @@ msgstr ""
 "pkgutil 型の名前空間パッケージを作成するには、その名前空間パッケージ用に :"
 "file:`__init__.py` ファイルを準備する必要があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:148
 #: ../source/guides/packaging-namespace-packages.rst:193
+#: ../source/guides/packaging-namespace-packages.rst:240
+#, fuzzy
+#| msgid ""
+#| "The :file:`__init__.py` file for the namespace package needs to contain "
+#| "**only** the following:"
 msgid ""
-"The :file:`__init__.py` file for the namespace package needs to contain "
-"**only** the following:"
+"The :file:`__init__.py` file for the namespace package needs to contain the "
+"following:"
 msgstr ""
 "名前空間パッケージ用の :file:`__init__.py` ファイルは、次に示すもの **だけ** "
 "を含んでいる必要があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:155
 #: ../source/guides/packaging-namespace-packages.rst:200
+#: ../source/guides/packaging-namespace-packages.rst:247
+#, fuzzy
+#| msgid ""
+#| "**Every** distribution that uses the namespace package must include an "
+#| "identical :file:`__init__.py`. If any distribution does not, it will "
+#| "cause the namespace logic to fail and the other sub-packages will not be "
+#| "importable.  Any additional code in :file:`__init__.py` will be "
+#| "inaccessible."
 msgid ""
-"**Every** distribution that uses the namespace package must include an "
-"identical :file:`__init__.py`. If any distribution does not, it will cause "
-"the namespace logic to fail and the other sub-packages will not be "
-"importable.  Any additional code in :file:`__init__.py` will be inaccessible."
+"**Every** distribution that uses the namespace package must include such an :"
+"file:`__init__.py`. If any distribution does not, it will cause the "
+"namespace logic to fail and the other sub-packages will not be importable.  "
+"Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
 "名前空間パッケージを用いる **すべての** 配布物は、同一の :file:`__init__.py` "
 "を持たなければなりません。もしいずれかの配布物で異なっていれば、名前空間の論"
@@ -8315,7 +8353,7 @@ msgstr ""
 "う。 :file:`__init__.py` に他のコードを追加しても、それはアクセスできないもの"
 "となるでしょう。"
 
-#: ../source/guides/packaging-namespace-packages.rst:160
+#: ../source/guides/packaging-namespace-packages.rst:205
 msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
@@ -8323,11 +8361,11 @@ msgstr ""
 "pkgutil 型の名前空間パッケージのふたつの動作例が `pkgutil 型名前空間を例示す"
 "るプロジェクト <pkgutil namespace example project>`_ にあります。"
 
-#: ../source/guides/packaging-namespace-packages.rst:170
+#: ../source/guides/packaging-namespace-packages.rst:215
 msgid "pkg_resources-style namespace packages"
 msgstr "pkg_resources 型名前空間パッケージ"
 
-#: ../source/guides/packaging-namespace-packages.rst:172
+#: ../source/guides/packaging-namespace-packages.rst:217
 msgid ""
 ":doc:`Setuptools <setuptools:index>` provides the `pkg_resources."
 "declare_namespace`_ function and the ``namespace_packages`` argument to :"
@@ -8346,7 +8384,7 @@ msgstr ""
 "作成する時には、異なる手法が相互に互換ではないために既存パッケージを移植しよ"
 "うとすることが推奨されていないので、この手法を採用し続けることを推奨します。"
 
-#: ../source/guides/packaging-namespace-packages.rst:181
+#: ../source/guides/packaging-namespace-packages.rst:226
 msgid ""
 "To create a pkg_resources-style namespace package, you need to provide an :"
 "file:`__init__.py` file for the namespace package:"
@@ -8354,7 +8392,7 @@ msgstr ""
 "pkg_resources 型名前空間パッケージを作成するには、名前空間パッケージ用の :"
 "file:`__init__.py` を準備する必要があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:205
+#: ../source/guides/packaging-namespace-packages.rst:252
 msgid ""
 "Some older recommendations advise the following in the namespace package :"
 "file:`__init__.py`:"
@@ -8362,7 +8400,7 @@ msgstr ""
 "いくつかの古めの推奨では、次のような名前空間パッケージ用 :file:`__init__.py` "
 "を使うように言っています:"
 
-#: ../source/guides/packaging-namespace-packages.rst:215
+#: ../source/guides/packaging-namespace-packages.rst:262
 msgid ""
 "The idea behind this was that in the rare case that setuptools isn't "
 "available packages would fall-back to the pkgutil-style packages. This isn't "
@@ -8377,7 +8415,7 @@ msgstr ""
 "パッケージとしては ``install_requires`` を通じて setuptools に明示的に依存す"
 "ると示しておくべきです。"
 
-#: ../source/guides/packaging-namespace-packages.rst:222
+#: ../source/guides/packaging-namespace-packages.rst:269
 msgid ""
 "Finally, every distribution must provide the ``namespace_packages`` argument "
 "to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
@@ -8385,7 +8423,7 @@ msgstr ""
 "最後に、それぞれの配布物は :file:`setup.py` の :func:`~setuptools.setup` 向け"
 "に ``namespace_packages`` 引数を準備しておく必要があります。例えば:"
 
-#: ../source/guides/packaging-namespace-packages.rst:236
+#: ../source/guides/packaging-namespace-packages.rst:283
 msgid ""
 "A complete working example of two pkg_resources-style namespace packages can "
 "be found in the `pkg_resources namespace example project`_."
@@ -24819,6 +24857,37 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#~ msgid ""
+#~ "Use `pkgutil-style namespace packages`_. This is recommended for new "
+#~ "packages that need to support Python 2 and 3 and installation via both "
+#~ "``pip`` and ``python setup.py install``."
+#~ msgstr ""
+#~ "`pkgutil 型の名前空間パッケージ <pkgutil-style namespace packages>`_ を用"
+#~ "いる方法。 Python 2 および 3 をサポートする必要があって ``pip`` でも "
+#~ "``python setup.py install`` でもインストールできるようにしたいなら、これが"
+#~ "推奨される方法です。"
+
+#~ msgid ""
+#~ "Use `pkg_resources-style namespace packages`_. This method is recommended "
+#~ "if you need compatibility with packages already using this method or if "
+#~ "your package needs to be zip-safe."
+#~ msgstr ""
+#~ "`pkg_resources 型の名前空間パッケージ <pkg_resources-style namespace "
+#~ "packages>`_ を使う方法。この手法を採用した既存のパッケージとの互換性を保つ"
+#~ "必要がある場合か、あなたのパッケージに zip 耐性を持つ必要がある場合に推奨"
+#~ "されます。"
+
+#~ msgid ""
+#~ "Because ``mynamespace`` doesn't contain an :file:`__init__.py`, :func:"
+#~ "`setuptools.find_packages` won't find the sub-package. You must use :func:"
+#~ "`setuptools.find_namespace_packages` instead or explicitly list all "
+#~ "packages in your :file:`setup.py`. For example:"
+#~ msgstr ""
+#~ "``my namespace`` が :file:`__init__.py` を含まないので、 :func:"
+#~ "`setuptools.find_packages` はサブパッケージを検出しようとしません。代わり"
+#~ "に :func:`setuptools.find_namespace_packages` を使うか、または、 :file:"
+#~ "`setup.py` にすべてのパッケージを明示的に列挙してください。例えば:"
 
 #~ msgid ""
 #~ "`June 2022 <https://discuss.python.org/t/pep-668-marking-python-base-"
