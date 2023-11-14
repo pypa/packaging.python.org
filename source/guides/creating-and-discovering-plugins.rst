@@ -116,6 +116,8 @@ a list of packages to :func:`setup`'s ``packages`` argument instead of using
     :doc:`packaging-namespace-packages` documentation and clearly document
     which approach is preferred for plugins to your project.
 
+.. _plugin-entry-points:
+
 Using package metadata
 ======================
 
