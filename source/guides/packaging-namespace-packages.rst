@@ -85,7 +85,7 @@ structure (following :ref:`src-layout <setuptools:src-layout>`):
             mynamespace/ # namespace package
                 # No __init__.py here.
                 subpackage_a/
-                    # Sub-packages have an __init__.py.
+                    # Regular import packages have an __init__.py.
                     __init__.py
                     module.py
 
@@ -102,8 +102,7 @@ yourself, this is possible to be configured in the top-level :file:`pyproject.to
 .. code-block:: toml
 
     [build-system]
-    requires = ["setuptools", "setuptools-scm"]
-    build-backend = "setuptools.build_meta"
+    ...
 
     [tool.setuptools.packages.find]
     where = ["src/"]
@@ -188,7 +187,7 @@ To create a pkgutil-style namespace package, you need to provide an
             mynamespace/
                 __init__.py  # Namespace package __init__.py
                 subpackage_a/
-                    __init__.py  # Sub-package __init__.py
+                    __init__.py  # Regular package __init__.py
                     module.py
 
 The :file:`__init__.py` file for the namespace package needs to contain
@@ -235,7 +234,7 @@ To create a pkg_resources-style namespace package, you need to provide an
             mynamespace/
                 __init__.py  # Namespace package __init__.py
                 subpackage_a/
-                    __init__.py  # Sub-package __init__.py
+                    __init__.py  # Regular package __init__.py
                     module.py
 
 The :file:`__init__.py` file for the namespace package needs to contain
