@@ -1,6 +1,10 @@
 News
 ====
 
+.. note:: This document is not currently updated. Previously, the document
+  highlighted changes in Python packaging.
+
+
 September 2019
 --------------
 - Added a guide about publishing dists via GitHub Actions. (:pr:`647`)
