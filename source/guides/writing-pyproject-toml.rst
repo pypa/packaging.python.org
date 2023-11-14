@@ -51,8 +51,9 @@ list of dependencies needed to build the project -- this is typically just the
 build backend package, but it may also contain additional dependencies. You can
 also constrain the versions, e.g., ``requires = ["setuptools >= 61.0"]``.
 
-Usually, you'll just copy what your build backend's documentation suggests. Here
-are the values for some common build backends:
+Usually, you'll just copy what your build backend's documentation
+suggests (after :ref:`choosing your build backend <choosing-build-backend>`).
+Here are the values for some common build backends:
 
 .. tab:: Hatchling
 
