@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 17:30+0000\n"
+"POT-Creation-Date: 2023-11-14 17:48+0000\n"
 "PO-Revision-Date: 2023-11-14 15:42+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3250,11 +3250,11 @@ msgstr ""
 "ジェクト用のプラグインとしてはどちらの手法が好ましいのかを明白に文書化してお"
 "くことを強くお勧めします。"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:120
+#: ../source/guides/creating-and-discovering-plugins.rst:122
 msgid "Using package metadata"
 msgstr "パッケージのメタデータを用いるやり方"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:122
+#: ../source/guides/creating-and-discovering-plugins.rst:124
 msgid ""
 "Packages can have metadata for plugins described in the :ref:`entry-points`. "
 "By specifying them, a package announces that it contains a specific kind of "
@@ -3267,7 +3267,7 @@ msgstr ""
 "インをサポートする別のパッケージがそのプラグインを検出するのに使うことができ"
 "ます。"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:126
+#: ../source/guides/creating-and-discovering-plugins.rst:128
 msgid ""
 "For example if you have a package named ``myapp-plugin-a`` and it includes "
 "the following in its ``pyproject.toml``:"
@@ -3275,7 +3275,7 @@ msgstr ""
 "例えば、``myapp-plugin-a`` という名前のパッケージが存在して、その "
 "``pyproject.toml`` に次のものを含む場合："
 
-#: ../source/guides/creating-and-discovering-plugins.rst:134
+#: ../source/guides/creating-and-discovering-plugins.rst:136
 msgid ""
 "Then you can discover and load all of the registered entry points by using :"
 "func:`importlib.metadata.entry_points` (or the backport_ "
@@ -3285,7 +3285,7 @@ msgstr ""
 "の backport_``import lib_metadata>=3.6``)を使うことで、登録されたエントリポイ"
 "ントを全て検出することができます。"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:149
+#: ../source/guides/creating-and-discovering-plugins.rst:151
 msgid ""
 "In this example, ``discovered_plugins`` would be a collection of type :class:"
 "`importlib.metadata.EntryPoint`:"
@@ -3293,7 +3293,7 @@ msgstr ""
 "この例では、 ``discovered_plugins`` は :class:`import lib.metadata."
 "EntryPoint` 型の(オブジェクトの)集合となるでしょう。"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:158
+#: ../source/guides/creating-and-discovering-plugins.rst:160
 msgid ""
 "Now the module of your choice can be imported by executing "
 "``discovered_plugins['a'].load()``."
@@ -3301,7 +3301,7 @@ msgstr ""
 "今や、``discovered_plugins['a'].load()`` を実行することで、あなたが選んだモ"
 "ジュールをインポートすることができます。"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:161
+#: ../source/guides/creating-and-discovering-plugins.rst:163
 msgid ""
 "The ``entry_point`` specification in :file:`setup.py` is fairly flexible and "
 "has a lot of options. It's recommended to read over the entire section on :"
@@ -3311,7 +3311,7 @@ msgstr ""
 "ションがたくさんあります。 :doc:`entry_point <setuptools:userguide/"
 "entry_point>` の全部のセクションに目を通すことをお勧めします。"
 
-#: ../source/guides/creating-and-discovering-plugins.rst:165
+#: ../source/guides/creating-and-discovering-plugins.rst:167
 msgid ""
 "Since this specification is part of the :doc:`standard library <python:"
 "library/importlib.metadata>`, most packaging tools other than setuptools "
@@ -3622,9 +3622,10 @@ msgstr ""
 "す。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:165
-#: ../source/specifications/declaring-project-metadata.rst:35
-#: ../source/specifications/declaring-project-metadata.rst:57
-#: ../source/specifications/declaring-project-metadata.rst:67
+#: ../source/guides/writing-pyproject-toml.rst:49
+#: ../source/specifications/declaring-project-metadata.rst:41
+#: ../source/specifications/declaring-project-metadata.rst:63
+#: ../source/specifications/declaring-project-metadata.rst:73
 msgid "``name``"
 msgstr "``名称``"
 
@@ -3664,9 +3665,10 @@ msgstr ""
 "す::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:191
-#: ../source/specifications/declaring-project-metadata.rst:40
-#: ../source/specifications/declaring-project-metadata.rst:63
-#: ../source/specifications/declaring-project-metadata.rst:84
+#: ../source/guides/writing-pyproject-toml.rst:61
+#: ../source/specifications/declaring-project-metadata.rst:46
+#: ../source/specifications/declaring-project-metadata.rst:69
+#: ../source/specifications/declaring-project-metadata.rst:85
 msgid "``version``"
 msgstr ""
 
@@ -3712,8 +3714,9 @@ msgstr ""
 "version>` 」の「高度な話題」の節を見て下さい。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:215
-#: ../source/specifications/declaring-project-metadata.rst:50
-#: ../source/specifications/declaring-project-metadata.rst:101
+#: ../source/guides/writing-pyproject-toml.rst:192
+#: ../source/specifications/declaring-project-metadata.rst:56
+#: ../source/specifications/declaring-project-metadata.rst:98
 msgid "``description``"
 msgstr "``説明``"
 
@@ -3783,8 +3786,9 @@ msgid "Provide details about the author."
 msgstr "著者について詳しい情報を提供してください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:268
-#: ../source/specifications/declaring-project-metadata.rst:55
-#: ../source/specifications/declaring-project-metadata.rst:175
+#: ../source/guides/writing-pyproject-toml.rst:231
+#: ../source/specifications/declaring-project-metadata.rst:61
+#: ../source/specifications/declaring-project-metadata.rst:157
 msgid "``license``"
 msgstr "``ライセンス``"
 
@@ -3817,8 +3821,9 @@ msgstr ""
 "く知られたライセンスを採用することは良い考えです。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:288
-#: ../source/specifications/declaring-project-metadata.rst:48
-#: ../source/specifications/declaring-project-metadata.rst:265
+#: ../source/guides/writing-pyproject-toml.rst:264
+#: ../source/specifications/declaring-project-metadata.rst:54
+#: ../source/specifications/declaring-project-metadata.rst:224
 msgid "``classifiers``"
 msgstr "``分類詞 <classifiers>``"
 
@@ -3855,8 +3860,9 @@ msgstr ""
 "られたパッケージを PyPI は常に拒否します。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:332
-#: ../source/specifications/declaring-project-metadata.rst:54
-#: ../source/specifications/declaring-project-metadata.rst:251
+#: ../source/guides/writing-pyproject-toml.rst:252
+#: ../source/specifications/declaring-project-metadata.rst:60
+#: ../source/specifications/declaring-project-metadata.rst:214
 msgid "``keywords``"
 msgstr "``keywords``"
 
@@ -4090,7 +4096,7 @@ msgstr ""
 "ん。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:496
-#: ../source/specifications/declaring-project-metadata.rst:61
+#: ../source/specifications/declaring-project-metadata.rst:67
 msgid "``scripts``"
 msgstr ""
 
@@ -10338,6 +10344,310 @@ msgstr ""
 "(毎回 TestPyPI の) ユーザ名を入力するのが面倒なら、 :file:`$HOME/.pypirc` "
 "ファイルに TestPyPI 関連の設定をしておくことができます:"
 
+#: ../source/guides/writing-pyproject-toml.rst:5
+#, fuzzy
+#| msgid "Creating pyproject.toml"
+msgid "Writing your ``pyproject.toml``"
+msgstr "pyproject.toml を作成する"
+
+#: ../source/guides/writing-pyproject-toml.rst:7
+msgid ""
+"``pyproject.toml`` is a configuration file used by packaging tools. Most :"
+"term:`build backends <build backend>` [#poetry-special]_ allow you to "
+"specify your project's basic metadata, such as the dependencies, your name, "
+"etc., in the ``[project]`` table of your ``pyproject.toml``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:14
+msgid ""
+"You may have heard of ``setup.py`` and ``setup.cfg`` for the setuptools_ "
+"build backend. For new projects, it is recommended to use ``pyproject.toml`` "
+"for basic metadata, and keep ``setup.py`` only if some programmatic "
+"configuration is needed (especially building C extensions). However, putting "
+"basic project metadata in ``setup.py`` or ``setup.cfg`` is still valid. See :"
+"ref:`setup-py-deprecated`."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:23
+msgid "Static vs. dynamic metadata"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:25
+msgid ""
+"Most of the time, you will directly write the value of a field in "
+"``pyproject.toml``.  For example: ``requires-python = \">= 3.8\"``, or "
+"``version = \"1.0\"``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:29
+msgid ""
+"However, in some cases, it is useful to let your build backend compute the "
+"metadata for you. For example: many build backends can read the version from "
+"a ``__version__`` attribute in your code, or similar. In such cases, you "
+"should mark the field as dynamic using, e.g.,"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:40
+msgid ""
+"When a field is dynamic, it is the build backend's responsibility to fill "
+"it.  Consult your build backend's documentation to learn how it does it."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:46
+msgid "Basic information"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:51
+msgid ""
+"Put the name of your project on PyPI. This field is required and is the only "
+"field that cannot be marked as dynamic."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:63
+#, fuzzy
+#| msgid "The keywords for the project."
+msgid "Put the version of your project."
+msgstr "プロジェクトに関するキーワード。"
+
+#: ../source/guides/writing-pyproject-toml.rst:70
+msgid ""
+"Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha "
+"release) are possible; see the :ref:`specification <version-specifiers>` for "
+"full details."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:74
+msgid "This field is required, although it is often marked as dynamic using"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:84
+#, fuzzy
+#| msgid "Using requirements files"
+msgid "Dependencies and requirements"
+msgstr "requirements ファイルを使う"
+
+#: ../source/guides/writing-pyproject-toml.rst:87
+#: ../source/specifications/declaring-project-metadata.rst:275
+msgid "``dependencies``/``optional-dependencies``"
+msgstr "``dependencies``/``optional-dependencies``"
+
+#: ../source/guides/writing-pyproject-toml.rst:89
+msgid "If your project has dependencies, list them like this:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:101
+msgid ""
+"See :ref:`Dependency specifiers <dependency-specifiers>` for the full syntax "
+"you can use to constrain versions."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:104
+msgid ""
+"You may want to make some of your dependencies optional, if they are only "
+"needed for a specific feature of your package. In that case, put them in "
+"``optional-dependencies``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:117
+msgid ""
+"Each of the keys defines a \"packaging extra\". In the example above, one "
+"could use, e.g., ``pip install your-project-name[gui]`` to install your "
+"project with GUI support, adding the PyQt5 dependency."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:123
+#: ../source/specifications/declaring-project-metadata.rst:66
+#: ../source/specifications/declaring-project-metadata.rst:147
+msgid "``requires-python``"
+msgstr "``requires-python``"
+
+#: ../source/guides/writing-pyproject-toml.rst:125
+msgid ""
+"This lets you declare the minimum version of Python that you support "
+"[#requires-python-upper-bounds]_."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:136
+#, fuzzy
+#| msgid "Creating the package files"
+msgid "Creating executable scripts"
+msgstr "パッケージファイルを作成する"
+
+#: ../source/guides/writing-pyproject-toml.rst:138
+msgid ""
+"To install a command as part of your package, declare it in the ``[project."
+"scripts]`` table."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:146
+msgid ""
+"In this example, after installing your project, a ``spam-cli`` command will "
+"be available. Executing this command will do the equivalent of ``from spam "
+"import main_cli; main_cli()``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:150
+msgid ""
+"On Windows, scripts packaged this way need a terminal, so if you launch them "
+"from within a graphical application, they will make a terminal pop up. To "
+"prevent this from happening, use the ``[project.gui-scripts]`` table instead "
+"of ``[project.scripts]``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:160
+msgid ""
+"In that case, launching your script from the command line will give back "
+"control immediately, leaving the script to run in the background."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:163
+#, fuzzy
+#| msgid ""
+#| "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
+#| "``[project.entry-points]``)"
+msgid ""
+"The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
+"is only relevant on Windows."
+msgstr ""
+"TOML_ 型: table (``[project.scripts]`` ・ ``[project.gui-scripts]`` ・ "
+"``[project.entry-points]``)"
+
+#: ../source/guides/writing-pyproject-toml.rst:169
+#, fuzzy
+#| msgid "Configuring your project"
+msgid "About your project"
+msgstr "あなたのプロジェクトを設定する"
+
+#: ../source/guides/writing-pyproject-toml.rst:172
+#: ../source/specifications/declaring-project-metadata.rst:172
+msgid "``authors``/``maintainers``"
+msgstr "``authors``/``maintainers``"
+
+#: ../source/guides/writing-pyproject-toml.rst:174
+msgid ""
+"Both of these fields contain lists of people identified by a name and/or an "
+"email address."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:194
+msgid ""
+"This should be a one-line description of your project, to show as the "
+"\"headline\" of your project page on PyPI (`example <pypi-pip_>`_)."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:204
+#: ../source/specifications/declaring-project-metadata.rst:65
+#: ../source/specifications/declaring-project-metadata.rst:108
+msgid "``readme``"
+msgstr "``readme``"
+
+#: ../source/guides/writing-pyproject-toml.rst:206
+msgid ""
+"This is a longer description of your project, to display on your project "
+"page on PyPI. Typically, your project will have a ``README.md`` or ``README."
+"rst`` file and you just put its file name here."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:215
+msgid "The README's format is auto-detected from the extension:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:217
+msgid "``README.md`` → Markdown,"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:218
+msgid "``README.rst`` → reStructuredText (without Sphinx extensions)."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:220
+#, fuzzy
+#| msgid "You can see the contents of the generated file like this:"
+msgid "You can also specify the format explicitly, like this:"
+msgstr "生成されたファイルの内容はこのようになっています:"
+
+#: ../source/guides/writing-pyproject-toml.rst:233
+msgid ""
+"This can take two forms. You can put your license in a file, typically "
+"``LICENSE`` or ``LICENSE.txt``, and link that file here:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:241
+msgid "or you can write the name of the license:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:254
+msgid ""
+"This will help PyPI's search box to suggest your project when people search "
+"for these keywords."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:266
+#, fuzzy
+#| msgid ""
+#| "Provide a list of classifiers that categorize your project. For a full "
+#| "listing, see https://pypi.org/classifiers/."
+msgid ""
+"A list of PyPI classifiers that apply to your project. Check the `full list "
+"of possibilities <classifier-list_>`_."
+msgstr ""
+"あなたのプロジェクトを特徴付ける分類詞(classifier)を設定してください。"
+"https://pypi.org/classifiers に全部の一覧が出ています。"
+
+#: ../source/guides/writing-pyproject-toml.rst:278
+#: ../source/specifications/declaring-project-metadata.rst:68
+#: ../source/specifications/declaring-project-metadata.rst:234
+msgid "``urls``"
+msgstr "``urls``"
+
+#: ../source/guides/writing-pyproject-toml.rst:280
+msgid ""
+"A list of URLs associated with your project, displayed on the left sidebar "
+"of your PyPI project page."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:292
+msgid ""
+"Note that if the key contains spaces, it needs to be quoted, e.g., ``Website "
+"= \"https://example.com\"`` but ``\"Official Website\" = \"https://example."
+"com\"``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:299
+msgid "Advanced plugins"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:301
+msgid ""
+"Some packages can be extended through plugins. Examples include Pytest_ and "
+"Pygments_. To create such a plugin, you need to declare it in a subtable of "
+"``[project.entry-points]`` like this:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:310
+msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:315
+#, fuzzy
+#| msgid "For example:"
+msgid "A full example"
+msgstr "例:"
+
+#: ../source/guides/writing-pyproject-toml.rst:373
+msgid ""
+"At the time of this writing (November 2023), Poetry_ is a notable "
+"exception.  It uses its own format for this metadata, in the ``[tool."
+"poetry]`` table."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:377
+msgid ""
+"Think twice before applying an upper bound like ``requires-python = \"<= "
+"3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
+"information regarding possible problems."
+msgstr ""
+
 #: ../source/index.rst:-1
 msgid ""
 "The Python Packaging User Guide (PyPUG) is a collection of tutorials and "
@@ -15947,11 +16257,11 @@ msgid ""
 "error."
 msgstr ""
 
-#: ../source/specifications/declaring-build-dependencies.rst:54
+#: ../source/specifications/declaring-build-dependencies.rst:56
 msgid "tool table"
 msgstr ""
 
-#: ../source/specifications/declaring-build-dependencies.rst:56
+#: ../source/specifications/declaring-build-dependencies.rst:58
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
 "just build tools, can have users specify configuration data as long as they "
@@ -15959,7 +16269,7 @@ msgid ""
 "pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
 msgstr ""
 
-#: ../source/specifications/declaring-build-dependencies.rst:62
+#: ../source/specifications/declaring-build-dependencies.rst:64
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
 "make sure that different projects do not attempt to use the same sub-table "
@@ -15967,11 +16277,11 @@ msgid ""
 "if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
 msgstr ""
 
-#: ../source/specifications/declaring-build-dependencies.rst:69
+#: ../source/specifications/declaring-build-dependencies.rst:71
 msgid "JSON Schema"
 msgstr ""
 
-#: ../source/specifications/declaring-build-dependencies.rst:71
+#: ../source/specifications/declaring-build-dependencies.rst:73
 msgid ""
 "To provide a type-specific representation of the resulting data from the "
 "TOML file for illustrative purposes only, the following `JSON Schema "
@@ -15995,13 +16305,20 @@ msgstr ""
 "となる仕様として、以下のようなものを定義しています。"
 
 #: ../source/specifications/declaring-project-metadata.rst:14
+msgid ""
+"This is a **technical, formal specification**. For a gentle, user-friendly "
+"guide to ``pyproject.toml``, see :ref:`writing-pyproject-toml`."
+msgstr ""
+
+#: ../source/specifications/declaring-project-metadata.rst:20
 #: ../source/specifications/dependency-specifiers.rst:24
 #: ../source/specifications/direct-url-data-structure.rst:18
 #: ../source/specifications/direct-url.rst:15
+#: ../source/specifications/inline-script-metadata.rst:18
 msgid "Specification"
 msgstr "仕様"
 
-#: ../source/specifications/declaring-project-metadata.rst:16
+#: ../source/specifications/declaring-project-metadata.rst:22
 msgid ""
 "There are two kinds of metadata: *static* and *dynamic*. Static metadata is "
 "specified in the ``pyproject.toml`` file directly and cannot be specified or "
@@ -16017,7 +16334,7 @@ msgstr ""
 "データは ``dynamic`` キー (この仕様内で後で定義します) を経由して一覧化されて"
 "いて、ツール側が後から提供することになるでしょう。"
 
-#: ../source/specifications/declaring-project-metadata.rst:24
+#: ../source/specifications/declaring-project-metadata.rst:30
 #, fuzzy
 #| msgid ""
 #| "The keys defined in this specification MUST be in a table named "
@@ -16046,11 +16363,11 @@ msgstr ""
 "落している場合は、ビルド用のバックエンドがすべてのキーを動的に提供するであろ"
 "うということを暗黙理に意味しています。"
 
-#: ../source/specifications/declaring-project-metadata.rst:33
+#: ../source/specifications/declaring-project-metadata.rst:39
 msgid "The only keys required to be statically defined are:"
 msgstr "必ず静的に定義しなければならない必須のキーは次の通り:"
 
-#: ../source/specifications/declaring-project-metadata.rst:37
+#: ../source/specifications/declaring-project-metadata.rst:43
 msgid ""
 "The keys which are required but may be specified *either* statically or "
 "listed as dynamic are:"
@@ -16058,7 +16375,7 @@ msgstr ""
 "必須フィールドだが、静的に指定しても動的に指定しても *いずれでも構わない* "
 "キーは以下の通り:"
 
-#: ../source/specifications/declaring-project-metadata.rst:42
+#: ../source/specifications/declaring-project-metadata.rst:48
 msgid ""
 "All other keys are considered optional and may be specified statically, "
 "listed as dynamic, or left unspecified."
@@ -16066,62 +16383,47 @@ msgstr ""
 "他の全てのキーは必須ではないものと解釈され、これらは静的に指定しても動的にリ"
 "ストしても未指定のままにしていても構いません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:45
+#: ../source/specifications/declaring-project-metadata.rst:51
 msgid "The complete list of keys allowed in the ``[project]`` table are:"
 msgstr "``[project]`` テーブルで許容されるキーの完全なリストは次のとおりです:"
 
-#: ../source/specifications/declaring-project-metadata.rst:47
+#: ../source/specifications/declaring-project-metadata.rst:53
 msgid "``authors``"
 msgstr "``著者 <authors>``"
 
-#: ../source/specifications/declaring-project-metadata.rst:49
+#: ../source/specifications/declaring-project-metadata.rst:55
 msgid "``dependencies``"
 msgstr "``依存関係 <dependencies``"
 
-#: ../source/specifications/declaring-project-metadata.rst:51
-#: ../source/specifications/declaring-project-metadata.rst:386
+#: ../source/specifications/declaring-project-metadata.rst:57
+#: ../source/specifications/declaring-project-metadata.rst:305
 msgid "``dynamic``"
 msgstr "``dynamic``"
 
-#: ../source/specifications/declaring-project-metadata.rst:52
+#: ../source/specifications/declaring-project-metadata.rst:58
 msgid "``entry-points``"
 msgstr "``entry-points``"
 
-#: ../source/specifications/declaring-project-metadata.rst:53
+#: ../source/specifications/declaring-project-metadata.rst:59
 msgid "``gui-scripts``"
 msgstr "``gui スクリプト <gui-scripts>``"
 
-#: ../source/specifications/declaring-project-metadata.rst:56
+#: ../source/specifications/declaring-project-metadata.rst:62
 msgid "``maintainers``"
 msgstr "``保守者 <maintainers>``"
 
-#: ../source/specifications/declaring-project-metadata.rst:58
+#: ../source/specifications/declaring-project-metadata.rst:64
 msgid "``optional-dependencies``"
 msgstr "``optional-dependencies``"
 
-#: ../source/specifications/declaring-project-metadata.rst:59
-#: ../source/specifications/declaring-project-metadata.rst:115
-msgid "``readme``"
-msgstr "``readme``"
-
-#: ../source/specifications/declaring-project-metadata.rst:60
-#: ../source/specifications/declaring-project-metadata.rst:161
-msgid "``requires-python``"
-msgstr "``requires-python``"
-
-#: ../source/specifications/declaring-project-metadata.rst:62
-#: ../source/specifications/declaring-project-metadata.rst:281
-msgid "``urls``"
-msgstr "``urls``"
-
-#: ../source/specifications/declaring-project-metadata.rst:69
-#: ../source/specifications/declaring-project-metadata.rst:86
-#: ../source/specifications/declaring-project-metadata.rst:103
-#: ../source/specifications/declaring-project-metadata.rst:163
+#: ../source/specifications/declaring-project-metadata.rst:75
+#: ../source/specifications/declaring-project-metadata.rst:87
+#: ../source/specifications/declaring-project-metadata.rst:100
+#: ../source/specifications/declaring-project-metadata.rst:149
 msgid "TOML_ type: string"
 msgstr "TOML_ 型: 文字列"
 
-#: ../source/specifications/declaring-project-metadata.rst:70
+#: ../source/specifications/declaring-project-metadata.rst:76
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name <core-"
 "metadata-name>`"
@@ -16129,11 +16431,11 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`名前 "
 "<core-metadata-name>` フィールド"
 
-#: ../source/specifications/declaring-project-metadata.rst:73
+#: ../source/specifications/declaring-project-metadata.rst:79
 msgid "The name of the project."
 msgstr "プロジェクトの名前。"
 
-#: ../source/specifications/declaring-project-metadata.rst:75
+#: ../source/specifications/declaring-project-metadata.rst:81
 msgid ""
 "Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon as it "
 "is read for internal consistency."
@@ -16141,7 +16443,7 @@ msgstr ""
 "内部的な一貫性を保つために、ツール側では読み取ったらすぐに、この名前を :ref:`"
 "正規化 <name-normalization>` するべきです。"
 
-#: ../source/specifications/declaring-project-metadata.rst:87
+#: ../source/specifications/declaring-project-metadata.rst:88
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version "
 "<core-metadata-version>`"
@@ -16149,17 +16451,17 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` に対応する: :ref:`バージョン "
 "<core-metadata-version>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:90
+#: ../source/specifications/declaring-project-metadata.rst:91
 msgid ""
 "The version of the project, as defined in the :ref:`Version specifier "
 "specification <version-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/declaring-project-metadata.rst:93
+#: ../source/specifications/declaring-project-metadata.rst:94
 msgid "Users SHOULD prefer to specify already-normalized versions."
 msgstr "ユーザは正規化済みのバージョンを指定するようにするべきです。"
 
-#: ../source/specifications/declaring-project-metadata.rst:104
+#: ../source/specifications/declaring-project-metadata.rst:101
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary "
 "<core-metadata-summary>`"
@@ -16167,15 +16469,15 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`要約 "
 "<core-metadata-summary>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:107
+#: ../source/specifications/declaring-project-metadata.rst:104
 msgid "The summary description of the project."
 msgstr "プロジェクトを要約する記述。"
 
-#: ../source/specifications/declaring-project-metadata.rst:117
+#: ../source/specifications/declaring-project-metadata.rst:110
 msgid "TOML_ type: string or table"
 msgstr "TOML_ 型: 文字列またはテーブル"
 
-#: ../source/specifications/declaring-project-metadata.rst:118
+#: ../source/specifications/declaring-project-metadata.rst:111
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description "
 "<core-metadata-description>` and :ref:`Description-Content-Type <core-"
@@ -16185,11 +16487,11 @@ msgstr ""
 "`Description <core-metadata-description>` and :ref:`Description-Content-Type "
 "<core-metadata-description-content-type>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:122
+#: ../source/specifications/declaring-project-metadata.rst:115
 msgid "The full description of the project (i.e. the README)."
 msgstr "プロジェクトの説明全体 (すなわち README)。"
 
-#: ../source/specifications/declaring-project-metadata.rst:124
+#: ../source/specifications/declaring-project-metadata.rst:117
 msgid ""
 "The key accepts either a string or a table. If it is a string then it is a "
 "path relative to ``pyproject.toml`` to a text file containing the full "
@@ -16215,7 +16517,7 @@ msgstr ""
 "場合には、全ての認識できない拡張子についてツールはエラーを発生させなければな"
 "りません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:135
+#: ../source/specifications/declaring-project-metadata.rst:128
 msgid ""
 "The ``readme`` key may also take a table. The ``file`` key has a string "
 "value representing a path relative to ``pyproject.toml`` to a file "
@@ -16230,7 +16532,7 @@ msgstr ""
 "がこれら両方のキーを同時に指定していたらツールはエラーを発生させなければなり"
 "ません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:142
+#: ../source/specifications/declaring-project-metadata.rst:135
 msgid ""
 "A table specified in the ``readme`` key also has a ``content-type`` key "
 "which takes a string specifying the content-type of the full description. A "
@@ -16252,7 +16554,7 @@ msgstr ""
 "でなければ、ツールはサポートしていない content-type に対してエラーを発生させ"
 "なければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:164
+#: ../source/specifications/declaring-project-metadata.rst:150
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Python <core-metadata-requires-python>`"
@@ -16260,15 +16562,15 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:"
 "`Requires-Python <core-metadata-requires-python>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:167
+#: ../source/specifications/declaring-project-metadata.rst:153
 msgid "The Python version requirements of the project."
 msgstr "プロジェクトが要求する Python のバージョン。"
 
-#: ../source/specifications/declaring-project-metadata.rst:177
+#: ../source/specifications/declaring-project-metadata.rst:159
 msgid "TOML_ type: table"
 msgstr "TOML_ 型: テーブル"
 
-#: ../source/specifications/declaring-project-metadata.rst:178
+#: ../source/specifications/declaring-project-metadata.rst:160
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
 "<core-metadata-license>`"
@@ -16276,7 +16578,7 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`License <core-metadata-license>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:181
+#: ../source/specifications/declaring-project-metadata.rst:163
 msgid ""
 "The table may have one of two keys. The ``file`` key has a string value that "
 "is a file path relative to ``pyproject.toml`` to the file which contains the "
@@ -16293,15 +16595,11 @@ msgstr ""
 "他的で、従って、両方のキーが指定されているメタデータについてツールの側ではエ"
 "ラーを発生させなければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:196
-msgid "``authors``/``maintainers``"
-msgstr "``authors``/``maintainers``"
-
-#: ../source/specifications/declaring-project-metadata.rst:198
+#: ../source/specifications/declaring-project-metadata.rst:174
 msgid "TOML_ type: Array of inline tables with string keys and values"
 msgstr "TOML_ 型: 文字列のキー・バリュー組を伴ったインラインテーブルの配列"
 
-#: ../source/specifications/declaring-project-metadata.rst:199
+#: ../source/specifications/declaring-project-metadata.rst:175
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-"
 "metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:"
@@ -16313,7 +16611,7 @@ msgstr ""
 "email>` ・ :ref:`Maintainer <core-metadata-maintainer>` ・ :ref:`Maintainer-"
 "email <core-metadata-maintainer-email>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:205
+#: ../source/specifications/declaring-project-metadata.rst:181
 msgid ""
 "The people or organizations considered to be the \"authors\" of the project. "
 "The exact meaning is open to interpretation — it may list the original or "
@@ -16323,7 +16621,7 @@ msgstr ""
 "まに解釈可能です — 元々のまたは主要な作者でも構わないし、現在の保守者やパッ"
 "ケージのオーナでも構いません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:210
+#: ../source/specifications/declaring-project-metadata.rst:186
 msgid ""
 "The \"maintainers\" key is similar to \"authors\" in that its exact meaning "
 "is open to interpretation."
@@ -16331,7 +16629,7 @@ msgstr ""
 "\"maintainers\" キーは \"authors\" キーに似ていて、その正確な意味はさまざまに"
 "解釈可能です。"
 
-#: ../source/specifications/declaring-project-metadata.rst:213
+#: ../source/specifications/declaring-project-metadata.rst:189
 msgid ""
 "These keys accept an array of tables with 2 keys: ``name`` and ``email``. "
 "Both values must be strings. The ``name`` value MUST be a valid email name "
@@ -16347,14 +16645,14 @@ msgstr ""
 "ません。これらのキーは共に必須ではありませんが、少なくともいずれかのキーが"
 "テーブル内で指定されていなければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:220
+#: ../source/specifications/declaring-project-metadata.rst:196
 msgid ""
 "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
 msgstr ""
 "データを使って :ref:`コアとなるメタデータ <core-metadata>` に書き込むやり方は"
 "次の通りです:"
 
-#: ../source/specifications/declaring-project-metadata.rst:223
+#: ../source/specifications/declaring-project-metadata.rst:199
 msgid ""
 "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-"
 "author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
@@ -16363,7 +16661,7 @@ msgstr ""
 "author>` なり :ref:`Maintainer <core-metadata-maintainer>` なりに書き込みま"
 "す。"
 
-#: ../source/specifications/declaring-project-metadata.rst:226
+#: ../source/specifications/declaring-project-metadata.rst:202
 msgid ""
 "If only ``email`` is provided, the value goes in :ref:`Author-email <core-"
 "metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-"
@@ -16373,7 +16671,7 @@ msgstr ""
 "email>` なり :ref:`Maintainer-email <core-metadata-maintainer-email>` なりに"
 "書き込みます。"
 
-#: ../source/specifications/declaring-project-metadata.rst:230
+#: ../source/specifications/declaring-project-metadata.rst:206
 msgid ""
 "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-"
 "email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
@@ -16383,16 +16681,16 @@ msgstr ""
 "フォーマットで :ref:`Author-email <core-metadata-author-email>` なり :ref:"
 "`Maintainer-email <core-metadata-maintainer-email>` なりに書き込みます。"
 
-#: ../source/specifications/declaring-project-metadata.rst:234
+#: ../source/specifications/declaring-project-metadata.rst:210
 msgid "Multiple values should be separated by commas."
 msgstr "複数の値がある場合はコンマで区切るべきです。"
 
-#: ../source/specifications/declaring-project-metadata.rst:253
-#: ../source/specifications/declaring-project-metadata.rst:267
+#: ../source/specifications/declaring-project-metadata.rst:216
+#: ../source/specifications/declaring-project-metadata.rst:226
 msgid "TOML_ type: array of strings"
 msgstr "TOML_ 型: 文字列の配列"
 
-#: ../source/specifications/declaring-project-metadata.rst:254
+#: ../source/specifications/declaring-project-metadata.rst:217
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
 "<core-metadata-keywords>`"
@@ -16400,11 +16698,11 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Keywords <core-metadata-keywords`"
 
-#: ../source/specifications/declaring-project-metadata.rst:257
+#: ../source/specifications/declaring-project-metadata.rst:220
 msgid "The keywords for the project."
 msgstr "プロジェクトに関するキーワード。"
 
-#: ../source/specifications/declaring-project-metadata.rst:268
+#: ../source/specifications/declaring-project-metadata.rst:227
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier "
 "<core-metadata-classifier>`"
@@ -16412,15 +16710,15 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Classifier <core-metadata-classifier>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:271
+#: ../source/specifications/declaring-project-metadata.rst:230
 msgid "Trove classifiers which apply to the project."
 msgstr "プロジェクトに適合する Trove 分類子。"
 
-#: ../source/specifications/declaring-project-metadata.rst:283
+#: ../source/specifications/declaring-project-metadata.rst:236
 msgid "TOML_ type: table with keys and values of strings"
 msgstr "TOML_ 型: 文字列のキー・バリューを伴うテーブル"
 
-#: ../source/specifications/declaring-project-metadata.rst:284
+#: ../source/specifications/declaring-project-metadata.rst:237
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL "
 "<core-metadata-project-url>`"
@@ -16428,7 +16726,7 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Project-URL <core-metadata-project-url>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:287
+#: ../source/specifications/declaring-project-metadata.rst:240
 msgid ""
 "A table of URLs where the key is the URL label and the value is the URL "
 "itself."
@@ -16436,11 +16734,11 @@ msgstr ""
 "URL のテーブルで、 URL に付けられたラベルがキーで URL そのものが値になってい"
 "るもの。"
 
-#: ../source/specifications/declaring-project-metadata.rst:299
+#: ../source/specifications/declaring-project-metadata.rst:245
 msgid "Entry points"
 msgstr "エントリポイント"
 
-#: ../source/specifications/declaring-project-metadata.rst:301
+#: ../source/specifications/declaring-project-metadata.rst:247
 msgid ""
 "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
 "``[project.entry-points]``)"
@@ -16448,11 +16746,11 @@ msgstr ""
 "TOML_ 型: table (``[project.scripts]`` ・ ``[project.gui-scripts]`` ・ "
 "``[project.entry-points]``)"
 
-#: ../source/specifications/declaring-project-metadata.rst:303
+#: ../source/specifications/declaring-project-metadata.rst:249
 msgid ":ref:`Entry points specification <entry-points>`"
 msgstr ":ref:`Entry points specification <entry-points>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:305
+#: ../source/specifications/declaring-project-metadata.rst:251
 msgid ""
 "There are three tables related to entry points. The ``[project.scripts]`` "
 "table corresponds to the ``console_scripts`` group in the :ref:`entry points "
@@ -16464,7 +16762,7 @@ msgstr ""
 "``console_scripts`` グループに対応しています。テーブル内のキーはエントリポイ"
 "ントの名前であり、値は参照されるオブジェクトです。"
 
-#: ../source/specifications/declaring-project-metadata.rst:311
+#: ../source/specifications/declaring-project-metadata.rst:257
 msgid ""
 "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group "
 "in the :ref:`entry points specification <entry-points>`. Its format is the "
@@ -16474,7 +16772,7 @@ msgstr ""
 "points>` の中の ``gui_scripts`` グループに対応します。そのフォーマットは "
 "``[project.scripts]`` と同じです。"
 
-#: ../source/specifications/declaring-project-metadata.rst:315
+#: ../source/specifications/declaring-project-metadata.rst:261
 msgid ""
 "The ``[project.entry-points]`` table is a collection of tables. Each sub-"
 "table's name is an entry point group. The key and value semantics are the "
@@ -16487,7 +16785,7 @@ msgstr ""
 "てはならず、代わりにエントリポイントグループを１段階の深さに保つようにしなけ"
 "ればなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:321
+#: ../source/specifications/declaring-project-metadata.rst:267
 msgid ""
 "Build back-ends MUST raise an error if the metadata defines a ``[project."
 "entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` "
@@ -16499,11 +16797,7 @@ msgstr ""
 "それぞれ ``[project.scripts]`` や ``[project.gui-scripts]`` と混同してしまう"
 "といけないので、ビルド時のバックエンドがエラーを発生させなければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:340
-msgid "``dependencies``/``optional-dependencies``"
-msgstr "``dependencies``/``optional-dependencies``"
-
-#: ../source/specifications/declaring-project-metadata.rst:342
+#: ../source/specifications/declaring-project-metadata.rst:277
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
 "values of arrays of :pep:`508` strings (``optional-dependencies``)"
@@ -16511,7 +16805,7 @@ msgstr ""
 "TOML_ 型: :pep:`508` の文字列 (``dependencies``) の配列、および、 :pep:`508` "
 "の文字列 (``optional-dependencies``) の配列の値を伴ったテーブル"
 
-#: ../source/specifications/declaring-project-metadata.rst:345
+#: ../source/specifications/declaring-project-metadata.rst:280
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
@@ -16521,11 +16815,11 @@ msgstr ""
 "`Requires-Dist <core-metadata-requires-dist>` および :ref:`Provides-Extra "
 "<core-metadata-provides-extra>`"
 
-#: ../source/specifications/declaring-project-metadata.rst:349
+#: ../source/specifications/declaring-project-metadata.rst:284
 msgid "The (optional) dependencies of the project."
 msgstr "(必須ではない) プロジェクトの依存関係。"
 
-#: ../source/specifications/declaring-project-metadata.rst:351
+#: ../source/specifications/declaring-project-metadata.rst:286
 msgid ""
 "For ``dependencies``, it is a key whose value is an array of strings. Each "
 "string represents a dependency of the project and MUST be formatted as a "
@@ -16537,7 +16831,7 @@ msgstr ""
 "フォーマットされていなければなりません。それぞれの文字列は、 :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` エントリに直接にマップしています。"
 
-#: ../source/specifications/declaring-project-metadata.rst:356
+#: ../source/specifications/declaring-project-metadata.rst:291
 msgid ""
 "For ``optional-dependencies``, it is a table where each key specifies an "
 "extra and whose value is an array of strings. The strings of the arrays must "
@@ -16555,11 +16849,11 @@ msgstr ""
 "する :ref:`Requires-Dist <core-metadata-requires-dist>` のエントリになりま"
 "す。"
 
-#: ../source/specifications/declaring-project-metadata.rst:388
+#: ../source/specifications/declaring-project-metadata.rst:307
 msgid "TOML_ type: array of string"
 msgstr "TOML_ 型: 文字列の配列"
 
-#: ../source/specifications/declaring-project-metadata.rst:389
+#: ../source/specifications/declaring-project-metadata.rst:308
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
@@ -16567,7 +16861,7 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`ダイ"
 "ナミック <core-metadata-dynamic>` フィールド"
 
-#: ../source/specifications/declaring-project-metadata.rst:392
+#: ../source/specifications/declaring-project-metadata.rst:311
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -16580,7 +16874,7 @@ msgstr ""
 "されていて未指定のままであることを期待されているのかについて明確に描き出しま"
 "す。"
 
-#: ../source/specifications/declaring-project-metadata.rst:398
+#: ../source/specifications/declaring-project-metadata.rst:317
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
@@ -16588,7 +16882,7 @@ msgstr ""
 "ビルド用のバックエンドは、静的に指定されたメタデータ (つまり ``dynamic`` 内に"
 "列挙されたキーではないメタデータ) を尊重しなければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:400
+#: ../source/specifications/declaring-project-metadata.rst:319
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
@@ -16596,7 +16890,7 @@ msgstr ""
 "メタデータで ``dynamic`` 内に ``name`` が指定されている場合には、ビルド用バッ"
 "クエンドがエラーを発生させなければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:402
+#: ../source/specifications/declaring-project-metadata.rst:321
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -16611,7 +16905,7 @@ msgstr ""
 "須のフィールドが ``[project]`` テーブルの中にどんな形でも存在していないという"
 "ことは不可能であるべきです)。"
 
-#: ../source/specifications/declaring-project-metadata.rst:407
+#: ../source/specifications/declaring-project-metadata.rst:326
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
@@ -16622,7 +16916,7 @@ msgstr ""
 "タを提供するという期待が持てるのであればメタデータではそのキーを ``dynamic`` "
 "の中に挙げても構いません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:411
+#: ../source/specifications/declaring-project-metadata.rst:330
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
@@ -16630,7 +16924,7 @@ msgstr ""
 "メタデータ内で、あるキーが静的に指定されていて、かつ、 ``dynamic`` にも挙げて"
 "ある場合には、ビルド用バックエンドはエラーを発生させなければなりません。"
 
-#: ../source/specifications/declaring-project-metadata.rst:413
+#: ../source/specifications/declaring-project-metadata.rst:332
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -16642,7 +16936,7 @@ msgstr ""
 "ち、ツールがメタデータを挿入できるのは ``dynamic`` の中だけであり、かつ、ユー"
 "ザがそうするようにオプトインしていなければならないということです) 。"
 
-#: ../source/specifications/declaring-project-metadata.rst:417
+#: ../source/specifications/declaring-project-metadata.rst:336
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
@@ -16652,10 +16946,6 @@ msgstr ""
 "ンドがそこに挿入するべきデータを決定することができない時は、ビルド用バックエ"
 "ンドはエラーを発生させなければなりません (正確な値であると判断した場合はデー"
 "タを省略することが許容されます) 。"
-
-#: ../source/specifications/declaring-project-metadata.rst:428
-msgid "Example"
-msgstr "例"
 
 #: ../source/specifications/dependency-specifiers.rst:5
 msgid "Dependency specifiers"
@@ -17424,6 +17714,7 @@ msgstr ""
 #: ../source/specifications/direct-url-data-structure.rst:283
 #: ../source/specifications/direct-url.rst:66
 #: ../source/specifications/externally-managed-environments.rst:472
+#: ../source/specifications/inline-script-metadata.rst:239
 #: ../source/specifications/name-normalization.rst:42
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1256
@@ -18869,17 +19160,230 @@ msgstr ""
 msgid "Package Distribution Metadata"
 msgstr "パッケージ配布物のメタデータ"
 
-#: ../source/specifications/index.rst:27
+#: ../source/specifications/index.rst:28
 msgid "Package Installation Environment Metadata"
 msgstr "パッケージのインストール環境のメタデータ"
 
-#: ../source/specifications/index.rst:40
+#: ../source/specifications/index.rst:41
 msgid "Package Distribution File Formats"
 msgstr "パッケージ配布物のファイルフォーマット"
 
-#: ../source/specifications/index.rst:50
+#: ../source/specifications/index.rst:51
 msgid "Package Index Interfaces"
 msgstr "パッケージインデックスのインタフェース"
+
+#: ../source/specifications/inline-script-metadata.rst:3
+#, fuzzy
+#| msgid "Declaring project metadata"
+msgid "Inline script metadata"
+msgstr "プロジェクトのメタデータを宣言する"
+
+#: ../source/specifications/inline-script-metadata.rst:6
+msgid ""
+"This specification has been **provisionally accepted**. It is subject to "
+"being changed or abandoned. See the `PEP 723 conditional acceptance thread "
+"<pep723-thread_>`_ for details."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:12
+msgid ""
+"This specification defines a metadata format that can be embedded in single-"
+"file Python scripts to assist launchers, IDEs and other external tools which "
+"may need to interact with such scripts."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:20
+msgid ""
+"This specification defines a metadata comment block format (loosely inspired "
+"by `reStructuredText Directives`__)."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:25
+msgid ""
+"Any Python script may have top-level comment blocks that MUST start with the "
+"line ``# /// TYPE`` where ``TYPE`` determines how to process the content. "
+"That is: a single ``#``, followed by a single space, followed by three "
+"forward slashes, followed by a single space, followed by the type of "
+"metadata. Block MUST end with the line ``# ///``. That is: a single ``#``, "
+"followed by a single space, followed by three forward slashes. The ``TYPE`` "
+"MUST only consist of ASCII letters, numbers and hyphens."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:33
+msgid ""
+"Every line between these two lines (``# /// TYPE`` and ``# ///``) MUST be a "
+"comment starting with ``#``. If there are characters after the ``#`` then "
+"the first character MUST be a space. The embedded content is formed by "
+"taking away the first two characters of each line if the second character is "
+"a space, otherwise just the first character (which means the line consists "
+"of only a single ``#``)."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:40
+msgid ""
+"Precedence for an ending line ``# ///`` is given when the next line is not a "
+"valid embedded content line as described above. For example, the following "
+"is a single fully valid block:"
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:56
+msgid ""
+"A starting line MUST NOT be placed between another starting line and its "
+"ending line. In such cases tools MAY produce an error. Unclosed blocks MUST "
+"be ignored."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:59
+msgid ""
+"When there are multiple comment blocks of the same ``TYPE`` defined, tools "
+"MUST produce an error."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:62
+msgid ""
+"Tools reading embedded metadata MAY respect the standard Python encoding "
+"declaration. If they choose not to do so, they MUST process the file as "
+"UTF-8."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:65
+msgid ""
+"This is the canonical regular expression that MAY be used to parse the "
+"metadata:"
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:72
+msgid ""
+"In circumstances where there is a discrepancy between the text specification "
+"and the regular expression, the text specification takes precedence."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:75
+msgid ""
+"Tools MUST NOT read from metadata blocks with types that have not been "
+"standardized by this PEP or future ones."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:79
+#, fuzzy
+#| msgid "pyproject.toml"
+msgid "pyproject type"
+msgstr "pyproject.toml"
+
+#: ../source/specifications/inline-script-metadata.rst:81
+msgid ""
+"The first type of metadata block is named ``pyproject`` which represents "
+"content similar to what one would see in a ``pyproject.toml`` file."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:84
+msgid "This document MAY include the ``[run]`` and ``[tool]`` tables."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:86
+msgid ""
+"The :ref:`tool table <pyproject-tool-table>` MAY be used by any tool, script "
+"runner or otherwise, to configure behavior."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:89
+msgid "The ``[run]`` table MAY include the following optional fields:"
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:91
+msgid ""
+"``dependencies``: A list of strings that specifies the runtime dependencies "
+"of the script. Each entry MUST be a valid :ref:`dependency specifier "
+"<dependency-specifiers>`."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:94
+msgid ""
+"``requires-python``: A string that specifies the Python version(s) with "
+"which the script is compatible. The value of this field MUST be a valid :ref:"
+"`version specifier <version-specifiers>`."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:98
+msgid ""
+"Any future specifications that define additional fields for the ``[run]`` "
+"table when used in a ``pyproject.toml`` file MUST include the aforementioned "
+"fields exactly as specified. The fields defined by this specification are "
+"equally as applicable to full-fledged projects as they are to single-file "
+"scripts."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:103
+msgid ""
+"Script runners MUST error if the specified ``dependencies`` cannot be "
+"provided. Script runners SHOULD error if no version of Python that satisfies "
+"the specified ``requires-python`` can be provided."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:108
+msgid "Example"
+msgstr "例"
+
+#: ../source/specifications/inline-script-metadata.rst:110
+msgid ""
+"The following is an example of a script with an embedded ``pyproject.toml``:"
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:130
+msgid ""
+"The following is an example of a proposed syntax for single-file Rust "
+"projects that embeds their equivalent of ``pyproject.toml``, which is called "
+"``Cargo.toml``:"
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:149
+#, fuzzy
+#| msgid "Documentation types"
+msgid "Reference Implementation"
+msgstr "文書の類型"
+
+#: ../source/specifications/inline-script-metadata.rst:151
+msgid ""
+"The following is an example of how to read the metadata on Python 3.11 or "
+"higher."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:177
+msgid ""
+"Often tools will edit dependencies like package managers or dependency "
+"update automation in CI. The following is a crude example of modifying the "
+"content using the ``tomlkit`` library__."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:208
+msgid ""
+"Note that this example used a library that preserves TOML formatting. This "
+"is not a requirement for editing by any means but rather is a \"nice to "
+"have\" feature."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:212
+msgid ""
+"The following is an example of how to read a stream of arbitrary metadata "
+"blocks."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:231
+#, fuzzy
+#| msgid "Tool recommendations"
+msgid "Recommendations"
+msgstr "オススメのツール"
+
+#: ../source/specifications/inline-script-metadata.rst:233
+msgid ""
+"Tools that support managing different versions of Python should attempt to "
+"use the highest available version of Python that is compatible with the "
+"script's ``requires-python`` metadata, if defined."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:241
+msgid "This specification was originally defined as :pep:`723`."
+msgstr ""
 
 #: ../source/specifications/name-normalization.rst:5
 msgid "Package name normalization"
@@ -24579,9 +25083,6 @@ msgstr ""
 #~ "applications>` や :doc:`pip 対 easy-install <discussions/pip-vs-easy-"
 #~ "install>` のような詳細に渡る議論を参照するには :doc:`議論 <discussions/"
 #~ "index>` の節を見てください。"
-
-#~ msgid "Creating pyproject.toml"
-#~ msgstr "pyproject.toml を作成する"
 
 #~ msgid ""
 #~ "``requires`` is a list of packages that are needed to build your package. "
