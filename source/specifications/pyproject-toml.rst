@@ -4,17 +4,14 @@
 ``pyproject.toml`` specification
 ================================
 
-:pep:`621` specifies how to write a project's
-:ref:`core metadata <core-metadata>` in a ``pyproject.toml`` file for
-packaging-related tools to consume. It defines the following
-specification as the canonical source for the format used.
-
 .. warning::
 
    This is a **technical, formal specification**. For a gentle,
    user-friendly guide to ``pyproject.toml``, see
    :ref:`writing-pyproject-toml`.
 
+The ``pyproject.toml`` file acts as a configuration file for packaging-related
+tools (as well as other tools).
 
 .. _declaring-build-dependencies:
 
@@ -441,6 +438,14 @@ provided via tooling later on.
   key in ``dynamic`` but the build back-end was unable to determine
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
+
+
+
+History
+=======
+
+This specification was originally defined in :pep:`518` (``[build-system]``
+and ``[tool]`` tables) and :pep:`621` (``[project]`` table).
 
 
 
