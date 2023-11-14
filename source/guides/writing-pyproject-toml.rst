@@ -4,27 +4,98 @@
 Writing your ``pyproject.toml``
 ===============================
 
-``pyproject.toml`` is a configuration file used by packaging tools. Most
-:term:`build backends <build backend>` [#poetry-special]_ allow you to specify
-your project's basic metadata, such as the dependencies, your name, etc.,
-in the ``[project]`` table of your ``pyproject.toml``.
+``pyproject.toml`` is a configuration file used by packaging tools, as
+well as other tools such as linters, type checkers, etc. There are
+three possible TOML tables in this file.
+
+- The ``[build-system]`` table is **strongly recommended**. It allows
+  you to declare which :term:`build backend` you use and which other
+  dependencies are needed to build your project.
+
+- The ``[project]`` table is the format that most build backends use to specify
+  your project's basic metadata, such as the dependencies, your name, etc.
+
+- The ``[tool]`` table has arbitrary subtables corresponding to tools, whether
+  packaging-related or not, e.g., ``[tool.hatch]``, ``[tool.black]``,
+  ``[tool.mypy]``. We only touch upon this table here because its contents are
+  entirely tool-specific. Consult each tool's documentation to know what it can
+  contain.
 
 .. note::
 
-   You may have heard of ``setup.py`` and ``setup.cfg`` for the setuptools_
-   build backend. For new projects, it is recommended to use ``pyproject.toml``
-   for basic metadata, and keep ``setup.py`` only if some programmatic configuration
-   is needed (especially building C extensions). However, putting basic project
-   metadata in ``setup.py`` or ``setup.cfg`` is still valid. See
+   There is a significant difference between the ``[build-system]`` and
+   ``[project]`` tables. The former should always be present, regardless of
+   which build backend you use (since it *defines* the tool you use). The latter
+   is understood by *most* build backends, but some build backends use a
+   different format.
+
+   At the time of this writing (November 2023), Poetry_ is a notable build
+   backend that does not use the ``[project]`` table (it uses the
+   ``[tool.poetry]`` table instead).
+
+   Also, the setuptools_ build backend supports both the ``[project]`` table,
+   and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it
+   is recommended to use the ``[project]`` table, and keep ``setup.py`` only if
+   some programmatic configuration is needed (especially building C extensions),
+   but the ``setup.cfg`` and ``setup.py`` formats are still valid. See
    :ref:`setup-py-deprecated`.
+
+
+
+Declaring the build backend
+===========================
+
+The ``[build-system]`` table contains a ``build-backend`` key, which specifies
+the build backend to be used. It also contains a ``requires`` key, which is a
+list of dependencies needed to build the project -- this is typically just the
+build backend package, but it may also contain additional dependencies. You can
+also constrain the versions, e.g., ``requires = ["setuptools >= 61.0"]``.
+
+Usually, you'll just copy what your build backend's documentation suggests. Here
+are the values for some common build backends:
+
+.. tab:: Hatchling
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["hatchling"]
+        build-backend = "hatchling.build"
+
+.. tab:: setuptools
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["setuptools>=61.0"]
+        build-backend = "setuptools.build_meta"
+
+.. tab:: Flit
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["flit_core>=3.4"]
+        build-backend = "flit_core.buildapi"
+
+.. tab:: PDM
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["pdm-backend"]
+        build-backend = "pdm.backend"
+
+
+The rest of this guide is devoted to the ``[project]`` table.
 
 
 Static vs. dynamic metadata
 ===========================
 
-Most of the time, you will directly write the value of a field in
-``pyproject.toml``.  For example: ``requires-python = ">= 3.8"``, or
-``version = "1.0"``.
+Most of the time, you will directly write the value of a ``[project]``
+field. For example: ``requires-python = ">= 3.8"``, or ``version =
+"1.0"``.
 
 However, in some cases, it is useful to let your build backend compute
 the metadata for you. For example: many build backends can read the
@@ -316,6 +387,10 @@ A full example
 
 .. code-block:: toml
 
+   [build-system]
+   requires = ["hatchling"]
+   build-backend = "hatchling.build"
+
    [project]
    name = "spam-eggs"
    version = "2020.0.0"
@@ -369,10 +444,6 @@ A full example
 
 
 ------------------
-
-.. [#poetry-special] At the time of this writing (November 2023), Poetry_
-   is a notable exception.  It uses its own format for this metadata, in
-   the ``[tool.poetry]`` table.
 
 .. [#requires-python-upper-bounds] Think twice before applying an upper bound
    like ``requires-python = "<= 3.10"`` here. `This blog post <requires-python-blog-post_>`_
