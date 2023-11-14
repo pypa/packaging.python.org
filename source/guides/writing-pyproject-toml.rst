@@ -67,7 +67,7 @@ are the values for some common build backends:
     .. code-block:: toml
 
         [build-system]
-        requires = ["setuptools>=61.0"]
+        requires = ["setuptools >= 61.0"]
         build-backend = "setuptools.build_meta"
 
 .. tab:: Flit
@@ -75,7 +75,7 @@ are the values for some common build backends:
     .. code-block:: toml
 
         [build-system]
-        requires = ["flit_core>=3.4"]
+        requires = ["flit_core >= 3.4"]
         build-backend = "flit_core.buildapi"
 
 .. tab:: PDM
