@@ -28,8 +28,8 @@ Most of the time, you will directly write the value of a field in
 
 However, in some cases, it is useful to let your build backend compute
 the metadata for you. For example: many build backends can read the
-version from a ``__version__`` attribute in your code, or similar.
-In such cases, you should mark the field as dynamic using, e.g.,
+version from a ``__version__`` attribute in your code, a Git tag, or
+similar. In such cases, you should mark the field as dynamic using, e.g.,
 
 .. code-block:: toml
 
