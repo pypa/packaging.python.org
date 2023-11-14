@@ -13,11 +13,11 @@
 The ``pyproject.toml`` file acts as a configuration file for packaging-related
 tools (as well as other tools).
 
-.. _declaring-build-dependencies:
 
-===================================
-Declaring build system dependencies
-===================================
+.. _pyproject-build-system-table:
+
+Declaring build system dependencies: the ``[build-system]`` table
+=================================================================
 
 The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_.
 Among other metadata (such as :ref:`project metadata <declaring-project-metadata>`),
@@ -27,9 +27,6 @@ run the project's build system successfully.
 .. TODO: move this sentence elsewhere
 
 Tables not defined by PyPA specifications are reserved for future use.
-
-build-system table
-------------------
 
 .. TODO: merge with PEP 517
 
@@ -60,28 +57,6 @@ table then the default values as specified above should be used.
 If the table is specified but is missing required fields then the tool
 should consider it an error.
 
-
-.. TODO: move elsewhere
-
-.. _pyproject-tool-table:
-
-tool table
-----------
-
-The ``[tool]`` table is where any tool related to your Python
-project, not just build tools, can have users specify configuration
-data as long as they use a sub-table within ``[tool]``, e.g. the
-`flit <https://pypi.python.org/pypi/flit>`_ tool would store its
-configuration in ``[tool.flit]``.
-
-A mechanism is needed to allocate names within the ``tool.*``
-namespace, to make sure that different projects do not attempt to use
-the same sub-table and collide. Our rule is that a project can use
-the subtable ``tool.$NAME`` if, and only if, they own the entry for
-``$NAME`` in the Cheeseshop/PyPI.
-
-JSON Schema
------------
 
 To provide a type-specific representation of the resulting data from
 the TOML file for illustrative purposes only, the following
@@ -117,8 +92,11 @@ the TOML file for illustrative purposes only, the following
        }
    }
 
-Specification
-=============
+
+.. _pyproject-project-table:
+
+Declaring project metadata: the ``[project]`` table
+===================================================
 
 There are two kinds of metadata: *static* and *dynamic*. Static
 metadata is specified in the ``pyproject.toml`` file directly and
@@ -438,6 +416,25 @@ provided via tooling later on.
   key in ``dynamic`` but the build back-end was unable to determine
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
+
+
+
+.. _pyproject-tool-table:
+
+Arbitrary tool configuration: the ``[tool]`` table
+==================================================
+
+The ``[tool]`` table is where any tool related to your Python
+project, not just build tools, can have users specify configuration
+data as long as they use a sub-table within ``[tool]``, e.g. the
+`flit <https://pypi.python.org/pypi/flit>`_ tool would store its
+configuration in ``[tool.flit]``.
+
+A mechanism is needed to allocate names within the ``tool.*``
+namespace, to make sure that different projects do not attempt to use
+the same sub-table and collide. Our rule is that a project can use
+the subtable ``tool.$NAME`` if, and only if, they own the entry for
+``$NAME`` in the Cheeseshop/PyPI.
 
 
 
