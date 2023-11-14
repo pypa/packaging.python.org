@@ -19,9 +19,9 @@ Package Distribution Metadata
    core-metadata
    version-specifiers
    dependency-specifiers
-   declaring-project-metadata
    inline-script-metadata
    platform-compatibility-tags
+   pyproject-toml
 
 Package Installation Environment Metadata
 -----------------------------------------

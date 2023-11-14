@@ -1,8 +1,8 @@
-.. _declaring-project-metadata:
+.. _pyproject-toml-spec:
 
-==========================
-Declaring project metadata
-==========================
+================================
+``pyproject.toml`` specification
+================================
 
 :pep:`621` specifies how to write a project's
 :ref:`core metadata <core-metadata>` in a ``pyproject.toml`` file for
