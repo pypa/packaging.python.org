@@ -21,6 +21,7 @@ Package Distribution Metadata
    dependency-specifiers
    declaring-build-dependencies
    declaring-project-metadata
+   inline-script-metadata
    platform-compatibility-tags
 
 Package Installation Environment Metadata

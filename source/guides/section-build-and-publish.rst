@@ -5,6 +5,7 @@ Building and Publishing
 .. toctree::
    :titlesonly:
 
+   writing-pyproject-toml
    distributing-packages-using-setuptools
    using-manifest-in
    single-sourcing-package-version
