@@ -298,6 +298,9 @@ matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
 
+
+.. _declaring-project-metadata-dynamic:
+
 ``dynamic``
 -----------
 
