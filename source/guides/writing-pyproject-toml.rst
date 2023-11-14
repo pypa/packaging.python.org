@@ -54,7 +54,7 @@ only field that cannot be marked as dynamic.
 .. code-block:: toml
 
    [project]
-   name = "spam"
+   name = "spam-eggs"
 
 
 ``version``
@@ -317,7 +317,7 @@ A full example
 .. code-block:: toml
 
    [project]
-   name = "spam"
+   name = "spam-eggs"
    version = "2020.0.0"
    dependencies = [
      "httpx",
