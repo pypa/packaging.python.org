@@ -15,11 +15,10 @@ three possible TOML tables in this file.
 - The ``[project]`` table is the format that most build backends use to specify
   your project's basic metadata, such as the dependencies, your name, etc.
 
-- The ``[tool]`` table has arbitrary subtables corresponding to tools, whether
-  packaging-related or not, e.g., ``[tool.hatch]``, ``[tool.black]``,
-  ``[tool.mypy]``. We only touch upon this table here because its contents are
-  entirely tool-specific. Consult each tool's documentation to know what it can
-  contain.
+- The ``[tool]`` table has tool-specific subtables, e.g., ``[tool.hatch]``,
+  ``[tool.black]``, ``[tool.mypy]``. We only touch upon this table here because
+  its contents are defined by each tool. Consult the particular tool's
+  documentation to know what it can contain.
 
 .. note::
 
@@ -36,7 +35,7 @@ three possible TOML tables in this file.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
    and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it
    is recommended to use the ``[project]`` table, and keep ``setup.py`` only if
-   some programmatic configuration is needed (especially building C extensions),
+   some programmatic configuration is needed (such as building C extensions),
    but the ``setup.cfg`` and ``setup.py`` formats are still valid. See
    :ref:`setup-py-deprecated`.
 
@@ -88,11 +87,11 @@ Here are the values for some common build backends:
         build-backend = "pdm.backend"
 
 
-The rest of this guide is devoted to the ``[project]`` table.
-
 
 Static vs. dynamic metadata
 ===========================
+
+The rest of this guide is devoted to the ``[project]`` table.
 
 Most of the time, you will directly write the value of a ``[project]``
 field. For example: ``requires-python = ">= 3.8"``, or ``version =
