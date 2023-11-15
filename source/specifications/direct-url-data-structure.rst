@@ -186,7 +186,7 @@ Bazaar
 
 Home page
 
-   https://www.breezy-vcs.org/
+   https://launchpad.net/bzr
 
 vcs command
 
