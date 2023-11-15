@@ -13,6 +13,8 @@
 The ``pyproject.toml`` file acts as a configuration file for packaging-related
 tools (as well as other tools).
 
+.. note:: This specification was originally defined in :pep:`518` and :pep:`621`.
+
 The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
 tables are currently specified, namely
 :ref:`[build-system] <pyproject-build-system-table>`,
