@@ -12,9 +12,6 @@ service to provide Windows support for your project. This includes testing
 the code on Windows, and building Windows-targeted binaries for projects
 that use C extensions.
 
-.. contents:: Contents
-   :local:
-
 
 Background
 ==========
@@ -25,7 +22,7 @@ non-trivial, and may require buying software licenses.
 
 The Appveyor service is a continuous integration service, much like the
 better-known `Travis`_ service that is commonly used for testing by projects
-hosted on `Github`_. However, unlike Travis, the build workers on Appveyor are
+hosted on `GitHub`_. However, unlike Travis, the build workers on Appveyor are
 Windows hosts and have the necessary compilers installed to build Python
 extensions.
 
@@ -44,7 +41,7 @@ have an account on the service. Instructions on setting up an account are given
 in `the Appveyor documentation <https://www.appveyor.com/docs/>`__. The free tier
 of account is perfectly adequate for open source projects.
 
-Appveyor provides integration with `Github`_ and `Bitbucket`_, so as long as
+Appveyor provides integration with `GitHub`_ and `Bitbucket`_, so as long as
 your project is hosted on one of those two services, setting up Appveyor
 integration is straightforward.
 
@@ -241,5 +238,5 @@ For reference, the SDK setup support script is listed here:
 
 .. _Appveyor: https://www.appveyor.com/
 .. _Travis: https://travis-ci.org/
-.. _Github: https://github.com
+.. _GitHub: https://github.com
 .. _Bitbucket: https://bitbucket.org/

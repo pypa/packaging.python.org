@@ -16,8 +16,8 @@ acceptable, so the language permits describing all these cases.
 The language defined is a compact line based format which is already in
 widespread use in pip requirements files, though we do not specify the command
 line option handling that those files permit. There is one caveat - the
-URL reference form, specified in :pep:`440` is not actually
-implemented in pip, but since :pep:`440` is accepted, we use that format rather
+URL reference form, specified in :ref:`Versioning specifier specification <version-specifiers>`
+is not actually implemented in pip, but we use that format rather
 than pip's current native format.
 
 Specification
@@ -57,7 +57,8 @@ as comments, multiple line support via continuations, or other such features.
 The full grammar including annotations to build a useful parse tree is
 included at the end of this document.
 
-Versions may be specified according to the :pep:`440` rules. (Note:
+Versions may be specified according to the rules of the
+:ref:`Version specifier specification <version-specifiers>`. (Note:
 URI is defined in :rfc:`std-66 <3986>`)::
 
     version_cmp   = wsp* '<' | '<=' | '!=' | '==' | '>=' | '>' | '~=' | '==='
@@ -159,12 +160,13 @@ If multiple extras are listed, all the dependencies are unioned together.
 Versions
 --------
 
-See :pep:`440` for more detail on both version numbers and version
-comparisons. Version specifications limit the versions of a distribution that
-can be used. They only apply to distributions looked up by name, rather than
+See the :ref:`Version specifier specification <version-specifiers>` for
+more detail on both version numbers and version comparisons. Version
+specifications limit the versions of a distribution that can be
+used. They only apply to distributions looked up by name, rather than
 via a URL. Version comparison are also used in the markers feature. The
-optional brackets around a version are present for compatibility with :pep:`345`
-but should not be generated, only accepted.
+optional brackets around a version are present for compatibility with
+:pep:`345` but should not be generated, only accepted.
 
 Environment Markers
 -------------------
@@ -186,10 +188,11 @@ fixes some issues that were observed in the design described in :pep:`426`.
 
 Comparisons in marker expressions are typed by the comparison operator.  The
 <marker_op> operators that are not in <version_cmp> perform the same as they
-do for strings in Python. The <version_cmp> operators use the :pep:`440`
-version comparison rules when those are defined (that is when both
-sides have a valid version specifier). If there is no defined :pep:`440`
-behaviour and the operator exists in Python, then the operator falls back to
+do for strings in Python. The <version_cmp> operators use the version comparison
+rules of the :ref:`Version specifier specification <version-specifiers>`
+when those are defined (that is when both sides have a valid
+version specifier). If there is no defined behaviour of this specification
+and the operator exists in Python, then the operator falls back to
 the Python behaviour. Otherwise an error should be raised. e.g. the following
 will result in  errors::
 
@@ -488,4 +491,3 @@ References
 .. [#future_versions] Future Python versions might be problematic with the
    definition of Environment Marker Variable ``python_version``
    (https://github.com/python/peps/issues/560)
-

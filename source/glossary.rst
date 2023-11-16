@@ -12,6 +12,36 @@ Glossary
         extensions.
 
 
+    Build Backend
+
+        A library that takes a source tree or
+        :term:`source distribution <Source Distribution (or "sdist")>`
+        and builds a source distribution or :term:`wheel <Wheel>` from it.
+        The build is delegated to the backend by a
+        :term:`frontend <Build Frontend>`.
+        All backends offer a standardized interface.
+
+        Examples of build backends are
+        :ref:`flit's flit-core <flit>`,
+        :ref:`hatch's hatchling <hatch>`,
+        :ref:`maturin`,
+        :ref:`meson-python`,
+        :ref:`scikit-build-core`,
+        and :ref:`setuptools`.
+
+
+    Build Frontend
+
+        A tool that users might run
+        that takes arbitrary source trees or
+        :term:`source distributions <Source Distribution (or "sdist")>`
+        and builds source distributions or :term:`wheels <Wheel>` from them.
+        The actual building is delegated to each source tree's
+        :term:`build backend <Build Backend>`.
+
+        Examples of build frontends are :ref:`pip` and :ref:`build`.
+
+
     Built Distribution
 
         A :term:`Distribution <Distribution Package>` format containing files
@@ -222,11 +252,10 @@ Glossary
     Version Specifier
 
        The version component of a :term:`Requirement Specifier`. For example,
-       the ">=1.3" portion of "foo>=1.3".  :pep:`440` contains
-       a :pep:`full specification
-       <440#version-specifiers>` of the
-       specifiers that Python packaging currently supports.  Support for PEP440
-       was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
+       the ">=1.3" portion of "foo>=1.3".  Read the :ref:`Version specifier specification
+       <version-specifiers>` for a full description of the
+       specifiers that Python packaging currently supports.  Support for this
+       specification was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
 
     Virtual Environment
 

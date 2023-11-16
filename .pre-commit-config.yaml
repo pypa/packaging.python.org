@@ -1,5 +1,39 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.4.0
+  rev: v4.5.0
   hooks:
+  - id: check-added-large-files
+  - id: check-case-conflict
+  - id: check-merge-conflict
+  - id: check-symlinks
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: mixed-line-ending
   - id: trailing-whitespace
+
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.2.6
+  hooks:
+  - id: codespell
+    args: ["-L", "ned,ist,oder"]
+
+- repo: local
+  hooks:
+  - id: disallow-caps
+    name: Disallow improper capitalization
+    language: pygrep
+    entry: PyBind|Numpy|Cmake|CCache|Github|PyTest
+    exclude: .pre-commit-config.yaml
+
+- repo: https://github.com/pre-commit/pygrep-hooks
+  rev: v1.10.0
+  hooks:
+  - id: rst-backticks
+  - id: rst-directive-colons
+  - id: rst-inline-touching-normal
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.1.5
+  hooks:
+    - id: ruff
+    - id: ruff-format

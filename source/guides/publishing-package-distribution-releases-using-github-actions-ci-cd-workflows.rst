@@ -163,8 +163,13 @@ Signing the distribution packages
 The following job signs the distribution packages with `Sigstore`_,
 the same artifact signing system `used to sign CPython <https://www.python.org/download/sigstore/>`_.
 
-It uses the `sigstore/gh-action-sigstore-python GitHub Action`_,
-and then uploads them to a GitHub Release.
+Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_
+to sign the distribution packages. In the next step, an empty GitHub Release
+from the current tag is created using the ``gh`` CLI. Note this step can be further
+customised. See the `gh release documentation <https://cli.github.com/manual/gh_release>`_
+as a reference.
+
+Finally, the signed distributions are uploaded to the GitHub Release.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
    :language: yaml

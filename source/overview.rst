@@ -1,6 +1,6 @@
-===================================
-An Overview of Packaging for Python
-===================================
+============================
+Overview of Python Packaging
+============================
 
 .. Editors, see notes at the bottom of the document for maintenance info.
 
@@ -18,9 +18,6 @@ avoiding future headaches.
 This overview provides a general-purpose decision tree for reasoning
 about Python's plethora of packaging options. Read on to choose the best
 technology for your next project.
-
-.. contents:: Contents
-   :local:
 
 Thinking about deployment
 -------------------------
@@ -167,7 +164,7 @@ Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
 library packaging, using technologies like
-:doc:`setuptools entry_points <userguide/entry_point>`.
+:doc:`setuptools entry_points <setuptools:userguide/entry_point>`.
 
 Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies

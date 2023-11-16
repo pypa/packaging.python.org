@@ -3,6 +3,8 @@ name: Test
 on:
   merge_group:
   push:
+    branches-ignore:
+    - gh-readonly-queue/**  # Temporary merge queue-related GH-made branches
   pull_request:
   schedule:
     - cron: "0 6 * * *" # daily at 6am

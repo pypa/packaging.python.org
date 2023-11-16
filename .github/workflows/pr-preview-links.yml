@@ -1,0 +1,22 @@
+name: Read the Docs PR preview
+
+on:
+  pull_request_target:
+    types:
+      - opened
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  documentation-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: readthedocs/actions/preview@v1
+        with:
+          project-slug: "python-packaging-user-guide"
