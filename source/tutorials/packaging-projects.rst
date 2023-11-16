@@ -103,6 +103,8 @@ Creating a test directory
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
 
 
+.. _choosing-build-backend:
+
 Choosing a build backend
 ------------------------
 
