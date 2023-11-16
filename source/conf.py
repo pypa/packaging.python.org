@@ -104,6 +104,9 @@ linkcheck_ignore = [
     "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
+    # Temporarily ignored. Ref:
+    # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
+    "https://www.breezy-vcs.org/*",
 ]
 
 # -- Options for extlinks ----------------------------------------------------------
