@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-14 17:51+0000\n"
+"POT-Creation-Date: 2023-11-16 16:25+0000\n"
 "PO-Revision-Date: 2022-06-11 08:19+0000\n"
 "Last-Translator: Kushan Gunasekera <kushan.gunasekera@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -2800,7 +2800,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:165
-#: ../source/guides/writing-pyproject-toml.rst:49
+#: ../source/guides/writing-pyproject-toml.rst:120
 #: ../source/specifications/declaring-project-metadata.rst:41
 #: ../source/specifications/declaring-project-metadata.rst:63
 #: ../source/specifications/declaring-project-metadata.rst:73
@@ -2833,7 +2833,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:191
-#: ../source/guides/writing-pyproject-toml.rst:61
+#: ../source/guides/writing-pyproject-toml.rst:132
 #: ../source/specifications/declaring-project-metadata.rst:46
 #: ../source/specifications/declaring-project-metadata.rst:69
 #: ../source/specifications/declaring-project-metadata.rst:85
@@ -2868,7 +2868,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:215
-#: ../source/guides/writing-pyproject-toml.rst:192
+#: ../source/guides/writing-pyproject-toml.rst:263
 #: ../source/specifications/declaring-project-metadata.rst:56
 #: ../source/specifications/declaring-project-metadata.rst:98
 msgid "``description``"
@@ -2924,7 +2924,7 @@ msgid "Provide details about the author."
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:268
-#: ../source/guides/writing-pyproject-toml.rst:231
+#: ../source/guides/writing-pyproject-toml.rst:302
 #: ../source/specifications/declaring-project-metadata.rst:61
 #: ../source/specifications/declaring-project-metadata.rst:157
 msgid "``license``"
@@ -2949,7 +2949,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:288
-#: ../source/guides/writing-pyproject-toml.rst:264
+#: ../source/guides/writing-pyproject-toml.rst:335
 #: ../source/specifications/declaring-project-metadata.rst:54
 #: ../source/specifications/declaring-project-metadata.rst:224
 msgid "``classifiers``"
@@ -2978,7 +2978,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:332
-#: ../source/guides/writing-pyproject-toml.rst:252
+#: ../source/guides/writing-pyproject-toml.rst:323
 #: ../source/specifications/declaring-project-metadata.rst:60
 #: ../source/specifications/declaring-project-metadata.rst:214
 msgid "``keywords``"
@@ -7705,34 +7705,96 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:7
 msgid ""
-"``pyproject.toml`` is a configuration file used by packaging tools. Most :"
-"term:`build backends <build backend>` [#poetry-special]_ allow you to "
-"specify your project's basic metadata, such as the dependencies, your name, "
-"etc., in the ``[project]`` table of your ``pyproject.toml``."
+"``pyproject.toml`` is a configuration file used by packaging tools, as well "
+"as other tools such as linters, type checkers, etc. There are three possible "
+"TOML tables in this file."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:14
+#: ../source/guides/writing-pyproject-toml.rst:11
 msgid ""
-"You may have heard of ``setup.py`` and ``setup.cfg`` for the setuptools_ "
-"build backend. For new projects, it is recommended to use ``pyproject.toml`` "
-"for basic metadata, and keep ``setup.py`` only if some programmatic "
-"configuration is needed (especially building C extensions). However, putting "
-"basic project metadata in ``setup.py`` or ``setup.cfg`` is still valid. See :"
-"ref:`setup-py-deprecated`."
+"The ``[build-system]`` table is **strongly recommended**. It allows you to "
+"declare which :term:`build backend` you use and which other dependencies are "
+"needed to build your project."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:23
-msgid "Static vs. dynamic metadata"
+#: ../source/guides/writing-pyproject-toml.rst:15
+msgid ""
+"The ``[project]`` table is the format that most build backends use to "
+"specify your project's basic metadata, such as the dependencies, your name, "
+"etc."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:18
+msgid ""
+"The ``[tool]`` table has tool-specific subtables, e.g., ``[tool.hatch]``, "
+"``[tool.black]``, ``[tool.mypy]``. We only touch upon this table here "
+"because its contents are defined by each tool. Consult the particular tool's "
+"documentation to know what it can contain."
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:25
 msgid ""
-"Most of the time, you will directly write the value of a field in "
-"``pyproject.toml``.  For example: ``requires-python = \">= 3.8\"``, or "
-"``version = \"1.0\"``."
+"There is a significant difference between the ``[build-system]`` and "
+"``[project]`` tables. The former should always be present, regardless of "
+"which build backend you use (since it *defines* the tool you use). The "
+"latter is understood by *most* build backends, but some build backends use a "
+"different format."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:29
+#: ../source/guides/writing-pyproject-toml.rst:31
+msgid ""
+"At the time of writing this (November 2023), Poetry_ is a notable build "
+"backend that does not use the ``[project]`` table (it uses the ``[tool."
+"poetry]`` table instead)."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:35
+msgid ""
+"Also, the setuptools_ build backend supports both the ``[project]`` table, "
+"and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it "
+"is recommended to use the ``[project]`` table, and keep ``setup.py`` only if "
+"some programmatic configuration is needed (such as building C extensions), "
+"but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:"
+"`setup-py-deprecated`."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:45
+msgid "Declaring the build backend"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:47
+msgid ""
+"The ``[build-system]`` table contains a ``build-backend`` key, which "
+"specifies the build backend to be used. It also contains a ``requires`` key, "
+"which is a list of dependencies needed to build the project -- this is "
+"typically just the build backend package, but it may also contain additional "
+"dependencies. You can also constrain the versions, e.g., ``requires = "
+"[\"setuptools >= 61.0\"]``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:53
+msgid ""
+"Usually, you'll just copy what your build backend's documentation suggests "
+"(after :ref:`choosing your build backend <choosing-build-backend>`). Here "
+"are the values for some common build backends:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:92
+msgid "Static vs. dynamic metadata"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:94
+msgid "The rest of this guide is devoted to the ``[project]`` table."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:96
+msgid ""
+"Most of the time, you will directly write the value of a ``[project]`` "
+"field. For example: ``requires-python = \">= 3.8\"``, or ``version = "
+"\"1.0\"``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:100
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
@@ -7740,100 +7802,100 @@ msgid ""
 "should mark the field as dynamic using, e.g.,"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:40
+#: ../source/guides/writing-pyproject-toml.rst:111
 msgid ""
 "When a field is dynamic, it is the build backend's responsibility to fill "
 "it.  Consult your build backend's documentation to learn how it does it."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:46
+#: ../source/guides/writing-pyproject-toml.rst:117
 msgid "Basic information"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:51
+#: ../source/guides/writing-pyproject-toml.rst:122
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:63
+#: ../source/guides/writing-pyproject-toml.rst:134
 msgid "Put the version of your project."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:70
+#: ../source/guides/writing-pyproject-toml.rst:141
 msgid ""
 "Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha "
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
 "full details."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:74
+#: ../source/guides/writing-pyproject-toml.rst:145
 msgid "This field is required, although it is often marked as dynamic using"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:84
+#: ../source/guides/writing-pyproject-toml.rst:155
 msgid "Dependencies and requirements"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:87
+#: ../source/guides/writing-pyproject-toml.rst:158
 #: ../source/specifications/declaring-project-metadata.rst:275
 msgid "``dependencies``/``optional-dependencies``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:89
+#: ../source/guides/writing-pyproject-toml.rst:160
 msgid "If your project has dependencies, list them like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:101
+#: ../source/guides/writing-pyproject-toml.rst:172
 msgid ""
 "See :ref:`Dependency specifiers <dependency-specifiers>` for the full syntax "
 "you can use to constrain versions."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:104
+#: ../source/guides/writing-pyproject-toml.rst:175
 msgid ""
 "You may want to make some of your dependencies optional, if they are only "
 "needed for a specific feature of your package. In that case, put them in "
 "``optional-dependencies``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:117
+#: ../source/guides/writing-pyproject-toml.rst:188
 msgid ""
 "Each of the keys defines a \"packaging extra\". In the example above, one "
 "could use, e.g., ``pip install your-project-name[gui]`` to install your "
 "project with GUI support, adding the PyQt5 dependency."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:123
+#: ../source/guides/writing-pyproject-toml.rst:194
 #: ../source/specifications/declaring-project-metadata.rst:66
 #: ../source/specifications/declaring-project-metadata.rst:147
 msgid "``requires-python``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:125
+#: ../source/guides/writing-pyproject-toml.rst:196
 msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:136
+#: ../source/guides/writing-pyproject-toml.rst:207
 msgid "Creating executable scripts"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:138
+#: ../source/guides/writing-pyproject-toml.rst:209
 msgid ""
 "To install a command as part of your package, declare it in the ``[project."
 "scripts]`` table."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:146
+#: ../source/guides/writing-pyproject-toml.rst:217
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
 "be available. Executing this command will do the equivalent of ``from spam "
 "import main_cli; main_cli()``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:150
+#: ../source/guides/writing-pyproject-toml.rst:221
 msgid ""
 "On Windows, scripts packaged this way need a terminal, so if you launch them "
 "from within a graphical application, they will make a terminal pop up. To "
@@ -7841,136 +7903,129 @@ msgid ""
 "of ``[project.scripts]``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:160
+#: ../source/guides/writing-pyproject-toml.rst:231
 msgid ""
 "In that case, launching your script from the command line will give back "
 "control immediately, leaving the script to run in the background."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:163
+#: ../source/guides/writing-pyproject-toml.rst:234
 msgid ""
 "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
 "is only relevant on Windows."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:169
+#: ../source/guides/writing-pyproject-toml.rst:240
 msgid "About your project"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:172
+#: ../source/guides/writing-pyproject-toml.rst:243
 #: ../source/specifications/declaring-project-metadata.rst:172
 msgid "``authors``/``maintainers``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:174
+#: ../source/guides/writing-pyproject-toml.rst:245
 msgid ""
 "Both of these fields contain lists of people identified by a name and/or an "
 "email address."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:194
+#: ../source/guides/writing-pyproject-toml.rst:265
 msgid ""
 "This should be a one-line description of your project, to show as the "
 "\"headline\" of your project page on PyPI (`example <pypi-pip_>`_)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:204
+#: ../source/guides/writing-pyproject-toml.rst:275
 #: ../source/specifications/declaring-project-metadata.rst:65
 #: ../source/specifications/declaring-project-metadata.rst:108
 msgid "``readme``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:206
+#: ../source/guides/writing-pyproject-toml.rst:277
 msgid ""
 "This is a longer description of your project, to display on your project "
 "page on PyPI. Typically, your project will have a ``README.md`` or ``README."
 "rst`` file and you just put its file name here."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:215
+#: ../source/guides/writing-pyproject-toml.rst:286
 msgid "The README's format is auto-detected from the extension:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:217
+#: ../source/guides/writing-pyproject-toml.rst:288
 msgid "``README.md`` → Markdown,"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:218
+#: ../source/guides/writing-pyproject-toml.rst:289
 msgid "``README.rst`` → reStructuredText (without Sphinx extensions)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:220
+#: ../source/guides/writing-pyproject-toml.rst:291
 msgid "You can also specify the format explicitly, like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:233
+#: ../source/guides/writing-pyproject-toml.rst:304
 msgid ""
 "This can take two forms. You can put your license in a file, typically "
 "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:241
+#: ../source/guides/writing-pyproject-toml.rst:312
 msgid "or you can write the name of the license:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:254
+#: ../source/guides/writing-pyproject-toml.rst:325
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:266
+#: ../source/guides/writing-pyproject-toml.rst:337
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:278
+#: ../source/guides/writing-pyproject-toml.rst:349
 #: ../source/specifications/declaring-project-metadata.rst:68
 #: ../source/specifications/declaring-project-metadata.rst:234
 msgid "``urls``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:280
+#: ../source/guides/writing-pyproject-toml.rst:351
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:292
+#: ../source/guides/writing-pyproject-toml.rst:363
 msgid ""
 "Note that if the key contains spaces, it needs to be quoted, e.g., ``Website "
 "= \"https://example.com\"`` but ``\"Official Website\" = \"https://example."
 "com\"``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:299
+#: ../source/guides/writing-pyproject-toml.rst:370
 msgid "Advanced plugins"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:301
+#: ../source/guides/writing-pyproject-toml.rst:372
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
 "``[project.entry-points]`` like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:310
+#: ../source/guides/writing-pyproject-toml.rst:381
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:315
+#: ../source/guides/writing-pyproject-toml.rst:386
 msgid "A full example"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:373
-msgid ""
-"At the time of this writing (November 2023), Poetry_ is a notable "
-"exception.  It uses its own format for this metadata, in the ``[tool."
-"poetry]`` table."
-msgstr ""
-
-#: ../source/guides/writing-pyproject-toml.rst:377
+#: ../source/guides/writing-pyproject-toml.rst:448
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -18400,7 +18455,7 @@ msgid ""
 msgstr ""
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:502
+#: ../source/tutorials/packaging-projects.rst:504
 msgid "Next steps"
 msgstr ""
 
@@ -18570,11 +18625,11 @@ msgstr ""
 msgid ":file:`tests/` is a placeholder for test files. Leave it empty for now."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:107
+#: ../source/tutorials/packaging-projects.rst:109
 msgid "Choosing a build backend"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:109
+#: ../source/tutorials/packaging-projects.rst:111
 msgid ""
 "Tools like :ref:`pip` and :ref:`build` do not actually convert your sources "
 "into a :term:`distribution package <Distribution Package>` (like a wheel); "
@@ -18587,7 +18642,7 @@ msgid ""
 "suits your needs and preferences."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:118
+#: ../source/tutorials/packaging-projects.rst:120
 msgid ""
 "You can choose from a number of backends; this tutorial uses :ref:`Hatchling "
 "<hatch>` by default, but it will work identically with :ref:`setuptools`, :"
@@ -18595,7 +18650,7 @@ msgid ""
 "``[project]`` table for :ref:`metadata <configuring metadata>`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:125
+#: ../source/tutorials/packaging-projects.rst:127
 msgid ""
 "Some build backends are part of larger tools that provide a command-line "
 "interface with additional features like project initialization and version "
@@ -18603,7 +18658,7 @@ msgid ""
 "tutorial uses single-purpose tools that work independently."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:130
+#: ../source/tutorials/packaging-projects.rst:132
 msgid ""
 "The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` "
 "tools like :ref:`pip` and :ref:`build` which backend to use for your "
@@ -18611,7 +18666,7 @@ msgid ""
 "backend's own documentation for more details."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:168
+#: ../source/tutorials/packaging-projects.rst:170
 msgid ""
 "The ``requires`` key is a list of packages that are needed to build your "
 "package. The :term:`frontend <Build Frontend>` should install them "
@@ -18621,20 +18676,20 @@ msgid ""
 "other build-time dependencies."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:175
+#: ../source/tutorials/packaging-projects.rst:177
 msgid ""
 "The ``build-backend`` key is the name of the Python object that frontends "
 "will use to perform the build."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:178
+#: ../source/tutorials/packaging-projects.rst:180
 msgid ""
 "Both of these values will be provided by the documentation for your build "
 "backend, or generated by its command line interface. There should be no need "
 "for you to customize these settings."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:182
+#: ../source/tutorials/packaging-projects.rst:184
 msgid ""
 "Additional configuration of the build tool will either be in a ``tool`` "
 "section of the ``pyproject.toml``, or in a special file defined by the build "
@@ -18644,11 +18699,11 @@ msgid ""
 "tools to locate and use these automatically."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:192
+#: ../source/tutorials/packaging-projects.rst:194
 msgid "Configuring metadata"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:194
+#: ../source/tutorials/packaging-projects.rst:196
 msgid ""
 "Open :file:`pyproject.toml` and enter the following content. Change the "
 "``name`` to include your username; this ensures that you have a unique "
@@ -18656,7 +18711,7 @@ msgid ""
 "following this tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:220
+#: ../source/tutorials/packaging-projects.rst:222
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -18665,7 +18720,7 @@ msgid ""
 "package with the same name as one which already exists."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:225
+#: ../source/tutorials/packaging-projects.rst:227
 msgid ""
 "``version`` is the package version. See the :ref:`version specifier "
 "specification <version-specifiers>` for more details on versions. Some build "
@@ -18673,18 +18728,18 @@ msgid ""
 "tag."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:228
+#: ../source/tutorials/packaging-projects.rst:230
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
 "same format."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:231
+#: ../source/tutorials/packaging-projects.rst:233
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:232
+#: ../source/tutorials/packaging-projects.rst:234
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -18693,14 +18748,14 @@ msgid ""
 "metadata specification <declaring-project-metadata>`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:237
+#: ../source/tutorials/packaging-projects.rst:239
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "Installers like :ref:`pip` will look back through older versions of packages "
 "until it finds one that has a matching Python version."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:240
+#: ../source/tutorials/packaging-projects.rst:242
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -18711,13 +18766,13 @@ msgid ""
 "pypi.org/classifiers/."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:247
+#: ../source/tutorials/packaging-projects.rst:249
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:250
+#: ../source/tutorials/packaging-projects.rst:252
 msgid ""
 "See the :ref:`project metadata specification <declaring-project-metadata>` "
 "for details on these and other fields that can be defined in the "
@@ -18726,21 +18781,21 @@ msgid ""
 "package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:256
+#: ../source/tutorials/packaging-projects.rst:258
 msgid "Creating README.md"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:258
+#: ../source/tutorials/packaging-projects.rst:260
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:271
+#: ../source/tutorials/packaging-projects.rst:273
 msgid "Creating a LICENSE"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:273
+#: ../source/tutorials/packaging-projects.rst:275
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -18749,57 +18804,57 @@ msgid ""
 "and enter the license text. For example, if you had chosen the MIT license:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:302
+#: ../source/tutorials/packaging-projects.rst:304
 msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:307
+#: ../source/tutorials/packaging-projects.rst:309
 msgid "Including other files"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:309
+#: ../source/tutorials/packaging-projects.rst:311
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
 "additional files, see the documentation for your build backend."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:316
+#: ../source/tutorials/packaging-projects.rst:318
 msgid "Generating distribution archives"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:318
+#: ../source/tutorials/packaging-projects.rst:320
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
 "Python Package Index and can be installed by :ref:`pip`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:322
+#: ../source/tutorials/packaging-projects.rst:324
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:336
+#: ../source/tutorials/packaging-projects.rst:338
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:339
+#: ../source/tutorials/packaging-projects.rst:341
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:353
+#: ../source/tutorials/packaging-projects.rst:355
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:363
+#: ../source/tutorials/packaging-projects.rst:365
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -18811,15 +18866,15 @@ msgid ""
 "distribution is needed."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:372
+#: ../source/tutorials/packaging-projects.rst:374
 msgid "Uploading the distribution archives"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:374
+#: ../source/tutorials/packaging-projects.rst:376
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:376
+#: ../source/tutorials/packaging-projects.rst:378
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -18830,7 +18885,7 @@ msgid ""
 "any packages.  For more details, see :doc:`/guides/using-testpypi`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:384
+#: ../source/tutorials/packaging-projects.rst:386
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -18838,56 +18893,56 @@ msgid ""
 "saved the token — you won't see that token again.**"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:391
+#: ../source/tutorials/packaging-projects.rst:393
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:406
+#: ../source/tutorials/packaging-projects.rst:408
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:420
+#: ../source/tutorials/packaging-projects.rst:422
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
 "`` prefix."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:424
+#: ../source/tutorials/packaging-projects.rst:426
 msgid "After the command completes, you should see output similar to this:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:435
+#: ../source/tutorials/packaging-projects.rst:437
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:440
+#: ../source/tutorials/packaging-projects.rst:442
 msgid "Installing your newly uploaded package"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:442
+#: ../source/tutorials/packaging-projects.rst:444
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
 "Environments>` and install your package from TestPyPI:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:458
+#: ../source/tutorials/packaging-projects.rst:460
 msgid "Make sure to specify your username in the package name!"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:460
+#: ../source/tutorials/packaging-projects.rst:462
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:470
+#: ../source/tutorials/packaging-projects.rst:472
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -18897,23 +18952,23 @@ msgid ""
 "installing dependencies when using TestPyPI."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:477
+#: ../source/tutorials/packaging-projects.rst:479
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:492
+#: ../source/tutorials/packaging-projects.rst:494
 msgid "and import the package:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:504
+#: ../source/tutorials/packaging-projects.rst:506
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 "
 "✨"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:507
+#: ../source/tutorials/packaging-projects.rst:509
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -18921,28 +18976,28 @@ msgid ""
 "experiments like this tutorial."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:512
+#: ../source/tutorials/packaging-projects.rst:514
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
 "differences:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:516
+#: ../source/tutorials/packaging-projects.rst:518
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
 "existing name."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:520
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
 "main server."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:521
+#: ../source/tutorials/packaging-projects.rst:523
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -18950,40 +19005,40 @@ msgid ""
 "repository``; the package will upload to https://pypi.org/ by default."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:525
+#: ../source/tutorials/packaging-projects.rst:527
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:527
+#: ../source/tutorials/packaging-projects.rst:529
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:533
+#: ../source/tutorials/packaging-projects.rst:535
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
 "`pdm`, and :ref:`poetry`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:536
+#: ../source/tutorials/packaging-projects.rst:538
 msgid ""
 "Read :pep:`517` and :pep:`518` for background and details on build tool "
 "configuration."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:537
+#: ../source/tutorials/packaging-projects.rst:539
 msgid "Read about :doc:`/guides/packaging-binary-extensions`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:543
+#: ../source/tutorials/packaging-projects.rst:545
 msgid "Notes"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:545
+#: ../source/tutorials/packaging-projects.rst:547
 msgid ""
 "Technically, you can also create Python packages without an ``__init__.py`` "
 "file, but those are called :doc:`namespace packages </guides/packaging-"
