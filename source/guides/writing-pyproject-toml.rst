@@ -28,7 +28,7 @@ three possible TOML tables in this file.
    is understood by *most* build backends, but some build backends use a
    different format.
 
-   At the time of this writing (November 2023), Poetry_ is a notable build
+   At the time of writing this (November 2023), Poetry_ is a notable build
    backend that does not use the ``[project]`` table (it uses the
    ``[tool.poetry]`` table instead).
 
