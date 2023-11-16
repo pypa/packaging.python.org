@@ -3,6 +3,7 @@ Package Distribution Metadata
 =============================
 
 .. toctree::
+   :titlesonly:
 
    name-normalization
    core-metadata

@@ -9,6 +9,7 @@ and for proposing new ones, is documented on
 `pypa.io <https://www.pypa.io/en/latest/specifications/>`__.
 
 .. toctree::
+   :titlesonly:
 
    section-distribution-metadata
    section-installation-metadata
