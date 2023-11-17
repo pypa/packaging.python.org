@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 19:13+0000\n"
+"POT-Creation-Date: 2023-11-17 19:00+0000\n"
 "PO-Revision-Date: 2023-08-04 18:07+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -8835,6 +8835,15 @@ msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
 msgid ""
+"If your repository has frequent commit activity and every push is uploaded "
+"to TestPyPI as described, the project might exceed the `PyPI project size "
+"limit <https://pypi.org/help/#project-size-limit>`_. The limit could be "
+"increased, but a better solution may constitute to use a PyPI-compatible "
+"server like :ref:`pypiserver` in the CI for testing purposes."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:232
+msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
 msgstr ""
@@ -10567,8 +10576,8 @@ msgstr ""
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
-"a ``__version__`` attribute in your code, or similar. In such cases, you "
-"should mark the field as dynamic using, e.g.,"
+"a ``__version__`` attribute in your code, a Git tag, or similar. In such "
+"cases, you should mark the field as dynamic using, e.g.,"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:111
@@ -24492,18 +24501,22 @@ msgstr ""
 "um pacote com o mesmo nome de um que já existe."
 
 #: ../source/tutorials/packaging-projects.rst:227
+#, fuzzy
+#| msgid ""
+#| "``version`` is the package version. See the :ref:`version specifier "
+#| "specification <version-specifiers>` for more details on versions. Some "
+#| "build backends allow it to be specified another way, such as from a file "
+#| "or a git tag."
 msgid ""
-"``version`` is the package version. See the :ref:`version specifier "
-"specification <version-specifiers>` for more details on versions. Some build "
-"backends allow it to be specified another way, such as from a file or a git "
-"tag."
+"``version`` is the package version. (Some build backends allow it to be "
+"specified another way, such as from a file or Git tag.)"
 msgstr ""
 "``version`` é a versão do pacote. Veja a :ref:`especificação de "
 "especificadores de versão <version-specifiers>` para mais detalhes sobre as "
 "versões. Alguns backends de construção permitem que ela seja especificada de "
 "outra maneira, como a partir de um arquivo ou de uma tag git."
 
-#: ../source/tutorials/packaging-projects.rst:230
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -24513,17 +24526,24 @@ msgstr ""
 "nome e um e-mail para cada autor. Você também pode listar ``maintainers`` no "
 "mesmo formato."
 
-#: ../source/tutorials/packaging-projects.rst:233
+#: ../source/tutorials/packaging-projects.rst:232
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` é um resumo curto do pacote contendo apenas uma frase."
 
-#: ../source/tutorials/packaging-projects.rst:234
+#: ../source/tutorials/packaging-projects.rst:233
+#, fuzzy
+#| msgid ""
+#| "``readme`` is a path to a file containing a detailed description of the "
+#| "package. This is shown on the package detail page on PyPI. In this case, "
+#| "the description is loaded from :file:`README.md` (which is a common "
+#| "pattern). There also is a more advanced table form described in the :ref:"
+#| "`project metadata specification <declaring-project-metadata>`."
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
 "description is loaded from :file:`README.md` (which is a common pattern). "
-"There also is a more advanced table form described in the :ref:`project "
-"metadata specification <declaring-project-metadata>`."
+"There also is a more advanced table form described in the :ref:`pyproject."
+"toml guide <writing-pyproject-toml>`."
 msgstr ""
 "``readme`` é um caminho para um arquivo contendo uma descrição detalhada do "
 "pacote. Isso é mostrado na página de detalhes do pacote em PyPI. Neste caso, "
@@ -24531,17 +24551,22 @@ msgstr ""
 "também um formulário de tabela mais avançado descrito na :ref:`especificação "
 "de metadados do projeto <declaring-project-metadata>`."
 
-#: ../source/tutorials/packaging-projects.rst:239
+#: ../source/tutorials/packaging-projects.rst:238
+#, fuzzy
+#| msgid ""
+#| "``requires-python`` gives the versions of Python supported by your "
+#| "project. Installers like :ref:`pip` will look back through older versions "
+#| "of packages until it finds one that has a matching Python version."
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
-"Installers like :ref:`pip` will look back through older versions of packages "
-"until it finds one that has a matching Python version."
+"An installer like :ref:`pip` will look back through older versions of "
+"packages until it finds one that has a matching Python version."
 msgstr ""
 "``requires-python`` fornece as versões do Python suportadas pelo seu "
 "projeto. Instaladores como :ref:`pip` olharão para as versões anteriores dos "
 "pacotes até encontrar um que tenha uma versão correspondente do Python."
 
-#: ../source/tutorials/packaging-projects.rst:242
+#: ../source/tutorials/packaging-projects.rst:241
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -24559,7 +24584,7 @@ msgstr ""
 "sistemas operacionais seu pacote funcionará. Para obter uma lista completa "
 "de classificadores, consulte https://pypi.org/classifiers/."
 
-#: ../source/tutorials/packaging-projects.rst:249
+#: ../source/tutorials/packaging-projects.rst:248
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -24568,13 +24593,19 @@ msgstr ""
 "PyPI. Geralmente, isso pode ser para o código-fonte, a documentação, os "
 "rastreadores de problemas, etc."
 
-#: ../source/tutorials/packaging-projects.rst:252
+#: ../source/tutorials/packaging-projects.rst:251
+#, fuzzy
+#| msgid ""
+#| "See the :ref:`project metadata specification <declaring-project-"
+#| "metadata>` for details on these and other fields that can be defined in "
+#| "the ``[project]`` table. Other common fields are ``keywords`` to improve "
+#| "discoverability and the ``dependencies`` that are required to install "
+#| "your package."
 msgid ""
-"See the :ref:`project metadata specification <declaring-project-metadata>` "
-"for details on these and other fields that can be defined in the "
-"``[project]`` table. Other common fields are ``keywords`` to improve "
-"discoverability and the ``dependencies`` that are required to install your "
-"package."
+"See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
+"these and other fields that can be defined in the ``[project]`` table. Other "
+"common fields are ``keywords`` to improve discoverability and the "
+"``dependencies`` that are required to install your package."
 msgstr ""
 "Veja a :ref:`especificação de metadados do projeto <declaring-project-"
 "metadata>` para detalhes sobre estes e outros campos que podem ser definidos "

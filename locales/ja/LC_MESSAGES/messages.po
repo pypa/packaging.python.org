@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 19:13+0000\n"
+"POT-Creation-Date: 2023-11-17 19:00+0000\n"
 "PO-Revision-Date: 2023-11-17 18:57+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2001,15 +2001,15 @@ msgid ""
 "Backend>`."
 msgstr ""
 "任意のソースコードツリーまたは :term:`ソースコード配布物 <Source "
-"Distribution (or \"sdist\")>` を入力として、"
-"それらからソースコード配布物または :term:`wheels <Wheel>` "
-"をビルドするためにユーザが走らせるであろうツール。実際のビルド作業は、"
-"それぞれのソースコードツリーの :term:`ビルドバックエンド <Build Backend>` "
-"に委任されます。"
+"Distribution (or \"sdist\")>` を入力として、それらからソースコード配布物また"
+"は :term:`wheels <Wheel>` をビルドするためにユーザが走らせるであろうツール。"
+"実際のビルド作業は、それぞれのソースコードツリーの :term:`ビルドバックエンド "
+"<Build Backend>` に委任されます。"
 
 #: ../source/glossary.rst:42
 msgid "Examples of build frontends are :ref:`pip` and :ref:`build`."
-msgstr "ビルドフロントエンドの例としては、 :ref:`pip` や :ref:`build` があります。"
+msgstr ""
+"ビルドフロントエンドの例としては、 :ref:`pip` や :ref:`build` があります。"
 
 #: ../source/glossary.rst:44
 msgid "Built Distribution"
@@ -8812,6 +8812,15 @@ msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
 msgid ""
+"If your repository has frequent commit activity and every push is uploaded "
+"to TestPyPI as described, the project might exceed the `PyPI project size "
+"limit <https://pypi.org/help/#project-size-limit>`_. The limit could be "
+"increased, but a better solution may constitute to use a PyPI-compatible "
+"server like :ref:`pypiserver` in the CI for testing purposes."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:232
+msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
 msgstr ""
@@ -10515,8 +10524,8 @@ msgstr ""
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
-"a ``__version__`` attribute in your code, or similar. In such cases, you "
-"should mark the field as dynamic using, e.g.,"
+"a ``__version__`` attribute in your code, a Git tag, or similar. In such "
+"cases, you should mark the field as dynamic using, e.g.,"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:111
@@ -24487,18 +24496,22 @@ msgstr ""
 "みることがないと保証できるからです。"
 
 #: ../source/tutorials/packaging-projects.rst:227
+#, fuzzy
+#| msgid ""
+#| "``version`` is the package version. See the :ref:`version specifier "
+#| "specification <version-specifiers>` for more details on versions. Some "
+#| "build backends allow it to be specified another way, such as from a file "
+#| "or a git tag."
 msgid ""
-"``version`` is the package version. See the :ref:`version specifier "
-"specification <version-specifiers>` for more details on versions. Some build "
-"backends allow it to be specified another way, such as from a file or a git "
-"tag."
+"``version`` is the package version. (Some build backends allow it to be "
+"specified another way, such as from a file or Git tag.)"
 msgstr ""
 "``version`` は、パッケージのバージョン番号です。バージョン番号についてもっと"
 "詳細に知りたい場合は、 :ref:`バージョン指定子 <version-specifiers>` を見てく"
 "ださい。ビルドバックエンドの中には、ファイルから、もしくは、 git のタグからの"
 "ように、別の方法で指定することを許容するものもあります。"
 
-#: ../source/tutorials/packaging-projects.rst:230
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -24508,17 +24521,24 @@ msgstr ""
 "ついて名前と電子メールアドレスを指定します。同じフォーマットで "
 "``maintainers`` を列挙することもできます。"
 
-#: ../source/tutorials/packaging-projects.rst:233
+#: ../source/tutorials/packaging-projects.rst:232
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` は、１文で短くパッケージを説明するものです。"
 
-#: ../source/tutorials/packaging-projects.rst:234
+#: ../source/tutorials/packaging-projects.rst:233
+#, fuzzy
+#| msgid ""
+#| "``readme`` is a path to a file containing a detailed description of the "
+#| "package. This is shown on the package detail page on PyPI. In this case, "
+#| "the description is loaded from :file:`README.md` (which is a common "
+#| "pattern). There also is a more advanced table form described in the :ref:"
+#| "`project metadata specification <declaring-project-metadata>`."
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
 "description is loaded from :file:`README.md` (which is a common pattern). "
-"There also is a more advanced table form described in the :ref:`project "
-"metadata specification <declaring-project-metadata>`."
+"There also is a more advanced table form described in the :ref:`pyproject."
+"toml guide <writing-pyproject-toml>`."
 msgstr ""
 "``readme`` は、パッケージに関する詳細な説明を含んだファイルへのパスです。 "
 "PyPI 上のパッケージ詳細のページにこの内容が表示されます。この場合、説明の文言"
@@ -24526,17 +24546,22 @@ msgstr ""
 "も、 :ref:`プロジェクトのメタデータの仕様 <declaring-project-metadata>` に記"
 "述されているもっと先進的なテーブル形式があります。"
 
-#: ../source/tutorials/packaging-projects.rst:239
+#: ../source/tutorials/packaging-projects.rst:238
+#, fuzzy
+#| msgid ""
+#| "``requires-python`` gives the versions of Python supported by your "
+#| "project. Installers like :ref:`pip` will look back through older versions "
+#| "of packages until it finds one that has a matching Python version."
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
-"Installers like :ref:`pip` will look back through older versions of packages "
-"until it finds one that has a matching Python version."
+"An installer like :ref:`pip` will look back through older versions of "
+"packages until it finds one that has a matching Python version."
 msgstr ""
 "``requires-python`` は、そのプロジェクトがサポートしている Python のバージョ"
 "ンを与えます。 :ref:`pip` のようなインストーラは、 Python バージョンが合致す"
 "るものまでパッケージのバージョンを遡って探索します。"
 
-#: ../source/tutorials/packaging-projects.rst:242
+#: ../source/tutorials/packaging-projects.rst:241
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -24554,7 +24579,7 @@ msgstr ""
 "に最低限それだけはやるべきことです。 classifiers の完全なリストについては、 "
 "https://pypi.org/classifiers/ を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:249
+#: ../source/tutorials/packaging-projects.rst:248
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -24563,13 +24588,19 @@ msgstr ""
 "ます。一般的に、ソースコードや説明文書、課題追跡システムその他へのリンクを挙"
 "げておけばよいでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:252
+#: ../source/tutorials/packaging-projects.rst:251
+#, fuzzy
+#| msgid ""
+#| "See the :ref:`project metadata specification <declaring-project-"
+#| "metadata>` for details on these and other fields that can be defined in "
+#| "the ``[project]`` table. Other common fields are ``keywords`` to improve "
+#| "discoverability and the ``dependencies`` that are required to install "
+#| "your package."
 msgid ""
-"See the :ref:`project metadata specification <declaring-project-metadata>` "
-"for details on these and other fields that can be defined in the "
-"``[project]`` table. Other common fields are ``keywords`` to improve "
-"discoverability and the ``dependencies`` that are required to install your "
-"package."
+"See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
+"these and other fields that can be defined in the ``[project]`` table. Other "
+"common fields are ``keywords`` to improve discoverability and the "
+"``dependencies`` that are required to install your package."
 msgstr ""
 "``[project]`` テーブルに定義できるこれらのフィールドやその他のフィールドにつ"
 "いての詳しい情報が必要であれば、 :ref:`プロジェクトにおけるメタデータの仕様 "
