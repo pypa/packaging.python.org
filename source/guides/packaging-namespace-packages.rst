@@ -62,8 +62,8 @@ Creating a namespace package
 There are currently two different approaches to creating namespace packages,
 from which the latter is discouraged:
 
-#. Use `native namespace packages`_. This type of namespace package is defined
-   in :pep:`420` and is available in Python 3.3 and later. This is recommended if
+#. Use `native namespace packages`_. This type of namespace package
+   is available in Python 3.3 and later. This is recommended if
    packages in your namespace only ever need to support Python 3 and
    installation via ``pip``.
 #. Use `legacy namespace packages`_. This comprises `pkgutil-style namespace packages`_
@@ -72,8 +72,9 @@ from which the latter is discouraged:
 Native namespace packages
 -------------------------
 
-Python 3.3 added **implicit** namespace packages from :pep:`420`. All that is
-required to create a native namespace package is that you just omit
+Python 3.3 added **implicit** namespace packages
+(documented in :doc:`python:reference/import`).
+All that is required to create a native namespace package is that you just omit
 :file:`__init__.py` from the namespace package directory. An example file
 structure (following :ref:`src-layout <setuptools:src-layout>`):
 
@@ -155,7 +156,7 @@ the `native namespace package example project`_.
 Legacy namespace packages
 -------------------------
 
-These two methods, that were used to create namespace packages prior to :pep:`420`,
+These two methods, that were used to create namespace packages prior to Python 3.3,
 are now considered to be obsolete and should not be used unless you need compatibility
 with packages already using this method. Also, :doc:`pkg_resources <setuptools:pkg_resources>`
 has been deprecated.

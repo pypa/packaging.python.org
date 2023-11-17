@@ -130,11 +130,13 @@ Glossary
         or other resources, or some combination thereof that is intended to be
         packaged into a :term:`Distribution <Distribution Package>`.
 
-        Since most projects create :term:`Distributions <Distribution Package>`
-        using either :pep:`518` ``build-system``, :ref:`distutils` or
-        :ref:`setuptools`, another practical way to define projects currently
-        is something that contains a :term:`pyproject.toml`, :term:`setup.py`,
-        or :term:`setup.cfg` file at the root of the project source directory.
+        Since projects create :term:`Distributions <Distribution Package>` using
+        a :term:`build backend` specified in the :ref:`[build-system] table
+        <pyproject-guide-build-system-table>` of their :term:`pyproject.toml` file
+        (or with the deprecated practice of having a :term:`setup.py` without an
+        accompanying :file:`pyproject.toml`), another practical way to define
+        projects currently is something that contains a :file:`pyproject.toml`
+        or :file:`setup.py` file at the root of the project source directory.
 
         Python projects must have unique names, which are registered on
         :term:`PyPI <Python Package Index (PyPI)>`. Each project will then
@@ -182,7 +184,7 @@ Glossary
     pyproject.toml
 
         The tool-agnostic :term:`Project` specification file.
-        Defined in :pep:`518`.
+        See :ref:`writing-pyproject-toml`.
 
     Release
 

@@ -102,7 +102,7 @@ not only provides features that plain :ref:`distutils` doesn't offer
 also provides a consistent build interface and feature set across all
 supported Python versions.
 
-Consequently, :ref:`distutils` was deprecated in Python 3.10 by :pep:`632` and
+Consequently, :ref:`distutils` was deprecated in Python 3.10 (by :pep:`632`) and
 has been :doc:`removed <python:whatsnew/3.12>` from the standard library in
 Python 3.12.  Setuptools bundles the standalone copy of distutils, and it is
 injected even on Python < 3.12 if you import setuptools first or use pip.
@@ -523,7 +523,7 @@ pdm
 `PyPI <https://pypi.org/project/pdm>`__
 
 PDM is a modern Python package manager. It uses :term:`pyproject.toml` to store
-project metadata as defined in :pep:`621`.
+project metadata in the :ref:`[project] table <pyproject-project-table>`.
 
 .. _pex:
 
@@ -665,7 +665,7 @@ shiv
 `PyPI <https://pypi.org/project/shiv/>`__
 
 shiv is a command line utility for building fully self contained
-Python zipapps as outlined in :pep:`441`, but with all their
+Python :doc:`zipapps <python:library/zipapp>`, with all their
 dependencies included. Its primary goal is making distributing Python
 applications and command line tools fast & easy.
 

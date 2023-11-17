@@ -106,7 +106,8 @@ Within a value, readers must accept and ignore spaces (including multiple
 consecutive spaces) before or after the colon, between the object reference and
 the left square bracket, between the extra names and the square brackets and
 colons delimiting them, and after the right square bracket. The syntax for
-extras is formally specified as part of :pep:`508` (as ``extras``) and
+extras is formally specified in the :ref:`dependency specifier specification
+<dependency-specifiers>` (as ``extras``) and
 restrictions on values specified in :pep:`685`.
 For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
