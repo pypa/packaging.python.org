@@ -219,6 +219,14 @@ And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
 sure that your release pipeline remains healthy!
 
+.. attention::
+
+  If your repository has frequent commit activity and every push is uploaded
+  to TestPyPI as described, the project might exceed the
+  `PyPI project size limit <https://pypi.org/help/#project-size-limit>`_.
+  The limit could be increased, but a better solution may constitute to
+  use a PyPI-compatible server like :ref:`pypiserver` in the CI for testing purposes.
+
 .. note::
 
    It is recommended to keep the integrated GitHub Actions at their latest
