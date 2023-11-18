@@ -1,9 +1,8 @@
 Tutorials
 =========
 
-**Tutorials** are opinionated step-by-step guides to help you get familiar
-with packaging concepts. For more detailed information on specific packaging
-topics, see :doc:`/guides/index`.
+**Tutorials** are the best place to start for anyone new to installing or creating Python Packages.
+Tutorials walk through the steps needed to complete a project for the first time.
 
 .. toctree::
     :maxdepth: 1
