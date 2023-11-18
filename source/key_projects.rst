@@ -341,11 +341,9 @@ virtualenv
 virtualenv is a tool for creating isolated Python :term:`Virtual Environments
 <Virtual Environment>`, like :ref:`venv`. Unlike :ref:`venv`, virtualenv can
 create virtual environments for other versions of Python, which it locates
-using the PATH environment variable. It also provides
-additional functionality, compared to :ref:`venv`, by supporting Python
-2.7 and by providing convenient features for configuring, maintaining,
-duplicating, and troubleshooting the virtual environments. For more
-information, see the section on :ref:`Creating and using Virtual
+using the PATH environment variable. It also provides convenient features for
+configuring, maintaining, duplicating, and troubleshooting virtual environments.
+For more information, see the section on :ref:`Creating and using Virtual
 Environments`.
 
 
