@@ -333,7 +333,7 @@ it's fast and secure, it's maintained, and it reliably works.
 virtualenv
 ==========
 
-:doc:`Docs <virtualenv:index>` |
+`Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__
