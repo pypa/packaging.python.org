@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 19:00+0000\n"
+"POT-Creation-Date: 2023-11-18 10:23+0000\n"
 "PO-Revision-Date: 2023-11-17 18:57+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -2696,7 +2696,6 @@ msgid "Column"
 msgstr "カラム"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
-#: ../source/guides/using-manifest-in.rst:67
 #: ../source/specifications/core-metadata.rst:196
 msgid "Description"
 msgstr "説明"
@@ -10003,328 +10002,16 @@ msgid "Including files in source distributions with ``MANIFEST.in``"
 msgstr "``MANIFEST.in`` を使ってソースコード配布物にファイルを含める"
 
 #: ../source/guides/using-manifest-in.rst:7
+#, fuzzy
+#| msgid ""
+#| "For more information, see :doc:`Entry Points <setuptools:userguide/"
+#| "entry_point>` from the :doc:`setuptools docs <setuptools:index>`."
 msgid ""
-"When building a :term:`source distribution <Source Distribution (or "
-"\"sdist\")>` for your package, by default only a minimal set of files are "
-"included.  You may find yourself wanting to include extra files in the "
-"source distribution, such as an authors/contributors file, a :file:`docs/` "
-"directory, or a directory of data files used for testing purposes.  There "
-"may even be extra files that you *need* to include; for example, if your :"
-"file:`setup.py` computes your project's ``long_description`` by reading from "
-"both a README and a changelog file, you'll need to include both those files "
-"in the sdist so that people that build or install from the sdist get the "
-"correct results."
+"The information on this page has moved to :doc:`setuptools:userguide/"
+"miscellaneous` in the setuptools documentation."
 msgstr ""
-"パッケージの :term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` "
-"をビルドする際、配布物には必要最低限のファイルだけが配布物に含まれるのがデ"
-"フォルトです。ソースコード配布物に、例えば authors/contributors ファイル"
-"や、 :file:`docs/` ディレクトリや、テストに使う目的のデータファイルを収めた"
-"ディレクトリなどの追加のファイルを含めたくなる時もあるかと思います。また、追"
-"加のファイルを含める *必要がある* 場合さえあるでしょう; 例えば :file:`setup."
-"py` が README ファイルと改変履歴ファイルを読み込んでプロジェクトの "
-"``long_description`` を計算するようになっている場合には、これら両方のファイル"
-"を sdist に含めることで人々が sdist からビルドなりインストールなりを行う際に"
-"も正しく動作するようにする必要があります。"
-
-#: ../source/guides/using-manifest-in.rst:17
-msgid ""
-"Adding & removing files to & from the source distribution is done by writing "
-"a :file:`MANIFEST.in` file at the project root."
-msgstr ""
-"プロジェクトのルートディレクトリにある :file:`MANIFEST.in` ファイルを書けば、"
-"ソースコード配布物に対してファイルの追加・削除を行うことができます。"
-
-#: ../source/guides/using-manifest-in.rst:22
-msgid "How files are included in an sdist"
-msgstr "ファイルは sdist にどのように含まれるのか"
-
-#: ../source/guides/using-manifest-in.rst:24
-msgid "The following files are included in a source distribution by default:"
-msgstr ""
-"次に掲げるファイル群は、デフォルトでソースコード配布物に取り込まれます:"
-
-#: ../source/guides/using-manifest-in.rst:26
-msgid ""
-"all Python source files implied by the ``py_modules`` and ``packages`` "
-"``setup()`` arguments"
-msgstr ""
-"``setup()`` の引数である ``py_modules`` と ``packages`` で暗示されるすべての "
-"Python ソースファイル"
-
-#: ../source/guides/using-manifest-in.rst:28
-msgid ""
-"all C source files mentioned in the ``ext_modules`` or ``libraries`` "
-"``setup()`` arguments"
-msgstr ""
-"``setup()`` の引数である ``ext_modules`` や ``libraries`` で言及されたすべて"
-"の C 言語のソースファイル"
-
-#: ../source/guides/using-manifest-in.rst:30
-msgid "scripts specified by the ``scripts`` ``setup()`` argument"
-msgstr "``setup()`` の ``scripts`` 引数で指定されたスクリプト群"
-
-#: ../source/guides/using-manifest-in.rst:31
-msgid ""
-"all files specified by the ``package_data`` and ``data_files`` ``setup()`` "
-"arguments"
-msgstr ""
-"``setup()`` の引数である ``package_data`` と ``data_files`` で指定されるすべ"
-"てのファイル群"
-
-#: ../source/guides/using-manifest-in.rst:33
-msgid ""
-"the file specified by the ``license_file`` option in :file:`setup.cfg` "
-"(setuptools 40.8.0+)"
-msgstr ""
-":file:`setup.cfg` ファイル (setuptools 40.8.0 以降) 内の ``license_file`` オ"
-"プションで指定されるファイル"
-
-#: ../source/guides/using-manifest-in.rst:35
-msgid ""
-"all files specified by the ``license_files`` option in :file:`setup.cfg` "
-"(setuptools 42.0.0+)"
-msgstr ""
-":file:`setup.cfg` ファイル (setuptools 42.0.0 以降) の ``license_files`` オプ"
-"ションで指定される全てのファイル"
-
-#: ../source/guides/using-manifest-in.rst:37
-msgid "all files matching the pattern :file:`test/test*.py`"
-msgstr ":file:`test/test*.py` にマッチする全てのファイル"
-
-#: ../source/guides/using-manifest-in.rst:38
-msgid ":file:`setup.py` (or whatever you called your setup script)"
-msgstr ""
-":file:`setup.py` ファイル (または、名前がなんであろうとセットアップスクリプ"
-"ト)"
-
-#: ../source/guides/using-manifest-in.rst:39
-msgid ":file:`setup.cfg`"
-msgstr ":file:`setup.cfg` ファイル"
-
-#: ../source/guides/using-manifest-in.rst:40
-msgid ":file:`README`"
-msgstr ":file:`README` ファイル"
-
-#: ../source/guides/using-manifest-in.rst:41
-msgid ":file:`README.txt`"
-msgstr ":file:`README.txt` ファイル"
-
-#: ../source/guides/using-manifest-in.rst:42
-msgid ":file:`README.rst` (Python 3.7+ or setuptools 0.6.27+)"
-msgstr ""
-":file:`README.rst` ファイル (Python 3.7 以降、または setuptools 0.6.27 以降)"
-
-#: ../source/guides/using-manifest-in.rst:43
-msgid ":file:`README.md` (setuptools 36.4.0+)"
-msgstr ":file:`README.md` ファイル (setuptools 36.4.0 以降)"
-
-#: ../source/guides/using-manifest-in.rst:44
-msgid ":file:`pyproject.toml` (setuptools 43.0.0+)"
-msgstr ":file:`pyproject.toml` ファイル (setuptools 43.0.0 以降)"
-
-#: ../source/guides/using-manifest-in.rst:45
-msgid ":file:`MANIFEST.in`"
-msgstr ":file:`MANIFEST.in` ファイル"
-
-#: ../source/guides/using-manifest-in.rst:47
-msgid ""
-"After adding the above files to the sdist, the commands in :file:`MANIFEST."
-"in` (if such a file exists) are executed in order to add and remove further "
-"files to and from the sdist.  Default files can even be removed from the "
-"sdist with the appropriate :file:`MANIFEST.in` command."
-msgstr ""
-"sdist に上記のファイル群を追加した後、sdist へのさらなるファイルの追加・削除"
-"を行うために (もしそのファイルが存在すれば) :file:`MANIFEST.in` ファイルの中"
-"のコマンドが実行されます。 :file:`MANIFEST.in` に適切にコマンドを記述すれば、"
-"デフォルトで含まれるファイルであっても削除することができます。"
-
-#: ../source/guides/using-manifest-in.rst:52
-msgid ""
-"After processing the :file:`MANIFEST.in` file, setuptools removes the :file:"
-"`build/` directory as well as any directories named :file:`RCS`, :file:"
-"`CVS`, or :file:`.svn` from the sdist, and it adds a :file:`PKG-INFO` file "
-"and an :file:`*.egg-info` directory.  This behavior cannot be changed with :"
-"file:`MANIFEST.in`."
-msgstr ""
-":file:`MANIFEST.in` ファイルに従って処理をした後、 setuptools は :file:"
-"`build/` ディレクトリと同様に :file:`RCS` ・ :file:`CVS` ・ :file:`.svn` とい"
-"う名前のディレクトリ群を sdist から削除し、:file:`PKG-INFO` ファイルと :file:"
-"`*.egg-info` ディレクトリを追加します。この動作は :file:`MANIFEST.in` ファイ"
-"ルでは変更することができません。"
-
-#: ../source/guides/using-manifest-in.rst:60
-msgid ":file:`MANIFEST.in` commands"
-msgstr ":file:`MANIFEST.in` コマンド"
-
-#: ../source/guides/using-manifest-in.rst:62
-msgid ""
-"A :file:`MANIFEST.in` file consists of commands, one per line, instructing "
-"setuptools to add or remove some set of files from the sdist.  The commands "
-"are:"
-msgstr ""
-":file:`MANIFEST.in` ファイルは一行にひとつのコマンドで構成されており、"
-"setuptools に対して sdist に関するファイル追加・削除を指示します。コマンドと"
-"して使えるのは次のものです:"
-
-#: ../source/guides/using-manifest-in.rst:67
-msgid "Command"
-msgstr "コマンド"
-
-#: ../source/guides/using-manifest-in.rst:69
-msgid ":samp:`include {pat1} {pat2} ...`"
-msgstr ":samp:`include {pat1} {pat2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:69
-msgid ""
-"Add all files matching any of the listed patterns (Files must be given as "
-"paths relative to the root of the project)"
-msgstr ""
-"列挙されたパターンのいずれかに合致するすべてのファイルを追加する (ファイルは"
-"プロジェクトのルートディレクトリに対する相対パスの形で指定されなければなりま"
-"せん)"
-
-#: ../source/guides/using-manifest-in.rst:71
-msgid ":samp:`exclude {pat1} {pat2} ...`"
-msgstr ":samp:`exclude {pat1} {pat2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:71
-msgid ""
-"Remove all files matching any of the listed patterns (Files must be given as "
-"paths relative to the root of the project)"
-msgstr ""
-"列挙されたパターンのいずれかに合致するすべてのファイルを削除する (ファイルは"
-"プロジェクトのルートディレクトリに対する相対パスの形で指定されなければなりま"
-"せん)"
-
-#: ../source/guides/using-manifest-in.rst:73
-msgid ":samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`"
-msgstr ":samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:73
-msgid ""
-"Add all files under directories matching ``dir-pattern`` that match any of "
-"the listed patterns"
-msgstr ""
-"``dir-pattern`` に合致するディレクトリの下にあって、かつ、列挙されたパターン"
-"のいずれかに合致するファイルをすべて追加する"
-
-#: ../source/guides/using-manifest-in.rst:74
-msgid ":samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`"
-msgstr ":samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:74
-msgid ""
-"Remove all files under directories matching ``dir-pattern`` that match any "
-"of the listed patterns"
-msgstr ""
-"``dir-pattern`` に合致するディレクトリの下にあって、かつ、列挙されたパターン"
-"のいずれかに合致するファイルをすべて削除する"
-
-#: ../source/guides/using-manifest-in.rst:75
-msgid ":samp:`global-include {pat1} {pat2} ...`"
-msgstr ":samp:`global-include {pat1} {pat2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:75
-msgid ""
-"Add all files anywhere in the source tree matching any of the listed patterns"
-msgstr ""
-"ソースコードツリーのどこにあろうとも、列挙されたパターンのいずれかに合致する"
-"ファイルを追加する"
-
-#: ../source/guides/using-manifest-in.rst:76
-msgid ":samp:`global-exclude {pat1} {pat2} ...`"
-msgstr ":samp:`global-exclude {pat1} {pat2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:76
-msgid ""
-"Remove all files anywhere in the source tree matching any of the listed "
-"patterns"
-msgstr ""
-"ソースコードツリーのどこにあろうとも、列挙されたパターンのいずれかに合致する"
-"ファイルを削除する"
-
-#: ../source/guides/using-manifest-in.rst:77
-msgid ":samp:`graft {dir-pattern}`"
-msgstr ":samp:`graft {dir-pattern}`"
-
-#: ../source/guides/using-manifest-in.rst:77
-msgid "Add all files under directories matching ``dir-pattern``"
-msgstr ""
-"``dir-pattern`` に合致するディレクトリの下にある全てのファイルを追加する"
-
-#: ../source/guides/using-manifest-in.rst:78
-msgid ":samp:`prune {dir-pattern}`"
-msgstr ":samp:`prune {dir-pattern}`"
-
-#: ../source/guides/using-manifest-in.rst:78
-msgid "Remove all files under directories matching ``dir-pattern``"
-msgstr ""
-"``dir-pattern`` に合致するディレクトリの下にあるすべてのファイルを削除する"
-
-#: ../source/guides/using-manifest-in.rst:81
-msgid ""
-"The patterns here are glob-style patterns: ``*`` matches zero or more "
-"regular filename characters (on Unix, everything except forward slash; on "
-"Windows, everything except backslash and colon); ``?`` matches a single "
-"regular filename character, and ``[chars]`` matches any one of the "
-"characters between the square brackets (which may contain character ranges, "
-"e.g., ``[a-z]`` or ``[a-fA-F0-9]``).  Setuptools also has undocumented "
-"support for ``**`` matching zero or more characters including forward slash, "
-"backslash, and colon."
-msgstr ""
-"ここでのパターンは glob スタイルのもの: ``*`` はファイル名に使われる通常の文"
-"字 (UNIX ではスラッシュを除くすべて; Windows ではコロンを除くすべて) の 0 個"
-"またはそれ以上の並びに合致; ``?`` はファイル名に使われる通常の文字 1 個に合致"
-"し、 ``[chars]`` は角括弧の間にある文字 (文字範囲を含んでも構いません。例え"
-"ば ``[a-z]`` や ``[a-fA-F0-9]``) の内のいずれかひとつに合致します。ドキュメン"
-"ト化されていませんが、スラッシュかバックスラッシュかコロンだけの 0 個またはそ"
-"れ以上の並びに合致する ``**`` を Setuptools はサポートしています。"
-
-#: ../source/guides/using-manifest-in.rst:89
-msgid ""
-"Directory patterns are relative to the root of the project directory; e.g., "
-"``graft example*`` will include a directory named :file:`examples` in the "
-"project root but will not include :file:`docs/examples/`."
-msgstr ""
-"ディレクトリ向けのパターンはプロジェクトのルートディレクトリに対する相対パス"
-"です; 例えば、 ``graft example*`` は、プロジェクトルートの直下にある :file:"
-"`examples` という名前のディレクトリを追加しますが、 :file:`docs/examples/` に"
-"ついては追加しません。"
-
-#: ../source/guides/using-manifest-in.rst:93
-msgid ""
-"File & directory names in :file:`MANIFEST.in` should be ``/``-separated; "
-"setuptools will automatically convert the slashes to the local platform's "
-"appropriate directory separator."
-msgstr ""
-":file:`MANIFEST.in` 内のファイルやディレクトリの名前は、 ``/`` で区切られてい"
-"なければなりません; setuptools がスラッシュをローカルのプラットフォームに適切"
-"なディレクトリ分離子に置換してくれます。"
-
-#: ../source/guides/using-manifest-in.rst:97
-msgid ""
-"Commands are processed in the order they appear in the :file:`MANIFEST.in` "
-"file.  For example, given the commands:"
-msgstr ""
-"コマンドは :file:`MANIFEST.in` ファイルに登場する順に実行されます。例えば、以"
-"下のようなコマンドが与えられると:"
-
-#: ../source/guides/using-manifest-in.rst:105
-msgid ""
-"the contents of the directory tree :file:`tests` will first be added to the "
-"sdist, and then after that all files in the sdist with a ``.pyc``, ``.pyo``, "
-"or ``.pyd`` extension will be removed from the sdist.  If the commands were "
-"in the opposite order, then ``*.pyc`` files etc. would be only be removed "
-"from what was already in the sdist before adding :file:`tests`, and if :file:"
-"`tests` happened to contain any ``*.pyc`` files, they would end up included "
-"in the sdist because the exclusion happened before they were included."
-msgstr ""
-":file:`tests` ディレクトリ以下のコンテンツは、まず全てが sdist に追加された後"
-"に、 ``.pyc`` ・ ``.pyo`` ・ ``.pyd`` の拡張子を持ったファイルがすべて sdist "
-"から削除されます。逆順でコマンドを与えると、 ``*.pyc`` その他のファイルについ"
-"ては、 :file:`tests` を追加する前に sdist に存在していたものだけが取り除かれ"
-"ることになり、削除が追加の前に行われているので :file:`tests` に ``*.pyc`` "
-"ファイルなどがあれば最終的な sdist に含まれることになります。"
+"詳しくは、 :doc:`setuptools 説明文書 <setuptools:index>` の中の :doc:`エント"
+"リポイント <setuptools:userguide/entry_point>` を見てください。"
 
 #: ../source/guides/using-testpypi.rst:7
 msgid ""
@@ -24977,6 +24664,291 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#~ msgid ""
+#~ "When building a :term:`source distribution <Source Distribution (or "
+#~ "\"sdist\")>` for your package, by default only a minimal set of files are "
+#~ "included.  You may find yourself wanting to include extra files in the "
+#~ "source distribution, such as an authors/contributors file, a :file:`docs/"
+#~ "` directory, or a directory of data files used for testing purposes.  "
+#~ "There may even be extra files that you *need* to include; for example, if "
+#~ "your :file:`setup.py` computes your project's ``long_description`` by "
+#~ "reading from both a README and a changelog file, you'll need to include "
+#~ "both those files in the sdist so that people that build or install from "
+#~ "the sdist get the correct results."
+#~ msgstr ""
+#~ "パッケージの :term:`ソースコード配布物 <Source Distribution (or "
+#~ "\"sdist\")>` をビルドする際、配布物には必要最低限のファイルだけが配布物に"
+#~ "含まれるのがデフォルトです。ソースコード配布物に、例えば authors/"
+#~ "contributors ファイルや、 :file:`docs/` ディレクトリや、テストに使う目的の"
+#~ "データファイルを収めたディレクトリなどの追加のファイルを含めたくなる時もあ"
+#~ "るかと思います。また、追加のファイルを含める *必要がある* 場合さえあるで"
+#~ "しょう; 例えば :file:`setup.py` が README ファイルと改変履歴ファイルを読み"
+#~ "込んでプロジェクトの ``long_description`` を計算するようになっている場合に"
+#~ "は、これら両方のファイルを sdist に含めることで人々が sdist からビルドなり"
+#~ "インストールなりを行う際にも正しく動作するようにする必要があります。"
+
+#~ msgid ""
+#~ "Adding & removing files to & from the source distribution is done by "
+#~ "writing a :file:`MANIFEST.in` file at the project root."
+#~ msgstr ""
+#~ "プロジェクトのルートディレクトリにある :file:`MANIFEST.in` ファイルを書け"
+#~ "ば、ソースコード配布物に対してファイルの追加・削除を行うことができます。"
+
+#~ msgid "How files are included in an sdist"
+#~ msgstr "ファイルは sdist にどのように含まれるのか"
+
+#~ msgid ""
+#~ "The following files are included in a source distribution by default:"
+#~ msgstr ""
+#~ "次に掲げるファイル群は、デフォルトでソースコード配布物に取り込まれます:"
+
+#~ msgid ""
+#~ "all Python source files implied by the ``py_modules`` and ``packages`` "
+#~ "``setup()`` arguments"
+#~ msgstr ""
+#~ "``setup()`` の引数である ``py_modules`` と ``packages`` で暗示されるすべて"
+#~ "の Python ソースファイル"
+
+#~ msgid ""
+#~ "all C source files mentioned in the ``ext_modules`` or ``libraries`` "
+#~ "``setup()`` arguments"
+#~ msgstr ""
+#~ "``setup()`` の引数である ``ext_modules`` や ``libraries`` で言及されたすべ"
+#~ "ての C 言語のソースファイル"
+
+#~ msgid "scripts specified by the ``scripts`` ``setup()`` argument"
+#~ msgstr "``setup()`` の ``scripts`` 引数で指定されたスクリプト群"
+
+#~ msgid ""
+#~ "all files specified by the ``package_data`` and ``data_files`` "
+#~ "``setup()`` arguments"
+#~ msgstr ""
+#~ "``setup()`` の引数である ``package_data`` と ``data_files`` で指定されるす"
+#~ "べてのファイル群"
+
+#~ msgid ""
+#~ "the file specified by the ``license_file`` option in :file:`setup.cfg` "
+#~ "(setuptools 40.8.0+)"
+#~ msgstr ""
+#~ ":file:`setup.cfg` ファイル (setuptools 40.8.0 以降) 内の ``license_file`` "
+#~ "オプションで指定されるファイル"
+
+#~ msgid ""
+#~ "all files specified by the ``license_files`` option in :file:`setup.cfg` "
+#~ "(setuptools 42.0.0+)"
+#~ msgstr ""
+#~ ":file:`setup.cfg` ファイル (setuptools 42.0.0 以降) の ``license_files`` "
+#~ "オプションで指定される全てのファイル"
+
+#~ msgid "all files matching the pattern :file:`test/test*.py`"
+#~ msgstr ":file:`test/test*.py` にマッチする全てのファイル"
+
+#~ msgid ":file:`setup.py` (or whatever you called your setup script)"
+#~ msgstr ""
+#~ ":file:`setup.py` ファイル (または、名前がなんであろうとセットアップスクリ"
+#~ "プト)"
+
+#~ msgid ":file:`setup.cfg`"
+#~ msgstr ":file:`setup.cfg` ファイル"
+
+#~ msgid ":file:`README`"
+#~ msgstr ":file:`README` ファイル"
+
+#~ msgid ":file:`README.txt`"
+#~ msgstr ":file:`README.txt` ファイル"
+
+#~ msgid ":file:`README.rst` (Python 3.7+ or setuptools 0.6.27+)"
+#~ msgstr ""
+#~ ":file:`README.rst` ファイル (Python 3.7 以降、または setuptools 0.6.27 以"
+#~ "降)"
+
+#~ msgid ":file:`README.md` (setuptools 36.4.0+)"
+#~ msgstr ":file:`README.md` ファイル (setuptools 36.4.0 以降)"
+
+#~ msgid ":file:`pyproject.toml` (setuptools 43.0.0+)"
+#~ msgstr ":file:`pyproject.toml` ファイル (setuptools 43.0.0 以降)"
+
+#~ msgid ":file:`MANIFEST.in`"
+#~ msgstr ":file:`MANIFEST.in` ファイル"
+
+#~ msgid ""
+#~ "After adding the above files to the sdist, the commands in :file:"
+#~ "`MANIFEST.in` (if such a file exists) are executed in order to add and "
+#~ "remove further files to and from the sdist.  Default files can even be "
+#~ "removed from the sdist with the appropriate :file:`MANIFEST.in` command."
+#~ msgstr ""
+#~ "sdist に上記のファイル群を追加した後、sdist へのさらなるファイルの追加・削"
+#~ "除を行うために (もしそのファイルが存在すれば) :file:`MANIFEST.in` ファイル"
+#~ "の中のコマンドが実行されます。 :file:`MANIFEST.in` に適切にコマンドを記述"
+#~ "すれば、デフォルトで含まれるファイルであっても削除することができます。"
+
+#~ msgid ""
+#~ "After processing the :file:`MANIFEST.in` file, setuptools removes the :"
+#~ "file:`build/` directory as well as any directories named :file:`RCS`, :"
+#~ "file:`CVS`, or :file:`.svn` from the sdist, and it adds a :file:`PKG-"
+#~ "INFO` file and an :file:`*.egg-info` directory.  This behavior cannot be "
+#~ "changed with :file:`MANIFEST.in`."
+#~ msgstr ""
+#~ ":file:`MANIFEST.in` ファイルに従って処理をした後、 setuptools は :file:"
+#~ "`build/` ディレクトリと同様に :file:`RCS` ・ :file:`CVS` ・ :file:`.svn` "
+#~ "という名前のディレクトリ群を sdist から削除し、:file:`PKG-INFO` ファイル"
+#~ "と :file:`*.egg-info` ディレクトリを追加します。この動作は :file:"
+#~ "`MANIFEST.in` ファイルでは変更することができません。"
+
+#~ msgid ":file:`MANIFEST.in` commands"
+#~ msgstr ":file:`MANIFEST.in` コマンド"
+
+#~ msgid ""
+#~ "A :file:`MANIFEST.in` file consists of commands, one per line, "
+#~ "instructing setuptools to add or remove some set of files from the "
+#~ "sdist.  The commands are:"
+#~ msgstr ""
+#~ ":file:`MANIFEST.in` ファイルは一行にひとつのコマンドで構成されており、"
+#~ "setuptools に対して sdist に関するファイル追加・削除を指示します。コマンド"
+#~ "として使えるのは次のものです:"
+
+#~ msgid "Command"
+#~ msgstr "コマンド"
+
+#~ msgid ":samp:`include {pat1} {pat2} ...`"
+#~ msgstr ":samp:`include {pat1} {pat2} ...`"
+
+#~ msgid ""
+#~ "Add all files matching any of the listed patterns (Files must be given as "
+#~ "paths relative to the root of the project)"
+#~ msgstr ""
+#~ "列挙されたパターンのいずれかに合致するすべてのファイルを追加する (ファイル"
+#~ "はプロジェクトのルートディレクトリに対する相対パスの形で指定されなければな"
+#~ "りません)"
+
+#~ msgid ":samp:`exclude {pat1} {pat2} ...`"
+#~ msgstr ":samp:`exclude {pat1} {pat2} ...`"
+
+#~ msgid ""
+#~ "Remove all files matching any of the listed patterns (Files must be given "
+#~ "as paths relative to the root of the project)"
+#~ msgstr ""
+#~ "列挙されたパターンのいずれかに合致するすべてのファイルを削除する (ファイル"
+#~ "はプロジェクトのルートディレクトリに対する相対パスの形で指定されなければな"
+#~ "りません)"
+
+#~ msgid ":samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`"
+#~ msgstr ":samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`"
+
+#~ msgid ""
+#~ "Add all files under directories matching ``dir-pattern`` that match any "
+#~ "of the listed patterns"
+#~ msgstr ""
+#~ "``dir-pattern`` に合致するディレクトリの下にあって、かつ、列挙されたパター"
+#~ "ンのいずれかに合致するファイルをすべて追加する"
+
+#~ msgid ":samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`"
+#~ msgstr ":samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`"
+
+#~ msgid ""
+#~ "Remove all files under directories matching ``dir-pattern`` that match "
+#~ "any of the listed patterns"
+#~ msgstr ""
+#~ "``dir-pattern`` に合致するディレクトリの下にあって、かつ、列挙されたパター"
+#~ "ンのいずれかに合致するファイルをすべて削除する"
+
+#~ msgid ":samp:`global-include {pat1} {pat2} ...`"
+#~ msgstr ":samp:`global-include {pat1} {pat2} ...`"
+
+#~ msgid ""
+#~ "Add all files anywhere in the source tree matching any of the listed "
+#~ "patterns"
+#~ msgstr ""
+#~ "ソースコードツリーのどこにあろうとも、列挙されたパターンのいずれかに合致す"
+#~ "るファイルを追加する"
+
+#~ msgid ":samp:`global-exclude {pat1} {pat2} ...`"
+#~ msgstr ":samp:`global-exclude {pat1} {pat2} ...`"
+
+#~ msgid ""
+#~ "Remove all files anywhere in the source tree matching any of the listed "
+#~ "patterns"
+#~ msgstr ""
+#~ "ソースコードツリーのどこにあろうとも、列挙されたパターンのいずれかに合致す"
+#~ "るファイルを削除する"
+
+#~ msgid ":samp:`graft {dir-pattern}`"
+#~ msgstr ":samp:`graft {dir-pattern}`"
+
+#~ msgid "Add all files under directories matching ``dir-pattern``"
+#~ msgstr ""
+#~ "``dir-pattern`` に合致するディレクトリの下にある全てのファイルを追加する"
+
+#~ msgid ":samp:`prune {dir-pattern}`"
+#~ msgstr ":samp:`prune {dir-pattern}`"
+
+#~ msgid "Remove all files under directories matching ``dir-pattern``"
+#~ msgstr ""
+#~ "``dir-pattern`` に合致するディレクトリの下にあるすべてのファイルを削除する"
+
+#~ msgid ""
+#~ "The patterns here are glob-style patterns: ``*`` matches zero or more "
+#~ "regular filename characters (on Unix, everything except forward slash; on "
+#~ "Windows, everything except backslash and colon); ``?`` matches a single "
+#~ "regular filename character, and ``[chars]`` matches any one of the "
+#~ "characters between the square brackets (which may contain character "
+#~ "ranges, e.g., ``[a-z]`` or ``[a-fA-F0-9]``).  Setuptools also has "
+#~ "undocumented support for ``**`` matching zero or more characters "
+#~ "including forward slash, backslash, and colon."
+#~ msgstr ""
+#~ "ここでのパターンは glob スタイルのもの: ``*`` はファイル名に使われる通常の"
+#~ "文字 (UNIX ではスラッシュを除くすべて; Windows ではコロンを除くすべて) の "
+#~ "0 個またはそれ以上の並びに合致; ``?`` はファイル名に使われる通常の文字 1 "
+#~ "個に合致し、 ``[chars]`` は角括弧の間にある文字 (文字範囲を含んでも構いま"
+#~ "せん。例えば ``[a-z]`` や ``[a-fA-F0-9]``) の内のいずれかひとつに合致しま"
+#~ "す。ドキュメント化されていませんが、スラッシュかバックスラッシュかコロンだ"
+#~ "けの 0 個またはそれ以上の並びに合致する ``**`` を Setuptools はサポートし"
+#~ "ています。"
+
+#~ msgid ""
+#~ "Directory patterns are relative to the root of the project directory; e."
+#~ "g., ``graft example*`` will include a directory named :file:`examples` in "
+#~ "the project root but will not include :file:`docs/examples/`."
+#~ msgstr ""
+#~ "ディレクトリ向けのパターンはプロジェクトのルートディレクトリに対する相対パ"
+#~ "スです; 例えば、 ``graft example*`` は、プロジェクトルートの直下にある :"
+#~ "file:`examples` という名前のディレクトリを追加しますが、 :file:`docs/"
+#~ "examples/` については追加しません。"
+
+#~ msgid ""
+#~ "File & directory names in :file:`MANIFEST.in` should be ``/``-separated; "
+#~ "setuptools will automatically convert the slashes to the local platform's "
+#~ "appropriate directory separator."
+#~ msgstr ""
+#~ ":file:`MANIFEST.in` 内のファイルやディレクトリの名前は、 ``/`` で区切られ"
+#~ "ていなければなりません; setuptools がスラッシュをローカルのプラットフォー"
+#~ "ムに適切なディレクトリ分離子に置換してくれます。"
+
+#~ msgid ""
+#~ "Commands are processed in the order they appear in the :file:`MANIFEST."
+#~ "in` file.  For example, given the commands:"
+#~ msgstr ""
+#~ "コマンドは :file:`MANIFEST.in` ファイルに登場する順に実行されます。例え"
+#~ "ば、以下のようなコマンドが与えられると:"
+
+#~ msgid ""
+#~ "the contents of the directory tree :file:`tests` will first be added to "
+#~ "the sdist, and then after that all files in the sdist with a ``.pyc``, ``."
+#~ "pyo``, or ``.pyd`` extension will be removed from the sdist.  If the "
+#~ "commands were in the opposite order, then ``*.pyc`` files etc. would be "
+#~ "only be removed from what was already in the sdist before adding :file:"
+#~ "`tests`, and if :file:`tests` happened to contain any ``*.pyc`` files, "
+#~ "they would end up included in the sdist because the exclusion happened "
+#~ "before they were included."
+#~ msgstr ""
+#~ ":file:`tests` ディレクトリ以下のコンテンツは、まず全てが sdist に追加され"
+#~ "た後に、 ``.pyc`` ・ ``.pyo`` ・ ``.pyd`` の拡張子を持ったファイルがすべ"
+#~ "て sdist から削除されます。逆順でコマンドを与えると、 ``*.pyc`` その他の"
+#~ "ファイルについては、 :file:`tests` を追加する前に sdist に存在していたもの"
+#~ "だけが取り除かれることになり、削除が追加の前に行われているので :file:"
+#~ "`tests` に ``*.pyc`` ファイルなどがあれば最終的な sdist に含まれることにな"
+#~ "ります。"
 
 #~ msgid ""
 #~ "Use `pkgutil-style namespace packages`_. This is recommended for new "
