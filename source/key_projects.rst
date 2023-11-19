@@ -268,7 +268,7 @@ display on PyPI.
 .. _setuptools:
 .. _easy_install:
 
-setuptools
+Setuptools
 ==========
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
@@ -276,7 +276,7 @@ setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
 
-setuptools (which includes ``easy_install``) is a collection of
+Setuptools (which includes ``easy_install``) is a collection of
 enhancements to the Python distutils that allow you to more easily
 build and distribute Python :term:`distributions <Distribution
 Package>`, especially ones that have dependencies on other packages.
