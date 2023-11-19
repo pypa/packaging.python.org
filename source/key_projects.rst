@@ -268,7 +268,7 @@ display on PyPI.
 .. _setuptools:
 .. _easy_install:
 
-setuptools
+Setuptools
 ==========
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
@@ -276,14 +276,10 @@ setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
 
-setuptools (which includes ``easy_install``) is a collection of
+Setuptools (which includes ``easy_install``) is a collection of
 enhancements to the Python distutils that allow you to more easily
 build and distribute Python :term:`distributions <Distribution
 Package>`, especially ones that have dependencies on other packages.
-
-`distribute`_ was a fork of setuptools that was merged back into setuptools (in
-v0.7), thereby making setuptools the primary choice for Python packaging.
-
 
 .. _trove-classifiers:
 
@@ -742,6 +738,5 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 
 ----
 
-.. _distribute: https://pypi.org/project/distribute
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _pytest: https://docs.pytest.org/en/stable/
