@@ -13,7 +13,7 @@ A :term:`pyproject.toml` file is strongly recommended.
 The presence of a :file:`pyproject.toml` file itself does not bring much. [#]_
 What is actually strongly recommended is the ``[build-system]`` table in :file:`pyproject.toml`.
 
-.. [#] Note that it has influence on the build isolation feature of *pip*,
+.. [#] Note that it has influence on the build isolation feature of pip,
     see below.
 
 
@@ -24,10 +24,10 @@ No, :file:`setup.py` can exist in a modern :ref:`setuptools` based project.
 The :term:`setup.py` file is a valid configuration file for setuptools
 that happens to be written in Python.
 However, the following commands are deprecated and **MUST NOT** be run anymore,
-and their recommended replacement commands can be used instead:
+and their recommended replacement commands should be used instead:
 
 +---------------------------------+----------------------------------------+
-| Deprecated                      | Current recommendation                 |
+| Deprecated                      | Recommendation                         |
 +=================================+========================================+
 | ``python setup.py install``     | ``python -m pip install .``            |
 +---------------------------------+----------------------------------------+
@@ -118,7 +118,7 @@ What is the build isolation feature?
 
 Build frontends typically create an ephemeral virtual environment
 where they install only the build dependencies (and their dependencies)
-that are listed under ``build-sytem.requires``
+that are listed under ``build-system.requires``
 and trigger the build in that environment.
 
 For some projects this isolation is unwanted and it can be deactivated as follows:
