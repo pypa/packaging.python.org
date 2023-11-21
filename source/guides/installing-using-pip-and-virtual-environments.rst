@@ -104,20 +104,20 @@ Python interpreter:
 
         where python
 
-When the virtual environment is activated, the location will include
-the ``.venv`` directory:
+While the virtual environment is active, the above command will output a
+filepath that includes the ``.venv`` directory, by ending with the following:
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        .../.venv/bin/python
+        .venv/bin/python
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        ...\.venv\bin\python.exe
+        .venv\bin\python.exe
 
 
 While a virtual environment is activated, pip will install packages into that
