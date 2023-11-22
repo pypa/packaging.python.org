@@ -23,12 +23,15 @@ Source distributions are also known as *sdists* for short.
 Source trees
 ============
 
-A *source tree* is a collection of files and directories -- like a version
-control system checkout -- which contains a :file:`pyproject.toml` file that
-can be use to build a source distribution from the contained files and
-directories. :pep:`517` and :pep:`518` specify what is required to meet the
-definition of what :file:`pyproject.toml` must contain for something to be
-deemed a source tree.
+A *source tree* is a collection of files and directories -- like a
+version control system checkout -- which contains a
+:file:`pyproject.toml` file that can be use to build a source
+distribution from the contained files and directories. In order for the
+directory to be deemed a source tree, the :file:`pyproject.toml` file is
+required to contain a :ref:`[build-system] table
+<pyproject-build-system-table>` with both the ``requires`` and
+``build-backend`` keys defined.
+
 
 Source distribution file name
 =============================
