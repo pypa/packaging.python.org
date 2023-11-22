@@ -1,3 +1,5 @@
+.. _build-system-interface:
+
 ======================
 Build system interface
 ======================
@@ -5,6 +7,11 @@ Build system interface
 This specifications describes a standardized interface for installation
 tools like ``pip`` to interact with package source trees and source
 distributions.
+
+The project's chosen build system is read from the :ref:`[build-system]
+table <pyproject-build-system-table>` of the ``pyproject.toml`` file.
+The ``requires`` key defines the build requirements and the
+``build-backend`` key specifies a build backend object to use.
 
 
 Terminology
@@ -27,9 +34,10 @@ lxml==2.4.0``, pip is acting as an integration frontend.
 Build requirements
 ==================
 
-This PEP places a number of additional requirements on the "build requirements"
-section of ``pyproject.toml``. These are intended to ensure that projects do
-not create impossible to satisfy conditions with their build requirements.
+This specification places a number of requirements on the ``requires``
+key from the ``[build-system]`` section of ``pyproject.toml``. These are
+intended to ensure that projects do not create impossible to satisfy
+conditions with their build requirements.
 
 - Project build requirements will define a directed graph of requirements
   (project A needs B to build, B needs C and D, etc.) This graph MUST NOT
@@ -53,9 +61,11 @@ avoiding external build dependencies (usually by vendoring them).
 Build backend interface
 ========================
 
-The build backend object is expected to have attributes which provide
-some or all of the following hooks. The common ``config_settings``
-argument is described after the individual hooks.
+The build backend object is looked up according to the ``build-backend``
+field of the ``[build-system]`` table. It is expected to have attributes
+which provide some or all of the following hooks. The common
+``config_settings`` argument is described after the individual hooks.
+
 
 Mandatory hooks
 ---------------
@@ -124,6 +134,8 @@ for a wheel, it should fall back to building a wheel directly.
 The backend does not need to define this exception type if it would never raise
 it.
 
+
+
 Optional hooks
 --------------
 
@@ -135,9 +147,10 @@ get_requires_for_build_wheel
   def get_requires_for_build_wheel(config_settings=None):
       ...
 
-This hook MUST return an additional list of strings containing :pep:`508`
-dependency specifications, above and beyond those specified in the
-``pyproject.toml`` file, to be installed when calling the ``build_wheel`` or
+This hook MUST return an additional list of strings containing
+:ref:`dependency specifiers <dependency-specifiers>`, above and
+beyond those specified in the ``pyproject.toml`` file, to be
+installed when calling the ``build_wheel`` or
 ``prepare_metadata_for_build_wheel`` hooks.
 
 Example::
@@ -165,7 +178,7 @@ directory, and a build frontend MUST preserve, but otherwise ignore, such files;
 the intention
 here is that in cases where the metadata depends on build-time
 decisions, the build backend may need to record these decisions in
-some convenient format for re-use by the actual wheel-building step.
+some convenient format for reuse by the actual wheel-building step.
 
 This must return the basename (not the full path) of the ``.dist-info``
 directory it creates, as a unicode string.
@@ -190,16 +203,8 @@ dependency specifications, above and beyond those specified in the
 If not defined, the default implementation is equivalent to ``return []``.
 
 
-.. note:: Editable installs
+.. todo:: Import :pep:`660` (editable installs) here.
 
-   This PEP originally specified another hook, ``install_editable``, to do an
-   editable install (as with ``pip install -e``). It was removed due to the
-   complexity of the topic, but may be specified in a later PEP.
-
-   Briefly, the questions to be answered include: what reasonable ways existing
-   of implementing an 'editable install'? Should the backend or the frontend
-   pick how to make an editable install? And if the frontend does, what does it
-   need from the backend to do so.
 
 Config settings
 ---------------
@@ -327,7 +332,7 @@ environment that meets the above criteria. For example, simply
 installing all build-requirements into the global environment would be
 sufficient to build any compliant package -- but this would be
 sub-optimal for a number of reasons. This section contains
-non-normative advice to frontend implementors.
+non-normative advice to frontend implementers.
 
 A build frontend SHOULD, by default, create an isolated environment
 for each build, containing only the standard library and any
@@ -421,13 +426,16 @@ the locations in ``backend-path``.
 History
 =======
 
-The following changes were made to this PEP after the initial reference
+This specification was originally proposed and approved as :pep:`517`.
+
+The following changes were made to this specification after the initial reference
 implementation was released in pip 19.0.
 
 * Cycles in build requirements were explicitly prohibited.
 * Support for in-tree backends and self-hosting of backends was added by
   the introduction of the ``backend-path`` key in the ``[build-system]``
   table.
-* Clarified that the ``setuptools.build_meta:__legacy__`` :pep:`517` backend is
+* Clarified that the ``setuptools.build_meta:__legacy__`` backend is
   an acceptable alternative to directly invoking ``setup.py`` for source trees
-  that don't specify ``build-backend`` explicitly.
+  that don't specify ``build-backend`` explicitly. (This clarification
+  is now in the :ref:`pyproject.toml specification <pyproject-toml-spec>`.)
