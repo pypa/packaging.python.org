@@ -24,83 +24,6 @@ combination of wheels and sdists. In a command like ``pip install
 lxml==2.4.0``, pip is acting as an integration frontend.
 
 
-Source trees
-============
-
-There is an existing, legacy source tree format involving
-``setup.py``. We don't try to specify it further; its de facto
-specification is encoded in the source code and documentation of
-``distutils``, ``setuptools``, ``pip``, and other tools. We'll refer
-to it as the ``setup.py``\-style.
-
-Here we define a new style of source tree based around the
-``pyproject.toml`` file defined in :pep:`518`, extending the
-``[build-system]`` table in that file with one additional key,
-``build-backend``. Here's an example of how it would look::
-
-    [build-system]
-    # Defined by PEP 518:
-    requires = ["flit"]
-    # Defined by this PEP:
-    build-backend = "flit.api:main"
-
-``build-backend`` is a string naming a Python object that will be
-used to perform the build (see below for details). This is formatted
-following the same ``module:object`` syntax as a ``setuptools`` entry
-point. For instance, if the string is ``"flit.api:main"`` as in the
-example above, this object would be looked up by executing the
-equivalent of::
-
-    import flit.api
-    backend = flit.api.main
-
-It's also legal to leave out the ``:object`` part, e.g. ::
-
-    build-backend = "flit.api"
-
-which acts like::
-
-    import flit.api
-    backend = flit.api
-
-Formally, the string should satisfy this grammar::
-
-    identifier = (letter | '_') (letter | '_' | digit)*
-    module_path = identifier ('.' identifier)*
-    object_path = identifier ('.' identifier)*
-    entry_point = module_path (':' object_path)?
-
-And we import ``module_path`` and then lookup
-``module_path.object_path`` (or just ``module_path`` if
-``object_path`` is missing).
-
-When importing the module path, we do *not* look in the directory containing the
-source tree, unless that would be on ``sys.path`` anyway (e.g. because it is
-specified in PYTHONPATH). Although Python automatically adds the working
-directory to ``sys.path`` in some situations, code to resolve the backend should
-not be affected by this.
-
-If the ``pyproject.toml`` file is absent, or the ``build-backend``
-key is missing, the source tree is not using this specification, and
-tools should revert to the legacy behaviour of running ``setup.py`` (either
-directly, or by implicitly invoking the ``setuptools.build_meta:__legacy__``
-backend).
-
-Where the ``build-backend`` key exists, this takes precedence and the source tree follows the format and
-conventions of the specified backend (as such no ``setup.py`` is needed unless the backend requires it).
-Projects may still wish to include a ``setup.py`` for compatibility with tools that do not use this spec.
-
-This PEP also defines a ``backend-path`` key for use in ``pyproject.toml``, see
-the "In-Tree Build Backends" section below. This key would be used as follows::
-
-    [build-system]
-    # Defined by PEP 518:
-    requires = ["flit"]
-    # Defined by this PEP:
-    build-backend = "local_backend"
-    backend-path = ["backend"]
-
-
 Build requirements
 ==================
 
@@ -450,6 +373,8 @@ The general principle here is that we want to enforce hygiene on
 package *authors*, while still allowing *end-users* to open up the
 hood and apply duct tape when necessary.
 
+
+.. _in-tree-build-backends:
 
 In-tree build backends
 ----------------------

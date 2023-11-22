@@ -13,7 +13,8 @@
 The ``pyproject.toml`` file acts as a configuration file for packaging-related
 tools (as well as other tools).
 
-.. note:: This specification was originally defined in :pep:`518` and :pep:`621`.
+.. note:: This specification was originally defined in :pep:`518`,
+   :pep:`517` and :pep:`621`.
 
 The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
 tables are currently specified, namely
@@ -29,71 +30,100 @@ Declaring build system dependencies: the ``[build-system]`` table
 
 The ``[build-system]`` table declares any Python level dependencies that
 must be installed in order to run the project's build system
-successfully.
-
-.. TODO: merge with PEP 517
-
-The ``[build-system]`` table is used to store build-related data.
-Initially, only one key of the table is valid and is mandatory
-for the table: ``requires``. This key must have a value of a list
-of strings representing dependencies required to execute the
-build system. The strings in this list follow the :ref:`version specifier
-specification <version-specifiers>`.
-
-An example ``[build-system]`` table for a project built with
-``setuptools`` is:
-
-.. code-block:: toml
-
-   [build-system]
-   # Minimum requirements for the build system to execute.
-   requires = ["setuptools"]
-
-Build tools are expected to use the example configuration file above as
-their default semantics when a ``pyproject.toml`` file is not present.
+successfully. The valid keys are ``requires``, ``build-backend`` and
+``backend-path``.
 
 Tools should not require the existence of the ``[build-system]`` table.
 A ``pyproject.toml`` file may be used to store configuration details
 other than build-related data and thus lack a ``[build-system]`` table
-legitimately. If the file exists but is lacking the ``[build-system]``
-table then the default values as specified above should be used.
+legitimately.
 If the table is specified but is missing required fields then the tool
 should consider it an error.
 
 
-To provide a type-specific representation of the resulting data from
-the TOML file for illustrative purposes only, the following
-`JSON Schema <https://json-schema.org>`_ would match the data format:
+``requires``
+------------
 
-.. code-block:: json
+The ``requires`` key must have a value of a list of strings representing
+dependencies required to execute the build system [#requires-json-schema]_.
+The strings in this list follow the :ref:`version specifier specification
+<version-specifiers>`.
 
-   {
-       "$schema": "http://json-schema.org/schema#",
+This key is mandatory if the ``[build-system]`` table is present. If
+the ``pyproject.toml`` file is missing, or exists but is lacking the
+``[build-system]`` table, then ``requires`` defaults to ``["setuptools"]``.
 
-       "type": "object",
-       "additionalProperties": false,
 
-       "properties": {
-           "build-system": {
-               "type": "object",
-               "additionalProperties": false,
 
-               "properties": {
-                   "requires": {
-                       "type": "array",
-                       "items": {
-                           "type": "string"
-                       }
-                   }
-               },
-               "required": ["requires"]
-           },
+``build-backend``
+-----------------
 
-           "tool": {
-               "type": "object"
-           }
-       }
-   }
+The ``build-backend`` key is a string naming a Python object that will be
+used to perform the build. This is formatted following the same
+``module:object`` syntax as an :ref:`entry point <entry-points>`.
+For instance, with the configuration
+
+.. code-block:: toml
+
+   [build-system]
+   requires = ["backend-name"]
+   build-backend = "backend_name.build_system:backend"
+
+this object would be looked up by executing the equivalent of::
+
+    import backend_name.build
+    backend = backend_name.build_system.backend
+
+It is also legal to leave out the ``:object`` part, e.g.
+
+.. code-block:: toml
+
+    build-backend = "backend_name.build_system"
+
+which acts like::
+
+    import backend_name.build_system
+    backend = backend_name.build_system
+
+Formally, the string should satisfy this grammar:
+
+.. code-block:: text
+
+    identifier = (letter | '_') (letter | '_' | digit)*
+    module_path = identifier ('.' identifier)*
+    object_path = identifier ('.' identifier)*
+    entry_point = module_path (':' object_path)?
+
+The module specified by ``module_path`` is imported and the build
+backend object is looked up using ``module_path.object_path`` (or
+``module_path`` is directly used if ``object_path`` is missing).
+See :ref:`build-system-interface` for how the build backend object
+is used to perform the build.
+
+When importing the module path, we do *not* look in the directory
+containing the source tree, unless that would be on ``sys.path`` anyway
+(e.g. because it is specified in PYTHONPATH). Although Python
+automatically adds the working directory to ``sys.path`` in some
+situations, code to resolve the backend should not be affected by this.
+
+Unlike the ``requires`` key, the ``build-backend`` key is optional
+[#build-backend-optional]_. If ``pyproject.toml`` is absent, or
+the ``[build-system]`` table is missing, or it does not contain
+the ``build-backend`` key, build frontends should revert to the legacy
+behavior of running ``setup.py`` (either directly, or implicitly by
+invoking the ``setuptools.build_meta:__legacy__`` backend).
+
+
+``backend-path``
+----------------
+
+This key is for use by projects wishing to include their build backend
+directly in their source tree, such as build backends themselves. If
+provided, it must be a list of directories, which are prepended to
+``sys.path`` during the build. For details, see
+:ref:`in-tree-build-backends` in the build system interface
+specification.
+
 
 
 .. _pyproject-project-table:
@@ -441,8 +471,51 @@ History
 =======
 
 This specification was originally defined in :pep:`518` (``[build-system]``
-and ``[tool]`` tables) and :pep:`621` (``[project]`` table).
+and ``[tool]`` tables), :pep:`517` (``build-backend`` and ``backend-path``
+in the ``[build-system]`` table), and :pep:`621` (``[project]`` table).
 
+
+--------------------------------------------------------------------------
+
+.. [#requires-json-schema] The following `JSON Schema <json-schema_>`_ was
+   originally provided, for illustrative purposes only, and has not been
+   updated:
+
+   .. code-block:: json
+
+      {
+          "$schema": "http://json-schema.org/schema#",
+
+          "type": "object",
+          "additionalProperties": false,
+
+          "properties": {
+              "build-system": {
+                  "type": "object",
+                  "additionalProperties": false,
+
+                  "properties": {
+                      "requires": {
+                          "type": "array",
+                          "items": {
+                              "type": "string"
+                          }
+                      }
+                  },
+                  "required": ["requires"]
+              },
+
+              "tool": {
+                  "type": "object"
+              }
+          }
+      }
+
+
+.. [#build-backend-optional] Historically, ``build-backend`` was defined
+   later than ``requires``, thus making ``build-backend`` optional is to
+   preserve backwards compatibility.
 
 
 .. _TOML: https://toml.io
+.. _json-schema: https://json-schema.org
