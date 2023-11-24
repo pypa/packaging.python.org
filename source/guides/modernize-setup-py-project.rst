@@ -37,7 +37,11 @@ and their recommended replacement commands should be used instead:
 +---------------------------------+                                        |
 | ``python setup.py bdist_wheel`` |                                        |
 +---------------------------------+----------------------------------------+
+| | ``python setup.py --version`` |  ``python -m setuptools_scm``          |
+| | (when using setuptools-scm_)  |                                        |
++---------------------------------+----------------------------------------+
 
+.. _setuptools-scm: https://setuptools-scm.readthedocs.io
 
 For more details:
 

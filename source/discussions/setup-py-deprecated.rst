@@ -38,7 +38,11 @@ What commands should be used instead?
 +---------------------------------+                                        |
 | ``python setup.py bdist_wheel`` |                                        |
 +---------------------------------+----------------------------------------+
+| | ``python setup.py --version`` |  ``python -m setuptools_scm``          |
+| | (when using setuptools-scm_)  |                                        |
++---------------------------------+----------------------------------------+
 
+.. _setuptools-scm: https://setuptools-scm.readthedocs.io
 
 .. [#needs-build] This requires the :ref:`build` dependency.
     It is recommended to always build and publish both the source distribution
