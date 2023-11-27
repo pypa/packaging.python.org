@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-21 02:30+0000\n"
-"PO-Revision-Date: 2023-11-26 03:02+0000\n"
+"PO-Revision-Date: 2023-11-28 04:58+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -6959,16 +6959,13 @@ msgid "Where to start?"
 msgstr "どこから始めましょうか？"
 
 #: ../source/guides/modernize-setup-py-project.rst:50
-#, fuzzy
-#| msgid ""
-#| "Open :file:`pyproject.toml` and enter one of these ``[build-system]`` "
-#| "tables:"
 msgid ""
 "The :term:`project` must contain a :file:`pyproject.toml` file at the root "
 "of its source tree that contains a ``[build-system]`` table like so:"
 msgstr ""
-":file:`pyproject.toml` を開いて、これらの ``[build-system]`` テーブルのうちの"
-"ひとつを入力してください:"
+":term:`プロジェクト <project>` "
+"のソースコードツリーのルート部分には、次に示すように、 ``[build-system]`` "
+"テーブルを含む :file:`pyproject.toml` がなければなりません:"
 
 #: ../source/guides/modernize-setup-py-project.rst:60
 msgid ""
@@ -6976,36 +6973,38 @@ msgid ""
 "Frontend>` know that :ref:`setuptools` is the :term:`build backend <Build "
 "Backend>` for this project."
 msgstr ""
+"これは、 :term:`ビルドフロントエンド <Build Frontend>` にこのプロジェクトの "
+":term:`ビルドバックエンド <Build Backend>` は :ref:`setuptools` "
+"だと知らせるための標準化されたやり方です。"
 
 #: ../source/guides/modernize-setup-py-project.rst:63
 msgid ""
 "Note that the presence of a :file:`pyproject.toml` file (even if empty) "
 "triggers :ref:`pip` to change its default behavior to use *build isolation*."
 msgstr ""
+"(空のファイルであっても) :file:`pyproject.toml` ファイルが存在していれば、 "
+":ref:`pip` が *ビルド隔離 <build isolation>* "
+"を取り扱うデフォルトの動きが変わることに注意してください。"
 
 #: ../source/guides/modernize-setup-py-project.rst:68
-#, fuzzy
-#| msgid "Linux distribution packages"
 msgid ":ref:`distributing-packages`"
-msgstr "Linux 配布パッケージ"
+msgstr ":ref:`配布パッケージ <distributing-packages>`"
 
 #: ../source/guides/modernize-setup-py-project.rst:69
 #: ../source/guides/modernize-setup-py-project.rst:113
 #: ../source/guides/modernize-setup-py-project.rst:246
-#, fuzzy
-#| msgid "Declaring build system dependencies"
 msgid ":ref:`declaring-build-dependencies`"
-msgstr "ビルドシステムの依存関係を宣言する"
+msgstr ":ref:`ビルド依存関係を宣言する <declaring-build-dependencies>`"
 
 #: ../source/guides/modernize-setup-py-project.rst:70
 #: ../source/guides/modernize-setup-py-project.rst:131
 #: ../source/guides/modernize-setup-py-project.rst:248
 msgid ":doc:`pip:reference/build-system/pyproject-toml`"
-msgstr ""
+msgstr ":doc:`pip:reference/build-system/pyproject-toml`"
 
 #: ../source/guides/modernize-setup-py-project.rst:74
 msgid "How to handle additional build-time dependencies?"
-msgstr ""
+msgstr "追加的なビルド時の依存関係をどのように扱うのですか？"
 
 #: ../source/guides/modernize-setup-py-project.rst:76
 msgid ""
@@ -7015,22 +7014,28 @@ msgid ""
 "frontend knows to install them when building the :term:`distributions "
 "<Distribution Package>`."
 msgstr ""
+"setuptools それ自体の上に、もし :file:`setup.py` が他の (Python "
+"の標準ライブラリの外側の) 第三者のライブラリに依存しているのであれば、 "
+":term:`配布物 <Distribution Package>` をビルドする際にビルドフロトンエンドが"
+"それらをインストールする必要があることを知るために、 ``[build-system]`` "
+"テーブルの ``require`` リストに挙げられていなければなりません。"
 
 #: ../source/guides/modernize-setup-py-project.rst:82
 #: ../source/guides/modernize-setup-py-project.rst:139
 #: ../source/guides/modernize-setup-py-project.rst:174
 msgid "For example, a :file:`setup.py` file such as this:"
-msgstr ""
+msgstr "例えば、このような :file:`setup.py` ファイルがあれば:"
 
 #: ../source/guides/modernize-setup-py-project.rst:99
 msgid ""
 "requires a :file:`pyproject.toml` file like this (:file:`setup.py` stays "
 "unchanged):"
-msgstr ""
+msgstr ":file:`pyproject.toml` ファイルはこのようであることが要求されます "
+"(:file:`setup.py` には変更なし):"
 
 #: ../source/guides/modernize-setup-py-project.rst:117
 msgid "What is the build isolation feature?"
-msgstr ""
+msgstr "ビルド隔離機能とは何でしょうか？"
 
 #: ../source/guides/modernize-setup-py-project.rst:119
 msgid ""
@@ -7038,66 +7043,69 @@ msgid ""
 "install only the build dependencies (and their dependencies) that are listed "
 "under ``build-system.requires`` and trigger the build in that environment."
 msgstr ""
+"典型的な場合、ビルドフロントエンドは、 ``build-system.requires`` "
+"の下に列挙されているビルド時の依存関係 (と、その依存関係)だけをインストールす"
+"る先としての一時的な仮想環境を作成し、その環境内でビルドを開始します。"
 
 #: ../source/guides/modernize-setup-py-project.rst:124
 msgid ""
 "For some projects this isolation is unwanted and it can be deactivated as "
 "follows:"
-msgstr ""
+msgstr "この隔離が不要な一部のプロジェクト向けには、以下のようにすれば (隔離を) "
+"非活性化することができます:"
 
 #: ../source/guides/modernize-setup-py-project.rst:126
-#, fuzzy
-#| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python -m build --no-isolation``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``python -m build --no-isolation``"
 
 #: ../source/guides/modernize-setup-py-project.rst:127
-#, fuzzy
-#| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python -m install --no-build-isolation``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``python -m install --no-build-isolation``"
 
 #: ../source/guides/modernize-setup-py-project.rst:135
-#, fuzzy
-#| msgid "Using package metadata"
 msgid "How to handle packaging metadata?"
-msgstr "パッケージのメタデータを用いるやり方"
+msgstr "パッケージのメタデータをどのように扱えば良いでしょうか？"
 
 #: ../source/guides/modernize-setup-py-project.rst:137
 msgid ""
 "All static metadata can optionally be moved to a ``[project]`` table in :"
 "file:`pyproject.toml`."
-msgstr ""
+msgstr "静的なメタデータはすべて、 :file:`pyproject.toml` の ``[project]`` "
+"テーブルへ移しても構いません。"
 
 #: ../source/guides/modernize-setup-py-project.rst:151
 msgid "can be entirely replaced by a :file:`pyproject.toml` file like this:"
-msgstr ""
+msgstr "このように :file:`pyproject.toml` ファイルで完全に置き換えることも可能です:"
 
 #: ../source/guides/modernize-setup-py-project.rst:164
 msgid ""
 "Read :ref:`declaring-project-metadata` for the full specification of the "
 "content allowed in the ``[project]`` table."
 msgstr ""
+"``[project]`` テーブルで許される内容の完全な仕様については、 :ref:`"
+"プロジェクトのメタデータを宣言する <declaring-project-metadata>` "
+"を読んでください。"
 
 #: ../source/guides/modernize-setup-py-project.rst:169
 msgid "How to handle dynamic metadata?"
-msgstr ""
+msgstr "動的なメタデータをどのように取り扱いますか？"
 
 #: ../source/guides/modernize-setup-py-project.rst:171
 msgid ""
 "If some packaging metadata fields are not static they need to be listed as "
 "``dynamic`` in this ``[project]`` table."
 msgstr ""
+"パッケージングであるメタデータフィールドが静的ではないならば、 ``[project]`` "
+"テーブルの ``dynamic`` に列挙する必要があります。"
 
 #: ../source/guides/modernize-setup-py-project.rst:191
 msgid "can be modernized as follows:"
-msgstr ""
+msgstr "以下のように近代化することができるでしょう:"
 
 #: ../source/guides/modernize-setup-py-project.rst:223
-#, fuzzy
-#| msgid "Declaring project metadata"
 msgid ":ref:`declaring-project-metadata-dynamic`"
-msgstr "プロジェクトのメタデータを宣言する"
+msgstr ":ref:`プロジェクトのメタデータを動的であると宣言する <declaring-project-"
+"metadata-dynamic>`"
 
 #: ../source/guides/modernize-setup-py-project.rst:227
 msgid "What if something that can not be changed expects a ``setup.py`` file?"
