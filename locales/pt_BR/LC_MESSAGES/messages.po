@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 19:13+0000\n"
+"POT-Creation-Date: 2023-11-21 02:30+0000\n"
 "PO-Revision-Date: 2023-08-04 18:07+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -779,7 +779,7 @@ msgid "Unix (including Linux and macOS)"
 msgstr "Unix (incluindo Linux e macOS)"
 
 #: ../source/discussions/deploying-python-applications.rst:118
-#: ../source/key_projects.rst:537
+#: ../source/key_projects.rst:532
 msgid "pex"
 msgstr "pex"
 
@@ -1195,7 +1195,6 @@ msgid "Deprecated"
 msgstr "Campos raramente usados"
 
 #: ../source/discussions/setup-py-deprecated.rst:31
-#: ../source/guides/modernize-setup-py-project.rst:30
 #, fuzzy
 #| msgid "Tool recommendations"
 msgid "Current recommendation"
@@ -2686,7 +2685,6 @@ msgid "Column"
 msgstr "Coluna"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
-#: ../source/guides/using-manifest-in.rst:67
 #: ../source/specifications/core-metadata.rst:196
 msgid "Description"
 msgstr "Descrição"
@@ -5611,7 +5609,7 @@ msgstr ""
 "ferramentas padrão ``pip`` e ``virtualenv``."
 
 #: ../source/guides/installing-scientific-packages.rst:100
-#: ../source/key_projects.rst:681
+#: ../source/key_projects.rst:676
 msgid "Spack"
 msgstr "Spack"
 
@@ -6205,8 +6203,8 @@ msgstr ""
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:107
 msgid ""
-"When the virtual environment is activated, the location will include the ``."
-"venv`` directory:"
+"While the virtual environment is active, the above command will output a "
+"filepath that includes the ``.venv`` directory, by ending with the following:"
 msgstr ""
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:123
@@ -7069,8 +7067,7 @@ msgstr ""
 
 #: ../source/guides/modernize-setup-py-project.rst:16
 msgid ""
-"Note that it has influence on the build isolation feature of *pip*, see "
-"below."
+"Note that it has influence on the build isolation feature of pip, see below."
 msgstr ""
 
 #: ../source/guides/modernize-setup-py-project.rst:23
@@ -7079,8 +7076,14 @@ msgid ""
 "The :term:`setup.py` file is a valid configuration file for setuptools that "
 "happens to be written in Python. However, the following commands are "
 "deprecated and **MUST NOT** be run anymore, and their recommended "
-"replacement commands can be used instead:"
+"replacement commands should be used instead:"
 msgstr ""
+
+#: ../source/guides/modernize-setup-py-project.rst:30
+#, fuzzy
+#| msgid "Tool recommendations"
+msgid "Recommendation"
+msgstr "Recomendações de ferramentas"
 
 #: ../source/guides/modernize-setup-py-project.rst:36
 #, fuzzy
@@ -7183,7 +7186,7 @@ msgstr ""
 msgid ""
 "Build frontends typically create an ephemeral virtual environment where they "
 "install only the build dependencies (and their dependencies) that are listed "
-"under ``build-sytem.requires`` and trigger the build in that environment."
+"under ``build-system.requires`` and trigger the build in that environment."
 msgstr ""
 
 #: ../source/guides/modernize-setup-py-project.rst:124
@@ -8835,6 +8838,15 @@ msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
 msgid ""
+"If your repository has frequent commit activity and every push is uploaded "
+"to TestPyPI as described, the project might exceed the `PyPI project size "
+"limit <https://pypi.org/help/#project-size-limit>`_. The limit could be "
+"increased, but a better solution may constitute to use a PyPI-compatible "
+"server like :ref:`pypiserver` in the CI for testing purposes."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:232
+msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
 msgstr ""
@@ -10048,327 +10060,17 @@ msgstr ""
 "Incluindo arquivos em distribuições de código-fonte com ``MANIFEST.in``"
 
 #: ../source/guides/using-manifest-in.rst:7
+#, fuzzy
+#| msgid ""
+#| "For more information, see :doc:`Entry Points <setuptools:userguide/"
+#| "entry_point>` from the :doc:`setuptools docs <setuptools:index>`."
 msgid ""
-"When building a :term:`source distribution <Source Distribution (or "
-"\"sdist\")>` for your package, by default only a minimal set of files are "
-"included.  You may find yourself wanting to include extra files in the "
-"source distribution, such as an authors/contributors file, a :file:`docs/` "
-"directory, or a directory of data files used for testing purposes.  There "
-"may even be extra files that you *need* to include; for example, if your :"
-"file:`setup.py` computes your project's ``long_description`` by reading from "
-"both a README and a changelog file, you'll need to include both those files "
-"in the sdist so that people that build or install from the sdist get the "
-"correct results."
+"The information on this page has moved to :doc:`setuptools:userguide/"
+"miscellaneous` in the setuptools documentation."
 msgstr ""
-"Ao construir uma :term:`distribuição fonte <Distribuição fonte (ou "
-"\"sdist\")>` para o seu pacote, por padrão apenas um conjunto mínimo de "
-"arquivos é incluído. Você pode querer incluir arquivos extras na "
-"distribuição, como um arquivo de autores/contribuidores, um diretório :file:"
-"`docs/` ou um diretório de arquivos de dados usado para fins de teste. Pode "
-"até haver arquivos extras que você *precisa* incluir; por exemplo, se o seu :"
-"file:`setup.py` calcula a ``long_description`` do seu projeto lendo um "
-"arquivo README e um changelog, você precisará incluir ambos os arquivos no "
-"sdist para que as pessoas que construam ou instalar a partir do sdist obtém "
-"os resultados corretos."
-
-#: ../source/guides/using-manifest-in.rst:17
-msgid ""
-"Adding & removing files to & from the source distribution is done by writing "
-"a :file:`MANIFEST.in` file at the project root."
-msgstr ""
-"Adicionar e remover arquivos para e da distribuição fonte é feito escrevendo "
-"um arquivo :file:`MANIFEST.in` na raiz do projeto."
-
-#: ../source/guides/using-manifest-in.rst:22
-msgid "How files are included in an sdist"
-msgstr "Como os arquivos são incluídos em um sdist"
-
-#: ../source/guides/using-manifest-in.rst:24
-msgid "The following files are included in a source distribution by default:"
-msgstr ""
-"Os seguintes arquivos são incluídos em uma distribuição fonte por padrão:"
-
-#: ../source/guides/using-manifest-in.rst:26
-msgid ""
-"all Python source files implied by the ``py_modules`` and ``packages`` "
-"``setup()`` arguments"
-msgstr ""
-"todos os arquivos fonte Python implícitos pelos argumentos ``py_modules`` e "
-"``packages`` do ``setup()``"
-
-#: ../source/guides/using-manifest-in.rst:28
-msgid ""
-"all C source files mentioned in the ``ext_modules`` or ``libraries`` "
-"``setup()`` arguments"
-msgstr ""
-"todos os arquivos fonte C mencionados nos argumentos ``ext_modules`` ou "
-"``libraries`` do ``setup()``"
-
-#: ../source/guides/using-manifest-in.rst:30
-msgid "scripts specified by the ``scripts`` ``setup()`` argument"
-msgstr "scripts especificados pelo argumento ``scripts`` do ``setup()``"
-
-#: ../source/guides/using-manifest-in.rst:31
-msgid ""
-"all files specified by the ``package_data`` and ``data_files`` ``setup()`` "
-"arguments"
-msgstr ""
-"todos os arquivos especificados pelos argumentos ``package_data`` e "
-"``data_files`` do ``setup()``"
-
-#: ../source/guides/using-manifest-in.rst:33
-msgid ""
-"the file specified by the ``license_file`` option in :file:`setup.cfg` "
-"(setuptools 40.8.0+)"
-msgstr ""
-"o arquivo especificado pela opção ``license_file`` em :file:`setup.cfg` "
-"(setuptools 40.8.0+)"
-
-#: ../source/guides/using-manifest-in.rst:35
-msgid ""
-"all files specified by the ``license_files`` option in :file:`setup.cfg` "
-"(setuptools 42.0.0+)"
-msgstr ""
-"todos os arquivos especificados pela opção ``license_files`` em :file:`setup."
-"cfg` (setuptools 42.0.0+)"
-
-#: ../source/guides/using-manifest-in.rst:37
-msgid "all files matching the pattern :file:`test/test*.py`"
-msgstr "todos os arquivos correspondendo ao padrão :file:`test/test*.py`"
-
-#: ../source/guides/using-manifest-in.rst:38
-msgid ":file:`setup.py` (or whatever you called your setup script)"
-msgstr ""
-":file:`setup.py` (ou o que quer que você tenha chamado de seu script de "
-"configuração)"
-
-#: ../source/guides/using-manifest-in.rst:39
-msgid ":file:`setup.cfg`"
-msgstr ":file:`setup.cfg`"
-
-#: ../source/guides/using-manifest-in.rst:40
-msgid ":file:`README`"
-msgstr ":file:`README`"
-
-#: ../source/guides/using-manifest-in.rst:41
-msgid ":file:`README.txt`"
-msgstr ":file:`README.txt`"
-
-#: ../source/guides/using-manifest-in.rst:42
-msgid ":file:`README.rst` (Python 3.7+ or setuptools 0.6.27+)"
-msgstr ":file:`README.rst` (Python 3.7+ ou setuptools 0.6.27+)"
-
-#: ../source/guides/using-manifest-in.rst:43
-msgid ":file:`README.md` (setuptools 36.4.0+)"
-msgstr ":file:`README.md` (setuptools 36.4.0+)"
-
-#: ../source/guides/using-manifest-in.rst:44
-msgid ":file:`pyproject.toml` (setuptools 43.0.0+)"
-msgstr ":file:`pyproject.toml` (setuptools 43.0.0+)"
-
-#: ../source/guides/using-manifest-in.rst:45
-msgid ":file:`MANIFEST.in`"
-msgstr ":file:`MANIFEST.in`"
-
-#: ../source/guides/using-manifest-in.rst:47
-msgid ""
-"After adding the above files to the sdist, the commands in :file:`MANIFEST."
-"in` (if such a file exists) are executed in order to add and remove further "
-"files to and from the sdist.  Default files can even be removed from the "
-"sdist with the appropriate :file:`MANIFEST.in` command."
-msgstr ""
-"Depois de adicionar os arquivos acima ao sdist, os comandos em :file:"
-"`MANIFEST.in` (se tal arquivo existir) são executados para adicionar e "
-"remover outros arquivos para e do sdist. Os arquivos padrão podem até mesmo "
-"ser removidos do sdist com o comando apropriado de :file:`MANIFEST.in`."
-
-#: ../source/guides/using-manifest-in.rst:52
-msgid ""
-"After processing the :file:`MANIFEST.in` file, setuptools removes the :file:"
-"`build/` directory as well as any directories named :file:`RCS`, :file:"
-"`CVS`, or :file:`.svn` from the sdist, and it adds a :file:`PKG-INFO` file "
-"and an :file:`*.egg-info` directory.  This behavior cannot be changed with :"
-"file:`MANIFEST.in`."
-msgstr ""
-"Após processar o arquivo :file:`MANIFEST.in`, setuptools remove o diretório :"
-"file:`build/` bem como quaisquer diretórios chamados :file:`RCS`, :file:"
-"`CVS` ou :file:`.svn` do sdist, e adiciona um arquivo :file:`PKG-INFO` e um "
-"diretório :file:`*.egg-info`. Este comportamento não pode ser alterado com :"
-"file:`MANIFEST.in`."
-
-#: ../source/guides/using-manifest-in.rst:60
-msgid ":file:`MANIFEST.in` commands"
-msgstr "Comandos do :file:`MANIFEST.in`"
-
-#: ../source/guides/using-manifest-in.rst:62
-msgid ""
-"A :file:`MANIFEST.in` file consists of commands, one per line, instructing "
-"setuptools to add or remove some set of files from the sdist.  The commands "
-"are:"
-msgstr ""
-"Um arquivo :file:`MANIFEST.in` consiste em comandos, um por linha, "
-"instruindo o setuptools a adicionar ou remover algum conjunto de arquivos do "
-"sdist. Os comandos são:"
-
-#: ../source/guides/using-manifest-in.rst:67
-msgid "Command"
-msgstr "Comando"
-
-#: ../source/guides/using-manifest-in.rst:69
-msgid ":samp:`include {pat1} {pat2} ...`"
-msgstr ":samp:`include {padrão1} {padrão2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:69
-msgid ""
-"Add all files matching any of the listed patterns (Files must be given as "
-"paths relative to the root of the project)"
-msgstr ""
-"Adicione todos os arquivos que correspondam a qualquer um dos padrões "
-"listados (os arquivos devem ser fornecidos como caminhos relativos à raiz do "
-"projeto)"
-
-#: ../source/guides/using-manifest-in.rst:71
-msgid ":samp:`exclude {pat1} {pat2} ...`"
-msgstr ":samp:`exclude {padrão1} {padrão2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:71
-msgid ""
-"Remove all files matching any of the listed patterns (Files must be given as "
-"paths relative to the root of the project)"
-msgstr ""
-"Remove todos os arquivos correspondendo a qualquer um dos padrões listados "
-"(Arquivos devem ser fornecidos como caminhos relativos à raiz do projeto)"
-
-#: ../source/guides/using-manifest-in.rst:73
-msgid ":samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`"
-msgstr ":samp:`recursive-include {padrão-dir} {padrão1} {padrão2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:73
-msgid ""
-"Add all files under directories matching ``dir-pattern`` that match any of "
-"the listed patterns"
-msgstr ""
-"Adiciona todos os arquivos sob diretórios correspondendo a ``padrão-dir`` "
-"que correspondem a qualquer um dos padrões listados"
-
-#: ../source/guides/using-manifest-in.rst:74
-msgid ":samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`"
-msgstr ":samp:`recursive-exclude {padrão-dir} {padrão1} {padrão2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:74
-msgid ""
-"Remove all files under directories matching ``dir-pattern`` that match any "
-"of the listed patterns"
-msgstr ""
-"Remove todos os arquivos sob diretórios correspondendo a ``padrão-dir`` que "
-"correspondem a qualquer um dos padrões listados"
-
-#: ../source/guides/using-manifest-in.rst:75
-msgid ":samp:`global-include {pat1} {pat2} ...`"
-msgstr ":samp:`global-include {padrão1} {padrão2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:75
-msgid ""
-"Add all files anywhere in the source tree matching any of the listed patterns"
-msgstr ""
-"Adiciona todos os arquivos em qualquer lugar na árvore de fontes que "
-"correspondam a qualquer um dos padrões listados"
-
-#: ../source/guides/using-manifest-in.rst:76
-msgid ":samp:`global-exclude {pat1} {pat2} ...`"
-msgstr ":samp:`global-exclude {padrão1} {padrão2} ...`"
-
-#: ../source/guides/using-manifest-in.rst:76
-msgid ""
-"Remove all files anywhere in the source tree matching any of the listed "
-"patterns"
-msgstr ""
-"Remove todos os arquivos de qualquer lugar na árvore de fontes que "
-"correspondam a qualquer um dos padrões listados"
-
-#: ../source/guides/using-manifest-in.rst:77
-msgid ":samp:`graft {dir-pattern}`"
-msgstr ":samp:`graft {padrão-dir}`"
-
-#: ../source/guides/using-manifest-in.rst:77
-msgid "Add all files under directories matching ``dir-pattern``"
-msgstr ""
-"Adiciona todos os arquivos sob diretórios correspondendo a ``padrão-dir``"
-
-#: ../source/guides/using-manifest-in.rst:78
-msgid ":samp:`prune {dir-pattern}`"
-msgstr ":samp:`prune {padrão-dir}`"
-
-#: ../source/guides/using-manifest-in.rst:78
-msgid "Remove all files under directories matching ``dir-pattern``"
-msgstr ""
-"Remove todos os arquivos sob diretórios correspondendo a ``padrão-dir``"
-
-#: ../source/guides/using-manifest-in.rst:81
-msgid ""
-"The patterns here are glob-style patterns: ``*`` matches zero or more "
-"regular filename characters (on Unix, everything except forward slash; on "
-"Windows, everything except backslash and colon); ``?`` matches a single "
-"regular filename character, and ``[chars]`` matches any one of the "
-"characters between the square brackets (which may contain character ranges, "
-"e.g., ``[a-z]`` or ``[a-fA-F0-9]``).  Setuptools also has undocumented "
-"support for ``**`` matching zero or more characters including forward slash, "
-"backslash, and colon."
-msgstr ""
-"Os padrões aqui são padrões do estilo glob: ``*`` corresponde a zero ou mais "
-"caracteres de nome de arquivo regulares (no Unix, tudo exceto barra; no "
-"Windows, tudo exceto barra invertida e dois pontos); ``?`` corresponde a um "
-"único caractere de nome de arquivo regular, e ``[chars]`` corresponde a "
-"qualquer um dos caracteres entre os colchetes (que podem conter intervalos "
-"de caracteres, por exemplo, ``[az]`` ou ``[ a-fA-F0-9]``). Setuptools também "
-"oferece suporte não documentado a ``**`` correspondendo a zero ou mais "
-"caracteres, incluindo barra, barra invertida e dois pontos."
-
-#: ../source/guides/using-manifest-in.rst:89
-msgid ""
-"Directory patterns are relative to the root of the project directory; e.g., "
-"``graft example*`` will include a directory named :file:`examples` in the "
-"project root but will not include :file:`docs/examples/`."
-msgstr ""
-"Os padrões de diretório são relativos à raiz do diretório do projeto; por "
-"exemplo, ``graft exemplo*`` incluirá um diretório chamado :file:`exemplos` "
-"na raiz do projeto, mas não incluirá :file:`docs/exemplos/`."
-
-#: ../source/guides/using-manifest-in.rst:93
-msgid ""
-"File & directory names in :file:`MANIFEST.in` should be ``/``-separated; "
-"setuptools will automatically convert the slashes to the local platform's "
-"appropriate directory separator."
-msgstr ""
-"Nomes de arquivos e diretórios em :file:`MANIFEST.in` devem ser separados "
-"por ``/``; setuptools irá converter automaticamente as barras para o "
-"separador de diretório apropriado da plataforma local."
-
-#: ../source/guides/using-manifest-in.rst:97
-msgid ""
-"Commands are processed in the order they appear in the :file:`MANIFEST.in` "
-"file.  For example, given the commands:"
-msgstr ""
-"Os comandos são processados na ordem em que aparecem no arquivo :file:"
-"`MANIFEST.in`. Por exemplo, dados os comandos:"
-
-#: ../source/guides/using-manifest-in.rst:105
-msgid ""
-"the contents of the directory tree :file:`tests` will first be added to the "
-"sdist, and then after that all files in the sdist with a ``.pyc``, ``.pyo``, "
-"or ``.pyd`` extension will be removed from the sdist.  If the commands were "
-"in the opposite order, then ``*.pyc`` files etc. would be only be removed "
-"from what was already in the sdist before adding :file:`tests`, and if :file:"
-"`tests` happened to contain any ``*.pyc`` files, they would end up included "
-"in the sdist because the exclusion happened before they were included."
-msgstr ""
-"o conteúdo da árvore de diretórios :file:`tests` será primeiro adicionado ao "
-"sdist, e depois disso todos os arquivos no sdist com uma extensão ``.pyc``, "
-"``.pyo`` ou ``.pyd`` será removidos do sdist. Se os comandos estivessem na "
-"ordem oposta, então os arquivos ``*.pyc`` etc. seriam removidos apenas do "
-"que já estava no sdist antes de adicionar :file:`tests`, e se :file:`tests` "
-"contivesse quaisquer arquivos ``*.pyc``, eles acabariam incluídos no sdist "
-"porque a exclusão aconteceu antes de serem incluídos."
+"Para mais informações, veja :doc:`Entry Points <setuptools:userguide/"
+"entry_point>` (pontos de entrada, em português) da :doc:`documentação do "
+"setuptools <setuptools:index>`."
 
 #: ../source/guides/using-testpypi.rst:7
 msgid ""
@@ -10567,8 +10269,8 @@ msgstr ""
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
-"a ``__version__`` attribute in your code, or similar. In such cases, you "
-"should mark the field as dynamic using, e.g.,"
+"a ``__version__`` attribute in your code, a Git tag, or similar. In such "
+"cases, you should mark the field as dynamic using, e.g.,"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:111
@@ -11515,7 +11217,9 @@ msgstr ""
 "descrições de seus pacotes serão exibidas corretamente no PyPI."
 
 #: ../source/key_projects.rst:272
-msgid "setuptools"
+#, fuzzy
+#| msgid "setuptools"
+msgid "Setuptools"
 msgstr "setuptools"
 
 #: ../source/key_projects.rst:274
@@ -11529,8 +11233,14 @@ msgstr ""
 "pypa/setuptools>`__ | `PyPI <https://pypi.org/project/setuptools>`__"
 
 #: ../source/key_projects.rst:279
+#, fuzzy
+#| msgid ""
+#| "setuptools (which includes ``easy_install``) is a collection of "
+#| "enhancements to the Python distutils that allow you to more easily build "
+#| "and distribute Python :term:`distributions <Distribution Package>`, "
+#| "especially ones that have dependencies on other packages."
 msgid ""
-"setuptools (which includes ``easy_install``) is a collection of enhancements "
+"Setuptools (which includes ``easy_install``) is a collection of enhancements "
 "to the Python distutils that allow you to more easily build and distribute "
 "Python :term:`distributions <Distribution Package>`, especially ones that "
 "have dependencies on other packages."
@@ -11540,20 +11250,11 @@ msgstr ""
 "term:`distribuições <Pacote de Distribuição>` Python, especialmente aquelas "
 "que possuem dependências de outros pacotes."
 
-#: ../source/key_projects.rst:284
-msgid ""
-"`distribute`_ was a fork of setuptools that was merged back into setuptools "
-"(in v0.7), thereby making setuptools the primary choice for Python packaging."
-msgstr ""
-"`distribute`_ era um fork do setuptools que foi mesclado no setuptools (na "
-"v0.7), tornando assim setuptools a escolha primária para o empacotamento "
-"Python."
-
-#: ../source/key_projects.rst:291
+#: ../source/key_projects.rst:287
 msgid "trove-classifiers"
 msgstr "trove-classifiers"
 
-#: ../source/key_projects.rst:293
+#: ../source/key_projects.rst:289
 msgid ""
 "`Issues <https://github.com/pypa/trove-classifiers/issues>`__ | `GitHub "
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
@@ -11563,7 +11264,7 @@ msgstr ""
 "<https://github.com/pypa/trove-classifiers>`__ | `PyPI <https://pypi.org/"
 "project/trove-classifiers/>`__"
 
-#: ../source/key_projects.rst:297
+#: ../source/key_projects.rst:293
 msgid ""
 "trove-classifiers is the canonical source for `classifiers on PyPI <https://"
 "pypi.org/classifiers/>`_, which project maintainers use to `systematically "
@@ -11578,7 +11279,7 @@ msgstr ""
 "usuários possam encontrar melhor os projetos que correspondem às suas "
 "necessidades no PyPI."
 
-#: ../source/key_projects.rst:303
+#: ../source/key_projects.rst:299
 msgid ""
 "The trove-classifiers package contains a list of valid classifiers and "
 "deprecated classifiers (which are paired with the classifiers that replace "
@@ -11601,11 +11302,11 @@ msgstr ""
 "projeto hospeda discussões sobre classificadores propostos e solicitações de "
 "novos classificadores."
 
-#: ../source/key_projects.rst:317
+#: ../source/key_projects.rst:313
 msgid "twine"
 msgstr "twine"
 
-#: ../source/key_projects.rst:319
+#: ../source/key_projects.rst:315
 msgid ""
 "`Docs <https://twine.readthedocs.io/en/latest/>`__ | `Issues <https://github."
 "com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/twine>`__ | "
@@ -11615,7 +11316,7 @@ msgstr ""
 "<https://github.com/pypa/twine/issues>`__ | `GitHub <https://github.com/pypa/"
 "twine>`__ | `PyPI <https://pypi.org/project/twine>`__"
 
-#: ../source/key_projects.rst:324
+#: ../source/key_projects.rst:320
 msgid ""
 "Twine is the primary tool developers use to upload packages to the Python "
 "Package Index or other Python package indexes. It is a command-line program "
@@ -11629,29 +11330,43 @@ msgstr ""
 "uma API web. Os desenvolvedores o usam porque é a ferramenta oficial de "
 "envio do PyPI, é rápida e segura, é mantida e funciona de forma confiável."
 
-#: ../source/key_projects.rst:334 ../source/overview.rst:409
+#: ../source/key_projects.rst:330 ../source/overview.rst:409
 msgid "virtualenv"
 msgstr "virtualenv"
 
-#: ../source/key_projects.rst:336
+#: ../source/key_projects.rst:332
+#, fuzzy
+#| msgid ""
+#| ":doc:`Docs <virtualenv:index>` | `Issues <https://github.com/pypa/"
+#| "virtualenv/issues>`__ | `GitHub <https://github.com/pypa/virtualenv>`__ | "
+#| "`PyPI <https://pypi.org/project/virtualenv/>`__"
 msgid ""
-":doc:`Docs <virtualenv:index>` | `Issues <https://github.com/pypa/virtualenv/"
-"issues>`__ | `GitHub <https://github.com/pypa/virtualenv>`__ | `PyPI "
-"<https://pypi.org/project/virtualenv/>`__"
+"`Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ | `Issues "
+"<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
+"pypa/virtualenv>`__ | `PyPI <https://pypi.org/project/virtualenv/>`__"
 msgstr ""
 ":doc:`Documentação <virtualenv:index>` | `Issues <https://github.com/pypa/"
 "virtualenv/issues>`__ | `GitHub <https://github.com/pypa/virtualenv>`__ | "
 "`PyPI <https://pypi.org/project/virtualenv/>`__"
 
-#: ../source/key_projects.rst:341
+#: ../source/key_projects.rst:337
+#, fuzzy
+#| msgid ""
+#| "virtualenv is a tool which uses the command-line path environment "
+#| "variable to create isolated Python :term:`Virtual Environments <Virtual "
+#| "Environment>`, much as :ref:`venv` does. virtualenv provides additional "
+#| "functionality, compared to :ref:`venv`, by supporting Python 2.7 and by "
+#| "providing convenient features for configuring, maintaining, duplicating, "
+#| "and troubleshooting the virtual environments. For more information, see "
+#| "the section on :ref:`Creating and using Virtual Environments`."
 msgid ""
-"virtualenv is a tool which uses the command-line path environment variable "
-"to create isolated Python :term:`Virtual Environments <Virtual "
-"Environment>`, much as :ref:`venv` does. virtualenv provides additional "
-"functionality, compared to :ref:`venv`, by supporting Python 2.7 and by "
-"providing convenient features for configuring, maintaining, duplicating, and "
-"troubleshooting the virtual environments. For more information, see the "
-"section on :ref:`Creating and using Virtual Environments`."
+"virtualenv is a tool for creating isolated Python :term:`Virtual "
+"Environments <Virtual Environment>`, like :ref:`venv`. Unlike :ref:`venv`, "
+"virtualenv can create virtual environments for other versions of Python, "
+"which it locates using the PATH environment variable. It also provides "
+"convenient features for configuring, maintaining, duplicating, and "
+"troubleshooting virtual environments. For more information, see the section "
+"on :ref:`Creating and using Virtual Environments`."
 msgstr ""
 "virtualenv é uma ferramenta que usa a variável de ambiente de caminho de "
 "linha de comando para criar :term:`Ambientes Virtuais <Virtual Environment>` "
@@ -11661,11 +11376,11 @@ msgstr ""
 "solucionar problemas de ambientes virtuais. Para obter mais informações, "
 "consulte a seção sobre :ref:`Creating and using Virtual Environments`."
 
-#: ../source/key_projects.rst:354
+#: ../source/key_projects.rst:349
 msgid "Warehouse"
 msgstr "Warehouse"
 
-#: ../source/key_projects.rst:356
+#: ../source/key_projects.rst:351
 msgid ""
 "`Docs <https://warehouse.pypa.io/>`__ | `Issues <https://github.com/pypa/"
 "warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
@@ -11673,7 +11388,7 @@ msgstr ""
 "`Documentação <https://warehouse.pypa.io/>`__ | `Issues <https://github.com/"
 "pypa/warehouse/issues>`__ | `GitHub <https://github.com/pypa/warehouse>`__"
 
-#: ../source/key_projects.rst:360
+#: ../source/key_projects.rst:355
 msgid ""
 "The current codebase powering the :term:`Python Package Index (PyPI)`. It is "
 "hosted at `pypi.org <https://pypi.org/>`_. The default source for :ref:`pip` "
@@ -11683,11 +11398,11 @@ msgstr ""
 "Está hospedado em `pypi.org <https://pypi.org/>`_. A fonte padrão para "
 "downloads do :ref:`pip`."
 
-#: ../source/key_projects.rst:368
+#: ../source/key_projects.rst:363
 msgid "wheel"
 msgstr "wheel"
 
-#: ../source/key_projects.rst:370
+#: ../source/key_projects.rst:365
 msgid ""
 "`Docs <https://wheel.readthedocs.io/en/latest/>`__ | `Issues <https://github."
 "com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/wheel>`__ | "
@@ -11697,7 +11412,7 @@ msgstr ""
 "<https://github.com/pypa/wheel/issues>`__ | `GitHub <https://github.com/pypa/"
 "wheel>`__ | `PyPI <https://pypi.org/project/wheel>`__"
 
-#: ../source/key_projects.rst:375
+#: ../source/key_projects.rst:370
 msgid ""
 "Primarily, the wheel project offers the ``bdist_wheel`` :ref:`setuptools` "
 "extension for creating :term:`wheel distributions <Wheel>`.  Additionally, "
@@ -11708,7 +11423,7 @@ msgstr ""
 "oferece seu próprio utilitário de linha de comando para criar e instalar "
 "wheels."
 
-#: ../source/key_projects.rst:379
+#: ../source/key_projects.rst:374
 msgid ""
 "See also `auditwheel <https://github.com/pypa/auditwheel>`__, a tool that "
 "package developers use to check and fix Python packages they are making in "
@@ -11723,15 +11438,15 @@ msgstr ""
 "dos metadados e corrigir wheel e os metadados para vincular e incluir "
 "bibliotecas externas compartilhadas em um pacote."
 
-#: ../source/key_projects.rst:388
+#: ../source/key_projects.rst:383
 msgid "Non-PyPA Projects"
 msgstr "Projetos não-PyPA"
 
-#: ../source/key_projects.rst:393
+#: ../source/key_projects.rst:388
 msgid "buildout"
 msgstr "buildout"
 
-#: ../source/key_projects.rst:395
+#: ../source/key_projects.rst:390
 msgid ""
 "`Docs <http://www.buildout.org/en/latest/>`__ | `Issues <https://bugs."
 "launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/zc."
@@ -11741,7 +11456,7 @@ msgstr ""
 "bugs.launchpad.net/zc.buildout>`__ | `PyPI <https://pypi.org/project/zc."
 "buildout>`__ | `GitHub <https://github.com/buildout/buildout/>`__"
 
-#: ../source/key_projects.rst:400
+#: ../source/key_projects.rst:395
 msgid ""
 "Buildout is a Python-based build system for creating, assembling and "
 "deploying applications from multiple parts, some of which may be non-Python-"
@@ -11753,15 +11468,15 @@ msgstr ""
 "baseadas em Python. Ele permite que você crie uma configuração de buildout e "
 "reproduza o mesmo software posteriormente."
 
-#: ../source/key_projects.rst:407
+#: ../source/key_projects.rst:402
 msgid "conda"
 msgstr "conda"
 
-#: ../source/key_projects.rst:409
+#: ../source/key_projects.rst:404
 msgid ":doc:`Docs <conda:index>`"
 msgstr ":doc:`Documentação <conda:index>`"
 
-#: ../source/key_projects.rst:411
+#: ../source/key_projects.rst:406
 msgid ""
 "conda is the package management tool for `Anaconda <https://docs.anaconda."
 "com/anaconda/>`__ Python installations. Anaconda Python is a distribution "
@@ -11776,7 +11491,7 @@ msgstr ""
 "particular no Windows onde a instalação de extensões binárias é "
 "frequentemente difícil ."
 
-#: ../source/key_projects.rst:418
+#: ../source/key_projects.rst:413
 msgid ""
 "Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, "
 "but provides many of their combined features in terms of package management, "
@@ -11787,7 +11502,7 @@ msgstr ""
 "gerenciamento de pacotes, gerenciamento de ambiente virtual e implantação de "
 "extensões binárias."
 
-#: ../source/key_projects.rst:422
+#: ../source/key_projects.rst:417
 msgid ""
 "Conda does not install packages from PyPI and can install only from the "
 "official Anaconda repositories, or anaconda.org (a place for user-"
@@ -11809,11 +11524,11 @@ msgstr ""
 "skeleton.html>`__ é uma ferramenta para fazer pacotes Python instaláveis "
 "pelo conda primeiro obtendo-os em PyPI e modificando seus metadados."
 
-#: ../source/key_projects.rst:435
+#: ../source/key_projects.rst:430
 msgid "devpi"
 msgstr "devpi"
 
-#: ../source/key_projects.rst:437
+#: ../source/key_projects.rst:432
 msgid ""
 "`Docs <http://doc.devpi.net/latest/>`__ | :gh:`Issues <devpi/devpi/issues>` "
 "| `PyPI <https://pypi.org/project/devpi>`__"
@@ -11821,7 +11536,7 @@ msgstr ""
 "`Documentação <http://doc.devpi.net/latest/>`__ | :gh:`Issues <devpi/devpi/"
 "issues>` | `PyPI <https://pypi.org/project/devpi>`__"
 
-#: ../source/key_projects.rst:441
+#: ../source/key_projects.rst:436
 msgid ""
 "devpi features a powerful PyPI-compatible server and PyPI proxy cache with a "
 "complementary command line tool to drive packaging, testing and release "
@@ -11833,11 +11548,11 @@ msgstr ""
 "atividades de empacotamento, teste e lançamento com Python. devpi também "
 "fornece uma interface web navegável e pesquisável."
 
-#: ../source/key_projects.rst:449
+#: ../source/key_projects.rst:444
 msgid "enscons"
 msgstr "enscons"
 
-#: ../source/key_projects.rst:451
+#: ../source/key_projects.rst:446
 msgid ""
 ":gh:`Source <dholth/enscons>` | :gh:`Issues <dholth/enscons/issues>` | `PyPI "
 "<https://pypi.org/project/enscons>`__"
@@ -11845,7 +11560,7 @@ msgstr ""
 ":gh:`Código-fonte <dholth/enscons>` | :gh:`Issues <dholth/enscons/issues>` | "
 "`PyPI <https://pypi.org/project/enscons>`__"
 
-#: ../source/key_projects.rst:455
+#: ../source/key_projects.rst:450
 msgid ""
 "Enscons is a Python packaging tool based on `SCons`_. It builds :ref:`pip`-"
 "compatible source distributions and wheels without using distutils or "
@@ -11866,11 +11581,11 @@ msgstr ""
 "construídos automaticamente por :ref:`pip`, e wheels que são independentes "
 "de enscons."
 
-#: ../source/key_projects.rst:470
+#: ../source/key_projects.rst:465
 msgid "Hashdist"
 msgstr "Hashdist"
 
-#: ../source/key_projects.rst:472
+#: ../source/key_projects.rst:467
 msgid ""
 "`Docs <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/hashdist/hashdist/>`__"
@@ -11878,7 +11593,7 @@ msgstr ""
 "`Documentação <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/hashdist/hashdist/>`__"
 
-#: ../source/key_projects.rst:475
+#: ../source/key_projects.rst:470
 msgid ""
 "Hashdist is a library for building non-root software distributions. Hashdist "
 "is trying to be “the Debian of choice for cases where Debian technology "
@@ -11897,11 +11612,11 @@ msgstr ""
 "pacotes sem estado, com cache e com capacidade de distribuição. É usado por "
 "alguns pesquisadores, mas não tem manutenção desde 2016."
 
-#: ../source/key_projects.rst:487
+#: ../source/key_projects.rst:482
 msgid "Maturin"
 msgstr ""
 
-#: ../source/key_projects.rst:489
+#: ../source/key_projects.rst:484
 #, fuzzy
 #| msgid ""
 #| "`Docs <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub <https://"
@@ -11913,18 +11628,18 @@ msgstr ""
 "`Documentação <https://hashdist.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/hashdist/hashdist/>`__"
 
-#: ../source/key_projects.rst:492
+#: ../source/key_projects.rst:487
 msgid ""
 "Maturin is a build backend for Rust extension modules, also written in Rust. "
 "It supports building wheels for python 3.7+ on Windows, Linux, macOS and "
 "FreeBSD, can upload them to PyPI and has basic PyPy and GraalPy support."
 msgstr ""
 
-#: ../source/key_projects.rst:500
+#: ../source/key_projects.rst:495
 msgid "meson-python"
 msgstr "meson-python"
 
-#: ../source/key_projects.rst:502
+#: ../source/key_projects.rst:497
 msgid ""
 "`Docs <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/mesonbuild/meson-python>`__"
@@ -11932,7 +11647,7 @@ msgstr ""
 "`Documentação <https://meson-python.readthedocs.io/en/latest/>`__ | `GitHub "
 "<https://github.com/mesonbuild/meson-python>`__"
 
-#: ../source/key_projects.rst:505
+#: ../source/key_projects.rst:500
 msgid ""
 "``meson-python`` is a build backend that uses the Meson_ build system. It "
 "enables Python package authors to use Meson_ as the build system for their "
@@ -11945,17 +11660,17 @@ msgstr ""
 "variedade de linguagens, incluindo C, e é capaz de atender às necessidades "
 "das configurações de compilação mais complexas."
 
-#: ../source/key_projects.rst:515
+#: ../source/key_projects.rst:510
 msgid "multibuild"
 msgstr "multibuild"
 
-#: ../source/key_projects.rst:517
+#: ../source/key_projects.rst:512
 #, fuzzy
 #| msgid "`GitHub <https://github.com/matthew-brett/multibuild>`__"
 msgid "`GitHub <https://github.com/multi-build/multibuild>`__"
 msgstr "`GitHub <https://github.com/matthew-brett/multibuild>`__"
 
-#: ../source/key_projects.rst:519
+#: ../source/key_projects.rst:514
 msgid ""
 "Multibuild is a set of CI scripts for building and testing Python :term:"
 "`wheels <Wheel>` for Linux, macOS, and (less flexibly) Windows. Also see :"
@@ -11965,11 +11680,11 @@ msgstr ""
 "term:`wheels <Wheel>` para Linux, macOS e (menos flexível) Windows. Veja "
 "também :ref:`cibuildwheel`."
 
-#: ../source/key_projects.rst:525
+#: ../source/key_projects.rst:520
 msgid "pdm"
 msgstr "pdm"
 
-#: ../source/key_projects.rst:527
+#: ../source/key_projects.rst:522
 msgid ""
 "`Docs <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-project/"
 "pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
@@ -11977,7 +11692,7 @@ msgstr ""
 "`Documentação <https://pdm.fming.dev/>`__ | `GitHub <https://github.com/pdm-"
 "project/pdm/>`__ | `PyPI <https://pypi.org/project/pdm>`__"
 
-#: ../source/key_projects.rst:531
+#: ../source/key_projects.rst:526
 msgid ""
 "PDM is a modern Python package manager. It uses :term:`pyproject.toml` to "
 "store project metadata as defined in :pep:`621`."
@@ -11986,7 +11701,7 @@ msgstr ""
 "`pyproject.toml` para armazenar metadados do projeto conforme definido em :"
 "pep:`621`."
 
-#: ../source/key_projects.rst:539
+#: ../source/key_projects.rst:534
 msgid ""
 "`Docs <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://github."
 "com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
@@ -11994,7 +11709,7 @@ msgstr ""
 "`Documentação <https://pex.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/pantsbuild/pex/>`__ | `PyPI <https://pypi.org/project/pex>`__"
 
-#: ../source/key_projects.rst:543
+#: ../source/key_projects.rst:538
 msgid ""
 "pex is both a library and tool for generating :file:`.pex` (Python "
 "EXecutable) files, standalone Python environments in the spirit of :ref:"
@@ -12009,11 +11724,11 @@ msgstr ""
 "projetados para fazer a implantação de aplicações Python tão simples quanto "
 "``cp``."
 
-#: ../source/key_projects.rst:552
+#: ../source/key_projects.rst:547
 msgid "pip-tools"
 msgstr "pip-tools"
 
-#: ../source/key_projects.rst:554
+#: ../source/key_projects.rst:549
 msgid ""
 "`Docs <https://pip-tools.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/project/pip-"
@@ -12023,7 +11738,7 @@ msgstr ""
 "<https://github.com/jazzband/pip-tools/>`__ | `PyPI <https://pypi.org/"
 "project/pip-tools/>`__"
 
-#: ../source/key_projects.rst:558
+#: ../source/key_projects.rst:553
 msgid ""
 "pip-tools is a suite of tools meant for Python system administrators and "
 "release managers who particularly want to keep their builds deterministic "
@@ -12042,11 +11757,11 @@ msgstr ""
 "programa, atualizar todas as dependências (um recurso :ref:`pip` atualmente "
 "não fornece) e criar camadas de restrições para o programa obedecer."
 
-#: ../source/key_projects.rst:570
+#: ../source/key_projects.rst:565
 msgid "piwheels"
 msgstr "piwheels"
 
-#: ../source/key_projects.rst:572
+#: ../source/key_projects.rst:567
 msgid ""
 "`Website <https://www.piwheels.org/>`__ | :doc:`Docs <piwheels:index>` | "
 "`GitHub <https://github.com/piwheels/piwheels/>`__"
@@ -12054,7 +11769,7 @@ msgstr ""
 "`Site <https://www.piwheels.org/>`__ | :doc:`Documentação <piwheels:index>` "
 "| `GitHub <https://github.com/piwheels/piwheels/>`__"
 
-#: ../source/key_projects.rst:576
+#: ../source/key_projects.rst:571
 msgid ""
 "piwheels is a website, and software underpinning it, that fetches source "
 "code distribution packages from PyPI and compiles them into binary wheels "
@@ -12066,11 +11781,11 @@ msgstr ""
 "otimizadas para instalação em computadores Raspberry Pi. O Raspberry Pi OS "
 "pré-configura pip para usar piwheels.org como um índice adicional para PyPI."
 
-#: ../source/key_projects.rst:585
+#: ../source/key_projects.rst:580
 msgid "poetry"
 msgstr "poetry"
 
-#: ../source/key_projects.rst:587
+#: ../source/key_projects.rst:582
 msgid ""
 "`Docs <https://python-poetry.org/>`__ | `GitHub <https://github.com/python-"
 "poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
@@ -12078,7 +11793,7 @@ msgstr ""
 "`Documentação <https://python-poetry.org/>`__ | `GitHub <https://github.com/"
 "python-poetry/poetry>`__ | `PyPI <https://pypi.org/project/poetry/>`__"
 
-#: ../source/key_projects.rst:591
+#: ../source/key_projects.rst:586
 msgid ""
 "poetry is a command-line tool to handle dependency installation and "
 "isolation as well as building and packaging of Python packages. It uses "
@@ -12095,11 +11810,11 @@ msgstr ""
 "dependências, armazenando localmente em cache os metadados sobre as "
 "dependências."
 
-#: ../source/key_projects.rst:601
+#: ../source/key_projects.rst:596
 msgid "pypiserver"
 msgstr "pypiserver"
 
-#: ../source/key_projects.rst:603
+#: ../source/key_projects.rst:598
 #, fuzzy
 #| msgid ""
 #| "`GitHub and docs <https://github.com/pypa/readme_renderer/>`__ | `PyPI "
@@ -12111,7 +11826,7 @@ msgstr ""
 "`GitHub e documentação <https://github.com/pypa/readme_renderer/>`__ | `PyPI "
 "<https://pypi.org/project/readme-renderer/>`__"
 
-#: ../source/key_projects.rst:606
+#: ../source/key_projects.rst:601
 msgid ""
 "pypiserver is a minimalist application that serves as a private Python "
 "package index within organizations, implementing a simple API and browser "
@@ -12127,11 +11842,11 @@ msgstr ""
 "sem publicá-los publicamente. As organizações que usam o pypiserver "
 "geralmente baixam pacotes tanto do pypiserver quanto do PyPI."
 
-#: ../source/key_projects.rst:616
+#: ../source/key_projects.rst:611
 msgid "PyScaffold"
 msgstr "PyScaffold"
 
-#: ../source/key_projects.rst:618
+#: ../source/key_projects.rst:613
 msgid ""
 "`Docs <https://pyscaffold.org>`__ | `GitHub <https://github.com/pyscaffold/"
 "pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
@@ -12139,7 +11854,7 @@ msgstr ""
 "`Documentação <https://pyscaffold.org>`__ | `GitHub <https://github.com/"
 "pyscaffold/pyscaffold>`__ | `PyPI <https://pypi.org/project/pyscaffold/>`__"
 
-#: ../source/key_projects.rst:622
+#: ../source/key_projects.rst:617
 msgid ""
 "PyScaffold is a project generator for bootstrapping Python packages, ready "
 "to be shared on PyPI and installable via :ref:`pip`. It relies on a set of "
@@ -12156,11 +11871,11 @@ msgstr ""
 "imediatamente. PyScaffold também pode ser usado com projetos existentes para "
 "tornar o empacotamento mais fácil."
 
-#: ../source/key_projects.rst:634
+#: ../source/key_projects.rst:629
 msgid "scikit-build"
 msgstr "scikit-build"
 
-#: ../source/key_projects.rst:636
+#: ../source/key_projects.rst:631
 msgid ""
 "`Docs <https://scikit-build.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/project/"
@@ -12170,7 +11885,7 @@ msgstr ""
 "<https://github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/"
 "project/scikit-build>`__"
 
-#: ../source/key_projects.rst:640
+#: ../source/key_projects.rst:635
 #, fuzzy
 #| msgid ""
 #| "Scikit-build is an improved build system generator for CPython C/C++/"
@@ -12200,13 +11915,13 @@ msgstr ""
 "instalar o `ninja <https://pypi.org/project/ninja>`__ (também disponível no "
 "PyPI)."
 
-#: ../source/key_projects.rst:651
+#: ../source/key_projects.rst:646
 #, fuzzy
 #| msgid "scikit-build"
 msgid "scikit-build-core"
 msgstr "scikit-build"
 
-#: ../source/key_projects.rst:653
+#: ../source/key_projects.rst:648
 #, fuzzy
 #| msgid ""
 #| "`Docs <https://scikit-build.readthedocs.io/en/latest/>`__ | `GitHub "
@@ -12221,7 +11936,7 @@ msgstr ""
 "<https://github.com/scikit-build/scikit-build/>`__ | `PyPI <https://pypi.org/"
 "project/scikit-build>`__"
 
-#: ../source/key_projects.rst:657
+#: ../source/key_projects.rst:652
 #, fuzzy
 #| msgid ""
 #| "Scikit-build is an improved build system generator for CPython C/C++/"
@@ -12250,11 +11965,11 @@ msgstr ""
 "instalar o `ninja <https://pypi.org/project/ninja>`__ (também disponível no "
 "PyPI)."
 
-#: ../source/key_projects.rst:667
+#: ../source/key_projects.rst:662
 msgid "shiv"
 msgstr "shiv"
 
-#: ../source/key_projects.rst:669
+#: ../source/key_projects.rst:664
 msgid ""
 "`Docs <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://github."
 "com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
@@ -12262,7 +11977,7 @@ msgstr ""
 "`Documentação <https://shiv.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/linkedin/shiv>`__ | `PyPI <https://pypi.org/project/shiv/>`__"
 
-#: ../source/key_projects.rst:673
+#: ../source/key_projects.rst:668
 msgid ""
 "shiv is a command line utility for building fully self contained Python "
 "zipapps as outlined in :pep:`441`, but with all their dependencies included. "
@@ -12274,7 +11989,7 @@ msgstr ""
 "suas dependências incluídas. Seu objetivo principal é tornar a distribuição "
 "Python de aplicações e ferramentas de linha de comando rápida e fácil."
 
-#: ../source/key_projects.rst:683
+#: ../source/key_projects.rst:678
 msgid ""
 ":doc:`Docs <spack:index>` | `GitHub <https://github.com/spack/spack>`__ | "
 "`Paper <https://www.computer.org/csdl/proceedings-article/"
@@ -12286,7 +12001,7 @@ msgstr ""
 "sc/2015/2807623/12OmNBf94Xq>`__ | `Slides <https://tgamblin.github.io/files/"
 "Gamblin-Spack-SC15-Talk.pdf>`__"
 
-#: ../source/key_projects.rst:688
+#: ../source/key_projects.rst:683
 msgid ""
 "A flexible package manager designed to support multiple versions, "
 "configurations, platforms, and compilers.  Spack is like Homebrew, but "
@@ -12304,7 +12019,7 @@ msgstr ""
 "no mesmo sistema. O Spack foi projetado para construir rapidamente "
 "aplicações científicas de alto desempenho em clusters e supercomputadores."
 
-#: ../source/key_projects.rst:696
+#: ../source/key_projects.rst:691
 msgid ""
 "Spack is not in PyPI (yet), but it requires no installation and can be used "
 "immediately after cloning from GitHub."
@@ -12312,11 +12027,11 @@ msgstr ""
 "O Spack não está no PyPI (ainda), mas não requer instalação e pode ser usado "
 "imediatamente após a clonagem do GitHub."
 
-#: ../source/key_projects.rst:702
+#: ../source/key_projects.rst:697
 msgid "zest.releaser"
 msgstr "zest.releaser"
 
-#: ../source/key_projects.rst:704
+#: ../source/key_projects.rst:699
 msgid ""
 "`Docs <https://zestreleaser.readthedocs.io/en/latest/>`__ | `GitHub <https://"
 "github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://pypi.org/project/"
@@ -12326,7 +12041,7 @@ msgstr ""
 "<https://github.com/zestsoftware/zest.releaser/>`__ | `PyPI <https://pypi."
 "org/project/zest.releaser/>`__"
 
-#: ../source/key_projects.rst:708
+#: ../source/key_projects.rst:703
 msgid ""
 "``zest.releaser`` is a Python package release tool providing an abstraction "
 "layer on top of :ref:`twine`. Python developers use ``zest.releaser`` to "
@@ -12339,15 +12054,15 @@ msgstr ""
 "versão de pacote, atualizando changelogs, marcando lançamentos no controle "
 "de fontes e enviando novos pacotes para PyPI."
 
-#: ../source/key_projects.rst:715
+#: ../source/key_projects.rst:710
 msgid "Standard Library Projects"
 msgstr "Projetos de biblioteca padrão"
 
-#: ../source/key_projects.rst:720
+#: ../source/key_projects.rst:715
 msgid "ensurepip"
 msgstr "ensurepip"
 
-#: ../source/key_projects.rst:722
+#: ../source/key_projects.rst:717
 msgid ""
 "`Docs <https://docs.python.org/3/library/ensurepip.html>`__ | `Issues "
 "<https://bugs.python.org/>`__"
@@ -12355,7 +12070,7 @@ msgstr ""
 "`Documentação <https://docs.python.org/pt-br/3/library/ensurepip.html>`__ | "
 "`Issues <https://bugs.python.org/>`__"
 
-#: ../source/key_projects.rst:725
+#: ../source/key_projects.rst:720
 msgid ""
 "A package in the Python Standard Library that provides support for "
 "bootstrapping :ref:`pip` into an existing Python installation or virtual "
@@ -12367,11 +12082,11 @@ msgstr ""
 "Na maioria dos casos, os usuários finais não usarão este módulo, mas em vez "
 "disso, ele será usado durante a construção da distribuição Python."
 
-#: ../source/key_projects.rst:734
+#: ../source/key_projects.rst:729
 msgid "venv"
 msgstr "venv"
 
-#: ../source/key_projects.rst:736
+#: ../source/key_projects.rst:731
 msgid ""
 "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
 "github.com/python/cpython/issues>`__"
@@ -12379,7 +12094,7 @@ msgstr ""
 "`Documentação <https://docs.python.org/pt-br/3/library/venv.html>`__ | "
 "`Issues <https://github.com/python/cpython/issues>`__"
 
-#: ../source/key_projects.rst:739
+#: ../source/key_projects.rst:734
 msgid ""
 "A package in the Python Standard Library (starting with Python 3.3) for "
 "creating :term:`Virtual Environments <Virtual Environment>`.  For more "
@@ -24492,18 +24207,22 @@ msgstr ""
 "um pacote com o mesmo nome de um que já existe."
 
 #: ../source/tutorials/packaging-projects.rst:227
+#, fuzzy
+#| msgid ""
+#| "``version`` is the package version. See the :ref:`version specifier "
+#| "specification <version-specifiers>` for more details on versions. Some "
+#| "build backends allow it to be specified another way, such as from a file "
+#| "or a git tag."
 msgid ""
-"``version`` is the package version. See the :ref:`version specifier "
-"specification <version-specifiers>` for more details on versions. Some build "
-"backends allow it to be specified another way, such as from a file or a git "
-"tag."
+"``version`` is the package version. (Some build backends allow it to be "
+"specified another way, such as from a file or Git tag.)"
 msgstr ""
 "``version`` é a versão do pacote. Veja a :ref:`especificação de "
 "especificadores de versão <version-specifiers>` para mais detalhes sobre as "
 "versões. Alguns backends de construção permitem que ela seja especificada de "
 "outra maneira, como a partir de um arquivo ou de uma tag git."
 
-#: ../source/tutorials/packaging-projects.rst:230
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -24513,17 +24232,24 @@ msgstr ""
 "nome e um e-mail para cada autor. Você também pode listar ``maintainers`` no "
 "mesmo formato."
 
-#: ../source/tutorials/packaging-projects.rst:233
+#: ../source/tutorials/packaging-projects.rst:232
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` é um resumo curto do pacote contendo apenas uma frase."
 
-#: ../source/tutorials/packaging-projects.rst:234
+#: ../source/tutorials/packaging-projects.rst:233
+#, fuzzy
+#| msgid ""
+#| "``readme`` is a path to a file containing a detailed description of the "
+#| "package. This is shown on the package detail page on PyPI. In this case, "
+#| "the description is loaded from :file:`README.md` (which is a common "
+#| "pattern). There also is a more advanced table form described in the :ref:"
+#| "`project metadata specification <declaring-project-metadata>`."
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
 "description is loaded from :file:`README.md` (which is a common pattern). "
-"There also is a more advanced table form described in the :ref:`project "
-"metadata specification <declaring-project-metadata>`."
+"There also is a more advanced table form described in the :ref:`pyproject."
+"toml guide <writing-pyproject-toml>`."
 msgstr ""
 "``readme`` é um caminho para um arquivo contendo uma descrição detalhada do "
 "pacote. Isso é mostrado na página de detalhes do pacote em PyPI. Neste caso, "
@@ -24531,17 +24257,22 @@ msgstr ""
 "também um formulário de tabela mais avançado descrito na :ref:`especificação "
 "de metadados do projeto <declaring-project-metadata>`."
 
-#: ../source/tutorials/packaging-projects.rst:239
+#: ../source/tutorials/packaging-projects.rst:238
+#, fuzzy
+#| msgid ""
+#| "``requires-python`` gives the versions of Python supported by your "
+#| "project. Installers like :ref:`pip` will look back through older versions "
+#| "of packages until it finds one that has a matching Python version."
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
-"Installers like :ref:`pip` will look back through older versions of packages "
-"until it finds one that has a matching Python version."
+"An installer like :ref:`pip` will look back through older versions of "
+"packages until it finds one that has a matching Python version."
 msgstr ""
 "``requires-python`` fornece as versões do Python suportadas pelo seu "
 "projeto. Instaladores como :ref:`pip` olharão para as versões anteriores dos "
 "pacotes até encontrar um que tenha uma versão correspondente do Python."
 
-#: ../source/tutorials/packaging-projects.rst:242
+#: ../source/tutorials/packaging-projects.rst:241
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -24559,7 +24290,7 @@ msgstr ""
 "sistemas operacionais seu pacote funcionará. Para obter uma lista completa "
 "de classificadores, consulte https://pypi.org/classifiers/."
 
-#: ../source/tutorials/packaging-projects.rst:249
+#: ../source/tutorials/packaging-projects.rst:248
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -24568,13 +24299,19 @@ msgstr ""
 "PyPI. Geralmente, isso pode ser para o código-fonte, a documentação, os "
 "rastreadores de problemas, etc."
 
-#: ../source/tutorials/packaging-projects.rst:252
+#: ../source/tutorials/packaging-projects.rst:251
+#, fuzzy
+#| msgid ""
+#| "See the :ref:`project metadata specification <declaring-project-"
+#| "metadata>` for details on these and other fields that can be defined in "
+#| "the ``[project]`` table. Other common fields are ``keywords`` to improve "
+#| "discoverability and the ``dependencies`` that are required to install "
+#| "your package."
 msgid ""
-"See the :ref:`project metadata specification <declaring-project-metadata>` "
-"for details on these and other fields that can be defined in the "
-"``[project]`` table. Other common fields are ``keywords`` to improve "
-"discoverability and the ``dependencies`` that are required to install your "
-"package."
+"See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
+"these and other fields that can be defined in the ``[project]`` table. Other "
+"common fields are ``keywords`` to improve discoverability and the "
+"``dependencies`` that are required to install your package."
 msgstr ""
 "Veja a :ref:`especificação de metadados do projeto <declaring-project-"
 "metadata>` para detalhes sobre estes e outros campos que podem ser definidos "
@@ -24944,6 +24681,300 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#~ msgid ""
+#~ "`distribute`_ was a fork of setuptools that was merged back into "
+#~ "setuptools (in v0.7), thereby making setuptools the primary choice for "
+#~ "Python packaging."
+#~ msgstr ""
+#~ "`distribute`_ era um fork do setuptools que foi mesclado no setuptools "
+#~ "(na v0.7), tornando assim setuptools a escolha primária para o "
+#~ "empacotamento Python."
+
+#~ msgid ""
+#~ "When building a :term:`source distribution <Source Distribution (or "
+#~ "\"sdist\")>` for your package, by default only a minimal set of files are "
+#~ "included.  You may find yourself wanting to include extra files in the "
+#~ "source distribution, such as an authors/contributors file, a :file:`docs/"
+#~ "` directory, or a directory of data files used for testing purposes.  "
+#~ "There may even be extra files that you *need* to include; for example, if "
+#~ "your :file:`setup.py` computes your project's ``long_description`` by "
+#~ "reading from both a README and a changelog file, you'll need to include "
+#~ "both those files in the sdist so that people that build or install from "
+#~ "the sdist get the correct results."
+#~ msgstr ""
+#~ "Ao construir uma :term:`distribuição fonte <Distribuição fonte (ou "
+#~ "\"sdist\")>` para o seu pacote, por padrão apenas um conjunto mínimo de "
+#~ "arquivos é incluído. Você pode querer incluir arquivos extras na "
+#~ "distribuição, como um arquivo de autores/contribuidores, um diretório :"
+#~ "file:`docs/` ou um diretório de arquivos de dados usado para fins de "
+#~ "teste. Pode até haver arquivos extras que você *precisa* incluir; por "
+#~ "exemplo, se o seu :file:`setup.py` calcula a ``long_description`` do seu "
+#~ "projeto lendo um arquivo README e um changelog, você precisará incluir "
+#~ "ambos os arquivos no sdist para que as pessoas que construam ou instalar "
+#~ "a partir do sdist obtém os resultados corretos."
+
+#~ msgid ""
+#~ "Adding & removing files to & from the source distribution is done by "
+#~ "writing a :file:`MANIFEST.in` file at the project root."
+#~ msgstr ""
+#~ "Adicionar e remover arquivos para e da distribuição fonte é feito "
+#~ "escrevendo um arquivo :file:`MANIFEST.in` na raiz do projeto."
+
+#~ msgid "How files are included in an sdist"
+#~ msgstr "Como os arquivos são incluídos em um sdist"
+
+#~ msgid ""
+#~ "The following files are included in a source distribution by default:"
+#~ msgstr ""
+#~ "Os seguintes arquivos são incluídos em uma distribuição fonte por padrão:"
+
+#~ msgid ""
+#~ "all Python source files implied by the ``py_modules`` and ``packages`` "
+#~ "``setup()`` arguments"
+#~ msgstr ""
+#~ "todos os arquivos fonte Python implícitos pelos argumentos ``py_modules`` "
+#~ "e ``packages`` do ``setup()``"
+
+#~ msgid ""
+#~ "all C source files mentioned in the ``ext_modules`` or ``libraries`` "
+#~ "``setup()`` arguments"
+#~ msgstr ""
+#~ "todos os arquivos fonte C mencionados nos argumentos ``ext_modules`` ou "
+#~ "``libraries`` do ``setup()``"
+
+#~ msgid "scripts specified by the ``scripts`` ``setup()`` argument"
+#~ msgstr "scripts especificados pelo argumento ``scripts`` do ``setup()``"
+
+#~ msgid ""
+#~ "all files specified by the ``package_data`` and ``data_files`` "
+#~ "``setup()`` arguments"
+#~ msgstr ""
+#~ "todos os arquivos especificados pelos argumentos ``package_data`` e "
+#~ "``data_files`` do ``setup()``"
+
+#~ msgid ""
+#~ "the file specified by the ``license_file`` option in :file:`setup.cfg` "
+#~ "(setuptools 40.8.0+)"
+#~ msgstr ""
+#~ "o arquivo especificado pela opção ``license_file`` em :file:`setup.cfg` "
+#~ "(setuptools 40.8.0+)"
+
+#~ msgid ""
+#~ "all files specified by the ``license_files`` option in :file:`setup.cfg` "
+#~ "(setuptools 42.0.0+)"
+#~ msgstr ""
+#~ "todos os arquivos especificados pela opção ``license_files`` em :file:"
+#~ "`setup.cfg` (setuptools 42.0.0+)"
+
+#~ msgid "all files matching the pattern :file:`test/test*.py`"
+#~ msgstr "todos os arquivos correspondendo ao padrão :file:`test/test*.py`"
+
+#~ msgid ":file:`setup.py` (or whatever you called your setup script)"
+#~ msgstr ""
+#~ ":file:`setup.py` (ou o que quer que você tenha chamado de seu script de "
+#~ "configuração)"
+
+#~ msgid ":file:`setup.cfg`"
+#~ msgstr ":file:`setup.cfg`"
+
+#~ msgid ":file:`README`"
+#~ msgstr ":file:`README`"
+
+#~ msgid ":file:`README.txt`"
+#~ msgstr ":file:`README.txt`"
+
+#~ msgid ":file:`README.rst` (Python 3.7+ or setuptools 0.6.27+)"
+#~ msgstr ":file:`README.rst` (Python 3.7+ ou setuptools 0.6.27+)"
+
+#~ msgid ":file:`README.md` (setuptools 36.4.0+)"
+#~ msgstr ":file:`README.md` (setuptools 36.4.0+)"
+
+#~ msgid ":file:`pyproject.toml` (setuptools 43.0.0+)"
+#~ msgstr ":file:`pyproject.toml` (setuptools 43.0.0+)"
+
+#~ msgid ":file:`MANIFEST.in`"
+#~ msgstr ":file:`MANIFEST.in`"
+
+#~ msgid ""
+#~ "After adding the above files to the sdist, the commands in :file:"
+#~ "`MANIFEST.in` (if such a file exists) are executed in order to add and "
+#~ "remove further files to and from the sdist.  Default files can even be "
+#~ "removed from the sdist with the appropriate :file:`MANIFEST.in` command."
+#~ msgstr ""
+#~ "Depois de adicionar os arquivos acima ao sdist, os comandos em :file:"
+#~ "`MANIFEST.in` (se tal arquivo existir) são executados para adicionar e "
+#~ "remover outros arquivos para e do sdist. Os arquivos padrão podem até "
+#~ "mesmo ser removidos do sdist com o comando apropriado de :file:`MANIFEST."
+#~ "in`."
+
+#~ msgid ""
+#~ "After processing the :file:`MANIFEST.in` file, setuptools removes the :"
+#~ "file:`build/` directory as well as any directories named :file:`RCS`, :"
+#~ "file:`CVS`, or :file:`.svn` from the sdist, and it adds a :file:`PKG-"
+#~ "INFO` file and an :file:`*.egg-info` directory.  This behavior cannot be "
+#~ "changed with :file:`MANIFEST.in`."
+#~ msgstr ""
+#~ "Após processar o arquivo :file:`MANIFEST.in`, setuptools remove o "
+#~ "diretório :file:`build/` bem como quaisquer diretórios chamados :file:"
+#~ "`RCS`, :file:`CVS` ou :file:`.svn` do sdist, e adiciona um arquivo :file:"
+#~ "`PKG-INFO` e um diretório :file:`*.egg-info`. Este comportamento não pode "
+#~ "ser alterado com :file:`MANIFEST.in`."
+
+#~ msgid ":file:`MANIFEST.in` commands"
+#~ msgstr "Comandos do :file:`MANIFEST.in`"
+
+#~ msgid ""
+#~ "A :file:`MANIFEST.in` file consists of commands, one per line, "
+#~ "instructing setuptools to add or remove some set of files from the "
+#~ "sdist.  The commands are:"
+#~ msgstr ""
+#~ "Um arquivo :file:`MANIFEST.in` consiste em comandos, um por linha, "
+#~ "instruindo o setuptools a adicionar ou remover algum conjunto de arquivos "
+#~ "do sdist. Os comandos são:"
+
+#~ msgid "Command"
+#~ msgstr "Comando"
+
+#~ msgid ":samp:`include {pat1} {pat2} ...`"
+#~ msgstr ":samp:`include {padrão1} {padrão2} ...`"
+
+#~ msgid ""
+#~ "Add all files matching any of the listed patterns (Files must be given as "
+#~ "paths relative to the root of the project)"
+#~ msgstr ""
+#~ "Adicione todos os arquivos que correspondam a qualquer um dos padrões "
+#~ "listados (os arquivos devem ser fornecidos como caminhos relativos à raiz "
+#~ "do projeto)"
+
+#~ msgid ":samp:`exclude {pat1} {pat2} ...`"
+#~ msgstr ":samp:`exclude {padrão1} {padrão2} ...`"
+
+#~ msgid ""
+#~ "Remove all files matching any of the listed patterns (Files must be given "
+#~ "as paths relative to the root of the project)"
+#~ msgstr ""
+#~ "Remove todos os arquivos correspondendo a qualquer um dos padrões "
+#~ "listados (Arquivos devem ser fornecidos como caminhos relativos à raiz do "
+#~ "projeto)"
+
+#~ msgid ":samp:`recursive-include {dir-pattern} {pat1} {pat2} ...`"
+#~ msgstr ":samp:`recursive-include {padrão-dir} {padrão1} {padrão2} ...`"
+
+#~ msgid ""
+#~ "Add all files under directories matching ``dir-pattern`` that match any "
+#~ "of the listed patterns"
+#~ msgstr ""
+#~ "Adiciona todos os arquivos sob diretórios correspondendo a ``padrão-dir`` "
+#~ "que correspondem a qualquer um dos padrões listados"
+
+#~ msgid ":samp:`recursive-exclude {dir-pattern} {pat1} {pat2} ...`"
+#~ msgstr ":samp:`recursive-exclude {padrão-dir} {padrão1} {padrão2} ...`"
+
+#~ msgid ""
+#~ "Remove all files under directories matching ``dir-pattern`` that match "
+#~ "any of the listed patterns"
+#~ msgstr ""
+#~ "Remove todos os arquivos sob diretórios correspondendo a ``padrão-dir`` "
+#~ "que correspondem a qualquer um dos padrões listados"
+
+#~ msgid ":samp:`global-include {pat1} {pat2} ...`"
+#~ msgstr ":samp:`global-include {padrão1} {padrão2} ...`"
+
+#~ msgid ""
+#~ "Add all files anywhere in the source tree matching any of the listed "
+#~ "patterns"
+#~ msgstr ""
+#~ "Adiciona todos os arquivos em qualquer lugar na árvore de fontes que "
+#~ "correspondam a qualquer um dos padrões listados"
+
+#~ msgid ":samp:`global-exclude {pat1} {pat2} ...`"
+#~ msgstr ":samp:`global-exclude {padrão1} {padrão2} ...`"
+
+#~ msgid ""
+#~ "Remove all files anywhere in the source tree matching any of the listed "
+#~ "patterns"
+#~ msgstr ""
+#~ "Remove todos os arquivos de qualquer lugar na árvore de fontes que "
+#~ "correspondam a qualquer um dos padrões listados"
+
+#~ msgid ":samp:`graft {dir-pattern}`"
+#~ msgstr ":samp:`graft {padrão-dir}`"
+
+#~ msgid "Add all files under directories matching ``dir-pattern``"
+#~ msgstr ""
+#~ "Adiciona todos os arquivos sob diretórios correspondendo a ``padrão-dir``"
+
+#~ msgid ":samp:`prune {dir-pattern}`"
+#~ msgstr ":samp:`prune {padrão-dir}`"
+
+#~ msgid "Remove all files under directories matching ``dir-pattern``"
+#~ msgstr ""
+#~ "Remove todos os arquivos sob diretórios correspondendo a ``padrão-dir``"
+
+#~ msgid ""
+#~ "The patterns here are glob-style patterns: ``*`` matches zero or more "
+#~ "regular filename characters (on Unix, everything except forward slash; on "
+#~ "Windows, everything except backslash and colon); ``?`` matches a single "
+#~ "regular filename character, and ``[chars]`` matches any one of the "
+#~ "characters between the square brackets (which may contain character "
+#~ "ranges, e.g., ``[a-z]`` or ``[a-fA-F0-9]``).  Setuptools also has "
+#~ "undocumented support for ``**`` matching zero or more characters "
+#~ "including forward slash, backslash, and colon."
+#~ msgstr ""
+#~ "Os padrões aqui são padrões do estilo glob: ``*`` corresponde a zero ou "
+#~ "mais caracteres de nome de arquivo regulares (no Unix, tudo exceto barra; "
+#~ "no Windows, tudo exceto barra invertida e dois pontos); ``?`` corresponde "
+#~ "a um único caractere de nome de arquivo regular, e ``[chars]`` "
+#~ "corresponde a qualquer um dos caracteres entre os colchetes (que podem "
+#~ "conter intervalos de caracteres, por exemplo, ``[az]`` ou ``[ a-fA-"
+#~ "F0-9]``). Setuptools também oferece suporte não documentado a ``**`` "
+#~ "correspondendo a zero ou mais caracteres, incluindo barra, barra "
+#~ "invertida e dois pontos."
+
+#~ msgid ""
+#~ "Directory patterns are relative to the root of the project directory; e."
+#~ "g., ``graft example*`` will include a directory named :file:`examples` in "
+#~ "the project root but will not include :file:`docs/examples/`."
+#~ msgstr ""
+#~ "Os padrões de diretório são relativos à raiz do diretório do projeto; por "
+#~ "exemplo, ``graft exemplo*`` incluirá um diretório chamado :file:"
+#~ "`exemplos` na raiz do projeto, mas não incluirá :file:`docs/exemplos/`."
+
+#~ msgid ""
+#~ "File & directory names in :file:`MANIFEST.in` should be ``/``-separated; "
+#~ "setuptools will automatically convert the slashes to the local platform's "
+#~ "appropriate directory separator."
+#~ msgstr ""
+#~ "Nomes de arquivos e diretórios em :file:`MANIFEST.in` devem ser separados "
+#~ "por ``/``; setuptools irá converter automaticamente as barras para o "
+#~ "separador de diretório apropriado da plataforma local."
+
+#~ msgid ""
+#~ "Commands are processed in the order they appear in the :file:`MANIFEST."
+#~ "in` file.  For example, given the commands:"
+#~ msgstr ""
+#~ "Os comandos são processados na ordem em que aparecem no arquivo :file:"
+#~ "`MANIFEST.in`. Por exemplo, dados os comandos:"
+
+#~ msgid ""
+#~ "the contents of the directory tree :file:`tests` will first be added to "
+#~ "the sdist, and then after that all files in the sdist with a ``.pyc``, ``."
+#~ "pyo``, or ``.pyd`` extension will be removed from the sdist.  If the "
+#~ "commands were in the opposite order, then ``*.pyc`` files etc. would be "
+#~ "only be removed from what was already in the sdist before adding :file:"
+#~ "`tests`, and if :file:`tests` happened to contain any ``*.pyc`` files, "
+#~ "they would end up included in the sdist because the exclusion happened "
+#~ "before they were included."
+#~ msgstr ""
+#~ "o conteúdo da árvore de diretórios :file:`tests` será primeiro adicionado "
+#~ "ao sdist, e depois disso todos os arquivos no sdist com uma extensão ``."
+#~ "pyc``, ``.pyo`` ou ``.pyd`` será removidos do sdist. Se os comandos "
+#~ "estivessem na ordem oposta, então os arquivos ``*.pyc`` etc. seriam "
+#~ "removidos apenas do que já estava no sdist antes de adicionar :file:"
+#~ "`tests`, e se :file:`tests` contivesse quaisquer arquivos ``*.pyc``, eles "
+#~ "acabariam incluídos no sdist porque a exclusão aconteceu antes de serem "
+#~ "incluídos."
 
 #~ msgid ""
 #~ "Use `pkgutil-style namespace packages`_. This is recommended for new "
