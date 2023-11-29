@@ -104,7 +104,7 @@ tool can read the version string.
 
 .. warning::
 
-    With this approach you must make sure that the ``VERSION`` file is included in
+    With this approach you must make sure that the :file:`VERSION` file is included in
     all your source and binary distributions (e.g. add ``include VERSION`` to your
     :file:`MANIFEST.in`).
 
