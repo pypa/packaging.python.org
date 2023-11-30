@@ -175,6 +175,14 @@ attempt to uninstall or upgrade the package.
 (This restriction does not apply to tools that rely on other sources of information,
 such as system package managers in Linux distros.)
 
+.. warning::
+
+   If your package dynamically generates files at runtime, you will need to update
+   the ``RECORD`` file to reflect the new files. If you do not, the files will be
+   retained during uninstallation (e.g., by ``pip uninstall my_package``) likely leading
+   to issues such as the package remaining importable but errantly appearing as a
+   namespace package. See :gh:`pypa/pip/issues/11835` for discussion.
+
 
 The INSTALLER file
 ==================
