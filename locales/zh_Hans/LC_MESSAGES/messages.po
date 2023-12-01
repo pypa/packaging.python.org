@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-21 02:30+0000\n"
+"POT-Creation-Date: 2023-12-01 22:15+0000\n"
 "PO-Revision-Date: 2023-11-21 07:03+0000\n"
 "Last-Translator: Eric <zxmegaxqug@hldrive.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -1054,88 +1054,90 @@ msgid "Is ``setup.py`` deprecated?"
 msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:8
-msgid ""
-"No, :term:`setup.py` is not deprecated, it is a valid configuration file "
-"for :ref:`setuptools` that happens to be written in Python, instead of in "
-"*TOML* for example (a similar practice is used by other tools like *nox* and "
-"its :file:`nox.py` configuration file, or *pytest* and :file:`conftest.py`)."
+msgid "No, :term:`setup.py` and :ref:`setuptools` are not deprecated."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:15
-msgid "And of course *setuptools* itself is not deprecated either."
+#: ../source/discussions/setup-py-deprecated.rst:10
+msgid ""
+"Setuptools is perfectly usable as a :term:`build backend` for packaging "
+"Python projects. And :file:`setup.py` is a valid configuration file for :ref:"
+"`setuptools` that happens to be written in Python, instead of in *TOML* for "
+"example (a similar practice is used by other tools like *nox* and its :file:"
+"`nox.py` configuration file, or *pytest* and :file:`conftest.py`)."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:17
+#: ../source/discussions/setup-py-deprecated.rst:18
 msgid ""
-"It is however deprecated to run ``python setup.py`` as a command line tool."
-msgstr ""
-
-#: ../source/discussions/setup-py-deprecated.rst:19
-msgid ""
-"This means for example that the following commands **MUST NOT** be run "
-"anymore:"
+"However, ``python setup.py`` and the use of :file:`setup.py` as a command "
+"line tool are deprecated."
 msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:21
-#: ../source/discussions/setup-py-deprecated.rst:33
+msgid ""
+"This means that commands such as the following **MUST NOT** be run anymore:"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:23
+#: ../source/discussions/setup-py-deprecated.rst:35
 #: ../source/guides/modernize-setup-py-project.rst:32
 msgid "``python setup.py install``"
 msgstr "``python setup.py install``"
 
-#: ../source/discussions/setup-py-deprecated.rst:22
-#: ../source/discussions/setup-py-deprecated.rst:35
+#: ../source/discussions/setup-py-deprecated.rst:24
+#: ../source/discussions/setup-py-deprecated.rst:37
 #: ../source/guides/modernize-setup-py-project.rst:34
 msgid "``python setup.py develop``"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:23
-#: ../source/discussions/setup-py-deprecated.rst:37
+#: ../source/discussions/setup-py-deprecated.rst:25
+#: ../source/discussions/setup-py-deprecated.rst:39
 #: ../source/guides/modernize-setup-py-project.rst:36
 #, fuzzy
 #| msgid "``python_version``"
 msgid "``python setup.py sdist``"
 msgstr "``python_version``"
 
-#: ../source/discussions/setup-py-deprecated.rst:24
-#: ../source/discussions/setup-py-deprecated.rst:39
+#: ../source/discussions/setup-py-deprecated.rst:26
+#: ../source/discussions/setup-py-deprecated.rst:41
 #: ../source/guides/modernize-setup-py-project.rst:38
 msgid "``python setup.py bdist_wheel``"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:28
+#: ../source/discussions/setup-py-deprecated.rst:30
 msgid "What commands should be used instead?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:31
+#: ../source/discussions/setup-py-deprecated.rst:33
 #: ../source/guides/modernize-setup-py-project.rst:30
 msgid "Deprecated"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:31
+#: ../source/discussions/setup-py-deprecated.rst:33
+#: ../source/guides/modernize-setup-py-project.rst:30
 #, fuzzy
 #| msgid "Creating Documentation"
-msgid "Current recommendation"
+msgid "Recommendation"
 msgstr "创建文档"
 
-#: ../source/discussions/setup-py-deprecated.rst:33
+#: ../source/discussions/setup-py-deprecated.rst:35
 #: ../source/guides/modernize-setup-py-project.rst:32
 #, fuzzy
 #| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python -m pip install .``"
 msgstr "有(``python -m pip uninstall``)"
 
-#: ../source/discussions/setup-py-deprecated.rst:35
+#: ../source/discussions/setup-py-deprecated.rst:37
 #: ../source/guides/modernize-setup-py-project.rst:34
 #, fuzzy
 #| msgid "Yes (``python -m pip uninstall``)"
 msgid "``python -m pip install --editable .``"
 msgstr "有(``python -m pip uninstall``)"
 
-#: ../source/discussions/setup-py-deprecated.rst:37
+#: ../source/discussions/setup-py-deprecated.rst:39
 msgid "``python -m build`` [#needs-build]_"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:43
+#: ../source/discussions/setup-py-deprecated.rst:45
 msgid ""
 "This requires the :ref:`build` dependency. It is recommended to always build "
 "and publish both the source distribution and wheel of a project, which is "
@@ -1143,7 +1145,7 @@ msgid ""
 "options can be used to generate only one or the other."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:50
+#: ../source/discussions/setup-py-deprecated.rst:52
 msgid ""
 "In order to install a setuptools based project, it was common to run :file:"
 "`setup.py`'s ``install`` command such as: ``python setup.py install``. "
@@ -1155,14 +1157,14 @@ msgid ""
 "would also be a valid command: ``python -m pip install path/to/project``."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:63
+#: ../source/discussions/setup-py-deprecated.rst:65
 msgid ""
 "As for the installation in *develop* mode aka *editable* mode, instead of "
 "``python setup.py develop`` one can use the ``--editable`` option of pip's "
 "*install* sub-command: ``python -m pip install --editable .``."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:68
+#: ../source/discussions/setup-py-deprecated.rst:70
 msgid ""
 "One recommended, simple, and straightforward method of building :term:"
 "`source distributions <Source Distribution (or \"sdist\")>` and :term:"
@@ -1173,17 +1175,208 @@ msgid ""
 "installed separately."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:78
+#: ../source/discussions/setup-py-deprecated.rst:80
 msgid ""
 "The command ``python setup.py install`` was deprecated in setuptools version "
 "*58.3.0*."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:83
+#: ../source/discussions/setup-py-deprecated.rst:85
+msgid "What about other commands?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:87
+msgid "What are some replacements for the other ``python setup.py`` commands?"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:91
+#, fuzzy
+#| msgid "``python_version``"
+msgid "``python setup.py test``"
+msgstr "``python_version``"
+
+#: ../source/discussions/setup-py-deprecated.rst:93
+msgid "The recommendation is to use a test runner such as pytest_."
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:99
+msgid ""
+"``python setup.py check``, ``python setup.py register``, and ``python setup."
+"py upload``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:101
+msgid "A trusted replacement is :ref:`twine`:"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:103
+#, fuzzy
+#| msgid "``python -m build``"
+msgid "``python -m twine check``"
+msgstr "``python -m build``"
+
+#: ../source/discussions/setup-py-deprecated.rst:104
+#, fuzzy
+#| msgid "Yes (``python -m pip uninstall``)"
+msgid "``python -m twine register``"
+msgstr "有(``python -m pip uninstall``)"
+
+#: ../source/discussions/setup-py-deprecated.rst:105
+#, fuzzy
+#| msgid "``python -m build``"
+msgid "``python -m twine upload``"
+msgstr "``python -m build``"
+
+#: ../source/discussions/setup-py-deprecated.rst:109
+#, fuzzy
+#| msgid "``python_version``"
+msgid "``python setup.py --version``"
+msgstr "``python_version``"
+
+#: ../source/discussions/setup-py-deprecated.rst:111
+msgid ""
+"A possible replacement solution (among others) is to rely on setuptools-scm_:"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:113
+#, fuzzy
+#| msgid "``python -m build``"
+msgid "``python -m setuptools-scm``"
+msgstr "``python -m build``"
+
+#: ../source/discussions/setup-py-deprecated.rst:119
+msgid "Remaining commands"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:121
+msgid ""
+"This guide does not make suggestions of replacement solutions for those "
+"commands:"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:126
+msgid "``alias``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:127
+msgid "``bdist``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:128
+msgid "``bdist_dumb``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:129
+msgid "``bdist_egg``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:130
+msgid "``bdist_rpm``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:131
+#, fuzzy
+#| msgid "build"
+msgid "``build``"
+msgstr "建造"
+
+#: ../source/discussions/setup-py-deprecated.rst:132
+msgid "``build_clib``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:133
+msgid "``build_ext``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:134
+msgid "``build_py``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:135
+#, fuzzy
+#| msgid "``gui-scripts``"
+msgid "``build_scripts``"
+msgstr "``gui-scripts``"
+
+#: ../source/discussions/setup-py-deprecated.rst:136
+msgid "``clean``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:137
+#, fuzzy
+#| msgid "``pypinfo``"
+msgid "``dist_info``"
+msgstr "``pypinfo``"
+
+#: ../source/discussions/setup-py-deprecated.rst:138
+#, fuzzy
+#| msgid "**easy_install**"
+msgid "``easy_install``"
+msgstr "**easy_install**"
+
+#: ../source/discussions/setup-py-deprecated.rst:139
+msgid "``editable_wheel``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:140
+#, fuzzy
+#| msgid "``pypinfo``"
+msgid "``egg_info``"
+msgstr "``pypinfo``"
+
+#: ../source/discussions/setup-py-deprecated.rst:141
+#, fuzzy
+#| msgid "``pip install``"
+msgid "``install``"
+msgstr "``pip install``"
+
+#: ../source/discussions/setup-py-deprecated.rst:142
+#, fuzzy
+#| msgid "``pip install``"
+msgid "``install_data``"
+msgstr "``pip install``"
+
+#: ../source/discussions/setup-py-deprecated.rst:143
+#, fuzzy
+msgid "``install_egg_info``"
+msgstr "install_requires"
+
+#: ../source/discussions/setup-py-deprecated.rst:144
+#, fuzzy
+msgid "``install_headers``"
+msgstr "install_requires"
+
+#: ../source/discussions/setup-py-deprecated.rst:145
+#, fuzzy
+msgid "``install_lib``"
+msgstr "install_requires"
+
+#: ../source/discussions/setup-py-deprecated.rst:146
+#, fuzzy
+msgid "``install_scripts``"
+msgstr "install_requires"
+
+#: ../source/discussions/setup-py-deprecated.rst:147
+msgid "``rotate``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:148
+msgid "``saveopts``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:149
+msgid "``setopt``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:150
+msgid "``upload_docs``"
+msgstr ""
+
+#: ../source/discussions/setup-py-deprecated.rst:154
 msgid "What about custom commands?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:85
+#: ../source/discussions/setup-py-deprecated.rst:156
 msgid ""
 "Likewise, custom :file:`setup.py` commands are deprecated. The "
 "recommendation is to migrate those custom commands to a task runner tool or "
@@ -1191,46 +1384,46 @@ msgid ""
 "tox, pydoit, pyinvoke, taskipy, and thx."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:93
+#: ../source/discussions/setup-py-deprecated.rst:164
 msgid "What about custom build steps?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:95
+#: ../source/discussions/setup-py-deprecated.rst:166
 msgid ""
 "Custom build steps that for example either overwrite existing steps such as "
 "``build_py``, ``build_ext``, and ``bdist_wheel`` or add new build steps are "
 "not deprecated. Those will be automatically called as expected."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:102
+#: ../source/discussions/setup-py-deprecated.rst:173
 #: ../source/guides/modernize-setup-py-project.rst:21
 msgid "Should ``setup.py`` be deleted?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:104
+#: ../source/discussions/setup-py-deprecated.rst:175
 msgid ""
 "Although the usage of :file:`setup.py` as an executable script is "
 "deprecated, its usage as a configuration file for setuptools is absolutely "
 "fine. There is likely no modification needed in :file:`setup.py`."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:110
+#: ../source/discussions/setup-py-deprecated.rst:181
 msgid "Is ``pyproject.toml`` mandatory?"
 msgstr "``pyproject.toml`` 是强制性的吗？"
 
-#: ../source/discussions/setup-py-deprecated.rst:112
+#: ../source/discussions/setup-py-deprecated.rst:183
 msgid ""
 "While it is not technically necessary yet, it is **STRONGLY RECOMMENDED** "
 "for a project to have a :file:`pyproject.toml` file at the root of its "
 "source tree with a content like this:"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:123
+#: ../source/discussions/setup-py-deprecated.rst:194
 msgid ""
 "The guide :ref:`modernize-setup-py-project` has more details about this."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:125
+#: ../source/discussions/setup-py-deprecated.rst:196
 msgid ""
 "The standard fallback behavior for a :term:`build frontend <Build Frontend>` "
 "in the absence of a :file:`pyproject.toml` file and its ``[build-system]`` "
@@ -1238,26 +1431,26 @@ msgid ""
 "setuptools."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:131
+#: ../source/discussions/setup-py-deprecated.rst:202
 msgid "Why? What does it all mean?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:133
+#: ../source/discussions/setup-py-deprecated.rst:204
 msgid ""
 "One way to look at it is that the scope of setuptools has now been reduced "
 "to the role of a build backend."
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:138
+#: ../source/discussions/setup-py-deprecated.rst:209
 #: ../source/guides/modernize-setup-py-project.rst:244
 msgid "Where to read more about this?"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:140
+#: ../source/discussions/setup-py-deprecated.rst:211
 msgid "https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html"
 msgstr ""
 
-#: ../source/discussions/setup-py-deprecated.rst:142
+#: ../source/discussions/setup-py-deprecated.rst:213
 msgid ":doc:`setuptools:deprecated/commands`"
 msgstr ""
 
@@ -5825,12 +6018,6 @@ msgid ""
 "deprecated and **MUST NOT** be run anymore, and their recommended "
 "replacement commands should be used instead:"
 msgstr ""
-
-#: ../source/guides/modernize-setup-py-project.rst:30
-#, fuzzy
-#| msgid "Creating Documentation"
-msgid "Recommendation"
-msgstr "创建文档"
 
 #: ../source/guides/modernize-setup-py-project.rst:36
 msgid "``python -m build``"
@@ -13721,7 +13908,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/direct-url.rst:21
-#: ../source/specifications/recording-installed-packages.rst:221
+#: ../source/specifications/recording-installed-packages.rst:230
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
@@ -16235,10 +16422,20 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:180
+msgid ""
+"It is *strongly discouraged* for an installed package to modify itself (e."
+"g., store cache files under its namespace in ``site-packages``). Changes "
+"inside ``site-packages`` should be left to specialized installer tools such "
+"as pip. If a package is nevertheless modified in this way, then the "
+"``RECORD`` must be updated, otherwise uninstalling the package will leave "
+"unlisted files in place (possibly resulting in a zombie namespace package)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The INSTALLER file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:182
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -16246,15 +16443,15 @@ msgid ""
 "a printable ASCII string."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:188
+#: ../source/specifications/recording-installed-packages.rst:197
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:190
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:198
+#: ../source/specifications/recording-installed-packages.rst:207
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -16262,11 +16459,11 @@ msgid ""
 "uninstallation."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:205
+#: ../source/specifications/recording-installed-packages.rst:214
 msgid "The entry_points.txt file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:207
+#: ../source/specifications/recording-installed-packages.rst:216
 msgid ""
 "This file MAY be created by installers to indicate when packages contain "
 "components intended for discovery and use by other code, including console "
@@ -16274,29 +16471,29 @@ msgid ""
 "execution."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:212
+#: ../source/specifications/recording-installed-packages.rst:221
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:216
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "The direct_url.json file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:218
+#: ../source/specifications/recording-installed-packages.rst:227
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:224
+#: ../source/specifications/recording-installed-packages.rst:233
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:228
+#: ../source/specifications/recording-installed-packages.rst:237
 msgid "Intentionally preventing changes to installed packages"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:230
+#: ../source/specifications/recording-installed-packages.rst:239
 msgid ""
 "In some cases (such as when needing to manage external dependencies in "
 "addition to Python ecosystem dependencies), it is desirable for a tool that "
@@ -16305,11 +16502,11 @@ msgid ""
 "so may cause compatibility problems with the wider environment."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:236
+#: ../source/specifications/recording-installed-packages.rst:245
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:238
+#: ../source/specifications/recording-installed-packages.rst:247
 msgid ""
 "Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
 "g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
@@ -16317,14 +16514,14 @@ msgid ""
 "package contents are tracked and managed via other means)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:242
+#: ../source/specifications/recording-installed-packages.rst:251
 msgid ""
 "Write an ``INSTALLER`` file indicating the name of the tool that should be "
 "used to manage the package (this allows ``RECORD``-aware tools to provide "
 "better error notices when asked to modify affected packages)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:246
+#: ../source/specifications/recording-installed-packages.rst:255
 msgid ""
 "Python runtime providers may also prevent inadvertent modification of "
 "platform provided packages by modifying the default Python package "
@@ -16333,7 +16530,7 @@ msgid ""
 "Python import path)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:251
+#: ../source/specifications/recording-installed-packages.rst:260
 msgid ""
 "In some circumstances, it may be desirable to block even installation of "
 "additional packages via Python-specific tools. For these cases refer to :ref:"
@@ -19606,6 +19803,11 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#, fuzzy
+#~| msgid "Creating Documentation"
+#~ msgid "Current recommendation"
+#~ msgstr "创建文档"
 
 #~ msgid ":file:`README`"
 #~ msgstr ":file:`README`"
