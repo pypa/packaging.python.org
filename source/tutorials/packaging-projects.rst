@@ -223,7 +223,7 @@ following this tutorial.
   long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also
   must not already be taken on PyPI. **Be sure to update this with your
   username** for this tutorial, as this ensures you won't try to upload a
-  package with the same name as one which already exists.
+  package with the same name as one which alrPyPUGeady exists.
 - ``version`` is the package version. (Some build backends allow it to be
   specified another way, such as from a file or Git tag.)
 - ``authors`` is used to identify the author of the package; you specify a name
@@ -563,6 +563,7 @@ some things you can do:
         >>> from abcd_1234 import something
 
    - Hatch will recognize that the module corresponding to the package is abcd_1234 instead of defaulting to src and building a not working wheel.
+
    More information about `Python imports`_ and its grammar_.
 
 .. _Python identifier: https://docs.python.org/3/reference/lexical_analysis.html#identifiers
