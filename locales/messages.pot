@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-01 22:03+0000\n"
+"POT-Creation-Date: 2023-12-01 22:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9072,7 +9072,7 @@ msgid "The :file:`direct_url.json` file MUST be created in the :file:`*.dist-inf
 msgstr ""
 
 #: ../source/specifications/direct-url.rst:21
-#: ../source/specifications/recording-installed-packages.rst:221
+#: ../source/specifications/recording-installed-packages.rst:230
 msgid "This file MUST NOT be created when installing a distribution from an other type of requirement (i.e. name plus version specifier)."
 msgstr ""
 
@@ -10709,74 +10709,78 @@ msgid "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:180
+msgid "It is *strongly discouraged* for an installed package to modify itself (e.g., store cache files under its namespace in ``site-packages``). Changes inside ``site-packages`` should be left to specialized installer tools such as pip. If a package is nevertheless modified in this way, then the ``RECORD`` must be updated, otherwise uninstalling the package will leave unlisted files in place (possibly resulting in a zombie namespace package)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The INSTALLER file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:182
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid "If present, ``INSTALLER`` is a single-line text file naming the tool used to install the project. If the installer is executable from the command line, ``INSTALLER`` should contain the command name. Otherwise, it should contain a printable ASCII string."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:188
+#: ../source/specifications/recording-installed-packages.rst:197
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:190
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:198
+#: ../source/specifications/recording-installed-packages.rst:207
 msgid "This value should be used for informational purposes only. For example, if a tool is asked to uninstall a project but finds no ``RECORD`` file, it may suggest that the tool named in ``INSTALLER`` may be able to do the uninstallation."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:205
+#: ../source/specifications/recording-installed-packages.rst:214
 msgid "The entry_points.txt file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:207
+#: ../source/specifications/recording-installed-packages.rst:216
 msgid "This file MAY be created by installers to indicate when packages contain components intended for discovery and use by other code, including console scripts and other applications that the installer has made available for execution."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:212
+#: ../source/specifications/recording-installed-packages.rst:221
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:216
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "The direct_url.json file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:218
+#: ../source/specifications/recording-installed-packages.rst:227
 msgid "This file MUST be created by installers when installing a distribution from a requirement specifying a direct URL reference (including a VCS URL)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:224
+#: ../source/specifications/recording-installed-packages.rst:233
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:228
+#: ../source/specifications/recording-installed-packages.rst:237
 msgid "Intentionally preventing changes to installed packages"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:230
+#: ../source/specifications/recording-installed-packages.rst:239
 msgid "In some cases (such as when needing to manage external dependencies in addition to Python ecosystem dependencies), it is desirable for a tool that installs packages into a Python environment to ensure that other tools are not used to uninstall or otherwise modify that installed package, as doing so may cause compatibility problems with the wider environment."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:236
+#: ../source/specifications/recording-installed-packages.rst:245
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:238
+#: ../source/specifications/recording-installed-packages.rst:247
 msgid "Rename or remove the ``RECORD`` file to prevent changes via other tools (e.g. appending a suffix to create a non-standard ``RECORD.tool`` file if the tool itself needs the information, or omitting the file entirely if the package contents are tracked and managed via other means)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:242
+#: ../source/specifications/recording-installed-packages.rst:251
 msgid "Write an ``INSTALLER`` file indicating the name of the tool that should be used to manage the package (this allows ``RECORD``-aware tools to provide better error notices when asked to modify affected packages)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:246
+#: ../source/specifications/recording-installed-packages.rst:255
 msgid "Python runtime providers may also prevent inadvertent modification of platform provided packages by modifying the default Python package installation scheme to use a location other than that used by platform provided packages (while also ensuring both locations appear on the default Python import path)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:251
+#: ../source/specifications/recording-installed-packages.rst:260
 msgid "In some circumstances, it may be desirable to block even installation of additional packages via Python-specific tools. For these cases refer to :ref:`externally-managed-environments`"
 msgstr ""
 
