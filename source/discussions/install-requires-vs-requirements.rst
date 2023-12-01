@@ -53,7 +53,7 @@ dependencies to specific versions, or to specify transitive dependencies
 prevents the user from gaining the benefit of dependency upgrades.
 
 Lastly, it's important to understand that ``dependencies`` is a listing of
-"abstract" requirements, i.e, it just names and version restrictions, but doesn't
+"abstract" requirements, i.e., just names and version restrictions, but doesn't
 determine where the dependencies will be fulfilled from (from what package
 index or source).  The where (i.e. how they are to be made "concrete") is to
 be determined at install time, e.g., using :ref:`pip` options. [1]_
