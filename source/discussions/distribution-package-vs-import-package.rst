@@ -79,7 +79,7 @@ particular, they use underscores ``_`` as word separator and they are
 case-sensitive.
 
 On the other hand, distribution packages can use hyphens ``-`` or
-underscores ``.``. They can also contain dots ``.``, which is sometimes
+underscores ``_``. They can also contain dots ``.``, which is sometimes
 used for packaging a subpackage of a :ref:`namespace package
 <packaging-namespace-packages>`. For most purposes, they are insensitive
 to case and to ``-`` vs.  ``_`` differences, e.g., ``pip install
