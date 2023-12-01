@@ -154,6 +154,8 @@ This field is required, although it is often marked as dynamic using
 Dependencies and requirements
 =============================
 
+.. _writing-pyproject-toml-dependencies:
+
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
 
