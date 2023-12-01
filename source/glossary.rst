@@ -67,7 +67,8 @@ Glossary
         :term:`Import Package` (which is also commonly called a "package") or
         another kind of distribution (e.g. a Linux distribution or the Python
         language distribution), which are often referred to with the single term
-        "distribution".
+        "distribution". See :ref:`distribution-package-vs-import-package`
+        for a breakdown of the differences.
 
     Egg
 
@@ -103,7 +104,8 @@ Glossary
         An import package is more commonly referred to with the single word
         "package", but this guide will use the expanded term when more clarity
         is needed to prevent confusion with a :term:`Distribution Package` which
-        is also commonly called a "package".
+        is also commonly called a "package". See :ref:`distribution-package-vs-import-package`
+        for a breakdown of the differences.
 
     Module
 
