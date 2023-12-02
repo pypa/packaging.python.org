@@ -541,13 +541,13 @@ some things you can do:
 .. tip::
 
    Make sure to have a valid
-   :doc:`Python identifier <python:reference/lexical_analysis.html#identifiers>`
+   :ref:`Python identifier <python:identifiers>`
    for your module name.
    The PyPI project/dist name and the Python module may differ slightly.
    For example, your package in pyproject.toml and on PyPI may have the name abcd-1234.
    But a module named abcd-1234 would be cumbersome to import in Python,
    since it isn't a valid identifier.
-   (There is a way to import it anyway, see :doc:`importlib <python:library/importlib.html>` and this question_.)
+   (There is a way to import it anyway, see :doc:`importlib <python:library/importlib>` and this question_.)
 
    .. code-block:: python
 
@@ -566,7 +566,7 @@ some things you can do:
 
    - Hatch will recognize that the module corresponding to the package is abcd_1234 instead of defaulting to src and building a not working wheel.
 
-   More information about :doc:`Python imports <python:reference/import.html>` and its :doc:`grammar <python:reference/grammar.html>`.
+   More information about :doc:`Python imports <python:reference/import>` and its :doc:`grammar <python:reference/grammar>`.
 
 .. _question: https://stackoverflow.com/questions/8350853/how-to-import-module-when-module-name-has-a-dash-or-hyphen-in-it
 ----
