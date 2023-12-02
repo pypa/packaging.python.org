@@ -30,4 +30,3 @@ But having a directory structure with src/abcd_1234/ instead of src/abcd-1234/ h
 More information about :doc:`Python imports <python:reference/import>` and its :doc:`grammar <python:reference/grammar>`.
 
 .. _question: https://stackoverflow.com/questions/8350853/how-to-import-module-when-module-name-has-a-dash-or-hyphen-in-it
-
