@@ -1,7 +1,7 @@
 Choosing a Module Name
 =========================
 
-This discussion is a complement to :doc:`tutorials/packaging-projects`.
+This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 
 Make sure to have a valid :ref:`Python identifier <python:identifiers>` for your module name.
 The PyPI project/dist name and the Python module may differ slightly.
