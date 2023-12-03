@@ -1,5 +1,5 @@
 Choosing a Package/Module Name
-=========================
+==============================
 
 This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 
