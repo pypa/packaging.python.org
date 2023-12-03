@@ -76,9 +76,10 @@ API, and an ``attr`` import package with an older but supported API.
 How do distribution package names and import package names compare?
 ===================================================================
 
-Import packages should have valid Python identifiers as their name.  In
-particular, they use underscores ``_`` as word separator and they are
-case-sensitive.
+Import packages should have valid Python identifiers as their name (the
+:ref:`exact rules <python:identifiers>` are found in the Python
+documentation). In particular, they use underscores ``_`` as word
+separator and they are case-sensitive.
 
 On the other hand, distribution packages can use hyphens ``-`` or
 underscores ``_``. They can also contain dots ``.``, which is sometimes
