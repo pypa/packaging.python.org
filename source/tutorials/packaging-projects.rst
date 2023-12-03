@@ -493,7 +493,7 @@ Make sure you're still in your virtual environment, then run Python:
 
 and import the package:
 
-.. code-block:: python
+.. code-block:: pycon
 
     >>> from example_package_YOUR_USERNAME_HERE import example
     >>> example.add_one(2)
