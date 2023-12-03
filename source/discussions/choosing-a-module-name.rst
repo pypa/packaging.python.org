@@ -20,7 +20,7 @@ But having a directory structure with src/abcd_1234/ instead of src/abcd-1234/ h
 
 - The following works:
 
-  .. code-block:: python
+  .. code-block:: pycon
 
      >>> import abcd_1234
      >>> from abcd_1234 import something
