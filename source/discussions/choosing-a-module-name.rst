@@ -9,7 +9,9 @@ Moreover, one PyPI project/dist may ship more than one module or importable pack
 For example, your package in :file:`pyproject.toml` and on PyPI may have the name ``abcd-1234``.
 But a module named ``abcd-1234`` would be cumbersome to import in Python,
 since it isn't a valid identifier.
-(There is a way to import it anyway, see :doc:`importlib <python:library/importlib>` and this question_.)
+(It would be cumbersone, completely unnatural and against the long-established conventions in the Python community;
+see, for example, :pep:`8#package-and-module-names`.
+There is a way to import it anyway, see :doc:`importlib <python:library/importlib>` and this question_.)
 
 .. code-block:: pycon
 
