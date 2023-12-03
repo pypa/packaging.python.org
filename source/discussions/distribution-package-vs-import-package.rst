@@ -86,9 +86,9 @@ underscores ``_``. They can also contain dots ``.``, which is sometimes
 used for packaging a subpackage of a :ref:`namespace package
 <packaging-namespace-packages>`. For most purposes, they are insensitive
 to case and to ``-`` vs.  ``_`` differences, e.g., ``pip install
-Awesome_Package`` is the same as ``pip install awesome-package`` (the precise rules
-are given in the :ref:`name normalization
-specification <name-normalization>`).
+Awesome_Package`` is the same as ``pip install awesome-package`` (the
+precise rules are given in the :ref:`name normalization specification
+<name-normalization>`).
 
 
 .. _PyPI: https://pypi.org
