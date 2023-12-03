@@ -5,7 +5,7 @@ This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 
 Make sure to have a valid :ref:`Python identifier <python:identifiers>` for your module name.
 The PyPI project/dist name and the Python module may differ slightly.
-For example, your package in pyproject.toml and on PyPI may have the name abcd-1234.
+For example, your package in :file:`pyproject.toml` and on PyPI may have the name ``abcd-1234``.
 But a module named abcd-1234 would be cumbersome to import in Python,
 since it isn't a valid identifier.
 (There is a way to import it anyway, see :doc:`importlib <python:library/importlib>` and this question_.)
