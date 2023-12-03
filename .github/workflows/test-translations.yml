@@ -34,7 +34,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: ${{ env.I18N_BRANCH }}
-    
+
     - name: List languages
       id: languages
       working-directory: locales
@@ -65,7 +65,10 @@ jobs:
           3.10
 
     - name: Install Python tooling
-      run: python -m pip install --upgrade nox virtualenv
+      run: python -m pip install --upgrade nox virtualenv sphinx-lint
 
     - name: Build translated docs in ${{ matrix.language }}
-      run: nox -s build -- -D language=${{ matrix.language }}
+      run: nox -s build -- -q -D language=${{ matrix.language }}
+
+    - name: Lint translation file
+      run: sphinx-lint locales/${{ matrix.language }}/LC_MESSAGES/message.po
