@@ -1,10 +1,10 @@
-Choosing a Module Name
+Choosing a Package/Module Name
 =========================
 
 This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 
-Make sure to have a valid :ref:`Python identifier <python:identifiers>` for your module name.
-The PyPI project/dist name and the Python module may differ slightly.
+Make sure to have a valid :ref:`Python identifier <python:identifiers>` for your import package/module name.
+The PyPI project/dist name and the Python package/module may differ slightly.
 Moreover, one PyPI project/dist may ship more than one module or importable package — it is only possible that one matches the name, others can't.
 For example, your package in :file:`pyproject.toml` and on PyPI may have the name ``abcd-1234``.
 But a module named ``abcd-1234`` would be cumbersome to import in Python,

@@ -14,4 +14,4 @@ specific topic. If you're just trying to get stuff done, see
    wheel-vs-egg
    src-layout-vs-flat-layout
    setup-py-deprecated
-   choosing-a-module-name
+   choosing-a-package-module-name

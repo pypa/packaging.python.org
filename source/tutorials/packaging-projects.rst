@@ -537,7 +537,7 @@ some things you can do:
   :ref:`pdm`, and :ref:`poetry`.
 * Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
 * Read about :doc:`/guides/packaging-binary-extensions`.
-* Read about :doc:`/discussions/choosing-a-module-name`.
+* Read about :doc:`/discussions/choosing-a-package-module-name`.
 
 ----
 
