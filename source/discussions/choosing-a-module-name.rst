@@ -10,7 +10,7 @@ But a module named abcd-1234 would be cumbersome to import in Python,
 since it isn't a valid identifier.
 (There is a way to import it anyway, see :doc:`importlib <python:library/importlib>` and this question_.)
 
-.. code-block:: python
+.. code-block:: pycon
 
    >>> import abcd-1234
    >>> from abcd-1234 import something
