@@ -68,7 +68,9 @@ Import packages with the same name can be provided by several
 distribution packages. Again, forks are a common reason for this.
 
 Conversely, a distribution package can provide several import packages,
-although this is less common.
+although this is less common. An example is the attrs_ distribution
+package, which provides both an ``attrs`` import package with a newer
+API, and an ``attr`` import package with an older but supported API.
 
 
 How do distribution package names and import package names compare?
@@ -90,3 +92,4 @@ specification <name-normalization>`).
 
 .. _PyPI: https://pypi.org
 .. _Pillow: https://pypi.org/project/Pillow
+.. _attrs: https://pypi.org/project/attrs
