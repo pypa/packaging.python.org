@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-01 22:15+0000\n"
+"POT-Creation-Date: 2023-12-04 19:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1170,75 +1170,79 @@ msgid "The particular build tool you choose dictates what additional information
 msgstr ""
 
 #: ../source/flow.rst:97
-msgid "a ``[project]`` table containing project :doc:`Core Metadata </specifications/core-metadata/>` (name, version, author and so forth); see :doc:`Declaring project metadata </specifications/declaring-project-metadata/>` for more detail"
+msgid "a ``[project]`` table containing project :doc:`Core Metadata </specifications/core-metadata/>` (name, version, author and so forth),"
+msgstr ""
+
+#: ../source/flow.rst:101
+msgid "a ``[tool]`` table containing tool-specific configuration options."
 msgstr ""
 
 #: ../source/flow.rst:103
-msgid "a ``[tool]`` table containing tool-specific configuration options"
+msgid "Refer to the :ref:`pyproject.toml guide <writing-pyproject-toml>` for a complete guide to ``pyproject.toml`` configuration."
 msgstr ""
 
-#: ../source/flow.rst:106
+#: ../source/flow.rst:108
 msgid "Build artifacts"
 msgstr ""
 
-#: ../source/flow.rst:109
+#: ../source/flow.rst:111
 msgid "The source distribution (sdist)"
 msgstr ""
 
-#: ../source/flow.rst:111
+#: ../source/flow.rst:113
 msgid "A source distribution contains enough to install the package from source in an end user's Python environment. As such, it needs the package source, and may also include tests and documentation. These are useful for end users wanting to develop your sources, and for end user systems where some local compilation step is required (such as a C extension)."
 msgstr ""
 
-#: ../source/flow.rst:117
-#: ../source/flow.rst:141
+#: ../source/flow.rst:119
+#: ../source/flow.rst:143
 msgid "The :ref:`build` package knows how to invoke your build tool to create one of these:"
 msgstr ""
 
-#: ../source/flow.rst:124
+#: ../source/flow.rst:126
 msgid "Or, your build tool may provide its own interface for creating an sdist."
 msgstr ""
 
-#: ../source/flow.rst:128
+#: ../source/flow.rst:130
 msgid "The built distributions (wheels)"
 msgstr ""
 
-#: ../source/flow.rst:130
+#: ../source/flow.rst:132
 msgid "A built distribution contains only the files needed for an end user's Python environment. No compilation steps are required during the install, and the wheel file can simply be unpacked into the ``site-packages`` directory. This makes the install faster and more convenient for end users."
 msgstr ""
 
-#: ../source/flow.rst:135
+#: ../source/flow.rst:137
 msgid "A pure Python package typically needs only one \"generic\" wheel. A package with compiled binary extensions needs a wheel for each supported combination of Python interpreter, operating system, and CPU architecture that it supports. If a suitable wheel file is not available, tools like :ref:`pip` will fall back to installing the source distribution."
 msgstr ""
 
-#: ../source/flow.rst:148
+#: ../source/flow.rst:150
 msgid "Or, your build tool may provide its own interface for creating a wheel."
 msgstr ""
 
-#: ../source/flow.rst:152
+#: ../source/flow.rst:154
 msgid "The default behaviour of :ref:`build` is to make both an sdist and a wheel from the source in the current directory; the above examples are deliberately specific."
 msgstr ""
 
-#: ../source/flow.rst:157
+#: ../source/flow.rst:159
 msgid "Upload to the package distribution service"
 msgstr ""
 
-#: ../source/flow.rst:159
+#: ../source/flow.rst:161
 msgid "The :ref:`twine` tool can upload build artifacts to PyPI for distribution, using a command like:"
 msgstr ""
 
-#: ../source/flow.rst:166
+#: ../source/flow.rst:168
 msgid "Or, your build tool may provide its own interface for uploading."
 msgstr ""
 
-#: ../source/flow.rst:169
+#: ../source/flow.rst:171
 msgid "Download and install"
 msgstr ""
 
-#: ../source/flow.rst:171
+#: ../source/flow.rst:173
 msgid "Now that the package is published, end users can download and install the package into their Python environment. Typically this is done with :ref:`pip`, using a command like:"
 msgstr ""
 
-#: ../source/flow.rst:179
+#: ../source/flow.rst:181
 msgid "End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or :ref:`pdm`."
 msgstr ""
 
@@ -2172,9 +2176,9 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:165
 #: ../source/guides/writing-pyproject-toml.rst:120
-#: ../source/specifications/declaring-project-metadata.rst:41
-#: ../source/specifications/declaring-project-metadata.rst:63
-#: ../source/specifications/declaring-project-metadata.rst:73
+#: ../source/specifications/pyproject-toml.rst:119
+#: ../source/specifications/pyproject-toml.rst:141
+#: ../source/specifications/pyproject-toml.rst:151
 msgid "``name``"
 msgstr ""
 
@@ -2196,9 +2200,9 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:191
 #: ../source/guides/writing-pyproject-toml.rst:132
-#: ../source/specifications/declaring-project-metadata.rst:46
-#: ../source/specifications/declaring-project-metadata.rst:69
-#: ../source/specifications/declaring-project-metadata.rst:85
+#: ../source/specifications/pyproject-toml.rst:124
+#: ../source/specifications/pyproject-toml.rst:147
+#: ../source/specifications/pyproject-toml.rst:163
 msgid "``version``"
 msgstr ""
 
@@ -2220,8 +2224,8 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:215
 #: ../source/guides/writing-pyproject-toml.rst:263
-#: ../source/specifications/declaring-project-metadata.rst:56
-#: ../source/specifications/declaring-project-metadata.rst:98
+#: ../source/specifications/pyproject-toml.rst:134
+#: ../source/specifications/pyproject-toml.rst:176
 msgid "``description``"
 msgstr ""
 
@@ -2259,8 +2263,8 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:268
 #: ../source/guides/writing-pyproject-toml.rst:302
-#: ../source/specifications/declaring-project-metadata.rst:61
-#: ../source/specifications/declaring-project-metadata.rst:157
+#: ../source/specifications/pyproject-toml.rst:139
+#: ../source/specifications/pyproject-toml.rst:235
 msgid "``license``"
 msgstr ""
 
@@ -2274,8 +2278,8 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:288
 #: ../source/guides/writing-pyproject-toml.rst:335
-#: ../source/specifications/declaring-project-metadata.rst:54
-#: ../source/specifications/declaring-project-metadata.rst:224
+#: ../source/specifications/pyproject-toml.rst:132
+#: ../source/specifications/pyproject-toml.rst:302
 msgid "``classifiers``"
 msgstr ""
 
@@ -2293,8 +2297,8 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:332
 #: ../source/guides/writing-pyproject-toml.rst:323
-#: ../source/specifications/declaring-project-metadata.rst:60
-#: ../source/specifications/declaring-project-metadata.rst:214
+#: ../source/specifications/pyproject-toml.rst:138
+#: ../source/specifications/pyproject-toml.rst:292
 msgid "``keywords``"
 msgstr ""
 
@@ -2399,7 +2403,7 @@ msgid "When installing packages as egg, ``data_files`` is not supported. So, if 
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:496
-#: ../source/specifications/declaring-project-metadata.rst:67
+#: ../source/specifications/pyproject-toml.rst:145
 msgid "``scripts``"
 msgstr ""
 
@@ -5315,7 +5319,7 @@ msgid "Dependencies and requirements"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:158
-#: ../source/specifications/declaring-project-metadata.rst:275
+#: ../source/specifications/pyproject-toml.rst:353
 msgid "``dependencies``/``optional-dependencies``"
 msgstr ""
 
@@ -5336,8 +5340,8 @@ msgid "Each of the keys defines a \"packaging extra\". In the example above, one
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:194
-#: ../source/specifications/declaring-project-metadata.rst:66
-#: ../source/specifications/declaring-project-metadata.rst:147
+#: ../source/specifications/pyproject-toml.rst:144
+#: ../source/specifications/pyproject-toml.rst:225
 msgid "``requires-python``"
 msgstr ""
 
@@ -5374,7 +5378,7 @@ msgid "About your project"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:243
-#: ../source/specifications/declaring-project-metadata.rst:172
+#: ../source/specifications/pyproject-toml.rst:250
 msgid "``authors``/``maintainers``"
 msgstr ""
 
@@ -5387,8 +5391,8 @@ msgid "This should be a one-line description of your project, to show as the \"h
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:275
-#: ../source/specifications/declaring-project-metadata.rst:65
-#: ../source/specifications/declaring-project-metadata.rst:108
+#: ../source/specifications/pyproject-toml.rst:143
+#: ../source/specifications/pyproject-toml.rst:186
 msgid "``readme``"
 msgstr ""
 
@@ -5429,8 +5433,8 @@ msgid "A list of PyPI classifiers that apply to your project. Check the `full li
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:349
-#: ../source/specifications/declaring-project-metadata.rst:68
-#: ../source/specifications/declaring-project-metadata.rst:234
+#: ../source/specifications/pyproject-toml.rst:146
+#: ../source/specifications/pyproject-toml.rst:312
 msgid "``urls``"
 msgstr ""
 
@@ -8337,375 +8341,6 @@ msgstr ""
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr ""
 
-#: ../source/specifications/declaring-build-dependencies.rst:6
-msgid "Declaring build system dependencies"
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:8
-msgid "The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Among other metadata (such as :ref:`project metadata <declaring-project-metadata>`), it declares any Python level dependencies that must be installed in order to run the project's build system successfully."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:15
-msgid "Tables not defined by PyPA specifications are reserved for future use."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:19
-msgid "build-system table"
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:23
-msgid "The ``[build-system]`` table is used to store build-related data. Initially,  only one key of the table is valid and is mandatory for the table: ``requires``. This key must have a value of a list of strings representing dependencies required to execute the build system. The strings in this list follow the :ref:`version specifier specification <version-specifiers>`."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:30
-msgid "An example ``build-system`` table for a project built with ``setuptools`` is:"
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:39
-msgid "Build tools are expected to use the example configuration file above as their default semantics when a ``pyproject.toml`` file is not present."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:42
-msgid "Tools should not require the existence of the ``[build-system]`` table. A ``pyproject.toml`` file may be used to store configuration details other than build-related data and thus lack a ``[build-system]`` table legitimately. If the file exists but is lacking the ``[build-system]`` table then the default values as specified above should be used. If the table is specified but is missing required fields then the tool should consider it an error."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:56
-msgid "tool table"
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:58
-msgid "The ``[tool]`` table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within ``[tool]``, e.g. the `flit <https://pypi.python.org/pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:64
-msgid "A mechanism is needed to allocate names within the ``tool.*`` namespace, to make sure that different projects do not attempt to use the same sub-table and collide. Our rule is that a project can use the subtable ``tool.$NAME`` if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:71
-msgid "JSON Schema"
-msgstr ""
-
-#: ../source/specifications/declaring-build-dependencies.rst:73
-msgid "To provide a type-specific representation of the resulting data from the TOML file for illustrative purposes only, the following `JSON Schema <https://json-schema.org>`_ would match the data format:"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:5
-msgid "Declaring project metadata"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:7
-msgid ":pep:`621` specifies how to write a project's :ref:`core metadata <core-metadata>` in a ``pyproject.toml`` file for packaging-related tools to consume. It defines the following specification as the canonical source for the format used."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:14
-msgid "This is a **technical, formal specification**. For a gentle, user-friendly guide to ``pyproject.toml``, see :ref:`writing-pyproject-toml`."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:20
-#: ../source/specifications/dependency-specifiers.rst:24
-#: ../source/specifications/direct-url-data-structure.rst:18
-#: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/inline-script-metadata.rst:18
-msgid "Specification"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:22
-msgid "There are two kinds of metadata: *static* and *dynamic*. Static metadata is specified in the ``pyproject.toml`` file directly and cannot be specified or changed by a tool (this includes data *referred* to by the metadata, e.g. the contents of files referenced by the metadata). Dynamic metadata is listed via the ``dynamic`` key (defined later in this specification) and represents metadata that a tool will later provide."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:30
-msgid "The keys defined in this specification MUST be in a table named ``[project]`` in ``pyproject.toml``. No tools may add keys to this table which are not defined by this specification. For tools wishing to store their own settings in ``pyproject.toml``, they may use the ``[tool]`` table as defined in the :ref:`build dependency declaration specification <declaring-build-dependencies>`. The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>` will dynamically provide all keys."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:39
-msgid "The only keys required to be statically defined are:"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:43
-msgid "The keys which are required but may be specified *either* statically or listed as dynamic are:"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:48
-msgid "All other keys are considered optional and may be specified statically, listed as dynamic, or left unspecified."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:51
-msgid "The complete list of keys allowed in the ``[project]`` table are:"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:53
-msgid "``authors``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:55
-msgid "``dependencies``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:57
-#: ../source/specifications/declaring-project-metadata.rst:305
-msgid "``dynamic``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:58
-msgid "``entry-points``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:59
-msgid "``gui-scripts``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:62
-msgid "``maintainers``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:64
-msgid "``optional-dependencies``"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:75
-#: ../source/specifications/declaring-project-metadata.rst:87
-#: ../source/specifications/declaring-project-metadata.rst:100
-#: ../source/specifications/declaring-project-metadata.rst:149
-msgid "TOML_ type: string"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:76
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name <core-metadata-name>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:79
-msgid "The name of the project."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:81
-msgid "Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon as it is read for internal consistency."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:88
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version <core-metadata-version>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:91
-msgid "The version of the project, as defined in the :ref:`Version specifier specification <version-specifiers>`."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:94
-msgid "Users SHOULD prefer to specify already-normalized versions."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:101
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary <core-metadata-summary>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:104
-msgid "The summary description of the project."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:110
-msgid "TOML_ type: string or table"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:111
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description <core-metadata-description>` and :ref:`Description-Content-Type <core-metadata-description-content-type>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:115
-msgid "The full description of the project (i.e. the README)."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:117
-msgid "The key accepts either a string or a table. If it is a string then it is a path relative to ``pyproject.toml`` to a text file containing the full description. Tools MUST assume the file's encoding is UTF-8. If the file path ends in a case-insensitive ``.md`` suffix, then tools MUST assume the content-type is ``text/markdown``. If the file path ends in a case-insensitive ``.rst``, then tools MUST assume the content-type is ``text/x-rst``. If a tool recognizes more extensions than this PEP, they MAY infer the content-type for the user without specifying this key as ``dynamic``. For all unrecognized suffixes when a content-type is not provided, tools MUST raise an error."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:128
-msgid "The ``readme`` key may also take a table. The ``file`` key has a string value representing a path relative to ``pyproject.toml`` to a file containing the full description. The ``text`` key has a string value which is the full description. These keys are mutually-exclusive, thus tools MUST raise an error if the metadata specifies both keys."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:135
-msgid "A table specified in the ``readme`` key also has a ``content-type`` key which takes a string specifying the content-type of the full description. A tool MUST raise an error if the metadata does not specify this key in the table. If the metadata does not specify the ``charset`` parameter, then it is assumed to be UTF-8. Tools MAY support other encodings if they choose to. Tools MAY support alternative content-types which they can transform to a content-type as supported by the :ref:`core metadata <core-metadata>`. Otherwise tools MUST raise an error for unsupported content-types."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:150
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-Python <core-metadata-requires-python>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:153
-msgid "The Python version requirements of the project."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:159
-msgid "TOML_ type: table"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:160
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License <core-metadata-license>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:163
-msgid "The table may have one of two keys. The ``file`` key has a string value that is a file path relative to ``pyproject.toml`` to the file which contains the license for the project. Tools MUST assume the file's encoding is UTF-8. The ``text`` key has a string value which is the license of the project.  These keys are mutually exclusive, so a tool MUST raise an error if the metadata specifies both keys."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:174
-msgid "TOML_ type: Array of inline tables with string keys and values"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:175
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:`Maintainer <core-metadata-maintainer>`, and :ref:`Maintainer-email <core-metadata-maintainer-email>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:181
-msgid "The people or organizations considered to be the \"authors\" of the project. The exact meaning is open to interpretation — it may list the original or primary authors, current maintainers, or owners of the package."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:186
-msgid "The \"maintainers\" key is similar to \"authors\" in that its exact meaning is open to interpretation."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:189
-msgid "These keys accept an array of tables with 2 keys: ``name`` and ``email``. Both values must be strings. The ``name`` value MUST be a valid email name (i.e. whatever can be put as a name, before an email, in :rfc:`822`) and not contain commas. The ``email`` value MUST be a valid email address. Both keys are optional, but at least one of the keys must be specified in the table."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:196
-msgid "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:199
-msgid "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:202
-msgid "If only ``email`` is provided, the value goes in :ref:`Author-email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-email>` as appropriate."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:206
-msgid "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-email>` as appropriate, with the format ``{name} <{email}>``."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:210
-msgid "Multiple values should be separated by commas."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:216
-#: ../source/specifications/declaring-project-metadata.rst:226
-msgid "TOML_ type: array of strings"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:217
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords <core-metadata-keywords>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:220
-msgid "The keywords for the project."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:227
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier <core-metadata-classifier>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:230
-msgid "Trove classifiers which apply to the project."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:236
-msgid "TOML_ type: table with keys and values of strings"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:237
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL <core-metadata-project-url>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:240
-msgid "A table of URLs where the key is the URL label and the value is the URL itself."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:245
-msgid "Entry points"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:247
-msgid "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and ``[project.entry-points]``)"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:249
-msgid ":ref:`Entry points specification <entry-points>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:251
-msgid "There are three tables related to entry points. The ``[project.scripts]`` table corresponds to the ``console_scripts`` group in the :ref:`entry points specification <entry-points>`. The key of the table is the name of the entry point and the value is the object reference."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:257
-msgid "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group in the :ref:`entry points specification <entry-points>`. Its format is the same as ``[project.scripts]``."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:261
-msgid "The ``[project.entry-points]`` table is a collection of tables. Each sub-table's name is an entry point group. The key and value semantics are the same as ``[project.scripts]``. Users MUST NOT create nested sub-tables but instead keep the entry point groups to only one level deep."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:267
-msgid "Build back-ends MUST raise an error if the metadata defines a ``[project.entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` table, as they would be ambiguous in the face of ``[project.scripts]`` and ``[project.gui-scripts]``, respectively."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:277
-msgid "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with values of arrays of :pep:`508` strings (``optional-dependencies``)"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:280
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-provides-extra>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:284
-msgid "The (optional) dependencies of the project."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:286
-msgid "For ``dependencies``, it is a key whose value is an array of strings. Each string represents a dependency of the project and MUST be formatted as a valid :pep:`508` string. Each string maps directly to a :ref:`Requires-Dist <core-metadata-requires-dist>` entry."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:291
-msgid "For ``optional-dependencies``, it is a table where each key specifies an extra and whose value is an array of strings. The strings of the arrays must be valid :pep:`508` strings. The keys MUST be valid values for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value in the array thus becomes a corresponding :ref:`Requires-Dist <core-metadata-requires-dist>` entry for the matching :ref:`Provides-Extra <core-metadata-provides-extra>` metadata."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:307
-msgid "TOML_ type: array of string"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:308
-msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic <core-metadata-dynamic>`"
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:311
-msgid "Specifies which keys listed by this PEP were intentionally unspecified so another tool can/will provide such metadata dynamically. This clearly delineates which metadata is purposefully unspecified and expected to stay unspecified compared to being provided via tooling later on."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:317
-msgid "A build back-end MUST honour statically-specified metadata (which means the metadata did not list the key in ``dynamic``)."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:319
-msgid "A build back-end MUST raise an error if the metadata specifies ``name`` in ``dynamic``."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:321
-msgid "If the :ref:`core metadata <core-metadata>` specification lists a field as \"Required\", then the metadata MUST specify the key statically or list it in ``dynamic`` (build back-ends MUST raise an error otherwise, i.e. it should not be possible for a required key to not be listed somehow in the ``[project]`` table)."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:326
-msgid "If the :ref:`core metadata <core-metadata>` specification lists a field as \"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is a build back-end will provide the data for the key later."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:330
-msgid "Build back-ends MUST raise an error if the metadata specifies a key statically as well as being listed in ``dynamic``."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:332
-msgid "If the metadata does not list a key in ``dynamic``, then a build back-end CANNOT fill in the requisite metadata on behalf of the user (i.e. ``dynamic`` is the only way to allow a tool to fill in metadata and the user must opt into the filling in)."
-msgstr ""
-
-#: ../source/specifications/declaring-project-metadata.rst:336
-msgid "Build back-ends MUST raise an error if the metadata specifies a key in ``dynamic`` but the build back-end was unable to determine the data for it (omitting the data, if determined to be the accurate value, is acceptable)."
-msgstr ""
-
 #: ../source/specifications/dependency-specifiers.rst:5
 msgid "Dependency specifiers"
 msgstr ""
@@ -8720,6 +8355,13 @@ msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:16
 msgid "The language defined is a compact line based format which is already in widespread use in pip requirements files, though we do not specify the command line option handling that those files permit. There is one caveat - the URL reference form, specified in :ref:`Versioning specifier specification <version-specifiers>` is not actually implemented in pip, but we use that format rather than pip's current native format."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:24
+#: ../source/specifications/direct-url-data-structure.rst:18
+#: ../source/specifications/direct-url.rst:15
+#: ../source/specifications/inline-script-metadata.rst:18
+msgid "Specification"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:29
@@ -9141,6 +8783,7 @@ msgstr ""
 #: ../source/specifications/externally-managed-environments.rst:472
 #: ../source/specifications/inline-script-metadata.rst:239
 #: ../source/specifications/name-normalization.rst:42
+#: ../source/specifications/pyproject-toml.rst:441
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1256
 msgid "History"
@@ -10560,6 +10203,375 @@ msgstr ""
 msgid "Instead of using the ``password`` field, consider saving your API tokens and passwords securely using `keyring`_ (which is installed by Twine):"
 msgstr ""
 
+#: ../source/specifications/pyproject-toml.rst:5
+msgid "``pyproject.toml`` specification"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:9
+msgid "This is a **technical, formal specification**. For a gentle, user-friendly guide to ``pyproject.toml``, see :ref:`writing-pyproject-toml`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:13
+msgid "The ``pyproject.toml`` file acts as a configuration file for packaging-related tools (as well as other tools)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:16
+msgid "This specification was originally defined in :pep:`518` and :pep:`621`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:18
+msgid "The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three tables are currently specified, namely :ref:`[build-system] <pyproject-build-system-table>`, :ref:`[project] <pyproject-project-table>` and :ref:`[tool] <pyproject-tool-table>`. Other tables are reserved for future use (tool-specific configuration should use the ``[tool]`` table)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:28
+msgid "Declaring build system dependencies: the ``[build-system]`` table"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:30
+msgid "The ``[build-system]`` table declares any Python level dependencies that must be installed in order to run the project's build system successfully."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:36
+msgid "The ``[build-system]`` table is used to store build-related data. Initially, only one key of the table is valid and is mandatory for the table: ``requires``. This key must have a value of a list of strings representing dependencies required to execute the build system. The strings in this list follow the :ref:`version specifier specification <version-specifiers>`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:43
+msgid "An example ``[build-system]`` table for a project built with ``setuptools`` is:"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:52
+msgid "Build tools are expected to use the example configuration file above as their default semantics when a ``pyproject.toml`` file is not present."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:55
+msgid "Tools should not require the existence of the ``[build-system]`` table. A ``pyproject.toml`` file may be used to store configuration details other than build-related data and thus lack a ``[build-system]`` table legitimately. If the file exists but is lacking the ``[build-system]`` table then the default values as specified above should be used. If the table is specified but is missing required fields then the tool should consider it an error."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:64
+msgid "To provide a type-specific representation of the resulting data from the TOML file for illustrative purposes only, the following `JSON Schema <https://json-schema.org>`_ would match the data format:"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:102
+msgid "Declaring project metadata: the ``[project]`` table"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:104
+msgid "The ``[project]`` table specifies the project's :ref:`core metadata <core-metadata>`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:106
+msgid "There are two kinds of metadata: *static* and *dynamic*. Static metadata is specified in the ``pyproject.toml`` file directly and cannot be specified or changed by a tool (this includes data *referred* to by the metadata, e.g. the contents of files referenced by the metadata). Dynamic metadata is listed via the ``dynamic`` key (defined later in this specification) and represents metadata that a tool will later provide."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:114
+msgid "The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>` will dynamically provide all keys."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:117
+msgid "The only keys required to be statically defined are:"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:121
+msgid "The keys which are required but may be specified *either* statically or listed as dynamic are:"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:126
+msgid "All other keys are considered optional and may be specified statically, listed as dynamic, or left unspecified."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:129
+msgid "The complete list of keys allowed in the ``[project]`` table are:"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:131
+msgid "``authors``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:133
+msgid "``dependencies``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:135
+#: ../source/specifications/pyproject-toml.rst:383
+msgid "``dynamic``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:136
+msgid "``entry-points``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:137
+msgid "``gui-scripts``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:140
+msgid "``maintainers``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:142
+msgid "``optional-dependencies``"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:153
+#: ../source/specifications/pyproject-toml.rst:165
+#: ../source/specifications/pyproject-toml.rst:178
+#: ../source/specifications/pyproject-toml.rst:227
+msgid "TOML_ type: string"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:154
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name <core-metadata-name>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:157
+msgid "The name of the project."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:159
+msgid "Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon as it is read for internal consistency."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:166
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version <core-metadata-version>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:169
+msgid "The version of the project, as defined in the :ref:`Version specifier specification <version-specifiers>`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:172
+msgid "Users SHOULD prefer to specify already-normalized versions."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:179
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary <core-metadata-summary>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:182
+msgid "The summary description of the project."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:188
+msgid "TOML_ type: string or table"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:189
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description <core-metadata-description>` and :ref:`Description-Content-Type <core-metadata-description-content-type>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:193
+msgid "The full description of the project (i.e. the README)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:195
+msgid "The key accepts either a string or a table. If it is a string then it is a path relative to ``pyproject.toml`` to a text file containing the full description. Tools MUST assume the file's encoding is UTF-8. If the file path ends in a case-insensitive ``.md`` suffix, then tools MUST assume the content-type is ``text/markdown``. If the file path ends in a case-insensitive ``.rst``, then tools MUST assume the content-type is ``text/x-rst``. If a tool recognizes more extensions than this PEP, they MAY infer the content-type for the user without specifying this key as ``dynamic``. For all unrecognized suffixes when a content-type is not provided, tools MUST raise an error."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:206
+msgid "The ``readme`` key may also take a table. The ``file`` key has a string value representing a path relative to ``pyproject.toml`` to a file containing the full description. The ``text`` key has a string value which is the full description. These keys are mutually-exclusive, thus tools MUST raise an error if the metadata specifies both keys."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:213
+msgid "A table specified in the ``readme`` key also has a ``content-type`` key which takes a string specifying the content-type of the full description. A tool MUST raise an error if the metadata does not specify this key in the table. If the metadata does not specify the ``charset`` parameter, then it is assumed to be UTF-8. Tools MAY support other encodings if they choose to. Tools MAY support alternative content-types which they can transform to a content-type as supported by the :ref:`core metadata <core-metadata>`. Otherwise tools MUST raise an error for unsupported content-types."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:228
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-Python <core-metadata-requires-python>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:231
+msgid "The Python version requirements of the project."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:237
+msgid "TOML_ type: table"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:238
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License <core-metadata-license>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:241
+msgid "The table may have one of two keys. The ``file`` key has a string value that is a file path relative to ``pyproject.toml`` to the file which contains the license for the project. Tools MUST assume the file's encoding is UTF-8. The ``text`` key has a string value which is the license of the project.  These keys are mutually exclusive, so a tool MUST raise an error if the metadata specifies both keys."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:252
+msgid "TOML_ type: Array of inline tables with string keys and values"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:253
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:`Maintainer <core-metadata-maintainer>`, and :ref:`Maintainer-email <core-metadata-maintainer-email>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:259
+msgid "The people or organizations considered to be the \"authors\" of the project. The exact meaning is open to interpretation — it may list the original or primary authors, current maintainers, or owners of the package."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:264
+msgid "The \"maintainers\" key is similar to \"authors\" in that its exact meaning is open to interpretation."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:267
+msgid "These keys accept an array of tables with 2 keys: ``name`` and ``email``. Both values must be strings. The ``name`` value MUST be a valid email name (i.e. whatever can be put as a name, before an email, in :rfc:`822`) and not contain commas. The ``email`` value MUST be a valid email address. Both keys are optional, but at least one of the keys must be specified in the table."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:274
+msgid "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:277
+msgid "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:280
+msgid "If only ``email`` is provided, the value goes in :ref:`Author-email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-email>` as appropriate."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:284
+msgid "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-email>` as appropriate, with the format ``{name} <{email}>``."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:288
+msgid "Multiple values should be separated by commas."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:294
+#: ../source/specifications/pyproject-toml.rst:304
+msgid "TOML_ type: array of strings"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:295
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords <core-metadata-keywords>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:298
+msgid "The keywords for the project."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:305
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier <core-metadata-classifier>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:308
+msgid "Trove classifiers which apply to the project."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:314
+msgid "TOML_ type: table with keys and values of strings"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:315
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL <core-metadata-project-url>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:318
+msgid "A table of URLs where the key is the URL label and the value is the URL itself."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:323
+msgid "Entry points"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:325
+msgid "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and ``[project.entry-points]``)"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:327
+msgid ":ref:`Entry points specification <entry-points>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:329
+msgid "There are three tables related to entry points. The ``[project.scripts]`` table corresponds to the ``console_scripts`` group in the :ref:`entry points specification <entry-points>`. The key of the table is the name of the entry point and the value is the object reference."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:335
+msgid "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group in the :ref:`entry points specification <entry-points>`. Its format is the same as ``[project.scripts]``."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:339
+msgid "The ``[project.entry-points]`` table is a collection of tables. Each sub-table's name is an entry point group. The key and value semantics are the same as ``[project.scripts]``. Users MUST NOT create nested sub-tables but instead keep the entry point groups to only one level deep."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:345
+msgid "Build back-ends MUST raise an error if the metadata defines a ``[project.entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` table, as they would be ambiguous in the face of ``[project.scripts]`` and ``[project.gui-scripts]``, respectively."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:355
+msgid "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with values of arrays of :pep:`508` strings (``optional-dependencies``)"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:358
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-provides-extra>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:362
+msgid "The (optional) dependencies of the project."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:364
+msgid "For ``dependencies``, it is a key whose value is an array of strings. Each string represents a dependency of the project and MUST be formatted as a valid :pep:`508` string. Each string maps directly to a :ref:`Requires-Dist <core-metadata-requires-dist>` entry."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:369
+msgid "For ``optional-dependencies``, it is a table where each key specifies an extra and whose value is an array of strings. The strings of the arrays must be valid :pep:`508` strings. The keys MUST be valid values for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value in the array thus becomes a corresponding :ref:`Requires-Dist <core-metadata-requires-dist>` entry for the matching :ref:`Provides-Extra <core-metadata-provides-extra>` metadata."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:385
+msgid "TOML_ type: array of string"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:386
+msgid "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic <core-metadata-dynamic>`"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:389
+msgid "Specifies which keys listed by this PEP were intentionally unspecified so another tool can/will provide such metadata dynamically. This clearly delineates which metadata is purposefully unspecified and expected to stay unspecified compared to being provided via tooling later on."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:395
+msgid "A build back-end MUST honour statically-specified metadata (which means the metadata did not list the key in ``dynamic``)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:397
+msgid "A build back-end MUST raise an error if the metadata specifies ``name`` in ``dynamic``."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:399
+msgid "If the :ref:`core metadata <core-metadata>` specification lists a field as \"Required\", then the metadata MUST specify the key statically or list it in ``dynamic`` (build back-ends MUST raise an error otherwise, i.e. it should not be possible for a required key to not be listed somehow in the ``[project]`` table)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:404
+msgid "If the :ref:`core metadata <core-metadata>` specification lists a field as \"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is a build back-end will provide the data for the key later."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:408
+msgid "Build back-ends MUST raise an error if the metadata specifies a key statically as well as being listed in ``dynamic``."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:410
+msgid "If the metadata does not list a key in ``dynamic``, then a build back-end CANNOT fill in the requisite metadata on behalf of the user (i.e. ``dynamic`` is the only way to allow a tool to fill in metadata and the user must opt into the filling in)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:414
+msgid "Build back-ends MUST raise an error if the metadata specifies a key in ``dynamic`` but the build back-end was unable to determine the data for it (omitting the data, if determined to be the accurate value, is acceptable)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:424
+msgid "Arbitrary tool configuration: the ``[tool]`` table"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:426
+msgid "The ``[tool]`` table is where any tool related to your Python project, not just build tools, can have users specify configuration data as long as they use a sub-table within ``[tool]``, e.g. the `flit <https://pypi.python.org/pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:432
+msgid "A mechanism is needed to allocate names within the ``tool.*`` namespace, to make sure that different projects do not attempt to use the same sub-table and collide. Our rule is that a project can use the subtable ``tool.$NAME`` if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:443
+msgid "This specification was originally defined in :pep:`518` (``[build-system]`` and ``[tool]`` tables) and :pep:`621` (``[project]`` table)."
+msgstr ""
+
 #: ../source/specifications/recording-installed-packages.rst:5
 msgid "Recording installed projects"
 msgstr ""
@@ -10865,7 +10877,7 @@ msgid "Source distribution file format"
 msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:57
-msgid "A ``.tar.gz`` source distribution (sdist) contains a single top-level directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of the package. The name and version MUST match the metadata stored in the file. This directory must also contain a :file:`pyproject.toml` in the format defined in :ref:`declaring-build-dependencies`, and a ``PKG-INFO`` file containing metadata in the format described in the :ref:`core-metadata` specification. The metadata MUST conform to at least version 2.2 of the metadata specification."
+msgid "A ``.tar.gz`` source distribution (sdist) contains a single top-level directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of the package. The name and version MUST match the metadata stored in the file. This directory must also contain a :file:`pyproject.toml` in the format defined in :ref:`pyproject-toml-spec`, and a ``PKG-INFO`` file containing metadata in the format described in the :ref:`core-metadata` specification. The metadata MUST conform to at least version 2.2 of the metadata specification."
 msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:65
