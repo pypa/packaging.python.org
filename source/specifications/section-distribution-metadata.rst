@@ -9,7 +9,6 @@ Package Distribution Metadata
    core-metadata
    version-specifiers
    dependency-specifiers
-   declaring-build-dependencies
-   declaring-project-metadata
+   pyproject-toml
    inline-script-metadata
    platform-compatibility-tags
