@@ -47,7 +47,9 @@ jobs:
     # This job does nothing and is only used for the branch protection
     # or multi-stage CI jobs, like making sure that all tests pass before
     # a publishing job is started.
-    if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
+    if: >-
+      github.repository_owner == 'pypa'
+      || github.event_name != 'schedule'
 
     needs:
     - build
