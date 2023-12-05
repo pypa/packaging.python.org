@@ -145,7 +145,6 @@ intersphinx_mapping = {
     "nox": ("https://nox.thea.codes/en/latest/", None),
     "openstack": ("https://docs.openstack.org/glance/latest/", None),
     "packaging": ("https://packaging.pypa.io/en/latest/", None),
-    "packaging.python.org": ("https://packaging.python.org/en/latest/", None),
     "pip": ("https://pip.pypa.io/en/latest/", None),
     "pipenv": ("https://pipenv.pypa.io/en/latest/", None),
     "piwheels": ("https://piwheels.readthedocs.io/en/latest/", None),
