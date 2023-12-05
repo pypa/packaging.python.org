@@ -100,9 +100,12 @@ The recommendation is to use a test runner such as pytest_.
 
 A trusted replacement is :ref:`twine`:
 
-* ``python -m twine check``
-* ``python -m twine register``
-* ``python -m twine upload``
+* ``python -m twine check --strict dist/*``
+* ``python -m twine register dist/*.whl`` [#not-pypi]_
+* ``python -m twine upload dist/*``
+
+.. [#not-pypi] Not necessary, nor supported on :term:`PyPI <Python Package Index (PyPI)>`.
+    But might be necessary on other :term:`package indexes <package index>` (for example :ref:`devpi`).
 
 
 ``python setup.py --version``
@@ -110,7 +113,7 @@ A trusted replacement is :ref:`twine`:
 
 A possible replacement solution (among others) is to rely on setuptools-scm_:
 
-* ``python -m setuptools-scm``
+* ``python -m setuptools_scm``
 
 .. _setuptools-scm: https://setuptools-scm.readthedocs.io/en/latest/usage/#as-cli-tool
 
