@@ -233,7 +233,7 @@ application-centric alternative to :ref:`pip`'s lower-level
 pipx
 ====
 
-`Docs <https://pypa.github.io/pipx/>`__ |
+`Docs <https://pipx.pypa.io/>`__ |
 `GitHub <https://github.com/pypa/pipx>`__ |
 `PyPI <https://pypi.org/project/pipx/>`__
 
