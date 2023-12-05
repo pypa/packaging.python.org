@@ -105,7 +105,7 @@ A trusted replacement is :ref:`twine`:
 * ``python -m twine upload dist/*``
 
 .. [#not-pypi] Not necessary, nor supported on :term:`PyPI <Python Package Index (PyPI)>`.
-    But might be necessary on other :term:`package indexes <package index>`.
+    But might be necessary on other :term:`package indexes <package index>` (for example :ref:`devpi`).
 
 
 ``python setup.py --version``
