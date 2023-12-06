@@ -1,3 +1,5 @@
+.. _`install_requires vs requirements files`:
+
 ============================================
 Metadata dependencies vs. requirements files
 ============================================
