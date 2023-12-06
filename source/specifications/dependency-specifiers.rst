@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _dependency-specifiers:
 
 =====================
@@ -273,7 +275,9 @@ error like all other unknown variables.
      - ``test``
 
 The ``implementation_version`` marker variable is derived from
-``sys.implementation.version``::
+``sys.implementation.version``:
+
+.. code-block:: python
 
     def format_full_version(info):
         version = '{0.major}.{0.minor}.{0.micro}'.format(info)
@@ -400,7 +404,9 @@ The complete parsley grammar::
     sub_delims    = '!' | '$' | '&' | '\\'' | '(' | ')' | '*' | '+' | ',' | ';' | '='
     hexdig        = digit | 'a' | 'A' | 'b' | 'B' | 'c' | 'C' | 'd' | 'D' | 'e' | 'E' | 'f' | 'F'
 
-A test program - if the grammar is in a string ``grammar``::
+A test program - if the grammar is in a string ``grammar``:
+
+.. code-block:: python
 
     import os
     import sys

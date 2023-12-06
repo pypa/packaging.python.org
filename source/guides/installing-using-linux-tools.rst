@@ -107,9 +107,9 @@ To install pip, wheel, and setuptools, in a parallel, non-system environment
 openSUSE
 ~~~~~~~~
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    sudo zypper install python3-pip python3-setuptools python3-wheel
+   sudo zypper install python3-pip python3-setuptools python3-wheel
 
 
 .. _debian-ubuntu:
@@ -134,9 +134,9 @@ Firstly, update and refresh repository lists by running this command:
 Arch Linux
 ~~~~~~~~~~
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    sudo pacman -S python-pip
+   sudo pacman -S python-pip
 
 ----
 

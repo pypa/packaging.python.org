@@ -1,3 +1,4 @@
+.. highlight:: json
 
 .. _direct-url-data-structure:
 
@@ -32,7 +33,9 @@ for security reasons.
 
 The user:password section of the URL MAY however
 be composed of environment variables, matching the following regular
-expression::
+expression:
+
+.. code-block:: text
 
     \$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
 

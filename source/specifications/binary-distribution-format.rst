@@ -1,3 +1,4 @@
+.. highlight:: text
 
 .. _binary-distribution-format:
 
@@ -285,7 +286,9 @@ or the installation will fail.
 If JSON web signatures are used, one or more JSON Web Signature JSON
 Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent
 to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of
-RECORD as the signature's JSON payload::
+RECORD as the signature's JSON payload:
+
+.. code-block:: json
 
     { "hash": "sha256=ADD-r2urObZHcxBW3Cr-vDCu5RJwT4CaRTHiFmbcIYY" }
 

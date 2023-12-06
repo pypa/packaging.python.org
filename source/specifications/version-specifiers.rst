@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _version-specifiers:
 
 ==================
@@ -1204,7 +1206,9 @@ version is already in that form, and if it's not, extract the various
 components for subsequent normalization.
 
 To test whether a version identifier is in the canonical format, you can use
-the following function::
+the following function:
+
+.. code-block:: python
 
     import re
     def is_canonical(version):
@@ -1212,7 +1216,9 @@ the following function::
 
 To extract the components of a version identifier, use the following regular
 expression (as defined by the `packaging <https://github.com/pypa/packaging>`_
-project)::
+project):
+
+.. code-block:: python
 
     VERSION_PATTERN = r"""
         v?
