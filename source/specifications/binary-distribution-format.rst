@@ -5,14 +5,8 @@
 Binary distribution format
 ==========================
 
-The binary distribution format (:term:`wheel <Wheel>`) was originally defined
-in :pep:`427`. The current version of the specification is here.
-
-
-Abstract
-========
-
-This PEP describes a built-package format for Python called "wheel".
+This page specifies the binary distribution format for Python packages,
+also called the wheel format.
 
 A wheel is a ZIP-format archive with a specially formatted file name and
 the ``.whl`` extension.  It contains a single distribution nearly as it
@@ -21,31 +15,6 @@ scheme.  Although a specialized installer is recommended, a wheel file
 may be installed by simply unpacking into site-packages with the standard
 'unzip' tool while preserving enough information to spread its contents
 out onto their final paths at any later time.
-
-
-PEP Acceptance
-==============
-
-This PEP was accepted, and the defined wheel version updated to 1.0, by
-Nick Coghlan on 16th February, 2013 [1]_
-
-
-Rationale
-=========
-
-Python needs a package format that is easier to install than sdist.
-Python's sdist packages are defined by and require the distutils and
-setuptools build systems, running arbitrary code to build-and-install,
-and re-compile, code just so it can be installed into a new
-virtualenv.  This system of conflating build-install is slow, hard to
-maintain, and hinders innovation in both build systems and installers.
-
-Wheel attempts to remedy these problems by providing a simpler
-interface between the build system and the installer.  The wheel
-binary package format frees installers from having to know about the
-build system, saves time by amortizing compile time over many
-installations, and removes the need to install a build system in the
-target environment.
 
 
 Details
@@ -469,20 +438,16 @@ Is it possible to import Python code directly from a wheel file?
     aware that many projects will require a failure to be reproduced with
     a fully installed package before accepting it as a genuine bug.
 
-Changes
+
+History
 =======
 
-Since :pep:`427`, this specification has changed as follows:
+This specification was originally approved as :pep:`427`.
 
-- The rules on escaping in wheel filenames were revised, to bring them into line
-  with what popular tools actually do (February 2021).
+The following changes were applied since the initial version:
 
-
-References
-==========
-
-.. [1] PEP acceptance
-   (https://mail.python.org/pipermail/python-dev/2013-February/124103.html)
+- The rules on escaping in wheel filenames were revised, to bring them
+  into line with what popular tools actually do (February 2021).
 
 
 Appendix
@@ -499,9 +464,3 @@ Example urlsafe-base64-nopad implementation::
     def urlsafe_b64decode_nopad(data):
         pad = b'=' * (4 - (len(data) & 3))
         return base64.urlsafe_b64decode(data + pad)
-
-
-Copyright
-=========
-
-This document has been placed into the public domain.
