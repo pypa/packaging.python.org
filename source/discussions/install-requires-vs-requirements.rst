@@ -43,8 +43,8 @@ so it makes sense to not allow v2:
 
    [project]
    dependencies = [
-     "A>=1,<2",
-     "B>=2"
+     "A >= 1, < 2",
+     "B >= 2"
     ]
 
 It is not considered best practice to use ``dependencies`` to pin
