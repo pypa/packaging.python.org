@@ -31,8 +31,8 @@ v2 of 'B', so it would be like so:
 
    [project]
    dependencies = [
-     "A>=1",
-     "B>=2"
+     "A >= 1",
+     "B >= 2"
    ]
 
 It may also be known that project 'A' introduced a change in its v2
