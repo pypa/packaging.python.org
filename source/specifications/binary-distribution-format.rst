@@ -307,33 +307,6 @@ See
 - https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01
 
 
-Comparison to .egg
-------------------
-
-#. Wheel is an installation format; egg is importable.  Wheel archives
-   do not need to include .pyc and are less tied to a specific Python
-   version or implementation. Wheel can install (pure Python) packages
-   built with previous versions of Python so you don't always have to
-   wait for the packager to catch up.
-#. Wheel uses .dist-info directories; egg uses .egg-info.  Wheel is
-   compatible with the new world of Python packaging and the new
-   concepts it brings.
-#. Wheel has a richer file naming convention for today's
-   multi-implementation world.  A single wheel archive can indicate
-   its compatibility with a number of Python language versions and
-   implementations, ABIs, and system architectures.  Historically the
-   ABI has been specific to a CPython release, wheel is ready for the
-   stable ABI.
-#. Wheel is lossless.  The first wheel implementation bdist_wheel
-   always generates egg-info, and then converts it to a .whl.  It is
-   also possible to convert existing eggs and bdist_wininst
-   distributions.
-#. Wheel is versioned.  Every wheel file contains the version of the
-   wheel specification and the implementation that packaged it.
-   Hopefully the next migration can simply be to Wheel 2.0.
-#. Wheel is a reference to the other Python.
-
-
 FAQ
 ===
 
