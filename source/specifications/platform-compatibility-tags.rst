@@ -143,12 +143,6 @@ these images will no longer receive security updates.
 Manylinux compatibility support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Note::
-  * The ``manylinux2014`` specification is relatively new and is not yet widely
-    recognised by install tools.
-  * The ``manylinux_x_y`` specification is relatively new and is not yet widely
-    recognised by install tools.
-
 The following table shows the minimum versions of relevant projects to support
 the various ``manylinux`` standards:
 
