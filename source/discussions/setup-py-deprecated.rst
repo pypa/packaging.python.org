@@ -5,18 +5,20 @@
 Is ``setup.py`` deprecated?
 ===========================
 
-No, :term:`setup.py` is not deprecated,
-it is a valid configuration file for :ref:`setuptools`
+No, :term:`setup.py` and :ref:`setuptools` are not deprecated.
+
+Setuptools is perfectly usable as a :term:`build backend`
+for packaging Python projects.
+And :file:`setup.py` is a valid configuration file for :ref:`setuptools`
 that happens to be written in Python, instead of in *TOML* for example
 (a similar practice is used by other tools
 like *nox* and its :file:`nox.py` configuration file,
 or *pytest* and :file:`conftest.py`).
 
-And of course *setuptools* itself is not deprecated either.
+However, ``python setup.py`` and the use of :file:`setup.py`
+as a command line tool are deprecated.
 
-It is however deprecated to run ``python setup.py`` as a command line tool.
-
-This means for example that the following commands **MUST NOT** be run anymore:
+This means that commands such as the following **MUST NOT** be run anymore:
 
 * ``python setup.py install``
 * ``python setup.py develop``
@@ -28,7 +30,7 @@ What commands should be used instead?
 =====================================
 
 +---------------------------------+----------------------------------------+
-| Deprecated                      | Current recommendation                 |
+| Deprecated                      | Recommendation                         |
 +=================================+========================================+
 | ``python setup.py install``     | ``python -m pip install .``            |
 +---------------------------------+----------------------------------------+
@@ -77,6 +79,78 @@ Note that the build tool needs to be installed separately.
 
 The command ``python setup.py install`` was deprecated
 in setuptools version *58.3.0*.
+
+
+What about other commands?
+==========================
+
+What are some replacements for the other ``python setup.py`` commands?
+
+
+``python setup.py test``
+------------------------
+
+The recommendation is to use a test runner such as pytest_.
+
+.. _pytest: https://docs.pytest.org/
+
+
+``python setup.py check``, ``python setup.py register``, and ``python setup.py upload``
+---------------------------------------------------------------------------------------
+
+A trusted replacement is :ref:`twine`:
+
+* ``python -m twine check --strict dist/*``
+* ``python -m twine register dist/*.whl`` [#not-pypi]_
+* ``python -m twine upload dist/*``
+
+.. [#not-pypi] Not necessary, nor supported on :term:`PyPI <Python Package Index (PyPI)>`.
+    But might be necessary on other :term:`package indexes <package index>` (for example :ref:`devpi`).
+
+
+``python setup.py --version``
+-----------------------------
+
+A possible replacement solution (among others) is to rely on setuptools-scm_:
+
+* ``python -m setuptools_scm``
+
+.. _setuptools-scm: https://setuptools-scm.readthedocs.io/en/latest/usage/#as-cli-tool
+
+
+Remaining commands
+------------------
+
+This guide does not make suggestions of replacement solutions for those commands:
+
+.. hlist::
+    :columns: 4
+
+    * ``alias``
+    * ``bdist``
+    * ``bdist_dumb``
+    * ``bdist_egg``
+    * ``bdist_rpm``
+    * ``build``
+    * ``build_clib``
+    * ``build_ext``
+    * ``build_py``
+    * ``build_scripts``
+    * ``clean``
+    * ``dist_info``
+    * ``easy_install``
+    * ``editable_wheel``
+    * ``egg_info``
+    * ``install``
+    * ``install_data``
+    * ``install_egg_info``
+    * ``install_headers``
+    * ``install_lib``
+    * ``install_scripts``
+    * ``rotate``
+    * ``saveopts``
+    * ``setopt``
+    * ``upload_docs``
 
 
 What about custom commands?

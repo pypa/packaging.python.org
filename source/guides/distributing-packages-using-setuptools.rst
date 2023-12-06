@@ -233,8 +233,7 @@ the front-page lists of trending projects and new releases, and the list of
 projects you maintain within your account profile (such as
 https://pypi.org/user/jaraco/).
 
-A `content type
-<https://packaging.python.org/specifications/core-metadata/#description-content-type-optional>`_
+A :ref:`content type <core-metadata-description-content-type>`
 can be specified with the ``long_description_content_type`` argument, which can
 be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
 to no formatting, `reStructuredText (reST)
