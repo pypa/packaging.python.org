@@ -149,6 +149,50 @@ auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``        ``>=3.3.0`` [#
 .. [#] Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0
 
 
+``musllinux``
+-------------
+
+The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux
+platforms that use the musl_ libc rather than glibc (a prime example being Alpine
+Linux). The schema is ``musllinux_x_y_arch``, supporting musl ``x.y`` and higher
+on the architecture ``arch``.
+
+The musl version values can be obtained by executing the musl libc shared
+library the Python interpreter is currently running on, and parsing the output:
+
+.. code-block:: python
+
+   import re
+   import subprocess
+
+   def get_musl_major_minor(so: str) -> tuple[int, int] | None:
+       """Detect musl runtime version.
+
+       Returns a two-tuple ``(major, minor)`` that indicates musl
+       library's version, or ``None`` if the given libc .so does not
+       output expected information.
+
+       The libc library should output something like this to stderr::
+
+           musl libc (x86_64)
+           Version 1.2.2
+           Dynamic Program Loader
+       """
+       proc = subprocess.run([so], stderr=subprocess.PIPE, text=True)
+       lines = (line.strip() for line in proc.stderr.splitlines())
+       lines = [line for line in lines if line]
+       if len(lines) < 2 or lines[0][:4] != "musl":
+           return None
+       match = re.match(r"Version (\d+)\.(\d+)", lines[1])
+       if match:
+           return (int(match.group(1)), int(match.group(2)))
+       return None
+
+There are currently two possible ways to find the musl library’s location that a
+Python interpreter is running on, either with the system ldd_ command, or by
+parsing the ``PT_INTERP`` section’s value from the executable’s ELF_ header.
+
+
 Use
 ===
 
@@ -297,3 +341,10 @@ The following PEPs contributed to this spec:
 - :pep:`571`: defined ``manylinux2010``
 - :pep:`599`: defined ``manylinux2014``
 - :pep:`600`: defined the ``manylinux_x_y`` scheme
+- :pep:`656`: defined ``musllinux_x_y``
+
+
+
+.. _musl: https://musl.libc.org
+.. _ldd: https://www.unix.com/man-page/posix/1/ldd/
+.. _elf: https://refspecs.linuxfoundation.org/elf/elf.pdf
