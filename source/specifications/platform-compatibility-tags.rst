@@ -25,9 +25,6 @@ platform tag
 For example, the tag ``py27-none-any`` indicates compatibility with Python 2.7
 (any Python 2.7 implementation) with no abi requirement, on any platform.
 
-Use
-===
-
 The ``wheel`` built package format includes these tags in its filenames,
 of the form
 ``{distribution}-{version}(-{build tag})?-{python tag}-{abitag}-{platform tag}.whl``.
@@ -35,11 +32,9 @@ Other package formats may have their own conventions.
 
 Any potential spaces in any tag should be replaced with ``_``.
 
-Details
-=======
 
 Python Tag
-----------
+==========
 
 The Python tag indicates the implementation and version required by
 a distribution.  Major implementations have abbreviated codes, initially:
@@ -66,8 +61,9 @@ intentionally released a cross-version-compatible distribution.
 A single-source Python 2/3 compatible distribution can use the compound
 tag ``py2.py3``.  See `Compressed Tag Sets`_, below.
 
+
 ABI Tag
--------
+=======
 
 The ABI tag indicates which Python ABI is required by any included
 extension modules.  For implementation-specific ABIs, the implementation
@@ -82,10 +78,10 @@ revision and compiler flags, etc, but will probably not have a great need
 to distribute binary distributions. Each implementation's community may
 decide how to best use the ABI tag.
 
-Platform Tag
-------------
 
--------------------
+Platform Tag
+============
+
 Basic platform tags
 -------------------
 
@@ -99,10 +95,10 @@ was ``distutils.util.get_platform()``. For example:
 * linux_x86_64
 
 
--------------
+.. _manylinux:
+
 ``manylinux``
 -------------
-.. _manylinux:
 
 The simple scheme above is insufficient for public distribution of wheel files
 to Linux platforms, due to the large ecosystem of Linux platforms and subtle
@@ -140,9 +136,6 @@ possible, with the caveat that the provided build environment for
 ``manylinux1`` and ``manylinux2010`` have reached end-of-life meaning that
 these images will no longer receive security updates.
 
-Manylinux compatibility support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 The following table shows the minimum versions of relevant projects to support
 the various ``manylinux`` standards:
 
@@ -154,6 +147,7 @@ auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``        ``>=3.3.0`` [#
 ==========  ==============  =================  =================  =================
 
 .. [#] Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0
+
 
 Use
 ===
