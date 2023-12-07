@@ -65,6 +65,7 @@ jobs:
       run: |
         git_hash=$(git rev-parse --short "${GITHUB_SHA}")
         git add --force locales/messages.pot
+        git diff-index --quiet HEAD || \
         git commit \
           -m "Update messages.pot as of version ${git_hash}" \
           locales/messages.pot

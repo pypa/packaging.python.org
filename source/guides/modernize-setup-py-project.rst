@@ -66,7 +66,7 @@ triggers :ref:`pip` to change its default behavior to use *build isolation*.
 For more details:
 
 * :ref:`distributing-packages`
-* :ref:`declaring-build-dependencies`
+* :ref:`pyproject-build-system-table`
 * :doc:`pip:reference/build-system/pyproject-toml`
 
 
@@ -110,7 +110,7 @@ requires a :file:`pyproject.toml` file like this (:file:`setup.py` stays unchang
 
 For more details:
 
-* :ref:`declaring-build-dependencies`
+* :ref:`pyproject-build-system-table`
 
 
 What is the build isolation feature?
@@ -161,7 +161,7 @@ can be entirely replaced by a :file:`pyproject.toml` file like this:
     version = "1.2.3"
 
 
-Read :ref:`declaring-project-metadata` for the full specification
+Read :ref:`pyproject-project-table` for the full specification
 of the content allowed in the ``[project]`` table.
 
 
@@ -243,7 +243,6 @@ This file can be as minimalistic as this:
 Where to read more about this?
 ==============================
 
-* :ref:`declaring-build-dependencies`
-* :ref:`declaring-project-metadata`
+* :ref:`pyproject-toml-spec`
 * :doc:`pip:reference/build-system/pyproject-toml`
 * :doc:`setuptools:build_meta`

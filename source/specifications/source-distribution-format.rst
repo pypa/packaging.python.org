@@ -58,7 +58,7 @@ A ``.tar.gz`` source distribution (sdist) contains a single top-level directory
 called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of
 the package. The name and version MUST match the metadata stored in the file.
 This directory must also contain a :file:`pyproject.toml` in the format defined in
-:ref:`declaring-build-dependencies`, and a ``PKG-INFO`` file containing
+:ref:`pyproject-toml-spec`, and a ``PKG-INFO`` file containing
 metadata in the format described in the :ref:`core-metadata` specification. The
 metadata MUST conform to at least version 2.2 of the metadata specification.
 
