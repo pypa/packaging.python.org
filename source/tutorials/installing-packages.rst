@@ -52,7 +52,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
 .. Note:: If you're a newcomer and you get an error like this:
 
-    .. code-block:: python
+    .. code-block:: pycon
 
         >>> python3 --version
         Traceback (most recent call last):
