@@ -161,7 +161,7 @@ API file-related features:
   be provided. Clients should ignore the file when installing to an environment
   for a version of Python which doesn't satisfy the requirement.
 
-* Files may be marked as `yanked <simple_repo_api_yanked>`_.
+* Files may be marked as :ref:`yanked <simple_repo_api_yanked>`.
 
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
@@ -196,7 +196,7 @@ corresponding `anchor element`_ ``<a>``:
   greater-than ``>`` becomes the string ``&gt;``).
 
 * A ``data-yanked`` `data attribute`_ may exist to indicate the file was
-  `yanked <simple_repo_api_yanked>`_. The attribute may have a value which
+  :ref:`yanked <simple_repo_api_yanked>`. The attribute may have a value which
   specifies the reason the file is yanked.
 
 An example response page:
