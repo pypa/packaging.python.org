@@ -63,8 +63,8 @@ Projects list
 
 URL: ``/``, the root URL
 
-This endpoint returns a list of all of the projects provided by the index,
-with each list item containing the project's name.
+This endpoint returns a list of all of the :term:`projects <Project>` provided
+by the index, with each list item containing the project's name.
 
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
@@ -103,8 +103,9 @@ Project details
 URL: ``/<project>/``, where ``<project>`` is replaced with the :ref:`normalized
 name <name-normalization>` of the project.
 
-This endpoint returns some metadata of the project, along with a list of all
-distribution package files provided by the index for the project.
+This endpoint returns some metadata of the :term:`project <Project>`, along
+with a list of all :term:`package files <Distribution Package>` provided by the
+index for the project.
 
 If a client uses an unnormalized name for ``<project>``, the index server may
 redirect to the URL with the normalized name. Conformant client must always
