@@ -199,6 +199,27 @@ corresponding `anchor element`_ ``<a>``:
   `yanked <simple_repo_api_yanked>`_. The attribute may have a value which
   specifies the reason the file is yanked.
 
+An example response page:
+
+.. code-block:: html
+
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <meta name="pypi:repository-version" content="1.0">
+       <title>Foo</title>
+     </head>
+     <body>
+       <a href="/foo/foo-1.0.0.tar.gz">foo-1.0.0.tar.gz</a>
+       <a
+         href="/foo/foo-1.0.1.tar.gz#sha256=abcd1234"
+         data-gpg-sig="true"
+         data-requires-python="&gt;=3.12"
+         data-yanked="Too much bar"
+       >foo-1.0.1.tar.gz</a>
+     </body>
+   </html>
+
 .. _simple_repo_api_yanked:
 
 Yanked files
