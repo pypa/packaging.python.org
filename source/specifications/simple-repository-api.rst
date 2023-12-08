@@ -132,6 +132,8 @@ API file-related features:
   be provided. Clients should ignore the file when installing to an environment
   for a version of Python which doesn't satisfy the requirement.
 
+* Files may be marked as `yanked <simple_repo_api_yanked>`_.
+
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
 
@@ -158,6 +160,59 @@ corresponding `anchor element`_ ``<a>``:
   to the :ref:`core-metadata-requires-python` metadata field for the file's
   release, with HTML-encoding (less-than ``<`` becomes the string ``&lt;``, and
   greater-than ``>`` becomes the string ``&gt;``).
+
+* A ``data-yanked`` `data attribute`_ may exist to indicate the file was
+  `yanked <simple_repo_api_yanked>`_. The attribute may have a value which
+  specifies the reason the file is yanked.
+
+.. _simple_repo_api_yanked:
+
+Yanked files
+############
+
+A yanked :term:`package file <Distribution Package>` is one intended to be
+now-unavailable for installation from the index. The file's yank-status can be
+changed at anypoint (to be unyanked, or even yanked again).
+
+Indexes may provide a textual reason for why the file has been yanked, and
+clients may display that reason to end-users.
+
+From :pep:`592`, the intention for the behaviour with yanked files is:
+
+   The desirable experience for users is that once a file is yanked, when a
+   human being is currently trying to directly install a yanked file, that it
+   fails as if that file had been deleted. However, when a human did that
+   awhile ago, and now a computer is just continuing to mechanically follow the
+   original order to install the now yanked file, then it acts as if it had not
+   been yanked.
+
+Installers must ignore yanked :term:`releases <Release>` if a non-yanked
+release satisfies the :term:`requirement <Requirement>`. Installers may refuse
+to install a yanked release and not install anything. Installers should follow
+the spirit of the intention quoted above and prevent new dependencies on yanked
+releases and files.
+
+Installers should emit a warning when it does decide to install a yanked file.
+That warning may utilize the reason for the yanking.
+
+What this means is left up to the specific installer, to decide how to best fit
+into the overall usage of their installer. However, there are two suggested
+approaches to take:
+
+* Yanked files are always ignored, unless they are the only file that matches a
+  version specifier that “pins” to an exact version using either ``==``
+  (without any modifiers that make it a range, such as ``.*``) or ``===``.
+  Matching this version specifier should otherwise be done as per :pep:`440`
+  for things like local versions, zero padding, etc.
+
+* Yanked files are always ignored, unless they are the only file that matches
+  what a lock file (such as Pipfile.lock or poetry.lock) specifies to be
+  installed. In this case, a yanked file SHOULD not be used when creating or
+  updating a lock file from some input file or command.
+
+Mirror indexes may omit list-items for yanked files in their responses to
+clients, or may include list-items for yanked files along with their
+yank-status (this status must be present for yanked files).
 
 History
 =======
