@@ -26,8 +26,9 @@ Specification
 
 .. collapse:: OpenAPI
 
-   An `OpenAPI <https://swagger.io/specification>`__ document which specifies
-   the full API for both representations.
+   An `OpenAPI <https://spec.openapis.org/oas/v3.1.0>`__ document which
+   specifies the full API. It declares both representations, but only details
+   the JSON format's schema.
 
    .. literalinclude:: simple-repository-api.openapi.yml
       :language: yaml
