@@ -235,6 +235,7 @@ An example response page:
          data-gpg-sig="true"
          data-requires-python="&gt;=3.12"
          data-yanked="Too much bar"
+         data-core-metadata="sha256=abcd1234"
        >foo-1.0.1.tar.gz</a>
      </body>
    </html>
