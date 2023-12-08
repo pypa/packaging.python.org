@@ -32,6 +32,132 @@ Specification
    .. literalinclude:: simple-repository-api.openapi.yml
       :language: yaml
 
+Representations
+###############
+
+The index server can respond with one of two different representation formats
+for each endpoint: HTML and JSON. The format can be selected by the client
+through the use of `content negotiation
+<https://www.rfc-editor.org/rfc/rfc2616.html#section-12>`_.
+
+Endpoints
+#########
+
+The API consists of two metadata endpoints:
+
+* :ref:`repo_api_projects_list`
+* :ref:`repo_api_project_details`
+
+The root URL ``/`` represents the base URL, where it would be prefixed with
+the index's URL to construct the full URL which tools make the request for.
+
+If a client makes a request to a URL without a trailing forward-slash ``/``,
+then the index server should redirect the client to the same URL with the ``/``
+appended.
+
+.. _repo_api_projects_list:
+
+Projects list
+-------------
+
+URL: ``/``, the root URL
+
+This endpoint returns a list of all of the projects provided by the index,
+with each list item containing the project's name.
+
+HTML representation
+^^^^^^^^^^^^^^^^^^^
+
+The response from the index is a valid
+`HTML5 <https://html.spec.whatwg.org/>`_ page.
+
+Each project provided by the index has a corresponding `anchor element`_
+``<a>``:
+
+* Its body text must exist and is the name of the project (not necessarily
+  :ref:`normalized <name-normalization>`).
+
+* Its ``href`` attribute must exist and is a URL to the :ref:`project details
+  <repo_api_project_details>` page for the project. This URL must end with a
+  forward-slash ``/``, but may be absolute or relative.
+
+An example response page:
+
+.. code-block:: html
+
+   <!DOCTYPE html>
+   <html>
+     <head><title>Projects</title></head>
+     <body>
+       <a href="/frob/">frob</a>
+       <a href="/spamspamspam/">spamspamspam</a>
+     </body>
+   </html>
+
+.. _repo_api_project_details:
+
+Project details
+---------------
+
+URL: ``/<project>/``, where ``<project>`` is replaced with the :ref:`normalized
+name <name-normalization>` of the project.
+
+This endpoint returns some metadata of the project, along with a list of all
+distribution package files provided by the index for the project.
+
+If a client uses an unnormalized name for ``<project>``, the index server may
+redirect to the URL with the normalized name. Conformant client must always
+make requests with normalized names.
+
+API file-related features:
+
+* The file can be hosted anywhere, not necessarily by the index server.
+
+* The file's URL in the list-item is a URL to fetch the file. It may be
+  absolute or relative. It's last path segment must be the file's filename.
+
+* Hashes of the file's contents are optional but recommended. The hash name is
+  the name of the hash algorithm's function, and the value is the hex-encoded
+  digest hash. The function should be one in the standard-library ``hashlib``
+  module, and ``sha256`` is preferred.
+
+* A `GPG signature <https://www.rfc-editor.org/rfc/rfc4880.html#section-2.2>`_
+  for the file can be accessed at the same URL as the file but with ``.asc``
+  appended, if it is provided. For example, the file at
+  ``/packages/HolyGrail-1.0.tar.gz`` may have a signature at
+  ``/packages/HolyGrail-1.0.tar.gz.asc``.
+
+* The file's release's :ref:`core-metadata-requires-python` metadata field may
+  be provided. Clients should ignore the file when installing to an environment
+  for a version of Python which doesn't satisfy the requirement.
+
+HTML representation
+^^^^^^^^^^^^^^^^^^^
+
+The response from the index is a valid
+`HTML5 <https://html.spec.whatwg.org/>`_ page.
+
+Each distribution package file provided by the index for the project has a
+corresponding `anchor element`_ ``<a>``:
+
+* Its body text must exist and is the file's filename.
+
+* Its ``href`` attribute must exist and is the file's URL.
+
+  * This URL should also include a URL fragment of the form
+    ``#<hash>=<value>``, where ``<hash>`` is the hash name  and ``<value>`` is
+    hash value.
+
+* A ``data-gpg-sig`` `data attribute`_ may exist, and have value ``true`` to
+  indicate a file has a GPG signature (at the location described above), or
+  ``false`` to indicate no signature. Indexes should do this for none or all
+  files (not some).
+
+* A ``data-requires-python`` `data attribute`_ may exist, and have value equal
+  to the :ref:`core-metadata-requires-python` metadata field for the file's
+  release, with HTML-encoding (less-than ``<`` becomes the string ``&lt;``, and
+  greater-than ``>`` becomes the string ``&gt;``).
+
 History
 =======
 
@@ -47,3 +173,7 @@ History
   format, in :pep:`700`
 * June 2023: renaming the field which provides package metadata independently
   from a package, in :pep:`714`
+
+.. _anchor element: https://html.spec.whatwg.org/#the-a-element
+
+.. _data attribute: https://html.spec.whatwg.org/#attr-data-*
