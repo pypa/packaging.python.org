@@ -57,8 +57,8 @@ Representations
 ###############
 
 The index server can respond with one of two different representation formats
-for each endpoint: HTML and JSON. The format can be selected by the client
-through the use of `content negotiation
+for each endpoint: `HTML5`_ and JSON. The format can be selected by the
+client through the use of `HTTP content negotiation
 <https://www.rfc-editor.org/rfc/rfc2616.html#section-12>`_.
 
 Endpoints
@@ -89,8 +89,7 @@ by the index, with each list item containing the project's name.
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
 
-The response from the index is a valid
-`HTML5 <https://html.spec.whatwg.org/>`_ page.
+The response from the index is a valid `HTML5`_ page.
 
 A `metadata element`_ ``<meta>`` may exist anywhere in the HTML document, with
 ``name`` attribute value equal to the string ``pypi:repository-version``, and
@@ -178,8 +177,7 @@ API file-related features:
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
 
-The response from the index is a valid
-`HTML5 <https://html.spec.whatwg.org/>`_ page.
+The response from the index is a valid `HTML5`_ page.
 
 A `metadata element`_ ``<meta>`` may exist anywhere in the HTML document, with
 ``name`` attribute value equal to the string ``pypi:repository-version``, and
@@ -306,6 +304,8 @@ History
   format, in :pep:`700`
 * June 2023: renaming the field which provides package metadata independently
   from a package, in :pep:`714`
+
+.. _HTML5: https://html.spec.whatwg.org/
 
 .. _anchor element: https://html.spec.whatwg.org/#the-a-element
 
