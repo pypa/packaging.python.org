@@ -228,7 +228,7 @@ name <name-normalization>` of the project.
 
 This endpoint returns some metadata of the :term:`project <Project>`, along
 with a list of all :term:`package files <Distribution Package>` provided by the
-index for the project.
+index for the project. This list of files is not necessarily ordered.
 
 If a client uses an unnormalized name for ``<project>``, the index server may
 redirect to the URL with the normalized name. Conformant client must always
