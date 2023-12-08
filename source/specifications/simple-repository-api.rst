@@ -350,6 +350,14 @@ represents an object with properties:
 * ``name`` (string, required) - the :ref:`normalized <name-normalization>` name
   of the project.
 
+* ``versions`` (array of strings, required) - all of the project versions
+  uploaded for this project. It must not contain duplicates, and the order is
+  not significant. All files must be associated with a version in this array,
+  but not all versions need files associated. These versions should be
+  :ref:`normalized <version-specifiers-normalization>`.
+
+  *New in API v1.1*
+
 * ``files`` (array of objects, required) - files list. Each file provided by
   the index for the project corresponds to an element in this array, and vice
   versa. Objects have properties:
@@ -386,6 +394,17 @@ represents an object with properties:
     form as the ``hashes`` file-object key.
 
     If this key is missing, the metadata may or may not be available.
+
+  * ``size`` (number, required) - file size in integer bytes.
+
+    *New in API v1.1*
+
+  * ``upload-time`` (string, optional) - file upload time, as an ISO 8601
+    date/time string in the UTC timezone using a ``Z`` suffix with precision
+    between seconds and microseconds: in the format
+    ``YYYY-mm-ddTHH:MM:SS.ffffffZ`` (number of ``f``'s variable).
+
+    *New in API v1.1*
 
 Unknown JSON object keys must be ignored.
 
