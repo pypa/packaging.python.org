@@ -33,6 +33,26 @@ Specification
    .. literalinclude:: simple-repository-api.openapi.yml
       :language: yaml
 
+API version scheme
+##################
+
+The version of the API is a version number which follows the :ref:`version
+specifier specification <version-specifiers>` as only ``Major.Minor``.
+
+Incrementing the major version is used to signal a backwards incompatible
+change such that existing clients would no longer be expected to be able to
+meaningfully use the API.
+
+Incrementing the minor version is used to signal a backwards compatible change
+such that existing clients would still be expected to be able to meaningfully
+use the API.
+
+Clients should introspect each response for the repository version, and must
+assume version 1.0 if missing. If the major version is greater than expected,
+clients must fail with an appropriate error message for the user. If the minor
+version is greater than expected, clients should warn the user with an
+appropriate message. Clients may continue to use feature detection.
+
 Representations
 ###############
 
@@ -72,6 +92,11 @@ HTML representation
 The response from the index is a valid
 `HTML5 <https://html.spec.whatwg.org/>`_ page.
 
+A `metadata element`_ ``<meta>`` may exist anywhere in the HTML document, with
+``name`` attribute value equal to the string ``pypi:repository-version``, and
+``content`` attribute value equal the API version which the response
+implements.
+
 Each project provided by the index has a corresponding `anchor element`_
 ``<a>``:
 
@@ -88,7 +113,10 @@ An example response page:
 
    <!DOCTYPE html>
    <html>
-     <head><title>Projects</title></head>
+     <head>
+       <meta name="pypi:repository-version" content="1.0">
+       <title>Projects</title>
+     </head>
      <body>
        <a href="/frob/">frob</a>
        <a href="/spamspamspam/">spamspamspam</a>
@@ -140,6 +168,11 @@ HTML representation
 
 The response from the index is a valid
 `HTML5 <https://html.spec.whatwg.org/>`_ page.
+
+A `metadata element`_ ``<meta>`` may exist anywhere in the HTML document, with
+``name`` attribute value equal to the string ``pypi:repository-version``, and
+``content`` attribute value equal the API version which the response
+implements.
 
 Each distribution package file provided by the index for the project has a
 corresponding `anchor element`_ ``<a>``:
@@ -235,3 +268,5 @@ History
 .. _anchor element: https://html.spec.whatwg.org/#the-a-element
 
 .. _data attribute: https://html.spec.whatwg.org/#attr-data-*
+
+.. _metadata element: https://html.spec.whatwg.org/#the-meta-element
