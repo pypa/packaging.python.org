@@ -163,6 +163,18 @@ API file-related features:
 
 * Files may be marked as :ref:`yanked <simple_repo_api_yanked>`.
 
+* The file's :ref:`Core Metadata <core-metadata>` must be provided if its
+  existence is indicated. In addition, the file must contain this metadata
+  which will not be modified when the distribution is processed and/or
+  installed.
+
+  The metadata must be accessed at the same URL as the file but with
+  ``.metadata`` appended. For example, the file at
+  ``/files/distribution-1.0-py3.none.any.whl`` may have its metadata at
+  ``/files/distribution-1.0-py3.none.any.whl.metadata``.
+
+  The index should also provide a hash of the metadata.
+
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
 
@@ -198,6 +210,15 @@ corresponding `anchor element`_ ``<a>``:
 * A ``data-yanked`` `data attribute`_ may exist to indicate the file was
   :ref:`yanked <simple_repo_api_yanked>`. The attribute may have a value which
   specifies the reason the file is yanked.
+
+* A ``data-core-metadata`` `data attribute`_ may exist to indicate the index
+  provides the file's core-metadata. The attribute's value should be of the
+  form ``<hash>=<value>``, where ``<hash>`` is the hash name and ``<value>`` is
+  hash value; otherwise, the value may the string ``true``, or not provided, if
+  the metadata's hash is not available.
+
+  This attribute may be duplicated as the `data attribute`_
+  ``data-dist-info-metadata``.
 
 An example response page:
 
