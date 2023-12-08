@@ -493,7 +493,7 @@ Make sure you're still in your virtual environment, then run Python:
 
 and import the package:
 
-.. code-block:: python
+.. code-block:: pycon
 
     >>> from example_package_YOUR_USERNAME_HERE import example
     >>> example.add_one(2)
@@ -529,14 +529,16 @@ differences:
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
 
-.. TODO: Add links to other guides
-.. TODO: Add links to backend configuration docs
-
+* Read about advanced configuration for your chosen build backend:
+  `Hatchling <hatchling-config_>`_,
+  :doc:`setuptools <setuptools:userguide/pyproject_config>`,
+  :doc:`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_.
+* Look at the :doc:`guides </guides/index>` on this site for more advanced
+  practical information, or the :doc:`discussions </discussions/index>`
+  for explanations and background on specific topics.
 * Consider packaging tools that provide a single command-line interface for
   project management and packaging, such as :ref:`hatch`, :ref:`flit`,
   :ref:`pdm`, and :ref:`poetry`.
-* Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
-* Read about :doc:`/guides/packaging-binary-extensions`.
 
 
 ----
@@ -549,3 +551,7 @@ some things you can do:
    and considered an **advanced topic** (not covered in this tutorial).
    If you are only getting started with Python packaging, it is recommended to
    stick with *regular packages* and ``__init__.py`` (even if the file is empty).
+
+
+.. _hatchling-config: https://hatch.pypa.io/latest/config/metadata/
+.. _pdm-config: https://pdm-project.org/latest/reference/pep621/
