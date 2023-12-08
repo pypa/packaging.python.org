@@ -32,16 +32,18 @@ Specification
    .. literalinclude:: simple-repository-api.openapi.yml
       :language: yaml
 
-The interface for querying available package versions and
-retrieving packages from an index server comes in two forms:
-HTML and JSON.
+History
+=======
 
-The HTML format is defined in :pep:`503`, with the addition of "yank"
-support (allowing a kind of file deletion) in :pep:`592`, specifying
-the interface version provided by an index server in :pep:`629`, and
-providing package metadata independently from a package in
-:pep:`658` and revised in :pep:`714`.
-
-The JSON format is defined in :pep:`691`, with additional fields
-added in :pep:`700`, and revisions around providing package metadata
-independently from a package in :pep:`714`.
+* September 2015: initial form of the HTML format, in :pep:`503`
+* May 2019: "yank" support, in :pep:`592`
+* July 2020: API versioning convention and metadata, and declaring the HTML
+  format as API v1, in :pep:`629`
+* May 2021: providing package metadata independently from a package, in
+  :pep:`658`
+* May 2022: initial form of the JSON format, with a mechanism for clients to
+  choose between them, and declaring both formats as API v1, in :pep:`691`
+* October 2022: project versions and file size and upload-time in the JSON
+  format, in :pep:`700`
+* June 2023: renaming the field which provides package metadata independently
+  from a package, in :pep:`714`
