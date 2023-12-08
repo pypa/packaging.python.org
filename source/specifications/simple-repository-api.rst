@@ -163,6 +163,7 @@ History
 =======
 
 * September 2015: initial form of the HTML format, in :pep:`503`
+* July 2016: Requires-Python metadata, in an update to :pep:`503`
 * May 2019: "yank" support, in :pep:`592`
 * July 2020: API versioning convention and metadata, and declaring the HTML
   format as API v1, in :pep:`629`
