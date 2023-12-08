@@ -57,9 +57,70 @@ Representations
 ###############
 
 The index server can respond with one of two different representation formats
-for each endpoint: `HTML5`_ and JSON. The format can be selected by the
-client through the use of `HTTP content negotiation
-<https://www.rfc-editor.org/rfc/rfc2616.html#section-12>`_.
+for each endpoint:
+
+* `HTML5`_: content-type ``application/vnd.pypi.simple.v1+html``
+
+  * Clients can also request ``application/vnd.pypi.simple.latest+json``
+
+* `JSON`_: content-type ``application/vnd.pypi.simple.v1+html``
+
+  * Clients can also request ``application/vnd.pypi.simple.latest+html``
+
+  * ``text/html`` is an alias for this content-type
+
+See :pep:`691` for the details of how these values should be updated for new
+versions of the API.
+
+Content negotiation
+-------------------
+
+The representation can be selected by the client through the use of `HTTP
+content negotiation
+<https://www.rfc-editor.org/rfc/rfc9110.html#name-content-negotiation>`_.
+
+To request one of these representations, the `Accept
+<https://www.rfc-editor.org/rfc/rfc9110.html#name-accept>`_ header should be
+set in requests to one of the above content-type values. If this header is
+missing, the index server assumes it to be ``*/*``.
+
+Responses from the index server should have the corresponding `Content-Type
+<https://www.rfc-editor.org/rfc/rfc9110#field.content-type>`_ header for the
+representation provided. If ``latest`` was requested by the client, then ``v1``
+must be returned by the index server.
+
+If a representation can't be selected from the client's request, then the index
+server can do one of:
+
+* Select a default content type other than what the client has requested and
+  return a response with that.
+
+* Return a HTTP 406 Not Acceptable response to indicate that none of the
+  requested content types were available, and the server was unable or
+  unwilling to select a default content type to respond with.
+
+* Return a HTTP 300 Multiple Choices response that contains a list of all of
+  the possible responses that could have been chosen. This option is not
+  encouraged as there is no standard format for this list.
+
+Clients should be prepared to handle all possible responses.
+
+URL parameter
+-------------
+
+This method takes precedence over content negotiation. Index servers may
+optionally support this method, or respond with an error if present, and
+clients should not rely on it.
+
+A ``format`` URL parameter can be specified, with value equal to one of the
+above content-type values. If the index server does not support the value, it
+may fall back to content negotiation.
+
+Endpoint configuration
+----------------------
+
+This method is simply a suggestion, and is not standardised. Servers could
+configure different base URLs to serve the different representations.
 
 Endpoints
 #########
@@ -84,7 +145,8 @@ Projects list
 URL: ``/``, the root URL
 
 This endpoint returns a list of all of the :term:`projects <Project>` provided
-by the index, with each list item containing the project's name.
+by the index, with each list item containing the project's name. This list is
+not necessarily ordered.
 
 HTML representation
 ^^^^^^^^^^^^^^^^^^^
@@ -121,6 +183,40 @@ An example response page:
        <a href="/spamspamspam/">spamspamspam</a>
      </body>
    </html>
+
+JSON representation
+^^^^^^^^^^^^^^^^^^^
+
+The response from the index is a valid `JSON`_ document. This document
+represents an object with properties:
+
+* ``meta`` (object, required) - response metadata; has properties:
+
+  * ``api-version`` (string, required) - the API version the response
+    implements.
+
+* ``projects`` (array of objects, required) - projects list. Each project
+  provided by the index corresponds to an element in this array, and vice
+  versa. Objects have properties:
+
+  * ``name`` (required) - the project's name (not necessarily :ref:`normalized
+    <name-normalization>`), as a string.
+
+Unknown JSON object keys must be ignored.
+
+An example response document:
+
+.. code-block:: json
+
+   {
+     "meta": {
+       "api-version": "1.0"
+     },
+     "projects": [
+       {"name": "Frob"},
+       {"name": "spamspamspam"}
+     ]
+   }
 
 .. _repo_api_project_details:
 
@@ -240,6 +336,81 @@ An example response page:
      </body>
    </html>
 
+JSON representation
+^^^^^^^^^^^^^^^^^^^
+
+The response from the index is a valid `JSON`_ document. This document
+represents an object with properties:
+
+* ``meta`` (object, required) - response metadata; has properties:
+
+  * ``api-version`` (string, required) - the API version the response
+    implements.
+
+* ``name`` (string, required) - the :ref:`normalized <name-normalization>` name
+  of the project.
+
+* ``files`` (array of objects, required) - files list. Each file provided by
+  the index for the project corresponds to an element in this array, and vice
+  versa. Objects have properties:
+
+  * ``filename`` (string, required) - the file's filename
+
+  * ``url`` (string, required) - the file's URL
+
+  * ``hashes`` (object, required) - the file's hashes. Its keys are the hash
+    names, and the values are the corresponding hash values. Should contain at
+    least one hash.
+
+  * ``gpg-sig`` (boolean, optional) - indicates whether the index provides the
+    file's GPG signature.
+
+    If this key is missing, the signature may or may not be available.
+
+  * ``requires-python`` (string, optional) - the
+    :ref:`core-metadata-requires-python` metadata field for the file's release.
+
+  * ``yanked`` (boolean or string, optional) - indicates whether the file
+    should be considered :ref:`yanked <simple_repo_api_yanked>` (if truthy,
+    using Python :external+python:ref:`truthiness <booleans>`) or not (if
+    falsy).
+
+    If this is a string, then it specifies the reason for being yanked.
+
+  * ``core-metadata`` (boolean or object, optional) - indicates whether the
+    index provide's the file's :ref:`Core Metadata <core-metadata>` (if truthy,
+    using Python :external+python:ref:`truthiness <booleans>`) or
+    not (if falsy).
+
+    If this is an object, then it contains hashes of the metadata, in the same
+    form as the ``hashes`` file-object key.
+
+    If this key is missing, the metadata may or may not be available.
+
+Unknown JSON object keys must be ignored.
+
+An example response document:
+
+.. code-block:: json
+
+   {
+     "meta": {
+       "api-version": "1.0"
+     },
+     "name": "foo",
+     "files": [
+       {"filename": "foo-1.0.0.tar.gz", "url": "/foo/foo-1.0.0.tar.gz"},
+       {
+         "filename": "foo-1.0.1.tar.gz",
+         "url": "/foo/foo-1.0.1.tar.gz",
+         "gpg-sig": true,
+         "requires-python": ">=3.12",
+         "yanked": "Too much bar",
+         "core-metadata": {"sha256": "abcd1234"}
+       }
+     ]
+   }
+
 .. _simple_repo_api_yanked:
 
 Yanked files
@@ -307,6 +478,8 @@ History
   from a package, in :pep:`714`
 
 .. _HTML5: https://html.spec.whatwg.org/
+
+.. _JSON: https://www.rfc-editor.org/rfc/rfc8259
 
 .. _anchor element: https://html.spec.whatwg.org/#the-a-element
 
