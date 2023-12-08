@@ -194,7 +194,7 @@ corresponding `anchor element`_ ``<a>``:
 * Its ``href`` attribute must exist and is the file's URL.
 
   * This URL should also include a URL fragment of the form
-    ``#<hash>=<value>``, where ``<hash>`` is the hash name  and ``<value>`` is
+    ``#<hash>=<value>``, where ``<hash>`` is the hash name and ``<value>`` is
     hash value.
 
 * A ``data-gpg-sig`` `data attribute`_ may exist, and have value ``true`` to
