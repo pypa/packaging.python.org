@@ -243,8 +243,9 @@ API file-related features:
 
 * Hashes of the file's contents are optional but recommended. The hash name is
   the name of the hash algorithm's function, and the value is the hex-encoded
-  digest hash. The function should be one in the standard-library ``hashlib``
-  module, and ``sha256`` is preferred.
+  digest hash. The function should be one in the standard-library
+  :external+python:mod:`hashlib` module, and
+  :external+python:func:`hashlib.sha256` is preferred.
 
 * A `GPG signature <https://www.rfc-editor.org/rfc/rfc4880.html#section-2.2>`_
   for the file can be accessed at the same URL as the file but with ``.asc``
