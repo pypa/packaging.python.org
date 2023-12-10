@@ -13,7 +13,7 @@ It is recommended to have only one importable package, with a name as similar as
 
 Project names (usually found in :file:`pyproject.toml`) and import package names follow different rules and conventions.
 The normalized form (and thus the preferred form) for project names
-is the so-called "kebab case" (see :ref:`name normalization`), for example ``abcd-1234``.
+is the so-called "kebab case" (see :doc:`/specifications/name-normalization`), for example ``abcd-1234``.
 But import packages and modules should have a valid Python identifier as a name.
 
 With an import package name ``abcd-1234``, the following would not work:
