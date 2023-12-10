@@ -60,6 +60,8 @@ But, starting from the project name, the build backend also generates:
   or ``abcd-1234-1.0.0.tar.gz`` with setup-tools;
   here we can see that some backends but not all
   apply a normalization on the project name: lowercase, underscore ("snake case") instead of hyphen;
+  note that we do not talk about the same normalization referenced at the beginning of this document
+  (:doc:`/specifications/name-normalization`);
 - a wheel like ``abcd_1234-1.0.0-py3-none-any.whl`` with all build backends;
 - a dist-info like ``abcd_1234-1.0.0.dist-info`` with all build backends;
 - in the case of setuptools, an egg-info like ``abcd_1234-1.0.0.egg-info``.
