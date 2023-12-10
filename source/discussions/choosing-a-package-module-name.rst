@@ -3,7 +3,7 @@ Choosing a Package/Module Name
 
 This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 
-Make sure to have a valid :ref:`Python identifier <python:identifiers>` for your import package/module name.
+Make sure to choose a valid :ref:`Python identifier <python:identifiers>` for the names of all your :term:`import packages <import package>` and :term:`modules <module>`.
 The (PyPI) :term:`project<Project>`/:term:`distribution package <Distribution Package>` name
 and the Python :term:`import package <Import Package>`/module may differ slightly.
 Moreover, one PyPI project/dist may ship more than one module or importable package — it is only possible that one matches the name, others can't.
