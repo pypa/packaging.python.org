@@ -6,7 +6,10 @@ This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 Make sure to choose a valid :ref:`Python identifier <python:identifiers>` for the names of all your :term:`import packages <import package>` and :term:`modules <module>`.
 The (PyPI) :term:`project<Project>`/:term:`distribution package <Distribution Package>` name
 and the Python :term:`import package <Import Package>`/module may differ slightly.
+
 Moreover, one PyPI project/dist may ship more than one module or importable package — it is only possible that one matches the name, others can't.
+It is recommended to have only one importable package, with a name as similar as possible as the `dist-info` file in the installation folder.
+
 For example, your package in :file:`pyproject.toml` and on PyPI may have the name ``abcd-1234``.
 But a module named ``abcd-1234`` would be cumbersome to import in Python,
 since it isn't a valid identifier.
