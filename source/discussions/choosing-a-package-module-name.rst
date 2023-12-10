@@ -4,7 +4,9 @@ Choosing a Package/Module Name
 This discussion is a complement to :doc:`/tutorials/packaging-projects`.
 
 Make sure to choose a valid :ref:`Python identifier <python:identifiers>` for the names of all your :term:`import packages <import package>` and :term:`modules <module>`.
-The name of the :term:`project` and the name of the :term:`distribution package` are one and the same. The name of the project and the name of the top-level :term:`import package` (or :term:`module`) can be different.
+The name of the :term:`project` and the name of the :term:`distribution package` are one and the same.
+It is the name you will see on PyPI, for example.
+The name of the project and the name of the top-level :term:`import package` (or :term:`module`) can be different.
 
 Moreover, one PyPI project/dist may ship more than one module or importable package — it is only possible that one matches the name, others can't.
 It is recommended to have only one importable package, with a name as similar as possible as the `dist-info` file in the installation folder.
