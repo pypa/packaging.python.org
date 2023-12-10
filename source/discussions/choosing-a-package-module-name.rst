@@ -71,6 +71,7 @@ use a normalization of project name.
 This normalization will match an import package name chosen consistently
 by normalization of the project name.
 You may see an interest in installing a wheel named ``abcd_1234-1.0.0-py3-none-any.whl``,
-and having as a result ``abcd_1234-1.0.0.dist-info`` and ``abcd_1234/`` (or ``abcd_1234.py``) in your installation directory :).
+and having as a result ``abcd_1234-1.0.0.dist-info`` and ``abcd_1234/`` (or ``abcd_1234.py``) in your installation directory :)
+(instead of a project ``aBcD-1234``, a wheel ``abcd_1234-1.0.0-py3-none-any.whl``, installing ``abcd_1234-1.0.0.dist-info`` and ``4-3-2-1cDbA/`` ;) ).
 
 .. _question: https://stackoverflow.com/questions/8350853/how-to-import-module-when-module-name-has-a-dash-or-hyphen-in-it
