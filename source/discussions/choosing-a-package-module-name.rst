@@ -55,6 +55,7 @@ With the four build backends covered in the tutorial
 when the correct import package is found, its name is always leaved as is.
 
 But, starting from the project name, the build backend also generates:
+
 - an archive file like ``abcd_1234-1.0.0.tar.gz`` with Flit, Hatchling, and PDM,
   or ``abcd-1234-1.0.0.tar.gz`` with setup-tools;
   here we can see that some backends but not all
