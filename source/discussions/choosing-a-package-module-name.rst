@@ -9,7 +9,7 @@ It is the name you will see on PyPI, for example.
 The name of the project and the name of the top-level :term:`import package` (or :term:`module`) can be different.
 
 Moreover, one PyPI project/dist may ship more than one module or importable package — it is only possible that one matches the name, others can't.
-It is recommended to have only one importable package, with a name as similar as possible as the `dist-info` file in the installation folder.
+It is recommended to have only one importable package, with a name as similar as possible as the ``dist-info`` file in the installation folder.
 
 Project names (usually found in :file:`pyproject.toml`) and import package names follow different rules and conventions.
 The normalized form (and thus the preferred form) for project names
