@@ -233,7 +233,7 @@ application-centric alternative to :ref:`pip`'s lower-level
 pipx
 ====
 
-`Docs <https://pypa.github.io/pipx/>`__ |
+`Docs <https://pipx.pypa.io/>`__ |
 `GitHub <https://github.com/pypa/pipx>`__ |
 `PyPI <https://pypi.org/project/pipx/>`__
 
@@ -244,7 +244,7 @@ causing dependency conflicts with other packages installed on the system.
 Python Packaging User Guide
 ===========================
 
-:doc:`Docs <packaging.python.org:index>` |
+:doc:`Docs <index>` |
 `Issues <https://github.com/pypa/packaging.python.org/issues>`__ |
 `GitHub <https://github.com/pypa/packaging.python.org>`__
 
@@ -292,8 +292,7 @@ trove-classifiers
 
 trove-classifiers is the canonical source for `classifiers on PyPI
 <https://pypi.org/classifiers/>`_, which project maintainers use to
-`systematically describe their projects
-<https://packaging.python.org/specifications/core-metadata/#classifier-multiple-use>`_
+:ref:`systematically describe their projects <core-metadata-classifier>`
 so that users can better find projects that match their needs on the PyPI.
 
 The trove-classifiers package contains a list of valid classifiers and

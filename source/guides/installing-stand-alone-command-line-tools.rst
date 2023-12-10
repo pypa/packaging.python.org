@@ -128,4 +128,4 @@ To see the full list of commands pipx offers, run:
 
   pipx --help
 
-You can learn more about pipx at https://pypa.github.io/pipx/.
+You can learn more about pipx at https://pipx.pypa.io/.
