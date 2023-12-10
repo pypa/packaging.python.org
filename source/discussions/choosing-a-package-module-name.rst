@@ -17,6 +17,7 @@ is the so-called "kebab case" (see :ref:`name normalization`), for example ``abc
 But import packages and modules should have a valid Python identifier as a name.
 
 With an import package name ``abcd-1234``, the following would not work:
+
 .. code-block:: pycon
 
    >>> import abcd-1234
