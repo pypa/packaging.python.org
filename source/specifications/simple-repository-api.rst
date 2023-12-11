@@ -26,7 +26,7 @@ Specification
 
 .. collapse:: OpenAPI
 
-   An `OpenAPI <https://spec.openapis.org/oas/v3.1.0>`__ document which
+   An `OpenAPI <https://spec.openapis.org/oas/v3.1.0>`_ document which
    specifies the full API. It declares both representations, but only details
    the JSON format's schema.
 
