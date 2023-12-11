@@ -469,8 +469,9 @@ approaches to take:
 * Yanked files are always ignored, unless they are the only file that matches a
   version specifier that “pins” to an exact version using either ``==``
   (without any modifiers that make it a range, such as ``.*``) or ``===``.
-  Matching this version specifier should otherwise be done as per :pep:`440`
-  for things like local versions, zero padding, etc.
+  Matching this version specifier should otherwise be done as per the]
+  :ref:`version specifier specification <version-specifiers>` for things
+  like local versions, zero padding, etc.
 
 * Yanked files are always ignored, unless they are the only file that matches
   what a lock file (such as Pipfile.lock or poetry.lock) specifies to be
