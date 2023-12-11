@@ -8,8 +8,9 @@ Simple repository API
 The simple repository API is an HTTP-based protocol for tools to list and
 download Python :term:`packages <Distribution Package>`. It is the API which
 :term:`package indexes <Package Index>` implement to provide package managers
-(eg :ref:`pip`) enough information to determine what to install for a given set
-of :term:`requirements <Requirement>`, then go on to install those packages.
+(for example, :ref:`pip`) enough information to determine what to install for a
+given set of :term:`requirements <Requirement>`, then go on to install those
+packages.
 
 There is one version series for the API: version 1. Minor versions add optional
 features, and are described below.
@@ -239,7 +240,7 @@ API file-related features:
 * The file can be hosted anywhere, not necessarily by the index server.
 
 * The file's URL in the list-item is a URL to fetch the file. It may be
-  absolute or relative. It's last path segment must be the file's filename.
+  absolute or relative. Its last path segment must be the file's filename.
 
 * Hashes of the file's contents are optional but recommended. The hash name is
   the name of the hash algorithm's function, and the value is the hex-encoded
@@ -437,7 +438,7 @@ Yanked files
 ############
 
 A yanked :term:`package file <Distribution Package>` is one intended to be
-now-unavailable for installation from the index. The file's yank-status can be
+now-unavailable for installation from the index. The file's yank status can be
 changed at anypoint (to be unyanked, or even yanked again).
 
 Indexes may provide a textual reason for why the file has been yanked, and
@@ -458,8 +459,8 @@ to install a yanked release and not install anything. Installers should follow
 the spirit of the intention quoted above and prevent new dependencies on yanked
 releases and files.
 
-Installers should emit a warning when it does decide to install a yanked file.
-That warning may utilize the reason for the yanking.
+Installers should emit a warning if they decide to install a yanked file. That
+warning may utilize the reason for the yanking.
 
 What this means is left up to the specific installer, to decide how to best fit
 into the overall usage of their installer. However, there are two suggested
@@ -476,8 +477,8 @@ approaches to take:
   installed. In this case, a yanked file SHOULD not be used when creating or
   updating a lock file from some input file or command.
 
-Mirror indexes may omit list-items for yanked files in their responses to
-clients, or may include list-items for yanked files along with their
+Mirror indexes may omit list items for yanked files in their responses to
+clients, or may include list items for yanked files along with their
 yank-status (this status must be present for yanked files).
 
 History
