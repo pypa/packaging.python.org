@@ -127,8 +127,8 @@ Endpoints
 
 The API consists of two metadata endpoints:
 
-* :ref:`repo_api_projects_list`
-* :ref:`repo_api_project_details`
+* :ref:`simple-repository-api-projects-list`
+* :ref:`simple-repository-api-project-details`
 
 The root URL ``/`` represents the base URL, where it would be prefixed with
 the index's URL to construct the full URL which tools make the request for.
@@ -137,7 +137,7 @@ If a client makes a request to a URL without a trailing forward-slash ``/``,
 then the index server should redirect the client to the same URL with the ``/``
 appended.
 
-.. _repo_api_projects_list:
+.. _simple-repository-api-projects-list:
 
 Projects list
 -------------
@@ -165,8 +165,8 @@ Each project provided by the index has a corresponding `anchor element`_
   :ref:`normalized <name-normalization>`).
 
 * Its ``href`` attribute must exist and is a URL to the :ref:`project details
-  <repo_api_project_details>` page for the project. This URL must end with a
-  forward-slash ``/``, but may be absolute or relative.
+  <simple-repository-api-project-details>` page for the project. This URL must
+  end with a forward-slash ``/``, but may be absolute or relative.
 
 An example response page:
 
@@ -218,7 +218,7 @@ An example response document:
      ]
    }
 
-.. _repo_api_project_details:
+.. _simple-repository-api-project-details:
 
 Project details
 ---------------
@@ -257,7 +257,7 @@ API file-related features:
   be provided. Clients should ignore the file when installing to an environment
   for a version of Python which doesn't satisfy the requirement.
 
-* Files may be marked as :ref:`yanked <simple_repo_api_yanked>`.
+* Files may be marked as :ref:`yanked <simple-repository-api-yanked>`.
 
 * The file's :ref:`Core Metadata <core-metadata>` must be provided if its
   existence is indicated. In addition, the file must contain this metadata
@@ -303,8 +303,8 @@ corresponding `anchor element`_ ``<a>``:
   greater-than ``>`` becomes the string ``&gt;``).
 
 * A ``data-yanked`` `data attribute`_ may exist to indicate the file was
-  :ref:`yanked <simple_repo_api_yanked>`. The attribute may have a value which
-  specifies the reason the file is yanked.
+  :ref:`yanked <simple-repository-api-yanked>`. The attribute may have a value
+  which specifies the reason the file is yanked.
 
 * A ``data-core-metadata`` `data attribute`_ may exist to indicate the index
   provides the file's core-metadata. The attribute's value should be of the
@@ -380,9 +380,9 @@ represents an object with properties:
     :ref:`core-metadata-requires-python` metadata field for the file's release.
 
   * ``yanked`` (boolean or string, optional) - indicates whether the file
-    should be considered :ref:`yanked <simple_repo_api_yanked>` (if truthy,
-    using Python :external+python:ref:`truthiness <booleans>`) or not (if
-    falsy).
+    should be considered :ref:`yanked <simple-repository-api-yanked>` (if
+    truthy, using Python :external+python:ref:`truthiness <booleans>`) or not
+    (if falsy).
 
     If this is a string, then it specifies the reason for being yanked.
 
@@ -431,7 +431,7 @@ An example response document:
      ]
    }
 
-.. _simple_repo_api_yanked:
+.. _simple-repository-api-yanked:
 
 Yanked files
 ############
