@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-12 05:17+0000\n"
-"PO-Revision-Date: 2023-12-12 00:03+0000\n"
+"PO-Revision-Date: 2023-12-13 12:13+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.3-rc\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -11382,19 +11382,17 @@ msgstr ""
 "project/trove-classifiers/>`__"
 
 #: ../source/key_projects.rst:293
-#, fuzzy
 msgid ""
 "trove-classifiers is the canonical source for `classifiers on PyPI <https://"
 "pypi.org/classifiers/>`_, which project maintainers use to :ref:"
 "`systematically describe their projects <core-metadata-classifier>` so that "
 "users can better find projects that match their needs on the PyPI."
 msgstr ""
-"trove-classifiers é a fonte canônica para `classificadores no PyPI <https://"
-"pypi.org/classifiers/>`_, que os mantenedores de projetos usam para "
-"`descrever sistematicamente seus projetos <https://packaging.python.org/"
-"specifications/core-metadata/#classifier-multiple-use>`_ para que os "
-"usuários possam encontrar melhor os projetos que correspondem às suas "
-"necessidades no PyPI."
+"trove-classifiers é a fonte canônica para `classificadores no PyPI "
+"<https://pypi.org/classifiers/>`_, que os mantenedores de projetos usam para "
+":ref:`descrever sistematicamente seus projetos <core-metadata-classifier>` "
+"para que os usuários possam encontrar melhor os projetos que correspondem às "
+"suas necessidades no PyPI."
 
 #: ../source/key_projects.rst:298
 msgid ""
@@ -13236,7 +13234,6 @@ msgstr ""
 "essa suposição só é segura quando se destina a um público de desenvolvedores."
 
 #: ../source/overview.rst:163
-#, fuzzy
 msgid ""
 "Python's native packaging is mostly built for distributing reusable code, "
 "called libraries, between developers. You can piggyback **tools**, or basic "
@@ -13248,7 +13245,7 @@ msgstr ""
 "código reutilizável, chamado de bibliotecas, entre os desenvolvedores. Você "
 "pode adicionar **ferramentas** ou aplicações básicas para desenvolvedores ao "
 "pacote de biblioteca do Python, usando tecnologias como :doc:`entry_points "
-"do setuptools <userguide/entry_point>`."
+"do setuptools <setuptools:userguide/entry_point>`."
 
 #: ../source/overview.rst:169
 msgid ""
@@ -14214,6 +14211,10 @@ msgid ""
 "to a change in the build environment, like when using the manylinux image to "
 "build distributions using pre-release CPython versions."
 msgstr ""
+"Um caso de uso comum para números de construção é reconstruir uma "
+"distribuição binária devido a uma mudança no ambiente de construção, como ao "
+"usar a imagem manylinux para construir distribuições usando versões de pré-"
+"lançamento do CPython."
 
 #: ../source/specifications/binary-distribution-format.rst:144
 msgid ""
@@ -14222,6 +14223,11 @@ msgid ""
 "ecosystem of tools and standards. A common case where a distribution would "
 "need to referenced externally is when resolving a security vulnerability."
 msgstr ""
+"Os números de construção não fazem parte da versão de distribuição e, "
+"portanto, são difíceis de se referir externamente, especialmente fora do "
+"ecossistema do Python de ferramentas e padrões. Um caso comum em que uma "
+"distribuição precisa ser referenciada externamente é quando se resolve uma "
+"vulnerabilidade de segurança."
 
 #: ../source/specifications/binary-distribution-format.rst:149
 msgid ""
@@ -14230,6 +14236,10 @@ msgid ""
 "distribution. Instead a **new distribution version** should be created for "
 "such cases."
 msgstr ""
+"Devido a esta limitação, novas distribuições que precisam ser referenciadas "
+"externamente **não devem** usar números de construção ao construir a nova "
+"distribuição. Em vez disso, deve ser criada uma **nova versão de "
+"distribuição** para esses casos."
 
 #: ../source/specifications/binary-distribution-format.rst:155
 msgid "language implementation and version tag"
@@ -14314,14 +14324,14 @@ msgstr ""
 "por uma versão anterior desta especificação."
 
 #: ../source/specifications/binary-distribution-format.rst:185
-#, fuzzy
 msgid ""
 "Version numbers should be normalised according to the :ref:`Version "
 "specifier specification <version-specifiers>`. Normalised version numbers "
 "cannot contain ``-``."
 msgstr ""
-"Os números de versão devem ser normalizados de acordo com a :pep:`440`. Os "
-"números de versão normalizados não podem conter ``-``."
+"Os números de versão devem ser normalizados de acordo com a :ref:`"
+"especificação de especificadores de versão <version-specifiers>`. Os números "
+"de versão normalizados não podem conter ``-``."
 
 #: ../source/specifications/binary-distribution-format.rst:187
 msgid ""
@@ -15098,7 +15108,6 @@ msgstr ""
 "\"2.1\", \"2.2\" e \"2.3\"."
 
 #: ../source/specifications/core-metadata.rst:51
-#, fuzzy
 msgid ""
 "Automated tools consuming metadata SHOULD warn if ``metadata_version`` is "
 "greater than the highest version they support, and MUST fail if "
@@ -15109,8 +15118,9 @@ msgstr ""
 "Ferramentas automatizadas que consomem metadados DEVEM avisar se "
 "``metadata_version`` é maior que a versão mais alta à qual oferecem suporte, "
 "e DEVEM falhar se ``metadata_version`` tem uma versão maior do que a versão "
-"mais alta à qual oferecem suporte (como descrito na :pep:`440`, a versão "
-"principal é o valor antes do primeiro ponto)."
+"mais alta à qual oferecem suporte (como descrito na :ref:`especificação de "
+"especificadores de versão <version-specifiers>`, a versão principal é o "
+"valor antes do primeiro ponto)."
 
 #: ../source/specifications/core-metadata.rst:58
 msgid ""
@@ -15180,14 +15190,14 @@ msgid "Version"
 msgstr "Versão"
 
 #: ../source/specifications/core-metadata.rst:97
-#, fuzzy
 msgid ""
 "A string containing the distribution's version number.  This field  must be "
 "in the format specified in the :ref:`Version specifier specification "
 "<version-specifiers>`."
 msgstr ""
 "Uma string contendo o número da versão da distribuição. Este campo deve "
-"estar no formato especificado na :pep:`440`."
+"estar no formato especificado na :ref:`especificação de especificadores de "
+"versão <version-specifiers>`."
 
 #: ../source/specifications/core-metadata.rst:109
 msgid "Dynamic (multiple use)"
@@ -15459,9 +15469,8 @@ msgstr ""
 "reconhecidas:"
 
 #: ../source/specifications/core-metadata.rst:288
-#, fuzzy
 msgid "``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`"
-msgstr "``GFM`` para :rfc:`Github-flavored Markdown <7764#section-3.2>`"
+msgstr "``GFM`` para :rfc:`GitHub-flavored Markdown <7764#section-3.2>`"
 
 #: ../source/specifications/core-metadata.rst:289
 msgid "``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`"
@@ -15763,15 +15772,14 @@ msgid "Requires-Python"
 msgstr "Requires-Python"
 
 #: ../source/specifications/core-metadata.rst:553
-#, fuzzy
 msgid ""
 "This field specifies the Python version(s) that the distribution is "
 "compatible with. Installation tools may look at this when picking which "
 "version of a project to install."
 msgstr ""
 "Este campo especifica a(s) versão(ões) do Python com as quais a distribuição "
-"tem garantia de compatibilidade. As ferramentas de instalação podem observar "
-"isso ao escolher qual versão de um projeto instalar."
+"é compatível. As ferramentas de instalação podem observar isso ao escolher "
+"qual versão de um projeto instalar."
 
 #: ../source/specifications/core-metadata.rst:557
 msgid "The value must be in the format specified in :doc:`version-specifiers`."
@@ -15779,10 +15787,13 @@ msgstr ""
 "O valor deve estar no formato especificado em :doc:`version-specifiers`."
 
 #: ../source/specifications/core-metadata.rst:559
+#, fuzzy
 msgid ""
 "For example, if a distribution uses :ref:`f-strings <whatsnew36-pep498>` "
 "then it may prevent installation on Python < 3.6 by specifying::"
 msgstr ""
+"Por exemplo, se uma distribuição usa :ref:`f-strings <whatsnew36-pep498>` "
+"então pode impedir a instalação em Python < 3.6 especificando::"
 
 #: ../source/specifications/core-metadata.rst:564
 msgid "This field cannot be followed by an environment marker."
@@ -15813,7 +15824,6 @@ msgstr ""
 "opcionalmente seguido por uma declaração de versão entre parênteses."
 
 #: ../source/specifications/core-metadata.rst:587
-#, fuzzy
 msgid ""
 "Because they refer to non-Python software releases, version numbers for this "
 "field are **not** required to conform to the format specified in the :ref:"
@@ -15822,8 +15832,9 @@ msgid ""
 msgstr ""
 "Como eles se referem a lançamentos de software não-Python, os números de "
 "versão para este campo **não** são obrigados a estar em conformidade com o "
-"formato especificado na :pep:`440`: eles devem corresponder ao esquema de "
-"versão usado pela dependência externa."
+"formato especificado na :ref:`especificação de especificadores de versão "
+"<version-specifiers>`: eles devem corresponder ao esquema de versão usado "
+"pela dependência externa."
 
 #: ../source/specifications/core-metadata.rst:592
 msgid "Notice that there is no particular rule on the strings to be used."
@@ -16064,37 +16075,34 @@ msgstr ""
 "você instala o Torqued Python, a distribuição Gorgon deve ser removida."
 
 #: ../source/specifications/core-metadata.rst:765
-#, fuzzy
 msgid "Deprecated Fields"
-msgstr "Campos raramente usados"
+msgstr "Campos descontinuados"
 
 #: ../source/specifications/core-metadata.rst:768
-#, fuzzy
 msgid "Requires"
-msgstr "Requisitos"
+msgstr "Requires"
 
 #: ../source/specifications/core-metadata.rst:771
 msgid "in favour of ``Requires-Dist``"
-msgstr ""
+msgstr "em favor de ``Requires-Dist``"
 
 #: ../source/specifications/core-metadata.rst:774
-#, fuzzy
 msgid ""
 "Each entry contains a string describing some other module or package "
 "required by this package."
 msgstr ""
-"Cada entrada contém uma string nomeando algum outro projeto distutils "
-"requerido por esta distribuição."
+"Cada entrada contém uma string descrevendo algum outro módulo ou pacote "
+"requerido por este pacote."
 
 #: ../source/specifications/core-metadata.rst:777
-#, fuzzy
 msgid ""
 "The format of a requirement string is identical to that of a module or "
 "package name usable with the ``import`` statement, optionally followed by a "
 "version declaration within parentheses."
 msgstr ""
-"O formato de uma string de requisito é o nome de uma dependência externa, "
-"opcionalmente seguido por uma declaração de versão entre parênteses."
+"O formato de uma string de requisito é idêntico ao de um nome de módulo ou "
+"pacote utilizável com a instrução ``import``, opcionalmente seguida por uma "
+"declaração de versão dentro de parênteses."
 
 #: ../source/specifications/core-metadata.rst:781
 msgid ""
@@ -16106,32 +16114,45 @@ msgid ""
 "on the end consisting of the letter 'a' or 'b' followed by a number. Example "
 "version numbers are \"1.0\", \"2.3a2\", \"1.3.99\","
 msgstr ""
+"Uma declaração de versão é uma série de operadores condicionais e números de "
+"versão, separados por vírgulas. Os operadores condicionais devem ser um dos "
+"\"<\", \">\"', \"<=\", \">=\", \"=\", e \"!=\". Os números da versão devem "
+"estar no formato aceito pela classe ``distutils.version.StrictVersion``: "
+"dois ou três componentes numéricos separados por ponto, com uma tag \"pre-"
+"release\" opcional no final que consiste na letra 'a' ou 'b' seguida de um "
+"número. Os números da versão do exemplo são \"1.0\", \"2.3a2\", \"1.3.99\"."
 
 #: ../source/specifications/core-metadata.rst:789
 msgid ""
 "Any number of conditional operators can be specified, e.g. the string "
 "\">1.0, !=1.3.4, <2.0\" is a legal version declaration."
 msgstr ""
+"Qualquer número de operadores condicionais pode ser especificado, por "
+"exemplo, a string \">1.0, !=1.3.4, <2.0\" é uma declaração de versão válida."
 
 #: ../source/specifications/core-metadata.rst:792
 msgid ""
 "All of the following are possible requirement strings: \"rfc822\", \"zlib "
 "(>=1.1.4)\", \"zope\"."
 msgstr ""
+"Todos os seguintes são possíveis strings de requisito: \"rfc822\", \"zlib "
+"(>=1.1.4)\", \"zope\"."
 
 #: ../source/specifications/core-metadata.rst:795
 msgid ""
 "There’s no canonical list of what strings should be used; the Python "
 "community is left to choose its own standards."
 msgstr ""
+"Não há nenhuma lista canônica de quais strings devem ser usadas; a "
+"comunidade Python é livre para escolher seus próprios padrões."
 
 #: ../source/specifications/core-metadata.rst:808
 msgid "Provides"
-msgstr ""
+msgstr "Provides"
 
 #: ../source/specifications/core-metadata.rst:811
 msgid "in favour of ``Provides-Dist``"
-msgstr ""
+msgstr "em favor de ``Provides-Dist``"
 
 #: ../source/specifications/core-metadata.rst:814
 msgid ""
@@ -16141,29 +16162,31 @@ msgid ""
 "(without a comparison operator); the package’s version number will be "
 "implied if none is specified."
 msgstr ""
+"Cada entrada contém uma string descrevendo um pacote ou módulo que será "
+"fornecido por este pacote uma vez instalado. Essas strings devem "
+"corresponder às usadas nos campos Requirements. Uma declaração de versão "
+"pode ser fornecida (sem um operador de comparação); o número de versão do "
+"pacote será implícito se nenhum for especificado."
 
 #: ../source/specifications/core-metadata.rst:830
-#, fuzzy
 msgid "Obsoletes"
-msgstr "Obsoleto"
+msgstr "Obsoletes"
 
 #: ../source/specifications/core-metadata.rst:833
 msgid "in favour of ``Obsoletes-Dist``"
-msgstr ""
+msgstr "em favor de ``Obsoletes-Dist``"
 
 #: ../source/specifications/core-metadata.rst:836
-#, fuzzy
 msgid ""
 "Each entry contains a string describing a package or module that this "
 "package renders obsolete, meaning that the two packages should not be "
 "installed at the same time. Version declarations can be supplied."
 msgstr ""
-"Cada entrada contém uma string que descreve a distribuição de um projeto "
-"distutils que esta distribuição torna obsoleta, o que significa que os dois "
-"projetos não devem ser instalados ao mesmo tempo."
+"Cada entrada contém uma string descrevendo um pacote ou módulo que este "
+"pacote torna obsoleta, o que significa que os dois projetos não devem ser "
+"instalados ao mesmo tempo. Declarações de versão pode ser fornecidas."
 
 #: ../source/specifications/core-metadata.rst:840
-#, fuzzy
 msgid ""
 "The most common use of this field will be in case a package name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -16171,7 +16194,7 @@ msgid ""
 msgstr ""
 "O uso mais comum deste campo será no caso de alteração do nome de um "
 "projeto, por exemplo, Gorgon 2.3 é incluído no Torqued Python 1.0. Quando "
-"você instala o Torqued Python, a distribuição Gorgon deve ser removida."
+"você instala o Torqued Python, o pacote Gorgon deve ser removido."
 
 #: ../source/specifications/core-metadata.rst:851
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
@@ -16295,14 +16318,14 @@ msgstr ""
 "análise útil, está incluída no final deste documento."
 
 #: ../source/specifications/dependency-specifiers.rst:60
-#, fuzzy
 msgid ""
 "Versions may be specified according to the rules of the :ref:`Version "
 "specifier specification <version-specifiers>`. (Note: URI is defined in :rfc:"
 "`std-66 <3986>`)::"
 msgstr ""
-"As versões podem ser especificadas de acordo com as regras da :pep:`440`. "
-"(Nota: URI é definido em :rfc:`std-66 <3986>`)::"
+"As versões podem ser especificadas de acordo com as regras da :ref:`"
+"especificação de especificadores de versão <version-specifiers>`. (Nota: URI "
+"é definido em :rfc:`std-66 <3986>`)::"
 
 #: ../source/specifications/dependency-specifiers.rst:71
 msgid ""
@@ -16412,7 +16435,6 @@ msgid "Versions"
 msgstr "Versões"
 
 #: ../source/specifications/dependency-specifiers.rst:163
-#, fuzzy
 msgid ""
 "See the :ref:`Version specifier specification <version-specifiers>` for more "
 "detail on both version numbers and version comparisons. Version "
@@ -16422,10 +16444,11 @@ msgid ""
 "brackets around a version are present for compatibility with :pep:`345` but "
 "should not be generated, only accepted."
 msgstr ""
-"Consulte :pep:`440` para obter mais detalhes sobre números de versão e "
-"comparações de versão. As especificações de versão limitam as versões de uma "
-"distribuição que podem ser usadas. Eles se aplicam apenas a distribuições "
-"pesquisadas pelo nome, e não por meio de um URL. A comparação de versões "
+"Consulte a :ref:`especificação de especificadores de versão <version-"
+"specifiers>` para obter mais detalhes sobre números de versão e comparações "
+"de versões. As especificações de versão limitam as versões de uma "
+"distribuição que podem ser usadas. Elas se aplicam apenas a distribuições "
+"pesquisadas pelo nome, e não por meio de uma URL. A comparação de versões "
 "também é usada no recurso de marcadores. Os colchetes opcionais em torno de "
 "uma versão estão presentes para compatibilidade com :pep:`345`, mas não "
 "devem ser gerados, apenas aceitos."
@@ -16471,7 +16494,6 @@ msgstr ""
 "problemas que foram observados no projeto descrito em :pep:`426`."
 
 #: ../source/specifications/dependency-specifiers.rst:189
-#, fuzzy
 msgid ""
 "Comparisons in marker expressions are typed by the comparison operator.  The "
 "<marker_op> operators that are not in <version_cmp> perform the same as they "
@@ -16484,13 +16506,14 @@ msgid ""
 "will result in  errors::"
 msgstr ""
 "As comparações em expressões de marcador são tipadas pelo operador de "
-"comparação. Os operadores <marker_op> que não estão em <version_cmp> "
-"executam o mesmo que para strings no Python. Os operadores <version_cmp> "
-"usam as regras de comparação de versão :pep:`440` quando são definidas (ou "
-"seja, quando ambos os lados têm um especificador de versão válido). Se não "
-"houver comportamento da :pep:`440` definido e o operador existir no Python, "
-"o operador voltará ao comportamento do Python. Caso contrário, um erro deve "
-"ser levantado. Por exemplo, o seguinte resultará em erros ::"
+"comparação. Os operadores <marker_op> que não estão em <version_cmp> fazem o "
+"mesmo que para strings no Python. Os operadores <version_cmp> usam as regras "
+"de comparação de versão da :ref:`especificação de especificadores de versão "
+"<version-specifiers>` quando são definidas (ou seja, quando ambos os lados "
+"têm um especificador de versão válido). Se não houver comportamento definido "
+"desta especificação e o operador existir no Python, o operador voltará ao "
+"comportamento do Python. Caso contrário, um erro deve ser levantado. Por "
+"exemplo, o seguinte resultará em erros ::"
 
 #: ../source/specifications/dependency-specifiers.rst:202
 msgid ""
@@ -16971,17 +16994,17 @@ msgstr ""
 "distribuições fonte e wheels."
 
 #: ../source/specifications/direct-url-data-structure.rst:12
-#, fuzzy
 msgid ""
 "The representation of the components of this data structure as a :rfc:`1738` "
 "URL is not formally specified at time of writing. A common representation is "
 "the pip URL format. Other examples are provided in the :ref:`Version "
 "specifier specification <version-specifiers>`."
 msgstr ""
-"A representação dos componentes desta estrutura de dados como uma URL :rfc:"
-"`1738` não é especificada formalmente no momento da escrita. Uma "
-"representação comum é o formato de URL pip. Outros exemplos são fornecidos "
-"em :pep:`440`."
+"A representação dos componentes desta estrutura de dados como uma URL "
+":rfc:`1738` não é especificada formalmente no momento da escrita. Uma "
+"representação comum é o formato de URL do pip. Outros exemplos são "
+"fornecidos na :ref:`especificação de especificadores de versão <version-"
+"specifiers>`."
 
 #: ../source/specifications/direct-url-data-structure.rst:20
 msgid ""
@@ -19529,6 +19552,12 @@ msgid ""
 "dependencies required to execute the build system. The strings in this list "
 "follow the :ref:`version specifier specification <version-specifiers>`."
 msgstr ""
+"A tabela ``[build-system]`` é usada para armazenar dados relacionados a "
+"construção. Inicialmente, apenas uma chave da tabela é válida e é "
+"obrigatória para a tabela: ``requires``. Esta chave deve ter um valor de uma "
+"lista de strings que representam dependências necessárias para executar o "
+"sistema de construção. As strings nesta lista seguem a :ref:`especificação "
+"de especificadores de versão <version-specifiers>`."
 
 #: ../source/specifications/pyproject-toml.rst:44
 msgid ""
@@ -19688,6 +19717,8 @@ msgid ""
 "The version of the project, as defined in the :ref:`Version specifier "
 "specification <version-specifiers>`."
 msgstr ""
+"A versão do projeto, conforme definido na :ref:`especificação de "
+"especificadores de versão <version-specifiers>`."
 
 #: ../source/specifications/pyproject-toml.rst:173
 msgid "Users SHOULD prefer to specify already-normalized versions."
@@ -23201,7 +23232,6 @@ msgid "Installing from PyPI"
 msgstr "Instalando a partir do PyPI"
 
 #: ../source/tutorials/installing-packages.rst:303
-#, fuzzy
 msgid ""
 "The most common usage of :ref:`pip` is to install from the :term:`Python "
 "Package Index <Python Package Index (PyPI)>` using a :term:`requirement "
@@ -23214,10 +23244,11 @@ msgstr ""
 "O uso mais comum do :ref:`pip` é instalar a partir do :term:`Python Package "
 "Index <Python Package Index (PyPI)>` usando um :term:`especificador de "
 "requisitos <Especificador de Requisitos>`. De modo geral, um especificador "
-"de requisitos é composto de um nome de projeto seguido por um :term:"
-"`especificador de versão <Especificador de Versão>` opcional . :pep:`440` "
-"contém uma :pep:`especificação completa <440#version-specifiers>` dos "
-"especificadores suportados atualmente. Abaixo estão alguns exemplos."
+"de requisitos é composto de um nome de projeto seguido por um :term:`"
+"especificador de versão <Especificador de Versão>` opcional . A descrição "
+"completa dos especificadores suportados podem ser encontrados na :ref:`"
+"especificação de especificadores de versão <version-specifiers>`. Abaixo "
+"estão alguns exemplos."
 
 #: ../source/tutorials/installing-packages.rst:311
 msgid "To install the latest version of \"SomeProject\":"
