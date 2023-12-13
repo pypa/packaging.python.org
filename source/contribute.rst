@@ -1,8 +1,8 @@
 .. |PyPUG| replace:: Python Packaging User Guide
 
 ************************
-Contribute to this guide
-************************
+##Contribute to this guide
+*****#*******************
 
 The |PyPUG| welcomes contributors! There are lots of ways to help out,
 including:
