@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-14 17:49+0000\n"
+"POT-Creation-Date: 2023-12-14 18:27+0000\n"
 "PO-Revision-Date: 2023-12-12 00:03+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -611,6 +611,7 @@ msgid "Deploying Python applications"
 msgstr "Развёртывание приложений на Python'е"
 
 #: ../source/discussions/deploying-python-applications.rst:0
+#: ../source/guides/distributing-packages-using-setuptools.rst:0
 #: ../source/guides/index-mirrors-and-caches.rst:0
 #: ../source/guides/installing-using-linux-tools.rst:0
 #: ../source/guides/migrating-to-pypi-org.rst:0
@@ -629,6 +630,7 @@ msgid "Incomplete"
 msgstr "Незавершено"
 
 #: ../source/discussions/deploying-python-applications.rst:0
+#: ../source/guides/distributing-packages-using-setuptools.rst:0
 #: ../source/guides/index-mirrors-and-caches.rst:0
 #: ../source/guides/installing-using-linux-tools.rst:0
 #: ../source/guides/packaging-binary-extensions.rst:0
@@ -2362,12 +2364,12 @@ msgid ""
 msgstr ""
 
 #: ../source/glossary.rst:223
-#: ../source/guides/distributing-packages-using-setuptools.rst:56
+#: ../source/guides/distributing-packages-using-setuptools.rst:59
 msgid "setup.py"
 msgstr "setup.py"
 
 #: ../source/glossary.rst:224
-#: ../source/guides/distributing-packages-using-setuptools.rst:77
+#: ../source/guides/distributing-packages-using-setuptools.rst:80
 msgid "setup.cfg"
 msgstr "setup.cfg"
 
@@ -2526,7 +2528,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:35
 msgid ""
-"In short, because it's value is low for various reasons, and the tradeoffs "
+"In short, because its value is low for various reasons, and the tradeoffs "
 "required to make it work are high, it has been not an effective use of "
 "limited resources."
 msgstr ""
@@ -3133,6 +3135,16 @@ msgid "Packaging and distributing projects"
 msgstr "Упаковка и распространение проектов"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:7
+msgid "Outdated"
+msgstr ""
+
+#: ../source/guides/distributing-packages-using-setuptools.rst:8
+#, fuzzy
+#| msgid "2013-12-08"
+msgid "2023-12-14"
+msgstr "2013-12-08"
+
+#: ../source/guides/distributing-packages-using-setuptools.rst:10
 msgid ""
 "This section covers some additional details on configuring, packaging and "
 "distributing Python projects with ``setuptools`` that aren't covered by the "
@@ -3141,14 +3153,14 @@ msgid ""
 "tutorials/installing-packages` page."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:13
+#: ../source/guides/distributing-packages-using-setuptools.rst:16
 msgid ""
 "The section does *not* aim to cover best practices for Python project "
 "development as a whole.  For example, it does not provide guidance or tool "
 "recommendations for version control, documentation, or testing."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:17
+#: ../source/guides/distributing-packages-using-setuptools.rst:20
 msgid ""
 "For more reference material, see :std:doc:`Building and Distributing "
 "Packages <setuptools:userguide/index>` in the :ref:`setuptools` docs, but "
@@ -3156,11 +3168,11 @@ msgid ""
 "conflicts, prefer the advice in the Python Packaging User Guide."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:25
+#: ../source/guides/distributing-packages-using-setuptools.rst:28
 msgid "Requirements for packaging and distributing"
 msgstr "Требования к упаковке и распространению"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:26
+#: ../source/guides/distributing-packages-using-setuptools.rst:29
 msgid ""
 "First, make sure you have already fulfilled the :ref:`requirements for "
 "installing packages <installing_requirements>`."
@@ -3168,26 +3180,26 @@ msgstr ""
 "Во-первых, убедитесь, что вы уже выполнили :ref:`требования к установке "
 "пакетов <installing_requirements>`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:29
+#: ../source/guides/distributing-packages-using-setuptools.rst:32
 msgid "Install \"twine\" [1]_:"
 msgstr "Установите «twine» [1]_:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:43
+#: ../source/guides/distributing-packages-using-setuptools.rst:46
 msgid ""
 "You'll need this to upload your project :term:`distributions <Distribution "
 "Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below "
 "<Uploading your Project to PyPI>`)."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:49
+#: ../source/guides/distributing-packages-using-setuptools.rst:52
 msgid "Configuring your project"
 msgstr "Настройка вашего проекта"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:53
+#: ../source/guides/distributing-packages-using-setuptools.rst:56
 msgid "Initial files"
 msgstr "Исходные файлы"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:58
+#: ../source/guides/distributing-packages-using-setuptools.rst:61
 msgid ""
 "The most important file is :file:`setup.py` which exists at the root of your "
 "project directory. For an example, see the `setup.py <https://github.com/"
@@ -3195,11 +3207,11 @@ msgid ""
 "in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:63
+#: ../source/guides/distributing-packages-using-setuptools.rst:66
 msgid ":file:`setup.py` serves two primary functions:"
 msgstr "Файл :file:`setup.py` выполняет две основные функции:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:65
+#: ../source/guides/distributing-packages-using-setuptools.rst:68
 msgid ""
 "It's the file where various aspects of your project are configured. The "
 "primary feature of :file:`setup.py` is that it contains a global ``setup()`` "
@@ -3208,14 +3220,14 @@ msgid ""
 "ref:`the section below <setup() args>`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:71
+#: ../source/guides/distributing-packages-using-setuptools.rst:74
 msgid ""
 "It's the command line interface for running various commands that relate to "
 "packaging tasks. To get a listing of available commands, run ``python3 setup."
 "py --help-commands``."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:79
+#: ../source/guides/distributing-packages-using-setuptools.rst:82
 msgid ""
 ":file:`setup.cfg` is an ini file that contains option defaults for :file:"
 "`setup.py` commands.  For an example, see the `setup.cfg <https://github.com/"
@@ -3223,11 +3235,11 @@ msgid ""
 "cfg>`_ in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:86
+#: ../source/guides/distributing-packages-using-setuptools.rst:89
 msgid "README.rst / README.md"
 msgstr "README.rst / README.md"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:88
+#: ../source/guides/distributing-packages-using-setuptools.rst:91
 msgid ""
 "All projects should contain a readme file that covers the goal of the "
 "project. The most common format is `reStructuredText <https://docutils."
@@ -3237,14 +3249,14 @@ msgid ""
 "`long_description_content_type <description>` argument)."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:95
+#: ../source/guides/distributing-packages-using-setuptools.rst:98
 msgid ""
 "For an example, see `README.md <https://github.com/pypa/sampleproject/blob/"
 "main/README.md>`_ from the `PyPA sample project <https://github.com/pypa/"
 "sampleproject>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:99
+#: ../source/guides/distributing-packages-using-setuptools.rst:102
 msgid ""
 "Projects using :ref:`setuptools` 0.6.27+ have standard readme files (:file:"
 "`README.rst`, :file:`README.txt`, or :file:`README`) included in source "
@@ -3255,11 +3267,11 @@ msgid ""
 "include it to be explicit."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:108
+#: ../source/guides/distributing-packages-using-setuptools.rst:111
 msgid "MANIFEST.in"
 msgstr "MANIFEST.in"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:110
+#: ../source/guides/distributing-packages-using-setuptools.rst:113
 msgid ""
 "A :file:`MANIFEST.in` is needed when you need to package additional files "
 "that are not automatically included in a source distribution.  For details "
@@ -3267,7 +3279,7 @@ msgid ""
 "by default, see \":ref:`Using MANIFEST.in`\"."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:115
+#: ../source/guides/distributing-packages-using-setuptools.rst:118
 msgid ""
 "However, you may not have to use a :file:`MANIFEST.in`. For an example, the "
 "`PyPA sample project <https://github.com/pypa/sampleproject>`_ has removed "
@@ -3275,16 +3287,16 @@ msgid ""
 "`setuptools` 43.0.0 and newer."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:120
+#: ../source/guides/distributing-packages-using-setuptools.rst:123
 msgid ""
 ":file:`MANIFEST.in` does not affect binary distributions such as wheels."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:123
+#: ../source/guides/distributing-packages-using-setuptools.rst:126
 msgid "LICENSE.txt"
 msgstr "LICENSE.txt"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:125
+#: ../source/guides/distributing-packages-using-setuptools.rst:128
 msgid ""
 "Every package should include a license file detailing the terms of "
 "distribution. In many jurisdictions, packages without an explicit license "
@@ -3294,256 +3306,68 @@ msgid ""
 "lawyer."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:131
+#: ../source/guides/distributing-packages-using-setuptools.rst:134
 msgid ""
 "For an example, see the `LICENSE.txt <https://github.com/pypa/sampleproject/"
 "blob/main/LICENSE.txt>`_ from the `PyPA sample project <https://github.com/"
 "pypa/sampleproject>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:136
+#: ../source/guides/distributing-packages-using-setuptools.rst:139
 msgid "<your package>"
 msgstr "<ваш пакет>"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:138
+#: ../source/guides/distributing-packages-using-setuptools.rst:141
 msgid ""
 "Although it's not required, the most common practice is to include your "
 "Python modules and packages under a single top-level package that has the "
 "same :ref:`name <setup() name>` as your project, or something very close."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:142
+#: ../source/guides/distributing-packages-using-setuptools.rst:145
 msgid ""
 "For an example, see the `sample <https://github.com/pypa/sampleproject/tree/"
 "main/src/sample>`_ package that's included in the `PyPA sample project "
 "<https://github.com/pypa/sampleproject>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:150
+#: ../source/guides/distributing-packages-using-setuptools.rst:153
 msgid "setup() args"
 msgstr "Аргументы ``setup()``"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:152
+#: ../source/guides/distributing-packages-using-setuptools.rst:155
 msgid ""
 "As mentioned above, the primary feature of :file:`setup.py` is that it "
 "contains a global ``setup()`` function.  The keyword arguments to this "
 "function are how specific details of your project are defined."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:156
+#: ../source/guides/distributing-packages-using-setuptools.rst:159
 msgid ""
-"The most relevant arguments are explained below. Most of the snippets given "
-"are taken from the `setup.py <https://github.com/pypa/sampleproject/blob/"
-"db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ contained in the `PyPA "
-"sample project <https://github.com/pypa/sampleproject>`_."
+"Some are temporarily explained below until their information is moved "
+"elsewhere. The full list can be found :doc:`in the setuptools documentation "
+"<setuptools:references/keywords>`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:165
-#: ../source/guides/writing-pyproject-toml.rst:120
-#: ../source/specifications/pyproject-toml.rst:120
-#: ../source/specifications/pyproject-toml.rst:142
-#: ../source/specifications/pyproject-toml.rst:152
-msgid "``name``"
-msgstr "``name``"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:171
+#: ../source/guides/distributing-packages-using-setuptools.rst:163
 msgid ""
-"This is the name of your project, determining how your project is listed on :"
-"term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`508`, valid project "
-"names must:"
+"Most of the snippets given are taken from the `setup.py <https://github.com/"
+"pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ "
+"contained in the `PyPA sample project <https://github.com/pypa/"
+"sampleproject>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:175
-msgid ""
-"Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-``), "
-"and/or periods (``.``), and"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:177
-msgid "Start & end with an ASCII letter or digit."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:179
-msgid ""
-"Comparison of project names is case insensitive and treats arbitrarily-long "
-"runs of underscores, hyphens, and/or periods as equal.  For example, if you "
-"register a project named ``cool-stuff``, users will be able to download it "
-"or declare a dependency on it using any of the following spellings::"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:191
-#: ../source/guides/writing-pyproject-toml.rst:132
-#: ../source/specifications/pyproject-toml.rst:125
-#: ../source/specifications/pyproject-toml.rst:148
-#: ../source/specifications/pyproject-toml.rst:164
-msgid "``version``"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:197
-msgid ""
-"This is the current version of your project, allowing your users to "
-"determine whether or not they have the latest version, and to indicate which "
-"specific versions they've tested their own software against."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:201
-msgid ""
-"Versions are displayed on :term:`PyPI <Python Package Index (PyPI)>` for "
-"each release if you publish your project."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:204
+#: ../source/guides/distributing-packages-using-setuptools.rst:170
 msgid ""
 "See :ref:`Choosing a versioning scheme` for more information on ways to use "
 "versions to convey compatibility information to your users."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:207
-msgid ""
-"If the project code itself needs run-time access to the version, the "
-"simplest way is to keep the version in both :file:`setup.py` and your code. "
-"If you'd rather not duplicate the value, there are a few ways to manage "
-"this. See the \":ref:`Single sourcing the version`\" Advanced Topics section."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:215
-#: ../source/guides/writing-pyproject-toml.rst:263
-#: ../source/specifications/pyproject-toml.rst:135
-#: ../source/specifications/pyproject-toml.rst:177
-msgid "``description``"
-msgstr "``description``"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:223
-msgid "Give a short and long description for your project."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:225
-msgid ""
-"These values will be displayed on :term:`PyPI <Python Package Index (PyPI)>` "
-"if you publish your project. On ``pypi.org``, the user interface displays "
-"``description`` in the grey banner and ``long_description`` in the section "
-"named \"Project Description\"."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:230
-msgid ""
-"``description`` is also displayed in lists of projects. For example, it's "
-"visible in the search results pages such as https://pypi.org/search/?"
-"q=jupyter, the front-page lists of trending projects and new releases, and "
-"the list of projects you maintain within your account profile (such as "
-"https://pypi.org/user/jaraco/)."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:236
-msgid ""
-"A :ref:`content type <core-metadata-description-content-type>` can be "
-"specified with the ``long_description_content_type`` argument, which can be "
-"one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding "
-"to no formatting, `reStructuredText (reST) <https://docutils.sourceforge.io/"
-"docs/ref/rst/restructuredtext.html#reference-names>`_, and the GitHub-"
-"flavored Markdown dialect of `Markdown <https://daringfireball.net/projects/"
-"markdown/>`_ respectively."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:245
-msgid "``url``"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:252
-msgid "Give a homepage URL for your project."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:256
-#, fuzzy
-msgid "``author``"
-msgstr "Автор"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:263
-msgid "Provide details about the author."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:267
-#: ../source/guides/writing-pyproject-toml.rst:302
-#: ../source/specifications/pyproject-toml.rst:140
-#: ../source/specifications/pyproject-toml.rst:236
-msgid "``license``"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:273
-msgid ""
-"The ``license`` argument doesn't have to indicate the license under which "
-"your package is being released, although you may optionally do so if you "
-"want.  If you're using a standard, well-known license, then your main "
-"indication can and should be via the ``classifiers`` argument. Classifiers "
-"exist for all major open-source licenses."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:279
-msgid ""
-"The ``license`` argument is more typically used to indicate differences from "
-"well-known licenses, or to include your own, unique license. As a general "
-"rule, it's a good idea to use a standard, well-known license, both to avoid "
-"confusion and because some organizations avoid software whose license is "
-"unapproved."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:287
-#: ../source/guides/writing-pyproject-toml.rst:335
-#: ../source/specifications/pyproject-toml.rst:133
-#: ../source/specifications/pyproject-toml.rst:303
-msgid "``classifiers``"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:316
-msgid ""
-"Provide a list of classifiers that categorize your project. For a full "
-"listing, see https://pypi.org/classifiers/."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:319
-msgid ""
-"Although the list of classifiers is often used to declare what Python "
-"versions a project supports, this information is only used for searching & "
-"browsing projects on PyPI, not for installing projects.  To actually "
-"restrict what Python versions a project can be installed on, use the :ref:"
-"`python_requires` argument."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:325
-msgid ""
-"To prevent a package from being uploaded to PyPI, use the special "
-"``'Private :: Do Not Upload'`` classifier. PyPI will always reject packages "
-"with classifiers beginning with ``\"Private ::'``."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:331
-#: ../source/guides/writing-pyproject-toml.rst:323
-#: ../source/specifications/pyproject-toml.rst:139
-#: ../source/specifications/pyproject-toml.rst:293
-msgid "``keywords``"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:337
-msgid "List keywords that describe your project."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:341
-msgid "``project_urls``"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:353
-msgid ""
-"List additional relevant URLs about your project. This is the place to link "
-"to bug trackers, source repositories, or where to support package "
-"development. The string of the key is the exact text that will be displayed "
-"on PyPI."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:359
+#: ../source/guides/distributing-packages-using-setuptools.rst:177
 msgid "``packages``"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:365
+#: ../source/guides/distributing-packages-using-setuptools.rst:183
 msgid ""
 "Set ``packages`` to a list of all :term:`packages <Import Package>` in your "
 "project, including their subpackages, sub-subpackages, etc.  Although the "
@@ -3553,80 +3377,40 @@ msgid ""
 "not intended to be released and installed."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:374
+#: ../source/guides/distributing-packages-using-setuptools.rst:192
 msgid "``py_modules``"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:380
+#: ../source/guides/distributing-packages-using-setuptools.rst:198
 msgid ""
 "If your project contains any single-file Python modules that aren't part of "
 "a package, set ``py_modules`` to a list of the names of the modules (minus "
 "the ``.py`` extension) in order to make :ref:`setuptools` aware of them."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:386
+#: ../source/guides/distributing-packages-using-setuptools.rst:204
 #, fuzzy
 msgid "``install_requires``"
 msgstr "install_requires"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:392
+#: ../source/guides/distributing-packages-using-setuptools.rst:210
 msgid ""
 "\"install_requires\" should be used to specify what dependencies a project "
 "minimally needs to run. When the project is installed by :ref:`pip`, this is "
 "the specification that is used to install its dependencies."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:396
+#: ../source/guides/distributing-packages-using-setuptools.rst:214
 msgid ""
 "For more on using \"install_requires\" see :ref:`install_requires vs "
 "Requirements files`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:402
-#, fuzzy
-msgid "``python_requires``"
-msgstr "python_requires"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:404
-msgid ""
-"If your project only runs on certain Python versions, setting the "
-"``python_requires`` argument to the appropriate :pep:`440` version specifier "
-"string will prevent :ref:`pip` from installing the project on other Python "
-"versions.  For example, if your package is for Python 3+ only, write::"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:411
-msgid ""
-"If your package is for Python 2.6, 2.7, and all versions of Python 3 "
-"starting with 3.3, write::"
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:416
-msgid "And so on."
-msgstr "И так далее."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:420
-msgid ""
-"Support for this feature is relatively recent.  Your project's source "
-"distributions and wheels (see :ref:`Packaging Your Project`) must be built "
-"using at least version 24.2.0 of :ref:`setuptools` in order for the "
-"``python_requires`` argument to be recognized and the appropriate metadata "
-"generated."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:426
-msgid ""
-"In addition, only versions 9.0.0 and higher of :ref:`pip` recognize the "
-"``python_requires`` metadata.  Users with earlier versions of pip will be "
-"able to download & install projects on any Python version regardless of the "
-"projects' ``python_requires`` values."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:435
+#: ../source/guides/distributing-packages-using-setuptools.rst:221
 msgid "``package_data``"
 msgstr "``package_data``"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:444
+#: ../source/guides/distributing-packages-using-setuptools.rst:230
 msgid ""
 "Often, additional files need to be installed into a :term:`package <Import "
 "Package>`. These files are often data that’s closely related to the "
@@ -3635,24 +3419,24 @@ msgid ""
 "\"package data\"."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:449
+#: ../source/guides/distributing-packages-using-setuptools.rst:235
 msgid ""
 "The value must be a mapping from package name to a list of relative path "
 "names that should be copied into the package. The paths are interpreted as "
 "relative to the directory containing the package."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:453
+#: ../source/guides/distributing-packages-using-setuptools.rst:239
 msgid ""
 "For more information, see :std:doc:`Including Data Files <setuptools:"
 "userguide/datafiles>` from the :std:doc:`setuptools docs <setuptools:index>`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:461
+#: ../source/guides/distributing-packages-using-setuptools.rst:247
 msgid "``data_files``"
 msgstr "``data_files``"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:467
+#: ../source/guides/distributing-packages-using-setuptools.rst:253
 msgid ""
 "Although configuring :ref:`Package Data` is sufficient for most needs, in "
 "some cases you may need to place data files *outside* of your :term:"
@@ -3661,7 +3445,7 @@ msgid ""
 "other programs, which may be unaware of Python packages."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:473
+#: ../source/guides/distributing-packages-using-setuptools.rst:259
 msgid ""
 "Each ``(directory, files)`` pair in the sequence specifies the installation "
 "directory and the files to install there. The ``directory`` must be a "
@@ -3673,13 +3457,13 @@ msgid ""
 "of the project source distribution."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:483
+#: ../source/guides/distributing-packages-using-setuptools.rst:269
 msgid ""
 "For more information see the distutils section on :ref:`Installing "
 "Additional Files <setuptools:distutils-additional-files>`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:488
+#: ../source/guides/distributing-packages-using-setuptools.rst:274
 msgid ""
 "When installing packages as egg, ``data_files`` is not supported. So, if "
 "your project uses :ref:`setuptools`, you must use ``pip`` to install it. "
@@ -3687,13 +3471,13 @@ msgid ""
 "the ``--old-and-unmanageable`` option."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:495
+#: ../source/guides/distributing-packages-using-setuptools.rst:281
 #: ../source/specifications/pyproject-toml.rst:146
 #, fuzzy
 msgid "``scripts``"
 msgstr "scripts"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:497
+#: ../source/guides/distributing-packages-using-setuptools.rst:283
 msgid ""
 "Although ``setup()`` supports a :ref:`scripts <setuptools:distutils-"
 "installing-scripts>` keyword for pointing to pre-made scripts to install, "
@@ -3701,57 +3485,15 @@ msgid ""
 "ref:`console_scripts` entry points (see below)."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:504
-msgid "``entry_points``"
-msgstr "``entry_points``"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:513
-msgid ""
-"Use this keyword to specify any plugins that your project provides for any "
-"named entry points that may be defined by your project or others that you "
-"depend on."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:516
-msgid ""
-"For more information, see the section on :ref:`Advertising Behavior "
-"<setuptools:dynamic discovery of services and plugins>` from the :ref:"
-"`setuptools` docs."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:520
-msgid "The most commonly used entry point is \"console_scripts\" (see below)."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:525
-#, fuzzy
-msgid "``console_scripts``"
-msgstr "console_scripts"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:535
-msgid ""
-"Use ``console_script`` :ref:`entry points <setuptools:dynamic discovery of "
-"services and plugins>` to register your script interfaces. You can then let "
-"the toolchain handle the work of turning these interfaces into actual "
-"scripts [2]_.  The scripts will be generated during the install of your :"
-"term:`distribution <Distribution Package>`."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:542
-msgid ""
-"For more information, see :doc:`Entry Points <setuptools:userguide/"
-"entry_point>` from the :doc:`setuptools docs <setuptools:index>`."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:548
+#: ../source/guides/distributing-packages-using-setuptools.rst:295
 msgid "Choosing a versioning scheme"
 msgstr "Выбор схемы управления версиями"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:551
+#: ../source/guides/distributing-packages-using-setuptools.rst:298
 msgid "Standards compliance for interoperability"
 msgstr "Соответствие стандартам совместимости"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:553
+#: ../source/guides/distributing-packages-using-setuptools.rst:300
 msgid ""
 "Different Python projects may use different versioning schemes based on the "
 "needs of that particular project, but all of them are required to comply "
@@ -3760,11 +3502,11 @@ msgid ""
 "libraries like ``pip`` and ``setuptools``."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:559
+#: ../source/guides/distributing-packages-using-setuptools.rst:306
 msgid "Here are some examples of compliant version numbers::"
 msgstr "Вот несколько примеров совместимых номеров версий::"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:570
+#: ../source/guides/distributing-packages-using-setuptools.rst:317
 msgid ""
 "To further accommodate historical variations in approaches to version "
 "numbering, :pep:`440` also defines a comprehensive technique for :pep:"
@@ -3772,42 +3514,42 @@ msgid ""
 "different version numbers to a standardised canonical form."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:576
+#: ../source/guides/distributing-packages-using-setuptools.rst:323
 msgid "Scheme choices"
 msgstr "Выбор схемы"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:579
+#: ../source/guides/distributing-packages-using-setuptools.rst:326
 msgid "Semantic versioning (preferred)"
 msgstr "Семантическое версионирование (предпочитаемый вариант)"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:581
+#: ../source/guides/distributing-packages-using-setuptools.rst:328
 msgid ""
 "For new projects, the recommended versioning scheme is based on `Semantic "
 "Versioning <https://semver.org/>`_, but adopts a different approach to "
 "handling pre-releases and build metadata."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:585
+#: ../source/guides/distributing-packages-using-setuptools.rst:332
 msgid ""
 "The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE "
 "numbering scheme, where the project author increments:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:588
+#: ../source/guides/distributing-packages-using-setuptools.rst:335
 msgid "MAJOR version when they make incompatible API changes,"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:589
+#: ../source/guides/distributing-packages-using-setuptools.rst:336
 msgid ""
 "MINOR version when they add functionality in a backwards-compatible manner, "
 "and"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:590
+#: ../source/guides/distributing-packages-using-setuptools.rst:337
 msgid "MAINTENANCE version when they make backwards-compatible bug fixes."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:592
+#: ../source/guides/distributing-packages-using-setuptools.rst:339
 msgid ""
 "Adopting this approach as a project author allows users to make use of :pep:"
 "`\"compatible release\" <440#compatible-release>` specifiers, where ``name "
@@ -3815,58 +3557,58 @@ msgid ""
 "with a matching MAJOR version."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:597
+#: ../source/guides/distributing-packages-using-setuptools.rst:344
 msgid ""
 "Python projects adopting semantic versioning should abide by clauses 1-8 of "
 "the `Semantic Versioning 2.0.0 specification <https://semver.org/>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:601
+#: ../source/guides/distributing-packages-using-setuptools.rst:348
 msgid "Date based versioning"
 msgstr "Версионирование на основе дат"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:603
+#: ../source/guides/distributing-packages-using-setuptools.rst:350
 msgid ""
 "Semantic versioning is not a suitable choice for all projects, such as those "
 "with a regular time based release cadence and a deprecation process that "
 "provides warnings for a number of releases prior to removal of a feature."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:607
+#: ../source/guides/distributing-packages-using-setuptools.rst:354
 msgid ""
 "A key advantage of date based versioning is that it is straightforward to "
 "tell how old the base feature set of a particular release is given just the "
 "version number."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:610
+#: ../source/guides/distributing-packages-using-setuptools.rst:357
 msgid ""
 "Version numbers for date based projects typically take the form of YEAR."
 "MONTH (for example, ``12.04``, ``15.10``)."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:614
+#: ../source/guides/distributing-packages-using-setuptools.rst:361
 msgid "Serial versioning"
 msgstr "Последовательное версионирование"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:616
+#: ../source/guides/distributing-packages-using-setuptools.rst:363
 msgid ""
 "This is the simplest possible versioning scheme, and consists of a single "
 "number which is incremented every release."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:619
+#: ../source/guides/distributing-packages-using-setuptools.rst:366
 msgid ""
 "While serial versioning is very easy to manage as a developer, it is the "
 "hardest to track as an end user, as serial version numbers convey little or "
 "no information regarding API backwards compatibility."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:624
+#: ../source/guides/distributing-packages-using-setuptools.rst:371
 msgid "Hybrid schemes"
 msgstr "Гибридные схемы"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:626
+#: ../source/guides/distributing-packages-using-setuptools.rst:373
 msgid ""
 "Combinations of the above schemes are possible. For example, a project may "
 "combine date based versioning with serial versioning to create a YEAR.SERIAL "
@@ -3874,44 +3616,44 @@ msgid ""
 "doesn't otherwise commit to a particular release cadence within the year."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:632
+#: ../source/guides/distributing-packages-using-setuptools.rst:379
 msgid "Pre-release versioning"
 msgstr "Версионирование предварительных выпусков"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:634
+#: ../source/guides/distributing-packages-using-setuptools.rst:381
 msgid ""
 "Regardless of the base versioning scheme, pre-releases for a given final "
 "release may be published as:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:637
+#: ../source/guides/distributing-packages-using-setuptools.rst:384
 msgid "zero or more dev releases (denoted with a \".devN\" suffix)"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:638
+#: ../source/guides/distributing-packages-using-setuptools.rst:385
 msgid "zero or more alpha releases (denoted with a \".aN\" suffix)"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:639
+#: ../source/guides/distributing-packages-using-setuptools.rst:386
 msgid "zero or more beta releases (denoted with a \".bN\" suffix)"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:640
+#: ../source/guides/distributing-packages-using-setuptools.rst:387
 msgid "zero or more release candidates (denoted with a \".rcN\" suffix)"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:642
+#: ../source/guides/distributing-packages-using-setuptools.rst:389
 msgid ""
 "``pip`` and other modern Python package installers ignore pre-releases by "
 "default when deciding which versions of dependencies to install."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:647
+#: ../source/guides/distributing-packages-using-setuptools.rst:394
 #: ../source/specifications/version-specifiers.rst:112
 msgid "Local version identifiers"
 msgstr "Идентификаторы локальных версий"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:649
+#: ../source/guides/distributing-packages-using-setuptools.rst:396
 msgid ""
 "Public version identifiers are designed to support distribution via :term:"
 "`PyPI <Python Package Index (PyPI)>`. Python's software distribution tools "
@@ -3921,17 +3663,17 @@ msgid ""
 "maintained by a redistributor."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:656
+#: ../source/guides/distributing-packages-using-setuptools.rst:403
 msgid ""
 "A local version identifier takes the form ``<public version "
 "identifier>+<local version label>``. For example::"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:664
+#: ../source/guides/distributing-packages-using-setuptools.rst:411
 msgid "Working in \"development mode\""
 msgstr "Работа в «режиме разработки»"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:666
+#: ../source/guides/distributing-packages-using-setuptools.rst:413
 msgid ""
 "You can install a project in \"editable\" or \"develop\" mode while you're "
 "working on it. When installed as editable, a project can be edited in-place "
@@ -3940,13 +3682,13 @@ msgid ""
 "started."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:672
+#: ../source/guides/distributing-packages-using-setuptools.rst:419
 msgid ""
 "To install a Python package in \"editable\"/\"development\" mode Change "
 "directory to the root of the project directory and run:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:680
+#: ../source/guides/distributing-packages-using-setuptools.rst:427
 msgid ""
 "The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` "
 "refers to the current working directory, so together, it means to install "
@@ -3956,7 +3698,7 @@ msgid ""
 "usual, non-editable mode."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:687
+#: ../source/guides/distributing-packages-using-setuptools.rst:434
 msgid ""
 "You may want to install some of your dependencies in editable mode as well. "
 "For example, supposing your project requires \"foo\" and \"bar\", but you "
@@ -3964,21 +3706,21 @@ msgid ""
 "requirements file like so::"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:695
+#: ../source/guides/distributing-packages-using-setuptools.rst:442
 msgid ""
 "The first line says to install your project and any dependencies. The second "
 "line overrides the \"bar\" dependency, such that it's fulfilled from VCS, "
 "not PyPI."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:699
+#: ../source/guides/distributing-packages-using-setuptools.rst:446
 msgid ""
 "If, however, you want \"bar\" installed from a local directory in editable "
 "mode, the requirements file should look like this, with the local paths at "
 "the top of the file::"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:704
+#: ../source/guides/distributing-packages-using-setuptools.rst:451
 msgid ""
 "Otherwise, the dependency will be fulfilled from PyPI, due to the "
 "installation order of the requirements file.  For more on requirements "
@@ -3987,22 +3729,22 @@ msgid ""
 "Support>` section of the pip docs."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:708
+#: ../source/guides/distributing-packages-using-setuptools.rst:455
 msgid ""
 "Lastly, if you don't want to install any dependencies at all, you can run:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:715
+#: ../source/guides/distributing-packages-using-setuptools.rst:462
 msgid ""
 "For more information, see the :doc:`Development Mode <setuptools:userguide/"
 "development_mode>` section of the :ref:`setuptools` docs."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:722
+#: ../source/guides/distributing-packages-using-setuptools.rst:469
 msgid "Packaging your project"
 msgstr "Упаковка вашего проекта"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:724
+#: ../source/guides/distributing-packages-using-setuptools.rst:471
 msgid ""
 "To have your project installable from a :term:`Package Index` like :term:"
 "`PyPI <Python Package Index (PyPI)>`, you'll need to create a :term:"
@@ -4010,23 +3752,23 @@ msgid ""
 "Package>`\") for your project."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:729
+#: ../source/guides/distributing-packages-using-setuptools.rst:476
 msgid ""
 "Before you can build wheels and sdists for your project, you'll need to "
 "install the ``build`` package:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:746
+#: ../source/guides/distributing-packages-using-setuptools.rst:493
 msgid "Source distributions"
 msgstr "Распространение в исходных кодах"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:748
+#: ../source/guides/distributing-packages-using-setuptools.rst:495
 msgid ""
 "Minimally, you should create a :term:`Source Distribution <Source "
 "Distribution (or \"sdist\")>`:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:764
+#: ../source/guides/distributing-packages-using-setuptools.rst:511
 msgid ""
 "A \"source distribution\" is unbuilt (i.e. it's not a :term:`Built "
 "Distribution`), and requires a build step when installed by pip.  Even if "
@@ -4035,11 +3777,11 @@ msgid ""
 "`setup.py` and/or :file:`setup.cfg`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:772
+#: ../source/guides/distributing-packages-using-setuptools.rst:519
 msgid "Wheels"
 msgstr "Колёса"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:774
+#: ../source/guides/distributing-packages-using-setuptools.rst:521
 msgid ""
 "You should also create a wheel for your project. A wheel is a :term:`built "
 "package <Built Distribution>` that can be installed without needing to go "
@@ -4047,95 +3789,95 @@ msgid ""
 "the end user than installing from a source distribution."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:779
+#: ../source/guides/distributing-packages-using-setuptools.rst:526
 msgid ""
 "If your project is pure Python then you'll be creating a :ref:`\"Pure Python "
 "Wheel\" (see section below) <Pure Python Wheels>`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:782
+#: ../source/guides/distributing-packages-using-setuptools.rst:529
 msgid ""
 "If your project contains compiled extensions, then you'll be creating what's "
 "called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:785
+#: ../source/guides/distributing-packages-using-setuptools.rst:532
 msgid ""
 "If your project also supports Python 2 *and* contains no C extensions, then "
 "you should create what's called a *Universal Wheel* by adding the following "
 "to your :file:`setup.cfg` file:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:794
+#: ../source/guides/distributing-packages-using-setuptools.rst:541
 msgid ""
 "Only use this setting if your project does not have any C extensions *and* "
 "supports Python 2 and 3."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:801
+#: ../source/guides/distributing-packages-using-setuptools.rst:548
 msgid "Pure Python Wheels"
 msgstr "Колёса чистого Python'а"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:803
+#: ../source/guides/distributing-packages-using-setuptools.rst:550
 msgid ""
 "*Pure Python Wheels* contain no compiled extensions, and therefore only "
 "require a single Python wheel."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:806
-#: ../source/guides/distributing-packages-using-setuptools.rst:835
+#: ../source/guides/distributing-packages-using-setuptools.rst:553
+#: ../source/guides/distributing-packages-using-setuptools.rst:582
 msgid "To build the wheel:"
 msgstr "Для построения колеса выполните:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:820
+#: ../source/guides/distributing-packages-using-setuptools.rst:567
 msgid ""
 "The ``wheel`` package will detect that the code is pure Python, and build a "
 "wheel that's named such that it's usable on any Python 3 installation.  For "
 "details on the naming of wheel files, see :pep:`425`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:824
+#: ../source/guides/distributing-packages-using-setuptools.rst:571
 msgid ""
 "If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both "
 "files for you; this is useful when you don't need multiple wheels."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:830
+#: ../source/guides/distributing-packages-using-setuptools.rst:577
 msgid "Platform Wheels"
 msgstr "Платформо-зависимые колёса"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:832
+#: ../source/guides/distributing-packages-using-setuptools.rst:579
 msgid ""
 "*Platform Wheels* are wheels that are specific to a certain platform like "
 "Linux, macOS, or Windows, usually due to containing compiled extensions."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:850
+#: ../source/guides/distributing-packages-using-setuptools.rst:597
 msgid ""
 "The ``wheel`` package will detect that the code is not pure Python, and "
 "build a wheel that's named such that it's only usable on the platform that "
 "it was built on. For details on the naming of wheel files, see :pep:`425`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:856
+#: ../source/guides/distributing-packages-using-setuptools.rst:603
 msgid ""
 ":term:`PyPI <Python Package Index (PyPI)>` currently supports uploads of "
 "platform wheels for Windows, macOS, and the multi-distro ``manylinux*`` ABI. "
 "Details of the latter are defined in :pep:`513`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:864
+#: ../source/guides/distributing-packages-using-setuptools.rst:611
 msgid "Uploading your Project to PyPI"
 msgstr "Загрузка вашего проекта на PyPI"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:866
+#: ../source/guides/distributing-packages-using-setuptools.rst:613
 msgid ""
 "When you ran the command to create your distribution, a new directory ``dist/"
 "`` was created under your project's root directory. That's where you'll find "
 "your distribution file(s) to upload."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:870
+#: ../source/guides/distributing-packages-using-setuptools.rst:617
 msgid ""
 "These files are only created when you run the command to create your "
 "distribution. This means that any time you change the source of your project "
@@ -4143,7 +3885,7 @@ msgid ""
 "these files again before you can distribute the changes to PyPI."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:875
+#: ../source/guides/distributing-packages-using-setuptools.rst:622
 msgid ""
 "Before releasing on main PyPI repo, you might prefer training with the `PyPI "
 "test site <https://test.pypi.org/>`_ which is cleaned on a semi regular "
@@ -4151,7 +3893,7 @@ msgid ""
 "order to use it."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:880
+#: ../source/guides/distributing-packages-using-setuptools.rst:627
 msgid ""
 "In other resources you may encounter references to using ``python setup.py "
 "register`` and ``python setup.py upload``. These methods of registering and "
@@ -4160,7 +3902,7 @@ msgid ""
 "username and password to be intercepted during transmission."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:886
+#: ../source/guides/distributing-packages-using-setuptools.rst:633
 msgid ""
 "The reStructuredText parser used on PyPI is **not** Sphinx! Furthermore, to "
 "ensure safety of all users, certain kinds of URLs and directives are "
@@ -4170,47 +3912,47 @@ msgid ""
 "by running :std:doc:`twine check <index>` on your package files:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:899
+#: ../source/guides/distributing-packages-using-setuptools.rst:646
 msgid "Create an account"
 msgstr "Создание учётной записи"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:901
+#: ../source/guides/distributing-packages-using-setuptools.rst:648
 msgid ""
 "First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. "
 "You can create an account `using the form on the PyPI website <https://pypi."
 "org/account/register/>`_."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:905
+#: ../source/guides/distributing-packages-using-setuptools.rst:652
 msgid ""
 "Now you'll create a PyPI `API token`_ so you will be able to securely upload "
 "your project."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:908
+#: ../source/guides/distributing-packages-using-setuptools.rst:655
 msgid ""
 "Go to https://pypi.org/manage/account/#api-tokens and create a new `API "
 "token`_; don't limit its scope to a particular project, since you are "
 "creating a new project."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:912
+#: ../source/guides/distributing-packages-using-setuptools.rst:659
 msgid ""
 "**Don't close the page until you have copied and saved the token — you won't "
 "see that token again.**"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:915
+#: ../source/guides/distributing-packages-using-setuptools.rst:662
 msgid ""
 "To avoid having to copy and paste the token every time you upload, you can "
 "create a :file:`$HOME/.pypirc` file:"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:924
+#: ../source/guides/distributing-packages-using-setuptools.rst:671
 msgid "**Be aware that this stores your token in plaintext.**"
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:926
+#: ../source/guides/distributing-packages-using-setuptools.rst:673
 #: ../source/guides/migrating-to-pypi-org.rst:74
 #: ../source/guides/migrating-to-pypi-org.rst:113
 #: ../source/guides/using-testpypi.rst:83
@@ -4218,30 +3960,30 @@ msgid ""
 "For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:932
+#: ../source/guides/distributing-packages-using-setuptools.rst:679
 msgid "Upload your distributions"
 msgstr "Загрузите свои дистрибутивы"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:934
+#: ../source/guides/distributing-packages-using-setuptools.rst:681
 msgid ""
 "Once you have an account you can upload your distributions to :term:`PyPI "
 "<Python Package Index (PyPI)>` using :ref:`twine`."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:937
+#: ../source/guides/distributing-packages-using-setuptools.rst:684
 msgid ""
 "The process for uploading a release is the same regardless of whether or not "
 "the project already exists on PyPI - if it doesn't exist yet, it will be "
 "automatically created when the first release is uploaded."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:941
+#: ../source/guides/distributing-packages-using-setuptools.rst:688
 msgid ""
 "For the second and subsequent releases, PyPI only requires that the version "
 "number of the new release differ from any previous releases."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:948
+#: ../source/guides/distributing-packages-using-setuptools.rst:695
 msgid ""
 "You can see if your package has successfully uploaded by navigating to the "
 "URL ``https://pypi.org/project/<sampleproject>`` where ``sampleproject`` is "
@@ -4249,20 +3991,12 @@ msgid ""
 "your project to appear on the site."
 msgstr ""
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:955
+#: ../source/guides/distributing-packages-using-setuptools.rst:702
 #: ../source/tutorials/installing-packages.rst:670
 msgid ""
 "Depending on your platform, this may require root or Administrator access. :"
 "ref:`pip` is currently considering changing this by `making user installs "
 "the default behavior <https://github.com/pypa/pip/issues/1668>`_."
-msgstr ""
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:961
-msgid ""
-"Specifically, the \"console_script\" approach generates ``.exe`` files on "
-"Windows, which are necessary because the OS special-cases ``.exe`` files. "
-"Script-execution features like ``PATHEXT`` and the :pep:`Python Launcher for "
-"Windows <397>` allow scripts to be used in many cases, but not all."
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:5
@@ -7153,44 +6887,52 @@ msgstr "Формат установки"
 msgid "Single-sourcing the package version"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:8
+#: ../source/guides/single-sourcing-package-version.rst:7
+msgid "Todo"
+msgstr ""
+
+#: ../source/guides/single-sourcing-package-version.rst:7
+msgid "Update this page for build backends other than setuptools."
+msgstr ""
+
+#: ../source/guides/single-sourcing-package-version.rst:9
 msgid ""
 "There are many techniques to maintain a single source of truth for the "
 "version number of your project:"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:11
+#: ../source/guides/single-sourcing-package-version.rst:12
 msgid ""
 "Read the file in :file:`setup.py` and get the version. Example (from `pip "
 "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:38
+#: ../source/guides/single-sourcing-package-version.rst:39
 msgid ""
 "As of the release of setuptools 46.4.0, one can accomplish the same thing by "
 "instead placing the following in the project's :file:`setup.cfg` file "
 "(replacing \"package\" with the import name of the package):"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:48
+#: ../source/guides/single-sourcing-package-version.rst:49
 msgid ""
 "As of the release of setuptools 61.0.0, one can specify the version "
 "dynamically in the project's :file:`pyproject.toml` file."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:60
+#: ../source/guides/single-sourcing-package-version.rst:61
 msgid ""
 "Please be aware that declarative config indicators, including the ``attr:`` "
 "directive, are not supported in parameters to :file:`setup.py`."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:64
+#: ../source/guides/single-sourcing-package-version.rst:65
 msgid ""
 "Use an external build tool that either manages updating both locations, or "
 "offers an API that both locations can use."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:67
+#: ../source/guides/single-sourcing-package-version.rst:68
 msgid ""
 "Few tools you could use, in no particular order, and not necessarily "
 "complete: `bump2version <https://pypi.org/project/bump2version>`_, `changes "
@@ -7198,39 +6940,39 @@ msgid ""
 "commitizen>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:74
+#: ../source/guides/single-sourcing-package-version.rst:75
 msgid ""
 "Set the value to a ``__version__`` global variable in a dedicated module in "
 "your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
 "``exec`` the value into a variable."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:85
+#: ../source/guides/single-sourcing-package-version.rst:86
 msgid ""
 "Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:87
+#: ../source/guides/single-sourcing-package-version.rst:88
 msgid ""
 "Place the value in a simple ``VERSION`` text file and have both :file:`setup."
 "py` and the project code read it."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:95
+#: ../source/guides/single-sourcing-package-version.rst:96
 msgid ""
 "An advantage with this technique is that it's not specific to Python.  Any "
 "tool can read the version."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:100
+#: ../source/guides/single-sourcing-package-version.rst:101
 msgid ""
 "With this approach you must make sure that the ``VERSION`` file is included "
 "in all your source and binary distributions (e.g. add ``include VERSION`` to "
 "your :file:`MANIFEST.in`)."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:104
+#: ../source/guides/single-sourcing-package-version.rst:105
 msgid ""
 "Set the value in :file:`setup.py`, and have the project code use the "
 "``importlib.metadata`` API to fetch the value at runtime. (``importlib."
@@ -7239,52 +6981,52 @@ msgid ""
 "be fetched with the API as follows::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:119
+#: ../source/guides/single-sourcing-package-version.rst:120
 msgid ""
 "Be aware that the ``importlib.metadata`` API only knows about what's in the "
 "installation metadata, which is not necessarily the code that's currently "
 "imported."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:123
+#: ../source/guides/single-sourcing-package-version.rst:124
 msgid ""
 "If a project uses this method to fetch its version at runtime, then its "
 "``install_requires`` value needs to be edited to install ``importlib-"
 "metadata`` on pre-3.8 versions of Python like so::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:137
+#: ../source/guides/single-sourcing-package-version.rst:138
 msgid ""
 "An older (and less efficient) alternative to ``importlib.metadata`` is the "
 "``pkg_resources`` API provided by ``setuptools``::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:143
+#: ../source/guides/single-sourcing-package-version.rst:144
 msgid ""
 "If a project uses ``pkg_resources`` to fetch its own version at runtime, "
 "then ``setuptools`` must be added to the project's ``install_requires`` list."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:147
+#: ../source/guides/single-sourcing-package-version.rst:148
 msgid ""
 "Example using this technique: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:150
+#: ../source/guides/single-sourcing-package-version.rst:151
 msgid ""
 "Set the value to ``__version__`` in ``sample/__init__.py`` and import "
 "``sample`` in :file:`setup.py`."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:164
+#: ../source/guides/single-sourcing-package-version.rst:165
 msgid ""
 "Although this technique is common, beware that it will fail if ``sample/"
 "__init__.py`` imports packages from ``install_requires`` dependencies, which "
 "will very likely not be installed yet when :file:`setup.py` is run."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:170
+#: ../source/guides/single-sourcing-package-version.rst:171
 msgid ""
 "Keep the version number in the tags of a version control system (Git, "
 "Mercurial, etc) instead of in the code, and automatically extract it from "
@@ -8157,91 +7899,128 @@ msgid "Basic information"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:122
+#: ../source/specifications/pyproject-toml.rst:120
+#: ../source/specifications/pyproject-toml.rst:142
+#: ../source/specifications/pyproject-toml.rst:152
+msgid "``name``"
+msgstr "``name``"
+
+#: ../source/guides/writing-pyproject-toml.rst:124
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:134
+#: ../source/guides/writing-pyproject-toml.rst:132
+msgid ""
+"The project name must consists of ASCII letters, digits, underscores "
+"\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or end "
+"with an underscore, hyphen or period."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:136
+msgid ""
+"Comparison of project names is case insensitive and treats arbitrarily long "
+"runs of underscores, hyphens, and/or periods as equal.  For example, if you "
+"register a project named ``cool-stuff``, users will be able to download it "
+"or declare a dependency on it using any of the following spellings: ``Cool-"
+"Stuff``, ``cool.stuff``, ``COOL_STUFF``, ``CoOl__-.-__sTuFF``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:144
+#: ../source/specifications/pyproject-toml.rst:125
+#: ../source/specifications/pyproject-toml.rst:148
+#: ../source/specifications/pyproject-toml.rst:164
+msgid "``version``"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:146
 msgid "Put the version of your project."
 msgstr "Положите версию вашего проекта."
 
-#: ../source/guides/writing-pyproject-toml.rst:141
+#: ../source/guides/writing-pyproject-toml.rst:153
 msgid ""
 "Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha "
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
 "full details."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:145
+#: ../source/guides/writing-pyproject-toml.rst:157
 msgid "This field is required, although it is often marked as dynamic using"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:155
+#: ../source/guides/writing-pyproject-toml.rst:164
+msgid ""
+"This allows use cases such as filling the version from a ``__version__`` "
+"attribute or a Git tag. Consult :ref:`Single sourcing the version` for more "
+"details."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:170
 #, fuzzy
 msgid "Dependencies and requirements"
 msgstr "Использование файлов требований"
 
-#: ../source/guides/writing-pyproject-toml.rst:158
+#: ../source/guides/writing-pyproject-toml.rst:173
 #: ../source/specifications/pyproject-toml.rst:354
 msgid "``dependencies``/``optional-dependencies``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:160
+#: ../source/guides/writing-pyproject-toml.rst:175
 msgid "If your project has dependencies, list them like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:172
+#: ../source/guides/writing-pyproject-toml.rst:187
 msgid ""
 "See :ref:`Dependency specifiers <dependency-specifiers>` for the full syntax "
 "you can use to constrain versions."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:175
+#: ../source/guides/writing-pyproject-toml.rst:190
 msgid ""
 "You may want to make some of your dependencies optional, if they are only "
 "needed for a specific feature of your package. In that case, put them in "
 "``optional-dependencies``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:188
+#: ../source/guides/writing-pyproject-toml.rst:203
 msgid ""
 "Each of the keys defines a \"packaging extra\". In the example above, one "
 "could use, e.g., ``pip install your-project-name[gui]`` to install your "
 "project with GUI support, adding the PyQt5 dependency."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:194
+#: ../source/guides/writing-pyproject-toml.rst:212
 #: ../source/specifications/pyproject-toml.rst:145
 #: ../source/specifications/pyproject-toml.rst:226
 msgid "``requires-python``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:196
+#: ../source/guides/writing-pyproject-toml.rst:214
 msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:207
+#: ../source/guides/writing-pyproject-toml.rst:226
 #, fuzzy
 msgid "Creating executable scripts"
 msgstr "Создание файлов пакета"
 
-#: ../source/guides/writing-pyproject-toml.rst:209
+#: ../source/guides/writing-pyproject-toml.rst:228
 msgid ""
 "To install a command as part of your package, declare it in the ``[project."
 "scripts]`` table."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:217
+#: ../source/guides/writing-pyproject-toml.rst:236
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
 "be available. Executing this command will do the equivalent of ``from spam "
 "import main_cli; main_cli()``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:221
+#: ../source/guides/writing-pyproject-toml.rst:240
 msgid ""
 "On Windows, scripts packaged this way need a terminal, so if you launch them "
 "from within a graphical application, they will make a terminal pop up. To "
@@ -8249,130 +8028,187 @@ msgid ""
 "of ``[project.scripts]``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:231
+#: ../source/guides/writing-pyproject-toml.rst:250
 msgid ""
 "In that case, launching your script from the command line will give back "
 "control immediately, leaving the script to run in the background."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:234
+#: ../source/guides/writing-pyproject-toml.rst:253
 msgid ""
 "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
 "is only relevant on Windows."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:240
+#: ../source/guides/writing-pyproject-toml.rst:259
 #, fuzzy
 msgid "About your project"
 msgstr "Настройка вашего проекта"
 
-#: ../source/guides/writing-pyproject-toml.rst:243
+#: ../source/guides/writing-pyproject-toml.rst:262
 #: ../source/specifications/pyproject-toml.rst:251
 msgid "``authors``/``maintainers``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:245
+#: ../source/guides/writing-pyproject-toml.rst:264
 msgid ""
 "Both of these fields contain lists of people identified by a name and/or an "
 "email address."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:265
+#: ../source/guides/writing-pyproject-toml.rst:284
+#: ../source/specifications/pyproject-toml.rst:135
+#: ../source/specifications/pyproject-toml.rst:177
+msgid "``description``"
+msgstr "``description``"
+
+#: ../source/guides/writing-pyproject-toml.rst:286
 msgid ""
 "This should be a one-line description of your project, to show as the "
-"\"headline\" of your project page on PyPI (`example <pypi-pip_>`_)."
+"\"headline\" of your project page on PyPI (`example <pypi-pip_>`_), and "
+"other places such as lists of search results (`example <pypi-search-pip_>`_)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:275
+#: ../source/guides/writing-pyproject-toml.rst:297
 #: ../source/specifications/pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:187
 msgid "``readme``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:277
+#: ../source/guides/writing-pyproject-toml.rst:299
 msgid ""
 "This is a longer description of your project, to display on your project "
 "page on PyPI. Typically, your project will have a ``README.md`` or ``README."
 "rst`` file and you just put its file name here."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:286
+#: ../source/guides/writing-pyproject-toml.rst:308
 msgid "The README's format is auto-detected from the extension:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:288
-msgid "``README.md`` → Markdown,"
+#: ../source/guides/writing-pyproject-toml.rst:310
+msgid "``README.md`` → `GitHub-flavored Markdown <gfm_>`_,"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:289
-msgid "``README.rst`` → reStructuredText (without Sphinx extensions)."
+#: ../source/guides/writing-pyproject-toml.rst:311
+#, fuzzy
+#| msgid ""
+#| "`reStructuredText <https://docutils.sourceforge.io/rst.html>`_ (without "
+#| "Sphinx extensions)"
+msgid ""
+"``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions)."
 msgstr ""
+"`reStructuredText <https://docutils.sourceforge.io/rst.html>`_ (без "
+"расширений Sphinx)"
 
-#: ../source/guides/writing-pyproject-toml.rst:291
+#: ../source/guides/writing-pyproject-toml.rst:313
 msgid "You can also specify the format explicitly, like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:304
+#: ../source/guides/writing-pyproject-toml.rst:324
+#: ../source/specifications/pyproject-toml.rst:140
+#: ../source/specifications/pyproject-toml.rst:236
+msgid "``license``"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:326
 msgid ""
 "This can take two forms. You can put your license in a file, typically "
 "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:312
+#: ../source/guides/writing-pyproject-toml.rst:334
 msgid "or you can write the name of the license:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:325
+#: ../source/guides/writing-pyproject-toml.rst:341
+msgid ""
+"If you are using a standard, well-known license, it is not necessary to use "
+"this field. Instead, you should one of the :ref:`classifiers` starting with "
+"``License ::``. (As a general rule, it is a good idea to use a standard, "
+"well-known license, both to avoid confusion and because some organizations "
+"avoid software whose license is unapproved.)"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:349
+#: ../source/specifications/pyproject-toml.rst:139
+#: ../source/specifications/pyproject-toml.rst:293
+msgid "``keywords``"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:351
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:337
+#: ../source/guides/writing-pyproject-toml.rst:363
+#: ../source/specifications/pyproject-toml.rst:133
+#: ../source/specifications/pyproject-toml.rst:303
+msgid "``classifiers``"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:365
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:349
+#: ../source/guides/writing-pyproject-toml.rst:392
+msgid ""
+"Although the list of classifiers is often used to declare what Python "
+"versions a project supports, this information is only used for searching and "
+"browsing projects on PyPI, not for installing projects. To actually restrict "
+"what Python versions a project can be installed on, use the :ref:`requires-"
+"python` argument."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:397
+msgid ""
+"To prevent a package from being uploaded to PyPI, use the special "
+"``Private :: Do Not Upload`` classifier. PyPI will always reject packages "
+"with classifiers beginning with ``Private ::``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:403
 #: ../source/specifications/pyproject-toml.rst:147
 #: ../source/specifications/pyproject-toml.rst:313
 msgid "``urls``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:351
+#: ../source/guides/writing-pyproject-toml.rst:405
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:363
+#: ../source/guides/writing-pyproject-toml.rst:417
 msgid ""
 "Note that if the key contains spaces, it needs to be quoted, e.g., ``Website "
 "= \"https://example.com\"`` but ``\"Official Website\" = \"https://example."
 "com\"``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:370
+#: ../source/guides/writing-pyproject-toml.rst:424
 msgid "Advanced plugins"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:372
+#: ../source/guides/writing-pyproject-toml.rst:426
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
 "``[project.entry-points]`` like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:381
+#: ../source/guides/writing-pyproject-toml.rst:435
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:386
+#: ../source/guides/writing-pyproject-toml.rst:440
 msgid "A full example"
 msgstr "Полный пример"
 
-#: ../source/guides/writing-pyproject-toml.rst:448
+#: ../source/guides/writing-pyproject-toml.rst:502
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -19439,6 +19275,24 @@ msgstr ""
 "packages>` и считаются **продвинутой темой** (не охваченной этим учебником). "
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
+
+#, fuzzy
+#~ msgid "``author``"
+#~ msgstr "Автор"
+
+#, fuzzy
+#~ msgid "``python_requires``"
+#~ msgstr "python_requires"
+
+#~ msgid "And so on."
+#~ msgstr "И так далее."
+
+#~ msgid "``entry_points``"
+#~ msgstr "``entry_points``"
+
+#, fuzzy
+#~ msgid "``console_scripts``"
+#~ msgstr "console_scripts"
 
 #~ msgid "Rationale"
 #~ msgstr "Обоснование"
