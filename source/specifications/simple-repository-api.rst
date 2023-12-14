@@ -58,7 +58,7 @@ Representations
 ###############
 
 The index server can respond with one of two different representation formats
-for each endpoint:
+for each endpoint [#f2]_:
 
 * `HTML5`_: content-type ``application/vnd.pypi.simple.v1+html``
 
@@ -69,9 +69,6 @@ for each endpoint:
   * Clients can also request ``application/vnd.pypi.simple.latest+html``
 
   * ``text/html`` is an alias for this content-type
-
-See :pep:`691` for the details of how these values should be updated for new
-versions of the API.
 
 Content negotiation
 -------------------
@@ -491,6 +488,10 @@ History
   from a package, in :pep:`714`
 
 .. rubric:: Footnotes
+
+.. [#f2] The format of this content type follows
+   ``application/vnd.pypi.simple.$version+format``, where ``$version`` is the
+   major version of the API prefixed with ``v``.
 
 .. [#f1] The desirable experience for users is that once a file is yanked, when
    a human being is currently trying to directly install a yanked file, that it
