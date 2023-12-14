@@ -883,7 +883,7 @@ Prefix matching may be requested instead of strict comparison, by appending
 a trailing ``.*`` to the version identifier in the version matching clause.
 This means that additional trailing segments will be ignored when
 determining whether or not a version identifier matches the clause. If the
-specified version includes only a release segment, than trailing components
+specified version includes only a release segment, then trailing components
 (or the lack thereof) in the release segment are also ignored.
 
 For example, given the version ``1.1.post1``, the following clauses would
