@@ -444,20 +444,11 @@ changed at anypoint (to be unyanked, or even yanked again).
 Indexes may provide a textual reason for why the file has been yanked, and
 clients may display that reason to end-users.
 
-From :pep:`592`, the intention for the behaviour with yanked files is:
-
-   The desirable experience for users is that once a file is yanked, when a
-   human being is currently trying to directly install a yanked file, that it
-   fails as if that file had been deleted. However, when a human did that
-   awhile ago, and now a computer is just continuing to mechanically follow the
-   original order to install the now yanked file, then it acts as if it had not
-   been yanked.
-
 Installers must ignore yanked :term:`releases <Release>` if a non-yanked
 release satisfies the :term:`requirement <Requirement>`. Installers may refuse
 to install a yanked release and not install anything. Installers should follow
-the spirit of the intention quoted above and prevent new dependencies on yanked
-releases and files.
+the spirit of the intention of yanked files [#f1]_ and prevent new dependencies
+on yanked releases and files.
 
 Installers should emit a warning if they decide to install a yanked file. That
 warning may utilize the reason for the yanking.
@@ -498,6 +489,15 @@ History
   format, in :pep:`700`
 * June 2023: renaming the field which provides package metadata independently
   from a package, in :pep:`714`
+
+.. rubric:: Footnotes
+
+.. [#f1] The desirable experience for users is that once a file is yanked, when
+   a human being is currently trying to directly install a yanked file, that it
+   fails as if that file had been deleted. However, when a human did that
+   awhile ago, and now a computer is just continuing to mechanically follow the
+   original order to install the now yanked file, then it acts as if it had not
+   been yanked.
 
 .. _HTML5: https://html.spec.whatwg.org/
 
