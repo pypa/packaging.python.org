@@ -1,3 +1,4 @@
+.. _declaring-project-metadata:
 .. _pyproject-toml-spec:
 
 ================================
