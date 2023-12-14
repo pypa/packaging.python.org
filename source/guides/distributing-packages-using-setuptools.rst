@@ -4,10 +4,8 @@
 Packaging and distributing projects
 ===================================
 
-.. warning::
-   As of December 2023, this page is largely outdated
-   and currently being revised.
-
+:Page Status: Outdated
+:Last Reviewed: 2023-12-14
 This section covers some additional details on configuring, packaging and
 distributing Python projects with ``setuptools`` that aren't covered by the
 introductory tutorial in :doc:`/tutorials/packaging-projects`.  It still assumes
