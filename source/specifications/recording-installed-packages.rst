@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _recording-installed-packages:
 
 ============================

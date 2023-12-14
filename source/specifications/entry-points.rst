@@ -111,7 +111,9 @@ restrictions on values specified in :pep:`685`.
 For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
 
-For example::
+For example:
+
+.. code-block:: ini
 
     [console_scripts]
     foo = foomod:main
