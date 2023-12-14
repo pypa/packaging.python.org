@@ -32,7 +32,7 @@ PyPI does not display download statistics for a number of reasons: [#]_
   doesn't mean it's good; Similarly just because a project hasn't been
   downloaded a lot doesn't mean it's bad!
 
-In short, because it's value is low for various reasons, and the tradeoffs
+In short, because its value is low for various reasons, and the tradeoffs
 required to make it work are high, it has been not an effective use of
 limited resources.
 
