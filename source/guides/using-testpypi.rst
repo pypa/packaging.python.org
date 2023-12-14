@@ -75,7 +75,7 @@ Setting up TestPyPI in :file:`.pypirc`
 If you want to avoid entering your username, you can configure TestPyPI in
 your :file:`$HOME/.pypirc`:
 
-.. code::
+.. code:: ini
 
     [testpypi]
     username = <your TestPyPI username>
