@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _recording-installed-packages:
 
 ============================
@@ -175,6 +177,15 @@ attempt to uninstall or upgrade the package.
 (This restriction does not apply to tools that rely on other sources of information,
 such as system package managers in Linux distros.)
 
+.. note::
+
+   It is *strongly discouraged* for an installed package to modify itself
+   (e.g., store cache files under its namespace in ``site-packages``).
+   Changes inside ``site-packages`` should be left to specialized installer
+   tools such as pip. If a package is nevertheless modified in this way,
+   then the ``RECORD`` must be updated, otherwise uninstalling the package
+   will leave unlisted files in place (possibly resulting in a zombie
+   namespace package).
 
 The INSTALLER file
 ==================

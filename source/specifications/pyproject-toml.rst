@@ -1,13 +1,9 @@
 .. _declaring-project-metadata:
+.. _pyproject-toml-spec:
 
-==========================
-Declaring project metadata
-==========================
-
-:pep:`621` specifies how to write a project's
-:ref:`core metadata <core-metadata>` in a ``pyproject.toml`` file for
-packaging-related tools to consume. It defines the following
-specification as the canonical source for the format used.
+================================
+``pyproject.toml`` specification
+================================
 
 .. warning::
 
@@ -15,9 +11,98 @@ specification as the canonical source for the format used.
    user-friendly guide to ``pyproject.toml``, see
    :ref:`writing-pyproject-toml`.
 
+The ``pyproject.toml`` file acts as a configuration file for packaging-related
+tools (as well as other tools).
 
-Specification
-=============
+.. note:: This specification was originally defined in :pep:`518` and :pep:`621`.
+
+The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
+tables are currently specified, namely
+:ref:`[build-system] <pyproject-build-system-table>`,
+:ref:`[project] <pyproject-project-table>` and
+:ref:`[tool] <pyproject-tool-table>`. Other tables are reserved for future
+use (tool-specific configuration should use the ``[tool]`` table).
+
+.. _pyproject-build-system-table:
+
+Declaring build system dependencies: the ``[build-system]`` table
+=================================================================
+
+The ``[build-system]`` table declares any Python level dependencies that
+must be installed in order to run the project's build system
+successfully.
+
+.. TODO: merge with PEP 517
+
+The ``[build-system]`` table is used to store build-related data.
+Initially, only one key of the table is valid and is mandatory
+for the table: ``requires``. This key must have a value of a list
+of strings representing dependencies required to execute the
+build system. The strings in this list follow the :ref:`version specifier
+specification <version-specifiers>`.
+
+An example ``[build-system]`` table for a project built with
+``setuptools`` is:
+
+.. code-block:: toml
+
+   [build-system]
+   # Minimum requirements for the build system to execute.
+   requires = ["setuptools"]
+
+Build tools are expected to use the example configuration file above as
+their default semantics when a ``pyproject.toml`` file is not present.
+
+Tools should not require the existence of the ``[build-system]`` table.
+A ``pyproject.toml`` file may be used to store configuration details
+other than build-related data and thus lack a ``[build-system]`` table
+legitimately. If the file exists but is lacking the ``[build-system]``
+table then the default values as specified above should be used.
+If the table is specified but is missing required fields then the tool
+should consider it an error.
+
+
+To provide a type-specific representation of the resulting data from
+the TOML file for illustrative purposes only, the following
+`JSON Schema <https://json-schema.org>`_ would match the data format:
+
+.. code-block:: json
+
+   {
+       "$schema": "http://json-schema.org/schema#",
+
+       "type": "object",
+       "additionalProperties": false,
+
+       "properties": {
+           "build-system": {
+               "type": "object",
+               "additionalProperties": false,
+
+               "properties": {
+                   "requires": {
+                       "type": "array",
+                       "items": {
+                           "type": "string"
+                       }
+                   }
+               },
+               "required": ["requires"]
+           },
+
+           "tool": {
+               "type": "object"
+           }
+       }
+   }
+
+
+.. _pyproject-project-table:
+
+Declaring project metadata: the ``[project]`` table
+===================================================
+
+The ``[project]`` table specifies the project's :ref:`core metadata <core-metadata>`.
 
 There are two kinds of metadata: *static* and *dynamic*. Static
 metadata is specified in the ``pyproject.toml`` file directly and
@@ -27,12 +112,6 @@ by the metadata). Dynamic metadata is listed via the ``dynamic`` key
 (defined later in this specification) and represents metadata that a
 tool will later provide.
 
-The keys defined in this specification MUST be in a table named
-``[project]`` in ``pyproject.toml``. No tools may add keys to this
-table which are not defined by this specification. For tools wishing
-to store their own settings in ``pyproject.toml``, they may use the
-``[tool]`` table as defined in the
-:ref:`build dependency declaration specification <declaring-build-dependencies>`.
 The lack of a ``[project]`` table implicitly means the :term:`build backend <Build Backend>`
 will dynamically provide all keys.
 
@@ -337,6 +416,33 @@ provided via tooling later on.
   key in ``dynamic`` but the build back-end was unable to determine
   the data for it (omitting the data, if determined to be the accurate
   value, is acceptable).
+
+
+
+.. _pyproject-tool-table:
+
+Arbitrary tool configuration: the ``[tool]`` table
+==================================================
+
+The ``[tool]`` table is where any tool related to your Python
+project, not just build tools, can have users specify configuration
+data as long as they use a sub-table within ``[tool]``, e.g. the
+`flit <https://pypi.python.org/pypi/flit>`_ tool would store its
+configuration in ``[tool.flit]``.
+
+A mechanism is needed to allocate names within the ``tool.*``
+namespace, to make sure that different projects do not attempt to use
+the same sub-table and collide. Our rule is that a project can use
+the subtable ``tool.$NAME`` if, and only if, they own the entry for
+``$NAME`` in the Cheeseshop/PyPI.
+
+
+
+History
+=======
+
+This specification was originally defined in :pep:`518` (``[build-system]``
+and ``[tool]`` tables) and :pep:`621` (``[project]`` table).
 
 
 

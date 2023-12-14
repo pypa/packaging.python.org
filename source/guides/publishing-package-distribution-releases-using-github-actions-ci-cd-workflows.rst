@@ -37,13 +37,13 @@ for your new :term:`PyPI project <Project>`.
 However it is also possible to add `trusted publishing`_ to any
 pre-existing project, if you are its owner.
 
-   .. attention::
+.. attention::
 
-      If you followed earlier versions of this guide, you
-      have created the secrets ``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN``
-      for direct PyPI and TestPyPI access. These are obsolete now and
-      you should remove them from your GitHub repository and revoke
-      them in your PyPI and TestPyPI account settings in case you are replacing your old setup with the new one.
+   If you followed earlier versions of this guide, you
+   have created the secrets ``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN``
+   for direct PyPI and TestPyPI access. These are obsolete now and
+   you should remove them from your GitHub repository and revoke
+   them in your PyPI and TestPyPI account settings in case you are replacing your old setup with the new one.
 
 
 Let's begin! 🚀
