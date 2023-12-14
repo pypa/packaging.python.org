@@ -1,3 +1,4 @@
+.. highlight:: json
 
 .. _direct-url-data-structure:
 
@@ -32,7 +33,9 @@ for security reasons.
 
 The user:password section of the URL MAY however
 be composed of environment variables, matching the following regular
-expression::
+expression:
+
+.. code-block:: text
 
     \$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
 
@@ -130,24 +133,19 @@ Git
 ---
 
 Home page
-
    https://git-scm.com/
 
 vcs command
-
    git
 
 ``vcs`` field
-
    git
 
 ``requested_revision`` field
-
    A tag name, branch name, Git ref, commit hash, shortened commit hash,
    or other commit-ish.
 
 ``commit_id`` field
-
    A commit hash (40 hexadecimal characters sha1).
 
 .. note::
@@ -162,70 +160,55 @@ Mercurial
 ---------
 
 Home page
-
    https://www.mercurial-scm.org/
 
 vcs command
-
    hg
 
 ``vcs`` field
-
    hg
 
 ``requested_revision`` field
-
    A tag name, branch name, changeset ID, shortened changeset ID.
 
 ``commit_id`` field
-
    A changeset ID (40 hexadecimal characters).
 
 Bazaar
 ------
 
 Home page
-
    https://www.breezy-vcs.org/
 
 vcs command
-
    bzr
 
 ``vcs`` field
-
    bzr
 
 ``requested_revision`` field
-
    A tag name, branch name, revision id.
 
 ``commit_id`` field
-
    A revision id.
 
 Subversion
 ----------
 
 Home page
-
    https://subversion.apache.org/
 
 vcs command
-
    svn
 
 ``vcs`` field
-
    svn
 
 ``requested_revision`` field
-
    ``requested_revision`` must be compatible with ``svn checkout`` ``--revision`` option.
    In Subversion, branch or tag is part of ``url``.
 
 ``commit_id`` field
-
    Since Subversion does not support globally unique identifiers,
    this field is the Subversion revision number in the corresponding
    repository.

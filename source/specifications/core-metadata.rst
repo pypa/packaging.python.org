@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _`core-metadata`:
 
 ============================

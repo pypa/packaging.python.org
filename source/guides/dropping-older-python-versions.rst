@@ -78,7 +78,9 @@ Steps:
 
 You can specify version ranges and exclusion rules, such as at least Python 3. Or, Python 2.7, 3.4 and beyond.
 
-Examples::
+Examples:
+
+.. code-block:: text
 
     Requires-Python: ">=3"
     Requires-Python: ">2.7,!=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
