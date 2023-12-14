@@ -44,13 +44,15 @@ package that provides it.
 What are the links between distribution packages and import packages?
 =====================================================================
 
-By convention, a distribution package usually provides one single import
+Most of the time, a distribution package provides one single import
 package (or non-package module), with a matching name. For example,
 ``pip install numpy`` lets you ``import numpy``.
 
-However, this is only a convention. PyPI and other package indices do
-not enforce any relationship between the name of a distribution package
-and the import packages it provides.
+However, this is only a convention. PyPI and other package indices *do not
+enforce any relationship* between the name of a distribution package and the
+import packages it provides. (A consequence of this is that you cannot blindly
+install the PyPI package ``foo`` if you see ``import foo``; this may install an
+unintended, and potentially even malicious package.)
 
 A distribution package could provide an import package with a different
 name. An example of this is the popular Pillow_ library for image
