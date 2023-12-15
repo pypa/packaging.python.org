@@ -429,13 +429,13 @@ After the command completes, you should see output similar to this:
 
     Uploading distributions to https://test.pypi.org/legacy/
     Enter your username: __token__
-    Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+    Uploading example_package-0.0.1-py3-none-any.whl
     100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.2/8.2 kB • 00:01 • ?
-    Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+    Uploading example_package-0.0.1.tar.gz
     100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 kB • 00:00 • ?
 
 Once uploaded, your package should be viewable on TestPyPI; for example:
-``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``.
+``https://test.pypi.org/project/example_package``.
 
 
 Installing your newly uploaded package
@@ -449,15 +449,14 @@ and install your package from TestPyPI:
 
     .. code-block:: bash
 
-        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
+        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
+        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package
 
-Make sure to specify your username in the package name!
 
 pip should install the package from TestPyPI and the output should look
 something like this:
@@ -465,9 +464,9 @@ something like this:
 .. code-block:: text
 
     Collecting example-package-YOUR-USERNAME-HERE
-      Downloading https://test-files.pythonhosted.org/packages/.../example_package_YOUR_USERNAME_HERE_0.0.1-py3-none-any.whl
-    Installing collected packages: example_package_YOUR_USERNAME_HERE
-    Successfully installed example_package_YOUR_USERNAME_HERE-0.0.1
+      Downloading https://test-files.pythonhosted.org/packages/.../example_package_0.0.1-py3-none-any.whl
+    Installing collected packages: example_package
+    Successfully installed example_package-0.0.1
 
 .. note:: This example uses ``--index-url`` flag to specify TestPyPI instead of
    live PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't
@@ -495,7 +494,7 @@ and import the package:
 
 .. code-block:: pycon
 
-    >>> from example_package_YOUR_USERNAME_HERE import example
+    >>> from example_package import example
     >>> example.add_one(2)
     3
 
