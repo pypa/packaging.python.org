@@ -21,8 +21,10 @@ installing Python libraries and tools, what you see is a list of distribution
 packages. Alternatively, the term "distribution package" can be used to
 refer to a specific file that contains a certain version of a project.
 
-Note that in the Linux world, "distribution package" refers to a package
-provided by the system package manager, which is a different meaning.
+Note that in the Linux world, a "distribution package",
+most commonly abbreviated as "distro package" or just "package",
+is something provided by the system package manager of the `Linux distribution <distro_>`_,
+which is a different meaning.
 
 
 What's an import package?
@@ -93,6 +95,7 @@ precise rules are given in the :ref:`name normalization specification
 <name-normalization>`).
 
 
+.. _distro: https://en.wikipedia.org/wiki/Linux_distribution
 .. _PyPI: https://pypi.org
 .. _Pillow: https://pypi.org/project/Pillow
 .. _attrs: https://pypi.org/project/attrs
