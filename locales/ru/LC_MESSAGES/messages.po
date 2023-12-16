@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-16 03:01+0000\n"
-"PO-Revision-Date: 2023-12-16 08:07+0000\n"
+"PO-Revision-Date: 2023-12-16 12:16+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ru/>\n"
@@ -2741,12 +2741,14 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:24
 msgid "``pip``'s download cache (lowers download counts)"
-msgstr ""
+msgstr "``pip`` кэш загрузки (считывает количество загрузок)"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:25
 msgid ""
 "Internal or unofficial mirrors (can both raise or lower download counts)"
 msgstr ""
+"Внутренние или неофициальные зеркала (могут как поднять, так и снизить "
+"количество загрузок)"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:26
 msgid "Packages not hosted on PyPI (for comparisons sake)"
@@ -2757,10 +2759,12 @@ msgid ""
 "Unofficial scripts or attempts at download count inflation (raises download "
 "counts)"
 msgstr ""
+"Неофициальные скрипты или попытки скачать подсчет инфляции (изобличает "
+"количество загрузок)"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:29
 msgid "Known historical data quality issues (lowers download counts)"
-msgstr ""
+msgstr "Известные исторические проблемы качества данных (низкие числа загрузок)"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:31
 msgid ""
@@ -2768,6 +2772,9 @@ msgid ""
 "lot doesn't mean it's good; Similarly just because a project hasn't been "
 "downloaded a lot doesn't mean it's bad!"
 msgstr ""
+"** Не особенно полезно:** То, что проект был загружен очень много, не "
+"означает, что он хорош; Точно так же только потому, что проект не был "
+"загружен много, не означает, что это плохо!"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:35
 msgid ""
@@ -2775,10 +2782,13 @@ msgid ""
 "required to make it work are high, it has been not an effective use of "
 "limited resources."
 msgstr ""
+"Короче говоря, поскольку его стоимость является низкой по различным "
+"причинам, а компромиссы, необходимые для его работы, высоки, это не было "
+"эффективным использованием ограниченных ресурсов."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:40
 msgid "Public dataset"
-msgstr ""
+msgstr "Набор данных"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:42
 msgid ""
@@ -2786,10 +2796,13 @@ msgid ""
 "cloud-function/>`__ streams download logs from PyPI to `Google BigQuery`_ "
 "[#]_, where they are stored as a public dataset."
 msgstr ""
+"<https://github.com/pypa/linehaul-cloud- function/>`__ потоков загружает "
+"журналы от PyPI до `Google BigQuery`_ [#]_, где они хранятся в виде набора "
+"общедоступных данных."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:47
 msgid "Getting set up"
-msgstr ""
+msgstr "Подготовка к работе"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:49
 msgid ""
@@ -2800,10 +2813,15 @@ msgid ""
 "<https://cloud.google.com/blog/products/data-analytics/query-without-a-"
 "credit-card-introducing-bigquery-sandbox>`__"
 msgstr ""
+"Для того, чтобы использовать `Google BigQuery`_ для запроса 'публичной PyPI "
+"загрузки статистических данных `_, вам понадобится учетная запись Google и "
+"включить API BigQuery в проект Google Cloud Platform. <https://cloud.google."
+"com/blog/products/data-analytics/query- without-a-credit-card-introducing-"
+"bigquery-sandbox>`__"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:55
 msgid "Navigate to the `BigQuery web UI`_."
-msgstr ""
+msgstr "Перейдите в веб-интерфейс `BigQuery`."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:56
 msgid "Create a new project."
@@ -2814,6 +2832,8 @@ msgid ""
 "Enable the `BigQuery API <https://console.developers.google.com/apis/library/"
 "bigquery-json.googleapis.com>`__."
 msgstr ""
+"Включить `BigQuery API <https://console.developers.google.com/apis/library/"
+"bigquery-json.googleapis.com>`__."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:60
 msgid ""
@@ -2821,10 +2841,13 @@ msgid ""
 "out the `BigQuery quickstart guide <https://cloud.google.com/bigquery/docs/"
 "quickstarts/quickstart-web-ui>`__."
 msgstr ""
+"Для более подробных инструкций о том, как начать работу с BigQuery, "
+"ознакомьтесь с `BigQuery Руководством по ускоренному запуску <https://cloud."
+"google.com/bigquery/docs/quickstarts/quickstart-web-ui>`__."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:66
 msgid "Data schema"
-msgstr ""
+msgstr "Схема данных"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:68
 msgid ""
@@ -2834,6 +2857,11 @@ msgid ""
 "schema <https://console.cloud.google.com/bigquery?pli=1&p=bigquery-public-"
 "data&d=pypi&t=file_downloads&page=table>`__ include:"
 msgstr ""
+"Linehaul пишет запись в таблице ``bigquery-public-data.pypi.file_downloads`` "
+"для каждой загрузки. В таблице содержится информация о том, какой файл был "
+"загружен и как он был загружен. Некоторые полезные столбцы из «табличной "
+"схемы <https://console.cloud.google.com/bigquery?pli=1&p=bigquery-public-"
+"data&d=pypi&t=file_downloads&page=table>`__ включить:"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
 msgid "Column"
@@ -2857,7 +2885,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:77
 msgid "Date and time"
-msgstr ""
+msgstr "Дата и время"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:77
 msgid "``2020-03-09 00:33:03 UTC``"
@@ -2920,6 +2948,7 @@ msgid ""
 "Run queries in the `BigQuery web UI`_ by clicking the \"Compose query\" "
 "button."
 msgstr ""
+"Запустить запросы в `BigQuery веб-UI`_, нажав на кнопку \"Compose request\"."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:94
 msgid ""
@@ -2927,6 +2956,9 @@ msgid ""
 "cost of queries. These example queries analyze downloads from recent history "
 "by filtering on the ``timestamp`` column."
 msgstr ""
+"Обратите внимание, что строки хранятся в разделенной таблице, что помогает "
+"ограничить стоимость запросов. Эти примеры запросов анализируют загрузки из "
+"недавней истории путем фильтрации на столбце ``timestamp``."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:99
 msgid "Counting package downloads"
@@ -2937,6 +2969,8 @@ msgid ""
 "The following query counts the total number of downloads for the project "
 "\"pytest\"."
 msgstr ""
+"В следующем запросе учитывается общее количество загрузок для проекта "
+"«pytest."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:116
 #: ../source/guides/analyzing-pypi-package-downloads.rst:137
@@ -2954,6 +2988,8 @@ msgid ""
 "To count downloads from pip only, filter on the ``details.installer.name`` "
 "column."
 msgstr ""
+"Чтобы подсчитать загрузки только из pip, отфильтруйте столбец ``details."
+"installer.name``."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:139
 msgid "24334215"
@@ -2968,6 +3004,8 @@ msgid ""
 "To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also "
 "filtering by this column reduces corresponding costs."
 msgstr ""
+"Для группировки по месячным загрузкам используйте функцию ``TIMESTAMP_TRUNC``"
+". Также фильтрация по этому столбцу снижает соответствующие расходы."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:165
 msgid "month"
@@ -2987,7 +3025,7 @@ msgstr "2344692"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:169
 msgid "2017-12-01"
-msgstr ""
+msgstr "2017-12-01"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:171
 msgid "1730398"
@@ -2995,7 +3033,7 @@ msgstr "1730398"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:171
 msgid "2017-11-01"
-msgstr ""
+msgstr "2017-11-01"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:173
 msgid "2047310"
@@ -3003,7 +3041,7 @@ msgstr "2047310"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:173
 msgid "2017-10-01"
-msgstr ""
+msgstr "2017-10-01"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:175
 msgid "1744443"
@@ -3011,7 +3049,7 @@ msgstr "1744443"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:175
 msgid "2017-09-01"
-msgstr ""
+msgstr "2017-09-01"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:177
 msgid "1916952"
@@ -3019,17 +3057,19 @@ msgstr "1916952"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:177
 msgid "2017-08-01"
-msgstr ""
+msgstr "2017-08-01"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:181
 msgid "Python versions over time"
-msgstr ""
+msgstr "Python версии с течением времени"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:183
 msgid ""
 "Extract the Python version from the ``details.python`` column. Warning: This "
 "query processes over 500 GB of data."
 msgstr ""
+"Исключить Python версию из колонки ``details.python``. Предупреждение: Этот "
+"запрос обрабатывает 500 ГБ данных."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:202
 msgid "python"
@@ -3037,35 +3077,35 @@ msgstr "python"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:204
 msgid "3.7"
-msgstr ""
+msgstr "3.7"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:204
 msgid "18051328726"
-msgstr ""
+msgstr "18051328726"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:206
 msgid "3.6"
-msgstr ""
+msgstr "3.6"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:206
 msgid "9635067203"
-msgstr ""
+msgstr "9635067203"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:208
 msgid "3.8"
-msgstr ""
+msgstr "3.8"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:208
 msgid "7781904681"
-msgstr ""
+msgstr "7781904681"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:210
 msgid "2.7"
-msgstr ""
+msgstr "2.7"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:210
 msgid "6381252241"
-msgstr ""
+msgstr "6381252241"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:212
 msgid "null"
@@ -3073,19 +3113,19 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:212
 msgid "2026630299"
-msgstr ""
+msgstr "2026630299"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:214
 msgid "3.5"
-msgstr ""
+msgstr "3.5"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:214
 msgid "1894153540"
-msgstr ""
+msgstr "1894153540"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:219
 msgid "Getting absolute links to artifacts"
-msgstr ""
+msgstr "Получение абсолютной связи с артефактами"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:221
 msgid ""
@@ -3094,16 +3134,22 @@ msgid ""
 "release has been deleted from PyPI. The metadata table includes the ``path`` "
 "column, which includes the hash and artifact filename."
 msgstr ""
+"Иногда полезно иметь возможность получить абсолютные ссылки на загрузку "
+"артефактов из PyPI на основе их хэшей, например, если определенный проект "
+"или релиз был удален из PyPI. В таблице метаданных есть колонка ``path'', "
+"которая включает в себя хэш и имя файла артефакта."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:227
 msgid ""
 "The URL generated here is not guaranteed to be stable, but currently aligns "
 "with the URL where PyPI artifacts are hosted."
 msgstr ""
+"Не гарантируется, что сгенерированный здесь URL будет стабильным, но в "
+"настоящее время он совпадает с URL, на котором размещены артефакты PyPI."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:240
 msgid "url"
-msgstr ""
+msgstr "url"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:242
 msgid ""
@@ -3111,6 +3157,9 @@ msgid ""
 "eb/45/79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/"
 "sampleproject-1.2.0.tar.gz"
 msgstr ""
+"https://files.pythonhosted.org/packages/eb/45/"
+"79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/sampleproject-1."
+"2.0.tar.gz"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:244
 msgid ""
@@ -3118,6 +3167,9 @@ msgid ""
 "packages/56/0a/178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/"
 "sampleproject_nomura-1.2.0-py2.py3-none-any.whl"
 msgstr ""
+"https://files.pythonhosted.org/packages/56/0a/"
+"178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/"
+"sampleproject_nomura-1.2.0-py2.py3-none-any.whl"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:246
 msgid ""
@@ -3125,6 +3177,9 @@ msgid ""
 "packages/63/88/3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/"
 "sampleproject_nomura-1.2.0.tar.gz"
 msgstr ""
+"https://files.pythonhosted.org/packages/63/88/"
+"3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/"
+"sampleproject_nomura-1.2.0.tar.gz"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:248
 msgid ""
@@ -3132,6 +3187,9 @@ msgid ""
 "e9/2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/"
 "sampleproject_doubleyoung18-1.3.0-py2.py3-none-any.whl"
 msgstr ""
+"https://files.pythonhosted.org/packages/21/e9/"
+"2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/"
+"sampleproject_doubleyoung18-1.3.0-py2.py3-none-any.whl"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:250
 msgid ""
@@ -3139,10 +3197,13 @@ msgid ""
 "packages/6f/5b/2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/"
 "sampleproject-1.3.1.tar.gz"
 msgstr ""
+"https://files.pythonhosted.org/packages/6f/5b/"
+"2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/sampleproject-1."
+"3.1.tar.gz"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:255
 msgid "Caveats"
-msgstr ""
+msgstr "Оговорки"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:257
 msgid ""
@@ -3152,6 +3213,11 @@ msgid ""
 "accurate (e.g. the percentage of Python 2 vs. Python 3 downloads) but total "
 "numbers are lower than actual by an order of magnitude."
 msgstr ""
+"В дополнение к предостережениям, перечисленным выше, Linehaul страдает от "
+"ошибки, из-за которой он значительно занижает статистику загрузок до 26 июля "
+"2018 года. Количество загрузок до этой даты пропорционально точно (например, "
+"процентное соотношение загрузок Python 2 и Python 3), но общее количество на "
+"порядок ниже фактического."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:265
 msgid "Additional tools"
@@ -3162,10 +3228,12 @@ msgid ""
 "Besides using the BigQuery console, there are some additional tools which "
 "may be useful when analyzing download statistics."
 msgstr ""
+"Помимо использования консоли BigQuery, есть несколько дополнительных "
+"инструментов, которые могут быть полезны при анализе статистики загрузок."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:271
 msgid "``google-cloud-bigquery``"
-msgstr ""
+msgstr "``google-cloud-bigquery``"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:273
 msgid ""
@@ -3173,10 +3241,13 @@ msgid ""
 "programmatically via the BigQuery API and the `google-cloud-bigquery`_ "
 "project, the official Python client library for BigQuery."
 msgstr ""
+"Вы также можете получить доступ к публичному набору данных статистики "
+"загрузок PyPI программным путем через BigQuery API и проект `google-cloud-"
+"bigquery`_, официальную клиентскую библиотеку Python для BigQuery."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:301
 msgid "``pypinfo``"
-msgstr ""
+msgstr "``pypinfo``"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:303
 msgid ""
@@ -3184,6 +3255,10 @@ msgid ""
 "can generate several useful queries. For example, you can query the total "
 "number of download for a package with the command ``pypinfo package_name``."
 msgstr ""
+"`pypinfo`_ - это инструмент командной строки, который предоставляет доступ к "
+"набору данных и может генерировать несколько полезных запросов. Например, вы "
+"можете запросить общее количество загрузок для пакета с помощью команды ``"
+"pypinfo package_name``."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:307
 msgid "Install `pypinfo`_ using pip."
@@ -3191,33 +3266,39 @@ msgstr "Установите `pypinfo`_ через :program:`pip`."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:313
 msgid "Usage:"
-msgstr ""
+msgstr "Использование:"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:329
 msgid "``pandas-gbq``"
-msgstr ""
+msgstr "``pandas-gbq``"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:331
 msgid ""
 "The `pandas-gbq`_ project allows for accessing query results via `Pandas`_."
 msgstr ""
+"Проект `pandas-gbq`_ позволяет получать доступ к результатам запросов через "
+"`Pandas`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:335
 #: ../source/specifications/dependency-specifiers.rst:489
 msgid "References"
-msgstr ""
+msgstr "Ссылка"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:337
 msgid ""
 "`PyPI Download Counts deprecation email <https://mail.python.org/pipermail/"
 "distutils-sig/2013-May/020855.html>`__"
 msgstr ""
+"`PyPI Скачать Counts deprecation email <https://mail.python.org/pipermail/"
+"distutils-sig/2013-May/020855.html>`__"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:338
 msgid ""
 "`PyPI BigQuery dataset announcement email <https://mail.python.org/pipermail/"
 "distutils-sig/2016-May/028986.html>`__"
 msgstr ""
+"Сообщение об анонсе набора данных PyPI BigQuery по электронной почте "
+"<https://mail.python.org/pipermail/distutils-sig/2016-May/028986.html>`__"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:3
 msgid "Creating and discovering plugins"
@@ -3230,10 +3311,15 @@ msgid ""
 "packages can be separately distributed, your application or library may want "
 "to automatically **discover** all of the plugins available."
 msgstr ""
+"Часто при создании приложений или библиотек на Python вы хотите иметь "
+"возможность предоставлять настройки или дополнительные возможности с помощью "
+"**плагинов**. Поскольку пакеты Python могут распространяться отдельно, ваше "
+"приложение или библиотека могут захотеть автоматически **обнаружить** все "
+"доступные плагины."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:10
 msgid "There are three major approaches to doing automatic plugin discovery:"
-msgstr ""
+msgstr "Существует три основных подхода к автоматическому обнаружению плагинов:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:12
 msgid "`Using naming convention`_."
@@ -3259,12 +3345,19 @@ msgid ""
 "uses the naming convention ``flask_{plugin_name}``. If you wanted to "
 "automatically discover all of the Flask plugins installed:"
 msgstr ""
+"Если все плагины вашего приложения имеют одинаковые имена, вы можете "
+"использовать :func:`pkgutil.iter_modules` для поиска всех модулей верхнего "
+"уровня, которые соответствуют этому соглашению. Например, `Flask`_ "
+"использует соглашение об именовании ``flask_{plugin_name}``. Если вы хотите "
+"автоматически обнаружить все установленные плагины Flask:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:38
 msgid ""
 "If you had both the `Flask-SQLAlchemy`_ and `Flask-Talisman`_ plugins "
 "installed then ``discovered_plugins`` would be:"
 msgstr ""
+"Если у вас установлены оба плагина `Flask-SQLAlchemy`_ и `Flask-Talisman`_, "
+"то ``discovered_plugins`` будет иметь вид:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:48
 msgid ""
@@ -3272,6 +3365,10 @@ msgid ""
 "Package Index's :ref:`simple repository API <simple-repository-api>` for all "
 "packages that conform to your naming convention."
 msgstr ""
+"Использование соглашения об именовании для плагинов также позволяет "
+"запрашивать у Python Package Index :ref:`simple repository API <simple-"
+"repository-api>` все пакеты, которые соответствуют вашему соглашению об "
+"именовании."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:58
 msgid "Using namespace packages"
@@ -3287,6 +3384,14 @@ msgid ""
 "installed, you can use :func:`pkgutil.iter_modules` to discover all modules "
 "and packages installed under that namespace:"
 msgstr ""
+":doc:`Пакеты пространства имен <пакеты-пространства имен>` могут быть "
+"использованы для обеспечения соглашения о том, где размещать плагины, а "
+"также обеспечивают способ обнаружения. Например, если вы сделаете подпакет "
+"``myapp.plugins`` пакетом пространства имен, то другие :term:``дистрибутивы "
+"<Distribution Package>`` смогут предоставлять модули и пакеты для этого "
+"пространства имен. После установки вы можете использовать :func:`pkgutil."
+"iter_modules` для обнаружения всех модулей и пакетов, установленных под этим "
+"пространством имен:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:88
 msgid ""
@@ -3296,6 +3401,11 @@ msgid ""
 "``myapp.plugins.a`` and ``myapp.plugins.b`` then ``discovered_plugins`` in "
 "this case would be:"
 msgstr ""
+"Указание ``myapp.plugins.__path__`` в :func:`~pkgutil.iter_modules`` "
+"заставляет его искать только те модули, которые находятся непосредственно в "
+"этом пространстве имен. Например, если у вас установлены дистрибутивы, "
+"предоставляющие модули ``myapp.plugins.a`` и ``myapp.plugins.b``, то "
+"``discovered_plugins`` в этом случае будет:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:100
 msgid ""
@@ -3313,6 +3423,19 @@ msgid ""
 "will need to explicitly pass a list of packages to :func:`setup`'s "
 "``packages`` argument instead of using :func:`setuptools.find_packages`."
 msgstr ""
+"В этом примере в качестве пакета пространства имен используется подпакет "
+"(``myapp.plugins``), но можно также использовать для этой цели пакет "
+"верхнего уровня (например, ``myapp_plugins``). Выбор пространства имен - это "
+"вопрос предпочтений, но не рекомендуется делать основной пакет верхнего "
+"уровня вашего проекта (``myapp`` в данном случае) пакетом пространства имен "
+"для плагинов, так как один плохой плагин может привести к поломке всего "
+"пространства имен, что в свою очередь сделает ваш проект неимпортируемым. "
+"Чтобы подход \"namespace sub-package\" работал, пакеты плагинов должны "
+"опускать :file:`__init__.py` для каталога пакета верхнего уровня (``myapp`` "
+"в данном случае) и включать стиль namespace-package :file:`__init__.py` в "
+"каталог namespace sub-package (``myapp/plugins``).  Это также означает, что "
+"плагины должны будут явно передавать список пакетов в аргумент ``packages`` "
+"в :func:`setup``, а не использовать :func:`setuptools.find_packages``."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:114
 msgid ""
@@ -3321,6 +3444,10 @@ msgid ""
 "namespace-packages` documentation and clearly document which approach is "
 "preferred for plugins to your project."
 msgstr ""
+"Пакеты пространства имен - сложная функция, и существует несколько различных "
+"способов их создания. Настоятельно рекомендуется прочитать документацию :doc"
+":`packaging-namespace-packages` и четко документировать, какой подход "
+"предпочтителен для плагинов вашего проекта."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:122
 msgid "Using package metadata"
@@ -3333,12 +3460,18 @@ msgid ""
 "plugin. Another package supporting this kind of plugin can use the metadata "
 "to discover that plugin."
 msgstr ""
+"Пакеты могут иметь метаданные для плагинов, описанные в :ref:`entry-points`. "
+"Указывая их, пакет сообщает, что он содержит определенный тип плагина. "
+"Другой пакет, поддерживающий этот тип плагина, может использовать метаданные "
+"для обнаружения этого плагина."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:128
 msgid ""
 "For example if you have a package named ``myapp-plugin-a`` and it includes "
 "the following in its ``pyproject.toml``:"
 msgstr ""
+"Например, если у вас есть пакет с именем ``myapp-plugin-a`` и он включает "
+"следующее в свой ``pyproject.toml``:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:136
 msgid ""
@@ -3346,18 +3479,25 @@ msgid ""
 "func:`importlib.metadata.entry_points` (or the backport_ "
 "``importlib_metadata >= 3.6`` for Python 3.6-3.9):"
 msgstr ""
+"Затем вы можете обнаружить и загрузить все зарегистрированные точки входа, "
+"используя :func:`importlib.metadata.entry_points` (или backport_ ``"
+"importlib_metadata >= 3.6`` для Python 3.6-3.9):"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:151
 msgid ""
 "In this example, ``discovered_plugins`` would be a collection of type :class:"
 "`importlib.metadata.EntryPoint`:"
 msgstr ""
+"В этом примере ``discovered_plugins`` будет коллекцией типа :class:`importlib"
+".metadata.EntryPoint``:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:160
 msgid ""
 "Now the module of your choice can be imported by executing "
 "``discovered_plugins['a'].load()``."
 msgstr ""
+"Теперь выбранный вами модуль можно импортировать, выполнив команду "
+"``discovered_plugins['a'].load()``."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:163
 msgid ""
@@ -3365,6 +3505,9 @@ msgid ""
 "has a lot of options. It's recommended to read over the entire section on :"
 "doc:`entry points <setuptools:userguide/entry_point>` ."
 msgstr ""
+"Спецификация ``точки входа`` в :file:`setup.py` довольно гибкая и имеет "
+"множество опций. Рекомендуется прочитать весь раздел по :doc:``точкам входа "
+"<setuptools:userguide/entry_point>` ."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:167
 msgid ""
@@ -3372,6 +3515,9 @@ msgid ""
 "library/importlib.metadata>`, most packaging tools other than setuptools "
 "provide support for defining entry points."
 msgstr ""
+"Поскольку эта спецификация является частью :doc:`стандартной библиотеки "
+"<python:library/importlib.metadata>`, большинство инструментов упаковки, "
+"кроме setuptools, обеспечивают поддержку определения точек входа."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:5
 msgid "Packaging and distributing projects"
@@ -3379,13 +3525,11 @@ msgstr "Упаковка и распространение проектов"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:7
 msgid "Outdated"
-msgstr ""
+msgstr "Устаревший"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:8
-#, fuzzy
-#| msgid "2013-12-08"
 msgid "2023-12-14"
-msgstr "2013-12-08"
+msgstr "2023-12-14"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:10
 msgid ""
@@ -3395,6 +3539,11 @@ msgid ""
 "assumes that you are already familiar with the contents of the :doc:`/"
 "tutorials/installing-packages` page."
 msgstr ""
+"В этом разделе рассматриваются некоторые дополнительные детали по настройке, "
+"упаковке и распространению проектов Python с помощью ``setuptools``, которые "
+"не были рассмотрены во вводном руководстве в :doc:`/tutorials/packaging-"
+"projects``.  При этом предполагается, что вы уже знакомы с содержанием "
+"страницы :doc:`/tutorials/installing-packages`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:16
 msgid ""
@@ -3402,6 +3551,9 @@ msgid ""
 "development as a whole.  For example, it does not provide guidance or tool "
 "recommendations for version control, documentation, or testing."
 msgstr ""
+"Этот раздел *не* ставит целью охватить лучшие практики разработки проектов "
+"на Python в целом.  Например, в нем нет руководства или рекомендаций по "
+"инструментам для контроля версий, документации или тестирования."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:20
 msgid ""
@@ -3410,6 +3562,11 @@ msgid ""
 "note that some advisory content there may be outdated. In the event of "
 "conflicts, prefer the advice in the Python Packaging User Guide."
 msgstr ""
+"Дополнительные справочные материалы см. в :std:doc:`Building and "
+"Distributing Packages <setuptools:userguide/index>` в :ref:`setuptools` "
+"docs, но учтите, что некоторые рекомендации там могут быть устаревшими. В "
+"случае возникновения противоречий отдавайте предпочтение советам в "
+"руководстве пользователя по упаковке Python."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:28
 msgid "Requirements for packaging and distributing"
@@ -3433,6 +3590,9 @@ msgid ""
 "Package>` to :term:`PyPI <Python Package Index (PyPI)>` (see :ref:`below "
 "<Uploading your Project to PyPI>`)."
 msgstr ""
+"Он понадобится для загрузки вашего проекта :term:`distributions "
+"<Дистрибутивный пакет>` в :term:`PyPI <Индекс пакетов Python (PyPI)>` (см. "
+":ref:`ниже <Загрузка проекта в PyPI>`)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:52
 msgid "Configuring your project"
@@ -3449,6 +3609,10 @@ msgid ""
 "pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ "
 "in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"Наиболее важным файлом является :file:`setup.py`, который существует в корне "
+"каталога вашего проекта. Для примера смотрите `setup.py <https://github.com/"
+"pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ "
+"в проекте-образце PyPA <https://github.com/pypa/sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:66
 msgid ":file:`setup.py` serves two primary functions:"
@@ -3462,6 +3626,11 @@ msgid ""
 "of your project are defined.  The most relevant arguments are explained in :"
 "ref:`the section below <setup() args>`."
 msgstr ""
+"Это файл, в котором настраиваются различные аспекты вашего проекта. Главная "
+"особенность :file:`setup.py` заключается в том, что он содержит глобальную "
+"функцию ``setup()``.  Ключевые слова-аргументы этой функции определяют "
+"конкретные детали вашего проекта.  Наиболее важные аргументы описаны в :ref:`"
+"разделе ниже <setup() args>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:74
 msgid ""
@@ -3469,6 +3638,9 @@ msgid ""
 "packaging tasks. To get a listing of available commands, run ``python3 setup."
 "py --help-commands``."
 msgstr ""
+"Это интерфейс командной строки для запуска различных команд, связанных с "
+"задачами упаковки. Чтобы получить список доступных команд, выполните команду "
+"``python3 setup.py --help-commands``."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:82
 msgid ""
@@ -3477,6 +3649,11 @@ msgid ""
 "pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup."
 "cfg>`_ in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
+":file:`setup.cfg` - это ini-файл, содержащий параметры по умолчанию для "
+"команд :file:`setup.py`.  Для примера смотрите файл `setup.cfg "
+"<https://github.com/pypa/sampleproject/blob/"
+"db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.cfg>`_ в проекте-образце `"
+"PyPA <https://github.com/pypa/sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:89
 msgid "README.rst / README.md"
@@ -3491,6 +3668,12 @@ msgid ""
 "projects/markdown/>`_ are supported as well (look at ``setup()``'s :ref:"
 "`long_description_content_type <description>` argument)."
 msgstr ""
+"Все проекты должны содержать файл readme, в котором описывается цель "
+"проекта. Наиболее распространенным форматом является `reStructuredText "
+"<https://docutils.sourceforge.io/rst.html>`_ с расширением \"rst\", хотя это "
+"не является обязательным условием; также поддерживаются различные варианты `"
+"Markdown <https://daringfireball.net/projects/markdown/>`_ (посмотрите на "
+"аргумент ``setup()`` :ref:`long_description_content_type <description>`)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:98
 msgid ""
@@ -3498,6 +3681,9 @@ msgid ""
 "main/README.md>`_ from the `PyPA sample project <https://github.com/pypa/"
 "sampleproject>`_."
 msgstr ""
+"Для примера смотрите `README.md <https://github.com/pypa/sampleproject/blob/"
+"main/README.md>`_ из проекта-образца `PyPA <https://github.com/pypa/"
+"sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:102
 msgid ""
@@ -3509,6 +3695,13 @@ msgid ""
 "don't need to list your readme file in :file:`MANIFEST.in`. Otherwise, "
 "include it to be explicit."
 msgstr ""
+"В проектах, использующих :ref:`setuptools` 0.6.27+, стандартные файлы readme "
+"(:file:`README.rst`, :file:`README.txt` или :file:`README`) по умолчанию "
+"включены в дистрибутивы исходных текстов. Встроенная библиотека "
+":ref:`distutils` перенимает это поведение начиная с Python 3.7. Кроме того, "
+":ref:`setuptools` 36.4.0+ будет включать :file:`README.md`, если он будет "
+"найден. Если вы используете setuptools, вам не нужно указывать свой файл "
+"readme в :file:`MANIFEST.in`. В противном случае включите его в явном виде."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:111
 msgid "MANIFEST.in"
@@ -3521,6 +3714,10 @@ msgid ""
 "on writing a :file:`MANIFEST.in` file, including a list of what's included "
 "by default, see \":ref:`Using MANIFEST.in`\"."
 msgstr ""
+"Файл :file:`MANIFEST.in` необходим, когда вам нужно упаковать дополнительные "
+"файлы, которые не включены автоматически в дистрибутив.  Подробнее о "
+"написании файла :file:`MANIFEST.in`, включая список того, что включается по "
+"умолчанию, смотрите в разделе \":ref:`Using MANIFEST.in`\"."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:118
 msgid ""
@@ -3529,11 +3726,16 @@ msgid ""
 "its manifest file, since all the necessary files have been included by :ref:"
 "`setuptools` 43.0.0 and newer."
 msgstr ""
+"Однако вы можете не использовать :file:`MANIFEST.in`. Для примера, проект "
+"примера `PyPA <https://github.com/pypa/sampleproject>`_ удалил свой файл "
+"манифеста, так как все необходимые файлы были включены в :ref:`setuptools` "
+"43.0.0 и новее."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:123
 msgid ""
 ":file:`MANIFEST.in` does not affect binary distributions such as wheels."
 msgstr ""
+":file:`MANIFEST.in' не влияет на бинарные дистрибутивы, такие как колеса."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:126
 msgid "LICENSE.txt"
@@ -3548,6 +3750,12 @@ msgid ""
 "as `GitHub's Choose a License <https://choosealicense.com/>`_ or consult a "
 "lawyer."
 msgstr ""
+"Каждый пакет должен содержать файл лицензии с подробным описанием условий "
+"распространения. Во многих юрисдикциях пакеты без явной лицензии не могут "
+"быть законно использованы или распространены кем-либо, кроме "
+"правообладателя. Если вы не уверены, какую лицензию выбрать, вы можете "
+"воспользоваться такими ресурсами, как `GitHub's Choose a License "
+"<https://choosealicense.com/>`_ или проконсультироваться с юристом."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:134
 msgid ""
@@ -3555,6 +3763,9 @@ msgid ""
 "blob/main/LICENSE.txt>`_ from the `PyPA sample project <https://github.com/"
 "pypa/sampleproject>`_."
 msgstr ""
+"Для примера смотрите `LICENSE.txt <https://github.com/pypa/sampleproject/"
+"blob/main/LICENSE.txt>`_ из проекта-образца `PyPA <https://github.com/pypa/"
+"sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:139
 msgid "<your package>"
@@ -3566,6 +3777,10 @@ msgid ""
 "Python modules and packages under a single top-level package that has the "
 "same :ref:`name <setup() name>` as your project, or something very close."
 msgstr ""
+"Хотя это и не обязательно, наиболее распространенной практикой является "
+"включение ваших модулей и пакетов Python в один пакет верхнего уровня, "
+"который имеет то же :ref:`имя <setup() name>`, что и ваш проект, или что-то "
+"очень близкое."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:145
 msgid ""
@@ -3573,6 +3788,9 @@ msgid ""
 "main/src/sample>`_ package that's included in the `PyPA sample project "
 "<https://github.com/pypa/sampleproject>`_."
 msgstr ""
+"В качестве примера можно привести пакет `sample <https://github.com/pypa/"
+"sampleproject/tree/main/src/sample>`_, который входит в состав проекта-"
+"образца PyPA <https://github.com/pypa/sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:153
 msgid "setup() args"
@@ -3584,6 +3802,9 @@ msgid ""
 "contains a global ``setup()`` function.  The keyword arguments to this "
 "function are how specific details of your project are defined."
 msgstr ""
+"Как уже говорилось выше, главная особенность :file:`setup.py` заключается в "
+"том, что он содержит глобальную функцию ``setup()``.  Ключевые слова-"
+"аргументы этой функции определяют конкретные детали вашего проекта."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:159
 msgid ""
@@ -3591,6 +3812,9 @@ msgid ""
 "elsewhere. The full list can be found :doc:`in the setuptools documentation "
 "<setuptools:references/keywords>`."
 msgstr ""
+"Некоторые из них временно описаны ниже, пока информация о них не будет "
+"перенесена в другое место. Полный список можно найти :doc:`в документации по "
+"setuptools <setuptools:references/keywords>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:163
 msgid ""
@@ -3599,12 +3823,20 @@ msgid ""
 "contained in the `PyPA sample project <https://github.com/pypa/"
 "sampleproject>`_."
 msgstr ""
+"Большинство приведенных фрагментов взяты из файла `setup.py <https://github."
+"com/pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup."
+"py>`_, содержащегося в проекте-образце `PyPA <https://github.com/pypa/"
+"sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:170
+#, fuzzy
 msgid ""
 "See :ref:`Choosing a versioning scheme` for more information on ways to use "
 "versions to convey compatibility information to your users."
 msgstr ""
+"Дополнительные сведения о том, как использовать версии для передачи "
+"информации о совместимости пользователям, см. в :ref:`Выбор схемы "
+"версионирования`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:177
 msgid "``packages``"
