@@ -98,7 +98,7 @@ precise rules are given in the :ref:`name normalization specification
 
 ---------------------------
 
-.. [#non-identifier-mod-name] Although is technically possible
+.. [#non-identifier-mod-name] Although it is technically possible
    to import packages/modules that do not have a valid Python identifier as
    their name, using :doc:`importlib <python:library/importlib>`,
    this is vanishingly rare and strongly discouraged.
