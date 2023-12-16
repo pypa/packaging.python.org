@@ -12,17 +12,17 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-14 18:27+0000\n"
-"PO-Revision-Date: 2023-12-12 00:03+0000\n"
+"PO-Revision-Date: 2023-12-16 03:01+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1302,24 +1302,28 @@ msgstr "Доверенная замена:ref:`twine':"
 #: ../source/discussions/setup-py-deprecated.rst:103
 #, fuzzy
 msgid "``python -m twine check --strict dist/*``"
-msgstr "``python -m twine check``"
+msgstr "``python -m twine check --strict dist/*``"
 
 #: ../source/discussions/setup-py-deprecated.rst:104
 #, fuzzy
 msgid "``python -m twine register dist/*.whl`` [#not-pypi]_"
-msgstr "``python -m twine register``"
+msgstr "``python -m twine register dist/*.whl`` [#not-pypi]_"
 
 #: ../source/discussions/setup-py-deprecated.rst:105
 #, fuzzy
 msgid "``python -m twine upload dist/*``"
-msgstr "``python -m twine upload``"
+msgstr "``python -m twine upload dist/*``"
 
 #: ../source/discussions/setup-py-deprecated.rst:107
+#, fuzzy
 msgid ""
 "Not necessary, nor supported on :term:`PyPI <Python Package Index (PyPI)>`. "
 "But might be necessary on other :term:`package indexes <package index>` (for "
 "example :ref:`devpi`)."
 msgstr ""
+"Не требуется и не поддерживается на:term:`PyPI <Python Package Index (PyPI)>`"
+". Но может потребоваться и в других :термин:`package index>` "
+"(например:ref:`devpi`)."
 
 #: ../source/discussions/setup-py-deprecated.rst:112
 msgid "``python setup.py --version``"
@@ -1791,6 +1795,9 @@ msgid ""
 "Read the `deprecation notice <https://blog.pypi.org/posts/2023-06-26-"
 "deprecate-egg-uploads/>`_ for more information."
 msgstr ""
+"Загрузки :term:`Egg` были отключены для загрузки в PyPI, согласно :pep:`715`"
+". Для получения дополнительной информации читайте уведомление о депривации "
+"<https://blog.pypi.org/posts/2023-06-26-deprecate-egg-uploads/>`_."
 
 #: ../source/discussions/wheel-vs-egg.rst:53
 msgid ""
@@ -1798,10 +1805,13 @@ msgid ""
 "format, although :ref:`this is not officially supported at this time <binary-"
 "distribution-format-import-wheel>`."
 msgstr ""
+"В некоторых случаях колеса могут использоваться в качестве импортируемого "
+"формата времени выполнения, хотя :ref:`это не поддерживается официально в "
+"настоящее время <binary-distribution-format-import-wheel>`."
 
 #: ../source/flow.rst:3
 msgid "The Packaging Flow"
-msgstr ""
+msgstr "Упаковочный поток"
 
 #: ../source/flow.rst:5
 msgid ""
@@ -1810,6 +1820,10 @@ msgid ""
 "Package Index (PyPI)`_. It is written for package publishers, who are "
 "assumed to be the package author."
 msgstr ""
+"Цель этого документа - описать процесс публикации/распространения :term:`"
+"распространяемого пакета <Распространяемый пакет>`, обычно в `Индекс пакетов "
+"Python (PyPI)`_. Он написан для издателей пакетов, которые, как "
+"предполагается, являются авторами пакетов."
 
 #: ../source/flow.rst:12
 msgid ""
@@ -1817,18 +1831,25 @@ msgid ""
 "process of preparing a simple package for release, it does not fully "
 "enumerate what steps and files are required, and for what purpose."
 msgstr ""
+"Хотя в :doc:`учебнике <tutorials/packaging-projects>` рассматривается "
+"процесс подготовки простого пакета к выпуску, он не полностью перечисляет, "
+"какие шаги и файлы требуются и для чего."
 
 #: ../source/flow.rst:16
 msgid ""
 "Publishing a package requires a flow from the author's source code to an end "
 "user's Python environment. The steps to achieve this are:"
 msgstr ""
+"Публикация пакета требует перехода от исходного кода автора к среде Python "
+"конечного пользователя. Для этого необходимо выполнить следующие шаги:"
 
 #: ../source/flow.rst:19
 msgid ""
 "Have a source tree containing the package. This is typically a checkout from "
 "a version control system (VCS)."
 msgstr ""
+"Иметь дерево исходных текстов, содержащее пакет. Обычно это проверка из "
+"системы контроля версий (VCS)."
 
 #: ../source/flow.rst:22
 msgid ""
@@ -1837,6 +1858,10 @@ msgid ""
 "will be a :file:`pyproject.toml` file, maintained manually in the source "
 "tree."
 msgstr ""
+"Подготовьте конфигурационный файл, описывающий метаданные пакета (имя, "
+"версию и т.д.) и способ создания артефактов сборки. Для большинства пакетов "
+"это будет файл :file:`pyproject.toml`, поддерживаемый вручную в дереве "
+"исходных текстов."
 
 #: ../source/flow.rst:27
 msgid ""
@@ -1847,22 +1872,32 @@ msgid ""
 "build tool using the configuration file from the previous step. Often there "
 "is just one generic wheel for a pure Python package."
 msgstr ""
+"Создайте артефакты сборки для отправки в службу распространения пакетов ("
+"обычно PyPI); обычно это будет :term:`исходный дистрибутив (\"sdist\") "
+"<Source Distribution (или \"sdist\")>` и один или несколько :term:`сборных "
+"дистрибутивов (\"wheels\") <Built Distribution>`. Они создаются инструментом "
+"сборки с помощью конфигурационного файла, полученного на предыдущем шаге. "
+"Часто для пакета чистого Python существует только одно общее колесо."
 
 #: ../source/flow.rst:35
 msgid "Upload the build artifacts to the package distribution service."
-msgstr ""
+msgstr "Загрузите строительные артефакты в службу распределения пакетов."
 
 #: ../source/flow.rst:37
 msgid ""
 "At that point, the package is present on the package distribution service. "
 "To use the package, end users must:"
 msgstr ""
+"На этом этапе пакет присутствует в сервисе распределения пакетов. Для "
+"использования пакета конечные пользователи должны:"
 
 #: ../source/flow.rst:40
 msgid ""
 "Download one of the package's build artifacts from the package distribution "
 "service."
 msgstr ""
+"Скачайте один из строительных артефактов пакета из службы распространения "
+"пакетов."
 
 #: ../source/flow.rst:43
 msgid ""
@@ -1870,16 +1905,21 @@ msgid ""
 "directory. This step may involve a build/compile step which, if needed, must "
 "be described by the package metadata."
 msgstr ""
+"Установите его в своей среде Python, обычно в его каталоге ``site-packages``"
+". Этот шаг может включать в себя этап сборки/компиляции, который при "
+"необходимости должен быть описан пакетными метаданными."
 
 #: ../source/flow.rst:47
 msgid ""
 "These last 2 steps are typically performed by :ref:`pip` when an end user "
 "runs ``pip install``."
 msgstr ""
+"Эти два последних шага обычно выполняются :ref:`pip`, когда конечный "
+"пользователь запускает ``pip install``."
 
 #: ../source/flow.rst:50
 msgid "The steps above are described in more detail below."
-msgstr ""
+msgstr "Приведенные выше шаги более подробно описаны ниже."
 
 #: ../source/flow.rst:53
 msgid "The source tree"
@@ -1891,6 +1931,9 @@ msgid ""
 "VCS. The particular version of the code used to create the build artifacts "
 "will typically be a checkout based on a tag associated with the version."
 msgstr ""
+"Источниковое дерево содержит исходный код пакета, обычно чек от VCS. "
+"Конкретная версия кода, используемого для создания артефактов сборки, как "
+"правило, будет проверкой на основе тега, связанного с версией."
 
 #: ../source/flow.rst:60
 msgid "The configuration file"
@@ -1902,6 +1945,9 @@ msgid ""
 "artifacts. The standard practice is to use a :file:`pyproject.toml` file in "
 "the `TOML format`_."
 msgstr ""
+"Конфигурационный файл зависит от инструмента, используемого для создания "
+"артефактов сборки. Стандартной практикой является использование файла "
+":file:`pyproject.toml` в формате `TOML`_."
 
 #: ../source/flow.rst:68
 msgid ""
@@ -1911,10 +1957,15 @@ msgid ""
 "`poetry`, :ref:`setuptools`, `trampolim`_, and `whey`_. Each tool's "
 "documentation will show what to put in the ``[build-system]`` table."
 msgstr ""
+"Как минимум, файл :file:`pyproject.toml' нуждается в ``[build-system]`` "
+"таблица с указанием вашего инструмента сборки. Имеется множество "
+"инструментов для сборки, в том числе:ref:`flit`, :ref:`hatch`, :ref:`pdm`, "
+":ref:`poetry`, :ref:`setuptools', `trampolim`_ и `whey`_. Документация "
+"каждого инструмента покажет, что поместить в таблицу ``[build-system]``."
 
 #: ../source/flow.rst:77
 msgid "For example, here is a table for using :ref:`hatch`:"
-msgstr ""
+msgstr "Например, вот таблица для использования:ref:`hatch`:"
 
 #: ../source/flow.rst:85
 msgid ""
@@ -1925,32 +1976,47 @@ msgid ""
 "`pip` also acts as a frontend when it runs your build tool's backend to "
 "install from a source distribution."
 msgstr ""
+"С такой таблицей в файле :file:`pyproject.toml', \":term:`frontend <Build "
+"Frontend>`\" tool like :ref:`build` может запускать выбранный вами "
+"инструмент построения \":term:`backend <Build Backend>`\" для создания "
+"артефактов сборки. Ваш инструмент сборки также может предоставить свой "
+"собственный фронтенд. Инструмент установки, такой как :ref:`pip'', также "
+"действует в качестве фронтенда, когда он запускает предысторию вашего "
+"инструмента для установки из распределения источника."
 
 #: ../source/flow.rst:94
 msgid ""
 "The particular build tool you choose dictates what additional information is "
 "required in the :file:`pyproject.toml` file. For example, you might specify:"
 msgstr ""
+"Выбранный вами инструмент сборки диктует, какая дополнительная информация "
+"требуется в файле :file:`pyproject.toml`. Например, вы можете указать:"
 
 #: ../source/flow.rst:97
 msgid ""
 "a ``[project]`` table containing project :doc:`Core Metadata </"
 "specifications/core-metadata/>` (name, version, author and so forth),"
 msgstr ""
+"таблица ``[проект]``, содержащая проект :doc:``Основные метаданные </"
+"specifications/core-metadata/>` (название, версия, автор и так далее),"
 
 #: ../source/flow.rst:101
 msgid "a ``[tool]`` table containing tool-specific configuration options."
 msgstr ""
+"таблица ``[tool]``, содержащая параметры конфигурации, специфичные для "
+"конкретного инструмента."
 
 #: ../source/flow.rst:103
 msgid ""
 "Refer to the :ref:`pyproject.toml guide <writing-pyproject-toml>` for a "
 "complete guide to ``pyproject.toml`` configuration."
 msgstr ""
+"Полное руководство по настройке ``pyproject.toml'' см. в :ref:`"
+"pyproject.toml guide <writing-pyproject-toml>`."
 
 #: ../source/flow.rst:108
 msgid "Build artifacts"
-msgstr ""
+msgstr "Создание артефактов"
 
 #: ../source/flow.rst:111
 msgid "The source distribution (sdist)"
@@ -1964,21 +2030,31 @@ msgid ""
 "wanting to develop your sources, and for end user systems where some local "
 "compilation step is required (such as a C extension)."
 msgstr ""
+"Дистрибутив с исходным кодом содержит достаточно средств для установки "
+"пакета из исходного кода в среду Python конечного пользователя. Как таковой, "
+"он содержит исходный текст пакета, а также может включать тесты и "
+"документацию. Они полезны для конечных пользователей, желающих разработать "
+"свои исходные тексты, а также для систем конечных пользователей, где "
+"требуется локальная компиляция (например, расширение C)."
 
 #: ../source/flow.rst:119 ../source/flow.rst:143
 msgid ""
 "The :ref:`build` package knows how to invoke your build tool to create one "
 "of these:"
 msgstr ""
+"Пакет :ref:`build` знает, как вызвать ваш инструмент сборки для создания "
+"одного из них:"
 
 #: ../source/flow.rst:126
 msgid ""
 "Or, your build tool may provide its own interface for creating an sdist."
 msgstr ""
+"Или же ваш инструмент сборки может предоставлять собственный интерфейс для "
+"создания sdist."
 
 #: ../source/flow.rst:130
 msgid "The built distributions (wheels)"
-msgstr ""
+msgstr "Построенные дистрибутивы (колеса)"
 
 #: ../source/flow.rst:132
 msgid ""
@@ -1987,6 +2063,10 @@ msgid ""
 "wheel file can simply be unpacked into the ``site-packages`` directory. This "
 "makes the install faster and more convenient for end users."
 msgstr ""
+"Собранный дистрибутив содержит только файлы, необходимые для среды Python "
+"конечного пользователя. При установке не требуется компиляция, а файл wheel "
+"можно просто распаковать в каталог ``ite-packages``. Это делает установку "
+"более быстрой и удобной для конечных пользователей."
 
 #: ../source/flow.rst:137
 msgid ""
@@ -1996,10 +2076,18 @@ msgid ""
 "supports. If a suitable wheel file is not available, tools like :ref:`pip` "
 "will fall back to installing the source distribution."
 msgstr ""
+"Пакету на чистом Python обычно требуется только одно \"общее\" колесо. Пакет "
+"с компилируемыми бинарными расширениями нуждается в колесе для каждой "
+"поддерживаемой комбинации интерпретатора Python, операционной системы и "
+"архитектуры процессора, которые он поддерживает. Если подходящий файл колеса "
+"недоступен, такие инструменты, как :ref:`pip`, вернутся к установке "
+"исходного дистрибутива."
 
 #: ../source/flow.rst:150
 msgid "Or, your build tool may provide its own interface for creating a wheel."
 msgstr ""
+"Или же ваш инструмент сборки может предоставлять собственный интерфейс для "
+"создания колеса."
 
 #: ../source/flow.rst:154
 msgid ""
@@ -2007,25 +2095,31 @@ msgid ""
 "from the source in the current directory; the above examples are "
 "deliberately specific."
 msgstr ""
+"По умолчанию поведение :ref:`build' состоит в том, чтобы сделать как sdist, "
+"так и колесо из источника в текущем каталоге; приведенные выше примеры "
+"преднамеренно конкретны."
 
 #: ../source/flow.rst:159
-#, fuzzy
 msgid "Upload to the package distribution service"
-msgstr "Загрузите свои дистрибутивы"
+msgstr "Загрузка в службу распространения пакетов"
 
 #: ../source/flow.rst:161
 msgid ""
 "The :ref:`twine` tool can upload build artifacts to PyPI for distribution, "
 "using a command like:"
 msgstr ""
+"Инструмент :ref:`twine` может загружать артефакты сборки в PyPI для "
+"распространения, используя такую команду, как:"
 
 #: ../source/flow.rst:168
 msgid "Or, your build tool may provide its own interface for uploading."
 msgstr ""
+"Или же ваш инструмент сборки может предоставлять собственный интерфейс для "
+"загрузки."
 
 #: ../source/flow.rst:171
 msgid "Download and install"
-msgstr ""
+msgstr "Скачать и установить"
 
 #: ../source/flow.rst:173
 msgid ""
@@ -2033,12 +2127,17 @@ msgid ""
 "package into their Python environment. Typically this is done with :ref:"
 "`pip`, using a command like:"
 msgstr ""
+"Теперь, когда пакет опубликован, конечные пользователи могут загрузить и "
+"установить его в свою среду Python. Обычно это делается с помощью :ref:`pip`"
+", используя такую команду, как:"
 
 #: ../source/flow.rst:181
 msgid ""
 "End users may also use other tools like :ref:`pipenv`, :ref:`poetry`, or :"
 "ref:`pdm`."
 msgstr ""
+"Конечные пользователи могут также использовать другие инструменты, такие "
+"как:ref:`pipenv`, :ref:`poetry', или :ref:`pdm'."
 
 #: ../source/glossary.rst:3
 msgid "Glossary"
@@ -2046,17 +2145,19 @@ msgstr "Словарь терминов"
 
 #: ../source/glossary.rst:8
 msgid "Binary Distribution"
-msgstr ""
+msgstr "Двоичное распределение"
 
 #: ../source/glossary.rst:11
 msgid ""
 "A specific kind of :term:`Built Distribution` that contains compiled "
 "extensions."
 msgstr ""
+"Особый вид :term:`Built Distribution`, содержащий скомпилированные "
+"расширения."
 
 #: ../source/glossary.rst:14
 msgid "Build Backend"
-msgstr ""
+msgstr "Создание бэкэнда"
 
 #: ../source/glossary.rst:17
 msgid ""
@@ -2065,6 +2166,11 @@ msgid ""
 "`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
 "`frontend <Build Frontend>`. All backends offer a standardized interface."
 msgstr ""
+"Библиотека, которая принимает дерево исходных текстов или :term:`source "
+"distribution <Source Distribution (или \"sdist\")>` и собирает из него "
+"исходный дистрибутив или :term:`wheel <Wheel>`. Сборка делегируется бэкенду "
+"с помощью :term:`frontend <Build Frontend>`. Все бэкенды предлагают "
+"стандартизированный интерфейс."
 
 #: ../source/glossary.rst:24
 msgid ""
@@ -2072,10 +2178,13 @@ msgid ""
 "hatchling <hatch>`, :ref:`maturin`, :ref:`meson-python`, :ref:`scikit-build-"
 "core`, and :ref:`setuptools`."
 msgstr ""
+"Примерами бэкендов сборки являются :ref:`flit's flit-core <flit>`, :ref:`"
+"hatch's hatchling <hatch>`, :ref:`maturin`, :ref:`meson-python`, :ref"
+":`scikit-build-core`, и :ref:`setuptools`."
 
 #: ../source/glossary.rst:32
 msgid "Build Frontend"
-msgstr ""
+msgstr "Сборка фронтенда"
 
 #: ../source/glossary.rst:35
 msgid ""
@@ -2085,6 +2194,11 @@ msgid ""
 "building is delegated to each source tree's :term:`build backend <Build "
 "Backend>`."
 msgstr ""
+"Инструмент, который может быть запущен пользователями, который принимает "
+"произвольные деревья исходных текстов или :term:`дистрибутивы исходных "
+"текстов <Source Distribution (или \"sdist\")>` и собирает из них "
+"дистрибутивы исходных текстов или :term:`колеса <Wheel>`. Собственно сборка "
+"делегируется каждому дереву исходников :term:`build backend <Build Backend>`."
 
 #: ../source/glossary.rst:42
 msgid "Examples of build frontends are :ref:`pip` and :ref:`build`."
