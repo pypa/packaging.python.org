@@ -16,7 +16,7 @@ A distribution package is a piece of software that you can install.
 Most of the time, this is synonymous with "project". When you type ``pip
 install pkg``, or when you write ``dependencies = ["pkg"]`` in your
 ``pyproject.toml``, ``pkg`` is the name of a distribution package. When
-you search or browse PyPI_, the most widely known centralized source for
+you search or browse the PyPI_, the most widely known centralized source for
 installing Python software, what you see is a list of distribution
 packages. Alternatively, the term "distribution package" can be used to
 refer to a specific file that contains a certain version of a project.
