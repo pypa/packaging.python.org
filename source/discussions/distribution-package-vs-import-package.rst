@@ -82,7 +82,7 @@ How do distribution package names and import package names compare?
 
 Import packages should have valid Python identifiers as their name (the
 :ref:`exact rules <python:identifiers>` are found in the Python
-documentation). In particular, they use underscores ``_`` as word
+documentation) #[non-identifier-mod-name]_. In particular, they use underscores ``_`` as word
 separator and they are case-sensitive.
 
 On the other hand, distribution packages can use hyphens ``-`` or
@@ -93,6 +93,16 @@ to case and to ``-`` vs.  ``_`` differences, e.g., ``pip install
 Awesome_Package`` is the same as ``pip install awesome-package`` (the
 precise rules are given in the :ref:`name normalization specification
 <name-normalization>`).
+
+
+
+-
+---------------------------
+
+.. [#non-identifier-mod-name] Although is technically possible
+   to import packages/modules that do not have a valid Python identifier as
+   their name, using :doc:`importlib <python:library/importlib>`,
+   this is vanishingly rare and strongly discouraged.
 
 
 .. _distro: https://en.wikipedia.org/wiki/Linux_distribution
