@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-16 03:01+0000\n"
-"PO-Revision-Date: 2023-12-16 12:16+0000\n"
+"PO-Revision-Date: 2023-12-17 04:17+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ru/>\n"
@@ -3840,7 +3840,7 @@ msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:177
 msgid "``packages``"
-msgstr ""
+msgstr "``пакеты``"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:183
 msgid ""
@@ -3851,10 +3851,17 @@ msgid ""
 "packages.  Use the ``exclude`` keyword argument to omit packages that are "
 "not intended to be released and installed."
 msgstr ""
+"Установите ``packages`` в список всех :term:`packages <Import Package>` в "
+"вашем проекте, включая их подпакеты, подсубпакеты и т.д.  Хотя пакеты можно "
+"перечислить вручную, ``setuptools.find_packages()`` находит их "
+"автоматически.  Используйте ключевой аргумент ``include`` для поиска только "
+"заданных пакетов.  Используйте ключевой аргумент ``exclude`` для исключения "
+"пакетов, которые не предназначены для выпуска и установки."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:192
+#, fuzzy
 msgid "``py_modules``"
-msgstr ""
+msgstr "``py_modules``"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:198
 msgid ""
@@ -3862,6 +3869,9 @@ msgid ""
 "a package, set ``py_modules`` to a list of the names of the modules (minus "
 "the ``.py`` extension) in order to make :ref:`setuptools` aware of them."
 msgstr ""
+"Если ваш проект содержит однофайловые модули Python, которые не являются "
+"частью пакета, установите ``py_modules`` в список имен модулей (за вычетом "
+"расширения ``.py``), чтобы :ref:`setuptools`` узнал о них."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:204
 #, fuzzy
@@ -3874,12 +3884,18 @@ msgid ""
 "minimally needs to run. When the project is installed by :ref:`pip`, this is "
 "the specification that is used to install its dependencies."
 msgstr ""
+"\"install_requires\" следует использовать, чтобы указать, какие зависимости "
+"минимально необходимы проекту для запуска. Когда проект устанавливается с "
+"помощью :ref:`pip`, именно эта спецификация используется для установки его "
+"зависимостей."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:214
 msgid ""
 "For more on using \"install_requires\" see :ref:`install_requires vs "
 "Requirements files`."
 msgstr ""
+"Подробнее об использовании \"install_requires\" смотрите :ref:`"
+"install_requires vs Requirements files`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:221
 msgid "``package_data``"
@@ -3893,6 +3909,11 @@ msgid ""
 "be of interest to programmers using the package. These files are called "
 "\"package data\"."
 msgstr ""
+"Часто в :term:`пакет <Import Package>` необходимо установить дополнительные "
+"файлы. Эти файлы часто представляют собой данные, тесно связанные с "
+"реализацией пакета, или текстовые файлы, содержащие документацию, которая "
+"может быть интересна программистам, использующим пакет. Такие файлы "
+"называются \"данными пакета\"."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:235
 msgid ""
@@ -3900,12 +3921,17 @@ msgid ""
 "names that should be copied into the package. The paths are interpreted as "
 "relative to the directory containing the package."
 msgstr ""
+"Значение должно представлять собой отображение имени пакета на список "
+"относительных имен путей, которые должны быть скопированы в пакет. Пути "
+"интерпретируются как относительные к директории, содержащей пакет."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:239
 msgid ""
 "For more information, see :std:doc:`Including Data Files <setuptools:"
 "userguide/datafiles>` from the :std:doc:`setuptools docs <setuptools:index>`."
 msgstr ""
+"Дополнительную информацию см. в :std:doc:`Including Data Files <setuptools:"
+"userguide/datafiles>` из :std:doc:`setuptools docs <setuptools:index>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:247
 msgid "``data_files``"
@@ -3919,6 +3945,12 @@ msgid ""
 "that. It is mostly useful if you need to install files which are used by "
 "other programs, which may be unaware of Python packages."
 msgstr ""
+"Хотя конфигурирования :ref:`Package Data` достаточно для большинства "
+"потребностей, в некоторых случаях вам может понадобиться разместить файлы "
+"данных *вне* вашего :term:`packages <Import Package>`.  Директива "
+"``data_files`` позволяет это сделать. В основном она полезна, если вам нужно "
+"установить файлы, используемые другими программами, которые могут не знать о "
+"пакетах Python."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:259
 msgid ""
@@ -3931,12 +3963,22 @@ msgid ""
 "``files`` is interpreted relative to the :file:`setup.py` script at the top "
 "of the project source distribution."
 msgstr ""
+"Каждая пара ``(директория, файлы)`` в последовательности указывает "
+"директорию установки и файлы для установки. Каталог ``directory`` должен "
+"быть относительным путем (хотя это может измениться в будущем, см. `wheel "
+"Issue #92 <https://github.com/pypa/wheel/issues/92>`_), и он "
+"интерпретируется относительно префикса установки (Python'овский ``sys."
+"prefix`` для установки по умолчанию; ``site.USER_BASE`` для установки "
+"пользователем). Каждое имя файла в ``files`` интерпретируется относительно "
+"скрипта :file:`setup.py`` в верхней части исходного дистрибутива проекта."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:269
 msgid ""
 "For more information see the distutils section on :ref:`Installing "
 "Additional Files <setuptools:distutils-additional-files>`."
 msgstr ""
+"Дополнительную информацию можно найти в разделе distutils на :ref:`Установка "
+"дополнительных файлов <setuptools:distutils-additional-files>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:274
 msgid ""
@@ -3945,6 +3987,11 @@ msgid ""
 "Alternatively, if you must use ``python setup.py``, then you need to pass "
 "the ``--old-and-unmanageable`` option."
 msgstr ""
+"При установке пакетов как яиц, ``data_files`` не поддерживается. Поэтому, "
+"если ваш проект использует :ref:`setuptools`, то для его установки "
+"необходимо использовать ``pip``. В противном случае, если вы должны "
+"использовать ``python setup.py``, то вам нужно передать опцию ``-old-and-"
+"unmanageable``."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:281
 #: ../source/specifications/pyproject-toml.rst:146
@@ -3959,6 +4006,10 @@ msgid ""
 "the recommended approach to achieve cross-platform compatibility is to use :"
 "ref:`console_scripts` entry points (see below)."
 msgstr ""
+"Хотя ``setup()`` поддерживает ключевое слово :ref:`scripts <setuptools"
+":distutils-installing-scripts>` для указания на готовые скрипты для "
+"установки, рекомендуемый подход для достижения кроссплатформенной "
+"совместимости - использовать точки входа :ref:`console_scripts` (см. ниже)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:295
 msgid "Choosing a versioning scheme"
@@ -3976,6 +4027,11 @@ msgid ""
 "identifiers>` specified in :pep:`440` in order to be supported in tools and "
 "libraries like ``pip`` and ``setuptools``."
 msgstr ""
+"Разные проекты Python могут использовать различные схемы версионирования в "
+"зависимости от потребностей конкретного проекта, но все они должны "
+"соответствовать гибкой схеме :pep:`public version scheme <440#public-version-"
+"identifiers>`, указанной в :pep:`440`, чтобы поддерживаться в таких "
+"инструментах и библиотеках, как ``pip`` и ``setuptools``."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:306
 msgid "Here are some examples of compliant version numbers::"
@@ -3988,6 +4044,10 @@ msgid ""
 "`version normalisation <440#normalization>` that maps variant spellings of "
 "different version numbers to a standardised canonical form."
 msgstr ""
+"Для дальнейшего учета исторических вариаций в подходах к нумерации версий, "
+":pep:`440` также определяет комплексную технику нормализации :pep:`версий "
+"<440#normalization>`, которая отображает варианты написания различных "
+"номеров версий в стандартизированную каноническую форму."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:323
 msgid "Scheme choices"
@@ -4003,26 +4063,34 @@ msgid ""
 "Versioning <https://semver.org/>`_, but adopts a different approach to "
 "handling pre-releases and build metadata."
 msgstr ""
+"Для новых проектов рекомендуемая схема версионирования основана на `Semantic "
+"Versioning <https://semver.org/>`_, но использует другой подход к работе с "
+"пре-релизами и метаданными сборки."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:332
 msgid ""
 "The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE "
 "numbering scheme, where the project author increments:"
 msgstr ""
+"Суть семантического версионирования заключается в трехчастной схеме "
+"нумерации MAJOR.MINOR.MAINTENANCE, в которой автор проекта увеличивает "
+"количество версий:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:335
 msgid "MAJOR version when they make incompatible API changes,"
-msgstr ""
+msgstr "MAJOR версии, когда они вносят несовместимые изменения в API,"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:336
 msgid ""
 "MINOR version when they add functionality in a backwards-compatible manner, "
 "and"
 msgstr ""
+"MINOR-версии, когда они добавляют функциональность, совместимую с обратной "
+"версией, и"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:337
 msgid "MAINTENANCE version when they make backwards-compatible bug fixes."
-msgstr ""
+msgstr "MAINTENANCE при исправлении ошибок, совместимых с обратной версией."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:339
 msgid ""
@@ -4031,12 +4099,18 @@ msgid ""
 "~= X.Y`` requires at least release X.Y, but also allows any later release "
 "with a matching MAJOR version."
 msgstr ""
+"Принятие такого подхода автором проекта позволяет пользователям использовать "
+"спецификаторы :pep:`\"compatible release\" <440#compatible-release>`, где ``"
+"name ~= X.Y`` требует как минимум релиза X.Y, но также позволяет "
+"использовать любой более поздний релиз с соответствующей MAJOR-версией."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:344
 msgid ""
 "Python projects adopting semantic versioning should abide by clauses 1-8 of "
 "the `Semantic Versioning 2.0.0 specification <https://semver.org/>`_."
 msgstr ""
+"Python-проекты, использующие семантическое версионирование, должны следовать "
+"пунктам 1-8 спецификации `Semantic Versioning 2.0.0` <https://semver.org/>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:348
 msgid "Date based versioning"
@@ -4048,6 +4122,10 @@ msgid ""
 "with a regular time based release cadence and a deprecation process that "
 "provides warnings for a number of releases prior to removal of a feature."
 msgstr ""
+"Семантическое версионирование подходит не для всех проектов, например, для "
+"тех, которые имеют регулярную периодичность выпуска релизов и процесс "
+"обесценивания, предусматривающий предупреждения за несколько релизов до "
+"удаления функции."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:354
 msgid ""
@@ -4055,12 +4133,17 @@ msgid ""
 "tell how old the base feature set of a particular release is given just the "
 "version number."
 msgstr ""
+"Ключевое преимущество версионности на основе даты заключается в том, что по "
+"номеру версии можно легко определить, насколько устарел базовый набор "
+"функций конкретного выпуска."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:357
 msgid ""
 "Version numbers for date based projects typically take the form of YEAR."
 "MONTH (for example, ``12.04``, ``15.10``)."
 msgstr ""
+"Номера версий для проектов, основанных на дате, обычно имеют вид YEAR.MONTH ("
+"например, ``12.04``, ``15.10``)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:361
 msgid "Serial versioning"
@@ -4071,6 +4154,8 @@ msgid ""
 "This is the simplest possible versioning scheme, and consists of a single "
 "number which is incremented every release."
 msgstr ""
+"Это простейшая схема версионирования, состоящая из одного числа, которое "
+"увеличивается при каждом выпуске."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:366
 msgid ""
@@ -4078,6 +4163,10 @@ msgid ""
 "hardest to track as an end user, as serial version numbers convey little or "
 "no information regarding API backwards compatibility."
 msgstr ""
+"Хотя серийным версионированием очень легко управлять как разработчику, его "
+"сложнее всего отслеживать как конечному пользователю, поскольку серийные "
+"номера версий передают мало или вообще не передают информации об обратной "
+"совместимости API."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:371
 msgid "Hybrid schemes"
@@ -4090,6 +4179,11 @@ msgid ""
 "numbering scheme that readily conveys the approximate age of a release, but "
 "doesn't otherwise commit to a particular release cadence within the year."
 msgstr ""
+"Возможны комбинации вышеперечисленных схем. Например, проект может сочетать "
+"версионирование по дате с серийным версионированием, чтобы создать схему "
+"нумерации YEAR.SERIAL, которая легко передает приблизительный возраст "
+"релиза, но в остальном не обязывает к определенной периодичности выпуска в "
+"течение года."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:379
 msgid "Pre-release versioning"
@@ -4100,28 +4194,33 @@ msgid ""
 "Regardless of the base versioning scheme, pre-releases for a given final "
 "release may be published as:"
 msgstr ""
+"Независимо от базовой схемы версий, предварительные выпуски для данного "
+"финального выпуска могут быть опубликованы как:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:384
 msgid "zero or more dev releases (denoted with a \".devN\" suffix)"
-msgstr ""
+msgstr "ноль или более выпусков dev (обозначаются суффиксом \".devN\")"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:385
 msgid "zero or more alpha releases (denoted with a \".aN\" suffix)"
-msgstr ""
+msgstr "ноль или более альфа-релизов (обозначаются суффиксом \".aN\")"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:386
 msgid "zero or more beta releases (denoted with a \".bN\" suffix)"
-msgstr ""
+msgstr "ноль или более бета-версий (обозначаются суффиксом \".bN\")"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:387
 msgid "zero or more release candidates (denoted with a \".rcN\" suffix)"
-msgstr ""
+msgstr "ноль или более кандидатов на выпуск (обозначаются суффиксом \".rcN\")"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:389
 msgid ""
 "``pip`` and other modern Python package installers ignore pre-releases by "
 "default when deciding which versions of dependencies to install."
 msgstr ""
+"``pip`` и другие современные программы установки пакетов Python по умолчанию "
+"игнорируют предварительные выпуски, когда решают, какие версии зависимостей "
+"устанавливать."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:394
 #: ../source/specifications/version-specifiers.rst:112
@@ -4137,12 +4236,21 @@ msgid ""
 "builds not intended for publication, or modified variants of a release "
 "maintained by a redistributor."
 msgstr ""
+"Идентификаторы публичных версий предназначены для поддержки распространения "
+"через :term:`PyPI <Python Package Index (PyPI)>`. Средства распространения "
+"программного обеспечения Python также поддерживают понятие :pep:`локального "
+"идентификатора версии <440#local-version-identifiers>`, который может "
+"использоваться для идентификации локальных сборок разработки, не "
+"предназначенных для публикации, или модифицированных вариантов релиза, "
+"поддерживаемого редистрибьютором."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:403
 msgid ""
 "A local version identifier takes the form ``<public version "
 "identifier>+<local version label>``. For example::"
 msgstr ""
+"Идентификатор локальной версии имеет вид ``<идентификатор публичной версии>+"
+"<метка локальной версии>``. Например::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:411
 msgid "Working in \"development mode\""
@@ -4156,12 +4264,19 @@ msgid ""
 "as editable will be reflected the next time an interpreter process is "
 "started."
 msgstr ""
+"Вы можете установить проект в режиме \"редактируемый\" или \"разрабатываемый"
+"\", пока вы работаете над ним. Если проект установлен как редактируемый, его "
+"можно редактировать на месте без переустановки: изменения исходных файлов "
+"Python в проектах, установленных как редактируемые, будут отражены при "
+"следующем запуске процесса интерпретатора."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:419
 msgid ""
 "To install a Python package in \"editable\"/\"development\" mode Change "
 "directory to the root of the project directory and run:"
 msgstr ""
+"Чтобы установить пакет Python в режиме \"редактируемый\"/\"разработка\", "
+"измените каталог на корень каталога проекта и выполните команду:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:427
 msgid ""
@@ -4172,6 +4287,13 @@ msgid ""
 "declared with ``console_scripts``.  Dependencies will be installed in the "
 "usual, non-editable mode."
 msgstr ""
+"Флаг командной строки pip ``-e`` - это сокращение от ``-editable``, а ``.`` "
+"означает текущий рабочий каталог, так что вместе это означает установку "
+"текущего каталога (т.е. вашего проекта) в режиме редактирования.  При этом "
+"также будут установлены все зависимости, объявленные с помощью "
+"``install_requires``, и все скрипты, объявленные с помощью "
+"``console_scripts``.  Зависимости будут установлены в обычном, "
+"нередактируемом режиме."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:434
 msgid ""
@@ -4180,6 +4302,10 @@ msgid ""
 "want \"bar\" installed from VCS in editable mode, then you could construct a "
 "requirements file like so::"
 msgstr ""
+"Возможно, вы захотите установить некоторые из ваших зависимостей в "
+"редактируемом режиме. Например, предположим, что ваш проект требует \"foo\" "
+"и \"bar\", но вы хотите, чтобы \"bar\" устанавливался из VCS в редактируемом "
+"режиме, тогда вы можете создать файл требований следующим образом::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:442
 msgid ""
@@ -4187,6 +4313,9 @@ msgid ""
 "line overrides the \"bar\" dependency, such that it's fulfilled from VCS, "
 "not PyPI."
 msgstr ""
+"В первой строке говорится об установке вашего проекта и всех зависимостей. "
+"Вторая строка переопределяет зависимость \"bar\" так, чтобы она выполнялась "
+"из VCS, а не из PyPI."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:446
 msgid ""
@@ -4194,6 +4323,9 @@ msgid ""
 "mode, the requirements file should look like this, with the local paths at "
 "the top of the file::"
 msgstr ""
+"Если же вы хотите установить \"Бар\" из локальной директории в редактируемом "
+"режиме, файл требований должен выглядеть следующим образом, с локальными "
+"путями в верхней части файла::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:451
 msgid ""
@@ -4203,17 +4335,26 @@ msgid ""
 "the pip docs.  For more on VCS installs, see the :ref:`VCS Support <pip:VCS "
 "Support>` section of the pip docs."
 msgstr ""
+"В противном случае зависимость будет выполняться из PyPI, что обусловлено "
+"порядком установки файла требований.  Подробнее о файлах требований смотрите "
+"раздел :ref:`Requirements File <pip:Requirements Files>` в документации "
+"pip.  Подробнее о VCS-установках смотрите в разделе :ref:`VCS Support <pip:"
+"VCS Support>` документации pip."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:455
 msgid ""
 "Lastly, if you don't want to install any dependencies at all, you can run:"
 msgstr ""
+"Наконец, если вы не хотите устанавливать никаких зависимостей, вы можете "
+"выполнить команду:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:462
 msgid ""
 "For more information, see the :doc:`Development Mode <setuptools:userguide/"
 "development_mode>` section of the :ref:`setuptools` docs."
 msgstr ""
+"Для получения дополнительной информации см. раздел :doc:`Режим разработки "
+"<setuptools:userguide/development_mode>` в :ref:`setuptools` docs."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:469
 msgid "Packaging your project"
@@ -4226,12 +4367,18 @@ msgid ""
 "`Distribution <Distribution Package>` (aka \":term:`Package <Distribution "
 "Package>`\") for your project."
 msgstr ""
+"Чтобы ваш проект можно было установить из индекса :term:`Package Index`, "
+"например :term:`PyPI <Python Package Index (PyPI)>`, вам нужно будет создать "
+":term:`Distribution <Distribution Package>` (он же \":term:`Package "
+"<Distribution Package>`\") для вашего проекта."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:476
 msgid ""
 "Before you can build wheels and sdists for your project, you'll need to "
 "install the ``build`` package:"
 msgstr ""
+"Прежде чем вы сможете построить колеса и диски для своего проекта, вам нужно "
+"будет установить пакет ``build``:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:493
 msgid "Source distributions"
