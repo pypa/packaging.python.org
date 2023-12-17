@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-16 03:01+0000\n"
+"POT-Creation-Date: 2023-12-17 04:16+0000\n"
 "PO-Revision-Date: 2023-12-17 04:17+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -788,6 +788,147 @@ msgstr ""
 msgid "Configuration management"
 msgstr "Управление конфигурацией"
 
+#: ../source/discussions/distribution-package-vs-import-package.rst:5
+#, fuzzy
+#| msgid "Distribution Package"
+msgid "Distribution package vs. import package"
+msgstr "Пакет дистрибутива"
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:7
+msgid ""
+"A number of different concepts are commonly referred to by the word "
+"\"package\". This page clarifies the differences between two distinct but "
+"related meanings in Python packaging, \"distribution package\" and \"import "
+"package\"."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:13
+#, fuzzy
+#| msgid "Linux distribution packages"
+msgid "What's a distribution package?"
+msgstr "Распространяемые пакеты Linux"
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:15
+msgid ""
+"A distribution package is a piece of software that you can install. Most of "
+"the time, this is synonymous with \"project\". When you type ``pip install "
+"pkg``, or when you write ``dependencies = [\"pkg\"]`` in your ``pyproject."
+"toml``, ``pkg`` is the name of a distribution package. When you search or "
+"browse the PyPI_, the most widely known centralized source for installing "
+"Python libraries and tools, what you see is a list of distribution packages. "
+"Alternatively, the term \"distribution package\" can be used to refer to a "
+"specific file that contains a certain version of a project."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:24
+msgid ""
+"Note that in the Linux world, a \"distribution package\", most commonly "
+"abbreviated as \"distro package\" or just \"package\", is something provided "
+"by the system package manager of the `Linux distribution <distro_>`_, which "
+"is a different meaning."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:31
+#, fuzzy
+#| msgid "Import Package"
+msgid "What's an import package?"
+msgstr "Import Package (Импортируемый пакет)"
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:33
+msgid ""
+"An import package is a Python module. Thus, when you write ``import pkg`` or "
+"``from pkg import func`` in your Python code, ``pkg`` is the name of an "
+"import package. More precisely, import packages are special Python modules "
+"that can contain submodules. For example, the ``numpy`` package contains "
+"modules like ``numpy.linalg`` and ``numpy.fft``. Usually, an import package "
+"is a directory on the file system, containing modules as ``.py`` files and "
+"subpackages as subdirectories."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:42
+msgid ""
+"You can use an import package as soon as you have installed a distribution "
+"package that provides it."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:47
+msgid "What are the links between distribution packages and import packages?"
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:49
+msgid ""
+"Most of the time, a distribution package provides one single import package "
+"(or non-package module), with a matching name. For example, ``pip install "
+"numpy`` lets you ``import numpy``."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:53
+msgid ""
+"However, this is only a convention. PyPI and other package indices *do not "
+"enforce any relationship* between the name of a distribution package and the "
+"import packages it provides. (A consequence of this is that you cannot "
+"blindly install the PyPI package ``foo`` if you see ``import foo``; this may "
+"install an unintended, and potentially even malicious package.)"
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:59
+msgid ""
+"A distribution package could provide an import package with a different "
+"name. An example of this is the popular Pillow_ library for image "
+"processing. Its distribution package name is ``Pillow``, but it provides the "
+"import package ``PIL``. This is for historical reasons: Pillow started as a "
+"fork of the PIL library, thus it kept the import name ``PIL`` so that "
+"existing PIL users could switch to Pillow with little effort. More "
+"generally, a fork of an existing library is a common reason for differing "
+"names between the distribution package and the import package."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:69
+msgid ""
+"On a given package index (like PyPI), distribution package names must be "
+"unique. On the other hand, import packages have no such requirement. Import "
+"packages with the same name can be provided by several distribution "
+"packages. Again, forks are a common reason for this."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:74
+msgid ""
+"Conversely, a distribution package can provide several import packages, "
+"although this is less common. An example is the attrs_ distribution package, "
+"which provides both an ``attrs`` import package with a newer API, and an "
+"``attr`` import package with an older but supported API."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:81
+msgid "How do distribution package names and import package names compare?"
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:83
+msgid ""
+"Import packages should have valid Python identifiers as their name (the :ref:"
+"`exact rules <python:identifiers>` are found in the Python documentation) "
+"[#non-identifier-mod-name]_. In particular, they use underscores ``_`` as "
+"word separator and they are case-sensitive."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:88
+msgid ""
+"On the other hand, distribution packages can use hyphens ``-`` or "
+"underscores ``_``. They can also contain dots ``.``, which is sometimes used "
+"for packaging a subpackage of a :ref:`namespace package <packaging-namespace-"
+"packages>`. For most purposes, they are insensitive to case and to ``-`` "
+"vs.  ``_`` differences, e.g., ``pip install Awesome_Package`` is the same as "
+"``pip install awesome-package`` (the precise rules are given in the :ref:"
+"`name normalization specification <name-normalization>`)."
+msgstr ""
+
+#: ../source/discussions/distribution-package-vs-import-package.rst:101
+msgid ""
+"Although it is technically possible to import packages/modules that do not "
+"have a valid Python identifier as their name, using :doc:`importlib <python:"
+"library/importlib>`, this is vanishingly rare and strongly discouraged."
+msgstr ""
+
 #: ../source/discussions/index.rst:4
 msgid ""
 "**Discussions** are focused on providing comprehensive information about a "
@@ -1128,8 +1269,8 @@ msgstr ""
 "упаковки Python-проектов. А :file:`setup.py` - это правильный "
 "конфигурационный файл для :ref:`setuptools`, который, к примеру, написан на "
 "Python, а не на *TOML* (подобная практика используется и в других "
-"инструментах, таких как *nox* и его конфигурационный файл :file:`noxfile.py`"
-", или *pytest* и :file:`conftest.py`)."
+"инструментах, таких как *nox* и его конфигурационный файл :file:`noxfile."
+"py`, или *pytest* и :file:`conftest.py`)."
 
 #: ../source/discussions/setup-py-deprecated.rst:18
 msgid ""
@@ -1227,9 +1368,9 @@ msgstr ""
 "подобной этой: ``python -m pip install .``. Где точка ``.`` на самом деле "
 "является путем к файловой системе, это обозначение пути к текущему каталогу. "
 "Действительно, *pip* принимает путь к каталогу дерева исходников проекта в "
-"локальной файловой системе в качестве аргумента своей подкоманды ``install``"
-". Таким образом, это также будет правильной командой: ``python -m pip "
-"install path/to/project``."
+"локальной файловой системе в качестве аргумента своей подкоманды "
+"``install``. Таким образом, это также будет правильной командой: ``python -m "
+"pip install path/to/project``."
 
 #: ../source/discussions/setup-py-deprecated.rst:65
 msgid ""
@@ -1315,8 +1456,8 @@ msgid ""
 "But might be necessary on other :term:`package indexes <package index>` (for "
 "example :ref:`devpi`)."
 msgstr ""
-"Не требуется и не поддерживается на:term:`PyPI <Python Package Index (PyPI)>`"
-". Но может потребоваться и в других :термин:`package index>` "
+"Не требуется и не поддерживается на:term:`PyPI <Python Package Index "
+"(PyPI)>`. Но может потребоваться и в других :термин:`package index>` "
 "(например:ref:`devpi`)."
 
 #: ../source/discussions/setup-py-deprecated.rst:112
@@ -2229,12 +2370,21 @@ msgid ""
 "to distribute a :term:`Release`. The archive file is what an end-user will "
 "download from the internet and install."
 msgstr ""
-"Версионный архивный файл, содержащий Python :term:`пакеты <Import Package>`, "
-":term:`модули <Module>` и другие файлы ресурсов, которые используются для "
-"распространения :term:`Release`. Архивный файл - это то, что конечный "
-"пользователь скачает из интернета и установит."
+"Версионный архивный файл, содержащий Python :term:`пакеты <Import "
+"Package>`, :term:`модули <Module>` и другие файлы ресурсов, которые "
+"используются для распространения :term:`Release`. Архивный файл - это то, "
+"что конечный пользователь скачает из интернета и установит."
 
 #: ../source/glossary.rst:64
+#, fuzzy
+#| msgid ""
+#| "A distribution package is more commonly referred to with the single words "
+#| "\"package\" or \"distribution\", but this guide may use the expanded term "
+#| "when more clarity is needed to prevent confusion with an :term:`Import "
+#| "Package` (which is also commonly called a \"package\") or another kind of "
+#| "distribution (e.g. a Linux distribution or the Python language "
+#| "distribution), which are often referred to with the single term "
+#| "\"distribution\"."
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -2242,20 +2392,21 @@ msgid ""
 "Package` (which is also commonly called a \"package\") or another kind of "
 "distribution (e.g. a Linux distribution or the Python language "
 "distribution), which are often referred to with the single term "
-"\"distribution\"."
+"\"distribution\". See :ref:`distribution-package-vs-import-package` for a "
+"breakdown of the differences."
 msgstr ""
-"Дистрибутив чаще всего обозначается одним словом \"пакет\" или \"дистрибутив"
-"\", но в данном руководстве может использоваться расширенный термин, когда "
-"требуется большая ясность, чтобы избежать путаницы с :термином:`импортный "
-"пакет` (который также обычно называется \"пакет\") или другим видом "
-"дистрибутива (например, дистрибутив Linux или дистрибутив языка Python), "
-"которые часто обозначаются одним термином \"дистрибутив\"."
+"Дистрибутив чаще всего обозначается одним словом \"пакет\" или "
+"\"дистрибутив\", но в данном руководстве может использоваться расширенный "
+"термин, когда требуется большая ясность, чтобы избежать путаницы с :термином:"
+"`импортный пакет` (который также обычно называется \"пакет\") или другим "
+"видом дистрибутива (например, дистрибутив Linux или дистрибутив языка "
+"Python), которые часто обозначаются одним термином \"дистрибутив\"."
 
-#: ../source/glossary.rst:71
+#: ../source/glossary.rst:72
 msgid "Egg"
 msgstr "Яйцо"
 
-#: ../source/glossary.rst:74
+#: ../source/glossary.rst:75
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which "
 "is being replaced by :term:`Wheel`.  For details, see :doc:`The Internal "
@@ -2267,11 +2418,11 @@ msgstr ""
 "Python Eggs <setuptools:deprecated/python_eggs>` и `Python Eggs <http://peak."
 "telecommunity.com/DevCenter/PythonEggs>`_"
 
-#: ../source/glossary.rst:78
+#: ../source/glossary.rst:79
 msgid "Extension Module"
 msgstr "Модуль расширения"
 
-#: ../source/glossary.rst:81
+#: ../source/glossary.rst:82
 msgid ""
 "A :term:`Module` written in the low-level language of the Python "
 "implementation: C/C++ for Python, Java for Jython. Typically contained in a "
@@ -2285,11 +2436,11 @@ msgstr ""
 "объектов (.so) для расширений Python на Unix, DLL (с расширением .pyd) для "
 "расширений Python на Windows, или в файле классов Java для расширений Jython."
 
-#: ../source/glossary.rst:88
+#: ../source/glossary.rst:89
 msgid "Known Good Set (KGS)"
 msgstr "Known Good Set (KGS, Известный хороший набор)"
 
-#: ../source/glossary.rst:91
+#: ../source/glossary.rst:92
 msgid ""
 "A set of distributions at specified versions which are compatible with each "
 "other. Typically a test suite will be run which passes all tests before a "
@@ -2303,11 +2454,11 @@ msgstr ""
 "используется во фреймворках и наборах инструментов, которые состоят из "
 "нескольких отдельных дистрибутивов."
 
-#: ../source/glossary.rst:97
+#: ../source/glossary.rst:98
 msgid "Import Package"
 msgstr "Import Package (Импортируемый пакет)"
 
-#: ../source/glossary.rst:100
+#: ../source/glossary.rst:101
 msgid ""
 "A Python module which can contain other modules or recursively, other "
 "packages."
@@ -2315,23 +2466,30 @@ msgstr ""
 "Модуль Python, который может содержать другие модули или, рекурсивно, другие "
 "пакеты."
 
-#: ../source/glossary.rst:103
+#: ../source/glossary.rst:104
+#, fuzzy
+#| msgid ""
+#| "An import package is more commonly referred to with the single word "
+#| "\"package\", but this guide will use the expanded term when more clarity "
+#| "is needed to prevent confusion with a :term:`Distribution Package` which "
+#| "is also commonly called a \"package\"."
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
 "needed to prevent confusion with a :term:`Distribution Package` which is "
-"also commonly called a \"package\"."
+"also commonly called a \"package\". See :ref:`distribution-package-vs-import-"
+"package` for a breakdown of the differences."
 msgstr ""
 "Импортный пакет чаще всего обозначается одним словом \"пакет\", но в данном "
 "руководстве будет использоваться расширенный термин, когда требуется большая "
 "ясность, чтобы избежать путаницы с :термином:`Дистрибутивный пакет`, который "
 "также обычно называется \"пакет\"."
 
-#: ../source/glossary.rst:107
+#: ../source/glossary.rst:109
 msgid "Module"
 msgstr "Модуль"
 
-#: ../source/glossary.rst:110
+#: ../source/glossary.rst:112
 msgid ""
 "The basic unit of code reusability in Python, existing in one of two types: :"
 "term:`Pure Module`, or :term:`Extension Module`."
@@ -2340,11 +2498,11 @@ msgstr ""
 "одном из двух типов: :термин: «чистый модуль» или :термин: «модуль "
 "расширения»."
 
-#: ../source/glossary.rst:113
+#: ../source/glossary.rst:115
 msgid "Package Index"
 msgstr "Индекс пакета"
 
-#: ../source/glossary.rst:116
+#: ../source/glossary.rst:118
 msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
@@ -2352,11 +2510,11 @@ msgstr ""
 "Репозиторий дистрибутивов с веб-интерфейсом для автоматизации :term:`package "
 "<Distribution Package>` обнаружения и потребления."
 
-#: ../source/glossary.rst:119
+#: ../source/glossary.rst:121
 msgid "Per Project Index"
 msgstr "Индекс на проект"
 
-#: ../source/glossary.rst:122
+#: ../source/glossary.rst:124
 msgid ""
 "A private or other non-canonical :term:`Package Index` indicated by a "
 "specific :term:`Project` as the index preferred or required to resolve "
@@ -2366,11 +2524,11 @@ msgstr ""
 "конкретным:термин: «проект» как индекс, предпочтительный или необходимый для "
 "решения зависимостей этого проекта."
 
-#: ../source/glossary.rst:126
+#: ../source/glossary.rst:128
 msgid "Project"
 msgstr "Проект"
 
-#: ../source/glossary.rst:129
+#: ../source/glossary.rst:131
 msgid ""
 "A library, framework, script, plugin, application, or collection of data or "
 "other resources, or some combination thereof that is intended to be packaged "
@@ -2380,7 +2538,7 @@ msgstr ""
 "других ресурсов, или определенная их комбинация, которая должна быть "
 "упакована в :term:`Distribution <Distribution Package>`."
 
-#: ../source/glossary.rst:133
+#: ../source/glossary.rst:135
 msgid ""
 "Since most projects create :term:`Distributions <Distribution Package>` "
 "using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:"
@@ -2389,25 +2547,24 @@ msgid ""
 "`setup.cfg` file at the root of the project source directory."
 msgstr ""
 "Поскольку большинство проектов создают :term:`Distributions <Дистрибутивный "
-"пакет>`, используя либо :pep:`518` `build-system`, :ref:`distutils` или "
-":ref:`setuptools`, другим практичным способом определения проектов в "
-"настоящее время является то, что содержит :term:`pyproject.toml`, "
-":term:`setup.py` или :term:`setup.cfg` файл в корне исходного каталога "
-"проекта."
+"пакет>`, используя либо :pep:`518` `build-system`, :ref:`distutils` или :ref:"
+"`setuptools`, другим практичным способом определения проектов в настоящее "
+"время является то, что содержит :term:`pyproject.toml`, :term:`setup.py` "
+"или :term:`setup.cfg` файл в корне исходного каталога проекта."
 
-#: ../source/glossary.rst:139
+#: ../source/glossary.rst:141
 msgid ""
 "Python projects must have unique names, which are registered on :term:`PyPI "
 "<Python Package Index (PyPI)>`. Each project will then contain one or more :"
 "term:`Releases <Release>`, and each release may comprise one or more :term:"
 "`distributions <Distribution Package>`."
 msgstr ""
-"Проекты Python должны иметь уникальные имена, которые регистрируются в "
-":term:`PyPI <Python Package Index (PyPI)>`. Каждый проект будет содержать "
-"один или несколько :term:`Releases <Release>`, а каждый релиз может состоять "
-"из одного или нескольких :term:`distributions <Distribution Package>`."
+"Проекты Python должны иметь уникальные имена, которые регистрируются в :term:"
+"`PyPI <Python Package Index (PyPI)>`. Каждый проект будет содержать один или "
+"несколько :term:`Releases <Release>`, а каждый релиз может состоять из "
+"одного или нескольких :term:`distributions <Distribution Package>`."
 
-#: ../source/glossary.rst:144
+#: ../source/glossary.rst:146
 msgid ""
 "Note that there is a strong convention to name a project after the name of "
 "the package that is imported to run that project. However, this doesn't have "
@@ -2419,11 +2576,11 @@ msgstr ""
 "обязательно так. Можно установить дистрибутив из проекта 'foo' и получить от "
 "него пакет, импортируемый только как 'bar'."
 
-#: ../source/glossary.rst:150
+#: ../source/glossary.rst:152
 msgid "Pure Module"
 msgstr "Чистый модуль"
 
-#: ../source/glossary.rst:153
+#: ../source/glossary.rst:155
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file "
 "(and possibly associated ``.pyc`` and/or ``.pyo`` files)."
@@ -2431,11 +2588,11 @@ msgstr ""
 "Модуль, написанный на языке Python и содержащийся в одном файле ``.py`` (и, "
 "возможно, связанных с ним файлах ``.pyc`` и/или ``.pyo``)."
 
-#: ../source/glossary.rst:156
+#: ../source/glossary.rst:158
 msgid "Python Packaging Authority (PyPA)"
 msgstr "Python Управление по упаковке (PyPA)"
 
-#: ../source/glossary.rst:159
+#: ../source/glossary.rst:161
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host "
@@ -2446,17 +2603,17 @@ msgid ""
 msgstr ""
 "PyPA - это рабочая группа, которая поддерживает множество соответствующих "
 "проектов по упаковке Python. Они поддерживают сайт по адресу :doc:`pypa.io "
-"<pypa:index>`, размещают проекты на `GitHub <https://github.com/pypa>`_ и `"
-"Bitbucket <https://bitbucket.org/pypa>`_, а также обсуждают проблемы в "
+"<pypa:index>`, размещают проекты на `GitHub <https://github.com/pypa>`_ и "
+"`Bitbucket <https://bitbucket.org/pypa>`_, а также обсуждают проблемы в "
 "списке рассылки `distutils-sig <https://mail.python.org/mailman3/lists/"
 "distutils-sig.python.org/>`_ и на форуме Python Discourse <https://discuss."
 "python.org/c/packaging>`__."
 
-#: ../source/glossary.rst:168
+#: ../source/glossary.rst:170
 msgid "Python Package Index (PyPI)"
 msgstr "Индекс пакетов Python (PyPI)"
 
-#: ../source/glossary.rst:171
+#: ../source/glossary.rst:173
 msgid ""
 "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the "
 "Python community. It is open to all Python developers to consume and "
@@ -2466,11 +2623,11 @@ msgstr ""
 "сообщества Python. Он открыт для всех разработчиков Python для потребления и "
 "распространения их дистрибутивов."
 
-#: ../source/glossary.rst:174
+#: ../source/glossary.rst:176
 msgid "pypi.org"
 msgstr "pypi.org"
 
-#: ../source/glossary.rst:177
+#: ../source/glossary.rst:179
 msgid ""
 "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python "
 "Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi."
@@ -2480,22 +2637,22 @@ msgstr ""
 "Index (PyPI)`. Он заменил устаревшее доменное имя индекса, ``pypi.python."
 "org``, в 2017 году. Он работает на базе :ref:`warehouse`."
 
-#: ../source/glossary.rst:181
+#: ../source/glossary.rst:183
 msgid "pyproject.toml"
 msgstr "pyproject.toml"
 
-#: ../source/glossary.rst:184
+#: ../source/glossary.rst:186
 msgid ""
 "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
-"Инструмент-агностик:термин: файл спецификации \"Проект\". Определен в "
-":pep:`518'."
+"Инструмент-агностик:термин: файл спецификации \"Проект\". Определен в :pep:"
+"`518'."
 
-#: ../source/glossary.rst:186
+#: ../source/glossary.rst:188
 msgid "Release"
 msgstr "Выпуск"
 
-#: ../source/glossary.rst:189
+#: ../source/glossary.rst:191
 msgid ""
 "A snapshot of a :term:`Project` at a particular point in time, denoted by a "
 "version identifier."
@@ -2503,23 +2660,23 @@ msgstr ""
 "Снимок :term:`Project` в определенный момент времени, обозначаемый "
 "идентификатором версии."
 
-#: ../source/glossary.rst:192
+#: ../source/glossary.rst:194
 msgid ""
 "Making a release may entail the publishing of multiple :term:`Distributions "
 "<Distribution Package>`.  For example, if version 1.0 of a project was "
 "released, it could be available in both a source distribution format and a "
 "Windows installer distribution format."
 msgstr ""
-"Создание релиза может повлечь за собой публикацию нескольких :term:`"
-"Distributions <Distribution Package>`. Например, если версия 1.0 проекта "
+"Создание релиза может повлечь за собой публикацию нескольких :term:"
+"`Distributions <Distribution Package>`. Например, если версия 1.0 проекта "
 "была выпущена, она может быть доступна как в формате распределения "
 "источника, так и в формате Windows."
 
-#: ../source/glossary.rst:197
+#: ../source/glossary.rst:199
 msgid "Requirement"
 msgstr "Требование"
 
-#: ../source/glossary.rst:200
+#: ../source/glossary.rst:202
 msgid ""
 "A specification for a :term:`package <Distribution Package>` to be "
 "installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` "
@@ -2527,17 +2684,17 @@ msgid ""
 "considered a \"requirement\". For more information, see the :ref:`pip:pip "
 "install` reference."
 msgstr ""
-"Спецификация для устанавливаемого :term:`пакета <Distribution Package>`. "
-":ref:`pip`, рекомендуемый установщик :term:`PYPA <Python Packaging Authority "
+"Спецификация для устанавливаемого :term:`пакета <Distribution Package>`. :"
+"ref:`pip`, рекомендуемый установщик :term:`PYPA <Python Packaging Authority "
 "(PyPA)>`, допускает различные формы спецификации, которые все могут "
 "считаться \"требованием\". Для получения дополнительной информации смотрите "
 "ссылку :ref:`pip:pip install`."
 
-#: ../source/glossary.rst:206
+#: ../source/glossary.rst:208
 msgid "Requirement Specifier"
 msgstr "Спецификатор требований"
 
-#: ../source/glossary.rst:209
+#: ../source/glossary.rst:211
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see the `pkg_resources."
@@ -2547,37 +2704,37 @@ msgid ""
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
 "Формат, используемый :ref:`pip` для установки пакетов из :term:`Package "
-"Index`. Для диаграммы EBNF формата см. в `pkg_resources.Requirement "
-"<https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-"
+"Index`. Для диаграммы EBNF формата см. в `pkg_resources.Requirement <https://"
+"setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-"
 "objects>`_ в :ref:`setuptools` docs. Например, «foo>=1.3» является "
-"спецификатором требований, где «foo» является наименованием проекта, а «>=1."
-"3» - это:термин:`Version Specifier `"
+"спецификатором требований, где «foo» является наименованием проекта, а "
+"«>=1.3» - это:термин:`Version Specifier `"
 
-#: ../source/glossary.rst:216
+#: ../source/glossary.rst:218
 msgid "Requirements File"
 msgstr "Требования к файлам"
 
-#: ../source/glossary.rst:219
+#: ../source/glossary.rst:221
 msgid ""
 "A file containing a list of :term:`Requirements <Requirement>` that can be "
 "installed using :ref:`pip`. For more information, see the :ref:`pip` docs "
 "on :ref:`pip:Requirements Files`."
 msgstr ""
 "Файл, содержащий список :term:`Requirements <Requirement>` который может "
-"быть установлен с помощью :ref:`pip'. Дополнительные сведения см. в :ref:`"
-"pip'''' docs on :ref:`pip:Requirements Files`."
+"быть установлен с помощью :ref:`pip'. Дополнительные сведения см. в :ref:"
+"`pip'''' docs on :ref:`pip:Requirements Files`."
 
-#: ../source/glossary.rst:223
+#: ../source/glossary.rst:225
 #: ../source/guides/distributing-packages-using-setuptools.rst:59
 msgid "setup.py"
 msgstr "setup.py"
 
-#: ../source/glossary.rst:224
+#: ../source/glossary.rst:226
 #: ../source/guides/distributing-packages-using-setuptools.rst:80
 msgid "setup.cfg"
 msgstr "setup.cfg"
 
-#: ../source/glossary.rst:227
+#: ../source/glossary.rst:229
 msgid ""
 "The project specification files for :ref:`distutils` and :ref:`setuptools`. "
 "See also :term:`pyproject.toml`."
@@ -2585,25 +2742,25 @@ msgstr ""
 "Файлы спецификаций проекта для:ref:`distutils' и :ref:`setuptools'. См. "
 "также :term:`pyproject.toml'."
 
-#: ../source/glossary.rst:230
+#: ../source/glossary.rst:232
 msgid "Source Archive"
 msgstr "Источник Архив"
 
-#: ../source/glossary.rst:233
+#: ../source/glossary.rst:235
 msgid ""
 "An archive containing the raw source code for a :term:`Release`, prior to "
 "creation of a :term:`Source Distribution <Source Distribution (or "
 "\"sdist\")>` or :term:`Built Distribution`."
 msgstr ""
-"Архив, содержащий исходный код для :term:`Release`, до создания :term:`"
-"Source Distribution <Source Distribution (или \"sdist\")>` или :term:`Built "
+"Архив, содержащий исходный код для :term:`Release`, до создания :term:"
+"`Source Distribution <Source Distribution (или \"sdist\")>` или :term:`Built "
 "Distribution`."
 
-#: ../source/glossary.rst:237
+#: ../source/glossary.rst:239
 msgid "Source Distribution (or \"sdist\")"
 msgstr "Распространение исходных текстов (или \"sdist\")"
 
-#: ../source/glossary.rst:240
+#: ../source/glossary.rst:242
 msgid ""
 "A :term:`distribution <Distribution Package>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
@@ -2616,11 +2773,11 @@ msgstr ""
 "такого инструмента, как:ref:`pip', или для создания:term:`Built "
 "Distribution'."
 
-#: ../source/glossary.rst:245
+#: ../source/glossary.rst:247
 msgid "System Package"
 msgstr "Системный пакет"
 
-#: ../source/glossary.rst:248
+#: ../source/glossary.rst:250
 msgid ""
 "A package provided in a format native to the operating system, e.g. an rpm "
 "or dpkg file."
@@ -2628,11 +2785,11 @@ msgstr ""
 "Пакет, предоставляемый в формате, имеющем отношение к операционной системе, "
 "например, файл rpm или dpkg."
 
-#: ../source/glossary.rst:251
+#: ../source/glossary.rst:253
 msgid "Version Specifier"
 msgstr "Спецификатор версии"
 
-#: ../source/glossary.rst:254
+#: ../source/glossary.rst:256
 msgid ""
 "The version component of a :term:`Requirement Specifier`. For example, the "
 "\">=1.3\" portion of \"foo>=1.3\".  Read the :ref:`Version specifier "
@@ -2641,16 +2798,16 @@ msgid ""
 "was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0."
 msgstr ""
 "Компонент версии :термин: \" спецификатор запросов \" . Например, \">=1.3\" "
-"части \"foo>=1.3\". Прочтите :ref:`Version спецификатор "
-"<version-спецификаторы>` для полного описания спецификаторов, которые Python "
-"в настоящее время поддерживаются. Поддержка этой спецификации была "
-"реализована в :ref:`setuptools` v8.0 и :ref:`pip` v6.0."
+"части \"foo>=1.3\". Прочтите :ref:`Version спецификатор <version-"
+"спецификаторы>` для полного описания спецификаторов, которые Python в "
+"настоящее время поддерживаются. Поддержка этой спецификации была реализована "
+"в :ref:`setuptools` v8.0 и :ref:`pip` v6.0."
 
-#: ../source/glossary.rst:259
+#: ../source/glossary.rst:261
 msgid "Virtual Environment"
 msgstr "Виртуальная среда"
 
-#: ../source/glossary.rst:262
+#: ../source/glossary.rst:264
 msgid ""
 "An isolated Python environment that allows packages to be installed for use "
 "by a particular application, rather than being installed system wide. For "
@@ -2662,27 +2819,27 @@ msgstr ""
 "системы. Для получения дополнительной информации см. раздел :ref:`Создание и "
 "использование виртуальных сред`."
 
-#: ../source/glossary.rst:266
+#: ../source/glossary.rst:268
 msgid "Wheel"
 msgstr "Колесо"
 
-#: ../source/glossary.rst:269
+#: ../source/glossary.rst:271
 msgid ""
 "A :term:`Built Distribution` format introduced by an official :doc:`standard "
 "specification </specifications/binary-distribution-format/>`, which is "
 "intended to replace the :term:`Egg` format.  Wheel is currently supported "
 "by :ref:`pip`."
 msgstr ""
-"Формат :term:`Built Distribution`, введенный официальной спецификацией :doc:`"
-"standard specification </specifications/binary-distribution-format/>`, "
+"Формат :term:`Built Distribution`, введенный официальной спецификацией :doc:"
+"`standard specification </specifications/binary-distribution-format/>`, "
 "который призван заменить формат :term:`Egg`.  В настоящее время Wheel "
 "поддерживается :ref:`pip`."
 
-#: ../source/glossary.rst:274
+#: ../source/glossary.rst:276
 msgid "Working Set"
 msgstr "Рабочая группа"
 
-#: ../source/glossary.rst:277
+#: ../source/glossary.rst:279
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -2764,7 +2921,8 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:29
 msgid "Known historical data quality issues (lowers download counts)"
-msgstr "Известные исторические проблемы качества данных (низкие числа загрузок)"
+msgstr ""
+"Известные исторические проблемы качества данных (низкие числа загрузок)"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:31
 msgid ""
@@ -3004,8 +3162,9 @@ msgid ""
 "To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also "
 "filtering by this column reduces corresponding costs."
 msgstr ""
-"Для группировки по месячным загрузкам используйте функцию ``TIMESTAMP_TRUNC``"
-". Также фильтрация по этому столбцу снижает соответствующие расходы."
+"Для группировки по месячным загрузкам используйте функцию "
+"``TIMESTAMP_TRUNC``. Также фильтрация по этому столбцу снижает "
+"соответствующие расходы."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:165
 msgid "month"
@@ -3157,9 +3316,9 @@ msgid ""
 "eb/45/79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/"
 "sampleproject-1.2.0.tar.gz"
 msgstr ""
-"https://files.pythonhosted.org/packages/eb/45/"
-"79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/sampleproject-1."
-"2.0.tar.gz"
+"https://files.pythonhosted.org/packages/"
+"eb/45/79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/"
+"sampleproject-1.2.0.tar.gz"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:244
 msgid ""
@@ -3167,8 +3326,8 @@ msgid ""
 "packages/56/0a/178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/"
 "sampleproject_nomura-1.2.0-py2.py3-none-any.whl"
 msgstr ""
-"https://files.pythonhosted.org/packages/56/0a/"
-"178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/"
+"https://files.pythonhosted.org/"
+"packages/56/0a/178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/"
 "sampleproject_nomura-1.2.0-py2.py3-none-any.whl"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:246
@@ -3177,8 +3336,8 @@ msgid ""
 "packages/63/88/3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/"
 "sampleproject_nomura-1.2.0.tar.gz"
 msgstr ""
-"https://files.pythonhosted.org/packages/63/88/"
-"3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/"
+"https://files.pythonhosted.org/"
+"packages/63/88/3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/"
 "sampleproject_nomura-1.2.0.tar.gz"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:248
@@ -3187,8 +3346,8 @@ msgid ""
 "e9/2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/"
 "sampleproject_doubleyoung18-1.3.0-py2.py3-none-any.whl"
 msgstr ""
-"https://files.pythonhosted.org/packages/21/e9/"
-"2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/"
+"https://files.pythonhosted.org/packages/21/"
+"e9/2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/"
 "sampleproject_doubleyoung18-1.3.0-py2.py3-none-any.whl"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:250
@@ -3197,9 +3356,9 @@ msgid ""
 "packages/6f/5b/2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/"
 "sampleproject-1.3.1.tar.gz"
 msgstr ""
-"https://files.pythonhosted.org/packages/6f/5b/"
-"2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/sampleproject-1."
-"3.1.tar.gz"
+"https://files.pythonhosted.org/"
+"packages/6f/5b/2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/"
+"sampleproject-1.3.1.tar.gz"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:255
 msgid "Caveats"
@@ -3257,8 +3416,8 @@ msgid ""
 msgstr ""
 "`pypinfo`_ - это инструмент командной строки, который предоставляет доступ к "
 "набору данных и может генерировать несколько полезных запросов. Например, вы "
-"можете запросить общее количество загрузок для пакета с помощью команды ``"
-"pypinfo package_name``."
+"можете запросить общее количество загрузок для пакета с помощью команды "
+"``pypinfo package_name``."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:307
 msgid "Install `pypinfo`_ using pip."
@@ -3319,7 +3478,8 @@ msgstr ""
 
 #: ../source/guides/creating-and-discovering-plugins.rst:10
 msgid "There are three major approaches to doing automatic plugin discovery:"
-msgstr "Существует три основных подхода к автоматическому обнаружению плагинов:"
+msgstr ""
+"Существует три основных подхода к автоматическому обнаружению плагинов:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:12
 msgid "`Using naming convention`_."
@@ -3445,8 +3605,8 @@ msgid ""
 "preferred for plugins to your project."
 msgstr ""
 "Пакеты пространства имен - сложная функция, и существует несколько различных "
-"способов их создания. Настоятельно рекомендуется прочитать документацию :doc"
-":`packaging-namespace-packages` и четко документировать, какой подход "
+"способов их создания. Настоятельно рекомендуется прочитать документацию :doc:"
+"`packaging-namespace-packages` и четко документировать, какой подход "
 "предпочтителен для плагинов вашего проекта."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:122
@@ -3480,16 +3640,16 @@ msgid ""
 "``importlib_metadata >= 3.6`` for Python 3.6-3.9):"
 msgstr ""
 "Затем вы можете обнаружить и загрузить все зарегистрированные точки входа, "
-"используя :func:`importlib.metadata.entry_points` (или backport_ ``"
-"importlib_metadata >= 3.6`` для Python 3.6-3.9):"
+"используя :func:`importlib.metadata.entry_points` (или backport_ "
+"``importlib_metadata >= 3.6`` для Python 3.6-3.9):"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:151
 msgid ""
 "In this example, ``discovered_plugins`` would be a collection of type :class:"
 "`importlib.metadata.EntryPoint`:"
 msgstr ""
-"В этом примере ``discovered_plugins`` будет коллекцией типа :class:`importlib"
-".metadata.EntryPoint``:"
+"В этом примере ``discovered_plugins`` будет коллекцией типа :class:"
+"`importlib.metadata.EntryPoint``:"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:160
 msgid ""
@@ -3591,8 +3751,8 @@ msgid ""
 "<Uploading your Project to PyPI>`)."
 msgstr ""
 "Он понадобится для загрузки вашего проекта :term:`distributions "
-"<Дистрибутивный пакет>` в :term:`PyPI <Индекс пакетов Python (PyPI)>` (см. "
-":ref:`ниже <Загрузка проекта в PyPI>`)."
+"<Дистрибутивный пакет>` в :term:`PyPI <Индекс пакетов Python (PyPI)>` (см. :"
+"ref:`ниже <Загрузка проекта в PyPI>`)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:52
 msgid "Configuring your project"
@@ -3629,8 +3789,8 @@ msgstr ""
 "Это файл, в котором настраиваются различные аспекты вашего проекта. Главная "
 "особенность :file:`setup.py` заключается в том, что он содержит глобальную "
 "функцию ``setup()``.  Ключевые слова-аргументы этой функции определяют "
-"конкретные детали вашего проекта.  Наиболее важные аргументы описаны в :ref:`"
-"разделе ниже <setup() args>`."
+"конкретные детали вашего проекта.  Наиболее важные аргументы описаны в :ref:"
+"`разделе ниже <setup() args>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:74
 msgid ""
@@ -3650,10 +3810,10 @@ msgid ""
 "cfg>`_ in the `PyPA sample project <https://github.com/pypa/sampleproject>`_."
 msgstr ""
 ":file:`setup.cfg` - это ini-файл, содержащий параметры по умолчанию для "
-"команд :file:`setup.py`.  Для примера смотрите файл `setup.cfg "
-"<https://github.com/pypa/sampleproject/blob/"
-"db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.cfg>`_ в проекте-образце `"
-"PyPA <https://github.com/pypa/sampleproject>`_."
+"команд :file:`setup.py`.  Для примера смотрите файл `setup.cfg <https://"
+"github.com/pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/"
+"setup.cfg>`_ в проекте-образце `PyPA <https://github.com/pypa/"
+"sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:89
 msgid "README.rst / README.md"
@@ -3671,8 +3831,8 @@ msgstr ""
 "Все проекты должны содержать файл readme, в котором описывается цель "
 "проекта. Наиболее распространенным форматом является `reStructuredText "
 "<https://docutils.sourceforge.io/rst.html>`_ с расширением \"rst\", хотя это "
-"не является обязательным условием; также поддерживаются различные варианты `"
-"Markdown <https://daringfireball.net/projects/markdown/>`_ (посмотрите на "
+"не является обязательным условием; также поддерживаются различные варианты "
+"`Markdown <https://daringfireball.net/projects/markdown/>`_ (посмотрите на "
 "аргумент ``setup()`` :ref:`long_description_content_type <description>`)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:98
@@ -3697,11 +3857,11 @@ msgid ""
 msgstr ""
 "В проектах, использующих :ref:`setuptools` 0.6.27+, стандартные файлы readme "
 "(:file:`README.rst`, :file:`README.txt` или :file:`README`) по умолчанию "
-"включены в дистрибутивы исходных текстов. Встроенная библиотека "
-":ref:`distutils` перенимает это поведение начиная с Python 3.7. Кроме того, "
-":ref:`setuptools` 36.4.0+ будет включать :file:`README.md`, если он будет "
-"найден. Если вы используете setuptools, вам не нужно указывать свой файл "
-"readme в :file:`MANIFEST.in`. В противном случае включите его в явном виде."
+"включены в дистрибутивы исходных текстов. Встроенная библиотека :ref:"
+"`distutils` перенимает это поведение начиная с Python 3.7. Кроме того, :ref:"
+"`setuptools` 36.4.0+ будет включать :file:`README.md`, если он будет найден. "
+"Если вы используете setuptools, вам не нужно указывать свой файл readme в :"
+"file:`MANIFEST.in`. В противном случае включите его в явном виде."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:111
 msgid "MANIFEST.in"
@@ -3754,8 +3914,8 @@ msgstr ""
 "распространения. Во многих юрисдикциях пакеты без явной лицензии не могут "
 "быть законно использованы или распространены кем-либо, кроме "
 "правообладателя. Если вы не уверены, какую лицензию выбрать, вы можете "
-"воспользоваться такими ресурсами, как `GitHub's Choose a License "
-"<https://choosealicense.com/>`_ или проконсультироваться с юристом."
+"воспользоваться такими ресурсами, как `GitHub's Choose a License <https://"
+"choosealicense.com/>`_ или проконсультироваться с юристом."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:134
 msgid ""
@@ -3894,8 +4054,8 @@ msgid ""
 "For more on using \"install_requires\" see :ref:`install_requires vs "
 "Requirements files`."
 msgstr ""
-"Подробнее об использовании \"install_requires\" смотрите :ref:`"
-"install_requires vs Requirements files`."
+"Подробнее об использовании \"install_requires\" смотрите :ref:"
+"`install_requires vs Requirements files`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:221
 msgid "``package_data``"
@@ -4006,8 +4166,8 @@ msgid ""
 "the recommended approach to achieve cross-platform compatibility is to use :"
 "ref:`console_scripts` entry points (see below)."
 msgstr ""
-"Хотя ``setup()`` поддерживает ключевое слово :ref:`scripts <setuptools"
-":distutils-installing-scripts>` для указания на готовые скрипты для "
+"Хотя ``setup()`` поддерживает ключевое слово :ref:`scripts <setuptools:"
+"distutils-installing-scripts>` для указания на готовые скрипты для "
 "установки, рекомендуемый подход для достижения кроссплатформенной "
 "совместимости - использовать точки входа :ref:`console_scripts` (см. ниже)."
 
@@ -4044,8 +4204,8 @@ msgid ""
 "`version normalisation <440#normalization>` that maps variant spellings of "
 "different version numbers to a standardised canonical form."
 msgstr ""
-"Для дальнейшего учета исторических вариаций в подходах к нумерации версий, "
-":pep:`440` также определяет комплексную технику нормализации :pep:`версий "
+"Для дальнейшего учета исторических вариаций в подходах к нумерации версий, :"
+"pep:`440` также определяет комплексную технику нормализации :pep:`версий "
 "<440#normalization>`, которая отображает варианты написания различных "
 "номеров версий в стандартизированную каноническую форму."
 
@@ -4100,8 +4260,8 @@ msgid ""
 "with a matching MAJOR version."
 msgstr ""
 "Принятие такого подхода автором проекта позволяет пользователям использовать "
-"спецификаторы :pep:`\"compatible release\" <440#compatible-release>`, где ``"
-"name ~= X.Y`` требует как минимум релиза X.Y, но также позволяет "
+"спецификаторы :pep:`\"compatible release\" <440#compatible-release>`, где "
+"``name ~= X.Y`` требует как минимум релиза X.Y, но также позволяет "
 "использовать любой более поздний релиз с соответствующей MAJOR-версией."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:344
@@ -4142,8 +4302,8 @@ msgid ""
 "Version numbers for date based projects typically take the form of YEAR."
 "MONTH (for example, ``12.04``, ``15.10``)."
 msgstr ""
-"Номера версий для проектов, основанных на дате, обычно имеют вид YEAR.MONTH ("
-"например, ``12.04``, ``15.10``)."
+"Номера версий для проектов, основанных на дате, обычно имеют вид YEAR.MONTH "
+"(например, ``12.04``, ``15.10``)."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:361
 msgid "Serial versioning"
@@ -4249,8 +4409,8 @@ msgid ""
 "A local version identifier takes the form ``<public version "
 "identifier>+<local version label>``. For example::"
 msgstr ""
-"Идентификатор локальной версии имеет вид ``<идентификатор публичной версии>+"
-"<метка локальной версии>``. Например::"
+"Идентификатор локальной версии имеет вид ``<идентификатор публичной "
+"версии>+<метка локальной версии>``. Например::"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:411
 msgid "Working in \"development mode\""
@@ -4264,11 +4424,11 @@ msgid ""
 "as editable will be reflected the next time an interpreter process is "
 "started."
 msgstr ""
-"Вы можете установить проект в режиме \"редактируемый\" или \"разрабатываемый"
-"\", пока вы работаете над ним. Если проект установлен как редактируемый, его "
-"можно редактировать на месте без переустановки: изменения исходных файлов "
-"Python в проектах, установленных как редактируемые, будут отражены при "
-"следующем запуске процесса интерпретатора."
+"Вы можете установить проект в режиме \"редактируемый\" или "
+"\"разрабатываемый\", пока вы работаете над ним. Если проект установлен как "
+"редактируемый, его можно редактировать на месте без переустановки: изменения "
+"исходных файлов Python в проектах, установленных как редактируемые, будут "
+"отражены при следующем запуске процесса интерпретатора."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:419
 msgid ""
@@ -4368,8 +4528,8 @@ msgid ""
 "Package>`\") for your project."
 msgstr ""
 "Чтобы ваш проект можно было установить из индекса :term:`Package Index`, "
-"например :term:`PyPI <Python Package Index (PyPI)>`, вам нужно будет создать "
-":term:`Distribution <Distribution Package>` (он же \":term:`Package "
+"например :term:`PyPI <Python Package Index (PyPI)>`, вам нужно будет "
+"создать :term:`Distribution <Distribution Package>` (он же \":term:`Package "
 "<Distribution Package>`\") для вашего проекта."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:476
@@ -6984,11 +7144,11 @@ msgid ""
 "cpp_extension_modules.html>`_"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:3
+#: ../source/guides/packaging-namespace-packages.rst:5
 msgid "Packaging namespace packages"
 msgstr "Упаковка пакетов пространства имён"
 
-#: ../source/guides/packaging-namespace-packages.rst:5
+#: ../source/guides/packaging-namespace-packages.rst:7
 msgid ""
 "Namespace packages allow you to split the sub-packages and modules within a "
 "single :term:`package <Import Package>` across multiple, separate :term:"
@@ -6997,19 +7157,19 @@ msgid ""
 "have the following package structure:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:24
+#: ../source/guides/packaging-namespace-packages.rst:26
 msgid "And you use this package in your code like so::"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:29
+#: ../source/guides/packaging-namespace-packages.rst:31
 msgid "Then you can break these sub-packages into two separate distributions:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:48
+#: ../source/guides/packaging-namespace-packages.rst:50
 msgid "Each sub-package can now be separately installed, used, and versioned."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:50
+#: ../source/guides/packaging-namespace-packages.rst:52
 msgid ""
 "Namespace packages can be useful for a large collection of loosely-related "
 "packages (such as a large corpus of client libraries for multiple products "
@@ -7020,17 +7180,17 @@ msgid ""
 "mynamespace_subpackage_a as subpackage_a`` to keep the import object short)."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:60
+#: ../source/guides/packaging-namespace-packages.rst:62
 msgid "Creating a namespace package"
 msgstr "Создание пакета пространства имён"
 
-#: ../source/guides/packaging-namespace-packages.rst:62
+#: ../source/guides/packaging-namespace-packages.rst:64
 msgid ""
 "There are currently two different approaches to creating namespace packages, "
 "from which the latter is discouraged:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:65
+#: ../source/guides/packaging-namespace-packages.rst:67
 msgid ""
 "Use `native namespace packages`_. This type of namespace package is defined "
 "in :pep:`420` and is available in Python 3.3 and later. This is recommended "
@@ -7038,17 +7198,17 @@ msgid ""
 "installation via ``pip``."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:69
+#: ../source/guides/packaging-namespace-packages.rst:71
 msgid ""
 "Use `legacy namespace packages`_. This comprises `pkgutil-style namespace "
 "packages`_ and `pkg_resources-style namespace packages`_."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:73
+#: ../source/guides/packaging-namespace-packages.rst:75
 msgid "Native namespace packages"
 msgstr "Родные пакеты пространства имён"
 
-#: ../source/guides/packaging-namespace-packages.rst:75
+#: ../source/guides/packaging-namespace-packages.rst:77
 msgid ""
 "Python 3.3 added **implicit** namespace packages from :pep:`420`. All that "
 "is required to create a native namespace package is that you just omit :file:"
@@ -7056,7 +7216,7 @@ msgid ""
 "structure (following :ref:`src-layout <setuptools:src-layout>`):"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:92
+#: ../source/guides/packaging-namespace-packages.rst:94
 msgid ""
 "It is extremely important that every distribution that uses the namespace "
 "package omits the :file:`__init__.py` or uses a pkgutil-style :file:"
@@ -7064,7 +7224,7 @@ msgid ""
 "logic to fail and the other sub-packages will not be importable."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:97
+#: ../source/guides/packaging-namespace-packages.rst:99
 msgid ""
 "The ``src-layout`` directory structure allows automatic discovery of "
 "packages by most :term:`build backends <Build Backend>`. See :ref:`src-"
@@ -7073,27 +7233,27 @@ msgid ""
 "configured in the top-level :file:`pyproject.toml`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:115
+#: ../source/guides/packaging-namespace-packages.rst:117
 msgid "The same can be accomplished with a :file:`setup.cfg`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:127
+#: ../source/guides/packaging-namespace-packages.rst:129
 msgid "Or :file:`setup.py`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:140
+#: ../source/guides/packaging-namespace-packages.rst:142
 msgid ""
 ":ref:`setuptools` will search the directory structure for implicit namespace "
 "packages by default."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:143
+#: ../source/guides/packaging-namespace-packages.rst:145
 msgid ""
 "A complete working example of two native namespace packages can be found in "
 "the `native namespace package example project`_."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:149
+#: ../source/guides/packaging-namespace-packages.rst:151
 msgid ""
 "Because native and pkgutil-style namespace packages are largely compatible, "
 "you can use native namespace packages in the distributions that only support "
@@ -7101,12 +7261,12 @@ msgid ""
 "to support Python 2 and 3."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:156
+#: ../source/guides/packaging-namespace-packages.rst:158
 #, fuzzy
 msgid "Legacy namespace packages"
 msgstr "Использование пакетов пространства имён"
 
-#: ../source/guides/packaging-namespace-packages.rst:158
+#: ../source/guides/packaging-namespace-packages.rst:160
 msgid ""
 "These two methods, that were used to create namespace packages prior to :pep:"
 "`420`, are now considered to be obsolete and should not be used unless you "
@@ -7114,13 +7274,13 @@ msgid ""
 "`pkg_resources <setuptools:pkg_resources>` has been deprecated."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:163
+#: ../source/guides/packaging-namespace-packages.rst:165
 msgid ""
 "To migrate an existing package, all packages sharing the namespace must be "
 "migrated simultaneously."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:165
+#: ../source/guides/packaging-namespace-packages.rst:167
 msgid ""
 "While native namespace packages and pkgutil-style namespace packages are "
 "largely compatible, pkg_resources-style namespace packages are not "
@@ -7128,11 +7288,11 @@ msgid ""
 "in different distributions that provide packages to the same namespace."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:172
+#: ../source/guides/packaging-namespace-packages.rst:174
 msgid "pkgutil-style namespace packages"
 msgstr "Пакеты пространства имён в стиле pkgutil"
 
-#: ../source/guides/packaging-namespace-packages.rst:174
+#: ../source/guides/packaging-namespace-packages.rst:176
 msgid ""
 "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and "
 "the :py:func:`python:pkgutil.extend_path` function. This can be used to "
@@ -7141,21 +7301,21 @@ msgid ""
 "compatibility."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:179
+#: ../source/guides/packaging-namespace-packages.rst:181
 msgid ""
 "To create a pkgutil-style namespace package, you need to provide an :file:"
 "`__init__.py` file for the namespace package:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:193
-#: ../source/guides/packaging-namespace-packages.rst:240
+#: ../source/guides/packaging-namespace-packages.rst:195
+#: ../source/guides/packaging-namespace-packages.rst:242
 msgid ""
 "The :file:`__init__.py` file for the namespace package needs to contain the "
 "following:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:200
-#: ../source/guides/packaging-namespace-packages.rst:247
+#: ../source/guides/packaging-namespace-packages.rst:202
+#: ../source/guides/packaging-namespace-packages.rst:249
 msgid ""
 "**Every** distribution that uses the namespace package must include such an :"
 "file:`__init__.py`. If any distribution does not, it will cause the "
@@ -7163,17 +7323,17 @@ msgid ""
 "Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:205
+#: ../source/guides/packaging-namespace-packages.rst:207
 msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:215
+#: ../source/guides/packaging-namespace-packages.rst:217
 msgid "pkg_resources-style namespace packages"
 msgstr "Пакеты пространства имён в стиле pkg_resources"
 
-#: ../source/guides/packaging-namespace-packages.rst:217
+#: ../source/guides/packaging-namespace-packages.rst:219
 msgid ""
 ":doc:`Setuptools <setuptools:index>` provides the `pkg_resources."
 "declare_namespace`_ function and the ``namespace_packages`` argument to :"
@@ -7185,19 +7345,19 @@ msgid ""
 "compatible and it's not advisable to try to migrate an existing package."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:226
+#: ../source/guides/packaging-namespace-packages.rst:228
 msgid ""
 "To create a pkg_resources-style namespace package, you need to provide an :"
 "file:`__init__.py` file for the namespace package:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:252
+#: ../source/guides/packaging-namespace-packages.rst:254
 msgid ""
 "Some older recommendations advise the following in the namespace package :"
 "file:`__init__.py`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:262
+#: ../source/guides/packaging-namespace-packages.rst:264
 msgid ""
 "The idea behind this was that in the rare case that setuptools isn't "
 "available packages would fall-back to the pkgutil-style packages. This isn't "
@@ -7206,13 +7366,13 @@ msgid ""
 "package should just explicitly depend on setuptools via ``install_requires``."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:269
+#: ../source/guides/packaging-namespace-packages.rst:271
 msgid ""
 "Finally, every distribution must provide the ``namespace_packages`` argument "
 "to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:283
+#: ../source/guides/packaging-namespace-packages.rst:285
 msgid ""
 "A complete working example of two pkg_resources-style namespace packages can "
 "be found in the `pkg_resources namespace example project`_."
