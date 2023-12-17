@@ -31,7 +31,10 @@ examples of version numbers:
 
 Projects can use a cycle of pre-releases to support testing by their users
 before a final release. In order, the steps are: alpha releases, beta releases,
-release candidates, final release.
+release candidates, final release. Pip and other modern Python package
+installers ignore pre-releases by default when deciding which versions of
+dependencies to install, unless explicitly requested (e.g., with
+``pip install pkg==1.1a3``).
 
 The purpose of development releases is to support releases made early during a
 development cycle, for example, a nightly build, or a build from the latest
@@ -49,6 +52,7 @@ versioning, with versions like 23.12, and switches to semantic versioning, with
 versions like 1.0, the comparison between 1.0 and 23.12 will go the wrong way.
 To correct this, the new version numbers should have an explicit epoch, as in
 "1!1.0", in order to be treated as more recent than the old version numbers.
+
 
 
 Semantic versioning vs. calendar versioning
@@ -129,22 +133,6 @@ combine date based versioning with serial versioning to create a *year.serial*
 numbering scheme that readily conveys the approximate age of a release, but
 doesn't otherwise commit to a particular release cadence within the year.
 
-
-
-Pre-release versioning
-======================
-
-Regardless of the base versioning scheme, pre-releases for a given final release
-may be published as:
-
-* Zero or more dev releases, denoted with a ".devN" suffix,
-* Zero or more alpha releases, denoted with a "aN" suffix,
-* Zero or more beta releases, denoted with a "bN" suffix,
-* Zero or more release candidates, denoted with a "rcN" suffix.
-
-Pip and other modern Python package installers ignore pre-releases by default
-when deciding which versions of dependencies to install, unless explicitly
-requested, e.g., with ``pip install pkg==1.1a3``.
 
 
 Local version identifiers
