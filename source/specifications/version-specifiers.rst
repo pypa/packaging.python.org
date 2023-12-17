@@ -108,6 +108,8 @@ aside from always being the lowest possible value in the version ordering.
    sections.
 
 
+.. _local-version-identifiers:
+
 Local version identifiers
 -------------------------
 
