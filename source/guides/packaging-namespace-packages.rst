@@ -1,3 +1,5 @@
+.. _packaging-namespace-packages:
+
 ============================
 Packaging namespace packages
 ============================
