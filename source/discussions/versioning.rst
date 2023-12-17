@@ -18,27 +18,47 @@ version identifiers, for which the authoritative reference is the
 :ref:`specification of version specifiers <version-specifiers>`. Here are some
 examples of version numbers:
 
-.. code-block:: text
+- A simple version (final release): 1.2.0
+- A development release: 1.2.0.dev1
+- An alpha release: 1.2.0a1
+- A beta release: 1.2.0b1
+- A release candidate: 1.2.0rc1
+- A post-release: 1.2.0.post1
+- A post-release of an alpha release (possible, but discouraged): 1.2.0a1.post1
+- A simple version with only two components: 23.12
+- A simple version with just one component (possible, but discouraged): 42
+- A version with an epoch: 1!1.0
 
-  1.2.0.dev1  # Development release
-  1.2.0a1     # Alpha Release
-  1.2.0b1     # Beta Release
-  1.2.0rc1    # Release Candidate
-  1.2.0       # Final Release
-  1.2.0.post1 # Post Release
-  15.10       # Date based release
-  23          # Serial release
+Projects can use a cycle of pre-releases to support testing by their users
+before a final release. In order, the steps are: alpha releases, beta releases,
+release candidates, final release.
+
+The purpose of development releases is to support releases made early during a
+development cycle, for example, a nightly build, or a build from the latest
+source in a Linux distribution.
+
+Post-releases are used to address minor errors in a final release that do not
+affect the distributed software, such as correcting an error in the release
+notes. They should not be used for bug fixes; these should be done with a new
+final release (e.g., incrementing the third component when using semantic
+versioning).
+
+Finally, epochs, a rarely used feature, serve to fix the sorting order when
+changing the versioning scheme. For example, if a project is using calendar
+versioning, with versions like 23.12, and switches to semantic versioning, with
+versions like 1.0, the comparison between 1.0 and 23.12 will go the wrong way.
+To correct this, the new version numbers should have an explicit epoch, as in
+"1!1.0", in order to be treated as more recent than the old version numbers.
 
 
 Semantic versioning vs. calendar versioning
 ===========================================
 
-A versioning scheme is a way to interpret version numbers of a package, and to
-decide which should be the next version number for a new release of a package.
-Two versioning schemes are commonly used for Python packages, semantic
-versioning and calendar versioning.
+A versioning scheme is a formalized way to interpret the segments of a version
+number, and to decide which should be the next version number for a new release
+of a package. Two versioning schemes are commonly used for Python packages,
+semantic versioning and calendar versioning.
 
-Semantic versioning is recommended for most new projects.
 
 Semantic versioning
 -------------------
@@ -50,14 +70,15 @@ The idea of *semantic versioning* is to use 3-part version numbers,
 - *minor* when they add functionality in a backwards-compatible manner, and
 - *maintenance*, when they make backwards-compatible bug fixes.
 
-Note that many projects, especially larger ones, do not use strict semantic
-versioning since many changes are technically breaking changes but affect only a
-small fraction of users. Such projects tend to increment the major number when
-the incompatibility is high, rather than for any tiny incompatibility, or to
-signal a shift in the project.
+A majority of Python projects use a scheme that resembles semantic
+versioning. However, most projects, especially larger ones, do not strictly
+adhere to semantic versioning, since many changes are technically breaking
+changes but affect only a small fraction of users. Such projects tend to
+increment the major number when the incompatibility is high, or to signal a
+shift in the project, rather than for any tiny incompatibility,
 
-For those projects that do adhere to semantic versioning strictly, this approach
-allows users to make use of :ref:`compatible release version specifiers
+For those projects that do use strict semantic versioning, this approach allows
+users to make use of :ref:`compatible release version specifiers
 <version-specifiers-compatible-release>`, with the ``~=`` operator.  For
 example, ``name ~= X.Y`` is roughly equivalent to ``name >= X.Y, == X.*``, i.e.,
 it requires at least release X.Y, and allows any later release with greater Y as
@@ -67,6 +88,13 @@ release with same X and Y but higher Z.
 
 Python projects adopting semantic versioning should abide by clauses 1-8 of the
 `Semantic Versioning 2.0.0 specification <semver_>`_.
+
+The popular :doc:`Sphinx <sphinx:index>` documentation generator is an example
+project that uses strict semantic versioning (:doc:`Sphinx versioning policy
+<sphinx:internals/release-process>`). The famous :doc:`NumPy <numpy:index>`
+scientific computing package explicitly uses "loose" semantic versioning, where
+releases incrementing the minor version can contain backwards-incompatible API
+changes (:doc:`NumPy versioning policy <numpy:dev/depending_on_numpy>`).
 
 
 Calendar versioning
@@ -81,7 +109,10 @@ is that it is straightforward to tell how old the base feature set of a
 particular release is given just the version number.
 
 Calendar version numbers typically take the form *year.month* (for example,
-23.10 for December 2023).
+23.12 for December 2023).
+
+:doc:`Pip <pip:index>`, the standard Python package installer, uses calendar
+versioning.
 
 
 Other schemes
@@ -107,12 +138,13 @@ Regardless of the base versioning scheme, pre-releases for a given final release
 may be published as:
 
 * Zero or more dev releases, denoted with a ".devN" suffix,
-* Zero or more alpha releases, denoted with a ".aN" suffix,
-* Zero or more beta releases, denoted with a ".bN" suffix,
-* Zero or more release candidates, denoted with a ".rcN" suffix.
+* Zero or more alpha releases, denoted with a "aN" suffix,
+* Zero or more beta releases, denoted with a "bN" suffix,
+* Zero or more release candidates, denoted with a "rcN" suffix.
 
 Pip and other modern Python package installers ignore pre-releases by default
-when deciding which versions of dependencies to install.
+when deciding which versions of dependencies to install, unless explicitly
+requested, e.g., with ``pip install pkg==1.1a3``.
 
 
 Local version identifiers
@@ -125,15 +157,15 @@ used to identify local development builds not intended for publication, or
 modified variants of a release maintained by a redistributor.
 
 A local version identifier takes the form of a public version identifier,
-followed by "+" and a local version label. For example:
-
-.. code-block:: text
-
-   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commit since 1.2.0.dev1 release
-   1.2.1+fedora.4                # Package with downstream Fedora patches applied
-
-
+followed by "+" and a local version label. For example, a package with
+Fedora-specific patches applied could have the version "1.2.1+fedora.4".
+Another example is versions computed by setuptools-scm_, a setuptools plugin
+that reads the version from Git data. In a Git repository with some commits
+since the latest release, setuptools-scm generates a version like
+"0.5.dev1+gd00980f", or if the repository has untracked changes, like
+"0.5.dev1+gd00980f.d20231217".
 
 
 .. _calver: https://calver.org
 .. _semver: https://semver.org
+.. _setuptools-scm: https://setuptools-scm.readthedocs.io

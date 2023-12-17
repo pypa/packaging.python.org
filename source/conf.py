@@ -143,6 +143,7 @@ intersphinx_mapping = {
     "flexx": ("https://flexx.readthedocs.io/en/latest/", None),
     "flit": ("https://flit.pypa.io/en/stable/", None),
     "nox": ("https://nox.thea.codes/en/latest/", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
     "openstack": ("https://docs.openstack.org/glance/latest/", None),
     "packaging": ("https://packaging.pypa.io/en/latest/", None),
     "pip": ("https://pip.pypa.io/en/latest/", None),

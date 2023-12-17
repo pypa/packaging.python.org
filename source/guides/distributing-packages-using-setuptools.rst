@@ -287,6 +287,12 @@ achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
 
 
+Choosing a versioning scheme
+----------------------------
+
+See :ref:`versioning` for information on common version schemes and how to
+choose between them.
+
 
 Working in "development mode"
 =============================
