@@ -251,8 +251,8 @@ API file-related features:
   ``/packages/HolyGrail-1.0.tar.gz`` may have a signature at
   ``/packages/HolyGrail-1.0.tar.gz.asc``.
 
-* The file's release's :ref:`core-metadata-requires-python` metadata field may
-  be provided. Clients should ignore the file when installing to an environment
+* The file's :ref:`core-metadata-requires-python` metadata field may be
+  provided. Clients should ignore the file when installing to an environment
   for a version of Python which doesn't satisfy the requirement.
 
 * Files may be marked as :ref:`yanked <simple-repository-api-yanked>`.
