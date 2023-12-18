@@ -355,7 +355,7 @@ represents an object with properties:
   but not all versions need files associated. These versions should be
   :ref:`normalized <version-specifiers-normalization>`.
 
-  *New in API v1.1*
+  .. versionadded:: 1.1
 
 * ``files`` (array of objects, required) - files list. Each file provided by
   the index for the project corresponds to an element in this array, and vice
@@ -396,14 +396,14 @@ represents an object with properties:
 
   * ``size`` (number, required) - file size in integer bytes.
 
-    *New in API v1.1*
+    .. versionadded:: 1.1
 
   * ``upload-time`` (string, optional) - file upload time, as an ISO 8601
     date/time string in the UTC timezone using a ``Z`` suffix with precision
     between seconds and microseconds: in the format
     ``YYYY-mm-ddTHH:MM:SS.ffffffZ`` (number of ``f``'s variable).
 
-    *New in API v1.1*
+    .. versionadded:: 1.1
 
 Unknown JSON object keys must be ignored.
 
