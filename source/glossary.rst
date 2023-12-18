@@ -209,10 +209,8 @@ Glossary
     Requirement Specifier
 
        A format used by :ref:`pip` to install packages from a :term:`Package
-       Index`. For an EBNF diagram of the format, see the
-       `pkg_resources.Requirement
-       <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_
-       entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
+       Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`.
+       For example, "foo>=1.3" is a
        requirement specifier, where "foo" is the project name, and the ">=1.3"
        portion is the :term:`Version Specifier`
 
