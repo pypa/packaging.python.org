@@ -88,7 +88,7 @@ shell's ``PATH``.
 
     .. code-block:: bat
 
-        .venv\Scripts\Activate.bat
+        .venv\Scripts\activate
 
 To confirm the virtual environment is activated, check the location of your
 Python interpreter:
