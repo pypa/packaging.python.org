@@ -88,7 +88,7 @@ shell's ``PATH``.
 
     .. code-block:: bat
 
-        .venv\bin\Activate.bat
+        .venv\Scripts\activate
 
 To confirm the virtual environment is activated, check the location of your
 Python interpreter:
@@ -118,7 +118,7 @@ filepath that includes the ``.venv`` directory, by ending with the following:
 
     .. code-block:: bat
 
-        .venv\bin\python.exe
+        .venv\Scripts\python
 
 
 While a virtual environment is activated, pip will install packages into that
