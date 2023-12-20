@@ -67,7 +67,7 @@ semantic versioning and calendar versioning.
 Semantic versioning
 -------------------
 
-The idea of *semantic versioning* is to use 3-part version numbers,
+The idea of *semantic versioning* (or SemVer) is to use 3-part version numbers,
 *major.minor.maintenance*, where the project author increments:
 
 - *major* when they make incompatible API changes,
@@ -79,7 +79,8 @@ versioning. However, most projects, especially larger ones, do not strictly
 adhere to semantic versioning, since many changes are technically breaking
 changes but affect only a small fraction of users. Such projects tend to
 increment the major number when the incompatibility is high, or to signal a
-shift in the project, rather than for any tiny incompatibility,
+shift in the project, rather than for any tiny incompatibility
+[#semver-strictness]_.
 
 For those projects that do use strict semantic versioning, this approach allows
 users to make use of :ref:`compatible release version specifiers
@@ -108,9 +109,9 @@ Semantic versioning is not a suitable choice for all projects, such as those
 with a regular time based release cadence and a deprecation process that
 provides warnings for a number of releases prior to removal of a feature.
 
-A key advantage of date-based versioning, or `calendar versioning <calver_>`_,
-is that it is straightforward to tell how old the base feature set of a
-particular release is given just the version number.
+A key advantage of date-based versioning, or `calendar versioning <calver_>`_
+(CalVer), is that it is straightforward to tell how old the base feature set of
+a particular release is given just the version number.
 
 Calendar version numbers typically take the form *year.month* (for example,
 23.12 for December 2023).
@@ -154,6 +155,22 @@ since the latest release, setuptools-scm generates a version like
 "0.5.dev1+gd00980f.d20231217".
 
 
+--------------------------------------------------------------------------------
+
+
+.. [#semver-strictness] For some personal viewpoints on this issue, see these
+   blog posts: `by Hynek Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft
+   <semver-donald-stufft_>`_, `by Bernát Gábor <semver-bernat-gabor_>`_, `by
+   Brett Cannon <semver-brett-cannon_>`_. For a humoristic take, read about
+   ZeroVer_.
+
+
+
+.. _zerover: https://0ver.org
 .. _calver: https://calver.org
 .. _semver: https://semver.org
+.. _semver-bernat-gabor: https://bernat.tech/posts/version-numbers/
+.. _semver-brett-cannon: https://snarky.ca/why-i-dont-like-semver/
+.. _semver-donald-stufft: https://caremad.io/posts/2016/02/versioning-software/
+.. _semver-hynek-schlawack: https://hynek.me/articles/semver-will-not-save-you/
 .. _setuptools-scm: https://setuptools-scm.readthedocs.io
