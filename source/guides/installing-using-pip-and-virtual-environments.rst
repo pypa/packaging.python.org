@@ -118,7 +118,7 @@ filepath that includes the ``.venv`` directory, by ending with the following:
 
     .. code-block:: bat
 
-        .venv\Scripts\python.exe
+        .venv\Scripts\python
 
 
 While a virtual environment is activated, pip will install packages into that
