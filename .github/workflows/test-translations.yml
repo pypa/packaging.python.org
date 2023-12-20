@@ -39,8 +39,7 @@ jobs:
       id: languages
       working-directory: locales
       run: |
-        dirs=$(find * -maxdepth 0 -type d)
-        list="$(echo $dirs | sed "s|^|['|;s|$|']|;s| |', '|g")"
+        list=$(find * -maxdepth 0 -type d | jq -nRc '[inputs]')
         echo "languages=$list" >> $GITHUB_OUTPUT
 
 
