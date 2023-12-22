@@ -73,7 +73,7 @@ Name
 
 .. versionadded:: 1.0
 .. versionchanged:: 2.1
-   Added restrictions on format from the :ref:`name grammar <name-grammar>`.
+   Added restrictions on format from the :ref:`name format <name-format>`.
 
 The name of the distribution. The name field is the primary identifier for a
 distribution. It must conform to the :ref:`name format specification
