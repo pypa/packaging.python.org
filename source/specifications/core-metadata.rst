@@ -27,11 +27,6 @@ definition, the practical standard is set by what the standard library
 Whenever metadata is serialised to a byte stream (for example, to save
 to a file), strings must be serialised using the UTF-8 encoding.
 
-Although :pep:`566` defined a way to transform metadata into a JSON-compatible
-dictionary, this is not yet used as a standard interchange format. The need for
-tools to work with years worth of existing packages makes it difficult to shift
-to a new format.
-
 .. note:: *Interpreting old metadata:* In :pep:`566`, the version specifier
    field format specification was relaxed to accept the syntax used by popular
    publishing tools (namely to remove the requirement that version specifiers
@@ -848,6 +843,27 @@ Example::
     Obsoletes: Gorgon
 
 
+Transforming core metadata to JSON
+==================================
+
+It may be necessary to store metadata in a data structure which does not allow
+for multiple repeated keys, such as JSON. This specification defines a way to
+transform metadata into a JSON-compatible dictionary [#json-not-interchange]_.
+
+#. The original key-value format should be read with
+   ``email.parser.HeaderParser``.
+#. All transformed keys should be reduced to lower case. Hyphens should be
+   replaced with underscores, but otherwise should retain all other characters.
+#. The transformed value for any field marked with "(multiple use)" should be a
+   single list containing all the original values for the given key.
+#. The ``Keywords`` field should be converted to a list by splitting the
+   original value on commas.
+#. The message body, if present, should be set to the value of the
+   ``description`` key.
+#. The result should be stored as a string-keyed dictionary.
+
+
+
 ----
 
 .. [1] reStructuredText markup:
@@ -857,3 +873,7 @@ Example::
 
 .. [2] RFC 822 Long Header Fields:
    :rfc:`822#section-3.1.1`
+
+.. [#json-not-interchange] This is not yet used as a standard interchange
+   format; the need for tools to work with years worth of existing packages
+   makes it difficult to shift to a new format.
