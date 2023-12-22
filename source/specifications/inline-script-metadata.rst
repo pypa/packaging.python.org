@@ -238,4 +238,4 @@ the highest available version of Python that is compatible with the script's
 History
 =======
 
-This specification was originally defined as :pep:`723`.
+- October 2023: This specification was conditionally approved through :pep:`723`.

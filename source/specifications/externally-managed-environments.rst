@@ -471,4 +471,4 @@ CC0-1.0-Universal license, whichever is more permissive.
 History
 =======
 
-This specification was originally approved as :pep:`668`.
+- June 2022: This specification was approved through :pep:`668`.

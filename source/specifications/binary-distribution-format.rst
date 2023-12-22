@@ -418,12 +418,9 @@ Is it possible to import Python code directly from a wheel file?
 History
 =======
 
-This specification was originally approved as :pep:`427`.
-
-The following changes were applied since the initial version:
-
-- The rules on escaping in wheel filenames were revised, to bring them
-  into line with what popular tools actually do (February 2021).
+- February 2013: This specification was approved through :pep:`427`.
+- February 2021: The rules on escaping in wheel filenames were revised, to bring
+  them into line with what popular tools actually do.
 
 
 Appendix

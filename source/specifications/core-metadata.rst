@@ -848,6 +848,26 @@ Example::
     Obsoletes: Gorgon
 
 
+History
+=======
+
+- March 2001: Core metadata 1.0 was approved through :pep:`241`.
+- April 2003: Core metadata 1.1 was approved through :pep:`314`:
+- February 2010: Core metadata 1.2 was approved through :pep:`345`.
+- February 2018: Core metadata 2.1 was approved through :pep:`566`.
+
+  - Added ``Description-Content-Type`` and ``Provides-Extra``.
+  - Added canonical method for transforming metadata to JSON.
+  - Restricted the grammar of the ``Name`` field.
+
+- October 2020: Core metadata 2.2 was approved through :pep:`643`.
+
+  - Added the ``Dynamic`` field.
+
+- March 2022: Core metadata 2.3 was approved through :pep:`685`.
+
+  - Restricted extra names to be normalized.
+
 ----
 
 .. [1] reStructuredText markup:
