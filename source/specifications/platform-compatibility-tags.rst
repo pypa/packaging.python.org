@@ -117,13 +117,10 @@ of ``sysconfig.get_platform()`` on the system as in the "simple" form above.
 
 The following older tags are still supported for backward compatibility:
 
-* ``manylinux1`` is based on a compatible Linux platform from 2007,
-  and supports ``x86_64`` and ``i686`` architectures.
-* ``manylinux2010`` is based on a platform from 2010 and supports ``x86_64``
-  and ``i686``.
-* ``manylinux2014`` is based on a platform from 2014 and supports
-  ``x86_64``, ``i686``, ``aarch64``, ``armv7l``, ``ppc64``, ``ppc64le``,
-  and ``s390x``.
+* ``manylinux1`` supports glibc 2.5 on ``x86_64`` and ``i686`` architectures.
+* ``manylinux2010`` supports glibc 2.12 on ``x86_64`` and ``i686``.
+* ``manylinux2014`` supports glibc 2.17 on ``x86_64``, ``i686``, ``aarch64``,
+  ``armv7l``, ``ppc64``, ``ppc64le``, and ``s390x``.
 
 In general, distributions built for older versions of the specification are
 forwards-compatible (meaning that ``manylinux1`` distributions should continue
