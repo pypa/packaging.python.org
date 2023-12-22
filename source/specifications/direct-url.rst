@@ -62,8 +62,8 @@ Commands that *do not* generate a ``direct_url.json``
 * ``pip install app``
 * ``pip install app --no-index --find-links https://example.com/``
 
+
 History
 =======
 
-- March 2020: the ``direct_url.json`` metadata file was originally specified in
-  :pep:`610` and is formally documented here.
+- March 2020: This specification was approved through :pep:`610`.

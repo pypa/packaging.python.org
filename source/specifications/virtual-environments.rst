@@ -48,3 +48,9 @@ Even in the absence of a ``pyvenv.cfg`` file, any approach (e.g.
 ``sys.prefix`` and ``sys.base_prefix`` having different values, while still
 providing a matching default package installation scheme in ``sysconfig``, will
 be detected and behave as a Python virtual environment.
+
+
+History
+=======
+
+- May 2012: This specification was approved through :pep:`405`.

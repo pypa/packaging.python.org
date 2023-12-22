@@ -262,10 +262,15 @@ Local directory in editable mode:
        }
    }
 
+
 History
 =======
 
-- March 2020: this data structure was originally specified as part of the
-  ``direct_url.json`` metadata file in :pep:`610` and is formally documented here.
-- January 2023: Added the ``archive_info.hashes`` key
-  ([discussion](https://discuss.python.org/t/22299)).
+- March 2020: This specification was approved through :pep:`610`, defining
+  the ``direct_url.json`` metadata file.
+- January 2023: Added the ``archive_info.hashes`` key (`discussion
+  <archive-info-hashes_>`_).
+
+
+
+.. _archive-info-hashes: https://discuss.python.org/t/22299

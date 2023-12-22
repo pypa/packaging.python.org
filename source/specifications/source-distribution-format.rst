@@ -143,8 +143,10 @@ verification* in ``tarfile`` documentation apply to their tool.
 History
 =======
 
-* August 2023: Standardized the source distribution archive features (:pep:`721`)
-* September 2022: Standardized the filename of a source distribution (:pep:`625`)
-* July 2021: Defined what a source tree is
-* November 2020: :pep:`643` converted to this specification
-* December 2000: Source distributions standardized in :pep:`643`
+* November 2020: The original version of this specification was approved through
+  :pep:`643`.
+* July 2021: Defined what a source tree is.
+* September 2022: The filename of a source distribution was standardized through
+  :pep:`625`.
+* August 2023: Source distribution archive features were standardized through
+  :pep:`721`.
