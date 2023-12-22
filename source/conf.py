@@ -108,6 +108,7 @@ linkcheck_ignore = [
     # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
     "https://www.breezy-vcs.org/*",
 ]
+linkcheck_retries = 5
 
 # -- Options for extlinks ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html#configuration
