@@ -41,5 +41,7 @@ This means that the following names are all equivalent:
 History
 =======
 
-- `September 2015 <https://mail.python.org/pipermail/distutils-sig/2015-September/026899.html>`_: normalized name was originally specified in :pep:`503#normalized-names`.
-- `November 2015 <https://mail.python.org/pipermail/distutils-sig/2015-November/027868.html>`_: valid non-normalized name was originally specified in :pep:`508#names`.
+- September 2015: The specification of name normalized was approved through
+  :pep:`503 <503#normalized-names>`.
+- November 2015: The specification of valid names was approved through
+  :pep:`508 <508#names>`.

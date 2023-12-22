@@ -9,13 +9,6 @@ Platform compatibility tags allow build tools to mark distributions as being
 compatible with specific platforms, and allows installers to understand which
 distributions are compatible with the system they are running on.
 
-The following PEPs contributed to this spec:
-
-1. :pep:`425`
-2. :pep:`513`
-3. :pep:`571`
-4. :pep:`599`
-5. :pep:`600`
 
 Overview
 ========
@@ -302,3 +295,15 @@ Why is the ABI tag (the second tag) sometimes "none" in the reference implementa
     implementation at the time of writing guesses "none".  Ideally it
     would detect "py27(d|m|u)" analogous to newer versions of Python,
     but in the meantime "none" is a good enough way to say "don't know".
+
+
+History
+=======
+
+- February 2013: The original version of this specification was approved through
+  :pep:`425`.
+- January 2016: The ``manylinux1`` tag was approved through :pep:`513`.
+- April 2018: The ``manylinux2010`` tag was approved through :pep:`571`.
+- July 2019: The ``manylinux2014`` tag was approved through :pep:`599`.
+- November 2019: The ``manylinux_x_y`` perennial tag was approved through
+  :pep:`600`.
