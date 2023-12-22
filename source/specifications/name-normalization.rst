@@ -1,16 +1,16 @@
-======================================
-Package name grammar and normalization
-======================================
+=======================
+Names and normalization
+=======================
 
-Project names obey a restricted format, and are "normalized" for use in various
-contexts. This document describes what the valid project names are, and how
-project names should be normalized.
+This specification defines the format that names for packages and extras are
+required to follow. It also describes how to normalize them, which should be
+done before lookups and comparisons.
 
 
-.. _name-grammar:
+.. _name-format:
 
-Name grammar
-============
+Name format
+===========
 
 A valid name consists only of ASCII letters and numbers, period,
 underscore and hyphen. It must start and end with a letter or number.

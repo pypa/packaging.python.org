@@ -76,7 +76,8 @@ Name
    Added restrictions on format from the :ref:`name grammar <name-grammar>`.
 
 The name of the distribution. The name field is the primary identifier for a
-distribution. It must conform to the :ref:`package name grammar <name-grammar>`.
+distribution. It must conform to the :ref:`name format specification
+<name-format>`.
 
 Example::
 
