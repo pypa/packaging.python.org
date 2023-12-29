@@ -12,17 +12,17 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-22 21:48+0000\n"
-"PO-Revision-Date: 2023-12-18 06:41+0000\n"
+"PO-Revision-Date: 2023-12-23 19:15+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -105,7 +105,7 @@ msgid ""
 msgstr ""
 "Учебники нацелены на обучение читателя новым понятиям путем достижения цели. "
 "Они представляют собой пошаговые руководства, основанные на мнениях. Они не "
-"содержат лишних предупреждений или информации. `Пример документа в стиле "
+"содержат лишних предупреждений или информации. `пример документа‐в стиле "
 "учебника`_."
 
 #: ../source/contribute.rst:51 ../source/guides/index.rst:2
@@ -789,10 +789,8 @@ msgid "Configuration management"
 msgstr "Управление конфигурацией"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:5
-#, fuzzy
-#| msgid "Distribution Package"
 msgid "Distribution package vs. import package"
-msgstr "Пакет дистрибутива"
+msgstr "Пакет распределения против пакета импорта"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:7
 msgid ""
@@ -801,6 +799,9 @@ msgid ""
 "related meanings in Python packaging, \"distribution package\" and \"import "
 "package\"."
 msgstr ""
+"Словом \"пакет\" обычно обозначают несколько различных понятий. Эта страница "
+"объясняет различия между двумя разными, но связанными значениями в упаковке "
+"Python, \"дистрибутивный пакет\" и \"пакет импорта\"."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:13
 msgid "What's a distribution package?"
@@ -817,6 +818,15 @@ msgid ""
 "Alternatively, the term \"distribution package\" can be used to refer to a "
 "specific file that contains a certain version of a project."
 msgstr ""
+"Дистрибутив - это часть программного обеспечения, которую вы можете "
+"установить. В большинстве случаев это синоним слова \"проект\". Когда вы "
+"набираете ``pip install pkg``, или когда вы пишете ``dependencies = [\"pkg\""
+"]`` в вашем ``pyproject.toml``, ``pkg`` - это имя дистрибутивного пакета. "
+"Когда вы ищете или просматриваете PyPI_, наиболее известный централизованный "
+"источник для установки библиотек и инструментов Python, вы видите список "
+"дистрибутивных пакетов. Кроме того, термин \"дистрибутивный пакет\" может "
+"использоваться для обозначения конкретного файла, содержащего определенную "
+"версию проекта."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:24
 msgid ""
@@ -825,6 +835,10 @@ msgid ""
 "by the system package manager of the `Linux distribution <distro_>`_, which "
 "is a different meaning."
 msgstr ""
+"Обратите внимание, что в мире Linux \"дистрибутивный пакет\", чаще всего "
+"сокращаемый как \"дистропакет\" или просто \"пакет\", - это нечто, "
+"предоставляемое системным менеджером пакетов дистрибутива <distro_>`_, что "
+"имеет другое значение."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:31
 msgid "What's an import package?"
@@ -840,16 +854,25 @@ msgid ""
 "is a directory on the file system, containing modules as ``.py`` files and "
 "subpackages as subdirectories."
 msgstr ""
+"Импортный пакет - это модуль Python. Таким образом, когда вы пишете ``import "
+"pkg`` или ``from pkg import func`` в вашем коде Python, ``pkg`` - это имя "
+"пакета импорта. Точнее, импортные пакеты - это специальные модули Python, "
+"которые могут содержать подмодули. Например, пакет ``numpy`` содержит такие "
+"модули, как ``numpy.linalg`` и ``numpy.fft``. Обычно пакет импорта "
+"представляет собой каталог в файловой системе, содержащий модули в виде "
+"файлов ``.py`` и подпакеты в виде подкаталогов."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:42
 msgid ""
 "You can use an import package as soon as you have installed a distribution "
 "package that provides it."
 msgstr ""
+"Вы можете использовать пакет импорта, как только установите дистрибутив, "
+"который его предоставляет."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:47
 msgid "What are the links between distribution packages and import packages?"
-msgstr ""
+msgstr "Какие связи существуют между дистрибутивными и импортными пакетами?"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:49
 msgid ""
@@ -857,6 +880,9 @@ msgid ""
 "(or non-package module), with a matching name. For example, ``pip install "
 "numpy`` lets you ``import numpy``."
 msgstr ""
+"Чаще всего дистрибутив предоставляет один единственный импортный пакет (или "
+"непакетный модуль) с соответствующим именем. Например, ``pip install numpy`` "
+"позволяет вам ``импортировать numpy``."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:53
 msgid ""
@@ -866,6 +892,12 @@ msgid ""
 "blindly install the PyPI package ``foo`` if you see ``import foo``; this may "
 "install an unintended, and potentially even malicious package.)"
 msgstr ""
+"Однако это лишь условность. PyPI и другие указатели пакетов *не обеспечивают "
+"никакой связи* между именем дистрибутивного пакета и пакетами импорта, "
+"которые он предоставляет. (Следствием этого является то, что вы не можете "
+"вслепую установить пакет PyPI ``foo``, если вы видите ``import foo``; это "
+"может привести к установке непреднамеренного и потенциально даже "
+"вредоносного пакета)"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:59
 msgid ""
@@ -878,6 +910,14 @@ msgid ""
 "generally, a fork of an existing library is a common reason for differing "
 "names between the distribution package and the import package."
 msgstr ""
+"Дистрибутив может предоставлять пакет импорта с другим именем. Примером "
+"может служить популярная библиотека Pillow_ для обработки изображений. Имя "
+"ее дистрибутивного пакета - ``Pillow``, но она предоставляет пакет импорта "
+"``PIL``. Это объясняется историческими причинами: Pillow начиналась как форк "
+"библиотеки PIL, поэтому она сохранила имя импорта ``PIL``, чтобы "
+"существующие пользователи PIL могли перейти на Pillow без особых усилий. В "
+"целом, форк существующей библиотеки - это распространенная причина различия "
+"имен в дистрибутивном и импортном пакетах."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:69
 msgid ""
@@ -886,6 +926,11 @@ msgid ""
 "packages with the same name can be provided by several distribution "
 "packages. Again, forks are a common reason for this."
 msgstr ""
+"В определенном индексе пакетов (например, в PyPI) имена дистрибутивных "
+"пакетов должны быть уникальными. С другой стороны, импортные пакеты не имеют "
+"такого требования. Импортные пакеты с одним и тем же именем могут "
+"предоставляться несколькими дистрибутивными пакетами. Опять же, частой "
+"причиной этого являются форки."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:74
 msgid ""
@@ -894,10 +939,14 @@ msgid ""
 "which provides both an ``attrs`` import package with a newer API, and an "
 "``attr`` import package with an older but supported API."
 msgstr ""
+"И наоборот, дистрибутивный пакет может предоставлять несколько пакетов "
+"импорта, хотя это встречается реже. Примером может служить дистрибутивный "
+"пакет attrs_, который предоставляет как пакет импорта ``attrs`` с более "
+"новым API, так и пакет импорта ``attr`` со старым, но поддерживаемым API."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:81
 msgid "How do distribution package names and import package names compare?"
-msgstr ""
+msgstr "Как соотносятся имена дистрибутивных и импортных пакетов?"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:83
 msgid ""
@@ -906,6 +955,10 @@ msgid ""
 "[#non-identifier-mod-name]_. In particular, they use underscores ``_`` as "
 "word separator and they are case-sensitive."
 msgstr ""
+"Импортируемые пакеты должны иметь в качестве имени корректные идентификаторы "
+"Python (точные правила <python:identifiers>` можно найти в документации "
+"Python) [#non-identifier-mod-name]_. В частности, они используют "
+"подчеркивание ``_`` в качестве разделителя слов и чувствительны к регистру."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:88
 msgid ""
@@ -917,6 +970,14 @@ msgid ""
 "``pip install awesome-package`` (the precise rules are given in the :ref:"
 "`name normalization specification <name-normalization>`)."
 msgstr ""
+"С другой стороны, распределительные пакеты могут использовать дефисы ``-`` "
+"или подчеркивает ``_``. Они также могут содержать точки ``.``, которые "
+"иногда используются для упаковки подпаковки :ref:`namespace package "
+"<packaging-namespace-packages>`. Для большинства целей они нечувствительны к "
+"делу и к ``-`` против ``_`` различий, например, ``pip установить "
+"Awesome_Package`` - это то же самое, что ``pip установить потрясающий пакет``"
+" (точные правила даны в :ref:`name normalization Спецификация "
+"<name-нормализация>`)."
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:101
 msgid ""
@@ -924,6 +985,10 @@ msgid ""
 "have a valid Python identifier as their name, using :doc:`importlib <python:"
 "library/importlib>`, this is vanishingly rare and strongly discouraged."
 msgstr ""
+"Хотя технически возможно импортировать пакеты/модули, не имеющие в качестве "
+"имени действительного идентификатора Python, используя :doc:`importlib "
+"<python:library/importlib>`, это происходит крайне редко и настоятельно не "
+"рекомендуется."
 
 #: ../source/discussions/index.rst:4
 msgid ""
@@ -2372,15 +2437,6 @@ msgstr ""
 "что конечный пользователь скачает из интернета и установит."
 
 #: ../source/glossary.rst:64
-#, fuzzy
-#| msgid ""
-#| "A distribution package is more commonly referred to with the single words "
-#| "\"package\" or \"distribution\", but this guide may use the expanded term "
-#| "when more clarity is needed to prevent confusion with an :term:`Import "
-#| "Package` (which is also commonly called a \"package\") or another kind of "
-#| "distribution (e.g. a Linux distribution or the Python language "
-#| "distribution), which are often referred to with the single term "
-#| "\"distribution\"."
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -2391,12 +2447,13 @@ msgid ""
 "\"distribution\". See :ref:`distribution-package-vs-import-package` for a "
 "breakdown of the differences."
 msgstr ""
-"Дистрибутив чаще всего обозначается одним словом \"пакет\" или "
-"\"дистрибутив\", но в данном руководстве может использоваться расширенный "
-"термин, когда требуется большая ясность, чтобы избежать путаницы с :термином:"
-"`импортный пакет` (который также обычно называется \"пакет\") или другим "
-"видом дистрибутива (например, дистрибутив Linux или дистрибутив языка "
-"Python), которые часто обозначаются одним термином \"дистрибутив\"."
+"Дистрибутив чаще всего обозначается одним словом \"пакет\" или \"дистрибутив"
+"\", но в данном руководстве может использоваться расширенный термин, когда "
+"требуется большая ясность, чтобы избежать путаницы с :term:`Import Package` ("
+"который также обычно называется \"пакет\") или другим видом дистрибутива ("
+"например, дистрибутив Linux или дистрибутив языка Python), которые часто "
+"обозначаются одним термином \"дистрибутив\". Разбор различий см. в :ref"
+":`distribution-package-vs-import-package`."
 
 #: ../source/glossary.rst:72
 msgid "Egg"
@@ -2463,12 +2520,6 @@ msgstr ""
 "пакеты."
 
 #: ../source/glossary.rst:104
-#, fuzzy
-#| msgid ""
-#| "An import package is more commonly referred to with the single word "
-#| "\"package\", but this guide will use the expanded term when more clarity "
-#| "is needed to prevent confusion with a :term:`Distribution Package` which "
-#| "is also commonly called a \"package\"."
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -2476,10 +2527,11 @@ msgid ""
 "also commonly called a \"package\". See :ref:`distribution-package-vs-import-"
 "package` for a breakdown of the differences."
 msgstr ""
-"Импортный пакет чаще всего обозначается одним словом \"пакет\", но в данном "
+"Импортный пакет чаще всего обозначается одним словом \"пакет\", но в этом "
 "руководстве будет использоваться расширенный термин, когда требуется большая "
-"ясность, чтобы избежать путаницы с :термином:`Дистрибутивный пакет`, который "
-"также обычно называется \"пакет\"."
+"ясность, чтобы избежать путаницы с :term:`Distribution Package`, который "
+"также обычно называется \"пакет\". Различия см. в :ref:`distribution-package-"
+"vs-import-package`."
 
 #: ../source/glossary.rst:109
 msgid "Module"
@@ -2691,14 +2743,6 @@ msgid "Requirement Specifier"
 msgstr "Спецификатор требований"
 
 #: ../source/glossary.rst:211
-#, fuzzy
-#| msgid ""
-#| "A format used by :ref:`pip` to install packages from a :term:`Package "
-#| "Index`. For an EBNF diagram of the format, see the `pkg_resources."
-#| "Requirement <https://setuptools.readthedocs.io/en/latest/pkg_resources."
-#| "html#requirement-objects>`_ entry in the :ref:`setuptools` docs. For "
-#| "example, \"foo>=1.3\" is a requirement specifier, where \"foo\" is the "
-#| "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
@@ -2706,11 +2750,9 @@ msgid ""
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
 "Формат, используемый :ref:`pip` для установки пакетов из :term:`Package "
-"Index`. Для диаграммы EBNF формата см. в `pkg_resources.Requirement <https://"
-"setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-"
-"objects>`_ в :ref:`setuptools` docs. Например, \"foo>=1.3\" является "
-"спецификатором требований, где \"foo\" является наименованием проекта, а "
-"«>=1.3» - это:термин:`Version Specifier `"
+"Index`. EBNF диаграмму этого формата смотрите в :ref:`dependency-specifiers`"
+". Например, \"foo>=1.3\" - это спецификатор требований, где \"foo\" - это "
+"имя проекта, а часть \">=1.3\" - это :term:`Version Specifier`"
 
 #: ../source/glossary.rst:216
 msgid "Requirements File"
@@ -2911,7 +2953,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:26
 msgid "Packages not hosted on PyPI (for comparisons sake)"
-msgstr "Пакеты, размещённые не на PyPI (для сравнения);"
+msgstr "Пакеты, не размещенные на PyPI (для сравнения)"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:27
 msgid ""
@@ -2981,7 +3023,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:55
 msgid "Navigate to the `BigQuery web UI`_."
-msgstr "Перейдите к `BigQuery веб-UI`_."
+msgstr "Перейдите к `BigQuery web UI`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:56
 msgid "Create a new project."
@@ -3991,7 +4033,6 @@ msgstr ""
 "sampleproject>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:170
-#, fuzzy
 msgid ""
 "See :ref:`Choosing a versioning scheme` for more information on ways to use "
 "versions to convey compatibility information to your users."
@@ -4021,7 +4062,6 @@ msgstr ""
 "пакетов, которые не предназначены для выпуска и установки."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:192
-#, fuzzy
 msgid "``py_modules``"
 msgstr "``py_modules``"
 
@@ -4551,6 +4591,8 @@ msgid ""
 "Minimally, you should create a :term:`Source Distribution <Source "
 "Distribution (or \"sdist\")>`:"
 msgstr ""
+"Минимумом вы должны создать :термин:`Источник распределения <Источник "
+"распределения (или \"сдист\")>`:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:511
 msgid ""
@@ -4560,6 +4602,11 @@ msgid ""
 "involves a build step to build out the installation metadata from :file:"
 "`setup.py` and/or :file:`setup.cfg`."
 msgstr ""
+"Исходный дистрибутив\" является несобранным (т.е. не является :term:`Built "
+"Distribution`) и требует шага сборки при установке с помощью pip.  Даже если "
+"дистрибутив является чистым Python (т.е. не содержит расширений), он все "
+"равно требует сборки для создания метаданных установки из :file:`setup.py` и/"
+"или :file:`setup.cfg`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:519
 msgid "Wheels"
@@ -4572,18 +4619,27 @@ msgid ""
 "through the \"build\" process. Installing wheels is substantially faster for "
 "the end user than installing from a source distribution."
 msgstr ""
+"Вы также должны создать колесо для своего проекта. Колесо - это :term:`"
+"сборка пакета <Сборка дистрибутива>`, который может быть установлен без "
+"необходимости проходить процесс \"сборки\". Установка колес значительно "
+"быстрее для конечного пользователя, чем установка из исходного дистрибутива."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:526
 msgid ""
 "If your project is pure Python then you'll be creating a :ref:`\"Pure Python "
 "Wheel\" (see section below) <Pure Python Wheels>`."
 msgstr ""
+"Если ваш проект является чистым Python, то вы будете создавать :ref: «Чистый "
+"Python Колесо» (см. раздел ниже) <Чистый Python Колеса>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:529
 msgid ""
 "If your project contains compiled extensions, then you'll be creating what's "
 "called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`."
 msgstr ""
+"Если ваш проект содержит компилированные расширения, то вы будете создавать "
+"то, что называется:ref:`*Platform Wheel* (см. раздел ниже) <Platform "
+"Wheels>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:532
 msgid ""
@@ -4591,12 +4647,17 @@ msgid ""
 "you should create what's called a *Universal Wheel* by adding the following "
 "to your :file:`setup.cfg` file:"
 msgstr ""
+"Если ваш проект также поддерживает Python 2 *и* не содержит расширений C, то "
+"вам следует создать так называемое *универсальное колесо*, добавив следующее "
+"в файл :file:`setup.cfg`:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:541
 msgid ""
 "Only use this setting if your project does not have any C extensions *and* "
 "supports Python 2 and 3."
 msgstr ""
+"Используйте эту настройку только в том случае, если ваш проект не имеет "
+"расширений на языке C *и* поддерживает Python 2 и 3."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:548
 msgid "Pure Python Wheels"
@@ -4607,6 +4668,8 @@ msgid ""
 "*Pure Python Wheels* contain no compiled extensions, and therefore only "
 "require a single Python wheel."
 msgstr ""
+"* Чистые Python колеса* не содержат компилированных расширений, и поэтому "
+"требуется только одно колесо Python."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:553
 #: ../source/guides/distributing-packages-using-setuptools.rst:582
@@ -4619,12 +4682,17 @@ msgid ""
 "wheel that's named such that it's usable on any Python 3 installation.  For "
 "details on the naming of wheel files, see :pep:`425`."
 msgstr ""
+"Пакет ``wheel`` определит, что код - это чистый Python, и создаст колесо, "
+"названное так, чтобы его можно было использовать на любой установке Python "
+"3.  Подробнее об именовании файлов wheel смотрите в :pep:`425`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:571
 msgid ""
 "If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both "
 "files for you; this is useful when you don't need multiple wheels."
 msgstr ""
+"Если вы запустите ``build`` без ``--wheel`` или ``--sdist``, он соберет оба "
+"файла за вас; это полезно, когда вам не нужно несколько колес."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:577
 msgid "Platform Wheels"
@@ -4635,6 +4703,9 @@ msgid ""
 "*Platform Wheels* are wheels that are specific to a certain platform like "
 "Linux, macOS, or Windows, usually due to containing compiled extensions."
 msgstr ""
+"*Платформенные колеса* - это колеса, которые специфичны для определенной "
+"платформы, например Linux, macOS или Windows, обычно из-за содержания "
+"скомпилированных расширений."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:597
 msgid ""
@@ -4642,6 +4713,10 @@ msgid ""
 "build a wheel that's named such that it's only usable on the platform that "
 "it was built on. For details on the naming of wheel files, see :pep:`425`."
 msgstr ""
+"Пакет ``wheel`` определит, что код не является чистым Python, и создаст "
+"колесо, названное так, что его можно использовать только на той платформе, "
+"на которой оно было создано. Подробнее об именовании файлов wheel смотрите в "
+":pep:`425`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:603
 msgid ""
@@ -4649,6 +4724,9 @@ msgid ""
 "platform wheels for Windows, macOS, and the multi-distro ``manylinux*`` ABI. "
 "Details of the latter are defined in :pep:`513`."
 msgstr ""
+":term:`PyPI <Python Package Index (PyPI)>` в настоящее время поддерживает "
+"загрузку платформенных колес для Windows, macOS и мульти-дистро "
+"``manylinux*`` ABI. Подробности о последнем определены в :pep:`513`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:611
 msgid "Uploading your Project to PyPI"
@@ -4660,6 +4738,9 @@ msgid ""
 "`` was created under your project's root directory. That's where you'll find "
 "your distribution file(s) to upload."
 msgstr ""
+"Когда вы выполнили команду создания дистрибутива, под корневым каталогом "
+"вашего проекта был создан новый каталог ``dist/``. Именно в ней вы найдете "
+"файл(ы) дистрибутива для загрузки."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:617
 msgid ""
@@ -4668,6 +4749,10 @@ msgid ""
 "or the configuration in your :file:`setup.py` file, you will need to rebuild "
 "these files again before you can distribute the changes to PyPI."
 msgstr ""
+"Эти файлы создаются только тогда, когда вы выполняете команду создания "
+"дистрибутива. Это означает, что при любом изменении исходного кода проекта "
+"или конфигурации в файле :file:`setup.py` вам нужно будет заново создать эти "
+"файлы, прежде чем вы сможете распространить изменения в PyPI."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:622
 msgid ""
@@ -4676,6 +4761,10 @@ msgid ""
 "basis. See :ref:`using-test-pypi` on how to setup your configuration in "
 "order to use it."
 msgstr ""
+"Перед выпуском на основной PyPI-репо, вы можете предпочесть тренировку на `"
+"PyPI test site <https://test.pypi.org/>`_, который чистится на "
+"полурегулярной основе. Смотрите :ref:`using-test-pypi` о том, как настроить "
+"свою конфигурацию для его использования."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:627
 msgid ""
@@ -4685,6 +4774,12 @@ msgid ""
 "HTTP or unverified HTTPS connection on some Python versions, allowing your "
 "username and password to be intercepted during transmission."
 msgstr ""
+"На других ресурсах вы можете встретить упоминания об использовании ``python "
+"setup.py register`` и ``python setup.py upload``. Эти методы регистрации и "
+"загрузки пакетов **настоятельно не рекомендуются**, поскольку в некоторых "
+"версиях Python они могут использовать HTTP-соединение с открытым текстом или "
+"непроверенное HTTPS-соединение, что позволяет перехватить ваши имя "
+"пользователя и пароль во время передачи."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:633
 msgid ""
@@ -4695,6 +4790,13 @@ msgid ""
 "long descriptions provided in :file:`setup.py` are valid.  You can do this "
 "by running :std:doc:`twine check <index>` on your package files:"
 msgstr ""
+"Парсер reStructuredText, используемый на PyPI, - это **не** Sphinx! Кроме "
+"того, для обеспечения безопасности всех пользователей, некоторые виды URL и "
+"директив запрещены или удалены (например, директива ``...raw::``). **Перед "
+"тем, как** попытаться загрузить свой дистрибутив, вы должны проверить, "
+"действительны ли ваши краткие/длинные описания, указанные в :file:`setup.py`"
+".  Это можно сделать, выполнив :std:doc:`twine check <index>` для файлов "
+"вашего пакета:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:646
 msgid "Create an account"
@@ -4706,12 +4808,17 @@ msgid ""
 "You can create an account `using the form on the PyPI website <https://pypi."
 "org/account/register/>`_."
 msgstr ""
+"Во-первых, вам нужна учетная запись пользователя :term:`PyPI <Python Package "
+"Index (PyPI)>`. Вы можете создать учетную запись, используя форму на сайте "
+"PyPI <https://pypi.org/account/register/>`_."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:652
 msgid ""
 "Now you'll create a PyPI `API token`_ so you will be able to securely upload "
 "your project."
 msgstr ""
+"Теперь вы создадите токен PyPI `API token`_, чтобы иметь возможность "
+"безопасно загружать свой проект."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:655
 msgid ""
@@ -4719,22 +4826,29 @@ msgid ""
 "token`_; don't limit its scope to a particular project, since you are "
 "creating a new project."
 msgstr ""
+"Перейдите на https://pypi.org/manage/account/#api-tokens и создайте новый "
+"`API-токен`_; не ограничивайте его область действия конкретным проектом, "
+"поскольку вы создаете новый проект."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:659
 msgid ""
 "**Don't close the page until you have copied and saved the token — you won't "
 "see that token again.**"
 msgstr ""
+"**Не закрывайте страницу, пока не скопируете и не сохраните токен - больше "
+"вы его не увидите**"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:662
 msgid ""
 "To avoid having to copy and paste the token every time you upload, you can "
 "create a :file:`$HOME/.pypirc` file:"
 msgstr ""
+"Чтобы не копировать и не вставлять токен при каждой загрузке, вы можете "
+"создать файл :file:`$HOME/.pypirc`:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:671
 msgid "**Be aware that this stores your token in plaintext.**"
-msgstr ""
+msgstr "**Помните, что при этом ваш токен хранится в открытом виде**"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:673
 #: ../source/guides/migrating-to-pypi-org.rst:74
@@ -4743,6 +4857,8 @@ msgstr ""
 msgid ""
 "For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`."
 msgstr ""
+"Более подробную информацию см. в :ref:`спецификации <pypirc>` для :file:`."
+"pypirc`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:679
 msgid "Upload your distributions"
@@ -4753,6 +4869,8 @@ msgid ""
 "Once you have an account you can upload your distributions to :term:`PyPI "
 "<Python Package Index (PyPI)>` using :ref:`twine`."
 msgstr ""
+"После создания учетной записи вы можете загружать свои дистрибутивы в :term:`"
+"PyPI <Python Package Index (PyPI)>`, используя :ref:`twine`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:684
 msgid ""
@@ -4760,12 +4878,17 @@ msgid ""
 "the project already exists on PyPI - if it doesn't exist yet, it will be "
 "automatically created when the first release is uploaded."
 msgstr ""
+"Процесс загрузки релиза одинаков вне зависимости от того, существует ли уже "
+"проект на PyPI - если его еще нет, он будет автоматически создан при "
+"загрузке первого релиза."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:688
 msgid ""
 "For the second and subsequent releases, PyPI only requires that the version "
 "number of the new release differ from any previous releases."
 msgstr ""
+"Для второго и последующих релизов PyPI требует только, чтобы номер версии "
+"нового релиза отличался от всех предыдущих релизов."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:695
 msgid ""
@@ -4774,6 +4897,10 @@ msgid ""
 "the name of your project that you uploaded. It may take a minute or two for "
 "your project to appear on the site."
 msgstr ""
+"Вы можете убедиться, что ваш пакет успешно загружен, перейдя по URL-адресу "
+"``https://pypi.org/project/<sampleproject>``, где ``sampleproject`` - это "
+"имя загруженного вами проекта. Возможно, потребуется минута или две, чтобы "
+"ваш проект появился на сайте."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:702
 #: ../source/tutorials/installing-packages.rst:670
@@ -4782,6 +4909,10 @@ msgid ""
 "ref:`pip` is currently considering changing this by `making user installs "
 "the default behavior <https://github.com/pypa/pip/issues/1668>`_."
 msgstr ""
+"В зависимости от вашей платформы, для этого может потребоваться доступ root "
+"или администратора. :ref:`pip` в настоящее время рассматривает возможность "
+"изменить это, сделав пользовательскую установку поведением по умолчанию "
+"<https://github.com/pypa/pip/issues/1668>`_."
 
 #: ../source/guides/dropping-older-python-versions.rst:5
 msgid "Dropping support for older Python versions"
@@ -4792,6 +4923,9 @@ msgid ""
 "Dropping support for older Python versions is supported by the standard :ref:"
 "`core-metadata` 1.2 specification via a \"Requires-Python\" attribute."
 msgstr ""
+"Отказ от поддержки старых версий Python поддерживается стандартной "
+"спецификацией :ref:`core-metadata` 1.2 с помощью атрибута \"Requires-Python\""
+"."
 
 #: ../source/guides/dropping-older-python-versions.rst:9
 msgid ""
@@ -4800,12 +4934,19 @@ msgid ""
 "version in the package metadata. If they do not match, it will attempt to "
 "install the last package distribution that supported that Python runtime."
 msgstr ""
+"Клиенты с метаданными 1.2+, такие как Pip 9.0+, будут придерживаться этой "
+"спецификации, определяя текущую среду выполнения Python и сравнивая ее с "
+"требуемой версией в метаданных пакета. Если они не совпадают, то будет "
+"предпринята попытка установить последний дистрибутив пакета, который "
+"поддерживал данную среду выполнения Python."
 
 #: ../source/guides/dropping-older-python-versions.rst:12
 msgid ""
 "This mechanism can be used to drop support for older Python versions, by "
 "amending the \"Requires-Python\" attribute in the package metadata."
 msgstr ""
+"Этот механизм можно использовать для отказа от поддержки старых версий "
+"Python, изменив атрибут \"Requires-Python\" в метаданных пакета."
 
 #: ../source/guides/dropping-older-python-versions.rst:14
 msgid ""
@@ -4813,6 +4954,10 @@ msgid ""
 "tools such as ``flit`` may offer similar functionality but users will need "
 "to consult relevant documentation."
 msgstr ""
+"Это руководство предназначено специально для пользователей :ref:`setuptools`"
+", другие инструменты упаковки, такие как ``flit``, могут предлагать "
+"аналогичную функциональность, но пользователям необходимо обратиться к "
+"соответствующей документации."
 
 #: ../source/guides/dropping-older-python-versions.rst:17
 msgid "Requirements"
@@ -4840,7 +4985,7 @@ msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:26
 msgid "Dealing with the universal wheels"
-msgstr ""
+msgstr "Работа с универсальными колесами"
 
 #: ../source/guides/dropping-older-python-versions.rst:28
 msgid ""
@@ -4851,12 +4996,20 @@ msgid ""
 "often configured within :file:`setup.cfg` under the ``[bdist_wheel]`` "
 "section by setting ``universal = 1`` if they use setuptools."
 msgstr ""
+"Традиционно проекты, предоставляющие Python код, который семантически "
+"совместим как с Python 2, так и Python 3, производят :термин: \" колеса "
+"<Wheel>`, которые имеют тег ``py2.py3`` в своих именах. При отказе от "
+"поддержки Python 2 важно не забывать об изменении этого тега только на "
+"``py3``. Он часто настраивается в :file:`setup.cfg` под ``[bdist_wheel]`` "
+"раздел путем установки ``universal = 1``, если они используют setuptools."
 
 #: ../source/guides/dropping-older-python-versions.rst:36
 msgid ""
 "If you use this method, either remove this option or section, or explicitly "
 "set ``universal`` to ``0``:"
 msgstr ""
+"Если вы используете этот метод, либо удалите эту опцию или секцию, либо явно "
+"установите ``universal`` в ``0``:"
 
 #: ../source/guides/dropping-older-python-versions.rst:48
 msgid ""
@@ -4864,6 +5017,8 @@ msgid ""
 "flags, make sure that your scripts don't have ``--universal`` in your "
 "package creation scripts."
 msgstr ""
+"Поскольку настройки :file:`setup.cfg` можно переопределить с помощью флагов "
+"CLI, убедитесь, что в ваших скриптах создания пакетов нет ``--universal``."
 
 #: ../source/guides/dropping-older-python-versions.rst:53
 msgid "Defining the Python version required"
@@ -4883,7 +5038,7 @@ msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:60
 msgid "Steps:"
-msgstr ""
+msgstr "Шаги:"
 
 #: ../source/guides/dropping-older-python-versions.rst:74
 msgid "``setuptools`` version should be above 24.0.0."
@@ -4898,6 +5053,8 @@ msgid ""
 "You can specify version ranges and exclusion rules, such as at least Python "
 "3. Or, Python 2.7, 3.4 and beyond."
 msgstr ""
+"Можно указать диапазоны версий и правила исключения, например, не менее "
+"Python 3. Или Python 2.7, 3.4 и далее."
 
 #: ../source/guides/dropping-older-python-versions.rst:81
 msgid "Examples:"
@@ -4909,6 +5066,9 @@ msgid ""
 "file:`setup.py` script. This will insert the ``Requires-Python`` metadata "
 "values based on the argument you provide in ``python_requires``."
 msgstr ""
+"Установить эти значения можно с помощью вызова ``setup`` в вашем скрипте "
+":file:`setup.py``. Он вставит значения метаданных ``Requires-Python`` на "
+"основе аргумента, указанного в ``python_requires``."
 
 #: ../source/guides/dropping-older-python-versions.rst:103
 msgid "3. Validating the Metadata before publishing"
@@ -4919,6 +5079,8 @@ msgid ""
 "Within a Python source package (the zip or the tar-gz file you download) is "
 "a text file called PKG-INFO."
 msgstr ""
+"Внутри исходного пакета Python (zip- или tar-gz-файла, который вы скачиваете)"
+" находится текстовый файл PKG-INFO."
 
 #: ../source/guides/dropping-older-python-versions.rst:107
 msgid ""
@@ -4926,25 +5088,33 @@ msgid ""
 "generates the source package. The file contains a set of keys and values, "
 "the list of keys is part of the PyPa standard metadata format."
 msgstr ""
+"Этот файл генерируется :ref:`distutils` или :ref:`setuptools` при создании "
+"исходного пакета. Файл содержит набор ключей и значений, список ключей "
+"является частью стандартного формата метаданных PyPa."
 
 #: ../source/guides/dropping-older-python-versions.rst:110
 msgid "You can see the contents of the generated file like this:"
-msgstr ""
+msgstr "Вы можете увидеть содержимое сгенерированного файла следующим образом:"
 
 #: ../source/guides/dropping-older-python-versions.rst:116
 msgid "Validate that the following is in place, before publishing the package:"
 msgstr ""
+"Перед публикацией пакета убедитесь, что все перечисленное ниже на месте:"
 
 #: ../source/guides/dropping-older-python-versions.rst:118
 msgid ""
 "If you have upgraded correctly, the Metadata-Version value should be 1.2 or "
 "higher."
 msgstr ""
+"Если вы выполнили обновление правильно, значение Метаданные-версия должно "
+"быть 1.2 или выше."
 
 #: ../source/guides/dropping-older-python-versions.rst:119
 msgid ""
 "The Requires-Python field is set and matches your specification in setup.py."
 msgstr ""
+"Поле Requires-Python установлено и соответствует вашей спецификации в файле "
+"setup.py."
 
 #: ../source/guides/dropping-older-python-versions.rst:122
 msgid "4. Using Twine to publish"
@@ -4955,10 +5125,13 @@ msgid ""
 "Twine has a number of advantages, apart from being faster it is now the "
 "supported method for publishing packages."
 msgstr ""
+"Twine имеет ряд преимуществ, кроме того, что он быстрее, теперь это "
+"поддерживаемый метод для публикации пакетов."
 
 #: ../source/guides/dropping-older-python-versions.rst:126
 msgid "Make sure you are using the newest version of Twine, at least 1.9."
 msgstr ""
+"Убедитесь, что вы используете новейшую версию Twine, по крайней мере, 1,9."
 
 #: ../source/guides/dropping-older-python-versions.rst:129
 msgid "Dropping a Python release"
@@ -4969,16 +5142,22 @@ msgid ""
 "Once you have published a package with the Requires-Python metadata, you can "
 "then make a further update removing that Python runtime from support."
 msgstr ""
+"После того, как вы опубликовали пакет с метаданными Needs-Python, вы можете "
+"сделать еще одно обновление, удалив время выполнения Python из поддержки."
 
 #: ../source/guides/dropping-older-python-versions.rst:133
 msgid "It must be done in this order for the automated fallback to work."
 msgstr ""
+"Чтобы автоматический откат сработал, его нужно выполнить именно в таком "
+"порядке."
 
 #: ../source/guides/dropping-older-python-versions.rst:135
 msgid ""
 "For example, you published the Requires-Python: \">=2.7\" as version 1.0.0 "
 "of your package."
 msgstr ""
+"Например, вы опубликовали Needs-Python: «>=2.7» в качестве версии 1.0.0 "
+"вашего пакета."
 
 #: ../source/guides/dropping-older-python-versions.rst:137
 msgid ""
@@ -4987,10 +5166,14 @@ msgid ""
 "2.7 will have version 1.0.0 of the package installed, and any >=3.5 users "
 "will receive version 2.0.0."
 msgstr ""
+"Если вы обновите строку версии до \">=3.5\" и опубликуете новую версию 2.0.0 "
+"вашего пакета, у всех пользователей, работающих с Pip 9.0+ с версии 2.7, "
+"будет установлена версия 1.0.0 пакета, а все пользователи >=3.5 получат "
+"версию 2.0.0."
 
 #: ../source/guides/hosting-your-own-index.rst:5
 msgid "Hosting your own simple repository"
-msgstr ""
+msgstr "Создание собственного простого хранилища"
 
 #: ../source/guides/hosting-your-own-index.rst:8
 msgid ""
@@ -4999,6 +5182,11 @@ msgid ""
 "the proper directory structure and use any web server that can serve static "
 "files and generate an autoindex."
 msgstr ""
+"Если вы хотите разместить свой собственный простой репозиторий [1]_, вы "
+"можете использовать пакет программного обеспечения, например:doc:`devpi "
+"<devpi:index>` или вы можете просто создать правильную структуру каталога и "
+"использовать любой веб-сервер, который может обслуживать статические файлы и "
+"генерировать автоиндекс."
 
 #: ../source/guides/hosting-your-own-index.rst:13
 msgid ""
@@ -5006,6 +5194,10 @@ msgid ""
 "your user's default repositories, you should instruct them in your project's "
 "description to configure their installer appropriately. For example with pip:"
 msgstr ""
+"В любом случае, поскольку вы будете размещать репозитории, которые, "
+"вероятно, не находятся в хранилищах по умолчанию вашего пользователя, вы "
+"должны инструктировать их в описании вашего проекта, чтобы настроить их "
+"установщик соответствующим образом. Например, с pip:"
 
 #: ../source/guides/hosting-your-own-index.rst:29
 msgid ""
@@ -5013,10 +5205,14 @@ msgid ""
 "with valid HTTPS. At this time, the security of your user's installations "
 "depends on all repositories using a valid HTTPS setup."
 msgstr ""
+"Кроме того, **высоко** рекомендуется, чтобы вы служили своему репозиторию с "
+"действительным HTTPS. В настоящее время безопасность установок вашего "
+"пользователя зависит от всех репозиториев, использующих действительную "
+"настройку HTTP."
 
 #: ../source/guides/hosting-your-own-index.rst:35
 msgid "\"Manual\" repository"
-msgstr ""
+msgstr "Хранилище \"Руководство\""
 
 #: ../source/guides/hosting-your-own-index.rst:37
 msgid ""
@@ -5027,6 +5223,12 @@ msgid ""
 "projects \"Foo\" (with the versions 1.0 and 2.0) and \"bar\" (with the "
 "version 0.1) You should end up with a structure that looks like::"
 msgstr ""
+"Схема каталогов довольно проста: в корневом каталоге необходимо создать "
+"каталог для каждого проекта. Этот каталог должен быть :ref:`нормализованным "
+"именем <имя-нормализация>` проекта. Внутри каждой из этих директорий просто "
+"разместите все загружаемые файлы. Если у вас есть проекты \"Foo\" (с "
+"версиями 1.0 и 2.0) и \"bar\" (с версией 0.1), то в итоге у вас должна "
+"получиться структура, которая выглядит следующим образом::"
 
 #: ../source/guides/hosting-your-own-index.rst:50
 msgid ""
@@ -5035,12 +5237,19 @@ msgid ""
 "server in `Twisted`_, you would simply run ``twistd -n web --path .`` and "
 "then instruct users to add the URL to their installer's configuration."
 msgstr ""
+"Как только вы получите эту схему, просто настройте свой веб-сервер на "
+"обслуживание корневого каталога с включенным автоиндексом. Для примера, "
+"используя встроенный веб-сервер в `Twisted`_, вы просто запустите ``twistd -"
+"n web --path .``, а затем попросите пользователей добавить URL в "
+"конфигурацию их программы установки."
 
 #: ../source/guides/hosting-your-own-index.rst:57
 msgid ""
 "For complete documentation of the simple repository protocol, see :ref:"
 "`simple repository API <simple-repository-api>`."
 msgstr ""
+"Полную документацию по протоколу простого репозитория смотрите в :ref:`"
+"simple repository API <simple-repository-api>`."
 
 #: ../source/guides/index.rst:4
 msgid ""
@@ -5048,10 +5257,13 @@ msgid ""
 "are already familiar with the basics of Python packaging. If you're looking "
 "for an introduction to packaging, see :doc:`/tutorials/index`."
 msgstr ""
+"**Руководства** направлены на выполнение конкретной задачи и предполагают, "
+"что вы уже знакомы с основами упаковки в Python. Если вы ищете введение в "
+"упаковку, смотрите :doc:`/tutorials/index`."
 
 #: ../source/guides/index-mirrors-and-caches.rst:5
 msgid "Package index mirrors and caches"
-msgstr ""
+msgstr "Зеркала и кэш индексов пакетов"
 
 #: ../source/guides/index-mirrors-and-caches.rst:8
 #: ../source/guides/supporting-multiple-python-versions.rst:10
@@ -5064,36 +5276,46 @@ msgid ""
 "installation, allow offline work, handle corporate firewalls or just plain "
 "Internet flakiness."
 msgstr ""
+"Зеркалирование или кэширование PyPI можно использовать для ускорения "
+"локальной установки пакетов, для работы в оффлайне, для работы с "
+"корпоративными брандмауэрами или просто для работы в Интернете."
 
 #: ../source/guides/index-mirrors-and-caches.rst:14
 msgid "Three options are available in this area:"
-msgstr ""
+msgstr "В этой области доступны три варианта:"
 
 #: ../source/guides/index-mirrors-and-caches.rst:16
 msgid "pip provides local caching options,"
-msgstr ""
+msgstr "pip предоставляет возможности локального кэширования,"
 
 #: ../source/guides/index-mirrors-and-caches.rst:17
 msgid ""
 "devpi provides higher-level caching option, potentially shared amongst many "
 "users or machines, and"
 msgstr ""
+"devpi предоставляет возможность кэширования более высокого уровня, "
+"потенциально разделяемого между многими пользователями или машинами, и"
 
 #: ../source/guides/index-mirrors-and-caches.rst:19
 msgid ""
 "bandersnatch provides a local complete mirror of all PyPI :term:`packages "
 "<Distribution Package>`."
 msgstr ""
+"bandersnatch предоставляет локальное полное зеркало всех PyPI :term:`"
+"packages <Distribution Package>`."
 
 #: ../source/guides/index-mirrors-and-caches.rst:24
 msgid "Caching with pip"
-msgstr ""
+msgstr "Кэширование с помощью pip"
 
 #: ../source/guides/index-mirrors-and-caches.rst:26
 msgid ""
 "pip provides a number of facilities for speeding up installation by using "
 "local cached copies of :term:`packages <Distribution Package>`:"
 msgstr ""
+"pip предоставляет ряд возможностей для ускорения установки за счет "
+"использования локальных кэшированных копий :term:`packages <Distribution "
+"Package>`:"
 
 #: ../source/guides/index-mirrors-and-caches.rst:29
 msgid ""
@@ -5101,16 +5323,22 @@ msgid ""
 "downloading all the requirements for a project and then pointing pip at "
 "those downloaded files instead of going to PyPI."
 msgstr ""
+":ref:`Быстрая и локальная установка <pip:installing from local packages>` за "
+"счет загрузки всех требований для проекта и последующего указания pip на эти "
+"загруженные файлы вместо обращения к PyPI."
 
 #: ../source/guides/index-mirrors-and-caches.rst:32
 msgid ""
 "A variation on the above which pre-builds the installation files for the "
 "requirements using :ref:`python3 -m pip wheel <pip:pip wheel>`:"
 msgstr ""
+"Вариант вышеописанного, который предварительно собирает установочные файлы в "
+"соответствии с требованиями, используя :ref:`python3 -m pip wheel <pip:pip "
+"wheel>`:"
 
 #: ../source/guides/index-mirrors-and-caches.rst:42
 msgid "Caching with devpi"
-msgstr ""
+msgstr "Кэширование с помощью devpi"
 
 #: ../source/guides/index-mirrors-and-caches.rst:44
 msgid ""
@@ -5118,10 +5346,13 @@ msgid ""
 "machine you know will always be available to you. See the `devpi "
 "documentation for getting started`__."
 msgstr ""
+"devpi - это кэширующий прокси-сервер, который вы запускаете на своем "
+"ноутбуке или другой машине, которая, как вы знаете, всегда будет доступна "
+"для вас. Для начала работы смотрите документацию `devpi`."
 
 #: ../source/guides/index-mirrors-and-caches.rst:52
 msgid "Complete mirror with bandersnatch"
-msgstr ""
+msgstr "Зеркало в комплекте с бандерснатчем"
 
 #: ../source/guides/index-mirrors-and-caches.rst:54
 msgid ""
@@ -5129,6 +5360,9 @@ msgid ""
 "<Distribution Package>` (externally-hosted packages are not mirrored). See "
 "the `bandersnatch documentation for getting that going`__."
 msgstr ""
+"bandersnatch создаст полное локальное зеркало всех пакетов PyPI :term:`"
+"packages <Distribution Package>` (пакеты, размещенные на внешних хостингах, "
+"не зеркалируются). См. документацию `bandersnatch о том, как это сделать`__."
 
 #: ../source/guides/index-mirrors-and-caches.rst:60
 msgid ""
@@ -5137,6 +5371,10 @@ msgid ""
 "bandersnatch which will only cache :term:`packages <Distribution Package>` "
 "hosted on PyPI."
 msgstr ""
+"Преимущество devpi в том, что он создаст зеркало, включающее :term:`пакеты "
+"<Distribution Package>`, которые являются внешними по отношению к PyPI, в "
+"отличие от bandersnatch, который будет кэшировать только :term:`пакеты "
+"<Distribution Package>`, размещенные на PyPI."
 
 #: ../source/guides/installing-scientific-packages.rst:5
 msgid "Installing scientific packages"
@@ -5149,6 +5387,10 @@ msgid ""
 "kinds of hardware, or to interoperate with different pieces of external "
 "software."
 msgstr ""
+"Научное программное обеспечение, как правило, имеет более сложные "
+"зависимости, чем большинство других, и часто имеет несколько вариантов "
+"сборки, чтобы использовать преимущества различных видов оборудования или "
+"взаимодействовать с различными частями внешнего программного обеспечения."
 
 #: ../source/guides/installing-scientific-packages.rst:13
 msgid ""
@@ -5158,6 +5400,11 @@ msgid ""
 "libraries, and can take advantage of different levels of vectorised "
 "instructions available in modern CPUs."
 msgstr ""
+"В частности, `NumPy <https://numpy.org/>`__, который является основой для "
+"большинства программ в научном стеке Python <https://scientific-python.org>`"
+"_, может быть настроен на взаимодействие с различными библиотеками FORTRAN и "
+"может использовать преимущества различных уровней векторизованных "
+"инструкций, доступных в современных процессорах."
 
 #: ../source/guides/installing-scientific-packages.rst:19
 msgid ""
@@ -5168,6 +5415,13 @@ msgid ""
 "netlib.org/atlas/>`__ BLAS/LAPACK library, restricted to SSE2 instructions, "
 "so they may not provide optimal linear algebra performance."
 msgstr ""
+"Начиная с версии 1.10.4 NumPy и версии 1.0.0 SciPy, на PyPI доступны "
+"предварительно собранные 32- и 64-битные двоичные файлы в формате ``колеса'' "
+"для всех основных операционных систем (Windows, macOS и Linux). Обратите "
+"внимание, однако, что в Windows двоичные файлы NumPy скомпонованы с "
+"библиотекой BLAS/LAPACK `ATLAS <http://www.netlib.org/atlas/>`__, "
+"ограниченной инструкциями SSE2, поэтому они могут не обеспечивать "
+"оптимальную производительность линейной алгебры."
 
 #: ../source/guides/installing-scientific-packages.rst:26
 msgid ""
@@ -5176,10 +5430,14 @@ msgid ""
 "environment to install from source and don't provide pre-built wheel files "
 "on PyPI)."
 msgstr ""
+"Существует несколько альтернативных вариантов получения научных библиотек "
+"Python (или любых других библиотек Python, которые требуют среды компиляции "
+"для установки из исходного кода и не предоставляют предварительно собранные "
+"файлы wheel на PyPI)."
 
 #: ../source/guides/installing-scientific-packages.rst:32
 msgid "Building from source"
-msgstr ""
+msgstr "Создание из исходников"
 
 #: ../source/guides/installing-scientific-packages.rst:34
 msgid ""
@@ -5189,6 +5447,11 @@ msgid ""
 "to spend the time wrangling compilers and linkers for both C and FORTRAN, "
 "building from source is always an option."
 msgstr ""
+"Та же сложность, которая затрудняет распространение NumPy (и многих "
+"проектов, зависящих от него) в виде файлов на колесах, также затрудняет их "
+"самостоятельную сборку из исходных текстов. Однако для смельчаков, готовых "
+"потратить время на работу с компиляторами и компоновщиками для C и FORTRAN, "
+"сборка из исходных текстов - это всегда вариант."
 
 #: ../source/guides/installing-scientific-packages.rst:42
 msgid "Linux distribution packages"
@@ -5200,6 +5463,9 @@ msgid ""
 "versions of various pieces of scientific software, including NumPy and other "
 "parts of the scientific Python stack."
 msgstr ""
+"Для пользователей Linux в системном менеджере пакетов часто есть "
+"предварительно скомпилированные версии различных научных программ, включая "
+"NumPy и другие части научного стека Python."
 
 #: ../source/guides/installing-scientific-packages.rst:48
 msgid ""
@@ -5208,6 +5474,10 @@ msgid ""
 "distributions installed into the system Python when using virtual "
 "environments)."
 msgstr ""
+"Если использование версий, возраст которых может составлять несколько "
+"месяцев, допустимо, то это, скорее всего, будет хорошим вариантом (только не "
+"забудьте разрешить доступ к дистрибутивам, установленным в системе Python, "
+"при использовании виртуальных сред)."
 
 #: ../source/guides/installing-scientific-packages.rst:54
 msgid "Windows installers"
@@ -5220,12 +5490,19 @@ msgid ""
 "download page. Using these installers allows users to avoid the need to set "
 "up a suitable environment to build extensions locally."
 msgstr ""
+"Многие Python-проекты, которые в настоящее время не публикуют (или не могут "
+"опубликовать) файлы wheel, по крайней мере, публикуют инсталляторы для "
+"Windows, либо на PyPI, либо на странице загрузки проекта. Использование этих "
+"инсталляторов позволяет пользователям избежать необходимости создавать "
+"подходящее окружение для локальной сборки расширений."
 
 #: ../source/guides/installing-scientific-packages.rst:61
 msgid ""
 "The extensions provided in these installers are typically compatible with "
 "the CPython Windows installers published on python.org."
 msgstr ""
+"Расширения, предоставляемые в этих установщиках, обычно совместимы с "
+"установщиками CPython для Windows, опубликованными на python.org."
 
 #: ../source/guides/installing-scientific-packages.rst:64
 msgid ""
@@ -5235,6 +5512,11 @@ msgid ""
 "Python when using virtual environments is a common approach to working "
 "around this limitation."
 msgstr ""
+"Как и в случае с системными пакетами Linux, программы установки Windows "
+"будут устанавливаться только в системную установку Python - они не "
+"поддерживают установку в виртуальных средах. Предоставление доступа к "
+"дистрибутивам, установленным в системный Python, при использовании "
+"виртуальных сред - распространенный подход к обходу этого ограничения."
 
 #: ../source/guides/installing-scientific-packages.rst:70
 msgid ""
@@ -5242,10 +5524,13 @@ msgid ""
 "subcommand that can convert a Windows :command:`bdist_wininst` installer to "
 "a wheel."
 msgstr ""
+"Проект :term:`Wheel` также предоставляет подкоманду :command:`wheel convert`"
+", которая может преобразовать установщик Windows :command:`bdist_wininst` в "
+"wheel."
 
 #: ../source/guides/installing-scientific-packages.rst:77
 msgid "macOS installers and package managers"
-msgstr ""
+msgstr "Установщики и менеджеры пакетов macOS"
 
 #: ../source/guides/installing-scientific-packages.rst:79
 msgid ""
@@ -5253,6 +5538,9 @@ msgid ""
 "macOS installers that are compatible with the macOS CPython binaries "
 "published on python.org."
 msgstr ""
+"Как и в случае с Windows, многие проекты (включая NumPy) публикуют "
+"инсталляторы для macOS, совместимые с двоичными файлами macOS CPython, "
+"опубликованными на python.org."
 
 #: ../source/guides/installing-scientific-packages.rst:83
 msgid ""
@@ -5260,6 +5548,10 @@ msgid ""
 "such as ``Homebrew``. The SciPy site has more details on using Homebrew to "
 "`install SciPy on macOS <https://scipy.org/install/#macos>`_."
 msgstr ""
+"Пользователи macOS также имеют доступ к пакетным менеджерам в стиле "
+"дистрибутива Linux, таким как ``Homebrew``. На сайте SciPy есть более "
+"подробная информация об использовании Homebrew для `установки SciPy на macOS "
+"<https://scipy.org/install/#macos>`_."
 
 #: ../source/guides/installing-scientific-packages.rst:89
 msgid "SciPy distributions"
@@ -5271,12 +5563,17 @@ msgid ""
 "#distributions>`_ that provide the full SciPy stack to end users in an easy "
 "to use and update format."
 msgstr ""
+"На сайте SciPy перечислены `несколько дистрибутивов <https://scipy.org/"
+"install/#distributions>`_, которые предоставляют полный стек SciPy конечным "
+"пользователям в удобном для использования и обновления формате."
 
 #: ../source/guides/installing-scientific-packages.rst:96
 msgid ""
 "Some of these distributions may not be compatible with the standard ``pip`` "
 "and ``virtualenv`` based toolchain."
 msgstr ""
+"Некоторые из этих дистрибутивов могут быть несовместимы со стандартным "
+"инструментарием на базе ``pip`` и ``virtualenv``."
 
 #: ../source/guides/installing-scientific-packages.rst:100
 #: ../source/key_projects.rst:675
@@ -5294,6 +5591,15 @@ msgid ""
 "destructive; installing a new version of one package does not break existing "
 "installations, so many configurations can coexist on the same system."
 msgstr ""
+"`Spack <https://github.com/spack/spack>`_ - это гибкий менеджер пакетов, "
+"разработанный для поддержки множества версий, конфигураций, платформ и "
+"компиляторов. Он был создан для удовлетворения потребностей крупных "
+"суперкомпьютерных центров и команд разработчиков научных приложений, которым "
+"часто приходится собирать программное обеспечение разными способами. Spack "
+"не ограничивается Python; он может устанавливать пакеты для ``C``, ``C++``, "
+"``Fortran``, ``R`` и других языков.  Spack является неразрушающим; установка "
+"новой версии одного пакета не нарушает существующие установки, поэтому на "
+"одной системе может сосуществовать множество конфигураций."
 
 #: ../source/guides/installing-scientific-packages.rst:110
 msgid ""
@@ -5304,6 +5610,13 @@ msgid ""
 "single package file.  Spack also generates *module* files so that packages "
 "can be loaded and unloaded from the user's environment."
 msgstr ""
+"Spack предлагает простой, но мощный синтаксис, который позволяет "
+"пользователям лаконично указывать версии и параметры конфигурации. Файлы "
+"пакетов написаны на чистом Python, и они сконструированы таким образом, "
+"чтобы в одном файле пакета можно было легко менять местами компиляторы, "
+"реализации зависимостей (например, MPI), версии и параметры сборки.  Spack "
+"также генерирует файлы *модулей*, чтобы пакеты можно было загружать и "
+"выгружать из окружения пользователя."
 
 #: ../source/guides/installing-scientific-packages.rst:119
 msgid "The conda cross-platform package manager"
@@ -5317,6 +5630,12 @@ msgid ""
 "Anaconda, about 200 packages are installed by default, and a total of "
 "400-500 can be installed and updated from the Anaconda repository."
 msgstr ""
+"Anaconda <https://www.anaconda.com/products/individual/>`_ - дистрибутив "
+"Python, опубликованный компанией Anaconda, Inc. Он представляет собой "
+"стабильную коллекцию пакетов с открытым исходным кодом для работы с большими "
+"данными и научного использования.  В релизе 5.0 Anaconda по умолчанию "
+"установлено около 200 пакетов, а всего из репозитория Anaconda можно "
+"установить и обновить 400-500 пакетов."
 
 #: ../source/guides/installing-scientific-packages.rst:127
 msgid ""
@@ -5334,10 +5653,24 @@ msgid ""
 "packages. Conda is available in Anaconda and Miniconda (an easy-to-install "
 "download with just Python and conda)."
 msgstr ""
+"``conda`` - это система управления пакетами с открытым исходным кодом ("
+"лицензия BSD) и система управления окружением, входящая в состав Anaconda, "
+"которая позволяет пользователям устанавливать несколько версий бинарных "
+"программных пакетов и их зависимостей, а также легко переключаться между "
+"ними. Это кроссплатформенный инструмент, работающий в Windows, macOS и "
+"Linux. Conda можно использовать для упаковки и распространения всех видов "
+"пакетов, она не ограничивается только пакетами Python. Она имеет полную "
+"поддержку собственных виртуальных сред. Conda делает окружения "
+"первоклассными гражданами, позволяя легко создавать независимые окружения "
+"даже для библиотек на Си. Она написана на Python, но является Python-"
+"агностичной. Conda управляет самим Python как пакетом, поэтому возможна "
+"команда :`conda update python`, в отличие от pip, который управляет только "
+"пакетами Python. Conda доступна в версиях Anaconda и Miniconda (простая в "
+"установке загрузка, содержащая только Python и conda)."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:2
 msgid "Installing stand alone command line tools"
-msgstr ""
+msgstr "Установка отдельных инструментов командной строки"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:4
 msgid ""
@@ -5345,6 +5678,10 @@ msgid ""
 "are `mypy <https://github.com/python/mypy>`_, `flake8 <https://github.com/"
 "PyCQA/flake8>`_, `black <https://github.com/psf/black>`_, and :ref:`pipenv`."
 msgstr ""
+"Многие пакеты предоставляют приложения командной строки. Примерами таких "
+"пакетов являются: `mypy <https://github.com/python/mypy>`_, `flake8 "
+"<https://github.com/PyCQA/flake8>`_, `black <https://github.com/psf/black>`_ "
+"и :ref:`pipenv`."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:10
 msgid ""
@@ -5353,6 +5690,10 @@ msgid ""
 "global environment can cause version conflicts and break dependencies the "
 "operating system has on Python packages."
 msgstr ""
+"Обычно вы хотите иметь доступ к этим приложениям из любой точки системы, но "
+"установка пакетов и их зависимостей в одно и то же глобальное окружение "
+"может привести к конфликту версий и нарушению зависимостей операционной "
+"системы от пакетов Python."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:15
 msgid ""
@@ -5362,26 +5703,36 @@ msgid ""
 "uninstalled without causing conflicts with other packages, and allows you to "
 "safely run the applications from anywhere."
 msgstr ""
+":ref:`pipx` решает эту проблему, создавая виртуальное окружение для каждого "
+"пакета, а также обеспечивая доступ к его приложениям через каталог, который "
+"находится в вашем ``$PATH``. Это позволяет обновлять или удалять каждый "
+"пакет, не вызывая конфликтов с другими пакетами, и позволяет безопасно "
+"запускать приложения из любого места."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:21
 msgid "pipx only works with Python 3.6+."
-msgstr ""
+msgstr "pipx работает только с Python 3.6+."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:23
 msgid "pipx is installed with pip:"
-msgstr ""
+msgstr "pipx устанавливается вместе с pip:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:41
 msgid ""
 "``ensurepath`` ensures that the application directory is on your ``$PATH``. "
 "You may need to restart your terminal for this update to take effect."
 msgstr ""
+"``ensurepath`` гарантирует, что каталог приложения находится в вашем "
+"``$PATH``. Возможно, вам потребуется перезапустить терминал, чтобы "
+"обновление вступило в силу."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:44
 msgid ""
 "Now you can install packages with ``pipx install`` and run the package's "
 "applications(s) from anywhere."
 msgstr ""
+"Теперь вы можете устанавливать пакеты с помощью ``pipx install`` и запускать "
+"приложения пакета из любого места."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:52
 #: ../source/specifications/entry-points.rst:114
@@ -5393,28 +5744,34 @@ msgid ""
 "To see a list of packages installed with pipx and which applications are "
 "available, use ``pipx list``:"
 msgstr ""
+"Чтобы посмотреть список пакетов, установленных с помощью pipx, и доступных "
+"приложений, используйте ``pipx list``:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:95
 msgid "To upgrade or uninstall a package:"
-msgstr ""
+msgstr "Чтобы обновить или удалить пакет:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:102
 msgid "pipx can be upgraded or uninstalled with pip:"
-msgstr ""
+msgstr "pipx можно обновить или удалить с помощью pip:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:118
 msgid ""
 "pipx also allows you to install and run the latest version of an application "
 "in a temporary, ephemeral environment. For example:"
 msgstr ""
+"pipx также позволяет установить и запустить последнюю версию приложения во "
+"временной, эфемерной среде. Например:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:125
 msgid "To see the full list of commands pipx offers, run:"
 msgstr ""
+"Чтобы увидеть полный список команд, которые предлагает pipx, выполните "
+"команду:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:131
 msgid "You can learn more about pipx at https://pipx.pypa.io/."
-msgstr ""
+msgstr "Подробнее о pipx можно узнать на сайте https://pipx.pypa.io/."
 
 #: ../source/guides/installing-using-linux-tools.rst:5
 msgid "Installing pip/setuptools/wheel with Linux Package Managers"
@@ -5422,13 +5779,15 @@ msgstr "Установка pip/setuptools/wheel через менеджеры п
 
 #: ../source/guides/installing-using-linux-tools.rst:8
 msgid "2021-07-26"
-msgstr ""
+msgstr "2021-07-26"
 
 #: ../source/guides/installing-using-linux-tools.rst:10
 msgid ""
 "This section covers how to install :ref:`pip`, :ref:`setuptools`, and :ref:"
 "`wheel` using Linux package managers."
 msgstr ""
+"В этом разделе рассказывается о том, как установить :ref:`pip`, "
+":ref:`setuptools` и :ref:`wheel` с помощью менеджеров пакетов Linux."
 
 #: ../source/guides/installing-using-linux-tools.rst:13
 msgid ""
@@ -5436,6 +5795,9 @@ msgid ""
 "python.org>`_, then this section does not apply.  See the :ref:"
 "`installing_requirements` section instead."
 msgstr ""
+"Если вы используете Python, загруженный с сайта `python.org <https://www."
+"python.org>`_, то этот раздел не применим.  Вместо этого смотрите раздел "
+":ref:`installing_requirements`."
 
 #: ../source/guides/installing-using-linux-tools.rst:17
 msgid ""
@@ -5446,6 +5808,13 @@ msgid ""
 "there are additional repositories that can be enabled to provide newer "
 "versions.  The repositories we know about are explained below."
 msgstr ""
+"Обратите внимание, что обычно версии :ref:`pip`, :ref:`setuptools` и "
+":ref:`wheel`, поддерживаемые конкретным дистрибутивом Linux, устаревают к "
+"моменту его публичного выпуска, а обновления обычно происходят только по "
+"соображениям безопасности, а не для обновления функций.  Для некоторых "
+"дистрибутивов существуют дополнительные репозитории, которые могут быть "
+"включены для получения более новых версий.  Репозитории, о которых мы знаем, "
+"описаны ниже."
 
 #: ../source/guides/installing-using-linux-tools.rst:24
 msgid ""
@@ -5455,6 +5824,11 @@ msgid ""
 "original unpatched versions.  When this is known, we will make note of it "
 "below."
 msgstr ""
+"Также обратите внимание, что дистрибутивы нередко применяют исправления в "
+"целях безопасности и приведения их в соответствие с собственными "
+"стандартами.  В некоторых случаях это может привести к ошибкам или "
+"неожиданному поведению, отличающемуся от первоначальных непропатченных "
+"версий.  Когда об этом станет известно, мы сообщим об этом ниже."
 
 #: ../source/guides/installing-using-linux-tools.rst:31
 msgid "Fedora"
@@ -5465,6 +5839,8 @@ msgid ""
 "To learn more about Python in Fedora, please visit the `official Fedora "
 "docs`_, `Python Classroom`_ or `Fedora Loves Python`_."
 msgstr ""
+"Чтобы узнать больше о Python в Fedora, посетите `официальную документацию "
+"Fedora`_, `Python Classroom`_ или `Fedora Loves Python`_."
 
 #: ../source/guides/installing-using-linux-tools.rst:45
 msgid "CentOS/RHEL"
@@ -5475,10 +5851,12 @@ msgid ""
 "CentOS and RHEL don't offer :ref:`pip` or :ref:`wheel` in their core "
 "repositories, although :ref:`setuptools` is installed by default."
 msgstr ""
+"CentOS и RHEL не предлагают :ref:`pip` или :ref:`wheel` в своих основных "
+"репозиториях, хотя :ref:`setuptools` установлен по умолчанию."
 
 #: ../source/guides/installing-using-linux-tools.rst:50
 msgid "To install pip and wheel for the system Python, there are two options:"
-msgstr ""
+msgstr "Чтобы установить pip и wheel для системы Python, есть два варианта:"
 
 #: ../source/guides/installing-using-linux-tools.rst:52
 msgid ""
@@ -5487,12 +5865,19 @@ msgid ""
 "#how_can_i_use_these_extra_packages>`__. On EPEL 7, you can install pip and "
 "wheel like so:"
 msgstr ""
+"Включите репозиторий EPEL <https://fedoraproject.org/wiki/EPEL>`_, используя "
+"эти инструкции <https://docs.fedoraproject.org/en-US/epel/"
+"#how_can_i_use_these_extra_packages>`__. На EPEL 7 вы можете установить pip "
+"и wheel следующим образом:"
 
 #: ../source/guides/installing-using-linux-tools.rst:61
 msgid ""
 "Since EPEL only offers extra, non-conflicting packages, EPEL does not offer "
 "setuptools, since it's in the core repository."
 msgstr ""
+"Поскольку EPEL предлагает только дополнительные, не противоречащие друг "
+"другу пакеты, EPEL не предлагает setuptools, поскольку он находится в "
+"основном репозитории."
 
 #: ../source/guides/installing-using-linux-tools.rst:65
 msgid ""
@@ -5501,6 +5886,10 @@ msgid ""
 "Infrastructure/Fedorahosted-retirement>`__ [1]_. You can install pip and "
 "wheel like so:"
 msgstr ""
+"Включите `PyPA Copr Repo <https://copr.fedorainfracloud.org/coprs/pypa/pypa/"
+">`_, используя `эти инструкции <https://fedoraproject.org/wiki/"
+"Infrastructure/Fedorahosted-retirement>`__ [1]_. Вы можете установить pip и "
+"wheel следующим образом:"
 
 #: ../source/guides/installing-using-linux-tools.rst:74
 msgid "To additionally upgrade setuptools, run:"
@@ -5511,26 +5900,32 @@ msgid ""
 "To install pip, wheel, and setuptools, in a parallel, non-system environment "
 "(using yum) then there are two options:"
 msgstr ""
+"Чтобы установить pip, wheel и setuptools в параллельном, несистемном "
+"окружении (с помощью yum), есть два варианта:"
 
 #: ../source/guides/installing-using-linux-tools.rst:85
 msgid ""
 "Use the \"Software Collections\" feature to enable a parallel collection "
 "that includes pip, setuptools, and wheel."
 msgstr ""
+"Используйте функцию \"Коллекции программ\", чтобы включить параллельную "
+"коллекцию, включающую pip, setuptools и wheel."
 
 #: ../source/guides/installing-using-linux-tools.rst:88
 msgid ""
 "For Redhat, see here: https://developers.redhat.com/products/"
 "softwarecollections/overview"
 msgstr ""
+"Для Redhat смотрите здесь: https://developers.redhat.com/products/"
+"softwarecollections/overview"
 
 #: ../source/guides/installing-using-linux-tools.rst:90
 msgid "For CentOS, see here: https://github.com/sclorg"
-msgstr ""
+msgstr "Для CentOS смотрите здесь: https://github.com/sclorg"
 
 #: ../source/guides/installing-using-linux-tools.rst:92
 msgid "Be aware that collections may not contain the most recent versions."
-msgstr ""
+msgstr "Помните, что коллекции могут содержать не самые последние версии."
 
 #: ../source/guides/installing-using-linux-tools.rst:94
 msgid ""
@@ -5539,23 +5934,27 @@ msgid ""
 "Pythons, along with pip, setuptools, and wheel, which are kept fairly up to "
 "date."
 msgstr ""
+"Включите `IUS-репозиторий <https://ius.io/setup>`_ и установите один из `"
+"параллельно устанавливаемых <https://ius.io/usage#parallel-installable-"
+"packages>`_ Pythons, а также pip, setuptools и wheel, которые поддерживаются "
+"в актуальном состоянии."
 
 #: ../source/guides/installing-using-linux-tools.rst:100
 msgid "For example, for Python 3.4 on CentOS7/RHEL7:"
-msgstr ""
+msgstr "Например, для Python 3.4 на CentOS7/RHEL7:"
 
 #: ../source/guides/installing-using-linux-tools.rst:108
 msgid "openSUSE"
 msgstr "openSUSE"
 
 #: ../source/guides/installing-using-linux-tools.rst:118
-#, fuzzy
 msgid "Debian/Ubuntu and derivatives"
-msgstr "Debian/Ubuntu"
+msgstr "Debian/Ubuntu и производные"
 
 #: ../source/guides/installing-using-linux-tools.rst:120
 msgid "Firstly, update and refresh repository lists by running this command:"
 msgstr ""
+"Во-первых, обновите и дополните списки репозиториев, выполнив эту команду:"
 
 #: ../source/guides/installing-using-linux-tools.rst:129
 msgid ""
@@ -5563,6 +5962,10 @@ msgid ""
 "<https://pip.pypa.io/en/stable/user_guide/#user-installs>`_ by default, "
 "which is a significant behavior change that can be surprising to some users."
 msgstr ""
+"В последних версиях Debian/Ubuntu pip был модифицирован, чтобы по умолчанию "
+"использовать `\"Схему пользователя\" <https://pip.pypa.io/en/stable/"
+"user_guide/#user-installs>`_, что является значительным изменением "
+"поведения, которое может быть неожиданным для некоторых пользователей."
 
 #: ../source/guides/installing-using-linux-tools.rst:135
 msgid "Arch Linux"
@@ -5573,6 +5976,9 @@ msgid ""
 "Currently, there is no \"copr\" yum plugin available for CentOS/RHEL, so the "
 "only option is to manually place the repo files as described."
 msgstr ""
+"В настоящее время для CentOS/RHEL не существует плагина yum \"copr\", "
+"поэтому единственным вариантом является ручное размещение файлов репо, как "
+"описано выше."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:2
 msgid "Install packages in a virtual environment using pip and venv"
@@ -5584,30 +5990,34 @@ msgid ""
 "the standard library's virtual environment tool :ref:`venv` and install "
 "packages. The guide covers how to:"
 msgstr ""
+"В этом руководстве рассказывается о том, как создать и активировать "
+"виртуальную среду с помощью инструмента виртуальной среды стандартной "
+"библиотеки :ref:`venv` и установить пакеты. В руководстве рассказывается о "
+"том, как:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:8
-#, fuzzy
 msgid "Create and activate a virtual environment"
-msgstr "Создание виртуальных окружений"
+msgstr "Создание и активация виртуальной среды"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:9
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:153
 msgid "Prepare pip"
-msgstr ""
+msgstr "Подготовьте pip"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:10
 msgid "Install packages into a virtual environment using the ``pip`` command"
-msgstr ""
+msgstr "Установка пакетов в виртуальную среду с помощью команды ``pip``"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:11
-#, fuzzy
 msgid "Use and create a requirements file"
-msgstr "Использование файлов требований"
+msgstr "Использование и создание файла требований"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:14
 msgid ""
 "This guide applies to supported versions of Python, currently 3.8 and higher."
 msgstr ""
+"Это руководство относится к поддерживаемым версиям Python, в настоящее время "
+"3.8 и выше."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:18
 msgid ""
@@ -5616,6 +6026,10 @@ msgid ""
 "from the term :term:`Import Package` which refers to import modules in your "
 "Python source code."
 msgstr ""
+"В этом руководстве используется термин **упаковка** для обозначения термина "
+":термин: \" Пакет распределения \" , который обычно устанавливается из "
+"внешнего хоста. Это отличается от термина :term:`Import Package', который "
+"относится к модулям импорта в исходном коде Python."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:25
 msgid ""
@@ -5624,16 +6038,19 @@ msgid ""
 "your operating system's package manager to install Python, please ensure "
 "that Python is installed before proceeding with these steps."
 msgstr ""
+"Это руководство содержит обязательное условие - использование официальной "
+"версии Python, полученной по адресу <https://www.python.org/downloads/>. "
+"Если вы используете менеджер пакетов вашей операционной системы для "
+"установки Python, пожалуйста, убедитесь, что Python установлен, прежде чем "
+"приступать к выполнению этих шагов."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:32
-#, fuzzy
 msgid "Create and Use Virtual Environments"
-msgstr "Создание виртуальных окружений"
+msgstr "Создание и использование виртуальных сред"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:35
-#, fuzzy
 msgid "Create a new virtual environment"
-msgstr "Создание виртуальных окружений"
+msgstr "Создайте новую виртуальную среду"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:37
 msgid ""
@@ -5644,12 +6061,20 @@ msgid ""
 "from the virtual environment since packages can be installed confidently and "
 "will not interfere with another project's environment."
 msgstr ""
+":ref:`venv` (для Python 3) позволяет управлять отдельными установками "
+"пакетов для разных проектов. Она создает \"виртуальную\" изолированную "
+"установку Python. При смене проекта вы можете создать новую виртуальную "
+"среду, изолированную от других виртуальных сред. Вы получаете преимущество "
+"от виртуальной среды, так как пакеты можно устанавливать уверенно и они не "
+"будут мешать среде другого проекта."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:45
 msgid ""
 "It is recommended to use a virtual environment when working with third party "
 "packages."
 msgstr ""
+"При работе с пакетами сторонних производителей рекомендуется использовать "
+"виртуальную среду."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:48
 msgid ""
@@ -5657,28 +6082,34 @@ msgid ""
 "following command. This will create a new virtual environment in a local "
 "folder named ``.venv``:"
 msgstr ""
+"Чтобы создать виртуальную среду, перейдите в каталог вашего проекта и "
+"выполните следующую команду. Это создаст новое виртуальное окружение в "
+"локальной папке с именем ``.venv``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:64
 msgid ""
 "The second argument is the location to create the virtual environment. "
 "Generally, you can just create this in your project and call it ``.venv``."
 msgstr ""
+"Второй аргумент - это место создания виртуального окружения. Как правило, вы "
+"можете просто создать его в своем проекте и назвать ``.venv``."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:67
 msgid ""
 "``venv`` will create a virtual Python installation in the ``.venv`` folder."
-msgstr ""
+msgstr "``venv`` создаст виртуальную установку Python в папке ``.venv``."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:69
 msgid ""
 "You should exclude your virtual environment directory from your version "
 "control system using ``.gitignore`` or similar."
 msgstr ""
+"Вы должны исключить каталог виртуального окружения из системы контроля "
+"версий с помощью ``.gitignore`` или аналогичного инструмента."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:74
-#, fuzzy
 msgid "Activate a virtual environment"
-msgstr "Создание виртуальных окружений"
+msgstr "Активация виртуальной среды"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:76
 msgid ""
@@ -5687,18 +6118,26 @@ msgid ""
 "will put the virtual environment-specific ``python`` and ``pip`` executables "
 "into your shell's ``PATH``."
 msgstr ""
+"Прежде чем вы начнете устанавливать или использовать пакеты в виртуальной "
+"среде, ее нужно будет ``активировать``. Активация виртуальной среды поместит "
+"специфические для виртуальной среды исполняемые файлы ``python`` и ``pip`` в "
+"``PATH`` вашей оболочки."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:93
 msgid ""
 "To confirm the virtual environment is activated, check the location of your "
 "Python interpreter:"
 msgstr ""
+"Чтобы убедиться, что виртуальная среда активирована, проверьте расположение "
+"вашего интерпретатора Python:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:108
 msgid ""
 "While the virtual environment is active, the above command will output a "
 "filepath that includes the ``.venv`` directory, by ending with the following:"
 msgstr ""
+"Пока виртуальная среда активна, приведенная выше команда выведет путь к "
+"файлу, включающий каталог ``.venv``, заканчивающийся следующим образом:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:124
 msgid ""
@@ -5706,28 +6145,34 @@ msgid ""
 "that specific environment. This enables you to import and use packages in "
 "your Python application."
 msgstr ""
+"Пока виртуальная среда активирована, pip будет устанавливать пакеты в эту "
+"среду. Это позволит вам импортировать и использовать пакеты в вашем "
+"приложении Python."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:130
-#, fuzzy
 msgid "Deactivate a virtual environment"
-msgstr "Создание виртуальных окружений"
+msgstr "Деактивация виртуальной среды"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:132
 msgid ""
 "If you want to switch projects or leave your virtual environment, "
 "``deactivate`` the environment:"
 msgstr ""
+"Если вы хотите сменить проект или покинуть виртуальную среду, "
+"``деактивируйте`` среду:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:140
 msgid ""
 "Closing your shell will deactivate the virtual environment. If you open a "
 "new shell window and want to use the virtual environment, reactivate it."
 msgstr ""
+"Закрытие оболочки приведет к деактивации виртуальной среды. Если вы откроете "
+"новое окно оболочки и захотите использовать виртуальную среду, активируйте "
+"ее снова."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:145
-#, fuzzy
 msgid "Reactivate a virtual environment"
-msgstr "Создание виртуальных окружений"
+msgstr "Повторная активация виртуальной среды"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:147
 msgid ""
@@ -5735,12 +6180,17 @@ msgid ""
 "instructions about activating a virtual environment. There's no need to "
 "create a new virtual environment."
 msgstr ""
+"Если вы хотите повторно активировать существующую виртуальную среду, "
+"следуйте тем же инструкциям по активации виртуальной среды. Создавать новую "
+"виртуальную среду не нужно."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:155
 msgid ""
 ":ref:`pip` is the reference Python package manager. It's used to install and "
 "update packages into a virtual environment."
 msgstr ""
+":ref:`pip` - эталонный менеджер пакетов Python. Он используется для "
+"установки и обновления пакетов в виртуальной среде."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:161
 msgid ""
@@ -5757,6 +6207,8 @@ msgid ""
 "Afterwards, you should have the latest version of pip installed in your user "
 "site:"
 msgstr ""
+"После этого на вашем пользовательском сайте должна быть установлена "
+"последняя версия pip:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:179
 msgid ""
@@ -5768,7 +6220,7 @@ msgstr ""
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:187
 msgid "Afterwards, you should have the latest version of pip:"
-msgstr ""
+msgstr "После этого у вас должна быть установлена последняя версия pip:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:195
 msgid "Install packages using pip"
@@ -5779,27 +6231,29 @@ msgid ""
 "When your virtual environment is activated, you can install packages. Use "
 "the ``pip install`` command to install packages."
 msgstr ""
+"Когда ваша виртуальная среда активирована, вы можете устанавливать пакеты. "
+"Для установки пакетов используйте команду ``pip install``."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:201
-#, fuzzy
 msgid "Install a package"
-msgstr "Установка пакетов"
+msgstr "Установить пакет"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:203
 msgid ""
 "For example,let's install the `Requests`_ library from the :term:`Python "
 "Package Index (PyPI)`:"
 msgstr ""
+"Например, давайте установим библиотеку `Requests`_ из :term:`Python Package "
+"Index (PyPI)`:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:218
 msgid ""
 "pip should download requests and all of its dependencies and install them:"
-msgstr ""
+msgstr "pip должен загружать запросы и все его зависимости и устанавливать их:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:239
-#, fuzzy
 msgid "Install a specific package version"
-msgstr "Установка определённых версий"
+msgstr "Установить конкретную версию пакета"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:241
 msgid ""
@@ -5807,36 +6261,42 @@ msgid ""
 "`version specifiers <Version Specifier>`. For example, to install a specific "
 "version of ``requests``:"
 msgstr ""
+"pip позволяет указать, какую версию пакета следует установить, используя "
+":term:`определители версии <Определитель версии>`. Например, чтобы "
+"установить определенную версию пакета ``requests``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:257
 msgid "To install the latest ``2.x`` release of requests:"
-msgstr ""
+msgstr "Чтобы установить последний ``2.x`` выпуск requests:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:271
 msgid "To install pre-release versions of packages, use the ``--pre`` flag:"
 msgstr ""
+"Чтобы установить предварительные версии пакетов, используйте флаг ``--pre``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:287
-#, fuzzy
 msgid "Install extras"
-msgstr "Установка пакетов"
+msgstr "Установка дополнительных"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:289
 msgid ""
 "Some packages have optional `extras`_. You can tell pip to install these by "
 "specifying the extra in brackets:"
 msgstr ""
+"Некоторые пакеты содержат дополнительные `extras`_. Вы можете указать pip на "
+"их установку, указав в скобках дополнительное дополнение:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:309
-#, fuzzy
 msgid "Install a package from source"
-msgstr "Установка из исходных кодов"
+msgstr "Установите пакет из исходного кода"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:311
 msgid ""
 "pip can install a package directly from its source code. For example, to "
 "install the source code in the ``google-auth`` directory:"
 msgstr ""
+"pip может установить пакет непосредственно из его исходного кода. Например, "
+"чтобы установить исходный код в каталог ``google-auth``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:328
 msgid ""
@@ -5845,34 +6305,43 @@ msgid ""
 "directory will immediately affect the installed package without needing to "
 "re-install:"
 msgstr ""
+"Кроме того, pip может устанавливать пакеты из исходного кода в :doc:`режиме "
+"разработки <setuptools:userguide/development_mode>`, что означает, что "
+"изменения в каталоге исходного кода немедленно повлияют на установленный "
+"пакет без необходимости повторной установки:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:347
-#, fuzzy
 msgid "Install from version control systems"
-msgstr "Установка из систем управления версиями"
+msgstr "Установка из систем контроля версий"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:349
 msgid ""
 "pip can install packages directly from their version control system. For "
 "example, you can install directly from a git repository:"
 msgstr ""
+"pip может устанавливать пакеты непосредственно из их системы контроля "
+"версий. Например, вы можете установить пакет непосредственно из репозитория "
+"git:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:356
 msgid ""
 "For more information on supported version control systems and syntax, see "
 "pip's documentation on :ref:`VCS Support <pip:VCS Support>`."
 msgstr ""
+"Дополнительную информацию о поддерживаемых системах контроля версий и "
+"синтаксисе см. в документации pip по :ref:`VCS Support <pip:VCS Support>`."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:361
-#, fuzzy
 msgid "Install from local archives"
-msgstr "Установка из локальных архивов"
+msgstr "Установка из локального архива"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:363
 msgid ""
 "If you have a local copy of a :term:`Distribution Package`'s archive (a zip, "
 "wheel, or tar file) you can install it directly with pip:"
 msgstr ""
+"Если у вас есть локальная копия архива :term:`Distribution Package` (файл "
+"zip, wheel или tar), вы можете установить его напрямую с помощью pip:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:378
 msgid ""
@@ -5880,6 +6349,9 @@ msgid ""
 "tell pip to look for packages there and not to use the :term:`Python Package "
 "Index (PyPI)` at all:"
 msgstr ""
+"Если у вас есть каталог, содержащий архивы нескольких пакетов, вы можете "
+"указать pip искать пакеты там и не использовать :term:`Python Package Index "
+"(PyPI)` вообще:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:394
 msgid ""
@@ -5887,17 +6359,21 @@ msgid ""
 "connectivity or if you want to strictly control the origin of distribution "
 "packages."
 msgstr ""
+"Это полезно, если вы устанавливаете пакеты на систему с ограниченными "
+"возможностями подключения или хотите строго контролировать происхождение "
+"дистрибутивных пакетов."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:400
-#, fuzzy
 msgid "Install from other package indexes"
-msgstr "Установка из других индексов"
+msgstr "Установка из других индексов пакетов"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:402
 msgid ""
 "If you want to download packages from a different index than the :term:"
 "`Python Package Index (PyPI)`, you can use the ``--index-url`` flag:"
 msgstr ""
+"Если вы хотите загрузить пакеты из индекса, отличного от индекса :term:`"
+"Python Package Index (PyPI)`, вы можете использовать флаг ``--index-url``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:417
 msgid ""
@@ -5905,6 +6381,9 @@ msgid ""
 "(PyPI)` and a separate index, you can use the ``--extra-index-url`` flag "
 "instead:"
 msgstr ""
+"Если вы хотите разрешить пакеты как из :term:`Python Package Index (PyPI)`, "
+"так и из отдельного индекса, вы можете использовать флаг ``--extra-index-"
+"url`` вместо этого:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:434
 #: ../source/tutorials/installing-packages.rst:393
@@ -5916,11 +6395,12 @@ msgid ""
 "pip can upgrade packages in-place using the ``--upgrade`` flag. For example, "
 "to install the latest version of ``requests`` and all of its dependencies:"
 msgstr ""
+"pip может обновлять пакеты на месте, используя флаг ``--upgrade``. Например, "
+"для установки последней версии ``requests`` и всех его зависимостей:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:452
-#, fuzzy
 msgid "Using a requirements file"
-msgstr "Использование файлов требований"
+msgstr "Использование файла требований"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:454
 msgid ""
@@ -5928,12 +6408,16 @@ msgid ""
 "dependencies in a :ref:`Requirements File <pip:Requirements Files>`. For "
 "example you could create a :file:`requirements.txt` file containing:"
 msgstr ""
+"Вместо того чтобы устанавливать пакеты по отдельности, pip позволяет "
+"объявить все зависимости в :ref:`Requirements File <pip:Requirements Files>`"
+". Например, вы можете создать файл :file:`requirements.txt`, содержащий:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:463
 msgid ""
 "And tell pip to install all of the packages in this file using the ``-r`` "
 "flag:"
 msgstr ""
+"И укажите pip установить все пакеты из этого файла, используя флаг ``-r``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:478
 msgid "Freezing dependencies"
@@ -5944,10 +6428,12 @@ msgid ""
 "Pip can export a list of all installed packages and their versions using the "
 "``freeze`` command:"
 msgstr ""
+"Pip может экспортировать список всех установленных пакетов и их версий с "
+"помощью команды ``freeze``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:495
 msgid "Which will output a list of package specifiers such as:"
-msgstr ""
+msgstr "Что выведет список спецификаторов пакетов, например:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:511
 msgid ""
@@ -5955,17 +6441,22 @@ msgid ""
 "Files` that can re-create the exact versions of all packages installed in an "
 "environment."
 msgstr ""
+"Команда ``pip freeze`` полезна для создания :ref:`pip:Requirements Files``, "
+"которые могут воссоздать точные версии всех пакетов, установленных в "
+"окружении."
 
 #: ../source/guides/installing-using-virtualenv.rst:2
-#, fuzzy
 msgid "Installing packages using virtualenv"
-msgstr "Установка virtualenv"
+msgstr "Установка пакетов с помощью virtualenv"
 
 #: ../source/guides/installing-using-virtualenv.rst:4
 msgid ""
 "This guide discusses how to install packages using :ref:`pip` and :ref:"
 "`virtualenv`, a tool to create isolated Python environments."
 msgstr ""
+"В этом руководстве рассказывается о том, как устанавливать пакеты с помощью "
+":ref:`pip` и :ref:`virtualenv`, инструмента для создания изолированных "
+"окружений Python."
 
 #: ../source/guides/installing-using-virtualenv.rst:8
 msgid ""
@@ -5973,6 +6464,10 @@ msgid ""
 "under development. Please refer to the :ref:`virtualenv` documentation for "
 "details on installation and usage."
 msgstr ""
+"Это руководство по установке пакетов и использованию :ref:`virtualenv` "
+"находится в стадии разработки. Пожалуйста, обратитесь к документации по "
+":ref:`virtualenv` для получения подробной информации об установке и "
+"использовании."
 
 #: ../source/guides/installing-using-virtualenv.rst:13
 msgid ""
@@ -5980,6 +6475,9 @@ msgid ""
 "Package`  which is different from an :term:`Import Package` that which is "
 "used to import modules in your Python source code."
 msgstr ""
+"В этом документе термин **пакет** используется для обозначения :term:`"
+"Distribution Package`, который отличается от :term:`Import Package`, который "
+"используется для импорта модулей в исходный код Python."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:2
 msgid "Making a PyPI-friendly README"
@@ -5992,6 +6490,10 @@ msgid ""
 "in a PyPI-friendly format and include your README in your package so it "
 "appears on PyPI."
 msgstr ""
+"Файлы README могут помочь вашим пользователям понять ваш проект и могут быть "
+"использованы для создания описания вашего проекта на PyPI. Это руководство "
+"поможет вам создать README в удобном для PyPI формате и включить README в "
+"ваш пакет, чтобы он появился на PyPI."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:9
 msgid "Creating a README file"
@@ -6002,6 +6504,8 @@ msgid ""
 "README files for Python projects are often named ``README``, ``README.txt``, "
 "``README.rst``, or ``README.md``."
 msgstr ""
+"Файлы README для проектов Python часто называются ``README``, ``README.txt``"
+", ``README.rst`` или ``README.md``."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:13
 msgid ""
@@ -6009,10 +6513,13 @@ msgid ""
 "supported by PyPI. Formats supported by `PyPI's README renderer <https://"
 "github.com/pypa/readme_renderer>`_ are:"
 msgstr ""
+"Чтобы ваш README правильно отображался на PyPI, выберите язык разметки, "
+"поддерживаемый PyPI. Форматы, поддерживаемые `PyPI's README renderer "
+"<https://github.com/pypa/readme_renderer>`_, следующие:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:16
 msgid "plain text"
-msgstr "простой текст;"
+msgstr "простой текст"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:17
 msgid ""
@@ -6035,6 +6542,8 @@ msgid ""
 "It's customary to save your README file in the root of your project, in the "
 "same directory as your :file:`setup.py` file."
 msgstr ""
+"Обычно файл README сохраняется в корне проекта, в той же директории, что и "
+"файл :file:`setup.py`."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:25
 msgid "Including your README in your package's metadata"
@@ -6046,6 +6555,9 @@ msgid ""
 "project's ``Description`` and ``Description-Content-Type`` metadata, "
 "typically in your project's :file:`setup.py` file."
 msgstr ""
+"Чтобы включить содержимое README в описание пакета, установите метаданные "
+"проекта ``Description`` и ``Description-Content-Type``, обычно в файле "
+"проекта :file:`setup.py``."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:33
 msgid ":ref:`description-optional`"
@@ -6060,6 +6572,9 @@ msgid ""
 "For example, to set these values in a package's :file:`setup.py` file, use "
 "``setup()``'s ``long_description`` and ``long_description_content_type``."
 msgstr ""
+"Например, чтобы установить эти значения в файле пакета :file:`setup.py`, "
+"используйте ``setup()`` ``long_description`` и "
+"``long_description_content_type``."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:39
 msgid ""
@@ -6068,16 +6583,22 @@ msgid ""
 "``Content-Type``-style value for your README file's markup, such as ``text/"
 "plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdown``."
 msgstr ""
+"Установите значение ``long_description`` в содержимое (не путь) самого файла "
+"README. Установите значение ``long_description_content_type`` в принятый "
+"стиль ``Content-Type`` для разметки вашего файла README, например ``text/"
+"plain``, ``text/x-rst`` (для reStructuredText) или ``text/markdown``."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:45
 msgid ""
 "If you're using GitHub-flavored Markdown to write a project's description, "
 "ensure you upgrade the following tools:"
 msgstr ""
+"Если для написания описания проекта вы используете Markdown со вкусом "
+"GitHub, убедитесь, что вы обновили следующие инструменты:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:60
 msgid "The minimum required versions of the respective tools are:"
-msgstr ""
+msgstr "Минимально необходимыми версиями соответствующих инструментов являются:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:62
 msgid "``setuptools >= 38.6.0``"
@@ -6096,6 +6617,8 @@ msgid ""
 "It's recommended that you use ``twine`` to upload the project's distribution "
 "packages:"
 msgstr ""
+"Рекомендуется использовать ``twine`` для загрузки дистрибутивных пакетов "
+"проекта:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:72
 msgid ""
@@ -6103,10 +6626,13 @@ msgid ""
 "file:`README.md` as ``long_description`` and identifies the markup as GitHub-"
 "flavored Markdown:"
 msgstr ""
+"Например, смотрите этот файл :file:`setup.py`, который считывает содержимое "
+":file:`README.md` как ``длинное_описание`` и идентифицирует разметку как "
+"GitHub-flavored Markdown:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:94
 msgid "Validating reStructuredText markup"
-msgstr ""
+msgstr "Проверка разметки reStructuredText"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:96
 msgid ""
@@ -6114,6 +6640,9 @@ msgid ""
 "prevent it from rendering, causing PyPI to instead just show the README's "
 "raw source."
 msgstr ""
+"Если ваш README написан на reStructuredText, то любая некорректная разметка "
+"не позволит его отобразить, в результате чего PyPI просто покажет исходный "
+"текст README."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:99
 msgid ""
@@ -6123,27 +6652,39 @@ msgid ""
 "reference-label```\"), are not allowed here and will result in error "
 "messages like \"``Error: Unknown interpreted text role \"py:func\".``\"."
 msgstr ""
+"Обратите внимание, что расширения Sphinx, используемые в документах, такие "
+"как :doc:`directives <sphinx:usage/restructuredtext/directives>` и :doc:`"
+"roles <sphinx:usage/restructuredtext/roles>` (например, \""
+"``:py:func:`getattr``\" или \"``:ref:`my-reference-label``\"), здесь "
+"недопустимы и приведут к сообщениям об ошибках типа \"``Ошибка: Неизвестная "
+"интерпретируемая текстовая роль \"py:func\".``\"."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:104
 msgid ""
 "You can check your README for markup errors before uploading as follows:"
 msgstr ""
+"Вы можете проверить свой README на наличие ошибок разметки перед загрузкой "
+"следующим образом:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:106
 msgid ""
 "Install the latest version of `twine <https://github.com/pypa/twine>`_; "
 "version 1.12.0 or higher is required:"
 msgstr ""
+"Установите последнюю версию `twine <https://github.com/pypa/twine>`_; "
+"требуется версия 1.12.0 или выше:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:121
 msgid ""
 "Build the sdist and wheel for your project as described under :ref:"
 "`Packaging Your Project`."
 msgstr ""
+"Соберите sdist и wheel для вашего проекта, как описано в разделе :ref:`"
+"Packaging Your Project`."
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:124
 msgid "Run ``twine check`` on the sdist and wheel:"
-msgstr ""
+msgstr "Запустите ``twine check`` на sdist и wheel:"
 
 #: ../source/guides/making-a-pypi-friendly-readme.rst:130
 msgid ""
@@ -6151,6 +6692,9 @@ msgid ""
 "renders fine, the command will output ``Checking distribution FILENAME: "
 "Passed``."
 msgstr ""
+"Эта команда сообщит о любых проблемах с рендерингом вашего README.  Если "
+"разметка отображается нормально, команда выведет ``Проверка дистрибутива "
+"FILENAME: Пройдена``."
 
 #: ../source/guides/migrating-to-pypi-org.rst:6
 msgid "Migrating to PyPI.org"
@@ -9546,9 +10090,10 @@ msgid ""
 "<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
 "pypa/virtualenv>`__ | `PyPI <https://pypi.org/project/virtualenv/>`__"
 msgstr ""
-"`Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ | `Issues "
-"<https://github.com/pypa/virtualenv/issues>`__ | `GitHub <https://github.com/"
-"pypa/virtualenv>`__ | `PyPI <https://pypi.org/project/virtualenv/>`__"
+"`Документация <https://virtualenv.pypa.io/en/stable/index.html>`__ | `"
+"Замечания <https://github.com/pypa/virtualenv/issues>`__ | `GitHub "
+"<https://github.com/pypa/virtualenv>`__ | `PyPI <https://pypi.org/project/"
+"virtualenv/>`__"
 
 #: ../source/key_projects.rst:336
 msgid ""
@@ -10059,8 +10604,8 @@ msgid ""
 "`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
 "github.com/python/cpython/issues>`__"
 msgstr ""
-"`Docs <https://docs.python.org/3/library/venv.html>`__ | `Issues <https://"
-"github.com/python/cpython/issues>`__"
+"`Документация <https://docs.python.org/3/library/venv.html>`__ | `Замечания "
+"<https://github.com/python/cpython/issues>`__"
 
 #: ../source/key_projects.rst:733
 msgid ""
@@ -10287,11 +10832,11 @@ msgstr "Июль 2018"
 
 #: ../source/news.rst:88
 msgid "Improved binary extension docs. (:pr:`531`)"
-msgstr "Улучшена документация по двоичным расширениям (:pr:`531`)."
+msgstr "Улучшена документация по бинарным расширениям. (:pr:`531`)"
 
 #: ../source/news.rst:89
 msgid "Added scikit-build to key projects. (:pr:`530`)"
-msgstr "Для ключевых проектов добавлен scikit-build (:pr:`530`)."
+msgstr "Добавлена scikit-build в ключевые проекты. (:pr:`530`)"
 
 #: ../source/news.rst:92
 msgid "June 2018"
@@ -10344,7 +10889,7 @@ msgstr "Апрель 2018"
 
 #: ../source/news.rst:111
 msgid "Added README guide. (:pr:`461`)"
-msgstr "Добавлено руководство по написанию README (:pr:`461`)."
+msgstr "Добавлено руководство README. (:pr:`461`)"
 
 #: ../source/news.rst:112
 msgid "Updated instructions and status for PyPI launch. (:pr:`475`)"
@@ -10449,7 +10994,7 @@ msgstr ""
 
 #: ../source/news.rst:148
 msgid "Added news page. (:pr:`404`)"
-msgstr "Добавлена страница новостей (:pr:`404`)."
+msgstr "Добавлена страница новостей (:pr:`404`)"
 
 #: ../source/news.rst:151
 msgid "November 2017"
@@ -10593,11 +11138,11 @@ msgstr ""
 
 #: ../source/news.rst:199
 msgid "Updated to Sphinx 1.6.2. (:pr:`323`)"
-msgstr "Обновление до Sphinx 1.6.2 (:pr:`323`)."
+msgstr "Обновление до Sphinx 1.6.2 (:pr:`323`)"
 
 #: ../source/news.rst:200
 msgid "Switched to the PyPA theme. (:pr:`305`)"
-msgstr "Переключение на тему PyPA (:pr:`305`)."
+msgstr "Переключение на тему PyPA (:pr:`305`)"
 
 #: ../source/news.rst:201
 msgid "Re-organized the documentation into the new structure. (:pr:`318`)"
@@ -10694,7 +11239,7 @@ msgstr "Февраль 2017"
 
 #: ../source/news.rst:234
 msgid "Added :pep:`518`. (:pr:`281`)"
-msgstr "Добавлен :pep:`518` (:pr:`281`)."
+msgstr "Добавлен :pep:`518` (:pr:`281`)"
 
 #: ../source/overview.rst:3
 #, fuzzy
