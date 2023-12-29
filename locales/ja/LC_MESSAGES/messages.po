@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-12-22 21:48+0000\n"
-"PO-Revision-Date: 2023-12-20 20:17+0000\n"
-"Last-Translator: nikkie <nikkie@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"PO-Revision-Date: 2023-12-29 19:23+0000\n"
+"Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -816,6 +816,14 @@ msgid ""
 "Alternatively, the term \"distribution package\" can be used to refer to a "
 "specific file that contains a certain version of a project."
 msgstr ""
+"配布パッケージとは、インストール可能な一片のソフトウェアです。ほとんどの場合"
+"、これは \"プロジェクト <project>\" と同義です。 ``pip install pkg`` "
+"とタイプする時、あるいは、 ``pyproject.toml`` に ``dependencies = [\"pkg\"]``"
+" と書く時、 ``pkg`` のところには配布パッケージの名前を書きます。Python "
+"のライブラリやツール類の集約された源として最も広く知られている PyPI_ で検索し"
+"たり閲覧する時、あなたが目にするものは配布パッケージのリストです。あるいは、"
+"\"配布パッケージ\" という言葉があるプロジェクトの特定のバージョンを内包した特"
+"定のファイルのことを指す場合もあります。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:24
 msgid ""
@@ -824,12 +832,15 @@ msgid ""
 "by the system package manager of the `Linux distribution <distro_>`_, which "
 "is a different meaning."
 msgstr ""
+"Linux の世界では、 \"配布パッケージ <distribution package>\" が "
+"\"ディストロパッケージ <distro package>\" か単に \"パッケージ <package>\" "
+"と短縮形で呼ばれることが通常であり、 `Linux ディストリビューション <distro_>`"
+"_ のシステムパッケージ管理者によって提供される何かのことであって、異なる意味"
+"で使われているということは意識しておいてください。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:31
-#, fuzzy
-#| msgid "and import the package:"
 msgid "What's an import package?"
-msgstr "そして、パッケージをインポートしましょう:"
+msgstr "パッケージをインポートする、とは何でしょうか？"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:33
 msgid ""
@@ -841,16 +852,23 @@ msgid ""
 "is a directory on the file system, containing modules as ``.py`` files and "
 "subpackages as subdirectories."
 msgstr ""
+"インポートパッケージは Python モジュールです。したがって、 Python コードに ``"
+"import pkg`` もしくは ``from pkg import func`` と書く時、``pkg`` の部分はイン"
+"ポートパッケージの名称です。より精確には、インポートパッケージは、"
+"サブモジュールを内包することができる特別な Python モジュールです。通常は、イ"
+"ンポートパッケージはファイルシステム上のディレクトリであって、モジュールを ``"
+".py`` の形で含み、サブパッケージをサブディレクトリの形で含むものです。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:42
 msgid ""
 "You can use an import package as soon as you have installed a distribution "
 "package that provides it."
-msgstr ""
+msgstr "インポートパッケージを提供する配布パッケージをインストールするや否や、インポ"
+"ートパッケージを使用することができます。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:47
 msgid "What are the links between distribution packages and import packages?"
-msgstr ""
+msgstr "配布パッケージとインポートパッケージの間の繋がりとは何でしょうか？"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:49
 msgid ""
@@ -858,6 +876,9 @@ msgid ""
 "(or non-package module), with a matching name. For example, ``pip install "
 "numpy`` lets you ``import numpy``."
 msgstr ""
+"ほとんどの場合、配布パッケージはあるひとつのインポートパッケージ "
+"(またはパッケージではないモジュール) を対応する名称で提供します。例えば、 ``"
+"pip install numpy`` を行えば ``import numpy`` として使うことができます。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:53
 msgid ""
@@ -867,6 +888,12 @@ msgid ""
 "blindly install the PyPI package ``foo`` if you see ``import foo``; this may "
 "install an unintended, and potentially even malicious package.)"
 msgstr ""
+"しかしながら、これは単なる慣習です。PyPI や他のパッケージインデックスでは、"
+"配布パッケージとそれが提供するインポートパッケージの名称の間に "
+"*なんらかの関係性を強制することはしません* 。 (このことの帰結として、 ``"
+"import foo`` を見たからと言って盲目的に PyPI のパッケージ ``foo`` "
+"をインストールすることはできません; これは意図しないか、あるいは潜在的には悪"
+"意のあるパッケージをインストールしてしまうことになりかねません。)"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:59
 msgid ""
@@ -879,6 +906,14 @@ msgid ""
 "generally, a fork of an existing library is a common reason for differing "
 "names between the distribution package and the import package."
 msgstr ""
+"配布パッケージは、異なる名称でインポートパッケージを提供することが可能です。"
+"この例としては、画像処理分野で人気のある Pillow_ です。"
+"配布パッケージの名称は ``Pillow`` ですが、インポートパッケージとしては "
+"``PIL`` を提供しています。これには歴史的な理由があります: Pillow は PIL "
+"ライブラリのフォークとして始まり、PIL の既存のユーザがあまり手間をかけずに "
+"Pillow に移行できるようにインポート名称の ``PIL`` を使い続けたのです。もっと"
+"一般的にいうと、配布パッケージとインポートパッケージの間で異なる名称を使う時"
+"のよくある理由が既存のライブラリからのフォークなのです。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:69
 msgid ""
@@ -887,6 +922,10 @@ msgid ""
 "packages with the same name can be provided by several distribution "
 "packages. Again, forks are a common reason for this."
 msgstr ""
+"(PyPI のような) あるパッケージインデックス内では、配布パッケージの名称は一意"
+"でなければなりません。他方で、インポートパッケージにはそのような要求事項はあ"
+"りません。同じ名称のインポートパッケージが複数の配布パッケージから提供される"
+"ということも可能です。繰り返しますが、これのよくある理由はフォークです。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:74
 msgid ""
@@ -895,10 +934,15 @@ msgid ""
 "which provides both an ``attrs`` import package with a newer API, and an "
 "``attr`` import package with an older but supported API."
 msgstr ""
+"一方で、あまり見かけませんが、配布パッケージは複数のインポートパッケージを提"
+"供することができます。その例は attrs_ 配布パッケージで、より新しい API "
+"を持つ ``attrs`` インポートパッケージと、旧来のものだがサポートされている "
+"API を持つ ``attr`` の両方を提供します。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:81
 msgid "How do distribution package names and import package names compare?"
-msgstr ""
+msgstr "配布パッケージの名称とインポートパッケージの名称は、どのように比較されるので"
+"しょうか？"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:83
 msgid ""
@@ -907,6 +951,10 @@ msgid ""
 "[#non-identifier-mod-name]_. In particular, they use underscores ``_`` as "
 "word separator and they are case-sensitive."
 msgstr ""
+"インポートパッケージは、その名称として正当な Python 識別子 (Python "
+"の説明文書の中に :ref:`exact rules <python:identifiers>` が見つかるでしょう) "
+"[#non-identifier-mod-name]_ を持っているべきです。特に、"
+"単語間の区切りにアンダースコア ``_`` を使い、また、大文字小文字を区別します。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:88
 msgid ""
@@ -918,6 +966,14 @@ msgid ""
 "``pip install awesome-package`` (the precise rules are given in the :ref:"
 "`name normalization specification <name-normalization>`)."
 msgstr ""
+"他方で、配布パッケージはハイフン ``-`` でもアンダースコア ``_`` "
+"でも使うことができます。また、 :ref:`名前空間パッケージ <packaging-namespace-"
+"packages>` "
+"のサブパッケージをパッケージングするために使われることがあるドット ``.`` "
+"を含むこともできます。ほとんどの目的においては、大文字小文字や ``-`` 対 ``_``"
+" の違いをを区別せず、例えば、 ``pip install Awesome_Package`` と ``pip "
+"install awesome-package`` は同じものです (詳細な規則は :ref:`名前正規化仕様 "
+"<name-normalization>` にあります) 。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:101
 msgid ""
@@ -925,6 +981,10 @@ msgid ""
 "have a valid Python identifier as their name, using :doc:`importlib <python:"
 "library/importlib>`, this is vanishingly rare and strongly discouraged."
 msgstr ""
+"正当な Python "
+"識別子をその名称として持たないパッケージ/モジュールをインストールすることは、"
+" :doc:`importlib <python:library/importlib>` を使うことで技術的には可能ではあ"
+"りますが、絶無と言って良いほど稀であり、強く抑制されています。"
 
 #: ../source/discussions/index.rst:4
 msgid ""
@@ -1256,14 +1316,6 @@ msgstr ""
 "ん。"
 
 #: ../source/discussions/setup-py-deprecated.rst:10
-#, fuzzy
-#| msgid ""
-#| "Setuptools is perfectly usable as a :term:`build backend` for packaging "
-#| "Python projects. And :file:`setup.py` is a valid configuration file for :"
-#| "ref:`setuptools` that happens to be written in Python, instead of in "
-#| "*TOML* for example (a similar practice is used by other tools like *nox* "
-#| "and its :file:`nox.py` configuration file, or *pytest* and :file:"
-#| "`conftest.py`)."
 msgid ""
 "Setuptools is perfectly usable as a :term:`build backend` for packaging "
 "Python projects. And :file:`setup.py` is a valid configuration file for :ref:"
@@ -1271,11 +1323,12 @@ msgid ""
 "example (a similar practice is used by other tools like *nox* and its :file:"
 "`noxfile.py` configuration file, or *pytest* and :file:`conftest.py`)."
 msgstr ""
-"Setuptools は、 Python のプロジェクトをパッケージングすることに完璧に使用可能"
-"です。そして、 :file:`setup.py` は、例えば *TOML* の代わりにたまたま Python "
-"で書かれている :ref:`setuptools` 向けの正当な設定ファイルです (*nox* とその設"
-"定ファイルである :file:`nox.py` や *pytest* と :file:`conftest` のような他の"
-"ツール類でも、よく似たパターンが使われています)。"
+"Setuptools は、 :term:`ビルドバックエンド <build backend>` として Python "
+"のプロジェクトをパッケージングすることに完璧に使用可能です。そして、 "
+":file:`setup.py` は、例えば *TOML* の代わりにたまたま Python で書かれている "
+":ref:`setuptools` 向けの正当な設定ファイルです (*nox* "
+"とその設定ファイルである :file:`nox.filepy` や *pytest* と :file:`conftest."
+"py` のような他のツール類でも、よく似たパターンが使われています)。"
 
 #: ../source/discussions/setup-py-deprecated.rst:18
 msgid ""
@@ -2383,15 +2436,6 @@ msgstr ""
 "ユーザがインターネットからダウンロードしてインストールするものです。"
 
 #: ../source/glossary.rst:64
-#, fuzzy
-#| msgid ""
-#| "A distribution package is more commonly referred to with the single words "
-#| "\"package\" or \"distribution\", but this guide may use the expanded term "
-#| "when more clarity is needed to prevent confusion with an :term:`Import "
-#| "Package` (which is also commonly called a \"package\") or another kind of "
-#| "distribution (e.g. a Linux distribution or the Python language "
-#| "distribution), which are often referred to with the single term "
-#| "\"distribution\"."
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -2402,11 +2446,12 @@ msgid ""
 "\"distribution\". See :ref:`distribution-package-vs-import-package` for a "
 "breakdown of the differences."
 msgstr ""
-"配布物パッケージは単語ひとつで「パッケージ」や「配布物」と呼ばれることもしば"
-"しばですが、 :term:`Import Package`(これも通常は単に「パッケージ」と呼ばれま"
-"す)や他の種類の配布物(例えばLinuxディストリビューションやPython言語の配布物)"
-"でよく単語ひとつの「配布物」と呼ばれるものとの混同を避けるために明確に述べる"
-"必要がある場合には、本ガイドでは長い方の呼び方を用いることがあります。"
+"配布パッケージは単語ひとつで「パッケージ」や「配布物」と呼ばれることもしばし"
+"ばですが、本ガイドでは、 :term:`インポートパッケージ <Import Package>`(これも"
+"通常は単に「パッケージ」と呼ばれます)や他の種類の配布物(例えばLinuxディストリ"
+"ビューションやPython言語の配布物)でよく単語ひとつの「配布物」と呼ばれるものと"
+"の混同を避けるために明確に述べる必要がある場合には、長い方の用語を用いること"
+"があります。"
 
 #: ../source/glossary.rst:72
 msgid "Egg"
@@ -2462,7 +2507,7 @@ msgstr ""
 
 #: ../source/glossary.rst:98
 msgid "Import Package"
-msgstr "パッケージ"
+msgstr "インポートパッケージ"
 
 #: ../source/glossary.rst:101
 msgid ""
@@ -2473,12 +2518,6 @@ msgstr ""
 "Pythonモジュール。"
 
 #: ../source/glossary.rst:104
-#, fuzzy
-#| msgid ""
-#| "An import package is more commonly referred to with the single word "
-#| "\"package\", but this guide will use the expanded term when more clarity "
-#| "is needed to prevent confusion with a :term:`Distribution Package` which "
-#| "is also commonly called a \"package\"."
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -2486,10 +2525,10 @@ msgid ""
 "also commonly called a \"package\". See :ref:`distribution-package-vs-import-"
 "package` for a breakdown of the differences."
 msgstr ""
-"インポートパッケージは、より普通には「パッケージ」という用語で呼ばれますが、"
-"本ガイドでは、同様に単に「パッケージ」と呼ばれることが普通である :term:`配布"
-"物パッケージ <Distribution Package>`との混同を避けるために必要な場合には、長"
-"い方の用語を用いることにします。"
+"インポートパッケージは、より普通には「パッケージ」という１単語の用語で呼ばれ"
+"ますが、本ガイドでは、同様に単に「パッケージ」と呼ばれることが普通である "
+":term:`配布物パッケージ <Distribution Package>`との混同を避けるために必要な場"
+"合には、長い方の用語を用いることにします。"
 
 #: ../source/glossary.rst:109
 msgid "Module"
@@ -2703,27 +2742,18 @@ msgid "Requirement Specifier"
 msgstr "要求事項識別子"
 
 #: ../source/glossary.rst:211
-#, fuzzy
-#| msgid ""
-#| "A format used by :ref:`pip` to install packages from a :term:`Package "
-#| "Index`. For an EBNF diagram of the format, see the `pkg_resources."
-#| "Requirement <https://setuptools.readthedocs.io/en/latest/pkg_resources."
-#| "html#requirement-objects>`_ entry in the :ref:`setuptools` docs. For "
-#| "example, \"foo>=1.3\" is a requirement specifier, where \"foo\" is the "
-#| "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
 "For example, \"foo>=1.3\" is a requirement specifier, where \"foo\" is the "
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
-":term:`パッケージインデックス <Package Index>`からパッケージをインストールす"
-"るために :ref:`pip` で用いられる様式。この様式の EBNF 文法構造については :"
-"ref:`setuptools` のドキュメントにある <`pkg_resources.Requirement <https://"
-"setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-"
-"objects>`_ の項をご覧ください。例えば、\"foo>=1.3\"は要求事項識別子であ"
-"り、\"foo\"の部分がプロジェクトの名称、\">=1.3\"の部分が :term:`バージョン識"
-"別子 <Version Specifier>` に該当します。"
+":term:`パッケージインデックス <Package Index>`"
+"からパッケージをインストールするために :ref:`pip` で用いられる様式。"
+"この様式の EBNF 文法構造については、 :ref:`依存関係指定子 <dependency-"
+"specifiers>` を見てください。例えば、 \"foo>=1.3\" は要求事項識別子であり、 "
+"\"foo\" の部分がプロジェクトの名称で、 \">=1.3\" の部分は :term:`"
+"バージョン指定子 <Version Specifier>` です"
 
 #: ../source/glossary.rst:216
 msgid "Requirements File"
@@ -5142,12 +5172,6 @@ msgid "Hosting your own simple repository"
 msgstr "あなた自身の単純なリポジトリをホストする"
 
 #: ../source/guides/hosting-your-own-index.rst:8
-#, fuzzy
-#| msgid ""
-#| "If you wish to host your own simple repository [1]_, you can either use a "
-#| "software package like :doc:`devpi <devpi:index>` or you can use simply "
-#| "create the proper directory structure and use any web server that can "
-#| "serve static files and generate an autoindex."
 msgid ""
 "If you wish to host your own simple repository [1]_, you can either use a "
 "software package like :doc:`devpi <devpi:index>` or you can simply create "
@@ -5155,9 +5179,9 @@ msgid ""
 "files and generate an autoindex."
 msgstr ""
 "あなた自身の単純なリポジトリ [1]_ をホストしたいのであれば、 :doc:`devpi "
-"<devpi:index>` のようなソフトウェアパッケージを使うこともできますし、単にウェ"
-"ブサーバ上に適当なディレクトリを作成して静的ファイルをそこに置き、自動でイン"
-"デックスを生成させることも可能です。"
+"<devpi:index>` のようなソフトウェアパッケージを使うこともできますし、単に "
+"web サーバ上に適切なディレクトリを作成して静的ファイルを提供し自動でインデッ"
+"クスを生成させることも可能です。"
 
 #: ../source/guides/hosting-your-own-index.rst:13
 msgid ""
@@ -8204,12 +8228,18 @@ msgid ""
 "need compatibility with packages already using this method. Also, :doc:"
 "`pkg_resources <setuptools:pkg_resources>` has been deprecated."
 msgstr ""
+"これらのふたつの方法は、 :pep:`420` 以前に名前空間を作成するのに使われました"
+"が、今では過去のやり方であると考えられていて、すでにこの方法を使っているパッ"
+"ケージとの互換性を必要とする場合を除いては使われるべきではないと考えられてい"
+"ます。また、 :doc:`pkg_resources <setuptools:pkg_resources>` "
+"は非推奨になりました。"
 
 #: ../source/guides/packaging-namespace-packages.rst:165
 msgid ""
 "To migrate an existing package, all packages sharing the namespace must be "
 "migrated simultaneously."
-msgstr ""
+msgstr "既存のパッケージを移植するためには、名前空間を共有するすべてのパッケージが同"
+"時に移植されなければなりません。"
 
 #: ../source/guides/packaging-namespace-packages.rst:167
 msgid ""
@@ -8251,28 +8281,25 @@ msgstr ""
 
 #: ../source/guides/packaging-namespace-packages.rst:195
 #: ../source/guides/packaging-namespace-packages.rst:242
-#, fuzzy
 msgid ""
 "The :file:`__init__.py` file for the namespace package needs to contain the "
 "following:"
-msgstr ""
-"名前空間パッケージ用の :file:`__init__.py` ファイルは、次に示すもの **だけ** "
-"を含んでいる必要があります:"
+msgstr "名前空間パッケージ用の :file:`__init__.py` "
+"ファイルは、次に示すものを含んでいる必要があります:"
 
 #: ../source/guides/packaging-namespace-packages.rst:202
 #: ../source/guides/packaging-namespace-packages.rst:249
-#, fuzzy
 msgid ""
 "**Every** distribution that uses the namespace package must include such an :"
 "file:`__init__.py`. If any distribution does not, it will cause the "
 "namespace logic to fail and the other sub-packages will not be importable.  "
 "Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
-"名前空間パッケージを用いる **すべての** 配布物は、同一の :file:`__init__.py` "
-"を持たなければなりません。もしいずれかの配布物で異なっていれば、名前空間の論"
-"理破綻を招き、他のサブパッケージをインポートすることができなくなるでしょ"
-"う。 :file:`__init__.py` に他のコードを追加しても、それはアクセスできないもの"
-"となるでしょう。"
+"ある名前空間パッケージを用いる **すべての** 配布物は、 :file:`__init__.py` を"
+"持っていなければなりません。もしいずれかの配布物でそうなっていなければ、名前"
+"空間の論理破綻を招き、他のサブパッケージをインポートすることができなくなるで"
+"しょう。 :file:`__init__.py` "
+"に他のコードを追加しても、それはアクセスできないものとなるでしょう。"
 
 #: ../source/guides/packaging-namespace-packages.rst:207
 msgid ""
@@ -8711,6 +8738,12 @@ msgid ""
 "increased, but a better solution may constitute to use a PyPI-compatible "
 "server like :ref:`pypiserver` in the CI for testing purposes."
 msgstr ""
+"リポジトリで活発に頻繁なコミットがあって、前述のようにあらゆるプッシュが "
+"TestPyPI へアップロードされているなら、そのプロジェクトは `PyPI "
+"プロジェクトサイズ制限 <https://pypi.org/help/#project-size-limit>`_ "
+"を超過するかもしれません。この制限を緩和することもできますが、"
+"より良い解決策は試験目的の CI の中で :ref:`pypiserver` のような PyPI "
+"と互換のあるサーバを使うように構成することかもしれません。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:232
 msgid ""
@@ -8721,18 +8754,16 @@ msgstr ""
 "ます。"
 
 #: ../source/guides/section-build-and-publish.rst:3
-#, fuzzy
 msgid "Building and Publishing"
-msgstr "プロジェクトをビルドして公開する:"
+msgstr "ビルドすることと公開すること"
 
 #: ../source/guides/section-hosting.rst:3
 msgid "Hosting"
-msgstr ""
+msgstr "ホスティング"
 
 #: ../source/guides/section-install.rst:3
-#, fuzzy
 msgid "Installation"
-msgstr "インストールフォーマット"
+msgstr "インストール"
 
 #: ../source/guides/single-sourcing-package-version.rst:5
 msgid "Single-sourcing the package version"
@@ -8740,11 +8771,11 @@ msgstr "パッケージのバージョンを１箇所で管理する"
 
 #: ../source/guides/single-sourcing-package-version.rst:7
 msgid "Todo"
-msgstr ""
+msgstr "Todo"
 
 #: ../source/guides/single-sourcing-package-version.rst:7
 msgid "Update this page for build backends other than setuptools."
-msgstr ""
+msgstr "setuptools 以外のビルドバックエンドについてこのページを更新すること。"
 
 #: ../source/guides/single-sourcing-package-version.rst:9
 msgid ""
@@ -9902,13 +9933,12 @@ msgid "Including files in source distributions with ``MANIFEST.in``"
 msgstr "``MANIFEST.in`` を使ってソースコード配布物にファイルを含める"
 
 #: ../source/guides/using-manifest-in.rst:7
-#, fuzzy
 msgid ""
 "The information on this page has moved to :doc:`setuptools:userguide/"
 "miscellaneous` in the setuptools documentation."
 msgstr ""
-"詳しくは、 :doc:`setuptools 説明文書 <setuptools:index>` の中の :doc:`エント"
-"リポイント <setuptools:userguide/entry_point>` を見てください。"
+"このページの情報は、setuptools 説明文書の中の :doc:`setuptools:userguide/"
+"miscellaneous` に移されました。"
 
 #: ../source/guides/using-testpypi.rst:7
 msgid ""
@@ -9996,21 +10026,16 @@ msgid "Setting up TestPyPI in :file:`.pypirc`"
 msgstr ":file:`.pypirc` ファイルで TestPyPI を設定する"
 
 #: ../source/guides/using-testpypi.rst:75
-#, fuzzy
-#| msgid ""
-#| "If you want to avoid entering your username, you can configure TestPyPI "
-#| "in your :file:`$HOME/.pypirc`:"
 msgid ""
 "If you want to avoid being prompted for your username and password every "
 "time, you can configure TestPyPI in your :file:`$HOME/.pypirc`:"
 msgstr ""
-"(毎回 TestPyPI の) ユーザ名を入力するのが面倒なら、 :file:`$HOME/.pypirc` "
-"ファイルに TestPyPI 関連の設定をしておくことができます:"
+"ユーザ名やパスワードの入力を毎回促されるのを避けたいなら、 :file:`$HOME/."
+"pypirc` 内で TestPyPI の設定をしておくことができます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:5
-#, fuzzy
 msgid "Writing your ``pyproject.toml``"
-msgstr "pyproject.toml を作成する"
+msgstr "``pyproject.toml`` を書く"
 
 #: ../source/guides/writing-pyproject-toml.rst:7
 msgid ""
@@ -10018,6 +10043,9 @@ msgid ""
 "as other tools such as linters, type checkers, etc. There are three possible "
 "TOML tables in this file."
 msgstr ""
+"``pyproject.toml`` は、lintersやtype "
+"checkersやその他のパッケージングツール群でも同様に使われる設定ファイルです。"
+"このファイルの中には３個の TOML テーブルを置くことが可能です。"
 
 #: ../source/guides/writing-pyproject-toml.rst:11
 msgid ""
@@ -10025,6 +10053,10 @@ msgid ""
 "declare which :term:`build backend` you use and which other dependencies are "
 "needed to build your project."
 msgstr ""
+"``[build-system]`` テーブルは、 **強く推奨されています** 。これを使うことで、"
+"どの :term:`ビルドバックエンド <build backend>` を使うのか、また、そのプロジ"
+"ェクトをビルドするためには他のどんな依存関係が必要なのかを宣言することができ"
+"ます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:15
 msgid ""
@@ -10032,6 +10064,8 @@ msgid ""
 "specify your project's basic metadata, such as the dependencies, your name, "
 "etc."
 msgstr ""
+"``[project]`` テーブルは、依存関係や作者の名前など、そのプロジェクトの基本的"
+"なメタデータを指定するためにほとんどのビルドバックエンドが用いるものです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:18
 msgid ""
@@ -10040,6 +10074,11 @@ msgid ""
 "because its contents are defined by each tool. Consult the particular tool's "
 "documentation to know what it can contain."
 msgstr ""
+"``[tool]`` テーブルは、例えば ``[tool.hatch]`` や ``[tool.black]`` や ``[tool"
+".mypy]`` のような、ツールに特化したサブテーブルを持っています。テーブルの内容"
+"がツール毎に定義されているので、ここでは簡単に触れるだけに留めます。何を含め"
+"ておくことができるのかを知るためには、それぞれのツールの説明文書に当たってみ"
+"てください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:25
 msgid ""
@@ -10049,6 +10088,12 @@ msgid ""
 "latter is understood by *most* build backends, but some build backends use a "
 "different format."
 msgstr ""
+"``[build-system]`` と ``[project]`` "
+"の二つのテーブルの間には、大きな差異があります。どんなビルドバックエンドを使"
+"うのかに関わりなく前者は常に存在していなければなりません "
+"(というのも、どのツールを使うのかをこのテーブルで定義するからです)。後者は、 "
+"*ほとんどの* ビルドバックエンドが理解しますが、一部のバックエンドは異なったフ"
+"ォーマットのものを用います。"
 
 #: ../source/guides/writing-pyproject-toml.rst:31
 msgid ""
@@ -10056,6 +10101,9 @@ msgid ""
 "backend that does not use the ``[project]`` table (it uses the ``[tool."
 "poetry]`` table instead)."
 msgstr ""
+"これを書いている時点 (2023年11月) では、 ``[project]`` "
+"テーブルを使わないビルドバックエンドとしては、 Poetry_ が有名です (代わりに "
+"``[tool.poetry]`` テーブルを使います) 。"
 
 #: ../source/guides/writing-pyproject-toml.rst:35
 msgid ""
@@ -10066,11 +10114,17 @@ msgid ""
 "but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:"
 "`setup-py-deprecated`."
 msgstr ""
+"また、setuptools_ のビルドバックエンドは、 ``[project]`` テーブルと ``setup."
+"cfg`` ないし ``setup.py`` の中のより古い形の両方をサポートしています。"
+"新しく始めるプロジェクトでは ``[project]`` テーブルを使用し、 (C "
+"言語拡張をビルドする場合のような) "
+"何かプログラム面での設定が必要とされる場合に限って ``setup.py`` "
+"を使い続けることが推奨されていますが、依然として ``setup.cfg`` と ``setup."
+"py`` の形式は正当なものです。 :ref:`setup-py-deprecated` をご覧ください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:45
-#, fuzzy
 msgid "Declaring the build backend"
-msgstr "ビルドシステムの依存関係を宣言する"
+msgstr "ビルドバックエンドを宣言する"
 
 #: ../source/guides/writing-pyproject-toml.rst:47
 msgid ""
@@ -10081,6 +10135,12 @@ msgid ""
 "dependencies. You can also constrain the versions, e.g., ``requires = "
 "[\"setuptools >= 61.0\"]``."
 msgstr ""
+"``[build-system]`` テーブルは、使用されるべきビルドバックエンドを指定する "
+"``build-backend`` キーを含んでいます。また、 "
+"プロジェクトをビルドするのに必要な依存関係のリストである ``requires`` "
+"キーも含んでいます -- これは典型的にはビルドバクエンドのパッケージだけですが"
+"、追加の依存関係を含んでいてもかまいません。さらに、例えば ``requires = ["
+"\"setuptools >= 61.0\"]`` のようにバージョンを制限することもできます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:53
 msgid ""
@@ -10088,15 +10148,17 @@ msgid ""
 "(after :ref:`choosing your build backend <choosing-build-backend>`). Here "
 "are the values for some common build backends:"
 msgstr ""
+"通常は、ビルドバックエンドの説明文書が (:ref:`ビルドバックエンドを選択する "
+"<choosing-build-backend>`) 示唆するものをコピーするだけでしょう。よく知られた"
+"バックエンドでの値をいくつか挙げておきます:"
 
 #: ../source/guides/writing-pyproject-toml.rst:92
 msgid "Static vs. dynamic metadata"
-msgstr ""
+msgstr "静的なメタデータと動的なメタデータ"
 
 #: ../source/guides/writing-pyproject-toml.rst:94
-#, fuzzy
 msgid "The rest of this guide is devoted to the ``[project]`` table."
-msgstr "``[project]`` テーブルで許容されるキーの完全なリストは次のとおりです:"
+msgstr "このガイド文書の残りの部分は、``[project]`` テーブルに捧げます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:96
 msgid ""
@@ -10104,6 +10166,9 @@ msgid ""
 "field. For example: ``requires-python = \">= 3.8\"``, or ``version = "
 "\"1.0\"``."
 msgstr ""
+"ほとんどの場合、 ``[project]`` "
+"フィールドに直接に値を書き込むことになるでしょう。例えば: ``requires-python "
+"= \">= 3.8\"`` や ``version = \"1.0\"`` などです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:100
 msgid ""
@@ -10112,16 +10177,24 @@ msgid ""
 "a ``__version__`` attribute in your code, a Git tag, or similar. In such "
 "cases, you should mark the field as dynamic using, e.g.,"
 msgstr ""
+"しかしながら、ビルドバックエンドにメタデータを計算させる方が役に立つ場合もあ"
+"ります。例えば: 多くのビルドバックエンドがソースコードや Git "
+"タグやその他似たようなものの中にある ``__version__`` 要素を読み取ることができ"
+"ます。そのような場合には、以下の例のような方法を使ってそのフィールドを動的な"
+"ものにしておくべきです、"
 
 #: ../source/guides/writing-pyproject-toml.rst:111
 msgid ""
 "When a field is dynamic, it is the build backend's responsibility to fill "
 "it.  Consult your build backend's documentation to learn how it does it."
 msgstr ""
+"フィールドが動的となっている場合、そこを埋めるのはビルドバックエンドの責任で"
+"す。どうすれば良いのかについては、ビルドバックエンドの説明文書に当たってみて"
+"ください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:117
 msgid "Basic information"
-msgstr ""
+msgstr "基本的な情報"
 
 #: ../source/guides/writing-pyproject-toml.rst:122
 #: ../source/specifications/pyproject-toml.rst:120
@@ -10134,29 +10207,20 @@ msgstr "``名称``"
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
-msgstr ""
+msgstr "PyPI 上でのプロジェクト名称を書いてください。このフィールドは必須のもので、動"
+"的であるとマークできない唯一のフィールドです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:132
-#, fuzzy
-#| msgid ""
-#| "Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-"
-#| "``), and/or periods (``.``), and"
 msgid ""
 "The project name must consists of ASCII letters, digits, underscores "
 "\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or end "
 "with an underscore, hyphen or period."
 msgstr ""
-"ASCII文字・数字・アンダースコア(``_``)・ハイフン(``-``)・ピリオド(``.``)だけ"
-"を含むこと、かつ、"
+"プロジェクトの名称は、ASCII文字・数字・アンダースコア \"``_``\"・ハイフン \""
+"``-``\"・ピリオド \"``.``\" だけでできていなければなりません。また、アンダー"
+"スコア・ハイフン・ピリオドで始まってはなりません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:136
-#, fuzzy
-#| msgid ""
-#| "Comparison of project names is case insensitive and treats arbitrarily-"
-#| "long runs of underscores, hyphens, and/or periods as equal.  For example, "
-#| "if you register a project named ``cool-stuff``, users will be able to "
-#| "download it or declare a dependency on it using any of the following "
-#| "spellings::"
 msgid ""
 "Comparison of project names is case insensitive and treats arbitrarily long "
 "runs of underscores, hyphens, and/or periods as equal.  For example, if you "
@@ -10167,8 +10231,9 @@ msgstr ""
 "プロジェクト名の比較では、大文字小文字を区別せず、また、アンダースコア・ハイ"
 "フン・ピリオドは何文字連続していても同じものとして扱います。例えば、あなたが "
 "``cool-stuff`` という名前のプロジェクトを登録したなら、利用者がダウンロードし"
-"たり依存関係を宣言したりするのに、次に挙げる綴りのどれでも使うことができま"
-"す::"
+"たり依存関係を宣言したりするのに、次に挙げる綴りのいずれであっても使うことが"
+"できます: ``Cool-Stuff`` ・ ``cool.stuff`` ・ ``COOL_STUFF`` ・ "
+"``CoOl__-.-__sTuFF`` 。"
 
 #: ../source/guides/writing-pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:125
@@ -10178,9 +10243,8 @@ msgid "``version``"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:146
-#, fuzzy
 msgid "Put the version of your project."
-msgstr "プロジェクトに関するキーワード。"
+msgstr "プロジェクトのバージョンを書いてください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:153
 msgid ""
@@ -10188,10 +10252,14 @@ msgid ""
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
 "full details."
 msgstr ""
+"(アルファ版のリリース用の) ``2020.0.0a1`` "
+"のようなもっと込み入ったバージョン指定子も可能ですので、 詳細については "
+":ref:`仕様 <version-specifiers>` を見てください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:157
 msgid "This field is required, although it is often marked as dynamic using"
-msgstr ""
+msgstr "動的であるとマークされることがしばしばではありますが、このフィールドは必須の"
+"ものです"
 
 #: ../source/guides/writing-pyproject-toml.rst:164
 msgid ""
@@ -10199,11 +10267,14 @@ msgid ""
 "attribute or a Git tag. Consult :ref:`Single sourcing the version` for more "
 "details."
 msgstr ""
+"これによって、 ``__version__`` 要素や Git "
+"のタグからバージョンを取得するような使い方が可能になります。 :ref:`"
+"バージョンを１箇所で管理する <Single sourcing the version>` "
+"を見てみてください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:170
-#, fuzzy
 msgid "Dependencies and requirements"
-msgstr "requirements ファイルを使う"
+msgstr "依存関係と要求事項"
 
 #: ../source/guides/writing-pyproject-toml.rst:173
 #: ../source/specifications/pyproject-toml.rst:354
@@ -10212,7 +10283,7 @@ msgstr "``dependencies``/``optional-dependencies``"
 
 #: ../source/guides/writing-pyproject-toml.rst:175
 msgid "If your project has dependencies, list them like this:"
-msgstr ""
+msgstr "もしプロジェクトに依存関係があるなら、このように列挙してください:"
 
 #: ../source/guides/writing-pyproject-toml.rst:187
 msgid ""
