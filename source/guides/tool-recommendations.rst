@@ -5,14 +5,15 @@ Tool recommendations
 ====================
 
 The Python packaging landscape consists of many different tools. For many tasks,
-the Python Packaging Authority (PyPA, the umbrella organization which
-encompasses many packaging tools and maintains this guide) purposefully does not
-make a blanket recommendation; for example, the reason there exist many build
-backends is that the landscape was opened in order to enable the development of
-new backends serving certain users' needs better than the previously unique
-backend, setuptools. This guide does point to some tools that are widely
-recognized, and also makes some recommendations of tools that you should *not*
-use because they are deprecated or insecure.
+the :term:`Python Packaging Authority <Python Packaging Authority (PyPA)>`
+(PyPA, the umbrella organization which encompasses many packaging tools and
+maintains this guide) purposefully does not make a blanket recommendation; for
+example, the reason there exist many build backends is that the landscape was
+opened in order to enable the development of new backends serving certain users'
+needs better than the previously unique backend, setuptools. This guide does
+point to some tools that are widely recognized, and also makes some
+recommendations of tools that you should *not* use because they are deprecated
+or insecure.
 
 
 Virtual environments
@@ -26,7 +27,7 @@ the Python standard library, though missing some features of virtualenv).
 Installing packages
 ===================
 
-:ref:`Pip` is a standard tool to install packages from :term:`PyPI <Python
+:ref:`Pip` is the standard tool to install packages from :term:`PyPI <Python
 Package Index (PyPI)>`. It can install into the global environment or into
 virtual environments. You may want to read pip's recommendations for
 :doc:`secure installs <pip:topics/secure-installs>`. Pip is available by default
@@ -34,8 +35,10 @@ in most Python installations.
 
 Alternatively, for installing Python command line applications specifically,
 consider :ref:`pipx`, which is a wrapper around pip that installs each
-application into a dedicated virtual environment in order to avoid conflicts
-with other applications and, on Linux, conflicts with the system.
+application into a dedicated virtual environment. This avoids conflicts between
+the dependencies of different applications. On Linux, pipx is especially
+important because it also avoids conflicts with the system (which are the reason
+for :ref:`externally managed environments <externally-managed-environments>`).
 
 For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
@@ -65,11 +68,12 @@ Popular :term:`build backends <build backend>` for pure-Python packages include:
   Hatch as well). Hatchling is extensible through a plugin system.
 
 - :ref:`setuptools`, the historical build backend. It can be configured
-  programmatically through the :file:`setup.py` file.
+  programmatically through the :file:`setup.py` file (but for basic metadata,
+  :file:`pyproject.toml` is preferred).
 
   If you use setuptools, please be aware that it contains many deprecated
   features which are currently kept for compatibility, but should not be used.
-  For example, do not use ``python setup.py`` invocations
+  For example, do **not** use ``python setup.py`` invocations
   (cf. :ref:`setup-py-deprecated`), the ``python_requires`` argument to
   ``setup()`` (use the :ref:`[build-system] table
   <pyproject-guide-build-system-table>` of :file:`pyproject.toml` instead), or
@@ -84,8 +88,8 @@ Popular :term:`build backends <build backend>` for pure-Python packages include:
 - Poetry-core, part of :ref:`Poetry` (but usable standalone). It is extensible
   through plugins.
 
-Do **not** use distutils, which is deprecated, and has been removed from the
-standard library in Python 3.12, although it still remains available from
+Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
+the standard library in Python 3.12, although it still remains available from
 setuptools.
 
 For packages with :term:`extension modules <extension module>`, you may use
