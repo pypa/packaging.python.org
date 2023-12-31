@@ -6,8 +6,7 @@ on:
     branches-ignore:
     - gh-readonly-queue/**  # Temporary merge queue-related GH-made branches
   pull_request:
-  schedule:
-    - cron: "0 6 * * *" # daily at 6am
+  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
@@ -47,9 +46,7 @@ jobs:
     # This job does nothing and is only used for the branch protection
     # or multi-stage CI jobs, like making sure that all tests pass before
     # a publishing job is started.
-    if: >-
-      github.repository_owner == 'pypa'
-      || github.event_name != 'schedule'
+    if: always()
 
     needs:
     - build
