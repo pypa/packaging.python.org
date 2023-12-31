@@ -12,5 +12,6 @@ specific topic. If you're just trying to get stuff done, see
    pip-vs-easy-install
    install-requires-vs-requirements
    wheel-vs-egg
+   distribution-package-vs-import-package
    src-layout-vs-flat-layout
    setup-py-deprecated

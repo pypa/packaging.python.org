@@ -116,6 +116,8 @@ does it.
 Basic information
 =================
 
+.. _`setup() name`:
+
 ``name``
 --------
 
@@ -126,6 +128,16 @@ only field that cannot be marked as dynamic.
 
    [project]
    name = "spam-eggs"
+
+The project name must consists of ASCII letters, digits, underscores "``_``",
+hyphens "``-``" and periods "``.``". It must not start or end with an
+underscore, hyphen or period.
+
+Comparison of project names is case insensitive and treats arbitrarily long runs
+of underscores, hyphens, and/or periods as equal.  For example, if you register
+a project named ``cool-stuff``, users will be able to download it or declare a
+dependency on it using any of the following spellings: ``Cool-Stuff``,
+``cool.stuff``, ``COOL_STUFF``, ``CoOl__-.-__sTuFF``.
 
 
 ``version``
@@ -149,6 +161,9 @@ This field is required, although it is often marked as dynamic using
    [project]
    dynamic = ["version"]
 
+This allows use cases such as filling the version from a ``__version__``
+attribute or a Git tag. Consult :ref:`Single sourcing the version` for more
+details.
 
 
 Dependencies and requirements
@@ -190,6 +205,9 @@ could use, e.g., ``pip install your-project-name[gui]`` to install your
 project with GUI support, adding the PyQt5 dependency.
 
 
+.. _requires-python:
+.. _python_requires:
+
 ``requires-python``
 -------------------
 
@@ -202,6 +220,7 @@ This lets you declare the minimum version of Python that you support
    requires-python = ">= 3.8"
 
 
+.. _`console_scripts`:
 
 Creating executable scripts
 ===========================
@@ -259,11 +278,14 @@ an email address.
     ]
 
 
+.. _description:
+
 ``description``
 ---------------
 
-This should be a one-line description of your project, to show as the
-"headline" of your project page on PyPI (`example <pypi-pip_>`_).
+This should be a one-line description of your project, to show as the "headline"
+of your project page on PyPI (`example <pypi-pip_>`_), and other places such as
+lists of search results (`example <pypi-search-pip_>`_).
 
 .. code-block:: toml
 
@@ -285,8 +307,8 @@ page on PyPI. Typically, your project will have a ``README.md`` or
 
 The README's format is auto-detected from the extension:
 
-- ``README.md`` → Markdown,
-- ``README.rst`` → reStructuredText (without Sphinx extensions).
+- ``README.md`` → `GitHub-flavored Markdown <gfm_>`_,
+- ``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions).
 
 You can also specify the format explicitly, like this:
 
@@ -311,12 +333,16 @@ This can take two forms. You can put your license in a file, typically
 
 or you can write the name of the license:
 
-
 .. code-block:: toml
 
     [project]
     license = {text = "MIT License"}
 
+If you are using a standard, well-known license, it is not necessary to use this
+field. Instead, you should one of the :ref:`classifiers` starting with ``License
+::``. (As a general rule, it is a good idea to use a standard, well-known
+license, both to avoid confusion and because some organizations avoid software
+whose license is unapproved.)
 
 
 ``keywords``
@@ -331,6 +357,8 @@ search for these keywords.
     keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
 
 
+.. _classifiers:
+
 ``classifiers``
 ---------------
 
@@ -340,9 +368,35 @@ A list of PyPI classifiers that apply to your project. Check the
 .. code-block:: toml
 
     classifiers = [
+      # How mature is this project? Common values are
+      #   3 - Alpha
+      #   4 - Beta
+      #   5 - Production/Stable
       "Development Status :: 4 - Beta",
-      "Programming Language :: Python"
+
+      # Indicate who your project is intended for
+      "Intended Audience :: Developers",
+      "Topic :: Software Development :: Build Tools",
+
+      # Pick your license as you wish (see also "license" above)
+      "License :: OSI Approved :: MIT License",
+
+      # Specify the Python versions you support here.
+      "Programming Language :: Python :: 3",
+      "Programming Language :: Python :: 3.6",
+      "Programming Language :: Python :: 3.7",
+      "Programming Language :: Python :: 3.8",
+      "Programming Language :: Python :: 3.9",
     ]
+
+Although the list of classifiers is often used to declare what Python versions a
+project supports, this information is only used for searching and browsing
+projects on PyPI, not for installing projects. To actually restrict what Python
+versions a project can be installed on, use the :ref:`requires-python` argument.
+
+To prevent a package from being uploaded to PyPI, use the special ``Private ::
+Do Not Upload`` classifier. PyPI will always reject packages with classifiers
+beginning with ``Private ::``.
 
 
 ``urls``
@@ -353,12 +407,12 @@ sidebar of your PyPI project page.
 
 .. code-block:: toml
 
-    [project.urls]
-    Homepage = "https://example.com"
-    Documentation = "https://readthedocs.org"
-    Repository = "https://github.com/me/spam.git"
-    Issues = "https://github.com/me/spam/issues"
-    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+   [project.urls]
+   Homepage = "https://example.com"
+   Documentation = "https://readthedocs.org"
+   Repository = "https://github.com/me/spam.git"
+   Issues = "https://github.com/me/spam/issues"
+   Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
 Note that if the key contains spaces, it needs to be quoted, e.g.,
 ``Website = "https://example.com"`` but
@@ -449,10 +503,13 @@ A full example
    like ``requires-python = "<= 3.10"`` here. `This blog post <requires-python-blog-post_>`_
    contains some information regarding possible problems.
 
+.. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
 .. _pypi-pip: https://pypi.org/project/pip
+.. _pypi-search-pip: https://pypi.org/search?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
 .. _pytest: https://pytest.org
 .. _pygments: https://pygments.org
+.. _rest: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html

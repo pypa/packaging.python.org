@@ -111,7 +111,9 @@ restrictions on values specified in :pep:`685`.
 For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
 
-For example::
+For example:
+
+.. code-block:: ini
 
     [console_scripts]
     foo = foomod:main
@@ -156,3 +158,14 @@ which defines where command-line tools are found.
 As files are created from the names, and some filesystems are case-insensitive,
 packages should avoid using names in these groups which differ only in case.
 The behaviour of install tools when names differ only in case is undefined.
+
+
+History
+=======
+
+- October 2017: This specification was written to formalize the existing
+  entry points feature of setuptools (discussion_).
+
+
+
+.. _discussion: https://mail.python.org/pipermail/distutils-sig/2017-October/031585.html

@@ -331,14 +331,14 @@ Why is the ABI tag (the second tag) sometimes "none" in the reference implementa
 History
 =======
 
-The following PEPs contributed to this spec:
-
-- :pep:`425`: initial definition of platform tags
-- :pep:`513`: defined ``manylinux1``
-- :pep:`571`: defined ``manylinux2010``
-- :pep:`599`: defined ``manylinux2014``
-- :pep:`600`: defined the ``manylinux_x_y`` scheme
-- :pep:`656`: defined ``musllinux_x_y``
+- February 2013: The original version of this specification was approved through
+  :pep:`425`.
+- January 2016: The ``manylinux1`` tag was approved through :pep:`513`.
+- April 2018: The ``manylinux2010`` tag was approved through :pep:`571`.
+- July 2019: The ``manylinux2014`` tag was approved through :pep:`599`.
+- November 2019: The ``manylinux_x_y`` perennial tag was approved through
+  :pep:`600`.
+- April 2021: The ``musllinux_x_y`` tag was approved through :pep:`656`.
 
 
 
