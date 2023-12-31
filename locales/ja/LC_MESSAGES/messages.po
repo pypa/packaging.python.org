@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-21 17:40+0000\n"
-"PO-Revision-Date: 2023-12-20 20:17+0000\n"
-"Last-Translator: nikkie <nikkie@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"POT-Creation-Date: 2023-12-22 21:48+0000\n"
+"PO-Revision-Date: 2023-12-29 19:23+0000\n"
+"Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -643,7 +643,7 @@ msgstr "2021-8-24"
 
 #: ../source/discussions/deploying-python-applications.rst:11
 #: ../source/specifications/externally-managed-environments.rst:130
-#: ../source/specifications/platform-compatibility-tags.rst:21
+#: ../source/specifications/platform-compatibility-tags.rst:14
 msgid "Overview"
 msgstr "概要"
 
@@ -816,6 +816,14 @@ msgid ""
 "Alternatively, the term \"distribution package\" can be used to refer to a "
 "specific file that contains a certain version of a project."
 msgstr ""
+"配布パッケージとは、インストール可能な一片のソフトウェアです。ほとんどの場合"
+"、これは \"プロジェクト <project>\" と同義です。 ``pip install pkg`` "
+"とタイプする時、あるいは、 ``pyproject.toml`` に ``dependencies = [\"pkg\"]``"
+" と書く時、 ``pkg`` のところには配布パッケージの名前を書きます。Python "
+"のライブラリやツール類の集約された源として最も広く知られている PyPI_ で検索し"
+"たり閲覧する時、あなたが目にするものは配布パッケージのリストです。あるいは、"
+"\"配布パッケージ\" という言葉があるプロジェクトの特定のバージョンを内包した特"
+"定のファイルのことを指す場合もあります。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:24
 msgid ""
@@ -824,12 +832,15 @@ msgid ""
 "by the system package manager of the `Linux distribution <distro_>`_, which "
 "is a different meaning."
 msgstr ""
+"Linux の世界では、 \"配布パッケージ <distribution package>\" が "
+"\"ディストロパッケージ <distro package>\" か単に \"パッケージ <package>\" "
+"と短縮形で呼ばれることが通常であり、 `Linux ディストリビューション <distro_>`"
+"_ のシステムパッケージ管理者によって提供される何かのことであって、異なる意味"
+"で使われているということは意識しておいてください。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:31
-#, fuzzy
-#| msgid "and import the package:"
 msgid "What's an import package?"
-msgstr "そして、パッケージをインポートしましょう:"
+msgstr "パッケージをインポートする、とは何でしょうか？"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:33
 msgid ""
@@ -841,16 +852,23 @@ msgid ""
 "is a directory on the file system, containing modules as ``.py`` files and "
 "subpackages as subdirectories."
 msgstr ""
+"インポートパッケージは Python モジュールです。したがって、 Python コードに ``"
+"import pkg`` もしくは ``from pkg import func`` と書く時、``pkg`` の部分はイン"
+"ポートパッケージの名称です。より精確には、インポートパッケージは、"
+"サブモジュールを内包することができる特別な Python モジュールです。通常は、イ"
+"ンポートパッケージはファイルシステム上のディレクトリであって、モジュールを ``"
+".py`` の形で含み、サブパッケージをサブディレクトリの形で含むものです。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:42
 msgid ""
 "You can use an import package as soon as you have installed a distribution "
 "package that provides it."
-msgstr ""
+msgstr "インポートパッケージを提供する配布パッケージをインストールするや否や、インポ"
+"ートパッケージを使用することができます。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:47
 msgid "What are the links between distribution packages and import packages?"
-msgstr ""
+msgstr "配布パッケージとインポートパッケージの間の繋がりとは何でしょうか？"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:49
 msgid ""
@@ -858,6 +876,9 @@ msgid ""
 "(or non-package module), with a matching name. For example, ``pip install "
 "numpy`` lets you ``import numpy``."
 msgstr ""
+"ほとんどの場合、配布パッケージはあるひとつのインポートパッケージ "
+"(またはパッケージではないモジュール) を対応する名称で提供します。例えば、 ``"
+"pip install numpy`` を行えば ``import numpy`` として使うことができます。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:53
 msgid ""
@@ -867,6 +888,12 @@ msgid ""
 "blindly install the PyPI package ``foo`` if you see ``import foo``; this may "
 "install an unintended, and potentially even malicious package.)"
 msgstr ""
+"しかしながら、これは単なる慣習です。PyPI や他のパッケージインデックスでは、"
+"配布パッケージとそれが提供するインポートパッケージの名称の間に "
+"*なんらかの関係性を強制することはしません* 。 (このことの帰結として、 ``"
+"import foo`` を見たからと言って盲目的に PyPI のパッケージ ``foo`` "
+"をインストールすることはできません; これは意図しないか、あるいは潜在的には悪"
+"意のあるパッケージをインストールしてしまうことになりかねません。)"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:59
 msgid ""
@@ -879,6 +906,14 @@ msgid ""
 "generally, a fork of an existing library is a common reason for differing "
 "names between the distribution package and the import package."
 msgstr ""
+"配布パッケージは、異なる名称でインポートパッケージを提供することが可能です。"
+"この例としては、画像処理分野で人気のある Pillow_ です。"
+"配布パッケージの名称は ``Pillow`` ですが、インポートパッケージとしては "
+"``PIL`` を提供しています。これには歴史的な理由があります: Pillow は PIL "
+"ライブラリのフォークとして始まり、PIL の既存のユーザがあまり手間をかけずに "
+"Pillow に移行できるようにインポート名称の ``PIL`` を使い続けたのです。もっと"
+"一般的にいうと、配布パッケージとインポートパッケージの間で異なる名称を使う時"
+"のよくある理由が既存のライブラリからのフォークなのです。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:69
 msgid ""
@@ -887,6 +922,10 @@ msgid ""
 "packages with the same name can be provided by several distribution "
 "packages. Again, forks are a common reason for this."
 msgstr ""
+"(PyPI のような) あるパッケージインデックス内では、配布パッケージの名称は一意"
+"でなければなりません。他方で、インポートパッケージにはそのような要求事項はあ"
+"りません。同じ名称のインポートパッケージが複数の配布パッケージから提供される"
+"ということも可能です。繰り返しますが、これのよくある理由はフォークです。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:74
 msgid ""
@@ -895,10 +934,15 @@ msgid ""
 "which provides both an ``attrs`` import package with a newer API, and an "
 "``attr`` import package with an older but supported API."
 msgstr ""
+"一方で、あまり見かけませんが、配布パッケージは複数のインポートパッケージを提"
+"供することができます。その例は attrs_ 配布パッケージで、より新しい API "
+"を持つ ``attrs`` インポートパッケージと、旧来のものだがサポートされている "
+"API を持つ ``attr`` の両方を提供します。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:81
 msgid "How do distribution package names and import package names compare?"
-msgstr ""
+msgstr "配布パッケージの名称とインポートパッケージの名称は、どのように比較されるので"
+"しょうか？"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:83
 msgid ""
@@ -907,6 +951,10 @@ msgid ""
 "[#non-identifier-mod-name]_. In particular, they use underscores ``_`` as "
 "word separator and they are case-sensitive."
 msgstr ""
+"インポートパッケージは、その名称として正当な Python 識別子 (Python "
+"の説明文書の中に :ref:`exact rules <python:identifiers>` が見つかるでしょう) "
+"[#non-identifier-mod-name]_ を持っているべきです。特に、"
+"単語間の区切りにアンダースコア ``_`` を使い、また、大文字小文字を区別します。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:88
 msgid ""
@@ -918,6 +966,14 @@ msgid ""
 "``pip install awesome-package`` (the precise rules are given in the :ref:"
 "`name normalization specification <name-normalization>`)."
 msgstr ""
+"他方で、配布パッケージはハイフン ``-`` でもアンダースコア ``_`` "
+"でも使うことができます。また、 :ref:`名前空間パッケージ <packaging-namespace-"
+"packages>` "
+"のサブパッケージをパッケージングするために使われることがあるドット ``.`` "
+"を含むこともできます。ほとんどの目的においては、大文字小文字や ``-`` 対 ``_``"
+" の違いをを区別せず、例えば、 ``pip install Awesome_Package`` と ``pip "
+"install awesome-package`` は同じものです (詳細な規則は :ref:`名前正規化仕様 "
+"<name-normalization>` にあります) 。"
 
 #: ../source/discussions/distribution-package-vs-import-package.rst:101
 msgid ""
@@ -925,6 +981,10 @@ msgid ""
 "have a valid Python identifier as their name, using :doc:`importlib <python:"
 "library/importlib>`, this is vanishingly rare and strongly discouraged."
 msgstr ""
+"正当な Python "
+"識別子をその名称として持たないパッケージ/モジュールをインストールすることは、"
+" :doc:`importlib <python:library/importlib>` を使うことで技術的には可能ではあ"
+"りますが、絶無と言って良いほど稀であり、強く抑制されています。"
 
 #: ../source/discussions/index.rst:4
 msgid ""
@@ -1256,14 +1316,6 @@ msgstr ""
 "ん。"
 
 #: ../source/discussions/setup-py-deprecated.rst:10
-#, fuzzy
-#| msgid ""
-#| "Setuptools is perfectly usable as a :term:`build backend` for packaging "
-#| "Python projects. And :file:`setup.py` is a valid configuration file for :"
-#| "ref:`setuptools` that happens to be written in Python, instead of in "
-#| "*TOML* for example (a similar practice is used by other tools like *nox* "
-#| "and its :file:`nox.py` configuration file, or *pytest* and :file:"
-#| "`conftest.py`)."
 msgid ""
 "Setuptools is perfectly usable as a :term:`build backend` for packaging "
 "Python projects. And :file:`setup.py` is a valid configuration file for :ref:"
@@ -1271,11 +1323,12 @@ msgid ""
 "example (a similar practice is used by other tools like *nox* and its :file:"
 "`noxfile.py` configuration file, or *pytest* and :file:`conftest.py`)."
 msgstr ""
-"Setuptools は、 Python のプロジェクトをパッケージングすることに完璧に使用可能"
-"です。そして、 :file:`setup.py` は、例えば *TOML* の代わりにたまたま Python "
-"で書かれている :ref:`setuptools` 向けの正当な設定ファイルです (*nox* とその設"
-"定ファイルである :file:`nox.py` や *pytest* と :file:`conftest` のような他の"
-"ツール類でも、よく似たパターンが使われています)。"
+"Setuptools は、 :term:`ビルドバックエンド <build backend>` として Python "
+"のプロジェクトをパッケージングすることに完璧に使用可能です。そして、 "
+":file:`setup.py` は、例えば *TOML* の代わりにたまたま Python で書かれている "
+":ref:`setuptools` 向けの正当な設定ファイルです (*nox* "
+"とその設定ファイルである :file:`nox.filepy` や *pytest* と :file:`conftest."
+"py` のような他のツール類でも、よく似たパターンが使われています)。"
 
 #: ../source/discussions/setup-py-deprecated.rst:18
 msgid ""
@@ -2383,15 +2436,6 @@ msgstr ""
 "ユーザがインターネットからダウンロードしてインストールするものです。"
 
 #: ../source/glossary.rst:64
-#, fuzzy
-#| msgid ""
-#| "A distribution package is more commonly referred to with the single words "
-#| "\"package\" or \"distribution\", but this guide may use the expanded term "
-#| "when more clarity is needed to prevent confusion with an :term:`Import "
-#| "Package` (which is also commonly called a \"package\") or another kind of "
-#| "distribution (e.g. a Linux distribution or the Python language "
-#| "distribution), which are often referred to with the single term "
-#| "\"distribution\"."
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -2402,11 +2446,12 @@ msgid ""
 "\"distribution\". See :ref:`distribution-package-vs-import-package` for a "
 "breakdown of the differences."
 msgstr ""
-"配布物パッケージは単語ひとつで「パッケージ」や「配布物」と呼ばれることもしば"
-"しばですが、 :term:`Import Package`(これも通常は単に「パッケージ」と呼ばれま"
-"す)や他の種類の配布物(例えばLinuxディストリビューションやPython言語の配布物)"
-"でよく単語ひとつの「配布物」と呼ばれるものとの混同を避けるために明確に述べる"
-"必要がある場合には、本ガイドでは長い方の呼び方を用いることがあります。"
+"配布パッケージは単語ひとつで「パッケージ」や「配布物」と呼ばれることもしばし"
+"ばですが、本ガイドでは、 :term:`インポートパッケージ <Import Package>`(これも"
+"通常は単に「パッケージ」と呼ばれます)や他の種類の配布物(例えばLinuxディストリ"
+"ビューションやPython言語の配布物)でよく単語ひとつの「配布物」と呼ばれるものと"
+"の混同を避けるために明確に述べる必要がある場合には、長い方の用語を用いること"
+"があります。"
 
 #: ../source/glossary.rst:72
 msgid "Egg"
@@ -2462,7 +2507,7 @@ msgstr ""
 
 #: ../source/glossary.rst:98
 msgid "Import Package"
-msgstr "パッケージ"
+msgstr "インポートパッケージ"
 
 #: ../source/glossary.rst:101
 msgid ""
@@ -2473,12 +2518,6 @@ msgstr ""
 "Pythonモジュール。"
 
 #: ../source/glossary.rst:104
-#, fuzzy
-#| msgid ""
-#| "An import package is more commonly referred to with the single word "
-#| "\"package\", but this guide will use the expanded term when more clarity "
-#| "is needed to prevent confusion with a :term:`Distribution Package` which "
-#| "is also commonly called a \"package\"."
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -2486,10 +2525,10 @@ msgid ""
 "also commonly called a \"package\". See :ref:`distribution-package-vs-import-"
 "package` for a breakdown of the differences."
 msgstr ""
-"インポートパッケージは、より普通には「パッケージ」という用語で呼ばれますが、"
-"本ガイドでは、同様に単に「パッケージ」と呼ばれることが普通である :term:`配布"
-"物パッケージ <Distribution Package>`との混同を避けるために必要な場合には、長"
-"い方の用語を用いることにします。"
+"インポートパッケージは、より普通には「パッケージ」という１単語の用語で呼ばれ"
+"ますが、本ガイドでは、同様に単に「パッケージ」と呼ばれることが普通である "
+":term:`配布物パッケージ <Distribution Package>`との混同を避けるために必要な場"
+"合には、長い方の用語を用いることにします。"
 
 #: ../source/glossary.rst:109
 msgid "Module"
@@ -2703,27 +2742,18 @@ msgid "Requirement Specifier"
 msgstr "要求事項識別子"
 
 #: ../source/glossary.rst:211
-#, fuzzy
-#| msgid ""
-#| "A format used by :ref:`pip` to install packages from a :term:`Package "
-#| "Index`. For an EBNF diagram of the format, see the `pkg_resources."
-#| "Requirement <https://setuptools.readthedocs.io/en/latest/pkg_resources."
-#| "html#requirement-objects>`_ entry in the :ref:`setuptools` docs. For "
-#| "example, \"foo>=1.3\" is a requirement specifier, where \"foo\" is the "
-#| "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
 "For example, \"foo>=1.3\" is a requirement specifier, where \"foo\" is the "
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
-":term:`パッケージインデックス <Package Index>`からパッケージをインストールす"
-"るために :ref:`pip` で用いられる様式。この様式の EBNF 文法構造については :"
-"ref:`setuptools` のドキュメントにある <`pkg_resources.Requirement <https://"
-"setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-"
-"objects>`_ の項をご覧ください。例えば、\"foo>=1.3\"は要求事項識別子であ"
-"り、\"foo\"の部分がプロジェクトの名称、\">=1.3\"の部分が :term:`バージョン識"
-"別子 <Version Specifier>` に該当します。"
+":term:`パッケージインデックス <Package Index>`"
+"からパッケージをインストールするために :ref:`pip` で用いられる様式。"
+"この様式の EBNF 文法構造については、 :ref:`依存関係指定子 <dependency-"
+"specifiers>` を見てください。例えば、 \"foo>=1.3\" は要求事項識別子であり、 "
+"\"foo\" の部分がプロジェクトの名称で、 \">=1.3\" の部分は :term:`"
+"バージョン指定子 <Version Specifier>` です"
 
 #: ../source/glossary.rst:216
 msgid "Requirements File"
@@ -3454,7 +3484,7 @@ msgstr ""
 "できます。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:335
-#: ../source/specifications/dependency-specifiers.rst:489
+#: ../source/specifications/dependency-specifiers.rst:487
 msgid "References"
 msgstr "参考文献"
 
@@ -5142,12 +5172,6 @@ msgid "Hosting your own simple repository"
 msgstr "あなた自身の単純なリポジトリをホストする"
 
 #: ../source/guides/hosting-your-own-index.rst:8
-#, fuzzy
-#| msgid ""
-#| "If you wish to host your own simple repository [1]_, you can either use a "
-#| "software package like :doc:`devpi <devpi:index>` or you can use simply "
-#| "create the proper directory structure and use any web server that can "
-#| "serve static files and generate an autoindex."
 msgid ""
 "If you wish to host your own simple repository [1]_, you can either use a "
 "software package like :doc:`devpi <devpi:index>` or you can simply create "
@@ -5155,9 +5179,9 @@ msgid ""
 "files and generate an autoindex."
 msgstr ""
 "あなた自身の単純なリポジトリ [1]_ をホストしたいのであれば、 :doc:`devpi "
-"<devpi:index>` のようなソフトウェアパッケージを使うこともできますし、単にウェ"
-"ブサーバ上に適当なディレクトリを作成して静的ファイルをそこに置き、自動でイン"
-"デックスを生成させることも可能です。"
+"<devpi:index>` のようなソフトウェアパッケージを使うこともできますし、単に "
+"web サーバ上に適切なディレクトリを作成して静的ファイルを提供し自動でインデッ"
+"クスを生成させることも可能です。"
 
 #: ../source/guides/hosting-your-own-index.rst:13
 msgid ""
@@ -8204,12 +8228,18 @@ msgid ""
 "need compatibility with packages already using this method. Also, :doc:"
 "`pkg_resources <setuptools:pkg_resources>` has been deprecated."
 msgstr ""
+"これらのふたつの方法は、 :pep:`420` 以前に名前空間を作成するのに使われました"
+"が、今では過去のやり方であると考えられていて、すでにこの方法を使っているパッ"
+"ケージとの互換性を必要とする場合を除いては使われるべきではないと考えられてい"
+"ます。また、 :doc:`pkg_resources <setuptools:pkg_resources>` "
+"は非推奨になりました。"
 
 #: ../source/guides/packaging-namespace-packages.rst:165
 msgid ""
 "To migrate an existing package, all packages sharing the namespace must be "
 "migrated simultaneously."
-msgstr ""
+msgstr "既存のパッケージを移植するためには、名前空間を共有するすべてのパッケージが同"
+"時に移植されなければなりません。"
 
 #: ../source/guides/packaging-namespace-packages.rst:167
 msgid ""
@@ -8251,28 +8281,25 @@ msgstr ""
 
 #: ../source/guides/packaging-namespace-packages.rst:195
 #: ../source/guides/packaging-namespace-packages.rst:242
-#, fuzzy
 msgid ""
 "The :file:`__init__.py` file for the namespace package needs to contain the "
 "following:"
-msgstr ""
-"名前空間パッケージ用の :file:`__init__.py` ファイルは、次に示すもの **だけ** "
-"を含んでいる必要があります:"
+msgstr "名前空間パッケージ用の :file:`__init__.py` "
+"ファイルは、次に示すものを含んでいる必要があります:"
 
 #: ../source/guides/packaging-namespace-packages.rst:202
 #: ../source/guides/packaging-namespace-packages.rst:249
-#, fuzzy
 msgid ""
 "**Every** distribution that uses the namespace package must include such an :"
 "file:`__init__.py`. If any distribution does not, it will cause the "
 "namespace logic to fail and the other sub-packages will not be importable.  "
 "Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
-"名前空間パッケージを用いる **すべての** 配布物は、同一の :file:`__init__.py` "
-"を持たなければなりません。もしいずれかの配布物で異なっていれば、名前空間の論"
-"理破綻を招き、他のサブパッケージをインポートすることができなくなるでしょ"
-"う。 :file:`__init__.py` に他のコードを追加しても、それはアクセスできないもの"
-"となるでしょう。"
+"ある名前空間パッケージを用いる **すべての** 配布物は、 :file:`__init__.py` を"
+"持っていなければなりません。もしいずれかの配布物でそうなっていなければ、名前"
+"空間の論理破綻を招き、他のサブパッケージをインポートすることができなくなるで"
+"しょう。 :file:`__init__.py` "
+"に他のコードを追加しても、それはアクセスできないものとなるでしょう。"
 
 #: ../source/guides/packaging-namespace-packages.rst:207
 msgid ""
@@ -8711,6 +8738,12 @@ msgid ""
 "increased, but a better solution may constitute to use a PyPI-compatible "
 "server like :ref:`pypiserver` in the CI for testing purposes."
 msgstr ""
+"リポジトリで活発に頻繁なコミットがあって、前述のようにあらゆるプッシュが "
+"TestPyPI へアップロードされているなら、そのプロジェクトは `PyPI "
+"プロジェクトサイズ制限 <https://pypi.org/help/#project-size-limit>`_ "
+"を超過するかもしれません。この制限を緩和することもできますが、"
+"より良い解決策は試験目的の CI の中で :ref:`pypiserver` のような PyPI "
+"と互換のあるサーバを使うように構成することかもしれません。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:232
 msgid ""
@@ -8721,18 +8754,16 @@ msgstr ""
 "ます。"
 
 #: ../source/guides/section-build-and-publish.rst:3
-#, fuzzy
 msgid "Building and Publishing"
-msgstr "プロジェクトをビルドして公開する:"
+msgstr "ビルドすることと公開すること"
 
 #: ../source/guides/section-hosting.rst:3
 msgid "Hosting"
-msgstr ""
+msgstr "ホスティング"
 
 #: ../source/guides/section-install.rst:3
-#, fuzzy
 msgid "Installation"
-msgstr "インストールフォーマット"
+msgstr "インストール"
 
 #: ../source/guides/single-sourcing-package-version.rst:5
 msgid "Single-sourcing the package version"
@@ -8740,11 +8771,11 @@ msgstr "パッケージのバージョンを１箇所で管理する"
 
 #: ../source/guides/single-sourcing-package-version.rst:7
 msgid "Todo"
-msgstr ""
+msgstr "Todo"
 
 #: ../source/guides/single-sourcing-package-version.rst:7
 msgid "Update this page for build backends other than setuptools."
-msgstr ""
+msgstr "setuptools 以外のビルドバックエンドについてこのページを更新すること。"
 
 #: ../source/guides/single-sourcing-package-version.rst:9
 msgid ""
@@ -9902,13 +9933,12 @@ msgid "Including files in source distributions with ``MANIFEST.in``"
 msgstr "``MANIFEST.in`` を使ってソースコード配布物にファイルを含める"
 
 #: ../source/guides/using-manifest-in.rst:7
-#, fuzzy
 msgid ""
 "The information on this page has moved to :doc:`setuptools:userguide/"
 "miscellaneous` in the setuptools documentation."
 msgstr ""
-"詳しくは、 :doc:`setuptools 説明文書 <setuptools:index>` の中の :doc:`エント"
-"リポイント <setuptools:userguide/entry_point>` を見てください。"
+"このページの情報は、setuptools 説明文書の中の :doc:`setuptools:userguide/"
+"miscellaneous` に移されました。"
 
 #: ../source/guides/using-testpypi.rst:7
 msgid ""
@@ -9996,21 +10026,16 @@ msgid "Setting up TestPyPI in :file:`.pypirc`"
 msgstr ":file:`.pypirc` ファイルで TestPyPI を設定する"
 
 #: ../source/guides/using-testpypi.rst:75
-#, fuzzy
-#| msgid ""
-#| "If you want to avoid entering your username, you can configure TestPyPI "
-#| "in your :file:`$HOME/.pypirc`:"
 msgid ""
 "If you want to avoid being prompted for your username and password every "
 "time, you can configure TestPyPI in your :file:`$HOME/.pypirc`:"
 msgstr ""
-"(毎回 TestPyPI の) ユーザ名を入力するのが面倒なら、 :file:`$HOME/.pypirc` "
-"ファイルに TestPyPI 関連の設定をしておくことができます:"
+"ユーザ名やパスワードの入力を毎回促されるのを避けたいなら、 :file:`$HOME/."
+"pypirc` 内で TestPyPI の設定をしておくことができます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:5
-#, fuzzy
 msgid "Writing your ``pyproject.toml``"
-msgstr "pyproject.toml を作成する"
+msgstr "``pyproject.toml`` を書く"
 
 #: ../source/guides/writing-pyproject-toml.rst:7
 msgid ""
@@ -10018,6 +10043,9 @@ msgid ""
 "as other tools such as linters, type checkers, etc. There are three possible "
 "TOML tables in this file."
 msgstr ""
+"``pyproject.toml`` は、lintersやtype "
+"checkersやその他のパッケージングツール群でも同様に使われる設定ファイルです。"
+"このファイルの中には３個の TOML テーブルを置くことが可能です。"
 
 #: ../source/guides/writing-pyproject-toml.rst:11
 msgid ""
@@ -10025,6 +10053,10 @@ msgid ""
 "declare which :term:`build backend` you use and which other dependencies are "
 "needed to build your project."
 msgstr ""
+"``[build-system]`` テーブルは、 **強く推奨されています** 。これを使うことで、"
+"どの :term:`ビルドバックエンド <build backend>` を使うのか、また、そのプロジ"
+"ェクトをビルドするためには他のどんな依存関係が必要なのかを宣言することができ"
+"ます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:15
 msgid ""
@@ -10032,6 +10064,8 @@ msgid ""
 "specify your project's basic metadata, such as the dependencies, your name, "
 "etc."
 msgstr ""
+"``[project]`` テーブルは、依存関係や作者の名前など、そのプロジェクトの基本的"
+"なメタデータを指定するためにほとんどのビルドバックエンドが用いるものです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:18
 msgid ""
@@ -10040,6 +10074,11 @@ msgid ""
 "because its contents are defined by each tool. Consult the particular tool's "
 "documentation to know what it can contain."
 msgstr ""
+"``[tool]`` テーブルは、例えば ``[tool.hatch]`` や ``[tool.black]`` や ``[tool"
+".mypy]`` のような、ツールに特化したサブテーブルを持っています。テーブルの内容"
+"がツール毎に定義されているので、ここでは簡単に触れるだけに留めます。何を含め"
+"ておくことができるのかを知るためには、それぞれのツールの説明文書に当たってみ"
+"てください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:25
 msgid ""
@@ -10049,6 +10088,12 @@ msgid ""
 "latter is understood by *most* build backends, but some build backends use a "
 "different format."
 msgstr ""
+"``[build-system]`` と ``[project]`` "
+"の二つのテーブルの間には、大きな差異があります。どんなビルドバックエンドを使"
+"うのかに関わりなく前者は常に存在していなければなりません "
+"(というのも、どのツールを使うのかをこのテーブルで定義するからです)。後者は、 "
+"*ほとんどの* ビルドバックエンドが理解しますが、一部のバックエンドは異なったフ"
+"ォーマットのものを用います。"
 
 #: ../source/guides/writing-pyproject-toml.rst:31
 msgid ""
@@ -10056,6 +10101,9 @@ msgid ""
 "backend that does not use the ``[project]`` table (it uses the ``[tool."
 "poetry]`` table instead)."
 msgstr ""
+"これを書いている時点 (2023年11月) では、 ``[project]`` "
+"テーブルを使わないビルドバックエンドとしては、 Poetry_ が有名です (代わりに "
+"``[tool.poetry]`` テーブルを使います) 。"
 
 #: ../source/guides/writing-pyproject-toml.rst:35
 msgid ""
@@ -10066,11 +10114,17 @@ msgid ""
 "but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:"
 "`setup-py-deprecated`."
 msgstr ""
+"また、setuptools_ のビルドバックエンドは、 ``[project]`` テーブルと ``setup."
+"cfg`` ないし ``setup.py`` の中のより古い形の両方をサポートしています。"
+"新しく始めるプロジェクトでは ``[project]`` テーブルを使用し、 (C "
+"言語拡張をビルドする場合のような) "
+"何かプログラム面での設定が必要とされる場合に限って ``setup.py`` "
+"を使い続けることが推奨されていますが、依然として ``setup.cfg`` と ``setup."
+"py`` の形式は正当なものです。 :ref:`setup-py-deprecated` をご覧ください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:45
-#, fuzzy
 msgid "Declaring the build backend"
-msgstr "ビルドシステムの依存関係を宣言する"
+msgstr "ビルドバックエンドを宣言する"
 
 #: ../source/guides/writing-pyproject-toml.rst:47
 msgid ""
@@ -10081,6 +10135,12 @@ msgid ""
 "dependencies. You can also constrain the versions, e.g., ``requires = "
 "[\"setuptools >= 61.0\"]``."
 msgstr ""
+"``[build-system]`` テーブルは、使用されるべきビルドバックエンドを指定する "
+"``build-backend`` キーを含んでいます。また、 "
+"プロジェクトをビルドするのに必要な依存関係のリストである ``requires`` "
+"キーも含んでいます -- これは典型的にはビルドバクエンドのパッケージだけですが"
+"、追加の依存関係を含んでいてもかまいません。さらに、例えば ``requires = ["
+"\"setuptools >= 61.0\"]`` のようにバージョンを制限することもできます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:53
 msgid ""
@@ -10088,15 +10148,17 @@ msgid ""
 "(after :ref:`choosing your build backend <choosing-build-backend>`). Here "
 "are the values for some common build backends:"
 msgstr ""
+"通常は、ビルドバックエンドの説明文書が (:ref:`ビルドバックエンドを選択する "
+"<choosing-build-backend>`) 示唆するものをコピーするだけでしょう。よく知られた"
+"バックエンドでの値をいくつか挙げておきます:"
 
 #: ../source/guides/writing-pyproject-toml.rst:92
 msgid "Static vs. dynamic metadata"
-msgstr ""
+msgstr "静的なメタデータと動的なメタデータ"
 
 #: ../source/guides/writing-pyproject-toml.rst:94
-#, fuzzy
 msgid "The rest of this guide is devoted to the ``[project]`` table."
-msgstr "``[project]`` テーブルで許容されるキーの完全なリストは次のとおりです:"
+msgstr "このガイド文書の残りの部分は、``[project]`` テーブルに捧げます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:96
 msgid ""
@@ -10104,6 +10166,9 @@ msgid ""
 "field. For example: ``requires-python = \">= 3.8\"``, or ``version = "
 "\"1.0\"``."
 msgstr ""
+"ほとんどの場合、 ``[project]`` "
+"フィールドに直接に値を書き込むことになるでしょう。例えば: ``requires-python "
+"= \">= 3.8\"`` や ``version = \"1.0\"`` などです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:100
 msgid ""
@@ -10112,16 +10177,24 @@ msgid ""
 "a ``__version__`` attribute in your code, a Git tag, or similar. In such "
 "cases, you should mark the field as dynamic using, e.g.,"
 msgstr ""
+"しかしながら、ビルドバックエンドにメタデータを計算させる方が役に立つ場合もあ"
+"ります。例えば: 多くのビルドバックエンドがソースコードや Git "
+"タグやその他似たようなものの中にある ``__version__`` 要素を読み取ることができ"
+"ます。そのような場合には、以下の例のような方法を使ってそのフィールドを動的な"
+"ものにしておくべきです、"
 
 #: ../source/guides/writing-pyproject-toml.rst:111
 msgid ""
 "When a field is dynamic, it is the build backend's responsibility to fill "
 "it.  Consult your build backend's documentation to learn how it does it."
 msgstr ""
+"フィールドが動的となっている場合、そこを埋めるのはビルドバックエンドの責任で"
+"す。どうすれば良いのかについては、ビルドバックエンドの説明文書に当たってみて"
+"ください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:117
 msgid "Basic information"
-msgstr ""
+msgstr "基本的な情報"
 
 #: ../source/guides/writing-pyproject-toml.rst:122
 #: ../source/specifications/pyproject-toml.rst:120
@@ -10134,29 +10207,20 @@ msgstr "``名称``"
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
-msgstr ""
+msgstr "PyPI 上でのプロジェクト名称を書いてください。このフィールドは必須のもので、動"
+"的であるとマークできない唯一のフィールドです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:132
-#, fuzzy
-#| msgid ""
-#| "Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-"
-#| "``), and/or periods (``.``), and"
 msgid ""
 "The project name must consists of ASCII letters, digits, underscores "
 "\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or end "
 "with an underscore, hyphen or period."
 msgstr ""
-"ASCII文字・数字・アンダースコア(``_``)・ハイフン(``-``)・ピリオド(``.``)だけ"
-"を含むこと、かつ、"
+"プロジェクトの名称は、ASCII文字・数字・アンダースコア \"``_``\"・ハイフン \""
+"``-``\"・ピリオド \"``.``\" だけでできていなければなりません。また、アンダー"
+"スコア・ハイフン・ピリオドで始まってはなりません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:136
-#, fuzzy
-#| msgid ""
-#| "Comparison of project names is case insensitive and treats arbitrarily-"
-#| "long runs of underscores, hyphens, and/or periods as equal.  For example, "
-#| "if you register a project named ``cool-stuff``, users will be able to "
-#| "download it or declare a dependency on it using any of the following "
-#| "spellings::"
 msgid ""
 "Comparison of project names is case insensitive and treats arbitrarily long "
 "runs of underscores, hyphens, and/or periods as equal.  For example, if you "
@@ -10167,8 +10231,9 @@ msgstr ""
 "プロジェクト名の比較では、大文字小文字を区別せず、また、アンダースコア・ハイ"
 "フン・ピリオドは何文字連続していても同じものとして扱います。例えば、あなたが "
 "``cool-stuff`` という名前のプロジェクトを登録したなら、利用者がダウンロードし"
-"たり依存関係を宣言したりするのに、次に挙げる綴りのどれでも使うことができま"
-"す::"
+"たり依存関係を宣言したりするのに、次に挙げる綴りのいずれであっても使うことが"
+"できます: ``Cool-Stuff`` ・ ``cool.stuff`` ・ ``COOL_STUFF`` ・ "
+"``CoOl__-.-__sTuFF`` 。"
 
 #: ../source/guides/writing-pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:125
@@ -10178,9 +10243,8 @@ msgid "``version``"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:146
-#, fuzzy
 msgid "Put the version of your project."
-msgstr "プロジェクトに関するキーワード。"
+msgstr "プロジェクトのバージョンを書いてください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:153
 msgid ""
@@ -10188,10 +10252,14 @@ msgid ""
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
 "full details."
 msgstr ""
+"(アルファ版のリリース用の) ``2020.0.0a1`` "
+"のようなもっと込み入ったバージョン指定子も可能ですので、 詳細については "
+":ref:`仕様 <version-specifiers>` を見てください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:157
 msgid "This field is required, although it is often marked as dynamic using"
-msgstr ""
+msgstr "動的であるとマークされることがしばしばではありますが、このフィールドは必須の"
+"ものです"
 
 #: ../source/guides/writing-pyproject-toml.rst:164
 msgid ""
@@ -10199,11 +10267,14 @@ msgid ""
 "attribute or a Git tag. Consult :ref:`Single sourcing the version` for more "
 "details."
 msgstr ""
+"これによって、 ``__version__`` 要素や Git "
+"のタグからバージョンを取得するような使い方が可能になります。 :ref:`"
+"バージョンを１箇所で管理する <Single sourcing the version>` "
+"を見てみてください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:170
-#, fuzzy
 msgid "Dependencies and requirements"
-msgstr "requirements ファイルを使う"
+msgstr "依存関係と要求事項"
 
 #: ../source/guides/writing-pyproject-toml.rst:173
 #: ../source/specifications/pyproject-toml.rst:354
@@ -10212,7 +10283,7 @@ msgstr "``dependencies``/``optional-dependencies``"
 
 #: ../source/guides/writing-pyproject-toml.rst:175
 msgid "If your project has dependencies, list them like this:"
-msgstr ""
+msgstr "もしプロジェクトに依存関係があるなら、このように列挙してください:"
 
 #: ../source/guides/writing-pyproject-toml.rst:187
 msgid ""
@@ -10985,7 +11056,7 @@ msgstr ""
 "データをもっともらしく読み込もうと試みます。"
 
 #: ../source/key_projects.rst:184
-#: ../source/specifications/platform-compatibility-tags.rst:163
+#: ../source/specifications/platform-compatibility-tags.rst:156
 msgid "pip"
 msgstr "pip"
 
@@ -13702,7 +13773,7 @@ msgstr ""
 "アンパックすればインストールできます。"
 
 #: ../source/specifications/binary-distribution-format.rst:22
-#: ../source/specifications/platform-compatibility-tags.rst:46
+#: ../source/specifications/platform-compatibility-tags.rst:39
 msgid "Details"
 msgstr "詳細"
 
@@ -13952,7 +14023,7 @@ msgid "E.g. 'py27', 'py2', 'py3'."
 msgstr "例えば、 'py27' ・ 'py2' ・ 'py3' 。"
 
 #: ../source/specifications/binary-distribution-format.rst:128
-#: ../source/specifications/platform-compatibility-tags.rst:27
+#: ../source/specifications/platform-compatibility-tags.rst:20
 msgid "abi tag"
 msgstr "abi タグ"
 
@@ -13961,7 +14032,7 @@ msgid "E.g. 'cp33m', 'abi3', 'none'."
 msgstr "例えば、 'cp33m' ・ 'abi3' ・ 'none' 。"
 
 #: ../source/specifications/binary-distribution-format.rst:131
-#: ../source/specifications/platform-compatibility-tags.rst:30
+#: ../source/specifications/platform-compatibility-tags.rst:23
 msgid "platform tag"
 msgstr "プラットフォームタグ"
 
@@ -14211,7 +14282,7 @@ msgstr ""
 "します。"
 
 #: ../source/specifications/binary-distribution-format.rst:226
-#: ../source/specifications/recording-installed-packages.rst:39
+#: ../source/specifications/recording-installed-packages.rst:23
 msgid "The .dist-info directory"
 msgstr ".dist-info ディレクトリ"
 
@@ -14409,7 +14480,7 @@ msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
 #: ../source/specifications/binary-distribution-format.rst:314
-#: ../source/specifications/platform-compatibility-tags.rst:244
+#: ../source/specifications/platform-compatibility-tags.rst:237
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -14614,44 +14685,44 @@ msgstr ""
 "状態で再現するように要求されるであろうということを認識しておいてください。"
 
 #: ../source/specifications/binary-distribution-format.rst:419
-#: ../source/specifications/direct-url-data-structure.rst:266
-#: ../source/specifications/direct-url.rst:66
+#: ../source/specifications/core-metadata.rst:852
+#: ../source/specifications/dependency-specifiers.rst:476
+#: ../source/specifications/direct-url-data-structure.rst:267
+#: ../source/specifications/direct-url.rst:67
+#: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
 #: ../source/specifications/inline-script-metadata.rst:239
 #: ../source/specifications/name-normalization.rst:42
+#: ../source/specifications/platform-compatibility-tags.rst:301
 #: ../source/specifications/pyproject-toml.rst:442
+#: ../source/specifications/recording-installed-packages.rst:252
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1262
+#: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr "歴史"
 
 #: ../source/specifications/binary-distribution-format.rst:421
-msgid "This specification was originally approved as :pep:`427`."
+msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:423
+#: ../source/specifications/binary-distribution-format.rst:422
 #, fuzzy
 #| msgid ""
-#| "The following changes were made based on feedback after its initial "
-#| "implementation:"
-msgid "The following changes were applied since the initial version:"
-msgstr ""
-"以降の変更は、最初の実装 (ができた) 後に寄せられたフィードバックに基づくもの"
-"です:"
-
-#: ../source/specifications/binary-distribution-format.rst:425
+#| "The rules on escaping in wheel filenames were revised, to bring them into "
+#| "line with what popular tools actually do (February 2021)."
 msgid ""
-"The rules on escaping in wheel filenames were revised, to bring them into "
-"line with what popular tools actually do (February 2021)."
+"February 2021: The rules on escaping in wheel filenames were revised, to "
+"bring them into line with what popular tools actually do."
 msgstr ""
 "他の普及しているツールが実際にやるのと同じやり方に合わせて、 wheel のファイル"
 "名におけるエスケーピングの規則が修正されました。"
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:427
 msgid "Appendix"
 msgstr "補遺"
 
-#: ../source/specifications/binary-distribution-format.rst:432
+#: ../source/specifications/binary-distribution-format.rst:429
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "urlsafe-base64-nopad の実装の例::"
 
@@ -15838,11 +15909,59 @@ msgstr ""
 "しょう。 Torqued Python をインストールするなら、 Gorgon パッケージは削除され"
 "るべきです。"
 
-#: ../source/specifications/core-metadata.rst:853
+#: ../source/specifications/core-metadata.rst:854
+msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:855
+msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:856
+msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:857
+msgid "February 2018: Core metadata 2.1 was approved through :pep:`566`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:859
+#, fuzzy
+#| msgid ""
+#| "Added documentation for the ``Description-Content-Type`` field. (:pr:"
+#| "`258`)"
+msgid "Added ``Description-Content-Type`` and ``Provides-Extra``."
+msgstr "``Description-Content-Type`` 欄について説明を追加した。 (:pr:`258`)"
+
+#: ../source/specifications/core-metadata.rst:860
+msgid "Added canonical method for transforming metadata to JSON."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:861
+msgid "Restricted the grammar of the ``Name`` field."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:863
+msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:865
+msgid "Added the ``Dynamic`` field."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:867
+msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:869
+msgid "Restricted extra names to be normalized."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:873
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr "reStructuredText マークアップ言語: https://docutils.sourceforge.io/"
 
-#: ../source/specifications/core-metadata.rst:858
+#: ../source/specifications/core-metadata.rst:878
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr "RFC 822 長形式ヘッダフィールド: :rfc:`822#section-3.1.1`"
 
@@ -16419,31 +16538,29 @@ msgstr "完全な parsley 文法::"
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr "テストプログラム - もし ``grammar`` 文字列内に文法があれば::"
 
-#: ../source/specifications/dependency-specifiers.rst:476
-msgid "Summary of changes to PEP 508"
-msgstr "PEP 508 に対する変更の要旨"
-
 #: ../source/specifications/dependency-specifiers.rst:478
-msgid ""
-"The following changes were made based on feedback after its initial "
-"implementation:"
+msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr ""
-"以降の変更は、最初の実装 (ができた) 後に寄せられたフィードバックに基づくもの"
-"です:"
 
-#: ../source/specifications/dependency-specifiers.rst:481
+#: ../source/specifications/dependency-specifiers.rst:479
+#, fuzzy
+#| msgid ""
+#| "The definition of ``python_version`` was changed from ``platform."
+#| "python_version()[:3]`` to ``'.'.join(platform.python_version_tuple()"
+#| "[:2])``, to accommodate potential future versions of Python with 2-digit "
+#| "major and minor versions (e.g. 3.10). [#future_versions]_"
 msgid ""
-"The definition of ``python_version`` was changed from ``platform."
-"python_version()[:3]`` to ``'.'.join(platform.python_version_tuple()[:2])``, "
-"to accommodate potential future versions of Python with 2-digit major and "
-"minor versions (e.g. 3.10). [#future_versions]_"
+"July 2019: The definition of ``python_version`` was `changed <python-version-"
+"change_>`_ from ``platform.python_version()[:3]`` to ``'.'.join(platform."
+"python_version_tuple()[:2])``, to accommodate potential future versions of "
+"Python with 2-digit major and minor versions (e.g. 3.10). [#future_versions]_"
 msgstr ""
 "``python_version`` の定義は、 Python の将来のバージョンが二桁のメジャーバー"
 "ジョンやマイナーバージョンを持つ場合 (例えば 3.10) でもそれを収容できるよう"
 "に、 ``platform.python_version()[:3]`` から ``'.'.join(platform."
 "python_version_tuple()[:2])`` へと変更されました。 [#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:491
+#: ../source/specifications/dependency-specifiers.rst:489
 msgid ""
 "pip, the recommended installer for Python packages (http://pip.readthedocs."
 "org/en/stable/)"
@@ -16451,11 +16568,11 @@ msgstr ""
 "Python のパッケージをインストールする際に推奨されるツールである pip (http://"
 "pip.readthedocs.org/en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:494
+#: ../source/specifications/dependency-specifiers.rst:492
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr "parsley PEG ライブラリ。 (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:497
+#: ../source/specifications/dependency-specifiers.rst:495
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
@@ -16492,7 +16609,7 @@ msgstr ""
 "dist-info` ディレクトリに生成されなければなりません。"
 
 #: ../source/specifications/direct-url.rst:21
-#: ../source/specifications/recording-installed-packages.rst:232
+#: ../source/specifications/recording-installed-packages.rst:216
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
@@ -16597,13 +16714,9 @@ msgstr ""
 msgid "``pip install app --no-index --find-links https://example.com/``"
 msgstr ""
 
-#: ../source/specifications/direct-url.rst:68
-msgid ""
-"March 2020: the ``direct_url.json`` metadata file was originally specified "
-"in :pep:`610` and is formally documented here."
+#: ../source/specifications/direct-url.rst:69
+msgid "March 2020: This specification was approved through :pep:`610`."
 msgstr ""
-"2020年3月: ``direct_url.json`` メタデータファイルは、当初は :pep:`610` で仕様"
-"を指定されていましたが、ここで正式に文書化されました。"
 
 #: ../source/specifications/direct-url-data-structure.rst:7
 msgid "Direct URL Data Structure"
@@ -17051,23 +17164,23 @@ msgstr "ローカルディレクトリ:"
 msgid "Local directory in editable mode:"
 msgstr "編集可能モード状態にあるローカルディレクトリ:"
 
-#: ../source/specifications/direct-url-data-structure.rst:268
+#: ../source/specifications/direct-url-data-structure.rst:269
 msgid ""
-"March 2020: this data structure was originally specified as part of the "
-"``direct_url.json`` metadata file in :pep:`610` and is formally documented "
-"here."
+"March 2020: This specification was approved through :pep:`610`, defining the "
+"``direct_url.json`` metadata file."
 msgstr ""
-"2020年3月: このデータ構造は、当初は :pep:`610` で ``direct_url.json`` メタ"
-"データファイルの一部として仕様を指定されていましたが、ここで正式に文書化され"
-"ました。"
 
-#: ../source/specifications/direct-url-data-structure.rst:270
+#: ../source/specifications/direct-url-data-structure.rst:271
+#, fuzzy
+#| msgid ""
+#| "January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
+#| "discuss.python.org/t/22299>`__)."
 msgid ""
-"January 2023: Added the ``archive_info.hashes`` key ([discussion](https://"
-"discuss.python.org/t/22299))."
+"January 2023: Added the ``archive_info.hashes`` key (`discussion <archive-"
+"info-hashes_>`_)."
 msgstr ""
-"2023年1月: ``archive_info.hashes`` キーを追加しました ([議論] (https://"
-"discuss.python.org/t/22299)) 。"
+"2023年1月: ``archive_info.hashes`` キーを追加しました (`議論 <https://"
+"discuss.python.org/t/22299>`__) 。"
 
 #: ../source/specifications/entry-points.rst:5
 msgid "Entry points specification"
@@ -17371,6 +17484,12 @@ msgstr ""
 "を区別しないことから、パッケージはこれらのグループについては大文字か小文字か"
 "の違いしかないような名前を使うことを避けるべきです。名前が大文字小文字しか違"
 "わない場合のインストールツールの挙動は未定義です。"
+
+#: ../source/specifications/entry-points.rst:166
+msgid ""
+"October 2017: This specification was written to formalize the existing entry "
+"points feature of setuptools (discussion_)."
+msgstr ""
 
 #: ../source/specifications/externally-managed-environments.rst:6
 msgid "Externally Managed Environments"
@@ -17996,7 +18115,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/externally-managed-environments.rst:474
-msgid "This specification was originally approved as :pep:`668`."
+msgid "June 2022: This specification was approved through :pep:`668`."
 msgstr ""
 
 #: ../source/specifications/index.rst:4
@@ -18221,7 +18340,9 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/inline-script-metadata.rst:241
-msgid "This specification was originally defined as :pep:`723`."
+msgid ""
+"October 2023: This specification was conditionally approved through :pep:"
+"`723`."
 msgstr ""
 
 #: ../source/specifications/name-normalization.rst:5
@@ -18303,23 +18424,15 @@ msgstr "``FrIeNdLy-._.-bArD`` (ひどい書き方の名前の例だが、正当�
 
 #: ../source/specifications/name-normalization.rst:44
 msgid ""
-"`September 2015 <https://mail.python.org/pipermail/distutils-sig/2015-"
-"September/026899.html>`_: normalized name was originally specified in :pep:"
-"`503#normalized-names`."
+"September 2015: The specification of name normalized was approved through :"
+"pep:`503 <503#normalized-names>`."
 msgstr ""
-"`2015年9月 <https://mail.python.org/pipermail/distutils-sig/2015-"
-"September/026899.html>`_: 正規化された名称は、元々は :pep:`503#normalized-"
-"names` で仕様化されていました。"
 
-#: ../source/specifications/name-normalization.rst:45
+#: ../source/specifications/name-normalization.rst:46
 msgid ""
-"`November 2015 <https://mail.python.org/pipermail/distutils-sig/2015-"
-"November/027868.html>`_: valid non-normalized name was originally specified "
-"in :pep:`508#names`."
+"November 2015: The specification of valid names was approved through :pep:"
+"`508 <508#names>`."
 msgstr ""
-"`2015年11月 <https://mail.python.org/pipermail/distutils-sig/2015-"
-"November/027868.html>`_: 正当であるが正規化されてはいない名称は、元々は :pep:"
-"`508#names` で仕様化されていました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:6
 msgid "Platform compatibility tags"
@@ -18335,51 +18448,27 @@ msgstr ""
 "ツールが配布物に印を付けることができるようにし、インストーラが自身が動作して"
 "いるシステムと互換であるのはどの配布物であるかを理解できるようにします。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:12
-msgid "The following PEPs contributed to this spec:"
-msgstr "この仕様に貢献する PEP 群を以下に示す:"
-
-#: ../source/specifications/platform-compatibility-tags.rst:14
-msgid ":pep:`425`"
-msgstr ":pep:`425`"
-
-#: ../source/specifications/platform-compatibility-tags.rst:15
-msgid ":pep:`513`"
-msgstr ":pep:`513`"
-
 #: ../source/specifications/platform-compatibility-tags.rst:16
-msgid ":pep:`571`"
-msgstr ":pep:`571`"
-
-#: ../source/specifications/platform-compatibility-tags.rst:17
-msgid ":pep:`599`"
-msgstr ":pep:`599`"
-
-#: ../source/specifications/platform-compatibility-tags.rst:18
-msgid ":pep:`600`"
-msgstr ":pep:`600`"
-
-#: ../source/specifications/platform-compatibility-tags.rst:23
 msgid "The tag format is ``{python tag}-{abi tag}-{platform tag}``."
 msgstr "タグの書式は、 ``{python tag}-{abi tag}-{platform tag}`` です。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:25
+#: ../source/specifications/platform-compatibility-tags.rst:18
 msgid "python tag"
 msgstr "python タグ"
 
-#: ../source/specifications/platform-compatibility-tags.rst:26
+#: ../source/specifications/platform-compatibility-tags.rst:19
 msgid "'py27', 'cp33'"
 msgstr "'py27' ・ 'cp33'"
 
-#: ../source/specifications/platform-compatibility-tags.rst:28
+#: ../source/specifications/platform-compatibility-tags.rst:21
 msgid "'cp32dmu', 'none'"
 msgstr "'cp33dmu' ・ 'none'"
 
-#: ../source/specifications/platform-compatibility-tags.rst:30
+#: ../source/specifications/platform-compatibility-tags.rst:23
 msgid "'linux_x86_64', 'any'"
 msgstr "'linux_x86_64' ・ 'any'"
 
-#: ../source/specifications/platform-compatibility-tags.rst:32
+#: ../source/specifications/platform-compatibility-tags.rst:25
 msgid ""
 "For example, the tag ``py27-none-any`` indicates compatibility with Python "
 "2.7 (any Python 2.7 implementation) with no abi requirement, on any platform."
@@ -18388,12 +18477,12 @@ msgstr ""
 "フォームで Python 2.7 (任意の Python 2.7 実装) との互換性を持つことを意味しま"
 "す。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:36
-#: ../source/specifications/platform-compatibility-tags.rst:170
+#: ../source/specifications/platform-compatibility-tags.rst:29
+#: ../source/specifications/platform-compatibility-tags.rst:163
 msgid "Use"
 msgstr "使い方"
 
-#: ../source/specifications/platform-compatibility-tags.rst:38
+#: ../source/specifications/platform-compatibility-tags.rst:31
 msgid ""
 "The ``wheel`` built package format includes these tags in its filenames, of "
 "the form ``{distribution}-{version}(-{build tag})?-{python tag}-{abitag}-"
@@ -18404,17 +18493,17 @@ msgstr ""
 "{platform tag}.whl`` の形で包含しています。他のパッケージフォーマットにはそれ"
 "ぞれ独自の慣習があるかもしれません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:43
+#: ../source/specifications/platform-compatibility-tags.rst:36
 msgid "Any potential spaces in any tag should be replaced with ``_``."
 msgstr ""
 "どのようなタグであれ、その中に潜在的に含まれる空白文字は ``_`` で置換されるべ"
 "きです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:49
+#: ../source/specifications/platform-compatibility-tags.rst:42
 msgid "Python Tag"
 msgstr "Python タグ"
 
-#: ../source/specifications/platform-compatibility-tags.rst:51
+#: ../source/specifications/platform-compatibility-tags.rst:44
 msgid ""
 "The Python tag indicates the implementation and version required by a "
 "distribution.  Major implementations have abbreviated codes, initially:"
@@ -18422,31 +18511,31 @@ msgstr ""
 "Python タグは、配布物が必要とする実装やバージョンを示します。主要な実装には短"
 "縮系のコードがあって、当初は:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:54
+#: ../source/specifications/platform-compatibility-tags.rst:47
 msgid "py: Generic Python (does not require implementation-specific features)"
 msgstr "py: 一般的な Python (実装に特有な機能を要求しません)"
 
-#: ../source/specifications/platform-compatibility-tags.rst:55
+#: ../source/specifications/platform-compatibility-tags.rst:48
 msgid "cp: CPython"
 msgstr "cp: CPython"
 
-#: ../source/specifications/platform-compatibility-tags.rst:56
+#: ../source/specifications/platform-compatibility-tags.rst:49
 msgid "ip: IronPython"
 msgstr "ip: IronPython"
 
-#: ../source/specifications/platform-compatibility-tags.rst:57
+#: ../source/specifications/platform-compatibility-tags.rst:50
 msgid "pp: PyPy"
 msgstr "pp: PyPy"
 
-#: ../source/specifications/platform-compatibility-tags.rst:58
+#: ../source/specifications/platform-compatibility-tags.rst:51
 msgid "jy: Jython"
 msgstr "jy: Jython"
 
-#: ../source/specifications/platform-compatibility-tags.rst:60
+#: ../source/specifications/platform-compatibility-tags.rst:53
 msgid "Other Python implementations should use ``sys.implementation.name``."
 msgstr "ほかの Python 実装には ``sys.implementation.name`` を用いるべきです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:62
+#: ../source/specifications/platform-compatibility-tags.rst:55
 msgid ""
 "The version is ``py_version_nodot``.  CPython gets away with no dot, but if "
 "one is needed the underscore ``_`` is used instead.  PyPy should probably "
@@ -18457,7 +18546,7 @@ msgstr ""
 "おそらく、ここに ``pp18`` や ``pp19`` といったそれ自身のバージョンを使いま"
 "す。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:66
+#: ../source/specifications/platform-compatibility-tags.rst:59
 msgid ""
 "The version can be just the major version ``2`` or ``3`` ``py2``, ``py3`` "
 "for many pure-Python distributions."
@@ -18465,7 +18554,7 @@ msgstr ""
 "多くの純 Python 配布物では、バージョンは ``2`` や ``3`` や ``py2`` ・ "
 "``py3`` といったメジャーバージョンだけにしておくことができます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:69
+#: ../source/specifications/platform-compatibility-tags.rst:62
 msgid ""
 "Importantly, major-version-only tags like ``py2`` and ``py3`` are not "
 "shorthand for ``py20`` and ``py30``.  Instead, these tags mean the packager "
@@ -18476,7 +18565,7 @@ msgstr ""
 "て、これらのタグは、パッケージ作成者がいくつものバージョンに互換性を持つ配布"
 "物を意図的にリリースしたのです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:73
+#: ../source/specifications/platform-compatibility-tags.rst:66
 msgid ""
 "A single-source Python 2/3 compatible distribution can use the compound tag "
 "``py2.py3``.  See `Compressed Tag Sets`_, below."
@@ -18485,11 +18574,11 @@ msgstr ""
 "ことができます。 後述の `タグの圧縮された組み合わせ <Compressed Tag Sets>`_ "
 "を参照してください。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:77
+#: ../source/specifications/platform-compatibility-tags.rst:70
 msgid "ABI Tag"
 msgstr "ABI タグ"
 
-#: ../source/specifications/platform-compatibility-tags.rst:79
+#: ../source/specifications/platform-compatibility-tags.rst:72
 msgid ""
 "The ABI tag indicates which Python ABI is required by any included extension "
 "modules.  For implementation-specific ABIs, the implementation is "
@@ -18501,13 +18590,13 @@ msgstr ""
 "ば ``cp33d`` がデバッグオプション付きの CPython 3.3 ABI のことを指すように、 "
 "Python タグと同様のやり方で短縮したものを使います。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:84
+#: ../source/specifications/platform-compatibility-tags.rst:77
 msgid "The CPython stable ABI is ``abi3`` as in the shared library suffix."
 msgstr ""
 "CPython の安定版 ABI のことは、共有ライブラリの拡張子と同様に ``abi3`` と書き"
 "ます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:86
+#: ../source/specifications/platform-compatibility-tags.rst:79
 msgid ""
 "Implementations with a very unstable ABI may use the first 6 bytes (as 8 "
 "base64-encoded characters) of the SHA-256 hash of their source code revision "
@@ -18521,11 +18610,11 @@ msgstr ""
 "きな需要はないでしょう。それぞれの実装のコミュニティで ABI タグをどのように用"
 "いるのが最適かを決定すればよいでしょう。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:93
+#: ../source/specifications/platform-compatibility-tags.rst:86
 msgid "Platform Tag"
 msgstr "プラットフォームタグ"
 
-#: ../source/specifications/platform-compatibility-tags.rst:95
+#: ../source/specifications/platform-compatibility-tags.rst:88
 msgid ""
 "The platform tag is simply ``sysconfig.get_platform()`` with all hyphens ``-"
 "`` and periods ``.`` replaced with underscore ``_``. Until the removal of :"
@@ -18536,23 +18625,23 @@ msgstr ""
 "`distutils` が Python 3.12 で削除されるまでは、これは ``distutils.util."
 "get_platform()`` でした。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:100
+#: ../source/specifications/platform-compatibility-tags.rst:93
 msgid "win32"
 msgstr "win32"
 
-#: ../source/specifications/platform-compatibility-tags.rst:101
+#: ../source/specifications/platform-compatibility-tags.rst:94
 msgid "linux_i386"
 msgstr "linux_i386"
 
-#: ../source/specifications/platform-compatibility-tags.rst:102
+#: ../source/specifications/platform-compatibility-tags.rst:95
 msgid "linux_x86_64"
 msgstr "linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:107
+#: ../source/specifications/platform-compatibility-tags.rst:100
 msgid "``manylinux``"
 msgstr "``manylinux``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:110
+#: ../source/specifications/platform-compatibility-tags.rst:103
 msgid ""
 "The scheme defined in :pep:`425` was insufficient for public distribution of "
 "wheel files (and \\*nix wheel files in general) to Linux platforms, due to "
@@ -18563,7 +18652,7 @@ msgstr ""
 "けの wheel ファイル (および、一般に \\*nix 向けの wheel ファイル) の公開配布"
 "物としては不十分です。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:114
+#: ../source/specifications/platform-compatibility-tags.rst:107
 msgid ""
 "Instead, :pep:`600` defines the ``manylinux`` standard, which represents a "
 "common subset of Linux platforms, and allows building wheels tagged with the "
@@ -18575,7 +18664,7 @@ msgstr ""
 "る ``manylinux`` プラットフォームタグ付きの wheel をビルドできるようにしてい"
 "ます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:119
+#: ../source/specifications/platform-compatibility-tags.rst:112
 msgid ""
 "There were multiple iterations of the ``manylinux`` specification, each "
 "representing the common subset of Linux platforms at a given point in time:"
@@ -18583,7 +18672,7 @@ msgstr ""
 "``manylinux`` 仕様は複数回の改訂があり、それぞれの版がその時々の Linux の共通"
 "のサブセットを表現しています:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:122
+#: ../source/specifications/platform-compatibility-tags.rst:115
 msgid ""
 "``manylinux1`` (:pep:`513`) supports ``x86_64`` and ``i686`` architectures, "
 "and is based on a compatible Linux platform from 2007."
@@ -18592,7 +18681,7 @@ msgstr ""
 "サポートしていて、 2007 年から互換性のある Linux プラットフォームに基づいてい"
 "ます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:124
+#: ../source/specifications/platform-compatibility-tags.rst:117
 msgid ""
 "``manylinux2010`` (:pep:`571`) supports ``x86_64`` and ``i686`` "
 "architectures. and updates the previous specification to be based on a "
@@ -18602,7 +18691,7 @@ msgstr ""
 "をサポートしており、以前の仕様を更新して、その代わりに 2010 年から互換性のあ"
 "る Linux プラットフォームに基づいています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:127
+#: ../source/specifications/platform-compatibility-tags.rst:120
 msgid ""
 "``manylinux2014`` (:pep:`599`) adds support for a number of additional "
 "architectures (``aarch64``, ``armv7l``, ``ppc64``, ``ppc64le``, and "
@@ -18613,7 +18702,7 @@ msgstr ""
 "``armv7l``, ``ppc64``, ``ppc64le``, and ``s390x``) へのサポートを追加し、ま"
 "た、2014 年以降の互換 Linux プラットフォームのベースを更新しました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:132
+#: ../source/specifications/platform-compatibility-tags.rst:125
 msgid ""
 "``manylinux_x_y`` (:pep:`600`) supersedes all previous PEPs to define a "
 "future-proof standard. It defines ``x`` and ``y`` as glibc major an minor "
@@ -18627,7 +18716,7 @@ msgstr ""
 "の上で動作するはずです) 。以前に使われたタグは広報互換性を保つために依然とし"
 "てサポートされています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:137
+#: ../source/specifications/platform-compatibility-tags.rst:130
 msgid ""
 "In general, distributions built for older versions of the specification are "
 "forwards-compatible (meaning that ``manylinux1`` distributions should "
@@ -18641,7 +18730,7 @@ msgstr ""
 "物が 2010 年よりも前に存在していたプラットフォームで動作するとは想定されてい"
 "ないということです) 。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:143
+#: ../source/specifications/platform-compatibility-tags.rst:136
 msgid ""
 "Package maintainers should attempt to target the most compatible "
 "specification possible, with the caveat that the provided build environment "
@@ -18653,11 +18742,11 @@ msgstr ""
 "ろうという警告されていることもあって、パッケージ保守者は最も互換性のある仕様"
 "をターゲットにするように努力するべきです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:149
+#: ../source/specifications/platform-compatibility-tags.rst:142
 msgid "Manylinux compatibility support"
 msgstr "Manylinux 互換性サポート"
 
-#: ../source/specifications/platform-compatibility-tags.rst:152
+#: ../source/specifications/platform-compatibility-tags.rst:145
 msgid ""
 "The ``manylinux2014`` specification is relatively new and is not yet widely "
 "recognised by install tools."
@@ -18665,7 +18754,7 @@ msgstr ""
 "``manylinux2014`` 仕様は相対的に新しく、未だインストールツールに広く認識され"
 "たと言える状況ではありません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:154
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid ""
 "The ``manylinux_x_y`` specification is relatively new and is not yet widely "
 "recognised by install tools."
@@ -18673,7 +18762,7 @@ msgstr ""
 "``manylinux_x_y`` 仕様は相対的に新しく、未だインストールツールに広く認識され"
 "たと言える状況ではありません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:157
+#: ../source/specifications/platform-compatibility-tags.rst:150
 msgid ""
 "The following table shows the minimum versions of relevant projects to "
 "support the various ``manylinux`` standards:"
@@ -18681,68 +18770,68 @@ msgstr ""
 "適切なプロジェクトがサポートするさまざまな ``manylinux`` 標準の最低限のバー"
 "ジョンを次に掲げる表に示します:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:161
+#: ../source/specifications/platform-compatibility-tags.rst:154
 msgid "Tool"
 msgstr "ツール"
 
-#: ../source/specifications/platform-compatibility-tags.rst:161
+#: ../source/specifications/platform-compatibility-tags.rst:154
 msgid "``manylinux1``"
 msgstr "``manylinux1``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:161
+#: ../source/specifications/platform-compatibility-tags.rst:154
 msgid "``manylinux2010``"
 msgstr "``manylinux2010``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:161
+#: ../source/specifications/platform-compatibility-tags.rst:154
 msgid "``manylinux2014``"
 msgstr "``manylinux2014``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:161
+#: ../source/specifications/platform-compatibility-tags.rst:154
 msgid "``manylinux_x_y``"
 msgstr "``manylinux_x_y``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:163
+#: ../source/specifications/platform-compatibility-tags.rst:156
 msgid "``>=8.1.0``"
 msgstr "``>=8.1.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:163
+#: ../source/specifications/platform-compatibility-tags.rst:156
 msgid "``>=19.0``"
 msgstr "``>=19.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:163
+#: ../source/specifications/platform-compatibility-tags.rst:156
 msgid "``>=19.3``"
 msgstr "``>=19.3``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:163
+#: ../source/specifications/platform-compatibility-tags.rst:156
 msgid "``>=20.3``"
 msgstr "``>=20.3``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:164
+#: ../source/specifications/platform-compatibility-tags.rst:157
 msgid "auditwheel"
 msgstr "auditwheel"
 
-#: ../source/specifications/platform-compatibility-tags.rst:164
+#: ../source/specifications/platform-compatibility-tags.rst:157
 msgid "``>=1.0.0``"
 msgstr "``>=1.0.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:164
+#: ../source/specifications/platform-compatibility-tags.rst:157
 msgid "``>=2.0.0``"
 msgstr "``>=2.0.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:164
+#: ../source/specifications/platform-compatibility-tags.rst:157
 msgid "``>=3.0.0``"
 msgstr "``>=3.0.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:164
+#: ../source/specifications/platform-compatibility-tags.rst:157
 msgid "``>=3.3.0`` [#]_"
 msgstr "``>=3.3.0`` [#]_"
 
-#: ../source/specifications/platform-compatibility-tags.rst:167
+#: ../source/specifications/platform-compatibility-tags.rst:160
 msgid "Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0"
 msgstr ""
 "audit wheel 3.3.0 では ``manylinux_2_24`` へのサポートだけが追加されました"
 
-#: ../source/specifications/platform-compatibility-tags.rst:172
+#: ../source/specifications/platform-compatibility-tags.rst:165
 msgid ""
 "The tags are used by installers to decide which built distribution (if any) "
 "to download from a list of potential built distributions. The installer "
@@ -18755,7 +18844,7 @@ msgstr ""
 "ています。ビルド済配布物のタグがリストに含まれて (``in`` ) いれば、それをイン"
 "ストールすることができます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:178
+#: ../source/specifications/platform-compatibility-tags.rst:171
 msgid ""
 "It is recommended that installers try to choose the most feature complete "
 "built distribution available (the one most specific to the installation "
@@ -18773,7 +18862,7 @@ msgstr ""
 "は、純 Python であると広報しているビルド済みパッケージだけをダウンロードする"
 "ために、 ``*-none-any`` タグだけを受容しても構いません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:186
+#: ../source/specifications/platform-compatibility-tags.rst:179
 msgid ""
 "Another desirable installer feature might be to include \"re-compile from "
 "source if possible\" as more preferable than some of the compatible but "
@@ -18783,7 +18872,7 @@ msgstr ""
 "好ましいという点で、インストーラに望まれるもうひとつの機能は \"可能ならソース"
 "コードから再コンパイルする\" でしょう。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:190
+#: ../source/specifications/platform-compatibility-tags.rst:183
 msgid ""
 "This example list is for an installer running under CPython 3.3 on a "
 "linux_x86_64 system. It is in order from most-preferred (a distribution with "
@@ -18797,63 +18886,63 @@ msgstr ""
 "の (古いバージョンの Python でビルドされた純 Python の配布物) へ、という順序"
 "で並んでいます:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:196
+#: ../source/specifications/platform-compatibility-tags.rst:189
 msgid "cp33-cp33m-linux_x86_64"
 msgstr "cp33-cp33m-linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:197
+#: ../source/specifications/platform-compatibility-tags.rst:190
 msgid "cp33-abi3-linux_x86_64"
 msgstr "cp33-abi3-linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:198
+#: ../source/specifications/platform-compatibility-tags.rst:191
 msgid "cp3-abi3-linux_x86_64"
 msgstr "cp3-abi3-linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:199
+#: ../source/specifications/platform-compatibility-tags.rst:192
 msgid "cp33-none-linux_x86_64*"
 msgstr "cp33-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:200
+#: ../source/specifications/platform-compatibility-tags.rst:193
 msgid "cp3-none-linux_x86_64*"
 msgstr "cp3-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:201
+#: ../source/specifications/platform-compatibility-tags.rst:194
 msgid "py33-none-linux_x86_64*"
 msgstr "py33-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:202
+#: ../source/specifications/platform-compatibility-tags.rst:195
 msgid "py3-none-linux_x86_64*"
 msgstr "py3-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:203
+#: ../source/specifications/platform-compatibility-tags.rst:196
 msgid "cp33-none-any"
 msgstr "cp33-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:204
+#: ../source/specifications/platform-compatibility-tags.rst:197
 msgid "cp3-none-any"
 msgstr "cp3-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:205
+#: ../source/specifications/platform-compatibility-tags.rst:198
 msgid "py33-none-any"
 msgstr "py33-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:206
+#: ../source/specifications/platform-compatibility-tags.rst:199
 msgid "py3-none-any"
 msgstr "py3-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:207
+#: ../source/specifications/platform-compatibility-tags.rst:200
 msgid "py32-none-any"
 msgstr "py32-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:208
+#: ../source/specifications/platform-compatibility-tags.rst:201
 msgid "py31-none-any"
 msgstr "py31-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:209
+#: ../source/specifications/platform-compatibility-tags.rst:202
 msgid "py30-none-any"
 msgstr "py30-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:211
+#: ../source/specifications/platform-compatibility-tags.rst:204
 msgid ""
 "Built distributions may be platform specific for reasons other than C "
 "extensions, such as by including a native executable invoked as a subprocess."
@@ -18862,7 +18951,7 @@ msgstr ""
 "を含んでいるなどのようなC 言語拡張以外の理由によって、特定のプラットフォーム"
 "向けであっても構いません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:215
+#: ../source/specifications/platform-compatibility-tags.rst:208
 msgid ""
 "Sometimes there will be more than one supported built distribution for a "
 "particular version of a package.  For example, a packager could release a "
@@ -18881,11 +18970,11 @@ msgstr ""
 "よりも選好されてインストールされるという形で、インデックスによってどちらかに"
 "決めることができます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:224
+#: ../source/specifications/platform-compatibility-tags.rst:217
 msgid "Compressed Tag Sets"
 msgstr "圧縮されたタグのセット"
 
-#: ../source/specifications/platform-compatibility-tags.rst:226
+#: ../source/specifications/platform-compatibility-tags.rst:219
 msgid ""
 "To allow for compact filenames of bdists that work with more than one "
 "compatibility tag triple, each tag in a filename can instead be a '.'-"
@@ -18902,7 +18991,7 @@ msgstr ""
 "うタグを付けた bdist として配布することができるでしょう。単純なタグの完全なリ"
 "ストは::"
 
-#: ../source/specifications/platform-compatibility-tags.rst:238
+#: ../source/specifications/platform-compatibility-tags.rst:231
 msgid ""
 "A bdist format that implements this scheme should include the expanded tags "
 "in bdist-specific metadata.  This compression scheme can generate large "
@@ -18915,11 +19004,11 @@ msgstr ""
 "ポートされていない \"不可能な\" タグを大量に生成すると思われるので、控えめに"
 "使うようにしてください。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:251
+#: ../source/specifications/platform-compatibility-tags.rst:244
 msgid "What tags are used by default?"
 msgstr "デフォルトではどんなタグが使われますか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:247
+#: ../source/specifications/platform-compatibility-tags.rst:240
 msgid ""
 "Tools should use the most-preferred architecture dependent tag e.g. ``cp33-"
 "cp33m-win32`` or the most-preferred pure python tag e.g. ``py33-none-any`` "
@@ -18932,7 +19021,7 @@ msgstr ""
 "ば、それは彼らが異なる Python 間での互換性を提供しようという意図があったこと"
 "を示しています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:261
+#: ../source/specifications/platform-compatibility-tags.rst:254
 msgid ""
 "What tag do I use if my distribution uses a feature exclusive to the newest "
 "version of Python?"
@@ -18940,7 +19029,7 @@ msgstr ""
 "自分の配布物が最新版の Python と相容れない機能を使っているとしたら、どんなタ"
 "グを使いますか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:254
+#: ../source/specifications/platform-compatibility-tags.rst:247
 msgid ""
 "Compatibility tags aid installers in selecting the *most compatible* build "
 "of a *single version* of a distribution. For example, when there is no "
@@ -18958,11 +19047,11 @@ msgstr ""
 "は、新しい機能を使う前のリリースである ``beaglevote-1.1.0`` 用の要求 "
 "(requirement) などを他の指定子を組み合わせなければなりません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:266
+#: ../source/specifications/platform-compatibility-tags.rst:259
 msgid "Why isn't there a ``.`` in the Python version number?"
 msgstr "Python のバージョン番号に ``.`` がないのはなぜですか?"
 
-#: ../source/specifications/platform-compatibility-tags.rst:264
+#: ../source/specifications/platform-compatibility-tags.rst:257
 msgid ""
 "CPython has lasted 20+ years without a 3-digit major release. This should "
 "continue for some time.  Other implementations may use _ as a delimiter, "
@@ -18973,13 +19062,13 @@ msgstr ""
 "区切る役割を果たしているので、他の実装では _ を区切り子として使っても構いませ"
 "ん。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:272
+#: ../source/specifications/platform-compatibility-tags.rst:265
 msgid ""
 "Why normalise hyphens and other non-alphanumeric characters to underscores?"
 msgstr ""
 "ハイフンやその他の英数字以外の文字をアンダースコアに正規化するのはなぜですか?"
 
-#: ../source/specifications/platform-compatibility-tags.rst:269
+#: ../source/specifications/platform-compatibility-tags.rst:262
 msgid ""
 "To avoid conflicting with the ``.`` and ``-`` characters that separate "
 "components of the filename, and for better compatibility with the widest "
@@ -18991,11 +19080,11 @@ msgstr ""
 "るファイルシステムのファイル名に対する制限事項との間のより良い互換性のため"
 "に。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:281
+#: ../source/specifications/platform-compatibility-tags.rst:274
 msgid "Why not use special character <X> rather than ``.`` or ``-``?"
 msgstr "何故、 ``.`` や ``-`` の代わりに特殊な文字 <X> を使わないのですか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:275
+#: ../source/specifications/platform-compatibility-tags.rst:268
 msgid ""
 "Either because that character is inconvenient or potentially confusing in "
 "some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used to "
@@ -19012,11 +19101,11 @@ msgstr ""
 "うようにすること) を正当化するに足りるだけのアドバンテージがないから、のいず"
 "れかです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:286
+#: ../source/specifications/platform-compatibility-tags.rst:279
 msgid "Who will maintain the registry of abbreviated implementations?"
 msgstr "誰が実装に関する短縮形のレジストリの維持管理をしているのですか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:284
+#: ../source/specifications/platform-compatibility-tags.rst:277
 msgid ""
 "New two-letter abbreviations can be requested on the python-dev mailing "
 "list.  As a rule of thumb, abbreviations are reserved for the current 4 most "
@@ -19026,11 +19115,11 @@ msgstr ""
 "けることができるでしょう。経験上は、その時点で最も卓越した４個の実装のために"
 "省略形が予約されています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:291
+#: ../source/specifications/platform-compatibility-tags.rst:284
 msgid "Does the compatibility tag go into METADATA or PKG-INFO?"
 msgstr "互換性タグは METADATA に含まれるのか、あるいは PKG-INFO か？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:289
+#: ../source/specifications/platform-compatibility-tags.rst:282
 msgid ""
 "No.  The compatibility tag is part of the built distribution's metadata.  "
 "METADATA / PKG-INFO should be valid for an entire distribution, not a single "
@@ -19040,11 +19129,11 @@ msgstr ""
 "は、その配布物の単一のビルドではなく配布物の全体にとって正当なものであるべき"
 "です。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:297
+#: ../source/specifications/platform-compatibility-tags.rst:290
 msgid "Why didn't you mention my favorite Python implementation?"
 msgstr "どうして私のお気に入りの Python 実装について言及しなかったの？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:294
+#: ../source/specifications/platform-compatibility-tags.rst:287
 msgid ""
 "The abbreviated tags facilitate sharing compiled Python code in a public "
 "index.  Your Python implementation can use this specification too, but with "
@@ -19056,14 +19145,14 @@ msgstr ""
 "が、しかしもっと長いタグになってしまうことでしょう。すべての \"純 Python\" な"
 "ビルド済み配布物が単に ``py`` を使うだけであることを思い出してください。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:303
+#: ../source/specifications/platform-compatibility-tags.rst:298
 msgid ""
 "Why is the ABI tag (the second tag) sometimes \"none\" in the reference "
 "implementation?"
 msgstr ""
 "どうして参照実装における ABI タグ (第２のタグ) は時々 \"none\" なのですか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:300
+#: ../source/specifications/platform-compatibility-tags.rst:293
 msgid ""
 "Since Python 2 does not have an easy way to get to the SOABI (the concept "
 "comes from newer versions of Python 3) the reference implementation at the "
@@ -19076,6 +19165,30 @@ msgstr ""
 "もっと新しい版の Python に相似の \"py27(d|m|u)\" を検出するようになるでしょう"
 "が、それまでの間は \"知られていない\" ことを示すのに \"none\" とすることが必"
 "要十分な方法なのです。"
+
+#: ../source/specifications/platform-compatibility-tags.rst:303
+msgid ""
+"February 2013: The original version of this specification was approved "
+"through :pep:`425`."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:305
+msgid "January 2016: The ``manylinux1`` tag was approved through :pep:`513`."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:306
+msgid "April 2018: The ``manylinux2010`` tag was approved through :pep:`571`."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:307
+msgid "July 2019: The ``manylinux2014`` tag was approved through :pep:`599`."
+msgstr ""
+
+#: ../source/specifications/platform-compatibility-tags.rst:308
+msgid ""
+"November 2019: The ``manylinux_x_y`` perennial tag was approved through :pep:"
+"`600`."
+msgstr ""
 
 #: ../source/specifications/pypirc.rst:6
 msgid "The :file:`.pypirc` file"
@@ -19937,8 +20050,15 @@ msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:444
 msgid ""
-"This specification was originally defined in :pep:`518` (``[build-system]`` "
-"and ``[tool]`` tables) and :pep:`621` (``[project]`` table)."
+"May 2016: The initial specification of the ``pyproject.toml`` file, with "
+"just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
+"table, was approved through :pep:`518`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:448
+msgid ""
+"November 2020: The specification of the ``[project]`` table was approved "
+"through :pep:`621`."
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:7
@@ -19973,39 +20093,7 @@ msgstr ""
 "は提供できない場合でさえも、インストール済みのプロジェクトの名前とバージョン"
 "を記録するべきです。"
 
-#: ../source/specifications/recording-installed-packages.rst:23
-msgid "History and change workflow"
-msgstr "ワークフローの履歴と変更"
-
 #: ../source/specifications/recording-installed-packages.rst:25
-msgid ""
-"The metadata described here was first specified in :pep:`376`, and later "
-"amended in :pep:`627` (and other PEPs). It was formerly known as *Database "
-"of Installed Python Distributions*. As with other PyPA specifications, "
-"editorial amendments with no functional impact may be made through the "
-"GitHub pull request workflow. Proposals for functional changes that would "
-"require amendments to package building and/or installation tools must be "
-"made through the PEP process (see :pep:`1`)."
-msgstr ""
-"ここで述べるメタデータは、 :pep:`376` で初めて定義されたもので、後に :pep:"
-"`627` (およびその他の PEP 群) で改訂されました。以前は *インストール済みの "
-"Python 配布物のデータベース* という名前で知られていました。他の PyPA 仕様と同"
-"様に、 GitHab の Pull リクエストのワークフローを通じて、機能の面に影響しない"
-"編集上の改訂を行うことが可能です。パッケージの作成やインストールツールを修正"
-"するであろう機能面での変更提案は、 PEP のプロセス (:pep:`1` を見てください) "
-"を通じて行わなければなりません。"
-
-#: ../source/specifications/recording-installed-packages.rst:33
-msgid ""
-"While this document is the normative specification, the PEPs that introduce "
-"changes to it may include additional information such as rationales and "
-"backwards compatibility considerations."
-msgstr ""
-"この説明文書が規範的な仕様書である一方で、その変更を導入するような PEP 群は、"
-"理論的根拠や後方互換性を保つための考慮点のような追加的な情報を含んでいても構"
-"いません。"
-
-#: ../source/specifications/recording-installed-packages.rst:41
 msgid ""
 "Each project installed from a distribution must, in addition to files, "
 "install a \"``.dist-info``\" directory located alongside importable modules "
@@ -20015,7 +20103,7 @@ msgstr ""
 "ト可能なモジュールやパッケージの隣に位置する \"``.dist-info``\" ディレクトリ"
 "もインストールします (通常は ``site-packages`` ディレクトリ) 。"
 
-#: ../source/specifications/recording-installed-packages.rst:45
+#: ../source/specifications/recording-installed-packages.rst:29
 #, fuzzy
 msgid ""
 "This directory is named as ``{name}-{version}.dist-info``, with ``name`` and "
@@ -20036,7 +20124,7 @@ msgstr ""
 "ひとつだけのダッシュ (``-``) 文字をそのファイル名基幹部に持ち、それによって "
 "``name`` と ``version`` フィールドを分割していなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:53
+#: ../source/specifications/recording-installed-packages.rst:37
 msgid ""
 "Historically, tools have failed to replace dot characters or normalize case "
 "in the ``name`` field, or not perform normalization in the ``version`` "
@@ -20055,7 +20143,7 @@ msgstr ""
 "と ``version`` の両方のフィールドを上記の規則に従って正規化しなければならず、"
 "既存のツールもこれらのフィールドの正規化を始めることが推奨されています。"
 
-#: ../source/specifications/recording-installed-packages.rst:63
+#: ../source/specifications/recording-installed-packages.rst:47
 msgid ""
 "The ``.dist-info`` directory's name is formatted to unambiguously represent "
 "a distribution as a filesystem path. Tools presenting a distribution name to "
@@ -20075,7 +20163,7 @@ msgstr ""
 "イブラリは、配布物の情報を表示する時にツールが正規化されていない名前にアクセ"
 "スできるように、そのようなツール群が利用できるような API を提供するべきです。"
 
-#: ../source/specifications/recording-installed-packages.rst:72
+#: ../source/specifications/recording-installed-packages.rst:56
 msgid ""
 "This ``.dist-info`` directory may contain the following files, described in "
 "detail below:"
@@ -20083,31 +20171,31 @@ msgstr ""
 "この ``.dist-info`` ディレクトリには、以下に詳細を述べるこれらのファイルを置"
 "くことができます:"
 
-#: ../source/specifications/recording-installed-packages.rst:75
+#: ../source/specifications/recording-installed-packages.rst:59
 msgid "``METADATA``: contains project metadata"
 msgstr "``METADATA``: プロジェクトのメタデータを含みます"
 
-#: ../source/specifications/recording-installed-packages.rst:76
+#: ../source/specifications/recording-installed-packages.rst:60
 msgid "``RECORD``: records the list of installed files."
 msgstr "``RECORD``: インストールされるファイルを列挙して記録します。"
 
-#: ../source/specifications/recording-installed-packages.rst:77
+#: ../source/specifications/recording-installed-packages.rst:61
 msgid ""
 "``INSTALLER``: records the name of the tool used to install the project."
 msgstr ""
 "``INSTALLER``: プロジェクトをインストールするのに使われるツールの名前を記録し"
 "ます。"
 
-#: ../source/specifications/recording-installed-packages.rst:78
+#: ../source/specifications/recording-installed-packages.rst:62
 msgid "``entry_points.txt``: see :ref:`entry-points` for details"
 msgstr ""
 "``entry_points.txt``: 詳細については :ref:`entry-points` を見てください"
 
-#: ../source/specifications/recording-installed-packages.rst:79
+#: ../source/specifications/recording-installed-packages.rst:63
 msgid "``direct_url.json``: see :ref:`direct-url` for details"
 msgstr "``direct_url.json``: 詳細については :ref:`direct-url` を見てください"
 
-#: ../source/specifications/recording-installed-packages.rst:81
+#: ../source/specifications/recording-installed-packages.rst:65
 msgid ""
 "The ``METADATA`` file is mandatory. All other files may be omitted at the "
 "installing tool's discretion. Additional installer-specific files may be "
@@ -20117,7 +20205,7 @@ msgstr ""
 "ルの最良で省略可能です。インストーラ独自のファイルが他に存在しても構いませ"
 "ん。"
 
-#: ../source/specifications/recording-installed-packages.rst:87
+#: ../source/specifications/recording-installed-packages.rst:71
 msgid ""
 "The :ref:`binary-distribution-format` specification describes additional "
 "files that may appear in the ``.dist-info`` directory of a :term:`Wheel`. "
@@ -20129,7 +20217,7 @@ msgstr ""
 "ようなファイルをインストールされたプロジェクトの ``.dist-info`` ディレクトリ"
 "にコピーしても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:92
+#: ../source/specifications/recording-installed-packages.rst:76
 msgid ""
 "The previous versions of this specification also specified a ``REQUESTED`` "
 "file. This file is now considered a tool-specific extension, but may be "
@@ -20141,11 +20229,11 @@ msgstr ""
 "標準化されるかもしれません。その元々の意味するところについては、 `PEP 376 "
 "<https://www.python.org/dev/peps/pep-0376/#requested>`_ を見てください。"
 
-#: ../source/specifications/recording-installed-packages.rst:99
+#: ../source/specifications/recording-installed-packages.rst:83
 msgid "The METADATA file"
 msgstr "METADATA ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:101
+#: ../source/specifications/recording-installed-packages.rst:85
 msgid ""
 "The ``METADATA`` file contains metadata as described in the :ref:`core-"
 "metadata` specification, version 1.1 or greater."
@@ -20153,7 +20241,7 @@ msgstr ""
 "``METADATA`` ファイルには、 :ref:`コアとなるメタデータ <core-metadata>` 仕様"
 "のバージョン 1.1 またはそれ以降で記述されているようなメタデータを含みます。"
 
-#: ../source/specifications/recording-installed-packages.rst:104
+#: ../source/specifications/recording-installed-packages.rst:88
 msgid ""
 "The ``METADATA`` file is mandatory. If it cannot be created, or if required "
 "core metadata is not available, installers must report an error and fail to "
@@ -20163,11 +20251,11 @@ msgstr ""
 "合や、必須のコアとなるメタデータが入手できない場合には、インストーラはエラー"
 "を発生させてプロジェクトのインストールを失敗させなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:110
+#: ../source/specifications/recording-installed-packages.rst:94
 msgid "The RECORD file"
 msgstr "RECORD ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:112
+#: ../source/specifications/recording-installed-packages.rst:96
 msgid ""
 "The ``RECORD`` file holds the list of installed files. It is a CSV file "
 "containing one record (line) per installed file."
@@ -20175,7 +20263,7 @@ msgstr ""
 "``RECORD`` ファイルには、インストールされたファイル群を列挙します。CSV ファイ"
 "ルで、インストールされたファイルを１行に一つずつ書き込みます。"
 
-#: ../source/specifications/recording-installed-packages.rst:115
+#: ../source/specifications/recording-installed-packages.rst:99
 msgid ""
 "The CSV dialect must be readable with the default ``reader`` of Python's "
 "``csv`` module:"
@@ -20183,19 +20271,19 @@ msgstr ""
 "CSV の亜種としては、 Python の ``csv`` モジュールの ``reader`` で読めるもので"
 "なければなりません:"
 
-#: ../source/specifications/recording-installed-packages.rst:118
+#: ../source/specifications/recording-installed-packages.rst:102
 msgid "field delimiter: ``,`` (comma),"
 msgstr "フィールド区切り文字: ``,`` (コンマ)、"
 
-#: ../source/specifications/recording-installed-packages.rst:119
+#: ../source/specifications/recording-installed-packages.rst:103
 msgid "quoting char: ``\"`` (straight double quote),"
 msgstr "引用符: ``\"`` (ストレートダブルクォート)、"
 
-#: ../source/specifications/recording-installed-packages.rst:120
+#: ../source/specifications/recording-installed-packages.rst:104
 msgid "line terminator: either ``\\r\\n`` or ``\\n``."
 msgstr "行末文字: ``\\r\\n`` か ``\\n`` のいずれか一方。"
 
-#: ../source/specifications/recording-installed-packages.rst:122
+#: ../source/specifications/recording-installed-packages.rst:106
 msgid ""
 "Each record is composed of three elements: the file's **path**, the **hash** "
 "of the contents, and its **size**."
@@ -20203,7 +20291,7 @@ msgstr ""
 "各レコードは３個の要素から構成されます: ファイルの **パス** 、内容の **ハッ"
 "シュ値** 、そして、その **サイズ** です。"
 
-#: ../source/specifications/recording-installed-packages.rst:125
+#: ../source/specifications/recording-installed-packages.rst:109
 msgid ""
 "The *path* may be either absolute, or relative to the directory containing "
 "the ``.dist-info`` directory (commonly, the ``site-packages`` directory). On "
@@ -20215,7 +20303,7 @@ msgstr ""
 "Windows では、ディレクトリはスラッシュで区切ってもバックスラッシュで区切って"
 "も構いません (``/`` または ``\\``) 。"
 
-#: ../source/specifications/recording-installed-packages.rst:130
+#: ../source/specifications/recording-installed-packages.rst:114
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from "
 "``hashlib.algorithms_guaranteed``, followed by the equals character ``=`` "
@@ -20228,7 +20316,7 @@ msgstr ""
 "urlsafe_b64encode(digest)`` の結果から末尾の ``=`` を取り除いたもの) で記した"
 "ものです。"
 
-#: ../source/specifications/recording-installed-packages.rst:135
+#: ../source/specifications/recording-installed-packages.rst:119
 msgid ""
 "The *size* is either the empty string, or file's size in bytes, as a base 10 "
 "integer."
@@ -20236,7 +20324,7 @@ msgstr ""
 "*size* は、空文字列か、または、ファイルサイズを 10 進数のバイト数で書いたもの"
 "です。"
 
-#: ../source/specifications/recording-installed-packages.rst:138
+#: ../source/specifications/recording-installed-packages.rst:122
 msgid ""
 "For any file, either or both of the *hash* and *size* fields may be left "
 "empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself "
@@ -20250,7 +20338,7 @@ msgstr ""
 "なっています。その他のファイルについては、インストールされたプロジェクトに関"
 "する完全性を検証するために情報を与えておくことが推奨されています。"
 
-#: ../source/specifications/recording-installed-packages.rst:144
+#: ../source/specifications/recording-installed-packages.rst:128
 msgid ""
 "If the ``RECORD`` file is present, it must list all installed files of the "
 "project, except ``.pyc`` files corresponding to ``.py`` files listed in "
@@ -20265,7 +20353,7 @@ msgstr ""
 "ル自身を含む) については、書いておかなければなりません。ディレクトリについて"
 "は記入してはなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:151
+#: ../source/specifications/recording-installed-packages.rst:135
 msgid ""
 "To completely uninstall a package, a tool needs to remove all files listed "
 "in ``RECORD``, all ``.pyc`` files (of all optimization levels) corresponding "
@@ -20276,11 +20364,11 @@ msgstr ""
 "``.pyc`` ファイルと、アンインストールによって空になったすべてのディレクトリを"
 "削除する必要があります。"
 
-#: ../source/specifications/recording-installed-packages.rst:156
+#: ../source/specifications/recording-installed-packages.rst:140
 msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr "ありうる ``RECORD`` ファイルの一部を切り出した例をここに掲げます::"
 
-#: ../source/specifications/recording-installed-packages.rst:175
+#: ../source/specifications/recording-installed-packages.rst:159
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
 "not attempt to uninstall or upgrade the package. (This restriction does not "
@@ -20292,7 +20380,7 @@ msgstr ""
 "トロにおけるシステムのパッケージ管理機構のような、それ以外の情報源に依存する"
 "ツールには適用されません。)"
 
-#: ../source/specifications/recording-installed-packages.rst:182
+#: ../source/specifications/recording-installed-packages.rst:166
 msgid ""
 "It is *strongly discouraged* for an installed package to modify itself (e."
 "g., store cache files under its namespace in ``site-packages``). Changes "
@@ -20302,11 +20390,11 @@ msgid ""
 "unlisted files in place (possibly resulting in a zombie namespace package)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:191
+#: ../source/specifications/recording-installed-packages.rst:175
 msgid "The INSTALLER file"
 msgstr "INSTALLER ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:193
+#: ../source/specifications/recording-installed-packages.rst:177
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -20318,16 +20406,16 @@ msgstr ""
 "動されるなら、 ``INSTALLER`` はそのコマンドの名前を含んでいるべきです。そうで"
 "なければ印刷可能な ASCII 文字を含んでいるべきです。"
 
-#: ../source/specifications/recording-installed-packages.rst:199
+#: ../source/specifications/recording-installed-packages.rst:183
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 "ファイルは、0個またはそれ以上の ASCII 空白文字で終端することができます。"
 
-#: ../source/specifications/recording-installed-packages.rst:201
+#: ../source/specifications/recording-installed-packages.rst:185
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr "``INSTALLER`` ファイルについて、二つの可能な例を示します::"
 
-#: ../source/specifications/recording-installed-packages.rst:209
+#: ../source/specifications/recording-installed-packages.rst:193
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -20339,11 +20427,11 @@ msgstr ""
 "場合には、そのツールは ``INSTALLER`` ファイルに書いてある (別の) ツールを使え"
 "ばアンインストールができるかもしれないと示唆しても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:216
+#: ../source/specifications/recording-installed-packages.rst:200
 msgid "The entry_points.txt file"
 msgstr "entry_points.txt ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:218
+#: ../source/specifications/recording-installed-packages.rst:202
 msgid ""
 "This file MAY be created by installers to indicate when packages contain "
 "components intended for discovery and use by other code, including console "
@@ -20355,15 +20443,15 @@ msgstr ""
 "りすることを意図したコンポーネントを当該パッケージが含んでいる場合には、イン"
 "ストーラがその由を表示するためにこのファイルを作っても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:223
+#: ../source/specifications/recording-installed-packages.rst:207
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr "その詳細な仕様は :ref:`entry-points` にあります。"
 
-#: ../source/specifications/recording-installed-packages.rst:227
+#: ../source/specifications/recording-installed-packages.rst:211
 msgid "The direct_url.json file"
 msgstr "direct_url.json ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:229
+#: ../source/specifications/recording-installed-packages.rst:213
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
@@ -20371,15 +20459,15 @@ msgstr ""
 "このファイルは、要求事項が指定するダイレクト URL (VCS の URL を含む) から配布"
 "物をインストールする際に、インストーラによって生成されなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:235
+#: ../source/specifications/recording-installed-packages.rst:219
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr "その詳細な仕様は :ref:`direct-url` にあります。"
 
-#: ../source/specifications/recording-installed-packages.rst:239
+#: ../source/specifications/recording-installed-packages.rst:223
 msgid "Intentionally preventing changes to installed packages"
 msgstr "インストール済みのパッケージ群への変更を意図的に防ぐ"
 
-#: ../source/specifications/recording-installed-packages.rst:241
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid ""
 "In some cases (such as when needing to manage external dependencies in "
 "addition to Python ecosystem dependencies), it is desirable for a tool that "
@@ -20393,12 +20481,12 @@ msgstr ""
 "いないことを、もしそんなことをしていればより広範な環境に互換性問題を引き起こ"
 "しかねないので、しっかりと確認することが望ましいです。"
 
-#: ../source/specifications/recording-installed-packages.rst:247
+#: ../source/specifications/recording-installed-packages.rst:231
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr ""
 "これを達成するために、影響を被るツール群は次のような段階を踏むべきです:"
 
-#: ../source/specifications/recording-installed-packages.rst:249
+#: ../source/specifications/recording-installed-packages.rst:233
 msgid ""
 "Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
 "g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
@@ -20411,7 +20499,7 @@ msgstr ""
 "は、パッケージの内容物を他の手段で追跡・管理しているのであればファイルを完全"
 "に除外しておくこと) してください。"
 
-#: ../source/specifications/recording-installed-packages.rst:253
+#: ../source/specifications/recording-installed-packages.rst:237
 msgid ""
 "Write an ``INSTALLER`` file indicating the name of the tool that should be "
 "used to manage the package (this allows ``RECORD``-aware tools to provide "
@@ -20422,7 +20510,7 @@ msgstr ""
 "るツール群が影響を被るパッケージを修正するように言われた時により良いエラー通"
 "知を提供できます)"
 
-#: ../source/specifications/recording-installed-packages.rst:257
+#: ../source/specifications/recording-installed-packages.rst:241
 msgid ""
 "Python runtime providers may also prevent inadvertent modification of "
 "platform provided packages by modifying the default Python package "
@@ -20435,7 +20523,7 @@ msgstr ""
 "別の場所を使うようにすることで、プラットフォームが提供するパッケージ群を意図"
 "せずに修正してしまうことを防いでも構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:262
+#: ../source/specifications/recording-installed-packages.rst:246
 msgid ""
 "In some circumstances, it may be desirable to block even installation of "
 "additional packages via Python-specific tools. For these cases refer to :ref:"
@@ -20445,6 +20533,26 @@ msgstr ""
 "トールさえもブロックすることが望ましいかもしれません。このようなケースについ"
 "ては :ref:`外部から管理される環境 <externally-managed-environments>` を参照し"
 "てください"
+
+#: ../source/specifications/recording-installed-packages.rst:254
+msgid ""
+"June 2009: The original version of this specification was approved through :"
+"pep:`376`.  At the time, it was known as the *Database of Installed Python "
+"Distributions*."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:257
+msgid ""
+"March 2020: The specification of the ``direct_url.json`` file was approved "
+"through :pep:`610`. It is only mentioned on this page; see :ref:`direct-url` "
+"for the full definition."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:260
+msgid ""
+"September 2020: Various amendments and clarifications were approved through :"
+"pep:`627`."
+msgstr ""
 
 #: ../source/specifications/section-distribution-formats.rst:3
 msgid "Package Distribution File Formats"
@@ -20831,28 +20939,36 @@ msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:146
 msgid ""
-"August 2023: Standardized the source distribution archive features (:pep:"
-"`721`)"
+"November 2020: The original version of this specification was approved "
+"through :pep:`643`."
 msgstr ""
-"2023-08: ソースコード配布物のアーカイブの機能について標準化 (: pep:`721`)"
-
-#: ../source/specifications/source-distribution-format.rst:147
-msgid ""
-"September 2022: Standardized the filename of a source distribution (:pep:"
-"`625`)"
-msgstr "2022-09: ソースコード配布物のファイル名について標準化 (:pep:`625`)"
 
 #: ../source/specifications/source-distribution-format.rst:148
-msgid "July 2021: Defined what a source tree is"
+#, fuzzy
+#| msgid "July 2021: Defined what a source tree is"
+msgid "July 2021: Defined what a source tree is."
 msgstr "2021-07: ソースコードツリーとは何であるかを定義"
 
 #: ../source/specifications/source-distribution-format.rst:149
-msgid "November 2020: :pep:`643` converted to this specification"
-msgstr "2020-11: :pep:`643` をこの仕様に変換"
+#, fuzzy
+#| msgid ""
+#| "September 2022: Standardized the filename of a source distribution (:pep:"
+#| "`625`)"
+msgid ""
+"September 2022: The filename of a source distribution was standardized "
+"through :pep:`625`."
+msgstr "2022-09: ソースコード配布物のファイル名について標準化 (:pep:`625`)"
 
-#: ../source/specifications/source-distribution-format.rst:150
-msgid "December 2000: Source distributions standardized in :pep:`643`"
-msgstr "2000-12: ソースコード配布物について :pep:`643` で標準化"
+#: ../source/specifications/source-distribution-format.rst:151
+#, fuzzy
+#| msgid ""
+#| "August 2023: Standardized the source distribution archive features (:pep:"
+#| "`721`)"
+msgid ""
+"August 2023: Source distribution archive features were standardized through :"
+"pep:`721`."
+msgstr ""
+"2023-08: ソースコード配布物のアーカイブの機能について標準化 (: pep:`721`)"
 
 #: ../source/specifications/version-specifiers.rst:7
 #: ../source/specifications/version-specifiers.rst:778
@@ -22487,10 +22603,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:1264
-msgid ""
-"This specification was originally approved as :pep:`440`, addressing several "
-"limitations of the previous attempt at standardized versioning, as described "
-"in :pep:`345` and :pep:`386`."
+msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:6
@@ -22591,6 +22704,10 @@ msgstr ""
 "ケージ実装スキームを ``sysconfig`` 内で提供するアプローチ (例えば Python ラン"
 "タイムにパッチを当てる ``sitecustomize.py``) であればどれでも、それと認識され"
 "て Python 仮想環境として振る舞います。"
+
+#: ../source/specifications/virtual-environments.rst:56
+msgid "May 2012: This specification was approved through :pep:`405`."
+msgstr ""
 
 #: ../source/support.rst:3
 msgid "How to Get Support"
@@ -24343,6 +24460,119 @@ msgid ""
 "the file is empty)."
 msgstr ""
 
+#, fuzzy
+#~| msgid ""
+#~| "The following changes were made based on feedback after its initial "
+#~| "implementation:"
+#~ msgid "The following changes were applied since the initial version:"
+#~ msgstr ""
+#~ "以降の変更は、最初の実装 (ができた) 後に寄せられたフィードバックに基づくも"
+#~ "のです:"
+
+#~ msgid "Summary of changes to PEP 508"
+#~ msgstr "PEP 508 に対する変更の要旨"
+
+#~ msgid ""
+#~ "The following changes were made based on feedback after its initial "
+#~ "implementation:"
+#~ msgstr ""
+#~ "以降の変更は、最初の実装 (ができた) 後に寄せられたフィードバックに基づくも"
+#~ "のです:"
+
+#~ msgid ""
+#~ "March 2020: the ``direct_url.json`` metadata file was originally "
+#~ "specified in :pep:`610` and is formally documented here."
+#~ msgstr ""
+#~ "2020年3月: ``direct_url.json`` メタデータファイルは、当初は :pep:`610` で"
+#~ "仕様を指定されていましたが、ここで正式に文書化されました。"
+
+#~ msgid ""
+#~ "March 2020: this data structure was originally specified as part of the "
+#~ "``direct_url.json`` metadata file in :pep:`610` and is formally "
+#~ "documented here."
+#~ msgstr ""
+#~ "2020年3月: このデータ構造は、当初は :pep:`610` で ``direct_url.json`` メタ"
+#~ "データファイルの一部として仕様を指定されていましたが、ここで正式に文書化さ"
+#~ "れました。"
+
+#~ msgid ""
+#~ "January 2023: Added the ``archive_info.hashes`` key ([discussion](https://"
+#~ "discuss.python.org/t/22299))."
+#~ msgstr ""
+#~ "2023年1月: ``archive_info.hashes`` キーを追加しました ([議論] (https://"
+#~ "discuss.python.org/t/22299)) 。"
+
+#~ msgid ""
+#~ "`September 2015 <https://mail.python.org/pipermail/distutils-sig/2015-"
+#~ "September/026899.html>`_: normalized name was originally specified in :"
+#~ "pep:`503#normalized-names`."
+#~ msgstr ""
+#~ "`2015年9月 <https://mail.python.org/pipermail/distutils-sig/2015-"
+#~ "September/026899.html>`_: 正規化された名称は、元々は :pep:`503#normalized-"
+#~ "names` で仕様化されていました。"
+
+#~ msgid ""
+#~ "`November 2015 <https://mail.python.org/pipermail/distutils-sig/2015-"
+#~ "November/027868.html>`_: valid non-normalized name was originally "
+#~ "specified in :pep:`508#names`."
+#~ msgstr ""
+#~ "`2015年11月 <https://mail.python.org/pipermail/distutils-sig/2015-"
+#~ "November/027868.html>`_: 正当であるが正規化されてはいない名称は、元々は :"
+#~ "pep:`508#names` で仕様化されていました。"
+
+#~ msgid "The following PEPs contributed to this spec:"
+#~ msgstr "この仕様に貢献する PEP 群を以下に示す:"
+
+#~ msgid ":pep:`425`"
+#~ msgstr ":pep:`425`"
+
+#~ msgid ":pep:`513`"
+#~ msgstr ":pep:`513`"
+
+#~ msgid ":pep:`571`"
+#~ msgstr ":pep:`571`"
+
+#~ msgid ":pep:`599`"
+#~ msgstr ":pep:`599`"
+
+#~ msgid ":pep:`600`"
+#~ msgstr ":pep:`600`"
+
+#~ msgid "History and change workflow"
+#~ msgstr "ワークフローの履歴と変更"
+
+#~ msgid ""
+#~ "The metadata described here was first specified in :pep:`376`, and later "
+#~ "amended in :pep:`627` (and other PEPs). It was formerly known as "
+#~ "*Database of Installed Python Distributions*. As with other PyPA "
+#~ "specifications, editorial amendments with no functional impact may be "
+#~ "made through the GitHub pull request workflow. Proposals for functional "
+#~ "changes that would require amendments to package building and/or "
+#~ "installation tools must be made through the PEP process (see :pep:`1`)."
+#~ msgstr ""
+#~ "ここで述べるメタデータは、 :pep:`376` で初めて定義されたもので、後に :pep:"
+#~ "`627` (およびその他の PEP 群) で改訂されました。以前は *インストール済み"
+#~ "の Python 配布物のデータベース* という名前で知られていました。他の PyPA 仕"
+#~ "様と同様に、 GitHab の Pull リクエストのワークフローを通じて、機能の面に影"
+#~ "響しない編集上の改訂を行うことが可能です。パッケージの作成やインストール"
+#~ "ツールを修正するであろう機能面での変更提案は、 PEP のプロセス (:pep:`1` を"
+#~ "見てください) を通じて行わなければなりません。"
+
+#~ msgid ""
+#~ "While this document is the normative specification, the PEPs that "
+#~ "introduce changes to it may include additional information such as "
+#~ "rationales and backwards compatibility considerations."
+#~ msgstr ""
+#~ "この説明文書が規範的な仕様書である一方で、その変更を導入するような PEP 群"
+#~ "は、理論的根拠や後方互換性を保つための考慮点のような追加的な情報を含んでい"
+#~ "ても構いません。"
+
+#~ msgid "November 2020: :pep:`643` converted to this specification"
+#~ msgstr "2020-11: :pep:`643` をこの仕様に変換"
+
+#~ msgid "December 2000: Source distributions standardized in :pep:`643`"
+#~ msgstr "2000-12: ソースコード配布物について :pep:`643` で標準化"
+
 #~ msgid ""
 #~ "This is the name of your project, determining how your project is listed "
 #~ "on :term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`508`, valid "
@@ -25968,13 +26198,6 @@ msgstr ""
 
 #~ msgid "Local directory installed in editable mode:"
 #~ msgstr "編集可能モードでインストールされたローカルディレクトリ:"
-
-#~ msgid ""
-#~ "January 2023: Added the ``archive_info.hashes`` key (`discussion <https://"
-#~ "discuss.python.org/t/22299>`__)."
-#~ msgstr ""
-#~ "2023年1月: ``archive_info.hashes`` キーを追加しました (`議論 <https://"
-#~ "discuss.python.org/t/22299>`__) 。"
 
 #~ msgid ""
 #~ "The platform compatibility tagging model used for the ``wheel`` "
