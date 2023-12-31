@@ -74,7 +74,7 @@ Popular :term:`build backends <build backend>` for pure-Python packages include:
   If you use setuptools, please be aware that it contains many deprecated
   features which are currently kept for compatibility, but should not be used.
   For example, do **not** use ``python setup.py`` invocations
-  (cf. :ref:`setup-py-deprecated`), the ``python_requires`` argument to
+  (cf. :ref:`setup-py-deprecated`), the ``setup_requires`` argument to
   ``setup()`` (use the :ref:`[build-system] table
   <pyproject-guide-build-system-table>` of :file:`pyproject.toml` instead), or
   the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
