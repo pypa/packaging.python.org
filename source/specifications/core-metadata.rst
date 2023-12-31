@@ -73,15 +73,11 @@ Name
 
 .. versionadded:: 1.0
 .. versionchanged:: 2.1
-   Added additional restrictions on format from :pep:`508`
+   Added restrictions on format from the :ref:`name format <name-format>`.
 
 The name of the distribution. The name field is the primary identifier for a
-distribution. A valid name consists only of ASCII letters and numbers, period,
-underscore and hyphen. It must start and end with a letter or number.
-Distribution names are limited to those which match the following
-regex (run with ``re.IGNORECASE``)::
-
-    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+distribution. It must conform to the :ref:`name format specification
+<name-format>`.
 
 Example::
 
