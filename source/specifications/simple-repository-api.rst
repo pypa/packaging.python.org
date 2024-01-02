@@ -468,7 +468,7 @@ approaches to take:
 
 Mirror indexes may omit list items for yanked files in their responses to
 clients, or may include list items for yanked files along with their
-yank-status (this status must be present for yanked files).
+yank status (this status must be present for yanked files).
 
 History
 =======
