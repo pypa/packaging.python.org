@@ -62,11 +62,11 @@ for each endpoint [#f2]_:
 
 * `HTML5`_: content-type ``application/vnd.pypi.simple.v1+html``
 
-  * Clients can also request ``application/vnd.pypi.simple.latest+json``
-
-* `JSON`_: content-type ``application/vnd.pypi.simple.v1+html``
-
   * Clients can also request ``application/vnd.pypi.simple.latest+html``
+
+* `JSON`_: content-type ``application/vnd.pypi.simple.v1+json``
+
+  * Clients can also request ``application/vnd.pypi.simple.latest+json``
 
   * ``text/html`` is an alias for this content-type
 
