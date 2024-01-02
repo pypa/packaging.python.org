@@ -9,6 +9,8 @@ The interface for querying available package versions and
 retrieving packages from an index server comes in two forms:
 HTML and JSON.
 
+.. _simple-repository-api-base:
+
 Base HTML API
 =============
 
@@ -22,7 +24,7 @@ the top level URL that all additional URLs are below. The API is named the
           ``https://pypi.org/simple/foo/``.
 
 
-Within a repository, the root URL (``/`` for this PEP which represents the base
+Within a repository, the root URL (``/`` for this spec which represents the base
 URL) **MUST** be a valid HTML5 page with a single anchor element per project in
 the repository. The text of the anchor tag **MUST** be the name of
 the project and the href attribute **MUST** link to the URL for that particular
@@ -84,7 +86,7 @@ In addition to the above, the following constraints are placed on the API:
   GPG signature. Repositories that do this **SHOULD** include it on every link.
 
 * A repository **MAY** include a ``data-requires-python`` attribute on a file
-  link. This exposes the *Requires-Python* metadata field, specified in :pep:`345`,
+  link. This exposes the :ref:`core-metadata-requires-python` metadata field
   for the corresponding release. Where this is present, installer tools
   **SHOULD** ignore the download when installing to a Python version that
   doesn't satisfy the requirement. For example::
@@ -97,7 +99,8 @@ In addition to the above, the following constraints are placed on the API:
 Normalized Names
 ----------------
 
-This PEP references the concept of a "normalized" project name. As per :pep:`426`
+This spec references the concept of a "normalized" project name. As per
+:ref:`the name normalization specification <name-normalization>`
 the only valid characters in a name are the ASCII alphabet, ASCII numbers,
 ``.``, ``-``, and ``_``. The name should be lowercased with all runs of the
 characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character. This
@@ -107,6 +110,8 @@ can be implemented in Python with the ``re`` module::
 
    def normalize(name):
        return re.sub(r"[-_.]+", "-", name).lower()
+
+.. _simple-repository-api-yank:
 
 Adding "Yank" Support to the Simple API
 =======================================
@@ -154,7 +159,8 @@ suggested approaches to take:
    matches a version specifier that "pins" to an exact version using
    either ``==`` (without any modifiers that make it a range, such as
    ``.*``) or ``===``. Matching this version specifier should otherwise
-   be done as per :pep:`440` for things like local versions, zero padding,
+   be done as per :ref:`the version specifiers specification
+   <version-specifiers>` for things like local versions, zero padding,
    etc.
 2. Yanked files are always ignored, unless they are the only file that
    matches what a lock file (such as ``Pipfile.lock`` or ``poetry.lock``)
@@ -183,14 +189,18 @@ Mirrors can generally treat yanked files one of two ways:
 Mirrors **MUST NOT** mirror a yanked file without also mirroring the
 ``data-yanked`` attribute for it.
 
+.. _simple-repository-api-versioning:
+
 Versioning PyPI's Simple API
 ============================
 
-This PEP proposes the inclusion of a meta tag on the responses of every
+This spec proposes the inclusion of a meta tag on the responses of every
 successful request to a simple API page, which contains a name attribute
-of "pypi:repository-version", and a content that is a :pep:`440` compatible
+of "pypi:repository-version", and a content that is a :ref:`version specifiers
+specification <version-specifiers>` compatible
 version number, which is further constrained to ONLY be Major.Minor, and
-none of the additional features supported by :pep:`440`.
+none of the additional features supported by :ref:`the version specifiers
+specification <version-specifiers>`.
 
 This would end up looking like::
 
@@ -205,21 +215,21 @@ When interpreting the repository version:
   compatible change such that existing clients would still be
   expected to be able to meaningfully use the API.
 
-It is left up to the discretion of any future PEPs as to what
+It is left up to the discretion of any future specs as to what
 specifically constitutes a backwards incompatible vs compatible change
 beyond the broad suggestion that existing clients will be able to
 "meaningfully" continue to use the API, and can include adding,
 modifying, or removing existing features.
 
-It is expectation of this PEP that the major version will never be
+It is expectation of this spec that the major version will never be
 incremented, and any future major API evolutions would utilize a
 different mechanism for API evolution. However the major version
 is included to disambiguate with future versions (e.g. a hypothetical
 simple api v2 that lived at /v2/, but which would be confusing if the
 repository-version was set to a version >= 2).
 
-This PEP sets the current API version to "1.0", and expects that
-future PEPs that further evolve the simple API will increment the
+This spec sets the current API version to "1.0", and expects that
+future specs that further evolve the simple API will increment the
 minor version number.
 
 
@@ -239,6 +249,8 @@ When encountering a minor version greater than expected, clients
 Clients **MAY** still continue to use feature detection in order to
 determine what features a repository uses.
 
+.. _simple-repository-api-metadata-file:
+
 Serve Distribution Metadata in the Simple Repository API
 ========================================================
 
@@ -254,7 +266,8 @@ distribution with a ``.metadata`` appended to the distribution's file
 name. For example, the Core Metadata of a distribution served at
 ``/files/distribution-1.0-py3.none.any.whl`` would be located at
 ``/files/distribution-1.0-py3.none.any.whl.metadata``. This is similar
-to how :pep:`503` specifies the GPG signature file's location.
+to how :ref:`the base HTML API specification <simple-repository-api-base>`
+specifies the GPG signature file's location.
 
 The repository **SHOULD** provide the hash of the Core Metadata file
 as the ``data-dist-info-metadata`` attribute's value using the syntax
@@ -276,15 +289,19 @@ current behaviour of downloading the distribution to inspect the
 metadata. This is similar to how prior ``data-`` attribute additions
 expect existing tools to operate.
 
+.. _simple-repository-api-json:
+
 JSON-based Simple API for Python Package Indexes
 ================================================
 
-To enable response parsing with only the standard library, this PEP specifies that
+To enable response parsing with only the standard library, this spec specifies that
 all responses (besides the files themselves, and the HTML responses from
-:pep:`503`) should be serialized using `JSON <https://www.json.org/>`_.
+:ref:`the base HTML API specification <simple-repository-api-base>`) should be
+serialized using `JSON <https://www.json.org/>`_.
 
 To enable zero configuration discovery and to minimize the amount of additional HTTP
-requests, this PEP extends :pep:`503` such that all of the API endpoints (other than the
+requests, this spec extends :ref:`the base HTML API specification
+<simple-repository-api-base>` such that all of the API endpoints (other than the
 files themselves) will utilize HTTP content negotiation to allow client and server to
 select the correct serialization format to serve, i.e. either HTML or JSON.
 
@@ -292,13 +309,16 @@ select the correct serialization format to serve, i.e. either HTML or JSON.
 Versioning
 ----------
 
-Versioning will adhere to :pep:`629` format (``Major.Minor``), which has defined the
-existing HTML responses to be ``1.0``. Since this PEP does not introduce new features
+Versioning will adhere to :ref:`the API versioning specification
+<simple-repository-api-versioning>` format (``Major.Minor``), which has defined the
+existing HTML responses to be ``1.0``. Since this spec does not introduce new features
 into the API, rather it describes a different serialization format for the existing
-features, this PEP does not change the existing ``1.0`` version, and instead just
+features, this spec does not change the existing ``1.0`` version, and instead just
 describes how to serialize that into JSON.
 
-Similar to :pep:`629`, the major version number **MUST** be incremented if any
+Similar to :ref:`the API versioning specification
+<simple-repository-api-versioning>`, the major version number **MUST** be
+incremented if any
 changes to the new format would result in no longer being able to expect existing
 clients to meaningfully understand the format.
 
@@ -310,7 +330,7 @@ Changes that would not result in existing clients being unable to meaningfully
 understand the format and which do not represent features being added or removed
 may occur without changing the version number.
 
-This is intentionally vague, as this PEP believes it is best left up to future PEPs
+This is intentionally vague, as this spec believes it is best left up to future specs
 that make any changes to the API to investigate and decide whether or not that
 change should increment the major or minor version.
 
@@ -320,7 +340,7 @@ within a major version, **SHOULD** be kept in sync, but the specifics of how a
 feature serializes into each format may differ, including whether or not that feature
 is present at all.
 
-It is the intent of this PEP that the API should be thought of as URL endpoints that
+It is the intent of this spec that the API should be thought of as URL endpoints that
 return data, whose interpretation is defined by the version of that data, and then
 serialized into the target serialization format.
 
@@ -330,11 +350,12 @@ serialized into the target serialization format.
 JSON Serialization
 ------------------
 
-The URL structure from :pep:`503` still applies, as this PEP only adds an additional
+The URL structure from :ref:`the base HTML API specification
+<simple-repository-api-base>` still applies, as this spec only adds an additional
 serialization format for the already existing API.
 
 The following constraints apply to all JSON serialized responses described in this
-PEP:
+spec:
 
 * All JSON responses will *always* be a JSON object rather than an array or other
   type.
@@ -351,16 +372,19 @@ PEP:
   the response itself, rather than the content of the response.
 
 * All JSON responses will have a ``meta.api-version`` key, which will be a string that
-  contains the :pep:`629` ``Major.Minor`` version number, with the same fail/warn
-  semantics as defined in :pep:`629`.
+  contains the :ref:`API versioning specification
+  <simple-repository-api-versioning>` ``Major.Minor`` version number, with the
+  same fail/warn semantics as defined in :ref:`the API versioning specification
+  <simple-repository-api-versioning>`.
 
-* All requirements of :pep:`503` that are not HTML specific still apply.
+* All requirements of :ref:`the base HTML API specification
+  <simple-repository-api-base>` that are not HTML specific still apply.
 
 
 Project List
 ~~~~~~~~~~~~
 
-The root URL ``/`` for this PEP (which represents the base URL) will be a JSON encoded
+The root URL ``/`` for this spec (which represents the base URL) will be a JSON encoded
 dictionary which has a two keys:
 
 - ``projects``: An array where each entry is a dictionary with a single key, ``name``, which represents string of the project name.
@@ -383,9 +407,10 @@ As an example:
 
 .. note::
 
-  The ``name`` field is the same as the one from :pep:`503`, which does not specify
+  The ``name`` field is the same as the one from :ref:`the base HTML API
+  specification <simple-repository-api-base>`, which does not specify
   whether it is the non-normalized display name or the normalized name. In practice
-  different implementations of these PEPs are choosing differently here, so relying
+  different implementations of these specs are choosing differently here, so relying
   on it being either non-normalized or normalized is relying on an implementation
   detail of the repository in question.
 
@@ -393,7 +418,8 @@ As an example:
 .. note::
 
   While the ``projects`` key is an array, and thus is required to be in some kind
-  of an order, neither :pep:`503` nor this PEP requires any specific ordering nor
+  of an order, neither :ref:`the base HTML API specification
+  <simple-repository-api-base>` nor this spec requires any specific ordering nor
   that the ordering is consistent from one request to the next. Mentally this is
   best thought of as a set, but both JSON and HTML lack the functionality to have
   sets.
@@ -403,7 +429,8 @@ Project Detail
 ~~~~~~~~~~~~~~
 
 The format of this URL is ``/<project>/`` where the ``<project>`` is replaced by the
-:pep:`503` normalized name for that project, so a project named "Silly_Walk" would
+:ref:`the base HTML API specification <simple-repository-api-base>` normalized
+name for that project, so a project named "Silly_Walk" would
 have a URL like ``/silly-walk/``.
 
 This URL must respond with a JSON encoded dictionary that has three keys:
@@ -430,17 +457,21 @@ Each individual file dictionary has the following keys:
   be passed to ``hashlib.new()`` and do not require additional parameters) can
   be used as a key for the hashes dictionary. At least one secure algorithm from
   ``hashlib.algorithms_guaranteed`` **SHOULD** always be included. At the time
-  of this PEP, ``sha256`` specifically is recommended.
-- ``requires-python``: An **optional** key that exposes the *Requires-Python*
-  metadata field, specified in :pep:`345`. Where this is present, installer tools
+  of this spec, ``sha256`` specifically is recommended.
+- ``requires-python``: An **optional** key that exposes the
+  :ref:`core-metadata-requires-python`
+  metadata field. Where this is present, installer tools
   **SHOULD** ignore the download when installing to a Python version that
   doesn't satisfy the requirement.
 
-  Unlike ``data-requires-python`` in :pep:`503`, the ``requires-python`` key does not
+  Unlike ``data-requires-python`` in :ref:`the base HTML API specification
+  <simple-repository-api-base>`, the ``requires-python`` key does not
   require any special escaping other than anything JSON does naturally.
 - ``dist-info-metadata``: An **optional** key that indicates
   that metadata for this file is available, via the same location as specified in
-  :pep:`658` (``{file_url}.metadata``). Where this is present, it **MUST** be
+  :ref:`the API metadata file specification
+  <simple-repository-api-metadata-file>` (``{file_url}.metadata``). Where this
+  is present, it **MUST** be
   either a boolean to indicate if the file has an associated metadata file, or a
   dictionary mapping hash names to a hex encoded digest of the metadata's hash.
 
@@ -456,13 +487,15 @@ Each individual file dictionary has the following keys:
   possible.
 - ``gpg-sig``: An **optional** key that acts a boolean to indicate if the file has
   an associated GPG signature or not. The URL for the signature file follows what
-  is specified in :pep:`503` (``{file_url}.asc``). If this key does not exist, then
+  is specified in :ref:`the base HTML API specification
+  <simple-repository-api-base>` (``{file_url}.asc``). If this key does not exist, then
   the signature may or may not exist.
 - ``yanked``: An **optional** key which may be either a boolean to indicate if the
   file has been yanked, or a non empty, but otherwise arbitrary, string to indicate
   that a file has been yanked with a specific reason. If the ``yanked`` key is present
   and is a truthy value, then it **SHOULD** be interpreted as indicating that the
-  file pointed to by the ``url`` field has been "Yanked" as per :pep:`592`.
+  file pointed to by the ``url`` field has been "Yanked" as per :ref:`the API
+  yank specification <simple-repository-api-yank>`.
 
 As an example:
 
@@ -495,7 +528,8 @@ As an example:
 .. note::
 
   While the ``files`` key is an array, and thus is required to be in some kind
-  of an order, neither :pep:`503` nor this PEP requires any specific ordering nor
+  of an order, neither :ref:`the base HTML API specification
+  <simple-repository-api-base>` nor this spec requires any specific ordering nor
   that the ordering is consistent from one request to the next. Mentally this is
   best thought of as a set, but both JSON and HTML lack the functionality to have
   sets.
@@ -504,7 +538,7 @@ As an example:
 Content-Types
 -------------
 
-This PEP proposes that all responses from the Simple API will have a standard
+This spec proposes that all responses from the Simple API will have a standard
 content type that describes what the response is (a Simple API response), what
 version of the API it represents, and what serialization format has been used.
 
@@ -529,8 +563,9 @@ whose purpose is to allow clients to request the absolute latest version, withou
 having to know ahead of time what that version is. It is recommended however,
 that clients be explicit about what versions they support.
 
-To support existing clients which expect the existing :pep:`503` API responses to
-use the ``text/html`` content type, this PEP further defines ``text/html`` as an alias
+To support existing clients which expect the existing :ref:`the base HTML API
+specification <simple-repository-api-base>` API responses to
+use the ``text/html`` content type, this spec further defines ``text/html`` as an alias
 for the ``application/vnd.pypi.simple.v1+html`` content type.
 
 
@@ -542,10 +577,10 @@ clients to indicate what serialization formats they're able to understand. In
 addition, it would be beneficial if any possible new major version to the API can
 be added without disrupting existing clients expecting the previous API version.
 
-To enable this, this PEP standardizes on the use of HTTP's
+To enable this, this spec standardizes on the use of HTTP's
 `Server-Driven Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation>`_.
 
-While this PEP won't fully describe the entirety of server-driven content
+While this spec won't fully describe the entirety of server-driven content
 negotiation, the flow is roughly:
 
 1. The client makes an HTTP request containing an ``Accept`` header listing all
@@ -567,19 +602,19 @@ negotiation, the flow is roughly:
 4. The client interprets the response, handling the different types of responses
    that the server may have responded with.
 
-This PEP does not specify which choices the server makes in regards to handling
+This spec does not specify which choices the server makes in regards to handling
 a content type that it isn't able to return, and clients **SHOULD** be prepared
 to handle all of the possible responses in whatever way makes the most sense for
 that client.
 
 However, as there is no standard format for how a ``300 Multiple Choices``
-response can be interpreted, this PEP highly discourages servers from utilizing
+response can be interpreted, this spec highly discourages servers from utilizing
 that option, as clients will have no way to understand and select a different
 content-type to request. In addition, it's unlikely that the client *could*
 understand a different content type anyways, so at best this response would
 likely just be treated the same as a ``406 Not Acceptable`` error.
 
-This PEP **does** require that if the meta version ``latest`` is being used, the
+This spec **does** require that if the meta version ``latest`` is being used, the
 server **MUST** respond with the content type for the actual version that is
 contained in the response
 (i.e. A ``Accept: application/vnd.pypi.simple.latest+json`` request that returns
@@ -616,7 +651,7 @@ the content types they've asked for, regardless of their requested priority, and
 it may even return a content type that they did **not** ask for.
 
 To aid clients in determining the content type of the response that they have
-received from an API request, this PEP requires that servers always include a
+received from an API request, this spec requires that servers always include a
 ``Content-Type`` header indicating the content type of the response. This is
 technically a backwards incompatible change, however in practice
 `pip has been enforcing this requirement <https://github.com/pypa/pip/blob/cf3696a81b341925f82f20cb527e656176987565/src/pip/_internal/index/collector.py#L123-L150>`_
@@ -684,7 +719,7 @@ Alternative Negotiation Mechanisms
 While using HTTP's Content negotiation is considered the standard way for a client
 and server to coordinate to ensure that the client is getting an HTTP response that
 it is able to understand, there are situations where that mechanism may not be
-sufficient. For those cases this PEP has alternative negotiation mechanisms that
+sufficient. For those cases this spec has alternative negotiation mechanisms that
 may *optionally* be used instead.
 
 
@@ -760,7 +795,7 @@ can hold true for other aspects of the actual HTTP request, such as the ``Accept
 header.
 
 Ultimately figuring out how to map a directory to a filename is out of scope for this
-PEP (but it would be in scope for :pep:`458`), and this PEP defers making a decision
+spec (but it would be in scope for :pep:`458`), and this spec defers making a decision
 about how exactly to represent this inside of :pep:`458` metadata.
 
 However, it appears that the current WIP branch against pip that attempts to implement
@@ -780,8 +815,8 @@ explicitly declared versions should be supported.
 Recommendations
 ---------------
 
-This section is non-normative, and represents what the PEP authors believe to be
-the best default implementation decisions for something implementing this PEP, but
+This section is non-normative, and represents what the spec authors believe to be
+the best default implementation decisions for something implementing this spec, but
 it does **not** represent any sort of requirement to match these decisions.
 
 These decisions have been chosen to maximize the number of requests that can be
@@ -791,7 +826,7 @@ guardrails that attempt to push clients into making the best choices it can.
 
 It is recommended that servers:
 
-- Support all 3 content types described in this PEP, using server-driven
+- Support all 3 content types described in this spec, using server-driven
   content negotiation, for as long as they reasonably can, or at least as
   long as they're receiving non trivial traffic that uses the HTML responses.
 
@@ -811,7 +846,7 @@ It is recommended that servers:
 
 It is recommended that clients:
 
-- Support all 3 content types described in this PEP, using server-driven
+- Support all 3 content types described in this spec, using server-driven
   content negotiation, for as long as they reasonably can.
 
 - When constructing an ``Accept`` header, include all of the content types
@@ -854,7 +889,8 @@ Versions
 --------
 
 An additional key, ``versions`` MUST be present at the top level, in addition to
-the keys ``name``, ``files`` and ``meta`` defined in :pep:`691`. This key MUST
+the keys ``name``, ``files`` and ``meta`` defined in :ref:`the JSON API
+specification <simple-repository-api-json>`. This key MUST
 contain a list of version strings specifying all of the project versions uploaded
 for this project. The value is logically a set, and as such may not contain
 duplicates, and the order of the values is not significant.
@@ -865,9 +901,10 @@ no associated files (to represent versions with no files uploaded, if the server
 has such a concept).
 
 Note that because servers may hold "legacy" data from before the adoption of
-:pep:`440`, version strings currently cannot be required to be valid :pep:`440`
-versions, and therefore cannot be assumed to be orderable using the :pep:`440`
-rules. However, servers SHOULD use normalised :pep:`440` versions where
+:ref:`the version specifiers specification (VSS) <version-specifiers>`, version
+strings currently cannot be required to be valid VSS versions, and therefore
+cannot be assumed to be orderable using the VSS rules. However, servers SHOULD
+use normalised VSS versions where
 possible.
 
 
@@ -899,11 +936,15 @@ and "**OPTIONAL**"" in this document are to be interpreted as described in
 Servers
 -------
 
-The :pep:`658` metadata, when used in the HTML representation of the Simple API,
+The :ref:`the API metadata file specification
+<simple-repository-api-metadata-file>` metadata, when used in the HTML
+representation of the Simple API,
 **MUST** be emitted using the attribute name ``data-core-metadata``, with the
 supported values remaining the same.
 
-The :pep:`658` metadata, when used in the :pep:`691` JSON representation of the
+The :ref:`the API metadata file specification
+<simple-repository-api-metadata-file>` metadata, when used in the :ref:`the
+JSON API specification <simple-repository-api-base>` JSON representation of the
 Simple API, **MUST** be emitted using the key ``core-metadata``, with the
 supported values remaining the same.
 
@@ -917,12 +958,16 @@ Clients
 -------
 
 Clients consuming any of the HTML representations of the Simple API **MUST**
-read the :pep:`658` metadata from the key ``data-core-metadata`` if it is
+read the :ref:`the API metadata file specification
+<simple-repository-api-metadata-file>` metadata from the key
+``data-core-metadata`` if it is
 present. They **MAY** optionally use the legacy ``data-dist-info-metadata`` if
 it is present but ``data-core-metadata`` is not.
 
 Clients consuming the JSON representation of the Simple API **MUST** read the
-:pep:`658` metadata from the key ``core-metadata`` if it is present. They
+:ref:`the API metadata file specification
+<simple-repository-api-metadata-file>` metadata from the key ``core-metadata``
+if it is present. They
 **MAY** optionally use the legacy ``dist-info-metadata`` key if it is present
 but ``core-metadata`` is not.
 
