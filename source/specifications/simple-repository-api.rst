@@ -258,9 +258,9 @@ API file-related features:
 * Files may be marked as :ref:`yanked <simple-repository-api-yanked>`.
 
 * The file's :ref:`Core Metadata <core-metadata>` must be provided if its
-  existence is indicated. In addition, the file must contain this metadata
-  which will not be modified when the distribution is processed and/or
-  installed.
+  existence is indicated (by one of the representation-specific mechanisms
+  described below). In addition, the file must contain this metadata which will
+  not be modified when the distribution is processed and/or installed.
 
   The metadata must be accessed at the same URL as the file but with
   ``.metadata`` appended. For example, the file at
