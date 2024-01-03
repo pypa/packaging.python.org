@@ -79,6 +79,8 @@ in alphabetical order:
   through plugins.
 
 - :ref:`setuptools` (which used to be the only build backend). It can be configured
+  using modern standards like `pyproject.toml`, but can also be extended
+  and supports customisation via `setup.py`.
   programmatically through the :file:`setup.py` file (but for basic metadata,
   :file:`pyproject.toml` is preferred).
 
@@ -95,11 +97,13 @@ the standard library in Python 3.12, although it still remains available from
 setuptools.
 
 For packages with :term:`extension modules <extension module>`, you may use
-setuptools. However, you can also use a build system with dedicated support for
-the language the extension is written in. For example, you could choose Meson or
-CMake for C, C++, Fortran and many other compiled languages; or Cargo for Rust
-specifically. You can then bridge this build system to Python using a dedicated
-build backend:
+a build system with dedicated support for the language the extension is written in,
+for example:
+
+- :ref:`setuptools` - natively supports C/C++ (with 3rd-party plugins for Go and Rust);
+- :ref:`meson-python` - C, C++, Fortran, and Rust and other languages supported by Meson;
+- :ref:`scikit-build-core` - C, C++, Fortran and other languages supported by CMake;
+- :ref:`maturin` - Rust, via Cargo.
 
 - :ref:`meson-python` for Meson,
 
