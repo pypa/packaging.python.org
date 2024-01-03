@@ -67,7 +67,7 @@ jobs:
       run: python -m pip install --upgrade nox virtualenv sphinx-lint
 
     - name: Set Sphinx problem matcher
-      uses: sphinx-doc/github-problem-matcher@master
+      uses: sphinx-doc/github-problem-matcher@v1.0
 
     - name: Build translated docs in ${{ matrix.language }}
       run: nox -s build -- -q -D language=${{ matrix.language }}
