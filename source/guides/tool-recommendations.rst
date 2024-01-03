@@ -137,7 +137,7 @@ Task runners
 These tools allow you to define and invoke "tasks", such as running tests,
 compiling documentation, regenerating some files, etc. Each task can be executed
 in a dedicated virtual environment with the dependencies it requires. The most
-common tools for this are :ref:`tox` and :ref:`nox`.
+common tools for this are tox_ and nox_.
 
 
 Integrated workflow tools
@@ -158,5 +158,7 @@ order:
 
 .. _flit-core: https://pypi.org/project/flit-core/
 .. _hatchling: https://pypi.org/project/hatchling/
+.. _nox: https://nox.thea.codes
 .. _pdm-backend: https://backend.pdm-project.org
 .. _poetry-core: https://pypi.org/project/poetry-core/
+.. _tox: https://tox.wiki
