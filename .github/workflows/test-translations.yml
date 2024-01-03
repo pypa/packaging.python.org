@@ -72,7 +72,10 @@ jobs:
     - name: Build translated docs in ${{ matrix.language }}
       run: nox -s build -- -q -D language=${{ matrix.language }}
 
+    - name: Set Sphinx Lint problem matcher
+      if: always()
+      run: echo '::add-matcher::.github/sphinx_lint_matcher.json'
+
     - name: Lint translation file
-      run: |
-        echo '::add-matcher::.github/sphinx_lint_matcher.json'
-        sphinx-lint locales/${{ matrix.language }}/LC_MESSAGES/messages.po
+      if: always()
+      run: sphinx-lint locales/${{ matrix.language }}/LC_MESSAGES/messages.po
