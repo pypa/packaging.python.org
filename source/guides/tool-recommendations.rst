@@ -78,11 +78,10 @@ in alphabetical order:
 - Poetry-core_ (developed with but separate from :ref:`Poetry`). It is extensible
   through plugins.
 
-- :ref:`setuptools` (which used to be the only build backend). It can be configured
-  using modern standards like `pyproject.toml`, but can also be extended
-  and supports customisation via `setup.py`.
-  programmatically through the :file:`setup.py` file (but for basic metadata,
-  :file:`pyproject.toml` is preferred).
+- :ref:`setuptools` (which used to be the only build backend). It can be
+  configured using modern standards like the :ref:`[project] table in
+  pyproject.toml <writing-pyproject-toml>`, but can also be extended and
+  customized via :file:`setup.py`.
 
   If you use setuptools, please be aware that it contains many deprecated
   features which are currently kept for compatibility, but should not be used.
@@ -100,16 +99,10 @@ For packages with :term:`extension modules <extension module>`, you may use
 a build system with dedicated support for the language the extension is written in,
 for example:
 
-- :ref:`setuptools` - natively supports C/C++ (with 3rd-party plugins for Go and Rust);
-- :ref:`meson-python` - C, C++, Fortran, and Rust and other languages supported by Meson;
-- :ref:`scikit-build-core` - C, C++, Fortran and other languages supported by CMake;
-- :ref:`maturin` - Rust, via Cargo.
-
-- :ref:`meson-python` for Meson,
-
-- :ref:`scikit-build-core` for CMake,
-
-- :ref:`maturin` for Cargo.
+- :ref:`setuptools` -- natively supports C and C++ (with third-party plugins for Go and Rust),
+- :ref:`meson-python` -- C, C++, Fortran, Rust, and other languages supported by Meson,
+- :ref:`scikit-build-core` -- C, C++, Fortran, and other languages supported by CMake,
+- :ref:`maturin` -- Rust, via Cargo.
 
 
 Building distributions
