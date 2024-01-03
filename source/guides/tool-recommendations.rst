@@ -131,6 +131,15 @@ The standard tool for this task is :ref:`twine`.
 :ref:`deprecated <setup-py-deprecated>`, it is insecure.
 
 
+Task runners
+============
+
+These tools allow you to define and invoke "tasks", such as running tests,
+compiling documentation, regenerating some files, etc. Each task can be executed
+in a dedicated virtual environment with the dependencies it requires. The most
+common tools for this are :ref:`tox` and :ref:`nox`.
+
+
 Integrated workflow tools
 =========================
 
