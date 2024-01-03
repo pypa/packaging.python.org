@@ -6,10 +6,10 @@ Tool recommendations
 
 The Python packaging landscape consists of many different tools. For many tasks,
 the :term:`Python Packaging Authority <Python Packaging Authority (PyPA)>`
-(PyPA, the umbrella organization which encompasses many packaging tools and
+(PyPA, the working group which encompasses many packaging tools and
 maintains this guide) purposefully does not make a blanket recommendation; for
-example, the reason there exist many build backends is that the landscape was
-opened in order to enable the development of new backends serving certain users'
+example, the reason there are many build backends is that the landscape was
+opened up in order to enable the development of new backends serving certain users'
 needs better than the previously unique backend, setuptools. This guide does
 point to some tools that are widely recognized, and also makes some
 recommendations of tools that you should *not* use because they are deprecated
@@ -31,14 +31,15 @@ Installing packages
 Package Index (PyPI)>`. It can install into the global environment or into
 virtual environments. You may want to read pip's recommendations for
 :doc:`secure installs <pip:topics/secure-installs>`. Pip is available by default
-in most Python installations.
+in most Python installations through the standard library package
+:doc:`ensurepip <python:library/ensurepip>`.
 
-Alternatively, for installing Python command line applications specifically,
-consider :ref:`pipx`, which is a wrapper around pip that installs each
+Alternatively, consider :ref:`pipx` for the specific use case of installing Python
+command line applications that are distributed through PyPI.
+Pipx is a wrapper around pip and venv that installs each
 application into a dedicated virtual environment. This avoids conflicts between
-the dependencies of different applications. On Linux, pipx is especially
-important because it also avoids conflicts with the system (which are the reason
-for :ref:`externally managed environments <externally-managed-environments>`).
+the dependencies of different applications, and also with the system
+(especially on Linux).
 
 For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
@@ -64,10 +65,10 @@ Build backends
 
 Popular :term:`build backends <build backend>` for pure-Python packages include:
 
-- Hatchling, which is part of :ref:`Hatch` (but can be used without
-  Hatch as well). Hatchling is extensible through a plugin system.
+- Hatchling_, which is developed along with :ref:`Hatch`, but is separate and can
+  be used without Hatch. Hatchling is extensible through a plugin system.
 
-- :ref:`setuptools`, the historical build backend. It can be configured
+- :ref:`setuptools` (which used to be the only build backend). It can be configured
   programmatically through the :file:`setup.py` file (but for basic metadata,
   :file:`pyproject.toml` is preferred).
 
@@ -79,13 +80,13 @@ Popular :term:`build backends <build backend>` for pure-Python packages include:
   <pyproject-guide-build-system-table>` of :file:`pyproject.toml` instead), or
   the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
 
-- Flit-core, part of :ref:`Flit` (but usable standalone). It is meant to be a
+- Flit-core_ (developed with but separate from :ref:`Flit`). It is meant to be a
   minimal and opinionated build backend. It is not extensible.
 
-- PDM-backend_, part of :ref:`PDM` (but usable standalone). It provides build
+- PDM-backend_ (developed with but separate from :ref:`PDM`). It provides build
   hooks for extensibility.
 
-- Poetry-core, part of :ref:`Poetry` (but usable standalone). It is extensible
+- Poetry-core_ (developed with but separate from :ref:`Poetry`). It is extensible
   through plugins.
 
 Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
@@ -93,9 +94,11 @@ the standard library in Python 3.12, although it still remains available from
 setuptools.
 
 For packages with :term:`extension modules <extension module>`, you may use
-setuptools, but consider using a build system dedicated to the language the
-extension is written in, such as Meson or CMake for C/C++, or Cargo for Rust,
-and bridging this build system to Python using a dedicated build backend:
+setuptools. However, you can also use a build system with dedicated support for
+the language the extension is written in. For example, you could choose Meson or
+CMake for C, C++, Fortran and many other compiled languages; or Cargo for Rust
+specifically. You can then bridge this build system to Python using a dedicated
+build backend:
 
 - :ref:`meson-python` for Meson,
 
@@ -135,13 +138,17 @@ Integrated workflow tools
 
 These are tools that combine many features in one command line application, such
 as automatically managing virtual environments for a project, building
-distributions, uploading to PyPI, or creating and using lock files.
+distributions, uploading to PyPI, or creating and using (tool-specific) lock
+files. They often call the tools mentioned above under the hood.
 
 - :ref:`Hatch`,
 - :ref:`Flit`,
 - :ref:`PDM`,
 - :ref:`Poetry`.
+- :ref:`Pipenv`
 
 
-
+.. _flit-core: https://pypi.org/project/flit-core/
+.. _hatchling: https://pypi.org/project/hatchling/
 .. _pdm-backend: https://backend.pdm-project.org
+.. _poetry-core: https://pypi.org/project/poetry-core/
