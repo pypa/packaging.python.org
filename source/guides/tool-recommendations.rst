@@ -83,8 +83,8 @@ in alphabetical order:
   pyproject.toml <writing-pyproject-toml>`, but can also be extended and
   customized via :file:`setup.py`.
 
-  If you use setuptools, please be aware that it contains many deprecated
-  features which are currently kept for compatibility, but should not be used.
+  If you use setuptools, please be aware that some features that predate
+  standardisation efforts are now deprecated and only *temporarily kept* for compatibility.
   For example, do **not** use ``python setup.py`` invocations
   (cf. :ref:`setup-py-deprecated`), the ``setup_requires`` argument to
   ``setup()`` (use the :ref:`[build-system] table
