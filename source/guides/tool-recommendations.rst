@@ -63,10 +63,20 @@ environment, for reproducibility purposes.
 Build backends
 ==============
 
-Popular :term:`build backends <build backend>` for pure-Python packages include:
+Popular :term:`build backends <build backend>` for pure-Python packages include,
+in alphabetical order:
+
+- Flit-core_ (developed with but separate from :ref:`Flit`). It is meant to be a
+  minimal and opinionated build backend. It is not extensible.
 
 - Hatchling_, which is developed along with :ref:`Hatch`, but is separate and can
   be used without Hatch. Hatchling is extensible through a plugin system.
+
+- PDM-backend_ (developed with but separate from :ref:`PDM`). It provides build
+  hooks for extensibility.
+
+- Poetry-core_ (developed with but separate from :ref:`Poetry`). It is extensible
+  through plugins.
 
 - :ref:`setuptools` (which used to be the only build backend). It can be configured
   programmatically through the :file:`setup.py` file (but for basic metadata,
@@ -79,15 +89,6 @@ Popular :term:`build backends <build backend>` for pure-Python packages include:
   ``setup()`` (use the :ref:`[build-system] table
   <pyproject-guide-build-system-table>` of :file:`pyproject.toml` instead), or
   the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
-
-- Flit-core_ (developed with but separate from :ref:`Flit`). It is meant to be a
-  minimal and opinionated build backend. It is not extensible.
-
-- PDM-backend_ (developed with but separate from :ref:`PDM`). It provides build
-  hooks for extensibility.
-
-- Poetry-core_ (developed with but separate from :ref:`Poetry`). It is extensible
-  through plugins.
 
 Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
 the standard library in Python 3.12, although it still remains available from
@@ -139,13 +140,14 @@ Integrated workflow tools
 These are tools that combine many features in one command line application, such
 as automatically managing virtual environments for a project, building
 distributions, uploading to PyPI, or creating and using (tool-specific) lock
-files. They often call the tools mentioned above under the hood.
+files. They often call the tools mentioned above under the hood. In alphabetical
+order:
 
-- :ref:`Hatch`,
 - :ref:`Flit`,
+- :ref:`Hatch`,
 - :ref:`PDM`,
+- :ref:`Pipenv`,
 - :ref:`Poetry`.
-- :ref:`Pipenv`
 
 
 .. _flit-core: https://pypi.org/project/flit-core/
