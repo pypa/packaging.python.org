@@ -195,20 +195,12 @@ hood, you can always read the sections beyond.
 Service platforms
 *****************
 
-If you're developing for a "Platform-as-a-Service" or "PaaS" like
-Heroku or Google App Engine, you are going to want to follow their
-respective packaging guides.
-
-* `Heroku <https://devcenter.heroku.com/articles/getting-started-with-python>`_
-* `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
-* `PythonAnywhere <https://www.pythonanywhere.com/>`_
-* `OpenShift <https://blog.openshift.com/getting-started-python/>`_
-* "Serverless" frameworks like :gh:`Zappa <zappa/Zappa>`
-
-In all these setups, the platform takes care of packaging and
-deployment, as long as you follow their patterns. Most software does
-not fit one of these templates, hence the existence of all the other
-options below.
+If you're developing for a
+"`Platform-as-a-Service <https://en.wikipedia.org/wiki/Platform_as_a_service>`_"
+or "PaaS", you are going to want to follow their respective packaging
+guides. These types of platforms take care of packaging and deployment,
+as long as you follow their patterns. Most software does not fit one of
+these templates, hence the existence of all the other options below.
 
 If you're developing software that will be deployed to machines you
 own, users' personal computers, or any other arrangement, read on.
