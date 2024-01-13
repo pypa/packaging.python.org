@@ -2,13 +2,6 @@
 Inline script metadata
 ======================
 
-.. warning::
-   This specification has been **provisionally accepted**. It is subject
-   to being changed or abandoned. See the
-   `PEP 723 conditional acceptance thread <pep723-thread_>`_ for details.
-
-.. _pep723-thread: https://discuss.python.org/t/36763
-
 This specification defines a metadata format that can be embedded in single-file
 Python scripts to assist launchers, IDEs and other external tools which may need
 to interact with such scripts.
@@ -73,20 +66,22 @@ In circumstances where there is a discrepancy between the text specification
 and the regular expression, the text specification takes precedence.
 
 Tools MUST NOT read from metadata blocks with types that have not been
-standardized by this PEP or future ones.
+standardized by this specification.
 
-pyproject type
---------------
+script type
+-----------
 
-The first type of metadata block is named ``pyproject`` which represents
-content similar to what one would see in a ``pyproject.toml`` file.
+The first type of metadata block is named ``script`` which contains
+script metadata (dependency data and tool configuration).
 
-This document MAY include the ``[run]`` and ``[tool]`` tables.
+This document MAY include top-level fields ``dependencies`` and ``requires-python``,
+and MAY optionally include a ``[tool]`` table.
 
-The :ref:`tool table <pyproject-tool-table>` MAY be used by any tool,
-script runner or otherwise, to configure behavior.
+The ``[tool]`` MAY be used by any tool, script runner or otherwise, to configure
+behavior. It has the same semantics as the :ref:`[tool] table in pyproject.toml
+<pyproject-tool-table>`
 
-The ``[run]`` table MAY include the following optional fields:
+The top-level fields are:
 
 * ``dependencies``: A list of strings that specifies the runtime dependencies
   of the script. Each entry MUST be a valid
@@ -107,11 +102,11 @@ Script runners SHOULD error if no version of Python that satisfies the specified
 Example
 -------
 
-The following is an example of a script with an embedded ``pyproject.toml``:
+The following is an example of a script with embedded metadata:
 
 .. code:: python
 
-    # /// pyproject
+    # /// script
     # [run]
     # requires-python = ">=3.11"
     # dependencies = [
@@ -127,23 +122,6 @@ The following is an example of a script with an embedded ``pyproject.toml``:
     data = resp.json()
     pprint([(k, v["title"]) for k, v in data.items()][:10])
 
-The following is an example of a proposed syntax for single-file Rust
-projects that embeds their equivalent of ``pyproject.toml``, which is called
-``Cargo.toml``:
-
-.. code:: rust
-
-    #!/usr/bin/env cargo
-
-    //! ```cargo
-    //! [dependencies]
-    //! regex = "1.8.0"
-    //! ```
-
-    fn main() {
-        let re = Regex::new(r"^\d{4}-\d{2}-\d{2}$").unwrap();
-        println!("Did our date match? {}", re.is_match("2014-01-01"));
-    }
 
 Reference Implementation
 ========================
@@ -159,7 +137,7 @@ higher.
    REGEX = r'(?m)^# /// (?P<type>[a-zA-Z0-9-]+)$\s(?P<content>(^#(| .*)$\s)+)^# ///$'
 
    def read(script: str) -> dict | None:
-       name = 'pyproject'
+       name = 'script'
        matches = list(
            filter(lambda m: m.group('type') == name, re.finditer(REGEX, script))
        )
@@ -196,7 +174,7 @@ __ https://tomlkit.readthedocs.io/en/latest/
        )
 
        config = tomlkit.parse(content)
-       config['project']['dependencies'].append(dependency)
+       config['dependencies'].append(dependency)
        new_content = ''.join(
            f'# {line}' if line.strip() else f'#{line}'
            for line in tomlkit.dumps(config).splitlines(keepends=True)
@@ -239,3 +217,7 @@ History
 =======
 
 - October 2023: This specification was conditionally approved through :pep:`723`.
+- January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata
+  block type was renamed to ``script``, and the ``[run]`` table was dropped,
+  making the ``dependencies`` and ``requires-python`` keys
+  top-level. Additionally, the specification is no longer provisional.
