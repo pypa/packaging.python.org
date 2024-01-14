@@ -90,11 +90,6 @@ The top-level fields are:
   the script is compatible. The value of this field MUST be a valid
   :ref:`version specifier <version-specifiers>`.
 
-Any future specifications that define additional fields for the ``[run]`` table
-when used in a ``pyproject.toml`` file MUST include the aforementioned fields
-exactly as specified. The fields defined by this specification are equally as
-applicable to full-fledged projects as they are to single-file scripts.
-
 Script runners MUST error if the specified ``dependencies`` cannot be provided.
 Script runners SHOULD error if no version of Python that satisfies the specified
 ``requires-python`` can be provided.
@@ -107,7 +102,6 @@ The following is an example of a script with embedded metadata:
 .. code:: python
 
     # /// script
-    # [run]
     # requires-python = ">=3.11"
     # dependencies = [
     #   "requests<3",
