@@ -66,36 +66,43 @@ Build backends
 Popular :term:`build backends <build backend>` for pure-Python packages include,
 in alphabetical order:
 
-- Flit-core_ (developed with but separate from :ref:`Flit`). It is meant to be a
-  minimal and opinionated build backend. It is not extensible.
+- Flit-core_ -- developed with but separate from :ref:`Flit`. A minimal and
+  opinionated build backend. It does not support plugins.
 
-- Hatchling_, which is developed along with :ref:`Hatch`, but is separate and can
-  be used without Hatch. Hatchling is extensible through a plugin system.
+- Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports plugins.
 
-- PDM-backend_ (developed with but separate from :ref:`PDM`). It provides build
-  hooks for extensibility.
+- PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports plugins.
 
-- Poetry-core_ (developed with but separate from :ref:`Poetry`). It is extensible
-  through plugins.
+- Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports
+  plugins.
 
-- :ref:`setuptools` (which used to be the only build backend). It can be
-  configured using modern standards like the :ref:`[project] table in
-  pyproject.toml <writing-pyproject-toml>`, but can also be extended and
-  customized via :file:`setup.py`.
+  Unlike other backends on this list, Poetry-core does not support the standard
+  :ref:`[project] table <writing-pyproject-toml>` (it uses a different format,
+  in the ``[tool.poetry]`` table).
+
+- :ref:`setuptools`, which used to be the only build backend. Supports plugins.
 
   If you use setuptools, please be aware that some features that predate
-  standardisation efforts are now deprecated and only *temporarily kept* for compatibility.
-  For example, do **not** use ``python setup.py`` invocations
-  (cf. :ref:`setup-py-deprecated`), the ``setup_requires`` argument to
-  ``setup()`` (use the :ref:`[build-system] table
-  <pyproject-guide-build-system-table>` of :file:`pyproject.toml` instead), or
+  standardisation efforts are now deprecated and only *temporarily kept*
+  for compatibility.
+
+  In particular, do **not** use direct ``python setup.py`` invocations. On the
+  other hand, configuring setuptools with a :file:`setup.py` file is still fully
+  supported, although it is recommended to use the modern :ref:`[project] table
+  in pyproject.toml <writing-pyproject-toml>` whenever possible and keep
+  :file:`setup.py` only if programmatic configuration is needed. See
+  :ref:`setup-py-deprecated`.
+
+  Other examples of deprecated features you should **not** use include the
+  ``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] table
+  <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead), and
   the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
 
 Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
 the standard library in Python 3.12, although it still remains available from
 setuptools.
 
-For packages with :term:`extension modules <extension module>`, you may use
+For packages with :term:`extension modules <extension module>`, it is best to use
 a build system with dedicated support for the language the extension is written in,
 for example:
 
