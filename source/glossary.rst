@@ -67,7 +67,8 @@ Glossary
         :term:`Import Package` (which is also commonly called a "package") or
         another kind of distribution (e.g. a Linux distribution or the Python
         language distribution), which are often referred to with the single term
-        "distribution".
+        "distribution". See :ref:`distribution-package-vs-import-package`
+        for a breakdown of the differences.
 
     Egg
 
@@ -103,7 +104,8 @@ Glossary
         An import package is more commonly referred to with the single word
         "package", but this guide will use the expanded term when more clarity
         is needed to prevent confusion with a :term:`Distribution Package` which
-        is also commonly called a "package".
+        is also commonly called a "package". See :ref:`distribution-package-vs-import-package`
+        for a breakdown of the differences.
 
     Module
 
@@ -207,10 +209,8 @@ Glossary
     Requirement Specifier
 
        A format used by :ref:`pip` to install packages from a :term:`Package
-       Index`. For an EBNF diagram of the format, see the
-       `pkg_resources.Requirement
-       <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_
-       entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
+       Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`.
+       For example, "foo>=1.3" is a
        requirement specifier, where "foo" is the project name, and the ">=1.3"
        portion is the :term:`Version Specifier`
 

@@ -1,13 +1,16 @@
-.. _name-normalization:
+=======================
+Names and normalization
+=======================
 
-==========================
-Package name normalization
-==========================
+This specification defines the format that names for packages and extras are
+required to follow. It also describes how to normalize them, which should be
+done before lookups and comparisons.
 
-Project names are "normalized" for use in various contexts. This document describes how project names should be normalized.
 
-Valid non-normalized names
---------------------------
+.. _name-format:
+
+Name format
+===========
 
 A valid name consists only of ASCII letters and numbers, period,
 underscore and hyphen. It must start and end with a letter or number.
@@ -16,10 +19,15 @@ following regex (run with ``re.IGNORECASE``)::
 
     ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
 
-Normalization
--------------
 
-The name should be lowercased with all runs of the characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character. This can be implemented in Python with the re module:
+.. _name-normalization:
+
+Name normalization
+==================
+
+The name should be lowercased with all runs of the characters ``.``, ``-``, or
+``_`` replaced with a single ``-`` character. This can be implemented in Python
+with the re module:
 
 .. code-block:: python
 
@@ -30,7 +38,7 @@ The name should be lowercased with all runs of the characters ``.``, ``-``, or `
 
 This means that the following names are all equivalent:
 
-* ``friendly-bard``  (normalized form)
+* ``friendly-bard`` (normalized form)
 * ``Friendly-Bard``
 * ``FRIENDLY-BARD``
 * ``friendly.bard``
@@ -41,5 +49,7 @@ This means that the following names are all equivalent:
 History
 =======
 
-- `September 2015 <https://mail.python.org/pipermail/distutils-sig/2015-September/026899.html>`_: normalized name was originally specified in :pep:`503#normalized-names`.
-- `November 2015 <https://mail.python.org/pipermail/distutils-sig/2015-November/027868.html>`_: valid non-normalized name was originally specified in :pep:`508#names`.
+- September 2015: The specification of name normalized was approved through
+  :pep:`503 <503#normalized-names>`.
+- November 2015: The specification of valid names was approved through
+  :pep:`508 <508#names>`.
