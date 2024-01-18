@@ -536,7 +536,7 @@ pex
 
 Pex is a tool for generating :file:`.pex` (Python EXecutable)
 files, standalone Python environments in the spirit of :ref:`virtualenv`.
-PEX files are zipapps as outlined :pep:`441` that
+PEX files are zipapps as outlined in :pep:`441` that
 make deployment of Python applications as simple as ``cp``. A single PEX
 file can support multiple target platforms and can be created from standard
 :ref:`pip`-resolvable requirements, a lockfile generated with ``pex3 lock ...``
