@@ -71,15 +71,15 @@ standardized by this specification.
 script type
 -----------
 
-The first type of metadata block is named ``script`` which contains
+The first type of metadata block is named ``script``, which contains
 script metadata (dependency data and tool configuration).
 
-This document MAY include top-level fields ``dependencies`` and ``requires-python``,
+This document MAY include the top-level fields ``dependencies`` and ``requires-python``,
 and MAY optionally include a ``[tool]`` table.
 
 The ``[tool]`` MAY be used by any tool, script runner or otherwise, to configure
 behavior. It has the same semantics as the :ref:`[tool] table in pyproject.toml
-<pyproject-tool-table>`
+<pyproject-tool-table>`.
 
 The top-level fields are:
 
