@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-19 21:15+0000\n"
+"POT-Creation-Date: 2024-01-21 13:27+0000\n"
 "PO-Revision-Date: 2024-01-09 02:06+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -14713,7 +14713,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
-#: ../source/specifications/inline-script-metadata.rst:239
+#: ../source/specifications/inline-script-metadata.rst:211
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:332
 #: ../source/specifications/pyproject-toml.rst:442
@@ -16035,7 +16035,7 @@ msgstr ""
 #: ../source/specifications/dependency-specifiers.rst:26
 #: ../source/specifications/direct-url-data-structure.rst:19
 #: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/inline-script-metadata.rst:18
+#: ../source/specifications/inline-script-metadata.rst:11
 msgid "Specification"
 msgstr "Спецификация"
 
@@ -18439,17 +18439,7 @@ msgstr ""
 msgid "Inline script metadata"
 msgstr "Встроенные метаданные сценария"
 
-#: ../source/specifications/inline-script-metadata.rst:6
-msgid ""
-"This specification has been **provisionally accepted**. It is subject to "
-"being changed or abandoned. See the `PEP 723 conditional acceptance thread "
-"<pep723-thread_>`_ for details."
-msgstr ""
-"Эта спецификация была **временно принята**. Она может быть изменена или "
-"отменена. Подробности см. в ветке `PEP 723 условное принятие <pep723-"
-"thread_>`_."
-
-#: ../source/specifications/inline-script-metadata.rst:12
+#: ../source/specifications/inline-script-metadata.rst:5
 msgid ""
 "This specification defines a metadata format that can be embedded in single-"
 "file Python scripts to assist launchers, IDEs and other external tools which "
@@ -18460,7 +18450,7 @@ msgstr ""
 "внешним инструментам, которым может понадобиться взаимодействовать с такими "
 "скриптами."
 
-#: ../source/specifications/inline-script-metadata.rst:20
+#: ../source/specifications/inline-script-metadata.rst:13
 msgid ""
 "This specification defines a metadata comment block format (loosely inspired "
 "by `reStructuredText Directives`__)."
@@ -18468,7 +18458,7 @@ msgstr ""
 "Эта спецификация определяет формат блока комментариев метаданных (в "
 "значительной степени вдохновленный `reStructuredText Directives`__)."
 
-#: ../source/specifications/inline-script-metadata.rst:25
+#: ../source/specifications/inline-script-metadata.rst:18
 msgid ""
 "Any Python script may have top-level comment blocks that MUST start with the "
 "line ``# /// TYPE`` where ``TYPE`` determines how to process the content. "
@@ -18486,7 +18476,7 @@ msgstr ""
 "один пробел, а затем три прямые косые черты. ``TYPE`` ДОЛЖЕН состоять только "
 "из букв ASCII, цифр и дефисов."
 
-#: ../source/specifications/inline-script-metadata.rst:33
+#: ../source/specifications/inline-script-metadata.rst:26
 msgid ""
 "Every line between these two lines (``# /// TYPE`` and ``# ///``) MUST be a "
 "comment starting with ``#``. If there are characters after the ``#`` then "
@@ -18502,7 +18492,7 @@ msgstr ""
 "противном случае - только первого символа (что означает, что строка состоит "
 "только из одного ``#``)."
 
-#: ../source/specifications/inline-script-metadata.rst:40
+#: ../source/specifications/inline-script-metadata.rst:33
 msgid ""
 "Precedence for an ending line ``# ///`` is given when the next line is not a "
 "valid embedded content line as described above. For example, the following "
@@ -18512,7 +18502,7 @@ msgstr ""
 "следующая строка не является допустимой строкой встроенного содержимого, как "
 "описано выше. Например, ниже приведен один полностью допустимый блок:"
 
-#: ../source/specifications/inline-script-metadata.rst:56
+#: ../source/specifications/inline-script-metadata.rst:49
 msgid ""
 "A starting line MUST NOT be placed between another starting line and its "
 "ending line. In such cases tools MAY produce an error. Unclosed blocks MUST "
@@ -18522,7 +18512,7 @@ msgstr ""
 "линиями. В таких случаях инструменты МОГУТ выдать ошибку. Незакрытые блоки "
 "ДОЛЖНЫ игнорироваться."
 
-#: ../source/specifications/inline-script-metadata.rst:59
+#: ../source/specifications/inline-script-metadata.rst:52
 msgid ""
 "When there are multiple comment blocks of the same ``TYPE`` defined, tools "
 "MUST produce an error."
@@ -18530,7 +18520,7 @@ msgstr ""
 "Если определено несколько блоков комментариев одного и того же ``типа``, "
 "инструменты ДОЛЖНЫ выдать ошибку."
 
-#: ../source/specifications/inline-script-metadata.rst:62
+#: ../source/specifications/inline-script-metadata.rst:55
 msgid ""
 "Tools reading embedded metadata MAY respect the standard Python encoding "
 "declaration. If they choose not to do so, they MUST process the file as "
@@ -18540,7 +18530,7 @@ msgstr ""
 "кодировки Python. Если они этого не делают, они ДОЛЖНЫ обрабатывать файл в "
 "кодировке UTF-8."
 
-#: ../source/specifications/inline-script-metadata.rst:65
+#: ../source/specifications/inline-script-metadata.rst:58
 msgid ""
 "This is the canonical regular expression that MAY be used to parse the "
 "metadata:"
@@ -18548,7 +18538,7 @@ msgstr ""
 "Это каноническое регулярное выражение, которое МОЖЕТ быть использовано для "
 "разбора метаданных:"
 
-#: ../source/specifications/inline-script-metadata.rst:72
+#: ../source/specifications/inline-script-metadata.rst:65
 msgid ""
 "In circumstances where there is a discrepancy between the text specification "
 "and the regular expression, the text specification takes precedence."
@@ -18556,44 +18546,52 @@ msgstr ""
 "В случае расхождения между текстовой спецификацией и регулярным выражением "
 "приоритет отдается текстовой спецификации."
 
-#: ../source/specifications/inline-script-metadata.rst:75
+#: ../source/specifications/inline-script-metadata.rst:68
+#, fuzzy
+#| msgid ""
+#| "Tools MUST NOT read from metadata blocks with types that have not been "
+#| "standardized by this PEP or future ones."
 msgid ""
 "Tools MUST NOT read from metadata blocks with types that have not been "
-"standardized by this PEP or future ones."
+"standardized by this specification."
 msgstr ""
 "Инструменты НЕ ДОЛЖНЫ считывать данные из блоков метаданных с типами, "
 "которые не были стандартизированы в данном или будущих PEP."
 
-#: ../source/specifications/inline-script-metadata.rst:79
-msgid "pyproject type"
-msgstr "тип проекта"
+#: ../source/specifications/inline-script-metadata.rst:72
+msgid "script type"
+msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:81
+#: ../source/specifications/inline-script-metadata.rst:74
+#, fuzzy
+#| msgid ""
+#| "The first type of metadata block is named ``pyproject`` which represents "
+#| "content similar to what one would see in a ``pyproject.toml`` file."
 msgid ""
-"The first type of metadata block is named ``pyproject`` which represents "
-"content similar to what one would see in a ``pyproject.toml`` file."
+"The first type of metadata block is named ``script``, which contains script "
+"metadata (dependency data and tool configuration)."
 msgstr ""
 "Первый тип блока метаданных называется ``pyproject`` и представляет собой "
 "содержимое, аналогичное тому, что можно увидеть в файле ``pyproject.toml``."
 
+#: ../source/specifications/inline-script-metadata.rst:77
+msgid ""
+"This document MAY include the top-level fields ``dependencies`` and "
+"``requires-python``, and MAY optionally include a ``[tool]`` table."
+msgstr ""
+
+#: ../source/specifications/inline-script-metadata.rst:80
+msgid ""
+"The ``[tool]`` MAY be used by any tool, script runner or otherwise, to "
+"configure behavior. It has the same semantics as the :ref:`[tool] table in "
+"pyproject.toml <pyproject-tool-table>`."
+msgstr ""
+
 #: ../source/specifications/inline-script-metadata.rst:84
-msgid "This document MAY include the ``[run]`` and ``[tool]`` tables."
-msgstr "Этот документ МОЖЕТ включать таблицы ``[run]`` и ``[tool]``."
+msgid "The top-level fields are:"
+msgstr ""
 
 #: ../source/specifications/inline-script-metadata.rst:86
-msgid ""
-"The :ref:`tool table <pyproject-tool-table>` MAY be used by any tool, script "
-"runner or otherwise, to configure behavior."
-msgstr ""
-"Таблица инструментов <pyproject-tool-table>` МОЖЕТ быть использована любым "
-"инструментом, программой запуска скриптов или иным способом, для настройки "
-"поведения."
-
-#: ../source/specifications/inline-script-metadata.rst:89
-msgid "The ``[run]`` table MAY include the following optional fields:"
-msgstr "Таблица ``[run]`` МОЖЕТ включать следующие необязательные поля:"
-
-#: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
 "``dependencies``: A list of strings that specifies the runtime dependencies "
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
@@ -18603,7 +18601,7 @@ msgstr ""
 "выполнения. Каждая запись ДОЛЖНА быть действительным :ref:`спецификатором "
 "зависимости <dependency-specifiers>`."
 
-#: ../source/specifications/inline-script-metadata.rst:94
+#: ../source/specifications/inline-script-metadata.rst:89
 msgid ""
 "``requires-python``: A string that specifies the Python version(s) with "
 "which the script is compatible. The value of this field MUST be a valid :ref:"
@@ -18613,21 +18611,7 @@ msgstr ""
 "совместим(ы) скрипт. Значение этого поля ДОЛЖНО быть действительным :ref:"
 "`спецификатором версии <version-specifiers>`."
 
-#: ../source/specifications/inline-script-metadata.rst:98
-msgid ""
-"Any future specifications that define additional fields for the ``[run]`` "
-"table when used in a ``pyproject.toml`` file MUST include the aforementioned "
-"fields exactly as specified. The fields defined by this specification are "
-"equally as applicable to full-fledged projects as they are to single-file "
-"scripts."
-msgstr ""
-"Любые будущие спецификации, определяющие дополнительные поля для таблицы "
-"``[run]`` при использовании в файле ``pyproject.toml``, ДОЛЖНЫ включать "
-"вышеупомянутые поля именно в том виде, в котором они указаны. Поля, "
-"определенные этой спецификацией, одинаково применимы как к полноценным "
-"проектам, так и к однофайловым скриптам."
-
-#: ../source/specifications/inline-script-metadata.rst:103
+#: ../source/specifications/inline-script-metadata.rst:93
 msgid ""
 "Script runners MUST error if the specified ``dependencies`` cannot be "
 "provided. Script runners SHOULD error if no version of Python that satisfies "
@@ -18638,37 +18622,30 @@ msgstr ""
 "если не может быть предоставлена версия Python, удовлетворяющая указанному "
 "``требованию-python``."
 
-#: ../source/specifications/inline-script-metadata.rst:108
+#: ../source/specifications/inline-script-metadata.rst:98
 msgid "Example"
 msgstr "Пример"
 
-#: ../source/specifications/inline-script-metadata.rst:110
-msgid ""
-"The following is an example of a script with an embedded ``pyproject.toml``:"
+#: ../source/specifications/inline-script-metadata.rst:100
+#, fuzzy
+#| msgid ""
+#| "The following is an example of a script with an embedded ``pyproject."
+#| "toml``:"
+msgid "The following is an example of a script with embedded metadata:"
 msgstr "Ниже приведен пример сценария со встроенным ``pyproject.toml``:"
 
-#: ../source/specifications/inline-script-metadata.rst:130
-msgid ""
-"The following is an example of a proposed syntax for single-file Rust "
-"projects that embeds their equivalent of ``pyproject.toml``, which is called "
-"``Cargo.toml``:"
-msgstr ""
-"Ниже приведен пример предлагаемого синтаксиса для однофайловых проектов "
-"Rust, в которые встраивается эквивалент ``pyproject.toml``, который "
-"называется ``Cargo.toml``:"
-
-#: ../source/specifications/inline-script-metadata.rst:149
+#: ../source/specifications/inline-script-metadata.rst:121
 msgid "Reference Implementation"
 msgstr "Справочное осуществление"
 
-#: ../source/specifications/inline-script-metadata.rst:151
+#: ../source/specifications/inline-script-metadata.rst:123
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
 msgstr ""
 "Ниже приведен пример того, как читать метаданные на Python 3.11 и выше."
 
-#: ../source/specifications/inline-script-metadata.rst:177
+#: ../source/specifications/inline-script-metadata.rst:149
 msgid ""
 "Often tools will edit dependencies like package managers or dependency "
 "update automation in CI. The following is a crude example of modifying the "
@@ -18678,7 +18655,7 @@ msgstr ""
 "менеджеры пакетов или автоматизация обновления зависимостей в CI. Ниже "
 "приведен пример изменения содержимого с помощью библиотеки ``tomlkit``."
 
-#: ../source/specifications/inline-script-metadata.rst:208
+#: ../source/specifications/inline-script-metadata.rst:180
 msgid ""
 "Note that this example used a library that preserves TOML formatting. This "
 "is not a requirement for editing by any means but rather is a \"nice to "
@@ -18688,18 +18665,18 @@ msgstr ""
 "форматирование TOML. Это ни в коем случае не является обязательным условием "
 "редактирования, а скорее \"приятная возможность\"."
 
-#: ../source/specifications/inline-script-metadata.rst:212
+#: ../source/specifications/inline-script-metadata.rst:184
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
 msgstr "Ниже приведен пример чтения потока произвольных блоков метаданных."
 
-#: ../source/specifications/inline-script-metadata.rst:231
+#: ../source/specifications/inline-script-metadata.rst:203
 #: ../source/specifications/simple-repository-api.rst:816
 msgid "Recommendations"
 msgstr "Рекомендации"
 
-#: ../source/specifications/inline-script-metadata.rst:233
+#: ../source/specifications/inline-script-metadata.rst:205
 msgid ""
 "Tools that support managing different versions of Python should attempt to "
 "use the highest available version of Python that is compatible with the "
@@ -18709,12 +18686,20 @@ msgstr ""
 "пытаться использовать самую высокую доступную версию Python, совместимую с "
 "метаданными скрипта ``requires-python``, если они определены."
 
-#: ../source/specifications/inline-script-metadata.rst:241
+#: ../source/specifications/inline-script-metadata.rst:213
 msgid ""
 "October 2023: This specification was conditionally approved through :pep:"
 "`723`."
 msgstr ""
 "Октябрь 2023 года: Эта спецификация была условно утверждена через :pep:`723`."
+
+#: ../source/specifications/inline-script-metadata.rst:214
+msgid ""
+"January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata "
+"block type was renamed to ``script``, and the ``[run]`` table was dropped, "
+"making the ``dependencies`` and ``requires-python`` keys top-level. "
+"Additionally, the specification is no longer provisional."
+msgstr ""
 
 #: ../source/specifications/name-normalization.rst:3
 msgid "Names and normalization"
@@ -26967,6 +26952,54 @@ msgstr ""
 "packages>` и считаются **продвинутой темой** (не охваченной этим учебником). "
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
+
+#~ msgid ""
+#~ "This specification has been **provisionally accepted**. It is subject to "
+#~ "being changed or abandoned. See the `PEP 723 conditional acceptance "
+#~ "thread <pep723-thread_>`_ for details."
+#~ msgstr ""
+#~ "Эта спецификация была **временно принята**. Она может быть изменена или "
+#~ "отменена. Подробности см. в ветке `PEP 723 условное принятие <pep723-"
+#~ "thread_>`_."
+
+#~ msgid "pyproject type"
+#~ msgstr "тип проекта"
+
+#~ msgid "This document MAY include the ``[run]`` and ``[tool]`` tables."
+#~ msgstr "Этот документ МОЖЕТ включать таблицы ``[run]`` и ``[tool]``."
+
+#~ msgid ""
+#~ "The :ref:`tool table <pyproject-tool-table>` MAY be used by any tool, "
+#~ "script runner or otherwise, to configure behavior."
+#~ msgstr ""
+#~ "Таблица инструментов <pyproject-tool-table>` МОЖЕТ быть использована "
+#~ "любым инструментом, программой запуска скриптов или иным способом, для "
+#~ "настройки поведения."
+
+#~ msgid "The ``[run]`` table MAY include the following optional fields:"
+#~ msgstr "Таблица ``[run]`` МОЖЕТ включать следующие необязательные поля:"
+
+#~ msgid ""
+#~ "Any future specifications that define additional fields for the ``[run]`` "
+#~ "table when used in a ``pyproject.toml`` file MUST include the "
+#~ "aforementioned fields exactly as specified. The fields defined by this "
+#~ "specification are equally as applicable to full-fledged projects as they "
+#~ "are to single-file scripts."
+#~ msgstr ""
+#~ "Любые будущие спецификации, определяющие дополнительные поля для таблицы "
+#~ "``[run]`` при использовании в файле ``pyproject.toml``, ДОЛЖНЫ включать "
+#~ "вышеупомянутые поля именно в том виде, в котором они указаны. Поля, "
+#~ "определенные этой спецификацией, одинаково применимы как к полноценным "
+#~ "проектам, так и к однофайловым скриптам."
+
+#~ msgid ""
+#~ "The following is an example of a proposed syntax for single-file Rust "
+#~ "projects that embeds their equivalent of ``pyproject.toml``, which is "
+#~ "called ``Cargo.toml``:"
+#~ msgstr ""
+#~ "Ниже приведен пример предлагаемого синтаксиса для однофайловых проектов "
+#~ "Rust, в которые встраивается эквивалент ``pyproject.toml``, который "
+#~ "называется ``Cargo.toml``:"
 
 #~ msgid ""
 #~ "pex is both a library and tool for generating :file:`.pex` (Python "
