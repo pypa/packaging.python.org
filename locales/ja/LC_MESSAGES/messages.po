@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-21 13:27+0000\n"
-"PO-Revision-Date: 2024-01-21 13:27+0000\n"
+"PO-Revision-Date: 2024-01-23 01:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14815,7 +14815,6 @@ msgstr ""
 "\"2.1\", \"2.2\", と \"2.3\"。"
 
 #: ../source/specifications/core-metadata.rst:53
-#, fuzzy
 msgid ""
 "Automated tools consuming metadata SHOULD warn if ``metadata_version`` is "
 "greater than the highest version they support, and MUST fail if "
@@ -14823,12 +14822,12 @@ msgid ""
 "they support (as described in the :ref:`Version specifier specification "
 "<version-specifiers>`, the major version is the value before the first dot)."
 msgstr ""
-"メタデータを利用する自動化ツールは、 ``metadata_version`` が自身のサポートす"
-"る最大のものより大きい場合には警告を行うべきであり、かつ、 "
-"``metadata_version`` が自身のサポートする最大のメジャーバージョン (:pep:"
-"`440` に記述されている通り、メジャーバージョンとはバージョンのうち最初のドッ"
-"トよりも前の部分である) より大きいメジャーバージョンを持つ場合には異常終了す"
-"るべきです。"
+"メタデータを処理する自動化ツールは、 ``metadata_version`` "
+"が自身のサポートする最大のものより大きい場合には警告を行うべきであり、かつ、 "
+"``metadata_version`` が自身のサポートする最大のメジャーバージョンより大きいメ"
+"ジャーバージョンを持つ場合には異常終了しなければなりません (:ref:`"
+"バージョン指定子 <Version specifier>` に記述されている通り、メジャーバージョ"
+"ンとはバージョンのうち最初のドットよりも前の部分です) 。"
 
 #: ../source/specifications/core-metadata.rst:60
 msgid ""
@@ -14868,9 +14867,9 @@ msgid "Name"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:75
-#, fuzzy
 msgid "Added restrictions on format from the :ref:`name format <name-format>`."
-msgstr ":pep:`508` から採ったフォーマットに追加的な制約を加える"
+msgstr ":ref:`名称のフォーマット <name-format>` "
+"から採用したフォーマットに対する制限を追加した。"
 
 #: ../source/specifications/core-metadata.rst:78
 msgid ""
@@ -14878,6 +14877,8 @@ msgid ""
 "distribution. It must conform to the :ref:`name format specification <name-"
 "format>`."
 msgstr ""
+"配布物の名称。name フィールドは配布物の最も基本的な識別子です。 :ref:`"
+"名称フォーマット仕様 <name-format>` を満たしていなければなりません。"
 
 #: ../source/specifications/core-metadata.rst:86
 msgid ""
@@ -14892,14 +14893,14 @@ msgid "Version"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:95
-#, fuzzy
 msgid ""
 "A string containing the distribution's version number.  This field  must be "
 "in the format specified in the :ref:`Version specifier specification "
 "<version-specifiers>`."
 msgstr ""
-"配布物のバージョン番号を格納する文字列。このフィールドは :pep:`440` で規定さ"
-"れるフォーマットでなければなりません。"
+"配布物のバージョン番号を格納する文字列。このフィールドは :ref:`"
+"バージョン指定子仕様 <version-specifiers>` "
+"で規定されるフォーマットでなければなりません。"
 
 #: ../source/specifications/core-metadata.rst:107
 msgid "Dynamic (multiple use)"
@@ -15176,9 +15177,8 @@ msgstr ""
 "``variant`` パラメータが存在します。現時点ではふたつの異種が認識されます:"
 
 #: ../source/specifications/core-metadata.rst:286
-#, fuzzy
 msgid "``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`"
-msgstr ":rfc:`Github 流の Markdown <7764#section-3.2>` を指定する ``GFM``"
+msgstr "``GFM`` すなわち :rfc:`Github 流の Markdown <7764#section-3.2>`"
 
 #: ../source/specifications/core-metadata.rst:287
 msgid "``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`"
@@ -15477,15 +15477,14 @@ msgid "Requires-Python"
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:551
-#, fuzzy
 msgid ""
 "This field specifies the Python version(s) that the distribution is "
 "compatible with. Installation tools may look at this when picking which "
 "version of a project to install."
 msgstr ""
-"このフィールドは、配布物が動作すると補償された Python のバージョン (複数可) "
-"を指定します。インストールツールは、プロジェクトのインストールするべきバー"
-"ジョンを選択する時にこのフィールドを参照しても構いません。"
+"このフィールドは、配布物が互換性を持つ Python のバージョン (複数可) を指定し"
+"ます。インストールツールは、プロジェクトのインストールするべきバージョンを選"
+"択する時にこのフィールドを参照しても構いません。"
 
 #: ../source/specifications/core-metadata.rst:555
 msgid "The value must be in the format specified in :doc:`version-specifiers`."
@@ -15498,6 +15497,9 @@ msgid ""
 "For example, if a distribution uses :ref:`f-strings <whatsnew36-pep498>` "
 "then it may prevent installation on Python < 3.6 by specifying::"
 msgstr ""
+"例えば、ある配布物が :ref:`f-strings <whatsnew36-pep498>` を使っているなら、"
+"次のように指定することで Python < 3.6 "
+"上にインストールするのを抑止してもかまいません::"
 
 #: ../source/specifications/core-metadata.rst:562
 msgid "This field cannot be followed by an environment marker."
@@ -15528,16 +15530,17 @@ msgstr ""
 "弧に入れたバージョンの宣言を後ろにつけても構いません。"
 
 #: ../source/specifications/core-metadata.rst:585
-#, fuzzy
 msgid ""
 "Because they refer to non-Python software releases, version numbers for this "
 "field are **not** required to conform to the format specified in the :ref:"
 "`Version specifier specification <version-specifiers>`: they should "
 "correspond to the version scheme used by the external dependency."
 msgstr ""
-"非 Python のソフトウェアリリースを参照するものですので、このフィールドでの"
-"バージョン番号は :pep:`440` で指定されたフォーマットに適合することを **要求さ"
-"れていません** 。"
+"それらは非 Python のソフトウェアリリースを参照するものですので、"
+"このフィールドでのバージョン番号は :ref:`バージョン指定子仕様 <version-"
+"specifiers>` で指定されたフォーマットに適合することを **要求されていません** "
+": "
+"それらは、外部依存関係によって使われるバージョンスキームに対応するべきです。"
 
 #: ../source/specifications/core-metadata.rst:590
 msgid "Notice that there is no particular rule on the strings to be used."
@@ -15896,7 +15899,7 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:850
 msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
-msgstr ""
+msgstr "2001年3月: :pep:`241` を通じてコアとなるメタデータ 1.0 が承認されました。"
 
 #: ../source/specifications/core-metadata.rst:851
 msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
