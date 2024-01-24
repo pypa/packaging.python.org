@@ -472,14 +472,12 @@ A test program - if the grammar is in a string ``grammar``:
         print("%s -> %s" % (test, parsed))
 
 
-Summary of changes to PEP 508
-=============================
+History
+=======
 
-The following changes were made based on feedback after its initial
-implementation:
-
-- The definition of ``python_version`` was changed from
-  ``platform.python_version()[:3]`` to
+- November 2015: This specification was approved through :pep:`508`.
+- July 2019: The definition of ``python_version`` was `changed
+  <python-version-change_>`_ from ``platform.python_version()[:3]`` to
   ``'.'.join(platform.python_version_tuple()[:2])``, to accommodate potential
   future versions of Python with 2-digit major and minor versions
   (e.g. 3.10). [#future_versions]_
@@ -497,3 +495,7 @@ References
 .. [#future_versions] Future Python versions might be problematic with the
    definition of Environment Marker Variable ``python_version``
    (https://github.com/python/peps/issues/560)
+
+
+
+.. _python-version-change: https://mail.python.org/pipermail/distutils-sig/2018-January/031920.html

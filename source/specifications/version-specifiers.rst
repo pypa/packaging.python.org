@@ -1263,7 +1263,4 @@ project):
 History
 =======
 
-This specification was originally approved as :pep:`440`,
-addressing several limitations of the previous attempt
-at standardized versioning, as described in :pep:`345`
-and :pep:`386`.
+- August 2014: This specification was approved through :pep:`440`.
