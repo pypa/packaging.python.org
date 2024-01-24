@@ -34,7 +34,7 @@ before a final release. In order, the steps are: alpha releases, beta releases,
 release candidates, final release. Pip and other modern Python package
 installers ignore pre-releases by default when deciding which versions of
 dependencies to install, unless explicitly requested (e.g., with
-``pip install pkg==1.1a3``).
+``pip install pkg==1.1a3`` or ``pip install --pre pkg``).
 
 The purpose of development releases is to support releases made early during a
 development cycle, for example, a nightly build, or a build from the latest
@@ -80,7 +80,9 @@ adhere to semantic versioning, since many changes are technically breaking
 changes but affect only a small fraction of users. Such projects tend to
 increment the major number when the incompatibility is high, or to signal a
 shift in the project, rather than for any tiny incompatibility
-[#semver-strictness]_.
+[#semver-strictness]_. Conversely, a bump of the major version number
+is sometimes used to signal significant but backwards-compatible new
+features.
 
 For those projects that do use strict semantic versioning, this approach allows
 users to make use of :ref:`compatible release version specifiers
