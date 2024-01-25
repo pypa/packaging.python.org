@@ -134,7 +134,12 @@ to build distributable wheels.
 Uploading to PyPI
 =================
 
-The standard tool for this task is :ref:`twine`.
+For projects hosted on GitHub, PyPI recommends using :ref:`trusted publishing
+<trusted-publishing>`, which allows the package to be securely uploaded to PyPI
+from a GitHub Actions job. (This is not yet supported on software forges other
+than GitHub.)
+
+The other available method is to upload the package manually using :ref:`twine`.
 
 **Never** use ``python setup.py upload`` for this task. In addition to being
 :ref:`deprecated <setup-py-deprecated>`, it is insecure.
