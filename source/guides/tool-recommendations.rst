@@ -28,8 +28,7 @@ Installing packages
 ===================
 
 :ref:`Pip` is the standard tool to install packages from :term:`PyPI <Python
-Package Index (PyPI)>`. It can install into the global environment or into
-virtual environments. You may want to read pip's recommendations for
+Package Index (PyPI)>`. You may want to read pip's recommendations for
 :doc:`secure installs <pip:topics/secure-installs>`. Pip is available by default
 in most Python installations through the standard library package
 :doc:`ensurepip <python:library/ensurepip>`.
