@@ -91,7 +91,7 @@ in alphabetical order:
      In particular, do **not** use direct ``python setup.py`` invocations. On the
      other hand, configuring setuptools with a :file:`setup.py` file is still fully
      supported, although it is recommended to use the modern :ref:`[project] table
-     in pyproject.toml <writing-pyproject-toml>` whenever possible and keep
+     in pyproject.toml <writing-pyproject-toml>` (or :file:`setup.cfg`) whenever possible and keep
      :file:`setup.py` only if programmatic configuration is needed. See
      :ref:`setup-py-deprecated`.
 
