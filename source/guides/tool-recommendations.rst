@@ -134,7 +134,7 @@ to build distributable wheels.
 Uploading to PyPI
 =================
 
-For projects hosted on GitHub, PyPI recommends using :ref:`trusted publishing
+For projects hosted on GitHub, it is recommended to use the :ref:`trusted publishing
 <trusted-publishing>`, which allows the package to be securely uploaded to PyPI
 from a GitHub Actions job. (This is not yet supported on software forges other
 than GitHub.)
