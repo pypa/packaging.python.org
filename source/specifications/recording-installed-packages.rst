@@ -112,7 +112,7 @@ On Windows, directories may be separated either by forward- or backslashes
 (``/`` or ``\``).
 
 The *hash* is either an empty string or the name of a hash algorithm from
-``hashlib.algorithms_guaranteed``, followed by the equals character ``=`` and
+:py:data:`hashlib.algorithms_guaranteed`, followed by the equals character ``=`` and
 the digest of the file's contents, encoded with the urlsafe-base64-nopad
 encoding (``base64.urlsafe_b64encode(digest)`` with trailing ``=`` removed).
 

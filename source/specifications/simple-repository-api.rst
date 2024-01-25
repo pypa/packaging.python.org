@@ -71,7 +71,7 @@ In addition to the above, the following constraints are placed on the API:
   URL.
 
 * Repositories **SHOULD** choose a hash function from one of the ones
-  guaranteed to be available via the ``hashlib`` module in the Python standard
+  guaranteed to be available via the :py:mod:`hashlib` module in the Python standard
   library (currently ``md5``, ``sha1``, ``sha224``, ``sha256``, ``sha384``,
   ``sha512``). The current recommendation is to use ``sha256``.
 
@@ -452,11 +452,10 @@ Each individual file dictionary has the following keys:
   for the file, however it is **HIGHLY** recommended that at least one secure,
   guaranteed-to-be-available hash is always included.
 
-  By default, any hash algorithm available via `hashlib
-  <https://docs.python.org/3/library/hashlib.html>`_ (specifically any that can
-  be passed to ``hashlib.new()`` and do not require additional parameters) can
+  By default, any hash algorithm available via :py:mod:`hashlib` (specifically any that can
+  be passed to :py:func:`hashlib.new()` and do not require additional parameters) can
   be used as a key for the hashes dictionary. At least one secure algorithm from
-  ``hashlib.algorithms_guaranteed`` **SHOULD** always be included. At the time
+  :py:data:`hashlib.algorithms_guaranteed` **SHOULD** always be included. At the time
   of this spec, ``sha256`` specifically is recommended.
 - ``requires-python``: An **optional** key that exposes the
   :ref:`core-metadata-requires-python`
