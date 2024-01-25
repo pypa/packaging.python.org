@@ -1113,7 +1113,7 @@ and MAY refuse to rely on the URL. If such a direct reference also uses an
 insecure transport, automated tools SHOULD NOT rely on the URL.
 
 It is RECOMMENDED that only hashes which are unconditionally provided by
-the latest version of the standard library's ``hashlib`` module be used
+the latest version of the standard library's :py:mod:`hashlib` module be used
 for source archive hashes. At time of writing, that list consists of
 ``'md5'``, ``'sha1'``, ``'sha224'``, ``'sha256'``, ``'sha384'``, and
 ``'sha512'``.
