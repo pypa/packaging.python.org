@@ -35,11 +35,11 @@ in most Python installations through the standard library package
 :doc:`ensurepip <python:library/ensurepip>`.
 
 Alternatively, consider :ref:`pipx` for the specific use case of installing Python
-command line applications that are distributed through PyPI.
+applications that are distributed through PyPI and run from the command line.
 Pipx is a wrapper around pip and venv that installs each
 application into a dedicated virtual environment. This avoids conflicts between
-the dependencies of different applications, and also with the system
-(especially on Linux).
+the dependencies of different applications, and also with system-wide applications
+making use of the same Python interpreter (especially on Linux).
 
 For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
@@ -66,8 +66,8 @@ Build backends
 Popular :term:`build backends <build backend>` for pure-Python packages include,
 in alphabetical order:
 
-- Flit-core_ -- developed with but separate from :ref:`Flit`. A minimal and
-  opinionated build backend. It does not support plugins.
+- :doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate from :ref:`Flit`.
+  A minimal and opinionated build backend. It does not support plugins.
 
 - Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports plugins.
 
@@ -82,21 +82,23 @@ in alphabetical order:
 
 - :ref:`setuptools`, which used to be the only build backend. Supports plugins.
 
-  If you use setuptools, please be aware that some features that predate
-  standardisation efforts are now deprecated and only *temporarily kept*
-  for compatibility.
+  .. caution::
 
-  In particular, do **not** use direct ``python setup.py`` invocations. On the
-  other hand, configuring setuptools with a :file:`setup.py` file is still fully
-  supported, although it is recommended to use the modern :ref:`[project] table
-  in pyproject.toml <writing-pyproject-toml>` whenever possible and keep
-  :file:`setup.py` only if programmatic configuration is needed. See
-  :ref:`setup-py-deprecated`.
+     If you use setuptools, please be aware that some features that predate
+     standardisation efforts are now deprecated and only *temporarily kept*
+     for compatibility.
 
-  Other examples of deprecated features you should **not** use include the
-  ``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] table
-  <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead), and
-  the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
+     In particular, do **not** use direct ``python setup.py`` invocations. On the
+     other hand, configuring setuptools with a :file:`setup.py` file is still fully
+     supported, although it is recommended to use the modern :ref:`[project] table
+     in pyproject.toml <writing-pyproject-toml>` whenever possible and keep
+     :file:`setup.py` only if programmatic configuration is needed. See
+     :ref:`setup-py-deprecated`.
+
+     Other examples of deprecated features you should **not** use include the
+     ``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] table
+     <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead), and
+     the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
 
 Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
 the standard library in Python 3.12, although it still remains available from
@@ -144,7 +146,7 @@ Task runners
 These tools allow you to define and invoke "tasks", such as running tests,
 compiling documentation, regenerating some files, etc. Each task can be executed
 in a dedicated virtual environment with the dependencies it requires. The most
-common tools for this are tox_ and nox_.
+common tools for this are :doc:`tox <tox:index>` and :doc:`nox <nox:index>`.
 
 
 Integrated workflow tools
@@ -163,9 +165,6 @@ order:
 - :ref:`Poetry`.
 
 
-.. _flit-core: https://pypi.org/project/flit-core/
 .. _hatchling: https://pypi.org/project/hatchling/
-.. _nox: https://nox.thea.codes
 .. _pdm-backend: https://backend.pdm-project.org
 .. _poetry-core: https://pypi.org/project/poetry-core/
-.. _tox: https://tox.wiki
