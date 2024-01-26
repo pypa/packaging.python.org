@@ -15,7 +15,7 @@ Name format
 A valid name consists only of ASCII letters and numbers, period,
 underscore and hyphen. It must start and end with a letter or number.
 This means that valid project names are limited to those which match the
-following regex (run with ``re.IGNORECASE``)::
+following regex (run with :py:data:`re.IGNORECASE`)::
 
     ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
 
