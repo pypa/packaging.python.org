@@ -45,7 +45,7 @@ a distribution.  Major implementations have abbreviated codes, initially:
 * pp: PyPy
 * jy: Jython
 
-Other Python implementations should use ``sys.implementation.name``.
+Other Python implementations should use :py:data:`sys.implementation.name <sys.implementation>`.
 
 The version is ``py_version_nodot``.  CPython gets away with no dot,
 but if one is needed the underscore ``_`` is used instead.  PyPy should
@@ -85,7 +85,7 @@ Platform Tag
 Basic platform tags
 -------------------
 
-In its simplest form, the platform tag is ``sysconfig.get_platform()`` with
+In its simplest form, the platform tag is :py:func:`sysconfig.get_platform()` with
 all hyphens ``-`` and periods ``.`` replaced with underscore ``_``.
 Until the removal of :ref:`distutils` in Python 3.12, this
 was ``distutils.util.get_platform()``. For example:
@@ -113,7 +113,7 @@ The current standard is the future-proof ``manylinux_x_y`` standard. It defines
 tags of the form ``manylinux_x_y_arch``, where ``x`` and ``y`` are glibc major
 and minor versions supported (e.g. ``manylinux_2_24_xxx`` should work on any
 distro using glibc 2.24+), and ``arch`` is the architecture, matching the value
-of ``sysconfig.get_platform()`` on the system as in the "simple" form above.
+of :py:func:`sysconfig.get_platform()` on the system as in the "simple" form above.
 
 The following older tags are still supported for backward compatibility:
 

@@ -114,7 +114,7 @@ On Windows, directories may be separated either by forward- or backslashes
 The *hash* is either an empty string or the name of a hash algorithm from
 :py:data:`hashlib.algorithms_guaranteed`, followed by the equals character ``=`` and
 the digest of the file's contents, encoded with the urlsafe-base64-nopad
-encoding (``base64.urlsafe_b64encode(digest)`` with trailing ``=`` removed).
+encoding (:py:func:`base64.urlsafe_b64encode(digest) <base64.urlsafe_b64encode()>` with trailing ``=`` removed).
 
 The *size* is either the empty string, or file's size in bytes,
 as a base 10 integer.
