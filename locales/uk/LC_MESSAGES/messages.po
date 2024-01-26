@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-21 13:27+0000\n"
+"POT-Creation-Date: 2024-01-26 02:26+0000\n"
 "PO-Revision-Date: 2023-11-29 05:05+0000\n"
 "Last-Translator: Sviatoslav Sydorenko <wk+weblate.org@sydorenko.org.ua>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -11430,7 +11430,7 @@ msgstr ""
 #: ../source/specifications/platform-compatibility-tags.rst:332
 #: ../source/specifications/pyproject-toml.rst:442
 #: ../source/specifications/recording-installed-packages.rst:252
-#: ../source/specifications/simple-repository-api.rst:975
+#: ../source/specifications/simple-repository-api.rst:974
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1262
 #: ../source/specifications/virtual-environments.rst:54
@@ -12571,7 +12571,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:163
-#: ../source/specifications/simple-repository-api.rst:889
+#: ../source/specifications/simple-repository-api.rst:888
 #, fuzzy
 msgid "Versions"
 msgstr "Version"
@@ -12689,7 +12689,7 @@ msgstr "``name``"
 
 #: ../source/specifications/dependency-specifiers.rst:237
 #, fuzzy
-msgid "``os.name``"
+msgid ":py:data:`os.name`"
 msgstr "``name``"
 
 #: ../source/specifications/dependency-specifiers.rst:238
@@ -12701,7 +12701,7 @@ msgid "``sys_platform``"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:240
-msgid "``sys.platform``"
+msgid ":py:data:`sys.platform`"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:241
@@ -12715,7 +12715,7 @@ msgid "``platform_machine``"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:244
-msgid "``platform.machine()``"
+msgid ":py:func:`platform.machine()`"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:245
@@ -12727,7 +12727,7 @@ msgid "``platform_python_implementation``"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:247
-msgid "``platform.python_implementation()``"
+msgid ":py:func:`platform.python_implementation()`"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:248
@@ -12739,7 +12739,7 @@ msgid "``platform_release``"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:250
-msgid "``platform.release()``"
+msgid ":py:func:`platform.release()`"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:251
@@ -12751,7 +12751,7 @@ msgid "``platform_system``"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:253
-msgid "``platform.system()``"
+msgid ":py:func:`platform.system()`"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:254
@@ -12765,7 +12765,7 @@ msgstr "``version``"
 
 #: ../source/specifications/dependency-specifiers.rst:256
 #, fuzzy
-msgid "``platform.version()``"
+msgid ":py:func:`platform.version()`"
 msgstr "``version``"
 
 #: ../source/specifications/dependency-specifiers.rst:257
@@ -12794,8 +12794,9 @@ msgid "``python_full_version``"
 msgstr "``python_requires``"
 
 #: ../source/specifications/dependency-specifiers.rst:264
-msgid "``platform.python_version()``"
-msgstr ""
+#, fuzzy
+msgid ":py:func:`platform.python_version()`"
+msgstr "``version``"
 
 #: ../source/specifications/dependency-specifiers.rst:265
 #: ../source/specifications/dependency-specifiers.rst:271
@@ -12807,7 +12808,7 @@ msgid "``implementation_name``"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:267
-msgid "``sys.implementation.name``"
+msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:268
@@ -12840,8 +12841,8 @@ msgstr "``text/x-rst``"
 
 #: ../source/specifications/dependency-specifiers.rst:277
 msgid ""
-"The ``implementation_version`` marker variable is derived from ``sys."
-"implementation.version``:"
+"The ``implementation_version`` marker variable is derived from :py:data:`sys."
+"implementation.version <sys.implementation>`:"
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:294
@@ -13118,11 +13119,11 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:82
 msgid ""
-"Any hash algorithm available via ``hashlib`` (specifically any that can be "
-"passed to ``hashlib.new()`` and do not require additional parameters) can be "
-"used as a key for the hashes dictionary. At least one secure algorithm from "
-"``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of "
-"writing, ``sha256`` specifically is recommended."
+"Any hash algorithm available via :py:mod:`hashlib` (specifically any that "
+"can be passed to :py:func:`hashlib.new()` and do not require additional "
+"parameters) can be used as a key for the hashes dictionary. At least one "
+"secure algorithm from :py:data:`hashlib.algorithms_guaranteed` SHOULD always "
+"be included. At time of writing, ``sha256`` specifically is recommended."
 msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:88
@@ -13391,12 +13392,12 @@ msgstr ""
 msgid ""
 "The entry point file format was originally developed to allow packages built "
 "with setuptools to provide integration point metadata that would be read at "
-"runtime with ``importlib.metadata``. It is now defined as a PyPA "
+"runtime with :py:mod:`importlib.metadata`. It is now defined as a PyPA "
 "interoperability specification in order to allow build tools other than "
-"setuptools to publish ``importlib.metadata`` compatible entry point "
-"metadata, and runtime libraries other than ``importlib.metadata`` to "
-"portably read published entry point metadata (potentially with different "
-"caching and conflict resolution strategies)."
+"``setuptools`` to publish :py:mod:`importlib.metadata` compatible entry "
+"point metadata, and runtime libraries other than :py:mod:`importlib."
+"metadata` to portably read published entry point metadata (potentially with "
+"different caching and conflict resolution strategies)."
 msgstr ""
 
 #: ../source/specifications/entry-points.rst:28
@@ -13537,11 +13538,11 @@ msgstr ""
 msgid ""
 "The difference between ``console_scripts`` and ``gui_scripts`` only affects "
 "Windows systems. ``console_scripts`` are wrapped in a console executable, so "
-"they are attached to a console and can use ``sys.stdin``, ``sys.stdout`` and "
-"``sys.stderr`` for input and output. ``gui_scripts`` are wrapped in a GUI "
-"executable, so they can be started without a console, but cannot use "
-"standard streams unless application code redirects them. Other platforms do "
-"not have the same distinction."
+"they are attached to a console and can use :py:data:`sys.stdin`, :py:data:"
+"`sys.stdout` and :py:data:`sys.stderr` for input and output. ``gui_scripts`` "
+"are wrapped in a GUI executable, so they can be started without a console, "
+"but cannot use standard streams unless application code redirects them. "
+"Other platforms do not have the same distinction."
 msgstr ""
 
 #: ../source/specifications/entry-points.rst:153
@@ -14369,7 +14370,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/inline-script-metadata.rst:203
-#: ../source/specifications/simple-repository-api.rst:816
+#: ../source/specifications/simple-repository-api.rst:815
 #, fuzzy
 #| msgid "Packaging tool recommendations"
 msgid "Recommendations"
@@ -14417,7 +14418,7 @@ msgid ""
 "A valid name consists only of ASCII letters and numbers, period, underscore "
 "and hyphen. It must start and end with a letter or number. This means that "
 "valid project names are limited to those which match the following regex "
-"(run with ``re.IGNORECASE``)::"
+"(run with :py:data:`re.IGNORECASE`)::"
 msgstr ""
 
 #: ../source/specifications/name-normalization.rst:26
@@ -14560,7 +14561,9 @@ msgid "jy: Jython"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:48
-msgid "Other Python implementations should use ``sys.implementation.name``."
+msgid ""
+"Other Python implementations should use :py:data:`sys.implementation.name "
+"<sys.implementation>`."
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:50
@@ -14624,10 +14627,10 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:88
 msgid ""
-"In its simplest form, the platform tag is ``sysconfig.get_platform()`` with "
-"all hyphens ``-`` and periods ``.`` replaced with underscore ``_``. Until "
-"the removal of :ref:`distutils` in Python 3.12, this was ``distutils.util."
-"get_platform()``. For example:"
+"In its simplest form, the platform tag is :py:func:`sysconfig."
+"get_platform()` with all hyphens ``-`` and periods ``.`` replaced with "
+"underscore ``_``. Until the removal of :ref:`distutils` in Python 3.12, this "
+"was ``distutils.util.get_platform()``. For example:"
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:93
@@ -14669,8 +14672,8 @@ msgid ""
 "defines tags of the form ``manylinux_x_y_arch``, where ``x`` and ``y`` are "
 "glibc major and minor versions supported (e.g. ``manylinux_2_24_xxx`` should "
 "work on any distro using glibc 2.24+), and ``arch`` is the architecture, "
-"matching the value of ``sysconfig.get_platform()`` on the system as in the "
-"\"simple\" form above."
+"matching the value of :py:func:`sysconfig.get_platform()` on the system as "
+"in the \"simple\" form above."
 msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:118
@@ -15937,10 +15940,11 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:114
 msgid ""
-"The *hash* is either an empty string or the name of a hash algorithm from "
-"``hashlib.algorithms_guaranteed``, followed by the equals character ``=`` "
-"and the digest of the file's contents, encoded with the urlsafe-base64-nopad "
-"encoding (``base64.urlsafe_b64encode(digest)`` with trailing ``=`` removed)."
+"The *hash* is either an empty string or the name of a hash algorithm from :"
+"py:data:`hashlib.algorithms_guaranteed`, followed by the equals character "
+"``=`` and the digest of the file's contents, encoded with the urlsafe-base64-"
+"nopad encoding (:py:func:`base64.urlsafe_b64encode(digest) <base64."
+"urlsafe_b64encode()>` with trailing ``=`` removed)."
 msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:119
@@ -16234,9 +16238,9 @@ msgstr ""
 #: ../source/specifications/simple-repository-api.rst:73
 msgid ""
 "Repositories **SHOULD** choose a hash function from one of the ones "
-"guaranteed to be available via the ``hashlib`` module in the Python standard "
-"library (currently ``md5``, ``sha1``, ``sha224``, ``sha256``, ``sha384``, "
-"``sha512``). The current recommendation is to use ``sha256``."
+"guaranteed to be available via the :py:mod:`hashlib` module in the Python "
+"standard library (currently ``md5``, ``sha1``, ``sha224``, ``sha256``, "
+"``sha384``, ``sha512``). The current recommendation is to use ``sha256``."
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:78
@@ -16467,7 +16471,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:237
-#: ../source/specifications/simple-repository-api.rst:958
+#: ../source/specifications/simple-repository-api.rst:957
 #, fuzzy
 #| msgid "Contents"
 msgid "Clients"
@@ -16720,7 +16724,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:393
-#: ../source/specifications/simple-repository-api.rst:500
+#: ../source/specifications/simple-repository-api.rst:499
 #, fuzzy
 #| msgid "For example:"
 msgid "As an example:"
@@ -16804,15 +16808,15 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:455
 msgid ""
-"By default, any hash algorithm available via `hashlib <https://docs.python."
-"org/3/library/hashlib.html>`_ (specifically any that can be passed to "
-"``hashlib.new()`` and do not require additional parameters) can be used as a "
-"key for the hashes dictionary. At least one secure algorithm from ``hashlib."
-"algorithms_guaranteed`` **SHOULD** always be included. At the time of this "
-"spec, ``sha256`` specifically is recommended."
+"By default, any hash algorithm available via :py:mod:`hashlib` (specifically "
+"any that can be passed to :py:func:`hashlib.new()` and do not require "
+"additional parameters) can be used as a key for the hashes dictionary. At "
+"least one secure algorithm from :py:data:`hashlib.algorithms_guaranteed` "
+"**SHOULD** always be included. At the time of this spec, ``sha256`` "
+"specifically is recommended."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:461
+#: ../source/specifications/simple-repository-api.rst:460
 msgid ""
 "``requires-python``: An **optional** key that exposes the :ref:`core-"
 "metadata-requires-python` metadata field. Where this is present, installer "
@@ -16820,14 +16824,14 @@ msgid ""
 "that doesn't satisfy the requirement."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:467
+#: ../source/specifications/simple-repository-api.rst:466
 msgid ""
 "Unlike ``data-requires-python`` in :ref:`the base HTML API specification "
 "<simple-repository-api-base>`, the ``requires-python`` key does not require "
 "any special escaping other than anything JSON does naturally."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:470
+#: ../source/specifications/simple-repository-api.rst:469
 msgid ""
 "``dist-info-metadata``: An **optional** key that indicates that metadata for "
 "this file is available, via the same location as specified in :ref:`the API "
@@ -16837,27 +16841,27 @@ msgid ""
 "dictionary mapping hash names to a hex encoded digest of the metadata's hash."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:478
+#: ../source/specifications/simple-repository-api.rst:477
 msgid ""
 "When this is a dictionary of hashes instead of a boolean, then all the same "
 "requirements and recommendations as the ``hashes`` key hold true for this "
 "key as well."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:482
+#: ../source/specifications/simple-repository-api.rst:481
 msgid ""
 "If this key is missing then the metadata file may or may not exist. If the "
 "key value is truthy, then the metadata file is present, and if it is falsey "
 "then it is not."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:486
+#: ../source/specifications/simple-repository-api.rst:485
 msgid ""
 "It is recommended that servers make the hashes of the metadata file "
 "available if possible."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:488
+#: ../source/specifications/simple-repository-api.rst:487
 msgid ""
 "``gpg-sig``: An **optional** key that acts a boolean to indicate if the file "
 "has an associated GPG signature or not. The URL for the signature file "
@@ -16866,7 +16870,7 @@ msgid ""
 "the signature may or may not exist."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:493
+#: ../source/specifications/simple-repository-api.rst:492
 msgid ""
 "``yanked``: An **optional** key which may be either a boolean to indicate if "
 "the file has been yanked, or a non empty, but otherwise arbitrary, string to "
@@ -16877,7 +16881,7 @@ msgid ""
 "api-yank>`."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:530
+#: ../source/specifications/simple-repository-api.rst:529
 msgid ""
 "While the ``files`` key is an array, and thus is required to be in some kind "
 "of an order, neither :ref:`the base HTML API specification <simple-"
@@ -16887,13 +16891,13 @@ msgid ""
 "have sets."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:539
+#: ../source/specifications/simple-repository-api.rst:538
 #, fuzzy
 #| msgid "Contents"
 msgid "Content-Types"
 msgstr "Зміст"
 
-#: ../source/specifications/simple-repository-api.rst:541
+#: ../source/specifications/simple-repository-api.rst:540
 msgid ""
 "This spec proposes that all responses from the Simple API will have a "
 "standard content type that describes what the response is (a Simple API "
@@ -16901,11 +16905,11 @@ msgid ""
 "format has been used."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:545
+#: ../source/specifications/simple-repository-api.rst:544
 msgid "The structure of this content type will be:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:551
+#: ../source/specifications/simple-repository-api.rst:550
 msgid ""
 "Since only major versions should be disruptive to clients attempting to "
 "understand one of these API responses, only the major version will be "
@@ -16913,19 +16917,19 @@ msgid ""
 "that it is a version number."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:556
+#: ../source/specifications/simple-repository-api.rst:555
 msgid "Which means that for the existing 1.0 API, the content types would be:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:558
+#: ../source/specifications/simple-repository-api.rst:557
 msgid "**JSON:** ``application/vnd.pypi.simple.v1+json``"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:559
+#: ../source/specifications/simple-repository-api.rst:558
 msgid "**HTML:** ``application/vnd.pypi.simple.v1+html``"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:561
+#: ../source/specifications/simple-repository-api.rst:560
 msgid ""
 "In addition to the above, a special \"meta\" version is supported named "
 "``latest``, whose purpose is to allow clients to request the absolute latest "
@@ -16934,7 +16938,7 @@ msgid ""
 "support."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:566
+#: ../source/specifications/simple-repository-api.rst:565
 msgid ""
 "To support existing clients which expect the existing :ref:`the base HTML "
 "API specification <simple-repository-api-base>` API responses to use the "
@@ -16942,13 +16946,13 @@ msgid ""
 "alias for the ``application/vnd.pypi.simple.v1+html`` content type."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:573
+#: ../source/specifications/simple-repository-api.rst:572
 #, fuzzy
 #| msgid "Version"
 msgid "Version + Format Selection"
 msgstr "Version"
 
-#: ../source/specifications/simple-repository-api.rst:575
+#: ../source/specifications/simple-repository-api.rst:574
 msgid ""
 "Now that there is multiple possible serializations, we need a mechanism to "
 "allow clients to indicate what serialization formats they're able to "
@@ -16957,65 +16961,65 @@ msgid ""
 "expecting the previous API version."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:580
+#: ../source/specifications/simple-repository-api.rst:579
 msgid ""
 "To enable this, this spec standardizes on the use of HTTP's `Server-Driven "
 "Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/"
 "Content_negotiation>`_."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:583
+#: ../source/specifications/simple-repository-api.rst:582
 msgid ""
 "While this spec won't fully describe the entirety of server-driven content "
 "negotiation, the flow is roughly:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:586
+#: ../source/specifications/simple-repository-api.rst:585
 msgid ""
 "The client makes an HTTP request containing an ``Accept`` header listing all "
 "of the version+format content types that they are able to understand."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:588
+#: ../source/specifications/simple-repository-api.rst:587
 msgid ""
 "The server inspects that header, selects one of the listed content types, "
 "then returns a response using that content type (treating the absence of an "
 "``Accept`` header as ``Accept: */*``)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:591
+#: ../source/specifications/simple-repository-api.rst:590
 msgid ""
 "If the server does not support any of the content types in the ``Accept`` "
 "header then they are able to choose between 3 different options for how to "
 "respond:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:595
+#: ../source/specifications/simple-repository-api.rst:594
 msgid ""
 "Select a default content type other than what the client has requested and "
 "return a response with that."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:597
+#: ../source/specifications/simple-repository-api.rst:596
 msgid ""
 "Return a HTTP ``406 Not Acceptable`` response to indicate that none of the "
 "requested content types were available, and the server was unable or "
 "unwilling to select a default content type to respond with."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:600
+#: ../source/specifications/simple-repository-api.rst:599
 msgid ""
 "Return a HTTP ``300 Multiple Choices`` response that contains a list of all "
 "of the possible responses that could have been chosen."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:602
+#: ../source/specifications/simple-repository-api.rst:601
 msgid ""
 "The client interprets the response, handling the different types of "
 "responses that the server may have responded with."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:605
+#: ../source/specifications/simple-repository-api.rst:604
 msgid ""
 "This spec does not specify which choices the server makes in regards to "
 "handling a content type that it isn't able to return, and clients **SHOULD** "
@@ -17023,7 +17027,7 @@ msgid ""
 "the most sense for that client."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:610
+#: ../source/specifications/simple-repository-api.rst:609
 msgid ""
 "However, as there is no standard format for how a ``300 Multiple Choices`` "
 "response can be interpreted, this spec highly discourages servers from "
@@ -17034,7 +17038,7 @@ msgid ""
 "error."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:617
+#: ../source/specifications/simple-repository-api.rst:616
 msgid ""
 "This spec **does** require that if the meta version ``latest`` is being "
 "used, the server **MUST** respond with the content type for the actual "
@@ -17043,33 +17047,33 @@ msgid ""
 "have a ``Content-Type`` of ``application/vnd.pypi.simple.v1+json``)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:624
+#: ../source/specifications/simple-repository-api.rst:623
 msgid ""
 "The ``Accept`` header is a comma separated list of content types that the "
 "client understands and is able to process. It supports three different "
 "formats for each content type that is being requested:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:628
+#: ../source/specifications/simple-repository-api.rst:627
 msgid "``$type/$subtype``"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:629
+#: ../source/specifications/simple-repository-api.rst:628
 msgid "``$type/*``"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:630
+#: ../source/specifications/simple-repository-api.rst:629
 msgid "``*/*``"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:632
+#: ../source/specifications/simple-repository-api.rst:631
 msgid ""
 "For the use of selecting a version+format, the most useful of these is "
 "``$type/$subtype``, as that is the only way to actually specify the version "
 "and format you want."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:636
+#: ../source/specifications/simple-repository-api.rst:635
 msgid ""
 "The order of the content types listed in the ``Accept`` header does not have "
 "any specific meaning, and the server **SHOULD** consider all of them to be "
@@ -17079,7 +17083,7 @@ msgid ""
 "Quality_values>`_ syntax."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:643
+#: ../source/specifications/simple-repository-api.rst:642
 msgid ""
 "This allows a client to specify a priority for a specific entry in their "
 "``Accept`` header, by appending a ``;q=`` followed by a value between ``0`` "
@@ -17089,7 +17093,7 @@ msgid ""
 "quality of ``1``."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:649
+#: ../source/specifications/simple-repository-api.rst:648
 msgid ""
 "However, clients should keep in mind that a server is free to select **any** "
 "of the content types they've asked for, regardless of their requested "
@@ -17097,7 +17101,7 @@ msgid ""
 "for."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:653
+#: ../source/specifications/simple-repository-api.rst:652
 msgid ""
 "To aid clients in determining the content type of the response that they "
 "have received from an API request, this spec requires that servers always "
@@ -17108,22 +17112,22 @@ msgid ""
 "collector.py#L123-L150>`_ so the risks for actual breakages is low."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:660
+#: ../source/specifications/simple-repository-api.rst:659
 msgid "An example of how a client can operate would look like:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:711
+#: ../source/specifications/simple-repository-api.rst:710
 msgid ""
 "If a client wishes to only support HTML or only support JSON, then they "
 "would just remove the content types that they do not want from the "
 "``Accept`` header, and turn receiving them into an error."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:717
+#: ../source/specifications/simple-repository-api.rst:716
 msgid "Alternative Negotiation Mechanisms"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:719
+#: ../source/specifications/simple-repository-api.rst:718
 msgid ""
 "While using HTTP's Content negotiation is considered the standard way for a "
 "client and server to coordinate to ensure that the client is getting an HTTP "
@@ -17132,25 +17136,25 @@ msgid ""
 "negotiation mechanisms that may *optionally* be used instead."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:727
+#: ../source/specifications/simple-repository-api.rst:726
 msgid "URL Parameter"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:729
+#: ../source/specifications/simple-repository-api.rst:728
 msgid ""
 "Servers that implement the Simple API may choose to support an URL parameter "
 "named ``format`` to allow the clients to request a specific version of the "
 "URL."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:732
+#: ../source/specifications/simple-repository-api.rst:731
 msgid ""
 "The value of the ``format`` parameter should be **one** of the valid content "
 "types. Passing multiple content types, wild cards, quality values, etc... is "
 "**not** supported."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:736
+#: ../source/specifications/simple-repository-api.rst:735
 msgid ""
 "Supporting this parameter is optional, and clients **SHOULD NOT** rely on it "
 "for interacting with the API. This negotiation mechanism is intended to "
@@ -17158,13 +17162,13 @@ msgid ""
 "allow documentation or notes to link to a specific version+format."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:741
+#: ../source/specifications/simple-repository-api.rst:740
 msgid ""
 "Servers that do not support this parameter may choose to return an error "
 "when it is present, or they may simple ignore its presence."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:744
+#: ../source/specifications/simple-repository-api.rst:743
 msgid ""
 "When a server does implement this parameter, it **SHOULD** take precedence "
 "over any values in the client's ``Accept`` header, and if the server does "
@@ -17174,18 +17178,18 @@ msgid ""
 "``303 Multiple Choices``, or selecting a default type to return)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:753
+#: ../source/specifications/simple-repository-api.rst:752
 msgid "Endpoint Configuration"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:755
+#: ../source/specifications/simple-repository-api.rst:754
 msgid ""
 "This option technically is not a special option at all, it is just a natural "
 "consequence of using content negotiation and allowing servers to select "
 "which of the available content types is their default."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:759
+#: ../source/specifications/simple-repository-api.rst:758
 msgid ""
 "If a server is unwilling or unable to implement the server-driven content "
 "negotiation, and would instead rather require users to explicitly configure "
@@ -17193,7 +17197,7 @@ msgid ""
 "configuration."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:763
+#: ../source/specifications/simple-repository-api.rst:762
 msgid ""
 "To enable this, a server should make multiple endpoints (for instance, ``/"
 "simple/v1+html/`` and/or ``/simple/v1+json/``) for each version+format that "
@@ -17203,7 +17207,7 @@ msgid ""
 "and return the content type that corresponds to that endpoint."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:770
+#: ../source/specifications/simple-repository-api.rst:769
 msgid ""
 "For clients that wish to require specific configuration, they can keep track "
 "of which version+format a specific repository URL was configured for, and "
@@ -17211,11 +17215,11 @@ msgid ""
 "includes the correct content type."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:777
+#: ../source/specifications/simple-repository-api.rst:776
 msgid "TUF Support - PEP 458"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:779
+#: ../source/specifications/simple-repository-api.rst:778
 msgid ""
 ":pep:`458` requires that all API responses are hashable and that they can be "
 "uniquely identified by a path relative to the repository root. For a Simple "
@@ -17226,7 +17230,7 @@ msgid ""
 "that all hash differently."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:786
+#: ../source/specifications/simple-repository-api.rst:785
 msgid ""
 ":pep:`458` does not specify what the target path should be for the Simple "
 "API, but TUF requires that the target paths be \"file-like\", in other "
@@ -17234,7 +17238,7 @@ msgid ""
 "technically points to a directory."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:791
+#: ../source/specifications/simple-repository-api.rst:790
 msgid ""
 "The saving grace is that the target path does not *have* to actually match "
 "the URL being fetched from the Simple API, and it can just be a sigil that "
@@ -17243,7 +17247,7 @@ msgid ""
 "HTTP request, such as the ``Accept`` header."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:797
+#: ../source/specifications/simple-repository-api.rst:796
 msgid ""
 "Ultimately figuring out how to map a directory to a filename is out of scope "
 "for this spec (but it would be in scope for :pep:`458`), and this spec "
@@ -17251,7 +17255,7 @@ msgid ""
 "`458` metadata."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:801
+#: ../source/specifications/simple-repository-api.rst:800
 msgid ""
 "However, it appears that the current WIP branch against pip that attempts to "
 "implement :pep:`458` is using a target path like ``simple/PROJECT/index."
@@ -17261,20 +17265,20 @@ msgid ""
 "the v1 JSON format would be ``simple/PROJECT/vnd.pypi.simple.v1.json``."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:808
+#: ../source/specifications/simple-repository-api.rst:807
 msgid ""
 "In this case, since ``text/html`` is an alias to ``application/vnd.pypi."
 "simple.v1+html`` when interacting through TUF, it likely will make the most "
 "sense to normalize to the more explicit name."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:812
+#: ../source/specifications/simple-repository-api.rst:811
 msgid ""
 "Likewise the ``latest`` metaversion should not be included in the targets, "
 "only explicitly declared versions should be supported."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:818
+#: ../source/specifications/simple-repository-api.rst:817
 msgid ""
 "This section is non-normative, and represents what the spec authors believe "
 "to be the best default implementation decisions for something implementing "
@@ -17282,7 +17286,7 @@ msgid ""
 "these decisions."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:822
+#: ../source/specifications/simple-repository-api.rst:821
 msgid ""
 "These decisions have been chosen to maximize the number of requests that can "
 "be moved onto the newest version of an API, while maintaining the greatest "
@@ -17291,18 +17295,18 @@ msgid ""
 "choices it can."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:827
+#: ../source/specifications/simple-repository-api.rst:826
 msgid "It is recommended that servers:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:829
+#: ../source/specifications/simple-repository-api.rst:828
 msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can, or at least as long "
 "as they're receiving non trivial traffic that uses the HTML responses."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:833
+#: ../source/specifications/simple-repository-api.rst:832
 msgid ""
 "When encountering an ``Accept`` header that does not contain any content "
 "types that it knows how to work with, the server should not ever return a "
@@ -17310,13 +17314,13 @@ msgid ""
 "Acceptable`` response."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:838
+#: ../source/specifications/simple-repository-api.rst:837
 msgid ""
 "However, if choosing to use the endpoint configuration, you should prefer to "
 "return a ``200 OK`` response in the expected content type for that endpoint."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:841
+#: ../source/specifications/simple-repository-api.rst:840
 msgid ""
 "When selecting an acceptable version, the server should choose the highest "
 "version that the client supports, with the most expressive/featureful "
@@ -17325,23 +17329,23 @@ msgid ""
 "should only use the ``text/html`` content type as a last resort."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:847
+#: ../source/specifications/simple-repository-api.rst:846
 msgid "It is recommended that clients:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:849
+#: ../source/specifications/simple-repository-api.rst:848
 msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:852
+#: ../source/specifications/simple-repository-api.rst:851
 msgid ""
 "When constructing an ``Accept`` header, include all of the content types "
 "that you support."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:855
+#: ../source/specifications/simple-repository-api.rst:854
 msgid ""
 "You should generally *not* include a quality priority value for your content "
 "types, unless you have implementation specific reasons that you want the "
@@ -17350,63 +17354,63 @@ msgid ""
 "responses that you're unable to parse in some edge cases)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:861
+#: ../source/specifications/simple-repository-api.rst:860
 msgid ""
 "The one exception to this recommendation is that it is recommended that you "
 "*should* include a ``;q=0.01`` value on the legacy ``text/html`` content "
 "type, unless it is the only content type that you are requesting."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:865
+#: ../source/specifications/simple-repository-api.rst:864
 msgid ""
 "Explicitly select what versions they are looking for, rather than using the "
 "``latest`` meta version during normal operation."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:868
+#: ../source/specifications/simple-repository-api.rst:867
 msgid ""
 "Check the ``Content-Type`` of the response and ensure it matches something "
 "that you were expecting."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:872
+#: ../source/specifications/simple-repository-api.rst:871
 msgid "Additional Fields for the Simple API for Package Indexes"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:874
+#: ../source/specifications/simple-repository-api.rst:873
 msgid ""
 "This specification defines version 1.1 of the simple repository API. For the "
 "HTML version of the API, there is no change from version 1.0. For the JSON "
 "version of the API, the following changes are made:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:878
+#: ../source/specifications/simple-repository-api.rst:877
 msgid "The ``api-version`` must specify version 1.1 or later."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:879
+#: ../source/specifications/simple-repository-api.rst:878
 msgid "A new ``versions`` key is added at the top level."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:880
+#: ../source/specifications/simple-repository-api.rst:879
 msgid ""
 "Two new \"file information\" keys, ``size`` and ``upload-time``, are added "
 "to the ``files`` data."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:882
+#: ../source/specifications/simple-repository-api.rst:881
 msgid ""
 "Keys (at any level) with a leading underscore are reserved as private for "
 "index server use. No future standard will assign a meaning to any such key."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:885
+#: ../source/specifications/simple-repository-api.rst:884
 msgid ""
 "The ``versions`` and ``size`` keys are mandatory. The ``upload-time`` key is "
 "optional."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:891
+#: ../source/specifications/simple-repository-api.rst:890
 msgid ""
 "An additional key, ``versions`` MUST be present at the top level, in "
 "addition to the keys ``name``, ``files`` and ``meta`` defined in :ref:`the "
@@ -17416,7 +17420,7 @@ msgid ""
 "duplicates, and the order of the values is not significant."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:898
+#: ../source/specifications/simple-repository-api.rst:897
 msgid ""
 "All of the files listed in the ``files`` key MUST be associated with one of "
 "the versions in the ``versions`` key. The ``versions`` key MAY contain "
@@ -17424,7 +17428,7 @@ msgid ""
 "uploaded, if the server has such a concept)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:903
+#: ../source/specifications/simple-repository-api.rst:902
 msgid ""
 "Note that because servers may hold \"legacy\" data from before the adoption "
 "of :ref:`the version specifiers specification (VSS) <version-specifiers>`, "
@@ -17433,23 +17437,23 @@ msgid ""
 "servers SHOULD use normalised VSS versions where possible."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:912
+#: ../source/specifications/simple-repository-api.rst:911
 #, fuzzy
 #| msgid "Additional tools"
 msgid "Additional file information"
 msgstr "Додаткові інструменти"
 
-#: ../source/specifications/simple-repository-api.rst:914
+#: ../source/specifications/simple-repository-api.rst:913
 msgid "Two new keys are added to the ``files`` key."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:916
+#: ../source/specifications/simple-repository-api.rst:915
 msgid ""
 "``size``: This field is mandatory. It MUST contain an integer which is the "
 "file size in bytes."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:918
+#: ../source/specifications/simple-repository-api.rst:917
 msgid ""
 "``upload-time``: This field is optional. If present, it MUST contain a valid "
 "ISO 8601 date/time string, in the format ``yyyy-mm-ddThh:mm:ss.ffffffZ``, "
@@ -17461,11 +17465,11 @@ msgid ""
 "key."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:927
+#: ../source/specifications/simple-repository-api.rst:926
 msgid "Rename dist-info-metadata in the Simple API"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:930
+#: ../source/specifications/simple-repository-api.rst:929
 msgid ""
 "The keywords \"**MUST**\", \"**MUST NOT**\", \"**REQUIRED**\", "
 "\"**SHALL**\", \"**SHALL NOT**\", \"**SHOULD**\", \"**SHOULD NOT**\", "
@@ -17473,11 +17477,11 @@ msgid ""
 "are to be interpreted as described in :rfc:`RFC 2119 <2119>`."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:937
+#: ../source/specifications/simple-repository-api.rst:936
 msgid "Servers"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:939
+#: ../source/specifications/simple-repository-api.rst:938
 msgid ""
 "The :ref:`the API metadata file specification <simple-repository-api-"
 "metadata-file>` metadata, when used in the HTML representation of the Simple "
@@ -17485,7 +17489,7 @@ msgid ""
 "with the supported values remaining the same."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:945
+#: ../source/specifications/simple-repository-api.rst:944
 msgid ""
 "The :ref:`the API metadata file specification <simple-repository-api-"
 "metadata-file>` metadata, when used in the :ref:`the JSON API specification "
@@ -17494,14 +17498,14 @@ msgid ""
 "values remaining the same."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:951
+#: ../source/specifications/simple-repository-api.rst:950
 msgid ""
 "To support clients that used the previous key names, the HTML representation "
 "**MAY** also be emitted using the ``data-dist-info-metadata``, and if it "
 "does so it **MUST** match the value of ``data-core-metadata``."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:960
+#: ../source/specifications/simple-repository-api.rst:959
 msgid ""
 "Clients consuming any of the HTML representations of the Simple API **MUST** "
 "read the :ref:`the API metadata file specification <simple-repository-api-"
@@ -17510,7 +17514,7 @@ msgid ""
 "if it is present but ``data-core-metadata`` is not."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:967
+#: ../source/specifications/simple-repository-api.rst:966
 msgid ""
 "Clients consuming the JSON representation of the Simple API **MUST** read "
 "the :ref:`the API metadata file specification <simple-repository-api-"
@@ -17519,43 +17523,43 @@ msgid ""
 "present but ``core-metadata`` is not."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:977
+#: ../source/specifications/simple-repository-api.rst:976
 msgid "September 2015: initial form of the HTML format, in :pep:`503`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:978
+#: ../source/specifications/simple-repository-api.rst:977
 msgid "July 2016: Requires-Python metadata, in an update to :pep:`503`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:979
+#: ../source/specifications/simple-repository-api.rst:978
 msgid "May 2019: \"yank\" support, in :pep:`592`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:980
+#: ../source/specifications/simple-repository-api.rst:979
 msgid ""
 "July 2020: API versioning convention and metadata, and declaring the HTML "
 "format as API v1, in :pep:`629`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:982
+#: ../source/specifications/simple-repository-api.rst:981
 msgid ""
 "May 2021: providing package metadata independently from a package, in :pep:"
 "`658`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:984
+#: ../source/specifications/simple-repository-api.rst:983
 msgid ""
 "May 2022: initial form of the JSON format, with a mechanism for clients to "
 "choose between them, and declaring both formats as API v1, in :pep:`691`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:986
+#: ../source/specifications/simple-repository-api.rst:985
 msgid ""
 "October 2022: project versions and file size and upload-time in the JSON "
 "format, in :pep:`700`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:988
+#: ../source/specifications/simple-repository-api.rst:987
 msgid ""
 "June 2023: renaming the field which provides package metadata independently "
 "from a package, in :pep:`714`"
@@ -19321,9 +19325,10 @@ msgstr ""
 #: ../source/specifications/version-specifiers.rst:1115
 msgid ""
 "It is RECOMMENDED that only hashes which are unconditionally provided by the "
-"latest version of the standard library's ``hashlib`` module be used for "
-"source archive hashes. At time of writing, that list consists of ``'md5'``, "
-"``'sha1'``, ``'sha224'``, ``'sha256'``, ``'sha384'``, and ``'sha512'``."
+"latest version of the standard library's :py:mod:`hashlib` module be used "
+"for source archive hashes. At time of writing, that list consists of "
+"``'md5'``, ``'sha1'``, ``'sha224'``, ``'sha256'``, ``'sha384'``, and "
+"``'sha512'``."
 msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:1121
@@ -19483,10 +19488,10 @@ msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:20
 msgid ""
-"At runtime, virtual environments can be identified by virtue of ``sys."
-"prefix`` (the filesystem location of the running interpreter) having a "
-"different value from ``sys.base_prefix`` (the default filesystem location of "
-"the standard library directories)."
+"At runtime, virtual environments can be identified by virtue of :py:data:"
+"`sys.prefix` (the filesystem location of the running interpreter) having a "
+"different value from :py:data:`sys.base_prefix` (the default filesystem "
+"location of the standard library directories)."
 msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:25
@@ -19524,10 +19529,11 @@ msgstr ""
 #: ../source/specifications/virtual-environments.rst:46
 msgid ""
 "Even in the absence of a ``pyvenv.cfg`` file, any approach (e.g. "
-"``sitecustomize.py``, patching the installed Python runtime) that results in "
-"``sys.prefix`` and ``sys.base_prefix`` having different values, while still "
-"providing a matching default package installation scheme in ``sysconfig``, "
-"will be detected and behave as a Python virtual environment."
+"``sitecustomize.py``, patching the installed Python runtime) that results "
+"in :py:data:`sys.prefix` and :py:data:`sys.base_prefix` having different "
+"values, while still providing a matching default package installation scheme "
+"in :py:mod:`sysconfig`, will be detected and behave as a Python virtual "
+"environment."
 msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:56
