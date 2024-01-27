@@ -160,7 +160,7 @@ since the latest release, setuptools-scm generates a version like
 --------------------------------------------------------------------------------
 
 .. [#version-examples] Some more examples of unusual version numbers are
-   given in a `blog post <versions-seth-larson>`_ by Seth Larson.
+   given in a `blog post <versions-seth-larson_>`_ by Seth Larson.
 
 .. [#semver-strictness] For some personal viewpoints on this issue, see these
    blog posts: `by Hynek Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft
