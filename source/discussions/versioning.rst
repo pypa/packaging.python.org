@@ -16,18 +16,18 @@ needs of that particular project, but in order to be compatible with tools like
 :ref:`pip`, all of them are required to comply with a flexible format for
 version identifiers, for which the authoritative reference is the
 :ref:`specification of version specifiers <version-specifiers>`. Here are some
-examples of version numbers:
+examples of version numbers [#version-examples]_:
 
-- A simple version (final release): 1.2.0
-- A development release: 1.2.0.dev1
-- An alpha release: 1.2.0a1
-- A beta release: 1.2.0b1
-- A release candidate: 1.2.0rc1
-- A post-release: 1.2.0.post1
-- A post-release of an alpha release (possible, but discouraged): 1.2.0a1.post1
-- A simple version with only two components: 23.12
-- A simple version with just one component (possible, but discouraged): 42
-- A version with an epoch: 1!1.0
+- A simple version (final release): ``1.2.0``
+- A development release: ``1.2.0.dev1``
+- An alpha release: ``1.2.0a1``
+- A beta release: ``1.2.0b1``
+- A release candidate: ``1.2.0rc1``
+- A post-release: ``1.2.0.post1``
+- A post-release of an alpha release (possible, but discouraged): ``1.2.0a1.post1``
+- A simple version with only two components: ``23.12``
+- A simple version with just one component: ``42``
+- A version with an epoch: ``1!1.0``
 
 Projects can use a cycle of pre-releases to support testing by their users
 before a final release. In order, the steps are: alpha releases, beta releases,
@@ -68,11 +68,11 @@ Semantic versioning
 -------------------
 
 The idea of *semantic versioning* (or SemVer) is to use 3-part version numbers,
-*major.minor.maintenance*, where the project author increments:
+*major.minor.patch*, where the project author increments:
 
 - *major* when they make incompatible API changes,
 - *minor* when they add functionality in a backwards-compatible manner, and
-- *maintenance*, when they make backwards-compatible bug fixes.
+- *patch*, when they make backwards-compatible bug fixes.
 
 A majority of Python projects use a scheme that resembles semantic
 versioning. However, most projects, especially larger ones, do not strictly
@@ -159,6 +159,8 @@ since the latest release, setuptools-scm generates a version like
 
 --------------------------------------------------------------------------------
 
+.. [#version-examples] Some more examples of unusual version numbers are
+   given in a `blog post <versions-seth-larson>`_ by Seth Larson.
 
 .. [#semver-strictness] For some personal viewpoints on this issue, see these
    blog posts: `by Hynek Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft
@@ -176,3 +178,4 @@ since the latest release, setuptools-scm generates a version like
 .. _semver-donald-stufft: https://caremad.io/posts/2016/02/versioning-software/
 .. _semver-hynek-schlawack: https://hynek.me/articles/semver-will-not-save-you/
 .. _setuptools-scm: https://setuptools-scm.readthedocs.io
+.. _versions-seth-larson: https://sethmlarson.dev/pep-440
