@@ -117,8 +117,8 @@ and input files. Build backends have different levels of functionality, such as
 whether they support building :term:`extension modules <Extension Module>`, and
 you should choose one that suits your needs and preferences.
 
-You can choose from a number of backends; this tutorial uses :ref:`Hatchling
-<hatch>` by default, but it will work identically with :ref:`setuptools`,
+You can choose from a number of backends; this tutorial uses :ref:`setuptools`,
+by default, but it will work identically with :ref:`Hatchling <hatch>`,
 :ref:`Flit <flit>`, :ref:`PDM <pdm>`, and others that support the ``[project]``
 table for :ref:`metadata <configuring metadata>`.
 
@@ -134,14 +134,6 @@ The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` tools l
 examples for common build backends, but check your backend's own documentation
 for more details.
 
-.. tab:: Hatchling
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
 .. tab:: setuptools
 
     .. code-block:: toml
@@ -149,6 +141,14 @@ for more details.
         [build-system]
         requires = ["setuptools>=61.0"]
         build-backend = "setuptools.build_meta"
+
+.. tab:: Hatchling
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["hatchling"]
+        build-backend = "hatchling.build"
 
 .. tab:: Flit
 
@@ -530,15 +530,15 @@ At this point if you want to read more on packaging Python libraries here are
 some things you can do:
 
 * Read about advanced configuration for your chosen build backend:
-  `Hatchling <hatchling-config_>`_,
   :doc:`setuptools <setuptools:userguide/pyproject_config>`,
+  `Hatchling <hatchling-config_>`_,
   :doc:`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_.
 * Look at the :doc:`guides </guides/index>` on this site for more advanced
   practical information, or the :doc:`discussions </discussions/index>`
   for explanations and background on specific topics.
 * Consider packaging tools that provide a single command-line interface for
-  project management and packaging, such as :ref:`hatch`, :ref:`flit`,
-  :ref:`pdm`, and :ref:`poetry`.
+  project management and packaging, such as :ref:`poetry`, :ref:`hatch`,
+  :ref:`flit`, and :ref:`pdm`.
 
 
 ----
