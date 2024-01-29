@@ -234,26 +234,26 @@ error like all other unknown variables.
      - Python equivalent
      - Sample values
    * - ``os_name``
-     - ``os.name``
+     - :py:data:`os.name`
      - ``posix``, ``java``
    * - ``sys_platform``
-     - ``sys.platform``
+     - :py:data:`sys.platform`
      - ``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that "linux"
        is from Python3 and "linux2" from Python2)
    * - ``platform_machine``
-     - ``platform.machine()``
+     - :py:func:`platform.machine()`
      - ``x86_64``
    * - ``platform_python_implementation``
-     - ``platform.python_implementation()``
+     - :py:func:`platform.python_implementation()`
      - ``CPython``, ``Jython``
    * - ``platform_release``
-     - ``platform.release()``
+     - :py:func:`platform.release()`
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
    * - ``platform_system``
-     - ``platform.system()``
+     - :py:func:`platform.system()`
      - ``Linux``, ``Windows``, ``Java``
    * - ``platform_version``
-     - ``platform.version()``
+     - :py:func:`platform.version()`
      - ``#1 SMP Fri Apr 25 13:07:35 EDT 2014``
        ``Java HotSpot(TM) 64-Bit Server VM, 25.51-b03, Oracle Corporation``
        ``Darwin Kernel Version 14.5.0: Wed Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``
@@ -261,10 +261,10 @@ error like all other unknown variables.
      - ``'.'.join(platform.python_version_tuple()[:2])``
      - ``3.4``, ``2.7``
    * - ``python_full_version``
-     - ``platform.python_version()``
+     - :py:func:`platform.python_version()`
      - ``3.4.0``, ``3.5.0b1``
    * - ``implementation_name``
-     - ``sys.implementation.name``
+     - :py:data:`sys.implementation.name <sys.implementation>`
      - ``cpython``
    * - ``implementation_version``
      - see definition below
@@ -275,7 +275,7 @@ error like all other unknown variables.
      - ``test``
 
 The ``implementation_version`` marker variable is derived from
-``sys.implementation.version``:
+:py:data:`sys.implementation.version <sys.implementation>`:
 
 .. code-block:: python
 
