@@ -15,7 +15,7 @@ repos:
   rev: v2.2.6
   hooks:
   - id: codespell
-    args: ["-L", "ned"]
+    args: ["-L", "ned,ist,oder", "--skip", "*.po"]
 
 - repo: local
   hooks:
@@ -24,6 +24,7 @@ repos:
     language: pygrep
     entry: PyBind|Numpy|Cmake|CCache|Github|PyTest
     exclude: .pre-commit-config.yaml
+    exclude_types: ["pofile"]
 
 - repo: https://github.com/pre-commit/pygrep-hooks
   rev: v1.10.0
@@ -33,7 +34,7 @@ repos:
   - id: rst-inline-touching-normal
 
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.1.4
+  rev: v0.1.14
   hooks:
     - id: ruff
     - id: ruff-format

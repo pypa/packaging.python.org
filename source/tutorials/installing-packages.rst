@@ -52,7 +52,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
 .. Note:: If you're a newcomer and you get an error like this:
 
-    .. code-block:: python
+    .. code-block:: pycon
 
         >>> python3 --version
         Traceback (most recent call last):
@@ -69,7 +69,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
    notebook, you can run system commands like those in this tutorial by
    prefacing them with a ``!`` character:
 
-    ::
+   .. code-block:: text
 
         In [1]: import sys
                 !{sys.executable} --version
@@ -133,21 +133,21 @@ standard library:
 
 If that still doesn't allow you to run ``python -m pip``:
 
- * Securely Download `get-pip.py
-   <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
+* Securely Download `get-pip.py
+  <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
 
- * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
-   Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
-   not installed already.
+* Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
+  Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
+  not installed already.
 
-   .. warning::
+  .. warning::
 
-      Be cautious if you're using a Python install that's managed by your
-      operating system or another package manager. get-pip.py does not
-      coordinate with those tools, and may leave your system in an
-      inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
-      to install in ``/usr/local`` which is designed for locally-installed
-      software.
+     Be cautious if you're using a Python install that's managed by your
+     operating system or another package manager. get-pip.py does not
+     coordinate with those tools, and may leave your system in an
+     inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
+     to install in ``/usr/local`` which is designed for locally-installed
+     software.
 
 
 Ensure pip, setuptools, and wheel are up to date

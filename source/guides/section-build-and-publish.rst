@@ -5,8 +5,8 @@ Building and Publishing
 .. toctree::
    :titlesonly:
 
+   writing-pyproject-toml
    distributing-packages-using-setuptools
-   using-manifest-in
    single-sourcing-package-version
    dropping-older-python-versions
    packaging-binary-extensions
@@ -15,3 +15,4 @@ Building and Publishing
    using-testpypi
    making-a-pypi-friendly-readme
    publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
+   modernize-setup-py-project

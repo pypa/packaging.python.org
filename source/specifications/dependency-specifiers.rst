@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _dependency-specifiers:
 
 =====================
@@ -232,26 +234,26 @@ error like all other unknown variables.
      - Python equivalent
      - Sample values
    * - ``os_name``
-     - ``os.name``
+     - :py:data:`os.name`
      - ``posix``, ``java``
    * - ``sys_platform``
-     - ``sys.platform``
+     - :py:data:`sys.platform`
      - ``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that "linux"
        is from Python3 and "linux2" from Python2)
    * - ``platform_machine``
-     - ``platform.machine()``
+     - :py:func:`platform.machine()`
      - ``x86_64``
    * - ``platform_python_implementation``
-     - ``platform.python_implementation()``
+     - :py:func:`platform.python_implementation()`
      - ``CPython``, ``Jython``
    * - ``platform_release``
-     - ``platform.release()``
+     - :py:func:`platform.release()`
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
    * - ``platform_system``
-     - ``platform.system()``
+     - :py:func:`platform.system()`
      - ``Linux``, ``Windows``, ``Java``
    * - ``platform_version``
-     - ``platform.version()``
+     - :py:func:`platform.version()`
      - ``#1 SMP Fri Apr 25 13:07:35 EDT 2014``
        ``Java HotSpot(TM) 64-Bit Server VM, 25.51-b03, Oracle Corporation``
        ``Darwin Kernel Version 14.5.0: Wed Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``
@@ -259,10 +261,10 @@ error like all other unknown variables.
      - ``'.'.join(platform.python_version_tuple()[:2])``
      - ``3.4``, ``2.7``
    * - ``python_full_version``
-     - ``platform.python_version()``
+     - :py:func:`platform.python_version()`
      - ``3.4.0``, ``3.5.0b1``
    * - ``implementation_name``
-     - ``sys.implementation.name``
+     - :py:data:`sys.implementation.name <sys.implementation>`
      - ``cpython``
    * - ``implementation_version``
      - see definition below
@@ -273,7 +275,9 @@ error like all other unknown variables.
      - ``test``
 
 The ``implementation_version`` marker variable is derived from
-``sys.implementation.version``::
+:py:data:`sys.implementation.version <sys.implementation>`:
+
+.. code-block:: python
 
     def format_full_version(info):
         version = '{0.major}.{0.minor}.{0.micro}'.format(info)
@@ -400,7 +404,9 @@ The complete parsley grammar::
     sub_delims    = '!' | '$' | '&' | '\\'' | '(' | ')' | '*' | '+' | ',' | ';' | '='
     hexdig        = digit | 'a' | 'A' | 'b' | 'B' | 'c' | 'C' | 'd' | 'D' | 'e' | 'E' | 'f' | 'F'
 
-A test program - if the grammar is in a string ``grammar``::
+A test program - if the grammar is in a string ``grammar``:
+
+.. code-block:: python
 
     import os
     import sys
@@ -466,14 +472,12 @@ A test program - if the grammar is in a string ``grammar``::
         print("%s -> %s" % (test, parsed))
 
 
-Summary of changes to PEP 508
-=============================
+History
+=======
 
-The following changes were made based on feedback after its initial
-implementation:
-
-- The definition of ``python_version`` was changed from
-  ``platform.python_version()[:3]`` to
+- November 2015: This specification was approved through :pep:`508`.
+- July 2019: The definition of ``python_version`` was `changed
+  <python-version-change_>`_ from ``platform.python_version()[:3]`` to
   ``'.'.join(platform.python_version_tuple()[:2])``, to accommodate potential
   future versions of Python with 2-digit major and minor versions
   (e.g. 3.10). [#future_versions]_
@@ -491,3 +495,7 @@ References
 .. [#future_versions] Future Python versions might be problematic with the
    definition of Environment Marker Variable ``python_version``
    (https://github.com/python/peps/issues/560)
+
+
+
+.. _python-version-change: https://mail.python.org/pipermail/distutils-sig/2018-January/031920.html

@@ -96,11 +96,13 @@ required in the :file:`pyproject.toml` file. For example, you might specify:
 
 * a ``[project]`` table containing project
   :doc:`Core Metadata </specifications/core-metadata/>`
-  (name, version, author and so forth); see
-  :doc:`Declaring project metadata </specifications/declaring-project-metadata/>`
-  for more detail
+  (name, version, author and so forth),
 
-* a ``[tool]`` table containing tool-specific configuration options
+* a ``[tool]`` table containing tool-specific configuration options.
+
+Refer to the :ref:`pyproject.toml guide <writing-pyproject-toml>` for a
+complete guide to ``pyproject.toml`` configuration.
+
 
 Build artifacts
 ===============

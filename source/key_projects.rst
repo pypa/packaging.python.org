@@ -235,7 +235,7 @@ application-centric alternative to :ref:`pip`'s lower-level
 pipx
 ====
 
-`Docs <https://pypa.github.io/pipx/>`__ |
+`Docs <https://pipx.pypa.io/>`__ |
 `GitHub <https://github.com/pypa/pipx>`__ |
 `PyPI <https://pypi.org/project/pipx/>`__
 
@@ -246,7 +246,7 @@ causing dependency conflicts with other packages installed on the system.
 Python Packaging User Guide
 ===========================
 
-:doc:`Docs <packaging.python.org:index>` |
+:doc:`Docs <index>` |
 `Issues <https://github.com/pypa/packaging.python.org/issues>`__ |
 `GitHub <https://github.com/pypa/packaging.python.org>`__
 
@@ -270,7 +270,7 @@ display on PyPI.
 .. _setuptools:
 .. _easy_install:
 
-setuptools
+Setuptools
 ==========
 
 `Docs <https://setuptools.readthedocs.io/en/latest/>`__ |
@@ -278,14 +278,10 @@ setuptools
 `GitHub <https://github.com/pypa/setuptools>`__ |
 `PyPI <https://pypi.org/project/setuptools>`__
 
-setuptools (which includes ``easy_install``) is a collection of
+Setuptools (which includes ``easy_install``) is a collection of
 enhancements to the Python distutils that allow you to more easily
 build and distribute Python :term:`distributions <Distribution
 Package>`, especially ones that have dependencies on other packages.
-
-`distribute`_ was a fork of setuptools that was merged back into setuptools (in
-v0.7), thereby making setuptools the primary choice for Python packaging.
-
 
 .. _trove-classifiers:
 
@@ -298,8 +294,7 @@ trove-classifiers
 
 trove-classifiers is the canonical source for `classifiers on PyPI
 <https://pypi.org/classifiers/>`_, which project maintainers use to
-`systematically describe their projects
-<https://packaging.python.org/specifications/core-metadata/#classifier-multiple-use>`_
+:ref:`systematically describe their projects <core-metadata-classifier>`
 so that users can better find projects that match their needs on the PyPI.
 
 The trove-classifiers package contains a list of valid classifiers and
@@ -335,18 +330,17 @@ it's fast and secure, it's maintained, and it reliably works.
 virtualenv
 ==========
 
-:doc:`Docs <virtualenv:index>` |
+`Docs <https://virtualenv.pypa.io/en/stable/index.html>`__ |
 `Issues <https://github.com/pypa/virtualenv/issues>`__ |
 `GitHub <https://github.com/pypa/virtualenv>`__ |
 `PyPI <https://pypi.org/project/virtualenv/>`__
 
-virtualenv is a tool which uses the command-line path environment
-variable to create isolated Python :term:`Virtual Environments
-<Virtual Environment>`, much as :ref:`venv` does. virtualenv provides
-additional functionality, compared to :ref:`venv`, by supporting Python
-2.7 and by providing convenient features for configuring, maintaining,
-duplicating, and troubleshooting the virtual environments. For more
-information, see the section on :ref:`Creating and using Virtual
+virtualenv is a tool for creating isolated Python :term:`Virtual Environments
+<Virtual Environment>`, like :ref:`venv`. Unlike :ref:`venv`, virtualenv can
+create virtual environments for other versions of Python, which it locates
+using the PATH environment variable. It also provides convenient features for
+configuring, maintaining, duplicating, and troubleshooting virtual environments.
+For more information, see the section on :ref:`Creating and using Virtual
 Environments`.
 
 
@@ -569,11 +563,14 @@ pex
 `GitHub <https://github.com/pantsbuild/pex/>`__ |
 `PyPI <https://pypi.org/project/pex>`__
 
-pex is both a library and tool for generating :file:`.pex` (Python EXecutable)
+Pex is a tool for generating :file:`.pex` (Python EXecutable)
 files, standalone Python environments in the spirit of :ref:`virtualenv`.
-:file:`.pex` files are just carefully constructed zip files with a
-``#!/usr/bin/env python`` and special :file:`__main__.py`, and are designed to
-make deployment of Python applications as simple as ``cp``.
+PEX files are :doc:`zipapps <python:library/zipapp>` that
+make deployment of Python applications as simple as ``cp``. A single PEX
+file can support multiple target platforms and can be created from standard
+:ref:`pip`-resolvable requirements, a lockfile generated with ``pex3 lock ...``
+or even another PEX. PEX files can optionally have tools embedded that support
+turning the PEX file into a standard venv, graphing dependencies and more.
 
 .. _pip-tools:
 
@@ -875,7 +872,6 @@ information, see the section on :ref:`Creating and using Virtual Environments`.
 
 ----
 
-.. _distribute: https://pypi.org/project/distribute
 .. _Sphinx: https://www.sphinx-doc.org/en/master/
 .. _pytest: https://docs.pytest.org/en/stable/
 .. _`AWS S3`: https://aws.amazon.com/s3/

@@ -17,10 +17,10 @@ there was no previously standardised mechanism for declaring or discovering them
 Runtime detection of virtual environments
 =========================================
 
-At runtime, virtual environments can be identified by virtue of ``sys.prefix``
-(the filesystem location of the running interpreter) having a different value
-from ``sys.base_prefix`` (the default filesystem location of the standard library
-directories).
+At runtime, virtual environments can be identified by virtue of
+:py:data:`sys.prefix` (the filesystem location of the running interpreter)
+having a different value from :py:data:`sys.base_prefix` (the default filesystem
+location of the standard library directories).
 
 :ref:`venv-explanation` in the Python standard library documentation for the
 :py:mod:`venv` module covers this along with the concept of "activating" a
@@ -45,6 +45,12 @@ nesting is required or desired.
 
 Even in the absence of a ``pyvenv.cfg`` file, any approach (e.g.
 ``sitecustomize.py``, patching the installed Python runtime) that results in
-``sys.prefix`` and ``sys.base_prefix`` having different values, while still
-providing a matching default package installation scheme in ``sysconfig``, will
-be detected and behave as a Python virtual environment.
+:py:data:`sys.prefix` and :py:data:`sys.base_prefix` having different values,
+while still providing a matching default package installation scheme in
+:py:mod:`sysconfig`, will be detected and behave as a Python virtual environment.
+
+
+History
+=======
+
+- May 2012: This specification was approved through :pep:`405`.

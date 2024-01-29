@@ -1,3 +1,4 @@
+.. highlight:: json
 
 .. _direct-url-data-structure:
 
@@ -32,7 +33,9 @@ for security reasons.
 
 The user:password section of the URL MAY however
 be composed of environment variables, matching the following regular
-expression::
+expression:
+
+.. code-block:: text
 
     \$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
 
@@ -76,10 +79,10 @@ MUST be present as a dictionary with the following keys:
 
   These hash names SHOULD always be normalized to be lowercase.
 
-  Any hash algorithm available via ``hashlib`` (specifically any that can be passed to
-  ``hashlib.new()`` and do not require additional parameters) can be used as a key for
+  Any hash algorithm available via :py:mod:`hashlib` (specifically any that can be passed to
+  :py:func:`hashlib.new()` and do not require additional parameters) can be used as a key for
   the hashes dictionary. At least one secure algorithm from
-  ``hashlib.algorithms_guaranteed`` SHOULD always be included. At time of writing,
+  :py:data:`hashlib.algorithms_guaranteed` SHOULD always be included. At time of writing,
   ``sha256`` specifically is recommended.
 
 - A deprecated ``hash`` key (type ``string``) MAY be present for backwards compatibility
@@ -130,24 +133,19 @@ Git
 ---
 
 Home page
-
    https://git-scm.com/
 
 vcs command
-
    git
 
 ``vcs`` field
-
    git
 
 ``requested_revision`` field
-
    A tag name, branch name, Git ref, commit hash, shortened commit hash,
    or other commit-ish.
 
 ``commit_id`` field
-
    A commit hash (40 hexadecimal characters sha1).
 
 .. note::
@@ -162,70 +160,55 @@ Mercurial
 ---------
 
 Home page
-
    https://www.mercurial-scm.org/
 
 vcs command
-
    hg
 
 ``vcs`` field
-
    hg
 
 ``requested_revision`` field
-
    A tag name, branch name, changeset ID, shortened changeset ID.
 
 ``commit_id`` field
-
    A changeset ID (40 hexadecimal characters).
 
 Bazaar
 ------
 
 Home page
-
    https://www.breezy-vcs.org/
 
 vcs command
-
    bzr
 
 ``vcs`` field
-
    bzr
 
 ``requested_revision`` field
-
    A tag name, branch name, revision id.
 
 ``commit_id`` field
-
    A revision id.
 
 Subversion
 ----------
 
 Home page
-
    https://subversion.apache.org/
 
 vcs command
-
    svn
 
 ``vcs`` field
-
    svn
 
 ``requested_revision`` field
-
    ``requested_revision`` must be compatible with ``svn checkout`` ``--revision`` option.
    In Subversion, branch or tag is part of ``url``.
 
 ``commit_id`` field
-
    Since Subversion does not support globally unique identifiers,
    this field is the Subversion revision number in the corresponding
    repository.
@@ -279,10 +262,15 @@ Local directory in editable mode:
        }
    }
 
+
 History
 =======
 
-- March 2020: this data structure was originally specified as part of the
-  ``direct_url.json`` metadata file in :pep:`610` and is formally documented here.
-- January 2023: Added the ``archive_info.hashes`` key
-  ([discussion](https://discuss.python.org/t/22299)).
+- March 2020: This specification was approved through :pep:`610`, defining
+  the ``direct_url.json`` metadata file.
+- January 2023: Added the ``archive_info.hashes`` key (`discussion
+  <archive-info-hashes_>`_).
+
+
+
+.. _archive-info-hashes: https://discuss.python.org/t/22299

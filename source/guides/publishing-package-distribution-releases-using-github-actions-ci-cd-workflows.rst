@@ -37,13 +37,13 @@ for your new :term:`PyPI project <Project>`.
 However it is also possible to add `trusted publishing`_ to any
 pre-existing project, if you are its owner.
 
-   .. attention::
+.. attention::
 
-      If you followed earlier versions of this guide, you
-      have created the secrets ``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN``
-      for direct PyPI and TestPyPI access. These are obsolete now and
-      you should remove them from your GitHub repository and revoke
-      them in your PyPI and TestPyPI account settings in case you are replacing your old setup with the new one.
+   If you followed earlier versions of this guide, you
+   have created the secrets ``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN``
+   for direct PyPI and TestPyPI access. These are obsolete now and
+   you should remove them from your GitHub repository and revoke
+   them in your PyPI and TestPyPI account settings in case you are replacing your old setup with the new one.
 
 
 Let's begin! 🚀
@@ -218,6 +218,14 @@ on GitHub, this workflow will publish it to PyPI.
 And it'll publish any push to TestPyPI which is useful for
 providing test builds to your alpha users as well as making
 sure that your release pipeline remains healthy!
+
+.. attention::
+
+  If your repository has frequent commit activity and every push is uploaded
+  to TestPyPI as described, the project might exceed the
+  `PyPI project size limit <https://pypi.org/help/#project-size-limit>`_.
+  The limit could be increased, but a better solution may constitute to
+  use a PyPI-compatible server like :ref:`pypiserver` in the CI for testing purposes.
 
 .. note::
 

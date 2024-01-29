@@ -54,8 +54,8 @@ Create the following file structure locally:
 The directory containing the Python files should match the project name. This
 simplifies the configuration and is more obvious to users who install the package.
 
-:file:`__init__.py` is required to import the directory as a package,
-even if as is our case for this tutorial that file is empty.
+:file:`__init__.py` is recommended to import the directory as a regular package,
+even if as is our case for this tutorial that file is empty [#namespace-packages]_.
 
 :file:`example.py` is an example of a module within the package that could
 contain the logic (functions, classes, constants, etc.) of your package.
@@ -102,6 +102,8 @@ Creating a test directory
 
 :file:`tests/` is a placeholder for test files. Leave it empty for now.
 
+
+.. _choosing-build-backend:
 
 Choosing a build backend
 ------------------------
@@ -214,17 +216,16 @@ following this tutorial.
     ]
 
     [project.urls]
-    "Homepage" = "https://github.com/pypa/sampleproject"
-    "Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+    Homepage = "https://github.com/pypa/sampleproject"
+    Issues = "https://github.com/pypa/sampleproject/issues"
 
 - ``name`` is the *distribution name* of your package. This can be any name as
   long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also
   must not already be taken on PyPI. **Be sure to update this with your
   username** for this tutorial, as this ensures you won't try to upload a
   package with the same name as one which already exists.
-- ``version`` is the package version. See the :ref:`version specifier specification <version-specifiers>`
-  for more details on versions. Some build backends allow it to be specified
-  another way, such as from a file or a git tag.
+- ``version`` is the package version. (Some build backends allow it to be
+  specified another way, such as from a file or Git tag.)
 - ``authors`` is used to identify the author of the package; you specify a name
   and an email for each author. You can also list ``maintainers`` in the same
   format.
@@ -233,9 +234,9 @@ following this tutorial.
   package. This is shown on the package detail page on PyPI.
   In this case, the description is loaded from :file:`README.md` (which is a
   common pattern). There also is a more advanced table form described in the
-  :ref:`project metadata specification <declaring-project-metadata>`.
+  :ref:`pyproject.toml guide <writing-pyproject-toml>`.
 - ``requires-python`` gives the versions of Python supported by your
-  project. Installers like :ref:`pip` will look back through older versions of
+  project. An installer like :ref:`pip` will look back through older versions of
   packages until it finds one that has a matching Python version.
 - ``classifiers`` gives the index and :ref:`pip` some additional metadata
   about your package. In this case, the package is only compatible with Python
@@ -247,10 +248,11 @@ following this tutorial.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 
-See the :ref:`project metadata specification <declaring-project-metadata>` for
-details on these and other fields that can be defined in the ``[project]``
-table. Other common fields are ``keywords`` to improve discoverability and the
-``dependencies`` that are required to install your package.
+See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details
+on these and other fields that can be defined in the ``[project]``
+table. Other common fields are ``keywords`` to improve discoverability
+and the ``dependencies`` that are required to install your package.
+
 
 Creating README.md
 ------------------
@@ -491,7 +493,7 @@ Make sure you're still in your virtual environment, then run Python:
 
 and import the package:
 
-.. code-block:: python
+.. code-block:: pycon
 
     >>> from example_package_YOUR_USERNAME_HERE import example
     >>> example.add_one(2)
@@ -527,11 +529,29 @@ differences:
 At this point if you want to read more on packaging Python libraries here are
 some things you can do:
 
-.. TODO: Add links to other guides
-.. TODO: Add links to backend configuration docs
-
+* Read about advanced configuration for your chosen build backend:
+  `Hatchling <hatchling-config_>`_,
+  :doc:`setuptools <setuptools:userguide/pyproject_config>`,
+  :doc:`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_.
+* Look at the :doc:`guides </guides/index>` on this site for more advanced
+  practical information, or the :doc:`discussions </discussions/index>`
+  for explanations and background on specific topics.
 * Consider packaging tools that provide a single command-line interface for
   project management and packaging, such as :ref:`hatch`, :ref:`flit`,
   :ref:`pdm`, and :ref:`poetry`.
-* Read :pep:`517` and :pep:`518` for background and details on build tool configuration.
-* Read about :doc:`/guides/packaging-binary-extensions`.
+
+
+----
+
+.. rubric:: Notes
+
+.. [#namespace-packages]
+   Technically, you can also create Python packages without an ``__init__.py`` file,
+   but those are called :doc:`namespace packages </guides/packaging-namespace-packages>`
+   and considered an **advanced topic** (not covered in this tutorial).
+   If you are only getting started with Python packaging, it is recommended to
+   stick with *regular packages* and ``__init__.py`` (even if the file is empty).
+
+
+.. _hatchling-config: https://hatch.pypa.io/latest/config/metadata/
+.. _pdm-config: https://pdm-project.org/latest/reference/pep621/

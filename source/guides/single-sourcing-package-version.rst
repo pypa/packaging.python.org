@@ -4,6 +4,7 @@
 Single-sourcing the package version
 ===================================
 
+.. todo:: Update this page for build backends other than setuptools.
 
 There are many techniques to maintain a single source of truth for the version
 number of your project:

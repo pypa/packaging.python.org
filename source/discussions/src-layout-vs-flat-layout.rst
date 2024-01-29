@@ -1,3 +1,5 @@
+.. _src-layout-vs-flat-layout:
+
 =========================
 src layout vs flat layout
 =========================
