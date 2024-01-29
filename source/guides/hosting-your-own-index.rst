@@ -105,6 +105,11 @@ Existing projects
      -
      - also mirroring; manual synchronisation
 
+   * - :ref:`dumb-pypi`
+     -
+     -
+     - not a server, but a static file site generator
+
    * - :ref:`httpserver`
      -
      -

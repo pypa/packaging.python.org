@@ -442,6 +442,18 @@ devpi supports mirroring PyPI, multiple
 :term:`package indexes <Package Index>` with inheritance, syncing between
 these indexes, index replication and fail-over, and package upload.
 
+.. _dumb-pypi:
+
+dumb-pypi
+=========
+
+`GitHub <https://github.com/chriskuehl/dumb-pypi>`__ |
+`PyPI <https://pypi.org/project/dumb-pypi>`__
+
+dumb-pypi is a simple :term:`package index <Package Index>` static file site
+generator, which then must be hosted by a static file webserver to become the
+package index. It supports serving the hash, core-metadata, and yank-status.
+
 .. _enscons:
 
 enscons
