@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-26 02:26+0000\n"
-"PO-Revision-Date: 2024-01-27 05:01+0000\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"PO-Revision-Date: 2024-01-29 08:01+0000\n"
+"Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
 "Language: ja\n"
@@ -8478,7 +8478,6 @@ msgid "Go to https://pypi.org/manage/account/publishing/."
 msgstr "https://pypi.org/manage/account/publishing/ へ行く。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:52
-#, fuzzy
 msgid ""
 "Fill in the name you wish to publish your new :term:`PyPI project <Project>` "
 "under (the ``name`` value in your ``setup.cfg`` or ``pyproject.toml``), the "
@@ -8488,8 +8487,13 @@ msgid ""
 "(``pypi``) we're going set up under your repository. Register the trusted "
 "publisher."
 msgstr ""
-"新しい :term:`PyPI プロジェクト <Project>` 向けに発行したいと思う名前を、 "
-"(``setup.cfg`` か ``pyproject.toml`` の中の ``名称 <name>`` の値として、"
+"新しい :term:`PyPI プロジェクト <Project>` 向けに発行したいと思う名前を "
+"(``setup.cfg`` か ``pyproject.toml`` の中の ``名称 <name>`` の値として)、"
+"GitHub のリポジトリ所有者の名称 (org または user) と、リポジトリの名称と、 ``"
+".github/`` フォルダの下のリリースワークフローの名称を記入するには、 :ref:`"
+"ワークフロー定義 <workflow-definition>` をみてください。最後に、"
+"これからリポジトリ内に設定しようとするGutHub 環境 (``pypi``) "
+"の名称を追加してください。トラステッドパブリッシャを登録してください。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
 msgid ""
@@ -16186,7 +16190,6 @@ msgid "Versions"
 msgstr "バージョン指定子"
 
 #: ../source/specifications/dependency-specifiers.rst:165
-#, fuzzy
 msgid ""
 "See the :ref:`Version specifier specification <version-specifiers>` for more "
 "detail on both version numbers and version comparisons. Version "
@@ -16196,13 +16199,14 @@ msgid ""
 "brackets around a version are present for compatibility with :pep:`345` but "
 "should not be generated, only accepted."
 msgstr ""
-"バージョン番号やその比較方法について、詳しくは :pep:`440` をみてください。"
-"バージョン仕様は、配布物のバージョンとして使うことができる範囲を定めていま"
-"す。これは、名前によって参照される配布物にのみ適用されるのであって、URL を通"
-"じて指定されるものには適用されません。バージョン番号の比較は、また、マーカー"
-"機能においても使われます。バージョンの周囲にある必須でない括弧は :pep:`345` "
-"との互換性を保つために存在していますが、そのようなものを生成すべきではなくて"
-"受容するだけにとどめるべきです。"
+"バージョン番号やその比較方法について、詳しくは :ref:`バージョン指定子仕様 "
+"<version-specifiers>` をみてください。バージョン仕様は、配布物のバージョンと"
+"して使うことができる範囲を定めています。これは、名前によって参照される配布物"
+"にのみ適用されるのであって、URL を通じて指定されるものには該当しません。バー"
+"ジョン番号の比較は、また、マーカー機能においても使われます。"
+"バージョンの周囲にある必須でない括弧は :pep:`345` との互換性を保つために存在"
+"していますが、そのようなものを生成すべきではなくて受容するだけにとどめるべき"
+"です。"
 
 #: ../source/specifications/dependency-specifiers.rst:174
 msgid "Environment Markers"
@@ -16244,7 +16248,6 @@ msgstr ""
 "`426` に記述されたデザインに見られるいくつかの問題点を修正しています。"
 
 #: ../source/specifications/dependency-specifiers.rst:191
-#, fuzzy
 msgid ""
 "Comparisons in marker expressions are typed by the comparison operator.  The "
 "<marker_op> operators that are not in <version_cmp> perform the same as they "
@@ -16256,14 +16259,15 @@ msgid ""
 "Python behaviour. Otherwise an error should be raised. e.g. the following "
 "will result in  errors::"
 msgstr ""
-"マーカ表現の比較は、比較の演算子によって分類されます。 <version_cmp> の中に"
-"入っていない <marker_op> 演算子は、 Python における文字列でのそれと同様に動作"
-"します。 <version_cmp> 演算子は、定義されている場合 (つまり両側に正当はバー"
-"ジョン指定子を伴う場合) には、 :pep:`440` のバージョン比較規則を採用していま"
-"す。演算子の動作が :pep:`440` で定義されておらず、かつ、その演算子が Python "
-"に存在する場合には、当該演算子は Python での動作にフォールバックします。そう"
-"でない場合にはエラーを発生させるべきです。例えば、次の表現はエラーを発生させ"
-"る結果となるでしょう::"
+"マーカ表現の比較は比較演算子によって分類されます。 <version_cmp> "
+"の中に入っていない <marker_op> 演算子は、 Python "
+"における文字列でのそれと同様に動作します。 <version_cmp> 演算子は、"
+"定義されている場合 (つまり両側に正当はバージョン指定子を伴う場合) には、 "
+":ref:`バージョン指定子仕様 <version-specifiers>` のバージョン比較規則を採用し"
+"ています。演算子の動作がこの仕様で定義されておらず、かつ、その演算子が "
+"Python に存在する場合には、当該演算子は Python での動作にフォールバックします"
+"。そうでない場合にはエラーを発生させるべきです。例えば、次の表現はエラーを発"
+"生させる結果となるでしょう::"
 
 #: ../source/specifications/dependency-specifiers.rst:204
 msgid ""
@@ -16346,10 +16350,8 @@ msgid "``os_name``"
 msgstr "``OS の名称 <os_name>``"
 
 #: ../source/specifications/dependency-specifiers.rst:237
-#, fuzzy
-#| msgid "``os.name``"
 msgid ":py:data:`os.name`"
-msgstr "``os.name``"
+msgstr ":py:data:`os.name`"
 
 #: ../source/specifications/dependency-specifiers.rst:238
 msgid "``posix``, ``java``"
@@ -16360,10 +16362,8 @@ msgid "``sys_platform``"
 msgstr "``sys_platform``"
 
 #: ../source/specifications/dependency-specifiers.rst:240
-#, fuzzy
-#| msgid "``sys.platform``"
 msgid ":py:data:`sys.platform`"
-msgstr "``sys.platform``"
+msgstr ":py:data:`sys.platform`"
 
 #: ../source/specifications/dependency-specifiers.rst:241
 msgid ""
@@ -16378,10 +16378,8 @@ msgid "``platform_machine``"
 msgstr "``platform_machine``"
 
 #: ../source/specifications/dependency-specifiers.rst:244
-#, fuzzy
-#| msgid "``platform.machine()``"
 msgid ":py:func:`platform.machine()`"
-msgstr "``platform.machine()``"
+msgstr ":py:func:`platform.machine()`"
 
 #: ../source/specifications/dependency-specifiers.rst:245
 msgid "``x86_64``"
@@ -16392,10 +16390,8 @@ msgid "``platform_python_implementation``"
 msgstr "``platform_python_implementation``"
 
 #: ../source/specifications/dependency-specifiers.rst:247
-#, fuzzy
-#| msgid "``platform.python_implementation()``"
 msgid ":py:func:`platform.python_implementation()`"
-msgstr "``platform.python_implementation()``"
+msgstr ":py:func:`platform.python_implementation()`"
 
 #: ../source/specifications/dependency-specifiers.rst:248
 msgid "``CPython``, ``Jython``"
@@ -16406,10 +16402,8 @@ msgid "``platform_release``"
 msgstr "``platform_release``"
 
 #: ../source/specifications/dependency-specifiers.rst:250
-#, fuzzy
-#| msgid "``platform.release()``"
 msgid ":py:func:`platform.release()`"
-msgstr "``platform.release()``"
+msgstr ":py:func:`platform.release()`"
 
 #: ../source/specifications/dependency-specifiers.rst:251
 msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
@@ -16420,10 +16414,8 @@ msgid "``platform_system``"
 msgstr "``platform_system``"
 
 #: ../source/specifications/dependency-specifiers.rst:253
-#, fuzzy
-#| msgid "``platform.system()``"
 msgid ":py:func:`platform.system()`"
-msgstr "``platform.system()``"
+msgstr ":py:func:`platform.system()`"
 
 #: ../source/specifications/dependency-specifiers.rst:254
 msgid "``Linux``, ``Windows``, ``Java``"
@@ -16434,10 +16426,8 @@ msgid "``platform_version``"
 msgstr "``platform_version``"
 
 #: ../source/specifications/dependency-specifiers.rst:256
-#, fuzzy
-#| msgid "``platform.version()``"
 msgid ":py:func:`platform.version()`"
-msgstr "``platform.version()``"
+msgstr ":py:func:`platform.version()`"
 
 #: ../source/specifications/dependency-specifiers.rst:257
 msgid ""
@@ -16466,10 +16456,8 @@ msgid "``python_full_version``"
 msgstr "``python_full_version``"
 
 #: ../source/specifications/dependency-specifiers.rst:264
-#, fuzzy
-#| msgid "``platform.python_version()``"
 msgid ":py:func:`platform.python_version()`"
-msgstr "``platform.python_version()``"
+msgstr ":py:func:`platform.python_version()`"
 
 #: ../source/specifications/dependency-specifiers.rst:265
 #: ../source/specifications/dependency-specifiers.rst:271
@@ -16481,10 +16469,8 @@ msgid "``implementation_name``"
 msgstr "``implementation_name``"
 
 #: ../source/specifications/dependency-specifiers.rst:267
-#, fuzzy
-#| msgid "``sys.implementation.name``"
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
-msgstr "``sys.implementation.name``"
+msgstr ":py:data:`sys.implementation.name <sys.implementation>`"
 
 #: ../source/specifications/dependency-specifiers.rst:268
 msgid "``cpython``"
@@ -16512,13 +16498,12 @@ msgid "``test``"
 msgstr "``test``"
 
 #: ../source/specifications/dependency-specifiers.rst:277
-#, fuzzy
 msgid ""
 "The ``implementation_version`` marker variable is derived from :py:data:`sys."
 "implementation.version <sys.implementation>`:"
 msgstr ""
-"マーカ変数の ``implementation_version`` は、 ``sys.implementation.version`` "
-"から派生したものです ::"
+"``implementation_version`` マーカ変数は、 :py:data:`"
+"sys.implementation.version <sys.implementation>` から派生したものです :"
 
 #: ../source/specifications/dependency-specifiers.rst:294
 msgid ""
@@ -16537,26 +16522,25 @@ msgid "The complete parsley grammar::"
 msgstr "完全な parsley 文法::"
 
 #: ../source/specifications/dependency-specifiers.rst:407
-#, fuzzy
 msgid "A test program - if the grammar is in a string ``grammar``:"
-msgstr "テストプログラム - もし ``grammar`` 文字列内に文法があれば::"
+msgstr "テストプログラム - もし ``grammar`` 文字列内に文法があれば:"
 
 #: ../source/specifications/dependency-specifiers.rst:478
 msgid "November 2015: This specification was approved through :pep:`508`."
-msgstr ""
+msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されました。"
 
 #: ../source/specifications/dependency-specifiers.rst:479
-#, fuzzy
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
 "change_>`_ from ``platform.python_version()[:3]`` to ``'.'.join(platform."
 "python_version_tuple()[:2])``, to accommodate potential future versions of "
 "Python with 2-digit major and minor versions (e.g. 3.10). [#future_versions]_"
 msgstr ""
-"``python_version`` の定義は、 Python の将来のバージョンが二桁のメジャーバー"
-"ジョンやマイナーバージョンを持つ場合 (例えば 3.10) でもそれを収容できるよう"
-"に、 ``platform.python_version()[:3]`` から ``'.'.join(platform."
-"python_version_tuple()[:2])`` へと変更されました。 [#future_versions]_"
+"2019年6月: ``python_version`` の定義は、Python "
+"の将来のバージョンが二桁のメジャーバージョンやマイナーバージョンを持つ場合 ("
+"例えば 3.10) でもそれを収容できるように、 ``platform.python_version()[:3]`` "
+"から ``'.'.join(platform.python_version_tuple()[:2])`` へ `変更されました "
+"<python-version-change_>`_ 。 [#future_versions]_"
 
 #: ../source/specifications/dependency-specifiers.rst:489
 msgid ""
@@ -16714,7 +16698,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url.rst:69
 msgid "March 2020: This specification was approved through :pep:`610`."
-msgstr ""
+msgstr "2020年3月: :pep:`610` を通じてこの仕様が承認されました。"
 
 #: ../source/specifications/direct-url-data-structure.rst:7
 msgid "Direct URL Data Structure"
@@ -16732,16 +16716,16 @@ msgstr ""
 "定義します。"
 
 #: ../source/specifications/direct-url-data-structure.rst:13
-#, fuzzy
 msgid ""
 "The representation of the components of this data structure as a :rfc:`1738` "
 "URL is not formally specified at time of writing. A common representation is "
 "the pip URL format. Other examples are provided in the :ref:`Version "
 "specifier specification <version-specifiers>`."
 msgstr ""
-"この :roc:`1738` URL としてのデータ構造の部分の表現方法は、本所執筆時点では、"
+"この :rfc:`1738` URL としてのデータ構造の部分の表現方法は、本所執筆時点では、"
 "公式に指定されていません。よくある表現方法は pip での URL フォーマットです。"
-"他の例が :pep:`440` で提供されています。"
+"他の例が :ref:`バージョン指定子仕様 <version-specifiers>` "
+"で提供されています。"
 
 #: ../source/specifications/direct-url-data-structure.rst:21
 msgid ""
