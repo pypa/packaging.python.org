@@ -144,29 +144,24 @@ The other available method is to upload the package manually using :ref:`twine`.
 :ref:`deprecated <setup-py-deprecated>`, it is insecure.
 
 
-Task runners
-============
+Workflow tools
+==============
 
-These tools allow you to define and invoke "tasks", such as running tests,
-compiling documentation, regenerating some files, etc. Each task can be executed
-in a dedicated virtual environment with the dependencies it requires. The most
-common tools for this are :doc:`tox <tox:index>` and :doc:`nox <nox:index>`.
-
-
-Integrated workflow tools
-=========================
-
-These are tools that combine many features in one command line application, such
-as automatically managing virtual environments for a project, building
-distributions, uploading to PyPI, or creating and using (tool-specific) lock
-files. They often call the tools mentioned above under the hood. In alphabetical
-order:
+These tools are environment managers that automatically manage virtual
+environments for a project. They also act as "task runners", allowing you to
+define and invoke tasks such as running tests, compiling documentation,
+regenerating some files, etc. Some of them provide shortcuts for building
+distributions and uploading to PyPI, and some support lock files for
+applications. They often call the tools mentioned above under the hood. In
+alphabetical order:
 
 - :ref:`Flit`,
 - :ref:`Hatch`,
+- :doc:`nox <nox:index>`,
 - :ref:`PDM`,
 - :ref:`Pipenv`,
-- :ref:`Poetry`.
+- :ref:`Poetry`,
+- :doc:`tox <tox:index>`.
 
 
 .. _hatchling: https://pypi.org/project/hatchling/
