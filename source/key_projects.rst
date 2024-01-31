@@ -865,9 +865,6 @@ http.server
 A package and command-line interface which can host a directory as a
 website, for example as a :term:`package index <Package Index>` (see
 :ref:`Hosting your Own Simple Repository`).
-A package in the Python Standard Library (starting with Python 3.3) for
-creating :term:`Virtual Environments <Virtual Environment>`.  For more
-information, see the section on :ref:`Creating and using Virtual Environments`.
 
 .. _venv:
 
