@@ -62,6 +62,12 @@ environment, for reproducibility purposes.
 Build backends
 ==============
 
+.. important::
+
+   Please, remember: this document does not seek to steer the reader towards
+   a particular tool, only to enumerate common tools. Different use cases often
+   need specialized workflows.
+
 Popular :term:`build backends <build backend>` for pure-Python packages include,
 in alphabetical order:
 
