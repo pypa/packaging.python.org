@@ -131,7 +131,7 @@ Existing projects
 .. [1] For complete documentation of the simple repository protocol, see
        :ref:`simple repository API <simple-repository-api>`.
 
-.. [2] Can be configured to fall-back to PyPI (or another package index)
+.. [2] Can be configured to fall back to PyPI (or another package index)
        if a requested package is missing.
 
 .. _Twisted: https://twistedmatrix.com/
