@@ -124,7 +124,7 @@ and trigger the build in that environment.
 For some projects this isolation is unwanted and it can be deactivated as follows:
 
 * ``python -m build --no-isolation``
-* ``python -m install --no-build-isolation``
+* ``python -m pip install --no-build-isolation``
 
 For more details:
 
