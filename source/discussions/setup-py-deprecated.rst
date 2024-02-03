@@ -12,7 +12,7 @@ for packaging Python projects.
 And :file:`setup.py` is a valid configuration file for :ref:`setuptools`
 that happens to be written in Python, instead of in *TOML* for example
 (a similar practice is used by other tools
-like *nox* and its :file:`nox.py` configuration file,
+like *nox* and its :file:`noxfile.py` configuration file,
 or *pytest* and :file:`conftest.py`).
 
 However, ``python setup.py`` and the use of :file:`setup.py`

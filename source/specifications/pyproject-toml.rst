@@ -1,3 +1,4 @@
+.. _declaring-project-metadata:
 .. _pyproject-toml-spec:
 
 ================================
@@ -440,8 +441,12 @@ the subtable ``tool.$NAME`` if, and only if, they own the entry for
 History
 =======
 
-This specification was originally defined in :pep:`518` (``[build-system]``
-and ``[tool]`` tables) and :pep:`621` (``[project]`` table).
+- May 2016: The initial specification of the ``pyproject.toml`` file, with just
+  a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` table, was
+  approved through :pep:`518`.
+
+- November 2020: The specification of the ``[project]`` table was approved
+  through :pep:`621`.
 
 
 

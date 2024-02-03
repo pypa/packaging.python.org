@@ -45,8 +45,9 @@ another project's environment.
    It is recommended to use a virtual environment when working with third
    party packages.
 
-To create a virtual environment, go to your project's directory and run
-``venv``. This will create a new virtual environment in a local folder ``.venv``:
+To create a virtual environment, go to your project's directory and run the
+following command. This will create a new virtual environment in a local folder
+named ``.venv``:
 
 .. tab:: Unix/macOS
 
@@ -87,7 +88,7 @@ shell's ``PATH``.
 
     .. code-block:: bat
 
-        .venv\bin\Activate.bat
+        .venv\Scripts\activate
 
 To confirm the virtual environment is activated, check the location of your
 Python interpreter:
@@ -117,7 +118,7 @@ filepath that includes the ``.venv`` directory, by ending with the following:
 
     .. code-block:: bat
 
-        .venv\bin\python.exe
+        .venv\Scripts\python
 
 
 While a virtual environment is activated, pip will install packages into that

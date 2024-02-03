@@ -72,12 +72,13 @@ you're testing has dependencies:
 Setting up TestPyPI in :file:`.pypirc`
 --------------------------------------
 
-If you want to avoid entering your username, you can configure TestPyPI in
-your :file:`$HOME/.pypirc`:
+If you want to avoid being prompted for your username and password every time,
+you can configure TestPyPI in your :file:`$HOME/.pypirc`:
 
-.. code::
+.. code:: ini
 
     [testpypi]
-    username = <your TestPyPI username>
+    username = __token__
+    password = <your TestPyPI API Token>
 
 For more details, see the :ref:`specification <pypirc>` for :file:`.pypirc`.

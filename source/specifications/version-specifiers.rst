@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _version-specifiers:
 
 ==================
@@ -883,7 +885,7 @@ Prefix matching may be requested instead of strict comparison, by appending
 a trailing ``.*`` to the version identifier in the version matching clause.
 This means that additional trailing segments will be ignored when
 determining whether or not a version identifier matches the clause. If the
-specified version includes only a release segment, than trailing components
+specified version includes only a release segment, then trailing components
 (or the lack thereof) in the release segment are also ignored.
 
 For example, given the version ``1.1.post1``, the following clauses would
@@ -1111,7 +1113,7 @@ and MAY refuse to rely on the URL. If such a direct reference also uses an
 insecure transport, automated tools SHOULD NOT rely on the URL.
 
 It is RECOMMENDED that only hashes which are unconditionally provided by
-the latest version of the standard library's ``hashlib`` module be used
+the latest version of the standard library's :py:mod:`hashlib` module be used
 for source archive hashes. At time of writing, that list consists of
 ``'md5'``, ``'sha1'``, ``'sha224'``, ``'sha256'``, ``'sha384'``, and
 ``'sha512'``.
@@ -1204,7 +1206,9 @@ version is already in that form, and if it's not, extract the various
 components for subsequent normalization.
 
 To test whether a version identifier is in the canonical format, you can use
-the following function::
+the following function:
+
+.. code-block:: python
 
     import re
     def is_canonical(version):
@@ -1212,7 +1216,9 @@ the following function::
 
 To extract the components of a version identifier, use the following regular
 expression (as defined by the `packaging <https://github.com/pypa/packaging>`_
-project)::
+project):
+
+.. code-block:: python
 
     VERSION_PATTERN = r"""
         v?
@@ -1255,7 +1261,4 @@ project)::
 History
 =======
 
-This specification was originally approved as :pep:`440`,
-addressing several limitations of the previous attempt
-at standardized versioning, as described in :pep:`345`
-and :pep:`386`.
+- August 2014: This specification was approved through :pep:`440`.

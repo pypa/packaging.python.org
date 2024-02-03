@@ -108,6 +108,13 @@ linkcheck_ignore = [
     # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
     "https://www.breezy-vcs.org/*",
 ]
+linkcheck_retries = 5
+# Ignore anchors for links to GitHub project pages -- GitHub adds anchors from
+# README.md headings through JavaScript, so Sphinx's linkcheck can't find them
+# in the HTML.
+linkcheck_anchors_ignore_for_url = [
+    r"https://github\.com/",
+]
 
 # -- Options for extlinks ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html#configuration

@@ -9,13 +9,6 @@ Platform compatibility tags allow build tools to mark distributions as being
 compatible with specific platforms, and allows installers to understand which
 distributions are compatible with the system they are running on.
 
-The following PEPs contributed to this spec:
-
-1. :pep:`425`
-2. :pep:`513`
-3. :pep:`571`
-4. :pep:`599`
-5. :pep:`600`
 
 Overview
 ========
@@ -32,9 +25,6 @@ platform tag
 For example, the tag ``py27-none-any`` indicates compatibility with Python 2.7
 (any Python 2.7 implementation) with no abi requirement, on any platform.
 
-Use
-===
-
 The ``wheel`` built package format includes these tags in its filenames,
 of the form
 ``{distribution}-{version}(-{build tag})?-{python tag}-{abitag}-{platform tag}.whl``.
@@ -42,11 +32,9 @@ Other package formats may have their own conventions.
 
 Any potential spaces in any tag should be replaced with ``_``.
 
-Details
-=======
 
 Python Tag
-----------
+==========
 
 The Python tag indicates the implementation and version required by
 a distribution.  Major implementations have abbreviated codes, initially:
@@ -57,7 +45,7 @@ a distribution.  Major implementations have abbreviated codes, initially:
 * pp: PyPy
 * jy: Jython
 
-Other Python implementations should use ``sys.implementation.name``.
+Other Python implementations should use :py:data:`sys.implementation.name <sys.implementation>`.
 
 The version is ``py_version_nodot``.  CPython gets away with no dot,
 but if one is needed the underscore ``_`` is used instead.  PyPy should
@@ -73,8 +61,9 @@ intentionally released a cross-version-compatible distribution.
 A single-source Python 2/3 compatible distribution can use the compound
 tag ``py2.py3``.  See `Compressed Tag Sets`_, below.
 
+
 ABI Tag
--------
+=======
 
 The ABI tag indicates which Python ABI is required by any included
 extension modules.  For implementation-specific ABIs, the implementation
@@ -89,50 +78,49 @@ revision and compiler flags, etc, but will probably not have a great need
 to distribute binary distributions. Each implementation's community may
 decide how to best use the ABI tag.
 
-Platform Tag
-------------
 
-The platform tag is simply ``sysconfig.get_platform()`` with all
-hyphens ``-`` and periods ``.`` replaced with underscore ``_``.
+Platform Tag
+============
+
+Basic platform tags
+-------------------
+
+In its simplest form, the platform tag is :py:func:`sysconfig.get_platform()` with
+all hyphens ``-`` and periods ``.`` replaced with underscore ``_``.
 Until the removal of :ref:`distutils` in Python 3.12, this
-was ``distutils.util.get_platform()``.
+was ``distutils.util.get_platform()``. For example:
 
 * win32
 * linux_i386
 * linux_x86_64
 
 
--------------
-``manylinux``
--------------
 .. _manylinux:
 
-The scheme defined in :pep:`425` was insufficient for public distribution of
-wheel files (and \*nix wheel files in general) to Linux platforms, due to the
-large ecosystem of Linux platforms and subtle differences between them.
+``manylinux``
+-------------
 
-Instead, :pep:`600` defines the ``manylinux`` standard, which represents a
-common subset of Linux platforms, and allows building wheels tagged with the
+The simple scheme above is insufficient for public distribution of wheel files
+to Linux platforms, due to the large ecosystem of Linux platforms and subtle
+differences between them.
+
+Instead, for those platforms, the ``manylinux`` standard represents a common
+subset of Linux platforms, and allows building wheels tagged with the
 ``manylinux`` platform tag which can be used across most common Linux
 distributions.
 
-There were multiple iterations of the ``manylinux`` specification, each
-representing the common subset of Linux platforms at a given point in time:
+The current standard is the future-proof ``manylinux_x_y`` standard. It defines
+tags of the form ``manylinux_x_y_arch``, where ``x`` and ``y`` are glibc major
+and minor versions supported (e.g. ``manylinux_2_24_xxx`` should work on any
+distro using glibc 2.24+), and ``arch`` is the architecture, matching the value
+of :py:func:`sysconfig.get_platform()` on the system as in the "simple" form above.
 
-* ``manylinux1`` (:pep:`513`) supports ``x86_64`` and ``i686``
-  architectures, and is based on a compatible Linux platform from 2007.
-* ``manylinux2010`` (:pep:`571`) supports ``x86_64`` and ``i686``
-  architectures. and updates the previous specification to be based on a
-  compatible Linux platform from 2010 instead.
-* ``manylinux2014`` (:pep:`599`) adds support for a number of
-  additional architectures (``aarch64``, ``armv7l``, ``ppc64``, ``ppc64le``,
-  and ``s390x``) and updates the base platform to a compatible Linux platform
-  from 2014.
+The following older tags are still supported for backward compatibility:
 
-``manylinux_x_y`` (:pep:`600`) supersedes all previous PEPs to define a
-future-proof standard. It defines ``x`` and ``y`` as glibc major an minor
-versions supported (e.g. ``manylinux_2_24`` should work on any distro using
-glibc 2.24+). Previous tags are still supported for backward compatibility.
+* ``manylinux1`` supports glibc 2.5 on ``x86_64`` and ``i686`` architectures.
+* ``manylinux2010`` supports glibc 2.12 on ``x86_64`` and ``i686``.
+* ``manylinux2014`` supports glibc 2.17 on ``x86_64``, ``i686``, ``aarch64``,
+  ``armv7l``, ``ppc64``, ``ppc64le``, and ``s390x``.
 
 In general, distributions built for older versions of the specification are
 forwards-compatible (meaning that ``manylinux1`` distributions should continue
@@ -145,15 +133,6 @@ possible, with the caveat that the provided build environment for
 ``manylinux1`` and ``manylinux2010`` have reached end-of-life meaning that
 these images will no longer receive security updates.
 
-Manylinux compatibility support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. Note::
-  * The ``manylinux2014`` specification is relatively new and is not yet widely
-    recognised by install tools.
-  * The ``manylinux_x_y`` specification is relatively new and is not yet widely
-    recognised by install tools.
-
 The following table shows the minimum versions of relevant projects to support
 the various ``manylinux`` standards:
 
@@ -165,6 +144,51 @@ auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``        ``>=3.3.0`` [#
 ==========  ==============  =================  =================  =================
 
 .. [#] Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0
+
+
+``musllinux``
+-------------
+
+The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux
+platforms that use the musl_ libc rather than glibc (a prime example being Alpine
+Linux). The schema is ``musllinux_x_y_arch``, supporting musl ``x.y`` and higher
+on the architecture ``arch``.
+
+The musl version values can be obtained by executing the musl libc shared
+library the Python interpreter is currently running on, and parsing the output:
+
+.. code-block:: python
+
+   import re
+   import subprocess
+
+   def get_musl_major_minor(so: str) -> tuple[int, int] | None:
+       """Detect musl runtime version.
+
+       Returns a two-tuple ``(major, minor)`` that indicates musl
+       library's version, or ``None`` if the given libc .so does not
+       output expected information.
+
+       The libc library should output something like this to stderr::
+
+           musl libc (x86_64)
+           Version 1.2.2
+           Dynamic Program Loader
+       """
+       proc = subprocess.run([so], stderr=subprocess.PIPE, text=True)
+       lines = (line.strip() for line in proc.stderr.splitlines())
+       lines = [line for line in lines if line]
+       if len(lines) < 2 or lines[0][:4] != "musl":
+           return None
+       match = re.match(r"Version (\d+)\.(\d+)", lines[1])
+       if match:
+           return (int(match.group(1)), int(match.group(2)))
+       return None
+
+There are currently two possible ways to find the musl library’s location that a
+Python interpreter is running on, either with the system ldd_ command, or by
+parsing the ``PT_INTERP`` section’s value from the executable’s ELF_ header.
+
 
 Use
 ===
@@ -302,3 +326,22 @@ Why is the ABI tag (the second tag) sometimes "none" in the reference implementa
     implementation at the time of writing guesses "none".  Ideally it
     would detect "py27(d|m|u)" analogous to newer versions of Python,
     but in the meantime "none" is a good enough way to say "don't know".
+
+
+History
+=======
+
+- February 2013: The original version of this specification was approved through
+  :pep:`425`.
+- January 2016: The ``manylinux1`` tag was approved through :pep:`513`.
+- April 2018: The ``manylinux2010`` tag was approved through :pep:`571`.
+- July 2019: The ``manylinux2014`` tag was approved through :pep:`599`.
+- November 2019: The ``manylinux_x_y`` perennial tag was approved through
+  :pep:`600`.
+- April 2021: The ``musllinux_x_y`` tag was approved through :pep:`656`.
+
+
+
+.. _musl: https://musl.libc.org
+.. _ldd: https://www.unix.com/man-page/posix/1/ldd/
+.. _elf: https://refspecs.linuxfoundation.org/elf/elf.pdf
