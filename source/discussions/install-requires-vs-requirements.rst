@@ -7,8 +7,8 @@ Metadata dependencies vs. requirements files
 There are two main places where you will find list of "needed packages to
 install", perhaps with version constraints, like ``requests`` or
 ``requests==2.31.0``. These are metadata dependencies, typically in a
-``pyproject.toml`` (or ``setup.py``) file, and requirements files, often called
-``requirements.txt``. This page breaks down the differences.
+:file:`pyproject.toml` (or :file:`setup.py`) file, and requirements files, often called
+:file:`requirements.txt`. This page breaks down the differences.
 
 Metadata dependencies
 =====================
@@ -16,7 +16,7 @@ Metadata dependencies
 Packages can declare dependencies, i.e. other packages that they need to
 function. The standard method to do so is to set the :ref:`dependencies key
 <writing-pyproject-toml-dependencies>` in the ``[project]`` section of a
-``pyproject.toml`` file -- although other :term:`build backends <build backend>`
+:file:`pyproject.toml` file -- although other :term:`build backends <build backend>`
 may use different methods. There can also be groups of optional dependencies,
 also called "extras", which are typically specified in the
 ``optional-dependencies`` key of the ``[project]`` table. Both dependencies and
@@ -28,7 +28,7 @@ the metadata dependencies. They should be used for packages that the project
 **minimally** needs to run correctly.
 
 For example, suppose the project requires A and B. When using the ``[project]``
-table to declare metadata, the ``pyproject.toml`` would be like so:
+table to declare metadata, the :file:`pyproject.toml` would be like so:
 
 .. code-block:: toml
 
@@ -69,7 +69,7 @@ Lastly, it's important to understand that metadata dependencies are "abstract"
 requirements, i.e. just names and version restrictions, but don't determine
 where the dependencies will be fulfilled from (from what package index or
 source). The where (i.e. how they are to be made "concrete") is to be determined
-at install time, e.g., using :ref:`pip` options. [1]_
+at install time, e.g. using :ref:`pip` options. [1]_
 
 
 Requirements files
