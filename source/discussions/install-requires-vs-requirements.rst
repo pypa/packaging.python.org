@@ -13,7 +13,7 @@ install", perhaps with version constraints, like ``requests`` or
 Metadata dependencies
 =====================
 
-Packages can declare dependencies, i.e., other packages that they need to
+Packages can declare dependencies, i.e. other packages that they need to
 function. The standard method to do so is to set the :ref:`dependencies key
 <writing-pyproject-toml-dependencies>` in the ``[project]`` section of a
 ``pyproject.toml`` file -- although other :term:`build backends <build backend>`
@@ -62,11 +62,11 @@ so it makes sense to not allow v2:
 
 It is not considered best practice to use metadata dependencies to pin
 dependencies to specific versions, or to specify transitive dependencies
-(i.e., dependencies of your dependencies).  This is overly restrictive, and
+(i.e. dependencies of your dependencies).  This is overly restrictive, and
 prevents the user from gaining the benefit of dependency upgrades.
 
 Lastly, it's important to understand that metadata dependencies are "abstract"
-requirements, i.e., just names and version restrictions, but don't determine
+requirements, i.e. just names and version restrictions, but don't determine
 where the dependencies will be fulfilled from (from what package index or
 source). The where (i.e. how they are to be made "concrete") is to be determined
 at install time, e.g., using :ref:`pip` options. [1]_
@@ -87,9 +87,9 @@ often contain an exhaustive listing of pinned versions for the purpose of
 achieving :ref:`repeatable installations <pip:Repeatability>` of a complete
 environment.
 
-Whereas metadata dependencies are "abstract", i.e., not associated with any
+Whereas metadata dependencies are "abstract", i.e. not associated with any
 particular index, requirements files often contain pip options like
-``--index-url`` or ``--find-links`` to make requirements "concrete", i.e.,
+``--index-url`` or ``--find-links`` to make requirements "concrete", i.e.
 associated with a particular index or directory of packages. [1]_
 
 Whereas metadata dependencies are automatically analyzed by pip during an
