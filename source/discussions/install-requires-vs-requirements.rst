@@ -23,8 +23,8 @@ also called "extras", which are typically specified in the
 extras are ultimately written by the build backend to the package's distribution
 metadata. On this page, we'll refer to these as "metadata dependencies".
 
-When installing a package, installers like :ref:`pip` will automatically install
-the metadata dependencies. They should be used for packages that the project
+When installing a package, installers like :ref:`pip` will automatically resolve
+the metadata dependencies and install them. They should be used for packages that the project
 **minimally** needs to run correctly.
 
 For example, suppose the project requires A and B. When using the ``[project]``
