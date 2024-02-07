@@ -63,6 +63,22 @@ number, and to decide which should be the next version number for a new release
 of a package. Two versioning schemes are commonly used for Python packages,
 semantic versioning and calendar versioning.
 
+.. caution::
+
+   The decision which version number to choose is up to a
+   project's maintainer. This effectively means that version
+   bumps reflect the maintainer's view. That view may differ
+   from the end-users' perception of what said formalized
+   versioning scheme promises them.
+
+   There are known exceptions for selecting the next version
+   number. The maintainers may consciously choose to break the
+   assumption that the last version segment only contains
+   backwards-compatible changes.
+   One such case is when security vulnerability needs to be
+   addressed. Security releases often come in patch versions
+   but contain breaking changes inevitably.
+
 
 Semantic versioning
 -------------------
