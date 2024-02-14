@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-03 22:16+0000\n"
+"POT-Creation-Date: 2024-02-09 11:35+0000\n"
 "PO-Revision-Date: 2024-01-24 22:29+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1875,6 +1875,397 @@ msgstr ""
 "определенные импортные работы на редактируемых установках, но не на обычных "
 "установках."
 
+#: ../source/discussions/versioning.rst:6
+#: ../source/specifications/simple-repository-api.rst:310
+#, fuzzy
+#| msgid "Version"
+msgid "Versioning"
+msgstr "Версия"
+
+#: ../source/discussions/versioning.rst:8
+#, fuzzy
+#| msgid ""
+#| "This section describes the steps to follow before installing other Python "
+#| "packages."
+msgid "This discussion covers all aspects of versioning Python packages."
+msgstr ""
+"В этом разделе описаны шаги, которые необходимо выполнить перед установкой "
+"других пакетов Python."
+
+#: ../source/discussions/versioning.rst:12
+#, fuzzy
+#| msgid "DVCS based version labels"
+msgid "Valid version numbers"
+msgstr "Метки версий на базе DVCS"
+
+#: ../source/discussions/versioning.rst:14
+#, fuzzy
+#| msgid ""
+#| "Different Python projects may use different versioning schemes based on "
+#| "the needs of that particular project, but all of them are required to "
+#| "comply with the flexible :pep:`public version scheme <440#public-version-"
+#| "identifiers>` specified in :pep:`440` in order to be supported in tools "
+#| "and libraries like ``pip`` and ``setuptools``."
+msgid ""
+"Different Python projects may use different versioning schemes based on the "
+"needs of that particular project, but in order to be compatible with tools "
+"like :ref:`pip`, all of them are required to comply with a flexible format "
+"for version identifiers, for which the authoritative reference is the :ref:"
+"`specification of version specifiers <version-specifiers>`. Here are some "
+"examples of version numbers [#version-examples]_:"
+msgstr ""
+"Разные проекты Python могут использовать различные схемы версионирования в "
+"зависимости от потребностей конкретного проекта, но все они должны "
+"соответствовать гибкой схеме :pep:`public version scheme <440#public-version-"
+"identifiers>`, указанной в :pep:`440`, чтобы поддерживаться в таких "
+"инструментах и библиотеках, как ``pip`` и ``setuptools``."
+
+#: ../source/discussions/versioning.rst:21
+msgid "A simple version (final release): ``1.2.0``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:22
+#, fuzzy
+#| msgid "Development release segment: ``.devN``"
+msgid "A development release: ``1.2.0.dev1``"
+msgstr "Сегмент релиза разработки: ``.devN``"
+
+#: ../source/discussions/versioning.rst:23
+msgid "An alpha release: ``1.2.0a1``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:24
+msgid "A beta release: ``1.2.0b1``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:25
+msgid "A release candidate: ``1.2.0rc1``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:26
+#, fuzzy
+#| msgid "Post-release segment: ``.postN``"
+msgid "A post-release: ``1.2.0.post1``"
+msgstr "Пост-релизный сегмент: ``.postN``"
+
+#: ../source/discussions/versioning.rst:27
+msgid ""
+"A post-release of an alpha release (possible, but discouraged): ``1.2.0a1."
+"post1``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:28
+msgid "A simple version with only two components: ``23.12``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:29
+msgid "A simple version with just one component: ``42``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:30
+msgid "A version with an epoch: ``1!1.0``"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:32
+msgid ""
+"Projects can use a cycle of pre-releases to support testing by their users "
+"before a final release. In order, the steps are: alpha releases, beta "
+"releases, release candidates, final release. Pip and other modern Python "
+"package installers ignore pre-releases by default when deciding which "
+"versions of dependencies to install, unless explicitly requested (e.g., with "
+"``pip install pkg==1.1a3`` or ``pip install --pre pkg``)."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:39
+msgid ""
+"The purpose of development releases is to support releases made early during "
+"a development cycle, for example, a nightly build, or a build from the "
+"latest source in a Linux distribution."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:43
+msgid ""
+"Post-releases are used to address minor errors in a final release that do "
+"not affect the distributed software, such as correcting an error in the "
+"release notes. They should not be used for bug fixes; these should be done "
+"with a new final release (e.g., incrementing the third component when using "
+"semantic versioning)."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:49
+msgid ""
+"Finally, epochs, a rarely used feature, serve to fix the sorting order when "
+"changing the versioning scheme. For example, if a project is using calendar "
+"versioning, with versions like 23.12, and switches to semantic versioning, "
+"with versions like 1.0, the comparison between 1.0 and 23.12 will go the "
+"wrong way. To correct this, the new version numbers should have an explicit "
+"epoch, as in \"1!1.0\", in order to be treated as more recent than the old "
+"version numbers."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:59
+#, fuzzy
+#| msgid "Semantic versioning (preferred)"
+msgid "Semantic versioning vs. calendar versioning"
+msgstr "Семантическое версионирование (предпочитаемый вариант)"
+
+#: ../source/discussions/versioning.rst:61
+msgid ""
+"A versioning scheme is a formalized way to interpret the segments of a "
+"version number, and to decide which should be the next version number for a "
+"new release of a package. Two versioning schemes are commonly used for "
+"Python packages, semantic versioning and calendar versioning."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:68
+msgid ""
+"The decision which version number to choose is up to a project's maintainer. "
+"This effectively means that version bumps reflect the maintainer's view. "
+"That view may differ from the end-users' perception of what said formalized "
+"versioning scheme promises them."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:74
+msgid ""
+"There are known exceptions for selecting the next version number. The "
+"maintainers may consciously choose to break the assumption that the last "
+"version segment only contains backwards-compatible changes. One such case is "
+"when security vulnerability needs to be addressed. Security releases often "
+"come in patch versions but contain breaking changes inevitably."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:84
+#: ../source/specifications/version-specifiers.rst:721
+msgid "Semantic versioning"
+msgstr "Семантическая версификация"
+
+#: ../source/discussions/versioning.rst:86
+#, fuzzy
+#| msgid ""
+#| "The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE "
+#| "numbering scheme, where the project author increments:"
+msgid ""
+"The idea of *semantic versioning* (or SemVer) is to use 3-part version "
+"numbers, *major.minor.patch*, where the project author increments:"
+msgstr ""
+"Суть семантического версионирования заключается в трехчастной схеме "
+"нумерации MAJOR.MINOR.MAINTENANCE, в которой автор проекта увеличивает "
+"количество версий:"
+
+#: ../source/discussions/versioning.rst:89
+#, fuzzy
+#| msgid "MAJOR version when they make incompatible API changes,"
+msgid "*major* when they make incompatible API changes,"
+msgstr "MAJOR версии, когда они вносят несовместимые изменения в API,"
+
+#: ../source/discussions/versioning.rst:90
+#, fuzzy
+#| msgid ""
+#| "MINOR version when they add functionality in a backwards-compatible "
+#| "manner, and"
+msgid ""
+"*minor* when they add functionality in a backwards-compatible manner, and"
+msgstr ""
+"MINOR-версии, когда они добавляют функциональность, совместимую с обратной "
+"версией, и"
+
+#: ../source/discussions/versioning.rst:91
+#, fuzzy
+#| msgid "MAINTENANCE version when they make backwards-compatible bug fixes."
+msgid "*patch*, when they make backwards-compatible bug fixes."
+msgstr "MAINTENANCE при исправлении ошибок, совместимых с обратной версией."
+
+#: ../source/discussions/versioning.rst:93
+msgid ""
+"A majority of Python projects use a scheme that resembles semantic "
+"versioning. However, most projects, especially larger ones, do not strictly "
+"adhere to semantic versioning, since many changes are technically breaking "
+"changes but affect only a small fraction of users. Such projects tend to "
+"increment the major number when the incompatibility is high, or to signal a "
+"shift in the project, rather than for any tiny incompatibility [#semver-"
+"strictness]_. Conversely, a bump of the major version number is sometimes "
+"used to signal significant but backwards-compatible new features."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:103
+msgid ""
+"For those projects that do use strict semantic versioning, this approach "
+"allows users to make use of :ref:`compatible release version specifiers "
+"<version-specifiers-compatible-release>`, with the ``~=`` operator.  For "
+"example, ``name ~= X.Y`` is roughly equivalent to ``name >= X.Y, == X.*``, i."
+"e., it requires at least release X.Y, and allows any later release with "
+"greater Y as long as X is the same. Likewise, ``name ~= X.Y.Z`` is roughly "
+"equivalent to ``name >= X.Y.Z, == X.Y.*``, i.e., it requires at least X.Y.Z "
+"and allows a later release with same X and Y but higher Z."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:112
+#, fuzzy
+#| msgid ""
+#| "Python projects adopting semantic versioning should abide by clauses 1-8 "
+#| "of the `Semantic Versioning 2.0.0 specification <https://semver.org/>`_."
+msgid ""
+"Python projects adopting semantic versioning should abide by clauses 1-8 of "
+"the `Semantic Versioning 2.0.0 specification <semver_>`_."
+msgstr ""
+"Python-проекты, использующие семантическое версионирование, должны следовать "
+"пунктам 1-8 спецификации `Semantic Versioning 2.0.0` <https://semver.org/>`_."
+
+#: ../source/discussions/versioning.rst:115
+msgid ""
+"The popular :doc:`Sphinx <sphinx:index>` documentation generator is an "
+"example project that uses strict semantic versioning (:doc:`Sphinx "
+"versioning policy <sphinx:internals/release-process>`). The famous :doc:"
+"`NumPy <numpy:index>` scientific computing package explicitly uses \"loose\" "
+"semantic versioning, where releases incrementing the minor version can "
+"contain backwards-incompatible API changes (:doc:`NumPy versioning policy "
+"<numpy:dev/depending_on_numpy>`)."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:124
+#, fuzzy
+#| msgid "Serial versioning"
+msgid "Calendar versioning"
+msgstr "Последовательное версионирование"
+
+#: ../source/discussions/versioning.rst:126
+msgid ""
+"Semantic versioning is not a suitable choice for all projects, such as those "
+"with a regular time based release cadence and a deprecation process that "
+"provides warnings for a number of releases prior to removal of a feature."
+msgstr ""
+"Семантическое версионирование подходит не для всех проектов, например, для "
+"тех, которые имеют регулярную периодичность выпуска релизов и процесс "
+"обесценивания, предусматривающий предупреждения за несколько релизов до "
+"удаления функции."
+
+#: ../source/discussions/versioning.rst:130
+#, fuzzy
+#| msgid ""
+#| "A key advantage of date based versioning is that it is straightforward to "
+#| "tell how old the base feature set of a particular release is given just "
+#| "the version number."
+msgid ""
+"A key advantage of date-based versioning, or `calendar versioning "
+"<calver_>`_ (CalVer), is that it is straightforward to tell how old the base "
+"feature set of a particular release is given just the version number."
+msgstr ""
+"Ключевое преимущество версионности на основе даты заключается в том, что по "
+"номеру версии можно легко определить, насколько устарел базовый набор "
+"функций конкретного выпуска."
+
+#: ../source/discussions/versioning.rst:134
+msgid ""
+"Calendar version numbers typically take the form *year.month* (for example, "
+"23.12 for December 2023)."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:137
+msgid ""
+":doc:`Pip <pip:index>`, the standard Python package installer, uses calendar "
+"versioning."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:142
+#, fuzzy
+#| msgid "Hybrid schemes"
+msgid "Other schemes"
+msgstr "Гибридные схемы"
+
+#: ../source/discussions/versioning.rst:144
+#, fuzzy
+#| msgid ""
+#| "While serial versioning is very easy to manage as a developer, it is the "
+#| "hardest to track as an end user, as serial version numbers convey little "
+#| "or no information regarding API backwards compatibility."
+msgid ""
+"Serial versioning refers to the simplest possible versioning scheme, which "
+"consists of a single number incremented every release. While serial "
+"versioning is very easy to manage as a developer, it is the hardest to track "
+"as an end user, as serial version numbers convey little or no information "
+"regarding API backwards compatibility."
+msgstr ""
+"Хотя серийным версионированием очень легко управлять как разработчику, его "
+"сложнее всего отслеживать как конечному пользователю, поскольку серийные "
+"номера версий передают мало или вообще не передают информации об обратной "
+"совместимости API."
+
+#: ../source/discussions/versioning.rst:150
+#, fuzzy
+#| msgid ""
+#| "Combinations of the above schemes are possible. For example, a project "
+#| "may combine date based versioning with serial versioning to create a YEAR."
+#| "SERIAL numbering scheme that readily conveys the approximate age of a "
+#| "release, but doesn't otherwise commit to a particular release cadence "
+#| "within the year."
+msgid ""
+"Combinations of the above schemes are possible. For example, a project may "
+"combine date based versioning with serial versioning to create a *year."
+"serial* numbering scheme that readily conveys the approximate age of a "
+"release, but doesn't otherwise commit to a particular release cadence within "
+"the year."
+msgstr ""
+"Возможны комбинации вышеперечисленных схем. Например, проект может сочетать "
+"версионирование по дате с серийным версионированием, чтобы создать схему "
+"нумерации YEAR.SERIAL, которая легко передает приблизительный возраст "
+"релиза, но в остальном не обязывает к определенной периодичности выпуска в "
+"течение года."
+
+#: ../source/discussions/versioning.rst:158
+#: ../source/specifications/version-specifiers.rst:114
+msgid "Local version identifiers"
+msgstr "Идентификаторы локальных версий"
+
+#: ../source/discussions/versioning.rst:160
+#, fuzzy
+#| msgid ""
+#| "Public version identifiers are designed to support distribution via :term:"
+#| "`PyPI <Python Package Index (PyPI)>`. Python's software distribution "
+#| "tools also support the notion of a :pep:`local version identifier "
+#| "<440#local-version-identifiers>`, which can be used to identify local "
+#| "development builds not intended for publication, or modified variants of "
+#| "a release maintained by a redistributor."
+msgid ""
+"Public version identifiers are designed to support distribution via :term:"
+"`PyPI <Python Package Index (PyPI)>`. Python packaging tools also support "
+"the notion of a :ref:`local version identifier <local-version-identifiers>`, "
+"which can be used to identify local development builds not intended for "
+"publication, or modified variants of a release maintained by a redistributor."
+msgstr ""
+"Идентификаторы публичных версий предназначены для поддержки распространения "
+"через :term:`PyPI <Python Package Index (PyPI)>`. Средства распространения "
+"программного обеспечения Python также поддерживают понятие :pep:`локального "
+"идентификатора версии <440#local-version-identifiers>`, который может "
+"использоваться для идентификации локальных сборок разработки, не "
+"предназначенных для публикации, или модифицированных вариантов релиза, "
+"поддерживаемого редистрибьютором."
+
+#: ../source/discussions/versioning.rst:166
+msgid ""
+"A local version identifier takes the form of a public version identifier, "
+"followed by \"+\" and a local version label. For example, a package with "
+"Fedora-specific patches applied could have the version \"1.2.1+fedora.4\". "
+"Another example is versions computed by setuptools-scm_, a setuptools plugin "
+"that reads the version from Git data. In a Git repository with some commits "
+"since the latest release, setuptools-scm generates a version like \"0.5."
+"dev1+gd00980f\", or if the repository has untracked changes, like \"0.5."
+"dev1+gd00980f.d20231217\"."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:178
+msgid ""
+"Some more examples of unusual version numbers are given in a `blog post "
+"<versions-seth-larson_>`_ by Seth Larson."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:181
+msgid ""
+"For some personal viewpoints on this issue, see these blog posts: `by Hynek "
+"Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft <semver-donald-"
+"stufft_>`_, `by Bernát Gábor <semver-bernat-gabor_>`_, `by Brett Cannon "
+"<semver-brett-cannon_>`_. For a humoristic take, read about ZeroVer_."
+msgstr ""
+
 #: ../source/discussions/wheel-vs-egg.rst:5
 msgid "Wheel vs Egg"
 msgstr "Колеса против яиц"
@@ -3079,7 +3470,7 @@ msgstr "Описание"
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
 #: ../source/specifications/dependency-specifiers.rst:29
 #: ../source/specifications/direct-url-data-structure.rst:217
-#: ../source/specifications/version-specifiers.rst:1065
+#: ../source/specifications/version-specifiers.rst:1067
 msgid "Examples"
 msgstr "Примеры"
 
@@ -4215,252 +4606,21 @@ msgstr ""
 "установки, рекомендуемый подход для достижения кроссплатформенной "
 "совместимости - использовать точки входа :ref:`console_scripts` (см. ниже)."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:295
+#: ../source/guides/distributing-packages-using-setuptools.rst:291
 msgid "Choosing a versioning scheme"
 msgstr "Выбор схемы управления версиями"
 
+#: ../source/guides/distributing-packages-using-setuptools.rst:293
+msgid ""
+"See :ref:`versioning` for information on common version schemes and how to "
+"choose between them."
+msgstr ""
+
 #: ../source/guides/distributing-packages-using-setuptools.rst:298
-msgid "Standards compliance for interoperability"
-msgstr "Соответствие стандартам совместимости"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:300
-msgid ""
-"Different Python projects may use different versioning schemes based on the "
-"needs of that particular project, but all of them are required to comply "
-"with the flexible :pep:`public version scheme <440#public-version-"
-"identifiers>` specified in :pep:`440` in order to be supported in tools and "
-"libraries like ``pip`` and ``setuptools``."
-msgstr ""
-"Разные проекты Python могут использовать различные схемы версионирования в "
-"зависимости от потребностей конкретного проекта, но все они должны "
-"соответствовать гибкой схеме :pep:`public version scheme <440#public-version-"
-"identifiers>`, указанной в :pep:`440`, чтобы поддерживаться в таких "
-"инструментах и библиотеках, как ``pip`` и ``setuptools``."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:306
-msgid "Here are some examples of compliant version numbers::"
-msgstr "Вот несколько примеров совместимых номеров версий::"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:317
-msgid ""
-"To further accommodate historical variations in approaches to version "
-"numbering, :pep:`440` also defines a comprehensive technique for :pep:"
-"`version normalisation <440#normalization>` that maps variant spellings of "
-"different version numbers to a standardised canonical form."
-msgstr ""
-"Для дальнейшего учета исторических вариаций в подходах к нумерации версий, :"
-"pep:`440` также определяет комплексную технику нормализации :pep:`версий "
-"<440#normalization>`, которая отображает варианты написания различных "
-"номеров версий в стандартизированную каноническую форму."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:323
-msgid "Scheme choices"
-msgstr "Выбор схемы"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:326
-msgid "Semantic versioning (preferred)"
-msgstr "Семантическое версионирование (предпочитаемый вариант)"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:328
-msgid ""
-"For new projects, the recommended versioning scheme is based on `Semantic "
-"Versioning <https://semver.org/>`_, but adopts a different approach to "
-"handling pre-releases and build metadata."
-msgstr ""
-"Для новых проектов рекомендуемая схема версионирования основана на `Semantic "
-"Versioning <https://semver.org/>`_, но использует другой подход к работе с "
-"пре-релизами и метаданными сборки."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:332
-msgid ""
-"The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE "
-"numbering scheme, where the project author increments:"
-msgstr ""
-"Суть семантического версионирования заключается в трехчастной схеме "
-"нумерации MAJOR.MINOR.MAINTENANCE, в которой автор проекта увеличивает "
-"количество версий:"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:335
-msgid "MAJOR version when they make incompatible API changes,"
-msgstr "MAJOR версии, когда они вносят несовместимые изменения в API,"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:336
-msgid ""
-"MINOR version when they add functionality in a backwards-compatible manner, "
-"and"
-msgstr ""
-"MINOR-версии, когда они добавляют функциональность, совместимую с обратной "
-"версией, и"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:337
-msgid "MAINTENANCE version when they make backwards-compatible bug fixes."
-msgstr "MAINTENANCE при исправлении ошибок, совместимых с обратной версией."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:339
-msgid ""
-"Adopting this approach as a project author allows users to make use of :pep:"
-"`\"compatible release\" <440#compatible-release>` specifiers, where ``name "
-"~= X.Y`` requires at least release X.Y, but also allows any later release "
-"with a matching MAJOR version."
-msgstr ""
-"Принятие такого подхода автором проекта позволяет пользователям использовать "
-"спецификаторы :pep:`\"compatible release\" <440#compatible-release>`, где "
-"``name ~= X.Y`` требует как минимум релиза X.Y, но также позволяет "
-"использовать любой более поздний релиз с соответствующей MAJOR-версией."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:344
-msgid ""
-"Python projects adopting semantic versioning should abide by clauses 1-8 of "
-"the `Semantic Versioning 2.0.0 specification <https://semver.org/>`_."
-msgstr ""
-"Python-проекты, использующие семантическое версионирование, должны следовать "
-"пунктам 1-8 спецификации `Semantic Versioning 2.0.0` <https://semver.org/>`_."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:348
-msgid "Date based versioning"
-msgstr "Версионирование на основе дат"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:350
-msgid ""
-"Semantic versioning is not a suitable choice for all projects, such as those "
-"with a regular time based release cadence and a deprecation process that "
-"provides warnings for a number of releases prior to removal of a feature."
-msgstr ""
-"Семантическое версионирование подходит не для всех проектов, например, для "
-"тех, которые имеют регулярную периодичность выпуска релизов и процесс "
-"обесценивания, предусматривающий предупреждения за несколько релизов до "
-"удаления функции."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:354
-msgid ""
-"A key advantage of date based versioning is that it is straightforward to "
-"tell how old the base feature set of a particular release is given just the "
-"version number."
-msgstr ""
-"Ключевое преимущество версионности на основе даты заключается в том, что по "
-"номеру версии можно легко определить, насколько устарел базовый набор "
-"функций конкретного выпуска."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:357
-msgid ""
-"Version numbers for date based projects typically take the form of YEAR."
-"MONTH (for example, ``12.04``, ``15.10``)."
-msgstr ""
-"Номера версий для проектов, основанных на дате, обычно имеют вид YEAR.MONTH "
-"(например, ``12.04``, ``15.10``)."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:361
-msgid "Serial versioning"
-msgstr "Последовательное версионирование"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:363
-msgid ""
-"This is the simplest possible versioning scheme, and consists of a single "
-"number which is incremented every release."
-msgstr ""
-"Это простейшая схема версионирования, состоящая из одного числа, которое "
-"увеличивается при каждом выпуске."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:366
-msgid ""
-"While serial versioning is very easy to manage as a developer, it is the "
-"hardest to track as an end user, as serial version numbers convey little or "
-"no information regarding API backwards compatibility."
-msgstr ""
-"Хотя серийным версионированием очень легко управлять как разработчику, его "
-"сложнее всего отслеживать как конечному пользователю, поскольку серийные "
-"номера версий передают мало или вообще не передают информации об обратной "
-"совместимости API."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:371
-msgid "Hybrid schemes"
-msgstr "Гибридные схемы"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:373
-msgid ""
-"Combinations of the above schemes are possible. For example, a project may "
-"combine date based versioning with serial versioning to create a YEAR.SERIAL "
-"numbering scheme that readily conveys the approximate age of a release, but "
-"doesn't otherwise commit to a particular release cadence within the year."
-msgstr ""
-"Возможны комбинации вышеперечисленных схем. Например, проект может сочетать "
-"версионирование по дате с серийным версионированием, чтобы создать схему "
-"нумерации YEAR.SERIAL, которая легко передает приблизительный возраст "
-"релиза, но в остальном не обязывает к определенной периодичности выпуска в "
-"течение года."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:379
-msgid "Pre-release versioning"
-msgstr "Версионирование предварительных выпусков"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:381
-msgid ""
-"Regardless of the base versioning scheme, pre-releases for a given final "
-"release may be published as:"
-msgstr ""
-"Независимо от базовой схемы версий, предварительные выпуски для данного "
-"финального выпуска могут быть опубликованы как:"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:384
-msgid "zero or more dev releases (denoted with a \".devN\" suffix)"
-msgstr "ноль или более выпусков dev (обозначаются суффиксом \".devN\")"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:385
-msgid "zero or more alpha releases (denoted with a \".aN\" suffix)"
-msgstr "ноль или более альфа-релизов (обозначаются суффиксом \".aN\")"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:386
-msgid "zero or more beta releases (denoted with a \".bN\" suffix)"
-msgstr "ноль или более бета-версий (обозначаются суффиксом \".bN\")"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:387
-msgid "zero or more release candidates (denoted with a \".rcN\" suffix)"
-msgstr "ноль или более кандидатов на выпуск (обозначаются суффиксом \".rcN\")"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:389
-msgid ""
-"``pip`` and other modern Python package installers ignore pre-releases by "
-"default when deciding which versions of dependencies to install."
-msgstr ""
-"``pip`` и другие современные программы установки пакетов Python по умолчанию "
-"игнорируют предварительные выпуски, когда решают, какие версии зависимостей "
-"устанавливать."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:394
-#: ../source/specifications/version-specifiers.rst:112
-msgid "Local version identifiers"
-msgstr "Идентификаторы локальных версий"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:396
-msgid ""
-"Public version identifiers are designed to support distribution via :term:"
-"`PyPI <Python Package Index (PyPI)>`. Python's software distribution tools "
-"also support the notion of a :pep:`local version identifier <440#local-"
-"version-identifiers>`, which can be used to identify local development "
-"builds not intended for publication, or modified variants of a release "
-"maintained by a redistributor."
-msgstr ""
-"Идентификаторы публичных версий предназначены для поддержки распространения "
-"через :term:`PyPI <Python Package Index (PyPI)>`. Средства распространения "
-"программного обеспечения Python также поддерживают понятие :pep:`локального "
-"идентификатора версии <440#local-version-identifiers>`, который может "
-"использоваться для идентификации локальных сборок разработки, не "
-"предназначенных для публикации, или модифицированных вариантов релиза, "
-"поддерживаемого редистрибьютором."
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:403
-msgid ""
-"A local version identifier takes the form ``<public version "
-"identifier>+<local version label>``. For example::"
-msgstr ""
-"Идентификатор локальной версии имеет вид ``<идентификатор публичной "
-"версии>+<метка локальной версии>``. Например::"
-
-#: ../source/guides/distributing-packages-using-setuptools.rst:411
 msgid "Working in \"development mode\""
 msgstr "Работа в «режиме разработки»"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:413
+#: ../source/guides/distributing-packages-using-setuptools.rst:300
 msgid ""
 "You can install a project in \"editable\" or \"develop\" mode while you're "
 "working on it. When installed as editable, a project can be edited in-place "
@@ -4474,7 +4634,7 @@ msgstr ""
 "исходных файлов Python в проектах, установленных как редактируемые, будут "
 "отражены при следующем запуске процесса интерпретатора."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:419
+#: ../source/guides/distributing-packages-using-setuptools.rst:306
 msgid ""
 "To install a Python package in \"editable\"/\"development\" mode Change "
 "directory to the root of the project directory and run:"
@@ -4482,7 +4642,7 @@ msgstr ""
 "Чтобы установить пакет Python в режиме \"редактируемый\"/\"разработка\", "
 "измените каталог на корень каталога проекта и выполните команду:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:427
+#: ../source/guides/distributing-packages-using-setuptools.rst:314
 msgid ""
 "The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` "
 "refers to the current working directory, so together, it means to install "
@@ -4499,7 +4659,7 @@ msgstr ""
 "``console_scripts``.  Зависимости будут установлены в обычном, "
 "нередактируемом режиме."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:434
+#: ../source/guides/distributing-packages-using-setuptools.rst:321
 msgid ""
 "You may want to install some of your dependencies in editable mode as well. "
 "For example, supposing your project requires \"foo\" and \"bar\", but you "
@@ -4511,7 +4671,7 @@ msgstr ""
 "и \"bar\", но вы хотите, чтобы \"bar\" устанавливался из VCS в редактируемом "
 "режиме, тогда вы можете создать файл требований следующим образом::"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:442
+#: ../source/guides/distributing-packages-using-setuptools.rst:329
 msgid ""
 "The first line says to install your project and any dependencies. The second "
 "line overrides the \"bar\" dependency, such that it's fulfilled from VCS, "
@@ -4521,7 +4681,7 @@ msgstr ""
 "Вторая строка переопределяет зависимость \"bar\" так, чтобы она выполнялась "
 "из VCS, а не из PyPI."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:446
+#: ../source/guides/distributing-packages-using-setuptools.rst:333
 msgid ""
 "If, however, you want \"bar\" installed from a local directory in editable "
 "mode, the requirements file should look like this, with the local paths at "
@@ -4531,7 +4691,7 @@ msgstr ""
 "режиме, файл требований должен выглядеть следующим образом, с локальными "
 "путями в верхней части файла::"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:451
+#: ../source/guides/distributing-packages-using-setuptools.rst:338
 msgid ""
 "Otherwise, the dependency will be fulfilled from PyPI, due to the "
 "installation order of the requirements file.  For more on requirements "
@@ -4545,14 +4705,14 @@ msgstr ""
 "pip.  Подробнее о VCS-установках смотрите в разделе :ref:`VCS Support <pip:"
 "VCS Support>` документации pip."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:455
+#: ../source/guides/distributing-packages-using-setuptools.rst:342
 msgid ""
 "Lastly, if you don't want to install any dependencies at all, you can run:"
 msgstr ""
 "Наконец, если вы не хотите устанавливать никаких зависимостей, вы можете "
 "выполнить команду:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:462
+#: ../source/guides/distributing-packages-using-setuptools.rst:349
 msgid ""
 "For more information, see the :doc:`Development Mode <setuptools:userguide/"
 "development_mode>` section of the :ref:`setuptools` docs."
@@ -4560,11 +4720,11 @@ msgstr ""
 "Для получения дополнительной информации см. раздел :doc:`Режим разработки "
 "<setuptools:userguide/development_mode>` в :ref:`setuptools` docs."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:469
+#: ../source/guides/distributing-packages-using-setuptools.rst:356
 msgid "Packaging your project"
 msgstr "Упаковка вашего проекта"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:471
+#: ../source/guides/distributing-packages-using-setuptools.rst:358
 msgid ""
 "To have your project installable from a :term:`Package Index` like :term:"
 "`PyPI <Python Package Index (PyPI)>`, you'll need to create a :term:"
@@ -4576,7 +4736,7 @@ msgstr ""
 "создать :term:`Distribution <Distribution Package>` (он же \":term:`Package "
 "<Distribution Package>`\") для вашего проекта."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:476
+#: ../source/guides/distributing-packages-using-setuptools.rst:363
 msgid ""
 "Before you can build wheels and sdists for your project, you'll need to "
 "install the ``build`` package:"
@@ -4584,11 +4744,11 @@ msgstr ""
 "Прежде чем вы сможете построить колеса и диски для своего проекта, вам нужно "
 "будет установить пакет ``build``:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:493
+#: ../source/guides/distributing-packages-using-setuptools.rst:380
 msgid "Source distributions"
 msgstr "Распространение в исходных кодах"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:495
+#: ../source/guides/distributing-packages-using-setuptools.rst:382
 msgid ""
 "Minimally, you should create a :term:`Source Distribution <Source "
 "Distribution (or \"sdist\")>`:"
@@ -4596,7 +4756,7 @@ msgstr ""
 "Минимумом вы должны создать :термин:`Источник распределения <Источник "
 "распределения (или \"сдист\")>`:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:511
+#: ../source/guides/distributing-packages-using-setuptools.rst:398
 msgid ""
 "A \"source distribution\" is unbuilt (i.e. it's not a :term:`Built "
 "Distribution`), and requires a build step when installed by pip.  Even if "
@@ -4610,11 +4770,11 @@ msgstr ""
 "равно требует сборки для создания метаданных установки из :file:`setup.py` и/"
 "или :file:`setup.cfg`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:519
+#: ../source/guides/distributing-packages-using-setuptools.rst:406
 msgid "Wheels"
 msgstr "Колёса"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:521
+#: ../source/guides/distributing-packages-using-setuptools.rst:408
 msgid ""
 "You should also create a wheel for your project. A wheel is a :term:`built "
 "package <Built Distribution>` that can be installed without needing to go "
@@ -4626,7 +4786,7 @@ msgstr ""
 "необходимости проходить процесс \"сборки\". Установка колес значительно "
 "быстрее для конечного пользователя, чем установка из исходного дистрибутива."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:526
+#: ../source/guides/distributing-packages-using-setuptools.rst:413
 msgid ""
 "If your project is pure Python then you'll be creating a :ref:`\"Pure Python "
 "Wheel\" (see section below) <Pure Python Wheels>`."
@@ -4634,7 +4794,7 @@ msgstr ""
 "Если ваш проект является чистым Python, то вы будете создавать :ref: «Чистый "
 "Python Колесо» (см. раздел ниже) <Чистый Python Колеса>`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:529
+#: ../source/guides/distributing-packages-using-setuptools.rst:416
 msgid ""
 "If your project contains compiled extensions, then you'll be creating what's "
 "called a :ref:`*Platform Wheel* (see section below) <Platform Wheels>`."
@@ -4643,7 +4803,7 @@ msgstr ""
 "то, что называется:ref:`*Platform Wheel* (см. раздел ниже) <Platform "
 "Wheels>`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:532
+#: ../source/guides/distributing-packages-using-setuptools.rst:419
 msgid ""
 "If your project also supports Python 2 *and* contains no C extensions, then "
 "you should create what's called a *Universal Wheel* by adding the following "
@@ -4653,7 +4813,7 @@ msgstr ""
 "вам следует создать так называемое *универсальное колесо*, добавив следующее "
 "в файл :file:`setup.cfg`:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:541
+#: ../source/guides/distributing-packages-using-setuptools.rst:428
 msgid ""
 "Only use this setting if your project does not have any C extensions *and* "
 "supports Python 2 and 3."
@@ -4661,11 +4821,11 @@ msgstr ""
 "Используйте эту настройку только в том случае, если ваш проект не имеет "
 "расширений на языке C *и* поддерживает Python 2 и 3."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:548
+#: ../source/guides/distributing-packages-using-setuptools.rst:435
 msgid "Pure Python Wheels"
 msgstr "Колёса чистого Python'а"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:550
+#: ../source/guides/distributing-packages-using-setuptools.rst:437
 msgid ""
 "*Pure Python Wheels* contain no compiled extensions, and therefore only "
 "require a single Python wheel."
@@ -4673,12 +4833,12 @@ msgstr ""
 "* Чистые Python колеса* не содержат компилированных расширений, и поэтому "
 "требуется только одно колесо Python."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:553
-#: ../source/guides/distributing-packages-using-setuptools.rst:582
+#: ../source/guides/distributing-packages-using-setuptools.rst:440
+#: ../source/guides/distributing-packages-using-setuptools.rst:469
 msgid "To build the wheel:"
 msgstr "Для построения колеса выполните:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:567
+#: ../source/guides/distributing-packages-using-setuptools.rst:454
 msgid ""
 "The ``wheel`` package will detect that the code is pure Python, and build a "
 "wheel that's named such that it's usable on any Python 3 installation.  For "
@@ -4688,7 +4848,7 @@ msgstr ""
 "названное так, чтобы его можно было использовать на любой установке Python "
 "3.  Подробнее об именовании файлов wheel смотрите в :pep:`425`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:571
+#: ../source/guides/distributing-packages-using-setuptools.rst:458
 msgid ""
 "If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both "
 "files for you; this is useful when you don't need multiple wheels."
@@ -4696,11 +4856,11 @@ msgstr ""
 "Если вы запустите ``build`` без ``--wheel`` или ``--sdist``, он соберет оба "
 "файла за вас; это полезно, когда вам не нужно несколько колес."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:577
+#: ../source/guides/distributing-packages-using-setuptools.rst:464
 msgid "Platform Wheels"
 msgstr "Платформо-зависимые колёса"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:579
+#: ../source/guides/distributing-packages-using-setuptools.rst:466
 msgid ""
 "*Platform Wheels* are wheels that are specific to a certain platform like "
 "Linux, macOS, or Windows, usually due to containing compiled extensions."
@@ -4709,7 +4869,7 @@ msgstr ""
 "платформы, например Linux, macOS или Windows, обычно из-за содержания "
 "скомпилированных расширений."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:597
+#: ../source/guides/distributing-packages-using-setuptools.rst:484
 msgid ""
 "The ``wheel`` package will detect that the code is not pure Python, and "
 "build a wheel that's named such that it's only usable on the platform that "
@@ -4720,7 +4880,7 @@ msgstr ""
 "на которой оно было создано. Подробнее об именовании файлов wheel смотрите "
 "в :pep:`425`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:603
+#: ../source/guides/distributing-packages-using-setuptools.rst:490
 msgid ""
 ":term:`PyPI <Python Package Index (PyPI)>` currently supports uploads of "
 "platform wheels for Windows, macOS, and the multi-distro ``manylinux*`` ABI. "
@@ -4730,11 +4890,11 @@ msgstr ""
 "загрузку платформенных колес для Windows, macOS и мульти-дистро "
 "``manylinux*`` ABI. Подробности о последнем определены в :pep:`513`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:611
+#: ../source/guides/distributing-packages-using-setuptools.rst:498
 msgid "Uploading your Project to PyPI"
 msgstr "Загрузка вашего проекта на PyPI"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:613
+#: ../source/guides/distributing-packages-using-setuptools.rst:500
 msgid ""
 "When you ran the command to create your distribution, a new directory ``dist/"
 "`` was created under your project's root directory. That's where you'll find "
@@ -4744,7 +4904,7 @@ msgstr ""
 "вашего проекта был создан новый каталог ``dist/``. Именно в ней вы найдете "
 "файл(ы) дистрибутива для загрузки."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:617
+#: ../source/guides/distributing-packages-using-setuptools.rst:504
 msgid ""
 "These files are only created when you run the command to create your "
 "distribution. This means that any time you change the source of your project "
@@ -4756,7 +4916,7 @@ msgstr ""
 "или конфигурации в файле :file:`setup.py` вам нужно будет заново создать эти "
 "файлы, прежде чем вы сможете распространить изменения в PyPI."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:622
+#: ../source/guides/distributing-packages-using-setuptools.rst:509
 msgid ""
 "Before releasing on main PyPI repo, you might prefer training with the `PyPI "
 "test site <https://test.pypi.org/>`_ which is cleaned on a semi regular "
@@ -4768,7 +4928,7 @@ msgstr ""
 "полурегулярной основе. Смотрите :ref:`using-test-pypi` о том, как настроить "
 "свою конфигурацию для его использования."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:627
+#: ../source/guides/distributing-packages-using-setuptools.rst:514
 msgid ""
 "In other resources you may encounter references to using ``python setup.py "
 "register`` and ``python setup.py upload``. These methods of registering and "
@@ -4783,7 +4943,7 @@ msgstr ""
 "непроверенное HTTPS-соединение, что позволяет перехватить ваши имя "
 "пользователя и пароль во время передачи."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:633
+#: ../source/guides/distributing-packages-using-setuptools.rst:520
 msgid ""
 "The reStructuredText parser used on PyPI is **not** Sphinx! Furthermore, to "
 "ensure safety of all users, certain kinds of URLs and directives are "
@@ -4800,11 +4960,11 @@ msgstr ""
 "py`.  Это можно сделать, выполнив :std:doc:`twine check <index>` для файлов "
 "вашего пакета:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:646
+#: ../source/guides/distributing-packages-using-setuptools.rst:533
 msgid "Create an account"
 msgstr "Создание учётной записи"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:648
+#: ../source/guides/distributing-packages-using-setuptools.rst:535
 msgid ""
 "First, you need a :term:`PyPI <Python Package Index (PyPI)>` user account. "
 "You can create an account `using the form on the PyPI website <https://pypi."
@@ -4814,7 +4974,7 @@ msgstr ""
 "Index (PyPI)>`. Вы можете создать учетную запись, используя форму на сайте "
 "PyPI <https://pypi.org/account/register/>`_."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:652
+#: ../source/guides/distributing-packages-using-setuptools.rst:539
 msgid ""
 "Now you'll create a PyPI `API token`_ so you will be able to securely upload "
 "your project."
@@ -4822,7 +4982,7 @@ msgstr ""
 "Теперь вы создадите токен PyPI `API token`_, чтобы иметь возможность "
 "безопасно загружать свой проект."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:655
+#: ../source/guides/distributing-packages-using-setuptools.rst:542
 msgid ""
 "Go to https://pypi.org/manage/account/#api-tokens and create a new `API "
 "token`_; don't limit its scope to a particular project, since you are "
@@ -4832,7 +4992,7 @@ msgstr ""
 "`API-токен`_; не ограничивайте его область действия конкретным проектом, "
 "поскольку вы создаете новый проект."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:659
+#: ../source/guides/distributing-packages-using-setuptools.rst:546
 msgid ""
 "**Don't close the page until you have copied and saved the token — you won't "
 "see that token again.**"
@@ -4840,7 +5000,7 @@ msgstr ""
 "**Не закрывайте страницу, пока не скопируете и не сохраните токен - больше "
 "вы его не увидите**"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:662
+#: ../source/guides/distributing-packages-using-setuptools.rst:549
 msgid ""
 "To avoid having to copy and paste the token every time you upload, you can "
 "create a :file:`$HOME/.pypirc` file:"
@@ -4848,11 +5008,11 @@ msgstr ""
 "Чтобы не копировать и не вставлять токен при каждой загрузке, вы можете "
 "создать файл :file:`$HOME/.pypirc`:"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:671
+#: ../source/guides/distributing-packages-using-setuptools.rst:558
 msgid "**Be aware that this stores your token in plaintext.**"
 msgstr "**Помните, что при этом ваш токен хранится в открытом виде**"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:673
+#: ../source/guides/distributing-packages-using-setuptools.rst:560
 #: ../source/guides/migrating-to-pypi-org.rst:74
 #: ../source/guides/migrating-to-pypi-org.rst:113
 #: ../source/guides/using-testpypi.rst:84
@@ -4862,11 +5022,11 @@ msgstr ""
 "Более подробную информацию см. в :ref:`спецификации <pypirc>` для :file:`."
 "pypirc`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:679
+#: ../source/guides/distributing-packages-using-setuptools.rst:566
 msgid "Upload your distributions"
 msgstr "Загрузите свои дистрибутивы"
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:681
+#: ../source/guides/distributing-packages-using-setuptools.rst:568
 msgid ""
 "Once you have an account you can upload your distributions to :term:`PyPI "
 "<Python Package Index (PyPI)>` using :ref:`twine`."
@@ -4874,7 +5034,7 @@ msgstr ""
 "После создания учетной записи вы можете загружать свои дистрибутивы в :term:"
 "`PyPI <Python Package Index (PyPI)>`, используя :ref:`twine`."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:684
+#: ../source/guides/distributing-packages-using-setuptools.rst:571
 msgid ""
 "The process for uploading a release is the same regardless of whether or not "
 "the project already exists on PyPI - if it doesn't exist yet, it will be "
@@ -4884,7 +5044,7 @@ msgstr ""
 "проект на PyPI - если его еще нет, он будет автоматически создан при "
 "загрузке первого релиза."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:688
+#: ../source/guides/distributing-packages-using-setuptools.rst:575
 msgid ""
 "For the second and subsequent releases, PyPI only requires that the version "
 "number of the new release differ from any previous releases."
@@ -4892,7 +5052,7 @@ msgstr ""
 "Для второго и последующих релизов PyPI требует только, чтобы номер версии "
 "нового релиза отличался от всех предыдущих релизов."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:695
+#: ../source/guides/distributing-packages-using-setuptools.rst:582
 msgid ""
 "You can see if your package has successfully uploaded by navigating to the "
 "URL ``https://pypi.org/project/<sampleproject>`` where ``sampleproject`` is "
@@ -4904,7 +5064,7 @@ msgstr ""
 "имя загруженного вами проекта. Возможно, потребуется минута или две, чтобы "
 "ваш проект появился на сайте."
 
-#: ../source/guides/distributing-packages-using-setuptools.rst:702
+#: ../source/guides/distributing-packages-using-setuptools.rst:589
 #: ../source/tutorials/installing-packages.rst:670
 msgid ""
 "Depending on your platform, this may require root or Administrator access. :"
@@ -15187,7 +15347,7 @@ msgstr ""
 #: ../source/specifications/recording-installed-packages.rst:252
 #: ../source/specifications/simple-repository-api.rst:974
 #: ../source/specifications/source-distribution-format.rst:144
-#: ../source/specifications/version-specifiers.rst:1262
+#: ../source/specifications/version-specifiers.rst:1264
 #: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr "История"
@@ -21975,12 +22135,6 @@ msgid ""
 "format to serve, i.e. either HTML or JSON."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:310
-#, fuzzy
-#| msgid "Version"
-msgid "Versioning"
-msgstr "Версия"
-
 #: ../source/specifications/simple-repository-api.rst:312
 msgid ""
 "Versioning will adhere to :ref:`the API versioning specification <simple-"
@@ -23347,7 +23501,7 @@ msgstr ""
 "стандартизированы с помощью :pep:`721`."
 
 #: ../source/specifications/version-specifiers.rst:7
-#: ../source/specifications/version-specifiers.rst:778
+#: ../source/specifications/version-specifiers.rst:780
 msgid "Version specifiers"
 msgstr "Спецификаторы версии"
 
@@ -23582,12 +23736,12 @@ msgstr ""
 "разрешены спецификацией, настоятельно не рекомендуются для новых проектов. "
 "Если это так, то соответствующие детали указаны в следующих разделах."
 
-#: ../source/specifications/version-specifiers.rst:114
+#: ../source/specifications/version-specifiers.rst:116
 msgid "Local version identifiers MUST comply with the following scheme::"
 msgstr ""
 "Локальные идентификаторы версий ДОЛЖНЫ соответствовать следующей схеме::"
 
-#: ../source/specifications/version-specifiers.rst:118
+#: ../source/specifications/version-specifiers.rst:120
 msgid ""
 "They consist of a normal public version identifier (as defined in the "
 "previous section), along with an arbitrary \"local version label\", "
@@ -23601,7 +23755,7 @@ msgstr ""
 "не имеют специфической семантики, но на них накладываются некоторые "
 "синтаксические ограничения."
 
-#: ../source/specifications/version-specifiers.rst:123
+#: ../source/specifications/version-specifiers.rst:125
 msgid ""
 "Local version identifiers are used to denote fully API (and, if applicable, "
 "ABI) compatible patched versions of upstream projects. For example, these "
@@ -23617,7 +23771,7 @@ msgstr ""
 "обновление до нового релиза upstream будет слишком разрушительным для "
 "приложения или другой интегрированной системы (например, дистрибутива Linux)."
 
-#: ../source/specifications/version-specifiers.rst:130
+#: ../source/specifications/version-specifiers.rst:132
 msgid ""
 "The inclusion of the local version label makes it possible to differentiate "
 "upstream releases from potentially altered rebuilds by downstream "
@@ -23632,7 +23786,7 @@ msgstr ""
 "то, что он может содержать не совсем тот же код, что и соответствующий релиз "
 "восходящего потока."
 
-#: ../source/specifications/version-specifiers.rst:136
+#: ../source/specifications/version-specifiers.rst:138
 msgid ""
 "To ensure local version identifiers can be readily incorporated as part of "
 "filenames and URLs, and to avoid formatting inconsistencies in hexadecimal "
@@ -23644,25 +23798,25 @@ msgstr ""
 "шестнадцатеричных хэш-представлений, метки локальных версий ДОЛЖНЫ быть "
 "ограничены следующим набором разрешенных символов:"
 
-#: ../source/specifications/version-specifiers.rst:141
+#: ../source/specifications/version-specifiers.rst:143
 msgid "ASCII letters (``[a-zA-Z]``)"
 msgstr "Буквы ASCII (``[a-zA-Z]``)"
 
-#: ../source/specifications/version-specifiers.rst:142
+#: ../source/specifications/version-specifiers.rst:144
 msgid "ASCII digits (``[0-9]``)"
 msgstr "Цифры ASCII (``[0-9]``)"
 
-#: ../source/specifications/version-specifiers.rst:143
+#: ../source/specifications/version-specifiers.rst:145
 msgid "periods (``.``)"
 msgstr "периоды (``.``)"
 
-#: ../source/specifications/version-specifiers.rst:145
+#: ../source/specifications/version-specifiers.rst:147
 msgid "Local version labels MUST start and end with an ASCII letter or digit."
 msgstr ""
 "Метки локальных версий ДОЛЖНЫ начинаться и заканчиваться буквой или цифрой "
 "ASCII."
 
-#: ../source/specifications/version-specifiers.rst:147
+#: ../source/specifications/version-specifiers.rst:149
 msgid ""
 "Comparison and ordering of local versions considers each segment of the "
 "local version (divided by a ``.``) separately. If a segment consists "
@@ -23687,7 +23841,7 @@ msgstr ""
 "условии, что более короткие сегменты локальной версии точно совпадают с "
 "началом более длинных сегментов локальной версии."
 
-#: ../source/specifications/version-specifiers.rst:158
+#: ../source/specifications/version-specifiers.rst:160
 msgid ""
 "An \"upstream project\" is a project that defines its own public versions. A "
 "\"downstream project\" is one which tracks and redistributes an upstream "
@@ -23699,7 +23853,7 @@ msgstr ""
 "распространяет проект \"upstream\", потенциально перенося исправления "
 "безопасности и ошибок из более поздних версий проекта \"upstream\"."
 
-#: ../source/specifications/version-specifiers.rst:163
+#: ../source/specifications/version-specifiers.rst:165
 msgid ""
 "Local version identifiers SHOULD NOT be used when publishing upstream "
 "projects to a public index server, but MAY be used to identify private "
@@ -23721,7 +23875,7 @@ msgstr ""
 "размещения upstream-проектов, он НЕ ДОЛЖЕН разрешать использование локальных "
 "идентификаторов версий."
 
-#: ../source/specifications/version-specifiers.rst:173
+#: ../source/specifications/version-specifiers.rst:175
 msgid ""
 "Source distributions using a local version identifier SHOULD provide the "
 "``python.integrator`` extension metadata (as defined in :pep:`459`)."
@@ -23730,11 +23884,11 @@ msgstr ""
 "предоставлять метаданные расширения ``python.integrator`` (как определено в :"
 "pep:`459`)."
 
-#: ../source/specifications/version-specifiers.rst:178
+#: ../source/specifications/version-specifiers.rst:180
 msgid "Final releases"
 msgstr "Финальные релизы"
 
-#: ../source/specifications/version-specifiers.rst:180
+#: ../source/specifications/version-specifiers.rst:182
 msgid ""
 "A version identifier that consists solely of a release segment and "
 "optionally an epoch identifier is termed a \"final release\"."
@@ -23742,7 +23896,7 @@ msgstr ""
 "Идентификатор версии, состоящий только из сегмента выпуска и, опционально, "
 "идентификатора эпохи, называется \"финальным выпуском\"."
 
-#: ../source/specifications/version-specifiers.rst:183
+#: ../source/specifications/version-specifiers.rst:185
 msgid ""
 "The release segment consists of one or more non-negative integer values, "
 "separated by dots::"
@@ -23750,7 +23904,7 @@ msgstr ""
 "Сегмент освобождения состоит из одного или нескольких неотрицательных целых "
 "значений, разделенных точками::"
 
-#: ../source/specifications/version-specifiers.rst:188
+#: ../source/specifications/version-specifiers.rst:190
 msgid ""
 "Final releases within a project MUST be numbered in a consistently "
 "increasing fashion, otherwise automated tools will not be able to upgrade "
@@ -23760,7 +23914,7 @@ msgstr ""
 "нумерацию, иначе автоматизированные инструменты не смогут правильно их "
 "обновить."
 
-#: ../source/specifications/version-specifiers.rst:192
+#: ../source/specifications/version-specifiers.rst:194
 msgid ""
 "Comparison and ordering of release segments considers the numeric value of "
 "each component of the release segment in turn. When comparing release "
@@ -23772,7 +23926,7 @@ msgstr ""
 "сегментов выпуска с разным количеством компонентов более короткий сегмент "
 "при необходимости дополняется нулями."
 
-#: ../source/specifications/version-specifiers.rst:197
+#: ../source/specifications/version-specifiers.rst:199
 msgid ""
 "While any number of additional components after the first are permitted "
 "under this scheme, the most common variants are to use two components "
@@ -23783,11 +23937,11 @@ msgstr ""
 "двух компонентов (\"major.minor\") или трех компонентов (\"major.minor."
 "micro\")."
 
-#: ../source/specifications/version-specifiers.rst:201
+#: ../source/specifications/version-specifiers.rst:203
 msgid "For example::"
 msgstr "Например::"
 
-#: ../source/specifications/version-specifiers.rst:216
+#: ../source/specifications/version-specifiers.rst:218
 msgid ""
 "A release series is any set of final release numbers that start with a "
 "common prefix. For example, ``3.3.1``, ``3.3.5`` and ``3.3.9.45`` are all "
@@ -23797,7 +23951,7 @@ msgstr ""
 "начинаются с общего префикса. Например, ``3.3.1``, ``3.3.5`` и ``3.3.9.45`` "
 "являются частью серии релизов ``3.3``."
 
-#: ../source/specifications/version-specifiers.rst:222
+#: ../source/specifications/version-specifiers.rst:224
 msgid ""
 "``X.Y`` and ``X.Y.0`` are not considered distinct release numbers, as the "
 "release segment comparison rules implicit expand the two component form to "
@@ -23809,7 +23963,7 @@ msgstr ""
 "до ``X.Y.0``, когда сравнивают ее с любым сегментом релиза, включающим три "
 "компонента."
 
-#: ../source/specifications/version-specifiers.rst:227
+#: ../source/specifications/version-specifiers.rst:229
 msgid ""
 "Date based release segments are also permitted. An example of a date based "
 "release scheme using the year and month of the release::"
@@ -23817,11 +23971,11 @@ msgstr ""
 "Также допускаются сегменты релизов, основанные на дате. Пример схемы релиза "
 "на основе даты с использованием года и месяца релиза::"
 
-#: ../source/specifications/version-specifiers.rst:239
+#: ../source/specifications/version-specifiers.rst:241
 msgid "Pre-releases"
 msgstr "Предварительные выпуски"
 
-#: ../source/specifications/version-specifiers.rst:241
+#: ../source/specifications/version-specifiers.rst:243
 msgid ""
 "Some projects use an \"alpha, beta, release candidate\" pre-release cycle to "
 "support testing by their users prior to a final release."
@@ -23830,7 +23984,7 @@ msgstr ""
 "кандидат\" для поддержки тестирования пользователями перед выпуском "
 "финального релиза."
 
-#: ../source/specifications/version-specifiers.rst:244
+#: ../source/specifications/version-specifiers.rst:246
 msgid ""
 "If used as part of a project's development cycle, these pre-releases are "
 "indicated by including a pre-release segment in the version identifier::"
@@ -23839,7 +23993,7 @@ msgstr ""
 "проекта, они обозначаются включением сегмента pre-release в идентификатор "
 "версии::"
 
-#: ../source/specifications/version-specifiers.rst:252
+#: ../source/specifications/version-specifiers.rst:254
 msgid ""
 "A version identifier that consists solely of a release segment and a pre-"
 "release segment is termed a \"pre-release\"."
@@ -23847,7 +24001,7 @@ msgstr ""
 "Идентификатор версии, состоящий только из сегмента релиза и сегмента "
 "предрелиза, называется \"предрелизом\"."
 
-#: ../source/specifications/version-specifiers.rst:255
+#: ../source/specifications/version-specifiers.rst:257
 msgid ""
 "The pre-release segment consists of an alphabetical identifier for the pre-"
 "release phase, along with a non-negative integer value. Pre-releases for a "
@@ -23859,7 +24013,7 @@ msgstr ""
 "данного выпуска упорядочиваются сначала по фазе (альфа, бета, кандидат на "
 "выпуск), а затем по числовому компоненту в рамках этой фазы."
 
-#: ../source/specifications/version-specifiers.rst:260
+#: ../source/specifications/version-specifiers.rst:262
 msgid ""
 "Installation tools MAY accept both ``c`` and ``rc`` releases for a common "
 "release segment in order to handle some existing legacy distributions."
@@ -23868,7 +24022,7 @@ msgstr ""
 "выпуска, чтобы работать с некоторыми существующими устаревшими "
 "дистрибутивами."
 
-#: ../source/specifications/version-specifiers.rst:263
+#: ../source/specifications/version-specifiers.rst:265
 msgid ""
 "Installation tools SHOULD interpret ``c`` versions as being equivalent to "
 "``rc`` versions (that is, ``c1`` indicates the same version as ``rc1``)."
@@ -23876,7 +24030,7 @@ msgstr ""
 "Утилиты установки ДОЛЖНЫ интерпретировать версии ``c`` как эквивалентные "
 "версиям ``rc`` (то есть, ``c1`` означает ту же версию, что и ``rc1``)."
 
-#: ../source/specifications/version-specifiers.rst:266
+#: ../source/specifications/version-specifiers.rst:268
 msgid ""
 "Build tools, publication tools and index servers SHOULD disallow the "
 "creation of both ``rc`` and ``c`` releases for a common release segment."
@@ -23884,11 +24038,11 @@ msgstr ""
 "Средства сборки, средства публикации и индексные серверы ДОЛЖНЫ запрещать "
 "создание релизов ``rc`` и ``c`` для общего сегмента релиза."
 
-#: ../source/specifications/version-specifiers.rst:271
+#: ../source/specifications/version-specifiers.rst:273
 msgid "Post-releases"
 msgstr "Пост-релизы"
 
-#: ../source/specifications/version-specifiers.rst:273
+#: ../source/specifications/version-specifiers.rst:275
 msgid ""
 "Some projects use post-releases to address minor errors in a final release "
 "that do not affect the distributed software (for example, correcting an "
@@ -23898,7 +24052,7 @@ msgstr ""
 "финальном релизе, которые не влияют на распространяемое ПО (например, "
 "исправление ошибки в примечаниях к релизу)."
 
-#: ../source/specifications/version-specifiers.rst:277
+#: ../source/specifications/version-specifiers.rst:279
 msgid ""
 "If used as part of a project's development cycle, these post-releases are "
 "indicated by including a post-release segment in the version identifier::"
@@ -23906,7 +24060,7 @@ msgstr ""
 "Если эти пост-релизы используются в рамках цикла разработки проекта, они "
 "обозначаются включением сегмента post-release в идентификатор версии::"
 
-#: ../source/specifications/version-specifiers.rst:282
+#: ../source/specifications/version-specifiers.rst:284
 msgid ""
 "A version identifier that includes a post-release segment without a "
 "developmental release segment is termed a \"post-release\"."
@@ -23914,7 +24068,7 @@ msgstr ""
 "Идентификатор версии, включающий сегмент пост-релиза без сегмента релиза "
 "разработки, называется \"пост-релизом\"."
 
-#: ../source/specifications/version-specifiers.rst:285
+#: ../source/specifications/version-specifiers.rst:287
 msgid ""
 "The post-release segment consists of the string ``.post``, followed by a non-"
 "negative integer value. Post-releases are ordered by their numerical "
@@ -23926,7 +24080,7 @@ msgstr ""
 "составляющей, сразу после соответствующего релиза и перед любым последующим "
 "релизом."
 
-#: ../source/specifications/version-specifiers.rst:292
+#: ../source/specifications/version-specifiers.rst:294
 msgid ""
 "The use of post-releases to publish maintenance releases containing actual "
 "bug fixes is strongly discouraged. In general, it is better to use a longer "
@@ -23938,11 +24092,11 @@ msgstr ""
 "лучше использовать более длинный номер релиза и увеличивать последний "
 "компонент для каждого выпуска обслуживания."
 
-#: ../source/specifications/version-specifiers.rst:297
+#: ../source/specifications/version-specifiers.rst:299
 msgid "Post-releases are also permitted for pre-releases::"
 msgstr "Пост-релизы также разрешены для пре-релизов::"
 
-#: ../source/specifications/version-specifiers.rst:305
+#: ../source/specifications/version-specifiers.rst:307
 msgid ""
 "Creating post-releases of pre-releases is strongly discouraged, as it makes "
 "the version identifier difficult to parse for human readers. In general, it "
@@ -23953,11 +24107,11 @@ msgstr ""
 "это затрудняет разбор идентификатора версии для человека. В целом, гораздо "
 "понятнее просто создать новый пререлиз, увеличив числовой компонент."
 
-#: ../source/specifications/version-specifiers.rst:312
+#: ../source/specifications/version-specifiers.rst:314
 msgid "Developmental releases"
 msgstr "Развивающие релизы"
 
-#: ../source/specifications/version-specifiers.rst:314
+#: ../source/specifications/version-specifiers.rst:316
 msgid ""
 "Some projects make regular developmental releases, and system packagers "
 "(especially for Linux distributions) may wish to create early releases "
@@ -23969,7 +24123,7 @@ msgstr ""
 "релизы непосредственно из системы контроля исходных кодов, которые не будут "
 "конфликтовать с более поздними релизами проекта."
 
-#: ../source/specifications/version-specifiers.rst:319
+#: ../source/specifications/version-specifiers.rst:321
 msgid ""
 "If used as part of a project's development cycle, these developmental "
 "releases are indicated by including a developmental release segment in the "
@@ -23979,7 +24133,7 @@ msgstr ""
 "указываются путем включения сегмента developmental release в идентификатор "
 "версии::"
 
-#: ../source/specifications/version-specifiers.rst:325
+#: ../source/specifications/version-specifiers.rst:327
 msgid ""
 "A version identifier that includes a developmental release segment is termed "
 "a \"developmental release\"."
@@ -23987,7 +24141,7 @@ msgstr ""
 "Идентификатор версии, включающий сегмент выпуска разработки, называется "
 "\"выпуском разработки\"."
 
-#: ../source/specifications/version-specifiers.rst:328
+#: ../source/specifications/version-specifiers.rst:330
 msgid ""
 "The developmental release segment consists of the string ``.dev``, followed "
 "by a non-negative integer value. Developmental releases are ordered by their "
@@ -24001,14 +24155,14 @@ msgstr ""
 "перед любыми предшествующими релизами с тем же сегментом релиза) и после "
 "любого предыдущего релиза (включая любые пост-релизы)."
 
-#: ../source/specifications/version-specifiers.rst:334
+#: ../source/specifications/version-specifiers.rst:336
 msgid ""
 "Developmental releases are also permitted for pre-releases and post-"
 "releases::"
 msgstr ""
 "Релизы разработки также разрешены для предварительных и последующих релизов::"
 
-#: ../source/specifications/version-specifiers.rst:344
+#: ../source/specifications/version-specifiers.rst:346
 msgid ""
 "While they may be useful for continuous integration purposes, publishing "
 "developmental releases of pre-releases to general purpose public index "
@@ -24024,7 +24178,7 @@ msgstr ""
 "вместо этого создать новый предварительный релиз, увеличив числовой "
 "компонент."
 
-#: ../source/specifications/version-specifiers.rst:351
+#: ../source/specifications/version-specifiers.rst:353
 msgid ""
 "Developmental releases of post-releases are also strongly discouraged, but "
 "they may be appropriate for projects which use the post-release notation for "
@@ -24035,11 +24189,11 @@ msgstr ""
 "release для полных релизов сопровождения, которые могут включать изменения "
 "кода."
 
-#: ../source/specifications/version-specifiers.rst:357
+#: ../source/specifications/version-specifiers.rst:359
 msgid "Version epochs"
 msgstr "Эпохи версий"
 
-#: ../source/specifications/version-specifiers.rst:359
+#: ../source/specifications/version-specifiers.rst:361
 msgid ""
 "If included in a version identifier, the epoch appears before all other "
 "components, separated from the release segment by an exclamation mark::"
@@ -24048,11 +24202,11 @@ msgstr ""
 "остальными компонентами и отделяется от сегмента релиза восклицательным "
 "знаком::"
 
-#: ../source/specifications/version-specifiers.rst:364
+#: ../source/specifications/version-specifiers.rst:366
 msgid "If no explicit epoch is given, the implicit epoch is ``0``."
 msgstr "Если явная эпоха не указана, то неявной эпохой будет ``0``."
 
-#: ../source/specifications/version-specifiers.rst:366
+#: ../source/specifications/version-specifiers.rst:368
 msgid ""
 "Most version identifiers will not include an epoch, as an explicit epoch is "
 "only needed if a project *changes* the way it handles version numbering in a "
@@ -24070,7 +24224,7 @@ msgstr ""
 "как ``1.0``, то новые релизы будут идентифицироваться как *более старые*, "
 "чем версии, основанные на дате, при использовании обычной схемы сортировки::"
 
-#: ../source/specifications/version-specifiers.rst:380
+#: ../source/specifications/version-specifiers.rst:382
 msgid ""
 "However, by specifying an explicit epoch, the sort order can be changed "
 "appropriately, as all versions from a later epoch are sorted after versions "
@@ -24080,11 +24234,11 @@ msgstr ""
 "сортировки: все версии, относящиеся к более поздней эпохе, будут "
 "отсортированы после версий, относящихся к более ранней эпохе::"
 
-#: ../source/specifications/version-specifiers.rst:394
+#: ../source/specifications/version-specifiers.rst:396
 msgid "Normalization"
 msgstr "Нормализация"
 
-#: ../source/specifications/version-specifiers.rst:396
+#: ../source/specifications/version-specifiers.rst:398
 msgid ""
 "In order to maintain better compatibility with existing versions there are a "
 "number of \"alternative\" syntaxes that MUST be taken into account when "
@@ -24096,11 +24250,11 @@ msgstr ""
 "версий. Эти синтаксисы ДОЛЖНЫ учитываться при разборе версии, однако они "
 "должны быть \"нормализованы\" к стандартному синтаксису, определенному выше."
 
-#: ../source/specifications/version-specifiers.rst:403
+#: ../source/specifications/version-specifiers.rst:405
 msgid "Case sensitivity"
 msgstr "Чувствительность случая"
 
-#: ../source/specifications/version-specifiers.rst:405
+#: ../source/specifications/version-specifiers.rst:407
 msgid ""
 "All ascii letters should be interpreted case insensitively within a version "
 "and the normal form is lowercase. This allows versions such as ``1.1RC1`` "
@@ -24111,11 +24265,11 @@ msgstr ""
 "использовать такие версии, как ``1.1RC1``, которые будут нормализованы до "
 "``1.1rc1``."
 
-#: ../source/specifications/version-specifiers.rst:411
+#: ../source/specifications/version-specifiers.rst:413
 msgid "Integer Normalization"
 msgstr "Нормализация целого числа"
 
-#: ../source/specifications/version-specifiers.rst:413
+#: ../source/specifications/version-specifiers.rst:415
 msgid ""
 "All integers are interpreted via the ``int()`` built in and normalize to the "
 "string form of the output. This means that an integer version of ``00`` "
@@ -24130,11 +24284,11 @@ msgstr ""
 "версии, например ``1.0+foo0100``, которая уже находится в нормализованной "
 "форме."
 
-#: ../source/specifications/version-specifiers.rst:421
+#: ../source/specifications/version-specifiers.rst:423
 msgid "Pre-release separators"
 msgstr "Сепараторы перед выпуском"
 
-#: ../source/specifications/version-specifiers.rst:423
+#: ../source/specifications/version-specifiers.rst:425
 msgid ""
 "Pre-releases should allow a ``.``, ``-``, or ``_`` separator between the "
 "release segment and the pre-release segment. The normal form for this is "
@@ -24151,11 +24305,11 @@ msgstr ""
 "release и цифрой. Это позволяет использовать такие версии, как ``1.0a.1``, "
 "которые будут нормализованы до ``1.0a1``."
 
-#: ../source/specifications/version-specifiers.rst:432
+#: ../source/specifications/version-specifiers.rst:434
 msgid "Pre-release spelling"
 msgstr "Предварительное написание"
 
-#: ../source/specifications/version-specifiers.rst:434
+#: ../source/specifications/version-specifiers.rst:436
 msgid ""
 "Pre-releases allow the additional spellings of ``alpha``, ``beta``, ``c``, "
 "``pre``, and ``preview`` for ``a``, ``b``, ``rc``, ``rc``, and ``rc`` "
@@ -24171,11 +24325,11 @@ msgstr ""
 "``1.1a1``, ``1.1b2`` и ``1.1rc3``. В каждом случае дополнительные написания "
 "следует считать эквивалентными их нормальным формам."
 
-#: ../source/specifications/version-specifiers.rst:443
+#: ../source/specifications/version-specifiers.rst:445
 msgid "Implicit pre-release number"
 msgstr "Неявный номер предварительного выпуска"
 
-#: ../source/specifications/version-specifiers.rst:445
+#: ../source/specifications/version-specifiers.rst:447
 msgid ""
 "Pre releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -24187,11 +24341,11 @@ msgstr ""
 "``0``. Это позволяет использовать такие версии, как ``1.2a``, которые "
 "нормализуются до ``1.2a0``."
 
-#: ../source/specifications/version-specifiers.rst:451
+#: ../source/specifications/version-specifiers.rst:453
 msgid "Post release separators"
 msgstr "Сепараторы после выпуска"
 
-#: ../source/specifications/version-specifiers.rst:453
+#: ../source/specifications/version-specifiers.rst:455
 msgid ""
 "Post releases allow a ``.``, ``-``, or ``_`` separator as well as omitting "
 "the separator all together. The normal form of this is with the ``.`` "
@@ -24209,11 +24363,11 @@ msgstr ""
 "обозначением пострелиза и цифрой. Это позволяет использовать версии типа "
 "``1.2.post-2``, которые нормализуются до ``1.2.post2``."
 
-#: ../source/specifications/version-specifiers.rst:462
+#: ../source/specifications/version-specifiers.rst:464
 msgid "Post release spelling"
 msgstr "Написание после выпуска"
 
-#: ../source/specifications/version-specifiers.rst:464
+#: ../source/specifications/version-specifiers.rst:466
 msgid ""
 "Post-releases allow the additional spellings of ``rev`` and ``r``. This "
 "allows versions such as ``1.0-r4`` which normalizes to ``1.0.post4``. As "
@@ -24225,11 +24379,11 @@ msgstr ""
 "до ``1.0.post4``. Как и в предыдущих версиях, дополнительные написания "
 "следует считать эквивалентными их нормальным формам."
 
-#: ../source/specifications/version-specifiers.rst:471
+#: ../source/specifications/version-specifiers.rst:473
 msgid "Implicit post release number"
 msgstr "Неявный номер после выпуска"
 
-#: ../source/specifications/version-specifiers.rst:473
+#: ../source/specifications/version-specifiers.rst:475
 msgid ""
 "Post releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -24241,11 +24395,11 @@ msgstr ""
 "позволяет использовать такие версии, как ``1.2.post``, которые нормализуются "
 "до ``1.2.post0``."
 
-#: ../source/specifications/version-specifiers.rst:479
+#: ../source/specifications/version-specifiers.rst:481
 msgid "Implicit post releases"
 msgstr "Неявные пост-релизы"
 
-#: ../source/specifications/version-specifiers.rst:481
+#: ../source/specifications/version-specifiers.rst:483
 msgid ""
 "Post releases allow omitting the ``post`` signifier all together. When using "
 "this form the separator MUST be ``-`` and no other form is allowed. This "
@@ -24262,11 +24416,11 @@ msgstr ""
 "словами, ``1.0-`` - это *не* допустимая версия, и она *не* нормализуется до "
 "``1.0.post0``."
 
-#: ../source/specifications/version-specifiers.rst:490
+#: ../source/specifications/version-specifiers.rst:492
 msgid "Development release separators"
 msgstr "Сепараторы для выпуска продукции"
 
-#: ../source/specifications/version-specifiers.rst:492
+#: ../source/specifications/version-specifiers.rst:494
 msgid ""
 "Development releases allow a ``.``, ``-``, or a ``_`` separator as well as "
 "omitting the separator all together. The normal form of this is with the ``."
@@ -24278,11 +24432,11 @@ msgstr ""
 "``.``. Это позволяет использовать такие версии, как ``1.2-dev2`` или "
 "``1.2dev2``, которые нормализуются до ``1.2.dev2``."
 
-#: ../source/specifications/version-specifiers.rst:499
+#: ../source/specifications/version-specifiers.rst:501
 msgid "Implicit development release number"
 msgstr "Номер выпуска неявной разработки"
 
-#: ../source/specifications/version-specifiers.rst:501
+#: ../source/specifications/version-specifiers.rst:503
 msgid ""
 "Development releases allow omitting the numeral in which case it is "
 "implicitly assumed to be ``0``. The normal form for this is to include the "
@@ -24294,11 +24448,11 @@ msgstr ""
 "``0``. Это позволяет использовать такие версии, как ``1.2.dev``, которые "
 "нормализуются до ``1.2.dev0``."
 
-#: ../source/specifications/version-specifiers.rst:508
+#: ../source/specifications/version-specifiers.rst:510
 msgid "Local version segments"
 msgstr "Сегменты локальной версии"
 
-#: ../source/specifications/version-specifiers.rst:510
+#: ../source/specifications/version-specifiers.rst:512
 msgid ""
 "With a local version, in addition to the use of ``.`` as a separator of "
 "segments, the use of ``-`` and ``_`` is also acceptable. The normal form is "
@@ -24310,11 +24464,11 @@ msgstr ""
 "является использование символа ``.``. Это позволяет нормализовать такие "
 "версии, как ``1.0+ubuntu-1``, до ``1.0+ubuntu.1``."
 
-#: ../source/specifications/version-specifiers.rst:517
+#: ../source/specifications/version-specifiers.rst:519
 msgid "Preceding v character"
 msgstr "Предшествующий символ v"
 
-#: ../source/specifications/version-specifiers.rst:519
+#: ../source/specifications/version-specifiers.rst:521
 msgid ""
 "In order to support the common version notation of ``v1.0`` versions may be "
 "preceded by a single literal ``v`` character. This character MUST be ignored "
@@ -24327,11 +24481,11 @@ msgstr ""
 "целей и должен быть опущен во всех нормализованных формах версии. Одна и та "
 "же версия с ``v`` и без него считается эквивалентной."
 
-#: ../source/specifications/version-specifiers.rst:526
+#: ../source/specifications/version-specifiers.rst:528
 msgid "Leading and Trailing Whitespace"
 msgstr "Ведущие и отслеживающие Белое пространство"
 
-#: ../source/specifications/version-specifiers.rst:528
+#: ../source/specifications/version-specifiers.rst:530
 msgid ""
 "Leading and trailing whitespace must be silently ignored and removed from "
 "all normalized forms of a version. This includes ``\" \"``, ``\\t``, "
@@ -24345,11 +24499,11 @@ msgstr ""
 "обрабатывать случайные пробелы, например, версия ``1.0\\n`` нормализуется до "
 "``1.0``."
 
-#: ../source/specifications/version-specifiers.rst:535
+#: ../source/specifications/version-specifiers.rst:537
 msgid "Examples of compliant version schemes"
 msgstr "Примеры совместимых схем версий"
 
-#: ../source/specifications/version-specifiers.rst:537
+#: ../source/specifications/version-specifiers.rst:539
 msgid ""
 "The standard version scheme is designed to encompass a wide range of "
 "identification practices across public and private Python projects. In "
@@ -24365,7 +24519,7 @@ msgstr ""
 "относительный порядок версий, хотя приведенные выше правила гарантируют, что "
 "все совместимые инструменты будут упорядочивать их последовательно."
 
-#: ../source/specifications/version-specifiers.rst:544
+#: ../source/specifications/version-specifiers.rst:546
 msgid ""
 "The following examples illustrate a small selection of the different "
 "approaches projects may choose to identify their releases, while still "
@@ -24377,22 +24531,22 @@ msgstr ""
 "гарантируя, что \"последний релиз\" и \"последний стабильный релиз\" могут "
 "быть легко определены как людьми, так и автоматизированными инструментами."
 
-#: ../source/specifications/version-specifiers.rst:549
+#: ../source/specifications/version-specifiers.rst:551
 msgid "Simple \"major.minor\" versioning::"
 msgstr "Простая версификация \"major.minor\" ::"
 
-#: ../source/specifications/version-specifiers.rst:558
+#: ../source/specifications/version-specifiers.rst:560
 msgid "Simple \"major.minor.micro\" versioning::"
 msgstr "Простая версия \"major.minor.micro\" ::"
 
-#: ../source/specifications/version-specifiers.rst:566
+#: ../source/specifications/version-specifiers.rst:568
 msgid ""
 "\"major.minor\" versioning with alpha, beta and candidate pre-releases::"
 msgstr ""
 "Версии \"major.minor\" с предварительными выпусками альфа-версий, бета-"
 "версий и кандидатов::"
 
-#: ../source/specifications/version-specifiers.rst:578
+#: ../source/specifications/version-specifiers.rst:580
 msgid ""
 "\"major.minor\" versioning with developmental releases, release candidates "
 "and post-releases for minor corrections::"
@@ -24400,7 +24554,7 @@ msgstr ""
 "«major.minor»-версия с релизами, кандидатами на выпуск и пост-релизами для "
 "незначительных исправлений ::"
 
-#: ../source/specifications/version-specifiers.rst:593
+#: ../source/specifications/version-specifiers.rst:595
 msgid ""
 "Date based releases, using an incrementing serial within each year, skipping "
 "zero::"
@@ -24408,11 +24562,11 @@ msgstr ""
 "Релизы, основанные на дате, с использованием возрастающей серии в пределах "
 "каждого года, пропуская нулевой::"
 
-#: ../source/specifications/version-specifiers.rst:607
+#: ../source/specifications/version-specifiers.rst:609
 msgid "Summary of permitted suffixes and relative ordering"
 msgstr "Краткое описание разрешенных суффиксов и относительного порядка"
 
-#: ../source/specifications/version-specifiers.rst:611
+#: ../source/specifications/version-specifiers.rst:613
 msgid ""
 "This section is intended primarily for authors of tools that automatically "
 "process distribution metadata, rather than developers of Python "
@@ -24422,7 +24576,7 @@ msgstr ""
 "автоматически обрабатывающих метаданные дистрибутива, а не для разработчиков "
 "дистрибутивов Python, принимающих решение о выборе схемы версионирования."
 
-#: ../source/specifications/version-specifiers.rst:615
+#: ../source/specifications/version-specifiers.rst:617
 msgid ""
 "The epoch segment of version identifiers MUST be sorted according to the "
 "numeric value of the given epoch. If no epoch segment is present, the "
@@ -24432,7 +24586,7 @@ msgstr ""
 "соответствии с числовым значением данной эпохи. Если сегмент эпохи "
 "отсутствует, неявное числовое значение равно ``0``."
 
-#: ../source/specifications/version-specifiers.rst:619
+#: ../source/specifications/version-specifiers.rst:621
 msgid ""
 "The release segment of version identifiers MUST be sorted in the same order "
 "as Python's tuple sorting when the normalized release segment is parsed as "
@@ -24442,7 +24596,7 @@ msgstr ""
 "порядке, что и сортировка кортежей в Python, когда нормализованный сегмент "
 "выпуска разбирается следующим образом::"
 
-#: ../source/specifications/version-specifiers.rst:625
+#: ../source/specifications/version-specifiers.rst:627
 msgid ""
 "All release segments involved in the comparison MUST be converted to a "
 "consistent length by padding shorter segments with zeros as needed."
@@ -24450,7 +24604,7 @@ msgstr ""
 "Все сегменты релиза, участвующие в сравнении, ДОЛЖНЫ быть приведены к единой "
 "длине путем заполнения более коротких сегментов нулями по мере необходимости."
 
-#: ../source/specifications/version-specifiers.rst:628
+#: ../source/specifications/version-specifiers.rst:630
 msgid ""
 "Within a numeric release (``1.0``, ``2.7.3``), the following suffixes are "
 "permitted and MUST be ordered as shown::"
@@ -24458,7 +24612,7 @@ msgstr ""
 "В числовом выпуске (``1.0``, ``2.7.3``) разрешены следующие суффиксы, "
 "которые ДОЛЖНЫ быть упорядочены, как показано на рисунке::"
 
-#: ../source/specifications/version-specifiers.rst:633
+#: ../source/specifications/version-specifiers.rst:635
 msgid ""
 "Note that ``c`` is considered to be semantically equivalent to ``rc`` and "
 "must be sorted as if it were ``rc``. Tools MAY reject the case of having the "
@@ -24471,7 +24625,7 @@ msgstr ""
 "в одном сегменте выпуска как неоднозначный и остаться в соответствии со "
 "спецификацией."
 
-#: ../source/specifications/version-specifiers.rst:638
+#: ../source/specifications/version-specifiers.rst:640
 msgid ""
 "Within an alpha (``1.0a1``), beta (``1.0b1``), or release candidate "
 "(``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be "
@@ -24481,7 +24635,7 @@ msgstr ""
 "(``1.0rc1``, ``1.0c1``) разрешены следующие суффиксы, которые ДОЛЖНЫ быть "
 "упорядочены, как показано::"
 
-#: ../source/specifications/version-specifiers.rst:644
+#: ../source/specifications/version-specifiers.rst:646
 msgid ""
 "Within a post-release (``1.0.post1``), the following suffixes are permitted "
 "and MUST be ordered as shown::"
@@ -24489,7 +24643,7 @@ msgstr ""
 "Внутри пост-релиза (``1.0.post1``) разрешены следующие суффиксы, которые "
 "ДОЛЖНЫ быть упорядочены, как показано::"
 
-#: ../source/specifications/version-specifiers.rst:649
+#: ../source/specifications/version-specifiers.rst:651
 msgid ""
 "Note that ``devN`` and ``postN`` MUST always be preceded by a dot, even when "
 "used immediately following a numeric version (e.g. ``1.0.dev456``, ``1.0."
@@ -24499,7 +24653,7 @@ msgstr ""
 "точка, даже если они используются сразу после числовой версии (например, "
 "``1.0.dev456``, ``1.0.post1``)."
 
-#: ../source/specifications/version-specifiers.rst:653
+#: ../source/specifications/version-specifiers.rst:655
 msgid ""
 "Within a pre-release, post-release or development release segment with a "
 "shared prefix, ordering MUST be by the value of the numeric component."
@@ -24508,15 +24662,15 @@ msgstr ""
 "префиксом упорядочивание ДОЛЖНО осуществляться по значению числового "
 "компонента."
 
-#: ../source/specifications/version-specifiers.rst:656
+#: ../source/specifications/version-specifiers.rst:658
 msgid "The following example covers many of the possible combinations::"
 msgstr "Следующий пример охватывает многие из возможных комбинаций::"
 
-#: ../source/specifications/version-specifiers.rst:681
+#: ../source/specifications/version-specifiers.rst:683
 msgid "Version ordering across different metadata versions"
 msgstr "Упорядочивание версий в различных версиях метаданных"
 
-#: ../source/specifications/version-specifiers.rst:683
+#: ../source/specifications/version-specifiers.rst:685
 msgid ""
 "Metadata v1.0 (:pep:`241`) and metadata v1.1 (:pep:`314`) do not specify a "
 "standard version identification or ordering scheme. However metadata v1.2 (:"
@@ -24526,7 +24680,7 @@ msgstr ""
 "стандартную схему идентификации или упорядочивания версий. Однако в "
 "метаданных v1.2 (:pep:`345`) указана схема, которая определена в :pep:`386`."
 
-#: ../source/specifications/version-specifiers.rst:687
+#: ../source/specifications/version-specifiers.rst:689
 msgid ""
 "Due to the nature of the simple installer API it is not possible for an "
 "installer to be aware of which metadata version a particular distribution "
@@ -24543,7 +24697,7 @@ msgstr ""
 "установить. Эти требования обуславливают необходимость стандартизации одного "
 "механизма разбора, который будет использоваться для всех версий проекта."
 
-#: ../source/specifications/version-specifiers.rst:695
+#: ../source/specifications/version-specifiers.rst:697
 msgid ""
 "Due to the above, this specification MUST be used for all versions of "
 "metadata and supersedes :pep:`386` even for metadata v1.2. Tools SHOULD "
@@ -24559,7 +24713,7 @@ msgstr ""
 "и упорядочивания версий, определенным реализацией, если версии, "
 "соответствующие этой спецификации, недоступны."
 
-#: ../source/specifications/version-specifiers.rst:701
+#: ../source/specifications/version-specifiers.rst:703
 msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
@@ -24567,11 +24721,11 @@ msgstr ""
 "Пользователи дистрибутива могут захотеть явно удалить несоответствующие "
 "версии из всех частных индексов пакетов, которые они контролируют."
 
-#: ../source/specifications/version-specifiers.rst:706
+#: ../source/specifications/version-specifiers.rst:708
 msgid "Compatibility with other version schemes"
 msgstr "Совместимость с другими схемами версий"
 
-#: ../source/specifications/version-specifiers.rst:708
+#: ../source/specifications/version-specifiers.rst:710
 msgid ""
 "Some projects may choose to use a version scheme which requires translation "
 "in order to comply with the public version scheme defined in this "
@@ -24584,7 +24738,7 @@ msgstr ""
 "спецификации. В таких случаях версия для конкретного проекта может храниться "
 "в метаданных, а переведенная публичная версия публикуется в поле версии."
 
-#: ../source/specifications/version-specifiers.rst:713
+#: ../source/specifications/version-specifiers.rst:715
 msgid ""
 "This allows automated distribution tools to provide consistently correct "
 "ordering of published releases, while still allowing developers to use the "
@@ -24595,11 +24749,7 @@ msgstr ""
 "позволяя разработчикам использовать внутреннюю схему версионирования, "
 "которую они предпочитают для своих проектов."
 
-#: ../source/specifications/version-specifiers.rst:719
-msgid "Semantic versioning"
-msgstr "Семантическая версификация"
-
-#: ../source/specifications/version-specifiers.rst:721
+#: ../source/specifications/version-specifiers.rst:723
 msgid ""
 "`Semantic versioning`_ is a popular version identification scheme that is "
 "more prescriptive than this specification regarding the significance of "
@@ -24617,7 +24767,7 @@ msgstr ""
 "дистрибутивов, а также при публикации дистрибутива, на который полагаются "
 "другие."
 
-#: ../source/specifications/version-specifiers.rst:728
+#: ../source/specifications/version-specifiers.rst:730
 msgid ""
 "The \"Major.Minor.Patch\" (described in this specification as \"major.minor."
 "micro\") aspects of semantic versioning (clauses 1-8 in the 2.0.0 "
@@ -24629,7 +24779,7 @@ msgstr ""
 "полностью совместимы со схемой версий, определенной в данной спецификации, и "
 "соблюдение этих аспектов приветствуется."
 
-#: ../source/specifications/version-specifiers.rst:733
+#: ../source/specifications/version-specifiers.rst:735
 msgid ""
 "Semantic versions containing a hyphen (pre-releases - clause 10) or a plus "
 "sign (builds - clause 11) are *not* compatible with this specification and "
@@ -24639,7 +24789,7 @@ msgstr ""
 "(бабочки - пункт 11), не совместимы с этой спецификацией и не разрешены в "
 "поле публичной версии."
 
-#: ../source/specifications/version-specifiers.rst:737
+#: ../source/specifications/version-specifiers.rst:739
 msgid ""
 "One possible mechanism to translate such semantic versioning based source "
 "labels to compatible public versions is to use the ``.devN`` suffix to "
@@ -24650,18 +24800,18 @@ msgstr ""
 "использование суффикса ``.devN`` для указания соответствующего порядка "
 "версий."
 
-#: ../source/specifications/version-specifiers.rst:741
+#: ../source/specifications/version-specifiers.rst:743
 msgid ""
 "Specific build information may also be included in local version labels."
 msgstr ""
 "Информация о конкретной сборке также может быть включена в локальные метки "
 "версий."
 
-#: ../source/specifications/version-specifiers.rst:747
+#: ../source/specifications/version-specifiers.rst:749
 msgid "DVCS based version labels"
 msgstr "Метки версий на базе DVCS"
 
-#: ../source/specifications/version-specifiers.rst:749
+#: ../source/specifications/version-specifiers.rst:751
 msgid ""
 "Many build tools integrate with distributed version control systems like Git "
 "and Mercurial in order to add an identifying hash to the version identifier. "
@@ -24673,7 +24823,7 @@ msgstr ""
 "идентификатору версии. Поскольку хэши не могут быть надежно упорядочены, "
 "такие версии не допускаются в поле публичной версии."
 
-#: ../source/specifications/version-specifiers.rst:754
+#: ../source/specifications/version-specifiers.rst:756
 msgid ""
 "As with semantic versioning, the public ``.devN`` suffix may be used to "
 "uniquely identify such releases for publication, while the original DVCS "
@@ -24684,18 +24834,18 @@ msgstr ""
 "публикации, а оригинальная метка, основанная на DVCS, может храниться в "
 "метаданных проекта."
 
-#: ../source/specifications/version-specifiers.rst:758
+#: ../source/specifications/version-specifiers.rst:760
 msgid ""
 "Identifying hash information may also be included in local version labels."
 msgstr ""
 "Идентифицирующая хэш-информация также может быть включена в метки локальных "
 "версий."
 
-#: ../source/specifications/version-specifiers.rst:762
+#: ../source/specifications/version-specifiers.rst:764
 msgid "Olson database versioning"
 msgstr "Версия базы данных Олсона"
 
-#: ../source/specifications/version-specifiers.rst:764
+#: ../source/specifications/version-specifiers.rst:766
 msgid ""
 "The ``pytz`` project inherits its versioning scheme from the corresponding "
 "Olson timezone database versioning scheme: the year followed by a lowercase "
@@ -24705,7 +24855,7 @@ msgstr ""
 "базы данных часового пояса Olson: год, за которым следует строчный символ, "
 "указывающий на версию базы данных в пределах этого года."
 
-#: ../source/specifications/version-specifiers.rst:768
+#: ../source/specifications/version-specifiers.rst:770
 msgid ""
 "This can be translated to a compliant public version identifier as ``<year>."
 "<serial>``, where the serial starts at zero or one (for the '<year>a' "
@@ -24717,7 +24867,7 @@ msgstr ""
 "'<год>a') и увеличивается с каждым последующим обновлением базы данных в "
 "течение года."
 
-#: ../source/specifications/version-specifiers.rst:773
+#: ../source/specifications/version-specifiers.rst:775
 msgid ""
 "As with other translated version identifiers, the corresponding Olson "
 "database version could be recorded in the project metadata."
@@ -24726,7 +24876,7 @@ msgstr ""
 "соответствующая версия базы данных Olson может быть записана в метаданных "
 "проекта."
 
-#: ../source/specifications/version-specifiers.rst:780
+#: ../source/specifications/version-specifiers.rst:782
 msgid ""
 "A version specifier consists of a series of version clauses, separated by "
 "commas. For example::"
@@ -24734,38 +24884,38 @@ msgstr ""
 "Спецификатор версии состоит из ряда пунктов версии, разделенных запятыми. "
 "Например::"
 
-#: ../source/specifications/version-specifiers.rst:785
+#: ../source/specifications/version-specifiers.rst:787
 msgid "The comparison operator determines the kind of version clause:"
 msgstr "Оператор сравнения определяет тип положения версии:"
 
-#: ../source/specifications/version-specifiers.rst:787
+#: ../source/specifications/version-specifiers.rst:789
 #, fuzzy
 msgid "``~=``: `Compatible release`_ clause"
 msgstr "``~=``: `Совместимый релиз`_ пункт"
 
-#: ../source/specifications/version-specifiers.rst:788
+#: ../source/specifications/version-specifiers.rst:790
 #, fuzzy
 msgid "``==``: `Version matching`_ clause"
 msgstr "``==``: `Версия соответствует`_ пункт"
 
-#: ../source/specifications/version-specifiers.rst:789
+#: ../source/specifications/version-specifiers.rst:791
 #, fuzzy
 msgid "``!=``: `Version exclusion`_ clause"
 msgstr "``!=``: `исключение версии`_ пункт"
 
-#: ../source/specifications/version-specifiers.rst:790
+#: ../source/specifications/version-specifiers.rst:792
 msgid "``<=``, ``>=``: `Inclusive ordered comparison`_ clause"
 msgstr "``<=``, ``>=``: предложение ``включенного упорядоченного сравнения`_"
 
-#: ../source/specifications/version-specifiers.rst:791
+#: ../source/specifications/version-specifiers.rst:793
 msgid "``<``, ``>``: `Exclusive ordered comparison`_ clause"
 msgstr "``<``, ``>``: предложение ``исключительного упорядоченного сравнения``"
 
-#: ../source/specifications/version-specifiers.rst:792
+#: ../source/specifications/version-specifiers.rst:794
 msgid "``===``: `Arbitrary equality`_ clause."
 msgstr "``===``: предложение `произвольного равенства`."
 
-#: ../source/specifications/version-specifiers.rst:794
+#: ../source/specifications/version-specifiers.rst:796
 msgid ""
 "The comma (\",\") is equivalent to a logical **and** operator: a candidate "
 "version must match all given version clauses in order to match the specifier "
@@ -24775,7 +24925,7 @@ msgstr ""
 "должна соответствовать всем заданным пунктам версии, чтобы соответствовать "
 "спецификатору в целом."
 
-#: ../source/specifications/version-specifiers.rst:798
+#: ../source/specifications/version-specifiers.rst:800
 msgid ""
 "Whitespace between a conditional operator and the following version "
 "identifier is optional, as is the whitespace around the commas."
@@ -24783,7 +24933,7 @@ msgstr ""
 "Пробелы между условным оператором и следующим идентификатором версии "
 "необязательны, как и пробелы вокруг запятых."
 
-#: ../source/specifications/version-specifiers.rst:801
+#: ../source/specifications/version-specifiers.rst:803
 msgid ""
 "When multiple candidate versions match a version specifier, the preferred "
 "version SHOULD be the latest version as determined by the consistent "
@@ -24798,7 +24948,7 @@ msgstr ""
 "кандидатов, ДОЛЖЕН решаться в соответствии с описанием в `Обработке "
 "предварительных выпусков`_."
 
-#: ../source/specifications/version-specifiers.rst:807
+#: ../source/specifications/version-specifiers.rst:809
 msgid ""
 "Except where specifically noted below, local version identifiers MUST NOT be "
 "permitted in version specifiers, and local version labels MUST be ignored "
@@ -24809,11 +24959,11 @@ msgstr ""
 "ДОЛЖНЫ полностью игнорироваться при проверке соответствия версий-кандидатов "
 "заданному спецификатору версий."
 
-#: ../source/specifications/version-specifiers.rst:816
+#: ../source/specifications/version-specifiers.rst:818
 msgid "Compatible release"
 msgstr "Совместимый выпуск"
 
-#: ../source/specifications/version-specifiers.rst:818
+#: ../source/specifications/version-specifiers.rst:820
 msgid ""
 "A compatible release clause consists of the compatible release operator "
 "``~=`` and a version identifier. It matches any candidate version that is "
@@ -24823,7 +24973,7 @@ msgstr ""
 "``~=`` и идентификатора версии. Он соответствует любой версии-кандидату, "
 "которая, как ожидается, будет совместима с указанной версией."
 
-#: ../source/specifications/version-specifiers.rst:822
+#: ../source/specifications/version-specifiers.rst:824
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_. Local version identifiers are NOT permitted in this "
@@ -24833,7 +24983,7 @@ msgstr ""
 "в `Схема версии`_. Локальные идентификаторы версий в этом спецификаторе "
 "версий НЕ допускаются."
 
-#: ../source/specifications/version-specifiers.rst:826
+#: ../source/specifications/version-specifiers.rst:828
 msgid ""
 "For a given release identifier ``V.N``, the compatible release clause is "
 "approximately equivalent to the pair of comparison clauses::"
@@ -24841,7 +24991,7 @@ msgstr ""
 "Для данного идентификатора выпуска ``V.N`` совместимое положение о выпуске "
 "приблизительно эквивалентно паре положений сравнения::"
 
-#: ../source/specifications/version-specifiers.rst:831
+#: ../source/specifications/version-specifiers.rst:833
 msgid ""
 "This operator MUST NOT be used with a single segment version number such as "
 "``~=1``."
@@ -24849,11 +24999,11 @@ msgstr ""
 "Этот оператор НЕ ДОЛЖЕН использоваться с номером версии одного сегмента, "
 "таким как ``~=1``."
 
-#: ../source/specifications/version-specifiers.rst:834
+#: ../source/specifications/version-specifiers.rst:836
 msgid "For example, the following groups of version clauses are equivalent::"
 msgstr "Например, следующие группы положений о версии эквивалентны::"
 
-#: ../source/specifications/version-specifiers.rst:842
+#: ../source/specifications/version-specifiers.rst:844
 msgid ""
 "If a pre-release, post-release or developmental release is named in a "
 "compatible release clause as ``V.N.suffix``, then the suffix is ignored when "
@@ -24863,7 +25013,7 @@ msgstr ""
 "совместимом релизе как ``V.N.suffix``, то суффикс игнорируется при "
 "определении требуемого соответствия префикса::"
 
-#: ../source/specifications/version-specifiers.rst:852
+#: ../source/specifications/version-specifiers.rst:854
 msgid ""
 "The padding rules for release segment comparisons means that the assumed "
 "degree of forward compatibility in a compatible release clause can be "
@@ -24874,11 +25024,11 @@ msgstr ""
 "контролироваться путем добавления дополнительных нулей к спецификатору "
 "версии::"
 
-#: ../source/specifications/version-specifiers.rst:864
+#: ../source/specifications/version-specifiers.rst:866
 msgid "Version matching"
 msgstr "Соответствие версий"
 
-#: ../source/specifications/version-specifiers.rst:866
+#: ../source/specifications/version-specifiers.rst:868
 msgid ""
 "A version matching clause includes the version matching operator ``==`` and "
 "a version identifier."
@@ -24886,7 +25036,7 @@ msgstr ""
 "Условие сопоставления версий включает оператор сопоставления версий ``==`` и "
 "идентификатор версии."
 
-#: ../source/specifications/version-specifiers.rst:869
+#: ../source/specifications/version-specifiers.rst:871
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_, but a trailing ``.*`` is permitted on public version "
@@ -24896,7 +25046,7 @@ msgstr ""
 "в `Version scheme`_, но в идентификаторах публичных версий допускается "
 "наличие конца ``.*``, как описано ниже."
 
-#: ../source/specifications/version-specifiers.rst:873
+#: ../source/specifications/version-specifiers.rst:875
 msgid ""
 "By default, the version matching operator is based on a strict equality "
 "comparison: the specified version must be exactly the same as the requested "
@@ -24909,7 +25059,7 @@ msgstr ""
 "Единственная выполняемая замена - это нулевое заполнение сегмента выпуска, "
 "чтобы гарантировать, что сегменты выпуска сравниваются с одинаковой длиной."
 
-#: ../source/specifications/version-specifiers.rst:879
+#: ../source/specifications/version-specifiers.rst:881
 msgid ""
 "Whether or not strict version matching is appropriate depends on the "
 "specific use case for the version specifier. Automated tools SHOULD at least "
@@ -24921,7 +25071,7 @@ msgstr ""
 "ДОЛЖНЫ как минимум выдавать предупреждения, а могут и полностью отклонять "
 "их, если строгое соответствие версий используется неуместно."
 
-#: ../source/specifications/version-specifiers.rst:884
+#: ../source/specifications/version-specifiers.rst:886
 msgid ""
 "Prefix matching may be requested instead of strict comparison, by appending "
 "a trailing ``.*`` to the version identifier in the version matching clause. "
@@ -24938,8 +25088,8 @@ msgstr ""
 "то сдерживающие компоненты (или их отсутствие) в сегменте релиза также "
 "игнорируются."
 
-#: ../source/specifications/version-specifiers.rst:891
-#: ../source/specifications/version-specifiers.rst:952
+#: ../source/specifications/version-specifiers.rst:893
+#: ../source/specifications/version-specifiers.rst:954
 msgid ""
 "For example, given the version ``1.1.post1``, the following clauses would "
 "match or not as shown::"
@@ -24947,7 +25097,7 @@ msgstr ""
 "Например, для версии ``1.1.post1`` следующие пункты будут совпадать или не "
 "совпадать, как показано на рисунке::"
 
-#: ../source/specifications/version-specifiers.rst:898
+#: ../source/specifications/version-specifiers.rst:900
 msgid ""
 "For purposes of prefix matching, the pre-release segment is considered to "
 "have an implied preceding ``.``, so given the version ``1.1a1``, the "
@@ -24957,7 +25107,7 @@ msgstr ""
 "подразумеваемый предшествующий ``.``, поэтому, учитывая версию ``1.1a1``, "
 "следующие фразы будут соответствовать или не соответствовать, как показано::"
 
-#: ../source/specifications/version-specifiers.rst:906
+#: ../source/specifications/version-specifiers.rst:908
 msgid ""
 "An exact match is also considered a prefix match (this interpretation is "
 "implied by the usual zero padding rules for the release segment of version "
@@ -24969,7 +25119,7 @@ msgstr ""
 "сегмента release в идентификаторах версий). Для версии ``1.1`` следующие "
 "пункты будут совпадать или не совпадать, как показано на рисунке::"
 
-#: ../source/specifications/version-specifiers.rst:918
+#: ../source/specifications/version-specifiers.rst:920
 msgid ""
 "It is invalid to have a prefix match containing a development or local "
 "release such as ``1.0.dev1.*`` or ``1.0+foo1.*``. If present, the "
@@ -24984,7 +25134,7 @@ msgstr ""
 "сравнения, поэтому использование любого из них в префиксном совпадении не "
 "имеет смысла."
 
-#: ../source/specifications/version-specifiers.rst:924
+#: ../source/specifications/version-specifiers.rst:926
 msgid ""
 "The use of ``==`` (without at least the wildcard suffix) when defining "
 "dependencies for published distributions is strongly discouraged as it "
@@ -25000,7 +25150,7 @@ msgstr ""
 "при определении зависимостей для повторяющихся *развертываний приложений* "
 "при использовании общего индекса дистрибутива."
 
-#: ../source/specifications/version-specifiers.rst:931
+#: ../source/specifications/version-specifiers.rst:933
 msgid ""
 "If the specified version identifier is a public version identifier (no local "
 "version label), then the local version label of any candidate versions MUST "
@@ -25010,7 +25160,7 @@ msgstr ""
 "версии (без метки локальной версии), то метка локальной версии любых версий-"
 "кандидатов ДОЛЖНА игнорироваться при сопоставлении версий."
 
-#: ../source/specifications/version-specifiers.rst:935
+#: ../source/specifications/version-specifiers.rst:937
 msgid ""
 "If the specified version identifier is a local version identifier, then the "
 "local version labels of candidate versions MUST be considered when matching "
@@ -25024,11 +25174,11 @@ msgstr ""
 "сопоставляется, как описано выше, а метка локальной версии проверяется на "
 "эквивалентность с помощью строгого сравнения равенства строк."
 
-#: ../source/specifications/version-specifiers.rst:943
+#: ../source/specifications/version-specifiers.rst:945
 msgid "Version exclusion"
 msgstr "Исключение версии"
 
-#: ../source/specifications/version-specifiers.rst:945
+#: ../source/specifications/version-specifiers.rst:947
 msgid ""
 "A version exclusion clause includes the version exclusion operator ``!=`` "
 "and a version identifier."
@@ -25036,7 +25186,7 @@ msgstr ""
 "Предложение об исключении версии включает оператор исключения версии ``!=`` "
 "и идентификатор версии."
 
-#: ../source/specifications/version-specifiers.rst:948
+#: ../source/specifications/version-specifiers.rst:950
 msgid ""
 "The allowed version identifiers and comparison semantics are the same as "
 "those of the `Version matching`_ operator, except that the sense of any "
@@ -25046,11 +25196,11 @@ msgstr ""
 "оператора `Version matching`_, за исключением того, что смысл любого "
 "совпадения инвертируется."
 
-#: ../source/specifications/version-specifiers.rst:961
+#: ../source/specifications/version-specifiers.rst:963
 msgid "Inclusive ordered comparison"
 msgstr "Всеобъемлющее упорядоченное сравнение"
 
-#: ../source/specifications/version-specifiers.rst:963
+#: ../source/specifications/version-specifiers.rst:965
 msgid ""
 "An inclusive ordered comparison clause includes a comparison operator and a "
 "version identifier, and will match any version where the comparison is "
@@ -25064,12 +25214,12 @@ msgstr ""
 "указанной версии с учетом последовательного упорядочивания, определенного "
 "стандартной `Version scheme`_."
 
-#: ../source/specifications/version-specifiers.rst:969
+#: ../source/specifications/version-specifiers.rst:971
 msgid "The inclusive ordered comparison operators are ``<=`` and ``>=``."
 msgstr "Инклюзивные операторы упорядоченного сравнения - ``<=`` и ``>=``."
 
-#: ../source/specifications/version-specifiers.rst:971
-#: ../source/specifications/version-specifiers.rst:1001
+#: ../source/specifications/version-specifiers.rst:973
+#: ../source/specifications/version-specifiers.rst:1003
 msgid ""
 "As with version matching, the release segment is zero padded as necessary to "
 "ensure the release segments are compared with the same length."
@@ -25077,17 +25227,17 @@ msgstr ""
 "Как и при сопоставлении версий, сегмент выпуска обнуляется по мере "
 "необходимости, чтобы сегменты выпуска сравнивались с одинаковой длиной."
 
-#: ../source/specifications/version-specifiers.rst:974
-#: ../source/specifications/version-specifiers.rst:1004
+#: ../source/specifications/version-specifiers.rst:976
+#: ../source/specifications/version-specifiers.rst:1006
 msgid "Local version identifiers are NOT permitted in this version specifier."
 msgstr ""
 "Локальные идентификаторы версий в этом спецификаторе версий НЕ допускаются."
 
-#: ../source/specifications/version-specifiers.rst:978
+#: ../source/specifications/version-specifiers.rst:980
 msgid "Exclusive ordered comparison"
 msgstr "Исключительное упорядоченное сравнение"
 
-#: ../source/specifications/version-specifiers.rst:980
+#: ../source/specifications/version-specifiers.rst:982
 msgid ""
 "The exclusive ordered comparisons ``>`` and ``<`` are similar to the "
 "inclusive ordered comparisons in that they rely on the relative position of "
@@ -25103,7 +25253,7 @@ msgstr ""
 "специально исключают пре-релизы, пост-релизы и локальные версии указанной "
 "версии."
 
-#: ../source/specifications/version-specifiers.rst:986
+#: ../source/specifications/version-specifiers.rst:988
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** allow a post-release of "
 "the given version unless ``V`` itself is a post release. You may mandate "
@@ -25119,7 +25269,7 @@ msgstr ""
 "разрешит ``1.7.1``, но не ``1.7.0.post1``, а ``>1.7.post2`` разрешит "
 "``1.7.1`` и ``1.7.0.post3``, но не ``1.7.0``."
 
-#: ../source/specifications/version-specifiers.rst:993
+#: ../source/specifications/version-specifiers.rst:995
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** match a local version "
 "of the specified version."
@@ -25127,7 +25277,7 @@ msgstr ""
 "Исключительное упорядоченное сравнение ``>V`` **НЕ ДОЛЖНО** соответствовать "
 "локальной версии указанной версии."
 
-#: ../source/specifications/version-specifiers.rst:996
+#: ../source/specifications/version-specifiers.rst:998
 msgid ""
 "The exclusive ordered comparison ``<V`` **MUST NOT** allow a pre-release of "
 "the specified version unless the specified version is itself a pre-release. "
@@ -25140,11 +25290,11 @@ msgstr ""
 "которые являются более ранними, но не равными определенной предварительной "
 "версии, может быть достигнуто с помощью ``<V.rc1`` или аналогичных."
 
-#: ../source/specifications/version-specifiers.rst:1008
+#: ../source/specifications/version-specifiers.rst:1010
 msgid "Arbitrary equality"
 msgstr "Произвольное равенство"
 
-#: ../source/specifications/version-specifiers.rst:1010
+#: ../source/specifications/version-specifiers.rst:1012
 msgid ""
 "Arbitrary equality comparisons are simple string equality operations which "
 "do not take into account any of the semantic information such as zero "
@@ -25156,7 +25306,7 @@ msgstr ""
 "подстановка или локальные версии. Этот оператор также не поддерживает "
 "сопоставление префиксов, как это делает оператор ``==``."
 
-#: ../source/specifications/version-specifiers.rst:1015
+#: ../source/specifications/version-specifiers.rst:1017
 msgid ""
 "The primary use case for arbitrary equality is to allow for specifying a "
 "version which cannot otherwise be represented by this specification. This "
@@ -25170,14 +25320,14 @@ msgstr ""
 "человеку, использующему инструмент, реализующий эту спецификацию, установить "
 "устаревшую версию, которая иначе несовместима с этой спецификацией."
 
-#: ../source/specifications/version-specifiers.rst:1021
+#: ../source/specifications/version-specifiers.rst:1023
 msgid ""
 "An example would be ``===foobar`` which would match a version of ``foobar``."
 msgstr ""
 "Примером может служить ``===foobar``, который будет соответствовать версии "
 "``foobar``."
 
-#: ../source/specifications/version-specifiers.rst:1023
+#: ../source/specifications/version-specifiers.rst:1025
 msgid ""
 "This operator may also be used to explicitly require an unpatched version of "
 "a project such as ``===1.0`` which would not match for a version "
@@ -25187,7 +25337,7 @@ msgstr ""
 "непропатченной версии проекта, например, ``===1.0``, которая не будет "
 "соответствовать версии ``1.0+downstream1``."
 
-#: ../source/specifications/version-specifiers.rst:1027
+#: ../source/specifications/version-specifiers.rst:1029
 msgid ""
 "Use of this operator is heavily discouraged and tooling MAY display a "
 "warning when it is used."
@@ -25195,11 +25345,11 @@ msgstr ""
 "Использовать этот оператор крайне не рекомендуется, и оснастка ДОЛЖНА "
 "содержать предупреждение о его использовании."
 
-#: ../source/specifications/version-specifiers.rst:1032
+#: ../source/specifications/version-specifiers.rst:1034
 msgid "Handling of pre-releases"
 msgstr "Работа с предварительными выпусками"
 
-#: ../source/specifications/version-specifiers.rst:1034
+#: ../source/specifications/version-specifiers.rst:1036
 msgid ""
 "Pre-releases of any kind, including developmental releases, are implicitly "
 "excluded from all version specifiers, *unless* they are already present on "
@@ -25212,17 +25362,17 @@ msgstr ""
 "версия, удовлетворяющая спецификатору версии, является предварительной "
 "версией."
 
-#: ../source/specifications/version-specifiers.rst:1039
+#: ../source/specifications/version-specifiers.rst:1041
 msgid "By default, dependency resolution tools SHOULD:"
 msgstr "По умолчанию инструменты разрешения зависимостей ДОЛЖНЫ:"
 
-#: ../source/specifications/version-specifiers.rst:1041
+#: ../source/specifications/version-specifiers.rst:1043
 msgid "accept already installed pre-releases for all version specifiers"
 msgstr ""
 "принимать уже установленные предварительные версии для всех спецификаторов "
 "версии"
 
-#: ../source/specifications/version-specifiers.rst:1042
+#: ../source/specifications/version-specifiers.rst:1044
 msgid ""
 "accept remotely available pre-releases for version specifiers where there is "
 "no final or post release that satisfies the version specifier"
@@ -25231,11 +25381,11 @@ msgstr ""
 "версий, если не существует финального или пост-выпуска, удовлетворяющего "
 "спецификатору версии"
 
-#: ../source/specifications/version-specifiers.rst:1044
+#: ../source/specifications/version-specifiers.rst:1046
 msgid "exclude all other pre-releases from consideration"
 msgstr "исключить из рассмотрения все прочие предварительные продажи"
 
-#: ../source/specifications/version-specifiers.rst:1046
+#: ../source/specifications/version-specifiers.rst:1048
 msgid ""
 "Dependency resolution tools MAY issue a warning if a pre-release is needed "
 "to satisfy a version specifier."
@@ -25243,7 +25393,7 @@ msgstr ""
 "Средства разрешения зависимостей МОГУТ выдавать предупреждение, если для "
 "удовлетворения спецификатора версии требуется предварительный выпуск."
 
-#: ../source/specifications/version-specifiers.rst:1049
+#: ../source/specifications/version-specifiers.rst:1051
 msgid ""
 "Dependency resolution tools SHOULD also allow users to request the following "
 "alternative behaviours:"
@@ -25251,11 +25401,11 @@ msgstr ""
 "Средства разрешения зависимостей ДОЛЖНЫ также позволять пользователям "
 "запрашивать следующие альтернативные варианты поведения:"
 
-#: ../source/specifications/version-specifiers.rst:1052
+#: ../source/specifications/version-specifiers.rst:1054
 msgid "accepting pre-releases for all version specifiers"
 msgstr "прием предварительных версий для всех спецификаторов версий"
 
-#: ../source/specifications/version-specifiers.rst:1053
+#: ../source/specifications/version-specifiers.rst:1055
 msgid ""
 "excluding pre-releases for all version specifiers (reporting an error or "
 "warning if a pre-release is already installed locally, or if a pre-release "
@@ -25266,7 +25416,7 @@ msgstr ""
 "локально, или если предварительная версия является единственным способом "
 "удовлетворить определенный спецификатор)"
 
-#: ../source/specifications/version-specifiers.rst:1057
+#: ../source/specifications/version-specifiers.rst:1059
 msgid ""
 "Dependency resolution tools MAY also allow the above behaviour to be "
 "controlled on a per-distribution basis."
@@ -25274,7 +25424,7 @@ msgstr ""
 "Средства разрешения зависимостей MAY также позволяют управлять вышеуказанным "
 "поведением на основе каждого дистрибутива."
 
-#: ../source/specifications/version-specifiers.rst:1060
+#: ../source/specifications/version-specifiers.rst:1062
 msgid ""
 "Post-releases and final releases receive no special treatment in version "
 "specifiers - they are always included unless explicitly excluded."
@@ -25283,24 +25433,24 @@ msgstr ""
 "спецификаторах версий - они всегда включаются, если только не исключены "
 "явным образом."
 
-#: ../source/specifications/version-specifiers.rst:1067
+#: ../source/specifications/version-specifiers.rst:1069
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
 msgstr ""
 "``~=3.1``: версия 3.1 или более поздняя, но не версия 4.0 или более поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1068
+#: ../source/specifications/version-specifiers.rst:1070
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
 msgstr ""
 "``~=3.1.2``: версия 3.1.2 или более поздняя, но не версия 3.2.0 или более "
 "поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1069
+#: ../source/specifications/version-specifiers.rst:1071
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
 msgstr ""
 "``~=3.1a1``: версия 3.1a1 или более поздняя, но не версия 4.0 или более "
 "поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1070
+#: ../source/specifications/version-specifiers.rst:1072
 msgid ""
 "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, "
 "post releases, developmental releases and any 3.1.x maintenance releases."
@@ -25308,7 +25458,7 @@ msgstr ""
 "``== 3.1``: конкретно версия 3.1 (или 3.1.0), исключает все пре-релизы, пост-"
 "релизы, релизы разработки и любые поддерживающие релизы 3.1.x."
 
-#: ../source/specifications/version-specifiers.rst:1072
+#: ../source/specifications/version-specifiers.rst:1074
 msgid ""
 "``== 3.1.*``: any version that starts with 3.1. Equivalent to the "
 "``~=3.1.0`` compatible release clause."
@@ -25316,7 +25466,7 @@ msgstr ""
 "``== 3.1.*``: любая версия, начинающаяся с 3.1. Эквивалентно положению о "
 "совместимом выпуске ``~=3.1.0``."
 
-#: ../source/specifications/version-specifiers.rst:1074
+#: ../source/specifications/version-specifiers.rst:1076
 msgid ""
 "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not "
 "version 3.2.0 or later."
@@ -25324,11 +25474,11 @@ msgstr ""
 "``~=3.1.0, != 3.1.3``: версия 3.1.0 или более поздняя, но не версия 3.1.3 и "
 "не версия 3.2.0 или более поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1079
+#: ../source/specifications/version-specifiers.rst:1081
 msgid "Direct references"
 msgstr "Прямые ссылки"
 
-#: ../source/specifications/version-specifiers.rst:1081
+#: ../source/specifications/version-specifiers.rst:1083
 msgid ""
 "Some automated tools may permit the use of a direct reference as an "
 "alternative to a normal version specifier. A direct reference consists of "
@@ -25338,7 +25488,7 @@ msgstr ""
 "прямой ссылки в качестве альтернативы обычному спецификатору версии. Прямая "
 "ссылка состоит из спецификатора ``@`` и явного URL."
 
-#: ../source/specifications/version-specifiers.rst:1085
+#: ../source/specifications/version-specifiers.rst:1087
 msgid ""
 "Whether or not direct references are appropriate depends on the specific use "
 "case for the version specifier. Automated tools SHOULD at least issue "
@@ -25350,7 +25500,7 @@ msgstr ""
 "как минимум выдавать предупреждения, а могут и полностью отклонять их, если "
 "прямые ссылки используются неуместно."
 
-#: ../source/specifications/version-specifiers.rst:1090
+#: ../source/specifications/version-specifiers.rst:1092
 msgid ""
 "Public index servers SHOULD NOT allow the use of direct references in "
 "uploaded distributions. Direct references are intended as a tool for "
@@ -25360,7 +25510,7 @@ msgstr ""
 "в загружаемых дистрибутивах. Прямые ссылки предназначены для интеграторов "
 "программного обеспечения, а не для издателей."
 
-#: ../source/specifications/version-specifiers.rst:1094
+#: ../source/specifications/version-specifiers.rst:1096
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
 "reference may be an sdist or a wheel binary archive. The exact URLs and "
@@ -25370,16 +25520,16 @@ msgstr ""
 "прямой URL-ссылки могут быть sdist или бинарный архив wheel. Точные URL-"
 "адреса и поддерживаемые цели зависят от инструмента."
 
-#: ../source/specifications/version-specifiers.rst:1098
+#: ../source/specifications/version-specifiers.rst:1100
 msgid "For example, a local source archive may be referenced directly::"
 msgstr "Например, на локальный исходный архив можно ссылаться напрямую::"
 
-#: ../source/specifications/version-specifiers.rst:1102
+#: ../source/specifications/version-specifiers.rst:1104
 msgid "Alternatively, a prebuilt archive may also be referenced::"
 msgstr ""
 "В качестве альтернативы можно сослаться на предварительно собранный архив::"
 
-#: ../source/specifications/version-specifiers.rst:1106
+#: ../source/specifications/version-specifiers.rst:1108
 msgid ""
 "All direct references that do not refer to a local file URL SHOULD specify a "
 "secure transport mechanism (such as ``https``) AND include an expected hash "
@@ -25400,7 +25550,7 @@ msgstr ""
 "Если такая прямая ссылка также использует небезопасный транспорт, "
 "автоматизированные инструменты НЕ ДОЛЖНЫ полагаться на URL."
 
-#: ../source/specifications/version-specifiers.rst:1115
+#: ../source/specifications/version-specifiers.rst:1117
 #, fuzzy
 #| msgid ""
 #| "It is RECOMMENDED that only hashes which are unconditionally provided by "
@@ -25420,7 +25570,7 @@ msgstr ""
 "стандартной библиотеки. На момент написания статьи в этот список входят "
 "``md5``, ``sha1``, ``sha224``, ``sha256``, ``sha384`` и ``sha512``."
 
-#: ../source/specifications/version-specifiers.rst:1121
+#: ../source/specifications/version-specifiers.rst:1123
 msgid ""
 "For source archive and wheel references, an expected hash value may be "
 "specified by including a ``<hash-algorithm>=<expected-hash>`` entry as part "
@@ -25430,7 +25580,7 @@ msgstr ""
 "указано путем включения записи ``<hash-algorithm>=<expected-hash>`` в "
 "качестве части фрагмента URL."
 
-#: ../source/specifications/version-specifiers.rst:1125
+#: ../source/specifications/version-specifiers.rst:1127
 msgid ""
 "For version control references, the ``VCS+protocol`` scheme SHOULD be used "
 "to identify both the version control system and the secure transport, and a "
@@ -25445,7 +25595,7 @@ msgstr ""
 "МОГУТ не выдавать предупреждения об отсутствии хэшей для систем контроля "
 "версий, которые не предоставляют идентификаторы фиксации на основе хэшей."
 
-#: ../source/specifications/version-specifiers.rst:1131
+#: ../source/specifications/version-specifiers.rst:1133
 msgid ""
 "To handle version control systems that do not support including commit or "
 "tag references directly in the URL, that information may be appended to the "
@@ -25457,7 +25607,7 @@ msgstr ""
 "добавлена в конец URL с помощью нотации ``@<commit-hash>`` или "
 "``@<tag>#<commit-hash>``."
 
-#: ../source/specifications/version-specifiers.rst:1138
+#: ../source/specifications/version-specifiers.rst:1140
 msgid ""
 "This isn't *quite* the same as the existing VCS reference notation supported "
 "by pip. Firstly, the distribution name is moved in front rather than "
@@ -25474,15 +25624,15 @@ msgstr ""
 "хэш, чтобы затруднить подделку (создать вредоносное репо с определённым "
 "тегом легко, а создать репо с определённым *хэшем* - менее)."
 
-#: ../source/specifications/version-specifiers.rst:1146
+#: ../source/specifications/version-specifiers.rst:1148
 msgid "Remote URL examples::"
 msgstr "Примеры удаленных URL::"
 
-#: ../source/specifications/version-specifiers.rst:1154
+#: ../source/specifications/version-specifiers.rst:1156
 msgid "File URLs"
 msgstr "URL-адреса файлов"
 
-#: ../source/specifications/version-specifiers.rst:1156
+#: ../source/specifications/version-specifiers.rst:1158
 msgid ""
 "File URLs take the form of ``file://<host>/<path>``. If the ``<host>`` is "
 "omitted it is assumed to be ``localhost`` and even if the ``<host>`` is "
@@ -25495,7 +25645,7 @@ msgstr ""
 "определяет путь к файлу в файловой системе, к которому необходимо получить "
 "доступ."
 
-#: ../source/specifications/version-specifiers.rst:1161
+#: ../source/specifications/version-specifiers.rst:1163
 msgid ""
 "On the various \\*nix operating systems the only allowed values for "
 "``<host>`` is for it to be omitted, ``localhost``, or another FQDN that the "
@@ -25508,7 +25658,7 @@ msgstr ""
 "в \\*nix схема ``file://`` может использоваться только для доступа к путям "
 "на локальной машине."
 
-#: ../source/specifications/version-specifiers.rst:1166
+#: ../source/specifications/version-specifiers.rst:1168
 msgid ""
 "On Windows the file format should include the drive letter if applicable as "
 "part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \\*nix "
@@ -25528,11 +25678,11 @@ msgstr ""
 "в Windows можно найти в `MSDN <https://web.archive.org/web/20130321051043/"
 "http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`_."
 
-#: ../source/specifications/version-specifiers.rst:1177
+#: ../source/specifications/version-specifiers.rst:1179
 msgid "Summary of differences from pkg_resources.parse_version"
 msgstr "Краткое описание отличий от pkg_resources.parse_version"
 
-#: ../source/specifications/version-specifiers.rst:1179
+#: ../source/specifications/version-specifiers.rst:1181
 msgid ""
 "Note: this comparison is to ``pkg_resourses.parse_version`` as it existed at "
 "the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 "
@@ -25543,7 +25693,7 @@ msgstr ""
 "был принят, setuptools 6.0 и более поздние версии приняли описанное здесь "
 "поведение."
 
-#: ../source/specifications/version-specifiers.rst:1183
+#: ../source/specifications/version-specifiers.rst:1185
 msgid ""
 "Local versions sort differently, this specification requires that they sort "
 "as greater than the same version without a local version, whereas "
@@ -25553,7 +25703,7 @@ msgstr ""
 "сортировались как большие, чем та же версия без локальной версии, в то время "
 "как ``pkg_resources.parse_version`` считает это маркером предрелизности."
 
-#: ../source/specifications/version-specifiers.rst:1187
+#: ../source/specifications/version-specifiers.rst:1189
 msgid ""
 "This specification purposely restricts the syntax which constitutes a valid "
 "version while ``pkg_resources.parse_version`` attempts to provide some "
@@ -25563,7 +25713,7 @@ msgstr ""
 "собой правильную версию, в то время как ``pkg_resources.parse_version`` "
 "пытается получить некоторое значение из *любой* произвольной строки."
 
-#: ../source/specifications/version-specifiers.rst:1191
+#: ../source/specifications/version-specifiers.rst:1193
 msgid ""
 "``pkg_resources.parse_version`` allows arbitrarily deeply nested version "
 "signifiers like ``1.0.dev1.post1.dev5``. This specification however allows "
@@ -25574,11 +25724,11 @@ msgstr ""
 "допускает только одно использование каждого типа, и они должны существовать "
 "в определенном порядке."
 
-#: ../source/specifications/version-specifiers.rst:1200
+#: ../source/specifications/version-specifiers.rst:1202
 msgid "Appendix: Parsing version strings with regular expressions"
 msgstr "Приложение: Разбор строк версий с помощью регулярных выражений"
 
-#: ../source/specifications/version-specifiers.rst:1202
+#: ../source/specifications/version-specifiers.rst:1204
 msgid ""
 "As noted earlier in the :ref:`public-version-identifiers` section, published "
 "version identifiers SHOULD use the canonical format. This section provides "
@@ -25592,7 +25742,7 @@ msgstr ""
 "использовать для проверки того, имеет ли версия уже такую форму, и, если "
 "нет, извлечь различные компоненты для последующей нормализации."
 
-#: ../source/specifications/version-specifiers.rst:1208
+#: ../source/specifications/version-specifiers.rst:1210
 msgid ""
 "To test whether a version identifier is in the canonical format, you can use "
 "the following function:"
@@ -25600,7 +25750,7 @@ msgstr ""
 "Чтобы проверить, соответствует ли идентификатор версии каноническому "
 "формату, можно воспользоваться следующей функцией:"
 
-#: ../source/specifications/version-specifiers.rst:1217
+#: ../source/specifications/version-specifiers.rst:1219
 msgid ""
 "To extract the components of a version identifier, use the following regular "
 "expression (as defined by the `packaging <https://github.com/pypa/"
@@ -25610,7 +25760,7 @@ msgstr ""
 "регулярное выражение (как определено в проекте `packaging <https://github."
 "com/pypa/packaging>`_):"
 
-#: ../source/specifications/version-specifiers.rst:1264
+#: ../source/specifications/version-specifiers.rst:1266
 msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr "Август 2014 г: Эта спецификация была одобрена через :pep:`440`."
 
@@ -27498,6 +27648,102 @@ msgstr ""
 "packages>` и считаются **продвинутой темой** (не охваченной этим учебником). "
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
+
+#~ msgid "Standards compliance for interoperability"
+#~ msgstr "Соответствие стандартам совместимости"
+
+#~ msgid "Here are some examples of compliant version numbers::"
+#~ msgstr "Вот несколько примеров совместимых номеров версий::"
+
+#~ msgid ""
+#~ "To further accommodate historical variations in approaches to version "
+#~ "numbering, :pep:`440` also defines a comprehensive technique for :pep:"
+#~ "`version normalisation <440#normalization>` that maps variant spellings "
+#~ "of different version numbers to a standardised canonical form."
+#~ msgstr ""
+#~ "Для дальнейшего учета исторических вариаций в подходах к нумерации "
+#~ "версий, :pep:`440` также определяет комплексную технику нормализации :pep:"
+#~ "`версий <440#normalization>`, которая отображает варианты написания "
+#~ "различных номеров версий в стандартизированную каноническую форму."
+
+#~ msgid "Scheme choices"
+#~ msgstr "Выбор схемы"
+
+#~ msgid ""
+#~ "For new projects, the recommended versioning scheme is based on `Semantic "
+#~ "Versioning <https://semver.org/>`_, but adopts a different approach to "
+#~ "handling pre-releases and build metadata."
+#~ msgstr ""
+#~ "Для новых проектов рекомендуемая схема версионирования основана на "
+#~ "`Semantic Versioning <https://semver.org/>`_, но использует другой подход "
+#~ "к работе с пре-релизами и метаданными сборки."
+
+#~ msgid ""
+#~ "Adopting this approach as a project author allows users to make use of :"
+#~ "pep:`\"compatible release\" <440#compatible-release>` specifiers, where "
+#~ "``name ~= X.Y`` requires at least release X.Y, but also allows any later "
+#~ "release with a matching MAJOR version."
+#~ msgstr ""
+#~ "Принятие такого подхода автором проекта позволяет пользователям "
+#~ "использовать спецификаторы :pep:`\"compatible release\" <440#compatible-"
+#~ "release>`, где ``name ~= X.Y`` требует как минимум релиза X.Y, но также "
+#~ "позволяет использовать любой более поздний релиз с соответствующей MAJOR-"
+#~ "версией."
+
+#~ msgid "Date based versioning"
+#~ msgstr "Версионирование на основе дат"
+
+#~ msgid ""
+#~ "Version numbers for date based projects typically take the form of YEAR."
+#~ "MONTH (for example, ``12.04``, ``15.10``)."
+#~ msgstr ""
+#~ "Номера версий для проектов, основанных на дате, обычно имеют вид YEAR."
+#~ "MONTH (например, ``12.04``, ``15.10``)."
+
+#~ msgid ""
+#~ "This is the simplest possible versioning scheme, and consists of a single "
+#~ "number which is incremented every release."
+#~ msgstr ""
+#~ "Это простейшая схема версионирования, состоящая из одного числа, которое "
+#~ "увеличивается при каждом выпуске."
+
+#~ msgid "Pre-release versioning"
+#~ msgstr "Версионирование предварительных выпусков"
+
+#~ msgid ""
+#~ "Regardless of the base versioning scheme, pre-releases for a given final "
+#~ "release may be published as:"
+#~ msgstr ""
+#~ "Независимо от базовой схемы версий, предварительные выпуски для данного "
+#~ "финального выпуска могут быть опубликованы как:"
+
+#~ msgid "zero or more dev releases (denoted with a \".devN\" suffix)"
+#~ msgstr "ноль или более выпусков dev (обозначаются суффиксом \".devN\")"
+
+#~ msgid "zero or more alpha releases (denoted with a \".aN\" suffix)"
+#~ msgstr "ноль или более альфа-релизов (обозначаются суффиксом \".aN\")"
+
+#~ msgid "zero or more beta releases (denoted with a \".bN\" suffix)"
+#~ msgstr "ноль или более бета-версий (обозначаются суффиксом \".bN\")"
+
+#~ msgid "zero or more release candidates (denoted with a \".rcN\" suffix)"
+#~ msgstr ""
+#~ "ноль или более кандидатов на выпуск (обозначаются суффиксом \".rcN\")"
+
+#~ msgid ""
+#~ "``pip`` and other modern Python package installers ignore pre-releases by "
+#~ "default when deciding which versions of dependencies to install."
+#~ msgstr ""
+#~ "``pip`` и другие современные программы установки пакетов Python по "
+#~ "умолчанию игнорируют предварительные выпуски, когда решают, какие версии "
+#~ "зависимостей устанавливать."
+
+#~ msgid ""
+#~ "A local version identifier takes the form ``<public version "
+#~ "identifier>+<local version label>``. For example::"
+#~ msgstr ""
+#~ "Идентификатор локальной версии имеет вид ``<идентификатор публичной "
+#~ "версии>+<метка локальной версии>``. Например::"
 
 #~ msgid "Three options are available in this area:"
 #~ msgstr "В этой области доступны три варианта:"
