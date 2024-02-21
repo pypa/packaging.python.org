@@ -10,6 +10,11 @@ This document specifies a JSON-serializable abstract data structure that can rep
 URLs to python projects and distribution artifacts such as VCS source trees, local
 source trees, source distributions and wheels.
 
+At time of writing, it is not formally specified how to merge the parts of this
+file into single URL that can be passed to tools. A common representation is the
+pip URL format, other examples are provided in the
+:ref:`Version specifier specification <version-specifiers>`.
+
 Specification
 =============
 
