@@ -86,7 +86,13 @@ Here are the values for some common build backends:
         requires = ["pdm-backend"]
         build-backend = "pdm.backend"
 
+.. tab:: Meson
 
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["meson-python"]
+        build-backend = "mesonpy"
 
 Static vs. dynamic metadata
 ===========================
