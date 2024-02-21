@@ -23,8 +23,10 @@ The Direct URL Data Structure MUST be a dictionary, serializable to JSON accordi
 
 It MUST contain at least two fields. The first one is ``url``, with
 type ``string``. Its content must be a valid URL according to the
-`WHATWG URL Standard <whatwg-url-standard_>`_. Depending on what ``url`` refers to,
-the second field MUST be one of ``vcs_info`` (if ``url`` is a VCS reference), ``archive_info`` (if
+`WHATWG URL Standard <whatwg-url-standard_>`_.
+
+Depending on what ``url`` refers to, the second field MUST be one of ``vcs_info``
+(if ``url`` is a VCS reference), ``archive_info`` (if
 ``url`` is a source archives or a wheel), or ``dir_info`` (if ``url``  is a
 local directory). These info fields have a (possibly empty) subdictionary as
 value, with the possible keys defined below.
