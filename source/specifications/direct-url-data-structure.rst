@@ -11,7 +11,7 @@ URLs to python projects and distribution artifacts such as VCS source trees, loc
 source trees, source distributions and wheels.
 
 At time of writing, it is not formally specified how to merge the parts of this
-file into single URL that can be passed to tools. A common representation is the
+data structure into single URL that can be passed to tools. A common representation is the
 pip URL format (`VCS Support <pip-vcs-support_>`_), other examples are provided in the
 :ref:`Version specifier specification <version-specifiers>`.
 
