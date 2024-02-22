@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-09 11:35+0000\n"
-"PO-Revision-Date: 2024-02-09 02:09+0000\n"
+"PO-Revision-Date: 2024-02-22 02:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1872,33 +1872,19 @@ msgstr ""
 
 #: ../source/discussions/versioning.rst:6
 #: ../source/specifications/simple-repository-api.rst:310
-#, fuzzy
 msgid "Versioning"
-msgstr "バージョン指定子"
+msgstr "バージョニング"
 
 #: ../source/discussions/versioning.rst:8
-#, fuzzy
-#| msgid ""
-#| "This section describes the steps to follow before installing other Python "
-#| "packages."
 msgid "This discussion covers all aspects of versioning Python packages."
-msgstr ""
-"この節では、その他の Python パッケージをインストールする前にやっておくべきス"
-"テップを記します。"
+msgstr "この議論では、 Python "
+"パッケージのバージョニングについてあらゆる角度からカバーします。"
 
 #: ../source/discussions/versioning.rst:12
-#, fuzzy
 msgid "Valid version numbers"
-msgstr "日付ベースのバージョン付与"
+msgstr "正当なバージョン番号"
 
 #: ../source/discussions/versioning.rst:14
-#, fuzzy
-#| msgid ""
-#| "Different Python projects may use different versioning schemes based on "
-#| "the needs of that particular project, but all of them are required to "
-#| "comply with the flexible :pep:`public version scheme <440#public-version-"
-#| "identifiers>` specified in :pep:`440` in order to be supported in tools "
-#| "and libraries like ``pip`` and ``setuptools``."
 msgid ""
 "Different Python projects may use different versioning schemes based on the "
 "needs of that particular project, but in order to be compatible with tools "
@@ -1908,52 +1894,54 @@ msgid ""
 "examples of version numbers [#version-examples]_:"
 msgstr ""
 "相異なるPythonプロジェクトがそれぞれの事情に合わせて異なるバージョン体系を採"
-"用することは構いませんが、しかし、いずれにしても、``pip`` や ``setuptools`` "
-"のようなツールやライブラリにサポートされるためには、:pep:`440` で指定された :"
-"pep:`公式のバージョン体系 <440#public-version-identifiers>` の自由度の高い規"
-"定に合致していなければなりません。"
+"用することは構いませんが、しかし、:ref:`pip` のようなツールとの互換性を保つた"
+"めには、バージョン識別子のための自由度の高いフォーマット、"
+"その権威ある参照先は :ref:`バージョン識別子仕様 <version-specifiers>` "
+"ですが、これに準拠することが要求されます。"
+"ここではバージョン番号のいくつかの例を紹介しましょう [#version-examples]_:"
 
 #: ../source/discussions/versioning.rst:21
 msgid "A simple version (final release): ``1.2.0``"
-msgstr ""
+msgstr "簡明なバージョン (最終的なリリース): ``1.2.0``"
 
 #: ../source/discussions/versioning.rst:22
 msgid "A development release: ``1.2.0.dev1``"
-msgstr ""
+msgstr "開発リリース: ``1.2.0.dev1``"
 
 #: ../source/discussions/versioning.rst:23
 msgid "An alpha release: ``1.2.0a1``"
-msgstr ""
+msgstr "アルファリリース: ``1.2.0a1``"
 
 #: ../source/discussions/versioning.rst:24
 msgid "A beta release: ``1.2.0b1``"
-msgstr ""
+msgstr "ベータリリース: ``1.2.0b1``"
 
 #: ../source/discussions/versioning.rst:25
 msgid "A release candidate: ``1.2.0rc1``"
-msgstr ""
+msgstr "リリース候補: ``1.2.0rc1``"
 
 #: ../source/discussions/versioning.rst:26
 msgid "A post-release: ``1.2.0.post1``"
-msgstr ""
+msgstr "ポストリリース: ``1.2.0.post1``"
 
 #: ../source/discussions/versioning.rst:27
 msgid ""
 "A post-release of an alpha release (possible, but discouraged): ``1.2.0a1."
 "post1``"
-msgstr ""
+msgstr "アルファリリースのポストリリース (こういうことも可能ではあるが非推奨): ``1.2."
+"0a1.post1``"
 
 #: ../source/discussions/versioning.rst:28
 msgid "A simple version with only two components: ``23.12``"
-msgstr ""
+msgstr "二つの部分からのみ構成される簡明なバージョン: ``23.12``"
 
 #: ../source/discussions/versioning.rst:29
 msgid "A simple version with just one component: ``42``"
-msgstr ""
+msgstr "たったひとつの部分から構成される簡明なバージョン: ``42``"
 
 #: ../source/discussions/versioning.rst:30
 msgid "A version with an epoch: ``1!1.0``"
-msgstr ""
+msgstr "エポック付きのバージョン: ``1!1.0``"
 
 #: ../source/discussions/versioning.rst:32
 msgid ""
@@ -1964,6 +1952,13 @@ msgid ""
 "versions of dependencies to install, unless explicitly requested (e.g., with "
 "``pip install pkg==1.1a3`` or ``pip install --pre pkg``)."
 msgstr ""
+"プロジェクトにおいては、最終的なリリースの前にいくつかのプレリリースのサイク"
+"ルを置くことで既存ユーザによる試験をサポートすることができます。その段階は、"
+"アルファリリース、ベータリリース、リリース候補、最終的なリリースの順です。 "
+"pip や他の近代的な Python パッケージインストーラは、依存関係にあるパッケージ"
+"のどのバージョンをインストールするかを決定する際、 (例えば ``pip install "
+"pkg==1.1a3`` とか ``pip install --pre pkg`` のように) "
+"明示的に要求されていない限りデフォルト設定ではプレリリース群を無視します。"
 
 #: ../source/discussions/versioning.rst:39
 msgid ""
@@ -1971,6 +1966,9 @@ msgid ""
 "a development cycle, for example, a nightly build, or a build from the "
 "latest source in a Linux distribution."
 msgstr ""
+"開発リリースの目的は、例えば夜毎のビルド <nightly build> "
+"のように開発サイクルの早い時期にリリースを行うことや、Linux "
+"ディストリビューションの最新のソースコードからビルドを行うことです。"
 
 #: ../source/discussions/versioning.rst:43
 msgid ""
@@ -1980,6 +1978,11 @@ msgid ""
 "with a new final release (e.g., incrementing the third component when using "
 "semantic versioning)."
 msgstr ""
+"ポストリリースは、リリースノート内のエラーのように配布されたソフトウェアに大"
+"きな悪影響を与えないようなファイナルリリースの軽微なエラーを修正するために使"
+"われます。バグ修正のために使うべきではなく、それは新たな (即ち、セマンティッ"
+"クバージョニングを使っているなら第３要素を１だけ増加させた) "
+"ファイナルリリースで行うべきです。"
 
 #: ../source/discussions/versioning.rst:49
 msgid ""
@@ -1991,12 +1994,17 @@ msgid ""
 "epoch, as in \"1!1.0\", in order to be treated as more recent than the old "
 "version numbers."
 msgstr ""
+"最後に、エポックは、稀にしか使われない機能ですが、バージョニングの方法を変更"
+"するときに順序を訂正するために使われます。例えば、 23.12 "
+"のようなカレンダーバージョニングを使っているプロジェクトが 1.0 "
+"のようなセマンティックバージョニングに移行するような場合に、 1.0 と 23.12 "
+"の間の比較は誤った結果になるでしょう。これを訂正するために、明示的に示された "
+"\"1!1.0\" のようなエポックを持つことで、新しいバージョン番号が古いバージョン"
+"番号よりもより最近のものとして扱われるようにするべきです。"
 
 #: ../source/discussions/versioning.rst:59
-#, fuzzy
-#| msgid "Semantic versioning (preferred)"
 msgid "Semantic versioning vs. calendar versioning"
-msgstr "意味を伴ったバージョン付与 (推奨)"
+msgstr "セマンティックバージョニング対カレンダーバージョニング"
 
 #: ../source/discussions/versioning.rst:61
 msgid ""
@@ -2005,6 +2013,10 @@ msgid ""
 "new release of a package. Two versioning schemes are commonly used for "
 "Python packages, semantic versioning and calendar versioning."
 msgstr ""
+"バージョニング方法とは、バージョン番号の断片を翻訳するために決められたやり方"
+"で、パッケージの新しいリリースように次のバージョン番号がどのようなものになる"
+"べきかを決めるやり方です。Python パッケージにしばしば用いられる二つのバージョ"
+"ニング方法は、セマンティックバージョニングとカレンダーバージョニングです。"
 
 #: ../source/discussions/versioning.rst:68
 msgid ""
@@ -2013,6 +2025,10 @@ msgid ""
 "That view may differ from the end-users' perception of what said formalized "
 "versioning scheme promises them."
 msgstr ""
+"どのようなバージョン番号を選択するべきかの決定権はプロジェクトのメンテナに委"
+"ねられています。これは、バージョン上げにメンテナの観点を反映しているというこ"
+"とを実質的に意味します。そのような観点は、バージョニング方法が約束するやり方"
+"についてのエンドユーザの受け取り方とは異なるかも知れません。"
 
 #: ../source/discussions/versioning.rst:74
 msgid ""
