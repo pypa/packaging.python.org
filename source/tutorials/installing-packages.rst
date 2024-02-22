@@ -445,7 +445,7 @@ directory to your :envvar:`PATH`:
   ``python -m site --user-base`` and adding ``bin`` to the end. For example,
   this will typically print ``~/.local`` (with ``~`` expanded to the absolute
   path to your home directory) so you'll need to add ``~/.local/bin`` to your
-  ``PATH``.  You can set your ``PATH`` permanently by `modifying ~/.profile`_.
+  ``PATH``.  You can set your ``PATH`` permanently by modifying ``~/.profile``.
 
 - On Windows you can find the user base binary directory by running ``py -m
   site --user-site`` and replacing ``site-packages`` with ``Scripts``. For
@@ -457,7 +457,6 @@ directory to your :envvar:`PATH`:
   ``PATH`` changes to take effect.
 
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
-.. _modifying ~/.profile: https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix/14638025#14638025
 .. _Control Panel: https://docs.microsoft.com/en-us/windows/win32/shell/user-environment-variables?redirectedfrom=MSDN
 
 Requirements files
