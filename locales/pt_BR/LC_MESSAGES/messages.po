@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-09 11:35+0000\n"
+"POT-Creation-Date: 2024-02-29 18:41+0000\n"
 "PO-Revision-Date: 2024-01-27 05:01+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -8794,14 +8794,14 @@ msgstr ""
 "estilo pkg_resources pode ser encontrado no `projeto exemplo de espaço de "
 "nomes de pkg_resources`_."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:3
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
 msgid ""
 "Publishing package distribution releases using GitHub Actions CI/CD workflows"
 msgstr ""
 "Publicando versões de distribuição de pacotes usando fluxos de trabalho de "
 "CI/CD do GitHub Actions"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:7
 msgid ""
 "`GitHub Actions CI/CD`_ allows you to run a series of commands whenever an "
 "event occurs on the GitHub platform. One popular choice is having a workflow "
@@ -8820,7 +8820,7 @@ msgstr ""
 "artifact`_ do GitHub para temporariamente armazenar e baixar os pacotes "
 "fontes."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:17
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:19
 msgid ""
 "This guide *assumes* that you already have a project that you know how to "
 "build distributions for and *it lives on GitHub*.  This guide also avoids "
@@ -8833,11 +8833,11 @@ msgstr ""
 "componentes binários, confira os exemplos de GitHub Action do :ref:"
 "`cibuildwheel`."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:23
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:25
 msgid "Configuring trusted publishing"
 msgstr "Configurando publicação confiável"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:25
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:27
 msgid ""
 "This guide relies on PyPI's `trusted publishing`_ implementation to connect "
 "to `GitHub Actions CI/CD`_. This is recommended for security reasons, since "
@@ -8855,7 +8855,7 @@ msgstr ""
 "índices de terceiros como :doc:`devpi <devpi:index>`, pode ser necessário "
 "fornecer uma combinação de nome de usuário/senha."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:33
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:35
 msgid ""
 "Since this guide will demonstrate uploading to both PyPI and TestPyPI, we'll "
 "need two trusted publishers configured. The following steps will lead you "
@@ -8869,7 +8869,7 @@ msgstr ""
 "<Projeto>`. No entanto, também é possível adicionar `publicação confiável`_ "
 "a qualquer projeto preexistente, se você for o proprietário."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:42
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:44
 msgid ""
 "If you followed earlier versions of this guide, you have created the secrets "
 "``PYPI_API_TOKEN`` and ``TEST_PYPI_API_TOKEN`` for direct PyPI and TestPyPI "
@@ -8883,15 +8883,15 @@ msgstr ""
 "repositório GitHub e revogá-los nas configurações de sua conta PyPI e "
 "TestPyPI, caso esteja substituindo sua configuração antiga pela nova."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:49
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:51
 msgid "Let's begin! 🚀"
 msgstr "Vamos começar! 🚀"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:51
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:53
 msgid "Go to https://pypi.org/manage/account/publishing/."
 msgstr "Acesse https://pypi.org/manage/account/publishing/."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:52
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:54
 msgid ""
 "Fill in the name you wish to publish your new :term:`PyPI project <Project>` "
 "under (the ``name`` value in your ``setup.cfg`` or ``pyproject.toml``), the "
@@ -8909,7 +8909,7 @@ msgstr ""
 "adicione o nome do ambiente do GitHub (``pypi``) que iremos configurar em "
 "seu repositório. Registre o publicador confiável."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:61
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:63
 msgid ""
 "Now, go to https://test.pypi.org/manage/account/publishing/ and repeat the "
 "second step, but this time, enter ``testpypi`` as the name of the GitHub "
@@ -8919,7 +8919,7 @@ msgstr ""
 "segunda etapa, mas desta vez, insira ``testpypi`` como o nome do ambiente do "
 "GitHub."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:64
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:66
 msgid ""
 "Your \"pending\" publishers are now ready for their first use and will "
 "create your projects automatically once you use them for the first time."
@@ -8928,7 +8928,7 @@ msgstr ""
 "criarão seus projetos automaticamente assim que você usá-los pela primeira "
 "vez."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:70
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:72
 msgid ""
 "If you don't have a TestPyPI account, you'll need to create it. It's not the "
 "same as a regular PyPI account."
@@ -8936,7 +8936,7 @@ msgstr ""
 "Se você não tiver uma conta TestPyPI, precisará criá-la. Não é o mesmo que "
 "uma conta do PyPI comum."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:76
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:78
 msgid ""
 "For security reasons, you must require `manual approval <https://docs.github."
 "com/en/actions/deployment/targeting-different-environments/using-"
@@ -8948,11 +8948,11 @@ msgstr ""
 "environments-for-deployment#deployment-protection-rules>`_ em cada execução "
 "para o ambiente ``pypi``."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:83
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:85
 msgid "Creating a workflow definition"
 msgstr "Criando uma definição de fluxo de trabalho"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:85
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:87
 msgid ""
 "GitHub CI/CD workflows are declared in YAML files stored in the ``.github/"
 "workflows/`` directory of your repository."
@@ -8960,13 +8960,13 @@ msgstr ""
 "Os fluxos de trabalho de CI/CD do GitHub são declarados em arquivos YAML "
 "armazenados no diretório ``.github/workflows/`` do seu repositório."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:88
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:90
 msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
 msgstr ""
 "Vamos criar um arquivo chamado ``.github/workflows/publish-to-test-pypi."
 "yml``."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:91
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
 msgid ""
 "Start it with a meaningful name and define the event that should make GitHub "
 "run this workflow:"
@@ -8974,11 +8974,11 @@ msgstr ""
 "Comece com um nome significativo e defina o evento que deve fazer o GitHub "
 "executar este fluxo de trabalho:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:99
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:101
 msgid "Checking out the project and building distributions"
 msgstr "Fazendo checkout do projeto e construindo as distribuições"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:101
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:103
 msgid ""
 "We will have to define two jobs to publish to PyPI and TestPyPI "
 "respectively, and an additional job to build the distribution packages."
@@ -8987,7 +8987,7 @@ msgstr ""
 "TestPyPI respectivamente, e um trabalho adicional para construir os pacotes "
 "de distribuição."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:105
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:107
 msgid ""
 "First, we'll define the job for building the dist packages of your project "
 "and storing them for later use:"
@@ -8995,7 +8995,7 @@ msgstr ""
 "Primeiro, definiremos o trabalho para construir os pacotes dist do seu "
 "projeto e armazená-los para uso posterior:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:113
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:115
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate the newest available Python 3 release."
@@ -9003,7 +9003,7 @@ msgstr ""
 "Isso fará o download do seu repositório no executor de CI e, em seguida, "
 "instalará e ativará o lançamento mais recente disponível do Python 3."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:116
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
 msgid ""
 "And now we can build the dists from source and store them. In this example, "
 "we'll use the ``build`` package. So add this to the steps list:"
@@ -9011,11 +9011,11 @@ msgstr ""
 "E agora podemos construir os dists a partir da fonte e armazená-los. Neste "
 "exemplo, usaremos o pacote ``build``. Então, adicione isso à lista de etapas:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:126
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:128
 msgid "Defining a workflow job environment"
 msgstr "Definindo um ambiente de tarefa do fluxo de trabalho"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:128
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
 msgid ""
 "Now, let's add initial setup for our job that will publish to PyPI. It's a "
 "process that will execute commands that we'll define later. In this guide, "
@@ -9034,7 +9034,7 @@ msgstr ""
 "``pypi-publish`` precisam para implementar publicação confiável sem segredo "
 "para PyPI."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:142
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:144
 msgid ""
 "This will also ensure that the PyPI publishing workflow is only triggered if "
 "the current commit is tagged."
@@ -9042,15 +9042,15 @@ msgstr ""
 "Isso também garantirá que o fluxo de trabalho de publicação do PyPI só seja "
 "acionado se o commit atual estiver marcado."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:146
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:148
 msgid "Publishing the distribution to PyPI"
 msgstr "Publicando a distribuição para PyPI"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:148
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:150
 msgid "Finally, add the following steps at the end:"
 msgstr "Finalmente, adicione as seguintes etapas ao final:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:155
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
 msgid ""
 "This step uses the `pypa/gh-action-pypi-publish`_ GitHub Action: after the "
 "stored distribution package has been downloaded by the `download-artifact`_ "
@@ -9062,11 +9062,11 @@ msgstr ""
 "`download-artifact`_, ele envia o conteúdo da pasta ``dist /`` para PyPI "
 "incondicionalmente."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:161
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
 msgid "Signing the distribution packages"
 msgstr "Assinando os pacotes de distribuição"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:165
 msgid ""
 "The following job signs the distribution packages with `Sigstore`_, the same "
 "artifact signing system `used to sign CPython <https://www.python.org/"
@@ -9076,7 +9076,7 @@ msgstr ""
 "mesmo sistema de assinatura de artefato `usado para assinar o CPython "
 "<https://www.python.org/download/sigstore/>`_."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:166
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:168
 msgid ""
 "Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ to "
 "sign the distribution packages. In the next step, an empty GitHub Release "
@@ -9091,12 +9091,12 @@ msgstr ""
 "de lançamento do gh <https://cli.github.com/manual/gh_release>`_ como "
 "referência."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
 msgid "Finally, the signed distributions are uploaded to the GitHub Release."
 msgstr ""
 "Finalmente, as distribuições assinadas são enviadas para o GitHub Release."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
 msgid ""
 "This is a replacement for GPG signatures, for which support has been "
 "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
@@ -9107,11 +9107,11 @@ msgstr ""
 "No entanto, este trabalho não é obrigatório para o envio para PyPI e pode "
 "ser omitido."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "Fluxo de trabalho separado para publicação no TestPyPI"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:192
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -9119,7 +9119,7 @@ msgstr ""
 "Agora, repita essas etapas e crie outro trabalho para publicação no índice "
 "do pacote TestPyPI na seção ``jobs``:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:202
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -9130,21 +9130,21 @@ msgstr ""
 "branch principal e é frequentemente usado para indicar um pipeline de "
 "publicação de lançamento íntegro."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:204
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:206
 msgid "The whole CI/CD workflow"
 msgstr "O fluxo de trabalho de CI/CD completo"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:206
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "Este parágrafo mostra todo o fluxo de trabalho após seguir o guia acima."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid "That's all, folks!"
 msgstr "Isso é tudo, pessoal!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:218
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -9157,7 +9157,7 @@ msgstr ""
 "construções de teste para seus usuários alfa, bem como garantir que sua "
 "versão pipeline permaneça saudável!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:226
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -9172,7 +9172,7 @@ msgstr ""
 "um servidor compatível com PyPI como :ref:`pypiserver` no CI para fins de "
 "teste."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:232
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:234
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -9197,6 +9197,7 @@ msgid "Single-sourcing the package version"
 msgstr "Mantendo uma única fonte da versão do pacote"
 
 #: ../source/guides/single-sourcing-package-version.rst:7
+#: ../source/guides/tool-recommendations.rst:45
 msgid "Todo"
 msgstr "Para fazer"
 
@@ -9213,14 +9214,16 @@ msgstr ""
 "do seu projeto:"
 
 #: ../source/guides/single-sourcing-package-version.rst:12
-msgid ""
-"Read the file in :file:`setup.py` and get the version. Example (from `pip "
-"setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
+#, fuzzy
+#| msgid ""
+#| "Read the file in :file:`setup.py` and get the version. Example (from `pip "
+#| "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
+msgid "Read the file in :file:`setup.py` and get the version. Example::"
 msgstr ""
 "Leia o arquivo em :file:`setup.py` e obtenha a versão. Exemplo (de `pip "
 "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
 
-#: ../source/guides/single-sourcing-package-version.rst:39
+#: ../source/guides/single-sourcing-package-version.rst:38
 msgid ""
 "As of the release of setuptools 46.4.0, one can accomplish the same thing by "
 "instead placing the following in the project's :file:`setup.cfg` file "
@@ -9230,7 +9233,7 @@ msgstr ""
 "colocando o seguinte no arquivo :file:`setup.cfg` do projeto (substituindo "
 "\"pacote\" pelo nome de importação do pacote):"
 
-#: ../source/guides/single-sourcing-package-version.rst:49
+#: ../source/guides/single-sourcing-package-version.rst:48
 msgid ""
 "As of the release of setuptools 61.0.0, one can specify the version "
 "dynamically in the project's :file:`pyproject.toml` file."
@@ -9238,7 +9241,7 @@ msgstr ""
 "A partir do lançamento do setuptools 61.0.0, pode-se especificar a versão "
 "dinamicamente no arquivo :file:`pyproject.toml` do projeto."
 
-#: ../source/guides/single-sourcing-package-version.rst:61
+#: ../source/guides/single-sourcing-package-version.rst:60
 msgid ""
 "Please be aware that declarative config indicators, including the ``attr:`` "
 "directive, are not supported in parameters to :file:`setup.py`."
@@ -9246,7 +9249,7 @@ msgstr ""
 "Esteja ciente de que os indicadores de configuração declarativos, incluindo "
 "a diretiva ``attr:``, não são suportados em parâmetros para :file:`setup.py`."
 
-#: ../source/guides/single-sourcing-package-version.rst:65
+#: ../source/guides/single-sourcing-package-version.rst:64
 msgid ""
 "Use an external build tool that either manages updating both locations, or "
 "offers an API that both locations can use."
@@ -9254,7 +9257,7 @@ msgstr ""
 "Use uma ferramenta de construção externa que gerencia a atualização de ambos "
 "os locais ou oferece uma API que ambos os locais podem usar."
 
-#: ../source/guides/single-sourcing-package-version.rst:68
+#: ../source/guides/single-sourcing-package-version.rst:67
 msgid ""
 "Few tools you could use, in no particular order, and not necessarily "
 "complete: `bump2version <https://pypi.org/project/bump2version>`_, `changes "
@@ -9267,7 +9270,7 @@ msgstr ""
 "<https://pypi.org/project/commitizen>`_, `zest.releaser <https://pypi.org/"
 "project/zest.releaser>`_."
 
-#: ../source/guides/single-sourcing-package-version.rst:75
+#: ../source/guides/single-sourcing-package-version.rst:74
 msgid ""
 "Set the value to a ``__version__`` global variable in a dedicated module in "
 "your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
@@ -9277,7 +9280,7 @@ msgstr ""
 "dedicado em seu projeto (por exemplo, :file:`version.py`), então faça com "
 "que :file:`setup.py` leia e execute (``exec``) o valor em uma variável."
 
-#: ../source/guides/single-sourcing-package-version.rst:86
+#: ../source/guides/single-sourcing-package-version.rst:85
 msgid ""
 "Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
@@ -9285,7 +9288,7 @@ msgstr ""
 "Exemplo usando esta técnica: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
 
-#: ../source/guides/single-sourcing-package-version.rst:88
+#: ../source/guides/single-sourcing-package-version.rst:87
 msgid ""
 "Place the value in a simple ``VERSION`` text file and have both :file:`setup."
 "py` and the project code read it."
@@ -9293,7 +9296,7 @@ msgstr ""
 "Coloque o valor em um arquivo de texto simples ``VERSION`` e tenha ambos :"
 "file:`setup.py` e o código do projeto lidos."
 
-#: ../source/guides/single-sourcing-package-version.rst:96
+#: ../source/guides/single-sourcing-package-version.rst:95
 msgid ""
 "An advantage with this technique is that it's not specific to Python.  Any "
 "tool can read the version."
@@ -9301,7 +9304,7 @@ msgstr ""
 "Uma vantagem dessa técnica é que ela não é específica do Python. Qualquer "
 "ferramenta pode ler a versão."
 
-#: ../source/guides/single-sourcing-package-version.rst:101
+#: ../source/guides/single-sourcing-package-version.rst:100
 msgid ""
 "With this approach you must make sure that the ``VERSION`` file is included "
 "in all your source and binary distributions (e.g. add ``include VERSION`` to "
@@ -9311,7 +9314,7 @@ msgstr ""
 "está incluído em todas as suas distribuições de fonte e binárias (por "
 "exemplo, adicione ``include VERSION`` ao seu :file:`MANIFEST.in`)."
 
-#: ../source/guides/single-sourcing-package-version.rst:105
+#: ../source/guides/single-sourcing-package-version.rst:104
 msgid ""
 "Set the value in :file:`setup.py`, and have the project code use the "
 "``importlib.metadata`` API to fetch the value at runtime. (``importlib."
@@ -9325,7 +9328,7 @@ msgstr ""
 "versões anteriores como o projeto ``importlib-metadata``.) A versão de um "
 "projeto instalado pode ser obtida com a API da seguinte forma::"
 
-#: ../source/guides/single-sourcing-package-version.rst:120
+#: ../source/guides/single-sourcing-package-version.rst:119
 msgid ""
 "Be aware that the ``importlib.metadata`` API only knows about what's in the "
 "installation metadata, which is not necessarily the code that's currently "
@@ -9335,7 +9338,7 @@ msgstr ""
 "nos metadados de instalação, o que não é necessariamente o código que está "
 "importado no momento."
 
-#: ../source/guides/single-sourcing-package-version.rst:124
+#: ../source/guides/single-sourcing-package-version.rst:123
 msgid ""
 "If a project uses this method to fetch its version at runtime, then its "
 "``install_requires`` value needs to be edited to install ``importlib-"
@@ -9345,7 +9348,7 @@ msgstr ""
 "então seu valor ``install_requires`` precisa ser editado para instalar "
 "``importlib-metadata`` em versões pré-3.8 do Python como::"
 
-#: ../source/guides/single-sourcing-package-version.rst:138
+#: ../source/guides/single-sourcing-package-version.rst:137
 msgid ""
 "An older (and less efficient) alternative to ``importlib.metadata`` is the "
 "``pkg_resources`` API provided by ``setuptools``::"
@@ -9353,7 +9356,7 @@ msgstr ""
 "’Uma alternativa mais antiga (e menos eficiente) ao ``importlib.metadata`` é "
 "a API ``pkg_resources`` fornecida pelo ``setuptools``::"
 
-#: ../source/guides/single-sourcing-package-version.rst:144
+#: ../source/guides/single-sourcing-package-version.rst:143
 msgid ""
 "If a project uses ``pkg_resources`` to fetch its own version at runtime, "
 "then ``setuptools`` must be added to the project's ``install_requires`` list."
@@ -9362,7 +9365,7 @@ msgstr ""
 "de execução, então ``setuptools`` deve ser adicionado à lista "
 "``install_requires`` do projeto."
 
-#: ../source/guides/single-sourcing-package-version.rst:148
+#: ../source/guides/single-sourcing-package-version.rst:147
 msgid ""
 "Example using this technique: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
@@ -9370,7 +9373,7 @@ msgstr ""
 "Exemplo usando esta técnica: `setuptools <https://github.com/pypa/setuptools/"
 "blob/main/setuptools/version.py>`_."
 
-#: ../source/guides/single-sourcing-package-version.rst:151
+#: ../source/guides/single-sourcing-package-version.rst:150
 msgid ""
 "Set the value to ``__version__`` in ``sample/__init__.py`` and import "
 "``sample`` in :file:`setup.py`."
@@ -9378,7 +9381,7 @@ msgstr ""
 "Defina o valor para ``__version__`` em ``sample/__init__.py`` e importe "
 "``sample`` no :file:`setup.py`."
 
-#: ../source/guides/single-sourcing-package-version.rst:165
+#: ../source/guides/single-sourcing-package-version.rst:164
 msgid ""
 "Although this technique is common, beware that it will fail if ``sample/"
 "__init__.py`` imports packages from ``install_requires`` dependencies, which "
@@ -9389,7 +9392,7 @@ msgstr ""
 "muito provavelmente ainda não estarão instalados quando :file:`setup.py` for "
 "executado."
 
-#: ../source/guides/single-sourcing-package-version.rst:171
+#: ../source/guides/single-sourcing-package-version.rst:170
 msgid ""
 "Keep the version number in the tags of a version control system (Git, "
 "Mercurial, etc) instead of in the code, and automatically extract it from "
@@ -10128,236 +10131,321 @@ msgstr "Recomendações de ferramentas"
 
 #: ../source/guides/tool-recommendations.rst:7
 msgid ""
-"If you're familiar with Python packaging and installation, and just want to "
-"know what tools are currently recommended, then here it is."
+"The Python packaging landscape consists of many different tools. For many "
+"tasks, the :term:`Python Packaging Authority <Python Packaging Authority "
+"(PyPA)>` (PyPA, the working group which encompasses many packaging tools and "
+"maintains this guide) purposefully does not make a blanket recommendation; "
+"for example, the reason there are many build backends is that the landscape "
+"was opened up in order to enable the development of new backends serving "
+"certain users' needs better than the previously unique backend, setuptools. "
+"This guide does point to some tools that are widely recognized, and also "
+"makes some recommendations of tools that you should *not* use because they "
+"are deprecated or insecure."
 msgstr ""
-"Se você está familiarizado com o pacote e a instalação do Python e só deseja "
-"saber quais ferramentas são recomendadas atualmente, aqui está."
-
-#: ../source/guides/tool-recommendations.rst:12
-msgid "Application dependency management"
-msgstr "Gerenciamento de dependências de aplicações"
-
-#: ../source/guides/tool-recommendations.rst:14
-msgid ""
-"Use :ref:`pip` in a `secure manner`_ to install a Python application and its "
-"dependencies during deployment."
-msgstr ""
-"Use :ref:`pip` de uma `maneira segura`_ para instalar um aplicativo Python e "
-"suas dependências durante a implantação."
-
-#: ../source/guides/tool-recommendations.rst:17
-msgid ""
-"Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate "
-"application-specific dependencies from a shared Python installation. [4]_"
-msgstr ""
-"Use :ref:`virtualenv` ou :doc:`venv <python:library/venv>` para isolar "
-"dependências específicas da aplicação de uma instalação compartilhada do "
-"Python. [4]_"
 
 #: ../source/guides/tool-recommendations.rst:20
+#, fuzzy
+#| msgid "Virtual Environment"
+msgid "Virtual environments"
+msgstr "Ambiente Virtual"
+
+#: ../source/guides/tool-recommendations.rst:22
 msgid ""
-"Use `pip-tools`_, :ref:`pipenv`, or `poetry`_ to generate the fully-"
-"specified application-specific dependencies, when developing Python "
-"applications."
+"The standard tools to create and use virtual environments manually are :ref:"
+"`virtualenv` (PyPA project) and :doc:`venv <python:library/venv>` (part of "
+"the Python standard library, though missing some features of virtualenv)."
 msgstr ""
-"Use `pip-tools`_, :ref:`pipenv`, ou `poetry`_ para gerar as dependências "
-"específicas da aplicação totalmente especificadas, ao desenvolver aplicações "
-"Python."
 
 #: ../source/guides/tool-recommendations.rst:28
-msgid "Installation tool recommendations"
-msgstr "Recomendações de ferramentas de instalação"
+#, fuzzy
+#| msgid "Installing Packages"
+msgid "Installing packages"
+msgstr "Instalando pacotes"
 
 #: ../source/guides/tool-recommendations.rst:30
 msgid ""
-"Use :ref:`pip` to install Python :term:`packages <Distribution Package>` "
-"from :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ Depending on how :"
-"ref:`pip` is installed, you may need to also install :ref:`wheel` to get the "
-"benefit of wheel caching. [3]_"
+":ref:`Pip` is the standard tool to install packages from :term:`PyPI <Python "
+"Package Index (PyPI)>`. You may want to read pip's recommendations for :doc:"
+"`secure installs <pip:topics/secure-installs>`. Pip is available by default "
+"in most Python installations through the standard library package :doc:"
+"`ensurepip <python:library/ensurepip>`."
 msgstr ""
-"Use :ref:`pip` para instalar :term:`pacotes <Pacote de Distribuição>` do "
-"Python a partir do :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ "
-"Dependendo de como :ref:`pip` é instalado, você também pode precisar "
-"instalar o :ref:`wheel` para obter o benefício do armazenamento em cache do "
-"wheel. [3]_"
 
-#: ../source/guides/tool-recommendations.rst:35
+#: ../source/guides/tool-recommendations.rst:36
 msgid ""
-"Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate "
-"project-specific dependencies from a shared Python installation. [4]_"
+"Alternatively, consider :ref:`pipx` for the specific use case of installing "
+"Python applications that are distributed through PyPI and run from the "
+"command line. Pipx is a wrapper around pip and venv that installs each "
+"application into a dedicated virtual environment. This avoids conflicts "
+"between the dependencies of different applications, and also with system-"
+"wide applications making use of the same Python interpreter (especially on "
+"Linux)."
 msgstr ""
-"Use :ref:`virtualenv` ou :doc:`venv <python:library/venv>` para isolar "
-"dependências específicas do projeto de uma instalação compartilhada do "
-"Python. [4]_"
-
-#: ../source/guides/tool-recommendations.rst:38
-msgid ""
-"If you're looking for management of fully integrated cross-platform software "
-"stacks, consider:"
-msgstr ""
-"Se você estiver procurando por gerenciamento de pilhas de software "
-"multiplataforma totalmente integradas, considere:"
-
-#: ../source/guides/tool-recommendations.rst:41
-msgid ":ref:`buildout`: primarily focused on the web development community"
-msgstr ""
-":ref:`buildout`: focado principalmente na comunidade de desenvolvimento web"
 
 #: ../source/guides/tool-recommendations.rst:43
 msgid ""
-":ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused on the "
-"scientific community."
+"For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`."
 msgstr ""
-":ref:`spack`, :ref:`hashdist` ou :ref:`conda`: focado principalmente na "
-"comunidade científica."
 
-#: ../source/guides/tool-recommendations.rst:48
-msgid "Packaging tool recommendations"
-msgstr "Recomendações de ferramentas de empacotamento"
+#: ../source/guides/tool-recommendations.rst:45
+msgid "Write a \"pip vs. Conda\" comparison, here or in a new discussion."
+msgstr ""
 
-#: ../source/guides/tool-recommendations.rst:50
-msgid "Use :ref:`setuptools` to define projects. [5]_ [6]_"
-msgstr "Use :ref:`setuptools` para definir projetos. [5]_ [6]_"
-
-#: ../source/guides/tool-recommendations.rst:52
+#: ../source/guides/tool-recommendations.rst:47
 msgid ""
-"Use :ref:`build` to create :term:`Source Distributions <Source Distribution "
-"(or \"sdist\")>` and :term:`wheels <Wheel>`."
+"Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is "
+"deprecated in favor of pip (see :ref:`pip vs easy_install` for details). "
+"Likewise, do **not** use ``python setup.py install`` or ``python setup.py "
+"develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
+"background and :ref:`modernize-setup-py-project` for migration advice)."
 msgstr ""
-"Use :ref:`build` para criar :term:`Distribuições Fontes <Distribuição Fonte "
-"(ou \"sdist\")>` e :term:`wheels <Wheel>`."
 
 #: ../source/guides/tool-recommendations.rst:55
+msgid "Lock files"
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:57
 msgid ""
-"If you have binary extensions and want to distribute wheels for multiple "
-"platforms, use :ref:`cibuildwheel` as part of your CI setup to build "
-"distributable wheels."
+":ref:`pip-tools` and :ref:`Pipenv` are two recognized tools to create lock "
+"files, which contain the exact versions of all packages installed into an "
+"environment, for reproducibility purposes."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:63
+#, fuzzy
+#| msgid "Build Backend"
+msgid "Build backends"
+msgstr "Backend de construção"
+
+#: ../source/guides/tool-recommendations.rst:67
+msgid ""
+"Please, remember: this document does not seek to steer the reader towards a "
+"particular tool, only to enumerate common tools. Different use cases often "
+"need specialized workflows."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:71
+msgid ""
+"Popular :term:`build backends <build backend>` for pure-Python packages "
+"include, in alphabetical order:"
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:74
+msgid ""
+":doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate from :"
+"ref:`Flit`. A minimal and opinionated build backend. It does not support "
+"plugins."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:77
+msgid ""
+"Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports "
+"plugins."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:79
+msgid ""
+"PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports "
+"plugins."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:81
+msgid ""
+"Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports "
+"plugins."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:84
+msgid ""
+"Unlike other backends on this list, Poetry-core does not support the "
+"standard :ref:`[project] table <writing-pyproject-toml>` (it uses a "
+"different format, in the ``[tool.poetry]`` table)."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:88
+msgid ""
+":ref:`setuptools`, which used to be the only build backend. Supports plugins."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:92
+msgid ""
+"If you use setuptools, please be aware that some features that predate "
+"standardisation efforts are now deprecated and only *temporarily kept* for "
+"compatibility."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:96
+msgid ""
+"In particular, do **not** use direct ``python setup.py`` invocations. On the "
+"other hand, configuring setuptools with a :file:`setup.py` file is still "
+"fully supported, although it is recommended to use the modern :ref:"
+"`[project] table in pyproject.toml <writing-pyproject-toml>` (or :file:"
+"`setup.cfg`) whenever possible and keep :file:`setup.py` only if "
+"programmatic configuration is needed. See :ref:`setup-py-deprecated`."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:103
+msgid ""
+"Other examples of deprecated features you should **not** use include the "
+"``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] "
+"table <pyproject-guide-build-system-table>` in :file:`pyproject.toml` "
+"instead), and the ``easy_install`` command (cf. :ref:`pip vs easy_install`)."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:108
+msgid ""
+"Do **not** use :ref:`distutils`, which is deprecated, and has been removed "
+"from the standard library in Python 3.12, although it still remains "
+"available from setuptools."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:112
+msgid ""
+"For packages with :term:`extension modules <extension module>`, it is best "
+"to use a build system with dedicated support for the language the extension "
+"is written in, for example:"
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:116
+msgid ""
+":ref:`setuptools` -- natively supports C and C++ (with third-party plugins "
+"for Go and Rust),"
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:117
+msgid ""
+":ref:`meson-python` -- C, C++, Fortran, Rust, and other languages supported "
+"by Meson,"
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:118
+msgid ""
+":ref:`scikit-build-core` -- C, C++, Fortran, and other languages supported "
+"by CMake,"
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:119
+msgid ":ref:`maturin` -- Rust, via Cargo."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:123
+#, fuzzy
+#| msgid "Built Distribution"
+msgid "Building distributions"
+msgstr "Distribuição Construída"
+
+#: ../source/guides/tool-recommendations.rst:125
+msgid ""
+"The standard tool to build :term:`source distributions <source distribution "
+"(or \"sdist\")>` and :term:`wheels <wheel>` for uploading to PyPI is :ref:"
+"`build`.  It will invoke whichever build backend you :ref:`declared "
+"<pyproject-guide-build-system-table>` in :file:`pyproject.toml`."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:130
+msgid ""
+"Do **not** use ``python setup.py sdist`` and ``python setup.py bdist_wheel`` "
+"for this task. All direct invocations of :file:`setup.py` are :ref:"
+"`deprecated <setup-py-deprecated>`."
+msgstr ""
+
+#: ../source/guides/tool-recommendations.rst:134
+#, fuzzy
+#| msgid ""
+#| "If you have binary extensions and want to distribute wheels for multiple "
+#| "platforms, use :ref:`cibuildwheel` as part of your CI setup to build "
+#| "distributable wheels."
+msgid ""
+"If you have :term:`extension modules <extension module>` and want to "
+"distribute wheels for multiple platforms, use :ref:`cibuildwheel` as part of "
+"your CI setup to build distributable wheels."
 msgstr ""
 "Se você tem extensões binárias e deseja distribuir wheels para várias "
 "plataformas, use :ref:`cibuildwheel` como parte de sua configuração de CI "
 "para construir wheels distribuíveis."
 
-#: ../source/guides/tool-recommendations.rst:59
-msgid ""
-"Use `twine <https://pypi.org/project/twine>`_ for uploading distributions "
-"to :term:`PyPI <Python Package Index (PyPI)>`."
-msgstr ""
-"Use `twine <https://pypi.org/project/twine>`_ para enviar distribuições para "
-"o :term:`PyPI <Python Package Index (PyPI)>`."
+#: ../source/guides/tool-recommendations.rst:140
+#, fuzzy
+#| msgid "Uploading your Project to PyPI"
+msgid "Uploading to PyPI"
+msgstr "Enviando seu Projeto para PyPI"
 
-#: ../source/guides/tool-recommendations.rst:64
-msgid "Publishing platform migration"
-msgstr "Migração da plataforma de publicação"
-
-#: ../source/guides/tool-recommendations.rst:66
+#: ../source/guides/tool-recommendations.rst:142
 msgid ""
-"The original Python Package Index implementation (previously hosted at `pypi."
-"python.org <https://pypi.python.org>`_) has been phased out in favour of an "
-"updated implementation hosted at `pypi.org <https://pypi.org>`_."
+"For projects hosted on GitHub, it is recommended to use the :ref:`trusted "
+"publishing <trusted-publishing>`, which allows the package to be securely "
+"uploaded to PyPI from a GitHub Actions job. (This is not yet supported on "
+"software forges other than GitHub.)"
 msgstr ""
-"A implementação do Python Package Index original (anteriormente hospedada em "
-"`pypi.python.org <https://pypi.python.org>`_) foi eliminada em favor de uma "
-"implementação atualizada hospedada em `pypi.org <https://pypi.org>`_."
 
-#: ../source/guides/tool-recommendations.rst:70
+#: ../source/guides/tool-recommendations.rst:147
 msgid ""
-"See :ref:`Migrating to PyPI.org` for more information on the status of the "
-"migration, and what settings to change in your clients."
+"The other available method is to upload the package manually using :ref:"
+"`twine`."
 msgstr ""
-"Veja :ref:`Migrando para PyPI.org <Migrating to PyPI.org>` para mais "
-"informações sobre o status da migração, e quais configurações alterar em "
-"seus clientes."
 
-#: ../source/guides/tool-recommendations.rst:75
+#: ../source/guides/tool-recommendations.rst:149
 msgid ""
-"There are some cases where you might choose to use ``easy_install`` (from :"
-"ref:`setuptools`), e.g. if you need to install from :term:`Eggs <Egg>` "
-"(which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs "
-"easy_install`."
+"**Never** use ``python setup.py upload`` for this task. In addition to "
+"being :ref:`deprecated <setup-py-deprecated>`, it is insecure."
 msgstr ""
-"Existem alguns casos em que você pode escolher usar ``easy_install`` (do :"
-"ref:`setuptools`), por exemplo se você precisar instalar a partir de :term:"
-"`Eggs <Egg>` (que pip não oferece suporte). Para uma análise detalhada, "
-"consulte :ref:`pip vs easy_install`."
 
-#: ../source/guides/tool-recommendations.rst:80
-msgid ""
-"The acceptance of :pep:`453` means that :ref:`pip` will be available by "
-"default in most installations of Python 3.4 or later.  See the :pep:"
-"`rationale section <453#rationale>` from :pep:`453` as for why pip was "
-"chosen."
+#: ../source/guides/tool-recommendations.rst:154
+msgid "Workflow tools"
 msgstr ""
-"A aceitação da :pep:`453` significa que :ref:`pip` estará disponível por "
-"padrão na maioria das instalações do Python 3.4 ou posterior. Veja a :pep:"
-"`seção de motivos <453#rationale>` da :pep:`453` para saber por que pip foi "
-"escolhido."
 
-#: ../source/guides/tool-recommendations.rst:85
+#: ../source/guides/tool-recommendations.rst:156
 msgid ""
-"`get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and :ref:"
-"`virtualenv` install :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv "
-"<venv>` do not currently.  Also, the common \"python-pip\" package that's "
-"found in various linux distros, does not depend on \"python-wheel\" "
-"currently."
+"These tools are environment managers that automatically manage virtual "
+"environments for a project. They also act as \"task runners\", allowing you "
+"to define and invoke tasks such as running tests, compiling documentation, "
+"regenerating some files, etc. Some of them provide shortcuts for building "
+"distributions and uploading to PyPI, and some support lock files for "
+"applications. They often call the tools mentioned above under the hood. In "
+"alphabetical order:"
 msgstr ""
-"`get-pip.py <https://github.com/pypa/get-pip/#readme>`_ e :ref:`virtualenv` "
-"instalam :ref:`wheel`, enquanto :ref:`ensurepip` e :ref:`venv <venv>` não "
-"instalam atualmente. Além disso, o pacote comum \"python-pip\" que é "
-"encontrado em várias distros do Linux, não depende do \"python-wheel\" "
-"atualmente."
 
-#: ../source/guides/tool-recommendations.rst:91
-msgid ""
-"Beginning with Python 3.4, ``venv`` will create virtualenv environments with "
-"``pip`` installed, thereby making it an equal alternative to :ref:"
-"`virtualenv`. However, using :ref:`virtualenv` will still be recommended for "
-"users that need cross-version consistency."
-msgstr ""
-"A partir do Python 3.4, ``venv`` criará ambientes virtualenv com ``pip`` "
-"instalado, tornando-o uma alternativa igual a :ref:`virtualenv`. No entanto, "
-"usar :ref:`virtualenv` ainda será recomendado para usuários que precisam de "
-"consistência entre versões."
+#: ../source/guides/tool-recommendations.rst:164
+#, fuzzy
+#| msgid ":ref:`pip`"
+msgid ":ref:`Flit`,"
+msgstr ":ref:`pip`"
 
-#: ../source/guides/tool-recommendations.rst:96
-msgid ""
-"Although you can use pure :ref:`distutils` for many projects, it does not "
-"support defining dependencies on other projects and is missing several "
-"convenience utilities for automatically populating distribution metadata "
-"correctly that are provided by ``setuptools``. Being outside the standard "
-"library, ``setuptools`` also offers a more consistent feature set across "
-"different versions of Python, and (unlike ``distutils``), recent versions of "
-"``setuptools`` support all of the modern metadata fields described in :ref:"
-"`core-metadata`."
-msgstr ""
-"Embora você possa usar :ref:`distutils` puro para muitos projetos, ele não "
-"oferece suporta à definição de dependências em outros projetos e não possui "
-"vários utilitários de conveniência para preencher automaticamente os "
-"metadados de distribuição fornecidos pelo ``setuptools``. Estando fora da "
-"biblioteca padrão, ``setuptools`` também oferece um conjunto de recursos "
-"mais consistente em diferentes versões do Python e (ao contrário de "
-"``distutils``), versões recentes do ``setuptools`` oferecem suporte a todos "
-"os campos de metadados modernos descritos em :ref:`core-metadata`."
+#: ../source/guides/tool-recommendations.rst:165
+#, fuzzy
+#| msgid "pip, :ref:`bandersnatch`"
+msgid ":ref:`Hatch`,"
+msgstr "pip, :ref:`bandersnatch`"
 
-#: ../source/guides/tool-recommendations.rst:105
-msgid ""
-"Even for projects that do choose to use ``distutils``, when :ref:`pip` "
-"installs such projects directly from source (rather than installing from a "
-"prebuilt :term:`wheel <Wheel>` file), it will actually build your project "
-"using :ref:`setuptools` instead."
-msgstr ""
-"Mesmo para projetos que escolhem usar ``distutils``, quando o :ref:`pip` "
-"instala tais projetos diretamente da fonte (ao invés de instalar de um "
-"arquivo :term:`wheel <Wheel>` pré-construído), ele irá, na verdade, "
-"construir seu projeto usando :ref:`setuptools`."
+#: ../source/guides/tool-recommendations.rst:166
+#, fuzzy
+#| msgid ":doc:`Docs <conda:index>`"
+msgid ":doc:`nox <nox:index>`,"
+msgstr ":doc:`Documentação <conda:index>`"
 
-#: ../source/guides/tool-recommendations.rst:110
-msgid ""
-"`distribute`_ (a fork of setuptools) was merged back into :ref:`setuptools` "
-"in June 2013, thereby making setuptools the default choice for packaging."
-msgstr ""
-"`distribute`_ (um fork do setuptools) foi mesclado no :ref:`setuptools` em "
-"junho de 2013, tornando assim setuptools a escolha padrão para empacotamento."
+#: ../source/guides/tool-recommendations.rst:167
+#, fuzzy
+#| msgid ":ref:`pip`"
+msgid ":ref:`PDM`,"
+msgstr ":ref:`pip`"
+
+#: ../source/guides/tool-recommendations.rst:168
+#, fuzzy
+#| msgid ":ref:`pip`"
+msgid ":ref:`Pipenv`,"
+msgstr ":ref:`pip`"
+
+#: ../source/guides/tool-recommendations.rst:169
+#, fuzzy
+#| msgid ":ref:`pip`"
+msgid ":ref:`Poetry`,"
+msgstr ":ref:`pip`"
+
+#: ../source/guides/tool-recommendations.rst:170
+#, fuzzy
+#| msgid ":doc:`Docs <conda:index>`"
+msgid ":doc:`tox <tox:index>`."
+msgstr ":doc:`Documentação <conda:index>`"
 
 #: ../source/guides/using-manifest-in.rst:5
 msgid "Including files in source distributions with ``MANIFEST.in``"
@@ -10551,11 +10639,11 @@ msgstr ""
 "necessária (como construir extensões C), mas os formatos ``setup.cfg`` e "
 "``setup.py`` ainda são válidos. Veja :ref:`setup-py-deprecated`."
 
-#: ../source/guides/writing-pyproject-toml.rst:45
+#: ../source/guides/writing-pyproject-toml.rst:46
 msgid "Declaring the build backend"
 msgstr "Declarando o backend de construção"
 
-#: ../source/guides/writing-pyproject-toml.rst:47
+#: ../source/guides/writing-pyproject-toml.rst:48
 msgid ""
 "The ``[build-system]`` table contains a ``build-backend`` key, which "
 "specifies the build backend to be used. It also contains a ``requires`` key, "
@@ -10571,7 +10659,7 @@ msgstr ""
 "pode conter dependências adicionais. Você também pode restringir as versões, "
 "por exemplo, ``requires = [\"setuptools >= 61.0\"]``."
 
-#: ../source/guides/writing-pyproject-toml.rst:53
+#: ../source/guides/writing-pyproject-toml.rst:54
 msgid ""
 "Usually, you'll just copy what your build backend's documentation suggests "
 "(after :ref:`choosing your build backend <choosing-build-backend>`). Here "
@@ -10582,15 +10670,15 @@ msgstr ""
 "build-backend>`). Aqui estão os valores para alguns backends de construção "
 "comuns:"
 
-#: ../source/guides/writing-pyproject-toml.rst:92
+#: ../source/guides/writing-pyproject-toml.rst:93
 msgid "Static vs. dynamic metadata"
 msgstr "Metadados estáticos vs dinâmicos"
 
-#: ../source/guides/writing-pyproject-toml.rst:94
+#: ../source/guides/writing-pyproject-toml.rst:95
 msgid "The rest of this guide is devoted to the ``[project]`` table."
 msgstr "O resto deste guia é dedicado à tabela ``[project]``."
 
-#: ../source/guides/writing-pyproject-toml.rst:96
+#: ../source/guides/writing-pyproject-toml.rst:97
 msgid ""
 "Most of the time, you will directly write the value of a ``[project]`` "
 "field. For example: ``requires-python = \">= 3.8\"``, or ``version = "
@@ -10600,7 +10688,7 @@ msgstr ""
 "``[project]``. Por exemplo: ``requires-python = \">= 3.8\"``, ou ``version = "
 "\"1.0\"``."
 
-#: ../source/guides/writing-pyproject-toml.rst:100
+#: ../source/guides/writing-pyproject-toml.rst:101
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
@@ -10613,7 +10701,7 @@ msgstr ""
 "ou similar. Nesses casos, você deve marcar o campo como dinâmico usando, por "
 "exemplo,"
 
-#: ../source/guides/writing-pyproject-toml.rst:111
+#: ../source/guides/writing-pyproject-toml.rst:112
 msgid ""
 "When a field is dynamic, it is the build backend's responsibility to fill "
 "it.  Consult your build backend's documentation to learn how it does it."
@@ -10622,18 +10710,18 @@ msgstr ""
 "preenchê-lo. Consulte a documentação do seu backend de construção para saber "
 "como ele faz."
 
-#: ../source/guides/writing-pyproject-toml.rst:117
+#: ../source/guides/writing-pyproject-toml.rst:118
 msgid "Basic information"
 msgstr "Informações básicas"
 
-#: ../source/guides/writing-pyproject-toml.rst:122
+#: ../source/guides/writing-pyproject-toml.rst:123
 #: ../source/specifications/pyproject-toml.rst:120
 #: ../source/specifications/pyproject-toml.rst:142
 #: ../source/specifications/pyproject-toml.rst:152
 msgid "``name``"
 msgstr "``name``"
 
-#: ../source/guides/writing-pyproject-toml.rst:124
+#: ../source/guides/writing-pyproject-toml.rst:125
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
@@ -10641,7 +10729,7 @@ msgstr ""
 "Coloque o nome do seu projeto em PyPI. Este campo é necessário e é o único "
 "campo que não pode ser marcado como dinâmico."
 
-#: ../source/guides/writing-pyproject-toml.rst:132
+#: ../source/guides/writing-pyproject-toml.rst:133
 msgid ""
 "The project name must consists of ASCII letters, digits, underscores "
 "\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or end "
@@ -10651,7 +10739,7 @@ msgstr ""
 "\"``_``\", hífenes \"``-``\" e pontos \"``.``\". Não deve começar ou "
 "terminar com um sublinhado, hífen ou ponto."
 
-#: ../source/guides/writing-pyproject-toml.rst:136
+#: ../source/guides/writing-pyproject-toml.rst:137
 msgid ""
 "Comparison of project names is case insensitive and treats arbitrarily long "
 "runs of underscores, hyphens, and/or periods as equal.  For example, if you "
@@ -10666,18 +10754,18 @@ msgstr ""
 "usando qualquer uma das seguintes formas de escrever: ``Cool-Stuff``, ``cool."
 "stuff``, ``COOL_STUFF``, ``CoOl__-.-__sTuFF``."
 
-#: ../source/guides/writing-pyproject-toml.rst:144
+#: ../source/guides/writing-pyproject-toml.rst:145
 #: ../source/specifications/pyproject-toml.rst:125
 #: ../source/specifications/pyproject-toml.rst:148
 #: ../source/specifications/pyproject-toml.rst:164
 msgid "``version``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:146
+#: ../source/guides/writing-pyproject-toml.rst:147
 msgid "Put the version of your project."
 msgstr "Coloque a versão do seu projeto."
 
-#: ../source/guides/writing-pyproject-toml.rst:153
+#: ../source/guides/writing-pyproject-toml.rst:154
 msgid ""
 "Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha "
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
@@ -10687,13 +10775,13 @@ msgstr ""
 "uma versão alfa) são possíveis; veja a :ref:`especificação <version-"
 "specifiers>` para detalhes completos."
 
-#: ../source/guides/writing-pyproject-toml.rst:157
+#: ../source/guides/writing-pyproject-toml.rst:158
 msgid "This field is required, although it is often marked as dynamic using"
 msgstr ""
 "Este campo é necessário, embora muitas vezes seja marcado como dinâmico "
 "usando"
 
-#: ../source/guides/writing-pyproject-toml.rst:164
+#: ../source/guides/writing-pyproject-toml.rst:165
 msgid ""
 "This allows use cases such as filling the version from a ``__version__`` "
 "attribute or a Git tag. Consult :ref:`Single sourcing the version` for more "
@@ -10703,20 +10791,20 @@ msgstr ""
 "``__version__`` ou uma tag Git. Consulte :ref:`Single sourcing the version` "
 "para obter mais detalhes."
 
-#: ../source/guides/writing-pyproject-toml.rst:170
+#: ../source/guides/writing-pyproject-toml.rst:171
 msgid "Dependencies and requirements"
 msgstr "Dependências e requisitos"
 
-#: ../source/guides/writing-pyproject-toml.rst:173
+#: ../source/guides/writing-pyproject-toml.rst:174
 #: ../source/specifications/pyproject-toml.rst:354
 msgid "``dependencies``/``optional-dependencies``"
 msgstr "``dependencies``/``optional-dependencies``"
 
-#: ../source/guides/writing-pyproject-toml.rst:175
+#: ../source/guides/writing-pyproject-toml.rst:176
 msgid "If your project has dependencies, list them like this:"
 msgstr "Se o seu projeto tiver dependências, liste-as assim:"
 
-#: ../source/guides/writing-pyproject-toml.rst:187
+#: ../source/guides/writing-pyproject-toml.rst:188
 msgid ""
 "See :ref:`Dependency specifiers <dependency-specifiers>` for the full syntax "
 "you can use to constrain versions."
@@ -10724,7 +10812,7 @@ msgstr ""
 "Veja :ref:`Especificadores de dependências <dependency-specifiers>` para a "
 "sintaxe completa que você pode usar para restringir versões."
 
-#: ../source/guides/writing-pyproject-toml.rst:190
+#: ../source/guides/writing-pyproject-toml.rst:191
 msgid ""
 "You may want to make some of your dependencies optional, if they are only "
 "needed for a specific feature of your package. In that case, put them in "
@@ -10734,7 +10822,7 @@ msgstr ""
 "necessárias apenas para um recurso específico do seu pacote. Nesse caso, "
 "coloque-os em ``optional-dependencies``."
 
-#: ../source/guides/writing-pyproject-toml.rst:203
+#: ../source/guides/writing-pyproject-toml.rst:204
 msgid ""
 "Each of the keys defines a \"packaging extra\". In the example above, one "
 "could use, e.g., ``pip install your-project-name[gui]`` to install your "
@@ -10744,13 +10832,13 @@ msgstr ""
 "pode-se usar, por exemplo, ``pip install seu-projeto-de-nome[gui]`` para "
 "instalar seu projeto com suporte GUI, adicionando a dependência PyQt5."
 
-#: ../source/guides/writing-pyproject-toml.rst:212
+#: ../source/guides/writing-pyproject-toml.rst:213
 #: ../source/specifications/pyproject-toml.rst:145
 #: ../source/specifications/pyproject-toml.rst:226
 msgid "``requires-python``"
 msgstr "``requires-python``"
 
-#: ../source/guides/writing-pyproject-toml.rst:214
+#: ../source/guides/writing-pyproject-toml.rst:215
 msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
@@ -10758,11 +10846,11 @@ msgstr ""
 "Isso permite que você declare a versão mínima de Python que você suporta "
 "[#requires-python-upper-bounds]_."
 
-#: ../source/guides/writing-pyproject-toml.rst:226
+#: ../source/guides/writing-pyproject-toml.rst:227
 msgid "Creating executable scripts"
 msgstr "Criando scripts executáveis"
 
-#: ../source/guides/writing-pyproject-toml.rst:228
+#: ../source/guides/writing-pyproject-toml.rst:229
 msgid ""
 "To install a command as part of your package, declare it in the ``[project."
 "scripts]`` table."
@@ -10770,7 +10858,7 @@ msgstr ""
 "Para instalar um comando como parte do seu pacote, declare-o na tabela "
 "``[project.scripts]``."
 
-#: ../source/guides/writing-pyproject-toml.rst:236
+#: ../source/guides/writing-pyproject-toml.rst:237
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
 "be available. Executing this command will do the equivalent of ``from spam "
@@ -10780,7 +10868,7 @@ msgstr ""
 "estará disponível. Executar este comando fará o equivalente a ``from spam "
 "import main_cli; main_cli()``."
 
-#: ../source/guides/writing-pyproject-toml.rst:240
+#: ../source/guides/writing-pyproject-toml.rst:241
 msgid ""
 "On Windows, scripts packaged this way need a terminal, so if you launch them "
 "from within a graphical application, they will make a terminal pop up. To "
@@ -10792,7 +10880,7 @@ msgstr ""
 "up de terminal. Para evitar que isso aconteça, use o ``[project.gui-"
 "scripts]`` tabela em vez de ``[project.scripts]``."
 
-#: ../source/guides/writing-pyproject-toml.rst:250
+#: ../source/guides/writing-pyproject-toml.rst:251
 msgid ""
 "In that case, launching your script from the command line will give back "
 "control immediately, leaving the script to run in the background."
@@ -10801,7 +10889,7 @@ msgstr ""
 "devolve o controle imediatamente, deixando o script a ser executado em "
 "segundo plano."
 
-#: ../source/guides/writing-pyproject-toml.rst:253
+#: ../source/guides/writing-pyproject-toml.rst:254
 msgid ""
 "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
 "is only relevant on Windows."
@@ -10809,16 +10897,16 @@ msgstr ""
 "A diferença entre ``[project.scripts]`` e ``[project.gui-scripts]`` é apenas "
 "relevante no Windows."
 
-#: ../source/guides/writing-pyproject-toml.rst:259
+#: ../source/guides/writing-pyproject-toml.rst:260
 msgid "About your project"
 msgstr "Sobre o seu projeto"
 
-#: ../source/guides/writing-pyproject-toml.rst:262
+#: ../source/guides/writing-pyproject-toml.rst:263
 #: ../source/specifications/pyproject-toml.rst:251
 msgid "``authors``/``maintainers``"
 msgstr "``authors``/``maintainers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:264
+#: ../source/guides/writing-pyproject-toml.rst:265
 msgid ""
 "Both of these fields contain lists of people identified by a name and/or an "
 "email address."
@@ -10826,13 +10914,13 @@ msgstr ""
 "Ambos os campos contêm listas de pessoas identificadas por um nome e/ou um "
 "endereço de e-mail."
 
-#: ../source/guides/writing-pyproject-toml.rst:284
+#: ../source/guides/writing-pyproject-toml.rst:285
 #: ../source/specifications/pyproject-toml.rst:135
 #: ../source/specifications/pyproject-toml.rst:177
 msgid "``description``"
 msgstr "``description``"
 
-#: ../source/guides/writing-pyproject-toml.rst:286
+#: ../source/guides/writing-pyproject-toml.rst:287
 msgid ""
 "This should be a one-line description of your project, to show as the "
 "\"headline\" of your project page on PyPI (`example <pypi-pip_>`_), and "
@@ -10843,13 +10931,13 @@ msgstr ""
 "outros lugares como listas de resultados de pesquisa (`exemplo <pypi-search-"
 "pip_>`_)."
 
-#: ../source/guides/writing-pyproject-toml.rst:297
+#: ../source/guides/writing-pyproject-toml.rst:298
 #: ../source/specifications/pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:187
 msgid "``readme``"
 msgstr "``readme``"
 
-#: ../source/guides/writing-pyproject-toml.rst:299
+#: ../source/guides/writing-pyproject-toml.rst:300
 msgid ""
 "This is a longer description of your project, to display on your project "
 "page on PyPI. Typically, your project will have a ``README.md`` or ``README."
@@ -10859,30 +10947,30 @@ msgstr ""
 "projeto em PyPI. Tipicamente, seu projeto terá um arquivo ``README.md`` ou "
 "``README.rst`` e você acabou de colocar seu nome de arquivo aqui."
 
-#: ../source/guides/writing-pyproject-toml.rst:308
+#: ../source/guides/writing-pyproject-toml.rst:309
 msgid "The README's format is auto-detected from the extension:"
 msgstr "O formato do README é detectado automaticamente a partir da extensão:"
 
-#: ../source/guides/writing-pyproject-toml.rst:310
+#: ../source/guides/writing-pyproject-toml.rst:311
 msgid "``README.md`` → `GitHub-flavored Markdown <gfm_>`_,"
 msgstr "``README.md`` → `Markdown no estilo do GitHub <gfm_>`_,"
 
-#: ../source/guides/writing-pyproject-toml.rst:311
+#: ../source/guides/writing-pyproject-toml.rst:312
 msgid ""
 "``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions)."
 msgstr "``README.rst`` → reStructuredText <rest_>`_ (sem extensões do Sphinx)."
 
-#: ../source/guides/writing-pyproject-toml.rst:313
+#: ../source/guides/writing-pyproject-toml.rst:314
 msgid "You can also specify the format explicitly, like this:"
 msgstr "Você também pode especificar o formato explicitamente assim:"
 
-#: ../source/guides/writing-pyproject-toml.rst:324
+#: ../source/guides/writing-pyproject-toml.rst:325
 #: ../source/specifications/pyproject-toml.rst:140
 #: ../source/specifications/pyproject-toml.rst:236
 msgid "``license``"
 msgstr "``license``"
 
-#: ../source/guides/writing-pyproject-toml.rst:326
+#: ../source/guides/writing-pyproject-toml.rst:327
 msgid ""
 "This can take two forms. You can put your license in a file, typically "
 "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
@@ -10890,11 +10978,11 @@ msgstr ""
 "Isto pode tomar duas formas. Você pode colocar sua licença em um arquivo, "
 "tipicamente ``LICENSE`` ou ``LICENSE.txt``, e vincular esse arquivo aqui:"
 
-#: ../source/guides/writing-pyproject-toml.rst:334
+#: ../source/guides/writing-pyproject-toml.rst:335
 msgid "or you can write the name of the license:"
 msgstr "ou você pode escrever o nome da licença:"
 
-#: ../source/guides/writing-pyproject-toml.rst:341
+#: ../source/guides/writing-pyproject-toml.rst:342
 #, fuzzy
 msgid ""
 "If you are using a standard, well-known license, it is not necessary to use "
@@ -10909,13 +10997,13 @@ msgstr ""
 "para evitar confusão quanto porque algumas organizações evitam software cuja "
 "licença não é aprovada."
 
-#: ../source/guides/writing-pyproject-toml.rst:349
+#: ../source/guides/writing-pyproject-toml.rst:350
 #: ../source/specifications/pyproject-toml.rst:139
 #: ../source/specifications/pyproject-toml.rst:293
 msgid "``keywords``"
 msgstr "``keywords``"
 
-#: ../source/guides/writing-pyproject-toml.rst:351
+#: ../source/guides/writing-pyproject-toml.rst:352
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
@@ -10923,13 +11011,13 @@ msgstr ""
 "Isso ajudará a caixa de pesquisa do PyPI a sugerir o seu projeto quando as "
 "pessoas procuram essas palavras-chave."
 
-#: ../source/guides/writing-pyproject-toml.rst:363
+#: ../source/guides/writing-pyproject-toml.rst:364
 #: ../source/specifications/pyproject-toml.rst:133
 #: ../source/specifications/pyproject-toml.rst:303
 msgid "``classifiers``"
 msgstr "``classifiers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:365
+#: ../source/guides/writing-pyproject-toml.rst:366
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
@@ -10937,7 +11025,7 @@ msgstr ""
 "Uma lista de classificadores do PyPI que se aplicam ao seu projeto. "
 "Verifique a `lista completa de possibilidades <classifier-list_>`_."
 
-#: ../source/guides/writing-pyproject-toml.rst:392
+#: ../source/guides/writing-pyproject-toml.rst:393
 #, fuzzy
 msgid ""
 "Although the list of classifiers is often used to declare what Python "
@@ -10952,7 +11040,7 @@ msgstr ""
 "projetos. Para realmente restringir em quais versões do Python um projeto "
 "pode ser instalado, use o argumento :ref:`python_requires`."
 
-#: ../source/guides/writing-pyproject-toml.rst:397
+#: ../source/guides/writing-pyproject-toml.rst:398
 #, fuzzy
 msgid ""
 "To prevent a package from being uploaded to PyPI, use the special "
@@ -10963,13 +11051,13 @@ msgstr ""
 "especial ``'Private :: Do Not Upload'``. PyPI sempre rejeitará pacotes com "
 "classificadores começando com ``\"Private ::'``."
 
-#: ../source/guides/writing-pyproject-toml.rst:403
+#: ../source/guides/writing-pyproject-toml.rst:404
 #: ../source/specifications/pyproject-toml.rst:147
 #: ../source/specifications/pyproject-toml.rst:313
 msgid "``urls``"
 msgstr "``urls``"
 
-#: ../source/guides/writing-pyproject-toml.rst:405
+#: ../source/guides/writing-pyproject-toml.rst:406
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
@@ -10977,7 +11065,7 @@ msgstr ""
 "Uma lista de URLs associadas ao seu projeto, exibida na barra lateral "
 "esquerda da página do projeto PyPI."
 
-#: ../source/guides/writing-pyproject-toml.rst:417
+#: ../source/guides/writing-pyproject-toml.rst:418
 msgid ""
 "Note that if the key contains spaces, it needs to be quoted, e.g., ``Website "
 "= \"https://example.com\"`` but ``\"Official Website\" = \"https://example."
@@ -10987,11 +11075,11 @@ msgstr ""
 "``Website = \"https://example.com\"``, mas ``\"Official Website\" = "
 "\"https://example.com\"``."
 
-#: ../source/guides/writing-pyproject-toml.rst:424
+#: ../source/guides/writing-pyproject-toml.rst:425
 msgid "Advanced plugins"
 msgstr "Plugins avançados"
 
-#: ../source/guides/writing-pyproject-toml.rst:426
+#: ../source/guides/writing-pyproject-toml.rst:427
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
@@ -11001,15 +11089,15 @@ msgstr ""
 "Pytest_ e Pygments_. Para criar tal plugin, você precisa declará-lo em uma "
 "subtabela de ``[project.entry-points]`` assim:"
 
-#: ../source/guides/writing-pyproject-toml.rst:435
+#: ../source/guides/writing-pyproject-toml.rst:436
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr "Veja o :ref:`guia Plugin <plugin-entry-points>` para mais informações."
 
-#: ../source/guides/writing-pyproject-toml.rst:440
+#: ../source/guides/writing-pyproject-toml.rst:441
 msgid "A full example"
 msgstr "Um exemplo completo"
 
-#: ../source/guides/writing-pyproject-toml.rst:502
+#: ../source/guides/writing-pyproject-toml.rst:503
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -26494,6 +26582,209 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#~ msgid ""
+#~ "If you're familiar with Python packaging and installation, and just want "
+#~ "to know what tools are currently recommended, then here it is."
+#~ msgstr ""
+#~ "Se você está familiarizado com o pacote e a instalação do Python e só "
+#~ "deseja saber quais ferramentas são recomendadas atualmente, aqui está."
+
+#~ msgid "Application dependency management"
+#~ msgstr "Gerenciamento de dependências de aplicações"
+
+#~ msgid ""
+#~ "Use :ref:`pip` in a `secure manner`_ to install a Python application and "
+#~ "its dependencies during deployment."
+#~ msgstr ""
+#~ "Use :ref:`pip` de uma `maneira segura`_ para instalar um aplicativo "
+#~ "Python e suas dependências durante a implantação."
+
+#~ msgid ""
+#~ "Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate "
+#~ "application-specific dependencies from a shared Python installation. [4]_"
+#~ msgstr ""
+#~ "Use :ref:`virtualenv` ou :doc:`venv <python:library/venv>` para isolar "
+#~ "dependências específicas da aplicação de uma instalação compartilhada do "
+#~ "Python. [4]_"
+
+#~ msgid ""
+#~ "Use `pip-tools`_, :ref:`pipenv`, or `poetry`_ to generate the fully-"
+#~ "specified application-specific dependencies, when developing Python "
+#~ "applications."
+#~ msgstr ""
+#~ "Use `pip-tools`_, :ref:`pipenv`, ou `poetry`_ para gerar as dependências "
+#~ "específicas da aplicação totalmente especificadas, ao desenvolver "
+#~ "aplicações Python."
+
+#~ msgid "Installation tool recommendations"
+#~ msgstr "Recomendações de ferramentas de instalação"
+
+#~ msgid ""
+#~ "Use :ref:`pip` to install Python :term:`packages <Distribution Package>` "
+#~ "from :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ Depending on "
+#~ "how :ref:`pip` is installed, you may need to also install :ref:`wheel` to "
+#~ "get the benefit of wheel caching. [3]_"
+#~ msgstr ""
+#~ "Use :ref:`pip` para instalar :term:`pacotes <Pacote de Distribuição>` do "
+#~ "Python a partir do :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ "
+#~ "Dependendo de como :ref:`pip` é instalado, você também pode precisar "
+#~ "instalar o :ref:`wheel` para obter o benefício do armazenamento em cache "
+#~ "do wheel. [3]_"
+
+#~ msgid ""
+#~ "Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate "
+#~ "project-specific dependencies from a shared Python installation. [4]_"
+#~ msgstr ""
+#~ "Use :ref:`virtualenv` ou :doc:`venv <python:library/venv>` para isolar "
+#~ "dependências específicas do projeto de uma instalação compartilhada do "
+#~ "Python. [4]_"
+
+#~ msgid ""
+#~ "If you're looking for management of fully integrated cross-platform "
+#~ "software stacks, consider:"
+#~ msgstr ""
+#~ "Se você estiver procurando por gerenciamento de pilhas de software "
+#~ "multiplataforma totalmente integradas, considere:"
+
+#~ msgid ":ref:`buildout`: primarily focused on the web development community"
+#~ msgstr ""
+#~ ":ref:`buildout`: focado principalmente na comunidade de desenvolvimento "
+#~ "web"
+
+#~ msgid ""
+#~ ":ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused on the "
+#~ "scientific community."
+#~ msgstr ""
+#~ ":ref:`spack`, :ref:`hashdist` ou :ref:`conda`: focado principalmente na "
+#~ "comunidade científica."
+
+#~ msgid "Packaging tool recommendations"
+#~ msgstr "Recomendações de ferramentas de empacotamento"
+
+#~ msgid "Use :ref:`setuptools` to define projects. [5]_ [6]_"
+#~ msgstr "Use :ref:`setuptools` para definir projetos. [5]_ [6]_"
+
+#~ msgid ""
+#~ "Use :ref:`build` to create :term:`Source Distributions <Source "
+#~ "Distribution (or \"sdist\")>` and :term:`wheels <Wheel>`."
+#~ msgstr ""
+#~ "Use :ref:`build` para criar :term:`Distribuições Fontes <Distribuição "
+#~ "Fonte (ou \"sdist\")>` e :term:`wheels <Wheel>`."
+
+#~ msgid ""
+#~ "Use `twine <https://pypi.org/project/twine>`_ for uploading distributions "
+#~ "to :term:`PyPI <Python Package Index (PyPI)>`."
+#~ msgstr ""
+#~ "Use `twine <https://pypi.org/project/twine>`_ para enviar distribuições "
+#~ "para o :term:`PyPI <Python Package Index (PyPI)>`."
+
+#~ msgid "Publishing platform migration"
+#~ msgstr "Migração da plataforma de publicação"
+
+#~ msgid ""
+#~ "The original Python Package Index implementation (previously hosted at "
+#~ "`pypi.python.org <https://pypi.python.org>`_) has been phased out in "
+#~ "favour of an updated implementation hosted at `pypi.org <https://pypi."
+#~ "org>`_."
+#~ msgstr ""
+#~ "A implementação do Python Package Index original (anteriormente hospedada "
+#~ "em `pypi.python.org <https://pypi.python.org>`_) foi eliminada em favor "
+#~ "de uma implementação atualizada hospedada em `pypi.org <https://pypi."
+#~ "org>`_."
+
+#~ msgid ""
+#~ "See :ref:`Migrating to PyPI.org` for more information on the status of "
+#~ "the migration, and what settings to change in your clients."
+#~ msgstr ""
+#~ "Veja :ref:`Migrando para PyPI.org <Migrating to PyPI.org>` para mais "
+#~ "informações sobre o status da migração, e quais configurações alterar em "
+#~ "seus clientes."
+
+#~ msgid ""
+#~ "There are some cases where you might choose to use ``easy_install`` "
+#~ "(from :ref:`setuptools`), e.g. if you need to install from :term:`Eggs "
+#~ "<Egg>` (which pip doesn't support).  For a detailed breakdown, see :ref:"
+#~ "`pip vs easy_install`."
+#~ msgstr ""
+#~ "Existem alguns casos em que você pode escolher usar ``easy_install`` (do :"
+#~ "ref:`setuptools`), por exemplo se você precisar instalar a partir de :"
+#~ "term:`Eggs <Egg>` (que pip não oferece suporte). Para uma análise "
+#~ "detalhada, consulte :ref:`pip vs easy_install`."
+
+#~ msgid ""
+#~ "The acceptance of :pep:`453` means that :ref:`pip` will be available by "
+#~ "default in most installations of Python 3.4 or later.  See the :pep:"
+#~ "`rationale section <453#rationale>` from :pep:`453` as for why pip was "
+#~ "chosen."
+#~ msgstr ""
+#~ "A aceitação da :pep:`453` significa que :ref:`pip` estará disponível por "
+#~ "padrão na maioria das instalações do Python 3.4 ou posterior. Veja a :pep:"
+#~ "`seção de motivos <453#rationale>` da :pep:`453` para saber por que pip "
+#~ "foi escolhido."
+
+#~ msgid ""
+#~ "`get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and :ref:"
+#~ "`virtualenv` install :ref:`wheel`, whereas :ref:`ensurepip` and :ref:"
+#~ "`venv <venv>` do not currently.  Also, the common \"python-pip\" package "
+#~ "that's found in various linux distros, does not depend on \"python-"
+#~ "wheel\" currently."
+#~ msgstr ""
+#~ "`get-pip.py <https://github.com/pypa/get-pip/#readme>`_ e :ref:"
+#~ "`virtualenv` instalam :ref:`wheel`, enquanto :ref:`ensurepip` e :ref:"
+#~ "`venv <venv>` não instalam atualmente. Além disso, o pacote comum "
+#~ "\"python-pip\" que é encontrado em várias distros do Linux, não depende "
+#~ "do \"python-wheel\" atualmente."
+
+#~ msgid ""
+#~ "Beginning with Python 3.4, ``venv`` will create virtualenv environments "
+#~ "with ``pip`` installed, thereby making it an equal alternative to :ref:"
+#~ "`virtualenv`. However, using :ref:`virtualenv` will still be recommended "
+#~ "for users that need cross-version consistency."
+#~ msgstr ""
+#~ "A partir do Python 3.4, ``venv`` criará ambientes virtualenv com ``pip`` "
+#~ "instalado, tornando-o uma alternativa igual a :ref:`virtualenv`. No "
+#~ "entanto, usar :ref:`virtualenv` ainda será recomendado para usuários que "
+#~ "precisam de consistência entre versões."
+
+#~ msgid ""
+#~ "Although you can use pure :ref:`distutils` for many projects, it does not "
+#~ "support defining dependencies on other projects and is missing several "
+#~ "convenience utilities for automatically populating distribution metadata "
+#~ "correctly that are provided by ``setuptools``. Being outside the standard "
+#~ "library, ``setuptools`` also offers a more consistent feature set across "
+#~ "different versions of Python, and (unlike ``distutils``), recent versions "
+#~ "of ``setuptools`` support all of the modern metadata fields described in :"
+#~ "ref:`core-metadata`."
+#~ msgstr ""
+#~ "Embora você possa usar :ref:`distutils` puro para muitos projetos, ele "
+#~ "não oferece suporta à definição de dependências em outros projetos e não "
+#~ "possui vários utilitários de conveniência para preencher automaticamente "
+#~ "os metadados de distribuição fornecidos pelo ``setuptools``. Estando fora "
+#~ "da biblioteca padrão, ``setuptools`` também oferece um conjunto de "
+#~ "recursos mais consistente em diferentes versões do Python e (ao contrário "
+#~ "de ``distutils``), versões recentes do ``setuptools`` oferecem suporte a "
+#~ "todos os campos de metadados modernos descritos em :ref:`core-metadata`."
+
+#~ msgid ""
+#~ "Even for projects that do choose to use ``distutils``, when :ref:`pip` "
+#~ "installs such projects directly from source (rather than installing from "
+#~ "a prebuilt :term:`wheel <Wheel>` file), it will actually build your "
+#~ "project using :ref:`setuptools` instead."
+#~ msgstr ""
+#~ "Mesmo para projetos que escolhem usar ``distutils``, quando o :ref:`pip` "
+#~ "instala tais projetos diretamente da fonte (ao invés de instalar de um "
+#~ "arquivo :term:`wheel <Wheel>` pré-construído), ele irá, na verdade, "
+#~ "construir seu projeto usando :ref:`setuptools`."
+
+#~ msgid ""
+#~ "`distribute`_ (a fork of setuptools) was merged back into :ref:"
+#~ "`setuptools` in June 2013, thereby making setuptools the default choice "
+#~ "for packaging."
+#~ msgstr ""
+#~ "`distribute`_ (um fork do setuptools) foi mesclado no :ref:`setuptools` "
+#~ "em junho de 2013, tornando assim setuptools a escolha padrão para "
+#~ "empacotamento."
 
 #~ msgid "Standards compliance for interoperability"
 #~ msgstr "Conformidade de padrões para interoperabilidade"
