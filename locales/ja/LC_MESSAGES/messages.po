@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-09 11:35+0000\n"
-"PO-Revision-Date: 2024-02-22 02:02+0000\n"
+"PO-Revision-Date: 2024-02-29 02:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -2038,46 +2038,40 @@ msgid ""
 "when security vulnerability needs to be addressed. Security releases often "
 "come in patch versions but contain breaking changes inevitably."
 msgstr ""
+"次のバージョン番号を選定する上で既知の例外があります。保守者は、最後のバージ"
+"ョン断片が後方互換性を保つための変更だけを含むという想定を破るような選択を意"
+"識的に行っても構いません。そのような場合の一つは、セキュリティ上の脆弱性を修"
+"正する必要がある時です。セキュリティリリースは、しばしば、パッチバージョンと"
+"して提供されますが、そうすると必然的にここで述べているような変更をもたらしま"
+"す。"
 
 #: ../source/discussions/versioning.rst:84
 #: ../source/specifications/version-specifiers.rst:721
-#, fuzzy
 msgid "Semantic versioning"
-msgstr "一連番号によるバージョン付与"
+msgstr "セマンティックバージョニング"
 
 #: ../source/discussions/versioning.rst:86
-#, fuzzy
-#| msgid ""
-#| "The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE "
-#| "numbering scheme, where the project author increments:"
 msgid ""
 "The idea of *semantic versioning* (or SemVer) is to use 3-part version "
 "numbers, *major.minor.patch*, where the project author increments:"
 msgstr ""
-"意味あるバージョン付与方法の真髄は、MAJOR.MINOR.MAINTENANCE の３段階のバー"
-"ジョン付与方法で、プロジェクトの作者は以下のように各段階の数字を増やします:"
+"*セマンティックバージョニング* (または SemVer) "
+"のアイデアは、３個の部分から構成されるバージョン番号、つまり *major.minor."
+"patch* "
+"を用いることで、プロジェクトの作者は以下のように各段階の数字を増やします:"
 
 #: ../source/discussions/versioning.rst:89
-#, fuzzy
-#| msgid "MAJOR version when they make incompatible API changes,"
 msgid "*major* when they make incompatible API changes,"
-msgstr "APIの変更で互換性を失う時には MAJOR 番号、"
+msgstr "APIの変更で互換性を失う時には *major* 番号、"
 
 #: ../source/discussions/versioning.rst:90
-#, fuzzy
-#| msgid ""
-#| "MINOR version when they add functionality in a backwards-compatible "
-#| "manner, and"
 msgid ""
 "*minor* when they add functionality in a backwards-compatible manner, and"
-msgstr "後方互換性を保ったままで新機能を追加する場合には MINOR を、そして"
+msgstr "後方互換性を保ったままで新機能を追加する場合には *minor* を、そして"
 
 #: ../source/discussions/versioning.rst:91
-#, fuzzy
-#| msgid "MAINTENANCE version when they make backwards-compatible bug fixes."
 msgid "*patch*, when they make backwards-compatible bug fixes."
-msgstr ""
-"後方互換性を維持したままのバグ修正の場合には MAINTENANCE を増加させます。"
+msgstr "後方互換性を維持したままのバグ修正の場合には *patch* を増加させます。"
 
 #: ../source/discussions/versioning.rst:93
 msgid ""
@@ -2090,6 +2084,15 @@ msgid ""
 "strictness]_. Conversely, a bump of the major version number is sometimes "
 "used to signal significant but backwards-compatible new features."
 msgstr ""
+"Python プロジェクトの大多数は、セマンティックバージョニングに似た方式を使って"
+"います。しかしながら、ほとんどのプロジェクト、とりわけ大規模なものでは、多く"
+"の変更が技術的には互換性を保たないけれども少数のユーザにしか影響を与えないの"
+"で、セマンティックバージョニングに厳密に従うことはしていません。そのようなプ"
+"ロジェクトでは、小さな非互換性であってもいつも major 番号を増やす [#semver-"
+"strictness]_ というよりは、非互換性が高い場合やプロジェクトの方向性が変わるこ"
+"とを示す時に増やす傾向にあります。逆に、時には、"
+"重要ではあるが後方互換性を損なわない新機能に注目を集めるために major "
+"バージョン番号を増加させることもあります。"
 
 #: ../source/discussions/versioning.rst:103
 msgid ""
@@ -2102,19 +2105,25 @@ msgid ""
 "equivalent to ``name >= X.Y.Z, == X.Y.*``, i.e., it requires at least X.Y.Z "
 "and allows a later release with same X and Y but higher Z."
 msgstr ""
+"厳密なセマンティックバージョニングを採用しているプロジェクトでは、"
+"このアプローチによってユーザが ``~=`` 演算子を用いた :ref:`"
+"互換リリースバージョン指定子 <version-specifiers-compatible-release>` "
+"を使うことができるようになります。例えば、 ``name ~= X.Y`` は ``name >= X.Y, "
+"== X.*`` と大まかに言って等価で、つまり、少なくともリリース X.Y "
+"を要求していて X が同じである限りは Y "
+"が大きくなった後続リリースを許容するということです。同様に、 ``name ~= X.Y."
+"Z`` は大まかに ``name >= X.Y.Z, == X.Y.*`` と等価で、少なくとも X.Y.Z "
+"を要求していて X と Y が同じである限り Z "
+"が大きくなった後続のリリースを許容するということです。"
 
 #: ../source/discussions/versioning.rst:112
-#, fuzzy
-#| msgid ""
-#| "Python projects adopting semantic versioning should abide by clauses 1-8 "
-#| "of the `Semantic Versioning 2.0.0 specification <https://semver.org/>`_."
 msgid ""
 "Python projects adopting semantic versioning should abide by clauses 1-8 of "
 "the `Semantic Versioning 2.0.0 specification <semver_>`_."
 msgstr ""
-"セマンティックバージョニングを採用しているPythonプロジェクトでは、 `セマン"
-"ティックバージョニング 2.0.0 仕様書 <https://semver.org/>`_ の第１節から第８"
-"節までに従うべきです。"
+"セマンティックバージョニングを採用しているPythonプロジェクトでは、 `"
+"セマンティックバージョニング 2.0.0 仕様書 <semver_>`_ "
+"の第１節から第８節までを甘受すべきです。"
 
 #: ../source/discussions/versioning.rst:115
 msgid ""
@@ -2126,12 +2135,17 @@ msgid ""
 "contain backwards-incompatible API changes (:doc:`NumPy versioning policy "
 "<numpy:dev/depending_on_numpy>`)."
 msgstr ""
+"人気のあるドキュメンテーションジェネレータである :doc:`Sphinx <sphinx:index>`"
+" は、厳密なセマンティックバージョニング (:doc:`Sphinx バージョニング方針 "
+"<sphinx:internals/release-process>`) を採用しているプロジェクトの例です。"
+"有名な科学計算パッケージである :doc:`NumPy <numpy:index>` は、"
+"マイナーバージョンの更新でも後方互換性のない API 変更を含む場合がある (:doc:`"
+"NumPy バージョニング方針 <numpy:dev/depending_on_numpy>`) ということで、"
+"明示的に \"ゆるい\" セマンティックバージョニングを採用しています。"
 
 #: ../source/discussions/versioning.rst:124
-#, fuzzy
-#| msgid "Serial versioning"
 msgid "Calendar versioning"
-msgstr "一連番号によるバージョン付与"
+msgstr "カレンダーバージョニング"
 
 #: ../source/discussions/versioning.rst:126
 msgid ""
