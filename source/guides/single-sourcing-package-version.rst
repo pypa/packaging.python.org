@@ -9,8 +9,7 @@ Single-sourcing the package version
 There are many techniques to maintain a single source of truth for the version
 number of your project:
 
-#.  Read the file in :file:`setup.py` and get the version. Example (from `pip setup.py
-    <https://github.com/pypa/pip/blob/main/setup.py>`_)::
+#.  Read the file in :file:`setup.py` and get the version. Example::
 
         import codecs
         import os.path
