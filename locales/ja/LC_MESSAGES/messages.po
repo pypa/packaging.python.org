@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-29 18:41+0000\n"
+"POT-Creation-Date: 2024-02-29 18:58+0000\n"
 "PO-Revision-Date: 2024-02-29 02:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3492,7 +3492,7 @@ msgstr "説明"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
 #: ../source/specifications/dependency-specifiers.rst:29
-#: ../source/specifications/direct-url-data-structure.rst:217
+#: ../source/specifications/direct-url-data-structure.rst:339
 #: ../source/specifications/version-specifiers.rst:1067
 msgid "Examples"
 msgstr "例"
@@ -9148,13 +9148,15 @@ msgstr ""
 #| msgid ""
 #| "Read the file in :file:`setup.py` and get the version. Example (from `pip "
 #| "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
-msgid "Read the file in :file:`setup.py` and get the version. Example::"
+msgid ""
+"Read the file in :file:`setup.py` and get the version. Example (from `pip "
+"setup.py <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::"
 msgstr ""
 ":file:`setup.py` に書かれたファイルを読み込んでバージョンを得ましょう。"
 "( `pip setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_ での) 例は"
 "こちら::"
 
-#: ../source/guides/single-sourcing-package-version.rst:38
+#: ../source/guides/single-sourcing-package-version.rst:39
 msgid ""
 "As of the release of setuptools 46.4.0, one can accomplish the same thing by "
 "instead placing the following in the project's :file:`setup.cfg` file "
@@ -9164,7 +9166,7 @@ msgstr ""
 "ルに置くことで同じことを達成できています (\"package\" をパッケージをインポー"
 "トする際の名前で置き換えてください) :"
 
-#: ../source/guides/single-sourcing-package-version.rst:48
+#: ../source/guides/single-sourcing-package-version.rst:49
 msgid ""
 "As of the release of setuptools 61.0.0, one can specify the version "
 "dynamically in the project's :file:`pyproject.toml` file."
@@ -9172,7 +9174,7 @@ msgstr ""
 "setuptools 61.0.0 のリリースの時点では、プロジェクトの :file:`pyproject."
 "toml` ファイルの中にバージョンを動的に指定することができます。"
 
-#: ../source/guides/single-sourcing-package-version.rst:60
+#: ../source/guides/single-sourcing-package-version.rst:61
 msgid ""
 "Please be aware that declarative config indicators, including the ``attr:`` "
 "directive, are not supported in parameters to :file:`setup.py`."
@@ -9180,7 +9182,7 @@ msgstr ""
 "``attr:`` ディレクティブを含む装飾的な設定指示子が、 :file:`setup.py` 向けの"
 "パラメータとしてはサポートされていないことに注意してください。"
 
-#: ../source/guides/single-sourcing-package-version.rst:64
+#: ../source/guides/single-sourcing-package-version.rst:65
 msgid ""
 "Use an external build tool that either manages updating both locations, or "
 "offers an API that both locations can use."
@@ -9188,7 +9190,7 @@ msgstr ""
 "外部のビルドツールを使う場合は、両方の場所(ロケーション)を更新できるようなも"
 "の、あるいは、両方のサイトから使える API を提供しているものを使いましょう。"
 
-#: ../source/guides/single-sourcing-package-version.rst:67
+#: ../source/guides/single-sourcing-package-version.rst:68
 msgid ""
 "Few tools you could use, in no particular order, and not necessarily "
 "complete: `bump2version <https://pypi.org/project/bump2version>`_, `changes "
@@ -9201,7 +9203,7 @@ msgstr ""
 "`commitizen <https://pypi.org/project/commitizen>`_, `zest.releaser <https://"
 "pypi.org/project/zest.releaser>`_."
 
-#: ../source/guides/single-sourcing-package-version.rst:74
+#: ../source/guides/single-sourcing-package-version.rst:75
 msgid ""
 "Set the value to a ``__version__`` global variable in a dedicated module in "
 "your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
@@ -9211,7 +9213,7 @@ msgstr ""
 "ル (例えば :file:`version.py`) を作って :file:`setup.py` からそれを読み取っ"
 "て ``exec`` で値を変数に取り込むと良いでしょう。"
 
-#: ../source/guides/single-sourcing-package-version.rst:85
+#: ../source/guides/single-sourcing-package-version.rst:86
 msgid ""
 "Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
@@ -9219,7 +9221,7 @@ msgstr ""
 "このテクニックを使っている例: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_ 。"
 
-#: ../source/guides/single-sourcing-package-version.rst:87
+#: ../source/guides/single-sourcing-package-version.rst:88
 msgid ""
 "Place the value in a simple ``VERSION`` text file and have both :file:`setup."
 "py` and the project code read it."
@@ -9227,7 +9229,7 @@ msgstr ""
 "単純に ``VERSION`` という名前のテキストファイルに値を書いておいて、 :file:"
 "`setup.py` とプロジェクトのソースコードの両方から読み込みます。"
 
-#: ../source/guides/single-sourcing-package-version.rst:95
+#: ../source/guides/single-sourcing-package-version.rst:96
 msgid ""
 "An advantage with this technique is that it's not specific to Python.  Any "
 "tool can read the version."
@@ -9235,7 +9237,7 @@ msgstr ""
 "このテクニックを使う利点は、Python に限定されたやり方ではないということです。"
 "どんなツールでもバージョン番号を読み取ることができます。"
 
-#: ../source/guides/single-sourcing-package-version.rst:100
+#: ../source/guides/single-sourcing-package-version.rst:101
 msgid ""
 "With this approach you must make sure that the ``VERSION`` file is included "
 "in all your source and binary distributions (e.g. add ``include VERSION`` to "
@@ -9245,7 +9247,7 @@ msgstr ""
 "リの配布物に含まれているように気を付けてください (例えば :file:`MANIFEST.in` "
 "に ``include VERSION`` を追加しておくなど)。"
 
-#: ../source/guides/single-sourcing-package-version.rst:104
+#: ../source/guides/single-sourcing-package-version.rst:105
 msgid ""
 "Set the value in :file:`setup.py`, and have the project code use the "
 "``importlib.metadata`` API to fetch the value at runtime. (``importlib."
@@ -9260,7 +9262,7 @@ msgstr ""
 "ストール済みのプロジェクトのバージョン番号をこの API で取り込むには次のように"
 "します::"
 
-#: ../source/guides/single-sourcing-package-version.rst:119
+#: ../source/guides/single-sourcing-package-version.rst:120
 msgid ""
 "Be aware that the ``importlib.metadata`` API only knows about what's in the "
 "installation metadata, which is not necessarily the code that's currently "
@@ -9270,7 +9272,7 @@ msgstr ""
 "データだけであって、現在インポートされているソースコードについて知っていると"
 "は限らないことに注意してください。"
 
-#: ../source/guides/single-sourcing-package-version.rst:123
+#: ../source/guides/single-sourcing-package-version.rst:124
 msgid ""
 "If a project uses this method to fetch its version at runtime, then its "
 "``install_requires`` value needs to be edited to install ``importlib-"
@@ -9281,7 +9283,7 @@ msgstr ""
 "``install_requires`` に ``importlib-metadata`` を書いておかなければなりませ"
 "ん::"
 
-#: ../source/guides/single-sourcing-package-version.rst:137
+#: ../source/guides/single-sourcing-package-version.rst:138
 msgid ""
 "An older (and less efficient) alternative to ``importlib.metadata`` is the "
 "``pkg_resources`` API provided by ``setuptools``::"
@@ -9289,7 +9291,7 @@ msgstr ""
 "``importlib.metadata`` に対するもっと古い (かつ、より非効率な) 代替策は、 "
 "``setuptools`` が提供する ``pkg_resources`` API です::"
 
-#: ../source/guides/single-sourcing-package-version.rst:143
+#: ../source/guides/single-sourcing-package-version.rst:144
 msgid ""
 "If a project uses ``pkg_resources`` to fetch its own version at runtime, "
 "then ``setuptools`` must be added to the project's ``install_requires`` list."
@@ -9298,7 +9300,7 @@ msgstr ""
 "``pkg_resources`` を使っているなら、プロジェクトの ``install_requires`` のリ"
 "ストには必ず ``setuptools`` が入っていないといけません。"
 
-#: ../source/guides/single-sourcing-package-version.rst:147
+#: ../source/guides/single-sourcing-package-version.rst:148
 msgid ""
 "Example using this technique: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
@@ -9306,7 +9308,7 @@ msgstr ""
 "このテクニックを使っている例: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
 
-#: ../source/guides/single-sourcing-package-version.rst:150
+#: ../source/guides/single-sourcing-package-version.rst:151
 msgid ""
 "Set the value to ``__version__`` in ``sample/__init__.py`` and import "
 "``sample`` in :file:`setup.py`."
@@ -9314,7 +9316,7 @@ msgstr ""
 "``sample/__init__.py`` で ``__version__`` に値を設定して、 :file:`setup.py` "
 "から ``sample`` をインポートしましょう。"
 
-#: ../source/guides/single-sourcing-package-version.rst:164
+#: ../source/guides/single-sourcing-package-version.rst:165
 msgid ""
 "Although this technique is common, beware that it will fail if ``sample/"
 "__init__.py`` imports packages from ``install_requires`` dependencies, which "
@@ -9325,7 +9327,7 @@ msgstr ""
 "なパッケージは :file:`setup.py` が実行される時点ではまだインストールされてい"
 "ない可能性が高いので、失敗するであろうということに注意してください。"
 
-#: ../source/guides/single-sourcing-package-version.rst:170
+#: ../source/guides/single-sourcing-package-version.rst:171
 msgid ""
 "Keep the version number in the tags of a version control system (Git, "
 "Mercurial, etc) instead of in the code, and automatically extract it from "
@@ -15369,7 +15371,7 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:419
 #: ../source/specifications/core-metadata.rst:848
 #: ../source/specifications/dependency-specifiers.rst:476
-#: ../source/specifications/direct-url-data-structure.rst:267
+#: ../source/specifications/direct-url-data-structure.rst:389
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
@@ -17808,23 +17810,33 @@ msgstr ""
 "Subversion は大域的にユニークな識別子をサポートしていないので、このフィールド"
 "は当該リポジトリにおける Subversion のリビジョン番号です。"
 
+#: ../source/specifications/direct-url-data-structure.rst:217
+msgid "JSON Schema"
+msgstr ""
+
 #: ../source/specifications/direct-url-data-structure.rst:219
+msgid ""
+"The following JSON Schema can be used to validate the contents of "
+"``direct_url.json``:"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:341
 msgid "Source archive:"
 msgstr "ソースコードアーカイブ:"
 
-#: ../source/specifications/direct-url-data-structure.rst:232
+#: ../source/specifications/direct-url-data-structure.rst:354
 msgid "Git URL with tag and commit-hash:"
 msgstr "タグおよびコミットハッシュ付きの Git のURL:"
 
-#: ../source/specifications/direct-url-data-structure.rst:245
+#: ../source/specifications/direct-url-data-structure.rst:367
 msgid "Local directory:"
 msgstr "ローカルディレクトリ:"
 
-#: ../source/specifications/direct-url-data-structure.rst:254
+#: ../source/specifications/direct-url-data-structure.rst:376
 msgid "Local directory in editable mode:"
 msgstr "編集可能モード状態にあるローカルディレクトリ:"
 
-#: ../source/specifications/direct-url-data-structure.rst:269
+#: ../source/specifications/direct-url-data-structure.rst:391
 msgid ""
 "March 2020: This specification was approved through :pep:`610`, defining the "
 "``direct_url.json`` metadata file."
@@ -17832,7 +17844,7 @@ msgstr ""
 "2020年3月: ``direct_url.json`` メタデータファイルを定義するこの仕様は、 :pep:"
 "`610` を通じて承認されました。"
 
-#: ../source/specifications/direct-url-data-structure.rst:271
+#: ../source/specifications/direct-url-data-structure.rst:393
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key (`discussion <archive-"
 "info-hashes_>`_)."
