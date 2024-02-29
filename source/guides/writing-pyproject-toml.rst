@@ -40,6 +40,7 @@ three possible TOML tables in this file.
    :ref:`setup-py-deprecated`.
 
 
+.. _pyproject-guide-build-system-table:
 
 Declaring the build backend
 ===========================

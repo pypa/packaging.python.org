@@ -4,111 +4,172 @@
 Tool recommendations
 ====================
 
-If you're familiar with Python packaging and installation, and just want to know
-what tools are currently recommended, then here it is.
+The Python packaging landscape consists of many different tools. For many tasks,
+the :term:`Python Packaging Authority <Python Packaging Authority (PyPA)>`
+(PyPA, the working group which encompasses many packaging tools and
+maintains this guide) purposefully does not make a blanket recommendation; for
+example, the reason there are many build backends is that the landscape was
+opened up in order to enable the development of new backends serving certain users'
+needs better than the previously unique backend, setuptools. This guide does
+point to some tools that are widely recognized, and also makes some
+recommendations of tools that you should *not* use because they are deprecated
+or insecure.
 
 
-Application dependency management
-=================================
+Virtual environments
+====================
 
-* Use :ref:`pip` in a `secure manner`_ to install a Python application and its
-  dependencies during deployment.
-
-* Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
-  application-specific dependencies from a shared Python installation. [4]_
-
-* Use `pip-tools`_, :ref:`pipenv`, or `poetry`_ to generate the fully-specified
-  application-specific dependencies, when developing Python applications.
-
-.. _secure manner: https://pip.pypa.io/en/latest/topics/secure-installs/
-.. _pip-tools: https://github.com/jazzband/pip-tools
-.. _Poetry: https://python-poetry.org/
-
-Installation tool recommendations
-=================================
-
-* Use :ref:`pip` to install Python :term:`packages <Distribution Package>` from
-  :term:`PyPI <Python Package Index (PyPI)>`. [1]_ [2]_ Depending on how :ref:`pip`
-  is installed, you may need to also install :ref:`wheel` to get the benefit
-  of wheel caching. [3]_
-
-* Use :ref:`virtualenv` or :doc:`venv <python:library/venv>` to isolate
-  project-specific dependencies from a shared Python installation. [4]_
-
-* If you're looking for management of fully integrated cross-platform software
-  stacks, consider:
-
-  * :ref:`buildout`: primarily focused on the web development community
-
-  * :ref:`spack`, :ref:`hashdist`, or :ref:`conda`: primarily focused
-    on the scientific community.
+The standard tools to create and use virtual environments manually are
+:ref:`virtualenv` (PyPA project) and :doc:`venv <python:library/venv>` (part of
+the Python standard library, though missing some features of virtualenv).
 
 
-Packaging tool recommendations
-==============================
+Installing packages
+===================
 
-* Use :ref:`setuptools` to define projects. [5]_ [6]_
+:ref:`Pip` is the standard tool to install packages from :term:`PyPI <Python
+Package Index (PyPI)>`. You may want to read pip's recommendations for
+:doc:`secure installs <pip:topics/secure-installs>`. Pip is available by default
+in most Python installations through the standard library package
+:doc:`ensurepip <python:library/ensurepip>`.
 
-* Use :ref:`build` to create :term:`Source Distributions
-  <Source Distribution (or "sdist")>` and :term:`wheels <Wheel>`.
+Alternatively, consider :ref:`pipx` for the specific use case of installing Python
+applications that are distributed through PyPI and run from the command line.
+Pipx is a wrapper around pip and venv that installs each
+application into a dedicated virtual environment. This avoids conflicts between
+the dependencies of different applications, and also with system-wide applications
+making use of the same Python interpreter (especially on Linux).
 
-If you have binary extensions and want to distribute wheels for multiple
-platforms, use :ref:`cibuildwheel` as part of your CI setup to build
-distributable wheels.
+For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
-* Use `twine <https://pypi.org/project/twine>`_ for uploading distributions
-  to :term:`PyPI <Python Package Index (PyPI)>`.
+.. todo:: Write a "pip vs. Conda" comparison, here or in a new discussion.
+
+Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is deprecated
+in favor of pip (see :ref:`pip vs easy_install` for details). Likewise, do
+**not** use ``python setup.py install`` or ``python setup.py develop``, which
+are also deprecated (see :ref:`setup-py-deprecated` for background and
+:ref:`modernize-setup-py-project` for migration advice).
 
 
-Publishing platform migration
-=============================
+Lock files
+==========
 
-The original Python Package Index implementation (previously hosted at
-`pypi.python.org <https://pypi.python.org>`_) has been phased out in favour
-of an updated implementation hosted at `pypi.org <https://pypi.org>`_.
+:ref:`pip-tools` and :ref:`Pipenv` are two recognized tools to create lock
+files, which contain the exact versions of all packages installed into an
+environment, for reproducibility purposes.
 
-See :ref:`Migrating to PyPI.org` for more information on the status of the
-migration, and what settings to change in your clients.
 
-----
+Build backends
+==============
 
-.. [1] There are some cases where you might choose to use ``easy_install`` (from
-       :ref:`setuptools`), e.g. if you need to install from :term:`Eggs <Egg>`
-       (which pip doesn't support).  For a detailed breakdown, see :ref:`pip vs
-       easy_install`.
+.. important::
 
-.. [2] The acceptance of :pep:`453` means that :ref:`pip`
-       will be available by default in most installations of Python 3.4 or
-       later.  See the :pep:`rationale section <453#rationale>` from :pep:`453`
-       as for why pip was chosen.
+   Please, remember: this document does not seek to steer the reader towards
+   a particular tool, only to enumerate common tools. Different use cases often
+   need specialized workflows.
 
-.. [3] `get-pip.py <https://github.com/pypa/get-pip/#readme>`_ and
-       :ref:`virtualenv` install
-       :ref:`wheel`, whereas :ref:`ensurepip` and :ref:`venv <venv>` do not
-       currently.  Also, the common "python-pip" package that's found in various
-       linux distros, does not depend on "python-wheel" currently.
+Popular :term:`build backends <build backend>` for pure-Python packages include,
+in alphabetical order:
 
-.. [4] Beginning with Python 3.4, ``venv`` will create virtualenv environments
-       with ``pip`` installed, thereby making it an equal alternative to
-       :ref:`virtualenv`. However, using :ref:`virtualenv` will still be
-       recommended for users that need cross-version consistency.
+- :doc:`Flit-core <flit:pyproject_toml>` -- developed with but separate from :ref:`Flit`.
+  A minimal and opinionated build backend. It does not support plugins.
 
-.. [5] Although you can use pure :ref:`distutils` for many projects, it does not
-       support defining dependencies on other projects and is missing several
-       convenience utilities for automatically populating distribution metadata
-       correctly that are provided by ``setuptools``. Being outside the
-       standard library, ``setuptools`` also offers a more consistent feature
-       set across different versions of Python, and (unlike ``distutils``),
-       recent versions of ``setuptools`` support all of the modern metadata
-       fields described in :ref:`core-metadata`.
+- Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports plugins.
 
-       Even for projects that do choose to use ``distutils``, when :ref:`pip`
-       installs such projects directly from source (rather than installing
-       from a prebuilt :term:`wheel <Wheel>` file), it will actually build
-       your project using :ref:`setuptools` instead.
+- PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports plugins.
 
-.. [6] `distribute`_ (a fork of setuptools) was merged back into
-       :ref:`setuptools` in June 2013, thereby making setuptools the default
-       choice for packaging.
+- Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports
+  plugins.
 
-.. _distribute: https://pypi.org/project/distribute
+  Unlike other backends on this list, Poetry-core does not support the standard
+  :ref:`[project] table <writing-pyproject-toml>` (it uses a different format,
+  in the ``[tool.poetry]`` table).
+
+- :ref:`setuptools`, which used to be the only build backend. Supports plugins.
+
+  .. caution::
+
+     If you use setuptools, please be aware that some features that predate
+     standardisation efforts are now deprecated and only *temporarily kept*
+     for compatibility.
+
+     In particular, do **not** use direct ``python setup.py`` invocations. On the
+     other hand, configuring setuptools with a :file:`setup.py` file is still fully
+     supported, although it is recommended to use the modern :ref:`[project] table
+     in pyproject.toml <writing-pyproject-toml>` (or :file:`setup.cfg`) whenever possible and keep
+     :file:`setup.py` only if programmatic configuration is needed. See
+     :ref:`setup-py-deprecated`.
+
+     Other examples of deprecated features you should **not** use include the
+     ``setup_requires`` argument to ``setup()`` (use the :ref:`[build-system] table
+     <pyproject-guide-build-system-table>` in :file:`pyproject.toml` instead), and
+     the ``easy_install`` command (cf. :ref:`pip vs easy_install`).
+
+Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
+the standard library in Python 3.12, although it still remains available from
+setuptools.
+
+For packages with :term:`extension modules <extension module>`, it is best to use
+a build system with dedicated support for the language the extension is written in,
+for example:
+
+- :ref:`setuptools` -- natively supports C and C++ (with third-party plugins for Go and Rust),
+- :ref:`meson-python` -- C, C++, Fortran, Rust, and other languages supported by Meson,
+- :ref:`scikit-build-core` -- C, C++, Fortran, and other languages supported by CMake,
+- :ref:`maturin` -- Rust, via Cargo.
+
+
+Building distributions
+======================
+
+The standard tool to build :term:`source distributions <source distribution (or
+"sdist")>` and :term:`wheels <wheel>` for uploading to PyPI is :ref:`build`.  It
+will invoke whichever build backend you :ref:`declared
+<pyproject-guide-build-system-table>` in :file:`pyproject.toml`.
+
+Do **not** use ``python setup.py sdist`` and ``python setup.py bdist_wheel`` for
+this task. All direct invocations of :file:`setup.py` are :ref:`deprecated
+<setup-py-deprecated>`.
+
+If you have :term:`extension modules <extension module>` and want to distribute
+wheels for multiple platforms, use :ref:`cibuildwheel` as part of your CI setup
+to build distributable wheels.
+
+
+Uploading to PyPI
+=================
+
+For projects hosted on GitHub, it is recommended to use the :ref:`trusted publishing
+<trusted-publishing>`, which allows the package to be securely uploaded to PyPI
+from a GitHub Actions job. (This is not yet supported on software forges other
+than GitHub.)
+
+The other available method is to upload the package manually using :ref:`twine`.
+
+**Never** use ``python setup.py upload`` for this task. In addition to being
+:ref:`deprecated <setup-py-deprecated>`, it is insecure.
+
+
+Workflow tools
+==============
+
+These tools are environment managers that automatically manage virtual
+environments for a project. They also act as "task runners", allowing you to
+define and invoke tasks such as running tests, compiling documentation,
+regenerating some files, etc. Some of them provide shortcuts for building
+distributions and uploading to PyPI, and some support lock files for
+applications. They often call the tools mentioned above under the hood. In
+alphabetical order:
+
+- :ref:`Flit`,
+- :ref:`Hatch`,
+- :doc:`nox <nox:index>`,
+- :ref:`PDM`,
+- :ref:`Pipenv`,
+- :ref:`Poetry`,
+- :doc:`tox <tox:index>`.
+
+
+.. _hatchling: https://pypi.org/project/hatchling/
+.. _pdm-backend: https://backend.pdm-project.org
+.. _poetry-core: https://pypi.org/project/poetry-core/
