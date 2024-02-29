@@ -1,3 +1,5 @@
+.. _trusted-publishing:
+
 =============================================================================
 Publishing package distribution releases using GitHub Actions CI/CD workflows
 =============================================================================
