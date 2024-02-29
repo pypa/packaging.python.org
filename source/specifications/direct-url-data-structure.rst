@@ -213,6 +213,128 @@ vcs command
    this field is the Subversion revision number in the corresponding
    repository.
 
+JSON Schema
+===========
+
+The following JSON Schema can be used to validate the contents of ``direct_url.json``:
+
+.. code-block::
+
+     {
+       "$schema": "https://json-schema.org/draft/2019-09/schema",
+       "title": "Direct URL Data",
+       "description": "Data structure that can represent URLs to python projects and distribution artifacts such as VCS source trees, local source trees, source distributions and wheels.",
+       "definitions": {
+         "URL": {
+           "type": "string",
+           "format": "uri"
+         },
+         "DirInfo": {
+           "type": "object",
+           "properties": {
+             "editable": {
+               "type": ["boolean", "null"]
+             }
+           }
+         },
+         "VCSInfo": {
+           "type": "object",
+           "properties": {
+             "vcs": {
+               "type": "string",
+               "enum": [
+                 "git",
+                 "hg",
+                 "bzr",
+                 "svn"
+               ]
+             },
+             "requested_revision": {
+               "type": "string"
+             },
+             "commit_id": {
+               "type": "string"
+             },
+             "resolved_revision": {
+               "type": "string"
+             }
+           },
+           "required": [
+             "vcs",
+             "commit_id"
+           ]
+         },
+         "ArchiveInfo": {
+           "type": "object",
+           "properties": {
+             "hash": {
+               "type": "string",
+               "pattern": "^\\w+=[a-f0-9]+$",
+               "deprecated": true
+             },
+             "hashes": {
+               "type": "object",
+               "patternProperties": {
+                 "^[a-f0-9]+$": {
+                   "type": "string"
+                 }
+               }
+             }
+           }
+         }
+       },
+       "allOf": [
+         {
+           "type": "object",
+           "properties": {
+             "url": {
+               "$ref": "#/definitions/URL"
+             }
+           },
+           "required": [
+             "url"
+           ]
+         },
+         {
+           "anyOf": [
+             {
+               "type": "object",
+               "properties": {
+                 "dir_info": {
+                   "$ref": "#/definitions/DirInfo"
+                 }
+               },
+               "required": [
+                 "dir_info"
+               ]
+             },
+             {
+               "type": "object",
+               "properties": {
+                 "vcs_info": {
+                   "$ref": "#/definitions/VCSInfo"
+                 }
+               },
+               "required": [
+                 "vcs_info"
+               ]
+             },
+             {
+               "type": "object",
+               "properties": {
+                 "archive_info": {
+                   "$ref": "#/definitions/ArchiveInfo"
+                 }
+               },
+               "required": [
+                 "archive_info"
+               ]
+             }
+           ]
+         }
+       ]
+     }
+
 Examples
 ========
 
