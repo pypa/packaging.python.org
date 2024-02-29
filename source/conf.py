@@ -107,6 +107,9 @@ linkcheck_ignore = [
     # Temporarily ignored. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
     "https://www.breezy-vcs.org/*",
+    # Ignore while StackOverflow is blocking GitHub CI. Ref:
+    # https://github.com/pypa/packaging.python.org/pull/1474
+    "https://stackoverflow.com/*",
 ]
 linkcheck_retries = 5
 # Ignore anchors for links to GitHub project pages -- GitHub adds anchors from
