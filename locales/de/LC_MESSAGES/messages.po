@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-29 18:41+0000\n"
+"POT-Creation-Date: 2024-02-29 18:58+0000\n"
 "PO-Revision-Date: 2024-02-20 01:04+0000\n"
 "Last-Translator: TheescapedShadow <ki.net@kijama.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -2694,7 +2694,7 @@ msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
 #: ../source/specifications/dependency-specifiers.rst:29
-#: ../source/specifications/direct-url-data-structure.rst:217
+#: ../source/specifications/direct-url-data-structure.rst:339
 #: ../source/specifications/version-specifiers.rst:1067
 msgid "Examples"
 msgstr ""
@@ -6943,35 +6943,37 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:12
-msgid "Read the file in :file:`setup.py` and get the version. Example::"
+msgid ""
+"Read the file in :file:`setup.py` and get the version. Example (from `pip "
+"setup.py <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:38
+#: ../source/guides/single-sourcing-package-version.rst:39
 msgid ""
 "As of the release of setuptools 46.4.0, one can accomplish the same thing by "
 "instead placing the following in the project's :file:`setup.cfg` file "
 "(replacing \"package\" with the import name of the package):"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:48
+#: ../source/guides/single-sourcing-package-version.rst:49
 msgid ""
 "As of the release of setuptools 61.0.0, one can specify the version "
 "dynamically in the project's :file:`pyproject.toml` file."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:60
+#: ../source/guides/single-sourcing-package-version.rst:61
 msgid ""
 "Please be aware that declarative config indicators, including the ``attr:`` "
 "directive, are not supported in parameters to :file:`setup.py`."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:64
+#: ../source/guides/single-sourcing-package-version.rst:65
 msgid ""
 "Use an external build tool that either manages updating both locations, or "
 "offers an API that both locations can use."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:67
+#: ../source/guides/single-sourcing-package-version.rst:68
 msgid ""
 "Few tools you could use, in no particular order, and not necessarily "
 "complete: `bump2version <https://pypi.org/project/bump2version>`_, `changes "
@@ -6979,39 +6981,39 @@ msgid ""
 "commitizen>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:74
+#: ../source/guides/single-sourcing-package-version.rst:75
 msgid ""
 "Set the value to a ``__version__`` global variable in a dedicated module in "
 "your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
 "``exec`` the value into a variable."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:85
+#: ../source/guides/single-sourcing-package-version.rst:86
 msgid ""
 "Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
 "blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:87
+#: ../source/guides/single-sourcing-package-version.rst:88
 msgid ""
 "Place the value in a simple ``VERSION`` text file and have both :file:`setup."
 "py` and the project code read it."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:95
+#: ../source/guides/single-sourcing-package-version.rst:96
 msgid ""
 "An advantage with this technique is that it's not specific to Python.  Any "
 "tool can read the version."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:100
+#: ../source/guides/single-sourcing-package-version.rst:101
 msgid ""
 "With this approach you must make sure that the ``VERSION`` file is included "
 "in all your source and binary distributions (e.g. add ``include VERSION`` to "
 "your :file:`MANIFEST.in`)."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:104
+#: ../source/guides/single-sourcing-package-version.rst:105
 msgid ""
 "Set the value in :file:`setup.py`, and have the project code use the "
 "``importlib.metadata`` API to fetch the value at runtime. (``importlib."
@@ -7020,52 +7022,52 @@ msgid ""
 "be fetched with the API as follows::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:119
+#: ../source/guides/single-sourcing-package-version.rst:120
 msgid ""
 "Be aware that the ``importlib.metadata`` API only knows about what's in the "
 "installation metadata, which is not necessarily the code that's currently "
 "imported."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:123
+#: ../source/guides/single-sourcing-package-version.rst:124
 msgid ""
 "If a project uses this method to fetch its version at runtime, then its "
 "``install_requires`` value needs to be edited to install ``importlib-"
 "metadata`` on pre-3.8 versions of Python like so::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:137
+#: ../source/guides/single-sourcing-package-version.rst:138
 msgid ""
 "An older (and less efficient) alternative to ``importlib.metadata`` is the "
 "``pkg_resources`` API provided by ``setuptools``::"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:143
+#: ../source/guides/single-sourcing-package-version.rst:144
 msgid ""
 "If a project uses ``pkg_resources`` to fetch its own version at runtime, "
 "then ``setuptools`` must be added to the project's ``install_requires`` list."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:147
+#: ../source/guides/single-sourcing-package-version.rst:148
 msgid ""
 "Example using this technique: `setuptools <https://github.com/pypa/"
 "setuptools/blob/main/setuptools/version.py>`_."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:150
+#: ../source/guides/single-sourcing-package-version.rst:151
 msgid ""
 "Set the value to ``__version__`` in ``sample/__init__.py`` and import "
 "``sample`` in :file:`setup.py`."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:164
+#: ../source/guides/single-sourcing-package-version.rst:165
 msgid ""
 "Although this technique is common, beware that it will fail if ``sample/"
 "__init__.py`` imports packages from ``install_requires`` dependencies, which "
 "will very likely not be installed yet when :file:`setup.py` is run."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:170
+#: ../source/guides/single-sourcing-package-version.rst:171
 msgid ""
 "Keep the version number in the tags of a version control system (Git, "
 "Mercurial, etc) instead of in the code, and automatically extract it from "
@@ -11638,7 +11640,7 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:419
 #: ../source/specifications/core-metadata.rst:848
 #: ../source/specifications/dependency-specifiers.rst:476
-#: ../source/specifications/direct-url-data-structure.rst:267
+#: ../source/specifications/direct-url-data-structure.rst:389
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
@@ -13531,29 +13533,39 @@ msgid ""
 "the Subversion revision number in the corresponding repository."
 msgstr ""
 
+#: ../source/specifications/direct-url-data-structure.rst:217
+msgid "JSON Schema"
+msgstr ""
+
 #: ../source/specifications/direct-url-data-structure.rst:219
+msgid ""
+"The following JSON Schema can be used to validate the contents of "
+"``direct_url.json``:"
+msgstr ""
+
+#: ../source/specifications/direct-url-data-structure.rst:341
 msgid "Source archive:"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:232
+#: ../source/specifications/direct-url-data-structure.rst:354
 msgid "Git URL with tag and commit-hash:"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:245
+#: ../source/specifications/direct-url-data-structure.rst:367
 msgid "Local directory:"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:254
+#: ../source/specifications/direct-url-data-structure.rst:376
 msgid "Local directory in editable mode:"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:269
+#: ../source/specifications/direct-url-data-structure.rst:391
 msgid ""
 "March 2020: This specification was approved through :pep:`610`, defining the "
 "``direct_url.json`` metadata file."
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:271
+#: ../source/specifications/direct-url-data-structure.rst:393
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key (`discussion <archive-"
 "info-hashes_>`_)."
