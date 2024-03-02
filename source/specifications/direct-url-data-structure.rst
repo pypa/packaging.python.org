@@ -27,7 +27,7 @@ type ``string``. Its content must be a valid URL according to the
 
 Depending on what ``url`` refers to, the second field MUST be one of ``vcs_info``
 (if ``url`` is a VCS reference), ``archive_info`` (if
-``url`` is a source archives or a wheel), or ``dir_info`` (if ``url``  is a
+``url`` is a source archive or a wheel), or ``dir_info`` (if ``url``  is a
 local directory). These info fields have a (possibly empty) subdictionary as
 value, with the possible keys defined below.
 
