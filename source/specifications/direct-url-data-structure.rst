@@ -10,10 +10,10 @@ This document specifies a JSON-serializable abstract data structure that can rep
 URLs to python projects and distribution artifacts such as VCS source trees, local
 source trees, source distributions and wheels.
 
-The representation of the components of this data structure as a :rfc:`1738` URL
-is not formally specified at time of writing. A common representation is the pip URL
-format. Other examples are provided in the :ref:`Version specifier specification <version-specifiers>`.
-
+At time of writing, it is not formally specified how to merge the parts of this
+data structure into a single URL that can be passed to tools. A common representation is the
+pip URL format (`VCS Support <pip-vcs-support_>`_), other examples are provided in the
+:ref:`Version specifier specification <version-specifiers>`.
 
 Specification
 =============
@@ -22,9 +22,12 @@ The Direct URL Data Structure MUST be a dictionary, serializable to JSON accordi
 :rfc:`8259`.
 
 It MUST contain at least two fields. The first one is ``url``, with
-type ``string``. Depending on what ``url`` refers to, the second field MUST be
-one of ``vcs_info`` (if ``url`` is a VCS reference), ``archive_info`` (if
-``url`` is a source archives or a wheel), or ``dir_info`` (if ``url``  is a
+type ``string``. Its content must be a valid URL according to the
+`WHATWG URL Standard <whatwg-url-standard_>`_.
+
+Depending on what ``url`` refers to, the second field MUST be one of ``vcs_info``
+(if ``url`` is a VCS reference), ``archive_info`` (if
+``url`` is a source archive or a wheel), or ``dir_info`` (if ``url``  is a
 local directory). These info fields have a (possibly empty) subdictionary as
 value, with the possible keys defined below.
 
@@ -396,3 +399,5 @@ History
 
 
 .. _archive-info-hashes: https://discuss.python.org/t/22299
+.. _pip-vcs-support: https://pip.pypa.io/en/stable/topics/vcs-support/
+.. _whatwg-url-standard: https://url.spec.whatwg.org/
