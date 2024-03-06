@@ -169,8 +169,11 @@ Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_
 to sign the distribution packages. In the next step, an empty GitHub Release
 from the current tag is created using the ``gh`` CLI. Note this step can be further
 customised. See the `gh release documentation <https://cli.github.com/manual/gh_release>`_
-as a reference. To enable writing to GitHub Release you may need to manage your ``GITHUB_TOKEN``
-permissions, see the `GitHub documentation <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions>`_.
+as a reference.
+
+.. tip::
+
+   You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating the GitHub Release. See the `GitHub documentation <https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions>`_ for instructions. Specifically, the token needs `content.write` permissions.
 
 Finally, the signed distributions are uploaded to the GitHub Release.
 
