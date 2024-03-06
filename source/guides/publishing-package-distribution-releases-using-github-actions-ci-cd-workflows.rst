@@ -173,7 +173,7 @@ as a reference.
 
 .. tip::
 
-   You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating the GitHub Release. See the `GitHub documentation <https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions>`_ for instructions. Specifically, the token needs ``content.write`` permissions.
+   You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating the GitHub Release. See the `GitHub documentation <https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions>`_ for instructions. Specifically, the token needs ``contents: write`` permissions.
 
 Finally, the signed distributions are uploaded to the GitHub Release.
 
