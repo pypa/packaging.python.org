@@ -171,6 +171,14 @@ from the current tag is created using the ``gh`` CLI. Note this step can be furt
 customised. See the `gh release documentation <https://cli.github.com/manual/gh_release>`_
 as a reference.
 
+.. tip::
+
+   You may need to manage your ``GITHUB_TOKEN`` permissions to
+   enable creating the GitHub Release. See the `GitHub
+   documentation <https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions>`_
+   for instructions. Specifically, the token needs the
+   ``contents: write`` permission.
+
 Finally, the signed distributions are uploaded to the GitHub Release.
 
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
