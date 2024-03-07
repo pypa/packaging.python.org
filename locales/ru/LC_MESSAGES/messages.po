@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-04 14:23+0000\n"
+"POT-Creation-Date: 2024-03-07 13:21+0000\n"
 "PO-Revision-Date: 2024-01-24 22:29+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -9028,11 +9028,22 @@ msgstr ""
 "этот шаг может быть дополнительно настроен. См. документацию `gh release "
 "<https://cli.github.com/manual/gh_release>`_ в качестве ссылки."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:176
+msgid ""
+"You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating "
+"the GitHub Release. See the `GitHub documentation <https://docs.github.com/"
+"repositories/managing-your-repositorys-settings-and-features/enabling-"
+"features-for-your-repository/managing-github-actions-settings-for-a-"
+"repository#configuring-the-default-github_token-permissions>`_ for "
+"instructions. Specifically, the token needs the ``contents: write`` "
+"permission."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
 msgid "Finally, the signed distributions are uploaded to the GitHub Release."
 msgstr "Наконец, подписанные дистрибутивы загружаются на GitHub Release."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:192
 msgid ""
 "This is a replacement for GPG signatures, for which support has been "
 "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
@@ -9042,11 +9053,11 @@ msgstr ""
 "<https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. Тем не менее, это "
 "задание не является обязательным для загрузки в PyPI и может быть пропущено."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "Отдельный рабочий процесс для публикации в TestPyPI"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:192
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -9054,7 +9065,7 @@ msgstr ""
 "Теперь повторите эти шаги и создайте еще одно задание для публикации в "
 "индекс пакета TestPyPI в разделе ``jobs``:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:202
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:210
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -9065,22 +9076,22 @@ msgstr ""
 "основной ветке и часто используется для обозначения здорового конвейера "
 "публикации pipрелизов."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:206
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
 msgid "The whole CI/CD workflow"
 msgstr "Весь рабочий процесс CI/CD"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "В этом пункте показан весь рабочий процесс после выполнения вышеописанного "
 "руководства."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
 msgid "That's all, folks!"
 msgstr "Вот и все, друзья!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:218
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:226
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -9093,7 +9104,7 @@ msgstr ""
 "сборок вашим альфа-пользователям, а также для того, чтобы убедиться, что ваш "
 "конвейер релизовpip остаётся здоровым!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:226
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:234
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -9107,7 +9118,7 @@ msgstr ""
 "увеличен, но лучшим решением может быть использование PyPI-совместимого "
 "сервера, например :ref:`pypiserver`, в CI для тестирования."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:234
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:242
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
