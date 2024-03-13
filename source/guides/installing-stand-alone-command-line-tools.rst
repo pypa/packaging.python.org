@@ -54,11 +54,11 @@ For example:
 .. code-block:: console
 
   $ pipx install cowsay
-    installed package cowsay 2.0, Python 3.6.2+
-    These binaries are now globally available
+    installed package cowsay 6.1, installed using Python 3.12.2
+    These apps are now globally available
       - cowsay
   done! ✨ 🌟 ✨
-  $ cowsay moo
+  $ cowsay -t moo
     ___
   < moo >
     ===
@@ -77,18 +77,21 @@ available, use ``pipx list``:
 .. code-block:: console
 
   $ pipx list
-  venvs are in /Users/user/.local/pipx/venvs
-  symlinks to binaries are in /Users/user/.local/bin
-     package black 18.9b0, Python 3.6.2+
+  venvs are in /Users/user/Library/Application Support/pipx/venvs
+  apps are exposed on your $PATH at /Users/user/.local/bin
+  manual pages are exposed at /Users/user/.local/share/man
+     package black 24.2.0, installed using Python 3.12.2
       - black
       - blackd
-     package cowsay 2.0, Python 3.6.2+
+     package cowsay 6.1, installed using Python 3.12.2
       - cowsay
-     package mypy 0.660, Python 3.6.2+
+     package mypy 1.9.0, installed using Python 3.12.2
       - dmypy
       - mypy
+      - mypyc
       - stubgen
-     package nox 2018.10.17, Python 3.6.2+
+      - stubtest
+     package nox 2024.3.2, installed using Python 3.12.2
       - nox
       - tox-to-nox
 
@@ -120,7 +123,7 @@ in a temporary, ephemeral environment. For example:
 
 .. code-block:: bash
 
-  pipx run cowsay moooo
+  pipx run cowsay -t moooo
 
 To see the full list of commands pipx offers, run:
 
