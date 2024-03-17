@@ -47,11 +47,11 @@ Glossary
         A :term:`Distribution <Distribution Package>` format containing files
         and metadata that only need to be moved to the correct location on the
         target system, to be installed. :term:`Wheel` is such a format, whereas
-        distutil's :term:`Source Distribution <Source Distribution (or
+        :term:`Source Distribution <Source Distribution (or
         "sdist")>` is not, in that it requires a build step before it can be
         installed.  This format does not imply that Python files have to be
         precompiled (:term:`Wheel` intentionally does not include compiled
-        Python files).
+        Python files). See :ref:`package-formats` for more information.
 
 
     Distribution Package
@@ -73,9 +73,8 @@ Glossary
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
-        which is being replaced by :term:`Wheel`.  For details, see
-        :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` and
-        `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
+        which has been replaced by :term:`Wheel`.  For details, see
+        :ref:`egg-format`.
 
     Extension Module
 
@@ -240,7 +239,8 @@ Glossary
         A :term:`distribution <Distribution Package>` format (usually generated
         using ``python -m build --sdist``) that provides metadata and the
         essential source files needed for installing by a tool like :ref:`pip`,
-        or for generating a :term:`Built Distribution`.
+        or for generating a :term:`Built Distribution`. See :ref:`package-formats`
+        for more information.
 
 
     System Package
@@ -266,11 +266,8 @@ Glossary
 
     Wheel
 
-        A :term:`Built Distribution` format introduced by an official
-        :doc:`standard specification
-        </specifications/binary-distribution-format/>`,
-        which is intended to replace the :term:`Egg` format.  Wheel is currently
-        supported by :ref:`pip`.
+        The standard :term:`Built Distribution` format.
+        See :ref:`package-formats` for more information.
 
     Working Set
 

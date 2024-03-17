@@ -84,6 +84,8 @@ Place ``.dist-info`` at the end of the archive.
 File Format
 -----------
 
+.. _wheel-file-name-spec:
+
 File name convention
 ''''''''''''''''''''
 
