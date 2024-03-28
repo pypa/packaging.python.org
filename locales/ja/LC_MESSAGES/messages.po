@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-07 13:21+0000\n"
-"PO-Revision-Date: 2024-03-07 02:01+0000\n"
+"PO-Revision-Date: 2024-03-28 02:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2246,12 +2246,23 @@ msgid ""
 "dev1+gd00980f\", or if the repository has untracked changes, like \"0.5."
 "dev1+gd00980f.d20231217\"."
 msgstr ""
+"ローカルバージョン識別子は、公的バージョン識別子の後ろに \"+\" とローカルバー"
+"ジョンラベルを並べた形を採ります。例えば、Fedora に特有のパッチが適用された"
+"パッケージは、 \"1.2.1+fedora.4\" といったバージョンになるという具合です。別"
+"の例としては、 setuptools-scm_ によって計算されたバージョンで、Git のデータか"
+"らバージョンを読み取る setuptools プラグインによるものです。最新のリリース以"
+"後に幾つかのコミットがなされた Git リポジトリでは setuptools-scm は \"0.5."
+"dev1+gd00980f\" のようなバージョンを生成することもありますし、トラックされて"
+"いない変更のあるリポジトリなら \"0.5.dev1+00980f.d20231217\" のようになること"
+"があります。"
 
 #: ../source/discussions/versioning.rst:178
 msgid ""
 "Some more examples of unusual version numbers are given in a `blog post "
 "<versions-seth-larson_>`_ by Seth Larson."
 msgstr ""
+"普通でないバージョン番号のいくつかの例が Seth Larson によって `ブログポスト "
+"<versions.seth-larson_>`_ に挙げられています。"
 
 #: ../source/discussions/versioning.rst:181
 msgid ""
@@ -2260,6 +2271,11 @@ msgid ""
 "stufft_>`_, `by Bernát Gábor <semver-bernat-gabor_>`_, `by Brett Cannon "
 "<semver-brett-cannon_>`_. For a humoristic take, read about ZeroVer_."
 msgstr ""
+"この問題に関する個人的な観点については、次のようなブログポストを見てくださ"
+"い: `Hynek Schlawak によるもの <semver-hynek-schlawack_>`_ ・ `Donald Stufft "
+"によるもの <semver-donald-stufft_>`_ ・ `Bernát Gábor によるもの <semver-"
+"bernat-gabor_>`_ ・ `Brett Cannon によるもの <semver-brett-cannon_>`_ 。ユー"
+"モラスなものが良ければ、 ZeroVer_ について読んでみてください。"
 
 #: ../source/discussions/wheel-vs-egg.rst:5
 msgid "Wheel vs Egg"
@@ -4619,6 +4635,9 @@ msgid ""
 "See :ref:`versioning` for information on common version schemes and how to "
 "choose between them."
 msgstr ""
+"よくあるバージョンを指定する枠組みにどんなものがあるかや、その中からひとつの"
+"枠組みを選択する方法については、 :ref:`バージョニング <versioning>` "
+"を見てください。"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:298
 msgid "Working in \"development mode\""
@@ -6069,14 +6088,17 @@ msgstr ""
 "かを見るためには、 ``pipx list`` を使ってください:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:95
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:98
 msgid "To upgrade or uninstall a package:"
 msgstr "パッケージを更新またはアンインストールするには:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:102
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:105
 msgid "pipx can be upgraded or uninstalled with pip:"
 msgstr "pipx は pip を使って更新やアンインストールができます:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:118
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:121
 msgid ""
 "pipx also allows you to install and run the latest version of an application "
 "in a temporary, ephemeral environment. For example:"
@@ -6085,12 +6107,14 @@ msgstr ""
 "動作させることができます。例えば:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:125
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:128
 msgid "To see the full list of commands pipx offers, run:"
 msgstr ""
 "pipx で使える(サブ)コマンドの完全なリストを見たければ、次のようにしてくださ"
 "い:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:131
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:134
 msgid "You can learn more about pipx at https://pipx.pypa.io/."
 msgstr "pipx については、 https://pipx.pypa.io/ でもっと学べます。"
 
@@ -9012,6 +9036,14 @@ msgid ""
 "instructions. Specifically, the token needs the ``contents: write`` "
 "permission."
 msgstr ""
+"GitHub リリースの作成ができるような ``GITHUB_TOKEN`` "
+"パーミッションを維持する必要があります。やり方については、 `GitHub 説明文書 "
+"<https://docs.github.com/repositories/"
+"managing-your-repositorys-settings-and-features/"
+"enabling-features-for-your-repository/managing-github-actions-settings-"
+"for-a-repository#configuring-the-default-github_token-permissions>`_ "
+"を見てください。具体的に言えば、トークンには ``contents: write`` "
+"権限が必要です。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
 msgid "Finally, the signed distributions are uploaded to the GitHub Release."
@@ -9135,17 +9167,13 @@ msgstr ""
 "たくさん存在しています:"
 
 #: ../source/guides/single-sourcing-package-version.rst:12
-#, fuzzy
-#| msgid ""
-#| "Read the file in :file:`setup.py` and get the version. Example (from `pip "
-#| "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
 msgid ""
 "Read the file in :file:`setup.py` and get the version. Example (from `pip "
 "setup.py <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::"
 msgstr ""
-":file:`setup.py` に書かれたファイルを読み込んでバージョンを得ましょう。"
-"( `pip setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_ での) 例は"
-"こちら::"
+":file:`setup.py` に書かれたファイルを読み込んでバージョンを得ましょう。( `"
+"pip setup.py <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_ での) "
+"例はこちら::"
 
 #: ../source/guides/single-sourcing-package-version.rst:39
 msgid ""
@@ -10062,10 +10090,19 @@ msgid ""
 "makes some recommendations of tools that you should *not* use because they "
 "are deprecated or insecure."
 msgstr ""
+"Python パッケージングのランドスケープは、多くの異なったツール群からできていま"
+"す。多くのタスクについて、 :term:`Python パッケージングオーソリティ <Python "
+"Packaging Authority (PyPA) >` (PyPA とは多数のパッケージングツール群を包含す"
+"るとともにこのガイド文書を維持管理しているワーキンググループ) "
+"は、一律に適用するような推奨ををしません; "
+"例えば、数多くのビルドバックエンドが存在する理由は、"
+"既存のユニークなバックエンドである setuptools よりもうまく特定のユーザのニー"
+"ズに応える新しいバックエンドの開発を可能とするためにランドスケープを開放して"
+"いるということなのです。このガイド文書では、広く認知されている幾つかのツール"
+"を指し示していますが、また、非推奨であったり安全でなかったりするために "
+"*使うべきでない* ものについても非推奨事項を記しています。"
 
 #: ../source/guides/tool-recommendations.rst:20
-#, fuzzy
-#| msgid "Virtual Environment"
 msgid "Virtual environments"
 msgstr "仮想環境"
 
@@ -10075,10 +10112,11 @@ msgid ""
 "`virtualenv` (PyPA project) and :doc:`venv <python:library/venv>` (part of "
 "the Python standard library, though missing some features of virtualenv)."
 msgstr ""
+"仮想環境を手動で作成して使用するための標準的なツールは、 :ref:`virtualenv` ("
+"PyPA project) と :doc:`venv <python:library/venv>` (virtualenv には備わってい"
+"る幾つかの機能が欠けてはいるものの、Pythonの標準ライブラリの一部) です。"
 
 #: ../source/guides/tool-recommendations.rst:28
-#, fuzzy
-#| msgid "Installing Packages"
 msgid "Installing packages"
 msgstr "パッケージをインストールする"
 
@@ -10090,6 +10128,12 @@ msgid ""
 "in most Python installations through the standard library package :doc:"
 "`ensurepip <python:library/ensurepip>`."
 msgstr ""
+":ref:`Pip` は :term:`PyPI <Python Package Index (PyPI)>` "
+"からパッケージをインストールするための標準的なツールです。 pip "
+"の推奨事項については、 :doc:`セキュアなインストール <pip:topics/secure-"
+"installs>` を読むと良いでしょう。 pip は、標準ライブラリのパッケージ :doc:`"
+"ensurepip <python:library/ensurepip>` を通じて、ほとんどの Python "
+"環境でデフォルトで利用可能です。"
 
 #: ../source/guides/tool-recommendations.rst:36
 msgid ""
@@ -10101,15 +10145,23 @@ msgid ""
 "wide applications making use of the same Python interpreter (especially on "
 "Linux)."
 msgstr ""
+"別のやり方としては、 PyPI を通じて配布されてコマンドラインから実行される "
+"Python アプリケーションをインストールする特定のユースケースにおいては "
+":ref:`pipx` を検討してください。 pipx は pip と、"
+"専用の仮想環境の中にそれぞれのアプリケーションをインストールする venv のラッ"
+"パーとして動作します。これによって、異なるアプリケーションの間の依存関係上の"
+"衝突を避け、システムワイドのアプリケーションとの間で同じ Python "
+"インタープリタを使う際の衝突を避けることができます (特に Linux 環境で)。"
 
 #: ../source/guides/tool-recommendations.rst:43
 msgid ""
 "For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`."
-msgstr ""
+msgstr "特に科学計算ソフトウェア向けには :ref:`Conda` や :ref:`Spack` "
+"を検討してください。"
 
 #: ../source/guides/tool-recommendations.rst:45
 msgid "Write a \"pip vs. Conda\" comparison, here or in a new discussion."
-msgstr ""
+msgstr "ここか、新しい議論として、\"pip vs. Conda\" の比較を書くべし。"
 
 #: ../source/guides/tool-recommendations.rst:47
 msgid ""
@@ -10119,10 +10171,17 @@ msgid ""
 "develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
 "background and :ref:`modernize-setup-py-project` for migration advice)."
 msgstr ""
+"``easy_install`` (:ref:`setuptools` の一部) は、 pip "
+"の登場によって非推奨になっていますので、 **使わない** でください (詳しくは "
+":ref:`pip vs easy_install` を見てください)。同様に、 ``python setup.py "
+"install`` や ``python setup.py develop`` も非推奨になっていますので "
+"**使わない** でください (背景については :ref:`setup-py-deprecated` を、"
+"移行するためのアドバイスについては :ref:`setup.py 近代化プロジェクト "
+"<modernize-setup-py-project>` を見てください)。"
 
 #: ../source/guides/tool-recommendations.rst:55
 msgid "Lock files"
-msgstr ""
+msgstr "ロックファイル"
 
 #: ../source/guides/tool-recommendations.rst:57
 msgid ""
@@ -10130,10 +10189,11 @@ msgid ""
 "files, which contain the exact versions of all packages installed into an "
 "environment, for reproducibility purposes."
 msgstr ""
+":ref:`pip-tools` と :ref:`Pipenv` は、再現性を高める目的でロックファイル、そ"
+"こにはその環境にインストールされたパッケージの正確なバージョンを含みますが、"
+"そのようなロックファイルを作成するためのツールとしてよく知られています。"
 
 #: ../source/guides/tool-recommendations.rst:63
-#, fuzzy
-#| msgid "Build Backend"
 msgid "Build backends"
 msgstr "ビルドバックエンド"
 
@@ -10143,12 +10203,18 @@ msgid ""
 "particular tool, only to enumerate common tools. Different use cases often "
 "need specialized workflows."
 msgstr ""
+"どうか覚えておいてください: このドキュメントは、読者に特定のツールへ向かって"
+"舵を切らせることを追求しているわけではなく、一般的なツール群を列挙しているだ"
+"けです。異なるユースケースでは、しばしば、そのケースに特化したワークフローが"
+"必要になります。"
 
 #: ../source/guides/tool-recommendations.rst:71
 msgid ""
 "Popular :term:`build backends <build backend>` for pure-Python packages "
 "include, in alphabetical order:"
 msgstr ""
+"純 Python のパッケージを取り扱う :term:`ビルドバックエンド <build backend>` "
+"で人気のあるものは、アルファベット順に:"
 
 #: ../source/guides/tool-recommendations.rst:74
 msgid ""
@@ -10156,24 +10222,30 @@ msgid ""
 "ref:`Flit`. A minimal and opinionated build backend. It does not support "
 "plugins."
 msgstr ""
+":doc:`Flit-core <flit:pyproject_toml>` -- :ref:`Flit` とともに開発されたが別"
+"のもの。最小限で自己主張の強いビルドバックエンド。プラグインをサポートしない"
+"。"
 
 #: ../source/guides/tool-recommendations.rst:77
 msgid ""
 "Hatchling_ -- developed with but separate from :ref:`Hatch`. Supports "
 "plugins."
-msgstr ""
+msgstr "Hatchling_ -- :ref:`Hatch` "
+"とともに開発されたが別のもの。プラグインをサポートする。"
 
 #: ../source/guides/tool-recommendations.rst:79
 msgid ""
 "PDM-backend_ -- developed with but separate from :ref:`PDM`. Supports "
 "plugins."
-msgstr ""
+msgstr "PDM-backend_ -- :ref:`PDM` "
+"とともに開発されたが別のもの。プラグインをサポート。"
 
 #: ../source/guides/tool-recommendations.rst:81
 msgid ""
 "Poetry-core_ -- developed with but separate from :ref:`Poetry`. Supports "
 "plugins."
-msgstr ""
+msgstr "Poetry-core_ -- :ref:`Poetry` "
+"とともに開発されたが別のもの。プラグインをサポート。"
 
 #: ../source/guides/tool-recommendations.rst:84
 msgid ""
@@ -10181,11 +10253,15 @@ msgid ""
 "standard :ref:`[project] table <writing-pyproject-toml>` (it uses a "
 "different format, in the ``[tool.poetry]`` table)."
 msgstr ""
+"このリストの他のバックエンドとは異なって、 Poetry-core は標準的な "
+":ref:`[project] table <writing-pyproject-toml>` をサポートしていません "
+"(``[tool.poetry]`` テーブル内に別のフォーマットで書くことはできます)。"
 
 #: ../source/guides/tool-recommendations.rst:88
 msgid ""
 ":ref:`setuptools`, which used to be the only build backend. Supports plugins."
-msgstr ""
+msgstr ":ref:`setuptools` "
+"は、以前は唯一のビルドバックエンドでした。プラグインをサポート。"
 
 #: ../source/guides/tool-recommendations.rst:92
 msgid ""
@@ -10193,6 +10269,9 @@ msgid ""
 "standardisation efforts are now deprecated and only *temporarily kept* for "
 "compatibility."
 msgstr ""
+"setuptools を使うのであれば、標準化の努力が為される前の幾つかの機能が今では非"
+"推奨になっていて互換性を保つために *一時的に継続使用* "
+"しているだけであることを忘れないでください。"
 
 #: ../source/guides/tool-recommendations.rst:96
 msgid ""
@@ -10203,6 +10282,13 @@ msgid ""
 "`setup.cfg`) whenever possible and keep :file:`setup.py` only if "
 "programmatic configuration is needed. See :ref:`setup-py-deprecated`."
 msgstr ""
+"とりわけ、 ``python setup.py`` のように直接に起動しては *いけません* "
+"。他方で、可能であればいつでも近代的な :ref:`[project] table in "
+"pyproject.toml <writing-pyproject-toml>` (または :file:`setup.cfg`) "
+"を使うことや、プログラム的な設定が必要とされる場合にのみ :file:`setup.py` "
+"を使い続けることが推奨されてはいますが、 :file:`setup.py` を使って "
+"setuptools に設定を渡すことは今も完全にサポートされています。 :ref:`setup-py-"
+"deprecated` を見てください。"
 
 #: ../source/guides/tool-recommendations.rst:103
 msgid ""
@@ -10211,6 +10297,11 @@ msgid ""
 "table <pyproject-guide-build-system-table>` in :file:`pyproject.toml` "
 "instead), and the ``easy_install`` command (cf. :ref:`pip vs easy_install`)."
 msgstr ""
+"非推奨となった機能の他の例としては、 ``setup()`` の ``setup_requires`` "
+"引数を使うべきではなく (代わりに :file:`pyproject.toml` 内の :ref:`[build-"
+"system] テーブル <pyproject-guide-build-system-table>` を使ってください) "
+"、また、 ``easy_install`` コマンドを使うことも非推奨になっています (cf. "
+":ref:`pip vs easy_install`) 。"
 
 #: ../source/guides/tool-recommendations.rst:108
 msgid ""
@@ -10218,6 +10309,10 @@ msgid ""
 "from the standard library in Python 3.12, although it still remains "
 "available from setuptools."
 msgstr ""
+":ref:`distutils` を *使わないで* "
+"ください、というのも、これは非推奨になっていますし、まだ setuptools "
+"から利用可能ではありますが Python 3.12 "
+"で標準ライブラリから取り除かれたものです。"
 
 #: ../source/guides/tool-recommendations.rst:112
 msgid ""
@@ -10225,34 +10320,41 @@ msgid ""
 "to use a build system with dedicated support for the language the extension "
 "is written in, for example:"
 msgstr ""
+":term:`拡張モジュール <extension module>` を伴うパッケージについては、その拡"
+"張が書かれた言語用の専用サポートのあるビルドシステムを使うのが最善です、例え"
+"ば:"
 
 #: ../source/guides/tool-recommendations.rst:116
 msgid ""
 ":ref:`setuptools` -- natively supports C and C++ (with third-party plugins "
 "for Go and Rust),"
 msgstr ""
+":ref:`setuptools` -- C 言語および C++ 言語をネイティブにサポート ("
+"サードパーティのプラグインで Go 言語と Rust 言語も)、"
 
 #: ../source/guides/tool-recommendations.rst:117
 msgid ""
 ":ref:`meson-python` -- C, C++, Fortran, Rust, and other languages supported "
 "by Meson,"
 msgstr ""
+":ref:`meson-python` -- C 言語・ C++ 言語・ Fortran ・ Rust "
+"およびその他の言語が Meson によってサポートされています、"
 
 #: ../source/guides/tool-recommendations.rst:118
 msgid ""
 ":ref:`scikit-build-core` -- C, C++, Fortran, and other languages supported "
 "by CMake,"
 msgstr ""
+":ref:`scikit-build-core` -- C 言語・ C++ 言語・ Fortran やその他の言語が "
+"CMake によってサポートされています、"
 
 #: ../source/guides/tool-recommendations.rst:119
 msgid ":ref:`maturin` -- Rust, via Cargo."
-msgstr ""
+msgstr ":ref:`maturin` -- Rust 、 Cargo を経由して。"
 
 #: ../source/guides/tool-recommendations.rst:123
-#, fuzzy
-#| msgid "Built Distribution"
 msgid "Building distributions"
-msgstr "ビルド済配布物"
+msgstr "配布物をビルドする"
 
 #: ../source/guides/tool-recommendations.rst:125
 msgid ""
@@ -10261,6 +10363,11 @@ msgid ""
 "`build`.  It will invoke whichever build backend you :ref:`declared "
 "<pyproject-guide-build-system-table>` in :file:`pyproject.toml`."
 msgstr ""
+"PyPI へアップロードするために :term:`ソースコード配布物 <source distribution "
+"(or \"sdist\">` や :term:`wheels <wheel>` をビルドするための標準ツールは、 "
+":ref:`build` です。:file:`pyproject.toml` 内で `宣言された <pyptoject-guide-"
+"build-system-table>` "
+"ビルドバックエンドが何であれ、それを起動することになります。"
 
 #: ../source/guides/tool-recommendations.rst:130
 msgid ""
@@ -10268,27 +10375,24 @@ msgid ""
 "for this task. All direct invocations of :file:`setup.py` are :ref:"
 "`deprecated <setup-py-deprecated>`."
 msgstr ""
+"この作業のために ``python setup.py sdist`` や ``python setup.py bdist_wheel``"
+" を *使わないで* ください。:file:`setup.py` を直接に起動することは :ref:`"
+"非推奨 <setup-py-deprecated>` になっています。"
 
 #: ../source/guides/tool-recommendations.rst:134
-#, fuzzy
-#| msgid ""
-#| "If you have binary extensions and want to distribute wheels for multiple "
-#| "platforms, use :ref:`cibuildwheel` as part of your CI setup to build "
-#| "distributable wheels."
 msgid ""
 "If you have :term:`extension modules <extension module>` and want to "
 "distribute wheels for multiple platforms, use :ref:`cibuildwheel` as part of "
 "your CI setup to build distributable wheels."
 msgstr ""
-"もし、バイナリ拡張を使っていて複数のプラットフォーム向けに wheel ファイルを配"
-"布したいと考えているなら、配布可能な wheel ファイルをビルドする CI 環境の一部"
-"として :ref:`cibuildwheel` を使いましょう。"
+"もし、 :term:`拡張モジュール <extension module>` "
+"を使っていて複数のプラットフォーム向けに wheel "
+"ファイルを配布したいと考えているなら、配布可能な wheel ファイルをビルドする "
+"CI 環境の一部として :ref:`cibuildwheel` を使いましょう。"
 
 #: ../source/guides/tool-recommendations.rst:140
-#, fuzzy
-#| msgid "Uploading your Project to PyPI"
 msgid "Uploading to PyPI"
-msgstr "プロジェクトをPyPIにアップロードする"
+msgstr "PyPIにアップロードする"
 
 #: ../source/guides/tool-recommendations.rst:142
 msgid ""
@@ -10327,43 +10431,36 @@ msgstr ""
 
 #: ../source/guides/tool-recommendations.rst:164
 #, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`Flit`,"
 msgstr ":ref:`pip`"
 
 #: ../source/guides/tool-recommendations.rst:165
 #, fuzzy
-#| msgid ":ref:`bandersnatch`"
 msgid ":ref:`Hatch`,"
 msgstr ":ref:`bandersnatch`"
 
 #: ../source/guides/tool-recommendations.rst:166
 #, fuzzy
-#| msgid ":doc:`Docs <conda:index>`"
 msgid ":doc:`nox <nox:index>`,"
 msgstr ":doc:`説明文書 <conda:index>`"
 
 #: ../source/guides/tool-recommendations.rst:167
 #, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`PDM`,"
 msgstr ":ref:`pip`"
 
 #: ../source/guides/tool-recommendations.rst:168
 #, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`Pipenv`,"
 msgstr ":ref:`pip`"
 
 #: ../source/guides/tool-recommendations.rst:169
 #, fuzzy
-#| msgid ":ref:`devpi`"
 msgid ":ref:`Poetry`,"
 msgstr ":ref:`devpi`"
 
 #: ../source/guides/tool-recommendations.rst:170
 #, fuzzy
-#| msgid ":doc:`Docs <conda:index>`"
 msgid ":doc:`tox <tox:index>`."
 msgstr ":doc:`説明文書 <conda:index>`"
 
@@ -17392,11 +17489,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:13
 #, fuzzy
-#| msgid ""
-#| "The representation of the components of this data structure as a :rfc:"
-#| "`1738` URL is not formally specified at time of writing. A common "
-#| "representation is the pip URL format. Other examples are provided in the :"
-#| "ref:`Version specifier specification <version-specifiers>`."
 msgid ""
 "At time of writing, it is not formally specified how to merge the parts of "
 "this data structure into a single URL that can be passed to tools. A common "
@@ -17426,13 +17518,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:28
 #, fuzzy
-#| msgid ""
-#| "It MUST contain at least two fields. The first one is ``url``, with type "
-#| "``string``. Depending on what ``url`` refers to, the second field MUST be "
-#| "one of ``vcs_info`` (if ``url`` is a VCS reference), ``archive_info`` (if "
-#| "``url`` is a source archives or a wheel), or ``dir_info`` (if ``url``  is "
-#| "a local directory). These info fields have a (possibly empty) "
-#| "subdictionary as value, with the possible keys defined below."
 msgid ""
 "Depending on what ``url`` refers to, the second field MUST be one of "
 "``vcs_info`` (if ``url`` is a VCS reference), ``archive_info`` (if ``url`` "
