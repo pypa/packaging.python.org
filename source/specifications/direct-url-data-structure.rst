@@ -59,7 +59,9 @@ as a dictionary with the following keys:
   so an installer can hand it off without transformation to a
   checkout/download command of the VCS.
 - A ``requested_revision`` key (type ``string``) MAY be present naming a
-  branch/tag/ref/commit/revision/etc (in a format compatible with the VCS).
+  branch/tag/ref/commit/revision/etc (in a format compatible with the VCS). This field
+  MUST match the revision requested by the user and MUST NOT exist when the user did
+  not select a specific revision.
 - A ``commit_id`` key (type ``string``) MUST be present, containing the
   exact commit/revision number that was/is to be installed.
   If the VCS supports commit-hash
