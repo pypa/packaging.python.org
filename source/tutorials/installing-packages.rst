@@ -224,8 +224,8 @@ environments.
 Currently, there are two common tools for creating Python virtual environments:
 
 * :doc:`venv <python:library/venv>` is available by default in Python 3.3 and later, and installs
-  :ref:`pip` and :ref:`setuptools` into created virtual environments in
-  Python 3.4 and later.
+  :ref:`pip` into created virtual environments in Python 3.4 and later
+  (Python versions prior to 3.12 also installed :ref:`setuptools`).
 * :ref:`virtualenv` needs to be installed separately, but supports Python 2.7+
   and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are
   always installed into created virtual environments by default (regardless of
