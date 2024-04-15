@@ -8,13 +8,14 @@
 # Alex <hostspepc@gmail.com>, 2023.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2023, 2024.
 # Andrey Rybakov <rybakov.ad@icloud.com>, 2023.
+# Nikita <nikdissv.github.forever@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-13 13:26+0000\n"
-"PO-Revision-Date: 2024-01-24 22:29+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
+"POT-Creation-Date: 2024-04-13 15:33+0000\n"
+"PO-Revision-Date: 2024-03-31 15:01+0000\n"
+"Last-Translator: Nikita <nikdissv.github.forever@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ru/>\n"
 "Language: ru\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1149,6 +1150,365 @@ msgstr ""
 "Подробнее о требованиях \"Абстрактные\" и \"Конкретные\" см. на сайте "
 "https://caremad.io/posts/2013/07/setup-vs-requirement/."
 
+#: ../source/discussions/package-formats.rst:5
+#, fuzzy
+#| msgid "Package Index"
+msgid "Package Formats"
+msgstr "Индекс пакета"
+
+#: ../source/discussions/package-formats.rst:7
+msgid ""
+"This page discusses the file formats that are used to distribute Python "
+"packages and the differences between them."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:10
+msgid ""
+"You will find files in two formats on package indices such as PyPI_: "
+"**source distributions**, or **sdists** for short, and **binary "
+"distributions**, commonly called **wheels**.  For example, the `PyPI page "
+"for pip 23.3.1 <pip-pypi_>`_ lets you download two files, ``pip-23.3.1.tar."
+"gz`` and ``pip-23.3.1-py3-none-any.whl``.  The former is an sdist, the "
+"latter is a wheel. As explained below, these serve different purposes. When "
+"publishing a package on PyPI (or elsewhere), you should always upload both "
+"an sdist and one or more wheel."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:21
+#, fuzzy
+#| msgid "Python source distributions"
+msgid "What is a source distribution?"
+msgstr "Дистрибутивы с исходным кодом Python"
+
+#: ../source/discussions/package-formats.rst:23
+msgid ""
+"Conceptually, a source distribution is an archive of the source code in raw "
+"form. Concretely, an sdist is a ``.tar.gz`` archive containing the source "
+"code plus an additional special file called ``PKG-INFO``, which holds the "
+"project metadata. The presence of this file helps packaging tools to be more "
+"efficient by not needing to compute the metadata themselves. The ``PKG-"
+"INFO`` file follows the format specified in :ref:`core-metadata` and is not "
+"intended to be written by hand [#core-metadata-format]_."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:31
+msgid ""
+"You can thus inspect the contents of an sdist by unpacking it using standard "
+"tools to work with tar archives, such as ``tar -xvf`` on UNIX platforms "
+"(like Linux and macOS), or :ref:`the command line interface of Python's "
+"tarfile module <python:tarfile-commandline>` on any platform."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:36
+msgid ""
+"Sdists serve several purposes in the packaging ecosystem. When :ref:`pip`, "
+"the standard Python package installer, cannot find a wheel to install, it "
+"will fall back on downloading a source distribution, compiling a wheel from "
+"it, and installing the wheel. Furthermore, sdists are often used as the "
+"package source by downstream packagers (such as Linux distributions, Conda, "
+"Homebrew and MacPorts on macOS, ...), who, for various reasons, may prefer "
+"them over, e.g., pulling from a Git repository."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:44
+msgid ""
+"A source distribution is recognized by its file name, which has the form :"
+"samp:`{package_name}-{version}.tar.gz`, e.g., ``pip-23.3.1.tar.gz``."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:50
+msgid ""
+"If you want technical details on the sdist format, read the :ref:`sdist "
+"specification <source-distribution-format>`."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:55
+msgid "What is a wheel?"
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:57
+msgid ""
+"Conceptually, a wheel contains exactly the files that need to be copied when "
+"installing the package."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:60
+msgid ""
+"There is a big difference between sdists and wheels for packages with :term:"
+"`extension modules <extension module>`, written in compiled languages like "
+"C, C++ and Rust, which need to be compiled into platform-dependent machine "
+"code. With these packages, wheels do not contain source code (like C source "
+"files) but compiled, executable code (like ``.so`` files on Linux or DLLs on "
+"Windows)."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:66
+msgid ""
+"Furthermore, while there is only one sdist per version of a project, there "
+"may be many wheels. Again, this is most relevant in the context of extension "
+"modules. The compiled code of an extension module is tied to an operating "
+"system and processor architecture, and often also to the version of the "
+"Python interpreter (unless the :ref:`Python stable ABI <cpython-stable-abi>` "
+"is used)."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:72
+msgid ""
+"For pure-Python packages, the difference between sdists and wheels is less "
+"marked. There is normally one single wheel, for all platforms and Python "
+"versions.  Python is an interpreted language, which does not need ahead-of-"
+"time compilation, so wheels contain ``.py`` files just like sdists."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:77
+msgid ""
+"If you are wondering about ``.pyc`` bytecode files: they are not included in "
+"wheels, since they are cheap to generate, and including them would "
+"unnecessarily force a huge number of packages to distribute one wheel per "
+"Python version instead of one single wheel. Instead, installers like :ref:"
+"`pip` generate them while installing the package."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:83
+msgid ""
+"With that being said, there are still important differences between sdists "
+"and wheels, even for pure Python projects. Wheels are meant to contain "
+"exactly what is to be installed, and nothing more. In particular, wheels "
+"should never include tests and documentation, while sdists commonly do.  "
+"Also, the wheel format is more complex than sdist. For example, it includes "
+"a special file -- called ``RECORD`` -- that lists all files in the wheel "
+"along with a hash of their content, as a safety check of the download's "
+"integrity."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:91
+msgid ""
+"At a glance, you might wonder if wheels are really needed for \"plain and "
+"basic\" pure Python projects. Keep in mind that due to the flexibility of "
+"sdists, installers like pip cannot install from sdists directly -- they need "
+"to first build a wheel, by invoking the :term:`build backend` that the sdist "
+"specifies (the build backend may do all sorts of transformations while "
+"building the wheel, such as compiling C extensions). For this reason, even "
+"for a pure Python project, you should always upload *both* an sdist and a "
+"wheel to PyPI or other package indices. This makes installation much faster "
+"for your users, since a wheel is directly installable. By only including "
+"files that must be installed, wheels also make for smaller downloads."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:102
+msgid ""
+"On the technical level, a wheel is a ZIP archive (unlike sdists which are "
+"TAR archives). You can inspect its contents by unpacking it as a normal ZIP "
+"archive, e.g., using ``unzip`` on UNIX platforms like Linux and macOS, "
+"``Expand-Archive`` in Powershell on Windows, or :ref:`the command line "
+"interface of Python's zipfile module <python:zipfile-commandline>`. This can "
+"be very useful to check that the wheel includes all the files you need it to."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:109
+msgid ""
+"Inside a wheel, you will find the package's files, plus an additional "
+"directory called :samp:`{package_name}-{version}.dist-info`. This directory "
+"contains various files, including a ``METADATA`` file which is the "
+"equivalent of ``PKG-INFO`` in sdists, as well as ``RECORD``. This can be "
+"useful to ensure no files are missing from your wheels."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:115
+msgid ""
+"The file name of a wheel (ignoring some rarely used features) looks like "
+"this: :samp:`{package_name}-{version}-{python_tag}-{abi_tag}-{platform_tag}."
+"whl`. This naming convention identifies which platforms and Python versions "
+"the wheel is compatible with. For example, the name ``pip-23.3.1-py3-none-"
+"any.whl`` means that:"
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:121
+msgid ""
+"(``py3``) This wheel can be installed on any implementation of Python 3, "
+"whether CPython, the most widely used Python implementation, or an "
+"alternative implementation like PyPy_;"
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:124
+msgid "(``none``) It does not depend on the Python version;"
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:125
+msgid "(``any``) It does not depend on the platform."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:127
+msgid ""
+"The pattern ``py3-none-any`` is common for pure Python projects. Packages "
+"with extension modules typically ship multiple wheels with more complex tags."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:130
+msgid ""
+"All technical details on the wheel format can be found in the :ref:`wheel "
+"specification <binary-distribution-format>`."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:138
+#, fuzzy
+#| msgid "What about..."
+msgid "What about eggs?"
+msgstr "Как насчёт..."
+
+#: ../source/discussions/package-formats.rst:140
+msgid ""
+"\"Egg\" is an old package format that has been replaced with the wheel "
+"format.  It should not be used anymore. Since August 2023, PyPI `rejects egg "
+"uploads <pypi-eggs-deprecation_>`_."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:144
+#, fuzzy
+#| msgid ""
+#| "Here's a breakdown of the important differences between :term:`Wheel` "
+#| "and :term:`Egg`."
+msgid "Here's a breakdown of the important differences between wheel and egg."
+msgstr ""
+"Вот разбивка важных различий между :термин: \"Wheel\" и :term: \"Egg\"."
+
+#: ../source/discussions/package-formats.rst:146
+#, fuzzy
+#| msgid ""
+#| "The :term:`Egg` format was introduced by :ref:`setuptools` in 2004, "
+#| "whereas the :term:`Wheel` format was introduced by :pep:`427` in 2012."
+msgid ""
+"The egg format was introduced by :ref:`setuptools` in 2004, whereas the "
+"wheel format was introduced by :pep:`427` in 2012."
+msgstr ""
+":term:`Egg` format was introduced by :ref:`setuptools' in 2004, whereas the :"
+"term:` В 2012 году в формате < < Колесо > > был представлен документ :pep:"
+"`427 > > ."
+
+#: ../source/discussions/package-formats.rst:149
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` has an :doc:`official standard specification </"
+#| "specifications/binary-distribution-format>`. :term:`Egg` did not."
+msgid ""
+"Wheel has an :doc:`official standard specification </specifications/binary-"
+"distribution-format>`. Egg did not."
+msgstr ""
+"У :term:`Wheel` есть :doc:`официальная спецификация стандарта </"
+"specifications/binary-distribution-format>`. У :term:`Egg` ее нет."
+
+#: ../source/discussions/package-formats.rst:152
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` is a :term:`distribution <Distribution Package>` format, i."
+#| "e a packaging format. [1]_ :term:`Egg` was both a distribution format and "
+#| "a runtime installation format (if left zipped), and was designed to be "
+#| "importable."
+msgid ""
+"Wheel is a :term:`distribution <Distribution Package>` format, i.e a "
+"packaging format. [#wheel-importable]_ Egg was both a distribution format "
+"and a runtime installation format (if left zipped), and was designed to be "
+"importable."
+msgstr ""
+":term:`Wheel` - это формат :term:`distribution <Distribution Package>`, т.е. "
+"формат упаковки. [1]_ :term:`Egg` - это одновременно и формат дистрибутива, "
+"и формат установки во время выполнения (если оставить его запечатанным), и "
+"он был разработан для импорта."
+
+#: ../source/discussions/package-formats.rst:156
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` archives do not include .pyc files. Therefore, when the "
+#| "distribution only contains Python files (i.e. no compiled extensions), "
+#| "and is compatible with Python 2 and 3, it's possible for a wheel to be "
+#| "\"universal\", similar to an :term:`sdist <Source Distribution (or "
+#| "\"sdist\")>`."
+msgid ""
+"Wheel archives do not include ``.pyc`` files. Therefore, when the "
+"distribution only contains Python files (i.e. no compiled extensions), and "
+"is compatible with Python 2 and 3, it's possible for a wheel to be "
+"\"universal\", similar to an :term:`sdist <Source Distribution (or "
+"\"sdist\")>`."
+msgstr ""
+"Архивы :term:`Wheel` не включают файлы .pyc. Поэтому, если дистрибутив "
+"содержит только файлы Python (т.е. не содержит скомпилированных расширений) "
+"и совместим с Python 2 и 3, то колесо может быть \"универсальным\", подобно :"
+"term:`sdist <Источниковый дистрибутив (или \"sdist\")>`."
+
+#: ../source/discussions/package-formats.rst:161
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info`` "
+#| "directories. Egg used ``.egg-info``."
+msgid ""
+"Wheel uses standard :ref:`.dist-info directories <recording-installed-"
+"packages>`.  Egg used ``.egg-info``."
+msgstr ""
+":term:`Wheel` использует :pep:`PEP376-совместимые <376>` директории ``.dist-"
+"info``. В Egg используется ``.egg-info``."
+
+#: ../source/discussions/package-formats.rst:164
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` has a :pep:`richer file naming convention <425>`. A single "
+#| "wheel archive can indicate its compatibility with a number of Python "
+#| "language versions and implementations, ABIs, and system architectures."
+msgid ""
+"Wheel has a :ref:`richer file naming convention <wheel-file-name-spec>`. A "
+"single wheel archive can indicate its compatibility with a number of Python "
+"language versions and implementations, ABIs, and system architectures."
+msgstr ""
+":term:`Wheel` имеет :pep:`соглашение об именовании файлов <425>`. Один архив "
+"wheel может указывать на свою совместимость с несколькими версиями и "
+"реализациями языка Python, ABI и системными архитектурами."
+
+#: ../source/discussions/package-formats.rst:168
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` is versioned. Every wheel file contains the version of the "
+#| "wheel specification and the implementation that packaged it."
+msgid ""
+"Wheel is versioned. Every wheel file contains the version of the wheel "
+"specification and the implementation that packaged it."
+msgstr ""
+":term:`Wheel` является версионным. Каждый файл wheel содержит версию "
+"спецификации wheel и реализацию, которая его упаковала."
+
+#: ../source/discussions/package-formats.rst:171
+#, fuzzy
+#| msgid ""
+#| ":term:`Wheel` is internally organized by `sysconfig path type <https://"
+#| "docs.python.org/2/library/sysconfig.html#installation-paths>`_, therefore "
+#| "making it easier to convert to other formats."
+msgid ""
+"Wheel is internally organized by `sysconfig path type <https://docs.python."
+"org/2/library/sysconfig.html#installation-paths>`_, therefore making it "
+"easier to convert to other formats."
+msgstr ""
+":term:`Wheel` внутренне организовано по типу пути `sysconfig <https://docs."
+"python.org/2/library/sysconfig.html#installation-paths>`_, что облегчает его "
+"конвертацию в другие форматы."
+
+#: ../source/discussions/package-formats.rst:177
+msgid ""
+"This format is email-based. Although this would be unlikely to be chosen "
+"today, backwards compatibility considerations lead to it being kept as the "
+"canonical format. From the user point of view, this is mostly invisible, "
+"since the metadata is specified by the user in a way understood by the build "
+"backend, typically ``[project]`` in ``pyproject.toml``, and translated by "
+"the build backend into ``PKG-INFO``."
+msgstr ""
+
+#: ../source/discussions/package-formats.rst:184
+msgid ""
+"Circumstantially, in some cases, wheels can be used as an importable runtime "
+"format, although :ref:`this is not officially supported at this time <binary-"
+"distribution-format-import-wheel>`."
+msgstr ""
+"В некоторых случаях колеса могут использоваться в качестве импортируемого "
+"формата времени выполнения, хотя :ref:`это не поддерживается официально в "
+"настоящее время <binary-distribution-format-import-wheel>`."
+
 #: ../source/discussions/pip-vs-easy-install.rst:6
 msgid "pip vs easy_install"
 msgstr "pip против easy_install"
@@ -2266,134 +2626,6 @@ msgid ""
 "<semver-brett-cannon_>`_. For a humoristic take, read about ZeroVer_."
 msgstr ""
 
-#: ../source/discussions/wheel-vs-egg.rst:5
-msgid "Wheel vs Egg"
-msgstr "Колеса против яиц"
-
-#: ../source/discussions/wheel-vs-egg.rst:7
-msgid ""
-":term:`Wheel` and :term:`Egg` are both packaging formats that aim to support "
-"the use case of needing an install artifact that doesn't require building or "
-"compilation, which can be costly in testing and production workflows."
-msgstr ""
-":термин: `Wheel' и :term:`Egg' - это оба формата упаковки, которые "
-"направлены на поддержку случая использования объекта установки, который не "
-"требует строительства или компиляции, что может быть дорогостоящим в "
-"тестировании и производстве рабочих процессов."
-
-#: ../source/discussions/wheel-vs-egg.rst:11
-msgid ""
-"The :term:`Egg` format was introduced by :ref:`setuptools` in 2004, whereas "
-"the :term:`Wheel` format was introduced by :pep:`427` in 2012."
-msgstr ""
-":term:`Egg` format was introduced by :ref:`setuptools' in 2004, whereas the :"
-"term:` В 2012 году в формате < < Колесо > > был представлен документ :pep:"
-"`427 > > ."
-
-#: ../source/discussions/wheel-vs-egg.rst:14
-msgid ""
-":term:`Wheel` is currently considered the standard for :term:`built <Built "
-"Distribution>` and :term:`binary <Binary Distribution>` packaging for Python."
-msgstr ""
-":term:`Wheel` в настоящее время считается стандартом для :term:`built <Built "
-"Distribution>` и :term:`binary <Binary Distribution>` упаковки для Python."
-
-#: ../source/discussions/wheel-vs-egg.rst:17
-msgid ""
-"Here's a breakdown of the important differences between :term:`Wheel` and :"
-"term:`Egg`."
-msgstr ""
-"Вот разбивка важных различий между :термин: \"Wheel\" и :term: \"Egg\"."
-
-#: ../source/discussions/wheel-vs-egg.rst:20
-msgid ""
-":term:`Wheel` has an :doc:`official standard specification </specifications/"
-"binary-distribution-format>`. :term:`Egg` did not."
-msgstr ""
-"У :term:`Wheel` есть :doc:`официальная спецификация стандарта </"
-"specifications/binary-distribution-format>`. У :term:`Egg` ее нет."
-
-#: ../source/discussions/wheel-vs-egg.rst:24
-msgid ""
-":term:`Wheel` is a :term:`distribution <Distribution Package>` format, i.e a "
-"packaging format. [1]_ :term:`Egg` was both a distribution format and a "
-"runtime installation format (if left zipped), and was designed to be "
-"importable."
-msgstr ""
-":term:`Wheel` - это формат :term:`distribution <Distribution Package>`, т.е. "
-"формат упаковки. [1]_ :term:`Egg` - это одновременно и формат дистрибутива, "
-"и формат установки во время выполнения (если оставить его запечатанным), и "
-"он был разработан для импорта."
-
-#: ../source/discussions/wheel-vs-egg.rst:28
-msgid ""
-":term:`Wheel` archives do not include .pyc files. Therefore, when the "
-"distribution only contains Python files (i.e. no compiled extensions), and "
-"is compatible with Python 2 and 3, it's possible for a wheel to be "
-"\"universal\", similar to an :term:`sdist <Source Distribution (or "
-"\"sdist\")>`."
-msgstr ""
-"Архивы :term:`Wheel` не включают файлы .pyc. Поэтому, если дистрибутив "
-"содержит только файлы Python (т.е. не содержит скомпилированных расширений) "
-"и совместим с Python 2 и 3, то колесо может быть \"универсальным\", подобно :"
-"term:`sdist <Источниковый дистрибутив (или \"sdist\")>`."
-
-#: ../source/discussions/wheel-vs-egg.rst:33
-msgid ""
-":term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info`` directories. "
-"Egg used ``.egg-info``."
-msgstr ""
-":term:`Wheel` использует :pep:`PEP376-совместимые <376>` директории ``.dist-"
-"info``. В Egg используется ``.egg-info``."
-
-#: ../source/discussions/wheel-vs-egg.rst:36
-msgid ""
-":term:`Wheel` has a :pep:`richer file naming convention <425>`. A single "
-"wheel archive can indicate its compatibility with a number of Python "
-"language versions and implementations, ABIs, and system architectures."
-msgstr ""
-":term:`Wheel` имеет :pep:`соглашение об именовании файлов <425>`. Один архив "
-"wheel может указывать на свою совместимость с несколькими версиями и "
-"реализациями языка Python, ABI и системными архитектурами."
-
-#: ../source/discussions/wheel-vs-egg.rst:40
-msgid ""
-":term:`Wheel` is versioned. Every wheel file contains the version of the "
-"wheel specification and the implementation that packaged it."
-msgstr ""
-":term:`Wheel` является версионным. Каждый файл wheel содержит версию "
-"спецификации wheel и реализацию, которая его упаковала."
-
-#: ../source/discussions/wheel-vs-egg.rst:43
-msgid ""
-":term:`Wheel` is internally organized by `sysconfig path type <https://docs."
-"python.org/2/library/sysconfig.html#installation-paths>`_, therefore making "
-"it easier to convert to other formats."
-msgstr ""
-":term:`Wheel` внутренне организовано по типу пути `sysconfig <https://docs."
-"python.org/2/library/sysconfig.html#installation-paths>`_, что облегчает его "
-"конвертацию в другие форматы."
-
-#: ../source/discussions/wheel-vs-egg.rst:47
-msgid ""
-":term:`Egg` uploads have been disabled for upload to PyPI, per :pep:`715`. "
-"Read the `deprecation notice <https://blog.pypi.org/posts/2023-06-26-"
-"deprecate-egg-uploads/>`_ for more information."
-msgstr ""
-"Загрузки :term:`Egg` были отключены для загрузки в PyPI, согласно :pep:"
-"`715`. Для получения дополнительной информации читайте уведомление о "
-"депривации <https://blog.pypi.org/posts/2023-06-26-deprecate-egg-uploads/>`_."
-
-#: ../source/discussions/wheel-vs-egg.rst:53
-msgid ""
-"Circumstantially, in some cases, wheels can be used as an importable runtime "
-"format, although :ref:`this is not officially supported at this time <binary-"
-"distribution-format-import-wheel>`."
-msgstr ""
-"В некоторых случаях колеса могут использоваться в качестве импортируемого "
-"формата времени выполнения, хотя :ref:`это не поддерживается официально в "
-"настоящее время <binary-distribution-format-import-wheel>`."
-
 #: ../source/flow.rst:3
 msgid "The Packaging Flow"
 msgstr "Упаковочный поток"
@@ -2794,14 +3026,25 @@ msgid "Built Distribution"
 msgstr "Построенное распределение"
 
 #: ../source/glossary.rst:47
+#, fuzzy
+#| msgid ""
+#| "A :term:`Distribution <Distribution Package>` format containing files and "
+#| "metadata that only need to be moved to the correct location on the target "
+#| "system, to be installed. :term:`Wheel` is such a format, whereas "
+#| "distutil's :term:`Source Distribution <Source Distribution (or "
+#| "\"sdist\")>` is not, in that it requires a build step before it can be "
+#| "installed.  This format does not imply that Python files have to be "
+#| "precompiled (:term:`Wheel` intentionally does not include compiled Python "
+#| "files)."
 msgid ""
 "A :term:`Distribution <Distribution Package>` format containing files and "
 "metadata that only need to be moved to the correct location on the target "
-"system, to be installed. :term:`Wheel` is such a format, whereas distutil's :"
-"term:`Source Distribution <Source Distribution (or \"sdist\")>` is not, in "
-"that it requires a build step before it can be installed.  This format does "
-"not imply that Python files have to be precompiled (:term:`Wheel` "
-"intentionally does not include compiled Python files)."
+"system, to be installed. :term:`Wheel` is such a format, whereas :term:"
+"`Source Distribution <Source Distribution (or \"sdist\")>` is not, in that "
+"it requires a build step before it can be installed.  This format does not "
+"imply that Python files have to be precompiled (:term:`Wheel` intentionally "
+"does not include compiled Python files). See :ref:`package-formats` for more "
+"information."
 msgstr ""
 "Формат :term:`Distribution <Дистрибутивный пакет>`, содержащий файлы и "
 "метаданные, которые нужно только переместить в нужное место на целевой "
@@ -2852,22 +3095,26 @@ msgid "Egg"
 msgstr "Яйцо"
 
 #: ../source/glossary.rst:75
+#, fuzzy
+#| msgid ""
+#| "A :term:`Built Distribution` format introduced by :ref:`setuptools`, "
+#| "which is being replaced by :term:`Wheel`.  For details, see :doc:`The "
+#| "Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` "
+#| "and `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which "
-"is being replaced by :term:`Wheel`.  For details, see :doc:`The Internal "
-"Structure of Python Eggs <setuptools:deprecated/python_eggs>` and `Python "
-"Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_"
+"has been replaced by :term:`Wheel`.  For details, see :ref:`egg-format`."
 msgstr ""
 "Формат :term:`Built Distribution`, введенный :ref:`setuptools`, который "
 "заменяется :term:`Wheel`.  Подробности см. в :doc:`Внутренняя структура "
 "Python Eggs <setuptools:deprecated/python_eggs>` и `Python Eggs <http://peak."
 "telecommunity.com/DevCenter/PythonEggs>`_"
 
-#: ../source/glossary.rst:79
+#: ../source/glossary.rst:78
 msgid "Extension Module"
 msgstr "Модуль расширения"
 
-#: ../source/glossary.rst:82
+#: ../source/glossary.rst:81
 msgid ""
 "A :term:`Module` written in the low-level language of the Python "
 "implementation: C/C++ for Python, Java for Jython. Typically contained in a "
@@ -2881,11 +3128,11 @@ msgstr ""
 "объектов (.so) для расширений Python на Unix, DLL (с расширением .pyd) для "
 "расширений Python на Windows, или в файле классов Java для расширений Jython."
 
-#: ../source/glossary.rst:89
+#: ../source/glossary.rst:88
 msgid "Known Good Set (KGS)"
 msgstr "Known Good Set (KGS, Известный хороший набор)"
 
-#: ../source/glossary.rst:92
+#: ../source/glossary.rst:91
 msgid ""
 "A set of distributions at specified versions which are compatible with each "
 "other. Typically a test suite will be run which passes all tests before a "
@@ -2899,11 +3146,11 @@ msgstr ""
 "используется во фреймворках и наборах инструментов, которые состоят из "
 "нескольких отдельных дистрибутивов."
 
-#: ../source/glossary.rst:98
+#: ../source/glossary.rst:97
 msgid "Import Package"
 msgstr "Import Package (Импортируемый пакет)"
 
-#: ../source/glossary.rst:101
+#: ../source/glossary.rst:100
 msgid ""
 "A Python module which can contain other modules or recursively, other "
 "packages."
@@ -2911,7 +3158,7 @@ msgstr ""
 "Модуль Python, который может содержать другие модули или, рекурсивно, другие "
 "пакеты."
 
-#: ../source/glossary.rst:104
+#: ../source/glossary.rst:103
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -2925,11 +3172,11 @@ msgstr ""
 "также обычно называется \"пакет\". Различия см. в :ref:`distribution-package-"
 "vs-import-package`."
 
-#: ../source/glossary.rst:109
+#: ../source/glossary.rst:108
 msgid "Module"
 msgstr "Модуль"
 
-#: ../source/glossary.rst:112
+#: ../source/glossary.rst:111
 msgid ""
 "The basic unit of code reusability in Python, existing in one of two types: :"
 "term:`Pure Module`, or :term:`Extension Module`."
@@ -2938,11 +3185,11 @@ msgstr ""
 "одном из двух типов: :термин: «чистый модуль» или :термин: «модуль "
 "расширения»."
 
-#: ../source/glossary.rst:115
+#: ../source/glossary.rst:114
 msgid "Package Index"
 msgstr "Индекс пакета"
 
-#: ../source/glossary.rst:118
+#: ../source/glossary.rst:117
 msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
@@ -2950,11 +3197,11 @@ msgstr ""
 "Репозиторий дистрибутивов с веб-интерфейсом для автоматизации :term:`package "
 "<Distribution Package>` обнаружения и потребления."
 
-#: ../source/glossary.rst:121
+#: ../source/glossary.rst:120
 msgid "Per Project Index"
 msgstr "Индекс на проект"
 
-#: ../source/glossary.rst:124
+#: ../source/glossary.rst:123
 msgid ""
 "A private or other non-canonical :term:`Package Index` indicated by a "
 "specific :term:`Project` as the index preferred or required to resolve "
@@ -2964,12 +3211,12 @@ msgstr ""
 "конкретным:термин: «проект» как индекс, предпочтительный или необходимый для "
 "решения зависимостей этого проекта."
 
-#: ../source/glossary.rst:128 ../source/guides/hosting-your-own-index.rst:62
+#: ../source/glossary.rst:127 ../source/guides/hosting-your-own-index.rst:62
 #: ../source/guides/index-mirrors-and-caches.rst:52
 msgid "Project"
 msgstr "Проект"
 
-#: ../source/glossary.rst:131
+#: ../source/glossary.rst:130
 msgid ""
 "A library, framework, script, plugin, application, or collection of data or "
 "other resources, or some combination thereof that is intended to be packaged "
@@ -2979,7 +3226,7 @@ msgstr ""
 "других ресурсов, или определенная их комбинация, которая должна быть "
 "упакована в :term:`Distribution <Distribution Package>`."
 
-#: ../source/glossary.rst:135
+#: ../source/glossary.rst:134
 msgid ""
 "Since most projects create :term:`Distributions <Distribution Package>` "
 "using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:"
@@ -2993,7 +3240,7 @@ msgstr ""
 "время является то, что содержит :term:`pyproject.toml`, :term:`setup.py` "
 "или :term:`setup.cfg` файл в корне исходного каталога проекта."
 
-#: ../source/glossary.rst:141
+#: ../source/glossary.rst:140
 msgid ""
 "Python projects must have unique names, which are registered on :term:`PyPI "
 "<Python Package Index (PyPI)>`. Each project will then contain one or more :"
@@ -3005,7 +3252,7 @@ msgstr ""
 "несколько :term:`Releases <Release>`, а каждый релиз может состоять из "
 "одного или нескольких :term:`distributions <Distribution Package>`."
 
-#: ../source/glossary.rst:146
+#: ../source/glossary.rst:145
 msgid ""
 "Note that there is a strong convention to name a project after the name of "
 "the package that is imported to run that project. However, this doesn't have "
@@ -3017,11 +3264,11 @@ msgstr ""
 "обязательно так. Можно установить дистрибутив из проекта 'foo' и получить от "
 "него пакет, импортируемый только как 'bar'."
 
-#: ../source/glossary.rst:152
+#: ../source/glossary.rst:151
 msgid "Pure Module"
 msgstr "Чистый модуль"
 
-#: ../source/glossary.rst:155
+#: ../source/glossary.rst:154
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file "
 "(and possibly associated ``.pyc`` and/or ``.pyo`` files)."
@@ -3029,11 +3276,11 @@ msgstr ""
 "Модуль, написанный на языке Python и содержащийся в одном файле ``.py`` (и, "
 "возможно, связанных с ним файлах ``.pyc`` и/или ``.pyo``)."
 
-#: ../source/glossary.rst:158
+#: ../source/glossary.rst:157
 msgid "Python Packaging Authority (PyPA)"
 msgstr "Python Управление по упаковке (PyPA)"
 
-#: ../source/glossary.rst:161
+#: ../source/glossary.rst:160
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host "
@@ -3050,11 +3297,11 @@ msgstr ""
 "distutils-sig.python.org/>`_ и на форуме Python Discourse <https://discuss."
 "python.org/c/packaging>`__."
 
-#: ../source/glossary.rst:170
+#: ../source/glossary.rst:169
 msgid "Python Package Index (PyPI)"
 msgstr "Индекс пакетов Python (PyPI)"
 
-#: ../source/glossary.rst:173
+#: ../source/glossary.rst:172
 msgid ""
 "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the "
 "Python community. It is open to all Python developers to consume and "
@@ -3064,11 +3311,11 @@ msgstr ""
 "сообщества Python. Он открыт для всех разработчиков Python для потребления и "
 "распространения их дистрибутивов."
 
-#: ../source/glossary.rst:176
+#: ../source/glossary.rst:175
 msgid "pypi.org"
 msgstr "pypi.org"
 
-#: ../source/glossary.rst:179
+#: ../source/glossary.rst:178
 msgid ""
 "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python "
 "Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi."
@@ -3078,22 +3325,22 @@ msgstr ""
 "Index (PyPI)`. Он заменил устаревшее доменное имя индекса, ``pypi.python."
 "org``, в 2017 году. Он работает на базе :ref:`warehouse`."
 
-#: ../source/glossary.rst:183
+#: ../source/glossary.rst:182
 msgid "pyproject.toml"
 msgstr "pyproject.toml"
 
-#: ../source/glossary.rst:186
+#: ../source/glossary.rst:185
 msgid ""
 "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
 "Инструмент-агностик:термин: файл спецификации \"Проект\". Определен в :pep:"
 "`518'."
 
-#: ../source/glossary.rst:188
+#: ../source/glossary.rst:187
 msgid "Release"
 msgstr "Выпуск"
 
-#: ../source/glossary.rst:191
+#: ../source/glossary.rst:190
 msgid ""
 "A snapshot of a :term:`Project` at a particular point in time, denoted by a "
 "version identifier."
@@ -3101,7 +3348,7 @@ msgstr ""
 "Снимок :term:`Project` в определенный момент времени, обозначаемый "
 "идентификатором версии."
 
-#: ../source/glossary.rst:194
+#: ../source/glossary.rst:193
 msgid ""
 "Making a release may entail the publishing of multiple :term:`Distributions "
 "<Distribution Package>`.  For example, if version 1.0 of a project was "
@@ -3113,11 +3360,11 @@ msgstr ""
 "была выпущена, она может быть доступна как в формате распределения "
 "источника, так и в формате Windows."
 
-#: ../source/glossary.rst:199
+#: ../source/glossary.rst:198
 msgid "Requirement"
 msgstr "Требование"
 
-#: ../source/glossary.rst:202
+#: ../source/glossary.rst:201
 msgid ""
 "A specification for a :term:`package <Distribution Package>` to be "
 "installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` "
@@ -3131,11 +3378,11 @@ msgstr ""
 "считаться \"требованием\". Для получения дополнительной информации смотрите "
 "ссылку :ref:`pip:pip install`."
 
-#: ../source/glossary.rst:208
+#: ../source/glossary.rst:207
 msgid "Requirement Specifier"
 msgstr "Спецификатор требований"
 
-#: ../source/glossary.rst:211
+#: ../source/glossary.rst:210
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
@@ -3147,11 +3394,11 @@ msgstr ""
 "specifiers`. Например, \"foo>=1.3\" - это спецификатор требований, где "
 "\"foo\" - это имя проекта, а часть \">=1.3\" - это :term:`Version Specifier`"
 
-#: ../source/glossary.rst:216
+#: ../source/glossary.rst:215
 msgid "Requirements File"
 msgstr "Требования к файлам"
 
-#: ../source/glossary.rst:219
+#: ../source/glossary.rst:218
 msgid ""
 "A file containing a list of :term:`Requirements <Requirement>` that can be "
 "installed using :ref:`pip`. For more information, see the :ref:`pip` docs "
@@ -3161,17 +3408,17 @@ msgstr ""
 "быть установлен с помощью :ref:`pip'. Дополнительные сведения см. в :ref:"
 "`pip'''' docs on :ref:`pip:Requirements Files`."
 
-#: ../source/glossary.rst:223
+#: ../source/glossary.rst:222
 #: ../source/guides/distributing-packages-using-setuptools.rst:59
 msgid "setup.py"
 msgstr "setup.py"
 
-#: ../source/glossary.rst:224
+#: ../source/glossary.rst:223
 #: ../source/guides/distributing-packages-using-setuptools.rst:80
 msgid "setup.cfg"
 msgstr "setup.cfg"
 
-#: ../source/glossary.rst:227
+#: ../source/glossary.rst:226
 msgid ""
 "The project specification files for :ref:`distutils` and :ref:`setuptools`. "
 "See also :term:`pyproject.toml`."
@@ -3179,11 +3426,11 @@ msgstr ""
 "Файлы спецификаций проекта для:ref:`distutils' и :ref:`setuptools'. См. "
 "также :term:`pyproject.toml'."
 
-#: ../source/glossary.rst:230
+#: ../source/glossary.rst:229
 msgid "Source Archive"
 msgstr "Источник Архив"
 
-#: ../source/glossary.rst:233
+#: ../source/glossary.rst:232
 msgid ""
 "An archive containing the raw source code for a :term:`Release`, prior to "
 "creation of a :term:`Source Distribution <Source Distribution (or "
@@ -3193,16 +3440,23 @@ msgstr ""
 "`Source Distribution <Source Distribution (или \"sdist\")>` или :term:`Built "
 "Distribution`."
 
-#: ../source/glossary.rst:237
+#: ../source/glossary.rst:236
 msgid "Source Distribution (or \"sdist\")"
 msgstr "Распространение исходных текстов (или \"sdist\")"
 
-#: ../source/glossary.rst:240
+#: ../source/glossary.rst:239
+#, fuzzy
+#| msgid ""
+#| "A :term:`distribution <Distribution Package>` format (usually generated "
+#| "using ``python -m build --sdist``) that provides metadata and the "
+#| "essential source files needed for installing by a tool like :ref:`pip`, "
+#| "or for generating a :term:`Built Distribution`."
 msgid ""
 "A :term:`distribution <Distribution Package>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
 "source files needed for installing by a tool like :ref:`pip`, or for "
-"generating a :term:`Built Distribution`."
+"generating a :term:`Built Distribution`. See :ref:`package-formats` for more "
+"information."
 msgstr ""
 "A:термин: <Отметка «Distribution Package>`» (обычно сгенерированная с "
 "использованием ``python -m build --sdist``), которая предоставляет "
@@ -3262,21 +3516,15 @@ msgstr "Колесо"
 
 #: ../source/glossary.rst:269
 msgid ""
-"A :term:`Built Distribution` format introduced by an official :doc:`standard "
-"specification </specifications/binary-distribution-format/>`, which is "
-"intended to replace the :term:`Egg` format.  Wheel is currently supported "
-"by :ref:`pip`."
+"The standard :term:`Built Distribution` format. See :ref:`package-formats` "
+"for more information."
 msgstr ""
-"Формат :term:`Built Distribution`, введенный официальной спецификацией :doc:"
-"`standard specification </specifications/binary-distribution-format/>`, "
-"который призван заменить формат :term:`Egg`.  В настоящее время Wheel "
-"поддерживается :ref:`pip`."
 
-#: ../source/glossary.rst:274
+#: ../source/glossary.rst:271
 msgid "Working Set"
 msgstr "Рабочая группа"
 
-#: ../source/glossary.rst:277
+#: ../source/glossary.rst:274
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -3469,7 +3717,7 @@ msgstr "Описание"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:75
 #: ../source/specifications/dependency-specifiers.rst:29
-#: ../source/specifications/direct-url-data-structure.rst:342
+#: ../source/specifications/direct-url-data-structure.rst:344
 #: ../source/specifications/version-specifiers.rst:1067
 msgid "Examples"
 msgstr "Примеры"
@@ -14691,11 +14939,11 @@ msgstr ""
 msgid "File Format"
 msgstr "Формат файла"
 
-#: ../source/specifications/binary-distribution-format.rst:88
+#: ../source/specifications/binary-distribution-format.rst:90
 msgid "File name convention"
 msgstr "Соглашение об именах файлов"
 
-#: ../source/specifications/binary-distribution-format.rst:90
+#: ../source/specifications/binary-distribution-format.rst:92
 msgid ""
 "The wheel filename is ``{distribution}-{version}(-{build tag})?-{python tag}-"
 "{abi tag}-{platform tag}.whl``."
@@ -14703,27 +14951,27 @@ msgstr ""
 "Имя файла колеса - ``{distribution}-{version}(-{build tag})?-{python tag}-"
 "{abi tag}-{platform tag}.whl``."
 
-#: ../source/specifications/binary-distribution-format.rst:94
+#: ../source/specifications/binary-distribution-format.rst:96
 msgid "distribution"
 msgstr "дистрибутив"
 
-#: ../source/specifications/binary-distribution-format.rst:94
+#: ../source/specifications/binary-distribution-format.rst:96
 msgid "Distribution name, e.g. 'django', 'pyramid'."
 msgstr "Имя дистрибутива, например, 'django', 'pyramid'."
 
-#: ../source/specifications/binary-distribution-format.rst:97
+#: ../source/specifications/binary-distribution-format.rst:99
 msgid "version"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:97
+#: ../source/specifications/binary-distribution-format.rst:99
 msgid "Distribution version, e.g. 1.0."
 msgstr "Версия дистрибутива, например, 1.0."
 
-#: ../source/specifications/binary-distribution-format.rst:122
+#: ../source/specifications/binary-distribution-format.rst:124
 msgid "build tag"
 msgstr "построить тег"
 
-#: ../source/specifications/binary-distribution-format.rst:100
+#: ../source/specifications/binary-distribution-format.rst:102
 msgid ""
 "Optional build number.  Must start with a digit.  Acts as a tie-breaker if "
 "two wheel file names are the same in all other respects (i.e. name, version, "
@@ -14738,7 +14986,7 @@ msgstr ""
 "первый элемент - начальные цифры в виде ``int'', а второй элемент - остаток "
 "тега в виде ``str''."
 
-#: ../source/specifications/binary-distribution-format.rst:107
+#: ../source/specifications/binary-distribution-format.rst:109
 msgid ""
 "A common use-case for build numbers is rebuilding a binary distribution due "
 "to a change in the build environment, like when using the manylinux image to "
@@ -14749,7 +14997,7 @@ msgstr ""
 "образа manylinux для сборки дистрибутивов, использующих предварительные "
 "версии CPython."
 
-#: ../source/specifications/binary-distribution-format.rst:114
+#: ../source/specifications/binary-distribution-format.rst:116
 msgid ""
 "Build numbers are not a part of the distribution version and thus are "
 "difficult to reference externally, especially so outside the Python "
@@ -14761,7 +15009,7 @@ msgstr ""
 "Python. Чаще всего внешние ссылки на дистрибутив требуются при устранении "
 "уязвимости в системе безопасности."
 
-#: ../source/specifications/binary-distribution-format.rst:119
+#: ../source/specifications/binary-distribution-format.rst:121
 msgid ""
 "Due to this limitation, new distributions which need to be referenced "
 "externally **should not** use build numbers when building the new "
@@ -14773,33 +15021,33 @@ msgstr ""
 "дистрибутива. Вместо этого в таких случаях следует создавать **новую версию "
 "дистрибутива**."
 
-#: ../source/specifications/binary-distribution-format.rst:125
+#: ../source/specifications/binary-distribution-format.rst:127
 msgid "language implementation and version tag"
 msgstr "реализация языка и тег версии"
 
-#: ../source/specifications/binary-distribution-format.rst:125
+#: ../source/specifications/binary-distribution-format.rst:127
 msgid "E.g. 'py27', 'py2', 'py3'."
 msgstr "Например, 'py27', 'py2', 'py3'."
 
-#: ../source/specifications/binary-distribution-format.rst:128
+#: ../source/specifications/binary-distribution-format.rst:130
 #: ../source/specifications/platform-compatibility-tags.rst:20
 msgid "abi tag"
 msgstr "метка abi"
 
-#: ../source/specifications/binary-distribution-format.rst:128
+#: ../source/specifications/binary-distribution-format.rst:130
 msgid "E.g. 'cp33m', 'abi3', 'none'."
 msgstr "Например, 'cp33m', 'abi3', 'none'."
 
-#: ../source/specifications/binary-distribution-format.rst:131
+#: ../source/specifications/binary-distribution-format.rst:133
 #: ../source/specifications/platform-compatibility-tags.rst:23
 msgid "platform tag"
 msgstr "тег платформы"
 
-#: ../source/specifications/binary-distribution-format.rst:131
+#: ../source/specifications/binary-distribution-format.rst:133
 msgid "E.g. 'linux_x86_64', 'any'."
 msgstr "Например, 'linux_x86_64', 'any'."
 
-#: ../source/specifications/binary-distribution-format.rst:133
+#: ../source/specifications/binary-distribution-format.rst:135
 msgid ""
 "For example, ``distribution-1.0-1-py27-none-any.whl`` is the first build of "
 "a package called 'distribution', and is compatible with Python 2.7 (any "
@@ -14811,7 +15059,7 @@ msgstr ""
 "реализацией Python 2.7), без ABI (чистый Python), на любой архитектуре "
 "процессора."
 
-#: ../source/specifications/binary-distribution-format.rst:138
+#: ../source/specifications/binary-distribution-format.rst:140
 msgid ""
 "The last three components of the filename before the extension are called "
 "\"compatibility tags.\"  The compatibility tags express the package's basic "
@@ -14821,11 +15069,11 @@ msgstr ""
 "совместимости\".  Теги совместимости выражают основные требования пакета к "
 "интерпретатору и подробно описаны в PEP 425."
 
-#: ../source/specifications/binary-distribution-format.rst:143
+#: ../source/specifications/binary-distribution-format.rst:145
 msgid "Escaping and Unicode"
 msgstr "Экранирование и Юникод"
 
-#: ../source/specifications/binary-distribution-format.rst:145
+#: ../source/specifications/binary-distribution-format.rst:147
 msgid ""
 "As the components of the filename are separated by a dash (``-``, HYPHEN-"
 "MINUS), this character cannot appear within any component. This is handled "
@@ -14835,7 +15083,7 @@ msgstr ""
 "символ не может появиться ни в одном компоненте. Это решается следующим "
 "образом:"
 
-#: ../source/specifications/binary-distribution-format.rst:148
+#: ../source/specifications/binary-distribution-format.rst:150
 msgid ""
 "In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE "
 "and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase "
@@ -14853,7 +15101,7 @@ msgstr ""
 "принять ``.`` (FULL STOP) и заглавные буквы, так как они были разрешены в "
 "более ранней версии этой спецификации."
 
-#: ../source/specifications/binary-distribution-format.rst:155
+#: ../source/specifications/binary-distribution-format.rst:157
 msgid ""
 "Version numbers should be normalised according to the :ref:`Version "
 "specifier specification <version-specifiers>`. Normalised version numbers "
@@ -14863,7 +15111,7 @@ msgstr ""
 "спецификатора версии <version-specifiers>`. Нормализованные номера версий не "
 "могут содержать ``-``."
 
-#: ../source/specifications/binary-distribution-format.rst:157
+#: ../source/specifications/binary-distribution-format.rst:159
 msgid ""
 "The remaining components may not contain ``-`` characters, so no escaping is "
 "necessary."
@@ -14871,7 +15119,7 @@ msgstr ""
 "Остальные компоненты не могут содержать символов ``-``, поэтому "
 "экранирование не требуется."
 
-#: ../source/specifications/binary-distribution-format.rst:160
+#: ../source/specifications/binary-distribution-format.rst:162
 msgid ""
 "Tools producing wheels should verify that the filename components do not "
 "contain ``-``, as the resulting file may not be processed correctly if they "
@@ -14881,7 +15129,7 @@ msgstr ""
 "содержат ``-``, так как в противном случае результирующий файл может быть "
 "обработан некорректно."
 
-#: ../source/specifications/binary-distribution-format.rst:163
+#: ../source/specifications/binary-distribution-format.rst:165
 msgid ""
 "The archive filename is Unicode.  It will be some time before the tools are "
 "updated to support non-ASCII filenames, but they are supported in this "
@@ -14891,7 +15139,7 @@ msgstr ""
 "чем инструменты будут обновлены для поддержки имен файлов, отличных от "
 "ASCII, но в данной спецификации они поддерживаются."
 
-#: ../source/specifications/binary-distribution-format.rst:167
+#: ../source/specifications/binary-distribution-format.rst:169
 msgid ""
 "The filenames *inside* the archive are encoded as UTF-8.  Although some ZIP "
 "clients in common use do not properly display UTF-8 filenames, the encoding "
@@ -14902,11 +15150,11 @@ msgstr ""
 "эта кодировка поддерживается как спецификацией ZIP, так и ``zipfile`` в "
 "Python."
 
-#: ../source/specifications/binary-distribution-format.rst:173
+#: ../source/specifications/binary-distribution-format.rst:175
 msgid "File contents"
 msgstr "Содержимое файлов"
 
-#: ../source/specifications/binary-distribution-format.rst:175
+#: ../source/specifications/binary-distribution-format.rst:177
 msgid ""
 "The contents of a wheel file, where {distribution} is replaced with the name "
 "of the package, e.g. ``beaglevote`` and {version} is replaced with its "
@@ -14916,7 +15164,7 @@ msgstr ""
 "например ``beaglevote``, а {version} заменяется его версией, например "
 "``1.0.0``, состоит из:"
 
-#: ../source/specifications/binary-distribution-format.rst:179
+#: ../source/specifications/binary-distribution-format.rst:181
 msgid ""
 "``/``, the root of the archive, contains all files to be installed in "
 "``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and "
@@ -14926,11 +15174,11 @@ msgstr ""
 "``purelib`` или ``platlib``, как указано в ``WHEEL``.  ``purelib`` и "
 "``platlib`` обычно являются ``сайт-пакетами``."
 
-#: ../source/specifications/binary-distribution-format.rst:182
+#: ../source/specifications/binary-distribution-format.rst:184
 msgid "``{distribution}-{version}.dist-info/`` contains metadata."
 msgstr "``{distribution}-{version}.dist-info/`` содержит метаданные."
 
-#: ../source/specifications/binary-distribution-format.rst:183
+#: ../source/specifications/binary-distribution-format.rst:185
 msgid ""
 "``{distribution}-{version}.data/`` contains one subdirectory for each non-"
 "empty install scheme key not already covered, where the subdirectory name is "
@@ -14942,7 +15190,7 @@ msgstr ""
 "является индексом в словаре путей установки (например, ``data``, ``cripts``, "
 "``headers``, ``purelib``, ``platlib``)."
 
-#: ../source/specifications/binary-distribution-format.rst:187
+#: ../source/specifications/binary-distribution-format.rst:189
 msgid ""
 "Python scripts must appear in ``scripts`` and begin with exactly ``b'#!"
 "python'`` in order to enjoy script wrapper generation and ``#!python`` "
@@ -14952,7 +15200,7 @@ msgstr ""
 "чтобы во время установки можно было сгенерировать обертку скрипта и "
 "переписать ``#!python``.  Они могут иметь любое расширение или не иметь его."
 
-#: ../source/specifications/binary-distribution-format.rst:191
+#: ../source/specifications/binary-distribution-format.rst:193
 msgid ""
 "``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1 or "
 "greater format metadata."
@@ -14960,7 +15208,7 @@ msgstr ""
 "``{distribution}-{version}.dist-info/METADATA`` - это метаданные формата "
 "Metadata версии 1.1 или выше."
 
-#: ../source/specifications/binary-distribution-format.rst:193
+#: ../source/specifications/binary-distribution-format.rst:195
 msgid ""
 "``{distribution}-{version}.dist-info/WHEEL`` is metadata about the archive "
 "itself in the same basic key: value format::"
@@ -14968,18 +15216,18 @@ msgstr ""
 "``{distribution}-{version}.dist-info/WHEEL`` - это метаданные о самом архиве "
 "в том же базовом формате key: value::"
 
-#: ../source/specifications/binary-distribution-format.rst:203
+#: ../source/specifications/binary-distribution-format.rst:205
 msgid "``Wheel-Version`` is the version number of the Wheel specification."
 msgstr "``Wheel-Version`` - это номер версии спецификации Wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:204
+#: ../source/specifications/binary-distribution-format.rst:206
 msgid ""
 "``Generator`` is the name and optionally the version of the software that "
 "produced the archive."
 msgstr ""
 "``Генератор`` - это имя и, опционально, версия программы, создавшей архив."
 
-#: ../source/specifications/binary-distribution-format.rst:206
+#: ../source/specifications/binary-distribution-format.rst:208
 msgid ""
 "``Root-Is-Purelib`` is true if the top level directory of the archive should "
 "be installed into purelib; otherwise the root should be installed into "
@@ -14989,7 +15237,7 @@ msgstr ""
 "должен быть установлен в purelib; в противном случае корень должен быть "
 "установлен в platlib."
 
-#: ../source/specifications/binary-distribution-format.rst:209
+#: ../source/specifications/binary-distribution-format.rst:211
 msgid ""
 "``Tag`` is the wheel's expanded compatibility tags; in the example the "
 "filename would contain ``py2.py3-none-any``."
@@ -14997,13 +15245,13 @@ msgstr ""
 "``Tag`` - это расширенные теги совместимости колеса; в примере имя файла "
 "будет содержать ``py2.py3-none-any``."
 
-#: ../source/specifications/binary-distribution-format.rst:211
+#: ../source/specifications/binary-distribution-format.rst:213
 msgid ""
 "``Build`` is the build number and is omitted if there is no build number."
 msgstr ""
 "``Build`` - это номер сборки и опускается, если номер сборки отсутствует."
 
-#: ../source/specifications/binary-distribution-format.rst:212
+#: ../source/specifications/binary-distribution-format.rst:214
 msgid ""
 "A wheel installer should warn if Wheel-Version is greater than the version "
 "it supports, and must fail if Wheel-Version has a greater major version than "
@@ -15013,7 +15261,7 @@ msgstr ""
 "чем поддерживаемая ею версия, и должна выходить из строя, если Wheel-Version "
 "имеет большую мажорную версию, чем поддерживаемая ею версия."
 
-#: ../source/specifications/binary-distribution-format.rst:215
+#: ../source/specifications/binary-distribution-format.rst:217
 msgid ""
 "Wheel, being an installation format that is intended to work across multiple "
 "versions of Python, does not generally include .pyc files."
@@ -15021,11 +15269,11 @@ msgstr ""
 "Wheel, будучи форматом установки, предназначенным для работы с несколькими "
 "версиями Python, обычно не включает файлы .pyc."
 
-#: ../source/specifications/binary-distribution-format.rst:217
+#: ../source/specifications/binary-distribution-format.rst:219
 msgid "Wheel does not contain setup.py or setup.cfg."
 msgstr "Колесо не содержит setup.py или setup.cfg."
 
-#: ../source/specifications/binary-distribution-format.rst:219
+#: ../source/specifications/binary-distribution-format.rst:221
 msgid ""
 "This version of the wheel specification is based on the distutils install "
 "schemes and does not define how to install files to other locations. The "
@@ -15037,12 +15285,12 @@ msgstr ""
 "супернабор функций, предоставляемых существующими бинарными форматами "
 "wininst и egg."
 
-#: ../source/specifications/binary-distribution-format.rst:226
+#: ../source/specifications/binary-distribution-format.rst:228
 #: ../source/specifications/recording-installed-packages.rst:23
 msgid "The .dist-info directory"
 msgstr "Директория .dist-info"
 
-#: ../source/specifications/binary-distribution-format.rst:228
+#: ../source/specifications/binary-distribution-format.rst:230
 msgid ""
 "Wheel .dist-info directories include at a minimum METADATA, WHEEL, and "
 "RECORD."
@@ -15050,7 +15298,7 @@ msgstr ""
 "Каталоги Wheel .dist-info включают в себя как минимум METADATA, WHEEL и "
 "RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:230
+#: ../source/specifications/binary-distribution-format.rst:232
 msgid ""
 "METADATA is the package metadata, the same format as PKG-INFO as found at "
 "the root of sdists."
@@ -15058,11 +15306,11 @@ msgstr ""
 "METADATA - это метаданные пакета, в том же формате, что и PKG-INFO, которые "
 "находятся в корне sdists."
 
-#: ../source/specifications/binary-distribution-format.rst:232
+#: ../source/specifications/binary-distribution-format.rst:234
 msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr "WHEEL - это метаданные колеса, специфичные для сборки пакета."
 
-#: ../source/specifications/binary-distribution-format.rst:233
+#: ../source/specifications/binary-distribution-format.rst:235
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
@@ -15077,17 +15325,17 @@ msgstr ""
 "подписанные файлы колеса полагаются на надежные хэши в RECORD для "
 "подтверждения целостности архива."
 
-#: ../source/specifications/binary-distribution-format.rst:239
+#: ../source/specifications/binary-distribution-format.rst:241
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr "В архив не включены файлы PEP 376 \"INSTALLER\" и \"REQUESTED\"."
 
-#: ../source/specifications/binary-distribution-format.rst:240
+#: ../source/specifications/binary-distribution-format.rst:242
 msgid ""
 "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
 msgstr ""
 "RECORD.jws используется для цифровых подписей.  Он не упоминается в RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:242
+#: ../source/specifications/binary-distribution-format.rst:244
 msgid ""
 "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
 "signatures to secure their wheel files.  It is not mentioned in RECORD."
@@ -15096,7 +15344,7 @@ msgstr ""
 "использовать подписи S/MIME для защиты своих колесных файлов.  Она не "
 "упоминается в RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:245
+#: ../source/specifications/binary-distribution-format.rst:247
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
 "the file contents.  Apart from RECORD and its signatures, installation will "
@@ -15108,11 +15356,11 @@ msgstr ""
 "неудачей, если какой-либо файл в архиве не упомянут и не захеширован "
 "правильно в RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:252
+#: ../source/specifications/binary-distribution-format.rst:254
 msgid "The .data directory"
 msgstr "Директория .data"
 
-#: ../source/specifications/binary-distribution-format.rst:254
+#: ../source/specifications/binary-distribution-format.rst:256
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
@@ -15122,7 +15370,7 @@ msgstr ""
 "помещаются в каталог .data, названный так же, как и каталог .dist-info, но с "
 "расширением .data/::"
 
-#: ../source/specifications/binary-distribution-format.rst:262
+#: ../source/specifications/binary-distribution-format.rst:264
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -15132,11 +15380,11 @@ msgstr ""
 "и прочим из дистрибутива.  Во время установки содержимое этих подкаталогов "
 "переносится на путь назначения."
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:270
 msgid "Signed wheel files"
 msgstr "Подписанные файлы колес"
 
-#: ../source/specifications/binary-distribution-format.rst:270
+#: ../source/specifications/binary-distribution-format.rst:272
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -15153,7 +15401,7 @@ msgstr ""
 "файлы, такие как файлы .pyc, но не RECORD, который не может содержать свой "
 "собственный хеш. Например::"
 
-#: ../source/specifications/binary-distribution-format.rst:281
+#: ../source/specifications/binary-distribution-format.rst:283
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -15165,7 +15413,7 @@ msgstr ""
 "остальные файлы в архиве должны иметь правильный хэш в RECORD, иначе "
 "установка завершится неудачей."
 
-#: ../source/specifications/binary-distribution-format.rst:286
+#: ../source/specifications/binary-distribution-format.rst:288
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -15177,11 +15425,11 @@ msgstr ""
 "примыкающем к RECORD.  JWS используется для подписи RECORD путем включения "
 "SHA-256 хэша RECORD в качестве полезной нагрузки JSON подписи:"
 
-#: ../source/specifications/binary-distribution-format.rst:295
+#: ../source/specifications/binary-distribution-format.rst:297
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr "(Хеш-значение имеет тот же формат, что и в RECORD)"
 
-#: ../source/specifications/binary-distribution-format.rst:297
+#: ../source/specifications/binary-distribution-format.rst:299
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
@@ -15189,7 +15437,7 @@ msgstr ""
 "Если используется файл RECORD.p7s, он должен содержать отделенную подпись "
 "RECORD в формате S/MIME."
 
-#: ../source/specifications/binary-distribution-format.rst:300
+#: ../source/specifications/binary-distribution-format.rst:302
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -15201,15 +15449,15 @@ msgstr ""
 "установки сверяет хэши файлов с RECORD, отдельному средству проверки подписи "
 "достаточно убедиться, что RECORD соответствует подписи."
 
-#: ../source/specifications/binary-distribution-format.rst:305
+#: ../source/specifications/binary-distribution-format.rst:307
 msgid "See"
 msgstr "Смотрите"
 
-#: ../source/specifications/binary-distribution-format.rst:307
+#: ../source/specifications/binary-distribution-format.rst:309
 msgid "https://datatracker.ietf.org/doc/html/rfc7515"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
 
-#: ../source/specifications/binary-distribution-format.rst:308
+#: ../source/specifications/binary-distribution-format.rst:310
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
@@ -15217,27 +15465,27 @@ msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
 
-#: ../source/specifications/binary-distribution-format.rst:309
+#: ../source/specifications/binary-distribution-format.rst:311
 msgid "https://datatracker.ietf.org/doc/html/rfc7517"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
 
-#: ../source/specifications/binary-distribution-format.rst:310
+#: ../source/specifications/binary-distribution-format.rst:312
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
-#: ../source/specifications/binary-distribution-format.rst:314
+#: ../source/specifications/binary-distribution-format.rst:316
 #: ../source/specifications/platform-compatibility-tags.rst:268
 msgid "FAQ"
 msgstr "ЧаВо"
 
-#: ../source/specifications/binary-distribution-format.rst:318
+#: ../source/specifications/binary-distribution-format.rst:320
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 "Wheel определяет каталог .data.  Должен ли я поместить туда все свои данные?"
 
-#: ../source/specifications/binary-distribution-format.rst:320
+#: ../source/specifications/binary-distribution-format.rst:322
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -15253,11 +15501,11 @@ msgstr ""
 "если *эти* файлы обычно не будут распространяться в директории *wheel'а* ``."
 "data``."
 
-#: ../source/specifications/binary-distribution-format.rst:329
+#: ../source/specifications/binary-distribution-format.rst:331
 msgid "Why does wheel include attached signatures?"
 msgstr "Почему колесо включает в себя прикрепленные подписи?"
 
-#: ../source/specifications/binary-distribution-format.rst:331
+#: ../source/specifications/binary-distribution-format.rst:333
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -15270,11 +15518,11 @@ msgstr ""
 "файлы, архив можно перекомпрессировать, не аннулируя подпись, или проверить "
 "отдельные файлы без необходимости загружать весь архив."
 
-#: ../source/specifications/binary-distribution-format.rst:339
+#: ../source/specifications/binary-distribution-format.rst:341
 msgid "Why does wheel allow JWS signatures?"
 msgstr "Почему колесо разрешает подписи JWS?"
 
-#: ../source/specifications/binary-distribution-format.rst:341
+#: ../source/specifications/binary-distribution-format.rst:343
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
@@ -15284,11 +15532,11 @@ msgstr ""
 "реализации, что также является одной из основных целей дизайна Wheel.  JWS "
 "представляет собой полезную и лаконичную реализацию на чистом Python."
 
-#: ../source/specifications/binary-distribution-format.rst:347
+#: ../source/specifications/binary-distribution-format.rst:349
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr "Почему wheel также позволяет использовать подписи S/MIME?"
 
-#: ../source/specifications/binary-distribution-format.rst:349
+#: ../source/specifications/binary-distribution-format.rst:351
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
@@ -15296,7 +15544,7 @@ msgstr ""
 "Подписи S/MIME разрешены для пользователей, которым необходимо или хочется "
 "использовать существующую инфраструктуру открытых ключей с помощью колеса."
 
-#: ../source/specifications/binary-distribution-format.rst:352
+#: ../source/specifications/binary-distribution-format.rst:354
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
@@ -15304,11 +15552,11 @@ msgstr ""
 "Подписанные пакеты являются лишь базовым элементом системы безопасного "
 "обновления пакетов.  Wheel предоставляет только строительный блок."
 
-#: ../source/specifications/binary-distribution-format.rst:357
+#: ../source/specifications/binary-distribution-format.rst:359
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "Как обстоят дела с \"purelib\" и \"platlib\"?"
 
-#: ../source/specifications/binary-distribution-format.rst:359
+#: ../source/specifications/binary-distribution-format.rst:361
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -15320,7 +15568,7 @@ msgstr ""
 "usr/lib/pythonX.Y/site-packages', а платформозависимые пакеты - в '/usr/"
 "lib64/pythonX.Y/site-packages'."
 
-#: ../source/specifications/binary-distribution-format.rst:364
+#: ../source/specifications/binary-distribution-format.rst:366
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -15332,7 +15580,7 @@ msgstr ""
 "теми же файлами в корне, и законно иметь файлы как в категории \"purelib\", "
 "так и в категории \"platlib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:369
+#: ../source/specifications/binary-distribution-format.rst:371
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -15343,11 +15591,11 @@ msgstr ""
 "должны находиться в корне с соответствующей настройкой для \"Root-is-"
 "purelib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:377
+#: ../source/specifications/binary-distribution-format.rst:379
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "Можно ли импортировать код Python непосредственно из файла wheel?"
 
-#: ../source/specifications/binary-distribution-format.rst:379
+#: ../source/specifications/binary-distribution-format.rst:381
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -15361,7 +15609,7 @@ msgstr ""
 "Однако, хотя такое поведение является естественным следствием дизайна "
 "формата, полагаться на него, как правило, не рекомендуется."
 
-#: ../source/specifications/binary-distribution-format.rst:385
+#: ../source/specifications/binary-distribution-format.rst:387
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -15380,7 +15628,7 @@ msgstr ""
 "безопасности, или полная интеграция со стандартным механизмом сборки для C-"
 "расширений путем публикации заголовочных файлов в соответствующем месте)."
 
-#: ../source/specifications/binary-distribution-format.rst:394
+#: ../source/specifications/binary-distribution-format.rst:396
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -15413,7 +15661,7 @@ msgstr ""
 "взаимодействие с внешними компонентами все равно может потребовать наличия "
 "реального файла на диске."
 
-#: ../source/specifications/binary-distribution-format.rst:411
+#: ../source/specifications/binary-distribution-format.rst:413
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -15427,10 +15675,10 @@ msgstr ""
 "имейте в виду, что многие проекты потребуют воспроизвести сбой с полностью "
 "установленным пакетом, прежде чем принять его за настоящую ошибку."
 
-#: ../source/specifications/binary-distribution-format.rst:419
+#: ../source/specifications/binary-distribution-format.rst:421
 #: ../source/specifications/core-metadata.rst:848
 #: ../source/specifications/dependency-specifiers.rst:476
-#: ../source/specifications/direct-url-data-structure.rst:392
+#: ../source/specifications/direct-url-data-structure.rst:394
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
@@ -15446,11 +15694,11 @@ msgstr ""
 msgid "History"
 msgstr "История"
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:423
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr "Февраль 2013 г: Эта спецификация была одобрена через :pep:`427`."
 
-#: ../source/specifications/binary-distribution-format.rst:422
+#: ../source/specifications/binary-distribution-format.rst:424
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
@@ -15459,11 +15707,11 @@ msgstr ""
 "пересмотрены, чтобы привести их в соответствие с тем, что на самом деле "
 "делают популярные инструменты."
 
-#: ../source/specifications/binary-distribution-format.rst:427
+#: ../source/specifications/binary-distribution-format.rst:429
 msgid "Appendix"
 msgstr "Приложение"
 
-#: ../source/specifications/binary-distribution-format.rst:429
+#: ../source/specifications/binary-distribution-format.rst:431
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Пример реализации urlsafe-base64-nopad::"
 
@@ -15764,7 +16012,7 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:173
 msgid "Summary"
-msgstr "Сводка"
+msgstr "Краткое описание"
 
 #: ../source/specifications/core-metadata.rst:177
 msgid "A one-line summary of what the distribution does."
@@ -17598,14 +17846,20 @@ msgstr ""
 "установщик мог передать его без преобразования команде проверки/загрузки VCS."
 
 #: ../source/specifications/direct-url-data-structure.rst:61
+#, fuzzy
+#| msgid ""
+#| "A ``requested_revision`` key (type ``string``) MAY be present naming a "
+#| "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS)."
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
-"branch/tag/ref/commit/revision/etc (in a format compatible with the VCS)."
+"branch/tag/ref/commit/revision/etc (in a format compatible with the VCS). "
+"This field MUST match the revision requested by the user and MUST NOT exist "
+"when the user did not select a specific revision."
 msgstr ""
 "Ключ ``requested_revision`` (тип ``string``) МОЖЕТ присутствовать, называя "
 "ветку/tag/ref/commit/revision/etc (в формате, совместимом с VCS)."
 
-#: ../source/specifications/direct-url-data-structure.rst:63
+#: ../source/specifications/direct-url-data-structure.rst:65
 msgid ""
 "A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
 "commit/revision number that was/is to be installed. If the VCS supports "
@@ -17618,11 +17872,11 @@ msgstr ""
 "использоваться в качестве ``commit_id``, чтобы ссылаться на неизменяемую "
 "версию исходного кода."
 
-#: ../source/specifications/direct-url-data-structure.rst:71
+#: ../source/specifications/direct-url-data-structure.rst:73
 msgid "Archive URLs"
 msgstr "Архивные URL"
 
-#: ../source/specifications/direct-url-data-structure.rst:73
+#: ../source/specifications/direct-url-data-structure.rst:75
 msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following keys:"
@@ -17630,7 +17884,7 @@ msgstr ""
 "Когда ``url`` ссылается на исходный архив или колесо, ключ ``archive_info`` "
 "ДОЛЖЕН присутствовать в виде словаря со следующими ключами:"
 
-#: ../source/specifications/direct-url-data-structure.rst:76
+#: ../source/specifications/direct-url-data-structure.rst:78
 msgid ""
 "A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
 "hex encoded digest of the file."
@@ -17638,7 +17892,7 @@ msgstr ""
 "Ключ ``hashes`` ДОЛЖЕН присутствовать в виде словаря, сопоставляющего имя "
 "хэша с шестнадцатеричным дайджестом файла."
 
-#: ../source/specifications/direct-url-data-structure.rst:79
+#: ../source/specifications/direct-url-data-structure.rst:81
 msgid ""
 "Multiple hashes can be included, and it is up to the consumer to decide what "
 "to do with multiple hashes (it may validate all of them or a subset of them, "
@@ -17648,11 +17902,11 @@ msgstr ""
 "несколькими хэшами (он может подтвердить все из них или их подмножество, или "
 "вообще ничего)."
 
-#: ../source/specifications/direct-url-data-structure.rst:83
+#: ../source/specifications/direct-url-data-structure.rst:85
 msgid "These hash names SHOULD always be normalized to be lowercase."
 msgstr "Эти имена хэшей ДОЛЖНЫ быть всегда приведены к нижнему регистру."
 
-#: ../source/specifications/direct-url-data-structure.rst:85
+#: ../source/specifications/direct-url-data-structure.rst:87
 #, fuzzy
 #| msgid ""
 #| "Any hash algorithm available via ``hashlib`` (specifically any that can "
@@ -17674,7 +17928,7 @@ msgstr ""
 "ДОЛЖЕН быть всегда включен. На момент написания статьи рекомендуется "
 "использовать ``sha256``."
 
-#: ../source/specifications/direct-url-data-structure.rst:91
+#: ../source/specifications/direct-url-data-structure.rst:93
 msgid ""
 "A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
 "compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
@@ -17682,7 +17936,7 @@ msgstr ""
 "Устаревший ключ ``hash`` (тип ``string``) МОЖЕТ присутствовать в целях "
 "обратной совместимости, со значением ``<hash-algorithm>=<expected-hash>``."
 
-#: ../source/specifications/direct-url-data-structure.rst:94
+#: ../source/specifications/direct-url-data-structure.rst:96
 msgid ""
 "Producers of the data structure SHOULD emit the ``hashes`` key whether one "
 "or multiple hashes are available. Producers SHOULD continue to emit the "
@@ -17694,7 +17948,7 @@ msgstr ""
 "выдавать ключ ``hash`` в тех контекстах, где они делали это раньше, чтобы "
 "сохранить обратную совместимость для существующих клиентов."
 
-#: ../source/specifications/direct-url-data-structure.rst:98
+#: ../source/specifications/direct-url-data-structure.rst:100
 msgid ""
 "When both the ``hash`` and ``hashes`` keys are present, the hash represented "
 "in the ``hash`` key MUST also be present in the ``hashes`` dictionary, so "
@@ -17706,11 +17960,11 @@ msgstr ""
 "могут рассматривать ключ ``hashes``, только если он присутствует, и "
 "возвращаться к ``hash`` в противном случае."
 
-#: ../source/specifications/direct-url-data-structure.rst:103
+#: ../source/specifications/direct-url-data-structure.rst:105
 msgid "Local directories"
 msgstr "Локальные каталоги"
 
-#: ../source/specifications/direct-url-data-structure.rst:105
+#: ../source/specifications/direct-url-data-structure.rst:107
 msgid ""
 "When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
 "present as a dictionary with the following key:"
@@ -17718,7 +17972,7 @@ msgstr ""
 "Когда ``url`` ссылается на локальный каталог, ключ ``dir_info`` ДОЛЖЕН "
 "присутствовать в виде словаря со следующим ключом:"
 
-#: ../source/specifications/direct-url-data-structure.rst:108
+#: ../source/specifications/direct-url-data-structure.rst:110
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be "
 "installed in editable mode, ``false`` otherwise. If absent, default to "
@@ -17728,7 +17982,7 @@ msgstr ""
 "установлен в редактируемом режиме, ``false`` в противном случае. Если "
 "отсутствует, то по умолчанию ``false``."
 
-#: ../source/specifications/direct-url-data-structure.rst:111
+#: ../source/specifications/direct-url-data-structure.rst:113
 msgid ""
 "When ``url`` refers to a local directory, it MUST have the ``file`` scheme "
 "and be compliant with :rfc:`8089`. In particular, the path component must be "
@@ -17740,11 +17994,11 @@ msgstr ""
 "абсолютным. Символьные ссылки ДОЛЖНЫ сохраняться при преобразовании "
 "относительных путей в абсолютные."
 
-#: ../source/specifications/direct-url-data-structure.rst:117
+#: ../source/specifications/direct-url-data-structure.rst:119
 msgid "Projects in subdirectories"
 msgstr "Проекты в подкаталогах"
 
-#: ../source/specifications/direct-url-data-structure.rst:119
+#: ../source/specifications/direct-url-data-structure.rst:121
 msgid ""
 "A top-level ``subdirectory`` field MAY be present containing a directory "
 "path, relative to the root of the VCS repository, source archive or local "
@@ -17754,11 +18008,11 @@ msgstr ""
 "относительно корня VCS-репозитория, исходного архива или локального "
 "каталога, чтобы указать, где находится ``pyproject.toml`` или ``setup.py``."
 
-#: ../source/specifications/direct-url-data-structure.rst:124
+#: ../source/specifications/direct-url-data-structure.rst:126
 msgid "Registered VCS"
 msgstr "Зарегистрированный VCS"
 
-#: ../source/specifications/direct-url-data-structure.rst:126
+#: ../source/specifications/direct-url-data-structure.rst:128
 msgid ""
 "This section lists the registered VCS's; expanded, VCS-specific information "
 "on how to use the ``vcs``, ``requested_revision``, and other fields of "
@@ -17777,48 +18031,48 @@ msgstr ""
 "команды (в нижнем регистре). Дополнительные поля, необходимые для поддержки "
 "такой VCS, ДОЛЖНЫ иметь префикс с именем команды VCS."
 
-#: ../source/specifications/direct-url-data-structure.rst:136
+#: ../source/specifications/direct-url-data-structure.rst:138
 msgid "Git"
 msgstr "Git"
 
-#: ../source/specifications/direct-url-data-structure.rst:139
-#: ../source/specifications/direct-url-data-structure.rst:166
-#: ../source/specifications/direct-url-data-structure.rst:184
-#: ../source/specifications/direct-url-data-structure.rst:202
+#: ../source/specifications/direct-url-data-structure.rst:141
+#: ../source/specifications/direct-url-data-structure.rst:168
+#: ../source/specifications/direct-url-data-structure.rst:186
+#: ../source/specifications/direct-url-data-structure.rst:204
 msgid "Home page"
 msgstr "Домашняя страница"
 
-#: ../source/specifications/direct-url-data-structure.rst:139
+#: ../source/specifications/direct-url-data-structure.rst:141
 msgid "https://git-scm.com/"
 msgstr "https://git-scm.com/"
 
-#: ../source/specifications/direct-url-data-structure.rst:142
-#: ../source/specifications/direct-url-data-structure.rst:169
-#: ../source/specifications/direct-url-data-structure.rst:187
-#: ../source/specifications/direct-url-data-structure.rst:205
+#: ../source/specifications/direct-url-data-structure.rst:144
+#: ../source/specifications/direct-url-data-structure.rst:171
+#: ../source/specifications/direct-url-data-structure.rst:189
+#: ../source/specifications/direct-url-data-structure.rst:207
 msgid "vcs command"
 msgstr "команда vcs"
 
-#: ../source/specifications/direct-url-data-structure.rst:142
-#: ../source/specifications/direct-url-data-structure.rst:145
+#: ../source/specifications/direct-url-data-structure.rst:144
+#: ../source/specifications/direct-url-data-structure.rst:147
 msgid "git"
 msgstr "git"
 
-#: ../source/specifications/direct-url-data-structure.rst:145
-#: ../source/specifications/direct-url-data-structure.rst:172
-#: ../source/specifications/direct-url-data-structure.rst:190
-#: ../source/specifications/direct-url-data-structure.rst:208
+#: ../source/specifications/direct-url-data-structure.rst:147
+#: ../source/specifications/direct-url-data-structure.rst:174
+#: ../source/specifications/direct-url-data-structure.rst:192
+#: ../source/specifications/direct-url-data-structure.rst:210
 msgid "``vcs`` field"
 msgstr "поле ``vcs``"
 
-#: ../source/specifications/direct-url-data-structure.rst:149
-#: ../source/specifications/direct-url-data-structure.rst:175
-#: ../source/specifications/direct-url-data-structure.rst:193
-#: ../source/specifications/direct-url-data-structure.rst:212
+#: ../source/specifications/direct-url-data-structure.rst:151
+#: ../source/specifications/direct-url-data-structure.rst:177
+#: ../source/specifications/direct-url-data-structure.rst:195
+#: ../source/specifications/direct-url-data-structure.rst:214
 msgid "``requested_revision`` field"
 msgstr "поле ``запрошенный_пересмотр``"
 
-#: ../source/specifications/direct-url-data-structure.rst:148
+#: ../source/specifications/direct-url-data-structure.rst:150
 msgid ""
 "A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
 "other commit-ish."
@@ -17826,18 +18080,18 @@ msgstr ""
 "Имя тега, имя ветки, Git ref, хэш коммита, сокращённый хэш коммита или "
 "другое имя коммита."
 
-#: ../source/specifications/direct-url-data-structure.rst:152
-#: ../source/specifications/direct-url-data-structure.rst:178
-#: ../source/specifications/direct-url-data-structure.rst:196
-#: ../source/specifications/direct-url-data-structure.rst:217
+#: ../source/specifications/direct-url-data-structure.rst:154
+#: ../source/specifications/direct-url-data-structure.rst:180
+#: ../source/specifications/direct-url-data-structure.rst:198
+#: ../source/specifications/direct-url-data-structure.rst:219
 msgid "``commit_id`` field"
 msgstr "поле ``commit_id``"
 
-#: ../source/specifications/direct-url-data-structure.rst:152
+#: ../source/specifications/direct-url-data-structure.rst:154
 msgid "A commit hash (40 hexadecimal characters sha1)."
 msgstr "Хэш фиксации (40 шестнадцатеричных символов sha1)."
 
-#: ../source/specifications/direct-url-data-structure.rst:156
+#: ../source/specifications/direct-url-data-structure.rst:158
 msgid ""
 "Tools can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
@@ -17850,64 +18104,64 @@ msgstr ""
 "соответствует тегу, а ссылка, начинающаяся с ``refs/remotes/origin/`` после "
 "клонирования, соответствует ветке."
 
-#: ../source/specifications/direct-url-data-structure.rst:163
+#: ../source/specifications/direct-url-data-structure.rst:165
 msgid "Mercurial"
 msgstr "Mercurial"
 
-#: ../source/specifications/direct-url-data-structure.rst:166
+#: ../source/specifications/direct-url-data-structure.rst:168
 msgid "https://www.mercurial-scm.org/"
 msgstr "https://www.mercurial-scm.org/"
 
-#: ../source/specifications/direct-url-data-structure.rst:169
-#: ../source/specifications/direct-url-data-structure.rst:172
+#: ../source/specifications/direct-url-data-structure.rst:171
+#: ../source/specifications/direct-url-data-structure.rst:174
 msgid "hg"
 msgstr "hg"
 
-#: ../source/specifications/direct-url-data-structure.rst:175
+#: ../source/specifications/direct-url-data-structure.rst:177
 msgid "A tag name, branch name, changeset ID, shortened changeset ID."
 msgstr ""
 "Имя тега, имя ветки, идентификатор набора изменений, сокращенный "
 "идентификатор набора изменений."
 
-#: ../source/specifications/direct-url-data-structure.rst:178
+#: ../source/specifications/direct-url-data-structure.rst:180
 msgid "A changeset ID (40 hexadecimal characters)."
 msgstr "Идентификатор набора изменений (40 шестнадцатеричных символов)."
 
-#: ../source/specifications/direct-url-data-structure.rst:181
+#: ../source/specifications/direct-url-data-structure.rst:183
 msgid "Bazaar"
 msgstr "Bazaar"
 
-#: ../source/specifications/direct-url-data-structure.rst:184
+#: ../source/specifications/direct-url-data-structure.rst:186
 msgid "https://www.breezy-vcs.org/"
 msgstr "https://www.breezy-vcs.org/"
 
-#: ../source/specifications/direct-url-data-structure.rst:187
-#: ../source/specifications/direct-url-data-structure.rst:190
+#: ../source/specifications/direct-url-data-structure.rst:189
+#: ../source/specifications/direct-url-data-structure.rst:192
 msgid "bzr"
 msgstr "bzr"
 
-#: ../source/specifications/direct-url-data-structure.rst:193
+#: ../source/specifications/direct-url-data-structure.rst:195
 msgid "A tag name, branch name, revision id."
 msgstr "Имя тега, имя ветки, идентификатор ревизии."
 
-#: ../source/specifications/direct-url-data-structure.rst:196
+#: ../source/specifications/direct-url-data-structure.rst:198
 msgid "A revision id."
 msgstr "Идентификатор ревизии."
 
-#: ../source/specifications/direct-url-data-structure.rst:199
+#: ../source/specifications/direct-url-data-structure.rst:201
 msgid "Subversion"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:202
+#: ../source/specifications/direct-url-data-structure.rst:204
 msgid "https://subversion.apache.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:205
-#: ../source/specifications/direct-url-data-structure.rst:208
+#: ../source/specifications/direct-url-data-structure.rst:207
+#: ../source/specifications/direct-url-data-structure.rst:210
 msgid "svn"
 msgstr "svn"
 
-#: ../source/specifications/direct-url-data-structure.rst:211
+#: ../source/specifications/direct-url-data-structure.rst:213
 msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
@@ -17915,7 +18169,7 @@ msgstr ""
 "``requested_revision`` должен быть совместим с опцией ``vn checkout`` ``--"
 "revision``. В Subversion ветка или тег являются частью ``url``."
 
-#: ../source/specifications/direct-url-data-structure.rst:215
+#: ../source/specifications/direct-url-data-structure.rst:217
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
@@ -17924,33 +18178,33 @@ msgstr ""
 "это поле представляет собой номер ревизии Subversion в соответствующем "
 "хранилище."
 
-#: ../source/specifications/direct-url-data-structure.rst:220
+#: ../source/specifications/direct-url-data-structure.rst:222
 msgid "JSON Schema"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:222
+#: ../source/specifications/direct-url-data-structure.rst:224
 msgid ""
 "The following JSON Schema can be used to validate the contents of "
 "``direct_url.json``:"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:344
+#: ../source/specifications/direct-url-data-structure.rst:346
 msgid "Source archive:"
 msgstr "Архив источников:"
 
-#: ../source/specifications/direct-url-data-structure.rst:357
+#: ../source/specifications/direct-url-data-structure.rst:359
 msgid "Git URL with tag and commit-hash:"
 msgstr "URL-адрес Git с тегом и хэшем фиксации:"
 
-#: ../source/specifications/direct-url-data-structure.rst:370
+#: ../source/specifications/direct-url-data-structure.rst:372
 msgid "Local directory:"
 msgstr "Локальный справочник:"
 
-#: ../source/specifications/direct-url-data-structure.rst:379
+#: ../source/specifications/direct-url-data-structure.rst:381
 msgid "Local directory in editable mode:"
 msgstr "Локальная директория в режиме редактирования:"
 
-#: ../source/specifications/direct-url-data-structure.rst:394
+#: ../source/specifications/direct-url-data-structure.rst:396
 msgid ""
 "March 2020: This specification was approved through :pep:`610`, defining the "
 "``direct_url.json`` metadata file."
@@ -17958,7 +18212,7 @@ msgstr ""
 "Март 2020 года: Эта спецификация была одобрена через :pep:`610`, определяя "
 "файл метаданных ``direct_url.json``."
 
-#: ../source/specifications/direct-url-data-structure.rst:396
+#: ../source/specifications/direct-url-data-structure.rst:398
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key (`discussion <archive-"
 "info-hashes_>`_)."
@@ -26364,10 +26618,16 @@ msgstr ""
 "виртуальных сред Python:"
 
 #: ../source/tutorials/installing-packages.rst:226
+#, fuzzy
+#| msgid ""
+#| ":doc:`venv <python:library/venv>` is available by default in Python 3.3 "
+#| "and later, and installs :ref:`pip` and :ref:`setuptools` into created "
+#| "virtual environments in Python 3.4 and later."
 msgid ""
 ":doc:`venv <python:library/venv>` is available by default in Python 3.3 and "
-"later, and installs :ref:`pip` and :ref:`setuptools` into created virtual "
-"environments in Python 3.4 and later."
+"later, and installs :ref:`pip` into created virtual environments in Python "
+"3.4 and later (Python versions prior to 3.12 also installed :ref:"
+"`setuptools`)."
 msgstr ""
 ":doc:`venv <python:library/venv>` доступен по умолчанию в Python 3.3 и выше, "
 "и устанавливает :ref:`pip` и :ref:`setuptools` в созданные виртуальные среды "
@@ -27773,6 +28033,50 @@ msgstr ""
 "packages>` и считаются **продвинутой темой** (не охваченной этим учебником). "
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
+
+#~ msgid "Wheel vs Egg"
+#~ msgstr "Колеса против яиц"
+
+#~ msgid ""
+#~ ":term:`Wheel` and :term:`Egg` are both packaging formats that aim to "
+#~ "support the use case of needing an install artifact that doesn't require "
+#~ "building or compilation, which can be costly in testing and production "
+#~ "workflows."
+#~ msgstr ""
+#~ ":термин: `Wheel' и :term:`Egg' - это оба формата упаковки, которые "
+#~ "направлены на поддержку случая использования объекта установки, который "
+#~ "не требует строительства или компиляции, что может быть дорогостоящим в "
+#~ "тестировании и производстве рабочих процессов."
+
+#~ msgid ""
+#~ ":term:`Wheel` is currently considered the standard for :term:`built "
+#~ "<Built Distribution>` and :term:`binary <Binary Distribution>` packaging "
+#~ "for Python."
+#~ msgstr ""
+#~ ":term:`Wheel` в настоящее время считается стандартом для :term:`built "
+#~ "<Built Distribution>` и :term:`binary <Binary Distribution>` упаковки для "
+#~ "Python."
+
+#~ msgid ""
+#~ ":term:`Egg` uploads have been disabled for upload to PyPI, per :pep:"
+#~ "`715`. Read the `deprecation notice <https://blog.pypi.org/"
+#~ "posts/2023-06-26-deprecate-egg-uploads/>`_ for more information."
+#~ msgstr ""
+#~ "Загрузки :term:`Egg` были отключены для загрузки в PyPI, согласно :pep:"
+#~ "`715`. Для получения дополнительной информации читайте уведомление о "
+#~ "депривации <https://blog.pypi.org/posts/2023-06-26-deprecate-egg-uploads/"
+#~ ">`_."
+
+#~ msgid ""
+#~ "A :term:`Built Distribution` format introduced by an official :doc:"
+#~ "`standard specification </specifications/binary-distribution-format/>`, "
+#~ "which is intended to replace the :term:`Egg` format.  Wheel is currently "
+#~ "supported by :ref:`pip`."
+#~ msgstr ""
+#~ "Формат :term:`Built Distribution`, введенный официальной спецификацией :"
+#~ "doc:`standard specification </specifications/binary-distribution-format/"
+#~ ">`, который призван заменить формат :term:`Egg`.  В настоящее время Wheel "
+#~ "поддерживается :ref:`pip`."
 
 #~ msgid ""
 #~ "If you're familiar with Python packaging and installation, and just want "
