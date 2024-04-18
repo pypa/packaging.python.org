@@ -180,7 +180,8 @@ Users SHOULD prefer to specify already-normalized versions.
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`Summary <core-metadata-summary>`
 
-The summary description of the project.
+The summary description of the project in one line. Tools MAY error
+if this includes multiple lines.
 
 
 ``readme``
