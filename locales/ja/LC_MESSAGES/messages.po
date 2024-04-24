@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-13 15:33+0000\n"
-"PO-Revision-Date: 2024-04-13 10:01+0000\n"
+"PO-Revision-Date: 2024-04-18 14:36+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ja/>\n"
@@ -1331,6 +1331,15 @@ msgid ""
 "along with a hash of their content, as a safety check of the download's "
 "integrity."
 msgstr ""
+"そうは言っても、たとえ純 Python のプロジェクトであったとしても、 sdist と "
+"wheel の間には依然として重要な違いがあります。 wheel は、インストールされるも"
+"のだけを正確に含むように、それ以外のものは含まないようにと意図して作られてい"
+"ます。とりわけ、 wheel にはテストや説明文書を決して含めるべきではありません"
+"が、他方で sdist では普通はこれらを含みます。また、 wheel のフォーマットは "
+"sdist のものよりもより複雑です。例えば、wheel にはある特別なファイル -- "
+"``RECORD`` と呼ばれます -- が含まれていて、このファイルには wheel 内の他のす"
+"べてのファイルのハッシュ値付きのリストが含まれており、安全性の確認やダウン"
+"ロードの際の完全性の確認に使われます。"
 
 #: ../source/discussions/package-formats.rst:91
 msgid ""
@@ -1345,6 +1354,18 @@ msgid ""
 "for your users, since a wheel is directly installable. By only including "
 "files that must be installed, wheels also make for smaller downloads."
 msgstr ""
+"一見したところでは、 wheel こそが \"単純かつ基本的な\" 純 Python プロジェクト"
+"に必要なものではないかと思うかもしれません。 sdist の自由度が大きいために "
+"pip のようなインストーラは sdist から直接にインストールすることができないとい"
+"うことを覚えておいてください -- まず sdist が指定する :term:`ビルドバックエン"
+"ド <build backend>` を起動することで (ビルドバックエンドはビルドして wheel を"
+"作成している間に C 言語拡張のコンパイルのようなあらゆる種類の変形をすべて行い"
+"ます) wheel をビルドする必要があるのです。こう言う理由で、たとえ純 Python の"
+"プロジェクトであっても、PyPI やその他のパッケージインデックスには常に sdist "
+"と wheel の *両方* をアップロードしておくべきなのです。こうすることで、wheel "
+"なら直接にインストールできるので、ユーザにとってはインストールがとても素早く"
+"行えることになります。インストールされるファイルだけを含むという wheel の性質"
+"は、ダウンロードのサイズが小さくなることにもつながります。"
 
 #: ../source/discussions/package-formats.rst:102
 msgid ""
@@ -1355,6 +1376,13 @@ msgid ""
 "interface of Python's zipfile module <python:zipfile-commandline>`. This can "
 "be very useful to check that the wheel includes all the files you need it to."
 msgstr ""
+"技術的なレベルでは、 wheel は (sdist が TAR アーカイブであるのとは違って) "
+"ZIP アーカイブです。例えば Linux や macOS のような UNIX 系プラットフォームな"
+"ら ``unzip`` 、 Windows 上の PowerShell 内なら ``Expand-Archive`` 、あるいは "
+"Python の zipfile モジュールのコマンドライン <python:zipfile-commandline>` を"
+"使って通常の ZIP アーカイブとして展開することで、内容を検査することができま"
+"す。これは、 wheel ファイルが必要なすべてのファイルを内包していることを確認す"
+"るのにとても便利です。"
 
 #: ../source/discussions/package-formats.rst:109
 msgid ""
@@ -1364,6 +1392,11 @@ msgid ""
 "equivalent of ``PKG-INFO`` in sdists, as well as ``RECORD``. This can be "
 "useful to ensure no files are missing from your wheels."
 msgstr ""
+"wheel の中には、パッケージのファイル群と :samp:`{package_name}-{version}."
+"dist-info` と呼ばれる追加のディレクトリがあります。このディレクトリには、 "
+"sdist における ``PKG-INFO`` に相当する ``METADATA`` ファイルや ``RECORD`` な"
+"どのさまざまなファイルを含みます。これは、wheel 内のファイルがひとつも欠けて"
+"いないことを保証するのに役立ちます。"
 
 #: ../source/discussions/package-formats.rst:115
 msgid ""
@@ -11062,6 +11095,7 @@ msgstr "依存関係と要求事項"
 
 #: ../source/guides/writing-pyproject-toml.rst:174
 #: ../source/specifications/pyproject-toml.rst:354
+#: ../source/specifications/pyproject-toml.rst:355
 msgid "``dependencies``/``optional-dependencies``"
 msgstr "``dependencies``/``optional-dependencies``"
 
@@ -11100,6 +11134,7 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:213
 #: ../source/specifications/pyproject-toml.rst:145
 #: ../source/specifications/pyproject-toml.rst:226
+#: ../source/specifications/pyproject-toml.rst:227
 msgid "``requires-python``"
 msgstr "``requires-python``"
 
@@ -11168,6 +11203,7 @@ msgstr "あなたのプロジェクトについて"
 
 #: ../source/guides/writing-pyproject-toml.rst:263
 #: ../source/specifications/pyproject-toml.rst:251
+#: ../source/specifications/pyproject-toml.rst:252
 msgid "``authors``/``maintainers``"
 msgstr "``authors``/``maintainers``"
 
@@ -11198,6 +11234,7 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:298
 #: ../source/specifications/pyproject-toml.rst:144
 #: ../source/specifications/pyproject-toml.rst:187
+#: ../source/specifications/pyproject-toml.rst:188
 msgid "``readme``"
 msgstr "``readme``"
 
@@ -11233,6 +11270,7 @@ msgstr "次のようにしてフォーマットを明示的に指定すること
 #: ../source/guides/writing-pyproject-toml.rst:325
 #: ../source/specifications/pyproject-toml.rst:140
 #: ../source/specifications/pyproject-toml.rst:236
+#: ../source/specifications/pyproject-toml.rst:237
 msgid "``license``"
 msgstr "``ライセンス``"
 
@@ -11267,6 +11305,7 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:350
 #: ../source/specifications/pyproject-toml.rst:139
 #: ../source/specifications/pyproject-toml.rst:293
+#: ../source/specifications/pyproject-toml.rst:294
 msgid "``keywords``"
 msgstr "``keywords``"
 
@@ -11281,6 +11320,7 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:364
 #: ../source/specifications/pyproject-toml.rst:133
 #: ../source/specifications/pyproject-toml.rst:303
+#: ../source/specifications/pyproject-toml.rst:304
 msgid "``classifiers``"
 msgstr "``分類詞 <classifiers>``"
 
@@ -11320,6 +11360,7 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:404
 #: ../source/specifications/pyproject-toml.rst:147
 #: ../source/specifications/pyproject-toml.rst:313
+#: ../source/specifications/pyproject-toml.rst:314
 msgid "``urls``"
 msgstr "``urls``"
 
@@ -15720,6 +15761,7 @@ msgstr ""
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1264
 #: ../source/specifications/virtual-environments.rst:54
+#: ../source/specifications/pyproject-toml.rst:443
 msgid "History"
 msgstr "歴史"
 
@@ -17836,10 +17878,6 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:61
 #, fuzzy
-#| msgid ""
-#| "A ``requested_revision`` key (type ``string``) MAY be present naming a "
-#| "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS) "
-#| "to install."
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS). "
@@ -20537,6 +20575,7 @@ msgstr "``依存関係 <dependencies``"
 
 #: ../source/specifications/pyproject-toml.rst:136
 #: ../source/specifications/pyproject-toml.rst:384
+#: ../source/specifications/pyproject-toml.rst:385
 msgid "``dynamic``"
 msgstr "``dynamic``"
 
@@ -20560,6 +20599,7 @@ msgstr "``optional-dependencies``"
 #: ../source/specifications/pyproject-toml.rst:166
 #: ../source/specifications/pyproject-toml.rst:179
 #: ../source/specifications/pyproject-toml.rst:228
+#: ../source/specifications/pyproject-toml.rst:229
 msgid "TOML_ type: string"
 msgstr "TOML_ 型: 文字列"
 
@@ -20614,10 +20654,12 @@ msgid "The summary description of the project."
 msgstr "プロジェクトを要約する記述。"
 
 #: ../source/specifications/pyproject-toml.rst:189
+#: ../source/specifications/pyproject-toml.rst:190
 msgid "TOML_ type: string or table"
 msgstr "TOML_ 型: 文字列またはテーブル"
 
 #: ../source/specifications/pyproject-toml.rst:190
+#: ../source/specifications/pyproject-toml.rst:191
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description "
 "<core-metadata-description>` and :ref:`Description-Content-Type <core-"
@@ -20628,10 +20670,12 @@ msgstr ""
 "<core-metadata-description-content-type>`"
 
 #: ../source/specifications/pyproject-toml.rst:194
+#: ../source/specifications/pyproject-toml.rst:195
 msgid "The full description of the project (i.e. the README)."
 msgstr "プロジェクトの説明全体 (すなわち README)。"
 
 #: ../source/specifications/pyproject-toml.rst:196
+#: ../source/specifications/pyproject-toml.rst:197
 msgid ""
 "The key accepts either a string or a table. If it is a string then it is a "
 "path relative to ``pyproject.toml`` to a text file containing the full "
@@ -20658,6 +20702,7 @@ msgstr ""
 "りません。"
 
 #: ../source/specifications/pyproject-toml.rst:207
+#: ../source/specifications/pyproject-toml.rst:208
 msgid ""
 "The ``readme`` key may also take a table. The ``file`` key has a string "
 "value representing a path relative to ``pyproject.toml`` to a file "
@@ -20673,6 +20718,7 @@ msgstr ""
 "ません。"
 
 #: ../source/specifications/pyproject-toml.rst:214
+#: ../source/specifications/pyproject-toml.rst:215
 msgid ""
 "A table specified in the ``readme`` key also has a ``content-type`` key "
 "which takes a string specifying the content-type of the full description. A "
@@ -20695,6 +20741,7 @@ msgstr ""
 "なければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:229
+#: ../source/specifications/pyproject-toml.rst:230
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Python <core-metadata-requires-python>`"
@@ -20703,14 +20750,17 @@ msgstr ""
 "`Requires-Python <core-metadata-requires-python>`"
 
 #: ../source/specifications/pyproject-toml.rst:232
+#: ../source/specifications/pyproject-toml.rst:233
 msgid "The Python version requirements of the project."
 msgstr "プロジェクトが要求する Python のバージョン。"
 
 #: ../source/specifications/pyproject-toml.rst:238
+#: ../source/specifications/pyproject-toml.rst:239
 msgid "TOML_ type: table"
 msgstr "TOML_ 型: テーブル"
 
 #: ../source/specifications/pyproject-toml.rst:239
+#: ../source/specifications/pyproject-toml.rst:240
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
 "<core-metadata-license>`"
@@ -20719,6 +20769,7 @@ msgstr ""
 "`License <core-metadata-license>`"
 
 #: ../source/specifications/pyproject-toml.rst:242
+#: ../source/specifications/pyproject-toml.rst:243
 msgid ""
 "The table may have one of two keys. The ``file`` key has a string value that "
 "is a file path relative to ``pyproject.toml`` to the file which contains the "
@@ -20736,10 +20787,12 @@ msgstr ""
 "ラーを発生させなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:253
+#: ../source/specifications/pyproject-toml.rst:254
 msgid "TOML_ type: Array of inline tables with string keys and values"
 msgstr "TOML_ 型: 文字列のキー・バリュー組を伴ったインラインテーブルの配列"
 
 #: ../source/specifications/pyproject-toml.rst:254
+#: ../source/specifications/pyproject-toml.rst:255
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-"
 "metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:"
@@ -20752,6 +20805,7 @@ msgstr ""
 "email <core-metadata-maintainer-email>`"
 
 #: ../source/specifications/pyproject-toml.rst:260
+#: ../source/specifications/pyproject-toml.rst:261
 msgid ""
 "The people or organizations considered to be the \"authors\" of the project. "
 "The exact meaning is open to interpretation — it may list the original or "
@@ -20762,6 +20816,7 @@ msgstr ""
 "ケージのオーナでも構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:265
+#: ../source/specifications/pyproject-toml.rst:266
 msgid ""
 "The \"maintainers\" key is similar to \"authors\" in that its exact meaning "
 "is open to interpretation."
@@ -20770,6 +20825,7 @@ msgstr ""
 "解釈可能です。"
 
 #: ../source/specifications/pyproject-toml.rst:268
+#: ../source/specifications/pyproject-toml.rst:269
 msgid ""
 "These keys accept an array of tables with 2 keys: ``name`` and ``email``. "
 "Both values must be strings. The ``name`` value MUST be a valid email name "
@@ -20786,6 +20842,7 @@ msgstr ""
 "テーブル内で指定されていなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:275
+#: ../source/specifications/pyproject-toml.rst:276
 msgid ""
 "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
 msgstr ""
@@ -20793,6 +20850,7 @@ msgstr ""
 "次の通りです:"
 
 #: ../source/specifications/pyproject-toml.rst:278
+#: ../source/specifications/pyproject-toml.rst:279
 msgid ""
 "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-"
 "author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
@@ -20802,6 +20860,7 @@ msgstr ""
 "す。"
 
 #: ../source/specifications/pyproject-toml.rst:281
+#: ../source/specifications/pyproject-toml.rst:282
 msgid ""
 "If only ``email`` is provided, the value goes in :ref:`Author-email <core-"
 "metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-"
@@ -20812,6 +20871,7 @@ msgstr ""
 "書き込みます。"
 
 #: ../source/specifications/pyproject-toml.rst:285
+#: ../source/specifications/pyproject-toml.rst:286
 msgid ""
 "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-"
 "email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
@@ -20822,15 +20882,19 @@ msgstr ""
 "`Maintainer-email <core-metadata-maintainer-email>` なりに書き込みます。"
 
 #: ../source/specifications/pyproject-toml.rst:289
+#: ../source/specifications/pyproject-toml.rst:290
 msgid "Multiple values should be separated by commas."
 msgstr "複数の値がある場合はコンマで区切るべきです。"
 
 #: ../source/specifications/pyproject-toml.rst:295
 #: ../source/specifications/pyproject-toml.rst:305
+#: ../source/specifications/pyproject-toml.rst:296
+#: ../source/specifications/pyproject-toml.rst:306
 msgid "TOML_ type: array of strings"
 msgstr "TOML_ 型: 文字列の配列"
 
 #: ../source/specifications/pyproject-toml.rst:296
+#: ../source/specifications/pyproject-toml.rst:297
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
 "<core-metadata-keywords>`"
@@ -20839,10 +20903,12 @@ msgstr ""
 "`Keywords <core-metadata-keywords`"
 
 #: ../source/specifications/pyproject-toml.rst:299
+#: ../source/specifications/pyproject-toml.rst:300
 msgid "The keywords for the project."
 msgstr "プロジェクトに関するキーワード。"
 
 #: ../source/specifications/pyproject-toml.rst:306
+#: ../source/specifications/pyproject-toml.rst:307
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier "
 "<core-metadata-classifier>`"
@@ -20851,14 +20917,17 @@ msgstr ""
 "`Classifier <core-metadata-classifier>`"
 
 #: ../source/specifications/pyproject-toml.rst:309
+#: ../source/specifications/pyproject-toml.rst:310
 msgid "Trove classifiers which apply to the project."
 msgstr "プロジェクトに適合する Trove 分類子。"
 
 #: ../source/specifications/pyproject-toml.rst:315
+#: ../source/specifications/pyproject-toml.rst:316
 msgid "TOML_ type: table with keys and values of strings"
 msgstr "TOML_ 型: 文字列のキー・バリューを伴うテーブル"
 
 #: ../source/specifications/pyproject-toml.rst:316
+#: ../source/specifications/pyproject-toml.rst:317
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL "
 "<core-metadata-project-url>`"
@@ -20867,6 +20936,7 @@ msgstr ""
 "`Project-URL <core-metadata-project-url>`"
 
 #: ../source/specifications/pyproject-toml.rst:319
+#: ../source/specifications/pyproject-toml.rst:320
 msgid ""
 "A table of URLs where the key is the URL label and the value is the URL "
 "itself."
@@ -20875,10 +20945,12 @@ msgstr ""
 "るもの。"
 
 #: ../source/specifications/pyproject-toml.rst:324
+#: ../source/specifications/pyproject-toml.rst:325
 msgid "Entry points"
 msgstr "エントリポイント"
 
 #: ../source/specifications/pyproject-toml.rst:326
+#: ../source/specifications/pyproject-toml.rst:327
 msgid ""
 "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
 "``[project.entry-points]``)"
@@ -20887,10 +20959,12 @@ msgstr ""
 "``[project.entry-points]``)"
 
 #: ../source/specifications/pyproject-toml.rst:328
+#: ../source/specifications/pyproject-toml.rst:329
 msgid ":ref:`Entry points specification <entry-points>`"
 msgstr ":ref:`Entry points specification <entry-points>`"
 
 #: ../source/specifications/pyproject-toml.rst:330
+#: ../source/specifications/pyproject-toml.rst:331
 msgid ""
 "There are three tables related to entry points. The ``[project.scripts]`` "
 "table corresponds to the ``console_scripts`` group in the :ref:`entry points "
@@ -20903,6 +20977,7 @@ msgstr ""
 "ントの名前であり、値は参照されるオブジェクトです。"
 
 #: ../source/specifications/pyproject-toml.rst:336
+#: ../source/specifications/pyproject-toml.rst:337
 msgid ""
 "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group "
 "in the :ref:`entry points specification <entry-points>`. Its format is the "
@@ -20913,6 +20988,7 @@ msgstr ""
 "``[project.scripts]`` と同じです。"
 
 #: ../source/specifications/pyproject-toml.rst:340
+#: ../source/specifications/pyproject-toml.rst:341
 msgid ""
 "The ``[project.entry-points]`` table is a collection of tables. Each sub-"
 "table's name is an entry point group. The key and value semantics are the "
@@ -20926,6 +21002,7 @@ msgstr ""
 "ればなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:346
+#: ../source/specifications/pyproject-toml.rst:347
 msgid ""
 "Build back-ends MUST raise an error if the metadata defines a ``[project."
 "entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` "
@@ -20938,6 +21015,7 @@ msgstr ""
 "といけないので、ビルド時のバックエンドがエラーを発生させなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:356
+#: ../source/specifications/pyproject-toml.rst:357
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
 "values of arrays of :pep:`508` strings (``optional-dependencies``)"
@@ -20946,6 +21024,7 @@ msgstr ""
 "の文字列 (``optional-dependencies``) の配列の値を伴ったテーブル"
 
 #: ../source/specifications/pyproject-toml.rst:359
+#: ../source/specifications/pyproject-toml.rst:360
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
@@ -20956,10 +21035,12 @@ msgstr ""
 "<core-metadata-provides-extra>`"
 
 #: ../source/specifications/pyproject-toml.rst:363
+#: ../source/specifications/pyproject-toml.rst:364
 msgid "The (optional) dependencies of the project."
 msgstr "(必須ではない) プロジェクトの依存関係。"
 
 #: ../source/specifications/pyproject-toml.rst:365
+#: ../source/specifications/pyproject-toml.rst:366
 msgid ""
 "For ``dependencies``, it is a key whose value is an array of strings. Each "
 "string represents a dependency of the project and MUST be formatted as a "
@@ -20972,6 +21053,7 @@ msgstr ""
 "Dist <core-metadata-requires-dist>` エントリに直接にマップしています。"
 
 #: ../source/specifications/pyproject-toml.rst:370
+#: ../source/specifications/pyproject-toml.rst:371
 msgid ""
 "For ``optional-dependencies``, it is a table where each key specifies an "
 "extra and whose value is an array of strings. The strings of the arrays must "
@@ -20990,10 +21072,12 @@ msgstr ""
 "す。"
 
 #: ../source/specifications/pyproject-toml.rst:386
+#: ../source/specifications/pyproject-toml.rst:387
 msgid "TOML_ type: array of string"
 msgstr "TOML_ 型: 文字列の配列"
 
 #: ../source/specifications/pyproject-toml.rst:387
+#: ../source/specifications/pyproject-toml.rst:388
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
@@ -21002,6 +21086,7 @@ msgstr ""
 "ナミック <core-metadata-dynamic>` フィールド"
 
 #: ../source/specifications/pyproject-toml.rst:390
+#: ../source/specifications/pyproject-toml.rst:391
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -21015,6 +21100,7 @@ msgstr ""
 "す。"
 
 #: ../source/specifications/pyproject-toml.rst:396
+#: ../source/specifications/pyproject-toml.rst:397
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
@@ -21023,6 +21109,7 @@ msgstr ""
 "列挙されたキーではないメタデータ) を尊重しなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:398
+#: ../source/specifications/pyproject-toml.rst:399
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
@@ -21031,6 +21118,7 @@ msgstr ""
 "クエンドがエラーを発生させなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:400
+#: ../source/specifications/pyproject-toml.rst:401
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -21046,6 +21134,7 @@ msgstr ""
 "ことは不可能であるべきです)。"
 
 #: ../source/specifications/pyproject-toml.rst:405
+#: ../source/specifications/pyproject-toml.rst:406
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
@@ -21057,6 +21146,7 @@ msgstr ""
 "の中に挙げても構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:409
+#: ../source/specifications/pyproject-toml.rst:410
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
@@ -21065,6 +21155,7 @@ msgstr ""
 "ある場合には、ビルド用バックエンドはエラーを発生させなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:411
+#: ../source/specifications/pyproject-toml.rst:412
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -21077,6 +21168,7 @@ msgstr ""
 "ザがそうするようにオプトインしていなければならないということです) 。"
 
 #: ../source/specifications/pyproject-toml.rst:415
+#: ../source/specifications/pyproject-toml.rst:416
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
@@ -21088,10 +21180,12 @@ msgstr ""
 "タを省略することが許容されます) 。"
 
 #: ../source/specifications/pyproject-toml.rst:425
+#: ../source/specifications/pyproject-toml.rst:426
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:427
+#: ../source/specifications/pyproject-toml.rst:428
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
 "just build tools, can have users specify configuration data as long as they "
@@ -21100,6 +21194,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:433
+#: ../source/specifications/pyproject-toml.rst:434
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
 "make sure that different projects do not attempt to use the same sub-table "
@@ -21108,6 +21203,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:444
+#: ../source/specifications/pyproject-toml.rst:445
 msgid ""
 "May 2016: The initial specification of the ``pyproject.toml`` file, with "
 "just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
@@ -21115,6 +21211,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:448
+#: ../source/specifications/pyproject-toml.rst:449
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
 "through :pep:`621`."
@@ -25507,10 +25604,6 @@ msgstr ""
 
 #: ../source/tutorials/installing-packages.rst:226
 #, fuzzy
-#| msgid ""
-#| ":doc:`venv <python:library/venv>` is available by default in Python 3.3 "
-#| "and later, and installs :ref:`pip` and :ref:`setuptools` into created "
-#| "virtual environments in Python 3.4 and later."
 msgid ""
 ":doc:`venv <python:library/venv>` is available by default in Python 3.3 and "
 "later, and installs :ref:`pip` into created virtual environments in Python "
@@ -26908,6 +27001,12 @@ msgid ""
 "this tutorial). If you are only getting started with Python packaging, it is "
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:183
+msgid ""
+"The summary description of the project in one line. Tools MAY error if this "
+"includes multiple lines."
 msgstr ""
 
 #~ msgid "Wheel vs Egg"
