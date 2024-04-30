@@ -16,7 +16,7 @@ Glossary
 
         A library that takes a source tree or
         :term:`source distribution <Source Distribution (or "sdist")>`
-        and builds a source distribution or :term:`wheel <Wheel>` from it.
+        and builds a :term:`built distribution <Built Distribution>` or :term:`wheel <Wheel>` from it.
         The build is delegated to the backend by a
         :term:`frontend <Build Frontend>`.
         All backends offer a standardized interface.
