@@ -54,9 +54,9 @@ Create the following file structure locally:
 The directory containing the Python files should match the project name. This
 simplifies the configuration and is more obvious to users who install the package.
 
-Creating the file :file:`__init__.py` is recommended because the existence of a
+Creating the file :file:`__init__.py` is recommended because the existence of an
 :file:`__init__.py` file allows users to import the directory as a regular package,
-even if (as is the case for this tutorial) :file:`__init__.py` is empty.
+even if (as is the case in this tutorial) :file:`__init__.py` is empty.
 [#namespace-packages]_
 
 :file:`example.py` is an example of a module within the package that could
