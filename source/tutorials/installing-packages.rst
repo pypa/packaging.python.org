@@ -668,6 +668,7 @@ you know publishes one, you can include it in the pip installation command:
        downloading from https URLs.
 
 .. [2] Depending on your platform, this may require root or Administrator
+
        access. :ref:`pip` is currently considering changing this by `making user
        installs the default behavior
        <https://github.com/pypa/pip/issues/1668>`_.
