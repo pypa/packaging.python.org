@@ -211,7 +211,7 @@ Glossary
         in a :term:`Project`'s :term:`source tree <Project Source Tree>`,
         to be transformed into :term:`Core Metadata field`\s
         in the :term:`Built Metadata`
-        by the project's build backend.
+        by the project's :term:`build backend <Build Backend>`.
         Can be written as :term:`Pyproject Metadata`,
         or in a tool-specific format
         (under the ``[tool]`` table in ``pyproject.toml``,
@@ -371,7 +371,7 @@ Glossary
 
     Wheel Project
 
-        The PyPA reference implementation of the :term:`Wheel Format`.
+        The PyPA reference implementation of the :term:`Wheel Format`; see :ref:`wheel`.
 
 
     Working Set
