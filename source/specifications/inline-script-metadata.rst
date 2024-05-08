@@ -1,3 +1,5 @@
+.. _inline-script-metadata:
+
 ======================
 Inline script metadata
 ======================
