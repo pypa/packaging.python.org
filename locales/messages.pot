@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-07 08:04+0000\n"
+"POT-Creation-Date: 2024-05-08 15:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8228,7 +8228,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
-#: ../source/specifications/inline-script-metadata.rst:211
+#: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:332
 #: ../source/specifications/pyproject-toml.rst:443
@@ -8933,7 +8933,7 @@ msgstr ""
 #: ../source/specifications/dependency-specifiers.rst:26
 #: ../source/specifications/direct-url-data-structure.rst:19
 #: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/inline-script-metadata.rst:11
+#: ../source/specifications/inline-script-metadata.rst:13
 msgid "Specification"
 msgstr ""
 
@@ -10067,128 +10067,128 @@ msgstr ""
 msgid "This is a list of currently active interoperability specifications maintained by the Python Packaging Authority. The process for updating these standards, and for proposing new ones, is documented on `pypa.io <https://www.pypa.io/en/latest/specifications/>`__."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:3
+#: ../source/specifications/inline-script-metadata.rst:5
 msgid "Inline script metadata"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:5
+#: ../source/specifications/inline-script-metadata.rst:7
 msgid "This specification defines a metadata format that can be embedded in single-file Python scripts to assist launchers, IDEs and other external tools which may need to interact with such scripts."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:13
+#: ../source/specifications/inline-script-metadata.rst:15
 msgid "This specification defines a metadata comment block format (loosely inspired by `reStructuredText Directives`__)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:18
+#: ../source/specifications/inline-script-metadata.rst:20
 msgid "Any Python script may have top-level comment blocks that MUST start with the line ``# /// TYPE`` where ``TYPE`` determines how to process the content. That is: a single ``#``, followed by a single space, followed by three forward slashes, followed by a single space, followed by the type of metadata. Block MUST end with the line ``# ///``. That is: a single ``#``, followed by a single space, followed by three forward slashes. The ``TYPE`` MUST only consist of ASCII letters, numbers and hyphens."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:26
+#: ../source/specifications/inline-script-metadata.rst:28
 msgid "Every line between these two lines (``# /// TYPE`` and ``# ///``) MUST be a comment starting with ``#``. If there are characters after the ``#`` then the first character MUST be a space. The embedded content is formed by taking away the first two characters of each line if the second character is a space, otherwise just the first character (which means the line consists of only a single ``#``)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:33
+#: ../source/specifications/inline-script-metadata.rst:35
 msgid "Precedence for an ending line ``# ///`` is given when the next line is not a valid embedded content line as described above. For example, the following is a single fully valid block:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:49
+#: ../source/specifications/inline-script-metadata.rst:51
 msgid "A starting line MUST NOT be placed between another starting line and its ending line. In such cases tools MAY produce an error. Unclosed blocks MUST be ignored."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:52
+#: ../source/specifications/inline-script-metadata.rst:54
 msgid "When there are multiple comment blocks of the same ``TYPE`` defined, tools MUST produce an error."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:55
+#: ../source/specifications/inline-script-metadata.rst:57
 msgid "Tools reading embedded metadata MAY respect the standard Python encoding declaration. If they choose not to do so, they MUST process the file as UTF-8."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:58
+#: ../source/specifications/inline-script-metadata.rst:60
 msgid "This is the canonical regular expression that MAY be used to parse the metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:65
+#: ../source/specifications/inline-script-metadata.rst:67
 msgid "In circumstances where there is a discrepancy between the text specification and the regular expression, the text specification takes precedence."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:68
+#: ../source/specifications/inline-script-metadata.rst:70
 msgid "Tools MUST NOT read from metadata blocks with types that have not been standardized by this specification."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:72
+#: ../source/specifications/inline-script-metadata.rst:74
 msgid "script type"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:74
+#: ../source/specifications/inline-script-metadata.rst:76
 msgid "The first type of metadata block is named ``script``, which contains script metadata (dependency data and tool configuration)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:77
+#: ../source/specifications/inline-script-metadata.rst:79
 msgid "This document MAY include the top-level fields ``dependencies`` and ``requires-python``, and MAY optionally include a ``[tool]`` table."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:80
+#: ../source/specifications/inline-script-metadata.rst:82
 msgid "The ``[tool]`` MAY be used by any tool, script runner or otherwise, to configure behavior. It has the same semantics as the :ref:`[tool] table in pyproject.toml <pyproject-tool-table>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:84
+#: ../source/specifications/inline-script-metadata.rst:86
 msgid "The top-level fields are:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:86
+#: ../source/specifications/inline-script-metadata.rst:88
 msgid "``dependencies``: A list of strings that specifies the runtime dependencies of the script. Each entry MUST be a valid :ref:`dependency specifier <dependency-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:89
+#: ../source/specifications/inline-script-metadata.rst:91
 msgid "``requires-python``: A string that specifies the Python version(s) with which the script is compatible. The value of this field MUST be a valid :ref:`version specifier <version-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:93
+#: ../source/specifications/inline-script-metadata.rst:95
 msgid "Script runners MUST error if the specified ``dependencies`` cannot be provided. Script runners SHOULD error if no version of Python that satisfies the specified ``requires-python`` can be provided."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:98
+#: ../source/specifications/inline-script-metadata.rst:100
 msgid "Example"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/inline-script-metadata.rst:102
 msgid "The following is an example of a script with embedded metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:121
+#: ../source/specifications/inline-script-metadata.rst:123
 msgid "Reference Implementation"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:123
+#: ../source/specifications/inline-script-metadata.rst:125
 msgid "The following is an example of how to read the metadata on Python 3.11 or higher."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:149
+#: ../source/specifications/inline-script-metadata.rst:151
 msgid "Often tools will edit dependencies like package managers or dependency update automation in CI. The following is a crude example of modifying the content using the ``tomlkit`` library__."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:180
+#: ../source/specifications/inline-script-metadata.rst:182
 msgid "Note that this example used a library that preserves TOML formatting. This is not a requirement for editing by any means but rather is a \"nice to have\" feature."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:184
+#: ../source/specifications/inline-script-metadata.rst:186
 msgid "The following is an example of how to read a stream of arbitrary metadata blocks."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:203
+#: ../source/specifications/inline-script-metadata.rst:205
 #: ../source/specifications/simple-repository-api.rst:815
 msgid "Recommendations"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:205
+#: ../source/specifications/inline-script-metadata.rst:207
 msgid "Tools that support managing different versions of Python should attempt to use the highest available version of Python that is compatible with the script's ``requires-python`` metadata, if defined."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:213
+#: ../source/specifications/inline-script-metadata.rst:215
 msgid "October 2023: This specification was conditionally approved through :pep:`723`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:214
+#: ../source/specifications/inline-script-metadata.rst:216
 msgid "January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata block type was renamed to ``script``, and the ``[run]`` table was dropped, making the ``dependencies`` and ``requires-python`` keys top-level. Additionally, the specification is no longer provisional."
 msgstr ""
 
