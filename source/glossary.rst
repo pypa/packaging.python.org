@@ -15,7 +15,8 @@ Glossary
     Build Backend
 
         A library that takes a source tree
-        and builds a :term:`source distribution <Source Distribution (or "sdist")>` or :term:`built distribution <Built Distribution>` from it.
+        and builds a :term:`source distribution <Source Distribution (or "sdist")>` or 
+        :term:`built distribution <Built Distribution>` from it.
         The build is delegated to the backend by a
         :term:`frontend <Build Frontend>`.
         All backends offer a standardized interface.
