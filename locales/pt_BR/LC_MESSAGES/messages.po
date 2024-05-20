@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 14:36+0000\n"
-"PO-Revision-Date: 2024-03-01 20:00+0000\n"
+"POT-Creation-Date: 2024-05-15 16:02+0000\n"
+"PO-Revision-Date: 2024-04-25 06:07+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/pt_BR/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.5.1-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1154,16 +1154,16 @@ msgstr ""
 "requirement/."
 
 #: ../source/discussions/package-formats.rst:5
-#, fuzzy
-#| msgid "Package Index"
 msgid "Package Formats"
-msgstr "Índice de Pacotes"
+msgstr "Formatos de Pacotes"
 
 #: ../source/discussions/package-formats.rst:7
 msgid ""
 "This page discusses the file formats that are used to distribute Python "
 "packages and the differences between them."
 msgstr ""
+"Esta página discute os formatos de arquivo usados para distribuir pacotes "
+"Python e as diferenças entre eles."
 
 #: ../source/discussions/package-formats.rst:10
 msgid ""
@@ -1176,12 +1176,18 @@ msgid ""
 "publishing a package on PyPI (or elsewhere), you should always upload both "
 "an sdist and one or more wheel."
 msgstr ""
+"Você encontrará arquivos em dois formatos em índices de pacotes como PyPI_: "
+"**distribuições fonte**, ou a abreviação **sdists**, e **distribuições "
+"binárias**, comumente chamadas de **wheels**. Por exemplo, a `página PyPI "
+"para pip 23.3.1 <pip-pypi_>`_ permite baixar dois arquivos, ``pip-23.3.1.tar."
+"gz`` e ``pip-23.3.1-py3-none-any.whl``. O primeiro é um sdist, o último é "
+"uma wheel. Conforme explicado abaixo, eles têm finalidades diferentes. Ao "
+"publicar um pacote no PyPI (ou em outro lugar), você deve sempre enviar um "
+"sdist e um ou mais wheel."
 
 #: ../source/discussions/package-formats.rst:21
-#, fuzzy
-#| msgid "Python source distributions"
 msgid "What is a source distribution?"
-msgstr "Distribuições fonte Python"
+msgstr "O que é uma distribuição fonte?"
 
 #: ../source/discussions/package-formats.rst:23
 msgid ""
@@ -1193,6 +1199,14 @@ msgid ""
 "INFO`` file follows the format specified in :ref:`core-metadata` and is not "
 "intended to be written by hand [#core-metadata-format]_."
 msgstr ""
+"Conceitualmente, uma distribuição fonte é um arquivo do código-fonte em "
+"formato bruto. Concretamente, um sdist é um arquivo ``.tar.gz`` contendo o "
+"código-fonte mais um arquivo especial adicional chamado ``PKG-INFO``, que "
+"contém os metadados do projeto. A presença desse arquivo ajuda as "
+"ferramentas de empacotamento a serem mais eficientes, pois não precisam "
+"calcular os próprios metadados. O arquivo ``PKG-INFO`` segue o formato "
+"especificado em :ref:`core-metadata` e não se destina a ser escrito à mão "
+"[#core-metadata-format]_."
 
 #: ../source/discussions/package-formats.rst:31
 msgid ""
@@ -1201,6 +1215,11 @@ msgid ""
 "(like Linux and macOS), or :ref:`the command line interface of Python's "
 "tarfile module <python:tarfile-commandline>` on any platform."
 msgstr ""
+"Você pode, portanto, operar o conteúdo de um sdist descompactando-o usando "
+"ferramentas padrão para trabalhar com arquivos tar, como ``tar -xvf`` em "
+"plataformas UNIX (como Linux e macOS), ou :ref:`a interface de linha de "
+"comando do módulo tarfile do Python <python:tarfile-commandline>` em "
+"qualquer plataforma."
 
 #: ../source/discussions/package-formats.rst:36
 msgid ""
@@ -1212,28 +1231,43 @@ msgid ""
 "Homebrew and MacPorts on macOS, ...), who, for various reasons, may prefer "
 "them over, e.g., pulling from a Git repository."
 msgstr ""
+"Os sdists servem a vários propósitos no ecossistema de embalagens. Quando :"
+"ref:`pip`, o instalador padrão do pacote Python, não consegue encontrar um "
+"wheel para instalar, ele recorrerá ao download de uma distribuição fonte, "
+"compilando um wheel a partir dela e instalando o wheel. Além disso, os "
+"sdists são frequentemente usados como fonte de pacote por empacotadores "
+"downstream (como distribuições Linux, Conda, Homebrew e MacPorts no "
+"macOS, ...), que, por vários motivos, podem preferi-los, por exemplo, "
+"extraindo de um repositório Git."
 
 #: ../source/discussions/package-formats.rst:44
 msgid ""
 "A source distribution is recognized by its file name, which has the form :"
 "samp:`{package_name}-{version}.tar.gz`, e.g., ``pip-23.3.1.tar.gz``."
 msgstr ""
+"Uma distribuição fonte é reconhecida pelo seu nome de arquivo, que tem o "
+"formato :samp:`{nome_do_pacote}-{versão}.tar.gz`, por exemplo, ``pip-23.3.1."
+"tar.gz``."
 
 #: ../source/discussions/package-formats.rst:50
 msgid ""
 "If you want technical details on the sdist format, read the :ref:`sdist "
 "specification <source-distribution-format>`."
 msgstr ""
+"Se você quiser detalhes técnicos sobre o formato sdist, leia a :ref:"
+"`especificação de sdist <source-distribution-format>`."
 
 #: ../source/discussions/package-formats.rst:55
 msgid "What is a wheel?"
-msgstr ""
+msgstr "O que é um wheel?"
 
 #: ../source/discussions/package-formats.rst:57
 msgid ""
 "Conceptually, a wheel contains exactly the files that need to be copied when "
 "installing the package."
 msgstr ""
+"Conceitualmente, um wheel contém exatamente os arquivos que precisam ser "
+"copiados durante a instalação do pacote."
 
 #: ../source/discussions/package-formats.rst:60
 msgid ""
@@ -1244,6 +1278,12 @@ msgid ""
 "files) but compiled, executable code (like ``.so`` files on Linux or DLLs on "
 "Windows)."
 msgstr ""
+"Há uma grande diferença entre sdists e wheels para pacotes com :term:"
+"`módulos de extensão <módulo de extensão>`, escritos em linguagens "
+"compiladas como C, C++ e Rust, que precisam ser compilados em código de "
+"máquina dependente de plataforma. Com esses pacotes, as rodas não contêm "
+"código fonte (como arquivos fonte C), mas código executável compilado (como "
+"arquivos ``.so`` no Linux ou DLLs no Windows)."
 
 #: ../source/discussions/package-formats.rst:66
 msgid ""
@@ -1254,6 +1294,12 @@ msgid ""
 "Python interpreter (unless the :ref:`Python stable ABI <cpython-stable-abi>` "
 "is used)."
 msgstr ""
+"Além disso, embora exista apenas um sdist por versão de um projeto, pode "
+"haver muitos wheels. Novamente, isto é mais relevante no contexto dos "
+"módulos de extensão. O código compilado de um módulo de extensão está "
+"vinculado a um sistema operacional e arquitetura de processador, e muitas "
+"vezes também à versão do interpretador Python (a menos que a :ref:`ABI "
+"estável do Python <cpython-stable-abi>` seja usada)."
 
 #: ../source/discussions/package-formats.rst:72
 msgid ""
@@ -1262,6 +1308,11 @@ msgid ""
 "versions.  Python is an interpreted language, which does not need ahead-of-"
 "time compilation, so wheels contain ``.py`` files just like sdists."
 msgstr ""
+"Para pacotes Python puro, a diferença entre sdists e wheels é menos "
+"acentuada. Normalmente existe um único wheel, para todas as plataformas e "
+"versões do Python. Python é uma linguagem interpretada, que não precisa de "
+"compilação antecipada, então wheels contêm arquivos ``.py`` assim como "
+"sdists."
 
 #: ../source/discussions/package-formats.rst:77
 msgid ""
@@ -1271,6 +1322,11 @@ msgid ""
 "Python version instead of one single wheel. Instead, installers like :ref:"
 "`pip` generate them while installing the package."
 msgstr ""
+"Se você está se perguntando sobre os arquivos de bytecode ``.pyc``: eles não "
+"estão incluídos nos wheels, pois são pouco custoso para gerar, e incluí-los "
+"forçaria desnecessariamente um grande número de pacotes a distribuir um "
+"wheel por versão do Python em vez de um único wheel. Em vez disso, "
+"instaladores como :ref:`pip` os geram durante a instalação do pacote."
 
 #: ../source/discussions/package-formats.rst:83
 msgid ""
@@ -1283,6 +1339,13 @@ msgid ""
 "along with a hash of their content, as a safety check of the download's "
 "integrity."
 msgstr ""
+"Dito isto, ainda existem diferenças importantes entre sdists e wheels, mesmo "
+"para projetos Python puros. Os wheels devem conter exatamente o que será "
+"instalado e nada mais. Em particular, os wheels nunca devem incluir testes e "
+"documentação, ao contrário dos sdists. Além disso, o formato do wheel é mais "
+"complexo que o sdist. Por exemplo, inclui um arquivo especial -- chamado "
+"``RECORD`` -- que lista todos os arquivos no wheel junto com um hash de seu "
+"conteúdo, como uma verificação de segurança da integridade do download."
 
 #: ../source/discussions/package-formats.rst:91
 msgid ""
@@ -1297,6 +1360,18 @@ msgid ""
 "for your users, since a wheel is directly installable. By only including "
 "files that must be installed, wheels also make for smaller downloads."
 msgstr ""
+"À primeira vista, você pode se perguntar se wheels são realmente necessários "
+"para projetos \"simples e básicos\" de Python puro. Tenha em mente que "
+"devido à flexibilidade dos sdists, instaladores como o pip não podem "
+"instalar diretamente a partir dos sdists -- eles precisam primeiro construir "
+"um wheel, invocando o :term:`backend de construção` que o sdist especifica "
+"(o backend de construção pode fazer todo tipo de transformações durante a "
+"construção do wheel, como compilar extensões C). Por esse motivo, mesmo para "
+"um projeto Python puro, você deve sempre enviar *ambos* sdist e wheel para o "
+"PyPI ou outros índices de pacotes. Isso torna a instalação muito mais rápida "
+"para seus usuários, já que um wheel pode ser instalado diretamente. Ao "
+"incluir apenas os arquivos que devem ser instalados, os wheels também "
+"permitem downloads menores."
 
 #: ../source/discussions/package-formats.rst:102
 msgid ""
@@ -1307,6 +1382,13 @@ msgid ""
 "interface of Python's zipfile module <python:zipfile-commandline>`. This can "
 "be very useful to check that the wheel includes all the files you need it to."
 msgstr ""
+"No nível técnico, um wheel é um arquivo ZIP (ao contrário dos sdists que são "
+"arquivos TAR). Você pode inspecionar seu conteúdo descompactando-o como um "
+"arquivo ZIP normal, por exemplo, usando ``unzip`` em plataformas UNIX como "
+"Linux e macOS, ``Expand-Archive`` no PowerShell no Windows, ou :ref:`a linha "
+"de comando interface do módulo zipfile do Python <python:zipfile-"
+"commandline>`. Isso pode ser muito útil para verificar se o wheel inclui "
+"todos os arquivos necessários."
 
 #: ../source/discussions/package-formats.rst:109
 msgid ""
@@ -1316,6 +1398,11 @@ msgid ""
 "equivalent of ``PKG-INFO`` in sdists, as well as ``RECORD``. This can be "
 "useful to ensure no files are missing from your wheels."
 msgstr ""
+"Dentro de um wheel, você encontrará os arquivos do pacote, além de um "
+"diretório adicional chamado :samp:`{nome_do_pacote}-{versão}.dist-info`. "
+"Este diretório contém vários arquivos, incluindo um arquivo ``METADATA`` que "
+"é equivalente a ``PKG-INFO`` em sdists, bem como ``RECORD``. Isso pode ser "
+"útil para garantir que nenhum arquivo esteja faltando em suas rodas."
 
 #: ../source/discussions/package-formats.rst:115
 msgid ""
@@ -1325,6 +1412,11 @@ msgid ""
 "the wheel is compatible with. For example, the name ``pip-23.3.1-py3-none-"
 "any.whl`` means that:"
 msgstr ""
+"O nome do arquivo de um wheel (ignorando alguns recursos raramente usados) é "
+"assim: :samp:`{nome_do_pacote}-{versão}-{tag_python}-{tag_abi}-"
+"{tag_plataforma}.whl`. Esta convenção de nomenclatura identifica com quais "
+"plataformas e versões do Python a roda é compatível. Por exemplo, o nome "
+"``pip-23.3.1-py3-none-any.whl`` significa que:"
 
 #: ../source/discussions/package-formats.rst:121
 msgid ""
@@ -1332,32 +1424,37 @@ msgid ""
 "whether CPython, the most widely used Python implementation, or an "
 "alternative implementation like PyPy_;"
 msgstr ""
+"(``py3``) Este wheel pode ser instalado em qualquer implementação do Python "
+"3, seja CPython, a implementação Python mais usada, ou uma implementação "
+"alternativa como PyPy_;"
 
 #: ../source/discussions/package-formats.rst:124
 msgid "(``none``) It does not depend on the Python version;"
-msgstr ""
+msgstr "(``none``) Não depende da versão do Python;"
 
 #: ../source/discussions/package-formats.rst:125
 msgid "(``any``) It does not depend on the platform."
-msgstr ""
+msgstr "(``qualquer``) Não depende da plataforma."
 
 #: ../source/discussions/package-formats.rst:127
 msgid ""
 "The pattern ``py3-none-any`` is common for pure Python projects. Packages "
 "with extension modules typically ship multiple wheels with more complex tags."
 msgstr ""
+"O padrão ``py3-none-any`` é comum para projetos Python puros. Pacotes com "
+"módulos de extensão normalmente enviam vários wheels com tags mais complexas."
 
 #: ../source/discussions/package-formats.rst:130
 msgid ""
 "All technical details on the wheel format can be found in the :ref:`wheel "
 "specification <binary-distribution-format>`."
 msgstr ""
+"Todos os detalhes técnicos sobre o formato do wheel podem ser encontrados "
+"na :ref:`especificação de wheels <binary-distribution-format>`."
 
 #: ../source/discussions/package-formats.rst:138
-#, fuzzy
-#| msgid "What about..."
 msgid "What about eggs?"
-msgstr "E quanto a..."
+msgstr "E quanto a eggs?"
 
 #: ../source/discussions/package-formats.rst:140
 msgid ""
@@ -1365,67 +1462,43 @@ msgid ""
 "format.  It should not be used anymore. Since August 2023, PyPI `rejects egg "
 "uploads <pypi-eggs-deprecation_>`_."
 msgstr ""
+"\"Egg\" é um formato de pacote antigo que foi substituído pelo formato de "
+"wheels. Não deve mais ser usado. Desde agosto de 2023, o PyPI `rejeita "
+"envios de eggs <pypi-eggs-deprecation_>`_."
 
 #: ../source/discussions/package-formats.rst:144
-#, fuzzy
-#| msgid ""
-#| "Here's a breakdown of the important differences between :term:`Wheel` "
-#| "and :term:`Egg`."
 msgid "Here's a breakdown of the important differences between wheel and egg."
-msgstr ""
-"Aqui está uma análise das diferenças importantes entre :term:`Wheel` e :term:"
-"`Egg`."
+msgstr "Aqui está uma análise das diferenças importantes entre wheel e egg."
 
 #: ../source/discussions/package-formats.rst:146
-#, fuzzy
-#| msgid ""
-#| "The :term:`Egg` format was introduced by :ref:`setuptools` in 2004, "
-#| "whereas the :term:`Wheel` format was introduced by :pep:`427` in 2012."
 msgid ""
 "The egg format was introduced by :ref:`setuptools` in 2004, whereas the "
 "wheel format was introduced by :pep:`427` in 2012."
 msgstr ""
-"O formato :term:`Egg` foi introduzido por :ref:`setuptools` em 2004, "
-"enquanto o formato :term:`Wheel` foi introduzido pela :pep:`427` em 2012."
+"O formato egg foi introduzido pelo :ref:`setuptools` em 2004, enquanto o "
+"formato wheel foi introduzido pela :pep:`427` em 2012."
 
 #: ../source/discussions/package-formats.rst:149
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` has an :doc:`official standard specification </"
-#| "specifications/binary-distribution-format>`. :term:`Egg` did not."
 msgid ""
 "Wheel has an :doc:`official standard specification </specifications/binary-"
 "distribution-format>`. Egg did not."
 msgstr ""
-":term:`Wheel` tem uma :doc:`especificação de padrão oficial </specifications/"
-"binary-distribution-format>`. :term:`Egg` não tinha."
+"Wheel tem uma :doc:`especificação de padrão oficial </specifications/binary-"
+"distribution-format>`. Egg não tinha."
 
 #: ../source/discussions/package-formats.rst:152
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` is a :term:`distribution <Distribution Package>` format, i."
-#| "e a packaging format. [1]_ :term:`Egg` was both a distribution format and "
-#| "a runtime installation format (if left zipped), and was designed to be "
-#| "importable."
 msgid ""
 "Wheel is a :term:`distribution <Distribution Package>` format, i.e a "
 "packaging format. [#wheel-importable]_ Egg was both a distribution format "
 "and a runtime installation format (if left zipped), and was designed to be "
 "importable."
 msgstr ""
-":term:`Wheel` é um formato de :term:`distribuição <Distribution Package>`, "
-"ou seja, um formato de empacotamento. [1]_ :term:`Egg` era um formato de "
+"Wheel é um formato de :term:`distribuição <Distribution Package>`, ou seja, "
+"um formato de empacotamento. [#wheel-importable]_ Egg era um formato de "
 "distribuição e um formato de instalação em tempo de execução (se deixado "
 "compactado), e foi projetado para ser importável."
 
 #: ../source/discussions/package-formats.rst:156
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` archives do not include .pyc files. Therefore, when the "
-#| "distribution only contains Python files (i.e. no compiled extensions), "
-#| "and is compatible with Python 2 and 3, it's possible for a wheel to be "
-#| "\"universal\", similar to an :term:`sdist <Source Distribution (or "
-#| "\"sdist\")>`."
 msgid ""
 "Wheel archives do not include ``.pyc`` files. Therefore, when the "
 "distribution only contains Python files (i.e. no compiled extensions), and "
@@ -1433,66 +1506,48 @@ msgid ""
 "\"universal\", similar to an :term:`sdist <Source Distribution (or "
 "\"sdist\")>`."
 msgstr ""
-"Os arquivos :term:`Wheel` não incluem arquivos .pyc. Portanto, quando a "
+"Os arquivos wheel não incluem arquivos ``.pyc``. Portanto, quando a "
 "distribuição contém apenas arquivos Python (ou seja, sem extensões "
 "compiladas) e é compatível com Python 2 e 3, é possível que um wheel seja "
 "\"universal\", semelhante a um :term:`sdist <Source Distribution (or "
 "\"sdist\")>`."
 
 #: ../source/discussions/package-formats.rst:161
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` uses :pep:`PEP376-compliant <376>` ``.dist-info`` "
-#| "directories. Egg used ``.egg-info``."
 msgid ""
 "Wheel uses standard :ref:`.dist-info directories <recording-installed-"
 "packages>`.  Egg used ``.egg-info``."
 msgstr ""
-":term:`Wheel` usa diretórios ``.dist-info`` :pep:`compatíveis com a PEP376 "
-"<376>`. Egg usava ``.egg-info``."
+"Wheel usa :ref:`diretórios .dist-info <recording-installed-packages>` "
+"padrões. Egg usava ``.egg-info``."
 
 #: ../source/discussions/package-formats.rst:164
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` has a :pep:`richer file naming convention <425>`. A single "
-#| "wheel archive can indicate its compatibility with a number of Python "
-#| "language versions and implementations, ABIs, and system architectures."
 msgid ""
 "Wheel has a :ref:`richer file naming convention <wheel-file-name-spec>`. A "
 "single wheel archive can indicate its compatibility with a number of Python "
 "language versions and implementations, ABIs, and system architectures."
 msgstr ""
-":term:`Wheel` tem uma :pep:`convenção de nomenclatura de arquivo mais rica "
-"<425>`. Um único arquivo de wheel pode indicar sua compatibilidade com "
-"várias versões e implementações da linguagem Python, ABIs e arquiteturas de "
-"sistema."
+"Wheel tem uma :ref:`convenção de nomenclatura de arquivo mais rica <wheel-"
+"file-name-spec>`. Um único arquivo de wheel pode indicar sua compatibilidade "
+"com várias versões e implementações da linguagem Python, ABIs e arquiteturas "
+"de sistema."
 
 #: ../source/discussions/package-formats.rst:168
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` is versioned. Every wheel file contains the version of the "
-#| "wheel specification and the implementation that packaged it."
 msgid ""
 "Wheel is versioned. Every wheel file contains the version of the wheel "
 "specification and the implementation that packaged it."
 msgstr ""
-":term:`Wheel` é versionado. Cada arquivo wheel contém a versão da "
-"especificação wheel e a implementação que a empacotou."
+"Wheel é versionado. Cada arquivo wheel contém a versão da especificação "
+"wheel e a implementação que a empacotou."
 
 #: ../source/discussions/package-formats.rst:171
-#, fuzzy
-#| msgid ""
-#| ":term:`Wheel` is internally organized by `sysconfig path type <https://"
-#| "docs.python.org/2/library/sysconfig.html#installation-paths>`_, therefore "
-#| "making it easier to convert to other formats."
 msgid ""
 "Wheel is internally organized by `sysconfig path type <https://docs.python."
 "org/2/library/sysconfig.html#installation-paths>`_, therefore making it "
 "easier to convert to other formats."
 msgstr ""
-":term:`Wheel` é internamente organizado pelo `tipo de caminho sysconfig "
-"<https://docs.python.org/2/library/sysconfig.html#installation-paths>`_, "
-"portanto tornando mais fácil converter para outros formatos."
+"Wheel é internamente organizado pelo `tipo de caminho sysconfig <https://"
+"docs.python.org/2/library/sysconfig.html#installation-paths>`_, portanto "
+"tornando mais fácil converter para outros formatos."
 
 #: ../source/discussions/package-formats.rst:177
 msgid ""
@@ -1503,6 +1558,13 @@ msgid ""
 "backend, typically ``[project]`` in ``pyproject.toml``, and translated by "
 "the build backend into ``PKG-INFO``."
 msgstr ""
+"Este formato é baseado em e-mail. Embora seja improvável que isso seja "
+"escolhido hoje, considerações de compatibilidade com versões anteriores "
+"levam a que ele seja mantido como formato canônico. Do ponto de vista do "
+"usuário, isso é praticamente invisível, já que os metadados são "
+"especificados pelo usuário de uma forma compreendida pelo backend de "
+"construção, normalmente ``[project]`` em ``pyproject.toml``, e traduzidos "
+"pelo backend de construção em ``PKG-INFO``."
 
 #: ../source/discussions/package-formats.rst:184
 msgid ""
@@ -2245,34 +2307,19 @@ msgstr ""
 
 #: ../source/discussions/versioning.rst:6
 #: ../source/specifications/simple-repository-api.rst:310
-#, fuzzy
-#| msgid "Version"
 msgid "Versioning"
-msgstr "Versão"
+msgstr "Versionamento"
 
 #: ../source/discussions/versioning.rst:8
-#, fuzzy
-#| msgid ""
-#| "This section describes the steps to follow before installing other Python "
-#| "packages."
 msgid "This discussion covers all aspects of versioning Python packages."
 msgstr ""
-"Esta seção descreve as etapas a serem seguidas antes de instalar outros "
-"pacotes Python."
+"Esta discussão cobre todos os aspectos do versionamento de pacotes Python."
 
 #: ../source/discussions/versioning.rst:12
-#, fuzzy
 msgid "Valid version numbers"
-msgstr "Versionamento baseado em data"
+msgstr "Números de versão validos"
 
 #: ../source/discussions/versioning.rst:14
-#, fuzzy
-#| msgid ""
-#| "Different Python projects may use different versioning schemes based on "
-#| "the needs of that particular project, but all of them are required to "
-#| "comply with the flexible :pep:`public version scheme <440#public-version-"
-#| "identifiers>` specified in :pep:`440` in order to be supported in tools "
-#| "and libraries like ``pip`` and ``setuptools``."
 msgid ""
 "Different Python projects may use different versioning schemes based on the "
 "needs of that particular project, but in order to be compatible with tools "
@@ -2281,57 +2328,57 @@ msgid ""
 "`specification of version specifiers <version-specifiers>`. Here are some "
 "examples of version numbers [#version-examples]_:"
 msgstr ""
-"Diferentes projetos Python podem usar diferentes esquemas de controle de "
-"versão com base nas necessidades daquele projeto específico, mas todos eles "
-"são obrigados a cumprir com o :pep:`esquema públicode versão <440#public-"
-"version-identifiers>` flexível especificado na :pep:`440` para serem "
-"suportados em ferramentas e bibliotecas como ``pip`` e ``setuptools``."
+"Diferentes projetos Python podem usar diferentes esquemas de versionamento "
+"com base nas necessidades daquele projeto específico, mas para serem "
+"compatíveis com ferramentas como :ref:`pip`, todos eles são obrigados a "
+"cumprir um formato flexível para identificadores de versão, para o qual a "
+"referência oficial é a :ref:`especificação dos especificadores de versão "
+"<version-specifiers>`. Aqui estão alguns exemplos de números de versão "
+"[#version-examples]_:"
 
 #: ../source/discussions/versioning.rst:21
 msgid "A simple version (final release): ``1.2.0``"
-msgstr ""
+msgstr "Uma versão simples (versão final): ``1.2.0``"
 
 #: ../source/discussions/versioning.rst:22
-#, fuzzy
-#| msgid "Development release segment: ``.devN``"
 msgid "A development release: ``1.2.0.dev1``"
-msgstr "Segmento de versão de desenvolvimento: ``.devN``"
+msgstr "Uma versão de desenvolvimento: ``1.2.0.dev1``"
 
 #: ../source/discussions/versioning.rst:23
 msgid "An alpha release: ``1.2.0a1``"
-msgstr ""
+msgstr "Uma versão alfa: ``1.2.0a1``"
 
 #: ../source/discussions/versioning.rst:24
 msgid "A beta release: ``1.2.0b1``"
-msgstr ""
+msgstr "Uma versão beta: ``1.2.0b1``"
 
 #: ../source/discussions/versioning.rst:25
 msgid "A release candidate: ``1.2.0rc1``"
-msgstr ""
+msgstr "Um candidato a lançamento: ``1.2.0rc1``"
 
 #: ../source/discussions/versioning.rst:26
-#, fuzzy
-#| msgid "Post-release segment: ``.postN``"
 msgid "A post-release: ``1.2.0.post1``"
-msgstr "Segmento de pós lançamento: ``.postN``"
+msgstr "Um pós-lançamento: ``1.2.0.post1``"
 
 #: ../source/discussions/versioning.rst:27
 msgid ""
 "A post-release of an alpha release (possible, but discouraged): ``1.2.0a1."
 "post1``"
 msgstr ""
+"Um pós-lançamento de uma versão alfa (possível, mas desencorajado): "
+"``1.2.0a1.post1``"
 
 #: ../source/discussions/versioning.rst:28
 msgid "A simple version with only two components: ``23.12``"
-msgstr ""
+msgstr "Uma versão simples com apenas dois componentes: ``23.12``"
 
 #: ../source/discussions/versioning.rst:29
 msgid "A simple version with just one component: ``42``"
-msgstr ""
+msgstr "Uma versão simples com apenas um componente: ``42``"
 
 #: ../source/discussions/versioning.rst:30
 msgid "A version with an epoch: ``1!1.0``"
-msgstr ""
+msgstr "Uma versão com uma época: ``1!1.0``"
 
 #: ../source/discussions/versioning.rst:32
 msgid ""
@@ -2342,6 +2389,13 @@ msgid ""
 "versions of dependencies to install, unless explicitly requested (e.g., with "
 "``pip install pkg==1.1a3`` or ``pip install --pre pkg``)."
 msgstr ""
+"Os projetos podem usar um ciclo de pré-lançamentos para dar suporte aos "
+"testes de seus usuários antes do lançamento final. Em ordem, as etapas são: "
+"versões alfa, versões beta, candidatos a lançamento, versão final. Pip e "
+"outros instaladores modernos de pacotes Python ignoram pré-lançamentos por "
+"padrão ao decidir quais versões de dependências instalar, a menos que "
+"solicitado explicitamente (por exemplo, com ```pip install pkg==1.1a3`` ou "
+"``pip install --pre pkg``)."
 
 #: ../source/discussions/versioning.rst:39
 msgid ""
@@ -2349,6 +2403,10 @@ msgid ""
 "a development cycle, for example, a nightly build, or a build from the "
 "latest source in a Linux distribution."
 msgstr ""
+"O objetivo dos lançamentos de desenvolvimento é oferecer suporte aos "
+"lançamentos feitos no início de um ciclo de desenvolvimento, por exemplo, "
+"uma construção noturna ou uma construção a partir do código-fonte mais "
+"recente em uma distribuição Linux."
 
 #: ../source/discussions/versioning.rst:43
 msgid ""
@@ -2358,6 +2416,11 @@ msgid ""
 "with a new final release (e.g., incrementing the third component when using "
 "semantic versioning)."
 msgstr ""
+"Os pós-lançamentos são usados para corrigir pequenos erros em uma versão "
+"final que não afetam o software distribuído, como corrigir um erro nas notas "
+"de versão. Eles não devem ser usados para correção de bugs; isso deve ser "
+"feito com uma nova versão final (por exemplo, incrementando o terceiro "
+"componente ao usar o versionamento semântico)."
 
 #: ../source/discussions/versioning.rst:49
 msgid ""
@@ -2369,12 +2432,17 @@ msgid ""
 "epoch, as in \"1!1.0\", in order to be treated as more recent than the old "
 "version numbers."
 msgstr ""
+"Por fim, as épocas, um recurso raramente usado, servem para corrigir a ordem "
+"de classificação ao alterar o esquema de versionamento. Por exemplo, se um "
+"projeto estiver usando versionamento de calendário, com versões como 23.12, "
+"e mudar para versionamento semântico, com versões como 1.0, a comparação "
+"entre 1.0 e 23.12 irá para o lado errado. Para corrigir isso, os novos "
+"números de versão devem ter uma época explícita, como em \"1!1.0\", para "
+"serem tratados como mais recentes que os números de versão antigos."
 
 #: ../source/discussions/versioning.rst:59
-#, fuzzy
-#| msgid "Semantic versioning (preferred)"
 msgid "Semantic versioning vs. calendar versioning"
-msgstr "Versionamento semântico (preferencial)"
+msgstr "Versionamento semântico vs. versionamento de calendário"
 
 #: ../source/discussions/versioning.rst:61
 msgid ""
@@ -2383,6 +2451,11 @@ msgid ""
 "new release of a package. Two versioning schemes are commonly used for "
 "Python packages, semantic versioning and calendar versioning."
 msgstr ""
+"Um esquema de versionamento é uma forma formalizada de interpretar os "
+"segmentos de um número de versão e de decidir qual deve ser o próximo número "
+"de versão para um novo lançamento de um pacote. Dois esquemas de "
+"versionamento são comumente usados para pacotes Python, versionamento "
+"semântico e versionamento de calendário."
 
 #: ../source/discussions/versioning.rst:68
 msgid ""
@@ -2391,6 +2464,10 @@ msgid ""
 "That view may differ from the end-users' perception of what said formalized "
 "versioning scheme promises them."
 msgstr ""
+"A decisão de qual número de versão escolher cabe ao mantenedor do projeto. "
+"Isso efetivamente significa que os incrementos de versão refletem a visão do "
+"mantenedor. Essa visão pode diferir da percepção dos usuários finais sobre o "
+"que o referido esquema de versionamento formalizado lhes promete."
 
 #: ../source/discussions/versioning.rst:74
 msgid ""
@@ -2400,49 +2477,42 @@ msgid ""
 "when security vulnerability needs to be addressed. Security releases often "
 "come in patch versions but contain breaking changes inevitably."
 msgstr ""
+"Existem exceções conhecidas para selecionar o próximo número de versão. Os "
+"mantenedores podem escolher conscientemente quebrar a suposição de que o "
+"segmento da última versão contém apenas alterações compatíveis com versões "
+"anteriores. Um desses casos é quando a vulnerabilidade de segurança precisa "
+"ser abordada. As versões de segurança geralmente vêm em versões de patch, "
+"mas inevitavelmente contêm alterações importantes."
 
 #: ../source/discussions/versioning.rst:84
 #: ../source/specifications/version-specifiers.rst:721
-#, fuzzy
 msgid "Semantic versioning"
-msgstr "Versionamento serial"
+msgstr "Versionamento semântico"
 
 #: ../source/discussions/versioning.rst:86
-#, fuzzy
-#| msgid ""
-#| "The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE "
-#| "numbering scheme, where the project author increments:"
 msgid ""
 "The idea of *semantic versioning* (or SemVer) is to use 3-part version "
 "numbers, *major.minor.patch*, where the project author increments:"
 msgstr ""
-"A essência do versionamento semântico é um esquema de numeração MAIOR.MENOR."
-"MANUTENÇÃO de 3 partes, onde o autor do projeto incrementa:"
+"A ideia do *versionamento semântico* (ou SemVer) é usar números de versão de "
+"3 partes, *principal.menor.correção*, onde o autor do projeto incrementa:"
 
 #: ../source/discussions/versioning.rst:89
-#, fuzzy
-#| msgid "MAJOR version when they make incompatible API changes,"
 msgid "*major* when they make incompatible API changes,"
-msgstr "Versão PRINCIPAL quando eles fazem alterações de API incompatíveis,"
+msgstr "*principal* quando são feitas alterações incompatíveis à API,"
 
 #: ../source/discussions/versioning.rst:90
-#, fuzzy
-#| msgid ""
-#| "MINOR version when they add functionality in a backwards-compatible "
-#| "manner, and"
 msgid ""
 "*minor* when they add functionality in a backwards-compatible manner, and"
 msgstr ""
-"Versão MENOR quando adicionam funcionalidade de maneira compatível com "
-"versões anteriores, e"
+"*menor* quando é adicionada funcionalidade de maneira compatível com versões "
+"anteriores, e"
 
 #: ../source/discussions/versioning.rst:91
-#, fuzzy
-#| msgid "MAINTENANCE version when they make backwards-compatible bug fixes."
 msgid "*patch*, when they make backwards-compatible bug fixes."
 msgstr ""
-"Versão MANUTENÇÃO quando eles fazem correções de bugs compatíveis com "
-"versões anteriores."
+"*correção*, quando são feitas correções de bugs compatíveis com versões "
+"anteriores."
 
 #: ../source/discussions/versioning.rst:93
 msgid ""
@@ -2455,6 +2525,16 @@ msgid ""
 "strictness]_. Conversely, a bump of the major version number is sometimes "
 "used to signal significant but backwards-compatible new features."
 msgstr ""
+"A maioria dos projetos Python usa um esquema que se assemelha ao "
+"versionamento semântico. No entanto, a maioria dos projetos, especialmente "
+"os maiores, não aderem estritamente ao versionamento semântico, uma vez que "
+"muitas alterações são tecnicamente prejudiciais, mas afetam apenas uma "
+"pequena fração dos usuários. Tais projetos tendem a aumentar o número maior "
+"quando a incompatibilidade é alta, ou para sinalizar uma mudança no projeto, "
+"ao invés de qualquer pequena incompatibilidade [#semver-strictness]_. Por "
+"outro lado, um aumento no número da versão principal às vezes é usado para "
+"sinalizar novos recursos significativos, mas compatíveis com versões "
+"anteriores."
 
 #: ../source/discussions/versioning.rst:103
 msgid ""
@@ -2467,18 +2547,23 @@ msgid ""
 "equivalent to ``name >= X.Y.Z, == X.Y.*``, i.e., it requires at least X.Y.Z "
 "and allows a later release with same X and Y but higher Z."
 msgstr ""
+"Para aqueles projetos que usam controle de versão semântico estrito, esta "
+"abordagem permite que os usuários façam uso de :ref:`especificadores de "
+"versão de lançamento compatíveis <version-specifiers-compatível-release>`, "
+"com o operador ``~=``. Por exemplo, ``name ~= X.Y`` é aproximadamente "
+"equivalente a ``name >= X.Y, == X.*``, ou seja, requer pelo menos a versão X."
+"Y, e permite qualquer versão posterior com Y maior, desde que X é o mesmo. "
+"Da mesma forma, ``name ~= X.Y.Z`` é aproximadamente equivalente a ``name >= "
+"X.Y.Z, == X.Y.*``, ou seja, requer pelo menos X.Y.Z e permite uma versão "
+"posterior com o mesmo X e Y, mas Z superior."
 
 #: ../source/discussions/versioning.rst:112
-#, fuzzy
-#| msgid ""
-#| "Python projects adopting semantic versioning should abide by clauses 1-8 "
-#| "of the `Semantic Versioning 2.0.0 specification <https://semver.org/>`_."
 msgid ""
 "Python projects adopting semantic versioning should abide by clauses 1-8 of "
 "the `Semantic Versioning 2.0.0 specification <semver_>`_."
 msgstr ""
 "Projetos Python que adotam versões semânticas devem obedecer às cláusulas "
-"1-8 da `especificação de Versionamento Semântico 2.0.0 <http://semver.org>`_."
+"1-8 da `especificação de Versionamento Semântico 2.0.0 <semver_>`_."
 
 #: ../source/discussions/versioning.rst:115
 msgid ""
@@ -2490,12 +2575,18 @@ msgid ""
 "contain backwards-incompatible API changes (:doc:`NumPy versioning policy "
 "<numpy:dev/depending_on_numpy>`)."
 msgstr ""
+"O popular gerador de documentação :doc:`Sphinx <sphinx:index>` é um exemplo "
+"de projeto que usa controle de versionamento semântico estrito (:doc:"
+"`Política de versionamento do Sphinx <sphinx:internals/release-process>`). O "
+"famoso pacote de computação científica :doc:`NumPy <numpy:index>` usa "
+"explicitamente versionamento semântico \"folgado\", onde lançamentos "
+"incrementando a versão menor podem conter alterações de API incompatíveis "
+"com versões anteriores (:doc:`Política de versionamento do NumPy <numpy:dev/"
+"depending_on_numpy>`)."
 
 #: ../source/discussions/versioning.rst:124
-#, fuzzy
-#| msgid "Serial versioning"
 msgid "Calendar versioning"
-msgstr "Versionamento serial"
+msgstr "Versionamento de calendário"
 
 #: ../source/discussions/versioning.rst:126
 msgid ""
@@ -2505,48 +2596,41 @@ msgid ""
 msgstr ""
 "O versionamento semântico não é uma escolha adequada para todos os projetos, "
 "como aqueles com uma cadência de lançamento baseada em tempo regular e um "
-"processo de descontinuidade que fornece avisos para vários lançamentos antes "
+"processo de descontinuação que fornece avisos para vários lançamentos antes "
 "da remoção de um recurso."
 
 #: ../source/discussions/versioning.rst:130
-#, fuzzy
-#| msgid ""
-#| "A key advantage of date based versioning is that it is straightforward to "
-#| "tell how old the base feature set of a particular release is given just "
-#| "the version number."
 msgid ""
 "A key advantage of date-based versioning, or `calendar versioning "
 "<calver_>`_ (CalVer), is that it is straightforward to tell how old the base "
 "feature set of a particular release is given just the version number."
 msgstr ""
-"Uma vantagem principal do versionamento baseado em data é que é simples "
-"dizer quantos anos o conjunto de recursos básicos de uma determinada versão "
-"recebe apenas o número da versão."
+"Uma vantagem principal do versionamento baseado em data, ou `versionamento "
+"de calendário <calver_>`_ (CalVer), é que é simples dizer quantos anos o "
+"conjunto de recursos básicos de uma determinada versão recebe apenas o "
+"número da versão."
 
 #: ../source/discussions/versioning.rst:134
 msgid ""
 "Calendar version numbers typically take the form *year.month* (for example, "
 "23.12 for December 2023)."
 msgstr ""
+"Os números de versão do calendário normalmente assumem o formato *ano.mês* "
+"(por exemplo, 23.12 para dezembro de 2023)."
 
 #: ../source/discussions/versioning.rst:137
 msgid ""
 ":doc:`Pip <pip:index>`, the standard Python package installer, uses calendar "
 "versioning."
 msgstr ""
+":doc:`Pip <pip:index>`, o instalador padrão do pacote Python, usa "
+"versionamento de calendário."
 
 #: ../source/discussions/versioning.rst:142
-#, fuzzy
-#| msgid "Other Sources"
 msgid "Other schemes"
-msgstr "Outras fontes"
+msgstr "Outros esquemas"
 
 #: ../source/discussions/versioning.rst:144
-#, fuzzy
-#| msgid ""
-#| "While serial versioning is very easy to manage as a developer, it is the "
-#| "hardest to track as an end user, as serial version numbers convey little "
-#| "or no information regarding API backwards compatibility."
 msgid ""
 "Serial versioning refers to the simplest possible versioning scheme, which "
 "consists of a single number incremented every release. While serial "
@@ -2554,19 +2638,14 @@ msgid ""
 "as an end user, as serial version numbers convey little or no information "
 "regarding API backwards compatibility."
 msgstr ""
-"Embora o versionamento serial seja muito fácil de gerenciar como "
-"desenvolvedor, é o mais difícil de rastrear como usuário final, pois os "
-"números de versão serial transmitem pouca ou nenhuma informação sobre "
-"compatibilidade com versões anteriores da API."
+"O versionamento serial refere-se ao esquema de versionamento mais simples "
+"possível, que consiste em um único número incrementado a cada versão. Embora "
+"o versionamento serial seja muito fácil de gerenciar como desenvolvedor, é o "
+"mais difícil de rastrear como usuário final, pois os números de versão "
+"serial transmitem pouca ou nenhuma informação sobre compatibilidade com "
+"versões anteriores da API."
 
 #: ../source/discussions/versioning.rst:150
-#, fuzzy
-#| msgid ""
-#| "Combinations of the above schemes are possible. For example, a project "
-#| "may combine date based versioning with serial versioning to create a YEAR."
-#| "SERIAL numbering scheme that readily conveys the approximate age of a "
-#| "release, but doesn't otherwise commit to a particular release cadence "
-#| "within the year."
 msgid ""
 "Combinations of the above schemes are possible. For example, a project may "
 "combine date based versioning with serial versioning to create a *year."
@@ -2576,7 +2655,7 @@ msgid ""
 msgstr ""
 "Combinações dos esquemas acima são possíveis. Por exemplo, um projeto pode "
 "combinar o versionamento baseado em data com o versionamento serial para "
-"criar um esquema de numeração ANO.SÉRIE que transmite prontamente a idade "
+"criar um esquema de numeração *ano.série* que transmite prontamente a idade "
 "aproximada de um lançamento, mas não se compromete com uma cadência de "
 "lançamento particular dentro do ano."
 
@@ -2586,14 +2665,6 @@ msgid "Local version identifiers"
 msgstr "Identificadores de versão local"
 
 #: ../source/discussions/versioning.rst:160
-#, fuzzy
-#| msgid ""
-#| "Public version identifiers are designed to support distribution via :term:"
-#| "`PyPI <Python Package Index (PyPI)>`. Python's software distribution "
-#| "tools also support the notion of a :pep:`local version identifier "
-#| "<440#local-version-identifiers>`, which can be used to identify local "
-#| "development builds not intended for publication, or modified variants of "
-#| "a release maintained by a redistributor."
 msgid ""
 "Public version identifiers are designed to support distribution via :term:"
 "`PyPI <Python Package Index (PyPI)>`. Python packaging tools also support "
@@ -2603,11 +2674,11 @@ msgid ""
 msgstr ""
 "Identificadores de versão pública são projetados para suportar distribuição "
 "via :term:`PyPI <Python Package Index (PyPI)>`. As ferramentas de "
-"distribuição de software do Python também suportam a noção de um :pep:"
-"`identificador de versão local <440#local-version-identifiers>`, que pode "
-"ser usado para identificar compilações de desenvolvimento local não "
-"destinadas à publicação, ou variantes modificadas de uma versão mantida por "
-"um redistribuidor."
+"empacotamento do Python também oferecem suporte à noção de um :ref:"
+"`identificador de versão local <local-version-identifiers>`, que pode ser "
+"usado para identificar compilações de desenvolvimento local não destinadas à "
+"publicação, ou variantes modificadas de uma versão mantida por um "
+"redistribuidor."
 
 #: ../source/discussions/versioning.rst:166
 msgid ""
@@ -2620,12 +2691,22 @@ msgid ""
 "dev1+gd00980f\", or if the repository has untracked changes, like \"0.5."
 "dev1+gd00980f.d20231217\"."
 msgstr ""
+"Um identificador de versão local assume a forma de um identificador de "
+"versão pública, seguido por \"+\" e um rótulo de versão local. Por exemplo, "
+"um pacote com patches específicos do Fedora aplicados poderia ter a versão "
+"\"1.2.1+fedora.4\". Outro exemplo são as versões calculadas pelo setuptools-"
+"scm_, um plugin do setuptools que lê a versão dos dados do Git. Em um "
+"repositório Git com alguns commits desde a versão mais recente, setuptools-"
+"scm gera uma versão como \"0.5.dev1+gd00980f\", ou se o repositório tiver "
+"alterações não rastreadas, como \"0.5.dev1+gd00980f.d20231217\"."
 
 #: ../source/discussions/versioning.rst:178
 msgid ""
 "Some more examples of unusual version numbers are given in a `blog post "
 "<versions-seth-larson_>`_ by Seth Larson."
 msgstr ""
+"Mais alguns exemplos de números de versão incomuns são fornecidos em uma "
+"`postagem no blog <versions-seth-larson_>`_ de Seth Larson."
 
 #: ../source/discussions/versioning.rst:181
 msgid ""
@@ -2634,6 +2715,11 @@ msgid ""
 "stufft_>`_, `by Bernát Gábor <semver-bernat-gabor_>`_, `by Brett Cannon "
 "<semver-brett-cannon_>`_. For a humoristic take, read about ZeroVer_."
 msgstr ""
+"Para alguns pontos de vista pessoais sobre este assunto, consulte estas "
+"postagens do blog: `de Hynek Schlawak <semver-hynek-schlawack_>`_, `de "
+"Donald Stufft <semver-donald-stufft_>`_, `de Bernát Gábor <semver-bernat- "
+"gabor_>`_, `de Brett Cannon <semver-brett-cannon_>`_. Para uma visão "
+"humorística, leia sobre ZeroVer_."
 
 #: ../source/flow.rst:3
 msgid "The Packaging Flow"
@@ -2992,10 +3078,16 @@ msgid "Build Backend"
 msgstr "Backend de construção"
 
 #: ../source/glossary.rst:17
+#, fuzzy
+#| msgid ""
+#| "A library that takes a source tree or :term:`source distribution <Source "
+#| "Distribution (or \"sdist\")>` and builds a source distribution or :term:"
+#| "`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
+#| "`frontend <Build Frontend>`. All backends offer a standardized interface."
 msgid ""
-"A library that takes a source tree or :term:`source distribution <Source "
-"Distribution (or \"sdist\")>` and builds a source distribution or :term:"
-"`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
+"A library that takes a source tree and builds a :term:`source distribution "
+"<Source Distribution (or \"sdist\")>` or :term:`built distribution <Built "
+"Distribution>` from it. The build is delegated to the backend by a :term:"
 "`frontend <Build Frontend>`. All backends offer a standardized interface."
 msgstr ""
 "Uma biblioteca que pega uma árvore de fontes ou :term:`distribuição fonte "
@@ -3041,16 +3133,6 @@ msgid "Built Distribution"
 msgstr "Distribuição Construída"
 
 #: ../source/glossary.rst:47
-#, fuzzy
-#| msgid ""
-#| "A :term:`Distribution <Distribution Package>` format containing files and "
-#| "metadata that only need to be moved to the correct location on the target "
-#| "system, to be installed. :term:`Wheel` is such a format, whereas "
-#| "distutil's :term:`Source Distribution <Source Distribution (or "
-#| "\"sdist\")>` is not, in that it requires a build step before it can be "
-#| "installed.  This format does not imply that Python files have to be "
-#| "precompiled (:term:`Wheel` intentionally does not include compiled Python "
-#| "files)."
 msgid ""
 "A :term:`Distribution <Distribution Package>` format containing files and "
 "metadata that only need to be moved to the correct location on the target "
@@ -3064,17 +3146,66 @@ msgstr ""
 "Um formato de :term:`Distribuição <Distribution Package>` contendo arquivos "
 "e metadados que só precisam ser movidos para o local correto no sistema de "
 "destino, para serem instalados. :term:`Wheel` é esse formato, enquanto o :"
-"term:`Distribuição Fonte <Source Distribution (or \"sdist\")>` do distutil "
-"não é, pois requer uma etapa de construção antes de poder ser instalado. "
-"Este formato não implica que os arquivos Python tenham que ser pré-"
-"compilados (:term:`Wheel` intencionalmente não inclui arquivos Python "
-"compilados)."
+"term:`Distribuição Fonte <Source Distribution (or \"sdist\")>` não é, pois "
+"requer uma etapa de construção antes de poder ser instalado. Este formato "
+"não implica que os arquivos Python tenham que ser pré-compilados (:term:"
+"`Wheel` intencionalmente não inclui arquivos Python compilados). Veja :ref:"
+"`package-formats` para mais informações."
 
 #: ../source/glossary.rst:56
+msgid "Built Metadata"
+msgstr ""
+
+#: ../source/glossary.rst:59
+msgid ""
+"The concrete form :term:`Core Metadata` takes when included inside an "
+"installed :term:`Project` (``METADATA`` file) or a :term:`Distribution "
+"Archive` (``PKG-INFO`` in a :term:`Sdist <Source Distribution (or "
+"\"sdist\")>` and ``METADATA`` in a :term:`Wheel`)."
+msgstr ""
+
+#: ../source/glossary.rst:66
+#, fuzzy
+#| msgid "Configuring metadata"
+msgid "Core Metadata"
+msgstr "Configurando metadados"
+
+#: ../source/glossary.rst:69
+msgid ""
+"The :ref:`specification <core-metadata>` and the set of :term:`Core Metadata "
+"Field`\\s it defines that describe key static attributes of a :term:"
+"`Distribution Package` or :term:`Installed Project`."
+msgstr ""
+
+#: ../source/glossary.rst:74
+msgid "Core Metadata Field"
+msgstr ""
+
+#: ../source/glossary.rst:77
+msgid ""
+"A single key-value pair (or sequence of such with the same name, for "
+"multiple-use fields) defined in the :term:`Core Metadata` spec and stored in "
+"the :term:`Built Metadata`. Notably, distinct from a :term:`Pyproject "
+"Metadata Key`."
+msgstr ""
+
+#: ../source/glossary.rst:83
+#, fuzzy
+#| msgid "Distribution Package"
+msgid "Distribution Archive"
+msgstr "Pacote de Distribuição"
+
+#: ../source/glossary.rst:86
+msgid ""
+"The physical distribution artifact (i.e. a file on disk) for a :term:"
+"`Distribution Package`."
+msgstr ""
+
+#: ../source/glossary.rst:89
 msgid "Distribution Package"
 msgstr "Pacote de Distribuição"
 
-#: ../source/glossary.rst:59
+#: ../source/glossary.rst:92
 msgid ""
 "A versioned archive file that contains Python :term:`packages <Import "
 "Package>`, :term:`modules <Module>`, and other resource files that are used "
@@ -3086,7 +3217,7 @@ msgstr ""
 "distribuir um :term:`Release` (lançamento). O arquivo é o que um usuário "
 "final irá baixar da Internet e instalar."
 
-#: ../source/glossary.rst:64
+#: ../source/glossary.rst:97
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -3106,29 +3237,24 @@ msgstr ""
 "\"distribuição\". Veja :ref:`distribution-package-vs-import-package` para "
 "uma explicação das diferenças."
 
-#: ../source/glossary.rst:72
+#: ../source/glossary.rst:105
 msgid "Egg"
 msgstr "Egg"
 
-#: ../source/glossary.rst:75
-#, fuzzy
-#| msgid ""
-#| "A :term:`Built Distribution` format introduced by :pep:`427`, which is "
-#| "intended to replace the :term:`Egg` format.  Wheel is currently supported "
-#| "by :ref:`pip`."
+#: ../source/glossary.rst:108
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which "
 "has been replaced by :term:`Wheel`.  For details, see :ref:`egg-format`."
 msgstr ""
-"Um formato de :term:`Distribuição Construída` introduzido por :pep:`427`, "
-"que se destina a substituir o formato :term:`Egg`. O Wheel é atualmente "
-"suportado pelo :ref:`pip`."
+"Um formato de :term:`Distribuição Construída` introduzido pelo :ref:"
+"`setuptools`, que foi substituído pelo :term:`Wheel`. Para detalhes, veja :"
+"ref:`egg-format`."
 
-#: ../source/glossary.rst:78
+#: ../source/glossary.rst:111
 msgid "Extension Module"
 msgstr "Módulo de Extensão"
 
-#: ../source/glossary.rst:81
+#: ../source/glossary.rst:114
 msgid ""
 "A :term:`Module` written in the low-level language of the Python "
 "implementation: C/C++ for Python, Java for Jython. Typically contained in a "
@@ -3143,11 +3269,11 @@ msgstr ""
 "extensão .pyd) para extensões Python no Windows ou um arquivo de classe Java "
 "para extensões Jython."
 
-#: ../source/glossary.rst:88
+#: ../source/glossary.rst:121
 msgid "Known Good Set (KGS)"
 msgstr "Known Good Set (KGS)"
 
-#: ../source/glossary.rst:91
+#: ../source/glossary.rst:124
 msgid ""
 "A set of distributions at specified versions which are compatible with each "
 "other. Typically a test suite will be run which passes all tests before a "
@@ -3162,11 +3288,11 @@ msgstr ""
 "usado por frameworks e kits de ferramentas que são compostos de várias "
 "distribuições individuais."
 
-#: ../source/glossary.rst:97
+#: ../source/glossary.rst:130
 msgid "Import Package"
 msgstr "Pacote de Importação"
 
-#: ../source/glossary.rst:100
+#: ../source/glossary.rst:133
 msgid ""
 "A Python module which can contain other modules or recursively, other "
 "packages."
@@ -3174,7 +3300,7 @@ msgstr ""
 "Um módulo Python que pode conter outros módulos ou recursivamente, outros "
 "pacotes."
 
-#: ../source/glossary.rst:103
+#: ../source/glossary.rst:136
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -3188,11 +3314,24 @@ msgstr ""
 "comumente chamado de \"pacote\" . Veja :ref:`distribution-package-vs-import-"
 "package` para uma explicação das diferenças."
 
-#: ../source/glossary.rst:108
+#: ../source/glossary.rst:142
+#, fuzzy
+#| msgid "Installer"
+msgid "Installed Project"
+msgstr "Instalador"
+
+#: ../source/glossary.rst:145
+msgid ""
+"A :term:`Project` that is installed for use with a Python interpreter or :"
+"term:`Virtual Environment`, as described in the specicifcation :ref:"
+"`recording-installed-packages`."
+msgstr ""
+
+#: ../source/glossary.rst:149
 msgid "Module"
 msgstr "Módulo"
 
-#: ../source/glossary.rst:111
+#: ../source/glossary.rst:152
 msgid ""
 "The basic unit of code reusability in Python, existing in one of two types: :"
 "term:`Pure Module`, or :term:`Extension Module`."
@@ -3200,11 +3339,11 @@ msgstr ""
 "A unidade básica de reutilização de código em Python, existindo em um dos "
 "dois tipos: :term:`Módulo Puro` ou :term:`Módulo de Extensão`."
 
-#: ../source/glossary.rst:114
+#: ../source/glossary.rst:155
 msgid "Package Index"
 msgstr "Índice de Pacotes"
 
-#: ../source/glossary.rst:117
+#: ../source/glossary.rst:158
 msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
@@ -3212,11 +3351,11 @@ msgstr ""
 "Um repositório de distribuições com uma interface web para automatizar "
 "descoberta e consumo de :term:`pacotes <Distribution Package>`."
 
-#: ../source/glossary.rst:120
+#: ../source/glossary.rst:161
 msgid "Per Project Index"
 msgstr "Índice Por Projeto"
 
-#: ../source/glossary.rst:123
+#: ../source/glossary.rst:164
 msgid ""
 "A private or other non-canonical :term:`Package Index` indicated by a "
 "specific :term:`Project` as the index preferred or required to resolve "
@@ -3226,12 +3365,12 @@ msgstr ""
 "term:`Projeto` específico como o índice preferido ou necessário para "
 "resolver dependências desse projeto."
 
-#: ../source/glossary.rst:127 ../source/guides/hosting-your-own-index.rst:62
+#: ../source/glossary.rst:168 ../source/guides/hosting-your-own-index.rst:62
 #: ../source/guides/index-mirrors-and-caches.rst:52
 msgid "Project"
 msgstr "Projeto"
 
-#: ../source/glossary.rst:130
+#: ../source/glossary.rst:171
 msgid ""
 "A library, framework, script, plugin, application, or collection of data or "
 "other resources, or some combination thereof that is intended to be packaged "
@@ -3241,7 +3380,7 @@ msgstr ""
 "outros recursos, ou alguma combinação dos mesmos que se destina a ser "
 "empacotado em uma :term:`Distribuição <Distribution Package>`."
 
-#: ../source/glossary.rst:134
+#: ../source/glossary.rst:175
 msgid ""
 "Since most projects create :term:`Distributions <Distribution Package>` "
 "using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:"
@@ -3255,7 +3394,7 @@ msgstr ""
 "que contém um arquivo :term:`pyproject.toml`, :term:`setup.py` ou :term:"
 "`setup.cfg` na raiz do diretório fonte do projeto."
 
-#: ../source/glossary.rst:140
+#: ../source/glossary.rst:181
 msgid ""
 "Python projects must have unique names, which are registered on :term:`PyPI "
 "<Python Package Index (PyPI)>`. Each project will then contain one or more :"
@@ -3267,7 +3406,7 @@ msgstr ""
 "`Lançamentos <Release>`, e cada lançamento pode incluir uma ou mais :term:"
 "`distribuições <Distribution Package>`."
 
-#: ../source/glossary.rst:145
+#: ../source/glossary.rst:186
 msgid ""
 "Note that there is a strong convention to name a project after the name of "
 "the package that is imported to run that project. However, this doesn't have "
@@ -3279,11 +3418,61 @@ msgstr ""
 "É possível instalar uma distribuição do projeto \"foo\" e fazer com que ele "
 "forneça um pacote importável apenas como \"bar\"."
 
-#: ../source/glossary.rst:151
+#: ../source/glossary.rst:192
+#, fuzzy
+#| msgid "Projects in subdirectories"
+msgid "Project Root Directory"
+msgstr "Projetos em subdiretórios"
+
+#: ../source/glossary.rst:195
+msgid ""
+"The filesystem directory in which a :term:`Project`'s :term:`source tree "
+"<Project Source Tree>` is located."
+msgstr ""
+
+#: ../source/glossary.rst:198
+#, fuzzy
+#| msgid "Project Summaries"
+msgid "Project Source Tree"
+msgstr "Resumos de projetos"
+
+#: ../source/glossary.rst:201
+#, fuzzy
+#| msgid ""
+#| "An archive containing the raw source code for a :term:`Release`, prior to "
+#| "creation of a :term:`Source Distribution <Source Distribution (or "
+#| "\"sdist\")>` or :term:`Built Distribution`."
+msgid ""
+"The on-disk format of a :term:`Project` used for development, containing its "
+"raw source code before being packaged into a :term:`Source Distribution "
+"<Source Distribution (or \"sdist\")>` or :term:`Built Distribution`."
+msgstr ""
+"Um arquivo contendo o código-fonte bruto para um :term:`Lançamento "
+"<Release>`, antes da criação de uma :term:`Distribuição Fonte <Source "
+"Distribution (or \"sdist\")>` ou :term:`Distribuição Construída <Built "
+"Distribution>`."
+
+#: ../source/glossary.rst:207
+#, fuzzy
+#| msgid "Project Summaries"
+msgid "Project Source Metadata"
+msgstr "Resumos de projetos"
+
+#: ../source/glossary.rst:210
+msgid ""
+"Metadata defined by the package author in a :term:`Project`'s :term:`source "
+"tree <Project Source Tree>`, to be transformed into :term:`Core Metadata "
+"field`\\s in the :term:`Built Metadata` by the project's :term:`build "
+"backend <Build Backend>`. Can be written as :term:`Pyproject Metadata`, or "
+"in a tool-specific format (under the ``[tool]`` table in ``pyproject.toml``, "
+"or in a tool's own configuration file)."
+msgstr ""
+
+#: ../source/glossary.rst:220
 msgid "Pure Module"
 msgstr "Módulo Puro"
 
-#: ../source/glossary.rst:154
+#: ../source/glossary.rst:223
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file "
 "(and possibly associated ``.pyc`` and/or ``.pyo`` files)."
@@ -3291,11 +3480,48 @@ msgstr ""
 "Um :term:`Módulo` escrito em Python e contido em um único arquivo ``.py`` (e "
 "possivelmente arquivos ``.pyc`` e/ou ``.pyo`` associados)."
 
-#: ../source/glossary.rst:157
+#: ../source/glossary.rst:226
+#, fuzzy
+#| msgid "Project name"
+msgid "Pyproject Metadata"
+msgstr "Nome do projeto"
+
+#: ../source/glossary.rst:229
+msgid ""
+"The :term:`Project Source Metadata` format defined by the :ref:`declaring-"
+"project-metadata` specification and originally introduced in :pep:`621`, "
+"stored as :term:`Pyproject Metadata Key`\\s under the ``[project]`` table of "
+"a :term:`pyproject.toml` file. Notably, *not* a tool-specific source "
+"metadata format under the ``[tool]`` table in ``pyproject.toml``."
+msgstr ""
+
+#: ../source/glossary.rst:237
+#, fuzzy
+#| msgid "Declaring project metadata"
+msgid "Pyproject Metadata Key"
+msgstr "Declarando os metadados do projeto"
+
+#: ../source/glossary.rst:240
+msgid ""
+"A top-level TOML key in the ``[project]`` table in ``pyproject.toml``; part "
+"of the :term:`Pyproject Metadata`. Notably, distinct from a :term:`Core "
+"Metadata Field`."
+msgstr ""
+
+#: ../source/glossary.rst:244
+msgid "Pyproject Metadata Subkey"
+msgstr ""
+
+#: ../source/glossary.rst:247
+msgid ""
+"A second-level TOML key under a table-valued :term:`Pyproject Metadata Key`."
+msgstr ""
+
+#: ../source/glossary.rst:250
 msgid "Python Packaging Authority (PyPA)"
 msgstr "Python Packaging Authority (PyPA)"
 
-#: ../source/glossary.rst:160
+#: ../source/glossary.rst:253
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host "
@@ -3311,11 +3537,11 @@ msgstr ""
 "sig <https://mail.python.org/mailman3/lists/distutils-sig.python.org/>`_ e "
 "`o fórum Discourse do Python <https://discuss.python.org/c/packaging>`__."
 
-#: ../source/glossary.rst:169
+#: ../source/glossary.rst:262
 msgid "Python Package Index (PyPI)"
 msgstr "Python Package Index (PyPI)"
 
-#: ../source/glossary.rst:172
+#: ../source/glossary.rst:265
 msgid ""
 "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the "
 "Python community. It is open to all Python developers to consume and "
@@ -3325,11 +3551,11 @@ msgstr ""
 "comunidade Python. Está aberto a todos os desenvolvedores Python para "
 "consumir e distribuir suas distribuições."
 
-#: ../source/glossary.rst:175
+#: ../source/glossary.rst:268
 msgid "pypi.org"
 msgstr "pypi.org"
 
-#: ../source/glossary.rst:178
+#: ../source/glossary.rst:271
 msgid ""
 "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python "
 "Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi."
@@ -3339,22 +3565,22 @@ msgstr ""
 "Index (PyPI)`. Ele substituiu o nome de domínio do índice legado, ``pypi."
 "python.org``, em 2017. Ele é tornado possível pelo :ref:`warehouse`."
 
-#: ../source/glossary.rst:182
+#: ../source/glossary.rst:275
 msgid "pyproject.toml"
 msgstr "pyproject.toml"
 
-#: ../source/glossary.rst:185
+#: ../source/glossary.rst:278
 msgid ""
 "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
 "O arquivo de especificação agnóstica de ferramenta para :term:`Projetos "
 "<Project>`. Definido na :pep:`518`."
 
-#: ../source/glossary.rst:187
+#: ../source/glossary.rst:280
 msgid "Release"
 msgstr "Lançamento"
 
-#: ../source/glossary.rst:190
+#: ../source/glossary.rst:283
 msgid ""
 "A snapshot of a :term:`Project` at a particular point in time, denoted by a "
 "version identifier."
@@ -3362,7 +3588,7 @@ msgstr ""
 "Um snapshot de um :term:`Projeto` em um determinado ponto no tempo, denotado "
 "por um identificador de versão."
 
-#: ../source/glossary.rst:193
+#: ../source/glossary.rst:286
 msgid ""
 "Making a release may entail the publishing of multiple :term:`Distributions "
 "<Distribution Package>`.  For example, if version 1.0 of a project was "
@@ -3374,11 +3600,11 @@ msgstr ""
 "projeto foi lançada, ele pode estar disponível em um formato de distribuição "
 "fonte e um formato de distribuição de instalador do Windows."
 
-#: ../source/glossary.rst:198
+#: ../source/glossary.rst:291
 msgid "Requirement"
 msgstr "Requisito"
 
-#: ../source/glossary.rst:201
+#: ../source/glossary.rst:294
 msgid ""
 "A specification for a :term:`package <Distribution Package>` to be "
 "installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` "
@@ -3392,11 +3618,11 @@ msgstr ""
 "podem ser consideradas um \"requisito\". Para obter mais informações, "
 "consulte a referência de :ref:`pip:pip install`."
 
-#: ../source/glossary.rst:207
+#: ../source/glossary.rst:300
 msgid "Requirement Specifier"
 msgstr "Especificador de Requisitos"
 
-#: ../source/glossary.rst:210
+#: ../source/glossary.rst:303
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
@@ -3409,11 +3635,11 @@ msgstr ""
 "onde \"foo\" é o nome do projeto e a parte \">=1.3\" é o :term:"
 "`Especificador de Versão`"
 
-#: ../source/glossary.rst:215
+#: ../source/glossary.rst:308
 msgid "Requirements File"
 msgstr "Arquivo de Requisitos"
 
-#: ../source/glossary.rst:218
+#: ../source/glossary.rst:311
 msgid ""
 "A file containing a list of :term:`Requirements <Requirement>` that can be "
 "installed using :ref:`pip`. For more information, see the :ref:`pip` docs "
@@ -3423,17 +3649,17 @@ msgstr ""
 "ser instalados usando :ref:`pip`. Para mais informações, veja a "
 "documentação :ref:`pip` em :ref:`pip:Requirements Files`."
 
-#: ../source/glossary.rst:222
+#: ../source/glossary.rst:315
 #: ../source/guides/distributing-packages-using-setuptools.rst:59
 msgid "setup.py"
 msgstr "setup.py"
 
-#: ../source/glossary.rst:223
+#: ../source/glossary.rst:316
 #: ../source/guides/distributing-packages-using-setuptools.rst:80
 msgid "setup.cfg"
 msgstr "setup.cfg"
 
-#: ../source/glossary.rst:226
+#: ../source/glossary.rst:319
 msgid ""
 "The project specification files for :ref:`distutils` and :ref:`setuptools`. "
 "See also :term:`pyproject.toml`."
@@ -3441,11 +3667,11 @@ msgstr ""
 "Os arquivos de especificação do projeto para :ref:`distutils` e :ref:"
 "`setuptools`. Veja também :term:`pyproject.toml`."
 
-#: ../source/glossary.rst:229
+#: ../source/glossary.rst:322
 msgid "Source Archive"
 msgstr "Arquivo Fonte"
 
-#: ../source/glossary.rst:232
+#: ../source/glossary.rst:325
 msgid ""
 "An archive containing the raw source code for a :term:`Release`, prior to "
 "creation of a :term:`Source Distribution <Source Distribution (or "
@@ -3456,19 +3682,20 @@ msgstr ""
 "Distribution (or \"sdist\")>` ou :term:`Distribuição Construída <Built "
 "Distribution>`."
 
-#: ../source/glossary.rst:236
+#: ../source/glossary.rst:329
 msgid "Source Distribution (or \"sdist\")"
 msgstr "Distribuição Fonte (ou \"sdist\")"
 
-#: ../source/glossary.rst:239
+#: ../source/glossary.rst:332
 #, fuzzy
 #| msgid ""
 #| "A :term:`distribution <Distribution Package>` format (usually generated "
 #| "using ``python -m build --sdist``) that provides metadata and the "
 #| "essential source files needed for installing by a tool like :ref:`pip`, "
-#| "or for generating a :term:`Built Distribution`."
+#| "or for generating a :term:`Built Distribution`. See :ref:`package-"
+#| "formats` for more information."
 msgid ""
-"A :term:`distribution <Distribution Package>` format (usually generated "
+"A :term:`distribution <Distribution Archive>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
 "source files needed for installing by a tool like :ref:`pip`, or for "
 "generating a :term:`Built Distribution`. See :ref:`package-formats` for more "
@@ -3477,13 +3704,14 @@ msgstr ""
 "Um formato de :term:`distribuição <Distribution Package>` (geralmente gerado "
 "usando ``python -m build sdist``) que fornece metadados e os arquivos-fonte "
 "essenciais necessários para a instalação por uma ferramenta como :ref:`pip`, "
-"ou para gerar uma :term:`Distribuição Construída <Built Distribution>`."
+"ou para gerar uma :term:`Distribuição Construída <Built Distribution>`. "
+"Veja :ref:`package-formats` para mais informações."
 
-#: ../source/glossary.rst:245
+#: ../source/glossary.rst:338
 msgid "System Package"
 msgstr "Pacote de Sistemas"
 
-#: ../source/glossary.rst:248
+#: ../source/glossary.rst:341
 msgid ""
 "A package provided in a format native to the operating system, e.g. an rpm "
 "or dpkg file."
@@ -3491,11 +3719,11 @@ msgstr ""
 "Um pacote fornecido em um formato nativo para o sistema operacional, por "
 "exemplo, um arquivo rpm ou dpkg."
 
-#: ../source/glossary.rst:251
+#: ../source/glossary.rst:344
 msgid "Version Specifier"
 msgstr "Especificador de Versão"
 
-#: ../source/glossary.rst:254
+#: ../source/glossary.rst:347
 msgid ""
 "The version component of a :term:`Requirement Specifier`. For example, the "
 "\">=1.3\" portion of \"foo>=1.3\".  Read the :ref:`Version specifier "
@@ -3510,11 +3738,11 @@ msgstr ""
 "oferece suporte atualmente. O suporte para esta especificação foi "
 "implementado no :ref:`setuptools` v8.0 e no :ref:`pip` v6.0."
 
-#: ../source/glossary.rst:259
+#: ../source/glossary.rst:352
 msgid "Virtual Environment"
 msgstr "Ambiente Virtual"
 
-#: ../source/glossary.rst:262
+#: ../source/glossary.rst:355
 msgid ""
 "An isolated Python environment that allows packages to be installed for use "
 "by a particular application, rather than being installed system wide. For "
@@ -3526,21 +3754,41 @@ msgstr ""
 "sistema. Para obter mais informações, consulte a seção sobre :ref:`Creating "
 "and using Virtual Environments`."
 
-#: ../source/glossary.rst:266
+#: ../source/glossary.rst:360
+#, fuzzy
+#| msgid "File Format"
+msgid "Wheel Format"
+msgstr "Formato de arquivos"
+
+#: ../source/glossary.rst:361
 msgid "Wheel"
 msgstr "Wheel"
 
-#: ../source/glossary.rst:269
+#: ../source/glossary.rst:364
 msgid ""
-"The standard :term:`Built Distribution` format. See :ref:`package-formats` "
-"for more information."
+"The standard :term:`Built Distribution` format originally introduced in :pep:"
+"`427` and defined by the :ref:`binary-distribution-format` specification. "
+"See :ref:`package-formats` for more information. Not to be confused with its "
+"reference implementation, the :term:`Wheel Project`."
 msgstr ""
 
-#: ../source/glossary.rst:271
+#: ../source/glossary.rst:371
+#, fuzzy
+#| msgid "Project"
+msgid "Wheel Project"
+msgstr "Projeto"
+
+#: ../source/glossary.rst:374
+msgid ""
+"The PyPA reference implementation of the :term:`Wheel Format`; see :ref:"
+"`wheel`."
+msgstr ""
+
+#: ../source/glossary.rst:376
 msgid "Working Set"
 msgstr "Conjunto de Trabalho"
 
-#: ../source/glossary.rst:274
+#: ../source/glossary.rst:379
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -4888,6 +5136,8 @@ msgid ""
 "See :ref:`versioning` for information on common version schemes and how to "
 "choose between them."
 msgstr ""
+"Veja :ref:`versioning` para informações sobre esquemas de versões comuns e "
+"como escolher entre eles."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:298
 msgid "Working in \"development mode\""
@@ -5679,20 +5929,16 @@ msgstr ""
 
 #: ../source/guides/hosting-your-own-index.rst:57
 #: ../source/guides/index-mirrors-and-caches.rst:47
-#, fuzzy
-#| msgid "A simple project"
 msgid "Existing projects"
-msgstr "Um projeto simples"
+msgstr "Projetos existentes"
 
 #: ../source/guides/hosting-your-own-index.rst:63
-#, fuzzy
-#| msgid "Package Index"
 msgid "Package upload"
-msgstr "Índice de Pacotes"
+msgstr "Envio de pacotes"
 
 #: ../source/guides/hosting-your-own-index.rst:64
 msgid "PyPI fall-through [2]_"
-msgstr ""
+msgstr "Padrão do PyPI [2]_"
 
 #: ../source/guides/hosting-your-own-index.rst:65
 #: ../source/guides/index-mirrors-and-caches.rst:56
@@ -5702,10 +5948,8 @@ msgstr "Notas adicionais"
 
 #: ../source/guides/hosting-your-own-index.rst:67
 #: ../source/guides/index-mirrors-and-caches.rst:58
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`devpi`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`devpi`"
 
 #: ../source/guides/hosting-your-own-index.rst:68
 #: ../source/guides/hosting-your-own-index.rst:69
@@ -5731,101 +5975,83 @@ msgstr ":ref:`pip`"
 #: ../source/guides/index-mirrors-and-caches.rst:108
 #: ../source/guides/index-mirrors-and-caches.rst:110
 msgid "✔"
-msgstr ""
+msgstr "✔"
 
 #: ../source/guides/hosting-your-own-index.rst:70
 msgid ""
 "multiple indexes with inheritance, with syncing, replication, fail-over; "
 "mirroring"
 msgstr ""
+"múltiplos índices com herança, com sincronização, replicação, tolerância a "
+"falhas; espelhamento"
 
 #: ../source/guides/hosting-your-own-index.rst:73
 #: ../source/guides/index-mirrors-and-caches.rst:71
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`simpleindex`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`simpleindex`"
 
 #: ../source/guides/hosting-your-own-index.rst:78
-#, fuzzy
-#| msgid "pypiserver"
 msgid ":ref:`pypiserver`"
-msgstr "pypiserver"
+msgstr ":ref:`pypiserver`"
 
 #: ../source/guides/hosting-your-own-index.rst:83
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`pypiprivate`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`pypiprivate`"
 
 #: ../source/guides/hosting-your-own-index.rst:88
 #: ../source/guides/index-mirrors-and-caches.rst:77
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`pypicloud`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`pypicloud`"
 
 #: ../source/guides/hosting-your-own-index.rst:91
 msgid "unmaintained; also cached proxying; authentication, authorisation"
-msgstr ""
+msgstr "sem manutenção; também faz proxy de cache; autenticação, autorização"
 
 #: ../source/guides/hosting-your-own-index.rst:93
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`pywharf`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`pywharf`"
 
 #: ../source/guides/hosting-your-own-index.rst:96
 msgid "unmaintained; serve files in GitHub"
-msgstr ""
+msgstr "sem manutenção; serve arquivos no GitHub"
 
 #: ../source/guides/hosting-your-own-index.rst:98
 #: ../source/guides/index-mirrors-and-caches.rst:83
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`pulppython`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`pulppython`"
 
 #: ../source/guides/hosting-your-own-index.rst:101
 msgid "also mirroring, proxying; plugin for Pulp"
-msgstr ""
+msgstr "também espelhamento, proxy; plugin para Pulp"
 
 #: ../source/guides/hosting-your-own-index.rst:103
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`pip2pi`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`pip2pi`"
 
 #: ../source/guides/hosting-your-own-index.rst:106
 msgid "also mirroring; manual synchronisation"
-msgstr ""
+msgstr "também espelhamento; sincronização manual"
 
 #: ../source/guides/hosting-your-own-index.rst:108
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`dumb-pypi`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`dumb-pypi`"
 
 #: ../source/guides/hosting-your-own-index.rst:111
 msgid "not a server, but a static file site generator"
-msgstr ""
+msgstr "não é um servidor, mas um gerador de site de arquivo estático"
 
 #: ../source/guides/hosting-your-own-index.rst:113
 msgid ":ref:`httpserver`"
-msgstr ""
+msgstr ":ref:`httpserver`"
 
 #: ../source/guides/hosting-your-own-index.rst:116
-#, fuzzy
-#| msgid "Standard Library Projects"
 msgid "standard-library"
-msgstr "Projetos de biblioteca padrão"
+msgstr "biblioteca padrão"
 
 #: ../source/guides/hosting-your-own-index.rst:118
 #: ../source/guides/index-mirrors-and-caches.rst:107
-#, fuzzy
-#| msgid "`AppImage <https://appimage.org/>`_"
 msgid "`Apache <https://httpd.apache.org/>`_"
-msgstr "`AppImage <https://appimage.org/>`_"
+msgstr "`Apache <https://httpd.apache.org/>`_"
 
 #: ../source/guides/hosting-your-own-index.rst:121
 #: ../source/guides/index-mirrors-and-caches.rst:111
@@ -5835,6 +6061,10 @@ msgid ""
 "mod_cache_disk.html>`_, you can cache requests to package indexes through an "
 "Apache server"
 msgstr ""
+"usando `mod_rewrite <httpd.apache.org/docs/current/mod/mod_rewrite.html>`_ e "
+"`mod_cache_disk <https://httpd.apache.org/docs/current/mod/mod_cache_disk."
+"html> `_, você pode armazenar em cache as solicitações para índices de "
+"pacotes por meio de um servidor Apache"
 
 #: ../source/guides/hosting-your-own-index.rst:131
 msgid ""
@@ -5849,6 +6079,8 @@ msgid ""
 "Can be configured to fall back to PyPI (or another package index) if a "
 "requested package is missing."
 msgstr ""
+"Pode ser configurado para recorrer ao PyPI (ou outro índice de pacote) se um "
+"pacote solicitado estiver ausente."
 
 #: ../source/guides/index.rst:4
 msgid ""
@@ -5866,47 +6098,45 @@ msgid "Package index mirrors and caches"
 msgstr "Espelhos e caches de índice de pacotes"
 
 #: ../source/guides/index-mirrors-and-caches.rst:8
-#, fuzzy
-#| msgid "2023-12-14"
 msgid "2023-11-08"
-msgstr "2023-12-14"
+msgstr "2023-11-08"
 
 #: ../source/guides/index-mirrors-and-caches.rst:10
-#, fuzzy
-#| msgid ""
-#| "Mirroring or caching of PyPI can be used to speed up local package "
-#| "installation, allow offline work, handle corporate firewalls or just "
-#| "plain Internet flakiness."
 msgid ""
 "Mirroring or caching of PyPI (and other :term:`package indexes <Package "
 "Index>`) can be used to speed up local package installation, allow offline "
 "work, handle corporate firewalls or just plain Internet flakiness."
 msgstr ""
-"O espelhamento ou cache do PyPI pode ser usado para acelerar a instalação do "
-"pacote local, permitir o trabalho offline, lidar com firewalls corporativos "
-"ou simplesmente falhas na Internet."
+"O espelhamento ou cache do PyPI (e outros :term:`índices de pacotes <Índice "
+"de Pacotes>`) pode ser usado para acelerar a instalação do pacote local, "
+"permitir o trabalho offline, lidar com firewalls corporativos ou "
+"simplesmente falhas na Internet."
 
 #: ../source/guides/index-mirrors-and-caches.rst:15
 msgid "There are multiple classes of options in this area:"
-msgstr ""
+msgstr "Existem várias classes de opções nesta área:"
 
 #: ../source/guides/index-mirrors-and-caches.rst:17
-#, fuzzy
-#| msgid "Using other package indexes"
 msgid "local/hosted caching of package indexes."
-msgstr "Usando outros índices de pacotes"
+msgstr "fazer cache local/hospedado de índices de pacotes."
 
 #: ../source/guides/index-mirrors-and-caches.rst:19
 msgid ""
 "local/hosted mirroring of a package index. A mirror is a (whole or partial) "
 "copy of a package index, which can be used in place of the original index."
 msgstr ""
+"fazer espelhamento local/hospedado de um índice de pacotes. Um espelho é uma "
+"cópia (total ou parcial) de um índice de pacotes, que pode ser usado no "
+"lugar do índice original."
 
 #: ../source/guides/index-mirrors-and-caches.rst:23
 msgid ""
 "private package index with fall-through to public package indexes (for "
 "example, to mitigate dependency confusion attacks), also known as a proxy."
 msgstr ""
+"índice de pacotes privados com alternativa para os índices de pacotes "
+"públicos (por exemplo, para mitigar ataques de confusão de dependência), "
+"também conhecido como proxy."
 
 #: ../source/guides/index-mirrors-and-caches.rst:29
 msgid "Caching with pip"
@@ -5940,68 +6170,62 @@ msgstr ""
 
 #: ../source/guides/index-mirrors-and-caches.rst:53
 msgid "Cache"
-msgstr ""
+msgstr "Cache"
 
 #: ../source/guides/index-mirrors-and-caches.rst:54
 msgid "Mirror"
-msgstr ""
+msgstr "Espelho"
 
 #: ../source/guides/index-mirrors-and-caches.rst:55
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../source/guides/index-mirrors-and-caches.rst:62
 msgid ""
 "multiple indexes with inheritance; syncing, replication, fail-over; package "
 "upload"
 msgstr ""
+"múltiplos índices com herança; sincronização, replicação, tolerância a "
+"falhas; envio de pacote"
 
 #: ../source/guides/index-mirrors-and-caches.rst:65
-#, fuzzy
-#| msgid "pip, :ref:`bandersnatch`"
 msgid ":ref:`bandersnatch`"
-msgstr "pip, :ref:`bandersnatch`"
+msgstr ":ref:`bandersnatch`"
 
 #: ../source/guides/index-mirrors-and-caches.rst:75
 msgid "custom plugin enables caching; re-routing to other package indexes"
 msgstr ""
+"plugin personalizado permite fazer cache; redirecionamento para outros "
+"índices de pacotes"
 
 #: ../source/guides/index-mirrors-and-caches.rst:81
 msgid "unmaintained; authentication, authorisation"
-msgstr ""
+msgstr "sem manutenção; autenticação, autorização"
 
 #: ../source/guides/index-mirrors-and-caches.rst:87
 msgid "plugin for Pulp; multiple proxied indexes; package upload"
-msgstr ""
+msgstr "plugin para Pulp; vários índices proxy; envio de pacote"
 
 #: ../source/guides/index-mirrors-and-caches.rst:89
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`proxpi`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`proxpi`"
 
 #: ../source/guides/index-mirrors-and-caches.rst:93
 #: ../source/guides/index-mirrors-and-caches.rst:99
-#, fuzzy
-#| msgid "per project index"
 msgid "multiple proxied indexes"
-msgstr "índice por projeto"
+msgstr "múltiplos índices sob proxy"
 
 #: ../source/guides/index-mirrors-and-caches.rst:95
 msgid ":ref:`nginx_pypi_cache`"
-msgstr ""
+msgstr ":ref:`nginx_pypi_cache`"
 
 #: ../source/guides/index-mirrors-and-caches.rst:101
-#, fuzzy
-#| msgid ":ref:`pip`"
 msgid ":ref:`flaskpypiproxy`"
-msgstr ":ref:`pip`"
+msgstr ":ref:`flaskpypiproxy`"
 
 #: ../source/guides/index-mirrors-and-caches.rst:105
-#, fuzzy
-#| msgid "Maintainer"
 msgid "unmaintained"
-msgstr "Mantenedor"
+msgstr "sem manutenção"
 
 #: ../source/guides/installing-scientific-packages.rst:5
 msgid "Installing scientific packages"
@@ -7709,10 +7933,8 @@ msgid "``python -m build --no-isolation``"
 msgstr "``python -m build --no-isolation``"
 
 #: ../source/guides/modernize-setup-py-project.rst:127
-#, fuzzy
-#| msgid "``python -m install --no-build-isolation``"
 msgid "``python -m pip install --no-build-isolation``"
-msgstr "``python -m install --no-build-isolation``"
+msgstr "``python -m pip install --no-build-isolation``"
 
 #: ../source/guides/modernize-setup-py-project.rst:135
 msgid "How to handle packaging metadata?"
@@ -9344,6 +9566,13 @@ msgid ""
 "instructions. Specifically, the token needs the ``contents: write`` "
 "permission."
 msgstr ""
+"Pode ser necessário gerenciar suas permissões do ``GITHUB_TOKEN`` para "
+"permitir a criação da versão do GitHub. Consulte a `documentação do GitHub "
+"<https://docs.github.com/repositories/managing-your-repositorys-settings-and-"
+"features/enabling-features-for-your-repository/managing-github-actions-"
+"settings-for-a-repository#configuring-the-default-github_token-"
+"permissions>`_ para obter instruções. Especificamente, o token precisa da "
+"permissão ``contents: write``."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
 msgid "Finally, the signed distributions are uploaded to the GitHub Release."
@@ -9468,16 +9697,12 @@ msgstr ""
 "do seu projeto:"
 
 #: ../source/guides/single-sourcing-package-version.rst:12
-#, fuzzy
-#| msgid ""
-#| "Read the file in :file:`setup.py` and get the version. Example (from `pip "
-#| "setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
 msgid ""
 "Read the file in :file:`setup.py` and get the version. Example (from `pip "
 "setup.py <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::"
 msgstr ""
-"Leia o arquivo em :file:`setup.py` e obtenha a versão. Exemplo (de `pip "
-"setup.py <https://github.com/pypa/pip/blob/main/setup.py>`_)::"
+"Leia o arquivo em :file:`setup.py` e obtenha a versão. Exemplo (do `setup.py "
+"do pip <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::"
 
 #: ../source/guides/single-sourcing-package-version.rst:39
 msgid ""
@@ -10398,12 +10623,21 @@ msgid ""
 "makes some recommendations of tools that you should *not* use because they "
 "are deprecated or insecure."
 msgstr ""
+"O cenário de empacotamento do Python consiste em muitas ferramentas "
+"diferentes. Para muitas tarefas, o :term:`Python Packaging Authority <Python "
+"Packaging Authority (PyPA)>` (PyPA, o grupo de trabalho que engloba muitas "
+"ferramentas de empacotamento e mantém este guia) propositalmente não faz uma "
+"recomendação geral; por exemplo, a razão pela qual existem muitos backends "
+"de construção é que o cenário foi aberto para permitir o desenvolvimento de "
+"novos backends que atendam melhor às necessidades de determinados usuários "
+"do que o backend anteriormente exclusivo, setuptools. Este guia aponta "
+"algumas ferramentas que são amplamente reconhecidas e também faz algumas "
+"recomendações de ferramentas que você *não* deve usar porque estão "
+"descontinuadas ou são inseguras."
 
 #: ../source/guides/tool-recommendations.rst:20
-#, fuzzy
-#| msgid "Virtual Environment"
 msgid "Virtual environments"
-msgstr "Ambiente Virtual"
+msgstr "Ambientes virtuais"
 
 #: ../source/guides/tool-recommendations.rst:22
 msgid ""
@@ -10411,6 +10645,9 @@ msgid ""
 "`virtualenv` (PyPA project) and :doc:`venv <python:library/venv>` (part of "
 "the Python standard library, though missing some features of virtualenv)."
 msgstr ""
+"As ferramentas padrão para criar e usar ambientes virtuais manualmente são :"
+"ref:`virtualenv` (projeto PyPA) e :doc:`venv <python:library/venv>` (parte "
+"da biblioteca padrão Python, embora falte alguns recursos do virtualenv) ."
 
 #: ../source/guides/tool-recommendations.rst:28
 msgid "Installing packages"
@@ -10424,6 +10661,11 @@ msgid ""
 "in most Python installations through the standard library package :doc:"
 "`ensurepip <python:library/ensurepip>`."
 msgstr ""
+":ref:`Pip` é a ferramenta padrão para instalar pacotes do :term:`PyPI "
+"<Python Package Index (PyPI)>`. Você pode querer ler as recomendações do pip "
+"para obter :doc:`instalações seguras <pip:topics/secure-installs>`. Pip está "
+"disponível por padrão na maioria das instalações do Python através do pacote "
+"de biblioteca padrão :doc:`ensurepip <python:library/ensurepip>`."
 
 #: ../source/guides/tool-recommendations.rst:36
 msgid ""
@@ -10435,15 +10677,25 @@ msgid ""
 "wide applications making use of the same Python interpreter (especially on "
 "Linux)."
 msgstr ""
+"Alternativamente, considere :ref:`pipx` para o caso de uso específico de "
+"instalação de aplicativos Python que são distribuídos por meio de PyPI e "
+"executados a partir da linha de comando. Pipx é um wrapper em torno de pip e "
+"venv que instala cada aplicativo em um ambiente virtual dedicado. Isso evita "
+"conflitos entre as dependências de diferentes aplicações, e também com "
+"aplicações de todo o sistema que utilizam o mesmo interpretador Python "
+"(especialmente no Linux)."
 
 #: ../source/guides/tool-recommendations.rst:43
 msgid ""
 "For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`."
 msgstr ""
+"Especificamente para software científico, considere :ref:`Conda` ou :ref:"
+"`Spack`."
 
 #: ../source/guides/tool-recommendations.rst:45
 msgid "Write a \"pip vs. Conda\" comparison, here or in a new discussion."
 msgstr ""
+"Escreva uma comparação \"pip vs. Conda\", aqui ou em uma nova discussão."
 
 #: ../source/guides/tool-recommendations.rst:47
 msgid ""
@@ -10453,10 +10705,16 @@ msgid ""
 "develop``, which are also deprecated (see :ref:`setup-py-deprecated` for "
 "background and :ref:`modernize-setup-py-project` for migration advice)."
 msgstr ""
+"**Não** use ``easy_install`` (parte de :ref:`setuptools`), que foi "
+"descontinuado em favor do pip (veja :ref:`pip vs easy_install` para "
+"detalhes). Da mesma forma, **não** use ``python setup.py install`` ou "
+"``python setup.py development``, que também foram descontinuados (veja :ref:"
+"`setup-py-deprecated` para aprofundamento e :ref :`modernize-setup-py-"
+"project` para aconselhamento sobre migração)."
 
 #: ../source/guides/tool-recommendations.rst:55
 msgid "Lock files"
-msgstr ""
+msgstr "Arquivos de bloqueio"
 
 #: ../source/guides/tool-recommendations.rst:57
 msgid ""
@@ -10464,12 +10722,13 @@ msgid ""
 "files, which contain the exact versions of all packages installed into an "
 "environment, for reproducibility purposes."
 msgstr ""
+":ref:`pip-tools` e :ref:`Pipenv` são duas ferramentas reconhecidas para "
+"criar arquivos de bloqueio, que contêm as versões exatas de todos os pacotes "
+"instalados em um ambiente, para fins de reprodutibilidade."
 
 #: ../source/guides/tool-recommendations.rst:63
-#, fuzzy
-#| msgid "Build Backend"
 msgid "Build backends"
-msgstr "Backend de construção"
+msgstr "Backends de construção"
 
 #: ../source/guides/tool-recommendations.rst:67
 msgid ""
@@ -10477,6 +10736,9 @@ msgid ""
 "particular tool, only to enumerate common tools. Different use cases often "
 "need specialized workflows."
 msgstr ""
+"Por favor, lembre-se: este documento não procura orientar o leitor para uma "
+"ferramenta específica, apenas enumerar ferramentas comuns. Diferentes casos "
+"de uso geralmente precisam de fluxos de trabalho especializados."
 
 #: ../source/guides/tool-recommendations.rst:71
 msgid ""
@@ -15768,7 +16030,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
-#: ../source/specifications/inline-script-metadata.rst:211
+#: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:332
 #: ../source/specifications/pyproject-toml.rst:443
@@ -17098,7 +17360,7 @@ msgstr ""
 #: ../source/specifications/dependency-specifiers.rst:26
 #: ../source/specifications/direct-url-data-structure.rst:19
 #: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/inline-script-metadata.rst:11
+#: ../source/specifications/inline-script-metadata.rst:13
 msgid "Specification"
 msgstr "Especificação"
 
@@ -19308,25 +19570,25 @@ msgstr ""
 "padrões e de proposição de novos está documentado em `pypa.io <https://www."
 "pypa.io/en/latest/specifications/>`__."
 
-#: ../source/specifications/inline-script-metadata.rst:3
+#: ../source/specifications/inline-script-metadata.rst:5
 #, fuzzy
 msgid "Inline script metadata"
 msgstr "Declarando os metadados do projeto"
 
-#: ../source/specifications/inline-script-metadata.rst:5
+#: ../source/specifications/inline-script-metadata.rst:7
 msgid ""
 "This specification defines a metadata format that can be embedded in single-"
 "file Python scripts to assist launchers, IDEs and other external tools which "
 "may need to interact with such scripts."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:13
+#: ../source/specifications/inline-script-metadata.rst:15
 msgid ""
 "This specification defines a metadata comment block format (loosely inspired "
 "by `reStructuredText Directives`__)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:18
+#: ../source/specifications/inline-script-metadata.rst:20
 msgid ""
 "Any Python script may have top-level comment blocks that MUST start with the "
 "line ``# /// TYPE`` where ``TYPE`` determines how to process the content. "
@@ -19337,7 +19599,7 @@ msgid ""
 "MUST only consist of ASCII letters, numbers and hyphens."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:26
+#: ../source/specifications/inline-script-metadata.rst:28
 msgid ""
 "Every line between these two lines (``# /// TYPE`` and ``# ///``) MUST be a "
 "comment starting with ``#``. If there are characters after the ``#`` then "
@@ -19347,158 +19609,158 @@ msgid ""
 "of only a single ``#``)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:33
+#: ../source/specifications/inline-script-metadata.rst:35
 msgid ""
 "Precedence for an ending line ``# ///`` is given when the next line is not a "
 "valid embedded content line as described above. For example, the following "
 "is a single fully valid block:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:49
+#: ../source/specifications/inline-script-metadata.rst:51
 msgid ""
 "A starting line MUST NOT be placed between another starting line and its "
 "ending line. In such cases tools MAY produce an error. Unclosed blocks MUST "
 "be ignored."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:52
+#: ../source/specifications/inline-script-metadata.rst:54
 msgid ""
 "When there are multiple comment blocks of the same ``TYPE`` defined, tools "
 "MUST produce an error."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:55
+#: ../source/specifications/inline-script-metadata.rst:57
 msgid ""
 "Tools reading embedded metadata MAY respect the standard Python encoding "
 "declaration. If they choose not to do so, they MUST process the file as "
 "UTF-8."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:58
+#: ../source/specifications/inline-script-metadata.rst:60
 msgid ""
 "This is the canonical regular expression that MAY be used to parse the "
 "metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:65
+#: ../source/specifications/inline-script-metadata.rst:67
 msgid ""
 "In circumstances where there is a discrepancy between the text specification "
 "and the regular expression, the text specification takes precedence."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:68
+#: ../source/specifications/inline-script-metadata.rst:70
 msgid ""
 "Tools MUST NOT read from metadata blocks with types that have not been "
 "standardized by this specification."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:72
+#: ../source/specifications/inline-script-metadata.rst:74
 msgid "script type"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:74
+#: ../source/specifications/inline-script-metadata.rst:76
 msgid ""
 "The first type of metadata block is named ``script``, which contains script "
 "metadata (dependency data and tool configuration)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:77
+#: ../source/specifications/inline-script-metadata.rst:79
 msgid ""
 "This document MAY include the top-level fields ``dependencies`` and "
 "``requires-python``, and MAY optionally include a ``[tool]`` table."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:80
+#: ../source/specifications/inline-script-metadata.rst:82
 msgid ""
 "The ``[tool]`` MAY be used by any tool, script runner or otherwise, to "
 "configure behavior. It has the same semantics as the :ref:`[tool] table in "
 "pyproject.toml <pyproject-tool-table>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:84
+#: ../source/specifications/inline-script-metadata.rst:86
 msgid "The top-level fields are:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:86
+#: ../source/specifications/inline-script-metadata.rst:88
 msgid ""
 "``dependencies``: A list of strings that specifies the runtime dependencies "
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
 "<dependency-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:89
+#: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
 "``requires-python``: A string that specifies the Python version(s) with "
 "which the script is compatible. The value of this field MUST be a valid :ref:"
 "`version specifier <version-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:93
+#: ../source/specifications/inline-script-metadata.rst:95
 msgid ""
 "Script runners MUST error if the specified ``dependencies`` cannot be "
 "provided. Script runners SHOULD error if no version of Python that satisfies "
 "the specified ``requires-python`` can be provided."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:98
+#: ../source/specifications/inline-script-metadata.rst:100
 msgid "Example"
 msgstr "Exemplo"
 
-#: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/inline-script-metadata.rst:102
 msgid "The following is an example of a script with embedded metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:121
+#: ../source/specifications/inline-script-metadata.rst:123
 #, fuzzy
 msgid "Reference Implementation"
 msgstr "Tipos de documentação"
 
-#: ../source/specifications/inline-script-metadata.rst:123
+#: ../source/specifications/inline-script-metadata.rst:125
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:149
+#: ../source/specifications/inline-script-metadata.rst:151
 msgid ""
 "Often tools will edit dependencies like package managers or dependency "
 "update automation in CI. The following is a crude example of modifying the "
 "content using the ``tomlkit`` library__."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:180
+#: ../source/specifications/inline-script-metadata.rst:182
 msgid ""
 "Note that this example used a library that preserves TOML formatting. This "
 "is not a requirement for editing by any means but rather is a \"nice to "
 "have\" feature."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:184
+#: ../source/specifications/inline-script-metadata.rst:186
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:203
+#: ../source/specifications/inline-script-metadata.rst:205
 #: ../source/specifications/simple-repository-api.rst:815
 #, fuzzy
 msgid "Recommendations"
 msgstr "Recomendações de ferramentas"
 
-#: ../source/specifications/inline-script-metadata.rst:205
+#: ../source/specifications/inline-script-metadata.rst:207
 msgid ""
 "Tools that support managing different versions of Python should attempt to "
 "use the highest available version of Python that is compatible with the "
 "script's ``requires-python`` metadata, if defined."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:213
+#: ../source/specifications/inline-script-metadata.rst:215
 msgid ""
 "October 2023: This specification was conditionally approved through :pep:"
 "`723`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:214
+#: ../source/specifications/inline-script-metadata.rst:216
 msgid ""
 "January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata "
 "block type was renamed to ``script``, and the ``[run]`` table was dropped, "
@@ -19564,10 +19826,8 @@ msgid "This means that the following names are all equivalent:"
 msgstr "Isso significa que os seguintes nomes são todos equivalentes:"
 
 #: ../source/specifications/name-normalization.rst:41
-#, fuzzy
-#| msgid "``friendly-bard``  (normalized form)"
 msgid "``friendly-bard`` (normalized form)"
-msgstr "``friendly-bard``  (forma normalizada)"
+msgstr "``friendly-bard`` (forma normalizada)"
 
 #: ../source/specifications/name-normalization.rst:42
 msgid "``Friendly-Bard``"
@@ -20430,9 +20690,8 @@ msgstr ""
 "senhas com segurança usando um `chaveiro`_ (que é instalado pelo Twine):"
 
 #: ../source/specifications/pyproject-toml.rst:6
-#, fuzzy
 msgid "``pyproject.toml`` specification"
-msgstr "``pyproject.toml`` é obrigatório?"
+msgstr "Especificação do ``pyproject.toml``"
 
 #: ../source/specifications/pyproject-toml.rst:10
 msgid ""
@@ -26883,6 +27142,13 @@ msgid ""
 "the file is empty)."
 msgstr ""
 
+#~ msgid ""
+#~ "The standard :term:`Built Distribution` format. See :ref:`package-"
+#~ "formats` for more information."
+#~ msgstr ""
+#~ "O formato padrão de :term:`Distribuição Construída`. Veja :ref:`package-"
+#~ "formats` para mais informações."
+
 #~ msgid "The summary description of the project."
 #~ msgstr "A descrição resumida do projeto."
 
@@ -28075,9 +28341,6 @@ msgstr ""
 #~ "construção definido na :pep:`518` que os projetos podem fornecer para "
 #~ "declarar quaisquer dependências de nível Python que devem ser instaladas "
 #~ "para executar o sistema de construção do projeto com sucesso."
-
-#~ msgid "Declaring project metadata"
-#~ msgstr "Declarando os metadados do projeto"
 
 #~ msgid ""
 #~ ":pep:`621` specifies how to write a project's :ref:`core metadata <core-"

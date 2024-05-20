@@ -29,7 +29,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-18 14:36+0000\n"
+"POT-Creation-Date: 2024-05-15 16:02+0000\n"
 "PO-Revision-Date: 2024-04-04 03:43+0000\n"
 "Last-Translator: 大王叫我来巡山 <hamburger2048@users.noreply.hosted.weblate."
 "org>\n"
@@ -2566,9 +2566,9 @@ msgstr ""
 
 #: ../source/glossary.rst:17
 msgid ""
-"A library that takes a source tree or :term:`source distribution <Source "
-"Distribution (or \"sdist\")>` and builds a source distribution or :term:"
-"`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
+"A library that takes a source tree and builds a :term:`source distribution "
+"<Source Distribution (or \"sdist\")>` or :term:`built distribution <Built "
+"Distribution>` from it. The build is delegated to the backend by a :term:"
 "`frontend <Build Frontend>`. All backends offer a standardized interface."
 msgstr ""
 
@@ -2628,10 +2628,57 @@ msgstr ""
 "编译 Python 文件（:term:` Wheel ` 故意不包括编译的 Python 文件）。"
 
 #: ../source/glossary.rst:56
+msgid "Built Metadata"
+msgstr ""
+
+#: ../source/glossary.rst:59
+msgid ""
+"The concrete form :term:`Core Metadata` takes when included inside an "
+"installed :term:`Project` (``METADATA`` file) or a :term:`Distribution "
+"Archive` (``PKG-INFO`` in a :term:`Sdist <Source Distribution (or "
+"\"sdist\")>` and ``METADATA`` in a :term:`Wheel`)."
+msgstr ""
+
+#: ../source/glossary.rst:66
+msgid "Core Metadata"
+msgstr ""
+
+#: ../source/glossary.rst:69
+msgid ""
+"The :ref:`specification <core-metadata>` and the set of :term:`Core Metadata "
+"Field`\\s it defines that describe key static attributes of a :term:"
+"`Distribution Package` or :term:`Installed Project`."
+msgstr ""
+
+#: ../source/glossary.rst:74
+msgid "Core Metadata Field"
+msgstr ""
+
+#: ../source/glossary.rst:77
+msgid ""
+"A single key-value pair (or sequence of such with the same name, for "
+"multiple-use fields) defined in the :term:`Core Metadata` spec and stored in "
+"the :term:`Built Metadata`. Notably, distinct from a :term:`Pyproject "
+"Metadata Key`."
+msgstr ""
+
+#: ../source/glossary.rst:83
+#, fuzzy
+#| msgid "Distribution Package"
+msgid "Distribution Archive"
+msgstr "发行版"
+
+#: ../source/glossary.rst:86
+msgid ""
+"The physical distribution artifact (i.e. a file on disk) for a :term:"
+"`Distribution Package`."
+msgstr ""
+
+#: ../source/glossary.rst:89
 msgid "Distribution Package"
 msgstr "发行版"
 
-#: ../source/glossary.rst:59
+#: ../source/glossary.rst:92
 msgid ""
 "A versioned archive file that contains Python :term:`packages <Import "
 "Package>`, :term:`modules <Module>`, and other resource files that are used "
@@ -2642,7 +2689,7 @@ msgstr ""
 "`modules <Module>` 和其他用于分发:term:`Release` 的资源文件的版本化存档文件。"
 "存档文件是最终用户将从 Internet 下载并安装的文件。"
 
-#: ../source/glossary.rst:64
+#: ../source/glossary.rst:97
 #, fuzzy
 #| msgid ""
 #| "A distribution package is more commonly referred to with the single words "
@@ -2666,11 +2713,11 @@ msgstr ""
 "Package` 混淆时，本指南可能会使用扩展术语（通常也称为“包”）或另一种发行版（例"
 "如 Linux 发行版或 Python 语言发行版），通常用单个术语“发行版”来指代。"
 
-#: ../source/glossary.rst:72
+#: ../source/glossary.rst:105
 msgid "Egg"
 msgstr "Egg"
 
-#: ../source/glossary.rst:75
+#: ../source/glossary.rst:108
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which "
 "has been replaced by :term:`Wheel`.  For details, see :ref:`egg-format`."
@@ -2678,11 +2725,11 @@ msgstr ""
 "一种 :term:`构建分发` 格式，由 :ref:`setuptools` 引入，已被 :term:`Wheel` 替"
 "代。详见： :ref:`egg-format`."
 
-#: ../source/glossary.rst:78
+#: ../source/glossary.rst:111
 msgid "Extension Module"
 msgstr "扩展模块"
 
-#: ../source/glossary.rst:81
+#: ../source/glossary.rst:114
 msgid ""
 "A :term:`Module` written in the low-level language of the Python "
 "implementation: C/C++ for Python, Java for Jython. Typically contained in a "
@@ -2695,11 +2742,11 @@ msgstr ""
 "享对象 (.so) 文件、Windows 上 Python 扩展的 DLL（给定 .pyd 扩展）或 Jython 扩"
 "展的 Java 类文件。"
 
-#: ../source/glossary.rst:88
+#: ../source/glossary.rst:121
 msgid "Known Good Set (KGS)"
 msgstr "已知良好集 (KGS)"
 
-#: ../source/glossary.rst:91
+#: ../source/glossary.rst:124
 msgid ""
 "A set of distributions at specified versions which are compatible with each "
 "other. Typically a test suite will be run which passes all tests before a "
@@ -2711,17 +2758,17 @@ msgstr ""
 "包被声明为已知良好集之前通过所有测试。 该术语通常用于由多个单独发行版组成的框"
 "架和工具包。"
 
-#: ../source/glossary.rst:97
+#: ../source/glossary.rst:130
 msgid "Import Package"
 msgstr "导入包"
 
-#: ../source/glossary.rst:100
+#: ../source/glossary.rst:133
 msgid ""
 "A Python module which can contain other modules or recursively, other "
 "packages."
 msgstr "一个Python模块，可以包含其他模块或递归地包含其他包。"
 
-#: ../source/glossary.rst:103
+#: ../source/glossary.rst:136
 #, fuzzy
 #| msgid ""
 #| "An import package is more commonly referred to with the single word "
@@ -2738,11 +2785,24 @@ msgstr ""
 "导入包通常用单个词“包”来指代，但本指南将在需要更清楚地说明时使用扩展术语，以"
 "防止与通常也称为“包”的 :term:`分发包` 混淆."
 
-#: ../source/glossary.rst:108
+#: ../source/glossary.rst:142
+#, fuzzy
+#| msgid "Installer"
+msgid "Installed Project"
+msgstr "安装程序"
+
+#: ../source/glossary.rst:145
+msgid ""
+"A :term:`Project` that is installed for use with a Python interpreter or :"
+"term:`Virtual Environment`, as described in the specicifcation :ref:"
+"`recording-installed-packages`."
+msgstr ""
+
+#: ../source/glossary.rst:149
 msgid "Module"
 msgstr "模块"
 
-#: ../source/glossary.rst:111
+#: ../source/glossary.rst:152
 msgid ""
 "The basic unit of code reusability in Python, existing in one of two types: :"
 "term:`Pure Module`, or :term:`Extension Module`."
@@ -2750,11 +2810,11 @@ msgstr ""
 "Python 中代码可重用性的基本单元，存在于以下两种类型之一：:term:`Pure Module` "
 "或 :term:`Extension Module`。"
 
-#: ../source/glossary.rst:114
+#: ../source/glossary.rst:155
 msgid "Package Index"
 msgstr "包索引"
 
-#: ../source/glossary.rst:117
+#: ../source/glossary.rst:158
 msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
@@ -2762,11 +2822,11 @@ msgstr ""
 "一个带有 Web 界面的发行版存储库，用于自动化 :term:`package <Distribution "
 "Package>` 发现和消费。"
 
-#: ../source/glossary.rst:120
+#: ../source/glossary.rst:161
 msgid "Per Project Index"
 msgstr "每个项目索引（Per Project Index）"
 
-#: ../source/glossary.rst:123
+#: ../source/glossary.rst:164
 msgid ""
 "A private or other non-canonical :term:`Package Index` indicated by a "
 "specific :term:`Project` as the index preferred or required to resolve "
@@ -2775,12 +2835,12 @@ msgstr ""
 "专用或其他非规范的：term:`Package Index`由特定的：term:`Project`表示，作为首"
 "选索引或解决该项目依赖关系所需的索引。"
 
-#: ../source/glossary.rst:127 ../source/guides/hosting-your-own-index.rst:62
+#: ../source/glossary.rst:168 ../source/guides/hosting-your-own-index.rst:62
 #: ../source/guides/index-mirrors-and-caches.rst:52
 msgid "Project"
 msgstr "项目"
 
-#: ../source/glossary.rst:130
+#: ../source/glossary.rst:171
 msgid ""
 "A library, framework, script, plugin, application, or collection of data or "
 "other resources, or some combination thereof that is intended to be packaged "
@@ -2789,7 +2849,7 @@ msgstr ""
 "数据或其他资源的库、框架、脚本、插件、应用程序或集合，或其组合，旨在打包成:"
 "term:`Distribution <Distribution Package>`。"
 
-#: ../source/glossary.rst:134
+#: ../source/glossary.rst:175
 msgid ""
 "Since most projects create :term:`Distributions <Distribution Package>` "
 "using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:"
@@ -2802,7 +2862,7 @@ msgstr ""
 "另一个实际方式是在项目源目录下包含 :term:`pyproject.toml`、 :term:`setup.py`"
 "或 :term:`setup.cfg` 文件的东西。"
 
-#: ../source/glossary.rst:140
+#: ../source/glossary.rst:181
 msgid ""
 "Python projects must have unique names, which are registered on :term:`PyPI "
 "<Python Package Index (PyPI)>`. Each project will then contain one or more :"
@@ -2814,7 +2874,7 @@ msgstr ""
 "<Release>` ，每个版本可能包括一个或多个 :term:`套件 <Distribution "
 "Package>` 。"
 
-#: ../source/glossary.rst:145
+#: ../source/glossary.rst:186
 msgid ""
 "Note that there is a strong convention to name a project after the name of "
 "the package that is imported to run that project. However, this doesn't have "
@@ -2825,11 +2885,52 @@ msgstr ""
 "这并不一定是真的。可以从项目“foo”安装一个发行版，并让它提供一个只能作"
 "为“bar”导入的包。"
 
-#: ../source/glossary.rst:151
+#: ../source/glossary.rst:192
+#, fuzzy
+#| msgid "Projects in subdirectories"
+msgid "Project Root Directory"
+msgstr "子目录中的项目"
+
+#: ../source/glossary.rst:195
+msgid ""
+"The filesystem directory in which a :term:`Project`'s :term:`source tree "
+"<Project Source Tree>` is located."
+msgstr ""
+
+#: ../source/glossary.rst:198
+#, fuzzy
+#| msgid "Project Summaries"
+msgid "Project Source Tree"
+msgstr "项目摘要"
+
+#: ../source/glossary.rst:201
+msgid ""
+"The on-disk format of a :term:`Project` used for development, containing its "
+"raw source code before being packaged into a :term:`Source Distribution "
+"<Source Distribution (or \"sdist\")>` or :term:`Built Distribution`."
+msgstr ""
+
+#: ../source/glossary.rst:207
+#, fuzzy
+#| msgid "Project Summaries"
+msgid "Project Source Metadata"
+msgstr "项目摘要"
+
+#: ../source/glossary.rst:210
+msgid ""
+"Metadata defined by the package author in a :term:`Project`'s :term:`source "
+"tree <Project Source Tree>`, to be transformed into :term:`Core Metadata "
+"field`\\s in the :term:`Built Metadata` by the project's :term:`build "
+"backend <Build Backend>`. Can be written as :term:`Pyproject Metadata`, or "
+"in a tool-specific format (under the ``[tool]`` table in ``pyproject.toml``, "
+"or in a tool's own configuration file)."
+msgstr ""
+
+#: ../source/glossary.rst:220
 msgid "Pure Module"
 msgstr "纯模块 (Pure Module)"
 
-#: ../source/glossary.rst:154
+#: ../source/glossary.rst:223
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file "
 "(and possibly associated ``.pyc`` and/or ``.pyo`` files)."
@@ -2837,11 +2938,47 @@ msgstr ""
 "一个 :term:`Module`，使用 Python 编写并包含在单个 ``.py`` 文件 中（可能还有相"
 "关的 ``.pyc`` 和/或者 ``.pyo`` 文件）。"
 
-#: ../source/glossary.rst:157
+#: ../source/glossary.rst:226
+#, fuzzy
+#| msgid "Project name"
+msgid "Pyproject Metadata"
+msgstr "项目名称"
+
+#: ../source/glossary.rst:229
+msgid ""
+"The :term:`Project Source Metadata` format defined by the :ref:`declaring-"
+"project-metadata` specification and originally introduced in :pep:`621`, "
+"stored as :term:`Pyproject Metadata Key`\\s under the ``[project]`` table of "
+"a :term:`pyproject.toml` file. Notably, *not* a tool-specific source "
+"metadata format under the ``[tool]`` table in ``pyproject.toml``."
+msgstr ""
+
+#: ../source/glossary.rst:237
+#, fuzzy
+msgid "Pyproject Metadata Key"
+msgstr "pyproject.toml"
+
+#: ../source/glossary.rst:240
+msgid ""
+"A top-level TOML key in the ``[project]`` table in ``pyproject.toml``; part "
+"of the :term:`Pyproject Metadata`. Notably, distinct from a :term:`Core "
+"Metadata Field`."
+msgstr ""
+
+#: ../source/glossary.rst:244
+msgid "Pyproject Metadata Subkey"
+msgstr ""
+
+#: ../source/glossary.rst:247
+msgid ""
+"A second-level TOML key under a table-valued :term:`Pyproject Metadata Key`."
+msgstr ""
+
+#: ../source/glossary.rst:250
 msgid "Python Packaging Authority (PyPA)"
 msgstr "Python 包装管理局 （PyPA）"
 
-#: ../source/glossary.rst:160
+#: ../source/glossary.rst:253
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host "
@@ -2857,11 +2994,11 @@ msgstr ""
 "和 `Python Discourse 论坛 <https://discuss.python.org/c/packaging>`__ 上讨论"
 "问题。"
 
-#: ../source/glossary.rst:169
+#: ../source/glossary.rst:262
 msgid "Python Package Index (PyPI)"
 msgstr "Python 包索引 (PyPI)"
 
-#: ../source/glossary.rst:172
+#: ../source/glossary.rst:265
 msgid ""
 "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the "
 "Python community. It is open to all Python developers to consume and "
@@ -2870,11 +3007,11 @@ msgstr ""
 "`PyPI <https://pypi.org>`_ 是 Python 社区的默认 :term:`包索引 (Package "
 "Index) <Package Index>` 。所有 Python 开发人员都可以使用和分发他们的发行版。"
 
-#: ../source/glossary.rst:175
+#: ../source/glossary.rst:268
 msgid "pypi.org"
 msgstr "pypi.org"
 
-#: ../source/glossary.rst:178
+#: ../source/glossary.rst:271
 msgid ""
 "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python "
 "Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi."
@@ -2884,26 +3021,26 @@ msgstr ""
 "名。它在2017年取代了旧的索引域名， ``pypi.python.org`` ，并由 :ref:"
 "`warehouse` 提供支持。"
 
-#: ../source/glossary.rst:182
+#: ../source/glossary.rst:275
 msgid "pyproject.toml"
 msgstr "pyproject.toml"
 
-#: ../source/glossary.rst:185
+#: ../source/glossary.rst:278
 msgid ""
 "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
 
-#: ../source/glossary.rst:187
+#: ../source/glossary.rst:280
 msgid "Release"
 msgstr "发行版 （Release）"
 
-#: ../source/glossary.rst:190
+#: ../source/glossary.rst:283
 msgid ""
 "A snapshot of a :term:`Project` at a particular point in time, denoted by a "
 "version identifier."
 msgstr ""
 
-#: ../source/glossary.rst:193
+#: ../source/glossary.rst:286
 msgid ""
 "Making a release may entail the publishing of multiple :term:`Distributions "
 "<Distribution Package>`.  For example, if version 1.0 of a project was "
@@ -2911,11 +3048,11 @@ msgid ""
 "Windows installer distribution format."
 msgstr ""
 
-#: ../source/glossary.rst:198
+#: ../source/glossary.rst:291
 msgid "Requirement"
 msgstr "要求 (Requirement)"
 
-#: ../source/glossary.rst:201
+#: ../source/glossary.rst:294
 msgid ""
 "A specification for a :term:`package <Distribution Package>` to be "
 "installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` "
@@ -2924,11 +3061,11 @@ msgid ""
 "install` reference."
 msgstr ""
 
-#: ../source/glossary.rst:207
+#: ../source/glossary.rst:300
 msgid "Requirement Specifier"
 msgstr "需求说明符"
 
-#: ../source/glossary.rst:210
+#: ../source/glossary.rst:303
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
@@ -2936,11 +3073,11 @@ msgid ""
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
 
-#: ../source/glossary.rst:215
+#: ../source/glossary.rst:308
 msgid "Requirements File"
 msgstr "需求文件"
 
-#: ../source/glossary.rst:218
+#: ../source/glossary.rst:311
 msgid ""
 "A file containing a list of :term:`Requirements <Requirement>` that can be "
 "installed using :ref:`pip`. For more information, see the :ref:`pip` docs "
@@ -2950,17 +3087,17 @@ msgstr ""
 "使用 :ref:`pip` 来安装。更多信息，请参阅 :ref:`pip` 文档的 :ref:`pip:"
 "Requirements Files` 。"
 
-#: ../source/glossary.rst:222
+#: ../source/glossary.rst:315
 #: ../source/guides/distributing-packages-using-setuptools.rst:59
 msgid "setup.py"
 msgstr "setup.py"
 
-#: ../source/glossary.rst:223
+#: ../source/glossary.rst:316
 #: ../source/guides/distributing-packages-using-setuptools.rst:80
 msgid "setup.cfg"
 msgstr "setup.cfg"
 
-#: ../source/glossary.rst:226
+#: ../source/glossary.rst:319
 msgid ""
 "The project specification files for :ref:`distutils` and :ref:`setuptools`. "
 "See also :term:`pyproject.toml`."
@@ -2968,45 +3105,45 @@ msgstr ""
 ":ref:`distutils` 和 :ref:`setuptools` 的项目规范文件。另见 :term:`pyproject."
 "toml`。"
 
-#: ../source/glossary.rst:229
+#: ../source/glossary.rst:322
 msgid "Source Archive"
 msgstr "源代码归档"
 
-#: ../source/glossary.rst:232
+#: ../source/glossary.rst:325
 msgid ""
 "An archive containing the raw source code for a :term:`Release`, prior to "
 "creation of a :term:`Source Distribution <Source Distribution (or "
 "\"sdist\")>` or :term:`Built Distribution`."
 msgstr ""
 
-#: ../source/glossary.rst:236
+#: ../source/glossary.rst:329
 msgid "Source Distribution (or \"sdist\")"
 msgstr "源代码分发（或“sdist”）"
 
-#: ../source/glossary.rst:239
+#: ../source/glossary.rst:332
 msgid ""
-"A :term:`distribution <Distribution Package>` format (usually generated "
+"A :term:`distribution <Distribution Archive>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
 "source files needed for installing by a tool like :ref:`pip`, or for "
 "generating a :term:`Built Distribution`. See :ref:`package-formats` for more "
 "information."
 msgstr ""
 
-#: ../source/glossary.rst:245
+#: ../source/glossary.rst:338
 msgid "System Package"
 msgstr "系统包 (System Package)"
 
-#: ../source/glossary.rst:248
+#: ../source/glossary.rst:341
 msgid ""
 "A package provided in a format native to the operating system, e.g. an rpm "
 "or dpkg file."
 msgstr "以操作系统本地格式提供的软件包，例如 rpm 或 dpkg 文件。"
 
-#: ../source/glossary.rst:251
+#: ../source/glossary.rst:344
 msgid "Version Specifier"
 msgstr "版本说明符 (Version Specifier)"
 
-#: ../source/glossary.rst:254
+#: ../source/glossary.rst:347
 msgid ""
 "The version component of a :term:`Requirement Specifier`. For example, the "
 "\">=1.3\" portion of \"foo>=1.3\".  Read the :ref:`Version specifier "
@@ -3015,11 +3152,11 @@ msgid ""
 "was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0."
 msgstr ""
 
-#: ../source/glossary.rst:259
+#: ../source/glossary.rst:352
 msgid "Virtual Environment"
 msgstr "虚拟环境 (Virtual Environment)"
 
-#: ../source/glossary.rst:262
+#: ../source/glossary.rst:355
 msgid ""
 "An isolated Python environment that allows packages to be installed for use "
 "by a particular application, rather than being installed system wide. For "
@@ -3029,21 +3166,39 @@ msgstr ""
 "一个隔离的 Python 环境，允许安装软件包以供特定的应用程序使用，而不是在系统中"
 "安装。更多信息，请参见章节 :ref:`Creating and using Virtual Environments`."
 
-#: ../source/glossary.rst:266
+#: ../source/glossary.rst:360
+msgid "Wheel Format"
+msgstr ""
+
+#: ../source/glossary.rst:361
 msgid "Wheel"
 msgstr "Wheel"
 
-#: ../source/glossary.rst:269
+#: ../source/glossary.rst:364
 msgid ""
-"The standard :term:`Built Distribution` format. See :ref:`package-formats` "
-"for more information."
+"The standard :term:`Built Distribution` format originally introduced in :pep:"
+"`427` and defined by the :ref:`binary-distribution-format` specification. "
+"See :ref:`package-formats` for more information. Not to be confused with its "
+"reference implementation, the :term:`Wheel Project`."
 msgstr ""
 
-#: ../source/glossary.rst:271
+#: ../source/glossary.rst:371
+#, fuzzy
+#| msgid "Project"
+msgid "Wheel Project"
+msgstr "项目"
+
+#: ../source/glossary.rst:374
+msgid ""
+"The PyPA reference implementation of the :term:`Wheel Format`; see :ref:"
+"`wheel`."
+msgstr ""
+
+#: ../source/glossary.rst:376
 msgid "Working Set"
 msgstr "工作集 (Working Set)"
 
-#: ../source/glossary.rst:274
+#: ../source/glossary.rst:379
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -12541,7 +12696,7 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
-#: ../source/specifications/inline-script-metadata.rst:211
+#: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:332
 #: ../source/specifications/pyproject-toml.rst:443
@@ -13548,7 +13703,7 @@ msgstr ""
 #: ../source/specifications/dependency-specifiers.rst:26
 #: ../source/specifications/direct-url-data-structure.rst:19
 #: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/inline-script-metadata.rst:11
+#: ../source/specifications/inline-script-metadata.rst:13
 msgid "Specification"
 msgstr "技术参数"
 
@@ -15310,24 +15465,24 @@ msgid ""
 "www.pypa.io/en/latest/specifications/>`__."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:3
+#: ../source/specifications/inline-script-metadata.rst:5
 msgid "Inline script metadata"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:5
+#: ../source/specifications/inline-script-metadata.rst:7
 msgid ""
 "This specification defines a metadata format that can be embedded in single-"
 "file Python scripts to assist launchers, IDEs and other external tools which "
 "may need to interact with such scripts."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:13
+#: ../source/specifications/inline-script-metadata.rst:15
 msgid ""
 "This specification defines a metadata comment block format (loosely inspired "
 "by `reStructuredText Directives`__)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:18
+#: ../source/specifications/inline-script-metadata.rst:20
 msgid ""
 "Any Python script may have top-level comment blocks that MUST start with the "
 "line ``# /// TYPE`` where ``TYPE`` determines how to process the content. "
@@ -15338,7 +15493,7 @@ msgid ""
 "MUST only consist of ASCII letters, numbers and hyphens."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:26
+#: ../source/specifications/inline-script-metadata.rst:28
 msgid ""
 "Every line between these two lines (``# /// TYPE`` and ``# ///``) MUST be a "
 "comment starting with ``#``. If there are characters after the ``#`` then "
@@ -15348,158 +15503,158 @@ msgid ""
 "of only a single ``#``)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:33
+#: ../source/specifications/inline-script-metadata.rst:35
 msgid ""
 "Precedence for an ending line ``# ///`` is given when the next line is not a "
 "valid embedded content line as described above. For example, the following "
 "is a single fully valid block:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:49
+#: ../source/specifications/inline-script-metadata.rst:51
 msgid ""
 "A starting line MUST NOT be placed between another starting line and its "
 "ending line. In such cases tools MAY produce an error. Unclosed blocks MUST "
 "be ignored."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:52
+#: ../source/specifications/inline-script-metadata.rst:54
 msgid ""
 "When there are multiple comment blocks of the same ``TYPE`` defined, tools "
 "MUST produce an error."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:55
+#: ../source/specifications/inline-script-metadata.rst:57
 msgid ""
 "Tools reading embedded metadata MAY respect the standard Python encoding "
 "declaration. If they choose not to do so, they MUST process the file as "
 "UTF-8."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:58
+#: ../source/specifications/inline-script-metadata.rst:60
 msgid ""
 "This is the canonical regular expression that MAY be used to parse the "
 "metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:65
+#: ../source/specifications/inline-script-metadata.rst:67
 msgid ""
 "In circumstances where there is a discrepancy between the text specification "
 "and the regular expression, the text specification takes precedence."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:68
+#: ../source/specifications/inline-script-metadata.rst:70
 msgid ""
 "Tools MUST NOT read from metadata blocks with types that have not been "
 "standardized by this specification."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:72
+#: ../source/specifications/inline-script-metadata.rst:74
 msgid "script type"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:74
+#: ../source/specifications/inline-script-metadata.rst:76
 msgid ""
 "The first type of metadata block is named ``script``, which contains script "
 "metadata (dependency data and tool configuration)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:77
+#: ../source/specifications/inline-script-metadata.rst:79
 msgid ""
 "This document MAY include the top-level fields ``dependencies`` and "
 "``requires-python``, and MAY optionally include a ``[tool]`` table."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:80
+#: ../source/specifications/inline-script-metadata.rst:82
 msgid ""
 "The ``[tool]`` MAY be used by any tool, script runner or otherwise, to "
 "configure behavior. It has the same semantics as the :ref:`[tool] table in "
 "pyproject.toml <pyproject-tool-table>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:84
+#: ../source/specifications/inline-script-metadata.rst:86
 msgid "The top-level fields are:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:86
+#: ../source/specifications/inline-script-metadata.rst:88
 msgid ""
 "``dependencies``: A list of strings that specifies the runtime dependencies "
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
 "<dependency-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:89
+#: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
 "``requires-python``: A string that specifies the Python version(s) with "
 "which the script is compatible. The value of this field MUST be a valid :ref:"
 "`version specifier <version-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:93
+#: ../source/specifications/inline-script-metadata.rst:95
 msgid ""
 "Script runners MUST error if the specified ``dependencies`` cannot be "
 "provided. Script runners SHOULD error if no version of Python that satisfies "
 "the specified ``requires-python`` can be provided."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:98
+#: ../source/specifications/inline-script-metadata.rst:100
 msgid "Example"
 msgstr "例子"
 
-#: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/inline-script-metadata.rst:102
 msgid "The following is an example of a script with embedded metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:121
+#: ../source/specifications/inline-script-metadata.rst:123
 #, fuzzy
 msgid "Reference Implementation"
 msgstr "文档类型"
 
-#: ../source/specifications/inline-script-metadata.rst:123
+#: ../source/specifications/inline-script-metadata.rst:125
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:149
+#: ../source/specifications/inline-script-metadata.rst:151
 msgid ""
 "Often tools will edit dependencies like package managers or dependency "
 "update automation in CI. The following is a crude example of modifying the "
 "content using the ``tomlkit`` library__."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:180
+#: ../source/specifications/inline-script-metadata.rst:182
 msgid ""
 "Note that this example used a library that preserves TOML formatting. This "
 "is not a requirement for editing by any means but rather is a \"nice to "
 "have\" feature."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:184
+#: ../source/specifications/inline-script-metadata.rst:186
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:203
+#: ../source/specifications/inline-script-metadata.rst:205
 #: ../source/specifications/simple-repository-api.rst:815
 #, fuzzy
 msgid "Recommendations"
 msgstr "创建文档"
 
-#: ../source/specifications/inline-script-metadata.rst:205
+#: ../source/specifications/inline-script-metadata.rst:207
 msgid ""
 "Tools that support managing different versions of Python should attempt to "
 "use the highest available version of Python that is compatible with the "
 "script's ``requires-python`` metadata, if defined."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:213
+#: ../source/specifications/inline-script-metadata.rst:215
 msgid ""
 "October 2023: This specification was conditionally approved through :pep:"
 "`723`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:214
+#: ../source/specifications/inline-script-metadata.rst:216
 msgid ""
 "January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata "
 "block type was renamed to ``script``, and the ``[run]`` table was dropped, "
@@ -21937,10 +22092,6 @@ msgstr ""
 
 #~ msgid "Caching with devpi"
 #~ msgstr "使用 devpi 进行缓存"
-
-#, fuzzy
-#~ msgid "pyproject type"
-#~ msgstr "pyproject.toml"
 
 #~ msgid "`OpenShift <https://blog.openshift.com/getting-started-python/>`_"
 #~ msgstr "`OpenShift <https://blog.openshift.com/getting-started-python/>`_"
