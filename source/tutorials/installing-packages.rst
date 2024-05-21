@@ -9,17 +9,13 @@ This section covers the basics of how to install Python :term:`packages
 
 It's important to note that the term "package" in this context is being used to
 describe a bundle of software to be installed (i.e. as a synonym for a
-:term:`distribution <Distribution Package>`). It does not to refer to the kind
+:term:`distribution <Distribution Package>`). It does not refer to the kind
 of :term:`package <Import Package>` that you import in your Python source code
 (i.e. a container of modules). It is common in the Python community to refer to
 a :term:`distribution <Distribution Package>` using the term "package".  Using
 the term "distribution" is often not preferred, because it can easily be
 confused with a Linux distribution, or another larger software distribution
 like Python itself.
-
-
-.. contents:: Contents
-   :local:
 
 
 .. _installing_requirements:
@@ -56,12 +52,12 @@ please install the latest 3.x version from `python.org`_ or refer to the
 
 .. Note:: If you're a newcomer and you get an error like this:
 
-    .. code-block:: python
+    .. code-block:: pycon
 
-        >>> python --version
+        >>> python3 --version
         Traceback (most recent call last):
           File "<stdin>", line 1, in <module>
-        NameError: name 'python' is not defined
+        NameError: name 'python3' is not defined
 
     It's because this command and other suggested commands in this tutorial
     are intended to be run in a *shell* (also called a *terminal* or
@@ -73,7 +69,7 @@ please install the latest 3.x version from `python.org`_ or refer to the
    notebook, you can run system commands like those in this tutorial by
    prefacing them with a ``!`` character:
 
-    ::
+   .. code-block:: text
 
         In [1]: import sys
                 !{sys.executable} --version
@@ -137,21 +133,21 @@ standard library:
 
 If that still doesn't allow you to run ``python -m pip``:
 
- * Securely Download `get-pip.py
-   <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
+* Securely Download `get-pip.py
+  <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
 
- * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
-   Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
-   not installed already.
+* Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
+  Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
+  not installed already.
 
-   .. warning::
+  .. warning::
 
-      Be cautious if you're using a Python install that's managed by your
-      operating system or another package manager. get-pip.py does not
-      coordinate with those tools, and may leave your system in an
-      inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
-      to install in ``/usr/local`` which is designed for locally-installed
-      software.
+     Be cautious if you're using a Python install that's managed by your
+     operating system or another package manager. get-pip.py does not
+     coordinate with those tools, and may leave your system in an
+     inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
+     to install in ``/usr/local`` which is designed for locally-installed
+     software.
 
 
 Ensure pip, setuptools, and wheel are up to date
@@ -228,8 +224,8 @@ environments.
 Currently, there are two common tools for creating Python virtual environments:
 
 * :doc:`venv <python:library/venv>` is available by default in Python 3.3 and later, and installs
-  :ref:`pip` and :ref:`setuptools` into created virtual environments in
-  Python 3.4 and later.
+  :ref:`pip` into created virtual environments in Python 3.4 and later
+  (Python versions prior to 3.12 also installed :ref:`setuptools`).
 * :ref:`virtualenv` needs to be installed separately, but supports Python 2.7+
   and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are
   always installed into created virtual environments by default (regardless of
@@ -277,7 +273,7 @@ that the virtual environment's variables are set within the current
 shell, and not in a subprocess (which then disappears, having no
 useful effect).
 
-In both of the above cases, Windows users should _not_ use the
+In both of the above cases, Windows users should *not* use the
 :command:`source` command, but should rather run the :command:`activate`
 script directly from the command shell like so:
 
@@ -308,9 +304,9 @@ The most common usage of :ref:`pip` is to install from the :term:`Python Package
 Index <Python Package Index (PyPI)>` using a :term:`requirement specifier
 <Requirement Specifier>`. Generally speaking, a requirement specifier is
 composed of a project name followed by an optional :term:`version specifier
-<Version Specifier>`.  :pep:`440` contains a :pep:`full
-specification <440#version-specifiers>`
-of the currently supported specifiers. Below are some examples.
+<Version Specifier>`.  A full description of the supported specifiers can be
+found in the :ref:`Version specifier specification <version-specifiers>`.
+Below are some examples.
 
 To install the latest version of "SomeProject":
 
@@ -355,7 +351,7 @@ To install greater than or equal to one version and less than another:
         py -m pip install "SomeProject>=1,<2"
 
 
-To install a version that's :pep:`"compatible" <440#compatible-release>`
+To install a version that's :ref:`compatible <version-specifiers-compatible-release>`
 with a certain version: [4]_
 
 .. tab:: Unix/macOS
@@ -492,19 +488,19 @@ syntax, see pip's section on :ref:`VCS Support <pip:VCS Support>`.
 
     .. code-block:: bash
 
-        python3 -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
-        python3 -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
-        python3 -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
-        python3 -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+        python3 -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git          # from git
+        python3 -m pip install -e SomeProject @ hg+https://hg.repo/some_pkg                # from mercurial
+        python3 -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
+        python3 -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install -e git+https://git.repo/some_pkg.git#egg=SomeProject          # from git
-        py -m pip install -e hg+https://hg.repo/some_pkg#egg=SomeProject                # from mercurial
-        py -m pip install -e svn+svn://svn.repo/some_pkg/trunk/#egg=SomeProject         # from svn
-        py -m pip install -e git+https://git.repo/some_pkg.git@feature#egg=SomeProject  # from a branch
+        py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git          # from git
+        py -m pip install -e SomeProject @ hg+https://hg.repo/some_pkg                # from mercurial
+        py -m pip install -e SomeProject @ svn+svn://svn.repo/some_pkg/trunk/         # from svn
+        py -m pip install -e SomeProject @ git+https://git.repo/some_pkg.git@feature  # from a branch
 
 Installing from other Indexes
 =============================
@@ -612,10 +608,10 @@ Install from a local directory containing archives (and don't check :term:`PyPI
 Installing from other sources
 =============================
 
-To install from other data sources (for example Amazon S3 storage) you can
-create a helper application that presents the data in a :pep:`503` compliant
-index format, and use the ``--extra-index-url`` flag to direct pip to use
-that index.
+To install from other data sources (for example Amazon S3 storage)
+you can create a helper application that presents the data
+in a format compliant with the :ref:`simple repository API <simple-repository-api>`:,
+and use the ``--extra-index-url`` flag to direct pip to use that index.
 
 .. code-block:: bash
 
@@ -653,17 +649,17 @@ you know publishes one, you can include it in the pip installation command:
 
     .. code-block:: bash
 
-        python3 -m pip install SomePackage[PDF]
-        python3 -m pip install SomePackage[PDF]==3.0
-        python3 -m pip install -e .[PDF]  # editable project in current directory
+        python3 -m pip install 'SomePackage[PDF]'
+        python3 -m pip install 'SomePackage[PDF]==3.0'
+        python3 -m pip install -e '.[PDF]'  # editable project in current directory
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install SomePackage[PDF]
-        py -m pip install SomePackage[PDF]==3.0
-        py -m pip install -e .[PDF]  # editable project in current directory
+        py -m pip install "SomePackage[PDF]"
+        py -m pip install "SomePackage[PDF]==3.0"
+        py -m pip install -e ".[PDF]"  # editable project in current directory
 
 ----
 

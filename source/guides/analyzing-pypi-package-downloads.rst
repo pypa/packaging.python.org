@@ -7,9 +7,6 @@ to learn more about downloads of a package (or packages) hosted on PyPI. For
 example, you can use it to discover the distribution of Python versions used to
 download a package.
 
-.. contents:: Contents
-   :local:
-
 
 Background
 ==========
@@ -35,7 +32,7 @@ PyPI does not display download statistics for a number of reasons: [#]_
   doesn't mean it's good; Similarly just because a project hasn't been
   downloaded a lot doesn't mean it's bad!
 
-In short, because it's value is low for various reasons, and the tradeoffs
+In short, because its value is low for various reasons, and the tradeoffs
 required to make it work are high, it has been not an effective use of
 limited resources.
 
@@ -94,7 +91,7 @@ Useful queries
 
 Run queries in the `BigQuery web UI`_ by clicking the "Compose query" button.
 
-Note that the rows are stored in a partitioned, which helps
+Note that the rows are stored in a partitioned table, which helps
 limit the cost of queries. These example queries analyze downloads from
 recent history by filtering on the ``timestamp`` column.
 
@@ -121,7 +118,7 @@ The following query counts the total number of downloads for the project
 | 26190085      |
 +---------------+
 
-To only count downloads from pip, filter on the ``details.installer.name``
+To count downloads from pip only, filter on the ``details.installer.name``
 column.
 
 ::
@@ -311,7 +308,7 @@ Install `pypinfo`_ using pip.
 
 .. code-block:: bash
 
-    python -m pip install pypinfo
+    python3 -m pip install pypinfo
 
 Usage:
 
@@ -343,7 +340,7 @@ References
 .. _public PyPI download statistics dataset: https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=pypi&page=dataset
 .. _Google BigQuery: https://cloud.google.com/bigquery
 .. _BigQuery web UI: https://console.cloud.google.com/bigquery
-.. _pypinfo: https://github.com/ofek/pypinfo/blob/master/README.rst
+.. _pypinfo: https://github.com/ofek/pypinfo
 .. _google-cloud-bigquery: https://cloud.google.com/bigquery/docs/reference/libraries
 .. _pandas-gbq: https://pandas-gbq.readthedocs.io/en/latest/
 .. _Pandas: https://pandas.pydata.org/

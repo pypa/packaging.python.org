@@ -12,16 +12,79 @@ Glossary
         extensions.
 
 
+    Build Backend
+
+        A library that takes a source tree
+        and builds a :term:`source distribution <Source Distribution (or "sdist")>` or
+        :term:`built distribution <Built Distribution>` from it.
+        The build is delegated to the backend by a
+        :term:`frontend <Build Frontend>`.
+        All backends offer a standardized interface.
+
+        Examples of build backends are
+        :ref:`flit's flit-core <flit>`,
+        :ref:`hatch's hatchling <hatch>`,
+        :ref:`maturin`,
+        :ref:`meson-python`,
+        :ref:`scikit-build-core`,
+        and :ref:`setuptools`.
+
+
+    Build Frontend
+
+        A tool that users might run
+        that takes arbitrary source trees or
+        :term:`source distributions <Source Distribution (or "sdist")>`
+        and builds source distributions or :term:`wheels <Wheel>` from them.
+        The actual building is delegated to each source tree's
+        :term:`build backend <Build Backend>`.
+
+        Examples of build frontends are :ref:`pip` and :ref:`build`.
+
+
     Built Distribution
 
         A :term:`Distribution <Distribution Package>` format containing files
         and metadata that only need to be moved to the correct location on the
         target system, to be installed. :term:`Wheel` is such a format, whereas
-        distutil's :term:`Source Distribution <Source Distribution (or
+        :term:`Source Distribution <Source Distribution (or
         "sdist")>` is not, in that it requires a build step before it can be
         installed.  This format does not imply that Python files have to be
         precompiled (:term:`Wheel` intentionally does not include compiled
-        Python files).
+        Python files). See :ref:`package-formats` for more information.
+
+
+    Built Metadata
+
+        The concrete form :term:`Core Metadata` takes
+        when included inside an installed :term:`Project` (``METADATA`` file)
+        or a :term:`Distribution Archive`
+        (``PKG-INFO`` in a
+        :term:`Sdist <Source Distribution (or "sdist")>`
+        and ``METADATA`` in a :term:`Wheel`).
+
+
+    Core Metadata
+
+        The :ref:`specification <core-metadata>`
+        and the set of :term:`Core Metadata Field`\s it defines
+        that describe key static attributes of
+        a :term:`Distribution Package` or :term:`Installed Project`.
+
+
+    Core Metadata Field
+
+        A single key-value pair
+        (or sequence of such with the same name, for multiple-use fields)
+        defined in the :term:`Core Metadata` spec
+        and stored in the :term:`Built Metadata`.
+        Notably, distinct from a :term:`Pyproject Metadata Key`.
+
+
+    Distribution Archive
+
+        The physical distribution artifact (i.e. a file on disk)
+        for a :term:`Distribution Package`.
 
 
     Distribution Package
@@ -37,14 +100,14 @@ Glossary
         :term:`Import Package` (which is also commonly called a "package") or
         another kind of distribution (e.g. a Linux distribution or the Python
         language distribution), which are often referred to with the single term
-        "distribution".
+        "distribution". See :ref:`distribution-package-vs-import-package`
+        for a breakdown of the differences.
 
     Egg
 
         A :term:`Built Distribution` format introduced by :ref:`setuptools`,
-        which is being replaced by :term:`Wheel`.  For details, see 
-        :doc:`The Internal Structure of Python Eggs <setuptools:deprecated/python_eggs>` and
-        `Python Eggs <http://peak.telecommunity.com/DevCenter/PythonEggs>`_
+        which has been replaced by :term:`Wheel`.  For details, see
+        :ref:`egg-format`.
 
     Extension Module
 
@@ -73,7 +136,16 @@ Glossary
         An import package is more commonly referred to with the single word
         "package", but this guide will use the expanded term when more clarity
         is needed to prevent confusion with a :term:`Distribution Package` which
-        is also commonly called a "package".
+        is also commonly called a "package". See :ref:`distribution-package-vs-import-package`
+        for a breakdown of the differences.
+
+
+    Installed Project
+
+        A :term:`Project` that is installed for use with
+        a Python interpreter or :term:`Virtual Environment`,
+        as described in the specicifcation :ref:`recording-installed-packages`.
+
 
     Module
 
@@ -118,10 +190,62 @@ Glossary
         'bar'.
 
 
+    Project Root Directory
+
+        The filesystem directory in which
+        a :term:`Project`'s :term:`source tree <Project Source Tree>` is located.
+
+
+    Project Source Tree
+
+        The on-disk format of a :term:`Project` used for development,
+        containing its raw source code before being packaged
+        into a
+        :term:`Source Distribution <Source Distribution (or "sdist")>`
+        or :term:`Built Distribution`.
+
+
+    Project Source Metadata
+
+        Metadata defined by the package author
+        in a :term:`Project`'s :term:`source tree <Project Source Tree>`,
+        to be transformed into :term:`Core Metadata field`\s
+        in the :term:`Built Metadata`
+        by the project's :term:`build backend <Build Backend>`.
+        Can be written as :term:`Pyproject Metadata`,
+        or in a tool-specific format
+        (under the ``[tool]`` table in ``pyproject.toml``,
+        or in a tool's own configuration file).
+
+
     Pure Module
 
         A :term:`Module` written in Python and contained in a single ``.py`` file (and
         possibly associated ``.pyc`` and/or ``.pyo`` files).
+
+
+    Pyproject Metadata
+
+        The :term:`Project Source Metadata` format
+        defined by the :ref:`declaring-project-metadata` specification
+        and originally introduced in :pep:`621`,
+        stored as :term:`Pyproject Metadata Key`\s
+        under the ``[project]`` table of a :term:`pyproject.toml` file.
+        Notably, *not* a tool-specific source metadata format
+        under the ``[tool]`` table in ``pyproject.toml``.
+
+
+    Pyproject Metadata Key
+
+        A top-level TOML key in the ``[project]`` table in ``pyproject.toml``;
+        part of the :term:`Pyproject Metadata`.
+        Notably, distinct from a :term:`Core Metadata Field`.
+
+
+    Pyproject Metadata Subkey
+
+        A second-level TOML key under a table-valued
+        :term:`Pyproject Metadata Key`.
 
 
     Python Packaging Authority (PyPA)
@@ -177,10 +301,8 @@ Glossary
     Requirement Specifier
 
        A format used by :ref:`pip` to install packages from a :term:`Package
-       Index`. For an EBNF diagram of the format, see the
-       `pkg_resources.Requirement
-       <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#requirement-objects>`_
-       entry in the :ref:`setuptools` docs. For example, "foo>=1.3" is a
+       Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`.
+       For example, "foo>=1.3" is a
        requirement specifier, where "foo" is the project name, and the ">=1.3"
        portion is the :term:`Version Specifier`
 
@@ -207,10 +329,11 @@ Glossary
 
     Source Distribution (or "sdist")
 
-        A :term:`distribution <Distribution Package>` format (usually generated
-        using ``python setup.py sdist``) that provides metadata and the
+        A :term:`distribution <Distribution Archive>` format (usually generated
+        using ``python -m build --sdist``) that provides metadata and the
         essential source files needed for installing by a tool like :ref:`pip`,
-        or for generating a :term:`Built Distribution`.
+        or for generating a :term:`Built Distribution`. See :ref:`package-formats`
+        for more information.
 
 
     System Package
@@ -222,11 +345,10 @@ Glossary
     Version Specifier
 
        The version component of a :term:`Requirement Specifier`. For example,
-       the ">=1.3" portion of "foo>=1.3".  :pep:`440` contains
-       a :pep:`full specification
-       <440#version-specifiers>` of the
-       specifiers that Python packaging currently supports.  Support for PEP440
-       was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
+       the ">=1.3" portion of "foo>=1.3".  Read the :ref:`Version specifier specification
+       <version-specifiers>` for a full description of the
+       specifiers that Python packaging currently supports.  Support for this
+       specification was implemented in :ref:`setuptools` v8.0 and :ref:`pip` v6.0.
 
     Virtual Environment
 
@@ -235,11 +357,22 @@ Glossary
         wide. For more information, see the section on :ref:`Creating and using
         Virtual Environments`.
 
+
+    Wheel Format
     Wheel
 
-        A :term:`Built Distribution` format introduced by :pep:`427`,
-        which is intended to replace the :term:`Egg` format.  Wheel is currently
-        supported by :ref:`pip`.
+        The standard :term:`Built Distribution` format
+        originally introduced in :pep:`427`
+        and defined by the :ref:`binary-distribution-format` specification.
+        See :ref:`package-formats` for more information.
+        Not to be confused with its reference implementation,
+        the :term:`Wheel Project`.
+
+
+    Wheel Project
+
+        The PyPA reference implementation of the :term:`Wheel Format`; see :ref:`wheel`.
+
 
     Working Set
 

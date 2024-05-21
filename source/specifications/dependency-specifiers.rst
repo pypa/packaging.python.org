@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _dependency-specifiers:
 
 =====================
@@ -16,8 +18,8 @@ acceptable, so the language permits describing all these cases.
 The language defined is a compact line based format which is already in
 widespread use in pip requirements files, though we do not specify the command
 line option handling that those files permit. There is one caveat - the
-URL reference form, specified in :pep:`440` is not actually
-implemented in pip, but since :pep:`440` is accepted, we use that format rather
+URL reference form, specified in :ref:`Versioning specifier specification <version-specifiers>`
+is not actually implemented in pip, but we use that format rather
 than pip's current native format.
 
 Specification
@@ -57,7 +59,8 @@ as comments, multiple line support via continuations, or other such features.
 The full grammar including annotations to build a useful parse tree is
 included at the end of this document.
 
-Versions may be specified according to the :pep:`440` rules. (Note:
+Versions may be specified according to the rules of the
+:ref:`Version specifier specification <version-specifiers>`. (Note:
 URI is defined in :rfc:`std-66 <3986>`)::
 
     version_cmp   = wsp* '<' | '<=' | '!=' | '==' | '>=' | '>' | '~=' | '==='
@@ -147,7 +150,7 @@ many extras as they wish, and each extra results in the declaration of
 additional dependencies of the distribution **when** the extra is used in a
 dependency specification. For instance::
 
-    requests[security]
+    requests[security,tests]
 
 Extras union in the dependencies they define with the dependencies of the
 distribution they are attached to. The example above would result in requests
@@ -159,12 +162,13 @@ If multiple extras are listed, all the dependencies are unioned together.
 Versions
 --------
 
-See :pep:`440` for more detail on both version numbers and version
-comparisons. Version specifications limit the versions of a distribution that
-can be used. They only apply to distributions looked up by name, rather than
+See the :ref:`Version specifier specification <version-specifiers>` for
+more detail on both version numbers and version comparisons. Version
+specifications limit the versions of a distribution that can be
+used. They only apply to distributions looked up by name, rather than
 via a URL. Version comparison are also used in the markers feature. The
-optional brackets around a version are present for compatibility with :pep:`345`
-but should not be generated, only accepted.
+optional brackets around a version are present for compatibility with
+:pep:`345` but should not be generated, only accepted.
 
 Environment Markers
 -------------------
@@ -186,10 +190,11 @@ fixes some issues that were observed in the design described in :pep:`426`.
 
 Comparisons in marker expressions are typed by the comparison operator.  The
 <marker_op> operators that are not in <version_cmp> perform the same as they
-do for strings in Python. The <version_cmp> operators use the :pep:`440`
-version comparison rules when those are defined (that is when both
-sides have a valid version specifier). If there is no defined :pep:`440`
-behaviour and the operator exists in Python, then the operator falls back to
+do for strings in Python. The <version_cmp> operators use the version comparison
+rules of the :ref:`Version specifier specification <version-specifiers>`
+when those are defined (that is when both sides have a valid
+version specifier). If there is no defined behaviour of this specification
+and the operator exists in Python, then the operator falls back to
 the Python behaviour. Otherwise an error should be raised. e.g. the following
 will result in  errors::
 
@@ -229,26 +234,26 @@ error like all other unknown variables.
      - Python equivalent
      - Sample values
    * - ``os_name``
-     - ``os.name``
+     - :py:data:`os.name`
      - ``posix``, ``java``
    * - ``sys_platform``
-     - ``sys.platform``
+     - :py:data:`sys.platform`
      - ``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that "linux"
        is from Python3 and "linux2" from Python2)
    * - ``platform_machine``
-     - ``platform.machine()``
+     - :py:func:`platform.machine()`
      - ``x86_64``
    * - ``platform_python_implementation``
-     - ``platform.python_implementation()``
+     - :py:func:`platform.python_implementation()`
      - ``CPython``, ``Jython``
    * - ``platform_release``
-     - ``platform.release()``
+     - :py:func:`platform.release()`
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
    * - ``platform_system``
-     - ``platform.system()``
+     - :py:func:`platform.system()`
      - ``Linux``, ``Windows``, ``Java``
    * - ``platform_version``
-     - ``platform.version()``
+     - :py:func:`platform.version()`
      - ``#1 SMP Fri Apr 25 13:07:35 EDT 2014``
        ``Java HotSpot(TM) 64-Bit Server VM, 25.51-b03, Oracle Corporation``
        ``Darwin Kernel Version 14.5.0: Wed Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``
@@ -256,10 +261,10 @@ error like all other unknown variables.
      - ``'.'.join(platform.python_version_tuple()[:2])``
      - ``3.4``, ``2.7``
    * - ``python_full_version``
-     - ``platform.python_version()``
+     - :py:func:`platform.python_version()`
      - ``3.4.0``, ``3.5.0b1``
    * - ``implementation_name``
-     - ``sys.implementation.name``
+     - :py:data:`sys.implementation.name <sys.implementation>`
      - ``cpython``
    * - ``implementation_version``
      - see definition below
@@ -270,7 +275,9 @@ error like all other unknown variables.
      - ``test``
 
 The ``implementation_version`` marker variable is derived from
-``sys.implementation.version``::
+:py:data:`sys.implementation.version <sys.implementation>`:
+
+.. code-block:: python
 
     def format_full_version(info):
         version = '{0.major}.{0.minor}.{0.micro}'.format(info)
@@ -397,7 +404,9 @@ The complete parsley grammar::
     sub_delims    = '!' | '$' | '&' | '\\'' | '(' | ')' | '*' | '+' | ',' | ';' | '='
     hexdig        = digit | 'a' | 'A' | 'b' | 'B' | 'c' | 'C' | 'd' | 'D' | 'e' | 'E' | 'f' | 'F'
 
-A test program - if the grammar is in a string ``grammar``::
+A test program - if the grammar is in a string ``grammar``:
+
+.. code-block:: python
 
     import os
     import sys
@@ -463,14 +472,12 @@ A test program - if the grammar is in a string ``grammar``::
         print("%s -> %s" % (test, parsed))
 
 
-Summary of changes to PEP 508
-=============================
+History
+=======
 
-The following changes were made based on feedback after its initial
-implementation:
-
-- The definition of ``python_version`` was changed from
-  ``platform.python_version()[:3]`` to
+- November 2015: This specification was approved through :pep:`508`.
+- July 2019: The definition of ``python_version`` was `changed
+  <python-version-change_>`_ from ``platform.python_version()[:3]`` to
   ``'.'.join(platform.python_version_tuple()[:2])``, to accommodate potential
   future versions of Python with 2-digit major and minor versions
   (e.g. 3.10). [#future_versions]_
@@ -489,3 +496,6 @@ References
    definition of Environment Marker Variable ``python_version``
    (https://github.com/python/peps/issues/560)
 
+
+
+.. _python-version-change: https://mail.python.org/pipermail/distutils-sig/2018-January/031920.html

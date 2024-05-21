@@ -18,10 +18,10 @@ example:
 
 The entry point file format was originally developed to allow packages built
 with setuptools to provide integration point metadata that would be read at
-runtime with ``importlib.metadata``. It is now defined as a PyPA interoperability
-specification in order to allow build tools other than setuptools to publish
-``importlib.metadata`` compatible entry point metadata, and runtime libraries other
-than ``importlib.metadata`` to portably read published entry point metadata
+runtime with :py:mod:`importlib.metadata`. It is now defined as a PyPA interoperability
+specification in order to allow build tools other than ``setuptools`` to publish
+:py:mod:`importlib.metadata` compatible entry point metadata, and runtime libraries other
+than :py:mod:`importlib.metadata` to portably read published entry point metadata
 (potentially with different caching and conflict resolution strategies).
 
 Data model
@@ -81,8 +81,9 @@ File format
 
 Entry points are defined in a file called :file:`entry_points.txt` in the
 :file:`*.dist-info` directory of the distribution. This is the directory
-described in :pep:`376` for installed distributions, and in :pep:`427` for
-wheels.  The file uses the UTF-8 character encoding.
+described in :ref:`recording-installed-packages` for installed distributions,
+and in :ref:`binary-distribution-format` for wheels.
+The file uses the UTF-8 character encoding.
 
 The file contents are in INI format, as read by Python's :mod:`configparser`
 module. However, configparser treats names as case-insensitive by default,
@@ -110,7 +111,9 @@ restrictions on values specified in :pep:`685`.
 For tools writing the file, it is recommended only to insert a space between the
 object reference and the left square bracket.
 
-For example::
+For example:
+
+.. code-block:: ini
 
     [console_scripts]
     foo = foomod:main
@@ -141,11 +144,11 @@ For instance, the entry point ``mycmd = mymod:main`` would create a command
 
 The difference between ``console_scripts`` and ``gui_scripts`` only affects
 Windows systems. ``console_scripts`` are wrapped in a console executable,
-so they are attached to a console and can use ``sys.stdin``, ``sys.stdout`` and
-``sys.stderr`` for input and output. ``gui_scripts`` are wrapped in a GUI
-executable, so they can be started without a console, but cannot use standard
-streams unless application code redirects them. Other platforms do not have the
-same distinction.
+so they are attached to a console and can use :py:data:`sys.stdin`,
+:py:data:`sys.stdout` and :py:data:`sys.stderr` for input and output.
+``gui_scripts`` are wrapped in a GUI executable, so they can be started without
+a console, but cannot use standard streams unless application code redirects them.
+Other platforms do not have the same distinction.
 
 Install tools are expected to set up wrappers for both ``console_scripts`` and
 ``gui_scripts`` in the scripts directory of the install scheme. They are not
@@ -155,3 +158,14 @@ which defines where command-line tools are found.
 As files are created from the names, and some filesystems are case-insensitive,
 packages should avoid using names in these groups which differ only in case.
 The behaviour of install tools when names differ only in case is undefined.
+
+
+History
+=======
+
+- October 2017: This specification was written to formalize the existing
+  entry points feature of setuptools (discussion_).
+
+
+
+.. _discussion: https://mail.python.org/pipermail/distutils-sig/2017-October/031585.html

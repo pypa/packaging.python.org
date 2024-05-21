@@ -1,3 +1,5 @@
+.. highlight:: text
+
 .. _recording-installed-packages:
 
 ============================
@@ -17,20 +19,6 @@ files in a format specific to Python tooling, it should still record the name
 and version of the installed project.
 
 
-History and change workflow
-===========================
-
-The metadata described here was first specified in :pep:`376`, and later
-amended in :pep:`627`.
-It was formerly known as *Database of Installed Python Distributions*.
-Further amendments (except trivial language or typography fixes) must be made
-through the PEP process (see :pep:`1`).
-
-While this document is the normative specification, these PEPs that introduce
-changes to it may include additional information such as rationales and
-backwards compatibility considerations.
-
-
 The .dist-info directory
 ========================
 
@@ -40,12 +28,11 @@ packages (commonly, the ``site-packages`` directory).
 
 This directory is named as ``{name}-{version}.dist-info``, with ``name`` and
 ``version`` fields corresponding to :ref:`core-metadata`. Both fields must be
-normalized (see :pep:`PEP 503 <503#normalized-names>` and
-:pep:`PEP 440 <440#normalization>` for the definition of normalization for
-each field respectively), and replace dash (``-``) characters with
-underscore (``_``) characters, so the ``.dist-info`` directory always has
-exactly one dash (``-``) character in its stem, separating the ``name`` and
-``version`` fields.
+normalized (see the :ref:`name normalization specification <name-normalization>`
+and the :ref:`version normalization specification <version-specifiers-normalization>`),
+and replace dash (``-``) characters with underscore (``_``) characters,
+so the ``.dist-info`` directory always has exactly one dash (``-``) character in
+its stem, separating the ``name`` and ``version`` fields.
 
 Historically, tools have failed to replace dot characters or normalize case in
 the ``name`` field, or not perform normalization in the ``version`` field.
@@ -57,21 +44,23 @@ encouraged to start normalizing those fields.
 
 .. note::
 
-    The ``.dist-info`` directory's name is formatted to unambigiously represent
+    The ``.dist-info`` directory's name is formatted to unambiguously represent
     a distribution as a filesystem path. Tools presenting a distribution name
     to a user should avoid using the normalized name, and instead present the
     specified name (when needed prior to resolution to an installed package),
     or read the respective fields in Core Metadata, since values listed there
     are unescaped and accurately reflect the distribution. Libraries should
     provide API for such tools to consume, so tools can have access to the
-    unnormalized name when displaying distrubution information.
+    unnormalized name when displaying distribution information.
 
-This ``.dist-info`` directory can contain these files, described in detail
-below:
+This ``.dist-info`` directory may contain the following files, described in
+detail below:
 
 * ``METADATA``: contains project metadata
 * ``RECORD``: records the list of installed files.
 * ``INSTALLER``: records the name of the tool used to install the project.
+* ``entry_points.txt``: see :ref:`entry-points` for details
+* ``direct_url.json``: see :ref:`direct-url` for details
 
 The ``METADATA`` file is mandatory.
 All other files may be omitted at the installing tool's discretion.
@@ -123,9 +112,9 @@ On Windows, directories may be separated either by forward- or backslashes
 (``/`` or ``\``).
 
 The *hash* is either an empty string or the name of a hash algorithm from
-``hashlib.algorithms_guaranteed``, followed by the equals character ``=`` and
+:py:data:`hashlib.algorithms_guaranteed`, followed by the equals character ``=`` and
 the digest of the file's contents, encoded with the urlsafe-base64-nopad
-encoding (``base64.urlsafe_b64encode(digest)`` with trailing ``=`` removed).
+encoding (:py:func:`base64.urlsafe_b64encode(digest) <base64.urlsafe_b64encode()>` with trailing ``=`` removed).
 
 The *size* is either the empty string, or file's size in bytes,
 as a base 10 integer.
@@ -169,9 +158,18 @@ Here is an example snippet of a possible ``RECORD`` file::
 
 If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must not
 attempt to uninstall or upgrade the package.
-(This does not apply to tools that rely on other sources of information,
+(This restriction does not apply to tools that rely on other sources of information,
 such as system package managers in Linux distros.)
 
+.. note::
+
+   It is *strongly discouraged* for an installed package to modify itself
+   (e.g., store cache files under its namespace in ``site-packages``).
+   Changes inside ``site-packages`` should be left to specialized installer
+   tools such as pip. If a package is nevertheless modified in this way,
+   then the ``RECORD`` must be updated, otherwise uninstalling the package
+   will leave unlisted files in place (possibly resulting in a zombie
+   namespace package).
 
 The INSTALLER file
 ==================
@@ -197,6 +195,18 @@ For example, if a tool is asked to uninstall a project but finds no ``RECORD``
 file, it may suggest that the tool named in ``INSTALLER`` may be able to do the
 uninstallation.
 
+
+The entry_points.txt file
+=========================
+
+This file MAY be created by installers to indicate when packages contain
+components intended for discovery and use by other code, including console
+scripts and other applications that the installer has made available for
+execution.
+
+Its detailed specification is at :ref:`entry-points`.
+
+
 The direct_url.json file
 ========================
 
@@ -207,3 +217,45 @@ This file MUST NOT be created when installing a distribution from an other type
 of requirement (i.e. name plus version specifier).
 
 Its detailed specification is at :ref:`direct-url`.
+
+
+Intentionally preventing changes to installed packages
+======================================================
+
+In some cases (such as when needing to manage external dependencies in addition
+to Python ecosystem dependencies), it is desirable for a tool that installs
+packages into a Python environment to ensure that other tools are not used to
+uninstall or otherwise modify that installed package, as doing so may cause
+compatibility problems with the wider environment.
+
+To achieve this, affected tools should take the following steps:
+
+* Rename or remove the ``RECORD`` file to prevent changes via other tools (e.g.
+  appending a suffix to create a non-standard ``RECORD.tool`` file if the tool
+  itself needs the information, or omitting the file entirely if the package
+  contents are tracked and managed via other means)
+* Write an ``INSTALLER`` file indicating the name of the tool that should be used
+  to manage the package (this allows ``RECORD``-aware tools to provide better
+  error notices when asked to modify affected packages)
+
+Python runtime providers may also prevent inadvertent modification of platform
+provided packages by modifying the default Python package installation scheme
+to use a location other than that used by platform provided packages (while also
+ensuring both locations appear on the default Python import path).
+
+In some circumstances, it may be desirable to block even installation of
+additional packages via Python-specific tools. For these cases refer to
+:ref:`externally-managed-environments`
+
+
+History
+=======
+
+- June 2009: The original version of this specification was approved through
+  :pep:`376`.  At the time, it was known as the *Database of Installed Python
+  Distributions*.
+- March 2020: The specification of the ``direct_url.json`` file was approved
+  through :pep:`610`. It is only mentioned on this page; see :ref:`direct-url`
+  for the full definition.
+- September 2020: Various amendments and clarifications were approved through
+  :pep:`627`.

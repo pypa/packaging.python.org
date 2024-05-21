@@ -4,9 +4,6 @@
 Installing scientific packages
 ==============================
 
-.. contents:: Contents
-   :local:
-
 
 Scientific software tends to have more complex dependencies than most, and
 it will often have multiple build options to take advantage of different
@@ -63,12 +60,6 @@ up a suitable environment to build extensions locally.
 
 The extensions provided in these installers are typically compatible with
 the CPython Windows installers published on python.org.
-
-For projects which don't provide their own Windows installers (and even
-some which do), Christoph Gohlke at the University of California provides
-a `collection of Windows installers
-<https://www.lfd.uci.edu/~gohlke/pythonlibs/>`__. Many Python users on
-Windows have reported a positive experience with these prebuilt versions.
 
 As with Linux system packages, the Windows installers will only install into a
 system Python installation - they do not support installation in virtual

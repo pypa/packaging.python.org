@@ -1,6 +1,6 @@
-===================================
-An Overview of Packaging for Python
-===================================
+============================
+Overview of Python Packaging
+============================
 
 .. Editors, see notes at the bottom of the document for maintenance info.
 
@@ -18,9 +18,6 @@ avoiding future headaches.
 This overview provides a general-purpose decision tree for reasoning
 about Python's plethora of packaging options. Read on to choose the best
 technology for your next project.
-
-.. contents:: Contents
-   :local:
 
 Thinking about deployment
 -------------------------
@@ -66,8 +63,8 @@ library.
 This is great for sharing simple scripts and snippets between people
 who both have compatible Python versions (such as via email,
 StackOverflow, or GitHub gists). There are even some entire Python
-libraries that offer this as an option, such as `bottle.py
-<https://bottlepy.org/docs/dev/>`_ and :doc:`boltons
+libraries that offer this as an option, such as
+:doc:`bottle.py<bottle:tutorial>` and :doc:`boltons
 <boltons:architecture>`.
 
 However, this pattern won't scale for projects that consist of
@@ -95,7 +92,7 @@ you can use Python's native packaging tools to create a *source*
 Python's *sdists* are compressed archives (``.tar.gz`` files)
 containing one or more packages or modules. If your code is
 pure-Python, and you only depend on other Python packages, you can
-:doc:`go here to learn more <python:distutils/sourcedist>`.
+go to the :ref:`source-distribution-format` specification to learn more.
 
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
@@ -167,7 +164,7 @@ Python's native packaging is mostly built for distributing reusable
 code, called libraries, between developers. You can piggyback
 **tools**, or basic applications for developers, on top of Python's
 library packaging, using technologies like
-:doc:`setuptools entry_points <userguide/entry_point>`.
+:doc:`setuptools entry_points <setuptools:userguide/entry_point>`.
 
 Libraries are building blocks, not complete applications. For
 distributing applications, there's a whole new world of technologies
@@ -198,20 +195,12 @@ hood, you can always read the sections beyond.
 Service platforms
 *****************
 
-If you're developing for a "Platform-as-a-Service" or "PaaS" like
-Heroku or Google App Engine, you are going to want to follow their
-respective packaging guides.
-
-* `Heroku <https://devcenter.heroku.com/articles/getting-started-with-python>`_
-* `Google App Engine <https://cloud.google.com/appengine/docs/python/>`_
-* `PythonAnywhere <https://www.pythonanywhere.com/>`_
-* `OpenShift <https://blog.openshift.com/getting-started-python/>`_
-* "Serverless" frameworks like :gh:`Zappa <zappa/Zappa>`
-
-In all these setups, the platform takes care of packaging and
-deployment, as long as you follow their patterns. Most software does
-not fit one of these templates, hence the existence of all the other
-options below.
+If you're developing for a
+"`Platform-as-a-Service <https://en.wikipedia.org/wiki/Platform_as_a_service>`_"
+or "PaaS", you are going to want to follow their respective packaging
+guides. These types of platforms take care of packaging and deployment,
+as long as you follow their patterns. Most software does not fit one of
+these templates, hence the existence of all the other options below.
 
 If you're developing software that will be deployed to machines you
 own, users' personal computers, or any other arrangement, read on.
@@ -300,7 +289,7 @@ Bringing your own Python executable
 
 Computing as we know it is defined by the ability to execute
 programs. Every operating system natively supports one or more formats
-of program they can natively execute.
+of programs they can natively execute.
 
 There are many techniques and technologies which turn your Python
 program into one of these formats, most of which involve embedding the
@@ -357,7 +346,7 @@ mature approach, widespread in data center environments.
 
 These techniques are mostly reserved for larger scale deployments in
 data centers, though certain complex applications can benefit from
-this packaging. Technologies are Python agnostic, and include:
+this packaging. The technologies are Python agnostic, and include:
 
 * `Vagrant <https://www.vagrantup.com/>`_
 * `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats <openstack:user/formats>`

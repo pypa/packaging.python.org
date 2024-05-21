@@ -8,8 +8,11 @@ specific topic. If you're just trying to get stuff done, see
 .. toctree::
    :maxdepth: 1
 
+   versioning
    deploying-python-applications
    pip-vs-easy-install
    install-requires-vs-requirements
-   wheel-vs-egg
+   distribution-package-vs-import-package
+   package-formats
    src-layout-vs-flat-layout
+   setup-py-deprecated

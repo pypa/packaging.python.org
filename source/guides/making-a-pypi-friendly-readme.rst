@@ -58,10 +58,10 @@ such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdow
          py -m pip install --user --upgrade setuptools wheel twine
 
    The minimum required versions of the respective tools are:
-   
-    - ``setuptools >= 38.6.0``
-    - ``wheel >= 0.31.0``
-    - ``twine >= 1.11.0``
+
+   - ``setuptools >= 38.6.0``
+   - ``wheel >= 0.31.0``
+   - ``twine >= 1.11.0``
 
    It's recommended that you use ``twine`` to upload the project's distribution packages:
 

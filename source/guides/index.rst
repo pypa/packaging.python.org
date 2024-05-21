@@ -6,34 +6,10 @@ already familiar with the basics of Python packaging. If you're looking for an
 introduction to packaging, see :doc:`/tutorials/index`.
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Installing Packages:
+   :titlesonly:
 
-   installing-using-pip-and-virtual-environments
-   installing-stand-alone-command-line-tools
-   installing-using-linux-tools
-   installing-scientific-packages
-   index-mirrors-and-caches
-   hosting-your-own-index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Building and Publishing Projects:
-
-   distributing-packages-using-setuptools
-   using-manifest-in
-   single-sourcing-package-version
-   dropping-older-python-versions
-   packaging-binary-extensions
-   packaging-namespace-packages
-   creating-and-discovering-plugins
-   using-testpypi
-   making-a-pypi-friendly-readme
-   publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Miscellaneous:
-
+   section-install
+   section-build-and-publish
+   section-hosting
    tool-recommendations
    analyzing-pypi-package-downloads

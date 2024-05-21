@@ -4,12 +4,13 @@
 Single-sourcing the package version
 ===================================
 
+.. todo:: Update this page for build backends other than setuptools.
 
 There are many techniques to maintain a single source of truth for the version
 number of your project:
 
 #.  Read the file in :file:`setup.py` and get the version. Example (from `pip setup.py
-    <https://github.com/pypa/pip/blob/main/setup.py#L11>`_)::
+    <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::
 
         import codecs
         import os.path

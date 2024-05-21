@@ -82,9 +82,12 @@ For example, here is a table for using :ref:`hatch`:
     requires = ["hatchling"]
     build-backend = "hatchling.build"
 
-With such a table in the :file:`pyproject.toml` file, a "frontend" tool like
-:ref:`build` can run your chosen build tool's "backend" to create the build
-artifacts. Your build tool may also provide its own frontend. An install tool
+With such a table in the :file:`pyproject.toml` file,
+a ":term:`frontend <Build Frontend>`" tool like
+:ref:`build` can run your chosen
+build tool's ":term:`backend <Build Backend>`"
+to create the build artifacts.
+Your build tool may also provide its own frontend. An install tool
 like :ref:`pip` also acts as a frontend when it runs your build tool's backend
 to install from a source distribution.
 
@@ -93,11 +96,13 @@ required in the :file:`pyproject.toml` file. For example, you might specify:
 
 * a ``[project]`` table containing project
   :doc:`Core Metadata </specifications/core-metadata/>`
-  (name, version, author and so forth); see
-  :doc:`Declaring project metadata </specifications/declaring-project-metadata/>`
-  for more detail
+  (name, version, author and so forth),
 
-* a ``[tool]`` table containing tool-specific configuration options
+* a ``[tool]`` table containing tool-specific configuration options.
+
+Refer to the :ref:`pyproject.toml guide <writing-pyproject-toml>` for a
+complete guide to ``pyproject.toml`` configuration.
+
 
 Build artifacts
 ===============

@@ -1,0 +1,14 @@
+---
+
+name: Cron
+
+on:
+  schedule:
+  - cron: "0 6 * * *"  # daily at 6am
+
+jobs:
+  test:
+    if: github.repository_owner == 'pypa'  # suppress noise in forks
+    uses: ./.github/workflows/test.yml
+
+...

@@ -1,3 +1,4 @@
+.. highlight:: text
 
 .. _binary-distribution-format:
 
@@ -5,14 +6,8 @@
 Binary distribution format
 ==========================
 
-The binary distribution format (:term:`wheel <Wheel>`) was originally defined
-in :pep:`427`. The current version of the specification is here.
-
-
-Abstract
-========
-
-This PEP describes a built-package format for Python called "wheel".
+This page specifies the binary distribution format for Python packages,
+also called the wheel format.
 
 A wheel is a ZIP-format archive with a specially formatted file name and
 the ``.whl`` extension.  It contains a single distribution nearly as it
@@ -21,31 +16,6 @@ scheme.  Although a specialized installer is recommended, a wheel file
 may be installed by simply unpacking into site-packages with the standard
 'unzip' tool while preserving enough information to spread its contents
 out onto their final paths at any later time.
-
-
-PEP Acceptance
-==============
-
-This PEP was accepted, and the defined wheel version updated to 1.0, by
-Nick Coghlan on 16th February, 2013 [1]_
-
-
-Rationale
-=========
-
-Python needs a package format that is easier to install than sdist.
-Python's sdist packages are defined by and require the distutils and
-setuptools build systems, running arbitrary code to build-and-install,
-and re-compile, code just so it can be installed into a new
-virtualenv.  This system of conflating build-install is slow, hard to
-maintain, and hinders innovation in both build systems and installers.
-
-Wheel attempts to remedy these problems by providing a simpler
-interface between the build system and the installer.  The wheel
-binary package format frees installers from having to know about the
-build system, saves time by amortizing compile time over many
-installations, and removes the need to install a build system in the
-target environment.
 
 
 Details
@@ -114,6 +84,8 @@ Place ``.dist-info`` at the end of the archive.
 File Format
 -----------
 
+.. _wheel-file-name-spec:
+
 File name convention
 ''''''''''''''''''''
 
@@ -133,6 +105,23 @@ build tag
     empty tuple if unspecified, else sort as a two-item tuple with
     the first item being the initial digits as an ``int``, and the
     second item being the remainder of the tag as a ``str``.
+
+    A common use-case for build numbers is rebuilding a binary
+    distribution due to a change in the build environment,
+    like when using the manylinux image to build
+    distributions using pre-release CPython versions.
+
+    .. warning::
+
+        Build numbers are not a part of the distribution version and thus are difficult
+        to reference externally, especially so outside the Python ecosystem of tools and standards.
+        A common case where a distribution would need to referenced externally is when
+        resolving a security vulnerability.
+
+        Due to this limitation, new distributions which need to be referenced externally
+        **should not** use build numbers when building the new distribution.
+        Instead a **new distribution version** should be created for such cases.
+
 
 language implementation and version tag
     E.g. 'py27', 'py2', 'py3'.
@@ -161,12 +150,12 @@ this character cannot appear within any component. This is handled as follows:
 - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
   characters should be replaced with corresponding lowercase ones. This is
-  equivalent to :pep:`503` normalisation followed by replacing ``-`` with ``_``.
+  equivalent to regular :ref:`name normalization <name-normalization>` followed by replacing ``-`` with ``_``.
   Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
   uppercase letters, however, as these were allowed by an earlier version of
   this specification.
-- Version numbers should be normalised according to :pep:`440`. Normalised
-  version numbers cannot contain ``-``.
+- Version numbers should be normalised according to the :ref:`Version specifier
+  specification <version-specifiers>`. Normalised version numbers cannot contain ``-``.
 - The remaining components may not contain ``-`` characters, so no escaping
   is necessary.
 
@@ -299,7 +288,9 @@ or the installation will fail.
 If JSON web signatures are used, one or more JSON Web Signature JSON
 Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent
 to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of
-RECORD as the signature's JSON payload::
+RECORD as the signature's JSON payload:
+
+.. code-block:: json
 
     { "hash": "sha256=ADD-r2urObZHcxBW3Cr-vDCu5RJwT4CaRTHiFmbcIYY" }
 
@@ -319,33 +310,6 @@ See
 - https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-serialization-01
 - https://datatracker.ietf.org/doc/html/rfc7517
 - https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01
-
-
-Comparison to .egg
-------------------
-
-#. Wheel is an installation format; egg is importable.  Wheel archives
-   do not need to include .pyc and are less tied to a specific Python
-   version or implementation. Wheel can install (pure Python) packages
-   built with previous versions of Python so you don't always have to
-   wait for the packager to catch up.
-#. Wheel uses .dist-info directories; egg uses .egg-info.  Wheel is
-   compatible with the new world of Python packaging and the new
-   concepts it brings.
-#. Wheel has a richer file naming convention for today's
-   multi-implementation world.  A single wheel archive can indicate
-   its compatibility with a number of Python language versions and
-   implementations, ABIs, and system architectures.  Historically the
-   ABI has been specific to a CPython release, wheel is ready for the
-   stable ABI.
-#. Wheel is lossless.  The first wheel implementation bdist_wheel
-   always generates egg-info, and then converts it to a .whl.  It is
-   also possible to convert existing eggs and bdist_wininst
-   distributions.
-#. Wheel is versioned.  Every wheel file contains the version of the
-   wheel specification and the implementation that packaged it.
-   Hopefully the next migration can simply be to Wheel 2.0.
-#. Wheel is a reference to the other Python.
 
 
 FAQ
@@ -409,6 +373,8 @@ What's the deal with "purelib" vs. "platlib"?
     be at the root with the appropriate setting given for "Root-is-purelib".
 
 
+.. _binary-distribution-format-import-wheel:
+
 Is it possible to import Python code directly from a wheel file?
 ----------------------------------------------------------------
 
@@ -450,20 +416,13 @@ Is it possible to import Python code directly from a wheel file?
     aware that many projects will require a failure to be reproduced with
     a fully installed package before accepting it as a genuine bug.
 
-Changes
+
+History
 =======
 
-Since :pep:`427`, this specification has changed as follows:
-
-- The rules on escaping in wheel filenames were revised, to bring them into line
-  with what popular tools actually do (February 2021).
-
-
-References
-==========
-
-.. [1] PEP acceptance
-   (https://mail.python.org/pipermail/python-dev/2013-February/124103.html)
+- February 2013: This specification was approved through :pep:`427`.
+- February 2021: The rules on escaping in wheel filenames were revised, to bring
+  them into line with what popular tools actually do.
 
 
 Appendix
@@ -480,9 +439,3 @@ Example urlsafe-base64-nopad implementation::
     def urlsafe_b64decode_nopad(data):
         pad = b'=' * (4 - (len(data) & 3))
         return base64.urlsafe_b64decode(data + pad)
-
-
-Copyright
-=========
-
-This document has been placed into the public domain.

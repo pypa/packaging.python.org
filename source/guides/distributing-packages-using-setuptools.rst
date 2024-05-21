@@ -4,6 +4,9 @@
 Packaging and distributing projects
 ===================================
 
+:Page Status: Outdated
+:Last Reviewed: 2023-12-14
+
 This section covers some additional details on configuring, packaging and
 distributing Python projects with ``setuptools`` that aren't covered by the
 introductory tutorial in :doc:`/tutorials/packaging-projects`.  It still assumes
@@ -15,12 +18,10 @@ development as a whole.  For example, it does not provide guidance or tool
 recommendations for version control, documentation, or testing.
 
 For more reference material, see :std:doc:`Building and Distributing
-Packages <userguide/index>` in the :ref:`setuptools` docs, but note
+Packages <setuptools:userguide/index>` in the :ref:`setuptools` docs, but note
 that some advisory content there may be outdated. In the event of
 conflicts, prefer the advice in the Python Packaging User Guide.
 
-.. contents:: Contents
-   :local:
 
 
 Requirements for packaging and distributing
@@ -72,7 +73,7 @@ sample project <https://github.com/pypa/sampleproject>`_.
 
 2. It's the command line interface for running various commands that
    relate to packaging tasks. To get a listing of available commands, run
-   ``python setup.py --help-commands``.
+   ``python3 setup.py --help-commands``.
 
 
 setup.cfg
@@ -155,207 +156,21 @@ As mentioned above, the primary feature of :file:`setup.py` is that it contains
 a global ``setup()`` function.  The keyword arguments to this function are how
 specific details of your project are defined.
 
-The most relevant arguments are explained below. Most of the snippets given are
+Some are temporarily explained below until their information is moved elsewhere.
+The full list can be found :doc:`in the setuptools documentation
+<setuptools:references/keywords>`.
+
+Most of the snippets given are
 taken from the `setup.py
 <https://github.com/pypa/sampleproject/blob/db5806e0a3204034c51b1c00dde7d5eb3fa2532e/setup.py>`_ contained in the
 `PyPA sample project <https://github.com/pypa/sampleproject>`_.
 
 
-.. _`setup() name`:
-
-``name``
-~~~~~~~~
-
-::
-
-  name='sample',
-
-This is the name of your project, determining how your project is listed on
-:term:`PyPI <Python Package Index (PyPI)>`.  Per :pep:`508`, valid project
-names must:
-
-- Consist only of ASCII letters, digits, underscores (``_``), hyphens (``-``),
-  and/or periods (``.``), and
-- Start & end with an ASCII letter or digit.
-
-Comparison of project names is case insensitive and treats arbitrarily-long
-runs of underscores, hyphens, and/or periods as equal.  For example, if you
-register a project named ``cool-stuff``, users will be able to download it or
-declare a dependency on it using any of the following spellings::
-
-    Cool-Stuff
-    cool.stuff
-    COOL_STUFF
-    CoOl__-.-__sTuFF
-
-
-``version``
-~~~~~~~~~~~
-
-::
-
-  version='1.2.0',
-
-This is the current version of your project, allowing your users to determine whether or not
-they have the latest version, and to indicate which specific versions they've tested their own
-software against.
-
-Versions are displayed on :term:`PyPI <Python Package Index (PyPI)>` for each release if you
-publish your project.
 
 See :ref:`Choosing a versioning scheme` for more information on ways to use versions to convey
 compatibility information to your users.
 
-If the project code itself needs run-time access to the version, the simplest
-way is to keep the version in both :file:`setup.py` and your code. If you'd
-rather not duplicate the value, there are a few ways to manage this. See the
-":ref:`Single sourcing the version`" Advanced Topics section.
 
-.. _`description`:
-
-``description``
-~~~~~~~~~~~~~~~
-
-::
-
-  description='A sample Python project',
-  long_description=long_description,
-  long_description_content_type='text/x-rst',
-
-Give a short and long description for your project.
-
-These values will be displayed on :term:`PyPI <Python Package Index (PyPI)>`
-if you publish your project. On ``pypi.org``, the user interface displays
-``description`` in the grey banner and ``long_description`` in the section
-named "Project Description".
-
-``description`` is also displayed in lists of projects. For example, it's
-visible in the search results pages such as https://pypi.org/search/?q=jupyter,
-the front-page lists of trending projects and new releases, and the list of
-projects you maintain within your account profile (such as
-https://pypi.org/user/jaraco/).
-
-A `content type
-<https://packaging.python.org/specifications/core-metadata/#description-content-type-optional>`_
-can be specified with the ``long_description_content_type`` argument, which can
-be one of ``text/plain``, ``text/x-rst``, or ``text/markdown``, corresponding
-to no formatting, `reStructuredText (reST)
-<https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#reference-names>`_,
-and the Github-flavored Markdown dialect of `Markdown
-<https://daringfireball.net/projects/markdown/>`_ respectively.
-
-``url``
-~~~~~~~
-
-::
-
-  url='https://github.com/pypa/sampleproject',
-
-
-Give a homepage URL for your project.
-
-
-``author``
-~~~~~~~~~~
-
-::
-
-  author='A. Random Developer',
-  author_email='author@example.com',
-
-Provide details about the author.
-
-
-``license``
-~~~~~~~~~~~
-
-::
-
-  license='MIT',
-
-The ``license`` argument doesn't have to indicate the license under
-which your package is being released, although you may optionally do
-so if you want.  If you're using a standard, well-known license, then
-your main indication can and should be via the ``classifiers``
-argument. Classifiers exist for all major open-source licenses.
-
-The ``license`` argument is more typically used to indicate differences
-from well-known licenses, or to include your own, unique license. As a
-general rule, it's a good idea to use a standard, well-known license,
-both to avoid confusion and because some organizations avoid software
-whose license is unapproved.
-
-
-``classifiers``
-~~~~~~~~~~~~~~~
-
-::
-
-  classifiers=[
-      # How mature is this project? Common values are
-      #   3 - Alpha
-      #   4 - Beta
-      #   5 - Production/Stable
-      'Development Status :: 3 - Alpha',
-
-      # Indicate who your project is intended for
-      'Intended Audience :: Developers',
-      'Topic :: Software Development :: Build Tools',
-
-      # Pick your license as you wish (should match "license" above)
-      'License :: OSI Approved :: MIT License',
-
-      # Specify the Python versions you support here. In particular, ensure
-      # that you indicate whether you support Python 2, Python 3 or both.
-      'Programming Language :: Python :: 2',
-      'Programming Language :: Python :: 2.7',
-      'Programming Language :: Python :: 3',
-      'Programming Language :: Python :: 3.6',
-      'Programming Language :: Python :: 3.7',
-      'Programming Language :: Python :: 3.8',
-      'Programming Language :: Python :: 3.9',
-  ],
-
-Provide a list of classifiers that categorize your project. For a full listing,
-see https://pypi.org/classifiers/.
-
-Although the list of classifiers is often used to declare what Python versions
-a project supports, this information is only used for searching & browsing
-projects on PyPI, not for installing projects.  To actually restrict what
-Python versions a project can be installed on, use the :ref:`python_requires`
-argument.
-
-To prevent a package from being uploaded to PyPI, use the special
-``'Private :: Do Not Upload'`` classifier. PyPI will always reject packages with
-classifiers beginning with ``"Private ::'``.
-
-
-``keywords``
-~~~~~~~~~~~~
-
-::
-
-  keywords='sample setuptools development',
-
-List keywords that describe your project.
-
-
-``project_urls``
-~~~~~~~~~~~~~~~~
-
-::
-
-  project_urls={
-      'Documentation': 'https://packaging.python.org/tutorials/distributing-packages/',
-      'Funding': 'https://donate.pypi.org',
-      'Say Thanks!': 'http://saythanks.io/to/example',
-      'Source': 'https://github.com/pypa/sampleproject/',
-      'Tracker': 'https://github.com/pypa/sampleproject/issues',
-  },
-
-List additional relevant URLs about your project. This is the place to link to
-bug trackers, source repositories, or where to support package development.
-The string of the key is the exact text that will be displayed on PyPI.
 
 
 ``packages``
@@ -398,38 +213,6 @@ specification that is used to install its dependencies.
 
 For more on using "install_requires" see :ref:`install_requires vs Requirements files`.
 
-
-.. _python_requires:
-
-``python_requires``
-~~~~~~~~~~~~~~~~~~~
-
-If your project only runs on certain Python versions, setting the
-``python_requires`` argument to the appropriate :pep:`440` version specifier
-string will prevent :ref:`pip` from installing the project on other Python
-versions.  For example, if your package is for Python 3+ only, write::
-
-    python_requires='>=3',
-
-If your package is for Python 2.6, 2.7, and all versions of Python 3 starting
-with 3.3, write::
-
-    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*',
-
-And so on.
-
-.. note::
-
-    Support for this feature is relatively recent.  Your project's source
-    distributions and wheels (see :ref:`Packaging Your Project`) must be built
-    using at least version 24.2.0 of :ref:`setuptools` in order for the
-    ``python_requires`` argument to be recognized and the appropriate metadata
-    generated.
-
-    In addition, only versions 9.0.0 and higher of :ref:`pip` recognize the
-    ``python_requires`` metadata.  Users with earlier versions of pip will be
-    able to download & install projects on any Python version regardless of the
-    projects' ``python_requires`` values.
 
 
 .. _`Package Data`:
@@ -484,7 +267,7 @@ Each file name in ``files`` is interpreted relative to the :file:`setup.py`
 script at the top of the project source distribution.
 
 For more information see the distutils section on :ref:`Installing Additional Files
-<python:distutils-additional-files>`.
+<setuptools:distutils-additional-files>`.
 
 .. note::
 
@@ -498,169 +281,17 @@ For more information see the distutils section on :ref:`Installing Additional Fi
 ~~~~~~~~~~~
 
 Although ``setup()`` supports a :ref:`scripts
-<python:distutils-installing-scripts>`
+<setuptools:distutils-installing-scripts>`
 keyword for pointing to pre-made scripts to install, the recommended approach to
 achieve cross-platform compatibility is to use :ref:`console_scripts` entry
 points (see below).
 
-``entry_points``
-~~~~~~~~~~~~~~~~
-
-::
-
-  entry_points={
-    ...
-  },
-
-
-Use this keyword to specify any plugins that your project provides for any named
-entry points that may be defined by your project or others that you depend on.
-
-For more information, see the section on
-:ref:`Advertising Behavior <setuptools:dynamic discovery of services and plugins>`
-from the :ref:`setuptools` docs.
-
-The most commonly used entry point is "console_scripts" (see below).
-
-.. _`console_scripts`:
-
-``console_scripts``
-*******************
-
-::
-
-  entry_points={
-      'console_scripts': [
-          'sample=sample:main',
-      ],
-  },
-
-Use ``console_script``
-:ref:`entry points <setuptools:dynamic discovery of services and plugins>`
-to register your script interfaces. You can then let the toolchain handle the
-work of turning these interfaces into actual scripts [2]_.  The scripts will be
-generated during the install of your :term:`distribution <Distribution
-Package>`.
-
-For more information, see :doc:`Entry Points <setuptools:userguide/entry_point>`
-from the :doc:`setuptools docs <setuptools:index>`.
-
-.. _`Choosing a versioning scheme`:
 
 Choosing a versioning scheme
 ----------------------------
 
-Standards compliance for interoperability
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Different Python projects may use different versioning schemes based on the needs of that
-particular project, but all of them are required to comply with the flexible :pep:`public version
-scheme <440#public-version-identifiers>` specified
-in :pep:`440` in order to be supported in tools and libraries like ``pip``
-and ``setuptools``.
-
-Here are some examples of compliant version numbers::
-
-  1.2.0.dev1  # Development release
-  1.2.0a1     # Alpha Release
-  1.2.0b1     # Beta Release
-  1.2.0rc1    # Release Candidate
-  1.2.0       # Final Release
-  1.2.0.post1 # Post Release
-  15.10       # Date based release
-  23          # Serial release
-
-To further accommodate historical variations in approaches to version numbering,
-:pep:`440` also defines a comprehensive technique for :pep:`version
-normalisation <440#normalization>` that maps
-variant spellings of different version numbers to a standardised canonical form.
-
-Scheme choices
-~~~~~~~~~~~~~~
-
-Semantic versioning (preferred)
-*******************************
-
-For new projects, the recommended versioning scheme is based on `Semantic Versioning
-<https://semver.org/>`_, but adopts a different approach to handling pre-releases and
-build metadata.
-
-The essence of semantic versioning is a 3-part MAJOR.MINOR.MAINTENANCE numbering scheme,
-where the project author increments:
-
-1. MAJOR version when they make incompatible API changes,
-2. MINOR version when they add functionality in a backwards-compatible manner, and
-3. MAINTENANCE version when they make backwards-compatible bug fixes.
-
-Adopting this approach as a project author allows users to make use of :pep:`"compatible release"
-<440#compatible-release>` specifiers, where
-``name ~= X.Y`` requires at least release X.Y, but also allows any later release with
-a matching MAJOR version.
-
-Python projects adopting semantic versioning should abide by clauses 1-8 of the
-`Semantic Versioning 2.0.0 specification <https://semver.org/>`_.
-
-Date based versioning
-*********************
-
-Semantic versioning is not a suitable choice for all projects, such as those with a regular
-time based release cadence and a deprecation process that provides warnings for a number of
-releases prior to removal of a feature.
-
-A key advantage of date based versioning is that it is straightforward to tell how old the
-base feature set of a particular release is given just the version number.
-
-Version numbers for date based projects typically take the form of YEAR.MONTH (for example,
-``12.04``, ``15.10``).
-
-Serial versioning
-*****************
-
-This is the simplest possible versioning scheme, and consists of a single number which is
-incremented every release.
-
-While serial versioning is very easy to manage as a developer, it is the hardest to track
-as an end user, as serial version numbers convey little or no information regarding API
-backwards compatibility.
-
-Hybrid schemes
-**************
-
-Combinations of the above schemes are possible. For example, a project may combine date
-based versioning with serial versioning to create a YEAR.SERIAL numbering scheme that
-readily conveys the approximate age of a release, but doesn't otherwise commit to a particular
-release cadence within the year.
-
-Pre-release versioning
-~~~~~~~~~~~~~~~~~~~~~~
-
-Regardless of the base versioning scheme, pre-releases for a given final release may be
-published as:
-
-* zero or more dev releases (denoted with a ".devN" suffix)
-* zero or more alpha releases (denoted with a ".aN" suffix)
-* zero or more beta releases (denoted with a ".bN" suffix)
-* zero or more release candidates (denoted with a ".rcN" suffix)
-
-``pip`` and other modern Python package installers ignore pre-releases by default when
-deciding which versions of dependencies to install.
-
-
-Local version identifiers
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Public version identifiers are designed to support distribution via
-:term:`PyPI <Python Package Index (PyPI)>`. Python's software distribution tools also support
-the notion of a :pep:`local version identifier
-<440#local-version-identifiers>`, which can be used to
-identify local development builds not intended for publication, or modified variants of a release
-maintained by a redistributor.
-
-A local version identifier takes the form ``<public version identifier>+<local version label>``.
-For example::
-
-   1.2.0.dev1+hg.5.b11e5e6f0b0b  # 5th VCS commit since 1.2.0.dev1 release
-   1.2.1+fedora.4                # Package with downstream Fedora patches applied
+See :ref:`versioning` for information on common version schemes and how to
+choose between them.
 
 
 Working in "development mode"
@@ -677,7 +308,7 @@ Change directory to the root of the project directory and run:
 
 .. code-block:: bash
 
-   python -m pip install -e .
+   python3 -m pip install -e .
 
 
 The pip command-line flag ``-e`` is short for ``--editable``, and ``.`` refers
@@ -693,7 +324,7 @@ you want "bar" installed from VCS in editable mode, then you could construct a
 requirements file like so::
 
   -e .
-  -e git+https://somerepo/bar.git#egg=bar
+  -e bar @ git+https://somerepo/bar.git
 
 The first line says to install your project and any dependencies. The second
 line overrides the "bar" dependency, such that it's fulfilled from VCS, not
@@ -712,12 +343,12 @@ Lastly, if you don't want to install any dependencies at all, you can run:
 
 .. code-block:: bash
 
-   python -m pip install -e . --no-deps
+   python3 -m pip install -e . --no-deps
 
 
 For more information, see the
 :doc:`Development Mode <setuptools:userguide/development_mode>` section
-of the :doc:`setuptools docs <setuptools>`.
+of the :ref:`setuptools` docs.
 
 .. _`Packaging your project`:
 
@@ -812,7 +443,7 @@ To build the wheel:
 
     .. code-block:: bash
 
-        python -m build --wheel
+        python3 -m build --wheel
 
 .. tab:: Windows
 
@@ -959,10 +590,3 @@ your project to appear on the site.
        access. :ref:`pip` is currently considering changing this by `making user
        installs the default behavior
        <https://github.com/pypa/pip/issues/1668>`_.
-
-
-.. [2] Specifically, the "console_script" approach generates ``.exe`` files on
-       Windows, which are necessary because the OS special-cases ``.exe`` files.
-       Script-execution features like ``PATHEXT`` and the :pep:`Python Launcher for
-       Windows <397>` allow scripts to
-       be used in many cases, but not all.

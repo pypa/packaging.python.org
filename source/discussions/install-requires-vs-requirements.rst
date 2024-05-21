@@ -4,9 +4,6 @@
 install_requires vs requirements files
 ======================================
 
-.. contents:: Contents
-   :local:
-
 
 install_requires
 ----------------
@@ -38,8 +35,9 @@ v2 of 'B', so it would be like so:
     'B>=2'
  ]
 
-It may also be known that project A follows semantic versioning, and that v2 of
-'A' will indicate a break in compatibility, so it makes sense to not allow v2:
+It may also be known that project 'A' introduced a change in its v2
+that breaks the compatibility of your project with v2 of 'A' and later,
+so it makes sense to not allow v2:
 
 ::
 
