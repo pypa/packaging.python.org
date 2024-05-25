@@ -1,0 +1,213 @@
+.. _creating-command-line-tools:
+
+=========================================
+Creating and packaging command-line tools
+=========================================
+
+This guide will walk you through creating and packaging a standalone command-line application
+that can be installed with :ref:`pipx`, a tool creating and managing :term:`Python Virtual Environments <Virtual Environment>`
+and exposing the executable scripts of packages (and available manual pages) for use on the command-line.
+
+Creating the package
+====================
+
+First of all, we'll need to create a source tree for the :term:`project <Project>`. For the sake of an example, we'll
+create a simple tool outputting a greeting (a string) for a person based on arguments given on the command-line.
+
+.. todo:: Advise on the optimal structure of a Python package in another guide or discussion and link to it here.
+
+This project will adhere to :ref:`src-layout <src-layout-vs-flat-layout>` and in the end be alike this file tree,
+with the top-level folder and package name ``greetings``:
+
+::
+
+    .
+    ├── pyproject.toml
+    └── src
+        └── greetings
+            ├── cli.py
+            ├── greet.py
+            ├── __init__.py
+            └── __main__.py
+
+The actual code responsible for the tool's functionality will be stored in the file :file:`greet.py`,
+named after the main module:
+
+.. code-block:: python
+
+	def greet(name="", gender="", knight=False, count=1):
+	    greeting = "Greetings, dear "
+	    masculine = gender == "masculine"
+	    feminine = gender == "feminine"
+	    if gender or knight:
+	        salutation = ""
+	        if knight:
+	            salutation = "Sir "
+	        elif masculine:
+	            salutation = "Mr. "
+	        elif feminine:
+	            salutation = "Ms. "
+	        greeting += salutation
+	        if name:
+	            greeting += f"{name}!"
+	        else:
+	            pronoun = "her" if feminine else "his" if masculine or knight else "its"
+	            greeting += f"what's-{pronoun}-name!"
+	    else:
+	        if name:
+	            greeting += f"{name}!"
+	        elif not gender:
+	            greeting += "friend!"
+	    for i in range(0, count):
+	        print(greeting)
+
+The above function receives several keyword arguments that determine how the greeting to output is constructed.
+Now, the command-line interface to provision it with the same needs to be constructed, which is done
+in :file:`cli.py`:
+
+.. code-block:: python
+
+	import argparse
+	import sys
+
+	from .greet import greet
+
+	_arg_spec = {
+	    '--name': {
+	        'metavar': 'STRING',
+	        'type': str,
+	        'help': 'The (last, if "gender" is given) name of the person to greet',
+	    },
+	    '--count': {
+	        'metavar': 'INT',
+	        'type': int,
+	        'default': 1,
+	        'help': 'Number of times to greet the person',
+	    },
+
+	}
+	_arg_spec_mutually_exclusive = {
+	    '--gender': {
+	        'metavar': 'STRING',
+	        'type': str,
+	        'help': 'The gender of the person to greet',
+	    },
+	    '--knight': {
+	        'action': 'store_true',
+	        'default': False,
+	        'help': 'Whether the person is a knight',
+	    },
+	}
+
+
+	def main():
+	    parser = argparse.ArgumentParser(
+	        description="Greet a person (semi-)formally."
+	    )
+	    group = parser.add_mutually_exclusive_group()
+	    for arg, spec in _arg_spec.items():
+	        parser.add_argument(arg, **spec)
+	    for arg, spec in _arg_spec_mutually_exclusive.items():
+	        group.add_argument(arg, **spec)
+	    parsed_args = parser.parse_args()
+	    args = {
+	        arg: value
+	        for arg, value in vars(parsed_args).items()
+	        if value is not None
+	    }
+        # Run the function with the command-line arguments as keyword arguments.
+        # A more complex setup is normally initialized at this point.
+	    greet(**args)
+
+
+	if __name__ == "__main__":
+	    sys.exit(main())
+
+The command-line interface is built with :py:mod:`argparse`, a command-line parser which is included in Python's
+standard library. It is a bit rudimentary but sufficient for most needs. Another easy-to-use alternative is docopt_;
+advanced users are encouraged to make use of click_.
+
+We'll add an empty :file:`__init__.py` file, too, to define the project as a regular :term:`import package <Import Package>`.
+
+The file :file:`__main__.py` marks the main entry point for the application when running it via ``python -m greetings``,
+so we'll just initizalize the command-line interface here. The first condition isn't necessary, but may be added in order
+to make the package runnable directly from the source tree, by prepending the package folder to Python's :py:data:`sys.path`:
+
+.. code-block:: python
+
+	import os
+	import sys
+
+	if not __package__:
+        # Make package runnable from source tree with
+        #    python src/greetings
+	    package_source_path = os.path.dirname(os.path.dirname(__file__))
+	    sys.path.insert(0, package_source_path)
+
+	if __name__ == "__main__":
+	    from greetings.cli import main
+	    sys.exit(main())
+
+
+``pyproject.toml``
+------------------
+
+The project's :term:`metadata <Pyproject Metadata>` is placed in :term:`pyproject.toml`. The :term:`pyproject metadata keys <Pyproject Metadata Key>` and the ``[build-system]`` table may be filled in as described in :ref:`writing-pyproject-toml`.
+
+For the project to be recognised as a command-line tool, additionally a ``console_scripts`` :ref:`entry point <entry-points>` (see :ref:`console_scripts`) needs to be added as a :term:`subkey <Pyproject Metadata Subkey>`:
+
+.. code-block:: toml
+
+	[project.scripts]
+	greet = "greetings.cli:main"
+
+Besides, it could prove rewarding to add a ``pipx``-specific entry point, the meaning of which is described below:
+
+.. code-block:: toml
+
+	[project.entry-points."pipx.run"]
+	greetings = "greetings.cli:main"
+
+
+Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`,
+which makes it installable.
+
+
+Installing the package with ``pipx``
+====================================
+
+After installing ``pipx`` as described in :ref:`installing-stand-alone-command-line-tools`, you're ready to install your project:
+
+.. code-block:: console
+
+	$ pipx install ./greetings/
+
+This will expose the executable script we defined as an entry point and make the command ``greet`` available to you.
+Let's test it:
+
+.. code-block:: console
+
+	$ greet --knight --name Lancelot
+	Greetings, dear Sir Lancelot!
+	$ greet --gender feminine --name Parks
+	Greetings, dear Ms. Parks!
+	$ greet --gender masculine
+	Greetings, dear Mr. what's-his-name!
+
+To just run the program without installing it permanently, you could use ``pipx run``, which will create a temporary (but cached) virtual environment for it:
+
+.. code-block:: console
+
+	$ pipx run ./greetings/ --knight
+
+Thanks to the entry point we defined above (which *must* match the package name), ``pipx`` will pick up the executable script as the
+default one and run it; otherwise, you'd need to specify the entry point's name explicitly with ``pipx run --spec ./greetings/ greet --knight``.
+
+Conclusion
+==========
+
+You know by now how to package a command-line application written in Python. A further step could be to distribute you package,
+meaning uploading it to a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python Package Index (PyPI)>`. To do that, follow the instructions at :ref:`Packaging your project`. And once you're done, don't forget to :ref:`do some research <analyzing-pypi-package-downloads>` on how your package is received!
+
+.. _click: https://click.palletsprojects.com/
+.. _docopt: https://docopt.readthedocs.io/en/latest/
