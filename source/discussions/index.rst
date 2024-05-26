@@ -16,3 +16,4 @@ specific topic. If you're just trying to get stuff done, see
    package-formats
    src-layout-vs-flat-layout
    setup-py-deprecated
+   considerations_for_binary_wheels
