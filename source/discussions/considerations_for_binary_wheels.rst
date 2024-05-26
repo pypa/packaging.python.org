@@ -9,4 +9,4 @@ dependencies ("native dependencies"), the importance of the ABI (Application
 Binary Interface) of native code, dependency on SIMD code and cross
 compilation. In depth dicussion of these and many more topics and issues around
  native packaging is available at
- `pypackaging-native<https://pypackaging-native.github.io/>`.
+ `pypackaging-native<https://pypackaging-native.github.io/>`_.
