@@ -403,3 +403,15 @@ a Debian system, see the following articles:
 * `What are (c)python extension modules? <https://thomasnyberg.com/what_are_extension_modules.html>`_
 * `Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_
 * `Writing cpython extension modules using C++ <https://thomasnyberg.com/cpp_extension_modules.html>`_
+
+Additional considerations for binary wheels
+-------------------------------------------
+
+The `pypackaging-native <https://pypackaging-native.github.io/>`_ website has 
+additional coverage of packaging Python packages with native code. It aims to 
+provide an overview of the most important packaging issues for such projects, 
+with in-depth explanations and references.
+
+Topics cover for example non-Python compiled dependencies ("native dependencies"), 
+the importance of the ABI (Application Binary Interface) of native code, 
+dependency on SIMD code and cross compilation. 
