@@ -407,11 +407,11 @@ a Debian system, see the following articles:
 Additional considerations for binary wheels
 -------------------------------------------
 
-The `pypackaging-native <https://pypackaging-native.github.io/>`_ website has 
-additional coverage of packaging Python packages with native code. It aims to 
-provide an overview of the most important packaging issues for such projects, 
+The `pypackaging-native <https://pypackaging-native.github.io/>`_ website has
+additional coverage of packaging Python packages with native code. It aims to
+provide an overview of the most important packaging issues for such projects,
 with in-depth explanations and references.
 
-Example of topics are non-Python compiled dependencies ("native dependencies"), 
-the importance of the ABI (Application Binary Interface) of native code, 
-dependency on SIMD code and cross compilation. 
+Examples of topics covered are non-Python compiled dependencies ("native 
+dependencies"), the importance of the ABI (Application Binary Interface) of 
+native code, dependency on SIMD code and cross compilation.
