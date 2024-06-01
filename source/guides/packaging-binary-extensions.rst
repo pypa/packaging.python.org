@@ -412,6 +412,6 @@ additional coverage of packaging Python packages with native code. It aims to
 provide an overview of the most important packaging issues for such projects, 
 with in-depth explanations and references.
 
-Topics cover for example non-Python compiled dependencies ("native dependencies"), 
+Example of topics are non-Python compiled dependencies ("native dependencies"), 
 the importance of the ABI (Application Binary Interface) of native code, 
 dependency on SIMD code and cross compilation. 
