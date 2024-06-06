@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-15 16:02+0000\n"
+"POT-Creation-Date: 2024-05-20 11:49+0000\n"
 "PO-Revision-Date: 2024-04-28 16:07+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -27344,7 +27344,7 @@ msgstr ""
 "shell``."
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:504
+#: ../source/tutorials/packaging-projects.rst:506
 msgid "Next steps"
 msgstr "Следующие шаги"
 
@@ -27521,16 +27521,22 @@ msgstr ""
 "упрощает настройку и более очевидно для пользователей, устанавливающих пакет."
 
 #: ../source/tutorials/packaging-projects.rst:57
+#, fuzzy
+#| msgid ""
+#| ":file:`__init__.py` is recommended to import the directory as a regular "
+#| "package, even if as is our case for this tutorial that file is empty "
+#| "[#namespace-packages]_."
 msgid ""
-":file:`__init__.py` is recommended to import the directory as a regular "
-"package, even if as is our case for this tutorial that file is empty "
-"[#namespace-packages]_."
+"Creating the file :file:`__init__.py` is recommended because the existence "
+"of an :file:`__init__.py` file allows users to import the directory as a "
+"regular package, even if (as is the case in this tutorial) :file:`__init__."
+"py` is empty. [#namespace-packages]_"
 msgstr ""
 ":file:`__init__.py` рекомендуется импортировать каталог как обычный пакет, "
 "даже если, как в нашем случае в этом руководстве, этот файл пуст [#namespace-"
 "packages]_."
 
-#: ../source/tutorials/packaging-projects.rst:60
+#: ../source/tutorials/packaging-projects.rst:62
 msgid ""
 ":file:`example.py` is an example of a module within the package that could "
 "contain the logic (functions, classes, constants, etc.) of your package. "
@@ -27540,7 +27546,7 @@ msgstr ""
 "логику (функции, классы, константы и т.д.) вашего пакета. Откройте этот файл "
 "и введите следующее содержимое:"
 
-#: ../source/tutorials/packaging-projects.rst:69
+#: ../source/tutorials/packaging-projects.rst:71
 msgid ""
 "If you are unfamiliar with Python's :term:`modules <Module>` and :term:"
 "`import packages <Import Package>`, take a few minutes to read over the "
@@ -27550,7 +27556,7 @@ msgstr ""
 "<Import Package>`, потратьте несколько минут на чтение `документации Python "
 "по пакетам и модулям`_."
 
-#: ../source/tutorials/packaging-projects.rst:73
+#: ../source/tutorials/packaging-projects.rst:75
 msgid ""
 "Once you create this structure, you'll want to run all of the commands in "
 "this tutorial within the ``packaging_tutorial`` directory."
@@ -27558,11 +27564,11 @@ msgstr ""
 "Как только вы создадите эту структуру, вам нужно будет запустить все команды "
 "этого руководства в директории ``packaging_tutorial``."
 
-#: ../source/tutorials/packaging-projects.rst:81
+#: ../source/tutorials/packaging-projects.rst:83
 msgid "Creating the package files"
 msgstr "Создание файлов пакета"
 
-#: ../source/tutorials/packaging-projects.rst:83
+#: ../source/tutorials/packaging-projects.rst:85
 msgid ""
 "You will now add files that are used to prepare the project for "
 "distribution. When you're done, the project structure will look like this:"
@@ -27571,21 +27577,21 @@ msgstr ""
 "проекта к распространению. Когда вы закончите, структура проекта будет "
 "выглядеть следующим образом:"
 
-#: ../source/tutorials/packaging-projects.rst:101
+#: ../source/tutorials/packaging-projects.rst:103
 msgid "Creating a test directory"
 msgstr "Создание тестового каталога"
 
-#: ../source/tutorials/packaging-projects.rst:103
+#: ../source/tutorials/packaging-projects.rst:105
 msgid ":file:`tests/` is a placeholder for test files. Leave it empty for now."
 msgstr ""
 ":file:`tests/` - это заполнитель для тестовых файлов. Оставьте его пока "
 "пустым."
 
-#: ../source/tutorials/packaging-projects.rst:109
+#: ../source/tutorials/packaging-projects.rst:111
 msgid "Choosing a build backend"
 msgstr "Выбор бэкенда для сборки"
 
-#: ../source/tutorials/packaging-projects.rst:111
+#: ../source/tutorials/packaging-projects.rst:113
 msgid ""
 "Tools like :ref:`pip` and :ref:`build` do not actually convert your sources "
 "into a :term:`distribution package <Distribution Package>` (like a wheel); "
@@ -27607,7 +27613,7 @@ msgstr ""
 "term:`модулей расширения <Extension Module>`, и вы должны выбрать тот, "
 "который соответствует вашим потребностям и предпочтениям."
 
-#: ../source/tutorials/packaging-projects.rst:120
+#: ../source/tutorials/packaging-projects.rst:122
 msgid ""
 "You can choose from a number of backends; this tutorial uses :ref:`Hatchling "
 "<hatch>` by default, but it will work identically with :ref:`setuptools`, :"
@@ -27620,7 +27626,7 @@ msgstr ""
 "другими, которые поддерживают таблицу ``[project]`` для :ref:`metadata "
 "<configuring metadata>`."
 
-#: ../source/tutorials/packaging-projects.rst:127
+#: ../source/tutorials/packaging-projects.rst:129
 msgid ""
 "Some build backends are part of larger tools that provide a command-line "
 "interface with additional features like project initialization and version "
@@ -27633,7 +27639,7 @@ msgstr ""
 "загрузка и установка пакетов. В этом учебнике используются универсальные "
 "инструменты, работающие независимо друг от друга."
 
-#: ../source/tutorials/packaging-projects.rst:132
+#: ../source/tutorials/packaging-projects.rst:134
 msgid ""
 "The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` "
 "tools like :ref:`pip` and :ref:`build` which backend to use for your "
@@ -27646,7 +27652,7 @@ msgstr ""
 "сборки, но для получения более подробной информации обратитесь к "
 "документации по вашему бэкенду."
 
-#: ../source/tutorials/packaging-projects.rst:170
+#: ../source/tutorials/packaging-projects.rst:172
 msgid ""
 "The ``requires`` key is a list of packages that are needed to build your "
 "package. The :term:`frontend <Build Frontend>` should install them "
@@ -27662,7 +27668,7 @@ msgstr ""
 "привести к ошибкам во время сборки. Это всегда должно включать пакет вашего "
 "бэкенда и может иметь другие зависимости во время сборки."
 
-#: ../source/tutorials/packaging-projects.rst:177
+#: ../source/tutorials/packaging-projects.rst:179
 msgid ""
 "The ``build-backend`` key is the name of the Python object that frontends "
 "will use to perform the build."
@@ -27670,7 +27676,7 @@ msgstr ""
 "Ключ ``build-backend`` - это имя объекта Python, который фронтенды будут "
 "использовать для выполнения сборки."
 
-#: ../source/tutorials/packaging-projects.rst:180
+#: ../source/tutorials/packaging-projects.rst:182
 msgid ""
 "Both of these values will be provided by the documentation for your build "
 "backend, or generated by its command line interface. There should be no need "
@@ -27680,7 +27686,7 @@ msgstr ""
 "получить из его интерфейса командной строки. Вам не придется настраивать эти "
 "параметры."
 
-#: ../source/tutorials/packaging-projects.rst:184
+#: ../source/tutorials/packaging-projects.rst:186
 msgid ""
 "Additional configuration of the build tool will either be in a ``tool`` "
 "section of the ``pyproject.toml``, or in a special file defined by the build "
@@ -27696,11 +27702,11 @@ msgstr ""
 "файл ``setup.py`` или ``setup.cfg``, а указание ``setuptools.build_meta`` в "
 "вашей сборке позволяет инструментам автоматически находить и использовать их."
 
-#: ../source/tutorials/packaging-projects.rst:194
+#: ../source/tutorials/packaging-projects.rst:196
 msgid "Configuring metadata"
 msgstr "Конфигурирование метаданных"
 
-#: ../source/tutorials/packaging-projects.rst:196
+#: ../source/tutorials/packaging-projects.rst:198
 msgid ""
 "Open :file:`pyproject.toml` and enter the following content. Change the "
 "``name`` to include your username; this ensures that you have a unique "
@@ -27712,7 +27718,7 @@ msgstr ""
 "вас будет уникальное имя пакета, которое не будет конфликтовать с пакетами, "
 "загруженными другими людьми, следующими этому руководству."
 
-#: ../source/tutorials/packaging-projects.rst:222
+#: ../source/tutorials/packaging-projects.rst:224
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -27726,7 +27732,7 @@ msgstr ""
 "пользователя** для этого руководства, так как это гарантирует, что вы не "
 "попытаетесь загрузить пакет с тем же именем, что и уже существующий."
 
-#: ../source/tutorials/packaging-projects.rst:227
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "``version`` is the package version. (Some build backends allow it to be "
 "specified another way, such as from a file or Git tag.)"
@@ -27734,7 +27740,7 @@ msgstr ""
 "``version`` - это версия пакета. (Некоторые сборки позволяют указывать ее "
 "другим способом, например, из файла или Git-тега)"
 
-#: ../source/tutorials/packaging-projects.rst:229
+#: ../source/tutorials/packaging-projects.rst:231
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -27744,11 +27750,11 @@ msgstr ""
 "и email для каждого автора. В таком же формате можно перечислить "
 "``maintainers``."
 
-#: ../source/tutorials/packaging-projects.rst:232
+#: ../source/tutorials/packaging-projects.rst:234
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` - это краткое, в одно предложение, описание пакета."
 
-#: ../source/tutorials/packaging-projects.rst:233
+#: ../source/tutorials/packaging-projects.rst:235
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -27762,7 +27768,7 @@ msgstr ""
 "также более продвинутая форма таблицы, описанная в руководстве :ref:"
 "`pyproject.toml <writing-pyproject-toml>`."
 
-#: ../source/tutorials/packaging-projects.rst:238
+#: ../source/tutorials/packaging-projects.rst:240
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "An installer like :ref:`pip` will look back through older versions of "
@@ -27772,7 +27778,7 @@ msgstr ""
 "Программа установки, такая как :ref:`pip`, будет просматривать старые версии "
 "пакетов, пока не найдет ту, которая имеет соответствующую версию Python."
 
-#: ../source/tutorials/packaging-projects.rst:241
+#: ../source/tutorials/packaging-projects.rst:243
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -27790,7 +27796,7 @@ msgstr ""
 "будет работать. Полный список классификаторов можно найти на сайте https://"
 "pypi.org/classifiers/."
 
-#: ../source/tutorials/packaging-projects.rst:248
+#: ../source/tutorials/packaging-projects.rst:250
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -27799,7 +27805,7 @@ msgstr ""
 "которые нужно показать на PyPI. Обычно это могут быть ссылки на исходный "
 "текст, документацию, трекеры проблем и т.д."
 
-#: ../source/tutorials/packaging-projects.rst:251
+#: ../source/tutorials/packaging-projects.rst:253
 msgid ""
 "See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
 "these and other fields that can be defined in the ``[project]`` table. Other "
@@ -27811,11 +27817,11 @@ msgstr ""
 "распространенными полями являются ``ключевые слова'' для повышения удобства "
 "поиска и ``зависимости'', необходимые для установки вашего пакета."
 
-#: ../source/tutorials/packaging-projects.rst:258
+#: ../source/tutorials/packaging-projects.rst:260
 msgid "Creating README.md"
 msgstr "Создание файла :file:`README.md`"
 
-#: ../source/tutorials/packaging-projects.rst:260
+#: ../source/tutorials/packaging-projects.rst:262
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -27823,11 +27829,11 @@ msgstr ""
 "Откройте :file:`README.md` и введите следующее содержимое. Вы можете "
 "настроить его по своему усмотрению."
 
-#: ../source/tutorials/packaging-projects.rst:273
+#: ../source/tutorials/packaging-projects.rst:275
 msgid "Creating a LICENSE"
 msgstr "Создание файла :file:`LICENSE`"
 
-#: ../source/tutorials/packaging-projects.rst:275
+#: ../source/tutorials/packaging-projects.rst:277
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -27841,7 +27847,7 @@ msgstr ""
 "сайте https://choosealicense.com/. Выбрав лицензию, откройте :file:`LICENSE` "
 "и введите текст лицензии. Например, если вы выбрали лицензию MIT:"
 
-#: ../source/tutorials/packaging-projects.rst:304
+#: ../source/tutorials/packaging-projects.rst:306
 msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details."
@@ -27849,11 +27855,11 @@ msgstr ""
 "Большинство бэкендов сборки автоматически включают файлы лицензий в пакеты. "
 "Более подробную информацию можно найти в документации к вашему бэкенду."
 
-#: ../source/tutorials/packaging-projects.rst:309
+#: ../source/tutorials/packaging-projects.rst:311
 msgid "Including other files"
 msgstr "Включение других файлов"
 
-#: ../source/tutorials/packaging-projects.rst:311
+#: ../source/tutorials/packaging-projects.rst:313
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
@@ -27863,11 +27869,11 @@ msgstr ""
 "дистрибутив <Source Distribution (или \"sdist\")>`. Если вы хотите включить "
 "дополнительные файлы, обратитесь к документации по вашему бэкенду сборки."
 
-#: ../source/tutorials/packaging-projects.rst:318
+#: ../source/tutorials/packaging-projects.rst:320
 msgid "Generating distribution archives"
 msgstr "Создание архивов дистрибутивов"
 
-#: ../source/tutorials/packaging-projects.rst:320
+#: ../source/tutorials/packaging-projects.rst:322
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -27877,11 +27883,11 @@ msgstr ""
 "Package>` для пакета. Это архивы, которые загружаются в индекс пакетов "
 "Python и могут быть установлены с помощью :ref:`pip`."
 
-#: ../source/tutorials/packaging-projects.rst:324
+#: ../source/tutorials/packaging-projects.rst:326
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr "Убедитесь, что у вас установлена последняя версия PyPA :ref:`build`:"
 
-#: ../source/tutorials/packaging-projects.rst:338
+#: ../source/tutorials/packaging-projects.rst:340
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
@@ -27889,7 +27895,7 @@ msgstr ""
 "Если у вас возникли проблемы с их установкой, обратитесь к руководству :doc:"
 "`installing-packages`."
 
-#: ../source/tutorials/packaging-projects.rst:341
+#: ../source/tutorials/packaging-projects.rst:343
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -27897,7 +27903,7 @@ msgstr ""
 "Теперь запустите эту команду из той же директории, где находится :file:"
 "`pyproject.toml`:"
 
-#: ../source/tutorials/packaging-projects.rst:355
+#: ../source/tutorials/packaging-projects.rst:357
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -27905,7 +27911,7 @@ msgstr ""
 "Эта команда должна вывести много текста и по завершении создать два файла в "
 "каталоге :file:`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:367
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -27925,15 +27931,15 @@ msgstr ""
 "совместим ваш проект. В данном случае наш пример пакета совместим с Python "
 "на любой платформе, поэтому требуется только один собранный дистрибутив."
 
-#: ../source/tutorials/packaging-projects.rst:374
+#: ../source/tutorials/packaging-projects.rst:376
 msgid "Uploading the distribution archives"
 msgstr "Загрузка архивов дистрибутива"
 
-#: ../source/tutorials/packaging-projects.rst:376
+#: ../source/tutorials/packaging-projects.rst:378
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr "Наконец, пришло время загрузить ваш пакет в Python Package Index!"
 
-#: ../source/tutorials/packaging-projects.rst:378
+#: ../source/tutorials/packaging-projects.rst:380
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -27953,7 +27959,7 @@ msgstr ""
 "прежде чем вы сможете загружать пакеты.  Более подробную информацию можно "
 "найти в :doc:`/guides/using-testpypi`."
 
-#: ../source/tutorials/packaging-projects.rst:386
+#: ../source/tutorials/packaging-projects.rst:388
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -27966,7 +27972,7 @@ msgstr ""
 "аккаунт\". **Не закрывайте страницу, пока не скопируете и не сохраните токен "
 "- больше вы его не увидите**"
 
-#: ../source/tutorials/packaging-projects.rst:393
+#: ../source/tutorials/packaging-projects.rst:395
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -27974,14 +27980,14 @@ msgstr ""
 "Теперь, когда вы зарегистрированы, вы можете использовать :ref:`twine` для "
 "загрузки дистрибутива. Вам нужно будет установить Twine:"
 
-#: ../source/tutorials/packaging-projects.rst:408
+#: ../source/tutorials/packaging-projects.rst:410
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 "После установки запустите Twine, чтобы загрузить все архивы в папку :file:"
 "`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:422
+#: ../source/tutorials/packaging-projects.rst:424
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
@@ -27991,11 +27997,11 @@ msgstr ""
 "пользователя используйте ``__token__``. Для пароля используйте значение "
 "токена, включая префикс ``pypi-``."
 
-#: ../source/tutorials/packaging-projects.rst:426
+#: ../source/tutorials/packaging-projects.rst:428
 msgid "After the command completes, you should see output similar to this:"
 msgstr "После выполнения команды вы должны увидеть вывод, похожий на этот:"
 
-#: ../source/tutorials/packaging-projects.rst:437
+#: ../source/tutorials/packaging-projects.rst:439
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -28004,11 +28010,11 @@ msgstr ""
 "например: ``https://test.pypi.org/project/"
 "example_package_YOUR_USERNAME_HERE``."
 
-#: ../source/tutorials/packaging-projects.rst:442
+#: ../source/tutorials/packaging-projects.rst:444
 msgid "Installing your newly uploaded package"
 msgstr "Установка нового загруженного пакета"
 
-#: ../source/tutorials/packaging-projects.rst:444
+#: ../source/tutorials/packaging-projects.rst:446
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -28018,11 +28024,11 @@ msgstr ""
 "работоспособности. Создайте :ref:`виртуальную среду <Создание и "
 "использование виртуальных сред>` и установите свой пакет из TestPyPI:"
 
-#: ../source/tutorials/packaging-projects.rst:460
+#: ../source/tutorials/packaging-projects.rst:462
 msgid "Make sure to specify your username in the package name!"
 msgstr "Обязательно укажите свое имя пользователя в названии пакета!"
 
-#: ../source/tutorials/packaging-projects.rst:462
+#: ../source/tutorials/packaging-projects.rst:464
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
@@ -28030,7 +28036,7 @@ msgstr ""
 "pip должен установить пакет из TestPyPI, и результат должен выглядеть "
 "примерно так:"
 
-#: ../source/tutorials/packaging-projects.rst:472
+#: ../source/tutorials/packaging-projects.rst:474
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -28046,7 +28052,7 @@ msgstr ""
 "неожиданное. Хотя наш пример не имеет зависимостей, рекомендуется избегать "
 "установки зависимостей при использовании TestPyPI."
 
-#: ../source/tutorials/packaging-projects.rst:479
+#: ../source/tutorials/packaging-projects.rst:481
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -28055,18 +28061,18 @@ msgstr ""
 "Убедитесь, что вы все еще находитесь в виртуальной среде, а затем запустите "
 "Python:"
 
-#: ../source/tutorials/packaging-projects.rst:494
+#: ../source/tutorials/packaging-projects.rst:496
 msgid "and import the package:"
 msgstr "и импортировать пакет:"
 
-#: ../source/tutorials/packaging-projects.rst:506
+#: ../source/tutorials/packaging-projects.rst:508
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 "
 "✨"
 msgstr ""
 "**Поздравляем, вы упаковали и распространили проект на Python!** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:509
+#: ../source/tutorials/packaging-projects.rst:511
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -28078,7 +28084,7 @@ msgstr ""
 "времени удаляет пакеты и аккаунты. Лучше всего использовать TestPyPI для "
 "тестирования и экспериментов, подобных этому руководству."
 
-#: ../source/tutorials/packaging-projects.rst:514
+#: ../source/tutorials/packaging-projects.rst:516
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -28087,7 +28093,7 @@ msgstr ""
 "Когда вы будете готовы загрузить реальный пакет в Python Package Index, вы "
 "можете сделать все то же самое, что и в этом уроке, но с важными отличиями:"
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:520
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
@@ -28097,7 +28103,7 @@ msgstr ""
 "добавлять имя пользователя, как это было в учебнике, но нельзя использовать "
 "существующее имя."
 
-#: ../source/tutorials/packaging-projects.rst:520
+#: ../source/tutorials/packaging-projects.rst:522
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -28107,7 +28113,7 @@ msgstr ""
 "это два отдельных сервера и данные для входа с тестового сервера не "
 "передаются на основной сервер."
 
-#: ../source/tutorials/packaging-projects.rst:523
+#: ../source/tutorials/packaging-projects.rst:525
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -28119,7 +28125,7 @@ msgstr ""
 "Теперь, когда вы загружаете пакет в production, вам не нужно указывать ``--"
 "репозиторий``; пакет будет загружен на https://pypi.org/ по умолчанию."
 
-#: ../source/tutorials/packaging-projects.rst:527
+#: ../source/tutorials/packaging-projects.rst:529
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -28127,7 +28133,7 @@ msgstr ""
 "Установите свой пакет из настоящего PyPI с помощью ``python3 -m pip install "
 "[your-package]``."
 
-#: ../source/tutorials/packaging-projects.rst:529
+#: ../source/tutorials/packaging-projects.rst:531
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -28135,7 +28141,7 @@ msgstr ""
 "На этом этапе, если вы хотите прочитать больше об упаковке библиотек Python, "
 "вот некоторые вещи, которые вы можете сделать:"
 
-#: ../source/tutorials/packaging-projects.rst:532
+#: ../source/tutorials/packaging-projects.rst:534
 msgid ""
 "Read about advanced configuration for your chosen build backend: `Hatchling "
 "<hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
@@ -28145,7 +28151,7 @@ msgstr ""
 "`Hatchling <hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
 "pyproject_config>`, :doc:`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_."
 
-#: ../source/tutorials/packaging-projects.rst:536
+#: ../source/tutorials/packaging-projects.rst:538
 msgid ""
 "Look at the :doc:`guides </guides/index>` on this site for more advanced "
 "practical information, or the :doc:`discussions </discussions/index>` for "
@@ -28155,7 +28161,7 @@ msgstr ""
 "index>` на этом сайте или в :doc:`discussions </discussions/index>` для "
 "объяснений и справочной информации по конкретным темам."
 
-#: ../source/tutorials/packaging-projects.rst:539
+#: ../source/tutorials/packaging-projects.rst:541
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
@@ -28165,11 +28171,11 @@ msgstr ""
 "командной строки для управления проектом и упаковки, такие как :ref:"
 "`hatch`, :ref:`flit`, :ref:`pdm` и :ref:`poetry`."
 
-#: ../source/tutorials/packaging-projects.rst:547
+#: ../source/tutorials/packaging-projects.rst:549
 msgid "Notes"
 msgstr "Примечания"
 
-#: ../source/tutorials/packaging-projects.rst:549
+#: ../source/tutorials/packaging-projects.rst:551
 msgid ""
 "Technically, you can also create Python packages without an ``__init__.py`` "
 "file, but those are called :doc:`namespace packages </guides/packaging-"
