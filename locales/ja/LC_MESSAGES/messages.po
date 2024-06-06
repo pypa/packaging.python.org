@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-13 15:33+0000\n"
+"POT-Creation-Date: 2024-05-20 11:49+0000\n"
 "PO-Revision-Date: 2024-05-20 09:01+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3058,16 +3058,15 @@ msgstr "ビルドバックエンド"
 
 #: ../source/glossary.rst:17
 msgid ""
-"A library that takes a source tree or :term:`source distribution <Source "
-"Distribution (or \"sdist\")>` and builds a source distribution or :term:"
-"`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
+"A library that takes a source tree and builds a :term:`source distribution "
+"<Source Distribution (or \"sdist\")>` or :term:`built distribution <Built "
+"Distribution>` from it. The build is delegated to the backend by a :term:"
 "`frontend <Build Frontend>`. All backends offer a standardized interface."
 msgstr ""
-"ソースコードツリーや :term:`ソースコード配布物 <Source Distribution (or "
-"\"sdist\")>` を受け取って、そこからソースコード配布物や :term:`wheel "
-"<Wheel>` をビルドするライブラリ。ビルド自体は :term:`フロントエンド <Build "
-"Frontend>` によってバックエンドに任されます。すべてのバックエンドは標準化され"
-"たインターフェースを提供します。"
+"ソースコードツリーを受け取って、そこから :term:`ソースコード配布物 <Source "
+"Distribution (or \"sdist\")>` や :term:`ビルド済配布物 <Built Distribution>` "
+"をビルドするライブラリ。ビルドの作業は、 :term:`フロントエンド <Build "
+"Frontend>` によってバックエンドに委任されます。"
 
 #: ../source/glossary.rst:24
 msgid ""
@@ -3127,11 +3126,72 @@ msgstr ""
 "コンパイル済みの Python ファイル群を含まないようになっています)。より詳しく"
 "は :ref:`package-formats` を見てください。"
 
-#: ../source/glossary.rst:56 ../source/glossary.rst:89
+#: ../source/glossary.rst:56
+msgid "Built Metadata"
+msgstr "ビルドされたメタデータ"
+
+#: ../source/glossary.rst:59
+msgid ""
+"The concrete form :term:`Core Metadata` takes when included inside an "
+"installed :term:`Project` (``METADATA`` file) or a :term:`Distribution "
+"Archive` (``PKG-INFO`` in a :term:`Sdist <Source Distribution (or "
+"\"sdist\")>` and ``METADATA`` in a :term:`Wheel`)."
+msgstr ""
+"インストールされた :term:`プロジェクト <Project>` (``METADATA`` ファイル) "
+"や :term:`配布物アーカイブ <Distribution Archive>` (:term:`Sdist <Source "
+"Distribution (または \"sdist\")>` の中の ``PKG-INFO`` や :term:`Wheel` 内の "
+"``METADATA``) の内部に含まれる場合に :term:`コアとなるメタデータ <Core "
+"Metadata>` が具体的な形式を取ることになります。"
+
+#: ../source/glossary.rst:66
+msgid "Core Metadata"
+msgstr "コアとなるメタデータ"
+
+#: ../source/glossary.rst:69
+msgid ""
+"The :ref:`specification <core-metadata>` and the set of :term:`Core Metadata "
+"Field`\\s it defines that describe key static attributes of a :term:"
+"`Distribution Package` or :term:`Installed Project`."
+msgstr ""
+":ref:`仕様 <core-metadata>` および :term:`コアとなるメタデータのフィールド "
+"<Core Metadata Field`\\s において、 :term:`配布パッケージ <Distribution "
+"Package>` あるいは :term:`インストール済みのプロジェクト <Installed "
+"Project>` の鍵となる静的なアトリビュートを記述するものを定義しています。"
+
+#: ../source/glossary.rst:74
+msgid "Core Metadata Field"
+msgstr "コアとなるメタデータのフィールド"
+
+#: ../source/glossary.rst:77
+msgid ""
+"A single key-value pair (or sequence of such with the same name, for "
+"multiple-use fields) defined in the :term:`Core Metadata` spec and stored in "
+"the :term:`Built Metadata`. Notably, distinct from a :term:`Pyproject "
+"Metadata Key`."
+msgstr ""
+":term:`コアとなるメタデータ <Core Metadata>` の仕様の中で定義され、 :term:`ビ"
+"ルド済みのメタデータ <Built Metadata>` の中に保存される、単一のキー・バリュー"
+"ペア (または、複数の使用方法のあるフィールドについては、一連の同名のキー・バ"
+"リューペア)。特筆すべきことに、 :term:`Pyproject メタデータキー <Pyproject "
+"Metadata Key>` とは区別される。"
+
+#: ../source/glossary.rst:83
+msgid "Distribution Archive"
+msgstr "配布物アーカイブ"
+
+#: ../source/glossary.rst:86
+msgid ""
+"The physical distribution artifact (i.e. a file on disk) for a :term:"
+"`Distribution Package`."
+msgstr ""
+":term:`配布パッケージ <Distribution Package>` のための物理的な配布物のアー"
+"ティファクト (即ち、ディスク上のファイル)。"
+
+#: ../source/glossary.rst:89
 msgid "Distribution Package"
 msgstr "配布パッケージ"
 
-#: ../source/glossary.rst:59 ../source/glossary.rst:92
+#: ../source/glossary.rst:92
 msgid ""
 "A versioned archive file that contains Python :term:`packages <Import "
 "Package>`, :term:`modules <Module>`, and other resource files that are used "
@@ -3143,7 +3203,7 @@ msgstr ""
 "イルを内部に含むバージョン付きアーカイブファイル。アーカイブファイルはエンド"
 "ユーザがインターネットからダウンロードしてインストールするものです。"
 
-#: ../source/glossary.rst:64 ../source/glossary.rst:97
+#: ../source/glossary.rst:97
 msgid ""
 "A distribution package is more commonly referred to with the single words "
 "\"package\" or \"distribution\", but this guide may use the expanded term "
@@ -3161,11 +3221,11 @@ msgstr ""
 "の混同を避けるために明確に述べる必要がある場合には、長い方の用語を用いること"
 "があります。"
 
-#: ../source/glossary.rst:72 ../source/glossary.rst:105
+#: ../source/glossary.rst:105
 msgid "Egg"
 msgstr "卵"
 
-#: ../source/glossary.rst:75 ../source/glossary.rst:108
+#: ../source/glossary.rst:108
 msgid ""
 "A :term:`Built Distribution` format introduced by :ref:`setuptools`, which "
 "has been replaced by :term:`Wheel`.  For details, see :ref:`egg-format`."
@@ -3174,11 +3234,11 @@ msgstr ""
 "<Built Distribution>` フォーマットは、 :ref:`setuptools` によって導入されまし"
 "た。詳細については、 :ref:`egg フォーマット <egg-format>` を見てください。"
 
-#: ../source/glossary.rst:78 ../source/glossary.rst:111
+#: ../source/glossary.rst:111
 msgid "Extension Module"
 msgstr "拡張モジュール"
 
-#: ../source/glossary.rst:81 ../source/glossary.rst:114
+#: ../source/glossary.rst:114
 msgid ""
 "A :term:`Module` written in the low-level language of the Python "
 "implementation: C/C++ for Python, Java for Jython. Typically contained in a "
@@ -3192,11 +3252,11 @@ msgstr ""
 "ジェクトファイル(.so)、Windows上ではDLL(拡張子.pydを与えられる)のPython拡張、"
 "Jython拡張ではJavaのクラスファイルの形を取る。"
 
-#: ../source/glossary.rst:88 ../source/glossary.rst:121
+#: ../source/glossary.rst:121
 msgid "Known Good Set (KGS)"
 msgstr "既知の良好なセット"
 
-#: ../source/glossary.rst:91 ../source/glossary.rst:124
+#: ../source/glossary.rst:124
 msgid ""
 "A set of distributions at specified versions which are compatible with each "
 "other. Typically a test suite will be run which passes all tests before a "
@@ -3209,11 +3269,11 @@ msgstr ""
 "が既知の良好なセット(KGS)であると宣言されます。この用語は、個々の配布物を複数"
 "組み合わせて構成されるフレームワークやツールキットで共通して用いられます。"
 
-#: ../source/glossary.rst:97 ../source/glossary.rst:130
+#: ../source/glossary.rst:130
 msgid "Import Package"
 msgstr "インポートパッケージ"
 
-#: ../source/glossary.rst:100 ../source/glossary.rst:133
+#: ../source/glossary.rst:133
 msgid ""
 "A Python module which can contain other modules or recursively, other "
 "packages."
@@ -3221,7 +3281,7 @@ msgstr ""
 "直接に、あるいは何段階になっても良いが、他のパッケージを組み込んで使うような"
 "Pythonモジュール。"
 
-#: ../source/glossary.rst:103 ../source/glossary.rst:136
+#: ../source/glossary.rst:136
 msgid ""
 "An import package is more commonly referred to with the single word "
 "\"package\", but this guide will use the expanded term when more clarity is "
@@ -3234,11 +3294,26 @@ msgstr ""
 "term:`配布物パッケージ <Distribution Package>`との混同を避けるために必要な場"
 "合には、長い方の用語を用いることにします。"
 
-#: ../source/glossary.rst:108 ../source/glossary.rst:149
+#: ../source/glossary.rst:142
+msgid "Installed Project"
+msgstr "インストール済みのプロジェクト"
+
+#: ../source/glossary.rst:145
+msgid ""
+"A :term:`Project` that is installed for use with a Python interpreter or :"
+"term:`Virtual Environment`, as described in the specicifcation :ref:"
+"`recording-installed-packages`."
+msgstr ""
+":ref:`インストール済みパッケージを記録する <recording-installed-packages>` の"
+"仕様の中に記述されているところの、Python インタープリタまたは :term:`仮想環"
+"境 <Virtual Environment>` とともに用いられるべくインストールされた :term:`プ"
+"ロジェクト <Project>`。"
+
+#: ../source/glossary.rst:149
 msgid "Module"
 msgstr "モジュール"
 
-#: ../source/glossary.rst:111 ../source/glossary.rst:152
+#: ../source/glossary.rst:152
 msgid ""
 "The basic unit of code reusability in Python, existing in one of two types: :"
 "term:`Pure Module`, or :term:`Extension Module`."
@@ -3246,11 +3321,11 @@ msgstr ""
 "Pythonにおけるソースコード再利用の基本的な単位で、 :term:`Pure Module`か :"
 "term:`Extension Module`の二つのタイプのうちのいずれか。"
 
-#: ../source/glossary.rst:114 ../source/glossary.rst:155
+#: ../source/glossary.rst:155
 msgid "Package Index"
 msgstr "パッケージインデックス"
 
-#: ../source/glossary.rst:117 ../source/glossary.rst:158
+#: ../source/glossary.rst:158
 msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
@@ -3259,11 +3334,11 @@ msgstr ""
 "索・ダウンロードが適切か)を自動化するwebインターフェイスを伴った配布物のリポ"
 "ジトリ。"
 
-#: ../source/glossary.rst:120 ../source/glossary.rst:161
+#: ../source/glossary.rst:161
 msgid "Per Project Index"
 msgstr "プロジェクト単位の索引"
 
-#: ../source/glossary.rst:123 ../source/glossary.rst:164
+#: ../source/glossary.rst:164
 msgid ""
 "A private or other non-canonical :term:`Package Index` indicated by a "
 "specific :term:`Project` as the index preferred or required to resolve "
@@ -3273,12 +3348,12 @@ msgstr ""
 "に、:term:`プロジェクト <Project>`の単位で示された仲間内または非公式の :term:"
 "`パッケージ索引 <Package Index>`。"
 
-#: ../source/glossary.rst:127 ../source/guides/hosting-your-own-index.rst:62
-#: ../source/guides/index-mirrors-and-caches.rst:52 ../source/glossary.rst:168
+#: ../source/glossary.rst:168 ../source/guides/hosting-your-own-index.rst:62
+#: ../source/guides/index-mirrors-and-caches.rst:52
 msgid "Project"
 msgstr "プロジェクト"
 
-#: ../source/glossary.rst:130 ../source/glossary.rst:171
+#: ../source/glossary.rst:171
 msgid ""
 "A library, framework, script, plugin, application, or collection of data or "
 "other resources, or some combination thereof that is intended to be packaged "
@@ -3288,7 +3363,7 @@ msgstr ""
 "一連のデータもしくはその他のリソース、または、これらの組み合わせで :term:`配"
 "布物 <Distribution Package>`として意図的にパッケージされたもの。"
 
-#: ../source/glossary.rst:134 ../source/glossary.rst:175
+#: ../source/glossary.rst:175
 msgid ""
 "Since most projects create :term:`Distributions <Distribution Package>` "
 "using either :pep:`518` ``build-system``, :ref:`distutils` or :ref:"
@@ -3302,7 +3377,7 @@ msgstr ""
 "トのソースコードの一番上のディレクトリに :term:`pyproject.toml`や :term:"
 "`setup.py`または :term:`setup.cfg`のファイルを含む何ものかというものです。"
 
-#: ../source/glossary.rst:140 ../source/glossary.rst:181
+#: ../source/glossary.rst:181
 msgid ""
 "Python projects must have unique names, which are registered on :term:`PyPI "
 "<Python Package Index (PyPI)>`. Each project will then contain one or more :"
@@ -3315,7 +3390,7 @@ msgstr ""
 "ひとつまたはより多くの :term:`配布物 <Distribution Package>`を内包していま"
 "す。"
 
-#: ../source/glossary.rst:145 ../source/glossary.rst:186
+#: ../source/glossary.rst:186
 msgid ""
 "Note that there is a strong convention to name a project after the name of "
 "the package that is imported to run that project. However, this doesn't have "
@@ -3329,11 +3404,59 @@ msgstr ""
 "(訳註、「なんとか」とは無関係の別の名前の例)という名前でのみインポート可能な"
 "パッケージを提供することは可能です。"
 
-#: ../source/glossary.rst:151 ../source/glossary.rst:220
+#: ../source/glossary.rst:192
+msgid "Project Root Directory"
+msgstr "プロジェクトのルートディレクトリ"
+
+#: ../source/glossary.rst:195
+msgid ""
+"The filesystem directory in which a :term:`Project`'s :term:`source tree "
+"<Project Source Tree>` is located."
+msgstr ""
+":term:`プロジェクト <Project>` の :term:`ソースコードツリー <Project Source "
+"Tree>` が位置するファイルシステム上のディレクトリ。"
+
+#: ../source/glossary.rst:198
+msgid "Project Source Tree"
+msgstr "プロジェクトソースコードツリー"
+
+#: ../source/glossary.rst:201
+msgid ""
+"The on-disk format of a :term:`Project` used for development, containing its "
+"raw source code before being packaged into a :term:`Source Distribution "
+"<Source Distribution (or \"sdist\")>` or :term:`Built Distribution`."
+msgstr ""
+":term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` や :term:`ビ"
+"ルド済配布物 <Built Distribution>` にパッケージされる前の生のソースコードを含"
+"んだ、開発に使われる :term:`プロジェクト <Project>` のディスク上でのフォー"
+"マット。"
+
+#: ../source/glossary.rst:207
+msgid "Project Source Metadata"
+msgstr "プロジェクトソースのメタデータ"
+
+#: ../source/glossary.rst:210
+msgid ""
+"Metadata defined by the package author in a :term:`Project`'s :term:`source "
+"tree <Project Source Tree>`, to be transformed into :term:`Core Metadata "
+"field`\\s in the :term:`Built Metadata` by the project's :term:`build "
+"backend <Build Backend>`. Can be written as :term:`Pyproject Metadata`, or "
+"in a tool-specific format (under the ``[tool]`` table in ``pyproject.toml``, "
+"or in a tool's own configuration file)."
+msgstr ""
+":term:`プロジェクト <Project>` の :term:`ソースコードツリー <Project Source "
+"Tree>` 内でパッケージ作者が定義したメタデータで、プロジェクトの :term:`ビルド"
+"バックエンド <Build Backend>` が :term:`ビルド済メタデータ <Built Metadata>` "
+"内の :term:`コアとなるメタデータのフィールド <Core Metadata Field` へ変換する"
+"もの。 :term:`Pyproject のメタデータ <Pyproject Metadata>` の形か、ツール特有"
+"のフォーマット (``pyproject.toml`` 内の ``[tool]`` テーブル、または、ツール独"
+"自の設定ファイル) で書くことができます。"
+
+#: ../source/glossary.rst:220
 msgid "Pure Module"
 msgstr "純粋なモジュール"
 
-#: ../source/glossary.rst:154 ../source/glossary.rst:223
+#: ../source/glossary.rst:223
 msgid ""
 "A :term:`Module` written in Python and contained in a single ``.py`` file "
 "(and possibly associated ``.pyc`` and/or ``.pyo`` files)."
@@ -3341,11 +3464,56 @@ msgstr ""
 "Pythonで書かれていて単一の``.py``ファイル(とおそらくは対応する``.pyc``ファイ"
 "ルや``.pyo``ファイル)に収められた :term:`モジュール <Module>`。"
 
-#: ../source/glossary.rst:157 ../source/glossary.rst:250
+#: ../source/glossary.rst:226
+msgid "Pyproject Metadata"
+msgstr "Pyproject のメタデータ"
+
+#: ../source/glossary.rst:229
+msgid ""
+"The :term:`Project Source Metadata` format defined by the :ref:`declaring-"
+"project-metadata` specification and originally introduced in :pep:`621`, "
+"stored as :term:`Pyproject Metadata Key`\\s under the ``[project]`` table of "
+"a :term:`pyproject.toml` file. Notably, *not* a tool-specific source "
+"metadata format under the ``[tool]`` table in ``pyproject.toml``."
+msgstr ""
+"ref:`プロジェクトのメタデータを宣言する <declaring-project-metadata>` の仕様"
+"で定義されており、 :pep:`621` で初めて登場した :term:`プロジェクトソースのメ"
+"タデータ <Project Source Metadata>` のフォーマットで、 :term:`pyproject."
+"toml` ファイルの ``[project]`` テーブルの下の :term:`プロジェクトソースのメタ"
+"データ <Project Source Metadata>` として格納されるもの。 ``pyproject.toml`` "
+"内の ``[tool]`` テーブルの下にあるツール特有のソースメタデータでは *ない* と"
+"いうことに注意。"
+
+#: ../source/glossary.rst:237
+msgid "Pyproject Metadata Key"
+msgstr "Pyproject のメタデータキー"
+
+#: ../source/glossary.rst:240
+msgid ""
+"A top-level TOML key in the ``[project]`` table in ``pyproject.toml``; part "
+"of the :term:`Pyproject Metadata`. Notably, distinct from a :term:`Core "
+"Metadata Field`."
+msgstr ""
+"``pyproject.toml`` 内の ``[project]`` テーブルの中にあるトップレベルの TOML "
+"キー; :term:`Pyproject のメタデータ <Pyproject Metadata>` の一部。 :term:`コ"
+"アとなるメタデータのフィールド <Core Metadata Field` とは異なる点に注意。"
+
+#: ../source/glossary.rst:244
+msgid "Pyproject Metadata Subkey"
+msgstr "Pyproject のメタデータサブキー"
+
+#: ../source/glossary.rst:247
+msgid ""
+"A second-level TOML key under a table-valued :term:`Pyproject Metadata Key`."
+msgstr ""
+":term:`Pyproject メタデータのキー <Pyproject Metadata Key>` のテーブルの値の"
+"下にある第２層の TOML キー。"
+
+#: ../source/glossary.rst:250
 msgid "Python Packaging Authority (PyPA)"
 msgstr "Pythonパッケージングオーソリティ(PyPA)"
 
-#: ../source/glossary.rst:160 ../source/glossary.rst:253
+#: ../source/glossary.rst:253
 msgid ""
 "PyPA is a working group that maintains many of the relevant projects in "
 "Python packaging. They maintain a site at :doc:`pypa.io <pypa:index>`, host "
@@ -3362,11 +3530,11 @@ msgstr ""
 "`Python談話フォーラム <https://discuss.python.org/c/packaging>`__ で議論を進"
 "めています。"
 
-#: ../source/glossary.rst:169 ../source/glossary.rst:262
+#: ../source/glossary.rst:262
 msgid "Python Package Index (PyPI)"
 msgstr "Pythonパッケージインデックス (PyPI)"
 
-#: ../source/glossary.rst:172 ../source/glossary.rst:265
+#: ../source/glossary.rst:265
 msgid ""
 "`PyPI <https://pypi.org>`_ is the default :term:`Package Index` for the "
 "Python community. It is open to all Python developers to consume and "
@@ -3376,11 +3544,11 @@ msgstr ""
 "`Package Index`です。ここから配布物を取り出し、また、配布するためにすべての"
 "Python開発者に開かれています。"
 
-#: ../source/glossary.rst:175 ../source/glossary.rst:268
+#: ../source/glossary.rst:268
 msgid "pypi.org"
 msgstr "pypi.org"
 
-#: ../source/glossary.rst:178 ../source/glossary.rst:271
+#: ../source/glossary.rst:271
 msgid ""
 "`pypi.org <https://pypi.org>`_ is the domain name for the :term:`Python "
 "Package Index (PyPI)`. It replaced the legacy index domain name, ``pypi."
@@ -3390,22 +3558,22 @@ msgstr ""
 "(PyPI)` のためのドメイン名です。2017年にそれまでのドメイン名である ``pypi."
 "python.org`` を置き換えました。 :ref:`warehouse`を使っています。"
 
-#: ../source/glossary.rst:182 ../source/glossary.rst:275
+#: ../source/glossary.rst:275
 msgid "pyproject.toml"
 msgstr "pyproject.toml"
 
-#: ../source/glossary.rst:185 ../source/glossary.rst:278
+#: ../source/glossary.rst:278
 msgid ""
 "The tool-agnostic :term:`Project` specification file. Defined in :pep:`518`."
 msgstr ""
 "ツール不可知論者の :term:`プロジェクト <Project>` 仕様を示すファイル。 :pep:"
 "`518` で定義。"
 
-#: ../source/glossary.rst:187 ../source/glossary.rst:280
+#: ../source/glossary.rst:280
 msgid "Release"
 msgstr "リリース"
 
-#: ../source/glossary.rst:190 ../source/glossary.rst:283
+#: ../source/glossary.rst:283
 msgid ""
 "A snapshot of a :term:`Project` at a particular point in time, denoted by a "
 "version identifier."
@@ -3413,7 +3581,7 @@ msgstr ""
 "ある特定の時点における :term:`プロジェクト <Project>`のスナップショットで、"
 "バージョン識別子付きのもの。"
 
-#: ../source/glossary.rst:193 ../source/glossary.rst:286
+#: ../source/glossary.rst:286
 msgid ""
 "Making a release may entail the publishing of multiple :term:`Distributions "
 "<Distribution Package>`.  For example, if version 1.0 of a project was "
@@ -3425,11 +3593,11 @@ msgstr ""
 "らば、ソースコード配布物とWindowsインストーラ付配布物の両方が利用可能となって"
 "いるという具合です。"
 
-#: ../source/glossary.rst:198 ../source/glossary.rst:291
+#: ../source/glossary.rst:291
 msgid "Requirement"
 msgstr "要求事項"
 
-#: ../source/glossary.rst:201 ../source/glossary.rst:294
+#: ../source/glossary.rst:294
 msgid ""
 "A specification for a :term:`package <Distribution Package>` to be "
 "installed.  :ref:`pip`, the :term:`PYPA <Python Packaging Authority (PyPA)>` "
@@ -3442,11 +3610,11 @@ msgstr ""
 "`pip` では、「要求事項」とも解釈できる仕様を様々な様式で書くことを許容してい"
 "ます。詳細については、 :ref:`pip:pip install` の項を参照してください。"
 
-#: ../source/glossary.rst:207 ../source/glossary.rst:300
+#: ../source/glossary.rst:300
 msgid "Requirement Specifier"
 msgstr "要求事項識別子"
 
-#: ../source/glossary.rst:210 ../source/glossary.rst:303
+#: ../source/glossary.rst:303
 msgid ""
 "A format used by :ref:`pip` to install packages from a :term:`Package "
 "Index`. For an EBNF diagram of the format, see :ref:`dependency-specifiers`. "
@@ -3459,11 +3627,11 @@ msgstr ""
 "\"foo>=1.3\" は要求事項識別子であり、 \"foo\" の部分がプロジェクトの名称で、 "
 "\">=1.3\" の部分は :term:`バージョン指定子 <Version Specifier>` です"
 
-#: ../source/glossary.rst:215 ../source/glossary.rst:308
+#: ../source/glossary.rst:308
 msgid "Requirements File"
 msgstr "Requirementsファイル"
 
-#: ../source/glossary.rst:218 ../source/glossary.rst:311
+#: ../source/glossary.rst:311
 msgid ""
 "A file containing a list of :term:`Requirements <Requirement>` that can be "
 "installed using :ref:`pip`. For more information, see the :ref:`pip` docs "
@@ -3473,19 +3641,17 @@ msgstr ""
 "記したファイル。詳しい情報は、 :ref:`pip` のドキュメントの :ref:`pip:"
 "Requirementsファイル <pip:Requirements Files>` をみてください。"
 
-#: ../source/glossary.rst:222
-#: ../source/guides/distributing-packages-using-setuptools.rst:59
 #: ../source/glossary.rst:315
+#: ../source/guides/distributing-packages-using-setuptools.rst:59
 msgid "setup.py"
 msgstr "setup.py"
 
-#: ../source/glossary.rst:223
-#: ../source/guides/distributing-packages-using-setuptools.rst:80
 #: ../source/glossary.rst:316
+#: ../source/guides/distributing-packages-using-setuptools.rst:80
 msgid "setup.cfg"
 msgstr "setup.cfg"
 
-#: ../source/glossary.rst:226 ../source/glossary.rst:319
+#: ../source/glossary.rst:319
 msgid ""
 "The project specification files for :ref:`distutils` and :ref:`setuptools`. "
 "See also :term:`pyproject.toml`."
@@ -3493,11 +3659,11 @@ msgstr ""
 ":ref:`distutils`や :ref:`setuptools` で使われるプロジェクトの仕様を記したファ"
 "イル。 :term:`pyproject.toml`も見てください。"
 
-#: ../source/glossary.rst:229 ../source/glossary.rst:322
+#: ../source/glossary.rst:322
 msgid "Source Archive"
 msgstr "ソースコードアーカイブ"
 
-#: ../source/glossary.rst:232 ../source/glossary.rst:325
+#: ../source/glossary.rst:325
 msgid ""
 "An archive containing the raw source code for a :term:`Release`, prior to "
 "creation of a :term:`Source Distribution <Source Distribution (or "
@@ -3507,30 +3673,30 @@ msgstr ""
 "ルド配布物 <Built Distribution>` という用語を作る前には、:term:`リリース "
 "<Release>`向けに生のソースコードを収めたアーカイブのことをこう呼んでいた。"
 
-#: ../source/glossary.rst:236 ../source/glossary.rst:329
+#: ../source/glossary.rst:329
 msgid "Source Distribution (or \"sdist\")"
 msgstr ""
 "`ソースコード配布物 (またはsdist) <Source Distribution (or \"sdist\")>`"
 
-#: ../source/glossary.rst:239
+#: ../source/glossary.rst:332
 msgid ""
-"A :term:`distribution <Distribution Package>` format (usually generated "
+"A :term:`distribution <Distribution Archive>` format (usually generated "
 "using ``python -m build --sdist``) that provides metadata and the essential "
 "source files needed for installing by a tool like :ref:`pip`, or for "
 "generating a :term:`Built Distribution`. See :ref:`package-formats` for more "
 "information."
 msgstr ""
 ":ref:`pip` のようなツールによるインストールや :term:`ビルド済配布物 <Built "
-"Distribution>` の生成のために必要となるメタデータや基本的なソースコードファイ"
-"ル群を提供する :term:`配布物 <Distribution Package>` フォーマット (通常は "
+"Distribution>` の生成のために必要となるメタデータや必須のソースファイルを提供"
+"する :term:`配布物 アーカイブ <Distribution Archive>` フォーマット (通常は "
 "``python -m build --sdist`` を使って生成されます) 。もっと情報が欲しけれ"
 "ば、 :ref:`パッケージフォーマット <package-formats>` を見てください。"
 
-#: ../source/glossary.rst:245 ../source/glossary.rst:338
+#: ../source/glossary.rst:338
 msgid "System Package"
 msgstr "システムパッケージ"
 
-#: ../source/glossary.rst:248 ../source/glossary.rst:341
+#: ../source/glossary.rst:341
 msgid ""
 "A package provided in a format native to the operating system, e.g. an rpm "
 "or dpkg file."
@@ -3538,11 +3704,11 @@ msgstr ""
 "rpmやdpkgのように、オペレーティングシステムに固有のフォーマットで提供される"
 "パッケージ。"
 
-#: ../source/glossary.rst:251 ../source/glossary.rst:344
+#: ../source/glossary.rst:344
 msgid "Version Specifier"
 msgstr "バージョン指定子"
 
-#: ../source/glossary.rst:254 ../source/glossary.rst:347
+#: ../source/glossary.rst:347
 msgid ""
 "The version component of a :term:`Requirement Specifier`. For example, the "
 "\">=1.3\" portion of \"foo>=1.3\".  Read the :ref:`Version specifier "
@@ -3557,11 +3723,11 @@ msgstr ""
 "の仕様のサポートは、 :ref:`setuptools` v8.0 と :ref:`pip` v6.0 で実装されまし"
 "た。"
 
-#: ../source/glossary.rst:259 ../source/glossary.rst:352
+#: ../source/glossary.rst:352
 msgid "Virtual Environment"
 msgstr "仮想環境"
 
-#: ../source/glossary.rst:262 ../source/glossary.rst:355
+#: ../source/glossary.rst:355
 msgid ""
 "An isolated Python environment that allows packages to be installed for use "
 "by a particular application, rather than being installed system wide. For "
@@ -3573,24 +3739,44 @@ msgstr ""
 "環境の生成と使用 <Creating and using Virtual Environments`を参照してくださ"
 "い。"
 
-#: ../source/glossary.rst:266 ../source/glossary.rst:361
+#: ../source/glossary.rst:360
+msgid "Wheel Format"
+msgstr "Wheel フォーマット"
+
+#: ../source/glossary.rst:361
 msgid "Wheel"
 msgstr "Wheel"
 
-#: ../source/glossary.rst:269
+#: ../source/glossary.rst:364
 msgid ""
-"The standard :term:`Built Distribution` format. See :ref:`package-formats` "
-"for more information."
+"The standard :term:`Built Distribution` format originally introduced in :pep:"
+"`427` and defined by the :ref:`binary-distribution-format` specification. "
+"See :ref:`package-formats` for more information. Not to be confused with its "
+"reference implementation, the :term:`Wheel Project`."
 msgstr ""
-"標準的な :term:`ビルド済配布物 <Built Distribution>` フォーマット。更なる情報"
-"が知りたければ :ref:`パッケージフォーマット <package-format>` を見てくださ"
-"い。"
+"標準的な :term:`ビルド済配布物 <Built Distribution>` フォーマットで、当初は :"
+"pep:`427` で導入され、 :ref:`バイナリ配布物のフォーマット <binary-"
+"distribution-format>` 仕様で定義されたもの。詳しくは :ref:`パッケージフォー"
+"マット <package-formats>` を見てください。参照実装である :term:`Wheel プロ"
+"ジェクト <Wheel Project>` と混同しないように。"
 
-#: ../source/glossary.rst:271 ../source/glossary.rst:376
+#: ../source/glossary.rst:371
+msgid "Wheel Project"
+msgstr "Wheel プロジェクト"
+
+#: ../source/glossary.rst:374
+msgid ""
+"The PyPA reference implementation of the :term:`Wheel Format`; see :ref:"
+"`wheel`."
+msgstr ""
+":term:`Wheel フォーマット <Wheel Format>` の PyPA による参照実装; :ref:"
+"`wheel` 参照。"
+
+#: ../source/glossary.rst:376
 msgid "Working Set"
 msgstr "動作可能セット"
 
-#: ../source/glossary.rst:274 ../source/glossary.rst:379
+#: ../source/glossary.rst:379
 msgid ""
 "A collection of :term:`distributions <Distribution Package>` available for "
 "importing. These are the distributions that are on the `sys.path` variable. "
@@ -11112,7 +11298,6 @@ msgid "Dependencies and requirements"
 msgstr "依存関係と要求事項"
 
 #: ../source/guides/writing-pyproject-toml.rst:174
-#: ../source/specifications/pyproject-toml.rst:354
 #: ../source/specifications/pyproject-toml.rst:355
 msgid "``dependencies``/``optional-dependencies``"
 msgstr "``dependencies``/``optional-dependencies``"
@@ -11151,7 +11336,6 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:213
 #: ../source/specifications/pyproject-toml.rst:145
-#: ../source/specifications/pyproject-toml.rst:226
 #: ../source/specifications/pyproject-toml.rst:227
 msgid "``requires-python``"
 msgstr "``requires-python``"
@@ -11220,7 +11404,6 @@ msgid "About your project"
 msgstr "あなたのプロジェクトについて"
 
 #: ../source/guides/writing-pyproject-toml.rst:263
-#: ../source/specifications/pyproject-toml.rst:251
 #: ../source/specifications/pyproject-toml.rst:252
 msgid "``authors``/``maintainers``"
 msgstr "``authors``/``maintainers``"
@@ -11251,7 +11434,6 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:298
 #: ../source/specifications/pyproject-toml.rst:144
-#: ../source/specifications/pyproject-toml.rst:187
 #: ../source/specifications/pyproject-toml.rst:188
 msgid "``readme``"
 msgstr "``readme``"
@@ -11287,7 +11469,6 @@ msgstr "次のようにしてフォーマットを明示的に指定すること
 
 #: ../source/guides/writing-pyproject-toml.rst:325
 #: ../source/specifications/pyproject-toml.rst:140
-#: ../source/specifications/pyproject-toml.rst:236
 #: ../source/specifications/pyproject-toml.rst:237
 msgid "``license``"
 msgstr "``ライセンス``"
@@ -11322,7 +11503,6 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:350
 #: ../source/specifications/pyproject-toml.rst:139
-#: ../source/specifications/pyproject-toml.rst:293
 #: ../source/specifications/pyproject-toml.rst:294
 msgid "``keywords``"
 msgstr "``keywords``"
@@ -11337,7 +11517,6 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:364
 #: ../source/specifications/pyproject-toml.rst:133
-#: ../source/specifications/pyproject-toml.rst:303
 #: ../source/specifications/pyproject-toml.rst:304
 msgid "``classifiers``"
 msgstr "``分類詞 <classifiers>``"
@@ -11377,7 +11556,6 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:404
 #: ../source/specifications/pyproject-toml.rst:147
-#: ../source/specifications/pyproject-toml.rst:313
 #: ../source/specifications/pyproject-toml.rst:314
 msgid "``urls``"
 msgstr "``urls``"
@@ -15770,17 +15948,15 @@ msgstr ""
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
-#: ../source/specifications/inline-script-metadata.rst:211
+#: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:332
-#: ../source/specifications/pyproject-toml.rst:442
+#: ../source/specifications/pyproject-toml.rst:443
 #: ../source/specifications/recording-installed-packages.rst:252
 #: ../source/specifications/simple-repository-api.rst:974
 #: ../source/specifications/source-distribution-format.rst:144
 #: ../source/specifications/version-specifiers.rst:1264
 #: ../source/specifications/virtual-environments.rst:54
-#: ../source/specifications/pyproject-toml.rst:443
-#: ../source/specifications/inline-script-metadata.rst:213
 msgid "History"
 msgstr "歴史"
 
@@ -17089,7 +17265,6 @@ msgstr ""
 #: ../source/specifications/dependency-specifiers.rst:26
 #: ../source/specifications/direct-url-data-structure.rst:19
 #: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/inline-script-metadata.rst:11
 #: ../source/specifications/inline-script-metadata.rst:13
 msgid "Specification"
 msgstr "仕様"
@@ -19387,13 +19562,11 @@ msgstr ""
 "`pypa.io <https://www.pypa.io/en/latest/specifications/>`__ に文書化されてい"
 "ます。"
 
-#: ../source/specifications/inline-script-metadata.rst:3
 #: ../source/specifications/inline-script-metadata.rst:5
 #, fuzzy
 msgid "Inline script metadata"
 msgstr "プロジェクトのメタデータを宣言する"
 
-#: ../source/specifications/inline-script-metadata.rst:5
 #: ../source/specifications/inline-script-metadata.rst:7
 msgid ""
 "This specification defines a metadata format that can be embedded in single-"
@@ -19401,14 +19574,12 @@ msgid ""
 "may need to interact with such scripts."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:13
 #: ../source/specifications/inline-script-metadata.rst:15
 msgid ""
 "This specification defines a metadata comment block format (loosely inspired "
 "by `reStructuredText Directives`__)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:18
 #: ../source/specifications/inline-script-metadata.rst:20
 msgid ""
 "Any Python script may have top-level comment blocks that MUST start with the "
@@ -19420,7 +19591,6 @@ msgid ""
 "MUST only consist of ASCII letters, numbers and hyphens."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:26
 #: ../source/specifications/inline-script-metadata.rst:28
 msgid ""
 "Every line between these two lines (``# /// TYPE`` and ``# ///``) MUST be a "
@@ -19431,7 +19601,6 @@ msgid ""
 "of only a single ``#``)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:33
 #: ../source/specifications/inline-script-metadata.rst:35
 msgid ""
 "Precedence for an ending line ``# ///`` is given when the next line is not a "
@@ -19439,7 +19608,6 @@ msgid ""
 "is a single fully valid block:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:49
 #: ../source/specifications/inline-script-metadata.rst:51
 msgid ""
 "A starting line MUST NOT be placed between another starting line and its "
@@ -19447,14 +19615,12 @@ msgid ""
 "be ignored."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:52
 #: ../source/specifications/inline-script-metadata.rst:54
 msgid ""
 "When there are multiple comment blocks of the same ``TYPE`` defined, tools "
 "MUST produce an error."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:55
 #: ../source/specifications/inline-script-metadata.rst:57
 msgid ""
 "Tools reading embedded metadata MAY respect the standard Python encoding "
@@ -19462,47 +19628,40 @@ msgid ""
 "UTF-8."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:58
 #: ../source/specifications/inline-script-metadata.rst:60
 msgid ""
 "This is the canonical regular expression that MAY be used to parse the "
 "metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:65
 #: ../source/specifications/inline-script-metadata.rst:67
 msgid ""
 "In circumstances where there is a discrepancy between the text specification "
 "and the regular expression, the text specification takes precedence."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:68
 #: ../source/specifications/inline-script-metadata.rst:70
 msgid ""
 "Tools MUST NOT read from metadata blocks with types that have not been "
 "standardized by this specification."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:72
 #: ../source/specifications/inline-script-metadata.rst:74
 msgid "script type"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:74
 #: ../source/specifications/inline-script-metadata.rst:76
 msgid ""
 "The first type of metadata block is named ``script``, which contains script "
 "metadata (dependency data and tool configuration)."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:77
 #: ../source/specifications/inline-script-metadata.rst:79
 msgid ""
 "This document MAY include the top-level fields ``dependencies`` and "
 "``requires-python``, and MAY optionally include a ``[tool]`` table."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:80
 #: ../source/specifications/inline-script-metadata.rst:82
 msgid ""
 "The ``[tool]`` MAY be used by any tool, script runner or otherwise, to "
@@ -19510,12 +19669,10 @@ msgid ""
 "pyproject.toml <pyproject-tool-table>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:84
 #: ../source/specifications/inline-script-metadata.rst:86
 msgid "The top-level fields are:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:86
 #: ../source/specifications/inline-script-metadata.rst:88
 msgid ""
 "``dependencies``: A list of strings that specifies the runtime dependencies "
@@ -19523,7 +19680,6 @@ msgid ""
 "<dependency-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:89
 #: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
 "``requires-python``: A string that specifies the Python version(s) with "
@@ -19531,7 +19687,6 @@ msgid ""
 "`version specifier <version-specifiers>`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:93
 #: ../source/specifications/inline-script-metadata.rst:95
 msgid ""
 "Script runners MUST error if the specified ``dependencies`` cannot be "
@@ -19539,30 +19694,25 @@ msgid ""
 "the specified ``requires-python`` can be provided."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:98
 #: ../source/specifications/inline-script-metadata.rst:100
 msgid "Example"
 msgstr "例"
 
-#: ../source/specifications/inline-script-metadata.rst:100
 #: ../source/specifications/inline-script-metadata.rst:102
 msgid "The following is an example of a script with embedded metadata:"
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:121
 #: ../source/specifications/inline-script-metadata.rst:123
 #, fuzzy
 msgid "Reference Implementation"
 msgstr "文書の類型"
 
-#: ../source/specifications/inline-script-metadata.rst:123
 #: ../source/specifications/inline-script-metadata.rst:125
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:149
 #: ../source/specifications/inline-script-metadata.rst:151
 msgid ""
 "Often tools will edit dependencies like package managers or dependency "
@@ -19570,7 +19720,6 @@ msgid ""
 "content using the ``tomlkit`` library__."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:180
 #: ../source/specifications/inline-script-metadata.rst:182
 msgid ""
 "Note that this example used a library that preserves TOML formatting. This "
@@ -19578,21 +19727,18 @@ msgid ""
 "have\" feature."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:184
 #: ../source/specifications/inline-script-metadata.rst:186
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:203
-#: ../source/specifications/simple-repository-api.rst:815
 #: ../source/specifications/inline-script-metadata.rst:205
+#: ../source/specifications/simple-repository-api.rst:815
 #, fuzzy
 msgid "Recommendations"
 msgstr "オススメのツール"
 
-#: ../source/specifications/inline-script-metadata.rst:205
 #: ../source/specifications/inline-script-metadata.rst:207
 msgid ""
 "Tools that support managing different versions of Python should attempt to "
@@ -19600,14 +19746,12 @@ msgid ""
 "script's ``requires-python`` metadata, if defined."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/inline-script-metadata.rst:215
 msgid ""
 "October 2023: This specification was conditionally approved through :pep:"
 "`723`."
 msgstr ""
 
-#: ../source/specifications/inline-script-metadata.rst:214
 #: ../source/specifications/inline-script-metadata.rst:216
 msgid ""
 "January 2024: Through amendments to :pep:`723`, the ``pyproject`` metadata "
@@ -20756,7 +20900,6 @@ msgid "``dependencies``"
 msgstr "``依存関係 <dependencies``"
 
 #: ../source/specifications/pyproject-toml.rst:136
-#: ../source/specifications/pyproject-toml.rst:384
 #: ../source/specifications/pyproject-toml.rst:385
 msgid "``dynamic``"
 msgstr "``dynamic``"
@@ -20780,7 +20923,6 @@ msgstr "``optional-dependencies``"
 #: ../source/specifications/pyproject-toml.rst:154
 #: ../source/specifications/pyproject-toml.rst:166
 #: ../source/specifications/pyproject-toml.rst:179
-#: ../source/specifications/pyproject-toml.rst:228
 #: ../source/specifications/pyproject-toml.rst:229
 msgid "TOML_ type: string"
 msgstr "TOML_ 型: 文字列"
@@ -20832,15 +20974,15 @@ msgstr ""
 "<core-metadata-summary>`"
 
 #: ../source/specifications/pyproject-toml.rst:183
-msgid "The summary description of the project."
-msgstr "プロジェクトを要約する記述。"
+msgid ""
+"The summary description of the project in one line. Tools MAY error if this "
+"includes multiple lines."
+msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:189
 #: ../source/specifications/pyproject-toml.rst:190
 msgid "TOML_ type: string or table"
 msgstr "TOML_ 型: 文字列またはテーブル"
 
-#: ../source/specifications/pyproject-toml.rst:190
 #: ../source/specifications/pyproject-toml.rst:191
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description "
@@ -20851,12 +20993,10 @@ msgstr ""
 "`Description <core-metadata-description>` and :ref:`Description-Content-Type "
 "<core-metadata-description-content-type>`"
 
-#: ../source/specifications/pyproject-toml.rst:194
 #: ../source/specifications/pyproject-toml.rst:195
 msgid "The full description of the project (i.e. the README)."
 msgstr "プロジェクトの説明全体 (すなわち README)。"
 
-#: ../source/specifications/pyproject-toml.rst:196
 #: ../source/specifications/pyproject-toml.rst:197
 msgid ""
 "The key accepts either a string or a table. If it is a string then it is a "
@@ -20883,7 +21023,6 @@ msgstr ""
 "場合には、全ての認識できない拡張子についてツールはエラーを発生させなければな"
 "りません。"
 
-#: ../source/specifications/pyproject-toml.rst:207
 #: ../source/specifications/pyproject-toml.rst:208
 msgid ""
 "The ``readme`` key may also take a table. The ``file`` key has a string "
@@ -20899,7 +21038,6 @@ msgstr ""
 "がこれら両方のキーを同時に指定していたらツールはエラーを発生させなければなり"
 "ません。"
 
-#: ../source/specifications/pyproject-toml.rst:214
 #: ../source/specifications/pyproject-toml.rst:215
 msgid ""
 "A table specified in the ``readme`` key also has a ``content-type`` key "
@@ -20922,7 +21060,6 @@ msgstr ""
 "でなければ、ツールはサポートしていない content-type に対してエラーを発生させ"
 "なければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:229
 #: ../source/specifications/pyproject-toml.rst:230
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
@@ -20931,17 +21068,14 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:"
 "`Requires-Python <core-metadata-requires-python>`"
 
-#: ../source/specifications/pyproject-toml.rst:232
 #: ../source/specifications/pyproject-toml.rst:233
 msgid "The Python version requirements of the project."
 msgstr "プロジェクトが要求する Python のバージョン。"
 
-#: ../source/specifications/pyproject-toml.rst:238
 #: ../source/specifications/pyproject-toml.rst:239
 msgid "TOML_ type: table"
 msgstr "TOML_ 型: テーブル"
 
-#: ../source/specifications/pyproject-toml.rst:239
 #: ../source/specifications/pyproject-toml.rst:240
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
@@ -20950,7 +21084,6 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`License <core-metadata-license>`"
 
-#: ../source/specifications/pyproject-toml.rst:242
 #: ../source/specifications/pyproject-toml.rst:243
 msgid ""
 "The table may have one of two keys. The ``file`` key has a string value that "
@@ -20968,12 +21101,10 @@ msgstr ""
 "他的で、従って、両方のキーが指定されているメタデータについてツールの側ではエ"
 "ラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:253
 #: ../source/specifications/pyproject-toml.rst:254
 msgid "TOML_ type: Array of inline tables with string keys and values"
 msgstr "TOML_ 型: 文字列のキー・バリュー組を伴ったインラインテーブルの配列"
 
-#: ../source/specifications/pyproject-toml.rst:254
 #: ../source/specifications/pyproject-toml.rst:255
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-"
@@ -20986,7 +21117,6 @@ msgstr ""
 "email>` ・ :ref:`Maintainer <core-metadata-maintainer>` ・ :ref:`Maintainer-"
 "email <core-metadata-maintainer-email>`"
 
-#: ../source/specifications/pyproject-toml.rst:260
 #: ../source/specifications/pyproject-toml.rst:261
 msgid ""
 "The people or organizations considered to be the \"authors\" of the project. "
@@ -20997,7 +21127,6 @@ msgstr ""
 "まに解釈可能です — 元々のまたは主要な作者でも構わないし、現在の保守者やパッ"
 "ケージのオーナでも構いません。"
 
-#: ../source/specifications/pyproject-toml.rst:265
 #: ../source/specifications/pyproject-toml.rst:266
 msgid ""
 "The \"maintainers\" key is similar to \"authors\" in that its exact meaning "
@@ -21006,7 +21135,6 @@ msgstr ""
 "\"maintainers\" キーは \"authors\" キーに似ていて、その正確な意味はさまざまに"
 "解釈可能です。"
 
-#: ../source/specifications/pyproject-toml.rst:268
 #: ../source/specifications/pyproject-toml.rst:269
 msgid ""
 "These keys accept an array of tables with 2 keys: ``name`` and ``email``. "
@@ -21023,7 +21151,6 @@ msgstr ""
 "ません。これらのキーは共に必須ではありませんが、少なくともいずれかのキーが"
 "テーブル内で指定されていなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:275
 #: ../source/specifications/pyproject-toml.rst:276
 msgid ""
 "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
@@ -21031,7 +21158,6 @@ msgstr ""
 "データを使って :ref:`コアとなるメタデータ <core-metadata>` に書き込むやり方は"
 "次の通りです:"
 
-#: ../source/specifications/pyproject-toml.rst:278
 #: ../source/specifications/pyproject-toml.rst:279
 msgid ""
 "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-"
@@ -21041,7 +21167,6 @@ msgstr ""
 "author>` なり :ref:`Maintainer <core-metadata-maintainer>` なりに書き込みま"
 "す。"
 
-#: ../source/specifications/pyproject-toml.rst:281
 #: ../source/specifications/pyproject-toml.rst:282
 msgid ""
 "If only ``email`` is provided, the value goes in :ref:`Author-email <core-"
@@ -21052,7 +21177,6 @@ msgstr ""
 "email>` なり :ref:`Maintainer-email <core-metadata-maintainer-email>` なりに"
 "書き込みます。"
 
-#: ../source/specifications/pyproject-toml.rst:285
 #: ../source/specifications/pyproject-toml.rst:286
 msgid ""
 "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-"
@@ -21063,19 +21187,15 @@ msgstr ""
 "フォーマットで :ref:`Author-email <core-metadata-author-email>` なり :ref:"
 "`Maintainer-email <core-metadata-maintainer-email>` なりに書き込みます。"
 
-#: ../source/specifications/pyproject-toml.rst:289
 #: ../source/specifications/pyproject-toml.rst:290
 msgid "Multiple values should be separated by commas."
 msgstr "複数の値がある場合はコンマで区切るべきです。"
 
-#: ../source/specifications/pyproject-toml.rst:295
-#: ../source/specifications/pyproject-toml.rst:305
 #: ../source/specifications/pyproject-toml.rst:296
 #: ../source/specifications/pyproject-toml.rst:306
 msgid "TOML_ type: array of strings"
 msgstr "TOML_ 型: 文字列の配列"
 
-#: ../source/specifications/pyproject-toml.rst:296
 #: ../source/specifications/pyproject-toml.rst:297
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
@@ -21084,12 +21204,10 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Keywords <core-metadata-keywords`"
 
-#: ../source/specifications/pyproject-toml.rst:299
 #: ../source/specifications/pyproject-toml.rst:300
 msgid "The keywords for the project."
 msgstr "プロジェクトに関するキーワード。"
 
-#: ../source/specifications/pyproject-toml.rst:306
 #: ../source/specifications/pyproject-toml.rst:307
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier "
@@ -21098,17 +21216,14 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Classifier <core-metadata-classifier>`"
 
-#: ../source/specifications/pyproject-toml.rst:309
 #: ../source/specifications/pyproject-toml.rst:310
 msgid "Trove classifiers which apply to the project."
 msgstr "プロジェクトに適合する Trove 分類子。"
 
-#: ../source/specifications/pyproject-toml.rst:315
 #: ../source/specifications/pyproject-toml.rst:316
 msgid "TOML_ type: table with keys and values of strings"
 msgstr "TOML_ 型: 文字列のキー・バリューを伴うテーブル"
 
-#: ../source/specifications/pyproject-toml.rst:316
 #: ../source/specifications/pyproject-toml.rst:317
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL "
@@ -21117,7 +21232,6 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Project-URL <core-metadata-project-url>`"
 
-#: ../source/specifications/pyproject-toml.rst:319
 #: ../source/specifications/pyproject-toml.rst:320
 msgid ""
 "A table of URLs where the key is the URL label and the value is the URL "
@@ -21126,12 +21240,10 @@ msgstr ""
 "URL のテーブルで、 URL に付けられたラベルがキーで URL そのものが値になってい"
 "るもの。"
 
-#: ../source/specifications/pyproject-toml.rst:324
 #: ../source/specifications/pyproject-toml.rst:325
 msgid "Entry points"
 msgstr "エントリポイント"
 
-#: ../source/specifications/pyproject-toml.rst:326
 #: ../source/specifications/pyproject-toml.rst:327
 msgid ""
 "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
@@ -21140,12 +21252,10 @@ msgstr ""
 "TOML_ 型: table (``[project.scripts]`` ・ ``[project.gui-scripts]`` ・ "
 "``[project.entry-points]``)"
 
-#: ../source/specifications/pyproject-toml.rst:328
 #: ../source/specifications/pyproject-toml.rst:329
 msgid ":ref:`Entry points specification <entry-points>`"
 msgstr ":ref:`Entry points specification <entry-points>`"
 
-#: ../source/specifications/pyproject-toml.rst:330
 #: ../source/specifications/pyproject-toml.rst:331
 msgid ""
 "There are three tables related to entry points. The ``[project.scripts]`` "
@@ -21158,7 +21268,6 @@ msgstr ""
 "``console_scripts`` グループに対応しています。テーブル内のキーはエントリポイ"
 "ントの名前であり、値は参照されるオブジェクトです。"
 
-#: ../source/specifications/pyproject-toml.rst:336
 #: ../source/specifications/pyproject-toml.rst:337
 msgid ""
 "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group "
@@ -21169,7 +21278,6 @@ msgstr ""
 "points>` の中の ``gui_scripts`` グループに対応します。そのフォーマットは "
 "``[project.scripts]`` と同じです。"
 
-#: ../source/specifications/pyproject-toml.rst:340
 #: ../source/specifications/pyproject-toml.rst:341
 msgid ""
 "The ``[project.entry-points]`` table is a collection of tables. Each sub-"
@@ -21183,7 +21291,6 @@ msgstr ""
 "てはならず、代わりにエントリポイントグループを１段階の深さに保つようにしなけ"
 "ればなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:346
 #: ../source/specifications/pyproject-toml.rst:347
 msgid ""
 "Build back-ends MUST raise an error if the metadata defines a ``[project."
@@ -21196,7 +21303,6 @@ msgstr ""
 "それぞれ ``[project.scripts]`` や ``[project.gui-scripts]`` と混同してしまう"
 "といけないので、ビルド時のバックエンドがエラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:356
 #: ../source/specifications/pyproject-toml.rst:357
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
@@ -21205,7 +21311,6 @@ msgstr ""
 "TOML_ 型: :pep:`508` の文字列 (``dependencies``) の配列、および、 :pep:`508` "
 "の文字列 (``optional-dependencies``) の配列の値を伴ったテーブル"
 
-#: ../source/specifications/pyproject-toml.rst:359
 #: ../source/specifications/pyproject-toml.rst:360
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
@@ -21216,12 +21321,10 @@ msgstr ""
 "`Requires-Dist <core-metadata-requires-dist>` および :ref:`Provides-Extra "
 "<core-metadata-provides-extra>`"
 
-#: ../source/specifications/pyproject-toml.rst:363
 #: ../source/specifications/pyproject-toml.rst:364
 msgid "The (optional) dependencies of the project."
 msgstr "(必須ではない) プロジェクトの依存関係。"
 
-#: ../source/specifications/pyproject-toml.rst:365
 #: ../source/specifications/pyproject-toml.rst:366
 msgid ""
 "For ``dependencies``, it is a key whose value is an array of strings. Each "
@@ -21234,7 +21337,6 @@ msgstr ""
 "フォーマットされていなければなりません。それぞれの文字列は、 :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` エントリに直接にマップしています。"
 
-#: ../source/specifications/pyproject-toml.rst:370
 #: ../source/specifications/pyproject-toml.rst:371
 msgid ""
 "For ``optional-dependencies``, it is a table where each key specifies an "
@@ -21253,12 +21355,10 @@ msgstr ""
 "する :ref:`Requires-Dist <core-metadata-requires-dist>` のエントリになりま"
 "す。"
 
-#: ../source/specifications/pyproject-toml.rst:386
 #: ../source/specifications/pyproject-toml.rst:387
 msgid "TOML_ type: array of string"
 msgstr "TOML_ 型: 文字列の配列"
 
-#: ../source/specifications/pyproject-toml.rst:387
 #: ../source/specifications/pyproject-toml.rst:388
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
@@ -21267,7 +21367,6 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`ダイ"
 "ナミック <core-metadata-dynamic>` フィールド"
 
-#: ../source/specifications/pyproject-toml.rst:390
 #: ../source/specifications/pyproject-toml.rst:391
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
@@ -21281,7 +21380,6 @@ msgstr ""
 "されていて未指定のままであることを期待されているのかについて明確に描き出しま"
 "す。"
 
-#: ../source/specifications/pyproject-toml.rst:396
 #: ../source/specifications/pyproject-toml.rst:397
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
@@ -21290,7 +21388,6 @@ msgstr ""
 "ビルド用のバックエンドは、静的に指定されたメタデータ (つまり ``dynamic`` 内に"
 "列挙されたキーではないメタデータ) を尊重しなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:398
 #: ../source/specifications/pyproject-toml.rst:399
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
@@ -21299,7 +21396,6 @@ msgstr ""
 "メタデータで ``dynamic`` 内に ``name`` が指定されている場合には、ビルド用バッ"
 "クエンドがエラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:400
 #: ../source/specifications/pyproject-toml.rst:401
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
@@ -21315,7 +21411,6 @@ msgstr ""
 "須のフィールドが ``[project]`` テーブルの中にどんな形でも存在していないという"
 "ことは不可能であるべきです)。"
 
-#: ../source/specifications/pyproject-toml.rst:405
 #: ../source/specifications/pyproject-toml.rst:406
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
@@ -21327,7 +21422,6 @@ msgstr ""
 "タを提供するという期待が持てるのであればメタデータではそのキーを ``dynamic`` "
 "の中に挙げても構いません。"
 
-#: ../source/specifications/pyproject-toml.rst:409
 #: ../source/specifications/pyproject-toml.rst:410
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
@@ -21336,7 +21430,6 @@ msgstr ""
 "メタデータ内で、あるキーが静的に指定されていて、かつ、 ``dynamic`` にも挙げて"
 "ある場合には、ビルド用バックエンドはエラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:411
 #: ../source/specifications/pyproject-toml.rst:412
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
@@ -21349,7 +21442,6 @@ msgstr ""
 "ち、ツールがメタデータを挿入できるのは ``dynamic`` の中だけであり、かつ、ユー"
 "ザがそうするようにオプトインしていなければならないということです) 。"
 
-#: ../source/specifications/pyproject-toml.rst:415
 #: ../source/specifications/pyproject-toml.rst:416
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
@@ -21361,12 +21453,10 @@ msgstr ""
 "ンドはエラーを発生させなければなりません (正確な値であると判断した場合はデー"
 "タを省略することが許容されます) 。"
 
-#: ../source/specifications/pyproject-toml.rst:425
 #: ../source/specifications/pyproject-toml.rst:426
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:427
 #: ../source/specifications/pyproject-toml.rst:428
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
@@ -21375,7 +21465,6 @@ msgid ""
 "pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:433
 #: ../source/specifications/pyproject-toml.rst:434
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
@@ -21384,7 +21473,6 @@ msgid ""
 "if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:444
 #: ../source/specifications/pyproject-toml.rst:445
 msgid ""
 "May 2016: The initial specification of the ``pyproject.toml`` file, with "
@@ -21392,7 +21480,6 @@ msgid ""
 "table, was approved through :pep:`518`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:448
 #: ../source/specifications/pyproject-toml.rst:449
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
@@ -26358,7 +26445,7 @@ msgstr ""
 "らゆるコマンドからインストール済みパッケージへのアクセスが保証されます。"
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:504
+#: ../source/tutorials/packaging-projects.rst:506
 msgid "Next steps"
 msgstr "次なる一歩"
 
@@ -26542,14 +26629,15 @@ msgstr ""
 #: ../source/tutorials/packaging-projects.rst:57
 #, fuzzy
 msgid ""
-":file:`__init__.py` is recommended to import the directory as a regular "
-"package, even if as is our case for this tutorial that file is empty "
-"[#namespace-packages]_."
+"Creating the file :file:`__init__.py` is recommended because the existence "
+"of an :file:`__init__.py` file allows users to import the directory as a "
+"regular package, even if (as is the case in this tutorial) :file:`__init__."
+"py` is empty. [#namespace-packages]_"
 msgstr ""
 "パッケージとしてのディレクトリをインポートするには :file:`__init__.py` が存在"
 "していなければならず、また、それは空であるべきです。"
 
-#: ../source/tutorials/packaging-projects.rst:60
+#: ../source/tutorials/packaging-projects.rst:62
 msgid ""
 ":file:`example.py` is an example of a module within the package that could "
 "contain the logic (functions, classes, constants, etc.) of your package. "
@@ -26559,7 +26647,7 @@ msgstr ""
 "ラス・定数・その他) を含むであろうモジュールの例です。このファイルを開いて、"
 "以下の内容を入力してください:"
 
-#: ../source/tutorials/packaging-projects.rst:69
+#: ../source/tutorials/packaging-projects.rst:71
 msgid ""
 "If you are unfamiliar with Python's :term:`modules <Module>` and :term:"
 "`import packages <Import Package>`, take a few minutes to read over the "
@@ -26570,7 +26658,7 @@ msgstr ""
 "に関する Python の説明文書 <Python documentation for packages and modules>`_ "
 "を読み通してください。"
 
-#: ../source/tutorials/packaging-projects.rst:73
+#: ../source/tutorials/packaging-projects.rst:75
 msgid ""
 "Once you create this structure, you'll want to run all of the commands in "
 "this tutorial within the ``packaging_tutorial`` directory."
@@ -26578,11 +26666,11 @@ msgstr ""
 "この構造さえ作れば、このチュートリアルに出てくるすべてのコマンドを "
 "``packaging_tutorial`` ディレクトリで実行したくなるでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:81
+#: ../source/tutorials/packaging-projects.rst:83
 msgid "Creating the package files"
 msgstr "パッケージファイルを作成する"
 
-#: ../source/tutorials/packaging-projects.rst:83
+#: ../source/tutorials/packaging-projects.rst:85
 msgid ""
 "You will now add files that are used to prepare the project for "
 "distribution. When you're done, the project structure will look like this:"
@@ -26590,21 +26678,21 @@ msgstr ""
 "ここで、プロジェクトの配布を準備するために使われるファイル群を追加しましょ"
 "う。それが終わったら、プロジェクトの構造はこんな風になっていることでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:101
+#: ../source/tutorials/packaging-projects.rst:103
 msgid "Creating a test directory"
 msgstr "test ディレクトリを作成する"
 
-#: ../source/tutorials/packaging-projects.rst:103
+#: ../source/tutorials/packaging-projects.rst:105
 msgid ":file:`tests/` is a placeholder for test files. Leave it empty for now."
 msgstr ""
 ":file:`tests/` は、テスト用のファイルを置くためのプレースホルダーです。現段階"
 "では、空のままにしておいてください。"
 
-#: ../source/tutorials/packaging-projects.rst:109
+#: ../source/tutorials/packaging-projects.rst:111
 msgid "Choosing a build backend"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:111
+#: ../source/tutorials/packaging-projects.rst:113
 msgid ""
 "Tools like :ref:`pip` and :ref:`build` do not actually convert your sources "
 "into a :term:`distribution package <Distribution Package>` (like a wheel); "
@@ -26617,7 +26705,7 @@ msgid ""
 "suits your needs and preferences."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:120
+#: ../source/tutorials/packaging-projects.rst:122
 #, fuzzy
 msgid ""
 "You can choose from a number of backends; this tutorial uses :ref:`Hatchling "
@@ -26634,7 +26722,7 @@ msgstr ""
 "ば :ref:`setuptools` ・ :ref:`Flit <flit>` ・ :ref:`PDM <pdm>` やその他のツー"
 "ルでも同じように動作することでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:127
+#: ../source/tutorials/packaging-projects.rst:129
 msgid ""
 "Some build backends are part of larger tools that provide a command-line "
 "interface with additional features like project initialization and version "
@@ -26646,7 +26734,7 @@ msgstr ""
 "ツールの一部を構成するビルドバックエンドもあります。このチュートリアルでは、"
 "独立に動作する単一目的のツールを扱います。"
 
-#: ../source/tutorials/packaging-projects.rst:132
+#: ../source/tutorials/packaging-projects.rst:134
 msgid ""
 "The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` "
 "tools like :ref:`pip` and :ref:`build` which backend to use for your "
@@ -26654,7 +26742,7 @@ msgid ""
 "backend's own documentation for more details."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:170
+#: ../source/tutorials/packaging-projects.rst:172
 msgid ""
 "The ``requires`` key is a list of packages that are needed to build your "
 "package. The :term:`frontend <Build Frontend>` should install them "
@@ -26664,7 +26752,7 @@ msgid ""
 "other build-time dependencies."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:177
+#: ../source/tutorials/packaging-projects.rst:179
 #, fuzzy
 msgid ""
 "The ``build-backend`` key is the name of the Python object that frontends "
@@ -26673,14 +26761,14 @@ msgstr ""
 "``build-backend`` は、そのフロントエンドがビルドを実行するにあたって使用する"
 "であろう Python オブジェクトの名前です。"
 
-#: ../source/tutorials/packaging-projects.rst:180
+#: ../source/tutorials/packaging-projects.rst:182
 msgid ""
 "Both of these values will be provided by the documentation for your build "
 "backend, or generated by its command line interface. There should be no need "
 "for you to customize these settings."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:184
+#: ../source/tutorials/packaging-projects.rst:186
 msgid ""
 "Additional configuration of the build tool will either be in a ``tool`` "
 "section of the ``pyproject.toml``, or in a special file defined by the build "
@@ -26690,11 +26778,11 @@ msgid ""
 "tools to locate and use these automatically."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:194
+#: ../source/tutorials/packaging-projects.rst:196
 msgid "Configuring metadata"
 msgstr "メタデータを設定する"
 
-#: ../source/tutorials/packaging-projects.rst:196
+#: ../source/tutorials/packaging-projects.rst:198
 msgid ""
 "Open :file:`pyproject.toml` and enter the following content. Change the "
 "``name`` to include your username; this ensures that you have a unique "
@@ -26706,7 +26794,7 @@ msgstr ""
 "履修している他の人たちがアップロードするパッケージと衝突を起こさない一意な"
 "パッケージ名を使っていることを保証することができます。"
 
-#: ../source/tutorials/packaging-projects.rst:222
+#: ../source/tutorials/packaging-projects.rst:224
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -26721,7 +26809,7 @@ msgstr ""
 "いうのは、そうすることで、既存の名前と同じ名前のパッケージのアップロードを試"
 "みることがないと保証できるからです。"
 
-#: ../source/tutorials/packaging-projects.rst:227
+#: ../source/tutorials/packaging-projects.rst:229
 #, fuzzy
 msgid ""
 "``version`` is the package version. (Some build backends allow it to be "
@@ -26732,7 +26820,7 @@ msgstr ""
 "ださい。ビルドバックエンドの中には、ファイルから、もしくは、 git のタグからの"
 "ように、別の方法で指定することを許容するものもあります。"
 
-#: ../source/tutorials/packaging-projects.rst:229
+#: ../source/tutorials/packaging-projects.rst:231
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -26742,11 +26830,11 @@ msgstr ""
 "ついて名前と電子メールアドレスを指定します。同じフォーマットで "
 "``maintainers`` を列挙することもできます。"
 
-#: ../source/tutorials/packaging-projects.rst:232
+#: ../source/tutorials/packaging-projects.rst:234
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` は、１文で短くパッケージを説明するものです。"
 
-#: ../source/tutorials/packaging-projects.rst:233
+#: ../source/tutorials/packaging-projects.rst:235
 #, fuzzy
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
@@ -26761,7 +26849,7 @@ msgstr ""
 "も、 :ref:`プロジェクトのメタデータの仕様 <declaring-project-metadata>` に記"
 "述されているもっと先進的なテーブル形式があります。"
 
-#: ../source/tutorials/packaging-projects.rst:238
+#: ../source/tutorials/packaging-projects.rst:240
 #, fuzzy
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
@@ -26772,7 +26860,7 @@ msgstr ""
 "ンを与えます。 :ref:`pip` のようなインストーラは、 Python バージョンが合致す"
 "るものまでパッケージのバージョンを遡って探索します。"
 
-#: ../source/tutorials/packaging-projects.rst:241
+#: ../source/tutorials/packaging-projects.rst:243
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -26790,7 +26878,7 @@ msgstr ""
 "に最低限それだけはやるべきことです。 classifiers の完全なリストについては、 "
 "https://pypi.org/classifiers/ を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:248
+#: ../source/tutorials/packaging-projects.rst:250
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -26799,7 +26887,7 @@ msgstr ""
 "ます。一般的に、ソースコードや説明文書、課題追跡システムその他へのリンクを挙"
 "げておけばよいでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:251
+#: ../source/tutorials/packaging-projects.rst:253
 #, fuzzy
 msgid ""
 "See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
@@ -26813,11 +26901,11 @@ msgstr ""
 "は、検索にかかりやすくするための ``keywords`` や、当該パッケージをインストー"
 "ルするために必須のパッケージを示す ``dependencies`` があります。"
 
-#: ../source/tutorials/packaging-projects.rst:258
+#: ../source/tutorials/packaging-projects.rst:260
 msgid "Creating README.md"
 msgstr "README.md を作成する"
 
-#: ../source/tutorials/packaging-projects.rst:260
+#: ../source/tutorials/packaging-projects.rst:262
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -26825,11 +26913,11 @@ msgstr ""
 ":file:`README.md` を開いて、以下の内容を入力してください。そうしたければ、カ"
 "スタマイズした内容でも構いません。"
 
-#: ../source/tutorials/packaging-projects.rst:273
+#: ../source/tutorials/packaging-projects.rst:275
 msgid "Creating a LICENSE"
 msgstr "LICENSE ファイルを作成する"
 
-#: ../source/tutorials/packaging-projects.rst:275
+#: ../source/tutorials/packaging-projects.rst:277
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -26845,7 +26933,7 @@ msgstr ""
 "ら、 :file:`LICENSE` ファイルを開いてそのライセンス条項を書き込んでください。"
 "例えば、 MIT ライセンスを選択したなら次のようにします:"
 
-#: ../source/tutorials/packaging-projects.rst:304
+#: ../source/tutorials/packaging-projects.rst:306
 msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details."
@@ -26854,11 +26942,11 @@ msgstr ""
 "り込みます。詳細については、あなたが使うバックエンドの説明文書を見てくださ"
 "い。"
 
-#: ../source/tutorials/packaging-projects.rst:309
+#: ../source/tutorials/packaging-projects.rst:311
 msgid "Including other files"
 msgstr "その他のファイルを包含する"
 
-#: ../source/tutorials/packaging-projects.rst:311
+#: ../source/tutorials/packaging-projects.rst:313
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
@@ -26868,11 +26956,11 @@ msgstr ""
 "\"sdist\")>` に自動的に含まれるでしょう。他のファイルも含めておきたいなら、"
 "使っているビルドバックエンドの説明文書を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:318
+#: ../source/tutorials/packaging-projects.rst:320
 msgid "Generating distribution archives"
 msgstr "配布物アーカイブを生成する"
 
-#: ../source/tutorials/packaging-projects.rst:320
+#: ../source/tutorials/packaging-projects.rst:322
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -26882,12 +26970,12 @@ msgstr ""
 "Package>` を生成します。これらは、 Python パッケージインデックスへアップロー"
 "ドされ、 :ref:`pip` でインストールされることができるものです。"
 
-#: ../source/tutorials/packaging-projects.rst:324
+#: ../source/tutorials/packaging-projects.rst:326
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr ""
 "PyPA の :ref:`build` の最新版がインストールされていることを確認してください:"
 
-#: ../source/tutorials/packaging-projects.rst:338
+#: ../source/tutorials/packaging-projects.rst:340
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
@@ -26895,7 +26983,7 @@ msgstr ""
 "これらをインストールするのに困難を感じるようなら、 :doc:`パッケージをインス"
 "トールする <installing-packages>` チュートリアルを見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:341
+#: ../source/tutorials/packaging-projects.rst:343
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -26903,7 +26991,7 @@ msgstr ""
 "さて、 :file:`pyproject.toml` ファイルがあるのと同じディレクトリでこのコマン"
 "ドを実行しましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:355
+#: ../source/tutorials/packaging-projects.rst:357
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -26911,7 +26999,7 @@ msgstr ""
 "このコマンドから多くのテキストメッセージが出力されますが、実行が終われば :"
 "file:`dist` ディレクトリにふたつのファイルが生成されていることでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:367
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -26931,17 +27019,17 @@ msgstr ""
 "するべきです。我々の例示のためのパッケージはすべてのプラットフォーム上の "
 "Python で動作するものなので、ビルド済配布物がひとつあれば十分です。"
 
-#: ../source/tutorials/packaging-projects.rst:374
+#: ../source/tutorials/packaging-projects.rst:376
 msgid "Uploading the distribution archives"
 msgstr "配布物アーカイブをアップロードする"
 
-#: ../source/tutorials/packaging-projects.rst:376
+#: ../source/tutorials/packaging-projects.rst:378
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr ""
 "ついにあなたのパッケージを Python パッケージインデックスへアップロードする時"
 "が来ました！"
 
-#: ../source/tutorials/packaging-projects.rst:378
+#: ../source/tutorials/packaging-projects.rst:380
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -26961,7 +27049,7 @@ msgstr ""
 "しょう。もっと詳しいことが知りたければ、 :doc:`/guides/using-testpypi` を見て"
 "ください。"
 
-#: ../source/tutorials/packaging-projects.rst:386
+#: ../source/tutorials/packaging-projects.rst:388
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -26974,7 +27062,7 @@ msgstr ""
 "**トークンをコピーして保存するまで、ページを閉じないでください — トークンは二"
 "度と表示されません。**"
 
-#: ../source/tutorials/packaging-projects.rst:393
+#: ../source/tutorials/packaging-projects.rst:395
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -26982,14 +27070,14 @@ msgstr ""
 "ユーザ登録が済んだら、 :ref:`twine` で配布物パッケージをアップロードすること"
 "ができます。Twine のインストールが必要ならこのようにしてください:"
 
-#: ../source/tutorials/packaging-projects.rst:408
+#: ../source/tutorials/packaging-projects.rst:410
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 "インストールできたら、 :file:`dist` ディレクトリ内にあるアーカイブファイルを"
 "すべてアップとーどしてください:"
 
-#: ../source/tutorials/packaging-projects.rst:422
+#: ../source/tutorials/packaging-projects.rst:424
 msgid ""
 "You will be prompted for a username and password. For the username, use "
 "``__token__``. For the password, use the token value, including the ``pypi-"
@@ -26999,11 +27087,11 @@ msgstr ""
 "を使ってください。パスワードには接頭子の ``pypi-`` を含めたトークンの値を使っ"
 "てください。"
 
-#: ../source/tutorials/packaging-projects.rst:426
+#: ../source/tutorials/packaging-projects.rst:428
 msgid "After the command completes, you should see output similar to this:"
 msgstr "コマンド実行完了後、これに似た出力を見ることになるでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:437
+#: ../source/tutorials/packaging-projects.rst:439
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -27012,11 +27100,11 @@ msgstr ""
 "す; 例えば: ``https://test.pypi.org/project/"
 "example_package_YOUR_USERNAME_HERE`` 。"
 
-#: ../source/tutorials/packaging-projects.rst:442
+#: ../source/tutorials/packaging-projects.rst:444
 msgid "Installing your newly uploaded package"
 msgstr "新しくアップロードしたあなたのパッケージをインストールする"
 
-#: ../source/tutorials/packaging-projects.rst:444
+#: ../source/tutorials/packaging-projects.rst:446
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -27026,11 +27114,11 @@ msgstr ""
 "できます。 :ref:`仮想環境 <Creating and using Virtual Environments>` を作成し"
 "て、 TestPyPI からあなたのパッケージをインストールしましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:460
+#: ../source/tutorials/packaging-projects.rst:462
 msgid "Make sure to specify your username in the package name!"
 msgstr "パッケージ名の中にあなたのユーザ名を指定するのをお忘れなく！"
 
-#: ../source/tutorials/packaging-projects.rst:462
+#: ../source/tutorials/packaging-projects.rst:464
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
@@ -27038,7 +27126,7 @@ msgstr ""
 "pip でパッケージを TestPyPI からインストールできるはずで、その出力は何か次の"
 "ようなものに見えるでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:472
+#: ../source/tutorials/packaging-projects.rst:474
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -27055,7 +27143,7 @@ msgstr ""
 "として使っているパッケージには依存先がないので、 TestPyPI を使う時には依存先"
 "をインストールしないように指定しておくことは良いやり方です。"
 
-#: ../source/tutorials/packaging-projects.rst:479
+#: ../source/tutorials/packaging-projects.rst:481
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -27064,11 +27152,11 @@ msgstr ""
 "することができます。まだ仮想環境内にいることを確認してから Python を走らせま"
 "しょう:"
 
-#: ../source/tutorials/packaging-projects.rst:494
+#: ../source/tutorials/packaging-projects.rst:496
 msgid "and import the package:"
 msgstr "そして、パッケージをインポートしましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:506
+#: ../source/tutorials/packaging-projects.rst:508
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 "
 "✨"
@@ -27076,7 +27164,7 @@ msgstr ""
 "**おめでとうございます、あなたは Python のプロジェクトをパッケージングし、配"
 "布することができました！** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:509
+#: ../source/tutorials/packaging-projects.rst:511
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -27088,7 +27176,7 @@ msgstr ""
 "でください。テストシステムは、時折パッケージやアカウントを削除します。 Test "
 "PyPI は、このチュートリアルのような試行や実験のために使うのがベストです。"
 
-#: ../source/tutorials/packaging-projects.rst:514
+#: ../source/tutorials/packaging-projects.rst:516
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -27098,7 +27186,7 @@ msgstr ""
 "たら、このチュートリアルでやったのと概ね同じことをやれば大丈夫ですが、次のよ"
 "うな重要な違いがあります:"
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:520
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
@@ -27108,7 +27196,7 @@ msgstr ""
 "やったようにあなたのユーザ名を追記する必要はありませんが、既存の名前は使えま"
 "せん。"
 
-#: ../source/tutorials/packaging-projects.rst:520
+#: ../source/tutorials/packaging-projects.rst:522
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -27118,7 +27206,7 @@ msgstr ""
 "バであって、テストサーバ側のログイン情報はメインサーバに共有されてはいませ"
 "ん。"
 
-#: ../source/tutorials/packaging-projects.rst:523
+#: ../source/tutorials/packaging-projects.rst:525
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -27131,7 +27219,7 @@ msgstr ""
 "要はありません; 指定しないことでパッケージはデフォルトの https://pypi.org/ へ"
 "アップロードされるでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:527
+#: ../source/tutorials/packaging-projects.rst:529
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -27139,7 +27227,7 @@ msgstr ""
 "``python3 -m pip install [your-package`` を使って、あなたのパッケージを本番環"
 "境の PyPI からインストールしましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:529
+#: ../source/tutorials/packaging-projects.rst:531
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -27147,21 +27235,21 @@ msgstr ""
 "ここまで読み進めてきて、もっと Python でのパッケージングについて読みたいので"
 "あれば、次のようなものがあります:"
 
-#: ../source/tutorials/packaging-projects.rst:532
+#: ../source/tutorials/packaging-projects.rst:534
 msgid ""
 "Read about advanced configuration for your chosen build backend: `Hatchling "
 "<hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
 "pyproject_config>`, :doc:`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:536
+#: ../source/tutorials/packaging-projects.rst:538
 msgid ""
 "Look at the :doc:`guides </guides/index>` on this site for more advanced "
 "practical information, or the :doc:`discussions </discussions/index>` for "
 "explanations and background on specific topics."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:539
+#: ../source/tutorials/packaging-projects.rst:541
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
@@ -27171,11 +27259,11 @@ msgstr ""
 "マンドラインインタフェースでプロジェクト管理もパッケージングもできるパッケー"
 "ジングツールについて検討しましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:547
+#: ../source/tutorials/packaging-projects.rst:549
 msgid "Notes"
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:549
+#: ../source/tutorials/packaging-projects.rst:551
 msgid ""
 "Technically, you can also create Python packages without an ``__init__.py`` "
 "file, but those are called :doc:`namespace packages </guides/packaging-"
@@ -27185,235 +27273,42 @@ msgid ""
 "the file is empty)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:183
-msgid ""
-"The summary description of the project in one line. Tools MAY error if this "
-"includes multiple lines."
-msgstr ""
+#~ msgid ""
+#~ "A library that takes a source tree or :term:`source distribution <Source "
+#~ "Distribution (or \"sdist\")>` and builds a source distribution or :term:"
+#~ "`wheel <Wheel>` from it. The build is delegated to the backend by a :term:"
+#~ "`frontend <Build Frontend>`. All backends offer a standardized interface."
+#~ msgstr ""
+#~ "ソースコードツリーや :term:`ソースコード配布物 <Source Distribution (or "
+#~ "\"sdist\")>` を受け取って、そこからソースコード配布物や :term:`wheel "
+#~ "<Wheel>` をビルドするライブラリ。ビルド自体は :term:`フロントエンド "
+#~ "<Build Frontend>` によってバックエンドに任されます。すべてのバックエンドは"
+#~ "標準化されたインターフェースを提供します。"
 
-#: ../source/glossary.rst:56
-msgid "Built Metadata"
-msgstr "ビルドされたメタデータ"
+#~ msgid ""
+#~ "A :term:`distribution <Distribution Package>` format (usually generated "
+#~ "using ``python -m build --sdist``) that provides metadata and the "
+#~ "essential source files needed for installing by a tool like :ref:`pip`, "
+#~ "or for generating a :term:`Built Distribution`. See :ref:`package-"
+#~ "formats` for more information."
+#~ msgstr ""
+#~ ":ref:`pip` のようなツールによるインストールや :term:`ビルド済配布物 "
+#~ "<Built Distribution>` の生成のために必要となるメタデータや基本的なソース"
+#~ "コードファイル群を提供する :term:`配布物 <Distribution Package>` フォー"
+#~ "マット (通常は ``python -m build --sdist`` を使って生成されます) 。もっと"
+#~ "情報が欲しければ、 :ref:`パッケージフォーマット <package-formats>` を見て"
+#~ "ください。"
 
-#: ../source/glossary.rst:59
-msgid ""
-"The concrete form :term:`Core Metadata` takes when included inside an "
-"installed :term:`Project` (``METADATA`` file) or a :term:`Distribution "
-"Archive` (``PKG-INFO`` in a :term:`Sdist <Source Distribution (or "
-"\"sdist\")>` and ``METADATA`` in a :term:`Wheel`)."
-msgstr ""
-"インストールされた :term:`プロジェクト <Project>` (``METADATA`` ファイル) "
-"や :term:`配布物アーカイブ <Distribution Archive>` (:term:`Sdist <Source "
-"Distribution (または \"sdist\")>` の中の ``PKG-INFO`` や :term:`Wheel` 内の "
-"``METADATA``) の内部に含まれる場合に :term:`コアとなるメタデータ <Core "
-"Metadata>` が具体的な形式を取ることになります。"
+#~ msgid ""
+#~ "The standard :term:`Built Distribution` format. See :ref:`package-"
+#~ "formats` for more information."
+#~ msgstr ""
+#~ "標準的な :term:`ビルド済配布物 <Built Distribution>` フォーマット。更なる"
+#~ "情報が知りたければ :ref:`パッケージフォーマット <package-format>` を見てく"
+#~ "ださい。"
 
-#: ../source/glossary.rst:66
-msgid "Core Metadata"
-msgstr "コアとなるメタデータ"
-
-#: ../source/glossary.rst:69
-msgid ""
-"The :ref:`specification <core-metadata>` and the set of :term:`Core Metadata "
-"Field`\\s it defines that describe key static attributes of a :term:"
-"`Distribution Package` or :term:`Installed Project`."
-msgstr ""
-":ref:`仕様 <core-metadata>` および :term:`コアとなるメタデータのフィールド "
-"<Core Metadata Field`\\s において、 :term:`配布パッケージ <Distribution "
-"Package>` あるいは :term:`インストール済みのプロジェクト <Installed "
-"Project>` の鍵となる静的なアトリビュートを記述するものを定義しています。"
-
-#: ../source/glossary.rst:74
-msgid "Core Metadata Field"
-msgstr "コアとなるメタデータのフィールド"
-
-#: ../source/glossary.rst:77
-msgid ""
-"A single key-value pair (or sequence of such with the same name, for "
-"multiple-use fields) defined in the :term:`Core Metadata` spec and stored in "
-"the :term:`Built Metadata`. Notably, distinct from a :term:`Pyproject "
-"Metadata Key`."
-msgstr ""
-":term:`コアとなるメタデータ <Core Metadata>` の仕様の中で定義され、 :term:`ビ"
-"ルド済みのメタデータ <Built Metadata>` の中に保存される、単一のキー・バリュー"
-"ペア (または、複数の使用方法のあるフィールドについては、一連の同名のキー・バ"
-"リューペア)。特筆すべきことに、 :term:`Pyproject メタデータキー <Pyproject "
-"Metadata Key>` とは区別される。"
-
-#: ../source/glossary.rst:83
-msgid "Distribution Archive"
-msgstr "配布物アーカイブ"
-
-#: ../source/glossary.rst:86
-msgid ""
-"The physical distribution artifact (i.e. a file on disk) for a :term:"
-"`Distribution Package`."
-msgstr ""
-":term:`配布パッケージ <Distribution Package>` のための物理的な配布物のアー"
-"ティファクト (即ち、ディスク上のファイル)。"
-
-#: ../source/glossary.rst:142
-msgid "Installed Project"
-msgstr "インストール済みのプロジェクト"
-
-#: ../source/glossary.rst:145
-msgid ""
-"A :term:`Project` that is installed for use with a Python interpreter or :"
-"term:`Virtual Environment`, as described in the specicifcation :ref:"
-"`recording-installed-packages`."
-msgstr ""
-":ref:`インストール済みパッケージを記録する <recording-installed-packages>` の"
-"仕様の中に記述されているところの、Python インタープリタまたは :term:`仮想環"
-"境 <Virtual Environment>` とともに用いられるべくインストールされた :term:`プ"
-"ロジェクト <Project>`。"
-
-#: ../source/glossary.rst:192
-msgid "Project Root Directory"
-msgstr "プロジェクトのルートディレクトリ"
-
-#: ../source/glossary.rst:195
-msgid ""
-"The filesystem directory in which a :term:`Project`'s :term:`source tree "
-"<Project Source Tree>` is located."
-msgstr ""
-":term:`プロジェクト <Project>` の :term:`ソースコードツリー <Project Source "
-"Tree>` が位置するファイルシステム上のディレクトリ。"
-
-#: ../source/glossary.rst:198
-msgid "Project Source Tree"
-msgstr "プロジェクトソースコードツリー"
-
-#: ../source/glossary.rst:201
-msgid ""
-"The on-disk format of a :term:`Project` used for development, containing its "
-"raw source code before being packaged into a :term:`Source Distribution "
-"<Source Distribution (or \"sdist\")>` or :term:`Built Distribution`."
-msgstr ""
-":term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` や :term:`ビ"
-"ルド済配布物 <Built Distribution>` にパッケージされる前の生のソースコードを含"
-"んだ、開発に使われる :term:`プロジェクト <Project>` のディスク上でのフォー"
-"マット。"
-
-#: ../source/glossary.rst:207
-msgid "Project Source Metadata"
-msgstr "プロジェクトソースのメタデータ"
-
-#: ../source/glossary.rst:210
-msgid ""
-"Metadata defined by the package author in a :term:`Project`'s :term:`source "
-"tree <Project Source Tree>`, to be transformed into :term:`Core Metadata "
-"field`\\s in the :term:`Built Metadata` by the project's :term:`build "
-"backend <Build Backend>`. Can be written as :term:`Pyproject Metadata`, or "
-"in a tool-specific format (under the ``[tool]`` table in ``pyproject.toml``, "
-"or in a tool's own configuration file)."
-msgstr ""
-":term:`プロジェクト <Project>` の :term:`ソースコードツリー <Project Source "
-"Tree>` 内でパッケージ作者が定義したメタデータで、プロジェクトの :term:`"
-"ビルドバックエンド <Build Backend>` が :term:`ビルド済メタデータ <Built "
-"Metadata>` 内の :term:`コアとなるメタデータのフィールド <Core Metadata Field`"
-" へ変換するもの。 :term:`Pyproject のメタデータ <Pyproject Metadata>` "
-"の形か、ツール特有のフォーマット (``pyproject.toml`` 内の ``[tool]`` "
-"テーブル、または、ツール独自の設定ファイル) で書くことができます。"
-
-#: ../source/glossary.rst:226
-msgid "Pyproject Metadata"
-msgstr "Pyproject のメタデータ"
-
-#: ../source/glossary.rst:229
-msgid ""
-"The :term:`Project Source Metadata` format defined by the :ref:`declaring-"
-"project-metadata` specification and originally introduced in :pep:`621`, "
-"stored as :term:`Pyproject Metadata Key`\\s under the ``[project]`` table of "
-"a :term:`pyproject.toml` file. Notably, *not* a tool-specific source "
-"metadata format under the ``[tool]`` table in ``pyproject.toml``."
-msgstr ""
-"ref:`プロジェクトのメタデータを宣言する <declaring-project-metadata>` "
-"の仕様で定義されており、 :pep:`621` で初めて登場した :term:`"
-"プロジェクトソースのメタデータ <Project Source Metadata>` のフォーマットで、 "
-":term:`pyproject.toml` ファイルの ``[project]`` テーブルの下の :term:`"
-"プロジェクトソースのメタデータ <Project Source Metadata>` "
-"として格納されるもの。 ``pyproject.toml`` 内の ``[tool]`` "
-"テーブルの下にあるツール特有のソースメタデータでは *ない* ということに注意。"
-
-#: ../source/glossary.rst:237
-msgid "Pyproject Metadata Key"
-msgstr "Pyproject のメタデータキー"
-
-#: ../source/glossary.rst:240
-msgid ""
-"A top-level TOML key in the ``[project]`` table in ``pyproject.toml``; part "
-"of the :term:`Pyproject Metadata`. Notably, distinct from a :term:`Core "
-"Metadata Field`."
-msgstr ""
-"``pyproject.toml`` 内の ``[project]`` テーブルの中にあるトップレベルの TOML "
-"キー; :term:`Pyproject のメタデータ <Pyproject Metadata>` の一部。 :term:`"
-"コアとなるメタデータのフィールド <Core Metadata Field` とは異なる点に注意。"
-
-#: ../source/glossary.rst:244
-msgid "Pyproject Metadata Subkey"
-msgstr "Pyproject のメタデータサブキー"
-
-#: ../source/glossary.rst:247
-msgid ""
-"A second-level TOML key under a table-valued :term:`Pyproject Metadata Key`."
-msgstr ""
-":term:`Pyproject メタデータのキー <Pyproject Metadata Key>` "
-"のテーブルの値の下にある第２層の TOML キー。"
-
-#: ../source/glossary.rst:332
-msgid ""
-"A :term:`distribution <Distribution Archive>` format (usually generated "
-"using ``python -m build --sdist``) that provides metadata and the essential "
-"source files needed for installing by a tool like :ref:`pip`, or for "
-"generating a :term:`Built Distribution`. See :ref:`package-formats` for more "
-"information."
-msgstr ""
-":ref:`pip` のようなツールによるインストールや :term:`ビルド済配布物 <Built "
-"Distribution>` "
-"の生成のために必要となるメタデータや必須のソースファイルを提供する :term:`"
-"配布物 アーカイブ <Distribution Archive>` フォーマット (通常は ``python -m "
-"build --sdist`` を使って生成されます) 。もっと情報が欲しければ、 :ref:`"
-"パッケージフォーマット <package-formats>` を見てください。"
-
-#: ../source/glossary.rst:360
-msgid "Wheel Format"
-msgstr "Wheel フォーマット"
-
-#: ../source/glossary.rst:364
-msgid ""
-"The standard :term:`Built Distribution` format originally introduced in :pep:"
-"`427` and defined by the :ref:`binary-distribution-format` specification. "
-"See :ref:`package-formats` for more information. Not to be confused with its "
-"reference implementation, the :term:`Wheel Project`."
-msgstr ""
-"標準的な :term:`ビルド済配布物 <Built Distribution>` フォーマットで、当初は "
-":pep:`427` で導入され、 :ref:`バイナリ配布物のフォーマット <binary-"
-"distribution-format>` 仕様で定義されたもの。詳しくは :ref:`"
-"パッケージフォーマット <package-formats>` を見てください。参照実装である "
-":term:`Wheel プロジェクト <Wheel Project>` と混同しないように。"
-
-#: ../source/glossary.rst:371
-msgid "Wheel Project"
-msgstr "Wheel プロジェクト"
-
-#: ../source/glossary.rst:374
-msgid ""
-"The PyPA reference implementation of the :term:`Wheel Format`; see :ref:"
-"`wheel`."
-msgstr ":term:`Wheel フォーマット <Wheel Format>` の PyPA による参照実装; "
-":ref:`wheel` 参照。"
-
-#: ../source/glossary.rst:17
-msgid ""
-"A library that takes a source tree and builds a :term:`source distribution "
-"<Source Distribution (or \"sdist\")>` or :term:`built distribution <Built "
-"Distribution>` from it. The build is delegated to the backend by a :term:"
-"`frontend <Build Frontend>`. All backends offer a standardized interface."
-msgstr ""
-"ソースコードツリーを受け取って、そこから :term:`ソースコード配布物 <Source "
-"Distribution (or \"sdist\")>` や :term:`ビルド済配布物 <Built Distribution>` "
-"をビルドするライブラリ。ビルドの作業は、 :term:`フロントエンド <Build "
-"Frontend>` によってバックエンドに委任されます。"
+#~ msgid "The summary description of the project."
+#~ msgstr "プロジェクトを要約する記述。"
 
 #~ msgid "Wheel vs Egg"
 #~ msgstr "Wheel対Egg"
