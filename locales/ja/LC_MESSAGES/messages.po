@@ -10,10 +10,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-20 11:49+0000\n"
-"PO-Revision-Date: 2024-05-20 09:01+0000\n"
+"PO-Revision-Date: 2024-06-06 01:09+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19339,10 +19339,16 @@ msgid ""
 "installs package updates inside their image (think ``RUN apt-get dist-"
 "upgrade``)."
 msgstr ""
+"単一アプリケーションのコンテナ用の公式イメージ (即ち Docker コンテナイメージ)"
+" を作成するようなディストロは、 ``EXTERNALLY-MANAGED`` "
+"ファイルを維持すべきで、さらに言えば、"
+"ユーザがそのイメージなでパッケージのアップデートをインストールしたとしても "
+"(``RUN apt-get dist-upgrade`` のようなものを考えてみてほしい) "
+"失われることのないようなやり方で行うのが望ましいことです。"
 
 #: ../source/specifications/externally-managed-environments.rst:317
 msgid "Create separate distro and local directories"
-msgstr ""
+msgstr "ディストロとローカルのディレクトリを別々に作成する"
 
 #: ../source/specifications/externally-managed-environments.rst:319
 msgid ""
@@ -19354,6 +19360,15 @@ msgid ""
 "system administrator should come before the distro path on ``sys.path`` so "
 "that local installs take preference over distro packages."
 msgstr ""
+"ディストロは、ディストロがインストールしたパッケージのためのものと、ローカル"
+"のシステム管理者がインストールしたパッケージのためのものというふたつの別々の"
+"パスをシステム側に持っているインタープリタの ``sys.path`` "
+"に置くべきであり、また、 ``sysconfig.get_default_scheme()`` "
+"が後者のパスを指し示すように設定するべきです。こうすることで、pip のようなツ"
+"ール類がディストロ側でインストールしたパッケージを修正してしまうことがなくな"
+"ります。ローカルのシステム管理者用のパスは ``sys.path`` 内でディストロ側のパ"
+"スの前にくるべきで、そうすることでローカルにインストールされたものがディスト"
+"ロ側のパッケージよりも選好されるようになります。"
 
 #: ../source/specifications/externally-managed-environments.rst:328
 msgid ""
@@ -19368,6 +19383,18 @@ msgid ""
 "wishes to make sure that packages installed via the locally-built "
 "interpreter don't show up on ``sys.path`` for the distro interpreter.)"
 msgstr ""
+"例えば、Fedora や Debian (およびその派生物) は共に、"
+"ローカルにインストールされたパッケージ用に ``/usr/local`` を使い、"
+"ディストロがインストールしたパッケージ用に ``/usr`` "
+"を用いることでこの分離を実装しています。Fedora では、 ``/usr/local/lib/"
+"python3.x/site-packages`` 対 ``/usr/lib/python3.x/site-packages`` です。 ("
+"Debian では ``/usr/local/lib/python3/dist-packages`` 対 ``/usr/lib/python3/"
+"dist-packages`` をローカルにコンパイルされた Python "
+"インタープリタ用にさらに分離して使っています: もしアップストリームの Python "
+"をビルドして ``/usr/local/bin`` にインストールしていれば、 ``/usr/local/lib/"
+"python3/site-packages`` を見るでしょうし、 Debian ではローカルにビルドされた"
+"インタープリタ経由でインストールされたパッケージがディストロ側のインタープリ"
+"タ用の ``sys.path`` 上には出現しないことを確実にしようと願っています。)"
 
 #: ../source/specifications/externally-managed-environments.rst:341
 msgid ""
@@ -19376,6 +19403,11 @@ msgid ""
 "and non-distro software installs to ``/usr/local`` by default. This split is "
 "`recommended by the Filesystem Hierarchy Standard`__."
 msgstr ""
+"``/usr/local`` 対 ``/usr`` の分離が、 ``PATH`` 環境変数が典型的に ``/usr/"
+"local/bin:/usr/bin`` を含んでいて、デフォルトで非ディストロのソフトウェアが "
+"``/usr/local`` にインストールされることのアナロジーになっていることに注目して"
+"ください。この分離は、 `推奨されるファイルシステム階層標準 <recommended by "
+"the Filesystem Hierarchy Standard>`__ です。"
 
 #: ../source/specifications/externally-managed-environments.rst:349
 msgid ""
@@ -19384,6 +19416,12 @@ msgid ""
 "wheel or call ``setup.py install``), arrange for those tools to use a "
 "directory that is not in a ``sysconfig`` scheme but is still on ``sys.path``."
 msgstr ""
+"これを行うにはふたつの方法があります。ひとつは、Python "
+"ライブラリを直接にビルドしてパッケージしようとしている (例えば、"
+"使っているパッケージングヘルパーが wheel をアンパックするか、または、 ``"
+"setup.py install`` を呼び出す場合) 時に、 ``sys.path`` "
+"には含まれているけれども ``sysconfig`` スキームには入っていないようなディレク"
+"トリを使って実行するようにそれらツール群を調整することです。"
 
 #: ../source/specifications/externally-managed-environments.rst:355
 msgid ""
@@ -19396,6 +19434,15 @@ msgid ""
 "from inside a package build. Then you can use ``pip install`` as part of "
 "your distro packaging."
 msgstr ""
+"もうひとつは、"
+"パッケージのビルド中とインストール済みのシステムで実行する時とでデフォルトの "
+"``sysconfig`` スキームを変えるように調整することです。 "
+"(アクセプトされ実装されればですが) bpo-43976_ からの ``sysconfig`` "
+"カスタマイズフック群がこれを容易にするでしょう: "
+"パッケージングツールに環境変数他のなんらかの検出可能な設定項目を設定させ、 "
+"``get_preferred_schemes`` 関数がパッケージビルドの中から呼ばれた場合には異な"
+"るスキームを返すようにするのです。そうすれば、 ``pip install`` "
+"をディストロパッケージングの一部として使用できるようになります。"
 
 #: ../source/specifications/externally-managed-environments.rst:367
 msgid ""
@@ -19408,6 +19455,17 @@ msgid ""
 "absolutely needed, use ``pip uninstall --scheme=posix_distro`` to use pip to "
 "remove packages from the system-managed directory."
 msgstr ""
+"我々は、 pip が指定されたスキームで走るように指示する ``--scheme=...`` "
+"オプションを追加することを提案します。(現在の pip "
+"がスキームを決定する方法については後述の `実装ノート <Implementation Notes>`"
+"_ を参照してください。) "
+"これが利用可能になり次第、ローカルのテストやおそらく実際のパッケージングで、 "
+"(``get_preferred_schemes`` をバイパスして) "
+"明示的にディストロ側の場所へパッケージをインストールするために ``pip install "
+"--scheme=posix_distro`` のような形で実行することができるようになるでしょう。"
+"また、もし本当に必要であれば、 pip "
+"を使ってシステム側が管理するディレクトリからパッケージを削除するために ``pip "
+"uninstall --scheme=posix_distro`` を使うことさえできるでしょう。"
 
 #: ../source/specifications/externally-managed-environments.rst:377
 msgid ""
@@ -19416,6 +19474,11 @@ msgid ""
 "the command line. You may want to use the same means for suppressing the "
 "marker file in build chroots as you do in container images."
 msgstr ""
+"pip でパッケージをインストールするには、 ``EXTERNALLY-MANAGED`` "
+"マーカーファイルを抑止して pip を実行できるようにするか、コマンドラインでオー"
+"バーライドするかのいずれかが必要です。コンテナイメージ内で作業している時は、"
+"ビルドのために chroot "
+"した環境においても同じ方法でマーカーファイルを抑止したくなるかもしれません。"
 
 #: ../source/specifications/externally-managed-environments.rst:383
 msgid ""
@@ -19428,12 +19491,21 @@ msgid ""
 "packaging process always calls ``pip install --scheme=posix_distro --break-"
 "system-packages``, which would work too."
 msgstr ""
+"これらの設定 (ビルド環境ではマーカーファイルを抑止し、 "
+"``get_preferred_schemes`` が自動的にディストロのスキームを返すようにすること)"
+" を自動で行うことのアドバンテージは、素のままの ``pip install`` "
+"であってもパッケージビルド内で動作することで、"
+"それは一般的にはアップストリームのビルドスクリプトで内部で偶々 ``pip "
+"install`` を呼ぶものでも修正なしで正しく動作するということです。もちろん、"
+"パッケージングプロセスが常に ``pip install --scheme=posix_distro --break-"
+"system-packages`` を呼び出すようにすることもできますし、それも動作します。"
 
 #: ../source/specifications/externally-managed-environments.rst:393
 msgid ""
 "The best approach here depends a lot on your distro's conventions and "
 "mechanisms for packaging."
-msgstr ""
+msgstr "ここでの最善のアプローチは、ディストロの慣習やパッケージング機構に大きく依存"
+"します。"
 
 #: ../source/specifications/externally-managed-environments.rst:396
 msgid ""
@@ -19448,17 +19520,29 @@ msgid ""
 "``scripts`` and ``/usr/bin`` for distro-packaged entry points and place both "
 "on ``$PATH``."
 msgstr ""
+"同様に、 ``sysconfig`` パスでインポート可能な Python "
+"のコード向けのものではないもの - つまり、 ``include`` ・ ``platinclude`` ・ "
+"``scripts`` ・ ``data`` - にもふたつの変種があって、ひとつはディストロ側でパ"
+"ッケージしたソフトウェア、もう一つはローカルにインストールされたソフトウェア"
+"ですが、ディストロはこれらのどちらでも使用できるように設定されているべきです"
+"。例えば、典型的な FHS を遵守するディストロでは、 ``/usr/local/include`` "
+"をデフォルトのスキームの ``include`` 用に、 ``/usr/include`` をディストロ側で"
+"パッケージかしたヘッダファイル用に使って、両方をコンパイラのサーチパスに含め"
+"ておくことになるでしょうし、また、 ``/usr/local/bin`` "
+"をデフォルトのスキームの ``scripts`` 用に、 ``/usr/bin`` "
+"をディストロ側のパッケージのエントリポイント用に使って、両方を ``$PATH`` "
+"に含めておくでしょう。"
 
 #: ../source/specifications/externally-managed-environments.rst:410
-#, fuzzy
 msgid "Implementation Notes"
-msgstr "文書の類型"
+msgstr "実装に関する覚書"
 
 #: ../source/specifications/externally-managed-environments.rst:412
 msgid ""
 "This section is non-normative and contains notes relevant to both the "
 "specification and potential implementations."
-msgstr ""
+msgstr "この節は規範的なものではなく、仕様と潜在的な実装の両方に関連する覚え書きを含"
+"んでいます。"
 
 #: ../source/specifications/externally-managed-environments.rst:415
 msgid ""
@@ -19466,11 +19550,13 @@ msgid ""
 "target ``sysconfig`` scheme, but it has three ways of looking up schemes "
 "when installing:"
 msgstr ""
+"現在 (2021年5月時点) 、 pip はターゲットとなる ``sysconfig`` スキームを選択す"
+"る方法を直接には外部に見せていませんが、インストールの際にルックアップする３"
+"個の方法があります:"
 
 #: ../source/specifications/externally-managed-environments.rst:422
-#, fuzzy
 msgid "``pip install``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``pip install``"
 
 #: ../source/specifications/externally-managed-environments.rst:420
 msgid ""
@@ -19478,29 +19564,33 @@ msgid ""
 "CPython and most current distros) the same as "
 "``get_preferred_scheme('prefix')``."
 msgstr ""
+"``sysconfig.get_default_scheme()`` を呼び出す方法で、 (アップストリームの "
+"CPython や今使われているほとんどのディストロでは) 普通は "
+"``get_preferred_scheme('prefix')`` と同じ結果になるもの。"
 
 #: ../source/specifications/externally-managed-environments.rst:425
 msgid "``pip install --prefix=/some/path``"
-msgstr ""
+msgstr "``pip install --prefix=/some/path``"
 
 #: ../source/specifications/externally-managed-environments.rst:425
 msgid "Calls ``sysconfig.get_preferred_scheme('prefix')``."
-msgstr ""
+msgstr "``sysconfig.get_preferred_scheme('prefix')`` を呼び出す。"
 
 #: ../source/specifications/externally-managed-environments.rst:428
-#, fuzzy
 msgid "``pip install --user``"
-msgstr "はい (``python -m pip uninstall``)"
+msgstr "``pip install --user``"
 
 #: ../source/specifications/externally-managed-environments.rst:428
 msgid "Calls ``sysconfig.get_preferred_scheme('user')``."
-msgstr ""
+msgstr "``sysconfig.get_preferred_scheme('user')`` を呼び出す。"
 
 #: ../source/specifications/externally-managed-environments.rst:430
 msgid ""
 "Finally, ``pip install --target=/some/path`` writes directly to ``/some/"
 "path`` without looking up any schemes."
 msgstr ""
+"最後に、 ``pip install --target=/some/path`` "
+"でスキームをルックアップすることなしに ``/some/path`` を書きます。"
 
 #: ../source/specifications/externally-managed-environments.rst:433
 msgid ""
@@ -19513,6 +19603,15 @@ msgid ""
 "``sysconfig`` scheme, and notably does not change the result of ``sysconfig."
 "get_path(\"stdlib\")``."
 msgstr ""
+"Debian は、現在、 (``VIRTUAL_ENV`` 環境変数を確認することを含む) "
+"いくつかの発見的な解法を使った `"
+"仮想環境内のデフォルトのインストール先を変更するパッチ <patch to change the "
+"default install location inside a virtual environment>`__ を入れていて、"
+"仮想環境内で使われるディレクトリが ``dist-packages`` ではなく ``site-"
+"packages`` に留まるようになっています。これは、この提案に特に影響を与えません"
+"、というのは、そのパッチの実装は、実際にはデフォルトの ``sysconfig`` "
+"スキームを変更するわけではなく、特に ``sysconfig.get_path(\"stdlib\")`` "
+"の結果を変更しないからです。"
 
 #: ../source/specifications/externally-managed-environments.rst:445
 msgid ""
@@ -19522,6 +19621,14 @@ msgid ""
 "envisioned by bpo-43976_, except implemented as a code patch to "
 "``distutils`` instead of as a changed ``sysconfig`` scheme."
 msgstr ""
+"Fedora は、現在、`rpmbuild "
+"内で実行しているのでなければデフォルトのインストール先を変更するパッチ "
+"<patch to change the default install location when not running inside "
+"rpmbuild>`__ を適用していて、「ふたつのシステムワイドなディレクトリ」のアプロ"
+"ーチを使っています。これは、概念としては、 ``sysconfig`` "
+"スキームを変更するものとしてではなく ``distutils`` "
+"へのソースコードパッチとして実装されていることを除けば、 bpo-43976_ "
+"によって可視化されたある種のフックです。"
 
 #: ../source/specifications/externally-managed-environments.rst:454
 msgid ""
@@ -19531,6 +19638,10 @@ msgid ""
 "respectively), to centralize their implementations, but they don't need to "
 "be added yet."
 msgstr ""
+"上記の ``is_virtual_environment`` の実装は、 ``EXTERNALLY-MANAGED`` "
+"ファイルをロードしてそこからエラーメッセージを探す論理と同様に、"
+"実装を中央一括管理にするために標準ライブラリ (順に ``sys`` と ``sysconfig``) "
+"に追加されるかもしれませんが、まだそのようにはなっていません。"
 
 #: ../source/specifications/externally-managed-environments.rst:464
 msgid "Copyright"
@@ -19541,10 +19652,12 @@ msgid ""
 "This document is placed in the public domain or under the CC0-1.0-Universal "
 "license, whichever is more permissive."
 msgstr ""
+"この説明文書は、パブリックドメインに置かれるか、または、 CC0-1.0-Universal "
+"ライセンスの下に置かれるかですが、いずれにしてもかなり寛大なものです。"
 
 #: ../source/specifications/externally-managed-environments.rst:474
 msgid "June 2022: This specification was approved through :pep:`668`."
-msgstr ""
+msgstr "2022年6月: :pep:`668` を通じてこの仕様が承認されました。"
 
 #: ../source/specifications/index.rst:4
 msgid "PyPA specifications"
@@ -19563,9 +19676,8 @@ msgstr ""
 "ます。"
 
 #: ../source/specifications/inline-script-metadata.rst:5
-#, fuzzy
 msgid "Inline script metadata"
-msgstr "プロジェクトのメタデータを宣言する"
+msgstr "インラインスクリプトのメタデータ"
 
 #: ../source/specifications/inline-script-metadata.rst:7
 msgid ""
@@ -19573,12 +19685,18 @@ msgid ""
 "file Python scripts to assist launchers, IDEs and other external tools which "
 "may need to interact with such scripts."
 msgstr ""
+"この仕様では、単一ファイルの Python "
+"スクリプトがそのようなスクリプトと相互作用するローンチャー・ IDE ・その他外部"
+"ツールを手助けするために、スクリプト内に埋め込むことができるメタデータフォー"
+"マットを定義しています。"
 
 #: ../source/specifications/inline-script-metadata.rst:15
 msgid ""
 "This specification defines a metadata comment block format (loosely inspired "
 "by `reStructuredText Directives`__)."
 msgstr ""
+"この仕様では、メタデータのコメントブロックの (`reStructuredText Directives`"
+"__ に大雑把に基づく) フォーマットを定義します。"
 
 #: ../source/specifications/inline-script-metadata.rst:20
 msgid ""
@@ -19590,6 +19708,16 @@ msgid ""
 "followed by a single space, followed by three forward slashes. The ``TYPE`` "
 "MUST only consist of ASCII letters, numbers and hyphens."
 msgstr ""
+"すべての Python "
+"スクリプトについて、トップレベルのコメントブロックがあってもかまいませんが、 "
+"(そのようなコメントブロックは) ``TYPE`` "
+"によって内容物をどのように処理するべきかが決まるような ``# /// TYPE`` "
+"の行で始まらなければなりません。つまり: 単独の ``#`` "
+"、これに後続する単独の空白文字、さらに後続する３個のスラッシュ文字 <forward "
+"slash> 、さらに空白文字、メタデータのタイプ。ブロックは ``# ///`` "
+"の行で終わらなければなりません。つまり: 単独の ``#`` "
+"、後続する空白文字、３個のスラッシュ文字。 ``TYPE`` は、 ASCII "
+"文字・数字・ハイフンだけで構成されていなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:28
 msgid ""
@@ -19600,6 +19728,12 @@ msgid ""
 "a space, otherwise just the first character (which means the line consists "
 "of only a single ``#``)."
 msgstr ""
+"これらふたつの行 (``# /// TYPE`` と ``# ///``) の間に入る各行は、 ``#`` "
+"で始まるコメントでなければなりません。もし、 ``#`` に文字が続くのであれば、そ"
+"の最初の文字は空白文字でなければなりません。ここに置かれる内容は、２文字目が"
+"空白文字であれば最初の２文字を削除して整形されますが、"
+"さもなければ最初の文字だけ (つまり、単独の ``#`` だけから構成される行) "
+"になります。"
 
 #: ../source/specifications/inline-script-metadata.rst:35
 msgid ""
@@ -19607,6 +19741,9 @@ msgid ""
 "valid embedded content line as described above. For example, the following "
 "is a single fully valid block:"
 msgstr ""
+"次の行が上述の埋め込みコメント行として正当なものではない場合に、 "
+"(コメントブロックの) 終わりの行である ``# ///`` "
+"が優先されます。例えば、次に示すものはひとつの完全に正当なブロックです:"
 
 #: ../source/specifications/inline-script-metadata.rst:51
 msgid ""
@@ -19614,12 +19751,16 @@ msgid ""
 "ending line. In such cases tools MAY produce an error. Unclosed blocks MUST "
 "be ignored."
 msgstr ""
+"開始行は、他の開始行とその終了行の間に位置してはいけません。そのような場合に"
+"は、ツール類はエラーを生成しても構いません。閉じられていないブロックは無視さ"
+"れなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:54
 msgid ""
 "When there are multiple comment blocks of the same ``TYPE`` defined, tools "
 "MUST produce an error."
-msgstr ""
+msgstr "同じ ``TYPE`` が定義されたコメントブロックが複数存在する場合、ツール類はエラ"
+"ーを生成しなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:57
 msgid ""
@@ -19627,40 +19768,51 @@ msgid ""
 "declaration. If they choose not to do so, they MUST process the file as "
 "UTF-8."
 msgstr ""
+"組み込みのメタデータを読み取るツール類は、 Python 標準のエンコーディング宣言"
+"を尊重しても構いません。もし、そうしないことを選択するのであれば、UTF-8 "
+"であるものとしてファイルを扱わなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:60
 msgid ""
 "This is the canonical regular expression that MAY be used to parse the "
 "metadata:"
-msgstr ""
+msgstr "これは、メタデータをパースするのに使っても構わない正統な正規表現です:"
 
 #: ../source/specifications/inline-script-metadata.rst:67
 msgid ""
 "In circumstances where there is a discrepancy between the text specification "
 "and the regular expression, the text specification takes precedence."
-msgstr ""
+msgstr "テキストの仕様と正規表現の間に矛盾のある環境下では、テキストの仕様が優先され"
+"ます。"
 
 #: ../source/specifications/inline-script-metadata.rst:70
 msgid ""
 "Tools MUST NOT read from metadata blocks with types that have not been "
 "standardized by this specification."
-msgstr ""
+msgstr "ツール類は、この仕様によって標準化されていないタイプを伴ったメタデータブロッ"
+"クから読み取ることがあってはなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:74
 msgid "script type"
-msgstr ""
+msgstr "スクリプトのタイプ"
 
 #: ../source/specifications/inline-script-metadata.rst:76
 msgid ""
 "The first type of metadata block is named ``script``, which contains script "
 "metadata (dependency data and tool configuration)."
 msgstr ""
+"メタデータブロックのひとつめのタイプは ``script`` という名前で、"
+"スクリプトメタデータ (依存関係のデータとツールの設定) を格納しています。"
 
 #: ../source/specifications/inline-script-metadata.rst:79
 msgid ""
 "This document MAY include the top-level fields ``dependencies`` and "
 "``requires-python``, and MAY optionally include a ``[tool]`` table."
 msgstr ""
+"このドキュメント (訳註、メタデータブロックのことか) は、"
+"トップレベルのフィールドとして ``dependencies`` と ``requires-python`` "
+"を含むことができ、また、オプションとして ``[tool]`` "
+"テーブルを含んでいても構いません。"
 
 #: ../source/specifications/inline-script-metadata.rst:82
 msgid ""
@@ -19668,10 +19820,13 @@ msgid ""
 "configure behavior. It has the same semantics as the :ref:`[tool] table in "
 "pyproject.toml <pyproject-tool-table>`."
 msgstr ""
+"``[tool]`` は、どんなツールでもスクリプトランナーでもその他のものでも、振る舞"
+"いを設定するのに使うことができます。:ref:`pyproject.toml <pyproject-tool-"
+"table> 内の [tool] テーブル` と同一のセマンティクスを持ちます。"
 
 #: ../source/specifications/inline-script-metadata.rst:86
 msgid "The top-level fields are:"
-msgstr ""
+msgstr "トップレベルのフィールドは:"
 
 #: ../source/specifications/inline-script-metadata.rst:88
 msgid ""
@@ -19679,6 +19834,9 @@ msgid ""
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
 "<dependency-specifiers>`."
 msgstr ""
+"``dependencies``: スクリプトの動作時の依存関係を指定する文字列のリスト。"
+"それぞれの項目は正当な :ref:`依存関係指定子 <dependency-specifiers>` "
+"でなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
@@ -19686,6 +19844,9 @@ msgid ""
 "which the script is compatible. The value of this field MUST be a valid :ref:"
 "`version specifier <version-specifiers>`."
 msgstr ""
+"``requires-python``: そのスクリプトと互換性のある Python のバージョン(群) "
+"を指定する文字列。このフィールドの値は正当な :ref:`バージョン指定子 <version-"
+"specifiers>` でなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:95
 msgid ""
@@ -19693,6 +19854,10 @@ msgid ""
 "provided. Script runners SHOULD error if no version of Python that satisfies "
 "the specified ``requires-python`` can be provided."
 msgstr ""
+"スクリプトを走らせる側では、指定された ``dependencies`` "
+"を提供できない場合にはエラーを起こさなければなりません。指定された "
+"``requires-python`` で指定されたバージョンの Python "
+"を提供できない場合には、スクリプトを走らせる側でエラーを起こすべきです。"
 
 #: ../source/specifications/inline-script-metadata.rst:100
 msgid "Example"
@@ -19700,18 +19865,18 @@ msgstr "例"
 
 #: ../source/specifications/inline-script-metadata.rst:102
 msgid "The following is an example of a script with embedded metadata:"
-msgstr ""
+msgstr "組み込まれたメタデータを伴うスクリプトの例を以下に示します:"
 
 #: ../source/specifications/inline-script-metadata.rst:123
-#, fuzzy
 msgid "Reference Implementation"
-msgstr "文書の類型"
+msgstr "参照実装"
 
 #: ../source/specifications/inline-script-metadata.rst:125
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
-msgstr ""
+msgstr "3.11 およびそれ以降の Python "
+"でどのようにメタデータを読み取るのかについて例を以下に示します。"
 
 #: ../source/specifications/inline-script-metadata.rst:151
 msgid ""
@@ -19719,6 +19884,9 @@ msgid ""
 "update automation in CI. The following is a crude example of modifying the "
 "content using the ``tomlkit`` library__."
 msgstr ""
+"ツール類は、しばしば、パッケージ管理機構や CI における依存関係更新の自動化機"
+"構のように、依存関係を編集するでしょう。以下に、 ``tomlkit`` library__ "
+"を使って内容を書き換える際のおおまかな例を示します。"
 
 #: ../source/specifications/inline-script-metadata.rst:182
 msgid ""
@@ -19726,18 +19894,21 @@ msgid ""
 "is not a requirement for editing by any means but rather is a \"nice to "
 "have\" feature."
 msgstr ""
+"この例では、TOML フォーマッティングを保存するライブラリを使っていることに留意"
+"してください。これは、決して編集することに対する要求事項というわけではなく、"
+"むしろ \"あったらいいね <nice to have>\" 的なものです。"
 
 #: ../source/specifications/inline-script-metadata.rst:186
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
-msgstr ""
+msgstr "任意のメタデータブロックのストリームをどのように読み取るかの例を以下に示しま"
+"す。"
 
 #: ../source/specifications/inline-script-metadata.rst:205
 #: ../source/specifications/simple-repository-api.rst:815
-#, fuzzy
 msgid "Recommendations"
-msgstr "オススメのツール"
+msgstr "推奨事項"
 
 #: ../source/specifications/inline-script-metadata.rst:207
 msgid ""
@@ -19745,12 +19916,15 @@ msgid ""
 "use the highest available version of Python that is compatible with the "
 "script's ``requires-python`` metadata, if defined."
 msgstr ""
+"異なるバージョンの Python を管理する機能を持つツール類は、スクリプトの "
+"``requires-python`` メタデータと互換性のある Python "
+"のバージョンのうちの利用可能な最も新しい版を使うことを試みるべきです。"
 
 #: ../source/specifications/inline-script-metadata.rst:215
 msgid ""
 "October 2023: This specification was conditionally approved through :pep:"
 "`723`."
-msgstr ""
+msgstr "2023年10月: :pep:`723` を通じて、この仕様が条件付きで承認されました。"
 
 #: ../source/specifications/inline-script-metadata.rst:216
 msgid ""
@@ -19759,11 +19933,14 @@ msgid ""
 "making the ``dependencies`` and ``requires-python`` keys top-level. "
 "Additionally, the specification is no longer provisional."
 msgstr ""
+"2024年1月: :pep:`723` に対する修正を通じて、 ``pyproject`` "
+"メタデータブロックのタイプが ``script`` に改名され、 ``dependencies`` キーと "
+"``require-python`` キーがトップレベルに昇格する形で ``[run]`` テーブルが廃止"
+"されました。さらに、この仕様はもはや暫定的なものではなくなりました。"
 
 #: ../source/specifications/name-normalization.rst:3
-#, fuzzy
 msgid "Names and normalization"
-msgstr "パッケージ名の正規化"
+msgstr "名前と正規化"
 
 #: ../source/specifications/name-normalization.rst:5
 msgid ""
@@ -19771,11 +19948,13 @@ msgid ""
 "required to follow. It also describes how to normalize them, which should be "
 "done before lookups and comparisons."
 msgstr ""
+"この仕様では、パッケージや追加物の名前が従うことを要求されるフォーマットを定"
+"義します。あわせて、ルックアップや比較を行う前に行われるべき標準化方法につい"
+"ても記述します。"
 
 #: ../source/specifications/name-normalization.rst:13
-#, fuzzy
 msgid "Name format"
-msgstr "ファイルフォーマット"
+msgstr "名前のフォーマット"
 
 #: ../source/specifications/name-normalization.rst:15
 #, fuzzy
