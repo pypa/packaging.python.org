@@ -66,7 +66,10 @@ html_favicon = "assets/py.png"
 html_last_updated_fmt = ""
 
 _metrics_js_files = [
-    ("https://plausible.io/js/script.js", {"data-domain": "packaging.python.org", "defer": "defer"})
+    (
+        "https://plausible.io/js/script.js",
+        {"data-domain": "packaging.python.org", "defer": "defer"},
+    )
 ]
 html_js_files = []
 if RTD_CANONICAL_BUILD:
