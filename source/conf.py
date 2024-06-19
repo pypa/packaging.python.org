@@ -7,7 +7,9 @@ import os
 RTD_BUILD = bool(os.getenv("READTHEDOCS"))
 RTD_PR_BUILD = RTD_BUILD and os.getenv("READTHEDOCS_VERSION_TYPE") == "external"
 RTD_URL = os.getenv("READTHEDOCS_CANONICAL_URL")
-RTD_CANONICAL_BUILD = RTD_BUILD and not RTD_PR_BUILD and "packaging.python.org" in RTD_URL
+RTD_CANONICAL_BUILD = (
+    RTD_BUILD and not RTD_PR_BUILD and "packaging.python.org" in RTD_URL
+)
 
 project = "Python Packaging User Guide"
 
