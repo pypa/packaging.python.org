@@ -541,6 +541,7 @@ some things you can do:
 * Consider packaging tools that provide a single command-line interface for
   project management and packaging, such as :ref:`hatch`, :ref:`flit`,
   :ref:`pdm`, and :ref:`poetry`.
+* Read about :doc:`/discussions/choosing-a-package-module-name`.
 
 
 ----
