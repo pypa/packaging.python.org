@@ -44,7 +44,7 @@ Wheel installation notionally consists of two phases:
      is a key into a dict of destination directories, such as
      ``distribution-1.0.data/(purelib|platlib|headers|scripts|data)``.
      These subdirectories are :ref:`installation paths defined by sysconfig
-     <python:installation-paths>`_.
+     <python:installation_paths>`.
   c. If applicable, update scripts starting with ``#!python`` to point
      to the correct interpreter.
   d. Update ``distribution-1.0.dist-info/RECORD`` with the installed
