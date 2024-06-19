@@ -1,6 +1,16 @@
 # -- Project information ---------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os
+
+# Some options are only enabled for the main packaging.python.org deployment builds
+RTD_BUILD = bool(os.getenv("READTHEDOCS"))
+RTD_PR_BUILD = RTD_BUILD and os.getenv("READTHEDOCS_VERSION_TYPE") == "external"
+RTD_URL = os.getenv("READTHEDOCS_CANONICAL_URL")
+RTD_CANONICAL_BUILD = (
+    RTD_BUILD and not RTD_PR_BUILD and "packaging.python.org" in RTD_URL
+)
+
 project = "Python Packaging User Guide"
 
 copyright = "2013–2020, PyPA"
@@ -54,6 +64,18 @@ html_theme = "furo"
 
 html_favicon = "assets/py.png"
 html_last_updated_fmt = ""
+
+_metrics_js_files = [
+    (
+        "https://plausible.io/js/script.js",
+        {"data-domain": "packaging.python.org", "defer": "defer"},
+    )
+]
+html_js_files = []
+if RTD_CANONICAL_BUILD:
+    # Enable collection of the visitor metrics reported at
+    # https://plausible.io/packaging.python.org
+    html_js_files.extend(_metrics_js_files)
 
 # -- Options for HTML help output ------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
