@@ -340,7 +340,7 @@ or you can write the name of the license:
     license = {text = "MIT License"}
 
 If you are using a standard, well-known license, it is not necessary to use this
-field. Instead, you should one of the :ref:`classifiers` starting with ``License
+field. Instead, you should use one of the :ref:`classifiers` starting with ``License
 ::``. (As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
 whose license is unapproved.)
