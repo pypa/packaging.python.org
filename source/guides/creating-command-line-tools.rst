@@ -11,8 +11,8 @@ and exposing the executable scripts of packages (and available manual pages) for
 Creating the package
 ====================
 
-First of all, we'll need to create a source tree for the :term:`project <Project>`. For the sake of an example, we'll
-create a simple tool outputting a greeting (a string) for a person based on arguments given on the command-line.
+First of all, create a source tree for the :term:`project <Project>`. For the sake of an example, we'll
+build a simple tool outputting a greeting (a string) for a person based on arguments given on the command-line.
 
 .. todo:: Advise on the optimal structure of a Python package in another guide or discussion and link to it here.
 
@@ -62,7 +62,7 @@ named after the main module:
 	        print(greeting)
 
 The above function receives several keyword arguments that determine how the greeting to output is constructed.
-Now, the command-line interface to provision it with the same needs to be constructed, which is done
+Now, construct the command-line interface to provision it with the same, which is done
 in :file:`cli.py`:
 
 .. code-block:: python
@@ -125,28 +125,27 @@ in :file:`cli.py`:
 
 The command-line interface is built with :py:mod:`argparse`, a command-line parser which is included in Python's
 standard library. It is a bit rudimentary but sufficient for most needs. Another easy-to-use alternative is docopt_;
-advanced users are encouraged to make use of click_.
+advanced users are encouraged to make use of click_ or typer_.
 
-We'll add an empty :file:`__init__.py` file, too, to define the project as a regular :term:`import package <Import Package>`.
+Now, add an empty :file:`__init__.py` file, to define the project as a regular :term:`import package <Import Package>`.
 
-The file :file:`__main__.py` marks the main entry point for the application when running it via ``python -m greetings``,
-so we'll just initizalize the command-line interface here. The first condition isn't necessary, but may be added in order
-to make the package runnable directly from the source tree, by prepending the package folder to Python's :py:data:`sys.path`:
+The file :file:`__main__.py` marks the main entry point for the application when running it via :mod:`runpy`
+(i.e. ``python -m greetings``, which works immediately with flat layout, but requires installation of the package with src layout),
+so initizalize the command-line interface here:
 
 .. code-block:: python
 
-	import os
 	import sys
-
-	if not __package__:
-        # Make package runnable from source tree with
-        #    python src/greetings
-	    package_source_path = os.path.dirname(os.path.dirname(__file__))
-	    sys.path.insert(0, package_source_path)
 
 	if __name__ == "__main__":
 	    from greetings.cli import main
 	    sys.exit(main())
+
+.. note::
+
+    In order to enable calling the command-line interface directly from the :term:`source tree <Project Source Tree>`,
+    i.e. as ``python src/greetings``, a certain hack could be placed in this file; read more at
+    :ref:`running-cli-from-source-src-layout`.
 
 
 ``pyproject.toml``
@@ -161,14 +160,6 @@ For the project to be recognised as a command-line tool, additionally a ``consol
 	[project.scripts]
 	greet = "greetings.cli:main"
 
-Besides, it could prove rewarding to add a ``pipx``-specific entry point, the meaning of which is described below:
-
-.. code-block:: toml
-
-	[project.entry-points."pipx.run"]
-	greetings = "greetings.cli:main"
-
-
 Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`,
 which makes it installable.
 
@@ -176,13 +167,14 @@ which makes it installable.
 Installing the package with ``pipx``
 ====================================
 
-After installing ``pipx`` as described in :ref:`installing-stand-alone-command-line-tools`, you're ready to install your project:
+After installing ``pipx`` as described in :ref:`installing-stand-alone-command-line-tools`, install your project:
 
 .. code-block:: console
 
-	$ pipx install ./greetings/
+    $ cd path/to/greetings/
+    $ pipx install .
 
-This will expose the executable script we defined as an entry point and make the command ``greet`` available to you.
+This will expose the executable script we defined as an entry point and make the command ``greet`` available.
 Let's test it:
 
 .. code-block:: console
@@ -194,14 +186,30 @@ Let's test it:
 	$ greet --gender masculine
 	Greetings, dear Mr. what's-his-name!
 
-To just run the program without installing it permanently, you could use ``pipx run``, which will create a temporary (but cached) virtual environment for it:
+To just run the program without installing it permanently, use ``pipx run``, which will create a temporary (but cached) virtual environment for it:
 
 .. code-block:: console
 
-	$ pipx run ./greetings/ --knight
+	$ pipx run --spec . greet --knight
 
-Thanks to the entry point we defined above (which *must* match the package name), ``pipx`` will pick up the executable script as the
-default one and run it; otherwise, you'd need to specify the entry point's name explicitly with ``pipx run --spec ./greetings/ greet --knight``.
+This syntax is a bit unpractical, however; as the name of the entry point we defined above does not match the package name,
+we need to state explicitly which executable script to run (even though there is only on in existence).
+
+There is, however, a more practical solution to this problem, in the form of an entry point specific to ``pipx run``.
+The same can be defined as follows in :file:`pyproject.toml`:
+
+.. code-block:: toml
+
+    [project.entry-points."pipx.run"]
+    greetings = "greetings.cli:main"
+
+
+Thanks to this entry point (which *must* match the package name), ``pipx`` will pick up the executable script as the
+default one and run it, which makes this command possible:
+
+.. code-block:: console
+
+    $ pipx run . --knight
 
 Conclusion
 ==========
@@ -211,3 +219,4 @@ meaning uploading it to a :term:`package index <Package Index>`, most commonly :
 
 .. _click: https://click.palletsprojects.com/
 .. _docopt: https://docopt.readthedocs.io/en/latest/
+.. _typer: https://typer.tiangolo.com/
