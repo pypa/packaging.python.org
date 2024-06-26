@@ -73,7 +73,7 @@ URI is defined in :rfc:`std-66 <3986>`)::
 Environment markers allow making a specification only take effect in some
 environments::
 
-    marker_op     = version_cmp | (wsp* 'in') | (wsp* 'not' wsp+ 'in')
+    marker_op     = version_cmp | (wsp+ 'in' wsp+) | (wsp+ 'not' wsp+ 'in' wsp+)
     python_str_c  = (wsp | letter | digit | '(' | ')' | '.' | '{' | '}' |
                      '-' | '_' | '*' | '#' | ':' | ';' | ',' | '/' | '?' |
                      '[' | ']' | '!' | '~' | '`' | '@' | '$' | '%' | '^' |
@@ -116,7 +116,7 @@ Giving us a rule for name based requirements::
 
 And a rule for direct reference specifications::
 
-    url_req       = name wsp* extras? wsp* urlspec wsp+ quoted_marker?
+    url_req       = name wsp* extras? wsp* urlspec (wsp+ quoted_marker?)?
 
 Leading to the unified rule that can specify a dependency.::
 
