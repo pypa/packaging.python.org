@@ -66,7 +66,7 @@ URI is defined in :rfc:`std-66 <3986>`)::
     version_cmp   = wsp* '<' | '<=' | '!=' | '==' | '>=' | '>' | '~=' | '==='
     version       = wsp* ( letterOrDigit | '-' | '_' | '.' | '*' | '+' | '!' )+
     version_one   = version_cmp version wsp*
-    version_many  = version_one (wsp* ',' version_one)*
+    version_many  = version_one (',' version_one)* (',' wsp*)?
     versionspec   = ( '(' version_many ')' ) | version_many
     urlspec       = '@' wsp* <URI_reference>
 
@@ -303,7 +303,7 @@ The complete parsley grammar::
     version_cmp   = wsp* <'<=' | '<' | '!=' | '==' | '>=' | '>' | '~=' | '==='>
     version       = wsp* <( letterOrDigit | '-' | '_' | '.' | '*' | '+' | '!' )+>
     version_one   = version_cmp:op version:v wsp* -> (op, v)
-    version_many  = version_one:v1 (wsp* ',' version_one)*:v2 -> [v1] + v2
+    version_many  = version_one:v1 (',' version_one)*:v2 (',' wsp*)? -> [v1] + v2
     versionspec   = ('(' version_many:v ')' ->v) | version_many
     urlspec       = '@' wsp* <URI_reference>
     marker_op     = version_cmp | (wsp* 'in') | (wsp* 'not' wsp+ 'in')
@@ -424,6 +424,7 @@ A test program - if the grammar is in a string ``grammar``:
         "name",
         "name<=1",
         "name>=3",
+        "name>=3,",
         "name>=3,<2",
         "name@http://foo.com",
         "name [fred,bar] @ http://foo.com ; python_version=='2.7'",
@@ -481,6 +482,9 @@ History
   ``'.'.join(platform.python_version_tuple()[:2])``, to accommodate potential
   future versions of Python with 2-digit major and minor versions
   (e.g. 3.10). [#future_versions]_
+- June 2024: The definition of ``version_many`` was changed to allow trailing
+  commas, matching with the behavior of the Python implementation that has been
+  in use since late 2022.
 
 
 References
