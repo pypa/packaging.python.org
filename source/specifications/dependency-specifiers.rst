@@ -482,7 +482,7 @@ History
   ``'.'.join(platform.python_version_tuple()[:2])``, to accommodate potential
   future versions of Python with 2-digit major and minor versions
   (e.g. 3.10). [#future_versions]_
-- May 2024: The definition of ``version_many`` was changed to allow trailing
+- June 2024: The definition of ``version_many`` was changed to allow trailing
   commas, matching with the behavior of the Python implementation that has been
   in use since late 2022.
 
