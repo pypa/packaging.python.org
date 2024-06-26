@@ -79,3 +79,27 @@ layout and the flat layout:
   ``tox.ini``) and packaging/tooling configuration files (eg: ``setup.py``,
   ``noxfile.py``) on the import path. This would make certain imports work
   in editable installations but not regular installations.
+
+.. _running-cli-from-source-src-layout:
+
+Running a command-line interface from source with src-layout
+============================================================
+
+Due to the firstly mentioned specialty of the src layout, a command-line
+interface can not be run directly from the :term:`source tree <Project Source Tree>`,
+but requires installation of the package in
+:doc:`Development Mode <setuptools:userguide/development_mode>`
+for testing purposes. Since this can be unpractical in some situations,
+a workaround could be to prepend the package folder to  Python's
+:py:data:`sys.path` when called via its :file:`__main__.py` file:
+
+.. code-block:: python
+
+    import os
+    import sys
+
+    if not __package__:
+        # Make CLI runnable from source tree with
+        #    python src/package
+        package_source_path = os.path.dirname(os.path.dirname(__file__))
+        sys.path.insert(0, package_source_path)
