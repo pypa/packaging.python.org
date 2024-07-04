@@ -35,31 +35,40 @@ named after the main module:
 
 .. code-block:: python
 
-	def greet(name="", gender="", knight=False, count=1):
-	    greeting = "Greetings, dear "
-	    masculine = gender == "masculine"
-	    feminine = gender == "feminine"
-	    if gender or knight:
-	        salutation = ""
-	        if knight:
-	            salutation = "Sir "
-	        elif masculine:
-	            salutation = "Mr. "
-	        elif feminine:
-	            salutation = "Ms. "
-	        greeting += salutation
-	        if name:
-	            greeting += f"{name}!"
-	        else:
-	            pronoun = "her" if feminine else "his" if masculine or knight else "its"
-	            greeting += f"what's-{pronoun}-name!"
-	    else:
-	        if name:
-	            greeting += f"{name}!"
-	        elif not gender:
-	            greeting += "friend!"
-	    for i in range(0, count):
-	        print(greeting)
+    import typer
+    from typing_extensions import Annotated
+
+
+    def greet(
+        name: Annotated[str, typer.Argument(help="The (last, if --gender is given) name of the person to greet")] = "",
+        gender: Annotated[str, typer.Option(help="The gender of the person to greet")] = "",
+        knight: Annotated[bool, typer.Option(help="Whether the person is a knight")] = False,
+        count: Annotated[int, typer.Option(help="Number of times to greet the person")] = 1
+    ):
+        greeting = "Greetings, dear "
+        masculine = gender == "masculine"
+        feminine = gender == "feminine"
+        if gender or knight:
+            salutation = ""
+            if knight:
+                salutation = "Sir "
+            elif masculine:
+                salutation = "Mr. "
+            elif feminine:
+                salutation = "Ms. "
+            greeting += salutation
+            if name:
+                greeting += f"{name}!"
+            else:
+                pronoun = "her" if feminine else "his" if masculine or knight else "its"
+                greeting += f"what's-{pronoun}-name"
+        else:
+            if name:
+                greeting += f"{name}!"
+            elif not gender:
+                greeting += "friend!"
+        for i in range(0, count):
+            print(greeting)
 
 The above function receives several keyword arguments that determine how the greeting to output is constructed.
 Now, construct the command-line interface to provision it with the same, which is done
@@ -67,65 +76,23 @@ in :file:`cli.py`:
 
 .. code-block:: python
 
-	import argparse
-	import sys
+    import typer
 
-	from .greet import greet
-
-	_arg_spec = {
-	    '--name': {
-	        'metavar': 'STRING',
-	        'type': str,
-	        'help': 'The (last, if "gender" is given) name of the person to greet',
-	    },
-	    '--count': {
-	        'metavar': 'INT',
-	        'type': int,
-	        'default': 1,
-	        'help': 'Number of times to greet the person',
-	    },
-
-	}
-	_arg_spec_mutually_exclusive = {
-	    '--gender': {
-	        'metavar': 'STRING',
-	        'type': str,
-	        'help': 'The gender of the person to greet',
-	    },
-	    '--knight': {
-	        'action': 'store_true',
-	        'default': False,
-	        'help': 'Whether the person is a knight',
-	    },
-	}
+    from .hello import greet
 
 
-	def main():
-	    parser = argparse.ArgumentParser(
-	        description="Greet a person (semi-)formally."
-	    )
-	    group = parser.add_mutually_exclusive_group()
-	    for arg, spec in _arg_spec.items():
-	        parser.add_argument(arg, **spec)
-	    for arg, spec in _arg_spec_mutually_exclusive.items():
-	        group.add_argument(arg, **spec)
-	    parsed_args = parser.parse_args()
-	    args = {
-	        arg: value
-	        for arg, value in vars(parsed_args).items()
-	        if value is not None
-	    }
-        # Run the function with the command-line arguments as keyword arguments.
-        # A more complex setup is normally initialized at this point.
-	    greet(**args)
+    app = typer.Typer()
+    app.command()(greet)
 
 
-	if __name__ == "__main__":
-	    sys.exit(main())
+    if __name__ == "__main__":
+        app()
 
-The command-line interface is built with :py:mod:`argparse`, a command-line parser which is included in Python's
-standard library. It is a bit rudimentary but sufficient for most needs. Another easy-to-use alternative is docopt_;
-advanced users are encouraged to make use of click_ or typer_.
+The command-line interface is built with typer_, an easy-to-use CLI parser based on Python type hints. It provides
+auto-completion and nicely styled command-line help out of the box. Another option would be :py:mod:`argparse`,
+a command-line parser which is included in Python's standard library. It is sufficient for most needs, but requires
+a lot of code, usually in ``cli.py``, to function properly. Alternatively, docopt_ makes it possible to create CLI
+interfaces based solely on docstrings; advanced users are encouraged to make use of click_ (on which ``typer`` is based).
 
 Now, add an empty :file:`__init__.py` file, to define the project as a regular :term:`import package <Import Package>`.
 
@@ -135,11 +102,9 @@ so initizalize the command-line interface here:
 
 .. code-block:: python
 
-	import sys
-
 	if __name__ == "__main__":
-	    from greetings.cli import main
-	    sys.exit(main())
+	    from greetings.cli import app
+	    app()
 
 .. note::
 
@@ -151,14 +116,15 @@ so initizalize the command-line interface here:
 ``pyproject.toml``
 ------------------
 
-The project's :term:`metadata <Pyproject Metadata>` is placed in :term:`pyproject.toml`. The :term:`pyproject metadata keys <Pyproject Metadata Key>` and the ``[build-system]`` table may be filled in as described in :ref:`writing-pyproject-toml`.
+The project's :term:`metadata <Pyproject Metadata>` is placed in :term:`pyproject.toml`. The :term:`pyproject metadata keys <Pyproject Metadata Key>` and the ``[build-system]`` table may be filled in as described in :ref:`writing-pyproject-toml`, adding a dependency
+on ``typer`` (this tutorial uses version *0.12.3*).
 
 For the project to be recognised as a command-line tool, additionally a ``console_scripts`` :ref:`entry point <entry-points>` (see :ref:`console_scripts`) needs to be added as a :term:`subkey <Pyproject Metadata Subkey>`:
 
 .. code-block:: toml
 
 	[project.scripts]
-	greet = "greetings.cli:main"
+	greet = "greetings.cli:app"
 
 Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`,
 which makes it installable.
@@ -179,14 +145,18 @@ Let's test it:
 
 .. code-block:: console
 
-	$ greet --knight --name Lancelot
+	$ greet --knight Lancelot
 	Greetings, dear Sir Lancelot!
-	$ greet --gender feminine --name Parks
+	$ greet --gender feminine Parks
 	Greetings, dear Ms. Parks!
 	$ greet --gender masculine
 	Greetings, dear Mr. what's-his-name!
 
-To just run the program without installing it permanently, use ``pipx run``, which will create a temporary (but cached) virtual environment for it:
+Since this example uses ``typer``, you could now also get an overview of the program's usage by calling it with
+the ``--help`` option, or configure completions via the ``--install-completion`` option.
+
+To just run the program without installing it permanently, use ``pipx run``, which will create a temporary
+(but cached) virtual environment for it:
 
 .. code-block:: console
 
@@ -201,7 +171,7 @@ The same can be defined as follows in :file:`pyproject.toml`:
 .. code-block:: toml
 
     [project.entry-points."pipx.run"]
-    greetings = "greetings.cli:main"
+    greetings = "greetings.cli:app"
 
 
 Thanks to this entry point (which *must* match the package name), ``pipx`` will pick up the executable script as the
