@@ -4,9 +4,9 @@
 Dropping support for older Python versions
 ==========================================
 
-Dropping support for older Python versions is supported by the standard :ref:`core-metadata` 1.2 specification via a :ref:`"Requires-Python" <core-metadata-requires-python>` attribute.
+The ability to drop support for older Python versions is enabled by the standard :ref:`core-metadata` 1.2 specification via the :ref:`"Requires-Python" <core-metadata-requires-python>` attribute.
 
-Metadata 1.2+ clients, such as Pip 9.0+, will adhere to this specification by matching the current Python runtime and comparing it with the required version
+Metadata 1.2+ clients, such as Pip, will adhere to this specification by matching the current Python runtime and comparing it with the required version
 in the package metadata. If they do not match, it will attempt to install the last package distribution that supported that Python runtime.
 
 This mechanism can be used to drop support for older Python versions, by amending the ``Requires-Python`` attribute in the package metadata.
@@ -14,18 +14,17 @@ This mechanism can be used to drop support for older Python versions, by amendin
 Requirements
 ------------
 
-This workflow requires that the user installing the package has at least Pip 9.0, or a client that supports the Metadata 1.2 specification.
+This workflow requires that the user installing the package uses Pip [#]_, or another client that supports the Metadata 1.2 specification.
 
 Dealing with the universal wheels
 ---------------------------------
 
-Traditionally, projects providing Python code that is semantically
+Traditionally, :ref:`setuptools` projects providing Python code that is semantically
 compatible with both Python 2 and Python 3, produce :term:`wheels
 <Wheel>` that have a ``py2.py3`` tag in their names. When dropping
 support for Python 2, it is important not to forget to change this tag
 to just ``py3``. It is often configured within :file:`setup.cfg` under
-the ``[bdist_wheel]`` section by setting ``universal = 1`` if they
-use setuptools.
+the ``[bdist_wheel]`` section by setting ``universal = 1``.
 
 If you use this method, either remove this option or section, or
 explicitly set ``universal`` to ``0``:
@@ -37,11 +36,10 @@ explicitly set ``universal`` to ``0``:
    [bdist_wheel]
    universal = 0  # Make the generated wheels have "py3" tag
 
-.. tip::
+.. hint::
 
-   Since it is possible to override the :file:`setup.cfg` settings via
-   CLI flags, make sure that your scripts don't have ``--universal`` in
-   your package creation scripts.
+   Regarding :ref:`deprecated <setup-py-deprecated>` direct ``setup.py`` invocations,
+   passing the ``--universal`` flag on the command line could override this setting.
 
 Defining the Python version required
 ------------------------------------
@@ -68,16 +66,16 @@ Steps:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can specify version ranges and exclusion rules (complying with the :ref:`version-specifiers` specification),
-such as at least Python 3. Or, Python 2.7, 3.4 and beyond:
+such as at least Python 3. Or, Python 3.7, 3.8, 3.13 and beyond:
 
 .. code-block:: text
 
     Requires-Python: ">= 3"
-    Requires-Python: ">= 2.7, != 3.0.*, != 3.1.*, != 3.2.*, != 3.3.*"
+    Requires-Python: ">= 3.7, != 3.9.*, != 3.10.*, != 3.11.*, != 3.12.*"
 
 
-The way to set those values is within your :file:`pyproject.toml`. The :ref:`requires-python` field of the
-``[project]`` table corresponds to the ``Requires-Python`` metadata field.
+Those values can be set within your :file:`pyproject.toml`. The :ref:`requires-python` configuration field
+corresponds to the ``Requires-Python`` metadata field.
 
 .. code-block:: toml
 
@@ -89,34 +87,29 @@ The way to set those values is within your :file:`pyproject.toml`. The :ref:`req
 
 
 For :ref:`setuptools` users, another way to achieve this is using the ``python_requires`` parameter
-in the call to ``setup`` within your :file:`setup.py` script.
+in your :file:`setup.cfg` config or the :file:`setup.py` script. ``setuptools < 61`` does not support
+declaring the package metadata in :file:`pyproject.toml`.
 
-.. code-block:: python
+Consult the ``setuptools`` `dependency-management`_ documentation for information about the appropriate
+way to configure each of these files.
 
-    from setuptools import setup
-
-
-    setup(
-        # Your setup arguments
-        python_requires='>= 3.8',
-    )
-
-It is warned against adding upper bounds to the version ranges, e. g. ``">= 3.8 < 3.10"``. This can cause different errors
-and version conflicts. See the `discourse discussion`_ for more information.
+.. caution::
+        It is warned against adding upper bounds to the version ranges, e. g. ``">= 3.8 < 3.10"``. This can cause different errors
+        and version conflicts. See the `discourse-discussion`_ for more information.
 
 3. Validating the Metadata before publishing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Within a Python source package (the zip or the tar-gz file you download) is a text file called PKG-INFO.
 
-This file is generated by the build backend when it generates the source package.
+This file is generated by the :term:`build backend <Build Backend>` when it generates the source package.
 The file contains a set of keys and values, the list of keys is part of the PyPA standard metadata format.
 
 You can see the contents of the generated file like this:
 
 .. code-block:: bash
 
-    tar xf dist/my-package-1.0.0.tar.gz my-package-1.0.0/PKG-INFO -O
+    tar xfO dist/my-package-1.0.0.tar.gz my-package-1.0.0/PKG-INFO
 
 Validate that the following is in place, before publishing the package:
 
@@ -137,15 +130,14 @@ If however supporting a specific version becomes a blocker for a new feature or 
 ``Requires-Python`` should be amended. Of course this also depends on whether the project needs to be stable and
 well-covered for a wider range of users.
 
-Each version compatibility change should have an own release.
+Each version compatibility change should have its own release.
 
-For example, you published version 1.0.0 of your package with ``Requires-Python: ">= 2.7"`` metadata.
+.. tip::
 
-If you then update the version string to ``">= 3.5"``, and publish a new version 2.0.0 of your package, any users running Pip 9.0+ from version 2.7 will have version 1.0.0 of the package installed, and any ``>= 3.5`` users will receive version 2.0.0.
+        When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible         places (like the testing environment). Tools like pyupgrade_ can simplify this task.
 
-It may be a good idea to create a minor release, stating that it is the last one compatible with the Python version to be removed, just before dropping that version.
-
-When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible places (like the testing environment). Tools like pyupgrade_ can simplify this task.
-
-.. _discourse discussion: https://discuss.python.org/t/requires-python-upper-limits/12663
+.. _discourse-discussion: https://discuss.python.org/t/requires-python-upper-limits/12663
 .. _pyupgrade: https://pypi.org/project/pyupgrade/
+.. _dependency-management: https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#python-requirement
+
+.. [#] Support for the Metadata 1.2 specification has been added in Pip 9.0.
