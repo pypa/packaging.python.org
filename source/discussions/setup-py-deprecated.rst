@@ -141,7 +141,6 @@ This guide does not make suggestions of replacement solutions for those commands
     * ``easy_install``
     * ``editable_wheel``
     * ``egg_info``
-    * ``install``
     * ``install_data``
     * ``install_egg_info``
     * ``install_headers``
