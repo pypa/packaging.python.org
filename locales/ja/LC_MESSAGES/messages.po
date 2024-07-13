@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-20 11:49+0000\n"
-"PO-Revision-Date: 2024-06-06 01:09+0000\n"
+"POT-Creation-Date: 2024-06-19 16:34+0000\n"
+"PO-Revision-Date: 2024-06-19 01:09+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,11 +58,11 @@ msgid ""
 "`pull requests`__. If you're planning to write or edit the guide, please "
 "read the :ref:`style guide <contributing_style_guide>`."
 msgstr ""
-"|PyPUG| のほとんどの作業は `プロジェクトのGitHubリポジトリ`__ で行われます。"
-"手始めに `未解決の問題`__ のリストをチェックアウトして(改善策の) `プルリクエ"
-"スト`__ を送ってください。もしあなたがこのガイドに何かを書き加えたり編集した"
-"りするつもりなら、:ref:`スタイルガイド <contributing_style_guide>`__を読みま"
-"しょう。"
+"|PyPUG| のほとんどの作業は `プロジェクトのGitHubリポジトリ <project's GitHub "
+"repository>`__ で行われます。手始めに `未解決の問題 <open issues>`__ のリスト"
+"をチェックアウトして(改善策の) `プルリクエスト <pull requests>`__ を送ってく"
+"ださい。もしあなたがこのガイドに何かを書き加えたり編集したりするつもりなら、:"
+"ref:`スタイルガイド <contributing_style_guide>`__を読みましょう。"
 
 #: ../source/contribute.rst:25
 msgid ""
@@ -290,7 +290,7 @@ msgstr "HTTPサーバを用いてこの文書を提供するには、以下の�
 
 #: ../source/contribute.rst:159
 msgid "The guide will be browsable via http://localhost:8000."
-msgstr "この文書は、http://localhost:8000から閲覧できます。"
+msgstr "この文書は、 http://localhost:8000 から閲覧できます。"
 
 #: ../source/contribute.rst:163
 msgid "Where the guide is deployed"
@@ -302,9 +302,9 @@ msgid ""
 "readthedocs.org/projects/python-packaging-user-guide/. It's served from a "
 "custom domain and fronted by Fast.ly."
 msgstr ""
-"この文書はReadTheDocsを通じて展開されていて、https://readthedocs.org/"
-"projects/python-packaging-user-guide/から読めるようになっています。また、"
-"Fast.lyから独自のドメイン名から提供されるようになっています(第二文はここだけ"
+"この文書は ReadTheDocs を通じて展開されていて、 https://readthedocs.org/"
+"projects/python-packaging-user-guide/ から読めるようになっています。また、 "
+"Fast.ly から独自のドメイン名から提供されるようになっています(第二文はここだけ"
 "では意味が取れない)。"
 
 #: ../source/contribute.rst:171
@@ -570,9 +570,9 @@ msgid ""
 "might be *Install MyLibrary*."
 msgstr ""
 "見出しには読者が検索で使うような単語を使いましょう。質問の意図に答える形で見"
-"出しを書くのは良い方法です。読者が例えば*MyLibraryをインストールするにはどう"
-"すれば良いの？*ということを知りたいとすれば、適切な見出しとしては*MyLibraryを"
-"インストールするには*のようになるでしょう。"
+"出しを書くのは良い方法です。読者が例えば *MyLibraryをインストールするにはどう"
+"すれば良いの？* ということを知りたいとすれば、適切な見出しとしては *MyLibrary"
+"をインストールするには* のようになるでしょう。"
 
 #: ../source/contribute.rst:284
 msgid ""
@@ -14241,7 +14241,7 @@ msgid ""
 "section, which also has many advantages for pure-Python libraries."
 msgstr ""
 "もし非 Python のソースコード、あるいは、非 Python のパッケージ (`lxml "
-"<https://pypi.org/project/lxml/>`_ における`libxml2 <https://en.wikipedia."
+"<https://pypi.org/project/lxml/>`_ における `libxml2 <https://en.wikipedia."
 "org/wiki/Libxml2>`_ や、`numpy <https://pypi.org/project/numpy>`_ における "
 "BLAS ライブラリなど) に依存しているなら、純 Python で書かれたライブラリにとっ"
 "ても多くの利点がある、次の節で詳細に説明されるフォーマットを使う必要があるで"
@@ -15089,12 +15089,19 @@ msgstr ""
 "があれば) ``distribution-1.0.data/`` を含んでいます。"
 
 #: ../source/specifications/binary-distribution-format.rst:42
+#, fuzzy
+#| msgid ""
+#| "Move each subtree of ``distribution-1.0.data/`` onto its destination "
+#| "path. Each subdirectory of ``distribution-1.0.data/`` is a key into a "
+#| "dict of destination directories, such as ``distribution-1.0.data/(purelib|"
+#| "platlib|headers|scripts|data)``. The initially supported paths are taken "
+#| "from ``distutils.command.install``."
 msgid ""
 "Move each subtree of ``distribution-1.0.data/`` onto its destination path. "
 "Each subdirectory of ``distribution-1.0.data/`` is a key into a dict of "
 "destination directories, such as ``distribution-1.0.data/(purelib|platlib|"
-"headers|scripts|data)``. The initially supported paths are taken from "
-"``distutils.command.install``."
+"headers|scripts|data)``. These subdirectories are :ref:`installation paths "
+"defined by sysconfig <python:installation_paths>`."
 msgstr ""
 "``distribution-1.0.data/`` の下の全てのサブツリーを、その目的地となるディレク"
 "トリパスに移動します。 ``distribution-1.0.data/(purelib|platlib|headers|"
@@ -19339,12 +19346,11 @@ msgid ""
 "installs package updates inside their image (think ``RUN apt-get dist-"
 "upgrade``)."
 msgstr ""
-"単一アプリケーションのコンテナ用の公式イメージ (即ち Docker コンテナイメージ)"
-" を作成するようなディストロは、 ``EXTERNALLY-MANAGED`` "
-"ファイルを維持すべきで、さらに言えば、"
-"ユーザがそのイメージなでパッケージのアップデートをインストールしたとしても "
-"(``RUN apt-get dist-upgrade`` のようなものを考えてみてほしい) "
-"失われることのないようなやり方で行うのが望ましいことです。"
+"単一アプリケーションのコンテナ用の公式イメージ (即ち Docker コンテナイメー"
+"ジ) を作成するようなディストロは、 ``EXTERNALLY-MANAGED`` ファイルを維持すべ"
+"きで、さらに言えば、ユーザがそのイメージなでパッケージのアップデートをインス"
+"トールしたとしても (``RUN apt-get dist-upgrade`` のようなものを考えてみてほし"
+"い) 失われることのないようなやり方で行うのが望ましいことです。"
 
 #: ../source/specifications/externally-managed-environments.rst:317
 msgid "Create separate distro and local directories"
@@ -19362,13 +19368,13 @@ msgid ""
 msgstr ""
 "ディストロは、ディストロがインストールしたパッケージのためのものと、ローカル"
 "のシステム管理者がインストールしたパッケージのためのものというふたつの別々の"
-"パスをシステム側に持っているインタープリタの ``sys.path`` "
-"に置くべきであり、また、 ``sysconfig.get_default_scheme()`` "
-"が後者のパスを指し示すように設定するべきです。こうすることで、pip のようなツ"
-"ール類がディストロ側でインストールしたパッケージを修正してしまうことがなくな"
-"ります。ローカルのシステム管理者用のパスは ``sys.path`` 内でディストロ側のパ"
-"スの前にくるべきで、そうすることでローカルにインストールされたものがディスト"
-"ロ側のパッケージよりも選好されるようになります。"
+"パスをシステム側に持っているインタープリタの ``sys.path`` に置くべきであり、"
+"また、 ``sysconfig.get_default_scheme()`` が後者のパスを指し示すように設定す"
+"るべきです。こうすることで、pip のようなツール類がディストロ側でインストール"
+"したパッケージを修正してしまうことがなくなります。ローカルのシステム管理者用"
+"のパスは ``sys.path`` 内でディストロ側のパスの前にくるべきで、そうすることで"
+"ローカルにインストールされたものがディストロ側のパッケージよりも選好されるよ"
+"うになります。"
 
 #: ../source/specifications/externally-managed-environments.rst:328
 msgid ""
@@ -19383,15 +19389,14 @@ msgid ""
 "wishes to make sure that packages installed via the locally-built "
 "interpreter don't show up on ``sys.path`` for the distro interpreter.)"
 msgstr ""
-"例えば、Fedora や Debian (およびその派生物) は共に、"
-"ローカルにインストールされたパッケージ用に ``/usr/local`` を使い、"
-"ディストロがインストールしたパッケージ用に ``/usr`` "
-"を用いることでこの分離を実装しています。Fedora では、 ``/usr/local/lib/"
-"python3.x/site-packages`` 対 ``/usr/lib/python3.x/site-packages`` です。 ("
-"Debian では ``/usr/local/lib/python3/dist-packages`` 対 ``/usr/lib/python3/"
-"dist-packages`` をローカルにコンパイルされた Python "
-"インタープリタ用にさらに分離して使っています: もしアップストリームの Python "
-"をビルドして ``/usr/local/bin`` にインストールしていれば、 ``/usr/local/lib/"
+"例えば、Fedora や Debian (およびその派生物) は共に、ローカルにインストールさ"
+"れたパッケージ用に ``/usr/local`` を使い、ディストロがインストールしたパッ"
+"ケージ用に ``/usr`` を用いることでこの分離を実装しています。Fedora では、 ``/"
+"usr/local/lib/python3.x/site-packages`` 対 ``/usr/lib/python3.x/site-"
+"packages`` です。 (Debian では ``/usr/local/lib/python3/dist-packages`` 対 "
+"``/usr/lib/python3/dist-packages`` をローカルにコンパイルされた Python イン"
+"タープリタ用にさらに分離して使っています: もしアップストリームの Python をビ"
+"ルドして ``/usr/local/bin`` にインストールしていれば、 ``/usr/local/lib/"
 "python3/site-packages`` を見るでしょうし、 Debian ではローカルにビルドされた"
 "インタープリタ経由でインストールされたパッケージがディストロ側のインタープリ"
 "タ用の ``sys.path`` 上には出現しないことを確実にしようと願っています。)"
@@ -19416,12 +19421,12 @@ msgid ""
 "wheel or call ``setup.py install``), arrange for those tools to use a "
 "directory that is not in a ``sysconfig`` scheme but is still on ``sys.path``."
 msgstr ""
-"これを行うにはふたつの方法があります。ひとつは、Python "
-"ライブラリを直接にビルドしてパッケージしようとしている (例えば、"
-"使っているパッケージングヘルパーが wheel をアンパックするか、または、 ``"
-"setup.py install`` を呼び出す場合) 時に、 ``sys.path`` "
-"には含まれているけれども ``sysconfig`` スキームには入っていないようなディレク"
-"トリを使って実行するようにそれらツール群を調整することです。"
+"これを行うにはふたつの方法があります。ひとつは、Python ライブラリを直接にビル"
+"ドしてパッケージしようとしている (例えば、使っているパッケージングヘルパーが "
+"wheel をアンパックするか、または、 ``setup.py install`` を呼び出す場合) 時"
+"に、 ``sys.path`` には含まれているけれども ``sysconfig`` スキームには入ってい"
+"ないようなディレクトリを使って実行するようにそれらツール群を調整することで"
+"す。"
 
 #: ../source/specifications/externally-managed-environments.rst:355
 msgid ""
@@ -19434,15 +19439,14 @@ msgid ""
 "from inside a package build. Then you can use ``pip install`` as part of "
 "your distro packaging."
 msgstr ""
-"もうひとつは、"
-"パッケージのビルド中とインストール済みのシステムで実行する時とでデフォルトの "
-"``sysconfig`` スキームを変えるように調整することです。 "
-"(アクセプトされ実装されればですが) bpo-43976_ からの ``sysconfig`` "
-"カスタマイズフック群がこれを容易にするでしょう: "
-"パッケージングツールに環境変数他のなんらかの検出可能な設定項目を設定させ、 "
-"``get_preferred_schemes`` 関数がパッケージビルドの中から呼ばれた場合には異な"
-"るスキームを返すようにするのです。そうすれば、 ``pip install`` "
-"をディストロパッケージングの一部として使用できるようになります。"
+"もうひとつは、パッケージのビルド中とインストール済みのシステムで実行する時と"
+"でデフォルトの ``sysconfig`` スキームを変えるように調整することです。 (アクセ"
+"プトされ実装されればですが) bpo-43976_ からの ``sysconfig`` カスタマイズフッ"
+"ク群がこれを容易にするでしょう: パッケージングツールに環境変数他のなんらかの"
+"検出可能な設定項目を設定させ、 ``get_preferred_schemes`` 関数がパッケージビル"
+"ドの中から呼ばれた場合には異なるスキームを返すようにするのです。そうすれば、 "
+"``pip install`` をディストロパッケージングの一部として使用できるようになりま"
+"す。"
 
 #: ../source/specifications/externally-managed-environments.rst:367
 msgid ""
@@ -19455,17 +19459,15 @@ msgid ""
 "absolutely needed, use ``pip uninstall --scheme=posix_distro`` to use pip to "
 "remove packages from the system-managed directory."
 msgstr ""
-"我々は、 pip が指定されたスキームで走るように指示する ``--scheme=...`` "
-"オプションを追加することを提案します。(現在の pip "
-"がスキームを決定する方法については後述の `実装ノート <Implementation Notes>`"
-"_ を参照してください。) "
-"これが利用可能になり次第、ローカルのテストやおそらく実際のパッケージングで、 "
-"(``get_preferred_schemes`` をバイパスして) "
-"明示的にディストロ側の場所へパッケージをインストールするために ``pip install "
-"--scheme=posix_distro`` のような形で実行することができるようになるでしょう。"
-"また、もし本当に必要であれば、 pip "
-"を使ってシステム側が管理するディレクトリからパッケージを削除するために ``pip "
-"uninstall --scheme=posix_distro`` を使うことさえできるでしょう。"
+"我々は、 pip が指定されたスキームで走るように指示する ``--scheme=...`` オプ"
+"ションを追加することを提案します。(現在の pip がスキームを決定する方法につい"
+"ては後述の `実装ノート <Implementation Notes>`_ を参照してください。) これが"
+"利用可能になり次第、ローカルのテストやおそらく実際のパッケージングで、 "
+"(``get_preferred_schemes`` をバイパスして) 明示的にディストロ側の場所へパッ"
+"ケージをインストールするために ``pip install --scheme=posix_distro`` のような"
+"形で実行することができるようになるでしょう。また、もし本当に必要であれば、 "
+"pip を使ってシステム側が管理するディレクトリからパッケージを削除するために "
+"``pip uninstall --scheme=posix_distro`` を使うことさえできるでしょう。"
 
 #: ../source/specifications/externally-managed-environments.rst:377
 msgid ""
@@ -19474,11 +19476,11 @@ msgid ""
 "the command line. You may want to use the same means for suppressing the "
 "marker file in build chroots as you do in container images."
 msgstr ""
-"pip でパッケージをインストールするには、 ``EXTERNALLY-MANAGED`` "
-"マーカーファイルを抑止して pip を実行できるようにするか、コマンドラインでオー"
-"バーライドするかのいずれかが必要です。コンテナイメージ内で作業している時は、"
-"ビルドのために chroot "
-"した環境においても同じ方法でマーカーファイルを抑止したくなるかもしれません。"
+"pip でパッケージをインストールするには、 ``EXTERNALLY-MANAGED`` マーカーファ"
+"イルを抑止して pip を実行できるようにするか、コマンドラインでオーバーライドす"
+"るかのいずれかが必要です。コンテナイメージ内で作業している時は、ビルドのため"
+"に chroot した環境においても同じ方法でマーカーファイルを抑止したくなるかもし"
+"れません。"
 
 #: ../source/specifications/externally-managed-environments.rst:383
 msgid ""
@@ -19492,19 +19494,20 @@ msgid ""
 "system-packages``, which would work too."
 msgstr ""
 "これらの設定 (ビルド環境ではマーカーファイルを抑止し、 "
-"``get_preferred_schemes`` が自動的にディストロのスキームを返すようにすること)"
-" を自動で行うことのアドバンテージは、素のままの ``pip install`` "
-"であってもパッケージビルド内で動作することで、"
-"それは一般的にはアップストリームのビルドスクリプトで内部で偶々 ``pip "
-"install`` を呼ぶものでも修正なしで正しく動作するということです。もちろん、"
-"パッケージングプロセスが常に ``pip install --scheme=posix_distro --break-"
-"system-packages`` を呼び出すようにすることもできますし、それも動作します。"
+"``get_preferred_schemes`` が自動的にディストロのスキームを返すようにするこ"
+"と) を自動で行うことのアドバンテージは、素のままの ``pip install`` であっても"
+"パッケージビルド内で動作することで、それは一般的にはアップストリームのビルド"
+"スクリプトで内部で偶々 ``pip install`` を呼ぶものでも修正なしで正しく動作する"
+"ということです。もちろん、パッケージングプロセスが常に ``pip install --"
+"scheme=posix_distro --break-system-packages`` を呼び出すようにすることもでき"
+"ますし、それも動作します。"
 
 #: ../source/specifications/externally-managed-environments.rst:393
 msgid ""
 "The best approach here depends a lot on your distro's conventions and "
 "mechanisms for packaging."
-msgstr "ここでの最善のアプローチは、ディストロの慣習やパッケージング機構に大きく依存"
+msgstr ""
+"ここでの最善のアプローチは、ディストロの慣習やパッケージング機構に大きく依存"
 "します。"
 
 #: ../source/specifications/externally-managed-environments.rst:396
@@ -19520,18 +19523,17 @@ msgid ""
 "``scripts`` and ``/usr/bin`` for distro-packaged entry points and place both "
 "on ``$PATH``."
 msgstr ""
-"同様に、 ``sysconfig`` パスでインポート可能な Python "
-"のコード向けのものではないもの - つまり、 ``include`` ・ ``platinclude`` ・ "
-"``scripts`` ・ ``data`` - にもふたつの変種があって、ひとつはディストロ側でパ"
-"ッケージしたソフトウェア、もう一つはローカルにインストールされたソフトウェア"
-"ですが、ディストロはこれらのどちらでも使用できるように設定されているべきです"
-"。例えば、典型的な FHS を遵守するディストロでは、 ``/usr/local/include`` "
-"をデフォルトのスキームの ``include`` 用に、 ``/usr/include`` をディストロ側で"
-"パッケージかしたヘッダファイル用に使って、両方をコンパイラのサーチパスに含め"
-"ておくことになるでしょうし、また、 ``/usr/local/bin`` "
-"をデフォルトのスキームの ``scripts`` 用に、 ``/usr/bin`` "
-"をディストロ側のパッケージのエントリポイント用に使って、両方を ``$PATH`` "
-"に含めておくでしょう。"
+"同様に、 ``sysconfig`` パスでインポート可能な Python のコード向けのものではな"
+"いもの - つまり、 ``include`` ・ ``platinclude`` ・ ``scripts`` ・ ``data`` "
+"- にもふたつの変種があって、ひとつはディストロ側でパッケージしたソフトウェ"
+"ア、もう一つはローカルにインストールされたソフトウェアですが、ディストロはこ"
+"れらのどちらでも使用できるように設定されているべきです。例えば、典型的な FHS "
+"を遵守するディストロでは、 ``/usr/local/include`` をデフォルトのスキームの "
+"``include`` 用に、 ``/usr/include`` をディストロ側でパッケージかしたヘッダ"
+"ファイル用に使って、両方をコンパイラのサーチパスに含めておくことになるでしょ"
+"うし、また、 ``/usr/local/bin`` をデフォルトのスキームの ``scripts`` 用に、 "
+"``/usr/bin`` をディストロ側のパッケージのエントリポイント用に使って、両方を "
+"``$PATH`` に含めておくでしょう。"
 
 #: ../source/specifications/externally-managed-environments.rst:410
 msgid "Implementation Notes"
@@ -19541,7 +19543,8 @@ msgstr "実装に関する覚書"
 msgid ""
 "This section is non-normative and contains notes relevant to both the "
 "specification and potential implementations."
-msgstr "この節は規範的なものではなく、仕様と潜在的な実装の両方に関連する覚え書きを含"
+msgstr ""
+"この節は規範的なものではなく、仕様と潜在的な実装の両方に関連する覚え書きを含"
 "んでいます。"
 
 #: ../source/specifications/externally-managed-environments.rst:415
@@ -19589,8 +19592,8 @@ msgid ""
 "Finally, ``pip install --target=/some/path`` writes directly to ``/some/"
 "path`` without looking up any schemes."
 msgstr ""
-"最後に、 ``pip install --target=/some/path`` "
-"でスキームをルックアップすることなしに ``/some/path`` を書きます。"
+"最後に、 ``pip install --target=/some/path`` でスキームをルックアップすること"
+"なしに ``/some/path`` を書きます。"
 
 #: ../source/specifications/externally-managed-environments.rst:433
 msgid ""
@@ -19603,15 +19606,14 @@ msgid ""
 "``sysconfig`` scheme, and notably does not change the result of ``sysconfig."
 "get_path(\"stdlib\")``."
 msgstr ""
-"Debian は、現在、 (``VIRTUAL_ENV`` 環境変数を確認することを含む) "
-"いくつかの発見的な解法を使った `"
-"仮想環境内のデフォルトのインストール先を変更するパッチ <patch to change the "
-"default install location inside a virtual environment>`__ を入れていて、"
-"仮想環境内で使われるディレクトリが ``dist-packages`` ではなく ``site-"
-"packages`` に留まるようになっています。これは、この提案に特に影響を与えません"
-"、というのは、そのパッチの実装は、実際にはデフォルトの ``sysconfig`` "
-"スキームを変更するわけではなく、特に ``sysconfig.get_path(\"stdlib\")`` "
-"の結果を変更しないからです。"
+"Debian は、現在、 (``VIRTUAL_ENV`` 環境変数を確認することを含む) いくつかの発"
+"見的な解法を使った `仮想環境内のデフォルトのインストール先を変更するパッチ "
+"<patch to change the default install location inside a virtual "
+"environment>`__ を入れていて、仮想環境内で使われるディレクトリが ``dist-"
+"packages`` ではなく ``site-packages`` に留まるようになっています。これは、こ"
+"の提案に特に影響を与えません、というのは、そのパッチの実装は、実際にはデフォ"
+"ルトの ``sysconfig`` スキームを変更するわけではなく、特に ``sysconfig."
+"get_path(\"stdlib\")`` の結果を変更しないからです。"
 
 #: ../source/specifications/externally-managed-environments.rst:445
 msgid ""
@@ -19621,14 +19623,13 @@ msgid ""
 "envisioned by bpo-43976_, except implemented as a code patch to "
 "``distutils`` instead of as a changed ``sysconfig`` scheme."
 msgstr ""
-"Fedora は、現在、`rpmbuild "
-"内で実行しているのでなければデフォルトのインストール先を変更するパッチ "
-"<patch to change the default install location when not running inside "
-"rpmbuild>`__ を適用していて、「ふたつのシステムワイドなディレクトリ」のアプロ"
-"ーチを使っています。これは、概念としては、 ``sysconfig`` "
-"スキームを変更するものとしてではなく ``distutils`` "
-"へのソースコードパッチとして実装されていることを除けば、 bpo-43976_ "
-"によって可視化されたある種のフックです。"
+"Fedora は、現在、`rpmbuild 内で実行しているのでなければデフォルトのインストー"
+"ル先を変更するパッチ <patch to change the default install location when not "
+"running inside rpmbuild>`__ を適用していて、「ふたつのシステムワイドなディレ"
+"クトリ」のアプローチを使っています。これは、概念としては、 ``sysconfig`` ス"
+"キームを変更するものとしてではなく ``distutils`` へのソースコードパッチとして"
+"実装されていることを除けば、 bpo-43976_ によって可視化されたある種のフックで"
+"す。"
 
 #: ../source/specifications/externally-managed-environments.rst:454
 msgid ""
@@ -19638,10 +19639,10 @@ msgid ""
 "respectively), to centralize their implementations, but they don't need to "
 "be added yet."
 msgstr ""
-"上記の ``is_virtual_environment`` の実装は、 ``EXTERNALLY-MANAGED`` "
-"ファイルをロードしてそこからエラーメッセージを探す論理と同様に、"
-"実装を中央一括管理にするために標準ライブラリ (順に ``sys`` と ``sysconfig``) "
-"に追加されるかもしれませんが、まだそのようにはなっていません。"
+"上記の ``is_virtual_environment`` の実装は、 ``EXTERNALLY-MANAGED`` ファイル"
+"をロードしてそこからエラーメッセージを探す論理と同様に、実装を中央一括管理に"
+"するために標準ライブラリ (順に ``sys`` と ``sysconfig``) に追加されるかもしれ"
+"ませんが、まだそのようにはなっていません。"
 
 #: ../source/specifications/externally-managed-environments.rst:464
 msgid "Copyright"
@@ -19652,8 +19653,8 @@ msgid ""
 "This document is placed in the public domain or under the CC0-1.0-Universal "
 "license, whichever is more permissive."
 msgstr ""
-"この説明文書は、パブリックドメインに置かれるか、または、 CC0-1.0-Universal "
-"ライセンスの下に置かれるかですが、いずれにしてもかなり寛大なものです。"
+"この説明文書は、パブリックドメインに置かれるか、または、 CC0-1.0-Universal ラ"
+"イセンスの下に置かれるかですが、いずれにしてもかなり寛大なものです。"
 
 #: ../source/specifications/externally-managed-environments.rst:474
 msgid "June 2022: This specification was approved through :pep:`668`."
@@ -19685,18 +19686,17 @@ msgid ""
 "file Python scripts to assist launchers, IDEs and other external tools which "
 "may need to interact with such scripts."
 msgstr ""
-"この仕様では、単一ファイルの Python "
-"スクリプトがそのようなスクリプトと相互作用するローンチャー・ IDE ・その他外部"
-"ツールを手助けするために、スクリプト内に埋め込むことができるメタデータフォー"
-"マットを定義しています。"
+"この仕様では、単一ファイルの Python スクリプトがそのようなスクリプトと相互作"
+"用するローンチャー・ IDE ・その他外部ツールを手助けするために、スクリプト内に"
+"埋め込むことができるメタデータフォーマットを定義しています。"
 
 #: ../source/specifications/inline-script-metadata.rst:15
 msgid ""
 "This specification defines a metadata comment block format (loosely inspired "
 "by `reStructuredText Directives`__)."
 msgstr ""
-"この仕様では、メタデータのコメントブロックの (`reStructuredText Directives`"
-"__ に大雑把に基づく) フォーマットを定義します。"
+"この仕様では、メタデータのコメントブロックの (`reStructuredText "
+"Directives`__ に大雑把に基づく) フォーマットを定義します。"
 
 #: ../source/specifications/inline-script-metadata.rst:20
 msgid ""
@@ -19708,16 +19708,14 @@ msgid ""
 "followed by a single space, followed by three forward slashes. The ``TYPE`` "
 "MUST only consist of ASCII letters, numbers and hyphens."
 msgstr ""
-"すべての Python "
-"スクリプトについて、トップレベルのコメントブロックがあってもかまいませんが、 "
-"(そのようなコメントブロックは) ``TYPE`` "
-"によって内容物をどのように処理するべきかが決まるような ``# /// TYPE`` "
-"の行で始まらなければなりません。つまり: 単独の ``#`` "
-"、これに後続する単独の空白文字、さらに後続する３個のスラッシュ文字 <forward "
-"slash> 、さらに空白文字、メタデータのタイプ。ブロックは ``# ///`` "
-"の行で終わらなければなりません。つまり: 単独の ``#`` "
-"、後続する空白文字、３個のスラッシュ文字。 ``TYPE`` は、 ASCII "
-"文字・数字・ハイフンだけで構成されていなければなりません。"
+"すべての Python スクリプトについて、トップレベルのコメントブロックがあっても"
+"かまいませんが、 (そのようなコメントブロックは) ``TYPE`` によって内容物をどの"
+"ように処理するべきかが決まるような ``# /// TYPE`` の行で始まらなければなりま"
+"せん。つまり: 単独の ``#`` 、これに後続する単独の空白文字、さらに後続する３個"
+"のスラッシュ文字 <forward slash> 、さらに空白文字、メタデータのタイプ。ブロッ"
+"クは ``# ///`` の行で終わらなければなりません。つまり: 単独の ``#`` 、後続す"
+"る空白文字、３個のスラッシュ文字。 ``TYPE`` は、 ASCII 文字・数字・ハイフンだ"
+"けで構成されていなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:28
 msgid ""
@@ -19728,12 +19726,11 @@ msgid ""
 "a space, otherwise just the first character (which means the line consists "
 "of only a single ``#``)."
 msgstr ""
-"これらふたつの行 (``# /// TYPE`` と ``# ///``) の間に入る各行は、 ``#`` "
-"で始まるコメントでなければなりません。もし、 ``#`` に文字が続くのであれば、そ"
-"の最初の文字は空白文字でなければなりません。ここに置かれる内容は、２文字目が"
-"空白文字であれば最初の２文字を削除して整形されますが、"
-"さもなければ最初の文字だけ (つまり、単独の ``#`` だけから構成される行) "
-"になります。"
+"これらふたつの行 (``# /// TYPE`` と ``# ///``) の間に入る各行は、 ``#`` で始"
+"まるコメントでなければなりません。もし、 ``#`` に文字が続くのであれば、その最"
+"初の文字は空白文字でなければなりません。ここに置かれる内容は、２文字目が空白"
+"文字であれば最初の２文字を削除して整形されますが、さもなければ最初の文字だけ "
+"(つまり、単独の ``#`` だけから構成される行) になります。"
 
 #: ../source/specifications/inline-script-metadata.rst:35
 msgid ""
@@ -19741,9 +19738,9 @@ msgid ""
 "valid embedded content line as described above. For example, the following "
 "is a single fully valid block:"
 msgstr ""
-"次の行が上述の埋め込みコメント行として正当なものではない場合に、 "
-"(コメントブロックの) 終わりの行である ``# ///`` "
-"が優先されます。例えば、次に示すものはひとつの完全に正当なブロックです:"
+"次の行が上述の埋め込みコメント行として正当なものではない場合に、 (コメントブ"
+"ロックの) 終わりの行である ``# ///`` が優先されます。例えば、次に示すものはひ"
+"とつの完全に正当なブロックです:"
 
 #: ../source/specifications/inline-script-metadata.rst:51
 msgid ""
@@ -19759,8 +19756,9 @@ msgstr ""
 msgid ""
 "When there are multiple comment blocks of the same ``TYPE`` defined, tools "
 "MUST produce an error."
-msgstr "同じ ``TYPE`` が定義されたコメントブロックが複数存在する場合、ツール類はエラ"
-"ーを生成しなければなりません。"
+msgstr ""
+"同じ ``TYPE`` が定義されたコメントブロックが複数存在する場合、ツール類はエ"
+"ラーを生成しなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:57
 msgid ""
@@ -19769,8 +19767,8 @@ msgid ""
 "UTF-8."
 msgstr ""
 "組み込みのメタデータを読み取るツール類は、 Python 標準のエンコーディング宣言"
-"を尊重しても構いません。もし、そうしないことを選択するのであれば、UTF-8 "
-"であるものとしてファイルを扱わなければなりません。"
+"を尊重しても構いません。もし、そうしないことを選択するのであれば、UTF-8 であ"
+"るものとしてファイルを扱わなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:60
 msgid ""
@@ -19782,14 +19780,16 @@ msgstr "これは、メタデータをパースするのに使っても構わな
 msgid ""
 "In circumstances where there is a discrepancy between the text specification "
 "and the regular expression, the text specification takes precedence."
-msgstr "テキストの仕様と正規表現の間に矛盾のある環境下では、テキストの仕様が優先され"
+msgstr ""
+"テキストの仕様と正規表現の間に矛盾のある環境下では、テキストの仕様が優先され"
 "ます。"
 
 #: ../source/specifications/inline-script-metadata.rst:70
 msgid ""
 "Tools MUST NOT read from metadata blocks with types that have not been "
 "standardized by this specification."
-msgstr "ツール類は、この仕様によって標準化されていないタイプを伴ったメタデータブロッ"
+msgstr ""
+"ツール類は、この仕様によって標準化されていないタイプを伴ったメタデータブロッ"
 "クから読み取ることがあってはなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:74
@@ -19801,18 +19801,17 @@ msgid ""
 "The first type of metadata block is named ``script``, which contains script "
 "metadata (dependency data and tool configuration)."
 msgstr ""
-"メタデータブロックのひとつめのタイプは ``script`` という名前で、"
-"スクリプトメタデータ (依存関係のデータとツールの設定) を格納しています。"
+"メタデータブロックのひとつめのタイプは ``script`` という名前で、スクリプトメ"
+"タデータ (依存関係のデータとツールの設定) を格納しています。"
 
 #: ../source/specifications/inline-script-metadata.rst:79
 msgid ""
 "This document MAY include the top-level fields ``dependencies`` and "
 "``requires-python``, and MAY optionally include a ``[tool]`` table."
 msgstr ""
-"このドキュメント (訳註、メタデータブロックのことか) は、"
-"トップレベルのフィールドとして ``dependencies`` と ``requires-python`` "
-"を含むことができ、また、オプションとして ``[tool]`` "
-"テーブルを含んでいても構いません。"
+"このドキュメント (訳註、メタデータブロックのことか) は、トップレベルのフィー"
+"ルドとして ``dependencies`` と ``requires-python`` を含むことができ、また、オ"
+"プションとして ``[tool]`` テーブルを含んでいても構いません。"
 
 #: ../source/specifications/inline-script-metadata.rst:82
 msgid ""
@@ -19834,9 +19833,9 @@ msgid ""
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
 "<dependency-specifiers>`."
 msgstr ""
-"``dependencies``: スクリプトの動作時の依存関係を指定する文字列のリスト。"
-"それぞれの項目は正当な :ref:`依存関係指定子 <dependency-specifiers>` "
-"でなければなりません。"
+"``dependencies``: スクリプトの動作時の依存関係を指定する文字列のリスト。それ"
+"ぞれの項目は正当な :ref:`依存関係指定子 <dependency-specifiers>` でなければな"
+"りません。"
 
 #: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
@@ -19844,8 +19843,8 @@ msgid ""
 "which the script is compatible. The value of this field MUST be a valid :ref:"
 "`version specifier <version-specifiers>`."
 msgstr ""
-"``requires-python``: そのスクリプトと互換性のある Python のバージョン(群) "
-"を指定する文字列。このフィールドの値は正当な :ref:`バージョン指定子 <version-"
+"``requires-python``: そのスクリプトと互換性のある Python のバージョン(群) を"
+"指定する文字列。このフィールドの値は正当な :ref:`バージョン指定子 <version-"
 "specifiers>` でなければなりません。"
 
 #: ../source/specifications/inline-script-metadata.rst:95
@@ -19854,10 +19853,10 @@ msgid ""
 "provided. Script runners SHOULD error if no version of Python that satisfies "
 "the specified ``requires-python`` can be provided."
 msgstr ""
-"スクリプトを走らせる側では、指定された ``dependencies`` "
-"を提供できない場合にはエラーを起こさなければなりません。指定された "
-"``requires-python`` で指定されたバージョンの Python "
-"を提供できない場合には、スクリプトを走らせる側でエラーを起こすべきです。"
+"スクリプトを走らせる側では、指定された ``dependencies`` を提供できない場合に"
+"はエラーを起こさなければなりません。指定された ``requires-python`` で指定され"
+"たバージョンの Python を提供できない場合には、スクリプトを走らせる側でエラー"
+"を起こすべきです。"
 
 #: ../source/specifications/inline-script-metadata.rst:100
 msgid "Example"
@@ -19875,8 +19874,9 @@ msgstr "参照実装"
 msgid ""
 "The following is an example of how to read the metadata on Python 3.11 or "
 "higher."
-msgstr "3.11 およびそれ以降の Python "
-"でどのようにメタデータを読み取るのかについて例を以下に示します。"
+msgstr ""
+"3.11 およびそれ以降の Python でどのようにメタデータを読み取るのかについて例を"
+"以下に示します。"
 
 #: ../source/specifications/inline-script-metadata.rst:151
 msgid ""
@@ -19885,8 +19885,8 @@ msgid ""
 "content using the ``tomlkit`` library__."
 msgstr ""
 "ツール類は、しばしば、パッケージ管理機構や CI における依存関係更新の自動化機"
-"構のように、依存関係を編集するでしょう。以下に、 ``tomlkit`` library__ "
-"を使って内容を書き換える際のおおまかな例を示します。"
+"構のように、依存関係を編集するでしょう。以下に、 ``tomlkit`` library__ を使っ"
+"て内容を書き換える際のおおまかな例を示します。"
 
 #: ../source/specifications/inline-script-metadata.rst:182
 msgid ""
@@ -19902,7 +19902,8 @@ msgstr ""
 msgid ""
 "The following is an example of how to read a stream of arbitrary metadata "
 "blocks."
-msgstr "任意のメタデータブロックのストリームをどのように読み取るかの例を以下に示しま"
+msgstr ""
+"任意のメタデータブロックのストリームをどのように読み取るかの例を以下に示しま"
 "す。"
 
 #: ../source/specifications/inline-script-metadata.rst:205
@@ -19917,8 +19918,8 @@ msgid ""
 "script's ``requires-python`` metadata, if defined."
 msgstr ""
 "異なるバージョンの Python を管理する機能を持つツール類は、スクリプトの "
-"``requires-python`` メタデータと互換性のある Python "
-"のバージョンのうちの利用可能な最も新しい版を使うことを試みるべきです。"
+"``requires-python`` メタデータと互換性のある Python のバージョンのうちの利用"
+"可能な最も新しい版を使うことを試みるべきです。"
 
 #: ../source/specifications/inline-script-metadata.rst:215
 msgid ""
@@ -19933,10 +19934,10 @@ msgid ""
 "making the ``dependencies`` and ``requires-python`` keys top-level. "
 "Additionally, the specification is no longer provisional."
 msgstr ""
-"2024年1月: :pep:`723` に対する修正を通じて、 ``pyproject`` "
-"メタデータブロックのタイプが ``script`` に改名され、 ``dependencies`` キーと "
-"``require-python`` キーがトップレベルに昇格する形で ``[run]`` テーブルが廃止"
-"されました。さらに、この仕様はもはや暫定的なものではなくなりました。"
+"2024年1月: :pep:`723` に対する修正を通じて、 ``pyproject`` メタデータブロック"
+"のタイプが ``script`` に改名され、 ``dependencies`` キーと ``require-"
+"python`` キーがトップレベルに昇格する形で ``[run]`` テーブルが廃止されまし"
+"た。さらに、この仕様はもはや暫定的なものではなくなりました。"
 
 #: ../source/specifications/name-normalization.rst:3
 msgid "Names and normalization"
@@ -19957,7 +19958,6 @@ msgid "Name format"
 msgstr "名前のフォーマット"
 
 #: ../source/specifications/name-normalization.rst:15
-#, fuzzy
 msgid ""
 "A valid name consists only of ASCII letters and numbers, period, underscore "
 "and hyphen. It must start and end with a letter or number. This means that "
@@ -19967,12 +19967,11 @@ msgstr ""
 "正当な名前は ASCII 文字・数字・ピリオド・アンダースコア・ハイフンだけで構成さ"
 "れているものです。名前の先頭と末尾は文字か数字でなければなりません。正当なプ"
 "ロジェクト名は、次の正規表現に (``re.IGNORECASE`` 付きで) マッチするものに限"
-"らるということになります::"
+"られるということになります::"
 
 #: ../source/specifications/name-normalization.rst:26
-#, fuzzy
 msgid "Name normalization"
-msgstr "正規化"
+msgstr "名前の正規化"
 
 #: ../source/specifications/name-normalization.rst:28
 msgid ""
@@ -19989,7 +19988,6 @@ msgid "This means that the following names are all equivalent:"
 msgstr "次に挙げる名前はすべて同等ということになります:"
 
 #: ../source/specifications/name-normalization.rst:41
-#, fuzzy
 msgid "``friendly-bard`` (normalized form)"
 msgstr "``friendly-bard`` (正規化形式)"
 
@@ -20014,22 +20012,25 @@ msgid "``friendly--bard``"
 msgstr "``friendly--bard``"
 
 #: ../source/specifications/name-normalization.rst:47
-#, fuzzy
 msgid ""
 "``FrIeNdLy-._.-bArD`` (a *terrible* way to write a name, but it is valid)"
-msgstr "``FrIeNdLy-._.-bArD`` (ひどい書き方の名前の例だが、正当である)"
+msgstr "``FrIeNdLy-._.-bArD`` ( *ひどい* 書き方の名前の例だが、正当である)"
 
 #: ../source/specifications/name-normalization.rst:52
 msgid ""
 "September 2015: The specification of name normalized was approved through :"
 "pep:`503 <503#normalized-names>`."
 msgstr ""
+"2015年9月: :pep:`503 <503#normalized-names>` を通じて名前の正規化に関わる仕様"
+"が承認されました。"
 
 #: ../source/specifications/name-normalization.rst:54
 msgid ""
 "November 2015: The specification of valid names was approved through :pep:"
 "`508 <508#names>`."
 msgstr ""
+"2015年11月: :pep:`508 <508#名前>` を通じて正当な名前に関する仕様が承認されま"
+"した。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:6
 msgid "Platform compatibility tags"
@@ -20124,11 +20125,12 @@ msgid "jy: Jython"
 msgstr "jy: Jython"
 
 #: ../source/specifications/platform-compatibility-tags.rst:48
-#, fuzzy
 msgid ""
 "Other Python implementations should use :py:data:`sys.implementation.name "
 "<sys.implementation>`."
-msgstr "ほかの Python 実装には ``sys.implementation.name`` を用いるべきです。"
+msgstr ""
+"他の Python 実装には :py:data:`sys.implementation.name <sys.implementation>` "
+"を用いるべきです。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:50
 msgid ""
@@ -20210,22 +20212,21 @@ msgid "Platform Tag"
 msgstr "プラットフォームタグ"
 
 #: ../source/specifications/platform-compatibility-tags.rst:86
-#, fuzzy
 msgid "Basic platform tags"
-msgstr "プラットフォームタグ"
+msgstr "基本的なプラットフォームタグ"
 
 #: ../source/specifications/platform-compatibility-tags.rst:88
-#, fuzzy
 msgid ""
 "In its simplest form, the platform tag is :py:func:`sysconfig."
 "get_platform()` with all hyphens ``-`` and periods ``.`` replaced with "
 "underscore ``_``. Until the removal of :ref:`distutils` in Python 3.12, this "
 "was ``distutils.util.get_platform()``. For example:"
 msgstr ""
-"プラットフォームタグは、すべてのハイフン ``-`` とピリオド ``.`` をアンダース"
-"コア ``_`` で単純に置き換えた ``sysconfig.get_platform()`` です。 :ref:"
-"`distutils` が Python 3.12 で削除されるまでは、これは ``distutils.util."
-"get_platform()`` でした。"
+"最も単純な形式では、プラットフォームタグは、 :py:func:`sysconfig."
+"get_platform()` (の出力) のすべてのハイフン ``-`` と ピリオド ``.`` をアン"
+"ダースコア ``_`` で置き換えたものです。 Python 3.12 における :ref:"
+"`distutils` の削除があるまでは、これは ``distutils.util.get_platform()`` でし"
+"た。例えば:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:93
 msgid "win32"
@@ -20244,29 +20245,26 @@ msgid "``manylinux``"
 msgstr "``manylinux``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:103
-#, fuzzy
 msgid ""
 "The simple scheme above is insufficient for public distribution of wheel "
 "files to Linux platforms, due to the large ecosystem of Linux platforms and "
 "subtle differences between them."
 msgstr ""
-"Linux プラットフォームのエコシステムが巨大であることとそれらの間に微妙な差異"
-"があることから、 :pep:`425` で定義されたスキームは、Linux プラットフォーム向"
-"けの wheel ファイル (および、一般に \\*nix 向けの wheel ファイル) の公開配布"
-"物としては不十分です。"
+"上記のような単純なスキームでは、Linux プラットフォーム向けに公開するための "
+"wheel ファイルの配布物用としては不十分で、それは、 Linux プラットフォーム群が"
+"巨大なエコシステムであって、プラットフォーム間に微妙な際が見られるためです。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:107
-#, fuzzy
 msgid ""
 "Instead, for those platforms, the ``manylinux`` standard represents a common "
 "subset of Linux platforms, and allows building wheels tagged with the "
 "``manylinux`` platform tag which can be used across most common Linux "
 "distributions."
 msgstr ""
-"代わりに、 :pep:`600` で Linux プラットフォームの共通のサブセットを表現する"
-"``manylinux`` 標準が定義されており、普通の Linux ディストロのほとんどで使え"
-"る ``manylinux`` プラットフォームタグ付きの wheel をビルドできるようにしてい"
-"ます。"
+"代わりに、そのようなプラットフォーム向けには、 ``manylinux`` という標準が "
+"Linux プラットフォームの共通のサブセットを体現していて、 ``manylinux`` プラッ"
+"トフォームタグを付けて wheel をビルドすることで一般的な Linux のディストリ"
+"ビューションのほとんどで使えるようにすることができます。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:112
 msgid ""
@@ -20277,30 +20275,40 @@ msgid ""
 "matching the value of :py:func:`sysconfig.get_platform()` on the system as "
 "in the \"simple\" form above."
 msgstr ""
+"現在の標準は、将来性が約束された ``manylinux_x_y`` 標準です。 "
+"``manylinux_x_y_arch`` の形でタグを定義していて、 ``x`` と ``y`` には glibc "
+"のメジャーバージョンとマイナーバージョンがサポート (例えば "
+"``manylinux_2_24_xxx`` であれば、 glibc 2.24+ を使うディストロならどれでも動"
+"作するはず) されており、 ``arch`` はアーキテクチャで、上記の \"simple\" 形式"
+"での :py:func:`sysconfig.get_platform()` の値に合致するものです。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:118
 msgid ""
 "The following older tags are still supported for backward compatibility:"
 msgstr ""
+"この後に述べる古めのタグ群は、後方互換性のために今もサポートされています:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:120
-#, fuzzy
 msgid ""
 "``manylinux1`` supports glibc 2.5 on ``x86_64`` and ``i686`` architectures."
 msgstr ""
-"``manylinux1`` (:pep:`513`) は、 ``x86_64`` および ``i686`` アーキテクチャを"
-"サポートしていて、 2007 年から互換性のある Linux プラットフォームに基づいてい"
-"ます。"
+"``manylinux1`` は、 ``x86_64`` と ``i686`` のアーキテクチャで libc 2.5 をサ"
+"ポートしています。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:121
 msgid "``manylinux2010`` supports glibc 2.12 on ``x86_64`` and ``i686``."
 msgstr ""
+"``manylinux2010`` は、 ``x86_64`` と ``i686`` 上で libc 2.12 をサポートしてい"
+"ます。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:122
 msgid ""
 "``manylinux2014`` supports glibc 2.17 on ``x86_64``, ``i686``, ``aarch64``, "
 "``armv7l``, ``ppc64``, ``ppc64le``, and ``s390x``."
 msgstr ""
+"``manylinux2014`` は、 ``x86_64`` ・ ``i686`` ・ ``aarch64`` ・ ``armv7l`` "
+"・ ``ppc64`` ・ ``ppc64le`` ・ ``s390x`` 上で glibc 2.17 をサポートしていま"
+"す。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:125
 msgid ""
@@ -20398,9 +20406,8 @@ msgstr ""
 "audit wheel 3.3.0 では ``manylinux_2_24`` へのサポートだけが追加されました"
 
 #: ../source/specifications/platform-compatibility-tags.rst:150
-#, fuzzy
 msgid "``musllinux``"
-msgstr "``manylinux``"
+msgstr "``musllinux``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:152
 msgid ""
@@ -20409,6 +20416,10 @@ msgid ""
 "Alpine Linux). The schema is ``musllinux_x_y_arch``, supporting musl ``x.y`` "
 "and higher on the architecture ``arch``."
 msgstr ""
+"``musllinux`` ファミリーに含まれるタグは ``manylinux`` に似ていますが、 "
+"glibc ではなくて musl_libc を使う Linux プラットフォーム (最重要な例としては "
+"Alpine Linux) 向けのものです。文法としては ``musllinux_x_y_arch`` で、 musl "
+"``x.y`` およびそれ以降で ``arch`` なるアーキテクチャをサポートします。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:157
 msgid ""
@@ -20416,6 +20427,8 @@ msgid ""
 "library the Python interpreter is currently running on, and parsing the "
 "output:"
 msgstr ""
+"musl のバージョンの値は、 Python インタープリタが現在その上で走行している "
+"musl libc 共有ライブラリを実行し、その出力を字句解析することで得られます:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:188
 msgid ""
@@ -20424,6 +20437,10 @@ msgid ""
 "command, or by parsing the ``PT_INTERP`` section’s value from the "
 "executable’s ELF_ header."
 msgstr ""
+"Python インタープリタがその上で走行している musl ライブラリの場所を見つけるた"
+"めには、現在、二つの可能なやり方があり、ひとつはシステムの ldd_ コマンドによ"
+"るもの、もうひとつは 実行ファイルの ELF_ ヘッダから ``PT_INTERP`` セクション"
+"の値をパースする方法です。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:194
 msgid "Use"
@@ -20769,28 +20786,34 @@ msgid ""
 "February 2013: The original version of this specification was approved "
 "through :pep:`425`."
 msgstr ""
+"2013年2月: :pep:`425` を通じてこの仕様の元々のバージョンが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:336
 msgid "January 2016: The ``manylinux1`` tag was approved through :pep:`513`."
-msgstr ""
+msgstr "2016年1月: :pep:`513` を通じて ``manylinux1`` タグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:337
 msgid "April 2018: The ``manylinux2010`` tag was approved through :pep:`571`."
 msgstr ""
+"2018年4月: :pep:`571` を通じて ``manylinux2010`` タグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:338
 msgid "July 2019: The ``manylinux2014`` tag was approved through :pep:`599`."
 msgstr ""
+"2019年7月: :pep:`599` を通じて ``manylinux2014`` タグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:339
 msgid ""
 "November 2019: The ``manylinux_x_y`` perennial tag was approved through :pep:"
 "`600`."
 msgstr ""
+"2019年11月: :pep:`600` を通じて多年性の ``manylinux_x_y`` タグが承認されまし"
+"た。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:341
 msgid "April 2021: The ``musllinux_x_y`` tag was approved through :pep:`656`."
 msgstr ""
+"2021年4月: :pep:`656` を通じて ``musllinux_x_y`` タグが承認されました。"
 
 #: ../source/specifications/pypirc.rst:6
 msgid "The :file:`.pypirc` file"
@@ -20929,25 +20952,28 @@ msgstr ""
 "を検討してください:"
 
 #: ../source/specifications/pyproject-toml.rst:6
-#, fuzzy
 msgid "``pyproject.toml`` specification"
-msgstr "``pyproject.toml`` は必須ですか？"
+msgstr "``pyproject.toml`` の仕様"
 
 #: ../source/specifications/pyproject-toml.rst:10
 msgid ""
 "This is a **technical, formal specification**. For a gentle, user-friendly "
 "guide to ``pyproject.toml``, see :ref:`writing-pyproject-toml`."
 msgstr ""
+"これは **技術的な正式の仕様** です。 ``pyproject.toml`` の配慮があってユーザ"
+"に優しいガイド文書としては、 :ref:`wriging-pyproject-toml` を見てください。"
 
 #: ../source/specifications/pyproject-toml.rst:14
 msgid ""
 "The ``pyproject.toml`` file acts as a configuration file for packaging-"
 "related tools (as well as other tools)."
 msgstr ""
+"``pyproject.toml`` ファイルは、(他のツール類と同様に) パッケージング関係の"
+"ツール類向けの設定ファイルとして働きます。"
 
 #: ../source/specifications/pyproject-toml.rst:17
 msgid "This specification was originally defined in :pep:`518` and :pep:`621`."
-msgstr ""
+msgstr "この仕様は、元々は :pep:`518` 及び :pep:`621` で定義されました。"
 
 #: ../source/specifications/pyproject-toml.rst:19
 msgid ""
@@ -20957,22 +20983,25 @@ msgid ""
 "<pyproject-tool-table>`. Other tables are reserved for future use (tool-"
 "specific configuration should use the ``[tool]`` table)."
 msgstr ""
+"``pyproject.toml`` ファイルは `TOML <https://toml.io<`_ で書かれています。現"
+"在は、 :ref:`[build-system] <pyproject-build-system-table>` ・ :ref:"
+"`[project] <pyproject-project-table>` ・ :ref:`[tool] <pyproject-tool-"
+"table>` の３個のテーブルが制定されています。他のテーブル群は将来の使用 (ツー"
+"ルに特有の設定は ``[tool]`` テーブルを使うべきです) に備えて予約されていま"
+"す。"
 
 #: ../source/specifications/pyproject-toml.rst:29
-#, fuzzy
 msgid "Declaring build system dependencies: the ``[build-system]`` table"
-msgstr "ビルドシステムの依存関係を宣言する"
+msgstr "ビルドシステムの依存関係を宣言する: ``[build-system]`` テーブル"
 
 #: ../source/specifications/pyproject-toml.rst:31
-#, fuzzy
 msgid ""
 "The ``[build-system]`` table declares any Python level dependencies that "
 "must be installed in order to run the project's build system successfully."
 msgstr ""
-"`pyproject.toml` は :pep:`518` で定義されたビルドシステムとは独立したファイル"
-"形式で、あるプロジェクトのビルドシステムが正常に動作するためにインストールさ"
-"れていなければならない Python レベルの依存関係をすべて宣言するという目的のた"
-"めにそのプロジェクトが提供するものです。"
+"``[build-system]`` テーブルでは、プロジェクトのビルドシステムが成功裡に動作す"
+"るためにインストールされていなくてはならない Python レベルの依存関係をすべて"
+"宣言します。"
 
 #: ../source/specifications/pyproject-toml.rst:37
 msgid ""
@@ -20982,18 +21011,28 @@ msgid ""
 "dependencies required to execute the build system. The strings in this list "
 "follow the :ref:`version specifier specification <version-specifiers>`."
 msgstr ""
+"``[build-system]`` テーブルは、ビルドに関連したデータを格納するために使われま"
+"す。当初は、テーブル内に ``requires`` というたったひとつのキーだけが正当、か"
+"つ、必須とされました。このキーは、ビルドシステムを実行するのに要求される依存"
+"関係を表現する文字列のリストを値に取らなければなりません。このリストの中の文"
+"字列は、 :ref:`バージョン指定子仕様 <version-specifiers>` に従います。"
 
 #: ../source/specifications/pyproject-toml.rst:44
 msgid ""
 "An example ``[build-system]`` table for a project built with ``setuptools`` "
 "is:"
 msgstr ""
+"``setuptools`` と共にビルドされるプロジェクトにおける ``[build-system]`` の例"
+"は:"
 
 #: ../source/specifications/pyproject-toml.rst:53
 msgid ""
 "Build tools are expected to use the example configuration file above as "
 "their default semantics when a ``pyproject.toml`` file is not present."
 msgstr ""
+"ビルドツール群は、 ``pyproject.toml`` ファイルが存在しない場合には、上に例示"
+"された設定ファイルをデフォルトのセマンティクスとして使用することを期待されて"
+"います。"
 
 #: ../source/specifications/pyproject-toml.rst:56
 msgid ""
@@ -21005,6 +21044,13 @@ msgid ""
 "specified but is missing required fields then the tool should consider it an "
 "error."
 msgstr ""
+"ツール類は、 ``[build-system]`` テーブルの存在を (必須のものとして) 要求する"
+"べきではありません。 ``pyproject.toml`` ファイルにはビルドに関係するデータ以"
+"外の設定の詳細を格納して使われることがあるので、 ``[build-system`` テーブルが"
+"存在していなくても正当なものであると言えます。ファイルは存在するが ``[build-"
+"system]`` テーブルが欠けている場合、上記のデフォルトの値を使用するべきです。"
+"テーブルは存在しているけれども必須のフィールドが欠けている場合には、ツールは"
+"これをエラーであると判断するべきです。"
 
 #: ../source/specifications/pyproject-toml.rst:65
 msgid ""
@@ -21012,17 +21058,21 @@ msgid ""
 "TOML file for illustrative purposes only, the following `JSON Schema "
 "<https://json-schema.org>`_ would match the data format:"
 msgstr ""
+"TOMLファイルからのデータで実例を示す目的だけに使われるようなタイプ特有の表現"
+"を提供するためには、後述の `JSON スキーマ <https://json-schema.org>`_ がデー"
+"タフォーマットとして適しているでしょう:"
 
 #: ../source/specifications/pyproject-toml.rst:103
-#, fuzzy
 msgid "Declaring project metadata: the ``[project]`` table"
-msgstr "プロジェクトのメタデータを宣言する"
+msgstr "プロジェクトのメタデータを宣言する: ``[project]`` テーブル"
 
 #: ../source/specifications/pyproject-toml.rst:105
 msgid ""
 "The ``[project]`` table specifies the project's :ref:`core metadata <core-"
 "metadata>`."
 msgstr ""
+"``[project]`` テーブルは、プロジェクトの :ref:`コアとなるメタデータ <core-"
+"metadata>` を定義します。"
 
 #: ../source/specifications/pyproject-toml.rst:107
 msgid ""
@@ -21045,6 +21095,8 @@ msgid ""
 "The lack of a ``[project]`` table implicitly means the :term:`build backend "
 "<Build Backend>` will dynamically provide all keys."
 msgstr ""
+"``[project]`` テーブルが欠損している場合は、暗黙理に、 :term:`ビルドバックエ"
+"ンド <Build Backend>` が動的にすべてのキーを準備することを意味します。"
 
 #: ../source/specifications/pyproject-toml.rst:118
 msgid "The only keys required to be statically defined are:"
@@ -21139,6 +21191,8 @@ msgid ""
 "The version of the project, as defined in the :ref:`Version specifier "
 "specification <version-specifiers>`."
 msgstr ""
+":ref:`バージョン指定子仕様 <version-specifiers>` で定義されるものとしての、プ"
+"ロジェクトのバージョン。"
 
 #: ../source/specifications/pyproject-toml.rst:173
 msgid "Users SHOULD prefer to specify already-normalized versions."
@@ -21157,6 +21211,8 @@ msgid ""
 "The summary description of the project in one line. Tools MAY error if this "
 "includes multiple lines."
 msgstr ""
+"１行で書かれたプロジェクトに関する説明の要約。これが複数行に渡る場合には、"
+"ツールはエラーを発生させても構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:190
 msgid "TOML_ type: string or table"
@@ -21634,7 +21690,7 @@ msgstr ""
 
 #: ../source/specifications/pyproject-toml.rst:426
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
-msgstr ""
+msgstr "任意のツールの設定: ``[tool]`` テーブル"
 
 #: ../source/specifications/pyproject-toml.rst:428
 msgid ""
@@ -21643,6 +21699,11 @@ msgid ""
 "use a sub-table within ``[tool]``, e.g. the `flit <https://pypi.python.org/"
 "pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
 msgstr ""
+"``[tool]`` テーブルは、ビルドツールに限らずその Python プロジェクトに関係する"
+"ツールであれば何であっても、 ``[tool]`` 内のサブテーブルを使う限りはユーザが"
+"設定データを指定することができるもので、例えば `flit <https://pypi.python."
+"org/pypi/flit>`_ ツールならその設定を ``[tool.flit]`` に格納しておくでしょ"
+"う。"
 
 #: ../source/specifications/pyproject-toml.rst:434
 msgid ""
@@ -21651,6 +21712,11 @@ msgid ""
 "and collide. Our rule is that a project can use the subtable ``tool.$NAME`` "
 "if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
 msgstr ""
+"``tool.*`` という名前空間の中に名称を確保するには、他のプロジェクトが同じサブ"
+"テーブルを使おうと試みて衝突してしまうようなことにならないようにするメカニズ"
+"ムが必要です。我々のルールは、あるプロジェクトが Cheeseshop/PyPI に "
+"``$NAME`` というエントリを保有している場合、その場合に限って、 ``tool."
+"$NAME`` なるサブテーブルを使うことができるというものです。"
 
 #: ../source/specifications/pyproject-toml.rst:445
 msgid ""
@@ -21658,12 +21724,17 @@ msgid ""
 "just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
 "table, was approved through :pep:`518`."
 msgstr ""
+"2016年5月: :pep:`518` を通じて、 ``pyproject.toml`` ファイルの初期の仕様、つ"
+"まり、 ``[build-system]`` が ``requires`` キーと ``[tool]`` テーブルしか含ん"
+"でいないものが承認されました。"
 
 #: ../source/specifications/pyproject-toml.rst:449
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
 "through :pep:`621`."
 msgstr ""
+"2020年11月: :pep:`621` を通じて、 ``[project]`` テーブルの仕様が承認されまし"
+"た。"
 
 #: ../source/specifications/recording-installed-packages.rst:7
 msgid "Recording installed projects"
@@ -21708,7 +21779,6 @@ msgstr ""
 "もインストールします (通常は ``site-packages`` ディレクトリ) 。"
 
 #: ../source/specifications/recording-installed-packages.rst:29
-#, fuzzy
 msgid ""
 "This directory is named as ``{name}-{version}.dist-info``, with ``name`` and "
 "``version`` fields corresponding to :ref:`core-metadata`. Both fields must "
@@ -21720,13 +21790,14 @@ msgid ""
 "``version`` fields."
 msgstr ""
 "このディレクトリは ``{name}-{version}.dist-info`` という名前で、 ``name`` と "
-"``version`` のフィールドが :ref:`core-metadata` に対応しています。両方の"
-"フィールドは正規化 (各フィールドにおける正規化の定義については、それぞれ :"
-"ref:`名前の正規化 <name-normalization` と :pep:`PEP 440 <440#normalization>` "
-"を見てください) されていなければならず、かつ、ダッシュ (``-``) の文字をアン"
-"ダースコア (``_``) で置き換えることで ``.dist-info`` ディレクトリが常に正確に"
-"ひとつだけのダッシュ (``-``) 文字をそのファイル名基幹部に持ち、それによって "
-"``name`` と ``version`` フィールドを分割していなければなりません。"
+"``version`` のフィールドが :ref:`コアとなるメタデータ <core-metadata>` に対応"
+"しています。両方のフィールドは正規化 (各フィールドにおける正規化の定義につい"
+"ては、それぞれ :ref:`名称正規化の仕様 <name-normalization>` と :ref:`バージョ"
+"ン正規化の仕様 <version-specifiers-normalization>` を見てください) されていな"
+"ければならず、かつ、ダッシュ (``-``) の文字をアンダースコア (``_``) で置き換"
+"えることで ``.dist-info`` ディレクトリが常に正確にひとつだけのダッシュ (``-"
+"``) 文字をそのファイル名基幹部に持ち、それによって ``name`` と ``version`` "
+"フィールドを分割していなければなりません。"
 
 #: ../source/specifications/recording-installed-packages.rst:37
 msgid ""
@@ -21908,7 +21979,6 @@ msgstr ""
 "も構いません (``/`` または ``\\``) 。"
 
 #: ../source/specifications/recording-installed-packages.rst:114
-#, fuzzy
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from :"
 "py:data:`hashlib.algorithms_guaranteed`, followed by the equals character "
@@ -21918,9 +21988,9 @@ msgid ""
 msgstr ""
 "*hash* は、空文字列または ``hashlib.algorithms_guaranteed`` から取ったハッ"
 "シュアルゴリズムの名前の後ろに等号 ``=`` を付けて、ファイルの内容のハッシュ値"
-"を urlsafe-base64-nopad エンコーディング (``base64."
-"urlsafe_b64encode(digest)`` の結果から末尾の ``=`` を取り除いたもの) で記した"
-"ものです。"
+"を urlsafe-base64-nopad エンコーディング (``base64.urlsafe_b64encode(digest) "
+"<base64.urlsafe_b64encode()>`` の結果から末尾の ``=`` を取り除いたもの) で記"
+"したものです。"
 
 #: ../source/specifications/recording-installed-packages.rst:119
 msgid ""
@@ -21995,6 +22065,14 @@ msgid ""
 "``RECORD`` must be updated, otherwise uninstalling the package will leave "
 "unlisted files in place (possibly resulting in a zombie namespace package)."
 msgstr ""
+"インストール済みのパッケージが自分自身を修正すること (例えば、 ``site-"
+"packages`` 内の名前空間の下にキャッシュファイルを保存すること) は、 *強い非推"
+"奨* 事項です。 ``site-packages`` の内側での変更は、 pip のような特別なインス"
+"トールツールに委ねられるべきです。それにも関わらず、パッケージがこのようなや"
+"り方で修正された場合には必ず ``RECORD`` を更新しなければならず、そうしなけれ"
+"ばパッケージをアンインストールの時に、リストに洩れているファイルがその場に残"
+"されてしまうでしょう (おそらくはゾンビ状態の名前空間パッケージになるでしょ"
+"う)。"
 
 #: ../source/specifications/recording-installed-packages.rst:175
 msgid "The INSTALLER file"
@@ -22146,6 +22224,8 @@ msgid ""
 "pep:`376`.  At the time, it was known as the *Database of Installed Python "
 "Distributions*."
 msgstr ""
+"2009年6月: :pep:`376` を通じてこの仕様の元々のバージョンが承認されました。当"
+"時は、 *インストール済みの Python 配布物のデータベース* という名前でした。"
 
 #: ../source/specifications/recording-installed-packages.rst:257
 msgid ""
@@ -22153,12 +22233,16 @@ msgid ""
 "through :pep:`610`. It is only mentioned on this page; see :ref:`direct-url` "
 "for the full definition."
 msgstr ""
+"2020年3月: :pep:`610` を通じて ``direct_url.json`` ファイルの仕様が承認されま"
+"した。これは、このページで言及されるのみです; 完全な定義については :ref:"
+"`direct-url` を見てください。"
 
 #: ../source/specifications/recording-installed-packages.rst:260
 msgid ""
 "September 2020: Various amendments and clarifications were approved through :"
 "pep:`627`."
 msgstr ""
+"2020年9月: :pep:`627` を通じて、さまざまな修正や明確化が承認されました。"
 
 #: ../source/specifications/section-distribution-formats.rst:3
 msgid "Package Distribution File Formats"
@@ -22169,9 +22253,8 @@ msgid "Package Distribution Metadata"
 msgstr "パッケージ配布物のメタデータ"
 
 #: ../source/specifications/section-installation-metadata.rst:3
-#, fuzzy
 msgid "Package Installation Metadata"
-msgstr "パッケージのインストール環境のメタデータ"
+msgstr "パッケージのインストールに関するメタデータ"
 
 #: ../source/specifications/section-package-indices.rst:3
 msgid "Package Index Interfaces"
@@ -22192,7 +22275,7 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:15
 msgid "Base HTML API"
-msgstr ""
+msgstr "基本となる HTML API <Base HTML API>"
 
 #: ../source/specifications/simple-repository-api.rst:17
 msgid ""
@@ -22201,6 +22284,11 @@ msgid ""
 "the \"simple\" repository due to the fact that PyPI's base URL is ``https://"
 "pypi.org/simple/``."
 msgstr ""
+"シンプルな API を実装するリポジトリはベースとなる URL によって定義されます"
+"が、これは、すべての追加的な URL 群がその下に連なるようなトップレベルの URL "
+"です。このような API は、 PyPI のベースとなる URL が ``https://pypi.org/"
+"simple/`` であるという事実に即して、 \"シンプル <simple>\" リポジトリと名付け"
+"られます。"
 
 #: ../source/specifications/simple-repository-api.rst:22
 msgid ""
@@ -22208,6 +22296,9 @@ msgid ""
 "given PyPI's URL, a URL of ``/foo/`` would be ``https://pypi.org/simple/foo/"
 "``."
 msgstr ""
+"この説明文書でこのあと出てくる URL 群はすべて、このベース URL <base URL> から"
+"の相対的なものです (したがって、PyPI に関する URL なら、 ``/foo/`` は "
+"``https://pypi.org/simple/foo/`` のことです。"
 
 #: ../source/specifications/simple-repository-api.rst:27
 msgid ""
@@ -22217,6 +22308,11 @@ msgid ""
 "of the project and the href attribute **MUST** link to the URL for that "
 "particular project. As an example::"
 msgstr ""
+"リポジトリ内では、ルート URL <root URL> (この文脈ではルート URL <root URL> を"
+"表現する ``/`` のこと) は、正当な HTML5 ページであってリポジトリ内のプロジェ"
+"クト毎にひとつのアンカー要素を持っていなければ **なりません** 。アンカータグ"
+"のテキストはプロジェクトの名称でなければならず、 href アトリビュートはそのプ"
+"ロジェクトの URL にリンクされていなければ **なりません** 。例としては::"
 
 #: ../source/specifications/simple-repository-api.rst:41
 msgid ""
@@ -22233,11 +22329,24 @@ msgid ""
 "the hash function (such as ``sha256``) and ``<hashvalue>`` is the hex "
 "encoded digest."
 msgstr ""
+"ルート URL <root URL> 以下には、リポジトリに含まれる独立のプロジェクトのそれ"
+"ぞれに対応する別の URL があります。この URL のフォーマットは ``/<project>/`` "
+"で、 ``<project>`` の部分はそのプロジェクトの正規化された名称で置き換えられる"
+"ので、あるプロジェクトの名称が \"HolyGrail\" なら、 URL は ``/holygrail/`` の"
+"ようになるでしょう。この URL は、プロジェクトのファイル一つに対してひとつのア"
+"ンカーエレメントを伴った正当な HTML5 ページを返さなければなりません。href ア"
+"トリビュートは、そのファイルのダウンロードリンクの URL で **なければならず"
+"** 、アンカータグのテキストはその URL の最終的なパス構成要素 (ファイル名) に"
+"合致して **いなければなりません** 。この URLは、 URL の断片要素の形でハッシュ"
+"値を **含んでいるべき** で、その文法は次のようなものです: "
+"``#<hashname>=<hashvalue>`` の形で、 ``<hashname>`` は (``sha256`` のように) "
+"ハッシュ関数の名前を小文字で表記したものであり、 ``<hashvalue>`` は16進数にエ"
+"ンコードされたダイジェスト (ハッシュ値) です。"
 
 #: ../source/specifications/simple-repository-api.rst:53
 msgid ""
 "In addition to the above, the following constraints are placed on the API:"
-msgstr ""
+msgstr "上記に加えて、以下の制約が API に課せられます:"
 
 #: ../source/specifications/simple-repository-api.rst:55
 msgid ""
@@ -22245,24 +22354,33 @@ msgid ""
 "repository **SHOULD** redirect the URLs without a ``/`` to add a ``/`` to "
 "the end."
 msgstr ""
+"HTML5 ページで応答するすべての URL は ``/`` で終わるものでなければならず、リ"
+"ポジトリは ``/`` で終わらない URL の最後に ``/`` を加えたものへリダイレクト "
+"**するべき** です。"
 
 #: ../source/specifications/simple-repository-api.rst:59
 msgid ""
 "URLs may be either absolute or relative as long as they point to the correct "
 "location."
 msgstr ""
+"URL は、間違いのないロケーションを指し示している限りは絶対パスであっても相対"
+"パスであっても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:62
 msgid ""
 "There are no constraints on where the files must be hosted relative to the "
 "repository."
 msgstr ""
+"ファイル群が置かれている場所が、リポジトリに対して相対的な場所のどこであるか"
+"については制約条件はありません。"
 
 #: ../source/specifications/simple-repository-api.rst:65
 msgid ""
 "There may be any other HTML elements on the API pages as long as the "
 "required anchor elements exist."
 msgstr ""
+"要求されているアンケー要素が存在している限り、API ページ上にどのような他の "
+"HTML 要素があっても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:68
 msgid ""
@@ -22270,6 +22388,10 @@ msgid ""
 "URL (e.g. ``/Foobar/`` may redirect to ``/foobar/``), however clients **MUST "
 "NOT** rely on this redirection and **MUST** request the normalized URL."
 msgstr ""
+"リポジトリは、正規化されていない URL を正統で正規化された URL にリダイレクト"
+"しても **構いません** (例えば、 ``/Foobar/`` を ``/foobar/`` にリダイレクトし"
+"てもよい) が、クライアントの側ではこのリダイレクト機能に **依存してはならず"
+"** 、正規化された URL に対してリクエストを **送らなければなりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:73
 msgid ""
@@ -22278,6 +22400,10 @@ msgid ""
 "standard library (currently ``md5``, ``sha1``, ``sha224``, ``sha256``, "
 "``sha384``, ``sha512``). The current recommendation is to use ``sha256``."
 msgstr ""
+"レジストリは、 Python の標準ライブラリの :py:mod:`hashlib` モジュール経由で利"
+"用可能であると保証されたハッシュ関数の中から一つを **選択するべきです** (現時"
+"点では、 ``md5`` ・ ``sha1`` ・ ``sha224`` ・ ``sha256`` ・ ``sha384`` ・ "
+"``sha512``)。現時点では、 ``sha256`` の使用が推奨されています。"
 
 #: ../source/specifications/simple-repository-api.rst:78
 msgid ""
@@ -22287,6 +22413,10 @@ msgid ""
 "associated signature, the signature would be located at ``/packages/"
 "HolyGrail-1.0.tar.gz.asc``."
 msgstr ""
+"特定の配布物ファイルに GPG 署名があれば、その配布物ファイルの名前に ``.asc`` "
+"を追加したファイル名で **共存させなければなりません** 。だから、 ``/packages/"
+"HolyGrail-1.0.tar.gz`` が存在していて署名が結びついていれば、そのsと名は ``/"
+"packages/HolyGrail-1.0.tar.gz.asc`` という名前であるはずです。"
 
 #: ../source/specifications/simple-repository-api.rst:84
 msgid ""
@@ -22295,6 +22425,9 @@ msgid ""
 "there is a GPG signature. Repositories that do this **SHOULD** include it on "
 "every link."
 msgstr ""
+"リポジトリは、 GPG 署名が存在するか否かを示す ``true`` か ``false`` を値にと"
+"る ``data-gpg-sig`` アトリビュートをファイルリンクの中に含んでいても **構いま"
+"せん** 。これを行うリポジトリは、全てのリンクについて **行うべきです** 。"
 
 #: ../source/specifications/simple-repository-api.rst:88
 msgid ""
@@ -22304,17 +22437,23 @@ msgid ""
 "**SHOULD** ignore the download when installing to a Python version that "
 "doesn't satisfy the requirement. For example::"
 msgstr ""
+"リポジトリは、ファイルリンクの中に ``data-requires-python`` アトリビュートを"
+"含んでいても **構いません** 。これは、対応するリリース用の :ref:`core-"
+"metadata-requires-python` メタデータを表示するものです。これが存在するなら、"
+"その要求を満足しないバージョンの Python 環境へインストールしている場合には、"
+"インストールツール群はダウンロードしたものを **無視するべき** です。例えば::"
 
 #: ../source/specifications/simple-repository-api.rst:96
 msgid ""
 "In the attribute value, < and > have to be HTML encoded as ``&lt;`` and "
 "``&gt;``, respectively."
 msgstr ""
+"アトリビュートの値においては、 < や > は順に ``&lt;`` や ``&gt;`` へと HTML "
+"エンコードされなければなりません。"
 
 #: ../source/specifications/simple-repository-api.rst:100
-#, fuzzy
 msgid "Normalized Names"
-msgstr "正当な非正規化名"
+msgstr "正規化された名称"
 
 #: ../source/specifications/simple-repository-api.rst:102
 msgid ""
@@ -22325,10 +22464,16 @@ msgid ""
 "``.``, ``-``, or ``_`` replaced with a single ``-`` character. This can be "
 "implemented in Python with the ``re`` module::"
 msgstr ""
+"この仕様は、 \"正規化された\" プロジェクト名称の概念を参照しています。 :ref:`"
+"名称正規化仕様 <name-normalization>` によれば、名称における正当な文字は、 "
+"ASCII アルファベット・ ASCII 数字・ ``.`` ・ ``-`` ・ ``_`` だけです。名称"
+"は、 `.`` ・ ``-`` ・ ``_`` がいくつ連続していてもそれを単一の ``-`` 文字に置"
+"き換え、小文字で統一されているべきです。これは Python の ``re`` モジュールで"
+"実装されています::"
 
 #: ../source/specifications/simple-repository-api.rst:117
 msgid "Adding \"Yank\" Support to the Simple API"
-msgstr ""
+msgstr "\"ヤンク <Yank>\" サポートをシンプルな API に追加する"
 
 #: ../source/specifications/simple-repository-api.rst:119
 msgid ""
@@ -22339,6 +22484,12 @@ msgid ""
 "\"Yanked\", and should not generally be selected by an installer, except "
 "under specific scenarios."
 msgstr ""
+"シンプルなリポジトリの中のリンク群は、値を持たないか任意の文字列を値に取る "
+"``data-yanked`` アトリビュートを持っていても **構いません** 。 ``data-"
+"yanked`` アトリビュートが存在していれば、この特定のリンクによって指し示された"
+"ファイルが \"ヤンクされた <Yanked>\" ものだと解釈される **べきであって** 、特"
+"定のシナリオ下を除けば一般的にはインストーラによって選択されるべきものではあ"
+"りません。"
 
 #: ../source/specifications/simple-repository-api.rst:126
 msgid ""
@@ -22347,6 +22498,9 @@ msgid ""
 "that process the simple repository API **MAY** surface this string to end "
 "users."
 msgstr ""
+"``data-yanked`` アトリビュートの値は、もし値が存在するなら、そのファイルがヤ"
+"ンクされた理由を表現する任意の文字列です。シンプルなリポジトリ API を処理する"
+"ツール類は、エンドユーザ向けにその文字列を表示しても **構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:131
 msgid ""
@@ -22355,11 +22509,15 @@ msgid ""
 "be able to cope with a yanked file being \"unyanked\" (and even yanked "
 "again)."
 msgstr ""
+"ヤンクされたアトリビュートは一旦設定されると変更できないというわけではなく、"
+"将来の時点で廃止されても構いません (そして、一旦廃止されても再設定することが"
+"できます) 。そういうことですので、 API ユーザは、ヤンクされたファイルが \"ヤ"
+"ンク解除\" され (さらに再びヤンクされ) ることに対処でき **なければなりません"
+"** 。"
 
 #: ../source/specifications/simple-repository-api.rst:138
-#, fuzzy
 msgid "Installers"
-msgstr "インストーラ"
+msgstr "インストーラ類"
 
 #: ../source/specifications/simple-repository-api.rst:140
 msgid ""
@@ -22370,6 +22528,11 @@ msgid ""
 "original order to install the now yanked file, then it acts as if it had not "
 "been yanked."
 msgstr ""
+"ユーザにとって望ましい経験とは、あるファイルが一旦ヤンクされたら、人間側が今"
+"まさにヤンクされたファイルを直接にインストールしようと試みている時、まるでそ"
+"のファイルが削除されたかのように失敗することです。しかしながら、その人が少し"
+"前の時点で試みた場合には、今回はコンピュータが機械的にオリジナルの順序にした"
+"がって今まさにヤンクされたファイルをインストールし"
 
 #: ../source/specifications/simple-repository-api.rst:147
 msgid ""
@@ -22380,6 +22543,11 @@ msgid ""
 "intention above, and that prevents \"new\" dependencies on yanked releases/"
 "files."
 msgstr ""
+"インストーラは、ヤンクされたバージョン以外のもので選択上の制約を満足すること"
+"が可能なら、ヤンクされたリリース群を **無視しなければならず** 、要求が全く満"
+"たされないことを意味する場合でさえもヤンクされたリリースを **拒否しても構いま"
+"せん** 。実装では、上記の意図を汲んだポリシーで、かつ、 \"新しい\" 依存関係を"
+"訳されたリリースやファイルに課すことを避けポリシーを **選択するべきです** 。"
 
 #: ../source/specifications/simple-repository-api.rst:154
 msgid ""
@@ -22387,6 +22555,8 @@ msgid ""
 "fit into the overall usage of their installer. However, there are two "
 "suggested approaches to take:"
 msgstr ""
+"これが意味するものは、特定のインストーラの全体的な使い方に一番うまく合致する"
+"方法を決定するということで、インストーラの裁量に任されています。"
 
 #: ../source/specifications/simple-repository-api.rst:158
 msgid ""
@@ -22397,6 +22567,12 @@ msgid ""
 "version specifiers specification <version-specifiers>` for things like local "
 "versions, zero padding, etc."
 msgstr ""
+"ヤンクされたファイル群は、それが (``.*`` のような範囲を構成するいかなる修正子"
+"も付いていない) ``==`` か ``===`` を使って特定のバージョンに \"ピン留め\" さ"
+"れたバージョン指定子に合致する唯一のファイルでない限り、常に無視されます。そ"
+"れ以外の場合、このバージョン指定子とのマッチングは、ローカルバージョン・ゼロ"
+"でのパディング・その他のような事柄について :ref:`バージョン指定子仕様 "
+"<version-specifiers>` にしたがって行われるべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:165
 msgid ""
@@ -22405,6 +22581,11 @@ msgid ""
 "be installed. In this case, a yanked file **SHOULD** not be used when "
 "creating or updating a lock file from some input file or command."
 msgstr ""
+"ヤンクされたファイル群は、 (``Pipfile.lock`` や ``poetry.lock`` のような) "
+"ロックファイルがインストールされるべきものとして指定しているものに合致する唯"
+"一のファイル出ない限り、常に無視されます。この場合には、ヤンクされたファイル"
+"は、何らかの入力ファイルやコマンドからそのロックファイルを作成したり更新した"
+"りする場合には、 **使われるべきではありません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:171
 msgid ""
@@ -22414,14 +22595,19 @@ msgid ""
 "of the ``data-yanked`` attribute (if it has a value) to provide more "
 "specific feedback to the user about why that file had been yanked."
 msgstr ""
+"あるインストーラがヤンクされたファイルをいつインストールするのかを決めるにあ"
+"たって、ヤンクされたファイルをインストールすると決定した時にインストーラが警"
+"告を **発出するべきです** 。そのような警告は、そのファイルがヤンクされた理由"
+"についてユーザにより詳しいフィードバックを提供するために、 (もし値があれば) "
+"``data-yanked`` アトリビュートの値を **使っても構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:179
 msgid "Mirrors"
-msgstr ""
+msgstr "ミラー"
 
 #: ../source/specifications/simple-repository-api.rst:181
 msgid "Mirrors can generally treat yanked files one of two ways:"
-msgstr ""
+msgstr "ミラーは、ヤンクされたファイルを次の二つの方法のうちの一つで扱います:"
 
 #: ../source/specifications/simple-repository-api.rst:183
 msgid ""
@@ -22429,22 +22615,29 @@ msgid ""
 "providing a view over the repository that shows only \"active\", unyanked "
 "files."
 msgstr ""
+"\"アクティブ\" なヤンクされたものではないファイル群だけを見せるリポジトリの"
+"ビューを提供して、シンプルなリポジトリ API から (ヤンクされたファイル群を) 完"
+"全に排除する選択をしても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:186
 msgid ""
 "They may choose to include yanked files, and additionally mirror the ``data-"
 "yanked`` attribute as well."
 msgstr ""
+"ヤンクされたファイルも表示するとともに、 ``data-yanked`` アトリビュートをもミ"
+"ラーするという選択をしても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:189
 msgid ""
 "Mirrors **MUST NOT** mirror a yanked file without also mirroring the ``data-"
 "yanked`` attribute for it."
 msgstr ""
+"ミラーは、 ``data-yanked`` アトリビュートを同時にミラーするのでなければヤンク"
+"されたファイルを **ミラーしてはいけません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:195
 msgid "Versioning PyPI's Simple API"
-msgstr ""
+msgstr "PyPI のシンプルな API にバージョンを付与する"
 
 #: ../source/specifications/simple-repository-api.rst:197
 msgid ""
@@ -25758,7 +25951,6 @@ msgstr ""
 "ルする方法の基本について示します。"
 
 #: ../source/tutorials/installing-packages.rst:10
-#, fuzzy
 msgid ""
 "It's important to note that the term \"package\" in this context is being "
 "used to describe a bundle of software to be installed (i.e. as a synonym for "
@@ -26051,7 +26243,6 @@ msgstr ""
 "現在、ふたつの Python 仮想環境を構築するためのツールがよく知られています:"
 
 #: ../source/tutorials/installing-packages.rst:226
-#, fuzzy
 msgid ""
 ":doc:`venv <python:library/venv>` is available by default in Python 3.3 and "
 "later, and installs :ref:`pip` into created virtual environments in Python "
@@ -26059,9 +26250,9 @@ msgid ""
 "`setuptools`)."
 msgstr ""
 ":doc:`venv <python:library/venv>` は、 Python 3.3 およびそれ以降のバージョン"
-"で本体に同梱されていて利用可能であり、 Python 3.4 およびそれ以降では (venv"
-"が) :ref:`pip` と :ref:`setuptools` を作成された仮想環境内にインストールしま"
-"す。"
+"で本体に同梱されていて利用可能であり、 Python 3.4 およびそれ以降では :ref:"
+"`pip` と :ref:`setuptools` を作成された仮想環境内にインストールします (3.12 "
+"以前の Python のバージョンは :ref:`setuptools` もインストールしていました) 。"
 
 #: ../source/tutorials/installing-packages.rst:229
 msgid ""
@@ -26105,15 +26296,14 @@ msgstr ""
 "が設定されますが、サブシェルでは設定され (ず、役に立つ効果が残り) ません。"
 
 #: ../source/tutorials/installing-packages.rst:276
-#, fuzzy
 msgid ""
 "In both of the above cases, Windows users should *not* use the :command:"
 "`source` command, but should rather run the :command:`activate` script "
 "directly from the command shell like so:"
 msgstr ""
 "上記のいずれの場合でも、 Windows ユーザは :command:`source` コマンドを使うべ"
-"きではあなく、代わりに :command:`activate` スクリプトをコマンドシェルから直接"
-"に実行するべきで、例えば次のようにします:"
+"き *ではなく* 、代わりに :command:`activate` スクリプトをコマンドシェルから直"
+"接に実行するべきで、例えば次のようにします:"
 
 #: ../source/tutorials/installing-packages.rst:286
 msgid ""
@@ -26147,7 +26337,6 @@ msgid "Installing from PyPI"
 msgstr "PyPI からインストールする"
 
 #: ../source/tutorials/installing-packages.rst:303
-#, fuzzy
 msgid ""
 "The most common usage of :ref:`pip` is to install from the :term:`Python "
 "Package Index <Python Package Index (PyPI)>` using a :term:`requirement "
@@ -26161,9 +26350,9 @@ msgstr ""
 "Specifier>` を用いて :term:`Python パッケージインデックス <Python Package "
 "Index (PyPI)>` からインストールすることです。一般的には、要求事項識別子は、プ"
 "ロジェクト名と後続する省略可能な :term:`バージョン指定子 <Version "
-"Specifier>` で構成されています。 :pep:`440` に、現在サポートされている識別子"
-"の :pep:`完全な仕様 <440#version-specifiers>` があります。以下にいくつかの例"
-"を挙げます。"
+"Specifier>` で構成されています。 :ref:`バージョン指定子仕様 <version-"
+"specifiers>` に、サポートされている識別子の完全な説明があります。以下にいくつ"
+"かの例を挙げます。"
 
 #: ../source/tutorials/installing-packages.rst:311
 msgid "To install the latest version of \"SomeProject\":"
@@ -26806,15 +26995,16 @@ msgstr ""
 "ザから見てより明白になります。"
 
 #: ../source/tutorials/packaging-projects.rst:57
-#, fuzzy
 msgid ""
 "Creating the file :file:`__init__.py` is recommended because the existence "
 "of an :file:`__init__.py` file allows users to import the directory as a "
 "regular package, even if (as is the case in this tutorial) :file:`__init__."
 "py` is empty. [#namespace-packages]_"
 msgstr ""
-"パッケージとしてのディレクトリをインポートするには :file:`__init__.py` が存在"
-"していなければならず、また、それは空であるべきです。"
+":file:`__init__.py` ファイルを使用して、ユーザーはディレクトリを通常のパッ"
+"ケージとしてインポートできるため、 (このチュートリアルの場合のように) たと"
+"え :file:`__init__.py` が空だとしても、 :file:`__init__.py` ファイルの作成が"
+"推奨されています。 [#namespace-packages]_"
 
 #: ../source/tutorials/packaging-projects.rst:62
 msgid ""
@@ -26883,6 +27073,14 @@ msgid ""
 "term:`extension modules <Extension Module>`, and you should choose one that "
 "suits your needs and preferences."
 msgstr ""
+":ref:`pip` や :ref:`build` のようなツールは、実際にソースを :term:`配布パッ"
+"ケージ <Distribution Package>` (wheel のような) に変換するわけではありませ"
+"ん。その作業は、 :term:`ビルドバックエンド <Build Backend>` によって行われま"
+"す。ビルドバックエンドは、プロジェクトがメタデータ (プロジェクトについての情"
+"報、例えば PyPI に表示される名前やタグ) や入力ファイルを含むその構成を指定す"
+"る方法を決定します。ビルドバックエンドは、 :term:`拡張モジュール <Extension "
+"Module>` のビルドをサポートするかどうかのような、異なる水準の機能性を持ち、必"
+"要性や好みに適切なものを選択するべきです。"
 
 #: ../source/tutorials/packaging-projects.rst:122
 #, fuzzy
@@ -27451,6 +27649,21 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:42
+msgid ""
+"Move each subtree of ``distribution-1.0.data/`` onto its destination path. "
+"Each subdirectory of ``distribution-1.0.data/`` is a key into a dict of "
+"destination directories, such as ``distribution-1.0.data/(purelib|platlib|"
+"headers|scripts|data)``. These subdirectories are :ref:`installation paths "
+"defined by sysconfig <python:installation_paths>`."
+msgstr ""
+"``distribution-1.0.data/`` の下の全てのサブツリーを、その目的地となるディレク"
+"トリパスに移動しましょう。 ``distribution-1.0.data/(purelib|platlib|headers|"
+"scripts|data)`` のような ``distribution-1.0.data/`` の下のサブディレクトリ"
+"は、それぞれ、目的地となるディレクトリの辞書のキーになっています。このような"
+"サブディレクトリ群は、 :ref:`sysconfig によって定義されるインストールパス群 "
+"<python:installation_paths>` です。"
 
 #~ msgid ""
 #~ "A library that takes a source tree or :term:`source distribution <Source "
