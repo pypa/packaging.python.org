@@ -256,7 +256,7 @@ The full list of simple tags is::
 
     for x in pytag.split('.'):
         for y in abitag.split('.'):
-            for z in archtag.split('.'):
+            for z in platformtag.split('.'):
                 yield '-'.join((x, y, z))
 
 A bdist format that implements this scheme should include the expanded
