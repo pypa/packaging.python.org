@@ -65,7 +65,7 @@ Steps:
 2. Specify the version ranges for supported Python distributions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Set the version ranges declaring which Python distributions are supported  
+Set the version ranges declaring which Python distributions are supported
 within your project's :file:`pyproject.toml`. The :ref:`requires-python` configuration field
 corresponds to the :ref:`Requires-Python <core-metadata-requires-python>` core metadata field:
 
