@@ -6,7 +6,7 @@ Dropping support for older Python versions
 
 The ability to drop support for older Python versions is enabled by the standard :ref:`core-metadata` 1.2 specification via the :ref:`"Requires-Python" <core-metadata-requires-python>` attribute.
 
-Metadata 1.2+ clients, such as Pip, will adhere to this specification by matching the current Python runtime and comparing it with the required version
+Metadata 1.2+ installers, such as Pip, will adhere to this specification by matching the current Python runtime and comparing it with the required version
 in the package metadata. If they do not match, it will attempt to install the last package distribution that supported that Python runtime.
 
 This mechanism can be used to drop support for older Python versions, by amending the ``Requires-Python`` attribute in the package metadata.
@@ -14,7 +14,7 @@ This mechanism can be used to drop support for older Python versions, by amendin
 Requirements
 ------------
 
-This workflow requires that the user installing the package uses Pip [#]_, or another client that supports the Metadata 1.2 specification.
+This workflow requires that the user installing the package uses Pip [#]_, or another installer that supports the Metadata 1.2 specification.
 
 Dealing with the universal wheels
 ---------------------------------
@@ -65,17 +65,9 @@ Steps:
 2. Specify the version ranges for supported Python distributions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can specify version ranges and exclusion rules (complying with the :ref:`version-specifiers` specification),
-such as at least Python 3. Or, Python 3.7, 3.8, 3.13 and beyond:
-
-.. code-block:: text
-
-    Requires-Python: ">= 3"
-    Requires-Python: ">= 3.7, != 3.9.*, != 3.10.*, != 3.11.*, != 3.12.*"
-
-
-Those values can be set within your :file:`pyproject.toml`. The :ref:`requires-python` configuration field
-corresponds to the ``Requires-Python`` metadata field.
+Set the version ranges declaring which Python distributions are supported  
+within your project's :file:`pyproject.toml`. The :ref:`requires-python` configuration field
+corresponds to the :ref:`Requires-Python <core-metadata-requires-python>` core metadata field:
 
 .. code-block:: toml
 
@@ -85,16 +77,19 @@ corresponds to the ``Requires-Python`` metadata field.
    [project]
    requires-python = ">= 3.8" # At least Python 3.8
 
+You can specify version ranges and exclusion rules (complying with the :ref:`version-specifiers` specification),
+such as at least Python 3.9. Or, at least Python 3.7 and beyond, skipping the 3.7.0 and 3.7.1 point releases:
 
-For :ref:`setuptools` users, another way to achieve this is using the ``python_requires`` parameter
-in your :file:`setup.cfg` config or the :file:`setup.py` script. ``setuptools < 61`` does not support
-declaring the package metadata in :file:`pyproject.toml`.
+.. code-block:: toml
 
-Consult the ``setuptools`` `dependency-management`_ documentation for information about the appropriate
-way to configure each of these files.
+    requires-python = ">= 3.9"
+    requires-python = ">= 3.7, != 3.7.0, != 3.7.1"
+
+
+If using the :ref:`setuptools` build backend, consult the `dependency-management`_ documentation for more options.
 
 .. caution::
-        It is warned against adding upper bounds to the version ranges, e. g. ``">= 3.8 < 3.10"``. This can cause different errors
+        Avoid adding upper bounds to the version ranges, e. g. ``">= 3.8, < 3.10"``. Doing so can cause different errors
         and version conflicts. See the `discourse-discussion`_ for more information.
 
 3. Validating the Metadata before publishing
@@ -113,7 +108,7 @@ You can see the contents of the generated file like this:
 
 Validate that the following is in place, before publishing the package:
 
-- If you have upgraded correctly, the Metadata-Version value should be 1.2 or higher.
+- If you have upgraded correctly, the ``Metadata-Version`` value should be 1.2 or higher.
 - The ``Requires-Python`` field is set and matches your specification in the configuration file.
 
 4. Publishing the package
@@ -134,7 +129,7 @@ Each version compatibility change should have its own release.
 
 .. tip::
 
-        When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible         places (like the testing environment). Tools like pyupgrade_ can simplify this task.
+        When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible places (like the testing environment). Tools like pyupgrade_ or `ruff <https://docs.astral.sh/ruff/linter/>`_ can automate some of this work.
 
 .. _discourse-discussion: https://discuss.python.org/t/requires-python-upper-limits/12663
 .. _pyupgrade: https://pypi.org/project/pyupgrade/
