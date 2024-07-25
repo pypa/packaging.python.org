@@ -16,6 +16,7 @@ One of the challenges in building packages is that the version string can be req
 
     import a_package
     print(a_package.__version__)
+* In the metadata of the artifacts for each of the packaging ecosystems    
 
 While different projects have different needs, it's important to make sure that there is a single source of truth for the version number.
 
