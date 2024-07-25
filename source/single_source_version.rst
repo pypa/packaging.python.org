@@ -9,15 +9,13 @@ Single-sourcing the Project Version
 
 One of the challenges in building packages is that the version string can be required in multiple places.
 
-* It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
+* It needs to be specified when building the package (e.g. in :file:``pyproject.toml``)
    - That will assure that it is properly assigned in the distribution file name, and in the installed package.
 
-* Some projects prefer that there be a version string available as an attribute in the importable module, e.g::
+* A package may, if the maintainers think it useful, to be able to determine the version of the package from Python code without relying on a package manager's metadata, set a top level ``__version__`` attribute.
+The value of ``__version__`` attribute and that passed to the build system can (and should) be kept in sync in :ref:`the build systems's recommended way <how_to_set_version_links>`.
 
-    import a_package
-    print(a_package.__version__)
-
-* In the metadata of the artifacts for each of the packaging ecosystems    
+Should a package not set a top level ``__version__`` attribute, the version can still be accessed using ``importlib.metadata.version("distribution_name")``.
 
 While different projects have different needs, it's important to make sure that there is a single source of truth for the version number.
 
@@ -27,17 +25,15 @@ In general, the options are:
 
 2) The version can be hard-coded into the `pyproject.toml` file -- and the build system can copy it into other locations it may be required.
 
-3) The version string can be hard-coded into the source code -- either in a special purpose file, such as `_version.txt`, or as a attribute in the `__init__.py`, and the build system can extract it at build time.
-
-If the version string is not in the source, it can be extracted at runtime with code in `__init__.py`, such as::
-
-    import importlib.metadata
-    __version__ = importlib.metadata.version('the_distribution_name')
+3) The version string can be hard-coded into the source code -- either in a special purpose file, such as ``_version.txt``, or as a attribute in the ``__init__.py``, and the build system can extract it at build time.
 
 
 Consult your build system documentation for how to implement your preferred method.
 
-Here are the common ones:
+.. _how_to_set_version_links:
+
+Build System Version Handling
+----------------------------
 
 * `Hatch <https://hatch.pypa.io/1.9/version/>`_
 
