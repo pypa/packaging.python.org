@@ -12,7 +12,7 @@ One of the challenges in building packages is that the version string can be req
 * It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
    - That will assure that it is properly assigned in the distribution file name, and in the installed package.
 
-* Some projects require that there be a version string available as an attribute in the importable module, e.g::
+* Some projects prefer that there be a version string available as an attribute in the importable module, e.g::
 
     import a_package
     print(a_package.__version__)
