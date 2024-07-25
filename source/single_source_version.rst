@@ -10,12 +10,13 @@ Single-sourcing the Project Version
 One of the challenges in building packages is that the version string can be required in multiple places.
 
 * It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
-   - That will assure that it is properly assigned in the distribution file name, and in teh installed package.
+   - That will assure that it is properly assigned in the distribution file name, and in the installed package.
 
 * Some projects require that there be a version string available as an attribute in the importable module, e.g::
 
     import a_package
     print(a_package.__version__)
+
 * In the metadata of the artifacts for each of the packaging ecosystems    
 
 While different projects have different needs, it's important to make sure that there is a single source of truth for the version number.
@@ -36,17 +37,15 @@ If the version string is not in the source, it can be extracted at runtime with 
 
 Consult your build system documentation for how to implement your preferred method.
 
-Put links in to build system docs?
--- I have no idea which are currently robust and maintained -- do we want to get into seeming endorsing particular tools in this doc?
+Here are the common ones:
 
+* `Hatch <https://hatch.pypa.io/1.9/version/>`_
 
-* setuptools:
+* `Setuptools <https://setuptools.pypa.io/en/latest/userguide/distribution.html#specifying-your-project-s-version>`_
 
-* hatch:
+  -  `setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_
 
-* poetry:
+* `Flit <https://flit.pypa.io/en/stable/>`_
 
-* PyBuilder:
-
-* Others?
+* `PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_
 
