@@ -9,7 +9,7 @@ Single-sourcing the Project Version
 
 One of the challenges in building packages is that the version string can be required in multiple places.
 
-* It needs to be specified when building the package (e.g. in pyproject.toml)
+* It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
    - That will assure that it is properly assigned in the distribution file name, and in teh installed package.
 
 * Some projects require that there be a version string available as an attribute in the importable module, e.g::
