@@ -12,8 +12,7 @@ One of the challenges in building packages is that the version string can be req
 * It needs to be specified when building the package (e.g. in :file:``pyproject.toml``)
    - That will assure that it is properly assigned in the distribution file name, and in the installed package.
 
-* A package may, if the maintainers think it useful, to be able to determine the version of the package from Python code without relying on a package manager's metadata, set a top level ``__version__`` attribute.
-The value of ``__version__`` attribute and that passed to the build system can (and should) be kept in sync in :ref:`the build systems's recommended way <how_to_set_version_links>`.
+* A package may set a top level ``__version__`` attribute to provide runtime access to the version of the installed package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <how_to_set_version_links>`.
 
 In the cases where a package does not set a top level ``__version__`` attribute, the version may still be accessible using ``importlib.metadata.version("distribution_name")``.
 
