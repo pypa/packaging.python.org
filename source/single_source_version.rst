@@ -15,7 +15,7 @@ One of the challenges in building packages is that the version string can be req
 * A package may, if the maintainers think it useful, to be able to determine the version of the package from Python code without relying on a package manager's metadata, set a top level ``__version__`` attribute.
 The value of ``__version__`` attribute and that passed to the build system can (and should) be kept in sync in :ref:`the build systems's recommended way <how_to_set_version_links>`.
 
-Should a package not set a top level ``__version__`` attribute, the version can still be accessed using ``importlib.metadata.version("distribution_name")``.
+In the cases where a package does not set a top level ``__version__`` attribute, the version may still be accessible using ``importlib.metadata.version("distribution_name")``.
 
 While different projects have different needs, it's important to make sure that there is a single source of truth for the version number.
 
