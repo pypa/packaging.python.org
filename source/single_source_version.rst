@@ -17,7 +17,7 @@ The value of ``__version__`` attribute and that passed to the build system can (
 
 In the cases where a package does not set a top level ``__version__`` attribute, the version may still be accessible using ``importlib.metadata.version("distribution_name")``.
 
-While different projects have different needs, it's important to make sure that there is a single source of truth for the version number.
+To ensure that version numbers do not get out of sync, it is recommended that there is a single source of truth for the version number.
 
 In general, the options are:
 
