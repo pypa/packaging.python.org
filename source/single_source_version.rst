@@ -28,7 +28,7 @@ In general, the options are:
 3) The version string can be hard-coded into the source code -- either in a special purpose file, such as ``_version.txt``, or as a attribute in the ``__init__.py``, and the build system can extract it at build time.
 
 
-Consult your build system documentation for how to implement your preferred method.
+Consult your build system's documentation for their recommended method.
 
 .. _how_to_set_version_links:
 
