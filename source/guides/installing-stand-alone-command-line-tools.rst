@@ -1,3 +1,5 @@
+.. _installing-stand-alone-command-line-tools:
+
 Installing stand alone command line tools
 =========================================
 
