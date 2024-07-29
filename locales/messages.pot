@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 13:09+0000\n"
+"POT-Creation-Date: 2024-07-29 08:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2939,151 +2939,127 @@ msgid "Dropping support for older Python versions"
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:7
-msgid "Dropping support for older Python versions is supported by the standard :ref:`core-metadata` 1.2 specification via a \"Requires-Python\" attribute."
+msgid "The ability to drop support for older Python versions is enabled by the standard :ref:`core-metadata` 1.2 specification via the :ref:`\"Requires-Python\" <core-metadata-requires-python>` attribute."
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:9
-msgid "Metadata 1.2+ clients, such as Pip 9.0+, will adhere to this specification by matching the current Python runtime and comparing it with the required version in the package metadata. If they do not match, it will attempt to install the last package distribution that supported that Python runtime."
+msgid "Metadata 1.2+ installers, such as Pip, will adhere to this specification by matching the current Python runtime and comparing it with the required version in the package metadata. If they do not match, it will attempt to install the last package distribution that supported that Python runtime."
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:12
-msgid "This mechanism can be used to drop support for older Python versions, by amending the \"Requires-Python\" attribute in the package metadata."
+msgid "This mechanism can be used to drop support for older Python versions, by amending the ``Requires-Python`` attribute in the package metadata."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:14
-msgid "This guide is specifically for users of :ref:`setuptools`, other packaging tools such as ``flit`` may offer similar functionality but users will need to consult relevant documentation."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:17
+#: ../source/guides/dropping-older-python-versions.rst:15
 msgid "Requirements"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:19
-msgid "This workflow requires that:"
+#: ../source/guides/dropping-older-python-versions.rst:17
+msgid "This workflow requires that the user installing the package uses Pip [#]_, or another installer that supports the Metadata 1.2 specification."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:21
-msgid "The publisher is using the latest version of :ref:`setuptools`,"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:22
-msgid "The latest version of :ref:`twine` is used to upload the package,"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:23
-msgid "The user installing the package has at least Pip 9.0, or a client that supports the Metadata 1.2 specification."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:26
+#: ../source/guides/dropping-older-python-versions.rst:20
 msgid "Dealing with the universal wheels"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:28
-msgid "Traditionally, projects providing Python code that is semantically compatible with both Python 2 and Python 3, produce :term:`wheels <Wheel>` that have a ``py2.py3`` tag in their names. When dropping support for Python 2, it is important not to forget to change this tag to just ``py3``. It is often configured within :file:`setup.cfg` under the ``[bdist_wheel]`` section by setting ``universal = 1`` if they use setuptools."
+#: ../source/guides/dropping-older-python-versions.rst:22
+msgid "Traditionally, :ref:`setuptools` projects providing Python code that is semantically compatible with both Python 2 and Python 3, produce :term:`wheels <Wheel>` that have a ``py2.py3`` tag in their names. When dropping support for Python 2, it is important not to forget to change this tag to just ``py3``. It is often configured within :file:`setup.cfg` under the ``[bdist_wheel]`` section by setting ``universal = 1``."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:36
+#: ../source/guides/dropping-older-python-versions.rst:29
 msgid "If you use this method, either remove this option or section, or explicitly set ``universal`` to ``0``:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:48
-msgid "Since it is possible to override the :file:`setup.cfg` settings via CLI flags, make sure that your scripts don't have ``--universal`` in your package creation scripts."
+#: ../source/guides/dropping-older-python-versions.rst:41
+msgid "Regarding :ref:`deprecated <setup-py-deprecated>` direct ``setup.py`` invocations, passing the ``--universal`` flag on the command line could override this setting."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:53
+#: ../source/guides/dropping-older-python-versions.rst:45
 msgid "Defining the Python version required"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:56
-msgid "1. Download the newest version of Setuptools"
+#: ../source/guides/dropping-older-python-versions.rst:48
+msgid "1. Install twine"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:58
-msgid "Ensure that before you generate source distributions or binary distributions, you update Setuptools and install twine."
+#: ../source/guides/dropping-older-python-versions.rst:50
+msgid "Ensure that you have twine available at its latest version. Steps:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:60
-msgid "Steps:"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:74
-msgid "``setuptools`` version should be above 24.0.0."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:77
+#: ../source/guides/dropping-older-python-versions.rst:66
 msgid "2. Specify the version ranges for supported Python distributions"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:79
-msgid "You can specify version ranges and exclusion rules, such as at least Python 3. Or, Python 2.7, 3.4 and beyond."
+#: ../source/guides/dropping-older-python-versions.rst:68
+msgid "Set the version ranges declaring which Python distributions are supported within your project's :file:`pyproject.toml`. The :ref:`requires-python` configuration field corresponds to the :ref:`Requires-Python <core-metadata-requires-python>` core metadata field:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:81
-msgid "Examples:"
+#: ../source/guides/dropping-older-python-versions.rst:80
+msgid "You can specify version ranges and exclusion rules (complying with the :ref:`version-specifiers` specification), such as at least Python 3.9. Or, at least Python 3.7 and beyond, skipping the 3.7.0 and 3.7.1 point releases:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:88
-msgid "The way to set those values is within the call to ``setup`` within your :file:`setup.py` script. This will insert the ``Requires-Python`` metadata values based on the argument you provide in ``python_requires``."
+#: ../source/guides/dropping-older-python-versions.rst:89
+msgid "If using the :ref:`setuptools` build backend, consult the `dependency-management`_ documentation for more options."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:103
+#: ../source/guides/dropping-older-python-versions.rst:92
+msgid "Avoid adding upper bounds to the version ranges, e. g. ``\">= 3.8, < 3.10\"``. Doing so can cause different errors and version conflicts. See the `discourse-discussion`_ for more information."
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:96
 msgid "3. Validating the Metadata before publishing"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:105
+#: ../source/guides/dropping-older-python-versions.rst:98
 msgid "Within a Python source package (the zip or the tar-gz file you download) is a text file called PKG-INFO."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:107
-msgid "This file is generated by :ref:`distutils` or :ref:`setuptools` when it generates the source package. The file contains a set of keys and values, the list of keys is part of the PyPa standard metadata format."
+#: ../source/guides/dropping-older-python-versions.rst:100
+msgid "This file is generated by the :term:`build backend <Build Backend>` when it generates the source package. The file contains a set of keys and values, the list of keys is part of the PyPA standard metadata format."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:110
+#: ../source/guides/dropping-older-python-versions.rst:103
 msgid "You can see the contents of the generated file like this:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:116
+#: ../source/guides/dropping-older-python-versions.rst:109
 msgid "Validate that the following is in place, before publishing the package:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:118
-msgid "If you have upgraded correctly, the Metadata-Version value should be 1.2 or higher."
+#: ../source/guides/dropping-older-python-versions.rst:111
+msgid "If you have upgraded correctly, the ``Metadata-Version`` value should be 1.2 or higher."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:119
-msgid "The Requires-Python field is set and matches your specification in setup.py."
+#: ../source/guides/dropping-older-python-versions.rst:112
+msgid "The ``Requires-Python`` field is set and matches your specification in the configuration file."
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:115
+msgid "4. Publishing the package"
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:117
+msgid "Proceed as suggested in :ref:`Uploading your Project to PyPI`."
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:120
+msgid "Dropping a Python version"
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:122
-msgid "4. Using Twine to publish"
+msgid "In principle, at least metadata support for Python versions should be kept as long as possible, because once that has been dropped, people still depending on a version will be forced to downgrade. If however supporting a specific version becomes a blocker for a new feature or other issues occur, the metadata ``Requires-Python`` should be amended. Of course this also depends on whether the project needs to be stable and well-covered for a wider range of users."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:124
-msgid "Twine has a number of advantages, apart from being faster it is now the supported method for publishing packages."
+#: ../source/guides/dropping-older-python-versions.rst:128
+msgid "Each version compatibility change should have its own release."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:126
-msgid "Make sure you are using the newest version of Twine, at least 1.9."
+#: ../source/guides/dropping-older-python-versions.rst:132
+msgid "When dropping a Python version, it might also be rewarding to upgrade the project's code syntax generally, apart from updating the versions used in visible places (like the testing environment). Tools like pyupgrade_ or `ruff <https://docs.astral.sh/ruff/linter/>`_ can automate some of this work."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:129
-msgid "Dropping a Python release"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:131
-msgid "Once you have published a package with the Requires-Python metadata, you can then make a further update removing that Python runtime from support."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:133
-msgid "It must be done in this order for the automated fallback to work."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:135
-msgid "For example, you published the Requires-Python: \">=2.7\" as version 1.0.0 of your package."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:137
-msgid "If you were then to update the version string to \">=3.5\", and publish a new version 2.0.0 of your package, any users running Pip 9.0+ from version 2.7 will have version 1.0.0 of the package installed, and any >=3.5 users will receive version 2.0.0."
+#: ../source/guides/dropping-older-python-versions.rst:138
+msgid "Support for the Metadata 1.2 specification has been added in Pip 9.0."
 msgstr ""
 
 #: ../source/guides/hosting-your-own-index.rst:5
@@ -3565,7 +3541,7 @@ msgid "To install pip and wheel for the system Python, there are two options:"
 msgstr ""
 
 #: ../source/guides/installing-using-linux-tools.rst:52
-msgid "Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using `these instructions <https://docs.fedoraproject.org/en-US/epel/#how_can_i_use_these_extra_packages>`__. On EPEL 7, you can install pip and wheel like so:"
+msgid "Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using `these instructions <https://docs.fedoraproject.org/en-US/epel/getting-started/>`__. On EPEL 7, you can install pip and wheel like so:"
 msgstr ""
 
 #: ../source/guides/installing-using-linux-tools.rst:61
