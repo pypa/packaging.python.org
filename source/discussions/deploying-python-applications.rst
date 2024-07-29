@@ -119,7 +119,8 @@ pex
 
 `pex <https://pypi.org/project/pex/>`__ is  a library for generating .pex
 (Python EXecutable) files which are executable Python environments in the
-spirit of virtualenvs. pex is an expansion upon the ideas outlined in :pep:`441`
+spirit of virtualenvs. pex is an expansion upon the ideas
+found in :doc:`zipapps <python:library/zipapp>`
 and makes the deployment of Python applications as simple as cp. pex files may
 even include multiple platform-specific Python distributions, meaning that a
 single pex file can be portable across Linux and macOS. pex is released under the
