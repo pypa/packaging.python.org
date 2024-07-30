@@ -32,7 +32,7 @@ Consult your build system's documentation for their recommended method.
 .. _how_to_set_version_links:
 
 Build System Version Handling
-----------------------------
+-----------------------------
 
 * `Flit <https://flit.pypa.io/en/stable/>`_
 
