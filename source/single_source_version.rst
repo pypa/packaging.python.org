@@ -5,7 +5,7 @@ Single-sourcing the Project Version
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2015-09-08
+:Last Reviewed: 2024-??
 
 One of the challenges in building packages is that the version string can be required in multiple places.
 
@@ -34,13 +34,15 @@ Consult your build system's documentation for their recommended method.
 Build System Version Handling
 ----------------------------
 
-* `Hatch <https://hatch.pypa.io/1.9/version/>`_
+* `Flit <https://flit.pypa.io/en/stable/>`_
+
+* `Hatchling <https://hatch.pypa.io/1.9/version/>`_
+
+* `PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_
 
 * `Setuptools <https://setuptools.pypa.io/en/latest/userguide/distribution.html#specifying-your-project-s-version>`_
 
   -  `setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_
 
-* `Flit <https://flit.pypa.io/en/stable/>`_
 
-* `PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_
 
