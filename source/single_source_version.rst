@@ -22,7 +22,7 @@ In general, the options are:
 
 1) If the code is in a version control system (VCS), e.g. git, then the version can be extracted from the VCS.
 
-2) The version can be hard-coded into the `pyproject.toml` file -- and the build system can copy it into other locations it may be required.
+2) The version can be hard-coded into the :file:`pyproject.toml` file -- and the build system can copy it into other locations it may be required.
 
 3) The version string can be hard-coded into the source code -- either in a special purpose file, such as ``_version.txt``, or as a attribute in the ``__init__.py``, and the build system can extract it at build time.
 
