@@ -44,7 +44,7 @@ expression:
 
 Additionally, the user:password section of the URL MAY be a
 well-known, non security sensitive string. A typical example is ``git``
-in the case of an URL such as ``ssh://git@gitlab.com/user/repo``.
+in the case of a URL such as ``ssh://git@gitlab.com/user/repo``.
 
 VCS URLs
 --------
