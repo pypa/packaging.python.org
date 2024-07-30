@@ -20,7 +20,7 @@ To ensure that version numbers do not get out of sync, it is recommended that th
 
 In general, the options are:
 
-1) If the code is in a version control system (VCS), e.g. git, then the version can be extracted from the VCS.
+1) If the code is in a version control system (VCS), e.g. Git, then the version can be extracted from the VCS.
 
 2) The version can be hard-coded into the :file:`pyproject.toml` file -- and the build system can copy it into other locations it may be required.
 
