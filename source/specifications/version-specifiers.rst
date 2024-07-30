@@ -1178,7 +1178,7 @@ more information on ``file://`` URLs on Windows see
 Summary of differences from pkg_resources.parse_version
 =======================================================
 
-* Note: this comparison is to ``pkg_resourses.parse_version`` as it existed at
+* Note: this comparison is to ``pkg_resources.parse_version`` as it existed at
   the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 and
   later versions adopted the behaviour described here.
 

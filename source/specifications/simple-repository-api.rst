@@ -360,7 +360,7 @@ spec:
 * All JSON responses will *always* be a JSON object rather than an array or other
   type.
 
-* While JSON doesn't natively support an URL type, any value that represents an
+* While JSON doesn't natively support a URL type, any value that represents an
   URL in this API may be either absolute or relative as long as they point to
   the correct location. If relative, they are relative to the current URL as if
   it were HTML.
@@ -616,7 +616,7 @@ likely just be treated the same as a ``406 Not Acceptable`` error.
 This spec **does** require that if the meta version ``latest`` is being used, the
 server **MUST** respond with the content type for the actual version that is
 contained in the response
-(i.e. A ``Accept: application/vnd.pypi.simple.latest+json`` request that returns
+(i.e. an ``Accept: application/vnd.pypi.simple.latest+json`` request that returns
 a ``v1.x`` response should have a ``Content-Type`` of
 ``application/vnd.pypi.simple.v1+json``).
 
@@ -725,7 +725,7 @@ may *optionally* be used instead.
 URL Parameter
 ^^^^^^^^^^^^^
 
-Servers that implement the Simple API may choose to support an URL parameter named
+Servers that implement the Simple API may choose to support a URL parameter named
 ``format`` to allow the clients to request a specific version of the URL.
 
 The value of the ``format`` parameter should be **one** of the valid content types.
