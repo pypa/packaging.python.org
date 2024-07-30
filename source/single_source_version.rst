@@ -9,8 +9,8 @@ Single-sourcing the Project Version
 
 One of the challenges in building packages is that the version string can be required in multiple places.
 
-* It needs to be specified when building the package (e.g. in :file:``pyproject.toml``)
-   - That will assure that it is properly assigned in the distribution file name, and in the installed package.
+* It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
+   - That will assure that it is properly assigned in the distribution file name, and in the installed package metadata.
 
 * A package may set a top level ``__version__`` attribute to provide runtime access to the version of the installed package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <how_to_set_version_links>`.
 
@@ -20,11 +20,11 @@ To ensure that version numbers do not get out of sync, it is recommended that th
 
 In general, the options are:
 
-1) If the code is in a version control system (VCS), e.g. git, then the version can be extracted from the VCS.
+1) If the code is in a version control system (VCS), e.g. Git, then the version can be extracted from the VCS.
 
-2) The version can be hard-coded into the `pyproject.toml` file -- and the build system can copy it into other locations it may be required.
+2) The version can be hard-coded into the :file:`pyproject.toml` file -- and the build system can copy it into other locations it may be required.
 
-3) The version string can be hard-coded into the source code -- either in a special purpose file, such as ``_version.txt``, or as a attribute in the ``__init__.py``, and the build system can extract it at build time.
+3) The version string can be hard-coded into the source code -- either in a special purpose file, such as :file:`_version.txt`, or as a attribute in the :file:`__init__.py`, and the build system can extract it at build time.
 
 
 Consult your build system's documentation for their recommended method.
