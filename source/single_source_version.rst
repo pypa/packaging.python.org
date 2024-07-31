@@ -12,9 +12,9 @@ One of the challenges in building packages is that the version string can be req
 * It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
    - That will assure that it is properly assigned in the distribution file name, and in the installed package metadata.
 
-* A package may set a top level ``__version__`` attribute to provide runtime access to the version of the imported package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <how_to_set_version_links>`.
+* A package may set a top level ``__version__`` attribute to provide runtime access to the version of the imported package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`.
 
-In the cases where a package does not set a top level ``__version__`` attribute, the version may still be accessible using ``importlib.metadata.version("distribution_name")``.
+In any case, The installed distribution version should be accessible using ``importlib.metadata.version("distribution_name")``.
 
 To ensure that version numbers do not get out of sync, it is recommended that there is a single source of truth for the version number.
 
@@ -29,10 +29,12 @@ In general, the options are:
 
 Consult your build system's documentation for their recommended method.
 
-.. _how_to_set_version_links:
+.. _Build system version handling:
 
 Build System Version Handling
 -----------------------------
+
+The following are links to some build system's documentation for handling version strings.
 
 * `Flit <https://flit.pypa.io/en/stable/>`_
 
