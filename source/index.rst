@@ -19,6 +19,7 @@ This guide is maintained on `github
    current
    installing
    distributing
+   single_source_version
    additional
    projects
    glossary
