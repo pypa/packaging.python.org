@@ -404,26 +404,30 @@ conda
 
 :doc:`Docs <conda:index>`
 
-conda is the package management tool for `Anaconda
-<https://docs.anaconda.com/anaconda/>`__ Python installations.
-Anaconda Python is a distribution from `Anaconda, Inc
-<https://www.anaconda.com/products/individual>`__ specifically aimed at the scientific
-community, and in particular on Windows where the installation of binary
-extensions is often difficult.
+Conda is a package, dependency, and environment management system for any language — Python, R,
+Ruby, C/C++, Fortran, and more. It is written in Python and
+widely used in the Python scientific computing community, due to its support for non-Python
+compiled libraries and extensions. It is used as the basis of the `Anaconda
+<https://docs.anaconda.com/anaconda/>`__ Python distribution from `Anaconda, Inc.specifically
+aimed at the scientific community, community, but can also be used on its own, or with the
+:doc:`miniconda <conda:miniconda>`, `miniforge <https://github.com/conda-forge/miniforge>`_ or
+`pixi <https://pixi.sh/>`_ systems. It is available for Windows, Mac and Linux systems.
 
 Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, but provides
-many of their combined features in terms of package management, virtual environment
-management and deployment of binary extensions.
+many of their combined features, such as package management, virtual environment
+management and deployment of binary extensions and other binary code.
 
-Conda does not install packages from PyPI and can install only from
-the official Anaconda repositories, or anaconda.org (a place for
-user-contributed *conda* packages), or a local (e.g. intranet) package
-server.  However, note that :ref:`pip` can be installed into, and work
-side-by-side with conda for managing :term:`distributions
-<Distribution Package>` from PyPI. Also, `conda skeleton
-<https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`__
-is a tool to make Python packages installable by conda by first
-fetching them from PyPI and modifying their metadata.
+Conda does not install packages from PyPI -- it can only manage packages built specifically
+for conda, which can be made available on a "conda channel", such as those hosted on
+`anaconda.org <https://anaconda.org/>`__ or a local (e.g. intranet) package server.
+In addition to the "default" channels managed by `Anaconda, Inc. <https://www.anaconda.com/>`__, there are a wide variety of packages from the community supported
+`conda-forge project <https://conda-forge.org/>`__
+
+Note that :ref:`pip` can be installed into, and work side-by-side with conda
+for managing :term:`distributions <Distribution Package>` from PyPI. It is also possible
+to build conda packages from Python source packages using tools such as
+`conda skeleton
+<https://docs.conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton.html>`__: a tool to automatically make conda packages from Python packages available on PyPI.
 
 .. _devpi:
 
