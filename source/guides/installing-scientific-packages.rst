@@ -134,5 +134,10 @@ native virtual environments. Conda makes environments first-class citizens,
 making it easy to create independent environments even for C libraries. It is
 written in Python, but is Python-agnostic. Conda manages Python itself as a
 package, so that :command:`conda update python` is possible, in contrast to
-pip, which only manages Python packages. Conda is available in Anaconda and
-Miniconda (an easy-to-install download with just Python and conda).
+pip, which only manages Python packages.
+
+The conda package manager is available in `Anaconda <https://docs.anaconda.com/anaconda/>`_, `miniconda <https://docs.anaconda.com/miniconda/>`_, `miniforge <https://github.com/conda-forge/miniforge>`_, and `pixi <https://pixi.sh/>`_.
+
+Conda packages are available on multiple channels on Anaconda.org, including the
+default channel supported by Anaconda, Inc, and the community supported conda-forge
+channel, which provides a wide variety of pre-built packages.
