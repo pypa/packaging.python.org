@@ -338,8 +338,8 @@ Make sure you have the latest version of PyPA's :ref:`build` installed:
         py -m pip install --upgrade build
 
 .. tip:: If you have trouble installing these, see the
-   :doc:`installing-packages` tutorial.
-
+   :doc:`installing-packages` tutorial. You will get an error if you don't have the build package so install it first .. code-block:: bash pip install build
+   
 Now run this command from the same directory where :file:`pyproject.toml` is located:
 
 .. tab:: Unix/macOS
