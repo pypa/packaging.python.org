@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 13:09+0000\n"
+"POT-Creation-Date: 2024-07-30 13:47+0000\n"
 "PO-Revision-Date: 2024-03-21 03:01+0000\n"
 "Last-Translator: emscb <khmzxc@naver.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1812,6 +1812,21 @@ msgid ""
 "editable installations but not regular installations."
 msgstr ""
 
+#: ../source/discussions/src-layout-vs-flat-layout.rst:86
+msgid "Running a command-line interface from source with src-layout"
+msgstr ""
+
+#: ../source/discussions/src-layout-vs-flat-layout.rst:88
+msgid ""
+"Due to the firstly mentioned specialty of the src layout, a command-line "
+"interface can not be run directly from the :term:`source tree <Project "
+"Source Tree>`, but requires installation of the package in :doc:`Development "
+"Mode <setuptools:userguide/development_mode>` for testing purposes. Since "
+"this can be unpractical in some situations, a workaround could be to prepend "
+"the package folder to  Python's :py:data:`sys.path` when called via its :"
+"file:`__main__.py` file:"
+msgstr ""
+
 #: ../source/discussions/versioning.rst:6
 #: ../source/specifications/simple-repository-api.rst:310
 #, fuzzy
@@ -2916,11 +2931,11 @@ msgid ""
 "possible in a working set."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:3
+#: ../source/guides/analyzing-pypi-package-downloads.rst:5
 msgid "Analyzing PyPI package downloads"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:5
+#: ../source/guides/analyzing-pypi-package-downloads.rst:7
 msgid ""
 "This section covers how to use the public PyPI download statistics dataset "
 "to learn more about downloads of a package (or packages) hosted on PyPI. For "
@@ -2928,16 +2943,16 @@ msgid ""
 "to download a package."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:12
+#: ../source/guides/analyzing-pypi-package-downloads.rst:14
 #: ../source/guides/supporting-windows-using-appveyor.rst:17
 msgid "Background"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:14
+#: ../source/guides/analyzing-pypi-package-downloads.rst:16
 msgid "PyPI does not display download statistics for a number of reasons: [#]_"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:16
+#: ../source/guides/analyzing-pypi-package-downloads.rst:18
 msgid ""
 "**Inefficient to make work with a Content Distribution Network (CDN):** "
 "Download statistics change constantly. Including them in project pages, "
@@ -2945,65 +2960,65 @@ msgid ""
 "and reduce the overall effectiveness of the cache."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:21
+#: ../source/guides/analyzing-pypi-package-downloads.rst:23
 msgid ""
 "**Highly inaccurate:** A number of things prevent the download counts from "
 "being accurate, some of which include:"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:24
+#: ../source/guides/analyzing-pypi-package-downloads.rst:26
 msgid "``pip``'s download cache (lowers download counts)"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:25
+#: ../source/guides/analyzing-pypi-package-downloads.rst:27
 msgid ""
 "Internal or unofficial mirrors (can both raise or lower download counts)"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:26
+#: ../source/guides/analyzing-pypi-package-downloads.rst:28
 msgid "Packages not hosted on PyPI (for comparisons sake)"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:27
+#: ../source/guides/analyzing-pypi-package-downloads.rst:29
 msgid ""
 "Unofficial scripts or attempts at download count inflation (raises download "
 "counts)"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:29
+#: ../source/guides/analyzing-pypi-package-downloads.rst:31
 msgid "Known historical data quality issues (lowers download counts)"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:31
+#: ../source/guides/analyzing-pypi-package-downloads.rst:33
 msgid ""
 "**Not particularly useful:** Just because a project has been downloaded a "
 "lot doesn't mean it's good; Similarly just because a project hasn't been "
 "downloaded a lot doesn't mean it's bad!"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:35
+#: ../source/guides/analyzing-pypi-package-downloads.rst:37
 msgid ""
 "In short, because its value is low for various reasons, and the tradeoffs "
 "required to make it work are high, it has been not an effective use of "
 "limited resources."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:40
+#: ../source/guides/analyzing-pypi-package-downloads.rst:42
 msgid "Public dataset"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:42
+#: ../source/guides/analyzing-pypi-package-downloads.rst:44
 msgid ""
 "As an alternative, the `Linehaul project <https://github.com/pypa/linehaul-"
 "cloud-function/>`__ streams download logs from PyPI to `Google BigQuery`_ "
 "[#]_, where they are stored as a public dataset."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:47
+#: ../source/guides/analyzing-pypi-package-downloads.rst:49
 msgid "Getting set up"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:49
+#: ../source/guides/analyzing-pypi-package-downloads.rst:51
 msgid ""
 "In order to use `Google BigQuery`_ to query the `public PyPI download "
 "statistics dataset`_, you'll need a Google account and to enable the "
@@ -3013,32 +3028,32 @@ msgid ""
 "credit-card-introducing-bigquery-sandbox>`__"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:55
+#: ../source/guides/analyzing-pypi-package-downloads.rst:57
 msgid "Navigate to the `BigQuery web UI`_."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:56
+#: ../source/guides/analyzing-pypi-package-downloads.rst:58
 msgid "Create a new project."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:57
+#: ../source/guides/analyzing-pypi-package-downloads.rst:59
 msgid ""
 "Enable the `BigQuery API <https://console.developers.google.com/apis/library/"
 "bigquery-json.googleapis.com>`__."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:60
+#: ../source/guides/analyzing-pypi-package-downloads.rst:62
 msgid ""
 "For more detailed instructions on how to get started with BigQuery, check "
 "out the `BigQuery quickstart guide <https://cloud.google.com/bigquery/docs/"
 "quickstarts/quickstart-web-ui>`__."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:66
+#: ../source/guides/analyzing-pypi-package-downloads.rst:68
 msgid "Data schema"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:68
+#: ../source/guides/analyzing-pypi-package-downloads.rst:70
 msgid ""
 "Linehaul writes an entry in a ``bigquery-public-data.pypi.file_downloads`` "
 "table for each download. The table contains information about what file was "
@@ -3047,259 +3062,259 @@ msgid ""
 "data&d=pypi&t=file_downloads&page=table>`__ include:"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:75
+#: ../source/guides/analyzing-pypi-package-downloads.rst:77
 msgid "Column"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:75
+#: ../source/guides/analyzing-pypi-package-downloads.rst:77
 #: ../source/specifications/core-metadata.rst:194
 msgid "Description"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:75
+#: ../source/guides/analyzing-pypi-package-downloads.rst:77
 #: ../source/specifications/dependency-specifiers.rst:29
 #: ../source/specifications/direct-url-data-structure.rst:344
 #: ../source/specifications/version-specifiers.rst:1067
 msgid "Examples"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:77
+#: ../source/guides/analyzing-pypi-package-downloads.rst:79
 msgid "timestamp"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:77
+#: ../source/guides/analyzing-pypi-package-downloads.rst:79
 msgid "Date and time"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:77
+#: ../source/guides/analyzing-pypi-package-downloads.rst:79
 msgid "``2020-03-09 00:33:03 UTC``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:79
+#: ../source/guides/analyzing-pypi-package-downloads.rst:81
 msgid "file.project"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:79
+#: ../source/guides/analyzing-pypi-package-downloads.rst:81
 msgid "Project name"
 msgstr "프로젝트 이름"
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:79
+#: ../source/guides/analyzing-pypi-package-downloads.rst:81
 msgid "``pipenv``, ``nose``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:81
+#: ../source/guides/analyzing-pypi-package-downloads.rst:83
 msgid "file.version"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:81
+#: ../source/guides/analyzing-pypi-package-downloads.rst:83
 msgid "Package version"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:81
+#: ../source/guides/analyzing-pypi-package-downloads.rst:83
 msgid "``0.1.6``, ``1.4.2``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:83
+#: ../source/guides/analyzing-pypi-package-downloads.rst:85
 msgid "details.installer.name"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:83
+#: ../source/guides/analyzing-pypi-package-downloads.rst:85
 msgid "Installer"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:83
+#: ../source/guides/analyzing-pypi-package-downloads.rst:85
 msgid "pip, :ref:`bandersnatch`"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:85
+#: ../source/guides/analyzing-pypi-package-downloads.rst:87
 msgid "details.python"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:85
+#: ../source/guides/analyzing-pypi-package-downloads.rst:87
 msgid "Python version"
 msgstr "파이썬 버전"
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:85
+#: ../source/guides/analyzing-pypi-package-downloads.rst:87
 msgid "``2.7.12``, ``3.6.4``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:90
+#: ../source/guides/analyzing-pypi-package-downloads.rst:92
 msgid "Useful queries"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:92
+#: ../source/guides/analyzing-pypi-package-downloads.rst:94
 msgid ""
 "Run queries in the `BigQuery web UI`_ by clicking the \"Compose query\" "
 "button."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:94
+#: ../source/guides/analyzing-pypi-package-downloads.rst:96
 msgid ""
 "Note that the rows are stored in a partitioned table, which helps limit the "
 "cost of queries. These example queries analyze downloads from recent history "
 "by filtering on the ``timestamp`` column."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:99
+#: ../source/guides/analyzing-pypi-package-downloads.rst:101
 msgid "Counting package downloads"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:101
+#: ../source/guides/analyzing-pypi-package-downloads.rst:103
 msgid ""
 "The following query counts the total number of downloads for the project "
 "\"pytest\"."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:116
-#: ../source/guides/analyzing-pypi-package-downloads.rst:137
-#: ../source/guides/analyzing-pypi-package-downloads.rst:165
-#: ../source/guides/analyzing-pypi-package-downloads.rst:202
+#: ../source/guides/analyzing-pypi-package-downloads.rst:118
+#: ../source/guides/analyzing-pypi-package-downloads.rst:139
+#: ../source/guides/analyzing-pypi-package-downloads.rst:167
+#: ../source/guides/analyzing-pypi-package-downloads.rst:204
 msgid "num_downloads"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:118
+#: ../source/guides/analyzing-pypi-package-downloads.rst:120
 msgid "26190085"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:121
+#: ../source/guides/analyzing-pypi-package-downloads.rst:123
 msgid ""
 "To count downloads from pip only, filter on the ``details.installer.name`` "
 "column."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:139
+#: ../source/guides/analyzing-pypi-package-downloads.rst:141
 msgid "24334215"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:143
+#: ../source/guides/analyzing-pypi-package-downloads.rst:145
 msgid "Package downloads over time"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:145
+#: ../source/guides/analyzing-pypi-package-downloads.rst:147
 msgid ""
 "To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also "
 "filtering by this column reduces corresponding costs."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:165
+#: ../source/guides/analyzing-pypi-package-downloads.rst:167
 msgid "month"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:167
+#: ../source/guides/analyzing-pypi-package-downloads.rst:169
 msgid "1956741"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:167
+#: ../source/guides/analyzing-pypi-package-downloads.rst:169
 msgid "2018-01-01"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:169
+#: ../source/guides/analyzing-pypi-package-downloads.rst:171
 msgid "2344692"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:169
+#: ../source/guides/analyzing-pypi-package-downloads.rst:171
 msgid "2017-12-01"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:171
+#: ../source/guides/analyzing-pypi-package-downloads.rst:173
 msgid "1730398"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:171
+#: ../source/guides/analyzing-pypi-package-downloads.rst:173
 msgid "2017-11-01"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:173
+#: ../source/guides/analyzing-pypi-package-downloads.rst:175
 msgid "2047310"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:173
+#: ../source/guides/analyzing-pypi-package-downloads.rst:175
 msgid "2017-10-01"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:175
+#: ../source/guides/analyzing-pypi-package-downloads.rst:177
 msgid "1744443"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:175
+#: ../source/guides/analyzing-pypi-package-downloads.rst:177
 msgid "2017-09-01"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:177
+#: ../source/guides/analyzing-pypi-package-downloads.rst:179
 msgid "1916952"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:177
+#: ../source/guides/analyzing-pypi-package-downloads.rst:179
 msgid "2017-08-01"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:181
+#: ../source/guides/analyzing-pypi-package-downloads.rst:183
 msgid "Python versions over time"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:183
+#: ../source/guides/analyzing-pypi-package-downloads.rst:185
 msgid ""
 "Extract the Python version from the ``details.python`` column. Warning: This "
 "query processes over 500 GB of data."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:202
+#: ../source/guides/analyzing-pypi-package-downloads.rst:204
 msgid "python"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:204
+#: ../source/guides/analyzing-pypi-package-downloads.rst:206
 msgid "3.7"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:204
+#: ../source/guides/analyzing-pypi-package-downloads.rst:206
 msgid "18051328726"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:206
+#: ../source/guides/analyzing-pypi-package-downloads.rst:208
 msgid "3.6"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:206
+#: ../source/guides/analyzing-pypi-package-downloads.rst:208
 msgid "9635067203"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:208
+#: ../source/guides/analyzing-pypi-package-downloads.rst:210
 msgid "3.8"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:208
+#: ../source/guides/analyzing-pypi-package-downloads.rst:210
 msgid "7781904681"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:210
+#: ../source/guides/analyzing-pypi-package-downloads.rst:212
 msgid "2.7"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:210
+#: ../source/guides/analyzing-pypi-package-downloads.rst:212
 msgid "6381252241"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:212
+#: ../source/guides/analyzing-pypi-package-downloads.rst:214
 msgid "null"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:212
+#: ../source/guides/analyzing-pypi-package-downloads.rst:214
 msgid "2026630299"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:214
+#: ../source/guides/analyzing-pypi-package-downloads.rst:216
 msgid "3.5"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:214
+#: ../source/guides/analyzing-pypi-package-downloads.rst:216
 msgid "1894153540"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:219
+#: ../source/guides/analyzing-pypi-package-downloads.rst:221
 msgid "Getting absolute links to artifacts"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:221
+#: ../source/guides/analyzing-pypi-package-downloads.rst:223
 msgid ""
 "It's sometimes helpful to be able to get the absolute links to download "
 "artifacts from PyPI based on their hashes, e.g. if a particular project or "
@@ -3307,56 +3322,56 @@ msgid ""
 "column, which includes the hash and artifact filename."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:227
+#: ../source/guides/analyzing-pypi-package-downloads.rst:229
 msgid ""
 "The URL generated here is not guaranteed to be stable, but currently aligns "
 "with the URL where PyPI artifacts are hosted."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:240
+#: ../source/guides/analyzing-pypi-package-downloads.rst:242
 msgid "url"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:242
+#: ../source/guides/analyzing-pypi-package-downloads.rst:244
 msgid ""
 "https://files.pythonhosted.org/packages/"
 "eb/45/79be82bdeafcecb9dca474cad4003e32ef8e4a0dec6abbd4145ccb02abe1/"
 "sampleproject-1.2.0.tar.gz"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:244
+#: ../source/guides/analyzing-pypi-package-downloads.rst:246
 msgid ""
 "https://files.pythonhosted.org/"
 "packages/56/0a/178e8bbb585ec5b13af42dae48b1d7425d6575b3ff9b02e5ec475e38e1d6/"
 "sampleproject_nomura-1.2.0-py2.py3-none-any.whl"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:246
+#: ../source/guides/analyzing-pypi-package-downloads.rst:248
 msgid ""
 "https://files.pythonhosted.org/"
 "packages/63/88/3200eeaf22571f18d2c41e288862502e33365ccbdc12b892db23f51f8e70/"
 "sampleproject_nomura-1.2.0.tar.gz"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:248
+#: ../source/guides/analyzing-pypi-package-downloads.rst:250
 msgid ""
 "https://files.pythonhosted.org/packages/21/"
 "e9/2743311822e71c0756394b6c5ab15cb64ca66c78c6c6a5cd872c9ed33154/"
 "sampleproject_doubleyoung18-1.3.0-py2.py3-none-any.whl"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:250
+#: ../source/guides/analyzing-pypi-package-downloads.rst:252
 msgid ""
 "https://files.pythonhosted.org/"
 "packages/6f/5b/2f3fe94e1c02816fe23c7ceee5292fb186912929e1972eee7fb729fa27af/"
 "sampleproject-1.3.1.tar.gz"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:255
+#: ../source/guides/analyzing-pypi-package-downloads.rst:257
 msgid "Caveats"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:257
+#: ../source/guides/analyzing-pypi-package-downloads.rst:259
 msgid ""
 "In addition to the caveats listed in the background above, Linehaul suffered "
 "from a bug which caused it to significantly under-report download statistics "
@@ -3365,67 +3380,67 @@ msgid ""
 "numbers are lower than actual by an order of magnitude."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:265
+#: ../source/guides/analyzing-pypi-package-downloads.rst:267
 msgid "Additional tools"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:267
+#: ../source/guides/analyzing-pypi-package-downloads.rst:269
 msgid ""
 "Besides using the BigQuery console, there are some additional tools which "
 "may be useful when analyzing download statistics."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:271
+#: ../source/guides/analyzing-pypi-package-downloads.rst:273
 msgid "``google-cloud-bigquery``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:273
+#: ../source/guides/analyzing-pypi-package-downloads.rst:275
 msgid ""
 "You can also access the public PyPI download statistics dataset "
 "programmatically via the BigQuery API and the `google-cloud-bigquery`_ "
 "project, the official Python client library for BigQuery."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:301
+#: ../source/guides/analyzing-pypi-package-downloads.rst:303
 msgid "``pypinfo``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:303
+#: ../source/guides/analyzing-pypi-package-downloads.rst:305
 msgid ""
 "`pypinfo`_ is a command-line tool which provides access to the dataset and "
 "can generate several useful queries. For example, you can query the total "
 "number of download for a package with the command ``pypinfo package_name``."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:307
+#: ../source/guides/analyzing-pypi-package-downloads.rst:309
 msgid "Install `pypinfo`_ using pip."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:313
+#: ../source/guides/analyzing-pypi-package-downloads.rst:315
 msgid "Usage:"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:329
+#: ../source/guides/analyzing-pypi-package-downloads.rst:331
 msgid "``pandas-gbq``"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:331
+#: ../source/guides/analyzing-pypi-package-downloads.rst:333
 msgid ""
 "The `pandas-gbq`_ project allows for accessing query results via `Pandas`_."
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:335
+#: ../source/guides/analyzing-pypi-package-downloads.rst:337
 #: ../source/specifications/dependency-specifiers.rst:491
 msgid "References"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:337
+#: ../source/guides/analyzing-pypi-package-downloads.rst:339
 msgid ""
 "`PyPI Download Counts deprecation email <https://mail.python.org/pipermail/"
 "distutils-sig/2013-May/020855.html>`__"
 msgstr ""
 
-#: ../source/guides/analyzing-pypi-package-downloads.rst:338
+#: ../source/guides/analyzing-pypi-package-downloads.rst:340
 msgid ""
 "`PyPI BigQuery dataset announcement email <https://mail.python.org/pipermail/"
 "distutils-sig/2016-May/028986.html>`__"
@@ -3583,6 +3598,193 @@ msgid ""
 "Since this specification is part of the :doc:`standard library <python:"
 "library/importlib.metadata>`, most packaging tools other than setuptools "
 "provide support for defining entry points."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:5
+msgid "Creating and packaging command-line tools"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:7
+msgid ""
+"This guide will walk you through creating and packaging a standalone command-"
+"line application that can be installed with :ref:`pipx`, a tool creating and "
+"managing :term:`Python Virtual Environments <Virtual Environment>` and "
+"exposing the executable scripts of packages (and available manual pages) for "
+"use on the command-line."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:12
+#, fuzzy
+#| msgid "Translations"
+msgid "Creating the package"
+msgstr "번역"
+
+#: ../source/guides/creating-command-line-tools.rst:14
+msgid ""
+"First of all, create a source tree for the :term:`project <Project>`. For "
+"the sake of an example, we'll build a simple tool outputting a greeting (a "
+"string) for a person based on arguments given on the command-line."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:17
+#: ../source/guides/single-sourcing-package-version.rst:7
+#: ../source/guides/tool-recommendations.rst:45
+msgid "Todo"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:17
+msgid ""
+"Advise on the optimal structure of a Python package in another guide or "
+"discussion and link to it here."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:19
+msgid ""
+"This project will adhere to :ref:`src-layout <src-layout-vs-flat-layout>` "
+"and in the end be alike this file tree, with the top-level folder and "
+"package name ``greetings``:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:33
+msgid ""
+"The actual code responsible for the tool's functionality will be stored in "
+"the file :file:`greet.py`, named after the main module:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:73
+msgid ""
+"The above function receives several keyword arguments that determine how the "
+"greeting to output is constructed. Now, construct the command-line interface "
+"to provision it with the same, which is done in :file:`cli.py`:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:91
+msgid ""
+"The command-line interface is built with typer_, an easy-to-use CLI parser "
+"based on Python type hints. It provides auto-completion and nicely styled "
+"command-line help out of the box. Another option would be :py:mod:"
+"`argparse`, a command-line parser which is included in Python's standard "
+"library. It is sufficient for most needs, but requires a lot of code, "
+"usually in ``cli.py``, to function properly. Alternatively, docopt_ makes it "
+"possible to create CLI interfaces based solely on docstrings; advanced users "
+"are encouraged to make use of click_ (on which ``typer`` is based)."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:97
+msgid ""
+"Now, add an empty :file:`__init__.py` file, to define the project as a "
+"regular :term:`import package <Import Package>`."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:99
+msgid ""
+"The file :file:`__main__.py` marks the main entry point for the application "
+"when running it via :mod:`runpy` (i.e. ``python -m greetings``, which works "
+"immediately with flat layout, but requires installation of the package with "
+"src layout), so initizalize the command-line interface here:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:111
+msgid ""
+"In order to enable calling the command-line interface directly from the :"
+"term:`source tree <Project Source Tree>`, i.e. as ``python src/greetings``, "
+"a certain hack could be placed in this file; read more at :ref:`running-cli-"
+"from-source-src-layout`."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:117
+msgid "``pyproject.toml``"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:119
+msgid ""
+"The project's :term:`metadata <Pyproject Metadata>` is placed in :term:"
+"`pyproject.toml`. The :term:`pyproject metadata keys <Pyproject Metadata "
+"Key>` and the ``[build-system]`` table may be filled in as described in :ref:"
+"`writing-pyproject-toml`, adding a dependency on ``typer`` (this tutorial "
+"uses version *0.12.3*)."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:122
+msgid ""
+"For the project to be recognised as a command-line tool, additionally a "
+"``console_scripts`` :ref:`entry point <entry-points>` (see :ref:"
+"`console_scripts`) needs to be added as a :term:`subkey <Pyproject Metadata "
+"Subkey>`:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:129
+msgid ""
+"Now, the project's source tree is ready to be transformed into a :term:"
+"`distribution package <Distribution Package>`, which makes it installable."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:134
+#, fuzzy
+#| msgid "Translations"
+msgid "Installing the package with ``pipx``"
+msgstr "번역"
+
+#: ../source/guides/creating-command-line-tools.rst:136
+msgid ""
+"After installing ``pipx`` as described in :ref:`installing-stand-alone-"
+"command-line-tools`, install your project:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:143
+msgid ""
+"This will expose the executable script we defined as an entry point and make "
+"the command ``greet`` available. Let's test it:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:155
+msgid ""
+"Since this example uses ``typer``, you could now also get an overview of the "
+"program's usage by calling it with the ``--help`` option, or configure "
+"completions via the ``--install-completion`` option."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:158
+msgid ""
+"To just run the program without installing it permanently, use ``pipx run``, "
+"which will create a temporary (but cached) virtual environment for it:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:165
+msgid ""
+"This syntax is a bit unpractical, however; as the name of the entry point we "
+"defined above does not match the package name, we need to state explicitly "
+"which executable script to run (even though there is only on in existence)."
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:168
+msgid ""
+"There is, however, a more practical solution to this problem, in the form of "
+"an entry point specific to ``pipx run``. The same can be defined as follows "
+"in :file:`pyproject.toml`:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:177
+msgid ""
+"Thanks to this entry point (which *must* match the package name), ``pipx`` "
+"will pick up the executable script as the default one and run it, which "
+"makes this command possible:"
+msgstr ""
+
+#: ../source/guides/creating-command-line-tools.rst:185
+#, fuzzy
+msgid "Conclusion"
+msgstr "번역"
+
+#: ../source/guides/creating-command-line-tools.rst:187
+msgid ""
+"You know by now how to package a command-line application written in Python. "
+"A further step could be to distribute you package, meaning uploading it to "
+"a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python "
+"Package Index (PyPI)>`. To do that, follow the instructions at :ref:"
+"`Packaging your project`. And once you're done, don't forget to :ref:`do "
+"some research <analyzing-pypi-package-downloads>` on how your package is "
+"received!"
 msgstr ""
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:5
@@ -4280,14 +4482,15 @@ msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:7
 msgid ""
-"Dropping support for older Python versions is supported by the standard :ref:"
-"`core-metadata` 1.2 specification via a \"Requires-Python\" attribute."
+"The ability to drop support for older Python versions is enabled by the "
+"standard :ref:`core-metadata` 1.2 specification via the :ref:`\"Requires-"
+"Python\" <core-metadata-requires-python>` attribute."
 msgstr ""
 
 #: ../source/guides/dropping-older-python-versions.rst:9
 msgid ""
-"Metadata 1.2+ clients, such as Pip 9.0+, will adhere to this specification "
-"by matching the current Python runtime and comparing it with the required "
+"Metadata 1.2+ installers, such as Pip, will adhere to this specification by "
+"matching the current Python runtime and comparing it with the required "
 "version in the package metadata. If they do not match, it will attempt to "
 "install the last package distribution that supported that Python runtime."
 msgstr ""
@@ -4295,184 +4498,168 @@ msgstr ""
 #: ../source/guides/dropping-older-python-versions.rst:12
 msgid ""
 "This mechanism can be used to drop support for older Python versions, by "
-"amending the \"Requires-Python\" attribute in the package metadata."
+"amending the ``Requires-Python`` attribute in the package metadata."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:14
-msgid ""
-"This guide is specifically for users of :ref:`setuptools`, other packaging "
-"tools such as ``flit`` may offer similar functionality but users will need "
-"to consult relevant documentation."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:17
+#: ../source/guides/dropping-older-python-versions.rst:15
 msgid "Requirements"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:19
-msgid "This workflow requires that:"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:21
-msgid "The publisher is using the latest version of :ref:`setuptools`,"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:22
-msgid "The latest version of :ref:`twine` is used to upload the package,"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:23
+#: ../source/guides/dropping-older-python-versions.rst:17
 msgid ""
-"The user installing the package has at least Pip 9.0, or a client that "
-"supports the Metadata 1.2 specification."
+"This workflow requires that the user installing the package uses Pip [#]_, "
+"or another installer that supports the Metadata 1.2 specification."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:26
+#: ../source/guides/dropping-older-python-versions.rst:20
 msgid "Dealing with the universal wheels"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:28
+#: ../source/guides/dropping-older-python-versions.rst:22
 msgid ""
-"Traditionally, projects providing Python code that is semantically "
-"compatible with both Python 2 and Python 3, produce :term:`wheels <Wheel>` "
-"that have a ``py2.py3`` tag in their names. When dropping support for Python "
-"2, it is important not to forget to change this tag to just ``py3``. It is "
-"often configured within :file:`setup.cfg` under the ``[bdist_wheel]`` "
-"section by setting ``universal = 1`` if they use setuptools."
+"Traditionally, :ref:`setuptools` projects providing Python code that is "
+"semantically compatible with both Python 2 and Python 3, produce :term:"
+"`wheels <Wheel>` that have a ``py2.py3`` tag in their names. When dropping "
+"support for Python 2, it is important not to forget to change this tag to "
+"just ``py3``. It is often configured within :file:`setup.cfg` under the "
+"``[bdist_wheel]`` section by setting ``universal = 1``."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:36
+#: ../source/guides/dropping-older-python-versions.rst:29
 msgid ""
 "If you use this method, either remove this option or section, or explicitly "
 "set ``universal`` to ``0``:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:48
+#: ../source/guides/dropping-older-python-versions.rst:41
 msgid ""
-"Since it is possible to override the :file:`setup.cfg` settings via CLI "
-"flags, make sure that your scripts don't have ``--universal`` in your "
-"package creation scripts."
+"Regarding :ref:`deprecated <setup-py-deprecated>` direct ``setup.py`` "
+"invocations, passing the ``--universal`` flag on the command line could "
+"override this setting."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:53
+#: ../source/guides/dropping-older-python-versions.rst:45
 msgid "Defining the Python version required"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:56
-msgid "1. Download the newest version of Setuptools"
+#: ../source/guides/dropping-older-python-versions.rst:48
+#, fuzzy
+#| msgid "Translations"
+msgid "1. Install twine"
+msgstr "번역"
+
+#: ../source/guides/dropping-older-python-versions.rst:50
+msgid "Ensure that you have twine available at its latest version. Steps:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:58
-msgid ""
-"Ensure that before you generate source distributions or binary "
-"distributions, you update Setuptools and install twine."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:60
-msgid "Steps:"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:74
-msgid "``setuptools`` version should be above 24.0.0."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:77
+#: ../source/guides/dropping-older-python-versions.rst:66
 msgid "2. Specify the version ranges for supported Python distributions"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:79
+#: ../source/guides/dropping-older-python-versions.rst:68
 msgid ""
-"You can specify version ranges and exclusion rules, such as at least Python "
-"3. Or, Python 2.7, 3.4 and beyond."
+"Set the version ranges declaring which Python distributions are supported "
+"within your project's :file:`pyproject.toml`. The :ref:`requires-python` "
+"configuration field corresponds to the :ref:`Requires-Python <core-metadata-"
+"requires-python>` core metadata field:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:81
-msgid "Examples:"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:88
+#: ../source/guides/dropping-older-python-versions.rst:80
 msgid ""
-"The way to set those values is within the call to ``setup`` within your :"
-"file:`setup.py` script. This will insert the ``Requires-Python`` metadata "
-"values based on the argument you provide in ``python_requires``."
+"You can specify version ranges and exclusion rules (complying with the :ref:"
+"`version-specifiers` specification), such as at least Python 3.9. Or, at "
+"least Python 3.7 and beyond, skipping the 3.7.0 and 3.7.1 point releases:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:103
+#: ../source/guides/dropping-older-python-versions.rst:89
+msgid ""
+"If using the :ref:`setuptools` build backend, consult the `dependency-"
+"management`_ documentation for more options."
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:92
+msgid ""
+"Avoid adding upper bounds to the version ranges, e. g. ``\">= 3.8, < "
+"3.10\"``. Doing so can cause different errors and version conflicts. See the "
+"`discourse-discussion`_ for more information."
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:96
 msgid "3. Validating the Metadata before publishing"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:105
+#: ../source/guides/dropping-older-python-versions.rst:98
 msgid ""
 "Within a Python source package (the zip or the tar-gz file you download) is "
 "a text file called PKG-INFO."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:107
+#: ../source/guides/dropping-older-python-versions.rst:100
 msgid ""
-"This file is generated by :ref:`distutils` or :ref:`setuptools` when it "
+"This file is generated by the :term:`build backend <Build Backend>` when it "
 "generates the source package. The file contains a set of keys and values, "
-"the list of keys is part of the PyPa standard metadata format."
+"the list of keys is part of the PyPA standard metadata format."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:110
+#: ../source/guides/dropping-older-python-versions.rst:103
 msgid "You can see the contents of the generated file like this:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:116
+#: ../source/guides/dropping-older-python-versions.rst:109
 msgid "Validate that the following is in place, before publishing the package:"
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:118
+#: ../source/guides/dropping-older-python-versions.rst:111
 msgid ""
-"If you have upgraded correctly, the Metadata-Version value should be 1.2 or "
-"higher."
+"If you have upgraded correctly, the ``Metadata-Version`` value should be 1.2 "
+"or higher."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:119
+#: ../source/guides/dropping-older-python-versions.rst:112
 msgid ""
-"The Requires-Python field is set and matches your specification in setup.py."
+"The ``Requires-Python`` field is set and matches your specification in the "
+"configuration file."
 msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:115
+msgid "4. Publishing the package"
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:117
+msgid "Proceed as suggested in :ref:`Uploading your Project to PyPI`."
+msgstr ""
+
+#: ../source/guides/dropping-older-python-versions.rst:120
+#, fuzzy
+#| msgid "Python version"
+msgid "Dropping a Python version"
+msgstr "파이썬 버전"
 
 #: ../source/guides/dropping-older-python-versions.rst:122
-msgid "4. Using Twine to publish"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:124
 msgid ""
-"Twine has a number of advantages, apart from being faster it is now the "
-"supported method for publishing packages."
+"In principle, at least metadata support for Python versions should be kept "
+"as long as possible, because once that has been dropped, people still "
+"depending on a version will be forced to downgrade. If however supporting a "
+"specific version becomes a blocker for a new feature or other issues occur, "
+"the metadata ``Requires-Python`` should be amended. Of course this also "
+"depends on whether the project needs to be stable and well-covered for a "
+"wider range of users."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:126
-msgid "Make sure you are using the newest version of Twine, at least 1.9."
+#: ../source/guides/dropping-older-python-versions.rst:128
+msgid "Each version compatibility change should have its own release."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:129
-msgid "Dropping a Python release"
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:131
+#: ../source/guides/dropping-older-python-versions.rst:132
 msgid ""
-"Once you have published a package with the Requires-Python metadata, you can "
-"then make a further update removing that Python runtime from support."
+"When dropping a Python version, it might also be rewarding to upgrade the "
+"project's code syntax generally, apart from updating the versions used in "
+"visible places (like the testing environment). Tools like pyupgrade_ or "
+"`ruff <https://docs.astral.sh/ruff/linter/>`_ can automate some of this work."
 msgstr ""
 
-#: ../source/guides/dropping-older-python-versions.rst:133
-msgid "It must be done in this order for the automated fallback to work."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:135
-msgid ""
-"For example, you published the Requires-Python: \">=2.7\" as version 1.0.0 "
-"of your package."
-msgstr ""
-
-#: ../source/guides/dropping-older-python-versions.rst:137
-msgid ""
-"If you were then to update the version string to \">=3.5\", and publish a "
-"new version 2.0.0 of your package, any users running Pip 9.0+ from version "
-"2.7 will have version 1.0.0 of the package installed, and any >=3.5 users "
-"will receive version 2.0.0."
+#: ../source/guides/dropping-older-python-versions.rst:138
+msgid "Support for the Metadata 1.2 specification has been added in Pip 9.0."
 msgstr ""
 
 #: ../source/guides/hosting-your-own-index.rst:5
@@ -4988,18 +5175,18 @@ msgid ""
 "download with just Python and conda)."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:2
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:4
 msgid "Installing stand alone command line tools"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:4
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:6
 msgid ""
 "Many packages provide command line applications. Examples of such packages "
 "are `mypy <https://github.com/python/mypy>`_, `flake8 <https://github.com/"
 "PyCQA/flake8>`_, `black <https://github.com/psf/black>`_, and :ref:`pipenv`."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:10
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:12
 msgid ""
 "Usually you want to be able to access these applications from anywhere on "
 "your system, but installing packages and their dependencies to the same "
@@ -5007,7 +5194,7 @@ msgid ""
 "operating system has on Python packages."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:15
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:17
 msgid ""
 ":ref:`pipx` solves this by creating a virtual environment for each package, "
 "while also ensuring that its applications are accessible through a directory "
@@ -5016,56 +5203,56 @@ msgid ""
 "safely run the applications from anywhere."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:21
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:23
 msgid "pipx only works with Python 3.6+."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:23
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:25
 msgid "pipx is installed with pip:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:41
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:43
 msgid ""
 "``ensurepath`` ensures that the application directory is on your ``$PATH``. "
 "You may need to restart your terminal for this update to take effect."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:44
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:46
 msgid ""
 "Now you can install packages with ``pipx install`` and run the package's "
 "applications(s) from anywhere."
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:52
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:54
 #: ../source/specifications/entry-points.rst:114
 msgid "For example:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:74
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:76
 msgid ""
 "To see a list of packages installed with pipx and which applications are "
 "available, use ``pipx list``:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:98
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:100
 msgid "To upgrade or uninstall a package:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:105
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:107
 msgid "pipx can be upgraded or uninstalled with pip:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:121
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:123
 msgid ""
 "pipx also allows you to install and run the latest version of an application "
 "in a temporary, ephemeral environment. For example:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:128
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:130
 msgid "To see the full list of commands pipx offers, run:"
 msgstr ""
 
-#: ../source/guides/installing-stand-alone-command-line-tools.rst:134
+#: ../source/guides/installing-stand-alone-command-line-tools.rst:136
 msgid "You can learn more about pipx at https://pipx.pypa.io/."
 msgstr ""
 
@@ -5136,9 +5323,8 @@ msgstr ""
 #: ../source/guides/installing-using-linux-tools.rst:52
 msgid ""
 "Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using "
-"`these instructions <https://docs.fedoraproject.org/en-US/epel/"
-"#how_can_i_use_these_extra_packages>`__. On EPEL 7, you can install pip and "
-"wheel like so:"
+"`these instructions <https://docs.fedoraproject.org/en-US/epel/getting-"
+"started/>`__. On EPEL 7, you can install pip and wheel like so:"
 msgstr ""
 
 #: ../source/guides/installing-using-linux-tools.rst:61
@@ -7300,11 +7486,6 @@ msgstr "번역"
 
 #: ../source/guides/single-sourcing-package-version.rst:5
 msgid "Single-sourcing the package version"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:7
-#: ../source/guides/tool-recommendations.rst:45
-msgid "Todo"
 msgstr ""
 
 #: ../source/guides/single-sourcing-package-version.rst:7
@@ -13646,8 +13827,8 @@ msgstr ""
 #: ../source/specifications/direct-url-data-structure.rst:45
 msgid ""
 "Additionally, the user:password section of the URL MAY be a well-known, non "
-"security sensitive string. A typical example is ``git`` in the case of an "
-"URL such as ``ssh://git@gitlab.com/user/repo``."
+"security sensitive string. A typical example is ``git`` in the case of a URL "
+"such as ``ssh://git@gitlab.com/user/repo``."
 msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:50
@@ -14455,7 +14636,7 @@ msgstr ""
 msgid ""
 "Software distributors who have a non-Python-specific package manager that "
 "manages libraries in the ``sys.path`` of their Python package should, in "
-"general, ship a ``EXTERNALLY-MANAGED`` file in their standard library "
+"general, ship an ``EXTERNALLY-MANAGED`` file in their standard library "
 "directory. For instance, Debian may ship a file in ``/usr/lib/python3.9/"
 "EXTERNALLY-MANAGED`` consisting of something like"
 msgstr ""
@@ -17230,10 +17411,10 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:363
 msgid ""
-"While JSON doesn't natively support an URL type, any value that represents "
-"an URL in this API may be either absolute or relative as long as they point "
-"to the correct location. If relative, they are relative to the current URL "
-"as if it were HTML."
+"While JSON doesn't natively support a URL type, any value that represents an "
+"URL in this API may be either absolute or relative as long as they point to "
+"the correct location. If relative, they are relative to the current URL as "
+"if it were HTML."
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:368
@@ -17602,7 +17783,7 @@ msgstr ""
 msgid ""
 "This spec **does** require that if the meta version ``latest`` is being "
 "used, the server **MUST** respond with the content type for the actual "
-"version that is contained in the response (i.e. A ``Accept: application/vnd."
+"version that is contained in the response (i.e. an ``Accept: application/vnd."
 "pypi.simple.latest+json`` request that returns a ``v1.x`` response should "
 "have a ``Content-Type`` of ``application/vnd.pypi.simple.v1+json``)."
 msgstr ""
@@ -17702,7 +17883,7 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:728
 msgid ""
-"Servers that implement the Simple API may choose to support an URL parameter "
+"Servers that implement the Simple API may choose to support a URL parameter "
 "named ``format`` to allow the clients to request a specific version of the "
 "URL."
 msgstr ""
@@ -19934,7 +20115,7 @@ msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:1181
 msgid ""
-"Note: this comparison is to ``pkg_resourses.parse_version`` as it existed at "
+"Note: this comparison is to ``pkg_resources.parse_version`` as it existed at "
 "the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 "
 "and later versions adopted the behaviour described here."
 msgstr ""
