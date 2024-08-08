@@ -31,6 +31,9 @@ Depending on what ``url`` refers to, the second field MUST be one of ``vcs_info`
 local directory). These info fields have a (possibly empty) subdictionary as
 value, with the possible keys defined below.
 
+Security Considerations
+-----------------------
+
 When persisted, ``url`` MUST be stripped of any sensitive authentication information,
 for security reasons.
 
