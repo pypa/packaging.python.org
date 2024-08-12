@@ -725,7 +725,7 @@ This field may be followed by an environment marker after a semicolon.
 Examples::
 
     Provides-Dist: OtherProject
-    Provides-Dist: AnotherProject (3.4)
+    Provides-Dist: AnotherProject==3.4
     Provides-Dist: virtual_package; python_version >= "3.4"
 
 .. _core-metadata-obsoletes-dist:
