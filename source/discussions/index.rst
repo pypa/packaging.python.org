@@ -16,3 +16,4 @@ specific topic. If you're just trying to get stuff done, see
    package-formats
    src-layout-vs-flat-layout
    setup-py-deprecated
+   choosing-a-package-module-name
