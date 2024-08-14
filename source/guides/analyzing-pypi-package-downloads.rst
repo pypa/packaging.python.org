@@ -1,3 +1,5 @@
+.. _analyzing-pypi-package-downloads:
+
 ================================
 Analyzing PyPI package downloads
 ================================

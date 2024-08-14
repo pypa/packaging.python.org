@@ -10,6 +10,7 @@ Building and Publishing
    dropping-older-python-versions
    packaging-binary-extensions
    packaging-namespace-packages
+   creating-command-line-tools
    creating-and-discovering-plugins
    using-testpypi
    making-a-pypi-friendly-readme
