@@ -205,7 +205,7 @@ virtual environment to install packages.
 
 Software distributors who have a non-Python-specific package manager
 that manages libraries in the ``sys.path`` of their Python package
-should, in general, ship a ``EXTERNALLY-MANAGED`` file in their
+should, in general, ship an ``EXTERNALLY-MANAGED`` file in their
 standard library directory. For instance, Debian may ship a file in
 ``/usr/lib/python3.9/EXTERNALLY-MANAGED`` consisting of something like
 

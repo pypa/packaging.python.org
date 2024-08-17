@@ -51,7 +51,7 @@ To install pip and wheel for the system Python, there are two options:
 
 1. Enable the `EPEL repository <https://fedoraproject.org/wiki/EPEL>`_ using
    `these instructions
-   <https://docs.fedoraproject.org/en-US/epel/#how_can_i_use_these_extra_packages>`__.
+   <https://docs.fedoraproject.org/en-US/epel/getting-started/>`__.
    On EPEL 7, you can install pip and wheel like so:
 
    .. code-block:: bash
