@@ -409,7 +409,7 @@ Ruby, C/C++, Fortran, and more. It is written in Python and
 widely used in the Python scientific computing community, due to its support for non-Python
 compiled libraries and extensions. It is used as the basis of the `Anaconda
 <https://docs.anaconda.com/anaconda/>`__ Python distribution from Anaconda, Inc. It waas originally
-aimed at the scientific community, community, but can also be used on its own, or with the
+aimed at the scientific community, but can also be used on its own, or with the
 :doc:`miniconda <conda:miniconda>`, `miniforge <https://github.com/conda-forge/miniforge>`_ or
 `pixi <https://pixi.sh/>`_ systems. It is available for Windows, Mac and Linux systems.
 
