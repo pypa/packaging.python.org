@@ -14,7 +14,7 @@ In particular, `NumPy <https://numpy.org/>`__, which provides the basis
 for most of the software in the `scientific Python stack
 <https://scientific-python.org>`_ can be configured
 to interoperate with different FORTRAN libraries, and can take advantage
-of different levels of vectorised instructions available in modern CPUs.
+of different levels of vectorized instructions available in modern CPUs.
 
 Starting with version 1.10.4 of NumPy and version 1.0.0 of SciPy, pre-built
 32-bit and 64-bit binaries in the ``wheel`` format are available for all major
@@ -118,17 +118,11 @@ be loaded and unloaded from the user's environment.
 The conda cross-platform package manager
 ----------------------------------------
 
-`Anaconda <https://www.anaconda.com/products/individual/>`_ is a Python distribution
-published by Anaconda, Inc. It is a stable collection of Open Source
-packages for big data and scientific use.  As of the 5.0 release of Anaconda,
-about 200 packages are installed by default, and a total of 400-500 can be
-installed and updated from the Anaconda repository.
-
 ``conda`` is an open source (BSD licensed) package management system and
-environment management system included in Anaconda that allows users to install
+environment management system that allows users to install
 multiple versions of binary software packages and their dependencies, and
 easily switch between them. It is a cross-platform tool working on Windows,
-macOS, and Linux. Conda can be used to package up and distribute all kinds of
+MacOS, and Linux. Conda can be used to package up and distribute all kinds of
 packages, it is not limited to just Python packages. It has full support for
 native virtual environments. Conda makes environments first-class citizens,
 making it easy to create independent environments even for C libraries. It is
@@ -136,8 +130,10 @@ written in Python, but is Python-agnostic. Conda manages Python itself as a
 package, so that :command:`conda update python` is possible, in contrast to
 pip, which only manages Python packages.
 
-The conda package manager is available in `Anaconda <https://docs.anaconda.com/anaconda/>`_, `miniconda <https://docs.anaconda.com/miniconda/>`_, `miniforge <https://github.com/conda-forge/miniforge>`_, and `pixi <https://pixi.sh/>`_.
+Anaconda `Anaconda <https://docs.anaconda.com/anaconda/>`_ is a Python distribution published by Anaconda, Inc. It is a stable collection of Open Source packages for big data and scientific use, and a collection of Graphical Interface utilities for managing conda environments.
+
+In addition to the full distribution provided by Anaconda, the conda package manager itself is available in  `miniconda <https://docs.anaconda.com/miniconda/>`_, `miniforge <https://github.com/conda-forge/miniforge>`_, and `pixi <https://pixi.sh/>`_.
+
 
 Conda packages are available on multiple channels on Anaconda.org, including the
-default channel supported by Anaconda, Inc, and the community supported conda-forge
-channel, which provides a wide variety of pre-built packages.
+default channel supported by Anaconda, Inc, the community supported conda-forge channel, which provides a wide variety of pre-built packages, and some domain-specific package collections.
