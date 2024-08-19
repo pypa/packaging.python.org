@@ -20,7 +20,7 @@ Starting with version 1.10.4 of NumPy and version 1.0.0 of SciPy, pre-built
 32-bit and 64-bit binaries in the ``wheel`` format are available for all major
 operating systems (Windows, macOS, and Linux) on PyPI. Note, however, that on
 Windows, NumPy binaries are linked against the `ATLAS
-<http://www.netlib.org/atlas/>`__ BLAS/LAPACK library, restricted to SSE2
+<https://math-atlas.sourceforge.net/>`__ BLAS/LAPACK library, restricted to SSE2
 instructions, so they may not provide optimal linear algebra performance.
 
 There are a number of alternative options for obtaining scientific Python
