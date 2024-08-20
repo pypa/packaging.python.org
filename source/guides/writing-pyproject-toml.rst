@@ -24,15 +24,15 @@ three possible TOML tables in this file.
 
    The ``[build-system]`` table should always be present,
    regardless of which build backend you use (``[build-system]`` *defines* the
-   build tool you use). 
+   build tool you use).
 
-   On the other hand, the ``[project]`` table is understood by *most* build 
+   On the other hand, the ``[project]`` table is understood by *most* build
    backends, but some build backends use a different format.
 
-   As of August 2024, Poetry_ is a notable build backend that does not use 
-   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead. 
+   As of August 2024, Poetry_ is a notable build backend that does not use
+   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
-   and the older format in ``setup.cfg`` or ``setup.py``. 
+   and the older format in ``setup.cfg`` or ``setup.py``.
 
    For new projects, use the ``[project]`` table, and keep ``setup.py`` only if
    some programmatic configuration is needed (such as building C extensions),
