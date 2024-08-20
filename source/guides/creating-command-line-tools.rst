@@ -78,7 +78,7 @@ in :file:`cli.py`:
 
     import typer
 
-    from .hello import greet
+    from .greet import greet
 
 
     app = typer.Typer()
