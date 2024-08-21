@@ -10,11 +10,11 @@ Single-sourcing the Project Version
 One of the challenges in building packages is that the version string can be required in multiple places.
 
 * It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
-   - That will assure that it is properly assigned in the distribution file name, and in the installed package metadata.
+   This will make it available in the installed package’s metadata, from where it will be accessible at runtime using ``importlib.metadata.version("distribution_name")``.
 
-* A package may set a top level ``__version__`` attribute to provide runtime access to the version of the imported package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`.
+* A package may set a top level ``__version__`` attribute to provide an alternative means of runtime access to the version of the imported package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`.
 
-In any case, The installed distribution version should be accessible using ``importlib.metadata.version("distribution_name")``.
+* If the code is in in a version control system (VCS), e.g. Git, the version may appear in a *tag* such as ``v1.2.3``.
 
 To ensure that version numbers do not get out of sync, it is recommended that there is a single source of truth for the version number.
 
