@@ -130,7 +130,7 @@ only field that cannot be marked as dynamic.
    [project]
    name = "spam-eggs"
 
-The project name must consists of ASCII letters, digits, underscores "``_``",
+The project name must consist of ASCII letters, digits, underscores "``_``",
 hyphens "``-``" and periods "``.``". It must not start or end with an
 underscore, hyphen or period.
 
