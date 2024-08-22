@@ -12,7 +12,7 @@ One of the challenges in building packages is that the version string can be req
 * It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
    This will make it available in the installed package’s metadata, from where it will be accessible at runtime using ``importlib.metadata.version("distribution_name")``.
 
-* A package may set a top level ``__version__`` attribute to provide an alternative means of runtime access to the version of the imported package. If this is done, the value of ``__version__`` attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`.
+* A package may set a module attribute (e.g., ``__version__``) to provide an alternative means of runtime access to the version of the imported package. If this is done, the value of the attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`.
 
 * If the code is in in a version control system (VCS), e.g. Git, the version may appear in a *tag* such as ``v1.2.3``.
 
