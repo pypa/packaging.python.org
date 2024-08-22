@@ -16,4 +16,4 @@ specific topic. If you're just trying to get stuff done, see
    package-formats
    src-layout-vs-flat-layout
    setup-py-deprecated
-   single_source_version
+   single-source-version
