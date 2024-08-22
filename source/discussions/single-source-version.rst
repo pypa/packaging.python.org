@@ -42,6 +42,6 @@ The following are links to some build system's documentation for handling versio
 
 * `PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_
 
-* `Setuptools <https://setuptools.pypa.io/en/latest/userguide/distribution.html#specifying-your-project-s-version>`_
+* `Setuptools <https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata>`_
 
   -  `setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_
