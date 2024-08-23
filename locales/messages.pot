@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-18 16:33+0000\n"
+"POT-Creation-Date: 2024-08-23 13:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4753,6 +4753,18 @@ msgstr ""
 msgid "`Writing cpython extension modules using C++ <https://thomasnyberg.com/cpp_extension_modules.html>`_"
 msgstr ""
 
+#: ../source/guides/packaging-binary-extensions.rst:408
+msgid "Additional considerations for binary wheels"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:410
+msgid "The `pypackaging-native <https://pypackaging-native.github.io/>`_ website has additional coverage of packaging Python packages with native code. It aims to provide an overview of the most important packaging issues for such projects, with in-depth explanations and references."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:415
+msgid "Examples of topics covered are non-Python compiled dependencies (\"native dependencies\"), the importance of the ABI (Application Binary Interface) of native code, dependency on SIMD code and cross compilation."
+msgstr ""
+
 #: ../source/guides/packaging-namespace-packages.rst:5
 msgid "Packaging namespace packages"
 msgstr ""
@@ -5736,15 +5748,19 @@ msgid "The ``[tool]`` table has tool-specific subtables, e.g., ``[tool.hatch]``,
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:25
-msgid "There is a significant difference between the ``[build-system]`` and ``[project]`` tables. The former should always be present, regardless of which build backend you use (since it *defines* the tool you use). The latter is understood by *most* build backends, but some build backends use a different format."
+msgid "The ``[build-system]`` table should always be present, regardless of which build backend you use (``[build-system]`` *defines* the build tool you use)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:31
-msgid "At the time of writing this (November 2023), Poetry_ is a notable build backend that does not use the ``[project]`` table (it uses the ``[tool.poetry]`` table instead)."
+#: ../source/guides/writing-pyproject-toml.rst:29
+msgid "On the other hand, the ``[project]`` table is understood by *most* build backends, but some build backends use a different format."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:35
-msgid "Also, the setuptools_ build backend supports both the ``[project]`` table, and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it is recommended to use the ``[project]`` table, and keep ``setup.py`` only if some programmatic configuration is needed (such as building C extensions), but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:`setup-py-deprecated`."
+#: ../source/guides/writing-pyproject-toml.rst:32
+msgid "As of August 2024, Poetry_ is a notable build backend that does not use the ``[project]`` table, it uses the ``[tool.poetry]`` table instead. Also, the setuptools_ build backend supports both the ``[project]`` table, and the older format in ``setup.cfg`` or ``setup.py``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:37
+msgid "For new projects, use the ``[project]`` table, and keep ``setup.py`` only if some programmatic configuration is needed (such as building C extensions), but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:`setup-py-deprecated`."
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:46
