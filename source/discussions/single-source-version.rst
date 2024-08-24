@@ -5,7 +5,7 @@ Single-sourcing the Project Version
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2024-??
+:Last Reviewed: 2024-08-24
 
 One of the challenges in building packages is that the version string can be required in multiple places.
 
