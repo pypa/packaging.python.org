@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-23 13:19+0000\n"
+"POT-Creation-Date: 2024-08-24 00:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -366,6 +366,7 @@ msgid "Deploying Python applications"
 msgstr ""
 
 #: ../source/discussions/deploying-python-applications.rst:0
+#: ../source/discussions/single-source-version.rst:0
 #: ../source/guides/distributing-packages-using-setuptools.rst:0
 #: ../source/guides/index-mirrors-and-caches.rst:0
 #: ../source/guides/installing-using-linux-tools.rst:0
@@ -385,6 +386,7 @@ msgid "Incomplete"
 msgstr ""
 
 #: ../source/discussions/deploying-python-applications.rst:0
+#: ../source/discussions/single-source-version.rst:0
 #: ../source/guides/distributing-packages-using-setuptools.rst:0
 #: ../source/guides/index-mirrors-and-caches.rst:0
 #: ../source/guides/installing-using-linux-tools.rst:0
@@ -1209,6 +1211,90 @@ msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:216
 msgid ":doc:`setuptools:deprecated/commands`"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:5
+msgid "Single-sourcing the Project Version"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:7
+msgid "Complete"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:8
+msgid "2024-08-24"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:10
+msgid "One of the challenges in building packages is that the version string can be required in multiple places."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:13
+msgid "It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:13
+msgid "This will make it available in the installed package’s metadata, from where it will be accessible at runtime using ``importlib.metadata.version(\"distribution_name\")``."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:15
+msgid "A package may set a module attribute (e.g., ``__version__``) to provide an alternative means of runtime access to the version of the imported package. If this is done, the value of the attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:17
+msgid "If the code is in in a version control system (VCS), e.g. Git, the version may appear in a *tag* such as ``v1.2.3``."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:19
+msgid "To ensure that version numbers do not get out of sync, it is recommended that there is a single source of truth for the version number."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:21
+msgid "In general, the options are:"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:23
+msgid "If the code is in a version control system (VCS), e.g. Git, then the version can be extracted from the VCS."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:25
+msgid "The version can be hard-coded into the :file:`pyproject.toml` file -- and the build system can copy it into other locations it may be required."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:27
+msgid "The version string can be hard-coded into the source code -- either in a special purpose file, such as :file:`_version.txt`, or as a attribute in a module, such as :file:`__init__.py`, and the build system can extract it at build time."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:30
+msgid "Consult your build system's documentation for their recommended method."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:35
+msgid "Build System Version Handling"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:37
+msgid "The following are links to some build system's documentation for handling version strings."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:39
+msgid "`Flit <https://flit.pypa.io/en/stable/>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:41
+msgid "`Hatchling <https://hatch.pypa.io/1.9/version/>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:43
+msgid "`PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:45
+msgid "`Setuptools <https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:47
+msgid "`setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_"
 msgstr ""
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:5
