@@ -1,4 +1,4 @@
-.. _`Single sourcing the version`:
+.. _`Single sourcing the version discussion`:
 
 ===================================
 Single-sourcing the Project Version
