@@ -110,8 +110,8 @@ similar. In such cases, you should mark the field as dynamic using, e.g.,
 
 
 When a field is dynamic, it is the build backend's responsibility to
-fill it.  Consult your build backend's documentation to learn how it
-does it.
+fill it.  Consult :ref:`Single sourcing the version discussion` for more
+details.
 
 
 Basic information
