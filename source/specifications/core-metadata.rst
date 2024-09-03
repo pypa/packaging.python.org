@@ -48,7 +48,7 @@ Metadata-Version
 .. versionadded:: 1.0
 
 Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
-"2.2", and "2.3".
+"2.2", "2.3", and "2.4".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -63,7 +63,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.3
+    Metadata-Version: 2.4
 
 
 .. _core-metadata-name:
@@ -477,6 +477,50 @@ Examples::
     License: GPL version 3, excluding DRM provisions
 
 
+.. _license-expression-optional:
+.. _core-metadata-license-expression:
+
+License-Expression
+==================
+
+.. versionadded:: 2.4
+
+Text string that is a valid SPDX
+`license expression <https://peps.python.org/pep-0639/#term-license-expression>`__
+as `defined in PEP 639 <https://peps.python.org/pep-0639/#spdx>`__.
+
+Examples::
+
+    License-Expression: MIT
+    License-Expression: BSD-3-Clause
+    License-Expression: MIT AND (Apache-2.0 OR BSD-2-Clause)
+    License-Expression: MIT OR GPL-2.0-or-later OR (FSFUL AND BSD-2-Clause)
+    License-Expression: GPL-3.0-only WITH Classpath-Exception-2.0 OR BSD-3-Clause
+    License-Expression: LicenseRef-Special-License OR CC0-1.0 OR Unlicense
+    License-Expression: LicenseRef-Proprietary
+
+
+.. _license-file-optional:
+.. _core-metadata-license-file:
+
+License-File (multiple use)
+===========================
+
+.. versionadded:: 2.4
+
+Each entry is a string representation of the path of a license-related file.
+The path is located within the project source tree, relative to the project
+root directory.
+
+Examples::
+
+    License-File: LICENSE
+    License-File: AUTHORS
+    License-File: LICENSE.txt
+    License-File: licenses/LICENSE.MIT
+    License-File: licenses/LICENSE.CC0
+
+
 .. _metadata-classifier:
 .. _core-metadata-classifier:
 
@@ -863,6 +907,11 @@ History
 - March 2022: Core metadata 2.3 was approved through :pep:`685`.
 
   - Restricted extra names to be normalized.
+
+- August 2024: Core metadata 2.4 was approved through :pep:`639`.
+
+  - Added the ``License-Expression`` field.
+  - Added the ``License-File`` field.
 
 ----
 
