@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-15 14:12+0000\n"
+"POT-Creation-Date: 2024-08-24 00:21+0000\n"
 "PO-Revision-Date: 2021-08-20 01:32+0000\n"
 "Last-Translator: GUILHERME FERNANDES NETO <gfneto4@gmail.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -483,6 +483,7 @@ msgid "Deploying Python applications"
 msgstr ""
 
 #: ../source/discussions/deploying-python-applications.rst:0
+#: ../source/discussions/single-source-version.rst:0
 #: ../source/guides/distributing-packages-using-setuptools.rst:0
 #: ../source/guides/index-mirrors-and-caches.rst:0
 #: ../source/guides/installing-using-linux-tools.rst:0
@@ -502,6 +503,7 @@ msgid "Incomplete"
 msgstr ""
 
 #: ../source/discussions/deploying-python-applications.rst:0
+#: ../source/discussions/single-source-version.rst:0
 #: ../source/guides/distributing-packages-using-setuptools.rst:0
 #: ../source/guides/index-mirrors-and-caches.rst:0
 #: ../source/guides/installing-using-linux-tools.rst:0
@@ -1674,6 +1676,119 @@ msgstr ""
 
 #: ../source/discussions/setup-py-deprecated.rst:216
 msgid ":doc:`setuptools:deprecated/commands`"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:5
+msgid "Single-sourcing the Project Version"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:7
+msgid "Complete"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:8
+msgid "2024-08-24"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:10
+msgid ""
+"One of the challenges in building packages is that the version string can be "
+"required in multiple places."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:13
+msgid ""
+"It needs to be specified when building the package (e.g. in :file:`pyproject."
+"toml`)"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:13
+msgid ""
+"This will make it available in the installed package’s metadata, from where "
+"it will be accessible at runtime using ``importlib.metadata."
+"version(\"distribution_name\")``."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:15
+msgid ""
+"A package may set a module attribute (e.g., ``__version__``) to provide an "
+"alternative means of runtime access to the version of the imported package. "
+"If this is done, the value of the attribute and that used by the build "
+"system to set the distribution's version should be kept in sync in :ref:`the "
+"build systems's recommended way <Build system version handling>`."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:17
+msgid ""
+"If the code is in in a version control system (VCS), e.g. Git, the version "
+"may appear in a *tag* such as ``v1.2.3``."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:19
+msgid ""
+"To ensure that version numbers do not get out of sync, it is recommended "
+"that there is a single source of truth for the version number."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:21
+msgid "In general, the options are:"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:23
+msgid ""
+"If the code is in a version control system (VCS), e.g. Git, then the version "
+"can be extracted from the VCS."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:25
+msgid ""
+"The version can be hard-coded into the :file:`pyproject.toml` file -- and "
+"the build system can copy it into other locations it may be required."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:27
+msgid ""
+"The version string can be hard-coded into the source code -- either in a "
+"special purpose file, such as :file:`_version.txt`, or as a attribute in a "
+"module, such as :file:`__init__.py`, and the build system can extract it at "
+"build time."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:30
+msgid "Consult your build system's documentation for their recommended method."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:35
+msgid "Build System Version Handling"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:37
+msgid ""
+"The following are links to some build system's documentation for handling "
+"version strings."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:39
+msgid "`Flit <https://flit.pypa.io/en/stable/>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:41
+msgid "`Hatchling <https://hatch.pypa.io/1.9/version/>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:43
+msgid ""
+"`PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:45
+msgid ""
+"`Setuptools <https://setuptools.pypa.io/en/latest/userguide/pyproject_config."
+"html#dynamic-metadata>`_"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:47
+msgid "`setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_"
 msgstr ""
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:5
@@ -6875,6 +6990,25 @@ msgid ""
 "cpp_extension_modules.html>`_"
 msgstr ""
 
+#: ../source/guides/packaging-binary-extensions.rst:408
+msgid "Additional considerations for binary wheels"
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:410
+msgid ""
+"The `pypackaging-native <https://pypackaging-native.github.io/>`_ website "
+"has additional coverage of packaging Python packages with native code. It "
+"aims to provide an overview of the most important packaging issues for such "
+"projects, with in-depth explanations and references."
+msgstr ""
+
+#: ../source/guides/packaging-binary-extensions.rst:415
+msgid ""
+"Examples of topics covered are non-Python compiled dependencies (\"native "
+"dependencies\"), the importance of the ABI (Application Binary Interface) of "
+"native code, dependency on SIMD code and cross compilation."
+msgstr ""
+
 #: ../source/guides/packaging-namespace-packages.rst:5
 msgid "Packaging namespace packages"
 msgstr ""
@@ -8454,25 +8588,27 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:25
 msgid ""
-"There is a significant difference between the ``[build-system]`` and "
-"``[project]`` tables. The former should always be present, regardless of "
-"which build backend you use (since it *defines* the tool you use). The "
-"latter is understood by *most* build backends, but some build backends use a "
-"different format."
+"The ``[build-system]`` table should always be present, regardless of which "
+"build backend you use (``[build-system]`` *defines* the build tool you use)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:31
+#: ../source/guides/writing-pyproject-toml.rst:29
 msgid ""
-"At the time of writing this (November 2023), Poetry_ is a notable build "
-"backend that does not use the ``[project]`` table (it uses the ``[tool."
-"poetry]`` table instead)."
+"On the other hand, the ``[project]`` table is understood by *most* build "
+"backends, but some build backends use a different format."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:35
+#: ../source/guides/writing-pyproject-toml.rst:32
 msgid ""
-"Also, the setuptools_ build backend supports both the ``[project]`` table, "
-"and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it "
-"is recommended to use the ``[project]`` table, and keep ``setup.py`` only if "
+"As of August 2024, Poetry_ is a notable build backend that does not use the "
+"``[project]`` table, it uses the ``[tool.poetry]`` table instead. Also, the "
+"setuptools_ build backend supports both the ``[project]`` table, and the "
+"older format in ``setup.cfg`` or ``setup.py``."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:37
+msgid ""
+"For new projects, use the ``[project]`` table, and keep ``setup.py`` only if "
 "some programmatic configuration is needed (such as building C extensions), "
 "but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:"
 "`setup-py-deprecated`."
@@ -8547,7 +8683,7 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:133
 msgid ""
-"The project name must consists of ASCII letters, digits, underscores "
+"The project name must consist of ASCII letters, digits, underscores "
 "\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or end "
 "with an underscore, hyphen or period."
 msgstr ""
