@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-19 16:34+0000\n"
-"PO-Revision-Date: 2024-08-16 07:22+0000\n"
+"PO-Revision-Date: 2024-09-05 02:09+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7\n"
+"X-Generator: Weblate 5.7.2-rc\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -23280,6 +23280,12 @@ msgid ""
 "been \"Yanked\" as per :ref:`the API yank specification <simple-repository-"
 "api-yank>`."
 msgstr ""
+"``yanked``: **オプション** のキーで、当該ファイルがヤンクされたものか否かを示"
+"すブーリアンか、または、ファイルがヤンクされるに至った特定の理由を示す任意の"
+"空ではない文字列か、いずれかの値を持ちます。 ``yanked`` "
+"キーが存在して値が真であれば、``url`` "
+"フィールドによって指し示されるファイルが :ref:`API ヤンク仕様 <simple-"
+"repository-api-yank>` にある通りに \"ヤンク\" されたことを示します。"
 
 #: ../source/specifications/simple-repository-api.rst:529
 msgid ""
@@ -23290,11 +23296,15 @@ msgid ""
 "best thought of as a set, but both JSON and HTML lack the functionality to "
 "have sets."
 msgstr ""
+"``files`` キーは配列なのである種の順序があることが要求される一方で、 :ref:`"
+"基本となる HTML API の仕様 <simple-repository-api-base>` にもこの仕様にも、特"
+"定の順序付けも要求されていませんし、あるリクエストと次のそれの間で順序が保た"
+"れるということも要求されていません。心情としては、これは集合であると考えるの"
+"が最適ですが、JSON にも HTML にも集合を扱う機能は欠落しています。"
 
 #: ../source/specifications/simple-repository-api.rst:538
-#, fuzzy
 msgid "Content-Types"
-msgstr "内容"
+msgstr "Content-Types"
 
 #: ../source/specifications/simple-repository-api.rst:540
 msgid ""
@@ -23303,10 +23313,14 @@ msgid ""
 "response), what version of the API it represents, and what serialization "
 "format has been used."
 msgstr ""
+"この仕様では、シンプル API からの応答はすべて、その応答が何であるか ("
+"シンプル API からの応答である) 、どのバージョンの API を表現しているか、また"
+"、使われているシリアル化フォーマットは何であるかを記述する標準のコンテント型"
+"を持ちます。"
 
 #: ../source/specifications/simple-repository-api.rst:544
 msgid "The structure of this content type will be:"
-msgstr ""
+msgstr "このコンテント型の構造はこのようになっていることでしょう:"
 
 #: ../source/specifications/simple-repository-api.rst:550
 msgid ""
@@ -23315,18 +23329,24 @@ msgid ""
 "included in the content type, and will be prefixed with a ``v`` to clarify "
 "that it is a version number."
 msgstr ""
+"これらの API からの応答のうちのひとつをクライアントが理解しようと試みる際には"
+"、メジャーバージョンだけが継続不可能にするものであるべきなので、メジャーバー"
+"ジョンだけがコンテント型に含まれるでしょうし、"
+"それがバージョン番号であることを明確にするために前に ``v`` "
+"をつけられることになるでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:555
 msgid "Which means that for the existing 1.0 API, the content types would be:"
-msgstr ""
+msgstr "ということは、既存の 1.0 API "
+"においては、コンテント型はこのようになるでしょう:"
 
 #: ../source/specifications/simple-repository-api.rst:557
 msgid "**JSON:** ``application/vnd.pypi.simple.v1+json``"
-msgstr ""
+msgstr "**JSON:** ``application/vnd.pypi.simple.v1+json``"
 
 #: ../source/specifications/simple-repository-api.rst:558
 msgid "**HTML:** ``application/vnd.pypi.simple.v1+html``"
-msgstr ""
+msgstr "**HTML:** ``application/vnd.pypi.simple.v1+html``"
 
 #: ../source/specifications/simple-repository-api.rst:560
 msgid ""
@@ -23336,6 +23356,11 @@ msgid ""
 "recommended however, that clients be explicit about what versions they "
 "support."
 msgstr ""
+"上記に加えて、特別な \"meta\" バージョンが ``latest`` という名前でサポートさ"
+"れており、その目的はクライアントが完全に最新のバージョンをリクエストすること"
+"を許すためであり、そのバージョンが何であるかを前もって知ることを不要にするた"
+"めです。しかしながら、クライアントは自身がどのバージョンをサポートしているの"
+"かを明示的に示すことが推奨されています。"
 
 #: ../source/specifications/simple-repository-api.rst:565
 msgid ""
@@ -23344,11 +23369,14 @@ msgid ""
 "``text/html`` content type, this spec further defines ``text/html`` as an "
 "alias for the ``application/vnd.pypi.simple.v1+html`` content type."
 msgstr ""
+"既存の :ref:`基本となる HTML API の仕様 <simple-repository-api-base>` の API "
+"応答が ``text/html`` コンテント型を使うことを期待している既存のクライアント群"
+"をサポートするために、この仕様では、さらに、 ``text/html`` を ``application/"
+"vnd.pypi.simple.v1+html`` コンテント型へのエイリアスであると定義しています。"
 
 #: ../source/specifications/simple-repository-api.rst:572
-#, fuzzy
 msgid "Version + Format Selection"
-msgstr "バージョン指定子"
+msgstr "バージョン + フォーマットの選択"
 
 #: ../source/specifications/simple-repository-api.rst:574
 msgid ""
@@ -23358,6 +23386,12 @@ msgid ""
 "version to the API can be added without disrupting existing clients "
 "expecting the previous API version."
 msgstr ""
+"今や複数の可能なシリアル化が存在するので、クライアント群がどのシリアル化フォ"
+"ーマットであれば理解できるのかを示すことができるようにする必要があります。加"
+"えて、以前の API "
+"バージョンを期待している既存のクライアント群の妨げとなることなしに、どんな "
+"API の可能な新しいメジャーバージョンでも追加することができれば利益があること"
+"でしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:579
 msgid ""
@@ -23365,18 +23399,23 @@ msgid ""
 "Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/"
 "Content_negotiation>`_."
 msgstr ""
+"これを可能にするために、この仕様では、 HTTP の `"
+"サーバ主導のコンテントネゴシエーション <https://developer.mozilla.org/en-US/"
+"docs/Web/HTTP/Content_negotiation>`_ の使用を標準化します。"
 
 #: ../source/specifications/simple-repository-api.rst:582
 msgid ""
 "While this spec won't fully describe the entirety of server-driven content "
 "negotiation, the flow is roughly:"
-msgstr ""
+msgstr "この仕様では、サーバ主導のコンテントネゴシエーションについて完全にすべてを記"
+"述することはありませんが、流れは大まかに次のようになります:"
 
 #: ../source/specifications/simple-repository-api.rst:585
 msgid ""
 "The client makes an HTTP request containing an ``Accept`` header listing all "
 "of the version+format content types that they are able to understand."
-msgstr ""
+msgstr "理解できるコンテント型を全て``Accept`` ヘッダに列挙した HTTP "
+"リクエストをクライアントが作成します。"
 
 #: ../source/specifications/simple-repository-api.rst:587
 msgid ""
@@ -23384,6 +23423,9 @@ msgid ""
 "then returns a response using that content type (treating the absence of an "
 "``Accept`` header as ``Accept: */*``)."
 msgstr ""
+"サーバはそのヘッダを検証して、列挙されたコンテント型からひとつを選択して、"
+"そのコンテント型を使って応答を返します (``Accept`` "
+"ヘッダが欠落している場合は ``Accept: */*`` であるものとして扱います) 。"
 
 #: ../source/specifications/simple-repository-api.rst:590
 msgid ""
@@ -23391,12 +23433,16 @@ msgid ""
 "header then they are able to choose between 3 different options for how to "
 "respond:"
 msgstr ""
+"``Accept`` ヘッダにあるコンテント型のいずれもサーバがサポートしていない場合に"
+"は、どのように応答するかについてサーバは３個の異なるオプションから選択するこ"
+"とができます:"
 
 #: ../source/specifications/simple-repository-api.rst:594
 msgid ""
 "Select a default content type other than what the client has requested and "
 "return a response with that."
-msgstr ""
+msgstr "クライアントが要求したものではないデフォルトのコンテント型を選択して、それを"
+"使って応答を返すこと。"
 
 #: ../source/specifications/simple-repository-api.rst:596
 msgid ""
@@ -23404,18 +23450,24 @@ msgid ""
 "requested content types were available, and the server was unable or "
 "unwilling to select a default content type to respond with."
 msgstr ""
+"HTTP の ``406 Not Acceptable`` 応答を返すことで、要求されたコンテント型の中に"
+"利用可能なものがないことを示し、サーバとしてはデフォルトのコンテント型を選択"
+"して応答することができないかしたくないことを示すこと。"
 
 #: ../source/specifications/simple-repository-api.rst:599
 msgid ""
 "Return a HTTP ``300 Multiple Choices`` response that contains a list of all "
 "of the possible responses that could have been chosen."
 msgstr ""
+"HTTP の ``300 Multiple Choices`` 応答を返して、選択できるかもしれないすべての"
+"可能な応答のリストを含めておくこと。"
 
 #: ../source/specifications/simple-repository-api.rst:601
 msgid ""
 "The client interprets the response, handling the different types of "
 "responses that the server may have responded with."
-msgstr ""
+msgstr "サーバが返すかもしれない異なる応答のタイプを取り扱ってクライアントは応答を解"
+"釈します。"
 
 #: ../source/specifications/simple-repository-api.rst:604
 msgid ""
@@ -23424,6 +23476,10 @@ msgid ""
 "be prepared to handle all of the possible responses in whatever way makes "
 "the most sense for that client."
 msgstr ""
+"この仕様は、あるコンテント型を取り扱うことについてサーバが行った選択のどれが "
+"(クライアントへ応答を) 返すことができないものであるかを指定しませんし、クライ"
+"アント側がそのクライアントにとって最も意味を為す方法であればどんなものでも可"
+"能な応答の全てを取り扱う準備を **しておくべきだ** とは指定しません。"
 
 #: ../source/specifications/simple-repository-api.rst:609
 msgid ""
@@ -23435,6 +23491,13 @@ msgid ""
 "response would likely just be treated the same as a ``406 Not Acceptable`` "
 "error."
 msgstr ""
+"しかしながら、 ``300 Multiple Choices`` 応答がどのように解釈され得るかについ"
+"て標準的なフォーマットは存在しないので、クライアント側が理解して要求するべき"
+"別のコンテント型を選択する手段がないので、この仕様ではサーバがこのオプション"
+"を採用することを強い非推奨にしています。加えて、"
+"クライアントが別のコンテント型を **理解できるであろう** "
+"とは思われず、したがって、この応答は ``406 Not Acceptable`` "
+"エラーと同じ扱いを受けるのが精々であろうと思われます。"
 
 #: ../source/specifications/simple-repository-api.rst:616
 msgid ""
@@ -23451,18 +23514,21 @@ msgid ""
 "client understands and is able to process. It supports three different "
 "formats for each content type that is being requested:"
 msgstr ""
+"``Accept`` ヘッダは、クライアントが理解し処理することが可能なコンテント型をカ"
+"ンマで区切られたリストに列挙したものです。まさに要求されているところのコンテ"
+"ント型のそれぞれについて３個の異なるフォーマットをサポートしています:"
 
 #: ../source/specifications/simple-repository-api.rst:627
 msgid "``$type/$subtype``"
-msgstr ""
+msgstr "``$type/$subtype``"
 
 #: ../source/specifications/simple-repository-api.rst:628
 msgid "``$type/*``"
-msgstr ""
+msgstr "``$type/*``"
 
 #: ../source/specifications/simple-repository-api.rst:629
 msgid "``*/*``"
-msgstr ""
+msgstr "``*/*``"
 
 #: ../source/specifications/simple-repository-api.rst:631
 msgid ""
@@ -23470,6 +23536,9 @@ msgid ""
 "``$type/$subtype``, as that is the only way to actually specify the version "
 "and format you want."
 msgstr ""
+"バージョン＋フォーマット <version+format> の選択に使うには、"
+"これらのうちで最も役に立つのは ``$type/$subtype`` "
+"で、望みのバージョンとフォーマットを実際に指定する唯一の方法だからです。"
 
 #: ../source/specifications/simple-repository-api.rst:635
 msgid ""
@@ -23480,6 +23549,12 @@ msgid ""
 "header's `quality value <https://developer.mozilla.org/en-US/docs/Glossary/"
 "Quality_values>`_ syntax."
 msgstr ""
+"``Accept`` ヘッダに列挙されたコンテント型の順序は、なんら特定の意味を持たず、"
+"サーバ側ではその全てをそれを使って応答するために等しく正当なものと "
+"**考えるべきです** 。クライアント側が特定のコンテント型を他のものよりも好むこ"
+"とを指定したいならば、 ``Accept`` ヘッダの `quality バリュー "
+"<https://developer.mozilla.org/en-US/docs/Glossary/Quality_values>`_ "
+"の文法を使っても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:642
 msgid ""
@@ -23490,6 +23565,11 @@ msgid ""
 "lower quality, and any entry without a quality present will default to a "
 "quality of ``1``."
 msgstr ""
+"これは、 ``;q=`` とこれに後続する10進数で3桁までの ``0`` 以上 ``1`` "
+"以下の値を付加することによって ``Accept`` ヘッダ内の特定のエントリの優先度を"
+"クライアントが指定することを可能にします。この値を解釈する際には、より高い q "
+"値 (quality 値) のエントリがより低い品質のものよりも優先され、q "
+"値を持たないものはデフォルトで ``1`` であると解釈されます。"
 
 #: ../source/specifications/simple-repository-api.rst:648
 msgid ""
@@ -23498,6 +23578,10 @@ msgid ""
 "priority, and it may even return a content type that they did **not** ask "
 "for."
 msgstr ""
+"しかしながら、サーバはクライアント側から要請されたコンテント型の **どれ** "
+"を選んでも構わないということ、そして、サーバはクライアントが "
+"**要請しなかった** コンテント型で返答しても構わないということを、クライアント"
+"は心に留めておくべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:652
 msgid ""
@@ -23509,10 +23593,17 @@ msgid ""
 "pip/blob/cf3696a81b341925f82f20cb527e656176987565/src/pip/_internal/index/"
 "collector.py#L123-L150>`_ so the risks for actual breakages is low."
 msgstr ""
+"API へのリクエストから受けとった応答のコンテント型を決定するにあたってクライ"
+"アントを補助するために、この仕様では、応答のコンテント型を示す ``Content-"
+"Type`` ヘッダをサーバが常に含めることを要求している。これは、技術的には後方互"
+"換性のない変更ですが、実際には `pip ` はすでにこの要求事項 <https://github."
+"com/pypa/pip/blob/cf3696a81b341925f82f20cb527e656176987565/src/pip/_internal/"
+"index/collector.py#L123-L150>`_ "
+"を強制していますので、実際に何かを壊すリスクは低いでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:659
 msgid "An example of how a client can operate would look like:"
-msgstr ""
+msgstr "クライアントがどのように運用できるかの例は次のように見えるでしょう:"
 
 #: ../source/specifications/simple-repository-api.rst:710
 msgid ""
@@ -23520,10 +23611,14 @@ msgid ""
 "would just remove the content types that they do not want from the "
 "``Accept`` header, and turn receiving them into an error."
 msgstr ""
+"クライアント側が、 HTML だけを、または JSON だけをサポートしたいと望むなら、 "
+"``Accept`` "
+"ヘッダから望まないコンテント型を単に取り除くでしょうし、(望まないものを) "
+"受け取ったらエラーにすることでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:716
 msgid "Alternative Negotiation Mechanisms"
-msgstr ""
+msgstr "代わりの交渉機構 <Negotiation Mechanisms>"
 
 #: ../source/specifications/simple-repository-api.rst:718
 msgid ""
@@ -23533,10 +23628,16 @@ msgid ""
 "mechanism may not be sufficient. For those cases this spec has alternative "
 "negotiation mechanisms that may *optionally* be used instead."
 msgstr ""
+"HTTP でのコンテンツネゴシエーションを使うことがクライアントとサーバが協調して"
+"クライアントが理解することができる HTTP 応答を得られることを確実にする標準的"
+"な方法である一方で、このメカニズムで十分とは言えないような状況が存在します。"
+"そのような場合向けに、この仕様には、 *オプションとして* "
+"代わりに使っても構わない代わりの交渉機構 <alternative negotiation "
+"mechanisms> があります。"
 
 #: ../source/specifications/simple-repository-api.rst:726
 msgid "URL Parameter"
-msgstr ""
+msgstr "URL パラメータ"
 
 #: ../source/specifications/simple-repository-api.rst:728
 msgid ""
@@ -23551,6 +23652,9 @@ msgid ""
 "types. Passing multiple content types, wild cards, quality values, etc... is "
 "**not** supported."
 msgstr ""
+"``format`` パラメータの値は、正当なコンテント型のうちの **ひとつ** "
+"であるべきです。複数のコンテント型を渡すことやワイルドカード、quality "
+"値などはサポートされて **いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:735
 msgid ""
@@ -23559,12 +23663,19 @@ msgid ""
 "allow for easier human based exploration of the API within a browser, or to "
 "allow documentation or notes to link to a specific version+format."
 msgstr ""
+"このパラメータをサポートすることはオプションで、 API "
+"とやりとりするクライアントはこれを **当てにするべきではありません** "
+"。このネゴシエーションメカニズムは、人間がブラウザ内で API "
+"をより簡単に調査することができるようにすることを意図したもの、ないし、"
+"説明文書やノートから特定の version+format "
+"にリンクすることができるようにすることを意図したものです。"
 
 #: ../source/specifications/simple-repository-api.rst:740
 msgid ""
 "Servers that do not support this parameter may choose to return an error "
 "when it is present, or they may simple ignore its presence."
-msgstr ""
+msgstr "このパラメータをサポートしないサーバの側では、これの存在時にはエラーを返すこ"
+"とを選択しても構いませんし、単にその存在を無視しても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:743
 msgid ""
@@ -23575,11 +23686,17 @@ msgid ""
 "server-driven content negotiation typically has (e.g. ``406 Not Available``, "
 "``303 Multiple Choices``, or selecting a default type to return)."
 msgstr ""
+"サーバがこのパラメータを実装していない時は、クライアントの ``Accept`` "
+"ヘッダ内の値に何があってもそれに **高い優先度を与えるべき** で、"
+"要求されたフォーマットをサーバがサポートしていないなら ``Accept`` "
+"ヘッダにフォールバックすることを選択しても良いし、標準的なサーバ側が駆動する"
+"コンテントネゴシエーションが典型的に持っているエラーコンディション (例えば、 "
+"``406 Not Available`` や ``303 Multiple Choices`` "
+"、ないし、応答のデフォルトの型) のどれでもひとつを選択しても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:752
-#, fuzzy
 msgid "Endpoint Configuration"
-msgstr "共通の設定"
+msgstr "エンドポイントの設定"
 
 #: ../source/specifications/simple-repository-api.rst:754
 msgid ""
@@ -23587,6 +23704,9 @@ msgid ""
 "consequence of using content negotiation and allowing servers to select "
 "which of the available content types is their default."
 msgstr ""
+"このオプションは、技術的には何ら特別なオプションではなく、コンテントネゴシエ"
+"ーションを使用することに伴う自然な結果であり、利用可能なコンテント型のいずれ"
+"かを自身のデフォルトとしてサーバが選択することを許すものです。"
 
 #: ../source/specifications/simple-repository-api.rst:758
 msgid ""
@@ -23595,6 +23715,10 @@ msgid ""
 "their client to select the version they want, then that is a supported "
 "configuration."
 msgstr ""
+"あるサーバがサーバ主導のコンテントネゴシエーションを実装したくないか実装する"
+"ことができなくて、むしろユーザに対してクライアントが望むバージョンを選択する"
+"ように明示的に要求するのであれば、それはサポートされているコンフィグレーショ"
+"ンのひとつです。"
 
 #: ../source/specifications/simple-repository-api.rst:762
 msgid ""
@@ -23605,6 +23729,14 @@ msgid ""
 "client makes a request using the ``Accept`` header, the server can ignore it "
 "and return the content type that corresponds to that endpoint."
 msgstr ""
+"これを有効にするためには、サーバは、複数のエンドポイント (例えば、 ``/simple/"
+"v1+html/`` と ``/simple/v1+json/`` のいずれかまたは両方) "
+"をサポートしたいと考える version+format "
+"のそれぞれにするべきです。このようなエンドポイントのもとでは、"
+"コンテント型のひとつ (またはサブセット) "
+"をサポートするリポジトリのコピーをホストすることができます。クライアントが "
+"``Accept`` ヘッダを使ってリクエストした時に、サーバはそれを無視して当該エンド"
+"ポイントに対応するコンテント型を返すことができます。"
 
 #: ../source/specifications/simple-repository-api.rst:769
 msgid ""
@@ -23613,10 +23745,15 @@ msgid ""
 "when making a request to that server, emit an ``Accept`` header that *only* "
 "includes the correct content type."
 msgstr ""
+"特定のコンフィグレーションを要求したいと願うクライアントにとっては、"
+"ある特定のリポジトリ URL にどんな version+format "
+"が設定されたかを追跡することができますし、"
+"そのサーバへのリクエストを作成する時に正しいコンテント型 **だけ** を含んだ "
+"``Accept`` ヘッダを発出することができます。"
 
 #: ../source/specifications/simple-repository-api.rst:776
 msgid "TUF Support - PEP 458"
-msgstr ""
+msgstr "TUF サポート - PEP 458"
 
 #: ../source/specifications/simple-repository-api.rst:778
 msgid ""
@@ -23628,6 +23765,14 @@ msgid ""
 "handle the fact that a target could have multiple different representations "
 "that all hash differently."
 msgstr ""
+":pep:`458` は、すべての API 応答がハッシュ可能で、リポジトリのルートからの相"
+"対パスによって一意に識別できることを要求しています。シンプル API "
+"リポジトリでは、ターゲットのパスは、我々の API のルート (例えば、 PyPI "
+"における ``/simple/``) です。標準の HTTP クライアントを使う代わりに TUF "
+"クライアントを使って API "
+"にアクセスする時にはこれが試練を生み出しますが、それというのは、ハッシュが相"
+"異なるような複数の異なる表現形式をターゲットが持っているかもしれないという事"
+"実を TUF クライアントが扱えないからです。"
 
 #: ../source/specifications/simple-repository-api.rst:785
 msgid ""
@@ -23636,6 +23781,11 @@ msgid ""
 "words, a path like ``simple/PROJECT/`` is not acceptable, because it "
 "technically points to a directory."
 msgstr ""
+":pep:`458` は、どんなターゲットパスがシンプル API "
+"向けであるべきかについて指定していませんが、 TUF はターベットパスが "
+"\"ファイルライク <file-like>\" であることを要求し、換言すれば、 ``simple/"
+"PROJECT/.`` "
+"のようなパスは技術的にはディレクトリを指し示しているので受け入れ不可能です。"
 
 #: ../source/specifications/simple-repository-api.rst:790
 msgid ""
@@ -23645,6 +23795,11 @@ msgid ""
 "be fetched. This same thing can hold true for other aspects of the actual "
 "HTTP request, such as the ``Accept`` header."
 msgstr ""
+"欠点を補う取り柄は、シンプル API から持ってきた URL にターゲットパスが実際に "
+"*合致していなければならないということはない* ことで、取得する必要のある URL "
+"の実際の形への変換の方法を取得したコードが知っていることが魔法の印形になり得"
+"ます。これと同じことが、 ``Accept`` ヘッダのような実際の HTTP "
+"リクエスト他の側面についても当てはまります。"
 
 #: ../source/specifications/simple-repository-api.rst:796
 msgid ""
@@ -23653,6 +23808,10 @@ msgid ""
 "defers making a decision about how exactly to represent this inside of :pep:"
 "`458` metadata."
 msgstr ""
+"結局、あるディレクトリをファイル名に対応させる方法を解明することはこの仕様の"
+"スコープの外にあります (しかし :pep:`458` のスコープの中にはあるでしょう) "
+"が、この仕様では、 :pep:`458` のメタデータの中にこれをどれほど正確に表現する"
+"のかについての決断を行うことを遅延させているのです。"
 
 #: ../source/specifications/simple-repository-api.rst:800
 msgid ""
@@ -23663,6 +23822,14 @@ msgid ""
 "the v1 HTML format would be ``simple/PROJECT/vnd.pypi.simple.v1.html`` and "
 "the v1 JSON format would be ``simple/PROJECT/vnd.pypi.simple.v1.json``."
 msgstr ""
+"しかしながら、 :pep:`458` を実装しようと試みる pip に対する現在の WIP "
+"ブランチは、 ``simple/PROJECT/index.html`` "
+"のようなターゲットパスを使っているようです。これは、何か ``simple/PROJECT/vnd"
+".pypi.simple.vN.Format`` のようなものを使うことで、 API のバージョンやシリア"
+"ル化フォーマットを包含するように修正できるかもしれません。それで、 v1 の "
+"HTML フォーマットは ``simple/PROJECT/vnd.pypi.v1.html`` のように、 v1 の "
+"JSON フォーマットは ``simple/PROJECT/vnd.pypi.simple.v1.json`` "
+"のようになることでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:807
 msgid ""
@@ -23670,12 +23837,17 @@ msgid ""
 "simple.v1+html`` when interacting through TUF, it likely will make the most "
 "sense to normalize to the more explicit name."
 msgstr ""
+"このケースでは、 ``text/html`` が ``application/vnd.pypi.simple.v1+html`` "
+"へのエイリアスであることから、 TUF を通じて相互作用する時にはもっと明示的な名"
+"称に正規化する方が最大の意味をなすことになるでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:811
 msgid ""
 "Likewise the ``latest`` metaversion should not be included in the targets, "
 "only explicitly declared versions should be supported."
 msgstr ""
+"``latest`` メタバージョンがターゲットの中に含まれているべきではないのと同様に"
+"、明示的に宣言されたバージョンだけがサポートされるべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:817
 msgid ""
@@ -23684,6 +23856,10 @@ msgid ""
 "this spec, but it does **not** represent any sort of requirement to match "
 "these decisions."
 msgstr ""
+"この節は 規範的ではなく、この仕様を実装する上での最善のデフォルト実装の決定だ"
+"と仕様の執筆者たちが信じるものを表現していますが、しかし、"
+"これらの決定に合致させるための要求事項としてはいかなるものも "
+"**表現していません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:821
 msgid ""
@@ -23693,10 +23869,15 @@ msgid ""
 "API provide guardrails that attempt to push clients into making the best "
 "choices it can."
 msgstr ""
+"これらの決断は、 API の最新のバージョンの上に移行できるような、その一方でなる"
+"べく大量の互換性も維持するような要求事項を数の上でなるべく最大化するように選"
+"択されています。加えて、"
+"クライアント側が最善の選択を行うようにと試みるガードレールを API "
+"が提供するように試みてきました。"
 
 #: ../source/specifications/simple-repository-api.rst:826
 msgid "It is recommended that servers:"
-msgstr ""
+msgstr "サーバには次のことが推奨されます:"
 
 #: ../source/specifications/simple-repository-api.rst:828
 msgid ""
@@ -23704,6 +23885,9 @@ msgid ""
 "content negotiation, for as long as they reasonably can, or at least as long "
 "as they're receiving non trivial traffic that uses the HTML responses."
 msgstr ""
+"サーバ主導のコンテントネゴシエーションを使って、合理的に可能である限り、もし"
+"くは、少なくとも HTML 応答を用いる非自明のトラフィックを受け取る限り、この仕"
+"様の中で記述される３個のコンテント型の全てをサポートすること。"
 
 #: ../source/specifications/simple-repository-api.rst:832
 msgid ""
@@ -23712,12 +23896,20 @@ msgid ""
 "``300 Multiple Choice`` response, and instead return a ``406 Not "
 "Acceptable`` response."
 msgstr ""
+"サーバは、"
+"どのように協働すれば良いかを知っているコンテント型をひとつも含まないような "
+"``Accept`` ヘッダに遭遇した時、 ``300 Multiple Choice`` "
+"応答を返すべきではなく、その代わりに ``406 Not Acceptable`` "
+"応答を返すべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:837
 msgid ""
 "However, if choosing to use the endpoint configuration, you should prefer to "
 "return a ``200 OK`` response in the expected content type for that endpoint."
 msgstr ""
+"しかしながら、このエンドポイント設定を使うことを選択したなら、 "
+"できることならそのエンドポイントが期待しているコンテント型で ``200 Ok`` "
+"を返したいと考えるべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:840
 msgid ""
@@ -23727,10 +23919,15 @@ msgid ""
 "requests as well as any quality priority values they have expressed, and it "
 "should only use the ``text/html`` content type as a last resort."
 msgstr ""
+"受け入れ可能なバージョンを選択する時、サーバは、クライアントがサポートする中"
+"で、最も表現力が豊かで機能的なシリアル化フォーマットを伴っていて、"
+"クライアント側が表現したクオリティ優先度 <quality priority> と同じくクライア"
+"ントからのリクエストの特質を考慮に入れて、最も高いバージョンを選択するべきで"
+"あり、 ``text/html`` コンテント型の使用は最後の逃避先とするべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:846
 msgid "It is recommended that clients:"
-msgstr ""
+msgstr "クライアント側には次のことが推奨されます:"
 
 #: ../source/specifications/simple-repository-api.rst:848
 msgid ""
