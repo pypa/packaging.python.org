@@ -460,6 +460,14 @@ License
 =======
 
 .. versionadded:: 1.0
+.. deprecated:: 2.4
+   in favour of ``License-Expression``.
+
+.. warning::
+    As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually
+    exclusive. If both are specified, tools which parse metadata will disregard
+    ``License`` and PyPI will reject uploads.
+    See `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-field>`__.
 
 Text indicating the license covering the distribution where the license
 is not a selection from the "License" Trove classifiers. See
@@ -510,7 +518,7 @@ License-File (multiple use)
 
 Each entry is a string representation of the path of a license-related file.
 The path is located within the project source tree, relative to the project
-root directory.
+root directory. For details see :pep:`639`.
 
 Examples::
 
@@ -533,6 +541,11 @@ Each entry is a string giving a single classification value
 for the distribution.  Classifiers are described in :pep:`301`,
 and the Python Package Index publishes a dynamic list of
 `currently defined classifiers <https://pypi.org/classifiers/>`__.
+
+.. note::
+    The use of ``License ::`` classifiers  is deprecated as of Metadata 2.4,
+    use ``License-Expression`` instead. See
+    `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-classifiers>`_.
 
 This field may be followed by an environment marker after a semicolon.
 
