@@ -1,4 +1,4 @@
-.. _installing-packages:
+.. . _installing-packages:
 
 ===================
 Installing Packages
