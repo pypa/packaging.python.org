@@ -343,5 +343,5 @@ History
 
 
 .. _musl: https://musl.libc.org
-.. _ldd: https://www.unix.com/man-page/posix/1/ldd/
+.. _ldd: https://www.man7.org/linux/man-pages/man1/ldd.1.html
 .. _elf: https://refspecs.linuxfoundation.org/elf/elf.pdf
