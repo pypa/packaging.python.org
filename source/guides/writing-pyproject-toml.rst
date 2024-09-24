@@ -22,19 +22,19 @@ three possible TOML tables in this file.
 
 .. note::
 
-   There is a significant difference between the ``[build-system]`` and
-   ``[project]`` tables. The former should always be present, regardless of
-   which build backend you use (since it *defines* the tool you use). The latter
-   is understood by *most* build backends, but some build backends use a
-   different format.
+   The ``[build-system]`` table should always be present,
+   regardless of which build backend you use (``[build-system]`` *defines* the
+   build tool you use).
 
-   At the time of writing this (November 2023), Poetry_ is a notable build
-   backend that does not use the ``[project]`` table (it uses the
-   ``[tool.poetry]`` table instead).
+   On the other hand, the ``[project]`` table is understood by *most* build
+   backends, but some build backends use a different format.
 
+   As of August 2024, Poetry_ is a notable build backend that does not use
+   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
-   and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it
-   is recommended to use the ``[project]`` table, and keep ``setup.py`` only if
+   and the older format in ``setup.cfg`` or ``setup.py``.
+
+   For new projects, use the ``[project]`` table, and keep ``setup.py`` only if
    some programmatic configuration is needed (such as building C extensions),
    but the ``setup.cfg`` and ``setup.py`` formats are still valid. See
    :ref:`setup-py-deprecated`.
@@ -130,7 +130,7 @@ only field that cannot be marked as dynamic.
    [project]
    name = "spam-eggs"
 
-The project name must consists of ASCII letters, digits, underscores "``_``",
+The project name must consist of ASCII letters, digits, underscores "``_``",
 hyphens "``-``" and periods "``.``". It must not start or end with an
 underscore, hyphen or period.
 

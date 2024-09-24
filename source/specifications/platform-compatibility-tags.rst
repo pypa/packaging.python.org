@@ -256,7 +256,7 @@ The full list of simple tags is::
 
     for x in pytag.split('.'):
         for y in abitag.split('.'):
-            for z in archtag.split('.'):
+            for z in platformtag.split('.'):
                 yield '-'.join((x, y, z))
 
 A bdist format that implements this scheme should include the expanded
@@ -343,5 +343,5 @@ History
 
 
 .. _musl: https://musl.libc.org
-.. _ldd: https://www.unix.com/man-page/posix/1/ldd/
+.. _ldd: https://www.man7.org/linux/man-pages/man1/ldd.1.html
 .. _elf: https://refspecs.linuxfoundation.org/elf/elf.pdf
