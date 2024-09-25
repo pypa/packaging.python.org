@@ -211,8 +211,6 @@ package, set ``py_modules`` to a list of the names of the modules (minus the
 minimally needs to run. When the project is installed by :ref:`pip`, this is the
 specification that is used to install its dependencies.
 
-For more on using "install_requires" see :ref:`install_requires vs Requirements files`.
-
 
 
 .. _`Package Data`:

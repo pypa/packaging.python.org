@@ -170,6 +170,8 @@ details.
 Dependencies and requirements
 =============================
 
+.. _writing-pyproject-toml-dependencies:
+
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
 
