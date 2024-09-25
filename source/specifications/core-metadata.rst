@@ -116,7 +116,11 @@ When found in the metadata of a source distribution, the following
 rules apply:
 
 1. If a field is *not* marked as ``Dynamic``, then the value of the field
-   in any wheel built from the sdist MUST match the value in the sdist.
+   in any wheel built from the sdist MUST be semantically equivalent to the
+   value in the sdist. For example, ``Foo`` and ``foo`` as distribution name
+   as well as ``>=2,<3`` and ``<3,>=2`` as version specifiers are semantically
+   equivalent.
+
    If the field is not in the sdist, and not marked as ``Dynamic``, then
    it MUST NOT be present in the wheel.
 2. If a field is marked as ``Dynamic``, it may contain any valid value in
