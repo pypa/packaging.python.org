@@ -352,7 +352,7 @@ To install greater than or equal to one version and less than another:
 
 
 To install a version that's :ref:`compatible <version-specifiers-compatible-release>`
-with a certain version: [4]_
+with a certain version:
 
 .. tab:: Unix/macOS
 
@@ -676,7 +676,3 @@ you know publishes one, you can include it in the pip installation command:
        :ref:`virtualenv`) will create virtualenv environments with ``pip``
        pre-installed, thereby making it an equal alternative to
        :ref:`virtualenv`.
-
-.. [4] The compatible release specifier was accepted in :pep:`440`
-       and support was released in :ref:`setuptools` v8.0 and
-       :ref:`pip` v6.0
