@@ -451,13 +451,13 @@ and install your package from TestPyPI:
 
     .. code-block:: bash
 
-        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
+        python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
+        py -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package
 
 Make sure to specify your username in the package name!
 
