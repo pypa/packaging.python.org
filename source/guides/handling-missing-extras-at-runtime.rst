@@ -6,8 +6,8 @@ Handling missing optional dependencies ("extras") at runtime
 
 If your package has :ref:`optional dependencies ("extras")
 <metadata_provides_extra>` which the package consumer hasn't installed, the
-default outcome is an ordinary `ModuleNotFoundError` exception being raised at
-the first attempted import of a missing module.
+default outcome is an ordinary ``ModuleNotFoundError`` exception being raised
+at the first attempted import of a missing module.
 
 This can make for a bad user experience, because there is no guidance about why
 the module is missing - users might think they've found a bug. If you're not
