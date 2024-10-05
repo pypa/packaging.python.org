@@ -31,17 +31,33 @@ TODO Optimistic vs pessimistic handling?
 Handling failing imports
 ========================
 
-TODO example
+The perhaps simplest option, which is also in line with the :term:`EAFP`
+principle, is to just import your optional dependency modules as normal and
+handle the relevant exceptions if the import fails:
 
-TODO mention it doesn't check versions, so a bit dangerous
+.. code-block:: python
+
+   try:
+     import your_optional_dependency
+   except ModuleNotFoundError:
+     ...  # handle missing dependency
+
+However, this can lead to difficult-to-debug errors when
+``your_optional_dependency`` *is* installed, but at the wrong version (e.g.
+because another installed package depends on it with a wider version
+requirement than specified by your extra).
 
 
-Using ``pkg_resources``
-=======================
+Using ``pkg_resources`` (deprecated)
+====================================
 
-The now-deprecated ``pkg_resources`` package (part of the ``setuptools``
-distribution) provides a ``require`` function that you can use to check if a
-given optional dependency of your package is installed or not:
+The now-deprecated :ref:`pkg_resources <ResourceManager API>` package (part of
+the ``setuptools`` distribution) provides a ``require`` function that you can
+use to check if a given optional dependency of your package is installed or
+not:
+
+.. :: TODO ask setuptools to add labels for pkg_resources & require, then link
+      properly
 
 
 .. code-block:: python
@@ -55,11 +71,25 @@ given optional dependency of your package is installed or not:
    except VersionConflict:
      ...  # handle version mismatches
 
-Unfortunately, no replacement for this functionality exists in
-``pkg_resources``'s successor packages yet
-(`packaging-problems #664 <packaging-problems #664>`_).
+Unfortunately, no drop-in replacement for this functionality exists in
+``pkg_resources``'s "official" successor packages yet
+(`packaging-problems #317 <packaging-problems-317_>`_).
+
+
+Using 3rd-party libraries
+=========================
+
+In response to the aforementioned lack of a replacement for
+``pkg_resources.require``, at least one 3rd party implementation of this
+functionality using only the ``packaging`` and ``importlib.metadata`` modules
+has been created (`packaging-problems #664 <packaging-problems-664_>`_) and
+made available in the 3rd-party `hbutils <https://pypi.org/project/hbutils/>`_
+package as ``hbutils.system.check_reqs``.
 
 
 ------------------
 
+.. _packaging-problems-317: https://github.com/pypa/packaging-problems/issues/317
+
 .. _packaging-problems-664: https://github.com/pypa/packaging-problems/issues/664
+
