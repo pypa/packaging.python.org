@@ -7,8 +7,8 @@ Single-sourcing the Project Version
 :Page Status: Complete
 :Last Reviewed: 2024-10-02
 
-Many Python :ref:`distribution packages <Distribution Package>` publish a single
-Python :ref:`import package <Import Package>` where it is desired that the runtime
+Many Python :term:`distribution packages <Distribution Package>` publish a single
+Python :term:`import package <Import Package>` where it is desired that the runtime
 ``__version__`` attribute on the import package report the same version specifier
 as :func:`importlib.metadata.version` reports for the distribution package
 (as described in :ref:`runtime-version-access`).

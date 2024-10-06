@@ -176,7 +176,7 @@ since the latest release, setuptools-scm generates a version like
 Accessing version information at runtime
 ========================================
 
-Version information for all :ref:`distribution packages <Distribution Package>`
+Version information for all :term:`distribution packages <Distribution Package>`
 that are locally available in the current environment can be obtained at runtime
 using the standard library's :func:`importlib.metadata.version` function::
 
@@ -184,7 +184,7 @@ using the standard library's :func:`importlib.metadata.version` function::
    '23.3.2'
 
 Many libraries also choose to version their top level
-:ref:`import packages <Import Package>` by providing a package level
+:term:`import packages <Import Package>` by providing a package level
 ``__version__`` attribute::
 
    >>> import pip
