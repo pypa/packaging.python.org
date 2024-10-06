@@ -178,7 +178,7 @@ Accessing version information at runtime
 
 Version information for all :term:`distribution packages <Distribution Package>`
 that are locally available in the current environment can be obtained at runtime
-using the standard library's :func:`importlib.metadata.version` function::
+using the standard library's ``importlib.metadata.version`` function::
 
    >>> importlib.metadata.version("pip")
    '23.3.2'
