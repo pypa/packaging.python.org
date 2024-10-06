@@ -192,7 +192,7 @@ Many libraries also choose to version their top level
    '23.3.2'
 
 Import packages are *not* required to be versioned independently of their
-distibution package version information (see the rejected proposal in
+distribution package version information (see the rejected proposal in
 :pep:`PEP 396 <396>`), so this approach to retrieving runtime version
 information should only be used with libraries that are known to provide it.
 
