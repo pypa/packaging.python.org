@@ -1,31 +1,39 @@
-.. _`Single sourcing the version discussion`:
+.. _single-source-version:
 
 ===================================
 Single-sourcing the Project Version
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2024-08-24
+:Last Reviewed: 2024-10-02
 
-One of the challenges in building packages is that the version string can be required in multiple places.
+Many Python :ref:`distribution packages <Distribution Package>` publish a single
+Python :ref:`import package <Import Package>` where it is desired that the runtime
+``__version__`` attribute on the import package report the same version specifier
+as :func:`importlib.metadata.version` reports for the distribution package
+(as described in :ref:`runtime-version-access`).
 
-* It needs to be specified when building the package (e.g. in :file:`pyproject.toml`)
-   This will make it available in the installed package’s metadata, from where it will be accessible at runtime using ``importlib.metadata.version("distribution_name")``.
+It is also frequently desired that this version information be derived from a version
+control system *tag* (such as ``v1.2.3``) rather than being manually updated in the
+source code.
 
-* A package may set a module attribute (e.g., ``__version__``) to provide an alternative means of runtime access to the version of the imported package. If this is done, the value of the attribute and that used by the build system to set the distribution's version should be kept in sync in :ref:`the build systems's recommended way <Build system version handling>`.
+To ensure that version numbers do not get out of sync, it may be sufficient to add
+an automated test case that ensure ``package.__version__`` and
+``importlib.metadata.version("package")`` report the same value.
 
-* If the code is in in a version control system (VCS), e.g. Git, the version may appear in a *tag* such as ``v1.2.3``.
-
-To ensure that version numbers do not get out of sync, it is recommended that there is a single source of truth for the version number.
+Alternatively, a project's chosen build system mar offer a way to define a single
+source of truth for the version number.
 
 In general, the options are:
 
 1) If the code is in a version control system (VCS), e.g. Git, then the version can be extracted from the VCS.
 
-2) The version can be hard-coded into the :file:`pyproject.toml` file -- and the build system can copy it into other locations it may be required.
+2) The version can be hard-coded into the :file:`pyproject.toml` file -- and the build system can copy it
+   into other locations it may be required.
 
-3) The version string can be hard-coded into the source code -- either in a special purpose file, such as :file:`_version.txt`, or as a attribute in a module, such as :file:`__init__.py`, and the build system can extract it at build time.
-
+3) The version string can be hard-coded into the source code -- either in a special purpose file,
+   such as :file:`_version.txt`, or as an attribute in a module, such as :file:`__init__.py`, and the build
+   system can extract it at build time.
 
 Consult your build system's documentation for their recommended method.
 

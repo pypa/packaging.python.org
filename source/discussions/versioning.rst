@@ -153,7 +153,6 @@ numbering scheme that readily conveys the approximate age of a release, but
 doesn't otherwise commit to a particular release cadence within the year.
 
 
-
 Local version identifiers
 =========================
 
@@ -171,6 +170,49 @@ that reads the version from Git data. In a Git repository with some commits
 since the latest release, setuptools-scm generates a version like
 "0.5.dev1+gd00980f", or if the repository has untracked changes, like
 "0.5.dev1+gd00980f.d20231217".
+
+.. _runtime-version-access:
+
+Accessing version information at runtime
+========================================
+
+Version information for all :ref:`distribution packages <Distribution Package>`
+that are locally available in the current environment can be obtained at runtime
+using the standard library's :func:`importlib.metadata.version` function::
+
+   >>> importlib.metadata.version("pip")
+   '23.3.2'
+
+Many libraries also choose to version their top level
+:ref:`import packages <Import Package>` by providing a package level
+``__version__`` attribute::
+
+   >>> import pip
+   >>> pip.__version__
+   '23.3.2'
+
+Import packages are *not* required to be versioned independently of their
+distibution package version information (see the rejected proposal in
+:pep:`PEP 396 <396>`), so this approach to retrieving runtime version
+information should only be used with libraries that are known to provide it.
+
+Library publishers wishing to ensure their reported distribution package and
+import package versions are consistent with each other can review the
+:ref:`single-source-version` discussion for potential approaches to doing so.
+
+Some libraries may need to publish version information for external APIs
+that don't meet the requirements for Python distribution package
+:ref:`version specifiers <version-specifiers>`. Such libraries should
+define their own library-specific ways of obtaining the relevant information
+at runtime. For example, the standard library's :mod:`ssl` module offers
+multiple ways to access the underlying OpenSSL library version::
+
+   >>> ssl.OPENSSL_VERSION
+   'OpenSSL 3.2.2 4 Jun 2024'
+   >>> ssl.OPENSSL_VERSION_INFO
+   (3, 2, 0, 2, 0)
+   >>> ssl.OPENSSL_VERSION_NUMBER
+   807403552
 
 
 --------------------------------------------------------------------------------
