@@ -18,10 +18,10 @@ control system *tag* (such as ``v1.2.3``) rather than being manually updated in 
 source code.
 
 To ensure that version numbers do not get out of sync, it may be sufficient to add
-an automated test case that ensure ``package.__version__`` and
+an automated test case that ensures ``package.__version__`` and
 ``importlib.metadata.version("package")`` report the same value.
 
-Alternatively, a project's chosen build system mar offer a way to define a single
+Alternatively, a project's chosen build system may offer a way to define a single
 source of truth for the version number.
 
 In general, the options are:
