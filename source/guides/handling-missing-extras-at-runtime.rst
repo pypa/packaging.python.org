@@ -148,8 +148,8 @@ event that the extra is missing:
    optional_dependency = raise_missing_extra
 
 Note that, if imports are not mere functions but also objects like classes that
-are subclassed from, the except shape of the dummy objects can get more
-involved depending on the expected usage, e.g.
+are subclassed from, the exact shape of the dummy objects can get more involved
+depending on the expected usage, e.g.
 
 .. code-block:: python
 
