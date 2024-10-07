@@ -13,7 +13,7 @@ This can make for a bad user experience, because there is no guidance about why
 the module is missing - users might think they've found a bug. If you're not
 careful, it can even make your package unusable without the extras installed,
 e.g. if your package is a library that imports the affected modules from the
-top-level module or from the application entry point if it's an application.
+top-level module or if it's an application that imports them unconditionally.
 
 As of the time of writing, there is no *great* way to handle this issue in
 the Python packaging ecosystem, but there are a few options that might be
