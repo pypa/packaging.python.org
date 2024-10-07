@@ -5,4 +5,4 @@
 
 Redirecting stale single-source package version link...
 
-If the page doesn't automatically refresh, click :ref:`here <single-source-version>`.
+If the page doesn't automatically refresh, see :ref:`single-source-version`.
