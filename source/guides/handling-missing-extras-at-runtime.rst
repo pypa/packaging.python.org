@@ -45,17 +45,20 @@ because another installed package depends on it with a wider version
 requirement than specified by your extra).
 
 
-Using ``pkg_resources``
------------------------
+Using ``pkg_resources`` (deprecated)
+------------------------------------
 
-The now-deprecated :ref:`pkg_resources <ResourceManager API>` package (part of
-the ``setuptools`` distribution) provides a ``require`` function that you can
-use to check if a given optional dependency of your package is installed or
-not:
+.. attention::
 
-.. :: TODO ask setuptools to add labels for pkg_resources & require, then link
-      properly
+   ``pkg_resources`` is **deprecated** and the PyPA **strongly discourages**
+   its use.
+   This method is included in this guide for completeness's sake and only until
+   functionality with a similar level of comfort exists in
+   ``importlib.metadata`` or ``packaging``.
 
+The now-deprecated `pkg_resources <pkg_resources_>`_ package (part of the
+``setuptools`` distribution) provides a ``require`` function that you can use
+to check if a given optional dependency of your package is installed or not:
 
 .. code-block:: python
 
@@ -208,6 +211,8 @@ TODO mention that you might want to provide a way for users to check
 
 
 ------------------
+
+.. _pkg_resources: https://setuptools.pypa.io/en/latest/pkg_resources.html
 
 .. _packaging-problems-317: https://github.com/pypa/packaging-problems/issues/317
 
