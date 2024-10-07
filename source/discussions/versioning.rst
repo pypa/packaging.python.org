@@ -180,8 +180,8 @@ Version information for all :term:`distribution packages <Distribution Package>`
 that are locally available in the current environment can be obtained at runtime
 using the standard library's :func:`importlib.metadata.version` function::
 
-   >>> importlib.metadata.version("pip")
-   '23.3.2'
+   >>> importlib.metadata.version("cryptography")
+   '41.0.7'
 
 Many projects also choose to version their top level
 :term:`import packages <Import Package>` by providing a package level
@@ -199,12 +199,13 @@ Package publishers wishing to ensure their reported distribution package and
 import package versions are consistent with each other can review the
 :ref:`single-source-version` discussion for potential approaches to doing so.
 
-However, as import packages and modules are not *required* to publish runtime
+As import packages and modules are not *required* to publish runtime
 version information in this way (see the rejected proposal in
 :pep:`PEP 396 <396>`), the ``__version__`` attribute should either only be
-queried with interfaces that are known to provide it, or else the querying
-code should be designed to handle the case where the attribute is missing
-[#fallback-to-dist-version]_.
+queried with interfaces that are known to provide it (such as a project
+querying its own version or the version of one of its direct dependencies),
+or else the querying code should be designed to handle the case where the
+attribute is missing [#fallback-to-dist-version]_.
 
 Some projects may need to publish version information for external APIs
 that don't meet the requirements for Python distribution package
