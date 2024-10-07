@@ -123,6 +123,8 @@ just raise a custom exception indicating which extra would be required:
 
 .. code-block:: python
 
+   from dataclasses import dataclass
+
    @dataclass
    class MissingExtra(Exception):
      name: str
@@ -196,7 +198,50 @@ import when the functionality requiring it is actually used. E.g.:
 
 .. code-block:: python
 
-   def import_extra_func_if_avail():
+   def import_extra_module_if_avail():
+     # surround this with the appropriate checks / error handling:
+     ...
+     import your_optional_dependency
+     ...
+
+     return your_optional_dependency
+
+   ...
+
+   def some_func_requiring_your_extra():
+     try:
+       optional_module = import_extra_module_if_avail()
+     except MissingExtra:
+       ...  # handle missing extra
+
+     # now you can use functionality from the optional dependency, e.g.:
+     optional_module.extra_func(...)
+
+While this solution is more robust than the one from the preceding subsection,
+it can take more effort to make it work with
+:term:`static type checking <static type checker>`:
+To correctly statically type a function returning a module, you'd have to
+introduce an "artificial" type representing the latter, e.g.
+
+.. code-block:: python
+
+   from typing import cast, Protocol
+
+   class YourOptionalModuleType(Protocol):
+     extra_func: Callable[...]
+     ...  # other objects you want to use
+
+   def some_func_requiring_your_extra() -> YourOptionalModuleType:
+     ...
+
+     return cast(YourOptionalModuleType, optional_module)
+
+An alternative would be to instead have functions that import and return only
+the objects you actually need:
+
+.. code-block:: python
+
+   def import_extra_func_if_avail() -> Callable[...]:
      # surround this with the appropriate checks / error handling:
      ...
      from your_optional_dependency import extra_func
@@ -204,21 +249,8 @@ import when the functionality requiring it is actually used. E.g.:
 
      return extra_func
 
-   ...
+But this can become verbose when you import a lot of names.
 
-   def some_func_requiring_your_extra():
-     try:
-       some_function = import_extra_func_if_avail()
-     except MissingExtra:
-       ...  # handle missing extra
-
-While this solution is more robust than the one from the preceding subsection,
-it can take more effort to make it work with static type checking.
-
-Interaction with static type checking
-=====================================
-
-TODO either put here or directly in previous sections... not sure
 
 Other considerations
 ====================
