@@ -5,7 +5,7 @@ Single-sourcing the Project Version
 ===================================
 
 :Page Status: Complete
-:Last Reviewed: 2024-10-02
+:Last Reviewed: 2024-10-07
 
 Many Python :term:`distribution packages <Distribution Package>` publish a single
 Python :term:`import package <Import Package>` where it is desired that the runtime
