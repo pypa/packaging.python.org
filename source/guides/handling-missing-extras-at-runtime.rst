@@ -45,6 +45,37 @@ because another installed package depends on it with a wider version
 requirement than specified by your extra).
 
 
+Using ``importlib.metadata`` and ``packaging``
+----------------------------------------------
+
+As a safer alternative that does check whether the optional dependencies are
+installed at the correct versions, :py:mod:`importlib.metadata` and
+:ref:`packaging` can be used to iterate through the extra's requirements
+recursively and check whether all are installed in the current environment.
+
+This process is currently quite involved. An implementation can be found in
+`packaging-problems #664 <packaging-problems-664_>`_, which is also made
+available in the `hbutils <https://pypi.org/project/hbutils/>`_ package as
+``hbutils.system.check_reqs``.
+The possibility of offering a similar helper function in ``importlib.metadata``
+or ``packaging`` themselves is still being discussed
+(`packaging-problems #317 <packaging-problems-317_>`_).
+
+With ``check_reqs`` included in your codebase or imported from ``hbutils``,
+usage is as simple as:
+
+.. code-block:: python
+
+   extra_installed = check_reqs(["your-package[your-extra]"])
+
+In contrast to the method above, this is typically done in :term:`LBYL` style
+prior to importing the modules in question.
+In principle, it could also be done after the imports succeeded just to check
+the version, in which case the imports themselves would have to be wrapped in a
+``try``-``except`` block to handle the possibility of not being installed at
+all.
+
+
 Using ``pkg_resources`` (deprecated)
 ------------------------------------
 
@@ -53,12 +84,13 @@ Using ``pkg_resources`` (deprecated)
    ``pkg_resources`` is **deprecated** and the PyPA **strongly discourages**
    its use.
    This method is included in this guide for completeness's sake and only until
-   functionality with a similar level of comfort exists in
+   functionality with a similar level of convenience exists in
    ``importlib.metadata`` or ``packaging``.
 
 The now-deprecated `pkg_resources <pkg_resources_>`_ package (part of the
-``setuptools`` distribution) provides a ``require`` function that you can use
-to check if a given optional dependency of your package is installed or not:
+``setuptools`` distribution) provides a ``require`` function, which was the
+inspiration for ``check_reqs`` from the previous section. Its usage is quite
+similar to ``check_reqs`` but not identical:
 
 .. code-block:: python
 
@@ -70,21 +102,6 @@ to check if a given optional dependency of your package is installed or not:
      ...  # handle package(s) not being installed at all
    except VersionConflict:
      ...  # handle version mismatches
-
-Unfortunately, no drop-in replacement for this functionality exists in
-``pkg_resources``'s "official" successor packages yet
-(`packaging-problems #317 <packaging-problems-317_>`_).
-
-
-Using 3rd-party libraries
--------------------------
-
-In response to the aforementioned lack of a replacement for
-``pkg_resources.require``, at least one 3rd party implementation of this
-functionality using only the ``packaging`` and ``importlib.metadata`` modules
-has been created (`packaging-problems #664 <packaging-problems-664_>`_) and
-made available in the 3rd-party `hbutils <https://pypi.org/project/hbutils/>`_
-package as ``hbutils.system.check_reqs``.
 
 
 Handling missing extras
