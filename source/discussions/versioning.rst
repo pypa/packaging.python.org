@@ -153,7 +153,6 @@ numbering scheme that readily conveys the approximate age of a release, but
 doesn't otherwise commit to a particular release cadence within the year.
 
 
-
 Local version identifiers
 =========================
 
@@ -172,6 +171,55 @@ since the latest release, setuptools-scm generates a version like
 "0.5.dev1+gd00980f", or if the repository has untracked changes, like
 "0.5.dev1+gd00980f.d20231217".
 
+.. _runtime-version-access:
+
+Accessing version information at runtime
+========================================
+
+Version information for all :term:`distribution packages <Distribution Package>`
+that are locally available in the current environment can be obtained at runtime
+using the standard library's :func:`importlib.metadata.version` function::
+
+   >>> importlib.metadata.version("cryptography")
+   '41.0.7'
+
+Many projects also choose to version their top level
+:term:`import packages <Import Package>` by providing a package level
+``__version__`` attribute::
+
+   >>> import cryptography
+   >>> cryptography.__version__
+   '41.0.7'
+
+This technique can be particularly valuable for CLI applications which want
+to ensure that version query invocations (such as ``pip -V``) run as quickly
+as possible.
+
+Package publishers wishing to ensure their reported distribution package and
+import package versions are consistent with each other can review the
+:ref:`single-source-version` discussion for potential approaches to doing so.
+
+As import packages and modules are not *required* to publish runtime
+version information in this way (see the rejected proposal in
+:pep:`PEP 396 <396>`), the ``__version__`` attribute should either only be
+queried with interfaces that are known to provide it (such as a project
+querying its own version or the version of one of its direct dependencies),
+or else the querying code should be designed to handle the case where the
+attribute is missing [#fallback-to-dist-version]_.
+
+Some projects may need to publish version information for external APIs
+that don't meet the requirements for Python distribution package
+:ref:`version specifiers <version-specifiers>`. Such projects should
+define their own project-specific ways of obtaining the relevant information
+at runtime. For example, the standard library's :mod:`ssl` module offers
+multiple ways to access the underlying OpenSSL library version::
+
+   >>> ssl.OPENSSL_VERSION
+   'OpenSSL 3.2.2 4 Jun 2024'
+   >>> ssl.OPENSSL_VERSION_INFO
+   (3, 2, 0, 2, 0)
+   >>> hex(ssl.OPENSSL_VERSION_NUMBER)
+   '0x30200020'
 
 --------------------------------------------------------------------------------
 
@@ -184,6 +232,15 @@ since the latest release, setuptools-scm generates a version like
    Brett Cannon <semver-brett-cannon_>`_. For a humoristic take, read about
    ZeroVer_.
 
+.. [#fallback-to-dist-version] A full list mapping the top level names available
+   for import to the distribution packages that provide those import packages and
+   modules may be obtained through the standard library's
+   :func:`importlib.metadata.packages_distributions` function. This means that
+   even code that is attempting to infer a version to report for all importable
+   top-level names has a means to fall back to reporting the distribution
+   version information if no ``__version__`` attribute is defined. Only standard
+   library modules, and modules added via means other than Python package
+   installation would fail to have version information reported in that case.
 
 
 .. _zerover: https://0ver.org
