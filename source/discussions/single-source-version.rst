@@ -10,7 +10,7 @@ Single-sourcing the Project Version
 Many Python :term:`distribution packages <Distribution Package>` publish a single
 Python :term:`import package <Import Package>` where it is desired that the runtime
 ``__version__`` attribute on the import package report the same version specifier
-as :func:`!importlib.metadata.version` reports for the distribution package
+as :func:`importlib.metadata.version` reports for the distribution package
 (as described in :ref:`runtime-version-access`).
 
 It is also frequently desired that this version information be derived from a version

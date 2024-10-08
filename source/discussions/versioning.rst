@@ -178,7 +178,7 @@ Accessing version information at runtime
 
 Version information for all :term:`distribution packages <Distribution Package>`
 that are locally available in the current environment can be obtained at runtime
-using the standard library's :func:`!importlib.metadata.version` function::
+using the standard library's :func:`importlib.metadata.version` function::
 
    >>> importlib.metadata.version("cryptography")
    '41.0.7'
@@ -235,7 +235,7 @@ multiple ways to access the underlying OpenSSL library version::
 .. [#fallback-to-dist-version] A full list mapping the top level names available
    for import to the distribution packages that provide those import packages and
    modules may be obtained through the standard library's
-   :func:`!importlib.metadata.packages_distributions` function. This means that
+   :func:`importlib.metadata.packages_distributions` function. This means that
    even code that is attempting to infer a version to report for all importable
    top-level names has a means to fall back to reporting the distribution
    version information if no ``__version__`` attribute is defined. Only standard
