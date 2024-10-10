@@ -210,6 +210,6 @@ has now been reduced to the role of a build backend.
 Where to read more about this?
 ==============================
 
-* `Why you shouldn't invoke setup.py directly by Paul Ganssle <https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html>`__
+* `Why you shouldn't invoke setup.py directly <https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html>`__ by Paul Ganssle
 
 * :doc:`setuptools:deprecated/commands`
