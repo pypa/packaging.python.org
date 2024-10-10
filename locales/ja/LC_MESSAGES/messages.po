@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-19 16:34+0000\n"
-"PO-Revision-Date: 2024-09-05 02:09+0000\n"
+"PO-Revision-Date: 2024-10-10 08:34+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7.2-rc\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -2644,7 +2644,7 @@ msgstr ""
 #: ../source/discussions/versioning.rst:158
 #: ../source/specifications/version-specifiers.rst:114
 msgid "Local version identifiers"
-msgstr "ローカルのバージョン指定子"
+msgstr "ローカルバージョン指定子"
 
 #: ../source/discussions/versioning.rst:160
 msgid ""
@@ -23934,12 +23934,15 @@ msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can."
 msgstr ""
+"それが合理的に実行可能である限り、サーバ側が駆動するコンテンツネゴシエーショ"
+"ンを使ってこの仕様に記述された３個のコンテント型の全てをサポートすること。"
 
 #: ../source/specifications/simple-repository-api.rst:851
 msgid ""
 "When constructing an ``Accept`` header, include all of the content types "
 "that you support."
-msgstr ""
+msgstr "``Accept`` "
+"ヘッダを構築する時、サポートしているコンテント型の全てを含めること。"
 
 #: ../source/specifications/simple-repository-api.rst:854
 msgid ""
@@ -23949,6 +23952,11 @@ msgid ""
 "library HTML parser and you're worried that there may be some kinds of HTML "
 "responses that you're unable to parse in some edge cases)."
 msgstr ""
+"サーバ側で考慮に入れてもらいたい特定の理由 (例えば、標準ライブラリの HTML "
+"パーサを使っていて、何らかのエッジケースにおいてパースできない何らかの種類の "
+"HTML 応答があるかもしれないと心配している場合) のある実装でない限り、"
+"一般的にコンテント型にはクオリティ優先度 <quality priority> "
+"を含めるべきではありません。"
 
 #: ../source/specifications/simple-repository-api.rst:860
 msgid ""
@@ -23956,22 +23964,27 @@ msgid ""
 "*should* include a ``;q=0.01`` value on the legacy ``text/html`` content "
 "type, unless it is the only content type that you are requesting."
 msgstr ""
+"この推奨事項に対する例外のひとつは、それがリクエストしている唯一のコンテント"
+"型であるという場合を除けば、伝統的な ``text/html`` コンテント型には ``;q=0."
+"01`` を含めることが推奨されるということです。"
 
 #: ../source/specifications/simple-repository-api.rst:864
 msgid ""
 "Explicitly select what versions they are looking for, rather than using the "
 "``latest`` meta version during normal operation."
-msgstr ""
+msgstr "通常操作では ``latest`` メタバージョンを使うのではなくて、希求しているバージ"
+"ョンがどれであるかを明示的に選択すること。"
 
 #: ../source/specifications/simple-repository-api.rst:867
 msgid ""
 "Check the ``Content-Type`` of the response and ensure it matches something "
 "that you were expecting."
-msgstr ""
+msgstr "応答の ``Content-Type`` "
+"を調べて、こちらが期待しているものに合致していることを確認すること。"
 
 #: ../source/specifications/simple-repository-api.rst:871
 msgid "Additional Fields for the Simple API for Package Indexes"
-msgstr ""
+msgstr "パッケージインデックス用のシンプル API 向けの追加的なフィールド"
 
 #: ../source/specifications/simple-repository-api.rst:873
 msgid ""
@@ -23979,32 +23992,41 @@ msgid ""
 "HTML version of the API, there is no change from version 1.0. For the JSON "
 "version of the API, the following changes are made:"
 msgstr ""
+"この仕様では、シンプルなリポジトリ API のバージョン 1.1 を定義します。API の "
+"HTML バージョンについては、バージョン 1.0 から何ら変わるところがありません。"
+"API の JSON バージョンについては、以下のような変更が行われました:"
 
 #: ../source/specifications/simple-repository-api.rst:877
 msgid "The ``api-version`` must specify version 1.1 or later."
-msgstr ""
+msgstr "``api-version`` に 1.1 またはそれ以降のバージョンを指定しなければなりません。"
 
 #: ../source/specifications/simple-repository-api.rst:878
 msgid "A new ``versions`` key is added at the top level."
-msgstr ""
+msgstr "トップレベルに ``version`` キーが新規に追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:879
 msgid ""
 "Two new \"file information\" keys, ``size`` and ``upload-time``, are added "
 "to the ``files`` data."
 msgstr ""
+"\"ファイル情報\" のキー群のふたつのキー、 つまり ``size`` と ``upload-time`` "
+"、が ``files`` データに追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:881
 msgid ""
 "Keys (at any level) with a leading underscore are reserved as private for "
 "index server use. No future standard will assign a meaning to any such key."
 msgstr ""
+"(どのレベルでも) 先頭にアンダースコアを伴うキーは、インデックスサーバが使うプ"
+"ライベートなものとして予約されています。将来の標準において、このようなキーに"
+"意味を付与することはありません。"
 
 #: ../source/specifications/simple-repository-api.rst:884
 msgid ""
 "The ``versions`` and ``size`` keys are mandatory. The ``upload-time`` key is "
 "optional."
-msgstr ""
+msgstr "``versions`` キーと ``size`` キーは必須のものです。 ``upload-time`` "
+"キーはオプションです。"
 
 #: ../source/specifications/simple-repository-api.rst:890
 msgid ""
@@ -24015,6 +24037,12 @@ msgid ""
 "for this project. The value is logically a set, and as such may not contain "
 "duplicates, and the order of the values is not significant."
 msgstr ""
+"追加のキーである ``versions`` は、 :ref:`JSON API 仕様 <simple-repository-"
+"api-json>` で定義された ``name`` キー・ ``files`` キーや ``meta`` キーに加え"
+"て、トップレベルに存在しなければなりません。このキーは、このプロジェクトよう"
+"にアップロードされたプロジェクトのバージョンの全てを指定するバージョン文字列"
+"を列挙したものを含んでいなければなりません。その値は論理的に言って集合であり"
+"、したがって重複を許さず、値の順序は大きな意味を持ちません。"
 
 #: ../source/specifications/simple-repository-api.rst:897
 msgid ""
@@ -24023,6 +24051,11 @@ msgid ""
 "versions with no associated files (to represent versions with no files "
 "uploaded, if the server has such a concept)."
 msgstr ""
+"``files`` キーに列挙されたファイルは、すべて、 ``versions`` "
+"キー内のバージョンのひとつに対応していなければなりません。 ``versions`` "
+"キーは、 (サーバ側がそのような概念を持っているならば、ファイルなしのバージョ"
+"ンというものを表現するために) "
+"対応するファイルがないバージョンを含んでいても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:902
 msgid ""
@@ -24032,21 +24065,27 @@ msgid ""
 "therefore cannot be assumed to be orderable using the VSS rules. However, "
 "servers SHOULD use normalised VSS versions where possible."
 msgstr ""
+":ref:`バージョン指定子仕様 (VSS) <version-specifiers>` の採用前からの "
+"\"レガシー\" データをサーバが保持しているかもしれないので、"
+"バージョン文字列について VSS "
+"に則ったバージョンであることを要求することはできませんし、したがって、 VSS の"
+"ルールを使って並べることができると仮定することもできません。しかしながら、サ"
+"ーバ側は、可能であれば正規化された VSS バージョンを使うべきです。"
 
 #: ../source/specifications/simple-repository-api.rst:911
-#, fuzzy
 msgid "Additional file information"
-msgstr "補遺"
+msgstr "補足的なファイル情報"
 
 #: ../source/specifications/simple-repository-api.rst:913
 msgid "Two new keys are added to the ``files`` key."
-msgstr ""
+msgstr "``files`` キーにふたつの新しいキーが追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:915
 msgid ""
 "``size``: This field is mandatory. It MUST contain an integer which is the "
 "file size in bytes."
-msgstr ""
+msgstr "``size``: このフィールドは必須のものです。ファイルサイズをバイト単位で表した"
+"整数が含まれていなければなりません。"
 
 #: ../source/specifications/simple-repository-api.rst:917
 msgid ""
@@ -24059,10 +24098,19 @@ msgid ""
 "record upload time information for a file, it MAY omit the ``upload-time`` "
 "key."
 msgstr ""
+"``upload-time`` このフィールドはオプションです。もし存在するなら、正当な ISO "
+"8601 形式の年月日・時刻が含まれていなければならず、そのフォーマットは ``yyyy-"
+"mm-ddThh:mm:ss.ffffffZ`` "
+"で、当該ファイルがインデックスにアップロードされた時点を表します。後置された "
+"``Z`` が示すように、アップロード日時は必ず UTC "
+"タイムゾーンを使わなければなりません。タイムスタンプの秒に満たない部分 (``."
+"ffffff`` の部分) はオプションで、もし存在するなら６桁までの精度を含めて構いま"
+"せん。サーバ側がファイルのアップロード日時を記録していない場合は、 ``upload-"
+"time`` キーを省略しても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:926
 msgid "Rename dist-info-metadata in the Simple API"
-msgstr ""
+msgstr "シンプル API の dist-info-metadata の名称変更"
 
 #: ../source/specifications/simple-repository-api.rst:929
 msgid ""
@@ -24071,10 +24119,14 @@ msgid ""
 "\"**RECOMMENDED**\", \"**MAY**\", and \"**OPTIONAL**\"\" in this document "
 "are to be interpreted as described in :rfc:`RFC 2119 <2119>`."
 msgstr ""
+"この説明文書では、 \"**MUST**\" ・ \"**MUST NOT**\" ・ \"**REQUIRED**\" ・ \""
+"**SHALL**\" ・ \"**SHALL NOT**\", ・ **SHOULD**\" ・ \"**SHOULD NOT**\" ・ \""
+"**RECOMMENDED**\" ・ \"**MAY**\" ・ \"**OPTIONAL**\"\" を :rfc:`RFC 2119 "
+"<2119>` で記述された意味に解釈します。"
 
 #: ../source/specifications/simple-repository-api.rst:936
 msgid "Servers"
-msgstr ""
+msgstr "サーバ"
 
 #: ../source/specifications/simple-repository-api.rst:938
 msgid ""
@@ -24083,6 +24135,10 @@ msgid ""
 "API, **MUST** be emitted using the attribute name ``data-core-metadata``, "
 "with the supported values remaining the same."
 msgstr ""
+"シンプル APIの HTML 表現の中で用いられる時は、 :ref:`API "
+"メタデータファイルの仕様 <simple-repository-api-metadata-file>` "
+"のメタデータは ``data-core-metadata`` という名称のアトリビュートを使ってサポ"
+"ートされている値が同一のまま発信されなければなりません。"
 
 #: ../source/specifications/simple-repository-api.rst:944
 msgid ""
@@ -24092,6 +24148,11 @@ msgid ""
 "**MUST** be emitted using the key ``core-metadata``, with the supported "
 "values remaining the same."
 msgstr ""
+":ref:`API メタデータファイルの仕様 <simple-repository-api-metadata-file>` "
+"のメタデータは、シンプル API の :ref:`JSON API 仕様 <simple-repository-api-"
+"base>` による JSON 表現で使われる場合、"
+"サポートされている値は同一に保ったままで ``core-metadata`` キーを使って "
+"**送信されなければなりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:950
 msgid ""
@@ -24099,6 +24160,10 @@ msgid ""
 "**MAY** also be emitted using the ``data-dist-info-metadata``, and if it "
 "does so it **MUST** match the value of ``data-core-metadata``."
 msgstr ""
+"以前のキーの名称を使っているクライアントをサポートするためには、 HTML "
+"表現では ``data-dist-info-metadata`` を使って送信しても **構いません** し、"
+"その場合には ``data-core-metadata`` の値と **合致していなければなりません** "
+"。"
 
 #: ../source/specifications/simple-repository-api.rst:959
 msgid ""
@@ -24108,6 +24173,12 @@ msgid ""
 "present. They **MAY** optionally use the legacy ``data-dist-info-metadata`` "
 "if it is present but ``data-core-metadata`` is not."
 msgstr ""
+"シンプル API の HTML 表現を消費するクライアントは、もしそれが存在するならば、"
+" :ref:`API メタデータファイルの仕様 <simple-repository-api-metadata-file>` "
+"のメタデータを ``data-core-metadata`` キーから **読み込まなければなりません**"
+" 。従来の ``data-dist-info-metadata`` キーは存在しているが ``data-core-"
+"metadata`` は存在していないという場合には、オプションとして前者を "
+"**使っても構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:966
 msgid ""
@@ -24117,48 +24188,59 @@ msgid ""
 "They **MAY** optionally use the legacy ``dist-info-metadata`` key if it is "
 "present but ``core-metadata`` is not."
 msgstr ""
+"シンプル API の JSON 表現を消費するクライアントは、もしそれが存在するならば、"
+" :ref:`API メタデータファイルの仕様 <simple-repository-api-metadata-file>` "
+"のメタデータを ``core-metadata`` キーから **読み込まなければなりません** 。"
+"従来の ``dist-info-metadata`` キーは存在しているが ``core-metadata`` "
+"は存在していないという場合には、オプションとして前者を **使っても構いません**"
+" 。"
 
 #: ../source/specifications/simple-repository-api.rst:976
 msgid "September 2015: initial form of the HTML format, in :pep:`503`"
-msgstr ""
+msgstr "2015年9月: :pep:`503` で HTML フォーマットの初期フォーム"
 
 #: ../source/specifications/simple-repository-api.rst:977
 msgid "July 2016: Requires-Python metadata, in an update to :pep:`503`"
-msgstr ""
+msgstr "2016年7月: :pep:`503` で Requires-Python メタデータ"
 
 #: ../source/specifications/simple-repository-api.rst:978
 msgid "May 2019: \"yank\" support, in :pep:`592`"
-msgstr ""
+msgstr "2019年5月: :pep:`592` で \"ヤンク <yank>\" サポート"
 
 #: ../source/specifications/simple-repository-api.rst:979
 msgid ""
 "July 2020: API versioning convention and metadata, and declaring the HTML "
 "format as API v1, in :pep:`629`"
-msgstr ""
+msgstr "2020年7月: :pep:`629` で、 API バージョン付け慣行とメタデータ、 HTML "
+"フォーマットを API v1.として宣言"
 
 #: ../source/specifications/simple-repository-api.rst:981
 msgid ""
 "May 2021: providing package metadata independently from a package, in :pep:"
 "`658`"
-msgstr ""
+msgstr "2021年5月: :pep:`658` で、パッケージとは独立にパッケージのメタデータを提供"
 
 #: ../source/specifications/simple-repository-api.rst:983
 msgid ""
 "May 2022: initial form of the JSON format, with a mechanism for clients to "
 "choose between them, and declaring both formats as API v1, in :pep:`691`"
 msgstr ""
+"2022年5月: :pep:`691` により、クライアント側が選択する機構とともに JSON "
+"フォーマットの初期の形、両フォーマットを API v1 として宣言"
 
 #: ../source/specifications/simple-repository-api.rst:985
 msgid ""
 "October 2022: project versions and file size and upload-time in the JSON "
 "format, in :pep:`700`"
-msgstr ""
+msgstr "2022年10月: :pep:`700` により、 JSON "
+"フォーマットにおけるプロジェクトバージョン・ファイルサイズ・アップロード日時"
 
 #: ../source/specifications/simple-repository-api.rst:987
 msgid ""
 "June 2023: renaming the field which provides package metadata independently "
 "from a package, in :pep:`714`"
-msgstr ""
+msgstr "2023年6月: :pep:`714` により、パッケージから独立したパッケージメタデータを提"
+"供するフィールドを名称変更"
 
 #: ../source/specifications/source-distribution-format.rst:6
 msgid "Source distribution format"
@@ -24248,15 +24330,14 @@ msgstr ""
 "値に合致しなければなりません。"
 
 #: ../source/specifications/source-distribution-format.rst:45
-#, fuzzy
 msgid ""
 "Code that produces a source distribution file MUST give the file a name that "
 "matches this specification. This includes the ``build_sdist`` hook of a :"
 "term:`build backend <Build Backend>`."
 msgstr ""
-"ソースコード配布物を生成するソースコードは、この仕様に合致した名前をファイル"
-"に与えなければなりません。これは、ビルドバックエンドの ``build_sdist`` フック"
-"にも当てはまります。"
+"ソースコード配布物のファイルを生成するコードは、この仕様に適合する名前をファ"
+"イルに与えなければなりません。これは、 :term:`ビルドバックエンド <Build "
+"Backend>` の ``build_sdist`` フックにも当てはまります。"
 
 #: ../source/specifications/source-distribution-format.rst:49
 msgid ""
@@ -24276,7 +24357,6 @@ msgid "Source distribution file format"
 msgstr "ソースコード配布物のファイルフォーマット"
 
 #: ../source/specifications/source-distribution-format.rst:57
-#, fuzzy
 msgid ""
 "A ``.tar.gz`` source distribution (sdist) contains a single top-level "
 "directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the "
@@ -24287,15 +24367,15 @@ msgid ""
 "metadata` specification. The metadata MUST conform to at least version 2.2 "
 "of the metadata specification."
 msgstr ""
-"``.tar.gz`` ソースコード配布物 (sdist) には、 ``{name}-{version}`` (例えば "
-"``foo-1.0``) と言う名前の単一のトップレベルディレクトリがあって、そこにパッ"
-"ケージのソールファイル群を含んでいます。 name と version は、ファイル内のメタ"
-"データと合致していなければなりません。このディレクトリは、 :ref:`declaring-"
-"build-dependencies` の中で定義されたフォーマットで書かれた :file:`pyproject."
-"toml` ファイルや、 :ref:`core-metadata` 仕様内に記述されたフォーマットで書か"
-"れたメタデータを含んだ ``PKG-INFO`` ファイルも含んでいなければなりません。メ"
-"タデータは、少なくともバージョン 2.2 のメタデータ仕様を満足するものでなければ"
-"なりません。"
+"``.tar.gz`` ソースコード配布物 (sdist) には、トップレベルに "
+"``{name}-{version}`` (例えば ``foo-1.0``) と言う名前の単一のディレクトリがあ"
+"って、そこにパッケージのソールファイル群を含んでいます。 name と version は、"
+"ファイル内のメタデータと合致していなければなりません。このディレクトリは、 "
+":ref:`pyproject-toml-spec` で定義されたフォーマットで書かれた "
+":file:`pyproject.toml` ファイルや、 :ref:`core-metadata` "
+"仕様内に記述されたフォーマットで書かれたメタデータを含んだ ``PKG-INFO`` "
+"ファイルも含んでいなければなりません。このようなメタデータは、"
+"少なくともバージョン 2.2 のメタデータ仕様を満足するものでなければなりません。"
 
 #: ../source/specifications/source-distribution-format.rst:65
 msgid ""
@@ -24494,27 +24574,24 @@ msgstr ""
 msgid ""
 "November 2020: The original version of this specification was approved "
 "through :pep:`643`."
-msgstr ""
+msgstr "2020年11月: :pep:`643` を通じてこの仕様の当初のバージョンが承認された。"
 
 #: ../source/specifications/source-distribution-format.rst:148
-#, fuzzy
 msgid "July 2021: Defined what a source tree is."
-msgstr "2021-07: ソースコードツリーとは何であるかを定義"
+msgstr "2021年7月: ソースコードツリーとは何であるかを定義。"
 
 #: ../source/specifications/source-distribution-format.rst:149
-#, fuzzy
 msgid ""
 "September 2022: The filename of a source distribution was standardized "
 "through :pep:`625`."
-msgstr "2022-09: ソースコード配布物のファイル名について標準化 (:pep:`625`)"
+msgstr "2022年9月: :pep:`625` を通じて、ソースコード配布物のファイル名を標準化した。"
 
 #: ../source/specifications/source-distribution-format.rst:151
-#, fuzzy
 msgid ""
 "August 2023: Source distribution archive features were standardized through :"
 "pep:`721`."
-msgstr ""
-"2023-08: ソースコード配布物のアーカイブの機能について標準化 (: pep:`721`)"
+msgstr "2023年8月: : pep:`721` "
+"を通じて、ソースコード配布物のアーカイブの機能について標準化された。"
 
 #: ../source/specifications/version-specifiers.rst:7
 #: ../source/specifications/version-specifiers.rst:780
@@ -24525,12 +24602,12 @@ msgstr "バージョン指定子"
 msgid ""
 "This specification describes a scheme for identifying versions of Python "
 "software distributions, and declaring dependencies on particular versions."
-msgstr ""
+msgstr "この仕様では、 Python ソフトウェア配布物のバージョンを識別したり、特定のバー"
+"ジョンにおける依存関係を宣言したりする枠組みを記述します。"
 
 #: ../source/specifications/version-specifiers.rst:15
-#, fuzzy
 msgid "Definitions"
-msgstr "仕様型文書"
+msgstr "用語定義"
 
 #: ../source/specifications/version-specifiers.rst:17
 msgid ""
@@ -24539,6 +24616,9 @@ msgid ""
 "\"OPTIONAL\" in this document are to be interpreted as described in :rfc:"
 "`2119`."
 msgstr ""
+"この説明文書におけるキーワード \"MUST\", \"MUST NOT\", \"REQUIRED\", \"SHALL"
+"\", \"SHALL NOT\", \"SHOULD\", \"SHOULD NOT\", \"RECOMMENDED\", \"MAY\", "
+"および \"OPTIONAL\" は、 :rfc:`2119` に記述されているように解釈されます。"
 
 #: ../source/specifications/version-specifiers.rst:21
 msgid ""
@@ -24547,18 +24627,29 @@ msgid ""
 "invoked by integration tools in order to build software distributed as "
 "sdists rather than prebuilt binary archives."
 msgstr ""
+"\"ビルドツール <Build tools>\" とは、開発システムを走らせてソースコード配布物"
+"やバイナリ配布物のアーカイブを生成することを意図した自動化ツールのことです。"
+"ビルドツールは、また、ビルド済みのバイナリのアーカイブではなくて sdist として"
+"配布されるソフトウェアをビルドする目的で統合ツールから起動されることもありま"
+"す。"
 
 #: ../source/specifications/version-specifiers.rst:26
 msgid ""
 "\"Index servers\" are active distribution registries which publish version "
 "and dependency metadata and place constraints on the permitted metadata."
 msgstr ""
+"\"インデックスサーバ <Index servers>\" とは、バージョンと依存関係のメタデータ"
+"を広報し、許されるメタデータに制限を加えるような、正規の配布物の登記所にあた"
+"るものです。"
 
 #: ../source/specifications/version-specifiers.rst:29
 msgid ""
 "\"Publication tools\" are automated tools intended to run on development "
 "systems and upload source and binary distribution archives to index servers."
 msgstr ""
+"\"出版ツール <Publication tools>\" とは、開発システムを走らせ、ソースコード配"
+"布物やバイナリ配布物のアーカイブをインデックスサーバへアップロードすることを"
+"意図した自動化ツールのことです。"
 
 #: ../source/specifications/version-specifiers.rst:32
 msgid ""
@@ -24567,6 +24658,10 @@ msgid ""
 "an index server or other designated location and deploying them to the "
 "target system."
 msgstr ""
+"\"インストールツール <Installation tools>\" とは、デプロイメントターゲット上"
+"で走らせ、インデックスサーバもしくは別途指定された場所から得たソースコード配"
+"布物やバイナリ配布物のアーカイブを入力として、ターゲットとなるシステムに配置"
+"することを意図した統合ツールです。"
 
 #: ../source/specifications/version-specifiers.rst:37
 msgid ""
@@ -24574,17 +24669,20 @@ msgid ""
 "servers, publication tools, integration tools and any other software that "
 "produces or consumes distribution version and dependency metadata."
 msgstr ""
+"\"自動化ツール <Automated tools>\" とは、ビルドツール・インデックスサーバ・出"
+"版ツール・統合ツールや、配布物のバージョン・依存関係メタデータを作り出したり"
+"入力として扱うその他のソフトウェアを集合的に包含する用語です。"
 
 #: ../source/specifications/version-specifiers.rst:43
-#, fuzzy
 msgid "Version scheme"
-msgstr "バージョン指定子"
+msgstr "バージョン枠組み"
 
 #: ../source/specifications/version-specifiers.rst:45
 msgid ""
 "Distributions are identified by a public version identifier which supports "
 "all defined version comparison operations"
-msgstr ""
+msgstr "配布物は、すべての定義されたバージョン比較操作をサポートしている公的バージョ"
+"ン識別子によって識別されます。"
 
 #: ../source/specifications/version-specifiers.rst:48
 msgid ""
@@ -24593,26 +24691,29 @@ msgid ""
 "constraints on the version of dependencies needed in order to build or run "
 "the software."
 msgstr ""
+"バージョン枠組みは、特定の配布物アーカイブによって提供される配布物のバージョ"
+"ンを記述するためにも使われますし、同様に、当該ソフトウェアをビルドしたり走ら"
+"せたりするために必要な依存関係にあるバージョンに対して制約を加えるためにも使"
+"われます。"
 
 #: ../source/specifications/version-specifiers.rst:57
-#, fuzzy
 msgid "Public version identifiers"
-msgstr "ローカルのバージョン指定子"
+msgstr "公的バージョン識別子"
 
 #: ../source/specifications/version-specifiers.rst:59
 msgid ""
 "The canonical public version identifiers MUST comply with the following "
 "scheme::"
-msgstr ""
+msgstr "正統な公的バージョン識別子は、以下の枠組みに合致していなければなりません::"
 
 #: ../source/specifications/version-specifiers.rst:64
 msgid ""
 "Public version identifiers MUST NOT include leading or trailing whitespace."
-msgstr ""
+msgstr "公的バージョン識別子は、先頭もしくは末尾に空白文字を含んではなりません。"
 
 #: ../source/specifications/version-specifiers.rst:66
 msgid "Public version identifiers MUST be unique within a given distribution."
-msgstr ""
+msgstr "公的バージョン識別子は、その配布物の中で一意でなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:68
 msgid ""
@@ -24621,6 +24722,10 @@ msgid ""
 "Installation tools MAY warn the user when non-compliant or ambiguous "
 "versions are detected."
 msgstr ""
+"インストールツール <Installation tools> は、この枠組みに合致しない公的バージ"
+"ョンのすべてを無視するべきですが、以下に指定される標準化も含んでいなければな"
+"りません。インストールツールは、バージョンが非適合であったり曖昧であったりし"
+"た時には、ユーザに対して警告を行なっても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:73
 msgid ""
@@ -24629,48 +24734,57 @@ msgid ""
 "permissive regular expression accepting inputs that may require subsequent "
 "normalization."
 msgstr ""
+"正統なフォーマットに厳密に適合していることを確認するための正規表現についても"
+"、さらに標準化する必要があるかもしれない入力を受け入れるためのより緩やかな正"
+"規表現についても、これらを提供する :ref:`version-specifiers-regex` "
+"を見てください。"
 
 #: ../source/specifications/version-specifiers.rst:78
 msgid "Public version identifiers are separated into up to five segments:"
-msgstr ""
+msgstr "公的バージョン識別子は５個の部分に分割されます:"
 
 #: ../source/specifications/version-specifiers.rst:80
 msgid "Epoch segment: ``N!``"
-msgstr ""
+msgstr "エポック部分: ``N!``"
 
 #: ../source/specifications/version-specifiers.rst:81
 msgid "Release segment: ``N(.N)*``"
-msgstr ""
+msgstr "リリース部分: ``N(.N)*``"
 
 #: ../source/specifications/version-specifiers.rst:82
 msgid "Pre-release segment: ``{a|b|rc}N``"
-msgstr ""
+msgstr "プレリリース部分: ``{a|b|rc}N``"
 
 #: ../source/specifications/version-specifiers.rst:83
 msgid "Post-release segment: ``.postN``"
-msgstr ""
+msgstr "ポストリリース部分: ``.postN``"
 
 #: ../source/specifications/version-specifiers.rst:84
 msgid "Development release segment: ``.devN``"
-msgstr ""
+msgstr "開発リリース部分: ``.devN``"
 
 #: ../source/specifications/version-specifiers.rst:86
 msgid ""
 "Any given release will be a \"final release\", \"pre-release\", \"post-"
 "release\" or \"developmental release\" as defined in the following sections."
 msgstr ""
+"どのリリースであっても、この後の節で定義する \"最終リリース <final release>\""
+"・\"プレリリース <pre-release>\"・\"ポストリリース <post-release>\"・"
+"\"開発リリース <developmental release>\" になることでしょう。"
 
 #: ../source/specifications/version-specifiers.rst:89
 msgid ""
 "All numeric components MUST be non-negative integers represented as "
 "sequences of ASCII digits."
-msgstr ""
+msgstr "数字で構成される部分は、すべて、 ASCII "
+"の数字の並びとして表現される非負の整数でなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:92
 msgid ""
 "All numeric components MUST be interpreted and ordered according to their "
 "numeric value, not as text strings."
-msgstr ""
+msgstr "数字で構成される部分は、すべて、テキスト文字列としてではなく、数としての値に"
+"従って解釈され整列されなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:95
 msgid ""
@@ -24678,6 +24792,10 @@ msgid ""
 "release segment, a numeric component of zero has no special significance "
 "aside from always being the lowest possible value in the version ordering."
 msgstr ""
+"数字で構成される部分は、すべて、ゼロであっても構いません。リリースを表す部分"
+"について後で記述する場合を除いて、数字の部分がゼロであることは、常にバージョ"
+"ンの整列で取り得る最小の値であること以外には、なんら特別な重要性を持ちません"
+"。"
 
 #: ../source/specifications/version-specifiers.rst:101
 msgid ""
@@ -24685,6 +24803,9 @@ msgid ""
 "to better accommodate the wide range of versioning practices across existing "
 "public and private Python projects."
 msgstr ""
+"読解困難なバージョン識別子のいくつかは、既存の公開または非公開の Python プロ"
+"ジェクトにおける幅広いバージョン付与方法をよりうまく収容するために、この枠組"
+"みによって許容されています。"
 
 #: ../source/specifications/version-specifiers.rst:105
 msgid ""
@@ -24693,10 +24814,13 @@ msgid ""
 "Where this is the case, the relevant details are noted in the following "
 "sections."
 msgstr ""
+"従って、当該仕様で技術的に許容されているバージョン付与方法のいくつかは、新規"
+"プロジェクトにおいては強い非推奨になっています。これが問題になるケースでは、"
+"引き続く節に関連する詳細事項をまとめてあります。"
 
 #: ../source/specifications/version-specifiers.rst:116
 msgid "Local version identifiers MUST comply with the following scheme::"
-msgstr ""
+msgstr "ローカルのバージョン指定子は、以下に述べる枠組みに適合しなければなりません::"
 
 #: ../source/specifications/version-specifiers.rst:120
 msgid ""
@@ -24706,6 +24830,10 @@ msgid ""
 "have no specific semantics assigned, but some syntactic restrictions are "
 "imposed."
 msgstr ""
+"プラスの文字によって公的バージョン識別子と区分されている任意の "
+"\"ローカルバージョンラベル\" を伴った、 (前の節で定義した) 通常の公的バージョ"
+"ン識別子で構成されています。ローカルバージョンラベルは、その意味の点では特に"
+"指定はありませんが、文法の上ではいくらかの制約が課されています。"
 
 #: ../source/specifications/version-specifiers.rst:125
 msgid ""
@@ -24716,6 +24844,13 @@ msgid ""
 "be too disruptive to the application or other integrated system (such as a "
 "Linux distribution)."
 msgstr ""
+"ローカルのバージョン指定子は、"
+"上流のプロジェクトのパッチ適用済バージョンに互換性のある API ("
+"もし適用可能なら ZBI も) を示すために用いられます。例えば、"
+"上流の新しいリリースに更新することが当該アプリケーションや (Linux "
+"ディストロのような) 他の統合されたシステムにとって破壊的に過ぎるであろうとい"
+"う場合に、特定のバグ修正をバックポートして適用することでアプリケーション開発"
+"者やシステム統合者によって作成されるかもしれません。"
 
 #: ../source/specifications/version-specifiers.rst:132
 msgid ""
@@ -24725,6 +24860,11 @@ msgid ""
 "of a release but, when applied to a source distribution, does indicate that "
 "it may not contain the exact same code as the corresponding upstream release."
 msgstr ""
+"ローカルバージョンラベルを包含することで、上流側のリリースを下流側のインテグ"
+"レータによる潜在的に修正されたリビルドから区別することが可能になります。ロー"
+"カルバージョン識別子の使用はこの種のリリースには影響を与えませんが、ソースコ"
+"ード配布物に適用した場合には、対応する上流のリリースと正確に同じコードを含ん"
+"でいないかもしれないということを示します。"
 
 #: ../source/specifications/version-specifiers.rst:138
 msgid ""
@@ -24733,23 +24873,27 @@ msgid ""
 "hash representations, local version labels MUST be limited to the following "
 "set of permitted characters:"
 msgstr ""
+"ローカルのバージョン指定子を確かなものにすることは、ファイル名や URL の一部と"
+"して難なく統合することができ、16進数のハッシュ値での表現でフォーマットが不統"
+"一になることを避けるには、ローカルバージョンラベルは、以下に示す許容される一"
+"連の文字群に限定されなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:143
 msgid "ASCII letters (``[a-zA-Z]``)"
-msgstr ""
+msgstr "ASCII 文字 (``[a-zA-Z]``)"
 
 #: ../source/specifications/version-specifiers.rst:144
 msgid "ASCII digits (``[0-9]``)"
-msgstr ""
+msgstr "ASCII 数字 (``[0-9]``)"
 
 #: ../source/specifications/version-specifiers.rst:145
 msgid "periods (``.``)"
-msgstr ""
+msgstr "ピリオド (``.``)"
 
 #: ../source/specifications/version-specifiers.rst:147
-#, fuzzy
 msgid "Local version labels MUST start and end with an ASCII letter or digit."
-msgstr "先頭と最後の文字がASCII文字ないし数字であること。"
+msgstr "ローカルバージョンラベルは、 ASCII 文字ないし ASCII "
+"数字で始まり、かつ、終わらなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:149
 msgid ""
@@ -24764,6 +24908,15 @@ msgid ""
 "a local version with fewer segments, as long as the shorter local version's "
 "segments match the beginning of the longer local version's segments exactly."
 msgstr ""
+"ローカルバージョンの比較や順序付けでは、ローカルバージョンの (``.`` "
+"で分割される)各部分を別々に考えます。ある部分がすべて ASCII "
+"数字でできているなら比較の目的においてはその部分は整数だと見做すべきであり、"
+"ある部分が一つでも ASCII 文字を含むのであれば大文字小文字を無視して辞書学的に"
+"比較されます。数字だけの部分と辞書学的な部分を比較する時には、常に、数字だけ"
+"の部分が辞書学的な部分よりも大きいものとして比較されます。さらに、多数の部分"
+"を持つローカルバージョンは、短い方のローカルバージョンの部分部分が長い方のロ"
+"ーカルバージョンの先頭の対応する部分と正確に一致する限り、常に、それより少な"
+"い数の部分を持つローカルバージョンよりも大きいものとして比較されます。"
 
 #: ../source/specifications/version-specifiers.rst:160
 msgid ""
@@ -24772,6 +24925,11 @@ msgid ""
 "project, potentially backporting security and bug fixes from later versions "
 "of the upstream project."
 msgstr ""
+"\"上流プロジェクト\" "
+"とは、それ自身のパブリックバージョンを定義するプロジェクトです。"
+"\"下流プロジェクト\" とは、上流プロジェクトに追随し再配布するプロジェクトで、"
+"潜在的には、上流プロジェクトのその後のバージョンからセキュリティ上の修正やバ"
+"グ修正をバックポートします。"
 
 #: ../source/specifications/version-specifiers.rst:165
 msgid ""
@@ -24784,29 +24942,42 @@ msgid ""
 "the Python Package Index is intended solely for indexing and hosting "
 "upstream projects, it MUST NOT allow the use of local version identifiers."
 msgstr ""
+"ローカルバージョン指定子は、上流プロジェクトを公開のインデックスサーバで公開"
+"する際に使用するべきではありませんが、プロジェクトのソースコードから直接に作"
+"成されたプライベートのビルド群を識別するために使っても構いません。ローカルバ"
+"ージョン指定子は、"
+"公開バージョン識別子で識別される上流プロジェクトのあるバージョンと API "
+"レベルで互換性を保つような、しかし、 (バグ修正などの) 追加の変更を含む下流プ"
+"ロジェクトのバージョンをリリースする時に用いられるべきです。Python パッケージ"
+"インデックスは上流プロジェクトを列挙しホストすることだけを意図していますので"
+"、ローカルバージョン指定子の使用を許してはなりません。"
 
 #: ../source/specifications/version-specifiers.rst:175
 msgid ""
 "Source distributions using a local version identifier SHOULD provide the "
 "``python.integrator`` extension metadata (as defined in :pep:`459`)."
 msgstr ""
+"ローカルバージョン識別子を使うソースコード配布物は、 (:pep:`459` "
+"で定義される通り) ``python.integrator`` 拡張メタデータを提供するべきです。"
 
 #: ../source/specifications/version-specifiers.rst:180
-#, fuzzy
 msgid "Final releases"
-msgstr "リリースを公開する"
+msgstr "最終リリース"
 
 #: ../source/specifications/version-specifiers.rst:182
 msgid ""
 "A version identifier that consists solely of a release segment and "
 "optionally an epoch identifier is termed a \"final release\"."
 msgstr ""
+"リリース部分だけか、オプションとしてエポック識別子を加えたものから構成されて"
+"いるバージョン識別子は、 \"最終リリース <final release>\" "
+"という用語で呼ばれます。"
 
 #: ../source/specifications/version-specifiers.rst:185
 msgid ""
 "The release segment consists of one or more non-negative integer values, "
 "separated by dots::"
-msgstr ""
+msgstr "ひとつかそれ以上の非負整数をピリオドで区切って構成されるリリース部分::"
 
 #: ../source/specifications/version-specifiers.rst:190
 msgid ""
@@ -24814,6 +24985,9 @@ msgid ""
 "increasing fashion, otherwise automated tools will not be able to upgrade "
 "them correctly."
 msgstr ""
+"あるプロジェクトの最終リリースは、首尾一貫して増加する形で番号付けされなけれ"
+"ばならず、そうでなければ自動化ツール <Automated tools> "
+"がそれらを正しくアップグレードすることができないでしょう。"
 
 #: ../source/specifications/version-specifiers.rst:194
 msgid ""
@@ -24822,6 +24996,9 @@ msgid ""
 "segments with different numbers of components, the shorter segment is padded "
 "out with additional zeros as necessary."
 msgstr ""
+"リリース部分の比較と整序は、リリース部分の各部分の数としての値を順に比較しま"
+"す。リリース部分の構成要素の数が異なるものを比較するときは、必要に応じて短い"
+"方にゼロの部分を追加する形で補足します。"
 
 #: ../source/specifications/version-specifiers.rst:199
 msgid ""
@@ -24829,6 +25006,9 @@ msgid ""
 "under this scheme, the most common variants are to use two components "
 "(\"major.minor\") or three components (\"major.minor.micro\")."
 msgstr ""
+"この枠組みの下では、最初の構成部分の後にいくつの追加部分があっても構いません"
+"が、最も一般的な変種は、構成部分２個 (\"メジャー.マイナー\") "
+"のものか、または、構成部分３個 (\"メジャー.マイナー.マイクロ\") のものです。"
 
 #: ../source/specifications/version-specifiers.rst:203
 msgid "For example::"
@@ -24840,6 +25020,9 @@ msgid ""
 "common prefix. For example, ``3.3.1``, ``3.3.5`` and ``3.3.9.45`` are all "
 "part of the ``3.3`` release series."
 msgstr ""
+"リリースシリーズとは、共通の前置部分で始まる任意の最終リリース番号の集合です"
+"。例えば、 ``3.3.1`` ・ ``3.3.5`` ・ ``3.3.9.45`` は、すべて、 ``3.3`` "
+"リリースシリーズの一部です。"
 
 #: ../source/specifications/version-specifiers.rst:224
 msgid ""
@@ -24848,35 +25031,44 @@ msgid ""
 "``X.Y.0`` when comparing it to any release segment that includes three "
 "components."
 msgstr ""
+"３個の構成部分を持つリリース番号\n"
+"``X.Y`` と ``X.Y.0`` は、相異なるリリース番号とは見做されません。"
 
 #: ../source/specifications/version-specifiers.rst:229
 msgid ""
 "Date based release segments are also permitted. An example of a date based "
 "release scheme using the year and month of the release::"
-msgstr ""
+msgstr "日付ベースのリリース構成部分もまた許容されます。リリースの年と月を使用した日"
+"付ベースのリリース枠組みの例::"
 
 #: ../source/specifications/version-specifiers.rst:241
-#, fuzzy
 msgid "Pre-releases"
-msgstr "リリース前のバージョン付与方式"
+msgstr "プレリリース"
 
 #: ../source/specifications/version-specifiers.rst:243
 msgid ""
 "Some projects use an \"alpha, beta, release candidate\" pre-release cycle to "
 "support testing by their users prior to a final release."
 msgstr ""
+"プロジェクトの中には、最終リリースに先立ってユーザによるテストを行えるように"
+"、 \"alpha, beta, release candidate\" "
+"のプレリリースサイクルを使うものがあります。"
 
 #: ../source/specifications/version-specifiers.rst:246
 msgid ""
 "If used as part of a project's development cycle, these pre-releases are "
 "indicated by including a pre-release segment in the version identifier::"
 msgstr ""
+"プロジェクトの開発サイクルの一部として使用されるなら、これらのプレリリースは"
+"、バージョン識別子のプレリリース構成部分を含めることによって表示されます::"
 
 #: ../source/specifications/version-specifiers.rst:254
 msgid ""
 "A version identifier that consists solely of a release segment and a pre-"
 "release segment is termed a \"pre-release\"."
 msgstr ""
+"リリース構成部分とプレリリース構成部分だけから構成されるバージョン識別子は、 "
+"\"プレリリース <pre-release>\" という用語で呼ばれます。"
 
 #: ../source/specifications/version-specifiers.rst:257
 msgid ""
@@ -24885,29 +25077,41 @@ msgid ""
 "given release are ordered first by phase (alpha, beta, release candidate) "
 "and then by the numerical component within that phase."
 msgstr ""
+"プレリリース構成部分は、非負整数を伴ったプレリリースの局面を示すアルファベッ"
+"ト文字の識別子から構成されます。あるリリースにおけるプレリリース群は、"
+"まず局面 (alpha, beta, release candidate) "
+"で順序付けられ、次いでその局面内の数字の部分で順序づけられます。"
 
 #: ../source/specifications/version-specifiers.rst:262
 msgid ""
 "Installation tools MAY accept both ``c`` and ``rc`` releases for a common "
 "release segment in order to handle some existing legacy distributions."
 msgstr ""
+"インストールツール <Installation tools> "
+"は、既存のレガシーなディストリビューションのいくつかを取り扱うために、"
+"よくあるリリース構成部分に ``c`` と ``rc`` の両方を受け入れても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:265
 msgid ""
 "Installation tools SHOULD interpret ``c`` versions as being equivalent to "
 "``rc`` versions (that is, ``c1`` indicates the same version as ``rc1``)."
 msgstr ""
+"インストールツール <Installation tools> は、``c`` バージョンを ``rc`` "
+"バージョンと同じである (つまり、 ``c1`` が ``rc1`` と同じバージョンである) "
+"と解釈するべきです。"
 
 #: ../source/specifications/version-specifiers.rst:268
 msgid ""
 "Build tools, publication tools and index servers SHOULD disallow the "
 "creation of both ``rc`` and ``c`` releases for a common release segment."
 msgstr ""
+"ビルドツール <Build tools> ・出版ツール <Publication tools> 、そして "
+"インデックスサーバ <Index servers> は、共通のリリース構成部分に ``rc`` と "
+"``c`` の両方のリリースを作ることを禁止するべきです。"
 
 #: ../source/specifications/version-specifiers.rst:273
-#, fuzzy
 msgid "Post-releases"
-msgstr "zest.releaser"
+msgstr "ポストリリース"
 
 #: ../source/specifications/version-specifiers.rst:275
 msgid ""
