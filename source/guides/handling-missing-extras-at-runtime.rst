@@ -141,157 +141,18 @@ similar to ``check_reqs`` but not identical:
 Handling missing extras
 =======================
 
-In each of the previous section's code snippets, we omitted what to actually do
-when a missing extra has been identified.
+Where and how to embed the detection of missing extras in a package and what
+actions to take upon learning the outcome depends on the specifics of both the
+package and feature requiring the extra.
+Some common options are:
 
-The sensible answers to this questions are intimately linked to *where* in the
-code the missing extra detection and import of the optional dependencies should
-be performed, so we will look at our options for that as well.
+- Raise a custom exception that includes the name of the missing extra.
+- In applications, show an error message when an attempt is made to use the
+  feature that requires the extra.
+- In libraries, provide a function that lets library consumers query which
+  features are available.
 
-Import at module level, raise exception
----------------------------------------
-
-If your package is a library and the feature that requires the extra is
-localized to a specific module or sub-package of your package, one option is to
-just raise a custom exception indicating which extra would be required:
-
-.. code-block:: python
-
-   from dataclasses import dataclass
-
-   @dataclass
-   class MissingExtra(Exception):
-     name: str
-
-   ...
-
-   # if extra not installed (see previous sections):
-   raise MissingExtra("your-extra")
-
-Library consumers will then have to either depend on your library with the
-extra enabled or handle the possibility that imports of this specific module
-fail (putting them in the same situation you were in). Because imports raising
-custom exceptions is highly unusual, you should make sure to document this in a
-**very** visible manner.
-
-If your package is an application, making *you* the module's consumer, and you
-want the application to work without the extra installed (i.e. the extra only
-provides optional functionality for the application), you've similarly "pushed"
-the problem of dealing with failing imports up one layer. At some point in the
-module dependency you'll have to switch to a different strategy, lest your
-application just crash with an exception on startup.
-
-
-Import at module level, replace with exception-raising dummies
---------------------------------------------------------------
-
-An alternative is to delay raising the exception until an actual attempt is
-made to *use* the missing dependency. One way to do this is to assign "dummy"
-functions that do nothing but raise it to the would-be imported names in the
-event that the extra is missing:
-
-.. code-block:: python
-
-   # if extra installed (see previous sections):
-   import some_function from optional_dependency
-
-   ...
-
-   # if extra not installed (see previous sections):
-   def raise_missing_extra(*args, **kwargs):
-     raise MissingExtra("your-extra")
-
-   optional_dependency = raise_missing_extra
-
-Note that, if imports are not mere functions but also objects like classes that
-are subclassed from, the exact shape of the dummy objects can get more involved
-depending on the expected usage, e.g.
-
-.. code-block:: python
-
-   class RaiseMissingExtra:
-     def __init__(self, *args, **kwargs):
-       raise MissingExtra("your-extra")
-
-which would in turn not be sufficient for a class with class methods that might
-be used without instantiating it, and so on.
-
-By delaying the exception until attempted usage, an application installed
-without the extra can start and run normally until the user tries to use
-functionality requiring the extra, at which point you can handle it (e.g.
-display an appropriate error message).
-
-The `generalimport`_ library can automate this process by hooking into the
-import system.
-
-Import at function/method level, raise exception
-------------------------------------------------
-
-Lastly, another way to delay exception raising until actual usage is to only
-perform the check for whether the extra is installed and the corresponding
-import when the functionality requiring it is actually used. E.g.:
-
-.. code-block:: python
-
-   def import_extra_module_if_avail():
-     # surround this with the appropriate checks / error handling:
-     ...
-     import your_optional_dependency
-     ...
-
-     return your_optional_dependency
-
-   ...
-
-   def some_func_requiring_your_extra():
-     try:
-       optional_module = import_extra_module_if_avail()
-     except MissingExtra:
-       ...  # handle missing extra
-
-     # now you can use functionality from the optional dependency, e.g.:
-     optional_module.extra_func(...)
-
-While this solution is more robust than the one from the preceding subsection,
-it can take more effort to make it work with
-:term:`static type checking <static type checker>`:
-To correctly statically type a function returning a module, you'd have to
-introduce an "artificial" type representing the latter, e.g.
-
-.. code-block:: python
-
-   from typing import cast, Protocol
-
-   class YourOptionalModuleType(Protocol):
-     extra_func: Callable[...]
-     ...  # other objects you want to use
-
-   def some_func_requiring_your_extra() -> YourOptionalModuleType:
-     ...
-
-     return cast(YourOptionalModuleType, optional_module)
-
-An alternative would be to instead have functions that import and return only
-the objects you actually need:
-
-.. code-block:: python
-
-   def import_extra_func_if_avail() -> Callable[...]:
-     # surround this with the appropriate checks / error handling:
-     ...
-     from your_optional_dependency import extra_func
-     ...
-
-     return extra_func
-
-But this can become verbose when you import a lot of names.
-
-
-Other considerations
-====================
-
-TODO mention that you might want to provide a way for users to check
-     availability without performing another action for the last 2 methods
+... and probably more.
 
 
 ------------------
@@ -303,5 +164,3 @@ TODO mention that you might want to provide a way for users to check
 .. _pkg_resources: https://setuptools.pypa.io/en/latest/pkg_resources.html
 
 .. _packaging-problems-317: https://github.com/pypa/packaging-problems/issues/317
-
-.. _generalimport: https://github.com/ManderaGeneral/generalimport
