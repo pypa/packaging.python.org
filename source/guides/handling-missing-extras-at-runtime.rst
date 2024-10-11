@@ -187,7 +187,8 @@ without the extra can start and run normally until the user tries to use
 functionality requiring the extra, at which point you can handle it (e.g.
 display an appropriate error message).
 
-TODO mention that 3rd party library that does this automatically
+The `generalimport`_ library can automate this process by hooking into the
+import system.
 
 Import at function/method level, raise exception
 ------------------------------------------------
@@ -266,3 +267,5 @@ TODO mention that you might want to provide a way for users to check
 .. _packaging-problems-317: https://github.com/pypa/packaging-problems/issues/317
 
 .. _packaging-problems-664: https://github.com/pypa/packaging-problems/issues/664
+
+.. _generalimport: https://github.com/ManderaGeneral/generalimport
