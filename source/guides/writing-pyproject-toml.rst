@@ -427,6 +427,31 @@ Note that if the label contains spaces, it needs to be quoted, e.g.,
 ``Website = "https://example.com"`` but
 ``"Official Website" = "https://example.com"``.
 
+Users are advised to use :ref:`well-known-labels` for their project URLs
+where appropriate, since consumers of metadata (like package indices) can
+specialize their presentation.
+
+For example in the following metadata, neither ``MyHomepage`` nor
+``"Download Link"`` is a well-known label, so they will be rendered verbatim:
+
+.. code-block:: toml
+
+   [project.urls]
+   MyHomepage = "https://example.com"
+   "Download Link" = "https://example.com/abc.tar.gz"
+
+
+Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have
+well-known equivalents (``homepage`` and ``download``), and can be presented
+with those semantics in mind (the project's home page and its external
+download location, respectively).
+
+.. code-block:: toml
+
+   [project.urls]
+   HomePage = "https://example.com"
+   DOWNLOAD = "https://example.com/abc.tar.gz"
+
 Advanced plugins
 ================
 
