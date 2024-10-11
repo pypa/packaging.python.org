@@ -20,8 +20,8 @@ Well-known Project URLs in Metadata
 .. note::
 
     See :ref:`Writing your pyproject.toml - urls <writing-pyproject-toml-urls>`
-    for user-oriented guidance on choosing project URL labels in your package's
-    metadata.
+    for user-oriented documentation on setting project URL labels in your
+    package's metadata.
 
 .. note:: This specification was originally defined in :pep:`753`.
 
