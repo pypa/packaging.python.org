@@ -51,25 +51,59 @@ Using ``importlib.metadata`` and ``packaging``
 As a safer alternative that does check whether the optional dependencies are
 installed at the correct versions, :py:mod:`importlib.metadata` and
 :ref:`packaging` can be used to iterate through the extra's requirements
-recursively and check whether all are installed in the current environment.
-
-This process is currently quite involved. An implementation can be found in
-`packaging-problems #664 <packaging-problems-664_>`_, which is also made
-available in the `hbutils <https://pypi.org/project/hbutils/>`_ package as
-``hbutils.system.check_reqs``.
-The possibility of offering a similar helper function in ``importlib.metadata``
-or ``packaging`` themselves is still being discussed
-(`packaging-problems #317 <packaging-problems-317_>`_).
-
-With ``check_reqs`` included in your codebase or imported from ``hbutils``,
-usage is as simple as:
+recursively and check whether all are installed in the current environment
+(based on `code <hbutils-snippet_>`_ from the `hbutils`_ library):
 
 .. code-block:: python
 
+   # TODO Unless we get special permission, this snippet is Apache-2-licensed:
+   # https://github.com/HansBug/hbutils/blob/927b0757449a781ce8e30132f26b06089a24cd71/LICENSE
+
+   from collections.abc import Iterable
+   from importlib.metadata import PackageNotFoundError, distribution, metadata
+
+   from packaging.metadata import Metadata
+   from packaging.requirements import Requirement
+
+   def check_reqs(req_strs: Iterable[str]) -> bool:
+     return all(
+       _check_req_recursive(req)
+       for req_str in req_strs
+       if not (req := Requirement(req_str)).marker or req.marker.evaluate()
+     )
+
+   def _check_req_recursive(req: Requirement) -> bool:
+     try:
+       version = distribution(req.name).version
+     except PackageNotFoundError:
+       return False  # req not installed
+
+     if not req.specifier.contains(version):
+       return False  # req version does not match
+
+     req_metadata = Metadata.from_raw(metadata(req.name).json, validate=False)
+     for child_req in req_metadata.requires_dist or []:
+       for extra in req.extras:
+         if child_req.marker and child_req.marker.evaluate({"extra": extra}):
+           if not _check_req_recursive(child_req):
+             return False
+           break
+
+     return True
+
+
+   # Perform check, e.g.:
    extra_installed = check_reqs(["your-package[your-extra]"])
 
-In contrast to the method above, this is typically done in :term:`LBYL` style
-prior to importing the modules in question.
+TODO Either point out that this snippet doesn't actually check everything
+     (https://github.com/HansBug/hbutils/issues/109) or fix it.
+
+The possibility of offering a helper function similar to ``check_reqs`` in
+``importlib.metadata`` or ``packaging`` themselves is still being discussed
+(`packaging-problems #317 <packaging-problems-317_>`_).
+
+In contrast to the method above, this check is typically done in :term:`LBYL`
+style prior to importing the modules in question.
 In principle, it could also be done after the imports succeeded just to check
 the version, in which case the imports themselves would have to be wrapped in a
 ``try``-``except`` block to handle the possibility of not being installed at
@@ -262,10 +296,12 @@ TODO mention that you might want to provide a way for users to check
 
 ------------------
 
+.. _hbutils-snippet: https://github.com/HansBug/hbutils/blob/927b0757449a781ce8e30132f26b06089a24cd71/hbutils/system/python/package.py#L171-L242
+
+.. _hbutils: https://pypi.org/project/hbutils/
+
 .. _pkg_resources: https://setuptools.pypa.io/en/latest/pkg_resources.html
 
 .. _packaging-problems-317: https://github.com/pypa/packaging-problems/issues/317
-
-.. _packaging-problems-664: https://github.com/pypa/packaging-problems/issues/664
 
 .. _generalimport: https://github.com/ManderaGeneral/generalimport
