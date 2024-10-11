@@ -166,7 +166,7 @@ The following shows the flow of project URL metadata from
 
 Observe that the core metadata appears in the form provided by the user
 (since metadata *producers* do not perform normalization), but the
-metadata *consumer* correctly normalizes and identifies appropriate
+metadata *consumer* normalizes and identifies appropriate
 human-readable equivalents based on the normalized form:
 
 * ``Home page`` becomes ``homepage``, which is rendered as ``Homepage``
