@@ -13,7 +13,7 @@ Well-known Project URLs in Metadata
 
     Metadata *producers* (such as build tools and individual package
     maintainers) may continue to use any labels they please, within the
-    overall ``Project-URL`` length restrictions. However, users are
+    overall ``Project-URL`` length restrictions. However, when possible, users are
     *encouraged* to pick meaningful labels that normalize to well-known
     labels.
 
@@ -33,7 +33,7 @@ lookup procedure for determining whether a ``Project-URL`` is
 ``Download-URL``, or other common project URLs.
 
 This allows indices (such as the Python Package Index) and other downstream
-metadata consumers to specialize their presentations of project URLs in a
+metadata consumers to present project URLs in a
 consistent manner.
 
 .. _project-url-label-normalization:
@@ -47,7 +47,7 @@ Label normalization
     producers.
 
 To determine whether a ``Project-URL`` label is "well-known," metadata
-consumers should first normalize the label before comparing it to the
+consumers should normalize the label before comparing it to the
 :ref:`list of well-known labels <well-known-labels>`.
 
 The normalization procedure for ``Project-URL`` labels is defined
