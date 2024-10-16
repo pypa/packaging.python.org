@@ -7,7 +7,6 @@ Building and Publishing
 
    writing-pyproject-toml
    distributing-packages-using-setuptools
-   single-sourcing-package-version
    dropping-older-python-versions
    packaging-binary-extensions
    packaging-namespace-packages
