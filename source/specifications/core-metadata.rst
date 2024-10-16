@@ -341,32 +341,6 @@ Example::
    These tools have been very widely used for many years, so it was
    easier to update the specification to match the de facto standard.
 
-.. _home-page-optional:
-.. _core-metadata-home-page:
-
-Home-page
-=========
-
-.. versionadded:: 1.0
-
-A string containing the URL for the distribution's home page.
-
-Example::
-
-    Home-page: http://www.example.com/~cschultz/bvote/
-
-.. _core-metadata-download-url:
-
-Download-URL
-============
-
-.. versionadded:: 1.1
-
-A string containing the URL from which this version of the distribution
-can be downloaded.  (This means that the URL can't be something like
-".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
-
-
 .. _author-optional:
 .. _core-metadata-author:
 
@@ -669,6 +643,10 @@ Example::
 
 The label is free text limited to 32 characters.
 
+Starting with :pep:`753`, project metadata consumers (such as the Python
+Package Index) can use a standard normalization process to discover "well-known"
+labels, which can then be given special presentations when being rendered
+for human consumption. See :ref:`well-known-project-urls`.
 
 .. _metadata_provides_extra:
 .. _core-metadata-provides-extra:
@@ -818,6 +796,40 @@ Examples::
 
 Deprecated Fields
 =================
+
+.. _home-page-optional:
+.. _core-metadata-home-page:
+
+Home-page
+---------
+
+.. versionadded:: 1.0
+
+.. deprecated:: 1.2
+
+    Per :pep:`753`, use :ref:`core-metadata-project-url` instead.
+
+A string containing the URL for the distribution's home page.
+
+Example::
+
+    Home-page: http://www.example.com/~cschultz/bvote/
+
+.. _core-metadata-download-url:
+
+Download-URL
+------------
+
+.. versionadded:: 1.1
+
+.. deprecated:: 1.2
+
+    Per :pep:`753`, use :ref:`core-metadata-project-url` instead.
+
+A string containing the URL from which this version of the distribution
+can be downloaded.  (This means that the URL can't be something like
+"``.../BeagleVote-latest.tgz``", but instead must be
+"``.../BeagleVote-0.45.tgz``".)
 
 Requires
 --------

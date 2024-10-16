@@ -12,3 +12,4 @@ Package Distribution Metadata
    pyproject-toml
    inline-script-metadata
    platform-compatibility-tags
+   well-known-project-urls

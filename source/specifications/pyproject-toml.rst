@@ -318,7 +318,8 @@ Trove classifiers which apply to the project.
   :ref:`Project-URL <core-metadata-project-url>`
 
 A table of URLs where the key is the URL label and the value is the
-URL itself.
+URL itself. See :ref:`well-known-project-urls` for normalization rules
+and well-known rules when processing metadata for presentation.
 
 
 Entry points
