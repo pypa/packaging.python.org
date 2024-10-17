@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 16:09+0000\n"
+"POT-Creation-Date: 2024-10-15 11:23+0000\n"
 "PO-Revision-Date: 2022-06-11 08:19+0000\n"
 "Last-Translator: Kushan Gunasekera <kushan.gunasekera@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -1683,107 +1683,105 @@ msgid "Complete"
 msgstr ""
 
 #: ../source/discussions/single-source-version.rst:8
-msgid "2024-08-24"
+msgid "2024-10-07"
 msgstr ""
 
 #: ../source/discussions/single-source-version.rst:10
 msgid ""
-"One of the challenges in building packages is that the version string can be "
-"required in multiple places."
+"Many Python :term:`distribution packages <Distribution Package>` publish a "
+"single Python :term:`import package <Import Package>` where it is desired "
+"that the runtime ``__version__`` attribute on the import package report the "
+"same version specifier as :func:`importlib.metadata.version` reports for the "
+"distribution package (as described in :ref:`runtime-version-access`)."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:13
+#: ../source/discussions/single-source-version.rst:16
 msgid ""
-"It needs to be specified when building the package (e.g. in :file:`pyproject."
-"toml`)"
+"It is also frequently desired that this version information be derived from "
+"a version control system *tag* (such as ``v1.2.3``) rather than being "
+"manually updated in the source code."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:13
+#: ../source/discussions/single-source-version.rst:20
 msgid ""
-"This will make it available in the installed package’s metadata, from where "
-"it will be accessible at runtime using ``importlib.metadata."
-"version(\"distribution_name\")``."
-msgstr ""
-
-#: ../source/discussions/single-source-version.rst:15
-msgid ""
-"A package may set a module attribute (e.g., ``__version__``) to provide an "
-"alternative means of runtime access to the version of the imported package. "
-"If this is done, the value of the attribute and that used by the build "
-"system to set the distribution's version should be kept in sync in :ref:`the "
-"build systems's recommended way <Build system version handling>`."
-msgstr ""
-
-#: ../source/discussions/single-source-version.rst:17
-msgid ""
-"If the code is in in a version control system (VCS), e.g. Git, the version "
-"may appear in a *tag* such as ``v1.2.3``."
-msgstr ""
-
-#: ../source/discussions/single-source-version.rst:19
-msgid ""
-"To ensure that version numbers do not get out of sync, it is recommended "
-"that there is a single source of truth for the version number."
-msgstr ""
-
-#: ../source/discussions/single-source-version.rst:21
-msgid "In general, the options are:"
+"Some projects may choose to simply live with the data entry duplication, and "
+"rely on automated testing to ensure the different values do not diverge."
 msgstr ""
 
 #: ../source/discussions/single-source-version.rst:23
 msgid ""
-"If the code is in a version control system (VCS), e.g. Git, then the version "
-"can be extracted from the VCS."
+"Alternatively, a project's chosen build system may offer a way to define a "
+"single source of truth for the version number."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:25
+#: ../source/discussions/single-source-version.rst:26
+msgid "In general, the options are:"
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:28
+msgid ""
+"If the code is in a version control system (VCS), such as Git, then the "
+"version can be extracted from the VCS."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:30
 msgid ""
 "The version can be hard-coded into the :file:`pyproject.toml` file -- and "
 "the build system can copy it into other locations it may be required."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:27
+#: ../source/discussions/single-source-version.rst:33
 msgid ""
 "The version string can be hard-coded into the source code -- either in a "
-"special purpose file, such as :file:`_version.txt`, or as a attribute in a "
-"module, such as :file:`__init__.py`, and the build system can extract it at "
-"build time."
+"special purpose file, such as :file:`_version.txt` (which must then be "
+"shipped as part of the project's source distribution package), or as an "
+"attribute in a particular module, such as :file:`__init__.py`. The build "
+"system can then extract it from the runtime location at build time."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:30
+#: ../source/discussions/single-source-version.rst:38
 msgid "Consult your build system's documentation for their recommended method."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:35
+#: ../source/discussions/single-source-version.rst:40
+msgid ""
+"When the intention is that a distribution package and its associated import "
+"package share the same version, it is recommended that the project include "
+"an automated test case that ensures ``import_name.__version__`` and "
+"``importlib.metadata.version(\"dist-name\")`` report the same value (note: "
+"for many projects, ``import_name`` and ``dist-name`` will be the same name)."
+msgstr ""
+
+#: ../source/discussions/single-source-version.rst:50
 msgid "Build System Version Handling"
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:37
+#: ../source/discussions/single-source-version.rst:52
 msgid ""
 "The following are links to some build system's documentation for handling "
 "version strings."
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:39
+#: ../source/discussions/single-source-version.rst:54
 msgid "`Flit <https://flit.pypa.io/en/stable/>`_"
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:41
+#: ../source/discussions/single-source-version.rst:56
 msgid "`Hatchling <https://hatch.pypa.io/1.9/version/>`_"
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:43
+#: ../source/discussions/single-source-version.rst:58
 msgid ""
 "`PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_"
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:45
+#: ../source/discussions/single-source-version.rst:60
 msgid ""
 "`Setuptools <https://setuptools.pypa.io/en/latest/userguide/pyproject_config."
 "html#dynamic-metadata>`_"
 msgstr ""
 
-#: ../source/discussions/single-source-version.rst:47
+#: ../source/discussions/single-source-version.rst:62
 msgid "`setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_"
 msgstr ""
 
@@ -2135,12 +2133,12 @@ msgid ""
 "the year."
 msgstr ""
 
-#: ../source/discussions/versioning.rst:158
+#: ../source/discussions/versioning.rst:157
 #: ../source/specifications/version-specifiers.rst:114
 msgid "Local version identifiers"
 msgstr ""
 
-#: ../source/discussions/versioning.rst:160
+#: ../source/discussions/versioning.rst:159
 msgid ""
 "Public version identifiers are designed to support distribution via :term:"
 "`PyPI <Python Package Index (PyPI)>`. Python packaging tools also support "
@@ -2149,7 +2147,7 @@ msgid ""
 "publication, or modified variants of a release maintained by a redistributor."
 msgstr ""
 
-#: ../source/discussions/versioning.rst:166
+#: ../source/discussions/versioning.rst:165
 msgid ""
 "A local version identifier takes the form of a public version identifier, "
 "followed by \"+\" and a local version label. For example, a package with "
@@ -2161,18 +2159,84 @@ msgid ""
 "dev1+gd00980f.d20231217\"."
 msgstr ""
 
-#: ../source/discussions/versioning.rst:178
+#: ../source/discussions/versioning.rst:177
+msgid "Accessing version information at runtime"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:179
+msgid ""
+"Version information for all :term:`distribution packages <Distribution "
+"Package>` that are locally available in the current environment can be "
+"obtained at runtime using the standard library's :func:`importlib.metadata."
+"version` function::"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:186
+msgid ""
+"Many projects also choose to version their top level :term:`import packages "
+"<Import Package>` by providing a package level ``__version__`` attribute::"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:194
+msgid ""
+"This technique can be particularly valuable for CLI applications which want "
+"to ensure that version query invocations (such as ``pip -V``) run as quickly "
+"as possible."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:198
+msgid ""
+"Package publishers wishing to ensure their reported distribution package and "
+"import package versions are consistent with each other can review the :ref:"
+"`single-source-version` discussion for potential approaches to doing so."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:202
+msgid ""
+"As import packages and modules are not *required* to publish runtime version "
+"information in this way (see the rejected proposal in :pep:`PEP 396 <396>`), "
+"the ``__version__`` attribute should either only be queried with interfaces "
+"that are known to provide it (such as a project querying its own version or "
+"the version of one of its direct dependencies), or else the querying code "
+"should be designed to handle the case where the attribute is missing "
+"[#fallback-to-dist-version]_."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:210
+msgid ""
+"Some projects may need to publish version information for external APIs that "
+"don't meet the requirements for Python distribution package :ref:`version "
+"specifiers <version-specifiers>`. Such projects should define their own "
+"project-specific ways of obtaining the relevant information at runtime. For "
+"example, the standard library's :mod:`ssl` module offers multiple ways to "
+"access the underlying OpenSSL library version::"
+msgstr ""
+
+#: ../source/discussions/versioning.rst:226
 msgid ""
 "Some more examples of unusual version numbers are given in a `blog post "
 "<versions-seth-larson_>`_ by Seth Larson."
 msgstr ""
 
-#: ../source/discussions/versioning.rst:181
+#: ../source/discussions/versioning.rst:229
 msgid ""
 "For some personal viewpoints on this issue, see these blog posts: `by Hynek "
 "Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft <semver-donald-"
 "stufft_>`_, `by Bernát Gábor <semver-bernat-gabor_>`_, `by Brett Cannon "
 "<semver-brett-cannon_>`_. For a humoristic take, read about ZeroVer_."
+msgstr ""
+
+#: ../source/discussions/versioning.rst:235
+msgid ""
+"A full list mapping the top level names available for import to the "
+"distribution packages that provide those import packages and modules may be "
+"obtained through the standard library's :func:`importlib.metadata."
+"packages_distributions` function. This means that even code that is "
+"attempting to infer a version to report for all importable top-level names "
+"has a means to fall back to reporting the distribution version information "
+"if no ``__version__`` attribute is defined. Only standard library modules, "
+"and modules added via means other than Python package installation would "
+"fail to have version information reported in that case."
 msgstr ""
 
 #: ../source/flow.rst:3
@@ -3668,7 +3732,6 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/creating-command-line-tools.rst:17
-#: ../source/guides/single-sourcing-package-version.rst:7
 #: ../source/guides/tool-recommendations.rst:45
 msgid "Todo"
 msgstr ""
@@ -7529,150 +7592,17 @@ msgstr ""
 msgid "Installation"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:5
-msgid "Single-sourcing the package version"
+#: ../source/guides/single-sourcing-package-version.rst:-1
+msgid "0; url=../../discussions/single-source-version/"
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:7
-msgid "Update this page for build backends other than setuptools."
+#: ../source/guides/single-sourcing-package-version.rst:6
+msgid "Redirecting stale single-source package version link..."
 msgstr ""
 
-#: ../source/guides/single-sourcing-package-version.rst:9
+#: ../source/guides/single-sourcing-package-version.rst:8
 msgid ""
-"There are many techniques to maintain a single source of truth for the "
-"version number of your project:"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:12
-msgid ""
-"Read the file in :file:`setup.py` and get the version. Example (from `pip "
-"setup.py <https://github.com/pypa/pip/blob/003c7ac/setup.py>`_)::"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:39
-msgid ""
-"As of the release of setuptools 46.4.0, one can accomplish the same thing by "
-"instead placing the following in the project's :file:`setup.cfg` file "
-"(replacing \"package\" with the import name of the package):"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:49
-msgid ""
-"As of the release of setuptools 61.0.0, one can specify the version "
-"dynamically in the project's :file:`pyproject.toml` file."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:61
-msgid ""
-"Please be aware that declarative config indicators, including the ``attr:`` "
-"directive, are not supported in parameters to :file:`setup.py`."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:65
-msgid ""
-"Use an external build tool that either manages updating both locations, or "
-"offers an API that both locations can use."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:68
-msgid ""
-"Few tools you could use, in no particular order, and not necessarily "
-"complete: `bump2version <https://pypi.org/project/bump2version>`_, `changes "
-"<https://pypi.org/project/changes>`_, `commitizen <https://pypi.org/project/"
-"commitizen>`_, `zest.releaser <https://pypi.org/project/zest.releaser>`_."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:75
-msgid ""
-"Set the value to a ``__version__`` global variable in a dedicated module in "
-"your project (e.g. :file:`version.py`), then have :file:`setup.py` read and "
-"``exec`` the value into a variable."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:86
-msgid ""
-"Example using this technique: `warehouse <https://github.com/pypa/warehouse/"
-"blob/64ca42e42d5613c8339b3ec5e1cb7765c6b23083/warehouse/__about__.py>`_."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:88
-msgid ""
-"Place the value in a simple ``VERSION`` text file and have both :file:`setup."
-"py` and the project code read it."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:96
-msgid ""
-"An advantage with this technique is that it's not specific to Python.  Any "
-"tool can read the version."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:101
-msgid ""
-"With this approach you must make sure that the ``VERSION`` file is included "
-"in all your source and binary distributions (e.g. add ``include VERSION`` to "
-"your :file:`MANIFEST.in`)."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:105
-msgid ""
-"Set the value in :file:`setup.py`, and have the project code use the "
-"``importlib.metadata`` API to fetch the value at runtime. (``importlib."
-"metadata`` was introduced in Python 3.8 and is available to older versions "
-"as the ``importlib-metadata`` project.)  An installed project's version can "
-"be fetched with the API as follows::"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:120
-msgid ""
-"Be aware that the ``importlib.metadata`` API only knows about what's in the "
-"installation metadata, which is not necessarily the code that's currently "
-"imported."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:124
-msgid ""
-"If a project uses this method to fetch its version at runtime, then its "
-"``install_requires`` value needs to be edited to install ``importlib-"
-"metadata`` on pre-3.8 versions of Python like so::"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:138
-msgid ""
-"An older (and less efficient) alternative to ``importlib.metadata`` is the "
-"``pkg_resources`` API provided by ``setuptools``::"
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:144
-msgid ""
-"If a project uses ``pkg_resources`` to fetch its own version at runtime, "
-"then ``setuptools`` must be added to the project's ``install_requires`` list."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:148
-msgid ""
-"Example using this technique: `setuptools <https://github.com/pypa/"
-"setuptools/blob/main/setuptools/version.py>`_."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:151
-msgid ""
-"Set the value to ``__version__`` in ``sample/__init__.py`` and import "
-"``sample`` in :file:`setup.py`."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:165
-msgid ""
-"Although this technique is common, beware that it will fail if ``sample/"
-"__init__.py`` imports packages from ``install_requires`` dependencies, which "
-"will very likely not be installed yet when :file:`setup.py` is run."
-msgstr ""
-
-#: ../source/guides/single-sourcing-package-version.rst:171
-msgid ""
-"Keep the version number in the tags of a version control system (Git, "
-"Mercurial, etc) instead of in the code, and automatically extract it from "
-"there using `setuptools_scm <https://pypi.org/project/setuptools-scm/>`_."
+"If the page doesn't automatically refresh, see :ref:`single-source-version`."
 msgstr ""
 
 #: ../source/guides/supporting-multiple-python-versions.rst:7
@@ -8714,8 +8644,8 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:165
 msgid ""
 "This allows use cases such as filling the version from a ``__version__`` "
-"attribute or a Git tag. Consult :ref:`Single sourcing the version` for more "
-"details."
+"attribute or a Git tag. Consult the :ref:`single-source-version` discussion "
+"for more details."
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:171
