@@ -200,7 +200,7 @@ import package versions are consistent with each other can review the
 :ref:`single-source-version` discussion for potential approaches to doing so.
 
 As import packages and modules are not *required* to publish runtime
-version information in this way (see the rejected proposal in
+version information in this way (see the withdrawn proposal in
 :pep:`PEP 396 <396>`), the ``__version__`` attribute should either only be
 queried with interfaces that are known to provide it (such as a project
 querying its own version or the version of one of its direct dependencies),
