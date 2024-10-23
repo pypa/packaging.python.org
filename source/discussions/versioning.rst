@@ -208,8 +208,7 @@ or else the querying code should be designed to handle the case where the
 attribute is missing [#fallback-to-dist-version]_.
 
 Some projects may need to publish version information for external APIs
-that don't meet the requirements for Python distribution package
-:ref:`version specifiers <version-specifiers>`. Such projects should
+that aren't the version of the module itself. Such projects should
 define their own project-specific ways of obtaining the relevant information
 at runtime. For example, the standard library's :mod:`ssl` module offers
 multiple ways to access the underlying OpenSSL library version::
