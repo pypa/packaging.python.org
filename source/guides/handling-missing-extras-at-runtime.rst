@@ -56,14 +56,16 @@ recursively and check whether all are installed in the current environment
 
 .. code-block:: python
 
-   # TODO Unless we get special permission, this snippet is Apache-2-licensed:
+   # Adapted from (see there for copyright & license):
    # https://github.com/HansBug/hbutils/blob/927b0757449a781ce8e30132f26b06089a24cd71/LICENSE
+   # SPDX-License-Identifier: Apache-2.0
 
    from collections.abc import Iterable
    from importlib.metadata import PackageNotFoundError, distribution, metadata
 
-   from packaging.metadata import Metadata
+   from packaging.metadata import Metadata, RawMetadata
    from packaging.requirements import Requirement
+
 
    def check_reqs(req_strs: Iterable[str]) -> bool:
      return all(
@@ -71,6 +73,7 @@ recursively and check whether all are installed in the current environment
        for req_str in req_strs
        if not (req := Requirement(req_str)).marker or req.marker.evaluate()
      )
+
 
    def _check_req_recursive(req: Requirement) -> bool:
      try:
@@ -83,20 +86,22 @@ recursively and check whether all are installed in the current environment
 
      req_metadata = Metadata.from_raw(metadata(req.name).json, validate=False)
      for child_req in req_metadata.requires_dist or []:
-       for extra in req.extras:
-         if child_req.marker and child_req.marker.evaluate({"extra": extra}):
-           if not _check_req_recursive(child_req):
-             return False
-           break
+       # A dependency is only required to be present if ...
+       if (
+         not child_req.marker  # ... it doesn't have a marker
+         or child_req.marker.evaluate()  # ... its marker matches our env
+         or any(  # ... its marker matches our env given one of our extras
+           child_req.marker.evaluate({"extra": extra}) for extra in req.extras
+         )
+       ):
+         if not _check_req_recursive(child_req):
+           return False
 
      return True
 
 
    # Perform check, e.g.:
    extra_installed = check_reqs(["your-package[your-extra]"])
-
-TODO Either point out that this snippet doesn't actually check everything
-     (https://github.com/HansBug/hbutils/issues/109) or fix it.
 
 The possibility of offering a helper function similar to ``check_reqs`` in
 ``importlib.metadata`` or ``packaging`` themselves is still being discussed
