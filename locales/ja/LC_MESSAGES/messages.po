@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-19 16:34+0000\n"
-"PO-Revision-Date: 2024-10-21 04:26+0000\n"
+"PO-Revision-Date: 2024-10-30 00:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -25274,7 +25274,8 @@ msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:366
 msgid "If no explicit epoch is given, the implicit epoch is ``0``."
-msgstr ""
+msgstr "明示的にエポックが示されていない場合は、エポックとして ``0`` "
+"を暗黙のうちに仮定します。"
 
 #: ../source/specifications/version-specifiers.rst:368
 msgid ""
@@ -25286,6 +25287,14 @@ msgid ""
 "releases would be identified as *older* than the date based releases when "
 "using the normal sorting scheme::"
 msgstr ""
+"明示的なエポックが必要となるのは、あるプロジェクトがバージョン番号を取り扱う"
+"方法を通常のバージョン順序付けルールが誤った回答を返すようなやり方で "
+"*変更した* 場合だけなので、ほとんどのバージョン識別子はエポックを含んでいませ"
+"ん。例えば、あるプロジェクトが ``2014.04`` "
+"のような日付ベースのバージョン番号を使っていたのに、 ``1.0`` のようなセマンテ"
+"ィックバージョン番号に変更したいとすれば、通常の順序付けの枠組みを適用した時"
+"に、新しいリリースが日付ベースのバージョン番号よりも *よりふるいもの* "
+"として識別されてしまうでしょう::"
 
 #: ../source/specifications/version-specifiers.rst:382
 msgid ""
@@ -25293,6 +25302,9 @@ msgid ""
 "appropriately, as all versions from a later epoch are sorted after versions "
 "from an earlier epoch::"
 msgstr ""
+"しかしながら、明示的にエポックを指定すれば、より新しいエポックに属するすべて"
+"のバージョン番号が、より古いエポックに属するものよりも後に続くものとして順序"
+"付けされるので、ソートの順序を適切に変更することができます::"
 
 #: ../source/specifications/version-specifiers.rst:396
 msgid "Normalization"
@@ -25305,10 +25317,16 @@ msgid ""
 "parsing versions. These syntaxes MUST be considered when parsing a version, "
 "however they should be \"normalized\" to the standard syntax defined above."
 msgstr ""
+"既存のバージョン番号との互換性をより良く保つためには、"
+"バージョン番号を解釈する時に考慮に入れておかなければならない "
+"\"代わりになり得る\" シンタックスがたくさんあります。このようなシンタックスは"
+"バージョン番号を解釈する時には考慮しなければなりませんが、しかし、"
+"そのようなバージョン番号は上述の標準的なシンタックスに \"正規化\" "
+"されるべきです。"
 
 #: ../source/specifications/version-specifiers.rst:405
 msgid "Case sensitivity"
-msgstr ""
+msgstr "ケースセンシティビティ"
 
 #: ../source/specifications/version-specifiers.rst:407
 msgid ""
@@ -25316,11 +25334,13 @@ msgid ""
 "and the normal form is lowercase. This allows versions such as ``1.1RC1`` "
 "which would be normalized to ``1.1rc1``."
 msgstr ""
+"すべてのアスキー文字は、バージョン番号の中では大文字小文字の区別をせずに解釈"
+"されるべきであり、標準系は小文字です。これによって、 ``1.1rc1`` "
+"に標準化されるであろう `1.1RC1`` のようなバージョン番号を許容します。"
 
 #: ../source/specifications/version-specifiers.rst:413
-#, fuzzy
 msgid "Integer Normalization"
-msgstr "正規化"
+msgstr "整数の標準化"
 
 #: ../source/specifications/version-specifiers.rst:415
 msgid ""
@@ -25330,11 +25350,16 @@ msgid ""
 "does not hold true for integers inside of an alphanumeric segment of a local "
 "version such as ``1.0+foo0100`` which is already in its normalized form."
 msgstr ""
+"あらゆる整数は、組み込みの ``int()`` "
+"を通じて解釈され、出力の文字列へと標準化されます。これは、"
+"整数のバージョン番号の ``00`` が ``0`` へと標準化され、``09000`` が ``9000`` "
+"へと標準化されることを意味します。 ``1.0+foo0100`` のようなローカルバージョン"
+"で標準化済みのもののアルファベットと数字から成る構成部分の中では、これは適用"
+"されません。"
 
 #: ../source/specifications/version-specifiers.rst:423
-#, fuzzy
 msgid "Pre-release separators"
-msgstr "リリース前のバージョン付与方式"
+msgstr "プレリリースのセパレータ"
 
 #: ../source/specifications/version-specifiers.rst:425
 msgid ""
@@ -25345,11 +25370,16 @@ msgid ""
 "be used between the pre-release signifier and the numeral. This allows "
 "versions such as ``1.0a.1`` which would be normalized to ``1.0a1``."
 msgstr ""
+"プレリリースは、リリース構成部分とプレリリース構成部分の間のセパレータとして"
+"、 ``.`` ・ ``-`` または ``_`` を許容するべきです。この部分の標準形式は、セパ"
+"レータなしのものです。これによって、標準化すれば ``1.1a1`` になる ``1.1.a1`` "
+"や ``1.1-a1`` のようなバージョン番号を許容します。さらに、プレリリース記号と"
+"数字部分の間に使われるセパレータをも許容するべきです。これによって、 ``1."
+"0a1`` に標準化される ``1.0a.1`` のようなバージョン番号を許容します。"
 
 #: ../source/specifications/version-specifiers.rst:434
-#, fuzzy
 msgid "Pre-release spelling"
-msgstr "リリース前のバージョン付与方式"
+msgstr "プレリリースの綴り方"
 
 #: ../source/specifications/version-specifiers.rst:436
 msgid ""
@@ -25360,10 +25390,16 @@ msgid ""
 "case the additional spelling should be considered equivalent to their normal "
 "forms."
 msgstr ""
+"プレリリース番号は、 ``a`` ・ ``b`` ・ ``rc`` ・ ``rc`` および ``rc`` "
+"を表す追加的な綴り方である ``alpha`` ・ ``beta`` ・ ``c`` ・ ``pre`` および "
+"``preview`` を許容します。これによって、標準化すれば ``1.1a1`` ・ ``1.1b2`` "
+"・ ``1.1rc3`` となる ``1.1alpha1`` ・ ``1.1beta2`` ・ ``1.1c3`` のようなバー"
+"ジョン番号を許容します。それぞれのケースで、追加的な綴り方の部分は標準的な形"
+"式のものと同等であると見做されます。"
 
 #: ../source/specifications/version-specifiers.rst:445
 msgid "Implicit pre-release number"
-msgstr ""
+msgstr "明示しないプレリリース番号"
 
 #: ../source/specifications/version-specifiers.rst:447
 msgid ""
@@ -25372,10 +25408,14 @@ msgid ""
 "explicitly. This allows versions such as ``1.2a`` which is normalized to "
 "``1.2a0``."
 msgstr ""
+"プレリリースでは、数字部分を省略することが許容されており、"
+"その場合には暗黙のうちに ``0`` が想定されます。この場合の標準形式は、 ``0`` "
+"を明示的に含めておく形です。これによって、標準化すれば ``1.2a0`` になる ``1."
+"2a`` のようなバージョン番号を許容します。"
 
 #: ../source/specifications/version-specifiers.rst:453
 msgid "Post release separators"
-msgstr ""
+msgstr "ポストリリースのセパレータ"
 
 #: ../source/specifications/version-specifiers.rst:455
 msgid ""
@@ -25387,11 +25427,17 @@ msgid ""
 "This allows versions like ``1.2.post-2`` which would normalize to ``1.2."
 "post2``."
 msgstr ""
+"ポストリリースは、セパレータとして ``.`` ・ ``-`` や ``_`` "
+"を許容し、また、セパレータを全部省略することも許容します。これの標準形式は、 "
+"``.`` セパレータです。これによって、標準化すれば ``1.2.post2`` となる ``1."
+"2-post2`` や ``1.2post2`` のようなバージョン番号を許容します。プレリリースで"
+"のセパレータと同様に、これによって、ポストリリースの記号と数字の間にオプショ"
+"ンとしてのセパレータを置くことを許容します。これによって、標準化すれば ``1.2."
+"post2`` となるであろう ``1.2.port-2`` のようなバージョン番号を許容します。"
 
 #: ../source/specifications/version-specifiers.rst:464
-#, fuzzy
 msgid "Post release spelling"
-msgstr "リリース前のバージョン付与方式"
+msgstr "ポストリリースの綴り方"
 
 #: ../source/specifications/version-specifiers.rst:466
 msgid ""
@@ -25400,10 +25446,14 @@ msgid ""
 "with the pre-releases the additional spellings should be considered "
 "equivalent to their normal forms."
 msgstr ""
+"ポストリリースは、追加の綴り方である ``rev`` や ``r`` "
+"を許容します。これによって、標準化すれば ``1.0.post4`` になるであろう ``1."
+"0-r4`` のようなバージョン番号を許容します。プレリリースでの追加の綴り方と同様"
+"に、その標準形式と同等のものと見做されるべきです。"
 
 #: ../source/specifications/version-specifiers.rst:473
 msgid "Implicit post release number"
-msgstr ""
+msgstr "明示されないポストリリース番号"
 
 #: ../source/specifications/version-specifiers.rst:475
 msgid ""
@@ -25412,10 +25462,14 @@ msgid ""
 "explicitly. This allows versions such as ``1.2.post`` which is normalized to "
 "``1.2.post0``."
 msgstr ""
+"ポストリリース番号では、数字部分を省略することが許容されていて、"
+"その場合には暗黙の裡に ``0`` であるものと仮定されます。これの標準形式は、"
+"明示的に ``0`` を含めることです。これによって、標準化すれば ``1.2.post0`` "
+"となる ``1.2.post`` のようなバージョン番号を許容します。"
 
 #: ../source/specifications/version-specifiers.rst:481
 msgid "Implicit post releases"
-msgstr ""
+msgstr "暗黙裡のポストリリース"
 
 #: ../source/specifications/version-specifiers.rst:483
 msgid ""
@@ -25426,10 +25480,17 @@ msgid ""
 "post release number rule. In other words, ``1.0-`` is *not* a valid version "
 "and it does *not* normalize to ``1.0.post0``."
 msgstr ""
+"ポストリリースは、 ``post`` "
+"記号を全く省略することを許容します。この形式を使う時には、セパレータは ``-`` "
+"でなければならず、他の形式は許されません。これによって、標準化すれば ``1.0."
+"post1`` となる ``1.0-1`` のようなバージョン番号が許容されます。この標準化方法"
+"は、暗黙裡のポストリリース番号のルールと同時に使われてはなりません。換言すれ"
+"ば、 ``1.0-`` は正当なバージョン番号では *なく* 、 ``1.0.post0`` "
+"へ標準化されることも *ありません* 。"
 
 #: ../source/specifications/version-specifiers.rst:492
 msgid "Development release separators"
-msgstr ""
+msgstr "開発リリース番号のセパレータ"
 
 #: ../source/specifications/version-specifiers.rst:494
 msgid ""
@@ -25438,10 +25499,15 @@ msgid ""
 "`` separator. This allows versions such as ``1.2-dev2`` or ``1.2dev2`` which "
 "normalize to ``1.2.dev2``."
 msgstr ""
+"開発リリースでは、セパレータとして ``.`` ・ ``-`` ・ ``_`` を許容し、また、一"
+"切のセパレータを省力することを許容します。これの標準形式は、 ``.`` "
+"セパレータを使う形です。これによって、標準化すれば ``1.2.dev2`` "
+"になるであろう ``1.2-dev2`` や ``1.2dev2`` "
+"のようなバージョン番号を許容します。"
 
 #: ../source/specifications/version-specifiers.rst:501
 msgid "Implicit development release number"
-msgstr ""
+msgstr "暗黙裡の開発バージョン番号"
 
 #: ../source/specifications/version-specifiers.rst:503
 msgid ""
