@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-30 00:35+0000\n"
+"POT-Creation-Date: 2024-10-30 00:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1537,22 +1537,22 @@ msgid "Package publishers wishing to ensure their reported distribution package 
 msgstr ""
 
 #: ../source/discussions/versioning.rst:202
-msgid "As import packages and modules are not *required* to publish runtime version information in this way (see the rejected proposal in :pep:`PEP 396 <396>`), the ``__version__`` attribute should either only be queried with interfaces that are known to provide it (such as a project querying its own version or the version of one of its direct dependencies), or else the querying code should be designed to handle the case where the attribute is missing [#fallback-to-dist-version]_."
+msgid "As import packages and modules are not *required* to publish runtime version information in this way (see the withdrawn proposal in :pep:`PEP 396 <396>`), the ``__version__`` attribute should either only be queried with interfaces that are known to provide it (such as a project querying its own version or the version of one of its direct dependencies), or else the querying code should be designed to handle the case where the attribute is missing [#fallback-to-dist-version]_."
 msgstr ""
 
 #: ../source/discussions/versioning.rst:210
-msgid "Some projects may need to publish version information for external APIs that don't meet the requirements for Python distribution package :ref:`version specifiers <version-specifiers>`. Such projects should define their own project-specific ways of obtaining the relevant information at runtime. For example, the standard library's :mod:`ssl` module offers multiple ways to access the underlying OpenSSL library version::"
+msgid "Some projects may need to publish version information for external APIs that aren't the version of the module itself. Such projects should define their own project-specific ways of obtaining the relevant information at runtime. For example, the standard library's :mod:`ssl` module offers multiple ways to access the underlying OpenSSL library version::"
 msgstr ""
 
-#: ../source/discussions/versioning.rst:226
+#: ../source/discussions/versioning.rst:225
 msgid "Some more examples of unusual version numbers are given in a `blog post <versions-seth-larson_>`_ by Seth Larson."
 msgstr ""
 
-#: ../source/discussions/versioning.rst:229
+#: ../source/discussions/versioning.rst:228
 msgid "For some personal viewpoints on this issue, see these blog posts: `by Hynek Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft <semver-donald-stufft_>`_, `by Bernát Gábor <semver-bernat-gabor_>`_, `by Brett Cannon <semver-brett-cannon_>`_. For a humoristic take, read about ZeroVer_."
 msgstr ""
 
-#: ../source/discussions/versioning.rst:235
+#: ../source/discussions/versioning.rst:234
 msgid "A full list mapping the top level names available for import to the distribution packages that provide those import packages and modules may be obtained through the standard library's :func:`importlib.metadata.packages_distributions` function. This means that even code that is attempting to infer a version to report for all importable top-level names has a means to fall back to reporting the distribution version information if no ``__version__`` attribute is defined. Only standard library modules, and modules added via means other than Python package installation would fail to have version information reported in that case."
 msgstr ""
 
