@@ -200,7 +200,7 @@ import package versions are consistent with each other can review the
 :ref:`single-source-version` discussion for potential approaches to doing so.
 
 As import packages and modules are not *required* to publish runtime
-version information in this way (see the rejected proposal in
+version information in this way (see the withdrawn proposal in
 :pep:`PEP 396 <396>`), the ``__version__`` attribute should either only be
 queried with interfaces that are known to provide it (such as a project
 querying its own version or the version of one of its direct dependencies),
@@ -208,8 +208,7 @@ or else the querying code should be designed to handle the case where the
 attribute is missing [#fallback-to-dist-version]_.
 
 Some projects may need to publish version information for external APIs
-that don't meet the requirements for Python distribution package
-:ref:`version specifiers <version-specifiers>`. Such projects should
+that aren't the version of the module itself. Such projects should
 define their own project-specific ways of obtaining the relevant information
 at runtime. For example, the standard library's :mod:`ssl` module offers
 multiple ways to access the underlying OpenSSL library version::
