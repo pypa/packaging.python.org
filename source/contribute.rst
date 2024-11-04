@@ -45,7 +45,7 @@ Tutorials are focused on teaching the reader new concepts by accomplishing a
 goal. They are opinionated step-by-step guides. They do not include extraneous
 warnings or information. `example tutorial-style document`_.
 
-.. _example tutorial-style document: https://docs.djangoproject.com/en/1.11/intro/
+.. _example tutorial-style document: https://docs.djangoproject.com/en/dev/intro/
 
 Guides
 ------

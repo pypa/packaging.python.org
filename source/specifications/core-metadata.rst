@@ -48,7 +48,7 @@ Metadata-Version
 .. versionadded:: 1.0
 
 Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
-"2.2", and "2.3".
+"2.2", "2.3", and "2.4".
 
 Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
 greater than the highest version they support, and MUST fail if
@@ -63,7 +63,7 @@ all of the needed fields.
 
 Example::
 
-    Metadata-Version: 2.3
+    Metadata-Version: 2.4
 
 
 .. _core-metadata-name:
@@ -341,32 +341,6 @@ Example::
    These tools have been very widely used for many years, so it was
    easier to update the specification to match the de facto standard.
 
-.. _home-page-optional:
-.. _core-metadata-home-page:
-
-Home-page
-=========
-
-.. versionadded:: 1.0
-
-A string containing the URL for the distribution's home page.
-
-Example::
-
-    Home-page: http://www.example.com/~cschultz/bvote/
-
-.. _core-metadata-download-url:
-
-Download-URL
-============
-
-.. versionadded:: 1.1
-
-A string containing the URL from which this version of the distribution
-can be downloaded.  (This means that the URL can't be something like
-".../BeagleVote-latest.tgz", but instead must be ".../BeagleVote-0.45.tgz".)
-
-
 .. _author-optional:
 .. _core-metadata-author:
 
@@ -460,6 +434,14 @@ License
 =======
 
 .. versionadded:: 1.0
+.. deprecated:: 2.4
+   in favour of ``License-Expression``.
+
+.. warning::
+    As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually
+    exclusive. If both are specified, tools which parse metadata will disregard
+    ``License`` and PyPI will reject uploads.
+    See `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-field>`__.
 
 Text indicating the license covering the distribution where the license
 is not a selection from the "License" Trove classifiers. See
@@ -477,6 +459,50 @@ Examples::
     License: GPL version 3, excluding DRM provisions
 
 
+.. _license-expression-optional:
+.. _core-metadata-license-expression:
+
+License-Expression
+==================
+
+.. versionadded:: 2.4
+
+Text string that is a valid SPDX
+`license expression <https://peps.python.org/pep-0639/#term-license-expression>`__
+as `defined in PEP 639 <https://peps.python.org/pep-0639/#spdx>`__.
+
+Examples::
+
+    License-Expression: MIT
+    License-Expression: BSD-3-Clause
+    License-Expression: MIT AND (Apache-2.0 OR BSD-2-Clause)
+    License-Expression: MIT OR GPL-2.0-or-later OR (FSFUL AND BSD-2-Clause)
+    License-Expression: GPL-3.0-only WITH Classpath-Exception-2.0 OR BSD-3-Clause
+    License-Expression: LicenseRef-Special-License OR CC0-1.0 OR Unlicense
+    License-Expression: LicenseRef-Proprietary
+
+
+.. _license-file-optional:
+.. _core-metadata-license-file:
+
+License-File (multiple use)
+===========================
+
+.. versionadded:: 2.4
+
+Each entry is a string representation of the path of a license-related file.
+The path is located within the project source tree, relative to the project
+root directory. For details see :pep:`639`.
+
+Examples::
+
+    License-File: LICENSE
+    License-File: AUTHORS
+    License-File: LICENSE.txt
+    License-File: licenses/LICENSE.MIT
+    License-File: licenses/LICENSE.CC0
+
+
 .. _metadata-classifier:
 .. _core-metadata-classifier:
 
@@ -489,6 +515,11 @@ Each entry is a string giving a single classification value
 for the distribution.  Classifiers are described in :pep:`301`,
 and the Python Package Index publishes a dynamic list of
 `currently defined classifiers <https://pypi.org/classifiers/>`__.
+
+.. note::
+    The use of ``License ::`` classifiers  is deprecated as of Metadata 2.4,
+    use ``License-Expression`` instead. See
+    `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-classifiers>`_.
 
 This field may be followed by an environment marker after a semicolon.
 
@@ -612,6 +643,10 @@ Example::
 
 The label is free text limited to 32 characters.
 
+Starting with :pep:`753`, project metadata consumers (such as the Python
+Package Index) can use a standard normalization process to discover "well-known"
+labels, which can then be given special presentations when being rendered
+for human consumption. See :ref:`well-known-project-urls`.
 
 .. _metadata_provides_extra:
 .. _core-metadata-provides-extra:
@@ -725,7 +760,7 @@ This field may be followed by an environment marker after a semicolon.
 Examples::
 
     Provides-Dist: OtherProject
-    Provides-Dist: AnotherProject (3.4)
+    Provides-Dist: AnotherProject==3.4
     Provides-Dist: virtual_package; python_version >= "3.4"
 
 .. _core-metadata-obsoletes-dist:
@@ -761,6 +796,40 @@ Examples::
 
 Deprecated Fields
 =================
+
+.. _home-page-optional:
+.. _core-metadata-home-page:
+
+Home-page
+---------
+
+.. versionadded:: 1.0
+
+.. deprecated:: 1.2
+
+    Per :pep:`753`, use :ref:`core-metadata-project-url` instead.
+
+A string containing the URL for the distribution's home page.
+
+Example::
+
+    Home-page: http://www.example.com/~cschultz/bvote/
+
+.. _core-metadata-download-url:
+
+Download-URL
+------------
+
+.. versionadded:: 1.1
+
+.. deprecated:: 1.2
+
+    Per :pep:`753`, use :ref:`core-metadata-project-url` instead.
+
+A string containing the URL from which this version of the distribution
+can be downloaded.  (This means that the URL can't be something like
+"``.../BeagleVote-latest.tgz``", but instead must be
+"``.../BeagleVote-0.45.tgz``".)
 
 Requires
 --------
@@ -863,6 +932,11 @@ History
 - March 2022: Core metadata 2.3 was approved through :pep:`685`.
 
   - Restricted extra names to be normalized.
+
+- August 2024: Core metadata 2.4 was approved through :pep:`639`.
+
+  - Added the ``License-Expression`` field.
+  - Added the ``License-File`` field.
 
 ----
 

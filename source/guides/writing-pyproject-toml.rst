@@ -22,19 +22,19 @@ three possible TOML tables in this file.
 
 .. note::
 
-   There is a significant difference between the ``[build-system]`` and
-   ``[project]`` tables. The former should always be present, regardless of
-   which build backend you use (since it *defines* the tool you use). The latter
-   is understood by *most* build backends, but some build backends use a
-   different format.
+   The ``[build-system]`` table should always be present,
+   regardless of which build backend you use (``[build-system]`` *defines* the
+   build tool you use).
 
-   At the time of writing this (November 2023), Poetry_ is a notable build
-   backend that does not use the ``[project]`` table (it uses the
-   ``[tool.poetry]`` table instead).
+   On the other hand, the ``[project]`` table is understood by *most* build
+   backends, but some build backends use a different format.
 
+   As of August 2024, Poetry_ is a notable build backend that does not use
+   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
-   and the older format in ``setup.cfg`` or ``setup.py``. For new projects, it
-   is recommended to use the ``[project]`` table, and keep ``setup.py`` only if
+   and the older format in ``setup.cfg`` or ``setup.py``.
+
+   For new projects, use the ``[project]`` table, and keep ``setup.py`` only if
    some programmatic configuration is needed (such as building C extensions),
    but the ``setup.cfg`` and ``setup.py`` formats are still valid. See
    :ref:`setup-py-deprecated`.
@@ -130,7 +130,7 @@ only field that cannot be marked as dynamic.
    [project]
    name = "spam-eggs"
 
-The project name must consists of ASCII letters, digits, underscores "``_``",
+The project name must consist of ASCII letters, digits, underscores "``_``",
 hyphens "``-``" and periods "``.``". It must not start or end with an
 underscore, hyphen or period.
 
@@ -163,8 +163,8 @@ This field is required, although it is often marked as dynamic using
    dynamic = ["version"]
 
 This allows use cases such as filling the version from a ``__version__``
-attribute or a Git tag. Consult :ref:`Single sourcing the version` for more
-details.
+attribute or a Git tag. Consult the :ref:`single-source-version`
+discussion for more details.
 
 
 Dependencies and requirements
@@ -399,12 +399,20 @@ To prevent a package from being uploaded to PyPI, use the special ``Private ::
 Do Not Upload`` classifier. PyPI will always reject packages with classifiers
 beginning with ``Private ::``.
 
+.. _writing-pyproject-toml-urls:
 
 ``urls``
 --------
 
 A list of URLs associated with your project, displayed on the left
 sidebar of your PyPI project page.
+
+.. note::
+
+    See :ref:`well-known-labels` for a listing
+    of labels that PyPI and other packaging tools are specifically aware of,
+    and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_
+    for PyPI-specific URL processing.
 
 .. code-block:: toml
 
@@ -415,11 +423,34 @@ sidebar of your PyPI project page.
    Issues = "https://github.com/me/spam/issues"
    Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
 
-Note that if the key contains spaces, it needs to be quoted, e.g.,
+Note that if the label contains spaces, it needs to be quoted, e.g.,
 ``Website = "https://example.com"`` but
 ``"Official Website" = "https://example.com"``.
 
+Users are advised to use :ref:`well-known-labels` for their project URLs
+where appropriate, since consumers of metadata (like package indices) can
+specialize their presentation.
 
+For example in the following metadata, neither ``MyHomepage`` nor
+``"Download Link"`` is a well-known label, so they will be rendered verbatim:
+
+.. code-block:: toml
+
+   [project.urls]
+   MyHomepage = "https://example.com"
+   "Download Link" = "https://example.com/abc.tar.gz"
+
+
+Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have
+well-known equivalents (``homepage`` and ``download``), and can be presented
+with those semantics in mind (the project's home page and its external
+download location, respectively).
+
+.. code-block:: toml
+
+   [project.urls]
+   HomePage = "https://example.com"
+   DOWNLOAD = "https://example.com/abc.tar.gz"
 
 Advanced plugins
 ================

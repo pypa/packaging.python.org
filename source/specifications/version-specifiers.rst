@@ -237,6 +237,8 @@ release scheme using the year and month of the release::
     ...
 
 
+.. _pre-release-versions:
+
 Pre-releases
 ------------
 
