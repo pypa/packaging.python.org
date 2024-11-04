@@ -419,7 +419,7 @@ management and deployment of binary extensions and other binary code.
 
 Conda does not install packages from PyPI -- it can only manage packages built specifically
 for conda, which can be made available on a "conda channel", such as those hosted on
-`anaconda.org <https://anaconda.org/>`__, or a local (e.g. intranet) package server.
+`anaconda.org <https://anaconda.org>`__, or a local (e.g. intranet) package server.
 In addition to the "default" channels managed by `Anaconda, Inc. <https://www.anaconda.com/>`__, there are a wide variety of packages from the community supported
 `conda-forge project <https://conda-forge.org/>`__
 
