@@ -7,3 +7,4 @@ Package Index Interfaces
 
    pypirc
    simple-repository-api
+   index-hosted-attestations

@@ -96,6 +96,15 @@ In addition to the above, the following constraints are placed on the API:
   In the attribute value, < and > have to be HTML encoded as ``&lt;`` and
   ``&gt;``, respectively.
 
+* A repository **MAY** include a ``data-provenance`` attribute on a file link.
+  The value of this attribute **MUST** be a fully qualified URL, signaling that
+  the file's provenance can be found at that URL. This URL **MUST** represent
+  a `secure origin <https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features/>`_.
+
+  .. note::
+
+    The format of the linked provenance is defined in :ref:`index-hosted-attestations`.
+
 Normalized Names
 ----------------
 
@@ -495,6 +504,10 @@ Each individual file dictionary has the following keys:
   and is a truthy value, then it **SHOULD** be interpreted as indicating that the
   file pointed to by the ``url`` field has been "Yanked" as per :ref:`the API
   yank specification <simple-repository-api-yank>`.
+- ``provenance``: An **optional** key which, if present **MUST** be either a JSON
+  string or ``null``. If not ``null``, it **MUST** be a URL to the file's
+  associated provenance, with the same rules as ``data-provenance`` in the
+  :ref:`base HTML API specification <simple-repository-api-base>`.
 
 As an example:
 
@@ -518,7 +531,8 @@ As an example:
           "url": "https://example.com/files/holygrail-1.0-py3-none-any.whl",
           "hashes": {"sha256": "...", "blake2b": "..."},
           "requires-python": ">=3.7",
-          "dist-info-metadata": true
+          "dist-info-metadata": true,
+          "provenance": "https://example.com/files/holygrail-1.0-py3-none-any.whl.provenance"
         }
       ]
     }
@@ -986,3 +1000,4 @@ History
   format, in :pep:`700`
 * June 2023: renaming the field which provides package metadata independently
   from a package, in :pep:`714`
+* November 2024: provenance metadata in the HTML and JSON formats, in :pep:`740`
