@@ -4,22 +4,34 @@ labels: []
 assignees: []
 
 body:
-  - type: textarea
-    id: issue_description
+  - type: markdown
     attributes:
-      label: "Issue Description"
-      description: "Please provide a detailed description of your issue."
-      placeholder: "Describe your issue here..."
-      value: ""
+      value: |
+        **Thanks for taking a minute to file an issue!**
+
+        Read the [PSF Code of Conduct][CoC] first.
+        [CoC]: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
+
+        ⚠
+        Verify first that your issue is not [already reported on
+        GitHub][issue search].
+
+        _Please fill out the form below with as many precise
+        details as possible._
+
+        [issue search]: ../search?q=is%3Aissue&type=issues
+
+  - type: textarea
+    attributes:
+      label: Issue Description
+      description: Please provide a detailed description of your issue.
+      placeholder: Describe your issue here...
+    validations:
       required: true
 
   - type: checkboxes
-    id: code_of_conduct
     attributes:
       label: Code of Conduct
-      description: |
-        **Please read the [PSF Code of Conduct][CoC] first.**
-        [CoC]: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
       options:
-        - label: "I am aware that participants in this repository must follow the PSF Code of Conduct."
+        - label: I am aware that participants in this repository must follow the PSF Code of Conduct.
           required: true
