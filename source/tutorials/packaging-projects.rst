@@ -392,6 +392,19 @@ won't see that token again.**
 
 .. _API token: https://test.pypi.org/help/#apitoken
 
+Save your token in your `$HOME/.pypirc` file like this, including
+the ``pypi-`` prefix.
+
+.. code-block:: text
+
+   [testpypi]
+     username = __token__
+     password = YOUR_TOKEN_HERE
+
+.. note::
+
+   When uploading to pypi, you will need to create a new section, replacing `testpypi` with `pypi`.
+
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
 
@@ -420,10 +433,6 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
     .. code-block:: bat
 
         py -m twine upload --repository testpypi dist/*
-
-You will be prompted for a username and password. For the username,
-use ``__token__``. For the password, use the token value, including
-the ``pypi-`` prefix.
 
 After the command completes, you should see output similar to this:
 
