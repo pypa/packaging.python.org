@@ -392,7 +392,7 @@ won't see that token again.**
 
 .. _API token: https://test.pypi.org/help/#apitoken
 
-Save your token in your `$HOME/.pypirc` file like this, including
+Save your token in your ``$HOME/.pypirc`` file like this, including
 the ``pypi-`` prefix.
 
 .. code-block:: text
