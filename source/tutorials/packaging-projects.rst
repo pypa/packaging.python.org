@@ -403,7 +403,7 @@ the ``pypi-`` prefix.
 
 .. note::
 
-   When uploading to pypi, you will need to create a new section, replacing `testpypi` with `pypi`.
+   When uploading to pypi, you will need to create a new section, replacing ``testpypi`` with ``pypi``.
 
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
