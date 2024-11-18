@@ -86,9 +86,18 @@ Running a command-line interface from source with src-layout
 ============================================================
 
 Due to the firstly mentioned specialty of the src layout, a command-line
-interface can not be run directly from the :term:`source tree <Project Source Tree>`,
-but requires installation of the package in
-:doc:`Development Mode <setuptools:userguide/development_mode>`
+interface can not be run directly from the :term:`source tree <Project Source Tree>`.
+
+To run a command-line interface directly, you can either:
+
+Run :file:`__main__.py` via:
+
+.. code-block:: bash
+
+    cd src/
+    python -m awesome_package
+
+Or install the package in :doc:`Development Mode <setuptools:userguide/development_mode>`
 for testing purposes. Since this can be unpractical in some situations,
 a workaround could be to prepend the package folder to  Python's
 :py:data:`sys.path` when called via its :file:`__main__.py` file:
