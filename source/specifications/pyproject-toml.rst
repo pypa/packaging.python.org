@@ -138,6 +138,7 @@ The complete list of keys allowed in the ``[project]`` table are:
 - ``gui-scripts``
 - ``keywords``
 - ``license``
+- ``license-files``
 - ``maintainers``
 - ``name``
 - ``optional-dependencies``
@@ -236,16 +237,70 @@ The Python version requirements of the project.
 ``license``
 -----------
 
-- TOML_ type: table
+- TOML_ type: string
 - Corresponding :ref:`core metadata <core-metadata>` field:
-  :ref:`License <core-metadata-license>`
+  :ref:`License-Expression <core-metadata-license-expression>`
 
-The table may have one of two keys. The ``file`` key has a string
-value that is a file path relative to ``pyproject.toml`` to the file
-which contains the license for the project. Tools MUST assume the
-file's encoding is UTF-8. The ``text`` key has a string value which is
-the license of the project.  These keys are mutually exclusive, so a
-tool MUST raise an error if the metadata specifies both keys.
+Text string that is a valid SPDX license expression as defined in :pep:`639`.
+Tools SHOULD validate and perform case normalization of the expression.
+
+The table subkeys of the ``license`` key are deprecated.
+
+
+``license-files``
+-----------------
+
+- TOML_ type: array of strings
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`License-Expression <core-metadata-license-file>`
+
+An array specifying paths in the project source tree relative to the project
+root directory (i.e. directory containing :file:`pyproject.toml` or legacy project
+configuration files, e.g. :file:`setup.py`, :file:`setup.cfg`, etc.)
+to file(s) containing licenses and other legal notices to be
+distributed with the package.
+
+The strings MUST contain valid glob patterns, as specified below:
+
+- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
+  MUST be matched verbatim.
+
+- Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]``
+  containing only the verbatim matched characters MUST be supported.
+  Within ``[...]``, the hyphen indicates a locale-agnostic range (e.g. ``a-z``,
+  order based on Unicode code points).
+  Hyphens at the start or end are matched literally.
+
+- Path delimiters MUST be the forward slash character (``/``).
+  Patterns are relative to the directory containing :file:`pyproject.toml`,
+  therefore the leading slash character MUST NOT be used.
+
+- Parent directory indicators (``..``) MUST NOT be used.
+
+Any characters or character sequences not covered by this specification are
+invalid. Projects MUST NOT use such values.
+Tools consuming this field SHOULD reject invalid values with an error.
+
+Tools MUST assume that license file content is valid UTF-8 encoded text,
+and SHOULD validate this and raise an error if it is not.
+
+Literal paths (e.g. :file:`LICENSE`) are valid globs which means they
+can also be defined.
+
+Build tools:
+
+- MUST treat each value as a glob pattern, and MUST raise an error if the
+  pattern contains invalid glob syntax.
+- MUST include all files matched by a listed pattern in all distribution
+  archives.
+- MUST list each matched file path under a License-File field in the
+  Core Metadata.
+- MUST raise an error if any individual user-specified pattern does not match
+  at least one file.
+
+If the ``license-files`` key is present and
+is set to a value of an empty array, then tools MUST NOT include any
+license files and MUST NOT raise an error.
 
 
 ``authors``/``maintainers``
@@ -308,6 +363,12 @@ The keywords for the project.
   :ref:`Classifier <core-metadata-classifier>`
 
 Trove classifiers which apply to the project.
+
+The use of ``License ::`` classifiers is deprecated and tools MAY issue a
+warning informing users about that.
+Build tools MAY raise an error if both the ``license`` string value
+(translating to ``License-Expression`` metadata field) and the ``License ::``
+classifiers are used.
 
 
 ``urls``
@@ -450,6 +511,8 @@ History
 - November 2020: The specification of the ``[project]`` table was approved
   through :pep:`621`.
 
+- December 2024: The ``license`` key was redefined, the ``license-files`` key was
+  added and ``License::`` classifiers were deprecated through :pep:`639`.
 
 
 .. _TOML: https://toml.io
