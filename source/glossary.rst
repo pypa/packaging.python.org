@@ -119,15 +119,6 @@ Glossary
         extensions.
 
 
-    Known Good Set (KGS)
-
-        A set of distributions at specified versions which are compatible with
-        each other. Typically a test suite will be run which passes all tests
-        before a specific set of packages is declared a known good set. This
-        term is commonly used by frameworks and toolkits which are comprised of
-        multiple individual distributions.
-
-
     Import Package
 
         A Python module which can contain other modules or recursively, other
@@ -145,6 +136,15 @@ Glossary
         A :term:`Project` that is installed for use with
         a Python interpreter or :term:`Virtual Environment`,
         as described in the specicifcation :ref:`recording-installed-packages`.
+
+
+    Known Good Set (KGS)
+
+        A set of distributions at specified versions which are compatible with
+        each other. Typically a test suite will be run which passes all tests
+        before a specific set of packages is declared a known good set. This
+        term is commonly used by frameworks and toolkits which are comprised of
+        multiple individual distributions.
 
 
     Module
