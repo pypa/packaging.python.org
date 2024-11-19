@@ -89,7 +89,7 @@ Due to the firstly mentioned specialty of the src layout, a command-line
 interface can not be run directly from the :term:`source tree <Project Source Tree>`.
 
 To run a command-line interface directly, you can install the package in
-:doc:`Development Mode <setuptools:userguide/development_mode>` for testing purposes. 
+:doc:`Development Mode <setuptools:userguide/development_mode>` for testing purposes.
 
 Since this can be unpractical in some situations, you can also either:
 
