@@ -133,6 +133,7 @@ linkcheck_ignore = [
     # https://github.com/pypa/packaging.python.org/pull/1474
     "https://stackoverflow.com/*",
     "https://pyscaffold.org/*",
+    "https://anaconda.org",
 ]
 linkcheck_retries = 5
 # Ignore anchors for links to GitHub project pages -- GitHub adds anchors from
