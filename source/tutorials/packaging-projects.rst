@@ -421,16 +421,15 @@ Once installed, run Twine to upload all of the archives under :file:`dist`:
 
         py -m twine upload --repository testpypi dist/*
 
-You will be prompted for a username and password. For the username,
-use ``__token__``. For the password, use the token value, including
-the ``pypi-`` prefix.
+You will be prompted for an API token. Use the token value, including the ``pypi-``
+prefix. Note that the input will be hidden, so be sure to paste correctly.
 
 After the command completes, you should see output similar to this:
 
 .. code-block::
 
     Uploading distributions to https://test.pypi.org/legacy/
-    Enter your username: __token__
+    Enter your API token:
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
     100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.2/8.2 kB • 00:01 • ?
     Uploading example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
