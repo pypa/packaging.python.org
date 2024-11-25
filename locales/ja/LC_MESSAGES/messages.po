@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-19 16:34+0000\n"
-"PO-Revision-Date: 2024-11-03 06:00+0000\n"
+"PO-Revision-Date: 2024-11-22 01:00+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -2644,7 +2644,7 @@ msgstr ""
 #: ../source/discussions/versioning.rst:158
 #: ../source/specifications/version-specifiers.rst:114
 msgid "Local version identifiers"
-msgstr "ローカルバージョン指定子"
+msgstr "ローカルバージョン識別子"
 
 #: ../source/discussions/versioning.rst:160
 msgid ""
@@ -24675,7 +24675,7 @@ msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:43
 msgid "Version scheme"
-msgstr "バージョン枠組み"
+msgstr "バージョン番号枠組み"
 
 #: ../source/specifications/version-specifiers.rst:45
 msgid ""
@@ -25532,10 +25532,15 @@ msgid ""
 "using the ``.`` character. This allows versions such as ``1.0+ubuntu-1`` to "
 "be normalized to ``1.0+ubuntu.1``."
 msgstr ""
+"構成部分のセパレータとして ``.`` を使うことに加えて、"
+"ローカルバージョン番号を使えば ``-`` や ``_`` "
+"の使用も受け入れ可能です。標準形式は、 ``.`` "
+"文字を使うことです。これによって、標準化すれば ``1.0+ubuntu.1`` となる ``1."
+"0+ubuntu-1`` のようなバージョン番号も許容されます。"
 
 #: ../source/specifications/version-specifiers.rst:519
 msgid "Preceding v character"
-msgstr ""
+msgstr "先駆する v の文字"
 
 #: ../source/specifications/version-specifiers.rst:521
 msgid ""
@@ -25545,10 +25550,15 @@ msgid ""
 "version. The same version with and without the ``v`` is considered "
 "equivalent."
 msgstr ""
+"よくあるバージョン番号の表記方法である ``v1.0`` の形をサポートするために、"
+"バージョン番号は単独の ``v`` の文字が先行していても構いません。この文字は、あ"
+"らゆる目的において無視されなければならず、バージョン番号の標準化された形式で"
+"は省略されるべきです。 ``v`` "
+"の有無だけが異なるバージョン番号は、同一のものと見做されます。"
 
 #: ../source/specifications/version-specifiers.rst:528
 msgid "Leading and Trailing Whitespace"
-msgstr ""
+msgstr "先行する空白文字や後続する空白文字"
 
 #: ../source/specifications/version-specifiers.rst:530
 msgid ""
@@ -25558,11 +25568,17 @@ msgid ""
 "be handled sensibly, such as a version like ``1.0\\n`` which normalizes to "
 "``1.0``."
 msgstr ""
+"先行する空白文字や後続する空白文字は暗黙の裡に無視されなければならず、バージ"
+"ョン番号の標準化された形式では除去されなければなりません。これには ``\"\"`` "
+"・ ``\\t`` ・ ``\\n"
+"`` ・ ``\\r`` ・ ``\\f`` ・ ``\\v`` が含まれます。これによって、標準化すれば "
+"``1.0`` となる ``1.0\\n"
+"`` のようなバージョン番号に見られる、偶然に入り込んだ空白文字を実用的に取り扱"
+"うことができます。"
 
 #: ../source/specifications/version-specifiers.rst:537
-#, fuzzy
 msgid "Examples of compliant version schemes"
-msgstr "規定に合致したバージョン番号の例を次に示す::"
+msgstr "枠組みに合致したバージョン番号の例"
 
 #: ../source/specifications/version-specifiers.rst:539
 msgid ""
@@ -25573,6 +25589,12 @@ msgid ""
 "figuring out the relative order of versions, even though the rules above "
 "ensure all compliant tools will order them consistently."
 msgstr ""
+"標準のバージョン番号の枠組みは、公開・非公開の Python プロジェクトにおける識"
+"別の慣行を広い範囲で包含するように設計されています。実際上、ある単独のプロジ"
+"ェクトでこの枠組みが提供するあらゆる自由度を使おうと試みるなら、上述のルール"
+"に従うすべてのツールが首尾一貫して順序をつけることができる一方で、人間のユー"
+"ザにとってはバージョン番号間の相対的な順序を解き明かすことに困難を感じること"
+"になるでしょう。"
 
 #: ../source/specifications/version-specifiers.rst:546
 msgid ""
@@ -25581,36 +25603,41 @@ msgid ""
 "ensuring that the \"latest release\" and the \"latest stable release\" can "
 "be easily determined, both by human users and automated tools."
 msgstr ""
+"この後に、プロジェクトがそのリリースを識別するために選択するかもしれない異な"
+"るアプローチで、 \"最新リリース\" と \"最新のステーブルリリース\" を人間も自"
+"動化ツールも簡単に決定できることが保証されたもののいくつかの例を示します。"
 
 #: ../source/specifications/version-specifiers.rst:551
-#, fuzzy
 msgid "Simple \"major.minor\" versioning::"
-msgstr "一連番号によるバージョン付与"
+msgstr "単純な \"メジャー.マイナー\" バージョン付け::"
 
 #: ../source/specifications/version-specifiers.rst:560
 msgid "Simple \"major.minor.micro\" versioning::"
-msgstr ""
+msgstr "単純な \"メジャー.マイナー.マイクロ\" バージョン付け::"
 
 #: ../source/specifications/version-specifiers.rst:568
 msgid ""
 "\"major.minor\" versioning with alpha, beta and candidate pre-releases::"
-msgstr ""
+msgstr "アルファ・ベータや公開候補 <candidate> のようなプレリリースを伴う \"メジャー."
+"マイナー\" バージョン付け::"
 
 #: ../source/specifications/version-specifiers.rst:580
 msgid ""
 "\"major.minor\" versioning with developmental releases, release candidates "
 "and post-releases for minor corrections::"
 msgstr ""
+"開発リリース <developmental releases> 、リリース候補 <release candidates> "
+"やポストリリースのある \"メジャー.マイナー\" バージョン付け::"
 
 #: ../source/specifications/version-specifiers.rst:595
 msgid ""
 "Date based releases, using an incrementing serial within each year, skipping "
 "zero::"
-msgstr ""
+msgstr "ゼロを飛ばして各年の中で増加するシリアル値を使った日付ベースのリリース番号::"
 
 #: ../source/specifications/version-specifiers.rst:609
 msgid "Summary of permitted suffixes and relative ordering"
-msgstr ""
+msgstr "許容される接尾辞と相対的な順序付けのまとめ"
 
 #: ../source/specifications/version-specifiers.rst:613
 msgid ""
@@ -25618,6 +25645,9 @@ msgid ""
 "process distribution metadata, rather than developers of Python "
 "distributions deciding on a versioning scheme."
 msgstr ""
+"この節では、バージョニング方法を決めようとしている Python 配布物の開発者向け"
+"というよりは、むしろ、一義的には配布物のメタデータを自動的に処理するツールの"
+"作者に向けて書かれています。"
 
 #: ../source/specifications/version-specifiers.rst:617
 msgid ""
@@ -25625,6 +25655,9 @@ msgid ""
 "numeric value of the given epoch. If no epoch segment is present, the "
 "implicit numeric value is ``0``."
 msgstr ""
+"バージョン識別子のエポック構成部分は、当該エポックの数値としての値に従って整"
+"序されなければなりません。エポック構成部分が存在しない場合には、暗黙のうちに "
+"``0`` の値と解釈します。"
 
 #: ../source/specifications/version-specifiers.rst:621
 msgid ""
@@ -25632,18 +25665,24 @@ msgid ""
 "as Python's tuple sorting when the normalized release segment is parsed as "
 "follows::"
 msgstr ""
+"バージョン識別子のリリース構成部分は、"
+"標準化されたリリース構成部分を解釈する時には以下のように Python "
+"のタプルソーティングと同じ順序で格納されていなければなりません::"
 
 #: ../source/specifications/version-specifiers.rst:627
 msgid ""
 "All release segments involved in the comparison MUST be converted to a "
 "consistent length by padding shorter segments with zeros as needed."
-msgstr ""
+msgstr "比較に関わるすべてのリリース構成部分は、必要に応じて不足する構成部分にゼロを"
+"補填することで長さを一致させなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:630
 msgid ""
 "Within a numeric release (``1.0``, ``2.7.3``), the following suffixes are "
 "permitted and MUST be ordered as shown::"
 msgstr ""
+"リリース番号の数字部分 (``1.0`` や ``2.7.3``) の中では、後述の接尾辞が許され"
+"ており、下に示す通りに順序付けをしなければなりません::"
 
 #: ../source/specifications/version-specifiers.rst:635
 msgid ""
@@ -25652,6 +25691,11 @@ msgid ""
 "same ``N`` for both a ``c`` and a ``rc`` in the same release segment as "
 "ambiguous and remain in compliance with the specification."
 msgstr ""
+"``c`` が意味の上で ``rc`` と同等のものであると見做されていて、恰も本当に "
+"``rc`` であるかのように並べ替えされる点を銘記してください。ツール群は、"
+"同じリリース構成部分内に ``c`` と ``rc`` の両方に同一の ``N`` を付けたものが"
+"来た場合には曖昧であるとしてこれを拒否しても構いませんが、これでも仕様には合"
+"致しています。"
 
 #: ../source/specifications/version-specifiers.rst:640
 msgid ""
@@ -25659,12 +25703,16 @@ msgid ""
 "(``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be "
 "ordered as shown::"
 msgstr ""
+"アルファ (``1.0a1``) 、ベータ (``1.0b1``) 、あるいはリリース候補 (``1.0rc1``"
+", ``1.0c1``) の中では、後述の接尾辞が許されていて、示される通りに並べ替えられ"
+"なければなりません::"
 
 #: ../source/specifications/version-specifiers.rst:646
 msgid ""
 "Within a post-release (``1.0.post1``), the following suffixes are permitted "
 "and MUST be ordered as shown::"
-msgstr ""
+msgstr "ポストリリース (``1.0.post1``) の中では、後述の接尾辞が許されていて、示す通り"
+"に並べ替えられなければなりません::"
 
 #: ../source/specifications/version-specifiers.rst:651
 msgid ""
@@ -25672,20 +25720,26 @@ msgid ""
 "used immediately following a numeric version (e.g. ``1.0.dev456``, ``1.0."
 "post1``)."
 msgstr ""
+"バージョン番号の数字部分の直後に置く場合 (例えば ``1.0.dev456`` や ``1.0."
+"post1``) であっても、 ``devN`` と ``postN`` "
+"は、常にドットに後続しなければならないことを銘記してください。"
 
 #: ../source/specifications/version-specifiers.rst:655
 msgid ""
 "Within a pre-release, post-release or development release segment with a "
 "shared prefix, ordering MUST be by the value of the numeric component."
 msgstr ""
+"共通の先行部分を持つプレリリース構成部分、ポストリリース構成部分、あるいは開"
+"発リリース構成部分の中で、数値部分の値に従って順序付けをしなければなりません"
+"。"
 
 #: ../source/specifications/version-specifiers.rst:658
 msgid "The following example covers many of the possible combinations::"
-msgstr ""
+msgstr "可能なバージョン番号の例を以下に示します::"
 
 #: ../source/specifications/version-specifiers.rst:683
 msgid "Version ordering across different metadata versions"
-msgstr ""
+msgstr "相異なるメタデータバージョンを通してバージョン番号を順序付けする"
 
 #: ../source/specifications/version-specifiers.rst:685
 msgid ""
@@ -25693,6 +25747,10 @@ msgid ""
 "standard version identification or ordering scheme. However metadata v1.2 (:"
 "pep:`345`) does specify a scheme which is defined in :pep:`386`."
 msgstr ""
+"メタデータ v1.0 (pep:`241`) および メタデータ (:pep:`314`) は、標準となるバー"
+"ジョン番号の識別や順序付けの枠組みを指定していません。しかしながら、"
+"メタデータ v1.2 (:pep:`345`) では、 :pep:`386` "
+"で定義された枠組みを指定しています。"
 
 #: ../source/specifications/version-specifiers.rst:689
 msgid ""
@@ -25704,6 +25762,13 @@ msgid ""
 "requirements necessitate a standardization across one parsing mechanism to "
 "be used for all versions of a project."
 msgstr ""
+"単純なインストーラ API の特性の故に、特定の配布物がどのバージョンのメタデータ"
+"を使っているかをインストーラが意識することは不可能です。さらに、インストーラ"
+"は、どのバージョンをインストールするべきであるかを決定するために、すべての、"
+"または、可能な限り多くのバージョンのプロジェクトを含む合理的に優先順位付けさ"
+"れたリストを作成することができるように要求されています。これらの要求事項によ"
+"って、あるプロジェクトのすべてのバージョンにおいてひとつの解析メカニズムが使"
+"われるような標準化が必要とされます。"
 
 #: ../source/specifications/version-specifiers.rst:697
 msgid ""
@@ -25714,17 +25779,23 @@ msgid ""
 "and ordering schemes if no versions complying with this specification are "
 "available."
 msgstr ""
+"上記のことによって、この仕様では、全てのメタデータのバージョンに使われなけれ"
+"ばならず、メタデータ v1.2 であってさえも :pep:`386` を上書きする形で使われな"
+"ければなりません。ツール類は、この仕様に示された規則に従って解釈できないバー"
+"ジョン番号をすべて無視するべきですが、この仕様に合致するバージョン番号がひと"
+"つも利用可能でない時には、それぞれの実装で定義されたバージョン番号の解釈や順"
+"序付けにフォールバックしても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:703
 msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
-msgstr ""
+msgstr "配布物のユーザは、自分が管理するプライベートなパッケージインデックスにおいて"
+"、合致しないバージョン番号を明示的に除去しても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:708
-#, fuzzy
 msgid "Compatibility with other version schemes"
-msgstr "universal wheelsの取り扱い"
+msgstr "他のバージョン番号の枠組みとの互換性"
 
 #: ../source/specifications/version-specifiers.rst:710
 msgid ""
@@ -25734,6 +25805,11 @@ msgid ""
 "the metadata while the translated public version is published in the version "
 "field."
 msgstr ""
+"プロジェクトの中には、この使用で定義された公開のバージョン番号枠組みに合致す"
+"るために翻訳を要求するようなバージョン番号枠組みを使うことを選択するものもあ"
+"ります。そのような場合には、当該プロジェクトに特有のバージョン番号をメタデー"
+"タに格納しておく一方で、公開のバージョン番号を version "
+"フィールドに置くことができます。"
 
 #: ../source/specifications/version-specifiers.rst:715
 msgid ""
@@ -25741,6 +25817,10 @@ msgid ""
 "ordering of published releases, while still allowing developers to use the "
 "internal versioning scheme they prefer for their projects."
 msgstr ""
+"これによって、自動化された配布物ツール類が公開されたリリース群の一貫性のある"
+"形で正確な順序付けを提供することができる一方、開発者側では依然として自分たち"
+"のプロジェクト向けに好みの内部的なバージョン番号枠組みを使うことが許されます"
+"。"
 
 #: ../source/specifications/version-specifiers.rst:723
 msgid ""
@@ -25752,6 +25832,12 @@ msgid ""
 "on other distributions, and when publishing a distribution that others rely "
 "on."
 msgstr ""
+"`セマンティックバージョニング`_ は、リリース番号の異なる要素の重要性に関して"
+"、この仕様以前から慣例として認められた人気のあるバージョン番号の識別の枠組み"
+"です。あるプロジェクトがセマンティックバージョニングの詳細を受け入れないこと"
+"を選択した場合であっても、他の配布物に依存する時や他のプロジェクトが依存する"
+"配布物を公開する時に発生する多くの課題を網羅するためにも、この枠組みは理解し"
+"ておくに値します。"
 
 #: ../source/specifications/version-specifiers.rst:730
 msgid ""
@@ -25760,6 +25846,10 @@ msgid ""
 "specification) are fully compatible with the version scheme defined in this "
 "specification, and abiding by these aspects is encouraged."
 msgstr ""
+"(2.0.0 仕様の1-8 節の) セマンティックバージョニングの (\"メジャー.マイナー."
+"マイクロ\" としてこの仕様に記されている) \"メジャー.マイナー.パッチ\" の形は"
+"、この仕様で定義されるバージョン番号枠組みと完全に互換であり、この形を受容す"
+"ることが推奨されています。"
 
 #: ../source/specifications/version-specifiers.rst:735
 msgid ""
@@ -25767,6 +25857,10 @@ msgid ""
 "sign (builds - clause 11) are *not* compatible with this specification and "
 "are not permitted in the public version field."
 msgstr ""
+"ハイフンを含むセマンティックバージョン (pre-releases - clause 10) "
+"やプラス記号を含むセマンティックバージョン (builds - clause 11) は、"
+"この仕様と *互換性がなく* "
+"、公開のバージョン番号フィールドでは許されていません。"
 
 #: ../source/specifications/version-specifiers.rst:739
 msgid ""
@@ -25774,16 +25868,18 @@ msgid ""
 "labels to compatible public versions is to use the ``.devN`` suffix to "
 "specify the appropriate version order."
 msgstr ""
+"ソースラベルに基づいたそのようなセマンティックバージョニングを公開バージョン"
+"番号と互換性のあるものに翻訳する可能なメカニズムの一つは、 ``.devN`` "
+"接尾辞を使って適切なバージョン番号の順序を指定することです。"
 
 #: ../source/specifications/version-specifiers.rst:743
 msgid ""
 "Specific build information may also be included in local version labels."
-msgstr ""
+msgstr "特定のビルド情報も、ローカルのバージョン番号のラベルに含めても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:749
-#, fuzzy
 msgid "DVCS based version labels"
-msgstr "日付ベースのバージョン付与"
+msgstr "DVCS に基づいたバージョン番号のラベル"
 
 #: ../source/specifications/version-specifiers.rst:751
 msgid ""
@@ -25792,6 +25888,10 @@ msgid ""
 "As hashes cannot be ordered reliably such versions are not permitted in the "
 "public version field."
 msgstr ""
+"多くのビルドツールは、バージョン識別子に識別のためのハッシュ値を付加するため"
+"に、 Git や Mercurial のような分散バージョン管理システムを統合しています。ハ"
+"ッシュ値は信頼できる形で順序付けすることができないので、そのようなバージョン"
+"番号は公開のバージョンフィールドでは許されません。"
 
 #: ../source/specifications/version-specifiers.rst:756
 msgid ""
@@ -25799,16 +25899,19 @@ msgid ""
 "uniquely identify such releases for publication, while the original DVCS "
 "based label can be stored in the project metadata."
 msgstr ""
+"セマンティックバージョニングの場合と同様に、元の DVCS ベースのラベルをプロジ"
+"ェクトのメタデータに格納することができない一方で、そのようなリリースを公開す"
+"る際に一意に識別するために、公開の ``.devN`` 接尾辞をつけても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:760
 msgid ""
 "Identifying hash information may also be included in local version labels."
-msgstr ""
+msgstr "ハッシュ値の情報を識別することは、ローカルのバージョン番号ラベルに含めても構"
+"いません。"
 
 #: ../source/specifications/version-specifiers.rst:764
-#, fuzzy
 msgid "Olson database versioning"
-msgstr "日付ベースのバージョン付与"
+msgstr "Olson データベースによるバージョニング"
 
 #: ../source/specifications/version-specifiers.rst:766
 msgid ""
@@ -25816,6 +25919,9 @@ msgid ""
 "Olson timezone database versioning scheme: the year followed by a lowercase "
 "character indicating the version of the database within that year."
 msgstr ""
+"``pytz`` プロジェクトは、バージョニング方法を対応する Olson "
+"タイムゾーンデータベースのバージョニング方法から継承しています: 年と、それに"
+"後続する小文字の文字でその年の中でのデータベースのバージョンを示すもの。"
 
 #: ../source/specifications/version-specifiers.rst:770
 msgid ""
@@ -25824,46 +25930,53 @@ msgid ""
 "release) and is incremented with each subsequent database update within the "
 "year."
 msgstr ""
+"これは、 ``<year>.<serial>`` として (訳註、標準に) "
+"適合する公開のバージョン識別子に翻訳することができ、そこでは ('<year>' "
+"リリースに対して) シリアル番号が０か１から始まって、その年の内にデータベース"
+"が更新される度に１づつ増加されます。"
 
 #: ../source/specifications/version-specifiers.rst:775
 msgid ""
 "As with other translated version identifiers, the corresponding Olson "
 "database version could be recorded in the project metadata."
 msgstr ""
+"他の翻訳されたバージョン識別子と同様に、対応する Olson データベースのバージョ"
+"ン番号は、そのプロジェクトのメタデータに記録しておくことが可能です。"
 
 #: ../source/specifications/version-specifiers.rst:782
 msgid ""
 "A version specifier consists of a series of version clauses, separated by "
 "commas. For example::"
-msgstr ""
+msgstr "バージョン指定子は、一連のバージョン番号節をコンマで区切ったものから構成され"
+"ます。例えば::"
 
 #: ../source/specifications/version-specifiers.rst:787
 msgid "The comparison operator determines the kind of version clause:"
-msgstr ""
+msgstr "比較演算子がバージョン番号節の種類を決定します:"
 
 #: ../source/specifications/version-specifiers.rst:789
 msgid "``~=``: `Compatible release`_ clause"
-msgstr ""
+msgstr "``~=``: `互換性のあるリリース <Compatible release>`_ 節"
 
 #: ../source/specifications/version-specifiers.rst:790
 msgid "``==``: `Version matching`_ clause"
-msgstr ""
+msgstr "``==``: `バージョン番号のマッチング <Version matching>`_ 節"
 
 #: ../source/specifications/version-specifiers.rst:791
 msgid "``!=``: `Version exclusion`_ clause"
-msgstr ""
+msgstr "``!=``: `バージョンの除外 <Version exclusion>`_ 節"
 
 #: ../source/specifications/version-specifiers.rst:792
 msgid "``<=``, ``>=``: `Inclusive ordered comparison`_ clause"
-msgstr ""
+msgstr "``<=``, ``>=``: `境界を含む順序比較 <Inclusive ordered comparison>`_ 節"
 
 #: ../source/specifications/version-specifiers.rst:793
 msgid "``<``, ``>``: `Exclusive ordered comparison`_ clause"
-msgstr ""
+msgstr "``<``, ``>``: `境界を含まない順序比較 <Exclusive ordered comparison>`_ 節"
 
 #: ../source/specifications/version-specifiers.rst:794
 msgid "``===``: `Arbitrary equality`_ clause."
-msgstr ""
+msgstr "``===``: `あらゆる意味での同一性 <Arbitrary equality>`_ clause."
 
 #: ../source/specifications/version-specifiers.rst:796
 msgid ""
@@ -25871,12 +25984,16 @@ msgid ""
 "version must match all given version clauses in order to match the specifier "
 "as a whole."
 msgstr ""
+"コンマ (\",\") は、論理 **積** 演算子と同一のものです: 候補バージョン番号は、"
+"全体として指定子に合致するために、すべての与えられた節が合致しなければなりま"
+"せん。"
 
 #: ../source/specifications/version-specifiers.rst:800
 msgid ""
 "Whitespace between a conditional operator and the following version "
 "identifier is optional, as is the whitespace around the commas."
-msgstr ""
+msgstr "条件演算子とその後のバージョン識別子の間の空白文字は、コンマの周囲の空白文字"
+"と同様にオプションです。"
 
 #: ../source/specifications/version-specifiers.rst:803
 msgid ""
@@ -25886,6 +26003,11 @@ msgid ""
 "releases are considered as candidate versions SHOULD be handled as described "
 "in `Handling of pre-releases`_."
 msgstr ""
+"複数の候補バージョンがバージョン識別子に合致する時には、好ましいバージョンは"
+"、標準の `バージョン番号枠組み <Version scheme>`_ で定義された首尾一貫する順"
+"序付けによって決定される最新のバージョンです。プレリリースが候補バージョンだ"
+"と見做されるか否かは、 `プレリリースの取り扱い <Handling of pre-releases>`_ "
+"に記述されているとおりに扱われるべきです。"
 
 #: ../source/specifications/version-specifiers.rst:809
 msgid ""
@@ -25893,10 +26015,13 @@ msgid ""
 "permitted in version specifiers, and local version labels MUST be ignored "
 "entirely when checking if candidate versions match a given version specifier."
 msgstr ""
+"以下で特に注記される場合を除いて、バージョン指定子内ではローカルバージョン指"
+"定子は許されてはならず、あるバージョン指定子に合致する候補バージョンかどうか"
+"を調べる際にはローカルバージョンラベルは完全に無視されなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:818
 msgid "Compatible release"
-msgstr ""
+msgstr "互換性のあるリリース <Compatible release>"
 
 #: ../source/specifications/version-specifiers.rst:820
 msgid ""
@@ -25904,6 +26029,9 @@ msgid ""
 "``~=`` and a version identifier. It matches any candidate version that is "
 "expected to be compatible with the specified version."
 msgstr ""
+"互換性のあるリリース節は、互換リリース演算子 ``~=`` とバージョン識別子から構"
+"成されます。指定されたバージョンと互換性があるものと期待されるすべての候補バ"
+"ージョンに合致します。"
 
 #: ../source/specifications/version-specifiers.rst:824
 msgid ""
@@ -25911,23 +26039,27 @@ msgid ""
 "`Version scheme`_. Local version identifiers are NOT permitted in this "
 "version specifier."
 msgstr ""
+"指定されたバージョン識別子は、 `バージョン番号枠組み <Version scheme`_ に記述"
+"された標準フォーマットの範疇に収まっていなければなりません。ローカルバージョ"
+"ン識別子は、このバージョン識別子の中では許容されません。"
 
 #: ../source/specifications/version-specifiers.rst:828
 msgid ""
 "For a given release identifier ``V.N``, the compatible release clause is "
 "approximately equivalent to the pair of comparison clauses::"
-msgstr ""
+msgstr "あるリリース識別子 ``V.N`` "
+"にとって、互換リリース節は、一組の比較節とほぼ同一のものです::"
 
 #: ../source/specifications/version-specifiers.rst:833
 msgid ""
 "This operator MUST NOT be used with a single segment version number such as "
 "``~=1``."
-msgstr ""
+msgstr "この演算子は、 ``~=1`` "
+"のように単独の構成部分バージョン番号と一緒に用いてはなりません。"
 
 #: ../source/specifications/version-specifiers.rst:836
-#, fuzzy
 msgid "For example, the following groups of version clauses are equivalent::"
-msgstr "次に挙げる名前はすべて同等ということになります:"
+msgstr "例えば、次に挙げるバージョン番号群はすべて同等ということになります::"
 
 #: ../source/specifications/version-specifiers.rst:844
 msgid ""
@@ -25935,6 +26067,9 @@ msgid ""
 "compatible release clause as ``V.N.suffix``, then the suffix is ignored when "
 "determining the required prefix match::"
 msgstr ""
+"プレリリース、ポストリリース、または開発リリースが ``V.N.suffix`` のような互"
+"換性のあるリリース節の形の名前を付けられているなら、要求される接頭辞と合致す"
+"るかどうかを決める時には接尾辞が無視されます::"
 
 #: ../source/specifications/version-specifiers.rst:854
 msgid ""
@@ -25942,11 +26077,13 @@ msgid ""
 "degree of forward compatibility in a compatible release clause can be "
 "controlled by appending additional zeros to the version specifier::"
 msgstr ""
+"リリース番号構成部分の比較に対するパディングの規則とは、互換性のあるリリース"
+"節での前方互換性に想定された度合いを、バージョン識別子の後ろにゼロを追加して"
+"制御することが可能です::"
 
 #: ../source/specifications/version-specifiers.rst:866
-#, fuzzy
 msgid "Version matching"
-msgstr "バージョン指定子"
+msgstr "バージョン番号の照合"
 
 #: ../source/specifications/version-specifiers.rst:868
 msgid ""
