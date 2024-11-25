@@ -154,7 +154,7 @@ providers:
 
 The other available method is to upload the package manually using :ref:`twine`.
 
-.. warning::
+.. danger::
 
     **Never** use ``python setup.py upload`` for this task. In addition to being
     :ref:`deprecated <setup-py-deprecated>`, it is insecure.
