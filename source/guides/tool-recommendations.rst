@@ -139,15 +139,25 @@ to build distributable wheels.
 Uploading to PyPI
 =================
 
-For projects hosted on GitHub, it is recommended to use the :ref:`trusted publishing
-<trusted-publishing>`, which allows the package to be securely uploaded to PyPI
-from a GitHub Actions job. (This is not yet supported on software forges other
-than GitHub.)
+For projects hosted on or published via supported CI/CD platforms, it is
+recommended to use the :ref:`Trusted Publishing <trusted-publishing>`, which
+allows the package to be securely uploaded to PyPI from a CI/CD workflow
+without a manually configured API token.
+
+As of November 2024, PyPI supports the following platforms as Trusted Publishing
+providers:
+
+* GitHub Actions (on ``https://github.com``)
+* GitLab CI/CD (on ``https://gitlab.com``)
+* ActiveState
+* Google Cloud
 
 The other available method is to upload the package manually using :ref:`twine`.
 
-**Never** use ``python setup.py upload`` for this task. In addition to being
-:ref:`deprecated <setup-py-deprecated>`, it is insecure.
+.. warning::
+
+    **Never** use ``python setup.py upload`` for this task. In addition to being
+    :ref:`deprecated <setup-py-deprecated>`, it is insecure.
 
 
 Workflow tools
