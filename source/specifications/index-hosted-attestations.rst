@@ -24,8 +24,8 @@ Upload endpoint changes
 .. important::
 
     The "legacy" upload API is not standardized.
-    See :ref:`Warehouse's Upload API documentation
-    <warehouse:upload-api-forklift>` for how attestations are uploaded.
+    See `PyPI's Upload API documentation <https://docs.pypi.org/api/upload/>`_
+    for how attestations are uploaded.
 
 .. _attestation-object:
 
