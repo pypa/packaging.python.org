@@ -182,6 +182,7 @@ its version, e.g. ``1.0.0``, consist of:
    ``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and
    ``platlib`` are usually both ``site-packages``.
 #. ``{distribution}-{version}.dist-info/`` contains metadata.
+#. ``{distribution}-{version}.dist-info/licenses/`` contains license files.
 #. ``{distribution}-{version}.data/`` contains one subdirectory
    for each non-empty install scheme key not already covered, where
    the subdirectory name is an index into a dictionary of install paths
@@ -248,6 +249,16 @@ The .dist-info directory
    against the file contents.  Apart from RECORD and its signatures,
    installation will fail if any file in the archive is not both
    mentioned and correctly hashed in RECORD.
+
+
+The :file:`.dist-info/licenses/` directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the metadata version is 2.4 or greater and one or more ``License-File``
+fields is specified, the :file:`.dist-info/` directory MUST contain a
+:file:`licenses/` subdirectory, which MUST contain the files listed in the
+``License-File`` fields in the :file:`METADATA` file at their respective paths
+relative to the :file:`licenses/` directory.
 
 
 The .data directory
@@ -423,6 +434,8 @@ History
 - February 2013: This specification was approved through :pep:`427`.
 - February 2021: The rules on escaping in wheel filenames were revised, to bring
   them into line with what popular tools actually do.
+- November 2024: The .dist-info/licenses directory was specified through
+  :pep:`639`.
 
 
 Appendix
