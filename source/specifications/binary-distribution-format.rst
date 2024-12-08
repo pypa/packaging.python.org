@@ -189,7 +189,7 @@ its version, e.g. ``1.0.0``, consist of:
 #. Python scripts must appear in ``scripts`` and begin with exactly
    ``b'#!python'`` in order to enjoy script wrapper generation and
    ``#!python`` rewriting at install time.  They may have any or no
-   extension.
+   extension.  The ``scripts`` directory may only contain regular files.
 #. ``{distribution}-{version}.dist-info/METADATA`` is Metadata version 1.1
    or greater format metadata.
 #. ``{distribution}-{version}.dist-info/WHEEL`` is metadata about the archive
@@ -423,6 +423,10 @@ History
 - February 2013: This specification was approved through :pep:`427`.
 - February 2021: The rules on escaping in wheel filenames were revised, to bring
   them into line with what popular tools actually do.
+- December 2024: Clarified that the ``scripts`` folder should only contain
+  regular files (the expected behaviour of consuming tools when encountering
+  symlinks or subdirectories in this folder is not formally defined, and hence
+  may vary between tools).
 
 
 Appendix
