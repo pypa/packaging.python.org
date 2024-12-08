@@ -423,6 +423,10 @@ History
 - February 2013: This specification was approved through :pep:`427`.
 - February 2021: The rules on escaping in wheel filenames were revised, to bring
   them into line with what popular tools actually do.
+- December 2024: Clarified that the ``scripts`` folder should only contain
+  regular files (the expected behaviour of consuming tools when encountering
+  symlinks or subdirectories in this folder is not formally defined, and hence
+  may vary between tools).
 
 
 Appendix
