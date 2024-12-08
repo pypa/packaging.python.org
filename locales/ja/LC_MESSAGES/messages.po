@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-06-19 16:34+0000\n"
-"PO-Revision-Date: 2024-11-22 01:00+0000\n"
+"PO-Revision-Date: 2024-12-08 02:03+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -26089,7 +26089,8 @@ msgstr "バージョン番号の照合"
 msgid ""
 "A version matching clause includes the version matching operator ``==`` and "
 "a version identifier."
-msgstr ""
+msgstr "バージョン番号マッチング節には、バージョン番号マッチング演算子 ``==`` "
+"とバージョン識別子を含みます。"
 
 #: ../source/specifications/version-specifiers.rst:871
 msgid ""
@@ -26097,6 +26098,10 @@ msgid ""
 "`Version scheme`_, but a trailing ``.*`` is permitted on public version "
 "identifiers as described below."
 msgstr ""
+"指定されたバージョン識別子は、 `バージョン番号枠組み`_ "
+"に記述された標準フォーマットでなければなりませんが、"
+"公開のバージョン識別子における後続する ``.*`` "
+"は以下に述べるように許されています。"
 
 #: ../source/specifications/version-specifiers.rst:875
 msgid ""
@@ -26106,6 +26111,10 @@ msgid ""
 "release segment to ensure the release segments are compared with the same "
 "length."
 msgstr ""
+"デフォルトでは、バージョン番号マッチング演算子は、厳密な同一性の比較です: 指"
+"定されたバージョンは、要求されたバージョンと正確に同一でなければなりません。 "
+"*唯一の* 置換が行われるのは、リリース番号構成部分を同じ長さで行うことを保証す"
+"るために、リリース番号構成部分にゼロをパディングする時だけです。"
 
 #: ../source/specifications/version-specifiers.rst:881
 msgid ""
@@ -26114,6 +26123,9 @@ msgid ""
 "issue warnings and MAY reject them entirely when strict version matches are "
 "used inappropriately."
 msgstr ""
+"厳密なバージョンマッチングが適切であるか否かは、バージョン指定子のユースケー"
+"スによって変わります。自動化されたツール群は、厳密なバージョンマッチングが使"
+"用された時には、少なくとも警告を発するべきで、全てを拒絶しても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:886
 msgid ""
@@ -26124,13 +26136,20 @@ msgid ""
 "specified version includes only a release segment, then trailing components "
 "(or the lack thereof) in the release segment are also ignored."
 msgstr ""
+"バージョンマッチング節のバージョン識別子の末尾に ``.*`` を孵化することで、厳"
+"密な比較の代わりに接頭辞マッチングが要求されることもあります。これによって、"
+"あるバージョン識別子がその節に合致するか否かを決定する時に、追加の後続構成要"
+"素を無視することになるでしょう。指定されたバージョン番号がリリース番号構成部"
+"分だけを含んでいるなら、リリース番号構成部分の中の後続の構成部分 "
+"(あるいは、その欠落) もまた、無視されます。"
 
 #: ../source/specifications/version-specifiers.rst:893
 #: ../source/specifications/version-specifiers.rst:954
 msgid ""
 "For example, given the version ``1.1.post1``, the following clauses would "
 "match or not as shown::"
-msgstr ""
+msgstr "例えば、あるバージョン番号 ``1.1.post1`` "
+"が与えられたとして、以下に示すように合致したり合致しなかったりします::"
 
 #: ../source/specifications/version-specifiers.rst:900
 msgid ""
@@ -26138,6 +26157,9 @@ msgid ""
 "have an implied preceding ``.``, so given the version ``1.1a1``, the "
 "following clauses would match or not as shown::"
 msgstr ""
+"接頭辞マッチングの目的のためには、プレリリース構成部分は、暗黙の裡に先行する "
+"``.`` を持つものと見なされ、従って、バージョン番号 ``1.1a1`` "
+"が与えられたとすれば、以下に示すように合致したり合致しなかったりします::"
 
 #: ../source/specifications/version-specifiers.rst:908
 msgid ""
@@ -26146,6 +26168,10 @@ msgid ""
 "identifiers). Given the version ``1.1``, the following clauses would match "
 "or not as shown::"
 msgstr ""
+"正確な合致は、また、接頭辞の合致 (これの解釈は、リリース番号構成部分やバージ"
+"ョン識別子に対する通常のゼロパディングを暗に意味します) "
+"であるものと見做されます。バージョン番号 ``1.1`` "
+"が与えられたなら、以下に示すように合致したり合致しなかったりします::"
 
 #: ../source/specifications/version-specifiers.rst:920
 msgid ""
@@ -26155,6 +26181,11 @@ msgid ""
 "version, and the local version is ignored for comparison purposes, so using "
 "either in a prefix match wouldn't make any sense."
 msgstr ""
+"``1.0.dev1.`` や ``1.0foo1.*`` のような開発リリース番号やローカルリリース番号"
+"を含む接頭辞マッチは正当なものではありません。もし存在すれば、開発リリース番"
+"号構成部分は常に公開のバージョン番号の最終構成部分であり、ローカルバージョン"
+"番号は比較の目的においては無視されるので、そのようなものが接頭辞マッチにあっ"
+"たとしても意味を成しません。"
 
 #: ../source/specifications/version-specifiers.rst:926
 msgid ""
@@ -26165,6 +26196,12 @@ msgid ""
 "for repeatable *deployments of applications* while using a shared "
 "distribution index."
 msgstr ""
+"公開された配布物に対する依存関係を定義する時、 "
+"(少なくとも接尾辞にワイルドカードを含まないような) ``==`` の使用は強い非推奨"
+"であり、それはセキュリティフィクスの展開を大きく複雑化させるからです。厳密な"
+"バージョン比較演算子は、一義的に、"
+"共有の配布物インデックスを使う上で繰り返し可能な *アプリケーションの展開* "
+"のための依存関係を定義するために使われることを想定しています。"
 
 #: ../source/specifications/version-specifiers.rst:933
 msgid ""
@@ -26172,6 +26209,9 @@ msgid ""
 "version label), then the local version label of any candidate versions MUST "
 "be ignored when matching versions."
 msgstr ""
+"指定されたバージョン識別子は (ローカルバージョン番号ラベルなしの) 公開バージ"
+"ョン識別子であり、候補バージョンに付けられたローカルバージョン番号ラベルは、"
+"バージョンマッチングの際には無視されなければなりません。"
 
 #: ../source/specifications/version-specifiers.rst:937
 msgid ""
@@ -26181,17 +26221,21 @@ msgid ""
 "above, and the local version label being checked for equivalence using a "
 "strict string equality comparison."
 msgstr ""
+"指定されたバージョン識別子がローカルバージョン識別子であるなら、バージョン間"
+"のマッチングでは、候補バージョンのローカルバージョンラベルは上記の通り公開バ"
+"ージョン識別子と合致するか確かめられ、ローカルバージョンラベルは厳密な文字列"
+"の同一性比較を使って同一であるかどうか確認されます。"
 
 #: ../source/specifications/version-specifiers.rst:945
-#, fuzzy
 msgid "Version exclusion"
-msgstr "バージョン指定子"
+msgstr "バージョンの除外 <Version exclusion>"
 
 #: ../source/specifications/version-specifiers.rst:947
 msgid ""
 "A version exclusion clause includes the version exclusion operator ``!=`` "
 "and a version identifier."
-msgstr ""
+msgstr "バージョンの除外節は、バージョン除外演算子 ``!=`` "
+"とバージョン識別子を含みます。"
 
 #: ../source/specifications/version-specifiers.rst:950
 msgid ""
@@ -26199,10 +26243,13 @@ msgid ""
 "those of the `Version matching`_ operator, except that the sense of any "
 "match is inverted."
 msgstr ""
+"許されるバージョン識別子と比較のセマンティックスは、"
+"マッチの意味が反転している点を除けば `バージョン番号のマッチング <Version "
+"matching>`_ 演算子のそれと同一です。"
 
 #: ../source/specifications/version-specifiers.rst:963
 msgid "Inclusive ordered comparison"
-msgstr ""
+msgstr "境界を含む順序比較 <Inclusive ordered comparison>"
 
 #: ../source/specifications/version-specifiers.rst:965
 msgid ""
@@ -26212,10 +26259,14 @@ msgid ""
 "specified version given the consistent ordering defined by the standard "
 "`Version scheme`_."
 msgstr ""
+"境界を含む順序比較節は比較演算子とバージョン識別子を含み、"
+"候補バージョンの相対的な位置と指定されたバージョンに対して与えられる標準の `"
+"バージョン番号枠組み <Version scheme>`_ によって定義される首尾一貫した順序付"
+"けに基づいてその比較が正しいかどうかを任意のバージョン番号に対して行います。"
 
 #: ../source/specifications/version-specifiers.rst:971
 msgid "The inclusive ordered comparison operators are ``<=`` and ``>=``."
-msgstr ""
+msgstr "境界を含む順序比較の演算子は ``<=`` と ``>=`` です。"
 
 #: ../source/specifications/version-specifiers.rst:973
 #: ../source/specifications/version-specifiers.rst:1003
@@ -26223,15 +26274,18 @@ msgid ""
 "As with version matching, the release segment is zero padded as necessary to "
 "ensure the release segments are compared with the same length."
 msgstr ""
+"バージョン番号のマッチングと同様に、リリース番号構成部分が同じ長さで比較され"
+"ることを担保するために、リリース番号構成部分は必要に応じてゼロでパディングさ"
+"れます。"
 
 #: ../source/specifications/version-specifiers.rst:976
 #: ../source/specifications/version-specifiers.rst:1006
 msgid "Local version identifiers are NOT permitted in this version specifier."
-msgstr ""
+msgstr "ローカルバージョン識別子は、このバージョン識別子の中では許されません。"
 
 #: ../source/specifications/version-specifiers.rst:980
 msgid "Exclusive ordered comparison"
-msgstr ""
+msgstr "境界を含まない順序比較 <Exclusive ordered comparison>"
 
 #: ../source/specifications/version-specifiers.rst:982
 msgid ""
@@ -26242,6 +26296,11 @@ msgid ""
 "specifically exclude pre-releases, post-releases, and local versions of the "
 "specified version."
 msgstr ""
+"境界を含まない順序比較である ``>`` と ``<`` は、標準の `バージョン番号枠組み "
+"<Version scheme>`_ によって定義される首尾一貫した順序付けが与える候補バージョ"
+"ンと指定されたバージョン番号の相対的な位置に依存する点で、境界を含む順序比較"
+"と似ています。しかしながら、指定されたバージョン番号のプレリリース・ポストリ"
+"リース・ローカルバージョンの部分を除外します。"
 
 #: ../source/specifications/version-specifiers.rst:988
 msgid ""
@@ -26252,12 +26311,20 @@ msgid ""
 "``1.7.1`` but not ``1.7.0.post1`` and ``>1.7.post2`` will allow ``1.7.1`` "
 "and ``1.7.0.post3`` but not ``1.7.0``."
 msgstr ""
+"境界を含まない順序比較である ``>V`` は、``V`` "
+"それ自身がポストリリース番号である場合を除いて、"
+"与えられたバージョン番号のポストリリース部分を **許してはなりません** 。 ``>V"
+".postN`` を使うことで、特定のポストリリースバージョンよりも新しいリリースを要"
+"求しても構いません。例えば、 ``>1.7`` は ``1.7.1`` を許容しますが ``1.7.0."
+"post1`` を許容せず、 ``>1.7.post2`` は ``1.7.1`` や ``1.7.0.post3`` "
+"を許容しますが ``1.7.0`` を許容しません。"
 
 #: ../source/specifications/version-specifiers.rst:995
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** match a local version "
 "of the specified version."
-msgstr ""
+msgstr "境界を含まない順序比較 ``>V`` は、"
+"指定されたバージョン番号のローカルバージョン部分と **比較してはなりません**。"
 
 #: ../source/specifications/version-specifiers.rst:998
 msgid ""
@@ -26266,10 +26333,15 @@ msgid ""
 "Allowing pre-releases that are earlier than, but not equal to a specific pre-"
 "release may be accomplished by using ``<V.rc1`` or similar."
 msgstr ""
+"境界を含まない順序比較の ``<V`` "
+"では、指定されたバージョン番号それ自身がプレリリース番号でない限り、"
+"指定されたバージョン番号にプレリリース部分が **あってはなりません** 。 ``<V."
+"rc1`` や同様のものを使えば、指定されたプレリリース番号を含まずにそれより前で"
+"あるプレリリース番号を許容することができるでしょう。"
 
 #: ../source/specifications/version-specifiers.rst:1010
 msgid "Arbitrary equality"
-msgstr ""
+msgstr "あらゆる意味での同一性 <Arbitrary equality>"
 
 #: ../source/specifications/version-specifiers.rst:1012
 msgid ""
@@ -26278,6 +26350,10 @@ msgid ""
 "padding or local versions. This operator also does not support prefix "
 "matching as the ``==`` operator does."
 msgstr ""
+"あらゆる意味での同一性比較は、ゼロパディングやローカルバージョンのような意味"
+"論的な情報を全く考慮しない単純な文字列の同一性演算です。この演算子は、また、 "
+"``==`` "
+"演算子なら実行するようなプレフィクスのマッチングもサポートしていません。"
 
 #: ../source/specifications/version-specifiers.rst:1017
 msgid ""
@@ -26287,11 +26363,17 @@ msgid ""
 "tool which implements this specification to still install a legacy version "
 "which is otherwise incompatible with this specification."
 msgstr ""
+"あらゆる意味での同一性比較の一義的なユースケースは、これを使わなければこの仕"
+"様によって表現され得ないようなバージョン番号を指定することを許容するというこ"
+"とです。この演算子は特別で、誰かがこの仕様を実装したツールを使って、さもなけ"
+"ればこの仕様とは非互換になってしまうようなレガシーなバージョンを、それでもイ"
+"ンストールすることができる脱出ハッチとして振舞います。"
 
 #: ../source/specifications/version-specifiers.rst:1023
 msgid ""
 "An example would be ``===foobar`` which would match a version of ``foobar``."
-msgstr ""
+msgstr "一つの例としては、``foobar`` というバージョン番号に合致するであろう "
+"``==foobar`` ということになるでしょう。"
 
 #: ../source/specifications/version-specifiers.rst:1025
 msgid ""
@@ -26299,17 +26381,20 @@ msgid ""
 "a project such as ``===1.0`` which would not match for a version "
 "``1.0+downstream1``."
 msgstr ""
+"この演算子は、また、 ``1.0+downstream1`` "
+"のようなバージョンに合致しないであろうと思われる、 ``===1.0`` のようなプロジ"
+"ェクトのパッチ適用のないバージョンを明示的に要求するためにも使われます。"
 
 #: ../source/specifications/version-specifiers.rst:1029
 msgid ""
 "Use of this operator is heavily discouraged and tooling MAY display a "
 "warning when it is used."
-msgstr ""
+msgstr "この演算子の使用は強い非推奨の状態にあり、使用に際してはツール類は警告を表示"
+"しても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:1034
-#, fuzzy
 msgid "Handling of pre-releases"
-msgstr "リリース前のバージョンをインストールする"
+msgstr "プレリリースの取り扱い <Handling of pre-releases>"
 
 #: ../source/specifications/version-specifiers.rst:1036
 msgid ""
@@ -26318,40 +26403,49 @@ msgid ""
 "the system, explicitly requested by the user, or if the only available "
 "version that satisfies the version specifier is a pre-release."
 msgstr ""
+"すでにシステム上に存在しているか、ユーザによって明示的に要求されるか、または"
+"、バージョン指定子を満足する唯一の利用可能なバージョンがプレリリースであるか"
+"、の *いずれかでない限り* 、開発リリースを含むプレリリースは、どんな種類でも"
+"、あらゆるバージョン指定子から暗黙裡に除外されます。"
 
 #: ../source/specifications/version-specifiers.rst:1041
 msgid "By default, dependency resolution tools SHOULD:"
-msgstr ""
+msgstr "デフォルトでは、依存関係を解決しようとするツール類は以下のことを行うべきです:"
 
 #: ../source/specifications/version-specifiers.rst:1043
 msgid "accept already installed pre-releases for all version specifiers"
-msgstr ""
+msgstr "全てのバージョン指定子向けにすでにインストールされているプレリリースを受け入"
+"れる"
 
 #: ../source/specifications/version-specifiers.rst:1044
 msgid ""
 "accept remotely available pre-releases for version specifiers where there is "
 "no final or post release that satisfies the version specifier"
 msgstr ""
+"バージョン指定子を満足するような最終リリースやポストリリースが存在しないリモ"
+"ートサイトにあって利用可能なプレリリースを、バージョン指定子として受け入れる"
 
 #: ../source/specifications/version-specifiers.rst:1046
 msgid "exclude all other pre-releases from consideration"
-msgstr ""
+msgstr "他のすべてのプレリリースを考慮の対象から除外する"
 
 #: ../source/specifications/version-specifiers.rst:1048
 msgid ""
 "Dependency resolution tools MAY issue a warning if a pre-release is needed "
 "to satisfy a version specifier."
-msgstr ""
+msgstr "依存関係解決ツール群は、バージョン指定子を満足させるためにあるプレリリースが"
+"必要である場合には、警告を発しても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:1051
 msgid ""
 "Dependency resolution tools SHOULD also allow users to request the following "
 "alternative behaviours:"
-msgstr ""
+msgstr "依存関係解決ツール群は、また、以下のような代替的な振る舞いをユーザが要求する"
+"ことを許容するべきです:"
 
 #: ../source/specifications/version-specifiers.rst:1054
 msgid "accepting pre-releases for all version specifiers"
-msgstr ""
+msgstr "全てのバージョン指定子にプレリリースを受け入れること"
 
 #: ../source/specifications/version-specifiers.rst:1055
 msgid ""
@@ -26359,53 +26453,68 @@ msgid ""
 "warning if a pre-release is already installed locally, or if a pre-release "
 "is the only way to satisfy a particular specifier)"
 msgstr ""
+"全てのバージョン指定子からプレリリースを除外すること (プレリリースがすでにロ"
+"ーカルにインストールされている場合や特定の指定子を満たすためにはプレリリース"
+"が唯一の選択肢である場合には、エラーないし警告を報告すること)"
 
 #: ../source/specifications/version-specifiers.rst:1059
 msgid ""
 "Dependency resolution tools MAY also allow the above behaviour to be "
 "controlled on a per-distribution basis."
-msgstr ""
+msgstr "依存関係解決ツール群は、配布物の単位ごとに上記の振る舞いを許容しても構いませ"
+"ん。"
 
 #: ../source/specifications/version-specifiers.rst:1062
 msgid ""
 "Post-releases and final releases receive no special treatment in version "
 "specifiers - they are always included unless explicitly excluded."
 msgstr ""
+"ポストリリースと最終リリースは、"
+"バージョン識別子の中で何ら特別な取り扱いを受けません - "
+"明示的に除外されていない限り、これらは常に受け入れられます。"
 
 #: ../source/specifications/version-specifiers.rst:1069
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
-msgstr ""
+msgstr "``~=3.1``: バージョン 3.1 またはそれ以降、しかし、バージョン 4.0 "
+"またはそれ以降ではない。"
 
 #: ../source/specifications/version-specifiers.rst:1070
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
-msgstr ""
+msgstr "``~=3.1.2``: バージョン 3.1.2 またはそれ以降、しかし、バージョン 3.2.0 "
+"またはそれ以降ではない。"
 
 #: ../source/specifications/version-specifiers.rst:1071
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
-msgstr ""
+msgstr "``~=3.1a1``: バージョン 3.1a1 またはそれ以降、しかし、バージョン 4.0 "
+"またはそれ以降ではない。"
 
 #: ../source/specifications/version-specifiers.rst:1072
 msgid ""
 "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, "
 "post releases, developmental releases and any 3.1.x maintenance releases."
 msgstr ""
+"``== 3.1``: 正確にバージョン 3.1 (または 3.1."
+"0)、プレリリース・ポストリリース・開発リリースや 3.1.x "
+"のメンテナンスリリースは全て除外する。"
 
 #: ../source/specifications/version-specifiers.rst:1074
 msgid ""
 "``== 3.1.*``: any version that starts with 3.1. Equivalent to the "
 "``~=3.1.0`` compatible release clause."
-msgstr ""
+msgstr "``== 3.1.*``: 3.1 で始まるすべてのバージョン。 ``~=3.1.0`` "
+"互換リリース節に同じ。"
 
 #: ../source/specifications/version-specifiers.rst:1076
 msgid ""
 "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not "
 "version 3.2.0 or later."
 msgstr ""
+"``~=3.1.0, != 3.1.3``: バージョン 3.1.0 またはそれ以降、しかし、バージョン "
+"3.1.3 ではなく、バージョン 3.2.0 またはそれ以降でもない。"
 
 #: ../source/specifications/version-specifiers.rst:1081
-#, fuzzy
 msgid "Direct references"
-msgstr "参考文献"
+msgstr "直接参照"
 
 #: ../source/specifications/version-specifiers.rst:1083
 msgid ""
@@ -26413,6 +26522,9 @@ msgid ""
 "alternative to a normal version specifier. A direct reference consists of "
 "the specifier ``@`` and an explicit URL."
 msgstr ""
+"自動化ツールの中には、通常のバージョン指定子の代替として直接参照の使用を許す"
+"ものがあります。直接参照は、それを指定する ``@`` と明示された URL "
+"から構成されます。"
 
 #: ../source/specifications/version-specifiers.rst:1087
 msgid ""
@@ -26421,6 +26533,9 @@ msgid ""
 "warnings and MAY reject them entirely when direct references are used "
 "inappropriately."
 msgstr ""
+"直接参照が適切であるか否かは、バージョン指定子に対する特定のユースケースに依"
+"存します。自動化ツール群は、少なくとも警告を発行するべきで、直接参照が不適切"
+"に使われた場合には全体を拒否しても構いません。"
 
 #: ../source/specifications/version-specifiers.rst:1092
 msgid ""
@@ -26428,6 +26543,9 @@ msgid ""
 "uploaded distributions. Direct references are intended as a tool for "
 "software integrators rather than publishers."
 msgstr ""
+"公開のインデックスサーバは、アップロードされた配布物中での直接参照の使用を許"
+"すべきではありません。直接参照は、公開者 <publishers> 向けではなくてソフトウ"
+"ェアインテグレータ向けのツールとして意図されたものです。"
 
 #: ../source/specifications/version-specifiers.rst:1096
 msgid ""
@@ -26435,14 +26553,17 @@ msgid ""
 "reference may be an sdist or a wheel binary archive. The exact URLs and "
 "targets supported will be tool dependent."
 msgstr ""
+"ユースケースに依存しますが、 URL の直接参照の適切な使い所は sdist や wheel "
+"のバイナリアーカイブでしょう。正確な URL "
+"やターゲットのサポートがあるかどうかはツール次第です。"
 
 #: ../source/specifications/version-specifiers.rst:1100
 msgid "For example, a local source archive may be referenced directly::"
-msgstr ""
+msgstr "例えば、ローカルのソースコードアーカイブが直接に参照されるかもしれません::"
 
 #: ../source/specifications/version-specifiers.rst:1104
 msgid "Alternatively, a prebuilt archive may also be referenced::"
-msgstr ""
+msgstr "あるいは、ビルド済みのアーカイブが参照されるかもしれません::"
 
 #: ../source/specifications/version-specifiers.rst:1108
 msgid ""
@@ -26455,6 +26576,15 @@ msgid ""
 "and MAY refuse to rely on the URL. If such a direct reference also uses an "
 "insecure transport, automated tools SHOULD NOT rely on the URL."
 msgstr ""
+"ローカルにあるファイルを指す URL への参照ではない直接参照は、すべて、 "
+"(``https`` のような) 安全な転送メカニズムを指定するべきであり、かつ、"
+"検証の目的で URL の中に期待されるハッシュ値を含むべきです。直接参照でハッシュ"
+"値の情報が含まれていなかったりツールが理解できないハッシュ値の情報が含まれて"
+"いたり、採用されているハッシュアルゴリズムが信頼するには弱すぎるとツールが判"
+"断したりした場合には、自動化ツールは少なくとも警告を発するべきであり、その "
+"URL に依存することを拒否しても構いません。もしそのような直接参照が安全でない"
+"転送手段を使っているなら、自動化ツールはその URL "
+"に依存するべきではありません。"
 
 #: ../source/specifications/version-specifiers.rst:1117
 #, fuzzy
