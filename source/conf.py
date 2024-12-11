@@ -62,6 +62,11 @@ gettext_location = True
 html_title = "Python Packaging User Guide"
 html_theme = "furo"
 
+html_theme_options = {
+    "source_edit_link": "https://github.com/pypa/packaging.python.org/edit/main/source/{filename}",
+    "source_view_link": "https://github.com/pypa/packaging.python.org/blob/main/source/{filename}?plain=true",
+}
+
 html_favicon = "assets/py.png"
 html_last_updated_fmt = ""
 
