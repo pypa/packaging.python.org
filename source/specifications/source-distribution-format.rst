@@ -155,5 +155,5 @@ History
   :pep:`625`.
 * August 2023: Source distribution archive features were standardized through
   :pep:`721`.
-* November 2024: License files inclusion into source distribution was standardized
+* December 2024: License files inclusion into source distribution was standardized
   through :pep:`639`.
