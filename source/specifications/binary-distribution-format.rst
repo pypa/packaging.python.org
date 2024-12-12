@@ -182,7 +182,7 @@ its version, e.g. ``1.0.0``, consist of:
    ``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and
    ``platlib`` are usually both ``site-packages``.
 #. ``{distribution}-{version}.dist-info/`` contains metadata.
-#. ``{distribution}-{version}.dist-info/licenses/`` contains license files.
+#. :file:`{distribution}-{version}.dist-info/licenses/` contains license files.
 #. ``{distribution}-{version}.data/`` contains one subdirectory
    for each non-empty install scheme key not already covered, where
    the subdirectory name is an index into a dictionary of install paths
