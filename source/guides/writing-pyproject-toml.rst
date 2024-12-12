@@ -369,11 +369,14 @@ The glob patterns must follow the specification:
   will be matched verbatim.
 - Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported.
 - Path delimiters must be the forward slash character (``/``).
-- Patterns are relative to the directory containing :file:`pyproject.toml`, the leading
-  slash character is not allowed.
+- Patterns are relative to the directory containing :file:`pyproject.toml`, the
+  leading slash character is not allowed.
 - Parent directory indicators (``..``) must not be used.
+- Each glob must match at least one file.
 
 Literal paths are treated as valid globs.
+Any characters or character sequences not covered by this specification are
+invalid.
 
 
 ``keywords``
@@ -526,7 +529,7 @@ A full example
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
    license = "MIT"
-   license-files = ["LICENSE.*"]
+   license-files = ["LICEN[CS]E.*"]
    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
    classifiers = [
      "Development Status :: 4 - Beta",
