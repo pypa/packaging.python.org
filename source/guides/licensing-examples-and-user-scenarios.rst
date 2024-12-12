@@ -15,13 +15,10 @@ to the standardized way of declaring licenses.
 Licensing Examples
 ==================
 
-Examples
---------
-
 .. _licensing-example-basic:
 
 Basic example
-'''''''''''''
+-------------
 
 The Setuptools project itself, as of `version 59.1.1 <setuptools5911_>`__,
 does not use the ``License`` field in its own project source metadata.
@@ -69,7 +66,7 @@ and ``{VERSION}`` the version of the Setuptools release in the Core Metadata.
 .. _licensing-example-advanced:
 
 Advanced example
-''''''''''''''''
+----------------
 
 Suppose Setuptools were to include the licenses of the third-party projects
 that are vendored in the :file:`setuptools/_vendor/` and :file:`pkg_resources/_vendor/`
@@ -111,7 +108,7 @@ Specifically, we assume the license files are located at the following
 paths in the project source tree (relative to the project root and
 :file:`pyproject.toml`):
 
-.. code-block:: ini
+.. code-block:: text
 
     LICENSE
     setuptools/_vendor/packaging/LICENSE
@@ -171,7 +168,7 @@ In the resulting sdist, with :file:`/` as the root of the archive and ``{VERSION
 the version of the Setuptools release specified in the Core Metadata,
 the license files would be located at the paths:
 
-.. code-block:: shell
+.. code-block:: text
 
     /setuptools-{VERSION}/LICENSE
     /setuptools-{VERSION}/setuptools/_vendor/packaging/LICENSE
@@ -191,7 +188,7 @@ In the built wheel, with :file:`/` being the root of the archive and
 Finally, in the installed project, with :file:`site-packages/` being the site dir
 and ``{VERSION}`` as the previous, the license files would be installed to:
 
-.. code-block:: shell
+.. code-block:: text
 
     site-packages/setuptools-{VERSION}.dist-info/licenses/LICENSE
     site-packages/setuptools-{VERSION}.dist-info/licenses/setuptools/_vendor/packaging/LICENSE
@@ -219,9 +216,6 @@ Some additional examples of valid ``License-Expression`` values:
 User Scenarios
 ==============
 
-User Scenarios
---------------
-
 The following covers the range of common use cases from a user perspective,
 providing guidance for each. Do note that the following
 should **not** be considered legal advice, and readers should consult a
@@ -230,7 +224,7 @@ the specifics for their situation.
 
 
 I have a private package that won't be distributed
-''''''''''''''''''''''''''''''''''''''''''''''''''
+--------------------------------------------------
 
 If your package isn't shared publicly, i.e. outside your company,
 organization or household, it *usually* isn't strictly necessary to include
@@ -244,7 +238,7 @@ included by packaging tools.
 
 
 I just want to share my own work without legal restrictions
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-----------------------------------------------------------
 
 While you aren't required to include a license, if you don't, no one has
 `any permission to download, use or improve your work <dontchoosealicense_>`__,
@@ -261,7 +255,7 @@ or in its config file/section. You're done!
 
 
 I want to distribute my project under a specific license
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+--------------------------------------------------------
 
 To use a particular license, simply paste its text into a :file:`LICENSE.txt`
 file at the root of your repo, if you don't have it in a file starting with
@@ -277,7 +271,7 @@ license file for you, and may support the expression as well in the future.
 
 
 I maintain an existing package that's already licensed
-''''''''''''''''''''''''''''''''''''''''''''''''''''''
+------------------------------------------------------
 
 If you already have license files and metadata in your project, you
 should only need to make a couple of tweaks to take advantage of the new
@@ -297,13 +291,16 @@ under ``[project]`` in :file:`pyproject.toml`
 or else in your tool's configuration file.
 
 See the :ref:`licensing-example-basic` for a simple but complete real-world demo
-of how this works in practiced.
+of how this works in practice.
+See also the best-effort guidance on how to translate license classifiers
+into license expression provided by the :pep:`639` authors:
+`Mapping License Classifiers to SPDX Identifiers <mappingclassifierstospdx_>`__.
 Packaging tools may support automatically converting legacy licensing
 metadata; check your tool's documentation for more information.
 
 
 My package includes other code under different licenses
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+-------------------------------------------------------
 
 If your project includes code from others covered by different licenses,
 such as vendored dependencies or files copied from other open source
@@ -351,6 +348,7 @@ using SPDX identifiers and expressions.
 .. _chooseamitlicense: https://choosealicense.com/licenses/mit/
 .. _choosealicenselist: https://choosealicense.com/licenses/
 .. _dontchoosealicense: https://choosealicense.com/no-permission/
+.. _mappingclassifierstospdx: https://peps.python.org/pep-0639/appendix-mapping-classifiers/
 .. _packaginglicense: https://github.com/pypa/packaging/blob/21.2/LICENSE
 .. _setuptools5911: https://github.com/pypa/setuptools/blob/v59.1.1/setup.cfg
 .. _spdxlist: https://spdx.org/licenses/
