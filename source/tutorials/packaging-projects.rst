@@ -250,7 +250,7 @@ following this tutorial.
   https://pypi.org/classifiers/.
 - ``license`` is the :term:`SPDX license expression <License Expression>` of
   your package.
-- ``license-files`` is the list of paths to the license files,
+- ``license-files`` is the list of glob paths to the license files,
   relative to the directory where :file:`pyproject.toml` is located.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
