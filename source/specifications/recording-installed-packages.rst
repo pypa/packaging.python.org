@@ -275,5 +275,5 @@ History
   for the full definition.
 - September 2020: Various amendments and clarifications were approved through
   :pep:`627`.
-- November 2024: The .dist-info/licenses directory was specified through
+- December 2024: The .dist-info/licenses directory was specified through
   :pep:`639`.
