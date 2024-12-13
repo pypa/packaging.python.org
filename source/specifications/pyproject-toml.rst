@@ -284,7 +284,7 @@ Tools consuming this field SHOULD reject invalid values with an error.
 Tools MUST assume that license file content is valid UTF-8 encoded text,
 and SHOULD validate this and raise an error if it is not.
 
-Literal paths (e.g. :file:`LICENSE`) are treated as valid globs which means they
+Literal paths (e.g. :file:`LICENSE`) are valid globs which means they
 can also be defined.
 
 Build tools:
