@@ -353,16 +353,15 @@ Glossary
         The directory under which license files are stored in a
         :term:`Project Source Tree`, :term:`Distribution Archive`
         or :term:`Installed Project`.
-        Also, the root directory that their paths
+        For a :term:`Project Source Tree` or
+        :term:`Source Distribution (or "sdist")`, this is the
+        :term:`Project Root Directory`.
+        For a :term:`Built Distribution` or :term:`Installed Project`,
+        this is the :file:`.dist-info/licenses/` directory of
+        the wheel archive or project folder respectively.
+        Also, the root directory that paths
         recorded in the ``License-File``
         :term:`Core Metadata Field` are relative to.
-        Defined to be the :term:`Project Root Directory`
-        for a :term:`Project Source Tree` or
-        :term:`Source Distribution (or "sdist")`;
-        and a subdirectory named :file:`licenses/` of
-        the directory containing the :term:`Built Metadata` —
-        i.e., the :file:`.dist-info/licenses/` directory —
-        for a :term:`Built Distribution` or :term:`Installed Project`.
 
 
     setup.py
