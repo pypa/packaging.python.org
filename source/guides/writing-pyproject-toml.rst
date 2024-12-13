@@ -369,12 +369,12 @@ The glob patterns must follow the specification:
   will be matched verbatim.
 - Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported.
 - Path delimiters must be the forward slash character (``/``).
-- Patterns are relative to the directory containing :file:`pyproject.toml`, the
-  leading slash character is not allowed.
+- Patterns are relative to the directory containing :file:`pyproject.toml`, and
+  thus may not start with a slash character.
 - Parent directory indicators (``..``) must not be used.
 - Each glob must match at least one file.
 
-Literal paths are treated as valid globs.
+Literal paths are valid globs.
 Any characters or character sequences not covered by this specification are
 invalid.
 
