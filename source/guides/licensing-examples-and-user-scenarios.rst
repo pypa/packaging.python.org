@@ -20,34 +20,35 @@ Licensing Examples
 Basic example
 -------------
 
-The Setuptools project itself, as of `version 59.1.1 <setuptools5911_>`__,
+The Setuptools project itself, as of `version 75.6.0 <setuptools7560_>`__,
 does not use the ``License`` field in its own project source metadata.
 Further, it no longer explicitly specifies ``license_file``/``license_files``
 as it did previously, since Setuptools relies on its own automatic
 inclusion of license-related files matching common patterns,
 such as the :file:`LICENSE` file it uses.
 
-It includes the following license-related metadata in its :file:`setup.cfg`:
+It includes the following license-related metadata in its
+:file:`pyproject.toml`:
 
-.. code-block:: ini
+.. code-block:: toml
 
-    [metadata]
+    [project]
     classifiers =
         License :: OSI Approved :: MIT License
 
 The simplest migration to PEP 639 would consist of using this instead:
 
-.. code-block:: ini
-
-    [metadata]
-    license_expression = MIT
-
-Or, in the ``[project]`` table of :file:`pyproject.toml`:
-
 .. code-block:: toml
 
     [project]
     license = "MIT"
+
+Or, if the project used :file:`setup.cfg`, in its ``[metadata]`` table:
+
+.. code-block:: ini
+
+    [metadata]
+    license = MIT
 
 The output Core Metadata for the distribution packages would then be:
 
@@ -115,20 +116,7 @@ paths in the project source tree (relative to the project root and
     setuptools/_vendor/packaging/LICENSE.APACHE
     setuptools/_vendor/packaging/LICENSE.BSD
 
-Putting it all together, our :file:`setup.cfg` would be:
-
-.. code-block:: ini
-
-    [metadata]
-    license_expression = MIT AND (Apache-2.0 OR BSD-2-Clause)
-    license_files =
-        LICENSE
-        setuptools/_vendor/packaging/LICENSE
-        setuptools/_vendor/packaging/LICENSE.APACHE
-        setuptools/_vendor/packaging/LICENSE.BSD
-
-In the ``[project]`` table of :file:`pyproject.toml`, license files
-can be specified via glob patterns:
+Putting it all together, our :file:`pyproject.toml` would be:
 
 .. code-block:: toml
 
@@ -139,8 +127,8 @@ can be specified via glob patterns:
         "setuptools/_vendor/LICENSE*",
     ]
 
-Or alternatively, they can be specified explicitly (paths will be interpreted
-as glob patterns):
+Or alternatively, the license files can be specified explicitly (paths will be
+interpreted as glob patterns):
 
 .. code-block:: toml
 
@@ -152,6 +140,18 @@ as glob patterns):
         "setuptools/_vendor/LICENSE.APACHE",
         "setuptools/_vendor/LICENSE.BSD",
     ]
+
+If our project used :file:`setup.cfg`, we could define this in :
+
+.. code-block:: ini
+
+    [metadata]
+    license = MIT AND (Apache-2.0 OR BSD-2-Clause)
+    license_files =
+        LICENSE
+        setuptools/_vendor/packaging/LICENSE
+        setuptools/_vendor/packaging/LICENSE.APACHE
+        setuptools/_vendor/packaging/LICENSE.BSD
 
 With either approach, the output Core Metadata in the distribution
 would be:
@@ -350,6 +350,6 @@ using SPDX identifiers and expressions.
 .. _dontchoosealicense: https://choosealicense.com/no-permission/
 .. _mappingclassifierstospdx: https://peps.python.org/pep-0639/appendix-mapping-classifiers/
 .. _packaginglicense: https://github.com/pypa/packaging/blob/21.2/LICENSE
-.. _setuptools5911: https://github.com/pypa/setuptools/blob/v59.1.1/setup.cfg
+.. _setuptools7560: https://github.com/pypa/setuptools/blob/v75.6.0/pyproject.toml
 .. _spdxlist: https://spdx.org/licenses/
 .. _spdxtutorial: https://github.com/david-a-wheeler/spdx-tutorial
