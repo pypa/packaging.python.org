@@ -301,6 +301,9 @@ Build tools:
 If the ``license-files`` key is present and
 is set to a value of an empty array, then tools MUST NOT include any
 license files and MUST NOT raise an error.
+If the ``license-files`` key is not defined, tools can decide how to handle
+license files. For example they can choose not to include any files or use
+their own logic to discover the appropriate files in the distribution.
 
 
 ``authors``/``maintainers``
