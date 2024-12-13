@@ -324,26 +324,59 @@ You can also specify the format explicitly, like this:
 ``license``
 -----------
 
-This can take two forms. You can put your license in a file, typically
-``LICENSE`` or ``LICENSE.txt``, and link that file here:
+This is a valid :term:`SPDX license expression <License Expression>` consisting
+of one or more :term:`license identifiers <License Identifier>`.
+The full license list is available at the
+`SPDX license list page <spdxlicenselist_>`_. The supported list version is
+3.17 or any later compatible one.
 
 .. code-block:: toml
 
     [project]
-    license = {file = "LICENSE"}
+    license = "GPL-3.0-or-later"
+    # or
+    license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
 
-or you can write the name of the license:
-
-.. code-block:: toml
-
-    [project]
-    license = {text = "MIT License"}
-
-If you are using a standard, well-known license, it is not necessary to use this
-field. Instead, you should use one of the :ref:`classifiers` starting with ``License
-::``. (As a general rule, it is a good idea to use a standard, well-known
+As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
-whose license is unapproved.)
+whose license is unapproved.
+
+If your project is licensed with a license that doesn't have an existing SPDX
+identifier, you can create a custom one in format ``LicenseRef-[idstring]``.
+The custom identifiers must follow the SPDX specification,
+`clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one.
+
+.. code-block:: toml
+
+    [project]
+    license = "LicenseRef-My-Custom-License"
+
+
+``license-files``
+-----------------
+
+This is a list of license files and files containing other legal
+information you want to distribute with your package.
+
+.. code-block:: toml
+
+    [project]
+    license-files = ["LICEN[CS]E*", "vendored/licenses/*.txt", "AUTHORS.md"]
+
+The glob patterns must follow the specification:
+
+- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
+  will be matched verbatim.
+- Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported.
+- Path delimiters must be the forward slash character (``/``).
+- Patterns are relative to the directory containing :file:`pyproject.toml`, and
+  thus may not start with a slash character.
+- Parent directory indicators (``..``) must not be used.
+- Each glob must match at least one file.
+
+Literal paths are valid globs.
+Any characters or character sequences not covered by this specification are
+invalid.
 
 
 ``keywords``
@@ -378,9 +411,6 @@ A list of PyPI classifiers that apply to your project. Check the
       # Indicate who your project is intended for
       "Intended Audience :: Developers",
       "Topic :: Software Development :: Build Tools",
-
-      # Pick your license as you wish (see also "license" above)
-      "License :: OSI Approved :: MIT License",
 
       # Specify the Python versions you support here.
       "Programming Language :: Python :: 3",
@@ -498,7 +528,8 @@ A full example
    ]
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
-   license = {file = "LICENSE.txt"}
+   license = "MIT"
+   license-files = ["LICEN[CS]E.*"]
    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
    classifiers = [
      "Development Status :: 4 - Beta",
@@ -545,3 +576,5 @@ A full example
 .. _pytest: https://pytest.org
 .. _pygments: https://pygments.org
 .. _rest: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _spdxcustomids: https://spdx.github.io/spdx-spec/v2.2.2/other-licensing-information-detected/
+.. _spdxlicenselist: https://spdx.org/licenses/
