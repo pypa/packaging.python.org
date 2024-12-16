@@ -36,47 +36,33 @@ and a similar table which defines ``test`` and ``coverage`` groups::
 The ``[dependency-groups]`` Table
 ---------------------------------
 
-This PEP defines a new section (table) in ``pyproject.toml`` files named
+Dependency Groups are defined as a table in ``pyproject.toml`` named
 ``dependency-groups``. The ``dependency-groups`` table contains an arbitrary
 number of user-defined keys, each of which has, as its value, a list of
-requirements (defined below). These keys must be
-`valid non-normalized names <https://packaging.python.org/en/latest/specifications/name-normalization/#valid-non-normalized-names>`__,
-and must be
-`normalized <https://packaging.python.org/en/latest/specifications/name-normalization/#normalization>`__
-before comparisons.
+requirements.
 
-Tools SHOULD prefer to present the original, non-normalized name to users by
-default. If duplicate names, after normalization, are encountered, tools SHOULD
-emit an error.
+``[dependency-groups]`` keys, sometimes also called "group names", must be
+:ref:`valid non-normalized names <name-format>`. Tools which handle Dependency
+Groups MUST :ref:`normalize <name-normalization>` these names before
+comparisons.
 
-Requirement lists under ``dependency-groups`` may contain strings, tables
-("dicts" in Python), or a mix of strings and tables.
+Tools SHOULD prefer to present the original, non-normalized name to users, and
+if duplicate names are detected after normalization, tools SHOULD emit an
+error.
 
-Strings in requirement lists must be valid
-`Dependency Specifiers <https://packaging.python.org/en/latest/specifications/dependency-specifiers/>`__,
-as defined in :pep:`508`.
-
-Tables in requirement lists must be valid Dependency Object Specifiers.
-
-Dependency Object Specifiers
-----------------------------
-
-Dependency Object Specifiers are tables which define zero or more dependencies.
-
-This PEP standardizes only one type of Dependency Object Specifier, a
-"Dependency Group Include". Other types may be added in future standards.
+Requirement lists, the values in ``[dependency-groups]``, may contain strings,
+tables (``dict`` in Python), or a mix of strings and tables. Strings must be
+valid :ref:`dependency specifiers <dependency-specifiers>`, and tables must be
+valid Dependency Group Includes.
 
 Dependency Group Include
-''''''''''''''''''''''''
+------------------------
 
-A Dependency Group Include includes the dependencies of another Dependency
-Group in the current Dependency Group.
+A Dependency Group Include includes another Dependency Group in the current
+group.
 
-An include is defined as a table with exactly one key, ``"include-group"``,
-whose value is a string, the name of another Dependency Group.
-
-For example, ``{include-group = "test"}`` is an include which expands to the
-contents of the ``test`` Dependency Group.
+An include is a table with exactly one key, ``"include-group"``, whose value is
+a string, the name of another Dependency Group.
 
 Includes are defined to be exactly equivalent to the contents of the named
 Dependency Group, inserted into the current group at the location of the include.
@@ -84,94 +70,86 @@ For example, if ``foo = ["a", "b"]`` is one group, and
 ``bar = ["c", {include-group = "foo"}, "d"]`` is another, then ``bar`` should
 evaluate to ``["c", "a", "b", "d"]`` when Dependency Group Includes are expanded.
 
-Dependency Group Includes may specify the same package multiple times. Tools
-SHOULD NOT deduplicate or otherwise alter the list contents produced by the
+Dependency Group Includes may specify the same package multiple times.
+Tools SHOULD NOT deduplicate or otherwise alter the list contents produced by the
 include. For example, given the following table:
 
-.. code:: toml
+.. code-block:: toml
 
     [dependency-groups]
     group-a = ["foo"]
     group-b = ["foo>1.0"]
     group-c = ["foo<1.0"]
-    all = ["foo", {include-group = "group-a"}, {include-group = "group-b"}, {include-group = "group-c"}]
+    all = [
+        "foo",
+        {include-group = "group-a"},
+        {include-group = "group-b"},
+        {include-group = "group-c"},
+    ]
 
 The resolved value of ``all`` SHOULD be ``["foo", "foo", "foo>1.0", "foo<1.0"]``.
 Tools should handle such a list exactly as they would handle any other case in
 which they are asked to process the same requirement multiple times with
 different version constraints.
 
-Dependency Group Includes may include lists containing Dependency Group
-Includes, in which case those includes should be expanded as well. Dependency
-Group Includes MUST NOT include cycles, and tools SHOULD report an error if
-they detect a cycle.
+Dependency Group Includes may include groups containing Dependency Group Includes,
+in which case those includes should be expanded as well. Dependency Group Includes
+MUST NOT include cycles, and tools SHOULD report an error if they detect a cycle.
 
 Package Building
 ----------------
 
 Build backends MUST NOT include Dependency Group data in built distributions as
-package metadata. This means that PKG-INFO in sdists and METADATA in wheels
-do not include any referencable fields containing Dependency Groups.
+package metadata. This means that sdist ``PKG-INFO`` and wheel ``METADATA``
+files should not include referenceable fields containing Dependency Groups.
 
-It is valid to use Dependency Groups in the evaluation of dynamic metadata, and
-``pyproject.toml`` files included in sdists will naturally still contain the
-``[dependency-groups]`` table. However, the table contents are not part of a
-published package's interfaces.
+It is, however, valid to use Dependency Groups in the evaluation of dynamic
+metadata, and ``pyproject.toml`` files included in sdists will still contain
+``[dependency-groups]``. However, the table's contents are not part of a built
+package's interfaces.
 
-Installing Dependency Groups
-----------------------------
+Installing Dependency Groups & Extras
+-------------------------------------
 
-Tools which support Dependency Groups are expected to provide new options and
-interfaces to allow users to install from Dependency Groups.
+There is no syntax or specification-defined interface for installing or
+referring to Dependency Groups. Tools are expected to provide dedicated
+interfaces for this purpose.
 
-No syntax is defined for expressing the Dependency Group of a package, for two
-reasons:
-
-* it would not be valid to refer to the Dependency Groups of a third-party
-  package from PyPI (because the data is defined to be unpublished)
-
-* there is not guaranteed to be a current package for Dependency Groups -- part
-  of their purpose is to support non-package projects
-
-For example, a possible pip interface for installing Dependency Groups
-would be:
-
-.. code:: shell
-
-    pip install --dependency-groups=test,typing
-
-Note that this is only an example. This PEP does not declare any requirements
-for how tools support the installation of Dependency Groups.
-
-Overlapping Install UX with Extras
-''''''''''''''''''''''''''''''''''
-
-Tools MAY choose to provide the same interfaces for installing Dependency
-Groups as they do for installing extras.
-
-Note that this specification does not forbid having an extra whose name matches
-a Dependency Group.
-
-Users are advised to avoid creating Dependency Groups whose names match extras.
-Tools MAY treat such matching as an error.
+Tools MAY choose to provide the same or similar interfaces for interacting
+with Dependency Groups as they do for managing extras. Tools authors are
+advised that the specification does not forbid having an extra whose name
+matches a Dependency Group. Separately, users are advised to avoid creating
+Dependency Groups whose names match extras, and tools MAY treat such matching
+as an error.
 
 Validation and Compatibility
 ----------------------------
 
 Tools supporting Dependency Groups may want to validate data before using it.
-However, tools implementing such validation behavior should be careful to allow
-for future expansions to this spec, so that they do not unnecessarily emit
-errors or warnings in the presence of new syntax.
+When implementing such validation, authors should be aware of the possibility
+of future extensions to the specification, so that they do not unnecessarily
+emit errors or warnings.
 
 Tools SHOULD error when evaluating or processing unrecognized data in
 Dependency Groups.
 
-Tools SHOULD NOT eagerly validate the list contents of **all** Dependency
-Groups.
+Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups
+unless they have a need to do so.
 
-This means that in the presence of the following data, most tools will allow
-the ``foo`` group to be used, and will only error when the ``bar`` group is
-used:
+This means that in the presence of the following data, most tools should allow
+the ``foo`` group to be used and only error if the ``bar`` group is used:
+
+.. code-block:: toml
+
+    [dependency-groups]
+    foo = ["pyparsing"]
+    bar = [{set-phasers-to = "stun"}]
+
+.. note::
+
+    There are several known cases of tools which have good cause to be
+    stricter. Linters and validators are an example, as their purpose is to
+    validate the contents of all Dependency Groups.
 
 Reference Implementation
 ========================
