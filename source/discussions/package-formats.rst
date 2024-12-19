@@ -9,9 +9,9 @@ and the differences between them.
 
 You will find files in two formats on package indices such as PyPI_: **source
 distributions**, or **sdists** for short, and **binary distributions**, commonly
-called **wheels**.  For example, the `PyPI page for pip 23.3.1 <pip-pypi_>`_
-lets you download two files, ``pip-23.3.1.tar.gz`` and
-``pip-23.3.1-py3-none-any.whl``.  The former is an sdist, the latter is a
+called **wheels**.  For example, the `PyPI page for pip 24.3.1 <pip-pypi_>`_
+lets you download two files, ``pip-24.3.1.tar.gz`` and
+``pip-24.3.1-py3-none-any.whl``.  The former is an sdist, the latter is a
 wheel. As explained below, these serve different purposes. When publishing a
 package on PyPI (or elsewhere), you should always upload both an sdist and one
 or more wheel.
@@ -42,7 +42,7 @@ MacPorts on macOS, ...), who, for various reasons, may prefer them over, e.g.,
 pulling from a Git repository.
 
 A source distribution is recognized by its file name, which has the form
-:samp:`{package_name}-{version}.tar.gz`, e.g., ``pip-23.3.1.tar.gz``.
+:samp:`{package_name}-{version}.tar.gz`, e.g., ``pip-24.3.1.tar.gz``.
 
 .. TODO: provide clear guidance on whether sdists should contain docs and tests.
    Discussion: https://discuss.python.org/t/should-sdists-include-docs-and-tests/14578
@@ -115,7 +115,7 @@ files are missing from your wheels.
 The file name of a wheel (ignoring some rarely used features) looks like this:
 :samp:`{package_name}-{version}-{python_tag}-{abi_tag}-{platform_tag}.whl`.
 This naming convention identifies which platforms and Python versions the wheel
-is compatible with. For example, the name ``pip-23.3.1-py3-none-any.whl`` means
+is compatible with. For example, the name ``pip-24.3.1-py3-none-any.whl`` means
 that:
 
 - (``py3``) This wheel can be installed on any implementation of Python 3,
@@ -187,7 +187,7 @@ Here's a breakdown of the important differences between wheel and egg.
 
 
 
-.. _pip-pypi: https://pypi.org/project/pip/23.3.1/#files
+.. _pip-pypi: https://pypi.org/project/pip/#files
 .. _pypi: https://pypi.org
 .. _pypi-eggs-deprecation: https://blog.pypi.org/posts/2023-06-26-deprecate-egg-uploads/
 .. _pypy: https://pypy.org
