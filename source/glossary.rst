@@ -147,6 +147,40 @@ Glossary
         multiple individual distributions.
 
 
+    License Classifier
+
+        A PyPI Trove classifier
+        (as :ref:`described <core-metadata-classifier>`
+        in the :term:`Core Metadata` specification)
+        which begins with ``License ::``.
+
+
+    License Expression
+    SPDX Expression
+
+        A string with valid SPDX license expression syntax,
+        including one or more SPDX :term:`License Identifier`\(s),
+        which describes a :term:`Project`'s license(s)
+        and how they inter-relate.
+        Examples:
+        ``GPL-3.0-or-later``,
+        ``MIT AND (Apache-2.0 OR BSD-2-Clause)``
+
+
+    License Identifier
+    SPDX Identifier
+
+        A valid SPDX short-form license identifier,
+        originally specified in :pep:`639`.
+        This includes all valid SPDX identifiers and
+        the custom ``LicenseRef-[idstring]`` strings conforming to the
+        SPDX specification.
+        Examples:
+        ``MIT``,
+        ``GPL-3.0-only``,
+        ``LicenseRef-My-Custom-License``
+
+
     Module
 
         The basic unit of code reusability in Python, existing in one of two
@@ -311,6 +345,23 @@ Glossary
        A file containing a list of :term:`Requirements <Requirement>` that can
        be installed using :ref:`pip`. For more information, see the :ref:`pip`
        docs on :ref:`pip:Requirements Files`.
+
+
+    Root License Directory
+    License Directory
+
+        The directory under which license files are stored in a
+        :term:`Project Source Tree`, :term:`Distribution Archive`
+        or :term:`Installed Project`.
+        For a :term:`Project Source Tree` or
+        :term:`Source Distribution (or "sdist")`, this is the
+        :term:`Project Root Directory`.
+        For a :term:`Built Distribution` or :term:`Installed Project`,
+        this is the :file:`.dist-info/licenses/` directory of
+        the wheel archive or project folder respectively.
+        Also, the root directory that paths
+        recorded in the ``License-File``
+        :term:`Core Metadata Field` are relative to.
 
 
     setup.py
