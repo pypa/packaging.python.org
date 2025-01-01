@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-23 04:09+0000\n"
-"PO-Revision-Date: 2025-01-01 12:17+0000\n"
+"PO-Revision-Date: 2025-01-02 20:00+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/eo/>\n"
@@ -417,6 +417,10 @@ msgid ""
 "hereby granted permission to end a sentence in a preposition, if that's what "
 "you want to end it with."
 msgstr ""
+"Jen rapida kontrolo: provu laŭtlegi por senti la voĉon kaj tonon de via "
+"verkaĵo. Ĉu ĝi similas ion, kion vi dirus, aŭ similas aktoraĵon aŭ prelegon? "
+"Se tio plaĉas al vi, uzu malformalan lingvaĵon kaj ignoru trostriktajn "
+"gramatikajn regulojn."
 
 #: ../source/contribute.rst:231
 msgid ""
@@ -468,6 +472,9 @@ msgid ""
 "you're going to make assumptions, then say what assumptions that you're "
 "going to make."
 msgstr ""
+"Evitu nedeklaritajn supozojn. Je Interreta legado, iu ajn paĝo de la gvidilo "
+"povas esti la unua paĝo vidata de leganto. Se vi supozas ion, do klarigu "
+"tiujn supozojn."
 
 #: ../source/contribute.rst:257
 msgid "**Cross-reference generously**"
@@ -1047,6 +1054,9 @@ msgid ""
 "ref:`Requirements Files <pip:Requirements Files>` are often used to define "
 "the requirements for a complete Python environment."
 msgstr ""
+"Dum ``install_requires`` difinas dependecojn de unu projekto, :ref:`Postulo-"
+"Dosiero <pip:Requirements Files>` ofte difinas la postulojn pri plena Python-"
+"medio."
 
 #: ../source/discussions/install-requires-vs-requirements.rst:71
 msgid ""
@@ -1983,6 +1993,8 @@ msgid ""
 "One way to look at it is that the scope of setuptools has now been reduced "
 "to the role of a build backend."
 msgstr ""
+"Se mallonge diri, la rolo de setuptools reduktiĝis al nura konstrua "
+"malfasado."
 
 #: ../source/discussions/setup-py-deprecated.rst:211
 #: ../source/guides/modernize-setup-py-project.rst:244
@@ -2428,6 +2440,14 @@ msgid ""
 "equivalent to ``name >= X.Y.Z, == X.Y.*``, i.e., it requires at least X.Y.Z "
 "and allows a later release with same X and Y but higher Z."
 msgstr ""
+"Por tiuj projektoj, kiuj uzas striktan semantikan versiadon, tiu maniero "
+"ebligas uzi :ref:`versio-specifilon de kongrua eldono <version-specifiers-"
+"compatible-release>`, per la operatoro ``~=``.  Ekzemple, ``nomo ~= X.Y`` "
+"proksimume ekvivalentas ``nomo >= X.Y, == X.*``, t.e., ĝi postulas minimume "
+"la eldonon X.Y, kaj permesas ajnan pli novan eldonon kun pli granda Y kaj "
+"sama X. Simile, ``nomo ~= X.Y.Z`` proksimume ekvivalentas ``nomo >= X.Y.Z, "
+"== X.Y.*``, t.e., ĝi postulas minimume X.Y.Z kaj permesas pli novan eldonon "
+"de samaj X kaj Y sed pli granda Z."
 
 #: ../source/discussions/versioning.rst:112
 msgid ""
@@ -3118,6 +3138,8 @@ msgid ""
 "A repository of distributions with a web interface to automate :term:"
 "`package <Distribution Package>` discovery and consumption."
 msgstr ""
+"Deponejo de distribuoj kun TTT-fasado por aŭtomatigi serĉadon kaj uzadon de "
+":term:`pakoj <Distribution Package>`."
 
 #: ../source/glossary.rst:161
 msgid "Per Project Index"
@@ -3980,6 +4002,11 @@ msgid ""
 "accurate (e.g. the percentage of Python 2 vs. Python 3 downloads) but total "
 "numbers are lower than actual by an order of magnitude."
 msgstr ""
+"Aldone al la avertoj ĉi-supraj, Linehaul suferis de cimo, kiu kaŭzis tre "
+"maltroan kalkuladon pri elŝutaj statistikoj antaŭ la 26a de Julio 2018. "
+"Elŝutoj antaŭ tiu dato estas proporcie precizaj (ekz. la elcento de Python 2 "
+"kontraste al Python 3), sed la reportataj totaloj estas pli-ol-dekoble "
+"malgrandaj ol la realaj nombroj."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:267
 msgid "Additional tools"
@@ -4149,6 +4176,18 @@ msgid ""
 "will need to explicitly pass a list of packages to :func:`setup`'s "
 "``packages`` argument instead of using :func:`setuptools.find_packages`."
 msgstr ""
+"Ĉi tiu ekzemplo uzas subpakon kiel la nomspacan pakon (``myapp.plugins``), "
+"sed ankaŭ eblas uzi supranivelan pakon por tiu celo (ekzemple "
+"``myapp_plugins``). Elektado de la uzota nomspaco laŭ onia gusto, sed ne "
+"estas rekomendata igi la ĉefan supranivelan pakon (``myapp`` en la ekzemplo) "
+"nomspaca pako pro kromprogramoj, ĉar unu aĉa kromprogramo rompus la plenan "
+"nomspacon, malimportebligante vian projekton. Por la maniero «nomspaca "
+"subpako», kromprograma pako devas ne inkluzivi la :file:`__init__.py` por la "
+"supranivela paka dosierujo (``myapp`` en la ekzemplo) kaj inkluzivi la "
+"nomspacpako-stilan :file:`__init__.py` en la nomspaca subpaka dosierujo (``"
+"myapp/plugins``).  Tio ankaŭ implicas, ke kromprogramo devas eksplicite doni "
+"liston de pakoj kiel la argumenton ``packages`` de :func:`setup`, anstataŭ "
+"uzi :func:`setuptools.find_packages`."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:114
 msgid ""
@@ -4157,6 +4196,10 @@ msgid ""
 "namespace-packages` documentation and clearly document which approach is "
 "preferred for plugins to your project."
 msgstr ""
+"Nomspaca pako estas komplika funkcio, kaj estas pluraj malsamaj manieroj "
+"krei iĝin. Estas rekomendegate legi la dokumentaron :doc:`packaging-"
+"namespace-packages` kaj klare dokumenti la preferatan manieron por "
+"kromprogramoj de via projekto."
 
 #: ../source/guides/creating-and-discovering-plugins.rst:122
 msgid "Using package metadata"
@@ -4249,6 +4292,8 @@ msgid ""
 "Advise on the optimal structure of a Python package in another guide or "
 "discussion and link to it here."
 msgstr ""
+"Konsili pri la optimuma strukturo de Python-pako en alia gvidilo aŭ diskuto "
+"kaj ligi al ĝi ĉi tie."
 
 #: ../source/guides/creating-command-line-tools.rst:19
 msgid ""
@@ -4262,6 +4307,8 @@ msgid ""
 "The actual code responsible for the tool's functionality will be stored in "
 "the file :file:`greet.py`, named after the main module:"
 msgstr ""
+"La reala kodo respondeca por la funkciado de la ilo troviĝos en la dosiero "
+":file:`greet.py`, nomita laŭ la ĉefmodulo:"
 
 #: ../source/guides/creating-command-line-tools.rst:73
 msgid ""
@@ -4336,6 +4383,8 @@ msgid ""
 "Now, the project's source tree is ready to be transformed into a :term:"
 "`distribution package <Distribution Package>`, which makes it installable."
 msgstr ""
+"Nun, la fontarbo de la projekto pretas transformiĝi en instaleblan :term:`"
+"distribuan pakon <Distribution Package>`."
 
 #: ../source/guides/creating-command-line-tools.rst:134
 msgid "Installing the package with ``pipx``"
@@ -4941,6 +4990,8 @@ msgid ""
 "If your project is pure Python then you'll be creating a :ref:`\"Pure Python "
 "Wheel\" (see section below) <Pure Python Wheels>`."
 msgstr ""
+"Se via projekto estas pure Python-a, do vi kreos :ref:`«Pure Python-an Wheel»"
+" (vidu la ĉi-suban paragrafon) <Pure Python Wheels>`."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:416
 msgid ""
@@ -4960,6 +5011,8 @@ msgid ""
 "Only use this setting if your project does not have any C extensions *and* "
 "supports Python 2 and 3."
 msgstr ""
+"Nur uzu tiun agordon, se via projekto ne havas iun ajn C-etendaĵon *kaj* "
+"subtenas Python 2 kaj 3."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:435
 msgid "Pure Python Wheels"
@@ -4990,6 +5043,8 @@ msgid ""
 "If you run ``build`` without ``--wheel`` or ``--sdist``, it will build both "
 "files for you; this is useful when you don't need multiple wheels."
 msgstr ""
+"Se oni rulos ``build`` sen ``--wheel`` aŭ ``--sdist``, ĝi konstruos ambaŭ "
+"dosierojn; tio utilas, se vi ne bezonas plurajn wheel-ojn."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:464
 msgid "Platform Wheels"
@@ -5089,18 +5144,25 @@ msgid ""
 "token`_; don't limit its scope to a particular project, since you are "
 "creating a new project."
 msgstr ""
+"Iru al https://pypi.org/manage/account/#api-tokens kaj kreu novan `API-"
+"ĵetonon <API token>`_; ne limigu ĝian rajton al iu projekto, ĉar vi estas "
+"kreanta novan projekton."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:546
 msgid ""
 "**Don't close the page until you have copied and saved the token — you won't "
 "see that token again.**"
 msgstr ""
+"**Ne fermu la paĝon, ĝis vi kopiis kaj konservis la ĵetonon – vi ne vidos "
+"tiun ĵetonon denove. **"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:549
 msgid ""
 "To avoid having to copy and paste the token every time you upload, you can "
 "create a :file:`$HOME/.pypirc` file:"
 msgstr ""
+"Se vi ne volas kopii kaj alglui la ĵetonon ĉiun fojon dum alŝutado, vi povas "
+"krei dosieron :file:`$HOME/.pypirc`:"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:558
 msgid "**Be aware that this stores your token in plaintext.**"
@@ -5529,6 +5591,10 @@ msgid ""
 "mod_cache_disk.html>`_, you can cache requests to package indexes through an "
 "Apache server"
 msgstr ""
+"uzante `mod_rewrite <https://httpd.apache.org/docs/current/mod/"
+"mod_rewrite.html>`_ kaj `mod_cache_disk <https://httpd.apache.org/docs/"
+"current/mod/mod_cache_disk.html>`_, vi povas enkaŝmemirigi petojn al "
+"pakindeksoj per Apache-servilo"
 
 #: ../source/guides/hosting-your-own-index.rst:131
 msgid ""
@@ -5543,6 +5609,7 @@ msgid ""
 "Can be configured to fall back to PyPI (or another package index) if a "
 "requested package is missing."
 msgstr ""
+"Estas agordebla por uzi PyPI (aŭ alian pakindekson), se petita pako mankas."
 
 #: ../source/guides/index.rst:4
 msgid ""
@@ -5788,6 +5855,9 @@ msgid ""
 "macOS installers that are compatible with the macOS CPython binaries "
 "published on python.org."
 msgstr ""
+"Simila al la situacio ĉe Windows, multaj projektoj (inkluzive de NumPy) "
+"eldonas macOS-instalilojn kongruajn kun la CPython-duumaĵojn por macOS ĉe "
+"python.org."
 
 #: ../source/guides/installing-scientific-packages.rst:83
 msgid ""
@@ -5806,6 +5876,9 @@ msgid ""
 "#distributions>`_ that provide the full SciPy stack to end users in an easy "
 "to use and update format."
 msgstr ""
+"La retejo de SciPy listigas `plurajn distribuojn <https://scipy.org/install/"
+"#distributions>`_ provizantajn la plenan SciPy-stakon al uzanto en facile "
+"uzebla kaj ĝisdatigebla formo."
 
 #: ../source/guides/installing-scientific-packages.rst:96
 msgid ""
@@ -5912,6 +5985,9 @@ msgid ""
 "are `mypy <https://github.com/python/mypy>`_, `flake8 <https://github.com/"
 "PyCQA/flake8>`_, `black <https://github.com/psf/black>`_, and :ref:`pipenv`."
 msgstr ""
+"Multaj pakoj provizas komandliniajn aplikprogramojn. Jen kelkaj ekzemploj: `"
+"mypy <https://github.com/python/mypy>`_, `flake8 <https://github.com/PyCQA/"
+"flake8>`_, `black <https://github.com/psf/black>`_ kaj :ref:`pipenv`."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:12
 msgid ""
@@ -5978,6 +6054,8 @@ msgid ""
 "pipx also allows you to install and run the latest version of an application "
 "in a temporary, ephemeral environment. For example:"
 msgstr ""
+"pipx ankaŭ permesas al vi instali kaj ruli la plej novan version de programo "
+"en provizora, efemera medio. Ekzemple:"
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:130
 msgid "To see the full list of commands pipx offers, run:"
@@ -6051,6 +6129,8 @@ msgid ""
 "CentOS and RHEL don't offer :ref:`pip` or :ref:`wheel` in their core "
 "repositories, although :ref:`setuptools` is installed by default."
 msgstr ""
+"CentOS kaj RHEL ne ofertas :ref:`pip` nek :ref:`wheel` en siaj ĉefdeponejoj, "
+"kvankam :ref:`setuptools` estas apriore instalita."
 
 #: ../source/guides/installing-using-linux-tools.rst:50
 msgid "To install pip and wheel for the system Python, there are two options:"
@@ -6071,6 +6151,8 @@ msgid ""
 "Since EPEL only offers extra, non-conflicting packages, EPEL does not offer "
 "setuptools, since it's in the core repository."
 msgstr ""
+"EPEL nur ofertas ekstrajn, senkonfliktajn pakojn. Tial EPEL ne ofertas "
+"setuptools, ĉar ĝi estas en la ĉefdeponejo."
 
 #: ../source/guides/installing-using-linux-tools.rst:65
 msgid ""
@@ -6093,6 +6175,8 @@ msgid ""
 "To install pip, wheel, and setuptools, in a parallel, non-system environment "
 "(using yum) then there are two options:"
 msgstr ""
+"Por instali pip, wheel kaj setuptools en paralela, nesistema medio (uzante "
+"yum), ekzistas du opcioj:"
 
 #: ../source/guides/installing-using-linux-tools.rst:85
 msgid ""
@@ -6451,6 +6535,9 @@ msgid ""
 "For more information on supported version control systems and syntax, see "
 "pip's documentation on :ref:`VCS Support <pip:VCS Support>`."
 msgstr ""
+"Por pli da informoj pri subtenataj versikontrolaj sistemoj kaj sintakso, "
+"vidu la dokumentaron de pip pri :ref:`Subtenado de Versikontrola Sistemo < "
+"pip:VCS Support>`."
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:361
 msgid "Install from local archives"
@@ -6461,6 +6548,9 @@ msgid ""
 "If you have a local copy of a :term:`Distribution Package`'s archive (a zip, "
 "wheel, or tar file) you can install it directly with pip:"
 msgstr ""
+"Se oni havas lokan kopion de la arĥivo de :term:`Distribua Pako "
+"<Distribution Package>` (zip-arĥivo, wheel, aŭ tar-arĥivo), oni povas "
+"instali ĝin rekte per pip:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:378
 msgid ""
@@ -6492,6 +6582,8 @@ msgid ""
 "(PyPI)` and a separate index, you can use the ``--extra-index-url`` flag "
 "instead:"
 msgstr ""
+"Se vi volas permesi pakojn el kaj :term:`PyPI <Python Package Index (PyPI)>` "
+"kaj aparta indekso, vi povas anstataŭe uzi la flagon ``--extra-index-url``:"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:434
 #: ../source/tutorials/installing-packages.rst:393
@@ -6803,6 +6895,8 @@ msgid ""
 "The recommended way to migrate to PyPI.org for uploading is to ensure that "
 "you are using a new enough version of your upload tool."
 msgstr ""
+"La rekomendata maniero migri al PyPI.org por alŝutado estas certigi, ke vi "
+"uzas sufiĉe novan version de via alŝutilo."
 
 #: ../source/guides/migrating-to-pypi-org.rst:26
 msgid ""
@@ -6848,6 +6942,8 @@ msgid ""
 "Then simply delete the line starting with ``repository`` and you will use "
 "your upload tool's default URL."
 msgstr ""
+"Poste simple forigu la linion komenciĝanta per ``repository``, kaj vi uzos "
+"la aprioran retadreson de via alŝutilo."
 
 #: ../source/guides/migrating-to-pypi-org.rst:55
 msgid ""
@@ -6910,6 +7006,9 @@ msgid ""
 "through ``pypi.python.org`` was *switched off* on **February 20, 2018**. New "
 "user registrations at ``pypi.org`` are open."
 msgstr ""
+"Por malpliigi atakojn kontraŭ PyPI, registrado de nova uzanto per "
+"``pypi.python.org`` *malebliĝis* je *20a de Februaro 2018*. Eblas registrado "
+"de nova uzanto ĉe ``pypi.org``."
 
 #: ../source/guides/migrating-to-pypi-org.rst:125
 msgid "Browsing packages"
@@ -6940,6 +7039,8 @@ msgid ""
 "``pypi.org`` provides a fully functional interface for logged in users to "
 "manage their published packages and releases."
 msgstr ""
+"``pypi.org`` provizas plenfunkcian fasadon por salutintaj uzantoj administri "
+"siajn eldonitajn pakojn kaj versiojn."
 
 #: ../source/guides/modernize-setup-py-project.rst:6
 msgid "How to modernize a ``setup.py`` based project?"
@@ -7012,6 +7113,8 @@ msgid ""
 "Note that the presence of a :file:`pyproject.toml` file (even if empty) "
 "triggers :ref:`pip` to change its default behavior to use *build isolation*."
 msgstr ""
+"Notu ke la ĉeesto de dosiero :file:`pyproject.toml` (eĉ malplena) igas "
+":ref:`pip` ŝanĝi la aprioran konduton al uzo de *konstrua izolado*."
 
 #: ../source/guides/modernize-setup-py-project.rst:68
 msgid ":ref:`distributing-packages`"
@@ -7183,6 +7286,16 @@ msgid ""
 "available by default, so the subsequent ``require`` call in your own code "
 "fails with a spurious version conflict."
 msgstr ""
+"La grava problemo pri ``pkg_resources``-baza paralela instalado estas, ke "
+"importado de ``pkg_resources`` tuj ŝlosas la *aprioran* version de ĉio "
+"havebla ĉe ``sys.path``. Tio estas problema, ĉar ``setuptools``-kreita "
+"komandlinia programeto uzas ``pkg_resources`` por serĉi rulotan enirpunkton. "
+"Tio implicas, ke ekzemple vi ne povas uzi ``require``-teston alvokitan per "
+"``nose`` or WSGI-programon alvokitan per ``gunicorn``, se via programo "
+"bezonas alian version de io havebla ĉe la norma ``sys.path`` – la "
+"programvolvilo por la ĉefprogramo ŝlosos la aprioran version, kaj la posta "
+"alvoko al ``require`` en via propra kodo malsukcesos pro iluzia versia "
+"konflikto."
 
 #: ../source/guides/multi-version-installs.rst:34
 msgid ""
@@ -7661,6 +7774,13 @@ msgid ""
 "that do not include this extra file. To avoid this, you can add the compile-"
 "time argument ``/d2FH4-``. Recent versions of Python may include this file."
 msgstr ""
+"Unu averto: se vi uzas Visual Studio 2019 aŭ pli novan, via etendaĵo "
+"dependos de «ekstra» dosiero, ``VCRUNTIME140_1.dll``, kune kun "
+"``VCRUNTIME140.dll``, de kiu ĉiuj antaŭaj versioj ĝis 2015 dependas. Tio "
+"estas ekstra postulo por uzi vian etendaĵon kun versioj de CPython ne "
+"inkluzivanta la ekstran dosieron. Por eviti tion, vi povas aldoni la "
+"tradukilan argumenton ``/d2FH4-``. Novaj versioj de Python eble inkluzivas "
+"ĉi tiun dosieron."
 
 #: ../source/guides/packaging-binary-extensions.rst:326
 msgid ""
@@ -7891,6 +8011,10 @@ msgid ""
 "`__init__.py` from the namespace package directory. An example file "
 "structure (following :ref:`src-layout <setuptools:src-layout>`):"
 msgstr ""
+"Python 3.3 aldonis **implicitan** nomspacan pakon per :pep:`420`. Por krei "
+"indiĝenan nomspacan pakon, necesas nur preterlasi :file:`__init__.py` en la "
+"nomspaca paka dosierujo. Jen ekzempla dosierstrukturo (laŭ :ref:`src-layout "
+"<setuptools:src-layout>`):"
 
 #: ../source/guides/packaging-namespace-packages.rst:94
 msgid ""
@@ -7930,6 +8054,9 @@ msgid ""
 "A complete working example of two native namespace packages can be found in "
 "the `native namespace package example project`_."
 msgstr ""
+"Plena funkcianta ekzemplo de du indiĝenaj nomspacaj pakoj troviĝas en la "
+"`indiĝen-nomspaca ekzempla projekto <native namespace package example "
+"project>`_."
 
 #: ../source/guides/packaging-namespace-packages.rst:151
 msgid ""
@@ -7938,6 +8065,9 @@ msgid ""
 "Python 3 and pkgutil-style namespace packages in the distributions that need "
 "to support Python 2 and 3."
 msgstr ""
+"Ĉar indiĝenaj kaj pkgutil-stilaj nomspacaj pakoj estas plejparte kongruaj, "
+"oni povas uzi indiĝenan nomspacan pakon en distribuo nur por Python 3 kaj "
+"pkgutil-stilan nomspacan pakon en distribuo por kaj Python 2 kaj Python 3."
 
 #: ../source/guides/packaging-namespace-packages.rst:158
 msgid "Legacy namespace packages"
@@ -7966,6 +8096,10 @@ msgid ""
 "compatible with the other methods. It's inadvisable to use different methods "
 "in different distributions that provide packages to the same namespace."
 msgstr ""
+"Dum indiĝena nomspaca pako kaj pkgutil-stila nomspaca pako kongruas inter "
+"si, pkg_resources-stila nomspaca pako ne kongruas kun la aliaj metodoj. "
+"Estas malrekomendate miksi plurajn metodojn en malsamaj distribuoj "
+"provizantaj pakojn en la saman nomspacon."
 
 #: ../source/guides/packaging-namespace-packages.rst:174
 msgid "pkgutil-style namespace packages"
@@ -8010,6 +8144,8 @@ msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
 msgstr ""
+"Plena funkcianta ekzemplo de du pkgutil-stilaj nomspacaj pakoj troviĝas en "
+"la `pkgutil-nomspaca ekzempla projekto <pkgutil namespace example project>`_."
 
 #: ../source/guides/packaging-namespace-packages.rst:217
 msgid "pkg_resources-style namespace packages"
@@ -8065,6 +8201,9 @@ msgid ""
 "A complete working example of two pkg_resources-style namespace packages can "
 "be found in the `pkg_resources namespace example project`_."
 msgstr ""
+"Plena funkcianta ekzemplo de du pkg_resources-stilaj nomspacaj pakoj "
+"troviĝas en la `pkg_resources-nomspaca ekzempla projekto <pkg_resources "
+"namespace example project>`_."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
 msgid ""
@@ -8274,6 +8413,9 @@ msgid ""
 "artifact signing system `used to sign CPython <https://www.python.org/"
 "download/sigstore/>`_."
 msgstr ""
+"La jena tasko subskribas la distribuajn pakojn per `Sigstore`_, la sama "
+"artefakto-subskriba sistemo `uzata por CPython <https://www.python.org/"
+"download/sigstore/>`_."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:168
 msgid ""
@@ -8672,6 +8814,8 @@ msgid ""
 "The ``build`` section simply switches off builds - there is no build step "
 "needed for Python, unlike languages like ``C#``."
 msgstr ""
+"La sekcio ``build`` simple malŝaltas konstruadon – neniu konstrua paŝo "
+"necesas por Python malkiel ekzemple ``C#``."
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:96
 msgid ""
@@ -9026,6 +9170,9 @@ msgid ""
 "ref:`Flit`. A minimal and opinionated build backend. It does not support "
 "plugins."
 msgstr ""
+":doc:`Flit-core <flit:pyproject_toml>` – evoluigata kun sed aparte de "
+":ref:`Flit`. Minimuma kaj opinihava konstrua malfasado. Ĝi ne subtenas "
+"kromprogramon."
 
 #: ../source/guides/tool-recommendations.rst:77
 msgid ""
@@ -9153,6 +9300,9 @@ msgid ""
 "for this task. All direct invocations of :file:`setup.py` are :ref:"
 "`deprecated <setup-py-deprecated>`."
 msgstr ""
+"**Ne** uzu ``python setup.py sdist`` nek ``python setup.py bdist_wheel`` por "
+"tiu tasko. Ĉia rekta alvoko de :file:`setup.py` estas :ref:`evitinda <setup-"
+"py-deprecated>`."
 
 #: ../source/guides/tool-recommendations.rst:134
 msgid ""
@@ -9291,6 +9441,8 @@ msgid ""
 "The database for TestPyPI may be periodically pruned, so it is not unusual "
 "for user accounts to be deleted."
 msgstr ""
+"La datenbanko de la Prova PyPI estas periode reduktata; tial, konto de "
+"uzanto ofte estas forigita."
 
 #: ../source/guides/using-testpypi.rst:24
 msgid "Using TestPyPI with Twine"
@@ -9365,6 +9517,9 @@ msgid ""
 "specify your project's basic metadata, such as the dependencies, your name, "
 "etc."
 msgstr ""
+"La tabelo ``[project]`` estas la formo uzata de multaj konstruaj malfasadoj "
+"por specifi la bazajn metadatenojn de la projekto, kiel la dependecojn, vian "
+"nomon ktp."
 
 #: ../source/guides/writing-pyproject-toml.rst:18
 msgid ""
@@ -9379,12 +9534,16 @@ msgid ""
 "The ``[build-system]`` table should always be present, regardless of which "
 "build backend you use (``[build-system]`` *defines* the build tool you use)."
 msgstr ""
+"La tabelo ``[build-system]`` ĉiam ĉeestu, por ĉia konstrua malfasado "
+"(``[build-system]`` *difinas* la konstruilon uzatan)."
 
 #: ../source/guides/writing-pyproject-toml.rst:29
 msgid ""
 "On the other hand, the ``[project]`` table is understood by *most* build "
 "backends, but some build backends use a different format."
 msgstr ""
+"Aliflanke, la tabelo ``[project]`` estas konata de la *plejparto* de "
+"konstruaj malfasadoj, sed kelkaj konstruaj malfasadoj uzas aliajn formojn."
 
 #: ../source/guides/writing-pyproject-toml.rst:32
 msgid ""
@@ -9393,6 +9552,10 @@ msgid ""
 "setuptools_ build backend supports both the ``[project]`` table, and the "
 "older format in ``setup.cfg`` or ``setup.py``."
 msgstr ""
+"Je Aŭgusto 2024, Poetry_ estas notinda konstrua malfasado ne uzanta la "
+"tabelon ``[project]``. Anstataŭe ĝi uzas la tabelon ``[tool.poetry]``. Ankaŭ "
+"la konstrua malfasado setuptools_ subtenas kaj la tabelon ``[project]`` kaj "
+"la malnovan formon en ``setup.cfg`` aŭ ``setup.py``."
 
 #: ../source/guides/writing-pyproject-toml.rst:37
 msgid ""
@@ -10166,6 +10329,10 @@ msgid ""
 "com/lifter/search/pypi/flit>`__, and funds sent to the PSF and earmarked for "
 "PyPA usage."
 msgstr ""
+"La pako flit estas subtenata de `Matthias Bussonnier <https://github.com/"
+"Carreau>`__ ekde Oktobro 2023 sur la `platformo Tidelift <https://"
+"tidelift.com/lifter/search/pypi/flit>`__, kun fonduso sendita al PSF kaj "
+"markita por PyPA."
 
 #: ../source/key_projects.rst:142
 msgid "hatch"
@@ -10249,6 +10416,8 @@ msgid ""
 "The most popular tool for installing Python packages, and the one included "
 "with modern versions of Python."
 msgstr ""
+"La plej populara ilo por instali Python-pakojn, inkluzivita en modernaj "
+"versioj de Python."
 
 #: ../source/key_projects.rst:196
 msgid ""
@@ -10325,6 +10494,8 @@ msgid ""
 "pipx is a tool to install and run Python command-line applications without "
 "causing dependency conflicts with other packages installed on the system."
 msgstr ""
+"pipx estas ilo por instali kaj ruli Python-an komandlinian programon sen "
+"dependeca konflikto kun aliaj pakoj instalitaj sur la sistemo."
 
 #: ../source/key_projects.rst:249
 msgid ""
@@ -12218,6 +12389,8 @@ msgid ""
 "Libraries are building blocks, not complete applications. For distributing "
 "applications, there's a whole new world of technologies out there."
 msgstr ""
+"Biblioteko estas konstrua bloko, ne kompleta aplikprogramo. Por distribui "
+"aplikprogramon, ekzistas mondo da teknikoj."
 
 #: ../source/overview.rst:173
 msgid ""
@@ -13139,6 +13312,9 @@ msgid ""
 "it supports, and must fail if Wheel-Version has a greater major version than "
 "the version it supports."
 msgstr ""
+"Instalilo de wheel avertu, se ``Wheel-Version`` estas pli granda ol la "
+"subtenata versio, kaj devas malsukcesi, se ``Wheel-Version`` havas pli "
+"grandan maĵoran version ol la subtenatan version."
 
 #: ../source/specifications/binary-distribution-format.rst:217
 msgid ""
@@ -13496,6 +13672,8 @@ msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
 msgstr ""
+"Februaro 2021: La reguloj pri kodŝanĝado en wheel-dosiernomoj estis "
+"reviziitaj konforme al la fakta konduto de popularaj iloj."
 
 #: ../source/specifications/binary-distribution-format.rst:426
 msgid ""
@@ -13504,6 +13682,10 @@ msgid ""
 "symlinks or subdirectories in this folder is not formally defined, and hence "
 "may vary between tools)."
 msgstr ""
+"Decembro 2024: Klarigis, ke la dosierujo ``scripts`` nur enhavu ordinaraj "
+"dosierojn (ne formale difiniĝas la atendata konduto de konsumanta ilo pri "
+"simbola ligilo aŭ subdosierujo en tiu dosierujo; tial kondutoj povas "
+"diferenci inter iloj)."
 
 #: ../source/specifications/binary-distribution-format.rst:433
 msgid "Appendix"
@@ -13909,6 +14091,8 @@ msgid ""
 "not specified or is set to an unrecognized value, then the assumed "
 "``variant`` is ``GFM``."
 msgstr ""
+"Se ``Description-Content-Type`` estas ``text/markdown`` kaj ``variant`` "
+"estas nespecifita aŭ nekonata, do la implicita ``variant`` estas ``GFM``."
 
 #: ../source/specifications/core-metadata.rst:317
 msgid ""
@@ -15048,6 +15232,8 @@ msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
 "that evaluates to True or False."
 msgstr ""
+"Nekonata variablo devas kaŭzi eraro, ne rezultigante komparon de valoro "
+"``True`` aŭ ``False``."
 
 #: ../source/specifications/dependency-specifiers.rst:219
 msgid ""
@@ -15279,6 +15465,8 @@ msgid ""
 "commas, matching with the behavior of the Python implementation that has "
 "been in use since late 2022."
 msgstr ""
+"Junio 2024: La difino de ``version_many`` estis ŝanĝita por permesi lastan "
+"komon, konforme al la Python-realigo uzata ekde malfrua 2022."
 
 #: ../source/specifications/dependency-specifiers.rst:493
 msgid ""
@@ -15491,6 +15679,8 @@ msgid ""
 "When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
 "present as a dictionary with the following keys:"
 msgstr ""
+"Se ``url`` montras versikontrolsisteman deponejon, la ŝlosilo ``vcs_info`` "
+"DEVAS ekzisti kiel vortaro kun la jenaj ŝlosiloj:"
 
 #: ../source/specifications/direct-url-data-structure.rst:58
 msgid ""
@@ -15526,6 +15716,8 @@ msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following keys:"
 msgstr ""
+"Se ``url`` montras fontan arĥivon aŭ wheel, la ŝlosilo ``archive_info`` "
+"DEVAS ekzisti kiel vortaro kun la jenaj ŝlosiloj:"
 
 #: ../source/specifications/direct-url-data-structure.rst:81
 msgid ""
@@ -15584,6 +15776,8 @@ msgid ""
 "When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
 "present as a dictionary with the following key:"
 msgstr ""
+"Se ``url`` montras lokan dosierujon, la ŝlosilo ``vcs_info`` DEVAS ekzisti "
+"kiel vortaro kun la jenaj ŝlosiloj:"
 
 #: ../source/specifications/direct-url-data-structure.rst:113
 msgid ""
@@ -15693,6 +15887,10 @@ msgid ""
 "ref beginning with ``refs/tags/`` corresponds to a tag, and a ref beginning "
 "with ``refs/remotes/origin/`` after cloning corresponds to a branch."
 msgstr ""
+"Ilo povas uzi la komandojn ``git show-ref`` kaj ``git symbolic-ref`` por "
+"determini, ĉu ``requested_revision`` respondas al Git-referenco. Referenco "
+"komenciĝanta per ``refs/tags/`` respondas al etikedo, kaj referenco "
+"komenciĝanta per ``refs/remotes/origin/`` post klonado respondas al branĉo."
 
 #: ../source/specifications/direct-url-data-structure.rst:168
 msgid "Mercurial"
@@ -15756,12 +15954,16 @@ msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
 msgstr ""
+"``requested_revision`` devas kongrui kun la opcio ``--revision`` de ``svn "
+"checkout`` . Je Subversion, la branĉo aŭ etikedo estas parto de ``url``."
 
 #: ../source/specifications/direct-url-data-structure.rst:220
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
 msgstr ""
+"Ĉar Subversion ne subtenas malloke unikan identigilon, ĉi tiu kampo estas la "
+"revizinumero de Subversion en la respondanta deponejo."
 
 #: ../source/specifications/direct-url-data-structure.rst:225
 msgid "JSON Schema"
@@ -16988,6 +17190,10 @@ msgid ""
 "the `v1 DSSE signature protocol <https://github.com/secure-systems-lab/dsse/"
 "blob/v1.0.0/protocol.md>`__."
 msgstr ""
+"``envelope.signature`` estas valida subskribo por ``envelope.statement`` "
+"respondanta al ``verification_material.certificate`` laŭ la `subskriba "
+"protokolo v1 DSSE <https://github.com/secure-systems-lab/dsse/blob/v1.0.0/"
+"protocol.md>`__."
 
 #: ../source/specifications/index-hosted-attestations.rst:284
 msgid ""
@@ -17147,6 +17353,9 @@ msgid ""
 "of the script. Each entry MUST be a valid :ref:`dependency specifier "
 "<dependency-specifiers>`."
 msgstr ""
+"``dependencies`` : Listo de signoĉenoj specifantaj la rultempajn dependecojn "
+"de la programo. Ĉiu ero DEVAS esti valida :ref:`dependeco-specifilo "
+"<dependency-specifier>`."
 
 #: ../source/specifications/inline-script-metadata.rst:91
 msgid ""
@@ -17221,6 +17430,10 @@ msgid ""
 "making the ``dependencies`` and ``requires-python`` keys top-level. "
 "Additionally, the specification is no longer provisional."
 msgstr ""
+"Januaro 2024: Per ŝanĝoj al :pep:`723`, la nomo de la metadatena bloko ``"
+"pyproject `` ŝanĝiĝis al ``script``, kaj la tabelo ``[run]`` estis forigita, "
+"estigante la ŝlosilojn ``dependencies`` kaj ``requires-python`` "
+"supranivelaj. Cetere, la specifo ne plu estas provizora."
 
 #: ../source/specifications/name-normalization.rst:3
 msgid "Names and normalization"
@@ -17408,6 +17621,8 @@ msgid ""
 "The version can be just the major version ``2`` or ``3`` ``py2``, ``py3`` "
 "for many pure-Python distributions."
 msgstr ""
+"La versio povas esti simple la maĵoran version ``2`` aŭ ``3`` ``py2``, "
+"``py3`` por multaj pure Python-aj distribuoj."
 
 #: ../source/specifications/platform-compatibility-tags.rst:57
 msgid ""
@@ -18138,6 +18353,12 @@ msgid ""
 "specified but is missing required fields then the tool should consider it an "
 "error."
 msgstr ""
+"Ilo ne postulu la ekziston de la tabelo ``[build-system]``. Dosiero "
+"``pyproject.toml`` povas esti uzita por agordaj detaloj aliaj ol konstruo-"
+"rilataj datenoj kaj tial ne havi tabelon ``[build-system]``. Se la dosiero "
+"ekzistas sed la tabelo ``[build-system]`` mankas, do oni uzu la apriorajn "
+"valorojn specifitajn ĉi-supre. Se la tabelo estas specifita sed postulitaj "
+"kampoj mankas, do ilo konsideru tion kiel eraron."
 
 #: ../source/specifications/pyproject-toml.rst:65
 msgid ""
@@ -18624,6 +18845,8 @@ msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
 msgstr ""
+"Konstrua malfasado DEVAS observi statike specifitan metadatenon (de ŝlosilo "
+"ne en ``dynamic``)."
 
 #: ../source/specifications/pyproject-toml.rst:400
 msgid ""
@@ -18654,6 +18877,8 @@ msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
 msgstr ""
+"Konstrua malfasado DEVAS sciigi pri eraro, se la metadatenoj specifas unu "
+"ŝlosilon kaj statike kaj en ``dynamic``."
 
 #: ../source/specifications/pyproject-toml.rst:413
 msgid ""
@@ -19200,6 +19425,8 @@ msgid ""
 "There may be any other HTML elements on the API pages as long as the "
 "required anchor elements exist."
 msgstr ""
+"Povas ekzisti aliaj HTML-elementoj sur la API-paĝo, se la postulataj ankraj "
+"elementoj ekzistas."
 
 #: ../source/specifications/simple-repository-api.rst:68
 msgid ""
@@ -20010,6 +20237,8 @@ msgid ""
 "The client interprets the response, handling the different types of "
 "responses that the server may have responded with."
 msgstr ""
+"La kliento interpretas la respondon, pritraktante tiujn diversajn specojn de "
+"respondoj, kiujn la servilo eble sendis."
 
 #: ../source/specifications/simple-repository-api.rst:618
 msgid ""
@@ -20365,6 +20594,8 @@ msgid ""
 "Check the ``Content-Type`` of the response and ensure it matches something "
 "that you were expecting."
 msgstr ""
+"Kontrolu la ``Content-Type`` de la respondo, kaj certigu, ke ĝi kongruas kun "
+"io atendata de vi."
 
 #: ../source/specifications/simple-repository-api.rst:885
 msgid "Additional Fields for the Simple API for Package Indexes"
@@ -20588,6 +20819,8 @@ msgid ""
 "June 2023: renaming the field which provides package metadata independently "
 "from a package, in :pep:`714`"
 msgstr ""
+"Junio 2023: ŝanĝi la nomon de la kampo provizantan pakajn metadatenojn "
+"sendepende de pako laŭ :pep:`714`"
 
 #: ../source/specifications/simple-repository-api.rst:1003
 msgid ""
@@ -20656,6 +20889,8 @@ msgid ""
 "The name and version components of the filename MUST match the values stored "
 "in the metadata contained in the file."
 msgstr ""
+"La noma kaj versia komponantoj de la dosiernomo DEVAS kongrui kun la valoroj "
+"en la metadatenoj en la dosiero."
 
 #: ../source/specifications/source-distribution-format.rst:45
 msgid ""
@@ -21151,6 +21386,8 @@ msgid ""
 "Source distributions using a local version identifier SHOULD provide the "
 "``python.integrator`` extension metadata (as defined in :pep:`459`)."
 msgstr ""
+"Fonta distribuo uzanta lokan versian identigilon PROVIZU la etendaĵan "
+"metadatenon ``python.integrator`` (laŭ :pep:`459`)."
 
 #: ../source/specifications/version-specifiers.rst:180
 msgid "Final releases"
@@ -21161,6 +21398,8 @@ msgid ""
 "A version identifier that consists solely of a release segment and "
 "optionally an epoch identifier is termed a \"final release\"."
 msgstr ""
+"Versia identigilo konsistanta nur el eldona segmento kaj nedeviga epok-"
+"identigilo nomiĝas «fina eldono»."
 
 #: ../source/specifications/version-specifiers.rst:185
 msgid ""
@@ -21238,6 +21477,8 @@ msgid ""
 "A version identifier that consists solely of a release segment and a pre-"
 "release segment is termed a \"pre-release\"."
 msgstr ""
+"Versia identigilo konsistanta nur el eldona segmento kaj antaŭeldona "
+"segmento nomiĝas «antaŭeldono»."
 
 #: ../source/specifications/version-specifiers.rst:259
 msgid ""
@@ -21765,6 +22006,8 @@ msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
 msgstr ""
+"Uzanto de distribuo povas deziri eksplicite forigi nekongruajn versiojn el "
+"sia privata pakindekso."
 
 #: ../source/specifications/version-specifiers.rst:710
 msgid "Compatibility with other version schemes"
@@ -22957,6 +23200,10 @@ msgid ""
 "template=general_issue.yml>`_ on the `packaging-problems <https://github.com/"
 "pypa/packaging-problems>`_ repository on GitHub."
 msgstr ""
+"Por io pli ĝenerala, aŭ se vi ne certas, bonvolu `raporti problemon <https://"
+"github.com/pypa/packaging-problems/issues/new?template=general_issue.yml>`_ "
+"pri la deponejo `packaging-problems <https://github.com/pypa/packaging-"
+"problems>`_ ĉe GitHub."
 
 #: ../source/tutorials/creating-documentation.rst:4
 msgid "Creating documentation"
@@ -23195,6 +23442,10 @@ msgid ""
 "your platform’s standard location is), it’s easy to end up in a situation "
 "where you unintentionally upgrade an application that shouldn’t be upgraded."
 msgstr ""
+"Supozu, ke oni havas programon bezonantan version 1 de LibFoo, sed alia "
+"programo bezonas version 2. Kiel oni povas uzi ambaŭ programojn? Se oni "
+"instalus ĉion en /usr/lib/python3.6/site-packages (aŭ la norma loko por onia "
+"platformo), oni ofte senintence ĝisdatigus programon ne ĝisdatindan."
 
 #: ../source/tutorials/installing-packages.rst:213
 msgid ""
@@ -23542,6 +23793,8 @@ msgid ""
 "Find pre-release and development versions, in addition to stable versions.  "
 "By default, pip only finds stable versions."
 msgstr ""
+"Trovi antaŭeldonajn kaj evoluadajn versiojn, aldone al stabilaj versioj.  "
+"Apriore, pip nur trovas stabilajn versiojn."
 
 #: ../source/tutorials/installing-packages.rst:641
 msgid "Installing \"Extras\""
@@ -23720,6 +23973,8 @@ msgid ""
 "see the :ref:`tutorial on packaging and distributing packages <distributing-"
 "packages>`."
 msgstr ""
+"Se vi interesiĝas krei kaj distribui vian propran Python-pakon, vidu la "
+":ref:`lernilon pri kreado kaj distribuado de pakoj <distributing-packages>`."
 
 #: ../source/tutorials/managing-dependencies.rst:148
 msgid ""
