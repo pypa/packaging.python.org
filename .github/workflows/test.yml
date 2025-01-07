@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        python: ['3.9', '3.10', '3.11', '3.12', '3.13']
         noxenv:
         - build
         - linkcheck
@@ -27,9 +28,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python }}
           cache: 'pip'
           cache-dependency-path: 'requirements.txt'
 
