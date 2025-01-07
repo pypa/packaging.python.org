@@ -168,7 +168,9 @@ The driver application
 ----------------------
 
 This is the only part of your application that has to be written in C. The
-application code should look like the following::
+application code should look like the following:
+
+.. code-block:: c
 
     /* Include the Python headers */
     #include <Python.h>
