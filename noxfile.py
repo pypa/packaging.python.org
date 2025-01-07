@@ -14,7 +14,6 @@ def translation(session):
     """
     Build the gettext .pot files.
     """
-    session.install("-r", "requirements.txt")
     target_dir = "locales"
     session.run(
         "sphinx-build",
@@ -32,8 +31,6 @@ def build(session, autobuild=False):
     """
     Make the website.
     """
-    session.install("-r", "requirements.txt")
-
     if autobuild:
         command = "sphinx-autobuild"
         extra_args = "--host", "0.0.0.0"
@@ -76,7 +73,6 @@ def linkcheck(session):
     """
     Check for broken links.
     """
-    session.install("-r", "requirements.txt")
     session.run(
         "sphinx-build",
         "-b",
