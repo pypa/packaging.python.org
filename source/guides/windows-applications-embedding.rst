@@ -121,7 +121,7 @@ Simply unpack the downloaded zip file into the "interp" subdirectory of your
 application layout.
 
 In order for your embedded interpreter to be able to find your application code,
-you should modify the `python*._pth` directory contained in the distribution. By
+you should modify the ``python*._pth`` directory contained in the distribution. By
 default it looks like this::
 
     python313.zip
@@ -276,7 +276,7 @@ on the name of the DLL in your embedded distribution. For a production build,
 you might want additional options, such as optimisation (although the wrapper
 exe is small enough that optimisation might not make a significant difference).
 
-If you place the resulting `exe` file in your application target directory, and
+If you place the resulting ``exe`` file in your application target directory, and
 run it, your application should run, exactly the same as it did when you invoked
 it using Python directly.
 
