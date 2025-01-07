@@ -236,7 +236,7 @@ To install a command as part of your package, declare it in the
 
 In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
-``from spam import main_cli; exit(main_cli())``.
+``import sys; from spam import main_cli; sys.exit(main_cli())``.
 
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
