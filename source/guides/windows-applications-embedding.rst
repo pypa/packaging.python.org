@@ -30,7 +30,7 @@ results in a chain of processes being created - the wrapper itself, the virtual
 environment redirector, and finally the Python interpreter. Creating all these
 processes isn't cheap, and particularly for a small command line utility, it
 impacts application startup time noticeably. Furthermore, the entry point
-wrapper is a standard executable with a zipfile attached - because of this, the
+wrapper is a standard executable with a ZIP file attached - because of this, the
 application cannot be signed in advance by the developer, and this is often seen
 as "suspicious" by virus scanners. If a scan is triggered, this can make the
 application even slower to start, as well as running the risk of "false
@@ -65,12 +65,14 @@ You can, if you wish, dump all of those items into a single directory. However,
 it is much easier to manage the application if you keep them separate.
 Therefore, the recommended layout is::
 
-    Application directory
-        MyAwesomePythonApp.exe
-        interp
-            (embedded Python interpreter)
-        lib
-            (Python code implementing the application)
+    Application directory/
+    ├── MyAwesomePythonApp.exe
+    ├── interp/
+    │   ├── (embedded Python interpreter)
+    │   └── ...
+    └── lib/
+        ├── (Python code implementing the application)
+        └── ...
 
 The remainder of this guide will assume this layout.
 
@@ -157,7 +159,7 @@ resulting file will look like this::
     # Uncomment to run site.main() automatically
     #import site
 
-If you have put your application Python code somewhere else, this is the only
+If you have placed your application's Python code somewhere else, this is the only
 thing you need to change. The file contains a list of directories (relative to
 the interpreter directory) which will be added to Python's ``sys.path`` when
 starting the interpreter.
