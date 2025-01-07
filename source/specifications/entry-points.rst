@@ -125,6 +125,7 @@ For example:
     nbval = nbval.plugin
 
 .. _script-entry-points:
+
 Use for scripts
 ===============
 
