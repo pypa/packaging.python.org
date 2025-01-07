@@ -2,7 +2,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 import os
-from datetime import date
+import time
 
 # Some options are only enabled for the main packaging.python.org deployment builds
 RTD_BUILD = bool(os.getenv("READTHEDOCS"))
@@ -13,9 +13,9 @@ RTD_CANONICAL_BUILD = (
 )
 
 project = "Python Packaging User Guide"
-
-copyright = f"2013–{date.today().year}, PyPA"
 author = "Python Packaging Authority"
+cur_year = time.strfime("%Y")
+copyright = f"{cur_year}, {author}"
 
 # -- General configuration -------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
