@@ -17,13 +17,13 @@ integrates much better with the operating system if the application is delivered
 as a native Windows executable. However, Python is not a natively compiled
 language, and so does not create executables by default.
 
-The normal way around this issue is to make your Python code into a library, and
-declare one or more "script entry points" for the library. When the library is
-installed, the installer will generate a native executable which invokes the
-Python interpreter, calling your entry point function. This is a very effective
-solution, and is used by many Python applications. It is supported by utilities
-such as ``pipx`` and ``uv tool``, which make managing such entry points (and the
-virtual environments needed to support them) easy.
+One way around this issue is to make your Python code into a library, and
+declare one or more :ref:`script entry points <script-entry-points>` for the
+library. When the library is installed, the installer will provide an executable
+which invokes the Python interpreter, calling your entry point function. This is
+a very effective solution, and is used by many Python applications. It is
+supported by utilities such as ``pipx`` and ``uv tool``, which make managing
+such entry points (and the virtual environments needed to support them) easy.
 
 There are, however, some downsides to this approach. The entry point wrapper
 results in a chain of processes being created - the wrapper itself, the virtual
@@ -90,10 +90,27 @@ need to do is make a small modification to the wrapper code.
 Your code can use 3rd party dependencies freely. These will be installed along
 with your application.
 
-When you are ready to build your application, you can install the Python code
-using::
+You can create your application code in whatever way you prefer - there is no
+particular need to make it buildable as a wheel. For the purposes of this
+discussion, we will assume one of two project layouts:
 
-    pip install --target "<Application directory>\lib" MyAwesomePythonApp
+1. A project which can be installed via ``pip install``, with all of its
+   dependencies listed in the ``pyproject.toml`` file, as normal.
+2. A Python application stored in a local directory. In this case, third party
+   dependencies are listed in a ``requirements.txt`` file.
+
+When you are ready to build your application, you need to copy all of the
+required code and dependencies into the ``lib`` directory of the application.
+For case (1), this can be done using::
+
+    pip install --target "<Application directory>\lib" .
+
+For case (2), you should copy your application code into the ``lib`` directory
+and then run::
+
+    pip install --target "<Application directory>\lib" -r requirements.txt
+
+to install the 3rd party dependencies.
 
 You can then run your application as follows::
 
@@ -154,6 +171,10 @@ application code should look like the following::
     /* Include the Python headers */
     #include <Python.h>
 
+    #define PYTHON_LOCATION L"interp"
+    #define APP_MODULE "MyAwesomePythonApp"
+    #define APP_FUNCTION "main"
+
     /* Finding the Python interpreter */
     #include <windows.h>
     #include <pathcch.h>
@@ -188,7 +209,7 @@ application code should look like the following::
          * This MUST be called before any functions from the Python
          * runtime are called.
          */
-        if (!dll_dir(L"interp"))
+        if (!dll_dir(PYTHON_LOCATION))
             return -1;
 
         /* Initialise the Python configuration */
@@ -214,10 +235,10 @@ application code should look like the following::
          */
 
         int exitCode = -1;
-        PyObject *module = PyImport_ImportModule("MyAwesomePythonApp");
+        PyObject *module = PyImport_ImportModule(APP_MODULE);
         if (module) {
             // Pass any more arguments here
-            PyObject *result = PyObject_CallMethod(module, "main", NULL);
+            PyObject *result = PyObject_CallMethod(module, APP_FUNCTION, NULL);
             if (result) {
                 exitCode = 0;
                 Py_DECREF(result);
@@ -342,8 +363,16 @@ needs a GUI, the simplest option is likely to be to use one of the other GUI
 frameworks available from PyPI, such as PyQt or wxPython.
 
 If your only option is tkinter, you will need to add a copy to the embedded
-distribution, or use a different distribution. Both of these options are outside
-the scope of this guide, however.
+distribution. You can get the relevant files from a full Python installation
+(which must be the same version as you're using for your application). The
+files you need are:
+
+* ``_tkinter.pyd``, ``tcl*.dll``, ``tk*.dll`` and ``zlib1.dll`` from
+  ``{sys.prefix}\DLLs``
+* The ``tcl`` directory from ``{sys.prefix}``
+* The ``tkinter`` directory from ``{sys.prefix}\Lib``
+
+You should copy all of these into your embedded interpreter directory.
 
 Subprocesses and ``sys.executable``
 -----------------------------------
@@ -373,7 +402,7 @@ positive side, though, operating systems other than Windows have less need for
 this, as support for interpreted code as applications is generally better. In
 particular, on Unix a Python file with a "shebang" line is treated as a
 first-class application, and there is no benefit to making a native
-appliocation.
+application.
 
 So while this discussion is specific to Windows, the problem it is solving is
 *also* unique to Windows.
