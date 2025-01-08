@@ -20,6 +20,8 @@ specification.
 
 Source distributions are also known as *sdists* for short.
 
+.. _source-distribution-format-source-tree:
+
 Source trees
 ============
 
@@ -29,6 +31,8 @@ can be use to build a source distribution from the contained files and
 directories. :pep:`517` and :pep:`518` specify what is required to meet the
 definition of what :file:`pyproject.toml` must contain for something to be
 deemed a source tree.
+
+.. _source-distribution-format-sdist:
 
 Source distribution file name
 =============================
