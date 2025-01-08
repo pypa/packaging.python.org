@@ -539,19 +539,21 @@ Requires-Dist (multiple use)
    The field format specification was relaxed to accept the syntax used by
    popular publishing tools.
 
-Each entry contains a string naming some other distutils
-project required by this distribution.
+Each entry contains a string naming some other distribution required by this
+distribution.
 
-The format of a requirement string contains from one to four parts:
+A requirement string has one mandatory and three optional parts.
 
 * A project name, in the same format as the ``Name:`` field.
   The only mandatory part.
-* A comma-separated list of 'extra' names. These are defined by
-  the required project, referring to specific features which may
-  need extra dependencies. The names MUST conform to the restrictions
-  specified by the ``Provides-Extra:`` field.
-* A version specifier. Tools parsing the format should accept optional
-  parentheses around this, but tools generating it should not use
+* A comma-separated list of 'extra' names in square brackets, like
+  ``[extra1,extra2]``. These names are defined by the required
+  project, referring to specific features which may need extra
+  dependencies. The names MUST conform to the restrictions specified
+  by the ``Provides-Extra:`` field.
+* Either a version specifier or an ``@`` sign followed by a URL.
+  Tools parsing the format should accept optional parentheses around
+  a version specifier, but tools generating it should not use
   parentheses.
 * An environment marker after a semicolon. This means that the
   requirement is only needed in the specified conditions.
