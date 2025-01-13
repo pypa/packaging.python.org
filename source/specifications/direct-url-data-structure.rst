@@ -49,6 +49,8 @@ Additionally, the user:password section of the URL MAY be a
 well-known, non security sensitive string. A typical example is ``git``
 in the case of a URL such as ``ssh://git@gitlab.com/user/repo``.
 
+.. _direct-url-data-structure-vcs:
+
 VCS URLs
 --------
 
@@ -71,6 +73,8 @@ as a dictionary with the following keys:
   based revision identifiers, such commit-hash MUST be used as
   ``commit_id`` in order to reference an immutable
   version of the source code.
+
+.. _direct-url-data-structure-archive:
 
 Archive URLs
 ------------
@@ -104,6 +108,8 @@ When both the ``hash`` and ``hashes`` keys are present, the hash represented in 
 ``hash`` key MUST also be present in the ``hashes`` dictionary, so consumers can
 consider the ``hashes`` key only if it is present, and fall back to ``hash`` otherwise.
 
+.. _direct-url-data-structure-local-directory:
+
 Local directories
 -----------------
 
@@ -118,12 +124,16 @@ be compliant with :rfc:`8089`. In
 particular, the path component must be absolute. Symbolic links SHOULD be
 preserved when making relative paths absolute.
 
+.. _direct-url-data-structure-subdirectories:
+
 Projects in subdirectories
 --------------------------
 
 A top-level ``subdirectory`` field MAY be present containing a directory path,
 relative to the root of the VCS repository, source archive or local directory,
 to specify where ``pyproject.toml`` or ``setup.py`` is located.
+
+.. _direct-url-data-structure-registered-vcs:
 
 Registered VCS
 ==============
