@@ -797,8 +797,10 @@ Examples::
 Deprecated Fields
 =================
 
-Deprecated fields are valid metadata fields for any metadata version. Tools
-SHOULD warn users when deprecated fields are used.
+Deprecated fields should be avoided, but they are valid metadata fields. They
+may be removed in future versions of the core metadata standard (at which point
+they will only be valid in files that specify a metadata version prior to the
+removal). Tools SHOULD warn users when deprecated fields are used.
 
 .. _home-page-optional:
 .. _core-metadata-home-page:
