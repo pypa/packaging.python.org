@@ -2,6 +2,11 @@ ci:
   autoupdate_schedule: quarterly
 
 repos:
+- repo: meta
+  hooks:
+    - id: check-hooks-apply
+    - id: check-useless-excludes
+
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v5.0.0
   hooks:
@@ -47,8 +52,3 @@ repos:
   rev: v1.0.0
   hooks:
     - id: sphinx-lint
-
-- repo: meta
-  hooks:
-    - id: check-hooks-apply
-    - id: check-useless-excludes
