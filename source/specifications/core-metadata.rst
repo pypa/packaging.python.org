@@ -110,7 +110,7 @@ Dynamic (multiple use)
 
 A string containing the name of another core metadata field. The field
 names ``Name``, ``Version``, and ``Metadata-Version`` may not be specified
-in this field.
+in this field. Deprecated fields MAY be specified in this field.
 
 When found in the metadata of a source distribution, the following
 rules apply:
