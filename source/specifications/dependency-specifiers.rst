@@ -128,6 +128,8 @@ Whitespace
 Non line-breaking whitespace is mostly optional with no semantic meaning. The
 sole exception is detecting the end of a URL requirement.
 
+.. _dependency-specifiers-names:
+
 Names
 -----
 
@@ -141,6 +143,8 @@ redefinition of name may take place in a future metadata PEP. The regex (run
 with re.IGNORECASE) is::
 
     ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+
+.. _dependency-specifiers-extras:
 
 Extras
 ------
@@ -159,6 +163,8 @@ are listed in the "security" extra of requests.
 
 If multiple extras are listed, all the dependencies are unioned together.
 
+.. _dependency-specifiers-versions:
+
 Versions
 --------
 
@@ -169,6 +175,8 @@ used. They only apply to distributions looked up by name, rather than
 via a URL. Version comparison are also used in the markers feature. The
 optional brackets around a version are present for compatibility with
 :pep:`345` but should not be generated, only accepted.
+
+.. _dependency-specifiers-environment-markers:
 
 Environment Markers
 -------------------
@@ -293,6 +301,8 @@ The ``implementation_version`` marker variable is derived from
 
 This environment markers section, initially defined through :pep:`508`, supersedes the environment markers
 section in :pep:`345`.
+
+.. _dependency-specifiers-grammar:
 
 Complete Grammar
 ================
