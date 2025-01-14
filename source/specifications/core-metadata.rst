@@ -797,11 +797,11 @@ Examples::
 Deprecated Fields
 =================
 
-.. _home-page-optional:
-.. _core-metadata-home-page:
-
 Deprecated fields are valid metadata fields for any metadata version. Tools
 SHOULD warn users when deprecated fields are used.
+
+.. _home-page-optional:
+.. _core-metadata-home-page:
 
 Home-page
 ---------
