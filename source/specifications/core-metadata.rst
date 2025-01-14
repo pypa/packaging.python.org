@@ -800,6 +800,10 @@ Deprecated Fields
 .. _home-page-optional:
 .. _core-metadata-home-page:
 
+Deprecated fields are valid metadata fields for any metadata version. Tools
+MUST attempt to convert deprecated fields to non-deprecated fields when
+appropriate. Tools SHOULD warn users when deprecated fields are used.
+
 Home-page
 ---------
 
