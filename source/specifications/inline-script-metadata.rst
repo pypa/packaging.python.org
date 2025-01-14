@@ -79,7 +79,7 @@ script metadata (dependency data and tool configuration).
 This document MAY include the top-level fields ``dependencies`` and ``requires-python``,
 and MAY optionally include a ``[tool]`` table.
 
-The ``[tool]`` MAY be used by any tool, script runner or otherwise, to configure
+The ``[tool]`` table MAY be used by any tool, script runner or otherwise, to configure
 behavior. It has the same semantics as the :ref:`[tool] table in pyproject.toml
 <pyproject-tool-table>`.
 
