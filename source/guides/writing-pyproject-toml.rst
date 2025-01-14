@@ -29,8 +29,9 @@ three possible TOML tables in this file.
    On the other hand, the ``[project]`` table is understood by *most* build
    backends, but some build backends use a different format.
 
-   As of August 2024, Poetry_ is a notable build backend that does not use
-   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead.
+   A notable exception is Poetry_, which before version 2.0 (released January
+   5, 2025) did not use the ``[project]`` table, it used the ``[tool.poetry]``
+   table instead. With version 2.0, it supports both.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
    and the older format in ``setup.cfg`` or ``setup.py``.
 
