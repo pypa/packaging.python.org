@@ -178,7 +178,7 @@ The contents of a wheel file, where {distribution} is replaced with the
 :ref:`normalized name <name-normalization>` of the package, e.g.
 ``beaglevote`` and {version} is replaced
 with its :ref:`normalized version <version-specifiers-normalization>`,
-e.g. ``1.0.0``, consist of:
+e.g. ``1.0.0``, (with dash (`-`) characters replaced with underscore (`_`) characters in both fields) consist of:
 
 #. ``/``, the root of the archive, contains all files to be installed in
    ``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and
