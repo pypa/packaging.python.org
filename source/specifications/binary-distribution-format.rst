@@ -175,7 +175,7 @@ File contents
 '''''''''''''
 
 The contents of a wheel file, where {distribution} is replaced with the
-:ref:`normalized name <name-normalization>` of the package, e.g. 
+:ref:`normalized name <name-normalization>` of the package, e.g.
 ``beaglevote`` and {version} is replaced
 with its :ref:`normalized version <version-specifiers-normalization>`,
 e.g. ``1.0.0``, consist of:
