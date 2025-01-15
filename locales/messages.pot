@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 20:10+0000\n"
+"POT-Creation-Date: 2025-01-15 04:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -8696,7 +8696,7 @@ msgid "Like metaclasses, monkeypatching and metapath importers, if you're not al
 msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:432
-#: ../source/specifications/core-metadata.rst:917
+#: ../source/specifications/core-metadata.rst:922
 #: ../source/specifications/dependency-groups.rst:248
 #: ../source/specifications/dependency-specifiers.rst:487
 #: ../source/specifications/direct-url-data-structure.rst:407
@@ -8814,8 +8814,8 @@ msgstr ""
 #: ../source/specifications/core-metadata.rst:640
 #: ../source/specifications/core-metadata.rst:675
 #: ../source/specifications/core-metadata.rst:685
-#: ../source/specifications/core-metadata.rst:814
-#: ../source/specifications/core-metadata.rst:911
+#: ../source/specifications/core-metadata.rst:819
+#: ../source/specifications/core-metadata.rst:916
 msgid "Example::"
 msgstr ""
 
@@ -8892,8 +8892,8 @@ msgstr ""
 #: ../source/specifications/core-metadata.rst:623
 #: ../source/specifications/core-metadata.rst:760
 #: ../source/specifications/core-metadata.rst:790
-#: ../source/specifications/core-metadata.rst:865
-#: ../source/specifications/core-metadata.rst:887
+#: ../source/specifications/core-metadata.rst:870
+#: ../source/specifications/core-metadata.rst:892
 msgid "Examples::"
 msgstr ""
 
@@ -9304,148 +9304,152 @@ msgstr ""
 msgid "Deprecated Fields"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:804
+#: ../source/specifications/core-metadata.rst:800
+msgid "Deprecated fields should be avoided, but they are valid metadata fields. They may be removed in future versions of the core metadata standard (at which point they will only be valid in files that specify a metadata version prior to the removal). Tools SHOULD warn users when deprecated fields are used."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:809
 msgid "Home-page"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:810
-#: ../source/specifications/core-metadata.rst:827
+#: ../source/specifications/core-metadata.rst:815
+#: ../source/specifications/core-metadata.rst:832
 msgid "Per :pep:`753`, use :ref:`core-metadata-project-url` instead."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:812
+#: ../source/specifications/core-metadata.rst:817
 msgid "A string containing the URL for the distribution's home page."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:821
+#: ../source/specifications/core-metadata.rst:826
 msgid "Download-URL"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:829
+#: ../source/specifications/core-metadata.rst:834
 msgid "A string containing the URL from which this version of the distribution can be downloaded.  (This means that the URL can't be something like \"``.../BeagleVote-latest.tgz``\", but instead must be \"``.../BeagleVote-0.45.tgz``\".)"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:835
+#: ../source/specifications/core-metadata.rst:840
 msgid "Requires"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:838
+#: ../source/specifications/core-metadata.rst:843
 msgid "in favour of ``Requires-Dist``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:841
+#: ../source/specifications/core-metadata.rst:846
 msgid "Each entry contains a string describing some other module or package required by this package."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:844
+#: ../source/specifications/core-metadata.rst:849
 msgid "The format of a requirement string is identical to that of a module or package name usable with the ``import`` statement, optionally followed by a version declaration within parentheses."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:848
+#: ../source/specifications/core-metadata.rst:853
 msgid "A version declaration is a series of conditional operators and version numbers, separated by commas. Conditional operators must be one of \"<\", \">\"', \"<=\", \">=\", \"==\", and \"!=\". Version numbers must be in the format accepted by the ``distutils.version.StrictVersion`` class: two or three dot-separated numeric components, with an optional \"pre-release\" tag on the end consisting of the letter 'a' or 'b' followed by a number. Example version numbers are \"1.0\", \"2.3a2\", \"1.3.99\","
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:856
+#: ../source/specifications/core-metadata.rst:861
 msgid "Any number of conditional operators can be specified, e.g. the string \">1.0, !=1.3.4, <2.0\" is a legal version declaration."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:859
+#: ../source/specifications/core-metadata.rst:864
 msgid "All of the following are possible requirement strings: \"rfc822\", \"zlib (>=1.1.4)\", \"zope\"."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:862
+#: ../source/specifications/core-metadata.rst:867
 msgid "There’s no canonical list of what strings should be used; the Python community is left to choose its own standards."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:875
+#: ../source/specifications/core-metadata.rst:880
 msgid "Provides"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:878
+#: ../source/specifications/core-metadata.rst:883
 msgid "in favour of ``Provides-Dist``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:881
+#: ../source/specifications/core-metadata.rst:886
 msgid "Each entry contains a string describing a package or module that will be provided by this package once it is installed. These strings should match the ones used in Requirements fields. A version declaration may be supplied (without a comparison operator); the package’s version number will be implied if none is specified."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:897
+#: ../source/specifications/core-metadata.rst:902
 msgid "Obsoletes"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:900
+#: ../source/specifications/core-metadata.rst:905
 msgid "in favour of ``Obsoletes-Dist``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:903
+#: ../source/specifications/core-metadata.rst:908
 msgid "Each entry contains a string describing a package or module that this package renders obsolete, meaning that the two packages should not be installed at the same time. Version declarations can be supplied."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:907
+#: ../source/specifications/core-metadata.rst:912
 msgid "The most common use of this field will be in case a package name changes, e.g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install Torqued Python, the Gorgon package should be removed."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:919
+#: ../source/specifications/core-metadata.rst:924
 msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:920
+#: ../source/specifications/core-metadata.rst:925
 msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:921
+#: ../source/specifications/core-metadata.rst:926
 msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:922
+#: ../source/specifications/core-metadata.rst:927
 msgid "February 2018: Core metadata 2.1 was approved through :pep:`566`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:924
+#: ../source/specifications/core-metadata.rst:929
 msgid "Added ``Description-Content-Type`` and ``Provides-Extra``."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:925
+#: ../source/specifications/core-metadata.rst:930
 msgid "Added canonical method for transforming metadata to JSON."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:926
+#: ../source/specifications/core-metadata.rst:931
 msgid "Restricted the grammar of the ``Name`` field."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:928
+#: ../source/specifications/core-metadata.rst:933
 msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:930
+#: ../source/specifications/core-metadata.rst:935
 msgid "Added the ``Dynamic`` field."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:932
+#: ../source/specifications/core-metadata.rst:937
 msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:934
+#: ../source/specifications/core-metadata.rst:939
 msgid "Restricted extra names to be normalized."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:936
+#: ../source/specifications/core-metadata.rst:941
 msgid "August 2024: Core metadata 2.4 was approved through :pep:`639`."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:938
+#: ../source/specifications/core-metadata.rst:943
 msgid "Added the ``License-Expression`` field."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:939
+#: ../source/specifications/core-metadata.rst:944
 msgid "Added the ``License-File`` field."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:943
+#: ../source/specifications/core-metadata.rst:948
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:948
+#: ../source/specifications/core-metadata.rst:953
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr ""
 
