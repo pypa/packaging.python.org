@@ -18,7 +18,7 @@ Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_ren
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
   or `CommonMark <https://commonmark.org/>`_)
 
-It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
+It's customary to save your README file in the root of your project, in the same directory as your :file:`pyproject.toml` file.
 
 
 Including your README in your package's metadata
