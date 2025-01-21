@@ -150,10 +150,10 @@ this character cannot appear within any component. This is handled as follows:
 - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
   characters should be replaced with corresponding lowercase ones. This is
-  equivalent to regular :ref:`name normalization <name-normalization>` followed by replacing ``-`` with ``_``.
-  Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
-  uppercase letters, however, as these were allowed by an earlier version of
-  this specification.
+  equivalent to regular :ref:`name normalization <name-normalization>` followed
+  by replacing ``-`` with ``_``. Tools consuming wheels must be prepared to accept
+  ``.`` (FULL STOP) and uppercase letters, however, as these were allowed by an earlier
+  version of this specification.
 - Version numbers should be normalised according to the :ref:`Version specifier
   specification <version-specifiers>`. Normalised version numbers cannot contain ``-``.
 - The remaining components may not contain ``-`` characters, so no escaping
@@ -175,8 +175,11 @@ File contents
 '''''''''''''
 
 The contents of a wheel file, where {distribution} is replaced with the
-name of the package, e.g. ``beaglevote`` and {version} is replaced with
-its version, e.g. ``1.0.0``, consist of:
+:ref:`normalized name <name-normalization>` of the package, e.g.
+``beaglevote`` and {version} is replaced
+with its :ref:`normalized version <version-specifiers-normalization>`,
+e.g. ``1.0.0``, (with dash/``-`` characters replaced with underscore/``_`` characters
+in both fields) consist of:
 
 #. ``/``, the root of the archive, contains all files to be installed in
    ``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and
@@ -440,6 +443,8 @@ History
   may vary between tools).
 - December 2024: The :file:`.dist-info/licenses/` directory was specified through
   :pep:`639`.
+- January 2025: Clarified that name and version needs to be normalized for
+  ``.dist-info`` and ``.data`` directories.
 
 
 Appendix
