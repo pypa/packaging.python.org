@@ -57,7 +57,8 @@ Some projects are concerned about increasing the size of source distribution,
 or do not wish Python packaging tools to fall back to source distributions
 automatically.  In these cases, a good compromise may be to publish a separate
 source archive for downstream use, for example by attaching it to a GitHub
-release.
+release. Alternatively, large files, such as test data, can be split into
+separate archives.
 
 While it is usually possible to build packages from a git repository, there are
 a few important reasons to provide a static archive file instead:
