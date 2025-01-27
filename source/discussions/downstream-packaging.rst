@@ -82,3 +82,42 @@ running tests and building wheels) from the unpacked source distribution. This
 ensures that the source distribution is actually tested, and reduces the risk
 that users installing from it will hit build failures or install an incomplete
 package.
+
+
+.. _Do not use the Internet during the build process:
+
+Do not use the Internet during the build process
+------------------------------------------------
+Downstream builds are frequently done in sandboxed environments that cannot
+access the Internet. Therefore, it is important that your source distribution
+includes all the files needed for the package to build or allows provisioning
+them externally, and can build successfully without Internet access.
+
+Ideally, it should not even attempt to access the Internet at all, unless
+explicitly requested to. If that is not possible to achieve, the next best
+thing is to provide an opt-out switch to disable all Internet access, and fail
+if some of the required files are missing instead of trying to fetch them. This
+could be done e.g. by checking whether a ``NO_NETWORK`` environment variable is
+to a non-empty value. Please also remember that if you are fetching remote
+resources, you should verify their authenticity, e.g.  against a checksum, to
+protect against the file being substituted by a malicious party.
+
+Even if downloads are properly authenticated, using the Internet is discouraged
+for a number of reasons:
+
+- The Internet connection may be unstable (e.g. poor reception) or suffer from
+  temporary problems that could cause the downloads to fail or hang.
+
+- The remote resources may become temporarily or even permanently unavailable,
+  making the build no longer possible. This is especially problematic when
+  someone needs to build an old package version.
+
+- Accessing remote servers poses a privacy issue and a potential security issue,
+  as it exposes information about the system building the package.
+
+- The user may be using a service with a limited data plan, in which
+  uncontrolled Internet access may result in additional charges or other
+  inconveniences.
+
+Since downstreams frequently also run tests and build documentation, the above
+should ideally extend to these processes as well.
