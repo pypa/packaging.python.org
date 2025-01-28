@@ -42,7 +42,13 @@ making use of the same Python interpreter (especially on Linux).
 
 For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
-.. todo:: Write a "pip vs. Conda" comparison, here or in a new discussion.
+.. note:: 
+
+  Pip manages Python packages, while Conda manages packages for multiple
+  languages and environments. Conda excels at dependency management and creating
+  isolated environments, but has limited Python packages. Pip is widely used,
+  but struggles with dependencies and virtual environments. Using both together
+  can leverage their strengths. See (:ref:`Pip and Conda Comparison`).
 
 Do **not** use ``easy_install`` (part of :ref:`setuptools`), which is deprecated
 in favor of pip (see :ref:`pip vs easy_install` for details). Likewise, do

@@ -11,6 +11,7 @@ specific topic. If you're just trying to get stuff done, see
    versioning
    deploying-python-applications
    pip-vs-easy-install
+   pip-and-conda-comparison
    install-requires-vs-requirements
    distribution-package-vs-import-package
    package-formats
