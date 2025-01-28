@@ -122,3 +122,73 @@ for a number of reasons:
 
 Since downstreams frequently also run tests and build documentation, the above
 should ideally extend to these processes as well.
+
+
+.. _Support building against system dependencies:
+
+Support building against system dependencies
+--------------------------------------------
+Some Python projects have non-Python dependencies, such as libraries written
+in C or C++. Trying to use the system versions of these dependencies
+in upstream packaging may cause a number of problems for end users:
+
+- The published wheels require a binary-compatible version of the used library
+  to be present on the user's system. If the library is missing or installed
+  in incompatible version, the Python package may fail with errors that
+  are not clear to inexperienced users, or even misbehave at runtime.
+
+- Building from source distribution requires a source-compatible version
+  of the dependency to be present, along with its development headers and other
+  auxiliary files that some systems package separately from the library itself.
+
+- Even for an experienced user, installing a compatible dependency version
+  may be very hard. For example, the used Linux distribution may not provide
+  the required version, or some other package may require an incompatible
+  version.
+
+- The linkage between the Python package and its system dependency is not
+  recorded by the packaging system. The next system update may upgrade
+  the library to a newer version that breaks binary compatibility with
+  the Python package, and requires user intervention to fix.
+
+For these reasons, you may reasonable to decide to either link statically
+to your dependencies, or to provide a local copies in the installed package.
+You may also vendor the dependency in your source distribution.  Sometimes
+these dependencies are also repackaged on PyPI, and can be installed
+like a regular Python packages.
+
+However, none of these issues apply to downstream packaging, and downstreams
+have good reasons to prefer dynamically linking to system dependencies.
+In particular:
+
+- Static linking and vendoring obscures the use of external dependencies,
+  making source auditing harder.
+
+- Dynamic linking makes it possible to easily and quickly replace the used
+  libraries, which can be particularly important when they turn out to
+  be vulnerable or buggy.
+
+- Using system dependencies makes the package benefit from downstream
+  customization that can improve the user experience on a particular platform,
+  without the downstream maintainers having to consistently patch
+  the dependencies vendored in different packages. This can include
+  compatibility improvements and security hardening.
+
+- Static linking and vendoring could result in multiple different versions
+  of the same library being loaded in the same process (e.g. when you use two
+  Python packages that link to different versions of the same library).
+  This can cause no problems, but it could also lead to anything from subtle
+  bugs to catastrophic failures.
+
+- Last but not least, static linking and vendoring results in duplication,
+  and may increase the use of both the disk space and memory.
+
+A good compromise between the needs of both parties is to provide a switch
+between using vendored and system dependencies. Ideally, if the package has
+multiple vendored dependencies, it should provide both individual switches
+for each dependency, and a general switch, for example using
+a  ``USE_SYSTEM_DEPS`` environment variable to control the default. If switched
+on, and a particular dependency is either missing or incompatible, the build
+should fail with an explanatory message, giving the packager an explicit
+indication of the problem and a chance to consciously decide on the preferred
+course of action.
