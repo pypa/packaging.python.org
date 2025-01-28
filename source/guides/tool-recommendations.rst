@@ -42,7 +42,7 @@ making use of the same Python interpreter (especially on Linux).
 
 For scientific software specifically, consider :ref:`Conda` or :ref:`Spack`.
 
-.. note:: 
+.. note::
 
   Pip manages Python packages, while Conda manages packages for multiple
   languages and environments. Conda excels at dependency management and creating
