@@ -192,3 +192,82 @@ on, and a particular dependency is either missing or incompatible, the build
 should fail with an explanatory message, giving the packager an explicit
 indication of the problem and a chance to consciously decide on the preferred
 course of action.
+
+
+.. _Support downstream testing:
+
+Support downstream testing
+--------------------------
+A variety of downstream projects run some degree of testing on the packaged
+Python projects. Depending on the particular case, this can range from minimal
+smoke testing to comprehensive runs of the complete test suite. There can
+be various reasons for doing this, for example:
+
+- Verifying that the downstream packaging did not introduce any bugs.
+
+- Testing on a platform that is not covered by upstream testing.
+
+- Finding subtle bugs that can only be reproduced on a particular hardware,
+  system package versions, and so on.
+
+- Testing the released package against newer dependency version than the ones
+  present during upstream release testing.
+
+- Testing the package in an environment closely resembling the production
+  setup. This can detect issues caused by nontrivial interactions between
+  different installed packages, including packages that are not dependencies
+  of your package, but nevertheless can cause issues.
+
+- Testing the released package against newer Python versions (including newer
+  point releases), or less tested Python implementations such as PyPy.
+
+Admittedly, sometimes downstream testing may yield false positives or
+inconvenience you about scenarios that you are not interested in supporting.
+However, perhaps even more often it does provide early notice of problems,
+or find nontrivial bugs that would otherwise cause issues for your users
+in production. And believe me, the majority of downstream packagers are doing
+their best to double-check their results, and help you triage and fix the bugs
+that they report.
+
+There is a number of things that you can do to help us test your package
+better. Some of them were already mentioned in this discussion. Some examples
+are:
+
+- Include the test files and fixtures in the source distribution, or make it
+  possible to easily download them separately.
+
+- Do not write to the package during testing. Downstream test setups sometimes
+  run tests on top of the installed package, and test-time modifications can
+  end up being part of the production package!
+
+- Make the test suite work offline. Mock network interactions, using packages
+  such as responses_ or vcrpy_. If that is not possible, make it possible
+  to easily disable the tests using Internet access, e.g. via a pytest marker.
+  Use pytest-socket_ to verify that your tests work offline.
+
+- Make your tests work without a specialized setup, or perform the necessary
+  setup as part of test fixtures. Do not ever assume that you can connect
+  to system services such as databases — in an extreme case, you could crash
+  a production service!
+
+- Do not assume that the test suite will be run with ``-Werror``. Downstreams
+  often need to disable that, as it causes false positives, e.g. due to newer
+  dependency versions. Assert for warnings using ``pytest.warns()`` rather
+  than ``pytest.raises()``!
+
+- Aim to make your test suite reliable. Avoid flaky tests. Avoid depending
+  on specific platform details, don't rely on exact results of floating-point
+  computation, or timing of operations, and so on. Fuzzing has its advantages,
+  but you want to have static test cases for completeness as well.
+
+- Split tests by their purpose, and make it easy to skip categories that are
+  irrelevant or problematic. Since the primary purpose of downstream testing is
+  to ensure that the package itself works, we generally are not interested
+  in e.g. checking code coverage, code formatting, typing or running
+  benchmarks. These tests can fail as dependencies are upgraded or the system
+  is under load, without actually affecting the package itself.
+
+
+.. _responses: https://pypi.org/project/responses/
+.. _vcrpy: https://pypi.org/project/vcrpy/
+.. _pytest-socket: https://pypi.org/project/pytest-socket/
