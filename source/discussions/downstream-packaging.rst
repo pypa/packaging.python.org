@@ -13,12 +13,22 @@ of other packaging ecosystems. These repackaging efforts are collectively called
 *downstream* packaging (your own efforts are called *upstream* packaging),
 and include such projects as Linux distributions, Conda, Homebrew and MacPorts.
 They often aim to provide good support for use cases that cannot be handled
-via Python packaging tools alone, such as good integration with non-Python
-software.
+via Python packaging tools alone, such as **good integration with non-Python
+software**.
 
 This discussion attempts to explain how downstream packaging is usually done,
 and what challenges are downstream packagers facing. It ultimately aims to give
-you some hints on how you can make downstream packaging easier.
+you some hints on how you can **make downstream packaging easier**.
+
+Establishing a good relationship between software maintainers and downstream
+packagers can bring mutual benefits. Downstreams are often willing to **share
+their experience, time and hardware** to improve your package. They are
+sometimes in a better position to see **the bigger picture**, and to provide
+you with **information about other packages** that would otherwise require you
+to put significant effort to obtain. Packagers often can **find bugs** before
+your users hit them on production, **provide bug reports of good quality**
+and **supply patches** whenever they can. For example, they are often
+in the vanguard when **a new Python version** comes out.
 
 Please note that downstream builds include not only binary redistribution,
 but also source builds done on user systems, in source-first distributions
