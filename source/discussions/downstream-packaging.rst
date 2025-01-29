@@ -315,7 +315,7 @@ are:
   and testing them all takes a lot of time. Using pytest-xdist_ can help them
   avoid bottlenecks.
 
-- Ideally, **support running your test suite via PyTest**. PyTest_ has many
+- Ideally, **support running your test suite via pytest**. pytest_ has many
   command-line arguments that are truly helpful to downstreams, such as
   the ability to conveniently deselect tests, rerun flaky tests
   (via pytest-rerunfailures_), add a timeout to prevent tests from hanging
