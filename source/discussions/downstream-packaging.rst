@@ -233,41 +233,67 @@ There is a number of things that you can do to help us test your package
 better. Some of them were already mentioned in this discussion. Some examples
 are:
 
-- Include the test files and fixtures in the source distribution, or make it
+- **Include the test files and fixtures in the source distribution**, or make it
   possible to easily download them separately.
 
-- Do not write to the package during testing. Downstream test setups sometimes
-  run tests on top of the installed package, and test-time modifications can
-  end up being part of the production package!
+- **Do not write to the package directories during testing.** Downstream test
+  setups sometimes run tests on top of the installed package, and modifications
+  performed during testing and temporary test files may end up being part
+  of the installed package!
 
-- Make the test suite work offline. Mock network interactions, using packages
-  such as responses_ or vcrpy_. If that is not possible, make it possible
-  to easily disable the tests using Internet access, e.g. via a pytest marker.
-  Use pytest-socket_ to verify that your tests work offline.
+- **Make the test suite work offline.** Mock network interactions, using
+  packages such as responses_ or vcrpy_. If that is not possible, make it
+  possible to easily disable the tests using Internet access, e.g. via a pytest
+  marker.  Use pytest-socket_ to verify that your tests work offline. This
+  often makes your own test workflows faster and more reliable as well.
 
-- Make your tests work without a specialized setup, or perform the necessary
+- **Make your tests work without a specialized setup**, or perform the necessary
   setup as part of test fixtures. Do not ever assume that you can connect
   to system services such as databases — in an extreme case, you could crash
   a production service!
 
-- Do not assume that the test suite will be run with ``-Werror``. Downstreams
+- **If your package has optional dependencies, make their tests optional as
+  well.** Either skip them if the needed packages are not installed, or add
+  markers to make deselecting easy.
+
+- More generally, **add markers to tests with special requirements**. These can
+  include e.g. significant space usage, significant memory usage, long runtime,
+  incompatibility with parallel testing.
+
+- **Do not assume that the test suite will be run with -Werror.** Downstreams
   often need to disable that, as it causes false positives, e.g. due to newer
   dependency versions. Assert for warnings using ``pytest.warns()`` rather
   than ``pytest.raises()``!
 
-- Aim to make your test suite reliable. Avoid flaky tests. Avoid depending
-  on specific platform details, don't rely on exact results of floating-point
-  computation, or timing of operations, and so on. Fuzzing has its advantages,
-  but you want to have static test cases for completeness as well.
+- **Aim to make your test suite reliable and reproducible.** Avoid flaky tests.
+  Avoid depending on specific platform details, don't rely on exact results
+  of floating-point computation, or timing of operations, and so on. Fuzzing
+  has its advantages, but you want to have static test cases for completeness
+  as well.
 
-- Split tests by their purpose, and make it easy to skip categories that are
-  irrelevant or problematic. Since the primary purpose of downstream testing is
-  to ensure that the package itself works, we generally are not interested
+- **Split tests by their purpose, and make it easy to skip categories that are
+  irrelevant or problematic.** Since the primary purpose of downstream testing
+  is to ensure that the package itself works, we generally are not interested
   in e.g. checking code coverage, code formatting, typing or running
   benchmarks. These tests can fail as dependencies are upgraded or the system
   is under load, without actually affecting the package itself.
+
+- If your test suite takes significant time to run, **support testing
+  in parallel.** Downstreams often maintain a large number of packages,
+  and testing them all takes a lot of time. Using pytest-xdist_ can help them
+  avoid bottlenecks.
+
+- Ideally, **support running your test suite via PyTest**. PyTest_ has many
+  command-line arguments that are truly helpful to downstreams, such as
+  the ability to conveniently deselect tests, rerun flaky tests
+  (via pytest-rerunfailures_), add a timeout to prevent tests from hanging
+  (via pytest-timeout_) or run tests in parallel (via pytest-xdist_).
 
 
 .. _responses: https://pypi.org/project/responses/
 .. _vcrpy: https://pypi.org/project/vcrpy/
 .. _pytest-socket: https://pypi.org/project/pytest-socket/
+.. _pytest-xdist: https://pypi.org/project/pytest-xdist/
+.. _pytest: https://pytest.org/
+.. _pytest-rerunfailures: https://pypi.org/project/pytest-rerunfailures/
+.. _pytest-timeout: https://pypi.org/project/pytest-timeout/
