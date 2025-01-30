@@ -367,6 +367,71 @@ Some specific suggestions are:
   test discovery.
 
 
+.. _aim-for-stable-releases:
+
+Aim for stable releases
+-----------------------
+
+Why?
+~~~~
+
+Many downstreams provide stable release channels in addition to the main
+package streams. The goal of these channels is to provide more conservative
+upgrades to users with higher stability needs. These users often prefer
+to trade having the newest features available for lower risk of issues.
+
+While the exact policies differ, an important criterion for including a new
+package version in a stable release channel is for it to be available in testing
+for some time already, and have no known major regressions. For example,
+in Gentoo Linux a package is usually marked stable after being available
+in testing for a month, and being tested against the versions of its
+dependencies that are marked stable at the time.
+
+However, there are circumstances which demand more prompt action. For example,
+if a security vulnerability or a major bug is found in the version that is
+currently available in the stable channel, the downstream is facing a need
+to resolve it. In this case, they need to consider various options, such as:
+
+- putting a new version in the stable channel early,
+
+- adding patches to the version currently published,
+
+- or even downgrading the stable channel to an earlier release.
+
+Each of these options involves certain risks and a certain amount of work,
+and packagers needs to weigh them to determine the course of action.
+
+How?
+~~~~
+
+There are some things that upstreams can do to tailor their workflow to stable
+release channels. These actions often are beneficial to the package's users
+as well. Some specific suggestions are:
+
+- Adjust the release frequency to the rate of code changes. Packages that
+  are released rarely often bring significant changes with every release,
+  and a higher risk of accidental regressions.
+
+- Avoid mixing bug fixes and new features, if possible. In particular, if there
+  are known bug fixes merged already, consider making a new release before
+  merging feature branches.
+
+- Consider making prereleases after major changes, to provide more testing
+  opportunities for users and downstreams willing to opt-in.
+
+- If your project is subject to very intense development, consider splitting
+  one or more branches that include a more conservative subset of commits,
+  and are released separately. For example, Django_ currently maintains three
+  release branches in addition to main.
+
+- Even if you don't wish to maintain additional branches permanently, consider
+  making additional patch releases with minimal changes to the previous
+  version, especially when a security vulnerability is discovered.
+
+- Split your changes into focused commits that address one problem at a time,
+  to make it easier to cherry-pick changes to earlier releases when necessary.
+
+
 .. _responses: https://pypi.org/project/responses/
 .. _vcrpy: https://pypi.org/project/vcrpy/
 .. _pytest-socket: https://pypi.org/project/pytest-socket/
@@ -374,3 +439,4 @@ Some specific suggestions are:
 .. _pytest: https://pytest.org/
 .. _pytest-rerunfailures: https://pypi.org/project/pytest-rerunfailures/
 .. _pytest-timeout: https://pypi.org/project/pytest-timeout/
+.. _Django: https://www.djangoproject.com/
