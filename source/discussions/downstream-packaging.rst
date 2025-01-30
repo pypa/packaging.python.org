@@ -73,10 +73,10 @@ a few important reasons to provide a static archive file instead:
   supported than e.g. using a git clone. This can help users with poor
   Internet connectivity.
 
-- Downstreams often **use checksums to verify the authenticity** of source files
+- Downstreams often use hashes to verify the authenticity of source files
   on subsequent builds, which require that they remain bitwise identical over
   time. For example, automatically generated git archives do not guarantee
-  that.
+  this, as the compressed data may change if gzip is upgraded on the server.
 
 - Archive files can be mirrored, reducing both upstream and downstream
   bandwidth use. The actual builds can afterwards be performed in firewalled
@@ -132,8 +132,8 @@ is discouraged for a number of reasons:
   unavailable, making the build no longer possible. This is especially
   problematic when someone needs to build an old package version.
 
-- Accessing remote servers poses a **privacy** issue and a potential
-  **security** issue, as it exposes information about the system building
+- Accessing remote servers poses a privacy issue and a potential
+  security issue, as it exposes information about the system building
   the package.
 
 - The user may be using a service with a limited data plan, in which
@@ -153,8 +153,8 @@ When such a switch is used, the build process should fail if some
 of the required files are missing, rather than try to fetch them automatically.
 This could be done e.g. by checking whether a ``NO_NETWORK`` environment
 variable is set to a non-empty value. Please also remember that if you are
-fetching remote resources, you must **verify their authenticity**, e.g. against
-a checksum, to protect against the file being substituted by a malicious party.
+fetching remote resources, you must *verify their authenticity* (usually against
+a hash), to protect against the file being substituted by a malicious party.
 
 Since downstreams frequently also run tests and build documentation, the above
 should ideally extend to these processes as well.
@@ -165,10 +165,8 @@ should ideally extend to these processes as well.
 Support building against system dependencies
 --------------------------------------------
 
-
 Why?
 ~~~~
-
 
 Some Python projects have non-Python dependencies, such as libraries written
 in C or C++. Trying to use the system versions of these dependencies
@@ -237,7 +235,6 @@ In particular:
 How?
 ~~~~
 
-
 A good compromise between the needs of both parties is to provide a switch
 between using vendored and system dependencies. Ideally, if the package has
 multiple vendored dependencies, it should provide both individual switches
@@ -266,10 +263,8 @@ are better equipped to handle.
 Support downstream testing
 --------------------------
 
-
 Why?
 ~~~~
-
 
 A variety of downstream projects run some degree of testing on the packaged
 Python projects. Depending on the particular case, this can range from minimal
@@ -287,7 +282,7 @@ be various reasons for doing this, for example:
   the ones present during upstream release testing.
 
 - Testing the package in an environment closely resembling the production
-  setup. This can detect issues caused by nontrivial interactions between
+  setup. This can detect issues caused by non-trivial interactions between
   different installed packages, including packages that are not dependencies
   of your package, but nevertheless can cause issues.
 
@@ -297,14 +292,13 @@ be various reasons for doing this, for example:
 Admittedly, sometimes downstream testing may yield false positives or bug
 reports about scenarios the upstream project is not interested in supporting.
 However, perhaps even more often it does provide early notice of problems,
-or find nontrivial bugs that would otherwise cause issues for your users
-in production. And believe me, the majority of **downstream packagers are doing
-their best to double-check their results, and help you triage and fix the bugs
-that they report**.
+or find non-trivial bugs that would otherwise cause issues for the upstream
+project's users. While mistakes do happen, the majority of downstream packagers
+are doing their best to double-check their results, and help upstream
+maintainers triage and fix the bugs that they reported.
 
 How?
 ~~~~
-
 
 There are a number of things that upstream projects can do to help downstream
 repackagers test their packages efficiently and effectively, including some of the suggestions
@@ -367,6 +361,10 @@ Some specific suggestions are:
   the ability to conveniently deselect tests, rerun flaky tests
   (via pytest-rerunfailures_), add a timeout to prevent tests from hanging
   (via pytest-timeout_) or run tests in parallel (via pytest-xdist_).
+  Note that test suites don't need to be *written* with ``pytest`` to be
+  *executed* with ``pytest``: ``pytest`` is able to find and execute almost
+  all test cases that are compatible with the standard library's ``unittest``
+  test discovery.
 
 
 .. _responses: https://pypi.org/project/responses/
