@@ -165,8 +165,10 @@ should ideally extend to these processes as well.
 Support building against system dependencies
 --------------------------------------------
 
+
 Why?
 ~~~~
+
 
 Some Python projects have non-Python dependencies, such as libraries written
 in C or C++. Trying to use the system versions of these dependencies
@@ -206,6 +208,10 @@ In particular:
   of the *purpose* of a downstream packaging ecosystem. Helping to support that makes it
   easier for users of those systems to access upstream projects in their preferred format.
 
+- in many cases, reliably sharing dynamic dependencies between components is a large part
+  of the *purpose* of a downstream packaging ecosystem. Helping to support that makes it
+  easier for users of those systems to access upstream projects in their preferred format.
+
 - Static linking and vendoring obscures the use of external dependencies,
   making source auditing harder.
 
@@ -231,6 +237,7 @@ In particular:
 How?
 ~~~~
 
+
 A good compromise between the needs of both parties is to provide a switch
 between using vendored and system dependencies. Ideally, if the package has
 multiple vendored dependencies, it should provide both individual switches
@@ -248,14 +255,21 @@ system dependencies to their downstream repackagers. The goal of these guideline
 is to facilitate more effective collaboration between upstream projects and downstream
 repackagers, not to suggest upstream projects take on tasks that downstream repackagers
 are better equipped to handle.
+Note that it is reasonable for upstream projects to leave *testing* of building with
+system dependencies to their downstream repackagers. The goal of these guidelines
+is to facilitate more effective collaboration between upstream projects and downstream
+repackagers, not to suggest upstream projects take on tasks that downstream repackagers
+are better equipped to handle.
 
 .. _support-downstream-testing:
 
 Support downstream testing
 --------------------------
 
+
 Why?
 ~~~~
+
 
 A variety of downstream projects run some degree of testing on the packaged
 Python projects. Depending on the particular case, this can range from minimal
@@ -290,6 +304,7 @@ that they report**.
 
 How?
 ~~~~
+
 
 There are a number of things that upstream projects can do to help downstream
 repackagers test their packages efficiently and effectively, including some of the suggestions
