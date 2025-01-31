@@ -252,6 +252,9 @@ The following JSON Schema can be used to validate the contents of ``direct_url.j
            "properties": {
              "editable": {
                "type": ["boolean", "null"]
+             },
+             "subdirectory": {
+               "type": "string"
              }
            }
          },
@@ -274,6 +277,9 @@ The following JSON Schema can be used to validate the contents of ``direct_url.j
                "type": "string"
              },
              "resolved_revision": {
+               "type": "string"
+             },
+             "subdirectory": {
                "type": "string"
              }
            },
