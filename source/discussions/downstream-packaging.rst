@@ -1,8 +1,8 @@
 .. _downstream-packaging:
 
-=================================
-Simplifying downstream packaging
-=================================
+===============================
+Supporting downstream packaging
+===============================
 
 :Page Status: Draft
 :Last Reviewed: 2025-?
