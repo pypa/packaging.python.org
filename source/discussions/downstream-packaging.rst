@@ -21,6 +21,8 @@ and what additional challenges downstream packagers typically face. It aims
 to provide some optional guidelines that project maintainers may choose to
 follow which help make downstream packaging *significantly* easier
 (without imposing any major maintenance hassles on the upstream project).
+Note that this is not an all-or-nothing proposal — anything that upstream
+maintainers can do is useful, even if it's only a small part.
 
 Establishing a good relationship between software maintainers and downstream
 packagers can bring mutual benefits. Downstreams are often willing to share
