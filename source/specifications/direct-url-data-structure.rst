@@ -239,7 +239,7 @@ The following JSON Schema can be used to validate the contents of ``direct_url.j
 .. code-block::
 
      {
-       "$schema": "https://json-schema.org/draft/2019-09/schema",
+       "$schema": "https://json-schema.org/draft/2020-12/schema",
        "title": "Direct URL Data",
        "description": "Data structure that can represent URLs to python projects and distribution artifacts such as VCS source trees, local source trees, source distributions and wheels.",
        "definitions": {
