@@ -121,7 +121,7 @@ distribution, and then uses it to build a wheel. This ensures that the source
 distribution actually works, and that it won't accidentally install fewer files
 than the official wheels.
 
-Ideally, use the source distribution also run tests, build documentation,
+Ideally, also use the source distribution to run tests, build documentation,
 and so on, or add specific tests to make sure that all necessary files were
 actually included. Understandably, this requires more effort, so it's fine
 not do that — downstream packagers will report any missing files promptly.
@@ -271,7 +271,7 @@ message rather than fall back to a vendored version. This gives the packager
 the opportunity to notice their mistake and a chance to consciously decide
 how to solve it.
 
-Note that it is reasonable for upstream projects to leave *testing* of building with
+It is reasonable for upstream projects to leave *testing* of building with
 system dependencies to their downstream repackagers. The goal of these guidelines
 is to facilitate more effective collaboration between upstream projects and downstream
 repackagers, not to suggest upstream projects take on tasks that downstream repackagers
