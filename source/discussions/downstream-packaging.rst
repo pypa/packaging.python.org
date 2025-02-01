@@ -136,9 +136,12 @@ Why?
 ~~~~
 
 Downstream builds are frequently done in sandboxed environments that cannot
-access the Internet. Even if this is not the case, and assuming that you took
-sufficient care to properly authenticate downloads, using the Internet
-is discouraged for a number of reasons:
+access the Internet. The package sources are unpacked into this environment,
+and all the necessary dependencies are installed.
+
+Even if this is not the case, and assuming that you took sufficient care to
+properly authenticate downloads, using the Internet is discouraged for a number
+of reasons:
 
 - The Internet connection may be unstable (e.g. due to poor reception)
   or suffer from temporary problems that could cause the process to fail
@@ -159,21 +162,30 @@ is discouraged for a number of reasons:
 How?
 ~~~~
 
-Your source distribution should either include all the files needed
-for the package to build, or allow provisioning them externally. Ideally,
-it should not even attempt to access the Internet at all, unless explicitly
-requested to. If that is not possible to achieve, the next best thing
-is to provide an opt-out switch to disable all Internet access.
+If the package is implementing any custom build *backend* actions that use
+the Internet, for example by automatically downloading vendored dependencies
+or fetching Git submodules, its source distribution should either include all
+of these files or allow provisioning them externally, and the Internet must not
+be used if the files are already present.
 
-When such a switch is used, the build process should fail if some
-of the required files are missing, rather than try to fetch them automatically.
-This could be done e.g. by checking whether a ``NO_NETWORK`` environment
-variable is set to a non-empty value. Please also remember that if you are
-fetching remote resources, you must *verify their authenticity* (usually against
-a hash), to protect against the file being substituted by a malicious party.
+Note that this point does not apply to Python dependencies that are specified
+in the package metadata, and are fetched during the build and installation
+process by *frontends* (such as :ref:`build` or :ref:`pip`). Downstreams use
+frontends that use local provisioning for Python dependencies.
+
+Ideally, custom build scripts should not even attempt to access the Internet
+at all, unless explicitly requested to. If any resources are missing and need
+to be fetched, they should ask the user for permission first. If that is not
+feasible, the next best thing is to provide an opt-out switch to disable
+all Internet access. This could be done e.g. by checking whether
+a ``NO_NETWORK`` environment variable is set to a non-empty value.
 
 Since downstreams frequently also run tests and build documentation, the above
 should ideally extend to these processes as well.
+
+Please also remember that if you are fetching remote resources, you absolutely
+must *verify their authenticity* (usually against a hash), to protect against
+the file being substituted by a malicious party.
 
 
 .. _support-system-dependencies-in-builds:
