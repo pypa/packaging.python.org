@@ -276,11 +276,6 @@ system dependencies to their downstream repackagers. The goal of these guideline
 is to facilitate more effective collaboration between upstream projects and downstream
 repackagers, not to suggest upstream projects take on tasks that downstream repackagers
 are better equipped to handle.
-Note that it is reasonable for upstream projects to leave *testing* of building with
-system dependencies to their downstream repackagers. The goal of these guidelines
-is to facilitate more effective collaboration between upstream projects and downstream
-repackagers, not to suggest upstream projects take on tasks that downstream repackagers
-are better equipped to handle.
 
 .. _support-downstream-testing:
 
