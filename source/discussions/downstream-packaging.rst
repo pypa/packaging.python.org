@@ -161,6 +161,8 @@ of reasons:
   unavailable, making the build no longer possible. This is especially
   problematic when someone needs to build an old package version.
 
+- The remote resources may change, making the build not reproducible.
+
 - Accessing remote servers poses a privacy issue and a potential
   security issue, as it exposes information about the system building
   the package.
