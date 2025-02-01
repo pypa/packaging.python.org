@@ -55,19 +55,19 @@ rather than use the upstream-provided binary packages. This is also true
 of pure Python packages that provide universal wheels. The reasons for using
 source distributions may include:
 
-- being able to audit the source code of all packages
+- Being able to audit the source code of all packages.
 
-- being able to run the test suite and build documentation
+- Being able to run the test suite and build documentation.
 
-- being able to easily apply patches, including backporting commits
-  from the project's repository and sending patches back to the project
+- Being able to easily apply patches, including backporting commits
+  from the project's repository and sending patches back to the project.
 
-- being able to build on a specific platform that is not covered
-  by upstream builds
+- Being able to build on a specific platform that is not covered
+  by upstream builds.
 
-- being able to build against specific versions of system libraries
+- Being able to build against specific versions of system libraries.
 
-- having a consistent build process across all Python packages
+- Having a consistent build process across all Python packages.
 
 While it is usually possible to build packages from a Git repository, there are
 a few important reasons to provide a static archive file instead:
@@ -205,11 +205,7 @@ However, none of these issues apply to downstream packaging, and downstreams
 have good reasons to prefer dynamically linking to system dependencies.
 In particular:
 
-- in many cases, reliably sharing dynamic dependencies between components is a large part
-  of the *purpose* of a downstream packaging ecosystem. Helping to support that makes it
-  easier for users of those systems to access upstream projects in their preferred format.
-
-- in many cases, reliably sharing dynamic dependencies between components is a large part
+- In many cases, reliably sharing dynamic dependencies between components is a large part
   of the *purpose* of a downstream packaging ecosystem. Helping to support that makes it
   easier for users of those systems to access upstream projects in their preferred format.
 
