@@ -69,16 +69,16 @@ source distributions may include:
 
 - having a consistent build process across all Python packages
 
-While it is usually possible to build packages from a git repository, there are
+While it is usually possible to build packages from a Git repository, there are
 a few important reasons to provide a static archive file instead:
 
 - Fetching a single file is often more efficient, more reliable and better
-  supported than e.g. using a git clone. This can help users with poor
+  supported than e.g. using a Git clone. This can help users with poor
   Internet connectivity.
 
 - Downstreams often use hashes to verify the authenticity of source files
   on subsequent builds, which require that they remain bitwise identical over
-  time. For example, automatically generated git archives do not guarantee
+  time. For example, automatically generated Git archives do not guarantee
   this, as the compressed data may change if gzip is upgraded on the server.
 
 - Archive files can be mirrored, reducing both upstream and downstream
@@ -88,7 +88,7 @@ a few important reasons to provide a static archive file instead:
 
 - Explicitly publishing archive files can ensure that any dependencies on version control
   system metadata are resolved when creating the source archive. For example, automatically
-  generated git archives omit all of the commit tag information, potentially resulting in
+  generated Git archives omit all of the commit tag information, potentially resulting in
   incorrect version details in the resulting builds.
 
 How?
@@ -108,7 +108,7 @@ separate archives.
 
 A good idea is to **use your source distribution in the release workflow**.
 That is, build it first, then unpack it and perform all the remaining steps
-using the unpacked distribution rather than the git repostiry — run tests,
+using the unpacked distribution rather than the Git repostiry — run tests,
 build documentation, build wheels. This ensures that it is well-tested,
 and reduces the risk that some users would hit build failures or install
 an incomplete package.
