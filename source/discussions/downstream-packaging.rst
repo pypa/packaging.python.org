@@ -94,10 +94,19 @@ a few important reasons to provide a static archive file instead:
 How?
 ~~~~
 
-Ideally, **a source distribution archive should include all the files**
-necessary to build the package itself, run its test suite, build and install
-its documentation, and any other files that may be useful to end users, such as
-shell completions, editor support files, and so on.
+Ideally, **a source distribution archive should include all the files
+from the package's Git repository** that are necessary to build the package
+itself, run its test suite, build and install its documentation, and any other
+files that may be useful to end users, such as shell completions, editor
+support files, and so on.
+
+This point applies only to the files belonging to the package itself.
+The downstream packaging process, much like Python package managers, will
+provision the necessary Python dependencies, system tools and external
+libraries that are needed by your package and its build scripts. However,
+the files listing these dependencies (for example, ``requirements*.txt`` files)
+should also be included, to help downstreams determine the needed dependencies,
+and check for changes in them.
 
 Some projects are concerned about increasing the size of source distributions,
 or do not wish Python packaging tools to fall back to source distributions
