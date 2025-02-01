@@ -1,0 +1,112 @@
+import csv https://www.ilotbet.com/invited_activity_ng.html?op=register&invitedCode=8512e14321fb4eaab78ce95a5735d8bd&c=InvitedFriend
+import time
+import random
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime
+
+# File name for storing data
+FILE_NAME = "ilot_log.csv"
+
+def log_round(bet_amount, multiplier, cash_bandit_used):
+    """Logs each bet with a timestamp, bet amount, multiplier, and Cash Bandit usage."""
+    result = bet_amount * (multiplier - 1) if multiplier > 1 else -bet_amount
+    with open(FILE_NAME, "a", newline="") as file:
+        writer = csv.writer(file)
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        writer.writerow([timestamp, bet_amount, multiplier, result, cash_bandit_used])
+
+def analyze_history():
+    """Finds 'hot hours' where high multipliers (10x+) occur most frequently."""
+    hot_times = {}
+    try:
+        df = pd.read_csv(FILE_NAME, names=["Timestamp", "Bet", "Multiplier", "Profit", "CashBandit"])
+        df["Hour"] = pd.to_datetime(df["Timestamp"]).dt.hour
+
+        high_multipliers = df[df["Multiplier"] >= 10]
+        hot_times = high_multipliers["Hour"].value_counts().to_dict()
+
+        if hot_times:
+            best_hour = max(hot_times, key=hot_times.get)
+            print(f"🔥 SUGGESTION: Play between {best_hour}:00 and {best_hour+1}:00 for higher multipliers.")
+        else:
+            print("📉 No high multipliers detected yet. Keep logging data!")
+    except FileNotFoundError:
+        print("❌ No log file found. Start logging bets first!")
+
+def detect_loss_streak():
+    """Checks for long loss streaks and warns the player."""
+    try:
+        df = pd.read_csv(FILE_NAME, names=["Timestamp", "Bet", "Multiplier", "Profit", "CashBandit"])
+        loss_streak = 0
+
+        for profit in df["Profit"].iloc[::-1]:  # Reverse check
+            if profit < 0:
+                loss_streak += 1
+            else:
+                break  # Stop counting when a win is found
+
+        if loss_streak >= 3:
+            print(f"⚠️ WARNING: {loss_streak} consecutive losses. Consider lowering your bet.")
+    except FileNotFoundError:
+        print("❌ No data found. Log some bets first!")
+
+def plot_multipliers():
+    """Generates a graph showing multipliers over time."""
+    try:
+        df = pd.read_csv(FILE_NAME, names=["Timestamp", "Bet", "Multiplier", "Profit", "CashBandit"])
+        df["Timestamp"] = pd.to_datetime(df["Timestamp"])
+
+        plt.figure(figsize=(10, 5))
+        plt.plot(df["Timestamp"], df["Multiplier"], marker="o", linestyle="-", color="blue", label="Multiplier")
+        plt.axhline(y=10, color="red", linestyle="--", label="High Multiplier (10x)")
+        plt.xlabel("Time")
+        plt.ylabel("Multiplier")
+        plt.title("Multiplier Trend Over Time")
+        plt.legend()
+        plt.xticks(rotation=45)
+        plt.grid()
+        plt.show()
+    except FileNotFoundError:
+        print("❌ No data found. Log some bets first!")
+
+def auto_bet(starting_bet=100, max_bet=1000):
+    """Simulates auto-betting based on past 'hot hours'."""
+    try:
+        df = pd.read_csv(FILE_NAME, names=["Timestamp", "Bet", "Multiplier", "Profit", "CashBandit"])
+        df["Hour"] = pd.to_datetime(df["Timestamp"]).dt.hour
+
+        # Get the best hour for high multipliers
+        hot_hour = df[df["Multiplier"] >= 10]["Hour"].mode().values
+        if len(hot_hour) > 0:
+            best_hour = hot_hour[0]
+            print(f"🎯 Auto-betting suggested between {best_hour}:00 and {best_hour+1}:00.")
+
+            # Betting simulation
+            current_bet = starting_bet
+            balance = 5000  # Starting balance
+            for i in range(10):  # Simulating 10 rounds
+                result = random.choice(["win", "loss", "loss", "win", "win"])
+                if result == "win":
+                    print(f"✅ Round {i+1}: Won {current_bet*2}! Resetting bet.")
+                    balance += current_bet * 2
+                    current_bet = starting_bet
+                else:
+                    print(f"❌ Round {i+1}: Lost {current_bet}. Increasing bet.")
+                    balance -= current_bet
+                    current_bet = min(current_bet * 2, max_bet)
+                
+                time.sleep(1)  # Simulate real-time betting delay
+            
+            print(f"Final Balance: {balance}")
+        else:
+            print("📊 No hot hours detected yet. Keep logging data!")
+    except FileNotFoundError:
+        print("❌ No log file found. Start logging bets first!")
+
+# Example usage:
+# log_round(100, 12.5, True)  # Log a bet with 12.5x multiplier
+# analyze_history()  # Find hot times
+# detect_loss_streak()  # Detect losing streaks
+# plot_multipliers()  # Show multiplier trends
+# auto_bet()  # Simulate auto-betting
