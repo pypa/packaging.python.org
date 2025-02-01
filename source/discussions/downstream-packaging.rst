@@ -94,7 +94,7 @@ a few important reasons to provide a static archive file instead:
 How?
 ~~~~
 
-Ideally, **a source distribution archive should include all the files
+Ideally, **a source distribution archive published on PyPI should include all the files
 from the package's Git repository** that are necessary to build the package
 itself, run its test suite, build and install its documentation, and any other
 files that may be useful to end users, such as shell completions, editor
@@ -108,12 +108,22 @@ the files listing these dependencies (for example, ``requirements*.txt`` files)
 should also be included, to help downstreams determine the needed dependencies,
 and check for changes in them.
 
-Some projects are concerned about increasing the size of source distributions,
-or do not wish Python packaging tools to fall back to source distributions
-automatically. In these cases, a good compromise may be to publish a separate
-source archive for downstream use, for example by attaching it to a GitHub
-release. Alternatively, large files, such as test data, can be split into
-separate archives.
+Some projects have concerns related to Python package managers using source
+distributions from PyPI. They do not wish to increase their size with files
+that are not used by these tools, or they do not wish to publish source
+distributions at all, as they enable a problematic or outright nonfunctional
+fallback to building the particular project from source. In these cases, a good
+compromise may be to publish a separate source archive for downstream use
+elsewhere, for example by attaching it to a GitHub release. Alternatively,
+large files, such as test data, can be split into separate archives.
+
+On the other hand, some projects (NumPy_, for instance) decide to install tests
+in their Python packages. This has the added advantage of permitting users to
+run tests after installing them, for example to check for regressions
+after upgrading a dependency. Yet another approach is to split tests or test
+data into a separate Python package. Such an approach was taken by
+the cryptography_ project, with the large test vectors being split
+to cryptography-vectors_ package.
 
 A good idea is to use your source distribution in the release workflow.
 For example, the :ref:`build` tool does exactly that — it first builds a source
@@ -459,3 +469,6 @@ as well. Some specific suggestions are:
 .. _pytest-rerunfailures: https://pypi.org/project/pytest-rerunfailures/
 .. _pytest-timeout: https://pypi.org/project/pytest-timeout/
 .. _Django: https://www.djangoproject.com/
+.. _NumPy: https://numpy.org/
+.. _cryptography: https://pypi.org/project/cryptography/
+.. _cryptography-vectors: https://pypi.org/project/cryptography-vectors/
