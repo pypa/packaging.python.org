@@ -115,12 +115,16 @@ source archive for downstream use, for example by attaching it to a GitHub
 release. Alternatively, large files, such as test data, can be split into
 separate archives.
 
-A good idea is to **use your source distribution in the release workflow**.
-That is, build it first, then unpack it and perform all the remaining steps
-using the unpacked distribution rather than the Git repository — run tests,
-build documentation, build wheels. This ensures that it is well-tested,
-and reduces the risk that some users would hit build failures or install
-an incomplete package.
+A good idea is to use your source distribution in the release workflow.
+For example, the :ref:`build` tool does exactly that — it first builds a source
+distribution, and then uses it to build a wheel. This ensures that the source
+distribution actually works, and that it won't accidentally install fewer files
+than the official wheels.
+
+Ideally, use the source distribution also run tests, build documentation,
+and so on, or add specific tests to make sure that all necessary files were
+actually included. Understandably, this requires more effort, so it's fine
+not do that — downstream packagers will report any missing files promptly.
 
 
 .. _no-internet-access-in-builds:
