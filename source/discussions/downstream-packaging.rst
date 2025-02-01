@@ -110,7 +110,7 @@ and check for changes in them.
 
 Some projects are concerned about increasing the size of source distributions,
 or do not wish Python packaging tools to fall back to source distributions
-automatically.  In these cases, a good compromise may be to publish a separate
+automatically. In these cases, a good compromise may be to publish a separate
 source archive for downstream use, for example by attaching it to a GitHub
 release. Alternatively, large files, such as test data, can be split into
 separate archives.
@@ -206,7 +206,7 @@ in upstream packaging may cause a number of problems for end users:
 
 For these reasons, you may reasonably decide to either statically link
 your dependencies, or to provide local copies in the installed package.
-You may also vendor the dependency in your source distribution.  Sometimes
+You may also vendor the dependency in your source distribution. Sometimes
 these dependencies are also repackaged on PyPI, and can be declared as
 project dependencies like any other Python package.
 
@@ -325,7 +325,7 @@ Some specific suggestions are:
 - Make the test suite work offline. Mock network interactions, using
   packages such as responses_ or vcrpy_. If that is not possible, make it
   possible to easily disable the tests using Internet access, e.g. via a pytest_
-  marker.  Use pytest-socket_ to verify that your tests work offline. This
+  marker. Use pytest-socket_ to verify that your tests work offline. This
   often makes your own test workflows faster and more reliable as well.
 
 - Make your tests work without a specialized setup, or perform the necessary
