@@ -99,7 +99,7 @@ necessary to build the package itself, run its test suite, build and install
 its documentation, and any other files that may be useful to end users, such as
 shell completions, editor support files, and so on.
 
-Some projects are concerned about increasing the size of source distribution,
+Some projects are concerned about increasing the size of source distributions,
 or do not wish Python packaging tools to fall back to source distributions
 automatically.  In these cases, a good compromise may be to publish a separate
 source archive for downstream use, for example by attaching it to a GitHub
@@ -108,7 +108,7 @@ separate archives.
 
 A good idea is to **use your source distribution in the release workflow**.
 That is, build it first, then unpack it and perform all the remaining steps
-using the unpacked distribution rather than the Git repostiry — run tests,
+using the unpacked distribution rather than the Git repository — run tests,
 build documentation, build wheels. This ensures that it is well-tested,
 and reduces the risk that some users would hit build failures or install
 an incomplete package.
