@@ -120,8 +120,8 @@ compromise may be to publish a separate source archive for downstream use
 elsewhere, for example by attaching it to a GitHub release. Alternatively,
 large files, such as test data, can be split into separate archives.
 
-On the other hand, some projects (NumPy_, for instance) decide to install tests
-in their Python packages. This has the added advantage of permitting users to
+On the other hand, some projects (NumPy_, for instance) decide to include tests
+in their installed packages. This has the added advantage of permitting users to
 run tests after installing them, for example to check for regressions
 after upgrading a dependency. Yet another approach is to split tests or test
 data into a separate Python package. Such an approach was taken by
