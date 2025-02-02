@@ -266,7 +266,8 @@ In particular:
   same library being loaded in the same process (for example, attempting to
   import two Python packages that link to different versions of the same library).
   This sometimes works without incident, but it can also lead to anything from library
-  loading errors, to subtle runtime bugs, to catastrophic system failures.
+  loading errors, to subtle runtime bugs, to catastrophic failures (like suddenly
+  crashing and losing data).
 
 - Last but not least, static linking and vendoring results in duplication,
   and may increase the use of both disk space and memory.
