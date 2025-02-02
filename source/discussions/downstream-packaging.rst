@@ -24,6 +24,9 @@ follow which help make downstream packaging *significantly* easier
 Note that this is not an all-or-nothing proposal — anything that upstream
 maintainers can do is useful, even if it's only a small part. Downstream
 maintainers are also willing to prepare patches to resolve these issues.
+Having these patches merged can be very helpful, since it removes the need
+for different downstreams to carry and keep rebasing the same patches,
+and the risk of applying inconsistent solutions to the same problem.
 
 Establishing a good relationship between software maintainers and downstream
 packagers can bring mutual benefits. Downstreams are often willing to share
