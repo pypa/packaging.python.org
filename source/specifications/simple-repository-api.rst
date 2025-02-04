@@ -103,6 +103,10 @@ In addition to the above, the following constraints are placed on the API:
 
   .. note::
 
+    The ``data-provenance`` attribute was added with API version 1.3.
+
+  .. note::
+
     The format of the linked provenance is defined in :ref:`index-hosted-attestations`.
 
 Normalized Names
@@ -213,7 +217,7 @@ specification <version-specifiers>`.
 
 This would end up looking like::
 
-  <meta name="pypi:repository-version" content="1.0">
+  <meta name="pypi:repository-version" content="1.3">
 
 When interpreting the repository version:
 
@@ -405,7 +409,7 @@ As an example:
 
     {
       "meta": {
-        "api-version": "1.0"
+        "api-version": "1.3"
       },
       "projects": [
         {"name": "Frob"},
@@ -509,13 +513,17 @@ Each individual file dictionary has the following keys:
   associated provenance, with the same rules as ``data-provenance`` in the
   :ref:`base HTML API specification <simple-repository-api-base>`.
 
+  .. note::
+
+    The ``provenance`` field was added with API version 1.3.
+
 As an example:
 
 .. code-block:: json
 
     {
       "meta": {
-        "api-version": "1.0"
+        "api-version": "1.3"
       },
       "name": "holygrail",
       "files": [
