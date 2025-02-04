@@ -104,3 +104,17 @@ def checkqa(session):
         "--all-files",
         "--show-diff-on-failure",
     )
+
+
+@nox.session()
+def sphinx_lint(session):
+    """
+    Check for reST format issues in source rst files,
+    accepting another path as positional argument.
+    """
+    session.install("sphinx-lint==1.0.0")
+    target = session.posargs if len(session.posargs) >= 1 else ["source"]
+    session.run(
+        "sphinx-lint",
+        *target
+    )
