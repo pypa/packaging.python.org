@@ -109,8 +109,8 @@ subset of Linux platforms, and allows building wheels tagged with the
 ``manylinux`` platform tag which can be used across most common Linux
 distributions.
 
-The current standard is the future-proof ``manylinux_<x>_<y>`` standard. It defines
-tags of the form ``manylinux_<x>_<y>_<arch>``, where ``x`` and ``y`` are glibc major
+The current standard is the future-proof :file:`manylinux_{x}_{y}` standard. It defines
+tags of the form :file:`manylinux_{x}_{y}_{arch}`, where ``x`` and ``y`` are glibc major
 and minor versions supported (e.g. ``manylinux_2_24_xxx`` should work on any
 distro using glibc 2.24+), and ``arch`` is the architecture, matching the value
 of :py:func:`sysconfig.get_platform()` on the system as in the "simple" form above.
@@ -151,7 +151,7 @@ auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``        ``>=3.3.0`` [#
 
 The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux
 platforms that use the musl_ libc rather than glibc (a prime example being Alpine
-Linux). The schema is ``musllinux_<x>_<y>_<arch>``, supporting musl ``x.y`` and higher
+Linux). The schema is :file:`musllinux_{x}_{y}_{arch}``, supporting musl ``x.y`` and higher
 on the architecture ``arch``.
 
 The musl version values can be obtained by executing the musl libc shared
@@ -196,7 +196,7 @@ macOS
 
 macOS uses the ``macosx`` family of tags (the ``x`` suffix is a historical
 artefact of Apple's official macOS naming scheme). The schema for compatibility
-tags is ``macosx_<x>_<y>_<arch>``, indicating that the wheel is compatible with
+tags is :file:`macosx_{x}_{y}_{arch}``, indicating that the wheel is compatible with
 macOS ``x.y`` or later on the architecture ``arch``. The version number always
 includes a major and minor version, even if Apple's official version numbering
 only refers to the major value. For example, a ``macosx_11_0_arm64`` indicates
@@ -243,7 +243,7 @@ uses SDK 27 (i.e, Android 8.1).
 iOS
 ---
 
-iOS uses the schema ``ios_<x>_<y>_<arch>_<sdk>``, indicating compatibility with
+iOS uses the schema :file:`ios_{x}_{y}_{arch}_{sdk}`, indicating compatibility with
 iOS ``x.y`` or later, on the ``arch`` architecture, using the ``sdk`` SDK. The
 version number always includes a major and minor version, even if Apple's
 official version numbering only refers to the major value.
