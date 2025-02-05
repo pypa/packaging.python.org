@@ -227,6 +227,12 @@ Android's release documentation contains the `full list of Android versions and
 their corresponding SDK versions
 <https://developer.android.com/tools/releases/platforms>`__.
 
+There are 4 supported architectures:
+* ``armeabi_v7a``
+* ``arm64_v8a``
+* ``x86``
+* ``x86_64``
+
 By default, Python 3.13 is compiled using SDK 24 (i.e, Android 7); Python 3.14
 uses SDK 27 (i.e, Android 8.1).
 
@@ -245,6 +251,9 @@ The iOS platform has two SDKs: ``iphoneos`` for physical devices; and
 but are incompatible at the binary level, even if they are running on the same
 architecture. Code compiled for an arm64 simulator will not run on an arm64
 device.
+
+The ``iphonesimulator`` SDK supports 2 architectures: ``arm64`` and ``x86_64``.
+The ``iphoneos`` SDK only supports the ``arm64`` architecture.
 
 By default, Python is compiled with a minimum iOS compatibility version of 13.0.
 
