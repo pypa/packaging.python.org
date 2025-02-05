@@ -109,8 +109,8 @@ subset of Linux platforms, and allows building wheels tagged with the
 ``manylinux`` platform tag which can be used across most common Linux
 distributions.
 
-The current standard is the future-proof ``manylinux_x_y`` standard. It defines
-tags of the form ``manylinux_x_y_arch``, where ``x`` and ``y`` are glibc major
+The current standard is the future-proof ``manylinux_<x>_<y>`` standard. It defines
+tags of the form ``manylinux_<x>_<y>_<arch>``, where ``x`` and ``y`` are glibc major
 and minor versions supported (e.g. ``manylinux_2_24_xxx`` should work on any
 distro using glibc 2.24+), and ``arch`` is the architecture, matching the value
 of :py:func:`sysconfig.get_platform()` on the system as in the "simple" form above.
@@ -151,7 +151,7 @@ auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``        ``>=3.3.0`` [#
 
 The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux
 platforms that use the musl_ libc rather than glibc (a prime example being Alpine
-Linux). The schema is ``musllinux_x_y_arch``, supporting musl ``x.y`` and higher
+Linux). The schema is ``musllinux_<x>_<y>_<arch>``, supporting musl ``x.y`` and higher
 on the architecture ``arch``.
 
 The musl version values can be obtained by executing the musl libc shared
@@ -189,6 +189,64 @@ There are currently two possible ways to find the musl library’s location that
 Python interpreter is running on, either with the system ldd_ command, or by
 parsing the ``PT_INTERP`` section’s value from the executable’s ELF_ header.
 
+.. _macos:
+
+macOS
+-----
+
+macOS uses the ``macosx`` family of tags (the ``x`` suffix is a historical
+artefact of Apple's official macOS naming scheme). The schema for compatibility
+tags is ``macosx_<x>_<y>_<arch>``, indicating that the wheel is compatible with
+macOS ``x.y`` or later on the architecture ``arch``. The version number always
+includes a major and minor version, even if Apple's official version numbering
+only refers to the major value. For example, a ``macosx_11_0_arm64`` indicates
+compatibility with macOS 11 or later, on arm64 (i.e., Apple Silicon) hardware.
+
+Recent macOS binaries distributed on Python.org are compiled with a minimum
+macOS compatibility version of 11.0, as macOS 11 (Big Sur) was the first release
+to support the ARM64 Apple Silicon architecture. Python binaries obtained from
+other sources may have a different compatibility version.
+
+macOS also supports the use of a combined, or "fat" architecture specification.
+For example, specifying an architecture of ``universal2`` indicates that
+binaries support *both* x86_64 *and* arm64.
+
+.. _android:
+
+android
+-------
+
+Android uses the schema ``android_<sdk>_<arch>``, indicating compatibility with
+Android SDK ``sdk`` or later, on the architecture ``arch``. Android makes no
+distinction between physical devices and emulated devices.
+
+Note that this tag schema uses the *SDK* version, not the Android OS version
+number. The Android release known publicly as Android 12 (code named "Snow
+Cone") uses SDK 31 or 32, depending on the specific Android version in use.
+Android's release documentation contains the `full list of Android versions and
+their corresponding SDK versions
+<https://developer.android.com/tools/releases/platforms>`__.
+
+By default, Python 3.13 is compiled using SDK 24 (i.e, Android 7); Python 3.14
+uses SDK 27 (i.e, Android 8.1).
+
+.. _ios:
+
+iOS
+---
+
+iOS uses the schema ``ios_<x>_<y>_<arch>_<sdk>``, indicating compatibility with
+iOS ``x.y`` or later, on the ``arch`` architecture, using the ``sdk`` SDK. The
+version number always includes a major and minor version, even if Apple's
+official version numbering only refers to the major value.
+
+The iOS platform has two SDKs: ``iphoneos`` for physical devices; and
+``iphonesimulator`` for simulated devices. These SDKs have the same API surface,
+but are incompatible at the binary level, even if they are running on the same
+architecture. Code compiled for an arm64 simulator will not run on an arm64
+device.
+
+By default, Python is compiled with a minimum iOS compatibility version of 13.0.
 
 Use
 ===
@@ -339,7 +397,8 @@ History
 - November 2019: The ``manylinux_x_y`` perennial tag was approved through
   :pep:`600`.
 - April 2021: The ``musllinux_x_y`` tag was approved through :pep:`656`.
-
+- December 2023: The tags for iOS were approved through :pep:`730`.
+- March 2024: The tags for Android were approved through :pep:`738`.
 
 
 .. _musl: https://musl.libc.org
