@@ -207,7 +207,9 @@ For example, specifying an architecture of ``universal2`` indicates that
 binaries support *both* x86_64 *and* arm64.
 
 The minimum supported macOS version may also be constrained by architecture. For
-example, macOS 11 (Big Sur) was the first release to support arm64.
+example, macOS 11 (Big Sur) was the first release to support arm64. These
+additional constraints are enforced transparently by the macOS compilation
+toolchain when building a ``universal2`` binary.
 
 .. _android:
 
