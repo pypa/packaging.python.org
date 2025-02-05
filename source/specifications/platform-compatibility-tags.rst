@@ -202,14 +202,12 @@ includes a major and minor version, even if Apple's official version numbering
 only refers to the major value. For example, a ``macosx_11_0_arm64`` indicates
 compatibility with macOS 11 or later, on arm64 (i.e., Apple Silicon) hardware.
 
-Recent macOS binaries distributed on Python.org are compiled with a minimum
-macOS compatibility version of 11.0, as macOS 11 (Big Sur) was the first release
-to support the ARM64 Apple Silicon architecture. Python binaries obtained from
-other sources may have a different compatibility version.
-
 macOS also supports the use of a combined, or "fat" architecture specification.
 For example, specifying an architecture of ``universal2`` indicates that
 binaries support *both* x86_64 *and* arm64.
+
+The minimum supported macOS version may also be constrained by architecture. For
+example, macOS 11 (Big Sur) was the first release to support arm64.
 
 .. _android:
 
