@@ -216,18 +216,20 @@ toolchain when building a ``universal2`` binary.
 android
 -------
 
-Android uses the schema ``android_<sdk>_<arch>``, indicating compatibility with
-Android SDK ``sdk`` or later, on the architecture ``arch``. Android makes no
+Android uses the schema ``android_<api_level>_<abi>``, indicating compatibility
+with the given Android API level or later, on the given ABI. Android makes no
 distinction between physical devices and emulated devices.
 
-Note that this tag schema uses the *SDK* version, not the Android OS version
-number. The Android release known publicly as Android 12 (code named "Snow
-Cone") uses SDK 31 or 32, depending on the specific Android version in use.
+Note that this tag schema uses the API level, which is a positive integer, not
+the user-facing Android version. The release known as Android 12 (code named "Snow
+Cone") uses API level 31 or 32, depending on the specific Android version in use.
 Android's release documentation contains the `full list of Android versions and
-their corresponding SDK versions
+their corresponding API levels
 <https://developer.android.com/tools/releases/platforms>`__.
 
-There are 4 supported architectures:
+There are 4 `supported ABIs <https://developer.android.com/ndk/guides/abis>`__. 
+Normalized according to the rules above, they are:
+
 * ``armeabi_v7a``
 * ``arm64_v8a``
 * ``x86``
