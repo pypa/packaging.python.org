@@ -227,7 +227,7 @@ Android's release documentation contains the `full list of Android versions and
 their corresponding API levels
 <https://developer.android.com/tools/releases/platforms>`__.
 
-There are 4 `supported ABIs <https://developer.android.com/ndk/guides/abis>`__. 
+There are 4 `supported ABIs <https://developer.android.com/ndk/guides/abis>`__.
 Normalized according to the rules above, they are:
 
 * ``armeabi_v7a``
