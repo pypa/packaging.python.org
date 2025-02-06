@@ -196,20 +196,38 @@ macOS
 
 macOS uses the ``macosx`` family of tags (the ``x`` suffix is a historical
 artefact of Apple's official macOS naming scheme). The schema for compatibility
-tags is :file:`macosx_{x}_{y}_{arch}``, indicating that the wheel is compatible with
-macOS ``x.y`` or later on the architecture ``arch``. The version number always
-includes a major and minor version, even if Apple's official version numbering
-only refers to the major value. For example, a ``macosx_11_0_arm64`` indicates
-compatibility with macOS 11 or later, on arm64 (i.e., Apple Silicon) hardware.
+tags is :file:`macosx_{x}_{y}_{arch}``, indicating that the wheel is compatible
+with macOS ``x.y`` or later on the architecture ``arch``.
 
-macOS also supports the use of a combined, or "fat" architecture specification.
-For example, specifying an architecture of ``universal2`` indicates that
-binaries support *both* x86_64 *and* arm64.
+The value of ``x`` and ``y`` correspond to the major and minor version number of
+the macOS release, respectively. They must both be positive integers, with the
+``x`` value being ``>= 10``. The version number always includes a major *and*
+minor version, even if Apple's official version numbering only refers to
+the major value. For example, a ``macosx_11_0_arm64`` indicates compatibility
+with macOS 11 or later.
+
+macOS binaries can be compiled for a single architecture, or can include support
+for multiple architectures in the same binary (sometimes called "fat" binaries).
+To indicate support for a single architecture, the value of ``arch`` must match
+the value of :py:func:`sysconfig.get_platform()` on the system. To indicate
+support multiple architectures, the ``arch`` tag should be an identifier from
+the following list that describes the set of supported architectures:
+
+============== ========================================
+``arch``       Architectures supported
+============== ========================================
+``universal2`` ``arm64``, ``x86-64``
+``universal``  ``ppc64``, ``i386``, ``x86-64``
+``intel``      ``i386``, ``x86-64``
+``fat``        ``ppc``, ``ppc64``, ``i386``, ``x86-64``
+``fat32``      ``ppc``, ``i386``
+``fat64``      ``ppc64``, ``x86-64``
+============== ========================================
 
 The minimum supported macOS version may also be constrained by architecture. For
 example, macOS 11 (Big Sur) was the first release to support arm64. These
 additional constraints are enforced transparently by the macOS compilation
-toolchain when building a ``universal2`` binary.
+toolchain when building binaries that support multiple architectures.
 
 .. _android:
 
