@@ -217,10 +217,10 @@ the following list that describes the set of supported architectures:
 ``arch``       Architectures supported
 ============== ========================================
 ``universal2`` ``arm64``, ``x86_64``
-``universal``  ``ppc64``, ``i386``, ``x86_64``
+``universal``  ``i386``, ``ppc``, ``ppc64``, ``x86_64``
 ``intel``      ``i386``, ``x86_64``
-``fat``        ``ppc``, ``ppc64``, ``i386``, ``x86_64``
-``fat32``      ``ppc``, ``i386``
+``fat``        ``i386``, ``ppc``
+``fat3``       ``i386``, ``ppc``, ``x86_64``
 ``fat64``      ``ppc64``, ``x86_64``
 ============== ========================================
 
