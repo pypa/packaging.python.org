@@ -231,18 +231,18 @@ toolchain when building binaries that support multiple architectures.
 
 .. _android:
 
-android
+Android
 -------
 
-Android uses the schema ``android_<api_level>_<abi>``, indicating compatibility
+Android uses the schema :file:`android_{api_level}_{abi}`, indicating compatibility
 with the given Android API level or later, on the given ABI. Android makes no
 distinction between physical devices and emulated devices.
 
-Note that this tag schema uses the API level, which is a positive integer, not
-the user-facing Android version. The release known as Android 12 (code named "Snow
-Cone") uses API level 31 or 32, depending on the specific Android version in use.
-Android's release documentation contains the `full list of Android versions and
-their corresponding API levels
+The API level should be a positive integer. Note that this value is the API
+level, and *not* the user-facing Android version. The release known as Android
+12 (code named "Snow Cone") uses API level 31 or 32, depending on the specific
+Android version in use. Android's release documentation contains the `full list
+of Android versions and their corresponding API levels
 <https://developer.android.com/tools/releases/platforms>`__.
 
 There are 4 `supported ABIs <https://developer.android.com/ndk/guides/abis>`__.
@@ -253,8 +253,10 @@ Normalized according to the rules above, they are:
 * ``x86``
 * ``x86_64``
 
-By default, Python 3.13 is compiled using SDK 24 (i.e, Android 7); Python 3.14
-uses SDK 27 (i.e, Android 8.1).
+Virtually all current physical devices use one of the ARM architectures. ``x86``
+and ``x86_64`` are supported for use in the emulator. ``x86`` has not been
+supported as a development platform since 2020, and no new emulator images have
+been released since then.
 
 .. _ios:
 
