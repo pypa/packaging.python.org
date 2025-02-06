@@ -209,19 +209,19 @@ with macOS 11 or later.
 macOS binaries can be compiled for a single architecture, or can include support
 for multiple architectures in the same binary (sometimes called "fat" binaries).
 To indicate support for a single architecture, the value of ``arch`` must match
-the value of :py:func:`sysconfig.get_platform()` on the system. To indicate
+the value of :py:func:`platform.machine()` on the system. To indicate
 support multiple architectures, the ``arch`` tag should be an identifier from
 the following list that describes the set of supported architectures:
 
 ============== ========================================
 ``arch``       Architectures supported
 ============== ========================================
-``universal2`` ``arm64``, ``x86-64``
-``universal``  ``ppc64``, ``i386``, ``x86-64``
-``intel``      ``i386``, ``x86-64``
-``fat``        ``ppc``, ``ppc64``, ``i386``, ``x86-64``
+``universal2`` ``arm64``, ``x86_64``
+``universal``  ``ppc64``, ``i386``, ``x86_64``
+``intel``      ``i386``, ``x86_64``
+``fat``        ``ppc``, ``ppc64``, ``i386``, ``x86_64``
 ``fat32``      ``ppc``, ``i386``
-``fat64``      ``ppc64``, ``x86-64``
+``fat64``      ``ppc64``, ``x86_64``
 ============== ========================================
 
 The minimum supported macOS version may also be constrained by architecture. For
@@ -264,20 +264,31 @@ iOS
 ---
 
 iOS uses the schema :file:`ios_{x}_{y}_{arch}_{sdk}`, indicating compatibility with
-iOS ``x.y`` or later, on the ``arch`` architecture, using the ``sdk`` SDK. The
-version number always includes a major and minor version, even if Apple's
-official version numbering only refers to the major value.
+iOS ``x.y`` or later, on the ``arch`` architecture, using the ``sdk`` SDK.
 
-The iOS platform has two SDKs: ``iphoneos`` for physical devices; and
-``iphonesimulator`` for simulated devices. These SDKs have the same API surface,
-but are incompatible at the binary level, even if they are running on the same
-architecture. Code compiled for an arm64 simulator will not run on an arm64
-device.
+The value of ``x`` and ``y`` correspond to the major and minor version number of
+the iOS release, respectively. They must both be positive integers. The version
+number always includes a major *and* minor version, even if Apple's official
+version numbering only refers to the major value. For example, a
+``ios_13_0_arm64_iphonesimulator`` indicates compatibility with iOS 13 or later.
 
-The ``iphonesimulator`` SDK supports 2 architectures: ``arm64`` and ``x86_64``.
-The ``iphoneos`` SDK only supports the ``arm64`` architecture.
+The value of ``arch`` must match the value of :py:func:`platform.machine()` on
+the system.
 
-By default, Python is compiled with a minimum iOS compatibility version of 13.0.
+The value of ``sdk`` must be either ``iphoneos`` (for physical devices), or
+``iphonesimulator`` (for device simulators). These SDKs have the same API
+surface, but are incompatible at the binary level, even if they are running on
+the same CPU architecture. Code compiled for an arm64 simulator will not run on
+an arm64 device.
+
+The combination of :file:`{arch}_{sdk}` is referred to as the "multiarch". There
+are three possible values for multiarch:
+
+* ``arm64_iphoneos``, for physical iPhone/iPad devices. This includes every
+  iOS device manufactured since ~2015;
+* ``arm64_iphonesimulator``, for simulators running on Apple Silicon macOS
+  hardware; and
+* ``x86_64_iphonesimulator``, for simulators running on x86_64 hardware.
 
 Use
 ===
