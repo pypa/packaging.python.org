@@ -234,9 +234,11 @@ toolchain when building binaries that support multiple architectures.
 Android
 -------
 
-Android uses the schema :file:`android_{api_level}_{abi}`, indicating compatibility
-with the given Android API level or later, on the given ABI. Android makes no
-distinction between physical devices and emulated devices.
+Android uses the schema :file:`android_{apilevel}_{abi}`, indicating
+compatibility with the given Android API level or later, on the given ABI. For
+example, ``android_27_arm64_v8a`` indicates support for API level 27 or later,
+on ``arm64_v8a`` devices. Android makes no distinction between physical devices
+and emulated devices.
 
 The API level should be a positive integer. This is *not* the same thing as
 the user-facing Android version. For example, the release known as Android
