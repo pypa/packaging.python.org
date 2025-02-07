@@ -1,6 +1,7 @@
 # -- Project information ---------------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import datetime
 import os
 
 # Some options are only enabled for the main packaging.python.org deployment builds
@@ -13,7 +14,8 @@ RTD_CANONICAL_BUILD = (
 
 project = "Python Packaging User Guide"
 
-copyright = "2013–2020, PyPA"
+copyright = "2013–" + str(datetime.datetime.now().year) + ", PyPA"
+
 author = "Python Packaging Authority"
 
 # -- General configuration -------------------------------------------------------------
