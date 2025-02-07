@@ -196,14 +196,14 @@ macOS
 
 macOS uses the ``macosx`` family of tags (the ``x`` suffix is a historical
 artefact of Apple's official macOS naming scheme). The schema for compatibility
-tags is :file:`macosx_{x}_{y}_{arch}``, indicating that the wheel is compatible
+tags is :file:`macosx_{x}_{y}_{arch}`, indicating that the wheel is compatible
 with macOS ``x.y`` or later on the architecture ``arch``.
 
-The value of ``x`` and ``y`` correspond to the major and minor version number of
+The values of ``x`` and ``y`` correspond to the major and minor version number of
 the macOS release, respectively. They must both be positive integers, with the
 ``x`` value being ``>= 10``. The version number always includes a major *and*
 minor version, even if Apple's official version numbering only refers to
-the major value. For example, a ``macosx_11_0_arm64`` indicates compatibility
+the major value. For example, ``macosx_11_0_arm64`` indicates compatibility
 with macOS 11 or later.
 
 macOS binaries can be compiled for a single architecture, or can include support
@@ -238,8 +238,8 @@ Android uses the schema :file:`android_{api_level}_{abi}`, indicating compatibil
 with the given Android API level or later, on the given ABI. Android makes no
 distinction between physical devices and emulated devices.
 
-The API level should be a positive integer. Note that this value is the API
-level, and *not* the user-facing Android version. The release known as Android
+The API level should be a positive integer. This is *not* the same thing as
+the user-facing Android version. For example, the release known as Android
 12 (code named "Snow Cone") uses API level 31 or 32, depending on the specific
 Android version in use. Android's release documentation contains the `full list
 of Android versions and their corresponding API levels
