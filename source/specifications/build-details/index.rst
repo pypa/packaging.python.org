@@ -16,7 +16,7 @@ extension ABI details, and other information that is specific to that particular
 build of Python.
 
 Starting from Python 3.14, a ``build-details.json`` file is installed in the
-platform-independent standard library directory (``stdlib``, eg.
+platform-independent standard library directory (``stdlib``, e.g.
 ``/usr/lib/python3.14/build-details.json``).
 
 Please refer to the :ref:`latest version <build-details-v1.0>` for its
