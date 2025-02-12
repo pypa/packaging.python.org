@@ -3,7 +3,7 @@ openai.api_key = "SUA_CHAVE_API"
 
 def chat_ia(pergunta):
     resposta = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": pergunta}]
     )
     return resposta["choices"][0]["message"]["content"]
