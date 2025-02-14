@@ -88,6 +88,26 @@ In addition to the above, the following constraints are placed on the API:
   associated signature, the signature would be located at
   ``/packages/HolyGrail-1.0.tar.gz.asc``.
 
+* A repository **MAY** include a ``data-core-metadata`` attribute on a file
+  link.
+
+  The repository **SHOULD** provide the hash of the Core Metadata file as the
+  ``data-core-metadata`` attribute's value using the syntax
+  ``<hashname>=<hashvalue>``, where ``<hashname>`` is the lower cased name of
+  the hash function used, and ``<hashvalue>`` is the hex encoded digest. The
+  repository **MAY** use ``true`` as the attribute's value if a hash is unavailable.
+
+* A repository **MAY** include a ``data-dist-info-metadata`` attribute on a
+  file link.
+
+  Index clients **MAY** consume this key if present, as a legacy fallback
+  for ``data-core-metadata``.
+
+  .. important::
+
+    ``data-dist-info-metadata`` was standardized with :pep:`658` and renamed to
+    ``data-core-metadata`` with :pep:`714`.
+
 * A repository **MAY** include a ``data-gpg-sig`` attribute on a file link with
   a value of either ``true`` or ``false`` to indicate whether or not there is a
   GPG signature. Repositories that do this **SHOULD** include it on every link.
@@ -523,7 +543,7 @@ Each individual file dictionary has the following keys:
   Unlike ``data-requires-python`` in :ref:`the base HTML API specification
   <simple-repository-api-base>`, the ``requires-python`` key does not
   require any special escaping other than anything JSON does naturally.
-- ``dist-info-metadata``: An **optional** key that indicates
+- ``core-metadata``: An **optional** key that indicates
   that metadata for this file is available, via the same location as specified in
   :ref:`the API metadata file specification
   <simple-repository-api-metadata-file>` (``{file_url}.metadata``). Where this
@@ -541,11 +561,23 @@ Each individual file dictionary has the following keys:
 
   It is recommended that servers make the hashes of the metadata file available if
   possible.
+
+- ``dist-info-metadata``: An **optional**, deprecated alias for ``core-metadata``.
+
+  Index clients **MAY** consume this key if present, as a legacy fallback
+  for ``core-metadata``.
+
+  .. important::
+
+    ``dist-info-metadata`` was standardized with :pep:`658` and renamed to
+    ``core-metadata`` with :pep:`714`.
+
 - ``gpg-sig``: An **optional** key that acts a boolean to indicate if the file has
   an associated GPG signature or not. The URL for the signature file follows what
   is specified in :ref:`the base HTML API specification
   <simple-repository-api-base>` (``{file_url}.asc``). If this key does not exist, then
   the signature may or may not exist.
+
 - ``yanked``: An **optional** key which may be either a boolean to indicate if the
   file has been yanked, or a non empty, but otherwise arbitrary, string to indicate
   that a file has been yanked with a specific reason. If the ``yanked`` key is present
@@ -954,48 +986,6 @@ It is recommended that clients:
 
 - Check the ``Content-Type`` of the response and ensure it matches something
   that you were expecting.
-
-
-Rename dist-info-metadata in the Simple API
-===========================================
-
-Servers
--------
-
-The :ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata, when used in the HTML
-representation of the Simple API,
-**MUST** be emitted using the attribute name ``data-core-metadata``, with the
-supported values remaining the same.
-
-The :ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata, when used in the :ref:`the
-JSON API specification <simple-repository-api-base>` JSON representation of the
-Simple API, **MUST** be emitted using the key ``core-metadata``, with the
-supported values remaining the same.
-
-To support clients that used the previous key names, the HTML representation
-**MAY** also be emitted using the ``data-dist-info-metadata``, and if it does
-so it **MUST** match the value of ``data-core-metadata``.
-
-
-
-Clients
--------
-
-Clients consuming any of the HTML representations of the Simple API **MUST**
-read the :ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata from the key
-``data-core-metadata`` if it is
-present. They **MAY** optionally use the legacy ``data-dist-info-metadata`` if
-it is present but ``data-core-metadata`` is not.
-
-Clients consuming the JSON representation of the Simple API **MUST** read the
-:ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata from the key ``core-metadata``
-if it is present. They
-**MAY** optionally use the legacy ``dist-info-metadata`` key if it is present
-but ``core-metadata`` is not.
 
 .. _simple-repository-history:
 
