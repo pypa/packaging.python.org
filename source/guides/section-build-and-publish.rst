@@ -17,3 +17,4 @@ Building and Publishing
    publishing-package-distribution-releases-using-github-actions-ci-cd-workflows
    modernize-setup-py-project
    windows-applications-embedding
+   licensing-examples-and-user-scenarios
