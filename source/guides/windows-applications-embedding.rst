@@ -97,12 +97,12 @@ particular need to make it buildable as a wheel. For the purposes of this
 discussion, we will assume one of two project layouts:
 
 1. A project which can be installed via ``pip install``, with all of its
-   dependencies listed in the ``pyproject.toml`` file, as normal.
+   dependencies listed in the :file:`pyproject.toml` file, as normal.
 2. A Python application stored in a local directory. In this case, third party
-   dependencies are listed in a ``requirements.txt`` file.
+   dependencies are listed in a :file:`requirements.txt` file.
 
 When you are ready to build your application, you need to copy all of the
-required code and dependencies into the ``lib`` directory of the application.
+required code and dependencies into the :file:`lib` directory of the application.
 For case (1), this can be done using::
 
     pip install --target "<Application directory>\lib" .
@@ -371,10 +371,10 @@ distribution. You can get the relevant files from a full Python installation
 (which must be the same version as you're using for your application). The
 files you need are:
 
-* ``_tkinter.pyd``, ``tcl*.dll``, ``tk*.dll`` and ``zlib1.dll`` from
-  ``{sys.prefix}\DLLs``
-* The ``tcl`` directory from ``{sys.prefix}``
-* The ``tkinter`` directory from ``{sys.prefix}\Lib``
+* :file:`_tkinter.pyd`, :file:`tcl*.dll`, :file:`tk*.dll` and :file:`zlib1.dll` from
+  :file:`{sys.prefix}\DLLs`
+* The :file:`tcl` directory from :file:`{sys.prefix}`
+* The :file:`tkinter` directory from :file:`{sys.prefix}\Lib`
 
 You should copy all of these into your embedded interpreter directory.
 
@@ -391,10 +391,9 @@ in cases like this, but you will need to locate it yourself::
 
     python_executable = Path(sys.executable).parent / ("interp/python.exe")
 
-If you are using the ``multiprocessing`` module, it has a specific method you
+If you are using the :py:mod:`multiprocessing` module, it has a specific method you
 must use to configure it to work correctly in an embedded environment,
-documented `in the Library reference
-<https://docs.python.org/3.13/library/multiprocessing.html#multiprocessing.set_executable>`_.
+documented :py:func:`in the Library reference <multiprocessing.set_executable>`.
 
 
 What about other operating systems?
