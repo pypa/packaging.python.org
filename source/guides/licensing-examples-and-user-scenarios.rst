@@ -10,6 +10,10 @@ Licensing examples and user scenarios
 license files and other legally required information.
 This document aims to provide clear guidance how to migrate from the legacy
 to the standardized way of declaring licenses.
+Make sure your preferred build backend supports :pep:`639` before
+trying to apply the newer guidelines.
+As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
+and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
 
 
 Licensing Examples
