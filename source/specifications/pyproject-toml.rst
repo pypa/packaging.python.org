@@ -252,7 +252,7 @@ The table subkeys of the ``license`` key are deprecated.
 
 - TOML_ type: array of strings
 - Corresponding :ref:`core metadata <core-metadata>` field:
-  :ref:`License-Expression <core-metadata-license-file>`
+  :ref:`License-File <core-metadata-license-file>`
 
 An array specifying paths in the project source tree relative to the project
 root directory (i.e. directory containing :file:`pyproject.toml` or legacy project
