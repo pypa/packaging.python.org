@@ -135,7 +135,7 @@ Glossary
 
         A :term:`Project` that is installed for use with
         a Python interpreter or :term:`Virtual Environment`,
-        as described in the specicifcation :ref:`recording-installed-packages`.
+        as described in the specification :ref:`recording-installed-packages`.
 
 
     Known Good Set (KGS)
