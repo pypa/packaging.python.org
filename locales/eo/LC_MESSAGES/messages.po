@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-10 05:00+0000\n"
-"PO-Revision-Date: 2025-02-10 04:57+0000\n"
+"PO-Revision-Date: 2025-02-14 00:04+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/eo/>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10-rc\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -3278,6 +3278,13 @@ msgid ""
 "does not include compiled Python files). See :ref:`package-formats` for more "
 "information."
 msgstr ""
+":term:`Distribua <Distribution Package>` formo enhavanta dosierojn kaj "
+"metadatenojn, kiujn oni povas simple movi al la ĝustaj lokoj en la cela "
+"sistemo por instalado. :term:`Wheel` estas unu ekzemplo, dum :term:`Fonta "
+"Distribuo <Source Distribution (or \"sdist\")>` ne estas ekzemplo, ĉar ĝi "
+"postulas tradukadon antaŭ instalado. Tio ne signifas, ke Python-dosiero "
+"devas esti antaŭtradukita (:term:`Wheel` intence ne inkluzivas tradukitajn "
+"Python-dosierojn). Vidu :ref:`package-formats` por pliaj informoj."
 
 #: ../source/glossary.rst:56
 msgid "Built Metadata"
@@ -5355,6 +5362,10 @@ msgid ""
 "be of interest to programmers using the package. These files are called "
 "\"package data\"."
 msgstr ""
+"Ofte oni devas instali pliajn dosierojn en :term:`pakon <Import Package>`. "
+"Tiaj dosieroj estas ofte datenoj rilataj al la kodo de la pako, aŭ tekstoj "
+"enhavantaj dokumentaron por programistoj uzantaj la pakon. Tiaj dosieroj "
+"nomiĝas «pakaj datenoj»."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:235
 msgid ""
@@ -5744,6 +5755,11 @@ msgid ""
 "HTTP or unverified HTTPS connection on some Python versions, allowing your "
 "username and password to be intercepted during transmission."
 msgstr ""
+"Aliaj dokumentoj kelkfoje mencias uzi ``python setup.py register`` kaj ``"
+"python setup.py upload``. Tiuj manieroj de registrado kaj alŝutado de pako "
+"estas **malrekomendegata**, ĉar ili uzas neĉifritan HTTP-konekton aŭ "
+"nekonfirmitan HTTPS-konekton sur kelkaj versioj de Python, permesante "
+"ŝtelado de viaj salutnomo kaj pasvorto dum transsendado."
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:520
 msgid ""
@@ -7742,6 +7758,11 @@ msgid ""
 "``[project]`` in your :file:`pyproject.toml` if your packaging tool supports "
 "it, or in its config file/section. You're done!"
 msgstr ""
+"Por efektivigi ĝin, simple algluu `la tekston <chooseamitlicense_>`__ en "
+"dosieron nomitan :file:`LICENSE.txt` ĉe la radiko de via deponejo, kaj "
+"aldonu la jaron kaj vian nomon al la kopirajta linio. Poste, simple aldonu ``"
+"license = \"MIT\"`` sub ``[project]`` en :file:`pyproject.toml` se via "
+"pakilo subtenas ĝin, aŭ en ĝia agorda dosiero. Jen finite!"
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:259
 msgid "I want to distribute my project under a specific license"
@@ -9815,6 +9836,13 @@ msgid ""
 "acquiring an OpenID Connect token that the ``pypi-publish`` actions needs to "
 "implement secretless trusted publishing to PyPI."
 msgstr ""
+"Nun, ni aldonu komencan agordon por la tasko eldoni al PyPI. Ĝi estas "
+"procezo, kiu rulos komandojn difinotajn. En ĉi tiu gvidilo, ni uzas la plej "
+"novan stabilan longdaŭre subtenatan version de Ubuntu provizitan de GitHub-"
+"Agoj. Tio ankaŭ difinas GitHub-Medio por ruli la taskon, kaj retadreson por "
+"montrado en la grafika fasado de GitHub. Plie ĝi subtenas akiri ĵetonon de "
+"OpenID Connect, kiun la ago ``pypi-publish`` bezonas por sensekreta fidata "
+"eldonado al PyPI."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:144
 msgid ""
@@ -10185,6 +10213,10 @@ msgid ""
 "the code on Windows, and building Windows-targeted binaries for projects "
 "that use C extensions."
 msgstr ""
+"Tiu paragrafo temas pri kiel uzi la senkostan servon `Appveyor`_ de kontinua "
+"integrado, por subteni Windows por via projekto. Tio inkluzivas testi la "
+"kodon sur Windows, kaj konstrui Windows -duumaĵojn por projektoj uzantaj "
+"C-etendaĵojn."
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:19
 msgid ""
@@ -10581,6 +10613,10 @@ msgid ""
 "clear that uploading new wheels after every commit is desirable (although "
 "some projects may wish to do this)."
 msgstr ""
+"Alternative, oni povas aldoni paŝon ``twine upload`` al la konstruo.  La "
+"donita dosiero :file:`appveyor.yml` ne faras tion, ĉar ne certas, ĉu oni "
+"deziras alŝuti novan wheel post ĉiu enmeto (kvankam kelkaj projektoj fakte "
+"deziras tion)."
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:215
 msgid "External dependencies"
@@ -12019,6 +12055,12 @@ msgid ""
 "interoperability, resolve dependencies, manage package resources, and do "
 "other similar functions."
 msgstr ""
+"``distlib`` estas biblioteko de malaltnivelaj funkcioj pri pakado kaj "
+"distribuado de Python-programoj.  ``distlib`` realigas plurajn rilatajn PEP-"
+"ojn (normojn Python Enhancement Proposal) kaj utilas por verki triapartian "
+"pakilon, kiu faras kaj alŝutas duumajn kaj fontajn :term:`distribuojn "
+"<Distribution Package>` kunfunkcipove, solvas dependecojn, administras "
+"pakajn resursojn, ktp."
 
 #: ../source/key_projects.rst:82
 msgid ""
@@ -12122,6 +12164,11 @@ msgid ""
 "to configure, version, specify dependencies for, and publish packages to "
 "PyPI. Its plugin system allows for easily extending functionality."
 msgstr ""
+"Hatch estas unuigita komandlinia ilo por facile administri dependecojn kaj "
+"izoli mediojn por Python-programistoj. Aŭtoroj de Python-pako uzas Hatch kaj "
+"ĝian :term:`konstruan malfasadon <Build Backend>` por agordi pakojn, spuri "
+"versiojn, specifi dependecojn, kaj eldoni pakojn al PyPI. La kromprograma "
+"sistemo de Hatch faciligas etendado de ĝiaj funkcioj."
 
 #: ../source/key_projects.rst:157
 msgid "packaging"
@@ -12739,6 +12786,10 @@ msgid ""
 "It supports building wheels for python 3.7+ on Windows, Linux, macOS and "
 "FreeBSD, can upload them to PyPI and has basic PyPy and GraalPy support."
 msgstr ""
+"Maturin estas konstrua malfasado por etendaĵo-modulo verkita en Rust, kaj "
+"estas mem verkita en Rust. Ĝi subtenas konstrui wheel por Python 3.7+ sur "
+"Windows, Linux, macOS kaj FreeBSD. Ĝi povas alŝuti wheel al PyPI kaj ankaŭ "
+"baze subtenas PyPY kaj GraalPy."
 
 #: ../source/key_projects.rst:529
 msgid "meson-python"
@@ -14321,6 +14372,11 @@ msgid ""
 "technologies like :doc:`setuptools entry_points <setuptools:userguide/"
 "entry_point>`."
 msgstr ""
+"La indiĝena pakada meĥanismo de Python estas plejparte por distribui "
+"reuzeblan kodon (t.e. bibliotekon) inter programistoj. Oni povas ankaŭ "
+"distribui **ilojn** (bazajn programojn por programistoj) per la pakada "
+"meĥanismo por bibliotekoj uzante teĥnikojn kiel :doc:`entry_points de "
+"setuptools <setuptools:userguide/entry_point>`."
 
 #: ../source/overview.rst:169
 msgid ""
@@ -15111,6 +15167,12 @@ msgid ""
 "item tuple with the first item being the initial digits as an ``int``, and "
 "the second item being the remainder of the tag as a ``str``."
 msgstr ""
+"Nedeviga konstruo-numero.  Devas komenciĝi per cifero.  Oni uzas tiun por "
+"komparo, se du wheel-dosiernomoj estas samaj ĉiel alie (ekz. laŭ nomo, "
+"versio kaj aliaj etikedoj).  Por ordigado, konsideru ĝin kiel malplenan "
+"opon, se ĝi mankas; se ne, konsideru ĝin kiel duopo, kies unua ero estas la "
+"komencaoj ciferoj kiel ``int``, kaj kies dua ero estas la restaĵo de la "
+"etikedo kiel ``str``."
 
 #: ../source/specifications/binary-distribution-format.rst:109
 msgid ""
@@ -15574,6 +15636,10 @@ msgid ""
 "installer checks file hashes against RECORD, a separate signature checker "
 "only needs to establish that RECORD matches the signature."
 msgstr ""
+"Instalilo de wheel ne devas kompreni ciferecan subskribon sed DEVAS kompari "
+"la haketaĵojn en ``RECORD`` al la enhavoj de la maldensigitaj dosieroj. Kiam "
+"instalilo komparas la dosierajn haketaĵojn kaj ``RECORD``, aparta subskribo-"
+"kontrolilo devas nur kontroli, ĉu ``RECORD`` kongruas kun la subskribo."
 
 #: ../source/specifications/binary-distribution-format.rst:321
 msgid "See"
@@ -15701,6 +15767,9 @@ msgid ""
 "depending on whether it is pure Python or not and those files should be at "
 "the root with the appropriate setting given for \"Root-is-purelib\"."
 msgstr ""
+"Praktike, wheel havu nur unu el ``purelib`` aŭ ``platlib``, depende de ĉu ĝi "
+"estas pure Python-a aŭ ne, kaj tiaj dosieroj estu ĉe la radiko kun taŭgaj "
+"agordoj pri ``Root-is-purelib``."
 
 #: ../source/specifications/binary-distribution-format.rst:393
 msgid "Is it possible to import Python code directly from a wheel file?"
@@ -17121,6 +17190,11 @@ msgid ""
 "Strings must be valid :ref:`dependency specifiers <dependency-specifiers>`, "
 "and tables must be valid Dependency Group Includes."
 msgstr ""
+"Postulo-listoj, t.e. la valoroj en ``[dependency-groups]``, povas enhavi "
+"signoĉenojn, tabelojn (``dict`` de Python), aŭ miksaĵo de signoĉenoj kaj "
+"tabeloj. La signoĉenoj devas esti validaj :ref:`dependeco-specifiloj "
+"<dependency-specifiers>`, kaj tabeloj devas esti validaj Dependeco-Grupo-"
+"Inkluzivoj."
 
 #: ../source/specifications/dependency-groups.rst:59
 msgid "Dependency Group Include"
@@ -18996,6 +19070,9 @@ msgid ""
 "be enabled by default and should carry some connotation that its use is "
 "risky."
 msgstr ""
+"La instalilo provizu meĥanismon por superregi tiajn regulojn, ekzemple per "
+"flago ``--break-system-packages``. Tia opcio ne estu apriora kaj indiku, ke "
+"ĝia uzo estas danĝera."
 
 #: ../source/specifications/externally-managed-environments.rst:182
 msgid ""
@@ -19247,6 +19324,13 @@ msgid ""
 "from inside a package build. Then you can use ``pip install`` as part of "
 "your distro packaging."
 msgstr ""
+"La alia estas aranĝi ŝanĝadon de la implicita skemo ``sysconfig`` dum "
+"konstruado de pako, kompare al rulado en instalita sistemo. La adapta "
+"meĥanismo de ``sysconfig`` el bpo-43976_ faciligos tion (kiam ĝi estas "
+"akceptita kaj realigita): via pakilo agordu median variablon aŭ alian "
+"detekteblaĵon, kaj difiun funkcion ``get_preferred_schemes`` liverantan "
+"alian skemon dum konstruado de pako. Poste oni povas simple uzi ``pip "
+"install`` kiel parto de la pakado de via distribuo."
 
 #: ../source/specifications/externally-managed-environments.rst:367
 msgid ""
@@ -20439,6 +20523,9 @@ msgid ""
 "for ``manylinux1`` and ``manylinux2010`` have reached end-of-life meaning "
 "that these images will no longer receive security updates."
 msgstr ""
+"Mastrumanto de pako provu celi la plej kongruan specifon laŭeble, krom ke la "
+"provizitaj konstruo-medioj por ``manylinux1`` kaj ``manylinux2010`` estas "
+"eksvalidiĝintaj kaj ne plu ricevos ĝisdatigojn pri sekureco."
 
 #: ../source/specifications/platform-compatibility-tags.rst:136
 msgid ""
@@ -20513,12 +20600,6 @@ msgid "``musllinux``"
 msgstr "``musllinux``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:152
-#, fuzzy
-#| msgid ""
-#| "The ``musllinux`` family of tags is similar to ``manylinux``, but for "
-#| "Linux platforms that use the musl_ libc rather than glibc (a prime "
-#| "example being Alpine Linux). The schema is ``musllinux_x_y_arch``, "
-#| "supporting musl ``x.y`` and higher on the architecture ``arch``."
 msgid ""
 "The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux "
 "platforms that use the musl_ libc rather than glibc (a prime example being "
@@ -20527,8 +20608,8 @@ msgid ""
 msgstr ""
 "La familio ``musllinux`` de etikedoj similas al ``manylinux``, sed temas pri "
 "Linux-platformoj uzantan la C-bibliotekon musl_ anstataŭ glibc (unu ekzemplo "
-"estas Alpine Linux). La skemo estas ``musllinux_x_y_arch``, subtenanta musl "
-"``x.y`` kaj pli novajn sur la arĥitekturo ``arch``."
+"estas Alpine Linux). La skemo estas :file:`musllinux_x_y_arch`, subtenanta "
+"musl ``x.y`` kaj pli novajn sur la arĥitekturo ``arch``."
 
 #: ../source/specifications/platform-compatibility-tags.rst:157
 msgid ""
@@ -20546,6 +20627,10 @@ msgid ""
 "command, or by parsing the ``PT_INTERP`` section’s value from the "
 "executable’s ELF_ header."
 msgstr ""
+"Aktuale ekzistas du manieroj por trovi la lokon de la biblioteko musl sur "
+"kiu Python-interpretilo ruliĝas: aŭ per la sistema komando ldd_, aŭ per "
+"analizado de la valoro de la sekcio ``PT_INTERP`` en la ELF_-ĉapo de la "
+"ruleblaĵo."
 
 #: ../source/specifications/platform-compatibility-tags.rst:197
 msgid ""
@@ -20578,74 +20663,59 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:217
 msgid "``arch``"
-msgstr ""
+msgstr "``arch``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:217
 msgid "Architectures supported"
-msgstr ""
+msgstr "Subtenataj arĥitekturoj"
 
 #: ../source/specifications/platform-compatibility-tags.rst:219
-#, fuzzy
-#| msgid "``version``"
 msgid "``universal2``"
-msgstr "``version``"
+msgstr "``universal2``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:219
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``arm64``, ``x86_64``"
-msgstr "``x86_64``"
+msgstr "``arm64``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:220
-#, fuzzy
-#| msgid "``version``"
 msgid "``universal``"
-msgstr "``version``"
+msgstr "``universal``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:220
 msgid "``i386``, ``ppc``, ``ppc64``, ``x86_64``"
-msgstr ""
+msgstr "``i386``, ``ppc``, ``ppc64``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:221
-#, fuzzy
 msgid "``intel``"
-msgstr "Uzi ``pip`` por instali Pipenv:"
+msgstr "``intel``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:221
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``i386``, ``x86_64``"
-msgstr "``x86_64``"
+msgstr "``i386``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:222
 msgid "``fat``"
-msgstr ""
+msgstr "``fat``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:222
-#, fuzzy
-#| msgid "``3.4``, ``2.7``"
 msgid "``i386``, ``ppc``"
-msgstr "``3.4``, ``2.7``"
+msgstr "``i386``, ``ppc``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:223
 msgid "``fat3``"
-msgstr ""
+msgstr "``fat3``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:223
 msgid "``i386``, ``ppc``, ``x86_64``"
-msgstr ""
+msgstr "``i386``, ``ppc``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:224
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``fat64``"
-msgstr "``x86_64``"
+msgstr "``fat64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:224
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``ppc64``, ``x86_64``"
-msgstr "``x86_64``"
+msgstr "``ppc64``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:227
 msgid ""
@@ -20658,7 +20728,7 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:235
 msgid "Android"
-msgstr ""
+msgstr "Android"
 
 #: ../source/specifications/platform-compatibility-tags.rst:237
 msgid ""
@@ -20684,20 +20754,20 @@ msgid ""
 "There are 4 `supported ABIs <https://developer.android.com/ndk/guides/"
 "abis>`__. Normalized according to the rules above, they are:"
 msgstr ""
+"Ekzistas kvar `subtenataj ABI-oj <https://developer.android.com/ndk/guides/"
+"abis>`__. Jen la ABI-oj normigitaj laŭ la ĉi-supraj reguloj:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:253
 msgid "``armeabi_v7a``"
-msgstr ""
+msgstr "``armeabi_v7a``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:254
 msgid "``arm64_v8a``"
-msgstr ""
+msgstr "``arm64_v8a``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:255
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``x86``"
-msgstr "``x86_64``"
+msgstr "``x86``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:258
 msgid ""
@@ -20709,7 +20779,7 @@ msgstr ""
 
 #: ../source/specifications/platform-compatibility-tags.rst:266
 msgid "iOS"
-msgstr ""
+msgstr "iOS"
 
 #: ../source/specifications/platform-compatibility-tags.rst:268
 msgid ""
@@ -20717,6 +20787,9 @@ msgid ""
 "compatibility with iOS ``x.y`` or later, on the ``arch`` architecture, using "
 "the ``sdk`` SDK."
 msgstr ""
+"iOS uzas la skemon :file:`ios_{x}_{y}_{arch}_{sdk}`, por kongrueco kun "
+"versio ``x.y`` (aŭ pli nova) de iOS, sur la arĥitekturo ``arch``, uzante la "
+"SDK ``sdk``."
 
 #: ../source/specifications/platform-compatibility-tags.rst:271
 msgid ""
@@ -20733,6 +20806,8 @@ msgid ""
 "The value of ``arch`` must match the value of :py:func:`platform.machine()` "
 "on the system."
 msgstr ""
+"La valoro de ``arch`` devas egali la valoron de :py:func:`platform.machine()`"
+" sur la sistemo."
 
 #: ../source/specifications/platform-compatibility-tags.rst:280
 msgid ""
@@ -20748,22 +20823,28 @@ msgid ""
 "The combination of :file:`{arch}_{sdk}` is referred to as the \"multiarch\". "
 "There are three possible values for multiarch:"
 msgstr ""
+"La kombinaĵo de :file:`{arch}_{sdk}` nomiĝas la «multarĥitekturo». Ekzistas "
+"tri eblaj valoroj de la multarĥitekturo:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:289
 msgid ""
 "``arm64_iphoneos``, for physical iPhone/iPad devices. This includes every "
 "iOS device manufactured since ~2015;"
 msgstr ""
+"``arm64_iphoneos``, por fizikaj aparatoj iPhone/iPad. Tiuj inkluzivas ĉiajn "
+"iOS-aparatojn produktitajn post ~2015;"
 
 #: ../source/specifications/platform-compatibility-tags.rst:291
 msgid ""
 "``arm64_iphonesimulator``, for simulators running on Apple Silicon macOS "
 "hardware; and"
 msgstr ""
+"``arm64_iphonesimulator``, por imitilo sur aparato Apple Silicon kun macOS; "
+"kaj"
 
 #: ../source/specifications/platform-compatibility-tags.rst:293
 msgid "``x86_64_iphonesimulator``, for simulators running on x86_64 hardware."
-msgstr ""
+msgstr "``x86_64_iphonesimulator``, por imitilo sur aparato x86_64."
 
 #: ../source/specifications/platform-compatibility-tags.rst:296
 msgid "Use"
@@ -21060,6 +21141,10 @@ msgid ""
 "analogous to newer versions of Python, but in the meantime \"none\" is a "
 "good enough way to say \"don't know\"."
 msgstr ""
+"Ĉar Python 2 ne faciligas akiri la SOABI (la koncepto nur ekekzistis en "
+"novaj versioj de Python 3), la nuntempa referenca realigo divenas ``none``. "
+"Ideale ĝi detektus ``py27(d|m|u)`` simile al novaj versioj de Python, sed "
+"``none`` sufiĉas por indiki nekonatecon."
 
 #: ../source/specifications/platform-compatibility-tags.rst:436
 msgid ""
@@ -21097,16 +21182,12 @@ msgstr ""
 "Aprilo 2021: La etikedo ``musllinux_x_y`` estis aprobita per :pep:`656`."
 
 #: ../source/specifications/platform-compatibility-tags.rst:444
-#, fuzzy
-#| msgid "October 2024: This specification was approved through :pep:`735`."
 msgid "December 2023: The tags for iOS were approved through :pep:`730`."
-msgstr "Oktobro 2024: Ĉi tiu specifo estis aprobita per :pep:`735`."
+msgstr "Decembro 2023: La etikedoj pri iOS estis aprobitaj per :pep:`730`."
 
 #: ../source/specifications/platform-compatibility-tags.rst:445
-#, fuzzy
-#| msgid "March 2020: This specification was approved through :pep:`610`."
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
-msgstr "Marto 2020: Ĉi tiu specifo estis aprobita per :pep:`610`."
+msgstr "Marto 2024: La etikedoj pri Android estis aprobitaj per :pep:`738`."
 
 #: ../source/specifications/pypirc.rst:6
 msgid "The :file:`.pypirc` file"
@@ -22379,6 +22460,9 @@ msgid ""
 "apply to tools that rely on other sources of information, such as system "
 "package managers in Linux distros.)"
 msgstr ""
+"Se la dosiero ``RECORD`` mankas, ilo dependanta de ``.dist-info`` devas ne "
+"provi malinstali aŭ ĝisdatigi la pakon. (Tiu devo ne temas pri ilo uzanta "
+"aliajn informojn kiel sistema pakadministrilo de Linux-distribuo.)"
 
 #: ../source/specifications/recording-installed-packages.rst:171
 msgid ""
@@ -22389,6 +22473,11 @@ msgid ""
 "``RECORD`` must be updated, otherwise uninstalling the package will leave "
 "unlisted files in place (possibly resulting in a zombie namespace package)."
 msgstr ""
+"Ni *rekomendegas*, ke instalita pako ne modifu sin (ekz. per enkaŝmemorigo "
+"de dosieroj sub sia nomspaco en ``site-packages``). Nur fakaj instaliloj "
+"kiel pip modifu ``site-changes``. Se pako tamen tiel sin modifas, do ĝi "
+"devas ĝisdatigu ``RECORD``; se tio ne okazus, malinstalado de pako lasus "
+"eksterlistajn dosierojn (eble kreante fantoman nomspacan pakon)."
 
 #: ../source/specifications/recording-installed-packages.rst:180
 msgid "The INSTALLER file"
@@ -22575,12 +22664,6 @@ msgid "Simple repository API"
 msgstr "Simpla deponeja API"
 
 #: ../source/specifications/simple-repository-api.rst:8
-#, fuzzy
-#| msgid ""
-#| "The keywords \"**MUST**\", \"**MUST NOT**\", \"**REQUIRED**\", "
-#| "\"**SHALL**\", \"**SHALL NOT**\", \"**SHOULD**\", \"**SHOULD NOT**\", "
-#| "\"**RECOMMENDED**\", \"**MAY**\", and \"**OPTIONAL**\"\" in this document "
-#| "are to be interpreted as described in :rfc:`RFC 2119 <2119>`."
 msgid ""
 "The keywords \"**MUST**\", \"**MUST NOT**\", \"**REQUIRED**\", "
 "\"**SHALL**\", \"**SHALL NOT**\", \"**SHOULD**\", \"**SHOULD NOT**\", "
@@ -22589,9 +22672,8 @@ msgid ""
 msgstr ""
 "La ŝlosilvortoj **«DEVAS» (MUST, SHALL)**, **«DEVAS NE» (MUST NOT, SHALL "
 "NOT)**, **«POSTULATA» (REQUIRED)**, **«-U» (SHOULD)**, **«NE -U» (SHOULD "
-"NOT)**, **«REKOMENDATA» (RECOMMENDED)**, **«POVAS» (MAY)** kaj "
-"**«NEDEVIGA» (OPTIONAL)**\" en ĉi tiu dokumento estas interpretataj laŭ :rfc:"
-"`RFC 2119 <2119>`."
+"NOT)**, **«REKOMENDATA» (RECOMMENDED)**, **«POVAS» (MAY)** kaj **«NEDEVIGA» "
+"(OPTIONAL)**\" en ĉi tiu dokumento estas interpretataj laŭ :rfc:`2119`."
 
 #: ../source/specifications/simple-repository-api.rst:13
 msgid ""
@@ -22628,13 +22710,6 @@ msgstr ""
 "``https://pypi.org/simple/foo/``."
 
 #: ../source/specifications/simple-repository-api.rst:32
-#, fuzzy
-#| msgid ""
-#| "Within a repository, the root URL (``/`` for this spec which represents "
-#| "the base URL) **MUST** be a valid HTML5 page with a single anchor element "
-#| "per project in the repository. The text of the anchor tag **MUST** be the "
-#| "name of the project and the href attribute **MUST** link to the URL for "
-#| "that particular project. As an example::"
 msgid ""
 "Within a repository, the root URL (``/`` for this spec which represents the "
 "base URL) **MUST** be a valid HTML5 page with a single anchor element per "
@@ -22644,9 +22719,9 @@ msgid ""
 msgstr ""
 "En deponejo, la radika retadreso (``/`` por ĉi tiu specifo, reprezentanta la "
 "bazan retadreson) **DEVAS** esti valida HTML5-paĝo kun ankraj elementoj po "
-"unu por ĉiu projekto en la deponejo. La teksto de la ankra elemento "
-"**DEVAS** esti la nomo de la projekto, kaj la atributo ``href`` **DEVAS** "
-"ligi al la retadreso de tiu projekto. Ekzemple::"
+"unu por ĉiu projekto en la deponejo. La teksto de la ankra elemento **DEVAS**"
+" esti la nomo de la projekto, kaj la atributo ``href`` **DEVAS** ligi al la "
+"retadreso de tiu projekto. Ekzemple:"
 
 #: ../source/specifications/simple-repository-api.rst:48
 msgid ""
@@ -22754,13 +22829,6 @@ msgstr ""
 "subskribo. Deponejo faranta tion **INKLUZIVU** ĝin sur ĉiu hiperligo."
 
 #: ../source/specifications/simple-repository-api.rst:95
-#, fuzzy
-#| msgid ""
-#| "A repository **MAY** include a ``data-requires-python`` attribute on a "
-#| "file link. This exposes the :ref:`core-metadata-requires-python` metadata "
-#| "field for the corresponding release. Where this is present, installer "
-#| "tools **SHOULD** ignore the download when installing to a Python version "
-#| "that doesn't satisfy the requirement. For example::"
 msgid ""
 "A repository **MAY** include a ``data-requires-python`` attribute on a file "
 "link. This exposes the :ref:`core-metadata-requires-python` metadata field "
@@ -22771,7 +22839,7 @@ msgstr ""
 "Deponejo **POVAS** inkluzivi atributon ``data-requires-python`` sur dosiera "
 "hiperligo. Tiu respondas al la metadatena kampo :ref:`core-metadata-requires-"
 "python` por la eldono. Se tiu ekzistas, instalilo **IGNORU** la elŝuton por "
-"instalado al Python-versio ne plenumanta la postulon. Ekzemple::"
+"instalado al Python-versio ne plenumanta la postulon. Ekzemple:"
 
 #: ../source/specifications/simple-repository-api.rst:105
 msgid ""
@@ -22982,10 +23050,8 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:227
-#, fuzzy
-#| msgid "This would end up looking like::"
 msgid "This would end up looking like:"
-msgstr "Tio aspektus jene::"
+msgstr "Tio aspektus jene:"
 
 #: ../source/specifications/simple-repository-api.rst:233
 msgid "When interpreting the repository version:"
@@ -23030,7 +23096,7 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:256
 msgid "API Version History"
-msgstr ""
+msgstr "Versio-historio de la API"
 
 #: ../source/specifications/simple-repository-api.rst:258
 msgid ""
@@ -23038,26 +23104,37 @@ msgid ""
 "the API version number. For a full history of changes including changes made "
 "before API versioning, see :ref:`History <simple-repository-history>`."
 msgstr ""
+"Tiu sekcio enhavas nur mallongan historion de ŝanĝoj laŭ la versia numero de "
+"la API. Por plena historio de ŝanĝoj inkluzive de ŝanĝoj faritaj antaŭ "
+"ekstarigo de versioj de la API, vidu :ref:`la Historion <simple-repository-"
+"history>`."
 
 #: ../source/specifications/simple-repository-api.rst:262
 msgid "API version 1.0: Initial version of the API, declared with :pep:`629`."
 msgstr ""
+"Versio 1.0 de la API: la unua versio de la API, deklarita per :pep:`629`."
 
 #: ../source/specifications/simple-repository-api.rst:263
 msgid ""
 "API version 1.1: Added ``versions``, ``files[].size``, and ``files[].upload-"
 "time`` metadata to the JSON serialization, declared with :pep:`700`."
 msgstr ""
+"Versio 1.1. de la API: Aldonis la metadatenojn ``versions``, ``files[].size``"
+", kaj ``files[].upload-time`` al la JSON-seriigo, deklaritajn per :pep:`700`."
 
 #: ../source/specifications/simple-repository-api.rst:265
 msgid ""
 "API version 1.2: Added repository \"tracks\" metadata, declared with :pep:"
 "`708`."
 msgstr ""
+"Versio 1.2 de la API: aldonis deponejajn metadatenojn pri «spurado», "
+"deklaritajn per :pep:`708`."
 
 #: ../source/specifications/simple-repository-api.rst:266
 msgid "API version 1.3: Added provenance metadata, declared with :pep:`740`."
 msgstr ""
+"Versio 1.3 de la API: aldonis metadatenojn pri originpruvo, deklaritajn per "
+":pep:`740`."
 
 #: ../source/specifications/simple-repository-api.rst:269
 #: ../source/specifications/simple-repository-api.rst:984
@@ -23173,6 +23250,10 @@ msgid ""
 "responses from :ref:`the base HTML API specification <simple-repository-api-"
 "base>`) should be serialized using `JSON <https://www.json.org/>`_."
 msgstr ""
+"Por ebligi analizi la sintakson de la respondo nur per la norma biblioteko, "
+"ĉi tiu normo specifas, ke ĉiaj respondoj (krom la dosieroj mem kaj la HTML-"
+"respondoj el :ref:`la baza normo pri HTML API <simple-repository-api-base>` "
+"estu seriigitaj laŭ `JSON <https://www.json.org/>`_."
 
 #: ../source/specifications/simple-repository-api.rst:334
 msgid ""
@@ -23228,6 +23309,9 @@ msgid ""
 "future specs that make any changes to the API to investigate and decide "
 "whether or not that change should increment the major or minor version."
 msgstr ""
+"Tio estas intencite malklara, ĉar la aŭtoroj de ĉi tiu normo kredas, la "
+"aŭtoroj de verkotaj normoj ŝanĝantaj la API-on konsideru kaj decidu, ĉu "
+"alkrementi la maĵoran aŭ minoran version."
 
 #: ../source/specifications/simple-repository-api.rst:369
 msgid ""
@@ -23399,13 +23483,10 @@ msgstr ""
 "«Ridinda_Piediro» havus la retadreson ``/ridinda-piediro/``."
 
 #: ../source/specifications/simple-repository-api.rst:470
-#, fuzzy
-#| msgid ""
-#| "This URL must respond with a JSON encoded dictionary that has three keys:"
 msgid ""
 "This URL must respond with a JSON encoded dictionary that has four keys:"
 msgstr ""
-"Tiu URL devas respondi per JSON-kodita vortaro enhavanta tri ŝlosilojn:"
+"Tiu URL devas respondi per JSON-kodita vortaro enhavanta kvar ŝlosilojn:"
 
 #: ../source/specifications/simple-repository-api.rst:472
 msgid "``name``: The normalized name of the project."
@@ -23446,10 +23527,8 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:497
-#, fuzzy
-#| msgid "The ``provenance`` field was added with API version 1.3."
 msgid "The ``versions`` key was added with API version 1.1."
-msgstr "La kampo ``provenance`` estis aldonita por versio 1.3 de la API."
+msgstr "La ŝlosilo ``versions`` estis aldonita por versio 1.1 de la API."
 
 #: ../source/specifications/simple-repository-api.rst:499
 msgid "Each individual file dictionary has the following keys:"
@@ -23571,22 +23650,16 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:555
-#, fuzzy
-#| msgid ""
-#| "``size``: This field is mandatory. It MUST contain an integer which is "
-#| "the file size in bytes."
 msgid ""
 "``size``: A **mandatory** key. It **MUST** contain an integer which is the "
 "file size in bytes."
 msgstr ""
-"``size``: Ĉi tiu kampo estas deviga kaj DEVAS enhavi entjeron, kiu estas la "
-"grando de la dosiero en bajtoj."
+"``size``: Ŝlosilo, kiu **DEVAS** ekzisti kaj **DEVAS** enhavi entjeron, kiu "
+"estas la grando de la dosiero en bajtoj."
 
 #: ../source/specifications/simple-repository-api.rst:559
-#, fuzzy
-#| msgid "The ``provenance`` field was added with API version 1.3."
 msgid "The ``size`` key was added with API version 1.1."
-msgstr "La kampo ``provenance`` estis aldonita por versio 1.3 de la API."
+msgstr "La ŝlosilo ``size`` estis aldonita por versio 1.1 de la API."
 
 #: ../source/specifications/simple-repository-api.rst:561
 msgid ""
@@ -23594,18 +23667,12 @@ msgid ""
 "valid ISO 8601 date/time string in the format ``yyyy-mm-ddThh:mm:ss."
 "ffffffZ`` which represents the time the file was uploaded to the index."
 msgstr ""
+"``upload-time``: Ŝlosilo kiu **POVAS** manki, kiu (se ĝi ekzistas) **DEVAS** "
+"enhavi validan datotempan signoĉenon laŭ ISO 8601 en la formo ``jjjj-mm-"
+"ttThh:mm:ss.ffffffZ``, kiu prezentas la tempon, kiam la dosiero estis "
+"alŝutita al la indekso."
 
 #: ../source/specifications/simple-repository-api.rst:565
-#, fuzzy
-#| msgid ""
-#| "``upload-time``: This field is optional. If present, it MUST contain a "
-#| "valid ISO 8601 date/time string, in the format ``yyyy-mm-ddThh:mm:ss."
-#| "ffffffZ``, which represents the time the file was uploaded to the index. "
-#| "As indicated by the ``Z`` suffix, the upload time MUST use the UTC "
-#| "timezone. The fractional seconds part of the timestamp (the ``.ffffff`` "
-#| "part) is optional, and if present may contain up to 6 digits of "
-#| "precision. If a server does not record upload time information for a "
-#| "file, it MAY omit the ``upload-time`` key."
 msgid ""
 "As indicated by the ``Z`` suffix, the upload time **MUST** use the UTC "
 "timezone. The fractional seconds part of the timestamp (the ``.ffffff`` "
@@ -23613,20 +23680,15 @@ msgid ""
 "If a server does not record upload time information for a file, it **MAY** "
 "omit the ``upload-time`` key."
 msgstr ""
-"``upload-time``: Ĉi tiu kampo estas nedeviga. Se ĝi ekzistas, ĝi DEVAS "
-"enhavi validan datotempan signoĉenon laŭ ISO 8601 en la formo``jjjj-mm-ttThh:"
-"mm:ss.ffffffZ``, kiu prezentas la tempon, kiam la dosiero estis alŝutita al "
-"la indekso. Laŭ la sufikso ``Z``, la alŝuta tempo DEVAS esti la Universala "
-"Kunordigita Tempo. La frakcia sekunda parto de la tempo (la parto ``."
-"ffffff``) estas nedeviga kaj povas enhavi maksimume ses ciferojn. Se servilo "
-"ne registras alŝutan tempon de dosiero, ĝi POVAS preterlasi la ŝlosilon "
-"``upload-time``."
+"Laŭ la sufikso ``Z``, la alŝuta tempo **DEVAS** esti la Universala "
+"Kunordigita Tempo. La frakcia sekunda parto de la tempo (la parto "
+"``.ffffff``) estas nedeviga kaj povas enhavi maksimume ses ciferojn. Se "
+"servilo ne registras alŝutan tempon de dosiero, ĝi **POVAS** preterlasi la "
+"ŝlosilon ``upload-time``."
 
 #: ../source/specifications/simple-repository-api.rst:572
-#, fuzzy
-#| msgid "The ``provenance`` field was added with API version 1.3."
 msgid "The ``upload-time`` key was added with API version 1.1."
-msgstr "La kampo ``provenance`` estis aldonita por versio 1.3 de la API."
+msgstr "La ŝlosilo ``upload-time`` estis aldonita por versio 1.1 de la API."
 
 #: ../source/specifications/simple-repository-api.rst:574
 msgid ""
@@ -23702,6 +23764,10 @@ msgid ""
 "``text/html`` content type, this spec further defines ``text/html`` as an "
 "alias for the ``application/vnd.pypi.simple.v1+html`` content type."
 msgstr ""
+"Por ekzistanta kliento atendanta la ekzistantan API-respondon de :ref:`la "
+"normo pri baza HTML API <simple-repository-api-base>` uzantan la enhavtipon "
+"``text/html``, ĉi tiu normo difinas ``text/html`` kiel sinonimon de la "
+"enhavtipo ``application/vnd.pypi.simple.v1+html`` ."
 
 #: ../source/specifications/simple-repository-api.rst:660
 msgid "Version + Format Selection"
@@ -24761,6 +24827,9 @@ msgid ""
 "Installation tools MAY warn the user when non-compliant or ambiguous "
 "versions are detected."
 msgstr ""
+"Instalilo IGNORU ajnan publikan version, kiu ne observas tiun skemon, kaj "
+"DEVAS inkluzivi la normigojn ĉi-subajn. Instalilo POVAS averti la uzanton, "
+"kiam ĝi trovas neobservantajn aŭ ambiguajn versiojn."
 
 #: ../source/specifications/version-specifiers.rst:73
 msgid ""
@@ -24827,6 +24896,9 @@ msgid ""
 "release segment, a numeric component of zero has no special significance "
 "aside from always being the lowest possible value in the version ordering."
 msgstr ""
+"Ĉia numera komponanto POVAS esti nulo. Krom la ĉi-suba paragrafo pri la "
+"eldono-segmento, la numera komponanto nulo ne estas speciala; ĝi estas "
+"simple la plej malgranda valoro je ordigado de versioj."
 
 #: ../source/specifications/version-specifiers.rst:101
 msgid ""
@@ -25167,6 +25239,9 @@ msgid ""
 "is substantially clearer to simply create a new pre-release by incrementing "
 "the numeric component."
 msgstr ""
+"Krei posteldono de antaŭeldono estas malrekomendegate, ĉar tio malfaciligas "
+"la versio-identigilon por homoj. Ĝenerale, estas pli simple krei novan "
+"antaŭeldonon alkrementante la numeran komponanton."
 
 #: ../source/specifications/version-specifiers.rst:316
 msgid "Developmental releases"
@@ -28413,6 +28488,13 @@ msgid ""
 "package is compatible with Python on any platform so only one built "
 "distribution is needed."
 msgstr ""
+"La dosiero ``tar.gz`` estas :term:`fonta distribuo <Source Distribution (or "
+"\"sdist\")>`, dum la dosiero ``.whl`` estas :term:`konstruita distribuo "
+"<Built Distribution>`. Novaj versioj de :ref:`pip` preferas instali "
+"konstruitan distribuon sed instalas fontan distribuon, se tio necesas. Oni "
+"ĉiam alŝutu fontan distribuon kaj ankaŭ la konstruitajn distribuojn por "
+"kongruaj platformoj. Niakaze, la ekzempla pako kongruas kun Python sur ajna "
+"platformo; tial ni nur bezonas unu konstruitan distribuon."
 
 #: ../source/tutorials/packaging-projects.rst:384
 msgid "Uploading the distribution archives"
