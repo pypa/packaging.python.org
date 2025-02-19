@@ -322,6 +322,8 @@ You can also specify the format explicitly, like this:
    readme = {file = "README.txt", content-type = "text/x-rst"}
 
 
+.. _license:
+
 ``license``
 -----------
 
@@ -385,6 +387,8 @@ field. Instead, you should use one of the :ref:`classifiers` starting with ``Lic
 license, both to avoid confusion and because some organizations avoid software
 whose license is unapproved.)
 
+
+.. _license-files:
 
 ``license-files``
 -----------------
