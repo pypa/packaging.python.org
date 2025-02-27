@@ -6,7 +6,7 @@
 # МАН69К <weblate@mah69k.net>, 2022.
 # Vik <xasertop@gmail.com>, 2022.
 # Alex <hostspepc@gmail.com>, 2023.
-# gfbdrgng <hnaofegnp@hldrive.com>, 2023, 2024.
+# gfbdrgng <hnaofegnp@hldrive.com>, 2023, 2024, 2025.
 # Andrey Rybakov <rybakov.ad@icloud.com>, 2023.
 # Nikita <nikdissv.github.forever@gmail.com>, 2024.
 msgid ""
@@ -14,17 +14,17 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-17 16:07+0000\n"
-"PO-Revision-Date: 2024-07-15 14:09+0000\n"
+"PO-Revision-Date: 2025-02-19 14:54+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -2163,25 +2163,24 @@ msgid "Where to read more about this?"
 msgstr "Где почитать об этом?"
 
 #: ../source/discussions/setup-py-deprecated.rst:213
-#, fuzzy
 msgid ""
 "`Why you shouldn't invoke setup.py directly <https://blog.ganssle.io/"
 "articles/2021/10/setup-py-deprecated.html>`__ by Paul Ganssle"
-msgstr "https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html"
+msgstr ""
+"`Почему не следует вызывать setup.py напрямую <https://blog.ganssle.io/"
+"articles/2021/10/setup-py-deprecated.html>`__ by Paul Ganssle"
 
 #: ../source/discussions/setup-py-deprecated.rst:215
 msgid ":doc:`setuptools:deprecated/commands`"
 msgstr ":doc:`setuptools:deprecated/commands`"
 
 #: ../source/discussions/single-source-version.rst:5
-#, fuzzy
 msgid "Single-sourcing the Project Version"
-msgstr "Однопользовательская версия пакета"
+msgstr "Единая версия проекта"
 
 #: ../source/discussions/single-source-version.rst:7
-#, fuzzy
 msgid "Complete"
-msgstr "Незавершено"
+msgstr "Выполнено"
 
 #: ../source/discussions/single-source-version.rst:8
 msgid "2024-10-07"
@@ -2195,6 +2194,11 @@ msgid ""
 "same version specifier as :func:`importlib.metadata.version` reports for the "
 "distribution package (as described in :ref:`runtime-version-access`)."
 msgstr ""
+"Многие Python :term:`distribution packages <Distribution Package>` публикуют "
+"один Python :term:`import package <Import Package>`, где желательно, чтобы "
+"атрибут runtime ``__version__`` на импортном пакете сообщал тот же "
+"спецификатор версии, что и :func:`importlib.metadata.version` сообщает для "
+"дистрибутивного пакета (как описано в :ref:`runtime-version-access`)."
 
 #: ../source/discussions/single-source-version.rst:16
 msgid ""
@@ -2202,37 +2206,46 @@ msgid ""
 "a version control system *tag* (such as ``v1.2.3``) rather than being "
 "manually updated in the source code."
 msgstr ""
+"Также часто бывает желательно, чтобы эта информация о версии была получена "
+"из *метки* системы контроля версий (например, ``v1.2.3``), а не обновлялась "
+"вручную в исходном коде."
 
 #: ../source/discussions/single-source-version.rst:20
 msgid ""
 "Some projects may choose to simply live with the data entry duplication, and "
 "rely on automated testing to ensure the different values do not diverge."
 msgstr ""
+"Некоторые проекты могут просто смириться с дублированием ввода данных и "
+"полагаться на автоматизированное тестирование, чтобы убедиться, что "
+"различные значения не расходятся."
 
 #: ../source/discussions/single-source-version.rst:23
-#, fuzzy
 msgid ""
 "Alternatively, a project's chosen build system may offer a way to define a "
 "single source of truth for the version number."
 msgstr ""
-"Существует множество методов поддержания единого источника истины для номера "
-"версии вашего проекта:"
+"В качестве альтернативы, выбранная проектом система сборки может предложить "
+"способ определения единого источника истины для номера версии."
 
 #: ../source/discussions/single-source-version.rst:26
 msgid "In general, the options are:"
-msgstr ""
+msgstr "В общем, возможны следующие варианты:"
 
 #: ../source/discussions/single-source-version.rst:28
 msgid ""
 "If the code is in a version control system (VCS), such as Git, then the "
 "version can be extracted from the VCS."
 msgstr ""
+"Если код находится в системе контроля версий (VCS), например Git, то версию "
+"можно извлечь из VCS."
 
 #: ../source/discussions/single-source-version.rst:30
 msgid ""
 "The version can be hard-coded into the :file:`pyproject.toml` file -- and "
 "the build system can copy it into other locations it may be required."
 msgstr ""
+"Версия может быть жестко задана в файле :file:`pyproject.toml`, а система "
+"сборки может скопировать ее в другие места, которые могут потребоваться."
 
 #: ../source/discussions/single-source-version.rst:33
 msgid ""
@@ -2242,10 +2255,17 @@ msgid ""
 "attribute in a particular module, such as :file:`__init__.py`. The build "
 "system can then extract it from the runtime location at build time."
 msgstr ""
+"Строка версии может быть жестко закодирована в исходном коде - либо в "
+"специальном файле, таком как :file:`_version.txt` (который затем должен "
+"поставляться как часть пакета распространения исходного кода проекта), либо "
+"как атрибут в определенном модуле, таком как :file:`__init__.py`. Тогда "
+"система сборки может извлечь его из места выполнения во время сборки."
 
 #: ../source/discussions/single-source-version.rst:38
 msgid "Consult your build system's documentation for their recommended method."
 msgstr ""
+"Обратитесь к документации вашей системы сборки, чтобы узнать о рекомендуемом "
+"методе."
 
 #: ../source/discussions/single-source-version.rst:40
 msgid ""
@@ -2255,16 +2275,24 @@ msgid ""
 "``importlib.metadata.version(\"dist-name\")`` report the same value (note: "
 "for many projects, ``import_name`` and ``dist-name`` will be the same name)."
 msgstr ""
+"Если предполагается, что дистрибутив и связанный с ним пакет импорта имеют "
+"одну и ту же версию, рекомендуется включить в проект автоматизированный "
+"тестовый пример, который гарантирует, что ``import_name.__version__`` и "
+"``importlib.metadata.version(\"dist-name\")`` сообщают одно и то же значение "
+"(примечание: для многих проектов ``import_name`` и ``dist-name`` будут иметь "
+"одно и то же имя)."
 
 #: ../source/discussions/single-source-version.rst:50
 msgid "Build System Version Handling"
-msgstr ""
+msgstr "Обработка версий системы сборки"
 
 #: ../source/discussions/single-source-version.rst:52
 msgid ""
 "The following are links to some build system's documentation for handling "
 "version strings."
 msgstr ""
+"Ниже приведены ссылки на документацию некоторых систем сборки по работе со "
+"строками версий."
 
 #: ../source/discussions/single-source-version.rst:54
 msgid "`Flit <https://flit.pypa.io/en/stable/>`_"
@@ -2418,6 +2446,7 @@ msgstr ""
 #: ../source/discussions/src-layout-vs-flat-layout.rst:86
 msgid "Running a command-line interface from source with src-layout"
 msgstr ""
+"Запуск интерфейса командной строки из исходного текста с помощью src-layout"
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:88
 msgid ""
@@ -2429,6 +2458,13 @@ msgid ""
 "the package folder to  Python's :py:data:`sys.path` when called via its :"
 "file:`__main__.py` file:"
 msgstr ""
+"В связи с первой из упомянутых особенностей компоновки src, интерфейс "
+"командной строки не может быть запущен непосредственно из :term:`source tree "
+"<Project Source Tree>`, а требует установки пакета в :doc:`Development Mode "
+"<setuptools:userguide/development_mode>` для целей тестирования. Поскольку "
+"это может быть непрактично в некоторых ситуациях, обходным решением может "
+"быть добавление папки пакета к :py:data:`sys.path` при вызове через файл "
+":file:`__main__.py`:"
 
 #: ../source/discussions/versioning.rst:6
 #: ../source/specifications/simple-repository-api.rst:362
@@ -2825,7 +2861,7 @@ msgstr ""
 
 #: ../source/discussions/versioning.rst:177
 msgid "Accessing version information at runtime"
-msgstr ""
+msgstr "Доступ к информации о версии во время выполнения"
 
 #: ../source/discussions/versioning.rst:179
 msgid ""
@@ -2834,12 +2870,19 @@ msgid ""
 "obtained at runtime using the standard library's :func:`importlib.metadata."
 "version` function::"
 msgstr ""
+"Информация о версии всех :term:`distribution packages <Distribution Package>`"
+", локально доступных в текущем окружении, может быть получена во время "
+"выполнения с помощью функции :func:`importlib.metadata.version` стандартной "
+"библиотеки::"
 
 #: ../source/discussions/versioning.rst:186
 msgid ""
 "Many projects also choose to version their top level :term:`import packages "
 "<Import Package>` by providing a package level ``__version__`` attribute::"
 msgstr ""
+"Многие проекты также выбирают версионирование своего верхнего уровня :term:`"
+"import packages <Import Package>`, предоставляя атрибут ``__version__`` на "
+"уровне пакета::"
 
 #: ../source/discussions/versioning.rst:194
 msgid ""
@@ -2847,6 +2890,9 @@ msgid ""
 "to ensure that version query invocations (such as ``pip -V``) run as quickly "
 "as possible."
 msgstr ""
+"Эта техника может быть особенно ценной для приложений CLI, которые хотят "
+"обеспечить максимально быстрое выполнение запросов версий (например, ``pip "
+"-V``)."
 
 #: ../source/discussions/versioning.rst:198
 msgid ""
@@ -2854,6 +2900,9 @@ msgid ""
 "import package versions are consistent with each other can review the :ref:"
 "`single-source-version` discussion for potential approaches to doing so."
 msgstr ""
+"Издатели пакетов, желающие обеспечить соответствие версий дистрибутивного и "
+"импортного пакетов, могут ознакомиться с обсуждением :ref:`single-source-"
+"version` для потенциальных подходов к решению этой задачи."
 
 #: ../source/discussions/versioning.rst:202
 msgid ""
@@ -2865,6 +2914,13 @@ msgid ""
 "querying code should be designed to handle the case where the attribute is "
 "missing [#fallback-to-dist-version]_."
 msgstr ""
+"Поскольку импортные пакеты и модули не *обязаны* публиковать информацию о "
+"версии во время выполнения таким образом (см. отозванное предложение в :pep:`"
+"PEP 396 <396>`), атрибут ``__version__`` должен запрашиваться только в "
+"интерфейсах, которые, как известно, его предоставляют (например, проект "
+"запрашивает свою собственную версию или версию одной из своих прямых "
+"зависимостей), или же код запроса должен быть разработан для обработки "
+"случая, когда атрибут отсутствует [#fallback-to-dist-version]_."
 
 #: ../source/discussions/versioning.rst:210
 msgid ""
@@ -2874,6 +2930,12 @@ msgid ""
 "For example, the standard library's :mod:`ssl` module offers multiple ways "
 "to access the underlying OpenSSL library version::"
 msgstr ""
+"Некоторым проектам может потребоваться опубликовать информацию о версии "
+"внешних API, которая не является версией самого модуля. Такие проекты должны "
+"определить свои собственные, специфичные для проекта способы получения "
+"соответствующей информации во время выполнения. Например, модуль :mod:`ssl` "
+"стандартной библиотеки предлагает несколько способов доступа к версии "
+"библиотеки OpenSSL::"
 
 #: ../source/discussions/versioning.rst:225
 msgid ""
@@ -2907,6 +2969,15 @@ msgid ""
 "and modules added via means other than Python package installation would "
 "fail to have version information reported in that case."
 msgstr ""
+"Полный список, отображающий имена верхнего уровня, доступные для импорта, на "
+"дистрибутивы, которые предоставляют эти импортируемые пакеты и модули, можно "
+"получить с помощью функции стандартной библиотеки "
+":func:`importlib.metadata.packages_distributions`. Это означает, что даже "
+"код, пытающийся определить версию для сообщения для всех импортируемых имен "
+"верхнего уровня, имеет возможность вернуться к сообщению информации о версии "
+"дистрибутива, если атрибут ``__version__`` не определен. Только стандартные "
+"библиотечные модули и модули, добавленные другими способами, кроме установки "
+"пакета Python, в этом случае не будут сообщать информацию о версии."
 
 #: ../source/flow.rst:3
 msgid "The Packaging Flow"
@@ -3509,28 +3580,24 @@ msgstr ""
 "нескольких отдельных дистрибутивов."
 
 #: ../source/glossary.rst:149
-#, fuzzy
-#| msgid "``classifiers``"
 msgid "License Classifier"
-msgstr "`` классификаторы ``"
+msgstr "Лицензионный классификатор"
 
 #: ../source/glossary.rst:152
 msgid ""
 "A PyPI Trove classifier (as :ref:`described <core-metadata-classifier>` in "
 "the :term:`Core Metadata` specification) which begins with ``License ::``."
 msgstr ""
+"Классификатор PyPI Trove (как :ref:`described <core-metadata-classifier>` в "
+"спецификации :term:`Core Metadata`), который начинается с ``Лицензии ::``."
 
 #: ../source/glossary.rst:157
-#, fuzzy
-#| msgid "License-Expression"
 msgid "License Expression"
-msgstr "License-Expression"
+msgstr "Лицензионная экспрессия"
 
 #: ../source/glossary.rst:158
-#, fuzzy
-#| msgid "License-Expression"
 msgid "SPDX Expression"
-msgstr "License-Expression"
+msgstr "SPDX Экспрессия"
 
 #: ../source/glossary.rst:161
 msgid ""
@@ -3539,16 +3606,18 @@ msgid ""
 "license(s) and how they inter-relate. Examples: ``GPL-3.0-or-later``, ``MIT "
 "AND (Apache-2.0 OR BSD-2-Clause)``"
 msgstr ""
+"Строка с допустимым синтаксисом выражения лицензий SPDX, включающая один или "
+"несколько идентификаторов SPDX :term:`License Identifier`\\(s), которые "
+"описывают лицензии :term:`Project` и их взаимосвязь. Примеры: ``GPL-3.0-or-"
+"later``, ``MIT AND (Apache-2.0 OR BSD-2-Clause)``"
 
 #: ../source/glossary.rst:169
-#, fuzzy
-#| msgid "Local version identifiers"
 msgid "License Identifier"
-msgstr "Идентификаторы локальных версий"
+msgstr "Лицензионный идентификатор"
 
 #: ../source/glossary.rst:170
 msgid "SPDX Identifier"
-msgstr ""
+msgstr "Идентификатор SPDX"
 
 #: ../source/glossary.rst:173
 msgid ""
@@ -3557,6 +3626,11 @@ msgid ""
 "[idstring]`` strings conforming to the SPDX specification. Examples: "
 "``MIT``, ``GPL-3.0-only``, ``LicenseRef-My-Custom-License``"
 msgstr ""
+"Действительный идентификатор короткой формы лицензии SPDX, первоначально "
+"указанный в :pep:`639`. Сюда входят все действительные идентификаторы SPDX и "
+"пользовательские строки ``LicenseRef-[idstring]``, соответствующие "
+"спецификации SPDX. Примеры: ``MIT``, ``GPL-3.0-only``, ``LicenseRef-My-"
+"Custom-License``"
 
 #: ../source/glossary.rst:183
 msgid "Module"
@@ -3886,16 +3960,12 @@ msgstr ""
 "`pip'''' docs on :ref:`pip:Requirements Files`."
 
 #: ../source/glossary.rst:349
-#, fuzzy
-#| msgid "Project Root Directory"
 msgid "Root License Directory"
-msgstr "Корневой каталог проекта"
+msgstr "Каталог корневых лицензий"
 
 #: ../source/glossary.rst:350
-#, fuzzy
-#| msgid "Local directory:"
 msgid "License Directory"
-msgstr "Локальный справочник:"
+msgstr "Каталог лицензий"
 
 #: ../source/glossary.rst:353
 msgid ""
@@ -3908,6 +3978,13 @@ msgid ""
 "root directory that paths recorded in the ``License-File`` :term:`Core "
 "Metadata Field` are relative to."
 msgstr ""
+"Каталог, в котором хранятся файлы лицензий в :term:`Project Source Tree`, "
+":term:`Distribution Archive` или :term:`Installed Project`. Для :term:`"
+"Project Source Tree` или :term:`Source Distribution (or \"sdist\")` это "
+":term:`Project Root Directory`. Для :term:`Built Distribution` или :term:`"
+"Installed Project` - это :file:`.dist-info/licenses/` каталог архива колеса "
+"или папки проекта соответственно. Также это корневая директория, к которой "
+"относятся пути, записанные в ``License-File`` :term:`Core Metadata Field``."
 
 #: ../source/glossary.rst:366
 #: ../source/guides/distributing-packages-using-setuptools.rst:59
@@ -4885,9 +4962,8 @@ msgstr ""
 "кроме setuptools, обеспечивают поддержку определения точек входа."
 
 #: ../source/guides/creating-command-line-tools.rst:5
-#, fuzzy
 msgid "Creating and packaging command-line tools"
-msgstr "Установка отдельных инструментов командной строки"
+msgstr "Создание и упаковка инструментов командной строки"
 
 #: ../source/guides/creating-command-line-tools.rst:7
 msgid ""
@@ -4897,11 +4973,15 @@ msgid ""
 "exposing the executable scripts of packages (and available manual pages) for "
 "use on the command-line."
 msgstr ""
+"Это руководство поможет вам создать и упаковать автономное приложение "
+"командной строки, которое можно установить с помощью :ref:`pipx`, "
+"инструмента для создания и управления :term:`Python Virtual Environments "
+"<Virtual Environment>` и предоставления исполняемых скриптов пакетов (и "
+"доступных страниц руководства) для использования в командной строке."
 
 #: ../source/guides/creating-command-line-tools.rst:12
-#, fuzzy
 msgid "Creating the package"
-msgstr "Создание файлов пакета"
+msgstr "Создание пакета"
 
 #: ../source/guides/creating-command-line-tools.rst:14
 msgid ""
@@ -4909,6 +4989,9 @@ msgid ""
 "the sake of an example, we'll build a simple tool outputting a greeting (a "
 "string) for a person based on arguments given on the command-line."
 msgstr ""
+"Прежде всего, создайте дерево исходных текстов для :term:`project <Project>`"
+". Для примера мы создадим простой инструмент, выводящий приветствие (строку) "
+"для человека на основе аргументов, заданных в командной строке."
 
 #: ../source/guides/creating-command-line-tools.rst:17
 #: ../source/guides/tool-recommendations.rst:45
@@ -4920,6 +5003,8 @@ msgid ""
 "Advise on the optimal structure of a Python package in another guide or "
 "discussion and link to it here."
 msgstr ""
+"Посоветуйте оптимальную структуру пакета Python в другом руководстве или "
+"обсуждении и дайте на него ссылку здесь."
 
 #: ../source/guides/creating-command-line-tools.rst:19
 msgid ""
@@ -4927,12 +5012,17 @@ msgid ""
 "and in the end be alike this file tree, with the top-level folder and "
 "package name ``greetings``:"
 msgstr ""
+"Этот проект будет придерживаться :ref:`src-layout <src-layout-vs-flat-"
+"layout>` и в итоге будет похож на это дерево файлов, с папкой верхнего "
+"уровня и именем пакета ``greetings``:"
 
 #: ../source/guides/creating-command-line-tools.rst:33
 msgid ""
 "The actual code responsible for the tool's functionality will be stored in "
 "the file :file:`greet.py`, named after the main module:"
 msgstr ""
+"Собственно код, отвечающий за функциональность инструмента, будет храниться "
+"в файле :file:`greet.py`, названном в честь основного модуля:"
 
 #: ../source/guides/creating-command-line-tools.rst:73
 msgid ""
@@ -4940,6 +5030,10 @@ msgid ""
 "greeting to output is constructed. Now, construct the command-line interface "
 "to provision it with the same, which is done in :file:`cli.py`:"
 msgstr ""
+"Приведенная выше функция получает несколько аргументов-ключей, которые "
+"определяют, как будет построено приветствие для вывода. Теперь "
+"сконструируйте интерфейс командной строки, чтобы обеспечить его тем же "
+"самым, что делается в :file:`cli.py`:"
 
 #: ../source/guides/creating-command-line-tools.rst:91
 msgid ""
@@ -4952,12 +5046,24 @@ msgid ""
 "possible to create CLI interfaces based solely on docstrings; advanced users "
 "are encouraged to make use of click_ (on which ``typer`` is based)."
 msgstr ""
+"Интерфейс командной строки построен с помощью typer_, простого в "
+"использовании парсера CLI, основанного на подсказках типов Python. Он "
+"обеспечивает автозавершение и красиво оформленную справку по командной "
+"строке из коробки. Другим вариантом может быть :py:mod:`argparse`, парсер "
+"командной строки, включенный в стандартную библиотеку Python. Он достаточен "
+"для большинства потребностей, но требует много кода, обычно в ``cli.py``, "
+"для правильной работы. В качестве альтернативы, docopt_ позволяет создавать "
+"интерфейсы CLI, основанные исключительно на строках документов; продвинутым "
+"пользователям рекомендуется использовать click_ (на котором основан "
+"``typer``)."
 
 #: ../source/guides/creating-command-line-tools.rst:97
 msgid ""
 "Now, add an empty :file:`__init__.py` file, to define the project as a "
 "regular :term:`import package <Import Package>`."
 msgstr ""
+"Теперь добавьте пустой файл :file:`__init__.py`, чтобы определить проект как "
+"обычный :term:`import package <Import Package>`."
 
 #: ../source/guides/creating-command-line-tools.rst:99
 msgid ""
@@ -4966,6 +5072,10 @@ msgid ""
 "immediately with flat layout, but requires installation of the package with "
 "src layout), so initizalize the command-line interface here:"
 msgstr ""
+"Файл :file:`__main__.py` обозначает основную точку входа в приложение при "
+"его запуске через :mod:`runpy` (т.е. ``python -m greetings``, что сразу "
+"работает при плоской раскладке, но требует установки пакета при "
+"src-раскладке), поэтому инициализируйте здесь интерфейс командной строки:"
 
 #: ../source/guides/creating-command-line-tools.rst:111
 msgid ""
@@ -4974,6 +5084,10 @@ msgid ""
 "a certain hack could be placed in this file; read more at :ref:`running-cli-"
 "from-source-src-layout`."
 msgstr ""
+"Для того чтобы можно было вызывать интерфейс командной строки "
+"непосредственно из :term:`source tree <Project Source Tree>`, т.е. как ``"
+"python src/greetings``, в этот файл можно поместить определенный хак; "
+"подробнее читайте в :ref:`running-cli-from-source-src-layout``."
 
 #: ../source/guides/creating-command-line-tools.rst:117
 msgid "``pyproject.toml``"
@@ -4987,6 +5101,11 @@ msgid ""
 "`writing-pyproject-toml`, adding a dependency on ``typer`` (this tutorial "
 "uses version *0.12.3*)."
 msgstr ""
+"Метаданные проекта :term:`metadata <Pyproject Metadata>` размещаются в "
+":term:`pyproject.toml`. Ключи метаданных :term:`pyproject <Pyproject "
+"Metadata Key>` и таблица ``[build-system]`` могут быть заполнены, как "
+"описано в :ref:`writing-pyproject-toml`, добавив зависимость от ``typer`` (в "
+"этом руководстве используется версия *0.12.3*)."
 
 #: ../source/guides/creating-command-line-tools.rst:122
 msgid ""
@@ -4995,29 +5114,39 @@ msgid ""
 "`console_scripts`) needs to be added as a :term:`subkey <Pyproject Metadata "
 "Subkey>`:"
 msgstr ""
+"Чтобы проект распознавался как инструмент командной строки, дополнительно "
+"необходимо добавить ``console_scripts`` :ref:`entry point <entry-points>` ("
+"см. :ref:`console_scripts`) в качестве :term:`subkey <Pyproject Metadata "
+"Subkey>`:"
 
 #: ../source/guides/creating-command-line-tools.rst:129
 msgid ""
 "Now, the project's source tree is ready to be transformed into a :term:"
 "`distribution package <Distribution Package>`, which makes it installable."
 msgstr ""
+"Теперь дерево исходных текстов проекта готово к преобразованию в :term:`"
+"distribution package <Distribution Package>`, что делает его пригодным для "
+"установки."
 
 #: ../source/guides/creating-command-line-tools.rst:134
-#, fuzzy
 msgid "Installing the package with ``pipx``"
-msgstr "Установка пакетов с помощью pip"
+msgstr "Установка пакета с помощью ``pipx``"
 
 #: ../source/guides/creating-command-line-tools.rst:136
 msgid ""
 "After installing ``pipx`` as described in :ref:`installing-stand-alone-"
 "command-line-tools`, install your project:"
 msgstr ""
+"После установки ``pipx``, как описано в :ref:`installing-stand-alone-command-"
+"line-tools`, установите ваш проект:"
 
 #: ../source/guides/creating-command-line-tools.rst:143
 msgid ""
 "This will expose the executable script we defined as an entry point and make "
 "the command ``greet`` available. Let's test it:"
 msgstr ""
+"Это откроет исполняемый скрипт, который мы определили как точку входа, и "
+"сделает доступной команду ``greet``. Давайте проверим это:"
 
 #: ../source/guides/creating-command-line-tools.rst:155
 msgid ""
@@ -5025,12 +5154,18 @@ msgid ""
 "program's usage by calling it with the ``--help`` option, or configure "
 "completions via the ``--install-completion`` option."
 msgstr ""
+"Поскольку в этом примере используется ``typer``, теперь вы также можете "
+"получить обзор использования программы, вызвав ее с помощью опции ``--help``"
+", или настроить завершение работы с помощью опции ``--install-completion``."
 
 #: ../source/guides/creating-command-line-tools.rst:158
 msgid ""
 "To just run the program without installing it permanently, use ``pipx run``, "
 "which will create a temporary (but cached) virtual environment for it:"
 msgstr ""
+"Чтобы просто запустить программу без ее постоянной установки, используйте ``"
+"pipx run``, который создаст для нее временное (но кэшированное) виртуальное "
+"окружение:"
 
 #: ../source/guides/creating-command-line-tools.rst:165
 msgid ""
@@ -5038,6 +5173,10 @@ msgid ""
 "defined above does not match the package name, we need to state explicitly "
 "which executable script to run (even though there is only on in existence)."
 msgstr ""
+"Однако этот синтаксис немного непрактичен: поскольку имя точки входа, "
+"которую мы определили выше, не совпадает с именем пакета, нам нужно явно "
+"указать, какой исполняемый скрипт запускать (даже если существует только "
+"один)."
 
 #: ../source/guides/creating-command-line-tools.rst:168
 msgid ""
@@ -5045,6 +5184,9 @@ msgid ""
 "an entry point specific to ``pipx run``. The same can be defined as follows "
 "in :file:`pyproject.toml`:"
 msgstr ""
+"Однако существует более практичное решение этой проблемы в виде точки входа, "
+"специфичной для ``pipx run``. Ее можно определить следующим образом в "
+":file:`pyproject.toml`:"
 
 #: ../source/guides/creating-command-line-tools.rst:177
 msgid ""
@@ -5052,11 +5194,13 @@ msgid ""
 "will pick up the executable script as the default one and run it, which "
 "makes this command possible:"
 msgstr ""
+"Благодаря этой точке входа (которая *должна* соответствовать имени пакета), "
+"``pipx`` подберет исполняемый скрипт по умолчанию и запустит его, что делает "
+"эту команду возможной:"
 
 #: ../source/guides/creating-command-line-tools.rst:185
-#, fuzzy
 msgid "Conclusion"
-msgstr "Исключение версии"
+msgstr "Заключение"
 
 #: ../source/guides/creating-command-line-tools.rst:187
 msgid ""
@@ -5068,6 +5212,13 @@ msgid ""
 "some research <analyzing-pypi-package-downloads>` on how your package is "
 "received!"
 msgstr ""
+"Вы уже знаете, как упаковать приложение командной строки, написанное на "
+"Python. Следующим шагом может быть распространение вашего пакета, то есть "
+"загрузка его в :term:`package index <Package Index>`, чаще всего :term:`PyPI "
+"<Python Package Index (PyPI)>`. Чтобы сделать это, следуйте инструкциям в "
+":ref:`Packaging your project`. И как только вы закончите, не забудьте :ref:`"
+"do some research <analyzing-pypi-package-downloads>` на предмет того, как "
+"был принят ваш пакет!"
 
 #: ../source/guides/distributing-packages-using-setuptools.rst:5
 msgid "Packaging and distributing projects"
@@ -6036,58 +6187,54 @@ msgid "Dropping support for older Python versions"
 msgstr "Удаление поддержки старых версий Python'а"
 
 #: ../source/guides/dropping-older-python-versions.rst:7
-#, fuzzy
 msgid ""
 "The ability to drop support for older Python versions is enabled by the "
 "standard :ref:`core-metadata` 1.2 specification via the :ref:`\"Requires-"
 "Python\" <core-metadata-requires-python>` attribute."
 msgstr ""
-"Отказ от поддержки старых версий Python поддерживается стандартной "
-"спецификацией :ref:`core-metadata` 1.2 с помощью атрибута \"Requires-"
-"Python\"."
+"Возможность отказаться от поддержки старых версий Python предусмотрена "
+"стандартной спецификацией :ref:`core-metadata` 1.2 с помощью атрибута :ref"
+":`\"Requires-Python\" <core-metadata-requires-python>`."
 
 #: ../source/guides/dropping-older-python-versions.rst:9
-#, fuzzy
 msgid ""
 "Metadata 1.2+ installers, such as Pip, will adhere to this specification by "
 "matching the current Python runtime and comparing it with the required "
 "version in the package metadata. If they do not match, it will attempt to "
 "install the last package distribution that supported that Python runtime."
 msgstr ""
-"Клиенты с метаданными 1.2+, такие как Pip 9.0+, будут придерживаться этой "
+"Установщики с метаданными 1.2+, такие как Pip, будут придерживаться этой "
 "спецификации, определяя текущую среду выполнения Python и сравнивая ее с "
 "требуемой версией в метаданных пакета. Если они не совпадают, то будет "
 "предпринята попытка установить последний дистрибутив пакета, который "
-"поддерживал данную среду выполнения Python."
+"поддерживал эту среду выполнения Python."
 
 #: ../source/guides/dropping-older-python-versions.rst:12
-#, fuzzy
 msgid ""
 "This mechanism can be used to drop support for older Python versions, by "
 "amending the ``Requires-Python`` attribute in the package metadata."
 msgstr ""
 "Этот механизм можно использовать для отказа от поддержки старых версий "
-"Python, изменив атрибут \"Requires-Python\" в метаданных пакета."
+"Python, изменив атрибут ``Requires-Python`` в метаданных пакета."
 
 #: ../source/guides/dropping-older-python-versions.rst:15
 msgid "Requirements"
 msgstr "Требования"
 
 #: ../source/guides/dropping-older-python-versions.rst:17
-#, fuzzy
 msgid ""
 "This workflow requires that the user installing the package uses Pip [#]_, "
 "or another installer that supports the Metadata 1.2 specification."
 msgstr ""
-"У пользователя, устанавливающего пакет, был установлен хотя бы Pip 9.0 или "
-"клиент, поддерживающий спецификацию Metadata 1.2."
+"Этот рабочий процесс требует, чтобы пользователь, устанавливающий пакет, "
+"использовал Pip [#]_ или другую программу установки, поддерживающую "
+"спецификацию Metadata 1.2."
 
 #: ../source/guides/dropping-older-python-versions.rst:20
 msgid "Dealing with the universal wheels"
 msgstr "Работа с универсальными колесами"
 
 #: ../source/guides/dropping-older-python-versions.rst:22
-#, fuzzy
 msgid ""
 "Traditionally, :ref:`setuptools` projects providing Python code that is "
 "semantically compatible with both Python 2 and Python 3, produce :term:"
@@ -6096,12 +6243,12 @@ msgid ""
 "just ``py3``. It is often configured within :file:`setup.cfg` under the "
 "``[bdist_wheel]`` section by setting ``universal = 1``."
 msgstr ""
-"Традиционно проекты, предоставляющие Python код, который семантически "
-"совместим как с Python 2, так и Python 3, производят :термин: \" колеса "
-"<Wheel>`, которые имеют тег ``py2.py3`` в своих именах. При отказе от "
-"поддержки Python 2 важно не забывать об изменении этого тега только на "
-"``py3``. Он часто настраивается в :file:`setup.cfg` под ``[bdist_wheel]`` "
-"раздел путем установки ``universal = 1``, если они используют setuptools."
+"Традиционно проекты :ref:`setuptools`, предоставляющие код на Python, "
+"семантически совместимый как с Python 2, так и с Python 3, создают :term:`"
+"wheels <Wheel>`, в именах которых присутствует тег ``py2.py3``. При отказе "
+"от поддержки Python 2 важно не забыть изменить этот тег на просто ``py3``. "
+"Часто его настраивают в :file:`setup.cfg` в разделе ``[bdist_wheel]``, "
+"установив ``universal = 1``."
 
 #: ../source/guides/dropping-older-python-versions.rst:29
 msgid ""
@@ -6117,19 +6264,21 @@ msgid ""
 "invocations, passing the ``--universal`` flag on the command line could "
 "override this setting."
 msgstr ""
+"Что касается :ref:`deprecated <setup-py-deprecated>` прямых вызовов "
+"``setup.py``, передача флага ``--universal`` в командной строке может "
+"отменить эту настройку."
 
 #: ../source/guides/dropping-older-python-versions.rst:45
 msgid "Defining the Python version required"
 msgstr "Определение требуемой версии Python'а"
 
 #: ../source/guides/dropping-older-python-versions.rst:48
-#, fuzzy
 msgid "1. Install twine"
-msgstr "Установка"
+msgstr "1. Установить шпагат"
 
 #: ../source/guides/dropping-older-python-versions.rst:50
 msgid "Ensure that you have twine available at its latest version. Steps:"
-msgstr ""
+msgstr "Убедитесь, что у вас есть шпагат последней версии. Шаги:"
 
 #: ../source/guides/dropping-older-python-versions.rst:66
 msgid "2. Specify the version ranges for supported Python distributions"
@@ -6142,22 +6291,29 @@ msgid ""
 "configuration field corresponds to the :ref:`Requires-Python <core-metadata-"
 "requires-python>` core metadata field:"
 msgstr ""
+"Устанавливает диапазоны версий, объявляющие, какие дистрибутивы Python "
+"поддерживаются в :file:`pyproject.toml` вашего проекта. Поле конфигурации "
+":ref:`requires-python` соответствует полю метаданных ядра :ref:`Requires-"
+"Python <core-metadata-requires-python>`:"
 
 #: ../source/guides/dropping-older-python-versions.rst:80
-#, fuzzy
 msgid ""
 "You can specify version ranges and exclusion rules (complying with the :ref:"
 "`version-specifiers` specification), such as at least Python 3.9. Or, at "
 "least Python 3.7 and beyond, skipping the 3.7.0 and 3.7.1 point releases:"
 msgstr ""
-"Можно указать диапазоны версий и правила исключения, например, не менее "
-"Python 3. Или Python 2.7, 3.4 и далее."
+"Вы можете указать диапазон версий и правила исключения (в соответствии со "
+"спецификацией :ref:`version-specifiers`), например, не ниже Python 3.9. Или, "
+"по крайней мере, Python 3.7 и далее, пропуская точечные выпуски 3.7.0 и "
+"3.7.1:"
 
 #: ../source/guides/dropping-older-python-versions.rst:89
 msgid ""
 "If using the :ref:`setuptools` build backend, consult the `dependency-"
 "management`_ documentation for more options."
 msgstr ""
+"Если вы используете бэкенд сборки :ref:`setuptools`, обратитесь к "
+"документации `dependency-management`_ за дополнительными опциями."
 
 #: ../source/guides/dropping-older-python-versions.rst:92
 msgid ""
@@ -6165,6 +6321,9 @@ msgid ""
 "3.10\"``. Doing so can cause different errors and version conflicts. See the "
 "`discourse-discussion`_ for more information."
 msgstr ""
+"Избегайте добавления верхних границ к диапазонам версий, например, ``"
+"\">= 3.8, < 3.10\"``. Это может привести к различным ошибкам и конфликтам "
+"версий. Дополнительную информацию см. в `discourse-discussion`_."
 
 #: ../source/guides/dropping-older-python-versions.rst:96
 msgid "3. Validating the Metadata before publishing"
@@ -6179,15 +6338,14 @@ msgstr ""
 "скачиваете) находится текстовый файл PKG-INFO."
 
 #: ../source/guides/dropping-older-python-versions.rst:100
-#, fuzzy
 msgid ""
 "This file is generated by the :term:`build backend <Build Backend>` when it "
 "generates the source package. The file contains a set of keys and values, "
 "the list of keys is part of the PyPA standard metadata format."
 msgstr ""
-"Этот файл генерируется :ref:`distutils` или :ref:`setuptools` при создании "
+"Этот файл генерируется :term:`build backend <Build Backend>` при создании "
 "исходного пакета. Файл содержит набор ключей и значений, список ключей "
-"является частью стандартного формата метаданных PyPa."
+"является частью стандартного формата метаданных PyPA."
 
 #: ../source/guides/dropping-older-python-versions.rst:103
 msgid "You can see the contents of the generated file like this:"
@@ -6199,37 +6357,32 @@ msgstr ""
 "Перед публикацией пакета убедитесь, что все перечисленное ниже на месте:"
 
 #: ../source/guides/dropping-older-python-versions.rst:111
-#, fuzzy
 msgid ""
 "If you have upgraded correctly, the ``Metadata-Version`` value should be 1.2 "
 "or higher."
 msgstr ""
-"Если вы выполнили обновление правильно, значение Метаданные-версия должно "
+"Если вы выполнили обновление правильно, значение ``Metadata-Version`` должно "
 "быть 1.2 или выше."
 
 #: ../source/guides/dropping-older-python-versions.rst:112
-#, fuzzy
 msgid ""
 "The ``Requires-Python`` field is set and matches your specification in the "
 "configuration file."
 msgstr ""
-"Поле Requires-Python установлено и соответствует вашей спецификации в файле "
-"setup.py."
+"Поле ``Requires-Python`` установлено и соответствует вашей спецификации в "
+"файле конфигурации."
 
 #: ../source/guides/dropping-older-python-versions.rst:115
-#, fuzzy
 msgid "4. Publishing the package"
-msgstr "Публикация выпусков"
+msgstr "4. Публикация пакета"
 
 #: ../source/guides/dropping-older-python-versions.rst:117
-#, fuzzy
 msgid "Proceed as suggested in :ref:`Uploading your Project to PyPI`."
-msgstr "Загрузка вашего проекта на PyPI"
+msgstr "Действуйте, как указано в :ref:`Uploading your Project to PyPI`."
 
 #: ../source/guides/dropping-older-python-versions.rst:120
-#, fuzzy
 msgid "Dropping a Python version"
-msgstr "Удаление выпуска Python'а"
+msgstr "Отказ от версии Python"
 
 #: ../source/guides/dropping-older-python-versions.rst:122
 msgid ""
@@ -6241,10 +6394,18 @@ msgid ""
 "depends on whether the project needs to be stable and well-covered for a "
 "wider range of users."
 msgstr ""
+"В принципе, по крайней мере, поддержка версий Python в метаданных должна "
+"сохраняться как можно дольше, потому что после отказа от неё люди, всё ещё "
+"зависящие от версии, будут вынуждены перейти на новую версию. Если же "
+"поддержка конкретной версии становится препятствием для новых возможностей "
+"или возникают другие проблемы, метаданные ``Requires-Python`` должны быть "
+"изменены. Конечно, это также зависит от того, должен ли проект быть "
+"стабильным и хорошо покрытым для более широкого круга пользователей."
 
 #: ../source/guides/dropping-older-python-versions.rst:128
 msgid "Each version compatibility change should have its own release."
 msgstr ""
+"Каждое изменение совместимости версий должно иметь свой собственный релиз."
 
 #: ../source/guides/dropping-older-python-versions.rst:132
 msgid ""
@@ -6253,10 +6414,15 @@ msgid ""
 "visible places (like the testing environment). Tools like pyupgrade_ or "
 "`ruff <https://docs.astral.sh/ruff/linter/>`_ can automate some of this work."
 msgstr ""
+"При отказе от версии Python может быть полезно обновить синтаксис кода "
+"проекта в целом, помимо обновления версий, используемых в видимых местах ("
+"например, в тестовой среде). Такие инструменты, как pyupgrade_ или `ruff "
+"<https://docs.astral.sh/ruff/linter/>`_, могут автоматизировать часть этой "
+"работы."
 
 #: ../source/guides/dropping-older-python-versions.rst:138
 msgid "Support for the Metadata 1.2 specification has been added in Pip 9.0."
-msgstr ""
+msgstr "В Pip 9.0 добавлена поддержка спецификации Metadata 1.2."
 
 #: ../source/guides/hosting-your-own-index.rst:5
 msgid "Hosting your own simple repository"
@@ -6650,7 +6816,6 @@ msgstr ""
 "взаимодействовать с различными частями внешнего программного обеспечения."
 
 #: ../source/guides/installing-scientific-packages.rst:13
-#, fuzzy
 msgid ""
 "In particular, `NumPy <https://numpy.org/>`__, which provides the basis for "
 "most of the software in the `scientific Python stack <https://scientific-"
@@ -6659,13 +6824,12 @@ msgid ""
 "instructions available in modern CPUs."
 msgstr ""
 "В частности, `NumPy <https://numpy.org/>`__, который является основой для "
-"большинства программ в научном стеке Python <https://scientific-python."
-"org>`_, может быть настроен на взаимодействие с различными библиотеками "
-"FORTRAN и может использовать преимущества различных уровней векторизованных "
+"большинства программ в научном стеке Python <https://scientific-python.org>`"
+"_, может быть настроен на взаимодействие с различными библиотеками FORTRAN и "
+"может использовать преимущества различных уровней векторизованных "
 "инструкций, доступных в современных процессорах."
 
 #: ../source/guides/installing-scientific-packages.rst:19
-#, fuzzy
 msgid ""
 "Starting with version 1.10.4 of NumPy and version 1.0.0 of SciPy, pre-built "
 "32-bit and 64-bit binaries in the ``wheel`` format are available for all "
@@ -6678,7 +6842,7 @@ msgstr ""
 "предварительно собранные 32- и 64-битные двоичные файлы в формате ``колеса'' "
 "для всех основных операционных систем (Windows, macOS и Linux). Обратите "
 "внимание, однако, что в Windows двоичные файлы NumPy скомпонованы с "
-"библиотекой BLAS/LAPACK `ATLAS <http://www.netlib.org/atlas/>`__, "
+"библиотекой BLAS/LAPACK `ATLAS <https://math-atlas.sourceforge.net/>`__, "
 "ограниченной инструкциями SSE2, поэтому они могут не обеспечивать "
 "оптимальную производительность линейной алгебры."
 
