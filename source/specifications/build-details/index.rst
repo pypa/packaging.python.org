@@ -1,8 +1,8 @@
 .. _build-details:
 
-======================
-``build-details.json``
-======================
+==========================
+:file:`build-details.json`
+==========================
 
 .. toctree::
    :hidden:
