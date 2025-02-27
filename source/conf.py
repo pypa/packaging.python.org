@@ -129,7 +129,7 @@ texinfo_documents = [
 
 linkcheck_ignore = [
     "http://localhost:\\d+",
-    "https://packaging.python.org/en/latest/specifications/schemas/*",
+    "https://packaging.python.org/en/latest/specifications/schemas/.*",
     "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
