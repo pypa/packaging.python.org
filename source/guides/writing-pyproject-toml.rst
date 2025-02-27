@@ -322,8 +322,19 @@ You can also specify the format explicitly, like this:
    readme = {file = "README.txt", content-type = "text/x-rst"}
 
 
+.. _license:
+
 ``license``
 -----------
+
+:pep:`639` (accepted in August 2024) has changed the way the ``license`` field
+is declared. Make sure your preferred build backend supports :pep:`639` before
+trying to apply the newer guidelines.
+As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
+and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
+
+:pep:`639` license declaration
+''''''''''''''''''''''''''''''
 
 This is a valid :term:`SPDX license expression <License Expression>` consisting
 of one or more :term:`license identifiers <License Identifier>`.
@@ -352,9 +363,41 @@ The custom identifiers must follow the SPDX specification,
     [project]
     license = "LicenseRef-My-Custom-License"
 
+Legacy license declaration
+''''''''''''''''''''''''''
+
+This can take two forms. You can put your license in a file, typically
+:file:`LICENSE` or :file:`LICENSE.txt`, and link that file here:
+
+.. code-block:: toml
+
+    [project]
+    license = {file = "LICENSE"}
+
+or you can write the name of the license:
+
+.. code-block:: toml
+
+    [project]
+    license = {text = "MIT License"}
+
+If you are using a standard, well-known license, it is not necessary to use this
+field. Instead, you should use one of the :ref:`classifiers` starting with ``License
+::``. (As a general rule, it is a good idea to use a standard, well-known
+license, both to avoid confusion and because some organizations avoid software
+whose license is unapproved.)
+
+
+.. _license-files:
 
 ``license-files``
 -----------------
+
+:pep:`639` (accepted in August 2024) has introduced the ``license-files`` field.
+Make sure your preferred build backend supports :pep:`639` before declaring the
+field.
+As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
+and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
 
 This is a list of license files and files containing other legal
 information you want to distribute with your package.
@@ -529,7 +572,7 @@ A full example
    ]
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
-   license = "MIT"
+   license = "MIT"  # or license = {file = "LICENSE.txt"} for legacy declaration
    license-files = ["LICEN[CS]E.*"]
    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
    classifiers = [

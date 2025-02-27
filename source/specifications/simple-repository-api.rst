@@ -5,6 +5,11 @@
 Simple repository API
 =====================
 
+The keywords "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**",
+"**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "**RECOMMENDED**", "**MAY**",
+and "**OPTIONAL**"" in this document are to be interpreted as described in
+:rfc:`2119`.
+
 The interface for querying available package versions and
 retrieving packages from an index server comes in two forms:
 HTML and JSON.
@@ -28,7 +33,9 @@ Within a repository, the root URL (``/`` for this spec which represents the base
 URL) **MUST** be a valid HTML5 page with a single anchor element per project in
 the repository. The text of the anchor tag **MUST** be the name of
 the project and the href attribute **MUST** link to the URL for that particular
-project. As an example::
+project. As an example:
+
+.. code-block:: html
 
    <!DOCTYPE html>
    <html>
@@ -81,6 +88,26 @@ In addition to the above, the following constraints are placed on the API:
   associated signature, the signature would be located at
   ``/packages/HolyGrail-1.0.tar.gz.asc``.
 
+* A repository **MAY** include a ``data-core-metadata`` attribute on a file
+  link.
+
+  The repository **SHOULD** provide the hash of the Core Metadata file as the
+  ``data-core-metadata`` attribute's value using the syntax
+  ``<hashname>=<hashvalue>``, where ``<hashname>`` is the lower cased name of
+  the hash function used, and ``<hashvalue>`` is the hex encoded digest. The
+  repository **MAY** use ``true`` as the attribute's value if a hash is unavailable.
+
+* A repository **MAY** include a ``data-dist-info-metadata`` attribute on a
+  file link.
+
+  Index clients **MAY** consume this key if present, as a legacy fallback
+  for ``data-core-metadata``.
+
+  .. important::
+
+    ``data-dist-info-metadata`` was standardized with :pep:`658` and renamed to
+    ``data-core-metadata`` with :pep:`714`.
+
 * A repository **MAY** include a ``data-gpg-sig`` attribute on a file link with
   a value of either ``true`` or ``false`` to indicate whether or not there is a
   GPG signature. Repositories that do this **SHOULD** include it on every link.
@@ -89,7 +116,9 @@ In addition to the above, the following constraints are placed on the API:
   link. This exposes the :ref:`core-metadata-requires-python` metadata field
   for the corresponding release. Where this is present, installer tools
   **SHOULD** ignore the download when installing to a Python version that
-  doesn't satisfy the requirement. For example::
+  doesn't satisfy the requirement. For example:
+
+  .. code-block:: html
 
       <a href="..." data-requires-python="&gt;=3">...</a>
 
@@ -100,6 +129,10 @@ In addition to the above, the following constraints are placed on the API:
   The value of this attribute **MUST** be a fully qualified URL, signaling that
   the file's provenance can be found at that URL. This URL **MUST** represent
   a `secure origin <https://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features/>`_.
+
+  .. note::
+
+    The ``data-provenance`` attribute was added with API version 1.3.
 
   .. note::
 
@@ -205,15 +238,17 @@ Versioning PyPI's Simple API
 
 This spec proposes the inclusion of a meta tag on the responses of every
 successful request to a simple API page, which contains a name attribute
-of "pypi:repository-version", and a content that is a :ref:`version specifiers
+of ``pypi:repository-version``, and a content that is a :ref:`version specifiers
 specification <version-specifiers>` compatible
 version number, which is further constrained to ONLY be Major.Minor, and
 none of the additional features supported by :ref:`the version specifiers
 specification <version-specifiers>`.
 
-This would end up looking like::
+This would end up looking like:
 
-  <meta name="pypi:repository-version" content="1.0">
+.. code-block:: html
+
+  <meta name="pypi:repository-version" content="1.3">
 
 When interpreting the repository version:
 
@@ -237,10 +272,18 @@ is included to disambiguate with future versions (e.g. a hypothetical
 simple api v2 that lived at /v2/, but which would be confusing if the
 repository-version was set to a version >= 2).
 
-This spec sets the current API version to "1.0", and expects that
-future specs that further evolve the simple API will increment the
-minor version number.
+API Version History
+-------------------
 
+This section contains only an abbreviated history of changes,
+as marked by the API version number. For a full history of changes including
+changes made before API versioning, see :ref:`History <simple-repository-history>`.
+
+- API version 1.0: Initial version of the API, declared with :pep:`629`.
+- API version 1.1: Added ``versions``, ``files[].size``, and ``files[].upload-time`` metadata
+  to the JSON serialization, declared with :pep:`700`.
+- API version 1.2: Added repository "tracks" metadata, declared with :pep:`708`.
+- API version 1.3: Added provenance metadata, declared with :pep:`740`.
 
 Clients
 -------
@@ -389,6 +432,8 @@ spec:
 * All requirements of :ref:`the base HTML API specification
   <simple-repository-api-base>` that are not HTML specific still apply.
 
+* Keys (at any level) with a leading underscore are reserved as private for
+  index server use. No future standard will assign a meaning to any such key.
 
 Project List
 ~~~~~~~~~~~~
@@ -405,7 +450,7 @@ As an example:
 
     {
       "meta": {
-        "api-version": "1.0"
+        "api-version": "1.3"
       },
       "projects": [
         {"name": "Frob"},
@@ -442,11 +487,34 @@ The format of this URL is ``/<project>/`` where the ``<project>`` is replaced by
 name for that project, so a project named "Silly_Walk" would
 have a URL like ``/silly-walk/``.
 
-This URL must respond with a JSON encoded dictionary that has three keys:
+This URL must respond with a JSON encoded dictionary that has four keys:
 
 - ``name``: The normalized name of the project.
 - ``files``: A list of dictionaries, each one representing an individual file.
 - ``meta``: The general response metadata as `described earlier <json-serialization_>`__.
+- ``versions``: A list of version strings specifying all of the project versions
+  uploaded for this project. The value of ``versions`` is logically a set,
+  and as such may not contain duplicates, and the order of the versions is
+  not significant.
+
+  .. note::
+
+    All of the files listed in the ``files`` key MUST be associated with one of the
+    versions in the ``versions`` key. The ``versions`` key MAY contain versions with
+    no associated files (to represent versions with no files uploaded, if the server
+    has such a concept).
+
+  .. note::
+
+    Because servers may hold "legacy" data from before the adoption of
+    :ref:`the version specifiers specification (VSS) <version-specifiers>`, version
+    strings currently cannot be required to be valid VSS versions, and therefore
+    cannot be assumed to be orderable using the VSS rules. However, servers **SHOULD**
+    use normalized VSS versions where possible.
+
+  .. note::
+
+    The ``versions`` key was added with API version 1.1.
 
 Each individual file dictionary has the following keys:
 
@@ -475,7 +543,7 @@ Each individual file dictionary has the following keys:
   Unlike ``data-requires-python`` in :ref:`the base HTML API specification
   <simple-repository-api-base>`, the ``requires-python`` key does not
   require any special escaping other than anything JSON does naturally.
-- ``dist-info-metadata``: An **optional** key that indicates
+- ``core-metadata``: An **optional** key that indicates
   that metadata for this file is available, via the same location as specified in
   :ref:`the API metadata file specification
   <simple-repository-api-metadata-file>` (``{file_url}.metadata``). Where this
@@ -493,21 +561,56 @@ Each individual file dictionary has the following keys:
 
   It is recommended that servers make the hashes of the metadata file available if
   possible.
+
+- ``dist-info-metadata``: An **optional**, deprecated alias for ``core-metadata``.
+
+  Index clients **MAY** consume this key if present, as a legacy fallback
+  for ``core-metadata``.
+
+  .. important::
+
+    ``dist-info-metadata`` was standardized with :pep:`658` and renamed to
+    ``core-metadata`` with :pep:`714`.
+
 - ``gpg-sig``: An **optional** key that acts a boolean to indicate if the file has
   an associated GPG signature or not. The URL for the signature file follows what
   is specified in :ref:`the base HTML API specification
   <simple-repository-api-base>` (``{file_url}.asc``). If this key does not exist, then
   the signature may or may not exist.
+
 - ``yanked``: An **optional** key which may be either a boolean to indicate if the
   file has been yanked, or a non empty, but otherwise arbitrary, string to indicate
   that a file has been yanked with a specific reason. If the ``yanked`` key is present
   and is a truthy value, then it **SHOULD** be interpreted as indicating that the
   file pointed to by the ``url`` field has been "Yanked" as per :ref:`the API
   yank specification <simple-repository-api-yank>`.
+- ``size``: A **mandatory** key. It **MUST** contain an integer which is the file size in bytes.
+
+  .. note::
+
+    The ``size`` key was added with API version 1.1.
+
+- ``upload-time``: An **optional** key that, if present, **MUST** contain a valid
+  ISO 8601 date/time string in the format ``yyyy-mm-ddThh:mm:ss.ffffffZ``
+  which represents the time the file was uploaded to the index.
+
+  As indicated by the ``Z`` suffix, the upload time **MUST** use the UTC timezone.
+  The fractional seconds part of the timestamp (the ``.ffffff`` part) is optional,
+  and if present may contain up to 6 digits of precision. If a server does not record
+  upload time information for a file, it **MAY** omit the ``upload-time`` key.
+
+  .. note::
+
+    The ``upload-time`` key was added with API version 1.1.
+
 - ``provenance``: An **optional** key which, if present **MUST** be either a JSON
   string or ``null``. If not ``null``, it **MUST** be a URL to the file's
   associated provenance, with the same rules as ``data-provenance`` in the
   :ref:`base HTML API specification <simple-repository-api-base>`.
+
+  .. note::
+
+    The ``provenance`` field was added with API version 1.3.
 
 As an example:
 
@@ -515,7 +618,7 @@ As an example:
 
     {
       "meta": {
-        "api-version": "1.0"
+        "api-version": "1.3"
       },
       "name": "holygrail",
       "files": [
@@ -524,7 +627,8 @@ As an example:
           "url": "https://example.com/files/holygrail-1.0.tar.gz",
           "hashes": {"sha256": "...", "blake2b": "..."},
           "requires-python": ">=3.7",
-          "yanked": "Had a vulnerability"
+          "yanked": "Had a vulnerability",
+          "size": 123456
         },
         {
           "filename": "holygrail-1.0-py3-none-any.whl",
@@ -532,9 +636,11 @@ As an example:
           "hashes": {"sha256": "...", "blake2b": "..."},
           "requires-python": ">=3.7",
           "dist-info-metadata": true,
-          "provenance": "https://example.com/files/holygrail-1.0-py3-none-any.whl.provenance"
+          "provenance": "https://example.com/files/holygrail-1.0-py3-none-any.whl.provenance",
+          "size": 1337
         }
-      ]
+      ],
+      "versions": ["1.0"]
     }
 
 
@@ -881,108 +987,7 @@ It is recommended that clients:
 - Check the ``Content-Type`` of the response and ensure it matches something
   that you were expecting.
 
-Additional Fields for the Simple API for Package Indexes
-========================================================
-
-This specification defines version 1.1 of the simple repository API. For the
-HTML version of the API, there is no change from version 1.0. For the JSON
-version of the API, the following changes are made:
-
-- The ``api-version`` must specify version 1.1 or later.
-- A new ``versions`` key is added at the top level.
-- Two new "file information" keys, ``size`` and ``upload-time``, are added to
-  the ``files`` data.
-- Keys (at any level) with a leading underscore are reserved as private for
-  index server use. No future standard will assign a meaning to any such key.
-
-The ``versions`` and ``size`` keys are mandatory. The ``upload-time`` key is
-optional.
-
-Versions
---------
-
-An additional key, ``versions`` MUST be present at the top level, in addition to
-the keys ``name``, ``files`` and ``meta`` defined in :ref:`the JSON API
-specification <simple-repository-api-json>`. This key MUST
-contain a list of version strings specifying all of the project versions uploaded
-for this project. The value is logically a set, and as such may not contain
-duplicates, and the order of the values is not significant.
-
-All of the files listed in the ``files`` key MUST be associated with one of the
-versions in the ``versions`` key. The ``versions`` key MAY contain versions with
-no associated files (to represent versions with no files uploaded, if the server
-has such a concept).
-
-Note that because servers may hold "legacy" data from before the adoption of
-:ref:`the version specifiers specification (VSS) <version-specifiers>`, version
-strings currently cannot be required to be valid VSS versions, and therefore
-cannot be assumed to be orderable using the VSS rules. However, servers SHOULD
-use normalised VSS versions where
-possible.
-
-
-Additional file information
----------------------------
-
-Two new keys are added to the ``files`` key.
-
-- ``size``: This field is mandatory. It MUST contain an integer which is the
-  file size in bytes.
-- ``upload-time``: This field is optional. If present, it MUST contain a valid
-  ISO 8601 date/time string, in the format ``yyyy-mm-ddThh:mm:ss.ffffffZ``,
-  which represents the time the file was uploaded to the index. As indicated by
-  the ``Z`` suffix, the upload time MUST use the UTC timezone. The fractional
-  seconds part of the timestamp (the ``.ffffff`` part) is optional, and if
-  present may contain up to 6 digits of precision. If a server does not record
-  upload time information for a file, it MAY omit the ``upload-time`` key.
-
-Rename dist-info-metadata in the Simple API
-===========================================
-
-
-The keywords "**MUST**", "**MUST NOT**", "**REQUIRED**", "**SHALL**",
-"**SHALL NOT**", "**SHOULD**", "**SHOULD NOT**", "**RECOMMENDED**", "**MAY**",
-and "**OPTIONAL**"" in this document are to be interpreted as described in
-:rfc:`RFC 2119 <2119>`.
-
-
-Servers
--------
-
-The :ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata, when used in the HTML
-representation of the Simple API,
-**MUST** be emitted using the attribute name ``data-core-metadata``, with the
-supported values remaining the same.
-
-The :ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata, when used in the :ref:`the
-JSON API specification <simple-repository-api-base>` JSON representation of the
-Simple API, **MUST** be emitted using the key ``core-metadata``, with the
-supported values remaining the same.
-
-To support clients that used the previous key names, the HTML representation
-**MAY** also be emitted using the ``data-dist-info-metadata``, and if it does
-so it **MUST** match the value of ``data-core-metadata``.
-
-
-
-Clients
--------
-
-Clients consuming any of the HTML representations of the Simple API **MUST**
-read the :ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata from the key
-``data-core-metadata`` if it is
-present. They **MAY** optionally use the legacy ``data-dist-info-metadata`` if
-it is present but ``data-core-metadata`` is not.
-
-Clients consuming the JSON representation of the Simple API **MUST** read the
-:ref:`the API metadata file specification
-<simple-repository-api-metadata-file>` metadata from the key ``core-metadata``
-if it is present. They
-**MAY** optionally use the legacy ``dist-info-metadata`` key if it is present
-but ``core-metadata`` is not.
+.. _simple-repository-history:
 
 History
 =======
