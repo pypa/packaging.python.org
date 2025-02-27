@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-17 11:30+0000\n"
+"POT-Creation-Date: 2025-02-17 16:07+0000\n"
 "PO-Revision-Date: 2024-07-15 14:09+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -7763,22 +7763,25 @@ msgid ""
 ":pep:`639` has specified the way to declare a project's license and paths to "
 "license files and other legally required information. This document aims to "
 "provide clear guidance how to migrate from the legacy to the standardized "
-"way of declaring licenses."
+"way of declaring licenses. Make sure your preferred build backend supports :"
+"pep:`639` before trying to apply the newer guidelines. As of February 2025, :"
+"doc:`setuptools <setuptools:userguide/pyproject_config>` and :ref:`flit "
+"<flit:pyproject_toml_project>` don't support :pep:`639` yet."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:16
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:20
 #, fuzzy
 #| msgid "Examples"
 msgid "Licensing Examples"
 msgstr "Примеры"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:21
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:25
 #, fuzzy
 #| msgid "As an example:"
 msgid "Basic example"
 msgstr "В качестве примера:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:23
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:27
 msgid ""
 "The Setuptools project itself, as of `version 75.6.0 <setuptools7560_>`__, "
 "does not use the ``License`` field in its own project source metadata. "
@@ -7788,25 +7791,25 @@ msgid ""
 "as the :file:`LICENSE` file it uses."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:30
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:34
 msgid ""
 "It includes the following license-related metadata in its :file:`pyproject."
 "toml`:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:40
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:44
 msgid "The simplest migration to PEP 639 would consist of using this instead:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:47
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:51
 msgid "Or, if the project used :file:`setup.cfg`, in its ``[metadata]`` table:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:54
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:58
 msgid "The output Core Metadata for the distribution packages would then be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:61
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:65
 msgid ""
 "The :file:`LICENSE` file would be stored at :file:`/setuptools-{VERSION}/"
 "LICENSE` in the sdist and :file:`/setuptools-{VERSION}.dist-info/licenses/"
@@ -7816,34 +7819,34 @@ msgid ""
 "in the Core Metadata."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:71
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:75
 #, fuzzy
 #| msgid "As an example:"
 msgid "Advanced example"
 msgstr "В качестве примера:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:73
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:77
 msgid ""
 "Suppose Setuptools were to include the licenses of the third-party projects "
 "that are vendored in the :file:`setuptools/_vendor/` and :file:"
 "`pkg_resources/_vendor/` directories; specifically:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:84
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:88
 #, fuzzy
 #| msgid "The minimum required versions of the respective tools are:"
 msgid "The license expressions for these projects are:"
 msgstr ""
 "Минимально необходимыми версиями соответствующих инструментов являются:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:93
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:97
 msgid ""
 "A comprehensive license expression covering both Setuptools proper and its "
 "vendored dependencies would contain these metadata, combining all the "
 "license expressions into one. Such an expression might be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:101
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:105
 msgid ""
 "In addition, per the requirements of the licenses, the relevant license "
 "files must be included in the package. Suppose the :file:`LICENSE` file "
@@ -7854,68 +7857,68 @@ msgid ""
 "copyright statement and `license choice notice <packaginglicense_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:109
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:113
 msgid ""
 "Specifically, we assume the license files are located at the following paths "
 "in the project source tree (relative to the project root and :file:"
 "`pyproject.toml`):"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:120
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:124
 msgid "Putting it all together, our :file:`pyproject.toml` would be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:131
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:135
 msgid ""
 "Or alternatively, the license files can be specified explicitly (paths will "
 "be interpreted as glob patterns):"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:145
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:149
 msgid "If our project used :file:`setup.cfg`, we could define this in :"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:157
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:161
 msgid ""
 "With either approach, the output Core Metadata in the distribution would be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:168
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:172
 msgid ""
 "In the resulting sdist, with :file:`/` as the root of the archive and "
 "``{VERSION}`` the version of the Setuptools release specified in the Core "
 "Metadata, the license files would be located at the paths:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:179
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:183
 msgid ""
 "In the built wheel, with :file:`/` being the root of the archive and "
 "``{VERSION}`` as the previous, the license files would be stored at:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:189
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:193
 msgid ""
 "Finally, in the installed project, with :file:`site-packages/` being the "
 "site dir and ``{VERSION}`` as the previous, the license files would be "
 "installed to:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:201
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:205
 #, fuzzy
 #| msgid "As an example:"
 msgid "Expression examples"
 msgstr "В качестве примера:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:203
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:207
 #, fuzzy
 msgid "Some additional examples of valid ``License-Expression`` values:"
 msgstr "в пользу ``Requires-Dist``"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:218
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:222
 msgid "User Scenarios"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:220
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:224
 msgid ""
 "The following covers the range of common use cases from a user perspective, "
 "providing guidance for each. Do note that the following should **not** be "
@@ -7924,18 +7927,18 @@ msgid ""
 "for their situation."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:228
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:232
 msgid "I have a private package that won't be distributed"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:230
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:234
 msgid ""
 "If your package isn't shared publicly, i.e. outside your company, "
 "organization or household, it *usually* isn't strictly necessary to include "
 "a formal license, so you wouldn't necessarily have to do anything extra here."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:234
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:238
 msgid ""
 "However, it is still a good idea to include ``LicenseRef-Proprietary`` as a "
 "license expression in your package configuration, and/or a copyright "
@@ -7944,11 +7947,11 @@ msgid ""
 "tools."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:242
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:246
 msgid "I just want to share my own work without legal restrictions"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:244
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:248
 msgid ""
 "While you aren't required to include a license, if you don't, no one has "
 "`any permission to download, use or improve your work "
@@ -7958,7 +7961,7 @@ msgid ""
 "want with your work (other than sue you, which you probably also don't want)."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:251
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:255
 msgid ""
 "To apply it, just paste `the text <chooseamitlicense_>`__ into a file named :"
 "file:`LICENSE.txt` at the root of your repo, and add the year and your name "
@@ -7967,11 +7970,11 @@ msgid ""
 "it, or in its config file/section. You're done!"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:259
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:263
 msgid "I want to distribute my project under a specific license"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:261
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:265
 msgid ""
 "To use a particular license, simply paste its text into a :file:`LICENSE."
 "txt` file at the root of your repo, if you don't have it in a file starting "
@@ -7982,24 +7985,24 @@ msgid ""
 "<choosealicenselist_>`__ or `SPDX <spdxlist_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:270
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:274
 msgid ""
 "Many popular code hosts, project templates and packaging tools can add the "
 "license file for you, and may support the expression as well in the future."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:275
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:279
 msgid "I maintain an existing package that's already licensed"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:277
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:281
 msgid ""
 "If you already have license files and metadata in your project, you should "
 "only need to make a couple of tweaks to take advantage of the new "
 "functionality."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:281
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:285
 msgid ""
 "In your project config file, enter your license expression under ``license`` "
 "(``[project]`` table in :file:`pyproject.toml`), or the equivalent for your "
@@ -8010,14 +8013,14 @@ msgid ""
 "that matches the license used in your project."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:290
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:294
 msgid ""
 "Make sure to list your license files under ``license-files`` under "
 "``[project]`` in :file:`pyproject.toml` or else in your tool's configuration "
 "file."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:294
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:298
 msgid ""
 "See the :ref:`licensing-example-basic` for a simple but complete real-world "
 "demo of how this works in practice. See also the best-effort guidance on how "
@@ -8028,11 +8031,11 @@ msgid ""
 "more information."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:304
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:308
 msgid "My package includes other code under different licenses"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:306
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:310
 msgid ""
 "If your project includes code from others covered by different licenses, "
 "such as vendored dependencies or files copied from other open source "
@@ -8040,7 +8043,7 @@ msgid ""
 "involved and the relationship between them."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:312
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:316
 msgid ""
 "In short, ``License-1 AND License-2`` mean that *both* licenses apply to "
 "your project, or parts of it (for example, you included a file under another "
@@ -8050,7 +8053,7 @@ msgid ""
 "to form expressions that cover even the most complex situations."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:320
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:324
 msgid ""
 "In your project config file, enter your license expression under ``license`` "
 "(``[project]`` table of :file:`pyproject.toml`), or the equivalent for your "
@@ -8058,7 +8061,7 @@ msgid ""
 "or ``License ::`` classifiers."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:326
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:330
 msgid ""
 "Also, make sure you add the full license text of all the licenses as files "
 "somewhere in your project repository. List the relative path or glob "
@@ -8067,7 +8070,7 @@ msgid ""
 "configuration file."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:332
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:336
 msgid ""
 "As an example, if your project was licensed MIT but incorporated a vendored "
 "dependency (say, ``packaging``) that was licensed under either Apache 2.0 or "
@@ -8080,7 +8083,7 @@ msgid ""
 "txt\"]`` as literal file paths."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:343
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:347
 msgid ""
 "See a fully worked out :ref:`licensing-example-advanced` for an end-to-end "
 "application of this to a real-world complex project, with many technical "
@@ -12126,6 +12129,19 @@ msgstr "``лицензия``"
 
 #: ../source/guides/writing-pyproject-toml.rst:328
 msgid ""
+":pep:`639` (accepted in August 2024) has changed the way the ``license`` "
+"field is declared. Make sure your preferred build backend supports :pep:"
+"`639` before trying to apply the newer guidelines. As of February 2025, :doc:"
+"`setuptools <setuptools:userguide/pyproject_config>` and :ref:`flit <flit:"
+"pyproject_toml_project>` don't support :pep:`639` yet."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:335
+msgid ":pep:`639` license declaration"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:337
+msgid ""
 "This is a valid :term:`SPDX license expression <License Expression>` "
 "consisting of one or more :term:`license identifiers <License Identifier>`. "
 "The full license list is available at the `SPDX license list page "
@@ -12133,7 +12149,7 @@ msgid ""
 "compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:341
+#: ../source/guides/writing-pyproject-toml.rst:350
 #, fuzzy
 #| msgid ""
 #| "If you are using a standard, well-known license, it is not necessary to "
@@ -12153,7 +12169,7 @@ msgstr ""
 "того, чтобы избежать путаницы, так и потому, что некоторые организации "
 "избегают программ, лицензия которых не утверждена)"
 
-#: ../source/guides/writing-pyproject-toml.rst:345
+#: ../source/guides/writing-pyproject-toml.rst:354
 msgid ""
 "If your project is licensed with a license that doesn't have an existing "
 "SPDX identifier, you can create a custom one in format ``LicenseRef-"
@@ -12162,7 +12178,49 @@ msgid ""
 "one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:357
+#: ../source/guides/writing-pyproject-toml.rst:365
+msgid "Legacy license declaration"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:367
+#, fuzzy
+#| msgid ""
+#| "This can take two forms. You can put your license in a file, typically "
+#| "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
+msgid ""
+"This can take two forms. You can put your license in a file, typically :file:"
+"`LICENSE` or :file:`LICENSE.txt`, and link that file here:"
+msgstr ""
+"Это может быть сделано в двух формах. Вы можете поместить лицензию в файл, "
+"обычно ``LICENSE`` или ``LICENSE.txt``, и сослаться на этот файл здесь:"
+
+#: ../source/guides/writing-pyproject-toml.rst:375
+msgid "or you can write the name of the license:"
+msgstr "или вы можете написать название лицензии:"
+
+#: ../source/guides/writing-pyproject-toml.rst:382
+#, fuzzy
+#| msgid ""
+#| "If you are using a standard, well-known license, it is not necessary to "
+#| "use this field. Instead, you should use one of the :ref:`classifiers` "
+#| "starting with ``License ::``. (As a general rule, it is a good idea to "
+#| "use a standard, well-known license, both to avoid confusion and because "
+#| "some organizations avoid software whose license is unapproved.)"
+msgid ""
+"If you are using a standard, well-known license, it is not necessary to use "
+"this field. Instead, you should use one of the :ref:`classifiers` starting "
+"with ``License ::``. (As a general rule, it is a good idea to use a "
+"standard, well-known license, both to avoid confusion and because some "
+"organizations avoid software whose license is unapproved.)"
+msgstr ""
+"Если вы используете стандартную, хорошо известную лицензию, нет "
+"необходимости использовать это поле. Вместо этого следует использовать один "
+"из : ссылка:`классификаторов`, начинающийся с ``Лицензия ::``. (Как правило, "
+"рекомендуется использовать стандартную, хорошо известную лицензию, как для "
+"того, чтобы избежать путаницы, так и потому, что некоторые организации "
+"избегают программ, лицензия которых не утверждена)"
+
+#: ../source/guides/writing-pyproject-toml.rst:390
 #: ../source/specifications/pyproject-toml.rst:141
 #: ../source/specifications/pyproject-toml.rst:251
 #, fuzzy
@@ -12170,59 +12228,68 @@ msgstr ""
 msgid "``license-files``"
 msgstr "``лицензия``"
 
-#: ../source/guides/writing-pyproject-toml.rst:359
+#: ../source/guides/writing-pyproject-toml.rst:392
+msgid ""
+":pep:`639` (accepted in August 2024) has introduced the ``license-files`` "
+"field. Make sure your preferred build backend supports :pep:`639` before "
+"declaring the field. As of February 2025, :doc:`setuptools <setuptools:"
+"userguide/pyproject_config>` and :ref:`flit <flit:pyproject_toml_project>` "
+"don't support :pep:`639` yet."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:398
 msgid ""
 "This is a list of license files and files containing other legal information "
 "you want to distribute with your package."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:367
+#: ../source/guides/writing-pyproject-toml.rst:406
 msgid "The glob patterns must follow the specification:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:369
+#: ../source/guides/writing-pyproject-toml.rst:408
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
 "``) will be matched verbatim."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:371
+#: ../source/guides/writing-pyproject-toml.rst:410
 msgid ""
 "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are "
 "supported."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:372
+#: ../source/guides/writing-pyproject-toml.rst:411
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:373
+#: ../source/guides/writing-pyproject-toml.rst:412
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`, "
 "and thus may not start with a slash character."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:375
+#: ../source/guides/writing-pyproject-toml.rst:414
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:376
+#: ../source/guides/writing-pyproject-toml.rst:415
 msgid "Each glob must match at least one file."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:378
+#: ../source/guides/writing-pyproject-toml.rst:417
 msgid ""
 "Literal paths are valid globs. Any characters or character sequences not "
 "covered by this specification are invalid."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:384
+#: ../source/guides/writing-pyproject-toml.rst:423
 #: ../source/specifications/pyproject-toml.rst:139
 #: ../source/specifications/pyproject-toml.rst:352
 msgid "``keywords``"
 msgstr "``ключевые слова``"
 
-#: ../source/guides/writing-pyproject-toml.rst:386
+#: ../source/guides/writing-pyproject-toml.rst:425
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
@@ -12230,13 +12297,13 @@ msgstr ""
 "Это поможет поисковой строке PyPI предлагать ваш проект при поиске по этим "
 "ключевым словам."
 
-#: ../source/guides/writing-pyproject-toml.rst:398
+#: ../source/guides/writing-pyproject-toml.rst:437
 #: ../source/specifications/pyproject-toml.rst:133
 #: ../source/specifications/pyproject-toml.rst:362
 msgid "``classifiers``"
 msgstr "`` классификаторы ``"
 
-#: ../source/guides/writing-pyproject-toml.rst:400
+#: ../source/guides/writing-pyproject-toml.rst:439
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
@@ -12244,7 +12311,7 @@ msgstr ""
 "Список классификаторов PyPI, которые применимы к вашему проекту. Проверьте "
 "`полный список возможностей <classifier-list_>`_."
 
-#: ../source/guides/writing-pyproject-toml.rst:424
+#: ../source/guides/writing-pyproject-toml.rst:463
 msgid ""
 "Although the list of classifiers is often used to declare what Python "
 "versions a project supports, this information is only used for searching and "
@@ -12258,7 +12325,7 @@ msgstr ""
 "действительно ограничить, на каких версиях Python может быть установлен "
 "проект, используйте аргумент :ref:`requires-python`."
 
-#: ../source/guides/writing-pyproject-toml.rst:429
+#: ../source/guides/writing-pyproject-toml.rst:468
 msgid ""
 "To prevent a package from being uploaded to PyPI, use the special "
 "``Private :: Do Not Upload`` classifier. PyPI will always reject packages "
@@ -12268,13 +12335,13 @@ msgstr ""
 "классификатор ``Private :: Do Not Upload``. PyPI всегда будет отклонять "
 "пакеты с классификаторами, начинающимися с ``Private ::``."
 
-#: ../source/guides/writing-pyproject-toml.rst:436
+#: ../source/guides/writing-pyproject-toml.rst:475
 #: ../source/specifications/pyproject-toml.rst:148
 #: ../source/specifications/pyproject-toml.rst:378
 msgid "``urls``"
 msgstr "``urls``"
 
-#: ../source/guides/writing-pyproject-toml.rst:438
+#: ../source/guides/writing-pyproject-toml.rst:477
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
@@ -12282,7 +12349,7 @@ msgstr ""
 "Список URL-адресов, связанных с вашим проектом, отображаемый на левой "
 "боковой панели страницы проекта PyPI."
 
-#: ../source/guides/writing-pyproject-toml.rst:443
+#: ../source/guides/writing-pyproject-toml.rst:482
 msgid ""
 "See :ref:`well-known-labels` for a listing of labels that PyPI and other "
 "packaging tools are specifically aware of, and `PyPI's project metadata docs "
@@ -12290,7 +12357,7 @@ msgid ""
 "URL processing."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:457
+#: ../source/guides/writing-pyproject-toml.rst:496
 #, fuzzy
 msgid ""
 "Note that if the label contains spaces, it needs to be quoted, e.g., "
@@ -12301,21 +12368,21 @@ msgstr ""
 "в кавычки, например, ``Website = \"https://example.com\"``, но "
 "``\"Официальный сайт\" = \"https://example.com\"``."
 
-#: ../source/guides/writing-pyproject-toml.rst:461
+#: ../source/guides/writing-pyproject-toml.rst:500
 msgid ""
 "Users are advised to use :ref:`well-known-labels` for their project URLs "
 "where appropriate, since consumers of metadata (like package indices) can "
 "specialize their presentation."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:465
+#: ../source/guides/writing-pyproject-toml.rst:504
 msgid ""
 "For example in the following metadata, neither ``MyHomepage`` nor "
 "``\"Download Link\"`` is a well-known label, so they will be rendered "
 "verbatim:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:475
+#: ../source/guides/writing-pyproject-toml.rst:514
 msgid ""
 "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known "
 "equivalents (``homepage`` and ``download``), and can be presented with those "
@@ -12323,11 +12390,11 @@ msgid ""
 "location, respectively)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:487
+#: ../source/guides/writing-pyproject-toml.rst:526
 msgid "Advanced plugins"
 msgstr "Расширенные плагины"
 
-#: ../source/guides/writing-pyproject-toml.rst:489
+#: ../source/guides/writing-pyproject-toml.rst:528
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
@@ -12337,17 +12404,17 @@ msgstr ""
 "можно привести Pytest_ и Pygments_. Чтобы создать такой плагин, нужно "
 "объявить его в подтаблице ``[project.entry-points]`` следующим образом:"
 
-#: ../source/guides/writing-pyproject-toml.rst:498
+#: ../source/guides/writing-pyproject-toml.rst:537
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 "Дополнительную информацию см. в :ref:`Руководство по плагинам <plugin-entry-"
 "points>`."
 
-#: ../source/guides/writing-pyproject-toml.rst:503
+#: ../source/guides/writing-pyproject-toml.rst:542
 msgid "A full example"
 msgstr "Полный пример"
 
-#: ../source/guides/writing-pyproject-toml.rst:566
+#: ../source/guides/writing-pyproject-toml.rst:605
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -30179,7 +30246,7 @@ msgstr ""
 "shell``."
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:513
+#: ../source/tutorials/packaging-projects.rst:539
 msgid "Next steps"
 msgstr "Следующие шаги"
 
@@ -30549,7 +30616,7 @@ msgstr ""
 "вас будет уникальное имя пакета, которое не будет конфликтовать с пакетами, "
 "загруженными другими людьми, следующими этому руководству."
 
-#: ../source/tutorials/packaging-projects.rst:225
+#: ../source/tutorials/packaging-projects.rst:250
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -30563,7 +30630,7 @@ msgstr ""
 "пользователя** для этого руководства, так как это гарантирует, что вы не "
 "попытаетесь загрузить пакет с тем же именем, что и уже существующий."
 
-#: ../source/tutorials/packaging-projects.rst:230
+#: ../source/tutorials/packaging-projects.rst:255
 msgid ""
 "``version`` is the package version. (Some build backends allow it to be "
 "specified another way, such as from a file or Git tag.)"
@@ -30571,7 +30638,7 @@ msgstr ""
 "``version`` - это версия пакета. (Некоторые сборки позволяют указывать ее "
 "другим способом, например, из файла или Git-тега)"
 
-#: ../source/tutorials/packaging-projects.rst:232
+#: ../source/tutorials/packaging-projects.rst:257
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -30581,11 +30648,11 @@ msgstr ""
 "и email для каждого автора. В таком же формате можно перечислить "
 "``maintainers``."
 
-#: ../source/tutorials/packaging-projects.rst:235
+#: ../source/tutorials/packaging-projects.rst:260
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` - это краткое, в одно предложение, описание пакета."
 
-#: ../source/tutorials/packaging-projects.rst:236
+#: ../source/tutorials/packaging-projects.rst:261
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -30599,7 +30666,7 @@ msgstr ""
 "также более продвинутая форма таблицы, описанная в руководстве :ref:"
 "`pyproject.toml <writing-pyproject-toml>`."
 
-#: ../source/tutorials/packaging-projects.rst:241
+#: ../source/tutorials/packaging-projects.rst:266
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "An installer like :ref:`pip` will look back through older versions of "
@@ -30609,7 +30676,7 @@ msgstr ""
 "Программа установки, такая как :ref:`pip`, будет просматривать старые версии "
 "пакетов, пока не найдет ту, которая имеет соответствующую версию Python."
 
-#: ../source/tutorials/packaging-projects.rst:244
+#: ../source/tutorials/packaging-projects.rst:269
 #, fuzzy
 #| msgid ""
 #| "``classifiers`` gives the index and :ref:`pip` some additional metadata "
@@ -30635,25 +30702,26 @@ msgstr ""
 "будет работать. Полный список классификаторов можно найти на сайте https://"
 "pypi.org/classifiers/."
 
-#: ../source/tutorials/packaging-projects.rst:251
+#: ../source/tutorials/packaging-projects.rst:276
 msgid ""
 "``license`` is the :term:`SPDX license expression <License Expression>` of "
-"your package."
+"your package. Not supported by all the build backends yet."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:253
+#: ../source/tutorials/packaging-projects.rst:278
 #, fuzzy
 #| msgid ""
 #| "Now run this command from the same directory where :file:`pyproject.toml` "
 #| "is located:"
 msgid ""
 "``license-files`` is the list of glob paths to the license files, relative "
-"to the directory where :file:`pyproject.toml` is located."
+"to the directory where :file:`pyproject.toml` is located. Not supported by "
+"all the build backends yet."
 msgstr ""
 "Теперь запустите эту команду из той же директории, где находится :file:"
 "`pyproject.toml`:"
 
-#: ../source/tutorials/packaging-projects.rst:255
+#: ../source/tutorials/packaging-projects.rst:281
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -30662,7 +30730,7 @@ msgstr ""
 "которые нужно показать на PyPI. Обычно это могут быть ссылки на исходный "
 "текст, документацию, трекеры проблем и т.д."
 
-#: ../source/tutorials/packaging-projects.rst:258
+#: ../source/tutorials/packaging-projects.rst:284
 msgid ""
 "See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
 "these and other fields that can be defined in the ``[project]`` table. Other "
@@ -30674,11 +30742,11 @@ msgstr ""
 "распространенными полями являются ``ключевые слова'' для повышения удобства "
 "поиска и ``зависимости'', необходимые для установки вашего пакета."
 
-#: ../source/tutorials/packaging-projects.rst:265
+#: ../source/tutorials/packaging-projects.rst:291
 msgid "Creating README.md"
 msgstr "Создание файла :file:`README.md`"
 
-#: ../source/tutorials/packaging-projects.rst:267
+#: ../source/tutorials/packaging-projects.rst:293
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -30686,11 +30754,11 @@ msgstr ""
 "Откройте :file:`README.md` и введите следующее содержимое. Вы можете "
 "настроить его по своему усмотрению."
 
-#: ../source/tutorials/packaging-projects.rst:280
+#: ../source/tutorials/packaging-projects.rst:306
 msgid "Creating a LICENSE"
 msgstr "Создание файла :file:`LICENSE`"
 
-#: ../source/tutorials/packaging-projects.rst:282
+#: ../source/tutorials/packaging-projects.rst:308
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -30704,7 +30772,7 @@ msgstr ""
 "сайте https://choosealicense.com/. Выбрав лицензию, откройте :file:`LICENSE` "
 "и введите текст лицензии. Например, если вы выбрали лицензию MIT:"
 
-#: ../source/tutorials/packaging-projects.rst:311
+#: ../source/tutorials/packaging-projects.rst:337
 msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details. If you include the path to "
@@ -30713,11 +30781,11 @@ msgid ""
 "in the package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:319
+#: ../source/tutorials/packaging-projects.rst:345
 msgid "Including other files"
 msgstr "Включение других файлов"
 
-#: ../source/tutorials/packaging-projects.rst:321
+#: ../source/tutorials/packaging-projects.rst:347
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
@@ -30727,11 +30795,11 @@ msgstr ""
 "дистрибутив <Source Distribution (или \"sdist\")>`. Если вы хотите включить "
 "дополнительные файлы, обратитесь к документации по вашему бэкенду сборки."
 
-#: ../source/tutorials/packaging-projects.rst:328
+#: ../source/tutorials/packaging-projects.rst:354
 msgid "Generating distribution archives"
 msgstr "Создание архивов дистрибутивов"
 
-#: ../source/tutorials/packaging-projects.rst:330
+#: ../source/tutorials/packaging-projects.rst:356
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -30741,11 +30809,11 @@ msgstr ""
 "Package>` для пакета. Это архивы, которые загружаются в индекс пакетов "
 "Python и могут быть установлены с помощью :ref:`pip`."
 
-#: ../source/tutorials/packaging-projects.rst:334
+#: ../source/tutorials/packaging-projects.rst:360
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr "Убедитесь, что у вас установлена последняя версия PyPA :ref:`build`:"
 
-#: ../source/tutorials/packaging-projects.rst:348
+#: ../source/tutorials/packaging-projects.rst:374
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
@@ -30753,7 +30821,7 @@ msgstr ""
 "Если у вас возникли проблемы с их установкой, обратитесь к руководству :doc:"
 "`installing-packages`."
 
-#: ../source/tutorials/packaging-projects.rst:351
+#: ../source/tutorials/packaging-projects.rst:377
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -30761,7 +30829,7 @@ msgstr ""
 "Теперь запустите эту команду из той же директории, где находится :file:"
 "`pyproject.toml`:"
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:391
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -30769,7 +30837,7 @@ msgstr ""
 "Эта команда должна вывести много текста и по завершении создать два файла в "
 "каталоге :file:`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:375
+#: ../source/tutorials/packaging-projects.rst:401
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -30789,15 +30857,15 @@ msgstr ""
 "совместим ваш проект. В данном случае наш пример пакета совместим с Python "
 "на любой платформе, поэтому требуется только один собранный дистрибутив."
 
-#: ../source/tutorials/packaging-projects.rst:384
+#: ../source/tutorials/packaging-projects.rst:410
 msgid "Uploading the distribution archives"
 msgstr "Загрузка архивов дистрибутива"
 
-#: ../source/tutorials/packaging-projects.rst:386
+#: ../source/tutorials/packaging-projects.rst:412
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr "Наконец, пришло время загрузить ваш пакет в Python Package Index!"
 
-#: ../source/tutorials/packaging-projects.rst:388
+#: ../source/tutorials/packaging-projects.rst:414
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -30817,7 +30885,7 @@ msgstr ""
 "прежде чем вы сможете загружать пакеты.  Более подробную информацию можно "
 "найти в :doc:`/guides/using-testpypi`."
 
-#: ../source/tutorials/packaging-projects.rst:396
+#: ../source/tutorials/packaging-projects.rst:422
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -30830,7 +30898,7 @@ msgstr ""
 "аккаунт\". **Не закрывайте страницу, пока не скопируете и не сохраните токен "
 "- больше вы его не увидите**"
 
-#: ../source/tutorials/packaging-projects.rst:403
+#: ../source/tutorials/packaging-projects.rst:429
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -30838,25 +30906,25 @@ msgstr ""
 "Теперь, когда вы зарегистрированы, вы можете использовать :ref:`twine` для "
 "загрузки дистрибутива. Вам нужно будет установить Twine:"
 
-#: ../source/tutorials/packaging-projects.rst:418
+#: ../source/tutorials/packaging-projects.rst:444
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 "После установки запустите Twine, чтобы загрузить все архивы в папку :file:"
 "`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:432
+#: ../source/tutorials/packaging-projects.rst:458
 msgid ""
 "You will be prompted for an API token. Use the token value, including the "
 "``pypi-`` prefix. Note that the input will be hidden, so be sure to paste "
 "correctly."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:435
+#: ../source/tutorials/packaging-projects.rst:461
 msgid "After the command completes, you should see output similar to this:"
 msgstr "После выполнения команды вы должны увидеть вывод, похожий на этот:"
 
-#: ../source/tutorials/packaging-projects.rst:446
+#: ../source/tutorials/packaging-projects.rst:472
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -30865,11 +30933,11 @@ msgstr ""
 "например: ``https://test.pypi.org/project/"
 "example_package_YOUR_USERNAME_HERE``."
 
-#: ../source/tutorials/packaging-projects.rst:451
+#: ../source/tutorials/packaging-projects.rst:477
 msgid "Installing your newly uploaded package"
 msgstr "Установка нового загруженного пакета"
 
-#: ../source/tutorials/packaging-projects.rst:453
+#: ../source/tutorials/packaging-projects.rst:479
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -30879,11 +30947,11 @@ msgstr ""
 "работоспособности. Создайте :ref:`виртуальную среду <Создание и "
 "использование виртуальных сред>` и установите свой пакет из TestPyPI:"
 
-#: ../source/tutorials/packaging-projects.rst:469
+#: ../source/tutorials/packaging-projects.rst:495
 msgid "Make sure to specify your username in the package name!"
 msgstr "Обязательно укажите свое имя пользователя в названии пакета!"
 
-#: ../source/tutorials/packaging-projects.rst:471
+#: ../source/tutorials/packaging-projects.rst:497
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
@@ -30891,7 +30959,7 @@ msgstr ""
 "pip должен установить пакет из TestPyPI, и результат должен выглядеть "
 "примерно так:"
 
-#: ../source/tutorials/packaging-projects.rst:481
+#: ../source/tutorials/packaging-projects.rst:507
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -30907,7 +30975,7 @@ msgstr ""
 "неожиданное. Хотя наш пример не имеет зависимостей, рекомендуется избегать "
 "установки зависимостей при использовании TestPyPI."
 
-#: ../source/tutorials/packaging-projects.rst:488
+#: ../source/tutorials/packaging-projects.rst:514
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -30916,18 +30984,18 @@ msgstr ""
 "Убедитесь, что вы все еще находитесь в виртуальной среде, а затем запустите "
 "Python:"
 
-#: ../source/tutorials/packaging-projects.rst:503
+#: ../source/tutorials/packaging-projects.rst:529
 msgid "and import the package:"
 msgstr "и импортировать пакет:"
 
-#: ../source/tutorials/packaging-projects.rst:515
+#: ../source/tutorials/packaging-projects.rst:541
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 "
 "✨"
 msgstr ""
 "**Поздравляем, вы упаковали и распространили проект на Python!** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:544
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -30939,7 +31007,7 @@ msgstr ""
 "времени удаляет пакеты и аккаунты. Лучше всего использовать TestPyPI для "
 "тестирования и экспериментов, подобных этому руководству."
 
-#: ../source/tutorials/packaging-projects.rst:523
+#: ../source/tutorials/packaging-projects.rst:549
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -30948,7 +31016,7 @@ msgstr ""
 "Когда вы будете готовы загрузить реальный пакет в Python Package Index, вы "
 "можете сделать все то же самое, что и в этом уроке, но с важными отличиями:"
 
-#: ../source/tutorials/packaging-projects.rst:527
+#: ../source/tutorials/packaging-projects.rst:553
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
@@ -30958,7 +31026,7 @@ msgstr ""
 "добавлять имя пользователя, как это было в учебнике, но нельзя использовать "
 "существующее имя."
 
-#: ../source/tutorials/packaging-projects.rst:529
+#: ../source/tutorials/packaging-projects.rst:555
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -30968,7 +31036,7 @@ msgstr ""
 "это два отдельных сервера и данные для входа с тестового сервера не "
 "передаются на основной сервер."
 
-#: ../source/tutorials/packaging-projects.rst:532
+#: ../source/tutorials/packaging-projects.rst:558
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -30980,7 +31048,7 @@ msgstr ""
 "Теперь, когда вы загружаете пакет в production, вам не нужно указывать ``--"
 "репозиторий``; пакет будет загружен на https://pypi.org/ по умолчанию."
 
-#: ../source/tutorials/packaging-projects.rst:536
+#: ../source/tutorials/packaging-projects.rst:562
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -30988,7 +31056,7 @@ msgstr ""
 "Установите свой пакет из настоящего PyPI с помощью ``python3 -m pip install "
 "[your-package]``."
 
-#: ../source/tutorials/packaging-projects.rst:538
+#: ../source/tutorials/packaging-projects.rst:564
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -30996,7 +31064,7 @@ msgstr ""
 "На этом этапе, если вы хотите прочитать больше об упаковке библиотек Python, "
 "вот некоторые вещи, которые вы можете сделать:"
 
-#: ../source/tutorials/packaging-projects.rst:541
+#: ../source/tutorials/packaging-projects.rst:567
 msgid ""
 "Read about advanced configuration for your chosen build backend: `Hatchling "
 "<hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
@@ -31006,7 +31074,7 @@ msgstr ""
 "`Hatchling <hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
 "pyproject_config>`, :doc:`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_."
 
-#: ../source/tutorials/packaging-projects.rst:545
+#: ../source/tutorials/packaging-projects.rst:571
 msgid ""
 "Look at the :doc:`guides </guides/index>` on this site for more advanced "
 "practical information, or the :doc:`discussions </discussions/index>` for "
@@ -31016,7 +31084,7 @@ msgstr ""
 "index>` на этом сайте или в :doc:`discussions </discussions/index>` для "
 "объяснений и справочной информации по конкретным темам."
 
-#: ../source/tutorials/packaging-projects.rst:548
+#: ../source/tutorials/packaging-projects.rst:574
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
@@ -31026,11 +31094,11 @@ msgstr ""
 "командной строки для управления проектом и упаковки, такие как :ref:"
 "`hatch`, :ref:`flit`, :ref:`pdm` и :ref:`poetry`."
 
-#: ../source/tutorials/packaging-projects.rst:556
+#: ../source/tutorials/packaging-projects.rst:582
 msgid "Notes"
 msgstr "Примечания"
 
-#: ../source/tutorials/packaging-projects.rst:558
+#: ../source/tutorials/packaging-projects.rst:584
 msgid ""
 "Technically, you can also create Python packages without an ``__init__.py`` "
 "file, but those are called :doc:`namespace packages </guides/packaging-"
@@ -31157,17 +31225,6 @@ msgstr ""
 
 #~ msgid "Two new keys are added to the ``files`` key."
 #~ msgstr "К ключу ``файлы`` добавляются два новых ключа."
-
-#~ msgid ""
-#~ "This can take two forms. You can put your license in a file, typically "
-#~ "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
-#~ msgstr ""
-#~ "Это может быть сделано в двух формах. Вы можете поместить лицензию в "
-#~ "файл, обычно ``LICENSE`` или ``LICENSE.txt``, и сослаться на этот файл "
-#~ "здесь:"
-
-#~ msgid "or you can write the name of the license:"
-#~ msgstr "или вы можете написать название лицензии:"
 
 #~ msgid "TOML_ type: table"
 #~ msgstr "TOML_ тип: таблица"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-17 11:30+0000\n"
+"POT-Creation-Date: 2025-02-17 16:07+0000\n"
 "PO-Revision-Date: 2025-02-17 16:02+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/eo/>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7542,26 +7542,35 @@ msgid "Licensing examples and user scenarios"
 msgstr "Ekzemploj de licencoj kaj uzkazoj"
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:9
+#, fuzzy
+#| msgid ""
+#| ":pep:`639` has specified the way to declare a project's license and paths "
+#| "to license files and other legally required information. This document "
+#| "aims to provide clear guidance how to migrate from the legacy to the "
+#| "standardized way of declaring licenses."
 msgid ""
 ":pep:`639` has specified the way to declare a project's license and paths to "
 "license files and other legally required information. This document aims to "
 "provide clear guidance how to migrate from the legacy to the standardized "
-"way of declaring licenses."
+"way of declaring licenses. Make sure your preferred build backend supports :"
+"pep:`639` before trying to apply the newer guidelines. As of February 2025, :"
+"doc:`setuptools <setuptools:userguide/pyproject_config>` and :ref:`flit "
+"<flit:pyproject_toml_project>` don't support :pep:`639` yet."
 msgstr ""
 ":pep:`639` precizigis la manieron deklari la licencon de projekto kaj "
 "dosierlokojn de licencodosieroj kaj aliajn leĝe postulataj informoj. Ĉi tiu "
 "dokumento celas klarigi, kiel migri de la malnova maniero al la normigita "
 "maniero deklari licencojn."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:16
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:20
 msgid "Licensing Examples"
 msgstr "Ekzemploj de Licencoj"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:21
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:25
 msgid "Basic example"
 msgstr "Baza ekzemplo"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:23
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:27
 msgid ""
 "The Setuptools project itself, as of `version 75.6.0 <setuptools7560_>`__, "
 "does not use the ``License`` field in its own project source metadata. "
@@ -7571,27 +7580,27 @@ msgid ""
 "as the :file:`LICENSE` file it uses."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:30
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:34
 msgid ""
 "It includes the following license-related metadata in its :file:`pyproject."
 "toml`:"
 msgstr ""
 "Ĝi inkluzivas la jenajn licencajn metadatenojn en :file:`pyproject.toml`:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:40
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:44
 msgid "The simplest migration to PEP 639 would consist of using this instead:"
 msgstr "La plej simpla migrado al PEP 639 uzos jenon anstataŭe:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:47
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:51
 msgid "Or, if the project used :file:`setup.cfg`, in its ``[metadata]`` table:"
 msgstr ""
 "Aŭ, se la projekto uzis :file:`setup.cfg` en sia tabelo ``[metadata]``:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:54
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:58
 msgid "The output Core Metadata for the distribution packages would then be:"
 msgstr "La eligitaj Kernaj Metdatenoj por la distribuaj pakoj estos jenaj:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:61
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:65
 msgid ""
 "The :file:`LICENSE` file would be stored at :file:`/setuptools-{VERSION}/"
 "LICENSE` in the sdist and :file:`/setuptools-{VERSION}.dist-info/licenses/"
@@ -7601,11 +7610,11 @@ msgid ""
 "in the Core Metadata."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:71
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:75
 msgid "Advanced example"
 msgstr "Altnivela ekzemplo"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:73
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:77
 msgid ""
 "Suppose Setuptools were to include the licenses of the third-party projects "
 "that are vendored in the :file:`setuptools/_vendor/` and :file:"
@@ -7615,11 +7624,11 @@ msgstr ""
 "la dosierujoj :file:`setuptools/_vendor/` kaj :file:`pkg_resources/_vendor/"
 "`; specife:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:84
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:88
 msgid "The license expressions for these projects are:"
 msgstr "Jen la licenco-esprimoj por tiuj projektoj:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:93
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:97
 msgid ""
 "A comprehensive license expression covering both Setuptools proper and its "
 "vendored dependencies would contain these metadata, combining all the "
@@ -7629,7 +7638,7 @@ msgstr ""
 "dependaĵoj enhavus tiujn metadatenojn, kombinante ĉiujn licenco-esprimojn. "
 "Tia esprimo povas esti jena:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:101
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:105
 msgid ""
 "In addition, per the requirements of the licenses, the relevant license "
 "files must be included in the package. Suppose the :file:`LICENSE` file "
@@ -7640,7 +7649,7 @@ msgid ""
 "copyright statement and `license choice notice <packaginglicense_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:109
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:113
 msgid ""
 "Specifically, we assume the license files are located at the following paths "
 "in the project source tree (relative to the project root and :file:"
@@ -7650,11 +7659,11 @@ msgstr ""
 "projekta fontarbo (relative al la projekta radiko kaj :file:`pyproject."
 "toml`):"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:120
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:124
 msgid "Putting it all together, our :file:`pyproject.toml` would be:"
 msgstr "Resume, la dosiero :file:`pyproject.toml` estos jena:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:131
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:135
 msgid ""
 "Or alternatively, the license files can be specified explicitly (paths will "
 "be interpreted as glob patterns):"
@@ -7662,18 +7671,18 @@ msgstr ""
 "Alternative, la licenco-dosiero povas esti specifita eksplicite (dosierloko "
 "interpretiĝas kiel patroneo):"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:145
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:149
 msgid "If our project used :file:`setup.cfg`, we could define this in :"
 msgstr "Se nia projekto uzus :file:`setup.cfg`, ni povus difini tion en:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:157
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:161
 msgid ""
 "With either approach, the output Core Metadata in the distribution would be:"
 msgstr ""
 "Per ambaŭ metodoj, la eligitaj Kernaj Metadatenoj en la distribuo estos "
 "jenaj:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:168
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:172
 msgid ""
 "In the resulting sdist, with :file:`/` as the root of the archive and "
 "``{VERSION}`` the version of the Setuptools release specified in the Core "
@@ -7683,7 +7692,7 @@ msgstr ""
 "``{VERSION}`` la versio de la eldono de Setuptools specifita en la Kernaj "
 "Metadatenoj, la licenco-dosieroj troviĝus ĉe:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:179
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:183
 msgid ""
 "In the built wheel, with :file:`/` being the root of the archive and "
 "``{VERSION}`` as the previous, the license files would be stored at:"
@@ -7692,7 +7701,7 @@ msgstr ""
 "``{VERSION}`` sama kiel la ĉi-supra ekzemplo, la licenco-dosieroj troviĝus "
 "ĉe:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:189
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:193
 msgid ""
 "Finally, in the installed project, with :file:`site-packages/` being the "
 "site dir and ``{VERSION}`` as the previous, the license files would be "
@@ -7701,19 +7710,19 @@ msgstr ""
 "Fine, en la instalita projekto en :file:`site-packages/`, kun ``{VERSION}`` "
 "sama kiel la ĉi-supra ekzemplo, la licenco-dosieroj instaliĝus al:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:201
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:205
 msgid "Expression examples"
 msgstr "Ekzemploj de esprimoj"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:203
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:207
 msgid "Some additional examples of valid ``License-Expression`` values:"
 msgstr "Kelkaj pliaj ekzemploj de validaj valoroj de ``License-Expression``:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:218
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:222
 msgid "User Scenarios"
 msgstr "Uzkazoj"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:220
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:224
 msgid ""
 "The following covers the range of common use cases from a user perspective, "
 "providing guidance for each. Do note that the following should **not** be "
@@ -7722,11 +7731,11 @@ msgid ""
 "for their situation."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:228
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:232
 msgid "I have a private package that won't be distributed"
 msgstr "Mi havas ne distribuotan privatan pakon"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:230
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:234
 msgid ""
 "If your package isn't shared publicly, i.e. outside your company, "
 "organization or household, it *usually* isn't strictly necessary to include "
@@ -7736,7 +7745,7 @@ msgstr ""
 "familio), *ordinare* ne necesas inkluzivi formalan licencon, tiel ke vi ne "
 "devas fari ion ekstre."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:234
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:238
 msgid ""
 "However, it is still a good idea to include ``LicenseRef-Proprietary`` as a "
 "license expression in your package configuration, and/or a copyright "
@@ -7745,11 +7754,11 @@ msgid ""
 "tools."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:242
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:246
 msgid "I just want to share my own work without legal restrictions"
 msgstr "Mi simple volas disdoni mian verkon sen jura restrikto"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:244
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:248
 msgid ""
 "While you aren't required to include a license, if you don't, no one has "
 "`any permission to download, use or improve your work "
@@ -7759,7 +7768,7 @@ msgid ""
 "want with your work (other than sue you, which you probably also don't want)."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:251
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:255
 msgid ""
 "To apply it, just paste `the text <chooseamitlicense_>`__ into a file named :"
 "file:`LICENSE.txt` at the root of your repo, and add the year and your name "
@@ -7773,11 +7782,11 @@ msgstr ""
 "``license = \"MIT\"`` sub ``[project]`` en :file:`pyproject.toml` se via "
 "pakilo subtenas ĝin, aŭ en ĝia agorda dosiero. Jen finite!"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:259
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:263
 msgid "I want to distribute my project under a specific license"
 msgstr "Mi volas distribui mian projekton sub specifa licenco"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:261
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:265
 msgid ""
 "To use a particular license, simply paste its text into a :file:`LICENSE."
 "txt` file at the root of your repo, if you don't have it in a file starting "
@@ -7788,7 +7797,7 @@ msgid ""
 "<choosealicenselist_>`__ or `SPDX <spdxlist_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:270
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:274
 msgid ""
 "Many popular code hosts, project templates and packaging tools can add the "
 "license file for you, and may support the expression as well in the future."
@@ -7796,11 +7805,11 @@ msgstr ""
 "Multaj popularaj kodgastigejoj, projekto-ŝablonoj kaj pakiloj povas aldoni "
 "la licenco-dosieron por vi kaj povos subteni la esprimon."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:275
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:279
 msgid "I maintain an existing package that's already licensed"
 msgstr "Mi mastrumas ekzistantan pakon sub licenco"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:277
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:281
 msgid ""
 "If you already have license files and metadata in your project, you should "
 "only need to make a couple of tweaks to take advantage of the new "
@@ -7809,7 +7818,7 @@ msgstr ""
 "Se vi jam havas licencajn dosierojn kaj metadatenojn en via projekto, vi nur "
 "devas fari kelkajn ŝanĝetojn por uzi la novajn funkciojn."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:281
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:285
 msgid ""
 "In your project config file, enter your license expression under ``license`` "
 "(``[project]`` table in :file:`pyproject.toml`), or the equivalent for your "
@@ -7827,7 +7836,7 @@ msgstr ""
 "ktp); alie, vidu la `liston de SPDX-licencoj <spdxlist_>`__ por la "
 "identigilo por la licenco de via projekto."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:290
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:294
 msgid ""
 "Make sure to list your license files under ``license-files`` under "
 "``[project]`` in :file:`pyproject.toml` or else in your tool's configuration "
@@ -7836,7 +7845,7 @@ msgstr ""
 "Certe listigu viajn licenco-dosierojn sub ``license-files`` sub "
 "``[project]`` en :file:`pyproject.toml` aŭ en la agorda dosiero de via ilo."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:294
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:298
 msgid ""
 "See the :ref:`licensing-example-basic` for a simple but complete real-world "
 "demo of how this works in practice. See also the best-effort guidance on how "
@@ -7847,11 +7856,11 @@ msgid ""
 "more information."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:304
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:308
 msgid "My package includes other code under different licenses"
 msgstr "Mia pako inkluzivas alian kodon sub malsamaj licencoj"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:306
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:310
 msgid ""
 "If your project includes code from others covered by different licenses, "
 "such as vendored dependencies or files copied from other open source "
@@ -7859,7 +7868,7 @@ msgid ""
 "involved and the relationship between them."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:312
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:316
 msgid ""
 "In short, ``License-1 AND License-2`` mean that *both* licenses apply to "
 "your project, or parts of it (for example, you included a file under another "
@@ -7876,7 +7885,7 @@ msgstr ""
 "licencoj). Oni uzas rondajn krampojn (``()``) por grupigi esprimojn, "
 "sufiĉante por eĉ la plej komplikaj situacioj."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:320
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:324
 msgid ""
 "In your project config file, enter your license expression under ``license`` "
 "(``[project]`` table of :file:`pyproject.toml`), or the equivalent for your "
@@ -7888,7 +7897,7 @@ msgstr ""
 "via pakilo. Certigu, ke vi forigis ajnan malnovan subŝlosilojn de tabelo "
 "``license`` aŭ klasigilojn ``License ::``."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:326
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:330
 msgid ""
 "Also, make sure you add the full license text of all the licenses as files "
 "somewhere in your project repository. List the relative path or glob "
@@ -7897,7 +7906,7 @@ msgid ""
 "configuration file."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:332
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:336
 msgid ""
 "As an example, if your project was licensed MIT but incorporated a vendored "
 "dependency (say, ``packaging``) that was licensed under either Apache 2.0 or "
@@ -7918,7 +7927,7 @@ msgstr ""
 "LICENSE*\"]`` aŭ la dosierlokojn ``[\"LICENSE.txt\", \"_vendor/LICENSE-"
 "APACHE.txt\", \"_vendor/LICENSE-BSD.txt\"]``."
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:343
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:347
 msgid ""
 "See a fully worked out :ref:`licensing-example-advanced` for an end-to-end "
 "application of this to a real-world complex project, with many technical "
@@ -11592,6 +11601,19 @@ msgstr "``license``"
 
 #: ../source/guides/writing-pyproject-toml.rst:328
 msgid ""
+":pep:`639` (accepted in August 2024) has changed the way the ``license`` "
+"field is declared. Make sure your preferred build backend supports :pep:"
+"`639` before trying to apply the newer guidelines. As of February 2025, :doc:"
+"`setuptools <setuptools:userguide/pyproject_config>` and :ref:`flit <flit:"
+"pyproject_toml_project>` don't support :pep:`639` yet."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:335
+msgid ":pep:`639` license declaration"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:337
+msgid ""
 "This is a valid :term:`SPDX license expression <License Expression>` "
 "consisting of one or more :term:`license identifiers <License Identifier>`. "
 "The full license list is available at the `SPDX license list page "
@@ -11599,7 +11621,7 @@ msgid ""
 "compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:341
+#: ../source/guides/writing-pyproject-toml.rst:350
 msgid ""
 "As a general rule, it is a good idea to use a standard, well-known license, "
 "both to avoid confusion and because some organizations avoid software whose "
@@ -11608,7 +11630,7 @@ msgstr ""
 "Ĝenerale, estas bone uzi norman, bone konatan licencon, kaj por eviti "
 "konfuziĝon, kaj ĉar kelkaj organizaĵoj evitas programon sen aprobita licenco."
 
-#: ../source/guides/writing-pyproject-toml.rst:345
+#: ../source/guides/writing-pyproject-toml.rst:354
 msgid ""
 "If your project is licensed with a license that doesn't have an existing "
 "SPDX identifier, you can create a custom one in format ``LicenseRef-"
@@ -11621,13 +11643,58 @@ msgstr ""
 "identigilo devas obei `paragrafon 10.1 <spdxcustomids_>`_ de la normo SPDX, "
 "versio 2.2 aŭ ajna pli nova kongrua versio."
 
-#: ../source/guides/writing-pyproject-toml.rst:357
+#: ../source/guides/writing-pyproject-toml.rst:365
+msgid "Legacy license declaration"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:367
+#, fuzzy
+#| msgid ""
+#| "This can take two forms. You can put your license in a file, typically "
+#| "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
+msgid ""
+"This can take two forms. You can put your license in a file, typically :file:"
+"`LICENSE` or :file:`LICENSE.txt`, and link that file here:"
+msgstr ""
+"Vi povas esti unu el du formoj. Vi povas meti vian licencon en dosieron, "
+"ofte ``LICENSE`` aŭ ``LICENSE.txt``, kaj ligi la dosieron al ĉi tie:"
+
+#: ../source/guides/writing-pyproject-toml.rst:375
+msgid "or you can write the name of the license:"
+msgstr "aŭ vi povas skribi la nomon de la licenco:"
+
+#: ../source/guides/writing-pyproject-toml.rst:382
+#, fuzzy
+#| msgid ""
+#| "As a general rule, it is a good idea to use a standard, well-known "
+#| "license, both to avoid confusion and because some organizations avoid "
+#| "software whose license is unapproved."
+msgid ""
+"If you are using a standard, well-known license, it is not necessary to use "
+"this field. Instead, you should use one of the :ref:`classifiers` starting "
+"with ``License ::``. (As a general rule, it is a good idea to use a "
+"standard, well-known license, both to avoid confusion and because some "
+"organizations avoid software whose license is unapproved.)"
+msgstr ""
+"Ĝenerale, estas bone uzi norman, bone konatan licencon, kaj por eviti "
+"konfuziĝon, kaj ĉar kelkaj organizaĵoj evitas programon sen aprobita licenco."
+
+#: ../source/guides/writing-pyproject-toml.rst:390
 #: ../source/specifications/pyproject-toml.rst:141
 #: ../source/specifications/pyproject-toml.rst:251
 msgid "``license-files``"
 msgstr "``license-files``"
 
-#: ../source/guides/writing-pyproject-toml.rst:359
+#: ../source/guides/writing-pyproject-toml.rst:392
+msgid ""
+":pep:`639` (accepted in August 2024) has introduced the ``license-files`` "
+"field. Make sure your preferred build backend supports :pep:`639` before "
+"declaring the field. As of February 2025, :doc:`setuptools <setuptools:"
+"userguide/pyproject_config>` and :ref:`flit <flit:pyproject_toml_project>` "
+"don't support :pep:`639` yet."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:398
 msgid ""
 "This is a list of license files and files containing other legal information "
 "you want to distribute with your package."
@@ -11635,11 +11702,11 @@ msgstr ""
 "Tio estas listo de licenco-dosieroj kaj dosieroj enhavantaj aliajn jurajn "
 "informojn, kiujn vi volas distribui kun via pako."
 
-#: ../source/guides/writing-pyproject-toml.rst:367
+#: ../source/guides/writing-pyproject-toml.rst:406
 msgid "The glob patterns must follow the specification:"
 msgstr "La patroneo devas observi la specifon:"
 
-#: ../source/guides/writing-pyproject-toml.rst:369
+#: ../source/guides/writing-pyproject-toml.rst:408
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
 "``) will be matched verbatim."
@@ -11647,17 +11714,17 @@ msgstr ""
 "Literoj, ciferoj, substrekoj (``_``), streketoj (``-``) kaj punktoj (``.``) "
 "prezentas sin laŭlitere."
 
-#: ../source/guides/writing-pyproject-toml.rst:371
+#: ../source/guides/writing-pyproject-toml.rst:410
 msgid ""
 "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are "
 "supported."
 msgstr "La metasignoj ``*``, ``?``, ``**`` kaj signintervaloj [] eblas."
 
-#: ../source/guides/writing-pyproject-toml.rst:372
+#: ../source/guides/writing-pyproject-toml.rst:411
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr "Dosierloko-apartigilo devas esti la suprenstreko (``/``)."
 
-#: ../source/guides/writing-pyproject-toml.rst:373
+#: ../source/guides/writing-pyproject-toml.rst:412
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`, "
 "and thus may not start with a slash character."
@@ -11665,15 +11732,15 @@ msgstr ""
 "Patroneo estas relativa al la dosierujo enhavanta :file:`pyproject.toml`, "
 "kaj tial ne povas komenciĝi per suprenstreko."
 
-#: ../source/guides/writing-pyproject-toml.rst:375
+#: ../source/guides/writing-pyproject-toml.rst:414
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr "Indikilo de patra dosierujo (``..``) devas esti ne uzita."
 
-#: ../source/guides/writing-pyproject-toml.rst:376
+#: ../source/guides/writing-pyproject-toml.rst:415
 msgid "Each glob must match at least one file."
 msgstr "Ĉiu patroneo devas kongrui kun almenaŭ unu dosiero."
 
-#: ../source/guides/writing-pyproject-toml.rst:378
+#: ../source/guides/writing-pyproject-toml.rst:417
 msgid ""
 "Literal paths are valid globs. Any characters or character sequences not "
 "covered by this specification are invalid."
@@ -11681,13 +11748,13 @@ msgstr ""
 "Eksplicita dosierloko estas valida patroneo. Ajna skribsigno aŭ signoĉeno ne "
 "diskutita de ĉi tiu specifo estas nevalida."
 
-#: ../source/guides/writing-pyproject-toml.rst:384
+#: ../source/guides/writing-pyproject-toml.rst:423
 #: ../source/specifications/pyproject-toml.rst:139
 #: ../source/specifications/pyproject-toml.rst:352
 msgid "``keywords``"
 msgstr "``keywords``"
 
-#: ../source/guides/writing-pyproject-toml.rst:386
+#: ../source/guides/writing-pyproject-toml.rst:425
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
@@ -11695,13 +11762,13 @@ msgstr ""
 "Tio helpos la serĉilon de PyPI sugesti vian projekton, kiam oni serĉas tiujn "
 "ŝlosilvortojn."
 
-#: ../source/guides/writing-pyproject-toml.rst:398
+#: ../source/guides/writing-pyproject-toml.rst:437
 #: ../source/specifications/pyproject-toml.rst:133
 #: ../source/specifications/pyproject-toml.rst:362
 msgid "``classifiers``"
 msgstr "``classifiers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:400
+#: ../source/guides/writing-pyproject-toml.rst:439
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
@@ -11709,7 +11776,7 @@ msgstr ""
 "Listo de PyPI-klasigiloj rilataj al via projekto. Jen la `plena listo de "
 "klasigiloj <classifier-list_>`_."
 
-#: ../source/guides/writing-pyproject-toml.rst:424
+#: ../source/guides/writing-pyproject-toml.rst:463
 msgid ""
 "Although the list of classifiers is often used to declare what Python "
 "versions a project supports, this information is only used for searching and "
@@ -11718,7 +11785,7 @@ msgid ""
 "python` argument."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:429
+#: ../source/guides/writing-pyproject-toml.rst:468
 msgid ""
 "To prevent a package from being uploaded to PyPI, use the special "
 "``Private :: Do Not Upload`` classifier. PyPI will always reject packages "
@@ -11728,13 +11795,13 @@ msgstr ""
 "Do Not Upload``. PyPI ĉiam malakceptas pakon de klasigilo komenciĝanta per "
 "``Private ::``."
 
-#: ../source/guides/writing-pyproject-toml.rst:436
+#: ../source/guides/writing-pyproject-toml.rst:475
 #: ../source/specifications/pyproject-toml.rst:148
 #: ../source/specifications/pyproject-toml.rst:378
 msgid "``urls``"
 msgstr "``urls``"
 
-#: ../source/guides/writing-pyproject-toml.rst:438
+#: ../source/guides/writing-pyproject-toml.rst:477
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
@@ -11742,7 +11809,7 @@ msgstr ""
 "Listo de retadresoj asociitaj al via projekto, montrotaj sur la maldekstra "
 "flankpanelo de via projekta paĝo ĉe PyPI."
 
-#: ../source/guides/writing-pyproject-toml.rst:443
+#: ../source/guides/writing-pyproject-toml.rst:482
 msgid ""
 "See :ref:`well-known-labels` for a listing of labels that PyPI and other "
 "packaging tools are specifically aware of, and `PyPI's project metadata docs "
@@ -11754,7 +11821,7 @@ msgstr ""
 "<https://docs.pypi.org/project_metadata/#project-urls>`_ por PyPI-specifa "
 "pritraktado de retadresoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:457
+#: ../source/guides/writing-pyproject-toml.rst:496
 msgid ""
 "Note that if the label contains spaces, it needs to be quoted, e.g., "
 "``Website = \"https://example.com\"`` but ``\"Official Website\" = \"https://"
@@ -11764,7 +11831,7 @@ msgstr ""
 "``Website = \"https://example.com\"`` sed ``\"Official Website\" = \"https://"
 "example.com\"``."
 
-#: ../source/guides/writing-pyproject-toml.rst:461
+#: ../source/guides/writing-pyproject-toml.rst:500
 msgid ""
 "Users are advised to use :ref:`well-known-labels` for their project URLs "
 "where appropriate, since consumers of metadata (like package indices) can "
@@ -11774,7 +11841,7 @@ msgstr ""
 "retadresoj taŭge, ĉar iloj pri metadatenoj (kiel pakindeksoj) povas pli bone "
 "montri tiujn."
 
-#: ../source/guides/writing-pyproject-toml.rst:465
+#: ../source/guides/writing-pyproject-toml.rst:504
 msgid ""
 "For example in the following metadata, neither ``MyHomepage`` nor "
 "``\"Download Link\"`` is a well-known label, so they will be rendered "
@@ -11783,7 +11850,7 @@ msgstr ""
 "Ekzemple, en la jenaj metadatenoj, ne ``MyHomepage`` nek ``\"Download "
 "Link\"`` estas bone konata etikedo kaj tial montriĝos laŭvorte:"
 
-#: ../source/guides/writing-pyproject-toml.rst:475
+#: ../source/guides/writing-pyproject-toml.rst:514
 msgid ""
 "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known "
 "equivalents (``homepage`` and ``download``), and can be presented with those "
@@ -11795,11 +11862,11 @@ msgstr ""
 "prezenteblaj tiel (kiel la ĉefpaĝo kaj la elŝutejo de la projekto "
 "respektive)."
 
-#: ../source/guides/writing-pyproject-toml.rst:487
+#: ../source/guides/writing-pyproject-toml.rst:526
 msgid "Advanced plugins"
 msgstr "Altnivelaj kromprogramoj"
 
-#: ../source/guides/writing-pyproject-toml.rst:489
+#: ../source/guides/writing-pyproject-toml.rst:528
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
@@ -11809,17 +11876,17 @@ msgstr ""
 "Pygments_. Por krei tian kromprogramon, oni devas deklari ĝin en subtabelo "
 "de ``[project.entry-points]`` jene:"
 
-#: ../source/guides/writing-pyproject-toml.rst:498
+#: ../source/guides/writing-pyproject-toml.rst:537
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 "Vidu la :ref:`Gvidilon pri kromprogramoj <plugin-entry-points>` por pliaj "
 "informoj."
 
-#: ../source/guides/writing-pyproject-toml.rst:503
+#: ../source/guides/writing-pyproject-toml.rst:542
 msgid "A full example"
 msgstr "Plena ekzemplo"
 
-#: ../source/guides/writing-pyproject-toml.rst:566
+#: ../source/guides/writing-pyproject-toml.rst:605
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -28144,7 +28211,7 @@ msgstr ""
 "shell``certigante, ke viaj komandoj povas atingi viajn instalitajn pakojn."
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:513
+#: ../source/tutorials/packaging-projects.rst:539
 msgid "Next steps"
 msgstr "Sekvaj paŝoj"
 
@@ -28472,7 +28539,7 @@ msgstr ""
 "inkluzivante vian salutnomon; tio certigas, ke via paka nomo estas unika, ne "
 "kolizianta kun la pakojn alŝutitajn de aliuloj sekvantaj ĉi tiun lernilon."
 
-#: ../source/tutorials/packaging-projects.rst:225
+#: ../source/tutorials/packaging-projects.rst:250
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -28486,7 +28553,7 @@ msgstr ""
 "salutnomo** por ĉi tiu lernilo; tio certigas, ke vi ne alŝutos pakon de la "
 "sama nomo kiel pako jam ekzistanta."
 
-#: ../source/tutorials/packaging-projects.rst:230
+#: ../source/tutorials/packaging-projects.rst:255
 msgid ""
 "``version`` is the package version. (Some build backends allow it to be "
 "specified another way, such as from a file or Git tag.)"
@@ -28494,7 +28561,7 @@ msgstr ""
 "``version`` estas la versio de la pako. (Kelkaj konstruaj malfasadoj "
 "permesas aliajn manierojn specifi ĝin, kiel per dosiero aŭ Git-etikedo.)"
 
-#: ../source/tutorials/packaging-projects.rst:232
+#: ../source/tutorials/packaging-projects.rst:257
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -28504,11 +28571,11 @@ msgstr ""
 "adreson por ĉiu aŭtoro. La kampo ``maintainers`` por mastrumantoj sekvas la "
 "saman formon."
 
-#: ../source/tutorials/packaging-projects.rst:235
+#: ../source/tutorials/packaging-projects.rst:260
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` estas mallonga, unufraza resumo de la pako."
 
-#: ../source/tutorials/packaging-projects.rst:236
+#: ../source/tutorials/packaging-projects.rst:261
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -28517,7 +28584,7 @@ msgid ""
 "toml guide <writing-pyproject-toml>`."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:241
+#: ../source/tutorials/packaging-projects.rst:266
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "An installer like :ref:`pip` will look back through older versions of "
@@ -28527,7 +28594,7 @@ msgstr ""
 "projekto. Instalilo kiel :ref:`pip` serĉas tra malnovaj versioj de pakoj ĝis "
 "kiam ĝi trovas pakan version kongruan al la versio de Python."
 
-#: ../source/tutorials/packaging-projects.rst:244
+#: ../source/tutorials/packaging-projects.rst:269
 msgid ""
 "``classifiers`` gives the index and :ref:`pip` some additional metadata "
 "about your package. In this case, the package is only compatible with Python "
@@ -28537,22 +28604,31 @@ msgid ""
 "classifiers/."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:251
+#: ../source/tutorials/packaging-projects.rst:276
+#, fuzzy
+#| msgid ""
+#| "``license`` is the :term:`SPDX license expression <License Expression>` "
+#| "of your package."
 msgid ""
 "``license`` is the :term:`SPDX license expression <License Expression>` of "
-"your package."
+"your package. Not supported by all the build backends yet."
 msgstr ""
 "``license`` estas la :term:`SPDX-esprimo <License Expression>` de via pako."
 
-#: ../source/tutorials/packaging-projects.rst:253
+#: ../source/tutorials/packaging-projects.rst:278
+#, fuzzy
+#| msgid ""
+#| "``license-files`` is the list of glob paths to the license files, "
+#| "relative to the directory where :file:`pyproject.toml` is located."
 msgid ""
 "``license-files`` is the list of glob paths to the license files, relative "
-"to the directory where :file:`pyproject.toml` is located."
+"to the directory where :file:`pyproject.toml` is located. Not supported by "
+"all the build backends yet."
 msgstr ""
 "``license-files`` estas la listo de dosierloko-patroneoj al la licenco-"
 "dosieroj, relativa al la dosierujo en kiu ĉeestas :file:`pyproject.toml`."
 
-#: ../source/tutorials/packaging-projects.rst:255
+#: ../source/tutorials/packaging-projects.rst:281
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -28560,7 +28636,7 @@ msgstr ""
 "``urls`` ebligas vin listigi ajnan nombron da ekstraj hiperligoj montrotaj "
 "sur PyPI. Ĝenerale tiuj povas esti la fonto, dokumentaro, cimaro ktp."
 
-#: ../source/tutorials/packaging-projects.rst:258
+#: ../source/tutorials/packaging-projects.rst:284
 msgid ""
 "See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
 "these and other fields that can be defined in the ``[project]`` table. Other "
@@ -28568,11 +28644,11 @@ msgid ""
 "``dependencies`` that are required to install your package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:265
+#: ../source/tutorials/packaging-projects.rst:291
 msgid "Creating README.md"
 msgstr "Krei la dosieron README.md"
 
-#: ../source/tutorials/packaging-projects.rst:267
+#: ../source/tutorials/packaging-projects.rst:293
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -28580,11 +28656,11 @@ msgstr ""
 "Malfermu :file:`README.md`, kaj tajpu la jenon. Vi povas adapti ĝin, se tio "
 "plaĉas al vi."
 
-#: ../source/tutorials/packaging-projects.rst:280
+#: ../source/tutorials/packaging-projects.rst:306
 msgid "Creating a LICENSE"
 msgstr "Krei la dosieron LICENSE"
 
-#: ../source/tutorials/packaging-projects.rst:282
+#: ../source/tutorials/packaging-projects.rst:308
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -28598,7 +28674,7 @@ msgstr ""
 "elekto de licenco, malfermu :file:`LICENSE`, kaj tajpu la licencan tekston. "
 "Ekzemple, se vi elektus la MIT-licencon:"
 
-#: ../source/tutorials/packaging-projects.rst:311
+#: ../source/tutorials/packaging-projects.rst:337
 msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details. If you include the path to "
@@ -28607,11 +28683,11 @@ msgid ""
 "in the package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:319
+#: ../source/tutorials/packaging-projects.rst:345
 msgid "Including other files"
 msgstr "Inkluzivi aliajn dosierojn"
 
-#: ../source/tutorials/packaging-projects.rst:321
+#: ../source/tutorials/packaging-projects.rst:347
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
@@ -28621,11 +28697,11 @@ msgstr ""
 "<Source Distribution (or \"sdist\")>`. Se vi volas inkluzivi aliajn "
 "dosierojn, legu la dokumentaron por via konstruilo."
 
-#: ../source/tutorials/packaging-projects.rst:328
+#: ../source/tutorials/packaging-projects.rst:354
 msgid "Generating distribution archives"
 msgstr "Generi distribuan arĥivon"
 
-#: ../source/tutorials/packaging-projects.rst:330
+#: ../source/tutorials/packaging-projects.rst:356
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -28635,18 +28711,18 @@ msgstr ""
 "por la pakoj. Tiuj estas arĥivoj alŝutotaj al Python Package Index kaj "
 "instaleblaj per :ref:`pip`."
 
-#: ../source/tutorials/packaging-projects.rst:334
+#: ../source/tutorials/packaging-projects.rst:360
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr "Certigu, ke vi instalis la plej novan version de :ref:`build` de PyPA:"
 
-#: ../source/tutorials/packaging-projects.rst:348
+#: ../source/tutorials/packaging-projects.rst:374
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
 msgstr ""
 "Se malfacilas instali tiujn, vidu la lernilon :doc:`installing-packages`."
 
-#: ../source/tutorials/packaging-projects.rst:351
+#: ../source/tutorials/packaging-projects.rst:377
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -28654,7 +28730,7 @@ msgstr ""
 "Nun rulu la jenan komandon ĉe la sama dosierujo kie troviĝas :file:"
 "`pyproject.toml`:"
 
-#: ../source/tutorials/packaging-projects.rst:365
+#: ../source/tutorials/packaging-projects.rst:391
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -28662,7 +28738,7 @@ msgstr ""
 "Tiu komando eligos multon da teksto, kaj post fino estos kreinta du "
 "dosierojn en la dosierujo :file:`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:375
+#: ../source/tutorials/packaging-projects.rst:401
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -28681,15 +28757,15 @@ msgstr ""
 "kongruaj platformoj. Niakaze, la ekzempla pako kongruas kun Python sur ajna "
 "platformo; tial ni nur bezonas unu konstruitan distribuon."
 
-#: ../source/tutorials/packaging-projects.rst:384
+#: ../source/tutorials/packaging-projects.rst:410
 msgid "Uploading the distribution archives"
 msgstr "Alŝuti la distribuajn arĥivojn"
 
-#: ../source/tutorials/packaging-projects.rst:386
+#: ../source/tutorials/packaging-projects.rst:412
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr "Finfine, vi pretas alŝuti vian pakon al Python Package Index!"
 
-#: ../source/tutorials/packaging-projects.rst:388
+#: ../source/tutorials/packaging-projects.rst:414
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -28706,7 +28782,7 @@ msgstr ""
 "devas konfirmi vian retpoŝtan adreson antaŭ ol alŝutade pako.  Por pli da "
 "detaloj, vidu :doc:`/guides/using-testpypi`."
 
-#: ../source/tutorials/packaging-projects.rst:396
+#: ../source/tutorials/packaging-projects.rst:422
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -28718,7 +28794,7 @@ msgstr ""
 "la «Amplekso» estanta «Tuta konto». **Ne fermu la paĝon antaŭ ol vi kopiis "
 "kaj konservis la ĵetonon — vi ne povos revidi tiun ĵetonon.**"
 
-#: ../source/tutorials/packaging-projects.rst:403
+#: ../source/tutorials/packaging-projects.rst:429
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -28726,12 +28802,12 @@ msgstr ""
 "Post registrado, vi povas uzi :ref:`twine` por alŝuti la distribuajn pakojn. "
 "Vi devas instali Twine:"
 
-#: ../source/tutorials/packaging-projects.rst:418
+#: ../source/tutorials/packaging-projects.rst:444
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr "Post instalo, rulu Twine por alŝuti ĉiujn arĥivojn en :file:`dist`:"
 
-#: ../source/tutorials/packaging-projects.rst:432
+#: ../source/tutorials/packaging-projects.rst:458
 msgid ""
 "You will be prompted for an API token. Use the token value, including the "
 "``pypi-`` prefix. Note that the input will be hidden, so be sure to paste "
@@ -28741,11 +28817,11 @@ msgstr ""
 "prefikso ``pypi-``. Notu, ke la enigaĵo estos kaŝita; tial certigu, ke vi "
 "algluos ĝuste."
 
-#: ../source/tutorials/packaging-projects.rst:435
+#: ../source/tutorials/packaging-projects.rst:461
 msgid "After the command completes, you should see output similar to this:"
 msgstr "Post la fino de la komando, vi vidos eligaĵon similan al la jeno:"
 
-#: ../source/tutorials/packaging-projects.rst:446
+#: ../source/tutorials/packaging-projects.rst:472
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -28753,11 +28829,11 @@ msgstr ""
 "Post alŝuto, via pako estos videbla ĉe TestPyPI; ekzemple: ``https://test."
 "pypi.org/project/example_package_VIA_SALUTNOMO_ĈI_TIE``."
 
-#: ../source/tutorials/packaging-projects.rst:451
+#: ../source/tutorials/packaging-projects.rst:477
 msgid "Installing your newly uploaded package"
 msgstr "Instali vian nove alŝutitan pakon"
 
-#: ../source/tutorials/packaging-projects.rst:453
+#: ../source/tutorials/packaging-projects.rst:479
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -28767,17 +28843,17 @@ msgstr ""
 "Kreu :ref:`virtualan medion <Creating and using Virtual Environments>`, kaj "
 "instalu vian pakon el TestPyPI:"
 
-#: ../source/tutorials/packaging-projects.rst:469
+#: ../source/tutorials/packaging-projects.rst:495
 msgid "Make sure to specify your username in the package name!"
 msgstr "Certigu, ke vi indikas vian salutnomon en la nomo de la pako!"
 
-#: ../source/tutorials/packaging-projects.rst:471
+#: ../source/tutorials/packaging-projects.rst:497
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
 msgstr "pip instalos la pakon el TestPyPI, kaj la eligaĵo aspektu jene:"
 
-#: ../source/tutorials/packaging-projects.rst:481
+#: ../source/tutorials/packaging-projects.rst:507
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -28792,7 +28868,7 @@ msgstr ""
 "povas malsukcesi aŭ estigi ion neatenditan. Kvankam nia ekzempla pako ne "
 "havas dependecon, estas bone averti instaladon de dependaĵojn por Prova PyPI."
 
-#: ../source/tutorials/packaging-projects.rst:488
+#: ../source/tutorials/packaging-projects.rst:514
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -28801,17 +28877,17 @@ msgstr ""
 "Certigu, ke vi ankoraŭ estas en via virtuala medio, kaj rulu la jenan Python-"
 "kodon:"
 
-#: ../source/tutorials/packaging-projects.rst:503
+#: ../source/tutorials/packaging-projects.rst:529
 msgid "and import the package:"
 msgstr "kaj importu la pakon:"
 
-#: ../source/tutorials/packaging-projects.rst:515
+#: ../source/tutorials/packaging-projects.rst:541
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 "
 "✨"
 msgstr "**Gratulon, vi pakis kaj distribuis Python-projekton!** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:518
+#: ../source/tutorials/packaging-projects.rst:544
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -28823,7 +28899,7 @@ msgstr ""
 "kaj kontojn. Oni uzu Provan PyPI nur por testado kaj eksperimentado kiel en "
 "ĉi tiu lernilo."
 
-#: ../source/tutorials/packaging-projects.rst:523
+#: ../source/tutorials/packaging-projects.rst:549
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -28832,7 +28908,7 @@ msgstr ""
 "Kiam vi pretas alŝuti veran pakon al la Python-Pakindekso, vi povas fari pli-"
 "malpli same kiel ĉi tiu lernilo, krom la jenaj gravaj diferencoj:"
 
-#: ../source/tutorials/packaging-projects.rst:527
+#: ../source/tutorials/packaging-projects.rst:553
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
@@ -28841,7 +28917,7 @@ msgstr ""
 "Elektu memorindan kaj unikan nomon por via pako. Vi ne devas postmeti vian "
 "salutnomon kiel en la lernilo, sed vi ne povas uzi ekzistantan nomon."
 
-#: ../source/tutorials/packaging-projects.rst:529
+#: ../source/tutorials/packaging-projects.rst:555
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -28850,7 +28926,7 @@ msgstr ""
 "Registru konton ĉe https://pypi.org – notu, ke tiuj du estas apartaj "
 "serviloj; la akreditiloj ne estas komunaj inter ili."
 
-#: ../source/tutorials/packaging-projects.rst:532
+#: ../source/tutorials/packaging-projects.rst:558
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -28862,7 +28938,7 @@ msgstr ""
 "ne devas uzi la flagon ``--repository``; la pako estos implicite alŝutita al "
 "https://pypi.org/."
 
-#: ../source/tutorials/packaging-projects.rst:536
+#: ../source/tutorials/packaging-projects.rst:562
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -28870,7 +28946,7 @@ msgstr ""
 "Instalu vian pakon el la vera PyPI per ``python3 -m pip install [your-"
 "package]``."
 
-#: ../source/tutorials/packaging-projects.rst:538
+#: ../source/tutorials/packaging-projects.rst:564
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -28878,7 +28954,7 @@ msgstr ""
 "Nun, se vi volas legi pli pri pakado de Python-bibliotekoj, jen kelkaj "
 "legindaĵoj:"
 
-#: ../source/tutorials/packaging-projects.rst:541
+#: ../source/tutorials/packaging-projects.rst:567
 msgid ""
 "Read about advanced configuration for your chosen build backend: `Hatchling "
 "<hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
@@ -28888,7 +28964,7 @@ msgstr ""
 "config_>`_, :doc:`setuptools <setuptools:userguide/pyproject_config>`, :doc:"
 "`Flit <flit:pyproject_toml>`, `PDM <pdm-config_>`_."
 
-#: ../source/tutorials/packaging-projects.rst:545
+#: ../source/tutorials/packaging-projects.rst:571
 msgid ""
 "Look at the :doc:`guides </guides/index>` on this site for more advanced "
 "practical information, or the :doc:`discussions </discussions/index>` for "
@@ -28898,7 +28974,7 @@ msgstr ""
 "praktikaj informoj aŭ la :doc:`diskutojn </discussions/index>` por klarigoj "
 "kaj fonaj informoj pri specifaj temoj."
 
-#: ../source/tutorials/packaging-projects.rst:548
+#: ../source/tutorials/packaging-projects.rst:574
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
@@ -28908,11 +28984,11 @@ msgstr ""
 "projektadministrado kaj pakado, kiel ekzemple :ref:`hatch`, :ref:`flit`, :"
 "ref:`pdm` kaj :ref:`poetry`."
 
-#: ../source/tutorials/packaging-projects.rst:556
+#: ../source/tutorials/packaging-projects.rst:582
 msgid "Notes"
 msgstr "Notoj"
 
-#: ../source/tutorials/packaging-projects.rst:558
+#: ../source/tutorials/packaging-projects.rst:584
 msgid ""
 "Technically, you can also create Python packages without an ``__init__.py`` "
 "file, but those are called :doc:`namespace packages </guides/packaging-"
@@ -29001,16 +29077,6 @@ msgstr ""
 
 #~ msgid "Two new keys are added to the ``files`` key."
 #~ msgstr "Du novaj ŝlosiloj estas aldonitaj al la ŝlosilo ``files``."
-
-#~ msgid ""
-#~ "This can take two forms. You can put your license in a file, typically "
-#~ "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
-#~ msgstr ""
-#~ "Vi povas esti unu el du formoj. Vi povas meti vian licencon en dosieron, "
-#~ "ofte ``LICENSE`` aŭ ``LICENSE.txt``, kaj ligi la dosieron al ĉi tie:"
-
-#~ msgid "or you can write the name of the license:"
-#~ msgstr "aŭ vi povas skribi la nomon de la licenco:"
 
 #~ msgid "TOML_ type: table"
 #~ msgstr "Tipo de TOML_: tabelo"
