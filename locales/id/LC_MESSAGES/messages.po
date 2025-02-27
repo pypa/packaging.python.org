@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-07 04:23+0000\n"
+"POT-Creation-Date: 2025-01-08 00:05+0000\n"
 "PO-Revision-Date: 2024-10-17 21:16+0000\n"
 "Last-Translator: oon arfiandwi <oon.arfiandwi@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/pypa/"
@@ -3583,7 +3583,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:337
-#: ../source/specifications/dependency-specifiers.rst:491
+#: ../source/specifications/dependency-specifiers.rst:501
 msgid "References"
 msgstr ""
 
@@ -8802,8 +8802,8 @@ msgstr ""
 #: ../source/guides/writing-pyproject-toml.rst:237
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
-"be available. Executing this command will do the equivalent of ``from spam "
-"import main_cli; main_cli()``."
+"be available. Executing this command will do the equivalent of ``import sys; "
+"from spam import main_cli; sys.exit(main_cli())``."
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:241
@@ -12312,7 +12312,7 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:421
 #: ../source/specifications/core-metadata.rst:917
 #: ../source/specifications/dependency-groups.rst:248
-#: ../source/specifications/dependency-specifiers.rst:477
+#: ../source/specifications/dependency-specifiers.rst:487
 #: ../source/specifications/direct-url-data-structure.rst:397
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
@@ -13711,11 +13711,11 @@ msgid ""
 "The sole exception is detecting the end of a URL requirement."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:132
+#: ../source/specifications/dependency-specifiers.rst:134
 msgid "Names"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:134
+#: ../source/specifications/dependency-specifiers.rst:136
 msgid ""
 "Python distribution names are currently defined in :pep:`345`. Names act as "
 "the primary identifier for distributions. They are present in all dependency "
@@ -13727,11 +13727,11 @@ msgid ""
 "with re.IGNORECASE) is::"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:146
+#: ../source/specifications/dependency-specifiers.rst:150
 msgid "Extras"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:148
+#: ../source/specifications/dependency-specifiers.rst:152
 msgid ""
 "An extra is an optional part of a distribution. Distributions can specify as "
 "many extras as they wish, and each extra results in the declaration of "
@@ -13739,7 +13739,7 @@ msgid ""
 "dependency specification. For instance::"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:155
+#: ../source/specifications/dependency-specifiers.rst:159
 msgid ""
 "Extras union in the dependencies they define with the dependencies of the "
 "distribution they are attached to. The example above would result in "
@@ -13747,18 +13747,18 @@ msgid ""
 "dependencies that are listed in the \"security\" extra of requests."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:160
+#: ../source/specifications/dependency-specifiers.rst:164
 msgid ""
 "If multiple extras are listed, all the dependencies are unioned together."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:163
+#: ../source/specifications/dependency-specifiers.rst:169
 #: ../source/specifications/simple-repository-api.rst:902
 #, fuzzy
 msgid "Versions"
 msgstr "Penerjemahan"
 
-#: ../source/specifications/dependency-specifiers.rst:165
+#: ../source/specifications/dependency-specifiers.rst:171
 msgid ""
 "See the :ref:`Version specifier specification <version-specifiers>` for more "
 "detail on both version numbers and version comparisons. Version "
@@ -13769,11 +13769,11 @@ msgid ""
 "should not be generated, only accepted."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:174
+#: ../source/specifications/dependency-specifiers.rst:182
 msgid "Environment Markers"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:176
+#: ../source/specifications/dependency-specifiers.rst:184
 msgid ""
 "Environment markers allow a dependency specification to provide a rule that "
 "describes when the dependency should be used. For instance, consider a "
@@ -13782,13 +13782,13 @@ msgid ""
 "expressed as so::"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:183
+#: ../source/specifications/dependency-specifiers.rst:191
 msgid ""
 "A marker expression evaluates to either True or False. When it evaluates to "
 "False, the dependency specification should be ignored."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:186
+#: ../source/specifications/dependency-specifiers.rst:194
 msgid ""
 "The marker language is inspired by Python itself, chosen for the ability to "
 "safely evaluate it without running arbitrary code that could become a "
@@ -13797,7 +13797,7 @@ msgid ""
 "pep:`426`."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:191
+#: ../source/specifications/dependency-specifiers.rst:199
 msgid ""
 "Comparisons in marker expressions are typed by the comparison operator.  The "
 "<marker_op> operators that are not in <version_cmp> perform the same as they "
@@ -13810,7 +13810,7 @@ msgid ""
 "will result in  errors::"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:204
+#: ../source/specifications/dependency-specifiers.rst:212
 msgid ""
 "User supplied constants are always encoded as strings with either ``'`` or "
 "``\"`` quote marks. Note that backslash escapes are not defined, but "
@@ -13820,7 +13820,7 @@ msgid ""
 "the runtime variables we are referencing are expected to be ASCII-only."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:211
+#: ../source/specifications/dependency-specifiers.rst:219
 msgid ""
 "The variables in the marker grammar such as \"os_name\" resolve to values "
 "looked up in the Python runtime. With the exception of \"extra\" all values "
@@ -13828,20 +13828,20 @@ msgid ""
 "implementation of markers if a value is not defined."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:216
+#: ../source/specifications/dependency-specifiers.rst:224
 msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
 "that evaluates to True or False."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:219
+#: ../source/specifications/dependency-specifiers.rst:227
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
 "should evaluate to ``0`` for versions, and an empty string for all other "
 "variables."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:223
+#: ../source/specifications/dependency-specifiers.rst:231
 msgid ""
 "The \"extra\" variable is special. It is used by wheels to signal which "
 "specifications apply to a given extra in the wheel ``METADATA`` file, but "
@@ -13851,194 +13851,194 @@ msgid ""
 "in an error like all other unknown variables."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:233
+#: ../source/specifications/dependency-specifiers.rst:241
 msgid "Marker"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:234
+#: ../source/specifications/dependency-specifiers.rst:242
 msgid "Python equivalent"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:235
+#: ../source/specifications/dependency-specifiers.rst:243
 msgid "Sample values"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:236
+#: ../source/specifications/dependency-specifiers.rst:244
 msgid "``os_name``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:237
+#: ../source/specifications/dependency-specifiers.rst:245
 msgid ":py:data:`os.name`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:238
+#: ../source/specifications/dependency-specifiers.rst:246
 msgid "``posix``, ``java``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:239
+#: ../source/specifications/dependency-specifiers.rst:247
 msgid "``sys_platform``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:240
+#: ../source/specifications/dependency-specifiers.rst:248
 msgid ":py:data:`sys.platform`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:241
+#: ../source/specifications/dependency-specifiers.rst:249
 msgid ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
 "from Python3 and \"linux2\" from Python2)"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:243
+#: ../source/specifications/dependency-specifiers.rst:251
 msgid "``platform_machine``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:244
+#: ../source/specifications/dependency-specifiers.rst:252
 msgid ":py:func:`platform.machine()`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:245
+#: ../source/specifications/dependency-specifiers.rst:253
 msgid "``x86_64``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:246
+#: ../source/specifications/dependency-specifiers.rst:254
 msgid "``platform_python_implementation``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:247
+#: ../source/specifications/dependency-specifiers.rst:255
 msgid ":py:func:`platform.python_implementation()`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:248
+#: ../source/specifications/dependency-specifiers.rst:256
 msgid "``CPython``, ``Jython``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:249
+#: ../source/specifications/dependency-specifiers.rst:257
 msgid "``platform_release``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:250
+#: ../source/specifications/dependency-specifiers.rst:258
 msgid ":py:func:`platform.release()`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:251
+#: ../source/specifications/dependency-specifiers.rst:259
 msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:252
+#: ../source/specifications/dependency-specifiers.rst:260
 msgid "``platform_system``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:261
 msgid ":py:func:`platform.system()`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:254
+#: ../source/specifications/dependency-specifiers.rst:262
 msgid "``Linux``, ``Windows``, ``Java``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:255
+#: ../source/specifications/dependency-specifiers.rst:263
 msgid "``platform_version``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:256
+#: ../source/specifications/dependency-specifiers.rst:264
 msgid ":py:func:`platform.version()`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:265
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
 "02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:260
+#: ../source/specifications/dependency-specifiers.rst:268
 msgid "``python_version``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:261
+#: ../source/specifications/dependency-specifiers.rst:269
 msgid "``'.'.join(platform.python_version_tuple()[:2])``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:270
 msgid "``3.4``, ``2.7``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:263
+#: ../source/specifications/dependency-specifiers.rst:271
 msgid "``python_full_version``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:264
+#: ../source/specifications/dependency-specifiers.rst:272
 msgid ":py:func:`platform.python_version()`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:265
-#: ../source/specifications/dependency-specifiers.rst:271
+#: ../source/specifications/dependency-specifiers.rst:273
+#: ../source/specifications/dependency-specifiers.rst:279
 msgid "``3.4.0``, ``3.5.0b1``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:266
+#: ../source/specifications/dependency-specifiers.rst:274
 msgid "``implementation_name``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:267
+#: ../source/specifications/dependency-specifiers.rst:275
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:268
+#: ../source/specifications/dependency-specifiers.rst:276
 msgid "``cpython``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:269
+#: ../source/specifications/dependency-specifiers.rst:277
 msgid "``implementation_version``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:278
 msgid "see definition below"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:272
+#: ../source/specifications/dependency-specifiers.rst:280
 msgid "``extra``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:273
+#: ../source/specifications/dependency-specifiers.rst:281
 msgid ""
 "An error except when defined by the context interpreting the specification."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:275
+#: ../source/specifications/dependency-specifiers.rst:283
 msgid "``test``"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:277
+#: ../source/specifications/dependency-specifiers.rst:285
 msgid ""
 "The ``implementation_version`` marker variable is derived from :py:data:`sys."
 "implementation.version <sys.implementation>`:"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:294
+#: ../source/specifications/dependency-specifiers.rst:302
 msgid ""
 "This environment markers section, initially defined through :pep:`508`, "
 "supersedes the environment markers section in :pep:`345`."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:298
+#: ../source/specifications/dependency-specifiers.rst:308
 msgid "Complete Grammar"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:300
+#: ../source/specifications/dependency-specifiers.rst:310
 msgid "The complete parsley grammar::"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:407
+#: ../source/specifications/dependency-specifiers.rst:417
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:479
+#: ../source/specifications/dependency-specifiers.rst:489
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:480
+#: ../source/specifications/dependency-specifiers.rst:490
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
 "change_>`_ from ``platform.python_version()[:3]`` to ``'.'.join(platform."
@@ -14046,24 +14046,24 @@ msgid ""
 "Python with 2-digit major and minor versions (e.g. 3.10). [#future_versions]_"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:485
+#: ../source/specifications/dependency-specifiers.rst:495
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
 "commas, matching with the behavior of the Python implementation that has "
 "been in use since late 2022."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:493
+#: ../source/specifications/dependency-specifiers.rst:503
 msgid ""
 "pip, the recommended installer for Python packages (http://pip.readthedocs."
 "org/en/stable/)"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:496
+#: ../source/specifications/dependency-specifiers.rst:506
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:499
+#: ../source/specifications/dependency-specifiers.rst:509
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
