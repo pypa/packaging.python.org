@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-07 04:23+0000\n"
+"POT-Creation-Date: 2025-01-13 21:16+0000\n"
 "PO-Revision-Date: 2024-07-15 14:09+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -4162,7 +4162,7 @@ msgstr "Описание"
 #: ../source/guides/analyzing-pypi-package-downloads.rst:77
 #: ../source/specifications/dependency-groups.rst:23
 #: ../source/specifications/dependency-specifiers.rst:29
-#: ../source/specifications/direct-url-data-structure.rst:347
+#: ../source/specifications/direct-url-data-structure.rst:357
 #: ../source/specifications/version-specifiers.rst:1069
 msgid "Examples"
 msgstr "Примеры"
@@ -4569,7 +4569,6 @@ msgstr ""
 "`Pandas`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:337
-#: ../source/specifications/dependency-specifiers.rst:491
 #: ../source/specifications/dependency-specifiers.rst:501
 msgid "References"
 msgstr "Ссылка"
@@ -11604,10 +11603,11 @@ msgstr ""
 "``[project.scripts]``."
 
 #: ../source/guides/writing-pyproject-toml.rst:237
+#, fuzzy
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
-"be available. Executing this command will do the equivalent of ``from spam "
-"import main_cli; main_cli()``."
+"be available. Executing this command will do the equivalent of ``import sys; "
+"from spam import main_cli; sys.exit(main_cli())``."
 msgstr ""
 "В этом примере после установки вашего проекта будет доступна команда ``spam-"
 "cli''. Выполнение этой команды будет эквивалентно выполнению команды ``from "
@@ -16233,8 +16233,8 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:421
 #: ../source/specifications/core-metadata.rst:917
 #: ../source/specifications/dependency-groups.rst:248
-#: ../source/specifications/dependency-specifiers.rst:477
-#: ../source/specifications/direct-url-data-structure.rst:397
+#: ../source/specifications/dependency-specifiers.rst:487
+#: ../source/specifications/direct-url-data-structure.rst:407
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
 #: ../source/specifications/externally-managed-environments.rst:472
@@ -16244,10 +16244,9 @@ msgstr ""
 #: ../source/specifications/pyproject-toml.rst:444
 #: ../source/specifications/recording-installed-packages.rst:252
 #: ../source/specifications/simple-repository-api.rst:988
-#: ../source/specifications/source-distribution-format.rst:144
+#: ../source/specifications/source-distribution-format.rst:148
 #: ../source/specifications/version-specifiers.rst:1266
 #: ../source/specifications/virtual-environments.rst:54
-#: ../source/specifications/dependency-specifiers.rst:487
 msgid "History"
 msgstr "История"
 
@@ -17985,12 +17984,10 @@ msgstr ""
 "необязательными и не имеют смыслового значения. Единственным исключением "
 "является определение конца требования URL."
 
-#: ../source/specifications/dependency-specifiers.rst:132
 #: ../source/specifications/dependency-specifiers.rst:134
 msgid "Names"
 msgstr "Имена"
 
-#: ../source/specifications/dependency-specifiers.rst:134
 #: ../source/specifications/dependency-specifiers.rst:136
 msgid ""
 "Python distribution names are currently defined in :pep:`345`. Names act as "
@@ -18012,12 +18009,10 @@ msgstr ""
 "имени может произойти в будущем PEP для метаданных. Регекс (выполняется с re."
 "IGNORECASE) выглядит так::"
 
-#: ../source/specifications/dependency-specifiers.rst:146
 #: ../source/specifications/dependency-specifiers.rst:150
 msgid "Extras"
 msgstr "Дополнительно"
 
-#: ../source/specifications/dependency-specifiers.rst:148
 #: ../source/specifications/dependency-specifiers.rst:152
 msgid ""
 "An extra is an optional part of a distribution. Distributions can specify as "
@@ -18030,7 +18025,6 @@ msgstr ""
 "объявлению дополнительных зависимостей дистрибутива, **когда** дополнение "
 "используется в спецификации зависимостей. Например::"
 
-#: ../source/specifications/dependency-specifiers.rst:155
 #: ../source/specifications/dependency-specifiers.rst:159
 msgid ""
 "Extras union in the dependencies they define with the dependencies of the "
@@ -18043,20 +18037,17 @@ msgstr ""
 "к установке requests, собственных зависимостей запросов, а также любых "
 "зависимостей, перечисленных в дополнении запросы \"безопасности\"."
 
-#: ../source/specifications/dependency-specifiers.rst:160
 #: ../source/specifications/dependency-specifiers.rst:164
 msgid ""
 "If multiple extras are listed, all the dependencies are unioned together."
 msgstr ""
 "Если перечислено несколько дополнений, все зависимости объединяются вместе."
 
-#: ../source/specifications/dependency-specifiers.rst:163
-#: ../source/specifications/simple-repository-api.rst:902
 #: ../source/specifications/dependency-specifiers.rst:169
+#: ../source/specifications/simple-repository-api.rst:902
 msgid "Versions"
 msgstr "Версии"
 
-#: ../source/specifications/dependency-specifiers.rst:165
 #: ../source/specifications/dependency-specifiers.rst:171
 msgid ""
 "See the :ref:`Version specifier specification <version-specifiers>` for more "
@@ -18075,12 +18066,10 @@ msgstr ""
 "скобки вокруг версии присутствуют для совместимости с :pep:`345`, но не "
 "должны генерироваться, а только приниматься."
 
-#: ../source/specifications/dependency-specifiers.rst:174
 #: ../source/specifications/dependency-specifiers.rst:182
 msgid "Environment Markers"
 msgstr "Маркеры окружающей среды"
 
-#: ../source/specifications/dependency-specifiers.rst:176
 #: ../source/specifications/dependency-specifiers.rst:184
 msgid ""
 "Environment markers allow a dependency specification to provide a rule that "
@@ -18095,7 +18084,6 @@ msgstr ""
 "присутствует всегда. В более старых версиях Python он должен быть установлен "
 "как зависимость. Это можно выразить так::"
 
-#: ../source/specifications/dependency-specifiers.rst:183
 #: ../source/specifications/dependency-specifiers.rst:191
 msgid ""
 "A marker expression evaluates to either True or False. When it evaluates to "
@@ -18104,7 +18092,6 @@ msgstr ""
 "Маркерное выражение оценивается либо в True, либо в False. Если оно имеет "
 "значение False, спецификация зависимости должна быть проигнорирована."
 
-#: ../source/specifications/dependency-specifiers.rst:186
 #: ../source/specifications/dependency-specifiers.rst:194
 msgid ""
 "The marker language is inspired by Python itself, chosen for the ability to "
@@ -18119,7 +18106,6 @@ msgstr ""
 "документе исправлены некоторые проблемы, которые были замечены в "
 "конструкции, описанной в :pep:`426`."
 
-#: ../source/specifications/dependency-specifiers.rst:191
 #: ../source/specifications/dependency-specifiers.rst:199
 msgid ""
 "Comparisons in marker expressions are typed by the comparison operator.  The "
@@ -18142,7 +18128,6 @@ msgstr ""
 "противном случае должна быть выдана ошибка. Например, следующие действия "
 "приведут к ошибкам::"
 
-#: ../source/specifications/dependency-specifiers.rst:204
 #: ../source/specifications/dependency-specifiers.rst:212
 msgid ""
 "User supplied constants are always encoded as strings with either ``'`` or "
@@ -18160,7 +18145,6 @@ msgstr ""
 "отличных от ASCII: все переменные времени выполнения, на которые мы "
 "ссылаемся, должны быть только ASCII."
 
-#: ../source/specifications/dependency-specifiers.rst:211
 #: ../source/specifications/dependency-specifiers.rst:219
 msgid ""
 "The variables in the marker grammar such as \"os_name\" resolve to values "
@@ -18173,7 +18157,6 @@ msgstr ""
 "\"extra\", все значения определены во всех современных версиях Python - если "
 "значение не определено, это ошибка в реализации маркеров."
 
-#: ../source/specifications/dependency-specifiers.rst:216
 #: ../source/specifications/dependency-specifiers.rst:224
 msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
@@ -18182,7 +18165,6 @@ msgstr ""
 "Неизвестные переменные должны вызывать ошибку, а не приводить к сравнению, "
 "которое оценивается как True или False."
 
-#: ../source/specifications/dependency-specifiers.rst:219
 #: ../source/specifications/dependency-specifiers.rst:227
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
@@ -18193,7 +18175,6 @@ msgstr ""
 "Python, должны оцениваться как ``0`` для версий, и как пустая строка для "
 "всех остальных переменных."
 
-#: ../source/specifications/dependency-specifiers.rst:223
 #: ../source/specifications/dependency-specifiers.rst:231
 msgid ""
 "The \"extra\" variable is special. It is used by wheels to signal which "
@@ -18211,47 +18192,38 @@ msgstr ""
 "\"extra\" должна приводить к ошибке, как и все остальные неизвестные "
 "переменные."
 
-#: ../source/specifications/dependency-specifiers.rst:233
 #: ../source/specifications/dependency-specifiers.rst:241
 msgid "Marker"
 msgstr "Маркер"
 
-#: ../source/specifications/dependency-specifiers.rst:234
 #: ../source/specifications/dependency-specifiers.rst:242
 msgid "Python equivalent"
 msgstr "Эквивалент Python"
 
-#: ../source/specifications/dependency-specifiers.rst:235
 #: ../source/specifications/dependency-specifiers.rst:243
 msgid "Sample values"
 msgstr "Образцовые значения"
 
-#: ../source/specifications/dependency-specifiers.rst:236
 #: ../source/specifications/dependency-specifiers.rst:244
 msgid "``os_name``"
 msgstr "``ос_название``"
 
-#: ../source/specifications/dependency-specifiers.rst:237
 #: ../source/specifications/dependency-specifiers.rst:245
 msgid ":py:data:`os.name`"
 msgstr ":py: данные:`ос. название`"
 
-#: ../source/specifications/dependency-specifiers.rst:238
 #: ../source/specifications/dependency-specifiers.rst:246
 msgid "``posix``, ``java``"
 msgstr "``posix``, ``java``"
 
-#: ../source/specifications/dependency-specifiers.rst:239
 #: ../source/specifications/dependency-specifiers.rst:247
 msgid "``sys_platform``"
 msgstr "``системная платформа``"
 
-#: ../source/specifications/dependency-specifiers.rst:240
 #: ../source/specifications/dependency-specifiers.rst:248
 msgid ":py:data:`sys.platform`"
 msgstr ":py: данные:`sys. платформа`"
 
-#: ../source/specifications/dependency-specifiers.rst:241
 #: ../source/specifications/dependency-specifiers.rst:249
 msgid ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
@@ -18260,77 +18232,62 @@ msgstr ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (обратите внимание, что "
 "\"linux\" - из Python3, а \"linux2\" - из Python2)"
 
-#: ../source/specifications/dependency-specifiers.rst:243
 #: ../source/specifications/dependency-specifiers.rst:251
 msgid "``platform_machine``"
 msgstr "``платформа_машины``"
 
-#: ../source/specifications/dependency-specifiers.rst:244
 #: ../source/specifications/dependency-specifiers.rst:252
 msgid ":py:func:`platform.machine()`"
 msgstr ":py:func:`платформа.машина()`"
 
-#: ../source/specifications/dependency-specifiers.rst:245
 #: ../source/specifications/dependency-specifiers.rst:253
 msgid "``x86_64``"
 msgstr "``x86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:246
 #: ../source/specifications/dependency-specifiers.rst:254
 msgid "``platform_python_implementation``"
 msgstr "``платформа_python_имплементация``"
 
-#: ../source/specifications/dependency-specifiers.rst:247
 #: ../source/specifications/dependency-specifiers.rst:255
 msgid ":py:func:`platform.python_implementation()`"
 msgstr ":py:func:`платформа.python_имплементация()`"
 
-#: ../source/specifications/dependency-specifiers.rst:248
 #: ../source/specifications/dependency-specifiers.rst:256
 msgid "``CPython``, ``Jython``"
 msgstr "``CPython``, ``Jython``"
 
-#: ../source/specifications/dependency-specifiers.rst:249
 #: ../source/specifications/dependency-specifiers.rst:257
 msgid "``platform_release``"
 msgstr "``платформа_выпуска``"
 
-#: ../source/specifications/dependency-specifiers.rst:250
 #: ../source/specifications/dependency-specifiers.rst:258
 msgid ":py:func:`platform.release()`"
 msgstr ":py:func:`платформа. релиз()`"
 
-#: ../source/specifications/dependency-specifiers.rst:251
 #: ../source/specifications/dependency-specifiers.rst:259
 msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 msgstr "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 
-#: ../source/specifications/dependency-specifiers.rst:252
 #: ../source/specifications/dependency-specifiers.rst:260
 msgid "``platform_system``"
 msgstr "``платформа_системы``"
 
-#: ../source/specifications/dependency-specifiers.rst:253
 #: ../source/specifications/dependency-specifiers.rst:261
 msgid ":py:func:`platform.system()`"
 msgstr ":py:func:`платформа.система()`"
 
-#: ../source/specifications/dependency-specifiers.rst:254
 #: ../source/specifications/dependency-specifiers.rst:262
 msgid "``Linux``, ``Windows``, ``Java``"
 msgstr "``Linux``, ``Windows``, ``Java``"
 
-#: ../source/specifications/dependency-specifiers.rst:255
 #: ../source/specifications/dependency-specifiers.rst:263
 msgid "``platform_version``"
 msgstr "``платформа_версия``"
 
-#: ../source/specifications/dependency-specifiers.rst:256
 #: ../source/specifications/dependency-specifiers.rst:264
 msgid ":py:func:`platform.version()`"
 msgstr ":py:func:`платформа.версия()`"
 
-#: ../source/specifications/dependency-specifiers.rst:257
 #: ../source/specifications/dependency-specifiers.rst:265
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
@@ -18341,7 +18298,6 @@ msgstr ""
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
 "02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:260
 #: ../source/specifications/dependency-specifiers.rst:268
 msgid "``python_version``"
 msgstr "``python_версия``"
@@ -18350,59 +18306,47 @@ msgstr "``python_версия``"
 msgid "``'.'.join(platform.python_version_tuple()[:2])``"
 msgstr "``'.'.join(platform.python_version_tuple()[:2])``"
 
-#: ../source/specifications/dependency-specifiers.rst:262
 #: ../source/specifications/dependency-specifiers.rst:270
 msgid "``3.4``, ``2.7``"
 msgstr "``3.4``, ``2.7``"
 
-#: ../source/specifications/dependency-specifiers.rst:263
 #: ../source/specifications/dependency-specifiers.rst:271
 msgid "``python_full_version``"
 msgstr "``python_полная_версия``"
 
-#: ../source/specifications/dependency-specifiers.rst:264
 #: ../source/specifications/dependency-specifiers.rst:272
 msgid ":py:func:`platform.python_version()`"
 msgstr ":py:func:`платформа. python_версия()`"
 
-#: ../source/specifications/dependency-specifiers.rst:265
-#: ../source/specifications/dependency-specifiers.rst:271
 #: ../source/specifications/dependency-specifiers.rst:273
 #: ../source/specifications/dependency-specifiers.rst:279
 msgid "``3.4.0``, ``3.5.0b1``"
 msgstr "``3.4.0``, ``3.5.0b1``"
 
-#: ../source/specifications/dependency-specifiers.rst:266
 #: ../source/specifications/dependency-specifiers.rst:274
 msgid "``implementation_name``"
 msgstr "``имя_реализации``"
 
-#: ../source/specifications/dependency-specifiers.rst:267
 #: ../source/specifications/dependency-specifiers.rst:275
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ":py: данные:`sys.имплементация. название <sys.имплементация>`"
 
-#: ../source/specifications/dependency-specifiers.rst:268
 #: ../source/specifications/dependency-specifiers.rst:276
 msgid "``cpython``"
 msgstr "``cpython``"
 
-#: ../source/specifications/dependency-specifiers.rst:269
 #: ../source/specifications/dependency-specifiers.rst:277
 msgid "``implementation_version``"
 msgstr "``Версия_реализации``"
 
-#: ../source/specifications/dependency-specifiers.rst:270
 #: ../source/specifications/dependency-specifiers.rst:278
 msgid "see definition below"
 msgstr "смотрите определение ниже"
 
-#: ../source/specifications/dependency-specifiers.rst:272
 #: ../source/specifications/dependency-specifiers.rst:280
 msgid "``extra``"
 msgstr "``экстра``"
 
-#: ../source/specifications/dependency-specifiers.rst:273
 #: ../source/specifications/dependency-specifiers.rst:281
 msgid ""
 "An error except when defined by the context interpreting the specification."
@@ -18410,12 +18354,10 @@ msgstr ""
 "Ошибка, за исключением случаев, когда она определена контекстом, "
 "интерпретирующим спецификацию."
 
-#: ../source/specifications/dependency-specifiers.rst:275
 #: ../source/specifications/dependency-specifiers.rst:283
 msgid "``test``"
 msgstr "``тест``"
 
-#: ../source/specifications/dependency-specifiers.rst:277
 #: ../source/specifications/dependency-specifiers.rst:285
 msgid ""
 "The ``implementation_version`` marker variable is derived from :py:data:`sys."
@@ -18424,7 +18366,6 @@ msgstr ""
 "Маркерная переменная ``имплементация_версия`` получена из :py: данные:`sys."
 "имплементация.версия <sys.имплементация>`:"
 
-#: ../source/specifications/dependency-specifiers.rst:294
 #: ../source/specifications/dependency-specifiers.rst:302
 msgid ""
 "This environment markers section, initially defined through :pep:`508`, "
@@ -18433,27 +18374,22 @@ msgstr ""
 "Этот раздел маркеров окружения, первоначально определенный через :pep:`508`, "
 "заменяет раздел маркеров окружения в :pep:`345`."
 
-#: ../source/specifications/dependency-specifiers.rst:298
 #: ../source/specifications/dependency-specifiers.rst:308
 msgid "Complete Grammar"
 msgstr "Полная грамматика"
 
-#: ../source/specifications/dependency-specifiers.rst:300
 #: ../source/specifications/dependency-specifiers.rst:310
 msgid "The complete parsley grammar::"
 msgstr "Полная грамматика петрушки::"
 
-#: ../source/specifications/dependency-specifiers.rst:407
 #: ../source/specifications/dependency-specifiers.rst:417
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr "Тестовая программа - если грамматика находится в строке ``grammar``:"
 
-#: ../source/specifications/dependency-specifiers.rst:479
 #: ../source/specifications/dependency-specifiers.rst:489
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr "Ноябрь 2015 г: Эта спецификация была одобрена через :pep:`508`."
 
-#: ../source/specifications/dependency-specifiers.rst:480
 #: ../source/specifications/dependency-specifiers.rst:490
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
@@ -18467,7 +18403,6 @@ msgstr ""
 "Python с двузначными мажорными и минорными версиями (например, 3.10). "
 "[#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:485
 #: ../source/specifications/dependency-specifiers.rst:495
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
@@ -18478,7 +18413,6 @@ msgstr ""
 "запятые в конце, что соответствует поведению реализации Python, которая "
 "используется с конца 2022 года."
 
-#: ../source/specifications/dependency-specifiers.rst:493
 #: ../source/specifications/dependency-specifiers.rst:503
 msgid ""
 "pip, the recommended installer for Python packages (http://pip.readthedocs."
@@ -18487,12 +18421,10 @@ msgstr ""
 "pip, рекомендуемая программа установки пакетов Python (http://pip."
 "readthedocs.org/en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:496
 #: ../source/specifications/dependency-specifiers.rst:506
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr "Библиотека PEG Петрушка. (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:499
 #: ../source/specifications/dependency-specifiers.rst:509
 msgid ""
 "Future Python versions might be problematic with the definition of "
@@ -18733,11 +18665,11 @@ msgstr ""
 "чувствительной к безопасности строкой. Типичным примером является ``git`` в "
 "случае URL, такого как ``ssh://git@gitlab.com/user/repo``."
 
-#: ../source/specifications/direct-url-data-structure.rst:53
+#: ../source/specifications/direct-url-data-structure.rst:55
 msgid "VCS URLs"
 msgstr "VCS URLs"
 
-#: ../source/specifications/direct-url-data-structure.rst:55
+#: ../source/specifications/direct-url-data-structure.rst:57
 msgid ""
 "When ``url`` refers to a VCS repository, the ``vcs_info`` key MUST be "
 "present as a dictionary with the following keys:"
@@ -18745,7 +18677,7 @@ msgstr ""
 "Когда ``url`` ссылается на VCS-репозиторий, ключ ``vcs_info`` ДОЛЖЕН "
 "присутствовать в виде словаря со следующими ключами:"
 
-#: ../source/specifications/direct-url-data-structure.rst:58
+#: ../source/specifications/direct-url-data-structure.rst:60
 msgid ""
 "A ``vcs`` key (type ``string``) MUST be present, containing the name of the "
 "VCS (i.e. one of ``git``, ``hg``, ``bzr``, ``svn``). Other VCS's SHOULD be "
@@ -18759,7 +18691,7 @@ msgstr ""
 "Значение ``url`` ДОЛЖНО быть совместимым с соответствующей VCS, чтобы "
 "установщик мог передать его без преобразования команде проверки/загрузки VCS."
 
-#: ../source/specifications/direct-url-data-structure.rst:64
+#: ../source/specifications/direct-url-data-structure.rst:66
 msgid ""
 "A ``requested_revision`` key (type ``string``) MAY be present naming a "
 "branch/tag/ref/commit/revision/etc (in a format compatible with the VCS). "
@@ -18771,7 +18703,7 @@ msgstr ""
 "ДОЛЖНО соответствовать ревизии, запрошенной пользователем, и НЕ ДОЛЖНО "
 "существовать, если пользователь не выбрал конкретную ревизию."
 
-#: ../source/specifications/direct-url-data-structure.rst:68
+#: ../source/specifications/direct-url-data-structure.rst:70
 msgid ""
 "A ``commit_id`` key (type ``string``) MUST be present, containing the exact "
 "commit/revision number that was/is to be installed. If the VCS supports "
@@ -18784,11 +18716,11 @@ msgstr ""
 "использоваться в качестве ``commit_id``, чтобы ссылаться на неизменяемую "
 "версию исходного кода."
 
-#: ../source/specifications/direct-url-data-structure.rst:76
+#: ../source/specifications/direct-url-data-structure.rst:80
 msgid "Archive URLs"
 msgstr "Архивные URL"
 
-#: ../source/specifications/direct-url-data-structure.rst:78
+#: ../source/specifications/direct-url-data-structure.rst:82
 msgid ""
 "When ``url`` refers to a source archive or a wheel, the ``archive_info`` key "
 "MUST be present as a dictionary with the following keys:"
@@ -18796,7 +18728,7 @@ msgstr ""
 "Когда ``url`` ссылается на исходный архив или колесо, ключ ``archive_info`` "
 "ДОЛЖЕН присутствовать в виде словаря со следующими ключами:"
 
-#: ../source/specifications/direct-url-data-structure.rst:81
+#: ../source/specifications/direct-url-data-structure.rst:85
 msgid ""
 "A ``hashes`` key SHOULD be present as a dictionary mapping a hash name to a "
 "hex encoded digest of the file."
@@ -18804,7 +18736,7 @@ msgstr ""
 "Ключ ``hashes`` ДОЛЖЕН присутствовать в виде словаря, сопоставляющего имя "
 "хэша с шестнадцатеричным дайджестом файла."
 
-#: ../source/specifications/direct-url-data-structure.rst:84
+#: ../source/specifications/direct-url-data-structure.rst:88
 msgid ""
 "Multiple hashes can be included, and it is up to the consumer to decide what "
 "to do with multiple hashes (it may validate all of them or a subset of them, "
@@ -18814,11 +18746,11 @@ msgstr ""
 "несколькими хэшами (он может подтвердить все из них или их подмножество, или "
 "вообще ничего)."
 
-#: ../source/specifications/direct-url-data-structure.rst:88
+#: ../source/specifications/direct-url-data-structure.rst:92
 msgid "These hash names SHOULD always be normalized to be lowercase."
 msgstr "Эти имена хэшей ДОЛЖНЫ быть всегда приведены к нижнему регистру."
 
-#: ../source/specifications/direct-url-data-structure.rst:90
+#: ../source/specifications/direct-url-data-structure.rst:94
 msgid ""
 "Any hash algorithm available via :py:mod:`hashlib` (specifically any that "
 "can be passed to :py:func:`hashlib.new()` and do not require additional "
@@ -18833,7 +18765,7 @@ msgstr ""
 "алгоритмы_гарантированы` ДОЛЖЕН быть всегда включен. На момент написания "
 "статьи рекомендуется ``sha256`."
 
-#: ../source/specifications/direct-url-data-structure.rst:96
+#: ../source/specifications/direct-url-data-structure.rst:100
 msgid ""
 "A deprecated ``hash`` key (type ``string``) MAY be present for backwards "
 "compatibility purposes, with value ``<hash-algorithm>=<expected-hash>``."
@@ -18841,7 +18773,7 @@ msgstr ""
 "Устаревший ключ ``hash`` (тип ``string``) МОЖЕТ присутствовать в целях "
 "обратной совместимости, со значением ``<hash-algorithm>=<expected-hash>``."
 
-#: ../source/specifications/direct-url-data-structure.rst:99
+#: ../source/specifications/direct-url-data-structure.rst:103
 msgid ""
 "Producers of the data structure SHOULD emit the ``hashes`` key whether one "
 "or multiple hashes are available. Producers SHOULD continue to emit the "
@@ -18853,7 +18785,7 @@ msgstr ""
 "выдавать ключ ``hash`` в тех контекстах, где они делали это раньше, чтобы "
 "сохранить обратную совместимость для существующих клиентов."
 
-#: ../source/specifications/direct-url-data-structure.rst:103
+#: ../source/specifications/direct-url-data-structure.rst:107
 msgid ""
 "When both the ``hash`` and ``hashes`` keys are present, the hash represented "
 "in the ``hash`` key MUST also be present in the ``hashes`` dictionary, so "
@@ -18865,11 +18797,11 @@ msgstr ""
 "могут рассматривать ключ ``hashes``, только если он присутствует, и "
 "возвращаться к ``hash`` в противном случае."
 
-#: ../source/specifications/direct-url-data-structure.rst:108
+#: ../source/specifications/direct-url-data-structure.rst:114
 msgid "Local directories"
 msgstr "Локальные каталоги"
 
-#: ../source/specifications/direct-url-data-structure.rst:110
+#: ../source/specifications/direct-url-data-structure.rst:116
 msgid ""
 "When ``url`` refers to a local directory, the ``dir_info`` key MUST be "
 "present as a dictionary with the following key:"
@@ -18877,7 +18809,7 @@ msgstr ""
 "Когда ``url`` ссылается на локальный каталог, ключ ``dir_info`` ДОЛЖЕН "
 "присутствовать в виде словаря со следующим ключом:"
 
-#: ../source/specifications/direct-url-data-structure.rst:113
+#: ../source/specifications/direct-url-data-structure.rst:119
 msgid ""
 "``editable`` (type: ``boolean``): ``true`` if the distribution was/is to be "
 "installed in editable mode, ``false`` otherwise. If absent, default to "
@@ -18887,7 +18819,7 @@ msgstr ""
 "установлен в редактируемом режиме, ``false`` в противном случае. Если "
 "отсутствует, то по умолчанию ``false``."
 
-#: ../source/specifications/direct-url-data-structure.rst:116
+#: ../source/specifications/direct-url-data-structure.rst:122
 msgid ""
 "When ``url`` refers to a local directory, it MUST have the ``file`` scheme "
 "and be compliant with :rfc:`8089`. In particular, the path component must be "
@@ -18899,11 +18831,11 @@ msgstr ""
 "абсолютным. Символьные ссылки ДОЛЖНЫ сохраняться при преобразовании "
 "относительных путей в абсолютные."
 
-#: ../source/specifications/direct-url-data-structure.rst:122
+#: ../source/specifications/direct-url-data-structure.rst:130
 msgid "Projects in subdirectories"
 msgstr "Проекты в подкаталогах"
 
-#: ../source/specifications/direct-url-data-structure.rst:124
+#: ../source/specifications/direct-url-data-structure.rst:132
 msgid ""
 "A top-level ``subdirectory`` field MAY be present containing a directory "
 "path, relative to the root of the VCS repository, source archive or local "
@@ -18913,11 +18845,11 @@ msgstr ""
 "относительно корня VCS-репозитория, исходного архива или локального "
 "каталога, чтобы указать, где находится ``pyproject.toml`` или ``setup.py``."
 
-#: ../source/specifications/direct-url-data-structure.rst:129
+#: ../source/specifications/direct-url-data-structure.rst:139
 msgid "Registered VCS"
 msgstr "Зарегистрированный VCS"
 
-#: ../source/specifications/direct-url-data-structure.rst:131
+#: ../source/specifications/direct-url-data-structure.rst:141
 msgid ""
 "This section lists the registered VCS's; expanded, VCS-specific information "
 "on how to use the ``vcs``, ``requested_revision``, and other fields of "
@@ -18936,48 +18868,48 @@ msgstr ""
 "команды (в нижнем регистре). Дополнительные поля, необходимые для поддержки "
 "такой VCS, ДОЛЖНЫ иметь префикс с именем команды VCS."
 
-#: ../source/specifications/direct-url-data-structure.rst:141
+#: ../source/specifications/direct-url-data-structure.rst:151
 msgid "Git"
 msgstr "Git"
 
-#: ../source/specifications/direct-url-data-structure.rst:144
-#: ../source/specifications/direct-url-data-structure.rst:171
-#: ../source/specifications/direct-url-data-structure.rst:189
-#: ../source/specifications/direct-url-data-structure.rst:207
+#: ../source/specifications/direct-url-data-structure.rst:154
+#: ../source/specifications/direct-url-data-structure.rst:181
+#: ../source/specifications/direct-url-data-structure.rst:199
+#: ../source/specifications/direct-url-data-structure.rst:217
 msgid "Home page"
 msgstr "Домашняя страница"
 
-#: ../source/specifications/direct-url-data-structure.rst:144
+#: ../source/specifications/direct-url-data-structure.rst:154
 msgid "https://git-scm.com/"
 msgstr "https://git-scm.com/"
 
-#: ../source/specifications/direct-url-data-structure.rst:147
-#: ../source/specifications/direct-url-data-structure.rst:174
-#: ../source/specifications/direct-url-data-structure.rst:192
-#: ../source/specifications/direct-url-data-structure.rst:210
+#: ../source/specifications/direct-url-data-structure.rst:157
+#: ../source/specifications/direct-url-data-structure.rst:184
+#: ../source/specifications/direct-url-data-structure.rst:202
+#: ../source/specifications/direct-url-data-structure.rst:220
 msgid "vcs command"
 msgstr "команда vcs"
 
-#: ../source/specifications/direct-url-data-structure.rst:147
-#: ../source/specifications/direct-url-data-structure.rst:150
+#: ../source/specifications/direct-url-data-structure.rst:157
+#: ../source/specifications/direct-url-data-structure.rst:160
 msgid "git"
 msgstr "git"
 
-#: ../source/specifications/direct-url-data-structure.rst:150
-#: ../source/specifications/direct-url-data-structure.rst:177
-#: ../source/specifications/direct-url-data-structure.rst:195
-#: ../source/specifications/direct-url-data-structure.rst:213
+#: ../source/specifications/direct-url-data-structure.rst:160
+#: ../source/specifications/direct-url-data-structure.rst:187
+#: ../source/specifications/direct-url-data-structure.rst:205
+#: ../source/specifications/direct-url-data-structure.rst:223
 msgid "``vcs`` field"
 msgstr "поле ``vcs``"
 
-#: ../source/specifications/direct-url-data-structure.rst:154
-#: ../source/specifications/direct-url-data-structure.rst:180
-#: ../source/specifications/direct-url-data-structure.rst:198
-#: ../source/specifications/direct-url-data-structure.rst:217
+#: ../source/specifications/direct-url-data-structure.rst:164
+#: ../source/specifications/direct-url-data-structure.rst:190
+#: ../source/specifications/direct-url-data-structure.rst:208
+#: ../source/specifications/direct-url-data-structure.rst:227
 msgid "``requested_revision`` field"
 msgstr "поле ``запрошенный_пересмотр``"
 
-#: ../source/specifications/direct-url-data-structure.rst:153
+#: ../source/specifications/direct-url-data-structure.rst:163
 msgid ""
 "A tag name, branch name, Git ref, commit hash, shortened commit hash, or "
 "other commit-ish."
@@ -18985,18 +18917,18 @@ msgstr ""
 "Имя тега, имя ветки, Git ref, хэш коммита, сокращённый хэш коммита или "
 "другое имя коммита."
 
-#: ../source/specifications/direct-url-data-structure.rst:157
-#: ../source/specifications/direct-url-data-structure.rst:183
-#: ../source/specifications/direct-url-data-structure.rst:201
-#: ../source/specifications/direct-url-data-structure.rst:222
+#: ../source/specifications/direct-url-data-structure.rst:167
+#: ../source/specifications/direct-url-data-structure.rst:193
+#: ../source/specifications/direct-url-data-structure.rst:211
+#: ../source/specifications/direct-url-data-structure.rst:232
 msgid "``commit_id`` field"
 msgstr "поле ``commit_id``"
 
-#: ../source/specifications/direct-url-data-structure.rst:157
+#: ../source/specifications/direct-url-data-structure.rst:167
 msgid "A commit hash (40 hexadecimal characters sha1)."
 msgstr "Хэш фиксации (40 шестнадцатеричных символов sha1)."
 
-#: ../source/specifications/direct-url-data-structure.rst:161
+#: ../source/specifications/direct-url-data-structure.rst:171
 msgid ""
 "Tools can use the ``git show-ref`` and ``git symbolic-ref`` commands to "
 "determine if the ``requested_revision`` corresponds to a Git ref. In turn, a "
@@ -19009,64 +18941,64 @@ msgstr ""
 "соответствует тегу, а ссылка, начинающаяся с ``refs/remotes/origin/`` после "
 "клонирования, соответствует ветке."
 
-#: ../source/specifications/direct-url-data-structure.rst:168
+#: ../source/specifications/direct-url-data-structure.rst:178
 msgid "Mercurial"
 msgstr "Mercurial"
 
-#: ../source/specifications/direct-url-data-structure.rst:171
+#: ../source/specifications/direct-url-data-structure.rst:181
 msgid "https://www.mercurial-scm.org/"
 msgstr "https://www.mercurial-scm.org/"
 
-#: ../source/specifications/direct-url-data-structure.rst:174
-#: ../source/specifications/direct-url-data-structure.rst:177
+#: ../source/specifications/direct-url-data-structure.rst:184
+#: ../source/specifications/direct-url-data-structure.rst:187
 msgid "hg"
 msgstr "hg"
 
-#: ../source/specifications/direct-url-data-structure.rst:180
+#: ../source/specifications/direct-url-data-structure.rst:190
 msgid "A tag name, branch name, changeset ID, shortened changeset ID."
 msgstr ""
 "Имя тега, имя ветки, идентификатор набора изменений, сокращенный "
 "идентификатор набора изменений."
 
-#: ../source/specifications/direct-url-data-structure.rst:183
+#: ../source/specifications/direct-url-data-structure.rst:193
 msgid "A changeset ID (40 hexadecimal characters)."
 msgstr "Идентификатор набора изменений (40 шестнадцатеричных символов)."
 
-#: ../source/specifications/direct-url-data-structure.rst:186
+#: ../source/specifications/direct-url-data-structure.rst:196
 msgid "Bazaar"
 msgstr "Bazaar"
 
-#: ../source/specifications/direct-url-data-structure.rst:189
+#: ../source/specifications/direct-url-data-structure.rst:199
 msgid "https://www.breezy-vcs.org/"
 msgstr "https://www.breezy-vcs.org/"
 
-#: ../source/specifications/direct-url-data-structure.rst:192
-#: ../source/specifications/direct-url-data-structure.rst:195
+#: ../source/specifications/direct-url-data-structure.rst:202
+#: ../source/specifications/direct-url-data-structure.rst:205
 msgid "bzr"
 msgstr "bzr"
 
-#: ../source/specifications/direct-url-data-structure.rst:198
+#: ../source/specifications/direct-url-data-structure.rst:208
 msgid "A tag name, branch name, revision id."
 msgstr "Имя тега, имя ветки, идентификатор ревизии."
 
-#: ../source/specifications/direct-url-data-structure.rst:201
+#: ../source/specifications/direct-url-data-structure.rst:211
 msgid "A revision id."
 msgstr "Идентификатор ревизии."
 
-#: ../source/specifications/direct-url-data-structure.rst:204
+#: ../source/specifications/direct-url-data-structure.rst:214
 msgid "Subversion"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:207
+#: ../source/specifications/direct-url-data-structure.rst:217
 msgid "https://subversion.apache.org/"
 msgstr ""
 
-#: ../source/specifications/direct-url-data-structure.rst:210
-#: ../source/specifications/direct-url-data-structure.rst:213
+#: ../source/specifications/direct-url-data-structure.rst:220
+#: ../source/specifications/direct-url-data-structure.rst:223
 msgid "svn"
 msgstr "svn"
 
-#: ../source/specifications/direct-url-data-structure.rst:216
+#: ../source/specifications/direct-url-data-structure.rst:226
 msgid ""
 "``requested_revision`` must be compatible with ``svn checkout`` ``--"
 "revision`` option. In Subversion, branch or tag is part of ``url``."
@@ -19074,7 +19006,7 @@ msgstr ""
 "``requested_revision`` должен быть совместим с опцией ``vn checkout`` ``--"
 "revision``. В Subversion ветка или тег являются частью ``url``."
 
-#: ../source/specifications/direct-url-data-structure.rst:220
+#: ../source/specifications/direct-url-data-structure.rst:230
 msgid ""
 "Since Subversion does not support globally unique identifiers, this field is "
 "the Subversion revision number in the corresponding repository."
@@ -19083,11 +19015,11 @@ msgstr ""
 "это поле представляет собой номер ревизии Subversion в соответствующем "
 "хранилище."
 
-#: ../source/specifications/direct-url-data-structure.rst:225
+#: ../source/specifications/direct-url-data-structure.rst:235
 msgid "JSON Schema"
 msgstr "Схема JSON"
 
-#: ../source/specifications/direct-url-data-structure.rst:227
+#: ../source/specifications/direct-url-data-structure.rst:237
 msgid ""
 "The following JSON Schema can be used to validate the contents of "
 "``direct_url.json``:"
@@ -19095,23 +19027,23 @@ msgstr ""
 "Следующая JSON-схема может быть использована для проверки содержимого файла "
 "``direct_url.json``:"
 
-#: ../source/specifications/direct-url-data-structure.rst:349
+#: ../source/specifications/direct-url-data-structure.rst:359
 msgid "Source archive:"
 msgstr "Архив источников:"
 
-#: ../source/specifications/direct-url-data-structure.rst:362
+#: ../source/specifications/direct-url-data-structure.rst:372
 msgid "Git URL with tag and commit-hash:"
 msgstr "URL-адрес Git с тегом и хэшем фиксации:"
 
-#: ../source/specifications/direct-url-data-structure.rst:375
+#: ../source/specifications/direct-url-data-structure.rst:385
 msgid "Local directory:"
 msgstr "Локальный справочник:"
 
-#: ../source/specifications/direct-url-data-structure.rst:384
+#: ../source/specifications/direct-url-data-structure.rst:394
 msgid "Local directory in editable mode:"
 msgstr "Локальная директория в режиме редактирования:"
 
-#: ../source/specifications/direct-url-data-structure.rst:399
+#: ../source/specifications/direct-url-data-structure.rst:409
 msgid ""
 "March 2020: This specification was approved through :pep:`610`, defining the "
 "``direct_url.json`` metadata file."
@@ -19119,7 +19051,7 @@ msgstr ""
 "Март 2020 года: Эта спецификация была одобрена через :pep:`610`, определяя "
 "файл метаданных ``direct_url.json``."
 
-#: ../source/specifications/direct-url-data-structure.rst:401
+#: ../source/specifications/direct-url-data-structure.rst:411
 msgid ""
 "January 2023: Added the ``archive_info.hashes`` key (`discussion <archive-"
 "info-hashes_>`_)."
@@ -25326,11 +25258,11 @@ msgstr ""
 msgid "Source distributions are also known as *sdists* for short."
 msgstr "Дистрибутивы с исходными текстами также известны как *sdists*."
 
-#: ../source/specifications/source-distribution-format.rst:24
+#: ../source/specifications/source-distribution-format.rst:26
 msgid "Source trees"
 msgstr "Деревья источников"
 
-#: ../source/specifications/source-distribution-format.rst:26
+#: ../source/specifications/source-distribution-format.rst:28
 msgid ""
 "A *source tree* is a collection of files and directories -- like a version "
 "control system checkout -- which contains a :file:`pyproject.toml` file that "
@@ -25346,11 +25278,11 @@ msgstr ""
 "должно соответствовать определению того, что должен содержать :file:"
 "`pyproject.toml`, чтобы что-то считалось деревом исходных текстов."
 
-#: ../source/specifications/source-distribution-format.rst:34
+#: ../source/specifications/source-distribution-format.rst:38
 msgid "Source distribution file name"
 msgstr "Имя файла исходного дистрибутива"
 
-#: ../source/specifications/source-distribution-format.rst:36
+#: ../source/specifications/source-distribution-format.rst:40
 msgid ""
 "The file name of a sdist was standardised in :pep:`625`. The file name must "
 "be in the form ``{name}-{version}.tar.gz``, where ``{name}`` is normalised "
@@ -25364,7 +25296,7 @@ msgstr ""
 "format`), а ``{версия}`` - это канонизированная форма версии проекта (см. :"
 "ref:`version-specifiers`)."
 
-#: ../source/specifications/source-distribution-format.rst:42
+#: ../source/specifications/source-distribution-format.rst:46
 msgid ""
 "The name and version components of the filename MUST match the values stored "
 "in the metadata contained in the file."
@@ -25372,7 +25304,7 @@ msgstr ""
 "Компоненты имени и версии в имени файла ДОЛЖНЫ соответствовать значениям, "
 "хранящимся в метаданных, содержащихся в файле."
 
-#: ../source/specifications/source-distribution-format.rst:45
+#: ../source/specifications/source-distribution-format.rst:49
 msgid ""
 "Code that produces a source distribution file MUST give the file a name that "
 "matches this specification. This includes the ``build_sdist`` hook of a :"
@@ -25382,7 +25314,7 @@ msgstr ""
 "соответствующее этой спецификации. Это включает в себя крючок "
 "``build_sdist`` в :term:`build backend <Build Backend>`."
 
-#: ../source/specifications/source-distribution-format.rst:49
+#: ../source/specifications/source-distribution-format.rst:53
 msgid ""
 "Code that processes source distribution files MAY recognise source "
 "distribution files by the ``.tar.gz`` suffix and the presence of precisely "
@@ -25394,11 +25326,11 @@ msgstr ""
 "имени файла. Код, который это делает, может использовать имя дистрибутива и "
 "версию из имени файла без дополнительной проверки."
 
-#: ../source/specifications/source-distribution-format.rst:55
+#: ../source/specifications/source-distribution-format.rst:59
 msgid "Source distribution file format"
 msgstr "Формат файла исходного дистрибутива"
 
-#: ../source/specifications/source-distribution-format.rst:57
+#: ../source/specifications/source-distribution-format.rst:61
 msgid ""
 "A ``.tar.gz`` source distribution (sdist) contains a single top-level "
 "directory called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the "
@@ -25418,7 +25350,7 @@ msgstr ""
 "спецификации :ref:`core-metadata`. Метаданные ДОЛЖНЫ соответствовать, по "
 "крайней мере, версии 2.2 спецификации метаданных."
 
-#: ../source/specifications/source-distribution-format.rst:65
+#: ../source/specifications/source-distribution-format.rst:69
 msgid ""
 "No other content of a sdist is required or defined. Build systems can store "
 "whatever information they need in the sdist to build the project."
@@ -25426,7 +25358,7 @@ msgstr ""
 "Никакое другое содержимое sdist не требуется и не определено. Системы сборки "
 "могут хранить в sdist любую информацию, необходимую им для сборки проекта."
 
-#: ../source/specifications/source-distribution-format.rst:68
+#: ../source/specifications/source-distribution-format.rst:72
 msgid ""
 "The tarball should use the modern POSIX.1-2001 pax tar format, which "
 "specifies UTF-8 based file names. In particular, source distribution files "
@@ -25438,11 +25370,11 @@ msgstr ""
 "исходных дистрибутивов должны быть читаемы с помощью модуля tarfile "
 "стандартной библиотеки с флагом open 'r:gz'."
 
-#: ../source/specifications/source-distribution-format.rst:76
+#: ../source/specifications/source-distribution-format.rst:80
 msgid "Source distribution archive features"
 msgstr "Возможности архива распространения исходных текстов"
 
-#: ../source/specifications/source-distribution-format.rst:78
+#: ../source/specifications/source-distribution-format.rst:82
 msgid ""
 "Because extracting tar files as-is is dangerous, and the results are "
 "platform-specific, archive features of source distributions are limited."
@@ -25450,11 +25382,11 @@ msgstr ""
 "Поскольку извлекать tar-файлы как таковые опасно, а результаты зависят от "
 "платформы, возможности архивирования в исходных дистрибутивах ограничены."
 
-#: ../source/specifications/source-distribution-format.rst:82
+#: ../source/specifications/source-distribution-format.rst:86
 msgid "Unpacking with the data filter"
 msgstr "Распаковка с помощью фильтра данных"
 
-#: ../source/specifications/source-distribution-format.rst:84
+#: ../source/specifications/source-distribution-format.rst:88
 msgid ""
 "When extracting a source distribution, tools MUST either use :py:func:"
 "`tarfile.data_filter` (e.g. :py:meth:`TarFile.extractall(..., filter='data') "
@@ -25466,7 +25398,7 @@ msgstr ""
 "filter='data') <tarfile.TarFile.extractall>`), либо следовать разделу "
 "*Распаковка без фильтра данных* ниже."
 
-#: ../source/specifications/source-distribution-format.rst:88
+#: ../source/specifications/source-distribution-format.rst:92
 msgid ""
 "As an exception, on Python interpreters without :py:func:`hasattr(tarfile, "
 "'data_filter') <tarfile.data_filter>` (:pep:`706`), tools that normally use "
@@ -25483,11 +25415,11 @@ msgstr ""
 "и безопасностью (например, отказ от распаковки) в этом случае остается на "
 "усмотрение инструмента."
 
-#: ../source/specifications/source-distribution-format.rst:96
+#: ../source/specifications/source-distribution-format.rst:100
 msgid "Unpacking without the data filter"
 msgstr "Распаковка без фильтра данных"
 
-#: ../source/specifications/source-distribution-format.rst:98
+#: ../source/specifications/source-distribution-format.rst:102
 msgid ""
 "Tools that do not use the ``data`` filter directly (e.g. for backwards "
 "compatibility, allowing additional features, or not using Python) MUST "
@@ -25500,7 +25432,7 @@ msgstr ""
 "этой статьи фильтр ``data`` также следует этому разделу, но в будущем они "
 "могут рассинхронизироваться)"
 
-#: ../source/specifications/source-distribution-format.rst:104
+#: ../source/specifications/source-distribution-format.rst:108
 msgid ""
 "The following files are invalid in an *sdist* archive. Upon encountering "
 "such an entry, tools SHOULD notify the user, MUST NOT unpack the entry, and "
@@ -25510,20 +25442,20 @@ msgstr ""
 "записи инструменты ДОЛЖНЫ уведомить пользователя, НЕ ДОЛЖНЫ распаковывать "
 "запись и МОГУТ прервать работу с ошибкой:"
 
-#: ../source/specifications/source-distribution-format.rst:108
+#: ../source/specifications/source-distribution-format.rst:112
 msgid "Files that would be placed outside the destination directory."
 msgstr "Файлы, которые будут размещены за пределами каталога назначения."
 
-#: ../source/specifications/source-distribution-format.rst:109
+#: ../source/specifications/source-distribution-format.rst:113
 msgid "Links (symbolic or hard) pointing outside the destination directory."
 msgstr ""
 "Ссылки (символические или жесткие), указывающие за пределы целевого каталога."
 
-#: ../source/specifications/source-distribution-format.rst:110
+#: ../source/specifications/source-distribution-format.rst:114
 msgid "Device files (including pipes)."
 msgstr "Файлы устройств (включая pipes)."
 
-#: ../source/specifications/source-distribution-format.rst:112
+#: ../source/specifications/source-distribution-format.rst:116
 msgid ""
 "The following are also invalid. Tools MAY treat them as above, but are NOT "
 "REQUIRED to do so:"
@@ -25531,15 +25463,15 @@ msgstr ""
 "Следующие также недействительны. Инструменты МОГУТ обрабатывать их, как "
 "указано выше, но НЕ ОБЯЗАНЫ это делать:"
 
-#: ../source/specifications/source-distribution-format.rst:115
+#: ../source/specifications/source-distribution-format.rst:119
 msgid "Files with a ``..`` component in the filename or link target."
 msgstr "Файлы с компонентом ``...`` в имени файла или цели ссылки."
 
-#: ../source/specifications/source-distribution-format.rst:116
+#: ../source/specifications/source-distribution-format.rst:120
 msgid "Links pointing to a file that is not part of the archive."
 msgstr "Ссылки, указывающие на файл, который не является частью архива."
 
-#: ../source/specifications/source-distribution-format.rst:118
+#: ../source/specifications/source-distribution-format.rst:122
 msgid ""
 "Tools MAY unpack links (symbolic or hard) as regular files, using content "
 "from the archive."
@@ -25547,11 +25479,11 @@ msgstr ""
 "Инструменты MAY распаковывают ссылки (символические или жесткие) как обычные "
 "файлы, используя содержимое архива."
 
-#: ../source/specifications/source-distribution-format.rst:121
+#: ../source/specifications/source-distribution-format.rst:125
 msgid "When extracting *sdist* archives:"
 msgstr "При извлечении архивов *sdist*:"
 
-#: ../source/specifications/source-distribution-format.rst:123
+#: ../source/specifications/source-distribution-format.rst:127
 msgid ""
 "Leading slashes in file names MUST be dropped. (This is nowadays standard "
 "behaviour for ``tar`` unpacking.)"
@@ -25559,21 +25491,21 @@ msgstr ""
 "Ведущие косые черты в именах файлов ДОЛЖНЫ быть опущены. (В настоящее время "
 "это стандартное поведение для распаковки ``tar``)"
 
-#: ../source/specifications/source-distribution-format.rst:125
+#: ../source/specifications/source-distribution-format.rst:129
 msgid "For each ``mode`` (Unix permission) bit, tools MUST either:"
 msgstr "Для каждого бита ``мода`` (разрешения Unix) инструменты ДОЛЖНЫ либо:"
 
-#: ../source/specifications/source-distribution-format.rst:127
+#: ../source/specifications/source-distribution-format.rst:131
 msgid "use the platform's default for a new file/directory (respectively),"
 msgstr ""
 "использовать значение платформы по умолчанию для нового файла/каталога "
 "(соответственно),"
 
-#: ../source/specifications/source-distribution-format.rst:128
+#: ../source/specifications/source-distribution-format.rst:132
 msgid "set the bit according to the archive, or"
 msgstr "установить бит в соответствии с архивом, или"
 
-#: ../source/specifications/source-distribution-format.rst:129
+#: ../source/specifications/source-distribution-format.rst:133
 msgid ""
 "use the bit from ``rw-r--r--`` (``0o644``) for non-executable files or "
 "``rwxr-xr-x`` (``0o755``) for executable files and directories."
@@ -25581,19 +25513,19 @@ msgstr ""
 "используйте бит из ``rw-r--r--`` (``0o644``) для неисполняемых файлов или "
 "``rwxr-xr-x`` (``0o755``) для исполняемых файлов и каталогов."
 
-#: ../source/specifications/source-distribution-format.rst:132
+#: ../source/specifications/source-distribution-format.rst:136
 msgid "High ``mode`` bits (setuid, setgid, sticky) MUST be cleared."
 msgstr "Старшие биты ``режима'' (setuid, setgid, sticky) ДОЛЖНЫ быть очищены."
 
-#: ../source/specifications/source-distribution-format.rst:133
+#: ../source/specifications/source-distribution-format.rst:137
 msgid "It is RECOMMENDED to preserve the user *executable* bit."
 msgstr "РЕКОМЕНДУЕТСЯ сохранять пользовательский *исполняемый* бит."
 
-#: ../source/specifications/source-distribution-format.rst:137
+#: ../source/specifications/source-distribution-format.rst:141
 msgid "Further hints"
 msgstr "Дополнительные подсказки"
 
-#: ../source/specifications/source-distribution-format.rst:139
+#: ../source/specifications/source-distribution-format.rst:143
 msgid ""
 "Tool authors are encouraged to consider how *hints for further verification* "
 "in ``tarfile`` documentation apply to their tool."
@@ -25601,7 +25533,7 @@ msgstr ""
 "Авторам инструментов рекомендуется рассмотреть, насколько *подсказки для "
 "дальнейшей проверки* в документации к ``tarfile`` применимы к их инструменту."
 
-#: ../source/specifications/source-distribution-format.rst:146
+#: ../source/specifications/source-distribution-format.rst:150
 msgid ""
 "November 2020: The original version of this specification was approved "
 "through :pep:`643`."
@@ -25609,11 +25541,11 @@ msgstr ""
 "Ноябрь 2020 года: Первоначальная версия этой спецификации была одобрена "
 "через :pep:`643`."
 
-#: ../source/specifications/source-distribution-format.rst:148
+#: ../source/specifications/source-distribution-format.rst:152
 msgid "July 2021: Defined what a source tree is."
 msgstr "Июль 2021 года: Определено, что такое дерево источников."
 
-#: ../source/specifications/source-distribution-format.rst:149
+#: ../source/specifications/source-distribution-format.rst:153
 msgid ""
 "September 2022: The filename of a source distribution was standardized "
 "through :pep:`625`."
@@ -25621,7 +25553,7 @@ msgstr ""
 "Сентябрь 2022: Имя файла исходного дистрибутива было стандартизировано "
 "через :pep:`625`."
 
-#: ../source/specifications/source-distribution-format.rst:151
+#: ../source/specifications/source-distribution-format.rst:155
 msgid ""
 "August 2023: Source distribution archive features were standardized through :"
 "pep:`721`."
@@ -30066,16 +29998,14 @@ msgstr ""
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
 
-#: ../source/guides/writing-pyproject-toml.rst:237
-#, fuzzy
-msgid ""
-"In this example, after installing your project, a ``spam-cli`` command will "
-"be available. Executing this command will do the equivalent of ``import sys; "
-"from spam import main_cli; sys.exit(main_cli())``."
-msgstr ""
-"В этом примере после установки вашего проекта будет доступна команда ``spam-"
-"cli''. Выполнение этой команды будет эквивалентно выполнению команды ``from "
-"spam import main_cli; main_cli()``."
+#~ msgid ""
+#~ "In this example, after installing your project, a ``spam-cli`` command "
+#~ "will be available. Executing this command will do the equivalent of "
+#~ "``from spam import main_cli; main_cli()``."
+#~ msgstr ""
+#~ "В этом примере после установки вашего проекта будет доступна команда "
+#~ "``spam-cli''. Выполнение этой команды будет эквивалентно выполнению "
+#~ "команды ``from spam import main_cli; main_cli()``."
 
 #~ msgid ""
 #~ "conda is the package management tool for `Anaconda <https://docs.anaconda."
