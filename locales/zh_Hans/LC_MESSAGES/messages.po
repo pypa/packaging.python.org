@@ -32,7 +32,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-14 12:14+0000\n"
+"POT-Creation-Date: 2025-01-14 20:10+0000\n"
 "PO-Revision-Date: 2024-12-15 11:00+0000\n"
 "Last-Translator: Xianpeng Shen <xianpeng.shen@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -9729,13 +9729,14 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:32
 msgid ""
-"As of August 2024, Poetry_ is a notable build backend that does not use the "
-"``[project]`` table, it uses the ``[tool.poetry]`` table instead. Also, the "
-"setuptools_ build backend supports both the ``[project]`` table, and the "
-"older format in ``setup.cfg`` or ``setup.py``."
+"A notable exception is Poetry_, which before version 2.0 (released January "
+"5, 2025) did not use the ``[project]`` table, it used the ``[tool.poetry]`` "
+"table instead. With version 2.0, it supports both. Also, the setuptools_ "
+"build backend supports both the ``[project]`` table, and the older format in "
+"``setup.cfg`` or ``setup.py``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:37
+#: ../source/guides/writing-pyproject-toml.rst:38
 msgid ""
 "For new projects, use the ``[project]`` table, and keep ``setup.py`` only if "
 "some programmatic configuration is needed (such as building C extensions), "
@@ -9743,11 +9744,11 @@ msgid ""
 "`setup-py-deprecated`."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:46
+#: ../source/guides/writing-pyproject-toml.rst:47
 msgid "Declaring the build backend"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:48
+#: ../source/guides/writing-pyproject-toml.rst:49
 msgid ""
 "The ``[build-system]`` table contains a ``build-backend`` key, which "
 "specifies the build backend to be used. It also contains a ``requires`` key, "
@@ -9757,29 +9758,29 @@ msgid ""
 "[\"setuptools >= 61.0\"]``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:54
+#: ../source/guides/writing-pyproject-toml.rst:55
 msgid ""
 "Usually, you'll just copy what your build backend's documentation suggests "
 "(after :ref:`choosing your build backend <choosing-build-backend>`). Here "
 "are the values for some common build backends:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:93
+#: ../source/guides/writing-pyproject-toml.rst:94
 msgid "Static vs. dynamic metadata"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:95
+#: ../source/guides/writing-pyproject-toml.rst:96
 msgid "The rest of this guide is devoted to the ``[project]`` table."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:97
+#: ../source/guides/writing-pyproject-toml.rst:98
 msgid ""
 "Most of the time, you will directly write the value of a ``[project]`` "
 "field. For example: ``requires-python = \">= 3.8\"``, or ``version = "
 "\"1.0\"``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:101
+#: ../source/guides/writing-pyproject-toml.rst:102
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
@@ -9787,30 +9788,30 @@ msgid ""
 "cases, you should mark the field as dynamic using, e.g.,"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:112
+#: ../source/guides/writing-pyproject-toml.rst:113
 msgid ""
 "When a field is dynamic, it is the build backend's responsibility to fill "
 "it.  Consult your build backend's documentation to learn how it does it."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:118
+#: ../source/guides/writing-pyproject-toml.rst:119
 msgid "Basic information"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:123
+#: ../source/guides/writing-pyproject-toml.rst:124
 #: ../source/specifications/pyproject-toml.rst:120
 #: ../source/specifications/pyproject-toml.rst:143
 #: ../source/specifications/pyproject-toml.rst:153
 msgid "``name``"
 msgstr "``name``"
 
-#: ../source/guides/writing-pyproject-toml.rst:125
+#: ../source/guides/writing-pyproject-toml.rst:126
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:133
+#: ../source/guides/writing-pyproject-toml.rst:134
 #, fuzzy
 msgid ""
 "The project name must consist of ASCII letters, digits, underscores "
@@ -9820,7 +9821,7 @@ msgstr ""
 "项目名称必须由 ASCII 字母、数字、下划线 \"``_``\"、连字符 \"``-``\" 和英文句"
 "号 \"``.``\"组。名字开头结尾不能是下划线、连字符或句号。"
 
-#: ../source/guides/writing-pyproject-toml.rst:137
+#: ../source/guides/writing-pyproject-toml.rst:138
 msgid ""
 "Comparison of project names is case insensitive and treats arbitrarily long "
 "runs of underscores, hyphens, and/or periods as equal.  For example, if you "
@@ -9833,99 +9834,99 @@ msgstr ""
 "方式下载它或声明对它的依赖:``Cool-Stuff``, ``cool.stuff``, ``COOL_STUFF``, "
 "``CoOl__-.-__sTuFF``."
 
-#: ../source/guides/writing-pyproject-toml.rst:145
+#: ../source/guides/writing-pyproject-toml.rst:146
 #: ../source/specifications/pyproject-toml.rst:125
 #: ../source/specifications/pyproject-toml.rst:149
 #: ../source/specifications/pyproject-toml.rst:165
 msgid "``version``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:147
+#: ../source/guides/writing-pyproject-toml.rst:148
 msgid "Put the version of your project."
 msgstr "输入项目版本。"
 
-#: ../source/guides/writing-pyproject-toml.rst:154
+#: ../source/guides/writing-pyproject-toml.rst:155
 msgid ""
 "Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha "
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
 "full details."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:158
+#: ../source/guides/writing-pyproject-toml.rst:159
 msgid "This field is required, although it is often marked as dynamic using"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:165
+#: ../source/guides/writing-pyproject-toml.rst:166
 msgid ""
 "This allows use cases such as filling the version from a ``__version__`` "
 "attribute or a Git tag. Consult the :ref:`single-source-version` discussion "
 "for more details."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:171
+#: ../source/guides/writing-pyproject-toml.rst:172
 #, fuzzy
 msgid "Dependencies and requirements"
 msgstr "install_requires 与 requirements files"
 
-#: ../source/guides/writing-pyproject-toml.rst:174
+#: ../source/guides/writing-pyproject-toml.rst:175
 #: ../source/specifications/pyproject-toml.rst:420
 msgid "``dependencies``/``optional-dependencies``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:176
+#: ../source/guides/writing-pyproject-toml.rst:177
 msgid "If your project has dependencies, list them like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:188
+#: ../source/guides/writing-pyproject-toml.rst:189
 msgid ""
 "See :ref:`Dependency specifiers <dependency-specifiers>` for the full syntax "
 "you can use to constrain versions."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:191
+#: ../source/guides/writing-pyproject-toml.rst:192
 msgid ""
 "You may want to make some of your dependencies optional, if they are only "
 "needed for a specific feature of your package. In that case, put them in "
 "``optional-dependencies``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:204
+#: ../source/guides/writing-pyproject-toml.rst:205
 msgid ""
 "Each of the keys defines a \"packaging extra\". In the example above, one "
 "could use, e.g., ``pip install your-project-name[gui]`` to install your "
 "project with GUI support, adding the PyQt5 dependency."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:213
+#: ../source/guides/writing-pyproject-toml.rst:214
 #: ../source/specifications/pyproject-toml.rst:146
 #: ../source/specifications/pyproject-toml.rst:228
 msgid "``requires-python``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:215
+#: ../source/guides/writing-pyproject-toml.rst:216
 msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:227
+#: ../source/guides/writing-pyproject-toml.rst:228
 msgid "Creating executable scripts"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:229
+#: ../source/guides/writing-pyproject-toml.rst:230
 msgid ""
 "To install a command as part of your package, declare it in the ``[project."
 "scripts]`` table."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:237
+#: ../source/guides/writing-pyproject-toml.rst:238
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
 "be available. Executing this command will do the equivalent of ``import sys; "
 "from spam import main_cli; sys.exit(main_cli())``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:241
+#: ../source/guides/writing-pyproject-toml.rst:242
 msgid ""
 "On Windows, scripts packaged this way need a terminal, so if you launch them "
 "from within a graphical application, they will make a terminal pop up. To "
@@ -9933,84 +9934,84 @@ msgid ""
 "of ``[project.scripts]``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:251
+#: ../source/guides/writing-pyproject-toml.rst:252
 msgid ""
 "In that case, launching your script from the command line will give back "
 "control immediately, leaving the script to run in the background."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:254
+#: ../source/guides/writing-pyproject-toml.rst:255
 msgid ""
 "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
 "is only relevant on Windows."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:260
+#: ../source/guides/writing-pyproject-toml.rst:261
 msgid "About your project"
 msgstr "关于您的项目"
 
-#: ../source/guides/writing-pyproject-toml.rst:263
+#: ../source/guides/writing-pyproject-toml.rst:264
 #: ../source/specifications/pyproject-toml.rst:310
 msgid "``authors``/``maintainers``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:265
+#: ../source/guides/writing-pyproject-toml.rst:266
 msgid ""
 "Both of these fields contain lists of people identified by a name and/or an "
 "email address."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:285
+#: ../source/guides/writing-pyproject-toml.rst:286
 #: ../source/specifications/pyproject-toml.rst:135
 #: ../source/specifications/pyproject-toml.rst:178
 msgid "``description``"
 msgstr "``description``"
 
-#: ../source/guides/writing-pyproject-toml.rst:287
+#: ../source/guides/writing-pyproject-toml.rst:288
 msgid ""
 "This should be a one-line description of your project, to show as the "
 "\"headline\" of your project page on PyPI (`example <pypi-pip_>`_), and "
 "other places such as lists of search results (`example <pypi-search-pip_>`_)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:298
+#: ../source/guides/writing-pyproject-toml.rst:299
 #: ../source/specifications/pyproject-toml.rst:145
 #: ../source/specifications/pyproject-toml.rst:189
 msgid "``readme``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:300
+#: ../source/guides/writing-pyproject-toml.rst:301
 msgid ""
 "This is a longer description of your project, to display on your project "
 "page on PyPI. Typically, your project will have a ``README.md`` or ``README."
 "rst`` file and you just put its file name here."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:309
+#: ../source/guides/writing-pyproject-toml.rst:310
 msgid "The README's format is auto-detected from the extension:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:311
+#: ../source/guides/writing-pyproject-toml.rst:312
 msgid "``README.md`` → `GitHub-flavored Markdown <gfm_>`_,"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:312
+#: ../source/guides/writing-pyproject-toml.rst:313
 msgid ""
 "``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions)."
 msgstr "``README.rst`` → `reStructuredText <rest_>`_ (没有 Sphinx扩展）。"
 
-#: ../source/guides/writing-pyproject-toml.rst:314
+#: ../source/guides/writing-pyproject-toml.rst:315
 #, fuzzy
 msgid "You can also specify the format explicitly, like this:"
 msgstr "你可以看到生成文件的内容是这样的："
 
-#: ../source/guides/writing-pyproject-toml.rst:325
+#: ../source/guides/writing-pyproject-toml.rst:326
 #: ../source/specifications/pyproject-toml.rst:140
 #: ../source/specifications/pyproject-toml.rst:238
 msgid "``license``"
 msgstr "``license``"
 
-#: ../source/guides/writing-pyproject-toml.rst:327
+#: ../source/guides/writing-pyproject-toml.rst:328
 msgid ""
 "This is a valid :term:`SPDX license expression <License Expression>` "
 "consisting of one or more :term:`license identifiers <License Identifier>`. "
@@ -10019,14 +10020,14 @@ msgid ""
 "compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:340
+#: ../source/guides/writing-pyproject-toml.rst:341
 msgid ""
 "As a general rule, it is a good idea to use a standard, well-known license, "
 "both to avoid confusion and because some organizations avoid software whose "
 "license is unapproved."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:344
+#: ../source/guides/writing-pyproject-toml.rst:345
 msgid ""
 "If your project is licensed with a license that doesn't have an existing "
 "SPDX identifier, you can create a custom one in format ``LicenseRef-"
@@ -10035,7 +10036,7 @@ msgid ""
 "one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:356
+#: ../source/guides/writing-pyproject-toml.rst:357
 #: ../source/specifications/pyproject-toml.rst:141
 #: ../source/specifications/pyproject-toml.rst:251
 #, fuzzy
@@ -10043,78 +10044,78 @@ msgstr ""
 msgid "``license-files``"
 msgstr "``license``"
 
-#: ../source/guides/writing-pyproject-toml.rst:358
+#: ../source/guides/writing-pyproject-toml.rst:359
 msgid ""
 "This is a list of license files and files containing other legal information "
 "you want to distribute with your package."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:366
+#: ../source/guides/writing-pyproject-toml.rst:367
 msgid "The glob patterns must follow the specification:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:368
+#: ../source/guides/writing-pyproject-toml.rst:369
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
 "``) will be matched verbatim."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:370
+#: ../source/guides/writing-pyproject-toml.rst:371
 msgid ""
 "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are "
 "supported."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:371
+#: ../source/guides/writing-pyproject-toml.rst:372
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:372
+#: ../source/guides/writing-pyproject-toml.rst:373
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`, "
 "and thus may not start with a slash character."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:374
+#: ../source/guides/writing-pyproject-toml.rst:375
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:375
+#: ../source/guides/writing-pyproject-toml.rst:376
 msgid "Each glob must match at least one file."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:377
+#: ../source/guides/writing-pyproject-toml.rst:378
 msgid ""
 "Literal paths are valid globs. Any characters or character sequences not "
 "covered by this specification are invalid."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:383
+#: ../source/guides/writing-pyproject-toml.rst:384
 #: ../source/specifications/pyproject-toml.rst:139
 #: ../source/specifications/pyproject-toml.rst:352
 msgid "``keywords``"
 msgstr "``keywords``"
 
-#: ../source/guides/writing-pyproject-toml.rst:385
+#: ../source/guides/writing-pyproject-toml.rst:386
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:397
+#: ../source/guides/writing-pyproject-toml.rst:398
 #: ../source/specifications/pyproject-toml.rst:133
 #: ../source/specifications/pyproject-toml.rst:362
 msgid "``classifiers``"
 msgstr "``classifiers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:399
+#: ../source/guides/writing-pyproject-toml.rst:400
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
 msgstr ""
 "应用到项目的 PyPI 分类器列表。查看 `可能性的完整列表 <classifier-list_>`_."
 
-#: ../source/guides/writing-pyproject-toml.rst:423
+#: ../source/guides/writing-pyproject-toml.rst:424
 msgid ""
 "Although the list of classifiers is often used to declare what Python "
 "versions a project supports, this information is only used for searching and "
@@ -10123,26 +10124,26 @@ msgid ""
 "python` argument."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:428
+#: ../source/guides/writing-pyproject-toml.rst:429
 msgid ""
 "To prevent a package from being uploaded to PyPI, use the special "
 "``Private :: Do Not Upload`` classifier. PyPI will always reject packages "
 "with classifiers beginning with ``Private ::``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:435
+#: ../source/guides/writing-pyproject-toml.rst:436
 #: ../source/specifications/pyproject-toml.rst:148
 #: ../source/specifications/pyproject-toml.rst:378
 msgid "``urls``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:437
+#: ../source/guides/writing-pyproject-toml.rst:438
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:442
+#: ../source/guides/writing-pyproject-toml.rst:443
 msgid ""
 "See :ref:`well-known-labels` for a listing of labels that PyPI and other "
 "packaging tools are specifically aware of, and `PyPI's project metadata docs "
@@ -10150,28 +10151,28 @@ msgid ""
 "URL processing."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:456
+#: ../source/guides/writing-pyproject-toml.rst:457
 msgid ""
 "Note that if the label contains spaces, it needs to be quoted, e.g., "
 "``Website = \"https://example.com\"`` but ``\"Official Website\" = \"https://"
 "example.com\"``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:460
+#: ../source/guides/writing-pyproject-toml.rst:461
 msgid ""
 "Users are advised to use :ref:`well-known-labels` for their project URLs "
 "where appropriate, since consumers of metadata (like package indices) can "
 "specialize their presentation."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:464
+#: ../source/guides/writing-pyproject-toml.rst:465
 msgid ""
 "For example in the following metadata, neither ``MyHomepage`` nor "
 "``\"Download Link\"`` is a well-known label, so they will be rendered "
 "verbatim:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:474
+#: ../source/guides/writing-pyproject-toml.rst:475
 msgid ""
 "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known "
 "equivalents (``homepage`` and ``download``), and can be presented with those "
@@ -10179,26 +10180,26 @@ msgid ""
 "location, respectively)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:486
+#: ../source/guides/writing-pyproject-toml.rst:487
 msgid "Advanced plugins"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:488
+#: ../source/guides/writing-pyproject-toml.rst:489
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
 "``[project.entry-points]`` like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:497
+#: ../source/guides/writing-pyproject-toml.rst:498
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:502
+#: ../source/guides/writing-pyproject-toml.rst:503
 msgid "A full example"
 msgstr "完整示例"
 
-#: ../source/guides/writing-pyproject-toml.rst:565
+#: ../source/guides/writing-pyproject-toml.rst:566
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -17157,7 +17158,7 @@ msgstr ""
 
 #: ../source/specifications/inline-script-metadata.rst:82
 msgid ""
-"The ``[tool]`` MAY be used by any tool, script runner or otherwise, to "
+"The ``[tool]`` table MAY be used by any tool, script runner or otherwise, to "
 "configure behavior. It has the same semantics as the :ref:`[tool] table in "
 "pyproject.toml <pyproject-tool-table>`."
 msgstr ""
