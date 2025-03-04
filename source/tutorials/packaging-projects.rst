@@ -217,7 +217,7 @@ following this tutorial.
           "Programming Language :: Python :: 3",
           "Operating System :: OS Independent",
       ]
-      license = { file = "LICENSE.md" }
+      license = { file = "LICENSE" }
 
       [project.urls]
       Homepage = "https://github.com/pypa/sampleproject"
@@ -490,7 +490,7 @@ and install your package from TestPyPI:
 
     .. code-block:: bash
 
-        pip install -i https://test.pypi.org/simple/ example-package-YOUR-USERNAME-HERE
+        python3 -m pip install --index-url https://test.pypi.org/simple/ example-package-YOUR-USERNAME-HERE
 
 
 .. tab:: Windows
