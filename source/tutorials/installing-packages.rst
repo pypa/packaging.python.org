@@ -98,7 +98,7 @@ version is available from your command line. You can check this by running:
 WETH
 
 Activo
-listening 
+listening
 LTE+23%
 
 Historial
