@@ -247,6 +247,8 @@ Tools SHOULD validate and perform case normalization of the expression.
 The table subkeys of the ``license`` key are deprecated.
 
 
+.. _pyproject-toml-license-files:
+
 ``license-files``
 -----------------
 
@@ -260,43 +262,20 @@ configuration files, e.g. :file:`setup.py`, :file:`setup.cfg`, etc.)
 to file(s) containing licenses and other legal notices to be
 distributed with the package.
 
-The strings MUST contain valid glob patterns, as specified below:
+The strings MUST contain valid glob patterns, as specified in
+:doc:`/specifications/glob-patterns`.
 
-- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
-  MUST be matched verbatim.
-
-- Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]``
-  containing only the verbatim matched characters MUST be supported.
-  Within ``[...]``, the hyphen indicates a locale-agnostic range (e.g. ``a-z``,
-  order based on Unicode code points).
-  Hyphens at the start or end are matched literally.
-
-- Path delimiters MUST be the forward slash character (``/``).
-  Patterns are relative to the directory containing :file:`pyproject.toml`,
-  therefore the leading slash character MUST NOT be used.
-
-- Parent directory indicators (``..``) MUST NOT be used.
-
-Any characters or character sequences not covered by this specification are
-invalid. Projects MUST NOT use such values.
-Tools consuming this field SHOULD reject invalid values with an error.
+Patterns are relative to the directory containing :file:`pyproject.toml`,
 
 Tools MUST assume that license file content is valid UTF-8 encoded text,
 and SHOULD validate this and raise an error if it is not.
 
-Literal paths (e.g. :file:`LICENSE`) are valid globs which means they
-can also be defined.
-
 Build tools:
 
-- MUST treat each value as a glob pattern, and MUST raise an error if the
-  pattern contains invalid glob syntax.
 - MUST include all files matched by a listed pattern in all distribution
   archives.
 - MUST list each matched file path under a License-File field in the
   Core Metadata.
-- MUST raise an error if any individual user-specified pattern does not match
-  at least one file.
 
 If the ``license-files`` key is present and
 is set to a value of an empty array, then tools MUST NOT include any

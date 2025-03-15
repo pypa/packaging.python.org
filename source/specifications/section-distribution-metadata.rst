@@ -14,3 +14,4 @@ Package Distribution Metadata
    inline-script-metadata
    platform-compatibility-tags
    well-known-project-urls
+   glob-patterns
