@@ -29,8 +29,9 @@ three possible TOML tables in this file.
    On the other hand, the ``[project]`` table is understood by *most* build
    backends, but some build backends use a different format.
 
-   As of August 2024, Poetry_ is a notable build backend that does not use
-   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead.
+   A notable exception is Poetry_, which before version 2.0 (released January
+   5, 2025) did not use the ``[project]`` table, it used the ``[tool.poetry]``
+   table instead. With version 2.0, it supports both.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
    and the older format in ``setup.cfg`` or ``setup.py``.
 
@@ -236,7 +237,7 @@ To install a command as part of your package, declare it in the
 
 In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
-``from spam import main_cli; main_cli()``.
+``import sys; from spam import main_cli; sys.exit(main_cli())``.
 
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
@@ -321,11 +322,52 @@ You can also specify the format explicitly, like this:
    readme = {file = "README.txt", content-type = "text/x-rst"}
 
 
+.. _license:
+
 ``license``
 -----------
 
+:pep:`639` (accepted in August 2024) has changed the way the ``license`` field
+is declared. Make sure your preferred build backend supports :pep:`639` before
+trying to apply the newer guidelines.
+As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
+and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
+
+:pep:`639` license declaration
+''''''''''''''''''''''''''''''
+
+This is a valid :term:`SPDX license expression <License Expression>` consisting
+of one or more :term:`license identifiers <License Identifier>`.
+The full license list is available at the
+`SPDX license list page <spdxlicenselist_>`_. The supported list version is
+3.17 or any later compatible one.
+
+.. code-block:: toml
+
+    [project]
+    license = "GPL-3.0-or-later"
+    # or
+    license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
+
+As a general rule, it is a good idea to use a standard, well-known
+license, both to avoid confusion and because some organizations avoid software
+whose license is unapproved.
+
+If your project is licensed with a license that doesn't have an existing SPDX
+identifier, you can create a custom one in format ``LicenseRef-[idstring]``.
+The custom identifiers must follow the SPDX specification,
+`clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one.
+
+.. code-block:: toml
+
+    [project]
+    license = "LicenseRef-My-Custom-License"
+
+Legacy license declaration
+''''''''''''''''''''''''''
+
 This can take two forms. You can put your license in a file, typically
-``LICENSE`` or ``LICENSE.txt``, and link that file here:
+:file:`LICENSE` or :file:`LICENSE.txt`, and link that file here:
 
 .. code-block:: toml
 
@@ -344,6 +386,41 @@ field. Instead, you should use one of the :ref:`classifiers` starting with ``Lic
 ::``. (As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
 whose license is unapproved.)
+
+
+.. _license-files:
+
+``license-files``
+-----------------
+
+:pep:`639` (accepted in August 2024) has introduced the ``license-files`` field.
+Make sure your preferred build backend supports :pep:`639` before declaring the
+field.
+As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
+and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
+
+This is a list of license files and files containing other legal
+information you want to distribute with your package.
+
+.. code-block:: toml
+
+    [project]
+    license-files = ["LICEN[CS]E*", "vendored/licenses/*.txt", "AUTHORS.md"]
+
+The glob patterns must follow the specification:
+
+- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
+  will be matched verbatim.
+- Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported.
+- Path delimiters must be the forward slash character (``/``).
+- Patterns are relative to the directory containing :file:`pyproject.toml`, and
+  thus may not start with a slash character.
+- Parent directory indicators (``..``) must not be used.
+- Each glob must match at least one file.
+
+Literal paths are valid globs.
+Any characters or character sequences not covered by this specification are
+invalid.
 
 
 ``keywords``
@@ -378,9 +455,6 @@ A list of PyPI classifiers that apply to your project. Check the
       # Indicate who your project is intended for
       "Intended Audience :: Developers",
       "Topic :: Software Development :: Build Tools",
-
-      # Pick your license as you wish (see also "license" above)
-      "License :: OSI Approved :: MIT License",
 
       # Specify the Python versions you support here.
       "Programming Language :: Python :: 3",
@@ -498,7 +572,8 @@ A full example
    ]
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
-   license = {file = "LICENSE.txt"}
+   license = "MIT"  # or license = {file = "LICENSE.txt"} for legacy declaration
+   license-files = ["LICEN[CS]E.*"]
    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
    classifiers = [
      "Development Status :: 4 - Beta",
@@ -545,3 +620,5 @@ A full example
 .. _pytest: https://pytest.org
 .. _pygments: https://pygments.org
 .. _rest: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _spdxcustomids: https://spdx.github.io/spdx-spec/v2.2.2/other-licensing-information-detected/
+.. _spdxlicenselist: https://spdx.org/licenses/

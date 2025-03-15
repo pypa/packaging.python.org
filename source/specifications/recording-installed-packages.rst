@@ -66,6 +66,11 @@ The ``METADATA`` file is mandatory.
 All other files may be omitted at the installing tool's discretion.
 Additional installer-specific files may be present.
 
+This :file:`.dist-info/` directory may contain the following directory, described in
+detail below:
+
+* :file:`licenses/`: contains license files.
+
 .. note::
 
    The :ref:`binary-distribution-format` specification describes additional
@@ -144,7 +149,7 @@ Here is an example snippet of a possible ``RECORD`` file::
     __pycache__/black.cpython-38.pyc,,
     __pycache__/blackd.cpython-38.pyc,,
     black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
-    black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+    black-19.10b0.dist-info/licenses/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
     black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
     black-19.10b0.dist-info/RECORD,,
     black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
@@ -219,6 +224,17 @@ of requirement (i.e. name plus version specifier).
 Its detailed specification is at :ref:`direct-url`.
 
 
+The :file:`licenses/` subdirectory
+==================================
+
+If the metadata version is 2.4 or greater and one or more ``License-File``
+fields is specified, the :file:`.dist-info/` directory MUST contain a :file:`licenses/`
+subdirectory which MUST contain the files listed in the ``License-File`` fields in
+the :file:`METADATA` file at their respective paths relative to the
+:file:`licenses/` directory.
+Any files in this directory MUST be copied from wheels by the install tools.
+
+
 Intentionally preventing changes to installed packages
 ======================================================
 
@@ -259,3 +275,5 @@ History
   for the full definition.
 - September 2020: Various amendments and clarifications were approved through
   :pep:`627`.
+- December 2024: The :file:`.dist-info/licenses/` directory was specified through
+  :pep:`639`.

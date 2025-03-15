@@ -200,26 +200,52 @@ to include your username; this ensures that you have a unique
 package name that doesn't conflict with packages uploaded by other people
 following this tutorial.
 
-.. code-block:: toml
+.. tab:: hatchling/pdm
 
-    [project]
-    name = "example_package_YOUR_USERNAME_HERE"
-    version = "0.0.1"
-    authors = [
-      { name="Example Author", email="author@example.com" },
-    ]
-    description = "A small example package"
-    readme = "README.md"
-    requires-python = ">=3.8"
-    classifiers = [
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ]
+  .. code-block:: toml
 
-    [project.urls]
-    Homepage = "https://github.com/pypa/sampleproject"
-    Issues = "https://github.com/pypa/sampleproject/issues"
+      [project]
+      name = "example_package_YOUR_USERNAME_HERE"
+      version = "0.0.1"
+      authors = [
+        { name="Example Author", email="author@example.com" },
+      ]
+      description = "A small example package"
+      readme = "README.md"
+      requires-python = ">=3.8"
+      classifiers = [
+          "Programming Language :: Python :: 3",
+          "Operating System :: OS Independent",
+      ]
+      license = "MIT"
+      license-files = ["LICEN[CS]E*"]
+
+      [project.urls]
+      Homepage = "https://github.com/pypa/sampleproject"
+      Issues = "https://github.com/pypa/sampleproject/issues"
+
+.. tab:: setuptools/flit
+
+  .. code-block:: toml
+
+      [project]
+      name = "example_package_YOUR_USERNAME_HERE"
+      version = "0.0.1"
+      authors = [
+        { name="Example Author", email="author@example.com" },
+      ]
+      description = "A small example package"
+      readme = "README.md"
+      requires-python = ">=3.8"
+      classifiers = [
+          "Programming Language :: Python :: 3",
+          "Operating System :: OS Independent",
+          "License :: OSI Approved :: MIT License",
+      ]
+
+      [project.urls]
+      Homepage = "https://github.com/pypa/sampleproject"
+      Issues = "https://github.com/pypa/sampleproject/issues"
 
 - ``name`` is the *distribution name* of your package. This can be any name as
   long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also
@@ -242,11 +268,16 @@ following this tutorial.
   packages until it finds one that has a matching Python version.
 - ``classifiers`` gives the index and :ref:`pip` some additional metadata
   about your package. In this case, the package is only compatible with Python
-  3, is licensed under the MIT license, and is OS-independent. You should
-  always include at least which version(s) of Python your package works on,
-  which license your package is available under, and which operating systems
+  3 and is OS-independent. You should
+  always include at least which version(s) of Python your package works on
+  and which operating systems
   your package will work on. For a complete list of classifiers, see
   https://pypi.org/classifiers/.
+- ``license`` is the :term:`SPDX license expression <License Expression>` of
+  your package. Not supported by all the build backends yet.
+- ``license-files`` is the list of glob paths to the license files,
+  relative to the directory where :file:`pyproject.toml` is located.
+  Not supported by all the build backends yet.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 
@@ -305,6 +336,9 @@ MIT license:
 
 Most build backends automatically include license files in packages. See your
 backend's documentation for more details.
+If you include the path to license in the ``license-files`` key of
+:file:`pyproject.toml`, and your build backend supports :pep:`639`,
+the file will be automatically included in the package.
 
 
 Including other files

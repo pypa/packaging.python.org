@@ -89,7 +89,7 @@ SciPy distributions
 -------------------
 
 The SciPy site lists `several distributions
-<https://scipy.org/install/#distributions>`_
+<https://scipy.org/install/>`_
 that provide the full SciPy stack to
 end users in an easy to use and update format.
 

@@ -20,6 +20,8 @@ specification.
 
 Source distributions are also known as *sdists* for short.
 
+.. _source-distribution-format-source-tree:
+
 Source trees
 ============
 
@@ -29,6 +31,8 @@ can be use to build a source distribution from the contained files and
 directories. :pep:`517` and :pep:`518` specify what is required to meet the
 definition of what :file:`pyproject.toml` must contain for something to be
 deemed a source tree.
+
+.. _source-distribution-format-sdist:
 
 Source distribution file name
 =============================
@@ -58,9 +62,14 @@ A ``.tar.gz`` source distribution (sdist) contains a single top-level directory
 called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of
 the package. The name and version MUST match the metadata stored in the file.
 This directory must also contain a :file:`pyproject.toml` in the format defined in
-:ref:`pyproject-toml-spec`, and a ``PKG-INFO`` file containing
+:ref:`pyproject-toml-spec`, and a :file:`PKG-INFO` file containing
 metadata in the format described in the :ref:`core-metadata` specification. The
 metadata MUST conform to at least version 2.2 of the metadata specification.
+
+If the metadata version is 2.4 or greater, the source distribution MUST contain
+any license files specified by the ``License-File`` field in the :file:`PKG-INFO`
+at their respective paths relative to the root directory of the sdist
+(containing the :file:`pyproject.toml` and the :file:`PKG-INFO` metadata).
 
 No other content of a sdist is required or defined. Build systems can store
 whatever information they need in the sdist to build the project.
@@ -150,3 +159,5 @@ History
   :pep:`625`.
 * August 2023: Source distribution archive features were standardized through
   :pep:`721`.
+* December 2024: License files inclusion into source distribution was standardized
+  through :pep:`639`.

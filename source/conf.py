@@ -62,6 +62,11 @@ gettext_location = True
 html_title = "Python Packaging User Guide"
 html_theme = "furo"
 
+html_theme_options = {
+    "source_edit_link": "https://github.com/pypa/packaging.python.org/edit/main/source/{filename}",
+    "source_view_link": "https://github.com/pypa/packaging.python.org/blob/main/source/{filename}?plain=true",
+}
+
 html_favicon = "assets/py.png"
 html_last_updated_fmt = ""
 
@@ -136,11 +141,13 @@ linkcheck_ignore = [
     "https://anaconda.org",
 ]
 linkcheck_retries = 5
-# Ignore anchors for links to GitHub project pages -- GitHub adds anchors from
-# README.md headings through JavaScript, so Sphinx's linkcheck can't find them
-# in the HTML.
+# Ignore anchors for common targets when we know they likely won't be found
 linkcheck_anchors_ignore_for_url = [
+    # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
     r"https://github\.com/",
+    # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
+    # https://github.com/pypa/packaging.python.org/issues/1744
+    r"https://pypi\.org/",
 ]
 
 # -- Options for extlinks ----------------------------------------------------------
