@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-26 11:55+0000\n"
+"POT-Creation-Date: 2025-03-15 15:59+0000\n"
 "PO-Revision-Date: 2025-02-26 06:29+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -4258,9 +4258,14 @@ msgid "Installed Project"
 msgstr "Установленный проект"
 
 #: ../source/glossary.rst:136
+#, fuzzy
+#| msgid ""
+#| "A :term:`Project` that is installed for use with a Python interpreter or :"
+#| "term:`Virtual Environment`, as described in the specicifcation :ref:"
+#| "`recording-installed-packages`."
 msgid ""
 "A :term:`Project` that is installed for use with a Python interpreter or :"
-"term:`Virtual Environment`, as described in the specicifcation :ref:"
+"term:`Virtual Environment`, as described in the specification :ref:"
 "`recording-installed-packages`."
 msgstr ""
 "Проект, установленный для использования с интерпретатором Python или : "
@@ -12975,7 +12980,7 @@ msgid "Dependencies and requirements"
 msgstr "Зависимости и требования"
 
 #: ../source/guides/writing-pyproject-toml.rst:175
-#: ../source/specifications/pyproject-toml.rst:420
+#: ../source/specifications/pyproject-toml.rst:399
 msgid "``dependencies``/``optional-dependencies``"
 msgstr "``зависимости``/``опциональные-зависимости``"
 
@@ -13082,7 +13087,7 @@ msgid "About your project"
 msgstr "О вашем проекте"
 
 #: ../source/guides/writing-pyproject-toml.rst:264
-#: ../source/specifications/pyproject-toml.rst:310
+#: ../source/specifications/pyproject-toml.rst:289
 msgid "``authors``/``maintainers``"
 msgstr "``авторы``/ ``майнтейнеры``"
 
@@ -13240,7 +13245,7 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:394
 #: ../source/specifications/pyproject-toml.rst:141
-#: ../source/specifications/pyproject-toml.rst:251
+#: ../source/specifications/pyproject-toml.rst:253
 msgid "``license-files``"
 msgstr "``лицензионные файлы``"
 
@@ -13317,7 +13322,7 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:427
 #: ../source/specifications/pyproject-toml.rst:139
-#: ../source/specifications/pyproject-toml.rst:352
+#: ../source/specifications/pyproject-toml.rst:331
 msgid "``keywords``"
 msgstr "``ключевые слова``"
 
@@ -13331,7 +13336,7 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:441
 #: ../source/specifications/pyproject-toml.rst:133
-#: ../source/specifications/pyproject-toml.rst:362
+#: ../source/specifications/pyproject-toml.rst:341
 msgid "``classifiers``"
 msgstr "`` классификаторы ``"
 
@@ -13369,7 +13374,7 @@ msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:479
 #: ../source/specifications/pyproject-toml.rst:148
-#: ../source/specifications/pyproject-toml.rst:378
+#: ../source/specifications/pyproject-toml.rst:357
 msgid "``urls``"
 msgstr "``urls``"
 
@@ -17867,7 +17872,7 @@ msgstr ""
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:434
-#: ../source/specifications/pyproject-toml.rst:508
+#: ../source/specifications/pyproject-toml.rst:487
 #: ../source/specifications/recording-installed-packages.rst:268
 #: ../source/specifications/simple-repository-api.rst:993
 #: ../source/specifications/source-distribution-format.rst:153
@@ -22025,6 +22030,145 @@ msgstr ""
 msgid "June 2022: This specification was approved through :pep:`668`."
 msgstr "Июнь 2022: Эта спецификация была одобрена через :pep:`668`."
 
+#: ../source/specifications/glob-patterns.rst:3
+msgid "``glob`` patterns"
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:5
+msgid ""
+"Some PyPA specifications, e.g. :ref:`pyproject.toml's license-files "
+"<pyproject-toml-license-files>`, accept certain types of *glob patterns* to "
+"match a given string containing wildcards and character ranges against files "
+"and directories. This specification defines which patterns are acceptable "
+"and how they should be handled."
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:13
+msgid "Valid glob patterns"
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:15
+msgid ""
+"For PyPA purposes, a *valid glob pattern* MUST be a string matched against "
+"filesystem entries as specified below:"
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:18
+msgid ""
+"Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
+"``) MUST be matched verbatim."
+msgstr ""
+"Буквенно-цифровые символы, подчеркивания (``_``), дефисы (``-``) и точки (``."
+"``) ДОЛЖНЫ совпадать дословно."
+
+#: ../source/specifications/glob-patterns.rst:21
+msgid ""
+"Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]`` "
+"containing only the verbatim matched characters MUST be supported. Within "
+"``[...]``, the hyphen indicates a locale-agnostic range (e.g. ``a-z``, order "
+"based on Unicode code points). Hyphens at the start or end are matched "
+"literally."
+msgstr ""
+"Специальные символы глобуса: ``*``, ``?``, ``**`` и диапазоны символов: "
+"``[...]``, содержащие только дословные совпадающие символы, ДОЛЖНЫ "
+"поддерживаться. Внутри ``[...]`` дефис указывает на диапазон, не зависящий "
+"от локали (например, ``a-z``, порядок основан на кодовых точках Unicode). "
+"Дефисы в начале или в конце совпадают буквально."
+
+#: ../source/specifications/glob-patterns.rst:27
+#, fuzzy
+#| msgid "Path delimiters must be the forward slash character (``/``)."
+msgid "Path delimiters MUST be the forward slash character (``/``)."
+msgstr "Разделителями путей должны быть символы прямой косой черты (``/``)."
+
+#: ../source/specifications/glob-patterns.rst:29
+#, fuzzy
+#| msgid ""
+#| "Path delimiters MUST be the forward slash character (``/``). Patterns are "
+#| "relative to the directory containing :file:`pyproject.toml`, therefore "
+#| "the leading slash character MUST NOT be used."
+msgid ""
+"Patterns always refer to *relative paths*, e.g., when used in :file:"
+"`pyproject.toml`, patterns should always be relative to the directory "
+"containing that file. Therefore the leading slash character MUST NOT be used."
+msgstr ""
+"Разделителями путей ДОЛЖЕН быть символ прямой косой черты (``/``). Образцы "
+"являются относительными к директории, содержащей :file:`pyproject.toml`, "
+"поэтому символ прямой косой черты НЕ ДОЛЖЕН использоваться."
+
+#: ../source/specifications/glob-patterns.rst:34
+msgid "Parent directory indicators (``..``) MUST NOT be used."
+msgstr "Индикаторы родительского каталога (``..``) НЕ ДОЛЖНЫ использоваться."
+
+#: ../source/specifications/glob-patterns.rst:36
+#, fuzzy
+#| msgid ""
+#| "Any characters or character sequences not covered by this specification "
+#| "are invalid. Projects MUST NOT use such values. Tools consuming this "
+#| "field SHOULD reject invalid values with an error."
+msgid ""
+"Any characters or character sequences not covered by this specification are "
+"invalid. Projects MUST NOT use such values. Tools consuming glob patterns "
+"SHOULD reject invalid values with an error."
+msgstr ""
+"Любые символы или последовательности символов, не предусмотренные данной "
+"спецификацией, являются недействительными. Проекты НЕ ДОЛЖНЫ использовать "
+"такие значения. Средства, использующие это поле, ДОЛЖНЫ отклонять "
+"недопустимые значения с ошибкой."
+
+#: ../source/specifications/glob-patterns.rst:40
+msgid ""
+"Literal paths (e.g. :file:`LICENSE`) are valid globs which means they can "
+"also be defined."
+msgstr ""
+"Буквальные пути (например, :file:`LICENSE`) являются допустимыми глобусами, "
+"что означает, что они также могут быть определены."
+
+#: ../source/specifications/glob-patterns.rst:43
+msgid "Tools consuming glob patterns:"
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:45
+msgid ""
+"MUST treat each value as a glob pattern, and MUST raise an error if the "
+"pattern contains invalid glob syntax."
+msgstr ""
+"ДОЛЖНО рассматривать каждое значение как шаблон glob, и ДОЛЖНО выдать "
+"ошибку, если шаблон содержит неверный синтаксис glob."
+
+#: ../source/specifications/glob-patterns.rst:47
+msgid ""
+"MUST raise an error if any individual user-specified pattern does not match "
+"at least one file."
+msgstr ""
+"ДОЛЖНА вызывать ошибку, если любой отдельный шаблон, указанный "
+"пользователем, не соответствует хотя бы одному файлу."
+
+#: ../source/specifications/glob-patterns.rst:50
+msgid "Examples of valid glob patterns:"
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:61
+msgid "Examples of invalid glob patterns:"
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:74
+#, fuzzy
+#| msgid "Reference Implementation"
+msgid "Reference implementation in Python"
+msgstr "Справочное осуществление"
+
+#: ../source/specifications/glob-patterns.rst:76
+msgid ""
+"It is possible to defer the majority of the pattern matching against the "
+"file system to the :mod:`glob` module in Python's standard library. It is "
+"necessary however to perform additional validations."
+msgstr ""
+
+#: ../source/specifications/glob-patterns.rst:80
+msgid "The code below is as a simple reference implementation:"
+msgstr ""
+
 #: ../source/specifications/index.rst:4
 msgid "PyPA specifications"
 msgstr "Спецификации PyPA"
@@ -24202,7 +24346,7 @@ msgid "``dependencies``"
 msgstr "``зависимости``"
 
 #: ../source/specifications/pyproject-toml.rst:136
-#: ../source/specifications/pyproject-toml.rst:450
+#: ../source/specifications/pyproject-toml.rst:429
 msgid "``dynamic``"
 msgstr "``динамический``"
 
@@ -24399,13 +24543,13 @@ msgstr ""
 msgid "The table subkeys of the ``license`` key are deprecated."
 msgstr "Табличные подключи ключа ``license`` устарели."
 
-#: ../source/specifications/pyproject-toml.rst:253
-#: ../source/specifications/pyproject-toml.rst:354
-#: ../source/specifications/pyproject-toml.rst:364
+#: ../source/specifications/pyproject-toml.rst:255
+#: ../source/specifications/pyproject-toml.rst:333
+#: ../source/specifications/pyproject-toml.rst:343
 msgid "TOML_ type: array of strings"
 msgstr "Тип TOML_: массив строк"
 
-#: ../source/specifications/pyproject-toml.rst:254
+#: ../source/specifications/pyproject-toml.rst:256
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License-File "
 "<core-metadata-license-file>`"
@@ -24413,7 +24557,7 @@ msgstr ""
 "Соответствующее поле :ref:`core metadata <core-metadata>`: :ref:`License-"
 "File <core-metadata-license-file>`"
 
-#: ../source/specifications/pyproject-toml.rst:257
+#: ../source/specifications/pyproject-toml.rst:259
 msgid ""
 "An array specifying paths in the project source tree relative to the project "
 "root directory (i.e. directory containing :file:`pyproject.toml` or legacy "
@@ -24427,58 +24571,26 @@ msgstr ""
 "py`, :file:`setup.cfg` и т.д.) к файлу(ам) с лицензиями и другими "
 "юридическими уведомлениями, которые будут распространяться вместе с пакетом."
 
-#: ../source/specifications/pyproject-toml.rst:263
-msgid "The strings MUST contain valid glob patterns, as specified below:"
+#: ../source/specifications/pyproject-toml.rst:265
+#, fuzzy
+#| msgid "The strings MUST contain valid glob patterns, as specified below:"
+msgid ""
+"The strings MUST contain valid glob patterns, as specified in :doc:`/"
+"specifications/glob-patterns`."
 msgstr "Строки ДОЛЖНЫ содержать правильные шаблоны glob, как указано ниже:"
 
-#: ../source/specifications/pyproject-toml.rst:265
-msgid ""
-"Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
-"``) MUST be matched verbatim."
-msgstr ""
-"Буквенно-цифровые символы, подчеркивания (``_``), дефисы (``-``) и точки (``."
-"``) ДОЛЖНЫ совпадать дословно."
-
 #: ../source/specifications/pyproject-toml.rst:268
+#, fuzzy
+#| msgid ""
+#| "Patterns are relative to the directory containing :file:`pyproject.toml`, "
+#| "and thus may not start with a slash character."
 msgid ""
-"Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]`` "
-"containing only the verbatim matched characters MUST be supported. Within "
-"``[...]``, the hyphen indicates a locale-agnostic range (e.g. ``a-z``, order "
-"based on Unicode code points). Hyphens at the start or end are matched "
-"literally."
+"Patterns are relative to the directory containing :file:`pyproject.toml`,"
 msgstr ""
-"Специальные символы глобуса: ``*``, ``?``, ``**`` и диапазоны символов: "
-"``[...]``, содержащие только дословные совпадающие символы, ДОЛЖНЫ "
-"поддерживаться. Внутри ``[...]`` дефис указывает на диапазон, не зависящий "
-"от локали (например, ``a-z``, порядок основан на кодовых точках Unicode). "
-"Дефисы в начале или в конце совпадают буквально."
+"Шаблоны являются относительными к директории, содержащей :file:`pyproject."
+"toml`, и поэтому не могут начинаться с символа слэша."
 
-#: ../source/specifications/pyproject-toml.rst:274
-msgid ""
-"Path delimiters MUST be the forward slash character (``/``). Patterns are "
-"relative to the directory containing :file:`pyproject.toml`, therefore the "
-"leading slash character MUST NOT be used."
-msgstr ""
-"Разделителями путей ДОЛЖЕН быть символ прямой косой черты (``/``). Образцы "
-"являются относительными к директории, содержащей :file:`pyproject.toml`, "
-"поэтому символ прямой косой черты НЕ ДОЛЖЕН использоваться."
-
-#: ../source/specifications/pyproject-toml.rst:278
-msgid "Parent directory indicators (``..``) MUST NOT be used."
-msgstr "Индикаторы родительского каталога (``..``) НЕ ДОЛЖНЫ использоваться."
-
-#: ../source/specifications/pyproject-toml.rst:280
-msgid ""
-"Any characters or character sequences not covered by this specification are "
-"invalid. Projects MUST NOT use such values. Tools consuming this field "
-"SHOULD reject invalid values with an error."
-msgstr ""
-"Любые символы или последовательности символов, не предусмотренные данной "
-"спецификацией, являются недействительными. Проекты НЕ ДОЛЖНЫ использовать "
-"такие значения. Средства, использующие это поле, ДОЛЖНЫ отклонять "
-"недопустимые значения с ошибкой."
-
-#: ../source/specifications/pyproject-toml.rst:284
+#: ../source/specifications/pyproject-toml.rst:270
 msgid ""
 "Tools MUST assume that license file content is valid UTF-8 encoded text, and "
 "SHOULD validate this and raise an error if it is not."
@@ -24487,27 +24599,11 @@ msgstr ""
 "правильным текстом в кодировке UTF-8, и ДОЛЖНЫ проверять его и выдавать "
 "ошибку, если это не так."
 
-#: ../source/specifications/pyproject-toml.rst:287
-msgid ""
-"Literal paths (e.g. :file:`LICENSE`) are valid globs which means they can "
-"also be defined."
-msgstr ""
-"Буквальные пути (например, :file:`LICENSE`) являются допустимыми глобусами, "
-"что означает, что они также могут быть определены."
-
-#: ../source/specifications/pyproject-toml.rst:290
+#: ../source/specifications/pyproject-toml.rst:273
 msgid "Build tools:"
 msgstr "Сборка инструментов:"
 
-#: ../source/specifications/pyproject-toml.rst:292
-msgid ""
-"MUST treat each value as a glob pattern, and MUST raise an error if the "
-"pattern contains invalid glob syntax."
-msgstr ""
-"ДОЛЖНО рассматривать каждое значение как шаблон glob, и ДОЛЖНО выдать "
-"ошибку, если шаблон содержит неверный синтаксис glob."
-
-#: ../source/specifications/pyproject-toml.rst:294
+#: ../source/specifications/pyproject-toml.rst:275
 msgid ""
 "MUST include all files matched by a listed pattern in all distribution "
 "archives."
@@ -24515,7 +24611,7 @@ msgstr ""
 "ОБЯЗАТЕЛЬНО включите все файлы, соответствующие перечисленному шаблону, во "
 "все архивы дистрибутива."
 
-#: ../source/specifications/pyproject-toml.rst:296
+#: ../source/specifications/pyproject-toml.rst:277
 msgid ""
 "MUST list each matched file path under a License-File field in the Core "
 "Metadata."
@@ -24523,15 +24619,7 @@ msgstr ""
 "ДОЛЖЕН перечислить каждый совпадающий путь к файлу в поле License-File в "
 "основных метаданных."
 
-#: ../source/specifications/pyproject-toml.rst:298
-msgid ""
-"MUST raise an error if any individual user-specified pattern does not match "
-"at least one file."
-msgstr ""
-"ДОЛЖНА вызывать ошибку, если любой отдельный шаблон, указанный "
-"пользователем, не соответствует хотя бы одному файлу."
-
-#: ../source/specifications/pyproject-toml.rst:301
+#: ../source/specifications/pyproject-toml.rst:280
 msgid ""
 "If the ``license-files`` key is present and is set to a value of an empty "
 "array, then tools MUST NOT include any license files and MUST NOT raise an "
@@ -24546,11 +24634,11 @@ msgstr ""
 "включать никаких файлов или использовать собственную логику для обнаружения "
 "соответствующих файлов в дистрибутиве."
 
-#: ../source/specifications/pyproject-toml.rst:312
+#: ../source/specifications/pyproject-toml.rst:291
 msgid "TOML_ type: Array of inline tables with string keys and values"
 msgstr "TOML_ type: Массив строчных таблиц со строковыми ключами и значениями"
 
-#: ../source/specifications/pyproject-toml.rst:313
+#: ../source/specifications/pyproject-toml.rst:292
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-"
 "metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:"
@@ -24562,7 +24650,7 @@ msgstr ""
 "ref:`Maintainer <core-metadata-maintainer>`, и :ref:`Maintainer-email <core-"
 "metadata-maintainer-email>`"
 
-#: ../source/specifications/pyproject-toml.rst:319
+#: ../source/specifications/pyproject-toml.rst:298
 msgid ""
 "The people or organizations considered to be the \"authors\" of the project. "
 "The exact meaning is open to interpretation — it may list the original or "
@@ -24572,7 +24660,7 @@ msgstr ""
 "открыто для интерпретации - это может быть список оригинальных или основных "
 "авторов, текущих сопровождающих или владельцев пакета."
 
-#: ../source/specifications/pyproject-toml.rst:324
+#: ../source/specifications/pyproject-toml.rst:303
 msgid ""
 "The \"maintainers\" key is similar to \"authors\" in that its exact meaning "
 "is open to interpretation."
@@ -24580,7 +24668,7 @@ msgstr ""
 "Ключ \"maintainers\" похож на \"authors\" тем, что его точное значение можно "
 "интерпретировать."
 
-#: ../source/specifications/pyproject-toml.rst:327
+#: ../source/specifications/pyproject-toml.rst:306
 msgid ""
 "These keys accept an array of tables with 2 keys: ``name`` and ``email``. "
 "Both values must be strings. The ``name`` value MUST be a valid email name "
@@ -24595,14 +24683,14 @@ msgstr ""
 "``email`` ДОЛЖНО быть действительным адресом электронной почты. Оба ключа "
 "необязательны, но хотя бы один из них должен быть указан в таблице."
 
-#: ../source/specifications/pyproject-toml.rst:334
+#: ../source/specifications/pyproject-toml.rst:313
 msgid ""
 "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
 msgstr ""
 "Использование данных для заполнения :ref:`core metadata <core-metadata>` "
 "осуществляется следующим образом:"
 
-#: ../source/specifications/pyproject-toml.rst:337
+#: ../source/specifications/pyproject-toml.rst:316
 msgid ""
 "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-"
 "author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
@@ -24611,7 +24699,7 @@ msgstr ""
 "metadata-author>` или :ref:`Maintainer <core-metadata-maintainer>` в "
 "зависимости от ситуации."
 
-#: ../source/specifications/pyproject-toml.rst:340
+#: ../source/specifications/pyproject-toml.rst:319
 msgid ""
 "If only ``email`` is provided, the value goes in :ref:`Author-email <core-"
 "metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-"
@@ -24621,7 +24709,7 @@ msgstr ""
 "metadata-author-email>` или :ref:`Maintainer-email <core-metadata-maintainer-"
 "email>` в зависимости от ситуации."
 
-#: ../source/specifications/pyproject-toml.rst:344
+#: ../source/specifications/pyproject-toml.rst:323
 msgid ""
 "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-"
 "email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
@@ -24632,11 +24720,11 @@ msgstr ""
 "metadata-maintainer-email>` в зависимости от ситуации, с форматом ``{name} "
 "<{email}>```."
 
-#: ../source/specifications/pyproject-toml.rst:348
+#: ../source/specifications/pyproject-toml.rst:327
 msgid "Multiple values should be separated by commas."
 msgstr "Несколько значений должны быть разделены запятыми."
 
-#: ../source/specifications/pyproject-toml.rst:355
+#: ../source/specifications/pyproject-toml.rst:334
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
 "<core-metadata-keywords>`"
@@ -24644,11 +24732,11 @@ msgstr ""
 "Соответствующее поле :ref:`core metadata <core-metadata>`: :ref:`Keywords "
 "<core-metadata-keywords>`"
 
-#: ../source/specifications/pyproject-toml.rst:358
+#: ../source/specifications/pyproject-toml.rst:337
 msgid "The keywords for the project."
 msgstr "Ключевые слова для проекта."
 
-#: ../source/specifications/pyproject-toml.rst:365
+#: ../source/specifications/pyproject-toml.rst:344
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier "
 "<core-metadata-classifier>`"
@@ -24656,11 +24744,11 @@ msgstr ""
 "Соответствующее поле :ref:`core metadata <core-metadata>`: :ref:`Classifier "
 "<core-metadata-classifier>`"
 
-#: ../source/specifications/pyproject-toml.rst:368
+#: ../source/specifications/pyproject-toml.rst:347
 msgid "Trove classifiers which apply to the project."
 msgstr "Классификаторы Trove, применимые к проекту."
 
-#: ../source/specifications/pyproject-toml.rst:370
+#: ../source/specifications/pyproject-toml.rst:349
 msgid ""
 "The use of ``License ::`` classifiers is deprecated and tools MAY issue a "
 "warning informing users about that. Build tools MAY raise an error if both "
@@ -24673,11 +24761,11 @@ msgstr ""
 "``license`` (перевод в поле метаданных ``License-Expression``), так и "
 "классификаторы ``License ::``."
 
-#: ../source/specifications/pyproject-toml.rst:380
+#: ../source/specifications/pyproject-toml.rst:359
 msgid "TOML_ type: table with keys and values of strings"
 msgstr "Тип TOML_: таблица с ключами и значениями строк"
 
-#: ../source/specifications/pyproject-toml.rst:381
+#: ../source/specifications/pyproject-toml.rst:360
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL "
 "<core-metadata-project-url>`"
@@ -24685,7 +24773,7 @@ msgstr ""
 "Соответствующее поле :ref:`core metadata <core-metadata>`: :ref:`Project-URL "
 "<core-metadata-project-url>`"
 
-#: ../source/specifications/pyproject-toml.rst:384
+#: ../source/specifications/pyproject-toml.rst:363
 msgid ""
 "A table of URLs where the key is the URL label and the value is the URL "
 "itself. See :ref:`well-known-project-urls` for normalization rules and well-"
@@ -24695,11 +24783,11 @@ msgstr ""
 "См. :ref:`well-known-project-urls` для правил нормализации и общеизвестных "
 "правил при обработке метаданных для представления."
 
-#: ../source/specifications/pyproject-toml.rst:390
+#: ../source/specifications/pyproject-toml.rst:369
 msgid "Entry points"
 msgstr "Точки входа"
 
-#: ../source/specifications/pyproject-toml.rst:392
+#: ../source/specifications/pyproject-toml.rst:371
 msgid ""
 "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
 "``[project.entry-points]``)"
@@ -24707,11 +24795,11 @@ msgstr ""
 "Тип TOML_: таблица (``[project.scripts]``, ``[project.gui-scripts]``, и "
 "``[project.entry-points]``)"
 
-#: ../source/specifications/pyproject-toml.rst:394
+#: ../source/specifications/pyproject-toml.rst:373
 msgid ":ref:`Entry points specification <entry-points>`"
 msgstr ":ref:`Спецификация точек входа <entry-points>`"
 
-#: ../source/specifications/pyproject-toml.rst:396
+#: ../source/specifications/pyproject-toml.rst:375
 msgid ""
 "There are three tables related to entry points. The ``[project.scripts]`` "
 "table corresponds to the ``console_scripts`` group in the :ref:`entry points "
@@ -24723,7 +24811,7 @@ msgstr ""
 "точек входа <entry-points>`. Ключом таблицы является имя точки входа, а "
 "значением - ссылка на объект."
 
-#: ../source/specifications/pyproject-toml.rst:402
+#: ../source/specifications/pyproject-toml.rst:381
 msgid ""
 "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group "
 "in the :ref:`entry points specification <entry-points>`. Its format is the "
@@ -24733,7 +24821,7 @@ msgstr ""
 "спецификации точек входа <entry-points>`. Ее формат такой же, как и у "
 "``[project.scripts]``."
 
-#: ../source/specifications/pyproject-toml.rst:406
+#: ../source/specifications/pyproject-toml.rst:385
 msgid ""
 "The ``[project.entry-points]`` table is a collection of tables. Each sub-"
 "table's name is an entry point group. The key and value semantics are the "
@@ -24746,7 +24834,7 @@ msgstr ""
 "создавать вложенные подтаблицы, а должны ограничиваться группами точек входа "
 "только одного уровня."
 
-#: ../source/specifications/pyproject-toml.rst:412
+#: ../source/specifications/pyproject-toml.rst:391
 msgid ""
 "Build back-ends MUST raise an error if the metadata defines a ``[project."
 "entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` "
@@ -24758,7 +24846,7 @@ msgstr ""
 "entry-points.gui_scripts]``, поскольку они будут неоднозначными перед лицом "
 "``[project.scripts]`` и ``[project.gui-scripts]``, соответственно."
 
-#: ../source/specifications/pyproject-toml.rst:422
+#: ../source/specifications/pyproject-toml.rst:401
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
 "values of arrays of :pep:`508` strings (``optional-dependencies``)"
@@ -24766,7 +24854,7 @@ msgstr ""
 "Тип TOML_: Массив строк :pep:`508` (``зависимости``), и таблица со "
 "значениями массивов строк :pep:`508` (``опциональные-зависимости``)"
 
-#: ../source/specifications/pyproject-toml.rst:425
+#: ../source/specifications/pyproject-toml.rst:404
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
@@ -24776,11 +24864,11 @@ msgstr ""
 "Dist <core-metadata-requires-dist>` и :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`"
 
-#: ../source/specifications/pyproject-toml.rst:429
+#: ../source/specifications/pyproject-toml.rst:408
 msgid "The (optional) dependencies of the project."
 msgstr "Зависимости проекта (необязательно)."
 
-#: ../source/specifications/pyproject-toml.rst:431
+#: ../source/specifications/pyproject-toml.rst:410
 msgid ""
 "For ``dependencies``, it is a key whose value is an array of strings. Each "
 "string represents a dependency of the project and MUST be formatted as a "
@@ -24792,7 +24880,7 @@ msgstr ""
 "как корректная строка :pep:`508`. Каждая строка сопоставляется "
 "непосредственно с записью :ref:`Requires-Dist <core-metadata-requires-dist>`."
 
-#: ../source/specifications/pyproject-toml.rst:436
+#: ../source/specifications/pyproject-toml.rst:415
 msgid ""
 "For ``optional-dependencies``, it is a table where each key specifies an "
 "extra and whose value is an array of strings. The strings of the arrays must "
@@ -24811,11 +24899,11 @@ msgstr ""
 "для соответствующего метаданного :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`."
 
-#: ../source/specifications/pyproject-toml.rst:452
+#: ../source/specifications/pyproject-toml.rst:431
 msgid "TOML_ type: array of string"
 msgstr "Тип TOML_: массив строк"
 
-#: ../source/specifications/pyproject-toml.rst:453
+#: ../source/specifications/pyproject-toml.rst:432
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
@@ -24823,7 +24911,7 @@ msgstr ""
 "Соответствующее поле :ref:`core metadata <core-metadata>`: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
 
-#: ../source/specifications/pyproject-toml.rst:456
+#: ../source/specifications/pyproject-toml.rst:435
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -24836,7 +24924,7 @@ msgstr ""
 "определены и, как ожидается, останутся неопределенными по сравнению с тем, "
 "что будет предоставлено с помощью инструментов позже."
 
-#: ../source/specifications/pyproject-toml.rst:462
+#: ../source/specifications/pyproject-toml.rst:441
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
@@ -24844,7 +24932,7 @@ msgstr ""
 "Бэкэнд сборки ДОЛЖЕН почитать статически заданные метаданные (это означает, "
 "что в метаданных не указан ключ в ``динамическом``)."
 
-#: ../source/specifications/pyproject-toml.rst:464
+#: ../source/specifications/pyproject-toml.rst:443
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
@@ -24852,7 +24940,7 @@ msgstr ""
 "Внутренний модуль сборки ДОЛЖЕН выдать ошибку, если в метаданных указано "
 "``имя`` в ``dynamic``."
 
-#: ../source/specifications/pyproject-toml.rst:466
+#: ../source/specifications/pyproject-toml.rst:445
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -24866,7 +24954,7 @@ msgstr ""
 "случае, т.е. не должно быть возможности, чтобы требуемый ключ не был как-то "
 "указан в таблице ``[project]``)."
 
-#: ../source/specifications/pyproject-toml.rst:471
+#: ../source/specifications/pyproject-toml.rst:450
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
@@ -24876,7 +24964,7 @@ msgstr ""
 "\"Optional\", метаданные МОГУТ указывать его в ``dynamic``, если "
 "предполагается, что сборка бэкенда предоставит данные для ключа позже."
 
-#: ../source/specifications/pyproject-toml.rst:475
+#: ../source/specifications/pyproject-toml.rst:454
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
@@ -24884,7 +24972,7 @@ msgstr ""
 "Внутренние компоненты сборки ДОЛЖНЫ выдать ошибку, если метаданные указывают "
 "ключ статически, а также перечислены в ``динамических``."
 
-#: ../source/specifications/pyproject-toml.rst:477
+#: ../source/specifications/pyproject-toml.rst:456
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -24896,7 +24984,7 @@ msgstr ""
 "это единственный способ позволить инструменту заполнить метаданные, и "
 "пользователь должен согласиться на заполнение)."
 
-#: ../source/specifications/pyproject-toml.rst:481
+#: ../source/specifications/pyproject-toml.rst:460
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
@@ -24906,11 +24994,11 @@ msgstr ""
 "``dynamic``, но бэкэнд сборки не смог определить данные для него (опускание "
 "данных, если определено, что это точное значение, допустимо)."
 
-#: ../source/specifications/pyproject-toml.rst:491
+#: ../source/specifications/pyproject-toml.rst:470
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr "Произвольная конфигурация инструментов: таблица ``[tool]``"
 
-#: ../source/specifications/pyproject-toml.rst:493
+#: ../source/specifications/pyproject-toml.rst:472
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
 "just build tools, can have users specify configuration data as long as they "
@@ -24923,7 +25011,7 @@ msgstr ""
 "``[tool]``, например, инструмент `flit <https://pypi.python.org/pypi/flit>`_ "
 "будет хранить свою конфигурацию в ``[tool.flit]``."
 
-#: ../source/specifications/pyproject-toml.rst:499
+#: ../source/specifications/pyproject-toml.rst:478
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
 "make sure that different projects do not attempt to use the same sub-table "
@@ -24936,7 +25024,7 @@ msgstr ""
 "может использовать подтаблицу ``tool.$NAME`` тогда и только тогда, когда он "
 "владеет записью для ``$NAME`` в Cheeseshop/PyPI."
 
-#: ../source/specifications/pyproject-toml.rst:510
+#: ../source/specifications/pyproject-toml.rst:489
 msgid ""
 "May 2016: The initial specification of the ``pyproject.toml`` file, with "
 "just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
@@ -24946,7 +25034,7 @@ msgstr ""
 "только ``[build-system]``, содержащую ключ ``requires`` и таблицу "
 "``[tool]``, была одобрена через :pep:`518``."
 
-#: ../source/specifications/pyproject-toml.rst:514
+#: ../source/specifications/pyproject-toml.rst:493
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
 "through :pep:`621`."
@@ -24954,7 +25042,7 @@ msgstr ""
 "Ноябрь 2020 года: Спецификация таблицы ``[проект]`` была утверждена через :"
 "pep:`621``."
 
-#: ../source/specifications/pyproject-toml.rst:517
+#: ../source/specifications/pyproject-toml.rst:496
 msgid ""
 "December 2024: The ``license`` key was redefined, the ``license-files`` key "
 "was added and ``License::`` classifiers were deprecated through :pep:`639`."
