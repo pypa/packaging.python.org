@@ -558,6 +558,22 @@ nginx_pypi_cache
 nginx_pypi_cache is a :term:`package index <Package Index>` caching proxy
 using `nginx <https://nginx.org/en/>`_.
 
+.. _pbr:
+
+PBR
+===
+
+`Docs <https://docs.openstack.org/pbr/latest/>`__ |
+`GitHub <https://github.com/openstack/pbr>`__ |
+`PyPI <https://pypi.org/project/pbr/>`__
+
+PBR is a library that enhances :ref:`Setuptools` by automatically applying
+sensible default behaviors during the package setup process. It processes
+configuration data from ``setup.cfg`` by injecting default values and more
+sensible behaviors via a setup hook, then passes the processed settings to
+``setup.py``. It was originally developed from the common packaging code used
+across various `OpenStack <https://www.openstack.org/>`_ projects.
+
 .. _pdm:
 
 pdm
