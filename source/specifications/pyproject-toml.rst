@@ -149,6 +149,8 @@ The complete list of keys allowed in the ``[project]`` table are:
 - ``version``
 
 
+.. _pyproject-toml-name:
+
 ``name``
 --------
 
@@ -160,6 +162,9 @@ The name of the project.
 
 Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon
 as it is read for internal consistency.
+
+
+.. _pyproject-toml-version:
 
 ``version``
 -----------
@@ -174,6 +179,8 @@ The version of the project, as defined in the
 Users SHOULD prefer to specify already-normalized versions.
 
 
+.. _pyproject-toml-description:
+
 ``description``
 ---------------
 
@@ -184,6 +191,8 @@ Users SHOULD prefer to specify already-normalized versions.
 The summary description of the project in one line. Tools MAY error
 if this includes multiple lines.
 
+
+.. _pyproject-toml-readme:
 
 ``readme``
 ----------
@@ -224,6 +233,8 @@ as supported by the :ref:`core metadata <core-metadata>`. Otherwise
 tools MUST raise an error for unsupported content-types.
 
 
+.. _pyproject-toml-requires-python:
+
 ``requires-python``
 -------------------
 
@@ -233,6 +244,8 @@ tools MUST raise an error for unsupported content-types.
 
 The Python version requirements of the project.
 
+
+.. _pyproject-toml-license:
 
 ``license``
 -----------
@@ -285,6 +298,9 @@ license files. For example they can choose not to include any files or use
 their own logic to discover the appropriate files in the distribution.
 
 
+.. _pyproject-toml-authors:
+.. _pyproject-toml-maintainers:
+
 ``authors``/``maintainers``
 ---------------------------
 
@@ -327,6 +343,8 @@ follows:
 4. Multiple values should be separated by commas.
 
 
+.. _pyproject-toml-keywords:
+
 ``keywords``
 ------------
 
@@ -336,6 +354,8 @@ follows:
 
 The keywords for the project.
 
+
+.. _pyproject-toml-classifiers:
 
 ``classifiers``
 ---------------
@@ -353,6 +373,8 @@ Build tools MAY raise an error if both the ``license`` string value
 classifiers are used.
 
 
+.. _pyproject-toml-urls:
+
 ``urls``
 --------
 
@@ -364,6 +386,10 @@ A table of URLs where the key is the URL label and the value is the
 URL itself. See :ref:`well-known-project-urls` for normalization rules
 and well-known rules when processing metadata for presentation.
 
+
+.. _pyproject-toml-scripts:
+.. _pyproject-toml-gui-scripts:
+.. _pyproject-toml-entry-points:
 
 Entry points
 ------------
@@ -395,6 +421,9 @@ be ambiguous in the face of ``[project.scripts]`` and
 ``[project.gui-scripts]``, respectively.
 
 
+.. _pyproject-toml-dependencies:
+.. _pyproject-toml-optional-dependencies:
+
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
 
@@ -422,7 +451,7 @@ matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
 
-
+.. _pyproject-toml-dynamic:
 .. _declaring-project-metadata-dynamic:
 
 ``dynamic``
