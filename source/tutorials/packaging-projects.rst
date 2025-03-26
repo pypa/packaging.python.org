@@ -217,8 +217,7 @@ following this tutorial.
           "Programming Language :: Python :: 3",
           "Operating System :: OS Independent",
       ]
-      license = "MIT"
-      license-files = ["LICEN[CS]E*"]
+      license = { file = "LICENSE" }
 
       [project.urls]
       Homepage = "https://github.com/pypa/sampleproject"
@@ -308,7 +307,7 @@ Creating a LICENSE
 It's important for every package uploaded to the Python Package Index to include
 a license. This tells users who install your package the terms under which they
 can use your package. For help picking a license, see
-https://choosealicense.com/. Once you have chosen a license, open
+https://choosealicense.com/. Once you have chosen a license, create a file called :file:`LICENSE`, open
 :file:`LICENSE` and enter the license text. For example, if you had chosen the
 MIT license:
 
@@ -485,6 +484,14 @@ and install your package from TestPyPI:
     .. code-block:: bash
 
         python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
+
+
+    In case there is an issue with the above instruction and the package isn't recognized, use the link provided at TestPyPI:
+
+    .. code-block:: bash
+
+        python3 -m pip install --index-url https://test.pypi.org/simple/ example-package-YOUR-USERNAME-HERE
+
 
 .. tab:: Windows
 
