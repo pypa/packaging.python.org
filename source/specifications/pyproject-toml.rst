@@ -267,7 +267,7 @@ Legacy specification
   :ref:`License <core-metadata-license>`
 
 The table may have one of two keys. The ``file`` key has a string
-value that is a file path relative to ``pyproject.toml`` to the file
+value that is a file path relative to :file:`pyproject.toml` to the file
 which contains the license for the project. Tools MUST assume the
 file's encoding is UTF-8. The ``text`` key has a string value which is
 the license of the project.  These keys are mutually exclusive, so a
