@@ -468,8 +468,8 @@ License-Expression
 .. versionadded:: 2.4
 
 Text string that is a valid SPDX
-`license expression <https://peps.python.org/pep-0639/#term-license-expression>`__
-as `defined in PEP 639 <https://peps.python.org/pep-0639/#spdx>`__.
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
 
 Examples::
 

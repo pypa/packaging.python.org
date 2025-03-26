@@ -254,7 +254,9 @@ The Python version requirements of the project.
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`License-Expression <core-metadata-license-expression>`
 
-Text string that is a valid SPDX license expression as defined in :pep:`639`.
+Text string that is a valid SPDX
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
 Tools SHOULD validate and perform case normalization of the expression.
 
 The table subkeys of the ``license`` key are deprecated.

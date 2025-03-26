@@ -15,3 +15,4 @@ Package Distribution Metadata
    platform-compatibility-tags
    well-known-project-urls
    glob-patterns
+   license-expression
