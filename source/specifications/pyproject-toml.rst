@@ -259,8 +259,21 @@ Text string that is a valid SPDX
 as specified in :doc:`/specifications/license-expression`.
 Tools SHOULD validate and perform case normalization of the expression.
 
-The table subkeys of the ``license`` key are deprecated.
+Legacy specification
+''''''''''''''''''''
 
+- TOML_ type: table
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`License <core-metadata-license>`
+
+The table may have one of two keys. The ``file`` key has a string
+value that is a file path relative to ``pyproject.toml`` to the file
+which contains the license for the project. Tools MUST assume the
+file's encoding is UTF-8. The ``text`` key has a string value which is
+the license of the project.  These keys are mutually exclusive, so a
+tool MUST raise an error if the metadata specifies both keys.
+
+The table subkeys were deprecated by :pep:`639` in favor of the string value.
 
 .. _pyproject-toml-license-files:
 
