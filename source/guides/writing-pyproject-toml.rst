@@ -56,38 +56,7 @@ Usually, you'll just copy what your build backend's documentation
 suggests (after :ref:`choosing your build backend <choosing-build-backend>`).
 Here are the values for some common build backends:
 
-.. tab:: Hatchling
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
-.. tab:: setuptools
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools >= 61.0"]
-        build-backend = "setuptools.build_meta"
-
-.. tab:: Flit
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["flit_core >= 3.4"]
-        build-backend = "flit_core.buildapi"
-
-.. tab:: PDM
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["pdm-backend"]
-        build-backend = "pdm.backend"
-
+.. include:: ../shared/build-backend-tabs.rst
 
 
 Static vs. dynamic metadata
