@@ -133,6 +133,16 @@ A top-level ``subdirectory`` field MAY be present containing a directory path,
 relative to the root of the VCS repository, source archive or local directory,
 to specify where ``pyproject.toml`` or ``setup.py`` is located.
 
+.. _direct-url-data-structure-archives-in-git:
+
+Archives in Version Control
+---------------------------
+
+A top-level ``file`` field MAY be present for VCS repositories, containing the
+location of an archive relative to the root of a VCS repository. The filename
+of the path must be a valid distribution name. This key is mutually exclusive
+with ``subdirectory``. Note that ``file`` has no PEP 508 equivalent.
+
 .. _direct-url-data-structure-registered-vcs:
 
 Registered VCS
@@ -274,6 +284,9 @@ The following JSON Schema can be used to validate the contents of ``direct_url.j
                "type": "string"
              },
              "resolved_revision": {
+               "type": "string"
+             },
+             "file": {
                "type": "string"
              }
            },
