@@ -22,7 +22,7 @@
     .. code-block:: toml
 
         [build-system]
-        requires = ["flit_core >= 3.12.0"]
+        requires = ["flit_core >= 3.12.0, <4"]
         build-backend = "flit_core.buildapi"
 
 .. tab:: PDM
