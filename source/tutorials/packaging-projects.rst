@@ -136,38 +136,7 @@ The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` tools l
 examples for common build backends, but check your backend's own documentation
 for more details.
 
-.. tab:: Hatchling
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
-.. tab:: setuptools
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools>=61.0"]
-        build-backend = "setuptools.build_meta"
-
-.. tab:: Flit
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["flit_core>=3.4"]
-        build-backend = "flit_core.buildapi"
-
-.. tab:: PDM
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["pdm-backend"]
-        build-backend = "pdm.backend"
-
+.. include:: ../shared/build-backend-tabs.rst
 
 The ``requires`` key is a list of packages that are needed to build your package.
 The :term:`frontend <Build Frontend>` should install them automatically when building your package.
@@ -175,6 +144,8 @@ Frontends usually run builds in isolated environments, so omitting dependencies
 here may cause build-time errors.
 This should always include your backend's package, and might have other build-time
 dependencies.
+The minimum version specified in the above code block is the one that introduced support
+for :ref:`the new license metadata <license-and-license-files>`.
 
 The ``build-backend`` key is the name of the Python object that frontends will use
 to perform the build.
@@ -200,52 +171,27 @@ to include your username; this ensures that you have a unique
 package name that doesn't conflict with packages uploaded by other people
 following this tutorial.
 
-.. tab:: hatchling/pdm
+.. code-block:: toml
 
-  .. code-block:: toml
+    [project]
+    name = "example_package_YOUR_USERNAME_HERE"
+    version = "0.0.1"
+    authors = [
+      { name="Example Author", email="author@example.com" },
+    ]
+    description = "A small example package"
+    readme = "README.md"
+    requires-python = ">=3.8"
+    classifiers = [
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ]
+    license = "MIT"
+    license-files = ["LICEN[CS]E*"]
 
-      [project]
-      name = "example_package_YOUR_USERNAME_HERE"
-      version = "0.0.1"
-      authors = [
-        { name="Example Author", email="author@example.com" },
-      ]
-      description = "A small example package"
-      readme = "README.md"
-      requires-python = ">=3.8"
-      classifiers = [
-          "Programming Language :: Python :: 3",
-          "Operating System :: OS Independent",
-      ]
-      license = "MIT"
-      license-files = ["LICEN[CS]E*"]
-
-      [project.urls]
-      Homepage = "https://github.com/pypa/sampleproject"
-      Issues = "https://github.com/pypa/sampleproject/issues"
-
-.. tab:: setuptools/flit
-
-  .. code-block:: toml
-
-      [project]
-      name = "example_package_YOUR_USERNAME_HERE"
-      version = "0.0.1"
-      authors = [
-        { name="Example Author", email="author@example.com" },
-      ]
-      description = "A small example package"
-      readme = "README.md"
-      requires-python = ">=3.8"
-      classifiers = [
-          "Programming Language :: Python :: 3",
-          "Operating System :: OS Independent",
-          "License :: OSI Approved :: MIT License",
-      ]
-
-      [project.urls]
-      Homepage = "https://github.com/pypa/sampleproject"
-      Issues = "https://github.com/pypa/sampleproject/issues"
+    [project.urls]
+    Homepage = "https://github.com/pypa/sampleproject"
+    Issues = "https://github.com/pypa/sampleproject/issues"
 
 - ``name`` is the *distribution name* of your package. This can be any name as
   long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also
@@ -274,10 +220,9 @@ following this tutorial.
   your package will work on. For a complete list of classifiers, see
   https://pypi.org/classifiers/.
 - ``license`` is the :term:`SPDX license expression <License Expression>` of
-  your package. Not supported by all the build backends yet.
+  your package.
 - ``license-files`` is the list of glob paths to the license files,
   relative to the directory where :file:`pyproject.toml` is located.
-  Not supported by all the build backends yet.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 

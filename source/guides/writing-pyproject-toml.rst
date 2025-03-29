@@ -56,38 +56,7 @@ Usually, you'll just copy what your build backend's documentation
 suggests (after :ref:`choosing your build backend <choosing-build-backend>`).
 Here are the values for some common build backends:
 
-.. tab:: Hatchling
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
-.. tab:: setuptools
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools >= 61.0"]
-        build-backend = "setuptools.build_meta"
-
-.. tab:: Flit
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["flit_core >= 3.4"]
-        build-backend = "flit_core.buildapi"
-
-.. tab:: PDM
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["pdm-backend"]
-        build-backend = "pdm.backend"
-
+.. include:: ../shared/build-backend-tabs.rst
 
 
 Static vs. dynamic metadata
@@ -322,22 +291,43 @@ You can also specify the format explicitly, like this:
    readme = {file = "README.txt", content-type = "text/x-rst"}
 
 
+.. _license-and-license-files:
+
+``license`` and ``license-files``
+---------------------------------
+
+As per :pep:`639` licenses should be declared with two fields:
+
+- ``license`` is an :term:`SPDX license expression <License Expression>` consisting
+  of one or more :term:`license identifiers <License Identifier>`.
+- ``license-files`` is a list of license file glob patterns.
+
+A previous PEP had specified ``license`` to be a table with a ``file`` or a
+``text`` key, this format is now deprecated. Most :term:`build backends<build
+backend>` now support the new format as shown in the following table.
+
+.. list-table:: build backend versions that introduced :pep:`639` support
+   :header-rows: 1
+
+   * - hatchling
+     - setuptools
+     - flit-core [#flit-core-pep639]_
+     - pdm-backend
+     - poetry-core
+   * - 1.27.0
+     - 77.0.3
+     - 3.12
+     - 2.4.0
+     - `not yet <poetry-pep639-issue_>`_
+
+
 .. _license:
 
 ``license``
------------
+'''''''''''
 
-:pep:`639` (accepted in August 2024) has changed the way the ``license`` field
-is declared. Make sure your preferred build backend supports :pep:`639` before
-trying to apply the newer guidelines.
-As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
-and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
-
-:pep:`639` license declaration
-''''''''''''''''''''''''''''''
-
-This is a valid :term:`SPDX license expression <License Expression>` consisting
-of one or more :term:`license identifiers <License Identifier>`.
+The new format for ``license`` is a valid :term:`SPDX license expression <License Expression>`
+consisting of one or more :term:`license identifiers <License Identifier>`.
 The full license list is available at the
 `SPDX license list page <spdxlicenselist_>`_. The supported list version is
 3.17 or any later compatible one.
@@ -348,6 +338,11 @@ The full license list is available at the
     license = "GPL-3.0-or-later"
     # or
     license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
+
+.. note:: If you get a build error that ``license`` should be a dict/table,
+   your build backend doesn't yet support the new format. See the
+   `above section <license-and-license-files_>`_ for more context.
+   The now deprecated format is `described in PEP 621 <https://peps.python.org/pep-0621/#license>`__.
 
 As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
@@ -363,41 +358,11 @@ The custom identifiers must follow the SPDX specification,
     [project]
     license = "LicenseRef-My-Custom-License"
 
-Legacy license declaration
-''''''''''''''''''''''''''
-
-This can take two forms. You can put your license in a file, typically
-:file:`LICENSE` or :file:`LICENSE.txt`, and link that file here:
-
-.. code-block:: toml
-
-    [project]
-    license = {file = "LICENSE"}
-
-or you can write the name of the license:
-
-.. code-block:: toml
-
-    [project]
-    license = {text = "MIT License"}
-
-If you are using a standard, well-known license, it is not necessary to use this
-field. Instead, you should use one of the :ref:`classifiers` starting with ``License
-::``. (As a general rule, it is a good idea to use a standard, well-known
-license, both to avoid confusion and because some organizations avoid software
-whose license is unapproved.)
-
 
 .. _license-files:
 
 ``license-files``
------------------
-
-:pep:`639` (accepted in August 2024) has introduced the ``license-files`` field.
-Make sure your preferred build backend supports :pep:`639` before declaring the
-field.
-As of February 2025, :doc:`setuptools <setuptools:userguide/pyproject_config>`
-and :ref:`flit <flit:pyproject_toml_project>` don't support :pep:`639` yet.
+'''''''''''''''''
 
 This is a list of license files and files containing other legal
 information you want to distribute with your package.
@@ -572,7 +537,7 @@ A full example
    ]
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
-   license = "MIT"  # or license = {file = "LICENSE.txt"} for legacy declaration
+   license = "MIT"
    license-files = ["LICEN[CS]E.*"]
    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
    classifiers = [
@@ -610,6 +575,9 @@ A full example
    like ``requires-python = "<= 3.10"`` here. `This blog post <requires-python-blog-post_>`_
    contains some information regarding possible problems.
 
+.. [#flit-core-pep639] flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license expressions.
+
+.. _flit-issue-735: https://github.com/pypa/flit/issues/735
 .. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
@@ -617,6 +585,7 @@ A full example
 .. _pypi-search-pip: https://pypi.org/search?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
+.. _poetry-pep639-issue: https://github.com/python-poetry/poetry/issues/9670
 .. _pytest: https://pytest.org
 .. _pygments: https://pygments.org
 .. _rest: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
