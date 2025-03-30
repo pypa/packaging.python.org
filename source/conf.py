@@ -83,6 +83,10 @@ if RTD_CANONICAL_BUILD:
     # https://plausible.io/packaging.python.org
     html_js_files.extend(_metrics_js_files)
 
+html_extra_path = [
+    "specifications/schemas",
+]
+
 # -- Options for HTML help output ------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
 
