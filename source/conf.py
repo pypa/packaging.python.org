@@ -28,6 +28,7 @@ extensions = [
     "sphinx_inline_tabs",
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
+    "sphinx-jsonschema",
 ]
 
 nitpicky = True
@@ -82,6 +83,10 @@ if RTD_CANONICAL_BUILD:
     # https://plausible.io/packaging.python.org
     html_js_files.extend(_metrics_js_files)
 
+html_extra_path = [
+    "specifications/schemas",
+]
+
 # -- Options for HTML help output ------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
 
@@ -128,6 +133,7 @@ texinfo_documents = [
 
 linkcheck_ignore = [
     "http://localhost:\\d+",
+    "https://packaging.python.org/en/latest/specifications/schemas/.*",
     "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
