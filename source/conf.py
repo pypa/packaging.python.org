@@ -84,7 +84,7 @@ if RTD_CANONICAL_BUILD:
     html_js_files.extend(_metrics_js_files)
 
 html_extra_path = [
-    "specifications/schemas",
+    "../extra",
 ]
 
 # -- Options for HTML help output ------------------------------------------------------

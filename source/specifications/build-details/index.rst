@@ -46,7 +46,7 @@ v1.0
       - :ref:`build-details-v1.0`
 
     * - Schema
-      - :download:`https://packaging.python.org/en/latest/specifications/schemas/build-details-v1.0.schema.json <../schemas/build-details-v1.0.schema.json>`
+      - https://packaging.python.org/en/latest/specifications/schemas/build-details-v1.0.schema.json
 
 
 - Initial version, introduced by :pep:`739`.
