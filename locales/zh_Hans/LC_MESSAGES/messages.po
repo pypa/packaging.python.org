@@ -29,14 +29,14 @@
 # hello_wac <hellowxchao@gmail.com>, 2024.
 # Xianpeng Shen <xianpeng.shen@gmail.com>, 2024.
 # tjuliuzibo <liuzibo1024@gmail.com>, 2025.
+# Jesse205 <2055675594@qq.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-26 15:56+0000\n"
-"PO-Revision-Date: 2025-03-27 06:44+0000\n"
-"Last-Translator: 大王叫我来巡山 "
-"<hamburger2048@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-03-29 19:01+0000\n"
+"Last-Translator: Jesse205 <2055675594@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/pypa/packaging-python-org/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -950,6 +950,12 @@ msgid ""
 "as native integration with a specific operating system, or assured "
 "compatibility with specific versions of non-Python software."
 msgstr ""
+"虽然 PyPI 和 Python 打包工具（例如：:ref:`pip`）是分发 Python "
+"包的主要方式，但它们也常常被包含在其他打包生态系统中。这些重新打包的工作统称"
+"为*下游*打包（你自己的工作则称为*上游*打包），包括 Linux 发行版、Conda、"
+"Homebrew 和 MacPorts 等项目。它们通常旨在为无法仅通过 Python "
+"打包工具处理的用例提供更好的支持，例如与特定操作系统的原生集成，"
+"或与特定版本的非 Python 软件确保兼容性。"
 
 #: ../source/discussions/downstream-packaging.rst:19
 msgid ""
@@ -965,6 +971,13 @@ msgid ""
 "for different downstreams to carry and keep rebasing the same patches, and "
 "the risk of applying inconsistent solutions to the same problem."
 msgstr ""
+"本次讨论试图解释下游打包通常是如何进行的，以及下游打包者通常面临的额外挑战。"
+"它旨在提供一些可选的指南，项目维护者可以选择遵循这些指南，从而帮助使下游打包*"
+"显著*更轻松（同时不会给上游项目带来任何重大的维护麻烦）。请注意，这并不是一个"
+"全有或全无的提议——上游维护者所做的任何事情都是有用的，即使只是其中的一小部分"
+"。下游维护者也愿意准备补丁来解决这些问题。将这些补丁合并会非常有帮助，因为这"
+"消除了不同下游需要携带并持续重新应用相同补丁的必要性，以及对同一问题应用不一"
+"致解决方案的风险。"
 
 #: ../source/discussions/downstream-packaging.rst:31
 msgid ""
@@ -979,6 +992,13 @@ msgid ""
 "regularly active in ensuring the packages they redistribute are updated for "
 "any compatibility issues that arise when a new Python version is released."
 msgstr ""
+"在软件维护者和下游打包者之间建立良好的关系可以带来互利共赢。下游方通常愿意分"
+"享他们的经验、时间和硬件来改进你的软件包。他们有时更能看清你的软件包在实际中"
+"的使用情况，并提供关于它与其他软件包之间关系的信息，而这些信息通常需要付出相"
+"当大的努力才能获得。打包者通常可以在你的用户在生产环境中遇到问题之前发现漏洞"
+"，提供高质量的漏洞报告，并在可能的情况下提供补丁。例如，"
+"他们经常积极确保他们重新分发的软件包在新的 Python "
+"版本发布时更新，以解决任何出现的兼容性问题。"
 
 #: ../source/discussions/downstream-packaging.rst:43
 msgid ""
@@ -1009,6 +1029,9 @@ msgid ""
 "the distribution. This is also true of pure Python packages that provide "
 "universal wheels. The reasons for using source distributions may include:"
 msgstr ""
+"绝大多数下游打包者倾向于从源代码构建软件包，而不是使用上游提供的二进制软件包"
+"。在某些情况下，使用源代码实际上是软件包被包含在发行版中的必要条件。"
+"这同样适用于提供通用轮的纯 Python 软件包。使用源码分发的原因可能包括："
 
 #: ../source/discussions/downstream-packaging.rst:62
 msgid "Being able to audit the source code of all packages."
