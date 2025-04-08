@@ -75,7 +75,11 @@ _metrics_js_files = [
     (
         "https://plausible.io/js/script.js",
         {"data-domain": "packaging.python.org", "defer": "defer"},
-    )
+    ),
+    (
+        "https://analytics.python.org/js/script.js",
+        {"data-domain": "packaging.python.org", "defer": "defer"},
+    ),
 ]
 html_js_files = []
 if RTD_CANONICAL_BUILD:
