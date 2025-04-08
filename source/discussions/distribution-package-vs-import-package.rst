@@ -1,110 +1,56 @@
-.. _distribution-package-vs-import-package:
+from fpdf import FPDF
 
-=======================================
-Distribution package vs. import package
-=======================================
+class PDF(FPDF):
+    def header(self):
+        self.set_font("Arial", "B", 14)
+        self.cell(0, 10, "SBI Safe Use Guide & Schemes (Uttarakhand)", ln=True, align="C")
+        self.ln(5)
 
-A number of different concepts are commonly referred to by the word
-"package". This page clarifies the differences between two distinct but
-related meanings in Python packaging, "distribution package" and "import
-package".
+    def chapter_title(self, title):
+        self.set_font("Arial", "B", 12)
+        self.set_text_color(0)
+        self.cell(0, 10, title, ln=True)
+        self.ln(2)
 
-What's a distribution package?
-==============================
+    def chapter_body(self, body):
+        self.set_font("Arial", "", 11)
+        self.multi_cell(0, 8, body)
+        self.ln()
 
-A distribution package is a piece of software that you can install.
-Most of the time, this is synonymous with "project". When you type ``pip
-install pkg``, or when you write ``dependencies = ["pkg"]`` in your
-``pyproject.toml``, ``pkg`` is the name of a distribution package. When
-you search or browse the PyPI_, the most widely known centralized source for
-installing Python libraries and tools, what you see is a list of distribution
-packages. Alternatively, the term "distribution package" can be used to
-refer to a specific file that contains a certain version of a project.
+pdf = PDF()
+pdf.add_page()
 
-Note that in the Linux world, a "distribution package",
-most commonly abbreviated as "distro package" or just "package",
-is something provided by the system package manager of the `Linux distribution <distro_>`_,
-which is a different meaning.
+# Section: Checklist
+pdf.chapter_title("Safe Use Checklist:")
+pdf.chapter_body("""1. Check account type (Regular / Jan Dhan / Salary / Pension) - different balance rules and benefits.
+2. Check debit card charges - deactivate if not in use.
+3. SMS alert fee: ₹15/quarter - keep only basic alerts.
+4. Turn off International Usage unless needed.
+5. Review Auto Debit / ECS Mandates - remove inactive ones.
+6. Avoid Dormant status - make at least 1 transaction per year.""")
 
+# Section: Services to Deactivate
+pdf.chapter_title("Services to Deactivate:")
+pdf.chapter_body("""- Unused insurance plans
+- Extra ATM cards
+- Old ECS/NACH mandates not in use
+- Services activated without consent (like accidental cover)""")
 
-What's an import package?
-=========================
+# Section: SBI Schemes
+pdf.chapter_title("Recommended SBI Schemes:")
+pdf.chapter_body("""1. SBI Amrit Kalash FD - 400 days, ~7.10% interest
+2. SBI Sarvottam Term Deposit - floating rate
+3. SBI Annuity Deposit Scheme - monthly income like pension
+4. SBI Tax Saver FD - 5 year lock-in, ₹1.5 lakh 80C tax benefit
+5. SBI Recurring Deposit - monthly savings
+6. SBI Floating Rate Bonds - 7.15% interest
+7. SBI Mutual Funds - low to medium risk investment options""")
 
-An import package is a Python module. Thus, when you write ``import
-pkg`` or ``from pkg import func`` in your Python code, ``pkg`` is the
-name of an import package. More precisely, import packages are special
-Python modules that can contain submodules. For example, the ``numpy``
-package contains modules like ``numpy.linalg`` and
-``numpy.fft``. Usually, an import package is a directory on the file
-system, containing modules as ``.py`` files and subpackages as
-subdirectories.
+# Section: Uttarakhand Tips
+pdf.chapter_title("Uttarakhand Specific Tips:")
+pdf.chapter_body("""- Ask your branch about PM schemes (PM Kisan, PMJJBY, Ayushman)
+- Use SBI Mitra or CSP agents for local services in villages
+- Use YONO or Net Banking to manage services yourself""")
 
-You can use an import package as soon as you have installed a distribution
-package that provides it.
-
-
-What are the links between distribution packages and import packages?
-=====================================================================
-
-Most of the time, a distribution package provides one single import
-package (or non-package module), with a matching name. For example,
-``pip install numpy`` lets you ``import numpy``.
-
-However, this is only a convention. PyPI and other package indices *do not
-enforce any relationship* between the name of a distribution package and the
-import packages it provides. (A consequence of this is that you cannot blindly
-install the PyPI package ``foo`` if you see ``import foo``; this may install an
-unintended, and potentially even malicious package.)
-
-A distribution package could provide an import package with a different
-name. An example of this is the popular Pillow_ library for image
-processing. Its distribution package name is ``Pillow``, but it provides
-the import package ``PIL``. This is for historical reasons: Pillow
-started as a fork of the PIL library, thus it kept the import name
-``PIL`` so that existing PIL users could switch to Pillow with little
-effort. More generally, a fork of an existing library is a common reason
-for differing names between the distribution package and the import
-package.
-
-On a given package index (like PyPI), distribution package names must be
-unique. On the other hand, import packages have no such requirement.
-Import packages with the same name can be provided by several
-distribution packages. Again, forks are a common reason for this.
-
-Conversely, a distribution package can provide several import packages,
-although this is less common. An example is the attrs_ distribution
-package, which provides both an ``attrs`` import package with a newer
-API, and an ``attr`` import package with an older but supported API.
-
-
-How do distribution package names and import package names compare?
-===================================================================
-
-Import packages should have valid Python identifiers as their name (the
-:ref:`exact rules <python:identifiers>` are found in the Python
-documentation) [#non-identifier-mod-name]_. In particular, they use underscores ``_`` as word
-separator and they are case-sensitive.
-
-On the other hand, distribution packages can use hyphens ``-`` or
-underscores ``_``. They can also contain dots ``.``, which is sometimes
-used for packaging a subpackage of a :ref:`namespace package
-<packaging-namespace-packages>`. For most purposes, they are insensitive
-to case and to ``-`` vs.  ``_`` differences, e.g., ``pip install
-Awesome_Package`` is the same as ``pip install awesome-package`` (the
-precise rules are given in the :ref:`name normalization specification
-<name-normalization>`).
-
-
-
----------------------------
-
-.. [#non-identifier-mod-name] Although it is technically possible
-   to import packages/modules that do not have a valid Python identifier as
-   their name, using :doc:`importlib <python:library/importlib>`,
-   this is vanishingly rare and strongly discouraged.
-
-
-.. _distro: https://en.wikipedia.org/wiki/Linux_distribution
-.. _PyPI: https://pypi.org
-.. _Pillow: https://pypi.org/project/Pillow
-.. _attrs: https://pypi.org/project/attrs
+# Save PDF
+pdf.output("sbi_safe_use_guide.pdf")
