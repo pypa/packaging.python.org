@@ -1,5 +1,5 @@
 .. _pylock-toml-spec:
-.. _lock-files:
+.. _lock-files-spec:
 
 =============================
 ``pylock.toml`` Specification
