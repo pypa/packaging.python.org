@@ -541,4 +541,20 @@ History
   added and ``License::`` classifiers were deprecated through :pep:`639`.
 
 
+
+Dependency Groups: the ``[dependency-groups]`` table
+===================================================
+
+This specification defines Dependency Groups, a mechanism for storing package requirements in
+``[pyproject.toml]`` files such that they are not included in project metadata when it is built.
+
+Dependency Groups are suitable for internal development use-cases like linting and testing, as well as for projects which are not built for distribution, like collections of related scripts.
+
+
+The `[dependency-groups]` table is an optional top-level table that allows defining non-distribution dependencies used for internal tooling, such as testing or linting.
+
+For the full specification and behavior, refer to the [Dependency Groups specification](https://packaging.python.org/en/latest/specifications/dependency-groups/).
+
+
+
 .. _TOML: https://toml.io
