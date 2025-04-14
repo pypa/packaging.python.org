@@ -16,12 +16,14 @@ tools (as well as other tools).
 
 .. note:: This specification was originally defined in :pep:`518` and :pep:`621`.
 
-The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
+The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Several
 tables are currently specified, namely
 :ref:`[build-system] <pyproject-build-system-table>`,
-:ref:`[project] <pyproject-project-table>` and
-:ref:`[tool] <pyproject-tool-table>`. Other tables are reserved for future
+:ref:`[project] <pyproject-project-table>`,
+:ref:`[tool] <pyproject-tool-table>`, and
+:ref:`[dependency-groups] <pyproject-dependency-groups-table>`. Other tables are reserved for future
 use (tool-specific configuration should use the ``[tool]`` table).
+
 
 .. _pyproject-build-system-table:
 
@@ -541,6 +543,7 @@ History
   added and ``License::`` classifiers were deprecated through :pep:`639`.
 
 
+.. _pyproject-dependency-groups-table:
 
 Declaring dependency groups: the ``[dependency-groups]`` table
 ===================================================
@@ -550,9 +553,9 @@ This specification defines Dependency Groups, a mechanism for storing package re
 
 Dependency Groups are suitable for internal development use-cases like linting and testing, as well as for projects which are not built for distribution, like collections of related scripts.
 
-The `[dependency-groups]` table is an optional top-level table that allows defining non-distribution dependencies used for internal tooling, such as testing or linting.
+The ``[dependency-groups]`` table is an optional top-level table that allows defining non-distribution dependencies used for internal tooling, such as testing or linting.
 
-For the full specification and behavior, refer to the [Dependency Groups specification](https://packaging.python.org/en/latest/specifications/dependency-groups/).
+For the full specification and behavior, refer to the `Dependency Groups specification <https://packaging.python.org/en/latest/specifications/dependency-groups/>`_.
 
 
 
