@@ -1,0 +1,772 @@
+.. _pylock-toml-spec:
+.. _lock-files:
+
+=============================
+``pylock.toml`` Specification
+=============================
+
+The ``pylock.toml`` file format is for specifying dependencies to enable
+reproducible installation in a Python environment.
+
+.. note:: This specification was originally defined in :pep:`751`.
+
+
+---------
+File Name
+---------
+
+A lock file MUST be named :file:`pylock.toml` or match the regular expression
+``r"^pylock\.([^.]+)\.toml$"`` if a name for the lock file is desired or if
+multiple lock files exist (i.e. the regular expression
+``r"^pylock\.([^.]+\.)?toml$"`` for any file name). The prefix and suffix of a
+named file MUST be lowercase when possible, for easy detection and removal,
+e.g.:
+
+.. code-block:: Python
+
+  if len(filename) > 11 and filename.startswith("pylock.") and filename.endswith(".toml"):
+      name = filename.removeprefix("pylock.").removesuffix(".toml")
+
+The expectation is that services that automatically install from lock files will
+search for:
+
+1. The lock file with the service's name and doing the default install
+2. A multi-use ``pylock.toml`` with a dependency group with the name of the service
+3. The default install of ``pylock.toml``
+
+E.g. a cloud host service named "spam" would first look for
+``pylock.spam.toml`` to install from, and if that file didn't exist then install
+from ``pylock.toml`` and look for a dependency group named "spam" to use if
+present.
+
+The lock file(s) SHOULD be located in the directory as appropriate for the scope
+of the lock file. Locking against a single ``pyproject.toml``, for instance,
+would place the ``pylock.toml`` in the same directory. If the lock file covered
+multiple projects in a monorepo, then the expectation is the ``pylock.toml``
+file would be in the directory that held all the projects being locked.
+
+
+-----------
+File Format
+-----------
+
+The format of the file is TOML_.
+
+Tools SHOULD write their lock files in a consistent way to minimize noise in
+diff output. Keys in tables -- including the top-level table -- SHOULD be
+recorded in a consistent order (if inspiration is desired, this PEP has tried to
+write down keys in a logical order). As well, tools SHOULD sort arrays in
+consistent order. Usage of inline tables SHOULD also be kept consistent.
+
+.. File details
+
+``lock-version``
+================
+
+- **Type**: string; value of ``"1.0"``
+- **Required?**: yes
+- **Inspiration**: :ref:`core-metadata-metadata-version`
+- Record the file format version that the file adheres to.
+- This PEP specifies the initial version -- and only valid value until future
+  updates to the standard change it -- as ``"1.0"``.
+- If a tool supports the major version but not the minor version, a tool
+  SHOULD warn when an unknown key is seen.
+- If a tool doesn't support a major version, it MUST raise an error.
+
+
+``environments``
+================
+
+- **Type**: Array of strings
+- **Required?**: no
+- **Inspiration**: uv_
+- A list of :ref:`dependency-specifiers-environment-markers` for
+  which the lock file is considered compatible with.
+- Tools SHOULD write exclusive/non-overlapping environment markers to ease in
+  understanding.
+
+
+``requires-python``
+===================
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: PDM_, Poetry_, uv_
+- Specifies the :ref:`core-metadata-requires-python` for the minimum
+  Python version compatible for any environment supported by the lock file
+  (i.e. the minimum viable Python version for the lock file).
+
+
+``extras``
+==========
+
+- **Type**: Array of strings
+- **Required?**: no; defaults to ``[]``
+- **Inspiration**: :ref:`core-metadata-provides-extra`
+- The list of :ref:`extras <core-metadata-provides-extra>` supported
+  by this lock file.
+- Lockers MAY choose to not support writing lock files that support extras and
+  dependency groups (i.e. tools may only support exporting a single-use lock
+  file).
+- Tools supporting extras MUST also support dependency groups.
+- Tools should explicitly set this key to an empty array to signal that the
+  inputs used to generate the lock file had no extras (e.g. a ``pyproject.toml``
+  file had no ``[project.optional-dependencies]`` table), signalling that the
+  lock file is, in effect, multi-use even if it only looks to be single-use.
+
+
+``dependency-groups``
+=====================
+
+- **Type**: Array of strings
+- **Required?**: no; defaults to ``[]``
+- **Inspiration**: :ref:`pyproject-tool-table`
+- The list of :ref:`dependency-groups` publicly supported by this lock
+  file (i.e. dependency groups users are expected to be able to specify via a
+  tool's UI).
+- Lockers MAY choose to not support writing lock files that support extras and
+  dependency groups (i.e. tools may only support exporting a single-use lock
+  file).
+- Tools supporting dependency groups MUST also support extras.
+- Tools SHOULD explicitly set this key to an empty array to signal that the
+  inputs used to generate the lock file had no dependency groups (e.g. a ``pyproject.toml``
+  file had no ``[dependency-groups]`` table), signalling that the lock file
+  is, in effect, multi-use even if it only looks to be single-use.
+
+
+``default-groups``
+==================
+
+- **Type**: Array of strings
+- **Required?**: no; defaults to ``[]``
+- **Inspiration**: Poetry_, PDM_
+- The name of synthetic dependency groups to represent what should be installed
+  by default (e.g. what ``project.dependencies`` implicitly represents).
+- Meant to be used in situations where ``packages.marker`` necessitates such a
+  group to exist.
+- The groups listed by this key SHOULD NOT be listed in ``dependency-groups`` as
+  the groups are not meant to be directly exposed to users by name but instead
+  via an installer's UI.
+
+
+``created-by``
+==============
+
+- **Type**: string
+- **Required?**: yes
+- **Inspiration**: Tools with their name in their lock file name
+- Records the name of the tool used to create the lock file.
+- Tools MAY use the ``[tool]`` table to record enough details that it can be
+  inferred what inputs were used to create the lock file.
+- Tools SHOULD record the normalized name of the tool if it is available as a
+  Python package to facilitate finding the tool.
+
+
+``[[packages]]``
+================
+
+- **Type**: array of tables
+- **Required?**: yes
+- **Inspiration**: PDM_, Poetry_, uv_
+- An array containing all packages that *may* be installed.
+- Packages MAY be listed multiple times with varying data, but all packages to
+  be installed MUST narrow down to a single entry at install time.
+
+
+.. Identification
+
+``packages.name``
+-----------------
+
+- **Type**: string
+- **Required?**: yes
+- **Inspiration**: :ref:`core-metadata-name`
+- The name of the package :ref:`normalized <name-normalization>`.
+
+
+``packages.version``
+--------------------
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: :ref:`core-metadata-version`
+- The version of the package.
+- The version SHOULD be specified when the version is known to be stable
+  (i.e. when an :ref:`sdist <source-distribution-format>` or
+  :ref:`wheels <binary-distribution-format>` are specified).
+- The version MUST NOT be included when it cannot be guaranteed to be consistent
+  with the code used (i.e. when a
+  :ref:`source tree <source-distribution-format-source-tree>` is
+  used).
+
+
+.. Requirements
+
+``packages.marker``
+-------------------
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: PDM_
+- The
+  :ref:`environment marker <dependency-specifiers-environment-markers>`
+  which specify when the package should be installed.
+
+
+``packages.requires-python``
+----------------------------
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: :ref:`core-metadata-requires-python`
+- Holds the :ref:`version-specifiers` for Python version compatibility
+  for the package.
+
+
+``[[packages.dependencies]]``
+-----------------------------
+
+- **Type**: array of tables
+- **Required?**: no
+- **Inspiration**: PDM_, Poetry_, uv_
+- Records the other entries in ``[[packages]]`` which are direct dependencies of
+  this package.
+- Each entry is a table which contains the minimum information required to tell
+  which other package entry it corresponds to where doing a key-by-key
+  comparison would find the appropriate package with no ambiguity (e.g. if there
+  are two entries for the ``spam`` package, then you can include the version
+  number like ``{name = "spam", version = "1.0.0"}``, or by source like
+  ``{name = "spam", vcs = { url = "..."}``).
+- Tools MUST NOT use this information when doing installation; it is purely
+  informational for auditing purposes.
+
+
+.. Source
+
+``[packages.vcs]``
+-------------------
+
+- **Type**: table
+- **Required?**: no; mutually-exclusive with ``packages.directory``,
+  ``packages.archive``, ``packages.sdist``, and ``packages.wheels``
+- **Inspiration**: :ref:`direct-url-data-structure`
+- Record the version control system details for the
+  :ref:`source tree <source-distribution-format-source-tree>` it
+  contains.
+- Tools MAY choose to not support version control systems, both from a locking
+  and/or installation perspective.
+- Tools MAY choose to only support a subset of the available VCS types.
+- Tools SHOULD provide a way for users to opt in/out of using version control
+  systems.
+- Installation from a version control system is considered originating from a
+  :ref:`direct URL reference <direct-url>`.
+
+
+``packages.vcs.type``
+''''''''''''''''''''''
+
+- **Type**: string; supported values specified in
+  :ref:`direct-url-data-structure-registered-vcs`
+- **Required?**: yes
+- **Inspiration**: :ref:`direct-url-data-structure-vcs`
+- The type of version control system used.
+
+
+``packages.vcs.url``
+'''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: if ``path`` is not specified
+- **Inspiration**: :ref:`direct-url-data-structure-vcs`
+- The URL to the source tree.
+
+
+``packages.vcs.path``
+''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: if ``url`` is not specified
+- **Inspiration**: :ref:`direct-url-data-structure-vcs`
+- The path to the local directory of the source tree.
+- If a relative path is used it MUST be relative to the location of this file.
+- If the path is relative it MAY use POSIX-style path separators explicitly
+  for portability.
+
+
+``packages.vcs.requested-revision``
+''''''''''''''''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: :ref:`direct-url-data-structure-vcs`
+- The branch/tag/ref/commit/revision/etc. that the user requested.
+- This is purely informational and to facilitate writing the
+  :ref:`direct-url-data-structure`; it MUST NOT be used to checkout
+  the repository.
+
+
+``packages.vcs.commit-id``
+'''''''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: yes
+- **Inspiration**: :ref:`direct-url-data-structure-vcs`
+- The exact commit/revision number that is to be installed.
+- If the VCS supports commit-hash based revision identifiers, such a commit-hash
+  MUST be used as the commit ID in order to reference an immutable version of
+  the source code.
+
+
+``packages.vcs.subdirectory``
+''''''''''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: :ref:`direct-url-data-structure-subdirectories`
+- The subdirectory within the
+  :ref:`source tree <source-distribution-format-source-tree>` where
+  the project root of the project is (e.g. the location of the
+  ``pyproject.toml`` file).
+- The path MUST be relative to the root of the source tree structure.
+
+
+``[packages.directory]``
+-------------------------
+
+- **Type**: table
+- **Required?**: no; mutually-exclusive with ``packages.vcs``,
+  ``packages.archive``, ``packages.sdist``, and ``packages.wheels``
+- **Inspiration**: :ref:`direct-url-data-structure-local-directory`
+- Record the local directory details for the
+  :ref:`source tree <source-distribution-format-source-tree>` it
+  contains.
+- Tools MAY choose to not support local directories, both from a locking
+  and/or installation perspective.
+- Tools SHOULD provide a way for users to opt in/out of using local directories.
+- Installation from a directory is considered originating from a
+  :ref:`direct URL reference <direct-url>`.
+
+
+``packages.directory.path``
+''''''''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: yes
+- **Inspiration**: :ref:`direct-url-data-structure-local-directory`
+- The local directory where the source tree is.
+- If the path is relative it MUST be relative to the location of the lock file.
+- If the path is relative it MAY use POSIX-style path separators for
+  portability.
+
+
+``packages.directory.editable``
+''''''''''''''''''''''''''''''''
+
+- **Type**: boolean
+- **Required?**: no; defaults to ``false``
+- **Inspiration**: :ref:`direct-url-data-structure-local-directory`
+- A flag representing whether the source tree was an editable install at lock
+  time.
+- An installer MAY choose to ignore this flag if user actions or context would
+  make an editable install unnecessary or undesirable (e.g. a container image
+  that will not be mounted for development purposes but instead deployed to
+  production where it would be treated at read-only).
+
+
+``packages.directory.subdirectory``
+''''''''''''''''''''''''''''''''''''
+
+See ``packages.vcs.subdirectory``.
+
+
+``[packages.archive]``
+-----------------------
+
+- **Type**: table
+- **Required?**: no
+- **Inspiration**: :ref:`direct-url-data-structure-archive`
+- A direct reference to an archive file to install from
+  (this can include wheels and sdists, as well as other archive formats
+  containing a source tree).
+- Tools MAY choose to not support archive files, both from a locking
+  and/or installation perspective.
+- Tools SHOULD provide a way for users to opt in/out of using archive files.
+- Installation from an archive file is considered originating from a
+  :ref:`direct URL reference <direct-url>`.
+
+
+``packages.archive.url``
+'''''''''''''''''''''''''
+
+See ``packages.vcs.url``.
+
+
+``packages.archive.path``
+''''''''''''''''''''''''''
+
+See ``packages.vcs.path``.
+
+
+``packages.archive.size``
+''''''''''''''''''''''''''
+
+- **Type**: integer
+- **Required?**: no
+- **Inspiration**: uv_, :ref:`simple-repository-api`
+- The size of the archive file.
+- Tools SHOULD provide the file size when reasonably possible (e.g. the file
+  size is available via the Content-Length_ header from a HEAD_ HTTP request).
+
+
+``packages.archive.upload-time``
+''''''''''''''''''''''''''''''''
+
+- **Type**: datetime
+- **Required?**: no
+- **Inspiration**: :ref:`simple-repository-api`
+- The time the file was uploaded.
+- The date and time MUST be recorded in UTC.
+
+
+``[packages.archive.hashes]``
+''''''''''''''''''''''''''''''
+
+- **Type**: Table of strings
+- **Required?**: yes
+- **Inspiration**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`
+- A table listing known hash values of the file where the key is the hash
+  algorithm and the value is the hash value.
+- The table MUST contain at least one entry.
+- Hash algorithm keys SHOULD be lowercase.
+- At least one secure algorithm from :py:data:`hashlib.algorithms_guaranteed`
+  SHOULD always be included (at time of writing, sha256 specifically is
+  recommended.
+
+
+``packages.archive.subdirectory``
+''''''''''''''''''''''''''''''''''
+
+See ``packages.vcs.subdirectory``.
+
+
+``packages.index``
+------------------
+
+- **Type**: string
+- **Required?**: no
+- **Inspiration**: uv_
+- The base URL for the package index from :ref:`simple-repository-api`
+  where the sdist and/or wheels were found (e.g. ``https://pypi.org/simple/``).
+- When possible, this SHOULD be specified to assist with generating
+  `software bill of materials`_ -- aka SBOMs -- and to assist in finding a file
+  if a URL ceases to be valid.
+- Tools MAY support installing from an index if the URL recorded for a specific
+  file is no longer valid (e.g. returns a 404 HTTP error code).
+
+
+``[packages.sdist]``
+--------------------
+
+- **Type**: table
+- **Required?**: no; mutually-exclusive with ``packages.vcs``,
+  ``packages.directory``, and ``packages.archive``
+- **Inspiration**: uv_
+- Details of a :ref:`source-distribution-format-sdist` for the
+  package.
+- Tools MAY choose to not support sdist files, both from a locking
+  and/or installation perspective.
+- Tools SHOULD provide a way for users to opt in/out of using sdist files.
+
+
+``packages.sdist.name``
+'''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: no, not when the last component of ``path``/ ``url`` would be
+  the same value
+- **Inspiration**: PDM_, Poetry_, uv_
+- The file name of the :ref:`source-distribution-format-sdist` file.
+
+
+``packages.sdist.upload-time``
+''''''''''''''''''''''''''''''
+
+See ``packages.archive.upload-time``.
+
+
+``packages.sdist.url``
+''''''''''''''''''''''
+
+See ``packages.archive.url``.
+
+
+``packages.sdist.path``
+'''''''''''''''''''''''
+
+See ``packages.archive.path``.
+
+
+``packages.sdist.size``
+'''''''''''''''''''''''
+
+See ``packages.archive.size``.
+
+
+``packages.sdist.hashes``
+'''''''''''''''''''''''''
+
+See ``packages.archive.hashes``.
+
+
+
+``[[packages.wheels]]``
+-----------------------
+
+- **Type**: array of tables
+- **Required?**: no; mutually-exclusive with ``packages.vcs``,
+  ``packages.directory``, and ``packages.archive``
+- **Inspiration**: PDM_, Poetry_, uv_
+- For recording the wheel files as specified by
+  :ref:`  binary-distribution-format` for the package.
+- Tools MUST support wheel files, both from a locking and installation
+  perspective.
+
+
+``packages.wheels.name``
+''''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: no, not when the last component of ``path``/ ``url`` would be
+  the same value
+- **Inspiration**: PDM_, Poetry_, uv_
+- The file name of the :ref:`  binary-distribution-format` file.
+
+
+``packages.wheels.upload-time``
+'''''''''''''''''''''''''''''''
+
+See ``packages.archive.upload-time``.
+
+
+``packages.wheels.url``
+'''''''''''''''''''''''
+
+See ``packages.archive.url``.
+
+
+``packages.wheels.path``
+''''''''''''''''''''''''
+
+See ``packages.archive.path``.
+
+
+``packages.wheels.size``
+''''''''''''''''''''''''
+
+See ``packages.archive.size``.
+
+
+``packages.wheels.hashes``
+''''''''''''''''''''''''''
+
+See ``packages.archive.hashes``.
+
+
+``[[packages.attestation-identities]]``
+---------------------------------------
+
+- **Type**: array of tables
+- **Required?**: no
+- **Inspiration**: :ref:`  provenance-object`
+- A recording of the attestations for **any** file recorded for this package.
+- If available, tools SHOULD include the attestation identities found.
+- Publisher-specific keys are to be included in the table as-is
+  (i.e. top-level), following the spec at
+  :ref:`  index-hosted-attestations`.
+
+
+``packages.attestation-identities.kind``
+''''''''''''''''''''''''''''''''''''''''
+
+- **Type**: string
+- **Required?**: yes
+- **Inspiration**: :ref:`  provenance-object`
+- The unique identity of the Trusted Publisher.
+
+
+``[packages.tool]``
+-------------------
+
+- **Type**: table
+- **Required?**: no
+- **Inspiration**: :ref:`  pyproject-tool-table`
+- Similar usage as that of the ``[tool]`` table from the
+  :ref:`  pyproject-toml-spec`, but at the package version level instead
+  of at the lock file level (which is also available via ``[tool]``).
+- Data recorded in the table MUST be disposable (i.e. it MUST NOT affect
+  installation).
+
+
+``[tool]``
+==========
+
+- **Type**: table
+- **Required?**: no
+- **Inspiration**: :ref:`  pyproject-tool-table`
+- See ``packages.tool``.
+
+
+-------
+Example
+-------
+
+.. code-block:: TOML
+
+  lock-version = '1.0'
+  environments = ["sys_platform == 'win32'", "sys_platform == 'linux'"]
+  requires-python = '==3.12'
+  created-by = 'mousebender'
+
+  [[packages]]
+  name = 'attrs'
+  version = '25.1.0'
+  requires-python = '>=3.8'
+  wheels = [
+    {name = 'attrs-25.1.0-py3-none-any.whl', upload-time = 2025-01-25T11:30:10.164985+00:00, url = 'https://files.pythonhosted.org/packages/fc/30/d4986a882011f9df997a55e6becd864812ccfcd821d64aac8570ee39f719/attrs-25.1.0-py3-none-any.whl', size = 63152, hashes = {sha256 = 'c75a69e28a550a7e93789579c22aa26b0f5b83b75dc4e08fe092980051e1090a'}},
+  ]
+  [[packages.attestation-identities]]
+  environment = 'release-pypi'
+  kind = 'GitHub'
+  repository = 'python-attrs/attrs'
+  workflow = 'pypi-package.yml'
+
+  [[packages]]
+  name = 'cattrs'
+  version = '24.1.2'
+  requires-python = '>=3.8'
+  dependencies = [
+      {name = 'attrs'},
+  ]
+  wheels = [
+    {name = 'cattrs-24.1.2-py3-none-any.whl', upload-time = 2024-09-22T14:58:34.812643+00:00, url = 'https://files.pythonhosted.org/packages/c8/d5/867e75361fc45f6de75fe277dd085627a9db5ebb511a87f27dc1396b5351/cattrs-24.1.2-py3-none-any.whl', size = 66446, hashes = {sha256 = '67c7495b760168d931a10233f979b28dc04daf853b30752246f4f8471c6d68d0'}},
+  ]
+
+  [[packages]]
+  name = 'numpy'
+  version = '2.2.3'
+  requires-python = '>=3.10'
+  wheels = [
+    {name = 'numpy-2.2.3-cp312-cp312-win_amd64.whl', upload-time = 2025-02-13T16:51:21.821880+00:00, url = 'https://files.pythonhosted.org/packages/42/6e/55580a538116d16ae7c9aa17d4edd56e83f42126cb1dfe7a684da7925d2c/numpy-2.2.3-cp312-cp312-win_amd64.whl', size = 12626357, hashes = {sha256 = '83807d445817326b4bcdaaaf8e8e9f1753da04341eceec705c001ff342002e5d'}},
+    {name = 'numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl', upload-time = 2025-02-13T16:50:00.079662+00:00, url = 'https://files.pythonhosted.org/packages/39/04/78d2e7402fb479d893953fb78fa7045f7deb635ec095b6b4f0260223091a/numpy-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl', size = 16116679, hashes = {sha256 = '3b787adbf04b0db1967798dba8da1af07e387908ed1553a0d6e74c084d1ceafe'}},
+  ]
+
+  [tool.mousebender]
+  command = ['.', 'lock', '--platform', 'cpython3.12-windows-x64', '--platform', 'cpython3.12-manylinux2014-x64', 'cattrs', 'numpy']
+  run-on = 2025-03-06T12:28:57.760769
+
+
+------------
+Installation
+------------
+
+The following outlines the steps to be taken to install from a lock file
+(while the requirements are prescriptive, the general steps and order are
+a suggestion):
+
+#. Gather the extras and dependency groups to install and set ``extras`` and
+   ``dependency_groups`` for marker evaluation, respectively.
+
+   #. ``extras`` SHOULD be set to the empty set by default.
+   #. ``dependency_groups`` SHOULD be the set created from ``default-groups`` by
+      default.
+
+#. Check if the metadata version specified by ``lock-version`` is supported;
+   an error or warning MUST be raised as appropriate.
+#. If ``requires-python`` is specified, check that the environment being
+   installed for meets the requirement; an error MUST be raised if it is not
+   met.
+#. If ``environments`` is specified, check that at least one of the environment
+   marker expressions is satisfied; an error MUST be raised if no expression is
+   satisfied.
+#. For each package listed in ``[[packages]]``:
+
+   #. If ``marker`` is specified, check if it is satisfied; if it isn't,
+      skip to the next package.
+   #. If ``requires-python`` is specified, check if it is satisfied; an error
+      MUST be raised if it isn't.
+   #. Check that no other conflicting instance of the package has been slated to
+      be installed; an error about the ambiguity MUST be raised otherwise.
+   #. Check that the source of the package is specified appropriately (i.e.
+      there are no conflicting sources in the package entry);
+      an error MUST be raised if any issues are found.
+   #. Add the package to the set of packages to install.
+
+#. For each package to be installed:
+
+   - If ``vcs`` is set:
+
+     #. Clone the repository to the commit ID specified in ``commit-id``.
+     #. Build the package, respecting ``subdirectory``.
+     #. Install.
+
+   - Else if ``directory`` is set:
+
+     #. Build the package, respecting ``subdirectory``.
+     #. Install.
+
+   - Else if ``archive`` is set:
+
+     #. Get the file.
+     #. Validate the file size and hash.
+     #. Build the package, respecting ``subdirectory``.
+     #. Install.
+
+   - Else if there are entries for ``wheels``:
+
+     #. Look for the appropriate wheel file based on ``name``; if one is not
+        found then move on to ``sdist`` or an error MUST be raised about a
+        lack of source for the project.
+     #. Get the file:
+
+        - If ``path`` is set, use it.
+        - If ``url`` is set, try to use it; optionally tools MAY use
+          ``packages.index`` or some tool-specific mechanism to download the
+          selected wheel file (tools MUST NOT try to change what wheel file to
+          download based on what's available; what file to install should be
+          determined in an offline fashion for reproducibility).
+
+     #. Validate the file size and hash.
+     #. Install.
+
+   - Else if no ``wheel`` file is found or ``sdist`` is solely set:
+
+     #. Get the file.
+
+        - If ``path`` is set, use it.
+        - If ``url`` is set, try to use it; tools MAY use
+          ``packages.index`` or some tool-specific mechanism to download the
+          file.
+
+     #. Validate the file size and hash.
+     #. Build the package.
+     #. Install.
+
+
+-------
+History
+-------
+
+- April 2025: Initial version, approved via :pep:`751`.
+
+
+.. _Content-Length: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length
+.. _Dependabot: https://docs.github.com/en/code-security/dependabot
+.. _HEAD: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
+.. _PDM: https://pypi.org/project/pdm/
+.. _pip-tools: https://pypi.org/project/pip-tools/
+.. _Poetry: https://python-poetry.org/
+.. _requirements file:
+.. _requirements files: https://pip.pypa.io/en/stable/reference/requirements-file-format/
+.. _software bill of materials: https://www.cisa.gov/sbom
+.. _TOML: https://toml.io/
+.. _uv: https://github.com/astral-sh/uv
