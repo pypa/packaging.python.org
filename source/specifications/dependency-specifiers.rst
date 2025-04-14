@@ -524,8 +524,8 @@ History
 - June 2024: The definition of ``version_many`` was changed to allow trailing
   commas, matching with the behavior of the Python implementation that has been
   in use since late 2022.
-- April 2025: Added ``extras`` and ``dependency_groups`` for lock-file-spec_ as
-  approved through :pep:`751`.
+- April 2025: Added ``extras`` and ``dependency_groups`` for
+  :ref:`lock-file-spec` as approved through :pep:`751`.
 
 
 References
