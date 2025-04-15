@@ -281,11 +281,11 @@ an error like all other unknown variables.
        ``Darwin Kernel Version 14.5.0: Wed Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``
    * - ``python_version``
      - ``'.'.join(platform.python_version_tuple()[:2])``
-     - Version
+     - :ref:`Version <version-specifiers>`
      - ``3.4``, ``2.7``
    * - ``python_full_version``
      - :py:func:`platform.python_version()`
-     - Version
+     - :ref:`Version <version-specifiers>`
      - ``3.4.0``, ``3.5.0b1``
    * - ``implementation_name``
      - :py:data:`sys.implementation.name <sys.implementation>`
@@ -293,7 +293,7 @@ an error like all other unknown variables.
      - ``cpython``
    * - ``implementation_version``
      - see definition below
-     - Version
+     - :ref:`Version <version-specifiers>`
      - ``3.4.0``, ``3.5.0b1``
    * - ``extra``
      - An error except when defined by the context interpreting the

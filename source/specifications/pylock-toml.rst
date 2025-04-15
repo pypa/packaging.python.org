@@ -60,6 +60,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 .. File details
 
+.. _pylock-lock-version:
 ``lock-version``
 ================
 
@@ -74,6 +75,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - If a tool doesn't support a major version, it MUST raise an error.
 
 
+.. _pylock-environments:
 ``environments``
 ================
 
@@ -86,6 +88,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   understanding.
 
 
+.. _pylock-requires-python:
 ``requires-python``
 ===================
 
@@ -97,6 +100,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   (i.e. the minimum viable Python version for the lock file).
 
 
+.. _pylock-extras:
 ``extras``
 ==========
 
@@ -115,6 +119,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   lock file is, in effect, multi-use even if it only looks to be single-use.
 
 
+.. _pylock-dependency-groups:
 ``dependency-groups``
 =====================
 
@@ -134,6 +139,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   is, in effect, multi-use even if it only looks to be single-use.
 
 
+.. _pylock-default-groups:
 ``default-groups``
 ==================
 
@@ -142,13 +148,14 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - **Inspiration**: Poetry_, PDM_
 - The name of synthetic dependency groups to represent what should be installed
   by default (e.g. what ``project.dependencies`` implicitly represents).
-- Meant to be used in situations where ``packages.marker`` necessitates such a
+- Meant to be used in situations where :ref:`pylock-packages.marker` necessitates such a
   group to exist.
-- The groups listed by this key SHOULD NOT be listed in ``dependency-groups`` as
+- The groups listed by this key SHOULD NOT be listed in :ref:`pylock-dependency-groups` as
   the groups are not meant to be directly exposed to users by name but instead
   via an installer's UI.
 
 
+.. _pylock-created-by:
 ``created-by``
 ==============
 
@@ -156,12 +163,13 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - **Required?**: yes
 - **Inspiration**: Tools with their name in their lock file name
 - Records the name of the tool used to create the lock file.
-- Tools MAY use the ``[tool]`` table to record enough details that it can be
+- Tools MAY use the :ref:`pylock-tool` table to record enough details that it can be
   inferred what inputs were used to create the lock file.
 - Tools SHOULD record the normalized name of the tool if it is available as a
   Python package to facilitate finding the tool.
 
 
+.. _pylock-packages:
 ``[[packages]]``
 ================
 
@@ -175,6 +183,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 .. Identification
 
+.. _pylock-packages-name:
 ``packages.name``
 -----------------
 
@@ -184,6 +193,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - The name of the package :ref:`normalized <name-normalization>`.
 
 
+.. _pylock-packages-version:
 ``packages.version``
 --------------------
 
@@ -202,6 +212,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 .. Requirements
 
+.. _pylock-packages-marker:
 ``packages.marker``
 -------------------
 
@@ -213,6 +224,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   which specify when the package should be installed.
 
 
+.. _pylock-packages-requires-python:
 ``packages.requires-python``
 ----------------------------
 
@@ -223,13 +235,14 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   for the package.
 
 
+.. _pylock-packages-dependencies:
 ``[[packages.dependencies]]``
 -----------------------------
 
 - **Type**: array of tables
 - **Required?**: no
 - **Inspiration**: PDM_, Poetry_, uv_
-- Records the other entries in ``[[packages]]`` which are direct dependencies of
+- Records the other entries in :ref:`pylock-packages` which are direct dependencies of
   this package.
 - Each entry is a table which contains the minimum information required to tell
   which other package entry it corresponds to where doing a key-by-key
@@ -243,6 +256,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 
 .. Source
 
+.. _pylock-packages-vcs:
 ``[packages.vcs]``
 -------------------
 
@@ -262,6 +276,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   :ref:`direct URL reference <direct-url>`.
 
 
+.. _pylock-packages-vcs-type:
 ``packages.vcs.type``
 ''''''''''''''''''''''
 
@@ -272,15 +287,17 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - The type of version control system used.
 
 
+.. _pylock-packages-vcs-url:
 ``packages.vcs.url``
 '''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: if ``path`` is not specified
 - **Inspiration**: :ref:`direct-url-data-structure-vcs`
-- The URL to the source tree.
+- The URL_ to the source tree.
 
 
+.. _pylock-packages-vcs-path:
 ``packages.vcs.path``
 ''''''''''''''''''''''
 
@@ -293,6 +310,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   for portability.
 
 
+.. _pylock-packages-vcs-requested-revision:
 ``packages.vcs.requested-revision``
 ''''''''''''''''''''''''''''''''''''
 
@@ -305,6 +323,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   the repository.
 
 
+.. _pylock-packages-vcs-commit-id:
 ``packages.vcs.commit-id``
 '''''''''''''''''''''''''''
 
@@ -312,11 +331,12 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - **Required?**: yes
 - **Inspiration**: :ref:`direct-url-data-structure-vcs`
 - The exact commit/revision number that is to be installed.
-- If the VCS supports commit-hash based revision identifiers, such a commit-hash
-  MUST be used as the commit ID in order to reference an immutable version of
+- If the VCS supports commit-hash based revision identifiers, such a commit-hash,
+  it MUST be used as the commit ID in order to reference an immutable version of
   the source code.
 
 
+.. _pylock-packages-vcs-subdirectory:
 ``packages.vcs.subdirectory``
 ''''''''''''''''''''''''''''''
 
@@ -330,12 +350,13 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - The path MUST be relative to the root of the source tree structure.
 
 
+.. _pylock-packages-directory:
 ``[packages.directory]``
 -------------------------
 
 - **Type**: table
-- **Required?**: no; mutually-exclusive with ``packages.vcs``,
-  ``packages.archive``, ``packages.sdist``, and ``packages.wheels``
+- **Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`,
+  :ref:`pylock-packages-archive`, :ref:`pylock-packages-sdist`, and :ref:`pylock-packages.wheels`
 - **Inspiration**: :ref:`direct-url-data-structure-local-directory`
 - Record the local directory details for the
   :ref:`source tree <source-distribution-format-source-tree>` it
@@ -347,6 +368,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   :ref:`direct URL reference <direct-url>`.
 
 
+.. _pylock-packages-directory-path:
 ``packages.directory.path``
 ''''''''''''''''''''''''''''
 
@@ -359,6 +381,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   portability.
 
 
+.. _pylock-packages-directory-editable:
 ``packages.directory.editable``
 ''''''''''''''''''''''''''''''''
 
@@ -373,12 +396,14 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   production where it would be treated at read-only).
 
 
+.. _pylock-packages-directory-subdirectory:
 ``packages.directory.subdirectory``
 ''''''''''''''''''''''''''''''''''''
 
 See ``packages.vcs.subdirectory``.
 
 
+.. _pylock-packages-archive:
 ``[packages.archive]``
 -----------------------
 
@@ -395,18 +420,21 @@ See ``packages.vcs.subdirectory``.
   :ref:`direct URL reference <direct-url>`.
 
 
+.. _pylock-packages-archive-url:
 ``packages.archive.url``
 '''''''''''''''''''''''''
 
-See ``packages.vcs.url``.
+See :ref:`pylock-packages-vcs-url`.
 
 
+.. _pylock-packages-archive-path:
 ``packages.archive.path``
 ''''''''''''''''''''''''''
 
-See ``packages.vcs.path``.
+See :ref:`pylock-packages-vcs-path`.
 
 
+.. _pylock-packages-archive-size:
 ``packages.archive.size``
 ''''''''''''''''''''''''''
 
@@ -418,6 +446,7 @@ See ``packages.vcs.path``.
   size is available via the Content-Length_ header from a HEAD_ HTTP request).
 
 
+.. _pylock-packages-archive-upload-time:
 ``packages.archive.upload-time``
 ''''''''''''''''''''''''''''''''
 
@@ -428,6 +457,7 @@ See ``packages.vcs.path``.
 - The date and time MUST be recorded in UTC.
 
 
+.. _pylock-packages-archive-hashes:
 ``[packages.archive.hashes]``
 ''''''''''''''''''''''''''''''
 
@@ -443,12 +473,14 @@ See ``packages.vcs.path``.
   recommended.
 
 
+.. _pylock-packages-archive-subdirectory:
 ``packages.archive.subdirectory``
 ''''''''''''''''''''''''''''''''''
 
-See ``packages.vcs.subdirectory``.
+See :ref:`pylock-packages-vcs-subdirectory`.
 
 
+.. _pylock-packages-index:
 ``packages.index``
 ------------------
 
@@ -464,12 +496,13 @@ See ``packages.vcs.subdirectory``.
   file is no longer valid (e.g. returns a 404 HTTP error code).
 
 
+.. _pylock-packages-sdist:
 ``[packages.sdist]``
 --------------------
 
 - **Type**: table
-- **Required?**: no; mutually-exclusive with ``packages.vcs``,
-  ``packages.directory``, and ``packages.archive``
+- **Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`,
+  :ref:`pylock-packages-directory`, and :ref:`pylock-packages-archive`
 - **Inspiration**: uv_
 - Details of a :ref:`source-distribution-format-sdist` for the
   package.
@@ -478,53 +511,60 @@ See ``packages.vcs.subdirectory``.
 - Tools SHOULD provide a way for users to opt in/out of using sdist files.
 
 
+.. _pylock-packages-sdist-name:
 ``packages.sdist.name``
 '''''''''''''''''''''''
 
 - **Type**: string
-- **Required?**: no, not when the last component of ``path``/ ``url`` would be
+- **Required?**: no, not when the last component of :ref:`pylock-sdist-path`/ :ref:`pylock-sdist-url` would be
   the same value
 - **Inspiration**: PDM_, Poetry_, uv_
 - The file name of the :ref:`source-distribution-format-sdist` file.
 
 
+.. _pylock-packages-sdist-upload-time:
 ``packages.sdist.upload-time``
 ''''''''''''''''''''''''''''''
 
-See ``packages.archive.upload-time``.
+See :ref:`pylock-packages-archive-upload-time`.
 
 
+.. _pylock-packages-sdist-url:
 ``packages.sdist.url``
 ''''''''''''''''''''''
 
-See ``packages.archive.url``.
+See :ref:`pylock-packages-archive-url`.
 
 
+.. _pylock-packages-sdist-path:
 ``packages.sdist.path``
 '''''''''''''''''''''''
 
-See ``packages.archive.path``.
+See :ref:`pylock-packages-archive-path`.
 
 
+.. _pylock-packages-sdist-size:
 ``packages.sdist.size``
 '''''''''''''''''''''''
 
-See ``packages.archive.size``.
+See :ref:`pylock-packages-archive-size`.
 
 
+.. _pylock-packages-sdist-hashes:
 ``packages.sdist.hashes``
 '''''''''''''''''''''''''
 
-See ``packages.archive.hashes``.
+See :ref:`pylock-packages-archive-hashes`.
 
 
 
+.. _pylock-packages-wheels:
 ``[[packages.wheels]]``
 -----------------------
 
 - **Type**: array of tables
-- **Required?**: no; mutually-exclusive with ``packages.vcs``,
-  ``packages.directory``, and ``packages.archive``
+- **Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`,
+  :ref:`pylock-packages-directory`, and :ref:`pylock-packages-archive`
 - **Inspiration**: PDM_, Poetry_, uv_
 - For recording the wheel files as specified by
   :ref:`  binary-distribution-format` for the package.
@@ -532,46 +572,53 @@ See ``packages.archive.hashes``.
   perspective.
 
 
+.. _pylock-packages-wheels-name:
 ``packages.wheels.name``
 ''''''''''''''''''''''''
 
 - **Type**: string
-- **Required?**: no, not when the last component of ``path``/ ``url`` would be
+- **Required?**: no, not when the last component of :ref:`pylock-wheels-path`/ :ref:`pylock-wheels-url` would be
   the same value
 - **Inspiration**: PDM_, Poetry_, uv_
 - The file name of the :ref:`  binary-distribution-format` file.
 
 
+.. _pylock-packages-wheels-upload-time:
 ``packages.wheels.upload-time``
 '''''''''''''''''''''''''''''''
 
-See ``packages.archive.upload-time``.
+See :ref:`pylock-packages-archive-upload-time`.
 
 
+.. _pylock-packages-wheels-url:
 ``packages.wheels.url``
 '''''''''''''''''''''''
 
-See ``packages.archive.url``.
+See :ref:`pylock-packages-archive-url`.
 
 
+.. _pylock-packages-wheels-path:
 ``packages.wheels.path``
 ''''''''''''''''''''''''
 
-See ``packages.archive.path``.
+See :ref:`pylock-packages-archive-path`.
 
 
+.. _pylock-packages-wheels-size:
 ``packages.wheels.size``
 ''''''''''''''''''''''''
 
-See ``packages.archive.size``.
+See :ref:`pylock-packages-archive-size`.
 
 
+.. _pylock-packages-wheels-hashes:
 ``packages.wheels.hashes``
 ''''''''''''''''''''''''''
 
-See ``packages.archive.hashes``.
+See :ref:`pylock-packages-archive-hashes`.
 
 
+.. _pylock-packages-attestation-identities:
 ``[[packages.attestation-identities]]``
 ---------------------------------------
 
@@ -585,6 +632,7 @@ See ``packages.archive.hashes``.
   :ref:`  index-hosted-attestations`.
 
 
+.. _pylock-packages-attestation-identities-kind:
 ``packages.attestation-identities.kind``
 ''''''''''''''''''''''''''''''''''''''''
 
@@ -594,6 +642,7 @@ See ``packages.archive.hashes``.
 - The unique identity of the Trusted Publisher.
 
 
+.. _pylock-packages.tool:
 ``[packages.tool]``
 -------------------
 
@@ -602,18 +651,19 @@ See ``packages.archive.hashes``.
 - **Inspiration**: :ref:`  pyproject-tool-table`
 - Similar usage as that of the ``[tool]`` table from the
   :ref:`  pyproject-toml-spec`, but at the package version level instead
-  of at the lock file level (which is also available via ``[tool]``).
+  of at the lock file level (which is also available via :ref:`pylock-tool`).
 - Data recorded in the table MUST be disposable (i.e. it MUST NOT affect
   installation).
 
 
+.. _pylock-tool:
 ``[tool]``
 ==========
 
 - **Type**: table
 - **Required?**: no
 - **Inspiration**: :ref:`  pyproject-tool-table`
-- See ``packages.tool``.
+- See :ref:`pylock-packages-tool`.
 
 
 -------
@@ -770,3 +820,4 @@ History
 .. _software bill of materials: https://www.cisa.gov/sbom
 .. _TOML: https://toml.io/
 .. _uv: https://github.com/astral-sh/uv
+.. _URL: https://url.spec.whatwg.org/
