@@ -821,3 +821,4 @@ History
 .. _TOML: https://toml.io/
 .. _uv: https://github.com/astral-sh/uv
 .. _URL: https://url.spec.whatwg.org/
+.. _URL: https://url.spec.whatwg.org/
