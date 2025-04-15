@@ -481,6 +481,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 
 .. _pylock-packages-index:
+.. _pylock-packages-index:
 ``packages.index``
 ------------------
 
@@ -497,6 +498,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 
 .. _pylock-packages-sdist:
+.. _pylock-packages-sdist:
 ``[packages.sdist]``
 --------------------
 
@@ -512,6 +514,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 
 .. _pylock-packages-sdist-name:
+.. _pylock-packages-sdist-name:
 ``packages.sdist.name``
 '''''''''''''''''''''''
 
@@ -523,12 +526,14 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 
 
 .. _pylock-packages-sdist-upload-time:
+.. _pylock-packages-sdist-upload-time:
 ``packages.sdist.upload-time``
 ''''''''''''''''''''''''''''''
 
 See :ref:`pylock-packages-archive-upload-time`.
 
 
+.. _pylock-packages-sdist-url:
 .. _pylock-packages-sdist-url:
 ``packages.sdist.url``
 ''''''''''''''''''''''
@@ -537,12 +542,14 @@ See :ref:`pylock-packages-archive-url`.
 
 
 .. _pylock-packages-sdist-path:
+.. _pylock-packages-sdist-path:
 ``packages.sdist.path``
 '''''''''''''''''''''''
 
 See :ref:`pylock-packages-archive-path`.
 
 
+.. _pylock-packages-sdist-size:
 .. _pylock-packages-sdist-size:
 ``packages.sdist.size``
 '''''''''''''''''''''''
@@ -551,6 +558,7 @@ See :ref:`pylock-packages-archive-size`.
 
 
 .. _pylock-packages-sdist-hashes:
+.. _pylock-packages-sdist-hashes:
 ``packages.sdist.hashes``
 '''''''''''''''''''''''''
 
@@ -558,6 +566,7 @@ See :ref:`pylock-packages-archive-hashes`.
 
 
 
+.. _pylock-packages-wheels:
 .. _pylock-packages-wheels:
 ``[[packages.wheels]]``
 -----------------------
@@ -573,6 +582,7 @@ See :ref:`pylock-packages-archive-hashes`.
 
 
 .. _pylock-packages-wheels-name:
+.. _pylock-packages-wheels-name:
 ``packages.wheels.name``
 ''''''''''''''''''''''''
 
@@ -584,12 +594,14 @@ See :ref:`pylock-packages-archive-hashes`.
 
 
 .. _pylock-packages-wheels-upload-time:
+.. _pylock-packages-wheels-upload-time:
 ``packages.wheels.upload-time``
 '''''''''''''''''''''''''''''''
 
 See :ref:`pylock-packages-archive-upload-time`.
 
 
+.. _pylock-packages-wheels-url:
 .. _pylock-packages-wheels-url:
 ``packages.wheels.url``
 '''''''''''''''''''''''
@@ -598,12 +610,14 @@ See :ref:`pylock-packages-archive-url`.
 
 
 .. _pylock-packages-wheels-path:
+.. _pylock-packages-wheels-path:
 ``packages.wheels.path``
 ''''''''''''''''''''''''
 
 See :ref:`pylock-packages-archive-path`.
 
 
+.. _pylock-packages-wheels-size:
 .. _pylock-packages-wheels-size:
 ``packages.wheels.size``
 ''''''''''''''''''''''''
@@ -612,12 +626,14 @@ See :ref:`pylock-packages-archive-size`.
 
 
 .. _pylock-packages-wheels-hashes:
+.. _pylock-packages-wheels-hashes:
 ``packages.wheels.hashes``
 ''''''''''''''''''''''''''
 
 See :ref:`pylock-packages-archive-hashes`.
 
 
+.. _pylock-packages-attestation-identities:
 .. _pylock-packages-attestation-identities:
 ``[[packages.attestation-identities]]``
 ---------------------------------------
@@ -633,6 +649,7 @@ See :ref:`pylock-packages-archive-hashes`.
 
 
 .. _pylock-packages-attestation-identities-kind:
+.. _pylock-packages-attestation-identities-kind:
 ``packages.attestation-identities.kind``
 ''''''''''''''''''''''''''''''''''''''''
 
@@ -642,6 +659,7 @@ See :ref:`pylock-packages-archive-hashes`.
 - The unique identity of the Trusted Publisher.
 
 
+.. _pylock-packages.tool:
 .. _pylock-packages.tool:
 ``[packages.tool]``
 -------------------
@@ -656,6 +674,7 @@ See :ref:`pylock-packages-archive-hashes`.
   installation).
 
 
+.. _pylock-tool:
 .. _pylock-tool:
 ``[tool]``
 ==========
