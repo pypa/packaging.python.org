@@ -181,7 +181,7 @@ following this tutorial.
     ]
     description = "A small example package"
     readme = "README.md"
-    requires-python = ">=3.8"
+    requires-python = ">=3.9"
     classifiers = [
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
