@@ -552,6 +552,7 @@ This specification defines Dependency Groups, a mechanism for storing package re
 ``[pyproject.toml]`` files such that they are not included in project metadata when it is built.
 
 The ``[dependency-groups]`` table is an optional top-level table that allows defining non-distribution dependencies used for internal tooling, such as testing or linting.
+Dependency groups are also suitable for use in projects which are not built for distribution, such as collections of related scripts.
 
 For the full specification and behavior, refer to the `Dependency Groups specification <https://packaging.python.org/en/latest/specifications/dependency-groups/>`_.
 
