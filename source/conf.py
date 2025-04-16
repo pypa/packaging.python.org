@@ -149,6 +149,7 @@ linkcheck_ignore = [
     "https://stackoverflow.com/*",
     "https://pyscaffold.org/*",
     "https://anaconda.org",
+    "https://www.cisa.gov/sbom",
 ]
 linkcheck_retries = 5
 # Ignore anchors for common targets when we know they likely won't be found
