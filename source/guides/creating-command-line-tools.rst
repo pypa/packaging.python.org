@@ -102,9 +102,9 @@ so initizalize the command-line interface here:
 
 .. code-block:: python
 
-	if __name__ == "__main__":
-	    from greetings.cli import app
-	    app()
+    if __name__ == "__main__":
+        from greetings.cli import app
+        app()
 
 .. note::
 
@@ -123,8 +123,8 @@ For the project to be recognised as a command-line tool, additionally a ``consol
 
 .. code-block:: toml
 
-	[project.scripts]
-	greet = "greetings.cli:app"
+    [project.scripts]
+    greet = "greetings.cli:app"
 
 Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`,
 which makes it installable.
@@ -145,12 +145,12 @@ Let's test it:
 
 .. code-block:: console
 
-	$ greet --knight Lancelot
-	Greetings, dear Sir Lancelot!
-	$ greet --gender feminine Parks
-	Greetings, dear Ms. Parks!
-	$ greet --gender masculine
-	Greetings, dear Mr. what's-his-name!
+    $ greet --knight Lancelot
+    Greetings, dear Sir Lancelot!
+    $ greet --gender feminine Parks
+    Greetings, dear Ms. Parks!
+    $ greet --gender masculine
+    Greetings, dear Mr. what's-his-name!
 
 Since this example uses ``typer``, you could now also get an overview of the program's usage by calling it with
 the ``--help`` option, or configure completions via the ``--install-completion`` option.
@@ -160,7 +160,7 @@ To just run the program without installing it permanently, use ``pipx run``, whi
 
 .. code-block:: console
 
-	$ pipx run --spec . greet --knight
+    $ pipx run --spec . greet --knight
 
 This syntax is a bit unpractical, however; as the name of the entry point we defined above does not match the package name,
 we need to state explicitly which executable script to run (even though there is only on in existence).
