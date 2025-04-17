@@ -73,11 +73,7 @@ html_last_updated_fmt = ""
 
 _metrics_js_files = [
     (
-        "https://plausible.io/js/script.js",
-        {"data-domain": "packaging.python.org", "defer": "defer"},
-    ),
-    (
-        "https://analytics.python.org/js/script.js",
+        "https://analytics.python.org/js/script.outbound-links.js",
         {"data-domain": "packaging.python.org", "defer": "defer"},
     ),
 ]
