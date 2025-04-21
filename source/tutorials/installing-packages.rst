@@ -228,8 +228,8 @@ Currently, there are two common tools for creating Python virtual environments:
   (Python versions prior to 3.12 also installed :ref:`setuptools`).
 * :ref:`virtualenv` needs to be installed separately, but supports Python 2.7+
   and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are
-  always installed into created virtual environments by default (regardless of
-  Python version).
+  installed into created virtual environments by default. Note that ``setuptools`` is no longer
+  included by default starting with Python 3.12 (and ``virtualenv`` follows this behavior).
 
 The basic usage is like so:
 
