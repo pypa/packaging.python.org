@@ -18,10 +18,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-04 13:12+0000\n"
-"PO-Revision-Date: 2025-04-03 21:09+0000\n"
+"PO-Revision-Date: 2025-04-05 17:01+0000\n"
 "Last-Translator: Joseph Hale <me@jhale.dev>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1043,7 +1043,6 @@ msgstr ""
 "específicas de software no-Python."
 
 #: ../source/discussions/downstream-packaging.rst:19
-#, fuzzy
 msgid ""
 "This discussion attempts to explain how downstream packaging is usually "
 "done, and what additional challenges downstream packagers typically face. It "
@@ -1059,13 +1058,14 @@ msgid ""
 msgstr ""
 "Esta guía busca explicar los métodos típicos del empaquetamiento posterior y "
 "los desafíos adicionales enfrentados por empaquetadores posteriores. Busca "
-"enseñar unas recomendaciones que mantenedores de proyectos pueden seguir "
-"para facilitar de gran manera el empaquetamiento posterior (sin requerir "
-"molestias significativas en el mantenimiento del proyecto anterior). Esta "
-"guía no es de tipo \"todo o nada\" — la ayuda mantenedores anteriores, sea "
-"grande o pequeña, resulta beneficioso. Los mantenedores posteriores también "
-"estan dispuestos a compartir revisiones para resolver estos problems. [TODO "
-"continuar aquí]"
+"enseñar unas recomendaciones no difíciles para mantenedores de proyectos "
+"anteriores que facilitan el empaquetamiento posterior en gran manera. Estas "
+"recomendaciones no son de tipo \"todo o nada\" — cada una por si misma "
+"resulta beneficioso. Los mantenedores posteriores también están dispuestos a "
+"compartir revisiones para resolver estos desafíos. La integración de estas "
+"revisiones posteriores en el proyecto anterior también ayuda mucho a reducir "
+"la dificultad de mantener y rebasar revisiones similares, pero quizás "
+"incompatibles, en cada distribución posterior."
 
 #: ../source/discussions/downstream-packaging.rst:31
 msgid ""
@@ -1080,6 +1080,17 @@ msgid ""
 "regularly active in ensuring the packages they redistribute are updated for "
 "any compatibility issues that arise when a new Python version is released."
 msgstr ""
+"El establecer una relación buena entre mantenedores de software y "
+"empaquetadores posteriores puede resultar en beneficios mutuos. Los "
+"posteriores suelen estar dispuestos a compartir su experiencia, tiempo y "
+"hardware al mejoro del paquete. A veces pueden ver más claramente el uso "
+"práctico del paquete y ofrecen información sobre sus relaciones con otros "
+"paquetes que sería difícil de obtener de otra manera. Los empaquetadores "
+"también encuentran errores antes de que lleguen a los sistemas de producción "
+"de sus usuarios, proveen informes de errores de alta calidad, y comparten "
+"revisiones cuando les resulta posible. Por ejemplo, cuando se lanza una "
+"version nueva de Python, se esfuerzan por asegurar que los paquetes que "
+"redistribuyen están actualizados para ser compatibles."
 
 #: ../source/discussions/downstream-packaging.rst:43
 msgid ""
@@ -1087,12 +1098,14 @@ msgid ""
 "but also source builds done on user systems (in source-first distributions "
 "such as Gentoo Linux, for example)."
 msgstr ""
+"Por favor, note que además de redistribución de binarios, las compilaciones "
+"posteriores incluyen compilaciones de código fuente realizada en los "
+"sistemas de los usuarios (como las distribuciones con preferencia a código "
+"fuente como Gentoo Linux)."
 
 #: ../source/discussions/downstream-packaging.rst:51
-#, fuzzy
-#| msgid "What is a source distribution?"
 msgid "Provide complete source distributions"
-msgstr "¿Qué es una distribución de origen?"
+msgstr "Proveer distribuciones completas de código fuente"
 
 #: ../source/discussions/downstream-packaging.rst:54
 #: ../source/discussions/downstream-packaging.rst:150
@@ -1100,7 +1113,7 @@ msgstr "¿Qué es una distribución de origen?"
 #: ../source/discussions/downstream-packaging.rst:303
 #: ../source/discussions/downstream-packaging.rst:412
 msgid "Why?"
-msgstr ""
+msgstr "¿Por qué?"
 
 #: ../source/discussions/downstream-packaging.rst:56
 msgid ""
@@ -1110,40 +1123,54 @@ msgid ""
 "the distribution. This is also true of pure Python packages that provide "
 "universal wheels. The reasons for using source distributions may include:"
 msgstr ""
+"La gran mayoría de empaquetadores posteriors prefieren compilar paquetes del "
+"código fuente, en lugar de los binarios proveídos por el anterior. En "
+"algunos casos, la distribución requiere el código fuente para incluir un "
+"paquete. Esto también aplica a paquetes de Python puro que proveen wheels "
+"universales. Las razones por usar distribuciones de código fuente incluyen:"
 
 #: ../source/discussions/downstream-packaging.rst:62
 msgid "Being able to audit the source code of all packages."
-msgstr ""
+msgstr "La opción de auditar el código fuente de cada paquete."
 
 #: ../source/discussions/downstream-packaging.rst:64
 msgid "Being able to run the test suite and build documentation."
-msgstr ""
+msgstr "La opción de ejecutar los tests y compilar documentación."
 
 #: ../source/discussions/downstream-packaging.rst:66
 msgid ""
 "Being able to easily apply patches, including backporting commits from the "
 "project's repository and sending patches back to the project."
 msgstr ""
+"La opción de aplicar revisiones fácilmente, incluso adaptando revisiones del "
+"repositorio del proyecto para versiones más antiguas y compartiendo "
+"revisiones al proyecto anterior."
 
 #: ../source/discussions/downstream-packaging.rst:69
 msgid ""
 "Being able to build on a specific platform that is not covered by upstream "
 "builds."
 msgstr ""
+"La opción de compilar en una plataforma no apoyada por las compilaciones "
+"anteriores."
 
 #: ../source/discussions/downstream-packaging.rst:72
 msgid "Being able to build against specific versions of system libraries."
 msgstr ""
+"La opción de compilar con versiones específicas de bibliotecas de sistema."
 
 #: ../source/discussions/downstream-packaging.rst:74
 msgid "Having a consistent build process across all Python packages."
 msgstr ""
+"La normalización del proceso de compilación por todos los paquetes de Python."
 
 #: ../source/discussions/downstream-packaging.rst:76
 msgid ""
 "While it is usually possible to build packages from a Git repository, there "
 "are a few important reasons to provide a static archive file instead:"
 msgstr ""
+"Aunque suele ser posible compilar paquetes desde un repositorio de Git, hay "
+"unas motivaciones importantes para proveer en archivo estático:"
 
 #: ../source/discussions/downstream-packaging.rst:79
 msgid ""
@@ -1151,6 +1178,8 @@ msgid ""
 "supported than e.g. using a Git clone. This can help users with poor "
 "Internet connectivity."
 msgstr ""
+"Obtener un solo archivo suele ser más eficiente, fiable, y apoyado que hacer "
+"un Git clone. También ayuda a usuarios con Internet de baja calidad."
 
 #: ../source/discussions/downstream-packaging.rst:83
 msgid ""
@@ -1159,6 +1188,11 @@ msgid ""
 "time. For example, automatically generated Git archives do not guarantee "
 "this, as the compressed data may change if gzip is upgraded on the server."
 msgstr ""
+"Los posteriores suelen emplear un hash para verificar la autenticidad de "
+"archivos fuentes en compilaciones futuras, el cual requiere que se mantienen "
+"idénticos bit por bit. Por ejemplo, los archivos generados de Git no tienen "
+"esta garantía porque los datos comprimidos pueden cambiar después de una "
+"actualización de gzip."
 
 #: ../source/discussions/downstream-packaging.rst:88
 msgid ""
@@ -1167,6 +1201,11 @@ msgid ""
 "or offline environments, that can only access source files provided by the "
 "local mirror or redistributed earlier."
 msgstr ""
+"Los archivos se pueden reflejar a otros servidores, el cual ahorra ancho de "
+"banda anterior y posterior. Las compilaciones también se pueden realizar "
+"tras cortafuegos o en entornos sin acceso al internet, que solo tienen "
+"acceso a los archivos proveídos por el reflejo local o redistribuido "
+"previamente."
 
 #: ../source/discussions/downstream-packaging.rst:93
 msgid ""
@@ -1176,6 +1215,11 @@ msgid ""
 "commit tag information, potentially resulting in incorrect version details "
 "in the resulting builds."
 msgstr ""
+"La creación y publicación de archivos fuentes puede asegurar que están "
+"incorporados datos que normalmente se almacenan en el sistema de control de "
+"versiones. Por ejemplo, los archivos generados automáticamente de Git no "
+"incluyen las etiquetas de revisiones, el cual podría resultar en la "
+"comunicación de detalles incorrectas de la versión en compilaciones futuras."
 
 #: ../source/discussions/downstream-packaging.rst:99
 #: ../source/discussions/downstream-packaging.rst:179
