@@ -103,7 +103,7 @@ Counting package downloads
 The following query counts the total number of downloads for the project
 "pytest".
 
-::
+.. code-block:: sql
 
     #standardSQL
     SELECT COUNT(*) AS num_downloads
@@ -123,7 +123,7 @@ The following query counts the total number of downloads for the project
 To count downloads from pip only, filter on the ``details.installer.name``
 column.
 
-::
+.. code-block:: sql
 
     #standardSQL
     SELECT COUNT(*) AS num_downloads
@@ -147,7 +147,7 @@ Package downloads over time
 To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also
 filtering by this column reduces corresponding costs.
 
-::
+.. code-block:: sql
 
     #standardSQL
     SELECT
@@ -185,7 +185,7 @@ Python versions over time
 Extract the Python version from the ``details.python`` column. Warning: This
 query processes over 500 GB of data.
 
-::
+.. code-block:: sql
 
     #standardSQL
     SELECT
@@ -228,7 +228,7 @@ column, which includes the hash and artifact filename.
 .. note::
    The URL generated here is not guaranteed to be stable, but currently aligns with the URL where PyPI artifacts are hosted.
 
-::
+.. code-block:: sql
 
     SELECT
       CONCAT('https://files.pythonhosted.org/packages', path) as url

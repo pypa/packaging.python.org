@@ -10,6 +10,9 @@ Package Distribution Metadata
    version-specifiers
    dependency-specifiers
    pyproject-toml
+   dependency-groups
    inline-script-metadata
    platform-compatibility-tags
    well-known-project-urls
+   glob-patterns
+   license-expression

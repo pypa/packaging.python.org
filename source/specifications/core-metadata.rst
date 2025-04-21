@@ -468,8 +468,8 @@ License-Expression
 .. versionadded:: 2.4
 
 Text string that is a valid SPDX
-`license expression <https://peps.python.org/pep-0639/#term-license-expression>`__
-as `defined in PEP 639 <https://peps.python.org/pep-0639/#spdx>`__.
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
 
 Examples::
 
@@ -796,6 +796,11 @@ Examples::
 
 Deprecated Fields
 =================
+
+Deprecated fields should be avoided, but they are valid metadata fields. They
+may be removed in future versions of the core metadata standard (at which point
+they will only be valid in files that specify a metadata version prior to the
+removal). Tools SHOULD warn users when deprecated fields are used.
 
 .. _home-page-optional:
 .. _core-metadata-home-page:

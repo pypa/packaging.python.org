@@ -28,6 +28,7 @@ extensions = [
     "sphinx_inline_tabs",
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
+    "sphinx-jsonschema",
 ]
 
 nitpicky = True
@@ -62,20 +63,29 @@ gettext_location = True
 html_title = "Python Packaging User Guide"
 html_theme = "furo"
 
+html_theme_options = {
+    "source_edit_link": "https://github.com/pypa/packaging.python.org/edit/main/source/{filename}",
+    "source_view_link": "https://github.com/pypa/packaging.python.org/blob/main/source/{filename}?plain=true",
+}
+
 html_favicon = "assets/py.png"
 html_last_updated_fmt = ""
 
 _metrics_js_files = [
     (
-        "https://plausible.io/js/script.js",
+        "https://analytics.python.org/js/script.outbound-links.js",
         {"data-domain": "packaging.python.org", "defer": "defer"},
-    )
+    ),
 ]
 html_js_files = []
 if RTD_CANONICAL_BUILD:
     # Enable collection of the visitor metrics reported at
     # https://plausible.io/packaging.python.org
     html_js_files.extend(_metrics_js_files)
+
+html_extra_path = [
+    "../extra",
+]
 
 # -- Options for HTML help output ------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
@@ -123,6 +133,7 @@ texinfo_documents = [
 
 linkcheck_ignore = [
     "http://localhost:\\d+",
+    "https://packaging.python.org/en/latest/specifications/schemas/.*",
     "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
     "https://pypi.org/manage/*",
     "https://test.pypi.org/manage/*",
@@ -133,13 +144,16 @@ linkcheck_ignore = [
     # https://github.com/pypa/packaging.python.org/pull/1474
     "https://stackoverflow.com/*",
     "https://pyscaffold.org/*",
+    "https://anaconda.org",
 ]
 linkcheck_retries = 5
-# Ignore anchors for links to GitHub project pages -- GitHub adds anchors from
-# README.md headings through JavaScript, so Sphinx's linkcheck can't find them
-# in the HTML.
+# Ignore anchors for common targets when we know they likely won't be found
 linkcheck_anchors_ignore_for_url = [
+    # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
     r"https://github\.com/",
+    # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
+    # https://github.com/pypa/packaging.python.org/issues/1744
+    r"https://pypi\.org/",
 ]
 
 # -- Options for extlinks ----------------------------------------------------------
@@ -193,6 +207,7 @@ intersphinx_mapping = {
     "tox": ("https://tox.wiki/en/latest/", None),
     "twine": ("https://twine.readthedocs.io/en/stable/", None),
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
+    "warehouse": ("https://warehouse.pypa.io/", None),
 }
 
 # -- Options for todo extension --------------------------------------------------------
