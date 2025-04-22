@@ -5,12 +5,13 @@
 # tsutsu3 <tsutsu3prog@gmail.com>, 2023.
 # nikkie <nikkie@users.noreply.hosted.weblate.org>, 2023.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024.
+# "Takanori Suzuki (takanory)" <takanory.net@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-15 15:59+0000\n"
-"PO-Revision-Date: 2025-02-15 03:43+0000\n"
+"POT-Creation-Date: 2025-04-21 18:47+0000\n"
+"PO-Revision-Date: 2025-04-21 02:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ja/>\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -62,15 +63,15 @@ msgstr ""
 "repository>`__ で行われます。手始めに `未解決の問題 <open issues>`__ のリスト"
 "をチェックアウトして(改善策の) `プルリクエスト <pull requests>`__ を送ってく"
 "ださい。もしあなたがこのガイドに何かを書き加えたり編集したりするつもりなら、:"
-"ref:`スタイルガイド <contributing_style_guide>`__を読みましょう。"
+"ref:`スタイルガイド <contributing_style_guide>`__ を読みましょう。"
 
 #: ../source/contribute.rst:25
 msgid ""
 "By contributing to the |PyPUG|, you're expected to follow the PSF's `Code of "
 "Conduct`__."
 msgstr ""
-"|PyPUG|に貢献を行うのであれば、あなたがPSFの`行動規範 <Code of Conduct>`__に"
-"従うことが期待されています。"
+"|PyPUG|に貢献を行うのであれば、あなたがPSFの `行動規範 <Code of Conduct>`__ "
+"に従うことが期待されています。"
 
 #: ../source/contribute.rst:32
 msgid "Documentation types"
@@ -179,7 +180,7 @@ msgid ""
 "Any translations of this project should follow `reStructuredText syntax`_."
 msgstr ""
 "本プロジェクトの翻訳はすべて、 `reStructuredText 文法 <reStructuredText "
-"syntax`_ に従わなければなりません。"
+"syntax>`_ に従わなければなりません。"
 
 #: ../source/contribute.rst:93
 msgid "Adding a language"
@@ -278,8 +279,8 @@ msgid ""
 "guide in web browser, but it's recommended to serve the guide using an HTTP "
 "server."
 msgstr ""
-"処理が終わると、``./build/html``の下にHTMLの出力ファイルが見つかるはずです。"
-"ここの``index.html``をブラウザで開くことでこの文書を閲覧することができます"
+"処理が終わると、``./build/html`` の下にHTMLの出力ファイルが見つかるはずです。"
+"ここの ``index.html`` をブラウザで開くことでこの文書を閲覧することができます"
 "が、HTTPサーバを使って文書を提供する方がお勧めです。"
 
 #: ../source/contribute.rst:152
@@ -993,18 +994,16 @@ msgstr ""
 "には可能ではありますが、絶無と言って良いほど稀であり、強く抑制されています。"
 
 #: ../source/discussions/downstream-packaging.rst:5
-#, fuzzy
-#| msgid "Operating system packages"
 msgid "Supporting downstream packaging"
-msgstr "オペレーティングシステムレベルのパッケージ"
+msgstr "下流のパッケージングをサポートする"
 
 #: ../source/discussions/downstream-packaging.rst:7
 msgid "Draft"
-msgstr ""
+msgstr "ドラフト"
 
 #: ../source/discussions/downstream-packaging.rst:8
 msgid "2025-?"
-msgstr ""
+msgstr "2025-?"
 
 #: ../source/discussions/downstream-packaging.rst:10
 msgid ""
@@ -1018,6 +1017,16 @@ msgid ""
 "as native integration with a specific operating system, or assured "
 "compatibility with specific versions of non-Python software."
 msgstr ""
+"PyPI および :ref:`pip` のような Python のパッケージングツールは、Python パッ"
+"ケージを配布する主要な手段ですが、その一方で、しばしば他のパッケージングエコ"
+"システムの一部として利用可能にされています。これらの再パッケージングの努力"
+"は、*ダウンストリーム* パッケージングと総称され (対して元の方は *アップスト"
+"リーム* パッケージングと総称されます)、 Linux ディストロ・Conda・Homebrew・"
+"MacPorts といったプロジェクトが (訳註：ダウンストリームパッケージングに) 該当"
+"します。これらは、一般的には、 Python パッケージングツール単独では取り扱えな"
+"いようなユースケースをよりよくサポートすること、例えば、特定のオペレーティン"
+"グシステムとの間でネイティブな統合をすることや、非 Python ソフトウェアの特定"
+"のバージョンとの互換性を保証することを目指しています。"
 
 #: ../source/discussions/downstream-packaging.rst:19
 msgid ""
@@ -1033,6 +1042,19 @@ msgid ""
 "for different downstreams to carry and keep rebasing the same patches, and "
 "the risk of applying inconsistent solutions to the same problem."
 msgstr ""
+"この議論では、ダウンストリームパッケージングが通常どのように行われるのか、お"
+"よび、ダウンストリームパッケージングが直面する追加的なチャレンジがどのような"
+"ものであるかを説明することを試みます。 (アップストリームプロジェクトを保守す"
+"る上で何らかの大きな追加作業を招来しない範囲で) ダウンストリームパッケージン"
+"グを *劇的に* 簡単なものにするような、プロジェクトの保守者が追随することを選"
+"択してもよいいくつかの選択可能なガイドラインを提供することを目指しています。"
+"これが全部採用するかまったく採用しないかという提案ではないことを銘記してくだ"
+"さい -- アップストリーム側の保守者が為し得ることは、たとえそれが小さな部分だ"
+"けだったとしても、すべて役に立ちます。ダウンストリーム側の保守者もこれらの問"
+"題を解決するためのパッチを提供することに意欲的です。他のダウンストリーム群が"
+"パッチを作成してリベースし続ける必要を取り除くことや、同じ問題に対して一貫性"
+"のない解決策を適用するリスクを取り除くことができるので、このようなパッチを"
+"マージすることは非常に助けになります。"
 
 #: ../source/discussions/downstream-packaging.rst:31
 msgid ""
@@ -1047,6 +1069,16 @@ msgid ""
 "regularly active in ensuring the packages they redistribute are updated for "
 "any compatibility issues that arise when a new Python version is released."
 msgstr ""
+"ソフトウェアの保守者達とダウンストリームのパッケージ作業者の間の良い関係を確"
+"立することは、相互に利益をもたらします。ダウンストリーム側は、しばしば、パッ"
+"ケージを改良するために彼らの経験・時間・ハードウェアを共有したいと望み、そう"
+"しなければ獲得するのに多大な労力を必要とする他パッケージとの関係について情報"
+"を提供したいと望んでいます。パッケージ作業者は、しばしば、プロダクションレベ"
+"ルになった後でユーザがそのバグを踏むよりも前に、高品質のバグレポートを提供"
+"し、可能な時ならいつでもパッチを供給します。例えば、彼らは、新しい Python の"
+"バージョンがリリースされた時に起きる互換性問題のいずれについても、彼らが再配"
+"布するパッケージがアップデートされていることを確実にすることに恒常的に活発で"
+"す。"
 
 #: ../source/discussions/downstream-packaging.rst:43
 msgid ""
@@ -1054,12 +1086,13 @@ msgid ""
 "but also source builds done on user systems (in source-first distributions "
 "such as Gentoo Linux, for example)."
 msgstr ""
+"ダウンストリームのビルドには、バイナリ形式での再配布だけでなく、 (例えば、"
+"Gentoo Linux のようなソースコードありきのディストロで) ユーザ側のシステムで行"
+"われるソースビルドも含まれることを銘記してください。"
 
 #: ../source/discussions/downstream-packaging.rst:51
-#, fuzzy
-#| msgid "Python source distributions"
 msgid "Provide complete source distributions"
-msgstr "Python ソースコード配布物"
+msgstr "完全な形のソースコード配布物を提供する"
 
 #: ../source/discussions/downstream-packaging.rst:54
 #: ../source/discussions/downstream-packaging.rst:150
@@ -1067,7 +1100,7 @@ msgstr "Python ソースコード配布物"
 #: ../source/discussions/downstream-packaging.rst:303
 #: ../source/discussions/downstream-packaging.rst:412
 msgid "Why?"
-msgstr ""
+msgstr "なぜ？"
 
 #: ../source/discussions/downstream-packaging.rst:56
 msgid ""
@@ -1077,40 +1110,57 @@ msgid ""
 "the distribution. This is also true of pure Python packages that provide "
 "universal wheels. The reasons for using source distributions may include:"
 msgstr ""
+"ダウンストリームのパッケージ作業者の大多数は、アップストリーム側が提供するバ"
+"イナリのパッケージを使ってやるよりも、ソースコードからパッケージをビルドする"
+"ことを好みます。いくつかの場合には、パッケージを配布物に同梱してもらうために"
+"ソースコードを使うことが要求されていることもあります。これは、また、汎用 "
+"<universal> の wheel を提供する純 Python のパッケージにも当てはまります。ソー"
+"スコード配布物を用いる理由には次のようなものがあるでしょう:"
 
 #: ../source/discussions/downstream-packaging.rst:62
 msgid "Being able to audit the source code of all packages."
-msgstr ""
+msgstr "すべてのパッケージのソースコードを監査することができるようにするため。"
 
 #: ../source/discussions/downstream-packaging.rst:64
 msgid "Being able to run the test suite and build documentation."
 msgstr ""
+"試験一式を動作させることができるようにし、また、説明文書をビルドすることがで"
+"きるようにするため。"
 
 #: ../source/discussions/downstream-packaging.rst:66
 msgid ""
 "Being able to easily apply patches, including backporting commits from the "
 "project's repository and sending patches back to the project."
 msgstr ""
+"プロジェクトのリポジトリからのバックポートされたコミットを含めてパッチの適用"
+"が容易にできるようにするため、また、逆にプロジェクトへパッチを送ることができ"
+"るようにするため。"
 
 #: ../source/discussions/downstream-packaging.rst:69
 msgid ""
 "Being able to build on a specific platform that is not covered by upstream "
 "builds."
 msgstr ""
+"アップストリームのビルドではカバーされていない特定のプラットフォームでのビル"
+"ドができるようにするため。"
 
 #: ../source/discussions/downstream-packaging.rst:72
 msgid "Being able to build against specific versions of system libraries."
 msgstr ""
+"システムのライブラリの特定のバージョンに対してビルドができるようにするため。"
 
 #: ../source/discussions/downstream-packaging.rst:74
 msgid "Having a consistent build process across all Python packages."
 msgstr ""
+"すべての Python パッケージを通じて守備一貫したビルドプロセスを保持するため。"
 
 #: ../source/discussions/downstream-packaging.rst:76
 msgid ""
 "While it is usually possible to build packages from a Git repository, there "
 "are a few important reasons to provide a static archive file instead:"
 msgstr ""
+"通常は、 Git リポジトリからパッケージをビルドすることができますが、代わりに静"
+"的なアーカイブファイルを提供する重要ないくつかの理由があります:"
 
 #: ../source/discussions/downstream-packaging.rst:79
 msgid ""
@@ -1118,6 +1168,9 @@ msgid ""
 "supported than e.g. using a Git clone. This can help users with poor "
 "Internet connectivity."
 msgstr ""
+"単一のファイルをダウンロードする方が、より効率が良く、より信頼できて、例えば "
+"Git clone を使うよりも良くサポートされていることがしばしばです。これによっ"
+"て、貧弱なインターネット接続性の元にあるユーザを助けることができます。"
 
 #: ../source/discussions/downstream-packaging.rst:83
 msgid ""
@@ -1126,6 +1179,11 @@ msgid ""
 "time. For example, automatically generated Git archives do not guarantee "
 "this, as the compressed data may change if gzip is upgraded on the server."
 msgstr ""
+"ダウンストリーム側は、引き続くビルドに用いるためのソースファイルの真正性を検"
+"証するために、時を経てもビット単位で同一であることを要求するハッシュ値を使う"
+"ことがしばしばあります。例えば、仮にサーバ上の gzip がアップグレードされれ"
+"ば、圧縮されたデータが変化するかもしれないので、自動的に作成される Git アーカ"
+"イブはこのようなことを保証しません。"
 
 #: ../source/discussions/downstream-packaging.rst:88
 msgid ""
@@ -1134,6 +1192,11 @@ msgid ""
 "or offline environments, that can only access source files provided by the "
 "local mirror or redistributed earlier."
 msgstr ""
+"アーカイブファイルはミラーサイトにおくことも可能で、アップストリームとダウン"
+"ストリームの両方の帯域幅を節約することができます。実際のビルドは、ローカルミ"
+"ラーまたは前もって再配布を受けたソースファイル群にしかアクセスが提供されない"
+"ファイアウォールの内側もしくはオフラインの環境下で後から実行することが可能で"
+"す。"
 
 #: ../source/discussions/downstream-packaging.rst:93
 msgid ""
@@ -1143,6 +1206,11 @@ msgid ""
 "commit tag information, potentially resulting in incorrect version details "
 "in the resulting builds."
 msgstr ""
+"明示的にアーカイブファイルを公開することで、そのソースコードアーカイブが作成"
+"された時点でバージョン管理システムのメタデータに関する依存関係がすべて解決さ"
+"れていたことを保証することができます。例えば、自動的に生成される Git アーカイ"
+"ブはコミットタグ情報をすべて削除していて、そのビルドに必要なバージョン情報の"
+"詳細が不正確になっている可能性があります。"
 
 #: ../source/discussions/downstream-packaging.rst:99
 #: ../source/discussions/downstream-packaging.rst:179
@@ -1150,7 +1218,7 @@ msgstr ""
 #: ../source/discussions/downstream-packaging.rst:337
 #: ../source/discussions/downstream-packaging.rst:441
 msgid "How?"
-msgstr ""
+msgstr "どのように？"
 
 #: ../source/discussions/downstream-packaging.rst:101
 msgid ""
@@ -1160,6 +1228,11 @@ msgid ""
 "documentation, and any other files that may be useful to end users, such as "
 "shell completions, editor support files, and so on."
 msgstr ""
+"理想的には、 ** PyPI上で公開されたソースコード配布物のアーカイブには、その"
+"パッケージの Git リポジトリからパッケージ自体をビルドし、テストスイートを走ら"
+"せ、説明文書をインストールするために必要なファイルや、シェル補完やエディタ用"
+"のサポートファイルなどエンドユーザにとって役に立つかもしれない他のファイルを"
+"全て含めるべきです ** 。"
 
 #: ../source/discussions/downstream-packaging.rst:107
 msgid ""
@@ -1171,6 +1244,13 @@ msgid ""
 "files) should also be included, to help downstreams determine the needed "
 "dependencies, and check for changes in them."
 msgstr ""
+"この点は、パッケージそれ自体に属するファイル群にだけ適用します。Python のパッ"
+"ケージ管理機構に極めてよく似ていますが、ダウンストリームパッケージの処理で"
+"は、必要な Python の依存関係や、そのパッケージとそのビルドスクリプトが必要と"
+"するシステムツールや外部のライブラリの依存関係を提供します。しかしながら、ダ"
+"ウンストリーム側が必要な依存関係を決定し、それらの変更をチェックするために、"
+"これらの依存関係を列挙するファイル (例えば ``requirements*.txt`` ファイル) も"
+"また同梱されるべきです。"
 
 #: ../source/discussions/downstream-packaging.rst:115
 msgid ""
@@ -1184,6 +1264,12 @@ msgid ""
 "Alternatively, large files, such as test data, can be split into separate "
 "archives."
 msgstr ""
+"プロジェクトによっては、PyPI からのソースコード配布物を使う Python パッケージ"
+"管理機構に関して心配する場合があります。彼らとしては、特定のプロジェクトを"
+"ソースコードからビルドするという問題含みではっきりと機能しないことがわかって"
+"いる代替策を有効にすることになるので、これらのツール類によって使われることの"
+"ないファイル群で彼らのパッケージのサイズが増えることを望まなかったり、ソース"
+"コード配布物を公開することを全く望まなかったりするのです。"
 
 #: ../source/discussions/downstream-packaging.rst:124
 msgid ""
@@ -1195,6 +1281,15 @@ msgid ""
 "was taken by the cryptography_ project, with the large test vectors being "
 "split to cryptography-vectors_ package."
 msgstr ""
+"他方で、(例えば NumPy_ のような) いくつかのプロジェクトでは、そのインストール"
+"パッケージの中にテストスイートを同梱することに決めたものがあります。これに"
+"よって、そのようなパッケージをインストールした後に、例えば依存先のパッケージ"
+"をアップグレードした後にリグレッション (退行)がないかどうかの確認を行うため"
+"に、ユーザがテストスイートを走らせることを許すという利点を追加することができ"
+"ます。さらに別のやり方としては、テストスイートやテストデータを別の Python "
+"パッケージに分割する方法があります。そのような方法は、巨大なテストベクトルを "
+"cryptography-vectors_package に分離する形で、 cryptography_ プロジェクトで採"
+"用されています。"
 
 #: ../source/discussions/downstream-packaging.rst:132
 msgid ""
@@ -1204,6 +1299,11 @@ msgid ""
 "source distribution actually works, and that it won't accidentally install "
 "fewer files than the official wheels."
 msgstr ""
+"リリースの際のワークフローでソースコード配布物を用いるのは良い考えです。例え"
+"ば、 :ref:`build` ツールは正にそれをやります -- まずソースコード配布物をビル"
+"ドし、それを使って wheel をビルドするのです。これによって、ソースコード配布物"
+"が実際に動作することを確実にし、誤って公式の wheel よりも数の少ないファイル群"
+"をインストールしてしまうことがなくなります。"
 
 #: ../source/discussions/downstream-packaging.rst:138
 msgid ""
@@ -1212,10 +1312,15 @@ msgid ""
 "actually included. Understandably, this requires more effort, so it's fine "
 "not do that — downstream packagers will report any missing files promptly."
 msgstr ""
+"理想的には、テストスイートを走らせたり説明文書をビルドしたりといったことや、"
+"全ての必要なファイルが実際に含まれていることを確実にする特殊なテストを追加す"
+"るのに、ソースコード配布物も使いましょう。当然のことですが、これはより多くの"
+"努力を必要としますので、こうしなくても問題はありません -- ダウンストリームの"
+"パッケージ作業者たちが素早く不足しているファイルを報告してくれるでしょう。"
 
 #: ../source/discussions/downstream-packaging.rst:147
 msgid "Do not use the Internet during the build process"
-msgstr ""
+msgstr "ビルドプロセスの最中にインターネットを使うことはやめましょう"
 
 #: ../source/discussions/downstream-packaging.rst:152
 msgid ""
@@ -1223,6 +1328,9 @@ msgid ""
 "access the Internet. The package sources are unpacked into this environment, "
 "and all the necessary dependencies are installed."
 msgstr ""
+"ダウンストリームのビルドは、しばしば、インターネットにアクセスすることができ"
+"ないサンドボックス化された環境の中で行われます。パッケージのソースファイルが"
+"この環境内に展開され、必要な全ての依存関係がインストールされます。"
 
 #: ../source/discussions/downstream-packaging.rst:156
 msgid ""
@@ -1230,12 +1338,18 @@ msgid ""
 "properly authenticate downloads, using the Internet is discouraged for a "
 "number of reasons:"
 msgstr ""
+"仮にこれが当てはまらない場合でも、適切にダウンロードを認証するために十分な注"
+"意を払っていたものと仮定して、インターネットを使うことはいくつもの理由から推"
+"奨されません:"
 
 #: ../source/discussions/downstream-packaging.rst:160
 msgid ""
 "The Internet connection may be unstable (e.g. due to poor reception) or "
 "suffer from temporary problems that could cause the process to fail or hang."
 msgstr ""
+"インターネット接続は (例えば受信状態が悪いために) 不安定であるかもしれません"
+"し、プロセスを失敗させたりハングさせたりしかねない一時的な問題の影響を受ける"
+"かもしれません。"
 
 #: ../source/discussions/downstream-packaging.rst:164
 msgid ""
@@ -1243,10 +1357,15 @@ msgid ""
 "making the build no longer possible. This is especially problematic when "
 "someone needs to build an old package version."
 msgstr ""
+"リモートにあるリソース群は、もはやビルドができなくなるような形で、一時的また"
+"は永続的に利用不可能になるかもしれません。これは、特に、誰かが古いバージョン"
+"のパッケージをビルドする必要に迫られた時に問題となります。"
 
 #: ../source/discussions/downstream-packaging.rst:168
 msgid "The remote resources may change, making the build not reproducible."
 msgstr ""
+"リモートのリソース群は、ビルドが再現可能にならない形に変化するかもしれませ"
+"ん。"
 
 #: ../source/discussions/downstream-packaging.rst:170
 msgid ""
@@ -4243,7 +4362,7 @@ msgid ""
 "the :term:`Core Metadata` specification) which begins with ``License ::``."
 msgstr ""
 
-#: ../source/glossary.rst:157
+#: ../source/glossary.rst:157 ../source/specifications/license-expression.rst:3
 msgid "License Expression"
 msgstr ""
 
@@ -8576,24 +8695,22 @@ msgid ""
 "license files and other legally required information. This document aims to "
 "provide clear guidance how to migrate from the legacy to the standardized "
 "way of declaring licenses. Make sure your preferred build backend supports :"
-"pep:`639` before trying to apply the newer guidelines. As of February 2025, :"
-"doc:`setuptools <setuptools:userguide/pyproject_config>` and :ref:`flit "
-"<flit:pyproject_toml_project>` don't support :pep:`639` yet."
+"pep:`639` before trying to apply the newer guidelines."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:20
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:18
 #, fuzzy
 #| msgid "Examples"
 msgid "Licensing Examples"
 msgstr "例"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:25
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:23
 #, fuzzy
 #| msgid "As an example:"
 msgid "Basic example"
 msgstr "ひとつの例として:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:27
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:25
 msgid ""
 "The Setuptools project itself, as of `version 75.6.0 <setuptools7560_>`__, "
 "does not use the ``License`` field in its own project source metadata. "
@@ -8603,25 +8720,25 @@ msgid ""
 "as the :file:`LICENSE` file it uses."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:34
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:32
 msgid ""
 "It includes the following license-related metadata in its :file:`pyproject."
 "toml`:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:44
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:42
 msgid "The simplest migration to PEP 639 would consist of using this instead:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:51
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:49
 msgid "Or, if the project used :file:`setup.cfg`, in its ``[metadata]`` table:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:58
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:56
 msgid "The output Core Metadata for the distribution packages would then be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:65
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:63
 msgid ""
 "The :file:`LICENSE` file would be stored at :file:`/setuptools-{VERSION}/"
 "LICENSE` in the sdist and :file:`/setuptools-{VERSION}.dist-info/licenses/"
@@ -8631,33 +8748,33 @@ msgid ""
 "in the Core Metadata."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:75
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:73
 #, fuzzy
 #| msgid "As an example:"
 msgid "Advanced example"
 msgstr "ひとつの例として:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:77
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:75
 msgid ""
 "Suppose Setuptools were to include the licenses of the third-party projects "
 "that are vendored in the :file:`setuptools/_vendor/` and :file:"
 "`pkg_resources/_vendor/` directories; specifically:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:88
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:86
 #, fuzzy
 #| msgid "The minimum required versions of the respective tools are:"
 msgid "The license expressions for these projects are:"
 msgstr "各ツールは少なくとも次のバージョンでなければなりません:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:97
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:95
 msgid ""
 "A comprehensive license expression covering both Setuptools proper and its "
 "vendored dependencies would contain these metadata, combining all the "
 "license expressions into one. Such an expression might be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:105
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:103
 msgid ""
 "In addition, per the requirements of the licenses, the relevant license "
 "files must be included in the package. Suppose the :file:`LICENSE` file "
@@ -8668,67 +8785,67 @@ msgid ""
 "copyright statement and `license choice notice <packaginglicense_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:113
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:111
 msgid ""
 "Specifically, we assume the license files are located at the following paths "
 "in the project source tree (relative to the project root and :file:"
 "`pyproject.toml`):"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:124
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:122
 msgid "Putting it all together, our :file:`pyproject.toml` would be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:135
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:133
 msgid ""
 "Or alternatively, the license files can be specified explicitly (paths will "
 "be interpreted as glob patterns):"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:149
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:147
 msgid "If our project used :file:`setup.cfg`, we could define this in :"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:161
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:159
 msgid ""
 "With either approach, the output Core Metadata in the distribution would be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:172
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:170
 msgid ""
 "In the resulting sdist, with :file:`/` as the root of the archive and "
 "``{VERSION}`` the version of the Setuptools release specified in the Core "
 "Metadata, the license files would be located at the paths:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:183
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:181
 msgid ""
 "In the built wheel, with :file:`/` being the root of the archive and "
 "``{VERSION}`` as the previous, the license files would be stored at:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:193
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:191
 msgid ""
 "Finally, in the installed project, with :file:`site-packages/` being the "
 "site dir and ``{VERSION}`` as the previous, the license files would be "
 "installed to:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:205
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:203
 #, fuzzy
 #| msgid "As an example:"
 msgid "Expression examples"
 msgstr "ひとつの例として:"
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:207
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:205
 msgid "Some additional examples of valid ``License-Expression`` values:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:222
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:220
 msgid "User Scenarios"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:224
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:222
 msgid ""
 "The following covers the range of common use cases from a user perspective, "
 "providing guidance for each. Do note that the following should **not** be "
@@ -8737,18 +8854,18 @@ msgid ""
 "for their situation."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:232
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:230
 msgid "I have a private package that won't be distributed"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:234
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:232
 msgid ""
 "If your package isn't shared publicly, i.e. outside your company, "
 "organization or household, it *usually* isn't strictly necessary to include "
 "a formal license, so you wouldn't necessarily have to do anything extra here."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:238
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:236
 msgid ""
 "However, it is still a good idea to include ``LicenseRef-Proprietary`` as a "
 "license expression in your package configuration, and/or a copyright "
@@ -8757,11 +8874,11 @@ msgid ""
 "tools."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:246
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:244
 msgid "I just want to share my own work without legal restrictions"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:248
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:246
 msgid ""
 "While you aren't required to include a license, if you don't, no one has "
 "`any permission to download, use or improve your work "
@@ -8771,7 +8888,7 @@ msgid ""
 "want with your work (other than sue you, which you probably also don't want)."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:255
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:253
 msgid ""
 "To apply it, just paste `the text <chooseamitlicense_>`__ into a file named :"
 "file:`LICENSE.txt` at the root of your repo, and add the year and your name "
@@ -8780,11 +8897,11 @@ msgid ""
 "it, or in its config file/section. You're done!"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:263
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:261
 msgid "I want to distribute my project under a specific license"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:265
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:263
 msgid ""
 "To use a particular license, simply paste its text into a :file:`LICENSE."
 "txt` file at the root of your repo, if you don't have it in a file starting "
@@ -8795,24 +8912,24 @@ msgid ""
 "<choosealicenselist_>`__ or `SPDX <spdxlist_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:274
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:272
 msgid ""
 "Many popular code hosts, project templates and packaging tools can add the "
 "license file for you, and may support the expression as well in the future."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:279
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:277
 msgid "I maintain an existing package that's already licensed"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:281
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:279
 msgid ""
 "If you already have license files and metadata in your project, you should "
 "only need to make a couple of tweaks to take advantage of the new "
 "functionality."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:285
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:283
 msgid ""
 "In your project config file, enter your license expression under ``license`` "
 "(``[project]`` table in :file:`pyproject.toml`), or the equivalent for your "
@@ -8823,14 +8940,14 @@ msgid ""
 "that matches the license used in your project."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:294
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:292
 msgid ""
 "Make sure to list your license files under ``license-files`` under "
 "``[project]`` in :file:`pyproject.toml` or else in your tool's configuration "
 "file."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:298
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:296
 msgid ""
 "See the :ref:`licensing-example-basic` for a simple but complete real-world "
 "demo of how this works in practice. See also the best-effort guidance on how "
@@ -8841,11 +8958,11 @@ msgid ""
 "more information."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:308
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:306
 msgid "My package includes other code under different licenses"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:310
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:308
 msgid ""
 "If your project includes code from others covered by different licenses, "
 "such as vendored dependencies or files copied from other open source "
@@ -8853,7 +8970,7 @@ msgid ""
 "involved and the relationship between them."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:316
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:314
 msgid ""
 "In short, ``License-1 AND License-2`` mean that *both* licenses apply to "
 "your project, or parts of it (for example, you included a file under another "
@@ -8863,7 +8980,7 @@ msgid ""
 "to form expressions that cover even the most complex situations."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:324
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:322
 msgid ""
 "In your project config file, enter your license expression under ``license`` "
 "(``[project]`` table of :file:`pyproject.toml`), or the equivalent for your "
@@ -8871,7 +8988,7 @@ msgid ""
 "or ``License ::`` classifiers."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:330
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:328
 msgid ""
 "Also, make sure you add the full license text of all the licenses as files "
 "somewhere in your project repository. List the relative path or glob "
@@ -8880,7 +8997,7 @@ msgid ""
 "configuration file."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:336
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:334
 msgid ""
 "As an example, if your project was licensed MIT but incorporated a vendored "
 "dependency (say, ``packaging``) that was licensed under either Apache 2.0 or "
@@ -8893,7 +9010,7 @@ msgid ""
 "txt\"]`` as literal file paths."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:347
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:345
 msgid ""
 "See a fully worked out :ref:`licensing-example-advanced` for an end-to-end "
 "application of this to a real-world complex project, with many technical "
@@ -12622,15 +12739,15 @@ msgstr ""
 "<choosing-build-backend>`) 示唆するものをコピーするだけでしょう。よく知られた"
 "バックエンドでの値をいくつか挙げておきます:"
 
-#: ../source/guides/writing-pyproject-toml.rst:94
+#: ../source/guides/writing-pyproject-toml.rst:63
 msgid "Static vs. dynamic metadata"
 msgstr "静的なメタデータと動的なメタデータ"
 
-#: ../source/guides/writing-pyproject-toml.rst:96
+#: ../source/guides/writing-pyproject-toml.rst:65
 msgid "The rest of this guide is devoted to the ``[project]`` table."
 msgstr "このガイド文書の残りの部分は、``[project]`` テーブルに捧げます。"
 
-#: ../source/guides/writing-pyproject-toml.rst:98
+#: ../source/guides/writing-pyproject-toml.rst:67
 msgid ""
 "Most of the time, you will directly write the value of a ``[project]`` "
 "field. For example: ``requires-python = \">= 3.8\"``, or ``version = "
@@ -12640,7 +12757,7 @@ msgstr ""
 "う。例えば: ``requires-python = \">= 3.8\"`` や ``version = \"1.0\"`` などで"
 "す。"
 
-#: ../source/guides/writing-pyproject-toml.rst:102
+#: ../source/guides/writing-pyproject-toml.rst:71
 msgid ""
 "However, in some cases, it is useful to let your build backend compute the "
 "metadata for you. For example: many build backends can read the version from "
@@ -12653,7 +12770,7 @@ msgstr ""
 "場合には、以下の例のような方法を使ってそのフィールドを動的なものにしておくべ"
 "きです、"
 
-#: ../source/guides/writing-pyproject-toml.rst:113
+#: ../source/guides/writing-pyproject-toml.rst:82
 msgid ""
 "When a field is dynamic, it is the build backend's responsibility to fill "
 "it.  Consult your build backend's documentation to learn how it does it."
@@ -12662,18 +12779,18 @@ msgstr ""
 "す。どうすれば良いのかについては、ビルドバックエンドの説明文書に当たってみて"
 "ください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:119
+#: ../source/guides/writing-pyproject-toml.rst:88
 msgid "Basic information"
 msgstr "基本的な情報"
 
-#: ../source/guides/writing-pyproject-toml.rst:124
+#: ../source/guides/writing-pyproject-toml.rst:93
 #: ../source/specifications/pyproject-toml.rst:120
 #: ../source/specifications/pyproject-toml.rst:143
-#: ../source/specifications/pyproject-toml.rst:153
+#: ../source/specifications/pyproject-toml.rst:155
 msgid "``name``"
 msgstr "``名称``"
 
-#: ../source/guides/writing-pyproject-toml.rst:126
+#: ../source/guides/writing-pyproject-toml.rst:95
 msgid ""
 "Put the name of your project on PyPI. This field is required and is the only "
 "field that cannot be marked as dynamic."
@@ -12681,7 +12798,7 @@ msgstr ""
 "PyPI 上でのプロジェクト名称を書いてください。このフィールドは必須のもので、動"
 "的であるとマークできない唯一のフィールドです。"
 
-#: ../source/guides/writing-pyproject-toml.rst:134
+#: ../source/guides/writing-pyproject-toml.rst:103
 #, fuzzy
 #| msgid ""
 #| "The project name must consists of ASCII letters, digits, underscores "
@@ -12696,7 +12813,7 @@ msgstr ""
 "\"``-``\"・ピリオド \"``.``\" だけでできていなければなりません。また、アン"
 "ダースコア・ハイフン・ピリオドで始まってはなりません。"
 
-#: ../source/guides/writing-pyproject-toml.rst:138
+#: ../source/guides/writing-pyproject-toml.rst:107
 msgid ""
 "Comparison of project names is case insensitive and treats arbitrarily long "
 "runs of underscores, hyphens, and/or periods as equal.  For example, if you "
@@ -12711,18 +12828,18 @@ msgstr ""
 "できます: ``Cool-Stuff`` ・ ``cool.stuff`` ・ ``COOL_STUFF`` ・ ``CoOl__-.-"
 "__sTuFF`` 。"
 
-#: ../source/guides/writing-pyproject-toml.rst:146
+#: ../source/guides/writing-pyproject-toml.rst:115
 #: ../source/specifications/pyproject-toml.rst:125
 #: ../source/specifications/pyproject-toml.rst:149
-#: ../source/specifications/pyproject-toml.rst:165
+#: ../source/specifications/pyproject-toml.rst:170
 msgid "``version``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:148
+#: ../source/guides/writing-pyproject-toml.rst:117
 msgid "Put the version of your project."
 msgstr "プロジェクトのバージョンを書いてください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:155
+#: ../source/guides/writing-pyproject-toml.rst:124
 msgid ""
 "Some more complicated version specifiers like ``2020.0.0a1`` (for an alpha "
 "release) are possible; see the :ref:`specification <version-specifiers>` for "
@@ -12732,13 +12849,13 @@ msgstr ""
 "指定子も可能ですので、 詳細については :ref:`仕様 <version-specifiers>` を見て"
 "ください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:159
+#: ../source/guides/writing-pyproject-toml.rst:128
 msgid "This field is required, although it is often marked as dynamic using"
 msgstr ""
 "動的であるとマークされることがしばしばではありますが、このフィールドは必須の"
 "ものです"
 
-#: ../source/guides/writing-pyproject-toml.rst:166
+#: ../source/guides/writing-pyproject-toml.rst:135
 #, fuzzy
 #| msgid ""
 #| "This allows use cases such as filling the version from a ``__version__`` "
@@ -12753,20 +12870,20 @@ msgstr ""
 "な使い方が可能になります。 :ref:`バージョンを１箇所で管理する <Single "
 "sourcing the version>` を見てみてください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:172
+#: ../source/guides/writing-pyproject-toml.rst:141
 msgid "Dependencies and requirements"
 msgstr "依存関係と要求事項"
 
-#: ../source/guides/writing-pyproject-toml.rst:175
-#: ../source/specifications/pyproject-toml.rst:399
+#: ../source/guides/writing-pyproject-toml.rst:144
+#: ../source/specifications/pyproject-toml.rst:443
 msgid "``dependencies``/``optional-dependencies``"
 msgstr "``dependencies``/``optional-dependencies``"
 
-#: ../source/guides/writing-pyproject-toml.rst:177
+#: ../source/guides/writing-pyproject-toml.rst:146
 msgid "If your project has dependencies, list them like this:"
 msgstr "もしプロジェクトに依存関係があるなら、このように列挙してください:"
 
-#: ../source/guides/writing-pyproject-toml.rst:189
+#: ../source/guides/writing-pyproject-toml.rst:158
 msgid ""
 "See :ref:`Dependency specifiers <dependency-specifiers>` for the full syntax "
 "you can use to constrain versions."
@@ -12774,7 +12891,7 @@ msgstr ""
 "バージョンに制限をかけるために使えるあらゆるシンタックスについては、 :ref:`依"
 "存関係指定子 <dependency-specifiers>` を参照してください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:192
+#: ../source/guides/writing-pyproject-toml.rst:161
 msgid ""
 "You may want to make some of your dependencies optional, if they are only "
 "needed for a specific feature of your package. In that case, put them in "
@@ -12784,7 +12901,7 @@ msgstr ""
 "プションにしたい時があるかもしれません。そのような場合には、 ``optional-"
 "dependencies`` に置きましょう。"
 
-#: ../source/guides/writing-pyproject-toml.rst:205
+#: ../source/guides/writing-pyproject-toml.rst:174
 msgid ""
 "Each of the keys defines a \"packaging extra\". In the example above, one "
 "could use, e.g., ``pip install your-project-name[gui]`` to install your "
@@ -12794,13 +12911,13 @@ msgstr ""
 "の例では、プロジェクトを例えば GUI サポート付きでインストールするためには "
 "``pip install your-project-name[gui]`` を使うことができます。"
 
-#: ../source/guides/writing-pyproject-toml.rst:214
+#: ../source/guides/writing-pyproject-toml.rst:183
 #: ../source/specifications/pyproject-toml.rst:146
-#: ../source/specifications/pyproject-toml.rst:228
+#: ../source/specifications/pyproject-toml.rst:239
 msgid "``requires-python``"
 msgstr "``requires-python``"
 
-#: ../source/guides/writing-pyproject-toml.rst:216
+#: ../source/guides/writing-pyproject-toml.rst:185
 msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
@@ -12808,11 +12925,11 @@ msgstr ""
 "これによってサポートされている Python の上限のバージョンを宣言することができ"
 "ます [#requires-python-upper-bounds]_ 。"
 
-#: ../source/guides/writing-pyproject-toml.rst:228
+#: ../source/guides/writing-pyproject-toml.rst:197
 msgid "Creating executable scripts"
 msgstr "実行可能なスクリプトを作成する"
 
-#: ../source/guides/writing-pyproject-toml.rst:230
+#: ../source/guides/writing-pyproject-toml.rst:199
 msgid ""
 "To install a command as part of your package, declare it in the ``[project."
 "scripts]`` table."
@@ -12820,7 +12937,7 @@ msgstr ""
 "パッケージの一部としてコマンドをインストールするためには、 ``[project."
 "scripts]`` テーブルで宣言してください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:238
+#: ../source/guides/writing-pyproject-toml.rst:207
 #, fuzzy
 #| msgid ""
 #| "In this example, after installing your project, a ``spam-cli`` command "
@@ -12835,7 +12952,7 @@ msgstr ""
 "きるようになるでしょう。このコマンドを実行することで、 ``from spam import "
 "main_cli; main_cli()`` と同等のことを行うでしょう。"
 
-#: ../source/guides/writing-pyproject-toml.rst:242
+#: ../source/guides/writing-pyproject-toml.rst:211
 msgid ""
 "On Windows, scripts packaged this way need a terminal, so if you launch them "
 "from within a graphical application, they will make a terminal pop up. To "
@@ -12848,7 +12965,7 @@ msgstr ""
 "``[project.scripts]`` の代わりに ``[project.gui-scripts]`` テープルを使ってく"
 "ださい。"
 
-#: ../source/guides/writing-pyproject-toml.rst:252
+#: ../source/guides/writing-pyproject-toml.rst:221
 msgid ""
 "In that case, launching your script from the command line will give back "
 "control immediately, leaving the script to run in the background."
@@ -12856,7 +12973,7 @@ msgstr ""
 "そうすることで、コマンドラインからスクリプトを起動してスクリプトがバックグラ"
 "ウンドで走らせることですぐに制御を取り戻すことができるでしょう。"
 
-#: ../source/guides/writing-pyproject-toml.rst:255
+#: ../source/guides/writing-pyproject-toml.rst:224
 msgid ""
 "The difference between ``[project.scripts]`` and ``[project.gui-scripts]`` "
 "is only relevant on Windows."
@@ -12864,16 +12981,16 @@ msgstr ""
 "Windows 上では、 ``[project.scripts]`` と ``[project.gui-scripts]`` の間の差"
 "異だけが実質的に効果を持ちます。"
 
-#: ../source/guides/writing-pyproject-toml.rst:261
+#: ../source/guides/writing-pyproject-toml.rst:230
 msgid "About your project"
 msgstr "あなたのプロジェクトについて"
 
-#: ../source/guides/writing-pyproject-toml.rst:264
-#: ../source/specifications/pyproject-toml.rst:289
+#: ../source/guides/writing-pyproject-toml.rst:233
+#: ../source/specifications/pyproject-toml.rst:320
 msgid "``authors``/``maintainers``"
 msgstr "``authors``/``maintainers``"
 
-#: ../source/guides/writing-pyproject-toml.rst:266
+#: ../source/guides/writing-pyproject-toml.rst:235
 msgid ""
 "Both of these fields contain lists of people identified by a name and/or an "
 "email address."
@@ -12881,13 +12998,13 @@ msgstr ""
 "これらのフィールドは両方とも名前とメールアドレスの両方またはいずれかで識別さ"
 "れる人々のリストを含みます。"
 
-#: ../source/guides/writing-pyproject-toml.rst:286
+#: ../source/guides/writing-pyproject-toml.rst:255
 #: ../source/specifications/pyproject-toml.rst:135
-#: ../source/specifications/pyproject-toml.rst:178
+#: ../source/specifications/pyproject-toml.rst:185
 msgid "``description``"
 msgstr "``説明 <description>``"
 
-#: ../source/guides/writing-pyproject-toml.rst:288
+#: ../source/guides/writing-pyproject-toml.rst:257
 msgid ""
 "This should be a one-line description of your project, to show as the "
 "\"headline\" of your project page on PyPI (`example <pypi-pip_>`_), and "
@@ -12897,13 +13014,13 @@ msgstr ""
 "pip_>`_) や検索結果 (`例 <pypi-search-pip_>`_) のような他の場所で表示されるも"
 "のなので、１行でプロジェクトの説明をしたものであるべきです。"
 
-#: ../source/guides/writing-pyproject-toml.rst:299
+#: ../source/guides/writing-pyproject-toml.rst:268
 #: ../source/specifications/pyproject-toml.rst:145
-#: ../source/specifications/pyproject-toml.rst:189
+#: ../source/specifications/pyproject-toml.rst:198
 msgid "``readme``"
 msgstr "``readme``"
 
-#: ../source/guides/writing-pyproject-toml.rst:301
+#: ../source/guides/writing-pyproject-toml.rst:270
 msgid ""
 "This is a longer description of your project, to display on your project "
 "page on PyPI. Typically, your project will have a ``README.md`` or ``README."
@@ -12914,53 +13031,128 @@ msgstr ""
 "するものなので、その場合にはここにはそのファイル名だけを書いておけば良いで"
 "しょう。"
 
-#: ../source/guides/writing-pyproject-toml.rst:310
+#: ../source/guides/writing-pyproject-toml.rst:279
 msgid "The README's format is auto-detected from the extension:"
 msgstr "README のフォーマットは拡張から自動的に検出されます:"
 
-#: ../source/guides/writing-pyproject-toml.rst:312
+#: ../source/guides/writing-pyproject-toml.rst:281
 msgid "``README.md`` → `GitHub-flavored Markdown <gfm_>`_,"
 msgstr "``README.md`` → `GitHub 流のマークダウン <gfm_>`_ 、"
 
-#: ../source/guides/writing-pyproject-toml.rst:313
+#: ../source/guides/writing-pyproject-toml.rst:282
 msgid ""
 "``README.rst`` → `reStructuredText <rest_>`_ (without Sphinx extensions)."
 msgstr ""
 "``README.rst`` → `reStructuredText <rest_>_`_ (ただし Sphinx 拡張なし)。"
 
-#: ../source/guides/writing-pyproject-toml.rst:315
+#: ../source/guides/writing-pyproject-toml.rst:284
 msgid "You can also specify the format explicitly, like this:"
 msgstr "次のようにしてフォーマットを明示的に指定することもできます:"
 
-#: ../source/guides/writing-pyproject-toml.rst:328
+#: ../source/guides/writing-pyproject-toml.rst:297
+#, fuzzy
+#| msgid "``license``"
+msgid "``license`` and ``license-files``"
+msgstr "``ライセンス``"
+
+#: ../source/guides/writing-pyproject-toml.rst:299
+msgid "As per :pep:`639` licenses should be declared with two fields:"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:301
+msgid ""
+"``license`` is an :term:`SPDX license expression <License Expression>` "
+"consisting of one or more :term:`license identifiers <License Identifier>`."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:303
+msgid "``license-files`` is a list of license file glob patterns."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:305
+msgid ""
+"A previous PEP had specified ``license`` to be a table with a ``file`` or a "
+"``text`` key, this format is now deprecated. Most :term:`build "
+"backends<build backend>` now support the new format as shown in the "
+"following table."
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:309
+msgid "build backend versions that introduced :pep:`639` support"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:312
+#, fuzzy
+#| msgid "hatch"
+msgid "hatchling"
+msgstr "hatch"
+
+#: ../source/guides/writing-pyproject-toml.rst:313
+#, fuzzy
+#| msgid "Setuptools"
+msgid "setuptools"
+msgstr "Setuptools"
+
+#: ../source/guides/writing-pyproject-toml.rst:314
+msgid "flit-core [#flit-core-pep639]_"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:315
+#, fuzzy
+#| msgid "Build backends"
+msgid "pdm-backend"
+msgstr "ビルドバックエンド"
+
+#: ../source/guides/writing-pyproject-toml.rst:316
+#, fuzzy
+#| msgid "poetry"
+msgid "poetry-core"
+msgstr "poetry"
+
+#: ../source/guides/writing-pyproject-toml.rst:317
+msgid "1.27.0"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:318
+msgid "77.0.3"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:319
+msgid "3.12"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:320
+msgid "2.4.0"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:321
+msgid "`not yet <poetry-pep639-issue_>`_"
+msgstr ""
+
+#: ../source/guides/writing-pyproject-toml.rst:327
 #: ../source/specifications/pyproject-toml.rst:140
-#: ../source/specifications/pyproject-toml.rst:238
+#: ../source/specifications/pyproject-toml.rst:251
 msgid "``license``"
 msgstr "``ライセンス``"
 
-#: ../source/guides/writing-pyproject-toml.rst:330
+#: ../source/guides/writing-pyproject-toml.rst:329
 msgid ""
-":pep:`639` (accepted in August 2024) has changed the way the ``license`` "
-"field is declared. Make sure your preferred build backend supports :pep:"
-"`639` before trying to apply the newer guidelines. As of February 2025, :doc:"
-"`setuptools <setuptools:userguide/pyproject_config>` and :ref:`flit <flit:"
-"pyproject_toml_project>` don't support :pep:`639` yet."
+"The new format for ``license`` is a valid :term:`SPDX license expression "
+"<License Expression>` consisting of one or more :term:`license identifiers "
+"<License Identifier>`. The full license list is available at the `SPDX "
+"license list page <spdxlicenselist_>`_. The supported list version is 3.17 "
+"or any later compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:337
-msgid ":pep:`639` license declaration"
-msgstr ""
-
-#: ../source/guides/writing-pyproject-toml.rst:339
+#: ../source/guides/writing-pyproject-toml.rst:342
 msgid ""
-"This is a valid :term:`SPDX license expression <License Expression>` "
-"consisting of one or more :term:`license identifiers <License Identifier>`. "
-"The full license list is available at the `SPDX license list page "
-"<spdxlicenselist_>`_. The supported list version is 3.17 or any later "
-"compatible one."
+"If you get a build error that ``license`` should be a dict/table, your build "
+"backend doesn't yet support the new format. See the `above section <license-"
+"and-license-files_>`_ for more context. The now deprecated format is "
+"`described in PEP 621 <https://peps.python.org/pep-0621/#license>`__."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:352
+#: ../source/guides/writing-pyproject-toml.rst:347
 #, fuzzy
 #| msgid ""
 #| "If you are using a standard, well-known license, it is not necessary to "
@@ -12980,7 +13172,7 @@ msgstr ""
 "るし、中には内部で認可済みのライセンスでなければソフトウェアを使えない組織も"
 "あるからです。)"
 
-#: ../source/guides/writing-pyproject-toml.rst:356
+#: ../source/guides/writing-pyproject-toml.rst:351
 msgid ""
 "If your project is licensed with a license that doesn't have an existing "
 "SPDX identifier, you can create a custom one in format ``LicenseRef-"
@@ -12989,119 +13181,67 @@ msgid ""
 "one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:367
-msgid "Legacy license declaration"
-msgstr ""
-
-#: ../source/guides/writing-pyproject-toml.rst:369
-#, fuzzy
-#| msgid ""
-#| "This can take two forms. You can put your license in a file, typically "
-#| "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
-msgid ""
-"This can take two forms. You can put your license in a file, typically :file:"
-"`LICENSE` or :file:`LICENSE.txt`, and link that file here:"
-msgstr ""
-"これは、ふたつの形式を採ります。典型的には ``LICENSE`` か ``LICENSE.txt`` と"
-"いうファイル名でライセンスをファイルとして置いておいて、ここにはそのファイル"
-"へのリンクを書いて置くこともできます:"
-
-#: ../source/guides/writing-pyproject-toml.rst:377
-msgid "or you can write the name of the license:"
-msgstr "あるいは、ライセンスの名称を書いておくことも可能です:"
-
-#: ../source/guides/writing-pyproject-toml.rst:384
-#, fuzzy
-#| msgid ""
-#| "If you are using a standard, well-known license, it is not necessary to "
-#| "use this field. Instead, you should one of the :ref:`classifiers` "
-#| "starting with ``License ::``. (As a general rule, it is a good idea to "
-#| "use a standard, well-known license, both to avoid confusion and because "
-#| "some organizations avoid software whose license is unapproved.)"
-msgid ""
-"If you are using a standard, well-known license, it is not necessary to use "
-"this field. Instead, you should use one of the :ref:`classifiers` starting "
-"with ``License ::``. (As a general rule, it is a good idea to use a "
-"standard, well-known license, both to avoid confusion and because some "
-"organizations avoid software whose license is unapproved.)"
-msgstr ""
-"標準的でよく知られたライセンスを使うのであれば、このフィールドを使う必要はあ"
-"りません。代わりに、 ``License::`` で始まる :ref:`分類子 <classifiers>` のう"
-"ちのひとつを書いておけば良いでしょう。 (一般的な規則としては標準的でよく知ら"
-"れたライセンスを使うことは良い考えです、というのは、混乱を避けるとことにもな"
-"るし、中には内部で認可済みのライセンスでなければソフトウェアを使えない組織も"
-"あるからです。)"
-
-#: ../source/guides/writing-pyproject-toml.rst:394
+#: ../source/guides/writing-pyproject-toml.rst:365
 #: ../source/specifications/pyproject-toml.rst:141
-#: ../source/specifications/pyproject-toml.rst:253
+#: ../source/specifications/pyproject-toml.rst:281
 #, fuzzy
 #| msgid "``license``"
 msgid "``license-files``"
 msgstr "``ライセンス``"
 
-#: ../source/guides/writing-pyproject-toml.rst:396
-msgid ""
-":pep:`639` (accepted in August 2024) has introduced the ``license-files`` "
-"field. Make sure your preferred build backend supports :pep:`639` before "
-"declaring the field. As of February 2025, :doc:`setuptools <setuptools:"
-"userguide/pyproject_config>` and :ref:`flit <flit:pyproject_toml_project>` "
-"don't support :pep:`639` yet."
-msgstr ""
-
-#: ../source/guides/writing-pyproject-toml.rst:402
+#: ../source/guides/writing-pyproject-toml.rst:367
 msgid ""
 "This is a list of license files and files containing other legal information "
 "you want to distribute with your package."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:410
+#: ../source/guides/writing-pyproject-toml.rst:375
 msgid "The glob patterns must follow the specification:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:412
+#: ../source/guides/writing-pyproject-toml.rst:377
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
 "``) will be matched verbatim."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:414
+#: ../source/guides/writing-pyproject-toml.rst:379
 msgid ""
 "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are "
 "supported."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:415
+#: ../source/guides/writing-pyproject-toml.rst:380
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:416
+#: ../source/guides/writing-pyproject-toml.rst:381
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`, "
 "and thus may not start with a slash character."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:418
+#: ../source/guides/writing-pyproject-toml.rst:383
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:419
+#: ../source/guides/writing-pyproject-toml.rst:384
 msgid "Each glob must match at least one file."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:421
+#: ../source/guides/writing-pyproject-toml.rst:386
 msgid ""
 "Literal paths are valid globs. Any characters or character sequences not "
 "covered by this specification are invalid."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:427
+#: ../source/guides/writing-pyproject-toml.rst:392
 #: ../source/specifications/pyproject-toml.rst:139
-#: ../source/specifications/pyproject-toml.rst:331
+#: ../source/specifications/pyproject-toml.rst:364
 msgid "``keywords``"
 msgstr "``keywords``"
 
-#: ../source/guides/writing-pyproject-toml.rst:429
+#: ../source/guides/writing-pyproject-toml.rst:394
 msgid ""
 "This will help PyPI's search box to suggest your project when people search "
 "for these keywords."
@@ -13109,13 +13249,13 @@ msgstr ""
 "これは、 PyPI 上の検索でキーワードが与えられた時にこのプロジェクトをサジェス"
 "トするのを助けます。"
 
-#: ../source/guides/writing-pyproject-toml.rst:441
+#: ../source/guides/writing-pyproject-toml.rst:406
 #: ../source/specifications/pyproject-toml.rst:133
-#: ../source/specifications/pyproject-toml.rst:341
+#: ../source/specifications/pyproject-toml.rst:376
 msgid "``classifiers``"
 msgstr "``分類詞 <classifiers>``"
 
-#: ../source/guides/writing-pyproject-toml.rst:443
+#: ../source/guides/writing-pyproject-toml.rst:408
 msgid ""
 "A list of PyPI classifiers that apply to your project. Check the `full list "
 "of possibilities <classifier-list_>`_."
@@ -13123,7 +13263,7 @@ msgstr ""
 "プロジェクトに合致する PyPI 分類子 <classifier> のリスト。 `可能な分類子のリ"
 "スト <classifier-list_>`_ を参照してください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:467
+#: ../source/guides/writing-pyproject-toml.rst:432
 msgid ""
 "Although the list of classifiers is often used to declare what Python "
 "versions a project supports, this information is only used for searching and "
@@ -13138,7 +13278,7 @@ msgstr ""
 "トールされ得るのかを実際に制約するためには、 :ref:`requires-python` 引数を"
 "使ってください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:472
+#: ../source/guides/writing-pyproject-toml.rst:437
 msgid ""
 "To prevent a package from being uploaded to PyPI, use the special "
 "``Private :: Do Not Upload`` classifier. PyPI will always reject packages "
@@ -13148,13 +13288,13 @@ msgstr ""
 "Upload`` 分類子を使いましょう。``Private ::`` で始まる分類子を付けられたパッ"
 "ケージを PyPI は常に拒否します。"
 
-#: ../source/guides/writing-pyproject-toml.rst:479
+#: ../source/guides/writing-pyproject-toml.rst:444
 #: ../source/specifications/pyproject-toml.rst:148
-#: ../source/specifications/pyproject-toml.rst:357
+#: ../source/specifications/pyproject-toml.rst:394
 msgid "``urls``"
 msgstr "``urls``"
 
-#: ../source/guides/writing-pyproject-toml.rst:481
+#: ../source/guides/writing-pyproject-toml.rst:446
 msgid ""
 "A list of URLs associated with your project, displayed on the left sidebar "
 "of your PyPI project page."
@@ -13162,7 +13302,7 @@ msgstr ""
 "プロジェクトに関連のある URL のリストで、PyPI 上のプロジェクトページの左サイ"
 "ドバーに表示されるもの。"
 
-#: ../source/guides/writing-pyproject-toml.rst:486
+#: ../source/guides/writing-pyproject-toml.rst:451
 msgid ""
 "See :ref:`well-known-labels` for a listing of labels that PyPI and other "
 "packaging tools are specifically aware of, and `PyPI's project metadata docs "
@@ -13170,7 +13310,7 @@ msgid ""
 "URL processing."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:500
+#: ../source/guides/writing-pyproject-toml.rst:465
 #, fuzzy
 #| msgid ""
 #| "Note that if the key contains spaces, it needs to be quoted, e.g., "
@@ -13185,21 +13325,21 @@ msgstr ""
 "com\"`` ではなくて ``\"Official Website\" = \"https://example.com\"`` のよう"
 "に引用符で囲む必要があります。"
 
-#: ../source/guides/writing-pyproject-toml.rst:504
+#: ../source/guides/writing-pyproject-toml.rst:469
 msgid ""
 "Users are advised to use :ref:`well-known-labels` for their project URLs "
 "where appropriate, since consumers of metadata (like package indices) can "
 "specialize their presentation."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:508
+#: ../source/guides/writing-pyproject-toml.rst:473
 msgid ""
 "For example in the following metadata, neither ``MyHomepage`` nor "
 "``\"Download Link\"`` is a well-known label, so they will be rendered "
 "verbatim:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:518
+#: ../source/guides/writing-pyproject-toml.rst:483
 msgid ""
 "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known "
 "equivalents (``homepage`` and ``download``), and can be presented with those "
@@ -13207,11 +13347,11 @@ msgid ""
 "location, respectively)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:530
+#: ../source/guides/writing-pyproject-toml.rst:495
 msgid "Advanced plugins"
 msgstr "先進的なプラグイン"
 
-#: ../source/guides/writing-pyproject-toml.rst:532
+#: ../source/guides/writing-pyproject-toml.rst:497
 msgid ""
 "Some packages can be extended through plugins. Examples include Pytest_ and "
 "Pygments_. To create such a plugin, you need to declare it in a subtable of "
@@ -13222,16 +13362,16 @@ msgstr ""
 "以下のように ``[project.entry-points]`` のサブテーブルで宣言する必要がありま"
 "す:"
 
-#: ../source/guides/writing-pyproject-toml.rst:541
+#: ../source/guides/writing-pyproject-toml.rst:506
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 "詳しくは、 :ref:`プラグインガイド <plugin-entry-points>` を見てください。"
 
-#: ../source/guides/writing-pyproject-toml.rst:546
+#: ../source/guides/writing-pyproject-toml.rst:511
 msgid "A full example"
 msgstr "完全な例"
 
-#: ../source/guides/writing-pyproject-toml.rst:609
+#: ../source/guides/writing-pyproject-toml.rst:574
 msgid ""
 "Think twice before applying an upper bound like ``requires-python = \"<= "
 "3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some "
@@ -13240,6 +13380,12 @@ msgstr ""
 "ここで ``requires-python = \"<=3.10\"`` のような上限を設定する前に、よくよく"
 "考えてください。起きる可能性のある問題に関するいくらかの情報が `このブログ記"
 "事 <requires-python-blog-post_>`_ にあります。"
+
+#: ../source/guides/writing-pyproject-toml.rst:578
+msgid ""
+"flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license "
+"expressions."
+msgstr ""
 
 #: ../source/index.rst:-1
 msgid ""
@@ -17644,7 +17790,7 @@ msgstr ""
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:434
-#: ../source/specifications/pyproject-toml.rst:487
+#: ../source/specifications/pyproject-toml.rst:531
 #: ../source/specifications/recording-installed-packages.rst:268
 #: ../source/specifications/simple-repository-api.rst:993
 #: ../source/specifications/source-distribution-format.rst:153
@@ -17698,6 +17844,727 @@ msgstr "補遺"
 #: ../source/specifications/binary-distribution-format.rst:453
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "urlsafe-base64-nopad の実装の例::"
+
+#: ../source/specifications/build-details/index.rst:7
+#: ../source/specifications/build-details/index.rst:41
+msgid "v1.0"
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:5
+msgid ":file:`build-details.json`"
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:13
+msgid ""
+"The ``build-details.json`` file is a standardized file format that provides "
+"build-specfic information of a Python installation, such as its version, "
+"extension ABI details, and other information that is specific to that "
+"particular build of Python."
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:18
+msgid ""
+"Starting from Python 3.14, a ``build-details.json`` file is installed in the "
+"platform-independent standard library directory (``stdlib``, e.g. ``/usr/lib/"
+"python3.14/build-details.json``)."
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:22
+msgid ""
+"Please refer to the :ref:`latest version <build-details-v1.0>` for its "
+"specification."
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:28
+#: ../source/specifications/build-details/v1.0.rst:16
+#: ../source/specifications/inline-script-metadata.rst:100
+msgid "Example"
+msgstr "例"
+
+#: ../source/specifications/build-details/index.rst:35
+#, fuzzy
+#| msgid "Changes"
+msgid "Changelog"
+msgstr "変更点"
+
+#: ../source/specifications/build-details/index.rst:45
+#: ../source/specifications/build-details/v1.0.rst:9
+#: ../source/specifications/dependency-groups.rst:20
+#: ../source/specifications/dependency-specifiers.rst:26
+#: ../source/specifications/direct-url-data-structure.rst:19
+#: ../source/specifications/direct-url.rst:15
+#: ../source/specifications/index-hosted-attestations.rst:17
+#: ../source/specifications/inline-script-metadata.rst:13
+#: ../source/specifications/license-expression.rst:12
+msgid "Specification"
+msgstr "仕様"
+
+#: ../source/specifications/build-details/index.rst:46
+msgid ":ref:`build-details-v1.0`"
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:48
+#, fuzzy
+#| msgid "JSON Schema"
+msgid "Schema"
+msgstr "JSON スキーマ"
+
+#: ../source/specifications/build-details/index.rst:49
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"https://packaging.python.org/en/latest/specifications/schemas/build-details-"
+"v1.0.schema.json"
+msgstr ""
+
+#: ../source/specifications/build-details/index.rst:52
+msgid "Initial version, introduced by :pep:`739`."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:5
+msgid "``build-details.json`` v1.0"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"*build-details.json — a static description file with build details of Python "
+"installations*"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "type"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Project"
+msgid "*object*"
+msgstr "プロジェクト"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "properties"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**schema\\_version**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Semantic versioning"
+msgid "Schema version."
+msgstr "セマンティックバージョニング"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This is a string following the format ``<MAJOR>.<MINOR>``, where ``<MAJOR>`` "
+"and ``<MINOR>`` are unpaded numbers and represent the **major** and "
+"**minor** components of the version. Versions may be arithmetically compared "
+"by intrepreting the version string as a decimal number."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"For this specification version, this value is constant and **MUST** be "
+"``1.0``."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"Future versions of this schema **MUST** use a higher version number. Future "
+"versions of this schema **MUST NOT** use the same **major** version "
+"component as other schema version unless its specification is deemed "
+"backwards-compatible with them — it can't change, or extend, any parts of "
+"the current specification in such a way as the semantics of the interpreted "
+"data differ, or that data valid under the new specification is invalid under "
+"the older specification, with the exception of additional properties (errors "
+"caused by ``additionalProperties``)."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "*string*"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "enscons"
+msgid "const"
+msgstr "enscons"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "1.0"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**base\\_prefix**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Base prefix of the Python installation."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"Either an absolute path, or a path relative to directory where this file is "
+"contained."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Examples"
+msgid "examples"
+msgstr "例"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "../.."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "base\\_interpreter"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "The path to the Python interprer of the base installation."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Either an absolute path, or a path relative to ``base_prefix``."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the installation provides an interpreter "
+"executable."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr/bin/python"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "python"
+msgid "bin/python"
+msgstr "python"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "platform tag"
+msgid "**platform**"
+msgstr "プラットフォームタグ"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "platform tag"
+msgid "System platform string."
+msgstr "プラットフォームタグ"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "This field **SHOULD** be equivalent to ``sysconfig.get_platform()``."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "linux_x86_64"
+msgid "linux-x86\\_64"
+msgstr "linux_x86_64"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**language**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object containing details related to the Python language specification."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Versions"
+msgid "**version**"
+msgstr "バージョン指定子"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"String representation the Python language version — a version string "
+"consisting only of the *major* and *minor* components."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **SHOULD** be equivalent to ``sysconfig.get_python_version()``."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "3.14"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Versioning"
+msgid "version\\_info"
+msgstr "バージョニング"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object in the format of :py:data:`sys.version_info`."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "This section **SHOULD** be equivalent to :py:data:`sys.version_info`."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "major"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "3"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "minor"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "14"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "micro"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "1"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Release"
+msgid "releaselevel"
+msgstr "リリース"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "final"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Mercurial"
+msgid "serial"
+msgstr "Mercurial"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "0"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**major**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "**Numbers**"
+msgid "*number*"
+msgstr "**数値の書き方**"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**minor**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**micro**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**releaselevel**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "enum"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "alpha, beta, candidate, final"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**serial**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Additional notes"
+msgid "additionalProperties"
+msgstr "補遺"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "False"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Implementation Notes"
+msgid "**implementation**"
+msgstr "実装に関する覚書"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object containing details related to Python implementation."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This section **SHOULD** be equivalent to :py:data:`sys.implementation`. It "
+"follows specification defined in PEP 421, meaning that on top of the "
+"required keys, implementation-specific keys can also exist, but must be "
+"prefixed with an underscore."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "**name**"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Lower-case name of the Python implementation."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "python"
+msgid "cpython"
+msgstr "python"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "pypy"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"Object in the format of :py:data:`sys.version_info`, containing the "
+"implementation version."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "7"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "16"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "True"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "abi tag"
+msgid "abi"
+msgstr "abi タグ"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object containing details related to ABI."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "**Headings**"
+msgid "**flags**"
+msgstr "**見出しの付け方**"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Build configuration flags, used to calculate the extension suffix."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"The flags **MUST** be defined in the order they appear on the extension "
+"suffix."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "*array*"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "t"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "d"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "extension\\_suffix"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"Suffix used for extensions built against the current implementation version."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the Python implementation supports "
+"extensions, otherwise this entry will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ".cpython-314-x86\\_64-linux-gnu.so"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "stable\\_abi\\_suffix"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Suffix used for extensions built against the stable ABI."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the Python implementation has a stable ABI "
+"extension suffix, otherwise this entry will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ".abi3.so"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "suffixes"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Valid module suffixes grouped by type."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This section **MUST** be present if the Python installation supports "
+"importing external files, and it **SHOULD** be equivalent to the ``importlib."
+"machinery.*_SUFFIXES`` attributes."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"Additionally, if a Python implementation provides extension kinds other than "
+"the ones listed on ``importlib.machinery`` module, they **MAY** add a sub-"
+"section for them."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "source"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ".py"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "bytecode"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ".pyc"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "optimized_bytecode"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "debug_bytecode"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Versions"
+msgid "extensions"
+msgstr "バージョン指定子"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ".cpython-313-x86\\_64-linux-gnu.so"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ".so"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "python"
+msgid "libpython"
+msgstr "python"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object containing details related to the ``libpython`` library."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This section **MUST** by present if Python installation provides a "
+"``libpython`` library, otherwise this section will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "``dynamic``"
+msgid "dynamic"
+msgstr "``dynamic``"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "The path to the dynamic ``libpython`` library."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the Python installation provides a dynamic "
+"``libpython`` library, otherwise this entry will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr/lib/libpython3.14.so.1.0"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "lib/libpython3.14.so.1.0"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "dynamic\\_stableabi"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "The path to the dynamic ``libpython`` library for the stable ABI."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the Python installation provides a dynamic "
+"``libpython`` library targeting the Stable ABI, otherwise this entry will be "
+"missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "If this key is present ``dynamic`` **MUST** also be set."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr/lib/libpython3.so"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "lib/libpython3.so"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "static"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "The path to the static ``libpython`` library."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the Python installation provides a static "
+"``libpython`` library, otherwise this entry will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr/lib/python3.14/config-3.14-x86\\_64-linux-gnu/libpython3.14.a"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "lib/python3.14/config-3.14-x86\\_64-linux-gnu/libpython3.14.a"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Building binary extensions"
+msgid "link\\_extensions"
+msgstr "バイナリ拡張をビルドする"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Should extensions built against a dynamic ``libpython`` link to it?"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "*boolean*"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "c\\_api"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object containing details related to the Python C API."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This section **MUST** be present if the Python implementation provides a C "
+"API, otherwise this section will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "**Numbers**"
+msgid "**headers**"
+msgstr "**数値の書き方**"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "The path to the C API headers."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr/include/python3.14"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "include/python3.14"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "pkgconfig\\_path"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "The path to the pkg-config definition files."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This field **MUST** be present if the Python implementation provides pkg-"
+"config definition files, otherwise this section will be missing."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "/usr/lib/pkgconfig"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "lib/pkgconfig"
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+#, fuzzy
+#| msgid "Arbitrary equality"
+msgid "arbitrary\\_data"
+msgstr "あらゆる意味での同一性 <Arbitrary equality>"
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid "Object containing extra arbitrary data."
+msgstr ""
+
+#: ../source/specifications/build-details/v1.0.rst:12
+msgid ""
+"This is meant to be used as an escape-hatch, to include any relevant data "
+"that is not covered by this specification. Implementations may choose what "
+"data to provide in this section."
+msgstr ""
 
 #: ../source/specifications/core-metadata.rst:7
 msgid "Core metadata specifications"
@@ -18352,9 +19219,8 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:470
 msgid ""
-"Text string that is a valid SPDX `license expression <https://peps.python."
-"org/pep-0639/#term-license-expression>`__ as `defined in PEP 639 <https://"
-"peps.python.org/pep-0639/#spdx>`__."
+"Text string that is a valid SPDX :term:`license expression <License "
+"Expression>`, as specified in :doc:`/specifications/license-expression`."
 msgstr ""
 
 #: ../source/specifications/core-metadata.rst:489
@@ -19062,15 +19928,6 @@ msgid ""
 "standardized subset of the capabilities of ``requirements.txt`` files (which "
 "are ``pip``-specific)."
 msgstr ""
-
-#: ../source/specifications/dependency-groups.rst:20
-#: ../source/specifications/dependency-specifiers.rst:26
-#: ../source/specifications/direct-url-data-structure.rst:19
-#: ../source/specifications/direct-url.rst:15
-#: ../source/specifications/index-hosted-attestations.rst:17
-#: ../source/specifications/inline-script-metadata.rst:13
-msgid "Specification"
-msgstr "仕様"
 
 #: ../source/specifications/dependency-groups.rst:25
 msgid "This is a simple table which shows a ``test`` group::"
@@ -21853,11 +22710,8 @@ msgid "Index hosted attestations"
 msgstr ""
 
 #: ../source/specifications/index-hosted-attestations.rst:8
-#, fuzzy
-#| msgid ""
-#| "This specification was originally defined in :pep:`518` and :pep:`621`."
 msgid "This specification was originally defined in :pep:`740`."
-msgstr "この仕様は、元々は :pep:`518` 及び :pep:`621` で定義されました。"
+msgstr "この仕様は、元々は :pep:`740` で定義されました。"
 
 #: ../source/specifications/index-hosted-attestations.rst:12
 msgid ""
@@ -22336,10 +23190,6 @@ msgstr ""
 "たバージョンの Python を提供できない場合には、スクリプトを走らせる側でエラー"
 "を起こすべきです。"
 
-#: ../source/specifications/inline-script-metadata.rst:100
-msgid "Example"
-msgstr "例"
-
 #: ../source/specifications/inline-script-metadata.rst:102
 msgid "The following is an example of a script with embedded metadata:"
 msgstr "組み込まれたメタデータを伴うスクリプトの例を以下に示します:"
@@ -22412,6 +23262,51 @@ msgstr ""
 "のタイプが ``script`` に改名され、 ``dependencies`` キーと ``require-"
 "python`` キーがトップレベルに昇格する形で ``[run]`` テーブルが廃止されまし"
 "た。さらに、この仕様はもはや暫定的なものではなくなりました。"
+
+#: ../source/specifications/license-expression.rst:5
+msgid ""
+":pep:`639` defined a new :ref:`pyproject.toml's license <pyproject-toml-"
+"license>` value and added a corresponding :ref:`core metadata License-"
+"Expression field <core-metadata-license-expression>`. This specification "
+"defines which license expressions are acceptable."
+msgstr ""
+
+#: ../source/specifications/license-expression.rst:14
+msgid ""
+"License can be defined as a text string that is a valid SPDX :term:`license "
+"expression <License Expression>`, as documented in the `SPDX specification "
+"<spdxpression_>`__, either Version 2.2 or a later compatible version."
+msgstr ""
+
+#: ../source/specifications/license-expression.rst:19
+msgid "A license expression can use the following license identifiers:"
+msgstr ""
+
+#: ../source/specifications/license-expression.rst:21
+msgid ""
+"Any SPDX-listed license short-form identifiers that are published in the "
+"`SPDX License List <spdxlist_>`__, version 3.17 or any later compatible "
+"version."
+msgstr ""
+
+#: ../source/specifications/license-expression.rst:25
+msgid ""
+"The custom ``LicenseRef-[idstring]`` string(s), where ``[idstring]`` is a "
+"unique string containing letters, numbers, ``.`` and/or ``-``, to identify "
+"licenses that are not included in the SPDX license list. The custom "
+"identifiers must follow the SPDX specification, `clause 10.1 "
+"<spdxcustom_>`__ of the given specification version."
+msgstr ""
+
+#: ../source/specifications/license-expression.rst:32
+#, fuzzy
+#| msgid "Examples of compliant version schemes"
+msgid "Examples of valid license expressions:"
+msgstr "枠組みに合致したバージョン番号の例"
+
+#: ../source/specifications/license-expression.rst:45
+msgid "Examples of invalid license expressions:"
+msgstr ""
 
 #: ../source/specifications/name-normalization.rst:3
 msgid "Names and normalization"
@@ -23846,7 +24741,7 @@ msgid "``dependencies``"
 msgstr "``依存関係 <dependencies``"
 
 #: ../source/specifications/pyproject-toml.rst:136
-#: ../source/specifications/pyproject-toml.rst:429
+#: ../source/specifications/pyproject-toml.rst:473
 msgid "``dynamic``"
 msgstr "``dynamic``"
 
@@ -23866,15 +24761,15 @@ msgstr "``保守者 <maintainers>``"
 msgid "``optional-dependencies``"
 msgstr "``optional-dependencies``"
 
-#: ../source/specifications/pyproject-toml.rst:155
-#: ../source/specifications/pyproject-toml.rst:167
-#: ../source/specifications/pyproject-toml.rst:180
-#: ../source/specifications/pyproject-toml.rst:230
-#: ../source/specifications/pyproject-toml.rst:240
+#: ../source/specifications/pyproject-toml.rst:157
+#: ../source/specifications/pyproject-toml.rst:172
+#: ../source/specifications/pyproject-toml.rst:187
+#: ../source/specifications/pyproject-toml.rst:241
+#: ../source/specifications/pyproject-toml.rst:253
 msgid "TOML_ type: string"
 msgstr "TOML_ 型: 文字列"
 
-#: ../source/specifications/pyproject-toml.rst:156
+#: ../source/specifications/pyproject-toml.rst:158
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name <core-"
 "metadata-name>`"
@@ -23882,11 +24777,11 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`名前 "
 "<core-metadata-name>` フィールド"
 
-#: ../source/specifications/pyproject-toml.rst:159
+#: ../source/specifications/pyproject-toml.rst:161
 msgid "The name of the project."
 msgstr "プロジェクトの名前。"
 
-#: ../source/specifications/pyproject-toml.rst:161
+#: ../source/specifications/pyproject-toml.rst:163
 msgid ""
 "Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon as it "
 "is read for internal consistency."
@@ -23894,7 +24789,7 @@ msgstr ""
 "内部的な一貫性を保つために、ツール側では読み取ったらすぐに、この名前を :ref:`"
 "正規化 <name-normalization>` するべきです。"
 
-#: ../source/specifications/pyproject-toml.rst:168
+#: ../source/specifications/pyproject-toml.rst:173
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Version "
 "<core-metadata-version>`"
@@ -23902,7 +24797,7 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` に対応する: :ref:`バージョン "
 "<core-metadata-version>`"
 
-#: ../source/specifications/pyproject-toml.rst:171
+#: ../source/specifications/pyproject-toml.rst:176
 msgid ""
 "The version of the project, as defined in the :ref:`Version specifier "
 "specification <version-specifiers>`."
@@ -23910,11 +24805,11 @@ msgstr ""
 ":ref:`バージョン指定子仕様 <version-specifiers>` で定義されるものとしての、プ"
 "ロジェクトのバージョン。"
 
-#: ../source/specifications/pyproject-toml.rst:174
+#: ../source/specifications/pyproject-toml.rst:179
 msgid "Users SHOULD prefer to specify already-normalized versions."
 msgstr "ユーザは正規化済みのバージョンを指定するようにするべきです。"
 
-#: ../source/specifications/pyproject-toml.rst:181
+#: ../source/specifications/pyproject-toml.rst:188
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Summary "
 "<core-metadata-summary>`"
@@ -23922,7 +24817,7 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`要約 "
 "<core-metadata-summary>`"
 
-#: ../source/specifications/pyproject-toml.rst:184
+#: ../source/specifications/pyproject-toml.rst:191
 msgid ""
 "The summary description of the project in one line. Tools MAY error if this "
 "includes multiple lines."
@@ -23930,11 +24825,11 @@ msgstr ""
 "１行で書かれたプロジェクトに関する説明の要約。これが複数行に渡る場合には、"
 "ツールはエラーを発生させても構いません。"
 
-#: ../source/specifications/pyproject-toml.rst:191
+#: ../source/specifications/pyproject-toml.rst:200
 msgid "TOML_ type: string or table"
 msgstr "TOML_ 型: 文字列またはテーブル"
 
-#: ../source/specifications/pyproject-toml.rst:192
+#: ../source/specifications/pyproject-toml.rst:201
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Description "
 "<core-metadata-description>` and :ref:`Description-Content-Type <core-"
@@ -23944,11 +24839,11 @@ msgstr ""
 "`Description <core-metadata-description>` and :ref:`Description-Content-Type "
 "<core-metadata-description-content-type>`"
 
-#: ../source/specifications/pyproject-toml.rst:196
+#: ../source/specifications/pyproject-toml.rst:205
 msgid "The full description of the project (i.e. the README)."
 msgstr "プロジェクトの説明全体 (すなわち README)。"
 
-#: ../source/specifications/pyproject-toml.rst:198
+#: ../source/specifications/pyproject-toml.rst:207
 msgid ""
 "The key accepts either a string or a table. If it is a string then it is a "
 "path relative to ``pyproject.toml`` to a text file containing the full "
@@ -23974,7 +24869,7 @@ msgstr ""
 "場合には、全ての認識できない拡張子についてツールはエラーを発生させなければな"
 "りません。"
 
-#: ../source/specifications/pyproject-toml.rst:209
+#: ../source/specifications/pyproject-toml.rst:218
 msgid ""
 "The ``readme`` key may also take a table. The ``file`` key has a string "
 "value representing a path relative to ``pyproject.toml`` to a file "
@@ -23989,7 +24884,7 @@ msgstr ""
 "がこれら両方のキーを同時に指定していたらツールはエラーを発生させなければなり"
 "ません。"
 
-#: ../source/specifications/pyproject-toml.rst:216
+#: ../source/specifications/pyproject-toml.rst:225
 msgid ""
 "A table specified in the ``readme`` key also has a ``content-type`` key "
 "which takes a string specifying the content-type of the full description. A "
@@ -24011,7 +24906,7 @@ msgstr ""
 "でなければ、ツールはサポートしていない content-type に対してエラーを発生させ"
 "なければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:231
+#: ../source/specifications/pyproject-toml.rst:242
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Python <core-metadata-requires-python>`"
@@ -24019,11 +24914,11 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:"
 "`Requires-Python <core-metadata-requires-python>`"
 
-#: ../source/specifications/pyproject-toml.rst:234
+#: ../source/specifications/pyproject-toml.rst:245
 msgid "The Python version requirements of the project."
 msgstr "プロジェクトが要求する Python のバージョン。"
 
-#: ../source/specifications/pyproject-toml.rst:241
+#: ../source/specifications/pyproject-toml.rst:254
 #, fuzzy
 #| msgid ""
 #| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
@@ -24035,24 +24930,72 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`License <core-metadata-license>`"
 
-#: ../source/specifications/pyproject-toml.rst:244
+#: ../source/specifications/pyproject-toml.rst:257
 msgid ""
-"Text string that is a valid SPDX license expression as defined in :pep:"
-"`639`. Tools SHOULD validate and perform case normalization of the "
-"expression."
+"Text string that is a valid SPDX :term:`license expression <License "
+"Expression>`, as specified in :doc:`/specifications/license-expression`. "
+"Tools SHOULD validate and perform case normalization of the expression."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:247
-msgid "The table subkeys of the ``license`` key are deprecated."
+#: ../source/specifications/pyproject-toml.rst:263
+#, fuzzy
+#| msgid "PyPA specifications"
+msgid "Legacy specification"
+msgstr "PyPA 仕様"
+
+#: ../source/specifications/pyproject-toml.rst:265
+msgid "TOML_ type: table"
+msgstr "TOML_ 型: テーブル"
+
+#: ../source/specifications/pyproject-toml.rst:266
+#, fuzzy
+#| msgid ""
+#| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
+#| "<core-metadata-license>`"
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
+"<core-metadata-license>`"
+msgstr ""
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
+"`License <core-metadata-license>`"
+
+#: ../source/specifications/pyproject-toml.rst:269
+#, fuzzy
+#| msgid ""
+#| "The table may have one of two keys. The ``file`` key has a string value "
+#| "that is a file path relative to ``pyproject.toml`` to the file which "
+#| "contains the license for the project. Tools MUST assume the file's "
+#| "encoding is UTF-8. The ``text`` key has a string value which is the "
+#| "license of the project.  These keys are mutually exclusive, so a tool "
+#| "MUST raise an error if the metadata specifies both keys."
+msgid ""
+"The table may have one of two keys. The ``file`` key has a string value that "
+"is a file path relative to :file:`pyproject.toml` to the file which contains "
+"the license for the project. Tools MUST assume the file's encoding is UTF-8. "
+"The ``text`` key has a string value which is the license of the project.  "
+"These keys are mutually exclusive, so a tool MUST raise an error if the "
+"metadata specifies both keys."
+msgstr ""
+"テーブルには二つのキーのうちのいずれか一つを書くことができます。 ``file`` "
+"キーは、 ``pyproject.toml`` からプロジェクトのライセンス情報を含むファイルへ"
+"の相対パスを値とする文字列です。ツールの側では、そのファイルのエンコーディン"
+"グが UTF-8 であるものと仮定しなければなりません。 ``text`` キーは、プロジェク"
+"トのライセンス条項そのものである文字列を値に取ります。これらのキーは相互に排"
+"他的で、従って、両方のキーが指定されているメタデータについてツールの側ではエ"
+"ラーを発生させなければなりません。"
+
+#: ../source/specifications/pyproject-toml.rst:276
+msgid ""
+"The table subkeys were deprecated by :pep:`639` in favor of the string value."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:255
-#: ../source/specifications/pyproject-toml.rst:333
-#: ../source/specifications/pyproject-toml.rst:343
+#: ../source/specifications/pyproject-toml.rst:283
+#: ../source/specifications/pyproject-toml.rst:366
+#: ../source/specifications/pyproject-toml.rst:378
 msgid "TOML_ type: array of strings"
 msgstr "TOML_ 型: 文字列の配列"
 
-#: ../source/specifications/pyproject-toml.rst:256
+#: ../source/specifications/pyproject-toml.rst:284
 #, fuzzy
 #| msgid ""
 #| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License "
@@ -24064,7 +25007,7 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`License <core-metadata-license>`"
 
-#: ../source/specifications/pyproject-toml.rst:259
+#: ../source/specifications/pyproject-toml.rst:287
 msgid ""
 "An array specifying paths in the project source tree relative to the project "
 "root directory (i.e. directory containing :file:`pyproject.toml` or legacy "
@@ -24073,40 +25016,40 @@ msgid ""
 "with the package."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:265
+#: ../source/specifications/pyproject-toml.rst:293
 msgid ""
 "The strings MUST contain valid glob patterns, as specified in :doc:`/"
 "specifications/glob-patterns`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:268
+#: ../source/specifications/pyproject-toml.rst:296
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`,"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:270
+#: ../source/specifications/pyproject-toml.rst:298
 msgid ""
 "Tools MUST assume that license file content is valid UTF-8 encoded text, and "
 "SHOULD validate this and raise an error if it is not."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:273
+#: ../source/specifications/pyproject-toml.rst:301
 msgid "Build tools:"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:275
+#: ../source/specifications/pyproject-toml.rst:303
 msgid ""
 "MUST include all files matched by a listed pattern in all distribution "
 "archives."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:277
+#: ../source/specifications/pyproject-toml.rst:305
 msgid ""
 "MUST list each matched file path under a License-File field in the Core "
 "Metadata."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:280
+#: ../source/specifications/pyproject-toml.rst:308
 msgid ""
 "If the ``license-files`` key is present and is set to a value of an empty "
 "array, then tools MUST NOT include any license files and MUST NOT raise an "
@@ -24115,11 +25058,11 @@ msgid ""
 "or use their own logic to discover the appropriate files in the distribution."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:291
+#: ../source/specifications/pyproject-toml.rst:322
 msgid "TOML_ type: Array of inline tables with string keys and values"
 msgstr "TOML_ 型: 文字列のキー・バリュー組を伴ったインラインテーブルの配列"
 
-#: ../source/specifications/pyproject-toml.rst:292
+#: ../source/specifications/pyproject-toml.rst:323
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Author <core-"
 "metadata-author>`, :ref:`Author-email <core-metadata-author-email>`, :ref:"
@@ -24131,7 +25074,7 @@ msgstr ""
 "email>` ・ :ref:`Maintainer <core-metadata-maintainer>` ・ :ref:`Maintainer-"
 "email <core-metadata-maintainer-email>`"
 
-#: ../source/specifications/pyproject-toml.rst:298
+#: ../source/specifications/pyproject-toml.rst:329
 msgid ""
 "The people or organizations considered to be the \"authors\" of the project. "
 "The exact meaning is open to interpretation — it may list the original or "
@@ -24141,7 +25084,7 @@ msgstr ""
 "まに解釈可能です — 元々のまたは主要な作者でも構わないし、現在の保守者やパッ"
 "ケージのオーナでも構いません。"
 
-#: ../source/specifications/pyproject-toml.rst:303
+#: ../source/specifications/pyproject-toml.rst:334
 msgid ""
 "The \"maintainers\" key is similar to \"authors\" in that its exact meaning "
 "is open to interpretation."
@@ -24149,7 +25092,7 @@ msgstr ""
 "\"maintainers\" キーは \"authors\" キーに似ていて、その正確な意味はさまざまに"
 "解釈可能です。"
 
-#: ../source/specifications/pyproject-toml.rst:306
+#: ../source/specifications/pyproject-toml.rst:337
 msgid ""
 "These keys accept an array of tables with 2 keys: ``name`` and ``email``. "
 "Both values must be strings. The ``name`` value MUST be a valid email name "
@@ -24165,14 +25108,14 @@ msgstr ""
 "ません。これらのキーは共に必須ではありませんが、少なくともいずれかのキーが"
 "テーブル内で指定されていなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:313
+#: ../source/specifications/pyproject-toml.rst:344
 msgid ""
 "Using the data to fill in :ref:`core metadata <core-metadata>` is as follows:"
 msgstr ""
 "データを使って :ref:`コアとなるメタデータ <core-metadata>` に書き込むやり方は"
 "次の通りです:"
 
-#: ../source/specifications/pyproject-toml.rst:316
+#: ../source/specifications/pyproject-toml.rst:347
 msgid ""
 "If only ``name`` is provided, the value goes in :ref:`Author <core-metadata-"
 "author>` or :ref:`Maintainer <core-metadata-maintainer>` as appropriate."
@@ -24181,7 +25124,7 @@ msgstr ""
 "author>` なり :ref:`Maintainer <core-metadata-maintainer>` なりに書き込みま"
 "す。"
 
-#: ../source/specifications/pyproject-toml.rst:319
+#: ../source/specifications/pyproject-toml.rst:350
 msgid ""
 "If only ``email`` is provided, the value goes in :ref:`Author-email <core-"
 "metadata-author-email>` or :ref:`Maintainer-email <core-metadata-maintainer-"
@@ -24191,7 +25134,7 @@ msgstr ""
 "email>` なり :ref:`Maintainer-email <core-metadata-maintainer-email>` なりに"
 "書き込みます。"
 
-#: ../source/specifications/pyproject-toml.rst:323
+#: ../source/specifications/pyproject-toml.rst:354
 msgid ""
 "If both ``email`` and ``name`` are provided, the value goes in :ref:`Author-"
 "email <core-metadata-author-email>` or :ref:`Maintainer-email <core-metadata-"
@@ -24201,11 +25144,11 @@ msgstr ""
 "フォーマットで :ref:`Author-email <core-metadata-author-email>` なり :ref:"
 "`Maintainer-email <core-metadata-maintainer-email>` なりに書き込みます。"
 
-#: ../source/specifications/pyproject-toml.rst:327
+#: ../source/specifications/pyproject-toml.rst:358
 msgid "Multiple values should be separated by commas."
 msgstr "複数の値がある場合はコンマで区切るべきです。"
 
-#: ../source/specifications/pyproject-toml.rst:334
+#: ../source/specifications/pyproject-toml.rst:367
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
 "<core-metadata-keywords>`"
@@ -24213,11 +25156,11 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Keywords <core-metadata-keywords`"
 
-#: ../source/specifications/pyproject-toml.rst:337
+#: ../source/specifications/pyproject-toml.rst:370
 msgid "The keywords for the project."
 msgstr "プロジェクトに関するキーワード。"
 
-#: ../source/specifications/pyproject-toml.rst:344
+#: ../source/specifications/pyproject-toml.rst:379
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Classifier "
 "<core-metadata-classifier>`"
@@ -24225,11 +25168,11 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Classifier <core-metadata-classifier>`"
 
-#: ../source/specifications/pyproject-toml.rst:347
+#: ../source/specifications/pyproject-toml.rst:382
 msgid "Trove classifiers which apply to the project."
 msgstr "プロジェクトに適合する Trove 分類子。"
 
-#: ../source/specifications/pyproject-toml.rst:349
+#: ../source/specifications/pyproject-toml.rst:384
 msgid ""
 "The use of ``License ::`` classifiers is deprecated and tools MAY issue a "
 "warning informing users about that. Build tools MAY raise an error if both "
@@ -24237,11 +25180,11 @@ msgid ""
 "field) and the ``License ::`` classifiers are used."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:359
+#: ../source/specifications/pyproject-toml.rst:396
 msgid "TOML_ type: table with keys and values of strings"
 msgstr "TOML_ 型: 文字列のキー・バリューを伴うテーブル"
 
-#: ../source/specifications/pyproject-toml.rst:360
+#: ../source/specifications/pyproject-toml.rst:397
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Project-URL "
 "<core-metadata-project-url>`"
@@ -24249,18 +25192,18 @@ msgstr ""
 "対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref:"
 "`Project-URL <core-metadata-project-url>`"
 
-#: ../source/specifications/pyproject-toml.rst:363
+#: ../source/specifications/pyproject-toml.rst:400
 msgid ""
 "A table of URLs where the key is the URL label and the value is the URL "
 "itself. See :ref:`well-known-project-urls` for normalization rules and well-"
 "known rules when processing metadata for presentation."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:369
+#: ../source/specifications/pyproject-toml.rst:410
 msgid "Entry points"
 msgstr "エントリポイント"
 
-#: ../source/specifications/pyproject-toml.rst:371
+#: ../source/specifications/pyproject-toml.rst:412
 msgid ""
 "TOML_ type: table (``[project.scripts]``, ``[project.gui-scripts]``, and "
 "``[project.entry-points]``)"
@@ -24268,11 +25211,11 @@ msgstr ""
 "TOML_ 型: table (``[project.scripts]`` ・ ``[project.gui-scripts]`` ・ "
 "``[project.entry-points]``)"
 
-#: ../source/specifications/pyproject-toml.rst:373
+#: ../source/specifications/pyproject-toml.rst:414
 msgid ":ref:`Entry points specification <entry-points>`"
 msgstr ":ref:`Entry points specification <entry-points>`"
 
-#: ../source/specifications/pyproject-toml.rst:375
+#: ../source/specifications/pyproject-toml.rst:416
 msgid ""
 "There are three tables related to entry points. The ``[project.scripts]`` "
 "table corresponds to the ``console_scripts`` group in the :ref:`entry points "
@@ -24284,7 +25227,7 @@ msgstr ""
 "``console_scripts`` グループに対応しています。テーブル内のキーはエントリポイ"
 "ントの名前であり、値は参照されるオブジェクトです。"
 
-#: ../source/specifications/pyproject-toml.rst:381
+#: ../source/specifications/pyproject-toml.rst:422
 msgid ""
 "The ``[project.gui-scripts]`` table corresponds to the ``gui_scripts`` group "
 "in the :ref:`entry points specification <entry-points>`. Its format is the "
@@ -24294,7 +25237,7 @@ msgstr ""
 "points>` の中の ``gui_scripts`` グループに対応します。そのフォーマットは "
 "``[project.scripts]`` と同じです。"
 
-#: ../source/specifications/pyproject-toml.rst:385
+#: ../source/specifications/pyproject-toml.rst:426
 msgid ""
 "The ``[project.entry-points]`` table is a collection of tables. Each sub-"
 "table's name is an entry point group. The key and value semantics are the "
@@ -24307,7 +25250,7 @@ msgstr ""
 "てはならず、代わりにエントリポイントグループを１段階の深さに保つようにしなけ"
 "ればなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:391
+#: ../source/specifications/pyproject-toml.rst:432
 msgid ""
 "Build back-ends MUST raise an error if the metadata defines a ``[project."
 "entry-points.console_scripts]`` or ``[project.entry-points.gui_scripts]`` "
@@ -24319,7 +25262,7 @@ msgstr ""
 "それぞれ ``[project.scripts]`` や ``[project.gui-scripts]`` と混同してしまう"
 "といけないので、ビルド時のバックエンドがエラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:401
+#: ../source/specifications/pyproject-toml.rst:445
 msgid ""
 "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
 "values of arrays of :pep:`508` strings (``optional-dependencies``)"
@@ -24327,7 +25270,7 @@ msgstr ""
 "TOML_ 型: :pep:`508` の文字列 (``dependencies``) の配列、および、 :pep:`508` "
 "の文字列 (``optional-dependencies``) の配列の値を伴ったテーブル"
 
-#: ../source/specifications/pyproject-toml.rst:404
+#: ../source/specifications/pyproject-toml.rst:448
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
@@ -24337,11 +25280,11 @@ msgstr ""
 "`Requires-Dist <core-metadata-requires-dist>` および :ref:`Provides-Extra "
 "<core-metadata-provides-extra>`"
 
-#: ../source/specifications/pyproject-toml.rst:408
+#: ../source/specifications/pyproject-toml.rst:452
 msgid "The (optional) dependencies of the project."
 msgstr "(必須ではない) プロジェクトの依存関係。"
 
-#: ../source/specifications/pyproject-toml.rst:410
+#: ../source/specifications/pyproject-toml.rst:454
 msgid ""
 "For ``dependencies``, it is a key whose value is an array of strings. Each "
 "string represents a dependency of the project and MUST be formatted as a "
@@ -24353,7 +25296,7 @@ msgstr ""
 "フォーマットされていなければなりません。それぞれの文字列は、 :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` エントリに直接にマップしています。"
 
-#: ../source/specifications/pyproject-toml.rst:415
+#: ../source/specifications/pyproject-toml.rst:459
 msgid ""
 "For ``optional-dependencies``, it is a table where each key specifies an "
 "extra and whose value is an array of strings. The strings of the arrays must "
@@ -24371,11 +25314,11 @@ msgstr ""
 "する :ref:`Requires-Dist <core-metadata-requires-dist>` のエントリになりま"
 "す。"
 
-#: ../source/specifications/pyproject-toml.rst:431
+#: ../source/specifications/pyproject-toml.rst:475
 msgid "TOML_ type: array of string"
 msgstr "TOML_ 型: 文字列の配列"
 
-#: ../source/specifications/pyproject-toml.rst:432
+#: ../source/specifications/pyproject-toml.rst:476
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
@@ -24383,7 +25326,7 @@ msgstr ""
 ":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`ダイ"
 "ナミック <core-metadata-dynamic>` フィールド"
 
-#: ../source/specifications/pyproject-toml.rst:435
+#: ../source/specifications/pyproject-toml.rst:479
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -24396,7 +25339,7 @@ msgstr ""
 "されていて未指定のままであることを期待されているのかについて明確に描き出しま"
 "す。"
 
-#: ../source/specifications/pyproject-toml.rst:441
+#: ../source/specifications/pyproject-toml.rst:485
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
@@ -24404,7 +25347,7 @@ msgstr ""
 "ビルド用のバックエンドは、静的に指定されたメタデータ (つまり ``dynamic`` 内に"
 "列挙されたキーではないメタデータ) を尊重しなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:443
+#: ../source/specifications/pyproject-toml.rst:487
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
@@ -24412,7 +25355,7 @@ msgstr ""
 "メタデータで ``dynamic`` 内に ``name`` が指定されている場合には、ビルド用バッ"
 "クエンドがエラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:445
+#: ../source/specifications/pyproject-toml.rst:489
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -24427,7 +25370,7 @@ msgstr ""
 "須のフィールドが ``[project]`` テーブルの中にどんな形でも存在していないという"
 "ことは不可能であるべきです)。"
 
-#: ../source/specifications/pyproject-toml.rst:450
+#: ../source/specifications/pyproject-toml.rst:494
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
@@ -24438,7 +25381,7 @@ msgstr ""
 "タを提供するという期待が持てるのであればメタデータではそのキーを ``dynamic`` "
 "の中に挙げても構いません。"
 
-#: ../source/specifications/pyproject-toml.rst:454
+#: ../source/specifications/pyproject-toml.rst:498
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
@@ -24446,7 +25389,7 @@ msgstr ""
 "メタデータ内で、あるキーが静的に指定されていて、かつ、 ``dynamic`` にも挙げて"
 "ある場合には、ビルド用バックエンドはエラーを発生させなければなりません。"
 
-#: ../source/specifications/pyproject-toml.rst:456
+#: ../source/specifications/pyproject-toml.rst:500
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -24458,7 +25401,7 @@ msgstr ""
 "ち、ツールがメタデータを挿入できるのは ``dynamic`` の中だけであり、かつ、ユー"
 "ザがそうするようにオプトインしていなければならないということです) 。"
 
-#: ../source/specifications/pyproject-toml.rst:460
+#: ../source/specifications/pyproject-toml.rst:504
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
@@ -24469,11 +25412,11 @@ msgstr ""
 "ンドはエラーを発生させなければなりません (正確な値であると判断した場合はデー"
 "タを省略することが許容されます) 。"
 
-#: ../source/specifications/pyproject-toml.rst:470
+#: ../source/specifications/pyproject-toml.rst:514
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr "任意のツールの設定: ``[tool]`` テーブル"
 
-#: ../source/specifications/pyproject-toml.rst:472
+#: ../source/specifications/pyproject-toml.rst:516
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
 "just build tools, can have users specify configuration data as long as they "
@@ -24486,7 +25429,7 @@ msgstr ""
 "org/pypi/flit>`_ ツールならその設定を ``[tool.flit]`` に格納しておくでしょ"
 "う。"
 
-#: ../source/specifications/pyproject-toml.rst:478
+#: ../source/specifications/pyproject-toml.rst:522
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
 "make sure that different projects do not attempt to use the same sub-table "
@@ -24499,7 +25442,7 @@ msgstr ""
 "``$NAME`` というエントリを保有している場合、その場合に限って、 ``tool."
 "$NAME`` なるサブテーブルを使うことができるというものです。"
 
-#: ../source/specifications/pyproject-toml.rst:489
+#: ../source/specifications/pyproject-toml.rst:533
 msgid ""
 "May 2016: The initial specification of the ``pyproject.toml`` file, with "
 "just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
@@ -24509,7 +25452,7 @@ msgstr ""
 "まり、 ``[build-system]`` が ``requires`` キーと ``[tool]`` テーブルしか含ん"
 "でいないものが承認されました。"
 
-#: ../source/specifications/pyproject-toml.rst:493
+#: ../source/specifications/pyproject-toml.rst:537
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
 "through :pep:`621`."
@@ -24517,7 +25460,7 @@ msgstr ""
 "2020年11月: :pep:`621` を通じて、 ``[project]`` テーブルの仕様が承認されまし"
 "た。"
 
-#: ../source/specifications/pyproject-toml.rst:496
+#: ../source/specifications/pyproject-toml.rst:540
 msgid ""
 "December 2024: The ``license`` key was redefined, the ``license-files`` key "
 "was added and ``License::`` classifiers were deprecated through :pep:`639`."
@@ -25076,6 +26019,12 @@ msgstr "パッケージのインストールに関するメタデータ"
 #: ../source/specifications/section-package-indices.rst:3
 msgid "Package Index Interfaces"
 msgstr "パッケージインデックスのインタフェース"
+
+#: ../source/specifications/section-python-description-formats.rst:3
+#, fuzzy
+#| msgid "Python versions over time"
+msgid "Python Description Formats"
+msgstr "時系列で見たPythonバージョン"
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
@@ -30580,11 +31529,18 @@ msgstr ""
 "以前の Python のバージョンは :ref:`setuptools` もインストールしていました) 。"
 
 #: ../source/tutorials/installing-packages.rst:229
+#, fuzzy
+#| msgid ""
+#| ":ref:`virtualenv` needs to be installed separately, but supports Python "
+#| "2.7+ and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` "
+#| "are always installed into created virtual environments by default "
+#| "(regardless of Python version)."
 msgid ""
 ":ref:`virtualenv` needs to be installed separately, but supports Python 2.7+ "
 "and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are "
-"always installed into created virtual environments by default (regardless of "
-"Python version)."
+"installed into created virtual environments by default. Note that "
+"``setuptools`` is no longer included by default starting with Python 3.12 "
+"(and ``virtualenv`` follows this behavior)."
 msgstr ""
 ":ref:`virtualenv` は別途インストールする必要がありますが、 Python 2.7+ と "
 "Python 3.3+ をサポートしており、 :ref:`pip` ・ :ref:`setuptools` ・ :ref:"
@@ -31137,7 +32093,7 @@ msgstr ""
 "らゆるコマンドからインストール済みパッケージへのアクセスが保証されます。"
 
 #: ../source/tutorials/managing-dependencies.rst:140
-#: ../source/tutorials/packaging-projects.rst:539
+#: ../source/tutorials/packaging-projects.rst:484
 msgid "Next steps"
 msgstr "次なる一歩"
 
@@ -31444,14 +32400,24 @@ msgstr ""
 "下に挙げますが、もっと詳しいことについてはバックエンド自身の説明文書を確認し"
 "てください。"
 
-#: ../source/tutorials/packaging-projects.rst:172
+#: ../source/tutorials/packaging-projects.rst:141
+#, fuzzy
+#| msgid ""
+#| "The ``requires`` key is a list of packages that are needed to build your "
+#| "package. The :term:`frontend <Build Frontend>` should install them "
+#| "automatically when building your package. Frontends usually run builds in "
+#| "isolated environments, so omitting dependencies here may cause build-time "
+#| "errors. This should always include your backend's package, and might have "
+#| "other build-time dependencies."
 msgid ""
 "The ``requires`` key is a list of packages that are needed to build your "
 "package. The :term:`frontend <Build Frontend>` should install them "
 "automatically when building your package. Frontends usually run builds in "
 "isolated environments, so omitting dependencies here may cause build-time "
 "errors. This should always include your backend's package, and might have "
-"other build-time dependencies."
+"other build-time dependencies. The minimum version specified in the above "
+"code block is the one that introduced support for :ref:`the new license "
+"metadata <license-and-license-files>`."
 msgstr ""
 "``requires`` は、そのパッケージをビルドするために必要とされるパッケージ群のリ"
 "ストです。 :term:`ビルドフロントエンド <Build Frontend>` は、そのパッケージを"
@@ -31460,7 +32426,7 @@ msgstr ""
 "ラーにつながります。バックエンドパッケージには常にこれを含めておくべきであ"
 "り、他のビルド時の依存関係を持っているかもしれません。"
 
-#: ../source/tutorials/packaging-projects.rst:179
+#: ../source/tutorials/packaging-projects.rst:150
 msgid ""
 "The ``build-backend`` key is the name of the Python object that frontends "
 "will use to perform the build."
@@ -31468,7 +32434,7 @@ msgstr ""
 "``build-backend`` キーは、そのフロントエンドがビルドを実行するにあたって使用"
 "するであろう Python オブジェクトの名前です。"
 
-#: ../source/tutorials/packaging-projects.rst:182
+#: ../source/tutorials/packaging-projects.rst:153
 msgid ""
 "Both of these values will be provided by the documentation for your build "
 "backend, or generated by its command line interface. There should be no need "
@@ -31478,7 +32444,7 @@ msgstr ""
 "マンドラインインターフェースによって生成されるでしょう。これらの設定をカスタ"
 "マイズする必要はないはずです。"
 
-#: ../source/tutorials/packaging-projects.rst:186
+#: ../source/tutorials/packaging-projects.rst:157
 msgid ""
 "Additional configuration of the build tool will either be in a ``tool`` "
 "section of the ``pyproject.toml``, or in a special file defined by the build "
@@ -31494,11 +32460,11 @@ msgstr ""
 "build_meta`` を指定することでツールに対してこれらを自動的に探索して使うように"
 "できます。"
 
-#: ../source/tutorials/packaging-projects.rst:196
+#: ../source/tutorials/packaging-projects.rst:167
 msgid "Configuring metadata"
 msgstr "メタデータを設定する"
 
-#: ../source/tutorials/packaging-projects.rst:198
+#: ../source/tutorials/packaging-projects.rst:169
 msgid ""
 "Open :file:`pyproject.toml` and enter the following content. Change the "
 "``name`` to include your username; this ensures that you have a unique "
@@ -31510,7 +32476,7 @@ msgstr ""
 "履修している他の人たちがアップロードするパッケージと衝突を起こさない一意な"
 "パッケージ名を使っていることを保証することができます。"
 
-#: ../source/tutorials/packaging-projects.rst:250
+#: ../source/tutorials/packaging-projects.rst:196
 msgid ""
 "``name`` is the *distribution name* of your package. This can be any name as "
 "long as it only contains letters, numbers, ``.``, ``_`` , and ``-``. It also "
@@ -31525,7 +32491,7 @@ msgstr ""
 "いうのは、そうすることで、既存の名前と同じ名前のパッケージのアップロードを試"
 "みることがないと保証できるからです。"
 
-#: ../source/tutorials/packaging-projects.rst:255
+#: ../source/tutorials/packaging-projects.rst:201
 msgid ""
 "``version`` is the package version. (Some build backends allow it to be "
 "specified another way, such as from a file or Git tag.)"
@@ -31534,7 +32500,7 @@ msgstr ""
 "は、ファイルや Git のタグからといった別の方法で指定することができるものもあり"
 "ます。)"
 
-#: ../source/tutorials/packaging-projects.rst:257
+#: ../source/tutorials/packaging-projects.rst:203
 msgid ""
 "``authors`` is used to identify the author of the package; you specify a "
 "name and an email for each author. You can also list ``maintainers`` in the "
@@ -31544,11 +32510,11 @@ msgstr ""
 "ついて名前と電子メールアドレスを指定します。同じフォーマットで "
 "``maintainers`` を列挙することもできます。"
 
-#: ../source/tutorials/packaging-projects.rst:260
+#: ../source/tutorials/packaging-projects.rst:206
 msgid "``description`` is a short, one-sentence summary of the package."
 msgstr "``description`` は、１文で短くパッケージを説明するものです。"
 
-#: ../source/tutorials/packaging-projects.rst:261
+#: ../source/tutorials/packaging-projects.rst:207
 msgid ""
 "``readme`` is a path to a file containing a detailed description of the "
 "package. This is shown on the package detail page on PyPI. In this case, the "
@@ -31562,7 +32528,7 @@ msgstr ""
 "も、 :ref:`pyproject.toml ガイド文書 <writing-pyproject-toml>` に記述されてい"
 "るもっと先進的なテーブル形式があります。"
 
-#: ../source/tutorials/packaging-projects.rst:266
+#: ../source/tutorials/packaging-projects.rst:212
 msgid ""
 "``requires-python`` gives the versions of Python supported by your project. "
 "An installer like :ref:`pip` will look back through older versions of "
@@ -31572,7 +32538,7 @@ msgstr ""
 "ンを与えます。 :ref:`pip` のようなインストーラは、 Python バージョンが合致す"
 "るものを見つけるまでパッケージのバージョンを遡って探索します。"
 
-#: ../source/tutorials/packaging-projects.rst:269
+#: ../source/tutorials/packaging-projects.rst:215
 #, fuzzy
 #| msgid ""
 #| "``classifiers`` gives the index and :ref:`pip` some additional metadata "
@@ -31598,20 +32564,25 @@ msgstr ""
 "に最低限それだけはやるべきことです。 classifiers の完全なリストについては、 "
 "https://pypi.org/classifiers/ を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:276
+#: ../source/tutorials/packaging-projects.rst:222
 msgid ""
 "``license`` is the :term:`SPDX license expression <License Expression>` of "
-"your package. Not supported by all the build backends yet."
+"your package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:278
+#: ../source/tutorials/packaging-projects.rst:224
+#, fuzzy
+#| msgid ""
+#| "Now run this command from the same directory where :file:`pyproject.toml` "
+#| "is located:"
 msgid ""
 "``license-files`` is the list of glob paths to the license files, relative "
-"to the directory where :file:`pyproject.toml` is located. Not supported by "
-"all the build backends yet."
+"to the directory where :file:`pyproject.toml` is located."
 msgstr ""
+"さて、 :file:`pyproject.toml` ファイルがあるのと同じディレクトリでこのコマン"
+"ドを実行しましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:281
+#: ../source/tutorials/packaging-projects.rst:226
 msgid ""
 "``urls`` lets you list any number of extra links to show on PyPI. Generally "
 "this could be to the source, documentation, issue trackers, etc."
@@ -31620,7 +32591,7 @@ msgstr ""
 "ます。一般的に、ソースコードや説明文書、課題追跡システムその他へのリンクを挙"
 "げておけばよいでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:284
+#: ../source/tutorials/packaging-projects.rst:229
 msgid ""
 "See the :ref:`pyproject.toml guide <writing-pyproject-toml>` for details on "
 "these and other fields that can be defined in the ``[project]`` table. Other "
@@ -31633,11 +32604,11 @@ msgstr ""
 "やすくするための ``keywords`` や、当該パッケージをインストールするために必須"
 "のパッケージを示す ``dependencies`` があります。"
 
-#: ../source/tutorials/packaging-projects.rst:291
+#: ../source/tutorials/packaging-projects.rst:236
 msgid "Creating README.md"
 msgstr "README.md を作成する"
 
-#: ../source/tutorials/packaging-projects.rst:293
+#: ../source/tutorials/packaging-projects.rst:238
 msgid ""
 "Open :file:`README.md` and enter the following content. You can customize "
 "this if you'd like."
@@ -31645,11 +32616,11 @@ msgstr ""
 ":file:`README.md` を開いて、以下の内容を入力してください。そうしたければ、カ"
 "スタマイズした内容でも構いません。"
 
-#: ../source/tutorials/packaging-projects.rst:306
+#: ../source/tutorials/packaging-projects.rst:251
 msgid "Creating a LICENSE"
 msgstr "LICENSE ファイルを作成する"
 
-#: ../source/tutorials/packaging-projects.rst:308
+#: ../source/tutorials/packaging-projects.rst:253
 msgid ""
 "It's important for every package uploaded to the Python Package Index to "
 "include a license. This tells users who install your package the terms under "
@@ -31665,7 +32636,7 @@ msgstr ""
 "ら、 :file:`LICENSE` ファイルを開いてそのライセンス条項を書き込んでください。"
 "例えば、 MIT ライセンスを選択したなら次のようにします:"
 
-#: ../source/tutorials/packaging-projects.rst:337
+#: ../source/tutorials/packaging-projects.rst:282
 msgid ""
 "Most build backends automatically include license files in packages. See "
 "your backend's documentation for more details. If you include the path to "
@@ -31674,11 +32645,11 @@ msgid ""
 "in the package."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:345
+#: ../source/tutorials/packaging-projects.rst:290
 msgid "Including other files"
 msgstr "その他のファイルを包含する"
 
-#: ../source/tutorials/packaging-projects.rst:347
+#: ../source/tutorials/packaging-projects.rst:292
 msgid ""
 "The files listed above will be included automatically in your :term:`source "
 "distribution <Source Distribution (or \"sdist\")>`. If you want to include "
@@ -31688,11 +32659,11 @@ msgstr ""
 "\"sdist\")>` に自動的に含まれるでしょう。他のファイルも含めておきたいなら、"
 "使っているビルドバックエンドの説明文書を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:354
+#: ../source/tutorials/packaging-projects.rst:299
 msgid "Generating distribution archives"
 msgstr "配布物アーカイブを生成する"
 
-#: ../source/tutorials/packaging-projects.rst:356
+#: ../source/tutorials/packaging-projects.rst:301
 msgid ""
 "The next step is to generate :term:`distribution packages <Distribution "
 "Package>` for the package. These are archives that are uploaded to the "
@@ -31702,12 +32673,12 @@ msgstr ""
 "Package>` を生成します。これらは、 Python パッケージインデックスへアップロー"
 "ドされ、 :ref:`pip` でインストールされることができるものです。"
 
-#: ../source/tutorials/packaging-projects.rst:360
+#: ../source/tutorials/packaging-projects.rst:305
 msgid "Make sure you have the latest version of PyPA's :ref:`build` installed:"
 msgstr ""
 "PyPA の :ref:`build` の最新版がインストールされていることを確認してください:"
 
-#: ../source/tutorials/packaging-projects.rst:374
+#: ../source/tutorials/packaging-projects.rst:319
 msgid ""
 "If you have trouble installing these, see the :doc:`installing-packages` "
 "tutorial."
@@ -31715,7 +32686,7 @@ msgstr ""
 "これらをインストールするのに困難を感じるようなら、 :doc:`パッケージをインス"
 "トールする <installing-packages>` チュートリアルを見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:377
+#: ../source/tutorials/packaging-projects.rst:322
 msgid ""
 "Now run this command from the same directory where :file:`pyproject.toml` is "
 "located:"
@@ -31723,7 +32694,7 @@ msgstr ""
 "さて、 :file:`pyproject.toml` ファイルがあるのと同じディレクトリでこのコマン"
 "ドを実行しましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:391
+#: ../source/tutorials/packaging-projects.rst:336
 msgid ""
 "This command should output a lot of text and once completed should generate "
 "two files in the :file:`dist` directory:"
@@ -31731,7 +32702,7 @@ msgstr ""
 "このコマンドから多くのテキストメッセージが出力されますが、実行が終われば :"
 "file:`dist` ディレクトリにふたつのファイルが生成されていることでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:401
+#: ../source/tutorials/packaging-projects.rst:346
 msgid ""
 "The ``tar.gz`` file is a :term:`source distribution <Source Distribution (or "
 "\"sdist\")>` whereas the ``.whl`` file is a :term:`built distribution <Built "
@@ -31751,17 +32722,17 @@ msgstr ""
 "するべきです。我々の例示のためのパッケージはすべてのプラットフォーム上の "
 "Python で動作するものなので、ビルド済配布物がひとつあれば十分です。"
 
-#: ../source/tutorials/packaging-projects.rst:410
+#: ../source/tutorials/packaging-projects.rst:355
 msgid "Uploading the distribution archives"
 msgstr "配布物アーカイブをアップロードする"
 
-#: ../source/tutorials/packaging-projects.rst:412
+#: ../source/tutorials/packaging-projects.rst:357
 msgid "Finally, it's time to upload your package to the Python Package Index!"
 msgstr ""
 "ついにあなたのパッケージを Python パッケージインデックスへアップロードする時"
 "が来ました！"
 
-#: ../source/tutorials/packaging-projects.rst:414
+#: ../source/tutorials/packaging-projects.rst:359
 msgid ""
 "The first thing you'll need to do is register an account on TestPyPI, which "
 "is a separate instance of the package index intended for testing and "
@@ -31781,7 +32752,7 @@ msgstr ""
 "しょう。もっと詳しいことが知りたければ、 :doc:`/guides/using-testpypi` を見て"
 "ください。"
 
-#: ../source/tutorials/packaging-projects.rst:422
+#: ../source/tutorials/packaging-projects.rst:367
 msgid ""
 "To securely upload your project, you'll need a PyPI `API token`_. Create one "
 "at https://test.pypi.org/manage/account/#api-tokens, setting the \"Scope\" "
@@ -31794,7 +32765,7 @@ msgstr ""
 "**トークンをコピーして保存するまで、ページを閉じないでください — トークンは二"
 "度と表示されません。**"
 
-#: ../source/tutorials/packaging-projects.rst:429
+#: ../source/tutorials/packaging-projects.rst:374
 msgid ""
 "Now that you are registered, you can use :ref:`twine` to upload the "
 "distribution packages. You'll need to install Twine:"
@@ -31802,25 +32773,25 @@ msgstr ""
 "ユーザ登録が済んだら、 :ref:`twine` で配布物パッケージをアップロードすること"
 "ができます。Twine のインストールが必要ならこのようにしてください:"
 
-#: ../source/tutorials/packaging-projects.rst:444
+#: ../source/tutorials/packaging-projects.rst:389
 msgid ""
 "Once installed, run Twine to upload all of the archives under :file:`dist`:"
 msgstr ""
 "インストールできたら、 :file:`dist` ディレクトリ内にあるアーカイブファイルを"
 "すべてアップロードしてください:"
 
-#: ../source/tutorials/packaging-projects.rst:458
+#: ../source/tutorials/packaging-projects.rst:403
 msgid ""
 "You will be prompted for an API token. Use the token value, including the "
 "``pypi-`` prefix. Note that the input will be hidden, so be sure to paste "
 "correctly."
 msgstr ""
 
-#: ../source/tutorials/packaging-projects.rst:461
+#: ../source/tutorials/packaging-projects.rst:406
 msgid "After the command completes, you should see output similar to this:"
 msgstr "コマンド実行完了後、これに似た出力を見ることになるでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:472
+#: ../source/tutorials/packaging-projects.rst:417
 msgid ""
 "Once uploaded, your package should be viewable on TestPyPI; for example: "
 "``https://test.pypi.org/project/example_package_YOUR_USERNAME_HERE``."
@@ -31829,11 +32800,11 @@ msgstr ""
 "す; 例えば: ``https://test.pypi.org/project/"
 "example_package_YOUR_USERNAME_HERE`` 。"
 
-#: ../source/tutorials/packaging-projects.rst:477
+#: ../source/tutorials/packaging-projects.rst:422
 msgid "Installing your newly uploaded package"
 msgstr "新しくアップロードしたあなたのパッケージをインストールする"
 
-#: ../source/tutorials/packaging-projects.rst:479
+#: ../source/tutorials/packaging-projects.rst:424
 msgid ""
 "You can use :ref:`pip` to install your package and verify that it works. "
 "Create a :ref:`virtual environment <Creating and using Virtual "
@@ -31843,11 +32814,11 @@ msgstr ""
 "できます。 :ref:`仮想環境 <Creating and using Virtual Environments>` を作成し"
 "て、 TestPyPI からあなたのパッケージをインストールしましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:495
+#: ../source/tutorials/packaging-projects.rst:440
 msgid "Make sure to specify your username in the package name!"
 msgstr "パッケージ名の中にあなたのユーザ名を指定するのをお忘れなく！"
 
-#: ../source/tutorials/packaging-projects.rst:497
+#: ../source/tutorials/packaging-projects.rst:442
 msgid ""
 "pip should install the package from TestPyPI and the output should look "
 "something like this:"
@@ -31855,7 +32826,7 @@ msgstr ""
 "pip でパッケージを TestPyPI からインストールできるはずで、その出力は何か次の"
 "ようなものに見えるでしょう:"
 
-#: ../source/tutorials/packaging-projects.rst:507
+#: ../source/tutorials/packaging-projects.rst:452
 msgid ""
 "This example uses ``--index-url`` flag to specify TestPyPI instead of live "
 "PyPI. Additionally, it specifies ``--no-deps``. Since TestPyPI doesn't have "
@@ -31872,7 +32843,7 @@ msgstr ""
 "として使っているパッケージには依存先がないので、 TestPyPI を使う時には依存先"
 "をインストールしないように指定しておくことは良いやり方です。"
 
-#: ../source/tutorials/packaging-projects.rst:514
+#: ../source/tutorials/packaging-projects.rst:459
 msgid ""
 "You can test that it was installed correctly by importing the package. Make "
 "sure you're still in your virtual environment, then run Python:"
@@ -31881,11 +32852,11 @@ msgstr ""
 "することができます。まだ仮想環境内にいることを確認してから Python を走らせま"
 "しょう:"
 
-#: ../source/tutorials/packaging-projects.rst:529
+#: ../source/tutorials/packaging-projects.rst:474
 msgid "and import the package:"
 msgstr "そして、パッケージをインポートしましょう:"
 
-#: ../source/tutorials/packaging-projects.rst:541
+#: ../source/tutorials/packaging-projects.rst:486
 msgid ""
 "**Congratulations, you've packaged and distributed a Python project!** ✨ 🍰 "
 "✨"
@@ -31893,7 +32864,7 @@ msgstr ""
 "**おめでとうございます、あなたは Python のプロジェクトをパッケージングし、配"
 "布することができました！** ✨ 🍰 ✨"
 
-#: ../source/tutorials/packaging-projects.rst:544
+#: ../source/tutorials/packaging-projects.rst:489
 msgid ""
 "Keep in mind that this tutorial showed you how to upload your package to "
 "Test PyPI, which isn't a permanent storage. The Test system occasionally "
@@ -31905,7 +32876,7 @@ msgstr ""
 "でください。テストシステムは、時折パッケージやアカウントを削除します。 Test "
 "PyPI は、このチュートリアルのような試行や実験のために使うのがベストです。"
 
-#: ../source/tutorials/packaging-projects.rst:549
+#: ../source/tutorials/packaging-projects.rst:494
 msgid ""
 "When you are ready to upload a real package to the Python Package Index you "
 "can do much the same as you did in this tutorial, but with these important "
@@ -31915,7 +32886,7 @@ msgstr ""
 "たら、このチュートリアルでやったのと概ね同じことをやれば大丈夫ですが、次のよ"
 "うな重要な違いがあります:"
 
-#: ../source/tutorials/packaging-projects.rst:553
+#: ../source/tutorials/packaging-projects.rst:498
 msgid ""
 "Choose a memorable and unique name for your package. You don't have to "
 "append your username as you did in the tutorial, but you can't use an "
@@ -31925,7 +32896,7 @@ msgstr ""
 "やったようにあなたのユーザ名を追記する必要はありませんが、既存の名前は使えま"
 "せん。"
 
-#: ../source/tutorials/packaging-projects.rst:555
+#: ../source/tutorials/packaging-projects.rst:500
 msgid ""
 "Register an account on https://pypi.org - note that these are two separate "
 "servers and the login details from the test server are not shared with the "
@@ -31935,7 +32906,7 @@ msgstr ""
 "バであって、テストサーバ側のログイン情報はメインサーバに共有されてはいませ"
 "ん。"
 
-#: ../source/tutorials/packaging-projects.rst:558
+#: ../source/tutorials/packaging-projects.rst:503
 msgid ""
 "Use ``twine upload dist/*`` to upload your package and enter your "
 "credentials for the account you registered on the real PyPI.  Now that "
@@ -31948,7 +32919,7 @@ msgstr ""
 "要はありません; 指定しないことでパッケージはデフォルトの https://pypi.org/ へ"
 "アップロードされるでしょう。"
 
-#: ../source/tutorials/packaging-projects.rst:562
+#: ../source/tutorials/packaging-projects.rst:507
 msgid ""
 "Install your package from the real PyPI using ``python3 -m pip install [your-"
 "package]``."
@@ -31956,7 +32927,7 @@ msgstr ""
 "``python3 -m pip install [your-package`` を使って、あなたのパッケージを本番環"
 "境の PyPI からインストールしましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:564
+#: ../source/tutorials/packaging-projects.rst:509
 msgid ""
 "At this point if you want to read more on packaging Python libraries here "
 "are some things you can do:"
@@ -31964,7 +32935,7 @@ msgstr ""
 "ここまで読み進めてきて、もっと Python でのパッケージングについて読みたいので"
 "あれば、次のようなものがあります:"
 
-#: ../source/tutorials/packaging-projects.rst:567
+#: ../source/tutorials/packaging-projects.rst:512
 msgid ""
 "Read about advanced configuration for your chosen build backend: `Hatchling "
 "<hatchling-config_>`_, :doc:`setuptools <setuptools:userguide/"
@@ -31974,7 +32945,7 @@ msgstr ""
 "config_>`_ ・ :doc:`setuptools <setuptools:userguide/pyproject_config>` ・ :"
 "doc:`Flit <flit:pyproject_toml>` ・ `PDM <pdm-config_>`_ を読んでください。"
 
-#: ../source/tutorials/packaging-projects.rst:571
+#: ../source/tutorials/packaging-projects.rst:516
 msgid ""
 "Look at the :doc:`guides </guides/index>` on this site for more advanced "
 "practical information, or the :doc:`discussions </discussions/index>` for "
@@ -31984,7 +32955,7 @@ msgstr ""
 "index>` を、あるいは、特定の話題の説明や背景については :doc:`議論 </"
 "discussions/index>` を見てください。"
 
-#: ../source/tutorials/packaging-projects.rst:574
+#: ../source/tutorials/packaging-projects.rst:519
 msgid ""
 "Consider packaging tools that provide a single command-line interface for "
 "project management and packaging, such as :ref:`hatch`, :ref:`flit`, :ref:"
@@ -31994,11 +32965,11 @@ msgstr ""
 "マンドラインインタフェースでプロジェクト管理もパッケージングもできるパッケー"
 "ジングツールについて検討しましょう。"
 
-#: ../source/tutorials/packaging-projects.rst:582
+#: ../source/tutorials/packaging-projects.rst:527
 msgid "Notes"
 msgstr "ノート"
 
-#: ../source/tutorials/packaging-projects.rst:584
+#: ../source/tutorials/packaging-projects.rst:529
 msgid ""
 "Technically, you can also create Python packages without an ``__init__.py`` "
 "file, but those are called :doc:`namespace packages </guides/packaging-"
@@ -32013,6 +32984,42 @@ msgstr ""
 "話題** であると見做されています。Pythonのパッケージングについてやり始めたばか"
 "りなのであれば、 *通常のパッケージ* と (空のファイルだとしても) ``__init__."
 "py`` から離れないことをお薦めします。"
+
+#, fuzzy
+#~| msgid ""
+#~| "This can take two forms. You can put your license in a file, typically "
+#~| "``LICENSE`` or ``LICENSE.txt``, and link that file here:"
+#~ msgid ""
+#~ "This can take two forms. You can put your license in a file, typically :"
+#~ "file:`LICENSE` or :file:`LICENSE.txt`, and link that file here:"
+#~ msgstr ""
+#~ "これは、ふたつの形式を採ります。典型的には ``LICENSE`` か ``LICENSE.txt`` "
+#~ "というファイル名でライセンスをファイルとして置いておいて、ここにはそのファ"
+#~ "イルへのリンクを書いて置くこともできます:"
+
+#~ msgid "or you can write the name of the license:"
+#~ msgstr "あるいは、ライセンスの名称を書いておくことも可能です:"
+
+#, fuzzy
+#~| msgid ""
+#~| "If you are using a standard, well-known license, it is not necessary to "
+#~| "use this field. Instead, you should one of the :ref:`classifiers` "
+#~| "starting with ``License ::``. (As a general rule, it is a good idea to "
+#~| "use a standard, well-known license, both to avoid confusion and because "
+#~| "some organizations avoid software whose license is unapproved.)"
+#~ msgid ""
+#~ "If you are using a standard, well-known license, it is not necessary to "
+#~ "use this field. Instead, you should use one of the :ref:`classifiers` "
+#~ "starting with ``License ::``. (As a general rule, it is a good idea to "
+#~ "use a standard, well-known license, both to avoid confusion and because "
+#~ "some organizations avoid software whose license is unapproved.)"
+#~ msgstr ""
+#~ "標準的でよく知られたライセンスを使うのであれば、このフィールドを使う必要は"
+#~ "ありません。代わりに、 ``License::`` で始まる :ref:`分類子 <classifiers>` "
+#~ "のうちのひとつを書いておけば良いでしょう。 (一般的な規則としては標準的でよ"
+#~ "く知られたライセンスを使うことは良い考えです、というのは、混乱を避けるとこ"
+#~ "とにもなるし、中には内部で認可済みのライセンスでなければソフトウェアを使え"
+#~ "ない組織もあるからです。)"
 
 #~ msgid ""
 #~ "This guide is specifically for users of :ref:`setuptools`, other "
@@ -32327,25 +33334,6 @@ msgstr ""
 #~ "`Anaconda, Inc <https://www.anaconda.com/products/individual>`__ が特に科"
 #~ "学計算の分野に向けて配布している配布物で、とりわけ通常ならバイナリ拡張のイ"
 #~ "ンストールが難しいとされる Windows 用に配布しています。"
-
-#~ msgid "TOML_ type: table"
-#~ msgstr "TOML_ 型: テーブル"
-
-#~ msgid ""
-#~ "The table may have one of two keys. The ``file`` key has a string value "
-#~ "that is a file path relative to ``pyproject.toml`` to the file which "
-#~ "contains the license for the project. Tools MUST assume the file's "
-#~ "encoding is UTF-8. The ``text`` key has a string value which is the "
-#~ "license of the project.  These keys are mutually exclusive, so a tool "
-#~ "MUST raise an error if the metadata specifies both keys."
-#~ msgstr ""
-#~ "テーブルには二つのキーのうちのいずれか一つを書くことができます。 ``file`` "
-#~ "キーは、 ``pyproject.toml`` からプロジェクトのライセンス情報を含むファイル"
-#~ "への相対パスを値とする文字列です。ツールの側では、そのファイルのエンコー"
-#~ "ディングが UTF-8 であるものと仮定しなければなりません。 ``text`` キーは、"
-#~ "プロジェクトのライセンス条項そのものである文字列を値に取ります。これらの"
-#~ "キーは相互に排他的で、従って、両方のキーが指定されているメタデータについて"
-#~ "ツールの側ではエラーを発生させなければなりません。"
 
 #~ msgid ""
 #~ "A table of URLs where the key is the URL label and the value is the URL "
@@ -33739,9 +34727,6 @@ msgstr ""
 
 #~ msgid "Wheel is a reference to the other Python."
 #~ msgstr "Wheel は、他の Python に対して参照するべきものとなっています。"
-
-#~ msgid "Changes"
-#~ msgstr "変更点"
 
 #~ msgid "Since :pep:`427`, this specification has changed as follows:"
 #~ msgstr ":pep:`427` 以来、この仕様には次のような修正が加えられました:"
