@@ -256,8 +256,8 @@ The .dist-info directory
 Subdirectories in :file:`.dist-info/`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Subdirectories under `.dist-info` are reserved for future use.
-The following subdirectory names under `.dist-info` are reserved for specific usage:
+Subdirectories under :file:`.dist-info` are reserved for future use.
+The following subdirectory names under :file:`.dist-info` are reserved for specific usage:
 
 ================= ==============
 Subdirectory name PEP / Standard
