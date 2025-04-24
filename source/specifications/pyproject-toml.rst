@@ -546,7 +546,7 @@ History
 .. _pyproject-dependency-groups-table:
 
 Declaring dependency groups: the ``[dependency-groups]`` table
-===================================================
+==============================================================
 
 This specification defines Dependency Groups, a mechanism for storing package requirements in
 ``[pyproject.toml]`` files such that they are not included in project metadata when it is built.
