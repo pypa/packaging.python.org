@@ -66,10 +66,11 @@ The ``METADATA`` file is mandatory.
 All other files may be omitted at the installing tool's discretion.
 Additional installer-specific files may be present.
 
-This :file:`.dist-info/` directory may contain the following directory, described in
+This :file:`.dist-info/` directory may contain the following directories, described in
 detail below:
 
 * :file:`licenses/`: contains license files.
+* :file:`sboms/`: contains Software Bill-of-Materials files (SBOMs).
 
 .. note::
 
@@ -232,6 +233,15 @@ fields is specified, the :file:`.dist-info/` directory MUST contain a :file:`lic
 subdirectory which MUST contain the files listed in the ``License-File`` fields in
 the :file:`METADATA` file at their respective paths relative to the
 :file:`licenses/` directory.
+Any files in this directory MUST be copied from wheels by the install tools.
+
+
+The :file:`sboms/` subdirectory
+==================================
+
+All files contained within the :file:`.dist-info/sboms` directory MUST
+be Software Bill-of-Materials (SBOM) files that describe software contained
+within the installed package.
 Any files in this directory MUST be copied from wheels by the install tools.
 
 
