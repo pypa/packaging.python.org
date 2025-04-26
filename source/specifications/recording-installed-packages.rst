@@ -239,7 +239,7 @@ Any files in this directory MUST be copied from wheels by the install tools.
 The :file:`sboms/` subdirectory
 ==================================
 
-All files contained within the :file:`.dist-info/sboms` directory MUST
+All files contained within the :file:`.dist-info/sboms/` directory MUST
 be Software Bill-of-Materials (SBOM) files that describe software contained
 within the installed package.
 Any files in this directory MUST be copied from wheels by the install tools.
