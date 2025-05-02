@@ -58,7 +58,6 @@ recorded in a consistent order (if inspiration is desired, this specification ha
 write down keys in a logical order). As well, tools SHOULD sort arrays in
 consistent order. Usage of inline tables SHOULD also be kept consistent.
 
-.. File details
 
 .. _pylock-lock-version:
 
@@ -194,8 +193,6 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   be installed MUST narrow down to a single entry at install time.
 
 
-.. Identification
-
 .. _pylock-packages-name:
 
 ``packages.name``
@@ -223,8 +220,6 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
   with the code used (i.e. when a
   :ref:`source tree <source-distribution-format-source-tree>` is used).
 
-
-.. Requirements
 
 .. _pylock-packages-marker:
 
@@ -270,8 +265,6 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 - Tools MUST NOT use this information when doing installation; it is purely
   informational for auditing purposes.
 
-
-.. Source
 
 .. _pylock-packages-vcs:
 
