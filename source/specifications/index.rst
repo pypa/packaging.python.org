@@ -16,3 +16,4 @@ and for proposing new ones, is documented on
    section-distribution-formats
    section-package-indices
    section-python-description-formats
+   section-reproducible-environments
