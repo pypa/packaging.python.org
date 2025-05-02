@@ -31,18 +31,18 @@ The expectation is that services that automatically install from lock files will
 search for:
 
 1. The lock file with the service's name and doing the default install
-2. A multi-use ``pylock.toml`` with a dependency group with the name of the service
-3. The default install of ``pylock.toml``
+2. A multi-use :file:`pylock.toml` with a dependency group with the name of the service
+3. The default install of :file:`pylock.toml`
 
 E.g. a cloud host service named "spam" would first look for
-``pylock.spam.toml`` to install from, and if that file didn't exist then install
-from ``pylock.toml`` and look for a dependency group named "spam" to use if
+:file:`pylock.spam.toml` to install from, and if that file didn't exist then install
+from :file:`pylock.toml` and look for a dependency group named "spam" to use if
 present.
 
 The lock file(s) SHOULD be located in the directory as appropriate for the scope
-of the lock file. Locking against a single ``pyproject.toml``, for instance,
-would place the ``pylock.toml`` in the same directory. If the lock file covered
-multiple projects in a monorepo, then the expectation is the ``pylock.toml``
+of the lock file. Locking against a single :file:`pyproject.toml`, for instance,
+would place the :file:`pylock.toml` in the same directory. If the lock file covered
+multiple projects in a monorepo, then the expectation is the :file:`pylock.toml`
 file would be in the directory that held all the projects being locked.
 
 
@@ -54,7 +54,7 @@ The format of the file is TOML_.
 
 Tools SHOULD write their lock files in a consistent way to minimize noise in
 diff output. Keys in tables -- including the top-level table -- SHOULD be
-recorded in a consistent order (if inspiration is desired, this PEP has tried to
+recorded in a consistent order (if inspiration is desired, this specification has tried to
 write down keys in a logical order). As well, tools SHOULD sort arrays in
 consistent order. Usage of inline tables SHOULD also be kept consistent.
 
