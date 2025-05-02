@@ -299,12 +299,12 @@ an error like all other unknown variables.
      - An error except when defined by the context interpreting the
        specification.
      - String
-     - ``test``
+     - ``toml``
    * - ``extras``
      - An error except when defined by the context interpreting the
        specification.
      - Set of strings
-     - ``{"test"}``
+     - ``{"toml"}``
    * - ``dependency_groups``
      - An error except when defined by the context interpreting the
        specification.
