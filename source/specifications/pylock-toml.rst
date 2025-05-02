@@ -276,7 +276,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs:
 
 ``[packages.vcs]``
--------------------
+------------------
 
 - **Type**: table
 - **Required?**: no; mutually-exclusive with :ref:`pylock-packages-directory`,
@@ -298,7 +298,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs-type:
 
 ``packages.vcs.type``
-''''''''''''''''''''''
+'''''''''''''''''''''
 
 - **Type**: string; supported values specified in
   :ref:`direct-url-data-structure-registered-vcs`
@@ -310,7 +310,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs-url:
 
 ``packages.vcs.url``
-'''''''''''''''''''''
+''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: if :ref:`pylock-packages-vcs-path` is not specified
@@ -321,7 +321,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs-path:
 
 ``packages.vcs.path``
-''''''''''''''''''''''
+'''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: if :ref:`pylock-packages-vcs-url` is not specified
@@ -335,7 +335,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs-requested-revision:
 
 ``packages.vcs.requested-revision``
-''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: no
@@ -349,7 +349,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs-commit-id:
 
 ``packages.vcs.commit-id``
-'''''''''''''''''''''''''''
+''''''''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: yes
@@ -363,7 +363,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-vcs-subdirectory:
 
 ``packages.vcs.subdirectory``
-''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: no
@@ -378,7 +378,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-directory:
 
 ``[packages.directory]``
--------------------------
+------------------------
 
 - **Type**: table
 - **Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`,
@@ -398,7 +398,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-directory-path:
 
 ``packages.directory.path``
-''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''
 
 - **Type**: string
 - **Required?**: yes
@@ -412,7 +412,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-directory-editable:
 
 ``packages.directory.editable``
-''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''
 
 - **Type**: boolean
 - **Required?**: no; defaults to ``false``
@@ -428,7 +428,7 @@ consistent order. Usage of inline tables SHOULD also be kept consistent.
 .. _pylock-packages-directory-subdirectory:
 
 ``packages.directory.subdirectory``
-''''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''
 
 See :ref:`pylock-packages-vcs-subdirectory`.
 
@@ -436,7 +436,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 .. _pylock-packages-archive:
 
 ``[packages.archive]``
------------------------
+----------------------
 
 - **Type**: table
 - **Required?**: no
@@ -454,7 +454,7 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 .. _pylock-packages-archive-url:
 
 ``packages.archive.url``
-'''''''''''''''''''''''''
+''''''''''''''''''''''''
 
 See :ref:`pylock-packages-vcs-url`.
 
@@ -462,7 +462,7 @@ See :ref:`pylock-packages-vcs-url`.
 .. _pylock-packages-archive-path:
 
 ``packages.archive.path``
-''''''''''''''''''''''''''
+'''''''''''''''''''''''''
 
 See :ref:`pylock-packages-vcs-path`.
 
@@ -470,7 +470,7 @@ See :ref:`pylock-packages-vcs-path`.
 .. _pylock-packages-archive-size:
 
 ``packages.archive.size``
-''''''''''''''''''''''''''
+'''''''''''''''''''''''''
 
 - **Type**: integer
 - **Required?**: no
@@ -495,7 +495,7 @@ See :ref:`pylock-packages-vcs-path`.
 .. _pylock-packages-archive-hashes:
 
 ``[packages.archive.hashes]``
-''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''
 
 - **Type**: Table of strings
 - **Required?**: yes
