@@ -614,7 +614,7 @@ See :ref:`pylock-packages-archive-hashes`.
   :ref:`pylock-packages-directory`, and :ref:`pylock-packages-archive`
 - **Inspiration**: PDM_, Poetry_, uv_
 - For recording the wheel files as specified by
-  :ref:`  binary-distribution-format` for the package.
+  :ref:`binary-distribution-format` for the package.
 - Tools MUST support wheel files, both from a locking and installation
   perspective.
 
@@ -846,5 +846,4 @@ History
 .. _software bill of materials: https://www.cisa.gov/sbom
 .. _TOML: https://toml.io/
 .. _uv: https://pypi.org/project/uv/
-.. _URL: https://url.spec.whatwg.org/
 .. _URL: https://url.spec.whatwg.org/
