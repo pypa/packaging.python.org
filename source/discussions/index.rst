@@ -1,7 +1,7 @@
-Discussions
-###########
+Explanations
+============
 
-**Discussions** are focused on providing comprehensive information about a
+**Explanations and Discussions** focus on providing comprehensive information about a
 specific topic. If you're just trying to get stuff done, see
 :doc:`/guides/index`.
 

@@ -10,53 +10,42 @@ Python Packaging User Guide
    :maxdepth: 2
    :hidden:
 
-   overview
-   flow
+   overview/index
    tutorials/index
    guides/index
    discussions/index
    specifications/index
-   key_projects
-   glossary
-   support
+   references/index
    contribute
-   news
 
-Welcome to the *Python Packaging User Guide*, a collection of tutorials and
-references to help you distribute and install Python packages with modern
-tools.
+Welcome to the *Python Packaging User Guide*.
+This collection of tutorials, how-to guides, explanations, specifications, and
+references is a central place to learn about Python packages, how to distribute
+and install libraries and projects, and build awareness of available modern tools.
 
-This guide is maintained on `GitHub`_ by the :doc:`Python Packaging Authority <pypa:index>`. We
-happily accept :doc:`contributions and feedback <contribute>`. 😊
+This guide is maintained on `GitHub`_ by the :doc:`Python Packaging Authority <pypa:index>`.
+We encourage and happily accept :doc:`contributions <contribute>`. 😊
 
 .. _GitHub: https://github.com/pypa/packaging.python.org
 
 
-Overview and Flow
-=================
+Overview
+========
 
-.. note::
-
-   Building your understanding of Python packaging is a journey. Patience and
-   continuous improvement are key to success. The overview and flow sections
-   provide a starting point for understanding the Python packaging ecosystem.
-
-The :doc:`overview` explains Python packaging
+The :doc:`overview` section provides a high-level view of Python packaging
 and its use when preparing and distributing projects.
-This section helps you build understanding about selecting the tools and
-processes that are most suitable for your use case.
+This section helps you become familiar with available tools and
+processes.
 It includes what packaging is, the problems that it solves, and
 key considerations.
-
 To get an overview of the workflow used to publish your code, see
 :doc:`packaging flow <flow>`.
 
 Tutorials
 =========
 
+Tutorials are the best place to start for anyone new to installing or creating Python Packages.
 Tutorials walk through the steps needed to complete a project for the first time.
-Tutorials aim to help you succeed and provide a starting point for future
-exploration.
 The :doc:`tutorials/index` section includes:
 
 * A :doc:`tutorial on installing packages <tutorials/installing-packages>`
@@ -65,29 +54,35 @@ The :doc:`tutorials/index` section includes:
 * A :doc:`tutorial on packaging and distributing <tutorials/packaging-projects>`
   your project
 
-Guides
-======
+How-to Guides
+=============
 
-Guides provide steps to perform a specific task. Guides are more focused on
-users who are already familiar with Python packaging and are looking for
-specific information.
+How-to Guides provide step-by-step instructions to perform a specific task.
+These guides are written for users who are already familiar with Python packaging.
 
-The :doc:`guides/index` section provides "how to" instructions in three major
-areas: package installation; building and distributing packages; miscellaneous
-topics.
+The :doc:`guides/index` section is organized in the following areas:
 
-Explanations and Discussions
-============================
+* package installation
+* building and distributing packages
+* miscellaneous topics
 
-The :doc:`discussions/index` section for in-depth explanations and discussion
-about topics, such as:
+Explanations
+============
 
-* :doc:`discussions/deploying-python-applications`
-* :doc:`discussions/pip-vs-easy-install`
+The :doc:`Explanations and Discussions <discussions/index>` section presents
+in-depth explanations and discussion about a packaging topic. These documents
+explain the rationale or "why" something is done.
+
+Specifications
+==============
+
+The :doc:`specifications/index` section documents the packaging interoperability specifications.
 
 Reference
 =========
 
-* The :doc:`specifications/index` section for packaging interoperability specifications.
+The :doc:`references/index` section describes projects and gives informative information.
+These resources typically answer "What is..." questions. The section includes:
+
 * The list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
 * The :doc:`glossary` for definitions of terms used in Python packaging.
