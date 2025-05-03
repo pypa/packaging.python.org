@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-26 19:04+0000\n"
+"POT-Creation-Date: 2025-05-02 23:58+0000\n"
 "PO-Revision-Date: 2025-02-26 06:29+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -5432,7 +5432,7 @@ msgstr ""
 "`Pandas`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:337
-#: ../source/specifications/dependency-specifiers.rst:501
+#: ../source/specifications/dependency-specifiers.rst:532
 msgid "References"
 msgstr "Ссылка"
 
@@ -11465,6 +11465,7 @@ msgid "Hosting"
 msgstr "Хостинг"
 
 #: ../source/guides/section-install.rst:3
+#: ../source/specifications/pylock-toml.rst:729
 msgid "Installation"
 msgstr "Установка"
 
@@ -13027,6 +13028,7 @@ msgstr ""
 "PyQt5."
 
 #: ../source/guides/writing-pyproject-toml.rst:183
+#: ../source/specifications/pylock-toml.rst:95
 #: ../source/specifications/pyproject-toml.rst:146
 #: ../source/specifications/pyproject-toml.rst:239
 msgid "``requires-python``"
@@ -17149,6 +17151,7 @@ msgstr ""
 "ZIP, включая возможность изменять метаданные, не переписывая весь архив."
 
 #: ../source/specifications/binary-distribution-format.rst:85
+#: ../source/specifications/pylock-toml.rst:51
 msgid "File Format"
 msgstr "Формат файла"
 
@@ -17990,7 +17993,7 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:455
 #: ../source/specifications/core-metadata.rst:922
 #: ../source/specifications/dependency-groups.rst:248
-#: ../source/specifications/dependency-specifiers.rst:487
+#: ../source/specifications/dependency-specifiers.rst:516
 #: ../source/specifications/direct-url-data-structure.rst:407
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
@@ -17998,6 +18001,7 @@ msgstr ""
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:434
+#: ../source/specifications/pylock-toml.rst:826
 #: ../source/specifications/pyproject-toml.rst:531
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:993
@@ -18090,6 +18094,7 @@ msgstr ""
 #: ../source/specifications/build-details/index.rst:28
 #: ../source/specifications/build-details/v1.0.rst:16
 #: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/pylock-toml.rst:722
 msgid "Example"
 msgstr "Пример"
 
@@ -20702,16 +20707,29 @@ msgstr ""
 "конструкции, описанной в :pep:`426`."
 
 #: ../source/specifications/dependency-specifiers.rst:199
+#, fuzzy
+#| msgid ""
+#| "Comparisons in marker expressions are typed by the comparison operator.  "
+#| "The <marker_op> operators that are not in <version_cmp> perform the same "
+#| "as they do for strings in Python. The <version_cmp> operators use the "
+#| "version comparison rules of the :ref:`Version specifier specification "
+#| "<version-specifiers>` when those are defined (that is when both sides "
+#| "have a valid version specifier). If there is no defined behaviour of this "
+#| "specification and the operator exists in Python, then the operator falls "
+#| "back to the Python behaviour. Otherwise an error should be raised. e.g. "
+#| "the following will result in  errors::"
 msgid ""
-"Comparisons in marker expressions are typed by the comparison operator.  The "
-"<marker_op> operators that are not in <version_cmp> perform the same as they "
-"do for strings in Python. The <version_cmp> operators use the version "
-"comparison rules of the :ref:`Version specifier specification <version-"
-"specifiers>` when those are defined (that is when both sides have a valid "
-"version specifier). If there is no defined behaviour of this specification "
-"and the operator exists in Python, then the operator falls back to the "
-"Python behaviour. Otherwise an error should be raised. e.g. the following "
-"will result in  errors::"
+"Comparisons in marker expressions are typed by the comparison operator and "
+"the type of the marker value. The <marker_op> operators that are not in "
+"<version_cmp> perform the same as they do for strings or sets in Python "
+"based on whether the marker value is a string or set itself. The "
+"<version_cmp> operators use the version comparison rules of the :ref:"
+"`Version specifier specification <version-specifiers>` when those are "
+"defined (that is when both sides have a valid version specifier). If there "
+"is no defined behaviour of this specification and the operator exists in "
+"Python, then the operator falls back to the Python behaviour for the types "
+"involved. Otherwise an error should be raised. e.g. the following will "
+"result in errors::"
 msgstr ""
 "Сравнения в маркерных выражениях типизируются оператором сравнения.  "
 "Операторы <marker_op>, не входящие в <version_cmp>, работают так же, как и "
@@ -20723,7 +20741,7 @@ msgstr ""
 "противном случае должна быть выдана ошибка. Например, следующие действия "
 "приведут к ошибкам::"
 
-#: ../source/specifications/dependency-specifiers.rst:212
+#: ../source/specifications/dependency-specifiers.rst:213
 msgid ""
 "User supplied constants are always encoded as strings with either ``'`` or "
 "``\"`` quote marks. Note that backslash escapes are not defined, but "
@@ -20740,7 +20758,7 @@ msgstr ""
 "отличных от ASCII: все переменные времени выполнения, на которые мы "
 "ссылаемся, должны быть только ASCII."
 
-#: ../source/specifications/dependency-specifiers.rst:219
+#: ../source/specifications/dependency-specifiers.rst:220
 msgid ""
 "The variables in the marker grammar such as \"os_name\" resolve to values "
 "looked up in the Python runtime. With the exception of \"extra\" all values "
@@ -20752,7 +20770,7 @@ msgstr ""
 "\"extra\", все значения определены во всех современных версиях Python - если "
 "значение не определено, это ошибка в реализации маркеров."
 
-#: ../source/specifications/dependency-specifiers.rst:224
+#: ../source/specifications/dependency-specifiers.rst:225
 msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
 "that evaluates to True or False."
@@ -20760,7 +20778,7 @@ msgstr ""
 "Неизвестные переменные должны вызывать ошибку, а не приводить к сравнению, "
 "которое оценивается как True или False."
 
-#: ../source/specifications/dependency-specifiers.rst:227
+#: ../source/specifications/dependency-specifiers.rst:228
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
 "should evaluate to ``0`` for versions, and an empty string for all other "
@@ -20770,7 +20788,7 @@ msgstr ""
 "Python, должны оцениваться как ``0`` для версий, и как пустая строка для "
 "всех остальных переменных."
 
-#: ../source/specifications/dependency-specifiers.rst:231
+#: ../source/specifications/dependency-specifiers.rst:232
 msgid ""
 "The \"extra\" variable is special. It is used by wheels to signal which "
 "specifications apply to a given extra in the wheel ``METADATA`` file, but "
@@ -20787,39 +20805,63 @@ msgstr ""
 "\"extra\" должна приводить к ошибке, как и все остальные неизвестные "
 "переменные."
 
-#: ../source/specifications/dependency-specifiers.rst:241
+#: ../source/specifications/dependency-specifiers.rst:239
+msgid ""
+"The \"extras\" and \"dependency_groups\" variables are also special. They "
+"are used to specify any requested extras or dependency groups when "
+"installing from a lock file. Outside of the context of lock files, these two "
+"variables should result in an error like all other unknown variables."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:247
 msgid "Marker"
 msgstr "Маркер"
 
-#: ../source/specifications/dependency-specifiers.rst:242
+#: ../source/specifications/dependency-specifiers.rst:248
 msgid "Python equivalent"
 msgstr "Эквивалент Python"
 
-#: ../source/specifications/dependency-specifiers.rst:243
+#: ../source/specifications/dependency-specifiers.rst:249
+msgid "Type"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:250
 msgid "Sample values"
 msgstr "Образцовые значения"
 
-#: ../source/specifications/dependency-specifiers.rst:244
+#: ../source/specifications/dependency-specifiers.rst:251
 msgid "``os_name``"
 msgstr "``ос_название``"
 
-#: ../source/specifications/dependency-specifiers.rst:245
+#: ../source/specifications/dependency-specifiers.rst:252
 msgid ":py:data:`os.name`"
 msgstr ":py: данные:`ос. название`"
 
-#: ../source/specifications/dependency-specifiers.rst:246
+#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:266
+#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:274
+#: ../source/specifications/dependency-specifiers.rst:278
+#: ../source/specifications/dependency-specifiers.rst:292
+#: ../source/specifications/dependency-specifiers.rst:301
+msgid "String"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:254
 msgid "``posix``, ``java``"
 msgstr "``posix``, ``java``"
 
-#: ../source/specifications/dependency-specifiers.rst:247
+#: ../source/specifications/dependency-specifiers.rst:255
 msgid "``sys_platform``"
 msgstr "``системная платформа``"
 
-#: ../source/specifications/dependency-specifiers.rst:248
+#: ../source/specifications/dependency-specifiers.rst:256
 msgid ":py:data:`sys.platform`"
 msgstr ":py: данные:`sys. платформа`"
 
-#: ../source/specifications/dependency-specifiers.rst:249
+#: ../source/specifications/dependency-specifiers.rst:258
 msgid ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
 "from Python3 and \"linux2\" from Python2)"
@@ -20827,64 +20869,64 @@ msgstr ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (обратите внимание, что "
 "\"linux\" - из Python3, а \"linux2\" - из Python2)"
 
-#: ../source/specifications/dependency-specifiers.rst:251
+#: ../source/specifications/dependency-specifiers.rst:260
 msgid "``platform_machine``"
 msgstr "``платформа_машины``"
 
-#: ../source/specifications/dependency-specifiers.rst:252
+#: ../source/specifications/dependency-specifiers.rst:261
 msgid ":py:func:`platform.machine()`"
 msgstr ":py:func:`платформа.машина()`"
 
-#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:263
 #: ../source/specifications/platform-compatibility-tags.rst:256
 msgid "``x86_64``"
 msgstr "``x86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:254
+#: ../source/specifications/dependency-specifiers.rst:264
 msgid "``platform_python_implementation``"
 msgstr "``платформа_python_имплементация``"
 
-#: ../source/specifications/dependency-specifiers.rst:255
+#: ../source/specifications/dependency-specifiers.rst:265
 msgid ":py:func:`platform.python_implementation()`"
 msgstr ":py:func:`платформа.python_имплементация()`"
 
-#: ../source/specifications/dependency-specifiers.rst:256
+#: ../source/specifications/dependency-specifiers.rst:267
 msgid "``CPython``, ``Jython``"
 msgstr "``CPython``, ``Jython``"
 
-#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:268
 msgid "``platform_release``"
 msgstr "``платформа_выпуска``"
 
-#: ../source/specifications/dependency-specifiers.rst:258
+#: ../source/specifications/dependency-specifiers.rst:269
 msgid ":py:func:`platform.release()`"
 msgstr ":py:func:`платформа. релиз()`"
 
-#: ../source/specifications/dependency-specifiers.rst:259
+#: ../source/specifications/dependency-specifiers.rst:271
 msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 msgstr "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 
-#: ../source/specifications/dependency-specifiers.rst:260
+#: ../source/specifications/dependency-specifiers.rst:272
 msgid "``platform_system``"
 msgstr "``платформа_системы``"
 
-#: ../source/specifications/dependency-specifiers.rst:261
+#: ../source/specifications/dependency-specifiers.rst:273
 msgid ":py:func:`platform.system()`"
 msgstr ":py:func:`платформа.система()`"
 
-#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:275
 msgid "``Linux``, ``Windows``, ``Java``"
 msgstr "``Linux``, ``Windows``, ``Java``"
 
-#: ../source/specifications/dependency-specifiers.rst:263
+#: ../source/specifications/dependency-specifiers.rst:276
 msgid "``platform_version``"
 msgstr "``платформа_версия``"
 
-#: ../source/specifications/dependency-specifiers.rst:264
+#: ../source/specifications/dependency-specifiers.rst:277
 msgid ":py:func:`platform.version()`"
 msgstr ":py:func:`платформа.версия()`"
 
-#: ../source/specifications/dependency-specifiers.rst:265
+#: ../source/specifications/dependency-specifiers.rst:279
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
@@ -20894,67 +20936,107 @@ msgstr ""
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
 "02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:268
+#: ../source/specifications/dependency-specifiers.rst:282
 msgid "``python_version``"
 msgstr "``python_версия``"
 
-#: ../source/specifications/dependency-specifiers.rst:269
+#: ../source/specifications/dependency-specifiers.rst:283
 msgid "``'.'.join(platform.python_version_tuple()[:2])``"
 msgstr "``'.'.join(platform.python_version_tuple()[:2])``"
 
-#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:284
+#: ../source/specifications/dependency-specifiers.rst:288
+#: ../source/specifications/dependency-specifiers.rst:296
+#, fuzzy
+#| msgid "Version specifiers"
+msgid ":ref:`Version <version-specifiers>`"
+msgstr "Спецификаторы версии"
+
+#: ../source/specifications/dependency-specifiers.rst:285
 msgid "``3.4``, ``2.7``"
 msgstr "``3.4``, ``2.7``"
 
-#: ../source/specifications/dependency-specifiers.rst:271
+#: ../source/specifications/dependency-specifiers.rst:286
 msgid "``python_full_version``"
 msgstr "``python_полная_версия``"
 
-#: ../source/specifications/dependency-specifiers.rst:272
+#: ../source/specifications/dependency-specifiers.rst:287
 msgid ":py:func:`platform.python_version()`"
 msgstr ":py:func:`платформа. python_версия()`"
 
-#: ../source/specifications/dependency-specifiers.rst:273
-#: ../source/specifications/dependency-specifiers.rst:279
+#: ../source/specifications/dependency-specifiers.rst:289
+#: ../source/specifications/dependency-specifiers.rst:297
 msgid "``3.4.0``, ``3.5.0b1``"
 msgstr "``3.4.0``, ``3.5.0b1``"
 
-#: ../source/specifications/dependency-specifiers.rst:274
+#: ../source/specifications/dependency-specifiers.rst:290
 msgid "``implementation_name``"
 msgstr "``имя_реализации``"
 
-#: ../source/specifications/dependency-specifiers.rst:275
+#: ../source/specifications/dependency-specifiers.rst:291
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ":py: данные:`sys.имплементация. название <sys.имплементация>`"
 
-#: ../source/specifications/dependency-specifiers.rst:276
+#: ../source/specifications/dependency-specifiers.rst:293
 msgid "``cpython``"
 msgstr "``cpython``"
 
-#: ../source/specifications/dependency-specifiers.rst:277
+#: ../source/specifications/dependency-specifiers.rst:294
 msgid "``implementation_version``"
 msgstr "``Версия_реализации``"
 
-#: ../source/specifications/dependency-specifiers.rst:278
+#: ../source/specifications/dependency-specifiers.rst:295
 msgid "see definition below"
 msgstr "смотрите определение ниже"
 
-#: ../source/specifications/dependency-specifiers.rst:280
+#: ../source/specifications/dependency-specifiers.rst:298
 msgid "``extra``"
 msgstr "``экстра``"
 
-#: ../source/specifications/dependency-specifiers.rst:281
+#: ../source/specifications/dependency-specifiers.rst:299
+#: ../source/specifications/dependency-specifiers.rst:304
+#: ../source/specifications/dependency-specifiers.rst:309
 msgid ""
 "An error except when defined by the context interpreting the specification."
 msgstr ""
 "Ошибка, за исключением случаев, когда она определена контекстом, "
 "интерпретирующим спецификацию."
 
-#: ../source/specifications/dependency-specifiers.rst:283
-msgid "``test``"
+#: ../source/specifications/dependency-specifiers.rst:302
+#, fuzzy
+#| msgid "``pyproject.toml``"
+msgid "``toml``"
+msgstr "``pyproject.toml``"
+
+#: ../source/specifications/dependency-specifiers.rst:303
+#: ../source/specifications/pylock-toml.rst:108
+#, fuzzy
+#| msgid "``extra``"
+msgid "``extras``"
+msgstr "``экстра``"
+
+#: ../source/specifications/dependency-specifiers.rst:306
+#: ../source/specifications/dependency-specifiers.rst:311
+msgid "Set of strings"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:307
+msgid "``{\"toml\"}``"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:308
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``dependency_groups``"
+msgstr "``зависимости``"
+
+#: ../source/specifications/dependency-specifiers.rst:312
+#, fuzzy
+#| msgid "``test``"
+msgid "``{\"test\"}``"
 msgstr "``тест``"
 
-#: ../source/specifications/dependency-specifiers.rst:285
+#: ../source/specifications/dependency-specifiers.rst:314
 msgid ""
 "The ``implementation_version`` marker variable is derived from :py:data:`sys."
 "implementation.version <sys.implementation>`:"
@@ -20962,7 +21044,7 @@ msgstr ""
 "Маркерная переменная ``имплементация_версия`` получена из :py: данные:`sys."
 "имплементация.версия <sys.имплементация>`:"
 
-#: ../source/specifications/dependency-specifiers.rst:302
+#: ../source/specifications/dependency-specifiers.rst:331
 msgid ""
 "This environment markers section, initially defined through :pep:`508`, "
 "supersedes the environment markers section in :pep:`345`."
@@ -20970,23 +21052,23 @@ msgstr ""
 "Этот раздел маркеров окружения, первоначально определенный через :pep:`508`, "
 "заменяет раздел маркеров окружения в :pep:`345`."
 
-#: ../source/specifications/dependency-specifiers.rst:308
+#: ../source/specifications/dependency-specifiers.rst:337
 msgid "Complete Grammar"
 msgstr "Полная грамматика"
 
-#: ../source/specifications/dependency-specifiers.rst:310
+#: ../source/specifications/dependency-specifiers.rst:339
 msgid "The complete parsley grammar::"
 msgstr "Полная грамматика петрушки::"
 
-#: ../source/specifications/dependency-specifiers.rst:417
+#: ../source/specifications/dependency-specifiers.rst:446
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr "Тестовая программа - если грамматика находится в строке ``grammar``:"
 
-#: ../source/specifications/dependency-specifiers.rst:489
+#: ../source/specifications/dependency-specifiers.rst:518
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr "Ноябрь 2015 г: Эта спецификация была одобрена через :pep:`508`."
 
-#: ../source/specifications/dependency-specifiers.rst:490
+#: ../source/specifications/dependency-specifiers.rst:519
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
 "change_>`_ from ``platform.python_version()[:3]`` to ``'.'.join(platform."
@@ -20999,7 +21081,7 @@ msgstr ""
 "Python с двузначными мажорными и минорными версиями (например, 3.10). "
 "[#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:495
+#: ../source/specifications/dependency-specifiers.rst:524
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
 "commas, matching with the behavior of the Python implementation that has "
@@ -21009,7 +21091,13 @@ msgstr ""
 "запятые в конце, что соответствует поведению реализации Python, которая "
 "используется с конца 2022 года."
 
-#: ../source/specifications/dependency-specifiers.rst:503
+#: ../source/specifications/dependency-specifiers.rst:527
+msgid ""
+"April 2025: Added ``extras`` and ``dependency_groups`` for :ref:`lock-file-"
+"spec` as approved through :pep:`751`."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:534
 msgid ""
 "pip, the recommended installer for Python packages (http://pip.readthedocs."
 "org/en/stable/)"
@@ -21017,11 +21105,11 @@ msgstr ""
 "pip, рекомендуемая программа установки пакетов Python (http://pip."
 "readthedocs.org/en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:506
+#: ../source/specifications/dependency-specifiers.rst:537
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr "Библиотека PEG Петрушка. (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:509
+#: ../source/specifications/dependency-specifiers.rst:540
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
@@ -24910,6 +24998,1388 @@ msgstr "Декабрь 2023 года: Теги для iOS были одобре�
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
 msgstr "Март 2024 года: Теги для Android были одобрены через :pep:`738`."
 
+#: ../source/specifications/pylock-toml.rst:6
+#, fuzzy
+#| msgid "``pyproject.toml`` specification"
+msgid "``pylock.toml`` Specification"
+msgstr "Спецификация ``pyproject.toml``"
+
+#: ../source/specifications/pylock-toml.rst:8
+msgid ""
+"The ``pylock.toml`` file format is for specifying dependencies to enable "
+"reproducible installation in a Python environment."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:11
+#, fuzzy
+#| msgid "This specification was originally defined in :pep:`753`."
+msgid "This specification was originally defined in :pep:`751`."
+msgstr "Эта спецификация была первоначально определена в :pep:`753`."
+
+#: ../source/specifications/pylock-toml.rst:16
+#, fuzzy
+#| msgid "Name"
+msgid "File Name"
+msgstr "Имя"
+
+#: ../source/specifications/pylock-toml.rst:18
+msgid ""
+"A lock file MUST be named :file:`pylock.toml` or match the regular "
+"expression ``r\"^pylock\\.([^.]+)\\.toml$\"`` if a name for the lock file is "
+"desired or if multiple lock files exist (i.e. the regular expression "
+"``r\"^pylock\\.([^.]+\\.)?toml$\"`` for any file name). The prefix and "
+"suffix of a named file MUST be lowercase when possible, for easy detection "
+"and removal, e.g.:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:30
+msgid ""
+"The expectation is that services that automatically install from lock files "
+"will search for:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:33
+msgid "The lock file with the service's name and doing the default install"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:34
+msgid ""
+"A multi-use :file:`pylock.toml` with a dependency group with the name of the "
+"service"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:35
+msgid "The default install of :file:`pylock.toml`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:37
+msgid ""
+"E.g. a cloud host service named \"spam\" would first look for :file:`pylock."
+"spam.toml` to install from, and if that file didn't exist then install from :"
+"file:`pylock.toml` and look for a dependency group named \"spam\" to use if "
+"present."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:42
+msgid ""
+"The lock file(s) SHOULD be located in the directory as appropriate for the "
+"scope of the lock file. Locking against a single :file:`pyproject.toml`, for "
+"instance, would place the :file:`pylock.toml` in the same directory. If the "
+"lock file covered multiple projects in a monorepo, then the expectation is "
+"the :file:`pylock.toml` file would be in the directory that held all the "
+"projects being locked."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:53
+msgid "The format of the file is TOML_."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:55
+msgid ""
+"Tools SHOULD write their lock files in a consistent way to minimize noise in "
+"diff output. Keys in tables -- including the top-level table -- SHOULD be "
+"recorded in a consistent order (if inspiration is desired, this "
+"specification has tried to write down keys in a logical order). As well, "
+"tools SHOULD sort arrays in consistent order. Usage of inline tables SHOULD "
+"also be kept consistent."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:65
+#, fuzzy
+#| msgid "``platform_version``"
+msgid "``lock-version``"
+msgstr "``платформа_версия``"
+
+#: ../source/specifications/pylock-toml.rst:67
+msgid "**Type**: string; value of ``\"1.0\"``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:68
+#: ../source/specifications/pylock-toml.rst:174
+#: ../source/specifications/pylock-toml.rst:189
+#: ../source/specifications/pylock-toml.rst:202
+#: ../source/specifications/pylock-toml.rst:298
+#: ../source/specifications/pylock-toml.rst:348
+#: ../source/specifications/pylock-toml.rst:397
+#: ../source/specifications/pylock-toml.rst:494
+#: ../source/specifications/pylock-toml.rst:689
+#, fuzzy
+#| msgid "Requires"
+msgid "**Required?**: yes"
+msgstr "Требуется"
+
+#: ../source/specifications/pylock-toml.rst:69
+msgid "**Inspiration**: :ref:`core-metadata-metadata-version`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:70
+msgid "Record the file format version that the file adheres to."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:71
+msgid ""
+"This PEP specifies the initial version -- and only valid value until future "
+"updates to the standard change it -- as ``\"1.0\"``."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:73
+msgid ""
+"If a tool supports the major version but not the minor version, a tool "
+"SHOULD warn when an unknown key is seen."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:75
+msgid "If a tool doesn't support a major version, it MUST raise an error."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:81
+#, fuzzy
+#| msgid "``entry-points``"
+msgid "``environments``"
+msgstr "``точки входа``"
+
+#: ../source/specifications/pylock-toml.rst:83
+#: ../source/specifications/pylock-toml.rst:110
+#: ../source/specifications/pylock-toml.rst:132
+#: ../source/specifications/pylock-toml.rst:154
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: Array of strings"
+msgstr "Тип TOML_: массив строк"
+
+#: ../source/specifications/pylock-toml.rst:84
+#: ../source/specifications/pylock-toml.rst:98
+#: ../source/specifications/pylock-toml.rst:213
+#: ../source/specifications/pylock-toml.rst:230
+#: ../source/specifications/pylock-toml.rst:243
+#: ../source/specifications/pylock-toml.rst:255
+#: ../source/specifications/pylock-toml.rst:334
+#: ../source/specifications/pylock-toml.rst:362
+#: ../source/specifications/pylock-toml.rst:435
+#: ../source/specifications/pylock-toml.rst:469
+#: ../source/specifications/pylock-toml.rst:482
+#: ../source/specifications/pylock-toml.rst:519
+#: ../source/specifications/pylock-toml.rst:674
+#: ../source/specifications/pylock-toml.rst:700
+#: ../source/specifications/pylock-toml.rst:715
+msgid "**Required?**: no"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:85
+#: ../source/specifications/pylock-toml.rst:520
+#: ../source/specifications/pylock-toml.rst:538
+msgid "**Inspiration**: uv_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:86
+msgid ""
+"A list of :ref:`dependency-specifiers-environment-markers` for which the "
+"lock file is considered compatible with."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:88
+msgid ""
+"Tools SHOULD write exclusive/non-overlapping environment markers to ease in "
+"understanding."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:97
+#: ../source/specifications/pylock-toml.rst:173
+#: ../source/specifications/pylock-toml.rst:201
+#: ../source/specifications/pylock-toml.rst:212
+#: ../source/specifications/pylock-toml.rst:229
+#: ../source/specifications/pylock-toml.rst:242
+#: ../source/specifications/pylock-toml.rst:308
+#: ../source/specifications/pylock-toml.rst:319
+#: ../source/specifications/pylock-toml.rst:333
+#: ../source/specifications/pylock-toml.rst:347
+#: ../source/specifications/pylock-toml.rst:361
+#: ../source/specifications/pylock-toml.rst:396
+#: ../source/specifications/pylock-toml.rst:518
+#: ../source/specifications/pylock-toml.rst:551
+#: ../source/specifications/pylock-toml.rst:620
+#: ../source/specifications/pylock-toml.rst:688
+#, fuzzy
+#| msgid "TOML_ type: string"
+msgid "**Type**: string"
+msgstr "Тип TOML_: строка"
+
+#: ../source/specifications/pylock-toml.rst:99
+#: ../source/specifications/pylock-toml.rst:190
+#: ../source/specifications/pylock-toml.rst:256
+#: ../source/specifications/pylock-toml.rst:555
+#: ../source/specifications/pylock-toml.rst:608
+#: ../source/specifications/pylock-toml.rst:624
+msgid "**Inspiration**: PDM_, Poetry_, uv_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:100
+msgid ""
+"Specifies the :ref:`core-metadata-requires-python` for the minimum Python "
+"version compatible for any environment supported by the lock file (i.e. the "
+"minimum viable Python version for the lock file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:111
+#: ../source/specifications/pylock-toml.rst:133
+#: ../source/specifications/pylock-toml.rst:155
+msgid "**Required?**: no; defaults to ``[]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:112
+msgid "**Inspiration**: :ref:`core-metadata-provides-extra`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:113
+msgid ""
+"The list of :ref:`extras <core-metadata-provides-extra>` supported by this "
+"lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:115
+#: ../source/specifications/pylock-toml.rst:138
+msgid ""
+"Lockers MAY choose to not support writing lock files that support extras and "
+"dependency groups (i.e. tools may only support exporting a single-use lock "
+"file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:118
+msgid "Tools supporting extras MUST also support dependency groups."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:119
+msgid ""
+"Tools should explicitly set this key to an empty array to signal that the "
+"inputs used to generate the lock file had no extras (e.g. a :ref:`pyproject."
+"toml <pyproject-toml-spec>` file had no :ref:`[project.optional-"
+"dependencies] <pyproject-toml-optional-dependencies>` table), signalling "
+"that the lock file is, in effect, multi-use even if it only looks to be "
+"single-use."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:130
+#, fuzzy
+#| msgid "The ``[dependency-groups]`` Table"
+msgid "``dependency-groups``"
+msgstr "Таблица ``[dependency-groups]``"
+
+#: ../source/specifications/pylock-toml.rst:134
+#: ../source/specifications/pylock-toml.rst:716
+#, fuzzy
+#| msgid ":ref:`pyproject-toml-spec`"
+msgid "**Inspiration**: :ref:`pyproject-tool-table`"
+msgstr ":ref:`pyproject-toml-spec`"
+
+#: ../source/specifications/pylock-toml.rst:135
+msgid ""
+"The list of :ref:`dependency-groups` publicly supported by this lock file (i."
+"e. dependency groups users are expected to be able to specify via a tool's "
+"UI)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:141
+msgid "Tools supporting dependency groups MUST also support extras."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:142
+msgid ""
+"Tools SHOULD explicitly set this key to an empty array to signal that the "
+"inputs used to generate the lock file had no dependency groups (e.g. a :ref:"
+"`pyproject.toml <pyproject-toml-spec>` file had no :ref:`[dependency-groups] "
+"<dependency-groups>` table), signalling that the lock file is, in effect, "
+"multi-use even if it only looks to be single-use."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:152
+msgid "``default-groups``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:156
+msgid "**Inspiration**: Poetry_, PDM_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:157
+msgid ""
+"The name of synthetic dependency groups to represent what should be "
+"installed by default (e.g. what :ref:`[project.dependencies] <pyproject-toml-"
+"dependencies>` implicitly represents)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:161
+msgid ""
+"Meant to be used in situations where :ref:`pylock-packages-marker` "
+"necessitates such a group to exist."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:163
+msgid ""
+"The groups listed by this key SHOULD NOT be listed in :ref:`pylock-"
+"dependency-groups` as the groups are not meant to be directly exposed to "
+"users by name but instead via an installer's UI."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:171
+msgid "``created-by``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:175
+msgid "**Inspiration**: Tools with their name in their lock file name"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:176
+#, fuzzy
+#| msgid ""
+#| "``INSTALLER``: records the name of the tool used to install the project."
+msgid "Records the name of the tool used to create the lock file."
+msgstr ""
+"``INSTALLER``: записывает имя инструмента, используемого для установки "
+"проекта."
+
+#: ../source/specifications/pylock-toml.rst:177
+msgid ""
+"Tools MAY use the :ref:`pylock-tool` table to record enough details that it "
+"can be inferred what inputs were used to create the lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:179
+msgid ""
+"Tools SHOULD record the normalized name of the tool if it is available as a "
+"Python package to facilitate finding the tool."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:186
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[[packages]]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:188
+#: ../source/specifications/pylock-toml.rst:254
+#: ../source/specifications/pylock-toml.rst:605
+#: ../source/specifications/pylock-toml.rst:673
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: array of tables"
+msgstr "Тип TOML_: массив строк"
+
+#: ../source/specifications/pylock-toml.rst:191
+msgid "An array containing all packages that *may* be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:192
+msgid ""
+"Packages MAY be listed multiple times with varying data, but all packages to "
+"be installed MUST narrow down to a single entry at install time."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:199
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.name``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:203
+msgid "**Inspiration**: :ref:`core-metadata-name`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:204
+#, fuzzy
+#| msgid ""
+#| "For comparison purposes, the names should be :ref:`normalized <name-"
+#| "normalization>` before comparing."
+msgid "The name of the package :ref:`normalized <name-normalization>`."
+msgstr ""
+"Для сравнения имена должны быть :ref:`нормализованы <имя-нормализация>` "
+"перед сравнением."
+
+#: ../source/specifications/pylock-toml.rst:210
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.version``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:214
+msgid "**Inspiration**: :ref:`core-metadata-version`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:215
+#, fuzzy
+#| msgid "Creating the package"
+msgid "The version of the package."
+msgstr "Создание пакета"
+
+#: ../source/specifications/pylock-toml.rst:216
+#, fuzzy
+#| msgid ""
+#| "``subject[0].name`` is the distribution's filename, which **MUST** be a "
+#| "valid :ref:`source distribution <source-distribution-format>` or :ref:"
+#| "`wheel distribution <binary-distribution-format>` filename."
+msgid ""
+"The version SHOULD be specified when the version is known to be stable (i.e. "
+"when an :ref:`sdist <source-distribution-format>` or :ref:`wheels <binary-"
+"distribution-format>` are specified)."
+msgstr ""
+"``subject[0].name`` - это имя файла дистрибутива, которое **МОЖЕТ** быть "
+"действительным именем файла :ref:`source distribution <source-distribution-"
+"format>` или :ref:`wheel distribution <binary-distribution-format>`."
+
+#: ../source/specifications/pylock-toml.rst:219
+msgid ""
+"The version MUST NOT be included when it cannot be guaranteed to be "
+"consistent with the code used (i.e. when a :ref:`source tree <source-"
+"distribution-format-source-tree>` is used)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:227
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.marker``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:231
+msgid "**Inspiration**: PDM_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:232
+msgid ""
+"The :ref:`environment marker <dependency-specifiers-environment-markers>` "
+"which specify when the package should be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:240
+#, fuzzy
+#| msgid "``requires-python``"
+msgid "``packages.requires-python``"
+msgstr "``требуется-python``"
+
+#: ../source/specifications/pylock-toml.rst:244
+msgid "**Inspiration**: :ref:`core-metadata-requires-python`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:245
+msgid ""
+"Holds the :ref:`version-specifiers` for Python version compatibility for the "
+"package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:252
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``[[packages.dependencies]]``"
+msgstr "``зависимости``"
+
+#: ../source/specifications/pylock-toml.rst:257
+msgid ""
+"Records the other entries in :ref:`pylock-packages` which are direct "
+"dependencies of this package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:259
+msgid ""
+"Each entry is a table which contains the minimum information required to "
+"tell which other package entry it corresponds to where doing a key-by-key "
+"comparison would find the appropriate package with no ambiguity (e.g. if "
+"there are two entries for the ``spam`` package, then you can include the "
+"version number like ``{name = \"spam\", version = \"1.0.0\"}``, or by source "
+"like ``{name = \"spam\", vcs = { url = \"...\"}``)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:265
+msgid ""
+"Tools MUST NOT use this information when doing installation; it is purely "
+"informational for auditing purposes."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:272
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.vcs]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:274
+#: ../source/specifications/pylock-toml.rst:376
+#: ../source/specifications/pylock-toml.rst:434
+#: ../source/specifications/pylock-toml.rst:535
+#: ../source/specifications/pylock-toml.rst:699
+#: ../source/specifications/pylock-toml.rst:714
+#, fuzzy
+#| msgid "TOML_ type: table"
+msgid "**Type**: table"
+msgstr "TOML_ тип: таблица"
+
+#: ../source/specifications/pylock-toml.rst:275
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-"
+"directory`, :ref:`pylock-packages-archive`, :ref:`pylock-packages-sdist`, "
+"and :ref:`pylock-packages-wheels`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:278
+msgid "**Inspiration**: :ref:`direct-url-data-structure`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:279
+msgid ""
+"Record the version control system details for the :ref:`source tree <source-"
+"distribution-format-source-tree>` it contains."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:282
+msgid ""
+"Tools MAY choose to not support version control systems, both from a locking "
+"and/or installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:284
+msgid "Tools MAY choose to only support a subset of the available VCS types."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:285
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using version control "
+"systems."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:287
+msgid ""
+"Installation from a version control system is considered originating from a :"
+"ref:`direct URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:294
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.type``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:296
+msgid ""
+"**Type**: string; supported values specified in :ref:`direct-url-data-"
+"structure-registered-vcs`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:299
+#: ../source/specifications/pylock-toml.rst:310
+#: ../source/specifications/pylock-toml.rst:321
+#: ../source/specifications/pylock-toml.rst:335
+#: ../source/specifications/pylock-toml.rst:349
+msgid "**Inspiration**: :ref:`direct-url-data-structure-vcs`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:300
+#, fuzzy
+#| msgid "Install from version control systems"
+msgid "The type of version control system used."
+msgstr "Установка из систем контроля версий"
+
+#: ../source/specifications/pylock-toml.rst:306
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.url``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:309
+msgid "**Required?**: if :ref:`pylock-packages-vcs-path` is not specified"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:311
+#, fuzzy
+#| msgid "The source tree"
+msgid "The URL_ to the source tree."
+msgstr "Дерево исходного кода"
+
+#: ../source/specifications/pylock-toml.rst:317
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.path``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:320
+msgid "**Required?**: if :ref:`pylock-packages-vcs-url` is not specified"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:322
+msgid "The path to the local directory of the source tree."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:323
+msgid ""
+"If a relative path is used it MUST be relative to the location of this file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:324
+msgid ""
+"If the path is relative it MAY use POSIX-style path separators explicitly "
+"for portability."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:331
+#, fuzzy
+#| msgid "``requested_revision`` field"
+msgid "``packages.vcs.requested-revision``"
+msgstr "поле ``запрошенный_пересмотр``"
+
+#: ../source/specifications/pylock-toml.rst:336
+msgid "The branch/tag/ref/commit/revision/etc. that the user requested."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:337
+msgid ""
+"This is purely informational and to facilitate writing the :ref:`direct-url-"
+"data-structure`; it MUST NOT be used to checkout the repository."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:345
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.commit-id``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:350
+msgid "The exact commit/revision number that is to be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:351
+#, fuzzy
+#| msgid ""
+#| "A ``commit_id`` key (type ``string``) MUST be present, containing the "
+#| "exact commit/revision number that was/is to be installed. If the VCS "
+#| "supports commit-hash based revision identifiers, such commit-hash MUST be "
+#| "used as ``commit_id`` in order to reference an immutable version of the "
+#| "source code."
+msgid ""
+"If the VCS supports commit-hash based revision identifiers, such a commit-"
+"hash, it MUST be used as the commit ID in order to reference an immutable "
+"version of the source code."
+msgstr ""
+"Ключ ``commit_id`` (тип ``string``) ДОЛЖЕН присутствовать, содержащий точный "
+"номер коммита/ревизии, которая была/есть установлена. Если VCS поддерживает "
+"идентификаторы ревизий на основе commit-hash, то такой commit-hash ДОЛЖЕН "
+"использоваться в качестве ``commit_id``, чтобы ссылаться на неизменяемую "
+"версию исходного кода."
+
+#: ../source/specifications/pylock-toml.rst:359
+msgid "``packages.vcs.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:363
+msgid "**Inspiration**: :ref:`direct-url-data-structure-subdirectories`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:364
+msgid ""
+"The subdirectory within the :ref:`source tree <source-distribution-format-"
+"source-tree>` where the project root of the project is (e.g. the location of "
+"the :ref:`pyproject.toml <pyproject-toml-spec>` file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:368
+msgid "The path MUST be relative to the root of the source tree structure."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:374
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.directory]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:377
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:"
+"`pylock-packages-archive`, :ref:`pylock-packages-sdist`, and :ref:`pylock-"
+"packages-wheels`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:380
+#: ../source/specifications/pylock-toml.rst:398
+#: ../source/specifications/pylock-toml.rst:412
+msgid "**Inspiration**: :ref:`direct-url-data-structure-local-directory`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:381
+msgid ""
+"Record the local directory details for the :ref:`source tree <source-"
+"distribution-format-source-tree>` it contains."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:384
+msgid ""
+"Tools MAY choose to not support local directories, both from a locking and/"
+"or installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:386
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using local "
+"directories."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:387
+msgid ""
+"Installation from a directory is considered originating from a :ref:`direct "
+"URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:394
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.directory.path``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:399
+msgid "The local directory where the source tree is."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:400
+msgid ""
+"If the path is relative it MUST be relative to the location of the lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:401
+msgid ""
+"If the path is relative it MAY use POSIX-style path separators for "
+"portability."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:408
+msgid "``packages.directory.editable``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:410
+msgid "**Type**: boolean"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:411
+msgid "**Required?**: no; defaults to ``false``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:413
+msgid ""
+"A flag representing whether the source tree was an editable install at lock "
+"time."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:415
+msgid ""
+"An installer MAY choose to ignore this flag if user actions or context would "
+"make an editable install unnecessary or undesirable (e.g. a container image "
+"that will not be mounted for development purposes but instead deployed to "
+"production where it would be treated at read-only)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:424
+msgid "``packages.directory.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:426
+#: ../source/specifications/pylock-toml.rst:510
+msgid "See :ref:`pylock-packages-vcs-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:432
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.archive]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:436
+msgid "**Inspiration**: :ref:`direct-url-data-structure-archive`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:437
+msgid ""
+"A direct reference to an archive file to install from (this can include "
+"wheels and sdists, as well as other archive formats containing a source "
+"tree)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:440
+msgid ""
+"Tools MAY choose to not support archive files, both from a locking and/or "
+"installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:442
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using archive files."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:443
+msgid ""
+"Installation from an archive file is considered originating from a :ref:"
+"`direct URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:450
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.url``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:452
+msgid "See :ref:`pylock-packages-vcs-url`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:458
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.path``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:460
+msgid "See :ref:`pylock-packages-vcs-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:466
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.size``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:468
+msgid "**Type**: integer"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:470
+msgid "**Inspiration**: uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:471
+#, fuzzy
+#| msgid "The name of the project."
+msgid "The size of the archive file."
+msgstr "Название проекта."
+
+#: ../source/specifications/pylock-toml.rst:472
+msgid ""
+"Tools SHOULD provide the file size when reasonably possible (e.g. the file "
+"size is available via the Content-Length_ header from a HEAD_ HTTP request)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:479
+msgid "``packages.archive.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:481
+msgid "**Type**: datetime"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:483
+msgid "**Inspiration**: :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:484
+#, fuzzy
+#| msgid "Where the guide is deployed"
+msgid "The time the file was uploaded."
+msgstr "Где развёрнуто руководство"
+
+#: ../source/specifications/pylock-toml.rst:485
+msgid "The date and time MUST be recorded in UTC."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:491
+msgid "``[packages.archive.hashes]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:493
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: Table of strings"
+msgstr "Тип TOML_: массив строк"
+
+#: ../source/specifications/pylock-toml.rst:495
+msgid "**Inspiration**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:496
+#, fuzzy
+#| msgid ""
+#| "A table of URLs where the key is the URL label and the value is the URL "
+#| "itself."
+msgid ""
+"A table listing known hash values of the file where the key is the hash "
+"algorithm and the value is the hash value."
+msgstr ""
+"Таблица URL-адресов, где ключом является метка URL, а значением - сам URL."
+
+#: ../source/specifications/pylock-toml.rst:498
+msgid "The table MUST contain at least one entry."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:499
+msgid "Hash algorithm keys SHOULD be lowercase."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:500
+msgid ""
+"At least one secure algorithm from :py:data:`hashlib.algorithms_guaranteed` "
+"SHOULD always be included (at time of writing, sha256 specifically is "
+"recommended."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:508
+msgid "``packages.archive.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:516
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.index``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:521
+msgid ""
+"The base URL for the package index from :ref:`simple-repository-api` where "
+"the sdist and/or wheels were found (e.g. ``https://pypi.org/simple/``)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:523
+msgid ""
+"When possible, this SHOULD be specified to assist with generating `software "
+"bill of materials`_ -- aka SBOMs -- and to assist in finding a file if a URL "
+"ceases to be valid."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:526
+msgid ""
+"Tools MAY support installing from an index if the URL recorded for a "
+"specific file is no longer valid (e.g. returns a 404 HTTP error code)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:533
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.sdist]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:536
+#: ../source/specifications/pylock-toml.rst:606
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:"
+"`pylock-packages-directory`, and :ref:`pylock-packages-archive`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:539
+msgid "Details of a :ref:`source-distribution-format-sdist` for the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:541
+msgid ""
+"Tools MAY choose to not support sdist files, both from a locking and/or "
+"installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:543
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using sdist files."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:549
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.name``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:552
+msgid ""
+"**Required?**: no, not when the last component of :ref:`pylock-packages-"
+"sdist-path`/ :ref:`pylock-packages-sdist-url` would be the same value"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:556
+msgid "The file name of the :ref:`source-distribution-format-sdist` file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:562
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.upload-time``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:564
+#: ../source/specifications/pylock-toml.rst:633
+msgid "See :ref:`pylock-packages-archive-upload-time`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:570
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.sdist.url``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:572
+#: ../source/specifications/pylock-toml.rst:641
+msgid "See :ref:`pylock-packages-archive-url`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:578
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.path``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:580
+#: ../source/specifications/pylock-toml.rst:649
+msgid "See :ref:`pylock-packages-archive-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:586
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.sdist.size``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:588
+#: ../source/specifications/pylock-toml.rst:657
+msgid "See :ref:`pylock-packages-archive-size`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:594
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.hashes``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:596
+#: ../source/specifications/pylock-toml.rst:665
+msgid "See :ref:`pylock-packages-archive-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:603
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[[packages.wheels]]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:609
+msgid ""
+"For recording the wheel files as specified by :ref:`binary-distribution-"
+"format` for the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:611
+msgid ""
+"Tools MUST support wheel files, both from a locking and installation "
+"perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:618
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.name``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:621
+msgid ""
+"**Required?**: no, not when the last component of :ref:`pylock-packages-"
+"wheels-path`/ :ref:`pylock-packages-wheels-url` would be the same value"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:625
+msgid "The file name of the :ref:`binary-distribution-format` file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:631
+msgid "``packages.wheels.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:639
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.url``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:647
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.path``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:655
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.size``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:663
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.hashes``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:671
+msgid "``[[packages.attestation-identities]]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:675
+#: ../source/specifications/pylock-toml.rst:690
+msgid "**Inspiration**: :ref:`  provenance-object`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:676
+msgid ""
+"A recording of the attestations for **any** file recorded for this package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:677
+msgid "If available, tools SHOULD include the attestation identities found."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:678
+msgid ""
+"Publisher-specific keys are to be included in the table as-is (i.e. top-"
+"level), following the spec at :ref:`  index-hosted-attestations`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:686
+msgid "``packages.attestation-identities.kind``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:691
+msgid "The unique identity of the Trusted Publisher."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:697
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.tool]``"
+msgstr "``пакеты``"
+
+#: ../source/specifications/pylock-toml.rst:701
+#, fuzzy
+#| msgid ":ref:`pyproject-toml-spec`"
+msgid "**Inspiration**: :ref:`  pyproject-tool-table`"
+msgstr ":ref:`pyproject-toml-spec`"
+
+#: ../source/specifications/pylock-toml.rst:702
+msgid ""
+"Similar usage as that of the :ref:`pylock-tool` table from the :ref:`  "
+"pyproject-toml-spec`, but at the package version level instead of at the "
+"lock file level (which is also available via :ref:`pylock-tool`)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:705
+msgid ""
+"Data recorded in the table MUST be disposable (i.e. it MUST NOT affect "
+"installation)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:712
+msgid "``[tool]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:717
+msgid "See :ref:`pylock-packages-tool`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:731
+msgid ""
+"The following outlines the steps to be taken to install from a lock file "
+"(while the requirements are prescriptive, the general steps and order are a "
+"suggestion):"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:735
+msgid ""
+"Gather the extras and dependency groups to install and set ``extras`` and "
+"``dependency_groups`` for marker evaluation, respectively."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:738
+msgid "``extras`` SHOULD be set to the empty set by default."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:739
+msgid ""
+"``dependency_groups`` SHOULD be the set created from :ref:`pylock-default-"
+"groups` by default."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:742
+msgid ""
+"Check if the metadata version specified by :ref:`pylock-lock-version` is "
+"supported; an error or warning MUST be raised as appropriate."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:744
+msgid ""
+"If :ref:`pylock-requires-python` is specified, check that the environment "
+"being installed for meets the requirement; an error MUST be raised if it is "
+"not met."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:747
+msgid ""
+"If :ref:`pylock-environments` is specified, check that at least one of the "
+"environment marker expressions is satisfied; an error MUST be raised if no "
+"expression is satisfied."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:750
+msgid "For each package listed in :ref:`pylock-packages`:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:752
+msgid ""
+"If :ref:`pylock-packages-marker` is specified, check if it is satisfied; if "
+"it isn't, skip to the next package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:754
+msgid ""
+"If :ref:`pylock-packages-requires-python` is specified, check if it is "
+"satisfied; an error MUST be raised if it isn't."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:756
+msgid ""
+"Check that no other conflicting instance of the package has been slated to "
+"be installed; an error about the ambiguity MUST be raised otherwise."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:758
+msgid ""
+"Check that the source of the package is specified appropriately (i.e. there "
+"are no conflicting sources in the package entry); an error MUST be raised if "
+"any issues are found."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:761
+msgid "Add the package to the set of packages to install."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:763
+msgid "For each package to be installed:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:765
+msgid "If :ref:`pylock-packages-vcs` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:767
+msgid ""
+"Clone the repository to the commit ID specified in :ref:`pylock-packages-vcs-"
+"commit-id`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:769
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-vcs-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:771
+#: ../source/specifications/pylock-toml.rst:777
+#: ../source/specifications/pylock-toml.rst:786
+#: ../source/specifications/pylock-toml.rst:806
+#: ../source/specifications/pylock-toml.rst:821
+#, fuzzy
+#| msgid "Binary distribution format"
+msgid ":ref:`Install <binary-distribution-format>`."
+msgstr "Формат распространения двоичных пакетов"
+
+#: ../source/specifications/pylock-toml.rst:773
+msgid "Else if :ref:`pylock-packages-directory` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:775
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-directory-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:779
+msgid "Else if :ref:`pylock-packages-archive` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:781
+#: ../source/specifications/pylock-toml.rst:811
+msgid "Get the file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:782
+msgid ""
+"Validate using :ref:`pylock-packages-archive-size` and :ref:`pylock-packages-"
+"archive-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:784
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-archive-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:788
+msgid "Else if there are entries for :ref:`pylock-packages-wheels`:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:790
+msgid ""
+"Look for the appropriate wheel file based on :ref:`pylock-packages-wheels-"
+"name`; if one is not found then move on to :ref:`pylock-packages-sdist` or "
+"an error MUST be raised about a lack of source for the project."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:794
+msgid "Get the file:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:796
+msgid "If :ref:`pylock-packages-wheels-path` is set, use it."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:797
+msgid ""
+"Else if :ref:`pylock-packages-wheels-url` is set, try to use it; optionally "
+"tools MAY use :ref:`pylock-packages-index` or some tool-specific mechanism "
+"to download the selected wheel file (tools MUST NOT try to change what wheel "
+"file to download based on what's available; what file to install should be "
+"determined in an offline fashion for reproducibility)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:804
+msgid ""
+"Validate using :ref:`pylock-packages-wheels-size` and :ref:`pylock-packages-"
+"wheels-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:808
+msgid ""
+"Else if no :ref:`pylock-packages-wheels` file is found or :ref:`pylock-"
+"packages-sdist` is solely set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:813
+msgid "If :ref:`pylock-packages-sdist-path` is set, use it."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:814
+msgid ""
+"Else if :ref:`pylock-packages-sdist-url` is set, try to use it; tools MAY "
+"use :ref:`pylock-packages-index` or some tool-specific mechanism to download "
+"the file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:818
+msgid ""
+"Validate using :ref:`pylock-packages-sdist-size` and :ref:`pylock-packages-"
+"sdist-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:820
+msgid ":ref:`Build <source-distribution-format-sdist>` the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:828
+#, fuzzy
+#| msgid ""
+#| "API version 1.0: Initial version of the API, declared with :pep:`629`."
+msgid "April 2025: Initial version, approved via :pep:`751`."
+msgstr ""
+"Версия API 1.0: Начальная версия API, объявленная с помощью :pep:`629`."
+
 #: ../source/specifications/pypirc.rst:6
 msgid "The :file:`.pypirc` file"
 msgstr "Файл :file:`.pypirc`"
@@ -26576,6 +28046,12 @@ msgstr "Индекс пакета Интерфейсы"
 #| msgid "Python versions over time"
 msgid "Python Description Formats"
 msgstr "Python версии с течением времени"
+
+#: ../source/specifications/section-reproducible-environments.rst:3
+#, fuzzy
+#| msgid "Virtual Environment"
+msgid "Reproducible Environments"
+msgstr "Виртуальная среда"
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
@@ -33721,12 +35197,6 @@ msgstr ""
 #~ "Вам будет предложено ввести имя пользователя и пароль. Для имени "
 #~ "пользователя используйте ``__token__``. Для пароля используйте значение "
 #~ "токена, включая префикс ``pypi-``."
-
-#~ msgid ""
-#~ "A table of URLs where the key is the URL label and the value is the URL "
-#~ "itself."
-#~ msgstr ""
-#~ "Таблица URL-адресов, где ключом является метка URL, а значением - сам URL."
 
 #~ msgid "Update this page for build backends other than setuptools."
 #~ msgstr "Обновите эту страницу для бэкендов сборки, отличных от setuptools."
