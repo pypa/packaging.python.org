@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 18:47+0000\n"
+"POT-Creation-Date: 2025-04-26 19:04+0000\n"
 "PO-Revision-Date: 2023-10-21 04:04+0000\n"
 "Last-Translator: \"Kristijan \\\"Fremen\\\" Velkovski\" <me@krisfremen.com>\n"
 "Language-Team: Macedonian <https://hosted.weblate.org/projects/pypa/"
@@ -13266,11 +13266,59 @@ msgid ""
 "in RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:258
+#: ../source/specifications/binary-distribution-format.rst:257
+msgid "Subdirectories in :file:`.dist-info/`"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:259
+msgid ""
+"Subdirectories under :file:`.dist-info/` are reserved for future use. The "
+"following subdirectory names under :file:`.dist-info/` are reserved for "
+"specific usage:"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:263
+msgid "Subdirectory name"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:263
+msgid "PEP / Standard"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:265
+msgid "``licenses``"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:266
+msgid ":pep:`639`"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:266
+msgid "``license_files``"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:267
+msgid "``LICENSES``"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:267
+msgid "`REUSE licensing framework <https://reuse.software>`__"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:268
+msgid "``sboms``"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:268
+msgid ":pep:`770`"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:272
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:260
+#: ../source/specifications/binary-distribution-format.rst:274
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain a :file:"
@@ -13279,29 +13327,40 @@ msgid ""
 "paths relative to the :file:`licenses/` directory."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:281
+msgid "The :file:`.dist-info/sboms/` directory"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:283
+msgid ""
+"All files contained within the :file:`.dist-info/sboms/` directory MUST be "
+"Software Bill-of-Materials (SBOM) files that describe software contained "
+"within the distribution archive."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:288
 msgid "The .data directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:270
+#: ../source/specifications/binary-distribution-format.rst:290
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
 "extension::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:278
+#: ../source/specifications/binary-distribution-format.rst:298
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
 "contents of these subdirectories are moved onto their destination paths."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:284
+#: ../source/specifications/binary-distribution-format.rst:304
 msgid "Signed wheel files"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:286
+#: ../source/specifications/binary-distribution-format.rst:306
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -13311,7 +13370,7 @@ msgid ""
 "files, but not RECORD which cannot contain its own hash. For example::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:297
+#: ../source/specifications/binary-distribution-format.rst:317
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -13319,7 +13378,7 @@ msgid ""
 "will fail."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:302
+#: ../source/specifications/binary-distribution-format.rst:322
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -13327,17 +13386,17 @@ msgid ""
 "as the signature's JSON payload:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:311
+#: ../source/specifications/binary-distribution-format.rst:331
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:313
+#: ../source/specifications/binary-distribution-format.rst:333
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:316
+#: ../source/specifications/binary-distribution-format.rst:336
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -13345,39 +13404,39 @@ msgid ""
 "only needs to establish that RECORD matches the signature."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:321
+#: ../source/specifications/binary-distribution-format.rst:341
 msgid "See"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:323
+#: ../source/specifications/binary-distribution-format.rst:343
 msgid "https://datatracker.ietf.org/doc/html/rfc7515"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:324
+#: ../source/specifications/binary-distribution-format.rst:344
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:325
+#: ../source/specifications/binary-distribution-format.rst:345
 msgid "https://datatracker.ietf.org/doc/html/rfc7517"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:326
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:330
+#: ../source/specifications/binary-distribution-format.rst:350
 #: ../source/specifications/platform-compatibility-tags.rst:370
 msgid "FAQ"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:334
+#: ../source/specifications/binary-distribution-format.rst:354
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:336
+#: ../source/specifications/binary-distribution-format.rst:356
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -13387,11 +13446,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:345
+#: ../source/specifications/binary-distribution-format.rst:365
 msgid "Why does wheel include attached signatures?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:347
+#: ../source/specifications/binary-distribution-format.rst:367
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -13400,38 +13459,38 @@ msgid ""
 "archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:355
+#: ../source/specifications/binary-distribution-format.rst:375
 msgid "Why does wheel allow JWS signatures?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:357
+#: ../source/specifications/binary-distribution-format.rst:377
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
 "yields a useful, concise pure-Python implementation."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:363
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:365
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:368
+#: ../source/specifications/binary-distribution-format.rst:388
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:373
+#: ../source/specifications/binary-distribution-format.rst:393
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:375
+#: ../source/specifications/binary-distribution-format.rst:395
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -13439,7 +13498,7 @@ msgid ""
 "packages to '/usr/lib64/pythonX.Y/site-packages'."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:380
+#: ../source/specifications/binary-distribution-format.rst:400
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -13447,18 +13506,18 @@ msgid ""
 "both the \"purelib\" and \"platlib\" categories."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:385
+#: ../source/specifications/binary-distribution-format.rst:405
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
 "the root with the appropriate setting given for \"Root-is-purelib\"."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:413
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -13467,7 +13526,7 @@ msgid ""
 "format design, actually relying on it is generally discouraged."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:401
+#: ../source/specifications/binary-distribution-format.rst:421
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -13478,7 +13537,7 @@ msgid ""
 "extensions by publishing header files in the appropriate place)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:410
+#: ../source/specifications/binary-distribution-format.rst:430
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -13496,7 +13555,7 @@ msgid ""
 "components may still require the availability of an actual on-disk file."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:427
+#: ../source/specifications/binary-distribution-format.rst:447
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -13505,7 +13564,7 @@ msgid ""
 "package before accepting it as a genuine bug."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:435
+#: ../source/specifications/binary-distribution-format.rst:455
 #: ../source/specifications/core-metadata.rst:922
 #: ../source/specifications/dependency-groups.rst:248
 #: ../source/specifications/dependency-specifiers.rst:487
@@ -13517,7 +13576,7 @@ msgstr ""
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:434
 #: ../source/specifications/pyproject-toml.rst:531
-#: ../source/specifications/recording-installed-packages.rst:268
+#: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:993
 #: ../source/specifications/source-distribution-format.rst:153
 #: ../source/specifications/version-specifiers.rst:1266
@@ -13525,17 +13584,17 @@ msgstr ""
 msgid "History"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:437
+#: ../source/specifications/binary-distribution-format.rst:457
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:438
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:440
+#: ../source/specifications/binary-distribution-format.rst:460
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -13543,24 +13602,24 @@ msgid ""
 "may vary between tools)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:444
-#: ../source/specifications/recording-installed-packages.rst:278
+#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/recording-installed-packages.rst:288
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
 "through :pep:`639`."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:446
+#: ../source/specifications/binary-distribution-format.rst:466
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for ``."
 "dist-info`` and ``.data`` directories."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:451
+#: ../source/specifications/binary-distribution-format.rst:471
 msgid "Appendix"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:453
+#: ../source/specifications/binary-distribution-format.rst:473
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr ""
 
@@ -15964,7 +16023,7 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/direct-url.rst:21
-#: ../source/specifications/recording-installed-packages.rst:221
+#: ../source/specifications/recording-installed-packages.rst:222
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
@@ -19641,7 +19700,7 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:69
 msgid ""
-"This :file:`.dist-info/` directory may contain the following directory, "
+"This :file:`.dist-info/` directory may contain the following directories, "
 "described in detail below:"
 msgstr ""
 
@@ -19649,7 +19708,11 @@ msgstr ""
 msgid ":file:`licenses/`: contains license files."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:76
+#: ../source/specifications/recording-installed-packages.rst:73
+msgid ":file:`sboms/`: contains Software Bill-of-Materials files (SBOMs)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:77
 msgid ""
 "The :ref:`binary-distribution-format` specification describes additional "
 "files that may appear in the ``.dist-info`` directory of a :term:`Wheel`. "
@@ -19657,7 +19720,7 @@ msgid ""
 "project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:81
+#: ../source/specifications/recording-installed-packages.rst:82
 msgid ""
 "The previous versions of this specification also specified a ``REQUESTED`` "
 "file. This file is now considered a tool-specific extension, but may be "
@@ -19665,58 +19728,58 @@ msgid ""
 "peps/pep-0376/#requested>`_ for its original meaning."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:88
+#: ../source/specifications/recording-installed-packages.rst:89
 msgid "The METADATA file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:90
+#: ../source/specifications/recording-installed-packages.rst:91
 msgid ""
 "The ``METADATA`` file contains metadata as described in the :ref:`core-"
 "metadata` specification, version 1.1 or greater."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:93
+#: ../source/specifications/recording-installed-packages.rst:94
 msgid ""
 "The ``METADATA`` file is mandatory. If it cannot be created, or if required "
 "core metadata is not available, installers must report an error and fail to "
 "install the project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:99
+#: ../source/specifications/recording-installed-packages.rst:100
 msgid "The RECORD file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:101
+#: ../source/specifications/recording-installed-packages.rst:102
 msgid ""
 "The ``RECORD`` file holds the list of installed files. It is a CSV file "
 "containing one record (line) per installed file."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:104
+#: ../source/specifications/recording-installed-packages.rst:105
 msgid ""
 "The CSV dialect must be readable with the default ``reader`` of Python's "
 "``csv`` module:"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:107
+#: ../source/specifications/recording-installed-packages.rst:108
 msgid "field delimiter: ``,`` (comma),"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:108
+#: ../source/specifications/recording-installed-packages.rst:109
 msgid "quoting char: ``\"`` (straight double quote),"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:109
+#: ../source/specifications/recording-installed-packages.rst:110
 msgid "line terminator: either ``\\r\\n`` or ``\\n``."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:111
+#: ../source/specifications/recording-installed-packages.rst:112
 msgid ""
 "Each record is composed of three elements: the file's **path**, the **hash** "
 "of the contents, and its **size**."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:114
+#: ../source/specifications/recording-installed-packages.rst:115
 msgid ""
 "The *path* may be either absolute, or relative to the directory containing "
 "the ``.dist-info`` directory (commonly, the ``site-packages`` directory). On "
@@ -19724,7 +19787,7 @@ msgid ""
 "`` or ``\\``)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:119
+#: ../source/specifications/recording-installed-packages.rst:120
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from :"
 "py:data:`hashlib.algorithms_guaranteed`, followed by the equals character "
@@ -19733,13 +19796,13 @@ msgid ""
 "urlsafe_b64encode()>` with trailing ``=`` removed)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:124
+#: ../source/specifications/recording-installed-packages.rst:125
 msgid ""
 "The *size* is either the empty string, or file's size in bytes, as a base 10 "
 "integer."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:127
+#: ../source/specifications/recording-installed-packages.rst:128
 msgid ""
 "For any file, either or both of the *hash* and *size* fields may be left "
 "empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself "
@@ -19748,7 +19811,7 @@ msgid ""
 "project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:133
+#: ../source/specifications/recording-installed-packages.rst:134
 msgid ""
 "If the ``RECORD`` file is present, it must list all installed files of the "
 "project, except ``.pyc`` files corresponding to ``.py`` files listed in "
@@ -19757,18 +19820,18 @@ msgid ""
 "should not be listed."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:140
+#: ../source/specifications/recording-installed-packages.rst:141
 msgid ""
 "To completely uninstall a package, a tool needs to remove all files listed "
 "in ``RECORD``, all ``.pyc`` files (of all optimization levels) corresponding "
 "to removed ``.py`` files, and any directories emptied by the uninstallation."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:145
+#: ../source/specifications/recording-installed-packages.rst:146
 msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:164
+#: ../source/specifications/recording-installed-packages.rst:165
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
 "not attempt to uninstall or upgrade the package. (This restriction does not "
@@ -19776,7 +19839,7 @@ msgid ""
 "package managers in Linux distros.)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:171
+#: ../source/specifications/recording-installed-packages.rst:172
 msgid ""
 "It is *strongly discouraged* for an installed package to modify itself (e."
 "g., store cache files under its namespace in ``site-packages``). Changes "
@@ -19786,11 +19849,11 @@ msgid ""
 "unlisted files in place (possibly resulting in a zombie namespace package)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:180
+#: ../source/specifications/recording-installed-packages.rst:181
 msgid "The INSTALLER file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:182
+#: ../source/specifications/recording-installed-packages.rst:183
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -19798,15 +19861,15 @@ msgid ""
 "a printable ASCII string."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:188
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:190
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:198
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -19814,11 +19877,11 @@ msgid ""
 "uninstallation."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:205
+#: ../source/specifications/recording-installed-packages.rst:206
 msgid "The entry_points.txt file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:207
+#: ../source/specifications/recording-installed-packages.rst:208
 msgid ""
 "This file MAY be created by installers to indicate when packages contain "
 "components intended for discovery and use by other code, including console "
@@ -19826,29 +19889,29 @@ msgid ""
 "execution."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:212
+#: ../source/specifications/recording-installed-packages.rst:213
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:216
+#: ../source/specifications/recording-installed-packages.rst:217
 msgid "The direct_url.json file"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:218
+#: ../source/specifications/recording-installed-packages.rst:219
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:224
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:228
+#: ../source/specifications/recording-installed-packages.rst:229
 msgid "The :file:`licenses/` subdirectory"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:230
+#: ../source/specifications/recording-installed-packages.rst:231
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain a :file:"
@@ -19858,11 +19921,23 @@ msgid ""
 "directory MUST be copied from wheels by the install tools."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:239
+#: ../source/specifications/recording-installed-packages.rst:240
+msgid "The :file:`sboms/` subdirectory"
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:242
+msgid ""
+"All files contained within the :file:`.dist-info/sboms/` directory MUST be "
+"Software Bill-of-Materials (SBOM) files that describe software contained "
+"within the installed package. Any files in this directory MUST be copied "
+"from wheels by the install tools."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:249
 msgid "Intentionally preventing changes to installed packages"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:241
+#: ../source/specifications/recording-installed-packages.rst:251
 msgid ""
 "In some cases (such as when needing to manage external dependencies in "
 "addition to Python ecosystem dependencies), it is desirable for a tool that "
@@ -19871,11 +19946,11 @@ msgid ""
 "so may cause compatibility problems with the wider environment."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:247
+#: ../source/specifications/recording-installed-packages.rst:257
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:249
+#: ../source/specifications/recording-installed-packages.rst:259
 msgid ""
 "Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
 "g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
@@ -19883,14 +19958,14 @@ msgid ""
 "package contents are tracked and managed via other means)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:253
+#: ../source/specifications/recording-installed-packages.rst:263
 msgid ""
 "Write an ``INSTALLER`` file indicating the name of the tool that should be "
 "used to manage the package (this allows ``RECORD``-aware tools to provide "
 "better error notices when asked to modify affected packages)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:257
+#: ../source/specifications/recording-installed-packages.rst:267
 msgid ""
 "Python runtime providers may also prevent inadvertent modification of "
 "platform provided packages by modifying the default Python package "
@@ -19899,28 +19974,28 @@ msgid ""
 "Python import path)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:262
+#: ../source/specifications/recording-installed-packages.rst:272
 msgid ""
 "In some circumstances, it may be desirable to block even installation of "
 "additional packages via Python-specific tools. For these cases refer to :ref:"
 "`externally-managed-environments`"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:270
+#: ../source/specifications/recording-installed-packages.rst:280
 msgid ""
 "June 2009: The original version of this specification was approved through :"
 "pep:`376`.  At the time, it was known as the *Database of Installed Python "
 "Distributions*."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:273
+#: ../source/specifications/recording-installed-packages.rst:283
 msgid ""
 "March 2020: The specification of the ``direct_url.json`` file was approved "
 "through :pep:`610`. It is only mentioned on this page; see :ref:`direct-url` "
 "for the full definition."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:276
+#: ../source/specifications/recording-installed-packages.rst:286
 msgid ""
 "September 2020: Various amendments and clarifications were approved through :"
 "pep:`627`."
