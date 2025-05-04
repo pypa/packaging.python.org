@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 18:47+0000\n"
-"PO-Revision-Date: 2025-04-19 11:38+0000\n"
+"POT-Creation-Date: 2025-05-02 23:58+0000\n"
+"PO-Revision-Date: 2025-05-02 23:58+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/eo/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -5476,7 +5476,7 @@ msgstr ""
 "`Pandas`_."
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:337
-#: ../source/specifications/dependency-specifiers.rst:501
+#: ../source/specifications/dependency-specifiers.rst:532
 msgid "References"
 msgstr "Referencoj"
 
@@ -11080,6 +11080,7 @@ msgid "Hosting"
 msgstr "Gastigado"
 
 #: ../source/guides/section-install.rst:3
+#: ../source/specifications/pylock-toml.rst:729
 msgid "Installation"
 msgstr "Instalado"
 
@@ -12545,6 +12546,7 @@ msgstr ""
 "projekton kun subteno por grafika fasado, aldonante dependecon sur PyQt5."
 
 #: ../source/guides/writing-pyproject-toml.rst:183
+#: ../source/specifications/pylock-toml.rst:95
 #: ../source/specifications/pyproject-toml.rst:146
 #: ../source/specifications/pyproject-toml.rst:239
 msgid "``requires-python``"
@@ -16430,6 +16432,7 @@ msgstr ""
 "metadatenojn sen reskribado de la tuta arĥivo."
 
 #: ../source/specifications/binary-distribution-format.rst:85
+#: ../source/specifications/pylock-toml.rst:51
 msgid "File Format"
 msgstr "Dosierformo"
 
@@ -16856,11 +16859,59 @@ msgstr ""
 "instalado malsukcesos, se ajna dosiero en la arĥivo ne estas menciita en "
 "``RECORD`` aŭ ne kongruas kun sia haketaĵo."
 
-#: ../source/specifications/binary-distribution-format.rst:258
+#: ../source/specifications/binary-distribution-format.rst:257
+msgid "Subdirectories in :file:`.dist-info/`"
+msgstr "Subdosierujoj en :file:`.dist-info/`"
+
+#: ../source/specifications/binary-distribution-format.rst:259
+msgid ""
+"Subdirectories under :file:`.dist-info/` are reserved for future use. The "
+"following subdirectory names under :file:`.dist-info/` are reserved for "
+"specific usage:"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:263
+msgid "Subdirectory name"
+msgstr "Nomo de subdosierujo"
+
+#: ../source/specifications/binary-distribution-format.rst:263
+msgid "PEP / Standard"
+msgstr "PEP / Normo"
+
+#: ../source/specifications/binary-distribution-format.rst:265
+msgid "``licenses``"
+msgstr "``licenses``"
+
+#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:266
+msgid ":pep:`639`"
+msgstr ":pep:`639`"
+
+#: ../source/specifications/binary-distribution-format.rst:266
+msgid "``license_files``"
+msgstr "``license_files``"
+
+#: ../source/specifications/binary-distribution-format.rst:267
+msgid "``LICENSES``"
+msgstr "``LICENSES``"
+
+#: ../source/specifications/binary-distribution-format.rst:267
+msgid "`REUSE licensing framework <https://reuse.software>`__"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:268
+msgid "``sboms``"
+msgstr "``sboms``"
+
+#: ../source/specifications/binary-distribution-format.rst:268
+msgid ":pep:`770`"
+msgstr ":pep:`770`"
+
+#: ../source/specifications/binary-distribution-format.rst:272
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr "La dosierujo :file:`.dist-info/licenses/`"
 
-#: ../source/specifications/binary-distribution-format.rst:260
+#: ../source/specifications/binary-distribution-format.rst:274
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain a :file:"
@@ -16874,11 +16925,22 @@ msgstr ""
 "kampoj ``License-File`` en la dosiero :file:`METADATA` ĉe la respektivaj "
 "dosierlokoj relativaj al la dosierujo :file:`licenses/`."
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:281
+msgid "The :file:`.dist-info/sboms/` directory"
+msgstr "La dosierujo :file:`.dist-info/sboms/`"
+
+#: ../source/specifications/binary-distribution-format.rst:283
+msgid ""
+"All files contained within the :file:`.dist-info/sboms/` directory MUST be "
+"Software Bill-of-Materials (SBOM) files that describe software contained "
+"within the distribution archive."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:288
 msgid "The .data directory"
 msgstr "La dosierujo .data"
 
-#: ../source/specifications/binary-distribution-format.rst:270
+#: ../source/specifications/binary-distribution-format.rst:290
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
@@ -16887,7 +16949,7 @@ msgstr ""
 "Iu ajn dosiero ne ordinare instalita al site-packages iras en la dosierujon ."
 "data, nomitan kiel la dosierujon .dist-info sed kun la sufikso .data/::"
 
-#: ../source/specifications/binary-distribution-format.rst:278
+#: ../source/specifications/binary-distribution-format.rst:298
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -16897,11 +16959,11 @@ msgstr ""
 "dokumentoj ktp de la distribuo.  Dum instalado, la enhavoj de tiuj "
 "dosierujoj kopiiĝas al siaj celaj dosierlokoj."
 
-#: ../source/specifications/binary-distribution-format.rst:284
+#: ../source/specifications/binary-distribution-format.rst:304
 msgid "Signed wheel files"
 msgstr "Subskribitaj wheel-dosieroj"
 
-#: ../source/specifications/binary-distribution-format.rst:286
+#: ../source/specifications/binary-distribution-format.rst:306
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -16917,7 +16979,7 @@ msgstr ""
 "havu haketaĵojn, inkluzive de generitaj dosieroj kiel ``.pyc``-dosieroj, "
 "krom ``RECORD`` mem, kiu ne povas enhavi sian propran haketaĵon. Ekzemple::"
 
-#: ../source/specifications/binary-distribution-format.rst:297
+#: ../source/specifications/binary-distribution-format.rst:317
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -16929,7 +16991,7 @@ msgstr ""
 "la arĥivo devas havi ĝustan haketaĵon en RECORD; se ne, la instalado "
 "malsukcesos."
 
-#: ../source/specifications/binary-distribution-format.rst:302
+#: ../source/specifications/binary-distribution-format.rst:322
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -16941,11 +17003,11 @@ msgstr ""
 "apud ``RECORD``. Oni uzas JWS por subskribi ``RECORD`` inkluzivante la "
 "haketaĵon SHA-256 de ``RECORD`` kiel la JSON-ŝarĝon de la subskribo:"
 
-#: ../source/specifications/binary-distribution-format.rst:311
+#: ../source/specifications/binary-distribution-format.rst:331
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr "(La haketaĵa valoro estas la sama formo uzata en RECORD.)"
 
-#: ../source/specifications/binary-distribution-format.rst:313
+#: ../source/specifications/binary-distribution-format.rst:333
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
@@ -16953,7 +17015,7 @@ msgstr ""
 "Se RECORD.p7s estas uzata, ĝi devas enhavi malligitan S/MIME-forman "
 "subskribon de RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:316
+#: ../source/specifications/binary-distribution-format.rst:336
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -16965,15 +17027,15 @@ msgstr ""
 "instalilo komparas la dosierajn haketaĵojn kaj ``RECORD``, aparta subskribo-"
 "kontrolilo devas nur kontroli, ĉu ``RECORD`` kongruas kun la subskribo."
 
-#: ../source/specifications/binary-distribution-format.rst:321
+#: ../source/specifications/binary-distribution-format.rst:341
 msgid "See"
 msgstr "Vidu"
 
-#: ../source/specifications/binary-distribution-format.rst:323
+#: ../source/specifications/binary-distribution-format.rst:343
 msgid "https://datatracker.ietf.org/doc/html/rfc7515"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
 
-#: ../source/specifications/binary-distribution-format.rst:324
+#: ../source/specifications/binary-distribution-format.rst:344
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
@@ -16981,26 +17043,26 @@ msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
 
-#: ../source/specifications/binary-distribution-format.rst:325
+#: ../source/specifications/binary-distribution-format.rst:345
 msgid "https://datatracker.ietf.org/doc/html/rfc7517"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
 
-#: ../source/specifications/binary-distribution-format.rst:326
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
-#: ../source/specifications/binary-distribution-format.rst:330
+#: ../source/specifications/binary-distribution-format.rst:350
 #: ../source/specifications/platform-compatibility-tags.rst:370
 msgid "FAQ"
 msgstr "Oftaj demandoj"
 
-#: ../source/specifications/binary-distribution-format.rst:334
+#: ../source/specifications/binary-distribution-format.rst:354
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr "Wheel difinas dosierujon .data.  Ĉu mi metu ĉiom da miaj datenoj tien?"
 
-#: ../source/specifications/binary-distribution-format.rst:336
+#: ../source/specifications/binary-distribution-format.rst:356
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -17015,11 +17077,11 @@ msgstr ""
 "``pkgutil.get_data(pako, risurso)``, eĉ se *tiuj* dosieroj ordinare ne "
 "distribuiĝas en la dosierujo ``.data`` de wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:345
+#: ../source/specifications/binary-distribution-format.rst:365
 msgid "Why does wheel include attached signatures?"
 msgstr "Kial wheel inkluzivas alkroĉitajn subskribojn?"
 
-#: ../source/specifications/binary-distribution-format.rst:347
+#: ../source/specifications/binary-distribution-format.rst:367
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -17032,11 +17094,11 @@ msgstr ""
 "subskribitaj, la arĥivo estas redensigebla sen eksvalidigi la subskribon, "
 "kaj individuaj dosieroj estas kontroleblaj sen reelŝutado de la tuta arĥivo."
 
-#: ../source/specifications/binary-distribution-format.rst:355
+#: ../source/specifications/binary-distribution-format.rst:375
 msgid "Why does wheel allow JWS signatures?"
 msgstr "Kial wheel permesas JWS-subskribojn?"
 
-#: ../source/specifications/binary-distribution-format.rst:357
+#: ../source/specifications/binary-distribution-format.rst:377
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
@@ -17046,11 +17108,11 @@ msgstr ""
 "tio estas ankaŭ unu el la fasonaj ĉefceloj de wheel.  JWS ebligas utilan, "
 "mallongan pure Python-an realigon."
 
-#: ../source/specifications/binary-distribution-format.rst:363
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr "Kial wheel ankaŭ permesas S/MIME-subskribojn?"
 
-#: ../source/specifications/binary-distribution-format.rst:365
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
@@ -17058,7 +17120,7 @@ msgstr ""
 "S/MIME-subskribo estas permesata por tiuj uzantoj, kiuj devas aŭ volas uzi "
 "ekzistantan publikŝlosilan infrastrukturon kun wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:368
+#: ../source/specifications/binary-distribution-format.rst:388
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
@@ -17066,11 +17128,11 @@ msgstr ""
 "Subskribita pako estas nur baza briko de sekura pako-ĝisdatiga sistemo.  "
 "Wheel nur provizas la bazan brikon."
 
-#: ../source/specifications/binary-distribution-format.rst:373
+#: ../source/specifications/binary-distribution-format.rst:393
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "Kio temas pri «purelib» kontraste kun «platlib»?"
 
-#: ../source/specifications/binary-distribution-format.rst:375
+#: ../source/specifications/binary-distribution-format.rst:395
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -17082,7 +17144,7 @@ msgstr ""
 "lib/pythonX.Y/site-packages» kaj platformo-dependajn pakojn al «/usr/lib64/"
 "pythonX.Y/site-packages»."
 
-#: ../source/specifications/binary-distribution-format.rst:380
+#: ../source/specifications/binary-distribution-format.rst:400
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -17094,7 +17156,7 @@ msgstr ""
 "Purelib: true``» kun la samaj dosieroj en la radiko. Estas valide havi "
 "dosierojn en kaj «purelib» kaj «platlib»."
 
-#: ../source/specifications/binary-distribution-format.rst:385
+#: ../source/specifications/binary-distribution-format.rst:405
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -17104,11 +17166,11 @@ msgstr ""
 "estas pure Python-a aŭ ne, kaj tiaj dosieroj estu ĉe la radiko kun taŭgaj "
 "agordoj pri ``Root-is-purelib``."
 
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:413
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "Ĉu eblas importi Python-kodon rekte el wheel-dosiero?"
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -17117,7 +17179,7 @@ msgid ""
 "format design, actually relying on it is generally discouraged."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:401
+#: ../source/specifications/binary-distribution-format.rst:421
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -17134,7 +17196,7 @@ msgstr ""
 "por reviziado kaj sekurigo, aŭ plena integrado kun la norma konstrumeĥanismo "
 "de C-etendaĵo per ĉapdosieroj en konvena loko)."
 
-#: ../source/specifications/binary-distribution-format.rst:410
+#: ../source/specifications/binary-distribution-format.rst:430
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -17164,7 +17226,7 @@ msgstr ""
 "ĝuste uzas la abstraktajn rimedajn API-ojn interne, interagado kun eksteraj "
 "komponantoj povas postuli realan surdiskan dosieron."
 
-#: ../source/specifications/binary-distribution-format.rst:427
+#: ../source/specifications/binary-distribution-format.rst:447
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -17173,10 +17235,10 @@ msgid ""
 "package before accepting it as a genuine bug."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:435
+#: ../source/specifications/binary-distribution-format.rst:455
 #: ../source/specifications/core-metadata.rst:922
 #: ../source/specifications/dependency-groups.rst:248
-#: ../source/specifications/dependency-specifiers.rst:487
+#: ../source/specifications/dependency-specifiers.rst:516
 #: ../source/specifications/direct-url-data-structure.rst:407
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
@@ -17184,8 +17246,9 @@ msgstr ""
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:434
+#: ../source/specifications/pylock-toml.rst:826
 #: ../source/specifications/pyproject-toml.rst:531
-#: ../source/specifications/recording-installed-packages.rst:268
+#: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:993
 #: ../source/specifications/source-distribution-format.rst:153
 #: ../source/specifications/version-specifiers.rst:1266
@@ -17193,11 +17256,11 @@ msgstr ""
 msgid "History"
 msgstr "Historio"
 
-#: ../source/specifications/binary-distribution-format.rst:437
+#: ../source/specifications/binary-distribution-format.rst:457
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr "Februaro 2013: Ĉi tiu specifo estis aprobita per :pep:`427`."
 
-#: ../source/specifications/binary-distribution-format.rst:438
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
@@ -17205,7 +17268,7 @@ msgstr ""
 "Februaro 2021: La reguloj pri kodŝanĝado en wheel-dosiernomoj estis "
 "reviziitaj konforme al la fakta konduto de popularaj iloj."
 
-#: ../source/specifications/binary-distribution-format.rst:440
+#: ../source/specifications/binary-distribution-format.rst:460
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -17217,8 +17280,8 @@ msgstr ""
 "simbola ligilo aŭ subdosierujo en tiu dosierujo; tial kondutoj povas "
 "diferenci inter iloj)."
 
-#: ../source/specifications/binary-distribution-format.rst:444
-#: ../source/specifications/recording-installed-packages.rst:278
+#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/recording-installed-packages.rst:288
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
 "through :pep:`639`."
@@ -17226,7 +17289,7 @@ msgstr ""
 "Decembro 2024: La dosierujo :file:`.dist-info/licenses/` estis specifita "
 "per :pep:`639`."
 
-#: ../source/specifications/binary-distribution-format.rst:446
+#: ../source/specifications/binary-distribution-format.rst:466
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for ``."
 "dist-info`` and ``.data`` directories."
@@ -17234,11 +17297,11 @@ msgstr ""
 "Januaro 2025: Klarigis, ke nomo kaj versio devas esti normigitaj por la "
 "dosierujoj ``.dist-info`` kaj ``.data``."
 
-#: ../source/specifications/binary-distribution-format.rst:451
+#: ../source/specifications/binary-distribution-format.rst:471
 msgid "Appendix"
 msgstr "Apendico"
 
-#: ../source/specifications/binary-distribution-format.rst:453
+#: ../source/specifications/binary-distribution-format.rst:473
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Ekzempla realigo de urlsafe-base64-nopad::"
 
@@ -17283,6 +17346,7 @@ msgstr ""
 #: ../source/specifications/build-details/index.rst:28
 #: ../source/specifications/build-details/v1.0.rst:16
 #: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/pylock-toml.rst:722
 msgid "Example"
 msgstr "Ekzemplo"
 
@@ -19721,16 +19785,29 @@ msgid ""
 msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:199
+#, fuzzy
+#| msgid ""
+#| "Comparisons in marker expressions are typed by the comparison operator.  "
+#| "The <marker_op> operators that are not in <version_cmp> perform the same "
+#| "as they do for strings in Python. The <version_cmp> operators use the "
+#| "version comparison rules of the :ref:`Version specifier specification "
+#| "<version-specifiers>` when those are defined (that is when both sides "
+#| "have a valid version specifier). If there is no defined behaviour of this "
+#| "specification and the operator exists in Python, then the operator falls "
+#| "back to the Python behaviour. Otherwise an error should be raised. e.g. "
+#| "the following will result in  errors::"
 msgid ""
-"Comparisons in marker expressions are typed by the comparison operator.  The "
-"<marker_op> operators that are not in <version_cmp> perform the same as they "
-"do for strings in Python. The <version_cmp> operators use the version "
-"comparison rules of the :ref:`Version specifier specification <version-"
-"specifiers>` when those are defined (that is when both sides have a valid "
-"version specifier). If there is no defined behaviour of this specification "
-"and the operator exists in Python, then the operator falls back to the "
-"Python behaviour. Otherwise an error should be raised. e.g. the following "
-"will result in  errors::"
+"Comparisons in marker expressions are typed by the comparison operator and "
+"the type of the marker value. The <marker_op> operators that are not in "
+"<version_cmp> perform the same as they do for strings or sets in Python "
+"based on whether the marker value is a string or set itself. The "
+"<version_cmp> operators use the version comparison rules of the :ref:"
+"`Version specifier specification <version-specifiers>` when those are "
+"defined (that is when both sides have a valid version specifier). If there "
+"is no defined behaviour of this specification and the operator exists in "
+"Python, then the operator falls back to the Python behaviour for the types "
+"involved. Otherwise an error should be raised. e.g. the following will "
+"result in errors::"
 msgstr ""
 "Komparo en marko-esprimo dependas de la komparo-operatoro.  La operatoroj "
 "<marker_op> ne en <version_cmp> funkcias same kiel la operatoroj por "
@@ -19741,7 +19818,7 @@ msgstr ""
 "operatoro ekzistas en Python, do la operatoro sekvas la konduton de Python. "
 "Alikaze ilo sciigu pri eraro. Ekzemple, la jeno kaŭzos erarojn::"
 
-#: ../source/specifications/dependency-specifiers.rst:212
+#: ../source/specifications/dependency-specifiers.rst:213
 msgid ""
 "User supplied constants are always encoded as strings with either ``'`` or "
 "``\"`` quote marks. Note that backslash escapes are not defined, but "
@@ -19751,7 +19828,7 @@ msgid ""
 "the runtime variables we are referencing are expected to be ASCII-only."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:219
+#: ../source/specifications/dependency-specifiers.rst:220
 msgid ""
 "The variables in the marker grammar such as \"os_name\" resolve to values "
 "looked up in the Python runtime. With the exception of \"extra\" all values "
@@ -19759,7 +19836,7 @@ msgid ""
 "implementation of markers if a value is not defined."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:224
+#: ../source/specifications/dependency-specifiers.rst:225
 msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
 "that evaluates to True or False."
@@ -19767,7 +19844,7 @@ msgstr ""
 "Nekonata variablo devas kaŭzi eraro, ne rezultigante komparon de valoro "
 "``True`` aŭ ``False``."
 
-#: ../source/specifications/dependency-specifiers.rst:227
+#: ../source/specifications/dependency-specifiers.rst:228
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
 "should evaluate to ``0`` for versions, and an empty string for all other "
@@ -19776,7 +19853,7 @@ msgstr ""
 "Variablo ne komputebla sur iu realigo de Python estu ``0`` por versioj kaj "
 "malplena signoĉeno por aliaj variabloj."
 
-#: ../source/specifications/dependency-specifiers.rst:231
+#: ../source/specifications/dependency-specifiers.rst:232
 msgid ""
 "The \"extra\" variable is special. It is used by wheels to signal which "
 "specifications apply to a given extra in the wheel ``METADATA`` file, but "
@@ -19786,39 +19863,65 @@ msgid ""
 "in an error like all other unknown variables."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:241
+#: ../source/specifications/dependency-specifiers.rst:239
+msgid ""
+"The \"extras\" and \"dependency_groups\" variables are also special. They "
+"are used to specify any requested extras or dependency groups when "
+"installing from a lock file. Outside of the context of lock files, these two "
+"variables should result in an error like all other unknown variables."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:247
 msgid "Marker"
 msgstr "Marko"
 
-#: ../source/specifications/dependency-specifiers.rst:242
+#: ../source/specifications/dependency-specifiers.rst:248
 msgid "Python equivalent"
 msgstr "Python-ekvivalentaĵo"
 
-#: ../source/specifications/dependency-specifiers.rst:243
+#: ../source/specifications/dependency-specifiers.rst:249
+msgid "Type"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:250
 msgid "Sample values"
 msgstr "Ekzemplaj valoroj"
 
-#: ../source/specifications/dependency-specifiers.rst:244
+#: ../source/specifications/dependency-specifiers.rst:251
 msgid "``os_name``"
 msgstr "``os_name``"
 
-#: ../source/specifications/dependency-specifiers.rst:245
+#: ../source/specifications/dependency-specifiers.rst:252
 msgid ":py:data:`os.name`"
 msgstr ":py:data:`os.name`"
 
-#: ../source/specifications/dependency-specifiers.rst:246
+#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:266
+#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:274
+#: ../source/specifications/dependency-specifiers.rst:278
+#: ../source/specifications/dependency-specifiers.rst:292
+#: ../source/specifications/dependency-specifiers.rst:301
+#, fuzzy
+#| msgid "*string*"
+msgid "String"
+msgstr "*string*"
+
+#: ../source/specifications/dependency-specifiers.rst:254
 msgid "``posix``, ``java``"
 msgstr "``posix``, ``java``"
 
-#: ../source/specifications/dependency-specifiers.rst:247
+#: ../source/specifications/dependency-specifiers.rst:255
 msgid "``sys_platform``"
 msgstr "``sys_platform``"
 
-#: ../source/specifications/dependency-specifiers.rst:248
+#: ../source/specifications/dependency-specifiers.rst:256
 msgid ":py:data:`sys.platform`"
 msgstr ":py:data:`sys.platform`"
 
-#: ../source/specifications/dependency-specifiers.rst:249
+#: ../source/specifications/dependency-specifiers.rst:258
 msgid ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
 "from Python3 and \"linux2\" from Python2)"
@@ -19826,64 +19929,64 @@ msgstr ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (notu, ke «linux» estas "
 "de Python3 kaj «linux2» de Python2)"
 
-#: ../source/specifications/dependency-specifiers.rst:251
+#: ../source/specifications/dependency-specifiers.rst:260
 msgid "``platform_machine``"
 msgstr "``platform_machine``"
 
-#: ../source/specifications/dependency-specifiers.rst:252
+#: ../source/specifications/dependency-specifiers.rst:261
 msgid ":py:func:`platform.machine()`"
 msgstr ":py:func:`platform.machine()`"
 
-#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:263
 #: ../source/specifications/platform-compatibility-tags.rst:256
 msgid "``x86_64``"
 msgstr "``x86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:254
+#: ../source/specifications/dependency-specifiers.rst:264
 msgid "``platform_python_implementation``"
 msgstr "``platform_python_implementation``"
 
-#: ../source/specifications/dependency-specifiers.rst:255
+#: ../source/specifications/dependency-specifiers.rst:265
 msgid ":py:func:`platform.python_implementation()`"
 msgstr ":py:func:`platform.python_implementation()`"
 
-#: ../source/specifications/dependency-specifiers.rst:256
+#: ../source/specifications/dependency-specifiers.rst:267
 msgid "``CPython``, ``Jython``"
 msgstr "``CPython``, ``Jython``"
 
-#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:268
 msgid "``platform_release``"
 msgstr "``platform_release``"
 
-#: ../source/specifications/dependency-specifiers.rst:258
+#: ../source/specifications/dependency-specifiers.rst:269
 msgid ":py:func:`platform.release()`"
 msgstr ":py:func:`platform.release()`"
 
-#: ../source/specifications/dependency-specifiers.rst:259
+#: ../source/specifications/dependency-specifiers.rst:271
 msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 msgstr "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 
-#: ../source/specifications/dependency-specifiers.rst:260
+#: ../source/specifications/dependency-specifiers.rst:272
 msgid "``platform_system``"
 msgstr "``platform_system``"
 
-#: ../source/specifications/dependency-specifiers.rst:261
+#: ../source/specifications/dependency-specifiers.rst:273
 msgid ":py:func:`platform.system()`"
 msgstr ":py:func:`platform.system()`"
 
-#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:275
 msgid "``Linux``, ``Windows``, ``Java``"
 msgstr "``Linux``, ``Windows``, ``Java``"
 
-#: ../source/specifications/dependency-specifiers.rst:263
+#: ../source/specifications/dependency-specifiers.rst:276
 msgid "``platform_version``"
 msgstr "``platform_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:264
+#: ../source/specifications/dependency-specifiers.rst:277
 msgid ":py:func:`platform.version()`"
 msgstr ":py:func:`platform.version()`"
 
-#: ../source/specifications/dependency-specifiers.rst:265
+#: ../source/specifications/dependency-specifiers.rst:279
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
@@ -19893,65 +19996,105 @@ msgstr ""
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
 "02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:268
+#: ../source/specifications/dependency-specifiers.rst:282
 msgid "``python_version``"
 msgstr "``python_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:269
+#: ../source/specifications/dependency-specifiers.rst:283
 msgid "``'.'.join(platform.python_version_tuple()[:2])``"
 msgstr "``'.'.join(platform.python_version_tuple()[:2])``"
 
-#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:284
+#: ../source/specifications/dependency-specifiers.rst:288
+#: ../source/specifications/dependency-specifiers.rst:296
+#, fuzzy
+#| msgid "Version specifiers"
+msgid ":ref:`Version <version-specifiers>`"
+msgstr "Versispecifiloj"
+
+#: ../source/specifications/dependency-specifiers.rst:285
 msgid "``3.4``, ``2.7``"
 msgstr "``3.4``, ``2.7``"
 
-#: ../source/specifications/dependency-specifiers.rst:271
+#: ../source/specifications/dependency-specifiers.rst:286
 msgid "``python_full_version``"
 msgstr "``python_full_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:272
+#: ../source/specifications/dependency-specifiers.rst:287
 msgid ":py:func:`platform.python_version()`"
 msgstr ":py:func:`platform.python_version()`"
 
-#: ../source/specifications/dependency-specifiers.rst:273
-#: ../source/specifications/dependency-specifiers.rst:279
+#: ../source/specifications/dependency-specifiers.rst:289
+#: ../source/specifications/dependency-specifiers.rst:297
 msgid "``3.4.0``, ``3.5.0b1``"
 msgstr "``3.4.0``, ``3.5.0b1``"
 
-#: ../source/specifications/dependency-specifiers.rst:274
+#: ../source/specifications/dependency-specifiers.rst:290
 msgid "``implementation_name``"
 msgstr "``implementation_name``"
 
-#: ../source/specifications/dependency-specifiers.rst:275
+#: ../source/specifications/dependency-specifiers.rst:291
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ":py:data:`sys.implementation.name <sys.implementation>`"
 
-#: ../source/specifications/dependency-specifiers.rst:276
+#: ../source/specifications/dependency-specifiers.rst:293
 msgid "``cpython``"
 msgstr "``cpython``"
 
-#: ../source/specifications/dependency-specifiers.rst:277
+#: ../source/specifications/dependency-specifiers.rst:294
 msgid "``implementation_version``"
 msgstr "``implementation_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:278
+#: ../source/specifications/dependency-specifiers.rst:295
 msgid "see definition below"
 msgstr "vidu la difinon ĉi-sube"
 
-#: ../source/specifications/dependency-specifiers.rst:280
+#: ../source/specifications/dependency-specifiers.rst:298
 msgid "``extra``"
 msgstr "``extra``"
 
-#: ../source/specifications/dependency-specifiers.rst:281
+#: ../source/specifications/dependency-specifiers.rst:299
+#: ../source/specifications/dependency-specifiers.rst:304
+#: ../source/specifications/dependency-specifiers.rst:309
 msgid ""
 "An error except when defined by the context interpreting the specification."
 msgstr "Eraro, se ne ekzistas kunteksto interpretanta la specifon."
 
-#: ../source/specifications/dependency-specifiers.rst:283
-msgid "``test``"
+#: ../source/specifications/dependency-specifiers.rst:302
+#, fuzzy
+#| msgid "``pyproject.toml``"
+msgid "``toml``"
+msgstr "``pyproject.toml``"
+
+#: ../source/specifications/dependency-specifiers.rst:303
+#: ../source/specifications/pylock-toml.rst:108
+#, fuzzy
+#| msgid "``extra``"
+msgid "``extras``"
+msgstr "``extra``"
+
+#: ../source/specifications/dependency-specifiers.rst:306
+#: ../source/specifications/dependency-specifiers.rst:311
+msgid "Set of strings"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:307
+msgid "``{\"toml\"}``"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:308
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``dependency_groups``"
+msgstr "``dependencies``"
+
+#: ../source/specifications/dependency-specifiers.rst:312
+#, fuzzy
+#| msgid "``test``"
+msgid "``{\"test\"}``"
 msgstr "``test``"
 
-#: ../source/specifications/dependency-specifiers.rst:285
+#: ../source/specifications/dependency-specifiers.rst:314
 msgid ""
 "The ``implementation_version`` marker variable is derived from :py:data:`sys."
 "implementation.version <sys.implementation>`:"
@@ -19959,7 +20102,7 @@ msgstr ""
 "La marka variablo ``implementation_version`` devenas de :py:data:`sys."
 "implementation.version <sys.implementation>`:"
 
-#: ../source/specifications/dependency-specifiers.rst:302
+#: ../source/specifications/dependency-specifiers.rst:331
 msgid ""
 "This environment markers section, initially defined through :pep:`508`, "
 "supersedes the environment markers section in :pep:`345`."
@@ -19967,23 +20110,23 @@ msgstr ""
 "Tiu paragrafo de media marko, origine difinita per :pep:`508`, eksvalidigas "
 "la paragrafon pri media marko en :pep:`345`."
 
-#: ../source/specifications/dependency-specifiers.rst:308
+#: ../source/specifications/dependency-specifiers.rst:337
 msgid "Complete Grammar"
 msgstr "Kompleta Gramatiko"
 
-#: ../source/specifications/dependency-specifiers.rst:310
+#: ../source/specifications/dependency-specifiers.rst:339
 msgid "The complete parsley grammar::"
 msgstr "La kompleta gramatiko por parseley::"
 
-#: ../source/specifications/dependency-specifiers.rst:417
+#: ../source/specifications/dependency-specifiers.rst:446
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr "Testa programo – se la gramatiko estas en signoĉeno ``grammar``:"
 
-#: ../source/specifications/dependency-specifiers.rst:489
+#: ../source/specifications/dependency-specifiers.rst:518
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr "Novembro 2015: Ĉi tiu specifo estis aprobita per :pep:`508`."
 
-#: ../source/specifications/dependency-specifiers.rst:490
+#: ../source/specifications/dependency-specifiers.rst:519
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
 "change_>`_ from ``platform.python_version()[:3]`` to ``'.'.join(platform."
@@ -19995,7 +20138,7 @@ msgstr ""
 "python_version_tuple()[:2])``, por estontaj versioj de Python kun du-ciferaj "
 "maĵoraj kaj minoraj versioj (ekz. 3.10). [#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:495
+#: ../source/specifications/dependency-specifiers.rst:524
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
 "commas, matching with the behavior of the Python implementation that has "
@@ -20004,7 +20147,13 @@ msgstr ""
 "Junio 2024: La difino de ``version_many`` estis ŝanĝita por permesi lastan "
 "komon, konforme al la Python-realigo uzata ekde malfrua 2022."
 
-#: ../source/specifications/dependency-specifiers.rst:503
+#: ../source/specifications/dependency-specifiers.rst:527
+msgid ""
+"April 2025: Added ``extras`` and ``dependency_groups`` for :ref:`lock-file-"
+"spec` as approved through :pep:`751`."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:534
 msgid ""
 "pip, the recommended installer for Python packages (http://pip.readthedocs."
 "org/en/stable/)"
@@ -20012,12 +20161,12 @@ msgstr ""
 "pip, la rekomendata instalilo por Python-pakoj (http://pip.readthedocs.org/"
 "en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:506
+#: ../source/specifications/dependency-specifiers.rst:537
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr ""
 "La sintaksanaliza biblioteko parsley. (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:509
+#: ../source/specifications/dependency-specifiers.rst:540
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
@@ -20054,7 +20203,7 @@ msgstr ""
 "retadreso)."
 
 #: ../source/specifications/direct-url.rst:21
-#: ../source/specifications/recording-installed-packages.rst:221
+#: ../source/specifications/recording-installed-packages.rst:222
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
@@ -23625,6 +23774,1383 @@ msgstr "Decembro 2023: La etikedoj pri iOS estis aprobitaj per :pep:`730`."
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
 msgstr "Marto 2024: La etikedoj pri Android estis aprobitaj per :pep:`738`."
 
+#: ../source/specifications/pylock-toml.rst:6
+#, fuzzy
+#| msgid "``pyproject.toml`` specification"
+msgid "``pylock.toml`` Specification"
+msgstr "specifo ``pyproject.toml``"
+
+#: ../source/specifications/pylock-toml.rst:8
+msgid ""
+"The ``pylock.toml`` file format is for specifying dependencies to enable "
+"reproducible installation in a Python environment."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:11
+#, fuzzy
+#| msgid "This specification was originally defined in :pep:`753`."
+msgid "This specification was originally defined in :pep:`751`."
+msgstr "Ĉi tiu specifo estis originale difinita en :pep:`753`."
+
+#: ../source/specifications/pylock-toml.rst:16
+#, fuzzy
+#| msgid "Name"
+msgid "File Name"
+msgstr "Nomo"
+
+#: ../source/specifications/pylock-toml.rst:18
+msgid ""
+"A lock file MUST be named :file:`pylock.toml` or match the regular "
+"expression ``r\"^pylock\\.([^.]+)\\.toml$\"`` if a name for the lock file is "
+"desired or if multiple lock files exist (i.e. the regular expression "
+"``r\"^pylock\\.([^.]+\\.)?toml$\"`` for any file name). The prefix and "
+"suffix of a named file MUST be lowercase when possible, for easy detection "
+"and removal, e.g.:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:30
+msgid ""
+"The expectation is that services that automatically install from lock files "
+"will search for:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:33
+msgid "The lock file with the service's name and doing the default install"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:34
+msgid ""
+"A multi-use :file:`pylock.toml` with a dependency group with the name of the "
+"service"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:35
+msgid "The default install of :file:`pylock.toml`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:37
+msgid ""
+"E.g. a cloud host service named \"spam\" would first look for :file:`pylock."
+"spam.toml` to install from, and if that file didn't exist then install from :"
+"file:`pylock.toml` and look for a dependency group named \"spam\" to use if "
+"present."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:42
+msgid ""
+"The lock file(s) SHOULD be located in the directory as appropriate for the "
+"scope of the lock file. Locking against a single :file:`pyproject.toml`, for "
+"instance, would place the :file:`pylock.toml` in the same directory. If the "
+"lock file covered multiple projects in a monorepo, then the expectation is "
+"the :file:`pylock.toml` file would be in the directory that held all the "
+"projects being locked."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:53
+msgid "The format of the file is TOML_."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:55
+msgid ""
+"Tools SHOULD write their lock files in a consistent way to minimize noise in "
+"diff output. Keys in tables -- including the top-level table -- SHOULD be "
+"recorded in a consistent order (if inspiration is desired, this "
+"specification has tried to write down keys in a logical order). As well, "
+"tools SHOULD sort arrays in consistent order. Usage of inline tables SHOULD "
+"also be kept consistent."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:65
+#, fuzzy
+#| msgid "``version``"
+msgid "``lock-version``"
+msgstr "``version``"
+
+#: ../source/specifications/pylock-toml.rst:67
+msgid "**Type**: string; value of ``\"1.0\"``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:68
+#: ../source/specifications/pylock-toml.rst:174
+#: ../source/specifications/pylock-toml.rst:189
+#: ../source/specifications/pylock-toml.rst:202
+#: ../source/specifications/pylock-toml.rst:298
+#: ../source/specifications/pylock-toml.rst:348
+#: ../source/specifications/pylock-toml.rst:397
+#: ../source/specifications/pylock-toml.rst:494
+#: ../source/specifications/pylock-toml.rst:689
+#, fuzzy
+#| msgid "Requires"
+msgid "**Required?**: yes"
+msgstr "Requires"
+
+#: ../source/specifications/pylock-toml.rst:69
+msgid "**Inspiration**: :ref:`core-metadata-metadata-version`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:70
+msgid "Record the file format version that the file adheres to."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:71
+msgid ""
+"This PEP specifies the initial version -- and only valid value until future "
+"updates to the standard change it -- as ``\"1.0\"``."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:73
+msgid ""
+"If a tool supports the major version but not the minor version, a tool "
+"SHOULD warn when an unknown key is seen."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:75
+msgid "If a tool doesn't support a major version, it MUST raise an error."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:81
+#, fuzzy
+#| msgid "``entry-points``"
+msgid "``environments``"
+msgstr "``entry-points``"
+
+#: ../source/specifications/pylock-toml.rst:83
+#: ../source/specifications/pylock-toml.rst:110
+#: ../source/specifications/pylock-toml.rst:132
+#: ../source/specifications/pylock-toml.rst:154
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: Array of strings"
+msgstr "Tipo de TOML_: listo de signoĉenoj"
+
+#: ../source/specifications/pylock-toml.rst:84
+#: ../source/specifications/pylock-toml.rst:98
+#: ../source/specifications/pylock-toml.rst:213
+#: ../source/specifications/pylock-toml.rst:230
+#: ../source/specifications/pylock-toml.rst:243
+#: ../source/specifications/pylock-toml.rst:255
+#: ../source/specifications/pylock-toml.rst:334
+#: ../source/specifications/pylock-toml.rst:362
+#: ../source/specifications/pylock-toml.rst:435
+#: ../source/specifications/pylock-toml.rst:469
+#: ../source/specifications/pylock-toml.rst:482
+#: ../source/specifications/pylock-toml.rst:519
+#: ../source/specifications/pylock-toml.rst:674
+#: ../source/specifications/pylock-toml.rst:700
+#: ../source/specifications/pylock-toml.rst:715
+msgid "**Required?**: no"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:85
+#: ../source/specifications/pylock-toml.rst:520
+#: ../source/specifications/pylock-toml.rst:538
+msgid "**Inspiration**: uv_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:86
+msgid ""
+"A list of :ref:`dependency-specifiers-environment-markers` for which the "
+"lock file is considered compatible with."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:88
+msgid ""
+"Tools SHOULD write exclusive/non-overlapping environment markers to ease in "
+"understanding."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:97
+#: ../source/specifications/pylock-toml.rst:173
+#: ../source/specifications/pylock-toml.rst:201
+#: ../source/specifications/pylock-toml.rst:212
+#: ../source/specifications/pylock-toml.rst:229
+#: ../source/specifications/pylock-toml.rst:242
+#: ../source/specifications/pylock-toml.rst:308
+#: ../source/specifications/pylock-toml.rst:319
+#: ../source/specifications/pylock-toml.rst:333
+#: ../source/specifications/pylock-toml.rst:347
+#: ../source/specifications/pylock-toml.rst:361
+#: ../source/specifications/pylock-toml.rst:396
+#: ../source/specifications/pylock-toml.rst:518
+#: ../source/specifications/pylock-toml.rst:551
+#: ../source/specifications/pylock-toml.rst:620
+#: ../source/specifications/pylock-toml.rst:688
+#, fuzzy
+#| msgid "TOML_ type: string"
+msgid "**Type**: string"
+msgstr "Tipo de TOML_: signoĉeno"
+
+#: ../source/specifications/pylock-toml.rst:99
+#: ../source/specifications/pylock-toml.rst:190
+#: ../source/specifications/pylock-toml.rst:256
+#: ../source/specifications/pylock-toml.rst:555
+#: ../source/specifications/pylock-toml.rst:608
+#: ../source/specifications/pylock-toml.rst:624
+msgid "**Inspiration**: PDM_, Poetry_, uv_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:100
+msgid ""
+"Specifies the :ref:`core-metadata-requires-python` for the minimum Python "
+"version compatible for any environment supported by the lock file (i.e. the "
+"minimum viable Python version for the lock file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:111
+#: ../source/specifications/pylock-toml.rst:133
+#: ../source/specifications/pylock-toml.rst:155
+msgid "**Required?**: no; defaults to ``[]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:112
+msgid "**Inspiration**: :ref:`core-metadata-provides-extra`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:113
+msgid ""
+"The list of :ref:`extras <core-metadata-provides-extra>` supported by this "
+"lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:115
+#: ../source/specifications/pylock-toml.rst:138
+msgid ""
+"Lockers MAY choose to not support writing lock files that support extras and "
+"dependency groups (i.e. tools may only support exporting a single-use lock "
+"file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:118
+msgid "Tools supporting extras MUST also support dependency groups."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:119
+msgid ""
+"Tools should explicitly set this key to an empty array to signal that the "
+"inputs used to generate the lock file had no extras (e.g. a :ref:`pyproject."
+"toml <pyproject-toml-spec>` file had no :ref:`[project.optional-"
+"dependencies] <pyproject-toml-optional-dependencies>` table), signalling "
+"that the lock file is, in effect, multi-use even if it only looks to be "
+"single-use."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:130
+#, fuzzy
+#| msgid "The ``[dependency-groups]`` Table"
+msgid "``dependency-groups``"
+msgstr "La Tabelo ``[dependency-groups]``"
+
+#: ../source/specifications/pylock-toml.rst:134
+#: ../source/specifications/pylock-toml.rst:716
+#, fuzzy
+#| msgid ":ref:`pyproject-toml-spec`"
+msgid "**Inspiration**: :ref:`pyproject-tool-table`"
+msgstr ":ref:`pyproject-toml-spec`"
+
+#: ../source/specifications/pylock-toml.rst:135
+msgid ""
+"The list of :ref:`dependency-groups` publicly supported by this lock file (i."
+"e. dependency groups users are expected to be able to specify via a tool's "
+"UI)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:141
+msgid "Tools supporting dependency groups MUST also support extras."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:142
+msgid ""
+"Tools SHOULD explicitly set this key to an empty array to signal that the "
+"inputs used to generate the lock file had no dependency groups (e.g. a :ref:"
+"`pyproject.toml <pyproject-toml-spec>` file had no :ref:`[dependency-groups] "
+"<dependency-groups>` table), signalling that the lock file is, in effect, "
+"multi-use even if it only looks to be single-use."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:152
+msgid "``default-groups``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:156
+msgid "**Inspiration**: Poetry_, PDM_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:157
+msgid ""
+"The name of synthetic dependency groups to represent what should be "
+"installed by default (e.g. what :ref:`[project.dependencies] <pyproject-toml-"
+"dependencies>` implicitly represents)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:161
+msgid ""
+"Meant to be used in situations where :ref:`pylock-packages-marker` "
+"necessitates such a group to exist."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:163
+msgid ""
+"The groups listed by this key SHOULD NOT be listed in :ref:`pylock-"
+"dependency-groups` as the groups are not meant to be directly exposed to "
+"users by name but instead via an installer's UI."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:171
+msgid "``created-by``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:175
+msgid "**Inspiration**: Tools with their name in their lock file name"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:176
+#, fuzzy
+#| msgid ""
+#| "``INSTALLER``: records the name of the tool used to install the project."
+msgid "Records the name of the tool used to create the lock file."
+msgstr ""
+"``INSTALLER``: registras la nomon de la ilo uzita por instali la projekton."
+
+#: ../source/specifications/pylock-toml.rst:177
+msgid ""
+"Tools MAY use the :ref:`pylock-tool` table to record enough details that it "
+"can be inferred what inputs were used to create the lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:179
+msgid ""
+"Tools SHOULD record the normalized name of the tool if it is available as a "
+"Python package to facilitate finding the tool."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:186
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[[packages]]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:188
+#: ../source/specifications/pylock-toml.rst:254
+#: ../source/specifications/pylock-toml.rst:605
+#: ../source/specifications/pylock-toml.rst:673
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: array of tables"
+msgstr "Tipo de TOML_: listo de signoĉenoj"
+
+#: ../source/specifications/pylock-toml.rst:191
+msgid "An array containing all packages that *may* be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:192
+msgid ""
+"Packages MAY be listed multiple times with varying data, but all packages to "
+"be installed MUST narrow down to a single entry at install time."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:199
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.name``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:203
+msgid "**Inspiration**: :ref:`core-metadata-name`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:204
+#, fuzzy
+#| msgid ""
+#| "For comparison purposes, the names should be :ref:`normalized <name-"
+#| "normalization>` before comparing."
+msgid "The name of the package :ref:`normalized <name-normalization>`."
+msgstr ""
+"Por komparado, la nomoj estu :ref:`normigitaj <name-normalization>` antaŭ "
+"komparado."
+
+#: ../source/specifications/pylock-toml.rst:210
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.version``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:214
+msgid "**Inspiration**: :ref:`core-metadata-version`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:215
+#, fuzzy
+#| msgid "Creating the package"
+msgid "The version of the package."
+msgstr "Krei la pakon"
+
+#: ../source/specifications/pylock-toml.rst:216
+#, fuzzy
+#| msgid ""
+#| "``subject[0].name`` is the distribution's filename, which **MUST** be a "
+#| "valid :ref:`source distribution <source-distribution-format>` or :ref:"
+#| "`wheel distribution <binary-distribution-format>` filename."
+msgid ""
+"The version SHOULD be specified when the version is known to be stable (i.e. "
+"when an :ref:`sdist <source-distribution-format>` or :ref:`wheels <binary-"
+"distribution-format>` are specified)."
+msgstr ""
+"``subject[0].name`` estas la dosiernomo de la distribuo, kiu **DEVAS** esti "
+"valida dosiernomo por :ref:`fonta distribuo <source-distribution-format>` "
+"or :ref:`wheel-distribuo <binary-distribution-format>`."
+
+#: ../source/specifications/pylock-toml.rst:219
+msgid ""
+"The version MUST NOT be included when it cannot be guaranteed to be "
+"consistent with the code used (i.e. when a :ref:`source tree <source-"
+"distribution-format-source-tree>` is used)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:227
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.marker``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:231
+msgid "**Inspiration**: PDM_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:232
+msgid ""
+"The :ref:`environment marker <dependency-specifiers-environment-markers>` "
+"which specify when the package should be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:240
+#, fuzzy
+#| msgid "``requires-python``"
+msgid "``packages.requires-python``"
+msgstr "``requires-python``"
+
+#: ../source/specifications/pylock-toml.rst:244
+msgid "**Inspiration**: :ref:`core-metadata-requires-python`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:245
+msgid ""
+"Holds the :ref:`version-specifiers` for Python version compatibility for the "
+"package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:252
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``[[packages.dependencies]]``"
+msgstr "``dependencies``"
+
+#: ../source/specifications/pylock-toml.rst:257
+msgid ""
+"Records the other entries in :ref:`pylock-packages` which are direct "
+"dependencies of this package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:259
+msgid ""
+"Each entry is a table which contains the minimum information required to "
+"tell which other package entry it corresponds to where doing a key-by-key "
+"comparison would find the appropriate package with no ambiguity (e.g. if "
+"there are two entries for the ``spam`` package, then you can include the "
+"version number like ``{name = \"spam\", version = \"1.0.0\"}``, or by source "
+"like ``{name = \"spam\", vcs = { url = \"...\"}``)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:265
+msgid ""
+"Tools MUST NOT use this information when doing installation; it is purely "
+"informational for auditing purposes."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:272
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.vcs]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:274
+#: ../source/specifications/pylock-toml.rst:376
+#: ../source/specifications/pylock-toml.rst:434
+#: ../source/specifications/pylock-toml.rst:535
+#: ../source/specifications/pylock-toml.rst:699
+#: ../source/specifications/pylock-toml.rst:714
+#, fuzzy
+#| msgid "TOML_ type: table"
+msgid "**Type**: table"
+msgstr "Tipo de TOML_: tabelo"
+
+#: ../source/specifications/pylock-toml.rst:275
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-"
+"directory`, :ref:`pylock-packages-archive`, :ref:`pylock-packages-sdist`, "
+"and :ref:`pylock-packages-wheels`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:278
+msgid "**Inspiration**: :ref:`direct-url-data-structure`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:279
+msgid ""
+"Record the version control system details for the :ref:`source tree <source-"
+"distribution-format-source-tree>` it contains."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:282
+msgid ""
+"Tools MAY choose to not support version control systems, both from a locking "
+"and/or installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:284
+msgid "Tools MAY choose to only support a subset of the available VCS types."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:285
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using version control "
+"systems."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:287
+msgid ""
+"Installation from a version control system is considered originating from a :"
+"ref:`direct URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:294
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.type``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:296
+msgid ""
+"**Type**: string; supported values specified in :ref:`direct-url-data-"
+"structure-registered-vcs`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:299
+#: ../source/specifications/pylock-toml.rst:310
+#: ../source/specifications/pylock-toml.rst:321
+#: ../source/specifications/pylock-toml.rst:335
+#: ../source/specifications/pylock-toml.rst:349
+msgid "**Inspiration**: :ref:`direct-url-data-structure-vcs`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:300
+#, fuzzy
+#| msgid "Install from version control systems"
+msgid "The type of version control system used."
+msgstr "Instali el versikontrola sistemo"
+
+#: ../source/specifications/pylock-toml.rst:306
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:309
+msgid "**Required?**: if :ref:`pylock-packages-vcs-path` is not specified"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:311
+#, fuzzy
+#| msgid "The source tree"
+msgid "The URL_ to the source tree."
+msgstr "La fontarbo"
+
+#: ../source/specifications/pylock-toml.rst:317
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.path``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:320
+msgid "**Required?**: if :ref:`pylock-packages-vcs-url` is not specified"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:322
+#, fuzzy
+#| msgid "The path to the Python interprer of the base installation."
+msgid "The path to the local directory of the source tree."
+msgstr "La dosierloko de la Python-interpretilo de la baza instalo."
+
+#: ../source/specifications/pylock-toml.rst:323
+msgid ""
+"If a relative path is used it MUST be relative to the location of this file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:324
+msgid ""
+"If the path is relative it MAY use POSIX-style path separators explicitly "
+"for portability."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:331
+#, fuzzy
+#| msgid "``requested_revision`` field"
+msgid "``packages.vcs.requested-revision``"
+msgstr "kampo ``requested_revision``"
+
+#: ../source/specifications/pylock-toml.rst:336
+msgid "The branch/tag/ref/commit/revision/etc. that the user requested."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:337
+msgid ""
+"This is purely informational and to facilitate writing the :ref:`direct-url-"
+"data-structure`; it MUST NOT be used to checkout the repository."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:345
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.commit-id``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:350
+msgid "The exact commit/revision number that is to be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:351
+#, fuzzy
+#| msgid ""
+#| "A ``commit_id`` key (type ``string``) MUST be present, containing the "
+#| "exact commit/revision number that was/is to be installed. If the VCS "
+#| "supports commit-hash based revision identifiers, such commit-hash MUST be "
+#| "used as ``commit_id`` in order to reference an immutable version of the "
+#| "source code."
+msgid ""
+"If the VCS supports commit-hash based revision identifiers, such a commit-"
+"hash, it MUST be used as the commit ID in order to reference an immutable "
+"version of the source code."
+msgstr ""
+"Ŝlosilo ``commit_id`` (de tipo ``string``) DEVAS ekzisti, kies valoro estas "
+"la ekzakta revizia numero intalota. Se la versikontrola sistemo subtenas "
+"haketaĵo-baza revizio-identigilo, oni DEVAS uzi tian haketaĵon kiel "
+"``commit_id`` por referenci nemodifeblan version de la fontokodo."
+
+#: ../source/specifications/pylock-toml.rst:359
+msgid "``packages.vcs.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:363
+msgid "**Inspiration**: :ref:`direct-url-data-structure-subdirectories`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:364
+msgid ""
+"The subdirectory within the :ref:`source tree <source-distribution-format-"
+"source-tree>` where the project root of the project is (e.g. the location of "
+"the :ref:`pyproject.toml <pyproject-toml-spec>` file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:368
+msgid "The path MUST be relative to the root of the source tree structure."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:374
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.directory]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:377
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:"
+"`pylock-packages-archive`, :ref:`pylock-packages-sdist`, and :ref:`pylock-"
+"packages-wheels`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:380
+#: ../source/specifications/pylock-toml.rst:398
+#: ../source/specifications/pylock-toml.rst:412
+msgid "**Inspiration**: :ref:`direct-url-data-structure-local-directory`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:381
+msgid ""
+"Record the local directory details for the :ref:`source tree <source-"
+"distribution-format-source-tree>` it contains."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:384
+msgid ""
+"Tools MAY choose to not support local directories, both from a locking and/"
+"or installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:386
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using local "
+"directories."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:387
+msgid ""
+"Installation from a directory is considered originating from a :ref:`direct "
+"URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:394
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.directory.path``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:399
+msgid "The local directory where the source tree is."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:400
+msgid ""
+"If the path is relative it MUST be relative to the location of the lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:401
+msgid ""
+"If the path is relative it MAY use POSIX-style path separators for "
+"portability."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:408
+msgid "``packages.directory.editable``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:410
+#, fuzzy
+#| msgid "*boolean*"
+msgid "**Type**: boolean"
+msgstr "*boolean*"
+
+#: ../source/specifications/pylock-toml.rst:411
+msgid "**Required?**: no; defaults to ``false``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:413
+msgid ""
+"A flag representing whether the source tree was an editable install at lock "
+"time."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:415
+msgid ""
+"An installer MAY choose to ignore this flag if user actions or context would "
+"make an editable install unnecessary or undesirable (e.g. a container image "
+"that will not be mounted for development purposes but instead deployed to "
+"production where it would be treated at read-only)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:424
+msgid "``packages.directory.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:426
+#: ../source/specifications/pylock-toml.rst:510
+msgid "See :ref:`pylock-packages-vcs-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:432
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.archive]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:436
+msgid "**Inspiration**: :ref:`direct-url-data-structure-archive`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:437
+msgid ""
+"A direct reference to an archive file to install from (this can include "
+"wheels and sdists, as well as other archive formats containing a source "
+"tree)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:440
+msgid ""
+"Tools MAY choose to not support archive files, both from a locking and/or "
+"installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:442
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using archive files."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:443
+msgid ""
+"Installation from an archive file is considered originating from a :ref:"
+"`direct URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:450
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:452
+msgid "See :ref:`pylock-packages-vcs-url`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:458
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.path``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:460
+msgid "See :ref:`pylock-packages-vcs-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:466
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.size``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:468
+msgid "**Type**: integer"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:470
+msgid "**Inspiration**: uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:471
+#, fuzzy
+#| msgid "The name of the project."
+msgid "The size of the archive file."
+msgstr "La nomo de la projekto."
+
+#: ../source/specifications/pylock-toml.rst:472
+msgid ""
+"Tools SHOULD provide the file size when reasonably possible (e.g. the file "
+"size is available via the Content-Length_ header from a HEAD_ HTTP request)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:479
+msgid "``packages.archive.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:481
+msgid "**Type**: datetime"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:483
+msgid "**Inspiration**: :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:484
+#, fuzzy
+#| msgid "Where the guide is deployed"
+msgid "The time the file was uploaded."
+msgstr "Kie la gvidilo disponiĝas"
+
+#: ../source/specifications/pylock-toml.rst:485
+msgid "The date and time MUST be recorded in UTC."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:491
+msgid "``[packages.archive.hashes]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:493
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: Table of strings"
+msgstr "Tipo de TOML_: listo de signoĉenoj"
+
+#: ../source/specifications/pylock-toml.rst:495
+msgid "**Inspiration**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:496
+msgid ""
+"A table listing known hash values of the file where the key is the hash "
+"algorithm and the value is the hash value."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:498
+msgid "The table MUST contain at least one entry."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:499
+msgid "Hash algorithm keys SHOULD be lowercase."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:500
+msgid ""
+"At least one secure algorithm from :py:data:`hashlib.algorithms_guaranteed` "
+"SHOULD always be included (at time of writing, sha256 specifically is "
+"recommended."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:508
+msgid "``packages.archive.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:516
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.index``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:521
+msgid ""
+"The base URL for the package index from :ref:`simple-repository-api` where "
+"the sdist and/or wheels were found (e.g. ``https://pypi.org/simple/``)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:523
+msgid ""
+"When possible, this SHOULD be specified to assist with generating `software "
+"bill of materials`_ -- aka SBOMs -- and to assist in finding a file if a URL "
+"ceases to be valid."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:526
+msgid ""
+"Tools MAY support installing from an index if the URL recorded for a "
+"specific file is no longer valid (e.g. returns a 404 HTTP error code)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:533
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.sdist]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:536
+#: ../source/specifications/pylock-toml.rst:606
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:"
+"`pylock-packages-directory`, and :ref:`pylock-packages-archive`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:539
+msgid "Details of a :ref:`source-distribution-format-sdist` for the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:541
+msgid ""
+"Tools MAY choose to not support sdist files, both from a locking and/or "
+"installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:543
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using sdist files."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:549
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.name``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:552
+msgid ""
+"**Required?**: no, not when the last component of :ref:`pylock-packages-"
+"sdist-path`/ :ref:`pylock-packages-sdist-url` would be the same value"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:556
+msgid "The file name of the :ref:`source-distribution-format-sdist` file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:562
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.upload-time``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:564
+#: ../source/specifications/pylock-toml.rst:633
+msgid "See :ref:`pylock-packages-archive-upload-time`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:570
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.sdist.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:572
+#: ../source/specifications/pylock-toml.rst:641
+msgid "See :ref:`pylock-packages-archive-url`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:578
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.path``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:580
+#: ../source/specifications/pylock-toml.rst:649
+msgid "See :ref:`pylock-packages-archive-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:586
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.sdist.size``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:588
+#: ../source/specifications/pylock-toml.rst:657
+msgid "See :ref:`pylock-packages-archive-size`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:594
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.hashes``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:596
+#: ../source/specifications/pylock-toml.rst:665
+msgid "See :ref:`pylock-packages-archive-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:603
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[[packages.wheels]]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:609
+msgid ""
+"For recording the wheel files as specified by :ref:`binary-distribution-"
+"format` for the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:611
+msgid ""
+"Tools MUST support wheel files, both from a locking and installation "
+"perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:618
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.name``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:621
+msgid ""
+"**Required?**: no, not when the last component of :ref:`pylock-packages-"
+"wheels-path`/ :ref:`pylock-packages-wheels-url` would be the same value"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:625
+msgid "The file name of the :ref:`binary-distribution-format` file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:631
+msgid "``packages.wheels.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:639
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:647
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.path``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:655
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.size``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:663
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.hashes``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:671
+msgid "``[[packages.attestation-identities]]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:675
+#: ../source/specifications/pylock-toml.rst:690
+msgid "**Inspiration**: :ref:`  provenance-object`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:676
+msgid ""
+"A recording of the attestations for **any** file recorded for this package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:677
+msgid "If available, tools SHOULD include the attestation identities found."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:678
+msgid ""
+"Publisher-specific keys are to be included in the table as-is (i.e. top-"
+"level), following the spec at :ref:`  index-hosted-attestations`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:686
+msgid "``packages.attestation-identities.kind``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:691
+msgid "The unique identity of the Trusted Publisher."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:697
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.tool]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:701
+#, fuzzy
+#| msgid ":ref:`pyproject-toml-spec`"
+msgid "**Inspiration**: :ref:`  pyproject-tool-table`"
+msgstr ":ref:`pyproject-toml-spec`"
+
+#: ../source/specifications/pylock-toml.rst:702
+msgid ""
+"Similar usage as that of the :ref:`pylock-tool` table from the :ref:`  "
+"pyproject-toml-spec`, but at the package version level instead of at the "
+"lock file level (which is also available via :ref:`pylock-tool`)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:705
+msgid ""
+"Data recorded in the table MUST be disposable (i.e. it MUST NOT affect "
+"installation)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:712
+msgid "``[tool]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:717
+msgid "See :ref:`pylock-packages-tool`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:731
+msgid ""
+"The following outlines the steps to be taken to install from a lock file "
+"(while the requirements are prescriptive, the general steps and order are a "
+"suggestion):"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:735
+msgid ""
+"Gather the extras and dependency groups to install and set ``extras`` and "
+"``dependency_groups`` for marker evaluation, respectively."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:738
+msgid "``extras`` SHOULD be set to the empty set by default."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:739
+msgid ""
+"``dependency_groups`` SHOULD be the set created from :ref:`pylock-default-"
+"groups` by default."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:742
+msgid ""
+"Check if the metadata version specified by :ref:`pylock-lock-version` is "
+"supported; an error or warning MUST be raised as appropriate."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:744
+msgid ""
+"If :ref:`pylock-requires-python` is specified, check that the environment "
+"being installed for meets the requirement; an error MUST be raised if it is "
+"not met."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:747
+msgid ""
+"If :ref:`pylock-environments` is specified, check that at least one of the "
+"environment marker expressions is satisfied; an error MUST be raised if no "
+"expression is satisfied."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:750
+msgid "For each package listed in :ref:`pylock-packages`:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:752
+msgid ""
+"If :ref:`pylock-packages-marker` is specified, check if it is satisfied; if "
+"it isn't, skip to the next package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:754
+msgid ""
+"If :ref:`pylock-packages-requires-python` is specified, check if it is "
+"satisfied; an error MUST be raised if it isn't."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:756
+msgid ""
+"Check that no other conflicting instance of the package has been slated to "
+"be installed; an error about the ambiguity MUST be raised otherwise."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:758
+msgid ""
+"Check that the source of the package is specified appropriately (i.e. there "
+"are no conflicting sources in the package entry); an error MUST be raised if "
+"any issues are found."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:761
+msgid "Add the package to the set of packages to install."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:763
+msgid "For each package to be installed:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:765
+msgid "If :ref:`pylock-packages-vcs` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:767
+msgid ""
+"Clone the repository to the commit ID specified in :ref:`pylock-packages-vcs-"
+"commit-id`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:769
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-vcs-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:771
+#: ../source/specifications/pylock-toml.rst:777
+#: ../source/specifications/pylock-toml.rst:786
+#: ../source/specifications/pylock-toml.rst:806
+#: ../source/specifications/pylock-toml.rst:821
+#, fuzzy
+#| msgid "Binary distribution format"
+msgid ":ref:`Install <binary-distribution-format>`."
+msgstr "Duuma distribua formo"
+
+#: ../source/specifications/pylock-toml.rst:773
+msgid "Else if :ref:`pylock-packages-directory` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:775
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-directory-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:779
+msgid "Else if :ref:`pylock-packages-archive` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:781
+#: ../source/specifications/pylock-toml.rst:811
+msgid "Get the file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:782
+msgid ""
+"Validate using :ref:`pylock-packages-archive-size` and :ref:`pylock-packages-"
+"archive-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:784
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-archive-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:788
+msgid "Else if there are entries for :ref:`pylock-packages-wheels`:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:790
+msgid ""
+"Look for the appropriate wheel file based on :ref:`pylock-packages-wheels-"
+"name`; if one is not found then move on to :ref:`pylock-packages-sdist` or "
+"an error MUST be raised about a lack of source for the project."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:794
+msgid "Get the file:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:796
+msgid "If :ref:`pylock-packages-wheels-path` is set, use it."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:797
+msgid ""
+"Else if :ref:`pylock-packages-wheels-url` is set, try to use it; optionally "
+"tools MAY use :ref:`pylock-packages-index` or some tool-specific mechanism "
+"to download the selected wheel file (tools MUST NOT try to change what wheel "
+"file to download based on what's available; what file to install should be "
+"determined in an offline fashion for reproducibility)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:804
+msgid ""
+"Validate using :ref:`pylock-packages-wheels-size` and :ref:`pylock-packages-"
+"wheels-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:808
+msgid ""
+"Else if no :ref:`pylock-packages-wheels` file is found or :ref:`pylock-"
+"packages-sdist` is solely set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:813
+msgid "If :ref:`pylock-packages-sdist-path` is set, use it."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:814
+msgid ""
+"Else if :ref:`pylock-packages-sdist-url` is set, try to use it; tools MAY "
+"use :ref:`pylock-packages-index` or some tool-specific mechanism to download "
+"the file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:818
+msgid ""
+"Validate using :ref:`pylock-packages-sdist-size` and :ref:`pylock-packages-"
+"sdist-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:820
+msgid ":ref:`Build <source-distribution-format-sdist>` the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:828
+#, fuzzy
+#| msgid "Initial version, introduced by :pep:`739`."
+msgid "April 2025: Initial version, approved via :pep:`751`."
+msgstr "Unua versio, enkondukita de :pep:`739`."
+
 #: ../source/specifications/pypirc.rst:6
 msgid "The :file:`.pypirc` file"
 msgstr "La dosiero :file:`.pypirc`"
@@ -24753,17 +26279,21 @@ msgstr ""
 
 #: ../source/specifications/recording-installed-packages.rst:69
 msgid ""
-"This :file:`.dist-info/` directory may contain the following directory, "
+"This :file:`.dist-info/` directory may contain the following directories, "
 "described in detail below:"
 msgstr ""
-"Tiu dosierujo :file:`.dist-info/` povas enhavi la jenan subdosierujon, "
-"priskribitan ĉi-sube:"
+"Tiu dosierujo :file:`.dist-info/` povas enhavi la jenajn subdosierujojn, "
+"priskribitajn ĉi-sube:"
 
 #: ../source/specifications/recording-installed-packages.rst:72
 msgid ":file:`licenses/`: contains license files."
 msgstr ":file:`licenses/`: enhavas licenco-dosierojn."
 
-#: ../source/specifications/recording-installed-packages.rst:76
+#: ../source/specifications/recording-installed-packages.rst:73
+msgid ":file:`sboms/`: contains Software Bill-of-Materials files (SBOMs)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:77
 msgid ""
 "The :ref:`binary-distribution-format` specification describes additional "
 "files that may appear in the ``.dist-info`` directory of a :term:`Wheel`. "
@@ -24775,7 +26305,7 @@ msgstr ""
 "Tiaj dosieroj povas esti kopiitaj al la dosierujo ``.dist-info`` de "
 "instalita projekto."
 
-#: ../source/specifications/recording-installed-packages.rst:81
+#: ../source/specifications/recording-installed-packages.rst:82
 msgid ""
 "The previous versions of this specification also specified a ``REQUESTED`` "
 "file. This file is now considered a tool-specific extension, but may be "
@@ -24787,11 +26317,11 @@ msgstr ""
 "normigita denove estontece. Vidu `PEP 376 <https://www.python.org/dev/peps/"
 "pep-0376/#requested>`_ por ĝia originala signifo."
 
-#: ../source/specifications/recording-installed-packages.rst:88
+#: ../source/specifications/recording-installed-packages.rst:89
 msgid "The METADATA file"
 msgstr "La dosiero METADATA"
 
-#: ../source/specifications/recording-installed-packages.rst:90
+#: ../source/specifications/recording-installed-packages.rst:91
 msgid ""
 "The ``METADATA`` file contains metadata as described in the :ref:`core-"
 "metadata` specification, version 1.1 or greater."
@@ -24799,7 +26329,7 @@ msgstr ""
 "La dosiero ``METADATA`` enhavas metadatenojn laŭ la specifo :ref:`core-"
 "metadata`, versio 1.1 aŭ pli nova."
 
-#: ../source/specifications/recording-installed-packages.rst:93
+#: ../source/specifications/recording-installed-packages.rst:94
 msgid ""
 "The ``METADATA`` file is mandatory. If it cannot be created, or if required "
 "core metadata is not available, installers must report an error and fail to "
@@ -24809,11 +26339,11 @@ msgstr ""
 "postulataj kernaj metadatenoj mankas, instalilo devas sciigi pri eraro kaj "
 "malsukcesigi la instaladon de la projekto."
 
-#: ../source/specifications/recording-installed-packages.rst:99
+#: ../source/specifications/recording-installed-packages.rst:100
 msgid "The RECORD file"
 msgstr "La dosiero RECORD"
 
-#: ../source/specifications/recording-installed-packages.rst:101
+#: ../source/specifications/recording-installed-packages.rst:102
 msgid ""
 "The ``RECORD`` file holds the list of installed files. It is a CSV file "
 "containing one record (line) per installed file."
@@ -24821,7 +26351,7 @@ msgstr ""
 "La dosiero ``RECORD`` tenas la liston de instalitaj dosieroj. Ĝi estas "
 "diskoma dosiero enhavanta po unu rikordo (linio) por ĉiu instalita dosiero."
 
-#: ../source/specifications/recording-installed-packages.rst:104
+#: ../source/specifications/recording-installed-packages.rst:105
 msgid ""
 "The CSV dialect must be readable with the default ``reader`` of Python's "
 "``csv`` module:"
@@ -24829,19 +26359,19 @@ msgstr ""
 "La dialekto de diskoma dosiero devas esti legebla per la apriora ``reader`` "
 "de la modulo ``csv`` de Python:"
 
-#: ../source/specifications/recording-installed-packages.rst:107
+#: ../source/specifications/recording-installed-packages.rst:108
 msgid "field delimiter: ``,`` (comma),"
 msgstr "Disigilo de kampoj: ``,`` (komo),"
 
-#: ../source/specifications/recording-installed-packages.rst:108
+#: ../source/specifications/recording-installed-packages.rst:109
 msgid "quoting char: ``\"`` (straight double quote),"
 msgstr "Citilo: ``\"`` (neŭtra duobla citilo),"
 
-#: ../source/specifications/recording-installed-packages.rst:109
+#: ../source/specifications/recording-installed-packages.rst:110
 msgid "line terminator: either ``\\r\\n`` or ``\\n``."
 msgstr "linifino: aŭ ``\\r\\n`` aŭ ``\\n``."
 
-#: ../source/specifications/recording-installed-packages.rst:111
+#: ../source/specifications/recording-installed-packages.rst:112
 msgid ""
 "Each record is composed of three elements: the file's **path**, the **hash** "
 "of the contents, and its **size**."
@@ -24849,7 +26379,7 @@ msgstr ""
 "Ĉiu rikordo konsistas el tri elemento: la dosierloko (**path**), la haketaĵo "
 "(**hash**) de la enhavo, kaj la grando (**size**)."
 
-#: ../source/specifications/recording-installed-packages.rst:114
+#: ../source/specifications/recording-installed-packages.rst:115
 msgid ""
 "The *path* may be either absolute, or relative to the directory containing "
 "the ``.dist-info`` directory (commonly, the ``site-packages`` directory). On "
@@ -24861,7 +26391,7 @@ msgstr ""
 "Windows, oni povas disigi dosierlokajn komponantojn per aŭ suprenstreko (``/"
 "``) aŭ malsuprenstreko (``\\``)."
 
-#: ../source/specifications/recording-installed-packages.rst:119
+#: ../source/specifications/recording-installed-packages.rst:120
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from :"
 "py:data:`hashlib.algorithms_guaranteed`, followed by the equals character "
@@ -24875,7 +26405,7 @@ msgstr ""
 "func:`base64.urlsafe_b64encode(haketaĵo) <base64.urlsafe_b64encode()>` sen "
 "fina ``=``)."
 
-#: ../source/specifications/recording-installed-packages.rst:124
+#: ../source/specifications/recording-installed-packages.rst:125
 msgid ""
 "The *size* is either the empty string, or file's size in bytes, as a base 10 "
 "integer."
@@ -24883,7 +26413,7 @@ msgstr ""
 "La *size* estas aŭ la malplena signoĉeno aŭ la grando de la dosiero en "
 "bajtoj kiel dekuma entjero."
 
-#: ../source/specifications/recording-installed-packages.rst:127
+#: ../source/specifications/recording-installed-packages.rst:128
 msgid ""
 "For any file, either or both of the *hash* and *size* fields may be left "
 "empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself "
@@ -24892,7 +26422,7 @@ msgid ""
 "project."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:133
+#: ../source/specifications/recording-installed-packages.rst:134
 msgid ""
 "If the ``RECORD`` file is present, it must list all installed files of the "
 "project, except ``.pyc`` files corresponding to ``.py`` files listed in "
@@ -24901,7 +26431,7 @@ msgid ""
 "should not be listed."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:140
+#: ../source/specifications/recording-installed-packages.rst:141
 msgid ""
 "To completely uninstall a package, a tool needs to remove all files listed "
 "in ``RECORD``, all ``.pyc`` files (of all optimization levels) corresponding "
@@ -24912,11 +26442,11 @@ msgstr ""
 "forviŝotaj ``.py``-dosieroj, kaj ajnaj dosierujoj malplenigotaj de la "
 "malinstalo."
 
-#: ../source/specifications/recording-installed-packages.rst:145
+#: ../source/specifications/recording-installed-packages.rst:146
 msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr "Jen ekzemplo de ebla dosiero ``RECORD``::"
 
-#: ../source/specifications/recording-installed-packages.rst:164
+#: ../source/specifications/recording-installed-packages.rst:165
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
 "not attempt to uninstall or upgrade the package. (This restriction does not "
@@ -24927,7 +26457,7 @@ msgstr ""
 "provi malinstali aŭ ĝisdatigi la pakon. (Tiu devo ne temas pri ilo uzanta "
 "aliajn informojn kiel sistema pakadministrilo de Linux-distribuo.)"
 
-#: ../source/specifications/recording-installed-packages.rst:171
+#: ../source/specifications/recording-installed-packages.rst:172
 msgid ""
 "It is *strongly discouraged* for an installed package to modify itself (e."
 "g., store cache files under its namespace in ``site-packages``). Changes "
@@ -24942,11 +26472,11 @@ msgstr ""
 "devas ĝisdatigu ``RECORD``; se tio ne okazus, malinstalado de pako lasus "
 "eksterlistajn dosierojn (eble kreante fantoman nomspacan pakon)."
 
-#: ../source/specifications/recording-installed-packages.rst:180
+#: ../source/specifications/recording-installed-packages.rst:181
 msgid "The INSTALLER file"
 msgstr "La dosiero INSTALLER"
 
-#: ../source/specifications/recording-installed-packages.rst:182
+#: ../source/specifications/recording-installed-packages.rst:183
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -24958,15 +26488,15 @@ msgstr ""
 "komandlinio, ``INSTALLER`` enhavu la nomon de la komando. Se ne, ĝi enhavu "
 "preseblan Askian signoĉenon."
 
-#: ../source/specifications/recording-installed-packages.rst:188
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr "La dosiero povas finiĝi per nul aŭ pli da Askiaj blankspacaj signoj."
 
-#: ../source/specifications/recording-installed-packages.rst:190
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr "Jen ekzemploj de du eblaj dosieroj ``INSTALLER``::"
 
-#: ../source/specifications/recording-installed-packages.rst:198
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -24977,11 +26507,11 @@ msgstr ""
 "malinstali projekton per iu ilo, sed la ilo ne trovus dosieron ``RECORD``, "
 "ĝi povus sugesti, ke oni uzu la ilon nomitan en ``INSTALLER`` por malinstali."
 
-#: ../source/specifications/recording-installed-packages.rst:205
+#: ../source/specifications/recording-installed-packages.rst:206
 msgid "The entry_points.txt file"
 msgstr "La dosiero entry_points.txt"
 
-#: ../source/specifications/recording-installed-packages.rst:207
+#: ../source/specifications/recording-installed-packages.rst:208
 msgid ""
 "This file MAY be created by installers to indicate when packages contain "
 "components intended for discovery and use by other code, including console "
@@ -24992,15 +26522,15 @@ msgstr ""
 "komponantojn malkovreblajn kaj uzeblajn de alia kodo, inkluzive de konzolaj "
 "programetoj kaj aliaj programoj rulebligitaj de la instalilo."
 
-#: ../source/specifications/recording-installed-packages.rst:212
+#: ../source/specifications/recording-installed-packages.rst:213
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr "Ĝia detala specifo troviĝas ĉe :ref:`entry-points`."
 
-#: ../source/specifications/recording-installed-packages.rst:216
+#: ../source/specifications/recording-installed-packages.rst:217
 msgid "The direct_url.json file"
 msgstr "La dosiero direct_url.json"
 
-#: ../source/specifications/recording-installed-packages.rst:218
+#: ../source/specifications/recording-installed-packages.rst:219
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
@@ -25009,15 +26539,15 @@ msgstr ""
 "postulo specifitanta rektan retadresan referencon (inkluzive de "
 "versikontrolsistema retadreso)."
 
-#: ../source/specifications/recording-installed-packages.rst:224
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr "La detala specifo troviĝas ĉe :ref:`direct-url`."
 
-#: ../source/specifications/recording-installed-packages.rst:228
+#: ../source/specifications/recording-installed-packages.rst:229
 msgid "The :file:`licenses/` subdirectory"
 msgstr "La dosierujo :file:`licenses/`"
 
-#: ../source/specifications/recording-installed-packages.rst:230
+#: ../source/specifications/recording-installed-packages.rst:231
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain a :file:"
@@ -25027,11 +26557,23 @@ msgid ""
 "directory MUST be copied from wheels by the install tools."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:239
+#: ../source/specifications/recording-installed-packages.rst:240
+msgid "The :file:`sboms/` subdirectory"
+msgstr "La subdosierujo :file:`sboms/`"
+
+#: ../source/specifications/recording-installed-packages.rst:242
+msgid ""
+"All files contained within the :file:`.dist-info/sboms/` directory MUST be "
+"Software Bill-of-Materials (SBOM) files that describe software contained "
+"within the installed package. Any files in this directory MUST be copied "
+"from wheels by the install tools."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:249
 msgid "Intentionally preventing changes to installed packages"
 msgstr "Intence malhelpi ŝanĝi instalitajn pakojn"
 
-#: ../source/specifications/recording-installed-packages.rst:241
+#: ../source/specifications/recording-installed-packages.rst:251
 msgid ""
 "In some cases (such as when needing to manage external dependencies in "
 "addition to Python ecosystem dependencies), it is desirable for a tool that "
@@ -25040,11 +26582,11 @@ msgid ""
 "so may cause compatibility problems with the wider environment."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:247
+#: ../source/specifications/recording-installed-packages.rst:257
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr "Por tio, rilataj iloj faru la jenon:"
 
-#: ../source/specifications/recording-installed-packages.rst:249
+#: ../source/specifications/recording-installed-packages.rst:259
 msgid ""
 "Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
 "g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
@@ -25052,7 +26594,7 @@ msgid ""
 "package contents are tracked and managed via other means)"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:253
+#: ../source/specifications/recording-installed-packages.rst:263
 msgid ""
 "Write an ``INSTALLER`` file indicating the name of the tool that should be "
 "used to manage the package (this allows ``RECORD``-aware tools to provide "
@@ -25062,7 +26604,7 @@ msgstr ""
 "pakon (tio permesas al ilo scianta pri ``RECORD`` provizi bonajn erarojn pri "
 "modifado de rilataj pakoj)"
 
-#: ../source/specifications/recording-installed-packages.rst:257
+#: ../source/specifications/recording-installed-packages.rst:267
 msgid ""
 "Python runtime providers may also prevent inadvertent modification of "
 "platform provided packages by modifying the default Python package "
@@ -25071,7 +26613,7 @@ msgid ""
 "Python import path)."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:262
+#: ../source/specifications/recording-installed-packages.rst:272
 msgid ""
 "In some circumstances, it may be desirable to block even installation of "
 "additional packages via Python-specific tools. For these cases refer to :ref:"
@@ -25080,7 +26622,7 @@ msgstr ""
 "Kelkfoje, oni bezonas malhelpi eĉ instaladon de pliaj pakoj per Python-"
 "specifaj iloj. Tiukaze vidu :ref:`externally-managed-environments`"
 
-#: ../source/specifications/recording-installed-packages.rst:270
+#: ../source/specifications/recording-installed-packages.rst:280
 msgid ""
 "June 2009: The original version of this specification was approved through :"
 "pep:`376`.  At the time, it was known as the *Database of Installed Python "
@@ -25089,7 +26631,7 @@ msgstr ""
 "Junio 2009: La originala versio de ĉi tiu specifo estis aprobita per :pep:"
 "`376`.  Tiam, ĝi nomiĝis la *Datenbanko de Instalitaj Python-Distribuoj*."
 
-#: ../source/specifications/recording-installed-packages.rst:273
+#: ../source/specifications/recording-installed-packages.rst:283
 msgid ""
 "March 2020: The specification of the ``direct_url.json`` file was approved "
 "through :pep:`610`. It is only mentioned on this page; see :ref:`direct-url` "
@@ -25099,7 +26641,7 @@ msgstr ""
 "pep:`610`. Ĉi tiu paĝo nur mencias ĝin; vidu :ref:`direct-url` por la plena "
 "difino."
 
-#: ../source/specifications/recording-installed-packages.rst:276
+#: ../source/specifications/recording-installed-packages.rst:286
 msgid ""
 "September 2020: Various amendments and clarifications were approved through :"
 "pep:`627`."
@@ -25125,6 +26667,12 @@ msgstr "Pakindeksaj Interfacoj"
 #: ../source/specifications/section-python-description-formats.rst:3
 msgid "Python Description Formats"
 msgstr "Python-Priskribaj Formoj"
+
+#: ../source/specifications/section-reproducible-environments.rst:3
+#, fuzzy
+#| msgid "Virtual Environment"
+msgid "Reproducible Environments"
+msgstr "Virtuala Medio"
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
@@ -30124,12 +31672,6 @@ msgstr ""
 "`setuptools`)."
 
 #: ../source/tutorials/installing-packages.rst:229
-#, fuzzy
-#| msgid ""
-#| ":ref:`virtualenv` needs to be installed separately, but supports Python "
-#| "2.7+ and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` "
-#| "are always installed into created virtual environments by default "
-#| "(regardless of Python version)."
 msgid ""
 ":ref:`virtualenv` needs to be installed separately, but supports Python 2.7+ "
 "and Python 3.3+, and :ref:`pip`, :ref:`setuptools` and :ref:`wheel` are "
@@ -30138,8 +31680,9 @@ msgid ""
 "(and ``virtualenv`` follows this behavior)."
 msgstr ""
 ":ref:`virtualenv` devas esti aparte instalita sed subtenas Python 2.7+ kaj "
-"Python 3.3+. :ref:`pip`, :ref:`setuptools` kaj :ref:`wheel` estas ĉiam "
-"instalitaj en la kreitan virtualan medion (por ĉiuj versioj de Python)."
+"Python 3.3+. :ref:`pip`, :ref:`setuptools` kaj :ref:`wheel` estas instalitaj "
+"en la kreitan virtualan medion apriore. Notu, ke ``setuptools`` ne plu estas "
+"inkluzivita apriore ekde Python 3.12 (kaj ``virtualenv`` sekvas tion)."
 
 #: ../source/tutorials/installing-packages.rst:234
 msgid "The basic usage is like so:"

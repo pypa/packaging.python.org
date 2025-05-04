@@ -10,17 +10,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-21 18:47+0000\n"
-"PO-Revision-Date: 2025-04-21 02:02+0000\n"
+"POT-Creation-Date: 2025-05-02 23:58+0000\n"
+"PO-Revision-Date: 2025-05-03 16:03+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1372,6 +1372,9 @@ msgid ""
 "Accessing remote servers poses a privacy issue and a potential security "
 "issue, as it exposes information about the system building the package."
 msgstr ""
+"リモートのサーバにアクセスすることは、当該システムでそのパッケージをビルドし"
+"ていることに関する情報を暴露するので、プライバシー問題と潜在的なセキュリティ"
+"問題をもたらします。"
 
 #: ../source/discussions/downstream-packaging.rst:174
 msgid ""
@@ -1379,6 +1382,9 @@ msgid ""
 "uncontrolled Internet access may result in additional charges or other "
 "inconveniences."
 msgstr ""
+"ユーザは、制御下にないインターネットアクセスが追加料金やその他の不都合に帰結"
+"してしまう、そのようなデータ量に制約のある通信サービスを使っているかもしれま"
+"せん。"
 
 #: ../source/discussions/downstream-packaging.rst:181
 msgid ""
@@ -1388,6 +1394,12 @@ msgid ""
 "all of these files or allow provisioning them externally, and the Internet "
 "must not be used if the files are already present."
 msgstr ""
+"パッケージが、例えば売り物の依存関係を自動的にダウンロードしたり、Git のサブ"
+"モジュールをフェッチしたりするような、そのようなインターネットを使用する何ら"
+"かのカスタムビルド *バックエンド* 動作を実装しているなら、そのソースコード配"
+"布物は、これらのファイル群をすべて同梱するか、別途準備することができるように"
+"するかのいずれかをするべきで、ファイル群がすでに存在する場合にはインターネッ"
+"トを使用しないようにしなければなりません。"
 
 #: ../source/discussions/downstream-packaging.rst:187
 msgid ""
@@ -1397,6 +1409,11 @@ msgid ""
 "Downstreams use frontends that use local provisioning for Python "
 "dependencies."
 msgstr ""
+"この点は、パッケージのメタデータの中で指定された Python の依存関係には当ては"
+"まらないということ、また、それらは (:ref:`build` や :ref:`pip` のような) *フ"
+"ロントエンド* によるビルドやインストールのプロセスの最中にフェッチされるとい"
+"うことに注意してください。ダウンストリーム側では、Python の依存関係をローカル"
+"に準備するようなフロントエンドを使います。"
 
 #: ../source/discussions/downstream-packaging.rst:192
 msgid ""
@@ -1407,12 +1424,22 @@ msgid ""
 "disable all Internet access. This could be done e.g. by checking whether a "
 "``NO_NETWORK`` environment variable is set to a non-empty value."
 msgstr ""
+"理想的には、カスタムビルド用スクリプトは、明示的に要求された場合を除いて、イ"
+"ンターネットへのアクセスを試みることさえ全く行うべきでありません。もし、何ら"
+"かのリソースが不足していてフェッチする必要があるなら、まずユーザに許可を求め"
+"るべきです。それが実現不可能であれば、次善の策は、あらゆるインターネットアク"
+"セスをさせないというオプトアウトのスイッチを提供するべきです。これは、例えば "
+"``NO_NETWORK`` 環境変数が空でない値に設定されているか否かを調べることで行うこ"
+"とができます。"
 
 #: ../source/discussions/downstream-packaging.rst:199
 msgid ""
 "Since downstreams frequently also run tests and build documentation, the "
 "above should ideally extend to these processes as well."
 msgstr ""
+"ダウンストリームは、しばしばテストを走らせたり説明文書をビルドしたりしますの"
+"で、理想的を言えば、上記のことはこれらのプロセスにも同様に拡大適用されるべき"
+"です。"
 
 #: ../source/discussions/downstream-packaging.rst:202
 msgid ""
@@ -1420,12 +1447,13 @@ msgid ""
 "absolutely must *verify their authenticity* (usually against a hash), to "
 "protect against the file being substituted by a malicious party."
 msgstr ""
+"もし、リモートのリソースをフェッチするのであれば、悪意ある第三者がファイルを"
+"置換しているという事態から保護するために、 (通常はハッシュ値を使って) 絶対に "
+"*その真正性を検証* しなければならないことも覚えておいてください。"
 
 #: ../source/discussions/downstream-packaging.rst:210
-#, fuzzy
-#| msgid "Declaring build system dependencies"
 msgid "Support building against system dependencies"
-msgstr "ビルドシステムの依存関係を宣言する"
+msgstr "システムの依存関係に対してビルドすることをサポートする"
 
 #: ../source/discussions/downstream-packaging.rst:215
 msgid ""
@@ -1433,6 +1461,10 @@ msgid ""
 "in C or C++. Trying to use the system versions of these dependencies in "
 "upstream packaging may cause a number of problems for end users:"
 msgstr ""
+"Python プロジェクトの中には、 C や C++ で書かれたライブラリのような非 Python "
+"の依存関係を持つものがあります。アップストリームパッケージング内でこのような"
+"依存関係のシステムバージョンを使おうとする試行は、エンドユーザに多数の問題を"
+"もたらすかもしれません:"
 
 #: ../source/discussions/downstream-packaging.rst:219
 msgid ""
@@ -1441,6 +1473,11 @@ msgid ""
 "incompatible version is installed, the Python package may fail with errors "
 "that are not clear to inexperienced users, or even misbehave at runtime."
 msgstr ""
+"公開された wheel は、使っているライブラリのバイナリ互換のバージョンがユーザの"
+"システム上に存在することを要求します。もし、ライブラリが不足していたり非互換"
+"のバージョンがインストールされていたりすると、 Python パッケージは、経験豊か"
+"とは言えないユーザにとっては明晰でないエラーを伴って失敗するかもしれません"
+"し、動作時に誤動作することさえあるかもしれません。"
 
 #: ../source/discussions/downstream-packaging.rst:224
 msgid ""
@@ -1448,6 +1485,10 @@ msgid ""
 "the dependency to be present, along with its development headers and other "
 "auxiliary files that some systems package separately from the library itself."
 msgstr ""
+"ソースコード配布物からのビルドには、ソースコードレベルで互換性のあるバージョ"
+"ンの依存関係先が、システムによってはライブラリ本体とは別のパッケージとして用"
+"意されていることがある、開発用のヘッダーファイルやその他の補助ファイルと共"
+"に、存在していることが要求されます。"
 
 #: ../source/discussions/downstream-packaging.rst:229
 msgid ""
@@ -1455,6 +1496,10 @@ msgid ""
 "be very hard. For example, the used Linux distribution may not provide the "
 "required version, or some other package may require an incompatible version."
 msgstr ""
+"経験を積んだユーザにとってさえ、互換性のある依存関係先のバージョンをインス"
+"トールすることは極めて難しかもしれません。例えば、使っている Linux ディストロ"
+"が要求されているバージョンを提供していないこともあり得るし、他のパッケージが"
+"互換性のないバージョンのものを要求しているかもしれません。"
 
 #: ../source/discussions/downstream-packaging.rst:234
 msgid ""
@@ -1463,6 +1508,11 @@ msgid ""
 "library to a newer version that breaks binary compatibility with the Python "
 "package, and requires user intervention to fix."
 msgstr ""
+"Python パッケージとそのシステム依存関係の間の関連性は、パッケージングシステム"
+"によって記録されているということはありません。次回のシステム更新がライブラリ"
+"を、 Python パッケージとのバイナリ互換性を破壊するような、より新しいバージョ"
+"ンへとアップグレードするかもしれず、ユーザが修復のために介入することが要求さ"
+"れるかもしれません。"
 
 #: ../source/discussions/downstream-packaging.rst:239
 msgid ""
@@ -1472,6 +1522,12 @@ msgid ""
 "dependencies are also repackaged on PyPI, and can be declared as project "
 "dependencies like any other Python package."
 msgstr ""
+"これらの理由は、依存関係先を静的にリンクするか、インストールされるパッケージ"
+"の中にローカルコピーを用意するかのいずれかに決める合理的な理由になります。"
+"ソースコード配布物の中にも依存関係先を含めることもあるかもしれません。時に、"
+"これらの依存関係先もまた PyPI でパッケージされていて、他のすべての Python "
+"パッケージのように、プロジェクトの依存関係先として宣言され得ることもありま"
+"す。"
 
 #: ../source/discussions/downstream-packaging.rst:245
 msgid ""
@@ -1479,6 +1535,9 @@ msgid ""
 "have good reasons to prefer dynamically linking to system dependencies. In "
 "particular:"
 msgstr ""
+"しかしながら、これらの課題のどれひとつを取ってもそれはダウンストリームのパッ"
+"ケージングには当てはまらず、ダウンストリーム側ではシステムの依存関係に直接に"
+"リンクする方を好む十分な理由があります。とりわけ次のような場合:"
 
 #: ../source/discussions/downstream-packaging.rst:249
 msgid ""
@@ -1487,12 +1546,19 @@ msgid ""
 "support that makes it easier for users of those systems to access upstream "
 "projects in their preferred format."
 msgstr ""
+"多くのケースでは、部品間で動的な依存関係を信頼できる形で共有することが、ダウ"
+"ンストリーム側のパッケージングエコシステムの *目的* の大きな部分を占めていま"
+"す。それをサポートするのを補助することは、そのようなシステムのユーザが好まし"
+"いフォーマットでアップストリームのプロジェクトにアクセスすることをより容易に"
+"します。"
 
 #: ../source/discussions/downstream-packaging.rst:253
 msgid ""
 "Static linking and vendoring obscures the use of external dependencies, "
 "making source auditing harder."
 msgstr ""
+"静的なリンキングと提供は、その出自の検証が難しくなるので、外部への依存関係の"
+"使用をわかりにくくします。"
 
 #: ../source/discussions/downstream-packaging.rst:256
 msgid ""
@@ -1501,6 +1567,10 @@ msgid ""
 "particularly important when they turn out to contain a security "
 "vulnerability or critical bug."
 msgstr ""
+"動的なリンキングは、ダウンストリームのパッケージングエコシステム全体で使用さ"
+"れるライブラリを素早く体系的に置き換えることができるようにしますが、それは、"
+"セキュリティ上の脆弱性や致命的なバグを含んでいることが判明した時には特に重要"
+"になり得ます。"
 
 #: ../source/discussions/downstream-packaging.rst:260
 msgid ""
@@ -1510,6 +1580,11 @@ msgid ""
 "dependencies vendored in different packages. This can include compatibility "
 "improvements and security hardening."
 msgstr ""
+"システムの依存関係を使うことで、ダウンストリーム保守者が様々なパッケージ内で"
+"提供される依存関係に統一的にパッチしなければならないということがない形で、特"
+"定のプラットフォーム上でユーザ経験を改善し得るところのダウンストリームでのカ"
+"スタマイゼーションからの利益をパッケージにもたらします。これは、互換性の向上"
+"やセキュリティハードニングを含み得ます。"
 
 #: ../source/discussions/downstream-packaging.rst:266
 msgid ""
@@ -5487,7 +5562,7 @@ msgstr ""
 "できます。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:337
-#: ../source/specifications/dependency-specifiers.rst:501
+#: ../source/specifications/dependency-specifiers.rst:532
 msgid "References"
 msgstr "参考文献"
 
@@ -11350,6 +11425,7 @@ msgid "Hosting"
 msgstr "ホスティング"
 
 #: ../source/guides/section-install.rst:3
+#: ../source/specifications/pylock-toml.rst:729
 msgid "Installation"
 msgstr "インストール"
 
@@ -12912,6 +12988,7 @@ msgstr ""
 "``pip install your-project-name[gui]`` を使うことができます。"
 
 #: ../source/guides/writing-pyproject-toml.rst:183
+#: ../source/specifications/pylock-toml.rst:95
 #: ../source/specifications/pyproject-toml.rst:146
 #: ../source/specifications/pyproject-toml.rst:239
 msgid "``requires-python``"
@@ -16996,6 +17073,7 @@ msgstr ""
 "使うことができるようになります。"
 
 #: ../source/specifications/binary-distribution-format.rst:85
+#: ../source/specifications/pylock-toml.rst:51
 msgid "File Format"
 msgstr "ファイルフォーマット"
 
@@ -17439,13 +17517,73 @@ msgstr ""
 "イブの中のいずれかのファイルが RECORD にリストされていないか、または、正しく"
 "ハッシュされていない時にはインストールがフェイルするでしょう。"
 
-#: ../source/specifications/binary-distribution-format.rst:258
+#: ../source/specifications/binary-distribution-format.rst:257
+msgid "Subdirectories in :file:`.dist-info/`"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:259
+msgid ""
+"Subdirectories under :file:`.dist-info/` are reserved for future use. The "
+"following subdirectory names under :file:`.dist-info/` are reserved for "
+"specific usage:"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:263
+#, fuzzy
+#| msgid "Project name"
+msgid "Subdirectory name"
+msgstr "プロジェクト名"
+
+#: ../source/specifications/binary-distribution-format.rst:263
+msgid "PEP / Standard"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:265
+#, fuzzy
+#| msgid "``license``"
+msgid "``licenses``"
+msgstr "``ライセンス``"
+
+#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:266
+#, fuzzy
+#| msgid ":pep:`600`"
+msgid ":pep:`639`"
+msgstr ":pep:`600`"
+
+#: ../source/specifications/binary-distribution-format.rst:266
+#, fuzzy
+#| msgid "``license``"
+msgid "``license_files``"
+msgstr "``ライセンス``"
+
+#: ../source/specifications/binary-distribution-format.rst:267
+#, fuzzy
+#| msgid "``LIB``"
+msgid "``LICENSES``"
+msgstr "``LIB``"
+
+#: ../source/specifications/binary-distribution-format.rst:267
+msgid "`REUSE licensing framework <https://reuse.software>`__"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:268
+msgid "``sboms``"
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:268
+#, fuzzy
+#| msgid ":pep:`571`"
+msgid ":pep:`770`"
+msgstr ":pep:`571`"
+
+#: ../source/specifications/binary-distribution-format.rst:272
 #, fuzzy
 #| msgid "The .dist-info directory"
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr ".dist-info ディレクトリ"
 
-#: ../source/specifications/binary-distribution-format.rst:260
+#: ../source/specifications/binary-distribution-format.rst:274
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain a :file:"
@@ -17454,11 +17592,24 @@ msgid ""
 "paths relative to the :file:`licenses/` directory."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:281
+#, fuzzy
+#| msgid "The .dist-info directory"
+msgid "The :file:`.dist-info/sboms/` directory"
+msgstr ".dist-info ディレクトリ"
+
+#: ../source/specifications/binary-distribution-format.rst:283
+msgid ""
+"All files contained within the :file:`.dist-info/sboms/` directory MUST be "
+"Software Bill-of-Materials (SBOM) files that describe software contained "
+"within the distribution archive."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:288
 msgid "The .data directory"
 msgstr ".data ディレクトリ"
 
-#: ../source/specifications/binary-distribution-format.rst:270
+#: ../source/specifications/binary-distribution-format.rst:290
 msgid ""
 "Any file that is not normally installed inside site-packages goes into the ."
 "data directory, named as the .dist-info directory but with the .data/ "
@@ -17468,7 +17619,7 @@ msgstr ""
 "dist-info ディレクトリと同様に命名されるが .data/ 拡張子をつけられて .data "
 "ディレクトリに行きます::"
 
-#: ../source/specifications/binary-distribution-format.rst:278
+#: ../source/specifications/binary-distribution-format.rst:298
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -17478,11 +17629,11 @@ msgstr ""
 "ディレクトリに収めています。インストール中に、これらのサブディレクトリの内容"
 "を行き先となるパスへ動かします。"
 
-#: ../source/specifications/binary-distribution-format.rst:284
+#: ../source/specifications/binary-distribution-format.rst:304
 msgid "Signed wheel files"
 msgstr "署名済み wheel ファイル"
 
-#: ../source/specifications/binary-distribution-format.rst:286
+#: ../source/specifications/binary-distribution-format.rst:306
 msgid ""
 "Wheel files include an extended RECORD that enables digital signatures.  PEP "
 "376's RECORD is altered to include a secure hash "
@@ -17499,7 +17650,7 @@ msgstr ""
 "れていますが、 RECORD は自身のハッシュ値を含むことができないので例外です。例"
 "えば::"
 
-#: ../source/specifications/binary-distribution-format.rst:297
+#: ../source/specifications/binary-distribution-format.rst:317
 msgid ""
 "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
 "at all since they can only be added after RECORD is generated. Every other "
@@ -17511,7 +17662,7 @@ msgstr ""
 "ん。アーカイブの中の他のファイルはすべて、RECORD ファイル内に正しいハッシュ値"
 "を持たなければならず、そうでなければインストールに失敗します。"
 
-#: ../source/specifications/binary-distribution-format.rst:302
+#: ../source/specifications/binary-distribution-format.rst:322
 msgid ""
 "If JSON web signatures are used, one or more JSON Web Signature JSON "
 "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
@@ -17523,11 +17674,11 @@ msgstr ""
 "イルの中に保存されます。 RECORD ファイルの SHA-256 ハッシュ値を署名の JSON ペ"
 "イロードに含むことで RECORD ファイルに署名するために JWS が使われます:"
 
-#: ../source/specifications/binary-distribution-format.rst:311
+#: ../source/specifications/binary-distribution-format.rst:331
 msgid "(The hash value is the same format used in RECORD.)"
 msgstr "(ハッシュ値の書き方のフォーマットは RECORD で使われるものと同じです。)"
 
-#: ../source/specifications/binary-distribution-format.rst:313
+#: ../source/specifications/binary-distribution-format.rst:333
 msgid ""
 "If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
 "RECORD."
@@ -17535,7 +17686,7 @@ msgstr ""
 "RECORD.p7s を使う場合は、このファイルに RECORD ファイルに関する分離型の S/"
 "MIME 署名を入れておかなければなりません。"
 
-#: ../source/specifications/binary-distribution-format.rst:316
+#: ../source/specifications/binary-distribution-format.rst:336
 msgid ""
 "A wheel installer is not required to understand digital signatures but MUST "
 "verify the hashes in RECORD against the extracted file contents. When the "
@@ -17548,15 +17699,15 @@ msgstr ""
 "確認する際には、別途用意された署名検証プログラムは RECORD ファイルが署名に対"
 "して妥当であることだけを確認すれば十分です。"
 
-#: ../source/specifications/binary-distribution-format.rst:321
+#: ../source/specifications/binary-distribution-format.rst:341
 msgid "See"
 msgstr "以下を参照のこと"
 
-#: ../source/specifications/binary-distribution-format.rst:323
+#: ../source/specifications/binary-distribution-format.rst:343
 msgid "https://datatracker.ietf.org/doc/html/rfc7515"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
 
-#: ../source/specifications/binary-distribution-format.rst:324
+#: ../source/specifications/binary-distribution-format.rst:344
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
@@ -17564,28 +17715,28 @@ msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
 "serialization-01"
 
-#: ../source/specifications/binary-distribution-format.rst:325
+#: ../source/specifications/binary-distribution-format.rst:345
 msgid "https://datatracker.ietf.org/doc/html/rfc7517"
 msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
 
-#: ../source/specifications/binary-distribution-format.rst:326
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
-#: ../source/specifications/binary-distribution-format.rst:330
+#: ../source/specifications/binary-distribution-format.rst:350
 #: ../source/specifications/platform-compatibility-tags.rst:370
 msgid "FAQ"
 msgstr "FAQ"
 
-#: ../source/specifications/binary-distribution-format.rst:334
+#: ../source/specifications/binary-distribution-format.rst:354
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 "Wheel は .data ディレクトリを定義します。すべてのデータをそこに入れるべきで"
 "しょうか？"
 
-#: ../source/specifications/binary-distribution-format.rst:336
+#: ../source/specifications/binary-distribution-format.rst:356
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -17601,11 +17752,11 @@ msgstr ""
 "*wheel の* ``.data`` ディレクトリに置く形で配布されない時でさえも、 "
 "``pkgutil.get_data(package, resource)`` を使い続けても構わないのです。"
 
-#: ../source/specifications/binary-distribution-format.rst:345
+#: ../source/specifications/binary-distribution-format.rst:365
 msgid "Why does wheel include attached signatures?"
 msgstr "なぜ wheel は添付された署名を持つのか？"
 
-#: ../source/specifications/binary-distribution-format.rst:347
+#: ../source/specifications/binary-distribution-format.rst:367
 msgid ""
 "Attached signatures are more convenient than detached signatures because "
 "they travel with the archive.  Since only the individual files are signed, "
@@ -17618,11 +17769,11 @@ msgstr ""
 "も署名が無効にならず、また、アーカイブ全体をダウンロードしなくても個々のファ"
 "イルの検証を行うことができます。"
 
-#: ../source/specifications/binary-distribution-format.rst:355
+#: ../source/specifications/binary-distribution-format.rst:375
 msgid "Why does wheel allow JWS signatures?"
 msgstr "なぜ wheel は JWS 署名を許容するのか？"
 
-#: ../source/specifications/binary-distribution-format.rst:357
+#: ../source/specifications/binary-distribution-format.rst:377
 msgid ""
 "The JOSE specifications of which JWS is a part are designed to be easy to "
 "implement, a feature that is also one of wheel's primary design goals.  JWS "
@@ -17632,11 +17783,11 @@ msgstr ""
 "その性質は wheel の基本的な設計目標のひとつでもあります。 JWS は使いやすくて"
 "簡潔な純 Python の実装をもたらします。"
 
-#: ../source/specifications/binary-distribution-format.rst:363
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid "Why does wheel also allow S/MIME signatures?"
 msgstr "なぜ wheel は S/MIME 署名をも許容するのか？"
 
-#: ../source/specifications/binary-distribution-format.rst:365
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "S/MIME signatures are allowed for users who need or want to use existing "
 "public key infrastructure with wheel."
@@ -17644,7 +17795,7 @@ msgstr ""
 "S/MIME 署名は、既存の公開鍵基盤を wheel でも採用する必要があるか、または、採"
 "用したいユーザのために許容されています。"
 
-#: ../source/specifications/binary-distribution-format.rst:368
+#: ../source/specifications/binary-distribution-format.rst:388
 msgid ""
 "Signed packages are only a basic building block in a secure package update "
 "system.  Wheel only provides the building block."
@@ -17653,11 +17804,11 @@ msgstr ""
 "ルディングブロックであるというだけのものです。 Wheel としては、単にビルディン"
 "グブロックを提供するだけです。"
 
-#: ../source/specifications/binary-distribution-format.rst:373
+#: ../source/specifications/binary-distribution-format.rst:393
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "\"pure lib\" と \"plat lib\" って、どう扱えばいいの？"
 
-#: ../source/specifications/binary-distribution-format.rst:375
+#: ../source/specifications/binary-distribution-format.rst:395
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -17670,7 +17821,7 @@ msgstr ""
 "ムに依存しないパッケージを '/usr/lib64/pythonX.Y/site-packages' にインストー"
 "ルします。"
 
-#: ../source/specifications/binary-distribution-format.rst:380
+#: ../source/specifications/binary-distribution-format.rst:400
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -17683,7 +17834,7 @@ msgstr ""
 "ルと相同であり、 \"purelib\" と \"platlib\" の両カテゴリにファイル群が存在す"
 "ることには問題がありません。"
 
-#: ../source/specifications/binary-distribution-format.rst:385
+#: ../source/specifications/binary-distribution-format.rst:405
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -17693,13 +17844,13 @@ msgstr ""
 "\"purelib\" または \"platlib\" のいずれか一方しか持たず、 \"Root-Is-"
 "purelib\" を適切に設定しつつファイル群をルートディレクトリに置くべきです。"
 
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:413
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr ""
 "Python のソースコードを wheel ファイルから直接にインポートすることはできます"
 "か？"
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:415
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -17713,7 +17864,7 @@ msgstr ""
 "す* 。しかし、このような動作はフォーマット設計の自然な結果とはいうものの、実"
 "際にはこれに依存することは一般的には推奨されていません。"
 
-#: ../source/specifications/binary-distribution-format.rst:401
+#: ../source/specifications/binary-distribution-format.rst:421
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -17731,7 +17882,7 @@ msgstr ""
 "を適切な場所に公開することによって C 言語拡張をビルドする標準的な機構を完全に"
 "統合する機能) への信頼を故意に避けることになります。"
 
-#: ../source/specifications/binary-distribution-format.rst:410
+#: ../source/specifications/binary-distribution-format.rst:430
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -17764,7 +17915,7 @@ msgstr ""
 "イスは依然として実際にディスク上に存在するファイルがないと動作できないかもし"
 "れません。"
 
-#: ../source/specifications/binary-distribution-format.rst:427
+#: ../source/specifications/binary-distribution-format.rst:447
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -17779,10 +17930,10 @@ msgstr ""
 "バグであると認めてもらう前に、多くのプロジェクトではそれを完全インストールの"
 "状態で再現するように要求されるであろうということを認識しておいてください。"
 
-#: ../source/specifications/binary-distribution-format.rst:435
+#: ../source/specifications/binary-distribution-format.rst:455
 #: ../source/specifications/core-metadata.rst:922
 #: ../source/specifications/dependency-groups.rst:248
-#: ../source/specifications/dependency-specifiers.rst:487
+#: ../source/specifications/dependency-specifiers.rst:516
 #: ../source/specifications/direct-url-data-structure.rst:407
 #: ../source/specifications/direct-url.rst:67
 #: ../source/specifications/entry-points.rst:164
@@ -17790,8 +17941,9 @@ msgstr ""
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:434
+#: ../source/specifications/pylock-toml.rst:826
 #: ../source/specifications/pyproject-toml.rst:531
-#: ../source/specifications/recording-installed-packages.rst:268
+#: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:993
 #: ../source/specifications/source-distribution-format.rst:153
 #: ../source/specifications/version-specifiers.rst:1266
@@ -17799,11 +17951,11 @@ msgstr ""
 msgid "History"
 msgstr "歴史"
 
-#: ../source/specifications/binary-distribution-format.rst:437
+#: ../source/specifications/binary-distribution-format.rst:457
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr "2013年2月: :pep:`427` を通じてこの仕様書が承認されました。"
 
-#: ../source/specifications/binary-distribution-format.rst:438
+#: ../source/specifications/binary-distribution-format.rst:458
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
@@ -17811,7 +17963,7 @@ msgstr ""
 "2021年2月: 他の普及しているツールが実際にやるのと同じやり方に合わせて、 "
 "wheel のファイル名におけるエスケーピングの規則が修正されました。"
 
-#: ../source/specifications/binary-distribution-format.rst:440
+#: ../source/specifications/binary-distribution-format.rst:460
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -17819,8 +17971,8 @@ msgid ""
 "may vary between tools)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:444
-#: ../source/specifications/recording-installed-packages.rst:278
+#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/recording-installed-packages.rst:288
 #, fuzzy
 #| msgid ""
 #| "September 2022: The filename of a source distribution was standardized "
@@ -17831,17 +17983,17 @@ msgid ""
 msgstr ""
 "2022年9月: :pep:`625` を通じて、ソースコード配布物のファイル名を標準化した。"
 
-#: ../source/specifications/binary-distribution-format.rst:446
+#: ../source/specifications/binary-distribution-format.rst:466
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for ``."
 "dist-info`` and ``.data`` directories."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:451
+#: ../source/specifications/binary-distribution-format.rst:471
 msgid "Appendix"
 msgstr "補遺"
 
-#: ../source/specifications/binary-distribution-format.rst:453
+#: ../source/specifications/binary-distribution-format.rst:473
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "urlsafe-base64-nopad の実装の例::"
 
@@ -17878,6 +18030,7 @@ msgstr ""
 #: ../source/specifications/build-details/index.rst:28
 #: ../source/specifications/build-details/v1.0.rst:16
 #: ../source/specifications/inline-script-metadata.rst:100
+#: ../source/specifications/pylock-toml.rst:722
 msgid "Example"
 msgstr "例"
 
@@ -20406,16 +20559,29 @@ msgstr ""
 "`426` に記述されたデザインに見られるいくつかの問題点を修正しています。"
 
 #: ../source/specifications/dependency-specifiers.rst:199
+#, fuzzy
+#| msgid ""
+#| "Comparisons in marker expressions are typed by the comparison operator.  "
+#| "The <marker_op> operators that are not in <version_cmp> perform the same "
+#| "as they do for strings in Python. The <version_cmp> operators use the "
+#| "version comparison rules of the :ref:`Version specifier specification "
+#| "<version-specifiers>` when those are defined (that is when both sides "
+#| "have a valid version specifier). If there is no defined behaviour of this "
+#| "specification and the operator exists in Python, then the operator falls "
+#| "back to the Python behaviour. Otherwise an error should be raised. e.g. "
+#| "the following will result in  errors::"
 msgid ""
-"Comparisons in marker expressions are typed by the comparison operator.  The "
-"<marker_op> operators that are not in <version_cmp> perform the same as they "
-"do for strings in Python. The <version_cmp> operators use the version "
-"comparison rules of the :ref:`Version specifier specification <version-"
-"specifiers>` when those are defined (that is when both sides have a valid "
-"version specifier). If there is no defined behaviour of this specification "
-"and the operator exists in Python, then the operator falls back to the "
-"Python behaviour. Otherwise an error should be raised. e.g. the following "
-"will result in  errors::"
+"Comparisons in marker expressions are typed by the comparison operator and "
+"the type of the marker value. The <marker_op> operators that are not in "
+"<version_cmp> perform the same as they do for strings or sets in Python "
+"based on whether the marker value is a string or set itself. The "
+"<version_cmp> operators use the version comparison rules of the :ref:"
+"`Version specifier specification <version-specifiers>` when those are "
+"defined (that is when both sides have a valid version specifier). If there "
+"is no defined behaviour of this specification and the operator exists in "
+"Python, then the operator falls back to the Python behaviour for the types "
+"involved. Otherwise an error should be raised. e.g. the following will "
+"result in errors::"
 msgstr ""
 "マーカ表現の比較は比較演算子によって分類されます。 <version_cmp> の中に入って"
 "いない <marker_op> 演算子は、 Python における文字列でのそれと同様に動作しま"
@@ -20426,7 +20592,7 @@ msgstr ""
 "作にフォールバックします。そうでない場合にはエラーを発生させるべきです。例え"
 "ば、次の表現はエラーを発生させる結果となるでしょう::"
 
-#: ../source/specifications/dependency-specifiers.rst:212
+#: ../source/specifications/dependency-specifiers.rst:213
 msgid ""
 "User supplied constants are always encoded as strings with either ``'`` or "
 "``\"`` quote marks. Note that backslash escapes are not defined, but "
@@ -20444,7 +20610,7 @@ msgstr ""
 "ンタイムのすべての変数は、 ASCII 文字のみで構成されているものと期待されていま"
 "す。"
 
-#: ../source/specifications/dependency-specifiers.rst:219
+#: ../source/specifications/dependency-specifiers.rst:220
 msgid ""
 "The variables in the marker grammar such as \"os_name\" resolve to values "
 "looked up in the Python runtime. With the exception of \"extra\" all values "
@@ -20456,7 +20622,7 @@ msgstr ""
 "のすべてのバージョンの Python で定義されています - もし値が定義されていなけれ"
 "ば、それはマーカの実装のエラーです。"
 
-#: ../source/specifications/dependency-specifiers.rst:224
+#: ../source/specifications/dependency-specifiers.rst:225
 msgid ""
 "Unknown variables must raise an error rather than resulting in a comparison "
 "that evaluates to True or False."
@@ -20464,7 +20630,7 @@ msgstr ""
 "未知の変数は、評価して真 <True> か偽 <False> となる比較の結果を返すのではな"
 "く、エラーを生成しなければなりません。"
 
-#: ../source/specifications/dependency-specifiers.rst:227
+#: ../source/specifications/dependency-specifiers.rst:228
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
 "should evaluate to ``0`` for versions, and an empty string for all other "
@@ -20474,7 +20640,7 @@ msgstr ""
 "``0`` として、その他のすべての変数については空文字列として評価されるべきで"
 "す。"
 
-#: ../source/specifications/dependency-specifiers.rst:231
+#: ../source/specifications/dependency-specifiers.rst:232
 msgid ""
 "The \"extra\" variable is special. It is used by wheels to signal which "
 "specifications apply to a given extra in the wheel ``METADATA`` file, but "
@@ -20490,39 +20656,63 @@ msgstr ""
 "です。それにも関わらず、この特別な扱いが行われる場所ではない文脈においては、 "
 "\"extra\" 変数はその他の未知の変数と同様にエラーに帰着するべきです。"
 
-#: ../source/specifications/dependency-specifiers.rst:241
+#: ../source/specifications/dependency-specifiers.rst:239
+msgid ""
+"The \"extras\" and \"dependency_groups\" variables are also special. They "
+"are used to specify any requested extras or dependency groups when "
+"installing from a lock file. Outside of the context of lock files, these two "
+"variables should result in an error like all other unknown variables."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:247
 msgid "Marker"
 msgstr "マーカ <Marker>"
 
-#: ../source/specifications/dependency-specifiers.rst:242
+#: ../source/specifications/dependency-specifiers.rst:248
 msgid "Python equivalent"
 msgstr "Python 同等物"
 
-#: ../source/specifications/dependency-specifiers.rst:243
+#: ../source/specifications/dependency-specifiers.rst:249
+msgid "Type"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:250
 msgid "Sample values"
 msgstr "値の例"
 
-#: ../source/specifications/dependency-specifiers.rst:244
+#: ../source/specifications/dependency-specifiers.rst:251
 msgid "``os_name``"
 msgstr "``OS の名称 <os_name>``"
 
-#: ../source/specifications/dependency-specifiers.rst:245
+#: ../source/specifications/dependency-specifiers.rst:252
 msgid ":py:data:`os.name`"
 msgstr ":py:data:`os.name`"
 
-#: ../source/specifications/dependency-specifiers.rst:246
+#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:266
+#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:274
+#: ../source/specifications/dependency-specifiers.rst:278
+#: ../source/specifications/dependency-specifiers.rst:292
+#: ../source/specifications/dependency-specifiers.rst:301
+msgid "String"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:254
 msgid "``posix``, ``java``"
 msgstr "``posix``, ``java``"
 
-#: ../source/specifications/dependency-specifiers.rst:247
+#: ../source/specifications/dependency-specifiers.rst:255
 msgid "``sys_platform``"
 msgstr "``sys_platform``"
 
-#: ../source/specifications/dependency-specifiers.rst:248
+#: ../source/specifications/dependency-specifiers.rst:256
 msgid ":py:data:`sys.platform`"
 msgstr ":py:data:`sys.platform`"
 
-#: ../source/specifications/dependency-specifiers.rst:249
+#: ../source/specifications/dependency-specifiers.rst:258
 msgid ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
 "from Python3 and \"linux2\" from Python2)"
@@ -20530,64 +20720,64 @@ msgstr ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (\"linux\" は Python3 か"
 "ら、\"linux2\" は Python2 からであることに注意してください)"
 
-#: ../source/specifications/dependency-specifiers.rst:251
+#: ../source/specifications/dependency-specifiers.rst:260
 msgid "``platform_machine``"
 msgstr "``platform_machine``"
 
-#: ../source/specifications/dependency-specifiers.rst:252
+#: ../source/specifications/dependency-specifiers.rst:261
 msgid ":py:func:`platform.machine()`"
 msgstr ":py:func:`platform.machine()`"
 
-#: ../source/specifications/dependency-specifiers.rst:253
+#: ../source/specifications/dependency-specifiers.rst:263
 #: ../source/specifications/platform-compatibility-tags.rst:256
 msgid "``x86_64``"
 msgstr "``x86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:254
+#: ../source/specifications/dependency-specifiers.rst:264
 msgid "``platform_python_implementation``"
 msgstr "``platform_python_implementation``"
 
-#: ../source/specifications/dependency-specifiers.rst:255
+#: ../source/specifications/dependency-specifiers.rst:265
 msgid ":py:func:`platform.python_implementation()`"
 msgstr ":py:func:`platform.python_implementation()`"
 
-#: ../source/specifications/dependency-specifiers.rst:256
+#: ../source/specifications/dependency-specifiers.rst:267
 msgid "``CPython``, ``Jython``"
 msgstr "``CPython``, ``Jython``"
 
-#: ../source/specifications/dependency-specifiers.rst:257
+#: ../source/specifications/dependency-specifiers.rst:268
 msgid "``platform_release``"
 msgstr "``platform_release``"
 
-#: ../source/specifications/dependency-specifiers.rst:258
+#: ../source/specifications/dependency-specifiers.rst:269
 msgid ":py:func:`platform.release()`"
 msgstr ":py:func:`platform.release()`"
 
-#: ../source/specifications/dependency-specifiers.rst:259
+#: ../source/specifications/dependency-specifiers.rst:271
 msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 msgstr "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 
-#: ../source/specifications/dependency-specifiers.rst:260
+#: ../source/specifications/dependency-specifiers.rst:272
 msgid "``platform_system``"
 msgstr "``platform_system``"
 
-#: ../source/specifications/dependency-specifiers.rst:261
+#: ../source/specifications/dependency-specifiers.rst:273
 msgid ":py:func:`platform.system()`"
 msgstr ":py:func:`platform.system()`"
 
-#: ../source/specifications/dependency-specifiers.rst:262
+#: ../source/specifications/dependency-specifiers.rst:275
 msgid "``Linux``, ``Windows``, ``Java``"
 msgstr "``Linux``, ``Windows``, ``Java``"
 
-#: ../source/specifications/dependency-specifiers.rst:263
+#: ../source/specifications/dependency-specifiers.rst:276
 msgid "``platform_version``"
 msgstr "``platform_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:264
+#: ../source/specifications/dependency-specifiers.rst:277
 msgid ":py:func:`platform.version()`"
 msgstr ":py:func:`platform.version()`"
 
-#: ../source/specifications/dependency-specifiers.rst:265
+#: ../source/specifications/dependency-specifiers.rst:279
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
@@ -20597,65 +20787,105 @@ msgstr ""
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
 "02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:268
+#: ../source/specifications/dependency-specifiers.rst:282
 msgid "``python_version``"
 msgstr "``python_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:269
+#: ../source/specifications/dependency-specifiers.rst:283
 msgid "``'.'.join(platform.python_version_tuple()[:2])``"
 msgstr "``'.'.join(platform.python_version_tuple()[:2])``"
 
-#: ../source/specifications/dependency-specifiers.rst:270
+#: ../source/specifications/dependency-specifiers.rst:284
+#: ../source/specifications/dependency-specifiers.rst:288
+#: ../source/specifications/dependency-specifiers.rst:296
+#, fuzzy
+#| msgid "Version specifiers"
+msgid ":ref:`Version <version-specifiers>`"
+msgstr "バージョン指定子"
+
+#: ../source/specifications/dependency-specifiers.rst:285
 msgid "``3.4``, ``2.7``"
 msgstr "``3.4``, ``2.7``"
 
-#: ../source/specifications/dependency-specifiers.rst:271
+#: ../source/specifications/dependency-specifiers.rst:286
 msgid "``python_full_version``"
 msgstr "``python_full_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:272
+#: ../source/specifications/dependency-specifiers.rst:287
 msgid ":py:func:`platform.python_version()`"
 msgstr ":py:func:`platform.python_version()`"
 
-#: ../source/specifications/dependency-specifiers.rst:273
-#: ../source/specifications/dependency-specifiers.rst:279
+#: ../source/specifications/dependency-specifiers.rst:289
+#: ../source/specifications/dependency-specifiers.rst:297
 msgid "``3.4.0``, ``3.5.0b1``"
 msgstr "``3.4.0``, ``3.5.0b1``"
 
-#: ../source/specifications/dependency-specifiers.rst:274
+#: ../source/specifications/dependency-specifiers.rst:290
 msgid "``implementation_name``"
 msgstr "``implementation_name``"
 
-#: ../source/specifications/dependency-specifiers.rst:275
+#: ../source/specifications/dependency-specifiers.rst:291
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr ":py:data:`sys.implementation.name <sys.implementation>`"
 
-#: ../source/specifications/dependency-specifiers.rst:276
+#: ../source/specifications/dependency-specifiers.rst:293
 msgid "``cpython``"
 msgstr "``cpython``"
 
-#: ../source/specifications/dependency-specifiers.rst:277
+#: ../source/specifications/dependency-specifiers.rst:294
 msgid "``implementation_version``"
 msgstr "``implementation_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:278
+#: ../source/specifications/dependency-specifiers.rst:295
 msgid "see definition below"
 msgstr "下方の定義を見てください"
 
-#: ../source/specifications/dependency-specifiers.rst:280
+#: ../source/specifications/dependency-specifiers.rst:298
 msgid "``extra``"
 msgstr "``extra``"
 
-#: ../source/specifications/dependency-specifiers.rst:281
+#: ../source/specifications/dependency-specifiers.rst:299
+#: ../source/specifications/dependency-specifiers.rst:304
+#: ../source/specifications/dependency-specifiers.rst:309
 msgid ""
 "An error except when defined by the context interpreting the specification."
 msgstr "仕様を通訳する文脈で定義された場合を除くエラー。"
 
-#: ../source/specifications/dependency-specifiers.rst:283
-msgid "``test``"
+#: ../source/specifications/dependency-specifiers.rst:302
+#, fuzzy
+#| msgid "pyproject.toml"
+msgid "``toml``"
+msgstr "pyproject.toml"
+
+#: ../source/specifications/dependency-specifiers.rst:303
+#: ../source/specifications/pylock-toml.rst:108
+#, fuzzy
+#| msgid "``extra``"
+msgid "``extras``"
+msgstr "``extra``"
+
+#: ../source/specifications/dependency-specifiers.rst:306
+#: ../source/specifications/dependency-specifiers.rst:311
+msgid "Set of strings"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:307
+msgid "``{\"toml\"}``"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:308
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``dependency_groups``"
+msgstr "``依存関係 <dependencies``"
+
+#: ../source/specifications/dependency-specifiers.rst:312
+#, fuzzy
+#| msgid "``test``"
+msgid "``{\"test\"}``"
 msgstr "``test``"
 
-#: ../source/specifications/dependency-specifiers.rst:285
+#: ../source/specifications/dependency-specifiers.rst:314
 msgid ""
 "The ``implementation_version`` marker variable is derived from :py:data:`sys."
 "implementation.version <sys.implementation>`:"
@@ -20663,7 +20893,7 @@ msgstr ""
 "``implementation_version`` マーカ変数は、 :py:data:`sys.implementation."
 "version <sys.implementation>` から派生したものです :"
 
-#: ../source/specifications/dependency-specifiers.rst:302
+#: ../source/specifications/dependency-specifiers.rst:331
 msgid ""
 "This environment markers section, initially defined through :pep:`508`, "
 "supersedes the environment markers section in :pep:`345`."
@@ -20671,23 +20901,23 @@ msgstr ""
 "この環境マーカの節は、当初は :pep:`508` を通して定義されましたが、 :pep:"
 "`345` における環境マーカの節を置き換えます。"
 
-#: ../source/specifications/dependency-specifiers.rst:308
+#: ../source/specifications/dependency-specifiers.rst:337
 msgid "Complete Grammar"
 msgstr "完全な文法"
 
-#: ../source/specifications/dependency-specifiers.rst:310
+#: ../source/specifications/dependency-specifiers.rst:339
 msgid "The complete parsley grammar::"
 msgstr "完全な parsley 文法::"
 
-#: ../source/specifications/dependency-specifiers.rst:417
+#: ../source/specifications/dependency-specifiers.rst:446
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr "テストプログラム - もし ``grammar`` 文字列内に文法があれば:"
 
-#: ../source/specifications/dependency-specifiers.rst:489
+#: ../source/specifications/dependency-specifiers.rst:518
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されました。"
 
-#: ../source/specifications/dependency-specifiers.rst:490
+#: ../source/specifications/dependency-specifiers.rst:519
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
 "change_>`_ from ``platform.python_version()[:3]`` to ``'.'.join(platform."
@@ -20700,14 +20930,20 @@ msgstr ""
 "python_version_tuple()[:2])`` へ `変更されました <python-version-"
 "change_>`_ 。 [#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:495
+#: ../source/specifications/dependency-specifiers.rst:524
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
 "commas, matching with the behavior of the Python implementation that has "
 "been in use since late 2022."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:503
+#: ../source/specifications/dependency-specifiers.rst:527
+msgid ""
+"April 2025: Added ``extras`` and ``dependency_groups`` for :ref:`lock-file-"
+"spec` as approved through :pep:`751`."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:534
 msgid ""
 "pip, the recommended installer for Python packages (http://pip.readthedocs."
 "org/en/stable/)"
@@ -20715,11 +20951,11 @@ msgstr ""
 "Python のパッケージをインストールする際に推奨されるツールである pip (http://"
 "pip.readthedocs.org/en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:506
+#: ../source/specifications/dependency-specifiers.rst:537
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr "parsley PEG ライブラリ。 (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:509
+#: ../source/specifications/dependency-specifiers.rst:540
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
@@ -20756,7 +20992,7 @@ msgstr ""
 "dist-info` ディレクトリに生成されなければなりません。"
 
 #: ../source/specifications/direct-url.rst:21
-#: ../source/specifications/recording-installed-packages.rst:221
+#: ../source/specifications/recording-installed-packages.rst:222
 msgid ""
 "This file MUST NOT be created when installing a distribution from an other "
 "type of requirement (i.e. name plus version specifier)."
@@ -24425,6 +24661,1382 @@ msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されまし�
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
 msgstr "2020年3月: :pep:`610` を通じてこの仕様が承認されました。"
 
+#: ../source/specifications/pylock-toml.rst:6
+#, fuzzy
+#| msgid "``pyproject.toml`` specification"
+msgid "``pylock.toml`` Specification"
+msgstr "``pyproject.toml`` の仕様"
+
+#: ../source/specifications/pylock-toml.rst:8
+msgid ""
+"The ``pylock.toml`` file format is for specifying dependencies to enable "
+"reproducible installation in a Python environment."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:11
+#, fuzzy
+#| msgid ""
+#| "This specification was originally defined in :pep:`518` and :pep:`621`."
+msgid "This specification was originally defined in :pep:`751`."
+msgstr "この仕様は、元々は :pep:`518` 及び :pep:`621` で定義されました。"
+
+#: ../source/specifications/pylock-toml.rst:16
+#, fuzzy
+#| msgid "File Format"
+msgid "File Name"
+msgstr "ファイルフォーマット"
+
+#: ../source/specifications/pylock-toml.rst:18
+msgid ""
+"A lock file MUST be named :file:`pylock.toml` or match the regular "
+"expression ``r\"^pylock\\.([^.]+)\\.toml$\"`` if a name for the lock file is "
+"desired or if multiple lock files exist (i.e. the regular expression "
+"``r\"^pylock\\.([^.]+\\.)?toml$\"`` for any file name). The prefix and "
+"suffix of a named file MUST be lowercase when possible, for easy detection "
+"and removal, e.g.:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:30
+msgid ""
+"The expectation is that services that automatically install from lock files "
+"will search for:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:33
+msgid "The lock file with the service's name and doing the default install"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:34
+msgid ""
+"A multi-use :file:`pylock.toml` with a dependency group with the name of the "
+"service"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:35
+msgid "The default install of :file:`pylock.toml`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:37
+msgid ""
+"E.g. a cloud host service named \"spam\" would first look for :file:`pylock."
+"spam.toml` to install from, and if that file didn't exist then install from :"
+"file:`pylock.toml` and look for a dependency group named \"spam\" to use if "
+"present."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:42
+msgid ""
+"The lock file(s) SHOULD be located in the directory as appropriate for the "
+"scope of the lock file. Locking against a single :file:`pyproject.toml`, for "
+"instance, would place the :file:`pylock.toml` in the same directory. If the "
+"lock file covered multiple projects in a monorepo, then the expectation is "
+"the :file:`pylock.toml` file would be in the directory that held all the "
+"projects being locked."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:53
+msgid "The format of the file is TOML_."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:55
+msgid ""
+"Tools SHOULD write their lock files in a consistent way to minimize noise in "
+"diff output. Keys in tables -- including the top-level table -- SHOULD be "
+"recorded in a consistent order (if inspiration is desired, this "
+"specification has tried to write down keys in a logical order). As well, "
+"tools SHOULD sort arrays in consistent order. Usage of inline tables SHOULD "
+"also be kept consistent."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:65
+#, fuzzy
+#| msgid "``platform_version``"
+msgid "``lock-version``"
+msgstr "``platform_version``"
+
+#: ../source/specifications/pylock-toml.rst:67
+msgid "**Type**: string; value of ``\"1.0\"``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:68
+#: ../source/specifications/pylock-toml.rst:174
+#: ../source/specifications/pylock-toml.rst:189
+#: ../source/specifications/pylock-toml.rst:202
+#: ../source/specifications/pylock-toml.rst:298
+#: ../source/specifications/pylock-toml.rst:348
+#: ../source/specifications/pylock-toml.rst:397
+#: ../source/specifications/pylock-toml.rst:494
+#: ../source/specifications/pylock-toml.rst:689
+#, fuzzy
+#| msgid "Requires"
+msgid "**Required?**: yes"
+msgstr "要求事項"
+
+#: ../source/specifications/pylock-toml.rst:69
+msgid "**Inspiration**: :ref:`core-metadata-metadata-version`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:70
+msgid "Record the file format version that the file adheres to."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:71
+msgid ""
+"This PEP specifies the initial version -- and only valid value until future "
+"updates to the standard change it -- as ``\"1.0\"``."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:73
+msgid ""
+"If a tool supports the major version but not the minor version, a tool "
+"SHOULD warn when an unknown key is seen."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:75
+msgid "If a tool doesn't support a major version, it MUST raise an error."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:81
+#, fuzzy
+#| msgid "``entry-points``"
+msgid "``environments``"
+msgstr "``entry-points``"
+
+#: ../source/specifications/pylock-toml.rst:83
+#: ../source/specifications/pylock-toml.rst:110
+#: ../source/specifications/pylock-toml.rst:132
+#: ../source/specifications/pylock-toml.rst:154
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: Array of strings"
+msgstr "TOML_ 型: 文字列の配列"
+
+#: ../source/specifications/pylock-toml.rst:84
+#: ../source/specifications/pylock-toml.rst:98
+#: ../source/specifications/pylock-toml.rst:213
+#: ../source/specifications/pylock-toml.rst:230
+#: ../source/specifications/pylock-toml.rst:243
+#: ../source/specifications/pylock-toml.rst:255
+#: ../source/specifications/pylock-toml.rst:334
+#: ../source/specifications/pylock-toml.rst:362
+#: ../source/specifications/pylock-toml.rst:435
+#: ../source/specifications/pylock-toml.rst:469
+#: ../source/specifications/pylock-toml.rst:482
+#: ../source/specifications/pylock-toml.rst:519
+#: ../source/specifications/pylock-toml.rst:674
+#: ../source/specifications/pylock-toml.rst:700
+#: ../source/specifications/pylock-toml.rst:715
+msgid "**Required?**: no"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:85
+#: ../source/specifications/pylock-toml.rst:520
+#: ../source/specifications/pylock-toml.rst:538
+msgid "**Inspiration**: uv_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:86
+msgid ""
+"A list of :ref:`dependency-specifiers-environment-markers` for which the "
+"lock file is considered compatible with."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:88
+msgid ""
+"Tools SHOULD write exclusive/non-overlapping environment markers to ease in "
+"understanding."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:97
+#: ../source/specifications/pylock-toml.rst:173
+#: ../source/specifications/pylock-toml.rst:201
+#: ../source/specifications/pylock-toml.rst:212
+#: ../source/specifications/pylock-toml.rst:229
+#: ../source/specifications/pylock-toml.rst:242
+#: ../source/specifications/pylock-toml.rst:308
+#: ../source/specifications/pylock-toml.rst:319
+#: ../source/specifications/pylock-toml.rst:333
+#: ../source/specifications/pylock-toml.rst:347
+#: ../source/specifications/pylock-toml.rst:361
+#: ../source/specifications/pylock-toml.rst:396
+#: ../source/specifications/pylock-toml.rst:518
+#: ../source/specifications/pylock-toml.rst:551
+#: ../source/specifications/pylock-toml.rst:620
+#: ../source/specifications/pylock-toml.rst:688
+#, fuzzy
+#| msgid "TOML_ type: string"
+msgid "**Type**: string"
+msgstr "TOML_ 型: 文字列"
+
+#: ../source/specifications/pylock-toml.rst:99
+#: ../source/specifications/pylock-toml.rst:190
+#: ../source/specifications/pylock-toml.rst:256
+#: ../source/specifications/pylock-toml.rst:555
+#: ../source/specifications/pylock-toml.rst:608
+#: ../source/specifications/pylock-toml.rst:624
+msgid "**Inspiration**: PDM_, Poetry_, uv_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:100
+msgid ""
+"Specifies the :ref:`core-metadata-requires-python` for the minimum Python "
+"version compatible for any environment supported by the lock file (i.e. the "
+"minimum viable Python version for the lock file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:111
+#: ../source/specifications/pylock-toml.rst:133
+#: ../source/specifications/pylock-toml.rst:155
+msgid "**Required?**: no; defaults to ``[]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:112
+msgid "**Inspiration**: :ref:`core-metadata-provides-extra`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:113
+msgid ""
+"The list of :ref:`extras <core-metadata-provides-extra>` supported by this "
+"lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:115
+#: ../source/specifications/pylock-toml.rst:138
+msgid ""
+"Lockers MAY choose to not support writing lock files that support extras and "
+"dependency groups (i.e. tools may only support exporting a single-use lock "
+"file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:118
+msgid "Tools supporting extras MUST also support dependency groups."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:119
+msgid ""
+"Tools should explicitly set this key to an empty array to signal that the "
+"inputs used to generate the lock file had no extras (e.g. a :ref:`pyproject."
+"toml <pyproject-toml-spec>` file had no :ref:`[project.optional-"
+"dependencies] <pyproject-toml-optional-dependencies>` table), signalling "
+"that the lock file is, in effect, multi-use even if it only looks to be "
+"single-use."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:130
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``dependency-groups``"
+msgstr "``依存関係 <dependencies``"
+
+#: ../source/specifications/pylock-toml.rst:134
+#: ../source/specifications/pylock-toml.rst:716
+#, fuzzy
+#| msgid ":ref:`pyproject-toml-spec`"
+msgid "**Inspiration**: :ref:`pyproject-tool-table`"
+msgstr ":ref:`pyproject-toml-spec`"
+
+#: ../source/specifications/pylock-toml.rst:135
+msgid ""
+"The list of :ref:`dependency-groups` publicly supported by this lock file (i."
+"e. dependency groups users are expected to be able to specify via a tool's "
+"UI)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:141
+msgid "Tools supporting dependency groups MUST also support extras."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:142
+msgid ""
+"Tools SHOULD explicitly set this key to an empty array to signal that the "
+"inputs used to generate the lock file had no dependency groups (e.g. a :ref:"
+"`pyproject.toml <pyproject-toml-spec>` file had no :ref:`[dependency-groups] "
+"<dependency-groups>` table), signalling that the lock file is, in effect, "
+"multi-use even if it only looks to be single-use."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:152
+msgid "``default-groups``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:156
+msgid "**Inspiration**: Poetry_, PDM_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:157
+msgid ""
+"The name of synthetic dependency groups to represent what should be "
+"installed by default (e.g. what :ref:`[project.dependencies] <pyproject-toml-"
+"dependencies>` implicitly represents)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:161
+msgid ""
+"Meant to be used in situations where :ref:`pylock-packages-marker` "
+"necessitates such a group to exist."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:163
+msgid ""
+"The groups listed by this key SHOULD NOT be listed in :ref:`pylock-"
+"dependency-groups` as the groups are not meant to be directly exposed to "
+"users by name but instead via an installer's UI."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:171
+msgid "``created-by``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:175
+msgid "**Inspiration**: Tools with their name in their lock file name"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:176
+#, fuzzy
+#| msgid ""
+#| "``INSTALLER``: records the name of the tool used to install the project."
+msgid "Records the name of the tool used to create the lock file."
+msgstr ""
+"``INSTALLER``: プロジェクトをインストールするのに使われるツールの名前を記録し"
+"ます。"
+
+#: ../source/specifications/pylock-toml.rst:177
+msgid ""
+"Tools MAY use the :ref:`pylock-tool` table to record enough details that it "
+"can be inferred what inputs were used to create the lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:179
+msgid ""
+"Tools SHOULD record the normalized name of the tool if it is available as a "
+"Python package to facilitate finding the tool."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:186
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[[packages]]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:188
+#: ../source/specifications/pylock-toml.rst:254
+#: ../source/specifications/pylock-toml.rst:605
+#: ../source/specifications/pylock-toml.rst:673
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: array of tables"
+msgstr "TOML_ 型: 文字列の配列"
+
+#: ../source/specifications/pylock-toml.rst:191
+msgid "An array containing all packages that *may* be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:192
+msgid ""
+"Packages MAY be listed multiple times with varying data, but all packages to "
+"be installed MUST narrow down to a single entry at install time."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:199
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.name``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:203
+msgid "**Inspiration**: :ref:`core-metadata-name`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:204
+#, fuzzy
+#| msgid ""
+#| "For comparison purposes, the names should be :ref:`normalized <name-"
+#| "normalization>` before comparing."
+msgid "The name of the package :ref:`normalized <name-normalization>`."
+msgstr ""
+"比較の目的のためにも、名前は比較の前に :ref:`正規化 <name-normalization>` さ"
+"れているべきです。"
+
+#: ../source/specifications/pylock-toml.rst:210
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.version``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:214
+msgid "**Inspiration**: :ref:`core-metadata-version`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:215
+#, fuzzy
+#| msgid "Creating the package files"
+msgid "The version of the package."
+msgstr "パッケージファイルを作成する"
+
+#: ../source/specifications/pylock-toml.rst:216
+msgid ""
+"The version SHOULD be specified when the version is known to be stable (i.e. "
+"when an :ref:`sdist <source-distribution-format>` or :ref:`wheels <binary-"
+"distribution-format>` are specified)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:219
+msgid ""
+"The version MUST NOT be included when it cannot be guaranteed to be "
+"consistent with the code used (i.e. when a :ref:`source tree <source-"
+"distribution-format-source-tree>` is used)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:227
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.marker``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:231
+msgid "**Inspiration**: PDM_"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:232
+msgid ""
+"The :ref:`environment marker <dependency-specifiers-environment-markers>` "
+"which specify when the package should be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:240
+#, fuzzy
+#| msgid "``requires-python``"
+msgid "``packages.requires-python``"
+msgstr "``requires-python``"
+
+#: ../source/specifications/pylock-toml.rst:244
+msgid "**Inspiration**: :ref:`core-metadata-requires-python`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:245
+msgid ""
+"Holds the :ref:`version-specifiers` for Python version compatibility for the "
+"package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:252
+#, fuzzy
+#| msgid "``dependencies``"
+msgid "``[[packages.dependencies]]``"
+msgstr "``依存関係 <dependencies``"
+
+#: ../source/specifications/pylock-toml.rst:257
+msgid ""
+"Records the other entries in :ref:`pylock-packages` which are direct "
+"dependencies of this package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:259
+msgid ""
+"Each entry is a table which contains the minimum information required to "
+"tell which other package entry it corresponds to where doing a key-by-key "
+"comparison would find the appropriate package with no ambiguity (e.g. if "
+"there are two entries for the ``spam`` package, then you can include the "
+"version number like ``{name = \"spam\", version = \"1.0.0\"}``, or by source "
+"like ``{name = \"spam\", vcs = { url = \"...\"}``)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:265
+msgid ""
+"Tools MUST NOT use this information when doing installation; it is purely "
+"informational for auditing purposes."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:272
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.vcs]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:274
+#: ../source/specifications/pylock-toml.rst:376
+#: ../source/specifications/pylock-toml.rst:434
+#: ../source/specifications/pylock-toml.rst:535
+#: ../source/specifications/pylock-toml.rst:699
+#: ../source/specifications/pylock-toml.rst:714
+#, fuzzy
+#| msgid "TOML_ type: table"
+msgid "**Type**: table"
+msgstr "TOML_ 型: テーブル"
+
+#: ../source/specifications/pylock-toml.rst:275
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-"
+"directory`, :ref:`pylock-packages-archive`, :ref:`pylock-packages-sdist`, "
+"and :ref:`pylock-packages-wheels`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:278
+msgid "**Inspiration**: :ref:`direct-url-data-structure`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:279
+msgid ""
+"Record the version control system details for the :ref:`source tree <source-"
+"distribution-format-source-tree>` it contains."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:282
+msgid ""
+"Tools MAY choose to not support version control systems, both from a locking "
+"and/or installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:284
+msgid "Tools MAY choose to only support a subset of the available VCS types."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:285
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using version control "
+"systems."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:287
+msgid ""
+"Installation from a version control system is considered originating from a :"
+"ref:`direct URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:294
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.type``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:296
+msgid ""
+"**Type**: string; supported values specified in :ref:`direct-url-data-"
+"structure-registered-vcs`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:299
+#: ../source/specifications/pylock-toml.rst:310
+#: ../source/specifications/pylock-toml.rst:321
+#: ../source/specifications/pylock-toml.rst:335
+#: ../source/specifications/pylock-toml.rst:349
+msgid "**Inspiration**: :ref:`direct-url-data-structure-vcs`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:300
+#, fuzzy
+#| msgid "Install from version control systems"
+msgid "The type of version control system used."
+msgstr "バージョン管理システムからインストールする"
+
+#: ../source/specifications/pylock-toml.rst:306
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:309
+msgid "**Required?**: if :ref:`pylock-packages-vcs-path` is not specified"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:311
+#, fuzzy
+#| msgid "The source tree"
+msgid "The URL_ to the source tree."
+msgstr "ソースコードツリー"
+
+#: ../source/specifications/pylock-toml.rst:317
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.path``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:320
+msgid "**Required?**: if :ref:`pylock-packages-vcs-url` is not specified"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:322
+msgid "The path to the local directory of the source tree."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:323
+msgid ""
+"If a relative path is used it MUST be relative to the location of this file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:324
+msgid ""
+"If the path is relative it MAY use POSIX-style path separators explicitly "
+"for portability."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:331
+#, fuzzy
+#| msgid "``requested_revision`` field"
+msgid "``packages.vcs.requested-revision``"
+msgstr "``requested_revision`` フィールド"
+
+#: ../source/specifications/pylock-toml.rst:336
+msgid "The branch/tag/ref/commit/revision/etc. that the user requested."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:337
+msgid ""
+"This is purely informational and to facilitate writing the :ref:`direct-url-"
+"data-structure`; it MUST NOT be used to checkout the repository."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:345
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.vcs.commit-id``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:350
+msgid "The exact commit/revision number that is to be installed."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:351
+#, fuzzy
+#| msgid ""
+#| "A ``commit_id`` key (type ``string``) MUST be present, containing the "
+#| "exact commit/revision number that was/is to be installed. If the VCS "
+#| "supports commit-hash based revision identifiers, such commit-hash MUST be "
+#| "used as ``commit_id`` in order to reference an immutable version of the "
+#| "source code."
+msgid ""
+"If the VCS supports commit-hash based revision identifiers, such a commit-"
+"hash, it MUST be used as the commit ID in order to reference an immutable "
+"version of the source code."
+msgstr ""
+"``commit_id`` キー (``string`` 型) は、正確にどのコミットまたはリビジョンがイ"
+"ンストールされた/されるかを示すもので、必須のキーです。 VCS がリビジョン識別"
+"子に基づくコミットハッシュをサポートしているなら、インストールされたものの"
+"ソースコードの不変のバージョンを指し示す目的で、そのようなコミットハッシュを "
+"``commit_id`` として使わなければなりません。"
+
+#: ../source/specifications/pylock-toml.rst:359
+msgid "``packages.vcs.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:363
+msgid "**Inspiration**: :ref:`direct-url-data-structure-subdirectories`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:364
+msgid ""
+"The subdirectory within the :ref:`source tree <source-distribution-format-"
+"source-tree>` where the project root of the project is (e.g. the location of "
+"the :ref:`pyproject.toml <pyproject-toml-spec>` file)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:368
+msgid "The path MUST be relative to the root of the source tree structure."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:374
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.directory]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:377
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:"
+"`pylock-packages-archive`, :ref:`pylock-packages-sdist`, and :ref:`pylock-"
+"packages-wheels`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:380
+#: ../source/specifications/pylock-toml.rst:398
+#: ../source/specifications/pylock-toml.rst:412
+msgid "**Inspiration**: :ref:`direct-url-data-structure-local-directory`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:381
+msgid ""
+"Record the local directory details for the :ref:`source tree <source-"
+"distribution-format-source-tree>` it contains."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:384
+msgid ""
+"Tools MAY choose to not support local directories, both from a locking and/"
+"or installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:386
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using local "
+"directories."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:387
+msgid ""
+"Installation from a directory is considered originating from a :ref:`direct "
+"URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:394
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.directory.path``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:399
+msgid "The local directory where the source tree is."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:400
+msgid ""
+"If the path is relative it MUST be relative to the location of the lock file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:401
+msgid ""
+"If the path is relative it MAY use POSIX-style path separators for "
+"portability."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:408
+msgid "``packages.directory.editable``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:410
+msgid "**Type**: boolean"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:411
+msgid "**Required?**: no; defaults to ``false``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:413
+msgid ""
+"A flag representing whether the source tree was an editable install at lock "
+"time."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:415
+msgid ""
+"An installer MAY choose to ignore this flag if user actions or context would "
+"make an editable install unnecessary or undesirable (e.g. a container image "
+"that will not be mounted for development purposes but instead deployed to "
+"production where it would be treated at read-only)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:424
+msgid "``packages.directory.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:426
+#: ../source/specifications/pylock-toml.rst:510
+msgid "See :ref:`pylock-packages-vcs-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:432
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.archive]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:436
+msgid "**Inspiration**: :ref:`direct-url-data-structure-archive`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:437
+msgid ""
+"A direct reference to an archive file to install from (this can include "
+"wheels and sdists, as well as other archive formats containing a source "
+"tree)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:440
+msgid ""
+"Tools MAY choose to not support archive files, both from a locking and/or "
+"installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:442
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using archive files."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:443
+msgid ""
+"Installation from an archive file is considered originating from a :ref:"
+"`direct URL reference <direct-url>`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:450
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:452
+msgid "See :ref:`pylock-packages-vcs-url`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:458
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.path``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:460
+msgid "See :ref:`pylock-packages-vcs-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:466
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.archive.size``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:468
+msgid "**Type**: integer"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:470
+msgid "**Inspiration**: uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:471
+#, fuzzy
+#| msgid "The name of the project."
+msgid "The size of the archive file."
+msgstr "プロジェクトの名前。"
+
+#: ../source/specifications/pylock-toml.rst:472
+msgid ""
+"Tools SHOULD provide the file size when reasonably possible (e.g. the file "
+"size is available via the Content-Length_ header from a HEAD_ HTTP request)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:479
+msgid "``packages.archive.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:481
+msgid "**Type**: datetime"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:483
+msgid "**Inspiration**: :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:484
+#, fuzzy
+#| msgid "Where the guide is deployed"
+msgid "The time the file was uploaded."
+msgstr "この文書が展開される場所"
+
+#: ../source/specifications/pylock-toml.rst:485
+msgid "The date and time MUST be recorded in UTC."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:491
+msgid "``[packages.archive.hashes]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:493
+#, fuzzy
+#| msgid "TOML_ type: array of strings"
+msgid "**Type**: Table of strings"
+msgstr "TOML_ 型: 文字列の配列"
+
+#: ../source/specifications/pylock-toml.rst:495
+msgid "**Inspiration**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:496
+#, fuzzy
+#| msgid ""
+#| "A table of URLs where the key is the URL label and the value is the URL "
+#| "itself."
+msgid ""
+"A table listing known hash values of the file where the key is the hash "
+"algorithm and the value is the hash value."
+msgstr ""
+"URL のテーブルで、 URL に付けられたラベルがキーで URL そのものが値になってい"
+"るもの。"
+
+#: ../source/specifications/pylock-toml.rst:498
+msgid "The table MUST contain at least one entry."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:499
+msgid "Hash algorithm keys SHOULD be lowercase."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:500
+msgid ""
+"At least one secure algorithm from :py:data:`hashlib.algorithms_guaranteed` "
+"SHOULD always be included (at time of writing, sha256 specifically is "
+"recommended."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:508
+msgid "``packages.archive.subdirectory``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:516
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.index``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:521
+msgid ""
+"The base URL for the package index from :ref:`simple-repository-api` where "
+"the sdist and/or wheels were found (e.g. ``https://pypi.org/simple/``)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:523
+msgid ""
+"When possible, this SHOULD be specified to assist with generating `software "
+"bill of materials`_ -- aka SBOMs -- and to assist in finding a file if a URL "
+"ceases to be valid."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:526
+msgid ""
+"Tools MAY support installing from an index if the URL recorded for a "
+"specific file is no longer valid (e.g. returns a 404 HTTP error code)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:533
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.sdist]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:536
+#: ../source/specifications/pylock-toml.rst:606
+msgid ""
+"**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:"
+"`pylock-packages-directory`, and :ref:`pylock-packages-archive`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:539
+msgid "Details of a :ref:`source-distribution-format-sdist` for the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:541
+msgid ""
+"Tools MAY choose to not support sdist files, both from a locking and/or "
+"installation perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:543
+msgid ""
+"Tools SHOULD provide a way for users to opt in/out of using sdist files."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:549
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.name``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:552
+msgid ""
+"**Required?**: no, not when the last component of :ref:`pylock-packages-"
+"sdist-path`/ :ref:`pylock-packages-sdist-url` would be the same value"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:556
+msgid "The file name of the :ref:`source-distribution-format-sdist` file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:562
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.upload-time``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:564
+#: ../source/specifications/pylock-toml.rst:633
+msgid "See :ref:`pylock-packages-archive-upload-time`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:570
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.sdist.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:572
+#: ../source/specifications/pylock-toml.rst:641
+msgid "See :ref:`pylock-packages-archive-url`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:578
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.path``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:580
+#: ../source/specifications/pylock-toml.rst:649
+msgid "See :ref:`pylock-packages-archive-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:586
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.sdist.size``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:588
+#: ../source/specifications/pylock-toml.rst:657
+msgid "See :ref:`pylock-packages-archive-size`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:594
+#, fuzzy
+#| msgid "``package_data``"
+msgid "``packages.sdist.hashes``"
+msgstr "``package_data``"
+
+#: ../source/specifications/pylock-toml.rst:596
+#: ../source/specifications/pylock-toml.rst:665
+msgid "See :ref:`pylock-packages-archive-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:603
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[[packages.wheels]]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:609
+msgid ""
+"For recording the wheel files as specified by :ref:`binary-distribution-"
+"format` for the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:611
+msgid ""
+"Tools MUST support wheel files, both from a locking and installation "
+"perspective."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:618
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.name``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:621
+msgid ""
+"**Required?**: no, not when the last component of :ref:`pylock-packages-"
+"wheels-path`/ :ref:`pylock-packages-wheels-url` would be the same value"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:625
+msgid "The file name of the :ref:`binary-distribution-format` file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:631
+msgid "``packages.wheels.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:639
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.url``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:647
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.path``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:655
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.size``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:663
+#, fuzzy
+#| msgid "``packages``"
+msgid "``packages.wheels.hashes``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:671
+msgid "``[[packages.attestation-identities]]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:675
+#: ../source/specifications/pylock-toml.rst:690
+msgid "**Inspiration**: :ref:`  provenance-object`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:676
+msgid ""
+"A recording of the attestations for **any** file recorded for this package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:677
+msgid "If available, tools SHOULD include the attestation identities found."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:678
+msgid ""
+"Publisher-specific keys are to be included in the table as-is (i.e. top-"
+"level), following the spec at :ref:`  index-hosted-attestations`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:686
+msgid "``packages.attestation-identities.kind``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:691
+msgid "The unique identity of the Trusted Publisher."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:697
+#, fuzzy
+#| msgid "``packages``"
+msgid "``[packages.tool]``"
+msgstr "``packages``"
+
+#: ../source/specifications/pylock-toml.rst:701
+#, fuzzy
+#| msgid ":ref:`pyproject-toml-spec`"
+msgid "**Inspiration**: :ref:`  pyproject-tool-table`"
+msgstr ":ref:`pyproject-toml-spec`"
+
+#: ../source/specifications/pylock-toml.rst:702
+msgid ""
+"Similar usage as that of the :ref:`pylock-tool` table from the :ref:`  "
+"pyproject-toml-spec`, but at the package version level instead of at the "
+"lock file level (which is also available via :ref:`pylock-tool`)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:705
+msgid ""
+"Data recorded in the table MUST be disposable (i.e. it MUST NOT affect "
+"installation)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:712
+msgid "``[tool]``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:717
+msgid "See :ref:`pylock-packages-tool`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:731
+msgid ""
+"The following outlines the steps to be taken to install from a lock file "
+"(while the requirements are prescriptive, the general steps and order are a "
+"suggestion):"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:735
+msgid ""
+"Gather the extras and dependency groups to install and set ``extras`` and "
+"``dependency_groups`` for marker evaluation, respectively."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:738
+msgid "``extras`` SHOULD be set to the empty set by default."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:739
+msgid ""
+"``dependency_groups`` SHOULD be the set created from :ref:`pylock-default-"
+"groups` by default."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:742
+msgid ""
+"Check if the metadata version specified by :ref:`pylock-lock-version` is "
+"supported; an error or warning MUST be raised as appropriate."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:744
+msgid ""
+"If :ref:`pylock-requires-python` is specified, check that the environment "
+"being installed for meets the requirement; an error MUST be raised if it is "
+"not met."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:747
+msgid ""
+"If :ref:`pylock-environments` is specified, check that at least one of the "
+"environment marker expressions is satisfied; an error MUST be raised if no "
+"expression is satisfied."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:750
+msgid "For each package listed in :ref:`pylock-packages`:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:752
+msgid ""
+"If :ref:`pylock-packages-marker` is specified, check if it is satisfied; if "
+"it isn't, skip to the next package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:754
+msgid ""
+"If :ref:`pylock-packages-requires-python` is specified, check if it is "
+"satisfied; an error MUST be raised if it isn't."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:756
+msgid ""
+"Check that no other conflicting instance of the package has been slated to "
+"be installed; an error about the ambiguity MUST be raised otherwise."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:758
+msgid ""
+"Check that the source of the package is specified appropriately (i.e. there "
+"are no conflicting sources in the package entry); an error MUST be raised if "
+"any issues are found."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:761
+msgid "Add the package to the set of packages to install."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:763
+msgid "For each package to be installed:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:765
+msgid "If :ref:`pylock-packages-vcs` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:767
+msgid ""
+"Clone the repository to the commit ID specified in :ref:`pylock-packages-vcs-"
+"commit-id`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:769
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-vcs-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:771
+#: ../source/specifications/pylock-toml.rst:777
+#: ../source/specifications/pylock-toml.rst:786
+#: ../source/specifications/pylock-toml.rst:806
+#: ../source/specifications/pylock-toml.rst:821
+#, fuzzy
+#| msgid "Binary distribution format"
+msgid ":ref:`Install <binary-distribution-format>`."
+msgstr "バイナリ配布物のフォーマット"
+
+#: ../source/specifications/pylock-toml.rst:773
+msgid "Else if :ref:`pylock-packages-directory` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:775
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-directory-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:779
+msgid "Else if :ref:`pylock-packages-archive` is set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:781
+#: ../source/specifications/pylock-toml.rst:811
+msgid "Get the file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:782
+msgid ""
+"Validate using :ref:`pylock-packages-archive-size` and :ref:`pylock-packages-"
+"archive-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:784
+msgid ""
+":ref:`Build <source-distribution-format-source-tree>` the package, "
+"respecting :ref:`pylock-packages-archive-subdirectory`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:788
+msgid "Else if there are entries for :ref:`pylock-packages-wheels`:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:790
+msgid ""
+"Look for the appropriate wheel file based on :ref:`pylock-packages-wheels-"
+"name`; if one is not found then move on to :ref:`pylock-packages-sdist` or "
+"an error MUST be raised about a lack of source for the project."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:794
+msgid "Get the file:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:796
+msgid "If :ref:`pylock-packages-wheels-path` is set, use it."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:797
+msgid ""
+"Else if :ref:`pylock-packages-wheels-url` is set, try to use it; optionally "
+"tools MAY use :ref:`pylock-packages-index` or some tool-specific mechanism "
+"to download the selected wheel file (tools MUST NOT try to change what wheel "
+"file to download based on what's available; what file to install should be "
+"determined in an offline fashion for reproducibility)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:804
+msgid ""
+"Validate using :ref:`pylock-packages-wheels-size` and :ref:`pylock-packages-"
+"wheels-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:808
+msgid ""
+"Else if no :ref:`pylock-packages-wheels` file is found or :ref:`pylock-"
+"packages-sdist` is solely set:"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:813
+msgid "If :ref:`pylock-packages-sdist-path` is set, use it."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:814
+msgid ""
+"Else if :ref:`pylock-packages-sdist-url` is set, try to use it; tools MAY "
+"use :ref:`pylock-packages-index` or some tool-specific mechanism to download "
+"the file."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:818
+msgid ""
+"Validate using :ref:`pylock-packages-sdist-size` and :ref:`pylock-packages-"
+"sdist-hashes`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:820
+msgid ":ref:`Build <source-distribution-format-sdist>` the package."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:828
+#, fuzzy
+#| msgid ""
+#| "April 2018: The ``manylinux2010`` tag was approved through :pep:`571`."
+msgid "April 2025: Initial version, approved via :pep:`751`."
+msgstr ""
+"2018年4月: :pep:`571` を通じて ``manylinux2010`` タグが承認されました。"
+
 #: ../source/specifications/pypirc.rst:6
 msgid "The :file:`.pypirc` file"
 msgstr ":file:`.pypirc` ファイル"
@@ -25616,7 +27228,7 @@ msgstr ""
 #| "This ``.dist-info`` directory may contain the following files, described "
 #| "in detail below:"
 msgid ""
-"This :file:`.dist-info/` directory may contain the following directory, "
+"This :file:`.dist-info/` directory may contain the following directories, "
 "described in detail below:"
 msgstr ""
 "この ``.dist-info`` ディレクトリには、以下に詳細を述べるこれらのファイルを置"
@@ -25626,7 +27238,11 @@ msgstr ""
 msgid ":file:`licenses/`: contains license files."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:76
+#: ../source/specifications/recording-installed-packages.rst:73
+msgid ":file:`sboms/`: contains Software Bill-of-Materials files (SBOMs)."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:77
 msgid ""
 "The :ref:`binary-distribution-format` specification describes additional "
 "files that may appear in the ``.dist-info`` directory of a :term:`Wheel`. "
@@ -25638,7 +27254,7 @@ msgstr ""
 "ようなファイルをインストールされたプロジェクトの ``.dist-info`` ディレクトリ"
 "にコピーしても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:81
+#: ../source/specifications/recording-installed-packages.rst:82
 msgid ""
 "The previous versions of this specification also specified a ``REQUESTED`` "
 "file. This file is now considered a tool-specific extension, but may be "
@@ -25650,11 +27266,11 @@ msgstr ""
 "標準化されるかもしれません。その元々の意味するところについては、 `PEP 376 "
 "<https://www.python.org/dev/peps/pep-0376/#requested>`_ を見てください。"
 
-#: ../source/specifications/recording-installed-packages.rst:88
+#: ../source/specifications/recording-installed-packages.rst:89
 msgid "The METADATA file"
 msgstr "METADATA ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:90
+#: ../source/specifications/recording-installed-packages.rst:91
 msgid ""
 "The ``METADATA`` file contains metadata as described in the :ref:`core-"
 "metadata` specification, version 1.1 or greater."
@@ -25662,7 +27278,7 @@ msgstr ""
 "``METADATA`` ファイルには、 :ref:`コアとなるメタデータ <core-metadata>` 仕様"
 "のバージョン 1.1 またはそれ以降で記述されているようなメタデータを含みます。"
 
-#: ../source/specifications/recording-installed-packages.rst:93
+#: ../source/specifications/recording-installed-packages.rst:94
 msgid ""
 "The ``METADATA`` file is mandatory. If it cannot be created, or if required "
 "core metadata is not available, installers must report an error and fail to "
@@ -25672,11 +27288,11 @@ msgstr ""
 "合や、必須のコアとなるメタデータが入手できない場合には、インストーラはエラー"
 "を発生させてプロジェクトのインストールを失敗させなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:99
+#: ../source/specifications/recording-installed-packages.rst:100
 msgid "The RECORD file"
 msgstr "RECORD ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:101
+#: ../source/specifications/recording-installed-packages.rst:102
 msgid ""
 "The ``RECORD`` file holds the list of installed files. It is a CSV file "
 "containing one record (line) per installed file."
@@ -25684,7 +27300,7 @@ msgstr ""
 "``RECORD`` ファイルには、インストールされたファイル群を列挙します。CSV ファイ"
 "ルで、インストールされたファイルを１行に一つずつ書き込みます。"
 
-#: ../source/specifications/recording-installed-packages.rst:104
+#: ../source/specifications/recording-installed-packages.rst:105
 msgid ""
 "The CSV dialect must be readable with the default ``reader`` of Python's "
 "``csv`` module:"
@@ -25692,19 +27308,19 @@ msgstr ""
 "CSV の亜種としては、 Python の ``csv`` モジュールの ``reader`` で読めるもので"
 "なければなりません:"
 
-#: ../source/specifications/recording-installed-packages.rst:107
+#: ../source/specifications/recording-installed-packages.rst:108
 msgid "field delimiter: ``,`` (comma),"
 msgstr "フィールド区切り文字: ``,`` (コンマ)、"
 
-#: ../source/specifications/recording-installed-packages.rst:108
+#: ../source/specifications/recording-installed-packages.rst:109
 msgid "quoting char: ``\"`` (straight double quote),"
 msgstr "引用符: ``\"`` (ストレートダブルクォート)、"
 
-#: ../source/specifications/recording-installed-packages.rst:109
+#: ../source/specifications/recording-installed-packages.rst:110
 msgid "line terminator: either ``\\r\\n`` or ``\\n``."
 msgstr "行末文字: ``\\r\\n`` か ``\\n`` のいずれか一方。"
 
-#: ../source/specifications/recording-installed-packages.rst:111
+#: ../source/specifications/recording-installed-packages.rst:112
 msgid ""
 "Each record is composed of three elements: the file's **path**, the **hash** "
 "of the contents, and its **size**."
@@ -25712,7 +27328,7 @@ msgstr ""
 "各レコードは３個の要素から構成されます: ファイルの **パス** 、内容の **ハッ"
 "シュ値** 、そして、その **サイズ** です。"
 
-#: ../source/specifications/recording-installed-packages.rst:114
+#: ../source/specifications/recording-installed-packages.rst:115
 msgid ""
 "The *path* may be either absolute, or relative to the directory containing "
 "the ``.dist-info`` directory (commonly, the ``site-packages`` directory). On "
@@ -25724,7 +27340,7 @@ msgstr ""
 "Windows では、ディレクトリはスラッシュで区切ってもバックスラッシュで区切って"
 "も構いません (``/`` または ``\\``) 。"
 
-#: ../source/specifications/recording-installed-packages.rst:119
+#: ../source/specifications/recording-installed-packages.rst:120
 msgid ""
 "The *hash* is either an empty string or the name of a hash algorithm from :"
 "py:data:`hashlib.algorithms_guaranteed`, followed by the equals character "
@@ -25738,7 +27354,7 @@ msgstr ""
 "<base64.urlsafe_b64encode()>`` の結果から末尾の ``=`` を取り除いたもの) で記"
 "したものです。"
 
-#: ../source/specifications/recording-installed-packages.rst:124
+#: ../source/specifications/recording-installed-packages.rst:125
 msgid ""
 "The *size* is either the empty string, or file's size in bytes, as a base 10 "
 "integer."
@@ -25746,7 +27362,7 @@ msgstr ""
 "*size* は、空文字列か、または、ファイルサイズを 10 進数のバイト数で書いたもの"
 "です。"
 
-#: ../source/specifications/recording-installed-packages.rst:127
+#: ../source/specifications/recording-installed-packages.rst:128
 msgid ""
 "For any file, either or both of the *hash* and *size* fields may be left "
 "empty. Commonly, entries for ``.pyc`` files and the ``RECORD`` file itself "
@@ -25760,7 +27376,7 @@ msgstr ""
 "なっています。その他のファイルについては、インストールされたプロジェクトに関"
 "する完全性を検証するために情報を与えておくことが推奨されています。"
 
-#: ../source/specifications/recording-installed-packages.rst:133
+#: ../source/specifications/recording-installed-packages.rst:134
 msgid ""
 "If the ``RECORD`` file is present, it must list all installed files of the "
 "project, except ``.pyc`` files corresponding to ``.py`` files listed in "
@@ -25775,7 +27391,7 @@ msgstr ""
 "ル自身を含む) については、書いておかなければなりません。ディレクトリについて"
 "は記入してはなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:140
+#: ../source/specifications/recording-installed-packages.rst:141
 msgid ""
 "To completely uninstall a package, a tool needs to remove all files listed "
 "in ``RECORD``, all ``.pyc`` files (of all optimization levels) corresponding "
@@ -25786,11 +27402,11 @@ msgstr ""
 "``.pyc`` ファイルと、アンインストールによって空になったすべてのディレクトリを"
 "削除する必要があります。"
 
-#: ../source/specifications/recording-installed-packages.rst:145
+#: ../source/specifications/recording-installed-packages.rst:146
 msgid "Here is an example snippet of a possible ``RECORD`` file::"
 msgstr "ありうる ``RECORD`` ファイルの一部を切り出した例をここに掲げます::"
 
-#: ../source/specifications/recording-installed-packages.rst:164
+#: ../source/specifications/recording-installed-packages.rst:165
 msgid ""
 "If the ``RECORD`` file is missing, tools that rely on ``.dist-info`` must "
 "not attempt to uninstall or upgrade the package. (This restriction does not "
@@ -25802,7 +27418,7 @@ msgstr ""
 "トロにおけるシステムのパッケージ管理機構のような、それ以外の情報源に依存する"
 "ツールには適用されません。)"
 
-#: ../source/specifications/recording-installed-packages.rst:171
+#: ../source/specifications/recording-installed-packages.rst:172
 msgid ""
 "It is *strongly discouraged* for an installed package to modify itself (e."
 "g., store cache files under its namespace in ``site-packages``). Changes "
@@ -25820,11 +27436,11 @@ msgstr ""
 "されてしまうでしょう (おそらくはゾンビ状態の名前空間パッケージになるでしょ"
 "う)。"
 
-#: ../source/specifications/recording-installed-packages.rst:180
+#: ../source/specifications/recording-installed-packages.rst:181
 msgid "The INSTALLER file"
 msgstr "INSTALLER ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:182
+#: ../source/specifications/recording-installed-packages.rst:183
 msgid ""
 "If present, ``INSTALLER`` is a single-line text file naming the tool used to "
 "install the project. If the installer is executable from the command line, "
@@ -25836,16 +27452,16 @@ msgstr ""
 "動されるなら、 ``INSTALLER`` はそのコマンドの名前を含んでいるべきです。そうで"
 "なければ印刷可能な ASCII 文字を含んでいるべきです。"
 
-#: ../source/specifications/recording-installed-packages.rst:188
+#: ../source/specifications/recording-installed-packages.rst:189
 msgid "The file can be terminated by zero or more ASCII whitespace characters."
 msgstr ""
 "ファイルは、0個またはそれ以上の ASCII 空白文字で終端することができます。"
 
-#: ../source/specifications/recording-installed-packages.rst:190
+#: ../source/specifications/recording-installed-packages.rst:191
 msgid "Here are examples of two possible ``INSTALLER`` files::"
 msgstr "``INSTALLER`` ファイルについて、二つの可能な例を示します::"
 
-#: ../source/specifications/recording-installed-packages.rst:198
+#: ../source/specifications/recording-installed-packages.rst:199
 msgid ""
 "This value should be used for informational purposes only. For example, if a "
 "tool is asked to uninstall a project but finds no ``RECORD`` file, it may "
@@ -25857,11 +27473,11 @@ msgstr ""
 "場合には、そのツールは ``INSTALLER`` ファイルに書いてある (別の) ツールを使え"
 "ばアンインストールができるかもしれないと示唆しても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:205
+#: ../source/specifications/recording-installed-packages.rst:206
 msgid "The entry_points.txt file"
 msgstr "entry_points.txt ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:207
+#: ../source/specifications/recording-installed-packages.rst:208
 msgid ""
 "This file MAY be created by installers to indicate when packages contain "
 "components intended for discovery and use by other code, including console "
@@ -25873,15 +27489,15 @@ msgstr ""
 "りすることを意図したコンポーネントを当該パッケージが含んでいる場合には、イン"
 "ストーラがその由を表示するためにこのファイルを作っても構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:212
+#: ../source/specifications/recording-installed-packages.rst:213
 msgid "Its detailed specification is at :ref:`entry-points`."
 msgstr "その詳細な仕様は :ref:`entry-points` にあります。"
 
-#: ../source/specifications/recording-installed-packages.rst:216
+#: ../source/specifications/recording-installed-packages.rst:217
 msgid "The direct_url.json file"
 msgstr "direct_url.json ファイル"
 
-#: ../source/specifications/recording-installed-packages.rst:218
+#: ../source/specifications/recording-installed-packages.rst:219
 msgid ""
 "This file MUST be created by installers when installing a distribution from "
 "a requirement specifying a direct URL reference (including a VCS URL)."
@@ -25889,15 +27505,15 @@ msgstr ""
 "このファイルは、要求事項が指定するダイレクト URL (VCS の URL を含む) から配布"
 "物をインストールする際に、インストーラによって生成されなければなりません。"
 
-#: ../source/specifications/recording-installed-packages.rst:224
+#: ../source/specifications/recording-installed-packages.rst:225
 msgid "Its detailed specification is at :ref:`direct-url`."
 msgstr "その詳細な仕様は :ref:`direct-url` にあります。"
 
-#: ../source/specifications/recording-installed-packages.rst:228
+#: ../source/specifications/recording-installed-packages.rst:229
 msgid "The :file:`licenses/` subdirectory"
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:230
+#: ../source/specifications/recording-installed-packages.rst:231
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain a :file:"
@@ -25907,11 +27523,25 @@ msgid ""
 "directory MUST be copied from wheels by the install tools."
 msgstr ""
 
-#: ../source/specifications/recording-installed-packages.rst:239
+#: ../source/specifications/recording-installed-packages.rst:240
+#, fuzzy
+#| msgid "The .dist-info directory"
+msgid "The :file:`sboms/` subdirectory"
+msgstr ".dist-info ディレクトリ"
+
+#: ../source/specifications/recording-installed-packages.rst:242
+msgid ""
+"All files contained within the :file:`.dist-info/sboms/` directory MUST be "
+"Software Bill-of-Materials (SBOM) files that describe software contained "
+"within the installed package. Any files in this directory MUST be copied "
+"from wheels by the install tools."
+msgstr ""
+
+#: ../source/specifications/recording-installed-packages.rst:249
 msgid "Intentionally preventing changes to installed packages"
 msgstr "インストール済みのパッケージ群への変更を意図的に防ぐ"
 
-#: ../source/specifications/recording-installed-packages.rst:241
+#: ../source/specifications/recording-installed-packages.rst:251
 msgid ""
 "In some cases (such as when needing to manage external dependencies in "
 "addition to Python ecosystem dependencies), it is desirable for a tool that "
@@ -25925,12 +27555,12 @@ msgstr ""
 "いないことを、もしそんなことをしていればより広範な環境に互換性問題を引き起こ"
 "しかねないので、しっかりと確認することが望ましいです。"
 
-#: ../source/specifications/recording-installed-packages.rst:247
+#: ../source/specifications/recording-installed-packages.rst:257
 msgid "To achieve this, affected tools should take the following steps:"
 msgstr ""
 "これを達成するために、影響を被るツール群は次のような段階を踏むべきです:"
 
-#: ../source/specifications/recording-installed-packages.rst:249
+#: ../source/specifications/recording-installed-packages.rst:259
 msgid ""
 "Rename or remove the ``RECORD`` file to prevent changes via other tools (e."
 "g. appending a suffix to create a non-standard ``RECORD.tool`` file if the "
@@ -25943,7 +27573,7 @@ msgstr ""
 "は、パッケージの内容物を他の手段で追跡・管理しているのであればファイルを完全"
 "に除外しておくこと) してください"
 
-#: ../source/specifications/recording-installed-packages.rst:253
+#: ../source/specifications/recording-installed-packages.rst:263
 msgid ""
 "Write an ``INSTALLER`` file indicating the name of the tool that should be "
 "used to manage the package (this allows ``RECORD``-aware tools to provide "
@@ -25954,7 +27584,7 @@ msgstr ""
 "るツール群が影響を被るパッケージを修正するように言われた時により良いエラー通"
 "知を提供できます)"
 
-#: ../source/specifications/recording-installed-packages.rst:257
+#: ../source/specifications/recording-installed-packages.rst:267
 msgid ""
 "Python runtime providers may also prevent inadvertent modification of "
 "platform provided packages by modifying the default Python package "
@@ -25967,7 +27597,7 @@ msgstr ""
 "別の場所を使うようにすることで、プラットフォームが提供するパッケージ群を意図"
 "せずに修正してしまうことを防いでも構いません。"
 
-#: ../source/specifications/recording-installed-packages.rst:262
+#: ../source/specifications/recording-installed-packages.rst:272
 msgid ""
 "In some circumstances, it may be desirable to block even installation of "
 "additional packages via Python-specific tools. For these cases refer to :ref:"
@@ -25978,7 +27608,7 @@ msgstr ""
 "ては :ref:`外部から管理される環境 <externally-managed-environments>` を参照し"
 "てください"
 
-#: ../source/specifications/recording-installed-packages.rst:270
+#: ../source/specifications/recording-installed-packages.rst:280
 msgid ""
 "June 2009: The original version of this specification was approved through :"
 "pep:`376`.  At the time, it was known as the *Database of Installed Python "
@@ -25987,7 +27617,7 @@ msgstr ""
 "2009年6月: :pep:`376` を通じてこの仕様の元々のバージョンが承認されました。当"
 "時は、 *インストール済みの Python 配布物のデータベース* という名前でした。"
 
-#: ../source/specifications/recording-installed-packages.rst:273
+#: ../source/specifications/recording-installed-packages.rst:283
 msgid ""
 "March 2020: The specification of the ``direct_url.json`` file was approved "
 "through :pep:`610`. It is only mentioned on this page; see :ref:`direct-url` "
@@ -25997,7 +27627,7 @@ msgstr ""
 "した。これは、このページで言及されるのみです; 完全な定義については :ref:"
 "`direct-url` を見てください。"
 
-#: ../source/specifications/recording-installed-packages.rst:276
+#: ../source/specifications/recording-installed-packages.rst:286
 msgid ""
 "September 2020: Various amendments and clarifications were approved through :"
 "pep:`627`."
@@ -26025,6 +27655,12 @@ msgstr "パッケージインデックスのインタフェース"
 #| msgid "Python versions over time"
 msgid "Python Description Formats"
 msgstr "時系列で見たPythonバージョン"
+
+#: ../source/specifications/section-reproducible-environments.rst:3
+#, fuzzy
+#| msgid "Virtual Environment"
+msgid "Reproducible Environments"
+msgstr "仮想環境"
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
@@ -33336,13 +34972,6 @@ msgstr ""
 #~ "ンストールが難しいとされる Windows 用に配布しています。"
 
 #~ msgid ""
-#~ "A table of URLs where the key is the URL label and the value is the URL "
-#~ "itself."
-#~ msgstr ""
-#~ "URL のテーブルで、 URL に付けられたラベルがキーで URL そのものが値になって"
-#~ "いるもの。"
-
-#~ msgid ""
 #~ "This spec sets the current API version to \"1.0\", and expects that "
 #~ "future specs that further evolve the simple API will increment the minor "
 #~ "version number."
@@ -34329,14 +35958,8 @@ msgstr ""
 #~ msgid ":pep:`513`"
 #~ msgstr ":pep:`513`"
 
-#~ msgid ":pep:`571`"
-#~ msgstr ":pep:`571`"
-
 #~ msgid ":pep:`599`"
 #~ msgstr ":pep:`599`"
-
-#~ msgid ":pep:`600`"
-#~ msgstr ":pep:`600`"
 
 #~ msgid "History and change workflow"
 #~ msgstr "ワークフローの履歴と変更"
