@@ -343,6 +343,9 @@ post-releases::
     X.YrcN.devM      # Developmental release of a release candidate
     X.Y.postN.devM   # Developmental release of a post-release
 
+Do note that development releases are considered a type of pre-release when
+handling them.
+
 .. note::
 
    While they may be useful for continuous integration purposes, publishing
@@ -1266,3 +1269,5 @@ History
 =======
 
 - August 2014: This specification was approved through :pep:`440`.
+- May 2025: Clarify that development releases are a form of pre-release when
+  they are handled.
