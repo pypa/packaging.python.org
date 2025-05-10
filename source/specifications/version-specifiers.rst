@@ -226,7 +226,7 @@ part of the ``3.3`` release series.
    form to ``X.Y.0`` when comparing it to any release segment that includes
    three components.
 
-Date based release segments are also permitted. An example of a date based
+Date-based release segments are also permitted. An example of a date-based
 release scheme using the year and month of the release::
 
     2012.4
