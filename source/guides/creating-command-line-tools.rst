@@ -5,7 +5,7 @@ Creating and packaging command-line tools
 =========================================
 
 This guide will walk you through creating and packaging a standalone command-line application
-that can be installed with :ref:`pipx`, a tool creating and managing :term:`Python Virtual Environments <Virtual Environment>`
+that can be installed with :ref:`pipx`, a tool for creating and managing :term:`Python Virtual Environments <Virtual Environment>`
 and exposing the executable scripts of packages (and available manual pages) for use on the command-line.
 
 Creating the package
@@ -98,7 +98,7 @@ Now, add an empty :file:`__init__.py` file, to define the project as a regular :
 
 The file :file:`__main__.py` marks the main entry point for the application when running it via :mod:`runpy`
 (i.e. ``python -m greetings``, which works immediately with flat layout, but requires installation of the package with src layout),
-so initizalize the command-line interface here:
+so initialize the command-line interface here:
 
 .. code-block:: python
 
@@ -162,7 +162,7 @@ To just run the program without installing it permanently, use ``pipx run``, whi
 
 	$ pipx run --spec . greet --knight
 
-This syntax is a bit unpractical, however; as the name of the entry point we defined above does not match the package name,
+This syntax is a bit impractical, however; as the name of the entry point we defined above does not match the package name,
 we need to state explicitly which executable script to run (even though there is only on in existence).
 
 There is, however, a more practical solution to this problem, in the form of an entry point specific to ``pipx run``.
