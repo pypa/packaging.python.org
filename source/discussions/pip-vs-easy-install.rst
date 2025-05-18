@@ -11,7 +11,7 @@ It was notable at the time for installing :term:`packages <Distribution Package>
 :term:`PyPI <Python Package Index (PyPI)>` using requirement specifiers, and
 automatically installing dependencies.
 
-:ref:`pip` came later in 2008, as alternative to :ref:`easy_install <easy_install>`, although still
+:ref:`pip` came later in 2008, as an alternative to :ref:`easy_install <easy_install>`, although still
 largely built on top of :ref:`setuptools` components.  It was notable at the
 time for *not* installing packages as :term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but
 rather simply as 'flat' packages from :term:`sdists <Source Distribution (or
