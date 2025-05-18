@@ -75,7 +75,7 @@ semantic versioning and calendar versioning.
    number. The maintainers may consciously choose to break the
    assumption that the last version segment only contains
    backwards-compatible changes.
-   One such case is when security vulnerability needs to be
+   One such case is when a security vulnerability needs to be
    addressed. Security releases often come in patch versions
    but contain breaking changes inevitably.
 
@@ -124,7 +124,7 @@ Calendar versioning
 -------------------
 
 Semantic versioning is not a suitable choice for all projects, such as those
-with a regular time based release cadence and a deprecation process that
+with a regular time-based release cadence and a deprecation process that
 provides warnings for a number of releases prior to removal of a feature.
 
 A key advantage of date-based versioning, or `calendar versioning <calver_>`_
@@ -148,7 +148,7 @@ user, as serial version numbers convey little or no information regarding API
 backwards compatibility.
 
 Combinations of the above schemes are possible. For example, a project may
-combine date based versioning with serial versioning to create a *year.serial*
+combine date-based versioning with serial versioning to create a *year.serial*
 numbering scheme that readily conveys the approximate age of a release, but
 doesn't otherwise commit to a particular release cadence within the year.
 
