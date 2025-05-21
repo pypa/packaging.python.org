@@ -78,4 +78,4 @@ jobs:
 
     - name: Lint translation file
       if: always()
-      run: sphinx-lint locales/${{ matrix.language }}/LC_MESSAGES/messages.po
+      run: nox -s sphinx_lint -- locales/${{ matrix.language }}/LC_MESSAGES/messages.po
