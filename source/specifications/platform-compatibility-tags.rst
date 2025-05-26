@@ -151,7 +151,7 @@ auditwheel  ``>=1.0.0``     ``>=2.0.0``        ``>=3.0.0``        ``>=3.3.0`` [#
 
 The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux
 platforms that use the musl_ libc rather than glibc (a prime example being Alpine
-Linux). The schema is :file:`musllinux_{x}_{y}_{arch}``, supporting musl ``x.y`` and higher
+Linux). The schema is :file:`musllinux_{x}_{y}_{arch}`, supporting musl ``x.y`` and higher
 on the architecture ``arch``.
 
 The musl version values can be obtained by executing the musl libc shared
