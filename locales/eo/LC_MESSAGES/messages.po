@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-18 19:05+0000\n"
+"POT-Creation-Date: 2025-05-20 00:17+0000\n"
 "PO-Revision-Date: 2025-05-09 17:01+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -17249,7 +17249,7 @@ msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:455
 #: ../source/specifications/core-metadata.rst:922
-#: ../source/specifications/dependency-groups.rst:248
+#: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
 #: ../source/specifications/direct-url-data-structure.rst:407
 #: ../source/specifications/direct-url.rst:67
@@ -19327,18 +19327,24 @@ msgstr ""
 "``requirements.txt`` (specifa al ``pip``)."
 
 #: ../source/specifications/dependency-groups.rst:25
-msgid "This is a simple table which shows a ``test`` group::"
+#, fuzzy
+#| msgid "This is a simple table which shows a ``test`` group::"
+msgid "This is a simple table which shows ``docs`` and ``test`` groups::"
 msgstr "Jen simpla tabelo montranta grupon ``test``::"
 
-#: ../source/specifications/dependency-groups.rst:30
-msgid "and a similar table which defines ``test`` and ``coverage`` groups::"
+#: ../source/specifications/dependency-groups.rst:31
+#, fuzzy
+#| msgid "and a similar table which defines ``test`` and ``coverage`` groups::"
+msgid ""
+"and a similar table which defines ``docs``, ``test``, and ``coverage`` "
+"groups::"
 msgstr "kaj simila tabelo difinanta la grupojn ``test`` kaj ``coverage``::"
 
-#: ../source/specifications/dependency-groups.rst:37
+#: ../source/specifications/dependency-groups.rst:39
 msgid "The ``[dependency-groups]`` Table"
 msgstr "La Tabelo ``[dependency-groups]``"
 
-#: ../source/specifications/dependency-groups.rst:39
+#: ../source/specifications/dependency-groups.rst:41
 msgid ""
 "Dependency Groups are defined as a table in ``pyproject.toml`` named "
 "``dependency-groups``. The ``dependency-groups`` table contains an arbitrary "
@@ -19350,7 +19356,7 @@ msgstr ""
 "nombron de uzanto-dfinititaj ŝlosiloj, ĉiu el kiuj havas liston de postuloj "
 "kiel valoron."
 
-#: ../source/specifications/dependency-groups.rst:44
+#: ../source/specifications/dependency-groups.rst:46
 msgid ""
 "``[dependency-groups]`` keys, sometimes also called \"group names\", must "
 "be :ref:`valid non-normalized names <name-format>`. Tools which handle "
@@ -19361,7 +19367,7 @@ msgstr ""
 "ref:`valida nenormigita nomo <name-format>`. Ilo pritraktanta Dependecan "
 "Grupon DEVAS :ref:`normigi <name-normalization>` la nomon antaŭ komparado."
 
-#: ../source/specifications/dependency-groups.rst:49
+#: ../source/specifications/dependency-groups.rst:51
 msgid ""
 "Tools SHOULD prefer to present the original, non-normalized name to users, "
 "and if duplicate names are detected after normalization, tools SHOULD emit "
@@ -19370,7 +19376,7 @@ msgstr ""
 "Ilo PREFERU prezenti la originalan, nenormigitan nomon al uzanto. Se "
 "duplikata nomo troviĝas post normigo, ilo MONTRU eraron."
 
-#: ../source/specifications/dependency-groups.rst:53
+#: ../source/specifications/dependency-groups.rst:55
 msgid ""
 "Requirement lists, the values in ``[dependency-groups]``, may contain "
 "strings, tables (``dict`` in Python), or a mix of strings and tables. "
@@ -19383,11 +19389,11 @@ msgstr ""
 "<dependency-specifiers>`, kaj tabeloj devas esti validaj Dependeco-Grupo-"
 "Inkluzivoj."
 
-#: ../source/specifications/dependency-groups.rst:59
+#: ../source/specifications/dependency-groups.rst:61
 msgid "Dependency Group Include"
 msgstr "Inkluzivo de Dependeca Grupo"
 
-#: ../source/specifications/dependency-groups.rst:61
+#: ../source/specifications/dependency-groups.rst:63
 msgid ""
 "A Dependency Group Include includes another Dependency Group in the current "
 "group."
@@ -19395,7 +19401,7 @@ msgstr ""
 "Dependecgrupa Inkluzivo inkluzivas alian Dependecan Grupon en la aktuala "
 "grupo."
 
-#: ../source/specifications/dependency-groups.rst:64
+#: ../source/specifications/dependency-groups.rst:66
 msgid ""
 "An include is a table with exactly one key, ``\"include-group\"``, whose "
 "value is a string, the name of another Dependency Group."
@@ -19403,7 +19409,7 @@ msgstr ""
 "Inkluzivo estas tabelo kun ekzakte unu ŝlosilo, ``\"include-group\"``, kies "
 "valoro estas signoĉeno, la nomo de alia Dependeca Grupo."
 
-#: ../source/specifications/dependency-groups.rst:67
+#: ../source/specifications/dependency-groups.rst:69
 msgid ""
 "Includes are defined to be exactly equivalent to the contents of the named "
 "Dependency Group, inserted into the current group at the location of the "
@@ -19413,7 +19419,7 @@ msgid ""
 "are expanded."
 msgstr ""
 
-#: ../source/specifications/dependency-groups.rst:73
+#: ../source/specifications/dependency-groups.rst:75
 msgid ""
 "Dependency Group Includes may specify the same package multiple times. Tools "
 "SHOULD NOT deduplicate or otherwise alter the list contents produced by the "
@@ -19423,7 +19429,7 @@ msgstr ""
 "SENDUPLIKATIGU NEK alie MODIFU la enhavon de la enhavojn de listo generita "
 "de la inkluzivo. Ekzemple, pri la jena tabelo:"
 
-#: ../source/specifications/dependency-groups.rst:90
+#: ../source/specifications/dependency-groups.rst:92
 msgid ""
 "The resolved value of ``all`` SHOULD be ``[\"foo\", \"foo\", \"foo>1.0\", "
 "\"foo<1.0\"]``. Tools should handle such a list exactly as they would handle "
@@ -19434,7 +19440,7 @@ msgstr ""
 "\"foo<1.0\"]``. Ilo pritraktu tian liston precize same kiel en aliaj kazoj, "
 "je kio ilo pritraktu la saman postulon plurfoje kun malsamaj versio-limigoj."
 
-#: ../source/specifications/dependency-groups.rst:95
+#: ../source/specifications/dependency-groups.rst:97
 msgid ""
 "Dependency Group Includes may include groups containing Dependency Group "
 "Includes, in which case those includes should be expanded as well. "
@@ -19445,11 +19451,11 @@ msgstr ""
 "Inkluzivojn; tiukaze, oni ankaŭ etendu tiujn inkluzivojn. Dependecgrupa "
 "Inkluzivo DEVAS NE havi ciklon. Trovinte ciklon, ilo RAPORTU eraron."
 
-#: ../source/specifications/dependency-groups.rst:100
+#: ../source/specifications/dependency-groups.rst:102
 msgid "Package Building"
 msgstr "Konstruado de Pako"
 
-#: ../source/specifications/dependency-groups.rst:102
+#: ../source/specifications/dependency-groups.rst:104
 msgid ""
 "Build backends MUST NOT include Dependency Group data in built distributions "
 "as package metadata. This means that sdist ``PKG-INFO`` and wheel "
@@ -19461,7 +19467,7 @@ msgstr ""
 "``PKG-INFO`` de fonta distribuo kaj la dosiero ``METADATA`` de wheel ne "
 "inkluzivu referenceblan kampon enhavantan Dependecan Grupon."
 
-#: ../source/specifications/dependency-groups.rst:106
+#: ../source/specifications/dependency-groups.rst:108
 msgid ""
 "It is, however, valid to use Dependency Groups in the evaluation of dynamic "
 "metadata, and ``pyproject.toml`` files included in sdists will still contain "
@@ -19473,11 +19479,11 @@ msgstr ""
 "groups]``. Tamen, la enhavo de la tabelo ne estas parto de la interfaco de "
 "konstruita pako."
 
-#: ../source/specifications/dependency-groups.rst:112
+#: ../source/specifications/dependency-groups.rst:114
 msgid "Installing Dependency Groups & Extras"
 msgstr "Instali Dependecajn Grupojn kaj Ekstraĵojn"
 
-#: ../source/specifications/dependency-groups.rst:114
+#: ../source/specifications/dependency-groups.rst:116
 msgid ""
 "There is no syntax or specification-defined interface for installing or "
 "referring to Dependency Groups. Tools are expected to provide dedicated "
@@ -19486,7 +19492,7 @@ msgstr ""
 "Ne ekzistas sintakso aŭ specifo-difinita interfaco por instalado aŭ menciado "
 "de Dependeco-Grupo. Ilo provizu proprajn interfacojn por tiu celo."
 
-#: ../source/specifications/dependency-groups.rst:118
+#: ../source/specifications/dependency-groups.rst:120
 msgid ""
 "Tools MAY choose to provide the same or similar interfaces for interacting "
 "with Dependency Groups as they do for managing extras. Tools authors are "
@@ -19496,11 +19502,11 @@ msgid ""
 "matching as an error."
 msgstr ""
 
-#: ../source/specifications/dependency-groups.rst:126
+#: ../source/specifications/dependency-groups.rst:128
 msgid "Validation and Compatibility"
 msgstr "Valideckontrolo kaj Kongrueco"
 
-#: ../source/specifications/dependency-groups.rst:128
+#: ../source/specifications/dependency-groups.rst:130
 msgid ""
 "Tools supporting Dependency Groups may want to validate data before using "
 "it. When implementing such validation, authors should be aware of the "
@@ -19508,7 +19514,7 @@ msgid ""
 "unnecessarily emit errors or warnings."
 msgstr ""
 
-#: ../source/specifications/dependency-groups.rst:133
+#: ../source/specifications/dependency-groups.rst:135
 msgid ""
 "Tools SHOULD error when evaluating or processing unrecognized data in "
 "Dependency Groups."
@@ -19516,7 +19522,7 @@ msgstr ""
 "Ilo SCIIGU pri eraro, kiam ĝi renkontas aŭ pritraktas nerekonatan datenon en "
 "Dependeca Grupo."
 
-#: ../source/specifications/dependency-groups.rst:136
+#: ../source/specifications/dependency-groups.rst:138
 msgid ""
 "Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups "
 "unless they have a need to do so."
@@ -19524,7 +19530,7 @@ msgstr ""
 "Ilo NE KONTROLU malprokraste la validecon de la enhavoj de *ĉiuj* Dependecaj "
 "Grupoj, se ĝi ne bezonas tion."
 
-#: ../source/specifications/dependency-groups.rst:139
+#: ../source/specifications/dependency-groups.rst:141
 msgid ""
 "This means that in the presence of the following data, most tools should "
 "allow the ``foo`` group to be used and only error if the ``bar`` group is "
@@ -19533,7 +19539,7 @@ msgstr ""
 "Tiu signifas, ke por la jenaj datenoj, iloj ordinare permesos la uzadon de "
 "la grupo ``foo``, kaj nur sciigos pri eraro se la grupo ``bar`` estas uzata:"
 
-#: ../source/specifications/dependency-groups.rst:150
+#: ../source/specifications/dependency-groups.rst:152
 msgid ""
 "There are several known cases of tools which have good cause to be stricter. "
 "Linters and validators are an example, as their purpose is to validate the "
@@ -19543,12 +19549,12 @@ msgstr ""
 "valideckontrolilo celas kontroli, ĉu la enhavoj de ĉiuj Dependecaj Grupoj "
 "validas."
 
-#: ../source/specifications/dependency-groups.rst:155
+#: ../source/specifications/dependency-groups.rst:157
 #: ../source/specifications/inline-script-metadata.rst:123
 msgid "Reference Implementation"
 msgstr "Referenca Realigo"
 
-#: ../source/specifications/dependency-groups.rst:157
+#: ../source/specifications/dependency-groups.rst:159
 msgid ""
 "The following Reference Implementation prints the contents of a Dependency "
 "Group to stdout, newline delimited. The output is therefore valid "
@@ -19558,7 +19564,7 @@ msgstr ""
 "``stdout``, apartigitan per novlinioj. La eligaĵo estas tial valida dateno "
 "por ``requirements.txt``."
 
-#: ../source/specifications/dependency-groups.rst:250
+#: ../source/specifications/dependency-groups.rst:252
 msgid "October 2024: This specification was approved through :pep:`735`."
 msgstr "Oktobro 2024: Ĉi tiu specifo estis aprobita per :pep:`735`."
 
