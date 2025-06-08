@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 14:38+0000\n"
+"POT-Creation-Date: 2025-05-13 20:48+0000\n"
 "PO-Revision-Date: 2025-04-14 02:01+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -10930,12 +10930,23 @@ msgstr ""
 "`cibuildwheel`."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:25
-msgid "Configuring trusted publishing"
+#, fuzzy
+#| msgid "Configuring trusted publishing"
+msgid "Configuring Trusted Publishing"
 msgstr "Configurando publicação confiável"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:27
+#, fuzzy
+#| msgid ""
+#| "This guide relies on PyPI's `trusted publishing`_ implementation to "
+#| "connect to `GitHub Actions CI/CD`_. This is recommended for security "
+#| "reasons, since the generated tokens are created for each of your projects "
+#| "individually and expire automatically. Otherwise, you'll need to generate "
+#| "an `API token`_ for both PyPI and TestPyPI. In case of publishing to "
+#| "third-party indexes like :doc:`devpi <devpi:index>`, you may need to "
+#| "provide a username/password combination."
 msgid ""
-"This guide relies on PyPI's `trusted publishing`_ implementation to connect "
+"This guide relies on PyPI's `Trusted Publishing`_ implementation to connect "
 "to `GitHub Actions CI/CD`_. This is recommended for security reasons, since "
 "the generated tokens are created for each of your projects individually and "
 "expire automatically. Otherwise, you'll need to generate an `API token`_ for "
@@ -10952,11 +10963,18 @@ msgstr ""
 "fornecer uma combinação de nome de usuário/senha."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:35
+#, fuzzy
+#| msgid ""
+#| "Since this guide will demonstrate uploading to both PyPI and TestPyPI, "
+#| "we'll need two trusted publishers configured. The following steps will "
+#| "lead you through creating the \"pending\" publishers for your new :term:"
+#| "`PyPI project <Project>`. However it is also possible to add `trusted "
+#| "publishing`_ to any pre-existing project, if you are its owner."
 msgid ""
 "Since this guide will demonstrate uploading to both PyPI and TestPyPI, we'll "
 "need two trusted publishers configured. The following steps will lead you "
 "through creating the \"pending\" publishers for your new :term:`PyPI project "
-"<Project>`. However it is also possible to add `trusted publishing`_ to any "
+"<Project>`. However it is also possible to add `Trusted Publishing`_ to any "
 "pre-existing project, if you are its owner."
 msgstr ""
 "Como este guia demonstrará o envio para PyPI e TestPyPI, precisaremos de "
@@ -11112,6 +11130,15 @@ msgid "Defining a workflow job environment"
 msgstr "Definindo um ambiente de tarefa do fluxo de trabalho"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#, fuzzy
+#| msgid ""
+#| "Now, let's add initial setup for our job that will publish to PyPI. It's "
+#| "a process that will execute commands that we'll define later. In this "
+#| "guide, we'll use the latest stable Ubuntu LTS version provided by GitHub "
+#| "Actions. This also defines a GitHub Environment for the job to run in its "
+#| "context and a URL to be displayed in GitHub's UI nicely. Additionally, it "
+#| "allows acquiring an OpenID Connect token that the ``pypi-publish`` "
+#| "actions needs to implement secretless trusted publishing to PyPI."
 msgid ""
 "Now, let's add initial setup for our job that will publish to PyPI. It's a "
 "process that will execute commands that we'll define later. In this guide, "
@@ -11119,7 +11146,7 @@ msgid ""
 "This also defines a GitHub Environment for the job to run in its context and "
 "a URL to be displayed in GitHub's UI nicely. Additionally, it allows "
 "acquiring an OpenID Connect token that the ``pypi-publish`` actions needs to "
-"implement secretless trusted publishing to PyPI."
+"implement secretless Trusted Publishing to PyPI."
 msgstr ""
 "Agora, vamos adicionar a configuração inicial para nosso trabalho que será "
 "publicado no PyPI. É um processo que executará comandos que definiremos mais "
@@ -11158,74 +11185,19 @@ msgstr ""
 "`download-artifact`_, ele envia o conteúdo da pasta ``dist /`` para PyPI "
 "incondicionalmente."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
-msgid "Signing the distribution packages"
-msgstr "Assinando os pacotes de distribuição"
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:165
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
 msgid ""
-"The following job signs the distribution packages with `Sigstore`_, the same "
-"artifact signing system `used to sign CPython <https://www.python.org/"
-"download/sigstore/>`_."
+"Starting with version `v1.11.0 <https://github.com/pypa/gh-action-pypi-"
+"publish/releases/tag/v1.11.0>`_, `pypa/gh-action-pypi-publish`_ generates "
+"and uploads :pep:`740`-compatible attestations for each distribution by "
+"default. No additional manual signing steps are required."
 msgstr ""
-"O trabalho a seguir assina os pacotes de distribuição com `Sigstore`_, o "
-"mesmo sistema de assinatura de artefato `usado para assinar o CPython "
-"<https://www.python.org/download/sigstore/>`_."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:168
-msgid ""
-"Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ to "
-"sign the distribution packages. In the next step, an empty GitHub Release "
-"from the current tag is created using the ``gh`` CLI. Note this step can be "
-"further customised. See the `gh release documentation <https://cli.github."
-"com/manual/gh_release>`_ as a reference."
-msgstr ""
-"Em primeiro lugar, ele usa `sigstore/gh-action-sigstore-python do GitHub "
-"Action`_ para assinar os pacotes de distribuição. Na próxima etapa, uma "
-"versão vazia do GitHub da tag atual é criada usando a CLI ``gh``. Observe "
-"que esta etapa pode ser ainda mais personalizada. Consulte a `documentação "
-"de lançamento do gh <https://cli.github.com/manual/gh_release>`_ como "
-"referência."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:176
-msgid ""
-"You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating "
-"the GitHub Release. See the `GitHub documentation <https://docs.github.com/"
-"repositories/managing-your-repositorys-settings-and-features/enabling-"
-"features-for-your-repository/managing-github-actions-settings-for-a-"
-"repository#configuring-the-default-github_token-permissions>`_ for "
-"instructions. Specifically, the token needs the ``contents: write`` "
-"permission."
-msgstr ""
-"Pode ser necessário gerenciar suas permissões do ``GITHUB_TOKEN`` para "
-"permitir a criação da versão do GitHub. Consulte a `documentação do GitHub "
-"<https://docs.github.com/repositories/managing-your-repositorys-settings-and-"
-"features/enabling-features-for-your-repository/managing-github-actions-"
-"settings-for-a-repository#configuring-the-default-github_token-"
-"permissions>`_ para obter instruções. Especificamente, o token precisa da "
-"permissão ``contents: write``."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
-msgid "Finally, the signed distributions are uploaded to the GitHub Release."
-msgstr ""
-"Finalmente, as distribuições assinadas são enviadas para o GitHub Release."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:192
-msgid ""
-"This is a replacement for GPG signatures, for which support has been "
-"`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
-"However, this job is not mandatory for uploading to PyPI and can be omitted."
-msgstr ""
-"Este é um substituto para assinaturas GPG, para as quais o suporte foi "
-"`removido do PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
-"No entanto, este trabalho não é obrigatório para o envio para PyPI e pode "
-"ser omitido."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "Fluxo de trabalho separado para publicação no TestPyPI"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -11233,7 +11205,7 @@ msgstr ""
 "Agora, repita essas etapas e crie outro trabalho para publicação no índice "
 "do pacote TestPyPI na seção ``jobs``:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:210
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -11244,21 +11216,21 @@ msgstr ""
 "branch principal e é frequentemente usado para indicar um pipeline de "
 "publicação de lançamento íntegro."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
 msgid "The whole CI/CD workflow"
 msgstr "O fluxo de trabalho de CI/CD completo"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "Este parágrafo mostra todo o fluxo de trabalho após seguir o guia acima."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
 msgid "That's all, folks!"
 msgstr "Isso é tudo, pessoal!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:226
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -11271,7 +11243,7 @@ msgstr ""
 "construções de teste para seus usuários alfa, bem como garantir que sua "
 "versão pipeline permaneça saudável!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:234
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -11286,7 +11258,7 @@ msgstr ""
 "um servidor compatível com PyPI como :ref:`pypiserver` no CI para fins de "
 "teste."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:242
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -32596,6 +32568,65 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#~ msgid "Signing the distribution packages"
+#~ msgstr "Assinando os pacotes de distribuição"
+
+#~ msgid ""
+#~ "The following job signs the distribution packages with `Sigstore`_, the "
+#~ "same artifact signing system `used to sign CPython <https://www.python."
+#~ "org/download/sigstore/>`_."
+#~ msgstr ""
+#~ "O trabalho a seguir assina os pacotes de distribuição com `Sigstore`_, o "
+#~ "mesmo sistema de assinatura de artefato `usado para assinar o CPython "
+#~ "<https://www.python.org/download/sigstore/>`_."
+
+#~ msgid ""
+#~ "Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ "
+#~ "to sign the distribution packages. In the next step, an empty GitHub "
+#~ "Release from the current tag is created using the ``gh`` CLI. Note this "
+#~ "step can be further customised. See the `gh release documentation "
+#~ "<https://cli.github.com/manual/gh_release>`_ as a reference."
+#~ msgstr ""
+#~ "Em primeiro lugar, ele usa `sigstore/gh-action-sigstore-python do GitHub "
+#~ "Action`_ para assinar os pacotes de distribuição. Na próxima etapa, uma "
+#~ "versão vazia do GitHub da tag atual é criada usando a CLI ``gh``. Observe "
+#~ "que esta etapa pode ser ainda mais personalizada. Consulte a "
+#~ "`documentação de lançamento do gh <https://cli.github.com/manual/"
+#~ "gh_release>`_ como referência."
+
+#~ msgid ""
+#~ "You may need to manage your ``GITHUB_TOKEN`` permissions to enable "
+#~ "creating the GitHub Release. See the `GitHub documentation <https://docs."
+#~ "github.com/repositories/managing-your-repositorys-settings-and-features/"
+#~ "enabling-features-for-your-repository/managing-github-actions-settings-"
+#~ "for-a-repository#configuring-the-default-github_token-permissions>`_ for "
+#~ "instructions. Specifically, the token needs the ``contents: write`` "
+#~ "permission."
+#~ msgstr ""
+#~ "Pode ser necessário gerenciar suas permissões do ``GITHUB_TOKEN`` para "
+#~ "permitir a criação da versão do GitHub. Consulte a `documentação do "
+#~ "GitHub <https://docs.github.com/repositories/managing-your-repositorys-"
+#~ "settings-and-features/enabling-features-for-your-repository/managing-"
+#~ "github-actions-settings-for-a-repository#configuring-the-default-"
+#~ "github_token-permissions>`_ para obter instruções. Especificamente, o "
+#~ "token precisa da permissão ``contents: write``."
+
+#~ msgid ""
+#~ "Finally, the signed distributions are uploaded to the GitHub Release."
+#~ msgstr ""
+#~ "Finalmente, as distribuições assinadas são enviadas para o GitHub Release."
+
+#~ msgid ""
+#~ "This is a replacement for GPG signatures, for which support has been "
+#~ "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/"
+#~ ">`_. However, this job is not mandatory for uploading to PyPI and can be "
+#~ "omitted."
+#~ msgstr ""
+#~ "Este é um substituto para assinaturas GPG, para as quais o suporte foi "
+#~ "`removido do PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/"
+#~ ">`_. No entanto, este trabalho não é obrigatório para o envio para PyPI e "
+#~ "pode ser omitido."
 
 #, fuzzy
 #~| msgid ""
