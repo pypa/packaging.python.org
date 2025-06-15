@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-26 12:17+0000\n"
-"PO-Revision-Date: 2025-05-27 19:17+0000\n"
-"Last-Translator: Xianpeng Shen <xianpeng.shen@gmail.com>\n"
+"PO-Revision-Date: 2025-06-15 05:04+0000\n"
+"Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
 "Language: ja\n"
@@ -3963,6 +3963,14 @@ msgid ""
 "querying code should be designed to handle the case where the attribute is "
 "missing [#fallback-to-dist-version]_."
 msgstr ""
+"インポートされたパッケージやモジュールはランタイムのバージョン情報をこのやり"
+"方で公開することを *要求* されてはいない (:pep:`396` "
+"で撤回された提案を見てください) ので、 ``__version__`` アトリビュートは、"
+"それを提供するものとして知られているインターフェース "
+"(あるプロジェクトが自身のバージョン番号やその直接の依存先のバージョン番号を問"
+"い合わせるなど) だけから問い合わせを受けるか、または、"
+"問い合わせる側のコードがアトリビュート欠損の場合 [#fallback-to-dist-version]"
+"_ を取り扱えるように設計されているかのいずれかであるべきです。"
 
 #: ../source/discussions/versioning.rst:210
 msgid ""
@@ -3972,6 +3980,13 @@ msgid ""
 "For example, the standard library's :mod:`ssl` module offers multiple ways "
 "to access the underlying OpenSSL library version::"
 msgstr ""
+"プロジェクトによっては、"
+"モジュール自身のバージョン番号ではないバージョン情報を外部の API "
+"群向けに公開する必要があるかもしれません。そのようなプロジェクトでは、ランタ"
+"イムに適切な情報を取得するための、そのプロジェクト特有の方法を定義するべきで"
+"す。例えば、標準ライブラリの :mod:`ssl` モジュールは、下敷きにしている "
+"OpenSSL "
+"ライブラリのバージョンにアクセスするための複数の方法を提供しています::"
 
 #: ../source/discussions/versioning.rst:225
 msgid ""
@@ -4006,6 +4021,17 @@ msgid ""
 "and modules added via means other than Python package installation would "
 "fail to have version information reported in that case."
 msgstr ""
+"インポートされるパッケージやモジュールを提供する配布パッケージにインポートす"
+"るために利用可能なトップレベルの名称をマッピングした全数リストは、"
+"標準ライブラリの :func:`importlib.metadata.packages_distributions` "
+"関数を通じて取得することができるかもしれません。これが意味するところは、すべ"
+"てのインポート可能なトップレベルの名称群向けに報告するバージョン番号を暗に示"
+"唆することを試みているコードであってさえも、もし ``__version__`` "
+"アトリビュートが定義されていなければ、配布物のバージョン状をを報告するという"
+"ことにフォールバックする方法を持っているということです。標準ライブラリのモジ"
+"ュール群だけが、そして、 Python "
+"パッケージインストレーション以外の方法を通じて追加されたモジュール群だけが、"
+"このような場合にほうこくするバージョン情報を得ることに失敗することでしょう。"
 
 #: ../source/flow.rst:3
 msgid "The Packaging Flow"
@@ -4587,20 +4613,14 @@ msgid "Installed Project"
 msgstr "インストール済みのプロジェクト"
 
 #: ../source/glossary.rst:136
-#, fuzzy
-#| msgid ""
-#| "A :term:`Project` that is installed for use with a Python interpreter or :"
-#| "term:`Virtual Environment`, as described in the specicifcation :ref:"
-#| "`recording-installed-packages`."
 msgid ""
 "A :term:`Project` that is installed for use with a Python interpreter or :"
 "term:`Virtual Environment`, as described in the specification :ref:"
 "`recording-installed-packages`."
 msgstr ""
-":ref:`インストール済みパッケージを記録する <recording-installed-packages>` の"
-"仕様の中に記述されているところの、Python インタープリタまたは :term:`仮想環"
-"境 <Virtual Environment>` とともに用いられるべくインストールされた :term:`プ"
-"ロジェクト <Project>`。"
+":ref:`recording-installed-packages` の仕様の中に記述されている、Python "
+"インタープリタまたは :term:`仮想環境 <Virtual Environment>` "
+"と一緒に使用するためにインストールされた :term:`プロジェクト <Project>` 。"
 
 #: ../source/glossary.rst:140
 msgid "Known Good Set (KGS)"
@@ -4620,24 +4640,25 @@ msgstr ""
 "組み合わせて構成されるフレームワークやツールキットで共通して用いられます。"
 
 #: ../source/glossary.rst:149
-#, fuzzy
-#| msgid "``classifiers``"
 msgid "License Classifier"
-msgstr "``分類詞 <classifiers>``"
+msgstr "ライセンス分類詞 <License Classifier>"
 
 #: ../source/glossary.rst:152
 msgid ""
 "A PyPI Trove classifier (as :ref:`described <core-metadata-classifier>` in "
 "the :term:`Core Metadata` specification) which begins with ``License ::``."
 msgstr ""
+"ライセンス <License>::`` で始まる (:term:`コアとなるメタデータ <Core "
+"Metadata>` 仕様の中で :ref:`記述されている <core-metadata-classifier>` "
+"とおりの) `` PyPI の Trove classifier プロジェクト。"
 
 #: ../source/glossary.rst:157 ../source/specifications/license-expression.rst:3
 msgid "License Expression"
-msgstr ""
+msgstr "ライセンス表現"
 
 #: ../source/glossary.rst:158
 msgid "SPDX Expression"
-msgstr ""
+msgstr "SPDX 表現"
 
 #: ../source/glossary.rst:161
 msgid ""
@@ -4646,16 +4667,19 @@ msgid ""
 "license(s) and how they inter-relate. Examples: ``GPL-3.0-or-later``, ``MIT "
 "AND (Apache-2.0 OR BSD-2-Clause)``"
 msgstr ""
+"ひとつかそれ以上の SPDX :term:`ライセンス識別子 <License Identifier>` "
+"(複数の場合もあり) を含む、正当な SPDX ライセンス表現の文法を伴う文字列で、 "
+":term:`プロジェクト <Project>` のライセンス(群) "
+"を記述し、どのように相互に関係するのかを表現するもの。例: ``GPL-3.0-or-"
+"later`` ・ ``MIT AND (Apache-2.0 OR BSD-2-Clause)``"
 
 #: ../source/glossary.rst:169
-#, fuzzy
-#| msgid "Local version identifiers"
 msgid "License Identifier"
-msgstr "ローカルバージョン識別子"
+msgstr "ライセンス識別子"
 
 #: ../source/glossary.rst:170
 msgid "SPDX Identifier"
-msgstr ""
+msgstr "SPDX 識別子"
 
 #: ../source/glossary.rst:173
 msgid ""
@@ -4664,6 +4688,10 @@ msgid ""
 "[idstring]`` strings conforming to the SPDX specification. Examples: "
 "``MIT``, ``GPL-3.0-only``, ``LicenseRef-My-Custom-License``"
 msgstr ""
+"元々は :pep:`639` で仕様化された、正当な SPDX "
+"の短縮形式のライセンス識別子。これには、すべての正当な SPDX 識別子と、 SPDX "
+"仕様を満足するカスタムの ``LicenseRef-[idstring]`` 文字列が含まれます。例: "
+"``MIT`` ・ ``GPL-3.0-only`` ・ ``LicenseRef-My-Custom-License``"
 
 #: ../source/glossary.rst:183
 msgid "Module"
@@ -4998,16 +5026,12 @@ msgstr ""
 "Requirementsファイル <pip:Requirements Files>` をみてください。"
 
 #: ../source/glossary.rst:349
-#, fuzzy
-#| msgid "Project Root Directory"
 msgid "Root License Directory"
-msgstr "プロジェクトのルートディレクトリ"
+msgstr "ライセンスディレクトリのルート"
 
 #: ../source/glossary.rst:350
-#, fuzzy
-#| msgid "Local directory:"
 msgid "License Directory"
-msgstr "ローカルディレクトリ:"
+msgstr "ライセンスディレクトリ"
 
 #: ../source/glossary.rst:353
 msgid ""
@@ -5019,7 +5043,8 @@ msgid ""
 "directory of the wheel archive or project folder respectively. Also, the "
 "root directory that paths recorded in the ``License-File`` :term:`Core "
 "Metadata Field` are relative to."
-msgstr ""
+msgstr ":term:`プロジェクトソースツリー "
+"<その下にライセンスファイル群を保存するディレクトリ"
 
 #: ../source/glossary.rst:366
 #: ../source/guides/distributing-packages-using-setuptools.rst:59
@@ -5966,8 +5991,8 @@ msgid ""
 "In this example, ``discovered_plugins`` would be a collection of type :class:"
 "`importlib.metadata.EntryPoint`:"
 msgstr ""
-"この例では、 ``discovered_plugins`` は :class:`import lib.metadata."
-"EntryPoint` 型の(オブジェクトの)集合となるでしょう。"
+"この例では、 ``discovered_plugins`` は :class:`importlib.metadata.EntryPoint`"
+" 型の(オブジェクトの)集合となるでしょう。"
 
 #: ../source/guides/creating-and-discovering-plugins.rst:160
 msgid ""
@@ -5998,10 +6023,8 @@ msgstr ""
 "義できる機能を提供しています。"
 
 #: ../source/guides/creating-command-line-tools.rst:5
-#, fuzzy
-#| msgid "Installing stand alone command line tools"
 msgid "Creating and packaging command-line tools"
-msgstr "スタンドアローンのコマンドラインツールをインストールする"
+msgstr "コマンドライン動作のツールを作成しパッケージングする"
 
 #: ../source/guides/creating-command-line-tools.rst:7
 msgid ""
@@ -6011,12 +6034,16 @@ msgid ""
 "exposing the executable scripts of packages (and available manual pages) for "
 "use on the command-line."
 msgstr ""
+"このガイド文書では、:term:`Python 仮想環境 <Virtual Environment>` "
+"を作成し管理するツールである :ref:`pipx` "
+"でインストールできるような、スタンドアローンのコマンドラインアプリケーション"
+"を作成しパッケージングすること、そして、パッケージの実行可能なスクリプト ("
+"及び利用可能な man ページ) "
+"を外部からコマンドラインで使えるようにすることについて、一通り案内します。"
 
 #: ../source/guides/creating-command-line-tools.rst:12
-#, fuzzy
-#| msgid "Creating the package files"
 msgid "Creating the package"
-msgstr "パッケージファイルを作成する"
+msgstr "パッケージを作成する"
 
 #: ../source/guides/creating-command-line-tools.rst:14
 msgid ""
@@ -6024,6 +6051,10 @@ msgid ""
 "the sake of an example, we'll build a simple tool outputting a greeting (a "
 "string) for a person based on arguments given on the command-line."
 msgstr ""
+"まず最初に、 :term:`プロジェクト <Project>` "
+"のためのソースツリーを作成しましょう。例示のために、"
+"コマンドラインの引数として与えられた人物名に挨拶 (文字列) "
+"を出力する単純なツールをビルドするものとしましょう。"
 
 #: ../source/guides/creating-command-line-tools.rst:17
 #: ../source/guides/tool-recommendations.rst:45
@@ -6034,7 +6065,9 @@ msgstr "Todo"
 msgid ""
 "Advise on the optimal structure of a Python package in another guide or "
 "discussion and link to it here."
-msgstr ""
+msgstr "Python "
+"パッケージの最適な構造に関するアドバイスについて、他のガイド文書や議論、リン"
+"ク集はこちら。"
 
 #: ../source/guides/creating-command-line-tools.rst:19
 msgid ""
@@ -6042,12 +6075,18 @@ msgid ""
 "and in the end be alike this file tree, with the top-level folder and "
 "package name ``greetings``:"
 msgstr ""
+"このプロジェクトは、 :ref:`src-layout <src-layout-vs-flat-layout>` "
+"を厳守し、最後には、トップレベルのフォルダとパッケージの名称として "
+"``greetings`` を伴った、このファイルツリーのようになります:"
 
 #: ../source/guides/creating-command-line-tools.rst:33
 msgid ""
 "The actual code responsible for the tool's functionality will be stored in "
 "the file :file:`greet.py`, named after the main module:"
 msgstr ""
+"ツールの機能性に責任のある実際のソースコードは、"
+"メインのモジュールの名称から命名された :file:`greet.py` "
+"の中に保存されるでしょう。"
 
 #: ../source/guides/creating-command-line-tools.rst:73
 msgid ""
@@ -6055,6 +6094,10 @@ msgid ""
 "greeting to output is constructed. Now, construct the command-line interface "
 "to provision it with the same, which is done in :file:`cli.py`:"
 msgstr ""
+"上記の関数は、どのように出力すべき挨拶を組み立てるかを決定するいくつかのキー"
+"ワード引数を受け取ります。さて、"
+"同様にそれを準備するためのコマンドラインインタフェースを :file:`cli.py` "
+"の中に構築しましょう:"
 
 #: ../source/guides/creating-command-line-tools.rst:91
 msgid ""
@@ -6067,12 +6110,25 @@ msgid ""
 "possible to create CLI interfaces based solely on docstrings; advanced users "
 "are encouraged to make use of click_ (on which ``typer`` is based)."
 msgstr ""
+"コマンドラインインタフェースは、 Python の型品とを基礎とした使いやすい CLI "
+"パーサである typer_ "
+"とともにビルドされます。自動補完と申し分のないスタイルを持つコマンドラインヘ"
+"ルプが、最初から使えます。別のオプションは、 Python 標準ライブラリに含まれる "
+":py:mod:`argparse` "
+"でしょう。これはほとんどの必要性に十分に応えるものですが、適切に機能させるた"
+"めには、通常は ``cli.py`` "
+"に、ソースコードをたくさん書かなければなりません。さらに別の方法としては、 "
+"docopt_ を使うことで、 docstrings だけに基づいて CLI "
+"インタフェースを作成することができます; 熟練ユーザには、 click_ (``typer`` "
+"はこれを基礎として使っています) の使用をお勧めします。"
 
 #: ../source/guides/creating-command-line-tools.rst:97
 msgid ""
 "Now, add an empty :file:`__init__.py` file, to define the project as a "
 "regular :term:`import package <Import Package>`."
 msgstr ""
+"さて、プロジェクトを通常の :term:`インポートパッケージ <Import Package>` "
+"として定義するために、空の :file:`__init__.py` ファイルを追加しましょう。"
 
 #: ../source/guides/creating-command-line-tools.rst:99
 msgid ""
@@ -6081,6 +6137,11 @@ msgid ""
 "immediately with flat layout, but requires installation of the package with "
 "src layout), so initialize the command-line interface here:"
 msgstr ""
+":file:`__main__.py` ファイルは、 :mod:`runpy` から走らせた (すなわち ``"
+"python -m greetings`` 、これはフラットレイアウトならすぐに動作しますが、 src "
+"レイアウトではパッケージのインストールを要求します) "
+"時、アプリケーションのメインのエントリポイントを提示するものですので、コマン"
+"ドラインインタフェースをここで初期化しましょう:"
 
 #: ../source/guides/creating-command-line-tools.rst:111
 msgid ""
