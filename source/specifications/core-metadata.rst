@@ -6,6 +6,8 @@
 Core metadata specifications
 ============================
 
+This page describes version 2.4, approved in August 2024.
+
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
 
