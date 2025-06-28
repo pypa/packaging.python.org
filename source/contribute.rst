@@ -103,7 +103,6 @@ If you are not familiar with reStructuredText (RST) syntax, please read `this gu
 before translating on Weblate.
 
 **Do not translate the text in reference directly**
-
   When translating the text in reference, please do not translate them directly.
 
   | Wrong: Translate the following text directly:
