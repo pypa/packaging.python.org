@@ -485,14 +485,6 @@ and install your package from TestPyPI:
 
         python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-package-YOUR-USERNAME-HERE
 
-
-    In case there is an issue with the above instruction and the package isn't recognized, use the link provided at TestPyPI:
-
-    .. code-block:: bash
-
-        python3 -m pip install --index-url https://test.pypi.org/simple/ example-package-YOUR-USERNAME-HERE
-
-
 .. tab:: Windows
 
     .. code-block:: bat
