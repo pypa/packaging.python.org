@@ -217,7 +217,7 @@ following this tutorial.
           "Programming Language :: Python :: 3",
           "Operating System :: OS Independent",
       ]
-      license = { file = "LICENSE" }
+      license = "MIT"
 
       [project.urls]
       Homepage = "https://github.com/pypa/sampleproject"
