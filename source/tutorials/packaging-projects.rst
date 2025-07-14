@@ -307,8 +307,7 @@ Creating a LICENSE
 It's important for every package uploaded to the Python Package Index to include
 a license. This tells users who install your package the terms under which they
 can use your package. For help picking a license, see
-https://choosealicense.com/. Once you have chosen a license, create a file called :file:`LICENSE`, open
-:file:`LICENSE` and enter the license text. For example, if you had chosen the
+https://choosealicense.com/. Once you have chosen a license, create a file called :file:`LICENSE`, pasting the license text into it. For example, if you had chosen the
 MIT license:
 
 .. code-block:: text
