@@ -20,7 +20,7 @@ retrieving packages from an index server comes in two forms:
 Base API
 ========
 
-A repository that implements the simple API is defined by its base URL, this is
+A repository that implements the simple API is defined by its base URL. This is
 the top level URL that all additional URLs are below. The API is named the
 "simple" repository due to the fact that PyPI's base URL is
 ``https://pypi.org/simple/``.
@@ -636,7 +636,8 @@ As an example:
     {
       "meta": {
         "api-version": "1.4",
-        "project-status": "active"
+        "project-status": "active",
+        "project-status-reason": "this project is not yet haunted"
       },
       "name": "holygrail",
       "files": [
