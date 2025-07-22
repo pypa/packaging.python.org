@@ -147,7 +147,7 @@ linkcheck_ignore = [
     "https://anaconda.org",
     "https://www.cisa.gov/sbom",
     "https://developers.redhat.com/products/softwarecollections/overview",
-    "https://math-atlas.sourceforge.net/",
+    "https://math-atlas\\.sourceforge\\.net/?",
 ]
 linkcheck_retries = 5
 # Ignore anchors for common targets when we know they likely won't be found
