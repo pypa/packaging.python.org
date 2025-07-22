@@ -133,20 +133,20 @@ texinfo_documents = [
 
 linkcheck_ignore = [
     r"http://localhost:\d+",
-    r"https://packaging.python.org/en/latest/specifications/schemas/.*",
-    r"https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
-    r"https://pypi.org/manage/.*",
-    r"https://test.pypi.org/manage/.*",
+    r"https://packaging\.python\.org/en/latest/specifications/schemas/.*",
+    r"https://test\.pypi\.org/project/example-package-YOUR-USERNAME-HERE",
+    r"https://pypi\.org/manage/.*",
+    r"https://test\.pypi\.org/manage/.*",
     # Temporarily ignored. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
-    r"https://www.breezy-vcs.org/.*",
+    r"https://www\.breezy-vcs\.org/.*",
     # Ignore while StackOverflow is blocking GitHub CI. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1474
-    r"https://stackoverflow.com/.*",
-    r"https://pyscaffold.org/.*",
-    r"https://anaconda.org",
-    r"https://www.cisa.gov/sbom",
-    r"https://developers.redhat.com/products/softwarecollections/overview",
+    r"https://stackoverflow\.com/.*",
+    r"https://pyscaffold\.org/.*",
+    r"https://anaconda\.org",
+    r"https://www\.cisa\.gov/sbom",
+    r"https://developers\.redhat\.com/products/softwarecollections/overview",
     r"https://math-atlas\.sourceforge\.net/?",
     # Self-signed certificate, fails in CI
     r"https://click\.palletsprojects\.com/.*",
