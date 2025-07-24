@@ -75,7 +75,7 @@ Let's begin! 🚀
 
    .. attention::
 
-      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules>`_
+      For security reasons, you must require `manual approval <https://docs.github.com/en/actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment#creating-an-environment>`_
       on each run for the ``pypi`` environment.
 
 
