@@ -1026,3 +1026,4 @@ History
   from a package, in :pep:`714`
 * November 2024: provenance metadata in the HTML and JSON formats, in :pep:`740`
 * July 2025: project status markers in the HTML and JSON formats, in :pep:`792`
+* July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)
