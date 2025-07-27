@@ -187,6 +187,13 @@ Glossary
         types: :term:`Pure Module`, or :term:`Extension Module`.
 
 
+    Namespace Package
+
+        A mechanism for splitting a single :term:`Import Package <Import Package>`
+        across multiple directories on disk. Can either be "explicit" or "implicit",
+        depending on the mechanism. Defined in :pep:`420`.
+
+
     Package Index
 
         A repository of distributions with a web interface to automate
