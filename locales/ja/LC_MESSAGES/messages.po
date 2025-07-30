@@ -11,10 +11,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-20 00:17+0000\n"
-"PO-Revision-Date: 2025-05-20 00:17+0000\n"
+"PO-Revision-Date: 2025-05-26 12:17+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3282,19 +3282,23 @@ msgstr ""
 
 #: ../source/discussions/single-source-version.rst:26
 msgid "In general, the options are:"
-msgstr ""
+msgstr "一般的に、取りうる選択肢は:"
 
 #: ../source/discussions/single-source-version.rst:28
 msgid ""
 "If the code is in a version control system (VCS), such as Git, then the "
 "version can be extracted from the VCS."
-msgstr ""
+msgstr "ソースコードが Git のようなバージョン管理システム (VCS) の中にあるなら、"
+"バージョン番号は VCS から取り出すことできます。"
 
 #: ../source/discussions/single-source-version.rst:30
 msgid ""
 "The version can be hard-coded into the :file:`pyproject.toml` file -- and "
 "the build system can copy it into other locations it may be required."
 msgstr ""
+"バージョン番号は、 :file:`pyproject.toml` "
+"ファイルにハードコードすることが可能です -- "
+"そして、ビルドシステムがそれを要求される他の場所にコピーすることができます。"
 
 #: ../source/discussions/single-source-version.rst:33
 msgid ""
@@ -3304,10 +3308,17 @@ msgid ""
 "attribute in a particular module, such as :file:`__init__.py`. The build "
 "system can then extract it from the runtime location at build time."
 msgstr ""
+"バージョン番号の文字列をソースコードの中にハードコードすることもできます -- "
+":file:`_version.txt` のような特別な目的のファイル ("
+"これはプロジェクトのソースコード配布物 (パッケージ) "
+"の一部として同梱されなければなりません) の中に置くか、あるいは、 "
+":file:`__init__.py` "
+"のような特定のモジュールの中のアトリビュートとして置くかです。ビルドシステム"
+"は、ビルド時にランタイムの場所からそれを取り出すことができます。"
 
 #: ../source/discussions/single-source-version.rst:38
 msgid "Consult your build system's documentation for their recommended method."
-msgstr ""
+msgstr "推奨される方法を知るには、ビルドシステムの説明文書に当たってください。"
 
 #: ../source/discussions/single-source-version.rst:40
 msgid ""
@@ -3317,45 +3328,49 @@ msgid ""
 "``importlib.metadata.version(\"dist-name\")`` report the same value (note: "
 "for many projects, ``import_name`` and ``dist-name`` will be the same name)."
 msgstr ""
+"配布パッケージとそれが関連するインポートパッケージが同一のバージョン番号を共"
+"有することを意図する時は、そのプロジェクトに、 ``import_name.__version__`` "
+"と ``importlib.metadata.version(\"dist-name\")`` "
+"が同じ値を報告することを保証する自動化されたテストケースが含まれていることが"
+"推奨されます (ノート: 多くのプロジェクトでは ``import_name`` と ``dist-name``"
+" は同じ名称でしょう) 。"
 
 #: ../source/discussions/single-source-version.rst:50
 msgid "Build System Version Handling"
-msgstr ""
+msgstr "ビルドシステムでのバージョン番号の取り扱い"
 
 #: ../source/discussions/single-source-version.rst:52
 msgid ""
 "The following are links to some build system's documentation for handling "
 "version strings."
-msgstr ""
+msgstr "以下は、ビルドシステムのいくつかの、バージョン文字列の取り扱い方を説明した文"
+"書です。"
 
 #: ../source/discussions/single-source-version.rst:54
-#, fuzzy
-#| msgid "`Flatpak <https://flatpak.org/>`_"
 msgid "`Flit <https://flit.pypa.io/en/stable/>`_"
-msgstr "`Flatpak <https://flatpak.org/>`_"
+msgstr "`Flit <https://flit.pypa.io/en/stable/>`_"
 
 #: ../source/discussions/single-source-version.rst:56
-#, fuzzy
-#| msgid "`Apache <https://httpd.apache.org/>`_"
 msgid "`Hatchling <https://hatch.pypa.io/1.9/version/>`_"
-msgstr "`Apache <https://httpd.apache.org/>`_"
+msgstr "`Hatchling <https://hatch.pypa.io/1.9/version/>`_"
 
 #: ../source/discussions/single-source-version.rst:58
 msgid ""
 "`PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_"
 msgstr ""
+"`PDM <https://pdm-project.org/en/latest/reference/pep621/#__tabbed_1_2>`_"
 
 #: ../source/discussions/single-source-version.rst:60
 msgid ""
 "`Setuptools <https://setuptools.pypa.io/en/latest/userguide/pyproject_config."
 "html#dynamic-metadata>`_"
 msgstr ""
+"`Setuptools <https://setuptools.pypa.io/en/latest/userguide/"
+"pyproject_config.html#dynamic-metadata>`_"
 
 #: ../source/discussions/single-source-version.rst:62
-#, fuzzy
-#| msgid "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only"
 msgid "`setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_"
-msgstr "`py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac 限定"
+msgstr "`setuptools_scm <https://setuptools-scm.readthedocs.io/en/latest/>`_"
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:5
 msgid "src layout vs flat layout"
@@ -3483,7 +3498,7 @@ msgstr ""
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:86
 msgid "Running a command-line interface from source with src-layout"
-msgstr ""
+msgstr "src レイアウト付きのソースコードからコマンドラインインターフェースを走らせる"
 
 #: ../source/discussions/src-layout-vs-flat-layout.rst:88
 msgid ""
@@ -3495,6 +3510,15 @@ msgid ""
 "the package folder to  Python's :py:data:`sys.path` when called via its :"
 "file:`__main__.py` file:"
 msgstr ""
+"最初に述べた src レイアウトの特殊性の故に、コマンドラインインタフェースは、 "
+":term:`ソースコードツリー <Project Source Tree>` "
+"から直接に起動することができず、試験目的のために :doc:`開発モード "
+"<setuptools:userguide/development_mode>`:doc:`開発モード <setuptools:"
+"userguide/development_mode>` "
+"でインストールされたパッケージを要求します。状況によってはこれは現実的ではな"
+"くなるので、 :file:`__main__.py` "
+"ファイル経由で呼ばれた時にパッケージフォルダを Python の :py:data:`sys.path` "
+"の先頭に追加することが回避策になるかもしれません。"
 
 #: ../source/discussions/versioning.rst:6
 #: ../source/specifications/simple-repository-api.rst:362
@@ -3659,13 +3683,6 @@ msgstr ""
 "についてのエンドユーザの受け取り方とは異なるかも知れません。"
 
 #: ../source/discussions/versioning.rst:74
-#, fuzzy
-#| msgid ""
-#| "There are known exceptions for selecting the next version number. The "
-#| "maintainers may consciously choose to break the assumption that the last "
-#| "version segment only contains backwards-compatible changes. One such case "
-#| "is when security vulnerability needs to be addressed. Security releases "
-#| "often come in patch versions but contain breaking changes inevitably."
 msgid ""
 "There are known exceptions for selecting the next version number. The "
 "maintainers may consciously choose to break the assumption that the last "
@@ -3673,8 +3690,8 @@ msgid ""
 "when a security vulnerability needs to be addressed. Security releases often "
 "come in patch versions but contain breaking changes inevitably."
 msgstr ""
-"次のバージョン番号を選定する上で既知の例外があります。保守者は、最後のバー"
-"ジョン断片が後方互換性を保つための変更だけを含むという想定を破るような選択を"
+"次のバージョン番号を選定する上で既知の例外があります。保守者は、最後のバージ"
+"ョン断片の変更では後方互換性を保つ変更だけを含むという想定を破るような選択を"
 "意識的に行っても構いません。そのような場合の一つは、セキュリティ上の脆弱性を"
 "修正する必要がある時です。セキュリティリリースは、しばしば、パッチバージョン"
 "として提供されますが、そうすると必然的にここで述べているような変更をもたらし"
@@ -3781,12 +3798,6 @@ msgid "Calendar versioning"
 msgstr "カレンダーバージョニング"
 
 #: ../source/discussions/versioning.rst:126
-#, fuzzy
-#| msgid ""
-#| "Semantic versioning is not a suitable choice for all projects, such as "
-#| "those with a regular time based release cadence and a deprecation process "
-#| "that provides warnings for a number of releases prior to removal of a "
-#| "feature."
 msgid ""
 "Semantic versioning is not a suitable choice for all projects, such as those "
 "with a regular time-based release cadence and a deprecation process that "
@@ -3842,13 +3853,6 @@ msgstr ""
 "ので、ユーザにとっては追跡するのが最も困難です。"
 
 #: ../source/discussions/versioning.rst:150
-#, fuzzy
-#| msgid ""
-#| "Combinations of the above schemes are possible. For example, a project "
-#| "may combine date based versioning with serial versioning to create a "
-#| "*year.serial* numbering scheme that readily conveys the approximate age "
-#| "of a release, but doesn't otherwise commit to a particular release "
-#| "cadence within the year."
 msgid ""
 "Combinations of the above schemes are possible. For example, a project may "
 "combine date-based versioning with serial versioning to create a *year."
@@ -3856,11 +3860,12 @@ msgid ""
 "release, but doesn't otherwise commit to a particular release cadence within "
 "the year."
 msgstr ""
-"上に述べた方式を組み合わせて用いることもできます。例えば、日付ベースのバー"
-"ジョン付与と一連番号によるバージョン付与を組み合わせて *year.month* 型のバー"
-"ジョン番号付与方式を作り出して、バージョン番号がリリース年を示すけれどもその"
-"年の中のどのリリースサイクルかを特定することについてはあまり気にしていないと"
-"いうプロジェクトもあるでしょう。"
+"上に述べた方式を組み合わせて用いることもできます。例えば、"
+"日付ベースのバージョン付与と一連番号によるバージョン付与を組み合わせて "
+"*year.month* "
+"型のバージョン番号付与方式を作り出して、それがあるリリースのおよその年数が自"
+"動的にわかるようにしているが、あるリリースのその年の中での歩調についてはあま"
+"り気にしていないこともあります。"
 
 #: ../source/discussions/versioning.rst:157
 #: ../source/specifications/version-specifiers.rst:114
@@ -3904,7 +3909,7 @@ msgstr ""
 
 #: ../source/discussions/versioning.rst:177
 msgid "Accessing version information at runtime"
-msgstr ""
+msgstr "ランタイムにバージョン情報にアクセスする"
 
 #: ../source/discussions/versioning.rst:179
 msgid ""
@@ -3913,12 +3918,20 @@ msgid ""
 "obtained at runtime using the standard library's :func:`importlib.metadata."
 "version` function::"
 msgstr ""
+"現在の環境でローカルに利用可能な :term:`配布パッケージ <Distribution "
+"Package>` のバージョン情報は、標準ライブラリの "
+":func:`importlib.metadata.version` "
+"関数を使ってランタイム内から取得することが可能です::"
 
 #: ../source/discussions/versioning.rst:186
 msgid ""
 "Many projects also choose to version their top level :term:`import packages "
 "<Import Package>` by providing a package level ``__version__`` attribute::"
 msgstr ""
+"多くのプロジェクトでは、パッケージレベルの ``__version__`` "
+"アトリビュートを提供することで、トップレベルの :term:`インポートパッケージ "
+"<Import Package>`:term:`インポートパッケージ <Import Package>` "
+"にバージョン番号を付与することも選択しています::"
 
 #: ../source/discussions/versioning.rst:194
 msgid ""
@@ -3926,6 +3939,9 @@ msgid ""
 "to ensure that version query invocations (such as ``pip -V``) run as quickly "
 "as possible."
 msgstr ""
+"このテクニックは、とりわけ、バージョン番号を問い合わせる呼び出し (``pip -V`` "
+"など) が可能な限り素早く動作することが保証されることを望む CLI "
+"アプリケーションにおいて価値があります。"
 
 #: ../source/discussions/versioning.rst:198
 msgid ""
@@ -3933,6 +3949,11 @@ msgid ""
 "import package versions are consistent with each other can review the :ref:"
 "`single-source-version` discussion for potential approaches to doing so."
 msgstr ""
+"報告された配布パッケージとインポートパッケージのバージョン番号が互いに整合性"
+"のあるものとなることを保証したいと望むパッケージの公開者は、"
+"そのようにするための潜在的なアプローチとして :ref:`"
+"シングルソースのバージョン番号 <single-source-version>` "
+"の議論を復習することができます。"
 
 #: ../source/discussions/versioning.rst:202
 msgid ""
