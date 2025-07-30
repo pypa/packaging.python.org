@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 14:38+0000\n"
+"POT-Creation-Date: 2025-05-13 20:48+0000\n"
 "PO-Revision-Date: 2025-02-27 01:55+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -10747,12 +10747,23 @@ msgstr ""
 "எடுத்துக்காட்டுகள்."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:25
-msgid "Configuring trusted publishing"
+#, fuzzy
+#| msgid "Configuring trusted publishing"
+msgid "Configuring Trusted Publishing"
 msgstr "நம்பகமான வெளியீட்டை உள்ளமைத்தல்"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:27
+#, fuzzy
+#| msgid ""
+#| "This guide relies on PyPI's `trusted publishing`_ implementation to "
+#| "connect to `GitHub Actions CI/CD`_. This is recommended for security "
+#| "reasons, since the generated tokens are created for each of your projects "
+#| "individually and expire automatically. Otherwise, you'll need to generate "
+#| "an `API token`_ for both PyPI and TestPyPI. In case of publishing to "
+#| "third-party indexes like :doc:`devpi <devpi:index>`, you may need to "
+#| "provide a username/password combination."
 msgid ""
-"This guide relies on PyPI's `trusted publishing`_ implementation to connect "
+"This guide relies on PyPI's `Trusted Publishing`_ implementation to connect "
 "to `GitHub Actions CI/CD`_. This is recommended for security reasons, since "
 "the generated tokens are created for each of your projects individually and "
 "expire automatically. Otherwise, you'll need to generate an `API token`_ for "
@@ -10769,11 +10780,18 @@ msgstr ""
 "வேண்டியிருக்கலாம்."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:35
+#, fuzzy
+#| msgid ""
+#| "Since this guide will demonstrate uploading to both PyPI and TestPyPI, "
+#| "we'll need two trusted publishers configured. The following steps will "
+#| "lead you through creating the \"pending\" publishers for your new :term:"
+#| "`PyPI project <Project>`. However it is also possible to add `trusted "
+#| "publishing`_ to any pre-existing project, if you are its owner."
 msgid ""
 "Since this guide will demonstrate uploading to both PyPI and TestPyPI, we'll "
 "need two trusted publishers configured. The following steps will lead you "
 "through creating the \"pending\" publishers for your new :term:`PyPI project "
-"<Project>`. However it is also possible to add `trusted publishing`_ to any "
+"<Project>`. However it is also possible to add `Trusted Publishing`_ to any "
 "pre-existing project, if you are its owner."
 msgstr ""
 "இந்த வழிகாட்டி PYPI மற்றும் TestPypi இரண்டிலும் பதிவேற்றுவதை நிரூபிக்கும் என்பதால், "
@@ -10927,6 +10945,15 @@ msgid "Defining a workflow job environment"
 msgstr "பணிப்பாய்வு வேலை சூழலை வரையறுத்தல்"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#, fuzzy
+#| msgid ""
+#| "Now, let's add initial setup for our job that will publish to PyPI. It's "
+#| "a process that will execute commands that we'll define later. In this "
+#| "guide, we'll use the latest stable Ubuntu LTS version provided by GitHub "
+#| "Actions. This also defines a GitHub Environment for the job to run in its "
+#| "context and a URL to be displayed in GitHub's UI nicely. Additionally, it "
+#| "allows acquiring an OpenID Connect token that the ``pypi-publish`` "
+#| "actions needs to implement secretless trusted publishing to PyPI."
 msgid ""
 "Now, let's add initial setup for our job that will publish to PyPI. It's a "
 "process that will execute commands that we'll define later. In this guide, "
@@ -10934,7 +10961,7 @@ msgid ""
 "This also defines a GitHub Environment for the job to run in its context and "
 "a URL to be displayed in GitHub's UI nicely. Additionally, it allows "
 "acquiring an OpenID Connect token that the ``pypi-publish`` actions needs to "
-"implement secretless trusted publishing to PyPI."
+"implement secretless Trusted Publishing to PyPI."
 msgstr ""
 "இப்போது, எங்கள் வேலைக்கு ஆரம்ப அமைப்பைச் சேர்ப்போம், அது பைபிக்கு வெளியிடப்படும். இது ஒரு "
 "செயல்முறையாகும், இது நாங்கள் பின்னர் வரையறுக்கும் கட்டளைகளை இயக்கும். இந்த வழிகாட்டியில், "
@@ -10972,72 +10999,19 @@ msgstr ""
 "பிறகு, இது `` மாவட்ட/`கோப்புறையின் உள்ளடக்கங்களை பதிவேற்றுகிறது நிபந்தனையின்றி "
 "பைபிக்குள்."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
-msgid "Signing the distribution packages"
-msgstr "விநியோக தொகுப்புகளில் கையொப்பமிடுதல்"
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:165
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
 msgid ""
-"The following job signs the distribution packages with `Sigstore`_, the same "
-"artifact signing system `used to sign CPython <https://www.python.org/"
-"download/sigstore/>`_."
+"Starting with version `v1.11.0 <https://github.com/pypa/gh-action-pypi-"
+"publish/releases/tag/v1.11.0>`_, `pypa/gh-action-pypi-publish`_ generates "
+"and uploads :pep:`740`-compatible attestations for each distribution by "
+"default. No additional manual signing steps are required."
 msgstr ""
-"பின்வரும் வேலை விநியோக தொகுப்புகளை `சிக்ச்டோர்`_ உடன் கையொப்பமிடுகிறது, அதே "
-"கலைப்பொருள் கையொப்பமிடும் அமைப்பு` cpython <https://www.python.org/download/"
-"sigstore/> `_ இல் கையொப்பமிடப் பயன்படுகிறது."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:168
-msgid ""
-"Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ to "
-"sign the distribution packages. In the next step, an empty GitHub Release "
-"from the current tag is created using the ``gh`` CLI. Note this step can be "
-"further customised. See the `gh release documentation <https://cli.github."
-"com/manual/gh_release>`_ as a reference."
-msgstr ""
-"முதலாவதாக, விநியோக தொகுப்புகளில் கையெழுத்திட இது `சிக்ச்டோர்/சிஎச்-ஆக்சன்-சிக்ச்டோர்-"
-"பைதான் அறிவிலிமையம் அதிரடி`_ ஐப் பயன்படுத்துகிறது. அடுத்த கட்டத்தில், தற்போதைய "
-"குறிச்சொல்லிலிருந்து வெற்று அறிவிலிமையம் வெளியீடு `` gh`` Cli ஐப் பயன்படுத்தி "
-"உருவாக்கப்படுகிறது. இந்த படி மேலும் தனிப்பயனாக்கப்படலாம் என்பதை நினைவில் கொள்க. `சிஎச் "
-"வெளியீட்டு ஆவணங்கள் <https://cli.github.com/manual/gh_release> _ _ ஒரு குறிப்பாகப் "
-"பார்க்கவும்."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:176
-msgid ""
-"You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating "
-"the GitHub Release. See the `GitHub documentation <https://docs.github.com/"
-"repositories/managing-your-repositorys-settings-and-features/enabling-"
-"features-for-your-repository/managing-github-actions-settings-for-a-"
-"repository#configuring-the-default-github_token-permissions>`_ for "
-"instructions. Specifically, the token needs the ``contents: write`` "
-"permission."
-msgstr ""
-"அறிவிலிமையம் வெளியீட்டை உருவாக்க உங்கள் `` github_token`` அனுமதிகளை நிர்வகிக்க "
-"வேண்டியிருக்கலாம். `கிட்அப் ஆவணங்கள் <https://docs.github.com/repositories/managing-"
-"your-repositorys-settings-and-features/enabling-for- உங்கள்-repository/"
-"managing-github-actions-settings- A- REPOSITORY#கட்டமைத்தல்-THEFAULT-"
-"GITHUB_TOKEN-PERMISSIONS> `_ அறிவுறுத்தல்களுக்கு. குறிப்பாக, டோக்கனுக்கு `` "
-"உள்ளடக்கங்கள்: எழுது `அனுமதி தேவை."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
-msgid "Finally, the signed distributions are uploaded to the GitHub Release."
-msgstr ""
-"இறுதியாக, கையொப்பமிடப்பட்ட விநியோகங்கள் அறிவிலிமையம் வெளியீட்டில் பதிவேற்றப்படுகின்றன."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:192
-msgid ""
-"This is a replacement for GPG signatures, for which support has been "
-"`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
-"However, this job is not mandatory for uploading to PyPI and can be omitted."
-msgstr ""
-"இது சிபிசி கையொப்பங்களுக்கு மாற்றாக உள்ளது, இதற்காக பைபி <https://blog.pypi.org/"
-"posts/2023-05-23- removeing-pgp/> `_ இலிருந்து உதவி அகற்றப்பட்டுள்ளது. இருப்பினும், "
-"இந்த வேலை PYPI இல் பதிவேற்றுவதற்கு கட்டாயமில்லை, மேலும் தவிர்க்கப்படலாம்."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "டெச்ட்பிபிக்கு வெளியிடுவதற்கு பணிப்பாய்வு தனி"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -11045,7 +11019,7 @@ msgstr ""
 "இப்போது, இந்த படிகளை மீண்டும் செய்து, `` வேலைகள்`` பிரிவின் கீழ் டெச்ட்பை தொகுப்பு "
 "குறியீட்டுக்கு வெளியிட மற்றொரு வேலையை உருவாக்கவும்:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:210
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -11056,21 +11030,21 @@ msgstr ""
 "வடிவமைக்கப்பட்டுள்ளது மற்றும் ஆரோக்கியமான வெளியீட்டு வெளியீட்டு குழாய்த்திட்டத்தைக் குறிக்க "
 "பெரும்பாலும் பயன்படுத்தப்படுகிறது."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
 msgid "The whole CI/CD workflow"
 msgstr "முழு சிஐ/சிடி பணிப்பாய்வு"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "இந்த பத்தி மேலே உள்ள வழிகாட்டியைப் பின்பற்றிய பிறகு முழு பணிப்பாய்வுகளையும் காட்டுகிறது."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
 msgid "That's all, folks!"
 msgstr "அவ்வளவுதான், எல்லோரும்!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:226
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -11082,7 +11056,7 @@ msgstr ""
 "சோதனை கட்டமைப்பை வழங்குவதற்கும், உங்கள் வெளியீட்டு குழாய் ஆரோக்கியமாக இருப்பதை "
 "உறுதிசெய்வதற்கும் பயனுள்ளதாக இருக்கும் டெச்ட்பிபிக்கு எந்தவொரு உந்துதலையும் வெளியிடும்!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:234
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -11096,7 +11070,7 @@ msgstr ""
 "ஒரு சிறந்த தீர்வு ஒரு பைபி-இணக்கமான சேவையகத்தைப் பயன்படுத்தலாம்: குறிப்பு நோக்கங்களுக்காக "
 "தொஒ இல் `பைபிசெவர்`."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:242
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -33861,6 +33835,63 @@ msgstr ""
 "கருதப்படுகிறது ** (இந்த டூட்டோரியலில் மறைக்கப்படவில்லை). நீங்கள் பைதான் பேக்கேசிங் மூலம் "
 "மட்டுமே தொடங்கினால், * வழக்கமான தொகுப்புகள் * மற்றும் `__init __. பை`` (கோப்பு "
 "காலியாக இருந்தாலும் கூட) ஒட்டிக்கொள்ள பரிந்துரைக்கப்படுகிறது."
+
+#~ msgid "Signing the distribution packages"
+#~ msgstr "விநியோக தொகுப்புகளில் கையொப்பமிடுதல்"
+
+#~ msgid ""
+#~ "The following job signs the distribution packages with `Sigstore`_, the "
+#~ "same artifact signing system `used to sign CPython <https://www.python."
+#~ "org/download/sigstore/>`_."
+#~ msgstr ""
+#~ "பின்வரும் வேலை விநியோக தொகுப்புகளை `சிக்ச்டோர்`_ உடன் கையொப்பமிடுகிறது, அதே "
+#~ "கலைப்பொருள் கையொப்பமிடும் அமைப்பு` cpython <https://www.python.org/download/"
+#~ "sigstore/> `_ இல் கையொப்பமிடப் பயன்படுகிறது."
+
+#~ msgid ""
+#~ "Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ "
+#~ "to sign the distribution packages. In the next step, an empty GitHub "
+#~ "Release from the current tag is created using the ``gh`` CLI. Note this "
+#~ "step can be further customised. See the `gh release documentation "
+#~ "<https://cli.github.com/manual/gh_release>`_ as a reference."
+#~ msgstr ""
+#~ "முதலாவதாக, விநியோக தொகுப்புகளில் கையெழுத்திட இது `சிக்ச்டோர்/சிஎச்-ஆக்சன்-சிக்ச்டோர்-"
+#~ "பைதான் அறிவிலிமையம் அதிரடி`_ ஐப் பயன்படுத்துகிறது. அடுத்த கட்டத்தில், தற்போதைய "
+#~ "குறிச்சொல்லிலிருந்து வெற்று அறிவிலிமையம் வெளியீடு `` gh`` Cli ஐப் பயன்படுத்தி "
+#~ "உருவாக்கப்படுகிறது. இந்த படி மேலும் தனிப்பயனாக்கப்படலாம் என்பதை நினைவில் கொள்க. "
+#~ "`சிஎச் வெளியீட்டு ஆவணங்கள் <https://cli.github.com/manual/gh_release> _ _ ஒரு "
+#~ "குறிப்பாகப் பார்க்கவும்."
+
+#~ msgid ""
+#~ "You may need to manage your ``GITHUB_TOKEN`` permissions to enable "
+#~ "creating the GitHub Release. See the `GitHub documentation <https://docs."
+#~ "github.com/repositories/managing-your-repositorys-settings-and-features/"
+#~ "enabling-features-for-your-repository/managing-github-actions-settings-"
+#~ "for-a-repository#configuring-the-default-github_token-permissions>`_ for "
+#~ "instructions. Specifically, the token needs the ``contents: write`` "
+#~ "permission."
+#~ msgstr ""
+#~ "அறிவிலிமையம் வெளியீட்டை உருவாக்க உங்கள் `` github_token`` அனுமதிகளை நிர்வகிக்க "
+#~ "வேண்டியிருக்கலாம். `கிட்அப் ஆவணங்கள் <https://docs.github.com/repositories/"
+#~ "managing-your-repositorys-settings-and-features/enabling-for- உங்கள்-"
+#~ "repository/managing-github-actions-settings- A- REPOSITORY#கட்டமைத்தல்-"
+#~ "THEFAULT-GITHUB_TOKEN-PERMISSIONS> `_ அறிவுறுத்தல்களுக்கு. குறிப்பாக, "
+#~ "டோக்கனுக்கு `` உள்ளடக்கங்கள்: எழுது `அனுமதி தேவை."
+
+#~ msgid ""
+#~ "Finally, the signed distributions are uploaded to the GitHub Release."
+#~ msgstr ""
+#~ "இறுதியாக, கையொப்பமிடப்பட்ட விநியோகங்கள் அறிவிலிமையம் வெளியீட்டில் பதிவேற்றப்படுகின்றன."
+
+#~ msgid ""
+#~ "This is a replacement for GPG signatures, for which support has been "
+#~ "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/"
+#~ ">`_. However, this job is not mandatory for uploading to PyPI and can be "
+#~ "omitted."
+#~ msgstr ""
+#~ "இது சிபிசி கையொப்பங்களுக்கு மாற்றாக உள்ளது, இதற்காக பைபி <https://blog.pypi.org/"
+#~ "posts/2023-05-23- removeing-pgp/> `_ இலிருந்து உதவி அகற்றப்பட்டுள்ளது. "
+#~ "இருப்பினும், இந்த வேலை PYPI இல் பதிவேற்றுவதற்கு கட்டாயமில்லை, மேலும் தவிர்க்கப்படலாம்."
 
 #~ msgid ""
 #~ "Text string that is a valid SPDX `license expression <https://peps.python."
