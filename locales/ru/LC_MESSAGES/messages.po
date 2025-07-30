@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-26 12:17+0000\n"
+"POT-Creation-Date: 2025-06-19 01:36+0000\n"
 "PO-Revision-Date: 2025-06-07 08:01+0000\n"
 "Last-Translator: da070116 <da070116@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/"
-"packaging-python-org/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
+"python-org/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5084,7 +5084,7 @@ msgid "Column"
 msgstr "Колонка"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:77
-#: ../source/specifications/core-metadata.rst:194
+#: ../source/specifications/core-metadata.rst:196
 #: ../source/specifications/well-known-project-urls.rst:106
 msgid "Description"
 msgstr "Описание"
@@ -18071,7 +18071,7 @@ msgstr ""
 "установленным пакетом, прежде чем принять его за настоящую ошибку."
 
 #: ../source/specifications/binary-distribution-format.rst:455
-#: ../source/specifications/core-metadata.rst:922
+#: ../source/specifications/core-metadata.rst:924
 #: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
 #: ../source/specifications/direct-url-data-structure.rst:407
@@ -18868,6 +18868,10 @@ msgid "Core metadata specifications"
 msgstr "Спецификации основных метаданных"
 
 #: ../source/specifications/core-metadata.rst:9
+msgid "This page describes version 2.4, approved in August 2024."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:11
 msgid ""
 "Fields defined in the following specification should be considered valid, "
 "complete and not subject to change. The required fields are:"
@@ -18876,23 +18880,23 @@ msgstr ""
 "действительными, полными и не подлежащими изменению. К обязательным полям "
 "относятся:"
 
-#: ../source/specifications/core-metadata.rst:12
+#: ../source/specifications/core-metadata.rst:14
 msgid "``Metadata-Version``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:13
+#: ../source/specifications/core-metadata.rst:15
 msgid "``Name``"
 msgstr "``Имя``"
 
-#: ../source/specifications/core-metadata.rst:14
+#: ../source/specifications/core-metadata.rst:16
 msgid "``Version``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:16
+#: ../source/specifications/core-metadata.rst:18
 msgid "All the other fields are optional."
 msgstr "Все остальные поля являются необязательными."
 
-#: ../source/specifications/core-metadata.rst:18
+#: ../source/specifications/core-metadata.rst:20
 msgid ""
 "The standard file format for metadata (including in :doc:`wheels <binary-"
 "distribution-format>` and :doc:`installed projects <recording-installed-"
@@ -18912,7 +18916,7 @@ msgstr ""
 "модуль стандартной библиотеки :mod:`python:email.parser`, используя "
 "политику :data:`~.python:email.policy.compat32`."
 
-#: ../source/specifications/core-metadata.rst:27
+#: ../source/specifications/core-metadata.rst:29
 msgid ""
 "Whenever metadata is serialised to a byte stream (for example, to save to a "
 "file), strings must be serialised using the UTF-8 encoding."
@@ -18920,7 +18924,7 @@ msgstr ""
 "При сериализации метаданных в поток байтов (например, для сохранения в файл) "
 "строки должны быть сериализованы с использованием кодировки UTF-8."
 
-#: ../source/specifications/core-metadata.rst:30
+#: ../source/specifications/core-metadata.rst:32
 msgid ""
 "Although :pep:`566` defined a way to transform metadata into a JSON-"
 "compatible dictionary, this is not yet used as a standard interchange "
@@ -18932,7 +18936,7 @@ msgstr ""
 "обмена. Необходимость работы инструментов с многолетними существующими "
 "пакетами затрудняет переход на новый формат."
 
-#: ../source/specifications/core-metadata.rst:35
+#: ../source/specifications/core-metadata.rst:37
 msgid ""
 "*Interpreting old metadata:* In :pep:`566`, the version specifier field "
 "format specification was relaxed to accept the syntax used by popular "
@@ -18948,11 +18952,11 @@ msgstr ""
 "метаданных могут захотеть использовать более мягкие правила форматирования "
 "даже для файлов метаданных, которые номинально меньше версии 2.1."
 
-#: ../source/specifications/core-metadata.rst:46
+#: ../source/specifications/core-metadata.rst:48
 msgid "Metadata-Version"
 msgstr "Metadata-Version"
 
-#: ../source/specifications/core-metadata.rst:50
+#: ../source/specifications/core-metadata.rst:52
 msgid ""
 "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
 "\"2.1\", \"2.2\", \"2.3\", and \"2.4\"."
@@ -18960,7 +18964,7 @@ msgstr ""
 "Версия формата файла; допустимые значения: «1.0», «1.1», «1.2», «2.1», "
 "«2.2», «2.3» и «2.4»."
 
-#: ../source/specifications/core-metadata.rst:53
+#: ../source/specifications/core-metadata.rst:55
 msgid ""
 "Automated tools consuming metadata SHOULD warn if ``metadata_version`` is "
 "greater than the highest version they support, and MUST fail if "
@@ -18975,7 +18979,7 @@ msgstr ""
 "(как описано в :ref:`Спецификация спецификатора версии <version-"
 "specifiers>`, основная версия - это значение перед первой точкой)."
 
-#: ../source/specifications/core-metadata.rst:60
+#: ../source/specifications/core-metadata.rst:62
 msgid ""
 "For broader compatibility, build tools MAY choose to produce distribution "
 "metadata using the lowest metadata version that includes all of the needed "
@@ -18985,38 +18989,38 @@ msgstr ""
 "метаданных дистрибутива самую низкую версию метаданных, которая включает все "
 "необходимые поля."
 
-#: ../source/specifications/core-metadata.rst:64
-#: ../source/specifications/core-metadata.rst:82
-#: ../source/specifications/core-metadata.rst:99
-#: ../source/specifications/core-metadata.rst:164
-#: ../source/specifications/core-metadata.rst:179
-#: ../source/specifications/core-metadata.rst:217
-#: ../source/specifications/core-metadata.rst:289
-#: ../source/specifications/core-metadata.rst:293
-#: ../source/specifications/core-metadata.rst:297
-#: ../source/specifications/core-metadata.rst:301
-#: ../source/specifications/core-metadata.rst:333
-#: ../source/specifications/core-metadata.rst:355
-#: ../source/specifications/core-metadata.rst:373
-#: ../source/specifications/core-metadata.rst:398
-#: ../source/specifications/core-metadata.rst:420
-#: ../source/specifications/core-metadata.rst:640
-#: ../source/specifications/core-metadata.rst:675
-#: ../source/specifications/core-metadata.rst:685
-#: ../source/specifications/core-metadata.rst:819
-#: ../source/specifications/core-metadata.rst:916
+#: ../source/specifications/core-metadata.rst:66
+#: ../source/specifications/core-metadata.rst:84
+#: ../source/specifications/core-metadata.rst:101
+#: ../source/specifications/core-metadata.rst:166
+#: ../source/specifications/core-metadata.rst:181
+#: ../source/specifications/core-metadata.rst:219
+#: ../source/specifications/core-metadata.rst:291
+#: ../source/specifications/core-metadata.rst:295
+#: ../source/specifications/core-metadata.rst:299
+#: ../source/specifications/core-metadata.rst:303
+#: ../source/specifications/core-metadata.rst:335
+#: ../source/specifications/core-metadata.rst:357
+#: ../source/specifications/core-metadata.rst:375
+#: ../source/specifications/core-metadata.rst:400
+#: ../source/specifications/core-metadata.rst:422
+#: ../source/specifications/core-metadata.rst:642
+#: ../source/specifications/core-metadata.rst:677
+#: ../source/specifications/core-metadata.rst:687
+#: ../source/specifications/core-metadata.rst:821
+#: ../source/specifications/core-metadata.rst:918
 msgid "Example::"
 msgstr "Пример::"
 
-#: ../source/specifications/core-metadata.rst:72
+#: ../source/specifications/core-metadata.rst:74
 msgid "Name"
 msgstr "Имя"
 
-#: ../source/specifications/core-metadata.rst:75
+#: ../source/specifications/core-metadata.rst:77
 msgid "Added restrictions on format from the :ref:`name format <name-format>`."
 msgstr "Добавлены ограничения на формат из :ref:`формат имени <имя-формат>`."
 
-#: ../source/specifications/core-metadata.rst:78
+#: ../source/specifications/core-metadata.rst:80
 msgid ""
 "The name of the distribution. The name field is the primary identifier for a "
 "distribution. It must conform to the :ref:`name format specification <name-"
@@ -19025,7 +19029,7 @@ msgstr ""
 "Имя дистрибутива. Поле имени является основным идентификатором дистрибутива. "
 "Оно должно соответствовать спецификации :ref:`формата имени <name-format>`."
 
-#: ../source/specifications/core-metadata.rst:86
+#: ../source/specifications/core-metadata.rst:88
 msgid ""
 "For comparison purposes, the names should be :ref:`normalized <name-"
 "normalization>` before comparing."
@@ -19033,11 +19037,11 @@ msgstr ""
 "Для сравнения имена должны быть :ref:`нормализованы <имя-нормализация>` "
 "перед сравнением."
 
-#: ../source/specifications/core-metadata.rst:91
+#: ../source/specifications/core-metadata.rst:93
 msgid "Version"
 msgstr "Версия"
 
-#: ../source/specifications/core-metadata.rst:95
+#: ../source/specifications/core-metadata.rst:97
 msgid ""
 "A string containing the distribution's version number.  This field  must be "
 "in the format specified in the :ref:`Version specifier specification "
@@ -19047,11 +19051,11 @@ msgstr ""
 "формате, указанном в :ref:`Спецификация спецификатора версии <version-"
 "specifiers>`."
 
-#: ../source/specifications/core-metadata.rst:107
+#: ../source/specifications/core-metadata.rst:109
 msgid "Dynamic (multiple use)"
 msgstr "Динамический (многократное использование)"
 
-#: ../source/specifications/core-metadata.rst:111
+#: ../source/specifications/core-metadata.rst:113
 msgid ""
 "A string containing the name of another core metadata field. The field names "
 "``Name``, ``Version``, and ``Metadata-Version`` may not be specified in this "
@@ -19060,7 +19064,7 @@ msgstr ""
 "Строка, содержащая имя другого поля метаданных ядра. Имена полей ``Name``, "
 "``Version`` и ``Metadata-Version`` не могут быть указаны в этом поле."
 
-#: ../source/specifications/core-metadata.rst:115
+#: ../source/specifications/core-metadata.rst:117
 msgid ""
 "When found in the metadata of a source distribution, the following rules "
 "apply:"
@@ -19068,7 +19072,7 @@ msgstr ""
 "При нахождении в метаданных исходного дистрибутива действуют следующие "
 "правила:"
 
-#: ../source/specifications/core-metadata.rst:118
+#: ../source/specifications/core-metadata.rst:120
 msgid ""
 "If a field is *not* marked as ``Dynamic``, then the value of the field in "
 "any wheel built from the sdist MUST match the value in the sdist. If the "
@@ -19080,7 +19084,7 @@ msgstr ""
 "поле отсутствует в sdist и не помечено как ``динамическое'', то оно НЕ "
 "ДОЛЖНО присутствовать в колесе."
 
-#: ../source/specifications/core-metadata.rst:122
+#: ../source/specifications/core-metadata.rst:124
 msgid ""
 "If a field is marked as ``Dynamic``, it may contain any valid value in a "
 "wheel built from the sdist (including not being present at all)."
@@ -19089,7 +19093,7 @@ msgstr ""
 "допустимое значение в колесе, собранном из sdist (в том числе не "
 "присутствовать вообще)."
 
-#: ../source/specifications/core-metadata.rst:125
+#: ../source/specifications/core-metadata.rst:127
 msgid ""
 "If the sdist metadata version is older than version 2.2, then all fields "
 "should be treated as if they were specified with ``Dynamic`` (i.e. there are "
@@ -19099,7 +19103,7 @@ msgstr ""
 "рассматриваться так, как если бы они были указаны с ``Dynamic`` (т.е. нет "
 "никаких специальных ограничений на метаданные колес, собранных из sdist)."
 
-#: ../source/specifications/core-metadata.rst:129
+#: ../source/specifications/core-metadata.rst:131
 msgid ""
 "In any context other than a source distribution, ``Dynamic`` is for "
 "information only, and indicates that the field value was calculated at wheel "
@@ -19111,16 +19115,16 @@ msgstr ""
 "вычислено во время сборки колеса, и может не совпадать со значением в sdist "
 "или в других колесах для проекта."
 
-#: ../source/specifications/core-metadata.rst:134
+#: ../source/specifications/core-metadata.rst:136
 msgid ""
 "Full details of the semantics of ``Dynamic`` are described in :pep:`643`."
 msgstr "Полные подробности семантики ``Dynamic`` описаны в :pep:`643`."
 
-#: ../source/specifications/core-metadata.rst:139
+#: ../source/specifications/core-metadata.rst:141
 msgid "Platform (multiple use)"
 msgstr "Platform (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:143
+#: ../source/specifications/core-metadata.rst:145
 msgid ""
 "A Platform specification describing an operating system supported by the "
 "distribution which is not listed in the \"Operating System\" Trove "
@@ -19130,25 +19134,25 @@ msgstr ""
 "дистрибутивом, которая не указана в классификаторах Trove \"Операционная "
 "система\". См. раздел \"Классификатор\" ниже."
 
-#: ../source/specifications/core-metadata.rst:147
-#: ../source/specifications/core-metadata.rst:453
-#: ../source/specifications/core-metadata.rst:474
-#: ../source/specifications/core-metadata.rst:497
-#: ../source/specifications/core-metadata.rst:526
-#: ../source/specifications/core-metadata.rst:567
-#: ../source/specifications/core-metadata.rst:623
-#: ../source/specifications/core-metadata.rst:760
-#: ../source/specifications/core-metadata.rst:790
-#: ../source/specifications/core-metadata.rst:870
-#: ../source/specifications/core-metadata.rst:892
+#: ../source/specifications/core-metadata.rst:149
+#: ../source/specifications/core-metadata.rst:455
+#: ../source/specifications/core-metadata.rst:476
+#: ../source/specifications/core-metadata.rst:499
+#: ../source/specifications/core-metadata.rst:528
+#: ../source/specifications/core-metadata.rst:569
+#: ../source/specifications/core-metadata.rst:625
+#: ../source/specifications/core-metadata.rst:762
+#: ../source/specifications/core-metadata.rst:792
+#: ../source/specifications/core-metadata.rst:872
+#: ../source/specifications/core-metadata.rst:894
 msgid "Examples::"
 msgstr "Примеры::"
 
-#: ../source/specifications/core-metadata.rst:155
+#: ../source/specifications/core-metadata.rst:157
 msgid "Supported-Platform (multiple use)"
 msgstr "Supported-Platform (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:159
+#: ../source/specifications/core-metadata.rst:161
 msgid ""
 "Binary distributions containing a PKG-INFO file will use the Supported-"
 "Platform field in their metadata to specify the OS and CPU for which the "
@@ -19160,19 +19164,19 @@ msgstr ""
 "скомпилирован бинарный дистрибутив.  Семантика поля Supported-Platform не "
 "определена в данном PEP."
 
-#: ../source/specifications/core-metadata.rst:173
+#: ../source/specifications/core-metadata.rst:175
 msgid "Summary"
 msgstr "Краткое описание"
 
-#: ../source/specifications/core-metadata.rst:177
+#: ../source/specifications/core-metadata.rst:179
 msgid "A one-line summary of what the distribution does."
 msgstr "Однострочная сводка того, что делает дистрибутив."
 
-#: ../source/specifications/core-metadata.rst:197
+#: ../source/specifications/core-metadata.rst:199
 msgid "This field may be specified in the message body instead."
 msgstr "Это поле может быть указано в теле сообщения."
 
-#: ../source/specifications/core-metadata.rst:200
+#: ../source/specifications/core-metadata.rst:202
 msgid ""
 "A longer description of the distribution that can run to several "
 "paragraphs.  Software that deals with metadata should not assume any maximum "
@@ -19184,7 +19188,7 @@ msgstr ""
 "максимальный размер этого поля, однако людям не стоит включать в описание "
 "инструкцию по эксплуатации."
 
-#: ../source/specifications/core-metadata.rst:205
+#: ../source/specifications/core-metadata.rst:207
 msgid ""
 "The contents of this field can be written using reStructuredText markup "
 "[1]_.  For programs that work with the metadata, supporting markup is "
@@ -19197,7 +19201,7 @@ msgstr ""
 "поля как есть.  Это означает, что авторы должны быть консервативны в "
 "используемой ими разметке."
 
-#: ../source/specifications/core-metadata.rst:211
+#: ../source/specifications/core-metadata.rst:213
 msgid ""
 "To support empty lines and lines with indentation with respect to the RFC "
 "822 format, any CRLF character has to be suffixed by 7 spaces followed by a "
@@ -19210,7 +19214,7 @@ msgstr ""
 "поле, которое может быть интерпретировано синтаксическим анализатором RFC822 "
 "[2]_."
 
-#: ../source/specifications/core-metadata.rst:228
+#: ../source/specifications/core-metadata.rst:230
 msgid ""
 "This encoding implies that any occurrences of a CRLF followed by 7 spaces "
 "and a pipe char have to be replaced by a single CRLF when the field is "
@@ -19220,7 +19224,7 @@ msgstr ""
 "пробелов и символ pipe, должны быть заменены одним CRLF, когда поле "
 "разворачивается с помощью устройства чтения RFC822."
 
-#: ../source/specifications/core-metadata.rst:232
+#: ../source/specifications/core-metadata.rst:234
 msgid ""
 "Alternatively, the distribution's description may instead be provided in the "
 "message body (i.e., after a completely blank line following the headers, "
@@ -19230,11 +19234,11 @@ msgstr ""
 "сообщения (т. е. после полностью пустой строки, следующей за заголовками, "
 "без отступов или другого специального форматирования)."
 
-#: ../source/specifications/core-metadata.rst:241
+#: ../source/specifications/core-metadata.rst:243
 msgid "Description-Content-Type"
 msgstr "Description-Content-Type"
 
-#: ../source/specifications/core-metadata.rst:245
+#: ../source/specifications/core-metadata.rst:247
 msgid ""
 "A string stating the markup syntax (if any) used in the distribution's "
 "description, so that tools can intelligently render the description."
@@ -19243,7 +19247,7 @@ msgstr ""
 "в описании дистрибутива, чтобы инструменты могли грамотно отобразить "
 "описание."
 
-#: ../source/specifications/core-metadata.rst:248
+#: ../source/specifications/core-metadata.rst:250
 msgid ""
 "Historically, PyPI supported descriptions in plain text and "
 "`reStructuredText (reST) <https://docutils.sourceforge.io/docs/ref/rst/"
@@ -19272,7 +19276,7 @@ msgstr ""
 "дистрибутива указать формат описания, открывая возможность для PyPI и других "
 "инструментов отображать Markdown и другие форматы."
 
-#: ../source/specifications/core-metadata.rst:261
+#: ../source/specifications/core-metadata.rst:263
 msgid ""
 "The format of this field is the same as the ``Content-Type`` header in HTTP "
 "(i.e.: `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type."
@@ -19284,27 +19288,27 @@ msgstr ""
 "Вкратце это означает, что оно имеет часть ``тип/подтип``, а затем может "
 "иметь несколько параметров:"
 
-#: ../source/specifications/core-metadata.rst:267
+#: ../source/specifications/core-metadata.rst:269
 msgid "Format::"
 msgstr "Формат::"
 
-#: ../source/specifications/core-metadata.rst:271
+#: ../source/specifications/core-metadata.rst:273
 msgid "The ``type/subtype`` part has only a few legal values:"
 msgstr "Часть ``тип/подтип`` имеет только несколько допустимых значений:"
 
-#: ../source/specifications/core-metadata.rst:273
+#: ../source/specifications/core-metadata.rst:275
 msgid "``text/plain``"
 msgstr "``text/plain``"
 
-#: ../source/specifications/core-metadata.rst:274
+#: ../source/specifications/core-metadata.rst:276
 msgid "``text/x-rst``"
 msgstr "``text/x-rst``"
 
-#: ../source/specifications/core-metadata.rst:275
+#: ../source/specifications/core-metadata.rst:277
 msgid "``text/markdown``"
 msgstr "``text/markdown``"
 
-#: ../source/specifications/core-metadata.rst:277
+#: ../source/specifications/core-metadata.rst:279
 msgid ""
 "The ``charset`` parameter can be used to specify the character encoding of "
 "the description. The only legal value is ``UTF-8``. If omitted, it is "
@@ -19314,7 +19318,7 @@ msgstr ""
 "Единственным допустимым значением является ``UTF-8``. Если значение опущено, "
 "то предполагается, что оно равно ``UTF-8``."
 
-#: ../source/specifications/core-metadata.rst:281
+#: ../source/specifications/core-metadata.rst:283
 msgid ""
 "Other parameters might be specific to the chosen subtype. For example, for "
 "the ``markdown`` subtype, there is an optional ``variant`` parameter that "
@@ -19326,15 +19330,15 @@ msgstr ""
 "позволяет указать используемый вариант Markdown (по умолчанию ``GFM``, если "
 "не указан). В настоящее время распознаются два варианта:"
 
-#: ../source/specifications/core-metadata.rst:286
+#: ../source/specifications/core-metadata.rst:288
 msgid "``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`"
 msgstr "``GFM`` для :rfc:``GitHub-flavored Markdown <7764#section-3.2>`"
 
-#: ../source/specifications/core-metadata.rst:287
+#: ../source/specifications/core-metadata.rst:289
 msgid "``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`"
 msgstr "``CommonMark`` для :rfc:``CommonMark <7764#section-3.5>`"
 
-#: ../source/specifications/core-metadata.rst:305
+#: ../source/specifications/core-metadata.rst:307
 msgid ""
 "If a ``Description-Content-Type`` is not specified, then applications should "
 "attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to "
@@ -19344,7 +19348,7 @@ msgstr ""
 "отобразить его как ``text/x-rst; charset=UTF-8`` и вернуться к ``text/"
 "plain``, если он не является корректным rst."
 
-#: ../source/specifications/core-metadata.rst:309
+#: ../source/specifications/core-metadata.rst:311
 msgid ""
 "If a ``Description-Content-Type`` is an unrecognized value, then the assumed "
 "content type is ``text/plain`` (Although PyPI will probably reject anything "
@@ -19354,7 +19358,7 @@ msgstr ""
 "предполагаемый тип содержимого - ``text/plain`` (хотя PyPI, вероятно, "
 "отклонит все, что имеет нераспознанное значение)."
 
-#: ../source/specifications/core-metadata.rst:313
+#: ../source/specifications/core-metadata.rst:315
 msgid ""
 "If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is "
 "not specified or is set to an unrecognized value, then the assumed "
@@ -19364,7 +19368,7 @@ msgstr ""
 "``вариант`` не указан или имеет нераспознанное значение, то предполагаемым "
 "``вариантом`` будет ``GFM``."
 
-#: ../source/specifications/core-metadata.rst:317
+#: ../source/specifications/core-metadata.rst:319
 msgid ""
 "So for the last example above, the ``charset`` defaults to ``UTF-8`` and the "
 "``variant`` defaults to ``GFM`` and thus it is equivalent to the example "
@@ -19374,11 +19378,11 @@ msgstr ""
 "значение ``UTF-8``, а ``variant`` принимает значение ``GFM``, и поэтому он "
 "эквивалентен предыдущему примеру."
 
-#: ../source/specifications/core-metadata.rst:326
+#: ../source/specifications/core-metadata.rst:328
 msgid "Keywords"
 msgstr "Ключевые слова"
 
-#: ../source/specifications/core-metadata.rst:330
+#: ../source/specifications/core-metadata.rst:332
 msgid ""
 "A list of additional keywords, separated by commas, to be used to assist "
 "searching for the distribution in a larger catalog."
@@ -19386,7 +19390,7 @@ msgstr ""
 "Список дополнительных ключевых слов, разделенных запятыми, которые будут "
 "использоваться для облегчения поиска дистрибутива в большом каталоге."
 
-#: ../source/specifications/core-metadata.rst:339
+#: ../source/specifications/core-metadata.rst:341
 msgid ""
 "The specification previously showed keywords separated by spaces, but "
 "distutils and setuptools implemented it with commas. These tools have been "
@@ -19398,11 +19402,11 @@ msgstr ""
 "используются уже много лет, поэтому было проще обновить спецификацию, чтобы "
 "она соответствовала стандарту де-факто."
 
-#: ../source/specifications/core-metadata.rst:348
+#: ../source/specifications/core-metadata.rst:350
 msgid "Author"
 msgstr "Автор"
 
-#: ../source/specifications/core-metadata.rst:352
+#: ../source/specifications/core-metadata.rst:354
 msgid ""
 "A string containing the author's name at a minimum; additional contact "
 "information may be provided."
@@ -19410,11 +19414,11 @@ msgstr ""
 "Строка, содержащая, как минимум, имя автора; может быть указана "
 "дополнительная контактная информация."
 
-#: ../source/specifications/core-metadata.rst:365
+#: ../source/specifications/core-metadata.rst:367
 msgid "Author-email"
 msgstr "Author-email"
 
-#: ../source/specifications/core-metadata.rst:369
+#: ../source/specifications/core-metadata.rst:371
 msgid ""
 "A string containing the author's e-mail address.  It can contain a name and "
 "e-mail address in the legal forms for a RFC-822 ``From:`` header."
@@ -19422,8 +19426,8 @@ msgstr ""
 "Строка, содержащая адрес электронной почты автора.  Может содержать имя и "
 "адрес электронной почты в законных формах для заголовка RFC-822 ``From:``."
 
-#: ../source/specifications/core-metadata.rst:377
-#: ../source/specifications/core-metadata.rst:424
+#: ../source/specifications/core-metadata.rst:379
+#: ../source/specifications/core-metadata.rst:426
 msgid ""
 "Per RFC-822, this field may contain multiple comma-separated e-mail "
 "addresses::"
@@ -19431,11 +19435,11 @@ msgstr ""
 "Согласно RFC-822, это поле может содержать несколько адресов электронной "
 "почты, разделенных запятыми::"
 
-#: ../source/specifications/core-metadata.rst:387
+#: ../source/specifications/core-metadata.rst:389
 msgid "Maintainer"
 msgstr "Сопровождающий"
 
-#: ../source/specifications/core-metadata.rst:391
+#: ../source/specifications/core-metadata.rst:393
 msgid ""
 "A string containing the maintainer's name at a minimum; additional contact "
 "information may be provided."
@@ -19443,7 +19447,7 @@ msgstr ""
 "Строка, содержащая, как минимум, имя сопровождающего; может быть "
 "предоставлена дополнительная контактная информация."
 
-#: ../source/specifications/core-metadata.rst:394
+#: ../source/specifications/core-metadata.rst:396
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
@@ -19453,11 +19457,11 @@ msgstr ""
 "проект поддерживается кем-то, кроме оригинального автора: его следует "
 "опустить, если оно идентично ``Author``."
 
-#: ../source/specifications/core-metadata.rst:408
+#: ../source/specifications/core-metadata.rst:410
 msgid "Maintainer-email"
 msgstr "Maintainer-email"
 
-#: ../source/specifications/core-metadata.rst:412
+#: ../source/specifications/core-metadata.rst:414
 msgid ""
 "A string containing the maintainer's e-mail address.  It can contain a name "
 "and e-mail address in the legal forms for a RFC-822 ``From:`` header."
@@ -19466,7 +19470,7 @@ msgstr ""
 "имя и адрес электронной почты в законных формах для заголовка RFC-822 ``From:"
 "``."
 
-#: ../source/specifications/core-metadata.rst:416
+#: ../source/specifications/core-metadata.rst:418
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
@@ -19476,15 +19480,15 @@ msgstr ""
 "проект поддерживается кем-то, кроме оригинального автора: оно должно быть "
 "опущено, если оно идентично ``Author-email``."
 
-#: ../source/specifications/core-metadata.rst:434
+#: ../source/specifications/core-metadata.rst:436
 msgid "License"
 msgstr "Лицензия"
 
-#: ../source/specifications/core-metadata.rst:437
+#: ../source/specifications/core-metadata.rst:439
 msgid "in favour of ``License-Expression``."
 msgstr "в пользу ``лицензии-выражения``."
 
-#: ../source/specifications/core-metadata.rst:441
+#: ../source/specifications/core-metadata.rst:443
 msgid ""
 "As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually "
 "exclusive. If both are specified, tools which parse metadata will disregard "
@@ -19497,7 +19501,7 @@ msgstr ""
 "загрузки. Смотрите `PEP 639 <https://peps.python.org/pep-0639/#deprecate-"
 "license-field>`__."
 
-#: ../source/specifications/core-metadata.rst:446
+#: ../source/specifications/core-metadata.rst:448
 msgid ""
 "Text indicating the license covering the distribution where the license is "
 "not a selection from the \"License\" Trove classifiers. See :ref:"
@@ -19513,11 +19517,11 @@ msgstr ""
 "``Классификатор'', или для указания разновидности или исключения из такой "
 "лицензии."
 
-#: ../source/specifications/core-metadata.rst:466
+#: ../source/specifications/core-metadata.rst:468
 msgid "License-Expression"
 msgstr "License-Expression"
 
-#: ../source/specifications/core-metadata.rst:470
+#: ../source/specifications/core-metadata.rst:472
 #, fuzzy
 #| msgid ""
 #| "Text string that is a valid SPDX license expression as defined in :pep:"
@@ -19531,11 +19535,11 @@ msgstr ""
 "как определено в :pep:`639`. Инструменты ДОЛЖНЫ проверять и выполнять "
 "нормализацию регистра выражения."
 
-#: ../source/specifications/core-metadata.rst:489
+#: ../source/specifications/core-metadata.rst:491
 msgid "License-File (multiple use)"
 msgstr "Лицензия-файл (многократное использование)"
 
-#: ../source/specifications/core-metadata.rst:493
+#: ../source/specifications/core-metadata.rst:495
 msgid ""
 "Each entry is a string representation of the path of a license-related file. "
 "The path is located within the project source tree, relative to the project "
@@ -19545,11 +19549,11 @@ msgstr ""
 "связанному с лицензией. Путь находится в дереве исходных текстов проекта, "
 "относительно корневого каталога проекта. Подробности см. в :pep:`639`."
 
-#: ../source/specifications/core-metadata.rst:510
+#: ../source/specifications/core-metadata.rst:512
 msgid "Classifier (multiple use)"
 msgstr "Classifier (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:514
+#: ../source/specifications/core-metadata.rst:516
 msgid ""
 "Each entry is a string giving a single classification value for the "
 "distribution.  Classifiers are described in :pep:`301`, and the Python "
@@ -19561,7 +19565,7 @@ msgstr ""
 "Index публикует динамический список `определенных в данный момент "
 "классификаторов` <https://pypi.org/classifiers/>`__."
 
-#: ../source/specifications/core-metadata.rst:520
+#: ../source/specifications/core-metadata.rst:522
 msgid ""
 "The use of ``License ::`` classifiers  is deprecated as of Metadata 2.4, use "
 "``License-Expression`` instead. See `PEP 639 <https://peps.python.org/"
@@ -19571,21 +19575,21 @@ msgstr ""
 "Metadata 2.4, вместо них используйте ``License-Expression``. См. `PEP 639 "
 "<https://peps.python.org/pep-0639/#deprecate-license-classifiers>`_."
 
-#: ../source/specifications/core-metadata.rst:524
-#: ../source/specifications/core-metadata.rst:614
-#: ../source/specifications/core-metadata.rst:758
-#: ../source/specifications/core-metadata.rst:783
+#: ../source/specifications/core-metadata.rst:526
+#: ../source/specifications/core-metadata.rst:616
+#: ../source/specifications/core-metadata.rst:760
+#: ../source/specifications/core-metadata.rst:785
 msgid "This field may be followed by an environment marker after a semicolon."
 msgstr "За этим полем может следовать маркер окружения после точки с запятой."
 
-#: ../source/specifications/core-metadata.rst:535
+#: ../source/specifications/core-metadata.rst:537
 msgid "Requires-Dist (multiple use)"
 msgstr "Requires-Dist (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:538
-#: ../source/specifications/core-metadata.rst:601
-#: ../source/specifications/core-metadata.rst:730
-#: ../source/specifications/core-metadata.rst:772
+#: ../source/specifications/core-metadata.rst:540
+#: ../source/specifications/core-metadata.rst:603
+#: ../source/specifications/core-metadata.rst:732
+#: ../source/specifications/core-metadata.rst:774
 msgid ""
 "The field format specification was relaxed to accept the syntax used by "
 "popular publishing tools."
@@ -19593,7 +19597,7 @@ msgstr ""
 "Спецификация формата полей была смягчена, чтобы принять синтаксис, "
 "используемый популярными издательскими инструментами."
 
-#: ../source/specifications/core-metadata.rst:542
+#: ../source/specifications/core-metadata.rst:544
 msgid ""
 "Each entry contains a string naming some other distutils project required by "
 "this distribution."
@@ -19601,11 +19605,11 @@ msgstr ""
 "Каждая запись содержит строку с названием другого проекта distutils, "
 "необходимого для данного дистрибутива."
 
-#: ../source/specifications/core-metadata.rst:545
+#: ../source/specifications/core-metadata.rst:547
 msgid "The format of a requirement string contains from one to four parts:"
 msgstr "Формат строки требований содержит от одной до четырех частей:"
 
-#: ../source/specifications/core-metadata.rst:547
+#: ../source/specifications/core-metadata.rst:549
 msgid ""
 "A project name, in the same format as the ``Name:`` field. The only "
 "mandatory part."
@@ -19613,7 +19617,7 @@ msgstr ""
 "Название проекта в том же формате, что и поле ``Имя:``. Единственная "
 "обязательная часть."
 
-#: ../source/specifications/core-metadata.rst:549
+#: ../source/specifications/core-metadata.rst:551
 msgid ""
 "A comma-separated list of 'extra' names. These are defined by the required "
 "project, referring to specific features which may need extra dependencies. "
@@ -19625,7 +19629,7 @@ msgstr ""
 "потребоваться дополнительные зависимости. Имена ДОЛЖНЫ соответствовать "
 "ограничениям, указанным в поле ``Provides-Extra:``."
 
-#: ../source/specifications/core-metadata.rst:553
+#: ../source/specifications/core-metadata.rst:555
 msgid ""
 "A version specifier. Tools parsing the format should accept optional "
 "parentheses around this, but tools generating it should not use parentheses."
@@ -19634,7 +19638,7 @@ msgstr ""
 "необязательные круглые скобки вокруг него, но инструменты, генерирующие его, "
 "не должны использовать круглые скобки."
 
-#: ../source/specifications/core-metadata.rst:556
+#: ../source/specifications/core-metadata.rst:558
 msgid ""
 "An environment marker after a semicolon. This means that the requirement is "
 "only needed in the specified conditions."
@@ -19642,11 +19646,11 @@ msgstr ""
 "Маркер окружения после точки с запятой. Это означает, что требование "
 "необходимо только в указанных условиях."
 
-#: ../source/specifications/core-metadata.rst:559
+#: ../source/specifications/core-metadata.rst:561
 msgid "See :pep:`508` for full details of the allowed format."
 msgstr "Подробную информацию о допустимом формате см. в :pep:`508`."
 
-#: ../source/specifications/core-metadata.rst:561
+#: ../source/specifications/core-metadata.rst:563
 msgid ""
 "The project names should correspond to names as found on the `Python Package "
 "Index`_."
@@ -19654,7 +19658,7 @@ msgstr ""
 "Имена проектов должны соответствовать именам, найденным в `Python Package "
 "Index`_."
 
-#: ../source/specifications/core-metadata.rst:564
+#: ../source/specifications/core-metadata.rst:566
 msgid ""
 "Version specifiers must follow the rules described in :doc:`version-"
 "specifiers`."
@@ -19662,11 +19666,11 @@ msgstr ""
 "Спецификаторы версий должны следовать правилам, описанным в :doc:`version-"
 "specifiers`."
 
-#: ../source/specifications/core-metadata.rst:578
+#: ../source/specifications/core-metadata.rst:580
 msgid "Requires-Python"
 msgstr "Requires-Python"
 
-#: ../source/specifications/core-metadata.rst:582
+#: ../source/specifications/core-metadata.rst:584
 msgid ""
 "This field specifies the Python version(s) that the distribution is "
 "compatible with. Installation tools may look at this when picking which "
@@ -19676,11 +19680,11 @@ msgstr ""
 "дистрибутив. Утилиты установки могут учитывать это поле при выборе версии "
 "проекта для установки."
 
-#: ../source/specifications/core-metadata.rst:586
+#: ../source/specifications/core-metadata.rst:588
 msgid "The value must be in the format specified in :doc:`version-specifiers`."
 msgstr "Значение должно быть в формате, указанном в :doc:`version-specifiers`."
 
-#: ../source/specifications/core-metadata.rst:588
+#: ../source/specifications/core-metadata.rst:590
 msgid ""
 "For example, if a distribution uses :ref:`f-strings <whatsnew36-pep498>` "
 "then it may prevent installation on Python < 3.6 by specifying::"
@@ -19688,15 +19692,15 @@ msgstr ""
 "Например, если дистрибутив использует :ref:`f-strings <whatsnew36-pep498>`, "
 "то он может предотвратить установку на Python < 3.6, указав::"
 
-#: ../source/specifications/core-metadata.rst:593
+#: ../source/specifications/core-metadata.rst:595
 msgid "This field cannot be followed by an environment marker."
 msgstr "За этим полем не может следовать маркер окружения."
 
-#: ../source/specifications/core-metadata.rst:598
+#: ../source/specifications/core-metadata.rst:600
 msgid "Requires-External (multiple use)"
 msgstr "Requires-External (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:605
+#: ../source/specifications/core-metadata.rst:607
 msgid ""
 "Each entry contains a string describing some dependency in the system that "
 "the distribution is to be used.  This field is intended to serve as a hint "
@@ -19708,7 +19712,7 @@ msgstr ""
 "сопровождающих проектов и не имеет семантики, значимой для дистрибутива "
 "``distutils``."
 
-#: ../source/specifications/core-metadata.rst:610
+#: ../source/specifications/core-metadata.rst:612
 msgid ""
 "The format of a requirement string is a name of an external dependency, "
 "optionally followed by a version declaration within parentheses."
@@ -19716,7 +19720,7 @@ msgstr ""
 "Формат строки требований - это имя внешней зависимости, за которым в круглых "
 "скобках по желанию следует объявление версии."
 
-#: ../source/specifications/core-metadata.rst:616
+#: ../source/specifications/core-metadata.rst:618
 msgid ""
 "Because they refer to non-Python software releases, version numbers for this "
 "field are **not** required to conform to the format specified in the :ref:"
@@ -19728,17 +19732,17 @@ msgstr ""
 "указанному в :ref:`Спецификация спецификатора версии <version-specifiers>`: "
 "они должны соответствовать схеме версий, используемой внешней зависимостью."
 
-#: ../source/specifications/core-metadata.rst:621
+#: ../source/specifications/core-metadata.rst:623
 msgid "Notice that there is no particular rule on the strings to be used."
 msgstr ""
 "Обратите внимание, что нет никаких особых правил относительно используемых "
 "строк."
 
-#: ../source/specifications/core-metadata.rst:633
+#: ../source/specifications/core-metadata.rst:635
 msgid "Project-URL (multiple-use)"
 msgstr "Project-URL (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:637
+#: ../source/specifications/core-metadata.rst:639
 msgid ""
 "A string containing a browsable URL for the project and a label for it, "
 "separated by a comma."
@@ -19746,12 +19750,12 @@ msgstr ""
 "Строка, содержащая просматриваемый URL-адрес проекта и его метку, "
 "разделенные запятой."
 
-#: ../source/specifications/core-metadata.rst:644
+#: ../source/specifications/core-metadata.rst:646
 msgid "The label is free text limited to 32 characters."
 msgstr ""
 "Этикетка представляет собой свободный текст, ограниченный 32 символами."
 
-#: ../source/specifications/core-metadata.rst:646
+#: ../source/specifications/core-metadata.rst:648
 msgid ""
 "Starting with :pep:`753`, project metadata consumers (such as the Python "
 "Package Index) can use a standard normalization process to discover \"well-"
@@ -19763,11 +19767,11 @@ msgstr ""
 "обнаружения «известных» меток, которые затем могут быть представлены в "
 "особом виде при выводе на экран. См. :ref:`well-known-project-urls`."
 
-#: ../source/specifications/core-metadata.rst:656
+#: ../source/specifications/core-metadata.rst:658
 msgid "Provides-Extra (multiple use)"
 msgstr "Provides-Extra (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:659
+#: ../source/specifications/core-metadata.rst:661
 msgid ""
 ":pep:`685` restricted valid values to be unambiguous (i.e. no normalization "
 "required). For older metadata versions, value restrictions were brought into "
@@ -19778,7 +19782,7 @@ msgstr ""
 "ограничения на значения были приведены в соответствие с ``Name:`` и были "
 "введены правила нормализации."
 
-#: ../source/specifications/core-metadata.rst:664
+#: ../source/specifications/core-metadata.rst:666
 msgid ""
 "A string containing the name of an optional feature. A valid name consists "
 "only of lowercase ASCII letters, ASCII numbers, and hyphen. It must start "
@@ -19792,7 +19796,7 @@ msgstr ""
 "Имена ограничиваются теми, которые соответствуют следующему регексу (который "
 "гарантирует однозначность)::"
 
-#: ../source/specifications/core-metadata.rst:672
+#: ../source/specifications/core-metadata.rst:674
 msgid ""
 "The specified name may be used to make a dependency conditional on whether "
 "the optional feature has been requested."
@@ -19800,7 +19804,7 @@ msgstr ""
 "Указанное имя можно использовать, чтобы сделать зависимость зависимой от "
 "того, была ли запрошена необязательная функция."
 
-#: ../source/specifications/core-metadata.rst:680
+#: ../source/specifications/core-metadata.rst:682
 msgid ""
 "A second distribution requires an optional dependency by placing it inside "
 "square brackets, and can request multiple features by separating them with a "
@@ -19812,7 +19816,7 @@ msgstr ""
 "(,). Требования оцениваются для каждой запрошенной функции и добавляются к "
 "набору требований для дистрибутива."
 
-#: ../source/specifications/core-metadata.rst:690
+#: ../source/specifications/core-metadata.rst:692
 msgid ""
 "Two feature names ``test`` and ``doc`` are reserved to mark dependencies "
 "that are needed for running automated tests and generating documentation, "
@@ -19822,7 +19826,7 @@ msgstr ""
 "зависимостей, необходимых для выполнения автоматизированных тестов и "
 "создания документации, соответственно."
 
-#: ../source/specifications/core-metadata.rst:694
+#: ../source/specifications/core-metadata.rst:696
 msgid ""
 "It is legal to specify ``Provides-Extra:`` without referencing it in any "
 "``Requires-Dist:``."
@@ -19830,7 +19834,7 @@ msgstr ""
 "Разрешается указывать ``Provides-Extra:`` без ссылки на него в каком-либо "
 "``Requires-Dist:``."
 
-#: ../source/specifications/core-metadata.rst:697
+#: ../source/specifications/core-metadata.rst:699
 msgid ""
 "When writing data for older metadata versions, names MUST be normalized "
 "following the same rules used for the ``Name:`` field when performing "
@@ -19842,7 +19846,7 @@ msgstr ""
 "при выполнении сравнений. Средства записи метаданных ДОЛЖНЫ выдавать ошибку, "
 "если две записи ``Provides-Extra:`` будут конфликтовать после нормализации."
 
-#: ../source/specifications/core-metadata.rst:702
+#: ../source/specifications/core-metadata.rst:704
 msgid ""
 "When reading data for older metadata versions, tools SHOULD warn when values "
 "for this field would be invalid under newer metadata versions. If a value "
@@ -19859,11 +19863,11 @@ msgstr ""
 "Инструментальные средства МОГУТ выдавать ошибку при чтении недопустимого "
 "имени для старых версий метаданных."
 
-#: ../source/specifications/core-metadata.rst:710
+#: ../source/specifications/core-metadata.rst:712
 msgid "Rarely Used Fields"
 msgstr "Редко используемые поля"
 
-#: ../source/specifications/core-metadata.rst:712
+#: ../source/specifications/core-metadata.rst:714
 msgid ""
 "The fields in this section are currently rarely used, as their design was "
 "inspired by comparable mechanisms in Linux package management systems, and "
@@ -19876,7 +19880,7 @@ msgstr ""
 "интерпретировать их в контексте открытого индексного сервера, такого как "
 "`PyPI <https://pypi.org>`__."
 
-#: ../source/specifications/core-metadata.rst:717
+#: ../source/specifications/core-metadata.rst:719
 msgid ""
 "As a result, popular installation tools ignore them completely, which in "
 "turn means there is little incentive for package publishers to set them "
@@ -19892,11 +19896,11 @@ msgstr ""
 "использованы по своему первоначальному назначению в сочетании с курируемым "
 "репозиторием пакетов."
 
-#: ../source/specifications/core-metadata.rst:727
+#: ../source/specifications/core-metadata.rst:729
 msgid "Provides-Dist (multiple use)"
 msgstr "Provides-Dist (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:734
+#: ../source/specifications/core-metadata.rst:736
 msgid ""
 "Each entry contains a string naming a Distutils project which is contained "
 "within this distribution.  This field *must* include the project identified "
@@ -19906,7 +19910,7 @@ msgstr ""
 "содержится в этом дистрибутиве.  Это поле *должно* включать проект, "
 "указанный в поле ``Имя``, за которым следует версия : Имя (Версия)."
 
-#: ../source/specifications/core-metadata.rst:739
+#: ../source/specifications/core-metadata.rst:741
 msgid ""
 "A distribution may provide additional names, e.g. to indicate that multiple "
 "projects have been bundled together.  For instance, source distributions of "
@@ -19921,7 +19925,7 @@ msgstr ""
 "исходного дистрибутива удовлетворяет требованиям как для ``ZODB``, так и для "
 "``transaction``."
 
-#: ../source/specifications/core-metadata.rst:746
+#: ../source/specifications/core-metadata.rst:748
 msgid ""
 "A distribution may also provide a \"virtual\" project name, which does not "
 "correspond to any separately-distributed project:  such a name might be used "
@@ -19940,7 +19944,7 @@ msgstr ""
 "позволяя другим проектам зависеть только от наличия хотя бы одной из этих "
 "привязок."
 
-#: ../source/specifications/core-metadata.rst:754
+#: ../source/specifications/core-metadata.rst:756
 msgid ""
 "A version declaration may be supplied and must follow the rules described "
 "in :doc:`version-specifiers`. The distribution's version number will be "
@@ -19950,11 +19954,11 @@ msgstr ""
 "правилам, описанным в :doc:`version-specifiers`. Номер версии дистрибутива "
 "будет подразумеваться, если он не указан."
 
-#: ../source/specifications/core-metadata.rst:769
+#: ../source/specifications/core-metadata.rst:771
 msgid "Obsoletes-Dist (multiple use)"
 msgstr "Obsoletes-Dist (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:776
+#: ../source/specifications/core-metadata.rst:778
 msgid ""
 "Each entry contains a string describing a distutils project's distribution "
 "which this distribution renders obsolete, meaning that the two projects "
@@ -19964,7 +19968,7 @@ msgstr ""
 "который этот дистрибутив делает устаревшим, что означает, что эти два "
 "проекта не должны быть установлены одновременно."
 
-#: ../source/specifications/core-metadata.rst:780
+#: ../source/specifications/core-metadata.rst:782
 msgid ""
 "Version declarations can be supplied.  Version numbers must be in the format "
 "specified in :doc:`version-specifiers`."
@@ -19972,7 +19976,7 @@ msgstr ""
 "Декларации версий могут быть предоставлены.  Номера версий должны быть в "
 "формате, указанном в :doc:`version-specifiers`."
 
-#: ../source/specifications/core-metadata.rst:785
+#: ../source/specifications/core-metadata.rst:787
 msgid ""
 "The most common use of this field will be in case a project name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -19982,11 +19986,11 @@ msgstr ""
 "например, когда Gorgon 2.3 переходит в Torqued Python 1.0. При установке "
 "Torqued Python дистрибутив Gorgon должен быть удален."
 
-#: ../source/specifications/core-metadata.rst:798
+#: ../source/specifications/core-metadata.rst:800
 msgid "Deprecated Fields"
 msgstr "Утраченные поля"
 
-#: ../source/specifications/core-metadata.rst:800
+#: ../source/specifications/core-metadata.rst:802
 msgid ""
 "Deprecated fields should be avoided, but they are valid metadata fields. "
 "They may be removed in future versions of the core metadata standard (at "
@@ -20000,26 +20004,26 @@ msgstr ""
 "указана версия метаданных, предшествующая удалению). Инструменты ДОЛЖНЫ "
 "предупреждать пользователей об использовании устаревших полей."
 
-#: ../source/specifications/core-metadata.rst:809
+#: ../source/specifications/core-metadata.rst:811
 msgid "Home-page"
 msgstr "Home-page"
 
-#: ../source/specifications/core-metadata.rst:815
-#: ../source/specifications/core-metadata.rst:832
+#: ../source/specifications/core-metadata.rst:817
+#: ../source/specifications/core-metadata.rst:834
 msgid "Per :pep:`753`, use :ref:`core-metadata-project-url` instead."
 msgstr ""
 "Согласно :pep:`753`, вместо этого используйте :ref:`core-metadata-project-"
 "url`."
 
-#: ../source/specifications/core-metadata.rst:817
+#: ../source/specifications/core-metadata.rst:819
 msgid "A string containing the URL for the distribution's home page."
 msgstr "Строка, содержащая URL-адрес главной страницы дистрибутива."
 
-#: ../source/specifications/core-metadata.rst:826
+#: ../source/specifications/core-metadata.rst:828
 msgid "Download-URL"
 msgstr "Download-URL"
 
-#: ../source/specifications/core-metadata.rst:834
+#: ../source/specifications/core-metadata.rst:836
 msgid ""
 "A string containing the URL from which this version of the distribution can "
 "be downloaded.  (This means that the URL can't be something like \"``.../"
@@ -20031,15 +20035,15 @@ msgstr ""
 "BeagleVote-latest.tgz``», а вместо этого должен быть «``.../BeagleVote-0.45."
 "tgz``».)"
 
-#: ../source/specifications/core-metadata.rst:840
+#: ../source/specifications/core-metadata.rst:842
 msgid "Requires"
 msgstr "Требуется"
 
-#: ../source/specifications/core-metadata.rst:843
+#: ../source/specifications/core-metadata.rst:845
 msgid "in favour of ``Requires-Dist``"
 msgstr "в пользу ``Requires-Dist``"
 
-#: ../source/specifications/core-metadata.rst:846
+#: ../source/specifications/core-metadata.rst:848
 msgid ""
 "Each entry contains a string describing some other module or package "
 "required by this package."
@@ -20047,7 +20051,7 @@ msgstr ""
 "Каждая запись содержит строку, описывающую другой модуль или пакет, "
 "необходимый для данного пакета."
 
-#: ../source/specifications/core-metadata.rst:849
+#: ../source/specifications/core-metadata.rst:851
 msgid ""
 "The format of a requirement string is identical to that of a module or "
 "package name usable with the ``import`` statement, optionally followed by a "
@@ -20057,7 +20061,7 @@ msgstr ""
 "используемого с помощью оператора ``импорта``, за которым в круглых скобках "
 "по желанию следует объявление версии."
 
-#: ../source/specifications/core-metadata.rst:853
+#: ../source/specifications/core-metadata.rst:855
 msgid ""
 "A version declaration is a series of conditional operators and version "
 "numbers, separated by commas. Conditional operators must be one of \"<\", "
@@ -20075,7 +20079,7 @@ msgstr ""
 "конце, состоящим из буквы 'a' или 'b', за которой следует число. Примеры "
 "номеров версий: \"1.0\", \"2.3a2\", \"1.3.99\","
 
-#: ../source/specifications/core-metadata.rst:861
+#: ../source/specifications/core-metadata.rst:863
 msgid ""
 "Any number of conditional operators can be specified, e.g. the string "
 "\">1.0, !=1.3.4, <2.0\" is a legal version declaration."
@@ -20083,7 +20087,7 @@ msgstr ""
 "Можно указать любое количество условных операторов, например, строка "
 "\">1.0, !=1.3.4, <2.0\" является законным объявлением версии."
 
-#: ../source/specifications/core-metadata.rst:864
+#: ../source/specifications/core-metadata.rst:866
 msgid ""
 "All of the following are possible requirement strings: \"rfc822\", \"zlib "
 "(>=1.1.4)\", \"zope\"."
@@ -20091,7 +20095,7 @@ msgstr ""
 "Возможными строками требований являются все следующие: \"rfc822\", \"zlib "
 "(>=1.1.4)\", \"zope\"."
 
-#: ../source/specifications/core-metadata.rst:867
+#: ../source/specifications/core-metadata.rst:869
 msgid ""
 "There’s no canonical list of what strings should be used; the Python "
 "community is left to choose its own standards."
@@ -20099,15 +20103,15 @@ msgstr ""
 "Не существует канонического списка того, какие строки должны использоваться; "
 "сообщество Python оставляет за собой право выбирать собственные стандарты."
 
-#: ../source/specifications/core-metadata.rst:880
+#: ../source/specifications/core-metadata.rst:882
 msgid "Provides"
 msgstr "Предоставляет"
 
-#: ../source/specifications/core-metadata.rst:883
+#: ../source/specifications/core-metadata.rst:885
 msgid "in favour of ``Provides-Dist``"
 msgstr "в пользу ``Provides-Dist``"
 
-#: ../source/specifications/core-metadata.rst:886
+#: ../source/specifications/core-metadata.rst:888
 msgid ""
 "Each entry contains a string describing a package or module that will be "
 "provided by this package once it is installed. These strings should match "
@@ -20121,15 +20125,15 @@ msgstr ""
 "версии (без оператора сравнения); номер версии пакета будет подразумеваться, "
 "если он не указан."
 
-#: ../source/specifications/core-metadata.rst:902
+#: ../source/specifications/core-metadata.rst:904
 msgid "Obsoletes"
 msgstr "Обзоры"
 
-#: ../source/specifications/core-metadata.rst:905
+#: ../source/specifications/core-metadata.rst:907
 msgid "in favour of ``Obsoletes-Dist``"
 msgstr "в пользу ``Obsoletes-Dist``"
 
-#: ../source/specifications/core-metadata.rst:908
+#: ../source/specifications/core-metadata.rst:910
 msgid ""
 "Each entry contains a string describing a package or module that this "
 "package renders obsolete, meaning that the two packages should not be "
@@ -20139,7 +20143,7 @@ msgstr ""
 "пакет делает устаревшим, что означает, что эти два пакета не должны быть "
 "установлены одновременно. Могут быть предоставлены объявления версий."
 
-#: ../source/specifications/core-metadata.rst:912
+#: ../source/specifications/core-metadata.rst:914
 msgid ""
 "The most common use of this field will be in case a package name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -20149,67 +20153,67 @@ msgstr ""
 "например, Gorgon 2.3 переходит в Torqued Python 1.0. При установке Torqued "
 "Python пакет Gorgon должен быть удален."
 
-#: ../source/specifications/core-metadata.rst:924
-msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
-msgstr "Март 2001: Core metadata 1.0 был одобрен через :pep:`241`."
-
-#: ../source/specifications/core-metadata.rst:925
-msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
-msgstr "Апрель 2003 года: Core metadata 1.1 был одобрен через :pep:`314`:"
-
 #: ../source/specifications/core-metadata.rst:926
-msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
-msgstr "Февраль 2010 г: Core metadata 1.2 был одобрен через :pep:`345`."
-
-#: ../source/specifications/core-metadata.rst:927
-msgid "February 2018: Core metadata 2.1 was approved through :pep:`566`."
-msgstr "Февраль 2018 г: Core metadata 2.1 был одобрен через :pep:`566`."
-
-#: ../source/specifications/core-metadata.rst:929
-msgid "Added ``Description-Content-Type`` and ``Provides-Extra``."
-msgstr "Добавлены ``Description-Content-Type`` и ``Provides-Extra``."
-
-#: ../source/specifications/core-metadata.rst:930
-msgid "Added canonical method for transforming metadata to JSON."
-msgstr "Добавлен метод canonical для преобразования метаданных в JSON."
-
-#: ../source/specifications/core-metadata.rst:931
-msgid "Restricted the grammar of the ``Name`` field."
-msgstr "Ограничение грамматики поля ``Имя``."
-
-#: ../source/specifications/core-metadata.rst:933
-msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
-msgstr "Октябрь 2020 года: Core metadata 2.2 был одобрен через :pep:`643`."
-
-#: ../source/specifications/core-metadata.rst:935
-msgid "Added the ``Dynamic`` field."
-msgstr "Добавлено поле ``Динамика``."
-
-#: ../source/specifications/core-metadata.rst:937
-msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
-msgstr "Март 2022: Core metadata 2.3 был одобрен через :pep:`685`."
-
-#: ../source/specifications/core-metadata.rst:939
-msgid "Restricted extra names to be normalized."
-msgstr "Ограниченные дополнительные имена, подлежащие нормализации."
-
-#: ../source/specifications/core-metadata.rst:941
 msgid "August 2024: Core metadata 2.4 was approved through :pep:`639`."
 msgstr "Август 2024 года: Core metadata 2.4 был одобрен через :pep:`639`."
 
-#: ../source/specifications/core-metadata.rst:943
+#: ../source/specifications/core-metadata.rst:928
 msgid "Added the ``License-Expression`` field."
 msgstr "Добавлено поле ``Лицензия-выражение``."
 
-#: ../source/specifications/core-metadata.rst:944
+#: ../source/specifications/core-metadata.rst:929
 msgid "Added the ``License-File`` field."
 msgstr "Добавлено поле ``Лицензионный файл``."
 
-#: ../source/specifications/core-metadata.rst:948
+#: ../source/specifications/core-metadata.rst:931
+msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
+msgstr "Март 2022: Core metadata 2.3 был одобрен через :pep:`685`."
+
+#: ../source/specifications/core-metadata.rst:933
+msgid "Restricted extra names to be normalized."
+msgstr "Ограниченные дополнительные имена, подлежащие нормализации."
+
+#: ../source/specifications/core-metadata.rst:935
+msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
+msgstr "Октябрь 2020 года: Core metadata 2.2 был одобрен через :pep:`643`."
+
+#: ../source/specifications/core-metadata.rst:937
+msgid "Added the ``Dynamic`` field."
+msgstr "Добавлено поле ``Динамика``."
+
+#: ../source/specifications/core-metadata.rst:939
+msgid "February 2018: Core metadata 2.1 was approved through :pep:`566`."
+msgstr "Февраль 2018 г: Core metadata 2.1 был одобрен через :pep:`566`."
+
+#: ../source/specifications/core-metadata.rst:941
+msgid "Added ``Description-Content-Type`` and ``Provides-Extra``."
+msgstr "Добавлены ``Description-Content-Type`` и ``Provides-Extra``."
+
+#: ../source/specifications/core-metadata.rst:942
+msgid "Added canonical method for transforming metadata to JSON."
+msgstr "Добавлен метод canonical для преобразования метаданных в JSON."
+
+#: ../source/specifications/core-metadata.rst:943
+msgid "Restricted the grammar of the ``Name`` field."
+msgstr "Ограничение грамматики поля ``Имя``."
+
+#: ../source/specifications/core-metadata.rst:945
+msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
+msgstr "Февраль 2010 г: Core metadata 1.2 был одобрен через :pep:`345`."
+
+#: ../source/specifications/core-metadata.rst:947
+msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
+msgstr "Апрель 2003 года: Core metadata 1.1 был одобрен через :pep:`314`:"
+
+#: ../source/specifications/core-metadata.rst:949
+msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
+msgstr "Март 2001: Core metadata 1.0 был одобрен через :pep:`241`."
+
+#: ../source/specifications/core-metadata.rst:953
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr "Разметка reStructuredText: https://docutils.sourceforge.io/"
 
-#: ../source/specifications/core-metadata.rst:953
+#: ../source/specifications/core-metadata.rst:958
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr "Длинные поля заголовка RFC 822: :rfc:`822#section-3.1.1`"
 
