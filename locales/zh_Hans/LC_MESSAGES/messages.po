@@ -34,13 +34,14 @@
 # 黄奕铭 <latitudecrosser@users.noreply.hosted.weblate.org>, 2025.
 # "Cheng R.Zhu" <zcr@users.noreply.hosted.weblate.org>, 2025.
 # inworless <20262029@aliyun.com>, 2025.
+# del1 <3933676724@qq.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-06-19 01:36+0000\n"
-"PO-Revision-Date: 2025-07-18 07:02+0000\n"
-"Last-Translator: inworless <20262029@aliyun.com>\n"
+"PO-Revision-Date: 2025-07-19 06:36+0000\n"
+"Last-Translator: del1 <3933676724@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/pypa/packaging-python-org/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1108,6 +1109,9 @@ msgid ""
 "commit tag information, potentially resulting in incorrect version details "
 "in the resulting builds."
 msgstr ""
+"明确发布存档文件可以确保在创建源归档时解决对版本控制系统元数据的任何依赖。例"
+"如，自动生成的Git存档会省略所有提交标签信息，可能会导致生成的构建中版本详细信"
+"息不正确。"
 
 #: ../source/discussions/downstream-packaging.rst:99
 #: ../source/discussions/downstream-packaging.rst:179
@@ -1125,8 +1129,12 @@ msgid ""
 "documentation, and any other files that may be useful to end users, such as "
 "shell completions, editor support files, and so on."
 msgstr ""
+"理想情况下，**在PyPI上发布的源分发应包括来自软件包Git存储库**的所有文件，这些"
+"文件是构建软件包本身、运行其测试套件、构建和安装其文档以及可能对最终用户有用"
+"的任何其他文件所必需的，如外壳完成、编辑器支持文件等。"
 
 #: ../source/discussions/downstream-packaging.rst:107
+#, fuzzy
 msgid ""
 "This point applies only to the files belonging to the package itself. The "
 "downstream packaging process, much like Python package managers, will "
@@ -1136,6 +1144,10 @@ msgid ""
 "files) should also be included, to help downstreams determine the needed "
 "dependencies, and check for changes in them."
 msgstr ""
+"这一点仅适用于属于软件包本身的文件。下游打包过程与Python软件包管理器非常类似"
+"，将配置您的软件包及其构建脚本所需的必要的Python依赖项、系统工具和外部库。然"
+"而，还应包括列出这些依赖项的文件（例如，“要求*.txt”文件），以帮助下游确定所需"
+"的依赖项，并检查其中是否有变化。"
 
 #: ../source/discussions/downstream-packaging.rst:115
 msgid ""
@@ -1149,6 +1161,11 @@ msgid ""
 "Alternatively, large files, such as test data, can be split into separate "
 "archives."
 msgstr ""
+"一些项目对使用PyPI源分发的Python软件包管理器有关。他们不想用这些工具不使用的"
+"文件来增加它们的大小，或者他们根本不想发布源分发，因为它们允许从源代码构建特"
+"定项目的问题或完全无功能的后退。在这些情况下，一个好的折衷方案可能是发布一个"
+"单独的源代码归档，以便在其他地方下游使用，例如将其附加到GitHub版本中。或者，"
+"大型文件，如测试数据，可以拆分成单独的档案。"
 
 #: ../source/discussions/downstream-packaging.rst:124
 msgid ""
@@ -1160,6 +1177,10 @@ msgid ""
 "was taken by the cryptography_ project, with the large test vectors being "
 "split to cryptography-vectors_ package."
 msgstr ""
+"另一方面，一些项目（例如NumPy_）决定在其已安装的软件包中包含测试。这具有允许"
+"用户在安装后运行测试的额外优势，例如在升级依赖项后检查回归。另一种方法是将测"
+"试或测试数据分割成一个单独的Python软件包。加密_项目采取了这种方法，将大型测试"
+"向量拆分为加密矢量_包。"
 
 #: ../source/discussions/downstream-packaging.rst:132
 msgid ""
@@ -1169,6 +1190,9 @@ msgid ""
 "source distribution actually works, and that it won't accidentally install "
 "fewer files than the official wheels."
 msgstr ""
+"在发布流程中使用源分发是个不错的做法。例如，:ref:`build` "
+"工具正是这样操作的——它首先构建源分发，然后用它来构建 wheel "
+"包。这能确保源分发实际可用，同时避免意外遗漏官方 wheel 包中的文件。"
 
 #: ../source/discussions/downstream-packaging.rst:138
 msgid ""
