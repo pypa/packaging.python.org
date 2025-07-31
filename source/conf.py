@@ -132,23 +132,22 @@ texinfo_documents = [
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
 
 linkcheck_ignore = [
-    r"http://localhost:\d+",
-    r"https://packaging\.python\.org/en/latest/specifications/schemas/.*",
-    r"https://test\.pypi\.org/project/example-package-YOUR-USERNAME-HERE",
-    r"https://pypi\.org/manage/.*",
-    r"https://test\.pypi\.org/manage/.*",
+    "http://localhost:\\d+",
+    "https://packaging.python.org/en/latest/specifications/schemas/.*",
+    "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
+    "https://pypi.org/manage/*",
+    "https://test.pypi.org/manage/*",
     # Temporarily ignored. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
-    r"https://www\.breezy-vcs\.org/.*",
+    "https://www.breezy-vcs.org/*",
     # Ignore while StackOverflow is blocking GitHub CI. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1474
-    r"https://stackoverflow\.com/.*",
-    r"https://pyscaffold\.org/.*",
-    r"https://anaconda\.org",
-    r"https://www\.cisa\.gov/sbom",
-    r"https://developers\.redhat\.com/products/softwarecollections/overview",
+    "https://stackoverflow.com/*",
+    "https://pyscaffold.org/*",
+    "https://anaconda.org",
+    "https://www.cisa.gov/sbom",
+    "https://developers.redhat.com/products/softwarecollections/overview",
     r"https://math-atlas\.sourceforge\.net/?",
-    # Self-signed certificate, fails in CI
     r"https://click\.palletsprojects\.com/.*",
     r"https://typer\.tiangolo\.com/.*",
 ]
@@ -157,7 +156,6 @@ linkcheck_retries = 5
 linkcheck_anchors_ignore_for_url = [
     # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
     r"https://github\.com/",
-    r"https://docs\.github\.com/",
     # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
