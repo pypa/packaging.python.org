@@ -12,14 +12,15 @@ and "**OPTIONAL**"" in this document are to be interpreted as described in
 
 The interface for querying available package versions and
 retrieving packages from an index server comes in two forms:
-HTML and JSON.
+:ref:`HTML <simple-repository-html-serialization>` and
+:ref:`JSON <json-serialization>`.
 
 .. _simple-repository-api-base:
 
-Base HTML API
-=============
+Base API
+========
 
-A repository that implements the simple API is defined by its base URL, this is
+A repository that implements the simple API is defined by its base URL. This is
 the top level URL that all additional URLs are below. The API is named the
 "simple" repository due to the fact that PyPI's base URL is
 ``https://pypi.org/simple/``.
@@ -28,11 +29,115 @@ the top level URL that all additional URLs are below. The API is named the
           URL (so given PyPI's URL, a URL of ``/foo/`` would be
           ``https://pypi.org/simple/foo/``.
 
+Normalized Names
+----------------
+
+This spec references the concept of a "normalized" project name. As per
+:ref:`the name normalization specification <name-normalization>`
+the only valid characters in a name are the ASCII alphabet, ASCII numbers,
+``.``, ``-``, and ``_``. The name should be lowercased with all runs of the
+characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character. This
+can be implemented in Python with the ``re`` module::
+
+   import re
+
+   def normalize(name):
+       return re.sub(r"[-_.]+", "-", name).lower()
+
+.. _simple-repository-api-versioning:
+
+Versioning PyPI's Simple API
+----------------------------
+
+This spec proposes the inclusion of a meta tag on the responses of every
+successful request to a simple API page, which contains a name attribute
+of ``pypi:repository-version``, and a content that is a :ref:`version specifiers
+specification <version-specifiers>` compatible
+version number, which is further constrained to ONLY be Major.Minor, and
+none of the additional features supported by :ref:`the version specifiers
+specification <version-specifiers>`.
+
+This would end up looking like:
+
+.. code-block:: html
+
+  <meta name="pypi:repository-version" content="1.4">
+
+When interpreting the repository version:
+
+* Incrementing the major version is used to signal a backwards
+  incompatible change such that existing clients would no longer be
+  expected to be able to meaningfully use the API.
+* Incrementing the minor version is used to signal a backwards
+  compatible change such that existing clients would still be
+  expected to be able to meaningfully use the API.
+
+It is left up to the discretion of any future specs as to what
+specifically constitutes a backwards incompatible vs compatible change
+beyond the broad suggestion that existing clients will be able to
+"meaningfully" continue to use the API, and can include adding,
+modifying, or removing existing features.
+
+It is expectation of this spec that the major version will never be
+incremented, and any future major API evolutions would utilize a
+different mechanism for API evolution. However the major version
+is included to disambiguate with future versions (e.g. a hypothetical
+simple api v2 that lived at /v2/, but which would be confusing if the
+repository-version was set to a version >= 2).
+
+API Version History
+~~~~~~~~~~~~~~~~~~~
+
+This section contains only an abbreviated history of changes,
+as marked by the API version number. For a full history of changes including
+changes made before API versioning, see :ref:`History <simple-repository-history>`.
+
+- API version 1.0: Initial version of the API, declared with :pep:`629`.
+- API version 1.1: Added ``versions``, ``files[].size``, and ``files[].upload-time`` metadata
+  to the JSON serialization, declared with :pep:`700`.
+- API version 1.2: Added repository "tracks" metadata, declared with :pep:`708`.
+- API version 1.3: Added provenance metadata, declared with :pep:`740`.
+- API version 1.4: Added status markers, declared with :pep:`792`.
+
+Clients
+~~~~~~~
+
+Clients interacting with the simple API **SHOULD** introspect each
+response for the repository version, and if that data does not exist
+**MUST** assume that it is version 1.0.
+
+When encountering a major version greater than expected, clients
+**MUST** hard fail with an appropriate error message for the user.
+
+When encountering a minor version greater than expected, clients
+**SHOULD** warn users with an appropriate message.
+
+Clients **MAY** still continue to use feature detection in order to
+determine what features a repository uses.
+
+.. _simple-repository-html-serialization:
+
+HTML Serialization
+------------------
+
+.. _simple-repository-html-project-list:
+
+The following constraints apply to all HTML serialized responses described in
+this spec:
+
+* All HTML responses **MUST** be a valid HTML5 document.
+* HTML responses **MAY** contain one or more ``meta`` tags in the
+  ``<head>`` section. The semantics of these tags are defined below.
+
+Project List
+~~~~~~~~~~~~
 
 Within a repository, the root URL (``/`` for this spec which represents the base
 URL) **MUST** be a valid HTML5 page with a single anchor element per project in
-the repository. The text of the anchor tag **MUST** be the name of
-the project and the href attribute **MUST** link to the URL for that particular
+the repository.
+
+The text of each anchor tag **MUST** be the name of
+the project and the ``href`` attribute **MUST** link to the URL for that particular
 project. As an example:
 
 .. code-block:: html
@@ -45,14 +150,26 @@ project. As an example:
      </body>
    </html>
 
+.. _simple-repository-html-project-detail:
+
+Project Detail
+~~~~~~~~~~~~~~
+
 Below the root URL is another URL for each individual project contained within
-a repository. The format of this URL is ``/<project>/`` where the ``<project>``
-is replaced by the normalized name for that project, so a project named
-"HolyGrail" would have a URL like ``/holygrail/``. This URL must respond with
-a valid HTML5 page with a single anchor element per file for the project. The
-href attribute **MUST** be a URL that links to the location of the file for
-download, and the text of the anchor tag **MUST** match the final path
-component (the filename) of the URL. The URL **SHOULD** include a hash in the
+a repository. The format of this URL is ``/<project>/``, where the ``<project>``
+is replaced by the normalized name for that project.
+
+.. tip::
+
+   For example, a project named "HolyGrail" would have a URL like
+   ``/holygrail/``.
+
+The project detail URL must respond with a valid HTML5 page with a single
+anchor element per file for the project. The ``href`` attribute **MUST** be a
+URL that links to the location of the file for download, and the text of the
+anchor tag **MUST** match the final path component (the filename) of the URL.
+
+Each file URL **SHOULD** include a hash in the
 form of a URL fragment with the following syntax: ``#<hashname>=<hashvalue>``,
 where ``<hashname>`` is the lowercase name of the hash function (such as
 ``sha256``) and ``<hashvalue>`` is the hex encoded digest.
@@ -125,6 +242,22 @@ In addition to the above, the following constraints are placed on the API:
   In the attribute value, < and > have to be HTML encoded as ``&lt;`` and
   ``&gt;``, respectively.
 
+* A repository **MAY** include a ``data-yanked`` attribute on a file link.
+
+  The ``data-yanked`` attribute may have no value, or may have an
+  arbitrary string as a value. The presence of a ``data-yanked`` attribute
+  **SHOULD** be interpreted as indicating that the file pointed to by this
+  particular link has been "Yanked", and should not generally be selected by
+  an installer, except under specific scenarios.
+
+  The value of the ``data-yanked`` attribute, if present, is an arbitrary
+  string that represents the reason for why the file has been yanked.
+
+  .. note::
+
+    The semantics of how tools should handle yanked files is
+    described in :ref:`file-yanking`.
+
 * A repository **MAY** include a ``data-provenance`` attribute on a file link.
   The value of this attribute **MUST** be a fully qualified URL, signaling that
   the file's provenance can be found at that URL. This URL **MUST** represent
@@ -138,168 +271,22 @@ In addition to the above, the following constraints are placed on the API:
 
     The format of the linked provenance is defined in :ref:`index-hosted-attestations`.
 
-Normalized Names
-----------------
+* A repository **MAY** include ``pypi:project-status`` and
+  ``pypi:project-status-reason`` meta tags on the response itself.
 
-This spec references the concept of a "normalized" project name. As per
-:ref:`the name normalization specification <name-normalization>`
-the only valid characters in a name are the ASCII alphabet, ASCII numbers,
-``.``, ``-``, and ``_``. The name should be lowercased with all runs of the
-characters ``.``, ``-``, or ``_`` replaced with a single ``-`` character. This
-can be implemented in Python with the ``re`` module::
+  The value of ``pypi:project-status`` **MUST** be a valid
+  project status marker, while the value of
+  ``pypi:project-status-reason`` **MUST** be an arbitrary string if present.
 
-   import re
+  .. note::
 
-   def normalize(name):
-       return re.sub(r"[-_.]+", "-", name).lower()
+    The set of valid project status markers and their semantics is described
+    in :ref:`project-status-markers`.
 
-.. _simple-repository-api-yank:
+  .. note::
 
-Adding "Yank" Support to the Simple API
-=======================================
-
-Links in the simple repository **MAY** have a ``data-yanked`` attribute
-which may have no value, or may have an arbitrary string as a value. The
-presence of a ``data-yanked`` attribute **SHOULD** be interpreted as
-indicating that the file pointed to by this particular link has been
-"Yanked", and should not generally be selected by an installer, except
-under specific scenarios.
-
-The value of the ``data-yanked`` attribute, if present, is an arbitrary
-string that represents the reason for why the file has been yanked. Tools
-that process the simple repository API **MAY** surface this string to
-end users.
-
-The yanked attribute is not immutable once set, and may be rescinded in
-the future (and once rescinded, may be reset as well). Thus API users
-**MUST** be able to cope with a yanked file being "unyanked" (and even
-yanked again).
-
-
-Installers
-----------
-
-The desirable experience for users is that once a file is yanked, when
-a human being is currently trying to directly install a yanked file, that
-it fails as if that file had been deleted. However, when a human did that
-awhile ago, and now a computer is just continuing to mechanically follow
-the original order to install the now yanked file, then it acts as if it
-had not been yanked.
-
-An installer **MUST** ignore yanked releases, if the selection constraints
-can be satisfied with a non-yanked version, and **MAY** refuse to use a
-yanked release even if it means that the request cannot be satisfied at all.
-An implementation **SHOULD** choose a policy that follows the spirit of the
-intention above, and that prevents "new" dependencies on yanked
-releases/files.
-
-What this means is left up to the specific installer, to decide how to best
-fit into the overall usage of their installer. However, there are two
-suggested approaches to take:
-
-1. Yanked files are always ignored, unless they are the only file that
-   matches a version specifier that "pins" to an exact version using
-   either ``==`` (without any modifiers that make it a range, such as
-   ``.*``) or ``===``. Matching this version specifier should otherwise
-   be done as per :ref:`the version specifiers specification
-   <version-specifiers>` for things like local versions, zero padding,
-   etc.
-2. Yanked files are always ignored, unless they are the only file that
-   matches what a lock file (such as ``Pipfile.lock`` or ``poetry.lock``)
-   specifies to be installed. In this case, a yanked file **SHOULD** not
-   be used when creating or updating a lock file from some input file or
-   command.
-
-Regardless of the specific strategy that an installer chooses for deciding
-when to install yanked files, an installer **SHOULD** emit a warning when
-it does decide to install a yanked file. That warning **MAY** utilize the
-value of the ``data-yanked`` attribute (if it has a value) to provide more
-specific feedback to the user about why that file had been yanked.
-
-
-Mirrors
--------
-
-Mirrors can generally treat yanked files one of two ways:
-
-1. They may choose to omit them from their simple repository API completely,
-   providing a view over the repository that shows only "active", unyanked
-   files.
-2. They may choose to include yanked files, and additionally mirror the
-   ``data-yanked`` attribute as well.
-
-Mirrors **MUST NOT** mirror a yanked file without also mirroring the
-``data-yanked`` attribute for it.
-
-.. _simple-repository-api-versioning:
-
-Versioning PyPI's Simple API
-============================
-
-This spec proposes the inclusion of a meta tag on the responses of every
-successful request to a simple API page, which contains a name attribute
-of ``pypi:repository-version``, and a content that is a :ref:`version specifiers
-specification <version-specifiers>` compatible
-version number, which is further constrained to ONLY be Major.Minor, and
-none of the additional features supported by :ref:`the version specifiers
-specification <version-specifiers>`.
-
-This would end up looking like:
-
-.. code-block:: html
-
-  <meta name="pypi:repository-version" content="1.3">
-
-When interpreting the repository version:
-
-* Incrementing the major version is used to signal a backwards
-  incompatible change such that existing clients would no longer be
-  expected to be able to meaningfully use the API.
-* Incrementing the minor version is used to signal a backwards
-  compatible change such that existing clients would still be
-  expected to be able to meaningfully use the API.
-
-It is left up to the discretion of any future specs as to what
-specifically constitutes a backwards incompatible vs compatible change
-beyond the broad suggestion that existing clients will be able to
-"meaningfully" continue to use the API, and can include adding,
-modifying, or removing existing features.
-
-It is expectation of this spec that the major version will never be
-incremented, and any future major API evolutions would utilize a
-different mechanism for API evolution. However the major version
-is included to disambiguate with future versions (e.g. a hypothetical
-simple api v2 that lived at /v2/, but which would be confusing if the
-repository-version was set to a version >= 2).
-
-API Version History
--------------------
-
-This section contains only an abbreviated history of changes,
-as marked by the API version number. For a full history of changes including
-changes made before API versioning, see :ref:`History <simple-repository-history>`.
-
-- API version 1.0: Initial version of the API, declared with :pep:`629`.
-- API version 1.1: Added ``versions``, ``files[].size``, and ``files[].upload-time`` metadata
-  to the JSON serialization, declared with :pep:`700`.
-- API version 1.2: Added repository "tracks" metadata, declared with :pep:`708`.
-- API version 1.3: Added provenance metadata, declared with :pep:`740`.
-
-Clients
--------
-
-Clients interacting with the simple API **SHOULD** introspect each
-response for the repository version, and if that data does not exist
-**MUST** assume that it is version 1.0.
-
-When encountering a major version greater than expected, clients
-**MUST** hard fail with an appropriate error message for the user.
-
-When encountering a minor version greater than expected, clients
-**SHOULD** warn users with an appropriate message.
-
-Clients **MAY** still continue to use feature detection in order to
-determine what features a repository uses.
+    The ``pypi:project-status`` and ``pypi:project-status-reason`` meta tags
+    were added with API version 1.4.
 
 .. _simple-repository-api-metadata-file:
 
@@ -403,8 +390,8 @@ JSON Serialization
 ------------------
 
 The URL structure from :ref:`the base HTML API specification
-<simple-repository-api-base>` still applies, as this spec only adds an additional
-serialization format for the already existing API.
+<simple-repository-html-serialization>` still applies, as this spec only adds
+an additional serialization format for the already existing API.
 
 The following constraints apply to all JSON serialized responses described in this
 spec:
@@ -435,6 +422,8 @@ spec:
 * Keys (at any level) with a leading underscore are reserved as private for
   index server use. No future standard will assign a meaning to any such key.
 
+.. _simple-repository-json-project-list:
+
 Project List
 ~~~~~~~~~~~~
 
@@ -450,7 +439,7 @@ As an example:
 
     {
       "meta": {
-        "api-version": "1.3"
+        "api-version": "1.4"
       },
       "projects": [
         {"name": "Frob"},
@@ -478,6 +467,7 @@ As an example:
   best thought of as a set, but both JSON and HTML lack the functionality to have
   sets.
 
+.. _simple-repository-json-project-detail:
 
 Project Detail
 ~~~~~~~~~~~~~~
@@ -492,6 +482,28 @@ This URL must respond with a JSON encoded dictionary that has four keys:
 - ``name``: The normalized name of the project.
 - ``files``: A list of dictionaries, each one representing an individual file.
 - ``meta``: The general response metadata as `described earlier <json-serialization_>`__.
+
+  In addition to the general response metadata, the project detail ``meta``
+  dictionary **MAY** also include the following:
+
+  - ``project-status``: If present, this **MUST** be a valid project status marker.
+
+    .. note::
+
+      The set of valid project status markers and their semantics is described
+      in :ref:`project-status-markers`.
+
+    .. note::
+
+      The ``project-status`` key was added with API version 1.4.
+
+  - ``project-status-reason``: If present, this **MUST** be an arbitrary string
+    description of the project status.
+
+    .. note::
+
+      The ``project-status-reason`` key was added with API version 1.4.
+
 - ``versions``: A list of version strings specifying all of the project versions
   uploaded for this project. The value of ``versions`` is logically a set,
   and as such may not contain duplicates, and the order of the versions is
@@ -582,8 +594,13 @@ Each individual file dictionary has the following keys:
   file has been yanked, or a non empty, but otherwise arbitrary, string to indicate
   that a file has been yanked with a specific reason. If the ``yanked`` key is present
   and is a truthy value, then it **SHOULD** be interpreted as indicating that the
-  file pointed to by the ``url`` field has been "Yanked" as per :ref:`the API
-  yank specification <simple-repository-api-yank>`.
+  file pointed to by the ``url`` field has been "Yanked".
+
+  .. note::
+
+    The semantics of how tools should handle yanked files is
+    described in :ref:`file-yanking`.
+
 - ``size``: A **mandatory** key. It **MUST** contain an integer which is the file size in bytes.
 
   .. note::
@@ -618,7 +635,9 @@ As an example:
 
     {
       "meta": {
-        "api-version": "1.3"
+        "api-version": "1.4",
+        "project-status": "active",
+        "project-status-reason": "this project is not yet haunted"
       },
       "name": "holygrail",
       "files": [
@@ -1006,3 +1025,5 @@ History
 * June 2023: renaming the field which provides package metadata independently
   from a package, in :pep:`714`
 * November 2024: provenance metadata in the HTML and JSON formats, in :pep:`740`
+* July 2025: project status markers in the HTML and JSON formats, in :pep:`792`
+* July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)
