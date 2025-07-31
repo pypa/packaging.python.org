@@ -147,12 +147,16 @@ linkcheck_ignore = [
     "https://anaconda.org",
     "https://www.cisa.gov/sbom",
     "https://developers.redhat.com/products/softwarecollections/overview",
+    r"https://math-atlas\.sourceforge\.net/?",
+    r"https://click\.palletsprojects\.com/.*",
+    r"https://typer\.tiangolo\.com/.*",
 ]
 linkcheck_retries = 5
 # Ignore anchors for common targets when we know they likely won't be found
 linkcheck_anchors_ignore_for_url = [
     # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
     r"https://github\.com/",
+    r"https://docs\.github\.com/",
     # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
