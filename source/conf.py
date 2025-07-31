@@ -156,6 +156,7 @@ linkcheck_retries = 5
 linkcheck_anchors_ignore_for_url = [
     # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
     r"https://github\.com/",
+    r"https://docs\.github\.com/",
     # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
