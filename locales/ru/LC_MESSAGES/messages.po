@@ -10,13 +10,14 @@
 # Andrey Rybakov <rybakov.ad@icloud.com>, 2023.
 # Nikita <nikdissv.github.forever@gmail.com>, 2024.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# da070116 <da070116@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-02 23:58+0000\n"
-"PO-Revision-Date: 2025-02-26 06:29+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
+"POT-Creation-Date: 2025-06-19 01:36+0000\n"
+"PO-Revision-Date: 2025-06-07 08:01+0000\n"
+"Last-Translator: da070116 <da070116@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
 "python-org/ru/>\n"
 "Language: ru\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -56,8 +57,8 @@ msgid "Writing new content"
 msgstr "Написание нового материала"
 
 #: ../source/contribute.rst:14
-msgid "Translate the guide"
-msgstr "Перевод руководств"
+msgid "Translating the guide"
+msgstr "Перевод руководства"
 
 #: ../source/contribute.rst:16
 msgid ""
@@ -999,18 +1000,16 @@ msgstr ""
 "рекомендуется."
 
 #: ../source/discussions/downstream-packaging.rst:5
-#, fuzzy
-#| msgid "Operating system packages"
 msgid "Supporting downstream packaging"
-msgstr "Пакетов операционной системы"
+msgstr "Поддержка последующей упаковки"
 
 #: ../source/discussions/downstream-packaging.rst:7
 msgid "Draft"
-msgstr ""
+msgstr "Черновик"
 
 #: ../source/discussions/downstream-packaging.rst:8
 msgid "2025-?"
-msgstr ""
+msgstr "2025-?"
 
 #: ../source/discussions/downstream-packaging.rst:10
 msgid ""
@@ -1024,6 +1023,16 @@ msgid ""
 "as native integration with a specific operating system, or assured "
 "compatibility with specific versions of non-Python software."
 msgstr ""
+"Хотя PyPI и инструменты для упаковки Python, такие как :ref:`pip`, являются "
+"основными средствами распространения пакетов Python, они также часто "
+"становятся доступными в рамках других экосистем упаковки. Эти усилия по "
+"переупаковке в совокупности называются *downstream* упаковкой (ваши "
+"собственные усилия называются *upstream* упаковкой), и включают такие "
+"проекты, как дистрибутивы Linux, Conda, Homebrew и MacPorts. Как правило, "
+"они направлены на улучшение поддержки тех случаев, которые не могут быть "
+"решены только средствами упаковки Python, например, интеграция с конкретной "
+"операционной системой или обеспечение совместимости с определенными версиями "
+"программ, не относящихся к Python."
 
 #: ../source/discussions/downstream-packaging.rst:19
 msgid ""
@@ -1039,6 +1048,19 @@ msgid ""
 "for different downstreams to carry and keep rebasing the same patches, and "
 "the risk of applying inconsistent solutions to the same problem."
 msgstr ""
+"В этом обсуждении мы попытаемся объяснить, как обычно выполняется "
+"последующая упаковка, и с какими дополнительными проблемами обычно "
+"сталкиваются разработчики последующей упаковки. Цель обсуждения - "
+"предоставить некоторые необязательные рекомендации, которым могут следовать "
+"сопровождающие проекта, чтобы облегчить *значительно* процесс последующей "
+"упаковки (не налагая при этом никаких серьезных проблем с обслуживанием на "
+"upstream-проект). Обратите внимание, что это не предложение \"все или "
+"ничего\" - все, что могут сделать сопровождающие upstream, будет полезно, "
+"даже если это лишь малая часть. Нисходящие сопровождающие также готовы "
+"подготовить патчи для решения этих проблем. Слияние этих патчей может быть "
+"очень полезным, так как это избавит разные нисходящие потоки от "
+"необходимости нести и постоянно переиздавать одни и те же патчи, а также от "
+"риска применения непоследовательных решений одной и той же проблемы."
 
 #: ../source/discussions/downstream-packaging.rst:31
 msgid ""
@@ -1053,6 +1075,18 @@ msgid ""
 "regularly active in ensuring the packages they redistribute are updated for "
 "any compatibility issues that arise when a new Python version is released."
 msgstr ""
+"Установление хороших отношений между разработчиками программного обеспечения "
+"и разработчиками пакетов может принести взаимную выгоду. Поставщики часто "
+"готовы поделиться своим опытом, временем и оборудованием для улучшения "
+"вашего пакета. Иногда они лучше видят, как ваш пакет используется на "
+"практике, и могут предоставить информацию о его связях с другими пакетами, "
+"получение которой в противном случае потребовало бы значительных усилий. "
+"Упаковщики часто могут найти ошибки до того, как ваши пользователи начнут их "
+"использовать в производстве, предоставляют отчеты об ошибках хорошего "
+"качества и поставляют исправления, когда это возможно. Например, они "
+"регулярно следят за тем, чтобы пакеты, которые они распространяют, "
+"обновлялись для решения проблем совместимости, возникающих при выходе новой "
+"версии Python."
 
 #: ../source/discussions/downstream-packaging.rst:43
 msgid ""
@@ -1060,6 +1094,10 @@ msgid ""
 "but also source builds done on user systems (in source-first distributions "
 "such as Gentoo Linux, for example)."
 msgstr ""
+"Обратите внимание, что последующие сборки включают в себя не только "
+"распространение бинарных файлов, но и сборки исходного кода на "
+"пользовательских системах (в дистрибутивах с исходным кодом, таких как "
+"Gentoo Linux, например)."
 
 #: ../source/discussions/downstream-packaging.rst:51
 #, fuzzy
@@ -1073,7 +1111,7 @@ msgstr "Дистрибутивы с исходным кодом Python"
 #: ../source/discussions/downstream-packaging.rst:303
 #: ../source/discussions/downstream-packaging.rst:412
 msgid "Why?"
-msgstr ""
+msgstr "Почему?"
 
 #: ../source/discussions/downstream-packaging.rst:56
 msgid ""
@@ -2296,8 +2334,17 @@ msgstr ""
 "требований и автоматической установки зависимостей."
 
 #: ../source/discussions/pip-vs-easy-install.rst:14
+#, fuzzy
+#| msgid ""
+#| ":ref:`pip` came later in 2008, as alternative to :ref:`easy_install "
+#| "<easy_install>`, although still largely built on top of :ref:`setuptools` "
+#| "components.  It was notable at the time for *not* installing packages as :"
+#| "term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but rather simply as 'flat' "
+#| "packages from :term:`sdists <Source Distribution (or \"sdist\")>`), and "
+#| "introducing the idea of :ref:`Requirements Files <pip:Requirements "
+#| "Files>`, which gave users the power to easily replicate environments."
 msgid ""
-":ref:`pip` came later in 2008, as alternative to :ref:`easy_install "
+":ref:`pip` came later in 2008, as an alternative to :ref:`easy_install "
 "<easy_install>`, although still largely built on top of :ref:`setuptools` "
 "components.  It was notable at the time for *not* installing packages as :"
 "term:`Eggs <Egg>` or from :term:`Eggs <Egg>` (but rather simply as 'flat' "
@@ -3337,11 +3384,18 @@ msgstr ""
 "пользователями того, что обещает им формализованная схема версионирования."
 
 #: ../source/discussions/versioning.rst:74
+#, fuzzy
+#| msgid ""
+#| "There are known exceptions for selecting the next version number. The "
+#| "maintainers may consciously choose to break the assumption that the last "
+#| "version segment only contains backwards-compatible changes. One such case "
+#| "is when security vulnerability needs to be addressed. Security releases "
+#| "often come in patch versions but contain breaking changes inevitably."
 msgid ""
 "There are known exceptions for selecting the next version number. The "
 "maintainers may consciously choose to break the assumption that the last "
 "version segment only contains backwards-compatible changes. One such case is "
-"when security vulnerability needs to be addressed. Security releases often "
+"when a security vulnerability needs to be addressed. Security releases often "
 "come in patch versions but contain breaking changes inevitably."
 msgstr ""
 "Известны исключения при выборе номера следующей версии. Сопровождающие могут "
@@ -3352,7 +3406,7 @@ msgstr ""
 "изменения."
 
 #: ../source/discussions/versioning.rst:84
-#: ../source/specifications/version-specifiers.rst:723
+#: ../source/specifications/version-specifiers.rst:726
 msgid "Semantic versioning"
 msgstr "Семантическая версификация"
 
@@ -3455,9 +3509,15 @@ msgid "Calendar versioning"
 msgstr "Версионирование календаря"
 
 #: ../source/discussions/versioning.rst:126
+#, fuzzy
+#| msgid ""
+#| "Semantic versioning is not a suitable choice for all projects, such as "
+#| "those with a regular time based release cadence and a deprecation process "
+#| "that provides warnings for a number of releases prior to removal of a "
+#| "feature."
 msgid ""
 "Semantic versioning is not a suitable choice for all projects, such as those "
-"with a regular time based release cadence and a deprecation process that "
+"with a regular time-based release cadence and a deprecation process that "
 "provides warnings for a number of releases prior to removal of a feature."
 msgstr ""
 "Семантическое версионирование подходит не для всех проектов, например, для "
@@ -3511,9 +3571,16 @@ msgstr ""
 "практически не передают информации об обратной совместимости API."
 
 #: ../source/discussions/versioning.rst:150
+#, fuzzy
+#| msgid ""
+#| "Combinations of the above schemes are possible. For example, a project "
+#| "may combine date based versioning with serial versioning to create a "
+#| "*year.serial* numbering scheme that readily conveys the approximate age "
+#| "of a release, but doesn't otherwise commit to a particular release "
+#| "cadence within the year."
 msgid ""
 "Combinations of the above schemes are possible. For example, a project may "
-"combine date based versioning with serial versioning to create a *year."
+"combine date-based versioning with serial versioning to create a *year."
 "serial* numbering scheme that readily conveys the approximate age of a "
 "release, but doesn't otherwise commit to a particular release cadence within "
 "the year."
@@ -5017,7 +5084,7 @@ msgid "Column"
 msgstr "Колонка"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:77
-#: ../source/specifications/core-metadata.rst:194
+#: ../source/specifications/core-metadata.rst:196
 #: ../source/specifications/well-known-project-urls.rst:106
 msgid "Description"
 msgstr "Описание"
@@ -5026,7 +5093,7 @@ msgstr "Описание"
 #: ../source/specifications/dependency-groups.rst:23
 #: ../source/specifications/dependency-specifiers.rst:29
 #: ../source/specifications/direct-url-data-structure.rst:357
-#: ../source/specifications/version-specifiers.rst:1069
+#: ../source/specifications/version-specifiers.rst:1072
 msgid "Examples"
 msgstr "Примеры"
 
@@ -5677,10 +5744,17 @@ msgid "Creating and packaging command-line tools"
 msgstr "Создание и упаковка инструментов командной строки"
 
 #: ../source/guides/creating-command-line-tools.rst:7
+#, fuzzy
+#| msgid ""
+#| "This guide will walk you through creating and packaging a standalone "
+#| "command-line application that can be installed with :ref:`pipx`, a tool "
+#| "creating and managing :term:`Python Virtual Environments <Virtual "
+#| "Environment>` and exposing the executable scripts of packages (and "
+#| "available manual pages) for use on the command-line."
 msgid ""
 "This guide will walk you through creating and packaging a standalone command-"
-"line application that can be installed with :ref:`pipx`, a tool creating and "
-"managing :term:`Python Virtual Environments <Virtual Environment>` and "
+"line application that can be installed with :ref:`pipx`, a tool for creating "
+"and managing :term:`Python Virtual Environments <Virtual Environment>` and "
 "exposing the executable scripts of packages (and available manual pages) for "
 "use on the command-line."
 msgstr ""
@@ -5778,11 +5852,18 @@ msgstr ""
 "обычный :term:`import package <Import Package>`."
 
 #: ../source/guides/creating-command-line-tools.rst:99
+#, fuzzy
+#| msgid ""
+#| "The file :file:`__main__.py` marks the main entry point for the "
+#| "application when running it via :mod:`runpy` (i.e. ``python -m "
+#| "greetings``, which works immediately with flat layout, but requires "
+#| "installation of the package with src layout), so initizalize the command-"
+#| "line interface here:"
 msgid ""
 "The file :file:`__main__.py` marks the main entry point for the application "
 "when running it via :mod:`runpy` (i.e. ``python -m greetings``, which works "
 "immediately with flat layout, but requires installation of the package with "
-"src layout), so initizalize the command-line interface here:"
+"src layout), so initialize the command-line interface here:"
 msgstr ""
 "Файл :file:`__main__.py` обозначает основную точку входа в приложение при "
 "его запуске через :mod:`runpy` (т.е. ``python -m greetings``, что сразу "
@@ -5881,8 +5962,14 @@ msgstr ""
 "виртуальное окружение:"
 
 #: ../source/guides/creating-command-line-tools.rst:165
+#, fuzzy
+#| msgid ""
+#| "This syntax is a bit unpractical, however; as the name of the entry point "
+#| "we defined above does not match the package name, we need to state "
+#| "explicitly which executable script to run (even though there is only on "
+#| "in existence)."
 msgid ""
-"This syntax is a bit unpractical, however; as the name of the entry point we "
+"This syntax is a bit impractical, however; as the name of the entry point we "
 "defined above does not match the package name, we need to state explicitly "
 "which executable script to run (even though there is only on in existence)."
 msgstr ""
@@ -5916,9 +6003,18 @@ msgid "Conclusion"
 msgstr "Заключение"
 
 #: ../source/guides/creating-command-line-tools.rst:187
+#, fuzzy
+#| msgid ""
+#| "You know by now how to package a command-line application written in "
+#| "Python. A further step could be to distribute you package, meaning "
+#| "uploading it to a :term:`package index <Package Index>`, most commonly :"
+#| "term:`PyPI <Python Package Index (PyPI)>`. To do that, follow the "
+#| "instructions at :ref:`Packaging your project`. And once you're done, "
+#| "don't forget to :ref:`do some research <analyzing-pypi-package-"
+#| "downloads>` on how your package is received!"
 msgid ""
 "You know by now how to package a command-line application written in Python. "
-"A further step could be to distribute you package, meaning uploading it to "
+"A further step could be to distribute your package, meaning uploading it to "
 "a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python "
 "Package Index (PyPI)>`. To do that, follow the instructions at :ref:"
 "`Packaging your project`. And once you're done, don't forget to :ref:`do "
@@ -8392,8 +8488,12 @@ msgid "Install a package"
 msgstr "Установить пакет"
 
 #: ../source/guides/installing-using-pip-and-virtual-environments.rst:203
+#, fuzzy
+#| msgid ""
+#| "For example,let's install the `Requests`_ library from the :term:`Python "
+#| "Package Index (PyPI)`:"
 msgid ""
-"For example,let's install the `Requests`_ library from the :term:`Python "
+"For example, let's install the `Requests`_ library from the :term:`Python "
 "Package Index (PyPI)`:"
 msgstr ""
 "Например, давайте установим библиотеку `Requests`_ из :term:`Python Package "
@@ -11099,12 +11199,23 @@ msgstr ""
 "`cibuildwheel`."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:25
-msgid "Configuring trusted publishing"
+#, fuzzy
+#| msgid "Configuring trusted publishing"
+msgid "Configuring Trusted Publishing"
 msgstr "Настройка доверенной публикации"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:27
+#, fuzzy
+#| msgid ""
+#| "This guide relies on PyPI's `trusted publishing`_ implementation to "
+#| "connect to `GitHub Actions CI/CD`_. This is recommended for security "
+#| "reasons, since the generated tokens are created for each of your projects "
+#| "individually and expire automatically. Otherwise, you'll need to generate "
+#| "an `API token`_ for both PyPI and TestPyPI. In case of publishing to "
+#| "third-party indexes like :doc:`devpi <devpi:index>`, you may need to "
+#| "provide a username/password combination."
 msgid ""
-"This guide relies on PyPI's `trusted publishing`_ implementation to connect "
+"This guide relies on PyPI's `Trusted Publishing`_ implementation to connect "
 "to `GitHub Actions CI/CD`_. This is recommended for security reasons, since "
 "the generated tokens are created for each of your projects individually and "
 "expire automatically. Otherwise, you'll need to generate an `API token`_ for "
@@ -11121,11 +11232,18 @@ msgstr ""
 "может потребоваться указать комбинацию имя пользователя/пароль."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:35
+#, fuzzy
+#| msgid ""
+#| "Since this guide will demonstrate uploading to both PyPI and TestPyPI, "
+#| "we'll need two trusted publishers configured. The following steps will "
+#| "lead you through creating the \"pending\" publishers for your new :term:"
+#| "`PyPI project <Project>`. However it is also possible to add `trusted "
+#| "publishing`_ to any pre-existing project, if you are its owner."
 msgid ""
 "Since this guide will demonstrate uploading to both PyPI and TestPyPI, we'll "
 "need two trusted publishers configured. The following steps will lead you "
 "through creating the \"pending\" publishers for your new :term:`PyPI project "
-"<Project>`. However it is also possible to add `trusted publishing`_ to any "
+"<Project>`. However it is also possible to add `Trusted Publishing`_ to any "
 "pre-existing project, if you are its owner."
 msgstr ""
 "Поскольку в этом руководстве мы продемонстрируем загрузку на PyPI и "
@@ -11278,6 +11396,15 @@ msgid "Defining a workflow job environment"
 msgstr "Определение рабочей среды рабочего процесса"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#, fuzzy
+#| msgid ""
+#| "Now, let's add initial setup for our job that will publish to PyPI. It's "
+#| "a process that will execute commands that we'll define later. In this "
+#| "guide, we'll use the latest stable Ubuntu LTS version provided by GitHub "
+#| "Actions. This also defines a GitHub Environment for the job to run in its "
+#| "context and a URL to be displayed in GitHub's UI nicely. Additionally, it "
+#| "allows acquiring an OpenID Connect token that the ``pypi-publish`` "
+#| "actions needs to implement secretless trusted publishing to PyPI."
 msgid ""
 "Now, let's add initial setup for our job that will publish to PyPI. It's a "
 "process that will execute commands that we'll define later. In this guide, "
@@ -11285,7 +11412,7 @@ msgid ""
 "This also defines a GitHub Environment for the job to run in its context and "
 "a URL to be displayed in GitHub's UI nicely. Additionally, it allows "
 "acquiring an OpenID Connect token that the ``pypi-publish`` actions needs to "
-"implement secretless trusted publishing to PyPI."
+"implement secretless Trusted Publishing to PyPI."
 msgstr ""
 "Теперь давайте добавим начальную настройку для нашего задания, которое будет "
 "публиковаться в PyPI. Это процесс, который будет выполнять команды, которые "
@@ -11324,70 +11451,19 @@ msgstr ""
 "загрузки сохраненного дистрибутива действием `download-artifact`_, оно "
 "безусловно загружает содержимое папки ``dist/`` в PyPI."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:163
-msgid "Signing the distribution packages"
-msgstr "Подписание пакетов распространения"
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:165
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
 msgid ""
-"The following job signs the distribution packages with `Sigstore`_, the same "
-"artifact signing system `used to sign CPython <https://www.python.org/"
-"download/sigstore/>`_."
+"Starting with version `v1.11.0 <https://github.com/pypa/gh-action-pypi-"
+"publish/releases/tag/v1.11.0>`_, `pypa/gh-action-pypi-publish`_ generates "
+"and uploads :pep:`740`-compatible attestations for each distribution by "
+"default. No additional manual signing steps are required."
 msgstr ""
-"Следующее задание подписывает пакеты дистрибутива с помощью `Sigstore`_, той "
-"же системы подписи артефактов, которая `использовалась для подписи CPython "
-"<https://www.python.org/download/sigstore/>`_."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:168
-msgid ""
-"Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ to "
-"sign the distribution packages. In the next step, an empty GitHub Release "
-"from the current tag is created using the ``gh`` CLI. Note this step can be "
-"further customised. See the `gh release documentation <https://cli.github."
-"com/manual/gh_release>`_ as a reference."
-msgstr ""
-"Сначала используется GitHub Action `sigstore/gh-action-sigstore-python`_ для "
-"подписи дистрибутивных пакетов. На следующем этапе с помощью ``gh`` CLI "
-"создается пустой GitHub Release из текущего тега. Обратите внимание, что "
-"этот шаг может быть дополнительно настроен. См. документацию `gh release "
-"<https://cli.github.com/manual/gh_release>`_ в качестве ссылки."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:176
-msgid ""
-"You may need to manage your ``GITHUB_TOKEN`` permissions to enable creating "
-"the GitHub Release. See the `GitHub documentation <https://docs.github.com/"
-"repositories/managing-your-repositorys-settings-and-features/enabling-"
-"features-for-your-repository/managing-github-actions-settings-for-a-"
-"repository#configuring-the-default-github_token-permissions>`_ for "
-"instructions. Specifically, the token needs the ``contents: write`` "
-"permission."
-msgstr ""
-"Вам может потребоваться изменить права ``GITHUB_TOKEN``, чтобы разрешить "
-"создание релиза GitHub. Инструкции см. в документации по GitHub <https://"
-"docs.github.com/repositories/managing-your-repositorys-settings-and-features/"
-"enabling-features-for-your-repository/managing-github-actions-settings-for-a-"
-"repository#configuring-the-default-github_token-permissions>`_. В частности, "
-"токену необходимо разрешение ``содержимое: запись``."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:182
-msgid "Finally, the signed distributions are uploaded to the GitHub Release."
-msgstr "Наконец, подписанные дистрибутивы загружаются на GitHub Release."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:192
-msgid ""
-"This is a replacement for GPG signatures, for which support has been "
-"`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. "
-"However, this job is not mandatory for uploading to PyPI and can be omitted."
-msgstr ""
-"Это замена для подписей GPG, поддержка которых была `удалена из PyPI "
-"<https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. Тем не менее, это "
-"задание не является обязательным для загрузки в PyPI и может быть пропущено."
-
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "Отдельный рабочий процесс для публикации в TestPyPI"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -11395,7 +11471,7 @@ msgstr ""
 "Теперь повторите эти шаги и создайте еще одно задание для публикации в "
 "индекс пакета TestPyPI в разделе ``jobs``:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:210
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -11406,22 +11482,22 @@ msgstr ""
 "основной ветке и часто используется для обозначения здорового конвейера "
 "публикации pipрелизов."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:214
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
 msgid "The whole CI/CD workflow"
 msgstr "Весь рабочий процесс CI/CD"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "В этом пункте показан весь рабочий процесс после выполнения вышеописанного "
 "руководства."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:224
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
 msgid "That's all, folks!"
 msgstr "Вот и все, друзья!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:226
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -11434,7 +11510,7 @@ msgstr ""
 "сборок вашим альфа-пользователям, а также для того, чтобы убедиться, что ваш "
 "конвейер релизовpip остаётся здоровым!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:234
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -11448,7 +11524,7 @@ msgstr ""
 "увеличен, но лучшим решением может быть использование PyPI-совместимого "
 "сервера, например :ref:`pypiserver`, в CI для тестирования."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:242
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
@@ -13660,8 +13736,12 @@ msgid "Explanations and Discussions"
 msgstr "Объяснения и обсуждения"
 
 #: ../source/index.rst:82
+#, fuzzy
+#| msgid ""
+#| "The :doc:`discussions/index` section for in-depth explanations and "
+#| "discussion about topics, such as:"
 msgid ""
-"The :doc:`discussions/index` section for in-depth explanations and "
+"The :doc:`discussions/index` section provides in-depth explanations and "
 "discussion about topics, such as:"
 msgstr ""
 "Раздел :doc:`discussions/index` для подробного объяснения и обсуждения таких "
@@ -17991,8 +18071,8 @@ msgstr ""
 "установленным пакетом, прежде чем принять его за настоящую ошибку."
 
 #: ../source/specifications/binary-distribution-format.rst:455
-#: ../source/specifications/core-metadata.rst:922
-#: ../source/specifications/dependency-groups.rst:248
+#: ../source/specifications/core-metadata.rst:924
+#: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
 #: ../source/specifications/direct-url-data-structure.rst:407
 #: ../source/specifications/direct-url.rst:67
@@ -18006,7 +18086,7 @@ msgstr ""
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:993
 #: ../source/specifications/source-distribution-format.rst:153
-#: ../source/specifications/version-specifiers.rst:1266
+#: ../source/specifications/version-specifiers.rst:1269
 #: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr "История"
@@ -18788,6 +18868,10 @@ msgid "Core metadata specifications"
 msgstr "Спецификации основных метаданных"
 
 #: ../source/specifications/core-metadata.rst:9
+msgid "This page describes version 2.4, approved in August 2024."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:11
 msgid ""
 "Fields defined in the following specification should be considered valid, "
 "complete and not subject to change. The required fields are:"
@@ -18796,23 +18880,23 @@ msgstr ""
 "действительными, полными и не подлежащими изменению. К обязательным полям "
 "относятся:"
 
-#: ../source/specifications/core-metadata.rst:12
+#: ../source/specifications/core-metadata.rst:14
 msgid "``Metadata-Version``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:13
+#: ../source/specifications/core-metadata.rst:15
 msgid "``Name``"
 msgstr "``Имя``"
 
-#: ../source/specifications/core-metadata.rst:14
+#: ../source/specifications/core-metadata.rst:16
 msgid "``Version``"
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:16
+#: ../source/specifications/core-metadata.rst:18
 msgid "All the other fields are optional."
 msgstr "Все остальные поля являются необязательными."
 
-#: ../source/specifications/core-metadata.rst:18
+#: ../source/specifications/core-metadata.rst:20
 msgid ""
 "The standard file format for metadata (including in :doc:`wheels <binary-"
 "distribution-format>` and :doc:`installed projects <recording-installed-"
@@ -18832,7 +18916,7 @@ msgstr ""
 "модуль стандартной библиотеки :mod:`python:email.parser`, используя "
 "политику :data:`~.python:email.policy.compat32`."
 
-#: ../source/specifications/core-metadata.rst:27
+#: ../source/specifications/core-metadata.rst:29
 msgid ""
 "Whenever metadata is serialised to a byte stream (for example, to save to a "
 "file), strings must be serialised using the UTF-8 encoding."
@@ -18840,7 +18924,7 @@ msgstr ""
 "При сериализации метаданных в поток байтов (например, для сохранения в файл) "
 "строки должны быть сериализованы с использованием кодировки UTF-8."
 
-#: ../source/specifications/core-metadata.rst:30
+#: ../source/specifications/core-metadata.rst:32
 msgid ""
 "Although :pep:`566` defined a way to transform metadata into a JSON-"
 "compatible dictionary, this is not yet used as a standard interchange "
@@ -18852,7 +18936,7 @@ msgstr ""
 "обмена. Необходимость работы инструментов с многолетними существующими "
 "пакетами затрудняет переход на новый формат."
 
-#: ../source/specifications/core-metadata.rst:35
+#: ../source/specifications/core-metadata.rst:37
 msgid ""
 "*Interpreting old metadata:* In :pep:`566`, the version specifier field "
 "format specification was relaxed to accept the syntax used by popular "
@@ -18868,11 +18952,11 @@ msgstr ""
 "метаданных могут захотеть использовать более мягкие правила форматирования "
 "даже для файлов метаданных, которые номинально меньше версии 2.1."
 
-#: ../source/specifications/core-metadata.rst:46
+#: ../source/specifications/core-metadata.rst:48
 msgid "Metadata-Version"
 msgstr "Metadata-Version"
 
-#: ../source/specifications/core-metadata.rst:50
+#: ../source/specifications/core-metadata.rst:52
 msgid ""
 "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
 "\"2.1\", \"2.2\", \"2.3\", and \"2.4\"."
@@ -18880,7 +18964,7 @@ msgstr ""
 "Версия формата файла; допустимые значения: «1.0», «1.1», «1.2», «2.1», "
 "«2.2», «2.3» и «2.4»."
 
-#: ../source/specifications/core-metadata.rst:53
+#: ../source/specifications/core-metadata.rst:55
 msgid ""
 "Automated tools consuming metadata SHOULD warn if ``metadata_version`` is "
 "greater than the highest version they support, and MUST fail if "
@@ -18895,7 +18979,7 @@ msgstr ""
 "(как описано в :ref:`Спецификация спецификатора версии <version-"
 "specifiers>`, основная версия - это значение перед первой точкой)."
 
-#: ../source/specifications/core-metadata.rst:60
+#: ../source/specifications/core-metadata.rst:62
 msgid ""
 "For broader compatibility, build tools MAY choose to produce distribution "
 "metadata using the lowest metadata version that includes all of the needed "
@@ -18905,38 +18989,38 @@ msgstr ""
 "метаданных дистрибутива самую низкую версию метаданных, которая включает все "
 "необходимые поля."
 
-#: ../source/specifications/core-metadata.rst:64
-#: ../source/specifications/core-metadata.rst:82
-#: ../source/specifications/core-metadata.rst:99
-#: ../source/specifications/core-metadata.rst:164
-#: ../source/specifications/core-metadata.rst:179
-#: ../source/specifications/core-metadata.rst:217
-#: ../source/specifications/core-metadata.rst:289
-#: ../source/specifications/core-metadata.rst:293
-#: ../source/specifications/core-metadata.rst:297
-#: ../source/specifications/core-metadata.rst:301
-#: ../source/specifications/core-metadata.rst:333
-#: ../source/specifications/core-metadata.rst:355
-#: ../source/specifications/core-metadata.rst:373
-#: ../source/specifications/core-metadata.rst:398
-#: ../source/specifications/core-metadata.rst:420
-#: ../source/specifications/core-metadata.rst:640
-#: ../source/specifications/core-metadata.rst:675
-#: ../source/specifications/core-metadata.rst:685
-#: ../source/specifications/core-metadata.rst:819
-#: ../source/specifications/core-metadata.rst:916
+#: ../source/specifications/core-metadata.rst:66
+#: ../source/specifications/core-metadata.rst:84
+#: ../source/specifications/core-metadata.rst:101
+#: ../source/specifications/core-metadata.rst:166
+#: ../source/specifications/core-metadata.rst:181
+#: ../source/specifications/core-metadata.rst:219
+#: ../source/specifications/core-metadata.rst:291
+#: ../source/specifications/core-metadata.rst:295
+#: ../source/specifications/core-metadata.rst:299
+#: ../source/specifications/core-metadata.rst:303
+#: ../source/specifications/core-metadata.rst:335
+#: ../source/specifications/core-metadata.rst:357
+#: ../source/specifications/core-metadata.rst:375
+#: ../source/specifications/core-metadata.rst:400
+#: ../source/specifications/core-metadata.rst:422
+#: ../source/specifications/core-metadata.rst:642
+#: ../source/specifications/core-metadata.rst:677
+#: ../source/specifications/core-metadata.rst:687
+#: ../source/specifications/core-metadata.rst:821
+#: ../source/specifications/core-metadata.rst:918
 msgid "Example::"
 msgstr "Пример::"
 
-#: ../source/specifications/core-metadata.rst:72
+#: ../source/specifications/core-metadata.rst:74
 msgid "Name"
 msgstr "Имя"
 
-#: ../source/specifications/core-metadata.rst:75
+#: ../source/specifications/core-metadata.rst:77
 msgid "Added restrictions on format from the :ref:`name format <name-format>`."
 msgstr "Добавлены ограничения на формат из :ref:`формат имени <имя-формат>`."
 
-#: ../source/specifications/core-metadata.rst:78
+#: ../source/specifications/core-metadata.rst:80
 msgid ""
 "The name of the distribution. The name field is the primary identifier for a "
 "distribution. It must conform to the :ref:`name format specification <name-"
@@ -18945,7 +19029,7 @@ msgstr ""
 "Имя дистрибутива. Поле имени является основным идентификатором дистрибутива. "
 "Оно должно соответствовать спецификации :ref:`формата имени <name-format>`."
 
-#: ../source/specifications/core-metadata.rst:86
+#: ../source/specifications/core-metadata.rst:88
 msgid ""
 "For comparison purposes, the names should be :ref:`normalized <name-"
 "normalization>` before comparing."
@@ -18953,11 +19037,11 @@ msgstr ""
 "Для сравнения имена должны быть :ref:`нормализованы <имя-нормализация>` "
 "перед сравнением."
 
-#: ../source/specifications/core-metadata.rst:91
+#: ../source/specifications/core-metadata.rst:93
 msgid "Version"
 msgstr "Версия"
 
-#: ../source/specifications/core-metadata.rst:95
+#: ../source/specifications/core-metadata.rst:97
 msgid ""
 "A string containing the distribution's version number.  This field  must be "
 "in the format specified in the :ref:`Version specifier specification "
@@ -18967,11 +19051,11 @@ msgstr ""
 "формате, указанном в :ref:`Спецификация спецификатора версии <version-"
 "specifiers>`."
 
-#: ../source/specifications/core-metadata.rst:107
+#: ../source/specifications/core-metadata.rst:109
 msgid "Dynamic (multiple use)"
 msgstr "Динамический (многократное использование)"
 
-#: ../source/specifications/core-metadata.rst:111
+#: ../source/specifications/core-metadata.rst:113
 msgid ""
 "A string containing the name of another core metadata field. The field names "
 "``Name``, ``Version``, and ``Metadata-Version`` may not be specified in this "
@@ -18980,7 +19064,7 @@ msgstr ""
 "Строка, содержащая имя другого поля метаданных ядра. Имена полей ``Name``, "
 "``Version`` и ``Metadata-Version`` не могут быть указаны в этом поле."
 
-#: ../source/specifications/core-metadata.rst:115
+#: ../source/specifications/core-metadata.rst:117
 msgid ""
 "When found in the metadata of a source distribution, the following rules "
 "apply:"
@@ -18988,7 +19072,7 @@ msgstr ""
 "При нахождении в метаданных исходного дистрибутива действуют следующие "
 "правила:"
 
-#: ../source/specifications/core-metadata.rst:118
+#: ../source/specifications/core-metadata.rst:120
 msgid ""
 "If a field is *not* marked as ``Dynamic``, then the value of the field in "
 "any wheel built from the sdist MUST match the value in the sdist. If the "
@@ -19000,7 +19084,7 @@ msgstr ""
 "поле отсутствует в sdist и не помечено как ``динамическое'', то оно НЕ "
 "ДОЛЖНО присутствовать в колесе."
 
-#: ../source/specifications/core-metadata.rst:122
+#: ../source/specifications/core-metadata.rst:124
 msgid ""
 "If a field is marked as ``Dynamic``, it may contain any valid value in a "
 "wheel built from the sdist (including not being present at all)."
@@ -19009,7 +19093,7 @@ msgstr ""
 "допустимое значение в колесе, собранном из sdist (в том числе не "
 "присутствовать вообще)."
 
-#: ../source/specifications/core-metadata.rst:125
+#: ../source/specifications/core-metadata.rst:127
 msgid ""
 "If the sdist metadata version is older than version 2.2, then all fields "
 "should be treated as if they were specified with ``Dynamic`` (i.e. there are "
@@ -19019,7 +19103,7 @@ msgstr ""
 "рассматриваться так, как если бы они были указаны с ``Dynamic`` (т.е. нет "
 "никаких специальных ограничений на метаданные колес, собранных из sdist)."
 
-#: ../source/specifications/core-metadata.rst:129
+#: ../source/specifications/core-metadata.rst:131
 msgid ""
 "In any context other than a source distribution, ``Dynamic`` is for "
 "information only, and indicates that the field value was calculated at wheel "
@@ -19031,16 +19115,16 @@ msgstr ""
 "вычислено во время сборки колеса, и может не совпадать со значением в sdist "
 "или в других колесах для проекта."
 
-#: ../source/specifications/core-metadata.rst:134
+#: ../source/specifications/core-metadata.rst:136
 msgid ""
 "Full details of the semantics of ``Dynamic`` are described in :pep:`643`."
 msgstr "Полные подробности семантики ``Dynamic`` описаны в :pep:`643`."
 
-#: ../source/specifications/core-metadata.rst:139
+#: ../source/specifications/core-metadata.rst:141
 msgid "Platform (multiple use)"
 msgstr "Platform (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:143
+#: ../source/specifications/core-metadata.rst:145
 msgid ""
 "A Platform specification describing an operating system supported by the "
 "distribution which is not listed in the \"Operating System\" Trove "
@@ -19050,25 +19134,25 @@ msgstr ""
 "дистрибутивом, которая не указана в классификаторах Trove \"Операционная "
 "система\". См. раздел \"Классификатор\" ниже."
 
-#: ../source/specifications/core-metadata.rst:147
-#: ../source/specifications/core-metadata.rst:453
-#: ../source/specifications/core-metadata.rst:474
-#: ../source/specifications/core-metadata.rst:497
-#: ../source/specifications/core-metadata.rst:526
-#: ../source/specifications/core-metadata.rst:567
-#: ../source/specifications/core-metadata.rst:623
-#: ../source/specifications/core-metadata.rst:760
-#: ../source/specifications/core-metadata.rst:790
-#: ../source/specifications/core-metadata.rst:870
-#: ../source/specifications/core-metadata.rst:892
+#: ../source/specifications/core-metadata.rst:149
+#: ../source/specifications/core-metadata.rst:455
+#: ../source/specifications/core-metadata.rst:476
+#: ../source/specifications/core-metadata.rst:499
+#: ../source/specifications/core-metadata.rst:528
+#: ../source/specifications/core-metadata.rst:569
+#: ../source/specifications/core-metadata.rst:625
+#: ../source/specifications/core-metadata.rst:762
+#: ../source/specifications/core-metadata.rst:792
+#: ../source/specifications/core-metadata.rst:872
+#: ../source/specifications/core-metadata.rst:894
 msgid "Examples::"
 msgstr "Примеры::"
 
-#: ../source/specifications/core-metadata.rst:155
+#: ../source/specifications/core-metadata.rst:157
 msgid "Supported-Platform (multiple use)"
 msgstr "Supported-Platform (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:159
+#: ../source/specifications/core-metadata.rst:161
 msgid ""
 "Binary distributions containing a PKG-INFO file will use the Supported-"
 "Platform field in their metadata to specify the OS and CPU for which the "
@@ -19080,19 +19164,19 @@ msgstr ""
 "скомпилирован бинарный дистрибутив.  Семантика поля Supported-Platform не "
 "определена в данном PEP."
 
-#: ../source/specifications/core-metadata.rst:173
+#: ../source/specifications/core-metadata.rst:175
 msgid "Summary"
 msgstr "Краткое описание"
 
-#: ../source/specifications/core-metadata.rst:177
+#: ../source/specifications/core-metadata.rst:179
 msgid "A one-line summary of what the distribution does."
 msgstr "Однострочная сводка того, что делает дистрибутив."
 
-#: ../source/specifications/core-metadata.rst:197
+#: ../source/specifications/core-metadata.rst:199
 msgid "This field may be specified in the message body instead."
 msgstr "Это поле может быть указано в теле сообщения."
 
-#: ../source/specifications/core-metadata.rst:200
+#: ../source/specifications/core-metadata.rst:202
 msgid ""
 "A longer description of the distribution that can run to several "
 "paragraphs.  Software that deals with metadata should not assume any maximum "
@@ -19104,7 +19188,7 @@ msgstr ""
 "максимальный размер этого поля, однако людям не стоит включать в описание "
 "инструкцию по эксплуатации."
 
-#: ../source/specifications/core-metadata.rst:205
+#: ../source/specifications/core-metadata.rst:207
 msgid ""
 "The contents of this field can be written using reStructuredText markup "
 "[1]_.  For programs that work with the metadata, supporting markup is "
@@ -19117,7 +19201,7 @@ msgstr ""
 "поля как есть.  Это означает, что авторы должны быть консервативны в "
 "используемой ими разметке."
 
-#: ../source/specifications/core-metadata.rst:211
+#: ../source/specifications/core-metadata.rst:213
 msgid ""
 "To support empty lines and lines with indentation with respect to the RFC "
 "822 format, any CRLF character has to be suffixed by 7 spaces followed by a "
@@ -19130,7 +19214,7 @@ msgstr ""
 "поле, которое может быть интерпретировано синтаксическим анализатором RFC822 "
 "[2]_."
 
-#: ../source/specifications/core-metadata.rst:228
+#: ../source/specifications/core-metadata.rst:230
 msgid ""
 "This encoding implies that any occurrences of a CRLF followed by 7 spaces "
 "and a pipe char have to be replaced by a single CRLF when the field is "
@@ -19140,7 +19224,7 @@ msgstr ""
 "пробелов и символ pipe, должны быть заменены одним CRLF, когда поле "
 "разворачивается с помощью устройства чтения RFC822."
 
-#: ../source/specifications/core-metadata.rst:232
+#: ../source/specifications/core-metadata.rst:234
 msgid ""
 "Alternatively, the distribution's description may instead be provided in the "
 "message body (i.e., after a completely blank line following the headers, "
@@ -19150,11 +19234,11 @@ msgstr ""
 "сообщения (т. е. после полностью пустой строки, следующей за заголовками, "
 "без отступов или другого специального форматирования)."
 
-#: ../source/specifications/core-metadata.rst:241
+#: ../source/specifications/core-metadata.rst:243
 msgid "Description-Content-Type"
 msgstr "Description-Content-Type"
 
-#: ../source/specifications/core-metadata.rst:245
+#: ../source/specifications/core-metadata.rst:247
 msgid ""
 "A string stating the markup syntax (if any) used in the distribution's "
 "description, so that tools can intelligently render the description."
@@ -19163,7 +19247,7 @@ msgstr ""
 "в описании дистрибутива, чтобы инструменты могли грамотно отобразить "
 "описание."
 
-#: ../source/specifications/core-metadata.rst:248
+#: ../source/specifications/core-metadata.rst:250
 msgid ""
 "Historically, PyPI supported descriptions in plain text and "
 "`reStructuredText (reST) <https://docutils.sourceforge.io/docs/ref/rst/"
@@ -19192,7 +19276,7 @@ msgstr ""
 "дистрибутива указать формат описания, открывая возможность для PyPI и других "
 "инструментов отображать Markdown и другие форматы."
 
-#: ../source/specifications/core-metadata.rst:261
+#: ../source/specifications/core-metadata.rst:263
 msgid ""
 "The format of this field is the same as the ``Content-Type`` header in HTTP "
 "(i.e.: `RFC 1341 <https://www.w3.org/Protocols/rfc1341/4_Content-Type."
@@ -19204,27 +19288,27 @@ msgstr ""
 "Вкратце это означает, что оно имеет часть ``тип/подтип``, а затем может "
 "иметь несколько параметров:"
 
-#: ../source/specifications/core-metadata.rst:267
+#: ../source/specifications/core-metadata.rst:269
 msgid "Format::"
 msgstr "Формат::"
 
-#: ../source/specifications/core-metadata.rst:271
+#: ../source/specifications/core-metadata.rst:273
 msgid "The ``type/subtype`` part has only a few legal values:"
 msgstr "Часть ``тип/подтип`` имеет только несколько допустимых значений:"
 
-#: ../source/specifications/core-metadata.rst:273
+#: ../source/specifications/core-metadata.rst:275
 msgid "``text/plain``"
 msgstr "``text/plain``"
 
-#: ../source/specifications/core-metadata.rst:274
+#: ../source/specifications/core-metadata.rst:276
 msgid "``text/x-rst``"
 msgstr "``text/x-rst``"
 
-#: ../source/specifications/core-metadata.rst:275
+#: ../source/specifications/core-metadata.rst:277
 msgid "``text/markdown``"
 msgstr "``text/markdown``"
 
-#: ../source/specifications/core-metadata.rst:277
+#: ../source/specifications/core-metadata.rst:279
 msgid ""
 "The ``charset`` parameter can be used to specify the character encoding of "
 "the description. The only legal value is ``UTF-8``. If omitted, it is "
@@ -19234,7 +19318,7 @@ msgstr ""
 "Единственным допустимым значением является ``UTF-8``. Если значение опущено, "
 "то предполагается, что оно равно ``UTF-8``."
 
-#: ../source/specifications/core-metadata.rst:281
+#: ../source/specifications/core-metadata.rst:283
 msgid ""
 "Other parameters might be specific to the chosen subtype. For example, for "
 "the ``markdown`` subtype, there is an optional ``variant`` parameter that "
@@ -19246,15 +19330,15 @@ msgstr ""
 "позволяет указать используемый вариант Markdown (по умолчанию ``GFM``, если "
 "не указан). В настоящее время распознаются два варианта:"
 
-#: ../source/specifications/core-metadata.rst:286
+#: ../source/specifications/core-metadata.rst:288
 msgid "``GFM`` for :rfc:`GitHub-flavored Markdown <7764#section-3.2>`"
 msgstr "``GFM`` для :rfc:``GitHub-flavored Markdown <7764#section-3.2>`"
 
-#: ../source/specifications/core-metadata.rst:287
+#: ../source/specifications/core-metadata.rst:289
 msgid "``CommonMark`` for :rfc:`CommonMark <7764#section-3.5>`"
 msgstr "``CommonMark`` для :rfc:``CommonMark <7764#section-3.5>`"
 
-#: ../source/specifications/core-metadata.rst:305
+#: ../source/specifications/core-metadata.rst:307
 msgid ""
 "If a ``Description-Content-Type`` is not specified, then applications should "
 "attempt to render it as ``text/x-rst; charset=UTF-8`` and fall back to "
@@ -19264,7 +19348,7 @@ msgstr ""
 "отобразить его как ``text/x-rst; charset=UTF-8`` и вернуться к ``text/"
 "plain``, если он не является корректным rst."
 
-#: ../source/specifications/core-metadata.rst:309
+#: ../source/specifications/core-metadata.rst:311
 msgid ""
 "If a ``Description-Content-Type`` is an unrecognized value, then the assumed "
 "content type is ``text/plain`` (Although PyPI will probably reject anything "
@@ -19274,7 +19358,7 @@ msgstr ""
 "предполагаемый тип содержимого - ``text/plain`` (хотя PyPI, вероятно, "
 "отклонит все, что имеет нераспознанное значение)."
 
-#: ../source/specifications/core-metadata.rst:313
+#: ../source/specifications/core-metadata.rst:315
 msgid ""
 "If the ``Description-Content-Type`` is ``text/markdown`` and ``variant`` is "
 "not specified or is set to an unrecognized value, then the assumed "
@@ -19284,7 +19368,7 @@ msgstr ""
 "``вариант`` не указан или имеет нераспознанное значение, то предполагаемым "
 "``вариантом`` будет ``GFM``."
 
-#: ../source/specifications/core-metadata.rst:317
+#: ../source/specifications/core-metadata.rst:319
 msgid ""
 "So for the last example above, the ``charset`` defaults to ``UTF-8`` and the "
 "``variant`` defaults to ``GFM`` and thus it is equivalent to the example "
@@ -19294,11 +19378,11 @@ msgstr ""
 "значение ``UTF-8``, а ``variant`` принимает значение ``GFM``, и поэтому он "
 "эквивалентен предыдущему примеру."
 
-#: ../source/specifications/core-metadata.rst:326
+#: ../source/specifications/core-metadata.rst:328
 msgid "Keywords"
 msgstr "Ключевые слова"
 
-#: ../source/specifications/core-metadata.rst:330
+#: ../source/specifications/core-metadata.rst:332
 msgid ""
 "A list of additional keywords, separated by commas, to be used to assist "
 "searching for the distribution in a larger catalog."
@@ -19306,7 +19390,7 @@ msgstr ""
 "Список дополнительных ключевых слов, разделенных запятыми, которые будут "
 "использоваться для облегчения поиска дистрибутива в большом каталоге."
 
-#: ../source/specifications/core-metadata.rst:339
+#: ../source/specifications/core-metadata.rst:341
 msgid ""
 "The specification previously showed keywords separated by spaces, but "
 "distutils and setuptools implemented it with commas. These tools have been "
@@ -19318,11 +19402,11 @@ msgstr ""
 "используются уже много лет, поэтому было проще обновить спецификацию, чтобы "
 "она соответствовала стандарту де-факто."
 
-#: ../source/specifications/core-metadata.rst:348
+#: ../source/specifications/core-metadata.rst:350
 msgid "Author"
 msgstr "Автор"
 
-#: ../source/specifications/core-metadata.rst:352
+#: ../source/specifications/core-metadata.rst:354
 msgid ""
 "A string containing the author's name at a minimum; additional contact "
 "information may be provided."
@@ -19330,11 +19414,11 @@ msgstr ""
 "Строка, содержащая, как минимум, имя автора; может быть указана "
 "дополнительная контактная информация."
 
-#: ../source/specifications/core-metadata.rst:365
+#: ../source/specifications/core-metadata.rst:367
 msgid "Author-email"
 msgstr "Author-email"
 
-#: ../source/specifications/core-metadata.rst:369
+#: ../source/specifications/core-metadata.rst:371
 msgid ""
 "A string containing the author's e-mail address.  It can contain a name and "
 "e-mail address in the legal forms for a RFC-822 ``From:`` header."
@@ -19342,8 +19426,8 @@ msgstr ""
 "Строка, содержащая адрес электронной почты автора.  Может содержать имя и "
 "адрес электронной почты в законных формах для заголовка RFC-822 ``From:``."
 
-#: ../source/specifications/core-metadata.rst:377
-#: ../source/specifications/core-metadata.rst:424
+#: ../source/specifications/core-metadata.rst:379
+#: ../source/specifications/core-metadata.rst:426
 msgid ""
 "Per RFC-822, this field may contain multiple comma-separated e-mail "
 "addresses::"
@@ -19351,11 +19435,11 @@ msgstr ""
 "Согласно RFC-822, это поле может содержать несколько адресов электронной "
 "почты, разделенных запятыми::"
 
-#: ../source/specifications/core-metadata.rst:387
+#: ../source/specifications/core-metadata.rst:389
 msgid "Maintainer"
 msgstr "Сопровождающий"
 
-#: ../source/specifications/core-metadata.rst:391
+#: ../source/specifications/core-metadata.rst:393
 msgid ""
 "A string containing the maintainer's name at a minimum; additional contact "
 "information may be provided."
@@ -19363,7 +19447,7 @@ msgstr ""
 "Строка, содержащая, как минимум, имя сопровождающего; может быть "
 "предоставлена дополнительная контактная информация."
 
-#: ../source/specifications/core-metadata.rst:394
+#: ../source/specifications/core-metadata.rst:396
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
@@ -19373,11 +19457,11 @@ msgstr ""
 "проект поддерживается кем-то, кроме оригинального автора: его следует "
 "опустить, если оно идентично ``Author``."
 
-#: ../source/specifications/core-metadata.rst:408
+#: ../source/specifications/core-metadata.rst:410
 msgid "Maintainer-email"
 msgstr "Maintainer-email"
 
-#: ../source/specifications/core-metadata.rst:412
+#: ../source/specifications/core-metadata.rst:414
 msgid ""
 "A string containing the maintainer's e-mail address.  It can contain a name "
 "and e-mail address in the legal forms for a RFC-822 ``From:`` header."
@@ -19386,7 +19470,7 @@ msgstr ""
 "имя и адрес электронной почты в законных формах для заголовка RFC-822 ``From:"
 "``."
 
-#: ../source/specifications/core-metadata.rst:416
+#: ../source/specifications/core-metadata.rst:418
 msgid ""
 "Note that this field is intended for use when a project is being maintained "
 "by someone other than the original author:  it should be omitted if it is "
@@ -19396,15 +19480,15 @@ msgstr ""
 "проект поддерживается кем-то, кроме оригинального автора: оно должно быть "
 "опущено, если оно идентично ``Author-email``."
 
-#: ../source/specifications/core-metadata.rst:434
+#: ../source/specifications/core-metadata.rst:436
 msgid "License"
 msgstr "Лицензия"
 
-#: ../source/specifications/core-metadata.rst:437
+#: ../source/specifications/core-metadata.rst:439
 msgid "in favour of ``License-Expression``."
 msgstr "в пользу ``лицензии-выражения``."
 
-#: ../source/specifications/core-metadata.rst:441
+#: ../source/specifications/core-metadata.rst:443
 msgid ""
 "As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually "
 "exclusive. If both are specified, tools which parse metadata will disregard "
@@ -19417,7 +19501,7 @@ msgstr ""
 "загрузки. Смотрите `PEP 639 <https://peps.python.org/pep-0639/#deprecate-"
 "license-field>`__."
 
-#: ../source/specifications/core-metadata.rst:446
+#: ../source/specifications/core-metadata.rst:448
 msgid ""
 "Text indicating the license covering the distribution where the license is "
 "not a selection from the \"License\" Trove classifiers. See :ref:"
@@ -19433,11 +19517,11 @@ msgstr ""
 "``Классификатор'', или для указания разновидности или исключения из такой "
 "лицензии."
 
-#: ../source/specifications/core-metadata.rst:466
+#: ../source/specifications/core-metadata.rst:468
 msgid "License-Expression"
 msgstr "License-Expression"
 
-#: ../source/specifications/core-metadata.rst:470
+#: ../source/specifications/core-metadata.rst:472
 #, fuzzy
 #| msgid ""
 #| "Text string that is a valid SPDX license expression as defined in :pep:"
@@ -19451,11 +19535,11 @@ msgstr ""
 "как определено в :pep:`639`. Инструменты ДОЛЖНЫ проверять и выполнять "
 "нормализацию регистра выражения."
 
-#: ../source/specifications/core-metadata.rst:489
+#: ../source/specifications/core-metadata.rst:491
 msgid "License-File (multiple use)"
 msgstr "Лицензия-файл (многократное использование)"
 
-#: ../source/specifications/core-metadata.rst:493
+#: ../source/specifications/core-metadata.rst:495
 msgid ""
 "Each entry is a string representation of the path of a license-related file. "
 "The path is located within the project source tree, relative to the project "
@@ -19465,11 +19549,11 @@ msgstr ""
 "связанному с лицензией. Путь находится в дереве исходных текстов проекта, "
 "относительно корневого каталога проекта. Подробности см. в :pep:`639`."
 
-#: ../source/specifications/core-metadata.rst:510
+#: ../source/specifications/core-metadata.rst:512
 msgid "Classifier (multiple use)"
 msgstr "Classifier (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:514
+#: ../source/specifications/core-metadata.rst:516
 msgid ""
 "Each entry is a string giving a single classification value for the "
 "distribution.  Classifiers are described in :pep:`301`, and the Python "
@@ -19481,7 +19565,7 @@ msgstr ""
 "Index публикует динамический список `определенных в данный момент "
 "классификаторов` <https://pypi.org/classifiers/>`__."
 
-#: ../source/specifications/core-metadata.rst:520
+#: ../source/specifications/core-metadata.rst:522
 msgid ""
 "The use of ``License ::`` classifiers  is deprecated as of Metadata 2.4, use "
 "``License-Expression`` instead. See `PEP 639 <https://peps.python.org/"
@@ -19491,21 +19575,21 @@ msgstr ""
 "Metadata 2.4, вместо них используйте ``License-Expression``. См. `PEP 639 "
 "<https://peps.python.org/pep-0639/#deprecate-license-classifiers>`_."
 
-#: ../source/specifications/core-metadata.rst:524
-#: ../source/specifications/core-metadata.rst:614
-#: ../source/specifications/core-metadata.rst:758
-#: ../source/specifications/core-metadata.rst:783
+#: ../source/specifications/core-metadata.rst:526
+#: ../source/specifications/core-metadata.rst:616
+#: ../source/specifications/core-metadata.rst:760
+#: ../source/specifications/core-metadata.rst:785
 msgid "This field may be followed by an environment marker after a semicolon."
 msgstr "За этим полем может следовать маркер окружения после точки с запятой."
 
-#: ../source/specifications/core-metadata.rst:535
+#: ../source/specifications/core-metadata.rst:537
 msgid "Requires-Dist (multiple use)"
 msgstr "Requires-Dist (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:538
-#: ../source/specifications/core-metadata.rst:601
-#: ../source/specifications/core-metadata.rst:730
-#: ../source/specifications/core-metadata.rst:772
+#: ../source/specifications/core-metadata.rst:540
+#: ../source/specifications/core-metadata.rst:603
+#: ../source/specifications/core-metadata.rst:732
+#: ../source/specifications/core-metadata.rst:774
 msgid ""
 "The field format specification was relaxed to accept the syntax used by "
 "popular publishing tools."
@@ -19513,7 +19597,7 @@ msgstr ""
 "Спецификация формата полей была смягчена, чтобы принять синтаксис, "
 "используемый популярными издательскими инструментами."
 
-#: ../source/specifications/core-metadata.rst:542
+#: ../source/specifications/core-metadata.rst:544
 msgid ""
 "Each entry contains a string naming some other distutils project required by "
 "this distribution."
@@ -19521,11 +19605,11 @@ msgstr ""
 "Каждая запись содержит строку с названием другого проекта distutils, "
 "необходимого для данного дистрибутива."
 
-#: ../source/specifications/core-metadata.rst:545
+#: ../source/specifications/core-metadata.rst:547
 msgid "The format of a requirement string contains from one to four parts:"
 msgstr "Формат строки требований содержит от одной до четырех частей:"
 
-#: ../source/specifications/core-metadata.rst:547
+#: ../source/specifications/core-metadata.rst:549
 msgid ""
 "A project name, in the same format as the ``Name:`` field. The only "
 "mandatory part."
@@ -19533,7 +19617,7 @@ msgstr ""
 "Название проекта в том же формате, что и поле ``Имя:``. Единственная "
 "обязательная часть."
 
-#: ../source/specifications/core-metadata.rst:549
+#: ../source/specifications/core-metadata.rst:551
 msgid ""
 "A comma-separated list of 'extra' names. These are defined by the required "
 "project, referring to specific features which may need extra dependencies. "
@@ -19545,7 +19629,7 @@ msgstr ""
 "потребоваться дополнительные зависимости. Имена ДОЛЖНЫ соответствовать "
 "ограничениям, указанным в поле ``Provides-Extra:``."
 
-#: ../source/specifications/core-metadata.rst:553
+#: ../source/specifications/core-metadata.rst:555
 msgid ""
 "A version specifier. Tools parsing the format should accept optional "
 "parentheses around this, but tools generating it should not use parentheses."
@@ -19554,7 +19638,7 @@ msgstr ""
 "необязательные круглые скобки вокруг него, но инструменты, генерирующие его, "
 "не должны использовать круглые скобки."
 
-#: ../source/specifications/core-metadata.rst:556
+#: ../source/specifications/core-metadata.rst:558
 msgid ""
 "An environment marker after a semicolon. This means that the requirement is "
 "only needed in the specified conditions."
@@ -19562,11 +19646,11 @@ msgstr ""
 "Маркер окружения после точки с запятой. Это означает, что требование "
 "необходимо только в указанных условиях."
 
-#: ../source/specifications/core-metadata.rst:559
+#: ../source/specifications/core-metadata.rst:561
 msgid "See :pep:`508` for full details of the allowed format."
 msgstr "Подробную информацию о допустимом формате см. в :pep:`508`."
 
-#: ../source/specifications/core-metadata.rst:561
+#: ../source/specifications/core-metadata.rst:563
 msgid ""
 "The project names should correspond to names as found on the `Python Package "
 "Index`_."
@@ -19574,7 +19658,7 @@ msgstr ""
 "Имена проектов должны соответствовать именам, найденным в `Python Package "
 "Index`_."
 
-#: ../source/specifications/core-metadata.rst:564
+#: ../source/specifications/core-metadata.rst:566
 msgid ""
 "Version specifiers must follow the rules described in :doc:`version-"
 "specifiers`."
@@ -19582,11 +19666,11 @@ msgstr ""
 "Спецификаторы версий должны следовать правилам, описанным в :doc:`version-"
 "specifiers`."
 
-#: ../source/specifications/core-metadata.rst:578
+#: ../source/specifications/core-metadata.rst:580
 msgid "Requires-Python"
 msgstr "Requires-Python"
 
-#: ../source/specifications/core-metadata.rst:582
+#: ../source/specifications/core-metadata.rst:584
 msgid ""
 "This field specifies the Python version(s) that the distribution is "
 "compatible with. Installation tools may look at this when picking which "
@@ -19596,11 +19680,11 @@ msgstr ""
 "дистрибутив. Утилиты установки могут учитывать это поле при выборе версии "
 "проекта для установки."
 
-#: ../source/specifications/core-metadata.rst:586
+#: ../source/specifications/core-metadata.rst:588
 msgid "The value must be in the format specified in :doc:`version-specifiers`."
 msgstr "Значение должно быть в формате, указанном в :doc:`version-specifiers`."
 
-#: ../source/specifications/core-metadata.rst:588
+#: ../source/specifications/core-metadata.rst:590
 msgid ""
 "For example, if a distribution uses :ref:`f-strings <whatsnew36-pep498>` "
 "then it may prevent installation on Python < 3.6 by specifying::"
@@ -19608,15 +19692,15 @@ msgstr ""
 "Например, если дистрибутив использует :ref:`f-strings <whatsnew36-pep498>`, "
 "то он может предотвратить установку на Python < 3.6, указав::"
 
-#: ../source/specifications/core-metadata.rst:593
+#: ../source/specifications/core-metadata.rst:595
 msgid "This field cannot be followed by an environment marker."
 msgstr "За этим полем не может следовать маркер окружения."
 
-#: ../source/specifications/core-metadata.rst:598
+#: ../source/specifications/core-metadata.rst:600
 msgid "Requires-External (multiple use)"
 msgstr "Requires-External (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:605
+#: ../source/specifications/core-metadata.rst:607
 msgid ""
 "Each entry contains a string describing some dependency in the system that "
 "the distribution is to be used.  This field is intended to serve as a hint "
@@ -19628,7 +19712,7 @@ msgstr ""
 "сопровождающих проектов и не имеет семантики, значимой для дистрибутива "
 "``distutils``."
 
-#: ../source/specifications/core-metadata.rst:610
+#: ../source/specifications/core-metadata.rst:612
 msgid ""
 "The format of a requirement string is a name of an external dependency, "
 "optionally followed by a version declaration within parentheses."
@@ -19636,7 +19720,7 @@ msgstr ""
 "Формат строки требований - это имя внешней зависимости, за которым в круглых "
 "скобках по желанию следует объявление версии."
 
-#: ../source/specifications/core-metadata.rst:616
+#: ../source/specifications/core-metadata.rst:618
 msgid ""
 "Because they refer to non-Python software releases, version numbers for this "
 "field are **not** required to conform to the format specified in the :ref:"
@@ -19648,17 +19732,17 @@ msgstr ""
 "указанному в :ref:`Спецификация спецификатора версии <version-specifiers>`: "
 "они должны соответствовать схеме версий, используемой внешней зависимостью."
 
-#: ../source/specifications/core-metadata.rst:621
+#: ../source/specifications/core-metadata.rst:623
 msgid "Notice that there is no particular rule on the strings to be used."
 msgstr ""
 "Обратите внимание, что нет никаких особых правил относительно используемых "
 "строк."
 
-#: ../source/specifications/core-metadata.rst:633
+#: ../source/specifications/core-metadata.rst:635
 msgid "Project-URL (multiple-use)"
 msgstr "Project-URL (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:637
+#: ../source/specifications/core-metadata.rst:639
 msgid ""
 "A string containing a browsable URL for the project and a label for it, "
 "separated by a comma."
@@ -19666,12 +19750,12 @@ msgstr ""
 "Строка, содержащая просматриваемый URL-адрес проекта и его метку, "
 "разделенные запятой."
 
-#: ../source/specifications/core-metadata.rst:644
+#: ../source/specifications/core-metadata.rst:646
 msgid "The label is free text limited to 32 characters."
 msgstr ""
 "Этикетка представляет собой свободный текст, ограниченный 32 символами."
 
-#: ../source/specifications/core-metadata.rst:646
+#: ../source/specifications/core-metadata.rst:648
 msgid ""
 "Starting with :pep:`753`, project metadata consumers (such as the Python "
 "Package Index) can use a standard normalization process to discover \"well-"
@@ -19683,11 +19767,11 @@ msgstr ""
 "обнаружения «известных» меток, которые затем могут быть представлены в "
 "особом виде при выводе на экран. См. :ref:`well-known-project-urls`."
 
-#: ../source/specifications/core-metadata.rst:656
+#: ../source/specifications/core-metadata.rst:658
 msgid "Provides-Extra (multiple use)"
 msgstr "Provides-Extra (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:659
+#: ../source/specifications/core-metadata.rst:661
 msgid ""
 ":pep:`685` restricted valid values to be unambiguous (i.e. no normalization "
 "required). For older metadata versions, value restrictions were brought into "
@@ -19698,7 +19782,7 @@ msgstr ""
 "ограничения на значения были приведены в соответствие с ``Name:`` и были "
 "введены правила нормализации."
 
-#: ../source/specifications/core-metadata.rst:664
+#: ../source/specifications/core-metadata.rst:666
 msgid ""
 "A string containing the name of an optional feature. A valid name consists "
 "only of lowercase ASCII letters, ASCII numbers, and hyphen. It must start "
@@ -19712,7 +19796,7 @@ msgstr ""
 "Имена ограничиваются теми, которые соответствуют следующему регексу (который "
 "гарантирует однозначность)::"
 
-#: ../source/specifications/core-metadata.rst:672
+#: ../source/specifications/core-metadata.rst:674
 msgid ""
 "The specified name may be used to make a dependency conditional on whether "
 "the optional feature has been requested."
@@ -19720,7 +19804,7 @@ msgstr ""
 "Указанное имя можно использовать, чтобы сделать зависимость зависимой от "
 "того, была ли запрошена необязательная функция."
 
-#: ../source/specifications/core-metadata.rst:680
+#: ../source/specifications/core-metadata.rst:682
 msgid ""
 "A second distribution requires an optional dependency by placing it inside "
 "square brackets, and can request multiple features by separating them with a "
@@ -19732,7 +19816,7 @@ msgstr ""
 "(,). Требования оцениваются для каждой запрошенной функции и добавляются к "
 "набору требований для дистрибутива."
 
-#: ../source/specifications/core-metadata.rst:690
+#: ../source/specifications/core-metadata.rst:692
 msgid ""
 "Two feature names ``test`` and ``doc`` are reserved to mark dependencies "
 "that are needed for running automated tests and generating documentation, "
@@ -19742,7 +19826,7 @@ msgstr ""
 "зависимостей, необходимых для выполнения автоматизированных тестов и "
 "создания документации, соответственно."
 
-#: ../source/specifications/core-metadata.rst:694
+#: ../source/specifications/core-metadata.rst:696
 msgid ""
 "It is legal to specify ``Provides-Extra:`` without referencing it in any "
 "``Requires-Dist:``."
@@ -19750,7 +19834,7 @@ msgstr ""
 "Разрешается указывать ``Provides-Extra:`` без ссылки на него в каком-либо "
 "``Requires-Dist:``."
 
-#: ../source/specifications/core-metadata.rst:697
+#: ../source/specifications/core-metadata.rst:699
 msgid ""
 "When writing data for older metadata versions, names MUST be normalized "
 "following the same rules used for the ``Name:`` field when performing "
@@ -19762,7 +19846,7 @@ msgstr ""
 "при выполнении сравнений. Средства записи метаданных ДОЛЖНЫ выдавать ошибку, "
 "если две записи ``Provides-Extra:`` будут конфликтовать после нормализации."
 
-#: ../source/specifications/core-metadata.rst:702
+#: ../source/specifications/core-metadata.rst:704
 msgid ""
 "When reading data for older metadata versions, tools SHOULD warn when values "
 "for this field would be invalid under newer metadata versions. If a value "
@@ -19779,11 +19863,11 @@ msgstr ""
 "Инструментальные средства МОГУТ выдавать ошибку при чтении недопустимого "
 "имени для старых версий метаданных."
 
-#: ../source/specifications/core-metadata.rst:710
+#: ../source/specifications/core-metadata.rst:712
 msgid "Rarely Used Fields"
 msgstr "Редко используемые поля"
 
-#: ../source/specifications/core-metadata.rst:712
+#: ../source/specifications/core-metadata.rst:714
 msgid ""
 "The fields in this section are currently rarely used, as their design was "
 "inspired by comparable mechanisms in Linux package management systems, and "
@@ -19796,7 +19880,7 @@ msgstr ""
 "интерпретировать их в контексте открытого индексного сервера, такого как "
 "`PyPI <https://pypi.org>`__."
 
-#: ../source/specifications/core-metadata.rst:717
+#: ../source/specifications/core-metadata.rst:719
 msgid ""
 "As a result, popular installation tools ignore them completely, which in "
 "turn means there is little incentive for package publishers to set them "
@@ -19812,11 +19896,11 @@ msgstr ""
 "использованы по своему первоначальному назначению в сочетании с курируемым "
 "репозиторием пакетов."
 
-#: ../source/specifications/core-metadata.rst:727
+#: ../source/specifications/core-metadata.rst:729
 msgid "Provides-Dist (multiple use)"
 msgstr "Provides-Dist (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:734
+#: ../source/specifications/core-metadata.rst:736
 msgid ""
 "Each entry contains a string naming a Distutils project which is contained "
 "within this distribution.  This field *must* include the project identified "
@@ -19826,7 +19910,7 @@ msgstr ""
 "содержится в этом дистрибутиве.  Это поле *должно* включать проект, "
 "указанный в поле ``Имя``, за которым следует версия : Имя (Версия)."
 
-#: ../source/specifications/core-metadata.rst:739
+#: ../source/specifications/core-metadata.rst:741
 msgid ""
 "A distribution may provide additional names, e.g. to indicate that multiple "
 "projects have been bundled together.  For instance, source distributions of "
@@ -19841,7 +19925,7 @@ msgstr ""
 "исходного дистрибутива удовлетворяет требованиям как для ``ZODB``, так и для "
 "``transaction``."
 
-#: ../source/specifications/core-metadata.rst:746
+#: ../source/specifications/core-metadata.rst:748
 msgid ""
 "A distribution may also provide a \"virtual\" project name, which does not "
 "correspond to any separately-distributed project:  such a name might be used "
@@ -19860,7 +19944,7 @@ msgstr ""
 "позволяя другим проектам зависеть только от наличия хотя бы одной из этих "
 "привязок."
 
-#: ../source/specifications/core-metadata.rst:754
+#: ../source/specifications/core-metadata.rst:756
 msgid ""
 "A version declaration may be supplied and must follow the rules described "
 "in :doc:`version-specifiers`. The distribution's version number will be "
@@ -19870,11 +19954,11 @@ msgstr ""
 "правилам, описанным в :doc:`version-specifiers`. Номер версии дистрибутива "
 "будет подразумеваться, если он не указан."
 
-#: ../source/specifications/core-metadata.rst:769
+#: ../source/specifications/core-metadata.rst:771
 msgid "Obsoletes-Dist (multiple use)"
 msgstr "Obsoletes-Dist (можно использовать несколько раз)"
 
-#: ../source/specifications/core-metadata.rst:776
+#: ../source/specifications/core-metadata.rst:778
 msgid ""
 "Each entry contains a string describing a distutils project's distribution "
 "which this distribution renders obsolete, meaning that the two projects "
@@ -19884,7 +19968,7 @@ msgstr ""
 "который этот дистрибутив делает устаревшим, что означает, что эти два "
 "проекта не должны быть установлены одновременно."
 
-#: ../source/specifications/core-metadata.rst:780
+#: ../source/specifications/core-metadata.rst:782
 msgid ""
 "Version declarations can be supplied.  Version numbers must be in the format "
 "specified in :doc:`version-specifiers`."
@@ -19892,7 +19976,7 @@ msgstr ""
 "Декларации версий могут быть предоставлены.  Номера версий должны быть в "
 "формате, указанном в :doc:`version-specifiers`."
 
-#: ../source/specifications/core-metadata.rst:785
+#: ../source/specifications/core-metadata.rst:787
 msgid ""
 "The most common use of this field will be in case a project name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -19902,11 +19986,11 @@ msgstr ""
 "например, когда Gorgon 2.3 переходит в Torqued Python 1.0. При установке "
 "Torqued Python дистрибутив Gorgon должен быть удален."
 
-#: ../source/specifications/core-metadata.rst:798
+#: ../source/specifications/core-metadata.rst:800
 msgid "Deprecated Fields"
 msgstr "Утраченные поля"
 
-#: ../source/specifications/core-metadata.rst:800
+#: ../source/specifications/core-metadata.rst:802
 msgid ""
 "Deprecated fields should be avoided, but they are valid metadata fields. "
 "They may be removed in future versions of the core metadata standard (at "
@@ -19920,26 +20004,26 @@ msgstr ""
 "указана версия метаданных, предшествующая удалению). Инструменты ДОЛЖНЫ "
 "предупреждать пользователей об использовании устаревших полей."
 
-#: ../source/specifications/core-metadata.rst:809
+#: ../source/specifications/core-metadata.rst:811
 msgid "Home-page"
 msgstr "Home-page"
 
-#: ../source/specifications/core-metadata.rst:815
-#: ../source/specifications/core-metadata.rst:832
+#: ../source/specifications/core-metadata.rst:817
+#: ../source/specifications/core-metadata.rst:834
 msgid "Per :pep:`753`, use :ref:`core-metadata-project-url` instead."
 msgstr ""
 "Согласно :pep:`753`, вместо этого используйте :ref:`core-metadata-project-"
 "url`."
 
-#: ../source/specifications/core-metadata.rst:817
+#: ../source/specifications/core-metadata.rst:819
 msgid "A string containing the URL for the distribution's home page."
 msgstr "Строка, содержащая URL-адрес главной страницы дистрибутива."
 
-#: ../source/specifications/core-metadata.rst:826
+#: ../source/specifications/core-metadata.rst:828
 msgid "Download-URL"
 msgstr "Download-URL"
 
-#: ../source/specifications/core-metadata.rst:834
+#: ../source/specifications/core-metadata.rst:836
 msgid ""
 "A string containing the URL from which this version of the distribution can "
 "be downloaded.  (This means that the URL can't be something like \"``.../"
@@ -19951,15 +20035,15 @@ msgstr ""
 "BeagleVote-latest.tgz``», а вместо этого должен быть «``.../BeagleVote-0.45."
 "tgz``».)"
 
-#: ../source/specifications/core-metadata.rst:840
+#: ../source/specifications/core-metadata.rst:842
 msgid "Requires"
 msgstr "Требуется"
 
-#: ../source/specifications/core-metadata.rst:843
+#: ../source/specifications/core-metadata.rst:845
 msgid "in favour of ``Requires-Dist``"
 msgstr "в пользу ``Requires-Dist``"
 
-#: ../source/specifications/core-metadata.rst:846
+#: ../source/specifications/core-metadata.rst:848
 msgid ""
 "Each entry contains a string describing some other module or package "
 "required by this package."
@@ -19967,7 +20051,7 @@ msgstr ""
 "Каждая запись содержит строку, описывающую другой модуль или пакет, "
 "необходимый для данного пакета."
 
-#: ../source/specifications/core-metadata.rst:849
+#: ../source/specifications/core-metadata.rst:851
 msgid ""
 "The format of a requirement string is identical to that of a module or "
 "package name usable with the ``import`` statement, optionally followed by a "
@@ -19977,7 +20061,7 @@ msgstr ""
 "используемого с помощью оператора ``импорта``, за которым в круглых скобках "
 "по желанию следует объявление версии."
 
-#: ../source/specifications/core-metadata.rst:853
+#: ../source/specifications/core-metadata.rst:855
 msgid ""
 "A version declaration is a series of conditional operators and version "
 "numbers, separated by commas. Conditional operators must be one of \"<\", "
@@ -19995,7 +20079,7 @@ msgstr ""
 "конце, состоящим из буквы 'a' или 'b', за которой следует число. Примеры "
 "номеров версий: \"1.0\", \"2.3a2\", \"1.3.99\","
 
-#: ../source/specifications/core-metadata.rst:861
+#: ../source/specifications/core-metadata.rst:863
 msgid ""
 "Any number of conditional operators can be specified, e.g. the string "
 "\">1.0, !=1.3.4, <2.0\" is a legal version declaration."
@@ -20003,7 +20087,7 @@ msgstr ""
 "Можно указать любое количество условных операторов, например, строка "
 "\">1.0, !=1.3.4, <2.0\" является законным объявлением версии."
 
-#: ../source/specifications/core-metadata.rst:864
+#: ../source/specifications/core-metadata.rst:866
 msgid ""
 "All of the following are possible requirement strings: \"rfc822\", \"zlib "
 "(>=1.1.4)\", \"zope\"."
@@ -20011,7 +20095,7 @@ msgstr ""
 "Возможными строками требований являются все следующие: \"rfc822\", \"zlib "
 "(>=1.1.4)\", \"zope\"."
 
-#: ../source/specifications/core-metadata.rst:867
+#: ../source/specifications/core-metadata.rst:869
 msgid ""
 "There’s no canonical list of what strings should be used; the Python "
 "community is left to choose its own standards."
@@ -20019,15 +20103,15 @@ msgstr ""
 "Не существует канонического списка того, какие строки должны использоваться; "
 "сообщество Python оставляет за собой право выбирать собственные стандарты."
 
-#: ../source/specifications/core-metadata.rst:880
+#: ../source/specifications/core-metadata.rst:882
 msgid "Provides"
 msgstr "Предоставляет"
 
-#: ../source/specifications/core-metadata.rst:883
+#: ../source/specifications/core-metadata.rst:885
 msgid "in favour of ``Provides-Dist``"
 msgstr "в пользу ``Provides-Dist``"
 
-#: ../source/specifications/core-metadata.rst:886
+#: ../source/specifications/core-metadata.rst:888
 msgid ""
 "Each entry contains a string describing a package or module that will be "
 "provided by this package once it is installed. These strings should match "
@@ -20041,15 +20125,15 @@ msgstr ""
 "версии (без оператора сравнения); номер версии пакета будет подразумеваться, "
 "если он не указан."
 
-#: ../source/specifications/core-metadata.rst:902
+#: ../source/specifications/core-metadata.rst:904
 msgid "Obsoletes"
 msgstr "Обзоры"
 
-#: ../source/specifications/core-metadata.rst:905
+#: ../source/specifications/core-metadata.rst:907
 msgid "in favour of ``Obsoletes-Dist``"
 msgstr "в пользу ``Obsoletes-Dist``"
 
-#: ../source/specifications/core-metadata.rst:908
+#: ../source/specifications/core-metadata.rst:910
 msgid ""
 "Each entry contains a string describing a package or module that this "
 "package renders obsolete, meaning that the two packages should not be "
@@ -20059,7 +20143,7 @@ msgstr ""
 "пакет делает устаревшим, что означает, что эти два пакета не должны быть "
 "установлены одновременно. Могут быть предоставлены объявления версий."
 
-#: ../source/specifications/core-metadata.rst:912
+#: ../source/specifications/core-metadata.rst:914
 msgid ""
 "The most common use of this field will be in case a package name changes, e."
 "g. Gorgon 2.3 gets subsumed into Torqued Python 1.0. When you install "
@@ -20069,67 +20153,67 @@ msgstr ""
 "например, Gorgon 2.3 переходит в Torqued Python 1.0. При установке Torqued "
 "Python пакет Gorgon должен быть удален."
 
-#: ../source/specifications/core-metadata.rst:924
-msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
-msgstr "Март 2001: Core metadata 1.0 был одобрен через :pep:`241`."
-
-#: ../source/specifications/core-metadata.rst:925
-msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
-msgstr "Апрель 2003 года: Core metadata 1.1 был одобрен через :pep:`314`:"
-
 #: ../source/specifications/core-metadata.rst:926
-msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
-msgstr "Февраль 2010 г: Core metadata 1.2 был одобрен через :pep:`345`."
-
-#: ../source/specifications/core-metadata.rst:927
-msgid "February 2018: Core metadata 2.1 was approved through :pep:`566`."
-msgstr "Февраль 2018 г: Core metadata 2.1 был одобрен через :pep:`566`."
-
-#: ../source/specifications/core-metadata.rst:929
-msgid "Added ``Description-Content-Type`` and ``Provides-Extra``."
-msgstr "Добавлены ``Description-Content-Type`` и ``Provides-Extra``."
-
-#: ../source/specifications/core-metadata.rst:930
-msgid "Added canonical method for transforming metadata to JSON."
-msgstr "Добавлен метод canonical для преобразования метаданных в JSON."
-
-#: ../source/specifications/core-metadata.rst:931
-msgid "Restricted the grammar of the ``Name`` field."
-msgstr "Ограничение грамматики поля ``Имя``."
-
-#: ../source/specifications/core-metadata.rst:933
-msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
-msgstr "Октябрь 2020 года: Core metadata 2.2 был одобрен через :pep:`643`."
-
-#: ../source/specifications/core-metadata.rst:935
-msgid "Added the ``Dynamic`` field."
-msgstr "Добавлено поле ``Динамика``."
-
-#: ../source/specifications/core-metadata.rst:937
-msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
-msgstr "Март 2022: Core metadata 2.3 был одобрен через :pep:`685`."
-
-#: ../source/specifications/core-metadata.rst:939
-msgid "Restricted extra names to be normalized."
-msgstr "Ограниченные дополнительные имена, подлежащие нормализации."
-
-#: ../source/specifications/core-metadata.rst:941
 msgid "August 2024: Core metadata 2.4 was approved through :pep:`639`."
 msgstr "Август 2024 года: Core metadata 2.4 был одобрен через :pep:`639`."
 
-#: ../source/specifications/core-metadata.rst:943
+#: ../source/specifications/core-metadata.rst:928
 msgid "Added the ``License-Expression`` field."
 msgstr "Добавлено поле ``Лицензия-выражение``."
 
-#: ../source/specifications/core-metadata.rst:944
+#: ../source/specifications/core-metadata.rst:929
 msgid "Added the ``License-File`` field."
 msgstr "Добавлено поле ``Лицензионный файл``."
 
-#: ../source/specifications/core-metadata.rst:948
+#: ../source/specifications/core-metadata.rst:931
+msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
+msgstr "Март 2022: Core metadata 2.3 был одобрен через :pep:`685`."
+
+#: ../source/specifications/core-metadata.rst:933
+msgid "Restricted extra names to be normalized."
+msgstr "Ограниченные дополнительные имена, подлежащие нормализации."
+
+#: ../source/specifications/core-metadata.rst:935
+msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
+msgstr "Октябрь 2020 года: Core metadata 2.2 был одобрен через :pep:`643`."
+
+#: ../source/specifications/core-metadata.rst:937
+msgid "Added the ``Dynamic`` field."
+msgstr "Добавлено поле ``Динамика``."
+
+#: ../source/specifications/core-metadata.rst:939
+msgid "February 2018: Core metadata 2.1 was approved through :pep:`566`."
+msgstr "Февраль 2018 г: Core metadata 2.1 был одобрен через :pep:`566`."
+
+#: ../source/specifications/core-metadata.rst:941
+msgid "Added ``Description-Content-Type`` and ``Provides-Extra``."
+msgstr "Добавлены ``Description-Content-Type`` и ``Provides-Extra``."
+
+#: ../source/specifications/core-metadata.rst:942
+msgid "Added canonical method for transforming metadata to JSON."
+msgstr "Добавлен метод canonical для преобразования метаданных в JSON."
+
+#: ../source/specifications/core-metadata.rst:943
+msgid "Restricted the grammar of the ``Name`` field."
+msgstr "Ограничение грамматики поля ``Имя``."
+
+#: ../source/specifications/core-metadata.rst:945
+msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
+msgstr "Февраль 2010 г: Core metadata 1.2 был одобрен через :pep:`345`."
+
+#: ../source/specifications/core-metadata.rst:947
+msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
+msgstr "Апрель 2003 года: Core metadata 1.1 был одобрен через :pep:`314`:"
+
+#: ../source/specifications/core-metadata.rst:949
+msgid "March 2001: Core metadata 1.0 was approved through :pep:`241`."
+msgstr "Март 2001: Core metadata 1.0 был одобрен через :pep:`241`."
+
+#: ../source/specifications/core-metadata.rst:953
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr "Разметка reStructuredText: https://docutils.sourceforge.io/"
 
-#: ../source/specifications/core-metadata.rst:953
+#: ../source/specifications/core-metadata.rst:958
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr "Длинные поля заголовка RFC 822: :rfc:`822#section-3.1.1`"
 
@@ -20169,18 +20253,24 @@ msgstr ""
 "специфическими для ``pip``)."
 
 #: ../source/specifications/dependency-groups.rst:25
-msgid "This is a simple table which shows a ``test`` group::"
+#, fuzzy
+#| msgid "This is a simple table which shows a ``test`` group::"
+msgid "This is a simple table which shows ``docs`` and ``test`` groups::"
 msgstr "Это простая таблица, которая показывает группу ``тест``::"
 
-#: ../source/specifications/dependency-groups.rst:30
-msgid "and a similar table which defines ``test`` and ``coverage`` groups::"
+#: ../source/specifications/dependency-groups.rst:31
+#, fuzzy
+#| msgid "and a similar table which defines ``test`` and ``coverage`` groups::"
+msgid ""
+"and a similar table which defines ``docs``, ``test``, and ``coverage`` "
+"groups::"
 msgstr "и аналогичная таблица, определяющая группы ``тестов`` и ``покрытий``::"
 
-#: ../source/specifications/dependency-groups.rst:37
+#: ../source/specifications/dependency-groups.rst:39
 msgid "The ``[dependency-groups]`` Table"
 msgstr "Таблица ``[dependency-groups]``"
 
-#: ../source/specifications/dependency-groups.rst:39
+#: ../source/specifications/dependency-groups.rst:41
 msgid ""
 "Dependency Groups are defined as a table in ``pyproject.toml`` named "
 "``dependency-groups``. The ``dependency-groups`` table contains an arbitrary "
@@ -20192,7 +20282,7 @@ msgstr ""
 "произвольное количество определяемых пользователем ключей, каждый из которых "
 "имеет в качестве значения список требований."
 
-#: ../source/specifications/dependency-groups.rst:44
+#: ../source/specifications/dependency-groups.rst:46
 msgid ""
 "``[dependency-groups]`` keys, sometimes also called \"group names\", must "
 "be :ref:`valid non-normalized names <name-format>`. Tools which handle "
@@ -20204,7 +20294,7 @@ msgstr ""
 "работающие с группами зависимостей, ДОЛЖНЫ :ref:`normalize <name-"
 "normalization>` эти имена перед сравнением."
 
-#: ../source/specifications/dependency-groups.rst:49
+#: ../source/specifications/dependency-groups.rst:51
 msgid ""
 "Tools SHOULD prefer to present the original, non-normalized name to users, "
 "and if duplicate names are detected after normalization, tools SHOULD emit "
@@ -20214,7 +20304,7 @@ msgstr ""
 "ненормализованное имя, а если после нормализации обнаруживаются дубликаты "
 "имен, инструменты ДОЛЖНЫ выдавать ошибку."
 
-#: ../source/specifications/dependency-groups.rst:53
+#: ../source/specifications/dependency-groups.rst:55
 msgid ""
 "Requirement lists, the values in ``[dependency-groups]``, may contain "
 "strings, tables (``dict`` in Python), or a mix of strings and tables. "
@@ -20226,11 +20316,11 @@ msgstr ""
 "быть валидными :ref:`dependency specifiers <dependency-specifiers>`, а "
 "таблицы должны быть валидными Dependency Group Includes."
 
-#: ../source/specifications/dependency-groups.rst:59
+#: ../source/specifications/dependency-groups.rst:61
 msgid "Dependency Group Include"
 msgstr "Группа зависимости Включает"
 
-#: ../source/specifications/dependency-groups.rst:61
+#: ../source/specifications/dependency-groups.rst:63
 msgid ""
 "A Dependency Group Include includes another Dependency Group in the current "
 "group."
@@ -20238,7 +20328,7 @@ msgstr ""
 "Группа зависимостей Include включает другую группу зависимостей в текущую "
 "группу."
 
-#: ../source/specifications/dependency-groups.rst:64
+#: ../source/specifications/dependency-groups.rst:66
 msgid ""
 "An include is a table with exactly one key, ``\"include-group\"``, whose "
 "value is a string, the name of another Dependency Group."
@@ -20246,7 +20336,7 @@ msgstr ""
 "Включенная группа - это таблица с одним ключом, ``«include-group»``, "
 "значением которого является строка, имя другой группы зависимостей."
 
-#: ../source/specifications/dependency-groups.rst:67
+#: ../source/specifications/dependency-groups.rst:69
 msgid ""
 "Includes are defined to be exactly equivalent to the contents of the named "
 "Dependency Group, inserted into the current group at the location of the "
@@ -20262,7 +20352,7 @@ msgstr ""
 "оцениваться как ``[«c», «a», „b“, «d»]`` при раскрытии Dependency Group "
 "Includes."
 
-#: ../source/specifications/dependency-groups.rst:73
+#: ../source/specifications/dependency-groups.rst:75
 msgid ""
 "Dependency Group Includes may specify the same package multiple times. Tools "
 "SHOULD NOT deduplicate or otherwise alter the list contents produced by the "
@@ -20272,7 +20362,7 @@ msgstr ""
 "раз. Инструменты НЕ ДОЛЖНЫ дедуплицировать или иным образом изменять "
 "содержимое списка, созданного включением. Например, в следующей таблице:"
 
-#: ../source/specifications/dependency-groups.rst:90
+#: ../source/specifications/dependency-groups.rst:92
 msgid ""
 "The resolved value of ``all`` SHOULD be ``[\"foo\", \"foo\", \"foo>1.0\", "
 "\"foo<1.0\"]``. Tools should handle such a list exactly as they would handle "
@@ -20284,7 +20374,7 @@ msgstr ""
 "и в любом другом случае, когда их просят обработать одно и то же требование "
 "несколько раз с разными ограничениями на версию."
 
-#: ../source/specifications/dependency-groups.rst:95
+#: ../source/specifications/dependency-groups.rst:97
 msgid ""
 "Dependency Group Includes may include groups containing Dependency Group "
 "Includes, in which case those includes should be expanded as well. "
@@ -20296,11 +20386,11 @@ msgstr ""
 "Dependency Group Includes НЕ ДОЛЖНЫ включать циклы, и инструменты ДОЛЖНЫ "
 "сообщать об ошибке, если они обнаруживают цикл."
 
-#: ../source/specifications/dependency-groups.rst:100
+#: ../source/specifications/dependency-groups.rst:102
 msgid "Package Building"
 msgstr "Создание пакета"
 
-#: ../source/specifications/dependency-groups.rst:102
+#: ../source/specifications/dependency-groups.rst:104
 msgid ""
 "Build backends MUST NOT include Dependency Group data in built distributions "
 "as package metadata. This means that sdist ``PKG-INFO`` and wheel "
@@ -20312,7 +20402,7 @@ msgstr ""
 "``PKG-INFO`` и wheel ``METADATA`` не должны содержать ссылаемые поля, "
 "содержащие Dependency Groups."
 
-#: ../source/specifications/dependency-groups.rst:106
+#: ../source/specifications/dependency-groups.rst:108
 msgid ""
 "It is, however, valid to use Dependency Groups in the evaluation of dynamic "
 "metadata, and ``pyproject.toml`` files included in sdists will still contain "
@@ -20324,11 +20414,11 @@ msgstr ""
 "будут содержать ``[dependency-groups]``. Однако содержимое таблицы не "
 "является частью интерфейсов собранного пакета."
 
-#: ../source/specifications/dependency-groups.rst:112
+#: ../source/specifications/dependency-groups.rst:114
 msgid "Installing Dependency Groups & Extras"
 msgstr "Установка групп зависимостей и дополнительных функций"
 
-#: ../source/specifications/dependency-groups.rst:114
+#: ../source/specifications/dependency-groups.rst:116
 msgid ""
 "There is no syntax or specification-defined interface for installing or "
 "referring to Dependency Groups. Tools are expected to provide dedicated "
@@ -20338,7 +20428,7 @@ msgstr ""
 "установки или обращения к группам зависимостей. Ожидается, что инструменты "
 "будут предоставлять специальные интерфейсы для этой цели."
 
-#: ../source/specifications/dependency-groups.rst:118
+#: ../source/specifications/dependency-groups.rst:120
 msgid ""
 "Tools MAY choose to provide the same or similar interfaces for interacting "
 "with Dependency Groups as they do for managing extras. Tools authors are "
@@ -20355,11 +20445,11 @@ msgstr ""
 "имена которых совпадают с именами дополнений, а инструменты МОГУТ "
 "рассматривать такое совпадение как ошибку."
 
-#: ../source/specifications/dependency-groups.rst:126
+#: ../source/specifications/dependency-groups.rst:128
 msgid "Validation and Compatibility"
 msgstr "Проверка и совместимость"
 
-#: ../source/specifications/dependency-groups.rst:128
+#: ../source/specifications/dependency-groups.rst:130
 msgid ""
 "Tools supporting Dependency Groups may want to validate data before using "
 "it. When implementing such validation, authors should be aware of the "
@@ -20371,7 +20461,7 @@ msgstr ""
 "учитывать возможность будущих расширений спецификации, чтобы не выдавать "
 "ненужных ошибок или предупреждений."
 
-#: ../source/specifications/dependency-groups.rst:133
+#: ../source/specifications/dependency-groups.rst:135
 msgid ""
 "Tools SHOULD error when evaluating or processing unrecognized data in "
 "Dependency Groups."
@@ -20379,7 +20469,7 @@ msgstr ""
 "Инструменты ДОЛЖНЫ ошибаться при оценке или обработке нераспознанных данных "
 "в группах зависимостей."
 
-#: ../source/specifications/dependency-groups.rst:136
+#: ../source/specifications/dependency-groups.rst:138
 msgid ""
 "Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups "
 "unless they have a need to do so."
@@ -20387,7 +20477,7 @@ msgstr ""
 "Инструментальные средства НЕ ДОЛЖНЫ с нетерпением проверять содержимое "
 "*всех* групп зависимостей, если у них нет необходимости в этом."
 
-#: ../source/specifications/dependency-groups.rst:139
+#: ../source/specifications/dependency-groups.rst:141
 msgid ""
 "This means that in the presence of the following data, most tools should "
 "allow the ``foo`` group to be used and only error if the ``bar`` group is "
@@ -20397,7 +20487,7 @@ msgstr ""
 "должны разрешить использование группы ``foo`` и ошибаться только в случае "
 "использования группы ``bar``:"
 
-#: ../source/specifications/dependency-groups.rst:150
+#: ../source/specifications/dependency-groups.rst:152
 msgid ""
 "There are several known cases of tools which have good cause to be stricter. "
 "Linters and validators are an example, as their purpose is to validate the "
@@ -20407,12 +20497,12 @@ msgstr ""
 "строгими. Примером могут служить линеры и валидаторы, поскольку их задача - "
 "проверять содержимое всех групп зависимостей."
 
-#: ../source/specifications/dependency-groups.rst:155
+#: ../source/specifications/dependency-groups.rst:157
 #: ../source/specifications/inline-script-metadata.rst:123
 msgid "Reference Implementation"
 msgstr "Справочное осуществление"
 
-#: ../source/specifications/dependency-groups.rst:157
+#: ../source/specifications/dependency-groups.rst:159
 msgid ""
 "The following Reference Implementation prints the contents of a Dependency "
 "Group to stdout, newline delimited. The output is therefore valid "
@@ -20422,7 +20512,7 @@ msgstr ""
 "stdout с разграничением по новой строке. Таким образом, на выходе получаются "
 "корректные данные ``requirements.txt``."
 
-#: ../source/specifications/dependency-groups.rst:250
+#: ../source/specifications/dependency-groups.rst:252
 msgid "October 2024: This specification was approved through :pep:`735`."
 msgstr "Октябрь 2024 года: Эта спецификация была одобрена через :pep:`735`."
 
@@ -24291,10 +24381,16 @@ msgid "``musllinux``"
 msgstr "``musllinux``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:152
+#, fuzzy
+#| msgid ""
+#| "The ``musllinux`` family of tags is similar to ``manylinux``, but for "
+#| "Linux platforms that use the musl_ libc rather than glibc (a prime "
+#| "example being Alpine Linux). The schema is :file:`musllinux_{x}_{y}_{arch}"
+#| "``, supporting musl ``x.y`` and higher on the architecture ``arch``."
 msgid ""
 "The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux "
 "platforms that use the musl_ libc rather than glibc (a prime example being "
-"Alpine Linux). The schema is :file:`musllinux_{x}_{y}_{arch}``, supporting "
+"Alpine Linux). The schema is :file:`musllinux_{x}_{y}_{arch}`, supporting "
 "musl ``x.y`` and higher on the architecture ``arch``."
 msgstr ""
 "Семейство тегов ``musllinux`` аналогично ``manylinux``, но для Linux-"
@@ -30112,11 +30208,17 @@ msgid "Source distribution format"
 msgstr "Формат распространения в исходных кодах"
 
 #: ../source/specifications/source-distribution-format.rst:8
+#, fuzzy
+#| msgid ""
+#| "The current standard format of source distribution format is identified "
+#| "by the presence of a :file:`pyproject.toml` file in the distribution "
+#| "archive.  The layout of such a distribution was originally specified in :"
+#| "pep:`517` and is formally documented here."
 msgid ""
-"The current standard format of source distribution format is identified by "
-"the presence of a :file:`pyproject.toml` file in the distribution archive.  "
-"The layout of such a distribution was originally specified in :pep:`517` and "
-"is formally documented here."
+"The current standard source distribution format is identified by the "
+"presence of a :file:`pyproject.toml` file in the distribution archive.  The "
+"layout of such a distribution was originally specified in :pep:`517` and is "
+"formally documented here."
 msgstr ""
 "Текущий стандартный формат дистрибутива исходников определяется наличием в "
 "архиве дистрибутива файла :file:`pyproject.toml`.  Макет такого дистрибутива "
@@ -30150,10 +30252,18 @@ msgid "Source trees"
 msgstr "Деревья источников"
 
 #: ../source/specifications/source-distribution-format.rst:28
+#, fuzzy
+#| msgid ""
+#| "A *source tree* is a collection of files and directories -- like a "
+#| "version control system checkout -- which contains a :file:`pyproject."
+#| "toml` file that can be use to build a source distribution from the "
+#| "contained files and directories. :pep:`517` and :pep:`518` specify what "
+#| "is required to meet the definition of what :file:`pyproject.toml` must "
+#| "contain for something to be deemed a source tree."
 msgid ""
 "A *source tree* is a collection of files and directories -- like a version "
 "control system checkout -- which contains a :file:`pyproject.toml` file that "
-"can be use to build a source distribution from the contained files and "
+"can be used to build a source distribution from the contained files and "
 "directories. :pep:`517` and :pep:`518` specify what is required to meet the "
 "definition of what :file:`pyproject.toml` must contain for something to be "
 "deemed a source tree."
@@ -30470,7 +30580,7 @@ msgstr ""
 "было стандартизировано с помощью :pep:`639`."
 
 #: ../source/specifications/version-specifiers.rst:7
-#: ../source/specifications/version-specifiers.rst:782
+#: ../source/specifications/version-specifiers.rst:785
 msgid "Version specifiers"
 msgstr "Спецификаторы версии"
 
@@ -30933,8 +31043,12 @@ msgstr ""
 "компонента."
 
 #: ../source/specifications/version-specifiers.rst:229
+#, fuzzy
+#| msgid ""
+#| "Date based release segments are also permitted. An example of a date "
+#| "based release scheme using the year and month of the release::"
 msgid ""
-"Date based release segments are also permitted. An example of a date based "
+"Date-based release segments are also permitted. An example of a date-based "
 "release scheme using the year and month of the release::"
 msgstr ""
 "Также допускаются сегменты релизов, основанные на дате. Пример схемы релиза "
@@ -31131,7 +31245,18 @@ msgid ""
 msgstr ""
 "Релизы разработки также разрешены для предварительных и последующих релизов::"
 
-#: ../source/specifications/version-specifiers.rst:348
+#: ../source/specifications/version-specifiers.rst:346
+#, fuzzy
+#| msgid ""
+#| "Developmental releases are also permitted for pre-releases and post-"
+#| "releases::"
+msgid ""
+"Do note that development releases are considered a type of pre-release when "
+"handling them."
+msgstr ""
+"Релизы разработки также разрешены для предварительных и последующих релизов::"
+
+#: ../source/specifications/version-specifiers.rst:351
 msgid ""
 "While they may be useful for continuous integration purposes, publishing "
 "developmental releases of pre-releases to general purpose public index "
@@ -31147,7 +31272,7 @@ msgstr ""
 "вместо этого создать новый предварительный релиз, увеличив числовой "
 "компонент."
 
-#: ../source/specifications/version-specifiers.rst:355
+#: ../source/specifications/version-specifiers.rst:358
 msgid ""
 "Developmental releases of post-releases are also strongly discouraged, but "
 "they may be appropriate for projects which use the post-release notation for "
@@ -31158,11 +31283,11 @@ msgstr ""
 "release для полных релизов сопровождения, которые могут включать изменения "
 "кода."
 
-#: ../source/specifications/version-specifiers.rst:361
+#: ../source/specifications/version-specifiers.rst:364
 msgid "Version epochs"
 msgstr "Эпохи версий"
 
-#: ../source/specifications/version-specifiers.rst:363
+#: ../source/specifications/version-specifiers.rst:366
 msgid ""
 "If included in a version identifier, the epoch appears before all other "
 "components, separated from the release segment by an exclamation mark::"
@@ -31171,11 +31296,11 @@ msgstr ""
 "остальными компонентами и отделяется от сегмента релиза восклицательным "
 "знаком::"
 
-#: ../source/specifications/version-specifiers.rst:368
+#: ../source/specifications/version-specifiers.rst:371
 msgid "If no explicit epoch is given, the implicit epoch is ``0``."
 msgstr "Если явная эпоха не указана, то неявной эпохой будет ``0``."
 
-#: ../source/specifications/version-specifiers.rst:370
+#: ../source/specifications/version-specifiers.rst:373
 msgid ""
 "Most version identifiers will not include an epoch, as an explicit epoch is "
 "only needed if a project *changes* the way it handles version numbering in a "
@@ -31193,7 +31318,7 @@ msgstr ""
 "как ``1.0``, то новые релизы будут идентифицироваться как *более старые*, "
 "чем версии, основанные на дате, при использовании обычной схемы сортировки::"
 
-#: ../source/specifications/version-specifiers.rst:384
+#: ../source/specifications/version-specifiers.rst:387
 msgid ""
 "However, by specifying an explicit epoch, the sort order can be changed "
 "appropriately, as all versions from a later epoch are sorted after versions "
@@ -31203,11 +31328,11 @@ msgstr ""
 "сортировки: все версии, относящиеся к более поздней эпохе, будут "
 "отсортированы после версий, относящихся к более ранней эпохе::"
 
-#: ../source/specifications/version-specifiers.rst:398
+#: ../source/specifications/version-specifiers.rst:401
 msgid "Normalization"
 msgstr "Нормализация"
 
-#: ../source/specifications/version-specifiers.rst:400
+#: ../source/specifications/version-specifiers.rst:403
 msgid ""
 "In order to maintain better compatibility with existing versions there are a "
 "number of \"alternative\" syntaxes that MUST be taken into account when "
@@ -31219,11 +31344,11 @@ msgstr ""
 "версий. Эти синтаксисы ДОЛЖНЫ учитываться при разборе версии, однако они "
 "должны быть \"нормализованы\" к стандартному синтаксису, определенному выше."
 
-#: ../source/specifications/version-specifiers.rst:407
+#: ../source/specifications/version-specifiers.rst:410
 msgid "Case sensitivity"
 msgstr "Чувствительность случая"
 
-#: ../source/specifications/version-specifiers.rst:409
+#: ../source/specifications/version-specifiers.rst:412
 msgid ""
 "All ascii letters should be interpreted case insensitively within a version "
 "and the normal form is lowercase. This allows versions such as ``1.1RC1`` "
@@ -31234,11 +31359,11 @@ msgstr ""
 "использовать такие версии, как ``1.1RC1``, которые будут нормализованы до "
 "``1.1rc1``."
 
-#: ../source/specifications/version-specifiers.rst:415
+#: ../source/specifications/version-specifiers.rst:418
 msgid "Integer Normalization"
 msgstr "Нормализация целого числа"
 
-#: ../source/specifications/version-specifiers.rst:417
+#: ../source/specifications/version-specifiers.rst:420
 msgid ""
 "All integers are interpreted via the ``int()`` built in and normalize to the "
 "string form of the output. This means that an integer version of ``00`` "
@@ -31253,11 +31378,11 @@ msgstr ""
 "версии, например ``1.0+foo0100``, которая уже находится в нормализованной "
 "форме."
 
-#: ../source/specifications/version-specifiers.rst:425
+#: ../source/specifications/version-specifiers.rst:428
 msgid "Pre-release separators"
 msgstr "Сепараторы перед выпуском"
 
-#: ../source/specifications/version-specifiers.rst:427
+#: ../source/specifications/version-specifiers.rst:430
 msgid ""
 "Pre-releases should allow a ``.``, ``-``, or ``_`` separator between the "
 "release segment and the pre-release segment. The normal form for this is "
@@ -31274,11 +31399,11 @@ msgstr ""
 "release и цифрой. Это позволяет использовать такие версии, как ``1.0a.1``, "
 "которые будут нормализованы до ``1.0a1``."
 
-#: ../source/specifications/version-specifiers.rst:436
+#: ../source/specifications/version-specifiers.rst:439
 msgid "Pre-release spelling"
 msgstr "Предварительное написание"
 
-#: ../source/specifications/version-specifiers.rst:438
+#: ../source/specifications/version-specifiers.rst:441
 msgid ""
 "Pre-releases allow the additional spellings of ``alpha``, ``beta``, ``c``, "
 "``pre``, and ``preview`` for ``a``, ``b``, ``rc``, ``rc``, and ``rc`` "
@@ -31294,11 +31419,11 @@ msgstr ""
 "``1.1a1``, ``1.1b2`` и ``1.1rc3``. В каждом случае дополнительные написания "
 "следует считать эквивалентными их нормальным формам."
 
-#: ../source/specifications/version-specifiers.rst:447
+#: ../source/specifications/version-specifiers.rst:450
 msgid "Implicit pre-release number"
 msgstr "Неявный номер предварительного выпуска"
 
-#: ../source/specifications/version-specifiers.rst:449
+#: ../source/specifications/version-specifiers.rst:452
 msgid ""
 "Pre releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -31310,11 +31435,11 @@ msgstr ""
 "``0``. Это позволяет использовать такие версии, как ``1.2a``, которые "
 "нормализуются до ``1.2a0``."
 
-#: ../source/specifications/version-specifiers.rst:455
+#: ../source/specifications/version-specifiers.rst:458
 msgid "Post release separators"
 msgstr "Сепараторы после выпуска"
 
-#: ../source/specifications/version-specifiers.rst:457
+#: ../source/specifications/version-specifiers.rst:460
 msgid ""
 "Post releases allow a ``.``, ``-``, or ``_`` separator as well as omitting "
 "the separator all together. The normal form of this is with the ``.`` "
@@ -31332,11 +31457,11 @@ msgstr ""
 "обозначением пострелиза и цифрой. Это позволяет использовать версии типа "
 "``1.2.post-2``, которые нормализуются до ``1.2.post2``."
 
-#: ../source/specifications/version-specifiers.rst:466
+#: ../source/specifications/version-specifiers.rst:469
 msgid "Post release spelling"
 msgstr "Написание после выпуска"
 
-#: ../source/specifications/version-specifiers.rst:468
+#: ../source/specifications/version-specifiers.rst:471
 msgid ""
 "Post-releases allow the additional spellings of ``rev`` and ``r``. This "
 "allows versions such as ``1.0-r4`` which normalizes to ``1.0.post4``. As "
@@ -31348,11 +31473,11 @@ msgstr ""
 "до ``1.0.post4``. Как и в предыдущих версиях, дополнительные написания "
 "следует считать эквивалентными их нормальным формам."
 
-#: ../source/specifications/version-specifiers.rst:475
+#: ../source/specifications/version-specifiers.rst:478
 msgid "Implicit post release number"
 msgstr "Неявный номер после выпуска"
 
-#: ../source/specifications/version-specifiers.rst:477
+#: ../source/specifications/version-specifiers.rst:480
 msgid ""
 "Post releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -31364,11 +31489,11 @@ msgstr ""
 "позволяет использовать такие версии, как ``1.2.post``, которые нормализуются "
 "до ``1.2.post0``."
 
-#: ../source/specifications/version-specifiers.rst:483
+#: ../source/specifications/version-specifiers.rst:486
 msgid "Implicit post releases"
 msgstr "Неявные пост-релизы"
 
-#: ../source/specifications/version-specifiers.rst:485
+#: ../source/specifications/version-specifiers.rst:488
 msgid ""
 "Post releases allow omitting the ``post`` signifier all together. When using "
 "this form the separator MUST be ``-`` and no other form is allowed. This "
@@ -31385,11 +31510,11 @@ msgstr ""
 "словами, ``1.0-`` - это *не* допустимая версия, и она *не* нормализуется до "
 "``1.0.post0``."
 
-#: ../source/specifications/version-specifiers.rst:494
+#: ../source/specifications/version-specifiers.rst:497
 msgid "Development release separators"
 msgstr "Сепараторы для выпуска продукции"
 
-#: ../source/specifications/version-specifiers.rst:496
+#: ../source/specifications/version-specifiers.rst:499
 msgid ""
 "Development releases allow a ``.``, ``-``, or a ``_`` separator as well as "
 "omitting the separator all together. The normal form of this is with the ``."
@@ -31401,11 +31526,11 @@ msgstr ""
 "``.``. Это позволяет использовать такие версии, как ``1.2-dev2`` или "
 "``1.2dev2``, которые нормализуются до ``1.2.dev2``."
 
-#: ../source/specifications/version-specifiers.rst:503
+#: ../source/specifications/version-specifiers.rst:506
 msgid "Implicit development release number"
 msgstr "Номер выпуска неявной разработки"
 
-#: ../source/specifications/version-specifiers.rst:505
+#: ../source/specifications/version-specifiers.rst:508
 msgid ""
 "Development releases allow omitting the numeral in which case it is "
 "implicitly assumed to be ``0``. The normal form for this is to include the "
@@ -31417,11 +31542,11 @@ msgstr ""
 "``0``. Это позволяет использовать такие версии, как ``1.2.dev``, которые "
 "нормализуются до ``1.2.dev0``."
 
-#: ../source/specifications/version-specifiers.rst:512
+#: ../source/specifications/version-specifiers.rst:515
 msgid "Local version segments"
 msgstr "Сегменты локальной версии"
 
-#: ../source/specifications/version-specifiers.rst:514
+#: ../source/specifications/version-specifiers.rst:517
 msgid ""
 "With a local version, in addition to the use of ``.`` as a separator of "
 "segments, the use of ``-`` and ``_`` is also acceptable. The normal form is "
@@ -31433,11 +31558,11 @@ msgstr ""
 "является использование символа ``.``. Это позволяет нормализовать такие "
 "версии, как ``1.0+ubuntu-1``, до ``1.0+ubuntu.1``."
 
-#: ../source/specifications/version-specifiers.rst:521
+#: ../source/specifications/version-specifiers.rst:524
 msgid "Preceding v character"
 msgstr "Предшествующий символ v"
 
-#: ../source/specifications/version-specifiers.rst:523
+#: ../source/specifications/version-specifiers.rst:526
 msgid ""
 "In order to support the common version notation of ``v1.0`` versions may be "
 "preceded by a single literal ``v`` character. This character MUST be ignored "
@@ -31450,11 +31575,11 @@ msgstr ""
 "целей и должен быть опущен во всех нормализованных формах версии. Одна и та "
 "же версия с ``v`` и без него считается эквивалентной."
 
-#: ../source/specifications/version-specifiers.rst:530
+#: ../source/specifications/version-specifiers.rst:533
 msgid "Leading and Trailing Whitespace"
 msgstr "Ведущие и отслеживающие Белое пространство"
 
-#: ../source/specifications/version-specifiers.rst:532
+#: ../source/specifications/version-specifiers.rst:535
 msgid ""
 "Leading and trailing whitespace must be silently ignored and removed from "
 "all normalized forms of a version. This includes ``\" \"``, ``\\t``, "
@@ -31468,11 +31593,11 @@ msgstr ""
 "обрабатывать случайные пробелы, например, версия ``1.0\\n`` нормализуется до "
 "``1.0``."
 
-#: ../source/specifications/version-specifiers.rst:539
+#: ../source/specifications/version-specifiers.rst:542
 msgid "Examples of compliant version schemes"
 msgstr "Примеры совместимых схем версий"
 
-#: ../source/specifications/version-specifiers.rst:541
+#: ../source/specifications/version-specifiers.rst:544
 msgid ""
 "The standard version scheme is designed to encompass a wide range of "
 "identification practices across public and private Python projects. In "
@@ -31488,7 +31613,7 @@ msgstr ""
 "относительный порядок версий, хотя приведенные выше правила гарантируют, что "
 "все совместимые инструменты будут упорядочивать их последовательно."
 
-#: ../source/specifications/version-specifiers.rst:548
+#: ../source/specifications/version-specifiers.rst:551
 msgid ""
 "The following examples illustrate a small selection of the different "
 "approaches projects may choose to identify their releases, while still "
@@ -31500,22 +31625,22 @@ msgstr ""
 "гарантируя, что \"последний релиз\" и \"последний стабильный релиз\" могут "
 "быть легко определены как людьми, так и автоматизированными инструментами."
 
-#: ../source/specifications/version-specifiers.rst:553
+#: ../source/specifications/version-specifiers.rst:556
 msgid "Simple \"major.minor\" versioning::"
 msgstr "Простая версификация \"major.minor\" ::"
 
-#: ../source/specifications/version-specifiers.rst:562
+#: ../source/specifications/version-specifiers.rst:565
 msgid "Simple \"major.minor.micro\" versioning::"
 msgstr "Простая версия \"major.minor.micro\" ::"
 
-#: ../source/specifications/version-specifiers.rst:570
+#: ../source/specifications/version-specifiers.rst:573
 msgid ""
 "\"major.minor\" versioning with alpha, beta and candidate pre-releases::"
 msgstr ""
 "Версии \"major.minor\" с предварительными выпусками альфа-версий, бета-"
 "версий и кандидатов::"
 
-#: ../source/specifications/version-specifiers.rst:582
+#: ../source/specifications/version-specifiers.rst:585
 msgid ""
 "\"major.minor\" versioning with developmental releases, release candidates "
 "and post-releases for minor corrections::"
@@ -31523,7 +31648,7 @@ msgstr ""
 "«major.minor»-версия с релизами, кандидатами на выпуск и пост-релизами для "
 "незначительных исправлений ::"
 
-#: ../source/specifications/version-specifiers.rst:597
+#: ../source/specifications/version-specifiers.rst:600
 msgid ""
 "Date based releases, using an incrementing serial within each year, skipping "
 "zero::"
@@ -31531,11 +31656,11 @@ msgstr ""
 "Релизы, основанные на дате, с использованием возрастающей серии в пределах "
 "каждого года, пропуская нулевой::"
 
-#: ../source/specifications/version-specifiers.rst:611
+#: ../source/specifications/version-specifiers.rst:614
 msgid "Summary of permitted suffixes and relative ordering"
 msgstr "Краткое описание разрешенных суффиксов и относительного порядка"
 
-#: ../source/specifications/version-specifiers.rst:615
+#: ../source/specifications/version-specifiers.rst:618
 msgid ""
 "This section is intended primarily for authors of tools that automatically "
 "process distribution metadata, rather than developers of Python "
@@ -31545,7 +31670,7 @@ msgstr ""
 "автоматически обрабатывающих метаданные дистрибутива, а не для разработчиков "
 "дистрибутивов Python, принимающих решение о выборе схемы версионирования."
 
-#: ../source/specifications/version-specifiers.rst:619
+#: ../source/specifications/version-specifiers.rst:622
 msgid ""
 "The epoch segment of version identifiers MUST be sorted according to the "
 "numeric value of the given epoch. If no epoch segment is present, the "
@@ -31555,7 +31680,7 @@ msgstr ""
 "соответствии с числовым значением данной эпохи. Если сегмент эпохи "
 "отсутствует, неявное числовое значение равно ``0``."
 
-#: ../source/specifications/version-specifiers.rst:623
+#: ../source/specifications/version-specifiers.rst:626
 msgid ""
 "The release segment of version identifiers MUST be sorted in the same order "
 "as Python's tuple sorting when the normalized release segment is parsed as "
@@ -31565,7 +31690,7 @@ msgstr ""
 "порядке, что и сортировка кортежей в Python, когда нормализованный сегмент "
 "выпуска разбирается следующим образом::"
 
-#: ../source/specifications/version-specifiers.rst:629
+#: ../source/specifications/version-specifiers.rst:632
 msgid ""
 "All release segments involved in the comparison MUST be converted to a "
 "consistent length by padding shorter segments with zeros as needed."
@@ -31573,7 +31698,7 @@ msgstr ""
 "Все сегменты релиза, участвующие в сравнении, ДОЛЖНЫ быть приведены к единой "
 "длине путем заполнения более коротких сегментов нулями по мере необходимости."
 
-#: ../source/specifications/version-specifiers.rst:632
+#: ../source/specifications/version-specifiers.rst:635
 msgid ""
 "Within a numeric release (``1.0``, ``2.7.3``), the following suffixes are "
 "permitted and MUST be ordered as shown::"
@@ -31581,7 +31706,7 @@ msgstr ""
 "В числовом выпуске (``1.0``, ``2.7.3``) разрешены следующие суффиксы, "
 "которые ДОЛЖНЫ быть упорядочены, как показано на рисунке::"
 
-#: ../source/specifications/version-specifiers.rst:637
+#: ../source/specifications/version-specifiers.rst:640
 msgid ""
 "Note that ``c`` is considered to be semantically equivalent to ``rc`` and "
 "must be sorted as if it were ``rc``. Tools MAY reject the case of having the "
@@ -31594,7 +31719,7 @@ msgstr ""
 "в одном сегменте выпуска как неоднозначный и остаться в соответствии со "
 "спецификацией."
 
-#: ../source/specifications/version-specifiers.rst:642
+#: ../source/specifications/version-specifiers.rst:645
 msgid ""
 "Within an alpha (``1.0a1``), beta (``1.0b1``), or release candidate "
 "(``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be "
@@ -31604,7 +31729,7 @@ msgstr ""
 "(``1.0rc1``, ``1.0c1``) разрешены следующие суффиксы, которые ДОЛЖНЫ быть "
 "упорядочены, как показано::"
 
-#: ../source/specifications/version-specifiers.rst:648
+#: ../source/specifications/version-specifiers.rst:651
 msgid ""
 "Within a post-release (``1.0.post1``), the following suffixes are permitted "
 "and MUST be ordered as shown::"
@@ -31612,7 +31737,7 @@ msgstr ""
 "Внутри пост-релиза (``1.0.post1``) разрешены следующие суффиксы, которые "
 "ДОЛЖНЫ быть упорядочены, как показано::"
 
-#: ../source/specifications/version-specifiers.rst:653
+#: ../source/specifications/version-specifiers.rst:656
 msgid ""
 "Note that ``devN`` and ``postN`` MUST always be preceded by a dot, even when "
 "used immediately following a numeric version (e.g. ``1.0.dev456``, ``1.0."
@@ -31622,7 +31747,7 @@ msgstr ""
 "точка, даже если они используются сразу после числовой версии (например, "
 "``1.0.dev456``, ``1.0.post1``)."
 
-#: ../source/specifications/version-specifiers.rst:657
+#: ../source/specifications/version-specifiers.rst:660
 msgid ""
 "Within a pre-release, post-release or development release segment with a "
 "shared prefix, ordering MUST be by the value of the numeric component."
@@ -31631,15 +31756,15 @@ msgstr ""
 "префиксом упорядочивание ДОЛЖНО осуществляться по значению числового "
 "компонента."
 
-#: ../source/specifications/version-specifiers.rst:660
+#: ../source/specifications/version-specifiers.rst:663
 msgid "The following example covers many of the possible combinations::"
 msgstr "Следующий пример охватывает многие из возможных комбинаций::"
 
-#: ../source/specifications/version-specifiers.rst:685
+#: ../source/specifications/version-specifiers.rst:688
 msgid "Version ordering across different metadata versions"
 msgstr "Упорядочивание версий в различных версиях метаданных"
 
-#: ../source/specifications/version-specifiers.rst:687
+#: ../source/specifications/version-specifiers.rst:690
 msgid ""
 "Metadata v1.0 (:pep:`241`) and metadata v1.1 (:pep:`314`) do not specify a "
 "standard version identification or ordering scheme. However metadata v1.2 (:"
@@ -31649,7 +31774,7 @@ msgstr ""
 "стандартную схему идентификации или упорядочивания версий. Однако в "
 "метаданных v1.2 (:pep:`345`) указана схема, которая определена в :pep:`386`."
 
-#: ../source/specifications/version-specifiers.rst:691
+#: ../source/specifications/version-specifiers.rst:694
 msgid ""
 "Due to the nature of the simple installer API it is not possible for an "
 "installer to be aware of which metadata version a particular distribution "
@@ -31666,7 +31791,7 @@ msgstr ""
 "установить. Эти требования обуславливают необходимость стандартизации одного "
 "механизма разбора, который будет использоваться для всех версий проекта."
 
-#: ../source/specifications/version-specifiers.rst:699
+#: ../source/specifications/version-specifiers.rst:702
 msgid ""
 "Due to the above, this specification MUST be used for all versions of "
 "metadata and supersedes :pep:`386` even for metadata v1.2. Tools SHOULD "
@@ -31682,7 +31807,7 @@ msgstr ""
 "и упорядочивания версий, определенным реализацией, если версии, "
 "соответствующие этой спецификации, недоступны."
 
-#: ../source/specifications/version-specifiers.rst:705
+#: ../source/specifications/version-specifiers.rst:708
 msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
@@ -31690,11 +31815,11 @@ msgstr ""
 "Пользователи дистрибутива могут захотеть явно удалить несоответствующие "
 "версии из всех частных индексов пакетов, которые они контролируют."
 
-#: ../source/specifications/version-specifiers.rst:710
+#: ../source/specifications/version-specifiers.rst:713
 msgid "Compatibility with other version schemes"
 msgstr "Совместимость с другими схемами версий"
 
-#: ../source/specifications/version-specifiers.rst:712
+#: ../source/specifications/version-specifiers.rst:715
 msgid ""
 "Some projects may choose to use a version scheme which requires translation "
 "in order to comply with the public version scheme defined in this "
@@ -31707,7 +31832,7 @@ msgstr ""
 "спецификации. В таких случаях версия для конкретного проекта может храниться "
 "в метаданных, а переведенная публичная версия публикуется в поле версии."
 
-#: ../source/specifications/version-specifiers.rst:717
+#: ../source/specifications/version-specifiers.rst:720
 msgid ""
 "This allows automated distribution tools to provide consistently correct "
 "ordering of published releases, while still allowing developers to use the "
@@ -31718,7 +31843,7 @@ msgstr ""
 "позволяя разработчикам использовать внутреннюю схему версионирования, "
 "которую они предпочитают для своих проектов."
 
-#: ../source/specifications/version-specifiers.rst:725
+#: ../source/specifications/version-specifiers.rst:728
 msgid ""
 "`Semantic versioning`_ is a popular version identification scheme that is "
 "more prescriptive than this specification regarding the significance of "
@@ -31736,7 +31861,7 @@ msgstr ""
 "дистрибутивов, а также при публикации дистрибутива, на который полагаются "
 "другие."
 
-#: ../source/specifications/version-specifiers.rst:732
+#: ../source/specifications/version-specifiers.rst:735
 msgid ""
 "The \"Major.Minor.Patch\" (described in this specification as \"major.minor."
 "micro\") aspects of semantic versioning (clauses 1-8 in the 2.0.0 "
@@ -31748,7 +31873,7 @@ msgstr ""
 "полностью совместимы со схемой версий, определенной в данной спецификации, и "
 "соблюдение этих аспектов приветствуется."
 
-#: ../source/specifications/version-specifiers.rst:737
+#: ../source/specifications/version-specifiers.rst:740
 msgid ""
 "Semantic versions containing a hyphen (pre-releases - clause 10) or a plus "
 "sign (builds - clause 11) are *not* compatible with this specification and "
@@ -31758,7 +31883,7 @@ msgstr ""
 "(бабочки - пункт 11), не совместимы с этой спецификацией и не разрешены в "
 "поле публичной версии."
 
-#: ../source/specifications/version-specifiers.rst:741
+#: ../source/specifications/version-specifiers.rst:744
 msgid ""
 "One possible mechanism to translate such semantic versioning based source "
 "labels to compatible public versions is to use the ``.devN`` suffix to "
@@ -31769,18 +31894,18 @@ msgstr ""
 "использование суффикса ``.devN`` для указания соответствующего порядка "
 "версий."
 
-#: ../source/specifications/version-specifiers.rst:745
+#: ../source/specifications/version-specifiers.rst:748
 msgid ""
 "Specific build information may also be included in local version labels."
 msgstr ""
 "Информация о конкретной сборке также может быть включена в локальные метки "
 "версий."
 
-#: ../source/specifications/version-specifiers.rst:751
+#: ../source/specifications/version-specifiers.rst:754
 msgid "DVCS based version labels"
 msgstr "Метки версий на базе DVCS"
 
-#: ../source/specifications/version-specifiers.rst:753
+#: ../source/specifications/version-specifiers.rst:756
 msgid ""
 "Many build tools integrate with distributed version control systems like Git "
 "and Mercurial in order to add an identifying hash to the version identifier. "
@@ -31792,7 +31917,7 @@ msgstr ""
 "идентификатору версии. Поскольку хэши не могут быть надежно упорядочены, "
 "такие версии не допускаются в поле публичной версии."
 
-#: ../source/specifications/version-specifiers.rst:758
+#: ../source/specifications/version-specifiers.rst:761
 msgid ""
 "As with semantic versioning, the public ``.devN`` suffix may be used to "
 "uniquely identify such releases for publication, while the original DVCS "
@@ -31803,18 +31928,18 @@ msgstr ""
 "публикации, а оригинальная метка, основанная на DVCS, может храниться в "
 "метаданных проекта."
 
-#: ../source/specifications/version-specifiers.rst:762
+#: ../source/specifications/version-specifiers.rst:765
 msgid ""
 "Identifying hash information may also be included in local version labels."
 msgstr ""
 "Идентифицирующая хэш-информация также может быть включена в метки локальных "
 "версий."
 
-#: ../source/specifications/version-specifiers.rst:766
+#: ../source/specifications/version-specifiers.rst:769
 msgid "Olson database versioning"
 msgstr "Версия базы данных Олсона"
 
-#: ../source/specifications/version-specifiers.rst:768
+#: ../source/specifications/version-specifiers.rst:771
 msgid ""
 "The ``pytz`` project inherits its versioning scheme from the corresponding "
 "Olson timezone database versioning scheme: the year followed by a lowercase "
@@ -31824,7 +31949,7 @@ msgstr ""
 "базы данных часового пояса Olson: год, за которым следует строчный символ, "
 "указывающий на версию базы данных в пределах этого года."
 
-#: ../source/specifications/version-specifiers.rst:772
+#: ../source/specifications/version-specifiers.rst:775
 msgid ""
 "This can be translated to a compliant public version identifier as ``<year>."
 "<serial>``, where the serial starts at zero or one (for the '<year>a' "
@@ -31836,7 +31961,7 @@ msgstr ""
 "'<год>a') и увеличивается с каждым последующим обновлением базы данных в "
 "течение года."
 
-#: ../source/specifications/version-specifiers.rst:777
+#: ../source/specifications/version-specifiers.rst:780
 msgid ""
 "As with other translated version identifiers, the corresponding Olson "
 "database version could be recorded in the project metadata."
@@ -31845,7 +31970,7 @@ msgstr ""
 "соответствующая версия базы данных Olson может быть записана в метаданных "
 "проекта."
 
-#: ../source/specifications/version-specifiers.rst:784
+#: ../source/specifications/version-specifiers.rst:787
 msgid ""
 "A version specifier consists of a series of version clauses, separated by "
 "commas. For example::"
@@ -31853,35 +31978,35 @@ msgstr ""
 "Спецификатор версии состоит из ряда пунктов версии, разделенных запятыми. "
 "Например::"
 
-#: ../source/specifications/version-specifiers.rst:789
+#: ../source/specifications/version-specifiers.rst:792
 msgid "The comparison operator determines the kind of version clause:"
 msgstr "Оператор сравнения определяет тип положения версии:"
 
-#: ../source/specifications/version-specifiers.rst:791
+#: ../source/specifications/version-specifiers.rst:794
 msgid "``~=``: `Compatible release`_ clause"
 msgstr "``~=``: `Совместимый релиз`_ пункт"
 
-#: ../source/specifications/version-specifiers.rst:792
+#: ../source/specifications/version-specifiers.rst:795
 msgid "``==``: `Version matching`_ clause"
 msgstr "``==``: `Версия соответствует`_ пункту"
 
-#: ../source/specifications/version-specifiers.rst:793
+#: ../source/specifications/version-specifiers.rst:796
 msgid "``!=``: `Version exclusion`_ clause"
 msgstr "``!=``: `исключение версии`_ пункт"
 
-#: ../source/specifications/version-specifiers.rst:794
+#: ../source/specifications/version-specifiers.rst:797
 msgid "``<=``, ``>=``: `Inclusive ordered comparison`_ clause"
 msgstr "``<=``, ``>=``: предложение ``включенного упорядоченного сравнения`_"
 
-#: ../source/specifications/version-specifiers.rst:795
+#: ../source/specifications/version-specifiers.rst:798
 msgid "``<``, ``>``: `Exclusive ordered comparison`_ clause"
 msgstr "``<``, ``>``: предложение ``исключительного упорядоченного сравнения``"
 
-#: ../source/specifications/version-specifiers.rst:796
+#: ../source/specifications/version-specifiers.rst:799
 msgid "``===``: `Arbitrary equality`_ clause."
 msgstr "``===``: предложение `произвольного равенства`."
 
-#: ../source/specifications/version-specifiers.rst:798
+#: ../source/specifications/version-specifiers.rst:801
 msgid ""
 "The comma (\",\") is equivalent to a logical **and** operator: a candidate "
 "version must match all given version clauses in order to match the specifier "
@@ -31891,7 +32016,7 @@ msgstr ""
 "должна соответствовать всем заданным пунктам версии, чтобы соответствовать "
 "спецификатору в целом."
 
-#: ../source/specifications/version-specifiers.rst:802
+#: ../source/specifications/version-specifiers.rst:805
 msgid ""
 "Whitespace between a conditional operator and the following version "
 "identifier is optional, as is the whitespace around the commas."
@@ -31899,7 +32024,7 @@ msgstr ""
 "Пробелы между условным оператором и следующим идентификатором версии "
 "необязательны, как и пробелы вокруг запятых."
 
-#: ../source/specifications/version-specifiers.rst:805
+#: ../source/specifications/version-specifiers.rst:808
 msgid ""
 "When multiple candidate versions match a version specifier, the preferred "
 "version SHOULD be the latest version as determined by the consistent "
@@ -31914,7 +32039,7 @@ msgstr ""
 "кандидатов, ДОЛЖЕН решаться в соответствии с описанием в `Обработке "
 "предварительных выпусков`_."
 
-#: ../source/specifications/version-specifiers.rst:811
+#: ../source/specifications/version-specifiers.rst:814
 msgid ""
 "Except where specifically noted below, local version identifiers MUST NOT be "
 "permitted in version specifiers, and local version labels MUST be ignored "
@@ -31925,11 +32050,11 @@ msgstr ""
 "ДОЛЖНЫ полностью игнорироваться при проверке соответствия версий-кандидатов "
 "заданному спецификатору версий."
 
-#: ../source/specifications/version-specifiers.rst:820
+#: ../source/specifications/version-specifiers.rst:823
 msgid "Compatible release"
 msgstr "Совместимый выпуск"
 
-#: ../source/specifications/version-specifiers.rst:822
+#: ../source/specifications/version-specifiers.rst:825
 msgid ""
 "A compatible release clause consists of the compatible release operator "
 "``~=`` and a version identifier. It matches any candidate version that is "
@@ -31939,7 +32064,7 @@ msgstr ""
 "``~=`` и идентификатора версии. Он соответствует любой версии-кандидату, "
 "которая, как ожидается, будет совместима с указанной версией."
 
-#: ../source/specifications/version-specifiers.rst:826
+#: ../source/specifications/version-specifiers.rst:829
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_. Local version identifiers are NOT permitted in this "
@@ -31949,7 +32074,7 @@ msgstr ""
 "в `Схема версии`_. Локальные идентификаторы версий в этом спецификаторе "
 "версий НЕ допускаются."
 
-#: ../source/specifications/version-specifiers.rst:830
+#: ../source/specifications/version-specifiers.rst:833
 msgid ""
 "For a given release identifier ``V.N``, the compatible release clause is "
 "approximately equivalent to the pair of comparison clauses::"
@@ -31957,7 +32082,7 @@ msgstr ""
 "Для данного идентификатора выпуска ``V.N`` совместимое положение о выпуске "
 "приблизительно эквивалентно паре положений сравнения::"
 
-#: ../source/specifications/version-specifiers.rst:835
+#: ../source/specifications/version-specifiers.rst:838
 msgid ""
 "This operator MUST NOT be used with a single segment version number such as "
 "``~=1``."
@@ -31965,11 +32090,11 @@ msgstr ""
 "Этот оператор НЕ ДОЛЖЕН использоваться с номером версии одного сегмента, "
 "таким как ``~=1``."
 
-#: ../source/specifications/version-specifiers.rst:838
+#: ../source/specifications/version-specifiers.rst:841
 msgid "For example, the following groups of version clauses are equivalent::"
 msgstr "Например, следующие группы положений о версии эквивалентны::"
 
-#: ../source/specifications/version-specifiers.rst:846
+#: ../source/specifications/version-specifiers.rst:849
 msgid ""
 "If a pre-release, post-release or developmental release is named in a "
 "compatible release clause as ``V.N.suffix``, then the suffix is ignored when "
@@ -31979,7 +32104,7 @@ msgstr ""
 "совместимом релизе как ``V.N.suffix``, то суффикс игнорируется при "
 "определении требуемого соответствия префикса::"
 
-#: ../source/specifications/version-specifiers.rst:856
+#: ../source/specifications/version-specifiers.rst:859
 msgid ""
 "The padding rules for release segment comparisons means that the assumed "
 "degree of forward compatibility in a compatible release clause can be "
@@ -31990,11 +32115,11 @@ msgstr ""
 "контролироваться путем добавления дополнительных нулей к спецификатору "
 "версии::"
 
-#: ../source/specifications/version-specifiers.rst:868
+#: ../source/specifications/version-specifiers.rst:871
 msgid "Version matching"
 msgstr "Соответствие версий"
 
-#: ../source/specifications/version-specifiers.rst:870
+#: ../source/specifications/version-specifiers.rst:873
 msgid ""
 "A version matching clause includes the version matching operator ``==`` and "
 "a version identifier."
@@ -32002,7 +32127,7 @@ msgstr ""
 "Условие сопоставления версий включает оператор сопоставления версий ``==`` и "
 "идентификатор версии."
 
-#: ../source/specifications/version-specifiers.rst:873
+#: ../source/specifications/version-specifiers.rst:876
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_, but a trailing ``.*`` is permitted on public version "
@@ -32012,7 +32137,7 @@ msgstr ""
 "в `Version scheme`_, но в идентификаторах публичных версий допускается "
 "наличие конца ``.*``, как описано ниже."
 
-#: ../source/specifications/version-specifiers.rst:877
+#: ../source/specifications/version-specifiers.rst:880
 msgid ""
 "By default, the version matching operator is based on a strict equality "
 "comparison: the specified version must be exactly the same as the requested "
@@ -32025,7 +32150,7 @@ msgstr ""
 "Единственная выполняемая замена - это нулевое заполнение сегмента выпуска, "
 "чтобы гарантировать, что сегменты выпуска сравниваются с одинаковой длиной."
 
-#: ../source/specifications/version-specifiers.rst:883
+#: ../source/specifications/version-specifiers.rst:886
 msgid ""
 "Whether or not strict version matching is appropriate depends on the "
 "specific use case for the version specifier. Automated tools SHOULD at least "
@@ -32037,7 +32162,7 @@ msgstr ""
 "ДОЛЖНЫ как минимум выдавать предупреждения, а могут и полностью отклонять "
 "их, если строгое соответствие версий используется неуместно."
 
-#: ../source/specifications/version-specifiers.rst:888
+#: ../source/specifications/version-specifiers.rst:891
 msgid ""
 "Prefix matching may be requested instead of strict comparison, by appending "
 "a trailing ``.*`` to the version identifier in the version matching clause. "
@@ -32054,8 +32179,8 @@ msgstr ""
 "то сдерживающие компоненты (или их отсутствие) в сегменте релиза также "
 "игнорируются."
 
-#: ../source/specifications/version-specifiers.rst:895
-#: ../source/specifications/version-specifiers.rst:956
+#: ../source/specifications/version-specifiers.rst:898
+#: ../source/specifications/version-specifiers.rst:959
 msgid ""
 "For example, given the version ``1.1.post1``, the following clauses would "
 "match or not as shown::"
@@ -32063,7 +32188,7 @@ msgstr ""
 "Например, для версии ``1.1.post1`` следующие пункты будут совпадать или не "
 "совпадать, как показано на рисунке::"
 
-#: ../source/specifications/version-specifiers.rst:902
+#: ../source/specifications/version-specifiers.rst:905
 msgid ""
 "For purposes of prefix matching, the pre-release segment is considered to "
 "have an implied preceding ``.``, so given the version ``1.1a1``, the "
@@ -32073,7 +32198,7 @@ msgstr ""
 "подразумеваемый предшествующий ``.``, поэтому, учитывая версию ``1.1a1``, "
 "следующие фразы будут соответствовать или не соответствовать, как показано::"
 
-#: ../source/specifications/version-specifiers.rst:910
+#: ../source/specifications/version-specifiers.rst:913
 msgid ""
 "An exact match is also considered a prefix match (this interpretation is "
 "implied by the usual zero padding rules for the release segment of version "
@@ -32085,7 +32210,7 @@ msgstr ""
 "сегмента release в идентификаторах версий). Для версии ``1.1`` следующие "
 "пункты будут совпадать или не совпадать, как показано на рисунке::"
 
-#: ../source/specifications/version-specifiers.rst:922
+#: ../source/specifications/version-specifiers.rst:925
 msgid ""
 "It is invalid to have a prefix match containing a development or local "
 "release such as ``1.0.dev1.*`` or ``1.0+foo1.*``. If present, the "
@@ -32100,7 +32225,7 @@ msgstr ""
 "сравнения, поэтому использование любого из них в префиксном совпадении не "
 "имеет смысла."
 
-#: ../source/specifications/version-specifiers.rst:928
+#: ../source/specifications/version-specifiers.rst:931
 msgid ""
 "The use of ``==`` (without at least the wildcard suffix) when defining "
 "dependencies for published distributions is strongly discouraged as it "
@@ -32116,7 +32241,7 @@ msgstr ""
 "при определении зависимостей для повторяющихся *развертываний приложений* "
 "при использовании общего индекса дистрибутива."
 
-#: ../source/specifications/version-specifiers.rst:935
+#: ../source/specifications/version-specifiers.rst:938
 msgid ""
 "If the specified version identifier is a public version identifier (no local "
 "version label), then the local version label of any candidate versions MUST "
@@ -32126,7 +32251,7 @@ msgstr ""
 "версии (без метки локальной версии), то метка локальной версии любых версий-"
 "кандидатов ДОЛЖНА игнорироваться при сопоставлении версий."
 
-#: ../source/specifications/version-specifiers.rst:939
+#: ../source/specifications/version-specifiers.rst:942
 msgid ""
 "If the specified version identifier is a local version identifier, then the "
 "local version labels of candidate versions MUST be considered when matching "
@@ -32140,11 +32265,11 @@ msgstr ""
 "сопоставляется, как описано выше, а метка локальной версии проверяется на "
 "эквивалентность с помощью строгого сравнения равенства строк."
 
-#: ../source/specifications/version-specifiers.rst:947
+#: ../source/specifications/version-specifiers.rst:950
 msgid "Version exclusion"
 msgstr "Исключение версии"
 
-#: ../source/specifications/version-specifiers.rst:949
+#: ../source/specifications/version-specifiers.rst:952
 msgid ""
 "A version exclusion clause includes the version exclusion operator ``!=`` "
 "and a version identifier."
@@ -32152,7 +32277,7 @@ msgstr ""
 "Предложение об исключении версии включает оператор исключения версии ``!=`` "
 "и идентификатор версии."
 
-#: ../source/specifications/version-specifiers.rst:952
+#: ../source/specifications/version-specifiers.rst:955
 msgid ""
 "The allowed version identifiers and comparison semantics are the same as "
 "those of the `Version matching`_ operator, except that the sense of any "
@@ -32162,11 +32287,11 @@ msgstr ""
 "оператора `Version matching`_, за исключением того, что смысл любого "
 "совпадения инвертируется."
 
-#: ../source/specifications/version-specifiers.rst:965
+#: ../source/specifications/version-specifiers.rst:968
 msgid "Inclusive ordered comparison"
 msgstr "Всеобъемлющее упорядоченное сравнение"
 
-#: ../source/specifications/version-specifiers.rst:967
+#: ../source/specifications/version-specifiers.rst:970
 msgid ""
 "An inclusive ordered comparison clause includes a comparison operator and a "
 "version identifier, and will match any version where the comparison is "
@@ -32180,12 +32305,12 @@ msgstr ""
 "указанной версии с учетом последовательного упорядочивания, определенного "
 "стандартной `Version scheme`_."
 
-#: ../source/specifications/version-specifiers.rst:973
+#: ../source/specifications/version-specifiers.rst:976
 msgid "The inclusive ordered comparison operators are ``<=`` and ``>=``."
 msgstr "Инклюзивные операторы упорядоченного сравнения - ``<=`` и ``>=``."
 
-#: ../source/specifications/version-specifiers.rst:975
-#: ../source/specifications/version-specifiers.rst:1005
+#: ../source/specifications/version-specifiers.rst:978
+#: ../source/specifications/version-specifiers.rst:1008
 msgid ""
 "As with version matching, the release segment is zero padded as necessary to "
 "ensure the release segments are compared with the same length."
@@ -32193,17 +32318,17 @@ msgstr ""
 "Как и при сопоставлении версий, сегмент выпуска обнуляется по мере "
 "необходимости, чтобы сегменты выпуска сравнивались с одинаковой длиной."
 
-#: ../source/specifications/version-specifiers.rst:978
-#: ../source/specifications/version-specifiers.rst:1008
+#: ../source/specifications/version-specifiers.rst:981
+#: ../source/specifications/version-specifiers.rst:1011
 msgid "Local version identifiers are NOT permitted in this version specifier."
 msgstr ""
 "Локальные идентификаторы версий в этом спецификаторе версий НЕ допускаются."
 
-#: ../source/specifications/version-specifiers.rst:982
+#: ../source/specifications/version-specifiers.rst:985
 msgid "Exclusive ordered comparison"
 msgstr "Исключительное упорядоченное сравнение"
 
-#: ../source/specifications/version-specifiers.rst:984
+#: ../source/specifications/version-specifiers.rst:987
 msgid ""
 "The exclusive ordered comparisons ``>`` and ``<`` are similar to the "
 "inclusive ordered comparisons in that they rely on the relative position of "
@@ -32219,7 +32344,7 @@ msgstr ""
 "специально исключают пре-релизы, пост-релизы и локальные версии указанной "
 "версии."
 
-#: ../source/specifications/version-specifiers.rst:990
+#: ../source/specifications/version-specifiers.rst:993
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** allow a post-release of "
 "the given version unless ``V`` itself is a post release. You may mandate "
@@ -32235,7 +32360,7 @@ msgstr ""
 "разрешит ``1.7.1``, но не ``1.7.0.post1``, а ``>1.7.post2`` разрешит "
 "``1.7.1`` и ``1.7.0.post3``, но не ``1.7.0``."
 
-#: ../source/specifications/version-specifiers.rst:997
+#: ../source/specifications/version-specifiers.rst:1000
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** match a local version "
 "of the specified version."
@@ -32243,7 +32368,7 @@ msgstr ""
 "Исключительное упорядоченное сравнение ``>V`` **НЕ ДОЛЖНО** соответствовать "
 "локальной версии указанной версии."
 
-#: ../source/specifications/version-specifiers.rst:1000
+#: ../source/specifications/version-specifiers.rst:1003
 msgid ""
 "The exclusive ordered comparison ``<V`` **MUST NOT** allow a pre-release of "
 "the specified version unless the specified version is itself a pre-release. "
@@ -32256,11 +32381,11 @@ msgstr ""
 "которые являются более ранними, но не равными определенной предварительной "
 "версии, может быть достигнуто с помощью ``<V.rc1`` или аналогичных."
 
-#: ../source/specifications/version-specifiers.rst:1012
+#: ../source/specifications/version-specifiers.rst:1015
 msgid "Arbitrary equality"
 msgstr "Произвольное равенство"
 
-#: ../source/specifications/version-specifiers.rst:1014
+#: ../source/specifications/version-specifiers.rst:1017
 msgid ""
 "Arbitrary equality comparisons are simple string equality operations which "
 "do not take into account any of the semantic information such as zero "
@@ -32272,7 +32397,7 @@ msgstr ""
 "подстановка или локальные версии. Этот оператор также не поддерживает "
 "сопоставление префиксов, как это делает оператор ``==``."
 
-#: ../source/specifications/version-specifiers.rst:1019
+#: ../source/specifications/version-specifiers.rst:1022
 msgid ""
 "The primary use case for arbitrary equality is to allow for specifying a "
 "version which cannot otherwise be represented by this specification. This "
@@ -32286,14 +32411,14 @@ msgstr ""
 "человеку, использующему инструмент, реализующий эту спецификацию, установить "
 "устаревшую версию, которая иначе несовместима с этой спецификацией."
 
-#: ../source/specifications/version-specifiers.rst:1025
+#: ../source/specifications/version-specifiers.rst:1028
 msgid ""
 "An example would be ``===foobar`` which would match a version of ``foobar``."
 msgstr ""
 "Примером может служить ``===foobar``, который будет соответствовать версии "
 "``foobar``."
 
-#: ../source/specifications/version-specifiers.rst:1027
+#: ../source/specifications/version-specifiers.rst:1030
 msgid ""
 "This operator may also be used to explicitly require an unpatched version of "
 "a project such as ``===1.0`` which would not match for a version "
@@ -32303,7 +32428,7 @@ msgstr ""
 "непропатченной версии проекта, например, ``===1.0``, которая не будет "
 "соответствовать версии ``1.0+downstream1``."
 
-#: ../source/specifications/version-specifiers.rst:1031
+#: ../source/specifications/version-specifiers.rst:1034
 msgid ""
 "Use of this operator is heavily discouraged and tooling MAY display a "
 "warning when it is used."
@@ -32311,11 +32436,11 @@ msgstr ""
 "Использовать этот оператор крайне не рекомендуется, и оснастка ДОЛЖНА "
 "содержать предупреждение о его использовании."
 
-#: ../source/specifications/version-specifiers.rst:1036
+#: ../source/specifications/version-specifiers.rst:1039
 msgid "Handling of pre-releases"
 msgstr "Работа с предварительными выпусками"
 
-#: ../source/specifications/version-specifiers.rst:1038
+#: ../source/specifications/version-specifiers.rst:1041
 msgid ""
 "Pre-releases of any kind, including developmental releases, are implicitly "
 "excluded from all version specifiers, *unless* they are already present on "
@@ -32328,17 +32453,17 @@ msgstr ""
 "версия, удовлетворяющая спецификатору версии, является предварительной "
 "версией."
 
-#: ../source/specifications/version-specifiers.rst:1043
+#: ../source/specifications/version-specifiers.rst:1046
 msgid "By default, dependency resolution tools SHOULD:"
 msgstr "По умолчанию инструменты разрешения зависимостей ДОЛЖНЫ:"
 
-#: ../source/specifications/version-specifiers.rst:1045
+#: ../source/specifications/version-specifiers.rst:1048
 msgid "accept already installed pre-releases for all version specifiers"
 msgstr ""
 "принимать уже установленные предварительные версии для всех спецификаторов "
 "версии"
 
-#: ../source/specifications/version-specifiers.rst:1046
+#: ../source/specifications/version-specifiers.rst:1049
 msgid ""
 "accept remotely available pre-releases for version specifiers where there is "
 "no final or post release that satisfies the version specifier"
@@ -32347,11 +32472,11 @@ msgstr ""
 "версий, если не существует финального или пост-выпуска, удовлетворяющего "
 "спецификатору версии"
 
-#: ../source/specifications/version-specifiers.rst:1048
+#: ../source/specifications/version-specifiers.rst:1051
 msgid "exclude all other pre-releases from consideration"
 msgstr "исключить из рассмотрения все прочие предварительные продажи"
 
-#: ../source/specifications/version-specifiers.rst:1050
+#: ../source/specifications/version-specifiers.rst:1053
 msgid ""
 "Dependency resolution tools MAY issue a warning if a pre-release is needed "
 "to satisfy a version specifier."
@@ -32359,7 +32484,7 @@ msgstr ""
 "Средства разрешения зависимостей МОГУТ выдавать предупреждение, если для "
 "удовлетворения спецификатора версии требуется предварительный выпуск."
 
-#: ../source/specifications/version-specifiers.rst:1053
+#: ../source/specifications/version-specifiers.rst:1056
 msgid ""
 "Dependency resolution tools SHOULD also allow users to request the following "
 "alternative behaviours:"
@@ -32367,11 +32492,11 @@ msgstr ""
 "Средства разрешения зависимостей ДОЛЖНЫ также позволять пользователям "
 "запрашивать следующие альтернативные варианты поведения:"
 
-#: ../source/specifications/version-specifiers.rst:1056
+#: ../source/specifications/version-specifiers.rst:1059
 msgid "accepting pre-releases for all version specifiers"
 msgstr "прием предварительных версий для всех спецификаторов версий"
 
-#: ../source/specifications/version-specifiers.rst:1057
+#: ../source/specifications/version-specifiers.rst:1060
 msgid ""
 "excluding pre-releases for all version specifiers (reporting an error or "
 "warning if a pre-release is already installed locally, or if a pre-release "
@@ -32382,7 +32507,7 @@ msgstr ""
 "локально, или если предварительная версия является единственным способом "
 "удовлетворить определенный спецификатор)"
 
-#: ../source/specifications/version-specifiers.rst:1061
+#: ../source/specifications/version-specifiers.rst:1064
 msgid ""
 "Dependency resolution tools MAY also allow the above behaviour to be "
 "controlled on a per-distribution basis."
@@ -32390,7 +32515,7 @@ msgstr ""
 "Средства разрешения зависимостей MAY также позволяют управлять вышеуказанным "
 "поведением на основе каждого дистрибутива."
 
-#: ../source/specifications/version-specifiers.rst:1064
+#: ../source/specifications/version-specifiers.rst:1067
 msgid ""
 "Post-releases and final releases receive no special treatment in version "
 "specifiers - they are always included unless explicitly excluded."
@@ -32399,24 +32524,24 @@ msgstr ""
 "спецификаторах версий - они всегда включаются, если только не исключены "
 "явным образом."
 
-#: ../source/specifications/version-specifiers.rst:1071
+#: ../source/specifications/version-specifiers.rst:1074
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
 msgstr ""
 "``~=3.1``: версия 3.1 или более поздняя, но не версия 4.0 или более поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1072
+#: ../source/specifications/version-specifiers.rst:1075
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
 msgstr ""
 "``~=3.1.2``: версия 3.1.2 или более поздняя, но не версия 3.2.0 или более "
 "поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1073
+#: ../source/specifications/version-specifiers.rst:1076
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
 msgstr ""
 "``~=3.1a1``: версия 3.1a1 или более поздняя, но не версия 4.0 или более "
 "поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1074
+#: ../source/specifications/version-specifiers.rst:1077
 msgid ""
 "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, "
 "post releases, developmental releases and any 3.1.x maintenance releases."
@@ -32424,7 +32549,7 @@ msgstr ""
 "``== 3.1``: конкретно версия 3.1 (или 3.1.0), исключает все пре-релизы, пост-"
 "релизы, релизы разработки и любые поддерживающие релизы 3.1.x."
 
-#: ../source/specifications/version-specifiers.rst:1076
+#: ../source/specifications/version-specifiers.rst:1079
 msgid ""
 "``== 3.1.*``: any version that starts with 3.1. Equivalent to the "
 "``~=3.1.0`` compatible release clause."
@@ -32432,7 +32557,7 @@ msgstr ""
 "``== 3.1.*``: любая версия, начинающаяся с 3.1. Эквивалентно положению о "
 "совместимом выпуске ``~=3.1.0``."
 
-#: ../source/specifications/version-specifiers.rst:1078
+#: ../source/specifications/version-specifiers.rst:1081
 msgid ""
 "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not "
 "version 3.2.0 or later."
@@ -32440,11 +32565,11 @@ msgstr ""
 "``~=3.1.0, != 3.1.3``: версия 3.1.0 или более поздняя, но не версия 3.1.3 и "
 "не версия 3.2.0 или более поздняя."
 
-#: ../source/specifications/version-specifiers.rst:1083
+#: ../source/specifications/version-specifiers.rst:1086
 msgid "Direct references"
 msgstr "Прямые ссылки"
 
-#: ../source/specifications/version-specifiers.rst:1085
+#: ../source/specifications/version-specifiers.rst:1088
 msgid ""
 "Some automated tools may permit the use of a direct reference as an "
 "alternative to a normal version specifier. A direct reference consists of "
@@ -32454,7 +32579,7 @@ msgstr ""
 "прямой ссылки в качестве альтернативы обычному спецификатору версии. Прямая "
 "ссылка состоит из спецификатора ``@`` и явного URL."
 
-#: ../source/specifications/version-specifiers.rst:1089
+#: ../source/specifications/version-specifiers.rst:1092
 msgid ""
 "Whether or not direct references are appropriate depends on the specific use "
 "case for the version specifier. Automated tools SHOULD at least issue "
@@ -32466,7 +32591,7 @@ msgstr ""
 "как минимум выдавать предупреждения, а могут и полностью отклонять их, если "
 "прямые ссылки используются неуместно."
 
-#: ../source/specifications/version-specifiers.rst:1094
+#: ../source/specifications/version-specifiers.rst:1097
 msgid ""
 "Public index servers SHOULD NOT allow the use of direct references in "
 "uploaded distributions. Direct references are intended as a tool for "
@@ -32476,7 +32601,7 @@ msgstr ""
 "в загружаемых дистрибутивах. Прямые ссылки предназначены для интеграторов "
 "программного обеспечения, а не для издателей."
 
-#: ../source/specifications/version-specifiers.rst:1098
+#: ../source/specifications/version-specifiers.rst:1101
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
 "reference may be an sdist or a wheel binary archive. The exact URLs and "
@@ -32486,16 +32611,16 @@ msgstr ""
 "прямой URL-ссылки могут быть sdist или бинарный архив wheel. Точные URL-"
 "адреса и поддерживаемые цели зависят от инструмента."
 
-#: ../source/specifications/version-specifiers.rst:1102
+#: ../source/specifications/version-specifiers.rst:1105
 msgid "For example, a local source archive may be referenced directly::"
 msgstr "Например, на локальный исходный архив можно ссылаться напрямую::"
 
-#: ../source/specifications/version-specifiers.rst:1106
+#: ../source/specifications/version-specifiers.rst:1109
 msgid "Alternatively, a prebuilt archive may also be referenced::"
 msgstr ""
 "В качестве альтернативы можно сослаться на предварительно собранный архив::"
 
-#: ../source/specifications/version-specifiers.rst:1110
+#: ../source/specifications/version-specifiers.rst:1113
 msgid ""
 "All direct references that do not refer to a local file URL SHOULD specify a "
 "secure transport mechanism (such as ``https``) AND include an expected hash "
@@ -32516,7 +32641,7 @@ msgstr ""
 "Если такая прямая ссылка также использует небезопасный транспорт, "
 "автоматизированные инструменты НЕ ДОЛЖНЫ полагаться на URL."
 
-#: ../source/specifications/version-specifiers.rst:1119
+#: ../source/specifications/version-specifiers.rst:1122
 msgid ""
 "It is RECOMMENDED that only hashes which are unconditionally provided by the "
 "latest version of the standard library's :py:mod:`hashlib` module be used "
@@ -32529,7 +32654,7 @@ msgstr ""
 "`hashlib` стандартной библиотеки. На момент написания статьи в этот список "
 "входят ``md5``, ``sha1``, ``sha224``, ``sha256``, ``sha384`` и ``sha512``."
 
-#: ../source/specifications/version-specifiers.rst:1125
+#: ../source/specifications/version-specifiers.rst:1128
 msgid ""
 "For source archive and wheel references, an expected hash value may be "
 "specified by including a ``<hash-algorithm>=<expected-hash>`` entry as part "
@@ -32539,7 +32664,7 @@ msgstr ""
 "указано путем включения записи ``<hash-algorithm>=<expected-hash>`` в "
 "качестве части фрагмента URL."
 
-#: ../source/specifications/version-specifiers.rst:1129
+#: ../source/specifications/version-specifiers.rst:1132
 msgid ""
 "For version control references, the ``VCS+protocol`` scheme SHOULD be used "
 "to identify both the version control system and the secure transport, and a "
@@ -32554,7 +32679,7 @@ msgstr ""
 "МОГУТ не выдавать предупреждения об отсутствии хэшей для систем контроля "
 "версий, которые не предоставляют идентификаторы фиксации на основе хэшей."
 
-#: ../source/specifications/version-specifiers.rst:1135
+#: ../source/specifications/version-specifiers.rst:1138
 msgid ""
 "To handle version control systems that do not support including commit or "
 "tag references directly in the URL, that information may be appended to the "
@@ -32566,7 +32691,7 @@ msgstr ""
 "добавлена в конец URL с помощью нотации ``@<commit-hash>`` или "
 "``@<tag>#<commit-hash>``."
 
-#: ../source/specifications/version-specifiers.rst:1142
+#: ../source/specifications/version-specifiers.rst:1145
 msgid ""
 "This isn't *quite* the same as the existing VCS reference notation supported "
 "by pip. Firstly, the distribution name is moved in front rather than "
@@ -32583,15 +32708,15 @@ msgstr ""
 "хэш, чтобы затруднить подделку (создать вредоносное репо с определённым "
 "тегом легко, а создать репо с определённым *хэшем* - менее)."
 
-#: ../source/specifications/version-specifiers.rst:1150
+#: ../source/specifications/version-specifiers.rst:1153
 msgid "Remote URL examples::"
 msgstr "Примеры удаленных URL::"
 
-#: ../source/specifications/version-specifiers.rst:1158
+#: ../source/specifications/version-specifiers.rst:1161
 msgid "File URLs"
 msgstr "URL-адреса файлов"
 
-#: ../source/specifications/version-specifiers.rst:1160
+#: ../source/specifications/version-specifiers.rst:1163
 msgid ""
 "File URLs take the form of ``file://<host>/<path>``. If the ``<host>`` is "
 "omitted it is assumed to be ``localhost`` and even if the ``<host>`` is "
@@ -32604,7 +32729,7 @@ msgstr ""
 "определяет путь к файлу в файловой системе, к которому необходимо получить "
 "доступ."
 
-#: ../source/specifications/version-specifiers.rst:1165
+#: ../source/specifications/version-specifiers.rst:1168
 msgid ""
 "On the various \\*nix operating systems the only allowed values for "
 "``<host>`` is for it to be omitted, ``localhost``, or another FQDN that the "
@@ -32617,7 +32742,7 @@ msgstr ""
 "в \\*nix схема ``file://`` может использоваться только для доступа к путям "
 "на локальной машине."
 
-#: ../source/specifications/version-specifiers.rst:1170
+#: ../source/specifications/version-specifiers.rst:1173
 msgid ""
 "On Windows the file format should include the drive letter if applicable as "
 "part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \\*nix "
@@ -32637,11 +32762,11 @@ msgstr ""
 "в Windows можно найти в `MSDN <https://web.archive.org/web/20130321051043/"
 "http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`_."
 
-#: ../source/specifications/version-specifiers.rst:1181
+#: ../source/specifications/version-specifiers.rst:1184
 msgid "Summary of differences from pkg_resources.parse_version"
 msgstr "Краткое описание отличий от pkg_resources.parse_version"
 
-#: ../source/specifications/version-specifiers.rst:1183
+#: ../source/specifications/version-specifiers.rst:1186
 msgid ""
 "Note: this comparison is to ``pkg_resources.parse_version`` as it existed at "
 "the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 "
@@ -32652,7 +32777,7 @@ msgstr ""
 "был принят, setuptools 6.0 и более поздние версии приняли описанное здесь "
 "поведение."
 
-#: ../source/specifications/version-specifiers.rst:1187
+#: ../source/specifications/version-specifiers.rst:1190
 msgid ""
 "Local versions sort differently, this specification requires that they sort "
 "as greater than the same version without a local version, whereas "
@@ -32662,7 +32787,7 @@ msgstr ""
 "сортировались как большие, чем та же версия без локальной версии, в то время "
 "как ``pkg_resources.parse_version`` считает это маркером предрелизности."
 
-#: ../source/specifications/version-specifiers.rst:1191
+#: ../source/specifications/version-specifiers.rst:1194
 msgid ""
 "This specification purposely restricts the syntax which constitutes a valid "
 "version while ``pkg_resources.parse_version`` attempts to provide some "
@@ -32672,7 +32797,7 @@ msgstr ""
 "собой правильную версию, в то время как ``pkg_resources.parse_version`` "
 "пытается получить некоторое значение из *любой* произвольной строки."
 
-#: ../source/specifications/version-specifiers.rst:1195
+#: ../source/specifications/version-specifiers.rst:1198
 msgid ""
 "``pkg_resources.parse_version`` allows arbitrarily deeply nested version "
 "signifiers like ``1.0.dev1.post1.dev5``. This specification however allows "
@@ -32683,11 +32808,11 @@ msgstr ""
 "допускает только одно использование каждого типа, и они должны существовать "
 "в определенном порядке."
 
-#: ../source/specifications/version-specifiers.rst:1204
+#: ../source/specifications/version-specifiers.rst:1207
 msgid "Appendix: Parsing version strings with regular expressions"
 msgstr "Приложение: Разбор строк версий с помощью регулярных выражений"
 
-#: ../source/specifications/version-specifiers.rst:1206
+#: ../source/specifications/version-specifiers.rst:1209
 msgid ""
 "As noted earlier in the :ref:`public-version-identifiers` section, published "
 "version identifiers SHOULD use the canonical format. This section provides "
@@ -32701,7 +32826,7 @@ msgstr ""
 "использовать для проверки того, имеет ли версия уже такую форму, и, если "
 "нет, извлечь различные компоненты для последующей нормализации."
 
-#: ../source/specifications/version-specifiers.rst:1212
+#: ../source/specifications/version-specifiers.rst:1215
 msgid ""
 "To test whether a version identifier is in the canonical format, you can use "
 "the following function:"
@@ -32709,7 +32834,7 @@ msgstr ""
 "Чтобы проверить, соответствует ли идентификатор версии каноническому "
 "формату, можно воспользоваться следующей функцией:"
 
-#: ../source/specifications/version-specifiers.rst:1221
+#: ../source/specifications/version-specifiers.rst:1224
 msgid ""
 "To extract the components of a version identifier, use the following regular "
 "expression (as defined by the `packaging <https://github.com/pypa/"
@@ -32719,9 +32844,15 @@ msgstr ""
 "регулярное выражение (как определено в проекте `packaging <https://github."
 "com/pypa/packaging>`_):"
 
-#: ../source/specifications/version-specifiers.rst:1268
+#: ../source/specifications/version-specifiers.rst:1271
 msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr "Август 2014 г: Эта спецификация была одобрена через :pep:`440`."
+
+#: ../source/specifications/version-specifiers.rst:1272
+msgid ""
+"May 2025: Clarify that development releases are a form of pre-release when "
+"they are handled."
+msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:6
 msgid "Python Virtual Environments"
@@ -34975,6 +35106,63 @@ msgstr ""
 "packages>` и считаются **продвинутой темой** (не охваченной этим учебником). "
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
+
+#~ msgid "Signing the distribution packages"
+#~ msgstr "Подписание пакетов распространения"
+
+#~ msgid ""
+#~ "The following job signs the distribution packages with `Sigstore`_, the "
+#~ "same artifact signing system `used to sign CPython <https://www.python."
+#~ "org/download/sigstore/>`_."
+#~ msgstr ""
+#~ "Следующее задание подписывает пакеты дистрибутива с помощью `Sigstore`_, "
+#~ "той же системы подписи артефактов, которая `использовалась для подписи "
+#~ "CPython <https://www.python.org/download/sigstore/>`_."
+
+#~ msgid ""
+#~ "Firstly, it uses the `sigstore/gh-action-sigstore-python GitHub Action`_ "
+#~ "to sign the distribution packages. In the next step, an empty GitHub "
+#~ "Release from the current tag is created using the ``gh`` CLI. Note this "
+#~ "step can be further customised. See the `gh release documentation "
+#~ "<https://cli.github.com/manual/gh_release>`_ as a reference."
+#~ msgstr ""
+#~ "Сначала используется GitHub Action `sigstore/gh-action-sigstore-python`_ "
+#~ "для подписи дистрибутивных пакетов. На следующем этапе с помощью ``gh`` "
+#~ "CLI создается пустой GitHub Release из текущего тега. Обратите внимание, "
+#~ "что этот шаг может быть дополнительно настроен. См. документацию `gh "
+#~ "release <https://cli.github.com/manual/gh_release>`_ в качестве ссылки."
+
+#~ msgid ""
+#~ "You may need to manage your ``GITHUB_TOKEN`` permissions to enable "
+#~ "creating the GitHub Release. See the `GitHub documentation <https://docs."
+#~ "github.com/repositories/managing-your-repositorys-settings-and-features/"
+#~ "enabling-features-for-your-repository/managing-github-actions-settings-"
+#~ "for-a-repository#configuring-the-default-github_token-permissions>`_ for "
+#~ "instructions. Specifically, the token needs the ``contents: write`` "
+#~ "permission."
+#~ msgstr ""
+#~ "Вам может потребоваться изменить права ``GITHUB_TOKEN``, чтобы разрешить "
+#~ "создание релиза GitHub. Инструкции см. в документации по GitHub <https://"
+#~ "docs.github.com/repositories/managing-your-repositorys-settings-and-"
+#~ "features/enabling-features-for-your-repository/managing-github-actions-"
+#~ "settings-for-a-repository#configuring-the-default-github_token-"
+#~ "permissions>`_. В частности, токену необходимо разрешение ``содержимое: "
+#~ "запись``."
+
+#~ msgid ""
+#~ "Finally, the signed distributions are uploaded to the GitHub Release."
+#~ msgstr "Наконец, подписанные дистрибутивы загружаются на GitHub Release."
+
+#~ msgid ""
+#~ "This is a replacement for GPG signatures, for which support has been "
+#~ "`removed from PyPI <https://blog.pypi.org/posts/2023-05-23-removing-pgp/"
+#~ ">`_. However, this job is not mandatory for uploading to PyPI and can be "
+#~ "omitted."
+#~ msgstr ""
+#~ "Это замена для подписей GPG, поддержка которых была `удалена из PyPI "
+#~ "<https://blog.pypi.org/posts/2023-05-23-removing-pgp/>`_. Тем не менее, "
+#~ "это задание не является обязательным для загрузки в PyPI и может быть "
+#~ "пропущено."
 
 #~ msgid ""
 #~ ":pep:`639` (accepted in August 2024) has changed the way the ``license`` "
