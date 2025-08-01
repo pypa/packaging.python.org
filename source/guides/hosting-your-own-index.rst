@@ -126,6 +126,12 @@ Existing projects
        <https://httpd.apache.org/docs/current/mod/mod_cache_disk.html>`_,
        you can cache requests to package indexes through an Apache server
 
+   * - `RepoFlow <https://www.repoflow.io>`_
+     - ✔
+     - ✔
+     - Modern package registry with PyPI upload and proxy support, available self-hosted or in the cloud.
+
+
 ----
 
 .. [1] For complete documentation of the simple repository protocol, see
