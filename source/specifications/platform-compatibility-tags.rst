@@ -351,7 +351,7 @@ Compressed Tag Sets
 
 To allow for compact filenames of bdists that work with more than
 one compatibility tag triple, each tag in a filename can instead be a
-'.'-separated, sorted, set of tags.  For example, pip, a pure-Python
+'.'-separated, sorted, collection of tags.  For example, pip, a pure-Python
 package that is written to run under Python 2 and 3 with the same source
 code, could distribute a bdist with the tag ``py2.py3-none-any``.
 The full list of simple tags is::
