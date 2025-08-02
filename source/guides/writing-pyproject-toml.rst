@@ -314,11 +314,13 @@ backend>` now support the new format as shown in the following table.
      - flit-core [#flit-core-pep639]_
      - pdm-backend
      - poetry-core
+     - uv-build
    * - 1.27.0
      - 77.0.3
      - 3.12
      - 2.4.0
      - `not yet <poetry-pep639-issue_>`_
+     - 0.7.19
 
 
 .. _license:
