@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://packaging.python.org/en/latest/specifications/schemas/direct-url.schema.json",
+  "title": "Direct URL Data",
+  "description": "Data structure that can represent URLs to python projects and distribution artifacts such as VCS source trees, local source trees, source distributions and wheels.",
+  "definitions": {
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "DirInfo": {
+      "type": "object",
+      "properties": {
+        "editable": {
+          "type": ["boolean", "null"]
+        }
+      }
+    },
+    "VCSInfo": {
+      "type": "object",
+      "properties": {
+        "vcs": {
+          "type": "string",
+          "enum": ["git", "hg", "bzr", "svn"]
+        },
+        "requested_revision": {
+          "type": "string"
+        },
+        "commit_id": {
+          "type": "string"
+        },
+        "resolved_revision": {
+          "type": "string"
+        }
+      },
+      "required": ["vcs", "commit_id"]
+    },
+    "ArchiveInfo": {
+      "type": "object",
+      "properties": {
+        "hash": {
+          "type": "string",
+          "pattern": "^\\w+=[a-f0-9]+$",
+          "deprecated": true
+        },
+        "hashes": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-f0-9]+$": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "url": {
+          "$ref": "#/definitions/url"
+        }
+      },
+      "required": ["url"]
+    },
+    {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "dir_info": {
+              "$ref": "#/definitions/DirInfo"
+            }
+          },
+          "required": ["dir_info"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "vcs_info": {
+              "$ref": "#/definitions/VCSInfo"
+            }
+          },
+          "required": ["vcs_info"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "archive_info": {
+              "$ref": "#/definitions/ArchiveInfo"
+            }
+          },
+          "required": ["archive_info"]
+        }
+      ]
+    }
+  ]
+}
