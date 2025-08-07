@@ -17,3 +17,4 @@ and for proposing new ones, is documented on
    section-package-indices
    section-python-description-formats
    section-reproducible-environments
+   schemas/index.rst
