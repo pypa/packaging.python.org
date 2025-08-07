@@ -115,7 +115,7 @@ A possible replacement solution (among others) is to rely on setuptools-scm_:
 
 * ``python -m setuptools_scm``
 
-.. _setuptools-scm: https://setuptools-scm.readthedocs.io/en/latest/usage/#as-cli-tool
+.. _setuptools-scm: https://setuptools-scm.readthedocs.io/en/latest/usage#as-cli-tool
 
 
 Remaining commands
