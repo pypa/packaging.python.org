@@ -177,3 +177,5 @@ and techniques, listed in alphabetical order, to see if one of them is a better 
   structured as a distributable Python package with a valid ``pyproject.toml`` file.
   By contrast, Pipenv explicitly avoids making the assumption that the application
   being worked on will support distribution as a ``pip``-installable Python package.
+* `uv <https://docs.astral.sh/uv/>`__ for a single tool that covers the entire project
+  management workflow, including dependency management, packaging, and publishing.

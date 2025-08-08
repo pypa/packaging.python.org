@@ -32,3 +32,11 @@
         [build-system]
         requires = ["pdm-backend >= 2.4.0"]
         build-backend = "pdm.backend"
+
+.. tab:: uv-build
+
+    .. code-block:: toml
+
+        [build-system]
+        requires = ["uv_build >= 0.7.19, <0.9.0"]
+        build-backend = "uv_build"
