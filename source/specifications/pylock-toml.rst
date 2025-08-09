@@ -672,12 +672,12 @@ See :ref:`pylock-packages-archive-hashes`.
 
 - **Type**: array of tables
 - **Required?**: no
-- **Inspiration**: :ref:`  provenance-object`
+- **Inspiration**: :ref:`provenance-object`
 - A recording of the attestations for **any** file recorded for this package.
 - If available, tools SHOULD include the attestation identities found.
 - Publisher-specific keys are to be included in the table as-is
   (i.e. top-level), following the spec at
-  :ref:`  index-hosted-attestations`.
+  :ref:`index-hosted-attestations`.
 
 
 .. _pylock-packages-attestation-identities-kind:
@@ -687,7 +687,7 @@ See :ref:`pylock-packages-archive-hashes`.
 
 - **Type**: string
 - **Required?**: yes
-- **Inspiration**: :ref:`  provenance-object`
+- **Inspiration**: :ref:`provenance-object`
 - The unique identity of the Trusted Publisher.
 
 
@@ -698,9 +698,9 @@ See :ref:`pylock-packages-archive-hashes`.
 
 - **Type**: table
 - **Required?**: no
-- **Inspiration**: :ref:`  pyproject-tool-table`
+- **Inspiration**: :ref:`pyproject-tool-table`
 - Similar usage as that of the :ref:`pylock-tool` table from the
-  :ref:`  pyproject-toml-spec`, but at the package version level instead
+  :ref:`pyproject-toml-spec`, but at the package version level instead
   of at the lock file level (which is also available via :ref:`pylock-tool`).
 - Data recorded in the table MUST be disposable (i.e. it MUST NOT affect
   installation).
