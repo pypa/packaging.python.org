@@ -336,7 +336,10 @@ The `pandas-gbq`_ project allows for accessing query results via `Pandas`_.
 ``ClickPy``
 -----------
 
-The `ClickPy <https://clickpy.clickhouse.com/>` project provides a public application to visualize download statistics, with free direct SQL access to the underlying open-source `ClickHouse https://sql.clickhouse.com/?query_id=UEZEBJHYKTWDYXQZFMUT39`__ database, updated daily.
+The `ClickPy`_ project provides a public application to visualize download
+statistics, with free direct SQL access to the underlying open-source
+`ClickHouse`_ database, updated daily.
+
 
 References
 ==========
@@ -352,4 +355,4 @@ References
 .. _pandas-gbq: https://pandas-gbq.readthedocs.io/en/latest/
 .. _Pandas: https://pandas.pydata.org/
 .. _ClickHouse: https://github.com/ClickHouse/ClickHouse
-.. _Clickpy: https://github.com/ClickHouse/ClickPy
+.. _Clickpy: https://clickpy.clickhouse.com/
