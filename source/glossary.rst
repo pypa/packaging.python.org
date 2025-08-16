@@ -190,8 +190,7 @@ Glossary
     Namespace Package
 
         A mechanism for splitting a single :term:`Import Package <Import Package>`
-        across multiple directories on disk. Can either be "explicit" or "implicit",
-        depending on the mechanism. Defined in :pep:`420`.
+        across one or more :term:`Distribution Packages <Distribution Package>`.
 
 
     Package Index
