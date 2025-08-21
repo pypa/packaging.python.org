@@ -142,7 +142,7 @@ document we limit the acceptable values for identifiers to that regex. A full
 redefinition of name may take place in a future metadata PEP. The regex (run
 with re.IGNORECASE) is::
 
-    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])\Z
 
 .. _dependency-specifiers-extras:
 
