@@ -526,6 +526,9 @@ History
   in use since late 2022.
 - April 2025: Added ``extras`` and ``dependency_groups`` for
   :ref:`lock-file-spec` as approved through :pep:`751`.
+- August 2025: The suggested name validation regex was fixed to match the field
+  specification (it previously finished with ``$`` instead of ``\Z``,
+  incorrectly permitting trailing newlines)
 
 
 References

@@ -53,3 +53,6 @@ History
   :pep:`503 <503#normalized-names>`.
 - November 2015: The specification of valid names was approved through
   :pep:`508 <508#names>`.
+- August 2025: The suggested name validation regex was fixed to match the field
+  specification (it previously finished with ``$`` instead of ``\Z``,
+  incorrectly permitting trailing newlines)
