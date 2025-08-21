@@ -11,7 +11,7 @@ including:
 * Reviewing new contributions
 * Revising existing content
 * Writing new content
-* Translate the guide
+* Translating the guide
 
 Most of the work on the |PyPUG| takes place on the
 `project's GitHub repository`__. To get started, check out the list of
@@ -103,7 +103,6 @@ If you are not familiar with reStructuredText (RST) syntax, please read `this gu
 before translating on Weblate.
 
 **Do not translate the text in reference directly**
-
   When translating the text in reference, please do not translate them directly.
 
   | Wrong: Translate the following text directly:

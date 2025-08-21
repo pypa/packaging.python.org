@@ -6,6 +6,8 @@
 Core metadata specifications
 ============================
 
+This page describes version 2.4, approved in August 2024.
+
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
 
@@ -468,8 +470,8 @@ License-Expression
 .. versionadded:: 2.4
 
 Text string that is a valid SPDX
-`license expression <https://peps.python.org/pep-0639/#term-license-expression>`__
-as `defined in PEP 639 <https://peps.python.org/pep-0639/#spdx>`__.
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
 
 Examples::
 
@@ -797,6 +799,11 @@ Examples::
 Deprecated Fields
 =================
 
+Deprecated fields should be avoided, but they are valid metadata fields. They
+may be removed in future versions of the core metadata standard (at which point
+they will only be valid in files that specify a metadata version prior to the
+removal). Tools SHOULD warn users when deprecated fields are used.
+
 .. _home-page-optional:
 .. _core-metadata-home-page:
 
@@ -916,27 +923,30 @@ Example::
 History
 =======
 
-- March 2001: Core metadata 1.0 was approved through :pep:`241`.
-- April 2003: Core metadata 1.1 was approved through :pep:`314`:
-- February 2010: Core metadata 1.2 was approved through :pep:`345`.
+- August 2024: Core metadata 2.4 was approved through :pep:`639`.
+
+  - Added the ``License-Expression`` field.
+  - Added the ``License-File`` field.
+
+- March 2022: Core metadata 2.3 was approved through :pep:`685`.
+
+  - Restricted extra names to be normalized.
+
+- October 2020: Core metadata 2.2 was approved through :pep:`643`.
+
+  - Added the ``Dynamic`` field.
+
 - February 2018: Core metadata 2.1 was approved through :pep:`566`.
 
   - Added ``Description-Content-Type`` and ``Provides-Extra``.
   - Added canonical method for transforming metadata to JSON.
   - Restricted the grammar of the ``Name`` field.
 
-- October 2020: Core metadata 2.2 was approved through :pep:`643`.
+- February 2010: Core metadata 1.2 was approved through :pep:`345`.
 
-  - Added the ``Dynamic`` field.
+- April 2003: Core metadata 1.1 was approved through :pep:`314`:
 
-- March 2022: Core metadata 2.3 was approved through :pep:`685`.
-
-  - Restricted extra names to be normalized.
-
-- August 2024: Core metadata 2.4 was approved through :pep:`639`.
-
-  - Added the ``License-Expression`` field.
-  - Added the ``License-File`` field.
+- March 2001: Core metadata 1.0 was approved through :pep:`241`.
 
 ----
 

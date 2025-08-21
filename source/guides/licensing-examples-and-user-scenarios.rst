@@ -10,6 +10,8 @@ Licensing examples and user scenarios
 license files and other legally required information.
 This document aims to provide clear guidance how to migrate from the legacy
 to the standardized way of declaring licenses.
+Make sure your preferred build backend supports :pep:`639` before
+trying to apply the newer guidelines.
 
 
 Licensing Examples
