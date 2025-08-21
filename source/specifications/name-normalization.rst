@@ -17,7 +17,7 @@ underscore and hyphen. It must start and end with a letter or number.
 This means that valid project names are limited to those which match the
 following regex (run with :py:data:`re.IGNORECASE`)::
 
-    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])\Z
 
 
 .. _name-normalization:
@@ -53,3 +53,6 @@ History
   :pep:`503 <503#normalized-names>`.
 - November 2015: The specification of valid names was approved through
   :pep:`508 <508#names>`.
+- August 2025: The suggested name validation regex was fixed to match the field
+  specification (it previously finished with ``$`` instead of ``\Z``,
+  incorrectly permitting trailing newlines)
