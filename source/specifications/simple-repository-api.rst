@@ -910,46 +910,6 @@ which version+format a specific repository URL was configured for, and when maki
 a request to that server, emit an ``Accept`` header that *only* includes the correct
 content type.
 
-
-TUF Support - PEP 458
----------------------
-
-:pep:`458` requires that all API responses are hashable and that they can be uniquely
-identified by a path relative to the repository root. For a Simple API repository, the
-target path is the Root of our API (e.g. ``/simple/`` on PyPI). This creates
-challenges when accessing the API using a TUF client instead of directly using a
-standard HTTP client, as the TUF client cannot handle the fact that a target could
-have multiple different representations that all hash differently.
-
-:pep:`458` does not specify what the target path should be for the Simple API, but
-TUF requires that the target paths be "file-like", in other words, a path like
-``simple/PROJECT/`` is not acceptable, because it technically points to a
-directory.
-
-The saving grace is that the target path does not *have* to actually match the URL
-being fetched from the Simple API, and it can just be a sigil that the fetching code
-knows how to transform into the actual URL that needs to be fetched. This same thing
-can hold true for other aspects of the actual HTTP request, such as the ``Accept``
-header.
-
-Ultimately figuring out how to map a directory to a filename is out of scope for this
-spec (but it would be in scope for :pep:`458`), and this spec defers making a decision
-about how exactly to represent this inside of :pep:`458` metadata.
-
-However, it appears that the current WIP branch against pip that attempts to implement
-:pep:`458` is using a target path like ``simple/PROJECT/index.html``. This could be
-modified to include the API version and serialization format using something like
-``simple/PROJECT/vnd.pypi.simple.vN.FORMAT``. So the v1 HTML format would be
-``simple/PROJECT/vnd.pypi.simple.v1.html`` and the v1 JSON format would be
-``simple/PROJECT/vnd.pypi.simple.v1.json``.
-
-In this case, since ``text/html`` is an alias to ``application/vnd.pypi.simple.v1+html``
-when interacting through TUF, it likely will make the most sense to normalize to the
-more explicit name.
-
-Likewise the ``latest`` metaversion should not be included in the targets, only
-explicitly declared versions should be supported.
-
 Recommendations
 ---------------
 
