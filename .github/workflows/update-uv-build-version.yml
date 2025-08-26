@@ -1,0 +1,39 @@
+---
+
+name: Cron
+
+on:
+  schedule:
+  - cron: "0 6 * * 1"  # mondays at 6am
+  workflow_dispatch:
+
+jobs:
+  update-uv-build-version:
+    name: Update uv_build version
+    if: github.repository_owner == 'pypa'  # suppress noise in forks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+      - name: Update uv_build version
+        id: update_script
+        run: uv run scripts/update_uv_build_version.py
+      - # If there are no changes, no pull request will be created and the action exits silently.
+        name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update uv_build version to ${{ steps.update_script.outputs.version }}
+          title: Update uv_build version to ${{ steps.update_script.outputs.version }}
+          body: |
+            Automated update of uv_build version bounds for uv ${{ steps.update_script.outputs.version }}.
+            
+            This PR was created automatically by the cron workflow, ping `@konstin` for problems.
+          branch: bot/update-uv-build-version
+          delete-branch: true
+
+...

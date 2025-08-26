@@ -5,6 +5,7 @@
 #     "packaging>=25.0",
 # ]
 # ///
+import os
 import re
 from pathlib import Path
 
@@ -36,7 +37,9 @@ def main():
     upper_bound = Version(f"{major}.{minor + 1}.{0}")
 
     repository_root = Path(__file__).parent.parent
-    existing = repository_root.joinpath("source/shared/build-backend-tabs.rst").read_text()
+    existing = repository_root.joinpath(
+        "source/shared/build-backend-tabs.rst"
+    ).read_text()
     replacement = f'requires = ["uv_build >= {current_release}, <{upper_bound}"]'
     searcher = re.compile(re.escape('requires = ["uv_build') + ".*" + re.escape('"]'))
     if not searcher.search(existing):
@@ -46,11 +49,16 @@ def main():
     if existing != updated:
         print("Updating source/shared/build-backend-tabs.rst")
         Path("source/shared/build-backend-tabs.rst").write_text(updated)
-        print(f"::set-output name=version::{current_release}")
-        print(f"::set-output name=updated::true")
+        if github_output := os.environ.get("GITHUB_OUTPUT"):
+            with open(github_output, "a") as f:
+                f.write(f"version={current_release}\n")
+                f.write(f"updated=true\n")
     else:
         print("Already up-to-date source/shared/build-backend-tabs.rst")
-        print(f"::set-output name=updated::false")
+        if github_output := os.environ.get("GITHUB_OUTPUT"):
+            with open(github_output, "a") as f:
+                f.write(f"updated=false\n")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
