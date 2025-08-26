@@ -473,6 +473,9 @@ Text string that is a valid SPDX
 :term:`license expression <License Expression>`,
 as specified in :doc:`/specifications/license-expression`.
 
+Note that the expression in this field only applies to the **distribution** file
+containing the metadata, not the project itself or other distribution files.
+
 Examples::
 
     License-Expression: MIT
@@ -922,6 +925,9 @@ Example::
 
 History
 =======
+
+- August 2025: Clarified that ``License-Expression`` applies to the containing
+  distribution file and not the project itself.
 
 - August 2024: Core metadata 2.4 was approved through :pep:`639`.
 
