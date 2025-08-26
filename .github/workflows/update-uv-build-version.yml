@@ -16,7 +16,10 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set up uv
         uses: astral-sh/setup-uv@v5
       - name: Update uv_build version
