@@ -52,12 +52,12 @@ def main():
         if github_output := os.environ.get("GITHUB_OUTPUT"):
             with open(github_output, "a") as f:
                 f.write(f"version={current_release}\n")
-                f.write(f"updated=true\n")
+                f.write("updated=true\n")
     else:
         print("Already up-to-date source/shared/build-backend-tabs.rst")
         if github_output := os.environ.get("GITHUB_OUTPUT"):
             with open(github_output, "a") as f:
-                f.write(f"updated=false\n")
+                f.write("updated=false\n")
 
 
 if __name__ == "__main__":
