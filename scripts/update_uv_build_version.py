@@ -1,5 +1,5 @@
 # /// script
-# requires-python = ">=3.12"
+# requires-python = ">= 3.12"
 # dependencies = [
 #     "httpx>=0.28.1,<0.29",
 #     "packaging>=25.0",
