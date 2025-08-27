@@ -136,11 +136,12 @@ project.
 Note in particular that if you have a wheel, you cannot assume that a field
 which is not marked as ``Dynamic`` will have the same value in other wheels, as
 some wheels are not built directly from the sdist, but are modified from
-existing wheels (the ``cibuildwheel`` tool does this, for example). Such
-modifications *could* include changing metadata (even non-dynamic metadata).
-Similarly, if you have a sdist and a wheel which you didn't build from that
-sdist, you cannot assume that the wheel's metadata matches that of the sdist,
-even if the field is not marked as ``Dynamic``.
+existing wheels (the ``auditwheel`` tool does this, for example, and it's
+commonly used when building wheels for PyPI). Such modifications *could*
+include changing metadata (even non-dynamic metadata).  Similarly, if you have
+a sdist and a wheel which you didn't build from that sdist, you cannot assume
+that the wheel's metadata matches that of the sdist, even if the field is not
+marked as ``Dynamic``.
 
 It is advisable, but not required, that tools which modify wheel metadata add
 the modified fields to the generated wheel's ``Dynamic`` field.
