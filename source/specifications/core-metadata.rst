@@ -143,9 +143,6 @@ you have a sdist and a wheel which you didn't build from that sdist, you cannot
 assume that the wheel's metadata matches that of the sdist, even if the field
 is not marked as ``Dynamic``.
 
-It is advisable, but not required, that tools which modify wheel metadata add
-the modified fields to the generated wheel's ``Dynamic`` field.
-
 Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
 .. _core-metadata-platform:
