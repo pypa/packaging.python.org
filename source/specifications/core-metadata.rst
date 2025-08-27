@@ -133,6 +133,18 @@ only, and indicates that the field value was calculated at wheel build time,
 and may not be the same as the value in the sdist or in other wheels for the
 project.
 
+Note in particular that if you have a wheel, you cannot assume that a field
+which is not marked as ``Dynamic`` will have the same value in other wheels, as
+some wheels are not built directly from the sdist, but are modified from
+existing wheels (the ``cibuildwheel`` tool does this, for example). Such
+modifications *could* include changing metadata (even non-dynamic metadata).
+Similarly, if you have a sdist and a wheel which you didn't build from that
+sdist, you cannnot assume that the wheel's metadata matches that of the sdist,
+even if the field is not marked as ``Dynamic``.
+
+It is advisable, but not required, that tools which modify wheel metadata add
+the modified fields to the generated wheel's ``Dynamic`` field.
+
 Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
 .. _core-metadata-platform:
@@ -922,6 +934,10 @@ Example::
 
 History
 =======
+
+- August 2025: Clarified that ``Dynamic`` only affects how fields
+  must be treated when building a wheel from a sdist, not when modifying
+  a wheel.
 
 - August 2024: Core metadata 2.4 was approved through :pep:`639`.
 
