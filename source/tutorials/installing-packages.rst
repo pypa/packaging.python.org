@@ -1,4 +1,55 @@
-.. _installing-packages:
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import black, white
+import math
+
+# Путь для сохранения PDF
+pdf_path = "piramida_mafia.pdf"
+c = canvas.Canvas(pdf_path, pagesize=A4)
+width, height = A4
+
+# Размер стороны треугольника
+side = 150
+h = side * math.sqrt(3) / 2
+
+def draw_face(x, y):
+    # Вершины треугольника
+    points = [(x, y), (x + side, y), (x + side/2, y + h)]
+
+    # Рисуем треугольник
+    path = c.beginPath()
+    path.moveTo(points[0][0], points[0][1])
+    path.lineTo(points[1][0], points[1][1])
+    path.lineTo(points[2][0], points[2][1])
+    path.close()
+    c.setFillColor(black)
+    c.setStrokeColor(white)
+    c.setLineWidth(1)
+    c.drawPath(path, stroke=1, fill=1)
+
+    # Центр
+    cx = sum(p[0] for p in points)/3
+    cy = sum(p[1] for p in points)/3
+
+    # Цифра 1
+    c.setFillColor(white)
+    c.setFont("Helvetica-Bold", 32)
+    c.drawCentredString(cx, cy, "1")
+
+    # Логотип
+    c.setFont("Helvetica-Bold", 12)
+    c.drawCentredString(cx, cy - 25, "Mafia VIP")
+
+# Размещение 4 граней
+draw_face(200, 400)          # нижняя
+draw_face(200, 400 - h)      # верхняя
+draw_face(200 - side, 400)   # левая
+draw_face(200 + side, 400)   # правая
+
+c.showPage()
+c.save()
+
+print(f"Файл сохранён как {pdf_path}").. _installing-packages:
 
 ===================
 Installing Packages
