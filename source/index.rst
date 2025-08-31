@@ -83,11 +83,4 @@ The :doc:`discussions/index` section provides in-depth explanations and discussi
 about topics, such as:
 
 * :doc:`discussions/deploying-python-applications`
-* :doc:`discussions/pip-vs-easy-install`
-
-Reference
-=========
-
-* The :doc:`specifications/index` section for packaging interoperability specifications.
-* The list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
-* The :doc:`glossary` for definitions of terms used in Python packaging.
+* :doc:`discus
