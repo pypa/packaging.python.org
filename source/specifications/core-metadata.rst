@@ -473,8 +473,8 @@ Text string that is a valid SPDX
 :term:`license expression <License Expression>`,
 as specified in :doc:`/specifications/license-expression`.
 
-Note that the expression in this field only applies to the **distribution** file
-containing the metadata, not the project itself or other distribution files.
+Note that the expression in this field only applies to the distribution file
+containing the metadata, not the project overall or other distribution files.
 
 Examples::
 
