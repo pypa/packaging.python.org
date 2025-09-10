@@ -545,5 +545,8 @@ History
 - December 2024: The ``license`` key was redefined, the ``license-files`` key was
   added and ``License::`` classifiers were deprecated through :pep:`639`.
 
+- September 2025: Clarity that the ``license`` key applies to all distribution
+  files generated from the ``pyproject.toml`` file.
+
 
 .. _TOML: https://toml.io
