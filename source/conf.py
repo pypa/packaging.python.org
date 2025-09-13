@@ -83,6 +83,10 @@ if RTD_CANONICAL_BUILD:
     # https://plausible.io/packaging.python.org
     html_js_files.extend(_metrics_js_files)
 
+html_extra_path = [
+    "../extra",
+]
+
 # -- Options for HTML help output ------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
 
@@ -156,6 +160,9 @@ linkcheck_anchors_ignore_for_url = [
     # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
+]
+linkcheck_exclude_documents = [
+    "specifications/schemas/index",
 ]
 
 # -- Options for extlinks ----------------------------------------------------------
