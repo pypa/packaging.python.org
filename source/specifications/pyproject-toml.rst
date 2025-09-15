@@ -260,7 +260,7 @@ as specified in :doc:`/specifications/license-expression`.
 Tools SHOULD validate and perform case normalization of the expression.
 
 This key should **only** be specified if the license expression for any
-and all distribution files generated from the ``pyproject.toml`` is the
+and all distribution files generated from the :file:`pyproject.toml` is the
 same as the one specified. If the license expression will differ then
 it should either be specified as dynamic or not set at all.
 
