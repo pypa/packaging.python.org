@@ -32,6 +32,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update uv_build version to ${{ steps.update_script.outputs.version }}
           title: Update uv_build version to ${{ steps.update_script.outputs.version }}
+          draft: true # Trigger CI by un-drafting the PR, otherwise `GITHUB_TOKEN` PRs don't trigger CI.
           body: |
             Automated update of uv_build version bounds for uv ${{ steps.update_script.outputs.version }}.
 
