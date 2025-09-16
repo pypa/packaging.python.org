@@ -46,13 +46,13 @@ named after the main module:
         count: Annotated[int, typer.Option(help="Number of times to greet the person")] = 1
     ):
         greeting = "Greetings, "
+        if doctor and not title:
+            title = "Dr."
         if not name:
             if title:
                 name = title.lower().rstrip(".")
             else:
                 name = "friend"
-        if doctor and not title:
-            title = "Dr."
         if title:
             greeting += f"{title} "
         greeting += f"{name}!"
@@ -136,8 +136,8 @@ Let's test it:
 
 	$ greet
 	Greetings, friend!
-	$ greet --knight Lancelot
-	Greetings, Sir Lancelot!
+	$ greet --doctor Brennan
+	Greetings, Dr. Brennan!
 	$ greet --title Ms. Parks
 	Greetings, Ms. Parks!
 	$ greet --title Mr.
@@ -151,7 +151,7 @@ To just run the program without installing it permanently, use ``pipx run``, whi
 
 .. code-block:: console
 
-	$ pipx run --spec . greet --knight
+	$ pipx run --spec . greet --doctor
 
 This syntax is a bit impractical, however; as the name of the entry point we defined above does not match the package name,
 we need to state explicitly which executable script to run (even though there is only on in existence).
@@ -170,7 +170,7 @@ default one and run it, which makes this command possible:
 
 .. code-block:: console
 
-    $ pipx run . --knight
+    $ pipx run . --doctor
 
 Conclusion
 ==========
