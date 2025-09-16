@@ -34,7 +34,7 @@ def main():
     [major, minor, _patch] = current_release.release
     if major != 0:
         raise NotImplementedError("The script needs to be updated for uv 1.x")
-    upper_bound = Version(f"{major}.{minor + 1}.{0}")
+    upper_bound = Version(f"{major}.{minor + 1}.0")
 
     repository_root = Path(__file__).parent.parent
     existing = repository_root.joinpath(
