@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 02:08+0000\n"
+"POT-Creation-Date: 2025-09-16 02:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3085,79 +3085,79 @@ msgstr ""
 msgid "The actual code responsible for the tool's functionality will be stored in the file :file:`greet.py`, named after the main module:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:73
+#: ../source/guides/creating-command-line-tools.rst:62
 msgid "The above function receives several keyword arguments that determine how the greeting to output is constructed. Now, construct the command-line interface to provision it with the same, which is done in :file:`cli.py`:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:91
+#: ../source/guides/creating-command-line-tools.rst:80
 msgid "The command-line interface is built with typer_, an easy-to-use CLI parser based on Python type hints. It provides auto-completion and nicely styled command-line help out of the box. Another option would be :py:mod:`argparse`, a command-line parser which is included in Python's standard library. It is sufficient for most needs, but requires a lot of code, usually in ``cli.py``, to function properly. Alternatively, docopt_ makes it possible to create CLI interfaces based solely on docstrings; advanced users are encouraged to make use of click_ (on which ``typer`` is based)."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:97
+#: ../source/guides/creating-command-line-tools.rst:86
 msgid "Now, add an empty :file:`__init__.py` file, to define the project as a regular :term:`import package <Import Package>`."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:99
+#: ../source/guides/creating-command-line-tools.rst:88
 msgid "The file :file:`__main__.py` marks the main entry point for the application when running it via :mod:`runpy` (i.e. ``python -m greetings``, which works immediately with flat layout, but requires installation of the package with src layout), so initialize the command-line interface here:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:111
+#: ../source/guides/creating-command-line-tools.rst:100
 msgid "In order to enable calling the command-line interface directly from the :term:`source tree <Project Source Tree>`, i.e. as ``python src/greetings``, a certain hack could be placed in this file; read more at :ref:`running-cli-from-source-src-layout`."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:117
+#: ../source/guides/creating-command-line-tools.rst:106
 msgid "``pyproject.toml``"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:119
+#: ../source/guides/creating-command-line-tools.rst:108
 msgid "The project's :term:`metadata <Pyproject Metadata>` is placed in :term:`pyproject.toml`. The :term:`pyproject metadata keys <Pyproject Metadata Key>` and the ``[build-system]`` table may be filled in as described in :ref:`writing-pyproject-toml`, adding a dependency on ``typer`` (this tutorial uses version *0.12.3*)."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:122
+#: ../source/guides/creating-command-line-tools.rst:111
 msgid "For the project to be recognised as a command-line tool, additionally a ``console_scripts`` :ref:`entry point <entry-points>` (see :ref:`console_scripts`) needs to be added as a :term:`subkey <Pyproject Metadata Subkey>`:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:129
+#: ../source/guides/creating-command-line-tools.rst:118
 msgid "Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`, which makes it installable."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:134
+#: ../source/guides/creating-command-line-tools.rst:123
 msgid "Installing the package with ``pipx``"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:136
+#: ../source/guides/creating-command-line-tools.rst:125
 msgid "After installing ``pipx`` as described in :ref:`installing-stand-alone-command-line-tools`, install your project:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:143
+#: ../source/guides/creating-command-line-tools.rst:132
 msgid "This will expose the executable script we defined as an entry point and make the command ``greet`` available. Let's test it:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:155
+#: ../source/guides/creating-command-line-tools.rst:146
 msgid "Since this example uses ``typer``, you could now also get an overview of the program's usage by calling it with the ``--help`` option, or configure completions via the ``--install-completion`` option."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:158
+#: ../source/guides/creating-command-line-tools.rst:149
 msgid "To just run the program without installing it permanently, use ``pipx run``, which will create a temporary (but cached) virtual environment for it:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:165
+#: ../source/guides/creating-command-line-tools.rst:156
 msgid "This syntax is a bit impractical, however; as the name of the entry point we defined above does not match the package name, we need to state explicitly which executable script to run (even though there is only on in existence)."
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:168
+#: ../source/guides/creating-command-line-tools.rst:159
 msgid "There is, however, a more practical solution to this problem, in the form of an entry point specific to ``pipx run``. The same can be defined as follows in :file:`pyproject.toml`:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:177
+#: ../source/guides/creating-command-line-tools.rst:168
 msgid "Thanks to this entry point (which *must* match the package name), ``pipx`` will pick up the executable script as the default one and run it, which makes this command possible:"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:185
+#: ../source/guides/creating-command-line-tools.rst:176
 msgid "Conclusion"
 msgstr ""
 
-#: ../source/guides/creating-command-line-tools.rst:187
+#: ../source/guides/creating-command-line-tools.rst:178
 msgid "You know by now how to package a command-line application written in Python. A further step could be to distribute your package, meaning uploading it to a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python Package Index (PyPI)>`. To do that, follow the instructions at :ref:`Packaging your project`. And once you're done, don't forget to :ref:`do some research <analyzing-pypi-package-downloads>` on how your package is received!"
 msgstr ""
 
