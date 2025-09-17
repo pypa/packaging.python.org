@@ -6,8 +6,8 @@ Licensing examples and user scenarios
 =====================================
 
 
-:pep:`639` has specified the way to declare a project's license and paths to
-license files and other legally required information.
+:pep:`639` has specified the way to declare a :term:`Distribution Archive`'s
+license and paths to license files and other legally required information.
 This document aims to provide clear guidance how to migrate from the legacy
 to the standardized way of declaring licenses.
 Make sure your preferred build backend supports :pep:`639` before
@@ -53,7 +53,7 @@ Or, if the project used :file:`setup.cfg`, in its ``[metadata]`` table:
     [metadata]
     license = MIT
 
-The output Core Metadata for the distribution packages would then be:
+The output Core Metadata for the :term:`Distribution Package` would then be:
 
 .. code-block:: email
 
@@ -63,8 +63,9 @@ The output Core Metadata for the distribution packages would then be:
 The :file:`LICENSE` file would be stored at :file:`/setuptools-{VERSION}/LICENSE`
 in the sdist and :file:`/setuptools-{VERSION}.dist-info/licenses/LICENSE`
 in the wheel, and unpacked from there into the site directory (e.g.
-:file:`site-packages/`) on installation; :file:`/` is the root of the respective archive
-and ``{VERSION}`` the version of the Setuptools release in the Core Metadata.
+:file:`site-packages/`) on installation; :file:`/` is the root of the respective
+archive and ``{VERSION}`` the version of the Setuptools release in the Core
+Metadata.
 
 
 .. _licensing-example-advanced:
@@ -83,7 +84,7 @@ directories; specifically:
     ordered-set==3.1.1
     more_itertools==8.8.0
 
-The license expressions for these projects are:
+The appropriate license expressions are:
 
 .. code-block:: text
 
@@ -287,7 +288,7 @@ and make sure to remove any legacy ``license`` table subkeys or
 ``License ::`` classifiers. Your existing ``license`` value may already
 be valid as one (e.g. ``MIT``, ``Apache-2.0 OR BSD-2-Clause``, etc);
 otherwise, check the `SPDX license list <spdxlist_>`__ for the identifier
-that matches the license used in your project.
+that matches the license used.
 
 Make sure to list your license files under ``license-files``
 under ``[project]`` in :file:`pyproject.toml`
@@ -311,13 +312,12 @@ software, you can construct a license expression
 to describe the licenses involved and the relationship
 between them.
 
-In short, ``License-1 AND License-2`` mean that *both* licenses apply
-to your project, or parts of it (for example, you included a file
-under another license), and ``License-1 OR License-2`` means that
-*either* of the licenses can be used, at the user's option (for example,
-you want to allow users a choice of multiple licenses). You can use
-parenthesis (``()``) for grouping to form expressions that cover even the most
-complex situations.
+In short, ``License-1 AND License-2`` mean that *both* licenses apply, or parts
+of it (for example, you included a file under another license), and
+``License-1 OR License-2`` means that *either* of the licenses can be used, at
+the user's option (for example, you want to allow users a choice of multiple
+licenses). You can use parenthesis (``()``) for grouping to form expressions
+that cover even the most complex situations.
 
 In your project config file, enter your license expression under
 ``license`` (``[project]`` table of :file:`pyproject.toml`),
