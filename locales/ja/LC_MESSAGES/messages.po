@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 00:41+0000\n"
-"PO-Revision-Date: 2025-09-17 00:41+0000\n"
+"PO-Revision-Date: 2025-09-20 00:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13497,7 +13497,7 @@ msgstr "2.4.0"
 
 #: ../source/guides/writing-pyproject-toml.rst:322
 msgid "2.2.0"
-msgstr ""
+msgstr "2.2.0"
 
 #: ../source/guides/writing-pyproject-toml.rst:323
 msgid "0.7.19"
@@ -20357,6 +20357,10 @@ msgid ""
 "August 2025: Clarified that ``Dynamic`` only affects how fields must be "
 "treated when building a wheel from a sdist, not when modifying a wheel."
 msgstr ""
+"2025年8月: ``動的 <Dynamic>`` "
+"指定がそのフィールドの取り扱いに影響を与えるのは、 sdist から wheel "
+"をビルドする時だけであって、 wheel "
+"を変換するするときには影響を与えないのだということが明確化された。"
 
 #: ../source/specifications/core-metadata.rst:940
 msgid "August 2024: Core metadata 2.4 was approved through :pep:`639`."
@@ -20465,8 +20469,7 @@ msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:25
 msgid "This is a simple table which shows ``docs`` and ``test`` groups::"
-msgstr ""
-"これは、``docs`` グループと ``test`` グループを示す単純なテーブルです::"
+msgstr "これは、 ``docs`` グループと ``test`` グループを示す単純なテーブルです::"
 
 #: ../source/specifications/dependency-groups.rst:31
 msgid ""
@@ -20498,6 +20501,11 @@ msgid ""
 "Dependency Groups MUST :ref:`normalize <name-normalization>` these names "
 "before comparisons."
 msgstr ""
+"``[dependency-groups]`` キーは、ある時には \"group names\" とも呼ばれますが、"
+" :ref:`正当な非標準化名称 <name-format>` でなければなりません。"
+"依存関係グループ <Dependency Groups> を取り扱うツール類は、"
+"比較の前にこのような名称を :ref:`標準化 <name-normalization>` "
+"しなければなりません。"
 
 #: ../source/specifications/dependency-groups.rst:51
 msgid ""
@@ -20505,6 +20513,8 @@ msgid ""
 "and if duplicate names are detected after normalization, tools SHOULD emit "
 "an error."
 msgstr ""
+"ツール類は、オリジナルの非標準化名称をユーザに表示することを選好するべきで、"
+"標準化後に名称の重複が検出された場合にはツール類はエラーを発するべきです。"
 
 #: ../source/specifications/dependency-groups.rst:55
 msgid ""
@@ -20513,24 +20523,29 @@ msgid ""
 "Strings must be valid :ref:`dependency specifiers <dependency-specifiers>`, "
 "and tables must be valid Dependency Group Includes."
 msgstr ""
+"要求事項リスト、つまり ``[dependency-groups]`` 内の値は、文字列やテーブル ("
+"Python の ``dict``) やその混合物を含んでいても構いません。文字列は正当な "
+":ref:`依存関係指定子 <dependency-specifiers>` でなければならず、"
+"テーブルは正当な Dependency Group Includes でなければなりません。"
 
 #: ../source/specifications/dependency-groups.rst:61
-#, fuzzy
-#| msgid "Dependency Overrides"
 msgid "Dependency Group Include"
-msgstr "依存関係を上書きする"
+msgstr "Dependency Group Include"
 
 #: ../source/specifications/dependency-groups.rst:63
 msgid ""
 "A Dependency Group Include includes another Dependency Group in the current "
 "group."
-msgstr ""
+msgstr "Dependency Group Include "
+"は、現在のグループに他の依存関係グループをインクルードするものです。"
 
 #: ../source/specifications/dependency-groups.rst:66
 msgid ""
 "An include is a table with exactly one key, ``\"include-group\"``, whose "
 "value is a string, the name of another Dependency Group."
 msgstr ""
+"include は正確に一つだけのキーを持つテーブルで ``\"include-group\"`` "
+"といい、その値は他の依存関係グループの名称文字列です。"
 
 #: ../source/specifications/dependency-groups.rst:69
 msgid ""
@@ -20541,6 +20556,13 @@ msgid ""
 "evaluate to ``[\"c\", \"a\", \"b\", \"d\"]`` when Dependency Group Includes "
 "are expanded."
 msgstr ""
+"Include "
+"は指定された依存関係グループの内容と厳密に同等になるように定義されていて、"
+"それが現在のグループの include の位置に挿入されます。例えば、 ``foo = "
+"[\"a\", \"b\"]`` がひとつのグループで ``bar = "
+"[\"c\", {include-group = \"foo\"}, \"d\"]`` "
+"がもうひとつのグループであるなら、依存関係グループが転換された時には、 "
+"``bar`` は ``[\"c\", \"a\", \"b\", \"d\"]`` と評価されるべきです。"
 
 #: ../source/specifications/dependency-groups.rst:75
 msgid ""
@@ -20548,6 +20570,10 @@ msgid ""
 "SHOULD NOT deduplicate or otherwise alter the list contents produced by the "
 "include. For example, given the following table:"
 msgstr ""
+"依存関係グループ引用では、同じパッケージを複数回にわたって指定しても構いませ"
+"ん。ツールは重複排除を行うべきではなく、そうでなければ引用 <include> "
+"によって生成されたリストの内容を改変してしまうことになります。例えば、次のテ"
+"ーブルがあるとして:"
 
 #: ../source/specifications/dependency-groups.rst:92
 msgid ""
@@ -20556,6 +20582,11 @@ msgid ""
 "any other case in which they are asked to process the same requirement "
 "multiple times with different version constraints."
 msgstr ""
+"``all`` を解決して得られた値は、 ``"
+"[\"foo\", \"foo\", \"foo>1.0\", \"foo<1.0\"]`` "
+"であるはずです。ツールは、このようなリストを、同じ要求事項に異なるバージョン"
+"制約が課されたものを、複数回にわたって処理するように依頼されているような他の"
+"どんなケースでも正確に同じように取り扱うべきです。"
 
 #: ../source/specifications/dependency-groups.rst:97
 msgid ""
