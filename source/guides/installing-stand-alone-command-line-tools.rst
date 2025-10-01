@@ -108,7 +108,7 @@ pipx can be upgraded or uninstalled with pip:
 
 .. tab:: Unix/macOS
 
-  .. code-block:: bash
+  .. code-myanmar:: bash
 
       python3 -m pip install --upgrade pipx
       python3 -m pip uninstall pipx
