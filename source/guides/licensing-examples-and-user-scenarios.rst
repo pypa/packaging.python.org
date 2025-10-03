@@ -312,8 +312,8 @@ software, you can construct a license expression
 to describe the licenses involved and the relationship
 between them.
 
-In short, ``License-1 AND License-2`` mean that *both* licenses apply, or parts
-of it (for example, you included a file under another license), and
+In short, ``License-1 AND License-2`` mean that *both* licenses apply
+(for example, you included a file under another license), and
 ``License-1 OR License-2`` means that *either* of the licenses can be used, at
 the user's option (for example, you want to allow users a choice of multiple
 licenses). You can use parenthesis (``()``) for grouping to form expressions
