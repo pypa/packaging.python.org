@@ -938,7 +938,7 @@ History
 
 - October 2025: Clarified that ``License-Expression`` applies to the containing
   distribution file and not the project itself.
-  
+
 - August 2025: Clarified that ``Dynamic`` only affects how fields
   must be treated when building a wheel from a sdist, not when modifying
   a wheel.
