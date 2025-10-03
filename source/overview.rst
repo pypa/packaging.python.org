@@ -339,7 +339,7 @@ originated and where the technologies below work best:
 Bringing your own kernel
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Most operating systems support some form of classical virtualization,
+Most desktop operating systems support some form of classical virtualization,
 running applications packaged as images containing a full operating
 system of their own. Running these virtual machines, or VMs, is a
 mature approach, widespread in data center environments.
@@ -348,9 +348,13 @@ These techniques are mostly reserved for larger scale deployments in
 data centers, though certain complex applications can benefit from
 this packaging. The technologies are Python agnostic, and include:
 
-* `Vagrant <https://www.vagrantup.com/>`_
-* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_, `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_, and :doc:`other formats <openstack:user/formats>`
-* `OpenStack <https://www.redhat.com/en/topics/openstack>`_ - A cloud management system in Python, with extensive VM support
+* KVM on Linux
+* Hyper-V on Windows
+* `VHD <https://en.wikipedia.org/wiki/VHD_(file_format)>`_,
+  `AMI <https://en.wikipedia.org/wiki/Amazon_Machine_Image>`_,
+  and :doc:`other formats <openstack:user/formats>`
+* `OpenStack <https://www.redhat.com/en/topics/openstack>`_ -
+  A cloud management system written in Python, with extensive VM support
 
 Bringing your own hardware
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

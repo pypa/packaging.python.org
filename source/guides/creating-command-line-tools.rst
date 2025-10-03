@@ -40,33 +40,22 @@ named after the main module:
 
 
     def greet(
-        name: Annotated[str, typer.Argument(help="The (last, if --gender is given) name of the person to greet")] = "",
-        gender: Annotated[str, typer.Option(help="The gender of the person to greet")] = "",
-        knight: Annotated[bool, typer.Option(help="Whether the person is a knight")] = False,
+        name: Annotated[str, typer.Argument(help="The (last, if --title is given) name of the person to greet")] = "",
+        title: Annotated[str, typer.Option(help="The preferred title of the person to greet")] = "",
+        doctor: Annotated[bool, typer.Option(help="Whether the person is a doctor (MD or PhD)")] = False,
         count: Annotated[int, typer.Option(help="Number of times to greet the person")] = 1
     ):
-        greeting = "Greetings, dear "
-        masculine = gender == "masculine"
-        feminine = gender == "feminine"
-        if gender or knight:
-            salutation = ""
-            if knight:
-                salutation = "Sir "
-            elif masculine:
-                salutation = "Mr. "
-            elif feminine:
-                salutation = "Ms. "
-            greeting += salutation
-            if name:
-                greeting += f"{name}!"
+        greeting = "Greetings, "
+        if doctor and not title:
+            title = "Dr."
+        if not name:
+            if title:
+                name = title.lower().rstrip(".")
             else:
-                pronoun = "her" if feminine else "his" if masculine or knight else "its"
-                greeting += f"what's-{pronoun}-name"
-        else:
-            if name:
-                greeting += f"{name}!"
-            elif not gender:
-                greeting += "friend!"
+                name = "friend"
+        if title:
+            greeting += f"{title} "
+        greeting += f"{name}!"
         for i in range(0, count):
             print(greeting)
 
@@ -145,12 +134,14 @@ Let's test it:
 
 .. code-block:: console
 
-	$ greet --knight Lancelot
-	Greetings, dear Sir Lancelot!
-	$ greet --gender feminine Parks
-	Greetings, dear Ms. Parks!
-	$ greet --gender masculine
-	Greetings, dear Mr. what's-his-name!
+	$ greet
+	Greetings, friend!
+	$ greet --doctor Brennan
+	Greetings, Dr. Brennan!
+	$ greet --title Ms. Parks
+	Greetings, Ms. Parks!
+	$ greet --title Mr.
+	Greetings, Mr. mr!
 
 Since this example uses ``typer``, you could now also get an overview of the program's usage by calling it with
 the ``--help`` option, or configure completions via the ``--install-completion`` option.
@@ -160,7 +151,7 @@ To just run the program without installing it permanently, use ``pipx run``, whi
 
 .. code-block:: console
 
-	$ pipx run --spec . greet --knight
+	$ pipx run --spec . greet --doctor
 
 This syntax is a bit impractical, however; as the name of the entry point we defined above does not match the package name,
 we need to state explicitly which executable script to run (even though there is only on in existence).
@@ -179,7 +170,7 @@ default one and run it, which makes this command possible:
 
 .. code-block:: console
 
-    $ pipx run . --knight
+    $ pipx run . --doctor
 
 Conclusion
 ==========
