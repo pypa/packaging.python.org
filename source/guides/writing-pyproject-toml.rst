@@ -319,7 +319,7 @@ backend>` now support the new format as shown in the following table.
      - 77.0.3
      - 3.12
      - 2.4.0
-     - `not yet <poetry-pep639-issue_>`_
+     - 2.2.0
      - 0.7.19
 
 
@@ -588,7 +588,6 @@ A full example
 .. _pypi-search-pip: https://pypi.org/search?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
-.. _poetry-pep639-issue: https://github.com/python-poetry/poetry/issues/9670
 .. _pytest: https://pytest.org
 .. _pygments: https://pygments.org
 .. _rest: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
