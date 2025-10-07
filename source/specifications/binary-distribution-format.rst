@@ -253,6 +253,20 @@ The .dist-info directory
    installation will fail if any file in the archive is not both
    mentioned and correctly hashed in RECORD.
 
+Subdirectories in :file:`.dist-info/`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Subdirectories under :file:`.dist-info/` are reserved for future use.
+The following subdirectory names under :file:`.dist-info/` are reserved for specific usage:
+
+================= ==============
+Subdirectory name PEP / Standard
+================= ==============
+``licenses``      :pep:`639`
+``license_files`` :pep:`639`
+``LICENSES``      `REUSE licensing framework <https://reuse.software>`__
+``sboms``         :pep:`770`
+================= ==============
 
 The :file:`.dist-info/licenses/` directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,6 +277,12 @@ fields is specified, the :file:`.dist-info/` directory MUST contain a
 ``License-File`` fields in the :file:`METADATA` file at their respective paths
 relative to the :file:`licenses/` directory.
 
+The :file:`.dist-info/sboms/` directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All files contained within the :file:`.dist-info/sboms/` directory MUST
+be Software Bill-of-Materials (SBOM) files that describe software contained
+within the distribution archive.
 
 The .data directory
 ^^^^^^^^^^^^^^^^^^^

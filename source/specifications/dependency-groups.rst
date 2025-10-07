@@ -22,14 +22,16 @@ Specification
 Examples
 --------
 
-This is a simple table which shows a ``test`` group::
+This is a simple table which shows ``docs`` and ``test`` groups::
 
     [dependency-groups]
+    docs = ["sphinx"]
     test = ["pytest>7", "coverage"]
 
-and a similar table which defines ``test`` and ``coverage`` groups::
+and a similar table which defines ``docs``, ``test``, and ``coverage`` groups::
 
     [dependency-groups]
+    docs = ["sphinx"]
     coverage = ["coverage[toml]"]
     test = ["pytest>7", {include-group = "coverage"}]
 

@@ -7,4 +7,6 @@ Package Index Interfaces
 
    pypirc
    simple-repository-api
+   file-yanking
    index-hosted-attestations
+   project-status-markers

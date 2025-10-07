@@ -6,6 +6,8 @@
 Core metadata specifications
 ============================
 
+This page describes version 2.4, approved in August 2024.
+
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
 
@@ -130,6 +132,16 @@ In any context other than a source distribution, ``Dynamic`` is for information
 only, and indicates that the field value was calculated at wheel build time,
 and may not be the same as the value in the sdist or in other wheels for the
 project.
+
+Note in particular that if you have obtained a prebuilt wheel, you cannot
+assume that a field which is not marked as ``Dynamic`` will have the same value
+in other wheels, as some wheels are not built directly from the sdist, but are
+modified from existing wheels (the ``auditwheel`` tool does this, for example,
+and it's commonly used when building wheels for PyPI). Such modifications
+*could* include changing metadata (even non-dynamic metadata).  Similarly, if
+you have a sdist and a wheel which you didn't build from that sdist, you cannot
+assume that the wheel's metadata matches that of the sdist, even if the field
+is not marked as ``Dynamic``.
 
 Full details of the semantics of ``Dynamic`` are described in :pep:`643`.
 
@@ -468,8 +480,8 @@ License-Expression
 .. versionadded:: 2.4
 
 Text string that is a valid SPDX
-`license expression <https://peps.python.org/pep-0639/#term-license-expression>`__
-as `defined in PEP 639 <https://peps.python.org/pep-0639/#spdx>`__.
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
 
 Examples::
 
@@ -921,27 +933,34 @@ Example::
 History
 =======
 
-- March 2001: Core metadata 1.0 was approved through :pep:`241`.
-- April 2003: Core metadata 1.1 was approved through :pep:`314`:
-- February 2010: Core metadata 1.2 was approved through :pep:`345`.
+- August 2025: Clarified that ``Dynamic`` only affects how fields
+  must be treated when building a wheel from a sdist, not when modifying
+  a wheel.
+
+- August 2024: Core metadata 2.4 was approved through :pep:`639`.
+
+  - Added the ``License-Expression`` field.
+  - Added the ``License-File`` field.
+
+- March 2022: Core metadata 2.3 was approved through :pep:`685`.
+
+  - Restricted extra names to be normalized.
+
+- October 2020: Core metadata 2.2 was approved through :pep:`643`.
+
+  - Added the ``Dynamic`` field.
+
 - February 2018: Core metadata 2.1 was approved through :pep:`566`.
 
   - Added ``Description-Content-Type`` and ``Provides-Extra``.
   - Added canonical method for transforming metadata to JSON.
   - Restricted the grammar of the ``Name`` field.
 
-- October 2020: Core metadata 2.2 was approved through :pep:`643`.
+- February 2010: Core metadata 1.2 was approved through :pep:`345`.
 
-  - Added the ``Dynamic`` field.
+- April 2003: Core metadata 1.1 was approved through :pep:`314`:
 
-- March 2022: Core metadata 2.3 was approved through :pep:`685`.
-
-  - Restricted extra names to be normalized.
-
-- August 2024: Core metadata 2.4 was approved through :pep:`639`.
-
-  - Added the ``License-Expression`` field.
-  - Added the ``License-File`` field.
+- March 2001: Core metadata 1.0 was approved through :pep:`241`.
 
 ----
 

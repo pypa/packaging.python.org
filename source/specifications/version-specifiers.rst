@@ -226,7 +226,7 @@ part of the ``3.3`` release series.
    form to ``X.Y.0`` when comparing it to any release segment that includes
    three components.
 
-Date based release segments are also permitted. An example of a date based
+Date-based release segments are also permitted. An example of a date-based
 release scheme using the year and month of the release::
 
     2012.4
@@ -342,6 +342,9 @@ post-releases::
     X.YbN.devM       # Developmental release of a beta release
     X.YrcN.devM      # Developmental release of a release candidate
     X.Y.postN.devM   # Developmental release of a post-release
+
+Do note that development releases are considered a type of pre-release when
+handling them.
 
 .. note::
 
@@ -1266,3 +1269,5 @@ History
 =======
 
 - August 2014: This specification was approved through :pep:`440`.
+- May 2025: Clarify that development releases are a form of pre-release when
+  they are handled.

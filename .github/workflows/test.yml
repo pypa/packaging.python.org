@@ -6,11 +6,18 @@ on:
     branches-ignore:
     - gh-readonly-queue/**  # Temporary merge queue-related GH-made branches
   pull_request:
+    types:
+    - opened  # default
+    - synchronize  # default
+    - reopened  # default
+    - ready_for_review  # used in PRs created from GitHub Actions workflows
   workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
+
+permissions: {}
 
 jobs:
   build:

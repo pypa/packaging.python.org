@@ -149,6 +149,8 @@ The complete list of keys allowed in the ``[project]`` table are:
 - ``version``
 
 
+.. _pyproject-toml-name:
+
 ``name``
 --------
 
@@ -160,6 +162,9 @@ The name of the project.
 
 Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon
 as it is read for internal consistency.
+
+
+.. _pyproject-toml-version:
 
 ``version``
 -----------
@@ -174,6 +179,8 @@ The version of the project, as defined in the
 Users SHOULD prefer to specify already-normalized versions.
 
 
+.. _pyproject-toml-description:
+
 ``description``
 ---------------
 
@@ -184,6 +191,8 @@ Users SHOULD prefer to specify already-normalized versions.
 The summary description of the project in one line. Tools MAY error
 if this includes multiple lines.
 
+
+.. _pyproject-toml-readme:
 
 ``readme``
 ----------
@@ -224,6 +233,8 @@ as supported by the :ref:`core metadata <core-metadata>`. Otherwise
 tools MUST raise an error for unsupported content-types.
 
 
+.. _pyproject-toml-requires-python:
+
 ``requires-python``
 -------------------
 
@@ -234,6 +245,8 @@ tools MUST raise an error for unsupported content-types.
 The Python version requirements of the project.
 
 
+.. _pyproject-toml-license:
+
 ``license``
 -----------
 
@@ -241,18 +254,35 @@ The Python version requirements of the project.
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`License-Expression <core-metadata-license-expression>`
 
-Text string that is a valid SPDX license expression as defined in :pep:`639`.
+Text string that is a valid SPDX
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
 Tools SHOULD validate and perform case normalization of the expression.
 
-The table subkeys of the ``license`` key are deprecated.
+Legacy specification
+''''''''''''''''''''
 
+- TOML_ type: table
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`License <core-metadata-license>`
+
+The table may have one of two keys. The ``file`` key has a string
+value that is a file path relative to :file:`pyproject.toml` to the file
+which contains the license for the project. Tools MUST assume the
+file's encoding is UTF-8. The ``text`` key has a string value which is
+the license of the project.  These keys are mutually exclusive, so a
+tool MUST raise an error if the metadata specifies both keys.
+
+The table subkeys were deprecated by :pep:`639` in favor of the string value.
+
+.. _pyproject-toml-license-files:
 
 ``license-files``
 -----------------
 
 - TOML_ type: array of strings
 - Corresponding :ref:`core metadata <core-metadata>` field:
-  :ref:`License-Expression <core-metadata-license-file>`
+  :ref:`License-File <core-metadata-license-file>`
 
 An array specifying paths in the project source tree relative to the project
 root directory (i.e. directory containing :file:`pyproject.toml` or legacy project
@@ -260,43 +290,20 @@ configuration files, e.g. :file:`setup.py`, :file:`setup.cfg`, etc.)
 to file(s) containing licenses and other legal notices to be
 distributed with the package.
 
-The strings MUST contain valid glob patterns, as specified below:
+The strings MUST contain valid glob patterns, as specified in
+:doc:`/specifications/glob-patterns`.
 
-- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
-  MUST be matched verbatim.
-
-- Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]``
-  containing only the verbatim matched characters MUST be supported.
-  Within ``[...]``, the hyphen indicates a locale-agnostic range (e.g. ``a-z``,
-  order based on Unicode code points).
-  Hyphens at the start or end are matched literally.
-
-- Path delimiters MUST be the forward slash character (``/``).
-  Patterns are relative to the directory containing :file:`pyproject.toml`,
-  therefore the leading slash character MUST NOT be used.
-
-- Parent directory indicators (``..``) MUST NOT be used.
-
-Any characters or character sequences not covered by this specification are
-invalid. Projects MUST NOT use such values.
-Tools consuming this field SHOULD reject invalid values with an error.
+Patterns are relative to the directory containing :file:`pyproject.toml`,
 
 Tools MUST assume that license file content is valid UTF-8 encoded text,
 and SHOULD validate this and raise an error if it is not.
 
-Literal paths (e.g. :file:`LICENSE`) are valid globs which means they
-can also be defined.
-
 Build tools:
 
-- MUST treat each value as a glob pattern, and MUST raise an error if the
-  pattern contains invalid glob syntax.
 - MUST include all files matched by a listed pattern in all distribution
   archives.
 - MUST list each matched file path under a License-File field in the
   Core Metadata.
-- MUST raise an error if any individual user-specified pattern does not match
-  at least one file.
 
 If the ``license-files`` key is present and
 is set to a value of an empty array, then tools MUST NOT include any
@@ -305,6 +312,9 @@ If the ``license-files`` key is not defined, tools can decide how to handle
 license files. For example they can choose not to include any files or use
 their own logic to discover the appropriate files in the distribution.
 
+
+.. _pyproject-toml-authors:
+.. _pyproject-toml-maintainers:
 
 ``authors``/``maintainers``
 ---------------------------
@@ -348,6 +358,8 @@ follows:
 4. Multiple values should be separated by commas.
 
 
+.. _pyproject-toml-keywords:
+
 ``keywords``
 ------------
 
@@ -357,6 +369,8 @@ follows:
 
 The keywords for the project.
 
+
+.. _pyproject-toml-classifiers:
 
 ``classifiers``
 ---------------
@@ -374,6 +388,8 @@ Build tools MAY raise an error if both the ``license`` string value
 classifiers are used.
 
 
+.. _pyproject-toml-urls:
+
 ``urls``
 --------
 
@@ -385,6 +401,10 @@ A table of URLs where the key is the URL label and the value is the
 URL itself. See :ref:`well-known-project-urls` for normalization rules
 and well-known rules when processing metadata for presentation.
 
+
+.. _pyproject-toml-scripts:
+.. _pyproject-toml-gui-scripts:
+.. _pyproject-toml-entry-points:
 
 Entry points
 ------------
@@ -416,6 +436,9 @@ be ambiguous in the face of ``[project.scripts]`` and
 ``[project.gui-scripts]``, respectively.
 
 
+.. _pyproject-toml-dependencies:
+.. _pyproject-toml-optional-dependencies:
+
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
 
@@ -443,7 +466,7 @@ matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
 
-
+.. _pyproject-toml-dynamic:
 .. _declaring-project-metadata-dynamic:
 
 ``dynamic``

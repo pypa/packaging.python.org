@@ -200,7 +200,7 @@ When your virtual environment is activated, you can install packages. Use the
 Install a package
 ~~~~~~~~~~~~~~~~~
 
-For example,let's install the
+For example, let's install the
 `Requests`_ library from the :term:`Python Package Index (PyPI)`:
 
 .. tab:: Unix/macOS
