@@ -150,6 +150,7 @@ linkcheck_ignore = [
     r"https://math-atlas\.sourceforge\.net/?",
     r"https://click\.palletsprojects\.com/.*",
     r"https://typer\.tiangolo\.com/.*",
+    r"https://www.npmjs.com/.*",
 ]
 linkcheck_retries = 5
 # Ignore anchors for common targets when we know they likely won't be found
