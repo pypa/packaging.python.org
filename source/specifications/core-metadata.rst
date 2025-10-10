@@ -483,6 +483,12 @@ Text string that is a valid SPDX
 :term:`license expression <License Expression>`,
 as specified in :doc:`/specifications/license-expression`.
 
+Note that the expression in this field only applies to the
+:term:`Distribution Archive` containing the metadata with this field (e.g.,
+:term:`Source Distribution <Source Distribution (or "sdist")>` or :term:`Wheel`),
+not the project overall or other files related to the project (including other
+distribution archives).
+
 Examples::
 
     License-Expression: MIT
@@ -932,6 +938,9 @@ Example::
 
 History
 =======
+
+- October 2025: Clarified that ``License-Expression`` applies to the containing
+  distribution file and not the project itself.
 
 - August 2025: Clarified that ``Dynamic`` only affects how fields
   must be treated when building a wheel from a sdist, not when modifying
