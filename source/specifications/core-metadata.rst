@@ -1067,7 +1067,7 @@ History
 
   - Added the ``Import-Name`` field.
   - Added the ``Import-Namespace`` field.
-  
+
 - October 2025: Clarified that ``License-Expression`` applies to the containing
   distribution file and not the project itself.
 
