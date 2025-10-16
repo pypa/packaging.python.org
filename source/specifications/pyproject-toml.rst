@@ -261,6 +261,12 @@ Text string that is a valid SPDX
 as specified in :doc:`/specifications/license-expression`.
 Tools SHOULD validate and perform case normalization of the expression.
 
+This key should **only** be specified if the license expression for any
+and all distribution files created by a build backend using the
+:file:`pyproject.toml` is the same as the one specified. If the license
+expression will differ then it should either be specified as dynamic or
+not set at all.
+
 Legacy specification
 ''''''''''''''''''''
 
@@ -633,8 +639,10 @@ History
 - December 2024: The ``license`` key was redefined, the ``license-files`` key was
   added and ``License::`` classifiers were deprecated through :pep:`639`.
 
-- September 2025: The ``import-names`` and ``import-namespaces`` keys were added
-  through :pep:`794`.
+- September 2025: Clarity that the ``license`` key applies to all distribution
+  files generated from the :file:`pyproject.toml` file.
 
+- October 2025: The ``import-names`` and ``import-namespaces`` keys were added
+  through :pep:`794`.
 
 .. _TOML: https://toml.io

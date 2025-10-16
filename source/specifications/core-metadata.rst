@@ -483,6 +483,12 @@ Text string that is a valid SPDX
 :term:`license expression <License Expression>`,
 as specified in :doc:`/specifications/license-expression`.
 
+Note that the expression in this field only applies to the
+:term:`Distribution Archive` containing the metadata with this field (e.g.,
+:term:`Source Distribution <Source Distribution (or "sdist")>` or :term:`Wheel`),
+not the project overall or other files related to the project (including other
+distribution archives).
+
 Examples::
 
     License-Expression: MIT
@@ -1061,6 +1067,9 @@ History
 
   - Added the ``Import-Name`` field.
   - Added the ``Import-Namespace`` field.
+  
+- October 2025: Clarified that ``License-Expression`` applies to the containing
+  distribution file and not the project itself.
 
 ----
 
