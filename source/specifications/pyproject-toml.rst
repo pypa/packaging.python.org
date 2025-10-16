@@ -136,6 +136,8 @@ The complete list of keys allowed in the ``[project]`` table are:
 - ``dynamic``
 - ``entry-points``
 - ``gui-scripts``
+- ``import-names``
+- ``import-namespaces``
 - ``keywords``
 - ``license``
 - ``license-files``
@@ -472,6 +474,97 @@ matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
 
+.. _pyproject-toml-import-names:
+
+``import-names``
+----------------
+
+- TOML_ type: array of strings
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`Import-Name <core-metadata-import-name>`
+
+An array of strings specifying the import names that the project exclusively
+provides when installed. Each string MUST be a valid Python identifier or can
+be empty. An import name MAY be followed by a semicolon and the term "private"
+(e.g. ``"; private"``) with any amount of whitespace surrounding the semicolon.
+
+Projects SHOULD list all the shortest import names that are exclusively provided
+by the project. If any of the shortest names are dotted names, all intervening
+names from that name to the top-level name should also be listed appropriately
+in ``import-names`` and/or ``import-namespaces``. For instance, a project which
+is a single package named spam with multiple submodules would only list
+``project.import-names = ["spam"]``. A project that lists ``spam.bacon.eggs``
+would also need to account for ``spam`` and ``spam.bacon`` appropriately in
+``import-names`` and ``import-namespaces``. Listing all names acts as a check
+that the intent of the import names is as expected. As well, projects SHOULD
+list all import names, public or private, using the ``; private`` modifier as
+appropriate.
+
+If a project lists the same name in both ``import-names`` and
+``import-namespaces``, then tools MUST raise an error due to ambiguity.
+
+Projects MAY set ``import-names`` to an empty array to represent a project with
+no import names (i.e. there are no Python modules of any kind in the
+distribution file).
+
+Build back-ends MAY support dynamically calculating the value if the user
+declares the key in ``project.dynamic``.
+
+Examples:
+
+.. code-block:: toml
+
+   [project]
+   name = "pillow"
+   import-names = ["PIL"]
+
+.. code-block:: toml
+
+   [project]
+   name = "myproject"
+   import-names = ["mypackage", "_private_module ; private"]
+
+
+.. _pyproject-toml-import-namespaces:
+
+``import-namespaces``
+---------------------
+
+- TOML_ type: array of strings
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`Import-Namespace <core-metadata-import-namespace>`
+
+An array of strings specifying the import names that the project provides when
+installed, but not exclusively. Each string MUST be a valid Python identifier.
+An import name MAY be followed by a semicolon and the term "private" (e.g.
+``"; private"``) with any amount of whitespace surrounding the semicolon. Note
+that unlike ``import-names``, ``import-namespaces`` CANNOT be an empty array.
+
+Projects SHOULD list all the shortest import names that are exclusively provided
+by the project. If any of the shortest names are dotted names, all intervening
+names from that name to the top-level name should also be listed appropriately
+in ``import-names`` and/or ``import-namespaces``.
+
+This field is used for namespace packages where multiple projects can contribute
+to the same import namespace. Projects all listing the same import name in
+``import-namespaces`` can be installed together without shadowing each other.
+
+If a project lists the same name in both ``import-names`` and
+``import-namespaces``, then tools MUST raise an error due to ambiguity.
+
+Build back-ends MAY support dynamically calculating the value if the user
+declares the key in ``project.dynamic``.
+
+Example:
+
+.. code-block:: toml
+
+   [project]
+   name = "zope-interface"
+   import-namespaces = ["zope"]
+   import-names = ["zope.interface"]
+
+
 .. _pyproject-toml-dynamic:
 .. _declaring-project-metadata-dynamic:
 
@@ -549,5 +642,7 @@ History
 - September 2025: Clarity that the ``license`` key applies to all distribution
   files generated from the :file:`pyproject.toml` file.
 
+- October 2025: The ``import-names`` and ``import-namespaces`` keys were added
+  through :pep:`794`.
 
 .. _TOML: https://toml.io
