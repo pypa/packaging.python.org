@@ -727,7 +727,7 @@ to raise an error when reading an invalid name for older metadata versions.
 .. _core-metadata-import-name:
 
 Import-Name (multiple use)
-===========================
+==========================
 
 .. versionadded:: 2.5
 
@@ -783,7 +783,7 @@ Examples::
 .. _core-metadata-import-namespace:
 
 Import-Namespace (multiple use)
-================================
+===============================
 
 .. versionadded:: 2.5
 
