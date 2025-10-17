@@ -17,16 +17,20 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'pypa'
 
+    permissions:
+      contents: write # to push to I18N_BRANCH
+
     steps:
     - name: Grab the repo src
-      uses: actions/checkout@v3
+      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       with:
         fetch-depth: 0  # To reach the common commit
+        persist-credentials: true # For `git push`
     - name: Set up git user as [bot]
       # Refs:
       # * https://github.community/t/github-actions-bot-email-address/17204/6
       # * https://github.com/actions/checkout/issues/13#issuecomment-724415212
-      uses: fregante/setup-git-user@v1.1.0
+      uses: fregante/setup-git-user@024bc0b8e177d7e77203b48dab6fb45666854b35 # v2.0.2
 
     - name: Switch to the translation source branch
       run: |
@@ -48,10 +52,12 @@ jobs:
       run: |
         sh -x
 
-        git merge '${{ github.event.repository.default_branch }}'
+        git merge "${DEFAULT_BRANCH}"
+      env:
+        DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
       with:
         python-version: >-
           3.10
