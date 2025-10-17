@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-17 01:14+0000\n"
+"POT-Creation-Date: 2025-10-17 08:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10659,15 +10659,15 @@ msgid "Dependency Groups"
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:7
-msgid "This specification defines Dependency Groups, a mechanism for storing package requirements in ``pyproject.toml`` files such that they are not included in project metadata when it is built."
+msgid "This specification defines dependency groups, a mechanism for storing package requirements in ``pyproject.toml`` files such that they are not included in project metadata when it is built."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:11
-msgid "Dependency Groups are suitable for internal development use-cases like linting and testing, as well as for projects which are not built for distribution, like collections of related scripts."
+msgid "Dependency groups are suitable for internal development use-cases like linting and testing, as well as for projects which are not built for distribution, like collections of related scripts."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:15
-msgid "Fundamentally, Dependency Groups should be thought of as being a standardized subset of the capabilities of ``requirements.txt`` files (which are ``pip``-specific)."
+msgid "Fundamentally, dependency groups should be thought of as being a standardized subset of the capabilities of ``requirements.txt`` files (which are ``pip``-specific)."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:25
@@ -10683,7 +10683,7 @@ msgid "The ``[dependency-groups]`` Table"
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:41
-msgid "Dependency Groups are defined as a table in ``pyproject.toml`` named ``dependency-groups``. The ``dependency-groups`` table contains an arbitrary number of user-defined keys, each of which has, as its value, a list of requirements."
+msgid "Dependency groups are defined as a table in ``pyproject.toml`` named ``dependency-groups``. The ``dependency-groups`` table contains an arbitrary number of user-defined keys, each of which has, as its value, a list of requirements."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:46
@@ -10731,11 +10731,11 @@ msgid "Package Building"
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:104
-msgid "Build backends MUST NOT include Dependency Group data in built distributions as package metadata. This means that sdist ``PKG-INFO`` and wheel ``METADATA`` files should not include referenceable fields containing Dependency Groups."
+msgid "Build backends MUST NOT include Dependency Group data in built distributions as package metadata. This means that sdist ``PKG-INFO`` and wheel ``METADATA`` files should not include referenceable fields containing dependency groups."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:108
-msgid "It is, however, valid to use Dependency Groups in the evaluation of dynamic metadata, and ``pyproject.toml`` files included in sdists will still contain ``[dependency-groups]``. However, the table's contents are not part of a built package's interfaces."
+msgid "It is, however, valid to use dependency groups in the evaluation of dynamic metadata, and ``pyproject.toml`` files included in sdists will still contain ``[dependency-groups]``. However, the table's contents are not part of a built package's interfaces."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:114
@@ -10743,11 +10743,11 @@ msgid "Installing Dependency Groups & Extras"
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:116
-msgid "There is no syntax or specification-defined interface for installing or referring to Dependency Groups. Tools are expected to provide dedicated interfaces for this purpose."
+msgid "There is no syntax or specification-defined interface for installing or referring to dependency groups. Tools are expected to provide dedicated interfaces for this purpose."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:120
-msgid "Tools MAY choose to provide the same or similar interfaces for interacting with Dependency Groups as they do for managing extras. Tools authors are advised that the specification does not forbid having an extra whose name matches a Dependency Group. Separately, users are advised to avoid creating Dependency Groups whose names match extras, and tools MAY treat such matching as an error."
+msgid "Tools MAY choose to provide the same or similar interfaces for interacting with dependency groups as they do for managing extras. Tools authors are advised that the specification does not forbid having an extra whose name matches a Dependency Group. Separately, users are advised to avoid creating dependency groups whose names match extras, and tools MAY treat such matching as an error."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:128
@@ -10755,15 +10755,15 @@ msgid "Validation and Compatibility"
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:130
-msgid "Tools supporting Dependency Groups may want to validate data before using it. When implementing such validation, authors should be aware of the possibility of future extensions to the specification, so that they do not unnecessarily emit errors or warnings."
+msgid "Tools supporting dependency groups may want to validate data before using it. When implementing such validation, authors should be aware of the possibility of future extensions to the specification, so that they do not unnecessarily emit errors or warnings."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:135
-msgid "Tools SHOULD error when evaluating or processing unrecognized data in Dependency Groups."
+msgid "Tools SHOULD error when evaluating or processing unrecognized data in dependency groups."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:138
-msgid "Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups unless they have a need to do so."
+msgid "Tools SHOULD NOT eagerly validate the contents of *all* dependency groups unless they have a need to do so."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:141
@@ -10771,7 +10771,7 @@ msgid "This means that in the presence of the following data, most tools should 
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:152
-msgid "There are several known cases of tools which have good cause to be stricter. Linters and validators are an example, as their purpose is to validate the contents of all Dependency Groups."
+msgid "There are several known cases of tools which have good cause to be stricter. Linters and validators are an example, as their purpose is to validate the contents of all dependency groups."
 msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:157
