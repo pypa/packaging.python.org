@@ -72,7 +72,9 @@ jobs:
       uses: sphinx-doc/github-problem-matcher@1f74d6599f4a5e89a20d3c99aab4e6a70f7bda0f # v1.1
 
     - name: Build translated docs in ${{ matrix.language }}
-      run: nox -s build -- -q -D language=${{ matrix.language }}
+      run: nox -s build -- -q -D language=${LANGUAGE}
+      env:
+        LANGUAGE: ${{ matrix.language }}
 
     - name: Set Sphinx Lint problem matcher
       if: always()
@@ -80,4 +82,6 @@ jobs:
 
     - name: Lint translation file
       if: always()
-      run: sphinx-lint locales/${{ matrix.language }}/LC_MESSAGES/messages.po
+      run: sphinx-lint locales/${LANGUAGE}/LC_MESSAGES/messages.po
+      env:
+        LANGUAGE: ${{ matrix.language }}

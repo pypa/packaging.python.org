@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'pypa'
 
+    permissions:
+      contents: write # to push to I18N_BRANCH
+
     steps:
     - name: Grab the repo src
       uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -49,7 +52,9 @@ jobs:
       run: |
         sh -x
 
-        git merge '${{ github.event.repository.default_branch }}'
+        git merge "${DEFAULT_BRANCH}"
+      env:
+        DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
 
     - name: Set up Python
       uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
