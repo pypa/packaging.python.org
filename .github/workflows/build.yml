@@ -1,0 +1,33 @@
+name: reusable build step
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: true
+        type: string
+      nox-env:
+        required: true
+        type: string
+jobs:
+  build:
+    name: ${{ inputs.nox-env }}
+    if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade nox virtualenv
+
+      - name: Nox ${{ inputs.nox-env }}
+        run: |
+          python -m nox -s ${{ inputs.nox-env }}
