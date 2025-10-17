@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-16 23:52+0000\n"
+"POT-Creation-Date: 2025-10-17 01:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9217,7 +9217,7 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:826
 #: ../source/specifications/pyproject-toml.rst:630
 #: ../source/specifications/recording-installed-packages.rst:278
-#: ../source/specifications/simple-repository-api.rst:1012
+#: ../source/specifications/simple-repository-api.rst:972
 #: ../source/specifications/source-distribution-format.rst:153
 #: ../source/specifications/version-specifiers.rst:1269
 #: ../source/specifications/virtual-environments.rst:54
@@ -12441,7 +12441,7 @@ msgid "The following is an example of how to read a stream of arbitrary metadata
 msgstr ""
 
 #: ../source/specifications/inline-script-metadata.rst:205
-#: ../source/specifications/simple-repository-api.rst:954
+#: ../source/specifications/simple-repository-api.rst:914
 msgid "Recommendations"
 msgstr ""
 
@@ -15874,135 +15874,103 @@ msgstr ""
 msgid "For clients that wish to require specific configuration, they can keep track of which version+format a specific repository URL was configured for, and when making a request to that server, emit an ``Accept`` header that *only* includes the correct content type."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:915
-msgid "TUF Support - PEP 458"
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:917
-msgid ":pep:`458` requires that all API responses are hashable and that they can be uniquely identified by a path relative to the repository root. For a Simple API repository, the target path is the Root of our API (e.g. ``/simple/`` on PyPI). This creates challenges when accessing the API using a TUF client instead of directly using a standard HTTP client, as the TUF client cannot handle the fact that a target could have multiple different representations that all hash differently."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:924
-msgid ":pep:`458` does not specify what the target path should be for the Simple API, but TUF requires that the target paths be \"file-like\", in other words, a path like ``simple/PROJECT/`` is not acceptable, because it technically points to a directory."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:929
-msgid "The saving grace is that the target path does not *have* to actually match the URL being fetched from the Simple API, and it can just be a sigil that the fetching code knows how to transform into the actual URL that needs to be fetched. This same thing can hold true for other aspects of the actual HTTP request, such as the ``Accept`` header."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:935
-msgid "Ultimately figuring out how to map a directory to a filename is out of scope for this spec (but it would be in scope for :pep:`458`), and this spec defers making a decision about how exactly to represent this inside of :pep:`458` metadata."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:939
-msgid "However, it appears that the current WIP branch against pip that attempts to implement :pep:`458` is using a target path like ``simple/PROJECT/index.html``. This could be modified to include the API version and serialization format using something like ``simple/PROJECT/vnd.pypi.simple.vN.FORMAT``. So the v1 HTML format would be ``simple/PROJECT/vnd.pypi.simple.v1.html`` and the v1 JSON format would be ``simple/PROJECT/vnd.pypi.simple.v1.json``."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:946
-msgid "In this case, since ``text/html`` is an alias to ``application/vnd.pypi.simple.v1+html`` when interacting through TUF, it likely will make the most sense to normalize to the more explicit name."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:950
-msgid "Likewise the ``latest`` metaversion should not be included in the targets, only explicitly declared versions should be supported."
-msgstr ""
-
-#: ../source/specifications/simple-repository-api.rst:956
+#: ../source/specifications/simple-repository-api.rst:916
 msgid "This section is non-normative, and represents what the spec authors believe to be the best default implementation decisions for something implementing this spec, but it does **not** represent any sort of requirement to match these decisions."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:960
+#: ../source/specifications/simple-repository-api.rst:920
 msgid "These decisions have been chosen to maximize the number of requests that can be moved onto the newest version of an API, while maintaining the greatest amount of compatibility. In addition, they've also tried to make using the API provide guardrails that attempt to push clients into making the best choices it can."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:965
+#: ../source/specifications/simple-repository-api.rst:925
 msgid "It is recommended that servers:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:967
+#: ../source/specifications/simple-repository-api.rst:927
 msgid "Support all 3 content types described in this spec, using server-driven content negotiation, for as long as they reasonably can, or at least as long as they're receiving non trivial traffic that uses the HTML responses."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:971
+#: ../source/specifications/simple-repository-api.rst:931
 msgid "When encountering an ``Accept`` header that does not contain any content types that it knows how to work with, the server should not ever return a ``300 Multiple Choice`` response, and instead return a ``406 Not Acceptable`` response."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:976
+#: ../source/specifications/simple-repository-api.rst:936
 msgid "However, if choosing to use the endpoint configuration, you should prefer to return a ``200 OK`` response in the expected content type for that endpoint."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:979
+#: ../source/specifications/simple-repository-api.rst:939
 msgid "When selecting an acceptable version, the server should choose the highest version that the client supports, with the most expressive/featureful serialization format, taking into account the specificity of the client requests as well as any quality priority values they have expressed, and it should only use the ``text/html`` content type as a last resort."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:985
+#: ../source/specifications/simple-repository-api.rst:945
 msgid "It is recommended that clients:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:987
+#: ../source/specifications/simple-repository-api.rst:947
 msgid "Support all 3 content types described in this spec, using server-driven content negotiation, for as long as they reasonably can."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:990
+#: ../source/specifications/simple-repository-api.rst:950
 msgid "When constructing an ``Accept`` header, include all of the content types that you support."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:993
+#: ../source/specifications/simple-repository-api.rst:953
 msgid "You should generally *not* include a quality priority value for your content types, unless you have implementation specific reasons that you want the server to take into account (for example, if you're using the standard library HTML parser and you're worried that there may be some kinds of HTML responses that you're unable to parse in some edge cases)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:999
+#: ../source/specifications/simple-repository-api.rst:959
 msgid "The one exception to this recommendation is that it is recommended that you *should* include a ``;q=0.01`` value on the legacy ``text/html`` content type, unless it is the only content type that you are requesting."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1003
+#: ../source/specifications/simple-repository-api.rst:963
 msgid "Explicitly select what versions they are looking for, rather than using the ``latest`` meta version during normal operation."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1006
+#: ../source/specifications/simple-repository-api.rst:966
 msgid "Check the ``Content-Type`` of the response and ensure it matches something that you were expecting."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1014
+#: ../source/specifications/simple-repository-api.rst:974
 msgid "September 2015: initial form of the HTML format, in :pep:`503`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1015
+#: ../source/specifications/simple-repository-api.rst:975
 msgid "July 2016: Requires-Python metadata, in an update to :pep:`503`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1016
+#: ../source/specifications/simple-repository-api.rst:976
 msgid "May 2019: \"yank\" support, in :pep:`592`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1017
+#: ../source/specifications/simple-repository-api.rst:977
 msgid "July 2020: API versioning convention and metadata, and declaring the HTML format as API v1, in :pep:`629`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1019
+#: ../source/specifications/simple-repository-api.rst:979
 msgid "May 2021: providing package metadata independently from a package, in :pep:`658`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1021
+#: ../source/specifications/simple-repository-api.rst:981
 msgid "May 2022: initial form of the JSON format, with a mechanism for clients to choose between them, and declaring both formats as API v1, in :pep:`691`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1023
+#: ../source/specifications/simple-repository-api.rst:983
 msgid "October 2022: project versions and file size and upload-time in the JSON format, in :pep:`700`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1025
+#: ../source/specifications/simple-repository-api.rst:985
 msgid "June 2023: renaming the field which provides package metadata independently from a package, in :pep:`714`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1027
+#: ../source/specifications/simple-repository-api.rst:987
 msgid "November 2024: provenance metadata in the HTML and JSON formats, in :pep:`740`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1028
+#: ../source/specifications/simple-repository-api.rst:988
 msgid "July 2025: project status markers in the HTML and JSON formats, in :pep:`792`"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:1029
+#: ../source/specifications/simple-repository-api.rst:989
 msgid "July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)"
 msgstr ""
 
