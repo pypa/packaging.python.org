@@ -29,8 +29,9 @@ three possible TOML tables in this file.
    On the other hand, the ``[project]`` table is understood by *most* build
    backends, but some build backends use a different format.
 
-   As of August 2024, Poetry_ is a notable build backend that does not use
-   the ``[project]`` table, it uses the ``[tool.poetry]`` table instead.
+   A notable exception is Poetry_, which before version 2.0 (released January
+   5, 2025) did not use the ``[project]`` table, it used the ``[tool.poetry]``
+   table instead. With version 2.0, it supports both.
    Also, the setuptools_ build backend supports both the ``[project]`` table,
    and the older format in ``setup.cfg`` or ``setup.py``.
 
@@ -55,38 +56,7 @@ Usually, you'll just copy what your build backend's documentation
 suggests (after :ref:`choosing your build backend <choosing-build-backend>`).
 Here are the values for some common build backends:
 
-.. tab:: Hatchling
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
-.. tab:: setuptools
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools >= 61.0"]
-        build-backend = "setuptools.build_meta"
-
-.. tab:: Flit
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["flit_core >= 3.4"]
-        build-backend = "flit_core.buildapi"
-
-.. tab:: PDM
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["pdm-backend"]
-        build-backend = "pdm.backend"
-
+.. include:: ../shared/build-backend-tabs.rst
 
 
 Static vs. dynamic metadata
@@ -321,29 +291,103 @@ You can also specify the format explicitly, like this:
    readme = {file = "README.txt", content-type = "text/x-rst"}
 
 
+.. _license-and-license-files:
+
+``license`` and ``license-files``
+---------------------------------
+
+As per :pep:`639` licenses should be declared with two fields:
+
+- ``license`` is an :term:`SPDX license expression <License Expression>` consisting
+  of one or more :term:`license identifiers <License Identifier>`.
+- ``license-files`` is a list of license file glob patterns.
+
+A previous PEP had specified ``license`` to be a table with a ``file`` or a
+``text`` key, this format is now deprecated. Most :term:`build backends<build
+backend>` now support the new format as shown in the following table.
+
+.. list-table:: build backend versions that introduced :pep:`639` support
+   :header-rows: 1
+
+   * - hatchling
+     - setuptools
+     - flit-core [#flit-core-pep639]_
+     - pdm-backend
+     - poetry-core
+     - uv-build
+   * - 1.27.0
+     - 77.0.3
+     - 3.12
+     - 2.4.0
+     - 2.2.0
+     - 0.7.19
+
+
+.. _license:
+
 ``license``
------------
+'''''''''''
 
-This can take two forms. You can put your license in a file, typically
-``LICENSE`` or ``LICENSE.txt``, and link that file here:
-
-.. code-block:: toml
-
-    [project]
-    license = {file = "LICENSE"}
-
-or you can write the name of the license:
+The new format for ``license`` is a valid :term:`SPDX license expression <License Expression>`
+consisting of one or more :term:`license identifiers <License Identifier>`.
+The full license list is available at the
+`SPDX license list page <spdxlicenselist_>`_. The supported list version is
+3.17 or any later compatible one.
 
 .. code-block:: toml
 
     [project]
-    license = {text = "MIT License"}
+    license = "GPL-3.0-or-later"
+    # or
+    license = "MIT AND (Apache-2.0 OR BSD-2-Clause)"
 
-If you are using a standard, well-known license, it is not necessary to use this
-field. Instead, you should use one of the :ref:`classifiers` starting with ``License
-::``. (As a general rule, it is a good idea to use a standard, well-known
+.. note:: If you get a build error that ``license`` should be a dict/table,
+   your build backend doesn't yet support the new format. See the
+   `above section <license-and-license-files_>`_ for more context.
+   The now deprecated format is `described in PEP 621 <https://peps.python.org/pep-0621/#license>`__.
+
+As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
-whose license is unapproved.)
+whose license is unapproved.
+
+If your project is licensed with a license that doesn't have an existing SPDX
+identifier, you can create a custom one in format ``LicenseRef-[idstring]``.
+The custom identifiers must follow the SPDX specification,
+`clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one.
+
+.. code-block:: toml
+
+    [project]
+    license = "LicenseRef-My-Custom-License"
+
+
+.. _license-files:
+
+``license-files``
+'''''''''''''''''
+
+This is a list of license files and files containing other legal
+information you want to distribute with your package.
+
+.. code-block:: toml
+
+    [project]
+    license-files = ["LICEN[CS]E*", "vendored/licenses/*.txt", "AUTHORS.md"]
+
+The glob patterns must follow the specification:
+
+- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
+  will be matched verbatim.
+- Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported.
+- Path delimiters must be the forward slash character (``/``).
+- Patterns are relative to the directory containing :file:`pyproject.toml`, and
+  thus may not start with a slash character.
+- Parent directory indicators (``..``) must not be used.
+- Each glob must match at least one file.
+
+Literal paths are valid globs.
+Any characters or character sequences not covered by this specification are
+invalid.
 
 
 ``keywords``
@@ -378,9 +422,6 @@ A list of PyPI classifiers that apply to your project. Check the
       # Indicate who your project is intended for
       "Intended Audience :: Developers",
       "Topic :: Software Development :: Build Tools",
-
-      # Pick your license as you wish (see also "license" above)
-      "License :: OSI Approved :: MIT License",
 
       # Specify the Python versions you support here.
       "Programming Language :: Python :: 3",
@@ -498,7 +539,8 @@ A full example
    ]
    description = "Lovely Spam! Wonderful Spam!"
    readme = "README.rst"
-   license = {file = "LICENSE.txt"}
+   license = "MIT"
+   license-files = ["LICEN[CS]E.*"]
    keywords = ["egg", "bacon", "sausage", "tomatoes", "Lobster Thermidor"]
    classifiers = [
      "Development Status :: 4 - Beta",
@@ -535,6 +577,9 @@ A full example
    like ``requires-python = "<= 3.10"`` here. `This blog post <requires-python-blog-post_>`_
    contains some information regarding possible problems.
 
+.. [#flit-core-pep639] flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license expressions.
+
+.. _flit-issue-735: https://github.com/pypa/flit/issues/735
 .. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
@@ -545,3 +590,5 @@ A full example
 .. _pytest: https://pytest.org
 .. _pygments: https://pygments.org
 .. _rest: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _spdxcustomids: https://spdx.github.io/spdx-spec/v2.2.2/other-licensing-information-detected/
+.. _spdxlicenselist: https://spdx.org/licenses/

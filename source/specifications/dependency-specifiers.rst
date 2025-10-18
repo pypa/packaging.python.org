@@ -87,7 +87,7 @@ environments::
                      'platform_system' | 'platform_version' |
                      'platform_machine' | 'platform_python_implementation' |
                      'implementation_name' | 'implementation_version' |
-                     'extra' # ONLY when defined by a containing layer
+                     'extra' | 'extras' | 'dependency_groups' # ONLY when defined by a containing layer
                      )
     marker_var    = wsp* (env_var | python_str)
     marker_expr   = marker_var marker_op marker_var
@@ -142,7 +142,7 @@ document we limit the acceptable values for identifiers to that regex. A full
 redefinition of name may take place in a future metadata PEP. The regex (run
 with re.IGNORECASE) is::
 
-    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])\Z
 
 .. _dependency-specifiers-extras:
 
@@ -196,15 +196,16 @@ safely evaluate it without running arbitrary code that could become a security
 vulnerability. Markers were first standardised in :pep:`345`. This document
 fixes some issues that were observed in the design described in :pep:`426`.
 
-Comparisons in marker expressions are typed by the comparison operator.  The
-<marker_op> operators that are not in <version_cmp> perform the same as they
-do for strings in Python. The <version_cmp> operators use the version comparison
-rules of the :ref:`Version specifier specification <version-specifiers>`
-when those are defined (that is when both sides have a valid
-version specifier). If there is no defined behaviour of this specification
-and the operator exists in Python, then the operator falls back to
-the Python behaviour. Otherwise an error should be raised. e.g. the following
-will result in  errors::
+Comparisons in marker expressions are typed by the comparison operator and the
+type of the marker value. The <marker_op> operators that are not in
+<version_cmp> perform the same as they do for strings or sets in Python based on
+whether the marker value is a string or set itself. The <version_cmp> operators
+use the version comparison rules of the
+:ref:`Version specifier specification <version-specifiers>` when those are
+defined (that is when both sides have a valid version specifier). If there is no
+defined behaviour of this specification and the operator exists in Python, then
+the operator falls back to the Python behaviour for the types involved.
+Otherwise an error should be raised. e.g. the following will result in errors::
 
     "dog" ~= "fred"
     python_version ~= "surprise"
@@ -235,52 +236,80 @@ no current specification for this. Regardless, outside of a context where this
 special handling is taking place, the "extra" variable should result in an
 error like all other unknown variables.
 
+The "extras" and "dependency_groups" variables are also special. They are used
+to specify any requested extras or dependency groups when installing from a lock
+file. Outside of the context of lock files, these two variables should result in
+an error like all other unknown variables.
+
 .. list-table::
    :header-rows: 1
 
    * - Marker
      - Python equivalent
+     - Type
      - Sample values
    * - ``os_name``
      - :py:data:`os.name`
+     - String
      - ``posix``, ``java``
    * - ``sys_platform``
      - :py:data:`sys.platform`
+     - String
      - ``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that "linux"
        is from Python3 and "linux2" from Python2)
    * - ``platform_machine``
      - :py:func:`platform.machine()`
+     - String
      - ``x86_64``
    * - ``platform_python_implementation``
      - :py:func:`platform.python_implementation()`
+     - String
      - ``CPython``, ``Jython``
    * - ``platform_release``
      - :py:func:`platform.release()`
+     - String
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
    * - ``platform_system``
      - :py:func:`platform.system()`
+     - String
      - ``Linux``, ``Windows``, ``Java``
    * - ``platform_version``
      - :py:func:`platform.version()`
+     - String
      - ``#1 SMP Fri Apr 25 13:07:35 EDT 2014``
        ``Java HotSpot(TM) 64-Bit Server VM, 25.51-b03, Oracle Corporation``
        ``Darwin Kernel Version 14.5.0: Wed Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``
    * - ``python_version``
      - ``'.'.join(platform.python_version_tuple()[:2])``
+     - :ref:`Version <version-specifiers>`
      - ``3.4``, ``2.7``
    * - ``python_full_version``
      - :py:func:`platform.python_version()`
+     - :ref:`Version <version-specifiers>`
      - ``3.4.0``, ``3.5.0b1``
    * - ``implementation_name``
      - :py:data:`sys.implementation.name <sys.implementation>`
+     - String
      - ``cpython``
    * - ``implementation_version``
      - see definition below
+     - :ref:`Version <version-specifiers>`
      - ``3.4.0``, ``3.5.0b1``
    * - ``extra``
      - An error except when defined by the context interpreting the
        specification.
-     - ``test``
+     - String
+     - ``toml``
+   * - ``extras``
+     - An error except when defined by the context interpreting the
+       specification.
+     - Set of strings
+     - ``{"toml"}``
+   * - ``dependency_groups``
+     - An error except when defined by the context interpreting the
+       specification.
+     - Set of strings
+     - ``{"test"}``
 
 The ``implementation_version`` marker variable is derived from
 :py:data:`sys.implementation.version <sys.implementation>`:
@@ -330,7 +359,7 @@ The complete parsley grammar::
                      'platform_system' | 'platform_version' |
                      'platform_machine' | 'platform_python_implementation' |
                      'implementation_name' | 'implementation_version' |
-                     'extra' # ONLY when defined by a containing layer
+                     'extra' | 'extras' | 'dependency_groups' # ONLY when defined by a containing layer
                      ):varname -> lookup(varname)
     marker_var    = wsp* (env_var | python_str)
     marker_expr   = marker_var:l marker_op:o marker_var:r -> (o, l, r)
@@ -495,6 +524,11 @@ History
 - June 2024: The definition of ``version_many`` was changed to allow trailing
   commas, matching with the behavior of the Python implementation that has been
   in use since late 2022.
+- April 2025: Added ``extras`` and ``dependency_groups`` for
+  :ref:`lock-file-spec` as approved through :pep:`751`.
+- August 2025: The suggested name validation regex was fixed to match the field
+  specification (it previously finished with ``$`` instead of ``\Z``,
+  incorrectly permitting trailing newlines)
 
 
 References

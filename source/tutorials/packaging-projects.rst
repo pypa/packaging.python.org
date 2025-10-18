@@ -136,38 +136,7 @@ The :file:`pyproject.toml` tells :term:`build frontend <Build Frontend>` tools l
 examples for common build backends, but check your backend's own documentation
 for more details.
 
-.. tab:: Hatchling
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["hatchling"]
-        build-backend = "hatchling.build"
-
-.. tab:: setuptools
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["setuptools>=61.0"]
-        build-backend = "setuptools.build_meta"
-
-.. tab:: Flit
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["flit_core>=3.4"]
-        build-backend = "flit_core.buildapi"
-
-.. tab:: PDM
-
-    .. code-block:: toml
-
-        [build-system]
-        requires = ["pdm-backend"]
-        build-backend = "pdm.backend"
-
+.. include:: ../shared/build-backend-tabs.rst
 
 The ``requires`` key is a list of packages that are needed to build your package.
 The :term:`frontend <Build Frontend>` should install them automatically when building your package.
@@ -175,6 +144,8 @@ Frontends usually run builds in isolated environments, so omitting dependencies
 here may cause build-time errors.
 This should always include your backend's package, and might have other build-time
 dependencies.
+The minimum version specified in the above code block is the one that introduced support
+for :ref:`the new license metadata <license-and-license-files>`.
 
 The ``build-backend`` key is the name of the Python object that frontends will use
 to perform the build.
@@ -210,12 +181,13 @@ following this tutorial.
     ]
     description = "A small example package"
     readme = "README.md"
-    requires-python = ">=3.8"
+    requires-python = ">=3.9"
     classifiers = [
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ]
+    license = "MIT"
+    license-files = ["LICEN[CS]E*"]
 
     [project.urls]
     Homepage = "https://github.com/pypa/sampleproject"
@@ -242,11 +214,15 @@ following this tutorial.
   packages until it finds one that has a matching Python version.
 - ``classifiers`` gives the index and :ref:`pip` some additional metadata
   about your package. In this case, the package is only compatible with Python
-  3, is licensed under the MIT license, and is OS-independent. You should
-  always include at least which version(s) of Python your package works on,
-  which license your package is available under, and which operating systems
+  3 and is OS-independent. You should
+  always include at least which version(s) of Python your package works on
+  and which operating systems
   your package will work on. For a complete list of classifiers, see
   https://pypi.org/classifiers/.
+- ``license`` is the :term:`SPDX license expression <License Expression>` of
+  your package.
+- ``license-files`` is the list of glob paths to the license files,
+  relative to the directory where :file:`pyproject.toml` is located.
 - ``urls`` lets you list any number of extra links to show on PyPI.
   Generally this could be to the source, documentation, issue trackers, etc.
 
@@ -305,6 +281,9 @@ MIT license:
 
 Most build backends automatically include license files in packages. See your
 backend's documentation for more details.
+If you include the path to license in the ``license-files`` key of
+:file:`pyproject.toml`, and your build backend supports :pep:`639`,
+the file will be automatically included in the package.
 
 
 Including other files

@@ -150,10 +150,10 @@ this character cannot appear within any component. This is handled as follows:
 - In distribution names, any run of ``-_.`` characters (HYPHEN-MINUS, LOW LINE
   and FULL STOP) should be replaced with ``_`` (LOW LINE), and uppercase
   characters should be replaced with corresponding lowercase ones. This is
-  equivalent to regular :ref:`name normalization <name-normalization>` followed by replacing ``-`` with ``_``.
-  Tools consuming wheels must be prepared to accept ``.`` (FULL STOP) and
-  uppercase letters, however, as these were allowed by an earlier version of
-  this specification.
+  equivalent to regular :ref:`name normalization <name-normalization>` followed
+  by replacing ``-`` with ``_``. Tools consuming wheels must be prepared to accept
+  ``.`` (FULL STOP) and uppercase letters, however, as these were allowed by an earlier
+  version of this specification.
 - Version numbers should be normalised according to the :ref:`Version specifier
   specification <version-specifiers>`. Normalised version numbers cannot contain ``-``.
 - The remaining components may not contain ``-`` characters, so no escaping
@@ -175,13 +175,17 @@ File contents
 '''''''''''''
 
 The contents of a wheel file, where {distribution} is replaced with the
-name of the package, e.g. ``beaglevote`` and {version} is replaced with
-its version, e.g. ``1.0.0``, consist of:
+:ref:`normalized name <name-normalization>` of the package, e.g.
+``beaglevote`` and {version} is replaced
+with its :ref:`normalized version <version-specifiers-normalization>`,
+e.g. ``1.0.0``, (with dash/``-`` characters replaced with underscore/``_`` characters
+in both fields) consist of:
 
 #. ``/``, the root of the archive, contains all files to be installed in
    ``purelib`` or ``platlib`` as specified in ``WHEEL``.  ``purelib`` and
    ``platlib`` are usually both ``site-packages``.
 #. ``{distribution}-{version}.dist-info/`` contains metadata.
+#. :file:`{distribution}-{version}.dist-info/licenses/` contains license files.
 #. ``{distribution}-{version}.data/`` contains one subdirectory
    for each non-empty install scheme key not already covered, where
    the subdirectory name is an index into a dictionary of install paths
@@ -249,6 +253,36 @@ The .dist-info directory
    installation will fail if any file in the archive is not both
    mentioned and correctly hashed in RECORD.
 
+Subdirectories in :file:`.dist-info/`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Subdirectories under :file:`.dist-info/` are reserved for future use.
+The following subdirectory names under :file:`.dist-info/` are reserved for specific usage:
+
+================= ==============
+Subdirectory name PEP / Standard
+================= ==============
+``licenses``      :pep:`639`
+``license_files`` :pep:`639`
+``LICENSES``      `REUSE licensing framework <https://reuse.software>`__
+``sboms``         :pep:`770`
+================= ==============
+
+The :file:`.dist-info/licenses/` directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the metadata version is 2.4 or greater and one or more ``License-File``
+fields is specified, the :file:`.dist-info/` directory MUST contain a
+:file:`licenses/` subdirectory, which MUST contain the files listed in the
+``License-File`` fields in the :file:`METADATA` file at their respective paths
+relative to the :file:`licenses/` directory.
+
+The :file:`.dist-info/sboms/` directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+All files contained within the :file:`.dist-info/sboms/` directory MUST
+be Software Bill-of-Materials (SBOM) files that describe software contained
+within the distribution archive.
 
 The .data directory
 ^^^^^^^^^^^^^^^^^^^
@@ -427,6 +461,10 @@ History
   regular files (the expected behaviour of consuming tools when encountering
   symlinks or subdirectories in this folder is not formally defined, and hence
   may vary between tools).
+- December 2024: The :file:`.dist-info/licenses/` directory was specified through
+  :pep:`639`.
+- January 2025: Clarified that name and version needs to be normalized for
+  ``.dist-info`` and ``.data`` directories.
 
 
 Appendix

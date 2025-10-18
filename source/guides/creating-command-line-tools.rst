@@ -5,7 +5,7 @@ Creating and packaging command-line tools
 =========================================
 
 This guide will walk you through creating and packaging a standalone command-line application
-that can be installed with :ref:`pipx`, a tool creating and managing :term:`Python Virtual Environments <Virtual Environment>`
+that can be installed with :ref:`pipx`, a tool for creating and managing :term:`Python Virtual Environments <Virtual Environment>`
 and exposing the executable scripts of packages (and available manual pages) for use on the command-line.
 
 Creating the package
@@ -40,33 +40,22 @@ named after the main module:
 
 
     def greet(
-        name: Annotated[str, typer.Argument(help="The (last, if --gender is given) name of the person to greet")] = "",
-        gender: Annotated[str, typer.Option(help="The gender of the person to greet")] = "",
-        knight: Annotated[bool, typer.Option(help="Whether the person is a knight")] = False,
+        name: Annotated[str, typer.Argument(help="The (last, if --title is given) name of the person to greet")] = "",
+        title: Annotated[str, typer.Option(help="The preferred title of the person to greet")] = "",
+        doctor: Annotated[bool, typer.Option(help="Whether the person is a doctor (MD or PhD)")] = False,
         count: Annotated[int, typer.Option(help="Number of times to greet the person")] = 1
     ):
-        greeting = "Greetings, dear "
-        masculine = gender == "masculine"
-        feminine = gender == "feminine"
-        if gender or knight:
-            salutation = ""
-            if knight:
-                salutation = "Sir "
-            elif masculine:
-                salutation = "Mr. "
-            elif feminine:
-                salutation = "Ms. "
-            greeting += salutation
-            if name:
-                greeting += f"{name}!"
+        greeting = "Greetings, "
+        if doctor and not title:
+            title = "Dr."
+        if not name:
+            if title:
+                name = title.lower().rstrip(".")
             else:
-                pronoun = "her" if feminine else "his" if masculine or knight else "its"
-                greeting += f"what's-{pronoun}-name"
-        else:
-            if name:
-                greeting += f"{name}!"
-            elif not gender:
-                greeting += "friend!"
+                name = "friend"
+        if title:
+            greeting += f"{title} "
+        greeting += f"{name}!"
         for i in range(0, count):
             print(greeting)
 
@@ -98,7 +87,7 @@ Now, add an empty :file:`__init__.py` file, to define the project as a regular :
 
 The file :file:`__main__.py` marks the main entry point for the application when running it via :mod:`runpy`
 (i.e. ``python -m greetings``, which works immediately with flat layout, but requires installation of the package with src layout),
-so initizalize the command-line interface here:
+so initialize the command-line interface here:
 
 .. code-block:: python
 
@@ -145,12 +134,14 @@ Let's test it:
 
 .. code-block:: console
 
-    $ greet --knight Lancelot
-    Greetings, dear Sir Lancelot!
-    $ greet --gender feminine Parks
-    Greetings, dear Ms. Parks!
-    $ greet --gender masculine
-    Greetings, dear Mr. what's-his-name!
+    $ greet
+    Greetings, friend!
+    $ greet --doctor Brennan
+    Greetings, Dr. Brennan!
+    $ greet --title Ms. Parks
+    Greetings, Ms. Parks!
+    $ greet --title Mr.
+    Greetings, Mr. mr!
 
 Since this example uses ``typer``, you could now also get an overview of the program's usage by calling it with
 the ``--help`` option, or configure completions via the ``--install-completion`` option.
@@ -160,9 +151,9 @@ To just run the program without installing it permanently, use ``pipx run``, whi
 
 .. code-block:: console
 
-    $ pipx run --spec . greet --knight
+    $ pipx run --spec . greet --doctor
 
-This syntax is a bit unpractical, however; as the name of the entry point we defined above does not match the package name,
+This syntax is a bit impractical, however; as the name of the entry point we defined above does not match the package name,
 we need to state explicitly which executable script to run (even though there is only on in existence).
 
 There is, however, a more practical solution to this problem, in the form of an entry point specific to ``pipx run``.
@@ -179,12 +170,12 @@ default one and run it, which makes this command possible:
 
 .. code-block:: console
 
-    $ pipx run . --knight
+    $ pipx run . --doctor
 
 Conclusion
 ==========
 
-You know by now how to package a command-line application written in Python. A further step could be to distribute you package,
+You know by now how to package a command-line application written in Python. A further step could be to distribute your package,
 meaning uploading it to a :term:`package index <Package Index>`, most commonly :term:`PyPI <Python Package Index (PyPI)>`. To do that, follow the instructions at :ref:`Packaging your project`. And once you're done, don't forget to :ref:`do some research <analyzing-pypi-package-downloads>` on how your package is received!
 
 .. _click: https://click.palletsprojects.com/

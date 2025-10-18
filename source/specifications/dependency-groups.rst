@@ -4,15 +4,15 @@
 Dependency Groups
 =================
 
-This specification defines Dependency Groups, a mechanism for storing package
+This specification defines dependency groups, a mechanism for storing package
 requirements in ``pyproject.toml`` files such that they are not included in
 project metadata when it is built.
 
-Dependency Groups are suitable for internal development use-cases like linting
+Dependency groups are suitable for internal development use-cases like linting
 and testing, as well as for projects which are not built for distribution, like
 collections of related scripts.
 
-Fundamentally, Dependency Groups should be thought of as being a standardized
+Fundamentally, dependency groups should be thought of as being a standardized
 subset of the capabilities of ``requirements.txt`` files (which are
 ``pip``-specific).
 
@@ -22,21 +22,23 @@ Specification
 Examples
 --------
 
-This is a simple table which shows a ``test`` group::
+This is a simple table which shows ``docs`` and ``test`` groups::
 
     [dependency-groups]
+    docs = ["sphinx"]
     test = ["pytest>7", "coverage"]
 
-and a similar table which defines ``test`` and ``coverage`` groups::
+and a similar table which defines ``docs``, ``test``, and ``coverage`` groups::
 
     [dependency-groups]
+    docs = ["sphinx"]
     coverage = ["coverage[toml]"]
     test = ["pytest>7", {include-group = "coverage"}]
 
 The ``[dependency-groups]`` Table
 ---------------------------------
 
-Dependency Groups are defined as a table in ``pyproject.toml`` named
+Dependency groups are defined as a table in ``pyproject.toml`` named
 ``dependency-groups``. The ``dependency-groups`` table contains an arbitrary
 number of user-defined keys, each of which has, as its value, a list of
 requirements.
@@ -101,9 +103,9 @@ Package Building
 
 Build backends MUST NOT include Dependency Group data in built distributions as
 package metadata. This means that sdist ``PKG-INFO`` and wheel ``METADATA``
-files should not include referenceable fields containing Dependency Groups.
+files should not include referenceable fields containing dependency groups.
 
-It is, however, valid to use Dependency Groups in the evaluation of dynamic
+It is, however, valid to use dependency groups in the evaluation of dynamic
 metadata, and ``pyproject.toml`` files included in sdists will still contain
 ``[dependency-groups]``. However, the table's contents are not part of a built
 package's interfaces.
@@ -112,28 +114,28 @@ Installing Dependency Groups & Extras
 -------------------------------------
 
 There is no syntax or specification-defined interface for installing or
-referring to Dependency Groups. Tools are expected to provide dedicated
+referring to dependency groups. Tools are expected to provide dedicated
 interfaces for this purpose.
 
 Tools MAY choose to provide the same or similar interfaces for interacting
-with Dependency Groups as they do for managing extras. Tools authors are
+with dependency groups as they do for managing extras. Tools authors are
 advised that the specification does not forbid having an extra whose name
 matches a Dependency Group. Separately, users are advised to avoid creating
-Dependency Groups whose names match extras, and tools MAY treat such matching
+dependency groups whose names match extras, and tools MAY treat such matching
 as an error.
 
 Validation and Compatibility
 ----------------------------
 
-Tools supporting Dependency Groups may want to validate data before using it.
+Tools supporting dependency groups may want to validate data before using it.
 When implementing such validation, authors should be aware of the possibility
 of future extensions to the specification, so that they do not unnecessarily
 emit errors or warnings.
 
 Tools SHOULD error when evaluating or processing unrecognized data in
-Dependency Groups.
+dependency groups.
 
-Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups
+Tools SHOULD NOT eagerly validate the contents of *all* dependency groups
 unless they have a need to do so.
 
 This means that in the presence of the following data, most tools should allow
@@ -149,7 +151,7 @@ the ``foo`` group to be used and only error if the ``bar`` group is used:
 
     There are several known cases of tools which have good cause to be
     stricter. Linters and validators are an example, as their purpose is to
-    validate the contents of all Dependency Groups.
+    validate the contents of all dependency groups.
 
 Reference Implementation
 ========================

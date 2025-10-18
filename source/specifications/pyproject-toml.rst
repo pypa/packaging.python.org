@@ -136,8 +136,11 @@ The complete list of keys allowed in the ``[project]`` table are:
 - ``dynamic``
 - ``entry-points``
 - ``gui-scripts``
+- ``import-names``
+- ``import-namespaces``
 - ``keywords``
 - ``license``
+- ``license-files``
 - ``maintainers``
 - ``name``
 - ``optional-dependencies``
@@ -147,6 +150,8 @@ The complete list of keys allowed in the ``[project]`` table are:
 - ``urls``
 - ``version``
 
+
+.. _pyproject-toml-name:
 
 ``name``
 --------
@@ -159,6 +164,9 @@ The name of the project.
 
 Tools SHOULD :ref:`normalize <name-normalization>` this name, as soon
 as it is read for internal consistency.
+
+
+.. _pyproject-toml-version:
 
 ``version``
 -----------
@@ -173,6 +181,8 @@ The version of the project, as defined in the
 Users SHOULD prefer to specify already-normalized versions.
 
 
+.. _pyproject-toml-description:
+
 ``description``
 ---------------
 
@@ -183,6 +193,8 @@ Users SHOULD prefer to specify already-normalized versions.
 The summary description of the project in one line. Tools MAY error
 if this includes multiple lines.
 
+
+.. _pyproject-toml-readme:
 
 ``readme``
 ----------
@@ -223,6 +235,8 @@ as supported by the :ref:`core metadata <core-metadata>`. Otherwise
 tools MUST raise an error for unsupported content-types.
 
 
+.. _pyproject-toml-requires-python:
+
 ``requires-python``
 -------------------
 
@@ -233,20 +247,82 @@ tools MUST raise an error for unsupported content-types.
 The Python version requirements of the project.
 
 
+.. _pyproject-toml-license:
+
 ``license``
 -----------
+
+- TOML_ type: string
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`License-Expression <core-metadata-license-expression>`
+
+Text string that is a valid SPDX
+:term:`license expression <License Expression>`,
+as specified in :doc:`/specifications/license-expression`.
+Tools SHOULD validate and perform case normalization of the expression.
+
+This key should **only** be specified if the license expression for any
+and all distribution files created by a build backend using the
+:file:`pyproject.toml` is the same as the one specified. If the license
+expression will differ then it should either be specified as dynamic or
+not set at all.
+
+Legacy specification
+''''''''''''''''''''
 
 - TOML_ type: table
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`License <core-metadata-license>`
 
 The table may have one of two keys. The ``file`` key has a string
-value that is a file path relative to ``pyproject.toml`` to the file
+value that is a file path relative to :file:`pyproject.toml` to the file
 which contains the license for the project. Tools MUST assume the
 file's encoding is UTF-8. The ``text`` key has a string value which is
 the license of the project.  These keys are mutually exclusive, so a
 tool MUST raise an error if the metadata specifies both keys.
 
+The table subkeys were deprecated by :pep:`639` in favor of the string value.
+
+.. _pyproject-toml-license-files:
+
+``license-files``
+-----------------
+
+- TOML_ type: array of strings
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`License-File <core-metadata-license-file>`
+
+An array specifying paths in the project source tree relative to the project
+root directory (i.e. directory containing :file:`pyproject.toml` or legacy project
+configuration files, e.g. :file:`setup.py`, :file:`setup.cfg`, etc.)
+to file(s) containing licenses and other legal notices to be
+distributed with the package.
+
+The strings MUST contain valid glob patterns, as specified in
+:doc:`/specifications/glob-patterns`.
+
+Patterns are relative to the directory containing :file:`pyproject.toml`,
+
+Tools MUST assume that license file content is valid UTF-8 encoded text,
+and SHOULD validate this and raise an error if it is not.
+
+Build tools:
+
+- MUST include all files matched by a listed pattern in all distribution
+  archives.
+- MUST list each matched file path under a License-File field in the
+  Core Metadata.
+
+If the ``license-files`` key is present and
+is set to a value of an empty array, then tools MUST NOT include any
+license files and MUST NOT raise an error.
+If the ``license-files`` key is not defined, tools can decide how to handle
+license files. For example they can choose not to include any files or use
+their own logic to discover the appropriate files in the distribution.
+
+
+.. _pyproject-toml-authors:
+.. _pyproject-toml-maintainers:
 
 ``authors``/``maintainers``
 ---------------------------
@@ -290,6 +366,8 @@ follows:
 4. Multiple values should be separated by commas.
 
 
+.. _pyproject-toml-keywords:
+
 ``keywords``
 ------------
 
@@ -300,6 +378,8 @@ follows:
 The keywords for the project.
 
 
+.. _pyproject-toml-classifiers:
+
 ``classifiers``
 ---------------
 
@@ -309,6 +389,14 @@ The keywords for the project.
 
 Trove classifiers which apply to the project.
 
+The use of ``License ::`` classifiers is deprecated and tools MAY issue a
+warning informing users about that.
+Build tools MAY raise an error if both the ``license`` string value
+(translating to ``License-Expression`` metadata field) and the ``License ::``
+classifiers are used.
+
+
+.. _pyproject-toml-urls:
 
 ``urls``
 --------
@@ -321,6 +409,10 @@ A table of URLs where the key is the URL label and the value is the
 URL itself. See :ref:`well-known-project-urls` for normalization rules
 and well-known rules when processing metadata for presentation.
 
+
+.. _pyproject-toml-scripts:
+.. _pyproject-toml-gui-scripts:
+.. _pyproject-toml-entry-points:
 
 Entry points
 ------------
@@ -352,6 +444,9 @@ be ambiguous in the face of ``[project.scripts]`` and
 ``[project.gui-scripts]``, respectively.
 
 
+.. _pyproject-toml-dependencies:
+.. _pyproject-toml-optional-dependencies:
+
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
 
@@ -379,7 +474,98 @@ matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
 
 
+.. _pyproject-toml-import-names:
 
+``import-names``
+----------------
+
+- TOML_ type: array of strings
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`Import-Name <core-metadata-import-name>`
+
+An array of strings specifying the import names that the project exclusively
+provides when installed. Each string MUST be a valid Python identifier or can
+be empty. An import name MAY be followed by a semicolon and the term "private"
+(e.g. ``"; private"``) with any amount of whitespace surrounding the semicolon.
+
+Projects SHOULD list all the shortest import names that are exclusively provided
+by the project. If any of the shortest names are dotted names, all intervening
+names from that name to the top-level name should also be listed appropriately
+in ``import-names`` and/or ``import-namespaces``. For instance, a project which
+is a single package named spam with multiple submodules would only list
+``project.import-names = ["spam"]``. A project that lists ``spam.bacon.eggs``
+would also need to account for ``spam`` and ``spam.bacon`` appropriately in
+``import-names`` and ``import-namespaces``. Listing all names acts as a check
+that the intent of the import names is as expected. As well, projects SHOULD
+list all import names, public or private, using the ``; private`` modifier as
+appropriate.
+
+If a project lists the same name in both ``import-names`` and
+``import-namespaces``, then tools MUST raise an error due to ambiguity.
+
+Projects MAY set ``import-names`` to an empty array to represent a project with
+no import names (i.e. there are no Python modules of any kind in the
+distribution file).
+
+Build back-ends MAY support dynamically calculating the value if the user
+declares the key in ``project.dynamic``.
+
+Examples:
+
+.. code-block:: toml
+
+   [project]
+   name = "pillow"
+   import-names = ["PIL"]
+
+.. code-block:: toml
+
+   [project]
+   name = "myproject"
+   import-names = ["mypackage", "_private_module ; private"]
+
+
+.. _pyproject-toml-import-namespaces:
+
+``import-namespaces``
+---------------------
+
+- TOML_ type: array of strings
+- Corresponding :ref:`core metadata <core-metadata>` field:
+  :ref:`Import-Namespace <core-metadata-import-namespace>`
+
+An array of strings specifying the import names that the project provides when
+installed, but not exclusively. Each string MUST be a valid Python identifier.
+An import name MAY be followed by a semicolon and the term "private" (e.g.
+``"; private"``) with any amount of whitespace surrounding the semicolon. Note
+that unlike ``import-names``, ``import-namespaces`` CANNOT be an empty array.
+
+Projects SHOULD list all the shortest import names that are exclusively provided
+by the project. If any of the shortest names are dotted names, all intervening
+names from that name to the top-level name should also be listed appropriately
+in ``import-names`` and/or ``import-namespaces``.
+
+This field is used for namespace packages where multiple projects can contribute
+to the same import namespace. Projects all listing the same import name in
+``import-namespaces`` can be installed together without shadowing each other.
+
+If a project lists the same name in both ``import-names`` and
+``import-namespaces``, then tools MUST raise an error due to ambiguity.
+
+Build back-ends MAY support dynamically calculating the value if the user
+declares the key in ``project.dynamic``.
+
+Example:
+
+.. code-block:: toml
+
+   [project]
+   name = "zope-interface"
+   import-namespaces = ["zope"]
+   import-names = ["zope.interface"]
+
+
+.. _pyproject-toml-dynamic:
 .. _declaring-project-metadata-dynamic:
 
 ``dynamic``
@@ -450,6 +636,13 @@ History
 - November 2020: The specification of the ``[project]`` table was approved
   through :pep:`621`.
 
+- December 2024: The ``license`` key was redefined, the ``license-files`` key was
+  added and ``License::`` classifiers were deprecated through :pep:`639`.
 
+- September 2025: Clarity that the ``license`` key applies to all distribution
+  files generated from the :file:`pyproject.toml` file.
+
+- October 2025: The ``import-names`` and ``import-namespaces`` keys were added
+  through :pep:`794`.
 
 .. _TOML: https://toml.io

@@ -28,6 +28,7 @@ extensions = [
     "sphinx_inline_tabs",
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
+    "sphinx-jsonschema",
 ]
 
 nitpicky = True
@@ -72,9 +73,9 @@ html_last_updated_fmt = ""
 
 _metrics_js_files = [
     (
-        "https://plausible.io/js/script.js",
+        "https://analytics.python.org/js/script.outbound-links.js",
         {"data-domain": "packaging.python.org", "defer": "defer"},
-    )
+    ),
 ]
 html_js_files = []
 if RTD_CANONICAL_BUILD:
@@ -127,24 +128,32 @@ texinfo_documents = [
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder
 
 linkcheck_ignore = [
-    "http://localhost:\\d+",
-    "https://test.pypi.org/project/example-package-YOUR-USERNAME-HERE",
-    "https://pypi.org/manage/*",
-    "https://test.pypi.org/manage/*",
+    r"http://localhost:\d+",
+    r"https://packaging\.python\.org/en/latest/specifications/schemas/.*",
+    r"https://test\.pypi\.org/project/example-package-YOUR-USERNAME-HERE",
+    r"https://pypi\.org/manage/.*",
+    r"https://test\.pypi\.org/manage/.*",
     # Temporarily ignored. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1308#issuecomment-1775347690
-    "https://www.breezy-vcs.org/*",
+    r"https://www\.breezy-vcs\.org/.*",
     # Ignore while StackOverflow is blocking GitHub CI. Ref:
     # https://github.com/pypa/packaging.python.org/pull/1474
-    "https://stackoverflow.com/*",
-    "https://pyscaffold.org/*",
-    "https://anaconda.org",
+    r"https://stackoverflow\.com/.*",
+    r"https://pyscaffold\.org/.*",
+    r"https://anaconda\.org",
+    r"https://www\.cisa\.gov/sbom",
+    r"https://developers\.redhat\.com/products/softwarecollections/overview",
+    r"https://math-atlas\.sourceforge\.net/?",
+    r"https://click\.palletsprojects\.com/.*",
+    r"https://typer\.tiangolo\.com/.*",
+    r"https://www.npmjs.com/.*",
 ]
 linkcheck_retries = 5
 # Ignore anchors for common targets when we know they likely won't be found
 linkcheck_anchors_ignore_for_url = [
     # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
     r"https://github\.com/",
+    r"https://docs\.github\.com/",
     # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
