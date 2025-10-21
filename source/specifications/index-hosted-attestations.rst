@@ -85,6 +85,13 @@ object is provided as pseudocode below.
       and certificate.
       """
 
+      timestamps: list[bytes] | None
+      """
+      Optional list of base64 encoded RFC3161 timestamp responses. Timestamps
+      are optional if `transparency_entries` only contains entries with an
+      integrated_time.
+      """
+
 A full data model for each object in ``transparency_entries`` is provided in
 :ref:`appendix`. Attestation objects **SHOULD** include one or more
 transparency log entries, and **MAY** include additional keys for other
@@ -285,7 +292,9 @@ In addition to the above required steps, a verifier **MAY** additionally verify
 ``verification_material.transparency_entries`` on a policy basis, e.g. requiring
 at least one transparency log entry or a threshold of entries. When verifying
 transparency entries, the verifier **MUST** confirm that the inclusion time for
-each entry lies within the signing certificate's validity period.
+each entry lies within the signing certificate's validity period: Inclusion time
+is either embedded in the entry (``integrated_time``) or provided as RFC3161
+timestamp in ``verification_material.timestamps``.
 
 .. _appendix:
 
