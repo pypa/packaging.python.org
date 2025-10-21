@@ -52,9 +52,9 @@ Metadata-Version
 Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
 "2.2", "2.3", "2.4", and "2.5".
 
-Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
+Automated tools consuming metadata SHOULD warn if ``metadata-version`` is
 greater than the highest version they support, and MUST fail if
-``metadata_version`` has a greater major version than the highest
+``metadata-version`` has a greater major version than the highest
 version they support (as described in the
 :ref:`Version specifier specification <version-specifiers>`,
 the major version is the value before the first dot).
