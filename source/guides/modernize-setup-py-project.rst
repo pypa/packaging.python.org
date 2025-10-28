@@ -67,7 +67,7 @@ For more details:
 
 * :ref:`distributing-packages`
 * :ref:`pyproject-build-system-table`
-* :doc:`pip:reference/build-system/pyproject-toml`
+* :doc:`pip:reference/build-system`
 
 
 How to handle additional build-time dependencies?
@@ -128,7 +128,7 @@ For some projects this isolation is unwanted and it can be deactivated as follow
 
 For more details:
 
-* :doc:`pip:reference/build-system/pyproject-toml`
+* :doc:`pip:reference/build-system`
 
 
 How to handle packaging metadata?
@@ -244,5 +244,5 @@ Where to read more about this?
 ==============================
 
 * :ref:`pyproject-toml-spec`
-* :doc:`pip:reference/build-system/pyproject-toml`
+* :doc:`pip:reference/build-system`
 * :doc:`setuptools:build_meta`
