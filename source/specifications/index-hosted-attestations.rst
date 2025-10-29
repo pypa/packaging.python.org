@@ -85,11 +85,11 @@ object is provided as pseudocode below.
       and certificate.
       """
 
-      timestamps: list[bytes] | None
+      timestamps: list[bytes]
       """
-      Optional list of base64 encoded RFC3161 timestamp responses. Timestamps
-      are optional if `transparency_entries` only contains entries with an
-      integrated_time.
+      List of base64 encoded RFC3161 timestamp responses. Note that list
+      may be empty if `transparency_entries` only contains entries with an
+      integrated_time (in other words entries of kind "dsse 0.0.1").
       """
 
 A full data model for each object in ``transparency_entries`` is provided in
