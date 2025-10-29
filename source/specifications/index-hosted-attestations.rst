@@ -291,10 +291,12 @@ following:
 In addition to the above required steps, a verifier **MAY** additionally verify
 ``verification_material.transparency_entries`` on a policy basis, e.g. requiring
 at least one transparency log entry or a threshold of entries. When verifying
-transparency entries, the verifier **MUST** confirm that the inclusion time for
-each entry lies within the signing certificate's validity period: Inclusion time
-is either embedded in the entry (``integrated_time``) or provided as RFC3161
-timestamp in ``verification_material.timestamps``.
+transparency entries, the verifier **MUST** confirm that the entry inclusion time
+lies within the signing certificate's validity period: Inclusion time is provided
+in one of two ways:
+* embedded in the entry (``integrated_time``) -- this is *only* valid for
+  entry kind ``dsse 0.0.1``
+* as RFC3161 timestamp(s) in ``verification_material.timestamps``
 
 .. _appendix:
 
