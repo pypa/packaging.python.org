@@ -13,3 +13,4 @@ introduction to packaging, see :doc:`/tutorials/index`.
    section-hosting
    tool-recommendations
    analyzing-pypi-package-downloads
+   sdist-drawbacks-and-predictability
