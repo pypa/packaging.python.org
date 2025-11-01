@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-28 17:17+0000\n"
-"PO-Revision-Date: 2025-10-28 06:02+0000\n"
+"PO-Revision-Date: 2025-11-01 02:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9982,10 +9982,8 @@ msgstr ":ref:`pyproject-build-system-table`"
 #: ../source/guides/modernize-setup-py-project.rst:70
 #: ../source/guides/modernize-setup-py-project.rst:131
 #: ../source/guides/modernize-setup-py-project.rst:247
-#, fuzzy
-#| msgid ":doc:`pip:reference/build-system/pyproject-toml`"
 msgid ":doc:`pip:reference/build-system`"
-msgstr ":doc:`pip:reference/build-system/pyproject-toml`"
+msgstr ":doc:`pip:reference/build-system`"
 
 #: ../source/guides/modernize-setup-py-project.rst:74
 msgid "How to handle additional build-time dependencies?"
@@ -20115,21 +20113,15 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:746
 #: ../source/specifications/core-metadata.rst:801
-#, fuzzy
-#| msgid ""
-#| "Projects SHOULD list all the shortest import names that are exclusively "
-#| "provided by the project. If any of the shortest names are dotted names, "
-#| "all intervening names from that name to the top-level name should also be "
-#| "listed appropriately in ``Import-Name`` and/or ``Import-Namespace``."
 msgid ""
 "Projects SHOULD list all the shortest import names that are exclusively "
 "provided by the project. If any of the shortest names are dotted names, all "
 "intervening names from that name to the top-level name SHOULD also be listed "
 "appropriately in ``Import-Name`` and/or ``Import-Namespace``."
 msgstr ""
-"プロジェクトは、そのプロジェクトによって独占的に提供される、最短インポート"
-"ネームをすべて列挙するべきです。最短ネームがドットで区切られたネームであるな"
-"ら、そのネームからトップレベルのネームに至る中間のネームもまた、 ``Import-"
+"プロジェクトは、そのプロジェクトによって独占的に提供される、最短インポートネ"
+"ームをすべて列挙するべきです。最短ネームがドットで区切られたネームであるなら"
+"、そのネームからトップレベルのネームに至る中間のネームもまた、 ``Import-"
 "Name`` および/または ``Import-Namespace`` に適切に列挙されるべきです。"
 
 #: ../source/specifications/core-metadata.rst:751
@@ -25246,28 +25238,40 @@ msgid ""
 "on the same CPU architecture. Code compiled for an arm64 simulator will not "
 "run on an arm64 device."
 msgstr ""
+"``sdk`` の値は、 (物理デバイス向けの) ``iphoneos`` または (シミュレータ向けの"
+") ``iphonesimulator`` のいずれかでなければなりません。これらの SDK は、同一の"
+" API 表面を持っていますが、同じアーキテクチャの CPU 上で動作している時でさえ"
+"、バイナリレベルでは互換性がありません。 arm64 シミュレータ用にコンパイルされ"
+"たソースコードは、 arm64 デバイスの上では動作しないでしょう。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:286
 msgid ""
 "The combination of :file:`{arch}_{sdk}` is referred to as the \"multiarch\". "
 "There are three possible values for multiarch:"
 msgstr ""
+":file:`{arch}_{sdk}` の組み合わせは、 \"マルチアーキテクチャ (マルチアーク) <"
+"multiarch>\" と呼ばれます。３個の可能なマルチアークの値があります:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:289
 msgid ""
 "``arm64_iphoneos``, for physical iPhone/iPad devices. This includes every "
 "iOS device manufactured since ~2015;"
 msgstr ""
+"``arm64_iphoneos``、物理的な iPhone/iPad デバイス用のもの。これには、 2015 年"
+"頃以降に製造されたすべての iOS デバイスが含まれます;"
 
 #: ../source/specifications/platform-compatibility-tags.rst:291
 msgid ""
 "``arm64_iphonesimulator``, for simulators running on Apple Silicon macOS "
 "hardware; and"
 msgstr ""
+"``arm64_iphonesimulator``、 Apple シリコン上の macOS ハードウェア上で動作する"
+"シミュレータ用のもの; そして"
 
 #: ../source/specifications/platform-compatibility-tags.rst:293
 msgid "``x86_64_iphonesimulator``, for simulators running on x86_64 hardware."
-msgstr ""
+msgstr "``x86_64_iphonesimulator``、 x86_64 ハードウェア上で動作するシミュレータ用の"
+"もの。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:296
 msgid "Use"
@@ -25417,14 +25421,6 @@ msgid "Compressed Tag Sets"
 msgstr "圧縮されたタグのセット"
 
 #: ../source/specifications/platform-compatibility-tags.rst:352
-#, fuzzy
-#| msgid ""
-#| "To allow for compact filenames of bdists that work with more than one "
-#| "compatibility tag triple, each tag in a filename can instead be a '.'-"
-#| "separated, sorted, set of tags.  For example, pip, a pure-Python package "
-#| "that is written to run under Python 2 and 3 with the same source code, "
-#| "could distribute a bdist with the tag ``py2.py3-none-any``. The full list "
-#| "of simple tags is::"
 msgid ""
 "To allow for compact filenames of bdists that work with more than one "
 "compatibility tag triple, each tag in a filename can instead be a '.'-"
@@ -25651,28 +25647,20 @@ msgstr ""
 "2021年4月: :pep:`656` を通じて ``musllinux_x_y`` タグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:444
-#, fuzzy
-#| msgid "November 2015: This specification was approved through :pep:`508`."
 msgid "December 2023: The tags for iOS were approved through :pep:`730`."
-msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されました。"
+msgstr "2023年12月: :pep:`730` を通じて iOS 用のタグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:445
-#, fuzzy
-#| msgid "March 2020: This specification was approved through :pep:`610`."
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
-msgstr "2020年3月: :pep:`610` を通じてこの仕様が承認されました。"
+msgstr "2024年3月: :pep:`738` を通じて Android 用のタグが承認されました。"
 
 #: ../source/specifications/project-status-markers.rst:5
-#, fuzzy
-#| msgid "Project Summaries"
 msgid "Project Status Markers"
-msgstr "プロジェクト概要"
+msgstr "プロジェクトステータスのマーカ群"
 
 #: ../source/specifications/project-status-markers.rst:9
-#, fuzzy
-#| msgid "This specification was originally defined in :pep:`740`."
 msgid "This specification was originally defined in :pep:`792`."
-msgstr "この仕様は、元々は :pep:`740` で定義されました。"
+msgstr "この仕様は、元々は :pep:`792` で定義されました。"
 
 #: ../source/specifications/project-status-markers.rst:14
 msgid ""
@@ -25681,18 +25669,25 @@ msgid ""
 "Project Detail <simple-repository-html-project-detail>` and :ref:`JSON - "
 "Project Detail <simple-repository-json-project-detail>`."
 msgstr ""
+":pep:`792` には、 HTML および JSON API に対する変更が含まれます。これらの変更"
+"は、 :ref:`HTML - プロジェクトの詳細 <simple-repository-html-project-detail>`"
+" と :ref:`JSON - プロジェクトの詳細 <simple-repository-json-project-detail>` "
+"のもとで :ref:`simple-repository-api` の中で文書化されています。"
 
 #: ../source/specifications/project-status-markers.rst:22
 msgid ""
 "A project always has exactly one status. If no status is explicitly noted, "
 "then the project is considered to be in the ``active`` state."
 msgstr ""
+"プロジェクトは、常にただひとつの状態 <status> を持ちます。状態が明示的に示さ"
+"れていない場合は、プロジェクトは ``active`` 状態にあるものと見做されます。"
 
 #: ../source/specifications/project-status-markers.rst:25
 msgid ""
 "Indices **MAY** implement any subset of the status markers specified, as "
 "applicable to their needs."
-msgstr ""
+msgstr "インデックスは、自らの必要に応じて、指定された状態 <status> のマーカーのサブ"
+"セットを実装しても **構いません** 。"
 
 #: ../source/specifications/project-status-markers.rst:28
 msgid ""
@@ -25700,84 +25695,88 @@ msgid ""
 "maintainers, index administrators, etc.) are allowed to set and unset which "
 "statuses."
 msgstr ""
+"この標準は、 *どの* 主導者 (すなわち、プロジェクト保守者、インデックス管理者"
+"、その他) が、どの状態 <status> を設定したり設定解除したりすることを許される"
+"かについて規定するものではありません。"
 
 #: ../source/specifications/project-status-markers.rst:32
 msgid "``active``"
-msgstr ""
+msgstr "``active``"
 
 #: ../source/specifications/project-status-markers.rst:34
 msgid ""
 "Description: The project is active. This is the default status for a project."
-msgstr ""
+msgstr "説明: プロジェクトはアクティブです。これは、プロジェクトのデフォルトの状態で"
+"す。"
 
 #: ../source/specifications/project-status-markers.rst:36
 #: ../source/specifications/project-status-markers.rst:49
 #: ../source/specifications/project-status-markers.rst:65
 #: ../source/specifications/project-status-markers.rst:83
 msgid "Index semantics:"
-msgstr ""
+msgstr "インデックスでの意味:"
 
 #: ../source/specifications/project-status-markers.rst:38
 msgid ""
 "The index hosting the project **MUST** allow uploads of new distributions to "
 "the project."
-msgstr ""
+msgstr "プロジェクトをホストしているインデックスは、 プロジェクトに対する新たな配布物"
+"のアップロードを許さなければ **なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:40
 #: ../source/specifications/project-status-markers.rst:53
 msgid ""
 "The index **MUST** offer existing distributions of the project for download."
-msgstr ""
+msgstr "インデックスは、プロジェクトの既存の配布物をダウンロード用に提供しなければ **"
+"なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:42
-#, fuzzy
-#| msgid "Installation"
 msgid "Installer semantics: none."
-msgstr "インストール"
+msgstr "インストーラの意味論: なし。"
 
 #: ../source/specifications/project-status-markers.rst:45
-#, fuzzy
-#| msgid "``packages``"
 msgid "``archived``"
-msgstr "``packages``"
+msgstr "``archived``"
 
 #: ../source/specifications/project-status-markers.rst:47
 msgid "Description: The project does not expect to be updated in the future."
-msgstr ""
+msgstr "説明: 当該プロジェクトは、将来において更新されることが期待できません。"
 
 #: ../source/specifications/project-status-markers.rst:51
 #: ../source/specifications/project-status-markers.rst:67
 msgid ""
 "The index hosting the project **MUST NOT** allow uploads of new "
 "distributions to the project."
-msgstr ""
+msgstr "プロジェクトをホストするインデックスは、プロジェクトの新しい配布物のアップロ"
+"ードを許しては **なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:55
 #: ../source/specifications/project-status-markers.rst:71
 #: ../source/specifications/project-status-markers.rst:87
-#, fuzzy
-#| msgid "Installers"
 msgid "Installer semantics:"
-msgstr "インストーラ類"
+msgstr "インストーラの意味論:"
 
 #: ../source/specifications/project-status-markers.rst:57
 msgid "Installers **MAY** produce warnings about a project's archival."
-msgstr ""
+msgstr "インストーラは、プロジェクトの古い記録 <archival> について警告を発生させても "
+"**構いません** 。"
 
 #: ../source/specifications/project-status-markers.rst:60
 msgid "``quarantined``"
-msgstr ""
+msgstr "``quarantined``"
 
 #: ../source/specifications/project-status-markers.rst:62
 msgid ""
 "Description: The project is considered generally unsafe for use, e.g. due to "
 "malware."
-msgstr ""
+msgstr "説明: プロジェクトは、たとえばマルウェアなどのせいで、一般に使用には安全では"
+"ないと考えられています。"
 
 #: ../source/specifications/project-status-markers.rst:69
 msgid ""
 "The index **MUST NOT** offer any distributions of the project for download."
-msgstr ""
+msgstr "インテックスは、 当該プロジェクトの配布物をどれひとつとしてダウンロード用に提"
+"供しては **なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:73
 msgid ""
@@ -25785,51 +25784,50 @@ msgid ""
 "doing so is effectively moot (as the index will not offer any distributions "
 "for installation)."
 msgstr ""
+"(インデックスがインストール用に配布物を提供することがないので) そのようにして"
+"も現実的には意味はありませんが、インストーラは、プロジェクトの検疫について警"
+"告を発生させても **構いません** 。"
 
 #: ../source/specifications/project-status-markers.rst:78
-#, fuzzy
-#| msgid "Deprecated"
 msgid "``deprecated``"
-msgstr "非推奨"
+msgstr "``deprecated``"
 
 #: ../source/specifications/project-status-markers.rst:80
 msgid ""
 "Description: The project is considered obsolete, and may have been "
 "superseded by another project."
 msgstr ""
+"説明: プロジェクトは使われなくなった <obsolete> ものと見做されており、すでに"
+"他のプロジェクトによって代替されているかもしれません。"
 
 #: ../source/specifications/project-status-markers.rst:85
 msgid "This status shares the same semantics as ``active``."
-msgstr ""
+msgstr "この状態は、 ``active`` 状態と意味を同じくします。"
 
 #: ../source/specifications/project-status-markers.rst:89
 msgid "Installers **MAY** produce warnings about a project's deprecation."
-msgstr ""
+msgstr "インストーラは、プロジェクトが非推奨であることについて警告を発生させても **構"
+"いません** 。"
 
 #: ../source/specifications/pylock-toml.rst:6
-#, fuzzy
-#| msgid "``pyproject.toml`` specification"
 msgid "``pylock.toml`` Specification"
-msgstr "``pyproject.toml`` の仕様"
+msgstr "``pylock.toml`` の仕様"
 
 #: ../source/specifications/pylock-toml.rst:8
 msgid ""
 "The ``pylock.toml`` file format is for specifying dependencies to enable "
 "reproducible installation in a Python environment."
 msgstr ""
+"``pylock.toml`` ファイルのフォーマットは、 Python 環境内で再現可能なインスト"
+"ールを可能とするための依存関係を指定します。"
 
 #: ../source/specifications/pylock-toml.rst:11
-#, fuzzy
-#| msgid ""
-#| "This specification was originally defined in :pep:`518` and :pep:`621`."
 msgid "This specification was originally defined in :pep:`751`."
-msgstr "この仕様は、元々は :pep:`518` 及び :pep:`621` で定義されました。"
+msgstr "この仕様は、元々は :pep:`751` で定義されました。"
 
 #: ../source/specifications/pylock-toml.rst:16
-#, fuzzy
-#| msgid "File Format"
 msgid "File Name"
-msgstr "ファイルフォーマット"
+msgstr "ファイル名"
 
 #: ../source/specifications/pylock-toml.rst:18
 msgid ""
@@ -25840,26 +25838,33 @@ msgid ""
 "suffix of a named file MUST be lowercase when possible, for easy detection "
 "and removal, e.g.:"
 msgstr ""
+"ロックファイルは、 :file:`pylock.toml` と命名するか、または、ロックファイル用"
+"のファイル名が要望される場合や複数のロックファイルが存在する場合 (すなわち、"
+"すべてのファイル名が正規表現 ``r\"^pylock\\.([^.]+\\.)?toml$\"`` に合致) には"
+"正規表現の ``r\"^pylock\\.([^.]+)\\.toml$\"`` に合致するように命名されなけれ"
+"ばなりません。命名されたファイルのプレフィックスとサフィックスは、検出と削除"
+"が簡単にできるように、可能な時には小文字でなければならず、たとえば:"
 
 #: ../source/specifications/pylock-toml.rst:30
 msgid ""
 "The expectation is that services that automatically install from lock files "
 "will search for:"
-msgstr ""
+msgstr "期待するところは、ロックファイル群から自動的にインストールするようなサービス"
+"が次のようなものを探索するであろうということです:"
 
 #: ../source/specifications/pylock-toml.rst:33
 msgid "The lock file with the service's name and doing the default install"
-msgstr ""
+msgstr "サービス名を伴うロックファイルでデフォルトインストールを行うもの"
 
 #: ../source/specifications/pylock-toml.rst:34
 msgid ""
 "A multi-use :file:`pylock.toml` with a dependency group with the name of the "
 "service"
-msgstr ""
+msgstr "サービスの名称を伴う依存関係グループを持った多用途の :file:`pylock.toml`"
 
 #: ../source/specifications/pylock-toml.rst:35
 msgid "The default install of :file:`pylock.toml`"
-msgstr ""
+msgstr ":file:`pylock.toml` のデフォルトインストール"
 
 #: ../source/specifications/pylock-toml.rst:37
 msgid ""
