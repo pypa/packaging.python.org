@@ -199,10 +199,11 @@ artefact of Apple's official macOS naming scheme). The schema for compatibility
 tags is :file:`macosx_{x}_{y}_{arch}`, indicating that the wheel is compatible
 with macOS ``x.y`` or later on the architecture ``arch``.
 
-The values of ``x`` and ``y`` correspond to the major and minor version number of
-the macOS release, respectively. They must both be positive integers, with the
-``x`` value being ``>= 10``. The version number always includes a major *and*
-minor version, even if Apple's official version numbering only refers to
+The values of ``x`` and ``y`` correspond to the major and minor version number
+of the macOS release, respectively. They must both be positive integers, with
+the ``x`` value being either ``10 <= x <= 15``, or ``>=26`` and corresponding
+to the year of the macOS release. The version number always includes a major
+*and* minor version, even if Apple's official version numbering only refers to
 the major value. For example, ``macosx_11_0_arm64`` indicates compatibility
 with macOS 11 or later.
 
