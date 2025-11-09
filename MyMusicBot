@@ -1,0 +1,68 @@
+import express from "express";
+import fetch from "node-fetch";
+import ytdl from "ytdl-core";
+import fs from "fs";
+import FormData from "form-data";
+
+const app = express();
+app.use(express.json());
+
+const TOKEN = "8093958068:AAHwxY4qW68AS80XVWgN5zY_ddih0lsodQU"; // Sizning tokeningiz
+
+// Telegram webhook endpoint
+app.post("/webhooks/telegram/action", async (req, res) => {
+  const chatId = req.body.message?.chat?.id;
+  const text = req.body.message?.text;
+
+  if (!chatId || !text) return res.sendStatus(200);
+
+  try {
+    // YouTube izlash
+    const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(text)}`;
+    const searchRes = await fetch(searchUrl);
+    const searchText = await searchRes.text();
+
+    const videoIdMatch = searchText.match(/"videoId":"([a-zA-Z0-9_-]{11})"/);
+    if (!videoIdMatch) {
+      await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: "Qo'shiq topilmadi 😢"
+        })
+      });
+      return res.sendStatus(200);
+    }
+
+    const videoId = videoIdMatch[1];
+    const url = `https://www.youtube.com/watch?v=${videoId}`;
+    const output = `./temp_${chatId}.mp3`;
+
+    // YouTube’dan audio olish
+    const stream = ytdl(url, { filter: "audioonly" });
+    const writeStream = fs.createWriteStream(output);
+    stream.pipe(writeStream);
+
+    writeStream.on("finish", async () => {
+      // Telegramga yuborish
+      const formData = new FormData();
+      formData.append("chat_id", chatId);
+      formData.append("audio", fs.createReadStream(output));
+
+      await fetch(`https://api.telegram.org/bot${TOKEN}/sendAudio`, {
+        method: "POST",
+        body: formData
+      });
+
+      fs.unlinkSync(output); // vaqtinchalik faylni o'chirish
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  res.sendStatus(200);
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server port ${PORT}da ishlayapti`));
