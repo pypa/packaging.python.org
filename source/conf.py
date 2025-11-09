@@ -210,7 +210,6 @@ intersphinx_mapping = {
     "tox": ("https://tox.wiki/en/latest/", None),
     "twine": ("https://twine.readthedocs.io/en/stable/", None),
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
-    "warehouse": ("https://warehouse.pypa.io/", None),
 }
 
 # -- Options for todo extension --------------------------------------------------------
