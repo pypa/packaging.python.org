@@ -61,6 +61,10 @@ table then the default values as specified above should be used.
 If the table is specified but is missing required fields then the tool
 should consider it an error.
 
+Tools may choose to present an error to the user if the file exists,
+``[build-system]`` table is missing, and there is no clear indication
+that the project should be built (e.g., no setup.py/setup.cfg or other
+build configuration files, and no ``[project]`` table).
 
 To provide a type-specific representation of the resulting data from
 the TOML file for illustrative purposes only, the following
