@@ -5,7 +5,7 @@ import sphinx.application
 import sphinx.util.logging
 
 
-DOMAIN = 'packaging.python.org'
+DOMAIN = "packaging.python.org"
 
 
 logger = sphinx.util.logging.getLogger(__name__)
@@ -35,14 +35,14 @@ def resolve_local_html_link(app: sphinx.application.Sphinx, url_path: str) -> st
     for entry in app.config.html_extra_path:
         candidate = (app.confdir / entry / url_path).resolve()
         if candidate.is_dir():
-            candidate = candidate / 'index.html'
+            candidate = candidate / "index.html"
         if candidate.exists():
             return os.fspath(candidate)
     # Convert html path to source path
-    url_path = url_path.removesuffix('/')  # Normalize
-    if url_path.endswith('.html'):
-        document = url_path.removesuffix('.html')
-    elif (candidate := f'{url_path}/index') in app.project.docnames:
+    url_path = url_path.removesuffix("/")  # Normalize
+    if url_path.endswith(".html"):
+        document = url_path.removesuffix(".html")
+    elif (candidate := f"{url_path}/index") in app.project.docnames:
         document = candidate
     else:
         document = url_path
@@ -55,22 +55,22 @@ def rewrite_local_uri(app: sphinx.application.Sphinx, uri: str) -> str:
     """
     local_uri = uri
     parsed = urllib.parse.urlparse(uri)
-    if parsed.hostname == DOMAIN and parsed.path.startswith('/en/latest/'):
-        document = parsed.path.removeprefix('/en/latest/')
+    if parsed.hostname == DOMAIN and parsed.path.startswith("/en/latest/"):
+        document = parsed.path.removeprefix("/en/latest/")
         local_uri = resolve_local_html_link(app, document)
         logger.verbose(
-            f'{uri!s} is a remote URL that points to local sources, '
-            'replacing it with a local URL in linkcheck to take new changes '
-            'into account (pass -vv for more info)'
+            f"{uri!s} is a remote URL that points to local sources, "
+            "replacing it with a local URL in linkcheck to take new changes "
+            "into account (pass -vv for more info)"
         )
-        logger.debug(f'Replacing linkcheck URL {uri!r} with {local_uri!r}')
+        logger.debug(f"Replacing linkcheck URL {uri!r} with {local_uri!r}")
     return local_uri
 
 
 def setup(app: sphinx.application.Sphinx) -> dict[str, bool]:
-    app.connect('linkcheck-process-uri', rewrite_local_uri)
+    app.connect("linkcheck-process-uri", rewrite_local_uri)
 
     return {
-        'parallel_read_safe': True,
-        'parallel_write_safe': True,
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
     }
