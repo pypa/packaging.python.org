@@ -236,7 +236,7 @@ JSON Schema
 
 The following JSON Schema can be used to validate the contents of ``direct_url.json``:
 
-.. literalinclude:: schemas/direct-url.schema.json
+.. literalinclude:: ../../extra/specifications/schemas/direct-url.schema.json
 
 Examples
 ========
