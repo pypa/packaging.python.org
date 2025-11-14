@@ -12,16 +12,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-28 17:17+0000\n"
-"PO-Revision-Date: 2025-10-28 06:02+0000\n"
+"PO-Revision-Date: 2025-11-09 14:42+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -9982,10 +9982,8 @@ msgstr ":ref:`pyproject-build-system-table`"
 #: ../source/guides/modernize-setup-py-project.rst:70
 #: ../source/guides/modernize-setup-py-project.rst:131
 #: ../source/guides/modernize-setup-py-project.rst:247
-#, fuzzy
-#| msgid ":doc:`pip:reference/build-system/pyproject-toml`"
 msgid ":doc:`pip:reference/build-system`"
-msgstr ":doc:`pip:reference/build-system/pyproject-toml`"
+msgstr ":doc:`pip:reference/build-system`"
 
 #: ../source/guides/modernize-setup-py-project.rst:74
 msgid "How to handle additional build-time dependencies?"
@@ -20115,21 +20113,15 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:746
 #: ../source/specifications/core-metadata.rst:801
-#, fuzzy
-#| msgid ""
-#| "Projects SHOULD list all the shortest import names that are exclusively "
-#| "provided by the project. If any of the shortest names are dotted names, "
-#| "all intervening names from that name to the top-level name should also be "
-#| "listed appropriately in ``Import-Name`` and/or ``Import-Namespace``."
 msgid ""
 "Projects SHOULD list all the shortest import names that are exclusively "
 "provided by the project. If any of the shortest names are dotted names, all "
 "intervening names from that name to the top-level name SHOULD also be listed "
 "appropriately in ``Import-Name`` and/or ``Import-Namespace``."
 msgstr ""
-"プロジェクトは、そのプロジェクトによって独占的に提供される、最短インポート"
-"ネームをすべて列挙するべきです。最短ネームがドットで区切られたネームであるな"
-"ら、そのネームからトップレベルのネームに至る中間のネームもまた、 ``Import-"
+"プロジェクトは、そのプロジェクトによって独占的に提供される、最短インポートネ"
+"ームをすべて列挙するべきです。最短ネームがドットで区切られたネームであるなら"
+"、そのネームからトップレベルのネームに至る中間のネームもまた、 ``Import-"
 "Name`` および/または ``Import-Namespace`` に適切に列挙されるべきです。"
 
 #: ../source/specifications/core-metadata.rst:751
@@ -25246,28 +25238,40 @@ msgid ""
 "on the same CPU architecture. Code compiled for an arm64 simulator will not "
 "run on an arm64 device."
 msgstr ""
+"``sdk`` の値は、 (物理デバイス向けの) ``iphoneos`` または (シミュレータ向けの"
+") ``iphonesimulator`` のいずれかでなければなりません。これらの SDK は、同一の"
+" API 表面を持っていますが、同じアーキテクチャの CPU 上で動作している時でさえ"
+"、バイナリレベルでは互換性がありません。 arm64 シミュレータ用にコンパイルされ"
+"たソースコードは、 arm64 デバイスの上では動作しないでしょう。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:286
 msgid ""
 "The combination of :file:`{arch}_{sdk}` is referred to as the \"multiarch\". "
 "There are three possible values for multiarch:"
 msgstr ""
+":file:`{arch}_{sdk}` の組み合わせは、 \"マルチアーキテクチャ (マルチアーク) <"
+"multiarch>\" と呼ばれます。３個の可能なマルチアークの値があります:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:289
 msgid ""
 "``arm64_iphoneos``, for physical iPhone/iPad devices. This includes every "
 "iOS device manufactured since ~2015;"
 msgstr ""
+"``arm64_iphoneos``、物理的な iPhone/iPad デバイス用のもの。これには、 2015 年"
+"頃以降に製造されたすべての iOS デバイスが含まれます;"
 
 #: ../source/specifications/platform-compatibility-tags.rst:291
 msgid ""
 "``arm64_iphonesimulator``, for simulators running on Apple Silicon macOS "
 "hardware; and"
 msgstr ""
+"``arm64_iphonesimulator``、 Apple シリコン上の macOS ハードウェア上で動作する"
+"シミュレータ用のもの; そして"
 
 #: ../source/specifications/platform-compatibility-tags.rst:293
 msgid "``x86_64_iphonesimulator``, for simulators running on x86_64 hardware."
-msgstr ""
+msgstr "``x86_64_iphonesimulator``、 x86_64 ハードウェア上で動作するシミュレータ用の"
+"もの。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:296
 msgid "Use"
@@ -25417,14 +25421,6 @@ msgid "Compressed Tag Sets"
 msgstr "圧縮されたタグのセット"
 
 #: ../source/specifications/platform-compatibility-tags.rst:352
-#, fuzzy
-#| msgid ""
-#| "To allow for compact filenames of bdists that work with more than one "
-#| "compatibility tag triple, each tag in a filename can instead be a '.'-"
-#| "separated, sorted, set of tags.  For example, pip, a pure-Python package "
-#| "that is written to run under Python 2 and 3 with the same source code, "
-#| "could distribute a bdist with the tag ``py2.py3-none-any``. The full list "
-#| "of simple tags is::"
 msgid ""
 "To allow for compact filenames of bdists that work with more than one "
 "compatibility tag triple, each tag in a filename can instead be a '.'-"
@@ -25651,28 +25647,20 @@ msgstr ""
 "2021年4月: :pep:`656` を通じて ``musllinux_x_y`` タグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:444
-#, fuzzy
-#| msgid "November 2015: This specification was approved through :pep:`508`."
 msgid "December 2023: The tags for iOS were approved through :pep:`730`."
-msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されました。"
+msgstr "2023年12月: :pep:`730` を通じて iOS 用のタグが承認されました。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:445
-#, fuzzy
-#| msgid "March 2020: This specification was approved through :pep:`610`."
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
-msgstr "2020年3月: :pep:`610` を通じてこの仕様が承認されました。"
+msgstr "2024年3月: :pep:`738` を通じて Android 用のタグが承認されました。"
 
 #: ../source/specifications/project-status-markers.rst:5
-#, fuzzy
-#| msgid "Project Summaries"
 msgid "Project Status Markers"
-msgstr "プロジェクト概要"
+msgstr "プロジェクトステータスのマーカ群"
 
 #: ../source/specifications/project-status-markers.rst:9
-#, fuzzy
-#| msgid "This specification was originally defined in :pep:`740`."
 msgid "This specification was originally defined in :pep:`792`."
-msgstr "この仕様は、元々は :pep:`740` で定義されました。"
+msgstr "この仕様は、元々は :pep:`792` で定義されました。"
 
 #: ../source/specifications/project-status-markers.rst:14
 msgid ""
@@ -25681,18 +25669,25 @@ msgid ""
 "Project Detail <simple-repository-html-project-detail>` and :ref:`JSON - "
 "Project Detail <simple-repository-json-project-detail>`."
 msgstr ""
+":pep:`792` には、 HTML および JSON API に対する変更が含まれます。これらの変更"
+"は、 :ref:`HTML - プロジェクトの詳細 <simple-repository-html-project-detail>`"
+" と :ref:`JSON - プロジェクトの詳細 <simple-repository-json-project-detail>` "
+"のもとで :ref:`simple-repository-api` の中で文書化されています。"
 
 #: ../source/specifications/project-status-markers.rst:22
 msgid ""
 "A project always has exactly one status. If no status is explicitly noted, "
 "then the project is considered to be in the ``active`` state."
 msgstr ""
+"プロジェクトは、常にただひとつの状態 <status> を持ちます。状態が明示的に示さ"
+"れていない場合は、プロジェクトは ``active`` 状態にあるものと見做されます。"
 
 #: ../source/specifications/project-status-markers.rst:25
 msgid ""
 "Indices **MAY** implement any subset of the status markers specified, as "
 "applicable to their needs."
-msgstr ""
+msgstr "インデックスは、自らの必要に応じて、指定された状態 <status> のマーカーのサブ"
+"セットを実装しても **構いません** 。"
 
 #: ../source/specifications/project-status-markers.rst:28
 msgid ""
@@ -25700,84 +25695,88 @@ msgid ""
 "maintainers, index administrators, etc.) are allowed to set and unset which "
 "statuses."
 msgstr ""
+"この標準は、 *どの* 主導者 (すなわち、プロジェクト保守者、インデックス管理者"
+"、その他) が、どの状態 <status> を設定したり設定解除したりすることを許される"
+"かについて規定するものではありません。"
 
 #: ../source/specifications/project-status-markers.rst:32
 msgid "``active``"
-msgstr ""
+msgstr "``active``"
 
 #: ../source/specifications/project-status-markers.rst:34
 msgid ""
 "Description: The project is active. This is the default status for a project."
-msgstr ""
+msgstr "説明: プロジェクトはアクティブです。これは、プロジェクトのデフォルトの状態で"
+"す。"
 
 #: ../source/specifications/project-status-markers.rst:36
 #: ../source/specifications/project-status-markers.rst:49
 #: ../source/specifications/project-status-markers.rst:65
 #: ../source/specifications/project-status-markers.rst:83
 msgid "Index semantics:"
-msgstr ""
+msgstr "インデックスでの意味:"
 
 #: ../source/specifications/project-status-markers.rst:38
 msgid ""
 "The index hosting the project **MUST** allow uploads of new distributions to "
 "the project."
-msgstr ""
+msgstr "プロジェクトをホストしているインデックスは、 プロジェクトに対する新たな配布物"
+"のアップロードを許さなければ **なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:40
 #: ../source/specifications/project-status-markers.rst:53
 msgid ""
 "The index **MUST** offer existing distributions of the project for download."
-msgstr ""
+msgstr "インデックスは、プロジェクトの既存の配布物をダウンロード用に提供しなければ **"
+"なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:42
-#, fuzzy
-#| msgid "Installation"
 msgid "Installer semantics: none."
-msgstr "インストール"
+msgstr "インストーラの意味論: なし。"
 
 #: ../source/specifications/project-status-markers.rst:45
-#, fuzzy
-#| msgid "``packages``"
 msgid "``archived``"
-msgstr "``packages``"
+msgstr "``archived``"
 
 #: ../source/specifications/project-status-markers.rst:47
 msgid "Description: The project does not expect to be updated in the future."
-msgstr ""
+msgstr "説明: 当該プロジェクトは、将来において更新されることが期待できません。"
 
 #: ../source/specifications/project-status-markers.rst:51
 #: ../source/specifications/project-status-markers.rst:67
 msgid ""
 "The index hosting the project **MUST NOT** allow uploads of new "
 "distributions to the project."
-msgstr ""
+msgstr "プロジェクトをホストするインデックスは、プロジェクトの新しい配布物のアップロ"
+"ードを許しては **なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:55
 #: ../source/specifications/project-status-markers.rst:71
 #: ../source/specifications/project-status-markers.rst:87
-#, fuzzy
-#| msgid "Installers"
 msgid "Installer semantics:"
-msgstr "インストーラ類"
+msgstr "インストーラの意味論:"
 
 #: ../source/specifications/project-status-markers.rst:57
 msgid "Installers **MAY** produce warnings about a project's archival."
-msgstr ""
+msgstr "インストーラは、プロジェクトの古い記録 <archival> について警告を発生させても "
+"**構いません** 。"
 
 #: ../source/specifications/project-status-markers.rst:60
 msgid "``quarantined``"
-msgstr ""
+msgstr "``quarantined``"
 
 #: ../source/specifications/project-status-markers.rst:62
 msgid ""
 "Description: The project is considered generally unsafe for use, e.g. due to "
 "malware."
-msgstr ""
+msgstr "説明: プロジェクトは、たとえばマルウェアなどのせいで、一般に使用には安全では"
+"ないと考えられています。"
 
 #: ../source/specifications/project-status-markers.rst:69
 msgid ""
 "The index **MUST NOT** offer any distributions of the project for download."
-msgstr ""
+msgstr "インテックスは、 当該プロジェクトの配布物をどれひとつとしてダウンロード用に提"
+"供しては **なりません** 。"
 
 #: ../source/specifications/project-status-markers.rst:73
 msgid ""
@@ -25785,51 +25784,50 @@ msgid ""
 "doing so is effectively moot (as the index will not offer any distributions "
 "for installation)."
 msgstr ""
+"(インデックスがインストール用に配布物を提供することがないので) そのようにして"
+"も現実的には意味はありませんが、インストーラは、プロジェクトの検疫について警"
+"告を発生させても **構いません** 。"
 
 #: ../source/specifications/project-status-markers.rst:78
-#, fuzzy
-#| msgid "Deprecated"
 msgid "``deprecated``"
-msgstr "非推奨"
+msgstr "``deprecated``"
 
 #: ../source/specifications/project-status-markers.rst:80
 msgid ""
 "Description: The project is considered obsolete, and may have been "
 "superseded by another project."
 msgstr ""
+"説明: プロジェクトは使われなくなった <obsolete> ものと見做されており、すでに"
+"他のプロジェクトによって代替されているかもしれません。"
 
 #: ../source/specifications/project-status-markers.rst:85
 msgid "This status shares the same semantics as ``active``."
-msgstr ""
+msgstr "この状態は、 ``active`` 状態と意味を同じくします。"
 
 #: ../source/specifications/project-status-markers.rst:89
 msgid "Installers **MAY** produce warnings about a project's deprecation."
-msgstr ""
+msgstr "インストーラは、プロジェクトが非推奨であることについて警告を発生させても **構"
+"いません** 。"
 
 #: ../source/specifications/pylock-toml.rst:6
-#, fuzzy
-#| msgid "``pyproject.toml`` specification"
 msgid "``pylock.toml`` Specification"
-msgstr "``pyproject.toml`` の仕様"
+msgstr "``pylock.toml`` の仕様"
 
 #: ../source/specifications/pylock-toml.rst:8
 msgid ""
 "The ``pylock.toml`` file format is for specifying dependencies to enable "
 "reproducible installation in a Python environment."
 msgstr ""
+"``pylock.toml`` ファイルのフォーマットは、 Python 環境内で再現可能なインスト"
+"ールを可能とするための依存関係を指定します。"
 
 #: ../source/specifications/pylock-toml.rst:11
-#, fuzzy
-#| msgid ""
-#| "This specification was originally defined in :pep:`518` and :pep:`621`."
 msgid "This specification was originally defined in :pep:`751`."
-msgstr "この仕様は、元々は :pep:`518` 及び :pep:`621` で定義されました。"
+msgstr "この仕様は、元々は :pep:`751` で定義されました。"
 
 #: ../source/specifications/pylock-toml.rst:16
-#, fuzzy
-#| msgid "File Format"
 msgid "File Name"
-msgstr "ファイルフォーマット"
+msgstr "ファイル名"
 
 #: ../source/specifications/pylock-toml.rst:18
 msgid ""
@@ -25840,26 +25838,33 @@ msgid ""
 "suffix of a named file MUST be lowercase when possible, for easy detection "
 "and removal, e.g.:"
 msgstr ""
+"ロックファイルは、 :file:`pylock.toml` と命名するか、または、ロックファイル用"
+"のファイル名が要望される場合や複数のロックファイルが存在する場合 (すなわち、"
+"すべてのファイル名が正規表現 ``r\"^pylock\\.([^.]+\\.)?toml$\"`` に合致) には"
+"正規表現の ``r\"^pylock\\.([^.]+\\.)?toml$\"`` に合致するように命名されなけれ"
+"ばなりません。命名されたファイルのプレフィックスとサフィックスは、検出と削除"
+"が簡単にできるように、可能な時には小文字でなければならず、たとえば:"
 
 #: ../source/specifications/pylock-toml.rst:30
 msgid ""
 "The expectation is that services that automatically install from lock files "
 "will search for:"
-msgstr ""
+msgstr "期待するところは、ロックファイル群から自動的にインストールするようなサービス"
+"が次のようなものを探索するであろうということです:"
 
 #: ../source/specifications/pylock-toml.rst:33
 msgid "The lock file with the service's name and doing the default install"
-msgstr ""
+msgstr "サービス名を伴うロックファイルでデフォルトインストールを行うもの"
 
 #: ../source/specifications/pylock-toml.rst:34
 msgid ""
 "A multi-use :file:`pylock.toml` with a dependency group with the name of the "
 "service"
-msgstr ""
+msgstr "サービスの名称を伴う依存関係グループを持った多用途の :file:`pylock.toml`"
 
 #: ../source/specifications/pylock-toml.rst:35
 msgid "The default install of :file:`pylock.toml`"
-msgstr ""
+msgstr ":file:`pylock.toml` のデフォルトインストール"
 
 #: ../source/specifications/pylock-toml.rst:37
 msgid ""
@@ -25868,6 +25873,10 @@ msgid ""
 "file:`pylock.toml` and look for a dependency group named \"spam\" to use if "
 "present."
 msgstr ""
+"たとえば、 \"spam\" という名称のクラウドホストサービスなら、そこからインスト"
+"ールするために最初に :file:`pylock.spam.toml` を探すでしょうし、そのファイル"
+"が存在しなければ :file:`pylock.toml` からインストールし、もしあれば \"spam\" "
+"という名称の依存関係グループを探すでしょう。"
 
 #: ../source/specifications/pylock-toml.rst:42
 msgid ""
@@ -25878,10 +25887,16 @@ msgid ""
 "the :file:`pylock.toml` file would be in the directory that held all the "
 "projects being locked."
 msgstr ""
+"ロックファイル (群) は、そのロックファイルのスコープに適切なディレクトリに置"
+"かれるべきです。単一の :file:`pyproject.toml` に対するロックは、たとえば、同"
+"じディレクトリの :file:`pylock.toml` に置かれることでしょう。単一リポジトリ "
+"<monorepo> 内の複数のプロジェクトをカバーするロックファイルであれば、 "
+":file:`pylock.toml` ファイルは、すべてのロックされるプロジェクト群を保持する"
+"ディレクトリに置かれるものと期待されます。"
 
 #: ../source/specifications/pylock-toml.rst:53
 msgid "The format of the file is TOML_."
-msgstr ""
+msgstr "このファイルのフォーマットは TOML_ です。"
 
 #: ../source/specifications/pylock-toml.rst:55
 msgid ""
@@ -25892,16 +25907,20 @@ msgid ""
 "tools SHOULD sort arrays in consistent order. Usage of inline tables SHOULD "
 "also be kept consistent."
 msgstr ""
+"ツール類は、 diff の出力におけるノイズを最小化するために、首尾一貫したやり方"
+"でロックファイルを書くべきです。テーブルの中のキー -- トップレベルのテーブル"
+"を含めて -- は、 (もしひらめきが必要ならこの仕様ではキーを論理的な順序で書き"
+"下ろしています) 一貫した順序で記録されるべきです。同様に、ツール類は、配列を"
+"一貫した順序でソートしておくべきです。インラインテーブルの仕様もまた、一貫性"
+"を保つべきです。"
 
 #: ../source/specifications/pylock-toml.rst:65
-#, fuzzy
-#| msgid "``platform_version``"
 msgid "``lock-version``"
-msgstr "``platform_version``"
+msgstr "``lock-version``"
 
 #: ../source/specifications/pylock-toml.rst:67
 msgid "**Type**: string; value of ``\"1.0\"``"
-msgstr ""
+msgstr "**型**: 文字列; ``\"1.0\"`` という値"
 
 #: ../source/specifications/pylock-toml.rst:68
 #: ../source/specifications/pylock-toml.rst:174
@@ -25912,49 +25931,48 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:397
 #: ../source/specifications/pylock-toml.rst:494
 #: ../source/specifications/pylock-toml.rst:689
-#, fuzzy
-#| msgid "Requires"
 msgid "**Required?**: yes"
-msgstr "要求事項"
+msgstr "**必須?**: はい"
 
 #: ../source/specifications/pylock-toml.rst:69
 msgid "**Inspiration**: :ref:`core-metadata-metadata-version`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`core-metadata-metadata-version`"
 
 #: ../source/specifications/pylock-toml.rst:70
 msgid "Record the file format version that the file adheres to."
-msgstr ""
+msgstr "ファイルが固守するところのファイルフォーマットバージョンを記録しましょう。"
 
 #: ../source/specifications/pylock-toml.rst:71
 msgid ""
 "This PEP specifies the initial version -- and only valid value until future "
 "updates to the standard change it -- as ``\"1.0\"``."
 msgstr ""
+"この PEP では、最初の -- そして、将来のアップデートで標準がそれを変更するまで"
+"の間の唯一の正当な値である -- バージョンを ``\"1.0\"`` として仕様化します。"
 
 #: ../source/specifications/pylock-toml.rst:73
 msgid ""
 "If a tool supports the major version but not the minor version, a tool "
 "SHOULD warn when an unknown key is seen."
 msgstr ""
+"ツールがそのメジャーバージョンはサポートしているがマイナーバージョンをサポー"
+"トしていない場合、ツールは未知のキーに遭遇した時には警告を発するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:75
 msgid "If a tool doesn't support a major version, it MUST raise an error."
-msgstr ""
+msgstr "ツールがそのメジャーバージョンをサポートしていない時は、エラーを発生させなけ"
+"ればなりません。"
 
 #: ../source/specifications/pylock-toml.rst:81
-#, fuzzy
-#| msgid "``entry-points``"
 msgid "``environments``"
-msgstr "``entry-points``"
+msgstr "``environments``"
 
 #: ../source/specifications/pylock-toml.rst:83
 #: ../source/specifications/pylock-toml.rst:110
 #: ../source/specifications/pylock-toml.rst:132
 #: ../source/specifications/pylock-toml.rst:154
-#, fuzzy
-#| msgid "TOML_ type: array of strings"
 msgid "**Type**: Array of strings"
-msgstr "TOML_ 型: 文字列の配列"
+msgstr "**型**: 文字列の配列"
 
 #: ../source/specifications/pylock-toml.rst:84
 #: ../source/specifications/pylock-toml.rst:98
@@ -25972,25 +25990,28 @@ msgstr "TOML_ 型: 文字列の配列"
 #: ../source/specifications/pylock-toml.rst:700
 #: ../source/specifications/pylock-toml.rst:715
 msgid "**Required?**: no"
-msgstr ""
+msgstr "**必須?**: いいえ"
 
 #: ../source/specifications/pylock-toml.rst:85
 #: ../source/specifications/pylock-toml.rst:520
 #: ../source/specifications/pylock-toml.rst:538
 msgid "**Inspiration**: uv_"
-msgstr ""
+msgstr "**ひらめき**: uv_"
 
 #: ../source/specifications/pylock-toml.rst:86
 msgid ""
 "A list of :ref:`dependency-specifiers-environment-markers` for which the "
 "lock file is considered compatible with."
 msgstr ""
+":ref:`dependency-specifiers-environment-markers` のリストで、ロックファイルが"
+"互換性を持っていると考えられる対象。"
 
 #: ../source/specifications/pylock-toml.rst:88
 msgid ""
 "Tools SHOULD write exclusive/non-overlapping environment markers to ease in "
 "understanding."
-msgstr ""
+msgstr "ツール類は、理解しやすいように、専用の/オーバーラップなしの環境マーカを書くべ"
+"きです。"
 
 #: ../source/specifications/pylock-toml.rst:97
 #: ../source/specifications/pylock-toml.rst:173
@@ -26008,10 +26029,8 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:551
 #: ../source/specifications/pylock-toml.rst:620
 #: ../source/specifications/pylock-toml.rst:688
-#, fuzzy
-#| msgid "TOML_ type: string"
 msgid "**Type**: string"
-msgstr "TOML_ 型: 文字列"
+msgstr "**型**: 文字列"
 
 #: ../source/specifications/pylock-toml.rst:99
 #: ../source/specifications/pylock-toml.rst:190
@@ -26020,7 +26039,7 @@ msgstr "TOML_ 型: 文字列"
 #: ../source/specifications/pylock-toml.rst:608
 #: ../source/specifications/pylock-toml.rst:624
 msgid "**Inspiration**: PDM_, Poetry_, uv_"
-msgstr ""
+msgstr "**ひらめき**: PDM_, Poetry_, uv_"
 
 #: ../source/specifications/pylock-toml.rst:100
 msgid ""
@@ -26028,22 +26047,26 @@ msgid ""
 "version compatible for any environment supported by the lock file (i.e. the "
 "minimum viable Python version for the lock file)."
 msgstr ""
+"ロックファイルによってサポートされるどんな環境に対しても互換性のある最低限の "
+"Python バージョン (すなわち、ロックファイルにとって生存可能な最低限の Python "
+"バージョン) を :ref:`core-metadata-requires-python` に指定しましょう。"
 
 #: ../source/specifications/pylock-toml.rst:111
 #: ../source/specifications/pylock-toml.rst:133
 #: ../source/specifications/pylock-toml.rst:155
 msgid "**Required?**: no; defaults to ``[]``"
-msgstr ""
+msgstr "**必須?**: いいえ; デフォルト値は ``[]``"
 
 #: ../source/specifications/pylock-toml.rst:112
 msgid "**Inspiration**: :ref:`core-metadata-provides-extra`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`core-metadata-provides-extra`"
 
 #: ../source/specifications/pylock-toml.rst:113
 msgid ""
 "The list of :ref:`extras <core-metadata-provides-extra>` supported by this "
 "lock file."
-msgstr ""
+msgstr "このロックファイルがサポートする :ref:`追加物 <core-metadata-provides-extra>`"
+" のリスト。"
 
 #: ../source/specifications/pylock-toml.rst:115
 #: ../source/specifications/pylock-toml.rst:138
@@ -26051,11 +26074,13 @@ msgid ""
 "Lockers MAY choose to not support writing lock files that support extras and "
 "dependency groups (i.e. tools may only support exporting a single-use lock "
 "file)."
-msgstr ""
+msgstr "ロックする側は、追加物や依存関係グループをサポートするロックファイルを書くこ"
+"とをサポートしないことを選択しても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:118
 msgid "Tools supporting extras MUST also support dependency groups."
-msgstr ""
+msgstr "追加物をサポートするツール類は、また、依存関係グループをサポートしなければな"
+"りません。"
 
 #: ../source/specifications/pylock-toml.rst:119
 msgid ""
@@ -26066,20 +26091,22 @@ msgid ""
 "that the lock file is, in effect, multi-use even if it only looks to be "
 "single-use."
 msgstr ""
+"ツール類は、そのロックファイルが単一目的に使われるように見えても、実効上、多"
+"目的に使われるということを伝えるために、ロックファイルを生成するために用いら"
+"れた入力に追加物が存在しなかった (たとえば、 :ref:`pyproject.toml <pyproject-"
+"toml-spec>` ファイルに :ref:`[project.optional-dependencies] <pyproject-toml-"
+"optional-dependencies>` がなかった) ことを伝えるために、明示的にこのキーに空"
+"の配列を設定するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:130
-#, fuzzy
-#| msgid "``dependencies``"
 msgid "``dependency-groups``"
-msgstr "``依存関係 <dependencies``"
+msgstr "``dependency-groups``"
 
 #: ../source/specifications/pylock-toml.rst:134
 #: ../source/specifications/pylock-toml.rst:701
 #: ../source/specifications/pylock-toml.rst:716
-#, fuzzy
-#| msgid ":ref:`pyproject-toml-spec`"
 msgid "**Inspiration**: :ref:`pyproject-tool-table`"
-msgstr ":ref:`pyproject-toml-spec`"
+msgstr "**ひらめき**: :ref:`pyproject-tool-table`"
 
 #: ../source/specifications/pylock-toml.rst:135
 msgid ""
@@ -26087,10 +26114,14 @@ msgid ""
 "e. dependency groups users are expected to be able to specify via a tool's "
 "UI)."
 msgstr ""
+":ref:`dependency-groups` のリストで、このロックファイルが公式にサポートするも"
+"の (すなわち、依存関係グループのユーザは、ツールの UI を経由して指定すること"
+"が可能であることが期待されています) 。"
 
 #: ../source/specifications/pylock-toml.rst:141
 msgid "Tools supporting dependency groups MUST also support extras."
-msgstr ""
+msgstr "依存関係グループをサポートするツール類は、また、追加物もサポートしなければな"
+"りません。"
 
 #: ../source/specifications/pylock-toml.rst:142
 msgid ""
@@ -26100,14 +26131,20 @@ msgid ""
 "<dependency-groups>` table), signalling that the lock file is, in effect, "
 "multi-use even if it only looks to be single-use."
 msgstr ""
+"たとえロックファイルが単一目的の使用のためのもののように見えても、そのロック"
+"ファイルが実効上は多目的の使用のためのものであることを伝えるために、ツール類"
+"は、当該ロックファイルを生成するために使用された入力には依存関係グループが存"
+"在しなかった (たとえば、 :ref:`pyproject.toml <pyproject-toml-spec>` ファイル"
+"には :ref:`[dependency-groups] <dependency-groups>` テーブルがありません) こ"
+"とを伝えるためにこのキーに明示的に空の配列を設定するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:152
 msgid "``default-groups``"
-msgstr ""
+msgstr "``default-groups``"
 
 #: ../source/specifications/pylock-toml.rst:156
 msgid "**Inspiration**: Poetry_, PDM_"
-msgstr ""
+msgstr "**ひらめき**: Poetry_, PDM_"
 
 #: ../source/specifications/pylock-toml.rst:157
 msgid ""
@@ -26115,12 +26152,17 @@ msgid ""
 "installed by default (e.g. what :ref:`[project.dependencies] <pyproject-toml-"
 "dependencies>` implicitly represents)."
 msgstr ""
+"合成された依存関係グループで、デフォルトでインストールされるべきものを表現す"
+"るもの (たとえば、 :ref:`[project.dependencies] <pyproject-toml-"
+"dependencies>` が暗黙のうちに表現しているもの) 。"
 
 #: ../source/specifications/pylock-toml.rst:161
 msgid ""
 "Meant to be used in situations where :ref:`pylock-packages-marker` "
 "necessitates such a group to exist."
 msgstr ""
+":ref:`pylock-packages-marker` がそのようなグループが存在することを必要とする"
+"ような状況で使用されることを意味します。"
 
 #: ../source/specifications/pylock-toml.rst:163
 msgid ""
@@ -26128,96 +26170,86 @@ msgid ""
 "dependency-groups` as the groups are not meant to be directly exposed to "
 "users by name but instead via an installer's UI."
 msgstr ""
+"このキーによって列挙されたグループは、ユーザに対してその名称が直接に露出され"
+"るのものではなく、代わりにインストーラの UI を通じて露出されるものなので、 "
+":ref:`pylock-dependency-groups` には列挙されるべきではありません。"
 
 #: ../source/specifications/pylock-toml.rst:171
 msgid "``created-by``"
-msgstr ""
+msgstr "``created-by``"
 
 #: ../source/specifications/pylock-toml.rst:175
 msgid "**Inspiration**: Tools with their name in their lock file name"
-msgstr ""
+msgstr "**ひらめき**: ロックファイルのファイル名の中にその名前を伴うツール類"
 
 #: ../source/specifications/pylock-toml.rst:176
-#, fuzzy
-#| msgid ""
-#| "``INSTALLER``: records the name of the tool used to install the project."
 msgid "Records the name of the tool used to create the lock file."
-msgstr ""
-"``INSTALLER``: プロジェクトをインストールするのに使われるツールの名前を記録し"
-"ます。"
+msgstr "ロックファイルを作成するために使われたツールの名称を記録する。"
 
 #: ../source/specifications/pylock-toml.rst:177
 msgid ""
 "Tools MAY use the :ref:`pylock-tool` table to record enough details that it "
 "can be inferred what inputs were used to create the lock file."
 msgstr ""
+"ツール類は、そのロックファイルを生成するためにどんな入力が使われたのかを暗に"
+"示すことができるような十分に詳細な情報を記録するために、 :ref:`pylock-tool` "
+"テーブルを使っても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:179
 msgid ""
 "Tools SHOULD record the normalized name of the tool if it is available as a "
 "Python package to facilitate finding the tool."
 msgstr ""
+"ツール類は、そのツールを見つけ出しやすくするために、それが Python パッケージ"
+"として利用可能であれば、そのツールの標準化された名称を記録するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:186
-#, fuzzy
-#| msgid "``packages``"
 msgid "``[[packages]]``"
-msgstr "``packages``"
+msgstr "``[[packages]]``"
 
 #: ../source/specifications/pylock-toml.rst:188
 #: ../source/specifications/pylock-toml.rst:254
 #: ../source/specifications/pylock-toml.rst:605
 #: ../source/specifications/pylock-toml.rst:673
-#, fuzzy
-#| msgid "TOML_ type: array of strings"
 msgid "**Type**: array of tables"
-msgstr "TOML_ 型: 文字列の配列"
+msgstr "**型**: テーブルの配列"
 
 #: ../source/specifications/pylock-toml.rst:191
 msgid "An array containing all packages that *may* be installed."
-msgstr ""
+msgstr "インストールされる *かもしれない* すべてのパッケージを含む配列。"
 
 #: ../source/specifications/pylock-toml.rst:192
 msgid ""
 "Packages MAY be listed multiple times with varying data, but all packages to "
 "be installed MUST narrow down to a single entry at install time."
 msgstr ""
+"パッケージ群は、異なるデータとともに複数回にわたって列挙されても構いませんが"
+"、すべてのインストールされるパッケージ群はインストール時には単一のエントリに"
+"絞り込まれなければなりません。"
 
 #: ../source/specifications/pylock-toml.rst:199
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.name``"
-msgstr "``packages``"
+msgstr "``packages.name``"
 
 #: ../source/specifications/pylock-toml.rst:203
 msgid "**Inspiration**: :ref:`core-metadata-name`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`core-metadata-name`"
 
 #: ../source/specifications/pylock-toml.rst:204
-#, fuzzy
-#| msgid ""
-#| "For comparison purposes, the names should be :ref:`normalized <name-"
-#| "normalization>` before comparing."
 msgid "The name of the package :ref:`normalized <name-normalization>`."
-msgstr ""
-"比較の目的のためにも、名前は比較の前に :ref:`正規化 <name-normalization>` さ"
-"れているべきです。"
+msgstr "パッケージ名称の :ref:`normalized <name-normalization>` 。"
 
 #: ../source/specifications/pylock-toml.rst:210
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.version``"
-msgstr "``packages``"
+msgstr "``packages.version``"
 
 #: ../source/specifications/pylock-toml.rst:214
 msgid "**Inspiration**: :ref:`core-metadata-version`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`core-metadata-version`"
 
 #: ../source/specifications/pylock-toml.rst:215
-#, fuzzy
-#| msgid "Creating the package files"
 msgid "The version of the package."
-msgstr "パッケージファイルを作成する"
+msgstr "パッケージのバージョン番号。"
 
 #: ../source/specifications/pylock-toml.rst:216
 msgid ""
@@ -26225,6 +26257,9 @@ msgid ""
 "when an :ref:`sdist <source-distribution-format>` or :ref:`wheels <binary-"
 "distribution-format>` are specified)."
 msgstr ""
+"バージョン番号は、そのバージョンが安定状態 <stable> になったものとわかった時"
+"に指定されるべきです (すなわち、 :ref:`sdist <source-distribution-format>` か"
+" :ref:`wheels <binary-distribution-format>` が特定された時) 。"
 
 #: ../source/specifications/pylock-toml.rst:219
 msgid ""
@@ -26232,50 +26267,51 @@ msgid ""
 "consistent with the code used (i.e. when a :ref:`source tree <source-"
 "distribution-format-source-tree>` is used)."
 msgstr ""
+"バージョン番号は、使われているソースコードと首尾一貫していることが保証できな"
+"い時には、含まれてはなりません (すなわち、 :ref:`ソースコードツリー <source-d"
+"istribution-format-source-tree>` が使われている時) 。"
 
 #: ../source/specifications/pylock-toml.rst:227
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.marker``"
-msgstr "``packages``"
+msgstr "``packages.marker``"
 
 #: ../source/specifications/pylock-toml.rst:231
 msgid "**Inspiration**: PDM_"
-msgstr ""
+msgstr "**ひらめき**: PDM_"
 
 #: ../source/specifications/pylock-toml.rst:232
 msgid ""
 "The :ref:`environment marker <dependency-specifiers-environment-markers>` "
 "which specify when the package should be installed."
 msgstr ""
+":ref:`環境マーカ <dependency-specifiers-environment-markers>` で、いつパッケ"
+"ージがインストールされるべきかを指定するもの。"
 
 #: ../source/specifications/pylock-toml.rst:240
-#, fuzzy
-#| msgid "``requires-python``"
 msgid "``packages.requires-python``"
-msgstr "``requires-python``"
+msgstr "``packages.requires-python``"
 
 #: ../source/specifications/pylock-toml.rst:244
 msgid "**Inspiration**: :ref:`core-metadata-requires-python`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`core-metadata-requires-python`"
 
 #: ../source/specifications/pylock-toml.rst:245
 msgid ""
 "Holds the :ref:`version-specifiers` for Python version compatibility for the "
 "package."
-msgstr ""
+msgstr "パッケージ用の Python バージョン互換性を示す :ref:`version-specifiers` を保持"
+"する。"
 
 #: ../source/specifications/pylock-toml.rst:252
-#, fuzzy
-#| msgid "``dependencies``"
 msgid "``[[packages.dependencies]]``"
-msgstr "``依存関係 <dependencies``"
+msgstr "``[[packages.dependencies]]``"
 
 #: ../source/specifications/pylock-toml.rst:257
 msgid ""
 "Records the other entries in :ref:`pylock-packages` which are direct "
 "dependencies of this package."
-msgstr ""
+msgstr "このパッケージに直接に依存する他のエントリを :ref:`pylock-packages` の中に記"
+"録する。"
 
 #: ../source/specifications/pylock-toml.rst:259
 msgid ""
@@ -26286,18 +26322,23 @@ msgid ""
 "version number like ``{name = \"spam\", version = \"1.0.0\"}``, or by source "
 "like ``{name = \"spam\", vcs = { url = \"...\"}``)."
 msgstr ""
+"エントリのひとつひとつはテーブルで、キー毎に比較することで適切なパッケージを"
+"曖昧さなしに見つけ出すであろうところの、どの他のパッケージエントリに対応して"
+"いるかを告げるために必須の、そのような最小限の情報を含んでいます (たとえば、 "
+"``spam`` パッケージのふたつのエントリがあるとして、 ``{name = \"spam\", "
+"version = \"1.0.0\"}`` のようなバージョン番号や、 ``{name = \"spam\", vcs = {"
+" url = \"...\"}`` のようなソースを含めておくことができます) 。"
 
 #: ../source/specifications/pylock-toml.rst:265
 msgid ""
 "Tools MUST NOT use this information when doing installation; it is purely "
 "informational for auditing purposes."
-msgstr ""
+msgstr "ツール類は、インストールを行う時にこの情報をつかってはなりません; これは、純"
+"粋に、監査の目的のための情報でしかありません。"
 
 #: ../source/specifications/pylock-toml.rst:272
-#, fuzzy
-#| msgid "``packages``"
 msgid "``[packages.vcs]``"
-msgstr "``packages``"
+msgstr "``[packages.vcs]``"
 
 #: ../source/specifications/pylock-toml.rst:274
 #: ../source/specifications/pylock-toml.rst:376
@@ -26305,10 +26346,8 @@ msgstr "``packages``"
 #: ../source/specifications/pylock-toml.rst:535
 #: ../source/specifications/pylock-toml.rst:699
 #: ../source/specifications/pylock-toml.rst:714
-#, fuzzy
-#| msgid "TOML_ type: table"
 msgid "**Type**: table"
-msgstr "TOML_ 型: テーブル"
+msgstr "**型**: テーブル"
 
 #: ../source/specifications/pylock-toml.rst:275
 msgid ""
@@ -26316,50 +26355,60 @@ msgid ""
 "directory`, :ref:`pylock-packages-archive`, :ref:`pylock-packages-sdist`, "
 "and :ref:`pylock-packages-wheels`"
 msgstr ""
+"**必須?**: いいえ; :ref:`pylock-packages-directory` 、 :ref:`pylock-packages-"
+"archive` 、 :ref:`pylock-packages-sdist` 、および :ref:`pylock-packages-"
+"wheels` と相互に排他的"
 
 #: ../source/specifications/pylock-toml.rst:278
 msgid "**Inspiration**: :ref:`direct-url-data-structure`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`direct-url-data-structure`"
 
 #: ../source/specifications/pylock-toml.rst:279
 msgid ""
 "Record the version control system details for the :ref:`source tree <source-"
 "distribution-format-source-tree>` it contains."
 msgstr ""
+"含まれている :ref:`ソースコードツリー <source-distribution-format-source-"
+"tree>` 用のバージョン管理システムの詳細を記録する。"
 
 #: ../source/specifications/pylock-toml.rst:282
 msgid ""
 "Tools MAY choose to not support version control systems, both from a locking "
 "and/or installation perspective."
-msgstr ""
+msgstr "ツール類は、ロッキングとインストールの両方または片方のパースペクティブで、バ"
+"ージョン管理システムをサポートしないことを選択しても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:284
 msgid "Tools MAY choose to only support a subset of the available VCS types."
-msgstr ""
+msgstr "ツール類は、利用可能な VCS 型のサブセットだけをサポートすることを選択しても構"
+"いません。"
 
 #: ../source/specifications/pylock-toml.rst:285
 msgid ""
 "Tools SHOULD provide a way for users to opt in/out of using version control "
 "systems."
-msgstr ""
+msgstr "ツール類は、ユーザに対して、バージョン管理システムを使うことについてオプトイ"
+"ン・オプトアウトの方法を提供するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:287
 msgid ""
 "Installation from a version control system is considered originating from a :"
 "ref:`direct URL reference <direct-url>`."
 msgstr ""
+"バージョン管理システムからのインストールは、 :ref:`直接 URL 参照 <direct-"
+"url>` から発展したものだと考えられています。"
 
 #: ../source/specifications/pylock-toml.rst:294
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.vcs.type``"
-msgstr "``packages``"
+msgstr "``packages.vcs.type``"
 
 #: ../source/specifications/pylock-toml.rst:296
 msgid ""
 "**Type**: string; supported values specified in :ref:`direct-url-data-"
 "structure-registered-vcs`"
 msgstr ""
+"**型**: 文字列; サポートされている値は :ref:`direct-url-data-structure-"
+"registered-vcs` で指定されています"
 
 #: ../source/specifications/pylock-toml.rst:299
 #: ../source/specifications/pylock-toml.rst:310
@@ -26367,107 +26416,91 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:335
 #: ../source/specifications/pylock-toml.rst:349
 msgid "**Inspiration**: :ref:`direct-url-data-structure-vcs`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`direct-url-data-structure-vcs`"
 
 #: ../source/specifications/pylock-toml.rst:300
-#, fuzzy
-#| msgid "Install from version control systems"
 msgid "The type of version control system used."
-msgstr "バージョン管理システムからインストールする"
+msgstr "使われているバージョン管理システムの型。"
 
 #: ../source/specifications/pylock-toml.rst:306
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.vcs.url``"
-msgstr "``packages``"
+msgstr "``packages.vcs.url``"
 
 #: ../source/specifications/pylock-toml.rst:309
 msgid "**Required?**: if :ref:`pylock-packages-vcs-path` is not specified"
-msgstr ""
+msgstr "**必須?**: もし :ref:`pylock-packages-vcs-path` が指定されていなければ"
 
 #: ../source/specifications/pylock-toml.rst:311
-#, fuzzy
-#| msgid "The source tree"
 msgid "The URL_ to the source tree."
-msgstr "ソースコードツリー"
+msgstr "ソースコードツリーへの URL_ 。"
 
 #: ../source/specifications/pylock-toml.rst:317
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.vcs.path``"
-msgstr "``packages``"
+msgstr "``packages.vcs.path``"
 
 #: ../source/specifications/pylock-toml.rst:320
 msgid "**Required?**: if :ref:`pylock-packages-vcs-url` is not specified"
-msgstr ""
+msgstr "**必須?**: もし :ref:`pylock-packages-vcs-url` が指定されていなければ"
 
 #: ../source/specifications/pylock-toml.rst:322
 msgid "The path to the local directory of the source tree."
-msgstr ""
+msgstr "ソースコードツリーのローカルディレクトリへのパス。"
 
 #: ../source/specifications/pylock-toml.rst:323
 msgid ""
 "If a relative path is used it MUST be relative to the location of this file."
-msgstr ""
+msgstr "相対パスが使われた場合、このファイルの場所からの相対パスでなければなりません"
+"。"
 
 #: ../source/specifications/pylock-toml.rst:324
 msgid ""
 "If the path is relative it MAY use POSIX-style path separators explicitly "
 "for portability."
-msgstr ""
+msgstr "もし相対パスなら、ポータビリティのために POSIX スタイルのパスセパレータを明示"
+"的に使っても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:331
-#, fuzzy
-#| msgid "``requested_revision`` field"
 msgid "``packages.vcs.requested-revision``"
-msgstr "``requested_revision`` フィールド"
+msgstr "``packages.vcs.requested-revision``"
 
 #: ../source/specifications/pylock-toml.rst:336
 msgid "The branch/tag/ref/commit/revision/etc. that the user requested."
-msgstr ""
+msgstr "ブランチ/タグ/コミット/リビジョン/その他ユーザが要求したもの。"
 
 #: ../source/specifications/pylock-toml.rst:337
 msgid ""
 "This is purely informational and to facilitate writing the :ref:`direct-url-"
 "data-structure`; it MUST NOT be used to checkout the repository."
 msgstr ""
+"これは、純粋に情報提供が目的であり、 :ref:`direct-url-data-structure` を書く"
+"ことのお膳立てをするものです; リポジトリをチェックアウトするのに使用してはな"
+"りません。"
 
 #: ../source/specifications/pylock-toml.rst:345
-#, fuzzy
-#| msgid "``packages``"
 msgid "``packages.vcs.commit-id``"
-msgstr "``packages``"
+msgstr "``packages.vcs.commit-id``"
 
 #: ../source/specifications/pylock-toml.rst:350
 msgid "The exact commit/revision number that is to be installed."
-msgstr ""
+msgstr "インストールされる正確なコミット/リビジョン番号。"
 
 #: ../source/specifications/pylock-toml.rst:351
-#, fuzzy
-#| msgid ""
-#| "A ``commit_id`` key (type ``string``) MUST be present, containing the "
-#| "exact commit/revision number that was/is to be installed. If the VCS "
-#| "supports commit-hash based revision identifiers, such commit-hash MUST be "
-#| "used as ``commit_id`` in order to reference an immutable version of the "
-#| "source code."
 msgid ""
 "If the VCS supports commit-hash based revision identifiers, such a commit-"
 "hash, it MUST be used as the commit ID in order to reference an immutable "
 "version of the source code."
 msgstr ""
-"``commit_id`` キー (``string`` 型) は、正確にどのコミットまたはリビジョンがイ"
-"ンストールされた/されるかを示すもので、必須のキーです。 VCS がリビジョン識別"
-"子に基づくコミットハッシュをサポートしているなら、インストールされたものの"
-"ソースコードの不変のバージョンを指し示す目的で、そのようなコミットハッシュを "
-"``commit_id`` として使わなければなりません。"
+"VCS がリビジョン識別子に基づくコミットハッシュをサポートしているなら、そのよ"
+"うなコミットハッシュとして、ソースコードの不変のバージョンを指し示す目的で、"
+"コミット ID を使わなければなりません。"
 
 #: ../source/specifications/pylock-toml.rst:359
 msgid "``packages.vcs.subdirectory``"
-msgstr ""
+msgstr "``packages.vcs.subdirectory``"
 
 #: ../source/specifications/pylock-toml.rst:363
 msgid "**Inspiration**: :ref:`direct-url-data-structure-subdirectories`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`direct-url-data-structure-subdirectories`"
 
 #: ../source/specifications/pylock-toml.rst:364
 msgid ""
@@ -26475,16 +26508,17 @@ msgid ""
 "source-tree>` where the project root of the project is (e.g. the location of "
 "the :ref:`pyproject.toml <pyproject-toml-spec>` file)."
 msgstr ""
+":ref:`ソースコードツリー <source-distribution-format-source-tree>` の中のサブ"
+"ディレクトリで、そのプロジェクトのプロジェクトルートがそこにあるもの (例えば"
+"、 :ref:`pyproject.toml <pyproject-toml-spec>` ファイルの位置) 。"
 
 #: ../source/specifications/pylock-toml.rst:368
 msgid "The path MUST be relative to the root of the source tree structure."
-msgstr ""
+msgstr "パスは、ソースコードツリー構造のルートに対して相対的でなければなりません。"
 
 #: ../source/specifications/pylock-toml.rst:374
-#, fuzzy
-#| msgid "``packages``"
 msgid "``[packages.directory]``"
-msgstr "``packages``"
+msgstr "``[packages.directory]``"
 
 #: ../source/specifications/pylock-toml.rst:377
 msgid ""
@@ -26492,75 +26526,82 @@ msgid ""
 "`pylock-packages-archive`, :ref:`pylock-packages-sdist`, and :ref:`pylock-"
 "packages-wheels`"
 msgstr ""
+"**必須?**: いいえ; :ref:`pylock-packages-vcs` ・ :ref:`pylock-packages-"
+"archive` ・ :ref:`pylock-packages-sdist` ・ :ref:`pylock-packages-wheels` と"
+"相互に排他的"
 
 #: ../source/specifications/pylock-toml.rst:380
 #: ../source/specifications/pylock-toml.rst:398
 #: ../source/specifications/pylock-toml.rst:412
 msgid "**Inspiration**: :ref:`direct-url-data-structure-local-directory`"
-msgstr ""
+msgstr "**ひらめき**: :ref:`direct-url-data-structure-local-directory`"
 
 #: ../source/specifications/pylock-toml.rst:381
 msgid ""
 "Record the local directory details for the :ref:`source tree <source-"
 "distribution-format-source-tree>` it contains."
 msgstr ""
+"それを含む :ref:`ソースコードツリー <source-distribution-format-source-tree>`"
+" のローカルのディレクトリの詳細を記録する。"
 
 #: ../source/specifications/pylock-toml.rst:384
 msgid ""
 "Tools MAY choose to not support local directories, both from a locking and/"
 "or installation perspective."
-msgstr ""
+msgstr "ツール類は、ロッキングとインストール局面の両方または片方からの、ローカルディ"
+"レクトリをサポートしないことを選択しても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:386
 msgid ""
 "Tools SHOULD provide a way for users to opt in/out of using local "
 "directories."
-msgstr ""
+msgstr "ツール類は、ユーザに対して、ローカルディレクトリを使うことに関するオプトイン"
+"・オプトアウトの方法を提供するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:387
 msgid ""
 "Installation from a directory is considered originating from a :ref:`direct "
 "URL reference <direct-url>`."
-msgstr ""
+msgstr "ディレクトリからのインストールは、 :ref:`直接 URL 参照 <direct-url>` から派生"
+"したと考えられています。"
 
 #: ../source/specifications/pylock-toml.rst:394
-#, fuzzy
-#| msgid "``package_data``"
 msgid "``packages.directory.path``"
-msgstr "``package_data``"
+msgstr "``packages.directory.path``"
 
 #: ../source/specifications/pylock-toml.rst:399
 msgid "The local directory where the source tree is."
-msgstr ""
+msgstr "ソースコードツリーのあるローカルディレクトリ。"
 
 #: ../source/specifications/pylock-toml.rst:400
 msgid ""
 "If the path is relative it MUST be relative to the location of the lock file."
-msgstr ""
+msgstr "相対パスならば、ロックファイルの位置に対して相対的でなければならない。"
 
 #: ../source/specifications/pylock-toml.rst:401
 msgid ""
 "If the path is relative it MAY use POSIX-style path separators for "
 "portability."
-msgstr ""
+msgstr "相対バスならば、ポータビリティのために POSIX スタイルのパスセパレータを使用し"
+"なければなりません。"
 
 #: ../source/specifications/pylock-toml.rst:408
 msgid "``packages.directory.editable``"
-msgstr ""
+msgstr "``packages.directory.editable``"
 
 #: ../source/specifications/pylock-toml.rst:410
 msgid "**Type**: boolean"
-msgstr ""
+msgstr "**型**: ブーリアン"
 
 #: ../source/specifications/pylock-toml.rst:411
 msgid "**Required?**: no; defaults to ``false``"
-msgstr ""
+msgstr "**必須?**: いいえ; デフォルト値は ``false``"
 
 #: ../source/specifications/pylock-toml.rst:413
 msgid ""
 "A flag representing whether the source tree was an editable install at lock "
 "time."
-msgstr ""
+msgstr "ロックの時点でソースコードツリーが編集可能であるか否かを示すフラグ。"
 
 #: ../source/specifications/pylock-toml.rst:415
 msgid ""
@@ -26569,6 +26610,10 @@ msgid ""
 "that will not be mounted for development purposes but instead deployed to "
 "production where it would be treated at read-only)."
 msgstr ""
+"インストーラは、ユーザの指示があるか文脈上で、編集可能な状態でのインストール"
+"が不要であるか望ましくない場合には、このフラグを無視することを選択しても構い"
+"ません (例えば、開発目的ではマウントされず、代わりに、読み取り専用で扱われる"
+"商用環境にデプロイされるであろうコンテナイメージ)。"
 
 #: ../source/specifications/pylock-toml.rst:424
 msgid "``packages.directory.subdirectory``"
