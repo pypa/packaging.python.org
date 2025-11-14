@@ -113,5 +113,5 @@ def sphinx_lint(session):
     accepting another path as positional argument.
     """
     session.install("sphinx-lint==1.0.0")
-    target = session.posargs if len(session.posargs) >= 1 else ["source"]
+    target = session.posargs or ["source"]
     session.run("sphinx-lint", *target)
