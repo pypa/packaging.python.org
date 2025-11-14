@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-17 00:41+0000\n"
-"PO-Revision-Date: 2025-09-17 00:41+0000\n"
+"PO-Revision-Date: 2025-10-09 23:57+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13497,7 +13497,7 @@ msgstr "2.4.0"
 
 #: ../source/guides/writing-pyproject-toml.rst:322
 msgid "2.2.0"
-msgstr ""
+msgstr "2.2.0"
 
 #: ../source/guides/writing-pyproject-toml.rst:323
 msgid "0.7.19"
@@ -20357,6 +20357,10 @@ msgid ""
 "August 2025: Clarified that ``Dynamic`` only affects how fields must be "
 "treated when building a wheel from a sdist, not when modifying a wheel."
 msgstr ""
+"2025年8月: ``動的 <Dynamic>`` "
+"指定がそのフィールドの取り扱いに影響を与えるのは、 sdist から wheel "
+"をビルドする時だけであって、 wheel "
+"を変換するするときには影響を与えないのだということが明確化された。"
 
 #: ../source/specifications/core-metadata.rst:940
 msgid "August 2024: Core metadata 2.4 was approved through :pep:`639`."
@@ -20465,8 +20469,7 @@ msgstr ""
 
 #: ../source/specifications/dependency-groups.rst:25
 msgid "This is a simple table which shows ``docs`` and ``test`` groups::"
-msgstr ""
-"これは、``docs`` グループと ``test`` グループを示す単純なテーブルです::"
+msgstr "これは、 ``docs`` グループと ``test`` グループを示す単純なテーブルです::"
 
 #: ../source/specifications/dependency-groups.rst:31
 msgid ""
@@ -20498,6 +20501,11 @@ msgid ""
 "Dependency Groups MUST :ref:`normalize <name-normalization>` these names "
 "before comparisons."
 msgstr ""
+"``[dependency-groups]`` キーは、ある時には \"group names\" とも呼ばれますが、"
+" :ref:`正当な非標準化名称 <name-format>` でなければなりません。"
+"依存関係グループ <Dependency Groups> を取り扱うツール類は、"
+"比較の前にこのような名称を :ref:`標準化 <name-normalization>` "
+"しなければなりません。"
 
 #: ../source/specifications/dependency-groups.rst:51
 msgid ""
@@ -20505,6 +20513,8 @@ msgid ""
 "and if duplicate names are detected after normalization, tools SHOULD emit "
 "an error."
 msgstr ""
+"ツール類は、オリジナルの非標準化名称をユーザに表示することを選好するべきで、"
+"標準化後に名称の重複が検出された場合にはツール類はエラーを発するべきです。"
 
 #: ../source/specifications/dependency-groups.rst:55
 msgid ""
@@ -20513,24 +20523,29 @@ msgid ""
 "Strings must be valid :ref:`dependency specifiers <dependency-specifiers>`, "
 "and tables must be valid Dependency Group Includes."
 msgstr ""
+"要求事項リスト、つまり ``[dependency-groups]`` 内の値は、文字列やテーブル ("
+"Python の ``dict``) やその混合物を含んでいても構いません。文字列は正当な "
+":ref:`依存関係指定子 <dependency-specifiers>` でなければならず、"
+"テーブルは正当な Dependency Group Includes でなければなりません。"
 
 #: ../source/specifications/dependency-groups.rst:61
-#, fuzzy
-#| msgid "Dependency Overrides"
 msgid "Dependency Group Include"
-msgstr "依存関係を上書きする"
+msgstr "Dependency Group Include"
 
 #: ../source/specifications/dependency-groups.rst:63
 msgid ""
 "A Dependency Group Include includes another Dependency Group in the current "
 "group."
-msgstr ""
+msgstr "Dependency Group Include "
+"は、現在のグループに他の依存関係グループをインクルードするものです。"
 
 #: ../source/specifications/dependency-groups.rst:66
 msgid ""
 "An include is a table with exactly one key, ``\"include-group\"``, whose "
 "value is a string, the name of another Dependency Group."
 msgstr ""
+"include は正確に一つだけのキーを持つテーブルで ``\"include-group\"`` "
+"といい、その値は他の依存関係グループの名称文字列です。"
 
 #: ../source/specifications/dependency-groups.rst:69
 msgid ""
@@ -20541,6 +20556,13 @@ msgid ""
 "evaluate to ``[\"c\", \"a\", \"b\", \"d\"]`` when Dependency Group Includes "
 "are expanded."
 msgstr ""
+"Include "
+"は指定された依存関係グループの内容と厳密に同等になるように定義されていて、"
+"それが現在のグループの include の位置に挿入されます。例えば、 ``foo = "
+"[\"a\", \"b\"]`` がひとつのグループで ``bar = "
+"[\"c\", {include-group = \"foo\"}, \"d\"]`` "
+"がもうひとつのグループであるなら、依存関係グループが転換された時には、 "
+"``bar`` は ``[\"c\", \"a\", \"b\", \"d\"]`` と評価されるべきです。"
 
 #: ../source/specifications/dependency-groups.rst:75
 msgid ""
@@ -20548,6 +20570,10 @@ msgid ""
 "SHOULD NOT deduplicate or otherwise alter the list contents produced by the "
 "include. For example, given the following table:"
 msgstr ""
+"依存関係グループ引用では、同じパッケージを複数回にわたって指定しても構いませ"
+"ん。ツールは重複排除を行うべきではなく、そうでなければ引用 <include> "
+"によって生成されたリストの内容を改変してしまうことになります。例えば、次のテ"
+"ーブルがあるとして:"
 
 #: ../source/specifications/dependency-groups.rst:92
 msgid ""
@@ -20556,6 +20582,11 @@ msgid ""
 "any other case in which they are asked to process the same requirement "
 "multiple times with different version constraints."
 msgstr ""
+"``all`` を解決して得られた値は、 ``"
+"[\"foo\", \"foo\", \"foo>1.0\", \"foo<1.0\"]`` "
+"であるはずです。ツールは、このようなリストを、同じ要求事項に異なるバージョン"
+"制約が課されたものを、複数回にわたって処理するように依頼されているような他の"
+"どんなケースでも正確に同じように取り扱うべきです。"
 
 #: ../source/specifications/dependency-groups.rst:97
 msgid ""
@@ -20564,12 +20595,15 @@ msgid ""
 "Dependency Group Includes MUST NOT include cycles, and tools SHOULD report "
 "an error if they detect a cycle."
 msgstr ""
+"依存関係グループ引用 <Dependency Group Include> は、"
+"依存関係グループ引用を含むグループを引用 <include> "
+"しても構いませんし、そのような引用されグループも同様に展開されるべきです。依"
+"存関係グループ引用はループを引用してはならず、ツールはループを検出した時には"
+"エラーを報告するべきです。"
 
 #: ../source/specifications/dependency-groups.rst:102
-#, fuzzy
-#| msgid "Package upload"
 msgid "Package Building"
-msgstr "パッケージアップロード"
+msgstr "パッケージビルディング"
 
 #: ../source/specifications/dependency-groups.rst:104
 msgid ""
@@ -20578,6 +20612,11 @@ msgid ""
 "``METADATA`` files should not include referenceable fields containing "
 "Dependency Groups."
 msgstr ""
+"ビルドバックエンドは、ビルドした配布物の中の依存関係グループのデータをパッケ"
+"ージのメタデータとして引用してはなりません。これが意味するところは、 sdist "
+"の ``PKG-INFO`` や wheel の ``METADATA`` "
+"ファイルが依存関係グループを含む参照可能なフィールドを含んでいてはならないと"
+"いうことです。"
 
 #: ../source/specifications/dependency-groups.rst:108
 msgid ""
@@ -20586,12 +20625,15 @@ msgid ""
 "``[dependency-groups]``. However, the table's contents are not part of a "
 "built package's interfaces."
 msgstr ""
+"しかしながら、動的なメタデータの評価で依存関係グループを使うことは正当なこと"
+"であり、 sdist に含まれる ``pyproject.toml`` ファイルは依然として ``[dynamic-"
+"groups]`` "
+"を含んでいることでしょう。しかしながら、このテーブルの内容は、ビルドされたパ"
+"ッケージのインタフェースの一部分ではありません。"
 
 #: ../source/specifications/dependency-groups.rst:114
-#, fuzzy
-#| msgid "Installing Setuptools \"Extras\""
 msgid "Installing Dependency Groups & Extras"
-msgstr "Setuptools の \"Extras\" をインストールする"
+msgstr "依存関係グループ <Dependency Groups> と追加物 <Extras> をインストールする"
 
 #: ../source/specifications/dependency-groups.rst:116
 msgid ""
@@ -20599,6 +20641,9 @@ msgid ""
 "referring to Dependency Groups. Tools are expected to provide dedicated "
 "interfaces for this purpose."
 msgstr ""
+"依存関係グループをインストールしたり参照したりするインタフェースに関する文法"
+"も定義済みの仕様も存在しません。ツール類には、この目的のために専用のインタフ"
+"ェースを提供することが期待されています。"
 
 #: ../source/specifications/dependency-groups.rst:120
 msgid ""
@@ -20609,12 +20654,17 @@ msgid ""
 "Dependency Groups whose names match extras, and tools MAY treat such "
 "matching as an error."
 msgstr ""
+"ツール類は、依存関係グループとの相互作用を行うためのインタフェースとして、"
+"追加物 <extras> "
+"を管理する時と同一またはよく似たものを提供することを選択しても構いません。ツ"
+"ール類の作者には、依存関係グループと名前が一致する追加物を持つことを仕様は禁"
+"じていない、と助言しておきます。これとは別に、ユーザには、追加物の名前と一致"
+"する依存関係グループを作成しないように、そのような一致があるとツール類がエラ"
+"ーとして取り扱うかもしれませんよ、と助言しておきます。"
 
 #: ../source/specifications/dependency-groups.rst:128
-#, fuzzy
-#| msgid "Backwards Compatibility"
 msgid "Validation and Compatibility"
-msgstr "後方互換性"
+msgstr "正当性検証と互換性"
 
 #: ../source/specifications/dependency-groups.rst:130
 msgid ""
@@ -20623,18 +20673,24 @@ msgid ""
 "possibility of future extensions to the specification, so that they do not "
 "unnecessarily emit errors or warnings."
 msgstr ""
+"依存関係グループをサポートするツール類は、データを使う前に正当性を検証したい"
+"と望むかもしれません。そのような正当性検証を実装する時には、作者は、不要なエ"
+"ラーや警告を発することのないように、この仕様に対する将来の拡張の可能性を意識"
+"しておくべきです。"
 
 #: ../source/specifications/dependency-groups.rst:135
 msgid ""
 "Tools SHOULD error when evaluating or processing unrecognized data in "
 "Dependency Groups."
-msgstr ""
+msgstr "ツール類は、依存関係グループ内で認識できないデータを評価または処理しようとし"
+"た時にはエラーを発するべきです。"
 
 #: ../source/specifications/dependency-groups.rst:138
 msgid ""
 "Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups "
 "unless they have a need to do so."
-msgstr ""
+msgstr "ツール類は、そうする必要がない限り、 *すべての* "
+"依存関係グループの内容の正当性評価を好んで行うべきではありません。"
 
 #: ../source/specifications/dependency-groups.rst:141
 msgid ""
@@ -20642,6 +20698,9 @@ msgid ""
 "allow the ``foo`` group to be used and only error if the ``bar`` group is "
 "used:"
 msgstr ""
+"これが意味するところは、以下のデータがあるとすると、ほとんどのツールは "
+"``foo`` グループが使われることを許すべきで、 ``bar`` "
+"グループが使われた時にのみエラーを発生させるべきです:"
 
 #: ../source/specifications/dependency-groups.rst:152
 msgid ""
@@ -20649,6 +20708,10 @@ msgid ""
 "Linters and validators are an example, as their purpose is to validate the "
 "contents of all Dependency Groups."
 msgstr ""
+"ツールがより厳密に取り扱う良い理由のあるケースがいくつか知られています。"
+"静的解析ツール <Linters> や正当性確認ツール <validaters> "
+"はひとつの例で、その目的がすべての依存関係グループの内容の正当性を検証するこ"
+"とだからです。"
 
 #: ../source/specifications/dependency-groups.rst:157
 #: ../source/specifications/inline-script-metadata.rst:123
@@ -20661,12 +20724,12 @@ msgid ""
 "Group to stdout, newline delimited. The output is therefore valid "
 "``requirements.txt`` data."
 msgstr ""
+"次に示す参照実装は依存関係グループの内容を改行で区切って標準出力に書き出しま"
+"す。その出力は、従って、正当な ``requiurements.txt`` データです。"
 
 #: ../source/specifications/dependency-groups.rst:252
-#, fuzzy
-#| msgid "November 2015: This specification was approved through :pep:`508`."
 msgid "October 2024: This specification was approved through :pep:`735`."
-msgstr "2015年11月: :pep:`508` を通じてこの仕様が承認されました。"
+msgstr "2024年10月: :pep:`735` を通じてこの仕様が承認されました。"
 
 #: ../source/specifications/dependency-specifiers.rst:7
 msgid "Dependency specifiers"
@@ -20948,17 +21011,6 @@ msgstr ""
 "`426` に記述されたデザインに見られるいくつかの問題点を修正しています。"
 
 #: ../source/specifications/dependency-specifiers.rst:199
-#, fuzzy
-#| msgid ""
-#| "Comparisons in marker expressions are typed by the comparison operator.  "
-#| "The <marker_op> operators that are not in <version_cmp> perform the same "
-#| "as they do for strings in Python. The <version_cmp> operators use the "
-#| "version comparison rules of the :ref:`Version specifier specification "
-#| "<version-specifiers>` when those are defined (that is when both sides "
-#| "have a valid version specifier). If there is no defined behaviour of this "
-#| "specification and the operator exists in Python, then the operator falls "
-#| "back to the Python behaviour. Otherwise an error should be raised. e.g. "
-#| "the following will result in  errors::"
 msgid ""
 "Comparisons in marker expressions are typed by the comparison operator and "
 "the type of the marker value. The <marker_op> operators that are not in "
@@ -20972,14 +21024,17 @@ msgid ""
 "involved. Otherwise an error should be raised. e.g. the following will "
 "result in errors::"
 msgstr ""
-"マーカ表現の比較は比較演算子によって分類されます。 <version_cmp> の中に入って"
-"いない <marker_op> 演算子は、 Python における文字列でのそれと同様に動作しま"
-"す。 <version_cmp> 演算子は、定義されている場合 (つまり両側に正当はバージョン"
-"指定子を伴う場合) には、 :ref:`バージョン指定子仕様 <version-specifiers>` の"
-"バージョン比較規則を採用しています。演算子の動作がこの仕様で定義されておら"
-"ず、かつ、その演算子が Python に存在する場合には、当該演算子は Python での動"
-"作にフォールバックします。そうでない場合にはエラーを発生させるべきです。例え"
-"ば、次の表現はエラーを発生させる結果となるでしょう::"
+"マーカ表現の比較は比較演算子とマーカ値の型によって分類されます。 "
+"<version_cmp> の中に入っていない <marker_op> "
+"演算子は、マーカ値それ自身が文字列であるか集合であるかに基づいて、 Python "
+"における文字列または集合 <sets> でのそれと同様に動作します。 <version_cmp> "
+"演算子は、定義されている場合 (つまり両側に正当はバージョン指定子を伴う場合) "
+"には、 :ref:`バージョン指定子仕様 <version-specifiers>` "
+"のバージョン比較規則を採用しています。演算子の動作がこの仕様で定義されておら"
+"ず、かつ、その演算子が Python に存在する場合には、当該演算子は該当する型の "
+"Python "
+"での動作にフォールバックします。そうでない場合にはエラーを発生させるべきです"
+"。例えば、次の表現はエラーを発生させる結果となるでしょう::"
 
 #: ../source/specifications/dependency-specifiers.rst:213
 msgid ""
@@ -21052,6 +21107,11 @@ msgid ""
 "installing from a lock file. Outside of the context of lock files, these two "
 "variables should result in an error like all other unknown variables."
 msgstr ""
+"変数の \"extras\" と \"dependency_groups\" もまた特別なものです。これらは、"
+"ロックファイル <lock file> からインストールする際に、要求される追加物 "
+"<extras> や依存関係グループ <dependency groups> "
+"を指定するために使われます。ロックファイルの文脈の範囲の外では、他のすべての"
+"未知変数と同様に、これら２個の変数はエラーになるべきです。"
 
 #: ../source/specifications/dependency-specifiers.rst:247
 msgid "Marker"
@@ -21063,7 +21123,7 @@ msgstr "Python 同等物"
 
 #: ../source/specifications/dependency-specifiers.rst:249
 msgid "Type"
-msgstr ""
+msgstr "種類"
 
 #: ../source/specifications/dependency-specifiers.rst:250
 msgid "Sample values"
@@ -21087,7 +21147,7 @@ msgstr ":py:data:`os.name`"
 #: ../source/specifications/dependency-specifiers.rst:292
 #: ../source/specifications/dependency-specifiers.rst:301
 msgid "String"
-msgstr ""
+msgstr "文字列"
 
 #: ../source/specifications/dependency-specifiers.rst:254
 msgid "``posix``, ``java``"
@@ -21187,10 +21247,8 @@ msgstr "``'.'.join(platform.python_version_tuple()[:2])``"
 #: ../source/specifications/dependency-specifiers.rst:284
 #: ../source/specifications/dependency-specifiers.rst:288
 #: ../source/specifications/dependency-specifiers.rst:296
-#, fuzzy
-#| msgid "Version specifiers"
 msgid ":ref:`Version <version-specifiers>`"
-msgstr "バージョン指定子"
+msgstr ":ref:`バージョン <version-specifiers>`"
 
 #: ../source/specifications/dependency-specifiers.rst:285
 msgid "``3.4``, ``2.7``"
@@ -21241,38 +21299,30 @@ msgid ""
 msgstr "仕様を通訳する文脈で定義された場合を除くエラー。"
 
 #: ../source/specifications/dependency-specifiers.rst:302
-#, fuzzy
-#| msgid "pyproject.toml"
 msgid "``toml``"
-msgstr "pyproject.toml"
+msgstr "``toml``"
 
 #: ../source/specifications/dependency-specifiers.rst:303
 #: ../source/specifications/pylock-toml.rst:108
-#, fuzzy
-#| msgid "``extra``"
 msgid "``extras``"
-msgstr "``extra``"
+msgstr "``extras``"
 
 #: ../source/specifications/dependency-specifiers.rst:306
 #: ../source/specifications/dependency-specifiers.rst:311
 msgid "Set of strings"
-msgstr ""
+msgstr "文字列の集合"
 
 #: ../source/specifications/dependency-specifiers.rst:307
 msgid "``{\"toml\"}``"
-msgstr ""
+msgstr "``{\"toml\"}``"
 
 #: ../source/specifications/dependency-specifiers.rst:308
-#, fuzzy
-#| msgid "``dependencies``"
 msgid "``dependency_groups``"
-msgstr "``依存関係 <dependencies``"
+msgstr "``dependency_groups``"
 
 #: ../source/specifications/dependency-specifiers.rst:312
-#, fuzzy
-#| msgid "``test``"
 msgid "``{\"test\"}``"
-msgstr "``test``"
+msgstr "``{\"test\"}``"
 
 #: ../source/specifications/dependency-specifiers.rst:314
 msgid ""
@@ -21325,12 +21375,17 @@ msgid ""
 "commas, matching with the behavior of the Python implementation that has "
 "been in use since late 2022."
 msgstr ""
+"2024年6月: 2022年遅くから使われるようになった Python "
+"実装の動作に合致するように、末尾のカンマを許容する形に ``version_many`` "
+"の定義が変更された。"
 
 #: ../source/specifications/dependency-specifiers.rst:527
 msgid ""
 "April 2025: Added ``extras`` and ``dependency_groups`` for :ref:`lock-file-"
 "spec` as approved through :pep:`751`."
 msgstr ""
+"2025年4月: :ref:`lock-file-spec` に ``extras`` と ``dependency_groups`` "
+"を追加することが :pep:`751` を通じて承認された。"
 
 #: ../source/specifications/dependency-specifiers.rst:529
 #: ../source/specifications/name-normalization.rst:56
@@ -21339,6 +21394,10 @@ msgid ""
 "field specification (it previously finished with ``$`` instead of ``\\Z``, "
 "incorrectly permitting trailing newlines)"
 msgstr ""
+"2025年8月: "
+"フィールドの仕様と合致させるために示唆されていた名称正当性確認用正規表現が決"
+"定された (以前は ``\\Z`` の代わりに ``$`` で終端していたので、"
+"誤って後続する行末コード <newlines> を許容していた)"
 
 #: ../source/specifications/dependency-specifiers.rst:537
 msgid ""
@@ -21561,7 +21620,7 @@ msgstr ""
 
 #: ../source/specifications/direct-url-data-structure.rst:35
 msgid "Security Considerations"
-msgstr ""
+msgstr "セキュリティ上の配慮"
 
 #: ../source/specifications/direct-url-data-structure.rst:37
 msgid ""
@@ -21580,19 +21639,15 @@ msgstr ""
 "で、環境変数から構成しても構いません:"
 
 #: ../source/specifications/direct-url-data-structure.rst:48
-#, fuzzy
-#| msgid ""
-#| "Additionally, the user:password section of the URL MAY be a well-known, "
-#| "non security sensitive string. A typical example is ``git`` in the case "
-#| "of an URL such as ``ssh://git@gitlab.com/user/repo``."
 msgid ""
 "Additionally, the user:password section of the URL MAY be a well-known, non "
 "security sensitive string. A typical example is ``git`` in the case of a URL "
 "such as ``ssh://git@gitlab.com/user/repo``."
 msgstr ""
-"さらに、 URL の user:password 部分は、広く知られたセキュリティ的に問題のない"
-"文字列であっても構いません。典型的な例としては、 ``ssh://git@gitlab.com/user/"
-"repo`` のような URL における ``git`` を挙げることができます。"
+"さらに、 URL の user:password "
+"部分は、広く知られたセキュリティ的に問題のない文字列であっても構いません。典"
+"型的な例としては、 ``ssh://git@gitlab.com/user/repo`` のような URL における "
+"``git`` を挙げることができます。"
 
 #: ../source/specifications/direct-url-data-structure.rst:55
 msgid "VCS URLs"
@@ -22729,20 +22784,20 @@ msgstr ""
 "使うべきです。"
 
 #: ../source/specifications/externally-managed-environments.rst:206
-#, fuzzy
-#| msgid ""
-#| "Software distributors who have a non-Python-specific package manager that "
-#| "manages libraries in the ``sys.path`` of their Python package should, in "
-#| "general, ship a ``EXTERNALLY-MANAGED`` file in their standard library "
-#| "directory. For instance, Debian may ship a file in ``/usr/lib/python3.9/"
-#| "EXTERNALLY-MANAGED`` consisting of something like"
 msgid ""
 "Software distributors who have a non-Python-specific package manager that "
 "manages libraries in the ``sys.path`` of their Python package should, in "
 "general, ship an ``EXTERNALLY-MANAGED`` file in their standard library "
 "directory. For instance, Debian may ship a file in ``/usr/lib/python3.9/"
 "EXTERNALLY-MANAGED`` consisting of something like"
-msgstr "Python 特有のものではないパッケージマネージャを持つソフトウェア配布者"
+msgstr ""
+"Python 特有のものではないパッケージマネージャで、 Python パッケージの "
+"``sys.path`` "
+"内にあるライブラリを管理するものを持っているソフトウェア配布者は、一般的に、"
+"標準ライブラリのディレクトリに ``EXTERNALLY-MANAGED`` "
+"ファイルを置いた状態で出荷するべきです。例えば、 Debian では、"
+"次に示すような何かで構成された ``/usr/lib/python3.9/EXTERNALLY-MANAGED`` "
+"ファイルを同梱して出荷しても構いません。"
 
 #: ../source/specifications/externally-managed-environments.rst:230
 msgid ""
@@ -23217,14 +23272,11 @@ msgstr "2022年6月: :pep:`668` を通じてこの仕様が承認されました
 
 #: ../source/specifications/file-yanking.rst:5
 msgid "File Yanking"
-msgstr ""
+msgstr "ファイルのヤンク <Yanking>"
 
 #: ../source/specifications/file-yanking.rst:9
-#, fuzzy
-#| msgid ""
-#| "This specification was originally defined in :pep:`518` and :pep:`621`."
 msgid "This specification was originally defined in :pep:`592`."
-msgstr "この仕様は、元々は :pep:`518` 及び :pep:`621` で定義されました。"
+msgstr "この仕様は、元々は :pep:`592` で定義されました。"
 
 #: ../source/specifications/file-yanking.rst:14
 msgid ""
@@ -23233,6 +23285,11 @@ msgid ""
 "Project Detail <simple-repository-html-project-detail>` and :ref:`JSON - "
 "Project Detail <simple-repository-json-project-detail>`."
 msgstr ""
+":pep:`592` は、 HTML と JSON のインデックス API "
+"への変更を含んでいます。これらの変更は、 :ref:`HTML - プロジェクトの詳細 "
+"<simple-repository-html-project-detail>` と :ref:`JSON - プロジェクトの詳細 "
+"<simple-repository-json-project-detail>` の下で :ref:`simple-repository-api` "
+"で文書化されています。"
 
 #: ../source/specifications/file-yanking.rst:22
 msgid ""
@@ -23397,7 +23454,7 @@ msgstr ""
 
 #: ../source/specifications/glob-patterns.rst:3
 msgid "``glob`` patterns"
-msgstr ""
+msgstr "``glob`` のパターン"
 
 #: ../source/specifications/glob-patterns.rst:5
 msgid ""
@@ -23407,22 +23464,32 @@ msgid ""
 "and directories. This specification defines which patterns are acceptable "
 "and how they should be handled."
 msgstr ""
+"PyPA 仕様のいくつか、例えば :ref:`pyproject.toml の license-files <pyproject-"
+"toml-license-files>` "
+"は、あるワイルドカードや文字範囲を含む文字列をファイル名やディレクトリ名にマ"
+"ッチさせるために、ある種の *glob パターン* "
+"を受け付けます。この仕様では、どのようなパターンが受け入れ可能であるのか、や"
+"、それらがどのように扱われるべきか、を定義します。"
 
 #: ../source/specifications/glob-patterns.rst:13
 msgid "Valid glob patterns"
-msgstr ""
+msgstr "正当な glob パターン"
 
 #: ../source/specifications/glob-patterns.rst:15
 msgid ""
 "For PyPA purposes, a *valid glob pattern* MUST be a string matched against "
 "filesystem entries as specified below:"
 msgstr ""
+"PyPA の目的 <purposes> には、 *正当な glob パターン* "
+"は、以下に指定する通り、ファイルシステム上のエンティティに対して合致する文字"
+"列でなければなりません。"
 
 #: ../source/specifications/glob-patterns.rst:18
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
 "``) MUST be matched verbatim."
-msgstr ""
+msgstr "英数字、アンダースコア (``_``) 、ハイフン (``-``) およびドット (``.``) "
+"は、文字通りにマッチされなければなりません。"
 
 #: ../source/specifications/glob-patterns.rst:21
 msgid ""
@@ -23432,10 +23499,16 @@ msgid ""
 "based on Unicode code points). Hyphens at the start or end are matched "
 "literally."
 msgstr ""
+"glob の特殊文字: ``*`` 、 ``?`` 、 ``**`` 、および、文字範囲: "
+"文字通りにマッチさせる文字を含む ``[]`` "
+"がサポートされていなければなりません。 ``[...]`` の中では、ハイフンは、"
+"ロケールに依存しない範囲 (例えば、 Unicode "
+"のコードポイントに基づく順序を備えた ``a-z``) "
+"を示します。先頭または末尾のハイフンは文字通りにマッチします。"
 
 #: ../source/specifications/glob-patterns.rst:27
 msgid "Path delimiters MUST be the forward slash character (``/``)."
-msgstr ""
+msgstr "パスの区切り文字は、フォワードスラッシュ文字 (``/``) でなければなりません。"
 
 #: ../source/specifications/glob-patterns.rst:29
 msgid ""
@@ -23443,10 +23516,13 @@ msgid ""
 "`pyproject.toml`, patterns should always be relative to the directory "
 "containing that file. Therefore the leading slash character MUST NOT be used."
 msgstr ""
+"パターンは常に *相対パス* で参照され、例えば、 :file:`pyproject.toml` "
+"内で使われるときには、パターンは常にそのファイルを含むディレクトリに対する相"
+"対パスであるべきです。したがって、先頭のスラッシュ文字は使ってはなりません。"
 
 #: ../source/specifications/glob-patterns.rst:34
 msgid "Parent directory indicators (``..``) MUST NOT be used."
-msgstr ""
+msgstr "親ディレクトリ指示子 (``..``) を使ってはなりません。"
 
 #: ../source/specifications/glob-patterns.rst:36
 msgid ""
@@ -23454,42 +23530,47 @@ msgid ""
 "invalid. Projects MUST NOT use such values. Tools consuming glob patterns "
 "SHOULD reject invalid values with an error."
 msgstr ""
+"この仕様でカバーされていない文字または文字の並びは、すべて不当なものです。プ"
+"ロジェクトは、そのような値を使用してはなりません。glob パターンを消費する "
+"<consuming> ツール類は、不当な値をエラーと共に拒絶するべきです。"
 
 #: ../source/specifications/glob-patterns.rst:40
 msgid ""
 "Literal paths (e.g. :file:`LICENSE`) are valid globs which means they can "
 "also be defined."
-msgstr ""
+msgstr "リテラルのパス (例えば :file:`LICENSE`) は正当な glob "
+"で、これも定義できるということになります。"
 
 #: ../source/specifications/glob-patterns.rst:43
 msgid "Tools consuming glob patterns:"
-msgstr ""
+msgstr "glob パターンを消費するツール群:"
 
 #: ../source/specifications/glob-patterns.rst:45
 msgid ""
 "MUST treat each value as a glob pattern, and MUST raise an error if the "
 "pattern contains invalid glob syntax."
 msgstr ""
+"それぞれの値を glob パターンであるものとして取り扱わなければならず、また、"
+"パターンが不当な glob 文法を含んでいればエラーを発生させなければなりません。"
 
 #: ../source/specifications/glob-patterns.rst:47
 msgid ""
 "MUST raise an error if any individual user-specified pattern does not match "
 "at least one file."
-msgstr ""
+msgstr "個々のユーザ指定のパターンに合致するファイルが一つもない時は、エラーを発生さ"
+"せなければなりません。"
 
 #: ../source/specifications/glob-patterns.rst:50
 msgid "Examples of valid glob patterns:"
-msgstr ""
+msgstr "正当な glob パターンの例:"
 
 #: ../source/specifications/glob-patterns.rst:61
 msgid "Examples of invalid glob patterns:"
-msgstr ""
+msgstr "不当な glob パターンの例:"
 
 #: ../source/specifications/glob-patterns.rst:74
-#, fuzzy
-#| msgid "Reference Implementation"
 msgid "Reference implementation in Python"
-msgstr "参照実装"
+msgstr "Python における参照実装"
 
 #: ../source/specifications/glob-patterns.rst:76
 msgid ""
@@ -23497,10 +23578,14 @@ msgid ""
 "file system to the :mod:`glob` module in Python's standard library. It is "
 "necessary however to perform additional validations."
 msgstr ""
+"ファイルシステムに対するパターンマッチングの大部分を Python "
+"の標準ライブラリの :mod:`glob` "
+"モジュールに引き渡すことは可能です。しかしながら、追加の正当性確認を実行する"
+"ことが必要です。"
 
 #: ../source/specifications/glob-patterns.rst:80
 msgid "The code below is as a simple reference implementation:"
-msgstr ""
+msgstr "下に示すソースコードは、単純な参照実装としてのものです:"
 
 #: ../source/specifications/index.rst:4
 msgid "PyPA specifications"
@@ -23520,7 +23605,7 @@ msgstr ""
 
 #: ../source/specifications/index-hosted-attestations.rst:6
 msgid "Index hosted attestations"
-msgstr ""
+msgstr "インデックスにホストされた証明 <Index hosted attestations>"
 
 #: ../source/specifications/index-hosted-attestations.rst:8
 msgid "This specification was originally defined in :pep:`740`."
@@ -23532,10 +23617,13 @@ msgid ""
 "are documented in the :ref:`simple-repository-api` under :ref:`simple-"
 "repository-api-base` and :ref:`json-serialization`."
 msgstr ""
+":pep:`740` は、 HTML と JSON のインデックス API に対する変更を含みます。これ"
+"らの変更は、 :ref:`simple-repository-api-base` の下の :ref:`simple-"
+"repository-api` や :ref:`json-serialization` の中で文書化されています。"
 
 #: ../source/specifications/index-hosted-attestations.rst:22
 msgid "Upload endpoint changes"
-msgstr ""
+msgstr "エンドポイントの変更をアップロードする"
 
 #: ../source/specifications/index-hosted-attestations.rst:26
 msgid ""
@@ -23543,12 +23631,13 @@ msgid ""
 "documentation <https://docs.pypi.org/api/upload/>`_ for how attestations are "
 "uploaded."
 msgstr ""
+"\"レガシー <legacy>\" なアップロード API は標準化されていません。どのように証"
+"明がアップロードされるのかについては、 `PyPI のアップロード API に関するドキ"
+"ュメント <https://docs.pypi.org/api/upload/>`_ を見てください。"
 
 #: ../source/specifications/index-hosted-attestations.rst:33
-#, fuzzy
-#| msgid "Existing projects"
 msgid "Attestation objects"
-msgstr "既存のプロジェクト"
+msgstr "証明オブジェクト"
 
 #: ../source/specifications/index-hosted-attestations.rst:35
 msgid ""
@@ -23557,6 +23646,10 @@ msgid ""
 "explicitly listed keys are provided. The required layout of an attestation "
 "object is provided as pseudocode below."
 msgstr ""
+"証明書 <attestation> オブジェクトは、いくつかの必須のキーを伴う JSON オブジェ"
+"クトです; アプリケーションや署名者は、すべての明示的に列挙されたキーが提供さ"
+"れている限りは追加のキーを含めておいても構いません。証明書 <attestation> に要"
+"求されるレイアウトは、下記の仮想ソースコードの形で提供されています。"
 
 #: ../source/specifications/index-hosted-attestations.rst:88
 msgid ""
@@ -23566,6 +23659,12 @@ msgid ""
 "sources of signed time (such as an :rfc:`3161` Time Stamping Authority or a "
 "`Roughtime <https://blog.cloudflare.com/roughtime>`__ server)."
 msgstr ""
+"``transparency_entries`` 内の各オブジェクト向けの完全なデータモデルは、 "
+":ref:`付属書 <appendix>` で提供されています。証明書 <attestation> オブジェク"
+"トは、一つ以上の透明ログエントリを含む **べき** であり、 (:rfc:`3161` タイム"
+"スタンプ局 <Time Stamping Authority> や `Roughtime <https://"
+"blog.cloudflare.com/roughtime>`__ のような) 署名された時刻の他の情報源用の追"
+"加的なキーを含んでいても **構いません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:94
 msgid ""
@@ -23573,34 +23672,44 @@ msgid ""
 "version is tied to a single cryptographic suite to minimize unnecessary "
 "cryptographic agility. In version 1, the suite is as follows:"
 msgstr ""
+"証明書 <attestation> オブジェクトはバージョン付けされています; この PEP はバ"
+"ージョン 1 を指定しています。各バージョンは、不必要な暗号学的動揺を最低限に抑"
+"えるために、単一の暗号スイートに紐づけられます。バージョン 1 では、スイートは"
+"次のようなものです:"
 
 #: ../source/specifications/index-hosted-attestations.rst:98
 msgid ""
 "Certificates are specified as X.509 certificates, and comply with the "
 "profile in :rfc:`5280`."
-msgstr ""
+msgstr "証明書は X.509 の証明書であるものとして指定されていて、 :rfc:`5280` のプロフ"
+"ァイルを満足させます。"
 
 #: ../source/specifications/index-hosted-attestations.rst:100
 msgid ""
 "The message signature algorithm is ECDSA, with the P-256 curve for public "
 "keys and SHA-256 as the cryptographic digest function."
-msgstr ""
+msgstr "メッセージ署名のアルゴリズムは、公開鍵向けの P-256 曲線暗号と暗号学的ダイジェ"
+"スト関数の SHA-256 を伴った ECDSA です。"
 
 #: ../source/specifications/index-hosted-attestations.rst:103
 msgid ""
 "Future PEPs may change this suite (and the overall shape of the attestation "
 "object) by selecting a new version number."
 msgstr ""
+"将来の PEP では、新しいバージョン番号を選択することで、このスイート (および、"
+"証明書 <attestation> オブジェクトの全体の形式) を変更するかもしれません。"
 
 #: ../source/specifications/index-hosted-attestations.rst:109
 msgid "Attestation statement and signature generation"
-msgstr ""
+msgstr "証明書 <attestation> ステートメントと署名生成"
 
 #: ../source/specifications/index-hosted-attestations.rst:111
 msgid ""
 "The *attestation statement* is the actual claim that is cryptographically "
 "signed over within the attestation object (i.e., the ``envelope.statement``)."
 msgstr ""
+"*証明書 <attestation> ステートメント* は、証明書オブジェクト (つまり、 ``enve"
+"lope.statement``) の内部で暗号学的に署名されているという宣言です。"
 
 #: ../source/specifications/index-hosted-attestations.rst:114
 msgid ""
@@ -23609,16 +23718,22 @@ msgid ""
 "md>`__, in JSON form. When serialized the statement is treated as an opaque "
 "binary blob, avoiding the need for canonicalization."
 msgstr ""
+"証明書ステートメントは、 JSON 形式で `v1 in-toto ステートメントオブジェクト "
+"<https://github.com/in-toto/attestation/blob/v1.0/spec/v1.0/statement.md>`__ "
+"として符号化されています。シリアライズされると、このステートメントは、正規化"
+"の必要を避けて不透明 <opaque> なバイナリの blob として取り扱われます。"
 
 #: ../source/specifications/index-hosted-attestations.rst:119
 msgid ""
 "In addition to being a v1 in-toto Statement, the attestation statement is "
 "constrained in the following ways:"
-msgstr ""
+msgstr "v1 in-toto ステートメントであることに加えて、証明書ステートメントは次のような"
+"制約を受けます:"
 
 #: ../source/specifications/index-hosted-attestations.rst:122
 msgid "The in-toto ``subject`` **MUST** contain only a single subject."
-msgstr ""
+msgstr "in-toto ``subject`` は、ただひとつのサブジェクトを含んでいなければ **なりませ"
+"ん** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:123
 msgid ""
@@ -23626,6 +23741,9 @@ msgid ""
 "valid :ref:`source distribution <source-distribution-format>` or :ref:`wheel "
 "distribution <binary-distribution-format>` filename."
 msgstr ""
+"``subject[0].name`` は配布物のファイル名で、正当な :ref:`ソースコード配布物 "
+"<source-distribution-format>` か :ref:`wheel 配布物 <binary-distribution-"
+"format>` のファイル名で **なければなりません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:126
 msgid ""
@@ -23633,22 +23751,29 @@ msgid ""
 "**MAY** be present. The digests **MUST** be represented as hexadecimal "
 "strings."
 msgstr ""
+"``subject[0].digest`` は、 SHA-256 ダイジェストを含んでいなければ **なりませ"
+"ん** 。他のダイジェストがあっても **構いません** 。ダイジェストは、16進数の文"
+"字列として表現されていなければ **なりません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:128
 msgid "The following ``predicateType`` values are supported:"
-msgstr ""
+msgstr "次のような ``predicateType`` の値がサポートされています:"
 
 #: ../source/specifications/index-hosted-attestations.rst:130
 msgid ""
 "`SLSA Provenance <https://slsa.dev/provenance/v1>`__: ``https://slsa.dev/"
 "provenance/v1``"
 msgstr ""
+"`SLSA の起源 <https://slsa.dev/provenance/v1>`__: ``https://slsa.dev/"
+"provenance/v1``"
 
 #: ../source/specifications/index-hosted-attestations.rst:131
 msgid ""
 "`PyPI Publish Attestation <https://docs.pypi.org/attestations/publish/"
 "v1>`__: ``https://docs.pypi.org/attestations/publish/v1``"
 msgstr ""
+"`PyPI 公開証明書 <https://docs.pypi.org/attestations/publish/v1>`__: "
+"``https://docs.pypi.org/attestations/publish/v1``"
 
 #: ../source/specifications/index-hosted-attestations.rst:133
 msgid ""
@@ -23658,32 +23783,45 @@ msgid ""
 "and a ``PAYLOAD_BODY`` of the JSON-encoded statement above. No other "
 "``PAYLOAD_TYPE`` is permitted."
 msgstr ""
+"このステートメントに対する署名は、 ``application/vnd.in-toto+json`` の "
+"``PAYLOAD_TYPE`` と JSON にエンコードされた上記のステートメントを使った `v1 "
+"DSSE 署名プロトコル <https://github.com/secure-systems-lab/dsse/blob/v1.0.0/"
+"protocol.md>`__ で構築されます。これ以外の ``PAYLOAD_TYPE`` は許されていませ"
+"ん。"
 
 #: ../source/specifications/index-hosted-attestations.rst:141
 msgid "Provenance objects"
-msgstr ""
+msgstr "起源オブジェクト"
 
 #: ../source/specifications/index-hosted-attestations.rst:143
 msgid ""
 "The index will serve uploaded attestations along with metadata that can "
 "assist in verifying them in the form of JSON serialized objects."
 msgstr ""
+"インデックスは、シリアライズされた JSONオブジェクトの形式で検証することを助け"
+"ることができるメタデータと共に、アップロードされた証明書を提供することでしょ"
+"う。"
 
 #: ../source/specifications/index-hosted-attestations.rst:146
 msgid ""
 "These *provenance objects* will be available via both the Simple Index and "
 "JSON-based Simple API as described above, and will have the following layout:"
 msgstr ""
+"これらの *起源オブジェクト* は、上述の通り、 シンプルインデックス <Simple "
+"Index> と、 JSON ベースのシンプル API の両方を通じて利用することができるでし"
+"ょうし、以下のレイアウトを持っていることでしょう。"
 
 #: ../source/specifications/index-hosted-attestations.rst:169
 msgid "or, as pseudocode:"
-msgstr ""
+msgstr "あるいは、仮想ソースコードとして:"
 
 #: ../source/specifications/index-hosted-attestations.rst:217
 msgid ""
 "``version`` is ``1``. Like attestation objects, provenance objects are "
 "versioned, and this PEP only defines version ``1``."
 msgstr ""
+"``version`` は ``1`` です。証明書オブジェクトと似て、起源オブジェクトはバージ"
+"ョン付けされていて、この PEP ではバージョン ``1`` だけを定義しています。"
 
 #: ../source/specifications/index-hosted-attestations.rst:219
 msgid ""
@@ -23692,18 +23830,26 @@ msgid ""
 "(such as a Trusted Publishing identity), and contains one or more "
 "attestation objects."
 msgstr ""
+"``attestation_bundles`` は、証明書 <attestation> の \"バンドル <bundle>\" を"
+"ひとつ以上含む形で JSON 配列に存在するように **要求されて** います。それぞれ"
+"のバンドルは、 (信頼ある公開 <Trusted Publishing> のアイデンティティのような)"
+" 署名側のアイデンティティに対応し、証明書オブジェクトを一つ以上含みます。"
 
 #: ../source/specifications/index-hosted-attestations.rst:224
 msgid ""
 "As noted in the ``Publisher`` model, each ``AttestationBundle.publisher`` "
 "object is specific to its Trusted Publisher but must include at minimum:"
 msgstr ""
+"``Publisher`` モデルの中で註記されたように、 ``AttestationBundle.publisher`` "
+"オブジェクトは、それぞれ、その信頼された公開者 <Trusted Publisher> に特有のも"
+"ので、少なくとも以下のものを含まなければなりません:"
 
 #: ../source/specifications/index-hosted-attestations.rst:228
 msgid ""
 "A ``kind`` key, which **MUST** be a JSON string that uniquely identifies the "
 "kind of Trusted Publisher."
-msgstr ""
+msgstr "``kind`` キー、これは、信頼された公開者の種類を一意に特定する JSON 文字列で *"
+"*なければなりません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:230
 msgid ""
@@ -23711,6 +23857,9 @@ msgid ""
 "specific claims retained by the index during Trusted Publisher "
 "authentication."
 msgstr ""
+"``claims`` キー、これは、信頼された公開者の認証の際にインデックスが記録したコ"
+"ンテキストに特有の主張 <claims> を含む JSON オブジェクトで **なければなりませ"
+"ん** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:233
 msgid "All other keys in the publisher object are publisher-specific."
