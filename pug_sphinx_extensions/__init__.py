@@ -1,4 +1,5 @@
 import os
+import pathlib
 import urllib
 
 import sphinx.application
@@ -52,9 +53,12 @@ def resolve_local_html_link(app: sphinx.application.Sphinx, url_path: str) -> st
 def rewrite_local_uri(app: sphinx.application.Sphinx, uri: str) -> str:
     """Replace remote URIs targeting https://packaging.python.org/en/latest/...
     with local ones, so that local changes are taken into account by linkcheck.
+
+    Additionally, resolve local relative links to html_extra_path.
     """
     local_uri = uri
     parsed = urllib.parse.urlparse(uri)
+    # Links to https://packaging.python.org/en/latest/...
     if parsed.hostname == DOMAIN and parsed.path.startswith("/en/latest/"):
         document = parsed.path.removeprefix("/en/latest/")
         local_uri = resolve_local_html_link(app, document)
@@ -64,6 +68,12 @@ def rewrite_local_uri(app: sphinx.application.Sphinx, uri: str) -> str:
             "into account (pass -vv for more info)"
         )
         logger.debug(f"Replacing linkcheck URL {uri!r} with {local_uri!r}")
+    # Local relative links
+    if not parsed.scheme and not parsed.netloc and parsed.path:
+        full_path = pathlib.Path(app.env.docname).parent / parsed.path
+        local_uri = resolve_local_html_link(app, os.fspath(full_path))
+        if local_uri != uri:
+            logger.verbose(f"Local linkcheck URL {uri!r} resolved as {local_uri!r}")
     return local_uri
 
 
