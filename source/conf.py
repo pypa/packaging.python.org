@@ -2,6 +2,11 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 import os
+import pathlib
+import sys
+
+_ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.append(os.fspath(_ROOT))
 
 # Some options are only enabled for the main packaging.python.org deployment builds
 RTD_BUILD = bool(os.getenv("READTHEDOCS"))
@@ -22,6 +27,7 @@ author = "Python Packaging Authority"
 root_doc = "index"
 
 extensions = [
+    "pug_sphinx_extensions",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
@@ -133,7 +139,6 @@ texinfo_documents = [
 
 linkcheck_ignore = [
     r"http://localhost:\d+",
-    r"https://packaging\.python\.org/en/latest/specifications/schemas/.*",
     r"https://test\.pypi\.org/project/example-package-YOUR-USERNAME-HERE",
     r"https://pypi\.org/manage/.*",
     r"https://test\.pypi\.org/manage/.*",
@@ -161,9 +166,6 @@ linkcheck_anchors_ignore_for_url = [
     # While PyPI has its botscraping defenses active, Sphinx can't resolve the anchors
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
-]
-linkcheck_exclude_documents = [
-    "specifications/schemas/index",
 ]
 
 # -- Options for extlinks ----------------------------------------------------------
