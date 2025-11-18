@@ -12,10 +12,10 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-10 07:42+0000\n"
-"PO-Revision-Date: 2025-10-10 07:42+0000\n"
+"PO-Revision-Date: 2025-10-16 23:52+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13295,7 +13295,7 @@ msgid ""
 "This lets you declare the minimum version of Python that you support "
 "[#requires-python-upper-bounds]_."
 msgstr ""
-"これによってサポートされている Python の上限のバージョンを宣言することができ"
+"これによってサポートされている Python の下限のバージョンを宣言することができ"
 "ます [#requires-python-upper-bounds]_ 。"
 
 #: ../source/guides/writing-pyproject-toml.rst:197
@@ -19747,6 +19747,11 @@ msgid ""
 "`Wheel`), not the project overall or other files related to the project "
 "(including other distribution archives)."
 msgstr ""
+"このフィールドの表現が、このフィールド (例えば、 :term:`ソースコード配布物 <S"
+"ource Distribution (or \"sdist\")>` や :term:`Wheel`) を伴うメタデータを含む "
+":term:`配布物アーカイブ <Distribution Archive>` にだけ適用されるのであって、"
+"プロジェクト全体やプロジェクトに関係する (他の配布物アーカイブを含む) 他のフ"
+"ァイルことに注意してください。"
 
 #: ../source/specifications/core-metadata.rst:507
 msgid "License-File (multiple use)"
@@ -20366,6 +20371,8 @@ msgid ""
 "October 2025: Clarified that ``License-Expression`` applies to the "
 "containing distribution file and not the project itself."
 msgstr ""
+"2025年10月: ``License-Expression`` は、含まれている配布物のファイルに適用され"
+"るのであって、プロジェクトそれ自体に適用されるものではないことを明確にした。"
 
 #: ../source/specifications/core-metadata.rst:945
 msgid ""
@@ -23898,6 +23905,9 @@ msgid ""
 "Provenance objects are *not* immutable, and may change over time. Reasons "
 "for changes to the provenance object include but are not limited to:"
 msgstr ""
+"起源オブジェクト <Provenance objects> は、変更不可能なものでは *ありません* "
+"し、時間の経過とともに変化しても構いません。起源オブジェクトへの変更の理由は"
+"、次のものを含みますが、これに限るわけではありません:"
 
 #: ../source/specifications/index-hosted-attestations.rst:248
 msgid ""
@@ -23905,6 +23915,10 @@ msgid ""
 "**MAY** choose to allow additional attestations by pre-existing signing "
 "identities, such as newer attestation versions for already uploaded files."
 msgstr ""
+"既存の署名アイデンティティ <signing identity> 用の新しい証明書 <attestation> "
+"の追加: インデックスは、既存の署名アイデンティティによる (既にアップロードさ"
+"れたファイル群よりも新しいバージョンの証明書のような) 追加の証明書を許容する"
+"ことを選択しても **構いません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:253
 msgid ""
@@ -23914,20 +23928,27 @@ msgid ""
 "attestations may be performed asynchronously, requiring the index to insert "
 "them into the provenance object *post facto*."
 msgstr ""
+"新しい署名アイデンティティの追加と関連する証明書: インデックスは、 (第３者の"
+"監査人やインデックスそれ自体のような) ファイルのアップロードを行った主体とは"
+"異なるところからの証明書をサポートすることを選択しても **構いません** 。これ"
+"らの証明書は、インデックスが起源オブジェクトにそれらを *遡求的に* 挿入するこ"
+"とを要求して、非同期的に処理されるでしょう。"
 
 #: ../source/specifications/index-hosted-attestations.rst:262
 msgid "Attestation verification"
-msgstr ""
+msgstr "証明書検証"
 
 #: ../source/specifications/index-hosted-attestations.rst:264
 msgid ""
 "Verifying an attestation object against a distribution file requires "
 "verification of each of the following:"
-msgstr ""
+msgstr "配布物ファイルに対する証明書オブジェクトを検証することは、以下のそれぞれの検"
+"証を要求します:"
 
 #: ../source/specifications/index-hosted-attestations.rst:267
 msgid "``version`` is ``1``. The verifier **MUST** reject any other version."
-msgstr ""
+msgstr "``version`` が ``1`` であること。検証者は他のあらゆるバージョンを拒否しなけれ"
+"ば **なりません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:268
 msgid ""
@@ -23935,6 +23956,9 @@ msgid ""
 "issued by an *a priori* trusted authority (such as a root of trust already "
 "present within the verifying client)."
 msgstr ""
+"``verification_material.certificate`` は、 (検証しているクライアントの中に既"
+"に存在する信頼のルートのような) *天与の <a priori>* 信頼された権威者によって"
+"発行されたもので、正当な署名証明書です。"
 
 #: ../source/specifications/index-hosted-attestations.rst:271
 msgid ""
@@ -23942,6 +23966,8 @@ msgid ""
 "subject, such as the machine identity of the Trusted Publisher that "
 "published the package."
 msgstr ""
+"``verification_material.certificate`` は、パッケージを公開した信頼された公開"
+"者の機械のアイデンティティのような、適切な署名対象を識別します。"
 
 #: ../source/specifications/index-hosted-attestations.rst:274
 msgid ""
@@ -23951,6 +23977,11 @@ msgid ""
 "appropriate source distribution or wheel filename format, as the statement's "
 "subject may be equivalent but normalized."
 msgstr ""
+"``envelope.statement`` は、配布物のファイル名とその内容に合致しなければ **な"
+"らない** 対象 <subject> とダイジェストを伴う、正当な in-toto v1 ステートメン"
+"トです。配布物のファイル名については、ステートメントの対象は同一かもしれませ"
+"んが標準化されたものであるため、適切なソースコード配布物か wheel のファイル名"
+"フォーマットをパースすることで合致検証が行われなければ **なりません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:279
 msgid ""
@@ -23959,6 +23990,10 @@ msgid ""
 "the `v1 DSSE signature protocol <https://github.com/secure-systems-lab/dsse/"
 "blob/v1.0.0/protocol.md>`__."
 msgstr ""
+"``envelope.signature`` は、 `v1 DSSE 署名プロトコル <https://github.com/"
+"secure-systems-lab/dsse/blob/v1.0.0/protocol.md>`__ を通じて再構成されたもの"
+"で、 ``verification_material.certificate`` に関係する ``envelope.statement`` "
+"に対する正当な署名です。"
 
 #: ../source/specifications/index-hosted-attestations.rst:284
 msgid ""
@@ -23969,10 +24004,16 @@ msgid ""
 "inclusion time for each entry lies within the signing certificate's validity "
 "period."
 msgstr ""
+"上記の要求されたステップ群に加えて、検証者は、例えば少なくとも一つの透過ログ"
+"エントリを要求したりエントリ群に対する閾値を設けたりというポリシーに基づいて "
+"``verification_material.transparency_entries`` を追加で検証しても **構いませ"
+"ん** 。透過エントリを検証する時には、検証者は、それぞれのエントリの包括時刻 "
+"<inclusion time> が署名者証明書の有効期間内にあることを確認しなければ **なり"
+"ません** 。"
 
 #: ../source/specifications/index-hosted-attestations.rst:293
 msgid "Appendix: Data models for Transparency Log Entries"
-msgstr ""
+msgstr "補遺: 透過ログエントリのデータモデル"
 
 #: ../source/specifications/index-hosted-attestations.rst:295
 msgid ""
@@ -23980,6 +24021,10 @@ msgid ""
 "in attestation objects. Each transparency log entry serves as a source of "
 "signed inclusion time, and can be verified either online or offline."
 msgstr ""
+"この補遺には、証明書オブジェクト内の透過ログエントリに関する仮想ソースコード"
+"の形でデータモデルが含まれています。それぞれの透過ログエントリは、署名付き包"
+"括時刻 <inclusion time> の源泉として働き、オンラインでもオフラインでも検証す"
+"ることができます。"
 
 #: ../source/specifications/inline-script-metadata.rst:5
 msgid "Inline script metadata"
@@ -24119,19 +24164,14 @@ msgstr ""
 "プションとして ``[tool]`` テーブルを含んでいても構いません。"
 
 #: ../source/specifications/inline-script-metadata.rst:82
-#, fuzzy
-#| msgid ""
-#| "The ``[tool]`` MAY be used by any tool, script runner or otherwise, to "
-#| "configure behavior. It has the same semantics as the :ref:`[tool] table "
-#| "in pyproject.toml <pyproject-tool-table>`."
 msgid ""
 "The ``[tool]`` table MAY be used by any tool, script runner or otherwise, to "
 "configure behavior. It has the same semantics as the :ref:`[tool] table in "
 "pyproject.toml <pyproject-tool-table>`."
 msgstr ""
-"``[tool]`` は、どんなツールでもスクリプトランナーでもその他のものでも、振る舞"
-"いを設定するのに使うことができます。:ref:`pyproject.toml <pyproject-tool-"
-"table> 内の [tool] テーブル` と同一のセマンティクスを持ちます。"
+"``[tool]`` テーブルは、どんなツールでもスクリプトランナーでもその他のものでも"
+"、振る舞いを設定するのに使うことができます。:ref:`pyproject.toml <pyproject-"
+"tool-table> 内の [tool] テーブル` と同一のセマンティクスを持ちます。"
 
 #: ../source/specifications/inline-script-metadata.rst:86
 msgid "The top-level fields are:"
@@ -24248,6 +24288,11 @@ msgid ""
 "Expression field <core-metadata-license-expression>`. This specification "
 "defines which license expressions are acceptable."
 msgstr ""
+":pep:`639` では、 :ref:`pyproject.toml のライセンス <pyproject-toml-license>`"
+" の新しい値を定義していて、対応する :ref:`コアとなるメタデータのライセンス表"
+"現フィールド <core-metadata-license-expression>`:ref:`コアとなるメタデータの"
+"ライセンス表現フィールド <core-metadata-license-expression>` を追加しました。"
+"この仕様は、どのライセンス表現が受け入れ可能であるかを定義しています。"
 
 #: ../source/specifications/license-expression.rst:14
 msgid ""
@@ -24255,10 +24300,14 @@ msgid ""
 "expression <License Expression>`, as documented in the `SPDX specification "
 "<spdxpression_>`__, either Version 2.2 or a later compatible version."
 msgstr ""
+"ライセンスは、バージョン 2.2 もしくはより新しい互換性のあるバージョンの `"
+"SPDX 仕様 <spdxpression_>`__ で文書化されているように、正当な SPDX :term:`ラ"
+"イセンス表現 <License Expression>` であるテキスト文字列として定義することがで"
+"きます。"
 
 #: ../source/specifications/license-expression.rst:19
 msgid "A license expression can use the following license identifiers:"
-msgstr ""
+msgstr "ライセンス表現では、次のようなライセンス識別子を使用することができます:"
 
 #: ../source/specifications/license-expression.rst:21
 msgid ""
@@ -24266,6 +24315,9 @@ msgid ""
 "`SPDX License List <spdxlist_>`__, version 3.17 or any later compatible "
 "version."
 msgstr ""
+"任意の SPDX に列挙された短表現の識別子で、 `SPDX ライセンスリスト "
+"<spdxlist_>`__ のバージョン 3.17 もしくはそれ以降の互換性のあるバージョンで公"
+"開されているもの。"
 
 #: ../source/specifications/license-expression.rst:25
 msgid ""
@@ -24275,16 +24327,18 @@ msgid ""
 "identifiers must follow the SPDX specification, `clause 10.1 "
 "<spdxcustom_>`__ of the given specification version."
 msgstr ""
+"``[idstring]`` をユニークな文字列で文字・数字・ ``.`` ・ ``-`` を含むものとし"
+"た時、カスタムの ``LicenseRef-[idstring]`` は SPDX ライセンスリストに含まれて"
+"いないライセンスを識別するもの。カスタムの識別子は、該当するバージョンの "
+"SPDX 仕様の `10.1 節 <spdxcustom_>`__ に従っていなければなりません。"
 
 #: ../source/specifications/license-expression.rst:32
-#, fuzzy
-#| msgid "Examples of compliant version schemes"
 msgid "Examples of valid license expressions:"
-msgstr "枠組みに合致したバージョン番号の例"
+msgstr "正当なライセンス表現の例:"
 
 #: ../source/specifications/license-expression.rst:45
 msgid "Examples of invalid license expressions:"
-msgstr ""
+msgstr "不当なライセンス表現の例:"
 
 #: ../source/specifications/name-normalization.rst:3
 msgid "Names and normalization"
@@ -24614,14 +24668,6 @@ msgstr ""
 "ビューションのほとんどで使えるようにすることができます。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:112
-#, fuzzy
-#| msgid ""
-#| "The current standard is the future-proof ``manylinux_x_y`` standard. It "
-#| "defines tags of the form ``manylinux_x_y_arch``, where ``x`` and ``y`` "
-#| "are glibc major and minor versions supported (e.g. ``manylinux_2_24_xxx`` "
-#| "should work on any distro using glibc 2.24+), and ``arch`` is the "
-#| "architecture, matching the value of :py:func:`sysconfig.get_platform()` "
-#| "on the system as in the \"simple\" form above."
 msgid ""
 "The current standard is the future-proof :file:`manylinux_{x}_{y}` standard. "
 "It defines tags of the form :file:`manylinux_{x}_{y}_{arch}`, where ``x`` "
@@ -24630,11 +24676,11 @@ msgid ""
 "``arch`` is the architecture, matching the value of :py:func:`sysconfig."
 "get_platform()` on the system as in the \"simple\" form above."
 msgstr ""
-"現在の標準は、将来性が約束された ``manylinux_x_y`` 標準です。 "
-"``manylinux_x_y_arch`` の形でタグを定義していて、 ``x`` と ``y`` には glibc "
-"のメジャーバージョンとマイナーバージョンがサポート (例えば "
-"``manylinux_2_24_xxx`` であれば、 glibc 2.24+ を使うディストロならどれでも動"
-"作するはず) されており、 ``arch`` はアーキテクチャで、上記の \"simple\" 形式"
+"現在の標準は、将来性が約束された :file:`manylinux_{x}_{y}` 標準です。 "
+":file:`manylinux_{x}_{y}_{arch}` の形でタグを定義していて、 ``x`` と ``y`` に"
+"は glibc のメジャーバージョンとマイナーバージョンがサポートされており (例えば"
+" ``manylinux_2_24_xxx`` であれば、 glibc 2.24+ を使うディストロならどれでも動"
+"作するはず)、 ``arch`` はアーキテクチャで、上記の \"simple\" 形式のシステム上"
 "での :py:func:`sysconfig.get_platform()` の値に合致するものです。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:118
@@ -24765,12 +24811,6 @@ msgid "``musllinux``"
 msgstr "``musllinux``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:152
-#, fuzzy
-#| msgid ""
-#| "The ``musllinux`` family of tags is similar to ``manylinux``, but for "
-#| "Linux platforms that use the musl_ libc rather than glibc (a prime "
-#| "example being Alpine Linux). The schema is ``musllinux_x_y_arch``, "
-#| "supporting musl ``x.y`` and higher on the architecture ``arch``."
 msgid ""
 "The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux "
 "platforms that use the musl_ libc rather than glibc (a prime example being "
@@ -24778,9 +24818,10 @@ msgid ""
 "musl ``x.y`` and higher on the architecture ``arch``."
 msgstr ""
 "``musllinux`` ファミリーに含まれるタグは ``manylinux`` に似ていますが、 "
-"glibc ではなくて musl_libc を使う Linux プラットフォーム (最重要な例としては "
-"Alpine Linux) 向けのものです。文法としては ``musllinux_x_y_arch`` で、 musl "
-"``x.y`` およびそれ以降で ``arch`` なるアーキテクチャをサポートします。"
+"glibc ではなくて musl_ libc を使う Linux プラットフォーム (最重要な例としては"
+" Alpine Linux) 向けのものです。文法としては :file:`musllinux_{x}_{y}_{arch}` "
+"で、 musl ``x.y`` およびそれ以降で ``arch`` なるアーキテクチャをサポートしま"
+"す。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:157
 msgid ""
@@ -24810,6 +24851,10 @@ msgid ""
 "compatibility tags is :file:`macosx_{x}_{y}_{arch}`, indicating that the "
 "wheel is compatible with macOS ``x.y`` or later on the architecture ``arch``."
 msgstr ""
+"macOSでは、 ``macosx`` ファミリーのタグを使います (末尾の ``x`` は、 Apple の"
+"公式の macOS 命名規則における歴史的な遺物です) 。互換性タグの文法は "
+":file:`macosx_{x}_{y}_{arch}` で、その wheel が、 macOS ``x.y`` およびそれ以"
+"降で、アーキテクチャが ``arch`` のものと互換性があることを示します。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:202
 msgid ""
@@ -24820,6 +24865,12 @@ msgid ""
 "numbering only refers to the major value. For example, ``macosx_11_0_arm64`` "
 "indicates compatibility with macOS 11 or later."
 msgstr ""
+"``x`` と ``y`` の値は、それぞれ、 macOS のリリースのメジャーとマイナーのバー"
+"ジョン番号に対応します。これらは正の整数でなければならず、 ``x`` の値は "
+"``>=10`` でなければなりません。バージョン番号は、仮に Apple の公式のバージョ"
+"ン番号付けでメジャーバージョンの値だけを参照していたとしても、常にメジャー *"
+"および* マイナーの両方のバージョンを含みます。例えば、 ``macosx_11_0_arm64`` "
+"は、 macOS 11 とそれ以降のものとの互換性を示します。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:209
 msgid ""
@@ -24831,74 +24882,71 @@ msgid ""
 "be an identifier from the following list that describes the set of supported "
 "architectures:"
 msgstr ""
+"macOS バイナリは単一のアーキテクチャ向けにコンパイルすることが可能で、あるい"
+"は、同じバイナリの中で複数のアーキテクチャのサポートを含めることも可能です ("
+"時に \"fat\" バイナリと呼ばれます) 。単一アーキテクチャ向けのサポートを示すた"
+"めには、 ``arch`` の値は、そのシステム上での :py:func:`platform.machine()` の"
+"値と一致していなければなりません。複数のアーキテクチャへのサポートを示すため"
+"には、 ``arch`` タグは、サポートされているアーキテクチャを記述する次のリスト"
+"から採られた識別子であるべきです。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:217
 msgid "``arch``"
-msgstr ""
+msgstr "``arch``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:217
 msgid "Architectures supported"
-msgstr ""
+msgstr "サポートされているアーキテクチャ"
 
 #: ../source/specifications/platform-compatibility-tags.rst:219
 msgid "``universal2``"
-msgstr ""
+msgstr "``universal2``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:219
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``arm64``, ``x86_64``"
-msgstr "``x86_64``"
+msgstr "``arm64``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:220
 msgid "``universal``"
-msgstr ""
+msgstr "``universal``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:220
 msgid "``i386``, ``ppc``, ``ppc64``, ``x86_64``"
-msgstr ""
+msgstr "``i386``, ``ppc``, ``ppc64``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:221
-#, fuzzy
-#| msgid "``install``"
 msgid "``intel``"
-msgstr "``install``"
+msgstr "``intel``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:221
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``i386``, ``x86_64``"
-msgstr "``x86_64``"
+msgstr "``i386``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:222
 msgid "``fat``"
-msgstr ""
+msgstr "``fat``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:222
 #, fuzzy
 #| msgid "``3.4``, ``2.7``"
 msgid "``i386``, ``ppc``"
-msgstr "``3.4``, ``2.7``"
+msgstr "``i386``, ``ppc``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:223
 msgid "``fat3``"
-msgstr ""
+msgstr "``fat3``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:223
 msgid "``i386``, ``ppc``, ``x86_64``"
-msgstr ""
+msgstr "``i386``, ``ppc``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:224
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``fat64``"
-msgstr "``x86_64``"
+msgstr "``fat64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:224
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``ppc64``, ``x86_64``"
-msgstr "``x86_64``"
+msgstr "``ppc64``, ``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:227
 msgid ""
