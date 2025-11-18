@@ -12,16 +12,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-10-17 08:09+0000\n"
-"PO-Revision-Date: 2025-10-16 23:52+0000\n"
+"PO-Revision-Date: 2025-10-28 06:02+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -19060,10 +19060,8 @@ msgid "Core metadata specifications"
 msgstr "コアとなるメタデータの仕様"
 
 #: ../source/specifications/core-metadata.rst:9
-#, fuzzy
-#| msgid "This page describes version 2.4, approved in August 2024."
 msgid "This page describes version 2.5, approved in September 2025."
-msgstr "このページは、 2024年8月に承認されたバージョン 2.4 を記述しています。"
+msgstr "このページは、 2025年9月に承認されたバージョン 2.5 を記述しています。"
 
 #: ../source/specifications/core-metadata.rst:11
 msgid ""
@@ -19152,16 +19150,12 @@ msgid "Metadata-Version"
 msgstr "Metadata-Version"
 
 #: ../source/specifications/core-metadata.rst:52
-#, fuzzy
-#| msgid ""
-#| "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
-#| "\"2.1\", \"2.2\", \"2.3\", and \"2.4\"."
 msgid ""
 "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
 "\"2.1\", \"2.2\", \"2.3\", \"2.4\", and \"2.5\"."
 msgstr ""
 "ファイルフォーマットのバージョン番号; 合法な値は次のとおり\"1.0\", \"1.1\", "
-"\"1.2\", \"2.1\", \"2.2\", \"2.3\", and \"2.4\"。"
+"\"1.2\", \"2.1\", \"2.2\", \"2.3\", \"2.4\" および \"2.5\"。"
 
 #: ../source/specifications/core-metadata.rst:55
 msgid ""
@@ -20084,10 +20078,8 @@ msgstr ""
 "ラーを発出することを選択しても構いません。"
 
 #: ../source/specifications/core-metadata.rst:730
-#, fuzzy
-#| msgid "Supported-Platform (multiple use)"
 msgid "Import-Name (multiple use)"
-msgstr "Supported-Platform (複数回の使用可)"
+msgstr "Import-Name (複数回の使用可)"
 
 #: ../source/specifications/core-metadata.rst:734
 msgid ""
@@ -20098,6 +20090,13 @@ msgid ""
 "project. This implies that the metadata MUST be consistent across all sdists "
 "and wheels for a project release."
 msgstr ""
+"インストール時にプロジェクトが排他的に提供するインポートネームを含む文字列。"
+"指定されたインポートネームは、正当な Python 識別子でなければなりませんが、空"
+"でも構いません。このフィールドに列挙されたインポートネームは、プロジェクトが"
+"プロジェクトの同じバージョン用の *幾つかの* プラットフォームにインストールさ"
+"れる時にインポート可能でなければなりません。これは、プロジェクトのあるリリー"
+"スのすべての sdist と wheel を通じて、メタデータが守備一貫していなければなら"
+"ないと言うことを意味します。"
 
 #: ../source/specifications/core-metadata.rst:741
 #: ../source/specifications/core-metadata.rst:796
@@ -20107,6 +20106,10 @@ msgid ""
 "signals to tools that the import name is not part of the public API for the "
 "project."
 msgstr ""
+"インポートネームは、セミコロンの前後には空白文字がいくつあっても構わない形で"
+"、 (例えば ``; private`` のように) セミコロンと \"private\" と言う用語を伴っ"
+"ても構いません。これによって、ツール類に対して、インポートネームがプロジェク"
+"トの公開の API の一部では無いことを伝えます。"
 
 #: ../source/specifications/core-metadata.rst:746
 #: ../source/specifications/core-metadata.rst:801
@@ -20116,6 +20119,10 @@ msgid ""
 "intervening names from that name to the top-level name should also be listed "
 "appropriately in ``Import-Name`` and/or ``Import-Namespace``."
 msgstr ""
+"プロジェクトは、そのプロジェクトによって独占的に提供される、最短インポートネ"
+"ームをすべて列挙するべきです。最短ネームがドットで区切られたネームであるなら"
+"、そのネームからトップレベルのネームに至る中間のネームもまた、 ``Import-"
+"Name`` および/または ``Import-Namespace`` に適切に列挙されるべきです。"
 
 #: ../source/specifications/core-metadata.rst:751
 #: ../source/specifications/core-metadata.rst:811
@@ -20123,6 +20130,8 @@ msgid ""
 "If a project lists the same name in both ``Import-Name`` and ``Import-"
 "Namespace``, tools MUST raise an error due to ambiguity."
 msgstr ""
+"あるプロジェクトが同じネームを ``Import-Name`` と ``Import-Namespace`` の両方"
+"に列挙している場合、ツール類は、曖昧さの故にエラーを発しなければなりません。"
 
 #: ../source/specifications/core-metadata.rst:754
 msgid ""
@@ -20134,6 +20143,15 @@ msgid ""
 "installing a project into a preexisting environment where there is import "
 "name overlap with a project that is already installed."
 msgstr ""
+"ツール類は、まさにインストールされようとしているふたつのプロジェクトがそれぞ"
+"れの ``Import-Name`` エントリに重複したネームを列挙している時や、あるプロジェ"
+"クトが ``Import-Name`` 内に持つエントリがもう一つのプロジェクトの ``Import-"
+"Namespace`` エントリと重複する時には、エラーを発生させるべきです。これは、プ"
+"ロジェクトが意図せずもう一つのプロジェクトのソースコードを覆い隠してしまうこ"
+"とを避けるためです。ツール類は、\n"
+"既にインストールされているプロジェクトとの間でインポートネームの重複が起きる"
+"ような既存環境にプロジェクトをインストールする時には、警告するかエラーを発生"
+"させて構いません。"
 
 #: ../source/specifications/core-metadata.rst:762
 msgid ""
@@ -20141,6 +20159,10 @@ msgid ""
 "represent a project with no import names (i.e. there are no Python modules "
 "of any kind in the distribution file)."
 msgstr ""
+"プロジェクトは、プロジェクトがインポートネームを持っていないこと (すなわち、"
+"配布物のファイルの中にはどんな種類の Python モジュールも存在しないこと) を表"
+"現するために、そのメタデータ内に空の ``Import-Name`` フィールドを持っても構い"
+"ません。"
 
 #: ../source/specifications/core-metadata.rst:766
 msgid ""
@@ -20153,12 +20175,18 @@ msgid ""
 "g. ``packaging.utils.canonicalize_name(name, validate=True).replace(\"-\", "
 "\"_\")``) can be used if some answer is needed."
 msgstr ""
+"(プロジェクトが古いメタデータバージョンを使っているために、もしくは、一つも指"
+"定していないために) プロジェクトが ``Import-Name`` メタデータを持たなくても構"
+"わないので、ツール類は、そのプロジェクトがどんなネームを提供するのかについて"
+"何も情報を持ちません。しかしながら、実際には、プロジェクトの大多数は、それら"
+"のインポートネームであろうものと一致するようなプロジェクト名を持っています。"
+"そういうことですので、何らかの答えが必要とされるなら、何らかの形で (例えば ``"
+"packaging.utils.canonicalize_name(name, validate=True).replace(\"-\", \"_\")"
+"`` のように) インポート名を標準化したプロジェクト名を使うことが可能です。"
 
 #: ../source/specifications/core-metadata.rst:786
-#, fuzzy
-#| msgid "Supported-Platform (multiple use)"
 msgid "Import-Namespace (multiple use)"
-msgstr "Supported-Platform (複数回の使用可)"
+msgstr "Import-Namespace (複数回の使用可)"
 
 #: ../source/specifications/core-metadata.rst:790
 msgid ""
@@ -20169,6 +20197,12 @@ msgid ""
 "the same import name in ``Import-Namespace`` can be installed together "
 "without shadowing each other."
 msgstr ""
+"インストール時にプロジェクトが提供したインポートネームだが、独占的に提供した"
+"ものではないものを含んだ文字列。指定されたインポートネームは、 Python の正当"
+"な識別子でなければなりません。このフィールドは、複数のプロジェクトが同じイン"
+"ポート名前空間に貢献することができるように、名前空間パッケージ用に用いられま"
+"す。同じインポートネームを ``Import-Namespace`` に列挙するプロジェクト群は、"
+"互いに隠蔽してしまうことなく一緒にインストールすることができます。"
 
 #: ../source/specifications/core-metadata.rst:806
 msgid ""
@@ -20177,10 +20211,17 @@ msgid ""
 "implies that the metadata MUST be consistent across all sdists and wheels "
 "for a project release."
 msgstr ""
+"このフィールドに列挙されたインポートネームは、同じバージョンのプロジェクト用"
+"の *いくつかの* プラットフォームにプロジェクトがインストールされる時に、イン"
+"ポート可能でなければなりません。これは、プロジェクトのリリースのすべての "
+"sdist や wheel でメタデータが整合していなければならないということを意味してい"
+"ます。"
 
 #: ../source/specifications/core-metadata.rst:814
 msgid "Note that ``Import-Namespace`` CANNOT be empty like ``Import-Name``."
 msgstr ""
+"``Import-Name`` では空値が許されますが、 ``Import-Namespace`` は空値であるこ"
+"とはできないことに留意してください。"
 
 #: ../source/specifications/core-metadata.rst:823
 msgid "Rarely Used Fields"
@@ -20479,11 +20520,8 @@ msgstr ""
 "2001年3月: :pep:`241` を通じてコアとなるメタデータ 1.0 が承認されました。"
 
 #: ../source/specifications/core-metadata.rst:1039
-#, fuzzy
-#| msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`:"
 msgid "April 2003: Core metadata 1.1 was approved through :pep:`314`."
-msgstr ""
-"2003年4月: :pep:`314` を通じてコアとなるメタデータ 1.1 が承認されました:"
+msgstr "2003年4月: :pep:`314` を通じてコアとなるメタデータ 1.1 が承認されました。"
 
 #: ../source/specifications/core-metadata.rst:1041
 msgid "February 2010: Core metadata 1.2 was approved through :pep:`345`."
@@ -20548,23 +20586,16 @@ msgstr ""
 "は影響を与えないのだということが明確化された。"
 
 #: ../source/specifications/core-metadata.rst:1066
-#, fuzzy
-#| msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
 msgid "September 2025: Core metadata 2.5 was approved through :pep:`794`."
-msgstr ""
-"2020年10月: :pep:`643` を通じてコアとなるメタデータ 2.2 が承認されました。"
+msgstr "2025年9月: :pep:`794` を通じてコアとなるメタデータ 2.5 が承認されました。"
 
 #: ../source/specifications/core-metadata.rst:1068
-#, fuzzy
-#| msgid "Added the ``Dynamic`` field."
 msgid "Added the ``Import-Name`` field."
-msgstr "``Dynamic`` フィールドを追加しました。"
+msgstr "``Import-Name`` フィールドを追加しました。"
 
 #: ../source/specifications/core-metadata.rst:1069
-#, fuzzy
-#| msgid "Added the ``Dynamic`` field."
 msgid "Added the ``Import-Namespace`` field."
-msgstr "``Dynamic`` フィールドを追加しました。"
+msgstr "``Import-Namespace`` フィールドを追加しました。"
 
 #: ../source/specifications/core-metadata.rst:1071
 msgid ""
@@ -20587,26 +20618,16 @@ msgid "Dependency Groups"
 msgstr "依存関係グループ"
 
 #: ../source/specifications/dependency-groups.rst:7
-#, fuzzy
-#| msgid ""
-#| "This specification defines Dependency Groups, a mechanism for storing "
-#| "package requirements in ``pyproject.toml`` files such that they are not "
-#| "included in project metadata when it is built."
 msgid ""
 "This specification defines dependency groups, a mechanism for storing "
 "package requirements in ``pyproject.toml`` files such that they are not "
 "included in project metadata when it is built."
 msgstr ""
 "この仕様では、ビルド時にプロジェクトメタデータに含まれなかったパッケージ要求"
-"事項を ``pyproject.toml`` 内に保存するための機構であるところの、依存関係グ"
-"ループ <Dependency Groups> を定義しています。"
+"事項を ``pyproject.toml`` 内に保存するための機構であるところの、依存関係グル"
+"ープ <dependency groups> を定義しています。"
 
 #: ../source/specifications/dependency-groups.rst:11
-#, fuzzy
-#| msgid ""
-#| "Dependency Groups are suitable for internal development use-cases like "
-#| "linting and testing, as well as for projects which are not built for "
-#| "distribution, like collections of related scripts."
 msgid ""
 "Dependency groups are suitable for internal development use-cases like "
 "linting and testing, as well as for projects which are not built for "
@@ -20617,19 +20638,13 @@ msgstr ""
 "ルのような内部開発でのユースケース向けに適切です。"
 
 #: ../source/specifications/dependency-groups.rst:15
-#, fuzzy
-#| msgid ""
-#| "Fundamentally, Dependency Groups should be thought of as being a "
-#| "standardized subset of the capabilities of ``requirements.txt`` files "
-#| "(which are ``pip``-specific)."
 msgid ""
 "Fundamentally, dependency groups should be thought of as being a "
 "standardized subset of the capabilities of ``requirements.txt`` files (which "
 "are ``pip``-specific)."
 msgstr ""
-"基本的に、依存関係グループは、 ``requirements.txt`` ファイル (これは ``pip`` "
-"に特有ですが) でできることの標準化されたサブセットであるものと考えるべきで"
-"す。"
+"基本的に、依存関係グループは、(``pip`` に特有の) ``requirements.txt`` ファイ"
+"ルできることを標準化したサブセットであるものと考えるべきです。"
 
 #: ../source/specifications/dependency-groups.rst:25
 msgid "This is a simple table which shows ``docs`` and ``test`` groups::"
@@ -20649,20 +20664,14 @@ msgid "The ``[dependency-groups]`` Table"
 msgstr "``[dependency-groups]`` テーブル"
 
 #: ../source/specifications/dependency-groups.rst:41
-#, fuzzy
-#| msgid ""
-#| "Dependency Groups are defined as a table in ``pyproject.toml`` named "
-#| "``dependency-groups``. The ``dependency-groups`` table contains an "
-#| "arbitrary number of user-defined keys, each of which has, as its value, a "
-#| "list of requirements."
 msgid ""
 "Dependency groups are defined as a table in ``pyproject.toml`` named "
 "``dependency-groups``. The ``dependency-groups`` table contains an arbitrary "
 "number of user-defined keys, each of which has, as its value, a list of "
 "requirements."
 msgstr ""
-"依存関係グループは、 ``dependency-groups`` という名前の ``pyproject.toml`` の"
-"中のテーブルとして定義されています。 ``dependency-groups`` テーブルには、任意"
+"依存関係グループは、 ``pyproject.toml`` の中の ``dependency-groups`` という名"
+"前のテーブルとして定義されています。 ``dependency-groups`` テーブルには、任意"
 "の数のユーザが定義したキーを含み、そのそれぞれが要求事項をその値に取ります。"
 
 #: ../source/specifications/dependency-groups.rst:46
@@ -20774,30 +20783,18 @@ msgid "Package Building"
 msgstr "パッケージビルディング"
 
 #: ../source/specifications/dependency-groups.rst:104
-#, fuzzy
-#| msgid ""
-#| "Build backends MUST NOT include Dependency Group data in built "
-#| "distributions as package metadata. This means that sdist ``PKG-INFO`` and "
-#| "wheel ``METADATA`` files should not include referenceable fields "
-#| "containing Dependency Groups."
 msgid ""
 "Build backends MUST NOT include Dependency Group data in built distributions "
 "as package metadata. This means that sdist ``PKG-INFO`` and wheel "
 "``METADATA`` files should not include referenceable fields containing "
 "dependency groups."
 msgstr ""
-"ビルドバックエンドは、ビルドした配布物の中の依存関係グループのデータをパッ"
-"ケージのメタデータとして引用してはなりません。これが意味するところは、 sdist "
-"の ``PKG-INFO`` や wheel の ``METADATA`` ファイルが依存関係グループを含む参照"
-"可能なフィールドを含んでいてはならないということです。"
+"ビルドバックエンドは、ビルドした配布物の中の依存関係グループのデータを、パッ"
+"ケージのメタデータとして含めてはなりません。これが意味するところは、 sdist の"
+" ``PKG-INFO`` や wheel の ``METADATA`` ファイルが依存関係グループを含む参照可"
+"能なフィールドを含んでいてはならないということです。"
 
 #: ../source/specifications/dependency-groups.rst:108
-#, fuzzy
-#| msgid ""
-#| "It is, however, valid to use Dependency Groups in the evaluation of "
-#| "dynamic metadata, and ``pyproject.toml`` files included in sdists will "
-#| "still contain ``[dependency-groups]``. However, the table's contents are "
-#| "not part of a built package's interfaces."
 msgid ""
 "It is, however, valid to use dependency groups in the evaluation of dynamic "
 "metadata, and ``pyproject.toml`` files included in sdists will still contain "
@@ -20815,29 +20812,16 @@ msgstr ""
 "依存関係グループ <Dependency Groups> と追加物 <Extras> をインストールする"
 
 #: ../source/specifications/dependency-groups.rst:116
-#, fuzzy
-#| msgid ""
-#| "There is no syntax or specification-defined interface for installing or "
-#| "referring to Dependency Groups. Tools are expected to provide dedicated "
-#| "interfaces for this purpose."
 msgid ""
 "There is no syntax or specification-defined interface for installing or "
 "referring to dependency groups. Tools are expected to provide dedicated "
 "interfaces for this purpose."
 msgstr ""
 "依存関係グループをインストールしたり参照したりするインタフェースに関する文法"
-"も定義済みの仕様も存在しません。ツール類には、この目的のために専用のインタ"
-"フェースを提供することが期待されています。"
+"も定義済みの仕様も存在しません。ツール類には、この目的のために専用のインタフ"
+"ェースを提供することが期待されています。"
 
 #: ../source/specifications/dependency-groups.rst:120
-#, fuzzy
-#| msgid ""
-#| "Tools MAY choose to provide the same or similar interfaces for "
-#| "interacting with Dependency Groups as they do for managing extras. Tools "
-#| "authors are advised that the specification does not forbid having an "
-#| "extra whose name matches a Dependency Group. Separately, users are "
-#| "advised to avoid creating Dependency Groups whose names match extras, and "
-#| "tools MAY treat such matching as an error."
 msgid ""
 "Tools MAY choose to provide the same or similar interfaces for interacting "
 "with dependency groups as they do for managing extras. Tools authors are "
@@ -20858,12 +20842,6 @@ msgid "Validation and Compatibility"
 msgstr "正当性検証と互換性"
 
 #: ../source/specifications/dependency-groups.rst:130
-#, fuzzy
-#| msgid ""
-#| "Tools supporting Dependency Groups may want to validate data before using "
-#| "it. When implementing such validation, authors should be aware of the "
-#| "possibility of future extensions to the specification, so that they do "
-#| "not unnecessarily emit errors or warnings."
 msgid ""
 "Tools supporting dependency groups may want to validate data before using "
 "it. When implementing such validation, authors should be aware of the "
@@ -20876,27 +20854,17 @@ msgstr ""
 "しておくべきです。"
 
 #: ../source/specifications/dependency-groups.rst:135
-#, fuzzy
-#| msgid ""
-#| "Tools SHOULD error when evaluating or processing unrecognized data in "
-#| "Dependency Groups."
 msgid ""
 "Tools SHOULD error when evaluating or processing unrecognized data in "
 "dependency groups."
-msgstr ""
-"ツール類は、依存関係グループ内で認識できないデータを評価または処理しようとし"
+msgstr "ツール類は、依存関係グループ内で認識できないデータを評価または処理しようとし"
 "た時にはエラーを発するべきです。"
 
 #: ../source/specifications/dependency-groups.rst:138
-#, fuzzy
-#| msgid ""
-#| "Tools SHOULD NOT eagerly validate the contents of *all* Dependency Groups "
-#| "unless they have a need to do so."
 msgid ""
 "Tools SHOULD NOT eagerly validate the contents of *all* dependency groups "
 "unless they have a need to do so."
-msgstr ""
-"ツール類は、そうする必要がない限り、 *すべての* 依存関係グループの内容の正当"
+msgstr "ツール類は、そうする必要がない限り、 *すべての* 依存関係グループの内容の正当"
 "性評価を好んで行うべきではありません。"
 
 #: ../source/specifications/dependency-groups.rst:141
@@ -20910,11 +20878,6 @@ msgstr ""
 "みエラーを発生させるべきです:"
 
 #: ../source/specifications/dependency-groups.rst:152
-#, fuzzy
-#| msgid ""
-#| "There are several known cases of tools which have good cause to be "
-#| "stricter. Linters and validators are an example, as their purpose is to "
-#| "validate the contents of all Dependency Groups."
 msgid ""
 "There are several known cases of tools which have good cause to be stricter. "
 "Linters and validators are an example, as their purpose is to validate the "
@@ -25125,8 +25088,6 @@ msgid "``fat``"
 msgstr "``fat``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:222
-#, fuzzy
-#| msgid "``3.4``, ``2.7``"
 msgid "``i386``, ``ppc``"
 msgstr "``i386``, ``ppc``"
 
@@ -25154,10 +25115,15 @@ msgid ""
 "compilation toolchain when building binaries that support multiple "
 "architectures."
 msgstr ""
+"サポートされている macOS のバージョンで最小 (最古) のものは、また、アーキテク"
+"チャによって制約されるかもしれません。例えば、 macOS 11 (Big Sur) は arm64 を"
+"サポートした最初のリリースでした。このような追加的な制約は、複数のアーキテク"
+"チャをサポートするバイナリをビルドする時に、 macOS のコンパイルツールチェーン"
+"によって透過的に強制されます。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:235
 msgid "Android"
-msgstr ""
+msgstr "Android"
 
 #: ../source/specifications/platform-compatibility-tags.rst:237
 msgid ""
@@ -25167,6 +25133,11 @@ msgid ""
 "later, on ``arm64_v8a`` devices. Android makes no distinction between "
 "physical devices and emulated devices."
 msgstr ""
+"Android は、 :file:`android_{apilevel}_{abi}` のスキームを使っていて、当該 "
+"Android API レベルまたはそれ以降の当該 ABI との互換性を示しています。例えば、"
+" ``android_27_arm64_v8a`` は、 API レベル 27 またはそれ以降で ``arm64_8va`` "
+"のデバイスをサポートすることを示しています。 Android は、物理的なデバイスとエ"
+"ミュレーションされたデバイスを区別しません。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:243
 msgid ""
@@ -25177,26 +25148,32 @@ msgid ""
 "the `full list of Android versions and their corresponding API levels "
 "<https://developer.android.com/tools/releases/platforms>`__."
 msgstr ""
+"API レベルは、正の整数であるべきです。これは、ユーザへの表示用の Android のバ"
+"ージョン番号と同じことでは *ありません* 。たとえば、 Android 12 (コードネーム"
+" \"Snow Cone\") は、使用されている Android のバージョン番号によって API 31 ま"
+"たは 32 を使っています。 Android のリリース説明文書には、 `Android の全てのバ"
+"ージョン番号とそれに対応する API レベル <https://developer.android.com/tools/"
+"releases/platforms>`__ が含まれています。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:250
 msgid ""
 "There are 4 `supported ABIs <https://developer.android.com/ndk/guides/"
 "abis>`__. Normalized according to the rules above, they are:"
 msgstr ""
+"４個の `サポートされている ABIs <https://developer.android.com/ndk/guides/"
+"abis>`__ があります。上記のルールに従って標準化すると、これらは:"
 
 #: ../source/specifications/platform-compatibility-tags.rst:253
 msgid "``armeabi_v7a``"
-msgstr ""
+msgstr "``armeabi_v7a``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:254
 msgid "``arm64_v8a``"
-msgstr ""
+msgstr "``arm64_v8a``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:255
-#, fuzzy
-#| msgid "``x86_64``"
 msgid "``x86``"
-msgstr "``x86_64``"
+msgstr "``x86``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:258
 msgid ""
@@ -25205,10 +25182,14 @@ msgid ""
 "not been supported as a development platform since 2020, and no new emulator "
 "images have been released since then."
 msgstr ""
+"現行のデバイスは、事実上すべてが ARM アーキテクチャのうちの一つを使っています"
+"。 ``x86`` と ``x86_64`` はエミュレータ内で使用するようにサポートされています"
+"。 ``x86`` は、 2020 年以降は開発環境としてサポートされておらず、その時以来、"
+"新しいエミュレータイメージがリリースされていません。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:266
 msgid "iOS"
-msgstr ""
+msgstr "iOS"
 
 #: ../source/specifications/platform-compatibility-tags.rst:268
 msgid ""
@@ -25216,6 +25197,9 @@ msgid ""
 "compatibility with iOS ``x.y`` or later, on the ``arch`` architecture, using "
 "the ``sdk`` SDK."
 msgstr ""
+"iOS は :file:`ios_{x}_{y}_{arch}_{sdk}` というスキーマを使っていて、 iOS "
+"``x.y`` またはそれ以降で、 ``arch`` アーキテクチャのものであり、 ``sdk`` なる"
+" SDK を採用しているものとの互換性を示しています。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:271
 msgid ""
@@ -25226,12 +25210,19 @@ msgid ""
 "For example, a ``ios_13_0_arm64_iphonesimulator`` indicates compatibility "
 "with iOS 13 or later."
 msgstr ""
+"``x`` と ``y`` の値は、それぞれ iOS リリースのメジャーとマイナーのバージョン"
+"番号に対応します。これらはどちらも正の整数でなければなりません。 Apple の公式"
+"のバージョン番号付与ではメジャーバージョンにだけ言及されるとはいえ、バージョ"
+"ン番号には常にメジャー *および* マイナーのバージョンを含みます。たとえば、 "
+"``ios_13_0_arm64_iphonesimulator`` は iOS 13 およびそれ以降との互換性を示して"
+"います。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:277
 msgid ""
 "The value of ``arch`` must match the value of :py:func:`platform.machine()` "
 "on the system."
-msgstr ""
+msgstr "``arch`` の値は、システム上の :py:func:`platform.machine()` の値と一致してい"
+"なければなりません。"
 
 #: ../source/specifications/platform-compatibility-tags.rst:280
 msgid ""
