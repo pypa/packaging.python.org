@@ -12,16 +12,16 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-21 21:35+0000\n"
-"PO-Revision-Date: 2025-08-21 21:35+0000\n"
+"PO-Revision-Date: 2025-09-16 01:37+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
-"python-org/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
+"packaging-python-org/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -12794,44 +12794,41 @@ msgid "Uploading to PyPI"
 msgstr "PyPIにアップロードする"
 
 #: ../source/guides/tool-recommendations.rst:142
-#, fuzzy
-#| msgid ""
-#| "For projects hosted on GitHub, it is recommended to use the :ref:`trusted "
-#| "publishing <trusted-publishing>`, which allows the package to be securely "
-#| "uploaded to PyPI from a GitHub Actions job. (This is not yet supported on "
-#| "software forges other than GitHub.)"
 msgid ""
 "For projects hosted on or published via supported CI/CD platforms, it is "
 "recommended to use the :ref:`Trusted Publishing <trusted-publishing>`, which "
 "allows the package to be securely uploaded to PyPI from a CI/CD workflow "
 "without a manually configured API token."
 msgstr ""
-"GitHubにホストされているプロジェクト向けには、GitHub Actions のジョブからパッ"
-"ケージを安全に PyPIへアップロードすることができる :ref:`信頼ある出版 "
-"<trusted-publishing>` を使うことを推奨します。(これは、GitHub 以外のソフトウ"
-"エア集積所ではまだサポートされていません。)"
+"サポート対象の CI/CD "
+"プラットフォームにホストされている、もしくは、そこから公開されているプロジェ"
+"クトに関しては、手動で設定された API トークンなしで CI/CD ワークフローから "
+"PyPI へとパッケージを安全にアップロードすることができる :ref:`Trusted "
+"Publishing <trusted-publishing>` を使うことが推奨されています。"
 
 #: ../source/guides/tool-recommendations.rst:147
 msgid ""
 "As of November 2024, PyPI supports the following platforms as Trusted "
 "Publishing providers:"
 msgstr ""
+"2024 年 11 月の時点では、 PyPI は以下のプラットフォームを 信頼ある公開 "
+"<Trusted Publishing> プロバイダとしてサポートしています:"
 
 #: ../source/guides/tool-recommendations.rst:150
 msgid "GitHub Actions (on ``https://github.com``)"
-msgstr ""
+msgstr "(``https://github.com`` における) GitHub Actions"
 
 #: ../source/guides/tool-recommendations.rst:151
 msgid "GitLab CI/CD (on ``https://gitlab.com``)"
-msgstr ""
+msgstr "(``https://gitlab.com`` における) GitLab CI/CD"
 
 #: ../source/guides/tool-recommendations.rst:152
 msgid "ActiveState"
-msgstr ""
+msgstr "ActiveState"
 
 #: ../source/guides/tool-recommendations.rst:153
 msgid "Google Cloud"
-msgstr ""
+msgstr "Google Cloud"
 
 #: ../source/guides/tool-recommendations.rst:155
 msgid ""
@@ -13057,12 +13054,19 @@ msgid ""
 "The ``[build-system]`` table should always be present, regardless of which "
 "build backend you use (``[build-system]`` *defines* the build tool you use)."
 msgstr ""
+"``[build-system]`` テーブルは、 (``[build-system]`` "
+"に書くことで使用するビルドツールを *定義する* ので) "
+"どんなビルドバックエンドを使っているかにかかわらず、常に存在しているべきです"
+"。"
 
 #: ../source/guides/writing-pyproject-toml.rst:29
 msgid ""
 "On the other hand, the ``[project]`` table is understood by *most* build "
 "backends, but some build backends use a different format."
 msgstr ""
+"他方で、 ``[project]`` テーブルは、 *ほとんどの* "
+"ビルドバックエンドで理解されますが、いくつかのビルドバックエンドは異なる書式"
+"を使います。"
 
 #: ../source/guides/writing-pyproject-toml.rst:32
 msgid ""
@@ -13072,29 +13076,24 @@ msgid ""
 "build backend supports both the ``[project]`` table, and the older format in "
 "``setup.cfg`` or ``setup.py``."
 msgstr ""
+"特筆すべき例外は Poetry_ で、バージョン 2.0 (2025年1月5日リリース) より前は "
+"``[project]`` テーブルを使わず、 代わりに ``[tool.peotry]`` "
+"テーブルを使っていました。バージョン 2.0 "
+"では、両方をサポートしています。また、 setuptools_ のビルドバックエンドは、 "
+"``[project]`` テーブルと、 ``setup.cfg`` ないし ``setup.py`` "
+"の中のより古い書き方の両方をサポートしています。"
 
 #: ../source/guides/writing-pyproject-toml.rst:38
-#, fuzzy
-#| msgid ""
-#| "Also, the setuptools_ build backend supports both the ``[project]`` "
-#| "table, and the older format in ``setup.cfg`` or ``setup.py``. For new "
-#| "projects, it is recommended to use the ``[project]`` table, and keep "
-#| "``setup.py`` only if some programmatic configuration is needed (such as "
-#| "building C extensions), but the ``setup.cfg`` and ``setup.py`` formats "
-#| "are still valid. See :ref:`setup-py-deprecated`."
 msgid ""
 "For new projects, use the ``[project]`` table, and keep ``setup.py`` only if "
 "some programmatic configuration is needed (such as building C extensions), "
 "but the ``setup.cfg`` and ``setup.py`` formats are still valid. See :ref:"
 "`setup-py-deprecated`."
 msgstr ""
-"また、setuptools_ のビルドバックエンドは、 ``[project]`` テーブルと ``setup."
-"cfg`` ないし ``setup.py`` の中のより古い形の両方をサポートしています。新しく"
-"始めるプロジェクトでは ``[project]`` テーブルを使用し、 (C 言語拡張をビルドす"
-"る場合のような) 何かプログラム面での設定が必要とされる場合に限って ``setup."
-"py`` を使い続けることが推奨されていますが、依然として ``setup.cfg`` と "
-"``setup.py`` の形式は正当なものです。 :ref:`setup-py-deprecated` をご覧くださ"
-"い。"
+"``setup.cfg`` と ``setup.py`` は依然として正当な書式ですが、"
+"新しいプロジェクトでは ``[project]`` テーブルを使い、"
+"何かプログラム上の設定が必要である場合に限って ``setup.py`` "
+"を維持しましょう。 :ref:`setup-py-deprecated` をみて下さい。"
 
 #: ../source/guides/writing-pyproject-toml.rst:47
 msgid "Declaring the build backend"
@@ -13186,19 +13185,15 @@ msgstr ""
 "的であるとマークできない唯一のフィールドです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:103
-#, fuzzy
-#| msgid ""
-#| "The project name must consists of ASCII letters, digits, underscores "
-#| "\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or "
-#| "end with an underscore, hyphen or period."
 msgid ""
 "The project name must consist of ASCII letters, digits, underscores "
 "\"``_``\", hyphens \"``-``\" and periods \"``.``\". It must not start or end "
 "with an underscore, hyphen or period."
 msgstr ""
 "プロジェクトの名称は、ASCII文字・数字・アンダースコア \"``_``\"・ハイフン "
-"\"``-``\"・ピリオド \"``.``\" だけでできていなければなりません。また、アン"
-"ダースコア・ハイフン・ピリオドで始まってはなりません。"
+"\"``-``\"・ピリオド \"``.``\" "
+"だけで構成されていなければなりません。また、先頭や末尾にアンダースコア・ハイ"
+"フン・ピリオドを使ってはいけません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:107
 msgid ""
@@ -13243,19 +13238,14 @@ msgstr ""
 "ものです"
 
 #: ../source/guides/writing-pyproject-toml.rst:135
-#, fuzzy
-#| msgid ""
-#| "This allows use cases such as filling the version from a ``__version__`` "
-#| "attribute or a Git tag. Consult :ref:`Single sourcing the version` for "
-#| "more details."
 msgid ""
 "This allows use cases such as filling the version from a ``__version__`` "
 "attribute or a Git tag. Consult the :ref:`single-source-version` discussion "
 "for more details."
 msgstr ""
-"これによって、 ``__version__`` 要素や Git のタグからバージョンを取得するよう"
-"な使い方が可能になります。 :ref:`バージョンを１箇所で管理する <Single "
-"sourcing the version>` を見てみてください。"
+"これによって、 ``__version__`` 要素や Git "
+"のタグからバージョンを充当するような使い方が可能になります。もっと詳しいこと"
+"は、 :ref:`single-source-version` の議論を見てみてください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:141
 msgid "Dependencies and requirements"
@@ -13326,19 +13316,15 @@ msgstr ""
 "scripts]`` テーブルで宣言してください。"
 
 #: ../source/guides/writing-pyproject-toml.rst:207
-#, fuzzy
-#| msgid ""
-#| "In this example, after installing your project, a ``spam-cli`` command "
-#| "will be available. Executing this command will do the equivalent of "
-#| "``from spam import main_cli; main_cli()``."
 msgid ""
 "In this example, after installing your project, a ``spam-cli`` command will "
 "be available. Executing this command will do the equivalent of ``import sys; "
 "from spam import main_cli; sys.exit(main_cli())``."
 msgstr ""
-"この例では、プロジェクトをインストールした後に ``spam-cli`` コマンドが利用で"
-"きるようになるでしょう。このコマンドを実行することで、 ``from spam import "
-"main_cli; main_cli()`` と同等のことを行うでしょう。"
+"この例では、プロジェクトをインストールした後に ``spam-cli`` "
+"コマンドが利用できるようになるでしょう。このコマンドを実行することで、 ``"
+"import sys; from spam import main_cli; sys.exit(main_cli())`` "
+"と同等のことを行うでしょう。"
 
 #: ../source/guides/writing-pyproject-toml.rst:211
 msgid ""
@@ -13438,24 +13424,25 @@ msgid "You can also specify the format explicitly, like this:"
 msgstr "次のようにしてフォーマットを明示的に指定することもできます:"
 
 #: ../source/guides/writing-pyproject-toml.rst:297
-#, fuzzy
-#| msgid "``license``"
 msgid "``license`` and ``license-files``"
-msgstr "``ライセンス``"
+msgstr "``license`` と ``license-files``"
 
 #: ../source/guides/writing-pyproject-toml.rst:299
 msgid "As per :pep:`639` licenses should be declared with two fields:"
-msgstr ""
+msgstr ":pep:`639` によれば、ライセンスはふたつのフィールドで宣言されるべきです:"
 
 #: ../source/guides/writing-pyproject-toml.rst:301
 msgid ""
 "``license`` is an :term:`SPDX license expression <License Expression>` "
 "consisting of one or more :term:`license identifiers <License Identifier>`."
 msgstr ""
+"``license`` は、ひとつかより多くの :term:`license identifiers <License "
+"Identifier>` から構成される :term:`SPDX license expression <License "
+"Expression>` です。"
 
 #: ../source/guides/writing-pyproject-toml.rst:303
 msgid "``license-files`` is a list of license file glob patterns."
-msgstr ""
+msgstr "``license-files`` は、ライセンスファイルの glob パターンのリストです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:305
 msgid ""
@@ -13464,68 +13451,62 @@ msgid ""
 "backends<build backend>` now support the new format as shown in the "
 "following table."
 msgstr ""
+"以前の PEP では、 ``license`` が ``file`` キーもしくは ``text`` "
+"キーを伴ったテーブルであると指定していましたが、この書式は現在では非推奨にな"
+"っています。ほとんどの :term:`build backends<build backend>` "
+"は、今では、以下のテーブルに示される新書式をサポートしています。"
 
 #: ../source/guides/writing-pyproject-toml.rst:309
 msgid "build backend versions that introduced :pep:`639` support"
-msgstr ""
+msgstr ":pep:`639` のサポートを導入したビルドバックエンドのバージョン"
 
 #: ../source/guides/writing-pyproject-toml.rst:312
-#, fuzzy
-#| msgid "hatch"
 msgid "hatchling"
-msgstr "hatch"
+msgstr "hatchling"
 
 #: ../source/guides/writing-pyproject-toml.rst:313
-#, fuzzy
-#| msgid "Setuptools"
 msgid "setuptools"
-msgstr "Setuptools"
+msgstr "setuptools"
 
 #: ../source/guides/writing-pyproject-toml.rst:314
 msgid "flit-core [#flit-core-pep639]_"
-msgstr ""
+msgstr "flit-core [#flit-core-pep639]_"
 
 #: ../source/guides/writing-pyproject-toml.rst:315
-#, fuzzy
-#| msgid "Build backends"
 msgid "pdm-backend"
-msgstr "ビルドバックエンド"
+msgstr "pdm-backend"
 
 #: ../source/guides/writing-pyproject-toml.rst:316
-#, fuzzy
-#| msgid "poetry"
 msgid "poetry-core"
-msgstr "poetry"
+msgstr "poetry-core"
 
 #: ../source/guides/writing-pyproject-toml.rst:317
-#, fuzzy
-#| msgid "build"
 msgid "uv-build"
-msgstr "ビルド"
+msgstr "uv-build"
 
 #: ../source/guides/writing-pyproject-toml.rst:318
 msgid "1.27.0"
-msgstr ""
+msgstr "1.27.0"
 
 #: ../source/guides/writing-pyproject-toml.rst:319
 msgid "77.0.3"
-msgstr ""
+msgstr "77.0.3"
 
 #: ../source/guides/writing-pyproject-toml.rst:320
 msgid "3.12"
-msgstr ""
+msgstr "3.12"
 
 #: ../source/guides/writing-pyproject-toml.rst:321
 msgid "2.4.0"
-msgstr ""
+msgstr "2.4.0"
 
 #: ../source/guides/writing-pyproject-toml.rst:322
 msgid "`not yet <poetry-pep639-issue_>`_"
-msgstr ""
+msgstr "`not yet <poetry-pep639-issue_>`_"
 
 #: ../source/guides/writing-pyproject-toml.rst:323
 msgid "0.7.19"
-msgstr ""
+msgstr "0.7.19"
 
 #: ../source/guides/writing-pyproject-toml.rst:329
 #: ../source/specifications/pyproject-toml.rst:140
@@ -13541,6 +13522,11 @@ msgid ""
 "license list page <spdxlicenselist_>`_. The supported list version is 3.17 "
 "or any later compatible one."
 msgstr ""
+"``licanse`` のための新書式は、ひとつもしくはそれ以上の "
+":term:`ライセンス識別子` から構成される正当な :term:`SPDX ライセンス表現 "
+"<License Expression>` です。ライセンスの完全なリストは、 `SPDX "
+"ライセンスリストページ <spdxlicenselist_>`_ で利用可能です。"
+"サポートされているリストバージョンは 3.17 かそれ以降の互換性のあるものです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:344
 msgid ""
@@ -13549,26 +13535,22 @@ msgid ""
 "and-license-files_>`_ for more context. The now deprecated format is "
 "`described in PEP 621 <https://peps.python.org/pep-0621/#license>`__."
 msgstr ""
+"``license`` "
+"が辞書かテーブルであるべきだとのビルドエラーを受け取るようなら、そのビルドバ"
+"ックエンドは、まだ、新書式をサポートしていません。さらなる文脈的理解のために"
+"は、 `above section <license-and-license-files_>`_ "
+"を見て下さい。今では非推奨となった書式は、 `PEP 621 に述べられています "
+"<https://peps.python.org/pep-0621/#license>`__ 。"
 
 #: ../source/guides/writing-pyproject-toml.rst:349
-#, fuzzy
-#| msgid ""
-#| "If you are using a standard, well-known license, it is not necessary to "
-#| "use this field. Instead, you should one of the :ref:`classifiers` "
-#| "starting with ``License ::``. (As a general rule, it is a good idea to "
-#| "use a standard, well-known license, both to avoid confusion and because "
-#| "some organizations avoid software whose license is unapproved.)"
 msgid ""
 "As a general rule, it is a good idea to use a standard, well-known license, "
 "both to avoid confusion and because some organizations avoid software whose "
 "license is unapproved."
 msgstr ""
-"標準的でよく知られたライセンスを使うのであれば、このフィールドを使う必要はあ"
-"りません。代わりに、 ``License::`` で始まる :ref:`分類子 <classifiers>` のう"
-"ちのひとつを書いておけば良いでしょう。 (一般的な規則としては標準的でよく知ら"
-"れたライセンスを使うことは良い考えです、というのは、混乱を避けるとことにもな"
-"るし、中には内部で認可済みのライセンスでなければソフトウェアを使えない組織も"
-"あるからです。)"
+"一般的な規則としては、標準的でよく知られたライセンスを使うことは良い考えです"
+"、というのは、混乱を避けることにもなるし、中には内部で認可済みのライセンスで"
+"なければソフトウェアを使えない組織もあるからです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:353
 msgid ""
@@ -13578,60 +13560,70 @@ msgid ""
 "`clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible "
 "one."
 msgstr ""
+"プロジェクトが使っているライセンスが既存の SPDX 識別子を持っていない時は、 "
+"``LicenseRef-[idstring]`` "
+"の書式で作成することができます。カスタムの識別子は、バージョン 2.2 "
+"かそれより新しい互換のバージョンの `clause 10.1 <spdxcustomids_>`_ という "
+"SPDX 仕様に従わなければなりません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:367
 #: ../source/specifications/pyproject-toml.rst:141
 #: ../source/specifications/pyproject-toml.rst:281
-#, fuzzy
-#| msgid "``license``"
 msgid "``license-files``"
-msgstr "``ライセンス``"
+msgstr "``license-files``"
 
 #: ../source/guides/writing-pyproject-toml.rst:369
 msgid ""
 "This is a list of license files and files containing other legal information "
 "you want to distribute with your package."
-msgstr ""
+msgstr "これは、そのパッケージとともに配布したいと望む、ライセンスファイルとその他の"
+"法律関係の情報を含むファイルのリストです。"
 
 #: ../source/guides/writing-pyproject-toml.rst:377
 msgid "The glob patterns must follow the specification:"
-msgstr ""
+msgstr "glob パターンは、次の仕様に従わなければなりません:"
 
 #: ../source/guides/writing-pyproject-toml.rst:379
 msgid ""
 "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``."
 "``) will be matched verbatim."
-msgstr ""
+msgstr "英数字・アンダースコア (``_``) ・ハイフン (``-``) ・ドット (``.``) "
+"が文字通りに合致するでしょう。"
 
 #: ../source/guides/writing-pyproject-toml.rst:381
 msgid ""
 "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are "
 "supported."
-msgstr ""
+msgstr "特殊文字: ``*`` ・ ``?`` ・ ``**`` と文字の帯域: [] がサポートされています。"
 
 #: ../source/guides/writing-pyproject-toml.rst:382
 msgid "Path delimiters must be the forward slash character (``/``)."
-msgstr ""
+msgstr "パスデリミタは、正スラッシュ (``/``) でなければなりません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:383
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`, "
 "and thus may not start with a slash character."
 msgstr ""
+"パターンは、 :file:`pyproject.toml` "
+"を含むディレクトリに対する相対パスで、従ってスラッシュ文字で始まることはでき"
+"ません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:385
 msgid "Parent directory indicators (``..``) must not be used."
-msgstr ""
+msgstr "親ディレクトリ表示子 (``..``) を使用してはなりません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:386
 msgid "Each glob must match at least one file."
-msgstr ""
+msgstr "各 glob は、少なくとも一つのファイルにマッチしなければなりません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:388
 msgid ""
 "Literal paths are valid globs. Any characters or character sequences not "
 "covered by this specification are invalid."
-msgstr ""
+msgstr "字義通りのパスは、正当な glob "
+"です。この仕様でカバーされていない文字や文字の並びは、すべて、正当なものでは"
+"ありません。"
 
 #: ../source/guides/writing-pyproject-toml.rst:394
 #: ../source/specifications/pyproject-toml.rst:139
@@ -13707,21 +13699,21 @@ msgid ""
 "<https://docs.pypi.org/project_metadata/#project-urls>`_ for PyPI-specific "
 "URL processing."
 msgstr ""
+"PyPI "
+"やその他のパッケージングツールがそれぞれどのラベルを認識するかについてのリス"
+"トを見たければ :ref:`well-known-labels` を、 PyPI に特有の URL "
+"処理について見たければ `PyPI のプロジェクトメタデータ説明文書 <https://"
+"docs.pypi.org/project_metadata/#project-urls>`_ を見て下さい。"
 
 #: ../source/guides/writing-pyproject-toml.rst:467
-#, fuzzy
-#| msgid ""
-#| "Note that if the key contains spaces, it needs to be quoted, e.g., "
-#| "``Website = \"https://example.com\"`` but ``\"Official Website\" = "
-#| "\"https://example.com\"``."
 msgid ""
 "Note that if the label contains spaces, it needs to be quoted, e.g., "
 "``Website = \"https://example.com\"`` but ``\"Official Website\" = \"https://"
 "example.com\"``."
 msgstr ""
-"もしキーが空白文字を含んでいるなら、例えば ``Website = \"https://example."
-"com\"`` ではなくて ``\"Official Website\" = \"https://example.com\"`` のよう"
-"に引用符で囲む必要があります。"
+"もしラベルが空白文字を含んでいるなら、例えば ``Website = "
+"\"https://example.com\"`` ではなくて ``\"Official Website\" = "
+"\"https://example.com\"`` のように引用符で囲む必要があります。"
 
 #: ../source/guides/writing-pyproject-toml.rst:471
 msgid ""
@@ -13729,6 +13721,10 @@ msgid ""
 "where appropriate, since consumers of metadata (like package indices) can "
 "specialize their presentation."
 msgstr ""
+"(パッケージインデックスのような) "
+"メタデータの消費者側がその存在を特別なものにすることができるように、"
+"ユーザにはそのプロジェクトの適切な URL のために :ref:`well-known-labels` "
+"を使用することを推奨します。"
 
 #: ../source/guides/writing-pyproject-toml.rst:475
 msgid ""
@@ -13736,6 +13732,9 @@ msgid ""
 "``\"Download Link\"`` is a well-known label, so they will be rendered "
 "verbatim:"
 msgstr ""
+"後続するメタデータの中での例としては、 ``MyHomepage`` も ``\"Download Link\""
+"`` "
+"のいずれもよく知られたラベルではなく、従って、これらは文字通りに展開されます:"
 
 #: ../source/guides/writing-pyproject-toml.rst:485
 msgid ""
@@ -13744,6 +13743,11 @@ msgid ""
 "semantics in mind (the project's home page and its external download "
 "location, respectively)."
 msgstr ""
+"一方で、このメタデータ ``HomePage`` および ``DOWNLOAD`` は、どちらにも、"
+"よく知られた同等物 (``homepage`` と ``download``) があり、"
+"そのような文脈で提示され得ることを心に留めておいて下さい "
+"(順にそれぞれプロジェクトのホームページ、および、その外部のダウンロードできる"
+"場所)。"
 
 #: ../source/guides/writing-pyproject-toml.rst:497
 msgid "Advanced plugins"
@@ -13783,7 +13787,8 @@ msgstr ""
 msgid ""
 "flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license "
 "expressions."
-msgstr ""
+msgstr "flit-core は、 `まだ <flit-issue-735_>`_ 、 SPDX ライセンス表現の WITH "
+"をサポートしていません。"
 
 #: ../source/index.rst:-1
 msgid ""
@@ -13915,16 +13920,11 @@ msgid "Explanations and Discussions"
 msgstr "説明と議論"
 
 #: ../source/index.rst:82
-#, fuzzy
-#| msgid ""
-#| "The :doc:`discussions/index` section for in-depth explanations and "
-#| "discussion about topics, such as:"
 msgid ""
 "The :doc:`discussions/index` section provides in-depth explanations and "
 "discussion about topics, such as:"
-msgstr ""
-"以下に述べるような話題に関する詳細に渡る説明と議論のための :doc:`議論 "
-"<discussions/index>` の節:"
+msgstr ":doc:`議論 <discussions/index>` "
+"の節は、以下に述べるような話題に関する詳細に渡る説明と議論を提供します:"
 
 #: ../source/index.rst:85
 msgid ":doc:`discussions/deploying-python-applications`"
@@ -14682,23 +14682,25 @@ msgid ""
 "or `pixi <https://pixi.sh/>`_ systems. It is available for Windows, Mac and "
 "Linux systems."
 msgstr ""
+"Conda は、任意の言語 -- Python ・ R ・ Ruby ・ C/C++ ・ Fortran "
+"・その他向けのパッケージ・依存関係・環境の管理システムです。 Python "
+"で書かれており、非 Python のライブラリや拡張をサポートしているために、 "
+"Python の科学計算コミュニティで広く使われています。 Anaconda, Inc. "
+"が出している Python 配布物である `Anaconda <https://docs.anaconda.com/"
+"anacond/>`__ "
+"の基礎として使われています。元々は科学計算コミュニティを目標にしたものですが"
+"、しかし、それ自身や :doc:`miniconda <conda:miniconda>`"
 
 #: ../source/key_projects.rst:416
-#, fuzzy
-#| msgid ""
-#| "Conda is a completely separate tool from :ref:`pip`, virtualenv and "
-#| "wheel, but provides many of their combined features in terms of package "
-#| "management, virtual environment management and deployment of binary "
-#| "extensions."
 msgid ""
 "Conda is a completely separate tool from :ref:`pip`, virtualenv and wheel, "
 "but provides many of their combined features, such as package management, "
 "virtual environment management and deployment of binary extensions and other "
 "binary code."
 msgstr ""
-"Conda は、 :ref:`pip` や virtualenv や wheel とは全く別のツールですが、パッ"
-"ケージ管理・仮想環境管理・バイナリ拡張のデプロイメントの観点ではこれらのツー"
-"ルを合わせたような機能を提供します。"
+"Conda は、 :ref:`pip` や virtualenv や wheel "
+"とは全く別のツールですが、パッケージ管理・仮想環境管理・バイナリ拡張のデプロ"
+"イメントなどの、これらのツールを合わせたような機能を提供します。"
 
 #: ../source/key_projects.rst:420
 msgid ""
@@ -14710,19 +14712,16 @@ msgid ""
 "are a wide variety of packages from the community supported `conda-forge "
 "project <https://conda-forge.org/>`__"
 msgstr ""
+"Conda は、 PyPI あらパッケージをインストールすることはしません -- `"
+"anaconda.org <https://anaconda.org>`__ もしくは (例えば "
+"イントラネットのような) ローカルのパッケージサーバのような \"conda channel\" "
+"から利用可能な、特に conda "
+"用にビルドされたパッケージを管理することができるだけです。 `Anaconda, Inc. "
+"<https://www.anaconda.com/>`__ が維持管理する \"default\" "
+"チャンネルに加えて、コミュニティがサポートする `conda-forge project <https"
+"://conda-forge.org/>`__ にも広範囲にわたるパッケージがあります。"
 
 #: ../source/key_projects.rst:426
-#, fuzzy
-#| msgid ""
-#| "Conda does not install packages from PyPI and can install only from the "
-#| "official Anaconda repositories, or anaconda.org (a place for user-"
-#| "contributed *conda* packages), or a local (e.g. intranet) package "
-#| "server.  However, note that :ref:`pip` can be installed into, and work "
-#| "side-by-side with conda for managing :term:`distributions <Distribution "
-#| "Package>` from PyPI. Also, `conda skeleton <https://docs.conda.io/"
-#| "projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-skeleton."
-#| "html>`__ is a tool to make Python packages installable by conda by first "
-#| "fetching them from PyPI and modifying their metadata."
 msgid ""
 "Note that :ref:`pip` can be installed into, and work side-by-side with conda "
 "for managing :term:`distributions <Distribution Package>` from PyPI. It is "
@@ -14731,15 +14730,14 @@ msgid ""
 "latest/user-guide/tutorials/build-pkgs-skeleton.html>`__: a tool to "
 "automatically make conda packages from Python packages available on PyPI."
 msgstr ""
-"Conda は PyPI からパッケージをインストールすることはなく、公式の Anaconda リ"
-"ポジトリか、anaconda.org (ユーザが貢献した *conda* パッケージの置き場所) か、"
-"または、ローカル (例えばイントラネット) にあるパッケージサーバからのみインス"
-"トールすることができます。しかしながら、:ref:`pip` をインストールすることは可"
-"能で、PyPI からの :term:`配布物 <Distribution Package>` の管理という点では "
-"conda と平行して動作することができます。また、 `conda skeleton <https://docs."
-"conda.io/projects/conda-build/en/latest/user-guide/tutorials/build-pkgs-"
-"skeleton.html>`__ は、 PyPI から持ってきた Python パッケージのメタデータを修"
-"正することで conda がインストールできるものにするためのツールです。"
+"PyPI からの :term:`distributions <Distribution Package>` "
+"を維持管理するために、 conda と並列に :ref:`pip` "
+"をインストールすることが可能で、並列に動作するということを覚えておいて下さい"
+"。また、 `conda skeleton <https://docs.conda.io/projects/conda-build/en/"
+"latest/user-guide/tutorials/build-pkgs-skeleton.html>`__ 、これは PyPI "
+"上で利用可能な Python パッケージから conda "
+"パッケージを自動的に作成するツールですが、そのようなツールを使って、 conda "
+"パッケージ群を Python ソースコードパッケージからビルドすることもできます。"
 
 #: ../source/key_projects.rst:435
 msgid "devpi"
@@ -17617,11 +17615,6 @@ msgid "File contents"
 msgstr "ファイルの内容"
 
 #: ../source/specifications/binary-distribution-format.rst:177
-#, fuzzy
-#| msgid ""
-#| "The contents of a wheel file, where {distribution} is replaced with the "
-#| "name of the package, e.g. ``beaglevote`` and {version} is replaced with "
-#| "its version, e.g. ``1.0.0``, consist of:"
 msgid ""
 "The contents of a wheel file, where {distribution} is replaced with the :ref:"
 "`normalized name <name-normalization>` of the package, e.g. ``beaglevote`` "
@@ -17629,9 +17622,12 @@ msgid ""
 "specifiers-normalization>`, e.g. ``1.0.0``, (with dash/``-`` characters "
 "replaced with underscore/``_`` characters in both fields) consist of:"
 msgstr ""
-"{distribution} の部分を例えば ``beaglevote`` のようなパッケージ名で置き換"
-"え、 {version} の部分を例えば `1.0.0`` のようなバージョン番号で置き換えた "
-"wheel ファイルの内容は次のもので構成されています:"
+"{distribution} の部分を例えば ``beaglevote`` のようなパッケージの :ref:`"
+"normalized name <name-normalization>` で置き換え、 {version} を例えば "
+"``1.0.0`` のような :ref:`normalized version <version-specifiers-"
+"normalization>` で置き換えた時 (両方のフィールドでダッシュ文字/``-`` "
+"をアンダースコア文字/``_`` で置換) 、 wheel "
+"ファイルの内容は、以下の要素から構成されます:"
 
 #: ../source/specifications/binary-distribution-format.rst:184
 msgid ""
@@ -17649,11 +17645,11 @@ msgid "``{distribution}-{version}.dist-info/`` contains metadata."
 msgstr "``{distribution}-{version}.dist-info/`` はメタデータを含んでいます。"
 
 #: ../source/specifications/binary-distribution-format.rst:188
-#, fuzzy
-#| msgid "``{distribution}-{version}.dist-info/`` contains metadata."
 msgid ""
 ":file:`{distribution}-{version}.dist-info/licenses/` contains license files."
-msgstr "``{distribution}-{version}.dist-info/`` はメタデータを含んでいます。"
+msgstr ""
+":file:`{distribution}-{version}.dist-info/licenses/` "
+"はライセンスファイル群を含んでいます。"
 
 #: ../source/specifications/binary-distribution-format.rst:189
 msgid ""
@@ -17669,20 +17665,17 @@ msgstr ""
 "みます。"
 
 #: ../source/specifications/binary-distribution-format.rst:193
-#, fuzzy
-#| msgid ""
-#| "Python scripts must appear in ``scripts`` and begin with exactly ``b'#!"
-#| "python'`` in order to enjoy script wrapper generation and ``#!python`` "
-#| "rewriting at install time.  They may have any or no extension."
 msgid ""
 "Python scripts must appear in ``scripts`` and begin with exactly ``b'#!"
 "python'`` in order to enjoy script wrapper generation and ``#!python`` "
 "rewriting at install time.  They may have any or no extension.  The "
 "``scripts`` directory may only contain regular files."
 msgstr ""
-"Python スクリプトは ``scripts`` ディレクトリに置かなければならず、また、イン"
-"ストール時のスクリプトラッパの生成や ``#!python`` 書き換えといった利点を活用"
-"するために、正確に ``b'#!python'`` で始まっていなければなりません。"
+"Python スクリプトは ``scripts`` ディレクトリに置かなければならず、また、"
+"インストール時のスクリプトラッパの生成や ``#!python`` "
+"書き換えといった利点を活用するために、正確に ``b'#!python'`` "
+"で始まっていなければなりません。 ``scripts`` "
+"ディレクトリには、通常ファイルしか置けません。"
 
 #: ../source/specifications/binary-distribution-format.rst:197
 msgid ""
@@ -17844,7 +17837,7 @@ msgstr ""
 
 #: ../source/specifications/binary-distribution-format.rst:257
 msgid "Subdirectories in :file:`.dist-info/`"
-msgstr ""
+msgstr ":file:`.dist-info/` 内のサブディレクトリ群"
 
 #: ../source/specifications/binary-distribution-format.rst:259
 msgid ""
@@ -17852,61 +17845,51 @@ msgid ""
 "following subdirectory names under :file:`.dist-info/` are reserved for "
 "specific usage:"
 msgstr ""
+":file:`.dist-info/` "
+"の下のサブディレクトリは、将来の使用のために予約されています。 :file:`.dist-"
+"info/` "
+"の下のサブディレクトリ名で以下のものが特定の用途のために予約されています:"
 
 #: ../source/specifications/binary-distribution-format.rst:263
-#, fuzzy
-#| msgid "Project name"
 msgid "Subdirectory name"
-msgstr "プロジェクト名"
+msgstr "サブディレクトリ名"
 
 #: ../source/specifications/binary-distribution-format.rst:263
 msgid "PEP / Standard"
-msgstr ""
+msgstr "PEP / Standard"
 
 #: ../source/specifications/binary-distribution-format.rst:265
-#, fuzzy
-#| msgid "``license``"
 msgid "``licenses``"
-msgstr "``ライセンス``"
+msgstr "``licenses``"
 
 #: ../source/specifications/binary-distribution-format.rst:265
 #: ../source/specifications/binary-distribution-format.rst:266
-#, fuzzy
-#| msgid ":pep:`600`"
 msgid ":pep:`639`"
-msgstr ":pep:`600`"
+msgstr ":pep:`639`"
 
 #: ../source/specifications/binary-distribution-format.rst:266
-#, fuzzy
-#| msgid "``license``"
 msgid "``license_files``"
-msgstr "``ライセンス``"
+msgstr "``license_files``"
 
 #: ../source/specifications/binary-distribution-format.rst:267
-#, fuzzy
-#| msgid "``LIB``"
 msgid "``LICENSES``"
-msgstr "``LIB``"
+msgstr "``LICENSES``"
 
 #: ../source/specifications/binary-distribution-format.rst:267
 msgid "`REUSE licensing framework <https://reuse.software>`__"
-msgstr ""
+msgstr "`REUSE ライセンシングフレームワーク <https://reuse.software>`__"
 
 #: ../source/specifications/binary-distribution-format.rst:268
 msgid "``sboms``"
-msgstr ""
+msgstr "``sboms``"
 
 #: ../source/specifications/binary-distribution-format.rst:268
-#, fuzzy
-#| msgid ":pep:`571`"
 msgid ":pep:`770`"
-msgstr ":pep:`571`"
+msgstr ":pep:`770`"
 
 #: ../source/specifications/binary-distribution-format.rst:272
-#, fuzzy
-#| msgid "The .dist-info directory"
 msgid "The :file:`.dist-info/licenses/` directory"
-msgstr ".dist-info ディレクトリ"
+msgstr ":file:`.dist-info/licenses/` ディレクトリ"
 
 #: ../source/specifications/binary-distribution-format.rst:274
 msgid ""
@@ -17916,12 +17899,16 @@ msgid ""
 "``License-File`` fields in the :file:`METADATA` file at their respective "
 "paths relative to the :file:`licenses/` directory."
 msgstr ""
+"メタデータバージョンが 2.4 かそれ以上で、一つないしそれ以上の ``License-"
+"File`` フィールドが指定された場合は、 :file:`.dist-info/` ディレクトリには "
+":file:`licenses/` サブディレクトリがなければならず、そこには :file:`METADATA`"
+" ファイル内の ``License-File`` フィールドに :file:`licenses/` "
+"ディレクトリからの相対パスの形で列挙されたファイル群を含んでいなければなりま"
+"せん。"
 
 #: ../source/specifications/binary-distribution-format.rst:281
-#, fuzzy
-#| msgid "The .dist-info directory"
 msgid "The :file:`.dist-info/sboms/` directory"
-msgstr ".dist-info ディレクトリ"
+msgstr "The :file:`.dist-info/sboms/` ディレクトリ"
 
 #: ../source/specifications/binary-distribution-format.rst:283
 msgid ""
@@ -17929,6 +17916,9 @@ msgid ""
 "Software Bill-of-Materials (SBOM) files that describe software contained "
 "within the distribution archive."
 msgstr ""
+":file:`.dist-info/sboms/` ディレクトリにあるすべてのファイルは、"
+"配布物アーカイブ内に含まれるソフトウェアを記述するソフトウェア部品表 "
+"<Software Bill-of-Materials> (SBOM) のファイルでなければなりません。"
 
 #: ../source/specifications/binary-distribution-format.rst:288
 msgid "The .data directory"
@@ -18295,24 +18285,27 @@ msgid ""
 "symlinks or subdirectories in this folder is not formally defined, and hence "
 "may vary between tools)."
 msgstr ""
+"2024年12月: ``scripts`` フォルダには、"
+"通常ファイルだけが含まれているべきであると明確化された "
+"(このフォルダ内でシンボリックリンクやサブディレクトリに遭遇した場合に消費する"
+"側のツール類がどのように振る舞うことを期待されているかについての公式には定義"
+"されていないので、ツールが異なれば動作が異なるかもしれません) 。"
 
 #: ../source/specifications/binary-distribution-format.rst:464
 #: ../source/specifications/recording-installed-packages.rst:288
-#, fuzzy
-#| msgid ""
-#| "September 2022: The filename of a source distribution was standardized "
-#| "through :pep:`625`."
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
 "through :pep:`639`."
-msgstr ""
-"2022年9月: :pep:`625` を通じて、ソースコード配布物のファイル名を標準化した。"
+msgstr "2022年12月: :pep:`639` を通じて、 :file:`.dist-info/licenses/` "
+"ディレクトリが仕様化された。"
 
 #: ../source/specifications/binary-distribution-format.rst:466
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for ``."
 "dist-info`` and ``.data`` directories."
 msgstr ""
+"2025年1月: 名称とバージョン番号が ``.dist-info`` と ``.data`` "
+"のディレクトリのために標準化される必要があると明確化された。"
 
 #: ../source/specifications/binary-distribution-format.rst:471
 msgid "Appendix"
@@ -18325,11 +18318,11 @@ msgstr "urlsafe-base64-nopad の実装の例::"
 #: ../source/specifications/build-details/index.rst:7
 #: ../source/specifications/build-details/index.rst:41
 msgid "v1.0"
-msgstr ""
+msgstr "v1.0"
 
 #: ../source/specifications/build-details/index.rst:5
 msgid ":file:`build-details.json`"
-msgstr ""
+msgstr ":file:`build-details.json`"
 
 #: ../source/specifications/build-details/index.rst:13
 msgid ""
@@ -18338,6 +18331,10 @@ msgid ""
 "extension ABI details, and other information that is specific to that "
 "particular build of Python."
 msgstr ""
+"``build-details.json`` ファイルは、バージョン番号や拡張 ABI の詳細その他 "
+"Python をビルドすることに特に関係する情報のような Python "
+"のインストール関係のビルドに特化した情報を提供する標準化されたファイルフォー"
+"マットです。"
 
 #: ../source/specifications/build-details/index.rst:18
 msgid ""
@@ -18345,12 +18342,15 @@ msgid ""
 "platform-independent standard library directory (``stdlib``, e.g. ``/usr/lib/"
 "python3.14/build-details.json``)."
 msgstr ""
+"Python 3.14 以降、 ``build-details.json`` ファイルは、"
+"プラットフォーム非依存の標準ライブラリディレクトリ (``stdlib`` 、例えば ``/"
+"usr/lib/python3.14.build-details.json``) にインストールされます。"
 
 #: ../source/specifications/build-details/index.rst:22
 msgid ""
 "Please refer to the :ref:`latest version <build-details-v1.0>` for its "
 "specification."
-msgstr ""
+msgstr "その仕様については、 :ref:`最新版 <build-details-v1.0>` を参照してください。"
 
 #: ../source/specifications/build-details/index.rst:28
 #: ../source/specifications/build-details/v1.0.rst:16
@@ -18360,10 +18360,8 @@ msgid "Example"
 msgstr "例"
 
 #: ../source/specifications/build-details/index.rst:35
-#, fuzzy
-#| msgid "Changes"
 msgid "Changelog"
-msgstr "変更点"
+msgstr "Changelog"
 
 #: ../source/specifications/build-details/index.rst:45
 #: ../source/specifications/build-details/v1.0.rst:9
@@ -18381,13 +18379,11 @@ msgstr "仕様"
 
 #: ../source/specifications/build-details/index.rst:46
 msgid ":ref:`build-details-v1.0`"
-msgstr ""
+msgstr ":ref:`build-details-v1.0`"
 
 #: ../source/specifications/build-details/index.rst:48
-#, fuzzy
-#| msgid "JSON Schema"
 msgid "Schema"
-msgstr "JSON スキーマ"
+msgstr "スキーマ"
 
 #: ../source/specifications/build-details/index.rst:49
 #: ../source/specifications/build-details/v1.0.rst:12
@@ -18395,44 +18391,43 @@ msgid ""
 "https://packaging.python.org/en/latest/specifications/schemas/build-details-"
 "v1.0.schema.json"
 msgstr ""
+"https://packaging.python.org/en/latest/specifications/schemas/build-"
+"details-v1.0.schema.json"
 
 #: ../source/specifications/build-details/index.rst:52
 msgid "Initial version, introduced by :pep:`739`."
-msgstr ""
+msgstr ":pep:`739` で導入された、当初のバージョン。"
 
 #: ../source/specifications/build-details/v1.0.rst:5
 msgid "``build-details.json`` v1.0"
-msgstr ""
+msgstr "``build-details.json`` v1.0"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "*build-details.json — a static description file with build details of Python "
 "installations*"
-msgstr ""
+msgstr "*build-details.json -- Python "
+"インストール状態のビルドの詳細を伴った静的な記述ファイル*"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "type"
-msgstr ""
+msgstr "型"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Project"
 msgid "*object*"
-msgstr "プロジェクト"
+msgstr "*オブジェクト*"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "properties"
-msgstr ""
+msgstr "プロパティ"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**schema\\_version**"
-msgstr ""
+msgstr "**schema\\_version**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Semantic versioning"
 msgid "Schema version."
-msgstr "セマンティックバージョニング"
+msgstr "スキーマバージョン"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -18441,12 +18436,18 @@ msgid ""
 "**minor** components of the version. Versions may be arithmetically compared "
 "by intrepreting the version string as a decimal number."
 msgstr ""
+"これは、``<MAJOR>`` と ``<MINOR>`` "
+"がパディングされていない番号でバージョン番号の **メジャー** 部分と "
+"**マイナー** 部分を表現するものとして、 ``<MAJOR>.<MINOR>`` "
+"フォーマットに続く文字列です。バージョン番号は、バージョン文字列を10進数の数"
+"として解釈することによって、算術的に比較しても構いません。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "For this specification version, this value is constant and **MUST** be "
 "``1.0``."
-msgstr ""
+msgstr "この仕様のバージョン番号にとって、この値は定数であって ``1.0`` で "
+"**なければなりません** 。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -18459,239 +18460,225 @@ msgid ""
 "the older specification, with the exception of additional properties (errors "
 "caused by ``additionalProperties``)."
 msgstr ""
+"スキーマの将来のバージョン番号は、より大きなバージョン番号を使わなければ "
+"**なりません** "
+"。このスキーマの将来のバージョン番号は、その仕様が後方互換性を尊重しているの"
+"でなければ、他のスキーマバージョンと同じ **メジャー** "
+"バージョン部分を使っては **なりません** -- "
+"現在の仕様のどの一部分であってもデータの解釈が異なる意味になるようなやり方や"
+"、追加のプロパティ (``additionalProperties`` によって引き起こされたエラー) "
+"を例外として新仕様の下で正当なデータが旧仕様の下では不当なものになるようなや"
+"り方で、変更したり拡張したりすることはできません。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "*string*"
-msgstr ""
+msgstr "*文字列 <string>*"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "enscons"
 msgid "const"
-msgstr "enscons"
+msgstr "定数 <const>"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "1.0"
-msgstr ""
+msgstr "1.0"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**base\\_prefix**"
-msgstr ""
+msgstr "**base\\_prefix**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Base prefix of the Python installation."
-msgstr ""
+msgstr "Python インストールのベースプレフィクス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "Either an absolute path, or a path relative to directory where this file is "
 "contained."
-msgstr ""
+msgstr "絶対パスか、そのファイルの一からの相対パスのいずれか。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Examples"
 msgid "examples"
 msgstr "例"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr"
-msgstr ""
+msgstr "/usr"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "../.."
-msgstr ""
+msgstr "../.."
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "base\\_interpreter"
-msgstr ""
+msgstr "base\\_interpreter"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "The path to the Python interprer of the base installation."
-msgstr ""
+msgstr "ベースシステムにインストールされた Python インタープリタへのパス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Either an absolute path, or a path relative to ``base_prefix``."
-msgstr ""
+msgstr "絶対パスか、 ``base_prefix`` に対する相対パス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **MUST** be present if the installation provides an interpreter "
 "executable."
-msgstr ""
+msgstr "実行可能なインタープリタがインストールされているなら、このフィールドが "
+"**存在しなければなりません** 。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr/bin/python"
-msgstr ""
+msgstr "/usr/bin/python"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "python"
 msgid "bin/python"
-msgstr "python"
+msgstr "bin/python"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "platform tag"
 msgid "**platform**"
-msgstr "プラットフォームタグ"
+msgstr "**platform**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "platform tag"
 msgid "System platform string."
-msgstr "プラットフォームタグ"
+msgstr "システムのプラットフォーム文字列。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "This field **SHOULD** be equivalent to ``sysconfig.get_platform()``."
-msgstr ""
+msgstr "このフィールドは、 ``sysconfig.get_platform()`` と **同等であるべきです** 。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "linux_x86_64"
 msgid "linux-x86\\_64"
-msgstr "linux_x86_64"
+msgstr "linux-x86\\_64"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**language**"
-msgstr ""
+msgstr "**language**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object containing details related to the Python language specification."
-msgstr ""
+msgstr "Python 言語の仕様に関係した詳細を含むオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Versions"
 msgid "**version**"
-msgstr "バージョン指定子"
+msgstr "**version**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "String representation the Python language version — a version string "
 "consisting only of the *major* and *minor* components."
-msgstr ""
+msgstr "Python 言語のバージョンを文字列で表現したもの -- *メジャー* 部分と *マイナー*"
+" 部分だけから構成されるバージョン文字列。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **SHOULD** be equivalent to ``sysconfig.get_python_version()``."
-msgstr ""
+msgstr "このフィールドは、 ``sysconfig.get_python_version()`` と同等である **べき** "
+"です。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "3.14"
-msgstr ""
+msgstr "3.14"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Versioning"
 msgid "version\\_info"
-msgstr "バージョニング"
+msgstr "version\\_info"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object in the format of :py:data:`sys.version_info`."
-msgstr ""
+msgstr ":py:data:`sys.version_info` のフォーマットのオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "This section **SHOULD** be equivalent to :py:data:`sys.version_info`."
-msgstr ""
+msgstr "この節は、 :py:data:`sys.version_info` と同等である **べき** です。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "major"
-msgstr ""
+msgstr "メジャー"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "minor"
-msgstr ""
+msgstr "マイナー"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "micro"
-msgstr ""
+msgstr "マイクロ"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Release"
 msgid "releaselevel"
-msgstr "リリース"
+msgstr "リリースレベル"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "final"
-msgstr ""
+msgstr "ファイナル"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Mercurial"
 msgid "serial"
-msgstr "Mercurial"
+msgstr "シリアル"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**major**"
-msgstr ""
+msgstr "**メジャー**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "**Numbers**"
 msgid "*number*"
-msgstr "**数値の書き方**"
+msgstr "*数*"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**minor**"
-msgstr ""
+msgstr "**マイナー**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**micro**"
-msgstr ""
+msgstr "**マイクロ**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**releaselevel**"
-msgstr ""
+msgstr "**リリースレベル**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "enum"
-msgstr ""
+msgstr "enum"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "alpha, beta, candidate, final"
-msgstr ""
+msgstr "アルファ・ベータ・候補・最終"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**serial**"
-msgstr ""
+msgstr "**シリアル**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Additional notes"
 msgid "additionalProperties"
-msgstr "補遺"
+msgstr "additionalProperties"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "False"
-msgstr ""
+msgstr "偽"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Implementation Notes"
 msgid "**implementation**"
-msgstr "実装に関する覚書"
+msgstr "**実装**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object containing details related to Python implementation."
-msgstr ""
+msgstr "Python の実装に関係した詳細を含むオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -18700,125 +18687,130 @@ msgid ""
 "required keys, implementation-specific keys can also exist, but must be "
 "prefixed with an underscore."
 msgstr ""
+"この節は、 :py:data:`sys.implementation` と同等である **べき** "
+"です。それは、要求されたキー群に加えて実装特有のキー群も存在することが可能で"
+"、しかし、プレフィクスとしてアンダースコアがついていなければならないという、 "
+"PEP 421 で定義された仕様に従います。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "**name**"
-msgstr ""
+msgstr "**名称**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Lower-case name of the Python implementation."
-msgstr ""
+msgstr "Python 実装の名前を小文字で。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "python"
 msgid "cpython"
-msgstr "python"
+msgstr "cpython"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "pypy"
-msgstr ""
+msgstr "pypy"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "Object in the format of :py:data:`sys.version_info`, containing the "
 "implementation version."
-msgstr ""
+msgstr "実装のバージョン番号を含んだ、 :py:data:`sys.version_info` "
+"のフォーマットのオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "16"
-msgstr ""
+msgstr "16"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "True"
-msgstr ""
+msgstr "True"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "abi tag"
 msgid "abi"
-msgstr "abi タグ"
+msgstr "abi"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object containing details related to ABI."
-msgstr ""
+msgstr "ABI に関連した詳細を含むオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "**Headings**"
 msgid "**flags**"
-msgstr "**見出しの付け方**"
+msgstr "**flags**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Build configuration flags, used to calculate the extension suffix."
-msgstr ""
+msgstr "拡張のサフィックスを計算するために使われた、ビルド設定のフラグ。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "The flags **MUST** be defined in the order they appear on the extension "
 "suffix."
-msgstr ""
+msgstr "フラグは、拡張のサフィックスに出現する順序に従って定義されなければ "
+"**なりません** 。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "*array*"
-msgstr ""
+msgstr "*array*"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "t"
-msgstr ""
+msgstr "t"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "d"
-msgstr ""
+msgstr "d"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "extension\\_suffix"
-msgstr ""
+msgstr "extension\\_suffix"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "Suffix used for extensions built against the current implementation version."
-msgstr ""
+msgstr "現在の実装のバージョン番号に対してビルドされた拡張に使われるサフィックス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **MUST** be present if the Python implementation supports "
 "extensions, otherwise this entry will be missing."
 msgstr ""
+"Python 実装が拡張をサポートするのであれば、このフィールドは存在してい "
+"**なければならず** 、そうでないならこのエントリは存在しないことでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ".cpython-314-x86\\_64-linux-gnu.so"
-msgstr ""
+msgstr ".cpython-314-x86\\_64-linux-gnu.so"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "stable\\_abi\\_suffix"
-msgstr ""
+msgstr "stable\\_abi\\_suffix"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Suffix used for extensions built against the stable ABI."
-msgstr ""
+msgstr "安定飯の ABI に対してビルドされた拡張に使われるサフィックス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **MUST** be present if the Python implementation has a stable ABI "
 "extension suffix, otherwise this entry will be missing."
 msgstr ""
+"Python 実装が安定版の ABI 拡張のサフィックスを持つなら、"
+"このフィールドは存在していなければ **ならず** "
+"、そうでなければこのエントリは欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ".abi3.so"
-msgstr ""
+msgstr ".abi3.so"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "suffixes"
-msgstr ""
+msgstr "suffixes"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Valid module suffixes grouped by type."
-msgstr ""
+msgstr "型ごとにグループ化された、正当なモジュールサフィックス群。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -18826,6 +18818,10 @@ msgid ""
 "importing external files, and it **SHOULD** be equivalent to the ``importlib."
 "machinery.*_SUFFIXES`` attributes."
 msgstr ""
+"インストール済 Python が外部ファイルのインポートをサポートしているなら、"
+"このセクションは存在していなければ **ならず** 、また、それは、 "
+"``importlib.machinery.*_SUFFIXES`` アトリビュートと同等のものである **べき** "
+"です。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -18833,92 +18829,96 @@ msgid ""
 "the ones listed on ``importlib.machinery`` module, they **MAY** add a sub-"
 "section for them."
 msgstr ""
+"さらに、 Python 実装が ``importlib.machinery`` "
+"モジュールに列挙されたもの以外の拡張の種類を提供しているなら、"
+"サブセクションを追加しても **構いません** 。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "source"
-msgstr ""
+msgstr "source"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ".py"
-msgstr ""
+msgstr ".py"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "bytecode"
-msgstr ""
+msgstr "bytecode"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ".pyc"
-msgstr ""
+msgstr ".pyc"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "optimized_bytecode"
-msgstr ""
+msgstr "optimized_bytecode"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "debug_bytecode"
-msgstr ""
+msgstr "debug_bytecode"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Versions"
 msgid "extensions"
-msgstr "バージョン指定子"
+msgstr "extensions"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ".cpython-313-x86\\_64-linux-gnu.so"
-msgstr ""
+msgstr ".cpython-313-x86\\_64-linux-gnu.so"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ".so"
-msgstr ""
+msgstr ".so"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "python"
 msgid "libpython"
-msgstr "python"
+msgstr "libpython"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object containing details related to the ``libpython`` library."
-msgstr ""
+msgstr "``libpython`` ライブラリに関係する詳細を含んだオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This section **MUST** by present if Python installation provides a "
 "``libpython`` library, otherwise this section will be missing."
 msgstr ""
+"インストール済 Python が ``libpython`` ライブラリを提供しているなら、"
+"このセクションは存在していなければ **なりません** "
+"し、そうでなければこのセクションは欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "``dynamic``"
 msgid "dynamic"
-msgstr "``dynamic``"
+msgstr "dynamic"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "The path to the dynamic ``libpython`` library."
-msgstr ""
+msgstr "ダイナミックな (訳註: 共有ライブラリのことか) ``libpython`` "
+"ライブラリへのパス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **MUST** be present if the Python installation provides a dynamic "
 "``libpython`` library, otherwise this entry will be missing."
 msgstr ""
+"インストール済 Python が動的な ``libpython`` ライブラリを提供しているなら、"
+"このフィールドは存在していなくては **ならず** "
+"、そうでなければこのエントリは欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr/lib/libpython3.14.so.1.0"
-msgstr ""
+msgstr "/usr/lib/libpython3.14.so.1.0"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "lib/libpython3.14.so.1.0"
-msgstr ""
+msgstr "lib/libpython3.14.so.1.0"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "dynamic\\_stableabi"
-msgstr ""
+msgstr "dynamic\\_stableabi"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "The path to the dynamic ``libpython`` library for the stable ABI."
-msgstr ""
+msgstr "安定版の ABI のための動的な ``libpython`` ライブラリへのパス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -18926,118 +18926,124 @@ msgid ""
 "``libpython`` library targeting the Stable ABI, otherwise this entry will be "
 "missing."
 msgstr ""
+"インストール済 Python が安定版の ABI をターゲットとした動的な ``libpython`` "
+"ライブラリを提供しているなら、このフィールドは存在していなければ **ならず** "
+"、そうでなければこのエントリは欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "If this key is present ``dynamic`` **MUST** also be set."
-msgstr ""
+msgstr "このキーが存在するなら、 ``dynamic`` もまた設定されていなければ "
+"**なりません** 。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr/lib/libpython3.so"
-msgstr ""
+msgstr "/usr/lib/libpython3.so"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "lib/libpython3.so"
-msgstr ""
+msgstr "lib/libpython3.so"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "static"
-msgstr ""
+msgstr "static"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "The path to the static ``libpython`` library."
-msgstr ""
+msgstr "静的な ``libpython`` ライブラリへのパス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **MUST** be present if the Python installation provides a static "
 "``libpython`` library, otherwise this entry will be missing."
 msgstr ""
+"インストール済 Python が静的な ``libpython`` ライブラリを提供しているなら、"
+"このフィールドは存在していなければ **ならず** "
+"、そうでなければ欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr/lib/python3.14/config-3.14-x86\\_64-linux-gnu/libpython3.14.a"
-msgstr ""
+msgstr "/usr/lib/python3.14/config-3.14-x86\\_64-linux-gnu/libpython3.14.a"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "lib/python3.14/config-3.14-x86\\_64-linux-gnu/libpython3.14.a"
-msgstr ""
+msgstr "lib/python3.14/config-3.14-x86\\_64-linux-gnu/libpython3.14.a"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Building binary extensions"
 msgid "link\\_extensions"
-msgstr "バイナリ拡張をビルドする"
+msgstr "link\\_extensions"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Should extensions built against a dynamic ``libpython`` link to it?"
-msgstr ""
+msgstr "拡張は、動的な ``libpython`` がリンクするようにビルドされているべきですか？"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "*boolean*"
-msgstr ""
+msgstr "*boolean*"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "c\\_api"
-msgstr ""
+msgstr "c\\_api"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object containing details related to the Python C API."
-msgstr ""
+msgstr "Python C API に関連した詳細を含んだオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This section **MUST** be present if the Python implementation provides a C "
 "API, otherwise this section will be missing."
 msgstr ""
+"Python 実装が C API を提供しているなら、このフィールドは存在していなければ "
+"**ならず** 、そうでなければ欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "**Numbers**"
 msgid "**headers**"
-msgstr "**数値の書き方**"
+msgstr "**headers**"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "The path to the C API headers."
-msgstr ""
+msgstr "C API のヘッダファイル群へのパス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr/include/python3.14"
-msgstr ""
+msgstr "/usr/include/python3.14"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "include/python3.14"
-msgstr ""
+msgstr "include/python3.14"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "pkgconfig\\_path"
-msgstr ""
+msgstr "pkgconfig\\_path"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "The path to the pkg-config definition files."
-msgstr ""
+msgstr "pkg-config 定義ファイル群へのパス。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
 "This field **MUST** be present if the Python implementation provides pkg-"
 "config definition files, otherwise this section will be missing."
 msgstr ""
+"Python 実装が pkg-config 定義ファイル群を提供しているなら、"
+"このフィールドは存在していなければ ** ならず** "
+"、そうでなければ欠けていることでしょう。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "/usr/lib/pkgconfig"
-msgstr ""
+msgstr "/usr/lib/pkgconfig"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "lib/pkgconfig"
-msgstr ""
+msgstr "lib/pkgconfig"
 
 #: ../source/specifications/build-details/v1.0.rst:12
-#, fuzzy
-#| msgid "Arbitrary equality"
 msgid "arbitrary\\_data"
-msgstr "あらゆる意味での同一性 <Arbitrary equality>"
+msgstr "arbitrary\\_data"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid "Object containing extra arbitrary data."
-msgstr ""
+msgstr "余分で任意のデータを含むオブジェクト。"
 
 #: ../source/specifications/build-details/v1.0.rst:12
 msgid ""
@@ -19045,6 +19051,11 @@ msgid ""
 "that is not covered by this specification. Implementations may choose what "
 "data to provide in this section."
 msgstr ""
+"これは、"
+"この仕様でカバーされなかったすべての適切なデータを含めるための脱出用ハッチ "
+"<escape-hatch> "
+"として使われることを意図しています。このセクションにどんなデータを提供するか"
+"は実装の側が選択してもかまいません。"
 
 #: ../source/specifications/core-metadata.rst:7
 msgid "Core metadata specifications"
@@ -19052,7 +19063,7 @@ msgstr "コアとなるメタデータの仕様"
 
 #: ../source/specifications/core-metadata.rst:9
 msgid "This page describes version 2.4, approved in August 2024."
-msgstr ""
+msgstr "このページは、 2024年8月に承認されたバージョン 2.4 を記述しています。"
 
 #: ../source/specifications/core-metadata.rst:11
 msgid ""
@@ -19141,16 +19152,12 @@ msgid "Metadata-Version"
 msgstr "Metadata-Version"
 
 #: ../source/specifications/core-metadata.rst:52
-#, fuzzy
-#| msgid ""
-#| "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
-#| "\"2.1\", \"2.2\", and \"2.3\"."
 msgid ""
 "Version of the file format; legal values are \"1.0\", \"1.1\", \"1.2\", "
 "\"2.1\", \"2.2\", \"2.3\", and \"2.4\"."
 msgstr ""
-"ファイルフォーマットのバージョン; 正しいものは \"1.0\", \"1.1\", \"1.2\", "
-"\"2.1\", \"2.2\", と \"2.3\"。"
+"ファイルフォーマットのバージョン番号; 合法な値は次のとおり\"1.0\", \"1.1\", "
+"\"1.2\", \"2.1\", \"2.2\", \"2.3\", and \"2.4\"。"
 
 #: ../source/specifications/core-metadata.rst:55
 msgid ""
@@ -19669,10 +19676,8 @@ msgid "License"
 msgstr "License"
 
 #: ../source/specifications/core-metadata.rst:439
-#, fuzzy
-#| msgid "in favour of ``Requires-Dist``"
 msgid "in favour of ``License-Expression``."
-msgstr "``Requires-Dist`` に従って"
+msgstr "``License-Expression`` に従って。"
 
 #: ../source/specifications/core-metadata.rst:443
 msgid ""
@@ -19681,6 +19686,11 @@ msgid ""
 "``License`` and PyPI will reject uploads. See `PEP 639 <https://peps.python."
 "org/pep-0639/#deprecate-license-field>`__."
 msgstr ""
+"Metadata 2.4 の時点では、 ``License`` と ``License-Expression`` "
+"は、相互に排他的に扱われます。両者が同時に指定された場合は、"
+"メタデータをパースするツールは ``License`` を無視するでしょうし、 PyPI "
+"はアップロードを拒否するでしょう。 `PEP 639 <https://peps.python.org/"
+"pep-0639/#deprecate-license-field>`__ をみてください。"
 
 #: ../source/specifications/core-metadata.rst:448
 msgid ""
@@ -19699,19 +19709,19 @@ msgstr ""
 
 #: ../source/specifications/core-metadata.rst:468
 msgid "License-Expression"
-msgstr ""
+msgstr "License-Expression"
 
 #: ../source/specifications/core-metadata.rst:472
 msgid ""
 "Text string that is a valid SPDX :term:`license expression <License "
 "Expression>`, as specified in :doc:`/specifications/license-expression`."
 msgstr ""
+":doc:`/specifications/license-expression` で指定された、正当な SPDX :term:`"
+"ライセンス表現 <License Expression>` であるテキスト文字列。"
 
 #: ../source/specifications/core-metadata.rst:491
-#, fuzzy
-#| msgid "Requires-Dist (multiple use)"
 msgid "License-File (multiple use)"
-msgstr "Requires-Dist (複数回の使用可)"
+msgstr "License-File (複数回使用)"
 
 #: ../source/specifications/core-metadata.rst:495
 msgid ""
@@ -19719,6 +19729,9 @@ msgid ""
 "The path is located within the project source tree, relative to the project "
 "root directory. For details see :pep:`639`."
 msgstr ""
+"各エントリは、ライセンス関連のファイルのパスの文字列表現です。パスは、プロジ"
+"ェクトのソースコードツリー内に位置していて、プロジェクトのルートディレクトリ"
+"からの相対ぱすです。詳細については、 :pep:`639` をみてください。"
 
 #: ../source/specifications/core-metadata.rst:512
 msgid "Classifier (multiple use)"
@@ -19742,6 +19755,9 @@ msgid ""
 "``License-Expression`` instead. See `PEP 639 <https://peps.python.org/"
 "pep-0639/#deprecate-license-classifiers>`_."
 msgstr ""
+"``License::`` 分類子の使用は Metadata 2.4 の時点で非推奨になっており、"
+"代わりに ``License-Expression`` を使ってください。 `PEP 639 <https://"
+"peps.python.org/pep-0639/#deprecate-license-classifiers>`__ を見てください。"
 
 #: ../source/specifications/core-metadata.rst:526
 #: ../source/specifications/core-metadata.rst:616
@@ -19928,6 +19944,11 @@ msgid ""
 "known\" labels, which can then be given special presentations when being "
 "rendered for human consumption. See :ref:`well-known-project-urls`."
 msgstr ""
+":pep:`753` に始まって、プロジェクトメタデータの消費者 (the Python Package "
+"Index など) は、 \"well-known\" "
+"なラベル、それは人間による消費のために展開される時には特定の特別な表現方法を"
+"与えることができますが、それを探索するために標準標準化プロセスを使うことがで"
+"きます。 :ref:`well-known-project-urls` を見てください。"
 
 #: ../source/specifications/core-metadata.rst:658
 msgid "Provides-Extra (multiple use)"
@@ -20153,6 +20174,12 @@ msgid ""
 "prior to the removal). Tools SHOULD warn users when deprecated fields are "
 "used."
 msgstr ""
+"非推奨となったフィールドは避けられるべきですが、しかし、まだ正当なメタデータ"
+"フィールドです。それらは、将来のコアとなるメタデータ標準 "
+"(その時点では、取り除くのに先立って、メタデータのバージョン番号を指定したファ"
+"イル内でのみ正当であるという状態になることでしょう) "
+"のバージョンで取り除かれるかもしれません。ツールの側では、ユーザに対して非推"
+"奨のフィールドが使われていることを警告するべきです。"
 
 #: ../source/specifications/core-metadata.rst:811
 msgid "Home-page"
@@ -20161,7 +20188,8 @@ msgstr "Home-page"
 #: ../source/specifications/core-metadata.rst:817
 #: ../source/specifications/core-metadata.rst:834
 msgid "Per :pep:`753`, use :ref:`core-metadata-project-url` instead."
-msgstr ""
+msgstr ":pep:`753` に従って、代わりに :ref:`core-metadata-project-url` "
+"を使ってください。"
 
 #: ../source/specifications/core-metadata.rst:819
 msgid "A string containing the URL for the distribution's home page."
@@ -20172,22 +20200,17 @@ msgid "Download-URL"
 msgstr "Download-URL"
 
 #: ../source/specifications/core-metadata.rst:836
-#, fuzzy
-#| msgid ""
-#| "A string containing the URL from which this version of the distribution "
-#| "can be downloaded.  (This means that the URL can't be something like "
-#| "\".../BeagleVote-latest.tgz\", but instead must be \".../BeagleVote-0.45."
-#| "tgz\".)"
 msgid ""
 "A string containing the URL from which this version of the distribution can "
 "be downloaded.  (This means that the URL can't be something like \"``.../"
 "BeagleVote-latest.tgz``\", but instead must be \"``.../BeagleVote-0.45."
 "tgz``\".)"
 msgstr ""
-"そこからこのバージョンの配布物をダウンロードすることができる URL を含んだ文字"
-"列。 (これが意味するところは、 URL は何か \".../BeagleVote-latest.tgz\" のよ"
-"うなものでは駄目で、 \".../BeagleVote-0.45.tgz\" のようにバージョンを含むもの"
-"でなければならないということです。)"
+"そこからこのバージョンの配布物をダウンロードすることができる URL "
+"を含んだ文字列。 (これが意味するところは、 URL は何か "
+"\"``.../BeagleVote-latest.tgz``\" のようなものでは駄目で、 "
+"\"``.../BeagleVote-0.45.tgz``\" "
+"のようにバージョンを含むものでなければならないということです。)"
 
 #: ../source/specifications/core-metadata.rst:842
 msgid "Requires"
@@ -20310,23 +20333,16 @@ msgstr ""
 "るべきです。"
 
 #: ../source/specifications/core-metadata.rst:926
-#, fuzzy
-#| msgid "October 2020: Core metadata 2.2 was approved through :pep:`643`."
 msgid "August 2024: Core metadata 2.4 was approved through :pep:`639`."
-msgstr ""
-"2020年10月: :pep:`643` を通じてコアとなるメタデータ 2.2 が承認されました。"
+msgstr "2024年8月: :pep:`639` を通じて、コアとなるメタデータ 2.4 が承認されました。"
 
 #: ../source/specifications/core-metadata.rst:928
-#, fuzzy
-#| msgid "Added the ``Dynamic`` field."
 msgid "Added the ``License-Expression`` field."
-msgstr "``Dynamic`` フィールドを追加しました。"
+msgstr "``License-Expression`` フィールドを追加しました。"
 
 #: ../source/specifications/core-metadata.rst:929
-#, fuzzy
-#| msgid "Added the ``Dynamic`` field."
 msgid "Added the ``License-File`` field."
-msgstr "``Dynamic`` フィールドを追加しました。"
+msgstr "``License-File`` フィールドを追加しました。"
 
 #: ../source/specifications/core-metadata.rst:931
 msgid "March 2022: Core metadata 2.3 was approved through :pep:`685`."
@@ -20387,10 +20403,8 @@ msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr "RFC 822 長形式ヘッダフィールド: :rfc:`822#section-3.1.1`"
 
 #: ../source/specifications/dependency-groups.rst:5
-#, fuzzy
-#| msgid "Dependency Overrides"
 msgid "Dependency Groups"
-msgstr "依存関係を上書きする"
+msgstr "依存関係グループ"
 
 #: ../source/specifications/dependency-groups.rst:7
 msgid ""
@@ -20398,6 +20412,10 @@ msgid ""
 "package requirements in ``pyproject.toml`` files such that they are not "
 "included in project metadata when it is built."
 msgstr ""
+"この仕様では、"
+"ビルド時にプロジェクトメタデータに含まれなかったパッケージ要求事項を "
+"``pyproject.toml`` 内に保存するための機構であるところの、依存関係グループ "
+"<Dependency Groups> を定義しています。"
 
 #: ../source/specifications/dependency-groups.rst:11
 msgid ""
@@ -20405,6 +20423,9 @@ msgid ""
 "linting and testing, as well as for projects which are not built for "
 "distribution, like collections of related scripts."
 msgstr ""
+"依存関係グループは、関連するスクリプトの集合のような配布物作成のためにビルド"
+"されたのではないプロジェクト向けと同様に、静的解析ツール (lint) "
+"や試験用ツールのような内部開発でのユースケース向けに適切です。"
 
 #: ../source/specifications/dependency-groups.rst:15
 msgid ""
@@ -20412,20 +20433,24 @@ msgid ""
 "standardized subset of the capabilities of ``requirements.txt`` files (which "
 "are ``pip``-specific)."
 msgstr ""
+"基本的に、依存関係グループは、 ``requirements.txt`` ファイル (これは ``pip`` "
+"に特有ですが) "
+"でできることの標準化されたサブセットであるものと考えるべきです。"
 
 #: ../source/specifications/dependency-groups.rst:25
 msgid "This is a simple table which shows ``docs`` and ``test`` groups::"
-msgstr ""
+msgstr "これは、``docs`` グループと ``test`` グループを示す単純なテーブルです::"
 
 #: ../source/specifications/dependency-groups.rst:31
 msgid ""
 "and a similar table which defines ``docs``, ``test``, and ``coverage`` "
 "groups::"
-msgstr ""
+msgstr "そして ``docs`` や ``test`` と ``coverage`` "
+"の各グループを定義するよく似たテーブル::"
 
 #: ../source/specifications/dependency-groups.rst:39
 msgid "The ``[dependency-groups]`` Table"
-msgstr ""
+msgstr "``[dependency-groups]`` テーブル"
 
 #: ../source/specifications/dependency-groups.rst:41
 msgid ""
@@ -20434,6 +20459,10 @@ msgid ""
 "number of user-defined keys, each of which has, as its value, a list of "
 "requirements."
 msgstr ""
+"依存関係グループは、 ``dependency-groups`` という名前の ``pyproject.toml`` "
+"の中のテーブルとして定義されています。 ``dependency-groups`` "
+"テーブルには、任意の数のユーザが定義したキーを含み、そのそれぞれが要求事項を"
+"その値に取ります。"
 
 #: ../source/specifications/dependency-groups.rst:46
 msgid ""
