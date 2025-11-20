@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 19:13+0000\n"
-"PO-Revision-Date: 2025-11-18 10:51+0000\n"
+"PO-Revision-Date: 2025-11-20 00:51+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -28300,6 +28300,11 @@ msgid ""
 "\"private\" (e.g. ``\"; private\"``) with any amount of whitespace "
 "surrounding the semicolon."
 msgstr ""
+"インストール時にプロジェクトが排他的に提供したインポートネームを指定する文字"
+"列の配列。各文字列は、正当な Python 識別子か空値でなければなりません。インポ"
+"ートネームは、セミコロンと \"private\" という用語 (例えば ``\"; private\"``) "
+"を、セミコロンの前後に空白文字がいくつあっても良い形で、後続させても構いませ"
+"ん。"
 
 #: ../source/specifications/pyproject-toml.rst:495
 msgid ""
@@ -28315,6 +28320,18 @@ msgid ""
 "expected. As well, projects SHOULD list all import names, public or private, "
 "using the ``; private`` modifier as appropriate."
 msgstr ""
+"プロジェクトは、そのプロジェクトが排他的に提供した最短のインポートネームをす"
+"べて列挙するべきです。最短のネームがドットで区切られたものなら、そのネームか"
+"らトップレベルに至るすべての中間ネームもまた、 ``import-names`` と ``import-"
+"namespaces`` のいずれか又は両方に適切に列挙されているべきです。例えば、 spam "
+"という名前の単一パッケージで複数のサブモジュールを伴っているあるプロジェクト"
+"は、 ``project.import-names=[\"spam\"]`` だけを列挙することでしょう。 "
+"``spam.bacon.eggs`` を列挙しているプロジェクトなら、 ``spam`` と "
+"``spam.bacon`` についても ``import-names`` と ``import-namespaces`` の中で適"
+"切に考慮しておく必要があるでしょう。すべてのネームを列挙することは、インポー"
+"トネームに込められた意図が期待通りであることの確認として作動します。同様に、"
+"プロジェクトは、それが public であるか private であるかを ``; private`` 修正"
+"子を適切に使用してすべてのインポートネームを列挙するべきです。"
 
 #: ../source/specifications/pyproject-toml.rst:507
 #: ../source/specifications/pyproject-toml.rst:556
@@ -28322,6 +28339,9 @@ msgid ""
 "If a project lists the same name in both ``import-names`` and ``import-"
 "namespaces``, then tools MUST raise an error due to ambiguity."
 msgstr ""
+"プロジェクトが同一のネームを ``import-names`` と ``import-namespaces`` の両方"
+"に列挙している場合、ツール類は、曖昧さの故にエラーを発生させなければなりませ"
+"ん。"
 
 #: ../source/specifications/pyproject-toml.rst:510
 msgid ""
@@ -28329,6 +28349,9 @@ msgid ""
 "with no import names (i.e. there are no Python modules of any kind in the "
 "distribution file)."
 msgstr ""
+"プロジェクトは、プロジェクトがインポートネームを一つも伴わないこと (つまり、"
+"配布物ファイルの中には Python モジュールがひとつも存在しないということ) を表"
+"現するために、 ``import-names`` を空の配列に設定しても構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:514
 #: ../source/specifications/pyproject-toml.rst:559
@@ -28336,22 +28359,20 @@ msgid ""
 "Build back-ends MAY support dynamically calculating the value if the user "
 "declares the key in ``project.dynamic``."
 msgstr ""
+"``project.dynamic`` の中のそのキーをユーザが宣言しているなら、ビルド用バック"
+"エンドは、その値を動的に計算することをサポートしても構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:517
 msgid "Examples:"
 msgstr "例:"
 
 #: ../source/specifications/pyproject-toml.rst:538
-#, fuzzy
-#| msgid ""
-#| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
-#| "<core-metadata-name>`"
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Import-"
 "Namespace <core-metadata-import-namespace>`"
 msgstr ""
-":ref:`コアとなるメタデータ <core-metadata>` フィールドに対応する: :ref:`名前 "
-"<core-metadata-name>` フィールド"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref"
+":`Import-Namespace <core-metadata-import-namespace>`"
 
 #: ../source/specifications/pyproject-toml.rst:541
 msgid ""
@@ -28362,6 +28383,12 @@ msgid ""
 "surrounding the semicolon. Note that unlike ``import-names``, ``import-"
 "namespaces`` CANNOT be an empty array."
 msgstr ""
+"インストール時にプロジェクトが非排他的に提供したインポートネームを指定する文"
+"字列の配列。各文字列は、正当な Python 識別子でなければなりません。インポート"
+"ネームは、セミコロンの前後には任意の量の空白文字があっても構わないという形で"
+"、セミコロンと \"private\" という用語をその後ろに伴っても構いません (例えば `"
+"`\"; private\"``)。 ``import-names`` とは異なって、 ``import-namespaces`` は"
+"空の配列であってはいけません。"
 
 #: ../source/specifications/pyproject-toml.rst:547
 msgid ""
@@ -28370,6 +28397,11 @@ msgid ""
 "intervening names from that name to the top-level name should also be listed "
 "appropriately in ``import-names`` and/or ``import-namespaces``."
 msgstr ""
+"プロジェクトは、そのプロジェクトによって排他的に提供された最短インポートネー"
+"ムをすべて列挙するべきです。最短ネームのいずれかがドットで区切られたネームで"
+"あれば、そのネームからトップレベルのネームに至る中間のネームは、すべて、 "
+"``import-names`` と ``import-namespaces`` のいずれかまたは両方に適切に列挙さ"
+"れているべきです。"
 
 #: ../source/specifications/pyproject-toml.rst:552
 msgid ""
@@ -28378,12 +28410,14 @@ msgid ""
 "import name in ``import-namespaces`` can be installed together without "
 "shadowing each other."
 msgstr ""
+"このフィールドは、複数のプロジェクトが同一のインポート名前空間に貢献すること"
+"ができるような名前空間パッケージのために使用されます。 ``import-namespaces`` "
+"に同じインポートネームを列挙しているプロジェクト群を、それぞれ互いに隠蔽して"
+"しまうことなしに一緒にインストールすることができます。"
 
 #: ../source/specifications/pyproject-toml.rst:562
-#, fuzzy
-#| msgid "Example::"
 msgid "Example:"
-msgstr "例::"
+msgstr "例:"
 
 #: ../source/specifications/pyproject-toml.rst:578
 msgid "TOML_ type: array of string"
@@ -28536,18 +28570,24 @@ msgid ""
 "December 2024: The ``license`` key was redefined, the ``license-files`` key "
 "was added and ``License::`` classifiers were deprecated through :pep:`639`."
 msgstr ""
+"2024年12月: :pep:`639` を通じて、 ``license`` キーが再定義され、 ``license-"
+"files`` キーが追加され、 ``License::`` 分類子が非推奨になりました。"
 
 #: ../source/specifications/pyproject-toml.rst:646
 msgid ""
 "September 2025: Clarity that the ``license`` key applies to all distribution "
 "files generated from the :file:`pyproject.toml` file."
 msgstr ""
+"2025年9月: ``license`` キーが、 :file:`pyproject.toml` ファイルから生成された"
+"すべての配布物のファイル群に適用されることが明確化されました。"
 
 #: ../source/specifications/pyproject-toml.rst:649
 msgid ""
 "October 2025: The ``import-names`` and ``import-namespaces`` keys were added "
 "through :pep:`794`."
 msgstr ""
+"2025年10月: :pep:`794` を通じて ``import-names`` キーと ``import-namespaces``"
+" キーが追加されました。"
 
 #: ../source/specifications/recording-installed-packages.rst:7
 msgid "Recording installed projects"
@@ -28694,24 +28734,19 @@ msgstr ""
 "ん。"
 
 #: ../source/specifications/recording-installed-packages.rst:69
-#, fuzzy
-#| msgid ""
-#| "This ``.dist-info`` directory may contain the following files, described "
-#| "in detail below:"
 msgid ""
 "This :file:`.dist-info/` directory may contain the following directories, "
 "described in detail below:"
-msgstr ""
-"この ``.dist-info`` ディレクトリには、以下に詳細を述べるこれらのファイルを置"
-"くことができます:"
+msgstr "この :file:``.dist-info/`` ディレクトリには、以下に詳細を述べるディレクトリを"
+"置くことができます:"
 
 #: ../source/specifications/recording-installed-packages.rst:72
 msgid ":file:`licenses/`: contains license files."
-msgstr ""
+msgstr ":file:`licenses/`: ライセンスファイルを含みます。"
 
 #: ../source/specifications/recording-installed-packages.rst:73
 msgid ":file:`sboms/`: contains Software Bill-of-Materials files (SBOMs)."
-msgstr ""
+msgstr ":file:`sboms/`: ソフトウェア部品表 (SBOMs) を含みます。"
 
 #: ../source/specifications/recording-installed-packages.rst:77
 msgid ""
@@ -28982,7 +29017,7 @@ msgstr "その詳細な仕様は :ref:`direct-url` にあります。"
 
 #: ../source/specifications/recording-installed-packages.rst:229
 msgid "The :file:`licenses/` subdirectory"
-msgstr ""
+msgstr ":file:`licenses/` サブディレクトリ"
 
 #: ../source/specifications/recording-installed-packages.rst:231
 msgid ""
@@ -28993,12 +29028,17 @@ msgid ""
 "paths relative to the :file:`licenses/` directory. Any files in this "
 "directory MUST be copied from wheels by the install tools."
 msgstr ""
+"メタデータバージョンが 2.4 またはそれ以上で、かつ、一つ以上の ``License-"
+"File`` フィールドが指定されている場合、 :file:`.dist-info/` ディレクトリには"
+"、 :file:`METADATA` ファイル内の ``License-File`` フィールドに列挙されたファ"
+"イル群を :file:`licenses/` ディレクトリに対する相対パスにそれぞれ収容した "
+":file:`licenses/` サブディレクトリが存在していなければなりません。このディレ"
+"クトリ内のファイルはすべて、インストールツールによって wheel からコピーされな"
+"ければなりません。"
 
 #: ../source/specifications/recording-installed-packages.rst:240
-#, fuzzy
-#| msgid "The .dist-info directory"
 msgid "The :file:`sboms/` subdirectory"
-msgstr ".dist-info ディレクトリ"
+msgstr ":file:`sboms/` サブディレクトリ"
 
 #: ../source/specifications/recording-installed-packages.rst:242
 msgid ""
@@ -29007,6 +29047,10 @@ msgid ""
 "within the installed package. Any files in this directory MUST be copied "
 "from wheels by the install tools."
 msgstr ""
+":file:`.dist-info/sboms/` ディレクトリ内に含まれるすべてのファイルは、インス"
+"トールされたパッケージに含まれるソフトウェアを記述するソフトウェア部品表 "
+"(SBOM) ファイルでなければなりません。このディレクトリ内のすべてのファイルは、"
+"インストールツールによって wheel からコピーされなければなりません。"
 
 #: ../source/specifications/recording-installed-packages.rst:249
 msgid "Intentionally preventing changes to installed packages"
@@ -29106,24 +29150,20 @@ msgstr ""
 "2020年9月: :pep:`627` を通じて、さまざまな修正や明確化が承認されました。"
 
 #: ../source/specifications/schemas/index.rst:4
-#, fuzzy
-#| msgid "Hybrid schemes"
 msgid "PyPA schemas"
-msgstr "混成型の方法"
+msgstr "PyPA スキーマ"
 
 #: ../source/specifications/schemas/index.rst:6
-#, fuzzy
-#| msgid "``direct_url.json``: see :ref:`direct-url` for details"
 msgid "`direct_url.json <direct-url.schema.json>`_"
-msgstr "``direct_url.json``: 詳細については :ref:`direct-url` を見てください"
+msgstr "`direct_url.json <direct-url.schema.json>`_"
 
 #: ../source/specifications/schemas/index.rst:7
 msgid "`build-details.json <build-details-v1.0.schema.json>`_"
-msgstr ""
+msgstr "`build-details.json <build-details-v1.0.schema.json>`_"
 
 #: ../source/specifications/schemas/index.rst:8
 msgid "`pylock.toml <pylock.schema.json>`_"
-msgstr ""
+msgstr "`pylock.toml <pylock.schema.json>`_"
 
 #: ../source/specifications/section-distribution-formats.rst:3
 msgid "Package Distribution File Formats"
@@ -29142,28 +29182,18 @@ msgid "Package Index Interfaces"
 msgstr "パッケージインデックスのインタフェース"
 
 #: ../source/specifications/section-python-description-formats.rst:3
-#, fuzzy
-#| msgid "Python versions over time"
 msgid "Python Description Formats"
-msgstr "時系列で見たPythonバージョン"
+msgstr "Python の記述フォーマット"
 
 #: ../source/specifications/section-reproducible-environments.rst:3
-#, fuzzy
-#| msgid "Virtual Environment"
 msgid "Reproducible Environments"
-msgstr "仮想環境"
+msgstr "再現可能環境"
 
 #: ../source/specifications/simple-repository-api.rst:6
 msgid "Simple repository API"
 msgstr "シンプルなリポジトリ API"
 
 #: ../source/specifications/simple-repository-api.rst:8
-#, fuzzy
-#| msgid ""
-#| "The keywords \"**MUST**\", \"**MUST NOT**\", \"**REQUIRED**\", "
-#| "\"**SHALL**\", \"**SHALL NOT**\", \"**SHOULD**\", \"**SHOULD NOT**\", "
-#| "\"**RECOMMENDED**\", \"**MAY**\", and \"**OPTIONAL**\"\" in this document "
-#| "are to be interpreted as described in :rfc:`RFC 2119 <2119>`."
 msgid ""
 "The keywords \"**MUST**\", \"**MUST NOT**\", \"**REQUIRED**\", "
 "\"**SHALL**\", \"**SHALL NOT**\", \"**SHOULD**\", \"**SHOULD NOT**\", "
@@ -29172,28 +29202,23 @@ msgid ""
 msgstr ""
 "この説明文書では、 \"**MUST**\" ・ \"**MUST NOT**\" ・ \"**REQUIRED**\" ・ "
 "\"**SHALL**\" ・ \"**SHALL NOT**\", ・ **SHOULD**\" ・ \"**SHOULD NOT**\" ・ "
-"\"**RECOMMENDED**\" ・ \"**MAY**\" ・ \"**OPTIONAL**\"\" を :rfc:`RFC 2119 "
-"<2119>` で記述された意味に解釈します。"
+"\"**RECOMMENDED**\" ・ \"**MAY**\" ・ \"**OPTIONAL**\"\" を :rfc:`2119` で記"
+"述された意味に解釈します。"
 
 #: ../source/specifications/simple-repository-api.rst:13
-#, fuzzy
-#| msgid ""
-#| "The interface for querying available package versions and retrieving "
-#| "packages from an index server comes in two forms: HTML and JSON."
 msgid ""
 "The interface for querying available package versions and retrieving "
 "packages from an index server comes in two forms: :ref:`HTML <simple-"
 "repository-html-serialization>` and :ref:`JSON <json-serialization>`."
 msgstr ""
-"利用可能なパッケージバージョンを問い合わせたり、インデックスサーバからパッ"
-"ケージを取り出したりするためのインターフェースは、二つの形式: HTML と JSON で"
-"もたらされます。"
+"利用可能なパッケージバージョンを問い合わせたり、インデックスサーバからパッケ"
+"ージを取り出したりするためのインターフェースは、二つの形式: :ref:`HTML "
+"<simple-repository-html-serialization>` と Jref:`JSON <json-serialization>` "
+"によってもたらされます。"
 
 #: ../source/specifications/simple-repository-api.rst:21
-#, fuzzy
-#| msgid "Base HTML API"
 msgid "Base API"
-msgstr "基本となる HTML API <Base HTML API>"
+msgstr "基本 API"
 
 #: ../source/specifications/simple-repository-api.rst:23
 #, fuzzy
