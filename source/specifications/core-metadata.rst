@@ -557,30 +557,31 @@ Requires-Dist (multiple use)
    The field format specification was relaxed to accept the syntax used by
    popular publishing tools.
 
-Each entry contains a string naming some other distutils
-project required by this distribution.
+Each entry contains a string naming some other distribution required by this
+distribution.
 
-The format of a requirement string contains from one to four parts:
+A requirement string has one mandatory and three optional parts.
 
-* A project name, in the same format as the ``Name:`` field.
-  The only mandatory part.
-* A comma-separated list of 'extra' names. These are defined by
-  the required project, referring to specific features which may
-  need extra dependencies. The names MUST conform to the restrictions
-  specified by the ``Provides-Extra:`` field.
-* A version specifier. Tools parsing the format should accept optional
-  parentheses around this, but tools generating it should not use
-  parentheses.
+* A project name, in :ref:`the same format <name-format>`
+  as the ``Name:`` field. The only mandatory part.
+* A comma-separated list of 'extra' names in square brackets, like
+  ``[extra1,extra2]``. These names are defined by the required
+  project, referring to specific features which may need extra
+  dependencies. The names MUST conform to the restrictions specified
+  by the ``Provides-Extra:`` field.
+* Either a :ref:`version specifier <version-specifiers>` or a
+  :ref:`direct reference <direct-references>`. Tools parsing the format
+  should accept optional parentheses around a version specifier, but
+  tools generating it should not use parentheses. If a distribution
+  requires a direct reference it cannot be uploaded to PyPI, but private
+  repositories may allow such distributions.
 * An environment marker after a semicolon. This means that the
   requirement is only needed in the specified conditions.
 
-See :pep:`508` for full details of the allowed format.
+See :ref:`dependency-specifiers` for full details of the allowed format.
 
 The project names should correspond to names as found
 on the `Python Package Index`_.
-
-Version specifiers must follow the rules described in
-:doc:`version-specifiers`.
 
 Examples::
 
