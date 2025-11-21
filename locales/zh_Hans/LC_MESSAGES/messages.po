@@ -36,14 +36,14 @@
 # inworless <20262029@aliyun.com>, 2025.
 # del1 <3933676724@qq.com>, 2025.
 # rand777 <rand777@pguide.studio>, 2025.
+# monios <xiaotbl114514@outlook.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-11-10 19:13+0000\n"
-"PO-Revision-Date: 2025-10-20 04:51+0000\n"
-"Last-Translator: 大王叫我来巡山 "
-"<hamburger2048@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-11-21 01:51+0000\n"
+"Last-Translator: monios <xiaotbl114514@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/pypa/packaging-python-org/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -51,7 +51,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #: ../source/contribute.rst:5
 msgid "Contribute to this guide"
@@ -1219,44 +1219,50 @@ msgid ""
 "Downstream builds are frequently done in sandboxed environments that cannot "
 "access the Internet. The package sources are unpacked into this environment, "
 "and all the necessary dependencies are installed."
-msgstr ""
+msgstr "下游构建通常在无法访问互联网的沙箱环境中进行。软件包源码会被解压到该环境中，"
+"并安装所有必要的依赖项。"
 
 #: ../source/discussions/downstream-packaging.rst:156
 msgid ""
 "Even if this is not the case, and assuming that you took sufficient care to "
 "properly authenticate downloads, using the Internet is discouraged for a "
 "number of reasons:"
-msgstr ""
+msgstr "即便不存在此类情况，且假设您已严格确保下载验证，出于多方面考虑，仍不建议在构"
+"建过程中接入互联网："
 
 #: ../source/discussions/downstream-packaging.rst:160
 msgid ""
 "The Internet connection may be unstable (e.g. due to poor reception) or "
 "suffer from temporary problems that could cause the process to fail or hang."
-msgstr ""
+msgstr "网络连接可能不稳定（例如由于信号接收不佳），或存在临时性问题，这可能导致流程"
+"执行失败或陷入停滞。"
 
 #: ../source/discussions/downstream-packaging.rst:164
 msgid ""
 "The remote resources may become temporarily or even permanently unavailable, "
 "making the build no longer possible. This is especially problematic when "
 "someone needs to build an old package version."
-msgstr ""
+msgstr "远程资源可能会暂时甚至永久不可用，从而导致无法完成构建。当有人需要构建旧的软"
+"件包版本时，这个问题尤其突出。"
 
 #: ../source/discussions/downstream-packaging.rst:168
 msgid "The remote resources may change, making the build not reproducible."
-msgstr ""
+msgstr "远程资源可能发生变更，导致构建结果无法重现。"
 
 #: ../source/discussions/downstream-packaging.rst:170
 msgid ""
 "Accessing remote servers poses a privacy issue and a potential security "
 "issue, as it exposes information about the system building the package."
-msgstr ""
+msgstr "访问远程服务器会带来隐私泄露和潜在的安全风险，因为这会暴露执行软件包构建的系"
+"统信息。"
 
 #: ../source/discussions/downstream-packaging.rst:174
 msgid ""
 "The user may be using a service with a limited data plan, in which "
 "uncontrolled Internet access may result in additional charges or other "
 "inconveniences."
-msgstr ""
+msgstr "用户可能正在使用有限数据套餐的服务，此时无限制的网络访问可能导致产生额外费用"
+"或引发其他不便。"
 
 #: ../source/discussions/downstream-packaging.rst:181
 msgid ""
@@ -1266,6 +1272,9 @@ msgid ""
 "all of these files or allow provisioning them externally, and the Internet "
 "must not be used if the files are already present."
 msgstr ""
+"若软件包在实现自定义的*backend*构建操作时需访问互联网（例如自动下载供应商依赖"
+"或获取Git子模块），其源码分发包必须包含所有这些文件，或允许通过外部方式预置这"
+"些文件。当文件已存在时，严禁再次通过互联网获取。"
 
 #: ../source/discussions/downstream-packaging.rst:187
 msgid ""
@@ -1275,6 +1284,9 @@ msgid ""
 "Downstreams use frontends that use local provisioning for Python "
 "dependencies."
 msgstr ""
+"需要注意的是，本条要求不适用于在软件包元数据中指定的Python依赖项——这些依赖项"
+"由*frontends*（如 :ref:`build` 或 :ref:`pip`）在构建和安装过程中自动获取。下"
+"游环节使用的前端工具会通过本地化方式配置Python依赖项。"
 
 #: ../source/discussions/downstream-packaging.rst:192
 msgid ""
@@ -1285,23 +1297,29 @@ msgid ""
 "disable all Internet access. This could be done e.g. by checking whether a "
 "``NO_NETWORK`` environment variable is set to a non-empty value."
 msgstr ""
+"理想情况下，自定义构建脚本甚至不应尝试访问互联网，除非被明确要求这样做。如果"
+"缺少任何需要获取的资源，它们应当先征得用户许可。若无法实现此机制，次优方案是"
+"提供禁用所有网络访问的退出开关。例如，可通过检查 ``NO_NETWORK`` 环境变量是否"
+"设置为非空值来实现。"
 
 #: ../source/discussions/downstream-packaging.rst:199
 msgid ""
 "Since downstreams frequently also run tests and build documentation, the "
 "above should ideally extend to these processes as well."
-msgstr ""
+msgstr "考虑到下游环节通常还需执行测试及构建文档，理想情况下上述规范应同样适用于这些"
+"流程。"
 
 #: ../source/discussions/downstream-packaging.rst:202
 msgid ""
 "Please also remember that if you are fetching remote resources, you "
 "absolutely must *verify their authenticity* (usually against a hash), to "
 "protect against the file being substituted by a malicious party."
-msgstr ""
+msgstr "同时请务必注意，若需获取远程资源，您必须*核验其真实性*（通常需核对哈希值），"
+"以防范文件被恶意方替换的风险。"
 
 #: ../source/discussions/downstream-packaging.rst:210
 msgid "Support building against system dependencies"
-msgstr ""
+msgstr "支持针对系统依赖进行构建"
 
 #: ../source/discussions/downstream-packaging.rst:215
 msgid ""
@@ -1309,6 +1327,8 @@ msgid ""
 "in C or C++. Trying to use the system versions of these dependencies in "
 "upstream packaging may cause a number of problems for end users:"
 msgstr ""
+"某些Python项目包含非Python依赖项（例如使用C或C++编写的库）。在上游软件包构建"
+"过程中尝试使用系统版本的这些依赖项，可能会给最终用户带来诸多问题："
 
 #: ../source/discussions/downstream-packaging.rst:219
 msgid ""
@@ -1317,6 +1337,9 @@ msgid ""
 "incompatible version is installed, the Python package may fail with errors "
 "that are not clear to inexperienced users, or even misbehave at runtime."
 msgstr ""
+"发布的wheel包要求用户系统必须存在二进制兼容版本的依赖库。若该库缺失或安装了不"
+"兼容的版本，Python软件包可能会因报错信息对入门用户不够清晰而运行失败，甚至可"
+"能在运行时出现异常行为。"
 
 #: ../source/discussions/downstream-packaging.rst:224
 msgid ""
@@ -1324,6 +1347,8 @@ msgid ""
 "the dependency to be present, along with its development headers and other "
 "auxiliary files that some systems package separately from the library itself."
 msgstr ""
+"从源码分发版进行构建时，不仅要求存在源码兼容版本的依赖项，还需要其开发头文件"
+"及其他辅助文件——这些组件在某些操作系统中会与主程序库本身分开打包。"
 
 #: ../source/discussions/downstream-packaging.rst:229
 msgid ""
@@ -1331,6 +1356,8 @@ msgid ""
 "be very hard. For example, the used Linux distribution may not provide the "
 "required version, or some other package may require an incompatible version."
 msgstr ""
+"即便对于资深用户而言，安装兼容版本的依赖项也可能极为困难。例如，其所用的Linux"
+"发行版可能未提供所需版本，亦或是其他软件包要求使用不兼容的版本。"
 
 #: ../source/discussions/downstream-packaging.rst:234
 msgid ""
@@ -1339,6 +1366,9 @@ msgid ""
 "library to a newer version that breaks binary compatibility with the Python "
 "package, and requires user intervention to fix."
 msgstr ""
+"Python软件包与其系统依赖项之间的链接关系并未被包管理系统记录。后续的系统更新"
+"可能会将程序库升级至与Python软件包二进制不兼容的新版本，从而需要用户手动干预"
+"修复。"
 
 #: ../source/discussions/downstream-packaging.rst:239
 msgid ""
@@ -1348,13 +1378,17 @@ msgid ""
 "dependencies are also repackaged on PyPI, and can be declared as project "
 "dependencies like any other Python package."
 msgstr ""
+"基于上述原因，您可以合理选择以下方案：静态链接依赖项，或在安装包中提供本地副"
+"本。您也可以在源码分发版中内置依赖项。某些情况下，这些依赖项还会被重新打包至P"
+"yPI，此时即可像声明普通Python包依赖那样将其列为项目依赖项。"
 
 #: ../source/discussions/downstream-packaging.rst:245
 msgid ""
 "However, none of these issues apply to downstream packaging, and downstreams "
 "have good reasons to prefer dynamically linking to system dependencies. In "
 "particular:"
-msgstr ""
+msgstr "然而，这些问题均不适用于下游打包场景，且下游环节有充分理由倾向于动态链接系统"
+"依赖项。具体而言："
 
 #: ../source/discussions/downstream-packaging.rst:249
 msgid ""
@@ -1363,12 +1397,14 @@ msgid ""
 "support that makes it easier for users of those systems to access upstream "
 "projects in their preferred format."
 msgstr ""
+"在许多情况下，可靠地在各组件间共享动态依赖项，正是下游打包生态系统的*purpose*"
+"之一。支持这种机制能使这些系统的用户更便捷地以其偏好的格式获取上游项目。"
 
 #: ../source/discussions/downstream-packaging.rst:253
 msgid ""
 "Static linking and vendoring obscures the use of external dependencies, "
 "making source auditing harder."
-msgstr ""
+msgstr "静态链接与内置依赖项会掩盖外部依赖的使用情况，增加源码审计的难度。"
 
 #: ../source/discussions/downstream-packaging.rst:256
 msgid ""
@@ -1376,7 +1412,8 @@ msgid ""
 "used libraries across an entire downstream packaging ecosystem, which can be "
 "particularly important when they turn out to contain a security "
 "vulnerability or critical bug."
-msgstr ""
+msgstr "动态链接使得能够快速且系统性地在整个下游打包生态中替换所使用的程序库，这在发"
+"现程序库存在安全漏洞或关键错误时显得尤为关键。"
 
 #: ../source/discussions/downstream-packaging.rst:260
 msgid ""
@@ -1386,6 +1423,9 @@ msgid ""
 "dependencies vendored in different packages. This can include compatibility "
 "improvements and security hardening."
 msgstr ""
+"使用系统依赖可使软件包受益于下游定制化改进，从而在特定平台上提升用户体验，而"
+"无需下游维护者对不同软件包中内置的依赖项进行持续修补。这类改进可能包括兼容性"
+"优化与安全加固。"
 
 #: ../source/discussions/downstream-packaging.rst:266
 msgid ""
@@ -1396,12 +1436,17 @@ msgid ""
 "anything from library loading errors, to subtle runtime bugs, to "
 "catastrophic failures (like suddenly crashing and losing data)."
 msgstr ""
+"静态链接与内置依赖可能导致同一进程加载多个不同版本的相同库（例如，尝试导入两"
+"个链接至同一库不同版本的Python包）。这种情况有时能正常运行，但也可能引发从库"
+"加载错误、微妙的运行时缺陷，到灾难性故障（如突然崩溃并丢失数据）等一系列问题"
+"。"
 
 #: ../source/discussions/downstream-packaging.rst:273
 msgid ""
 "Last but not least, static linking and vendoring results in duplication, and "
 "may increase the use of both disk space and memory."
-msgstr ""
+msgstr "最后同样重要的是，静态链接与内置依赖会导致资源重复，并可能显著增加磁盘空间和"
+"内存的使用量。"
 
 #: ../source/discussions/downstream-packaging.rst:279
 msgid ""
@@ -1411,6 +1456,10 @@ msgid ""
 "for each dependency, and a general switch to control the default for them, "
 "e.g. via a ``USE_SYSTEM_DEPS`` environment variable."
 msgstr ""
+"在满足双方需求方面，一个较好的折衷方案是提供在内置依赖与系统依赖之间切换的选"
+"项。理想情况下，若软件包包含多个内置依赖项，应同时提供针对每个依赖项的独立切"
+"换选项及控制默认行为的全局开关，例如通过 ``USE_VENDORED_DEPS`` 环境变量来实现"
+"。"
 
 #: ../source/discussions/downstream-packaging.rst:285
 msgid ""
@@ -1420,6 +1469,9 @@ msgid ""
 "the opportunity to notice their mistake and a chance to consciously decide "
 "how to solve it."
 msgstr ""
+"若用户请求使用系统依赖项，而特定依赖项缺失或不兼容时，构建过程应终止并给出解"
+"释性提示信息，而非回退至内置版本。这能让打包人员及时察觉配置疏漏，并有机会自"
+"主决定解决方案。"
 
 #: ../source/discussions/downstream-packaging.rst:291
 msgid ""
@@ -1429,10 +1481,13 @@ msgid ""
 "projects and downstream repackagers, not to suggest upstream projects take "
 "on tasks that downstream repackagers are better equipped to handle."
 msgstr ""
+"对于上游项目而言，将系统依赖项的*testing*工作交由下游重打包者处理是合理的。这"
+"些指导原则旨在促进上游项目与下游重打包者之间更高效的协作，而非建议上游项目承"
+"担本应由更专业的下游重打包者完成的任务。"
 
 #: ../source/discussions/downstream-packaging.rst:300
 msgid "Support downstream testing"
-msgstr ""
+msgstr "支持下游测试"
 
 #: ../source/discussions/downstream-packaging.rst:305
 msgid ""
@@ -1441,6 +1496,9 @@ msgid ""
 "minimal smoke testing to comprehensive runs of the complete test suite. "
 "There can be various reasons for doing this, for example:"
 msgstr ""
+"各类下游项目会对打包后的Python项目进行不同程度的测试。根据具体情况，测试范围"
+"可能从最小化的冒烟测试到完整测试套件的全面执行。进行此类测试可能出于多种原因"
+"，例如："
 
 #: ../source/discussions/downstream-packaging.rst:310
 msgid "Verifying that the downstream packaging did not introduce any bugs."
