@@ -160,7 +160,7 @@ Glossary
 
         A string with valid SPDX license expression syntax,
         including one or more SPDX :term:`License Identifier`\(s),
-        which describes a :term:`Project`'s license(s)
+        which describes a :term:`Distribution Archive`'s license(s)
         and how they inter-relate.
         Examples:
         ``GPL-3.0-or-later``,
