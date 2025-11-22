@@ -1016,8 +1016,9 @@ Arbitrary equality
 
 Arbitrary equality comparisons are simple string equality operations which do
 not take into account any of the semantic information such as zero padding or
-local versions. This operator also does not support prefix matching as the
-``==`` operator does.
+local versions. The comparison MUST treat ASCII letters case-insensitively, e.g.
+by lowercasing, and is unspecified for non-ASCII text. This operator also does
+not support prefix matching as the ``==`` operator does.
 
 The primary use case for arbitrary equality is to allow for specifying a
 version which cannot otherwise be represented by this specification. This operator is
@@ -1271,3 +1272,4 @@ History
 - August 2014: This specification was approved through :pep:`440`.
 - May 2025: Clarify that development releases are a form of pre-release when
   they are handled.
+- Nov 2025: Specify arbitrary equality case insensitivity.
