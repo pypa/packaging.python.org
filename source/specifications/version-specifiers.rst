@@ -1272,4 +1272,4 @@ History
 - August 2014: This specification was approved through :pep:`440`.
 - May 2025: Clarify that development releases are a form of pre-release when
   they are handled.
-- Nov 2025: Specify arbitrary equality case insensitivity.
+- Nov 2025: Make arbitrary equality case insensitivity explicit.
