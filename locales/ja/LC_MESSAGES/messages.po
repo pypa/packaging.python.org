@@ -7,12 +7,13 @@
 # Rafael Fontenelle <rafaelff@gnome.org>, 2024.
 # "Takanori Suzuki (takanory)" <takanory.net@gmail.com>, 2025.
 # Xianpeng Shen <xianpeng.shen@gmail.com>, 2025.
+# Lenas Sha <sanel95@hotmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 19:13+0000\n"
-"PO-Revision-Date: 2025-11-20 00:51+0000\n"
+"POT-Creation-Date: 2025-11-24 00:10+0000\n"
+"PO-Revision-Date: 2025-11-25 09:00+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/"
 "packaging-python-org/ja/>\n"
@@ -741,7 +742,7 @@ msgstr ""
 "Mozilla Publicライセンス2.0の下で公開されています。"
 
 #: ../source/discussions/deploying-python-applications.rst:103
-#: ../source/specifications/platform-compatibility-tags.rst:195
+#: ../source/specifications/platform-compatibility-tags.rst:200
 msgid "macOS"
 msgstr "macOS"
 
@@ -11572,9 +11573,8 @@ msgstr ""
 "に置かれた YAML ファイルで宣言されます。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:90
-msgid "Let's create a ``.github/workflows/publish-to-test-pypi.yml`` file."
-msgstr ""
-"``.github/workflows/publish-to-test-pypi.yml`` ファイルを作成しましょう。"
+msgid "Let's create a ``.github/workflows/publish-to-pypi.yml`` file."
+msgstr "``.github/workflows/publish-to-pypi.yml`` ファイルを作成しましょう。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:93
 msgid ""
@@ -14314,7 +14314,7 @@ msgstr ""
 "データをもっともらしく読み込もうと試みます。"
 
 #: ../source/key_projects.rst:186
-#: ../source/specifications/platform-compatibility-tags.rst:142
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid "pip"
 msgstr "pip"
 
@@ -18075,7 +18075,7 @@ msgstr ""
 "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
 
 #: ../source/specifications/binary-distribution-format.rst:350
-#: ../source/specifications/platform-compatibility-tags.rst:371
+#: ../source/specifications/platform-compatibility-tags.rst:376
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -18289,7 +18289,7 @@ msgstr ""
 #: ../source/specifications/externally-managed-environments.rst:472
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
-#: ../source/specifications/platform-compatibility-tags.rst:435
+#: ../source/specifications/platform-compatibility-tags.rst:440
 #: ../source/specifications/pylock-toml.rst:826
 #: ../source/specifications/pyproject-toml.rst:634
 #: ../source/specifications/recording-installed-packages.rst:278
@@ -21400,7 +21400,7 @@ msgid ":py:func:`platform.machine()`"
 msgstr ":py:func:`platform.machine()`"
 
 #: ../source/specifications/dependency-specifiers.rst:263
-#: ../source/specifications/platform-compatibility-tags.rst:257
+#: ../source/specifications/platform-compatibility-tags.rst:262
 msgid "``x86_64``"
 msgstr "``x86_64``"
 
@@ -24830,10 +24830,20 @@ msgid "Platform Tag"
 msgstr "プラットフォームタグ"
 
 #: ../source/specifications/platform-compatibility-tags.rst:86
+msgid ""
+"Platform tags are dependent on the versioning of the operating system or "
+"platform they represent and may change over time as the underlying platform "
+"changes its versioning."
+msgstr ""
+"プラットフォームタグはオペレーティングシステムまたはプラットフォームのバー"
+"ジョン付けの表現に依存しており、下部構造となるプラットフォームがバージョン付"
+"けの方法を変更するにつれて、時間経過と共に変わるかもしれません。"
+
+#: ../source/specifications/platform-compatibility-tags.rst:91
 msgid "Basic platform tags"
 msgstr "基本的なプラットフォームタグ"
 
-#: ../source/specifications/platform-compatibility-tags.rst:88
+#: ../source/specifications/platform-compatibility-tags.rst:93
 msgid ""
 "In its simplest form, the platform tag "
 "is :py:func:`sysconfig.get_platform()` with all hyphens ``-`` and periods "
@@ -24846,23 +24856,23 @@ msgstr ""
 "における :ref:`distutils` の削除があるまでは、これは "
 "``distutils.util.get_platform()`` でした。例えば:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:93
+#: ../source/specifications/platform-compatibility-tags.rst:98
 msgid "win32"
 msgstr "win32"
 
-#: ../source/specifications/platform-compatibility-tags.rst:94
+#: ../source/specifications/platform-compatibility-tags.rst:99
 msgid "linux_i386"
 msgstr "linux_i386"
 
-#: ../source/specifications/platform-compatibility-tags.rst:95
+#: ../source/specifications/platform-compatibility-tags.rst:100
 msgid "linux_x86_64"
 msgstr "linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:101
+#: ../source/specifications/platform-compatibility-tags.rst:106
 msgid "``manylinux``"
 msgstr "``manylinux``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:103
+#: ../source/specifications/platform-compatibility-tags.rst:108
 msgid ""
 "The simple scheme above is insufficient for public distribution of wheel "
 "files to Linux platforms, due to the large ecosystem of Linux platforms and "
@@ -24872,7 +24882,7 @@ msgstr ""
 "wheel ファイルの配布物用としては不十分で、それは、 Linux プラットフォーム群が"
 "巨大なエコシステムであって、プラットフォーム間に微妙な際が見られるためです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:107
+#: ../source/specifications/platform-compatibility-tags.rst:112
 msgid ""
 "Instead, for those platforms, the ``manylinux`` standard represents a common "
 "subset of Linux platforms, and allows building wheels tagged with the "
@@ -24884,7 +24894,7 @@ msgstr ""
 "トフォームタグを付けて wheel をビルドすることで一般的な Linux のディストリ"
 "ビューションのほとんどで使えるようにすることができます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:112
+#: ../source/specifications/platform-compatibility-tags.rst:117
 msgid ""
 "The current standard is the future-proof :file:`manylinux_{x}_{y}` standard. "
 "It defines tags of the form :file:`manylinux_{x}_{y}_{arch}`, where ``x`` "
@@ -24901,26 +24911,26 @@ msgstr ""
 "どれでも動作するはず)、 ``arch`` はアーキテクチャで、上記の \"simple\" 形式の"
 "システム上での :py:func:`sysconfig.get_platform()` の値に合致するものです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:118
+#: ../source/specifications/platform-compatibility-tags.rst:123
 msgid ""
 "The following older tags are still supported for backward compatibility:"
 msgstr ""
 "この後に述べる古めのタグ群は、後方互換性のために今もサポートされています:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:120
+#: ../source/specifications/platform-compatibility-tags.rst:125
 msgid ""
 "``manylinux1`` supports glibc 2.5 on ``x86_64`` and ``i686`` architectures."
 msgstr ""
 "``manylinux1`` は、 ``x86_64`` と ``i686`` のアーキテクチャで libc 2.5 をサ"
 "ポートしています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:121
+#: ../source/specifications/platform-compatibility-tags.rst:126
 msgid "``manylinux2010`` supports glibc 2.12 on ``x86_64`` and ``i686``."
 msgstr ""
 "``manylinux2010`` は、 ``x86_64`` と ``i686`` 上で libc 2.12 をサポートしてい"
 "ます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:122
+#: ../source/specifications/platform-compatibility-tags.rst:127
 msgid ""
 "``manylinux2014`` supports glibc 2.17 on ``x86_64``, ``i686``, ``aarch64``, "
 "``armv7l``, ``ppc64``, ``ppc64le``, and ``s390x``."
@@ -24929,7 +24939,7 @@ msgstr ""
 "・ ``ppc64`` ・ ``ppc64le`` ・ ``s390x`` 上で glibc 2.17 をサポートしていま"
 "す。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:125
+#: ../source/specifications/platform-compatibility-tags.rst:130
 msgid ""
 "In general, distributions built for older versions of the specification are "
 "forwards-compatible (meaning that ``manylinux1`` distributions should "
@@ -24943,7 +24953,7 @@ msgstr ""
 "物が 2010 年よりも前に存在していたプラットフォームで動作するとは想定されてい"
 "ないということです) 。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:131
+#: ../source/specifications/platform-compatibility-tags.rst:136
 msgid ""
 "Package maintainers should attempt to target the most compatible "
 "specification possible, with the caveat that the provided build environment "
@@ -24955,7 +24965,7 @@ msgstr ""
 "ろうという警告されていることもあって、パッケージ保守者は最も互換性のある仕様"
 "をターゲットにするように努力するべきです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:136
+#: ../source/specifications/platform-compatibility-tags.rst:141
 msgid ""
 "The following table shows the minimum versions of relevant projects to "
 "support the various ``manylinux`` standards:"
@@ -24963,72 +24973,72 @@ msgstr ""
 "適切なプロジェクトがサポートするさまざまな ``manylinux`` 標準の最低限のバー"
 "ジョンを次に掲げる表に示します:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:140
+#: ../source/specifications/platform-compatibility-tags.rst:145
 msgid "Tool"
 msgstr "ツール"
 
-#: ../source/specifications/platform-compatibility-tags.rst:140
+#: ../source/specifications/platform-compatibility-tags.rst:145
 msgid "``manylinux1``"
 msgstr "``manylinux1``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:140
+#: ../source/specifications/platform-compatibility-tags.rst:145
 msgid "``manylinux2010``"
 msgstr "``manylinux2010``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:140
+#: ../source/specifications/platform-compatibility-tags.rst:145
 msgid "``manylinux2014``"
 msgstr "``manylinux2014``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:140
+#: ../source/specifications/platform-compatibility-tags.rst:145
 msgid "``manylinux_x_y``"
 msgstr "``manylinux_x_y``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:142
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid "``>=8.1.0``"
 msgstr "``>=8.1.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:142
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid "``>=19.0``"
 msgstr "``>=19.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:142
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid "``>=19.3``"
 msgstr "``>=19.3``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:142
+#: ../source/specifications/platform-compatibility-tags.rst:147
 msgid "``>=20.3``"
 msgstr "``>=20.3``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:143
+#: ../source/specifications/platform-compatibility-tags.rst:148
 msgid "auditwheel"
 msgstr "auditwheel"
 
-#: ../source/specifications/platform-compatibility-tags.rst:143
+#: ../source/specifications/platform-compatibility-tags.rst:148
 msgid "``>=1.0.0``"
 msgstr "``>=1.0.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:143
+#: ../source/specifications/platform-compatibility-tags.rst:148
 msgid "``>=2.0.0``"
 msgstr "``>=2.0.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:143
+#: ../source/specifications/platform-compatibility-tags.rst:148
 msgid "``>=3.0.0``"
 msgstr "``>=3.0.0``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:143
+#: ../source/specifications/platform-compatibility-tags.rst:148
 msgid "``>=3.3.0`` [#]_"
 msgstr "``>=3.3.0`` [#]_"
 
-#: ../source/specifications/platform-compatibility-tags.rst:146
+#: ../source/specifications/platform-compatibility-tags.rst:151
 msgid "Only support for ``manylinux_2_24`` has been added in auditwheel 3.3.0"
 msgstr ""
 "audit wheel 3.3.0 では ``manylinux_2_24`` へのサポートだけが追加されました"
 
-#: ../source/specifications/platform-compatibility-tags.rst:150
+#: ../source/specifications/platform-compatibility-tags.rst:155
 msgid "``musllinux``"
 msgstr "``musllinux``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:152
+#: ../source/specifications/platform-compatibility-tags.rst:157
 msgid ""
 "The ``musllinux`` family of tags is similar to ``manylinux``, but for Linux "
 "platforms that use the musl_ libc rather than glibc (a prime example being "
@@ -25041,7 +25051,7 @@ msgstr ""
 "` で、 musl ``x.y`` およびそれ以降で ``arch`` なるアーキテクチャをサポートし"
 "ます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:157
+#: ../source/specifications/platform-compatibility-tags.rst:162
 msgid ""
 "The musl version values can be obtained by executing the musl libc shared "
 "library the Python interpreter is currently running on, and parsing the "
@@ -25050,7 +25060,7 @@ msgstr ""
 "musl のバージョンの値は、 Python インタープリタが現在その上で走行している "
 "musl libc 共有ライブラリを実行し、その出力を字句解析することで得られます:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:188
+#: ../source/specifications/platform-compatibility-tags.rst:193
 msgid ""
 "There are currently two possible ways to find the musl library’s location "
 "that a Python interpreter is running on, either with the system ldd_ "
@@ -25062,7 +25072,7 @@ msgstr ""
 "るもの、もうひとつは 実行ファイルの ELF_ ヘッダから ``PT_INTERP`` セクション"
 "の値をパースする方法です。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:197
+#: ../source/specifications/platform-compatibility-tags.rst:202
 msgid ""
 "macOS uses the ``macosx`` family of tags (the ``x`` suffix is a historical "
 "artefact of Apple's official macOS naming scheme). The schema for "
@@ -25074,25 +25084,25 @@ msgstr ""
 "は :file:`macosx_{x}_{y}_{arch}` で、その wheel が、 macOS ``x.y`` およびそれ"
 "以降で、アーキテクチャが ``arch`` のものと互換性があることを示します。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:202
+#: ../source/specifications/platform-compatibility-tags.rst:207
 msgid ""
-"The values of ``x`` and ``y`` correspond to the major and minor version "
-"number of the macOS release, respectively. They must both be positive "
-"integers, with the ``x`` value being either ``10 <= x <= 15``, or ``>=26`` "
-"and corresponding to the year of the macOS release. The version number "
-"always includes a major *and* minor version, even if Apple's official "
-"version numbering only refers to the major value. For example, "
+"For macOS 10, the tag is :file:`macosx_10_{y}_{arch}`, where ``y`` "
+"corresponds to the minor version number of the macOS release. For macOS 11 "
+"and higher, the tag is :file:`macosx_{x}_0_{arch}`, where ``x`` corresponds "
+"to the major version number of the macOS release. Following the published "
+"macOS major versions, the ``x`` value is either ``10 <= x <= 15``, or "
+"``>=26`` and corresponding to the year of the macOS release. For example, "
 "``macosx_11_0_arm64`` indicates compatibility with macOS 11 or later."
 msgstr ""
-"``x`` と ``y`` の値は、それぞれ、 macOS のリリースのメジャーとマイナーのバー"
-"ジョン番号に対応します。これらは正の整数でなければならず、 ``x`` の値は ``10 "
-"<= x <= 15`` または ``>= 26`` および macOS リリースの暦年に対応したものでなけ"
-"ればなりません。バージョン番号は、仮に Apple の公式のバージョン番号付けでメジ"
-"ャーバージョンの値だけを参照していたとしても、常にメジャー *および* マイナー"
-"の両方のバージョンを含みます。例えば、 ``macosx_11_0_arm64`` は、 macOS 11 お"
-"よびそれ以降のものとの互換性を示します。"
+"macOS 10 向けには、タグは :file:`macosx_10_{y}_{arch}` で、 ``y`` は macOS の"
+"リリースのマイナーバージョン番号に対応します。macOS 11 およびそれ以降のものに"
+"ついては、タグは :file:`macosx_{x}_0_{arch}` で、 ``x`` は macOS リリースのメ"
+"ジャーバージョン番号に対応します。公開済みの macOS メジャーバージョンに従っ"
+"て、 ``x`` の値は ``10 <= x <=15`` か ``>=26`` とその macOS リリースの年に対"
+"応するもののいずれかです。例えば、 ``macosx_11_0_arm64`` は、 macOS 11 または"
+"それ以降のものとの互換性を示します。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:210
+#: ../source/specifications/platform-compatibility-tags.rst:215
 msgid ""
 "macOS binaries can be compiled for a single architecture, or can include "
 "support for multiple architectures in the same binary (sometimes called "
@@ -25110,63 +25120,63 @@ msgstr ""
 "めには、 ``arch`` タグは、サポートされているアーキテクチャを記述する次のリス"
 "トから採られた識別子であるべきです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:218
+#: ../source/specifications/platform-compatibility-tags.rst:223
 msgid "``arch``"
 msgstr "``arch``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:218
+#: ../source/specifications/platform-compatibility-tags.rst:223
 msgid "Architectures supported"
 msgstr "サポートされているアーキテクチャ"
 
-#: ../source/specifications/platform-compatibility-tags.rst:220
+#: ../source/specifications/platform-compatibility-tags.rst:225
 msgid "``universal2``"
 msgstr "``universal2``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:220
+#: ../source/specifications/platform-compatibility-tags.rst:225
 msgid "``arm64``, ``x86_64``"
 msgstr "``arm64``, ``x86_64``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:221
+#: ../source/specifications/platform-compatibility-tags.rst:226
 msgid "``universal``"
 msgstr "``universal``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:221
+#: ../source/specifications/platform-compatibility-tags.rst:226
 msgid "``i386``, ``ppc``, ``ppc64``, ``x86_64``"
 msgstr "``i386``, ``ppc``, ``ppc64``, ``x86_64``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:222
+#: ../source/specifications/platform-compatibility-tags.rst:227
 msgid "``intel``"
 msgstr "``intel``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:222
+#: ../source/specifications/platform-compatibility-tags.rst:227
 msgid "``i386``, ``x86_64``"
 msgstr "``i386``, ``x86_64``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:223
+#: ../source/specifications/platform-compatibility-tags.rst:228
 msgid "``fat``"
 msgstr "``fat``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:223
+#: ../source/specifications/platform-compatibility-tags.rst:228
 msgid "``i386``, ``ppc``"
 msgstr "``i386``, ``ppc``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:224
+#: ../source/specifications/platform-compatibility-tags.rst:229
 msgid "``fat3``"
 msgstr "``fat3``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:224
+#: ../source/specifications/platform-compatibility-tags.rst:229
 msgid "``i386``, ``ppc``, ``x86_64``"
 msgstr "``i386``, ``ppc``, ``x86_64``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:225
+#: ../source/specifications/platform-compatibility-tags.rst:230
 msgid "``fat64``"
 msgstr "``fat64``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:225
+#: ../source/specifications/platform-compatibility-tags.rst:230
 msgid "``ppc64``, ``x86_64``"
 msgstr "``ppc64``, ``x86_64``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:228
+#: ../source/specifications/platform-compatibility-tags.rst:233
 msgid ""
 "The minimum supported macOS version may also be constrained by architecture. "
 "For example, macOS 11 (Big Sur) was the first release to support arm64. "
@@ -25180,11 +25190,11 @@ msgstr ""
 "チャをサポートするバイナリをビルドする時に、 macOS のコンパイルツールチェーン"
 "によって透過的に強制されます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:236
+#: ../source/specifications/platform-compatibility-tags.rst:241
 msgid "Android"
 msgstr "Android"
 
-#: ../source/specifications/platform-compatibility-tags.rst:238
+#: ../source/specifications/platform-compatibility-tags.rst:243
 msgid ""
 "Android uses the schema :file:`android_{apilevel}_{abi}`, indicating "
 "compatibility with the given Android API level or later, on the given ABI. "
@@ -25198,7 +25208,7 @@ msgstr ""
 "``arm64_8va`` のデバイスをサポートすることを示しています。 Android は、物理的"
 "なデバイスとエミュレーションされたデバイスを区別しません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:244
+#: ../source/specifications/platform-compatibility-tags.rst:249
 msgid ""
 "The API level should be a positive integer. This is *not* the same thing as "
 "the user-facing Android version. For example, the release known as Android "
@@ -25214,7 +25224,7 @@ msgstr ""
 "バージョン番号とそれに対応する API レベル <https://developer.android.com/"
 "tools/releases/platforms>`__ が含まれています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:251
+#: ../source/specifications/platform-compatibility-tags.rst:256
 msgid ""
 "There are 4 `supported ABIs <https://developer.android.com/ndk/guides/"
 "abis>`__. Normalized according to the rules above, they are:"
@@ -25222,19 +25232,19 @@ msgstr ""
 "４個の `サポートされている ABIs <https://developer.android.com/ndk/guides/"
 "abis>`__ があります。上記のルールに従って標準化すると、これらは:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:254
+#: ../source/specifications/platform-compatibility-tags.rst:259
 msgid "``armeabi_v7a``"
 msgstr "``armeabi_v7a``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:255
+#: ../source/specifications/platform-compatibility-tags.rst:260
 msgid "``arm64_v8a``"
 msgstr "``arm64_v8a``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:256
+#: ../source/specifications/platform-compatibility-tags.rst:261
 msgid "``x86``"
 msgstr "``x86``"
 
-#: ../source/specifications/platform-compatibility-tags.rst:259
+#: ../source/specifications/platform-compatibility-tags.rst:264
 msgid ""
 "Virtually all current physical devices use one of the ARM architectures. "
 "``x86`` and ``x86_64`` are supported for use in the emulator. ``x86`` has "
@@ -25246,11 +25256,11 @@ msgstr ""
 "す。 ``x86`` は、 2020 年以降は開発環境としてサポートされておらず、その時以"
 "来、新しいエミュレータイメージがリリースされていません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:267
+#: ../source/specifications/platform-compatibility-tags.rst:272
 msgid "iOS"
 msgstr "iOS"
 
-#: ../source/specifications/platform-compatibility-tags.rst:269
+#: ../source/specifications/platform-compatibility-tags.rst:274
 msgid ""
 "iOS uses the schema :file:`ios_{x}_{y}_{arch}_{sdk}`, indicating "
 "compatibility with iOS ``x.y`` or later, on the ``arch`` architecture, using "
@@ -25260,7 +25270,7 @@ msgstr ""
 "``x.y`` またはそれ以降で、 ``arch`` アーキテクチャのものであり、 ``sdk`` な"
 "る SDK を採用しているものとの互換性を示しています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:272
+#: ../source/specifications/platform-compatibility-tags.rst:277
 msgid ""
 "The value of ``x`` and ``y`` correspond to the major and minor version "
 "number of the iOS release, respectively. They must both be positive "
@@ -25276,7 +25286,7 @@ msgstr ""
 "``ios_13_0_arm64_iphonesimulator`` は iOS 13 およびそれ以降との互換性を示して"
 "います。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:278
+#: ../source/specifications/platform-compatibility-tags.rst:283
 msgid ""
 "The value of ``arch`` must match the value of :py:func:`platform.machine()` "
 "on the system."
@@ -25284,7 +25294,7 @@ msgstr ""
 "``arch`` の値は、システム上の :py:func:`platform.machine()` の値と一致してい"
 "なければなりません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:281
+#: ../source/specifications/platform-compatibility-tags.rst:286
 msgid ""
 "The value of ``sdk`` must be either ``iphoneos`` (for physical devices), or "
 "``iphonesimulator`` (for device simulators). These SDKs have the same API "
@@ -25298,7 +25308,7 @@ msgstr ""
 "え、バイナリレベルでは互換性がありません。 arm64 シミュレータ用にコンパイルさ"
 "れたソースコードは、 arm64 デバイスの上では動作しないでしょう。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:287
+#: ../source/specifications/platform-compatibility-tags.rst:292
 msgid ""
 "The combination of :file:`{arch}_{sdk}` is referred to as the \"multiarch\". "
 "There are three possible values for multiarch:"
@@ -25306,7 +25316,7 @@ msgstr ""
 ":file:`{arch}_{sdk}` の組み合わせは、 \"マルチアーキテクチャ (マルチアーク) "
 "<multiarch>\" と呼ばれます。３個の可能なマルチアークの値があります:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:290
+#: ../source/specifications/platform-compatibility-tags.rst:295
 msgid ""
 "``arm64_iphoneos``, for physical iPhone/iPad devices. This includes every "
 "iOS device manufactured since ~2015;"
@@ -25314,7 +25324,7 @@ msgstr ""
 "``arm64_iphoneos``、物理的な iPhone/iPad デバイス用のもの。これには、 2015 年"
 "頃以降に製造されたすべての iOS デバイスが含まれます;"
 
-#: ../source/specifications/platform-compatibility-tags.rst:292
+#: ../source/specifications/platform-compatibility-tags.rst:297
 msgid ""
 "``arm64_iphonesimulator``, for simulators running on Apple Silicon macOS "
 "hardware; and"
@@ -25322,17 +25332,17 @@ msgstr ""
 "``arm64_iphonesimulator``、 Apple シリコン上の macOS ハードウェア上で動作する"
 "シミュレータ用のもの; そして"
 
-#: ../source/specifications/platform-compatibility-tags.rst:294
+#: ../source/specifications/platform-compatibility-tags.rst:299
 msgid "``x86_64_iphonesimulator``, for simulators running on x86_64 hardware."
 msgstr ""
 "``x86_64_iphonesimulator``、 x86_64 ハードウェア上で動作するシミュレータ用の"
 "もの。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:297
+#: ../source/specifications/platform-compatibility-tags.rst:302
 msgid "Use"
 msgstr "使い方"
 
-#: ../source/specifications/platform-compatibility-tags.rst:299
+#: ../source/specifications/platform-compatibility-tags.rst:304
 msgid ""
 "The tags are used by installers to decide which built distribution (if any) "
 "to download from a list of potential built distributions. The installer "
@@ -25345,7 +25355,7 @@ msgstr ""
 "ています。ビルド済配布物のタグがリストに含まれて (``in`` ) いれば、それをイン"
 "ストールすることができます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:305
+#: ../source/specifications/platform-compatibility-tags.rst:310
 msgid ""
 "It is recommended that installers try to choose the most feature complete "
 "built distribution available (the one most specific to the installation "
@@ -25363,7 +25373,7 @@ msgstr ""
 "は、純 Python であると広報しているビルド済みパッケージだけをダウンロードする"
 "ために、 ``*-none-any`` タグだけを受容しても構いません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:313
+#: ../source/specifications/platform-compatibility-tags.rst:318
 msgid ""
 "Another desirable installer feature might be to include \"re-compile from "
 "source if possible\" as more preferable than some of the compatible but "
@@ -25373,7 +25383,7 @@ msgstr ""
 "好ましいという点で、インストーラに望まれるもうひとつの機能は \"可能ならソース"
 "コードから再コンパイルする\" でしょう。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:317
+#: ../source/specifications/platform-compatibility-tags.rst:322
 msgid ""
 "This example list is for an installer running under CPython 3.3 on a "
 "linux_x86_64 system. It is in order from most-preferred (a distribution with "
@@ -25387,63 +25397,63 @@ msgstr ""
 "の (古いバージョンの Python でビルドされた純 Python の配布物) へ、という順序"
 "で並んでいます:"
 
-#: ../source/specifications/platform-compatibility-tags.rst:323
+#: ../source/specifications/platform-compatibility-tags.rst:328
 msgid "cp33-cp33m-linux_x86_64"
 msgstr "cp33-cp33m-linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:324
+#: ../source/specifications/platform-compatibility-tags.rst:329
 msgid "cp33-abi3-linux_x86_64"
 msgstr "cp33-abi3-linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:325
+#: ../source/specifications/platform-compatibility-tags.rst:330
 msgid "cp3-abi3-linux_x86_64"
 msgstr "cp3-abi3-linux_x86_64"
 
-#: ../source/specifications/platform-compatibility-tags.rst:326
+#: ../source/specifications/platform-compatibility-tags.rst:331
 msgid "cp33-none-linux_x86_64*"
 msgstr "cp33-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:327
+#: ../source/specifications/platform-compatibility-tags.rst:332
 msgid "cp3-none-linux_x86_64*"
 msgstr "cp3-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:328
+#: ../source/specifications/platform-compatibility-tags.rst:333
 msgid "py33-none-linux_x86_64*"
 msgstr "py33-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:329
+#: ../source/specifications/platform-compatibility-tags.rst:334
 msgid "py3-none-linux_x86_64*"
 msgstr "py3-none-linux_x86_64*"
 
-#: ../source/specifications/platform-compatibility-tags.rst:330
+#: ../source/specifications/platform-compatibility-tags.rst:335
 msgid "cp33-none-any"
 msgstr "cp33-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:331
+#: ../source/specifications/platform-compatibility-tags.rst:336
 msgid "cp3-none-any"
 msgstr "cp3-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:332
+#: ../source/specifications/platform-compatibility-tags.rst:337
 msgid "py33-none-any"
 msgstr "py33-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:333
+#: ../source/specifications/platform-compatibility-tags.rst:338
 msgid "py3-none-any"
 msgstr "py3-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:334
+#: ../source/specifications/platform-compatibility-tags.rst:339
 msgid "py32-none-any"
 msgstr "py32-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:335
+#: ../source/specifications/platform-compatibility-tags.rst:340
 msgid "py31-none-any"
 msgstr "py31-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:336
+#: ../source/specifications/platform-compatibility-tags.rst:341
 msgid "py30-none-any"
 msgstr "py30-none-any"
 
-#: ../source/specifications/platform-compatibility-tags.rst:338
+#: ../source/specifications/platform-compatibility-tags.rst:343
 msgid ""
 "Built distributions may be platform specific for reasons other than C "
 "extensions, such as by including a native executable invoked as a subprocess."
@@ -25452,7 +25462,7 @@ msgstr ""
 "を含んでいるなどのようなC 言語拡張以外の理由によって、特定のプラットフォーム"
 "向けであっても構いません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:342
+#: ../source/specifications/platform-compatibility-tags.rst:347
 msgid ""
 "Sometimes there will be more than one supported built distribution for a "
 "particular version of a package.  For example, a packager could release a "
@@ -25471,11 +25481,11 @@ msgstr ""
 "よりも選好されてインストールされるという形で、インデックスによってどちらかに"
 "決めることができます。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:351
+#: ../source/specifications/platform-compatibility-tags.rst:356
 msgid "Compressed Tag Sets"
 msgstr "圧縮されたタグのセット"
 
-#: ../source/specifications/platform-compatibility-tags.rst:353
+#: ../source/specifications/platform-compatibility-tags.rst:358
 msgid ""
 "To allow for compact filenames of bdists that work with more than one "
 "compatibility tag triple, each tag in a filename can instead be a '.'-"
@@ -25492,7 +25502,7 @@ msgstr ""
 "うタグを付けた bdist として配布することができるでしょう。単純なタグの完全なリ"
 "ストは::"
 
-#: ../source/specifications/platform-compatibility-tags.rst:365
+#: ../source/specifications/platform-compatibility-tags.rst:370
 msgid ""
 "A bdist format that implements this scheme should include the expanded tags "
 "in bdist-specific metadata.  This compression scheme can generate large "
@@ -25505,11 +25515,11 @@ msgstr ""
 "ポートされていない \"不可能な\" タグを大量に生成すると思われるので、控えめに"
 "使うようにしてください。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:378
+#: ../source/specifications/platform-compatibility-tags.rst:383
 msgid "What tags are used by default?"
 msgstr "デフォルトではどんなタグが使われますか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:374
+#: ../source/specifications/platform-compatibility-tags.rst:379
 msgid ""
 "Tools should use the most-preferred architecture dependent tag e.g. ``cp33-"
 "cp33m-win32`` or the most-preferred pure python tag e.g. ``py33-none-any`` "
@@ -25522,7 +25532,7 @@ msgstr ""
 "ば、それは彼らが異なる Python 間での互換性を提供しようという意図があったこと"
 "を示しています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:388
+#: ../source/specifications/platform-compatibility-tags.rst:393
 msgid ""
 "What tag do I use if my distribution uses a feature exclusive to the newest "
 "version of Python?"
@@ -25530,7 +25540,7 @@ msgstr ""
 "自分の配布物が最新版の Python と相容れない機能を使っているとしたら、どんなタ"
 "グを使いますか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:381
+#: ../source/specifications/platform-compatibility-tags.rst:386
 msgid ""
 "Compatibility tags aid installers in selecting the *most compatible* build "
 "of a *single version* of a distribution. For example, when there is no "
@@ -25548,11 +25558,11 @@ msgstr ""
 "は、新しい機能を使う前のリリースである ``beaglevote-1.1.0`` 用の要求 "
 "(requirement) などを他の指定子を組み合わせなければなりません。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:393
+#: ../source/specifications/platform-compatibility-tags.rst:398
 msgid "Why isn't there a ``.`` in the Python version number?"
 msgstr "Python のバージョン番号に ``.`` がないのはなぜですか?"
 
-#: ../source/specifications/platform-compatibility-tags.rst:391
+#: ../source/specifications/platform-compatibility-tags.rst:396
 msgid ""
 "CPython has lasted 20+ years without a 3-digit major release. This should "
 "continue for some time.  Other implementations may use _ as a delimiter, "
@@ -25563,13 +25573,13 @@ msgstr ""
 "区切る役割を果たしているので、他の実装では _ を区切り子として使っても構いませ"
 "ん。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:399
+#: ../source/specifications/platform-compatibility-tags.rst:404
 msgid ""
 "Why normalise hyphens and other non-alphanumeric characters to underscores?"
 msgstr ""
 "ハイフンやその他の英数字以外の文字をアンダースコアに正規化するのはなぜですか?"
 
-#: ../source/specifications/platform-compatibility-tags.rst:396
+#: ../source/specifications/platform-compatibility-tags.rst:401
 msgid ""
 "To avoid conflicting with the ``.`` and ``-`` characters that separate "
 "components of the filename, and for better compatibility with the widest "
@@ -25581,11 +25591,11 @@ msgstr ""
 "るファイルシステムのファイル名に対する制限事項との間のより良い互換性のため"
 "に。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:408
+#: ../source/specifications/platform-compatibility-tags.rst:413
 msgid "Why not use special character <X> rather than ``.`` or ``-``?"
 msgstr "何故、 ``.`` や ``-`` の代わりに特殊な文字 <X> を使わないのですか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:402
+#: ../source/specifications/platform-compatibility-tags.rst:407
 msgid ""
 "Either because that character is inconvenient or potentially confusing in "
 "some contexts (for example, ``+`` must be quoted in URLs, ``~`` is used to "
@@ -25602,11 +25612,11 @@ msgstr ""
 "``,`` を使うようにすること) を正当化するに足りるだけのアドバンテージがないか"
 "ら、のいずれかです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:413
+#: ../source/specifications/platform-compatibility-tags.rst:418
 msgid "Who will maintain the registry of abbreviated implementations?"
 msgstr "誰が実装に関する短縮形のレジストリの維持管理をしているのですか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:411
+#: ../source/specifications/platform-compatibility-tags.rst:416
 msgid ""
 "New two-letter abbreviations can be requested on the python-dev mailing "
 "list.  As a rule of thumb, abbreviations are reserved for the current 4 most "
@@ -25616,11 +25626,11 @@ msgstr ""
 "けることができるでしょう。経験上は、その時点で最も卓越した４個の実装のために"
 "省略形が予約されています。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:418
+#: ../source/specifications/platform-compatibility-tags.rst:423
 msgid "Does the compatibility tag go into METADATA or PKG-INFO?"
 msgstr "互換性タグは METADATA に含まれるのか、あるいは PKG-INFO か？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:416
+#: ../source/specifications/platform-compatibility-tags.rst:421
 msgid ""
 "No.  The compatibility tag is part of the built distribution's metadata.  "
 "METADATA / PKG-INFO should be valid for an entire distribution, not a single "
@@ -25630,11 +25640,11 @@ msgstr ""
 "は、その配布物の単一のビルドではなく配布物の全体にとって正当なものであるべき"
 "です。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:424
+#: ../source/specifications/platform-compatibility-tags.rst:429
 msgid "Why didn't you mention my favorite Python implementation?"
 msgstr "どうして私のお気に入りの Python 実装について言及しなかったの？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:421
+#: ../source/specifications/platform-compatibility-tags.rst:426
 msgid ""
 "The abbreviated tags facilitate sharing compiled Python code in a public "
 "index.  Your Python implementation can use this specification too, but with "
@@ -25646,14 +25656,14 @@ msgstr ""
 "が、しかしもっと長いタグになってしまうことでしょう。すべての \"純 Python\" な"
 "ビルド済み配布物が単に ``py`` を使うだけであることを思い出してください。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:432
+#: ../source/specifications/platform-compatibility-tags.rst:437
 msgid ""
 "Why is the ABI tag (the second tag) sometimes \"none\" in the reference "
 "implementation?"
 msgstr ""
 "どうして参照実装における ABI タグ (第２のタグ) は時々 \"none\" なのですか？"
 
-#: ../source/specifications/platform-compatibility-tags.rst:427
+#: ../source/specifications/platform-compatibility-tags.rst:432
 msgid ""
 "Since Python 2 does not have an easy way to get to the SOABI (the concept "
 "comes from newer versions of Python 3) the reference implementation at the "
@@ -25667,28 +25677,28 @@ msgstr ""
 "が、それまでの間は \"知られていない\" ことを示すのに \"none\" とすることが必"
 "要十分な方法なのです。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:437
+#: ../source/specifications/platform-compatibility-tags.rst:442
 msgid ""
 "February 2013: The original version of this specification was approved "
 "through :pep:`425`."
 msgstr ""
 "2013年2月: :pep:`425` を通じてこの仕様の元々のバージョンが承認されました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:439
+#: ../source/specifications/platform-compatibility-tags.rst:444
 msgid "January 2016: The ``manylinux1`` tag was approved through :pep:`513`."
 msgstr "2016年1月: :pep:`513` を通じて ``manylinux1`` タグが承認されました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:440
+#: ../source/specifications/platform-compatibility-tags.rst:445
 msgid "April 2018: The ``manylinux2010`` tag was approved through :pep:`571`."
 msgstr ""
 "2018年4月: :pep:`571` を通じて ``manylinux2010`` タグが承認されました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:441
+#: ../source/specifications/platform-compatibility-tags.rst:446
 msgid "July 2019: The ``manylinux2014`` tag was approved through :pep:`599`."
 msgstr ""
 "2019年7月: :pep:`599` を通じて ``manylinux2014`` タグが承認されました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:442
+#: ../source/specifications/platform-compatibility-tags.rst:447
 msgid ""
 "November 2019: The ``manylinux_x_y`` perennial tag was approved "
 "through :pep:`600`."
@@ -25696,16 +25706,16 @@ msgstr ""
 "2019年11月: :pep:`600` を通じて多年性の ``manylinux_x_y`` タグが承認されまし"
 "た。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:444
+#: ../source/specifications/platform-compatibility-tags.rst:449
 msgid "April 2021: The ``musllinux_x_y`` tag was approved through :pep:`656`."
 msgstr ""
 "2021年4月: :pep:`656` を通じて ``musllinux_x_y`` タグが承認されました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:445
+#: ../source/specifications/platform-compatibility-tags.rst:450
 msgid "December 2023: The tags for iOS were approved through :pep:`730`."
 msgstr "2023年12月: :pep:`730` を通じて iOS 用のタグが承認されました。"
 
-#: ../source/specifications/platform-compatibility-tags.rst:446
+#: ../source/specifications/platform-compatibility-tags.rst:451
 msgid "March 2024: The tags for Android were approved through :pep:`738`."
 msgstr "2024年3月: :pep:`738` を通じて Android 用のタグが承認されました。"
 
@@ -26732,20 +26742,23 @@ msgstr ""
 msgid ""
 "Tools MAY choose to not support archive files, both from a locking and/or "
 "installation perspective."
-msgstr "ツール類は、ロッキングとインストール局面の両方または片方で、アーカイブファイ"
+msgstr ""
+"ツール類は、ロッキングとインストール局面の両方または片方で、アーカイブファイ"
 "ルをサポートしないことを選択しても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:442
 msgid ""
 "Tools SHOULD provide a way for users to opt in/out of using archive files."
-msgstr "ツール類は、アーカイブファイルを使用するか否かについてのオプトイン/オプトアウ"
+msgstr ""
+"ツール類は、アーカイブファイルを使用するか否かについてのオプトイン/オプトアウ"
 "トの方法をユーザに提供するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:443
 msgid ""
 "Installation from an archive file is considered originating from "
 "a :ref:`direct URL reference <direct-url>`."
-msgstr "アーカイブファイルからのインストールは、 :ref:`直接 URL 参照 <direct-url>` か"
+msgstr ""
+"アーカイブファイルからのインストールは、 :ref:`直接 URL 参照 <direct-url>` か"
 "ら派生したものと考えられています。"
 
 #: ../source/specifications/pylock-toml.rst:450
@@ -26825,7 +26838,8 @@ msgstr "**ひらめき**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`"
 msgid ""
 "A table listing known hash values of the file where the key is the hash "
 "algorithm and the value is the hash value."
-msgstr "当該ファイルの既知のハッシュ値を列挙したテーブルで、キーがハッシュアルゴリズ"
+msgstr ""
+"当該ファイルの既知のハッシュ値を列挙したテーブルで、キーがハッシュアルゴリズ"
 "ムで値がハッシュ値のもの。"
 
 #: ../source/specifications/pylock-toml.rst:498
@@ -26842,9 +26856,9 @@ msgid ""
 "SHOULD always be included (at time of writing, sha256 specifically is "
 "recommended."
 msgstr ""
-"常に、:py:data:`hashlib.algorithms_guaranteed` から採用した安全なアルゴリズム"
-" を少なくともひとつ含んでいるべきです (執筆時点では、特に sha256 が推奨されて"
-"います) 。"
+"常に、:py:data:`hashlib.algorithms_guaranteed` から採用した安全なアルゴリズ"
+"ム を少なくともひとつ含んでいるべきです (執筆時点では、特に sha256 が推奨され"
+"ています) 。"
 
 #: ../source/specifications/pylock-toml.rst:508
 msgid "``packages.archive.subdirectory``"
@@ -26879,8 +26893,8 @@ msgid ""
 "specific file is no longer valid (e.g. returns a 404 HTTP error code)."
 msgstr ""
 "ツール類は、特定のファイルを記録した URL がもはや有効ではない (例えば HTTP エ"
-"ラーコードの 404 を返す) 場合には、インデックスからインストールすることをサポ"
-"ートしても構いません。"
+"ラーコードの 404 を返す) 場合には、インデックスからインストールすることをサ"
+"ポートしても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:533
 msgid "``[packages.sdist]``"
@@ -26903,13 +26917,15 @@ msgstr "パッケージの :ref:`source-distribution-format-sdist` の詳細。"
 msgid ""
 "Tools MAY choose to not support sdist files, both from a locking and/or "
 "installation perspective."
-msgstr "ツール類は、ロッキングとインストール局面の両方または片方で sdist ファイルをサ"
+msgstr ""
+"ツール類は、ロッキングとインストール局面の両方または片方で sdist ファイルをサ"
 "ポートしないことを選択しても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:543
 msgid ""
 "Tools SHOULD provide a way for users to opt in/out of using sdist files."
-msgstr "ツール類は、 sdist ファイルを使用することについてオプトイン/オプトアウトの方"
+msgstr ""
+"ツール類は、 sdist ファイルを使用することについてオプトイン/オプトアウトの方"
 "法をユーザに対して提供するべきです。"
 
 #: ../source/specifications/pylock-toml.rst:549
@@ -26989,7 +27005,8 @@ msgstr ""
 msgid ""
 "Tools MUST support wheel files, both from a locking and installation "
 "perspective."
-msgstr "ツール類は、ロッキングとインストール局面の両方で、 wheel ファイルをサポートし"
+msgstr ""
+"ツール類は、ロッキングとインストール局面の両方で、 wheel ファイルをサポートし"
 "なければなりません。"
 
 #: ../source/specifications/pylock-toml.rst:618
@@ -27040,11 +27057,13 @@ msgstr "**ひらめき**: :ref:`provenance-object`"
 #: ../source/specifications/pylock-toml.rst:676
 msgid ""
 "A recording of the attestations for **any** file recorded for this package."
-msgstr "このパッケージに記録された **任意の** ファイルのための証拠を記録したもの。"
+msgstr ""
+"このパッケージに記録された **任意の** ファイルのための証拠を記録したもの。"
 
 #: ../source/specifications/pylock-toml.rst:677
 msgid "If available, tools SHOULD include the attestation identities found."
-msgstr "もし利用可能であれば、ツール類は、証拠の見つかった身元を含めておくべきです。"
+msgstr ""
+"もし利用可能であれば、ツール類は、証拠の見つかった身元を含めておくべきです。"
 
 #: ../source/specifications/pylock-toml.rst:678
 msgid ""
@@ -27080,7 +27099,8 @@ msgstr ""
 msgid ""
 "Data recorded in the table MUST be disposable (i.e. it MUST NOT affect "
 "installation)."
-msgstr "テーブルに記録されたデータは、使い捨て可能でなければなりません (すなわち、イ"
+msgstr ""
+"テーブルに記録されたデータは、使い捨て可能でなければなりません (すなわち、イ"
 "ンストールされたものに影響を与えてはなりません) 。"
 
 #: ../source/specifications/pylock-toml.rst:712
@@ -27184,9 +27204,9 @@ msgid ""
 "are no conflicting sources in the package entry); an error MUST be raised if "
 "any issues are found."
 msgstr ""
-"パッケージの源 <source> が適切にしていされているかどうか (つまり、そのパッケ"
-"ージのエントリに他の干渉する源がないということ)の確認; 何らかの問題が見つかっ"
-"たら、エラーを発生させなければなりません。"
+"パッケージの源 <source> が適切にしていされているかどうか (つまり、そのパッ"
+"ケージのエントリに他の干渉する源がないということ)の確認; 何らかの問題が見つ"
+"かったら、エラーを発生させなければなりません。"
 
 #: ../source/specifications/pylock-toml.rst:761
 msgid "Add the package to the set of packages to install."
@@ -27226,19 +27246,21 @@ msgstr ":ref:`インストール <binary-distribution-format>` しましょう�
 
 #: ../source/specifications/pylock-toml.rst:773
 msgid "Else if :ref:`pylock-packages-directory` is set:"
-msgstr "そうではなくて、 :ref:`pylock-packages-directory` がセットされている場合:"
+msgstr ""
+"そうではなくて、 :ref:`pylock-packages-directory` がセットされている場合:"
 
 #: ../source/specifications/pylock-toml.rst:775
 msgid ""
 ":ref:`Build <source-distribution-format-source-tree>` the package, "
 "respecting :ref:`pylock-packages-directory-subdirectory`."
 msgstr ""
-":ref:`pylock-packages-directory-subdirectory` を尊重しつつ、パッケージを "
-":ref:`ビルド <source-distribution-format-source-tree>` しましょう。"
+":ref:`pylock-packages-directory-subdirectory` を尊重しつつ、パッケージ"
+"を :ref:`ビルド <source-distribution-format-source-tree>` しましょう。"
 
 #: ../source/specifications/pylock-toml.rst:779
 msgid "Else if :ref:`pylock-packages-archive` is set:"
-msgstr "そうではなくて、 :ref:`pylock-packages-archive` がセットされている場合:"
+msgstr ""
+"そうではなくて、 :ref:`pylock-packages-archive` がセットされている場合:"
 
 #: ../source/specifications/pylock-toml.rst:781
 #: ../source/specifications/pylock-toml.rst:811
@@ -27263,7 +27285,8 @@ msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:788
 msgid "Else if there are entries for :ref:`pylock-packages-wheels`:"
-msgstr "そうではなくて、 :ref:`pylock-packages-wheels` のエントリが存在する場合:"
+msgstr ""
+"そうではなくて、 :ref:`pylock-packages-wheels` のエントリが存在する場合:"
 
 #: ../source/specifications/pylock-toml.rst:790
 msgid ""
@@ -27282,8 +27305,9 @@ msgstr "ファイルを取得しましょう:"
 
 #: ../source/specifications/pylock-toml.rst:796
 msgid "If :ref:`pylock-packages-wheels-path` is set, use it."
-msgstr ":ref:`pylock-packages-wheels-path` がセットされているなら、それを使いましょう"
-"。"
+msgstr ""
+":ref:`pylock-packages-wheels-path` がセットされているなら、それを使いましょ"
+"う。"
 
 #: ../source/specifications/pylock-toml.rst:797
 msgid ""
@@ -27319,7 +27343,8 @@ msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:813
 msgid "If :ref:`pylock-packages-sdist-path` is set, use it."
-msgstr ":ref:`pylock-packages-sdist-path` がセットされていれば、それを使いましょう。"
+msgstr ""
+":ref:`pylock-packages-sdist-path` がセットされていれば、それを使いましょう。"
 
 #: ../source/specifications/pylock-toml.rst:814
 msgid ""
@@ -27328,21 +27353,22 @@ msgid ""
 "the file."
 msgstr ""
 "そうではなくて、 :ref:`pylock-packages-sdist-url` がセットされている場合は、"
-"それを使うことを試みましょう; ツール類は、 :ref:`pylock-packages-index` を使"
-"っても構いませんし、 ツールに特有のファイルをダウンロードする何らかのメカニズ"
-"ムを使っても構いません。"
+"それを使うことを試みましょう; ツール類は、 :ref:`pylock-packages-index` を"
+"使っても構いませんし、 ツールに特有のファイルをダウンロードする何らかのメカニ"
+"ズムを使っても構いません。"
 
 #: ../source/specifications/pylock-toml.rst:818
 msgid ""
 "Validate using :ref:`pylock-packages-sdist-size` and :ref:`pylock-packages-"
 "sdist-hashes`."
 msgstr ""
-":ref:`pylock-packages-sdist-size` と :ref:`pylock-packages-sdist-hashes` を使"
-"って正当性を検証しましょう。"
+":ref:`pylock-packages-sdist-size` と :ref:`pylock-packages-sdist-hashes` を"
+"使って正当性を検証しましょう。"
 
 #: ../source/specifications/pylock-toml.rst:820
 msgid ":ref:`Build <source-distribution-format-sdist>` the package."
-msgstr "パッケージを :ref:`ビルド <source-distribution-format-sdist>` しましょう。"
+msgstr ""
+"パッケージを :ref:`ビルド <source-distribution-format-sdist>` しましょう。"
 
 #: ../source/specifications/pylock-toml.rst:828
 msgid "April 2025: Initial version, approved via :pep:`751`."
@@ -27594,9 +27620,9 @@ msgid ""
 msgstr ""
 "もし、ファイルが存在していて、 ``[build-system]`` テーブルが欠落しており、か"
 "つ、そのプロジェクトがビルドされるべきであるかに関する明白な指示がない (例え"
-"ば、 setup.py/setup.cfg またはその他のビルド設定ファイルが欠落しており、かつ"
-"、 ``[project]`` テーブルが欠落している) のであれば、ツール類は、ユーザに対し"
-"てエラーを提示することを選択しても構いません。"
+"ば、 setup.py/setup.cfg またはその他のビルド設定ファイルが欠落しており、か"
+"つ、 ``[project]`` テーブルが欠落している) のであれば、ツール類は、ユーザに対"
+"してエラーを提示することを選択しても構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:69
 msgid ""
@@ -27920,18 +27946,19 @@ msgid ""
 "These keys are mutually exclusive, so a tool MUST raise an error if the "
 "metadata specifies both keys."
 msgstr ""
-"テーブルには二つのキーのうちのいずれか一つを書くことができます。 ``file`` キ"
-"ーは、 :file:`pyproject.toml` からプロジェクトのライセンス情報を含むファイル"
-"への相対パスを値とする文字列を値に持ちます。ツールの側では、そのファイルのエ"
-"ンコーディングが UTF-8 であるものと仮定しなければなりません。 ``text`` キーは"
-"、プロジェクトのライセンス条項の文字列を値に取ります。これらのキーは相互に排"
-"他的で、従って、両方のキーが指定されているメタデータについてツールの側ではエ"
-"ラーを発生させなければなりません。"
+"テーブルには二つのキーのうちのいずれか一つを書くことができます。 ``file`` "
+"キーは、 :file:`pyproject.toml` からプロジェクトのライセンス情報を含むファイ"
+"ルへの相対パスを値とする文字列を値に持ちます。ツールの側では、そのファイルの"
+"エンコーディングが UTF-8 であるものと仮定しなければなりません。 ``text`` キー"
+"は、プロジェクトのライセンス条項の文字列を値に取ります。これらのキーは相互に"
+"排他的で、従って、両方のキーが指定されているメタデータについてツールの側では"
+"エラーを発生させなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:288
 msgid ""
 "The table subkeys were deprecated by :pep:`639` in favor of the string value."
-msgstr "テーブルサブキー群では、値としての文字列が :pep:`639` によって非推奨にされま"
+msgstr ""
+"テーブルサブキー群では、値としての文字列が :pep:`639` によって非推奨にされま"
 "した。"
 
 #: ../source/specifications/pyproject-toml.rst:295
@@ -27947,8 +27974,8 @@ msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License-File "
 "<core-metadata-license-file>`"
 msgstr ""
-"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref"
-":`License-File <core-metadata-license-file>`"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィール"
+"ド: :ref:`License-File <core-metadata-license-file>`"
 
 #: ../source/specifications/pyproject-toml.rst:299
 msgid ""
@@ -27958,11 +27985,11 @@ msgid ""
 "to file(s) containing licenses and other legal notices to be distributed "
 "with the package."
 msgstr ""
-"パッケージと一緒に配布されるライセンスやその他の法律上の通知を含むファイル(群"
-")への、プロジェクトのソースコードツリーの中のパスを、プロジェクトのルートディ"
-"レクトリ (すなわち、 :file:`pyproject.toml` 、または、例えば :file:`setup.py`"
-" や :file:`setup.cfg` その他のような伝統的なプロジェクト設定ファイル群のある"
-"ディレクトリ) からの相対パスで指定した配列。"
+"パッケージと一緒に配布されるライセンスやその他の法律上の通知を含むファイル"
+"(群)への、プロジェクトのソースコードツリーの中のパスを、プロジェクトのルート"
+"ディレクトリ (すなわち、 :file:`pyproject.toml` 、または、例え"
+"ば :file:`setup.py` や :file:`setup.cfg` その他のような伝統的なプロジェクト設"
+"定ファイル群のあるディレクトリ) からの相対パスで指定した配列。"
 
 #: ../source/specifications/pyproject-toml.rst:305
 msgid ""
@@ -27975,7 +28002,8 @@ msgstr ""
 #: ../source/specifications/pyproject-toml.rst:308
 msgid ""
 "Patterns are relative to the directory containing :file:`pyproject.toml`,"
-msgstr "パターンは、 :file:`pyproject.toml` を含むディレクトリからの相対パスで、"
+msgstr ""
+"パターンは、 :file:`pyproject.toml` を含むディレクトリからの相対パスで、"
 
 #: ../source/specifications/pyproject-toml.rst:310
 msgid ""
@@ -27994,14 +28022,16 @@ msgstr "ビルドツール:"
 msgid ""
 "MUST include all files matched by a listed pattern in all distribution "
 "archives."
-msgstr "すべての配布物アーカイブ中の、列挙されたパターンにバッチするすべてのファイル"
+msgstr ""
+"すべての配布物アーカイブ中の、列挙されたパターンにバッチするすべてのファイル"
 "を含めなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:317
 msgid ""
 "MUST list each matched file path under a License-File field in the Core "
 "Metadata."
-msgstr "コアとなるメタデータの中の License-File フィールドの下にあるファイルパスで合"
+msgstr ""
+"コアとなるメタデータの中の License-File フィールドの下にあるファイルパスで合"
 "致したもののそれぞれを列挙しなければなりません。"
 
 #: ../source/specifications/pyproject-toml.rst:320
@@ -28301,10 +28331,10 @@ msgid ""
 "surrounding the semicolon."
 msgstr ""
 "インストール時にプロジェクトが排他的に提供したインポートネームを指定する文字"
-"列の配列。各文字列は、正当な Python 識別子か空値でなければなりません。インポ"
-"ートネームは、セミコロンと \"private\" という用語 (例えば ``\"; private\"``) "
-"を、セミコロンの前後に空白文字がいくつあっても良い形で、後続させても構いませ"
-"ん。"
+"列の配列。各文字列は、正当な Python 識別子か空値でなければなりません。イン"
+"ポートネームは、セミコロンと \"private\" という用語 (例えば ``\"; "
+"private\"``) を、セミコロンの前後に空白文字がいくつあっても良い形で、後続させ"
+"ても構いません。"
 
 #: ../source/specifications/pyproject-toml.rst:495
 msgid ""
@@ -28371,8 +28401,8 @@ msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Import-"
 "Namespace <core-metadata-import-namespace>`"
 msgstr ""
-"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: :ref"
-":`Import-Namespace <core-metadata-import-namespace>`"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィール"
+"ド: :ref:`Import-Namespace <core-metadata-import-namespace>`"
 
 #: ../source/specifications/pyproject-toml.rst:541
 msgid ""
@@ -28385,10 +28415,10 @@ msgid ""
 msgstr ""
 "インストール時にプロジェクトが非排他的に提供したインポートネームを指定する文"
 "字列の配列。各文字列は、正当な Python 識別子でなければなりません。インポート"
-"ネームは、セミコロンの前後には任意の量の空白文字があっても構わないという形で"
-"、セミコロンと \"private\" という用語をその後ろに伴っても構いません (例えば `"
-"`\"; private\"``)。 ``import-names`` とは異なって、 ``import-namespaces`` は"
-"空の配列であってはいけません。"
+"ネームは、セミコロンの前後には任意の量の空白文字があっても構わないという形"
+"で、セミコロンと \"private\" という用語をその後ろに伴っても構いません (例え"
+"ば ``\"; private\"``)。 ``import-names`` とは異なって、 ``import-"
+"namespaces`` は空の配列であってはいけません。"
 
 #: ../source/specifications/pyproject-toml.rst:547
 msgid ""
@@ -28586,8 +28616,8 @@ msgid ""
 "October 2025: The ``import-names`` and ``import-namespaces`` keys were added "
 "through :pep:`794`."
 msgstr ""
-"2025年10月: :pep:`794` を通じて ``import-names`` キーと ``import-namespaces``"
-" キーが追加されました。"
+"2025年10月: :pep:`794` を通じて ``import-names`` キーと ``import-"
+"namespaces`` キーが追加されました。"
 
 #: ../source/specifications/recording-installed-packages.rst:7
 msgid "Recording installed projects"
@@ -28737,7 +28767,8 @@ msgstr ""
 msgid ""
 "This :file:`.dist-info/` directory may contain the following directories, "
 "described in detail below:"
-msgstr "この :file:``.dist-info/`` ディレクトリには、以下に詳細を述べるディレクトリを"
+msgstr ""
+"この :file:``.dist-info/`` ディレクトリには、以下に詳細を述べるディレクトリを"
 "置くことができます:"
 
 #: ../source/specifications/recording-installed-packages.rst:72
@@ -29029,12 +29060,12 @@ msgid ""
 "directory MUST be copied from wheels by the install tools."
 msgstr ""
 "メタデータバージョンが 2.4 またはそれ以上で、かつ、一つ以上の ``License-"
-"File`` フィールドが指定されている場合、 :file:`.dist-info/` ディレクトリには"
-"、 :file:`METADATA` ファイル内の ``License-File`` フィールドに列挙されたファ"
-"イル群を :file:`licenses/` ディレクトリに対する相対パスにそれぞれ収容した "
-":file:`licenses/` サブディレクトリが存在していなければなりません。このディレ"
-"クトリ内のファイルはすべて、インストールツールによって wheel からコピーされな"
-"ければなりません。"
+"File`` フィールドが指定されている場合、 :file:`.dist-info/` ディレクトリに"
+"は、 :file:`METADATA` ファイル内の ``License-File`` フィールドに列挙された"
+"ファイル群を :file:`licenses/` ディレクトリに対する相対パスにそれぞれ収容し"
+"た :file:`licenses/` サブディレクトリが存在していなければなりません。このディ"
+"レクトリ内のファイルはすべて、インストールツールによって wheel からコピーされ"
+"なければなりません。"
 
 #: ../source/specifications/recording-installed-packages.rst:240
 msgid "The :file:`sboms/` subdirectory"
@@ -29211,8 +29242,8 @@ msgid ""
 "packages from an index server comes in two forms: :ref:`HTML <simple-"
 "repository-html-serialization>` and :ref:`JSON <json-serialization>`."
 msgstr ""
-"利用可能なパッケージバージョンを問い合わせたり、インデックスサーバからパッケ"
-"ージを取り出したりするためのインターフェースは、二つの形式: :ref:`HTML "
+"利用可能なパッケージバージョンを問い合わせたり、インデックスサーバからパッ"
+"ケージを取り出したりするためのインターフェースは、二つの形式: :ref:`HTML "
 "<simple-repository-html-serialization>` と Jref:`JSON <json-serialization>` "
 "によってもたらされます。"
 
@@ -29221,23 +29252,17 @@ msgid "Base API"
 msgstr "基本 API"
 
 #: ../source/specifications/simple-repository-api.rst:23
-#, fuzzy
-#| msgid ""
-#| "A repository that implements the simple API is defined by its base URL, "
-#| "this is the top level URL that all additional URLs are below. The API is "
-#| "named the \"simple\" repository due to the fact that PyPI's base URL is "
-#| "``https://pypi.org/simple/``."
 msgid ""
 "A repository that implements the simple API is defined by its base URL. This "
 "is the top level URL that all additional URLs are below. The API is named "
 "the \"simple\" repository due to the fact that PyPI's base URL is ``https://"
 "pypi.org/simple/``."
 msgstr ""
-"シンプルな API を実装するリポジトリはベースとなる URL によって定義されます"
-"が、これは、すべての追加的な URL 群がその下に連なるようなトップレベルの URL "
-"です。このような API は、 PyPI のベースとなる URL が ``https://pypi.org/"
-"simple/`` であるという事実に即して、 \"シンプル <simple>\" リポジトリと名付け"
-"られます。"
+"シンプルな API を実装するリポジトリはベースとなる URL によって定義されます。"
+"これは、すべての追加的な URL 群がその下に連なるようなトップレベルの URL で"
+"す。このような API は、 PyPI のベースとなる URL が ``https://pypi.org/simple/"
+"`` であるという事実に即して、 \"シンプル <simple>\" リポジトリと名付けられま"
+"す。"
 
 #: ../source/specifications/simple-repository-api.rst:28
 msgid ""
@@ -29274,15 +29299,6 @@ msgid "Versioning PyPI's Simple API"
 msgstr "PyPI のシンプルな API にバージョンを付与する"
 
 #: ../source/specifications/simple-repository-api.rst:52
-#, fuzzy
-#| msgid ""
-#| "This spec proposes the inclusion of a meta tag on the responses of every "
-#| "successful request to a simple API page, which contains a name attribute "
-#| "of \"pypi:repository-version\", and a content that is a :ref:`version "
-#| "specifiers specification <version-specifiers>` compatible version number, "
-#| "which is further constrained to ONLY be Major.Minor, and none of the "
-#| "additional features supported by :ref:`the version specifiers "
-#| "specification <version-specifiers>`."
 msgid ""
 "This spec proposes the inclusion of a meta tag on the responses of every "
 "successful request to a simple API page, which contains a name attribute of "
@@ -29293,17 +29309,15 @@ msgid ""
 "<version-specifiers>`."
 msgstr ""
 "この仕様は、シンプルな API へのリクエストが成功するたびにそのレスポンスにメタ"
-"タグを含めるように提案するもので、つまり、 \"pypi:repository-version\" という"
+"タグを含めるように提案するもので、つまり、 ``pypi:repository-version`` という"
 "名称のアトリビューションを含み、その内容が :ref:`バージョン指定子仕様 "
 "<version-specifiers>` と互換性のあるバージョン番号であるが Major.Minor だけで"
 "あるようにさらに制約されたものであって、 :ref:`バージョン指定子仕様 <version-"
-"specifiers>` ではサポートされる追加的な機能を一つも含まないものです。"
+"specifiers>` でサポートされる追加的な機能を一つも含まないものです。"
 
 #: ../source/specifications/simple-repository-api.rst:60
-#, fuzzy
-#| msgid "This would end up looking like::"
 msgid "This would end up looking like:"
-msgstr "これは、結局こんなふうに見えることでしょう::"
+msgstr "これは、結局こんなふうに見えることでしょう:"
 
 #: ../source/specifications/simple-repository-api.rst:66
 msgid "When interpreting the repository version:"
@@ -29360,38 +29374,47 @@ msgstr ""
 
 #: ../source/specifications/simple-repository-api.rst:89
 msgid "API Version History"
-msgstr ""
+msgstr "API バージョンの歴史"
 
 #: ../source/specifications/simple-repository-api.rst:91
 msgid ""
 "This section contains only an abbreviated history of changes, as marked by "
 "the API version number. For a full history of changes including changes made "
 "before API versioning, see :ref:`History <simple-repository-history>`."
-msgstr ""
+msgstr "「—"
 
 #: ../source/specifications/simple-repository-api.rst:95
 msgid "API version 1.0: Initial version of the API, declared with :pep:`629`."
 msgstr ""
+"API バージョン 1.0: API の初期バージョンで、 :pep:`629` で宣言されたもの。"
 
 #: ../source/specifications/simple-repository-api.rst:96
 msgid ""
 "API version 1.1: Added ``versions``, ``files[].size``, and ``files[].upload-"
 "time`` metadata to the JSON serialization, declared with :pep:`700`."
 msgstr ""
+"API バージョン 1.1: JSON シリアル化に ``versions`` ・ ``files[].size`` ・ "
+"``files[].upload-time`` メタデータが追加されたもので、 :pep:`700` で宣言され"
+"たもの。"
 
 #: ../source/specifications/simple-repository-api.rst:98
 msgid ""
 "API version 1.2: Added repository \"tracks\" metadata, declared "
 "with :pep:`708`."
 msgstr ""
+"API バージョン 1.2: リポジトリに \"tracks\" メタデータを追加したもの"
+"で、 :pep:`708` で宣言されました。"
 
 #: ../source/specifications/simple-repository-api.rst:99
 msgid "API version 1.3: Added provenance metadata, declared with :pep:`740`."
 msgstr ""
+"API バージョン 1.3: :pep:`740` で宣言されて、起源 <provenance> メタデータが追"
+"加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:100
 msgid "API version 1.4: Added status markers, declared with :pep:`792`."
 msgstr ""
+"API バージョン 1.4: :pep:`792` で宣言されて、状態マーカが追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:103
 msgid "Clients"
@@ -29433,31 +29456,27 @@ msgstr ""
 "機能探索 <feature detection> を **継続しても構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:121
-#, fuzzy
-#| msgid "JSON Serialization"
 msgid "HTML Serialization"
-msgstr "JSON シリアル化"
+msgstr "HTML シリアル化"
 
 #: ../source/specifications/simple-repository-api.rst:125
-#, fuzzy
-#| msgid ""
-#| "The following constraints apply to all JSON serialized responses "
-#| "described in this spec:"
 msgid ""
 "The following constraints apply to all HTML serialized responses described "
 "in this spec:"
 msgstr ""
-"後述の制約は、この仕様で記述されたすべての JSON シリアル化応答に適用されます:"
+"後述の制約は、この仕様で記述されたすべての HTML シリアル化応答に適用されます:"
 
 #: ../source/specifications/simple-repository-api.rst:128
 msgid "All HTML responses **MUST** be a valid HTML5 document."
-msgstr ""
+msgstr "HTML 応答はすべて、正当な HTML5 文書でなければ **なりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:129
 msgid ""
 "HTML responses **MAY** contain one or more ``meta`` tags in the ``<head>`` "
 "section. The semantics of these tags are defined below."
 msgstr ""
+"HTML 応答は、ひとつ以上の ``meta`` タグを ``<head>`` セクションに含んでいて"
+"も **構いません** 。これらのタグのせマンティクスは、この後定義されます。"
 
 #: ../source/specifications/simple-repository-api.rst:133
 #: ../source/specifications/simple-repository-api.rst:428
@@ -29465,42 +29484,24 @@ msgid "Project List"
 msgstr "プロジェクトのリスト"
 
 #: ../source/specifications/simple-repository-api.rst:135
-#, fuzzy
-#| msgid ""
-#| "Within a repository, the root URL (``/`` for this spec which represents "
-#| "the base URL) **MUST** be a valid HTML5 page with a single anchor element "
-#| "per project in the repository. The text of the anchor tag **MUST** be the "
-#| "name of the project and the href attribute **MUST** link to the URL for "
-#| "that particular project. As an example::"
 msgid ""
 "Within a repository, the root URL (``/`` for this spec which represents the "
 "base URL) **MUST** be a valid HTML5 page with a single anchor element per "
 "project in the repository."
 msgstr ""
-"リポジトリ内では、ルート URL <root URL> (この文脈ではルート URL <root URL> を"
+"リポジトリ内では、ルート URL <root URL> (この仕様ではベース URL <base URL> を"
 "表現する ``/`` のこと) は、正当な HTML5 ページであってリポジトリ内のプロジェ"
-"クト毎にひとつのアンカー要素を持っていなければ **なりません** 。アンカータグ"
-"のテキストはプロジェクトの名称でなければならず、 href アトリビュートはそのプ"
-"ロジェクトの URL にリンクされていなければ **なりません** 。例としては::"
+"クト毎にひとつのアンカー要素を持っていなければ **なりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:139
-#, fuzzy
-#| msgid ""
-#| "Within a repository, the root URL (``/`` for this spec which represents "
-#| "the base URL) **MUST** be a valid HTML5 page with a single anchor element "
-#| "per project in the repository. The text of the anchor tag **MUST** be the "
-#| "name of the project and the href attribute **MUST** link to the URL for "
-#| "that particular project. As an example::"
 msgid ""
 "The text of each anchor tag **MUST** be the name of the project and the "
 "``href`` attribute **MUST** link to the URL for that particular project. As "
 "an example:"
 msgstr ""
-"リポジトリ内では、ルート URL <root URL> (この文脈ではルート URL <root URL> を"
-"表現する ``/`` のこと) は、正当な HTML5 ページであってリポジトリ内のプロジェ"
-"クト毎にひとつのアンカー要素を持っていなければ **なりません** 。アンカータグ"
-"のテキストはプロジェクトの名称でなければならず、 href アトリビュートはそのプ"
-"ロジェクトの URL にリンクされていなければ **なりません** 。例としては::"
+"アンカータグのテキストは、それぞれ、プロジェクトの名称でなければならず、 "
+"``href`` アトリビュートはその特定のプロジェクトの URL にリンクされていなけれ"
+"ば **なりません** 。例としては:"
 
 #: ../source/specifications/simple-repository-api.rst:156
 #: ../source/specifications/simple-repository-api.rst:473
@@ -29513,12 +29514,17 @@ msgid ""
 "within a repository. The format of this URL is ``/<project>/``, where the "
 "``<project>`` is replaced by the normalized name for that project."
 msgstr ""
+"以下のルート URL <root URL> は、リポジトリ内に含まれる個別の各プロジェクト向"
+"けのもうひとつの URL です。この URL のフォーマットは ``/<project>/`` で、"
+"``<project>`` は当該プロジェクトの正規化名称で置き換えられるものです。"
 
 #: ../source/specifications/simple-repository-api.rst:164
 msgid ""
 "For example, a project named \"HolyGrail\" would have a URL like ``/"
 "holygrail/``."
 msgstr ""
+"例えば、 \"HolyGrail\" という名称のプロジェクトなら、 ``/holygrail/`` のよう"
+"な URL を持つことでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:167
 msgid ""
@@ -29528,28 +29534,23 @@ msgid ""
 "the anchor tag **MUST** match the final path component (the filename) of the "
 "URL."
 msgstr ""
+"プロジェクトの詳細 URL は、プロジェクトのファイル毎に単一のアンカー要素を伴っ"
+"た正当な HTML5 ページによって応答しなければなりません。 ``href`` アトリビュー"
+"トはダウンロード用にそのファイルの所在地へリンクされた URL でなければ **なら"
+"ず** 、アンカータグの文字列は URL の最後のパス構成要素 (ファイル名) でなけれ"
+"ば **なりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:172
-#, fuzzy
-#| msgid ""
-#| "The repository **SHOULD** provide the hash of the Core Metadata file as "
-#| "the ``data-dist-info-metadata`` attribute's value using the syntax "
-#| "``<hashname>=<hashvalue>``, where ``<hashname>`` is the lower cased name "
-#| "of the hash function used, and ``<hashvalue>`` is the hex encoded digest. "
-#| "The repository **MAY** use ``true`` as the attribute's value if a hash is "
-#| "unavailable."
 msgid ""
 "Each file URL **SHOULD** include a hash in the form of a URL fragment with "
 "the following syntax: ``#<hashname>=<hashvalue>``, where ``<hashname>`` is "
 "the lowercase name of the hash function (such as ``sha256``) and "
 "``<hashvalue>`` is the hex encoded digest."
 msgstr ""
-"リポジトリは、 ``<hashname>`` がハッシュ関数の小文字で書いた名称で "
-"``hashvalue`` が16進数に符号化されたハッシュ値であるとして "
-"``<hashname>=<hashvalue>`` という書式を使って、 ``data-dist-info-metadata`` "
-"アトリビュートの値としてコアとなるメタデータのファイルのハッシュ値を **提供す"
-"るべきです** 。ハッシュ値を利用できない場合には、リポジトリはアトリビュートの"
-"値として ``true`` を **使っても構いません** 。"
+"各ファイル URL は、次のシンタックス: ``#<hashname>=<hashvalue>`` でハッシュ値"
+"を伴う形で URL フラグメントに含める **べきで** あり、ここで、 ``<hashname>`` "
+"は (``sha256`` のような) ハッシュ関数名を小文字で書いたもの、 "
+"``<hashvalue>`` は 16 進数で表現されたダイジェストです。"
 
 #: ../source/specifications/simple-repository-api.rst:177
 msgid ""
@@ -29631,16 +29632,10 @@ msgid ""
 "A repository **MAY** include a ``data-core-metadata`` attribute on a file "
 "link."
 msgstr ""
+"リポジトリは、ファイルへのリンクに ``data-core-metadata`` アトリビュートを含"
+"めても **構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:211
-#, fuzzy
-#| msgid ""
-#| "The repository **SHOULD** provide the hash of the Core Metadata file as "
-#| "the ``data-dist-info-metadata`` attribute's value using the syntax "
-#| "``<hashname>=<hashvalue>``, where ``<hashname>`` is the lower cased name "
-#| "of the hash function used, and ``<hashvalue>`` is the hex encoded digest. "
-#| "The repository **MAY** use ``true`` as the attribute's value if a hash is "
-#| "unavailable."
 msgid ""
 "The repository **SHOULD** provide the hash of the Core Metadata file as the "
 "``data-core-metadata`` attribute's value using the syntax "
@@ -29649,30 +29644,36 @@ msgid ""
 "repository **MAY** use ``true`` as the attribute's value if a hash is "
 "unavailable."
 msgstr ""
-"リポジトリは、 ``<hashname>`` がハッシュ関数の小文字で書いた名称で "
-"``hashvalue`` が16進数に符号化されたハッシュ値であるとして "
-"``<hashname>=<hashvalue>`` という書式を使って、 ``data-dist-info-metadata`` "
-"アトリビュートの値としてコアとなるメタデータのファイルのハッシュ値を **提供す"
-"るべきです** 。ハッシュ値を利用できない場合には、リポジトリはアトリビュートの"
-"値として ``true`` を **使っても構いません** 。"
+"リポジトリは、使用されたハッシュ関数の小文字での名称を ``<hashname>`` とし、 "
+"``<hashvalue>`` を 16 進数表記のダイジェストであるものとした時、コアとなるメ"
+"タデータのファイルのハッシュ値を ``<hashname>=<hashvalue>`` のシンタックスを"
+"使った ``data-core-metadata`` アトリビュートの値として提供する **べきです"
+"** 。リポジトリは、ハッシュ値が利用可能ではない時には、アトリビュートの値とし"
+"て ``true`` を使っても **構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:217
 msgid ""
 "A repository **MAY** include a ``data-dist-info-metadata`` attribute on a "
 "file link."
 msgstr ""
+"リポジトリは、ファイルへのリンクに ``data-dist-info-metadata`` アトリビュート"
+"を含めても **構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:220
 msgid ""
 "Index clients **MAY** consume this key if present, as a legacy fallback for "
 "``data-core-metadata``."
 msgstr ""
+"インデックスクライアントは、もし存在していればこのキーを ``data-core-"
+"metadata`` の伝統的なフォールバックとして消費しても **構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:225
 msgid ""
 "``data-dist-info-metadata`` was standardized with :pep:`658` and renamed to "
 "``data-core-metadata`` with :pep:`714`."
 msgstr ""
+"``data-dist-info-metadata`` は、 :pep:`658` で標準化され、 :pep:`714` で "
+"``data-core-metadata`` へと改名されました。"
 
 #: ../source/specifications/simple-repository-api.rst:228
 msgid ""
@@ -29686,13 +29687,6 @@ msgstr ""
 "せん** 。これを行うリポジトリは、全てのリンクについて **行うべきです** 。"
 
 #: ../source/specifications/simple-repository-api.rst:232
-#, fuzzy
-#| msgid ""
-#| "A repository **MAY** include a ``data-requires-python`` attribute on a "
-#| "file link. This exposes the :ref:`core-metadata-requires-python` metadata "
-#| "field for the corresponding release. Where this is present, installer "
-#| "tools **SHOULD** ignore the download when installing to a Python version "
-#| "that doesn't satisfy the requirement. For example::"
 msgid ""
 "A repository **MAY** include a ``data-requires-python`` attribute on a file "
 "link. This exposes the :ref:`core-metadata-requires-python` metadata field "
@@ -29704,7 +29698,7 @@ msgstr ""
 "含んでいても **構いません** 。これは、対応するリリース用の :ref:`core-"
 "metadata-requires-python` メタデータを表示するものです。これが存在するなら、"
 "その要求を満足しないバージョンの Python 環境へインストールしている場合には、"
-"インストールツール群はダウンロードしたものを **無視するべき** です。例えば::"
+"インストールツール群はダウンロードしたものを **無視するべき** です。例えば:"
 
 #: ../source/specifications/simple-repository-api.rst:242
 msgid ""
@@ -29718,16 +29712,10 @@ msgstr ""
 msgid ""
 "A repository **MAY** include a ``data-yanked`` attribute on a file link."
 msgstr ""
+"リポジトリは、ファイルリンクに ``data-yanked`` アトリビュートを含めても **構"
+"いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:247
-#, fuzzy
-#| msgid ""
-#| "Links in the simple repository **MAY** have a ``data-yanked`` attribute "
-#| "which may have no value, or may have an arbitrary string as a value. The "
-#| "presence of a ``data-yanked`` attribute **SHOULD** be interpreted as "
-#| "indicating that the file pointed to by this particular link has been "
-#| "\"Yanked\", and should not generally be selected by an installer, except "
-#| "under specific scenarios."
 msgid ""
 "The ``data-yanked`` attribute may have no value, or may have an arbitrary "
 "string as a value. The presence of a ``data-yanked`` attribute **SHOULD** be "
@@ -29735,27 +29723,19 @@ msgid ""
 "has been \"Yanked\", and should not generally be selected by an installer, "
 "except under specific scenarios."
 msgstr ""
-"シンプルなリポジトリの中のリンク群は、値を持たないか任意の文字列を値に取る "
-"``data-yanked`` アトリビュートを持っていても **構いません** 。 ``data-"
-"yanked`` アトリビュートが存在していれば、この特定のリンクによって指し示された"
-"ファイルが \"ヤンクされた <Yanked>\" ものだと解釈される **べきであって** 、特"
-"定のシナリオ下を除けば一般的にはインストーラによって選択されるべきものではあ"
-"りません。"
+"``data-yanked`` アトリビュートは、値をとらなくても構いませんし、任意の文字列"
+"を値に取っても構いません。 ``data-yanked`` アトリビュートが存在していれば、こ"
+"の特定のリンクによって指し示されたファイルが \"ヤンクされた <Yanked>\" ものだ"
+"と解釈される **べきであって** 、特定のシナリオ下を除けば一般的にはインストー"
+"ラによって選択されるべきものではありません。"
 
 #: ../source/specifications/simple-repository-api.rst:253
-#, fuzzy
-#| msgid ""
-#| "The value of the ``data-yanked`` attribute, if present, is an arbitrary "
-#| "string that represents the reason for why the file has been yanked. Tools "
-#| "that process the simple repository API **MAY** surface this string to end "
-#| "users."
 msgid ""
 "The value of the ``data-yanked`` attribute, if present, is an arbitrary "
 "string that represents the reason for why the file has been yanked."
 msgstr ""
 "``data-yanked`` アトリビュートの値は、もし値が存在するなら、そのファイルがヤ"
-"ンクされた理由を表現する任意の文字列です。シンプルなリポジトリ API を処理する"
-"ツール類は、エンドユーザ向けにその文字列を表示しても **構いません** 。"
+"ンクされた理由を表現する任意の文字列です。"
 
 #: ../source/specifications/simple-repository-api.rst:258
 #: ../source/specifications/simple-repository-api.rst:601
@@ -29763,6 +29743,8 @@ msgid ""
 "The semantics of how tools should handle yanked files is described "
 "in :ref:`file-yanking`."
 msgstr ""
+"ツール類がヤンクされたファイルをどのように扱うべきかのセマンティクス"
+"は、 :ref:`file-yanking` に記述されています。"
 
 #: ../source/specifications/simple-repository-api.rst:261
 msgid ""
@@ -29772,22 +29754,32 @@ msgid ""
 "represent a `secure origin <https://www.chromium.org/Home/chromium-security/"
 "prefer-secure-origins-for-powerful-new-features/>`_."
 msgstr ""
+"リポジトリは、ファイルリンクに ``data-provenance`` アトリビュートを含めても "
+"**構いません** 。このアトリビュートの値は、その URL で当該ファイルの起源が見"
+"つかることを合図しつつ、完全に指定された URL でなければ **なりません** 。こ"
+"の URL は、 `セキュアな起源 <https://www.chromium.org/Home/chromium-security/"
+"prefer-secure-origins-for-powerful-new-features/>`_ を表現していなければ **な"
+"りません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:268
 msgid "The ``data-provenance`` attribute was added with API version 1.3."
 msgstr ""
+"``data-provenance`` アトリビュートは、 API バージョン 1.3 で追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:272
 msgid ""
 "The format of the linked provenance is defined in :ref:`index-hosted-"
 "attestations`."
-msgstr ""
+msgstr "リンクされた起源のフォーマットは、 :ref:`index-hosted-attestations` で定義さ"
+"れています。"
 
 #: ../source/specifications/simple-repository-api.rst:274
 msgid ""
 "A repository **MAY** include ``pypi:project-status`` and ``pypi:project-"
 "status-reason`` meta tags on the response itself."
 msgstr ""
+"リポジトリは、 ``pypi:project-status`` と ``pypi:project-status-reason`` のメ"
+"タタグを応答そのものに含めても **構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:277
 msgid ""
@@ -29795,19 +29787,25 @@ msgid ""
 "marker, while the value of ``pypi:project-status-reason`` **MUST** be an "
 "arbitrary string if present."
 msgstr ""
+"もし存在すれば ``pypi:project-status-reason`` の値は任意の文字列でなければ **"
+"ならない** 一方で、 ``pypi:project-status`` の値は正当なプロジェクト状態マー"
+"カでなければ **なりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:283
 #: ../source/specifications/simple-repository-api.rst:493
 msgid ""
 "The set of valid project status markers and their semantics is described "
 "in :ref:`project-status-markers`."
-msgstr ""
+msgstr "正当なプロジェクト状態マーカとそのセマンティクスの組は、 :ref:`project-"
+"status-markers` に記述されています。"
 
 #: ../source/specifications/simple-repository-api.rst:288
 msgid ""
 "The ``pypi:project-status`` and ``pypi:project-status-reason`` meta tags "
 "were added with API version 1.4."
 msgstr ""
+"``pypi:project-status`` と ``pypi:project-status-reason`` のメタタグは、 API "
+"バージョン 1.4 で追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:294
 msgid "Serve Distribution Metadata in the Simple Repository API"
@@ -30013,19 +30011,14 @@ msgid "JSON Serialization"
 msgstr "JSON シリアル化"
 
 #: ../source/specifications/simple-repository-api.rst:392
-#, fuzzy
-#| msgid ""
-#| "The URL structure from :ref:`the base HTML API specification <simple-"
-#| "repository-api-base>` still applies, as this spec only adds an additional "
-#| "serialization format for the already existing API."
 msgid ""
 "The URL structure from :ref:`the base HTML API specification <simple-"
 "repository-html-serialization>` still applies, as this spec only adds an "
 "additional serialization format for the already existing API."
 msgstr ""
-":ref:`基本となる HTML API の仕様 <simple-repository-api-base>` からの URL の"
-"構造は依然として適用されます、というのは、この仕様は既に存在する API にシリア"
-"ル化フォーマットを付け足すだけだからです。"
+":ref:`基本となる HTML API の仕様 <simple-repository-html-serialization>` から"
+"の URL の構造は依然として適用されます、というのは、この仕様は既に存在する "
+"API にシリアル化フォーマットを付け足すだけだからです。"
 
 #: ../source/specifications/simple-repository-api.rst:396
 msgid ""
@@ -30043,12 +30036,6 @@ msgstr ""
 "ことでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:402
-#, fuzzy
-#| msgid ""
-#| "While JSON doesn't natively support an URL type, any value that "
-#| "represents an URL in this API may be either absolute or relative as long "
-#| "as they point to the correct location. If relative, they are relative to "
-#| "the current URL as if it were HTML."
 msgid ""
 "While JSON doesn't natively support a URL type, any value that represents an "
 "URL in this API may be either absolute or relative as long as they point to "
@@ -30180,13 +30167,9 @@ msgstr ""
 "クトであれば ``/silly-walk/`` のような URL を持つことになるでしょう。"
 
 #: ../source/specifications/simple-repository-api.rst:480
-#, fuzzy
-#| msgid ""
-#| "This URL must respond with a JSON encoded dictionary that has three keys:"
 msgid ""
 "This URL must respond with a JSON encoded dictionary that has four keys:"
-msgstr ""
-"この URL は、３個のキーを持つJSON にコード化された辞書を返さなければなりませ"
+msgstr "この URL は、４個のキーを持つJSON にコード化された辞書を返さなければなりませ"
 "ん:"
 
 #: ../source/specifications/simple-repository-api.rst:482
@@ -30202,54 +30185,43 @@ msgstr "``files``: 辞書のリストで、各辞書が個別のファイルを�
 msgid ""
 "In addition to the general response metadata, the project detail ``meta`` "
 "dictionary **MAY** also include the following:"
-msgstr ""
+msgstr "一般的な応答メタデータに加えて、プロジェクト詳細の ``meta`` 辞書には、以下の"
+"ものを含めても **構いません** :"
 
 #: ../source/specifications/simple-repository-api.rst:489
 msgid ""
 "``project-status``: If present, this **MUST** be a valid project status "
 "marker."
-msgstr ""
+msgstr "``project-status``: もし存在すれば、これは、正当なプロジェクト状態マーカで **"
+"なければなりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:498
-#, fuzzy
-#| msgid "A new ``versions`` key is added at the top level."
 msgid "The ``project-status`` key was added with API version 1.4."
-msgstr "トップレベルに ``version`` キーが新規に追加されました。"
+msgstr "``project -status`` キーは、 API バージョン 1.4 で追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:500
 msgid ""
 "``project-status-reason``: If present, this **MUST** be an arbitrary string "
 "description of the project status."
 msgstr ""
+"``project-status-reason``: もし存在すれば、これは、任意の文字列でプロジェクト"
+"の状態を記述するもので **なければなりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:505
-#, fuzzy
-#| msgid "A new ``versions`` key is added at the top level."
 msgid "The ``project-status-reason`` key was added with API version 1.4."
-msgstr "トップレベルに ``version`` キーが新規に追加されました。"
+msgstr "``project-status-reason`` キーは、 API バージョン 1.4 で追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:507
-#, fuzzy
-#| msgid ""
-#| "An additional key, ``versions`` MUST be present at the top level, in "
-#| "addition to the keys ``name``, ``files`` and ``meta`` defined "
-#| "in :ref:`the JSON API specification <simple-repository-api-json>`. This "
-#| "key MUST contain a list of version strings specifying all of the project "
-#| "versions uploaded for this project. The value is logically a set, and as "
-#| "such may not contain duplicates, and the order of the values is not "
-#| "significant."
 msgid ""
 "``versions``: A list of version strings specifying all of the project "
 "versions uploaded for this project. The value of ``versions`` is logically a "
 "set, and as such may not contain duplicates, and the order of the versions "
 "is not significant."
 msgstr ""
-"追加のキーである ``versions`` は、 :ref:`JSON API 仕様 <simple-repository-"
-"api-json>` で定義された ``name`` キー・ ``files`` キーや ``meta`` キーに加え"
-"て、トップレベルに存在しなければなりません。このキーは、このプロジェクトよう"
-"にアップロードされたプロジェクトのバージョンの全てを指定するバージョン文字列"
-"を列挙したものを含んでいなければなりません。その値は論理的に言って集合であ"
-"り、したがって重複を許さず、値の順序は大きな意味を持ちません。"
+"``versions``: バージョン番号文字列のリストで、このプロジェクトのためにアップ"
+"ロードされたプロジェクトのバージョン番号を全て指定するもの。 ``version`` の値"
+"は、論理上は集合であり、それ故に重複を許さず、バージョン番号の順序は大きな問"
+"題ではありません。"
 
 #: ../source/specifications/simple-repository-api.rst:514
 msgid ""
@@ -30264,14 +30236,6 @@ msgstr ""
 "るために) 対応するファイルがないバージョンを含んでいても構いません。"
 
 #: ../source/specifications/simple-repository-api.rst:521
-#, fuzzy
-#| msgid ""
-#| "Note that because servers may hold \"legacy\" data from before the "
-#| "adoption of :ref:`the version specifiers specification (VSS) <version-"
-#| "specifiers>`, version strings currently cannot be required to be valid "
-#| "VSS versions, and therefore cannot be assumed to be orderable using the "
-#| "VSS rules. However, servers SHOULD use normalised VSS versions where "
-#| "possible."
 msgid ""
 "Because servers may hold \"legacy\" data from before the adoption "
 "of :ref:`the version specifiers specification (VSS) <version-specifiers>`, "
@@ -30280,16 +30244,14 @@ msgid ""
 "servers **SHOULD** use normalized VSS versions where possible."
 msgstr ""
 ":ref:`バージョン指定子仕様 (VSS) <version-specifiers>` の採用前からの \"レガ"
-"シー\" データをサーバが保持しているかもしれないので、バージョン文字列につい"
-"て VSS に則ったバージョンであることを要求することはできませんし、したがっ"
-"て、 VSS のルールを使って並べることができると仮定することもできません。しかし"
-"ながら、サーバ側は、可能であれば正規化された VSS バージョンを使うべきです。"
+"シー\" データをサーバが保持しているかもしれないので、バージョン文字列について"
+" VSS に則ったバージョンであることを要求することはできませんし、したがって、 "
+"VSS のルールを使って並べることができると仮定することもできません。しかしなが"
+"ら、サーバ側は、可能であれば正規化された VSS バージョンを **使うべきです** 。"
 
 #: ../source/specifications/simple-repository-api.rst:529
-#, fuzzy
-#| msgid "A new ``versions`` key is added at the top level."
 msgid "The ``versions`` key was added with API version 1.1."
-msgstr "トップレベルに ``version`` キーが新規に追加されました。"
+msgstr "``version`` キーは、 API バージョン 1.1 で追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:531
 msgid "Each individual file dictionary has the following keys:"
@@ -30368,15 +30330,6 @@ msgstr ""
 "求することを除けば、特別なエスケープを要求しません。"
 
 #: ../source/specifications/simple-repository-api.rst:558
-#, fuzzy
-#| msgid ""
-#| "``dist-info-metadata``: An **optional** key that indicates that metadata "
-#| "for this file is available, via the same location as specified "
-#| "in :ref:`the API metadata file specification <simple-repository-api-"
-#| "metadata-file>` (``{file_url}.metadata``). Where this is present, it "
-#| "**MUST** be either a boolean to indicate if the file has an associated "
-#| "metadata file, or a dictionary mapping hash names to a hex encoded digest "
-#| "of the metadata's hash."
 msgid ""
 "``core-metadata``: An **optional** key that indicates that metadata for this "
 "file is available, via the same location as specified in :ref:`the API "
@@ -30385,13 +30338,13 @@ msgid ""
 "boolean to indicate if the file has an associated metadata file, or a "
 "dictionary mapping hash names to a hex encoded digest of the metadata's hash."
 msgstr ""
-"``dist-info-metadata``: :ref:`API メタデータの仕様 <simple-repository-api-"
+"``core-metadata``: :ref:`API メタデータの仕様 <simple-repository-api-"
 "metadata-file>` で指定されたのと同じ場所 (``{file_url}.metadata``) を通じて当"
-"該ファイルに関するメタデータが利用可能であることを示す **オプション** の"
-"キー。これが存在する場合には、そのファイルに対応するメタデータファイルがある"
-"か否かを示すブーリアンか、または、ハッシュ名称からメタデータのハッシュを16進"
-"数にエンコードしたダイジェストへの対応をマッピングする辞書か、のいずれかで **"
-"なければなりません** 。"
+"該ファイルに関するメタデータが利用可能であることを示す**オプション** のキー。"
+"これが存在する場合には、そのファイルに対応するメタデータファイルがあるか否か"
+"を示すブーリアンであるか、または、ハッシュ名称からメタデータのハッシュを16進"
+"数にエンコードしたダイジェストへの対応をマッピングする辞書であるか、のいずれ"
+"かで **なければなりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:566
 msgid ""
@@ -30424,19 +30377,24 @@ msgstr ""
 msgid ""
 "``dist-info-metadata``: An **optional**, deprecated alias for ``core-"
 "metadata``."
-msgstr ""
+msgstr "``dist-info-metadata``: **オプション** で、 ``core-metadata`` の非推奨になっ"
+"た別名。"
 
 #: ../source/specifications/simple-repository-api.rst:579
 msgid ""
 "Index clients **MAY** consume this key if present, as a legacy fallback for "
 "``core-metadata``."
 msgstr ""
+"インデックスのクライアントは、もしこのキーが存在すれば、 ``core-metadata`` の"
+"レガシーなフォールバック先として、このキーを **消費しても構いません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:584
 msgid ""
 "``dist-info-metadata`` was standardized with :pep:`658` and renamed to "
 "``core-metadata`` with :pep:`714`."
 msgstr ""
+"``dist-info-metadata`` は、 :pep:`658` で標準化され、 :pep:`714` で ``core-"
+"metadata`` に名称変更されました。"
 
 #: ../source/specifications/simple-repository-api.rst:587
 msgid ""
@@ -30453,15 +30411,6 @@ msgstr ""
 "ません。"
 
 #: ../source/specifications/simple-repository-api.rst:593
-#, fuzzy
-#| msgid ""
-#| "``yanked``: An **optional** key which may be either a boolean to indicate "
-#| "if the file has been yanked, or a non empty, but otherwise arbitrary, "
-#| "string to indicate that a file has been yanked with a specific reason. If "
-#| "the ``yanked`` key is present and is a truthy value, then it **SHOULD** "
-#| "be interpreted as indicating that the file pointed to by the ``url`` "
-#| "field has been \"Yanked\" as per :ref:`the API yank specification <simple-"
-#| "repository-api-yank>`."
 msgid ""
 "``yanked``: An **optional** key which may be either a boolean to indicate if "
 "the file has been yanked, or a non empty, but otherwise arbitrary, string to "
@@ -30472,26 +30421,20 @@ msgid ""
 msgstr ""
 "``yanked``: **オプション** のキーで、当該ファイルがヤンクされたものか否かを示"
 "すブーリアンか、または、ファイルがヤンクされるに至った特定の理由を示す任意の"
-"空ではない文字列か、いずれかの値を持ちます。 ``yanked`` キーが存在して値が真"
-"であれば、``url`` フィールドによって指し示されるファイルが :ref:`API ヤンク仕"
-"様 <simple-repository-api-yank>` にある通りに \"ヤンク\" されたことを示しま"
-"す。"
+"空ではない文字列か、のいずれかの値を持ちます。 ``yanked`` キーが存在して値が"
+"真のようであれば、``url`` フィールドによって指し示されるファイルが \"ヤンク\""
+" されたことを示すものと **理解されるべきです** 。"
 
 #: ../source/specifications/simple-repository-api.rst:604
-#, fuzzy
-#| msgid ""
-#| "``size``: This field is mandatory. It MUST contain an integer which is "
-#| "the file size in bytes."
 msgid ""
 "``size``: A **mandatory** key. It **MUST** contain an integer which is the "
 "file size in bytes."
-msgstr ""
-"``size``: このフィールドは必須のものです。ファイルサイズをバイト単位で表した"
-"整数が含まれていなければなりません。"
+msgstr "``size``: **必須の** キー。ファイルサイズをバイト単位で表した整数が **含まれ"
+"ていなければなりません** 。"
 
 #: ../source/specifications/simple-repository-api.rst:608
 msgid "The ``size`` key was added with API version 1.1."
-msgstr ""
+msgstr "``size`` キーは、 API バージョン 1.1 で追加されました。"
 
 #: ../source/specifications/simple-repository-api.rst:610
 msgid ""
@@ -30500,6 +30443,10 @@ msgid ""
 "ddThh:mm:ss.ffffffZ`` which represents the time the file was uploaded to the "
 "index."
 msgstr ""
+"``upload-time``: **オプションの** キーで、もし存在するなら、当該ファイルがイ"
+"ンデックスへアップロードされた時刻を表現する正当な ISO 8601 の年月日/時分秒の"
+"文字列が ``yyyy-mm-ddThh:mm:ss.ffffffZ`` の書式で **含まれていなければなりま"
+"せん** 。"
 
 #: ../source/specifications/simple-repository-api.rst:614
 #, fuzzy
