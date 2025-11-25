@@ -154,7 +154,7 @@ To just run the program without installing it permanently, use ``pipx run``, whi
 	$ pipx run --spec . greet --doctor
 
 This syntax is a bit impractical, however; as the name of the entry point we defined above does not match the package name,
-we need to state explicitly which executable script to run (even though there is only on in existence).
+we need to state explicitly which executable script to run (even though there is only one in existence).
 
 There is, however, a more practical solution to this problem, in the form of an entry point specific to ``pipx run``.
 The same can be defined as follows in :file:`pyproject.toml`:
