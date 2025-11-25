@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-25 23:31+0000\n"
+"POT-Creation-Date: 2025-11-25 23:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2254,7 +2254,7 @@ msgid "SPDX Expression"
 msgstr ""
 
 #: ../source/glossary.rst:161
-msgid "A string with valid SPDX license expression syntax, including one or more SPDX :term:`License Identifier`\\(s), which describes a :term:`Project`'s license(s) and how they inter-relate. Examples: ``GPL-3.0-or-later``, ``MIT AND (Apache-2.0 OR BSD-2-Clause)``"
+msgid "A string with valid SPDX license expression syntax, including one or more SPDX :term:`License Identifier`\\(s), which describes a :term:`Distribution Archive`'s license(s) and how they inter-relate. Examples: ``GPL-3.0-or-later``, ``MIT AND (Apache-2.0 OR BSD-2-Clause)``"
 msgstr ""
 
 #: ../source/glossary.rst:169
@@ -4560,7 +4560,7 @@ msgid "Licensing examples and user scenarios"
 msgstr ""
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:9
-msgid ":pep:`639` has specified the way to declare a project's license and paths to license files and other legally required information. This document aims to provide clear guidance how to migrate from the legacy to the standardized way of declaring licenses. Make sure your preferred build backend supports :pep:`639` before trying to apply the newer guidelines."
+msgid ":pep:`639` has specified the way to declare a :term:`Distribution Archive`'s license and paths to license files and other legally required information. This document aims to provide clear guidance how to migrate from the legacy to the standardized way of declaring licenses. Make sure your preferred build backend supports :pep:`639` before trying to apply the newer guidelines."
 msgstr ""
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:18
@@ -4588,147 +4588,147 @@ msgid "Or, if the project used :file:`setup.cfg`, in its ``[metadata]`` table:"
 msgstr ""
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:56
-msgid "The output Core Metadata for the distribution packages would then be:"
+msgid "The output Core Metadata for the :term:`Distribution Package` would then be:"
 msgstr ""
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:63
 msgid "The :file:`LICENSE` file would be stored at :file:`/setuptools-{VERSION}/LICENSE` in the sdist and :file:`/setuptools-{VERSION}.dist-info/licenses/LICENSE` in the wheel, and unpacked from there into the site directory (e.g. :file:`site-packages/`) on installation; :file:`/` is the root of the respective archive and ``{VERSION}`` the version of the Setuptools release in the Core Metadata."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:73
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:74
 msgid "Advanced example"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:75
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:76
 msgid "Suppose Setuptools were to include the licenses of the third-party projects that are vendored in the :file:`setuptools/_vendor/` and :file:`pkg_resources/_vendor/` directories; specifically:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:86
-msgid "The license expressions for these projects are:"
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:87
+msgid "The appropriate license expressions are:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:95
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:96
 msgid "A comprehensive license expression covering both Setuptools proper and its vendored dependencies would contain these metadata, combining all the license expressions into one. Such an expression might be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:103
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:104
 msgid "In addition, per the requirements of the licenses, the relevant license files must be included in the package. Suppose the :file:`LICENSE` file contains the text of the MIT license and the copyrights used by Setuptools, ``pyparsing``, ``more_itertools`` and ``ordered-set``; and the :file:`LICENSE*` files in the :file:`setuptools/_vendor/packaging/` directory contain the Apache 2.0 and 2-clause BSD license text, and the Packaging copyright statement and `license choice notice <packaginglicense_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:111
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:112
 msgid "Specifically, we assume the license files are located at the following paths in the project source tree (relative to the project root and :file:`pyproject.toml`):"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:122
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:123
 msgid "Putting it all together, our :file:`pyproject.toml` would be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:133
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:134
 msgid "Or alternatively, the license files can be specified explicitly (paths will be interpreted as glob patterns):"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:147
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:148
 msgid "If our project used :file:`setup.cfg`, we could define this in :"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:159
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:160
 msgid "With either approach, the output Core Metadata in the distribution would be:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:170
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:171
 msgid "In the resulting sdist, with :file:`/` as the root of the archive and ``{VERSION}`` the version of the Setuptools release specified in the Core Metadata, the license files would be located at the paths:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:181
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:182
 msgid "In the built wheel, with :file:`/` being the root of the archive and ``{VERSION}`` as the previous, the license files would be stored at:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:191
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:192
 msgid "Finally, in the installed project, with :file:`site-packages/` being the site dir and ``{VERSION}`` as the previous, the license files would be installed to:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:203
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:204
 msgid "Expression examples"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:205
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:206
 msgid "Some additional examples of valid ``License-Expression`` values:"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:220
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:221
 msgid "User Scenarios"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:222
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:223
 msgid "The following covers the range of common use cases from a user perspective, providing guidance for each. Do note that the following should **not** be considered legal advice, and readers should consult a licensed legal practitioner in their jurisdiction if they are unsure about the specifics for their situation."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:230
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:231
 msgid "I have a private package that won't be distributed"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:232
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:233
 msgid "If your package isn't shared publicly, i.e. outside your company, organization or household, it *usually* isn't strictly necessary to include a formal license, so you wouldn't necessarily have to do anything extra here."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:236
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:237
 msgid "However, it is still a good idea to include ``LicenseRef-Proprietary`` as a license expression in your package configuration, and/or a copyright statement and any legal notices in a :file:`LICENSE.txt` file in the root of your project directory, which will be automatically included by packaging tools."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:244
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:245
 msgid "I just want to share my own work without legal restrictions"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:246
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:247
 msgid "While you aren't required to include a license, if you don't, no one has `any permission to download, use or improve your work <dontchoosealicense_>`__, so that's probably the *opposite* of what you actually want. The `MIT license <chooseamitlicense_>`__ is a great choice instead, as it's simple, widely used and allows anyone to do whatever they want with your work (other than sue you, which you probably also don't want)."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:253
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:254
 msgid "To apply it, just paste `the text <chooseamitlicense_>`__ into a file named :file:`LICENSE.txt` at the root of your repo, and add the year and your name to the copyright line. Then, just add ``license = \"MIT\"`` under ``[project]`` in your :file:`pyproject.toml` if your packaging tool supports it, or in its config file/section. You're done!"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:261
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:262
 msgid "I want to distribute my project under a specific license"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:263
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:264
 msgid "To use a particular license, simply paste its text into a :file:`LICENSE.txt` file at the root of your repo, if you don't have it in a file starting with :file:`LICENSE` or :file:`COPYING` already, and add ``license = \"LICENSE-ID\"`` under ``[project]`` in your :file:`pyproject.toml` if your packaging tool supports it, or else in its config file. You can find the ``LICENSE-ID`` and copyable license text on sites like `ChooseALicense <choosealicenselist_>`__ or `SPDX <spdxlist_>`__."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:272
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:273
 msgid "Many popular code hosts, project templates and packaging tools can add the license file for you, and may support the expression as well in the future."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:277
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:278
 msgid "I maintain an existing package that's already licensed"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:279
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:280
 msgid "If you already have license files and metadata in your project, you should only need to make a couple of tweaks to take advantage of the new functionality."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:283
-msgid "In your project config file, enter your license expression under ``license`` (``[project]`` table in :file:`pyproject.toml`), or the equivalent for your packaging tool, and make sure to remove any legacy ``license`` table subkeys or ``License ::`` classifiers. Your existing ``license`` value may already be valid as one (e.g. ``MIT``, ``Apache-2.0 OR BSD-2-Clause``, etc); otherwise, check the `SPDX license list <spdxlist_>`__ for the identifier that matches the license used in your project."
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:284
+msgid "In your project config file, enter your license expression under ``license`` (``[project]`` table in :file:`pyproject.toml`), or the equivalent for your packaging tool, and make sure to remove any legacy ``license`` table subkeys or ``License ::`` classifiers. Your existing ``license`` value may already be valid as one (e.g. ``MIT``, ``Apache-2.0 OR BSD-2-Clause``, etc); otherwise, check the `SPDX license list <spdxlist_>`__ for the identifier that matches the license used."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:292
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:293
 msgid "Make sure to list your license files under ``license-files`` under ``[project]`` in :file:`pyproject.toml` or else in your tool's configuration file."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:296
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:297
 msgid "See the :ref:`licensing-example-basic` for a simple but complete real-world demo of how this works in practice. See also the best-effort guidance on how to translate license classifiers into license expression provided by the :pep:`639` authors: `Mapping License Classifiers to SPDX Identifiers <mappingclassifierstospdx_>`__. Packaging tools may support automatically converting legacy licensing metadata; check your tool's documentation for more information."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:306
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:307
 msgid "My package includes other code under different licenses"
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:308
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:309
 msgid "If your project includes code from others covered by different licenses, such as vendored dependencies or files copied from other open source software, you can construct a license expression to describe the licenses involved and the relationship between them."
 msgstr ""
 
-#: ../source/guides/licensing-examples-and-user-scenarios.rst:314
-msgid "In short, ``License-1 AND License-2`` mean that *both* licenses apply to your project, or parts of it (for example, you included a file under another license), and ``License-1 OR License-2`` means that *either* of the licenses can be used, at the user's option (for example, you want to allow users a choice of multiple licenses). You can use parenthesis (``()``) for grouping to form expressions that cover even the most complex situations."
+#: ../source/guides/licensing-examples-and-user-scenarios.rst:315
+msgid "In short, ``License-1 AND License-2`` mean that *both* licenses apply (for example, you included a file under another license), and ``License-1 OR License-2`` means that *either* of the licenses can be used, at the user's option (for example, you want to allow users a choice of multiple licenses). You can use parenthesis (``()``) for grouping to form expressions that cover even the most complex situations."
 msgstr ""
 
 #: ../source/guides/licensing-examples-and-user-scenarios.rst:322
@@ -6619,7 +6619,7 @@ msgid "``license`` and ``license-files``"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:299
-msgid "As per :pep:`639` licenses should be declared with two fields:"
+msgid "As per :pep:`639`, licenses should be declared with two fields:"
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:301
@@ -6705,130 +6705,130 @@ msgid "As a general rule, it is a good idea to use a standard, well-known licens
 msgstr ""
 
 #: ../source/guides/writing-pyproject-toml.rst:353
-msgid "If your project is licensed with a license that doesn't have an existing SPDX identifier, you can create a custom one in format ``LicenseRef-[idstring]``. The custom identifiers must follow the SPDX specification, `clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one."
+msgid "If your :term:`Distribution Archive` is licensed with a license that doesn't have an existing SPDX identifier, you can create a custom one in format ``LicenseRef-[idstring]``. The custom identifiers must follow the SPDX specification, `clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:367
+#: ../source/guides/writing-pyproject-toml.rst:368
 #: ../source/specifications/pyproject-toml.rst:147
 #: ../source/specifications/pyproject-toml.rst:293
 msgid "``license-files``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:369
+#: ../source/guides/writing-pyproject-toml.rst:370
 msgid "This is a list of license files and files containing other legal information you want to distribute with your package."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:377
+#: ../source/guides/writing-pyproject-toml.rst:378
 msgid "The glob patterns must follow the specification:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:379
+#: ../source/guides/writing-pyproject-toml.rst:380
 msgid "Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``) will be matched verbatim."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:381
+#: ../source/guides/writing-pyproject-toml.rst:382
 msgid "Special characters: ``*``, ``?``, ``**`` and character ranges: [] are supported."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:382
+#: ../source/guides/writing-pyproject-toml.rst:383
 msgid "Path delimiters must be the forward slash character (``/``)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:383
+#: ../source/guides/writing-pyproject-toml.rst:384
 msgid "Patterns are relative to the directory containing :file:`pyproject.toml`, and thus may not start with a slash character."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:385
+#: ../source/guides/writing-pyproject-toml.rst:386
 msgid "Parent directory indicators (``..``) must not be used."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:386
+#: ../source/guides/writing-pyproject-toml.rst:387
 msgid "Each glob must match at least one file."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:388
+#: ../source/guides/writing-pyproject-toml.rst:389
 msgid "Literal paths are valid globs. Any characters or character sequences not covered by this specification are invalid."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:394
+#: ../source/guides/writing-pyproject-toml.rst:395
 #: ../source/specifications/pyproject-toml.rst:145
 #: ../source/specifications/pyproject-toml.rst:376
 msgid "``keywords``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:396
+#: ../source/guides/writing-pyproject-toml.rst:397
 msgid "This will help PyPI's search box to suggest your project when people search for these keywords."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:408
+#: ../source/guides/writing-pyproject-toml.rst:409
 #: ../source/specifications/pyproject-toml.rst:137
 #: ../source/specifications/pyproject-toml.rst:388
 msgid "``classifiers``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:410
+#: ../source/guides/writing-pyproject-toml.rst:411
 msgid "A list of PyPI classifiers that apply to your project. Check the `full list of possibilities <classifier-list_>`_."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:434
+#: ../source/guides/writing-pyproject-toml.rst:435
 msgid "Although the list of classifiers is often used to declare what Python versions a project supports, this information is only used for searching and browsing projects on PyPI, not for installing projects. To actually restrict what Python versions a project can be installed on, use the :ref:`requires-python` argument."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:439
+#: ../source/guides/writing-pyproject-toml.rst:440
 msgid "To prevent a package from being uploaded to PyPI, use the special ``Private :: Do Not Upload`` classifier. PyPI will always reject packages with classifiers beginning with ``Private ::``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:446
+#: ../source/guides/writing-pyproject-toml.rst:447
 #: ../source/specifications/pyproject-toml.rst:154
 #: ../source/specifications/pyproject-toml.rst:406
 msgid "``urls``"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:448
+#: ../source/guides/writing-pyproject-toml.rst:449
 msgid "A list of URLs associated with your project, displayed on the left sidebar of your PyPI project page."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:453
+#: ../source/guides/writing-pyproject-toml.rst:454
 msgid "See :ref:`well-known-labels` for a listing of labels that PyPI and other packaging tools are specifically aware of, and `PyPI's project metadata docs <https://docs.pypi.org/project_metadata/#project-urls>`_ for PyPI-specific URL processing."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:467
+#: ../source/guides/writing-pyproject-toml.rst:468
 msgid "Note that if the label contains spaces, it needs to be quoted, e.g., ``Website = \"https://example.com\"`` but ``\"Official Website\" = \"https://example.com\"``."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:471
+#: ../source/guides/writing-pyproject-toml.rst:472
 msgid "Users are advised to use :ref:`well-known-labels` for their project URLs where appropriate, since consumers of metadata (like package indices) can specialize their presentation."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:475
+#: ../source/guides/writing-pyproject-toml.rst:476
 msgid "For example in the following metadata, neither ``MyHomepage`` nor ``\"Download Link\"`` is a well-known label, so they will be rendered verbatim:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:485
+#: ../source/guides/writing-pyproject-toml.rst:486
 msgid "Whereas in this metadata ``HomePage`` and ``DOWNLOAD`` both have well-known equivalents (``homepage`` and ``download``), and can be presented with those semantics in mind (the project's home page and its external download location, respectively)."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:497
+#: ../source/guides/writing-pyproject-toml.rst:498
 msgid "Advanced plugins"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:499
+#: ../source/guides/writing-pyproject-toml.rst:500
 msgid "Some packages can be extended through plugins. Examples include Pytest_ and Pygments_. To create such a plugin, you need to declare it in a subtable of ``[project.entry-points]`` like this:"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:508
+#: ../source/guides/writing-pyproject-toml.rst:509
 msgid "See the :ref:`Plugin guide <plugin-entry-points>` for more information."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:513
+#: ../source/guides/writing-pyproject-toml.rst:514
 msgid "A full example"
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:576
+#: ../source/guides/writing-pyproject-toml.rst:577
 msgid "Think twice before applying an upper bound like ``requires-python = \"<= 3.10\"`` here. `This blog post <requires-python-blog-post_>`_ contains some information regarding possible problems."
 msgstr ""
 
-#: ../source/guides/writing-pyproject-toml.rst:580
+#: ../source/guides/writing-pyproject-toml.rst:581
 msgid "flit-core `does not yet <flit-issue-735_>`_ support WITH in SPDX license expressions."
 msgstr ""
 
@@ -18097,7 +18097,7 @@ msgid "``classifiers`` gives the index and :ref:`pip` some additional metadata a
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:222
-msgid "``license`` is the :term:`SPDX license expression <License Expression>` of your package."
+msgid "``license`` is the :term:`SPDX license expression <License Expression>` of your :term:`Distribution Archive` files."
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:224
@@ -18125,7 +18125,7 @@ msgid "Creating a LICENSE"
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:253
-msgid "It's important for every package uploaded to the Python Package Index to include a license. This tells users who install your package the terms under which they can use your package. For help picking a license, see https://choosealicense.com/. Once you have chosen a license, open :file:`LICENSE` and enter the license text. For example, if you had chosen the MIT license:"
+msgid "It's important for every :term:`Distribution Archive` uploaded to the Python Package Index to include a license. This tells users who install your :term:`Distribution Archive` the terms under which they can use it. For help picking a license, see https://choosealicense.com/. Once you have chosen a license, open :file:`LICENSE` and enter the license text. For example, if you had chosen the MIT license:"
 msgstr ""
 
 #: ../source/tutorials/packaging-projects.rst:282
