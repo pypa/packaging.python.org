@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-24 00:10+0000\n"
+"POT-Creation-Date: 2025-11-25 23:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2640,7 +2640,7 @@ msgstr ""
 #: ../source/specifications/dependency-groups.rst:23
 #: ../source/specifications/dependency-specifiers.rst:29
 #: ../source/specifications/direct-url-data-structure.rst:242
-#: ../source/specifications/version-specifiers.rst:1072
+#: ../source/specifications/version-specifiers.rst:1073
 msgid "Examples"
 msgstr ""
 
@@ -9219,7 +9219,7 @@ msgstr ""
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:972
 #: ../source/specifications/source-distribution-format.rst:153
-#: ../source/specifications/version-specifiers.rst:1269
+#: ../source/specifications/version-specifiers.rst:1270
 #: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr ""
@@ -16975,211 +16975,215 @@ msgid "Arbitrary equality"
 msgstr ""
 
 #: ../source/specifications/version-specifiers.rst:1017
-msgid "Arbitrary equality comparisons are simple string equality operations which do not take into account any of the semantic information such as zero padding or local versions. This operator also does not support prefix matching as the ``==`` operator does."
+msgid "Arbitrary equality comparisons are simple string equality operations which do not take into account any of the semantic information such as zero padding or local versions. The comparison MUST treat ASCII letters case-insensitively, e.g. by lowercasing, and is unspecified for non-ASCII text. This operator also does not support prefix matching as the ``==`` operator does."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1022
+#: ../source/specifications/version-specifiers.rst:1023
 msgid "The primary use case for arbitrary equality is to allow for specifying a version which cannot otherwise be represented by this specification. This operator is special and acts as an escape hatch to allow someone using a tool which implements this specification to still install a legacy version which is otherwise incompatible with this specification."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1028
+#: ../source/specifications/version-specifiers.rst:1029
 msgid "An example would be ``===foobar`` which would match a version of ``foobar``."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1030
+#: ../source/specifications/version-specifiers.rst:1031
 msgid "This operator may also be used to explicitly require an unpatched version of a project such as ``===1.0`` which would not match for a version ``1.0+downstream1``."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1034
+#: ../source/specifications/version-specifiers.rst:1035
 msgid "Use of this operator is heavily discouraged and tooling MAY display a warning when it is used."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1039
+#: ../source/specifications/version-specifiers.rst:1040
 msgid "Handling of pre-releases"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1041
+#: ../source/specifications/version-specifiers.rst:1042
 msgid "Pre-releases of any kind, including developmental releases, are implicitly excluded from all version specifiers, *unless* they are already present on the system, explicitly requested by the user, or if the only available version that satisfies the version specifier is a pre-release."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1046
+#: ../source/specifications/version-specifiers.rst:1047
 msgid "By default, dependency resolution tools SHOULD:"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1048
+#: ../source/specifications/version-specifiers.rst:1049
 msgid "accept already installed pre-releases for all version specifiers"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1049
+#: ../source/specifications/version-specifiers.rst:1050
 msgid "accept remotely available pre-releases for version specifiers where there is no final or post release that satisfies the version specifier"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1051
+#: ../source/specifications/version-specifiers.rst:1052
 msgid "exclude all other pre-releases from consideration"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1053
+#: ../source/specifications/version-specifiers.rst:1054
 msgid "Dependency resolution tools MAY issue a warning if a pre-release is needed to satisfy a version specifier."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1056
+#: ../source/specifications/version-specifiers.rst:1057
 msgid "Dependency resolution tools SHOULD also allow users to request the following alternative behaviours:"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1059
+#: ../source/specifications/version-specifiers.rst:1060
 msgid "accepting pre-releases for all version specifiers"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1060
+#: ../source/specifications/version-specifiers.rst:1061
 msgid "excluding pre-releases for all version specifiers (reporting an error or warning if a pre-release is already installed locally, or if a pre-release is the only way to satisfy a particular specifier)"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1064
+#: ../source/specifications/version-specifiers.rst:1065
 msgid "Dependency resolution tools MAY also allow the above behaviour to be controlled on a per-distribution basis."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1067
+#: ../source/specifications/version-specifiers.rst:1068
 msgid "Post-releases and final releases receive no special treatment in version specifiers - they are always included unless explicitly excluded."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1074
+#: ../source/specifications/version-specifiers.rst:1075
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1075
+#: ../source/specifications/version-specifiers.rst:1076
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1076
+#: ../source/specifications/version-specifiers.rst:1077
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1077
+#: ../source/specifications/version-specifiers.rst:1078
 msgid "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, post releases, developmental releases and any 3.1.x maintenance releases."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1079
+#: ../source/specifications/version-specifiers.rst:1080
 msgid "``== 3.1.*``: any version that starts with 3.1. Equivalent to the ``~=3.1.0`` compatible release clause."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1081
+#: ../source/specifications/version-specifiers.rst:1082
 msgid "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not version 3.2.0 or later."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1086
+#: ../source/specifications/version-specifiers.rst:1087
 msgid "Direct references"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1088
+#: ../source/specifications/version-specifiers.rst:1089
 msgid "Some automated tools may permit the use of a direct reference as an alternative to a normal version specifier. A direct reference consists of the specifier ``@`` and an explicit URL."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1092
+#: ../source/specifications/version-specifiers.rst:1093
 msgid "Whether or not direct references are appropriate depends on the specific use case for the version specifier. Automated tools SHOULD at least issue warnings and MAY reject them entirely when direct references are used inappropriately."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1097
+#: ../source/specifications/version-specifiers.rst:1098
 msgid "Public index servers SHOULD NOT allow the use of direct references in uploaded distributions. Direct references are intended as a tool for software integrators rather than publishers."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1101
+#: ../source/specifications/version-specifiers.rst:1102
 msgid "Depending on the use case, some appropriate targets for a direct URL reference may be an sdist or a wheel binary archive. The exact URLs and targets supported will be tool dependent."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1105
+#: ../source/specifications/version-specifiers.rst:1106
 msgid "For example, a local source archive may be referenced directly::"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1109
+#: ../source/specifications/version-specifiers.rst:1110
 msgid "Alternatively, a prebuilt archive may also be referenced::"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1113
+#: ../source/specifications/version-specifiers.rst:1114
 msgid "All direct references that do not refer to a local file URL SHOULD specify a secure transport mechanism (such as ``https``) AND include an expected hash value in the URL for verification purposes. If a direct reference is specified without any hash information, with hash information that the tool doesn't understand, or with a selected hash algorithm that the tool considers too weak to trust, automated tools SHOULD at least emit a warning and MAY refuse to rely on the URL. If such a direct reference also uses an insecure transport, automated tools SHOULD NOT rely on the URL."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1122
+#: ../source/specifications/version-specifiers.rst:1123
 msgid "It is RECOMMENDED that only hashes which are unconditionally provided by the latest version of the standard library's :py:mod:`hashlib` module be used for source archive hashes. At time of writing, that list consists of ``'md5'``, ``'sha1'``, ``'sha224'``, ``'sha256'``, ``'sha384'``, and ``'sha512'``."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1128
+#: ../source/specifications/version-specifiers.rst:1129
 msgid "For source archive and wheel references, an expected hash value may be specified by including a ``<hash-algorithm>=<expected-hash>`` entry as part of the URL fragment."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1132
+#: ../source/specifications/version-specifiers.rst:1133
 msgid "For version control references, the ``VCS+protocol`` scheme SHOULD be used to identify both the version control system and the secure transport, and a version control system with hash based commit identifiers SHOULD be used. Automated tools MAY omit warnings about missing hashes for version control systems that do not provide hash based commit identifiers."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1138
+#: ../source/specifications/version-specifiers.rst:1139
 msgid "To handle version control systems that do not support including commit or tag references directly in the URL, that information may be appended to the end of the URL using the ``@<commit-hash>`` or the ``@<tag>#<commit-hash>`` notation."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1145
+#: ../source/specifications/version-specifiers.rst:1146
 msgid "This isn't *quite* the same as the existing VCS reference notation supported by pip. Firstly, the distribution name is moved in front rather than embedded as part of the URL. Secondly, the commit hash is included even when retrieving based on a tag, in order to meet the requirement above that *every* link should include a hash to make things harder to forge (creating a malicious repo with a particular tag is easy, creating one with a specific *hash*, less so)."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1153
+#: ../source/specifications/version-specifiers.rst:1154
 msgid "Remote URL examples::"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1161
+#: ../source/specifications/version-specifiers.rst:1162
 msgid "File URLs"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1163
+#: ../source/specifications/version-specifiers.rst:1164
 msgid "File URLs take the form of ``file://<host>/<path>``. If the ``<host>`` is omitted it is assumed to be ``localhost`` and even if the ``<host>`` is omitted the third slash MUST still exist. The ``<path>`` defines what the file path on the filesystem that is to be accessed."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1168
+#: ../source/specifications/version-specifiers.rst:1169
 msgid "On the various \\*nix operating systems the only allowed values for ``<host>`` is for it to be omitted, ``localhost``, or another FQDN that the current machine believes matches its own host. In other words, on \\*nix the ``file://`` scheme can only be used to access paths on the local machine."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1173
+#: ../source/specifications/version-specifiers.rst:1174
 msgid "On Windows the file format should include the drive letter if applicable as part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \\*nix on Windows the ``<host>`` parameter may be used to specify a file residing on a network share. In other words, in order to translate ``\\\\machine\\volume\\file`` to a ``file://`` url, it would end up as ``file://machine/volume/file``. For more information on ``file://`` URLs on Windows see `MSDN <https://web.archive.org/web/20130321051043/http://blogs.msdn.com/b/ie/archive/2006/12/06/file-uris-in-windows.aspx>`_."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1184
+#: ../source/specifications/version-specifiers.rst:1185
 msgid "Summary of differences from pkg_resources.parse_version"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1186
+#: ../source/specifications/version-specifiers.rst:1187
 msgid "Note: this comparison is to ``pkg_resources.parse_version`` as it existed at the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 and later versions adopted the behaviour described here."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1190
+#: ../source/specifications/version-specifiers.rst:1191
 msgid "Local versions sort differently, this specification requires that they sort as greater than the same version without a local version, whereas ``pkg_resources.parse_version`` considers it a pre-release marker."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1194
+#: ../source/specifications/version-specifiers.rst:1195
 msgid "This specification purposely restricts the syntax which constitutes a valid version while ``pkg_resources.parse_version`` attempts to provide some meaning from *any* arbitrary string."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1198
+#: ../source/specifications/version-specifiers.rst:1199
 msgid "``pkg_resources.parse_version`` allows arbitrarily deeply nested version signifiers like ``1.0.dev1.post1.dev5``. This specification however allows only a single use of each type and they must exist in a certain order."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1207
+#: ../source/specifications/version-specifiers.rst:1208
 msgid "Appendix: Parsing version strings with regular expressions"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1209
+#: ../source/specifications/version-specifiers.rst:1210
 msgid "As noted earlier in the :ref:`public-version-identifiers` section, published version identifiers SHOULD use the canonical format. This section provides regular expressions that can be used to test whether a version is already in that form, and if it's not, extract the various components for subsequent normalization."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1215
+#: ../source/specifications/version-specifiers.rst:1216
 msgid "To test whether a version identifier is in the canonical format, you can use the following function:"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1224
+#: ../source/specifications/version-specifiers.rst:1225
 msgid "To extract the components of a version identifier, use the following regular expression (as defined by the `packaging <https://github.com/pypa/packaging>`_ project):"
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1271
+#: ../source/specifications/version-specifiers.rst:1272
 msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1272
+#: ../source/specifications/version-specifiers.rst:1273
 msgid "May 2025: Clarify that development releases are a form of pre-release when they are handled."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:1275
+msgid "Nov 2025: Make arbitrary equality case insensitivity explicit."
 msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:6
