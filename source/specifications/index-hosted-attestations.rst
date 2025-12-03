@@ -300,8 +300,9 @@ at least one transparency log entry or a threshold of entries. When verifying
 transparency entries, the verifier **MUST** confirm that the entry inclusion time
 lies within the signing certificate's validity period: Inclusion time is provided
 in one of two ways:
-* embedded in the entry (``integrated_time``) -- this is *only* valid for
-  entry kind ``dsse 0.0.1``
+
+* embedded in the entry (``integrated_time``) -- this is *only* valid for entry
+  kind ``dsse 0.0.1``.
 * as RFC3161 timestamp(s) in ``verification_material.timestamps``
 
 .. _appendix:
