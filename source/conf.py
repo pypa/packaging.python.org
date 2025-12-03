@@ -2,6 +2,11 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 import os
+import pathlib
+import sys
+
+_ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.append(os.fspath(_ROOT))
 
 # Some options are only enabled for the main packaging.python.org deployment builds
 RTD_BUILD = bool(os.getenv("READTHEDOCS"))
@@ -22,6 +27,7 @@ author = "Python Packaging Authority"
 root_doc = "index"
 
 extensions = [
+    "pug_sphinx_extensions",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
@@ -83,6 +89,10 @@ if RTD_CANONICAL_BUILD:
     # https://plausible.io/packaging.python.org
     html_js_files.extend(_metrics_js_files)
 
+html_extra_path = [
+    "../extra",
+]
+
 # -- Options for HTML help output ------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-help-output
 
@@ -129,7 +139,6 @@ texinfo_documents = [
 
 linkcheck_ignore = [
     r"http://localhost:\d+",
-    r"https://packaging\.python\.org/en/latest/specifications/schemas/.*",
     r"https://test\.pypi\.org/project/example-package-YOUR-USERNAME-HERE",
     r"https://pypi\.org/manage/.*",
     r"https://test\.pypi\.org/manage/.*",
@@ -210,7 +219,6 @@ intersphinx_mapping = {
     "tox": ("https://tox.wiki/en/latest/", None),
     "twine": ("https://twine.readthedocs.io/en/stable/", None),
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
-    "warehouse": ("https://warehouse.pypa.io/", None),
 }
 
 # -- Options for todo extension --------------------------------------------------------

@@ -82,6 +82,11 @@ decide how to best use the ABI tag.
 Platform Tag
 ============
 
+.. important::
+    Platform tags are dependent on the versioning of the operating system or
+    platform they represent and may change over time as the underlying platform
+    changes its versioning.
+
 Basic platform tags
 -------------------
 
@@ -199,12 +204,13 @@ artefact of Apple's official macOS naming scheme). The schema for compatibility
 tags is :file:`macosx_{x}_{y}_{arch}`, indicating that the wheel is compatible
 with macOS ``x.y`` or later on the architecture ``arch``.
 
-The values of ``x`` and ``y`` correspond to the major and minor version number of
-the macOS release, respectively. They must both be positive integers, with the
-``x`` value being ``>= 10``. The version number always includes a major *and*
-minor version, even if Apple's official version numbering only refers to
-the major value. For example, ``macosx_11_0_arm64`` indicates compatibility
-with macOS 11 or later.
+For macOS 10, the tag is :file:`macosx_10_{y}_{arch}`, where ``y`` corresponds
+to the minor version number of the macOS release. For macOS 11 and higher, the
+tag is :file:`macosx_{x}_0_{arch}`, where ``x`` corresponds to the major
+version number of the macOS release. Following the published macOS major
+versions, the ``x`` value is either ``10 <= x <= 15``, or ``>=26`` and
+corresponding to the year of the macOS release. For example,
+``macosx_11_0_arm64`` indicates compatibility with macOS 11 or later.
 
 macOS binaries can be compiled for a single architecture, or can include support
 for multiple architectures in the same binary (sometimes called "fat" binaries).
