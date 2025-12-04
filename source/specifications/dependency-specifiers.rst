@@ -63,7 +63,7 @@ Versions may be specified according to the rules of the
 :ref:`Version specifier specification <version-specifiers>`. (Note:
 URI is defined in :rfc:`std-66 <3986>`)::
 
-    version_cmp   = wsp* '<' | '<=' | '!=' | '==' | '>=' | '>' | '~=' | '==='
+    version_cmp   = wsp* '<=' | '<' | '!=' | '===' | '==' | '>=' | '>' | '~='
     version       = wsp* ( letterOrDigit | '-' | '_' | '.' | '*' | '+' | '!' )+
     version_one   = version_cmp version wsp*
     version_many  = version_one (',' version_one)* (',' wsp*)?
@@ -339,7 +339,7 @@ Complete Grammar
 The complete parsley grammar::
 
     wsp           = ' ' | '\t'
-    version_cmp   = wsp* <'<=' | '<' | '!=' | '==' | '>=' | '>' | '~=' | '==='>
+    version_cmp   = wsp* <'<=' | '<' | '!=' | '===' | '==' | '>=' | '>' | '~='>
     version       = wsp* <( letterOrDigit | '-' | '_' | '.' | '*' | '+' | '!' )+>
     version_one   = version_cmp:op version:v wsp* -> (op, v)
     version_many  = version_one:v1 (',' version_one)*:v2 (',' wsp*)? -> [v1] + v2
@@ -529,6 +529,8 @@ History
 - August 2025: The suggested name validation regex was fixed to match the field
   specification (it previously finished with ``$`` instead of ``\Z``,
   incorrectly permitting trailing newlines)
+- December 2025: Ensure ``===`` before ``==`` in grammar, to allow arbitrary
+  equality comparisons to be parsed.
 
 
 References
