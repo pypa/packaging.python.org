@@ -196,19 +196,24 @@ safely evaluate it without running arbitrary code that could become a security
 vulnerability. Markers were first standardised in :pep:`345`. This document
 fixes some issues that were observed in the design described in :pep:`426`.
 
-Comparisons in marker expressions are typed by the comparison operator and the
-type of the marker value. The <marker_op> operators that are not in
-<version_cmp> perform the same as they do for strings or sets in Python based on
-whether the marker value is a string or set itself. The <version_cmp> operators
-use the version comparison rules of the
-:ref:`Version specifier specification <version-specifiers>` when those are
-defined (that is when both sides have a valid version specifier). If there is no
-defined behaviour of this specification and the operator exists in Python, then
-the operator falls back to the Python behaviour for the types involved.
+Comparisons in marker expressions are based on the types in the table below.
+The types marked with ``Version`` or ``Version | String`` use the version
+comparison rules of the :ref:`Version specifier specification
+<version-specifiers>` when those are defined (that is when both sides have a
+valid version specifier). If both sides are not expressible as a ``Version``,
+then ``==``, ``>=``, and ``<=`` check for exact equality; no ordering is
+assumed. On the other values, operators perform the same as they do for strings
+or sets in Python based on whether the marker value is a string or set itself.
 Otherwise an error should be raised. e.g. the following will result in errors::
 
     "dog" ~= "fred"
     python_version ~= "surprise"
+
+Values that are marked as ``String`` may also follow same rules as ``Version``
+defined above, with ``>=`` and ``<=`` being equivalent to ``==``, and ``<`` and
+``>`` always evaluating to ``False``. This is legacy behavior due to an older
+version of this spec, and tools may choose to warn or fail if these are used on
+strings.
 
 User supplied constants are always encoded as strings with either ``'`` or
 ``"`` quote marks. Note that backslash escapes are not defined, but existing
@@ -267,7 +272,7 @@ an error like all other unknown variables.
      - ``CPython``, ``Jython``
    * - ``platform_release``
      - :py:func:`platform.release()`
-     - String
+     - Version | String
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
    * - ``platform_system``
      - :py:func:`platform.system()`
