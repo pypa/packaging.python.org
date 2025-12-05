@@ -43,7 +43,10 @@ object is provided as pseudocode below.
   class Attestation:
       version: Literal[1]
       """
-      The attestation object's version, which is always 1.
+      The attestation object's version. Current version is 2.
+
+      version 2 added verification_material.timestamps, in practice allowing the
+      use of rekor v2 entries in verification_material.transparency_entries.
       """
 
       verification_material: VerificationMaterial
@@ -85,15 +88,25 @@ object is provided as pseudocode below.
       and certificate.
       """
 
+      timestamps: list[bytes]
+      """
+      List of base64 encoded RFC3161 timestamp responses.
+
+      Added in Attestation version 2.
+
+      Note that list may be empty if `transparency_entries` only contains entries
+      with an integrated_time (in other words entries of kind "dsse 0.0.1").
+      """
+
 A full data model for each object in ``transparency_entries`` is provided in
 :ref:`appendix`. Attestation objects **SHOULD** include one or more
 transparency log entries, and **MAY** include additional keys for other
 sources of signed time (such as an :rfc:`3161` Time Stamping Authority or a
 `Roughtime <https://blog.cloudflare.com/roughtime>`__ server).
 
-Attestation objects are versioned; this PEP specifies version 1. Each version
+Attestation objects are versioned; this PEP specifies version 2. Each version
 is tied to a single cryptographic suite to minimize unnecessary cryptographic
-agility. In version 1, the suite is as follows:
+agility. In both versions 1 & 2, the suite is as follows:
 
 * Certificates are specified as X.509 certificates, and comply with the
   profile in :rfc:`5280`.
@@ -284,8 +297,13 @@ following:
 In addition to the above required steps, a verifier **MAY** additionally verify
 ``verification_material.transparency_entries`` on a policy basis, e.g. requiring
 at least one transparency log entry or a threshold of entries. When verifying
-transparency entries, the verifier **MUST** confirm that the inclusion time for
-each entry lies within the signing certificate's validity period.
+transparency entries, the verifier **MUST** confirm that the entry inclusion time
+lies within the signing certificate's validity period: Inclusion time is provided
+in one of two ways:
+
+* embedded in the entry (``integrated_time``) -- this is *only* valid for entry
+  kind ``dsse 0.0.1``.
+* as RFC3161 timestamp(s) in ``verification_material.timestamps``
 
 .. _appendix:
 
@@ -323,6 +341,10 @@ of signed inclusion time, and can be verified either online or offline.
       integrated_time: int
       """
       The UNIX timestamp from the log from when the entry was persisted.
+
+      Note: An integrated timestamp is not always provided (in practice
+      integrated_time == 0 in this case): in this case external
+      Timestamp Authority timestamps are required to verify the entry.
       """
 
       inclusion_proof: InclusionProof
