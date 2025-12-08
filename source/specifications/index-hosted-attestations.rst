@@ -39,18 +39,33 @@ object is provided as pseudocode below.
 
 .. code-block:: python
 
+  Attestation = AttestationV1 | AttestationV2
 
   @dataclass
-  class Attestation:
-      version: Literal[1, 2]
+  class AttestationV1:
+      version: Literal[1]
       """
-      The attestation object's version. Current version is 2.
-
-      version 2 added verification_material.timestamps, in practice allowing the
-      use of rekor v2 entries in verification_material.transparency_entries.
+      The attestation object's version.
       """
 
       verification_material: VerificationMaterial
+      """
+      Cryptographic materials used to verify `envelope`.
+      """
+
+      envelope: Envelope
+      """
+      The enveloped attestation statement and signature.
+      """
+
+  @dataclass
+  class AttestationV2:
+      version: Literal[2]
+      """
+      The attestation object's version.
+      """
+
+      verification_material: VerificationMaterialV2
       """
       Cryptographic materials used to verify `envelope`.
       """
@@ -89,13 +104,16 @@ object is provided as pseudocode below.
       and certificate.
       """
 
+  @dataclass
+  class VerificationMaterialV2(VerificationMaterial):
       timestamps: list[bytes]
       """
       List of base64 encoded RFC3161 timestamp responses.
 
-      Added in Attestation version 2.
+      Added in V2. In practice this allows the use of dsse 0.0.2 entries (used in Rekor v2
+      transparency log) within VerificationMaterialV2.transparency_entries.
 
-      Note that list may be empty even for valid attestations: see "Attestation Verification"
+      Note that list may be empty when dsse 0.0.1 entries are used: see "Attestation Verification"
       """
 
 A full data model for each object in ``transparency_entries`` is provided in
@@ -302,9 +320,9 @@ lies within the signing certificate's validity period: Inclusion time is provide
 in one of two ways:
 
 * Attestation V1: Inclusion time is embedded in the entry (``integrated_time``)
-* Attestation V2: Inclusion time may embedded in the entry (``integrated_time``) for dsse 0.0.1 entries
+* Attestation V2: Inclusion time may embedded in the entry (``integrated_time``) for "dsse 0.0.1" entries
   or it may be provided as RFC3161 timestamp(s) in ``verification_material.timestamps`` for
-  dsse 0.0.2 entries
+  "dsse 0.0.2" entries
 
 .. _appendix:
 
