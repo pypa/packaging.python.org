@@ -200,10 +200,10 @@ Comparisons in marker expressions are based on the types in the table below.
 The variables marked with ``Version`` or ``Version | String`` use the version
 comparison rules of the :ref:`Version specifier specification
 <version-specifiers>` when those are defined (that is when both sides have a
-valid version specifier). If both sides are not expressible as a ``Version``,
-then ``==``, ``>=``, and ``<=`` check for exact equality; no ordering is
-assumed. On other operators, operators perform the same as they do for strings
-or sets in Python based on whether the marker value is a string or set itself.
+valid version specifier). If either side is not expressible as a ``Version``,
+then ``>=``, and ``<=`` only check for exact equality; no ordering is assumed.
+On other operators, operators perform the same as they do for strings or sets
+in Python based on whether the marker value is a string or set itself.
 Otherwise an error should be raised. e.g. the following will result in errors::
 
     "dog" ~= "fred"
@@ -211,10 +211,10 @@ Otherwise an error should be raised. e.g. the following will result in errors::
 
 Variables that are marked solely as ``String`` support ``==`` and ``!=``;
 ordered comparison operators may also follow same rules as ``Version`` defined
-above when not a valid Version, with ``>=`` and ``<=`` being equivalent to
-``==``, and ``<`` and ``>`` always evaluating to ``False``. This is legacy
-behavior due to an older version of this spec, and tools may choose to warn or
-fail if ordered comparisons are used on ``String`` markers.
+above when one side is not a valid Version, with ``>=`` and ``<=`` being
+equivalent to ``==``, and ``<`` and ``>`` always evaluating to ``False``. This
+is legacy behavior due to an older version of this spec, and tools may choose
+to warn or fail if ordered comparisons are used on ``String`` markers.
 
 User supplied constants are always encoded as strings with either ``'`` or
 ``"`` quote marks. Note that backslash escapes are not defined, but existing
