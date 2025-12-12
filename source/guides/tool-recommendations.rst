@@ -109,6 +109,11 @@ Do **not** use :ref:`distutils`, which is deprecated, and has been removed from
 the standard library in Python 3.12, although it still remains available from
 setuptools.
 
+.. _extension-module-tool-recommendations:
+
+Build backends for extension modules
+------------------------------------
+
 For packages with :term:`extension modules <extension module>`, it is best to use
 a build system with dedicated support for the language the extension is written in,
 for example:
