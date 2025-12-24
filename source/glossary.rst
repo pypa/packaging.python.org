@@ -124,7 +124,7 @@ Glossary
 
         "Native namespace packages" and "implicit namespace packages" are two names for
         the same type of namespace package. It's defined in :pep:`420`, and is available
-        in Python 3.3 and later. 
+        in Python 3.3 and later.
 
         The term "native" derives from the built-in feature of Python to create packages
         without installing an extra package, such as setuptools, from outside the standard
