@@ -131,7 +131,7 @@ Glossary
         library. The term "implicit" derives from the fact that you don't have to explicitly
         declare the namespace package in a :file:`__init__.py` file.
 
-		This guide uses these names interchangeably.
+        This guide uses these names interchangeably.
 
     Import Package
 
