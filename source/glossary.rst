@@ -119,6 +119,16 @@ Glossary
         extensions.
 
 
+    Implicit Namespace Package
+    Native Namespace Package
+
+        Native namespace and implicit namespace packages are two names for the same thing.
+        The term "native" derives from the built-in feature of Python to create packages
+        without installing an extra package, such as setuptools, from outside the standard
+        library. The term "implicit" derives from the fact that you don't have to explicitly
+        declare the namespace package in a :file:`__init__.py` file. This guide uses these
+        names interchangeably. 
+
     Import Package
 
         A Python module which can contain other modules or recursively, other
