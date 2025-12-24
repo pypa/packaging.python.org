@@ -71,12 +71,16 @@ from which the latter is discouraged:
 #. Use `legacy namespace packages`_. This comprises `pkgutil-style namespace packages`_
    and `pkg_resources-style namespace packages`_.
 
+.. note::
+
+    :term:`Native namespace <Native Namespace Package>` and
+    :term:`implicit namespace <Implicit Namespace Package>` packages are two
+    names for the same thing. This guide uses these names interchangeably.
+
 Native namespace packages
 -------------------------
 
-Python 3.3 added **implicit** namespace packages from :pep:`420`.
-:term:`Native namespace` and :term:`implicit namespace` packages are two
-names for the same thing. All that is
+Python 3.3 added **implicit** namespace packages from :pep:`420`. All that is
 required to create a native namespace package is that you just omit
 :file:`__init__.py` from the namespace package directory. An example file
 structure (following :ref:`src-layout <setuptools:src-layout>`):
