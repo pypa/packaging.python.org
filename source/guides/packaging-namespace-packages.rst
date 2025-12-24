@@ -71,6 +71,21 @@ from which the latter is discouraged:
 #. Use `legacy namespace packages`_. This comprises `pkgutil-style namespace packages`_
    and `pkg_resources-style namespace packages`_.
 
+.. note::
+
+    "Native namespace packages" and "implicit namespace packages" are two names for
+    the same type of namespace package. It's defined in :pep:`420`, and is available
+    in Python 3.3 and later.
+
+    The term "native" derives from the built-in feature of Python to create packages
+    without installing an extra package, such as setuptools, from outside the standard
+    library. The term "implicit" derives from the fact that you don't have to explicitly
+    declare the namespace package in a :file:`__init__.py` file.
+
+    This guide uses these names interchangeably.
+
+.. _native-namespace-packages:
+
 Native namespace packages
 -------------------------
 
