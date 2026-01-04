@@ -5,6 +5,13 @@
 The :file:`.pypirc` file
 ========================
 
+.. important::
+
+    The :file:`.pypirc` file **SHOULD** be UTF-8 encoded.
+
+    Tools that read or write :file:`.pypirc` files may not function correctly
+    if another character encoding is used.
+
 A :file:`.pypirc` file allows you to define the configuration for :term:`package
 indexes <Package Index>` (referred to here as "repositories"), so that you don't
 have to enter the URL, username, or password whenever you upload a package with
