@@ -52,9 +52,9 @@ Metadata-Version
 Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
 "2.2", "2.3", "2.4", and "2.5".
 
-Automated tools consuming metadata SHOULD warn if ``metadata_version`` is
+Automated tools consuming metadata SHOULD warn if ``metadata-version`` is
 greater than the highest version they support, and MUST fail if
-``metadata_version`` has a greater major version than the highest
+``metadata-version`` has a greater major version than the highest
 version they support (as described in the
 :ref:`Version specifier specification <version-specifiers>`,
 the major version is the value before the first dot).
@@ -745,7 +745,7 @@ the project.
 
 Projects SHOULD list all the shortest import names that are exclusively provided
 by the project. If any of the shortest names are dotted names, all intervening
-names from that name to the top-level name should also be listed appropriately
+names from that name to the top-level name SHOULD also be listed appropriately
 in ``Import-Name`` and/or ``Import-Namespace``.
 
 If a project lists the same name in both ``Import-Name`` and
@@ -800,7 +800,7 @@ project.
 
 Projects SHOULD list all the shortest import names that are exclusively provided
 by the project. If any of the shortest names are dotted names, all intervening
-names from that name to the top-level name should also be listed appropriately
+names from that name to the top-level name SHOULD also be listed appropriately
 in ``Import-Name`` and/or ``Import-Namespace``.
 
 The import names listed in this field MUST be importable when the project is

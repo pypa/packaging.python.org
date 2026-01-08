@@ -237,6 +237,6 @@ For reference, the SDK setup support script is listed here:
    :linenos:
 
 .. _Appveyor: https://www.appveyor.com/
-.. _Travis: https://travis-ci.org/
+.. _Travis: https://travis-ci.com/
 .. _GitHub: https://github.com
 .. _Bitbucket: https://bitbucket.org/

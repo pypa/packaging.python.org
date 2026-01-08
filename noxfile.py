@@ -89,6 +89,7 @@ def linkcheck(session):
         "--keep-going",  # be strict
         "source",  # where the rst files are located
         "build",  # where to put the check output
+        *session.posargs,
     )
 
 

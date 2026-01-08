@@ -87,13 +87,13 @@ Creating a workflow definition
 GitHub CI/CD workflows are declared in YAML files stored in the
 ``.github/workflows/`` directory of your repository.
 
-Let's create a ``.github/workflows/publish-to-test-pypi.yml``
+Let's create a ``.github/workflows/publish-to-pypi.yml``
 file.
 
 Start it with a meaningful name and define the event that
 should make GitHub run this workflow:
 
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :end-before: jobs:
 
@@ -107,7 +107,7 @@ build the distribution packages.
 First, we'll define the job for building the dist packages of
 your project and storing them for later use:
 
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-at: jobs:
    :end-before: Install pypa/build
@@ -119,7 +119,7 @@ And now we can build the dists from source and store them.
 In this example, we'll use the ``build`` package.
 So add this to the steps list:
 
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-at: Install pypa/build
    :end-before: publish-to-pypi
@@ -136,7 +136,7 @@ UI nicely. Additionally, it allows acquiring an OpenID Connect token
 that the ``pypi-publish`` actions needs to implement secretless
 Trusted Publishing to PyPI.
 
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-after: path: dist/
    :end-before: steps:
@@ -149,7 +149,7 @@ Publishing the distribution to PyPI
 
 Finally, add the following steps at the end:
 
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-after: id-token: write
    :end-before:  publish-to-testpypi:
@@ -175,7 +175,7 @@ Now, repeat these steps and create another job for
 publishing to the TestPyPI package index under the ``jobs``
 section:
 
-.. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+.. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-at: publish-to-testpypi
 
@@ -191,7 +191,7 @@ This paragraph showcases the whole workflow after following the above guide.
 
 .. collapse:: Click here to display the entire GitHub Actions CI/CD workflow definition
 
-    .. literalinclude:: github-actions-ci-cd-sample/publish-to-test-pypi.yml
+    .. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
        :language: yaml
 
 That's all, folks!
