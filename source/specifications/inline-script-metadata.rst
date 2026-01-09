@@ -74,7 +74,7 @@ script type
 -----------
 
 The first type of metadata block is named ``script``, which contains
-script metadata (dependency data and tool configuration).
+script metadata (dependency data and tool configuration) formatted as TOML 1.0 text.
 
 This document MAY include the top-level fields ``dependencies`` and ``requires-python``,
 and MAY optionally include a ``[tool]`` table.
@@ -217,3 +217,4 @@ History
   block type was renamed to ``script``, and the ``[run]`` table was dropped,
   making the ``dependencies`` and ``requires-python`` keys
   top-level. Additionally, the specification is no longer provisional.
+- January 2026: Clarify that the ``script`` block is TOML 1.0 formatted text.

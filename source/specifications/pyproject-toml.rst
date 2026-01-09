@@ -16,7 +16,7 @@ tools (as well as other tools).
 
 .. note:: This specification was originally defined in :pep:`518` and :pep:`621`.
 
-The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_. Three
+The ``pyproject.toml`` file is written in `TOML <https://toml.io>`_ version 1.0. Three
 tables are currently specified, namely
 :ref:`[build-system] <pyproject-build-system-table>`,
 :ref:`[project] <pyproject-project-table>` and
@@ -648,5 +648,7 @@ History
 
 - October 2025: The ``import-names`` and ``import-namespaces`` keys were added
   through :pep:`794`.
+
+- January 2026: Clarify that the TOML format version is 1.0 .
 
 .. _TOML: https://toml.io

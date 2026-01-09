@@ -50,7 +50,7 @@ file would be in the directory that held all the projects being locked.
 File Format
 -----------
 
-The format of the file is TOML_.
+The format of the file is TOML_ version 1.0.
 
 Tools SHOULD write their lock files in a consistent way to minimize noise in
 diff output. Keys in tables -- including the top-level table -- SHOULD be
@@ -826,6 +826,7 @@ History
 -------
 
 - April 2025: Initial version, approved via :pep:`751`.
+- January 2026: Clarify that the TOML format version is 1.0 .
 
 
 .. _Content-Length: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length
