@@ -218,7 +218,7 @@ Environment marker fields are each defined as one of the following types:
   :ref:`version specifier <version-specifiers>`. Publishing tools SHOULD emit
   an error if that is not the case, but installation tools MAY fall back to
   treating the field as a string field.
-* ``Version | String``: the contents of the field are expected to be a valid 
+* ``Version | String``: the contents of the field are expected to be a valid
   :ref:`version specifier <version-specifiers>` on some platforms, but an
   opaque string on others. The specifics of this distinction are field dependent
   and whether or not tools actually make the distinction will be tool dependent.
