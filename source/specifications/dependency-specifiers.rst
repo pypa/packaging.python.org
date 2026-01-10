@@ -6,21 +6,25 @@
 Dependency specifiers
 =====================
 
-This document describes the dependency specifiers format as originally specified
-in :pep:`508`.
+This document defines the format used to specify dependencies on other projects.
+The language defined is a compact line based format which was adapted from the
+format originally used in ``pip`` requirements files.
 
 The job of a dependency is to enable tools like pip [#pip]_ to find the right
 package to install. Sometimes this is very loose - just specifying a name, and
 sometimes very specific - referring to a specific file to install. Sometimes
-dependencies are only relevant in one platform, or only some versions are
+dependencies are only relevant on one platform, or only some versions are
 acceptable, so the language permits describing all these cases.
 
-The language defined is a compact line based format which is already in
-widespread use in pip requirements files, though we do not specify the command
-line option handling that those files permit. There is one caveat - the
-URL reference form, specified in :ref:`Versioning specifier specification <version-specifiers>`
-is not actually implemented in pip, but we use that format rather
-than pip's current native format.
+Whether tools should be strict or permissive in their processing of dependency
+specifiers is largely dependent on the role of the tool in the wider ecosystem:
+
+* publishing tools and index servers SHOULD be strict in their processing for
+  new releases, encouraging the consistency of published specifiers to improve
+  over time
+* locking and installation tools MAY be permissive in their processing, allowing
+  consumption of older packages which may contain dependency specifiers that are
+  arguably nonsensical
 
 Specification
 =============
@@ -30,7 +34,7 @@ Examples
 
 All features of the language shown with a name based lookup::
 
-    requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < "2.7"
+    requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < "3.7"
 
 A minimal URL based lookup::
 
@@ -108,8 +112,6 @@ field::
     extras_list   = identifier (wsp* ',' wsp* identifier)*
     extras        = '[' wsp* extras_list? wsp* ']'
 
-Restrictions on names for extras is defined in :pep:`685`.
-
 Giving us a rule for name based requirements::
 
     name_req      = name wsp* extras? wsp* versionspec? wsp* quoted_marker?
@@ -126,23 +128,22 @@ Whitespace
 ----------
 
 Non line-breaking whitespace is mostly optional with no semantic meaning. The
-sole exception is detecting the end of a URL requirement.
+sole exceptions are detecting the end of a URL requirement and inside user
+supplied constants in environment markers.
 
 .. _dependency-specifiers-names:
 
 Names
 -----
 
-Python distribution names are currently defined in :pep:`345`. Names
-act as the primary identifier for distributions. They are present in all
+Distribution names are defined in the :ref:`Core metadata <core-metadata-name>`.
+Names act as the primary identifier for distributions. They are present in all
 dependency specifications, and are sufficient to be a specification on their
-own. However, PyPI places strict restrictions on names - they must match a
-case insensitive regex or they won't be accepted. Accordingly, in this
-document we limit the acceptable values for identifiers to that regex. A full
-redefinition of name may take place in a future metadata PEP. The regex (run
-with re.IGNORECASE) is::
+own.
 
-    ^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])\Z
+Valid distribution names are defined in the :ref:`name format specification
+<name-format>`.
+
 
 .. _dependency-specifiers-extras:
 
@@ -163,6 +164,12 @@ are listed in the "security" extra of requests.
 
 If multiple extras are listed, all the dependencies are unioned together.
 
+Restrictions on names for extras are defined in the
+:ref:`Core metadata specification <core-metadata-provides-extra>`. Publication
+tools SHOULD enforce these restrictions in dependency specifiers, while locking
+and installation tools MAY normalize invalid extra names in order to accept
+published metadata using core metadata versions prior to 2.3.
+
 .. _dependency-specifiers-versions:
 
 Versions
@@ -172,7 +179,7 @@ See the :ref:`Version specifier specification <version-specifiers>` for
 more detail on both version numbers and version comparisons. Version
 specifications limit the versions of a distribution that can be
 used. They only apply to distributions looked up by name, rather than
-via a URL. Version comparison are also used in the markers feature. The
+via a URL. Version comparisons are also used in environment markers. The
 optional brackets around a version are present for compatibility with
 :pep:`345` but should not be generated, only accepted.
 
@@ -183,63 +190,140 @@ Environment Markers
 
 Environment markers allow a dependency specification to provide a rule that
 describes when the dependency should be used. For instance, consider a package
-that needs argparse. In Python 2.7 argparse is always present. On older Python
-versions it has to be installed as a dependency. This can be expressed as so::
+that needs ``pywin32`` when running on Windows. This can be expressed as::
 
-    argparse;python_version<"2.7"
+    pywin32; sys_platform == "win32"
 
-A marker expression evaluates to either True or False. When it evaluates to
-False, the dependency specification should be ignored.
+A marker expression evaluates to either True or False for a given deployment
+environment. When it evaluates to False, the dependency should be ignored.
 
 The marker language is inspired by Python itself, chosen for the ability to
 safely evaluate it without running arbitrary code that could become a security
-vulnerability. Markers were first standardised in :pep:`345`. This document
-fixes some issues that were observed in the design described in :pep:`426`.
+vulnerability.
 
-Comparisons in marker expressions are typed by the comparison operator and the
-type of the marker value. The <marker_op> operators that are not in
-<version_cmp> perform the same as they do for strings or sets in Python based on
-whether the marker value is a string or set itself. The <version_cmp> operators
-use the version comparison rules of the
-:ref:`Version specifier specification <version-specifiers>` when those are
-defined (that is when both sides have a valid version specifier). If there is no
-defined behaviour of this specification and the operator exists in Python, then
-the operator falls back to the Python behaviour for the types involved.
-Otherwise an error should be raised. e.g. the following will result in errors::
+Markers were first defined in :pep:`345`, formally specified in :pep:`508`,
+then subsequently amended over time (amendments since :pep:`508` are recorded
+:ref:`at the end of this specification <dependency-specifier-history>`).
 
-    "dog" ~= "fred"
-    python_version ~= "surprise"
+Marker field types
+''''''''''''''''''
 
-User supplied constants are always encoded as strings with either ``'`` or
-``"`` quote marks. Note that backslash escapes are not defined, but existing
-implementations do support them. They are not included in this
-specification because they add complexity and there is no observable need for
-them today. Similarly we do not define non-ASCII character support: all the
-runtime variables we are referencing are expected to be ASCII-only.
+Environment marker fields are each defined as one of the following types:
 
-The variables in the marker grammar such as "os_name" resolve to values looked
-up in the Python runtime. With the exception of "extra" all values are defined
-on all Python versions today - it is an error in the implementation of markers
-if a value is not defined.
+* ``String``: the contents of the field are always treated as an opaque string.
+* ``Set of strings``: the contents of the field are always treated as a set
+  containing opaque strings. In comparisons, the user supplied constant MUST
+  still be a single string (as set literals are not part of the marker syntax).
+* ``Version``: the contents of the field are always expected to be a valid
+  :ref:`version specifier <version-specifiers>`. Publishing tools SHOULD emit
+  an error if that is not the case, but installation tools MAY fall back to
+  treating the field as a string field.
+* ``Version | String``: the contents of the field are expected to be a valid 
+  :ref:`version specifier <version-specifiers>` on some platforms, but an
+  opaque string on others. The specifics of this distinction are field dependent
+  and whether or not tools actually make the distinction will be tool dependent.
 
-Unknown variables must raise an error rather than resulting in a comparison
-that evaluates to True or False.
+Marker comparisons
+''''''''''''''''''
+
+All marker comparison expressions are expected to compare a named marker field
+against a given user supplied constant. The type of the comparison is determined
+by the comparison operator used and the type of the named field as given
+in :ref:`the table below <environment-marker-fields>`. Tools MAY emit an
+error if no marker field is referenced in a comparison (that is, both operands
+are given as constants).
+
+The follow comparison operations are defined in the marker expression grammar:
+
+* ``==`` (for example, ``sys_platform == "win32"``)
+* ``!=`` (for example, ``sys_platform != "win32"``)
+* ``>`` (for example, ``python_version > "3.10"``)
+* ``>=`` (for example, ``python_version >= "3.10"``)
+* ``<`` (for example, ``python_version < "3.10"``)
+* ``<=`` (for example, ``python_version <= "3.10"``)
+* ``~=`` (for example, ``python_version ~= "3"``)
+* ``===`` (for example, ``implementation_version === "not.a.valid.version"``)
+* ``in`` (for example, ``"gui" in extras``)
+* ``not in`` (for example, ``"dev" not in dependency_groups``)
+
+For ``String`` fields, ``==``, ``!=``, ``in``, and ``not in`` are defined as
+they are for Python strings (case sensitive, with no value normalization of any
+kind). The use of ``~=`` or ``===`` with string fields is
+explicitly discouraged, and publishing tools SHOULD emit an error, while locking
+and installation tools MAY instead interpret them as equivalent to ``==``. The
+use of ordered comparisons (``<``, ``<=``, ``>``, ``>=``) with string fields is
+explicitly discouraged (as it makes no semantic sense in the packaging context),
+and publishing tools SHOULD emit an error, while locking and installation tools
+SHOULD implement the following behavior:
+
+* treat ``>=`` and ``<=`` as equivalent to ``==``
+* treat ``>`` and ``<`` as always being False
+
+For ``Set of String`` fields, as there is no marker syntax for set literals,
+the only valid operations are ``in`` and ``not in`` comparisons with a user
+supplied string literal as the left operand.
+
+For ``Version`` fields, the comparison operations are defined by the
+:ref:`Version specifier specification <version-specifiers>` when either both
+the marker field value and the user supplied constant can be parsed as valid
+version specifiers or the ``===`` arbitrary equivalence comparison operator
+is used. When an operator other than ``===`` is used, publishing tools SHOULD
+emit an error if the user supplied constant cannot be parsed as a valid version
+specifier, while locking and installation tools MAY either emit an error or else
+fall back to ``String`` field comparison logic if either the marker field value
+or the user supplied constant cannot be parsed as a valid version specifier.
+
+For ``Version | String`` fields, comparison operations are defined as they are
+for ``Version`` fields. However, there is no expectation that the parsing of
+the marker field value or the user supplied constant as a valid version will
+succeed, so tools MUST fall back to processing the field as a ``String`` field.
+Alternatively, tools MAY unconditionally treat such fields as ``String`` fields.
+
+Composing marker expressions
+''''''''''''''''''''''''''''
+
+More complex marker expressions may be composed using the ``and`` and ``or``
+logical operators. Parentheses may be used as necessary to control operand
+precedence (with all comparison operations having a higher precedence).
+
+Python's comparison chaining (such as ``3.4 < python_version < 3.9``) is NOT
+supported in environment markers.
+
+User supplied constants
+'''''''''''''''''''''''
+
+User supplied constants are always given as strings within either ``'`` or
+``"`` quote marks. Triple-quoted multi-line strings are NOT permitted.
+
+Backslash escapes are not specified, although tools MAY support them.
+They are not included in the specification because they add complexity and
+there is currently no known need for treating user supplied constants as
+anything other than either opaque strings or valid version specifiers.
+
+Similarly, non-ASCII character support is not specified, but tools MAY accept
+them (usually based on the text encoding of the file or stream containing the
+dependency specifier). This may be revisited in the future if it becomes more
+common for the runtime variables typically referenced in environment markers to
+contain non-ASCII text that users wish to perform comparisons against.
+
+Unknown marker fields
+'''''''''''''''''''''
+
+References to unknown marker fields MUST raise an error rather than resulting
+in a comparison that evaluates to True or False.
 
 Variables whose value cannot be calculated on a given Python implementation
-should evaluate to ``0`` for versions, and an empty string for all other
-variables.
+should evaluate to ``0`` for ``Version`` fields, and an empty string for all
+other variables (including ``Version | String`` fields).
 
-The "extra" variable is special. It is used by wheels to signal which
-specifications apply to a given extra in the wheel ``METADATA`` file, but
-since the ``METADATA`` file is based on a draft version of :pep:`426`, there is
-no current specification for this. Regardless, outside of a context where this
-special handling is taking place, the "extra" variable should result in an
-error like all other unknown variables.
+.. _dependency-specifiers-environment-marker-fields:
+.. _environment-marker-fields:
 
-The "extras" and "dependency_groups" variables are also special. They are used
-to specify any requested extras or dependency groups when installing from a lock
-file. Outside of the context of lock files, these two variables should result in
-an error like all other unknown variables.
+Defined environment marker fields
+'''''''''''''''''''''''''''''''''
+
+Unless otherwise noted below, marker evaluation environments MUST support all
+of the following marker fields:
 
 .. list-table::
    :header-rows: 1
@@ -267,7 +351,7 @@ an error like all other unknown variables.
      - ``CPython``, ``Jython``
    * - ``platform_release``
      - :py:func:`platform.release()`
-     - String
+     - Version | String
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
    * - ``platform_system``
      - :py:func:`platform.system()`
@@ -296,20 +380,45 @@ an error like all other unknown variables.
      - :ref:`Version <version-specifiers>`
      - ``3.4.0``, ``3.5.0b1``
    * - ``extra``
-     - An error except when defined by the context interpreting the
-       specification.
-     - String
+     - Used to indicate optional dependencies in project dependency metadata.
+       An error except when defined by the context interpreting the
+       specifier. Publishing tools SHOULD permit use of this field.
+     - Special (see below)
      - ``toml``
    * - ``extras``
-     - An error except when defined by the context interpreting the
-       specification.
+     - Used to indicate optional public dependencies in lock files. An error
+       except when defined by the context interpreting the specifier.
+       Publishing tools SHOULD NOT permit use of this field.
      - Set of strings
      - ``{"toml"}``
    * - ``dependency_groups``
-     - An error except when defined by the context interpreting the
-       specification.
+     - Used to indicate optional project internal dependencies in lock files.
+       An error except when defined by the context interpreting the
+       specifier. Publishing tools SHOULD NOT permit use of this field.
      - Set of strings
      - ``{"test"}``
+
+For backwards compatibility with older locking and installation tools, the
+``extras`` and ``dependency_groups`` fields are currently only considered
+valid in :ref:`lock files <lock-file-spec>` (where they allow consumers of the
+lock file to selectively install optional parts of the locked dependency tree).
+Publishing tools SHOULD emit an error if projects attempt to use them in their
+published metadata, and index servers SHOULD NOT accept uploads referencing
+these fields. Outside lock file processing, marker evaluation environments
+DO NOT need to define these fields.
+
+The ``extra`` field is also special, as it expects set-like behaviour, but
+predates the addition of ``Set of strings`` as a defined marker field type.
+Accordingly, for this field only, ``extra == "name"`` is equivalent to
+``"name" in extras``, while ``extra != "name"`` is equivalent to
+``"name" not in extras``. Other comparison operations on ``extra`` are not
+defined and publishing tools SHOULD emit an error, while locking and
+installation tools may evaluate them as False. Unlike the newer ``extras``
+field, this field SHOULD be accepted by both publishing tools and index
+servers. Marker evaluation environments intended for project dependency
+declarations will typically need to handle evaluation of ``extra`` field
+comparisons, while other evaluations of environment markers will not generally
+need to do so.
 
 The ``implementation_version`` marker variable is derived from
 :py:data:`sys.implementation.version <sys.implementation>`:
@@ -327,9 +436,6 @@ The ``implementation_version`` marker variable is derived from
         implementation_version = format_full_version(sys.implementation.version)
     else:
         implementation_version = "0"
-
-This environment markers section, initially defined through :pep:`508`, supersedes the environment markers
-section in :pep:`345`.
 
 .. _dependency-specifiers-grammar:
 
@@ -512,6 +618,8 @@ A test program - if the grammar is in a string ``grammar``:
         print("%s -> %s" % (test, parsed))
 
 
+.. _dependency-specifier-history:
+
 History
 =======
 
@@ -521,16 +629,27 @@ History
   ``'.'.join(platform.python_version_tuple()[:2])``, to accommodate potential
   future versions of Python with 2-digit major and minor versions
   (e.g. 3.10). [#future_versions]_
+- March 2022: Standardised the normalization of extra names at publication time
+  (for core metadata 2.3 and later) through :pep:`685`
 - June 2024: The definition of ``version_many`` was changed to allow trailing
   commas, matching with the behavior of the Python implementation that has been
   in use since late 2022.
-- April 2025: Added ``extras`` and ``dependency_groups`` for
+- April 2025: Added ``extras`` and ``dependency_groups`` marker field for
   :ref:`lock-file-spec` as approved through :pep:`751`.
 - August 2025: The suggested name validation regex was fixed to match the field
   specification (it previously finished with ``$`` instead of ``\Z``,
   incorrectly permitting trailing newlines)
-- December 2025: Ensure ``===`` before ``==`` in grammar, to allow arbitrary
+- December 2025: Ensure ``===`` is before ``==`` in grammar, to allow arbitrary
   equality comparisons to be parsed.
+- January 2026: Amend the definition of environment marker comparison operations
+  to restrict version comparison semantics to fields where they make sense,
+  make extra name restrictions more explicit, adjust the way ordered comparisons
+  are defined for strings, and make the fallback from version comparisons to
+  string comparisons when version parsing fails optional. Also provide different
+  tool behaviour recommendations for publishing tools vs installation tools.
+  This brought the nominal specification into line with the way tools actually
+  work. [#marker_comparison_logic]_
+- January 2026: fix outdated references inadvertently retained from :pep:`508`
 
 
 References
@@ -546,6 +665,9 @@ References
    definition of Environment Marker Variable ``python_version``
    (https://github.com/python/peps/issues/560)
 
+.. [#marker_comparison_logic] Resolving inconsistencies between actual tool
+   behavior and the nominal definitions of environment marker field comparisons
+   (https://discuss.python.org/t/spec-change-bugfix-dependency-specifiers-simplification-pep-508/105203)
 
 
 .. _python-version-change: https://mail.python.org/pipermail/distutils-sig/2018-January/031920.html

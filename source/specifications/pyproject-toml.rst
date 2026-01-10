@@ -454,8 +454,8 @@ be ambiguous in the face of ``[project.scripts]`` and
 ``dependencies``/``optional-dependencies``
 ------------------------------------------
 
-- TOML_ type: Array of :pep:`508` strings (``dependencies``), and a
-  table with values of arrays of :pep:`508` strings
+- TOML_ type: Array of :ref:`dependency-specifiers` strings (``dependencies``),
+  and a table with values of arrays of :ref:`dependency-specifiers` strings
   (``optional-dependencies``)
 - Corresponding :ref:`core metadata <core-metadata>` field:
   :ref:`Requires-Dist <core-metadata-requires-dist>` and
@@ -465,12 +465,14 @@ The (optional) dependencies of the project.
 
 For ``dependencies``, it is a key whose value is an array of strings.
 Each string represents a dependency of the project and MUST be
-formatted as a valid :pep:`508` string. Each string maps directly to
-a :ref:`Requires-Dist <core-metadata-requires-dist>` entry.
+formatted as a valid :ref:`dependency-specifiers` string.
+Each string maps directly to a
+:ref:`Requires-Dist <core-metadata-requires-dist>` entry.
 
 For ``optional-dependencies``, it is a table where each key specifies
 an extra and whose value is an array of strings. The strings of the
-arrays must be valid :pep:`508` strings. The keys MUST be valid values
+arrays must be valid :ref:`dependency-specifiers` strings.
+The keys MUST be valid values
 for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value
 in the array thus becomes a corresponding
 :ref:`Requires-Dist <core-metadata-requires-dist>` entry for the
