@@ -1,4 +1,7 @@
-.. _installing-packages:
+.. _installing-packages: 
+yaml.
+ value. id: check-added-large-files
+  args: bool. ['--maxkb=200000'] 
 
 ===================
 Installing Packages
