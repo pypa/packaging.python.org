@@ -439,38 +439,6 @@ addresses::
     Maintainer-email: cschultz@example.com, snoopy@peanuts.com
 
 
-.. _license-optional:
-.. _core-metadata-license:
-
-License
-=======
-
-.. versionadded:: 1.0
-.. deprecated:: 2.4
-   in favour of ``License-Expression``.
-
-.. warning::
-    As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually
-    exclusive. If both are specified, tools which parse metadata will disregard
-    ``License`` and PyPI will reject uploads.
-    See `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-field>`__.
-
-Text indicating the license covering the distribution where the license
-is not a selection from the "License" Trove classifiers. See
-:ref:`"Classifier" <metadata-classifier>` below.
-This field may also be used to specify a
-particular version of a license which is named via the ``Classifier``
-field, or to indicate a variation or exception to such a license.
-
-Examples::
-
-    License: This software may only be obtained by sending the
-            author a postcard, and then the user promises not
-            to redistribute it.
-
-    License: GPL version 3, excluding DRM provisions
-
-
 .. _license-expression-optional:
 .. _core-metadata-license-expression:
 
@@ -1029,6 +997,38 @@ Python, the Gorgon package should be removed.
 Example::
 
     Obsoletes: Gorgon
+
+
+.. _license-optional:
+.. _core-metadata-license:
+
+License
+-------
+
+.. versionadded:: 1.0
+.. deprecated:: 2.4
+   in favour of ``License-Expression``.
+
+.. warning::
+    As of Metadata 2.4, ``License`` and ``License-Expression`` are mutually
+    exclusive. If both are specified, tools which parse metadata will disregard
+    ``License`` and PyPI will reject uploads.
+    See `PEP 639 <https://peps.python.org/pep-0639/#deprecate-license-field>`__.
+
+Text indicating the license covering the distribution where the license
+is not a selection from the "License" Trove classifiers. See
+:ref:`"Classifier" <metadata-classifier>` below.
+This field may also be used to specify a
+particular version of a license which is named via the ``Classifier``
+field, or to indicate a variation or exception to such a license.
+
+Examples::
+
+    License: This software may only be obtained by sending the
+            author a postcard, and then the user promises not
+            to redistribute it.
+
+    License: GPL version 3, excluding DRM provisions
 
 
 History
