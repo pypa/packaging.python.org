@@ -297,7 +297,7 @@ For example::
 
     sys_platform == "ios" or sys_platform == "darwin"
     sys_platform == "linux" and "SMP" in platform_version
-    sys_platform == "darwin" and platform_version >= "12"
+    sys_platform == "darwin" and platform_release >= "12"
 
 Python's comparison chaining (such as ``3.4 < python_version < 3.9``) is NOT
 supported in environment markers (such expressions must instead be written out
