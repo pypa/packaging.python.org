@@ -672,4 +672,7 @@ History
 - October 2025: The ``import-names`` and ``import-namespaces`` keys were added
   through :pep:`794`.
 
+- January 2026: Replaced outdated direct reference to :pep:`508` with a
+  reference to :ref:`dependency-specifiers`.
+
 .. _TOML: https://toml.io

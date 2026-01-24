@@ -1071,6 +1071,9 @@ History
 - October 2025: Clarified that ``License-Expression`` applies to the containing
   distribution file and not the project itself.
 
+- January 2026: Replaced outdated direct reference to :pep:`508` with a
+  reference to :ref:`dependency-specifiers`.
+
 ----
 
 .. [1] reStructuredText markup:

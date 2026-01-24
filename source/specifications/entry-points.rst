@@ -165,6 +165,8 @@ History
 - October 2017: This specification was written to formalize the existing
   entry points feature of setuptools (discussion_).
 
+- January 2026: Replaced outdated direct references to :pep:`508` and
+  :pep:`685` with a reference to :ref:`dependency-specifiers`.
 
 
 .. _discussion: https://mail.python.org/pipermail/distutils-sig/2017-October/031585.html

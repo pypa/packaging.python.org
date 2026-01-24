@@ -663,7 +663,8 @@ History
   tool behaviour recommendations for publishing tools vs installation tools.
   This brought the nominal specification into line with the way tools actually
   work. [#marker_comparison_logic]_
-- January 2026: fix outdated references inadvertently retained from :pep:`508`
+- January 2026: fix outdated references to other documents that were
+  inadvertently retained from :pep:`508`
 
 
 References
