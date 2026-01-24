@@ -243,7 +243,7 @@ The follow comparison operations are defined in the marker expression grammar:
 * ``<=`` (for example, ``python_version <= "3.10"``)
 * ``~=`` (for example, ``python_version ~= "3"``)
 * ``===`` (for example, ``implementation_version === "not.a.valid.version"``)
-* ``in`` (for example, ``"gui" in extras``)
+* ``in`` (for example, ``"gui" in extras``, ``"SMP" in platform_version``)
 * ``not in`` (for example, ``"dev" not in dependency_groups``)
 
 For ``String`` fields, ``==``, ``!=``, ``in``, and ``not in`` are defined as
@@ -272,12 +272,17 @@ emit an error if the user supplied constant cannot be parsed as a valid version
 specifier, while locking and installation tools MAY either emit an error or else
 fall back to ``String`` field comparison logic if either the marker field value
 or the user supplied constant cannot be parsed as a valid version specifier.
+Note that ``in`` and ``not in`` containment checks are NOT valid for ``Version``
+fields.
 
 For ``Version | String`` fields, comparison operations are defined as they are
 for ``Version`` fields. However, there is no expectation that the parsing of
 the marker field value or the user supplied constant as a valid version will
 succeed, so tools MUST fall back to processing the field as a ``String`` field.
 Alternatively, tools MAY unconditionally treat such fields as ``String`` fields.
+Accordingly, comparisons that rely on these fields being processed as
+``Version`` field SHOULD NOT be used in environment markers published to public
+index servers, but they may be appropriate in more constrained environments.
 
 Composing marker expressions
 ''''''''''''''''''''''''''''
@@ -286,8 +291,15 @@ More complex marker expressions may be composed using the ``and`` and ``or``
 logical operators. Parentheses may be used as necessary to control operand
 precedence (with all comparison operations having a higher precedence).
 
+For example::
+
+    sys_platform == "ios" or sys_platform == "darwin"
+    sys_platform == "linux" and "SMP" in platform_version
+    sys_platform == "darwin" and platform_version >= "12"
+
 Python's comparison chaining (such as ``3.4 < python_version < 3.9``) is NOT
-supported in environment markers.
+supported in environment markers (such expressions must instead be written out
+as two separate comparisons joined by ``and``).
 
 User supplied constants
 '''''''''''''''''''''''

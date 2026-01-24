@@ -574,13 +574,13 @@ The format of a requirement string contains from one to four parts:
 * An environment marker after a semicolon. This means that the
   requirement is only needed in the specified conditions.
 
-See :ref:`dependency-specifiers` for full details of the allowed format.
-
 The project names should correspond to names as found
 on the `Python Package Index`_.
 
 Version specifiers must follow the rules described in
 :doc:`version-specifiers`.
+
+See :ref:`dependency-specifiers` for full details of the allowed format.
 
 Examples::
 

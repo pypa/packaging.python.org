@@ -449,35 +449,56 @@ be ambiguous in the face of ``[project.scripts]`` and
 
 
 .. _pyproject-toml-dependencies:
-.. _pyproject-toml-optional-dependencies:
 
-``dependencies``/``optional-dependencies``
-------------------------------------------
+``dependencies``
+----------------
 
-- TOML_ type: Array of :ref:`dependency-specifiers` strings (``dependencies``),
-  and a table with values of arrays of :ref:`dependency-specifiers` strings
-  (``optional-dependencies``)
+- TOML_ type: Array of :ref:`dependency specifier <dependency-specifiers>`
+  strings (``dependencies``)
 - Corresponding :ref:`core metadata <core-metadata>` field:
-  :ref:`Requires-Dist <core-metadata-requires-dist>` and
-  :ref:`Provides-Extra <core-metadata-provides-extra>`
+  :ref:`Requires-Dist <core-metadata-requires-dist>`
 
-The (optional) dependencies of the project.
+``dependencies`` lists the expected dependencies of the project as an
+array of strings.
 
-For ``dependencies``, it is a key whose value is an array of strings.
 Each string represents a dependency of the project and MUST be
-formatted as a valid :ref:`dependency-specifiers` string.
+formatted as a valid :ref:`dependency specifier <dependency-specifiers>`.
+
 Each string maps directly to a
 :ref:`Requires-Dist <core-metadata-requires-dist>` entry.
 
-For ``optional-dependencies``, it is a table where each key specifies
-an extra and whose value is an array of strings. The strings of the
-arrays must be valid :ref:`dependency-specifiers` strings.
+Dependencies listed in this array are always considered
+for installation, but may still contain environment markers that cause them
+to be skipped in some environments.
+
+
+.. _pyproject-toml-optional-dependencies:
+
+``optional-dependencies``
+-------------------------
+
+- TOML_ type: table with string keys mapping to arrays of
+  :ref:`dependency specifier <dependency-specifiers>` strings (``optional-dependencies``)
+- Corresponding :ref:`core metadata <core-metadata>` fields:
+  :ref:`Requires-Dist <core-metadata-requires-dist>` and
+  :ref:`Provides-Extra <core-metadata-provides-extra>`
+
+``optional-dependencies`` is a table where each key specifies
+an extra and whose value is an array of strings using the same format as the
+``dependencies`` array (the strings in the
+arrays must be valid :ref:`dependency specifiers <dependency-specifiers>`).
+
 The keys MUST be valid values
 for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value
 in the array thus becomes a corresponding
 :ref:`Requires-Dist <core-metadata-requires-dist>` entry for the
 matching :ref:`Provides-Extra <core-metadata-provides-extra>`
 metadata.
+
+The optionality of these dependencies is recorded by modifying the environment
+marker clause on the related ``Requires-Dist`` entries to check the extra name.
+Optional dependencies are thus only considered for installation if installation
+if the associated extra name is requested.
 
 
 .. _pyproject-toml-import-names:
