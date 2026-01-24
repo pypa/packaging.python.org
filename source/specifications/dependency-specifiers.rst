@@ -273,16 +273,18 @@ specifier, while locking and installation tools MAY either emit an error or else
 fall back to ``String`` field comparison logic if either the marker field value
 or the user supplied constant cannot be parsed as a valid version specifier.
 Note that ``in`` and ``not in`` containment checks are NOT valid for ``Version``
-fields.
+fields and publishing tools SHOULD emit an error, while locking and installation
+tools MAY treat them as always being False.
 
 For ``Version | String`` fields, comparison operations are defined as they are
-for ``Version`` fields. However, there is no expectation that the parsing of
-the marker field value or the user supplied constant as a valid version will
-succeed, so tools MUST fall back to processing the field as a ``String`` field.
-Alternatively, tools MAY unconditionally treat such fields as ``String`` fields.
-Accordingly, comparisons that rely on these fields being processed as
-``Version`` field SHOULD NOT be used in environment markers published to public
-index servers, but they may be appropriate in more constrained environments.
+for ``Version`` fields, while ``in`` and ``not in`` containment checks are
+defined as they are for ``String`` fields. However, there is no expectation
+that the parsing of the marker field value or the user supplied constant as a
+valid version will succeed, so tools MUST fall back to processing the field as
+a ``String`` field. Alternatively, tools MAY unconditionally treat such fields
+as ``String`` fields. Due to this potential for variation across clients,
+comparisons that rely on these fields being processed as ``Version`` fields
+SHOULD NOT be used in environment markers published to public index servers.
 
 Composing marker expressions
 ''''''''''''''''''''''''''''
