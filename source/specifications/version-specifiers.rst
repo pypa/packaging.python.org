@@ -394,6 +394,21 @@ from an earlier epoch::
     1!1.1
     1!2.0
 
+.. note::
+
+   Use of nonzero epochs is discouraged. They are often not supported or
+   discouraged by downstream packaging where Python packages may need to be
+   consumed, and due to their scarce use they may also not be well supported by
+   Python packaging tools.
+
+   When version scheme needs to be changed, it is preferable to continue with
+   monotonically increasing numbers in epoch zero. For example, the version
+   2026.x could be unambiguously followed by 3000.x.
+
+   See `Discouraging use of epoch segments in versions
+   <https://discuss.python.org/t/discouraging-use-of-epoch-segments-in-versions/105811>`__
+   for the relevant discussion.
+
 
 .. _version-specifiers-normalization:
 
@@ -1273,3 +1288,4 @@ History
 - May 2025: Clarify that development releases are a form of pre-release when
   they are handled.
 - Nov 2025: Make arbitrary equality case insensitivity explicit.
+- Jan 2026: The use of epochs was discouraged.
