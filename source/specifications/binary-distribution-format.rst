@@ -240,18 +240,17 @@ The .dist-info directory
    secure hashes.  Unlike PEP 376, every file except RECORD, which
    cannot contain a hash of itself, must include its hash.  The hash
    algorithm must be sha256 or better; specifically, md5 and sha1 are
-   not permitted, as signed wheel files rely on the strong hashes in
-   RECORD to validate the integrity of the archive.
+   not permitted.
 #. PEP 376's INSTALLER and REQUESTED are not included in the archive.
-#. RECORD.jws is used for digital signatures.  It is not mentioned in
-   RECORD.
-#. RECORD.p7s is allowed as a courtesy to anyone who would prefer to
-   use S/MIME signatures to secure their wheel files.  It is not
-   mentioned in RECORD.
+#. RECORD.jws and RECORD.p7s are deprecated.  Where they are still
+   used, neither RECORD.jws nor RECORD.p7s are mentioned in RECORD.
+   Build backends and other tools must not add them to wheels anymore,
+   installers should be aware that these files may still be part of
+   some wheels.
 #. During extraction, wheel installers verify all the hashes in RECORD
-   against the file contents.  Apart from RECORD and its signatures,
-   installation will fail if any file in the archive is not both
-   mentioned and correctly hashed in RECORD.
+   against the file contents.  Apart from RECORD, RECORD.jws and
+   RECORD.p7s, installation will fail if any file in the archive is not
+   both mentioned and correctly hashed in RECORD.
 
 Subdirectories in :file:`.dist-info/`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,52 +299,6 @@ documentation and so forth from the distribution.  During installation the
 contents of these subdirectories are moved onto their destination paths.
 
 
-Signed wheel files
-------------------
-
-Wheel files include an extended RECORD that enables digital
-signatures.  PEP 376's RECORD is altered to include a secure hash
-``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64
-encoding with no trailing = characters) as the second column instead
-of an md5sum.  All possible entries are hashed, including any
-generated files such as .pyc files, but not RECORD which cannot contain its
-own hash. For example::
-
-    file.py,sha256=AVTFPZpEKzuHr7OvQZmhaU3LvwKz06AJw8mT\_pNh2yI,3144
-    distribution-1.0.dist-info/RECORD,,
-
-The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in
-RECORD at all since they can only be added after RECORD is generated.
-Every other file in the archive must have a correct hash in RECORD
-or the installation will fail.
-
-If JSON web signatures are used, one or more JSON Web Signature JSON
-Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent
-to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of
-RECORD as the signature's JSON payload:
-
-.. code-block:: json
-
-    { "hash": "sha256=ADD-r2urObZHcxBW3Cr-vDCu5RJwT4CaRTHiFmbcIYY" }
-
-(The hash value is the same format used in RECORD.)
-
-If RECORD.p7s is used, it must contain a detached S/MIME format signature
-of RECORD.
-
-A wheel installer is not required to understand digital signatures but
-MUST verify the hashes in RECORD against the extracted file contents.
-When the installer checks file hashes against RECORD, a separate signature
-checker only needs to establish that RECORD matches the signature.
-
-See
-
-- https://datatracker.ietf.org/doc/html/rfc7515
-- https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-serialization-01
-- https://datatracker.ietf.org/doc/html/rfc7517
-- https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01
-
-
 FAQ
 ===
 
@@ -359,34 +312,6 @@ Wheel defines a .data directory.  Should I put all my data there?
     In other words, you may continue to use ``pkgutil.get_data(package,
     resource)`` even though *those* files will usually not be distributed
     in *wheel's* ``.data`` directory.
-
-
-Why does wheel include attached signatures?
--------------------------------------------
-
-    Attached signatures are more convenient than detached signatures
-    because they travel with the archive.  Since only the individual files
-    are signed, the archive can be recompressed without invalidating
-    the signature or individual files can be verified without having
-    to download the whole archive.
-
-
-Why does wheel allow JWS signatures?
-------------------------------------
-
-    The JOSE specifications of which JWS is a part are designed to be easy
-    to implement, a feature that is also one of wheel's primary design
-    goals.  JWS yields a useful, concise pure-Python implementation.
-
-
-Why does wheel also allow S/MIME signatures?
---------------------------------------------
-
-    S/MIME signatures are allowed for users who need or want to use
-    existing public key infrastructure with wheel.
-
-    Signed packages are only a basic building block in a secure package
-    update system.  Wheel only provides the building block.
 
 
 What's the deal with "purelib" vs. "platlib"?
@@ -465,6 +390,7 @@ History
   :pep:`639`.
 - January 2025: Clarified that name and version needs to be normalized for
   ``.dist-info`` and ``.data`` directories.
+- January 2026: Deprecate RECORD.jws and RECORD.p7s (PEP 815)
 
 
 Appendix
