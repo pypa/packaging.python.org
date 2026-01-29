@@ -390,7 +390,7 @@ History
   :pep:`639`.
 - January 2025: Clarified that name and version needs to be normalized for
   ``.dist-info`` and ``.data`` directories.
-- January 2026: Deprecate RECORD.jws and RECORD.p7s (PEP 815)
+- January 2026: Deprecate RECORD.jws and RECORD.p7s :pep:`815`.
 
 
 Appendix
