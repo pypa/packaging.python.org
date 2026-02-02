@@ -137,7 +137,7 @@ If that still doesn't allow you to run ``python -m pip``:
   <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
 
 * Run ``python get-pip.py``. [2]_  This will install or upgrade pip.
-  Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
+  Additionally, it may install :ref:`setuptools` and :ref:`wheel` if they're
   not installed already.
 
   .. warning::
@@ -150,24 +150,23 @@ If that still doesn't allow you to run ``python -m pip``:
      software.
 
 
-Ensure pip, setuptools, and wheel are up to date
-------------------------------------------------
+Ensure pip is up to date
+------------------------
 
-While ``pip`` alone is sufficient to install from pre-built binary archives,
-up to date copies of the ``setuptools`` and ``wheel`` projects are useful
-to ensure you can also install from source archives:
+Make sure you have the latest features and fixes, and support for the latest
+Python packaging specifications.
 
 .. tab:: Unix/macOS
 
     .. code-block:: bash
 
-        python3 -m pip install --upgrade pip setuptools wheel
+        python3 -m pip install --upgrade pip
 
 .. tab:: Windows
 
     .. code-block:: bat
 
-        py -m pip install --upgrade pip setuptools wheel
+        py -m pip install --upgrade pip
 
 Optionally, create a virtual environment
 ----------------------------------------
