@@ -156,6 +156,10 @@ linkcheck_ignore = [
     r"https://click\.palletsprojects\.com/.*",
     r"https://typer\.tiangolo\.com/.*",
     r"https://www.npmjs.com/.*",
+    r"https://docutils\.sourceforge\.io/.*",
+    # Temporarily ignored due to expired TLS cert.
+    # Ref: https://github.com/pypa/packaging.python.org/issues/1998
+    r"https://blog\.ganssle\.io/.*",
 ]
 linkcheck_retries = 5
 # Ignore anchors for common targets when we know they likely won't be found
