@@ -71,6 +71,12 @@ from which the latter is discouraged:
 #. Use `legacy namespace packages`_. This comprises `pkgutil-style namespace packages`_
    and `pkg_resources-style namespace packages`_.
 
+.. note::
+
+    :term:`Native namespace <Native Namespace Package>` and
+    :term:`implicit namespace <Implicit Namespace Package>` packages are two
+    names for the same thing. This guide uses these names interchangeably.
+
 Native namespace packages
 -------------------------
 
