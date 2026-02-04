@@ -574,13 +574,13 @@ The format of a requirement string contains from one to four parts:
 * An environment marker after a semicolon. This means that the
   requirement is only needed in the specified conditions.
 
-See :pep:`508` for full details of the allowed format.
-
 The project names should correspond to names as found
 on the `Python Package Index`_.
 
 Version specifiers must follow the rules described in
 :doc:`version-specifiers`.
+
+See :ref:`dependency-specifiers` for full details of the allowed format.
 
 Examples::
 
@@ -1070,6 +1070,9 @@ History
 
 - October 2025: Clarified that ``License-Expression`` applies to the containing
   distribution file and not the project itself.
+
+- January 2026: Replaced outdated direct reference to :pep:`508` with a
+  reference to :ref:`dependency-specifiers`.
 
 ----
 
