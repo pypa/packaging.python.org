@@ -260,7 +260,7 @@ an error like all other unknown variables.
    * - ``platform_machine``
      - :py:func:`platform.machine()`
      - String
-     - ``x86_64``
+     - ``x86_64``, ``aarch64``, ``arm64``
    * - ``platform_python_implementation``
      - :py:func:`platform.python_implementation()`
      - String
