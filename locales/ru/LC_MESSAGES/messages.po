@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-30 16:47+0000\n"
+"POT-Creation-Date: 2026-02-03 23:55+0000\n"
 "PO-Revision-Date: 2025-06-07 08:01+0000\n"
 "Last-Translator: da070116 <da070116@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -17756,12 +17756,19 @@ msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr "WHEEL - это метаданные колеса, специфичные для сборки пакета."
 
 #: ../source/specifications/binary-distribution-format.rst:239
+#, fuzzy
+#| msgid ""
+#| "RECORD is a list of (almost) all the files in the wheel and their secure "
+#| "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
+#| "hash of itself, must include its hash.  The hash algorithm must be sha256 "
+#| "or better; specifically, md5 and sha1 are not permitted, as signed wheel "
+#| "files rely on the strong hashes in RECORD to validate the integrity of "
+#| "the archive."
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
 "hash of itself, must include its hash.  The hash algorithm must be sha256 or "
-"better; specifically, md5 and sha1 are not permitted, as signed wheel files "
-"rely on the strong hashes in RECORD to validate the integrity of the archive."
+"better; specifically, md5 and sha1 are not permitted."
 msgstr ""
 "RECORD - это список (почти) всех файлов в колесе и их защищенных хэшей.  В "
 "отличие от PEP 376, каждый файл, кроме RECORD, который не может содержать "
@@ -17770,98 +17777,97 @@ msgstr ""
 "подписанные файлы колеса полагаются на надежные хэши в RECORD для "
 "подтверждения целостности архива."
 
-#: ../source/specifications/binary-distribution-format.rst:245
+#: ../source/specifications/binary-distribution-format.rst:244
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr "В архив не включены файлы PEP 376 \"INSTALLER\" и \"REQUESTED\"."
 
-#: ../source/specifications/binary-distribution-format.rst:246
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid ""
-"RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+"RECORD.jws and RECORD.p7s are deprecated.  Where they are still used, "
+"neither RECORD.jws nor RECORD.p7s are mentioned in RECORD. Build backends "
+"and other tools must not add them to wheels anymore, installers should be "
+"aware that these files may still be part of some wheels."
 msgstr ""
-"RECORD.jws используется для цифровых подписей.  Он не упоминается в RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:248
-msgid ""
-"RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
-"signatures to secure their wheel files.  It is not mentioned in RECORD."
-msgstr ""
-"RECORD.p7s разрешен в качестве любезности для тех, кто предпочитает "
-"использовать подписи S/MIME для защиты своих колесных файлов.  Она не "
-"упоминается в RECORD."
-
-#: ../source/specifications/binary-distribution-format.rst:251
+#: ../source/specifications/binary-distribution-format.rst:250
+#, fuzzy
+#| msgid ""
+#| "During extraction, wheel installers verify all the hashes in RECORD "
+#| "against the file contents.  Apart from RECORD and its signatures, "
+#| "installation will fail if any file in the archive is not both mentioned "
+#| "and correctly hashed in RECORD."
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
-"the file contents.  Apart from RECORD and its signatures, installation will "
-"fail if any file in the archive is not both mentioned and correctly hashed "
-"in RECORD."
+"the file contents.  Apart from RECORD, RECORD.jws and RECORD.p7s, "
+"installation will fail if any file in the archive is not both mentioned and "
+"correctly hashed in RECORD."
 msgstr ""
 "Во время извлечения программа установки колес сверяет все хэши в RECORD с "
 "содержимым файлов.  Помимо RECORD и его сигнатур, установка завершится "
 "неудачей, если какой-либо файл в архиве не упомянут и не захеширован "
 "правильно в RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:257
+#: ../source/specifications/binary-distribution-format.rst:256
 msgid "Subdirectories in :file:`.dist-info/`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:259
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "Subdirectories under :file:`.dist-info/` are reserved for future use. The "
 "following subdirectory names under :file:`.dist-info/` are reserved for "
 "specific usage:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 #, fuzzy
 #| msgid "Project name"
 msgid "Subdirectory name"
 msgstr "Название проекта"
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "PEP / Standard"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:264
 #, fuzzy
 #| msgid "``license``"
 msgid "``licenses``"
 msgstr "``лицензия``"
 
+#: ../source/specifications/binary-distribution-format.rst:264
 #: ../source/specifications/binary-distribution-format.rst:265
-#: ../source/specifications/binary-distribution-format.rst:266
 msgid ":pep:`639`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:266
+#: ../source/specifications/binary-distribution-format.rst:265
 #, fuzzy
 #| msgid "``license-files``"
 msgid "``license_files``"
 msgstr "``лицензионные файлы``"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 #, fuzzy
 #| msgid "``LIB``"
 msgid "``LICENSES``"
 msgstr "``LIB``"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 msgid "`REUSE licensing framework <https://reuse.software>`__"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid "``sboms``"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid ":pep:`770`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:272
+#: ../source/specifications/binary-distribution-format.rst:271
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr "Каталог :file:`.dist-info/licenses/`"
 
-#: ../source/specifications/binary-distribution-format.rst:274
+#: ../source/specifications/binary-distribution-format.rst:273
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain "
@@ -17875,24 +17881,24 @@ msgstr ""
 "в полях ``License-File`` в файле :file:`METADATA`` по их соответствующим "
 "путям относительно каталога :file:`licenses/`."
 
-#: ../source/specifications/binary-distribution-format.rst:281
+#: ../source/specifications/binary-distribution-format.rst:280
 #, fuzzy
 #| msgid "The :file:`.dist-info/licenses/` directory"
 msgid "The :file:`.dist-info/sboms/` directory"
 msgstr "Каталог :file:`.dist-info/licenses/`"
 
-#: ../source/specifications/binary-distribution-format.rst:283
+#: ../source/specifications/binary-distribution-format.rst:282
 msgid ""
 "All files contained within the :file:`.dist-info/sboms/` directory MUST be "
 "Software Bill-of-Materials (SBOM) files that describe software contained "
 "within the distribution archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:288
+#: ../source/specifications/binary-distribution-format.rst:287
 msgid "The .data directory"
 msgstr "Директория .data"
 
-#: ../source/specifications/binary-distribution-format.rst:290
+#: ../source/specifications/binary-distribution-format.rst:289
 msgid ""
 "Any file that is not normally installed inside site-packages goes into "
 "the .data directory, named as the .dist-info directory but with the .data/ "
@@ -17902,7 +17908,7 @@ msgstr ""
 "помещаются в каталог .data, названный так же, как и каталог .dist-info, но с "
 "расширением .data/::"
 
-#: ../source/specifications/binary-distribution-format.rst:298
+#: ../source/specifications/binary-distribution-format.rst:297
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -17912,112 +17918,17 @@ msgstr ""
 "и прочим из дистрибутива.  Во время установки содержимое этих подкаталогов "
 "переносится на путь назначения."
 
-#: ../source/specifications/binary-distribution-format.rst:304
-msgid "Signed wheel files"
-msgstr "Подписанные файлы колес"
-
-#: ../source/specifications/binary-distribution-format.rst:306
-msgid ""
-"Wheel files include an extended RECORD that enables digital signatures.  PEP "
-"376's RECORD is altered to include a secure hash "
-"``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding with "
-"no trailing = characters) as the second column instead of an md5sum.  All "
-"possible entries are hashed, including any generated files such as .pyc "
-"files, but not RECORD which cannot contain its own hash. For example::"
-msgstr ""
-"Файлы колес включают расширенную запись RECORD, которая позволяет "
-"использовать цифровые подписи.  В PEP 376 RECORD изменен, чтобы включать "
-"безопасный хэш ``digestname=urlsafe_b64encode_nopad(digest)`` (кодировка "
-"urlsafe base64 без задних символов =) в качестве второго столбца вместо "
-"md5sum.  Хешируются все возможные записи, включая любые сгенерированные "
-"файлы, такие как файлы .pyc, но не RECORD, который не может содержать свой "
-"собственный хеш. Например::"
-
-#: ../source/specifications/binary-distribution-format.rst:317
-msgid ""
-"The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
-"at all since they can only be added after RECORD is generated. Every other "
-"file in the archive must have a correct hash in RECORD or the installation "
-"will fail."
-msgstr ""
-"Файл(ы) подписи RECORD.jws и RECORD.p7s вообще не упоминаются в RECORD, "
-"поскольку они могут быть добавлены только после создания RECORD. Все "
-"остальные файлы в архиве должны иметь правильный хэш в RECORD, иначе "
-"установка завершится неудачей."
-
-#: ../source/specifications/binary-distribution-format.rst:322
-msgid ""
-"If JSON web signatures are used, one or more JSON Web Signature JSON "
-"Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
-"RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of RECORD "
-"as the signature's JSON payload:"
-msgstr ""
-"Если используются веб-подписи JSON, одна или несколько подписей JSON Web "
-"Signature JSON Serialization (JWS-JS) хранятся в файле RECORD.jws, "
-"примыкающем к RECORD.  JWS используется для подписи RECORD путем включения "
-"SHA-256 хэша RECORD в качестве полезной нагрузки JSON подписи:"
-
-#: ../source/specifications/binary-distribution-format.rst:331
-msgid "(The hash value is the same format used in RECORD.)"
-msgstr "(Хеш-значение имеет тот же формат, что и в RECORD)"
-
-#: ../source/specifications/binary-distribution-format.rst:333
-msgid ""
-"If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
-"RECORD."
-msgstr ""
-"Если используется файл RECORD.p7s, он должен содержать отделенную подпись "
-"RECORD в формате S/MIME."
-
-#: ../source/specifications/binary-distribution-format.rst:336
-msgid ""
-"A wheel installer is not required to understand digital signatures but MUST "
-"verify the hashes in RECORD against the extracted file contents. When the "
-"installer checks file hashes against RECORD, a separate signature checker "
-"only needs to establish that RECORD matches the signature."
-msgstr ""
-"Программа установки колеса не обязана понимать цифровые подписи, но ДОЛЖНА "
-"проверять хэши в RECORD по содержимому извлеченного файла. Когда программа "
-"установки сверяет хэши файлов с RECORD, отдельному средству проверки подписи "
-"достаточно убедиться, что RECORD соответствует подписи."
-
-#: ../source/specifications/binary-distribution-format.rst:341
-msgid "See"
-msgstr "Смотрите"
-
-#: ../source/specifications/binary-distribution-format.rst:343
-msgid "https://datatracker.ietf.org/doc/html/rfc7515"
-msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
-
-#: ../source/specifications/binary-distribution-format.rst:344
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-msgstr ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-
-#: ../source/specifications/binary-distribution-format.rst:345
-msgid "https://datatracker.ietf.org/doc/html/rfc7517"
-msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
-
-#: ../source/specifications/binary-distribution-format.rst:346
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-msgstr ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-
-#: ../source/specifications/binary-distribution-format.rst:350
+#: ../source/specifications/binary-distribution-format.rst:303
 #: ../source/specifications/platform-compatibility-tags.rst:376
 msgid "FAQ"
 msgstr "ЧаВо"
 
-#: ../source/specifications/binary-distribution-format.rst:354
+#: ../source/specifications/binary-distribution-format.rst:307
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 "Wheel определяет каталог .data.  Должен ли я поместить туда все свои данные?"
 
-#: ../source/specifications/binary-distribution-format.rst:356
+#: ../source/specifications/binary-distribution-format.rst:309
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -18033,62 +17944,11 @@ msgstr ""
 "если *эти* файлы обычно не будут распространяться в директории *wheel'а* "
 "``.data``."
 
-#: ../source/specifications/binary-distribution-format.rst:365
-msgid "Why does wheel include attached signatures?"
-msgstr "Почему колесо включает в себя прикрепленные подписи?"
-
-#: ../source/specifications/binary-distribution-format.rst:367
-msgid ""
-"Attached signatures are more convenient than detached signatures because "
-"they travel with the archive.  Since only the individual files are signed, "
-"the archive can be recompressed without invalidating the signature or "
-"individual files can be verified without having to download the whole "
-"archive."
-msgstr ""
-"Прикрепленные подписи более удобны, чем отсоединенные, поскольку они "
-"путешествуют вместе с архивом.  Поскольку подписываются только отдельные "
-"файлы, архив можно перекомпрессировать, не аннулируя подпись, или проверить "
-"отдельные файлы без необходимости загружать весь архив."
-
-#: ../source/specifications/binary-distribution-format.rst:375
-msgid "Why does wheel allow JWS signatures?"
-msgstr "Почему колесо разрешает подписи JWS?"
-
-#: ../source/specifications/binary-distribution-format.rst:377
-msgid ""
-"The JOSE specifications of which JWS is a part are designed to be easy to "
-"implement, a feature that is also one of wheel's primary design goals.  JWS "
-"yields a useful, concise pure-Python implementation."
-msgstr ""
-"Спецификации JOSE, частью которых является JWS, разработаны для простоты "
-"реализации, что также является одной из основных целей дизайна Wheel.  JWS "
-"представляет собой полезную и лаконичную реализацию на чистом Python."
-
-#: ../source/specifications/binary-distribution-format.rst:383
-msgid "Why does wheel also allow S/MIME signatures?"
-msgstr "Почему wheel также позволяет использовать подписи S/MIME?"
-
-#: ../source/specifications/binary-distribution-format.rst:385
-msgid ""
-"S/MIME signatures are allowed for users who need or want to use existing "
-"public key infrastructure with wheel."
-msgstr ""
-"Подписи S/MIME разрешены для пользователей, которым необходимо или хочется "
-"использовать существующую инфраструктуру открытых ключей с помощью колеса."
-
-#: ../source/specifications/binary-distribution-format.rst:388
-msgid ""
-"Signed packages are only a basic building block in a secure package update "
-"system.  Wheel only provides the building block."
-msgstr ""
-"Подписанные пакеты являются лишь базовым элементом системы безопасного "
-"обновления пакетов.  Wheel предоставляет только строительный блок."
-
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:318
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "Как обстоят дела с \"purelib\" и \"platlib\"?"
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:320
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -18100,7 +17960,7 @@ msgstr ""
 "usr/lib/pythonX.Y/site-packages', а платформозависимые пакеты - в '/usr/"
 "lib64/pythonX.Y/site-packages'."
 
-#: ../source/specifications/binary-distribution-format.rst:400
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -18112,7 +17972,7 @@ msgstr ""
 "теми же файлами в корне, и законно иметь файлы как в категории \"purelib\", "
 "так и в категории \"platlib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:405
+#: ../source/specifications/binary-distribution-format.rst:330
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -18123,11 +17983,11 @@ msgstr ""
 "должны находиться в корне с соответствующей настройкой для \"Root-is-"
 "purelib\"."
 
-#: ../source/specifications/binary-distribution-format.rst:413
+#: ../source/specifications/binary-distribution-format.rst:338
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "Можно ли импортировать код Python непосредственно из файла wheel?"
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:340
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -18141,7 +18001,7 @@ msgstr ""
 "Однако, хотя такое поведение является естественным следствием дизайна "
 "формата, полагаться на него, как правило, не рекомендуется."
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -18160,7 +18020,7 @@ msgstr ""
 "безопасности, или полная интеграция со стандартным механизмом сборки для C-"
 "расширений путем публикации заголовочных файлов в соответствующем месте)."
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:355
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -18193,7 +18053,7 @@ msgstr ""
 "взаимодействие с внешними компонентами все равно может потребовать наличия "
 "реального файла на диске."
 
-#: ../source/specifications/binary-distribution-format.rst:447
+#: ../source/specifications/binary-distribution-format.rst:372
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -18207,7 +18067,7 @@ msgstr ""
 "имейте в виду, что многие проекты потребуют воспроизвести сбой с полностью "
 "установленным пакетом, прежде чем принять его за настоящую ошибку."
 
-#: ../source/specifications/binary-distribution-format.rst:455
+#: ../source/specifications/binary-distribution-format.rst:380
 #: ../source/specifications/core-metadata.rst:1035
 #: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
@@ -18228,11 +18088,11 @@ msgstr ""
 msgid "History"
 msgstr "История"
 
-#: ../source/specifications/binary-distribution-format.rst:457
+#: ../source/specifications/binary-distribution-format.rst:382
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr "Февраль 2013 г: Эта спецификация была одобрена через :pep:`427`."
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
@@ -18241,7 +18101,7 @@ msgstr ""
 "пересмотрены, чтобы привести их в соответствие с тем, что на самом деле "
 "делают популярные инструменты."
 
-#: ../source/specifications/binary-distribution-format.rst:460
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -18253,7 +18113,7 @@ msgstr ""
 "симлинками или подкаталогами в этой папке формально не определено, и поэтому "
 "может отличаться для разных инструментов)."
 
-#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/binary-distribution-format.rst:389
 #: ../source/specifications/recording-installed-packages.rst:288
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
@@ -18262,7 +18122,7 @@ msgstr ""
 "Декабрь 2024 года: Каталог :file:`.dist-info/licenses/` был указан "
 "через :pep:`639`."
 
-#: ../source/specifications/binary-distribution-format.rst:466
+#: ../source/specifications/binary-distribution-format.rst:391
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for "
 "``.dist-info`` and ``.data`` directories."
@@ -18270,11 +18130,15 @@ msgstr ""
 "Январь 2025 года: Уточнено, что имя и версия должны быть нормализованы для "
 "директорий ``.dist-info`` и ``.data``."
 
-#: ../source/specifications/binary-distribution-format.rst:471
+#: ../source/specifications/binary-distribution-format.rst:393
+msgid "January 2026: Deprecate RECORD.jws and RECORD.p7s :pep:`815`."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:397
 msgid "Appendix"
 msgstr "Приложение"
 
-#: ../source/specifications/binary-distribution-format.rst:473
+#: ../source/specifications/binary-distribution-format.rst:399
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Пример реализации urlsafe-base64-nopad::"
 
@@ -36058,6 +35922,151 @@ msgstr ""
 "packages>` и считаются **продвинутой темой** (не охваченной этим учебником). "
 "Если вы только начинаете с Python упаковки, рекомендуется придерживаться "
 "*регулярных пакетов* и ``__init__.py`` (даже если файл пуст)."
+
+#~ msgid ""
+#~ "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+#~ msgstr ""
+#~ "RECORD.jws используется для цифровых подписей.  Он не упоминается в "
+#~ "RECORD."
+
+#~ msgid ""
+#~ "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/"
+#~ "MIME signatures to secure their wheel files.  It is not mentioned in "
+#~ "RECORD."
+#~ msgstr ""
+#~ "RECORD.p7s разрешен в качестве любезности для тех, кто предпочитает "
+#~ "использовать подписи S/MIME для защиты своих колесных файлов.  Она не "
+#~ "упоминается в RECORD."
+
+#~ msgid "Signed wheel files"
+#~ msgstr "Подписанные файлы колес"
+
+#~ msgid ""
+#~ "Wheel files include an extended RECORD that enables digital signatures.  "
+#~ "PEP 376's RECORD is altered to include a secure hash "
+#~ "``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding "
+#~ "with no trailing = characters) as the second column instead of an "
+#~ "md5sum.  All possible entries are hashed, including any generated files "
+#~ "such as .pyc files, but not RECORD which cannot contain its own hash. For "
+#~ "example::"
+#~ msgstr ""
+#~ "Файлы колес включают расширенную запись RECORD, которая позволяет "
+#~ "использовать цифровые подписи.  В PEP 376 RECORD изменен, чтобы включать "
+#~ "безопасный хэш ``digestname=urlsafe_b64encode_nopad(digest)`` (кодировка "
+#~ "urlsafe base64 без задних символов =) в качестве второго столбца вместо "
+#~ "md5sum.  Хешируются все возможные записи, включая любые сгенерированные "
+#~ "файлы, такие как файлы .pyc, но не RECORD, который не может содержать "
+#~ "свой собственный хеш. Например::"
+
+#~ msgid ""
+#~ "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in "
+#~ "RECORD at all since they can only be added after RECORD is generated. "
+#~ "Every other file in the archive must have a correct hash in RECORD or the "
+#~ "installation will fail."
+#~ msgstr ""
+#~ "Файл(ы) подписи RECORD.jws и RECORD.p7s вообще не упоминаются в RECORD, "
+#~ "поскольку они могут быть добавлены только после создания RECORD. Все "
+#~ "остальные файлы в архиве должны иметь правильный хэш в RECORD, иначе "
+#~ "установка завершится неудачей."
+
+#~ msgid ""
+#~ "If JSON web signatures are used, one or more JSON Web Signature JSON "
+#~ "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent "
+#~ "to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of "
+#~ "RECORD as the signature's JSON payload:"
+#~ msgstr ""
+#~ "Если используются веб-подписи JSON, одна или несколько подписей JSON Web "
+#~ "Signature JSON Serialization (JWS-JS) хранятся в файле RECORD.jws, "
+#~ "примыкающем к RECORD.  JWS используется для подписи RECORD путем "
+#~ "включения SHA-256 хэша RECORD в качестве полезной нагрузки JSON подписи:"
+
+#~ msgid "(The hash value is the same format used in RECORD.)"
+#~ msgstr "(Хеш-значение имеет тот же формат, что и в RECORD)"
+
+#~ msgid ""
+#~ "If RECORD.p7s is used, it must contain a detached S/MIME format signature "
+#~ "of RECORD."
+#~ msgstr ""
+#~ "Если используется файл RECORD.p7s, он должен содержать отделенную подпись "
+#~ "RECORD в формате S/MIME."
+
+#~ msgid ""
+#~ "A wheel installer is not required to understand digital signatures but "
+#~ "MUST verify the hashes in RECORD against the extracted file contents. "
+#~ "When the installer checks file hashes against RECORD, a separate "
+#~ "signature checker only needs to establish that RECORD matches the "
+#~ "signature."
+#~ msgstr ""
+#~ "Программа установки колеса не обязана понимать цифровые подписи, но "
+#~ "ДОЛЖНА проверять хэши в RECORD по содержимому извлеченного файла. Когда "
+#~ "программа установки сверяет хэши файлов с RECORD, отдельному средству "
+#~ "проверки подписи достаточно убедиться, что RECORD соответствует подписи."
+
+#~ msgid "See"
+#~ msgstr "Смотрите"
+
+#~ msgid "https://datatracker.ietf.org/doc/html/rfc7515"
+#~ msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
+
+#~ msgid ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+#~ "serialization-01"
+#~ msgstr ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+#~ "serialization-01"
+
+#~ msgid "https://datatracker.ietf.org/doc/html/rfc7517"
+#~ msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
+
+#~ msgid ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
+#~ msgstr ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
+
+#~ msgid "Why does wheel include attached signatures?"
+#~ msgstr "Почему колесо включает в себя прикрепленные подписи?"
+
+#~ msgid ""
+#~ "Attached signatures are more convenient than detached signatures because "
+#~ "they travel with the archive.  Since only the individual files are "
+#~ "signed, the archive can be recompressed without invalidating the "
+#~ "signature or individual files can be verified without having to download "
+#~ "the whole archive."
+#~ msgstr ""
+#~ "Прикрепленные подписи более удобны, чем отсоединенные, поскольку они "
+#~ "путешествуют вместе с архивом.  Поскольку подписываются только отдельные "
+#~ "файлы, архив можно перекомпрессировать, не аннулируя подпись, или "
+#~ "проверить отдельные файлы без необходимости загружать весь архив."
+
+#~ msgid "Why does wheel allow JWS signatures?"
+#~ msgstr "Почему колесо разрешает подписи JWS?"
+
+#~ msgid ""
+#~ "The JOSE specifications of which JWS is a part are designed to be easy to "
+#~ "implement, a feature that is also one of wheel's primary design goals.  "
+#~ "JWS yields a useful, concise pure-Python implementation."
+#~ msgstr ""
+#~ "Спецификации JOSE, частью которых является JWS, разработаны для простоты "
+#~ "реализации, что также является одной из основных целей дизайна Wheel.  "
+#~ "JWS представляет собой полезную и лаконичную реализацию на чистом Python."
+
+#~ msgid "Why does wheel also allow S/MIME signatures?"
+#~ msgstr "Почему wheel также позволяет использовать подписи S/MIME?"
+
+#~ msgid ""
+#~ "S/MIME signatures are allowed for users who need or want to use existing "
+#~ "public key infrastructure with wheel."
+#~ msgstr ""
+#~ "Подписи S/MIME разрешены для пользователей, которым необходимо или "
+#~ "хочется использовать существующую инфраструктуру открытых ключей с "
+#~ "помощью колеса."
+
+#~ msgid ""
+#~ "Signed packages are only a basic building block in a secure package "
+#~ "update system.  Wheel only provides the building block."
+#~ msgstr ""
+#~ "Подписанные пакеты являются лишь базовым элементом системы безопасного "
+#~ "обновления пакетов.  Wheel предоставляет только строительный блок."
 
 #~ msgid "The license expressions for these projects are:"
 #~ msgstr "Лицензионные выражения для этих проектов следующие:"

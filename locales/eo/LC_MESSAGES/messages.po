@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-30 16:47+0000\n"
+"POT-Creation-Date: 2026-02-03 23:55+0000\n"
 "PO-Revision-Date: 2025-06-29 12:03+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -16964,12 +16964,19 @@ msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr "WHEEL estas la wheel-metadatenoj specifaj al iu konstruo de la pako."
 
 #: ../source/specifications/binary-distribution-format.rst:239
+#, fuzzy
+#| msgid ""
+#| "RECORD is a list of (almost) all the files in the wheel and their secure "
+#| "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
+#| "hash of itself, must include its hash.  The hash algorithm must be sha256 "
+#| "or better; specifically, md5 and sha1 are not permitted, as signed wheel "
+#| "files rely on the strong hashes in RECORD to validate the integrity of "
+#| "the archive."
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
 "hash of itself, must include its hash.  The hash algorithm must be sha256 or "
-"better; specifically, md5 and sha1 are not permitted, as signed wheel files "
-"rely on the strong hashes in RECORD to validate the integrity of the archive."
+"better; specifically, md5 and sha1 are not permitted."
 msgstr ""
 "RECORD estas listo de (preskaŭ) ĉiuj dosieroj en la wheel kaj iliaj sekuraj "
 "haketaĵoj.  Male al PEP 376, ĉiu dosiero krom RECORD, kiu ne povas enhavi "
@@ -16978,91 +16985,90 @@ msgstr ""
 "ĉar subskribita wheel-dosiero dependas de la fortikaj haketaĵoj en RECORD "
 "por la integrecon de la arĥivo."
 
-#: ../source/specifications/binary-distribution-format.rst:245
+#: ../source/specifications/binary-distribution-format.rst:244
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr ""
 "La INSTALLER kaj REQUESTED de PEP 376 ne estas inkluzivitaj en la arĥivo."
 
-#: ../source/specifications/binary-distribution-format.rst:246
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid ""
-"RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+"RECORD.jws and RECORD.p7s are deprecated.  Where they are still used, "
+"neither RECORD.jws nor RECORD.p7s are mentioned in RECORD. Build backends "
+"and other tools must not add them to wheels anymore, installers should be "
+"aware that these files may still be part of some wheels."
 msgstr ""
-"RECORD.jws estas uzataj por ciferecaj subskriboj.  Ĝi ne estas menciita en "
-"RECORD."
 
-#: ../source/specifications/binary-distribution-format.rst:248
-msgid ""
-"RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
-"signatures to secure their wheel files.  It is not mentioned in RECORD."
-msgstr ""
-"RECORD.p7s estas permesata por tiuj, kiuj preferas uzi S/MIME-subskribon por "
-"sekurigi wheel-dosieron.  Ĝi ne menciiĝas en RECORD."
-
-#: ../source/specifications/binary-distribution-format.rst:251
+#: ../source/specifications/binary-distribution-format.rst:250
+#, fuzzy
+#| msgid ""
+#| "During extraction, wheel installers verify all the hashes in RECORD "
+#| "against the file contents.  Apart from RECORD and its signatures, "
+#| "installation will fail if any file in the archive is not both mentioned "
+#| "and correctly hashed in RECORD."
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
-"the file contents.  Apart from RECORD and its signatures, installation will "
-"fail if any file in the archive is not both mentioned and correctly hashed "
-"in RECORD."
+"the file contents.  Apart from RECORD, RECORD.jws and RECORD.p7s, "
+"installation will fail if any file in the archive is not both mentioned and "
+"correctly hashed in RECORD."
 msgstr ""
 "Dum maldensigado, instalilo de wheel kontrolas ĉiujn haketaĵojn en "
 "``RECORD`` kaj la dosierajn enhavojn. Krom ``RECORD`` kaj subskriboj, "
 "instalado malsukcesos, se ajna dosiero en la arĥivo ne estas menciita en "
 "``RECORD`` aŭ ne kongruas kun sia haketaĵo."
 
-#: ../source/specifications/binary-distribution-format.rst:257
+#: ../source/specifications/binary-distribution-format.rst:256
 msgid "Subdirectories in :file:`.dist-info/`"
 msgstr "Subdosierujoj en :file:`.dist-info/`"
 
-#: ../source/specifications/binary-distribution-format.rst:259
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "Subdirectories under :file:`.dist-info/` are reserved for future use. The "
 "following subdirectory names under :file:`.dist-info/` are reserved for "
 "specific usage:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "Subdirectory name"
 msgstr "Nomo de subdosierujo"
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "PEP / Standard"
 msgstr "PEP / Normo"
 
-#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:264
 msgid "``licenses``"
 msgstr "``licenses``"
 
+#: ../source/specifications/binary-distribution-format.rst:264
 #: ../source/specifications/binary-distribution-format.rst:265
-#: ../source/specifications/binary-distribution-format.rst:266
 msgid ":pep:`639`"
 msgstr ":pep:`639`"
 
-#: ../source/specifications/binary-distribution-format.rst:266
+#: ../source/specifications/binary-distribution-format.rst:265
 msgid "``license_files``"
 msgstr "``license_files``"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 msgid "``LICENSES``"
 msgstr "``LICENSES``"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 msgid "`REUSE licensing framework <https://reuse.software>`__"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid "``sboms``"
 msgstr "``sboms``"
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid ":pep:`770`"
 msgstr ":pep:`770`"
 
-#: ../source/specifications/binary-distribution-format.rst:272
+#: ../source/specifications/binary-distribution-format.rst:271
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr "La dosierujo :file:`.dist-info/licenses/`"
 
-#: ../source/specifications/binary-distribution-format.rst:274
+#: ../source/specifications/binary-distribution-format.rst:273
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain "
@@ -17076,22 +17082,22 @@ msgstr ""
 "kampoj ``License-File`` en la dosiero :file:`METADATA` ĉe la respektivaj "
 "dosierlokoj relativaj al la dosierujo :file:`licenses/`."
 
-#: ../source/specifications/binary-distribution-format.rst:281
+#: ../source/specifications/binary-distribution-format.rst:280
 msgid "The :file:`.dist-info/sboms/` directory"
 msgstr "La dosierujo :file:`.dist-info/sboms/`"
 
-#: ../source/specifications/binary-distribution-format.rst:283
+#: ../source/specifications/binary-distribution-format.rst:282
 msgid ""
 "All files contained within the :file:`.dist-info/sboms/` directory MUST be "
 "Software Bill-of-Materials (SBOM) files that describe software contained "
 "within the distribution archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:288
+#: ../source/specifications/binary-distribution-format.rst:287
 msgid "The .data directory"
 msgstr "La dosierujo .data"
 
-#: ../source/specifications/binary-distribution-format.rst:290
+#: ../source/specifications/binary-distribution-format.rst:289
 msgid ""
 "Any file that is not normally installed inside site-packages goes into "
 "the .data directory, named as the .dist-info directory but with the .data/ "
@@ -17101,7 +17107,7 @@ msgstr ""
 "dosierujon .data, nomitan kiel la dosierujon .dist-info sed kun la "
 "sufikso .data/::"
 
-#: ../source/specifications/binary-distribution-format.rst:298
+#: ../source/specifications/binary-distribution-format.rst:297
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -17111,110 +17117,16 @@ msgstr ""
 "dokumentoj ktp de la distribuo.  Dum instalado, la enhavoj de tiuj "
 "dosierujoj kopiiĝas al siaj celaj dosierlokoj."
 
-#: ../source/specifications/binary-distribution-format.rst:304
-msgid "Signed wheel files"
-msgstr "Subskribitaj wheel-dosieroj"
-
-#: ../source/specifications/binary-distribution-format.rst:306
-msgid ""
-"Wheel files include an extended RECORD that enables digital signatures.  PEP "
-"376's RECORD is altered to include a secure hash "
-"``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding with "
-"no trailing = characters) as the second column instead of an md5sum.  All "
-"possible entries are hashed, including any generated files such as .pyc "
-"files, but not RECORD which cannot contain its own hash. For example::"
-msgstr ""
-"Wheel-dosiero inkluzivas etenditan ``RECORD`` por ciferecaj subskriboj. La "
-"``RECORD`` de PEP 376 estas modifita por inkluzivi sekuran haketaĵon "
-"``digestname=urlsafe_b64encode_nopad(digest)`` (URL-sekura base64-kodado sen "
-"finaj signoj ``=``) kiel la duan kolumnon anstataŭ md5sum.  Ĉiaj eblaj eroj "
-"havu haketaĵojn, inkluzive de generitaj dosieroj kiel ``.pyc``-dosieroj, "
-"krom ``RECORD`` mem, kiu ne povas enhavi sian propran haketaĵon. Ekzemple::"
-
-#: ../source/specifications/binary-distribution-format.rst:317
-msgid ""
-"The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
-"at all since they can only be added after RECORD is generated. Every other "
-"file in the archive must have a correct hash in RECORD or the installation "
-"will fail."
-msgstr ""
-"La subskribo-dosiero(j) RECORD.jws kaj RECORD.p7s ne menciiĝas en RECORD, "
-"ĉar ili estas nur aldoneblaj post la generado de RECORD. Ĉiu alia dosiero en "
-"la arĥivo devas havi ĝustan haketaĵon en RECORD; se ne, la instalado "
-"malsukcesos."
-
-#: ../source/specifications/binary-distribution-format.rst:322
-msgid ""
-"If JSON web signatures are used, one or more JSON Web Signature JSON "
-"Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
-"RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of RECORD "
-"as the signature's JSON payload:"
-msgstr ""
-"Se oni uzas JSON-retsubskriboj (JWS), unu aŭ pluraj subskriboj uzantaj JSON-"
-"seriigon de JSON-retsubskribo (JWS-JS) konserviĝas en dosiero ``RECORD.jws`` "
-"apud ``RECORD``. Oni uzas JWS por subskribi ``RECORD`` inkluzivante la "
-"haketaĵon SHA-256 de ``RECORD`` kiel la JSON-ŝarĝon de la subskribo:"
-
-#: ../source/specifications/binary-distribution-format.rst:331
-msgid "(The hash value is the same format used in RECORD.)"
-msgstr "(La haketaĵa valoro estas la sama formo uzata en RECORD.)"
-
-#: ../source/specifications/binary-distribution-format.rst:333
-msgid ""
-"If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
-"RECORD."
-msgstr ""
-"Se RECORD.p7s estas uzata, ĝi devas enhavi malligitan S/MIME-forman "
-"subskribon de RECORD."
-
-#: ../source/specifications/binary-distribution-format.rst:336
-msgid ""
-"A wheel installer is not required to understand digital signatures but MUST "
-"verify the hashes in RECORD against the extracted file contents. When the "
-"installer checks file hashes against RECORD, a separate signature checker "
-"only needs to establish that RECORD matches the signature."
-msgstr ""
-"Instalilo de wheel ne devas kompreni ciferecan subskribon sed DEVAS kompari "
-"la haketaĵojn en ``RECORD`` al la enhavoj de la maldensigitaj dosieroj. Kiam "
-"instalilo komparas la dosierajn haketaĵojn kaj ``RECORD``, aparta subskribo-"
-"kontrolilo devas nur kontroli, ĉu ``RECORD`` kongruas kun la subskribo."
-
-#: ../source/specifications/binary-distribution-format.rst:341
-msgid "See"
-msgstr "Vidu"
-
-#: ../source/specifications/binary-distribution-format.rst:343
-msgid "https://datatracker.ietf.org/doc/html/rfc7515"
-msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
-
-#: ../source/specifications/binary-distribution-format.rst:344
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-msgstr ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-
-#: ../source/specifications/binary-distribution-format.rst:345
-msgid "https://datatracker.ietf.org/doc/html/rfc7517"
-msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
-
-#: ../source/specifications/binary-distribution-format.rst:346
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-msgstr ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-
-#: ../source/specifications/binary-distribution-format.rst:350
+#: ../source/specifications/binary-distribution-format.rst:303
 #: ../source/specifications/platform-compatibility-tags.rst:376
 msgid "FAQ"
 msgstr "Oftaj demandoj"
 
-#: ../source/specifications/binary-distribution-format.rst:354
+#: ../source/specifications/binary-distribution-format.rst:307
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr "Wheel difinas dosierujon .data.  Ĉu mi metu ĉiom da miaj datenoj tien?"
 
-#: ../source/specifications/binary-distribution-format.rst:356
+#: ../source/specifications/binary-distribution-format.rst:309
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -17229,62 +17141,11 @@ msgstr ""
 "``pkgutil.get_data(pako, risurso)``, eĉ se *tiuj* dosieroj ordinare ne "
 "distribuiĝas en la dosierujo ``.data`` de wheel."
 
-#: ../source/specifications/binary-distribution-format.rst:365
-msgid "Why does wheel include attached signatures?"
-msgstr "Kial wheel inkluzivas alkroĉitajn subskribojn?"
-
-#: ../source/specifications/binary-distribution-format.rst:367
-msgid ""
-"Attached signatures are more convenient than detached signatures because "
-"they travel with the archive.  Since only the individual files are signed, "
-"the archive can be recompressed without invalidating the signature or "
-"individual files can be verified without having to download the whole "
-"archive."
-msgstr ""
-"Alkroĉita subskribo estas pli oportuna ol nealkroĉita subskribo, ĉar ĝi "
-"moviĝas kune kun la arĥivo.  Ĉar nur la individuaj dosieroj estas "
-"subskribitaj, la arĥivo estas redensigebla sen eksvalidigi la subskribon, "
-"kaj individuaj dosieroj estas kontroleblaj sen reelŝutado de la tuta arĥivo."
-
-#: ../source/specifications/binary-distribution-format.rst:375
-msgid "Why does wheel allow JWS signatures?"
-msgstr "Kial wheel permesas JWS-subskribojn?"
-
-#: ../source/specifications/binary-distribution-format.rst:377
-msgid ""
-"The JOSE specifications of which JWS is a part are designed to be easy to "
-"implement, a feature that is also one of wheel's primary design goals.  JWS "
-"yields a useful, concise pure-Python implementation."
-msgstr ""
-"La normoj JOSE, de kiuj JWS estas parto, estas laŭfasone facile realigebla; "
-"tio estas ankaŭ unu el la fasonaj ĉefceloj de wheel.  JWS ebligas utilan, "
-"mallongan pure Python-an realigon."
-
-#: ../source/specifications/binary-distribution-format.rst:383
-msgid "Why does wheel also allow S/MIME signatures?"
-msgstr "Kial wheel ankaŭ permesas S/MIME-subskribojn?"
-
-#: ../source/specifications/binary-distribution-format.rst:385
-msgid ""
-"S/MIME signatures are allowed for users who need or want to use existing "
-"public key infrastructure with wheel."
-msgstr ""
-"S/MIME-subskribo estas permesata por tiuj uzantoj, kiuj devas aŭ volas uzi "
-"ekzistantan publikŝlosilan infrastrukturon kun wheel."
-
-#: ../source/specifications/binary-distribution-format.rst:388
-msgid ""
-"Signed packages are only a basic building block in a secure package update "
-"system.  Wheel only provides the building block."
-msgstr ""
-"Subskribita pako estas nur baza briko de sekura pako-ĝisdatiga sistemo.  "
-"Wheel nur provizas la bazan brikon."
-
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:318
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "Kio temas pri «purelib» kontraste kun «platlib»?"
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:320
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -17296,7 +17157,7 @@ msgstr ""
 "lib/pythonX.Y/site-packages» kaj platformo-dependajn pakojn al «/usr/lib64/"
 "pythonX.Y/site-packages»."
 
-#: ../source/specifications/binary-distribution-format.rst:400
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -17308,7 +17169,7 @@ msgstr ""
 "Purelib: true``» kun la samaj dosieroj en la radiko. Estas valide havi "
 "dosierojn en kaj «purelib» kaj «platlib»."
 
-#: ../source/specifications/binary-distribution-format.rst:405
+#: ../source/specifications/binary-distribution-format.rst:330
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -17318,11 +17179,11 @@ msgstr ""
 "estas pure Python-a aŭ ne, kaj tiaj dosieroj estu ĉe la radiko kun taŭgaj "
 "agordoj pri ``Root-is-purelib``."
 
-#: ../source/specifications/binary-distribution-format.rst:413
+#: ../source/specifications/binary-distribution-format.rst:338
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "Ĉu eblas importi Python-kodon rekte el wheel-dosiero?"
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:340
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -17331,7 +17192,7 @@ msgid ""
 "format design, actually relying on it is generally discouraged."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -17348,7 +17209,7 @@ msgstr ""
 "por reviziado kaj sekurigo, aŭ plena integrado kun la norma konstrumeĥanismo "
 "de C-etendaĵo per ĉapdosieroj en konvena loko)."
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:355
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -17378,7 +17239,7 @@ msgstr ""
 "ĝuste uzas la abstraktajn rimedajn API-ojn interne, interagado kun eksteraj "
 "komponantoj povas postuli realan surdiskan dosieron."
 
-#: ../source/specifications/binary-distribution-format.rst:447
+#: ../source/specifications/binary-distribution-format.rst:372
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -17387,7 +17248,7 @@ msgid ""
 "package before accepting it as a genuine bug."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:455
+#: ../source/specifications/binary-distribution-format.rst:380
 #: ../source/specifications/core-metadata.rst:1035
 #: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
@@ -17408,11 +17269,11 @@ msgstr ""
 msgid "History"
 msgstr "Historio"
 
-#: ../source/specifications/binary-distribution-format.rst:457
+#: ../source/specifications/binary-distribution-format.rst:382
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr "Februaro 2013: Ĉi tiu specifo estis aprobita per :pep:`427`."
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
@@ -17420,7 +17281,7 @@ msgstr ""
 "Februaro 2021: La reguloj pri kodŝanĝado en wheel-dosiernomoj estis "
 "reviziitaj konforme al la fakta konduto de popularaj iloj."
 
-#: ../source/specifications/binary-distribution-format.rst:460
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -17432,7 +17293,7 @@ msgstr ""
 "simbola ligilo aŭ subdosierujo en tiu dosierujo; tial kondutoj povas "
 "diferenci inter iloj)."
 
-#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/binary-distribution-format.rst:389
 #: ../source/specifications/recording-installed-packages.rst:288
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
@@ -17441,7 +17302,7 @@ msgstr ""
 "Decembro 2024: La dosierujo :file:`.dist-info/licenses/` estis specifita "
 "per :pep:`639`."
 
-#: ../source/specifications/binary-distribution-format.rst:466
+#: ../source/specifications/binary-distribution-format.rst:391
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for "
 "``.dist-info`` and ``.data`` directories."
@@ -17449,11 +17310,15 @@ msgstr ""
 "Januaro 2025: Klarigis, ke nomo kaj versio devas esti normigitaj por la "
 "dosierujoj ``.dist-info`` kaj ``.data``."
 
-#: ../source/specifications/binary-distribution-format.rst:471
+#: ../source/specifications/binary-distribution-format.rst:393
+msgid "January 2026: Deprecate RECORD.jws and RECORD.p7s :pep:`815`."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:397
 msgid "Appendix"
 msgstr "Apendico"
 
-#: ../source/specifications/binary-distribution-format.rst:473
+#: ../source/specifications/binary-distribution-format.rst:399
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "Ekzempla realigo de urlsafe-base64-nopad::"
 
@@ -33908,6 +33773,152 @@ msgstr ""
 "kaj estas **altnivelaĵo** (ne pridiskutata en ĉi tiu lernilo). Se vi estas "
 "komencanto pri Python-pakado, recomendate estas nur uzi *ordinarajn pakojn* "
 "kaj ``__init__.py`` (eĉ se tiu dosiero estas malplena)."
+
+#~ msgid ""
+#~ "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+#~ msgstr ""
+#~ "RECORD.jws estas uzataj por ciferecaj subskriboj.  Ĝi ne estas menciita "
+#~ "en RECORD."
+
+#~ msgid ""
+#~ "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/"
+#~ "MIME signatures to secure their wheel files.  It is not mentioned in "
+#~ "RECORD."
+#~ msgstr ""
+#~ "RECORD.p7s estas permesata por tiuj, kiuj preferas uzi S/MIME-subskribon "
+#~ "por sekurigi wheel-dosieron.  Ĝi ne menciiĝas en RECORD."
+
+#~ msgid "Signed wheel files"
+#~ msgstr "Subskribitaj wheel-dosieroj"
+
+#~ msgid ""
+#~ "Wheel files include an extended RECORD that enables digital signatures.  "
+#~ "PEP 376's RECORD is altered to include a secure hash "
+#~ "``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding "
+#~ "with no trailing = characters) as the second column instead of an "
+#~ "md5sum.  All possible entries are hashed, including any generated files "
+#~ "such as .pyc files, but not RECORD which cannot contain its own hash. For "
+#~ "example::"
+#~ msgstr ""
+#~ "Wheel-dosiero inkluzivas etenditan ``RECORD`` por ciferecaj subskriboj. "
+#~ "La ``RECORD`` de PEP 376 estas modifita por inkluzivi sekuran haketaĵon "
+#~ "``digestname=urlsafe_b64encode_nopad(digest)`` (URL-sekura base64-kodado "
+#~ "sen finaj signoj ``=``) kiel la duan kolumnon anstataŭ md5sum.  Ĉiaj "
+#~ "eblaj eroj havu haketaĵojn, inkluzive de generitaj dosieroj kiel ``.pyc``-"
+#~ "dosieroj, krom ``RECORD`` mem, kiu ne povas enhavi sian propran "
+#~ "haketaĵon. Ekzemple::"
+
+#~ msgid ""
+#~ "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in "
+#~ "RECORD at all since they can only be added after RECORD is generated. "
+#~ "Every other file in the archive must have a correct hash in RECORD or the "
+#~ "installation will fail."
+#~ msgstr ""
+#~ "La subskribo-dosiero(j) RECORD.jws kaj RECORD.p7s ne menciiĝas en RECORD, "
+#~ "ĉar ili estas nur aldoneblaj post la generado de RECORD. Ĉiu alia dosiero "
+#~ "en la arĥivo devas havi ĝustan haketaĵon en RECORD; se ne, la instalado "
+#~ "malsukcesos."
+
+#~ msgid ""
+#~ "If JSON web signatures are used, one or more JSON Web Signature JSON "
+#~ "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent "
+#~ "to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of "
+#~ "RECORD as the signature's JSON payload:"
+#~ msgstr ""
+#~ "Se oni uzas JSON-retsubskriboj (JWS), unu aŭ pluraj subskriboj uzantaj "
+#~ "JSON-seriigon de JSON-retsubskribo (JWS-JS) konserviĝas en dosiero "
+#~ "``RECORD.jws`` apud ``RECORD``. Oni uzas JWS por subskribi ``RECORD`` "
+#~ "inkluzivante la haketaĵon SHA-256 de ``RECORD`` kiel la JSON-ŝarĝon de la "
+#~ "subskribo:"
+
+#~ msgid "(The hash value is the same format used in RECORD.)"
+#~ msgstr "(La haketaĵa valoro estas la sama formo uzata en RECORD.)"
+
+#~ msgid ""
+#~ "If RECORD.p7s is used, it must contain a detached S/MIME format signature "
+#~ "of RECORD."
+#~ msgstr ""
+#~ "Se RECORD.p7s estas uzata, ĝi devas enhavi malligitan S/MIME-forman "
+#~ "subskribon de RECORD."
+
+#~ msgid ""
+#~ "A wheel installer is not required to understand digital signatures but "
+#~ "MUST verify the hashes in RECORD against the extracted file contents. "
+#~ "When the installer checks file hashes against RECORD, a separate "
+#~ "signature checker only needs to establish that RECORD matches the "
+#~ "signature."
+#~ msgstr ""
+#~ "Instalilo de wheel ne devas kompreni ciferecan subskribon sed DEVAS "
+#~ "kompari la haketaĵojn en ``RECORD`` al la enhavoj de la maldensigitaj "
+#~ "dosieroj. Kiam instalilo komparas la dosierajn haketaĵojn kaj ``RECORD``, "
+#~ "aparta subskribo-kontrolilo devas nur kontroli, ĉu ``RECORD`` kongruas "
+#~ "kun la subskribo."
+
+#~ msgid "See"
+#~ msgstr "Vidu"
+
+#~ msgid "https://datatracker.ietf.org/doc/html/rfc7515"
+#~ msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
+
+#~ msgid ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+#~ "serialization-01"
+#~ msgstr ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+#~ "serialization-01"
+
+#~ msgid "https://datatracker.ietf.org/doc/html/rfc7517"
+#~ msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
+
+#~ msgid ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
+#~ msgstr ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
+
+#~ msgid "Why does wheel include attached signatures?"
+#~ msgstr "Kial wheel inkluzivas alkroĉitajn subskribojn?"
+
+#~ msgid ""
+#~ "Attached signatures are more convenient than detached signatures because "
+#~ "they travel with the archive.  Since only the individual files are "
+#~ "signed, the archive can be recompressed without invalidating the "
+#~ "signature or individual files can be verified without having to download "
+#~ "the whole archive."
+#~ msgstr ""
+#~ "Alkroĉita subskribo estas pli oportuna ol nealkroĉita subskribo, ĉar ĝi "
+#~ "moviĝas kune kun la arĥivo.  Ĉar nur la individuaj dosieroj estas "
+#~ "subskribitaj, la arĥivo estas redensigebla sen eksvalidigi la subskribon, "
+#~ "kaj individuaj dosieroj estas kontroleblaj sen reelŝutado de la tuta "
+#~ "arĥivo."
+
+#~ msgid "Why does wheel allow JWS signatures?"
+#~ msgstr "Kial wheel permesas JWS-subskribojn?"
+
+#~ msgid ""
+#~ "The JOSE specifications of which JWS is a part are designed to be easy to "
+#~ "implement, a feature that is also one of wheel's primary design goals.  "
+#~ "JWS yields a useful, concise pure-Python implementation."
+#~ msgstr ""
+#~ "La normoj JOSE, de kiuj JWS estas parto, estas laŭfasone facile "
+#~ "realigebla; tio estas ankaŭ unu el la fasonaj ĉefceloj de wheel.  JWS "
+#~ "ebligas utilan, mallongan pure Python-an realigon."
+
+#~ msgid "Why does wheel also allow S/MIME signatures?"
+#~ msgstr "Kial wheel ankaŭ permesas S/MIME-subskribojn?"
+
+#~ msgid ""
+#~ "S/MIME signatures are allowed for users who need or want to use existing "
+#~ "public key infrastructure with wheel."
+#~ msgstr ""
+#~ "S/MIME-subskribo estas permesata por tiuj uzantoj, kiuj devas aŭ volas "
+#~ "uzi ekzistantan publikŝlosilan infrastrukturon kun wheel."
+
+#~ msgid ""
+#~ "Signed packages are only a basic building block in a secure package "
+#~ "update system.  Wheel only provides the building block."
+#~ msgstr ""
+#~ "Subskribita pako estas nur baza briko de sekura pako-ĝisdatiga sistemo.  "
+#~ "Wheel nur provizas la bazan brikon."
 
 #~ msgid "The license expressions for these projects are:"
 #~ msgstr "Jen la licenco-esprimoj por tiuj projektoj:"

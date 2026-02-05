@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-30 16:47+0000\n"
+"POT-Creation-Date: 2026-02-03 23:55+0000\n"
 "PO-Revision-Date: 2022-06-11 08:19+0000\n"
 "Last-Translator: Kushan Gunasekera <kushan.gunasekera@gmail.com>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -13240,86 +13240,82 @@ msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
 "hash of itself, must include its hash.  The hash algorithm must be sha256 or "
-"better; specifically, md5 and sha1 are not permitted, as signed wheel files "
-"rely on the strong hashes in RECORD to validate the integrity of the archive."
+"better; specifically, md5 and sha1 are not permitted."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:245
+#: ../source/specifications/binary-distribution-format.rst:244
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:246
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid ""
-"RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+"RECORD.jws and RECORD.p7s are deprecated.  Where they are still used, "
+"neither RECORD.jws nor RECORD.p7s are mentioned in RECORD. Build backends "
+"and other tools must not add them to wheels anymore, installers should be "
+"aware that these files may still be part of some wheels."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:248
-msgid ""
-"RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
-"signatures to secure their wheel files.  It is not mentioned in RECORD."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:251
+#: ../source/specifications/binary-distribution-format.rst:250
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
-"the file contents.  Apart from RECORD and its signatures, installation will "
-"fail if any file in the archive is not both mentioned and correctly hashed "
-"in RECORD."
+"the file contents.  Apart from RECORD, RECORD.jws and RECORD.p7s, "
+"installation will fail if any file in the archive is not both mentioned and "
+"correctly hashed in RECORD."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:257
+#: ../source/specifications/binary-distribution-format.rst:256
 msgid "Subdirectories in :file:`.dist-info/`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:259
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "Subdirectories under :file:`.dist-info/` are reserved for future use. The "
 "following subdirectory names under :file:`.dist-info/` are reserved for "
 "specific usage:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "Subdirectory name"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "PEP / Standard"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:264
 msgid "``licenses``"
 msgstr ""
 
+#: ../source/specifications/binary-distribution-format.rst:264
 #: ../source/specifications/binary-distribution-format.rst:265
-#: ../source/specifications/binary-distribution-format.rst:266
 msgid ":pep:`639`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:266
+#: ../source/specifications/binary-distribution-format.rst:265
 msgid "``license_files``"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 msgid "``LICENSES``"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 msgid "`REUSE licensing framework <https://reuse.software>`__"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid "``sboms``"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid ":pep:`770`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:272
+#: ../source/specifications/binary-distribution-format.rst:271
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:274
+#: ../source/specifications/binary-distribution-format.rst:273
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain "
@@ -13328,116 +13324,45 @@ msgid ""
 "paths relative to the :file:`licenses/` directory."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:281
+#: ../source/specifications/binary-distribution-format.rst:280
 msgid "The :file:`.dist-info/sboms/` directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:283
+#: ../source/specifications/binary-distribution-format.rst:282
 msgid ""
 "All files contained within the :file:`.dist-info/sboms/` directory MUST be "
 "Software Bill-of-Materials (SBOM) files that describe software contained "
 "within the distribution archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:288
+#: ../source/specifications/binary-distribution-format.rst:287
 msgid "The .data directory"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:290
+#: ../source/specifications/binary-distribution-format.rst:289
 msgid ""
 "Any file that is not normally installed inside site-packages goes into "
 "the .data directory, named as the .dist-info directory but with the .data/ "
 "extension::"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:298
+#: ../source/specifications/binary-distribution-format.rst:297
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
 "contents of these subdirectories are moved onto their destination paths."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:304
-msgid "Signed wheel files"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:306
-msgid ""
-"Wheel files include an extended RECORD that enables digital signatures.  PEP "
-"376's RECORD is altered to include a secure hash "
-"``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding with "
-"no trailing = characters) as the second column instead of an md5sum.  All "
-"possible entries are hashed, including any generated files such as .pyc "
-"files, but not RECORD which cannot contain its own hash. For example::"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:317
-msgid ""
-"The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
-"at all since they can only be added after RECORD is generated. Every other "
-"file in the archive must have a correct hash in RECORD or the installation "
-"will fail."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:322
-msgid ""
-"If JSON web signatures are used, one or more JSON Web Signature JSON "
-"Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
-"RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of RECORD "
-"as the signature's JSON payload:"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:331
-msgid "(The hash value is the same format used in RECORD.)"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:333
-msgid ""
-"If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
-"RECORD."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:336
-msgid ""
-"A wheel installer is not required to understand digital signatures but MUST "
-"verify the hashes in RECORD against the extracted file contents. When the "
-"installer checks file hashes against RECORD, a separate signature checker "
-"only needs to establish that RECORD matches the signature."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:341
-msgid "See"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:343
-msgid "https://datatracker.ietf.org/doc/html/rfc7515"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:344
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:345
-msgid "https://datatracker.ietf.org/doc/html/rfc7517"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:346
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:350
+#: ../source/specifications/binary-distribution-format.rst:303
 #: ../source/specifications/platform-compatibility-tags.rst:376
 msgid "FAQ"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:354
+#: ../source/specifications/binary-distribution-format.rst:307
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:356
+#: ../source/specifications/binary-distribution-format.rst:309
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -13447,51 +13372,11 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:365
-msgid "Why does wheel include attached signatures?"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:367
-msgid ""
-"Attached signatures are more convenient than detached signatures because "
-"they travel with the archive.  Since only the individual files are signed, "
-"the archive can be recompressed without invalidating the signature or "
-"individual files can be verified without having to download the whole "
-"archive."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:375
-msgid "Why does wheel allow JWS signatures?"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:377
-msgid ""
-"The JOSE specifications of which JWS is a part are designed to be easy to "
-"implement, a feature that is also one of wheel's primary design goals.  JWS "
-"yields a useful, concise pure-Python implementation."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:383
-msgid "Why does wheel also allow S/MIME signatures?"
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:385
-msgid ""
-"S/MIME signatures are allowed for users who need or want to use existing "
-"public key infrastructure with wheel."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:388
-msgid ""
-"Signed packages are only a basic building block in a secure package update "
-"system.  Wheel only provides the building block."
-msgstr ""
-
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:318
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:320
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -13499,7 +13384,7 @@ msgid ""
 "packages to '/usr/lib64/pythonX.Y/site-packages'."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:400
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -13507,18 +13392,18 @@ msgid ""
 "both the \"purelib\" and \"platlib\" categories."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:405
+#: ../source/specifications/binary-distribution-format.rst:330
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
 "the root with the appropriate setting given for \"Root-is-purelib\"."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:413
+#: ../source/specifications/binary-distribution-format.rst:338
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:340
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -13527,7 +13412,7 @@ msgid ""
 "format design, actually relying on it is generally discouraged."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -13538,7 +13423,7 @@ msgid ""
 "extensions by publishing header files in the appropriate place)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:355
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -13556,7 +13441,7 @@ msgid ""
 "components may still require the availability of an actual on-disk file."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:447
+#: ../source/specifications/binary-distribution-format.rst:372
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -13565,7 +13450,7 @@ msgid ""
 "package before accepting it as a genuine bug."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:455
+#: ../source/specifications/binary-distribution-format.rst:380
 #: ../source/specifications/core-metadata.rst:1035
 #: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
@@ -13586,17 +13471,17 @@ msgstr ""
 msgid "History"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:457
+#: ../source/specifications/binary-distribution-format.rst:382
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:460
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -13604,24 +13489,28 @@ msgid ""
 "may vary between tools)."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/binary-distribution-format.rst:389
 #: ../source/specifications/recording-installed-packages.rst:288
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
 "through :pep:`639`."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:466
+#: ../source/specifications/binary-distribution-format.rst:391
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for "
 "``.dist-info`` and ``.data`` directories."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:471
+#: ../source/specifications/binary-distribution-format.rst:393
+msgid "January 2026: Deprecate RECORD.jws and RECORD.p7s :pep:`815`."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:397
 msgid "Appendix"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:473
+#: ../source/specifications/binary-distribution-format.rst:399
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr ""
 
