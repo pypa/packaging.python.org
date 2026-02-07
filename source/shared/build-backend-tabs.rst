@@ -38,5 +38,5 @@
     .. code-block:: toml
 
         [build-system]
-        requires = ["uv_build >= 0.9.28, <0.10.0"]
+        requires = ["uv_build >= 0.10.0, <0.11.0"]
         build-backend = "uv_build"
