@@ -73,8 +73,8 @@ from which the latter is discouraged:
 
 .. note::
 
-    :term:`Native namespace <Native Namespace Package>` and
-    :term:`implicit namespace <Implicit Namespace Package>` packages are two
+    :term:`Native namespace packages <Native Namespace Package>` and
+    :term:`implicit namespace packages <Implicit Namespace Package>` are two
     names for the same thing. This guide uses these names interchangeably.
 
 Native namespace packages
