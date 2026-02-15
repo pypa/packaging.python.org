@@ -788,7 +788,7 @@ a suggestion):
    - Else if there are entries for :ref:`pylock-packages-wheels`:
 
      #. Look for the appropriate wheel file based on
-        :ref:`pylock-packages-wheels-name`; if one is not found then move on to
+        :ref:`pylock-packages-wheels-name`; if none is not found then move on to
         :ref:`pylock-packages-sdist` or an error MUST be raised about a
         lack of source for the project.
      #. Get the file:
