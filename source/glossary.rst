@@ -133,6 +133,9 @@ Glossary
 
         This guide uses these names interchangeably.
 
+        ..  seealso::
+            :ref:`native-namespace-packages`
+
     Import Package
 
         A Python module which can contain other modules or recursively, other
