@@ -71,6 +71,14 @@ from which the latter is discouraged:
 #. Use `legacy namespace packages`_. This comprises `pkgutil-style namespace packages`_
    and `pkg_resources-style namespace packages`_.
 
+.. note::
+
+    :term:`Native namespace packages <Native Namespace Package>` and
+    :term:`implicit namespace packages <Implicit Namespace Package>` are two
+    names for the same thing. This guide uses these names interchangeably.
+
+.. _native-namespace-packages:
+
 Native namespace packages
 -------------------------
 
@@ -159,8 +167,8 @@ Legacy namespace packages
 
 These two methods, that were used to create namespace packages prior to :pep:`420`,
 are now considered to be obsolete and should not be used unless you need compatibility
-with packages already using this method. Also, :doc:`pkg_resources <setuptools:pkg_resources>`
-has been deprecated.
+with packages already using this method. Also,
+:doc:`pkg_resources <setuptools:deprecated/pkg_resources>` has been deprecated.
 
 To migrate an existing package, all packages sharing the namespace must be migrated simultaneously.
 
