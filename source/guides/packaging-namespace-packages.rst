@@ -77,6 +77,8 @@ from which the latter is discouraged:
     :term:`implicit namespace packages <Implicit Namespace Package>` are two
     names for the same thing. This guide uses these names interchangeably.
 
+.. _native-namespace-packages:
+
 Native namespace packages
 -------------------------
 
