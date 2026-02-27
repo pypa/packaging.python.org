@@ -157,13 +157,6 @@ the `native namespace package example project`_.
 Legacy namespace packages
 -------------------------
 
-.. warning::
-
-    The information in this section is obsolete and is no longer functional
-    (as of Setuptools 82.0.0). It is only retained for historical reference.
-
-    ``pkg_resources`` has been deprecated and was fully removed in Setuptools 82.0.0.
-
 These two methods, that were used to create namespace packages prior to :pep:`420`,
 are now considered to be obsolete and should not be used unless you need compatibility
 with packages already using this method.
@@ -221,6 +214,13 @@ in the `pkgutil namespace example project`_.
 
 pkg_resources-style namespace packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. warning::
+
+    The information in this section is obsolete and is no longer functional
+    (as of Setuptools 82.0.0). It is only retained for historical reference.
+
+    ``pkg_resources`` has been deprecated and was fully removed in Setuptools 82.0.0.
 
 :doc:`Setuptools <setuptools:index>` previously provided the ``pkg_resources.declare_namespace`` function and
 the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together
