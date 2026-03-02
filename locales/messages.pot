@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 00:18+0000\n"
+"POT-Creation-Date: 2026-03-02 12:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5176,10 +5176,6 @@ msgstr ""
 msgid "This can be worked around by setting all dependencies in ``__main__.__requires__`` before importing ``pkg_resources`` for the first time, but that approach does mean that standard command line invocations of the affected tools can't be used - it's necessary to write a custom wrapper script or use ``python3 -c '<command>'`` to invoke the application's main entry point directly."
 msgstr ""
 
-#: ../source/guides/multi-version-installs.rst:41
-msgid "Refer to the `pkg_resources documentation <https://setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-objects>`__ for more details."
-msgstr ""
-
 #: ../source/guides/packaging-binary-extensions.rst:5
 msgid "Packaging binary extensions"
 msgstr ""
@@ -5589,69 +5585,73 @@ msgid "Legacy namespace packages"
 msgstr ""
 
 #: ../source/guides/packaging-namespace-packages.rst:160
-msgid "These two methods, that were used to create namespace packages prior to :pep:`420`, are now considered to be obsolete and should not be used unless you need compatibility with packages already using this method. Also, :doc:`pkg_resources <setuptools:pkg_resources>` has been deprecated."
+msgid "These two methods, that were used to create namespace packages prior to :pep:`420`, are now considered to be obsolete and should not be used unless you need compatibility with packages already using one of these methods."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:165
+#: ../source/guides/packaging-namespace-packages.rst:164
 msgid "To migrate an existing package, all packages sharing the namespace must be migrated simultaneously."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:167
+#: ../source/guides/packaging-namespace-packages.rst:166
 msgid "While native namespace packages and pkgutil-style namespace packages are largely compatible, pkg_resources-style namespace packages are not compatible with the other methods. It's inadvisable to use different methods in different distributions that provide packages to the same namespace."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:174
+#: ../source/guides/packaging-namespace-packages.rst:173
 msgid "pkgutil-style namespace packages"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:176
-msgid "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and the :py:func:`python:pkgutil.extend_path` function. This can be used to declare namespace packages that need to be compatible with both Python 2.3+ and Python 3. This is the recommended approach for the highest level of compatibility."
+#: ../source/guides/packaging-namespace-packages.rst:175
+msgid "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and the :py:func:`python:pkgutil.extend_path` function. This can be used to declare namespace packages that need to be compatible with both Python 2.3+ and Python 3. This was the recommended approach for the highest level of compatibility."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:181
+#: ../source/guides/packaging-namespace-packages.rst:180
 msgid "To create a pkgutil-style namespace package, you need to provide an :file:`__init__.py` file for the namespace package:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:195
-#: ../source/guides/packaging-namespace-packages.rst:242
+#: ../source/guides/packaging-namespace-packages.rst:194
+#: ../source/guides/packaging-namespace-packages.rst:249
 msgid "The :file:`__init__.py` file for the namespace package needs to contain the following:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:202
-#: ../source/guides/packaging-namespace-packages.rst:249
+#: ../source/guides/packaging-namespace-packages.rst:201
+#: ../source/guides/packaging-namespace-packages.rst:256
 msgid "**Every** distribution that uses the namespace package must include such an :file:`__init__.py`. If any distribution does not, it will cause the namespace logic to fail and the other sub-packages will not be importable.  Any additional code in :file:`__init__.py` will be inaccessible."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:207
+#: ../source/guides/packaging-namespace-packages.rst:206
 msgid "A complete working example of two pkgutil-style namespace packages can be found in the `pkgutil namespace example project`_."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:217
+#: ../source/guides/packaging-namespace-packages.rst:216
 msgid "pkg_resources-style namespace packages"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:219
-msgid ":doc:`Setuptools <setuptools:index>` provides the `pkg_resources.declare_namespace`_ function and the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together these can be used to declare namespace packages. While this approach is no longer recommended, it is widely present in most existing namespace packages. If you are creating a new distribution within an existing namespace package that uses this method then it's recommended to continue using this as the different methods are not cross-compatible and it's not advisable to try to migrate an existing package."
+#: ../source/guides/packaging-namespace-packages.rst:220
+msgid "The information in this section is obsolete and is no longer functional (as of Setuptools 82.0.0). It is only retained for historical reference."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:228
+#: ../source/guides/packaging-namespace-packages.rst:223
+msgid "``pkg_resources`` has been deprecated and was fully removed in Setuptools 82.0.0."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:225
+msgid ":doc:`Setuptools <setuptools:index>` previously provided the ``pkg_resources.declare_namespace`` function and the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together these could be used to declare namespace packages. While this approach is no longer supported, it may still be encountered in environments using older ``setuptools`` versions. If you are creating a new distribution within an existing namespace package that uses this method then it's recommended to continue using this as the different methods are not cross-compatible and it's not advisable to try to migrate an existing package."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:235
 msgid "To create a pkg_resources-style namespace package, you need to provide an :file:`__init__.py` file for the namespace package:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:254
+#: ../source/guides/packaging-namespace-packages.rst:261
 msgid "Some older recommendations advise the following in the namespace package :file:`__init__.py`:"
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:264
+#: ../source/guides/packaging-namespace-packages.rst:271
 msgid "The idea behind this was that in the rare case that setuptools isn't available packages would fall-back to the pkgutil-style packages. This isn't advisable because pkgutil and pkg_resources-style namespace packages are not cross-compatible. If the presence of setuptools is a concern then the package should just explicitly depend on setuptools via ``install_requires``."
 msgstr ""
 
-#: ../source/guides/packaging-namespace-packages.rst:271
+#: ../source/guides/packaging-namespace-packages.rst:278
 msgid "Finally, every distribution must provide the ``namespace_packages`` argument to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
-msgstr ""
-
-#: ../source/guides/packaging-namespace-packages.rst:285
-msgid "A complete working example of two pkg_resources-style namespace packages can be found in the `pkg_resources namespace example project`_."
 msgstr ""
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
