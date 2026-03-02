@@ -225,7 +225,8 @@ pkg_resources-style namespace packages
 :doc:`Setuptools <setuptools:index>` previously provided the ``pkg_resources.declare_namespace`` function and
 the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together
 these could be used to declare namespace packages. While this approach is no
-supported, it may still be encountered in environments using older ``setuptools`` versions.
+longer supported, it may still be encountered in environments using older
+``setuptools`` versions.
 If you are creating a new distribution within an existing namespace package that
 uses this method then it's recommended to continue using this as the different
 methods are not cross-compatible and it's not advisable to try to migrate an
