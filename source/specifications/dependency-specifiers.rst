@@ -248,12 +248,14 @@ The follow comparison operations are defined in the marker expression grammar:
 
 For ``String`` fields, ``==``, ``!=``, ``in``, and ``not in`` are defined as
 they are for Python strings (case sensitive, with no value normalization of any
-kind). The use of ``~=`` or ``===`` with string fields is
-explicitly discouraged, and publishing tools SHOULD emit an error, while locking
-and installation tools MAY instead interpret them as equivalent to ``==``. The
-use of ordered comparisons (``<``, ``<=``, ``>``, ``>=``) with string fields is
-explicitly discouraged (as it makes no semantic sense in the packaging context),
-and publishing tools SHOULD emit an error, while locking and installation tools
+kind). The use of ``~=`` or ``===`` with string fields is explicitly
+discouraged and publishing tools SHOULD emit an error, index servers MAY
+disallow uploads containing such environment markers, while locking and
+installation tools MAY instead interpret them as equivalent to ``==``. The use
+of ordered comparisons (``<``, ``<=``, ``>``, ``>=``) with string fields is
+explicitly discouraged (as it makes no semantic sense in the packaging context)
+and publishing tools SHOULD emit an error, index servers MAY disallow uploads
+containing such environment markers, while locking and installation tools
 SHOULD implement the following behavior:
 
 * treat ``>=`` and ``<=`` as equivalent to ``==``
@@ -261,7 +263,11 @@ SHOULD implement the following behavior:
 
 For ``Set of String`` fields, as there is no marker syntax for set literals,
 the only valid operations are ``in`` and ``not in`` comparisons with a user
-supplied string literal as the left operand.
+supplied string literal as the left operand. Publishing tools SHOULD emit an
+error if environment markers attempt to use any other comparison operations on
+these fields and index servers MAY disallow uploads containing such environment
+markers, while locking and installation tools SHOULD treat such operations as
+always being False.
 
 For ``Version`` fields, the comparison operations are defined by the
 :ref:`Version specifier specification <version-specifiers>` when either both
@@ -269,22 +275,27 @@ the marker field value and the user supplied constant can be parsed as valid
 version specifiers or the ``===`` arbitrary equivalence comparison operator
 is used. When an operator other than ``===`` is used, publishing tools SHOULD
 emit an error if the user supplied constant cannot be parsed as a valid version
-specifier, while locking and installation tools MAY either emit an error or else
+specifier, index servers MAY disallow uploads containing such environment
+markers, while locking and installation tools MAY either emit an error or else
 fall back to ``String`` field comparison logic if either the marker field value
 or the user supplied constant cannot be parsed as a valid version specifier.
 Note that ``in`` and ``not in`` containment checks are NOT valid for ``Version``
-fields and publishing tools SHOULD emit an error, while locking and installation
+fields and publishing tools SHOULD emit an error, index servers MAY disallow
+uploads containing such environment markers, while locking and installation
 tools MAY treat them as always being False.
 
 For ``Version | String`` fields, comparison operations are defined as they are
 for ``Version`` fields, while ``in`` and ``not in`` containment checks are
-defined as they are for ``String`` fields. However, there is no expectation
-that the parsing of the marker field value or the user supplied constant as a
-valid version will succeed, so tools MUST fall back to processing the field as
-a ``String`` field. Alternatively, tools MAY unconditionally treat such fields
-as ``String`` fields. Due to this potential for variation across clients,
-comparisons that rely on these fields being processed as ``Version`` fields
-SHOULD NOT be used in environment markers published to public index servers.
+defined as they are for ``String`` fields. However, there is no consistent
+cross-platform expectation that the parsing of the marker field value or the
+user supplied constant as a valid version will succeed, so tools SHOULD fall
+back to processing the field as a ``String`` field if parsing either value as a
+version fails. Tools MAY emit a warning if the field is expected to contain a
+valid version on a given platform but does not in fact do so. Tools SHOULD NOT
+unconditionally treat such fields as ``String`` fields, as doing so may give
+incorrect answers for environment markers that are appropriately scoped
+to the relevant platforms before performing a version based comparison.
+
 
 Composing marker expressions
 ''''''''''''''''''''''''''''
@@ -323,8 +334,13 @@ contain non-ASCII text that users wish to perform comparisons against.
 Unknown marker fields
 '''''''''''''''''''''
 
-References to unknown marker fields MUST raise an error rather than resulting
-in a comparison that evaluates to True or False.
+References to unknown marker fields SHOULD raise an error rather than resulting
+in a comparison that evaluates to True or False. This is so that attempted
+installations involving unknown marker fields result in a clear installation
+failure, rather than an apparently successful installation that then fails at
+runtime due to missing dependencies (if the unknown marker is treated as
+False) or a potentially cryptic installation failure of a dependency that is
+not valid for the current platform (if the unknown marker is treated as True)
 
 Variables whose value cannot be calculated on a given Python implementation
 should evaluate to ``0`` for ``Version`` fields, and an empty string for all
@@ -345,7 +361,7 @@ of the following marker fields:
    * - Marker
      - Python equivalent
      - Type
-     - Sample values
+     - Sample values & notes
    * - ``os_name``
      - :py:data:`os.name`
      - String
@@ -353,64 +369,75 @@ of the following marker fields:
    * - ``sys_platform``
      - :py:data:`sys.platform`
      - String
-     - ``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that "linux"
-       is from Python3 and "linux2" from Python2)
+     - ``linux``, ``win32``, ``darwin``, ``java1.8.0_51``
+       (note that this is the most well defined field for use when declaring
+       platform specific dependencies)
    * - ``platform_machine``
      - :py:func:`platform.machine()`
      - String
-     - ``x86_64``
+     - ``x86_64``, ``aarch64``, ``AMD64``, ``arm64``
+       (note that this value is provided by the operating system, so the same
+       CPU architecture may use different strings on different platforms)
    * - ``platform_python_implementation``
      - :py:func:`platform.python_implementation()`
      - String
-     - ``CPython``, ``Jython``
+     - ``CPython``, ``PyPy``, ``Jython``
    * - ``platform_release``
      - :py:func:`platform.release()`
      - Version | String
      - ``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``
+       (may be a valid version field, for example on macOS/darwin)
    * - ``platform_system``
      - :py:func:`platform.system()`
      - String
      - ``Linux``, ``Windows``, ``Java``
    * - ``platform_version``
      - :py:func:`platform.version()`
-     - String
+     - Version | String
      - ``#1 SMP Fri Apr 25 13:07:35 EDT 2014``
        ``Java HotSpot(TM) 64-Bit Server VM, 25.51-b03, Oracle Corporation``
        ``Darwin Kernel Version 14.5.0: Wed Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``
+       ``13``
+       (may be a valid version field, for example on iOS or Android)
    * - ``python_version``
      - ``'.'.join(platform.python_version_tuple()[:2])``
      - :ref:`Version <version-specifiers>`
-     - ``3.4``, ``2.7``
+     - ``3.9``, ``3.15``
    * - ``python_full_version``
      - :py:func:`platform.python_version()`
      - :ref:`Version <version-specifiers>`
-     - ``3.4.0``, ``3.5.0b1``
+     - ``3.10.12``, ``3.15.0a1``
    * - ``implementation_name``
      - :py:data:`sys.implementation.name <sys.implementation>`
      - String
-     - ``cpython``
+     - ``cpython``, ``pypy``
    * - ``implementation_version``
      - see definition below
      - :ref:`Version <version-specifiers>`
-     - ``3.4.0``, ``3.5.0b1``
+     - ``3.10.12``, ``7.3.17``
+       (examples are for CPython and PyPy respectively)
    * - ``extra``
      - Used to indicate optional dependencies in project dependency metadata.
        An error except when defined by the context interpreting the
-       specifier. Publishing tools SHOULD permit use of this field.
+       specifier.
      - Special (see below)
      - ``toml``
+       (publishing tools SHOULD permit use of this field)
    * - ``extras``
      - Used to indicate optional public dependencies in lock files. An error
        except when defined by the context interpreting the specifier.
-       Publishing tools SHOULD NOT permit use of this field.
      - Set of strings
      - ``{"toml"}``
+       (publishing tools SHOULD NOT permit use of this field and index servers
+       SHOULD NOT accept uploads containing such environment markers)
    * - ``dependency_groups``
      - Used to indicate optional project internal dependencies in lock files.
        An error except when defined by the context interpreting the
-       specifier. Publishing tools SHOULD NOT permit use of this field.
+       specifier.
      - Set of strings
      - ``{"test"}``
+       (publishing tools SHOULD NOT permit use of this field and index servers
+       SHOULD NOT accept uploads containing such environment markers)
 
 For backwards compatibility with older locking and installation tools, the
 ``extras`` and ``dependency_groups`` fields are currently only considered
@@ -426,13 +453,14 @@ predates the addition of ``Set of strings`` as a defined marker field type.
 Accordingly, for this field only, ``extra == "name"`` is equivalent to
 ``"name" in extras``, while ``extra != "name"`` is equivalent to
 ``"name" not in extras``. Other comparison operations on ``extra`` are not
-defined and publishing tools SHOULD emit an error, while locking and
-installation tools may evaluate them as False. Unlike the newer ``extras``
-field, this field SHOULD be accepted by both publishing tools and index
-servers. Marker evaluation environments intended for project dependency
-declarations will typically need to handle evaluation of ``extra`` field
-comparisons, while other evaluations of environment markers will not generally
-need to do so.
+defined and publishing tools SHOULD emit an error, index servers MAY disallow
+uploads containing such environment markers, while locking and
+installation tools SHOULD evaluate them as False. Unlike the newer ``extras``
+field, environment markers using this field SHOULD be accepted by both
+publishing tools and index servers. Marker evaluation environments intended
+for project dependency declarations will typically need to handle evaluation
+of ``extra`` field comparisons, while other evaluations of environment markers
+will not generally need to do so.
 
 The ``implementation_version`` marker variable is derived from
 :py:data:`sys.implementation.version <sys.implementation>`:
