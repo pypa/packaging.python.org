@@ -159,8 +159,7 @@ Legacy namespace packages
 
 These two methods, that were used to create namespace packages prior to :pep:`420`,
 are now considered to be obsolete and should not be used unless you need compatibility
-with packages already using this method. Also, :doc:`pkg_resources <setuptools:pkg_resources>`
-has been deprecated.
+with packages already using one of these methods.
 
 To migrate an existing package, all packages sharing the namespace must be migrated simultaneously.
 
@@ -176,7 +175,7 @@ pkgutil-style namespace packages
 Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and the
 :py:func:`python:pkgutil.extend_path` function. This can be used to declare namespace
 packages that need to be compatible with both Python 2.3+ and Python 3. This
-is the recommended approach for the highest level of compatibility.
+was the recommended approach for the highest level of compatibility.
 
 To create a pkgutil-style namespace package, you need to provide an
 :file:`__init__.py` file for the namespace package:
@@ -216,10 +215,18 @@ in the `pkgutil namespace example project`_.
 pkg_resources-style namespace packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:doc:`Setuptools <setuptools:index>` provides the `pkg_resources.declare_namespace`_ function and
+.. warning::
+
+    The information in this section is obsolete and is no longer functional
+    (as of Setuptools 82.0.0). It is only retained for historical reference.
+
+    ``pkg_resources`` has been deprecated and was fully removed in Setuptools 82.0.0.
+
+:doc:`Setuptools <setuptools:index>` previously provided the ``pkg_resources.declare_namespace`` function and
 the ``namespace_packages`` argument to :func:`~setuptools.setup`. Together
-these can be used to declare namespace packages. While this approach is no
-longer recommended, it is widely present in most existing namespace packages.
+these could be used to declare namespace packages. While this approach is no
+longer supported, it may still be encountered in environments using older
+``setuptools`` versions.
 If you are creating a new distribution within an existing namespace package that
 uses this method then it's recommended to continue using this as the different
 methods are not cross-compatible and it's not advisable to try to migrate an
@@ -281,11 +288,3 @@ to :func:`~setuptools.setup` in :file:`setup.py`. For example:
         packages=find_packages()
         namespace_packages=['mynamespace']
     )
-
-A complete working example of two pkg_resources-style namespace packages can be found
-in the `pkg_resources namespace example project`_.
-
-.. _pkg_resources.declare_namespace:
-    https://setuptools.readthedocs.io/en/latest/pkg_resources.html#namespace-package-support
-.. _pkg_resources namespace example project:
-    https://github.com/pypa/sample-namespace-packages/tree/master/pkg_resources
