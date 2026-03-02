@@ -605,8 +605,8 @@ and post-releases for minor corrections::
     1.0.dev2
     1.0.dev3
     1.0.dev4
-    1.0c1
-    1.0c2
+    1.0rc1
+    1.0rc2
     1.0
     1.0.post1
     1.1.dev1
