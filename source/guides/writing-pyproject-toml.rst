@@ -296,10 +296,10 @@ You can also specify the format explicitly, like this:
 ``license`` and ``license-files``
 ---------------------------------
 
-As per :pep:`639` licenses should be declared with two fields:
+As per :pep:`639`, licenses should be declared with two fields:
 
-- ``license`` is an :term:`SPDX license expression <License Expression>` consisting
-  of one or more :term:`license identifiers <License Identifier>`.
+- ``license`` is an :term:`SPDX license expression <License Expression>`
+  consisting of one or more :term:`license identifiers <License Identifier>`.
 - ``license-files`` is a list of license file glob patterns.
 
 A previous PEP had specified ``license`` to be a table with a ``file`` or a
@@ -350,10 +350,11 @@ As a general rule, it is a good idea to use a standard, well-known
 license, both to avoid confusion and because some organizations avoid software
 whose license is unapproved.
 
-If your project is licensed with a license that doesn't have an existing SPDX
-identifier, you can create a custom one in format ``LicenseRef-[idstring]``.
-The custom identifiers must follow the SPDX specification,
-`clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later compatible one.
+If your :term:`Distribution Archive` is licensed with a license that doesn't
+have an existing SPDX identifier, you can create a custom one in format
+``LicenseRef-[idstring]``. The custom identifiers must follow the SPDX
+specification, `clause 10.1 <spdxcustomids_>`_ of the version 2.2 or any later
+compatible one.
 
 .. code-block:: toml
 

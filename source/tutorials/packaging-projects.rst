@@ -220,7 +220,7 @@ following this tutorial.
   your package will work on. For a complete list of classifiers, see
   https://pypi.org/classifiers/.
 - ``license`` is the :term:`SPDX license expression <License Expression>` of
-  your package.
+  your :term:`Distribution Archive` files.
 - ``license-files`` is the list of glob paths to the license files,
   relative to the directory where :file:`pyproject.toml` is located.
 - ``urls`` lets you list any number of extra links to show on PyPI.
@@ -250,12 +250,12 @@ if you'd like.
 Creating a LICENSE
 ------------------
 
-It's important for every package uploaded to the Python Package Index to include
-a license. This tells users who install your package the terms under which they
-can use your package. For help picking a license, see
-https://choosealicense.com/. Once you have chosen a license, open
-:file:`LICENSE` and enter the license text. For example, if you had chosen the
-MIT license:
+It's important for every :term:`Distribution Archive` uploaded to the Python
+Package Index to include a license. This tells users who install your
+:term:`Distribution Archive` the terms under which they can use it. For help
+picking a license, see https://choosealicense.com/. Once you have chosen a
+license, open :file:`LICENSE` and enter the license text. For example, if you
+had chosen the MIT license:
 
 .. code-block:: text
 

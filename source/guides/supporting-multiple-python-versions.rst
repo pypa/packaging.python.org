@@ -62,7 +62,7 @@ of many continuous-integration systems. There are two hosted services which
 when used in conjunction provide automated testing across Linux, Mac and
 Windows:
 
-  - `Travis CI <https://travis-ci.org>`_ provides both a Linux and a macOS
+  - `Travis CI <https://travis-ci.com>`_ provides both a Linux and a macOS
     environment. The Linux environment is Ubuntu 12.04 LTS Server Edition 64 bit
     while the macOS is 10.9.2 at the time of writing.
   - `Appveyor <https://www.appveyor.com/>`_ provides a Windows environment
