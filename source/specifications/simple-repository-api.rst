@@ -477,16 +477,12 @@ The format of this URL is ``/<project>/`` where the ``<project>`` is replaced by
 name for that project, so a project named "Silly_Walk" would
 have a URL like ``/silly-walk/``.
 
-This URL must respond with a JSON encoded dictionary that has four keys:
+This URL must respond with a JSON encoded dictionary that has five keys:
 
 - ``name``: The normalized name of the project.
-- ``files``: A list of dictionaries, each one representing an individual file.
-- ``meta``: The general response metadata as `described earlier <json-serialization_>`__.
+- ``project-status``: An optional dictionary, containing the following:
 
-  In addition to the general response metadata, the project detail ``meta``
-  dictionary **MAY** also include the following:
-
-  - ``project-status``: If present, this **MUST** be a valid project status marker.
+  - ``status``: If present, this **MUST** be a valid project status marker.
 
     .. note::
 
@@ -495,15 +491,21 @@ This URL must respond with a JSON encoded dictionary that has four keys:
 
     .. note::
 
-      The ``project-status`` key was added with API version 1.4.
+      The ``status`` key was added with API version 1.4.
 
-  - ``project-status-reason``: If present, this **MUST** be an arbitrary string
-    description of the project status.
+  - ``reason``: If present, this **MUST** be an arbitrary string description
+    of the project status.
 
     .. note::
 
-      The ``project-status-reason`` key was added with API version 1.4.
+      The ``reason`` key was added with API version 1.4.
 
+  .. note::
+
+    The ``project-status`` key was added with API version 1.4.
+
+- ``files``: A list of dictionaries, each one representing an individual file.
+- ``meta``: The general response metadata as `described earlier <json-serialization_>`__.
 - ``versions``: A list of version strings specifying all of the project versions
   uploaded for this project. The value of ``versions`` is logically a set,
   and as such may not contain duplicates, and the order of the versions is
