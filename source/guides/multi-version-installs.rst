@@ -37,7 +37,3 @@ time, but that approach does mean that standard command line invocations of
 the affected tools can't be used - it's necessary to write a custom
 wrapper script or use ``python3 -c '<command>'`` to invoke the application's
 main entry point directly.
-
-Refer to the `pkg_resources documentation
-<https://setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-objects>`__
-for more details.
