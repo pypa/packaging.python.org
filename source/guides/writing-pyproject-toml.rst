@@ -413,6 +413,7 @@ A list of PyPI classifiers that apply to your project. Check the
 
 .. code-block:: toml
 
+    [project]
     classifiers = [
       # How mature is this project? Common values are
       #   3 - Alpha
