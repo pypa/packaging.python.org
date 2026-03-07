@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 00:18+0000\n"
+"POT-Creation-Date: 2026-03-02 12:22+0000\n"
 "PO-Revision-Date: 2025-07-19 06:36+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3175,7 +3175,9 @@ msgid "A simple version with just one component: ``42``"
 msgstr "ஒரு கூறு கொண்ட எளிய பதிப்பு: `` 42``"
 
 #: ../source/discussions/versioning.rst:30
-msgid "A version with an epoch: ``1!1.0``"
+#, fuzzy
+#| msgid "A version with an epoch: ``1!1.0``"
+msgid "A version with an epoch (discouraged): ``1!1.0``"
 msgstr "ஒரு சகாப்தத்துடன் ஒரு பதிப்பு: `` 1! 1.0``"
 
 #: ../source/discussions/versioning.rst:32
@@ -3217,14 +3219,25 @@ msgstr ""
 "மூன்றாவது கூறுகளை அதிகரிக்கும்)."
 
 #: ../source/discussions/versioning.rst:49
+#, fuzzy
+#| msgid ""
+#| "Finally, epochs, a rarely used feature, serve to fix the sorting order "
+#| "when changing the versioning scheme. For example, if a project is using "
+#| "calendar versioning, with versions like 23.12, and switches to semantic "
+#| "versioning, with versions like 1.0, the comparison between 1.0 and 23.12 "
+#| "will go the wrong way. To correct this, the new version numbers should "
+#| "have an explicit epoch, as in \"1!1.0\", in order to be treated as more "
+#| "recent than the old version numbers."
 msgid ""
-"Finally, epochs, a rarely used feature, serve to fix the sorting order when "
-"changing the versioning scheme. For example, if a project is using calendar "
-"versioning, with versions like 23.12, and switches to semantic versioning, "
-"with versions like 1.0, the comparison between 1.0 and 23.12 will go the "
-"wrong way. To correct this, the new version numbers should have an explicit "
-"epoch, as in \"1!1.0\", in order to be treated as more recent than the old "
-"version numbers."
+"Finally, epochs were intended to fix the sorting order when changing the "
+"versioning scheme. For example, if a project was using calendar versioning, "
+"with versions like ``23.12``, and switched to semantic versioning, with "
+"versions like ``1.0``, the comparison between ``1.0`` and ``23.12`` would go "
+"the wrong way. To correct this, the new version numbers would have an "
+"explicit epoch, as in ``1!1.0``, in order to be treated as more recent than "
+"the old version numbers. However, this is discouraged, and it is preferable "
+"to use a higher version number that is unlikely to cause user confusion, "
+"such as ``100.0``."
 msgstr ""
 "இறுதியாக, பதிப்புத் திட்டத்தை மாற்றும்போது வரிசையாக்க வரிசையை சரிசெய்ய, அரிதாகப் "
 "பயன்படுத்தப்படும் அம்சமான சகாப்தங்கள். எடுத்துக்காட்டாக, ஒரு திட்டம் 23.12 போன்ற "
@@ -3234,11 +3247,11 @@ msgstr ""
 "\"1! 1.0\" இல் உள்ளதைப் போல புதிய பதிப்பு எண்கள் வெளிப்படையான சகாப்தத்தைக் கொண்டிருக்க "
 "வேண்டும்."
 
-#: ../source/discussions/versioning.rst:59
+#: ../source/discussions/versioning.rst:60
 msgid "Semantic versioning vs. calendar versioning"
 msgstr "சொற்பொருள் பதிப்பு எதிராக காலண்டர் பதிப்பு"
 
-#: ../source/discussions/versioning.rst:61
+#: ../source/discussions/versioning.rst:62
 msgid ""
 "A versioning scheme is a formalized way to interpret the segments of a "
 "version number, and to decide which should be the next version number for a "
@@ -3250,7 +3263,7 @@ msgstr ""
 "வழியாகும். பைதான் தொகுப்புகள், சொற்பொருள் பதிப்பு மற்றும் காலண்டர் பதிப்பிற்கு இரண்டு "
 "பதிப்பு திட்டங்கள் பொதுவாகப் பயன்படுத்தப்படுகின்றன."
 
-#: ../source/discussions/versioning.rst:68
+#: ../source/discussions/versioning.rst:69
 msgid ""
 "The decision which version number to choose is up to a project's maintainer. "
 "This effectively means that version bumps reflect the maintainer's view. "
@@ -3262,7 +3275,7 @@ msgstr ""
 "முறைப்படுத்தப்பட்ட பதிப்பு திட்டம் அவர்களுக்கு உறுதியளிக்கிறது என்ற இறுதி பயனர்களின் "
 "பார்வையில் இருந்து அந்த பார்வை வேறுபடலாம்."
 
-#: ../source/discussions/versioning.rst:74
+#: ../source/discussions/versioning.rst:75
 #, fuzzy
 #| msgid ""
 #| "There are known exceptions for selecting the next version number. The "
@@ -3283,12 +3296,12 @@ msgstr ""
 "ஒரு வழக்கு. பாதுகாப்பு வெளியீடுகள் பெரும்பாலும் ஒட்டு பதிப்புகளில் வருகின்றன, ஆனால் "
 "தவிர்க்க முடியாமல் மாற்றங்களை உடைக்கும்."
 
-#: ../source/discussions/versioning.rst:84
-#: ../source/specifications/version-specifiers.rst:726
+#: ../source/discussions/versioning.rst:85
+#: ../source/specifications/version-specifiers.rst:741
 msgid "Semantic versioning"
 msgstr "சொற்பொருள் பதிப்பு"
 
-#: ../source/discussions/versioning.rst:86
+#: ../source/discussions/versioning.rst:87
 msgid ""
 "The idea of *semantic versioning* (or SemVer) is to use 3-part version "
 "numbers, *major.minor.patch*, where the project author increments:"
@@ -3296,20 +3309,20 @@ msgstr ""
 "*சொற்பொருள் பதிப்பு *(அல்லது செம்வர்) இன் சிந்தனை 3-பகுதி பதிப்பு எண்களைப் "
 "பயன்படுத்துவதாகும், *mater.minor.patch *, அங்கு திட்ட ஆசிரியர் அதிகரிக்கும்:"
 
-#: ../source/discussions/versioning.rst:89
+#: ../source/discussions/versioning.rst:90
 msgid "*major* when they make incompatible API changes,"
 msgstr "* மேசர்* அவர்கள் பொருந்தாத பநிஇ மாற்றங்களைச் செய்யும்போது,"
 
-#: ../source/discussions/versioning.rst:90
+#: ../source/discussions/versioning.rst:91
 msgid ""
 "*minor* when they add functionality in a backwards-compatible manner, and"
 msgstr "* சிறிய* அவை பின்னோக்கி-இணக்கமான முறையில் செயல்பாட்டைச் சேர்க்கும்போது, மற்றும்"
 
-#: ../source/discussions/versioning.rst:91
+#: ../source/discussions/versioning.rst:92
 msgid "*patch*, when they make backwards-compatible bug fixes."
 msgstr "*பேட்ச்*, அவை பின்னோக்கி-இணக்கமான பிழை திருத்தங்களைச் செய்யும்போது."
 
-#: ../source/discussions/versioning.rst:93
+#: ../source/discussions/versioning.rst:94
 msgid ""
 "A majority of Python projects use a scheme that resembles semantic "
 "versioning. However, most projects, especially larger ones, do not strictly "
@@ -3329,7 +3342,7 @@ msgstr ""
 "முக்கிய பதிப்பு எண்ணின் ஒரு பம்ப் சில நேரங்களில் குறிப்பிடத்தக்க ஆனால் பின்னோக்கி-இணக்கமான "
 "புதிய அம்சங்களை சமிக்ஞை செய்யப் பயன்படுகிறது."
 
-#: ../source/discussions/versioning.rst:103
+#: ../source/discussions/versioning.rst:104
 msgid ""
 "For those projects that do use strict semantic versioning, this approach "
 "allows users to make use of :ref:`compatible release version specifiers "
@@ -3349,7 +3362,7 @@ msgstr ""
 "== x.y.*``, அதாவது, அதற்கு குறைந்தபட்சம் x.y.z தேவைப்படுகிறது மற்றும் அதே ஃச் மற்றும் "
 "ஒய் உடன் பின்னர் வெளியீட்டை அனுமதிக்கிறது."
 
-#: ../source/discussions/versioning.rst:112
+#: ../source/discussions/versioning.rst:113
 msgid ""
 "Python projects adopting semantic versioning should abide by clauses 1-8 of "
 "the `Semantic Versioning 2.0.0 specification <semver_>`_."
@@ -3357,7 +3370,7 @@ msgstr ""
 "சொற்பொருள் பதிப்பைப் பின்பற்றும் பைதான் திட்டங்கள் `சொற்பொருள் பதிப்பு 2.0.0 விவரக்குறிப்பு "
 "<செம்வர்_>` _ `_ ஆகியவற்றின் 1-8 உட்பிரிவுகளுக்கு கட்டுப்பட வேண்டும்."
 
-#: ../source/discussions/versioning.rst:115
+#: ../source/discussions/versioning.rst:116
 msgid ""
 "The popular :doc:`Sphinx <sphinx:index>` documentation generator is an "
 "example project that uses strict semantic versioning (:doc:`Sphinx "
@@ -3375,11 +3388,11 @@ msgstr ""
 "இணக்கமான பநிஇ மாற்றங்களைக் கொண்டிருக்கலாம் (: டாக்: `நம்பி பதிப்பு கொள்கை <நம்பி: தேவ்/ "
 "_ON_NUMPY> `)."
 
-#: ../source/discussions/versioning.rst:124
+#: ../source/discussions/versioning.rst:125
 msgid "Calendar versioning"
 msgstr "காலண்டர் பதிப்பு"
 
-#: ../source/discussions/versioning.rst:126
+#: ../source/discussions/versioning.rst:127
 #, fuzzy
 #| msgid ""
 #| "Semantic versioning is not a suitable choice for all projects, such as "
@@ -3395,7 +3408,7 @@ msgstr ""
 "அடிப்படையிலான வெளியீட்டு கேடென்ச் மற்றும் ஒரு மதிப்பிழப்பு செயல்முறை போன்ற அனைத்து "
 "திட்டங்களுக்கும் சொற்பொருள் பதிப்பு பொருத்தமான தேர்வாக இல்லை."
 
-#: ../source/discussions/versioning.rst:130
+#: ../source/discussions/versioning.rst:131
 msgid ""
 "A key advantage of date-based versioning, or `calendar versioning "
 "<calver_>`_ (CalVer), is that it is straightforward to tell how old the base "
@@ -3405,7 +3418,7 @@ msgstr ""
 "(கால்வர்), ஒரு குறிப்பிட்ட வெளியீட்டின் அடிப்படை அம்சத் தொகுப்பிற்கு பதிப்பு எண்ணை எவ்வளவு "
 "பழையதாகக் கூறுவது நேரடியானது."
 
-#: ../source/discussions/versioning.rst:134
+#: ../source/discussions/versioning.rst:135
 msgid ""
 "Calendar version numbers typically take the form *year.month* (for example, "
 "23.12 for December 2023)."
@@ -3413,7 +3426,7 @@ msgstr ""
 "காலண்டர் பதிப்பு எண்கள் பொதுவாக * year.month * படிவத்தை எடுக்கும் (எடுத்துக்காட்டாக, "
 "டிசம்பர் 2023 க்கு 23.12)."
 
-#: ../source/discussions/versioning.rst:137
+#: ../source/discussions/versioning.rst:138
 msgid ""
 ":doc:`Pip <pip:index>`, the standard Python package installer, uses calendar "
 "versioning."
@@ -3421,11 +3434,11 @@ msgstr ""
 ": டாக்: `பிப் <பிப்: இன்டெக்ச்>`, நிலையான பைதான் தொகுப்பு நிறுவி, காலண்டர் பதிப்பைப் "
 "பயன்படுத்துகிறது."
 
-#: ../source/discussions/versioning.rst:142
+#: ../source/discussions/versioning.rst:143
 msgid "Other schemes"
 msgstr "பிற திட்டங்கள்"
 
-#: ../source/discussions/versioning.rst:144
+#: ../source/discussions/versioning.rst:145
 msgid ""
 "Serial versioning refers to the simplest possible versioning scheme, which "
 "consists of a single number incremented every release. While serial "
@@ -3439,7 +3452,7 @@ msgstr ""
 "பதிப்பு எண்கள் பநிஇ பின்னோக்கி பொருந்தக்கூடிய தன்மை குறித்து சிறிய அல்லது எந்த தகவலையும் "
 "தெரிவிக்கின்றன."
 
-#: ../source/discussions/versioning.rst:150
+#: ../source/discussions/versioning.rst:151
 #, fuzzy
 #| msgid ""
 #| "Combinations of the above schemes are possible. For example, a project "
@@ -3459,12 +3472,12 @@ msgstr ""
 "தோராயமான வயதை உடனடியாக வெளிப்படுத்தும், ஆனால் ஆண்டுக்குள் ஒரு குறிப்பிட்ட வெளியீட்டு "
 "கேடென்சுக்கு உறுதியளிக்கவில்லை."
 
-#: ../source/discussions/versioning.rst:157
+#: ../source/discussions/versioning.rst:158
 #: ../source/specifications/version-specifiers.rst:114
 msgid "Local version identifiers"
 msgstr "உள்ளக பதிப்பு அடையாளங்காட்டிகள்"
 
-#: ../source/discussions/versioning.rst:159
+#: ../source/discussions/versioning.rst:160
 msgid ""
 "Public version identifiers are designed to support distribution "
 "via :term:`PyPI <Python Package Index (PyPI)>`. Python packaging tools also "
@@ -3479,7 +3492,7 @@ msgstr ""
 "இது வெளியீட்டிற்காக அல்ல, அல்லது மறுவிநியோகத்தால் பராமரிக்கப்படும் வெளியீட்டின் "
 "மாற்றியமைக்கப்பட்ட மாறுபாடுகளை அடையாளம் காண பயன்படுத்தலாம்."
 
-#: ../source/discussions/versioning.rst:165
+#: ../source/discussions/versioning.rst:166
 msgid ""
 "A local version identifier takes the form of a public version identifier, "
 "followed by \"+\" and a local version label. For example, a package with "
@@ -3500,11 +3513,11 @@ msgstr ""
 "\"0.5.DEV1+GD00980F.D2021217\" போன்ற மாற்றங்கள் கட்டுப்படுத்தப்படாத மாற்றங்களைக் "
 "கொண்டிருந்தால்."
 
-#: ../source/discussions/versioning.rst:177
+#: ../source/discussions/versioning.rst:178
 msgid "Accessing version information at runtime"
 msgstr "இயக்க நேரத்தில் பதிப்பு தகவல்களை அணுகும்"
 
-#: ../source/discussions/versioning.rst:179
+#: ../source/discussions/versioning.rst:180
 msgid ""
 "Version information for all :term:`distribution packages <Distribution "
 "Package>` that are locally available in the current environment can be "
@@ -3515,7 +3528,7 @@ msgstr ""
 "சூழலில் உள்ளூரில் கிடைக்கக்கூடியவை நிலையான நூலகத்தைப் பயன்படுத்தி இயக்க நேரத்தில் "
 "பெறலாம்: FUNC: `importlib.metadata.version` செயல்பாடு ::"
 
-#: ../source/discussions/versioning.rst:186
+#: ../source/discussions/versioning.rst:187
 msgid ""
 "Many projects also choose to version their top level :term:`import packages "
 "<Import Package>` by providing a package level ``__version__`` attribute::"
@@ -3524,7 +3537,7 @@ msgstr ""
 "தொகுப்புகளை <இறக்குமதி தொகுப்பு>` ஒரு தொகுப்பு நிலையை வழங்குவதன் மூலம் "
 "`__version__`` பண்புக்கூறு ::"
 
-#: ../source/discussions/versioning.rst:194
+#: ../source/discussions/versioning.rst:195
 msgid ""
 "This technique can be particularly valuable for CLI applications which want "
 "to ensure that version query invocations (such as ``pip -V``) run as quickly "
@@ -3534,7 +3547,7 @@ msgstr ""
 "வினவல் அழைப்பிதழ்கள் (`` பிப் -வி`` போன்றவை) முடிந்தவரை விரைவாக இயங்குவதை உறுதிசெய்ய "
 "விரும்புகின்றன."
 
-#: ../source/discussions/versioning.rst:198
+#: ../source/discussions/versioning.rst:199
 msgid ""
 "Package publishers wishing to ensure their reported distribution package and "
 "import package versions are consistent with each other can review "
@@ -3546,7 +3559,7 @@ msgstr ""
 "மறுபரிசீலனை செய்யலாம்: Ref: `ஒற்றை-மூல-பதிப்பு` அவ்வாறு செய்வதற்கான சாத்தியமான "
 "அணுகுமுறைகளுக்கு விவாதம்."
 
-#: ../source/discussions/versioning.rst:202
+#: ../source/discussions/versioning.rst:203
 msgid ""
 "As import packages and modules are not *required* to publish runtime version "
 "information in this way (see the withdrawn proposal in :pep:`PEP 396 "
@@ -3562,7 +3575,7 @@ msgstr ""
 "ஒன்றின் பதிப்பு போன்றவை), இல்லையெனில் வினவல் குறியீடு பண்புக்கூறு காணாமல் போன வழக்கைக் "
 "கையாள வடிவமைக்கப்பட வேண்டும் [#குறைவுக்கு-தூரத்திற்கு -்வெர்சன்] _."
 
-#: ../source/discussions/versioning.rst:210
+#: ../source/discussions/versioning.rst:211
 msgid ""
 "Some projects may need to publish version information for external APIs that "
 "aren't the version of the module itself. Such projects should define their "
@@ -3576,7 +3589,7 @@ msgstr ""
 "நிலையான நூலகத்தின்: MOD: `SSL` தொகுதி அடிப்படை OpenSSL நூலக பதிப்பை அணுக பல "
 "வழிகளை வழங்குகிறது ::"
 
-#: ../source/discussions/versioning.rst:225
+#: ../source/discussions/versioning.rst:226
 msgid ""
 "Some more examples of unusual version numbers are given in a `blog post "
 "<versions-seth-larson_>`_ by Seth Larson."
@@ -3584,7 +3597,7 @@ msgstr ""
 "அசாதாரண பதிப்பு எண்களின் இன்னும் சில எடுத்துக்காட்டுகள் `வலைப்பதிவு இடுகை <பதிப்புகள்-"
 "செத்-லார்சன்_>` _ சேத் லார்சனால் கொடுக்கப்பட்டுள்ளன."
 
-#: ../source/discussions/versioning.rst:228
+#: ../source/discussions/versioning.rst:229
 msgid ""
 "For some personal viewpoints on this issue, see these blog posts: `by Hynek "
 "Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft <semver-donald-"
@@ -3596,7 +3609,7 @@ msgstr ""
 "`பெர்னட் கோபர் <செம்வெர்-வெர்னட்- gabor_> `_,` பிரட் கேனன் <semver-brett-cannon_> `_. "
 "நகைச்சுவையான எடுத்துக்கொள்ள, Zerover_ பற்றி படியுங்கள்."
 
-#: ../source/discussions/versioning.rst:234
+#: ../source/discussions/versioning.rst:235
 msgid ""
 "A full list mapping the top level names available for import to the "
 "distribution packages that provide those import packages and modules may be "
@@ -4953,7 +4966,7 @@ msgstr "விவரம்"
 #: ../source/specifications/dependency-groups.rst:23
 #: ../source/specifications/dependency-specifiers.rst:29
 #: ../source/specifications/direct-url-data-structure.rst:242
-#: ../source/specifications/version-specifiers.rst:1073
+#: ../source/specifications/version-specifiers.rst:1088
 msgid "Examples"
 msgstr "எடுத்துக்காட்டுகள்"
 
@@ -9700,14 +9713,6 @@ msgstr ""
 "முதன்மையான நுழைவு புள்ளியை நேரடியாக அழைக்க `` பைதான் 3 -c '<compround>' `` "
 "பயன்படுத்த வேண்டும்."
 
-#: ../source/guides/multi-version-installs.rst:41
-msgid ""
-"Refer to the `pkg_resources documentation <https://setuptools.readthedocs.io/"
-"en/latest/pkg_resources.html#workingset-objects>`__ for more details."
-msgstr ""
-"மேலும் விவரங்களுக்கு `pkg_resources ஆவணங்கள் <https://setuptools.readthedocs.io/"
-"en/latest/pkg_resources.html#owml#owml#workingset-objects ஐப் பார்க்கவும்."
-
 #: ../source/guides/packaging-binary-extensions.rst:5
 msgid "Packaging binary extensions"
 msgstr "பேக்கேசிங் பைனரி நீட்டிப்புகள்"
@@ -10682,18 +10687,24 @@ msgid "Legacy namespace packages"
 msgstr "மரபு பெயர்வெளி தொகுப்புகள்"
 
 #: ../source/guides/packaging-namespace-packages.rst:160
+#, fuzzy
+#| msgid ""
+#| "These two methods, that were used to create namespace packages prior "
+#| "to :pep:`420`, are now considered to be obsolete and should not be used "
+#| "unless you need compatibility with packages already using this method. "
+#| "Also, :doc:`pkg_resources <setuptools:pkg_resources>` has been deprecated."
 msgid ""
 "These two methods, that were used to create namespace packages prior "
 "to :pep:`420`, are now considered to be obsolete and should not be used "
-"unless you need compatibility with packages already using this method. "
-"Also, :doc:`pkg_resources <setuptools:pkg_resources>` has been deprecated."
+"unless you need compatibility with packages already using one of these "
+"methods."
 msgstr ""
 "இதற்கு முன்னர் பெயர்வெளி தொகுப்புகளை உருவாக்கப் பயன்படுத்தப்பட்ட இந்த இரண்டு முறைகள்: PEP: "
 "`420`, இப்போது வழக்கற்றுப் போய்விட்டதாகக் கருதப்படுகின்றன, மேலும் இந்த முறையைப் "
 "பயன்படுத்தும் தொகுப்புகளுடன் உங்களுக்கு பொருந்தக்கூடிய தன்மை தேவைப்பட்டால் "
 "பயன்படுத்தப்படக்கூடாது. மேலும், டிஓசி: `பி.கே."
 
-#: ../source/guides/packaging-namespace-packages.rst:165
+#: ../source/guides/packaging-namespace-packages.rst:164
 msgid ""
 "To migrate an existing package, all packages sharing the namespace must be "
 "migrated simultaneously."
@@ -10701,7 +10712,7 @@ msgstr ""
 "ஏற்கனவே உள்ள தொகுப்பை இடம்பெயர, பெயர்வெளியைப் பகிரும் அனைத்து தொகுப்புகளும் ஒரே "
 "நேரத்தில் இடம்பெயர வேண்டும்."
 
-#: ../source/guides/packaging-namespace-packages.rst:167
+#: ../source/guides/packaging-namespace-packages.rst:166
 msgid ""
 "While native namespace packages and pkgutil-style namespace packages are "
 "largely compatible, pkg_resources-style namespace packages are not "
@@ -10713,16 +10724,23 @@ msgstr ""
 "பொருந்தாது. ஒரே பெயர்வெளிக்கு தொகுப்புகளை வழங்கும் வெவ்வேறு விநியோகங்களில் வெவ்வேறு "
 "முறைகளைப் பயன்படுத்துவது தவிர்க்க முடியாதது."
 
-#: ../source/guides/packaging-namespace-packages.rst:174
+#: ../source/guides/packaging-namespace-packages.rst:173
 msgid "pkgutil-style namespace packages"
 msgstr "Pkgutil- பாணி பெயர்வெளி தொகுப்புகள்"
 
-#: ../source/guides/packaging-namespace-packages.rst:176
+#: ../source/guides/packaging-namespace-packages.rst:175
+#, fuzzy
+#| msgid ""
+#| "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module "
+#| "and the :py:func:`python:pkgutil.extend_path` function. This can be used "
+#| "to declare namespace packages that need to be compatible with both Python "
+#| "2.3+ and Python 3. This is the recommended approach for the highest level "
+#| "of compatibility."
 msgid ""
 "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and "
 "the :py:func:`python:pkgutil.extend_path` function. This can be used to "
 "declare namespace packages that need to be compatible with both Python 2.3+ "
-"and Python 3. This is the recommended approach for the highest level of "
+"and Python 3. This was the recommended approach for the highest level of "
 "compatibility."
 msgstr ""
 "பைதான் 2.3 அறிமுகப்படுத்தியது: டாக்: `pkgutil <python: நூலகம்/pkgutil>` தொகுதி "
@@ -10731,7 +10749,7 @@ msgstr ""
 "பயன்படுத்தலாம். இது மிக உயர்ந்த பொருந்தக்கூடிய அளவிற்கு பரிந்துரைக்கப்பட்ட "
 "அணுகுமுறையாகும்."
 
-#: ../source/guides/packaging-namespace-packages.rst:181
+#: ../source/guides/packaging-namespace-packages.rst:180
 msgid ""
 "To create a pkgutil-style namespace package, you need to provide "
 "an :file:`__init__.py` file for the namespace package:"
@@ -10739,8 +10757,8 @@ msgstr ""
 "ஒரு pkgutil- பாணி பெயர்வெளி தொகுப்பை உருவாக்க, நீங்கள் ஒரு: கோப்பு: `__init __. "
 "பெயர்வெளி தொகுப்புக்கான கோப்பு:"
 
-#: ../source/guides/packaging-namespace-packages.rst:195
-#: ../source/guides/packaging-namespace-packages.rst:242
+#: ../source/guides/packaging-namespace-packages.rst:194
+#: ../source/guides/packaging-namespace-packages.rst:249
 msgid ""
 "The :file:`__init__.py` file for the namespace package needs to contain the "
 "following:"
@@ -10748,8 +10766,8 @@ msgstr ""
 "தி: கோப்பு: `__init __. பெயர்வெளி தொகுப்புக்கான கோப்பு பின்வருவனவற்றைக் கொண்டிருக்க "
 "வேண்டும்:"
 
-#: ../source/guides/packaging-namespace-packages.rst:202
-#: ../source/guides/packaging-namespace-packages.rst:249
+#: ../source/guides/packaging-namespace-packages.rst:201
+#: ../source/guides/packaging-namespace-packages.rst:256
 msgid ""
 "**Every** distribution that uses the namespace package must include such "
 "an :file:`__init__.py`. If any distribution does not, it will cause the "
@@ -10761,7 +10779,7 @@ msgstr ""
 "துணை தொகுப்புகள் இறக்குமதி செய்யப்படாது. ஏதேனும் கூடுதல் குறியீடு: கோப்பு: `__init "
 "__. Py` அணுக முடியாததாக இருக்கும்."
 
-#: ../source/guides/packaging-namespace-packages.rst:207
+#: ../source/guides/packaging-namespace-packages.rst:206
 msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
@@ -10769,21 +10787,44 @@ msgstr ""
 "இரண்டு Pkgutil- பாணி பெயர்வெளி தொகுப்புகளின் முழுமையான வேலை உதாரணத்தை `pkgutil "
 "பெயர்வெளி எடுத்துக்காட்டு திட்டம்`_ இல் காணலாம்."
 
-#: ../source/guides/packaging-namespace-packages.rst:217
+#: ../source/guides/packaging-namespace-packages.rst:216
 msgid "pkg_resources-style namespace packages"
 msgstr "PKG_RESOURCES-பாணி பெயர்வெளி தொகுப்புகள்"
 
-#: ../source/guides/packaging-namespace-packages.rst:219
+#: ../source/guides/packaging-namespace-packages.rst:220
 msgid ""
-":doc:`Setuptools <setuptools:index>` provides the "
-"`pkg_resources.declare_namespace`_ function and the ``namespace_packages`` "
-"argument to :func:`~setuptools.setup`. Together these can be used to declare "
-"namespace packages. While this approach is no longer recommended, it is "
-"widely present in most existing namespace packages. If you are creating a "
-"new distribution within an existing namespace package that uses this method "
-"then it's recommended to continue using this as the different methods are "
-"not cross-compatible and it's not advisable to try to migrate an existing "
-"package."
+"The information in this section is obsolete and is no longer functional (as "
+"of Setuptools 82.0.0). It is only retained for historical reference."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:223
+msgid ""
+"``pkg_resources`` has been deprecated and was fully removed in Setuptools "
+"82.0.0."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:225
+#, fuzzy
+#| msgid ""
+#| ":doc:`Setuptools <setuptools:index>` provides the "
+#| "`pkg_resources.declare_namespace`_ function and the "
+#| "``namespace_packages`` argument to :func:`~setuptools.setup`. Together "
+#| "these can be used to declare namespace packages. While this approach is "
+#| "no longer recommended, it is widely present in most existing namespace "
+#| "packages. If you are creating a new distribution within an existing "
+#| "namespace package that uses this method then it's recommended to continue "
+#| "using this as the different methods are not cross-compatible and it's not "
+#| "advisable to try to migrate an existing package."
+msgid ""
+":doc:`Setuptools <setuptools:index>` previously provided the "
+"``pkg_resources.declare_namespace`` function and the ``namespace_packages`` "
+"argument to :func:`~setuptools.setup`. Together these could be used to "
+"declare namespace packages. While this approach is no longer supported, it "
+"may still be encountered in environments using older ``setuptools`` "
+"versions. If you are creating a new distribution within an existing "
+"namespace package that uses this method then it's recommended to continue "
+"using this as the different methods are not cross-compatible and it's not "
+"advisable to try to migrate an existing package."
 msgstr ""
 ". பெயர்வெளி தொகுப்புகளை அறிவிக்க இவை ஒன்றாக பயன்படுத்தப்படலாம். இந்த அணுகுமுறை இனி "
 "பரிந்துரைக்கப்படவில்லை என்றாலும், இது தற்போதுள்ள பெரும்பாலான பெயர்வெளி தொகுப்புகளில் "
@@ -10792,7 +10833,7 @@ msgstr ""
 "அல்ல என்பதால் இதைப் பயன்படுத்த தொடர்ந்து பரிந்துரைக்கப்படுகிறது, மேலும் ஏற்கனவே உள்ள "
 "தொகுப்பை இடம்பெயர முயற்சிப்பது நல்லதல்ல."
 
-#: ../source/guides/packaging-namespace-packages.rst:228
+#: ../source/guides/packaging-namespace-packages.rst:235
 msgid ""
 "To create a pkg_resources-style namespace package, you need to provide "
 "an :file:`__init__.py` file for the namespace package:"
@@ -10800,7 +10841,7 @@ msgstr ""
 "PKG_RESOURCES- பாணி பெயர்வெளி தொகுப்பை உருவாக்க, நீங்கள் ஒரு: கோப்பு: `__init __. "
 "பெயர்வெளி தொகுப்புக்கான கோப்பு:"
 
-#: ../source/guides/packaging-namespace-packages.rst:254
+#: ../source/guides/packaging-namespace-packages.rst:261
 msgid ""
 "Some older recommendations advise the following in the namespace "
 "package :file:`__init__.py`:"
@@ -10808,7 +10849,7 @@ msgstr ""
 "சில பழைய பரிந்துரைகள் பெயர்வெளி தொகுப்பில் பின்வருவனவற்றை அறிவுறுத்துகின்றன: கோப்பு: "
 "`__init __. Py`:"
 
-#: ../source/guides/packaging-namespace-packages.rst:264
+#: ../source/guides/packaging-namespace-packages.rst:271
 msgid ""
 "The idea behind this was that in the rare case that setuptools isn't "
 "available packages would fall-back to the pkgutil-style packages. This isn't "
@@ -10822,21 +10863,13 @@ msgstr ""
 "செட்ப்டூல்களின் இருப்பு ஒரு கவலையாக இருந்தால், தொகுப்பு `` install_requires`` வழியாக "
 "செட்டுப்டூல்களை வெளிப்படையாக சார்ந்து இருக்க வேண்டும்."
 
-#: ../source/guides/packaging-namespace-packages.rst:271
+#: ../source/guides/packaging-namespace-packages.rst:278
 msgid ""
 "Finally, every distribution must provide the ``namespace_packages`` argument "
 "to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
 msgstr ""
 "இறுதியாக, ஒவ்வொரு விநியோகமும் `` பெயர்வெளி_பேக்கேச்கள்` வாதத்தை வழங்க வேண்டும்: func: "
 "`~ setuptools.setup` இல்: கோப்பு:` setup.py`. உதாரணமாக:"
-
-#: ../source/guides/packaging-namespace-packages.rst:285
-msgid ""
-"A complete working example of two pkg_resources-style namespace packages can "
-"be found in the `pkg_resources namespace example project`_."
-msgstr ""
-"இரண்டு pkg_resources- பாணி பெயர்வெளி தொகுப்புகளின் முழுமையான வேலை எடுத்துக்காட்டு "
-"`pkg_resources பெயர்வெளி எடுத்துக்காட்டு திட்டம்`_ இல் காணலாம்."
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
 msgid ""
@@ -17530,7 +17563,7 @@ msgstr ""
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:974
 #: ../source/specifications/source-distribution-format.rst:153
-#: ../source/specifications/version-specifiers.rst:1270
+#: ../source/specifications/version-specifiers.rst:1285
 #: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr "வரலாறு"
@@ -26236,10 +26269,22 @@ msgstr ""
 "குறிப்பு:` ஃபிளிட்`."
 
 #: ../source/specifications/pypirc.rst:13
+#, fuzzy
+#| msgid "The :file:`.pypirc` file"
+msgid "The :file:`.pypirc` file **SHOULD** be UTF-8 encoded."
+msgstr "தி: கோப்பு: `.pypirc` கோப்பு"
+
+#: ../source/specifications/pypirc.rst:15
+msgid ""
+"Tools that read or write :file:`.pypirc` files may not function correctly if "
+"another character encoding is used."
+msgstr ""
+
+#: ../source/specifications/pypirc.rst:18
 msgid "The format (originally defined by the :ref:`distutils` package) is:"
 msgstr "வடிவம் (முதலில் வரையறுக்கப்படுகிறது: ref: `தொலைதூரங்கள்` தொகுப்பு):"
 
-#: ../source/specifications/pypirc.rst:32
+#: ../source/specifications/pypirc.rst:37
 msgid ""
 "The ``distutils`` section defines an ``index-servers`` field that lists the "
 "name of all sections describing a repository."
@@ -26247,23 +26292,23 @@ msgstr ""
 "`` தொலைதூரங்கள்`` பிரிவு ஒரு `` குறியீட்டு-சேவையகங்கள்` துறையை வரையறுக்கிறது, இது "
 "ஒரு களஞ்சியத்தை விவரிக்கும் அனைத்து பிரிவுகளின் பெயரையும் பட்டியலிடுகிறது."
 
-#: ../source/specifications/pypirc.rst:35
+#: ../source/specifications/pypirc.rst:40
 msgid "Each section describing a repository defines three fields:"
 msgstr "ஒரு களஞ்சியத்தை விவரிக்கும் ஒவ்வொரு பகுதியும் மூன்று புலங்களை வரையறுக்கிறது:"
 
-#: ../source/specifications/pypirc.rst:37
+#: ../source/specifications/pypirc.rst:42
 msgid "``repository``: The URL of the repository."
 msgstr "`` களஞ்சியம்``: களஞ்சியத்தின் முகவரி."
 
-#: ../source/specifications/pypirc.rst:38
+#: ../source/specifications/pypirc.rst:43
 msgid "``username``: The registered username on the repository."
 msgstr "`` பயனர்பெயர்``: களஞ்சியத்தில் பதிவுசெய்யப்பட்ட பயனர்பெயர்."
 
-#: ../source/specifications/pypirc.rst:39
+#: ../source/specifications/pypirc.rst:44
 msgid "``password``: The password that will used to authenticate the username."
 msgstr "`` கடவுச்சொல்``: பயனர்பெயரை அங்கீகரிக்க பயன்படுத்தப்படும் கடவுச்சொல்."
 
-#: ../source/specifications/pypirc.rst:43
+#: ../source/specifications/pypirc.rst:48
 msgid ""
 "Be aware that this stores your password in plain text. For better security, "
 "consider an alternative like `keyring`_, setting environment variables, or "
@@ -26273,7 +26318,7 @@ msgstr ""
 "பாதுகாப்பிற்காக, `கீரிங்`_ போன்ற மாற்றீட்டைக் கவனியுங்கள், சுற்றுச்சூழல் மாறிகள் அமைத்தல் "
 "அல்லது கடவுச்சொல்லை கட்டளை வரியில் வழங்குதல்."
 
-#: ../source/specifications/pypirc.rst:47
+#: ../source/specifications/pypirc.rst:52
 msgid ""
 "Otherwise, set the permissions on :file:`.pypirc` so that only you can view "
 "or modify it. For example, on Linux or macOS, run:"
@@ -26281,11 +26326,11 @@ msgstr ""
 "இல்லையெனில், அனுமதிகளை அமைக்கவும்: கோப்பு: `.pypirc`, இதனால் நீங்கள் மட்டுமே அதைப் "
 "பார்க்க அல்லது மாற்ற முடியும். எடுத்துக்காட்டாக, லினக்ச் அல்லது மேகோசில், இயக்கவும்:"
 
-#: ../source/specifications/pypirc.rst:57
+#: ../source/specifications/pypirc.rst:62
 msgid "Common configurations"
 msgstr "பொதுவான உள்ளமைவுகள்"
 
-#: ../source/specifications/pypirc.rst:61
+#: ../source/specifications/pypirc.rst:66
 msgid ""
 "These examples apply to :ref:`twine`. Other projects (e.g. :ref:`flit`) also "
 "use :file:`.pypirc`, but with different defaults. Please refer to each "
@@ -26296,7 +26341,7 @@ msgstr ""
 "மேலும் விவரங்கள் மற்றும் பயன்பாட்டு வழிமுறைகளுக்கு ஒவ்வொரு திட்டத்தின் ஆவணங்களையும் "
 "பார்க்கவும்."
 
-#: ../source/specifications/pypirc.rst:65
+#: ../source/specifications/pypirc.rst:70
 msgid ""
 "Twine's default configuration mimics a :file:`.pypirc` with repository "
 "sections for PyPI and TestPyPI:"
@@ -26304,7 +26349,7 @@ msgstr ""
 "கயிறின் இயல்புநிலை உள்ளமைவு மிமிக்ச் a: கோப்பு: `.pypirc` பைபி மற்றும் டெச்ட்பிஐ "
 "ஆகியவற்றிற்கான களஞ்சிய பிரிவுகளுடன்:"
 
-#: ../source/specifications/pypirc.rst:81
+#: ../source/specifications/pypirc.rst:86
 msgid ""
 "Twine will add additional configuration from :file:`$HOME/.pypirc`, the "
 "command line, and environment variables to this default configuration."
@@ -26312,11 +26357,11 @@ msgstr ""
 "கயிறு கூடுதல் உள்ளமைவைச் சேர்க்கும்: கோப்பு: `$ home/.pypirc`, கட்டளை வரி மற்றும் "
 "சுற்றுச்சூழல் மாறிகள் இந்த இயல்புநிலை உள்ளமைவுக்கு."
 
-#: ../source/specifications/pypirc.rst:85
+#: ../source/specifications/pypirc.rst:90
 msgid "Using a PyPI token"
 msgstr "பைபி கிள்ளாக்கைப் பயன்படுத்துதல்"
 
-#: ../source/specifications/pypirc.rst:87
+#: ../source/specifications/pypirc.rst:92
 msgid ""
 "To set your `API token`_ for PyPI, you can create a :file:`$HOME/.pypirc` "
 "similar to:"
@@ -26324,7 +26369,7 @@ msgstr ""
 "PYPI க்கு உங்கள் `API டோக்கன்`_ ஐ அமைக்க, நீங்கள் ஒரு: கோப்பு:` $ home/.pypirc` "
 "போன்றவற்றை உருவாக்கலாம்:"
 
-#: ../source/specifications/pypirc.rst:96
+#: ../source/specifications/pypirc.rst:101
 msgid ""
 "For :ref:`TestPyPI <using-test-pypi>`, add a ``[testpypi]`` section, using "
 "the API token from your TestPyPI account."
@@ -26332,11 +26377,11 @@ msgstr ""
 "For: ref: `TestPypi <USE-TEST-PYPI>`, `` [TestPypi] `` பகுதியைச் சேர்க்கவும், "
 "உங்கள் டெச்ட்பை கணக்கிலிருந்து பநிஇ கிள்ளாக்கைப் பயன்படுத்தி."
 
-#: ../source/specifications/pypirc.rst:102
+#: ../source/specifications/pypirc.rst:107
 msgid "Using another package index"
 msgstr "மற்றொரு தொகுப்பு குறியீட்டைப் பயன்படுத்துதல்"
 
-#: ../source/specifications/pypirc.rst:104
+#: ../source/specifications/pypirc.rst:109
 msgid ""
 "To configure an additional repository, you'll need to redefine the ``index-"
 "servers`` field to include the repository name. Here is a complete example "
@@ -26346,7 +26391,7 @@ msgstr ""
 "மறுவரையறை செய்ய வேண்டும். ஒரு முழுமையான எடுத்துக்காட்டு இங்கே: கோப்பு: `$ "
 "home/.pypirc` pypi, testpypi மற்றும் ஒரு தனியார் களஞ்சியத்திற்கு:"
 
-#: ../source/specifications/pypirc.rst:131
+#: ../source/specifications/pypirc.rst:136
 msgid ""
 "Instead of using the ``password`` field, consider saving your API tokens and "
 "passwords securely using `keyring`_ (which is installed by Twine):"
@@ -30241,7 +30286,7 @@ msgstr ""
 "`639`."
 
 #: ../source/specifications/version-specifiers.rst:7
-#: ../source/specifications/version-specifiers.rst:785
+#: ../source/specifications/version-specifiers.rst:800
 msgid "Version specifiers"
 msgstr "பதிப்பு விவரக்குறிப்புகள்"
 
@@ -30966,11 +31011,33 @@ msgstr ""
 "முறையில் மாற்ற முடியும், ஏனெனில் முந்தைய சகாப்தத்தின் அனைத்து பதிப்புகளும் முந்தைய "
 "சகாப்தத்தின் பதிப்புகளுக்குப் பிறகு வரிசைப்படுத்தப்படுகின்றன ::"
 
-#: ../source/specifications/version-specifiers.rst:401
+#: ../source/specifications/version-specifiers.rst:399
+msgid ""
+"Use of nonzero epochs is discouraged. They are often not supported or "
+"discouraged by downstream packaging where Python packages may need to be "
+"consumed, and due to their scarce use they may also not be well supported by "
+"Python packaging tools."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:404
+msgid ""
+"When version scheme needs to be changed, it is preferable to continue with "
+"monotonically increasing numbers in epoch zero. For example, the version "
+"2026.x could be unambiguously followed by 3000.x."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:408
+msgid ""
+"See `Discouraging use of epoch segments in versions <https://"
+"discuss.python.org/t/discouraging-use-of-epoch-segments-in-versions/"
+"105811>`__ for the relevant discussion."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:416
 msgid "Normalization"
 msgstr "இயல்பாக்கம்"
 
-#: ../source/specifications/version-specifiers.rst:403
+#: ../source/specifications/version-specifiers.rst:418
 msgid ""
 "In order to maintain better compatibility with existing versions there are a "
 "number of \"alternative\" syntaxes that MUST be taken into account when "
@@ -30982,11 +31049,11 @@ msgstr ""
 "ஒரு பதிப்பை பாகுபடுத்தும்போது இந்த தொடரியல் கருத்தில் கொள்ளப்பட வேண்டும், இருப்பினும் அவை "
 "மேலே வரையறுக்கப்பட்ட நிலையான தொடரியல் க்கு \"இயல்பாக்கப்பட வேண்டும்\"."
 
-#: ../source/specifications/version-specifiers.rst:410
+#: ../source/specifications/version-specifiers.rst:425
 msgid "Case sensitivity"
 msgstr "வழக்கு உணர்திறன்"
 
-#: ../source/specifications/version-specifiers.rst:412
+#: ../source/specifications/version-specifiers.rst:427
 msgid ""
 "All ascii letters should be interpreted case insensitively within a version "
 "and the normal form is lowercase. This allows versions such as ``1.1RC1`` "
@@ -30996,11 +31063,11 @@ msgstr ""
 "சாதாரண வடிவம் சிறிய எழுத்துக்கள். இது `` 1.1rc1`` போன்ற பதிப்புகளை அனுமதிக்கிறது, "
 "இது `1.1rc1`` க்கு இயல்பாக்கப்படும்."
 
-#: ../source/specifications/version-specifiers.rst:418
+#: ../source/specifications/version-specifiers.rst:433
 msgid "Integer Normalization"
 msgstr "முழு எண் இயல்பாக்கம்"
 
-#: ../source/specifications/version-specifiers.rst:420
+#: ../source/specifications/version-specifiers.rst:435
 msgid ""
 "All integers are interpreted via the ``int()`` built in and normalize to the "
 "string form of the output. This means that an integer version of ``00`` "
@@ -31014,11 +31081,11 @@ msgstr ""
 "எண்ணெழுத்து பிரிவின் உள்ளே நுழைவதற்கு இது உண்மையல்ல, இது ஏற்கனவே அதன் இயல்பாக்கப்பட்ட "
 "வடிவத்தில் உள்ளது."
 
-#: ../source/specifications/version-specifiers.rst:428
+#: ../source/specifications/version-specifiers.rst:443
 msgid "Pre-release separators"
 msgstr "முன் வெளியீட்டு பிரிப்பான்கள்"
 
-#: ../source/specifications/version-specifiers.rst:430
+#: ../source/specifications/version-specifiers.rst:445
 msgid ""
 "Pre-releases should allow a ``.``, ``-``, or ``_`` separator between the "
 "release segment and the pre-release segment. The normal form for this is "
@@ -31033,11 +31100,11 @@ msgstr ""
 "வேண்டும். இது `` 1.0a.1`` போன்ற பதிப்புகளை அனுமதிக்கிறது, இது `` 1.0a1`` க்கு "
 "இயல்பாக்கப்படும்."
 
-#: ../source/specifications/version-specifiers.rst:439
+#: ../source/specifications/version-specifiers.rst:454
 msgid "Pre-release spelling"
 msgstr "முன் வெளியீட்டு எழுத்துப்பிழை"
 
-#: ../source/specifications/version-specifiers.rst:441
+#: ../source/specifications/version-specifiers.rst:456
 msgid ""
 "Pre-releases allow the additional spellings of ``alpha``, ``beta``, ``c``, "
 "``pre``, and ``preview`` for ``a``, ``b``, ``rc``, ``rc``, and ``rc`` "
@@ -31052,11 +31119,11 @@ msgstr ""
 "`1rc3`` போன்ற பதிப்புகளை அனுமதிக்கிறது. ஒவ்வொரு சந்தர்ப்பத்திலும் கூடுதல் எழுத்துப்பிழை "
 "அவற்றின் சாதாரண வடிவங்களுக்கு சமமானதாக கருதப்பட வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:450
+#: ../source/specifications/version-specifiers.rst:465
 msgid "Implicit pre-release number"
 msgstr "மறைமுகத்திற்கு முந்தைய வெளியீடு எண்"
 
-#: ../source/specifications/version-specifiers.rst:452
+#: ../source/specifications/version-specifiers.rst:467
 msgid ""
 "Pre releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -31068,11 +31135,11 @@ msgstr ""
 "வேண்டும். இது `` 1.2a`` போன்ற பதிப்புகளை அனுமதிக்கிறது, இது `` 1.2A0`` க்கு "
 "இயல்பாக்கப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:458
+#: ../source/specifications/version-specifiers.rst:473
 msgid "Post release separators"
 msgstr "வெளியீட்டு பிரிப்பான்கள் இடுகை"
 
-#: ../source/specifications/version-specifiers.rst:460
+#: ../source/specifications/version-specifiers.rst:475
 msgid ""
 "Post releases allow a ``.``, ``-``, or ``_`` separator as well as omitting "
 "the separator all together. The normal form of this is with the ``.`` "
@@ -31089,11 +31156,11 @@ msgstr ""
 "அடையாளத்திற்கும் எண்களுக்கும் இடையில் விருப்பமான பிரிப்பான் அனுமதிக்கிறது. இது `` "
 "1.2.post-2`` போன்ற பதிப்புகளை அனுமதிக்கிறது, இது `` 1.2.post2`` க்கு இயல்பாக்கும்."
 
-#: ../source/specifications/version-specifiers.rst:469
+#: ../source/specifications/version-specifiers.rst:484
 msgid "Post release spelling"
 msgstr "வெளியீட்டு எழுத்துப்பிழை இடுகை"
 
-#: ../source/specifications/version-specifiers.rst:471
+#: ../source/specifications/version-specifiers.rst:486
 msgid ""
 "Post-releases allow the additional spellings of ``rev`` and ``r``. This "
 "allows versions such as ``1.0-r4`` which normalizes to ``1.0.post4``. As "
@@ -31105,11 +31172,11 @@ msgstr ""
 "இயல்பாக்குகிறது. முன் வெளியீடுகளைப் போலவே கூடுதல் எழுத்துப்பிழைகள் அவற்றின் சாதாரண "
 "வடிவங்களுக்கு சமமானதாக கருதப்பட வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:478
+#: ../source/specifications/version-specifiers.rst:493
 msgid "Implicit post release number"
 msgstr "மறைமுகமான இடுகை வெளியீட்டு எண்"
 
-#: ../source/specifications/version-specifiers.rst:480
+#: ../source/specifications/version-specifiers.rst:495
 msgid ""
 "Post releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -31121,11 +31188,11 @@ msgstr ""
 "வேண்டும். `` 1.2.post0`` க்கு இயல்பாக்கப்பட்ட `` 1.2.post`` போன்ற பதிப்புகளை இது "
 "அனுமதிக்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:486
+#: ../source/specifications/version-specifiers.rst:501
 msgid "Implicit post releases"
 msgstr "மறைமுகமான இடுகை வெளியீடுகள்"
 
-#: ../source/specifications/version-specifiers.rst:488
+#: ../source/specifications/version-specifiers.rst:503
 msgid ""
 "Post releases allow omitting the ``post`` signifier all together. When using "
 "this form the separator MUST be ``-`` and no other form is allowed. This "
@@ -31141,11 +31208,11 @@ msgstr ""
 "இணைந்து பயன்படுத்தப்படக்கூடாது. வேறு வார்த்தைகளில் கூறுவதானால், `` 1.0 -`` என்பது * "
 "சரியான பதிப்பாக இல்லை, மேலும் இது * `1.0.post0`` க்கு * இயல்பாக்கப்படாது."
 
-#: ../source/specifications/version-specifiers.rst:497
+#: ../source/specifications/version-specifiers.rst:512
 msgid "Development release separators"
 msgstr "வளர்ச்சி வெளியீட்டு பிரிப்பான்கள்"
 
-#: ../source/specifications/version-specifiers.rst:499
+#: ../source/specifications/version-specifiers.rst:514
 msgid ""
 "Development releases allow a ``.``, ``-``, or a ``_`` separator as well as "
 "omitting the separator all together. The normal form of this is with the "
@@ -31157,11 +31224,11 @@ msgstr ""
 "பிரிப்பான். இது `` 1.2-DEV2`` அல்லது `1.2dev2`` போன்ற பதிப்புகளை` `1.2.dev2`` க்கு "
 "இயல்பாக்குகிறது."
 
-#: ../source/specifications/version-specifiers.rst:506
+#: ../source/specifications/version-specifiers.rst:521
 msgid "Implicit development release number"
 msgstr "மறைமுக வளர்ச்சி வெளியீட்டு எண்"
 
-#: ../source/specifications/version-specifiers.rst:508
+#: ../source/specifications/version-specifiers.rst:523
 msgid ""
 "Development releases allow omitting the numeral in which case it is "
 "implicitly assumed to be ``0``. The normal form for this is to include the "
@@ -31173,11 +31240,11 @@ msgstr ""
 "வேண்டும். `` 1.2.dev0`` க்கு இயல்பாக்கப்பட்ட `` 1.2.dev`` போன்ற பதிப்புகளை இது "
 "அனுமதிக்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:515
+#: ../source/specifications/version-specifiers.rst:530
 msgid "Local version segments"
 msgstr "உள்ளக பதிப்பு பிரிவுகள்"
 
-#: ../source/specifications/version-specifiers.rst:517
+#: ../source/specifications/version-specifiers.rst:532
 msgid ""
 "With a local version, in addition to the use of ``.`` as a separator of "
 "segments, the use of ``-`` and ``_`` is also acceptable. The normal form is "
@@ -31189,11 +31256,11 @@ msgstr ""
 "எழுத்தைப் பயன்படுத்துகிறது. இது `` 1.0+உபுண்டு -1`` போன்ற பதிப்புகளை `` 1.0+உபுண்டு "
 "1`` க்கு இயல்பாக்க அனுமதிக்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:524
+#: ../source/specifications/version-specifiers.rst:539
 msgid "Preceding v character"
 msgstr "V எழுத்து முந்தையது"
 
-#: ../source/specifications/version-specifiers.rst:526
+#: ../source/specifications/version-specifiers.rst:541
 msgid ""
 "In order to support the common version notation of ``v1.0`` versions may be "
 "preceded by a single literal ``v`` character. This character MUST be ignored "
@@ -31206,11 +31273,11 @@ msgstr ""
 "வேண்டும் மற்றும் பதிப்பின் அனைத்து இயல்பாக்கப்பட்ட வடிவங்களிலிருந்தும் தவிர்க்கப்பட வேண்டும். "
 "`` வி`` உடன் மற்றும் இல்லாமல் அதே பதிப்பு சமமானதாகக் கருதப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:533
+#: ../source/specifications/version-specifiers.rst:548
 msgid "Leading and Trailing Whitespace"
 msgstr "வழிநடத்தும் மற்றும் பின்தங்கிய இடைவெளி"
 
-#: ../source/specifications/version-specifiers.rst:535
+#: ../source/specifications/version-specifiers.rst:550
 msgid ""
 "Leading and trailing whitespace must be silently ignored and removed from "
 "all normalized forms of a version. This includes ``\" \"``, ``\\t``, "
@@ -31223,11 +31290,11 @@ msgstr ""
 "மற்றும் `\\ v`` ஆகியவை அடங்கும். `` 1.0 \\ n`` போன்ற பதிப்பு போன்ற தற்செயலான "
 "இடைவெளியை விவேகத்துடன் கையாள இது அனுமதிக்கிறது, இது `` 1.0`` ஐ இயல்பாக்குகிறது."
 
-#: ../source/specifications/version-specifiers.rst:542
+#: ../source/specifications/version-specifiers.rst:557
 msgid "Examples of compliant version schemes"
 msgstr "இணக்கமான பதிப்பு திட்டங்களின் எடுத்துக்காட்டுகள்"
 
-#: ../source/specifications/version-specifiers.rst:544
+#: ../source/specifications/version-specifiers.rst:559
 msgid ""
 "The standard version scheme is designed to encompass a wide range of "
 "identification practices across public and private Python projects. In "
@@ -31243,7 +31310,7 @@ msgstr ""
 "மேலே உள்ள விதிகள் அனைத்து இணக்கமான கருவிகளும் தொடர்ந்து கட்டளையிடும் என்பதை "
 "உறுதிசெய்தாலும்."
 
-#: ../source/specifications/version-specifiers.rst:551
+#: ../source/specifications/version-specifiers.rst:566
 msgid ""
 "The following examples illustrate a small selection of the different "
 "approaches projects may choose to identify their releases, while still "
@@ -31255,20 +31322,20 @@ msgstr ""
 "மற்றும் \"அண்மைக் கால நிலையான வெளியீடு\" ஆகியவற்றை மனித பயனர்கள் மற்றும் தானியங்கி "
 "கருவிகளால் எளிதில் தீர்மானிக்க முடியும் என்பதை உறுதிசெய்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:556
+#: ../source/specifications/version-specifiers.rst:571
 msgid "Simple \"major.minor\" versioning::"
 msgstr "எளிய \"மேசர்.மினோர்\" பதிப்பு ::"
 
-#: ../source/specifications/version-specifiers.rst:565
+#: ../source/specifications/version-specifiers.rst:580
 msgid "Simple \"major.minor.micro\" versioning::"
 msgstr "எளிய \"மேசர்.மினோர்.மிக்ரோ\" பதிப்பு ::"
 
-#: ../source/specifications/version-specifiers.rst:573
+#: ../source/specifications/version-specifiers.rst:588
 msgid ""
 "\"major.minor\" versioning with alpha, beta and candidate pre-releases::"
 msgstr "ஆல்பா, பீட்டா மற்றும் வேட்பாளர் முன் வெளியீடுகளுடன் \"மேசர்.மினோர்\" பதிப்பு ::"
 
-#: ../source/specifications/version-specifiers.rst:585
+#: ../source/specifications/version-specifiers.rst:600
 msgid ""
 "\"major.minor\" versioning with developmental releases, release candidates "
 "and post-releases for minor corrections::"
@@ -31276,7 +31343,7 @@ msgstr ""
 "மேம்பாட்டு வெளியீடுகளுடன் \"மேசர்.மினோர்\" பதிப்பு, வேட்பாளர்கள் மற்றும் சிறிய "
 "திருத்தங்களுக்கு பிந்தைய வெளியீடுகளை வெளியிடுங்கள் ::"
 
-#: ../source/specifications/version-specifiers.rst:600
+#: ../source/specifications/version-specifiers.rst:615
 msgid ""
 "Date based releases, using an incrementing serial within each year, skipping "
 "zero::"
@@ -31284,11 +31351,11 @@ msgstr ""
 "தேதி அடிப்படையிலான வெளியீடுகள், ஒவ்வொரு ஆண்டும் அதிகரிக்கும் சீரியலைப் பயன்படுத்தி, "
 "பூச்சியத்தைத் தவிர்ப்பது ::"
 
-#: ../source/specifications/version-specifiers.rst:614
+#: ../source/specifications/version-specifiers.rst:629
 msgid "Summary of permitted suffixes and relative ordering"
 msgstr "அனுமதிக்கப்பட்ட பின்னொட்டுகளின் சுருக்கம் மற்றும் உறவினர் வரிசைப்படுத்தல்"
 
-#: ../source/specifications/version-specifiers.rst:618
+#: ../source/specifications/version-specifiers.rst:633
 msgid ""
 "This section is intended primarily for authors of tools that automatically "
 "process distribution metadata, rather than developers of Python "
@@ -31298,7 +31365,7 @@ msgstr ""
 "டெவலப்பர்களைக் காட்டிலும், விநியோக மெட்டாடேட்டாவை தானாக செயலாக்கும் கருவிகளின் "
 "ஆசிரியர்களுக்காக வடிவமைக்கப்பட்டுள்ளது."
 
-#: ../source/specifications/version-specifiers.rst:622
+#: ../source/specifications/version-specifiers.rst:637
 msgid ""
 "The epoch segment of version identifiers MUST be sorted according to the "
 "numeric value of the given epoch. If no epoch segment is present, the "
@@ -31308,7 +31375,7 @@ msgstr ""
 "வரிசைப்படுத்தப்பட வேண்டும். எபோச் பிரிவு எதுவும் இல்லை என்றால், மறைமுகமான எண் மதிப்பு `` "
 "0`` ஆகும்."
 
-#: ../source/specifications/version-specifiers.rst:626
+#: ../source/specifications/version-specifiers.rst:641
 msgid ""
 "The release segment of version identifiers MUST be sorted in the same order "
 "as Python's tuple sorting when the normalized release segment is parsed as "
@@ -31318,7 +31385,7 @@ msgstr ""
 "பின்வருமாறு பாகுபடுத்தப்படும்போது பைதனின் டூப்பிள் வரிசையாக்கத்தின் அதே வரிசையில் "
 "வரிசைப்படுத்தப்பட வேண்டும் ::"
 
-#: ../source/specifications/version-specifiers.rst:632
+#: ../source/specifications/version-specifiers.rst:647
 msgid ""
 "All release segments involved in the comparison MUST be converted to a "
 "consistent length by padding shorter segments with zeros as needed."
@@ -31326,7 +31393,7 @@ msgstr ""
 "ஒப்பீட்டில் ஈடுபட்டுள்ள அனைத்து வெளியீட்டு பிரிவுகளும் தேவைக்கேற்ப பூச்சியங்களுடன் குறுகிய "
 "பிரிவுகளைத் திணிப்பதன் மூலம் நிலையான நீளமாக மாற்றப்பட வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:635
+#: ../source/specifications/version-specifiers.rst:650
 msgid ""
 "Within a numeric release (``1.0``, ``2.7.3``), the following suffixes are "
 "permitted and MUST be ordered as shown::"
@@ -31334,7 +31401,7 @@ msgstr ""
 "ஒரு எண் வெளியீட்டிற்குள் (`` 1.0``, `` 2.7.3``), பின்வரும் பின்னொட்டுகள் "
 "அனுமதிக்கப்படுகின்றன, மேலும் காட்டப்பட்டுள்ளபடி ஆர்டர் செய்யப்பட வேண்டும் ::"
 
-#: ../source/specifications/version-specifiers.rst:640
+#: ../source/specifications/version-specifiers.rst:655
 msgid ""
 "Note that ``c`` is considered to be semantically equivalent to ``rc`` and "
 "must be sorted as if it were ``rc``. Tools MAY reject the case of having the "
@@ -31346,7 +31413,7 @@ msgstr ""
 "மாதிரியான வெளியீட்டுப் பிரிவில் தெளிவற்ற அதே பிரிவில் ஒரே மாதிரியான` `n`` ஐக் கொண்ட "
 "வழக்கை கருவிகள் நிராகரிக்கலாம் மற்றும் விவரக்குறிப்புக்கு இணங்க வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:645
+#: ../source/specifications/version-specifiers.rst:660
 msgid ""
 "Within an alpha (``1.0a1``), beta (``1.0b1``), or release candidate "
 "(``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be "
@@ -31356,7 +31423,7 @@ msgstr ""
 "வெளியிடும், பின்வரும் பின்னொட்டுகள் அனுமதிக்கப்படுகின்றன, மேலும் காட்டப்பட்டுள்ளபடி ஆர்டர் "
 "செய்யப்பட வேண்டும் ::"
 
-#: ../source/specifications/version-specifiers.rst:651
+#: ../source/specifications/version-specifiers.rst:666
 msgid ""
 "Within a post-release (``1.0.post1``), the following suffixes are permitted "
 "and MUST be ordered as shown::"
@@ -31364,7 +31431,7 @@ msgstr ""
 "ஒரு பிந்தைய வெளியீட்டிற்குள் (`` 1.0.post1``), பின்வரும் பின்னொட்டுகள் "
 "அனுமதிக்கப்படுகின்றன, மேலும் அவை காட்டப்பட்டுள்ளபடி ஆர்டர் செய்யப்பட வேண்டும் ::"
 
-#: ../source/specifications/version-specifiers.rst:656
+#: ../source/specifications/version-specifiers.rst:671
 msgid ""
 "Note that ``devN`` and ``postN`` MUST always be preceded by a dot, even when "
 "used immediately following a numeric version (e.g. ``1.0.dev456``, "
@@ -31374,7 +31441,7 @@ msgstr ""
 "பயன்படுத்தும்போது கூட, `` devn`` மற்றும் `` போச்ட்ன்`` எப்போதும் ஒரு புள்ளிக்கு முன்னதாக "
 "இருக்க வேண்டும் என்பதை நினைவில் கொள்க."
 
-#: ../source/specifications/version-specifiers.rst:660
+#: ../source/specifications/version-specifiers.rst:675
 msgid ""
 "Within a pre-release, post-release or development release segment with a "
 "shared prefix, ordering MUST be by the value of the numeric component."
@@ -31382,15 +31449,15 @@ msgstr ""
 "ஒரு முன் வெளியீட்டிற்குள், பகிரப்பட்ட முன்னொட்டுடன் வெளியீடு அல்லது மேம்பாட்டு வெளியீட்டு "
 "பிரிவுக்குள், வரிசைப்படுத்துதல் எண் கூறுகளின் மதிப்பால் இருக்க வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:663
+#: ../source/specifications/version-specifiers.rst:678
 msgid "The following example covers many of the possible combinations::"
 msgstr "பின்வரும் எடுத்துக்காட்டு சாத்தியமான பல சேர்க்கைகளை உள்ளடக்கியது ::"
 
-#: ../source/specifications/version-specifiers.rst:688
+#: ../source/specifications/version-specifiers.rst:703
 msgid "Version ordering across different metadata versions"
 msgstr "பதிப்பு வெவ்வேறு மேனிலை தரவு பதிப்புகளில் வரிசைப்படுத்துகிறது"
 
-#: ../source/specifications/version-specifiers.rst:690
+#: ../source/specifications/version-specifiers.rst:705
 msgid ""
 "Metadata v1.0 (:pep:`241`) and metadata v1.1 (:pep:`314`) do not specify a "
 "standard version identification or ordering scheme. However metadata v1.2 "
@@ -31401,7 +31468,7 @@ msgstr ""
 "மேனிலை தரவு V1.2 (: PEP: `345`) வரையறுக்கப்பட்ட ஒரு திட்டத்தை குறிப்பிடுகிறது: "
 "PEP:` 386`."
 
-#: ../source/specifications/version-specifiers.rst:694
+#: ../source/specifications/version-specifiers.rst:709
 msgid ""
 "Due to the nature of the simple installer API it is not possible for an "
 "installer to be aware of which metadata version a particular distribution "
@@ -31418,7 +31485,7 @@ msgstr ""
 "தேவைகள் ஒரு திட்டத்தின் அனைத்து பதிப்புகளுக்கும் பயன்படுத்தப்பட வேண்டிய ஒரு பாகுபடுத்தும் "
 "பொறிமுறையில் ஒரு தரப்படுத்தல் தேவைப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:702
+#: ../source/specifications/version-specifiers.rst:717
 msgid ""
 "Due to the above, this specification MUST be used for all versions of "
 "metadata and supersedes :pep:`386` even for metadata v1.2. Tools SHOULD "
@@ -31434,7 +31501,7 @@ msgstr ""
 "கிடைக்கவில்லை என்றால், வரையறுக்கப்பட்ட பதிப்பு பாகுபடுத்தல் மற்றும் வரிசைப்படுத்தும் "
 "திட்டங்களை செயல்படுத்தலாம்."
 
-#: ../source/specifications/version-specifiers.rst:708
+#: ../source/specifications/version-specifiers.rst:723
 msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
@@ -31442,11 +31509,11 @@ msgstr ""
 "விநியோக பயனர்கள் தாங்கள் கட்டுப்படுத்தும் எந்தவொரு தனியார் தொகுப்பு குறியீடுகளிலிருந்தும் "
 "இணங்காத பதிப்புகளை வெளிப்படையாக அகற்ற விரும்பலாம்."
 
-#: ../source/specifications/version-specifiers.rst:713
+#: ../source/specifications/version-specifiers.rst:728
 msgid "Compatibility with other version schemes"
 msgstr "பிற பதிப்பு திட்டங்களுடன் பொருந்தக்கூடிய தன்மை"
 
-#: ../source/specifications/version-specifiers.rst:715
+#: ../source/specifications/version-specifiers.rst:730
 msgid ""
 "Some projects may choose to use a version scheme which requires translation "
 "in order to comply with the public version scheme defined in this "
@@ -31459,7 +31526,7 @@ msgstr ""
 "சந்தர்ப்பங்களில், திட்ட குறிப்பிட்ட பதிப்பை மெட்டாடேட்டாவில் சேமிக்க முடியும், அதே நேரத்தில் "
 "மொழிபெயர்க்கப்பட்ட பொது பதிப்பு பதிப்பு புலத்தில் வெளியிடப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:720
+#: ../source/specifications/version-specifiers.rst:735
 msgid ""
 "This allows automated distribution tools to provide consistently correct "
 "ordering of published releases, while still allowing developers to use the "
@@ -31469,7 +31536,7 @@ msgstr ""
 "வரிசைப்படுத்தலை வழங்க அனுமதிக்கிறது, அதே நேரத்தில் உருவாக்குபவர்கள் தங்கள் திட்டங்களுக்கு "
 "அவர்கள் விரும்பும் உள் பதிப்பு திட்டத்தைப் பயன்படுத்த அனுமதிக்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:728
+#: ../source/specifications/version-specifiers.rst:743
 msgid ""
 "`Semantic versioning`_ is a popular version identification scheme that is "
 "more prescriptive than this specification regarding the significance of "
@@ -31486,7 +31553,7 @@ msgstr ""
 "உள்ளடக்கியுள்ளதால், மற்றவர்கள் நம்பியிருக்கும் விநியோகத்தை வெளியிடும் போது இந்த திட்டம் "
 "புரிந்து கொள்ளத்தக்கது."
 
-#: ../source/specifications/version-specifiers.rst:735
+#: ../source/specifications/version-specifiers.rst:750
 msgid ""
 "The \"Major.Minor.Patch\" (described in this specification as "
 "\"major.minor.micro\") aspects of semantic versioning (clauses 1-8 in the "
@@ -31498,7 +31565,7 @@ msgstr ""
 "திட்டத்துடன் முழுமையாக ஒத்துப்போகும், மேலும் இந்த அம்சங்களை பின்பற்றுவது "
 "ஊக்குவிக்கப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:740
+#: ../source/specifications/version-specifiers.rst:755
 msgid ""
 "Semantic versions containing a hyphen (pre-releases - clause 10) or a plus "
 "sign (builds - clause 11) are *not* compatible with this specification and "
@@ -31508,7 +31575,7 @@ msgstr ""
 "பிரிவு 11) கொண்ட சொற்பொருள் பதிப்புகள் * இந்த விவரக்குறிப்புடன் பொருந்தாது மற்றும் பொது "
 "பதிப்பு துறையில் அனுமதிக்கப்படாது."
 
-#: ../source/specifications/version-specifiers.rst:744
+#: ../source/specifications/version-specifiers.rst:759
 msgid ""
 "One possible mechanism to translate such semantic versioning based source "
 "labels to compatible public versions is to use the ``.devN`` suffix to "
@@ -31518,16 +31585,16 @@ msgstr ""
 "மொழிபெயர்ப்பதற்கான ஒரு வழிமுறை, பொருத்தமான பதிப்பு வரிசையைக் குறிப்பிட `` .devn`` "
 "பின்னொட்டைப் பயன்படுத்துவது."
 
-#: ../source/specifications/version-specifiers.rst:748
+#: ../source/specifications/version-specifiers.rst:763
 msgid ""
 "Specific build information may also be included in local version labels."
 msgstr "உள்ளக பதிப்பு லேபிள்களிலும் குறிப்பிட்ட உருவாக்க தகவல்கள் சேர்க்கப்படலாம்."
 
-#: ../source/specifications/version-specifiers.rst:754
+#: ../source/specifications/version-specifiers.rst:769
 msgid "DVCS based version labels"
 msgstr "டி.வி.சி.எச் அடிப்படையிலான பதிப்பு லேபிள்கள்"
 
-#: ../source/specifications/version-specifiers.rst:756
+#: ../source/specifications/version-specifiers.rst:771
 msgid ""
 "Many build tools integrate with distributed version control systems like Git "
 "and Mercurial in order to add an identifying hash to the version identifier. "
@@ -31539,7 +31606,7 @@ msgstr ""
 "ஒருங்கிணைக்கின்றன. ஆச்களை நம்பத்தகுந்த வகையில் ஆர்டர் செய்ய முடியாது, இதுபோன்ற பதிப்புகள் "
 "பொது பதிப்பு துறையில் அனுமதிக்கப்படாது."
 
-#: ../source/specifications/version-specifiers.rst:761
+#: ../source/specifications/version-specifiers.rst:776
 msgid ""
 "As with semantic versioning, the public ``.devN`` suffix may be used to "
 "uniquely identify such releases for publication, while the original DVCS "
@@ -31549,16 +31616,16 @@ msgstr ""
 "வெளியீட்டிற்காக தனித்துவமாக அடையாளம் காண பயன்படுத்தப்படலாம், அதே நேரத்தில் அசல் "
 "டி.வி.சி.எச் அடிப்படையிலான லேபிளை திட்ட மெட்டாடேட்டாவில் சேமிக்க முடியும்."
 
-#: ../source/specifications/version-specifiers.rst:765
+#: ../source/specifications/version-specifiers.rst:780
 msgid ""
 "Identifying hash information may also be included in local version labels."
 msgstr "ஆச் தகவல்களை அடையாளம் காண்பது உள்ளக பதிப்பு லேபிள்களிலும் சேர்க்கப்படலாம்."
 
-#: ../source/specifications/version-specifiers.rst:769
+#: ../source/specifications/version-specifiers.rst:784
 msgid "Olson database versioning"
 msgstr "ஓல்சன் தரவுத்தள பதிப்பு"
 
-#: ../source/specifications/version-specifiers.rst:771
+#: ../source/specifications/version-specifiers.rst:786
 msgid ""
 "The ``pytz`` project inherits its versioning scheme from the corresponding "
 "Olson timezone database versioning scheme: the year followed by a lowercase "
@@ -31568,7 +31635,7 @@ msgstr ""
 "திட்டத்திலிருந்து பெறுகிறது: அந்த ஆண்டுக்குள் தரவுத்தளத்தின் பதிப்பைக் குறிக்கும் சிறிய "
 "எழுத்து ஆண்டு."
 
-#: ../source/specifications/version-specifiers.rst:775
+#: ../source/specifications/version-specifiers.rst:790
 msgid ""
 "This can be translated to a compliant public version identifier as ``<year>."
 "<serial>``, where the serial starts at zero or one (for the '<year>a' "
@@ -31577,7 +31644,7 @@ msgid ""
 msgstr ""
 "இதை ஒரு இணக்கமான பொது பதிப்பு அடையாளங்காட்டிக்கு `` <ஆண்டு> என மொழிபெயர்க்கலாம்."
 
-#: ../source/specifications/version-specifiers.rst:780
+#: ../source/specifications/version-specifiers.rst:795
 msgid ""
 "As with other translated version identifiers, the corresponding Olson "
 "database version could be recorded in the project metadata."
@@ -31585,7 +31652,7 @@ msgstr ""
 "பிற மொழிபெயர்க்கப்பட்ட பதிப்பு அடையாளங்காட்டிகளைப் போலவே, தொடர்புடைய ஓல்சன் தரவுத்தள "
 "பதிப்பையும் திட்ட மெட்டாடேட்டாவில் பதிவு செய்யலாம்."
 
-#: ../source/specifications/version-specifiers.rst:787
+#: ../source/specifications/version-specifiers.rst:802
 msgid ""
 "A version specifier consists of a series of version clauses, separated by "
 "commas. For example::"
@@ -31593,35 +31660,35 @@ msgstr ""
 "ஒரு பதிப்பு விவரக்குறிப்பு தொடர்ச்சியான பதிப்பு உட்பிரிவுகளைக் கொண்டுள்ளது, இது "
 "காற்புள்ளிகளால் பிரிக்கப்பட்டுள்ளது. உதாரணமாக ::"
 
-#: ../source/specifications/version-specifiers.rst:792
+#: ../source/specifications/version-specifiers.rst:807
 msgid "The comparison operator determines the kind of version clause:"
 msgstr "ஒப்பீட்டு ஆபரேட்டர் பதிப்பு விதிமுறையை தீர்மானிக்கிறது:"
 
-#: ../source/specifications/version-specifiers.rst:794
+#: ../source/specifications/version-specifiers.rst:809
 msgid "``~=``: `Compatible release`_ clause"
 msgstr "`` ~ = ``: `இணக்கமான வெளியீடு`_ பிரிவு"
 
-#: ../source/specifications/version-specifiers.rst:795
+#: ../source/specifications/version-specifiers.rst:810
 msgid "``==``: `Version matching`_ clause"
 msgstr "`` == ``: `பதிப்பு பொருந்தும்`_ பிரிவு"
 
-#: ../source/specifications/version-specifiers.rst:796
+#: ../source/specifications/version-specifiers.rst:811
 msgid "``!=``: `Version exclusion`_ clause"
 msgstr "``! = ``: `பதிப்பு விலக்கு`_ பிரிவு"
 
-#: ../source/specifications/version-specifiers.rst:797
+#: ../source/specifications/version-specifiers.rst:812
 msgid "``<=``, ``>=``: `Inclusive ordered comparison`_ clause"
 msgstr "`` <= ``, ``> = ``: `உள்ளடக்கிய உத்தரவிடப்பட்ட ஒப்பீடு`_ பிரிவு"
 
-#: ../source/specifications/version-specifiers.rst:798
+#: ../source/specifications/version-specifiers.rst:813
 msgid "``<``, ``>``: `Exclusive ordered comparison`_ clause"
 msgstr "`` <``, ``> ``: `பிரத்யேக உத்தரவிடப்பட்ட ஒப்பீடு`_ பிரிவு"
 
-#: ../source/specifications/version-specifiers.rst:799
+#: ../source/specifications/version-specifiers.rst:814
 msgid "``===``: `Arbitrary equality`_ clause."
 msgstr "`` === ``: `தன்னிச்சையான சமத்துவம்`_ பிரிவு."
 
-#: ../source/specifications/version-specifiers.rst:801
+#: ../source/specifications/version-specifiers.rst:816
 msgid ""
 "The comma (\",\") is equivalent to a logical **and** operator: a candidate "
 "version must match all given version clauses in order to match the specifier "
@@ -31630,7 +31697,7 @@ msgstr ""
 "கமா (\",\") ஒரு தர்க்கரீதியான ** மற்றும் ** ஆபரேட்டருக்கு சமம்: ஒரு வேட்பாளர் பதிப்பு "
 "கொடுக்கப்பட்ட அனைத்து பதிப்பு உட்பிரிவுகளையும் பொருத்த வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:805
+#: ../source/specifications/version-specifiers.rst:820
 msgid ""
 "Whitespace between a conditional operator and the following version "
 "identifier is optional, as is the whitespace around the commas."
@@ -31638,7 +31705,7 @@ msgstr ""
 "ஒரு நிபந்தனை ஆபரேட்டருக்கும் பின்வரும் பதிப்பு அடையாளங்காட்டிக்கும் இடையிலான இடைவெளி "
 "விருப்பமானது, காற்புள்ளிகளைச் சுற்றியுள்ள இடைவெளி."
 
-#: ../source/specifications/version-specifiers.rst:808
+#: ../source/specifications/version-specifiers.rst:823
 msgid ""
 "When multiple candidate versions match a version specifier, the preferred "
 "version SHOULD be the latest version as determined by the consistent "
@@ -31652,7 +31719,7 @@ msgstr ""
 "கருதப்படுகிறதா இல்லையா என்பது `முன் வெளியீடுகளை கையாளுதல்`_ இல் விவரிக்கப்பட்டுள்ளபடி "
 "கையாளப்பட வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:814
+#: ../source/specifications/version-specifiers.rst:829
 msgid ""
 "Except where specifically noted below, local version identifiers MUST NOT be "
 "permitted in version specifiers, and local version labels MUST be ignored "
@@ -31663,11 +31730,11 @@ msgstr ""
 "விவரக்குறிப்புடன் பொருந்துமா என்பதைச் சரிபார்க்கும்போது உள்ளக பதிப்பு லேபிள்கள் முற்றிலும் "
 "புறக்கணிக்கப்பட வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:823
+#: ../source/specifications/version-specifiers.rst:838
 msgid "Compatible release"
 msgstr "இணக்கமான வெளியீடு"
 
-#: ../source/specifications/version-specifiers.rst:825
+#: ../source/specifications/version-specifiers.rst:840
 msgid ""
 "A compatible release clause consists of the compatible release operator "
 "``~=`` and a version identifier. It matches any candidate version that is "
@@ -31677,7 +31744,7 @@ msgstr ""
 "அடையாளங்காட்டியைக் கொண்டுள்ளது. குறிப்பிட்ட பதிப்போடு இணக்கமாக இருக்கும் என்று "
 "எதிர்பார்க்கப்படும் எந்த வேட்பாளர் பதிப்பையும் இது பொருந்துகிறது."
 
-#: ../source/specifications/version-specifiers.rst:829
+#: ../source/specifications/version-specifiers.rst:844
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_. Local version identifiers are NOT permitted in this "
@@ -31687,7 +31754,7 @@ msgstr ""
 "வடிவத்தில் இருக்க வேண்டும். இந்த பதிப்பு விவரக்குறிப்பில் உள்ளக பதிப்பு அடையாளங்காட்டிகள் "
 "அனுமதிக்கப்படவில்லை."
 
-#: ../source/specifications/version-specifiers.rst:833
+#: ../source/specifications/version-specifiers.rst:848
 msgid ""
 "For a given release identifier ``V.N``, the compatible release clause is "
 "approximately equivalent to the pair of comparison clauses::"
@@ -31695,18 +31762,18 @@ msgstr ""
 "கொடுக்கப்பட்ட வெளியீட்டு அடையாளங்காட்டிக்கு `` v.n`` க்கு, இணக்கமான வெளியீட்டு விதிமுறை "
 "ஒப்பீட்டு உட்பிரிவுகளின் சோடியுக்கு சமமானதாகும் ::"
 
-#: ../source/specifications/version-specifiers.rst:838
+#: ../source/specifications/version-specifiers.rst:853
 msgid ""
 "This operator MUST NOT be used with a single segment version number such as "
 "``~=1``."
 msgstr ""
 "இந்த ஆபரேட்டர் `` ~ = 1`` போன்ற ஒற்றை பிரிவு பதிப்பு எண்ணுடன் பயன்படுத்தப்படக்கூடாது."
 
-#: ../source/specifications/version-specifiers.rst:841
+#: ../source/specifications/version-specifiers.rst:856
 msgid "For example, the following groups of version clauses are equivalent::"
 msgstr "எடுத்துக்காட்டாக, பதிப்பு உட்பிரிவுகளின் பின்வரும் குழுக்கள் சமமானவை ::"
 
-#: ../source/specifications/version-specifiers.rst:849
+#: ../source/specifications/version-specifiers.rst:864
 msgid ""
 "If a pre-release, post-release or developmental release is named in a "
 "compatible release clause as ``V.N.suffix``, then the suffix is ignored when "
@@ -31716,7 +31783,7 @@ msgstr ""
 "`` v.n.suffix`` என பெயரிடப்பட்டால், தேவையான முன்னொட்டு பொருத்தத்தை தீர்மானிக்கும்போது "
 "பின்னொட்டு புறக்கணிக்கப்படுகிறது ::"
 
-#: ../source/specifications/version-specifiers.rst:859
+#: ../source/specifications/version-specifiers.rst:874
 msgid ""
 "The padding rules for release segment comparisons means that the assumed "
 "degree of forward compatibility in a compatible release clause can be "
@@ -31726,11 +31793,11 @@ msgstr ""
 "முன்னோக்கி பொருந்தக்கூடிய அளவைக் கருதுவதன் மூலம் கூடுதல் பூச்சியங்களை பதிப்பில் சேர்ப்பதன் "
 "மூலம் கட்டுப்படுத்த முடியும் ::"
 
-#: ../source/specifications/version-specifiers.rst:871
+#: ../source/specifications/version-specifiers.rst:886
 msgid "Version matching"
 msgstr "பதிப்பு பொருந்தும்"
 
-#: ../source/specifications/version-specifiers.rst:873
+#: ../source/specifications/version-specifiers.rst:888
 msgid ""
 "A version matching clause includes the version matching operator ``==`` and "
 "a version identifier."
@@ -31738,7 +31805,7 @@ msgstr ""
 "ஒரு பதிப்பு பொருந்தும் பிரிவில் பதிப்பு பொருந்தும் ஆபரேட்டர் `` == `` மற்றும் பதிப்பு "
 "அடையாளங்காட்டி ஆகியவை அடங்கும்."
 
-#: ../source/specifications/version-specifiers.rst:876
+#: ../source/specifications/version-specifiers.rst:891
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_, but a trailing ``.*`` is permitted on public version "
@@ -31748,7 +31815,7 @@ msgstr ""
 "வடிவத்தில் இருக்க வேண்டும், ஆனால் கீழே விவரிக்கப்பட்டுள்ளபடி பொது பதிப்பு "
 "அடையாளங்காட்டிகளில்` `."
 
-#: ../source/specifications/version-specifiers.rst:880
+#: ../source/specifications/version-specifiers.rst:895
 msgid ""
 "By default, the version matching operator is based on a strict equality "
 "comparison: the specified version must be exactly the same as the requested "
@@ -31761,7 +31828,7 @@ msgstr ""
 "நீளத்துடன் ஒப்பிடப்படுவதை உறுதிசெய்ய வெளியீட்டு பிரிவின் சுழிய திணிப்பு * மட்டுமே "
 "செய்யப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:886
+#: ../source/specifications/version-specifiers.rst:901
 msgid ""
 "Whether or not strict version matching is appropriate depends on the "
 "specific use case for the version specifier. Automated tools SHOULD at least "
@@ -31773,7 +31840,7 @@ msgstr ""
 "வழங்க வேண்டும், மேலும் கடுமையான பதிப்பு போட்டிகள் தகாத முறையில் பயன்படுத்தப்படும்போது "
 "அவற்றை முழுமையாக நிராகரிக்கலாம்."
 
-#: ../source/specifications/version-specifiers.rst:891
+#: ../source/specifications/version-specifiers.rst:906
 msgid ""
 "Prefix matching may be requested instead of strict comparison, by appending "
 "a trailing ``.*`` to the version identifier in the version matching clause. "
@@ -31789,8 +31856,8 @@ msgstr ""
 "வெளியீட்டு பிரிவு மட்டுமே இருந்தால், வெளியீட்டு பிரிவில் உள்ள பின்வரும் கூறுகள் (அல்லது "
 "அதன் பற்றாக்குறை) புறக்கணிக்கப்படுகின்றன."
 
-#: ../source/specifications/version-specifiers.rst:898
-#: ../source/specifications/version-specifiers.rst:959
+#: ../source/specifications/version-specifiers.rst:913
+#: ../source/specifications/version-specifiers.rst:974
 msgid ""
 "For example, given the version ``1.1.post1``, the following clauses would "
 "match or not as shown::"
@@ -31798,7 +31865,7 @@ msgstr ""
 "எடுத்துக்காட்டாக, பதிப்பு `` 1.1.post1`` கொடுக்கப்பட்டால், பின்வரும் உட்பிரிவுகள் "
 "பொருந்தாது அல்லது காட்டப்பட்டுள்ளபடி இல்லை ::"
 
-#: ../source/specifications/version-specifiers.rst:905
+#: ../source/specifications/version-specifiers.rst:920
 msgid ""
 "For purposes of prefix matching, the pre-release segment is considered to "
 "have an implied preceding ``.``, so given the version ``1.1a1``, the "
@@ -31807,7 +31874,7 @@ msgstr ""
 "முன்னொட்டு பொருத்தத்தின் நோக்கங்களுக்காக, வெளியீட்டுக்கு முந்தைய பிரிவு `` .`` க்கு "
 "முந்தைய ஒரு மறைமுகத்தைக் கொண்டிருப்பதாகக் கருதப்படுகிறது, எனவே பதிப்பு `` 1.1a1```"
 
-#: ../source/specifications/version-specifiers.rst:913
+#: ../source/specifications/version-specifiers.rst:928
 msgid ""
 "An exact match is also considered a prefix match (this interpretation is "
 "implied by the usual zero padding rules for the release segment of version "
@@ -31819,7 +31886,7 @@ msgstr ""
 "குறிக்கப்படுகிறது). பதிப்பு `` 1.1`` கொடுக்கப்பட்டால், பின்வரும் உட்பிரிவுகள் பொருந்தாது "
 "அல்லது காட்டப்பட்டுள்ளபடி இல்லை ::"
 
-#: ../source/specifications/version-specifiers.rst:925
+#: ../source/specifications/version-specifiers.rst:940
 msgid ""
 "It is invalid to have a prefix match containing a development or local "
 "release such as ``1.0.dev1.*`` or ``1.0+foo1.*``. If present, the "
@@ -31833,7 +31900,7 @@ msgstr ""
 "நோக்கங்களுக்காக புறக்கணிக்கப்படுகிறது, எனவே முன்னொட்டு போட்டியில் பயன்படுத்துவது எந்த "
 "அர்த்தமும் இல்லை."
 
-#: ../source/specifications/version-specifiers.rst:931
+#: ../source/specifications/version-specifiers.rst:946
 msgid ""
 "The use of ``==`` (without at least the wildcard suffix) when defining "
 "dependencies for published distributions is strongly discouraged as it "
@@ -31849,7 +31916,7 @@ msgstr ""
 "சார்புகளை வரையறுக்கும் போது கடுமையான பதிப்பு ஒப்பீட்டு ஆபரேட்டர் முதன்மையாக "
 "பயன்பாட்டிற்காக கருதப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:938
+#: ../source/specifications/version-specifiers.rst:953
 msgid ""
 "If the specified version identifier is a public version identifier (no local "
 "version label), then the local version label of any candidate versions MUST "
@@ -31859,7 +31926,7 @@ msgstr ""
 "சிட்டை இல்லை) என்றால், எந்த வேட்பாளர் பதிப்புகளின் உள்ளக பதிப்பு சிட்டை பதிப்புகளுடன் "
 "பொருந்தும்போது புறக்கணிக்கப்பட வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:942
+#: ../source/specifications/version-specifiers.rst:957
 msgid ""
 "If the specified version identifier is a local version identifier, then the "
 "local version labels of candidate versions MUST be considered when matching "
@@ -31873,11 +31940,11 @@ msgstr ""
 "உள்ளக பதிப்பு சிட்டை ஒரு கடுமையான சரம் சமத்துவ ஒப்பீட்டைப் பயன்படுத்தி சமநிலைக்கு "
 "சரிபார்க்கப்படுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:950
+#: ../source/specifications/version-specifiers.rst:965
 msgid "Version exclusion"
 msgstr "பதிப்பு விலக்கு"
 
-#: ../source/specifications/version-specifiers.rst:952
+#: ../source/specifications/version-specifiers.rst:967
 msgid ""
 "A version exclusion clause includes the version exclusion operator ``!=`` "
 "and a version identifier."
@@ -31885,7 +31952,7 @@ msgstr ""
 "பதிப்பு விலக்கு பிரிவில் பதிப்பு விலக்கு ஆபரேட்டர் ``! = `` மற்றும் பதிப்பு "
 "அடையாளங்காட்டி ஆகியவை அடங்கும்."
 
-#: ../source/specifications/version-specifiers.rst:955
+#: ../source/specifications/version-specifiers.rst:970
 msgid ""
 "The allowed version identifiers and comparison semantics are the same as "
 "those of the `Version matching`_ operator, except that the sense of any "
@@ -31894,11 +31961,11 @@ msgstr ""
 "அனுமதிக்கப்பட்ட பதிப்பு அடையாளங்காட்டிகள் மற்றும் ஒப்பீட்டு சொற்பொருள்கள் `பதிப்பு "
 "பொருத்துதல்`_ ஆபரேட்டருக்கு சமமானவை, தவிர எந்தவொரு போட்டியின் உணர்வும் தலைகீழாக உள்ளது."
 
-#: ../source/specifications/version-specifiers.rst:968
+#: ../source/specifications/version-specifiers.rst:983
 msgid "Inclusive ordered comparison"
 msgstr "உள்ளடக்கிய உத்தரவிட்ட ஒப்பீடு"
 
-#: ../source/specifications/version-specifiers.rst:970
+#: ../source/specifications/version-specifiers.rst:985
 msgid ""
 "An inclusive ordered comparison clause includes a comparison operator and a "
 "version identifier, and will match any version where the comparison is "
@@ -31911,12 +31978,12 @@ msgstr ""
 "`பதிப்பு திட்டம்`_ ஆல் வரையறுக்கப்பட்ட நிலையான வரிசைப்படுத்தல் கொடுக்கப்பட்ட குறிப்பிட்ட "
 "பதிப்பின் அடிப்படையில் ஒப்பீடு சரியானதாக இருக்கும் எந்த பதிப்பையும் பொருத்துகிறது."
 
-#: ../source/specifications/version-specifiers.rst:976
+#: ../source/specifications/version-specifiers.rst:991
 msgid "The inclusive ordered comparison operators are ``<=`` and ``>=``."
 msgstr "உள்ளடக்கிய உத்தரவிடப்பட்ட ஒப்பீட்டு ஆபரேட்டர்கள் `` <= `` மற்றும் ``> = ``."
 
-#: ../source/specifications/version-specifiers.rst:978
-#: ../source/specifications/version-specifiers.rst:1008
+#: ../source/specifications/version-specifiers.rst:993
+#: ../source/specifications/version-specifiers.rst:1023
 msgid ""
 "As with version matching, the release segment is zero padded as necessary to "
 "ensure the release segments are compared with the same length."
@@ -31924,16 +31991,16 @@ msgstr ""
 "பதிப்பு பொருத்தத்தைப் போலவே, வெளியீட்டு பிரிவுகள் ஒரே நீளத்துடன் ஒப்பிடப்படுவதை "
 "உறுதிசெய்ய தேவையான அளவு பூச்சியத் துடுப்பு ஆகும்."
 
-#: ../source/specifications/version-specifiers.rst:981
-#: ../source/specifications/version-specifiers.rst:1011
+#: ../source/specifications/version-specifiers.rst:996
+#: ../source/specifications/version-specifiers.rst:1026
 msgid "Local version identifiers are NOT permitted in this version specifier."
 msgstr "இந்த பதிப்பு விவரக்குறிப்பில் உள்ளக பதிப்பு அடையாளங்காட்டிகள் அனுமதிக்கப்படவில்லை."
 
-#: ../source/specifications/version-specifiers.rst:985
+#: ../source/specifications/version-specifiers.rst:1000
 msgid "Exclusive ordered comparison"
 msgstr "பிரத்தியேக உத்தரவிடப்பட்ட ஒப்பீடு"
 
-#: ../source/specifications/version-specifiers.rst:987
+#: ../source/specifications/version-specifiers.rst:1002
 msgid ""
 "The exclusive ordered comparisons ``>`` and ``<`` are similar to the "
 "inclusive ordered comparisons in that they rely on the relative position of "
@@ -31948,7 +32015,7 @@ msgstr ""
 "கொடுக்கப்பட்ட குறிப்பிட்ட பதிப்பாகும். இருப்பினும், அவை குறிப்பிட்ட பதிப்பின் முன் "
 "வெளியீடுகள், பிந்தைய வெளியீடுகள் மற்றும் உள்ளக பதிப்புகளை குறிப்பாக விலக்குகின்றன."
 
-#: ../source/specifications/version-specifiers.rst:993
+#: ../source/specifications/version-specifiers.rst:1008
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** allow a post-release of "
 "the given version unless ``V`` itself is a post release. You may mandate "
@@ -31964,7 +32031,7 @@ msgstr ""
 "`` 1.7.0.post1`` மற்றும் `> 1.7.post2`` ஐ அனுமதிக்கும்` `1.7.1``` மற்றும்` "
 "`1.7.0.post3`` அல்ல, ஆனால்` `1.7.0``."
 
-#: ../source/specifications/version-specifiers.rst:1000
+#: ../source/specifications/version-specifiers.rst:1015
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** match a local version "
 "of the specified version."
@@ -31972,7 +32039,7 @@ msgstr ""
 "பிரத்யேக ஆர்டர் செய்யப்பட்ட ஒப்பீடு ``> v`` ** குறிப்பிட்ட பதிப்பின் உள்ளக பதிப்போடு "
 "பொருந்தக்கூடாது."
 
-#: ../source/specifications/version-specifiers.rst:1003
+#: ../source/specifications/version-specifiers.rst:1018
 msgid ""
 "The exclusive ordered comparison ``<V`` **MUST NOT** allow a pre-release of "
 "the specified version unless the specified version is itself a pre-release. "
@@ -31984,11 +32051,11 @@ msgstr ""
 "விட முந்தைய வெளியீடுகளை அனுமதிப்பது, ஆனால் ஒரு குறிப்பிட்ட முன் வெளியீட்டிற்கு சமமாக "
 "இல்லாதது `` <v.rc1`` அல்லது அதற்கு ஒத்ததாகப் பயன்படுத்துவதன் மூலம் நிறைவேற்றப்படலாம்."
 
-#: ../source/specifications/version-specifiers.rst:1015
+#: ../source/specifications/version-specifiers.rst:1030
 msgid "Arbitrary equality"
 msgstr "தன்னிச்சையான ஒரு நிகர்"
 
-#: ../source/specifications/version-specifiers.rst:1017
+#: ../source/specifications/version-specifiers.rst:1032
 #, fuzzy
 #| msgid ""
 #| "Arbitrary equality comparisons are simple string equality operations "
@@ -32007,7 +32074,7 @@ msgstr ""
 "அல்லது உள்ளக பதிப்புகள் போன்ற சொற்பொருள் தகவல்களை கணக்கில் எடுத்துக்கொள்ளாது. `` == `` "
 "ஆபரேட்டர் செய்வதால் இந்த ஆபரேட்டர் முன்னொட்டு பொருத்தத்தை ஆதரிக்காது."
 
-#: ../source/specifications/version-specifiers.rst:1023
+#: ../source/specifications/version-specifiers.rst:1038
 msgid ""
 "The primary use case for arbitrary equality is to allow for specifying a "
 "version which cannot otherwise be represented by this specification. This "
@@ -32021,12 +32088,12 @@ msgstr ""
 "அட்ச் ஆக செயல்படுகிறது, இது ஒரு மரபு பதிப்பை நிறுவுவதற்கு இன்னும் இந்த "
 "விவரக்குறிப்புடன் பொருந்தாது."
 
-#: ../source/specifications/version-specifiers.rst:1029
+#: ../source/specifications/version-specifiers.rst:1044
 msgid ""
 "An example would be ``===foobar`` which would match a version of ``foobar``."
 msgstr "ஒரு எடுத்துக்காட்டு `` === FOOBAR`` இது `` Foobar`` இன் பதிப்போடு பொருந்தும்."
 
-#: ../source/specifications/version-specifiers.rst:1031
+#: ../source/specifications/version-specifiers.rst:1046
 msgid ""
 "This operator may also be used to explicitly require an unpatched version of "
 "a project such as ``===1.0`` which would not match for a version "
@@ -32035,7 +32102,7 @@ msgstr ""
 "`` === 1.0`` போன்ற திட்டத்தின் இணைக்கப்படாத பதிப்பு வெளிப்படையாக தேவைப்படலாம், இது ஒரு "
 "பதிப்பு `` 1.0+கீழ்நிலை 1`` உடன் பொருந்தாது."
 
-#: ../source/specifications/version-specifiers.rst:1035
+#: ../source/specifications/version-specifiers.rst:1050
 msgid ""
 "Use of this operator is heavily discouraged and tooling MAY display a "
 "warning when it is used."
@@ -32043,11 +32110,11 @@ msgstr ""
 "இந்த ஆபரேட்டரின் பயன்பாடு பெரிதும் ஊக்கமளிக்கிறது மற்றும் கருவி பயன்படுத்தப்படும்போது ஒரு "
 "எச்சரிக்கையைக் காட்டக்கூடும்."
 
-#: ../source/specifications/version-specifiers.rst:1040
+#: ../source/specifications/version-specifiers.rst:1055
 msgid "Handling of pre-releases"
 msgstr "முன் வெளியீடுகளைக் கையாளுதல்"
 
-#: ../source/specifications/version-specifiers.rst:1042
+#: ../source/specifications/version-specifiers.rst:1057
 msgid ""
 "Pre-releases of any kind, including developmental releases, are implicitly "
 "excluded from all version specifiers, *unless* they are already present on "
@@ -32059,15 +32126,15 @@ msgstr ""
 "இருக்காவிட்டால், பயனரால் வெளிப்படையாகக் கோரப்பட்டவை, அல்லது பதிப்பு விவரக்குறிப்பை "
 "நிறைவு செய்யும் ஒரே பதிப்பு முன் வெளியீட்டிற்கு முன்பே."
 
-#: ../source/specifications/version-specifiers.rst:1047
+#: ../source/specifications/version-specifiers.rst:1062
 msgid "By default, dependency resolution tools SHOULD:"
 msgstr "இயல்பாக, சார்பு தீர்மானக் கருவிகள் வேண்டும்:"
 
-#: ../source/specifications/version-specifiers.rst:1049
+#: ../source/specifications/version-specifiers.rst:1064
 msgid "accept already installed pre-releases for all version specifiers"
 msgstr "அனைத்து பதிப்பு குறிப்பான்களுக்கும் ஏற்கனவே நிறுவப்பட்ட முன் வெளியீடுகளை ஏற்றுக்கொள்"
 
-#: ../source/specifications/version-specifiers.rst:1050
+#: ../source/specifications/version-specifiers.rst:1065
 msgid ""
 "accept remotely available pre-releases for version specifiers where there is "
 "no final or post release that satisfies the version specifier"
@@ -32075,11 +32142,11 @@ msgstr ""
 "பதிப்பு விவரக்குறிப்புகளை நிறைவு செய்யும் இறுதி அல்லது இடுகை வெளியீடு இல்லாத பதிப்பு "
 "குறிப்பான்களுக்கான தொலைதூரத்தில் கிடைக்கக்கூடிய முன் வெளியீடுகளை ஏற்றுக்கொள்ளுங்கள்"
 
-#: ../source/specifications/version-specifiers.rst:1052
+#: ../source/specifications/version-specifiers.rst:1067
 msgid "exclude all other pre-releases from consideration"
 msgstr "மற்ற எல்லா முன் வெளியீடுகளையும் பரிசீலிப்பதில் இருந்து விலக்குங்கள்"
 
-#: ../source/specifications/version-specifiers.rst:1054
+#: ../source/specifications/version-specifiers.rst:1069
 msgid ""
 "Dependency resolution tools MAY issue a warning if a pre-release is needed "
 "to satisfy a version specifier."
@@ -32087,18 +32154,18 @@ msgstr ""
 "பதிப்பு விவரக்குறிப்பை நிறைவு செய்ய முன் வெளியீடு தேவைப்பட்டால் சார்பு தீர்க்கும் கருவிகள் "
 "எச்சரிக்கையை வெளியிடக்கூடும்."
 
-#: ../source/specifications/version-specifiers.rst:1057
+#: ../source/specifications/version-specifiers.rst:1072
 msgid ""
 "Dependency resolution tools SHOULD also allow users to request the following "
 "alternative behaviours:"
 msgstr ""
 "சார்பு தீர்க்கும் கருவிகள் பயனர்களை பின்வரும் மாற்று நடத்தைகளைக் கோர அனுமதிக்க வேண்டும்:"
 
-#: ../source/specifications/version-specifiers.rst:1060
+#: ../source/specifications/version-specifiers.rst:1075
 msgid "accepting pre-releases for all version specifiers"
 msgstr "அனைத்து பதிப்பு குறிப்பான்களுக்கும் முன் வெளியீடுகளை ஏற்றுக்கொள்வது"
 
-#: ../source/specifications/version-specifiers.rst:1061
+#: ../source/specifications/version-specifiers.rst:1076
 msgid ""
 "excluding pre-releases for all version specifiers (reporting an error or "
 "warning if a pre-release is already installed locally, or if a pre-release "
@@ -32108,7 +32175,7 @@ msgstr ""
 "ஏற்கனவே உள்நாட்டில் நிறுவப்பட்டிருந்தால், அல்லது ஒரு குறிப்பிட்ட விவரக்குறிப்பை நிறைவு "
 "செய்வதற்கான ஒரே வழி ஒரு முன் வெளியீடு என்றால் பிழை அல்லது எச்சரிக்கையைப் புகாரளித்தல்)"
 
-#: ../source/specifications/version-specifiers.rst:1065
+#: ../source/specifications/version-specifiers.rst:1080
 msgid ""
 "Dependency resolution tools MAY also allow the above behaviour to be "
 "controlled on a per-distribution basis."
@@ -32116,7 +32183,7 @@ msgstr ""
 "சார்பு தீர்க்கும் கருவிகள் மேற்கண்ட நடத்தை ஒரு விநியோக அடிப்படையில் கட்டுப்படுத்த "
 "அனுமதிக்கலாம்."
 
-#: ../source/specifications/version-specifiers.rst:1068
+#: ../source/specifications/version-specifiers.rst:1083
 msgid ""
 "Post-releases and final releases receive no special treatment in version "
 "specifiers - they are always included unless explicitly excluded."
@@ -32124,25 +32191,25 @@ msgstr ""
 "பிந்தைய உறவுகள் மற்றும் இறுதி வெளியீடுகள் பதிப்பு விவரக்குறிப்பாளர்களில் சிறப்பு "
 "சிகிச்சையைப் பெறவில்லை - வெளிப்படையாக விலக்கப்படாவிட்டால் அவை எப்போதும் சேர்க்கப்படும்."
 
-#: ../source/specifications/version-specifiers.rst:1075
+#: ../source/specifications/version-specifiers.rst:1090
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
 msgstr ""
 "`` ~ = 3.1``: பதிப்பு 3.1 அல்லது அதற்குப் பிறகு, ஆனால் பதிப்பு 4.0 அல்லது அதற்குப் "
 "பிறகு அல்ல."
 
-#: ../source/specifications/version-specifiers.rst:1076
+#: ../source/specifications/version-specifiers.rst:1091
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
 msgstr ""
 "`` ~ = 3.1.2``: பதிப்பு 3.1.2 அல்லது அதற்குப் பிறகு, ஆனால் பதிப்பு 3.2.0 அல்லது "
 "அதற்குப் பிறகு அல்ல."
 
-#: ../source/specifications/version-specifiers.rst:1077
+#: ../source/specifications/version-specifiers.rst:1092
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
 msgstr ""
 "`` ~ = 3.1a1``: பதிப்பு 3.1a1 அல்லது அதற்குப் பிறகு, ஆனால் பதிப்பு 4.0 அல்லது "
 "அதற்குப் பிறகு அல்ல."
 
-#: ../source/specifications/version-specifiers.rst:1078
+#: ../source/specifications/version-specifiers.rst:1093
 msgid ""
 "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, "
 "post releases, developmental releases and any 3.1.x maintenance releases."
@@ -32151,7 +32218,7 @@ msgstr ""
 "வெளியீடுகள், மேம்பாட்டு வெளியீடுகள் மற்றும் எந்த 3.1.x பராமரிப்பு வெளியீடுகளையும் "
 "விலக்குகிறது."
 
-#: ../source/specifications/version-specifiers.rst:1080
+#: ../source/specifications/version-specifiers.rst:1095
 msgid ""
 "``== 3.1.*``: any version that starts with 3.1. Equivalent to the "
 "``~=3.1.0`` compatible release clause."
@@ -32159,7 +32226,7 @@ msgstr ""
 "`` == 3.1.*``: 3.1 உடன் தொடங்கும் எந்த பதிப்பும். `` ~ = 3.1.0`` இணக்கமான வெளியீட்டு "
 "விதிமுறைக்கு சமம்."
 
-#: ../source/specifications/version-specifiers.rst:1082
+#: ../source/specifications/version-specifiers.rst:1097
 msgid ""
 "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not "
 "version 3.2.0 or later."
@@ -32167,11 +32234,11 @@ msgstr ""
 "`` ~ = 3.1.0,! = 3.1.3``: பதிப்பு 3.1.0 அல்லது அதற்குப் பிறகு, ஆனால் பதிப்பு 3.1.3 "
 "அல்ல, பதிப்பு 3.2.0 அல்லது அதற்குப் பிறகு அல்ல."
 
-#: ../source/specifications/version-specifiers.rst:1087
+#: ../source/specifications/version-specifiers.rst:1102
 msgid "Direct references"
 msgstr "நேரடி குறிப்புகள்"
 
-#: ../source/specifications/version-specifiers.rst:1089
+#: ../source/specifications/version-specifiers.rst:1104
 msgid ""
 "Some automated tools may permit the use of a direct reference as an "
 "alternative to a normal version specifier. A direct reference consists of "
@@ -32181,7 +32248,7 @@ msgstr ""
 "பயன்படுத்த அனுமதிக்கலாம். ஒரு நேரடி குறிப்பு ``@`` மற்றும் வெளிப்படையான முகவரி "
 "ஆகியவற்றைக் கொண்டுள்ளது."
 
-#: ../source/specifications/version-specifiers.rst:1093
+#: ../source/specifications/version-specifiers.rst:1108
 msgid ""
 "Whether or not direct references are appropriate depends on the specific use "
 "case for the version specifier. Automated tools SHOULD at least issue "
@@ -32193,7 +32260,7 @@ msgstr ""
 "வேண்டும், மேலும் நேரடி குறிப்புகள் தகாத முறையில் பயன்படுத்தப்படும்போது அவற்றை முழுமையாக "
 "நிராகரிக்கலாம்."
 
-#: ../source/specifications/version-specifiers.rst:1098
+#: ../source/specifications/version-specifiers.rst:1113
 msgid ""
 "Public index servers SHOULD NOT allow the use of direct references in "
 "uploaded distributions. Direct references are intended as a tool for "
@@ -32203,7 +32270,7 @@ msgstr ""
 "அனுமதிக்கக்கூடாது. நேரடி குறிப்புகள் வெளியீட்டாளர்களைக் காட்டிலும் மென்பொருள் "
 "ஒருங்கிணைப்பாளர்களுக்கான கருவியாக கருதப்படுகின்றன."
 
-#: ../source/specifications/version-specifiers.rst:1102
+#: ../source/specifications/version-specifiers.rst:1117
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
 "reference may be an sdist or a wheel binary archive. The exact URLs and "
@@ -32213,15 +32280,15 @@ msgstr ""
 "SDIST அல்லது சக்கர பைனரி காப்பகமாக இருக்கலாம். ஆதரிக்கப்படும் சரியான முகவரி கள் மற்றும் "
 "இலக்குகள் கருவி சார்ந்ததாக இருக்கும்."
 
-#: ../source/specifications/version-specifiers.rst:1106
+#: ../source/specifications/version-specifiers.rst:1121
 msgid "For example, a local source archive may be referenced directly::"
 msgstr "எடுத்துக்காட்டாக, ஒரு உள்ளக மூல காப்பகம் நேரடியாக குறிப்பிடப்படலாம் ::"
 
-#: ../source/specifications/version-specifiers.rst:1110
+#: ../source/specifications/version-specifiers.rst:1125
 msgid "Alternatively, a prebuilt archive may also be referenced::"
 msgstr "மாற்றாக, முன்பே கட்டப்பட்ட காப்பகமும் குறிப்பிடப்படலாம் ::"
 
-#: ../source/specifications/version-specifiers.rst:1114
+#: ../source/specifications/version-specifiers.rst:1129
 msgid ""
 "All direct references that do not refer to a local file URL SHOULD specify a "
 "secure transport mechanism (such as ``https``) AND include an expected hash "
@@ -32241,7 +32308,7 @@ msgstr ""
 "முகவரி ஐ நம்ப மறுக்கக்கூடும். அத்தகைய நேரடி குறிப்பு பாதுகாப்பற்ற போக்குவரத்தையும் "
 "பயன்படுத்தினால், தானியங்கி கருவிகள் முகவரி ஐ நம்பக்கூடாது."
 
-#: ../source/specifications/version-specifiers.rst:1123
+#: ../source/specifications/version-specifiers.rst:1138
 msgid ""
 "It is RECOMMENDED that only hashes which are unconditionally provided by the "
 "latest version of the standard library's :py:mod:`hashlib` module be used "
@@ -32255,7 +32322,7 @@ msgstr ""
 "224'```, `'' சா 256'```,` '' சா 384'``, மற்றும் `'' சா 512'`` ஆகியவற்றைக் "
 "கொண்டுள்ளது."
 
-#: ../source/specifications/version-specifiers.rst:1129
+#: ../source/specifications/version-specifiers.rst:1144
 msgid ""
 "For source archive and wheel references, an expected hash value may be "
 "specified by including a ``<hash-algorithm>=<expected-hash>`` entry as part "
@@ -32265,7 +32332,7 @@ msgstr ""
 "`` முகவரி துண்டின் ஒரு பகுதியாக நுழைவு ஆகியவற்றைச் சேர்ப்பதன் மூலம் எதிர்பார்க்கப்படும் "
 "ஆச் மதிப்பு குறிப்பிடப்படலாம்."
 
-#: ../source/specifications/version-specifiers.rst:1133
+#: ../source/specifications/version-specifiers.rst:1148
 msgid ""
 "For version control references, the ``VCS+protocol`` scheme SHOULD be used "
 "to identify both the version control system and the secure transport, and a "
@@ -32280,7 +32347,7 @@ msgstr ""
 "பதிப்பு கட்டுப்பாட்டு அமைப்புகளுக்கான ஆச்களைக் காணவில்லை என்ற எச்சரிக்கைகளை தானியங்கு "
 "கருவிகள் தவிர்க்கலாம்."
 
-#: ../source/specifications/version-specifiers.rst:1139
+#: ../source/specifications/version-specifiers.rst:1154
 msgid ""
 "To handle version control systems that do not support including commit or "
 "tag references directly in the URL, that information may be appended to the "
@@ -32291,7 +32358,7 @@ msgstr ""
 "அமைப்புகளைக் கையாள, அந்த செய்தி `` `<கமிட்-ஆச்>` அல்லது ``@<குறிச்சொல்>#<கமிட்-ஆச்> `` "
 "குறியீட்டைப் பயன்படுத்தி முகவரி இன் முடிவில் சேர்க்கப்படலாம்."
 
-#: ../source/specifications/version-specifiers.rst:1146
+#: ../source/specifications/version-specifiers.rst:1161
 msgid ""
 "This isn't *quite* the same as the existing VCS reference notation supported "
 "by pip. Firstly, the distribution name is moved in front rather than "
@@ -32309,15 +32376,15 @@ msgstr ""
 "குறிச்சொல்லுடன் தீங்கிழைக்கும் ரெப்போவை உருவாக்குவது எளிதானது, ஒரு குறிப்பிட்ட *ஆச் *உடன் "
 "ஒன்றை உருவாக்குகிறது, குறைவாக)."
 
-#: ../source/specifications/version-specifiers.rst:1154
+#: ../source/specifications/version-specifiers.rst:1169
 msgid "Remote URL examples::"
 msgstr "தொலைநிலை முகவரி எடுத்துக்காட்டுகள் ::"
 
-#: ../source/specifications/version-specifiers.rst:1162
+#: ../source/specifications/version-specifiers.rst:1177
 msgid "File URLs"
 msgstr "கோப்பு முகவரி கள்"
 
-#: ../source/specifications/version-specifiers.rst:1164
+#: ../source/specifications/version-specifiers.rst:1179
 msgid ""
 "File URLs take the form of ``file://<host>/<path>``. If the ``<host>`` is "
 "omitted it is assumed to be ``localhost`` and even if the ``<host>`` is "
@@ -32329,7 +32396,7 @@ msgstr ""
 "தவிர்க்கப்பட்டாலும் கூட மூன்றாவது சாய்வு இன்னும் இருக்க வேண்டும். `` <athe> `` `அணுக "
 "வேண்டிய கோப்பு முறைமையின் கோப்பு பாதை என்ன என்பதை வரையறுக்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:1169
+#: ../source/specifications/version-specifiers.rst:1184
 msgid ""
 "On the various \\*nix operating systems the only allowed values for "
 "``<host>`` is for it to be omitted, ``localhost``, or another FQDN that the "
@@ -32341,7 +32408,7 @@ msgstr ""
 "அதன் சொந்த ஓச்டுடன் பொருந்துகிறது. வேறு வார்த்தைகளில் கூறுவதானால், `` கோப்பு: // `` "
 "திட்டத்தை உள்ளக கணினியில் பாதைகளை அணுக மட்டுமே பயன்படுத்த முடியும்."
 
-#: ../source/specifications/version-specifiers.rst:1174
+#: ../source/specifications/version-specifiers.rst:1189
 msgid ""
 "On Windows the file format should include the drive letter if applicable as "
 "part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \\*nix "
@@ -32360,11 +32427,11 @@ msgstr ""
 "தொகுதி/கோப்பு`` என முடிவடையும். சாளரங்களில் `` கோப்பு: // `` urls பற்றிய கூடுதல் "
 "தகவலுக்கு `msdtn <https://web.archive.org/web/20130321051043/http://blogs."
 
-#: ../source/specifications/version-specifiers.rst:1185
+#: ../source/specifications/version-specifiers.rst:1200
 msgid "Summary of differences from pkg_resources.parse_version"
 msgstr "Pkg_resources.parse_version இலிருந்து வேறுபாடுகளின் சுருக்கம்"
 
-#: ../source/specifications/version-specifiers.rst:1187
+#: ../source/specifications/version-specifiers.rst:1202
 msgid ""
 "Note: this comparison is to ``pkg_resources.parse_version`` as it existed at "
 "the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 "
@@ -32374,7 +32441,7 @@ msgstr ""
 "போல: PEP: `440` எழுதப்பட்டது. PEP ஏற்றுக்கொள்ளப்பட்ட பிறகு, செட்டுப்டூல்ச் 6.0 மற்றும் "
 "பின்னர் பதிப்புகள் இங்கு விவரிக்கப்பட்டுள்ள நடத்தையை ஏற்றுக்கொண்டன."
 
-#: ../source/specifications/version-specifiers.rst:1191
+#: ../source/specifications/version-specifiers.rst:1206
 msgid ""
 "Local versions sort differently, this specification requires that they sort "
 "as greater than the same version without a local version, whereas "
@@ -32385,7 +32452,7 @@ msgstr ""
 "pkg_resources.parse_version`` இது ஒரு முன் வெளியீட்டுக்கு முந்தைய குறிப்பானாக "
 "கருதுகிறது."
 
-#: ../source/specifications/version-specifiers.rst:1195
+#: ../source/specifications/version-specifiers.rst:1210
 msgid ""
 "This specification purposely restricts the syntax which constitutes a valid "
 "version while ``pkg_resources.parse_version`` attempts to provide some "
@@ -32395,7 +32462,7 @@ msgstr ""
 "கட்டுப்படுத்துகிறது, அதே நேரத்தில் `` pkg_resources.parse_version`` * எந்த * "
 "தன்னிச்சையான சரத்திலிருந்து சில அர்த்தங்களை வழங்க முயற்சிக்கிறது."
 
-#: ../source/specifications/version-specifiers.rst:1199
+#: ../source/specifications/version-specifiers.rst:1214
 msgid ""
 "``pkg_resources.parse_version`` allows arbitrarily deeply nested version "
 "signifiers like ``1.0.dev1.post1.dev5``. This specification however allows "
@@ -32406,11 +32473,11 @@ msgstr ""
 "விவரக்குறிப்பு ஒவ்வொரு வகையின் ஒரு பயன்பாட்டை மட்டுமே அனுமதிக்கிறது, மேலும் அவை ஒரு "
 "குறிப்பிட்ட வரிசையில் இருக்க வேண்டும்."
 
-#: ../source/specifications/version-specifiers.rst:1208
+#: ../source/specifications/version-specifiers.rst:1223
 msgid "Appendix: Parsing version strings with regular expressions"
 msgstr "பின் இணைப்பு: வழக்கமான வெளிப்பாடுகளுடன் பதிப்பு சரங்களை பாகுபடுத்துதல்"
 
-#: ../source/specifications/version-specifiers.rst:1210
+#: ../source/specifications/version-specifiers.rst:1225
 msgid ""
 "As noted earlier in the :ref:`public-version-identifiers` section, published "
 "version identifiers SHOULD use the canonical format. This section provides "
@@ -32424,7 +32491,7 @@ msgstr ""
 "சோதிக்கப் பயன்படுகிறது, அது இல்லையென்றால், அடுத்தடுத்த இயல்பாக்கத்திற்கு பல்வேறு கூறுகளை "
 "பிரித்தெடுக்கவும்."
 
-#: ../source/specifications/version-specifiers.rst:1216
+#: ../source/specifications/version-specifiers.rst:1231
 msgid ""
 "To test whether a version identifier is in the canonical format, you can use "
 "the following function:"
@@ -32432,7 +32499,7 @@ msgstr ""
 "பதிப்பு அடையாளங்காட்டி நியமன வடிவத்தில் உள்ளதா என்பதை சோதிக்க, நீங்கள் பின்வரும் "
 "செயல்பாட்டைப் பயன்படுத்தலாம்:"
 
-#: ../source/specifications/version-specifiers.rst:1225
+#: ../source/specifications/version-specifiers.rst:1240
 msgid ""
 "To extract the components of a version identifier, use the following regular "
 "expression (as defined by the `packaging <https://github.com/pypa/"
@@ -32441,18 +32508,22 @@ msgstr ""
 "பதிப்பு அடையாளங்காட்டியின் கூறுகளைப் பிரித்தெடுக்க, பின்வரும் வழக்கமான வெளிப்பாட்டைப் "
 "பயன்படுத்தவும் (`பேக்கேசிங் <https://github.com/pypa/packaging> _ _ திட்டம்):"
 
-#: ../source/specifications/version-specifiers.rst:1272
+#: ../source/specifications/version-specifiers.rst:1287
 msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr "ஆகச்ட் 2014: இந்த விவரக்குறிப்பு அங்கீகரிக்கப்பட்டது: PEP: `440`."
 
-#: ../source/specifications/version-specifiers.rst:1273
+#: ../source/specifications/version-specifiers.rst:1288
 msgid ""
 "May 2025: Clarify that development releases are a form of pre-release when "
 "they are handled."
 msgstr ""
 
-#: ../source/specifications/version-specifiers.rst:1275
+#: ../source/specifications/version-specifiers.rst:1290
 msgid "Nov 2025: Make arbitrary equality case insensitivity explicit."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:1291
+msgid "Jan 2026: The use of epochs was discouraged."
 msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:6
@@ -34678,6 +34749,22 @@ msgstr ""
 "கருதப்படுகிறது ** (இந்த டூட்டோரியலில் மறைக்கப்படவில்லை). நீங்கள் பைதான் பேக்கேசிங் மூலம் "
 "மட்டுமே தொடங்கினால், * வழக்கமான தொகுப்புகள் * மற்றும் `__init __. பை`` (கோப்பு "
 "காலியாக இருந்தாலும் கூட) ஒட்டிக்கொள்ள பரிந்துரைக்கப்படுகிறது."
+
+#~ msgid ""
+#~ "Refer to the `pkg_resources documentation <https://"
+#~ "setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-"
+#~ "objects>`__ for more details."
+#~ msgstr ""
+#~ "மேலும் விவரங்களுக்கு `pkg_resources ஆவணங்கள் <https://"
+#~ "setuptools.readthedocs.io/en/latest/"
+#~ "pkg_resources.html#owml#owml#workingset-objects ஐப் பார்க்கவும்."
+
+#~ msgid ""
+#~ "A complete working example of two pkg_resources-style namespace packages "
+#~ "can be found in the `pkg_resources namespace example project`_."
+#~ msgstr ""
+#~ "இரண்டு pkg_resources- பாணி பெயர்வெளி தொகுப்புகளின் முழுமையான வேலை "
+#~ "எடுத்துக்காட்டு `pkg_resources பெயர்வெளி எடுத்துக்காட்டு திட்டம்`_ இல் காணலாம்."
 
 #~ msgid ""
 #~ "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
