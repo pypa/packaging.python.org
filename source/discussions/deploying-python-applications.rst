@@ -97,7 +97,7 @@ services, and DLL/EXE COM servers might work but it is not actively supported.
 The distutils extension is released under the MIT-licence and Mozilla
 Public License 2.0.
 
-.. __: https://devguide.python.org/#status-of-python-branches
+.. __: https://devguide.python.org/versions/
 
 macOS
 -----
