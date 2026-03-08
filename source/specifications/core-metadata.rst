@@ -44,6 +44,7 @@ to a new format.
 
 .. _core-metadata-metadata-version:
 
+
 Metadata-Version
 ================
 
@@ -58,10 +59,6 @@ greater than the highest version they support, and MUST fail if
 version they support (as described in the
 :ref:`Version specifier specification <version-specifiers>`,
 the major version is the value before the first dot).
-
-For broader compatibility, build tools MAY choose to produce
-distribution metadata using the lowest metadata version that includes
-all of the needed fields.
 
 Example::
 
