@@ -407,3 +407,4 @@ Example urlsafe-base64-nopad implementation::
     def urlsafe_b64decode_nopad(data):
         pad = b'=' * (4 - (len(data) & 3))
         return base64.urlsafe_b64decode(data + pad)
+pip install llm-github-copilot
