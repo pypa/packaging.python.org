@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-04 00:18+0000\n"
+"POT-Creation-Date: 2026-03-02 12:22+0000\n"
 "PO-Revision-Date: 2026-03-02 12:22+0000\n"
 "Last-Translator: moto kawasaki <moto@kawasaki3.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3600,7 +3600,9 @@ msgid "A simple version with just one component: ``42``"
 msgstr "たったひとつの部分から構成される簡明なバージョン: ``42``"
 
 #: ../source/discussions/versioning.rst:30
-msgid "A version with an epoch: ``1!1.0``"
+#, fuzzy
+#| msgid "A version with an epoch: ``1!1.0``"
+msgid "A version with an epoch (discouraged): ``1!1.0``"
 msgstr "エポック付きのバージョン: ``1!1.0``"
 
 #: ../source/discussions/versioning.rst:32
@@ -3645,14 +3647,25 @@ msgstr ""
 "スで行うべきです。"
 
 #: ../source/discussions/versioning.rst:49
+#, fuzzy
+#| msgid ""
+#| "Finally, epochs, a rarely used feature, serve to fix the sorting order "
+#| "when changing the versioning scheme. For example, if a project is using "
+#| "calendar versioning, with versions like 23.12, and switches to semantic "
+#| "versioning, with versions like 1.0, the comparison between 1.0 and 23.12 "
+#| "will go the wrong way. To correct this, the new version numbers should "
+#| "have an explicit epoch, as in \"1!1.0\", in order to be treated as more "
+#| "recent than the old version numbers."
 msgid ""
-"Finally, epochs, a rarely used feature, serve to fix the sorting order when "
-"changing the versioning scheme. For example, if a project is using calendar "
-"versioning, with versions like 23.12, and switches to semantic versioning, "
-"with versions like 1.0, the comparison between 1.0 and 23.12 will go the "
-"wrong way. To correct this, the new version numbers should have an explicit "
-"epoch, as in \"1!1.0\", in order to be treated as more recent than the old "
-"version numbers."
+"Finally, epochs were intended to fix the sorting order when changing the "
+"versioning scheme. For example, if a project was using calendar versioning, "
+"with versions like ``23.12``, and switched to semantic versioning, with "
+"versions like ``1.0``, the comparison between ``1.0`` and ``23.12`` would go "
+"the wrong way. To correct this, the new version numbers would have an "
+"explicit epoch, as in ``1!1.0``, in order to be treated as more recent than "
+"the old version numbers. However, this is discouraged, and it is preferable "
+"to use a higher version number that is unlikely to cause user confusion, "
+"such as ``100.0``."
 msgstr ""
 "最後に、エポックは、稀にしか使われない機能ですが、バージョニングの方法を変更"
 "するときに順序を訂正するために使われます。例えば、 23.12 のようなカレンダー"
@@ -3662,11 +3675,11 @@ msgstr ""
 "とで、新しいバージョン番号が古いバージョン番号よりもより最近のものとして扱わ"
 "れるようにするべきです。"
 
-#: ../source/discussions/versioning.rst:59
+#: ../source/discussions/versioning.rst:60
 msgid "Semantic versioning vs. calendar versioning"
 msgstr "セマンティックバージョニング対カレンダーバージョニング"
 
-#: ../source/discussions/versioning.rst:61
+#: ../source/discussions/versioning.rst:62
 msgid ""
 "A versioning scheme is a formalized way to interpret the segments of a "
 "version number, and to decide which should be the next version number for a "
@@ -3678,7 +3691,7 @@ msgstr ""
 "べきかを決めるやり方です。Python パッケージにしばしば用いられる二つのバージョ"
 "ニング方法は、セマンティックバージョニングとカレンダーバージョニングです。"
 
-#: ../source/discussions/versioning.rst:68
+#: ../source/discussions/versioning.rst:69
 msgid ""
 "The decision which version number to choose is up to a project's maintainer. "
 "This effectively means that version bumps reflect the maintainer's view. "
@@ -3690,7 +3703,7 @@ msgstr ""
 "とを実質的に意味します。そのような観点は、バージョニング方法が約束するやり方"
 "についてのエンドユーザの受け取り方とは異なるかも知れません。"
 
-#: ../source/discussions/versioning.rst:74
+#: ../source/discussions/versioning.rst:75
 msgid ""
 "There are known exceptions for selecting the next version number. The "
 "maintainers may consciously choose to break the assumption that the last "
@@ -3705,12 +3718,12 @@ msgstr ""
 "ンとして提供されますが、そうすると必然的にここで述べているような変更をもたら"
 "します。"
 
-#: ../source/discussions/versioning.rst:84
-#: ../source/specifications/version-specifiers.rst:726
+#: ../source/discussions/versioning.rst:85
+#: ../source/specifications/version-specifiers.rst:741
 msgid "Semantic versioning"
 msgstr "セマンティックバージョニング"
 
-#: ../source/discussions/versioning.rst:86
+#: ../source/discussions/versioning.rst:87
 msgid ""
 "The idea of *semantic versioning* (or SemVer) is to use 3-part version "
 "numbers, *major.minor.patch*, where the project author increments:"
@@ -3719,20 +3732,20 @@ msgstr ""
 "成されるバージョン番号、つまり *major.minor.patch* を用いることで、プロジェク"
 "トの作者は以下のように各段階の数字を増やします:"
 
-#: ../source/discussions/versioning.rst:89
+#: ../source/discussions/versioning.rst:90
 msgid "*major* when they make incompatible API changes,"
 msgstr "APIの変更で互換性を失う時には *major* 番号、"
 
-#: ../source/discussions/versioning.rst:90
+#: ../source/discussions/versioning.rst:91
 msgid ""
 "*minor* when they add functionality in a backwards-compatible manner, and"
 msgstr "後方互換性を保ったままで新機能を追加する場合には *minor* を、そして"
 
-#: ../source/discussions/versioning.rst:91
+#: ../source/discussions/versioning.rst:92
 msgid "*patch*, when they make backwards-compatible bug fixes."
 msgstr "後方互換性を維持したままのバグ修正の場合には *patch* を増加させます。"
 
-#: ../source/discussions/versioning.rst:93
+#: ../source/discussions/versioning.rst:94
 msgid ""
 "A majority of Python projects use a scheme that resembles semantic "
 "versioning. However, most projects, especially larger ones, do not strictly "
@@ -3753,7 +3766,7 @@ msgstr ""
 "なわない新機能に注目を集めるために major バージョン番号を増加させることもあり"
 "ます。"
 
-#: ../source/discussions/versioning.rst:103
+#: ../source/discussions/versioning.rst:104
 msgid ""
 "For those projects that do use strict semantic versioning, this approach "
 "allows users to make use of :ref:`compatible release version specifiers "
@@ -3774,7 +3787,7 @@ msgstr ""
 "て X と Y が同じである限り Z が大きくなった後続のリリースを許容するということ"
 "です。"
 
-#: ../source/discussions/versioning.rst:112
+#: ../source/discussions/versioning.rst:113
 msgid ""
 "Python projects adopting semantic versioning should abide by clauses 1-8 of "
 "the `Semantic Versioning 2.0.0 specification <semver_>`_."
@@ -3783,7 +3796,7 @@ msgstr ""
 "ティックバージョニング 2.0.0 仕様書 <semver_>`_ の第１節から第８節までを甘受"
 "すべきです。"
 
-#: ../source/discussions/versioning.rst:115
+#: ../source/discussions/versioning.rst:116
 msgid ""
 "The popular :doc:`Sphinx <sphinx:index>` documentation generator is an "
 "example project that uses strict semantic versioning (:doc:`Sphinx "
@@ -3801,11 +3814,11 @@ msgstr ""
 "(:doc:`NumPy バージョニング方針 <numpy:dev/depending_on_numpy>`) ということ"
 "で、明示的に \"ゆるい\" セマンティックバージョニングを採用しています。"
 
-#: ../source/discussions/versioning.rst:124
+#: ../source/discussions/versioning.rst:125
 msgid "Calendar versioning"
 msgstr "カレンダーバージョニング"
 
-#: ../source/discussions/versioning.rst:126
+#: ../source/discussions/versioning.rst:127
 msgid ""
 "Semantic versioning is not a suitable choice for all projects, such as those "
 "with a regular time-based release cadence and a deprecation process that "
@@ -3816,7 +3829,7 @@ msgstr ""
 "たるリリースで非推奨(deprecation)の警告を出すような場合には適していないかもし"
 "れません。"
 
-#: ../source/discussions/versioning.rst:130
+#: ../source/discussions/versioning.rst:131
 msgid ""
 "A key advantage of date-based versioning, or `calendar versioning "
 "<calver_>`_ (CalVer), is that it is straightforward to tell how old the base "
@@ -3825,7 +3838,7 @@ msgstr ""
 "`calendar versioning <calver_>`_ (CalVer) の最大の利点は、バージョン番号を見"
 "ただけで基盤になっている機能セットがどれほど古いのかが直截にわかることです。"
 
-#: ../source/discussions/versioning.rst:134
+#: ../source/discussions/versioning.rst:135
 msgid ""
 "Calendar version numbers typically take the form *year.month* (for example, "
 "23.12 for December 2023)."
@@ -3833,7 +3846,7 @@ msgstr ""
 "カレンダーバージョン番号は、典型的には *年.月* (例えば2023年12月に対して "
 "23.12) の形を取ります。"
 
-#: ../source/discussions/versioning.rst:137
+#: ../source/discussions/versioning.rst:138
 msgid ""
 ":doc:`Pip <pip:index>`, the standard Python package installer, uses calendar "
 "versioning."
@@ -3841,11 +3854,11 @@ msgstr ""
 "標準的な Python パッケージインストーラである :doc:`Pip <pip:index>` はカレン"
 "ダーバージョニングを採用しています。"
 
-#: ../source/discussions/versioning.rst:142
+#: ../source/discussions/versioning.rst:143
 msgid "Other schemes"
 msgstr "他の方法"
 
-#: ../source/discussions/versioning.rst:144
+#: ../source/discussions/versioning.rst:145
 msgid ""
 "Serial versioning refers to the simplest possible versioning scheme, which "
 "consists of a single number incremented every release. While serial "
@@ -3859,7 +3872,7 @@ msgstr ""
 "バージョン番号を見てもAPIの後方互換性に関する情報がほとんど又は全くわからない"
 "ので、ユーザにとっては追跡するのが最も困難です。"
 
-#: ../source/discussions/versioning.rst:150
+#: ../source/discussions/versioning.rst:151
 msgid ""
 "Combinations of the above schemes are possible. For example, a project may "
 "combine date-based versioning with serial versioning to create a "
@@ -3873,12 +3886,12 @@ msgstr ""
 "かるようにしているが、あるリリースのその年の中での歩調についてはあまり気にし"
 "ていないこともあります。"
 
-#: ../source/discussions/versioning.rst:157
+#: ../source/discussions/versioning.rst:158
 #: ../source/specifications/version-specifiers.rst:114
 msgid "Local version identifiers"
 msgstr "ローカルバージョン識別子"
 
-#: ../source/discussions/versioning.rst:159
+#: ../source/discussions/versioning.rst:160
 msgid ""
 "Public version identifiers are designed to support distribution "
 "via :term:`PyPI <Python Package Index (PyPI)>`. Python packaging tools also "
@@ -3893,7 +3906,7 @@ msgstr ""
 "スの識別子として用いるような :ref:`局所的バージョン識別子 <local-version-"
 "identifiers>` の考え方もサポートします。"
 
-#: ../source/discussions/versioning.rst:165
+#: ../source/discussions/versioning.rst:166
 msgid ""
 "A local version identifier takes the form of a public version identifier, "
 "followed by \"+\" and a local version label. For example, a package with "
@@ -3914,11 +3927,11 @@ msgstr ""
 "されていない変更のあるリポジトリなら \"0.5.dev1+00980f.d20231217\" のようにな"
 "ることがあります。"
 
-#: ../source/discussions/versioning.rst:177
+#: ../source/discussions/versioning.rst:178
 msgid "Accessing version information at runtime"
 msgstr "ランタイムにバージョン情報にアクセスする"
 
-#: ../source/discussions/versioning.rst:179
+#: ../source/discussions/versioning.rst:180
 msgid ""
 "Version information for all :term:`distribution packages <Distribution "
 "Package>` that are locally available in the current environment can be "
@@ -3930,7 +3943,7 @@ msgstr ""
 "の :func:`importlib.metadata.version` 関数を使ってランタイム内から取得するこ"
 "とが可能です::"
 
-#: ../source/discussions/versioning.rst:186
+#: ../source/discussions/versioning.rst:187
 msgid ""
 "Many projects also choose to version their top level :term:`import packages "
 "<Import Package>` by providing a package level ``__version__`` attribute::"
@@ -3939,7 +3952,7 @@ msgstr ""
 "供することで、トップレベルの :term:`インポートパッケージ <Import Package>` に"
 "バージョン番号を付与することも選択しています::"
 
-#: ../source/discussions/versioning.rst:194
+#: ../source/discussions/versioning.rst:195
 msgid ""
 "This technique can be particularly valuable for CLI applications which want "
 "to ensure that version query invocations (such as ``pip -V``) run as quickly "
@@ -3949,7 +3962,7 @@ msgstr ""
 "など) が可能な限り素早く動作することが保証されることを望む CLI アプリケーショ"
 "ンにおいて価値があります。"
 
-#: ../source/discussions/versioning.rst:198
+#: ../source/discussions/versioning.rst:199
 msgid ""
 "Package publishers wishing to ensure their reported distribution package and "
 "import package versions are consistent with each other can review "
@@ -3961,7 +3974,7 @@ msgstr ""
 "めの潜在的なアプローチとして :ref:`シングルソースのバージョン番号 <single-"
 "source-version>` の議論を復習することができます。"
 
-#: ../source/discussions/versioning.rst:202
+#: ../source/discussions/versioning.rst:203
 msgid ""
 "As import packages and modules are not *required* to publish runtime version "
 "information in this way (see the withdrawn proposal in :pep:`PEP 396 "
@@ -3980,7 +3993,7 @@ msgstr ""
 "to-dist-version]_ を取り扱えるように設計されているかのいずれかであるべきで"
 "す。"
 
-#: ../source/discussions/versioning.rst:210
+#: ../source/discussions/versioning.rst:211
 msgid ""
 "Some projects may need to publish version information for external APIs that "
 "aren't the version of the module itself. Such projects should define their "
@@ -3995,7 +4008,7 @@ msgstr ""
 "ている OpenSSL ライブラリのバージョンにアクセスするための複数の方法を提供して"
 "います::"
 
-#: ../source/discussions/versioning.rst:225
+#: ../source/discussions/versioning.rst:226
 msgid ""
 "Some more examples of unusual version numbers are given in a `blog post "
 "<versions-seth-larson_>`_ by Seth Larson."
@@ -4003,7 +4016,7 @@ msgstr ""
 "普通でないバージョン番号のいくつかの例が Seth Larson によって `blog post "
 "<versions-seth-larson_>`_ に挙げられています。"
 
-#: ../source/discussions/versioning.rst:228
+#: ../source/discussions/versioning.rst:229
 msgid ""
 "For some personal viewpoints on this issue, see these blog posts: `by Hynek "
 "Schlawak <semver-hynek-schlawack_>`_, `by Donald Stufft <semver-donald-"
@@ -4016,7 +4029,7 @@ msgstr ""
 "bernat-gabor_>`_ ・ `Brett Cannon によるもの <semver-brett-cannon_>`_ 。ユー"
 "モラスなものが良ければ、 ZeroVer_ について読んでみてください。"
 
-#: ../source/discussions/versioning.rst:234
+#: ../source/discussions/versioning.rst:235
 msgid ""
 "A full list mapping the top level names available for import to the "
 "distribution packages that provide those import packages and modules may be "
@@ -4179,9 +4192,9 @@ msgid ""
 "artifacts. The standard practice is to use a :file:`pyproject.toml` file in "
 "the `TOML format`_."
 msgstr ""
-"ビルド成果物を作成するのに用いるツールによって設定ファイルは変わります"
-"。`TOML format`_ で書かれた :file:`pyproject.toml` ファイルを使うのが標準的な"
-"慣習です。"
+"ビルド成果物を作成するのに用いるツールによって設定ファイルは変わります。"
+"`TOML format`_ で書かれた :file:`pyproject.toml` ファイルを使うのが標準的な慣"
+"習です。"
 
 #: ../source/flow.rst:68
 msgid ""
@@ -4498,8 +4511,8 @@ msgid ""
 msgstr ""
 ":ref:`仕様 <core-metadata>` および :term:`コアとなるメタデータのフィールド "
 "<Core Metadata Field>`\\s において、 :term:`配布パッケージ <Distribution "
-"Package>` あるいは :term:`インストール済みのプロジェクト <Installed Project>"
-"` の鍵となる静的なアトリビュートを記述するものを定義しています。"
+"Package>` あるいは :term:`インストール済みのプロジェクト <Installed "
+"Project>` の鍵となる静的なアトリビュートを記述するものを定義しています。"
 
 #: ../source/glossary.rst:74
 msgid "Core Metadata Field"
@@ -4542,10 +4555,9 @@ msgid ""
 "download from the internet and install."
 msgstr ""
 ":term:`モジュール <Module>` すなわちPythonの :term:`パッケージ <Import "
-"Package>` や、ある :term:`Release` を配布するために使われるその他の"
-"リソースファイルを内部に含むバージョン付きアーカイブファイル。"
-"アーカイブファイルはエンドユーザがインターネットからダウンロードして"
-"インストールするものです。"
+"Package>` や、ある :term:`Release` を配布するために使われるその他のリソース"
+"ファイルを内部に含むバージョン付きアーカイブファイル。アーカイブファイルはエ"
+"ンドユーザがインターネットからダウンロードしてインストールするものです。"
 
 #: ../source/glossary.rst:97
 msgid ""
@@ -4563,8 +4575,8 @@ msgstr ""
 "れも通常は単に「パッケージ」と呼ばれます) や、しばしば「配布物」の１単語で呼"
 "ばれるもうひとつの種類の配布物 (例えばLinuxディストリビューションやPython言語"
 "の配布物) との混同を避けるために明確に述べる必要がある場合には、長い方の用語"
-"を用いることがあります。これらの相違に関する詳細については、 "
-":ref:`distribution-package-vs-import-package` を見てください。"
+"を用いることがあります。これらの相違に関する詳細について"
+"は、 :ref:`distribution-package-vs-import-package` を見てください。"
 
 #: ../source/glossary.rst:105
 msgid "Egg"
@@ -4593,9 +4605,9 @@ msgid ""
 msgstr ""
 ":term:`モジュール <Module>` とは、Pythonの実装のうちの低レベル言語で書かれた"
 "部分で、C/C++で書かれたCythonやJavaで書かれたJythonが該当する。典型的には動的"
-"にロードできるコンパイル済みのファイルをひとつ含んでいて、Unix上では共有"
-"オブジェクトファイル(.so)、Windows上ではDLL(拡張子.pydを与えられる)のPython拡"
-"張、Jython拡張ではJavaのクラスファイルの形を取る。"
+"にロードできるコンパイル済みのファイルをひとつ含んでいて、Unix上では共有オブ"
+"ジェクトファイル(.so)、Windows上ではDLL(拡張子.pydを与えられる)のPython拡張、"
+"Jython拡張ではJavaのクラスファイルの形を取る。"
 
 #: ../source/glossary.rst:121
 msgid "Import Package"
@@ -4844,12 +4856,12 @@ msgid ""
 "or in a tool's own configuration file)."
 msgstr ""
 ":term:`プロジェクト <Project>` の :term:`ソースコードツリー <Project Source "
-"Tree>` 内でパッケージ作者が定義したメタデータで、プロジェクトの "
-":term:`ビルドバックエンド <Build Backend>` が :term:`ビルド済メタデータ "
-"<Built Metadata>` 内の :term:`Core Metadata field` へ変換するもの。 "
-":term:`Pyproject のメタデータ <Pyproject Metadata>` の形か、ツール特有の"
-"フォーマット (``pyproject.toml`` 内の ``[tool]`` テーブル、または、ツール独自"
-"の設定ファイル) で書くことができます。"
+"Tree>` 内でパッケージ作者が定義したメタデータで、プロジェクトの :term:`ビルド"
+"バックエンド <Build Backend>` が :term:`ビルド済メタデータ <Built Metadata>` "
+"内の :term:`Core Metadata field` へ変換するもの。 :term:`Pyproject のメタデー"
+"タ <Pyproject Metadata>` の形か、ツール特有のフォーマット "
+"(``pyproject.toml`` 内の ``[tool]`` テーブル、または、ツール独自の設定ファイ"
+"ル) で書くことができます。"
 
 #: ../source/glossary.rst:254
 msgid "Pure Module"
@@ -4877,10 +4889,10 @@ msgid ""
 msgstr ""
 ":ref:`declaring-project-metadata` の仕様で定義されていて、 :pep:`621` で初め"
 "て登場した :term:`プロジェクトソースのメタデータ <Project Source Metadata>` "
-"で、 :term:`pyproject.toml` ファイルの ``[project]`` テーブルの下の "
-":term:`Pyproject Metadata Key`\\s として格納されるもの。 ``pyproject.toml`` "
-"内の ``[tool]`` テーブルの下にあるツール特有のソースメタデータでは *ない* と"
-"いうことに注意。"
+"で、 :term:`pyproject.toml` ファイルの ``[project]`` テーブルの下"
+"の :term:`Pyproject Metadata Key`\\s として格納されるもの。 "
+"``pyproject.toml`` 内の ``[tool]`` テーブルの下にあるツール特有のソースメタ"
+"データでは *ない* ということに注意。"
 
 #: ../source/glossary.rst:271
 msgid "Pyproject Metadata Key"
@@ -4893,9 +4905,8 @@ msgid ""
 "Metadata Field`."
 msgstr ""
 "``pyproject.toml`` 内の ``[project]`` テーブルの中にあるトップレベルの TOML "
-"キー; :term:`Pyproject のメタデータ <Pyproject Metadata>` の一部。 "
-":term:`コアとなるメタデータのフィールド <Core Metadata Field>` とは異なる点に"
-"注意。"
+"キー; :term:`Pyproject のメタデータ <Pyproject Metadata>` の一部。 :term:`コ"
+"アとなるメタデータのフィールド <Core Metadata Field>` とは異なる点に注意。"
 
 #: ../source/glossary.rst:278
 msgid "Pyproject Metadata Subkey"
@@ -4938,9 +4949,9 @@ msgid ""
 "Python community. It is open to all Python developers to consume and "
 "distribute their distributions."
 msgstr ""
-"`PyPI <https://pypi.org>`_ は、Pythonコミュニティにとってデフォルトの "
-":term:`Package Index` です。ここから配布物を取り出し、また、配布するためにす"
-"べてのPython開発者に開かれています。"
+"`PyPI <https://pypi.org>`_ は、Pythonコミュニティにとってデフォルト"
+"の :term:`Package Index` です。ここから配布物を取り出し、また、配布するために"
+"すべてのPython開発者に開かれています。"
 
 #: ../source/glossary.rst:301
 msgid "pypi.org"
@@ -5022,10 +5033,10 @@ msgid ""
 "project name, and the \">=1.3\" portion is the :term:`Version Specifier`"
 msgstr ""
 ":term:`パッケージインデックス <Package Index>` からパッケージをインストールす"
-"るために :ref:`pip` で用いられる様式。この様式の EBNF 文法構造については、 "
-":ref:`依存関係指定子 <dependency-specifiers>` を見てください。例えば、 \"foo>"
-"=1.3\" は要求事項識別子であり、 \"foo\" の部分がプロジェクトの名称で、 \">"
-"=1.3\" の部分は :term:`バージョン指定子 <Version Specifier>` です"
+"るために :ref:`pip` で用いられる様式。この様式の EBNF 文法構造について"
+"は、 :ref:`依存関係指定子 <dependency-specifiers>` を見てください。例えば、 "
+"\"foo>=1.3\" は要求事項識別子であり、 \"foo\" の部分がプロジェクトの名称で、 "
+"\">=1.3\" の部分は :term:`バージョン指定子 <Version Specifier>` です"
 
 #: ../source/glossary.rst:341
 msgid "Requirements File"
@@ -5038,8 +5049,8 @@ msgid ""
 "on :ref:`pip:Requirements Files`."
 msgstr ""
 ":ref:`pip` を用いてインストールできるように :term:`要求事項 <Requirement>` を"
-"記したファイル。詳しい情報は、 :ref:`pip` のドキュメントの "
-":ref:`pip:Requirementsファイル <pip:Requirements Files>` をみてください。"
+"記したファイル。詳しい情報は、 :ref:`pip` のドキュメント"
+"の :ref:`pip:Requirementsファイル <pip:Requirements Files>` をみてください。"
 
 #: ../source/glossary.rst:348
 msgid "Root License Directory"
@@ -5060,16 +5071,16 @@ msgid ""
 "root directory that paths recorded in the ``License-File`` :term:`Core "
 "Metadata Field` are relative to."
 msgstr ""
-":term:`プロジェクトソースツリー <Project Source Tree>` 、 :term:`配布物"
-"アーカイブ <Distribution Archive>` 、または、 :term:`インストール済みの"
-"プロジェクト <Installed Project>` の中で、その下にライセンスファイル群を保存"
-"するディレクトリ。 :term:`プロジェクトソースツリー <Project Source Tree>` ま"
-"たは :term:`ソースコード配布物 (または \"sdist\") <Source Distribution (or "
+":term:`プロジェクトソースツリー <Project Source Tree>` 、 :term:`配布物アーカ"
+"イブ <Distribution Archive>` 、または、 :term:`インストール済みのプロジェク"
+"ト <Installed Project>` の中で、その下にライセンスファイル群を保存するディレ"
+"クトリ。 :term:`プロジェクトソースツリー <Project Source Tree>` また"
+"は :term:`ソースコード配布物 (または \"sdist\") <Source Distribution (or "
 "\"sdist\")>` では、これは、 :term:`プロジェクトルートディレクトリ <Project "
-"Root Directory>` です。 :term:`ビルド済配布物 <Built Distribution>` や "
-":term:`インストール済みのプロジェクト <Installed Project>` では、これは、 そ"
-"れぞれ、wheel アーカイブの :file:`.dist-info/licenses/` ディレクトリであるか"
-"、プロジェクトフォルダーです。また、 ``License-File`` 内の :term:`Core "
+"Root Directory>` です。 :term:`ビルド済配布物 <Built Distribution>` "
+"や :term:`インストール済みのプロジェクト <Installed Project>` では、これは、 "
+"それぞれ、wheel アーカイブの :file:`.dist-info/licenses/` ディレクトリである"
+"か、プロジェクトフォルダーです。また、 ``License-File`` 内の :term:`Core "
 "Metadata Field` に記録されているパスはルートディレクトリからの相対パスです。"
 
 #: ../source/glossary.rst:365
@@ -5100,10 +5111,9 @@ msgid ""
 "creation of a :term:`Source Distribution <Source Distribution (or "
 "\"sdist\")>` or :term:`Built Distribution`."
 msgstr ""
-":term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` や "
-":term:`ビルド配布物 <Built Distribution>` という用語を作る前には"
-"、:term:`リリース <Release>` 向けに生のソースコードを収めたアーカイブのことを"
-"こう呼んでいた。"
+":term:`ソースコード配布物 <Source Distribution (or \"sdist\")>` や :term:`ビ"
+"ルド配布物 <Built Distribution>` という用語を作る前には、:term:`リリース "
+"<Release>` 向けに生のソースコードを収めたアーカイブのことをこう呼んでいた。"
 
 #: ../source/glossary.rst:379
 msgid "Source Distribution (or \"sdist\")"
@@ -5340,10 +5350,10 @@ msgid ""
 msgstr ""
 "`Google BigQuery`_ を使って `public PyPI download statistics dataset`_ に問い"
 "合わせを行うためには、まずGoogleアカウントが必要で、Google Cloud Platform "
-"(GCP) プロジェクトで BigQuery API を有効にしておく必要があります。 "
-"`クレジットカード登録なしのBigQuery 無料枠 <https://cloud.google.com/blog/"
-"products/data-analytics/query-without-a-credit-card-introducing-bigquery-"
-"sandobox>`__ を使うと一ヶ月当たり1TBまでのクエリを走らせることができます"
+"(GCP) プロジェクトで BigQuery API を有効にしておく必要があります。 `クレジッ"
+"トカード登録なしのBigQuery 無料枠 <https://cloud.google.com/blog/products/"
+"data-analytics/query-without-a-credit-card-introducing-bigquery-sandobox>`__ "
+"を使うと一ヶ月当たり1TBまでのクエリを走らせることができます"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:57
 msgid "Navigate to the `BigQuery web UI`_."
@@ -5404,7 +5414,7 @@ msgstr "説明"
 #: ../source/specifications/dependency-groups.rst:23
 #: ../source/specifications/dependency-specifiers.rst:29
 #: ../source/specifications/direct-url-data-structure.rst:242
-#: ../source/specifications/version-specifiers.rst:1073
+#: ../source/specifications/version-specifiers.rst:1088
 msgid "Examples"
 msgstr "例"
 
@@ -5532,8 +5542,8 @@ msgid ""
 "To group by monthly downloads, use the ``TIMESTAMP_TRUNC`` function. Also "
 "filtering by this column reduces corresponding costs."
 msgstr ""
-"月毎のダウンロード数を数えるには、 ``TIMESTAMP_TRUNC`` 関数を使います。この"
-"カラムを使って抽出することは、通信量を抑えることにもなります。"
+"月毎のダウンロード数を数えるには、 ``TIMESTAMP_TRUNC`` 関数を使います。このカ"
+"ラムを使って抽出することは、通信量を抑えることにもなります。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:167
 msgid "month"
@@ -5596,8 +5606,8 @@ msgid ""
 "Extract the Python version from the ``details.python`` column. Warning: This "
 "query processes over 500 GB of data."
 msgstr ""
-"``details.python`` カラムからPythonのバージョンを取り出します。警告：この"
-"クエリは500GB以上のデータを処理します。"
+"``details.python`` カラムからPythonのバージョンを取り出します。警告：このクエ"
+"リは500GB以上のデータを処理します。"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:204
 msgid "python"
@@ -7325,9 +7335,9 @@ msgid ""
 "This workflow requires that the user installing the package uses Pip [#]_, "
 "or another installer that supports the Metadata 1.2 specification."
 msgstr ""
-"このワークフローは、パッケージをインストールしようとするユーザが Pip [#]_ か"
-"、または、Metadata 1.2 の仕様を満足する別のインストーラを使うことを要求します"
-"。"
+"このワークフローは、パッケージをインストールしようとするユーザが Pip [#]_ "
+"か、または、Metadata 1.2 の仕様を満足する別のインストーラを使うことを要求しま"
+"す。"
 
 #: ../source/guides/dropping-older-python-versions.rst:20
 msgid "Dealing with the universal wheels"
@@ -7402,10 +7412,10 @@ msgid ""
 "Or, at least Python 3.7 and beyond, skipping the 3.7.0 and 3.7.1 point "
 "releases:"
 msgstr ""
-"「少なくとも Python 3.9」のような、バージョンの範囲や除外のルール (で "
-":ref:`version-specifiers` 仕様に合致するもの) を指定することができます。ある"
-"いは、「少なくとも Python 3.7 かそれ以上、しかし、 3.7.0 と 3.7.1 の"
-"ポイントリリースを除く」:"
+"「少なくとも Python 3.9」のような、バージョンの範囲や除外のルール "
+"(で :ref:`version-specifiers` 仕様に合致するもの) を指定することができます。"
+"あるいは、「少なくとも Python 3.7 かそれ以上、しかし、 3.7.0 と 3.7.1 のポイ"
+"ントリリースを除く」:"
 
 #: ../source/guides/dropping-older-python-versions.rst:89
 msgid ""
@@ -7555,10 +7565,10 @@ msgid ""
 "with valid HTTPS. At this time, the security of your user's installations "
 "depends on all repositories using a valid HTTPS setup."
 msgstr ""
-"加えて、あなたのリポジトリを公開する場合は正当なHTTPSで公開することが **強"
-"く** 推奨されます。この時、ユーザがあなたのパッケージをインストールする際の"
-"セキュリティは、すべてのリポジトリが適切なHTTPS設定を使っているか否かに依存し"
-"ます。"
+"加えて、あなたのリポジトリを公開する場合は正当なHTTPSで公開することが **強く"
+"** 推奨されます。この時、ユーザがあなたのパッケージをインストールする際のセ"
+"キュリティは、すべてのリポジトリが適切なHTTPS設定を使っているか否かに依存しま"
+"す。"
 
 #: ../source/guides/hosting-your-own-index.rst:35
 msgid "\"Manual\" repository"
@@ -9798,8 +9808,9 @@ msgid ""
 msgstr ""
 "ツールのデフォルト設定が切り替わっている程に十分に新しいツールを使っているこ"
 "とを確認するのに加えて、そのデフォルトのアップロード先 URL を上書きするような"
-"設定をしていないことを確実にしてください。これは典型的には :file:`$HOME/"
-".pypirc` で設定されています。もしこんなファイルを目にするようであれば:"
+"設定をしていないことを確実にしてください。これは典型的に"
+"は :file:`$HOME/.pypirc` で設定されています。もしこんなファイルを目にするよう"
+"であれば:"
 
 #: ../source/guides/migrating-to-pypi-org.rst:52
 msgid ""
@@ -10115,8 +10126,8 @@ msgid ""
 "Read :ref:`pyproject-project-table` for the full specification of the "
 "content allowed in the ``[project]`` table."
 msgstr ""
-"``[project]`` テーブル内で許される内容の完全な仕様については、 "
-":ref:`pyproject-project-table` を読んでください。"
+"``[project]`` テーブル内で許される内容の完全な仕様について"
+"は、 :ref:`pyproject-project-table` を読んでください。"
 
 #: ../source/guides/modernize-setup-py-project.rst:169
 msgid "How to handle dynamic metadata?"
@@ -10160,9 +10171,9 @@ msgid ""
 "tree even after all its content has been moved to :file:`pyproject.toml`. "
 "This file can be as minimalistic as this:"
 msgstr ""
-"たとえ全ての内容が :file:`pyproject.toml` へ移された後であっても、"
-"プロジェクトのソースコードツリーに :file:`setup.py` を残すことは完全に問題の"
-"ないことです。このファイルの最小限の姿はこのようになります:"
+"たとえ全ての内容が :file:`pyproject.toml` へ移された後であっても、プロジェク"
+"トのソースコードツリーに :file:`setup.py` を残すことは完全に問題のないことで"
+"す。このファイルの最小限の姿はこのようになります:"
 
 #: ../source/guides/modernize-setup-py-project.rst:246
 msgid ":ref:`pyproject-toml-spec`"
@@ -10244,15 +10255,6 @@ msgstr ""
 "ンドラインからの呼び出しで使うことができないことになります - つまり、独自の"
 "ラッパスクリプトを書くか、アプリケーションの main エントリポイントを直接に呼"
 "び出すための ``python -c '<command>'`` を使うかしなければなりません。"
-
-#: ../source/guides/multi-version-installs.rst:41
-msgid ""
-"Refer to the `pkg_resources documentation <https://setuptools.readthedocs.io/"
-"en/latest/pkg_resources.html#workingset-objects>`__ for more details."
-msgstr ""
-"さらに詳しい情報については、 `pkg_resources 説明文書 <https://"
-"setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-"
-"objects>`__ を参照してください。"
 
 #: ../source/guides/packaging-binary-extensions.rst:5
 msgid "Packaging binary extensions"
@@ -11106,13 +11108,14 @@ msgid ""
 msgstr ""
 "名前空間 (Namespace) パッケージは、複数かつ個別の :term:`配布パッケージ "
 "<Distribution Package>` (曖昧にならないようにこの文書では **配布物** と呼ぶこ"
-"とにする) を越えて、単一の :term:`パッケージ <Import Package>` の中の"
-"サブパッケージやモジュールを分離できるようにすることができます。例えば、下に"
-"示すようなパッケージ構造であれば:"
+"とにする) を越えて、単一の :term:`パッケージ <Import Package>` の中のサブパッ"
+"ケージやモジュールを分離できるようにすることができます。例えば、下に示すよう"
+"なパッケージ構造であれば:"
 
 #: ../source/guides/packaging-namespace-packages.rst:26
 msgid "And you use this package in your code like so::"
-msgstr "そして、このパッケージを自分のソースコード中で使うにはこのようにします::"
+msgstr ""
+"そして、このパッケージを自分のソースコード中で使うにはこのようにします::"
 
 #: ../source/guides/packaging-namespace-packages.rst:31
 msgid "Then you can break these sub-packages into two separate distributions:"
@@ -11261,11 +11264,17 @@ msgid "Legacy namespace packages"
 msgstr "伝統的な名前空間パッケージ群"
 
 #: ../source/guides/packaging-namespace-packages.rst:160
+#, fuzzy
+#| msgid ""
+#| "These two methods, that were used to create namespace packages prior "
+#| "to :pep:`420`, are now considered to be obsolete and should not be used "
+#| "unless you need compatibility with packages already using this method. "
+#| "Also, :doc:`pkg_resources <setuptools:pkg_resources>` has been deprecated."
 msgid ""
 "These two methods, that were used to create namespace packages prior "
 "to :pep:`420`, are now considered to be obsolete and should not be used "
-"unless you need compatibility with packages already using this method. "
-"Also, :doc:`pkg_resources <setuptools:pkg_resources>` has been deprecated."
+"unless you need compatibility with packages already using one of these "
+"methods."
 msgstr ""
 "これらのふたつの方法は、 :pep:`420` 以前に名前空間を作成するのに使われました"
 "が、今では過去のやり方であると考えられていて、すでにこの方法を使っているパッ"
@@ -11273,7 +11282,7 @@ msgstr ""
 "ます。また、 :doc:`pkg_resources <setuptools:pkg_resources>` は非推奨になりま"
 "した。"
 
-#: ../source/guides/packaging-namespace-packages.rst:165
+#: ../source/guides/packaging-namespace-packages.rst:164
 msgid ""
 "To migrate an existing package, all packages sharing the namespace must be "
 "migrated simultaneously."
@@ -11281,7 +11290,7 @@ msgstr ""
 "既存のパッケージを移植するためには、名前空間を共有するすべてのパッケージが同"
 "時に移植されなければなりません。"
 
-#: ../source/guides/packaging-namespace-packages.rst:167
+#: ../source/guides/packaging-namespace-packages.rst:166
 msgid ""
 "While native namespace packages and pkgutil-style namespace packages are "
 "largely compatible, pkg_resources-style namespace packages are not "
@@ -11293,16 +11302,23 @@ msgstr ""
 "りません。同じ名前空間向けにパッケージを提供するような複数の配布物で、異なる"
 "手法を用いることは推奨されません。"
 
-#: ../source/guides/packaging-namespace-packages.rst:174
+#: ../source/guides/packaging-namespace-packages.rst:173
 msgid "pkgutil-style namespace packages"
 msgstr "pkgutil 型名前空間パッケージ"
 
-#: ../source/guides/packaging-namespace-packages.rst:176
+#: ../source/guides/packaging-namespace-packages.rst:175
+#, fuzzy
+#| msgid ""
+#| "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module "
+#| "and the :py:func:`python:pkgutil.extend_path` function. This can be used "
+#| "to declare namespace packages that need to be compatible with both Python "
+#| "2.3+ and Python 3. This is the recommended approach for the highest level "
+#| "of compatibility."
 msgid ""
 "Python 2.3 introduced the :doc:`pkgutil <python:library/pkgutil>` module and "
 "the :py:func:`python:pkgutil.extend_path` function. This can be used to "
 "declare namespace packages that need to be compatible with both Python 2.3+ "
-"and Python 3. This is the recommended approach for the highest level of "
+"and Python 3. This was the recommended approach for the highest level of "
 "compatibility."
 msgstr ""
 "Python 2.3 で :doc:`pkgutil <python:library/pkgutil>` モジュール"
@@ -11311,7 +11327,7 @@ msgstr ""
 "れが使えるかもしれません。これは、互換性のレベルが最も高くなるアプローチとし"
 "て推奨されています。"
 
-#: ../source/guides/packaging-namespace-packages.rst:181
+#: ../source/guides/packaging-namespace-packages.rst:180
 msgid ""
 "To create a pkgutil-style namespace package, you need to provide "
 "an :file:`__init__.py` file for the namespace package:"
@@ -11319,8 +11335,8 @@ msgstr ""
 "pkgutil 型の名前空間パッケージを作成するには、その名前空間パッケージ用"
 "に :file:`__init__.py` ファイルを準備する必要があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:195
-#: ../source/guides/packaging-namespace-packages.rst:242
+#: ../source/guides/packaging-namespace-packages.rst:194
+#: ../source/guides/packaging-namespace-packages.rst:249
 msgid ""
 "The :file:`__init__.py` file for the namespace package needs to contain the "
 "following:"
@@ -11328,8 +11344,8 @@ msgstr ""
 "名前空間パッケージ用の :file:`__init__.py` ファイルは、次に示すものを含んでい"
 "る必要があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:202
-#: ../source/guides/packaging-namespace-packages.rst:249
+#: ../source/guides/packaging-namespace-packages.rst:201
+#: ../source/guides/packaging-namespace-packages.rst:256
 msgid ""
 "**Every** distribution that uses the namespace package must include such "
 "an :file:`__init__.py`. If any distribution does not, it will cause the "
@@ -11342,7 +11358,7 @@ msgstr ""
 "しょう。 :file:`__init__.py` に他のコードを追加しても、それはアクセスできない"
 "ものとなるでしょう。"
 
-#: ../source/guides/packaging-namespace-packages.rst:207
+#: ../source/guides/packaging-namespace-packages.rst:206
 msgid ""
 "A complete working example of two pkgutil-style namespace packages can be "
 "found in the `pkgutil namespace example project`_."
@@ -11350,21 +11366,44 @@ msgstr ""
 "pkgutil 型の名前空間パッケージのふたつの動作例が `pkgutil 型名前空間を例示す"
 "るプロジェクト`_ にあります。"
 
-#: ../source/guides/packaging-namespace-packages.rst:217
+#: ../source/guides/packaging-namespace-packages.rst:216
 msgid "pkg_resources-style namespace packages"
 msgstr "pkg_resources 型名前空間パッケージ"
 
-#: ../source/guides/packaging-namespace-packages.rst:219
+#: ../source/guides/packaging-namespace-packages.rst:220
 msgid ""
-":doc:`Setuptools <setuptools:index>` provides the "
-"`pkg_resources.declare_namespace`_ function and the ``namespace_packages`` "
-"argument to :func:`~setuptools.setup`. Together these can be used to declare "
-"namespace packages. While this approach is no longer recommended, it is "
-"widely present in most existing namespace packages. If you are creating a "
-"new distribution within an existing namespace package that uses this method "
-"then it's recommended to continue using this as the different methods are "
-"not cross-compatible and it's not advisable to try to migrate an existing "
-"package."
+"The information in this section is obsolete and is no longer functional (as "
+"of Setuptools 82.0.0). It is only retained for historical reference."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:223
+msgid ""
+"``pkg_resources`` has been deprecated and was fully removed in Setuptools "
+"82.0.0."
+msgstr ""
+
+#: ../source/guides/packaging-namespace-packages.rst:225
+#, fuzzy
+#| msgid ""
+#| ":doc:`Setuptools <setuptools:index>` provides the "
+#| "`pkg_resources.declare_namespace`_ function and the "
+#| "``namespace_packages`` argument to :func:`~setuptools.setup`. Together "
+#| "these can be used to declare namespace packages. While this approach is "
+#| "no longer recommended, it is widely present in most existing namespace "
+#| "packages. If you are creating a new distribution within an existing "
+#| "namespace package that uses this method then it's recommended to continue "
+#| "using this as the different methods are not cross-compatible and it's not "
+#| "advisable to try to migrate an existing package."
+msgid ""
+":doc:`Setuptools <setuptools:index>` previously provided the "
+"``pkg_resources.declare_namespace`` function and the ``namespace_packages`` "
+"argument to :func:`~setuptools.setup`. Together these could be used to "
+"declare namespace packages. While this approach is no longer supported, it "
+"may still be encountered in environments using older ``setuptools`` "
+"versions. If you are creating a new distribution within an existing "
+"namespace package that uses this method then it's recommended to continue "
+"using this as the different methods are not cross-compatible and it's not "
+"advisable to try to migrate an existing package."
 msgstr ""
 ":doc:`Setuptools <setuptools:index>` は、 `pkg_resources.declare_namespace`_ "
 "関数と :func:`~setuptools.setup` に渡す ``namespace_packages`` 引数を提供しま"
@@ -11374,7 +11413,7 @@ msgstr ""
 "作成する時には、異なる手法が相互に互換ではないために既存パッケージを移植しよ"
 "うとすることが推奨されていないので、この手法を採用し続けることを推奨します。"
 
-#: ../source/guides/packaging-namespace-packages.rst:228
+#: ../source/guides/packaging-namespace-packages.rst:235
 msgid ""
 "To create a pkg_resources-style namespace package, you need to provide "
 "an :file:`__init__.py` file for the namespace package:"
@@ -11382,7 +11421,7 @@ msgstr ""
 "pkg_resources 型名前空間パッケージを作成するには、名前空間パッケージ用"
 "の :file:`__init__.py` を準備する必要があります:"
 
-#: ../source/guides/packaging-namespace-packages.rst:254
+#: ../source/guides/packaging-namespace-packages.rst:261
 msgid ""
 "Some older recommendations advise the following in the namespace "
 "package :file:`__init__.py`:"
@@ -11390,7 +11429,7 @@ msgstr ""
 "いくつかの古めの推奨では、次のような名前空間パッケージ用 :file:`__init__.py` "
 "を使うように言っています:"
 
-#: ../source/guides/packaging-namespace-packages.rst:264
+#: ../source/guides/packaging-namespace-packages.rst:271
 msgid ""
 "The idea behind this was that in the rare case that setuptools isn't "
 "available packages would fall-back to the pkgutil-style packages. This isn't "
@@ -11405,21 +11444,13 @@ msgstr ""
 "パッケージとしては ``install_requires`` を通じて setuptools に明示的に依存す"
 "ると示しておくべきです。"
 
-#: ../source/guides/packaging-namespace-packages.rst:271
+#: ../source/guides/packaging-namespace-packages.rst:278
 msgid ""
 "Finally, every distribution must provide the ``namespace_packages`` argument "
 "to :func:`~setuptools.setup` in :file:`setup.py`. For example:"
 msgstr ""
 "最後に、それぞれの配布物は :file:`setup.py` の :func:`~setuptools.setup` 向け"
 "に ``namespace_packages`` 引数を準備しておく必要があります。例えば:"
-
-#: ../source/guides/packaging-namespace-packages.rst:285
-msgid ""
-"A complete working example of two pkg_resources-style namespace packages can "
-"be found in the `pkg_resources namespace example project`_."
-msgstr ""
-"pkg_resources 型の名前空間パッケージの動作可能な二つの例が `pkg_resources 型"
-"名前空間例示プロジェクト`_ で見つかるはずです。"
 
 #: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:5
 msgid ""
@@ -11792,7 +11823,8 @@ msgstr "0; url=../../discussions/single-source-version/"
 
 #: ../source/guides/single-sourcing-package-version.rst:6
 msgid "Redirecting stale single-source package version link..."
-msgstr "古くなったシングルソースのパッケージバージョンリンクをリダイレクトする..."
+msgstr ""
+"古くなったシングルソースのパッケージバージョンリンクをリダイレクトする..."
 
 #: ../source/guides/single-sourcing-package-version.rst:8
 msgid ""
@@ -15267,13 +15299,13 @@ msgid ""
 "Organizations who use pypiserver usually download packages both from "
 "pypiserver and from PyPI."
 msgstr ""
-"pypiserver は、単純な API とブラウザ向けのインターフェースを実装した "
-"(ローカルディレクトリ上の) 組織内部向けプライベート Python "
-":term:`パッケージインデックス <Package Index>` を提供するミニマリストの"
-"アプリケーションです。公衆向けに公開することなく標準のツールを使って外部非公"
-"開のパッケージをアップロードすることもできますし、それを :ref:`pip` で"
-"ダウンロード・インストールすることもできます。 pypiserver を用いる組織では、"
-"通常は pypiserver と PyPI の両方からパッケージをダウンロードします。"
+"pypiserver は、単純な API とブラウザ向けのインターフェースを実装した (ローカ"
+"ルディレクトリ上の) 組織内部向けプライベート Python :term:`パッケージインデッ"
+"クス <Package Index>` を提供するミニマリストのアプリケーションです。公衆向け"
+"に公開することなく標準のツールを使って外部非公開のパッケージをアップロードす"
+"ることもできますし、それを :ref:`pip` でダウンロード・インストールすることも"
+"できます。 pypiserver を用いる組織では、通常は pypiserver と PyPI の両方から"
+"パッケージをダウンロードします。"
 
 #: ../source/key_projects.rst:722
 msgid "PyScaffold"
@@ -18163,7 +18195,7 @@ msgstr ""
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:974
 #: ../source/specifications/source-distribution-format.rst:153
-#: ../source/specifications/version-specifiers.rst:1270
+#: ../source/specifications/version-specifiers.rst:1285
 #: ../source/specifications/virtual-environments.rst:54
 msgid "History"
 msgstr "歴史"
@@ -19562,8 +19594,8 @@ msgid ""
 "Per RFC-822, this field may contain multiple comma-separated e-mail "
 "addresses::"
 msgstr ""
-"RFC-822 によれば、このフィールドには、複数の電子メールアドレスをコンマで区切"
-"って記述しても構いません ::"
+"RFC-822 によれば、このフィールドには、複数の電子メールアドレスをコンマで区"
+"切って記述しても構いません ::"
 
 #: ../source/specifications/core-metadata.rst:399
 msgid "Maintainer"
@@ -20060,14 +20092,13 @@ msgid ""
 "name overlap with a project that is already installed."
 msgstr ""
 "ツール類は、まさにインストールされようとしているふたつのプロジェクトがそれぞ"
-"れの ``Import-Name`` エントリに重複したネームを列挙している時や、ある"
-"プロジェクトが ``Import-Name`` 内に持つエントリがもう一つのプロジェクトの "
-"``Import-Namespace`` エントリと重複する時には、エラーを発生させるべきです。こ"
-"れは、プロジェクトが意図せずもう一つのプロジェクトのソースコードを覆い隠して"
-"しまうことを避けるためです。ツール類は、既にインストールされている"
-"プロジェクトとの間でインポートネームの重複が起きるような既存環境に"
-"プロジェクトをインストールする時には、警告するかエラーを発生させて構いません"
-"。"
+"れの ``Import-Name`` エントリに重複したネームを列挙している時や、あるプロジェ"
+"クトが ``Import-Name`` 内に持つエントリがもう一つのプロジェクトの ``Import-"
+"Namespace`` エントリと重複する時には、エラーを発生させるべきです。これは、プ"
+"ロジェクトが意図せずもう一つのプロジェクトのソースコードを覆い隠してしまうこ"
+"とを避けるためです。ツール類は、既にインストールされているプロジェクトとの間"
+"でインポートネームの重複が起きるような既存環境にプロジェクトをインストールす"
+"る時には、警告するかエラーを発生させて構いません。"
 
 #: ../source/specifications/core-metadata.rst:762
 msgid ""
@@ -20347,13 +20378,13 @@ msgid ""
 "on the end consisting of the letter 'a' or 'b' followed by a number. Example "
 "version numbers are \"1.0\", \"2.3a2\", \"1.3.99\","
 msgstr ""
-"バージョン宣言は、一連の比較演算子とバージョン番号をカンマで区切ったものです"
-"。比較演算子は、\"<\", \">\", \"<=\", \">=\", \"==\", \"!=\" のいずれかひとつ"
-"でなければなりません。バージョン番号は、 ``distutils.version.StrictVersion`` "
-"によって受け入れられるフォーマットでなければなりません: 二つか三つの数字部分"
-"をドットで区切ったもので、オプションとして 'a' か 'b' の後ろに数字が続く形の "
-"\"pre-release\" タグを末尾につけたもの。バージョン番号の例としては、 \"1.0\" "
-"や \"2.3a2\" や \"1.3.99\" 、"
+"バージョン宣言は、一連の比較演算子とバージョン番号をカンマで区切ったもので"
+"す。比較演算子は、\"<\", \">\", \"<=\", \">=\", \"==\", \"!=\" のいずれかひと"
+"つでなければなりません。バージョン番号は、 "
+"``distutils.version.StrictVersion`` によって受け入れられるフォーマットでなけ"
+"ればなりません: 二つか三つの数字部分をドットで区切ったもので、オプションとし"
+"て 'a' か 'b' の後ろに数字が続く形の \"pre-release\" タグを末尾につけたもの。"
+"バージョン番号の例としては、 \"1.0\" や \"2.3a2\" や \"1.3.99\" 、"
 
 #: ../source/specifications/core-metadata.rst:974
 msgid ""
@@ -22750,12 +22781,11 @@ msgid ""
 msgstr ""
 "第一に、 **Python インタープリタの配布を行う者が、そのインタープリタをPython "
 "の外側にある手段によって管理されるパッケージを持ち** 、従って、 pip のような "
-"Python 特有のツール類が、特別にオーバーライドされない限りは、当該"
-"インタープリタのグローバルな ``sys.path`` に存在するインストール済み"
-"パッケージを、いかなる意味でも変更 (追加、更新・ダウングレード、あるいは削"
-"除) するべきではないという印を付ける方法を記述しています。また、代替手段とし"
-"ての仮想環境をどのように使うのかを配布者 <distributor> が指示する手段を提供し"
-"ます。"
+"Python 特有のツール類が、特別にオーバーライドされない限りは、当該インタープリ"
+"タのグローバルな ``sys.path`` に存在するインストール済みパッケージを、いかな"
+"る意味でも変更 (追加、更新・ダウングレード、あるいは削除) するべきではないと"
+"いう印を付ける方法を記述しています。また、代替手段としての仮想環境をどのよう"
+"に使うのかを配布者 <distributor> が指示する手段を提供します。"
 
 #: ../source/specifications/externally-managed-environments.rst:142
 msgid ""
@@ -22785,13 +22815,13 @@ msgstr ""
 "いインタープリタの場合やマークをオーバーライドした場合) にインストールする際"
 "に、 **Python 特有のパッケージマネージャが修正・削除しても構わないのは、今ま"
 "さにファイル群を作成しようとしている sysconfig スキームのディレクトリ内にある"
-"ものだけである** というルールを設定します。これによって、 Python "
-"インタープリタの配布者 <distributor> がふたつのディレクトリをセットアップする"
-"ことを許し、つまり、一つは自分で管理しているパッケージ群 (のための"
-"ディレクトリ) でもう一つはエンドユーザがインストールした管理対象外の"
-"パッケージ群 (のためのディレクトリ) で、管理対象外のパッケージをインストール"
-"したとしても外部パッケージマネージャ <external package manager> が管理してい"
-"るファイル群が削除 (または上書き) されることがないことを保証します。"
+"ものだけである** というルールを設定します。これによって、 Python インタープリ"
+"タの配布者 <distributor> がふたつのディレクトリをセットアップすることを許し、"
+"つまり、一つは自分で管理しているパッケージ群 (のためのディレクトリ) でもう一"
+"つはエンドユーザがインストールした管理対象外のパッケージ群 (のためのディレク"
+"トリ) で、管理対象外のパッケージをインストールしたとしても外部パッケージマ"
+"ネージャ <external package manager> が管理しているファイル群が削除 (または上"
+"書き) されることがないことを保証します。"
 
 #: ../source/specifications/externally-managed-environments.rst:160
 msgid "Marking an interpreter as using an external package manager"
@@ -22900,11 +22930,11 @@ msgid ""
 "EXTERNALLY-MANAGED`` consisting of something like"
 msgstr ""
 "Python 特有のものではないパッケージマネージャで、その Python パッケージの "
-"``sys.path`` 内にあるライブラリを管理するものを持っているソフトウェア配布者は"
-"、一般的に、標準ライブラリのディレクトリに ``EXTERNALLY-MANAGED`` ファイルを"
-"置いた状態で出荷するべきです。例えば、 Debian では、次に示すような何かで構成"
-"された ``/usr/lib/python3.9/EXTERNALLY-MANAGED`` ファイルを同梱して出荷しても"
-"構いません"
+"``sys.path`` 内にあるライブラリを管理するものを持っているソフトウェア配布者"
+"は、一般的に、標準ライブラリのディレクトリに ``EXTERNALLY-MANAGED`` ファイル"
+"を置いた状態で出荷するべきです。例えば、 Debian では、次に示すような何かで構"
+"成された ``/usr/lib/python3.9/EXTERNALLY-MANAGED`` ファイルを同梱して出荷して"
+"も構いません"
 
 #: ../source/specifications/externally-managed-environments.rst:230
 msgid ""
@@ -27274,10 +27304,22 @@ msgstr ""
 "ユーザ名・パスワードなどの入力を省くことができます。"
 
 #: ../source/specifications/pypirc.rst:13
+#, fuzzy
+#| msgid "The :file:`.pypirc` file"
+msgid "The :file:`.pypirc` file **SHOULD** be UTF-8 encoded."
+msgstr ":file:`.pypirc` ファイル"
+
+#: ../source/specifications/pypirc.rst:15
+msgid ""
+"Tools that read or write :file:`.pypirc` files may not function correctly if "
+"another character encoding is used."
+msgstr ""
+
+#: ../source/specifications/pypirc.rst:18
 msgid "The format (originally defined by the :ref:`distutils` package) is:"
 msgstr "(元々は :ref:`distutils` パッケージで定義された) フォーマットは:"
 
-#: ../source/specifications/pypirc.rst:32
+#: ../source/specifications/pypirc.rst:37
 msgid ""
 "The ``distutils`` section defines an ``index-servers`` field that lists the "
 "name of all sections describing a repository."
@@ -27285,23 +27327,23 @@ msgstr ""
 "``distutils`` の節では、リポジトリを説明するようなすべての節の名前を列挙する "
 "``index-servers`` フィールドを定義しています。"
 
-#: ../source/specifications/pypirc.rst:35
+#: ../source/specifications/pypirc.rst:40
 msgid "Each section describing a repository defines three fields:"
 msgstr "リポジトリを記述する各節では、３個のフィールドを定義しています:"
 
-#: ../source/specifications/pypirc.rst:37
+#: ../source/specifications/pypirc.rst:42
 msgid "``repository``: The URL of the repository."
 msgstr "``repository``: リポジトリの URL。"
 
-#: ../source/specifications/pypirc.rst:38
+#: ../source/specifications/pypirc.rst:43
 msgid "``username``: The registered username on the repository."
 msgstr "``username``: リポジトリで登録済みのユーザ名。"
 
-#: ../source/specifications/pypirc.rst:39
+#: ../source/specifications/pypirc.rst:44
 msgid "``password``: The password that will used to authenticate the username."
 msgstr "``password``: ユーザ名を認証するために使われるパスワード。"
 
-#: ../source/specifications/pypirc.rst:43
+#: ../source/specifications/pypirc.rst:48
 msgid ""
 "Be aware that this stores your password in plain text. For better security, "
 "consider an alternative like `keyring`_, setting environment variables, or "
@@ -27311,7 +27353,7 @@ msgstr ""
 "ティのために `キーリング <keyring>`_ ・環境変数での設定・コマンドラインでのパ"
 "スワード供給のような代替策を検討してください。"
 
-#: ../source/specifications/pypirc.rst:47
+#: ../source/specifications/pypirc.rst:52
 msgid ""
 "Otherwise, set the permissions on :file:`.pypirc` so that only you can view "
 "or modify it. For example, on Linux or macOS, run:"
@@ -27319,11 +27361,11 @@ msgstr ""
 "そうでなければ、 :file:`.pypirc` のパーミッションを設定して、自分だけが閲覧や"
 "修正を行えるようにしてください。例えば、 Linux や macOS では次のようにします:"
 
-#: ../source/specifications/pypirc.rst:57
+#: ../source/specifications/pypirc.rst:62
 msgid "Common configurations"
 msgstr "共通の設定"
 
-#: ../source/specifications/pypirc.rst:61
+#: ../source/specifications/pypirc.rst:66
 msgid ""
 "These examples apply to :ref:`twine`. Other projects (e.g. :ref:`flit`) also "
 "use :file:`.pypirc`, but with different defaults. Please refer to each "
@@ -27334,7 +27376,7 @@ msgstr ""
 "異なります。もっと詳しい情報や使い方の指南については、それぞれのプロジェクト"
 "の説明文書を参照してください。"
 
-#: ../source/specifications/pypirc.rst:65
+#: ../source/specifications/pypirc.rst:70
 msgid ""
 "Twine's default configuration mimics a :file:`.pypirc` with repository "
 "sections for PyPI and TestPyPI:"
@@ -27342,7 +27384,7 @@ msgstr ""
 "Twine のデフォルト設定は、 PyPI と TestPyPI のリポジトリ節を含ん"
 "だ :file:`.pypirc` を真似ています:"
 
-#: ../source/specifications/pypirc.rst:81
+#: ../source/specifications/pypirc.rst:86
 msgid ""
 "Twine will add additional configuration from :file:`$HOME/.pypirc`, the "
 "command line, and environment variables to this default configuration."
@@ -27350,11 +27392,11 @@ msgstr ""
 "Twine は、 :file:`$HOME/.pypirc` からの設定に対して、コマンドラインや環境変数"
 "といった追加の設定をデフォルト設定に追加するでしょう。"
 
-#: ../source/specifications/pypirc.rst:85
+#: ../source/specifications/pypirc.rst:90
 msgid "Using a PyPI token"
 msgstr "PyPI トークンを使う"
 
-#: ../source/specifications/pypirc.rst:87
+#: ../source/specifications/pypirc.rst:92
 msgid ""
 "To set your `API token`_ for PyPI, you can create a :file:`$HOME/.pypirc` "
 "similar to:"
@@ -27362,7 +27404,7 @@ msgstr ""
 "自分の PyPI 用 `API トークン`_ を設定するには、次のよう"
 "な :file:`$HOME/.pypirc` を作れば良いでしょう:"
 
-#: ../source/specifications/pypirc.rst:96
+#: ../source/specifications/pypirc.rst:101
 msgid ""
 "For :ref:`TestPyPI <using-test-pypi>`, add a ``[testpypi]`` section, using "
 "the API token from your TestPyPI account."
@@ -27370,11 +27412,11 @@ msgstr ""
 ":ref:`TestPyPI <using-test-pypi>` 用には、Test PyPI アカウントで作成した API"
 "トークンを使った ``[testpypi]`` 節を追加してください。"
 
-#: ../source/specifications/pypirc.rst:102
+#: ../source/specifications/pypirc.rst:107
 msgid "Using another package index"
 msgstr "別のパッケージインデックスを使う"
 
-#: ../source/specifications/pypirc.rst:104
+#: ../source/specifications/pypirc.rst:109
 msgid ""
 "To configure an additional repository, you'll need to redefine the ``index-"
 "servers`` field to include the repository name. Here is a complete example "
@@ -27384,7 +27426,7 @@ msgstr ""
 "リの名前が含まれるように再定義する必要があるでしょう。PyPI と TestPyPI とプラ"
 "イベートなリポジトリの設定をした :file:`$HOME/.pypirc` の完全な例を示します:"
 
-#: ../source/specifications/pypirc.rst:131
+#: ../source/specifications/pypirc.rst:136
 msgid ""
 "Instead of using the ``password`` field, consider saving your API tokens and "
 "passwords securely using `keyring`_ (which is installed by Twine):"
@@ -27778,8 +27820,8 @@ msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`License-"
 "Expression <core-metadata-license-expression>`"
 msgstr ""
-"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: "
-":ref:`License-Expression <core-metadata-license-expression>`"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィール"
+"ド: :ref:`License-Expression <core-metadata-license-expression>`"
 
 #: ../source/specifications/pyproject-toml.rst:263
 msgid ""
@@ -28028,8 +28070,8 @@ msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Keywords "
 "<core-metadata-keywords>`"
 msgstr ""
-"対応する :ref:`コアとなるメタデータ <core-metadata>` フィールド: "
-":ref:`Keywords <core-metadata-keywords>`"
+"対応する :ref:`コアとなるメタデータ <core-metadata>` フィール"
+"ド: :ref:`Keywords <core-metadata-keywords>`"
 
 #: ../source/specifications/pyproject-toml.rst:382
 msgid "The keywords for the project."
@@ -28769,8 +28811,8 @@ msgid ""
 "<base64.urlsafe_b64encode()>` with trailing ``=`` removed)."
 msgstr ""
 "*hash* は、空文字列または :py:data:`hashlib.algorithms_guaranteed` から取った"
-"ハッシュアルゴリズムの名前の後ろに等号 ``=`` を付けて、ファイルの内容の"
-"ハッシュ値を urlsafe-base64-nopad エンコーディング "
+"ハッシュアルゴリズムの名前の後ろに等号 ``=`` を付けて、ファイルの内容のハッ"
+"シュ値を urlsafe-base64-nopad エンコーディング "
 "(:py:func:`base64.urlsafe_b64encode(digest) <base64.urlsafe_b64encode()>` の"
 "結果から末尾の ``=`` を取り除いたもの) で記したものです。"
 
@@ -31426,7 +31468,7 @@ msgstr ""
 "含が標準化されました。"
 
 #: ../source/specifications/version-specifiers.rst:7
-#: ../source/specifications/version-specifiers.rst:785
+#: ../source/specifications/version-specifiers.rst:800
 msgid "Version specifiers"
 msgstr "バージョン指定子"
 
@@ -32151,11 +32193,33 @@ msgstr ""
 "のバージョン番号が、より古いエポックに属するものよりも後に続くものとして順序"
 "付けされるので、ソートの順序を適切に変更することができます::"
 
-#: ../source/specifications/version-specifiers.rst:401
+#: ../source/specifications/version-specifiers.rst:399
+msgid ""
+"Use of nonzero epochs is discouraged. They are often not supported or "
+"discouraged by downstream packaging where Python packages may need to be "
+"consumed, and due to their scarce use they may also not be well supported by "
+"Python packaging tools."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:404
+msgid ""
+"When version scheme needs to be changed, it is preferable to continue with "
+"monotonically increasing numbers in epoch zero. For example, the version "
+"2026.x could be unambiguously followed by 3000.x."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:408
+msgid ""
+"See `Discouraging use of epoch segments in versions <https://"
+"discuss.python.org/t/discouraging-use-of-epoch-segments-in-versions/"
+"105811>`__ for the relevant discussion."
+msgstr ""
+
+#: ../source/specifications/version-specifiers.rst:416
 msgid "Normalization"
 msgstr "正規化"
 
-#: ../source/specifications/version-specifiers.rst:403
+#: ../source/specifications/version-specifiers.rst:418
 msgid ""
 "In order to maintain better compatibility with existing versions there are a "
 "number of \"alternative\" syntaxes that MUST be taken into account when "
@@ -32168,11 +32232,11 @@ msgstr ""
 "なければなりませんが、しかし、そのようなバージョン番号は上述の標準的なシン"
 "タックスに \"正規化\" されるべきです。"
 
-#: ../source/specifications/version-specifiers.rst:410
+#: ../source/specifications/version-specifiers.rst:425
 msgid "Case sensitivity"
 msgstr "ケースセンシティビティ"
 
-#: ../source/specifications/version-specifiers.rst:412
+#: ../source/specifications/version-specifiers.rst:427
 msgid ""
 "All ascii letters should be interpreted case insensitively within a version "
 "and the normal form is lowercase. This allows versions such as ``1.1RC1`` "
@@ -32182,11 +32246,11 @@ msgstr ""
 "されるべきであり、標準系は小文字です。これによって、 ``1.1rc1`` に標準化され"
 "るであろう `1.1RC1`` のようなバージョン番号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:418
+#: ../source/specifications/version-specifiers.rst:433
 msgid "Integer Normalization"
 msgstr "整数の標準化"
 
-#: ../source/specifications/version-specifiers.rst:420
+#: ../source/specifications/version-specifiers.rst:435
 msgid ""
 "All integers are interpreted via the ``int()`` built in and normalize to the "
 "string form of the output. This means that an integer version of ``00`` "
@@ -32200,11 +32264,11 @@ msgstr ""
 "うなローカルバージョンで標準化済みのもののアルファベットと数字から成る構成部"
 "分の中では、これは適用されません。"
 
-#: ../source/specifications/version-specifiers.rst:428
+#: ../source/specifications/version-specifiers.rst:443
 msgid "Pre-release separators"
 msgstr "プレリリースのセパレータ"
 
-#: ../source/specifications/version-specifiers.rst:430
+#: ../source/specifications/version-specifiers.rst:445
 msgid ""
 "Pre-releases should allow a ``.``, ``-``, or ``_`` separator between the "
 "release segment and the pre-release segment. The normal form for this is "
@@ -32220,11 +32284,11 @@ msgstr ""
 "リース記号と数字部分の間に使われるセパレータをも許容するべきです。これによっ"
 "て、 ``1.0a1`` に標準化される ``1.0a.1`` のようなバージョン番号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:439
+#: ../source/specifications/version-specifiers.rst:454
 msgid "Pre-release spelling"
 msgstr "プレリリースの綴り方"
 
-#: ../source/specifications/version-specifiers.rst:441
+#: ../source/specifications/version-specifiers.rst:456
 msgid ""
 "Pre-releases allow the additional spellings of ``alpha``, ``beta``, ``c``, "
 "``pre``, and ``preview`` for ``a``, ``b``, ``rc``, ``rc``, and ``rc`` "
@@ -32240,11 +32304,11 @@ msgstr ""
 "ジョン番号を許容します。それぞれのケースで、追加的な綴り方の部分は標準的な形"
 "式のものと同等であると見做されます。"
 
-#: ../source/specifications/version-specifiers.rst:450
+#: ../source/specifications/version-specifiers.rst:465
 msgid "Implicit pre-release number"
 msgstr "明示しないプレリリース番号"
 
-#: ../source/specifications/version-specifiers.rst:452
+#: ../source/specifications/version-specifiers.rst:467
 msgid ""
 "Pre releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -32256,11 +32320,11 @@ msgstr ""
 "く形です。これによって、標準化すれば ``1.2a0`` になる ``1.2a`` のようなバー"
 "ジョン番号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:458
+#: ../source/specifications/version-specifiers.rst:473
 msgid "Post release separators"
 msgstr "ポストリリースのセパレータ"
 
-#: ../source/specifications/version-specifiers.rst:460
+#: ../source/specifications/version-specifiers.rst:475
 msgid ""
 "Post releases allow a ``.``, ``-``, or ``_`` separator as well as omitting "
 "the separator all together. The normal form of this is with the ``.`` "
@@ -32278,11 +32342,11 @@ msgstr ""
 "レータを置くことを許容します。これによって、標準化すれば ``1.2.post2`` となる"
 "であろう ``1.2.port-2`` のようなバージョン番号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:469
+#: ../source/specifications/version-specifiers.rst:484
 msgid "Post release spelling"
 msgstr "ポストリリースの綴り方"
 
-#: ../source/specifications/version-specifiers.rst:471
+#: ../source/specifications/version-specifiers.rst:486
 msgid ""
 "Post-releases allow the additional spellings of ``rev`` and ``r``. This "
 "allows versions such as ``1.0-r4`` which normalizes to ``1.0.post4``. As "
@@ -32294,11 +32358,11 @@ msgstr ""
 "ン番号を許容します。プレリリースでの追加の綴り方と同様に、その標準形式と同等"
 "のものと見做されるべきです。"
 
-#: ../source/specifications/version-specifiers.rst:478
+#: ../source/specifications/version-specifiers.rst:493
 msgid "Implicit post release number"
 msgstr "明示されないポストリリース番号"
 
-#: ../source/specifications/version-specifiers.rst:480
+#: ../source/specifications/version-specifiers.rst:495
 msgid ""
 "Post releases allow omitting the numeral in which case it is implicitly "
 "assumed to be ``0``. The normal form for this is to include the ``0`` "
@@ -32310,11 +32374,11 @@ msgstr ""
 "を含めることです。これによって、標準化すれば ``1.2.post0`` となる "
 "``1.2.post`` のようなバージョン番号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:486
+#: ../source/specifications/version-specifiers.rst:501
 msgid "Implicit post releases"
 msgstr "暗黙裡のポストリリース"
 
-#: ../source/specifications/version-specifiers.rst:488
+#: ../source/specifications/version-specifiers.rst:503
 msgid ""
 "Post releases allow omitting the ``post`` signifier all together. When using "
 "this form the separator MUST be ``-`` and no other form is allowed. This "
@@ -32330,11 +32394,11 @@ msgstr ""
 "われてはなりません。換言すれば、 ``1.0-`` は正当なバージョン番号では *なく"
 "* 、 ``1.0.post0`` へ標準化されることも *ありません* 。"
 
-#: ../source/specifications/version-specifiers.rst:497
+#: ../source/specifications/version-specifiers.rst:512
 msgid "Development release separators"
 msgstr "開発リリース番号のセパレータ"
 
-#: ../source/specifications/version-specifiers.rst:499
+#: ../source/specifications/version-specifiers.rst:514
 msgid ""
 "Development releases allow a ``.``, ``-``, or a ``_`` separator as well as "
 "omitting the separator all together. The normal form of this is with the "
@@ -32346,11 +32410,11 @@ msgstr ""
 "を使う形です。これによって、標準化すれば ``1.2.dev2`` になるであろう ``1.2-"
 "dev2`` や ``1.2dev2`` のようなバージョン番号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:506
+#: ../source/specifications/version-specifiers.rst:521
 msgid "Implicit development release number"
 msgstr "暗黙裡の開発バージョン番号"
 
-#: ../source/specifications/version-specifiers.rst:508
+#: ../source/specifications/version-specifiers.rst:523
 msgid ""
 "Development releases allow omitting the numeral in which case it is "
 "implicitly assumed to be ``0``. The normal form for this is to include the "
@@ -32362,11 +32426,11 @@ msgstr ""
 "れによって、標準化すれば ``1.2.dev0`` となる ``1.2.dev`` のようなバージョン番"
 "号を許容します。"
 
-#: ../source/specifications/version-specifiers.rst:515
+#: ../source/specifications/version-specifiers.rst:530
 msgid "Local version segments"
 msgstr "ローカルのバージョン番号構成部分"
 
-#: ../source/specifications/version-specifiers.rst:517
+#: ../source/specifications/version-specifiers.rst:532
 msgid ""
 "With a local version, in addition to the use of ``.`` as a separator of "
 "segments, the use of ``-`` and ``_`` is also acceptable. The normal form is "
@@ -32378,11 +32442,11 @@ msgstr ""
 "ことです。これによって、標準化すれば ``1.0+ubuntu.1`` となる "
 "``1.0+ubuntu-1`` のようなバージョン番号も許容されます。"
 
-#: ../source/specifications/version-specifiers.rst:524
+#: ../source/specifications/version-specifiers.rst:539
 msgid "Preceding v character"
 msgstr "先駆する v の文字"
 
-#: ../source/specifications/version-specifiers.rst:526
+#: ../source/specifications/version-specifiers.rst:541
 msgid ""
 "In order to support the common version notation of ``v1.0`` versions may be "
 "preceded by a single literal ``v`` character. This character MUST be ignored "
@@ -32396,11 +32460,11 @@ msgstr ""
 "は省略されるべきです。 ``v`` の有無だけが異なるバージョン番号は、同一のものと"
 "見做されます。"
 
-#: ../source/specifications/version-specifiers.rst:533
+#: ../source/specifications/version-specifiers.rst:548
 msgid "Leading and Trailing Whitespace"
 msgstr "先行する空白文字や後続する空白文字"
 
-#: ../source/specifications/version-specifiers.rst:535
+#: ../source/specifications/version-specifiers.rst:550
 msgid ""
 "Leading and trailing whitespace must be silently ignored and removed from "
 "all normalized forms of a version. This includes ``\" \"``, ``\\t``, "
@@ -32414,11 +32478,11 @@ msgstr ""
 "す。これによって、標準化すれば ``1.0`` となる ``1.0\\n`` のようなバージョン番"
 "号に見られる、偶然に入り込んだ空白文字を実用的に取り扱うことができます。"
 
-#: ../source/specifications/version-specifiers.rst:542
+#: ../source/specifications/version-specifiers.rst:557
 msgid "Examples of compliant version schemes"
 msgstr "枠組みに合致したバージョン番号の例"
 
-#: ../source/specifications/version-specifiers.rst:544
+#: ../source/specifications/version-specifiers.rst:559
 msgid ""
 "The standard version scheme is designed to encompass a wide range of "
 "identification practices across public and private Python projects. In "
@@ -32434,7 +32498,7 @@ msgstr ""
 "ユーザにとってはバージョン番号間の相対的な順序を解き明かすことに困難を感じる"
 "ことになるでしょう。"
 
-#: ../source/specifications/version-specifiers.rst:551
+#: ../source/specifications/version-specifiers.rst:566
 msgid ""
 "The following examples illustrate a small selection of the different "
 "approaches projects may choose to identify their releases, while still "
@@ -32445,22 +32509,22 @@ msgstr ""
 "るアプローチで、 \"最新リリース\" と \"最新のステーブルリリース\" を人間も自"
 "動化ツールも簡単に決定できることが保証されたもののいくつかの例を示します。"
 
-#: ../source/specifications/version-specifiers.rst:556
+#: ../source/specifications/version-specifiers.rst:571
 msgid "Simple \"major.minor\" versioning::"
 msgstr "単純な \"メジャー.マイナー\" バージョン付け::"
 
-#: ../source/specifications/version-specifiers.rst:565
+#: ../source/specifications/version-specifiers.rst:580
 msgid "Simple \"major.minor.micro\" versioning::"
 msgstr "単純な \"メジャー.マイナー.マイクロ\" バージョン付け::"
 
-#: ../source/specifications/version-specifiers.rst:573
+#: ../source/specifications/version-specifiers.rst:588
 msgid ""
 "\"major.minor\" versioning with alpha, beta and candidate pre-releases::"
 msgstr ""
 "アルファ・ベータや公開候補 <candidate> のようなプレリリースを伴う \"メジャー."
 "マイナー\" バージョン付け::"
 
-#: ../source/specifications/version-specifiers.rst:585
+#: ../source/specifications/version-specifiers.rst:600
 msgid ""
 "\"major.minor\" versioning with developmental releases, release candidates "
 "and post-releases for minor corrections::"
@@ -32468,18 +32532,18 @@ msgstr ""
 "開発リリース <developmental releases> 、リリース候補 <release candidates> や"
 "ポストリリースのある \"メジャー.マイナー\" バージョン付け::"
 
-#: ../source/specifications/version-specifiers.rst:600
+#: ../source/specifications/version-specifiers.rst:615
 msgid ""
 "Date based releases, using an incrementing serial within each year, skipping "
 "zero::"
 msgstr ""
 "ゼロを飛ばして各年の中で増加するシリアル値を使った日付ベースのリリース番号::"
 
-#: ../source/specifications/version-specifiers.rst:614
+#: ../source/specifications/version-specifiers.rst:629
 msgid "Summary of permitted suffixes and relative ordering"
 msgstr "許容される接尾辞と相対的な順序付けのまとめ"
 
-#: ../source/specifications/version-specifiers.rst:618
+#: ../source/specifications/version-specifiers.rst:633
 msgid ""
 "This section is intended primarily for authors of tools that automatically "
 "process distribution metadata, rather than developers of Python "
@@ -32489,7 +32553,7 @@ msgstr ""
 "というよりは、むしろ、一義的には配布物のメタデータを自動的に処理するツールの"
 "作者に向けて書かれています。"
 
-#: ../source/specifications/version-specifiers.rst:622
+#: ../source/specifications/version-specifiers.rst:637
 msgid ""
 "The epoch segment of version identifiers MUST be sorted according to the "
 "numeric value of the given epoch. If no epoch segment is present, the "
@@ -32499,7 +32563,7 @@ msgstr ""
 "序されなければなりません。エポック構成部分が存在しない場合には、暗黙のうちに "
 "``0`` の値と解釈します。"
 
-#: ../source/specifications/version-specifiers.rst:626
+#: ../source/specifications/version-specifiers.rst:641
 msgid ""
 "The release segment of version identifiers MUST be sorted in the same order "
 "as Python's tuple sorting when the normalized release segment is parsed as "
@@ -32509,7 +32573,7 @@ msgstr ""
 "時には以下のように Python のタプルソーティングと同じ順序で格納されていなけれ"
 "ばなりません ::"
 
-#: ../source/specifications/version-specifiers.rst:632
+#: ../source/specifications/version-specifiers.rst:647
 msgid ""
 "All release segments involved in the comparison MUST be converted to a "
 "consistent length by padding shorter segments with zeros as needed."
@@ -32517,7 +32581,7 @@ msgstr ""
 "比較に関わるすべてのリリース構成部分は、必要に応じて不足する構成部分にゼロを"
 "補填することで長さを一致させなければなりません。"
 
-#: ../source/specifications/version-specifiers.rst:635
+#: ../source/specifications/version-specifiers.rst:650
 msgid ""
 "Within a numeric release (``1.0``, ``2.7.3``), the following suffixes are "
 "permitted and MUST be ordered as shown::"
@@ -32525,7 +32589,7 @@ msgstr ""
 "リリース番号の数字部分 (``1.0`` や ``2.7.3``) の中では、後述の接尾辞が許され"
 "ており、下に示す通りに順序付けをしなければなりません::"
 
-#: ../source/specifications/version-specifiers.rst:640
+#: ../source/specifications/version-specifiers.rst:655
 msgid ""
 "Note that ``c`` is considered to be semantically equivalent to ``rc`` and "
 "must be sorted as if it were ``rc``. Tools MAY reject the case of having the "
@@ -32538,7 +32602,7 @@ msgstr ""
 "合には曖昧であるとしてこれを拒否しても構いませんが、これでも仕様には合致して"
 "います。"
 
-#: ../source/specifications/version-specifiers.rst:645
+#: ../source/specifications/version-specifiers.rst:660
 msgid ""
 "Within an alpha (``1.0a1``), beta (``1.0b1``), or release candidate "
 "(``1.0rc1``, ``1.0c1``), the following suffixes are permitted and MUST be "
@@ -32548,7 +32612,7 @@ msgstr ""
 "(``1.0rc1``, ``1.0c1``) の中では、後述の接尾辞が許されていて、示される通りに"
 "並べ替えられなければなりません::"
 
-#: ../source/specifications/version-specifiers.rst:651
+#: ../source/specifications/version-specifiers.rst:666
 msgid ""
 "Within a post-release (``1.0.post1``), the following suffixes are permitted "
 "and MUST be ordered as shown::"
@@ -32556,7 +32620,7 @@ msgstr ""
 "ポストリリース (``1.0.post1``) の中では、後述の接尾辞が許されていて、示す通り"
 "に並べ替えられなければなりません::"
 
-#: ../source/specifications/version-specifiers.rst:656
+#: ../source/specifications/version-specifiers.rst:671
 msgid ""
 "Note that ``devN`` and ``postN`` MUST always be preceded by a dot, even when "
 "used immediately following a numeric version (e.g. ``1.0.dev456``, "
@@ -32566,7 +32630,7 @@ msgstr ""
 "``1.0.post1``) であっても、 ``devN`` と ``postN`` は、常にドットに後続しなけ"
 "ればならないことを銘記してください。"
 
-#: ../source/specifications/version-specifiers.rst:660
+#: ../source/specifications/version-specifiers.rst:675
 msgid ""
 "Within a pre-release, post-release or development release segment with a "
 "shared prefix, ordering MUST be by the value of the numeric component."
@@ -32575,26 +32639,26 @@ msgstr ""
 "発リリース構成部分の中で、数値部分の値に従って順序付けをしなければなりませ"
 "ん。"
 
-#: ../source/specifications/version-specifiers.rst:663
+#: ../source/specifications/version-specifiers.rst:678
 msgid "The following example covers many of the possible combinations::"
 msgstr "可能なバージョン番号の例を以下に示します::"
 
-#: ../source/specifications/version-specifiers.rst:688
+#: ../source/specifications/version-specifiers.rst:703
 msgid "Version ordering across different metadata versions"
 msgstr "相異なるメタデータバージョンを通してバージョン番号を順序付けする"
 
-#: ../source/specifications/version-specifiers.rst:690
+#: ../source/specifications/version-specifiers.rst:705
 msgid ""
 "Metadata v1.0 (:pep:`241`) and metadata v1.1 (:pep:`314`) do not specify a "
 "standard version identification or ordering scheme. However metadata v1.2 "
 "(:pep:`345`) does specify a scheme which is defined in :pep:`386`."
 msgstr ""
 "メタデータ v1.0 (:pep:`241`) および メタデータ (:pep:`314`) は、標準となる"
-"バージョン番号の識別や順序付けの枠組みを指定していません。しかしながら、"
-"メタデータ v1.2 (:pep:`345`) では、 :pep:`386` で定義された枠組みを指定してい"
-"ます。"
+"バージョン番号の識別や順序付けの枠組みを指定していません。しかしながら、メタ"
+"データ v1.2 (:pep:`345`) では、 :pep:`386` で定義された枠組みを指定していま"
+"す。"
 
-#: ../source/specifications/version-specifiers.rst:694
+#: ../source/specifications/version-specifiers.rst:709
 msgid ""
 "Due to the nature of the simple installer API it is not possible for an "
 "installer to be aware of which metadata version a particular distribution "
@@ -32612,7 +32676,7 @@ msgstr ""
 "よって、あるプロジェクトのすべてのバージョンにおいてひとつの解析メカニズムが"
 "使われるような標準化が必要とされます。"
 
-#: ../source/specifications/version-specifiers.rst:702
+#: ../source/specifications/version-specifiers.rst:717
 msgid ""
 "Due to the above, this specification MUST be used for all versions of "
 "metadata and supersedes :pep:`386` even for metadata v1.2. Tools SHOULD "
@@ -32628,7 +32692,7 @@ msgstr ""
 "つも利用可能でない時には、それぞれの実装で定義されたバージョン番号の解釈や順"
 "序付けにフォールバックしても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:708
+#: ../source/specifications/version-specifiers.rst:723
 msgid ""
 "Distribution users may wish to explicitly remove non-compliant versions from "
 "any private package indexes they control."
@@ -32636,11 +32700,11 @@ msgstr ""
 "配布物のユーザは、自分が管理するプライベートなパッケージインデックスにおい"
 "て、合致しないバージョン番号を明示的に除去しても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:713
+#: ../source/specifications/version-specifiers.rst:728
 msgid "Compatibility with other version schemes"
 msgstr "他のバージョン番号の枠組みとの互換性"
 
-#: ../source/specifications/version-specifiers.rst:715
+#: ../source/specifications/version-specifiers.rst:730
 msgid ""
 "Some projects may choose to use a version scheme which requires translation "
 "in order to comply with the public version scheme defined in this "
@@ -32654,7 +32718,7 @@ msgstr ""
 "タに格納しておく一方で、公開のバージョン番号を version フィールドに置くことが"
 "できます。"
 
-#: ../source/specifications/version-specifiers.rst:720
+#: ../source/specifications/version-specifiers.rst:735
 msgid ""
 "This allows automated distribution tools to provide consistently correct "
 "ordering of published releases, while still allowing developers to use the "
@@ -32665,7 +32729,7 @@ msgstr ""
 "のプロジェクト向けに好みの内部的なバージョン番号枠組みを使うことが許されま"
 "す。"
 
-#: ../source/specifications/version-specifiers.rst:728
+#: ../source/specifications/version-specifiers.rst:743
 msgid ""
 "`Semantic versioning`_ is a popular version identification scheme that is "
 "more prescriptive than this specification regarding the significance of "
@@ -32682,7 +32746,7 @@ msgstr ""
 "る配布物を公開する時に発生する多くの課題を網羅するためにも、この枠組みは理解"
 "しておくに値します。"
 
-#: ../source/specifications/version-specifiers.rst:735
+#: ../source/specifications/version-specifiers.rst:750
 msgid ""
 "The \"Major.Minor.Patch\" (described in this specification as "
 "\"major.minor.micro\") aspects of semantic versioning (clauses 1-8 in the "
@@ -32694,7 +32758,7 @@ msgstr ""
 "この仕様で定義されるバージョン番号枠組みと完全に互換であり、この形を受容する"
 "ことが推奨されています。"
 
-#: ../source/specifications/version-specifiers.rst:740
+#: ../source/specifications/version-specifiers.rst:755
 msgid ""
 "Semantic versions containing a hyphen (pre-releases - clause 10) or a plus "
 "sign (builds - clause 11) are *not* compatible with this specification and "
@@ -32704,7 +32768,7 @@ msgstr ""
 "号を含むセマンティックバージョン (builds - clause 11) は、この仕様と *互換性"
 "がなく* 、公開のバージョン番号フィールドでは許されていません。"
 
-#: ../source/specifications/version-specifiers.rst:744
+#: ../source/specifications/version-specifiers.rst:759
 msgid ""
 "One possible mechanism to translate such semantic versioning based source "
 "labels to compatible public versions is to use the ``.devN`` suffix to "
@@ -32714,17 +32778,17 @@ msgstr ""
 "番号と互換性のあるものに翻訳する可能なメカニズムの一つは、 ``.devN`` 接尾辞を"
 "使って適切なバージョン番号の順序を指定することです。"
 
-#: ../source/specifications/version-specifiers.rst:748
+#: ../source/specifications/version-specifiers.rst:763
 msgid ""
 "Specific build information may also be included in local version labels."
 msgstr ""
 "特定のビルド情報も、ローカルのバージョン番号のラベルに含めても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:754
+#: ../source/specifications/version-specifiers.rst:769
 msgid "DVCS based version labels"
 msgstr "DVCS に基づいたバージョン番号のラベル"
 
-#: ../source/specifications/version-specifiers.rst:756
+#: ../source/specifications/version-specifiers.rst:771
 msgid ""
 "Many build tools integrate with distributed version control systems like Git "
 "and Mercurial in order to add an identifying hash to the version identifier. "
@@ -32736,7 +32800,7 @@ msgstr ""
 "ハッシュ値は信頼できる形で順序付けすることができないので、そのようなバージョ"
 "ン番号は公開のバージョンフィールドでは許されません。"
 
-#: ../source/specifications/version-specifiers.rst:761
+#: ../source/specifications/version-specifiers.rst:776
 msgid ""
 "As with semantic versioning, the public ``.devN`` suffix may be used to "
 "uniquely identify such releases for publication, while the original DVCS "
@@ -32746,18 +32810,18 @@ msgstr ""
 "ジェクトのメタデータに格納することができない一方で、そのようなリリースを公開"
 "する際に一意に識別するために、公開の ``.devN`` 接尾辞をつけても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:765
+#: ../source/specifications/version-specifiers.rst:780
 msgid ""
 "Identifying hash information may also be included in local version labels."
 msgstr ""
 "ハッシュ値の情報を識別することは、ローカルのバージョン番号ラベルに含めても構"
 "いません。"
 
-#: ../source/specifications/version-specifiers.rst:769
+#: ../source/specifications/version-specifiers.rst:784
 msgid "Olson database versioning"
 msgstr "Olson データベースによるバージョニング"
 
-#: ../source/specifications/version-specifiers.rst:771
+#: ../source/specifications/version-specifiers.rst:786
 msgid ""
 "The ``pytz`` project inherits its versioning scheme from the corresponding "
 "Olson timezone database versioning scheme: the year followed by a lowercase "
@@ -32767,7 +32831,7 @@ msgstr ""
 "タベースのバージョニング方法から継承しています: 年と、それに後続する小文字の"
 "文字でその年の中でのデータベースのバージョンを示すもの。"
 
-#: ../source/specifications/version-specifiers.rst:775
+#: ../source/specifications/version-specifiers.rst:790
 msgid ""
 "This can be translated to a compliant public version identifier as ``<year>."
 "<serial>``, where the serial starts at zero or one (for the '<year>a' "
@@ -32779,7 +32843,7 @@ msgstr ""
 "０か１から始まって、その年の内にデータベースが更新される度に１づつ増加されま"
 "す。"
 
-#: ../source/specifications/version-specifiers.rst:780
+#: ../source/specifications/version-specifiers.rst:795
 msgid ""
 "As with other translated version identifiers, the corresponding Olson "
 "database version could be recorded in the project metadata."
@@ -32787,7 +32851,7 @@ msgstr ""
 "他の翻訳されたバージョン識別子と同様に、対応する Olson データベースのバージョ"
 "ン番号は、そのプロジェクトのメタデータに記録しておくことが可能です。"
 
-#: ../source/specifications/version-specifiers.rst:787
+#: ../source/specifications/version-specifiers.rst:802
 msgid ""
 "A version specifier consists of a series of version clauses, separated by "
 "commas. For example::"
@@ -32795,37 +32859,37 @@ msgstr ""
 "バージョン指定子は、一連のバージョン番号節をコンマで区切ったものから構成され"
 "ます。例えば::"
 
-#: ../source/specifications/version-specifiers.rst:792
+#: ../source/specifications/version-specifiers.rst:807
 msgid "The comparison operator determines the kind of version clause:"
 msgstr "比較演算子がバージョン番号節の種類を決定します:"
 
-#: ../source/specifications/version-specifiers.rst:794
+#: ../source/specifications/version-specifiers.rst:809
 msgid "``~=``: `Compatible release`_ clause"
 msgstr "``~=``: `Compatible release`_ 節"
 
-#: ../source/specifications/version-specifiers.rst:795
+#: ../source/specifications/version-specifiers.rst:810
 msgid "``==``: `Version matching`_ clause"
 msgstr "``==``: `Version matching`_ 節"
 
-#: ../source/specifications/version-specifiers.rst:796
+#: ../source/specifications/version-specifiers.rst:811
 msgid "``!=``: `Version exclusion`_ clause"
 msgstr "``!=``: `Version exclusion`_ 節"
 
-#: ../source/specifications/version-specifiers.rst:797
+#: ../source/specifications/version-specifiers.rst:812
 msgid "``<=``, ``>=``: `Inclusive ordered comparison`_ clause"
 msgstr ""
 "``<=``, ``>=``: `境界を含む順序比較 <Inclusive ordered comparison>`_ 節"
 
-#: ../source/specifications/version-specifiers.rst:798
+#: ../source/specifications/version-specifiers.rst:813
 msgid "``<``, ``>``: `Exclusive ordered comparison`_ clause"
 msgstr ""
 "``<``, ``>``: `境界を含まない順序比較 <Exclusive ordered comparison>`_ 節"
 
-#: ../source/specifications/version-specifiers.rst:799
+#: ../source/specifications/version-specifiers.rst:814
 msgid "``===``: `Arbitrary equality`_ clause."
 msgstr "``===``: `あらゆる意味での同一性 <Arbitrary equality>`_ clause."
 
-#: ../source/specifications/version-specifiers.rst:801
+#: ../source/specifications/version-specifiers.rst:816
 msgid ""
 "The comma (\",\") is equivalent to a logical **and** operator: a candidate "
 "version must match all given version clauses in order to match the specifier "
@@ -32835,7 +32899,7 @@ msgstr ""
 "全体として指定子に合致するために、すべての与えられた節が合致しなければなりま"
 "せん。"
 
-#: ../source/specifications/version-specifiers.rst:805
+#: ../source/specifications/version-specifiers.rst:820
 msgid ""
 "Whitespace between a conditional operator and the following version "
 "identifier is optional, as is the whitespace around the commas."
@@ -32843,7 +32907,7 @@ msgstr ""
 "条件演算子とその後のバージョン識別子の間の空白文字は、コンマの周囲の空白文字"
 "と同様にオプションです。"
 
-#: ../source/specifications/version-specifiers.rst:808
+#: ../source/specifications/version-specifiers.rst:823
 msgid ""
 "When multiple candidate versions match a version specifier, the preferred "
 "version SHOULD be the latest version as determined by the consistent "
@@ -32857,7 +32921,7 @@ msgstr ""
 "だと見做されるか否かは、 `プレリリースの取り扱い <Handling of pre-"
 "releases>`_ に記述されているとおりに扱われるべきです。"
 
-#: ../source/specifications/version-specifiers.rst:814
+#: ../source/specifications/version-specifiers.rst:829
 msgid ""
 "Except where specifically noted below, local version identifiers MUST NOT be "
 "permitted in version specifiers, and local version labels MUST be ignored "
@@ -32867,11 +32931,11 @@ msgstr ""
 "定子は許されてはならず、あるバージョン指定子に合致する候補バージョンかどうか"
 "を調べる際にはローカルバージョンラベルは完全に無視されなければなりません。"
 
-#: ../source/specifications/version-specifiers.rst:823
+#: ../source/specifications/version-specifiers.rst:838
 msgid "Compatible release"
 msgstr "互換性のあるリリース <Compatible release>"
 
-#: ../source/specifications/version-specifiers.rst:825
+#: ../source/specifications/version-specifiers.rst:840
 msgid ""
 "A compatible release clause consists of the compatible release operator "
 "``~=`` and a version identifier. It matches any candidate version that is "
@@ -32881,7 +32945,7 @@ msgstr ""
 "成されます。指定されたバージョンと互換性があるものと期待されるすべての候補"
 "バージョンに合致します。"
 
-#: ../source/specifications/version-specifiers.rst:829
+#: ../source/specifications/version-specifiers.rst:844
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_. Local version identifiers are NOT permitted in this "
@@ -32891,7 +32955,7 @@ msgstr ""
 "された標準フォーマットの範疇に収まっていなければなりません。ローカルバージョ"
 "ン識別子は、このバージョン識別子の中では許容されません。"
 
-#: ../source/specifications/version-specifiers.rst:833
+#: ../source/specifications/version-specifiers.rst:848
 msgid ""
 "For a given release identifier ``V.N``, the compatible release clause is "
 "approximately equivalent to the pair of comparison clauses::"
@@ -32899,7 +32963,7 @@ msgstr ""
 "あるリリース識別子 ``V.N`` にとって、互換リリース節は、一組の比較節とほぼ同一"
 "のものです::"
 
-#: ../source/specifications/version-specifiers.rst:838
+#: ../source/specifications/version-specifiers.rst:853
 msgid ""
 "This operator MUST NOT be used with a single segment version number such as "
 "``~=1``."
@@ -32907,11 +32971,11 @@ msgstr ""
 "この演算子は、 ``~=1`` のように単独の構成部分バージョン番号と一緒に用いてはな"
 "りません。"
 
-#: ../source/specifications/version-specifiers.rst:841
+#: ../source/specifications/version-specifiers.rst:856
 msgid "For example, the following groups of version clauses are equivalent::"
 msgstr "例えば、次に挙げるバージョン番号群はすべて同等ということになります::"
 
-#: ../source/specifications/version-specifiers.rst:849
+#: ../source/specifications/version-specifiers.rst:864
 msgid ""
 "If a pre-release, post-release or developmental release is named in a "
 "compatible release clause as ``V.N.suffix``, then the suffix is ignored when "
@@ -32921,7 +32985,7 @@ msgstr ""
 "換性のあるリリース節の形の名前を付けられているなら、要求される接頭辞と合致す"
 "るかどうかを決める時には接尾辞が無視されます::"
 
-#: ../source/specifications/version-specifiers.rst:859
+#: ../source/specifications/version-specifiers.rst:874
 msgid ""
 "The padding rules for release segment comparisons means that the assumed "
 "degree of forward compatibility in a compatible release clause can be "
@@ -32931,11 +32995,11 @@ msgstr ""
 "節での前方互換性に想定された度合いを、バージョン識別子の後ろにゼロを追加して"
 "制御することが可能です::"
 
-#: ../source/specifications/version-specifiers.rst:871
+#: ../source/specifications/version-specifiers.rst:886
 msgid "Version matching"
 msgstr "バージョン番号の照合"
 
-#: ../source/specifications/version-specifiers.rst:873
+#: ../source/specifications/version-specifiers.rst:888
 msgid ""
 "A version matching clause includes the version matching operator ``==`` and "
 "a version identifier."
@@ -32943,7 +33007,7 @@ msgstr ""
 "バージョン番号マッチング節には、バージョン番号マッチング演算子 ``==`` とバー"
 "ジョン識別子を含みます。"
 
-#: ../source/specifications/version-specifiers.rst:876
+#: ../source/specifications/version-specifiers.rst:891
 msgid ""
 "The specified version identifier must be in the standard format described in "
 "`Version scheme`_, but a trailing ``.*`` is permitted on public version "
@@ -32953,7 +33017,7 @@ msgstr ""
 "マットでなければなりませんが、公開のバージョン識別子における後続する ``.*`` "
 "は以下に述べるように許されています。"
 
-#: ../source/specifications/version-specifiers.rst:880
+#: ../source/specifications/version-specifiers.rst:895
 msgid ""
 "By default, the version matching operator is based on a strict equality "
 "comparison: the specified version must be exactly the same as the requested "
@@ -32966,7 +33030,7 @@ msgstr ""
 "*唯一の* 置換が行われるのは、リリース番号構成部分を同じ長さで行うことを保証す"
 "るために、リリース番号構成部分にゼロをパディングする時だけです。"
 
-#: ../source/specifications/version-specifiers.rst:886
+#: ../source/specifications/version-specifiers.rst:901
 msgid ""
 "Whether or not strict version matching is appropriate depends on the "
 "specific use case for the version specifier. Automated tools SHOULD at least "
@@ -32977,7 +33041,7 @@ msgstr ""
 "スによって変わります。自動化されたツール群は、厳密なバージョンマッチングが使"
 "用された時には、少なくとも警告を発するべきで、全てを拒絶しても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:891
+#: ../source/specifications/version-specifiers.rst:906
 msgid ""
 "Prefix matching may be requested instead of strict comparison, by appending "
 "a trailing ``.*`` to the version identifier in the version matching clause. "
@@ -32993,8 +33057,8 @@ msgstr ""
 "分だけを含んでいるなら、リリース番号構成部分の中の後続の構成部分 (あるいは、"
 "その欠落) もまた、無視されます。"
 
-#: ../source/specifications/version-specifiers.rst:898
-#: ../source/specifications/version-specifiers.rst:959
+#: ../source/specifications/version-specifiers.rst:913
+#: ../source/specifications/version-specifiers.rst:974
 msgid ""
 "For example, given the version ``1.1.post1``, the following clauses would "
 "match or not as shown::"
@@ -33002,7 +33066,7 @@ msgstr ""
 "例えば、あるバージョン番号 ``1.1.post1`` が与えられたとして、以下に示すように"
 "合致したり合致しなかったりします::"
 
-#: ../source/specifications/version-specifiers.rst:905
+#: ../source/specifications/version-specifiers.rst:920
 msgid ""
 "For purposes of prefix matching, the pre-release segment is considered to "
 "have an implied preceding ``.``, so given the version ``1.1a1``, the "
@@ -33012,7 +33076,7 @@ msgstr ""
 "``.`` を持つものと見なされ、従って、バージョン番号 ``1.1a1`` が与えられたとす"
 "れば、以下に示すように合致したり合致しなかったりします::"
 
-#: ../source/specifications/version-specifiers.rst:913
+#: ../source/specifications/version-specifiers.rst:928
 msgid ""
 "An exact match is also considered a prefix match (this interpretation is "
 "implied by the usual zero padding rules for the release segment of version "
@@ -33024,7 +33088,7 @@ msgstr ""
 "れます。バージョン番号 ``1.1`` が与えられたなら、以下に示すように合致したり合"
 "致しなかったりします::"
 
-#: ../source/specifications/version-specifiers.rst:925
+#: ../source/specifications/version-specifiers.rst:940
 msgid ""
 "It is invalid to have a prefix match containing a development or local "
 "release such as ``1.0.dev1.*`` or ``1.0+foo1.*``. If present, the "
@@ -33038,7 +33102,7 @@ msgstr ""
 "番号は比較の目的においては無視されるので、そのようなものが接頭辞マッチにあっ"
 "たとしても意味を成しません。"
 
-#: ../source/specifications/version-specifiers.rst:931
+#: ../source/specifications/version-specifiers.rst:946
 msgid ""
 "The use of ``==`` (without at least the wildcard suffix) when defining "
 "dependencies for published distributions is strongly discouraged as it "
@@ -33053,7 +33117,7 @@ msgstr ""
 "義的に、共有の配布物インデックスを使う上で繰り返し可能な *アプリケーションの"
 "展開* のための依存関係を定義するために使われることを想定しています。"
 
-#: ../source/specifications/version-specifiers.rst:938
+#: ../source/specifications/version-specifiers.rst:953
 msgid ""
 "If the specified version identifier is a public version identifier (no local "
 "version label), then the local version label of any candidate versions MUST "
@@ -33063,7 +33127,7 @@ msgstr ""
 "ジョン識別子であり、候補バージョンに付けられたローカルバージョン番号ラベル"
 "は、バージョンマッチングの際には無視されなければなりません。"
 
-#: ../source/specifications/version-specifiers.rst:942
+#: ../source/specifications/version-specifiers.rst:957
 msgid ""
 "If the specified version identifier is a local version identifier, then the "
 "local version labels of candidate versions MUST be considered when matching "
@@ -33076,11 +33140,11 @@ msgstr ""
 "バージョン識別子と合致するか確かめられ、ローカルバージョンラベルは厳密な文字"
 "列の同一性比較を使って同一であるかどうか確認されます。"
 
-#: ../source/specifications/version-specifiers.rst:950
+#: ../source/specifications/version-specifiers.rst:965
 msgid "Version exclusion"
 msgstr "バージョンの除外 <Version exclusion>"
 
-#: ../source/specifications/version-specifiers.rst:952
+#: ../source/specifications/version-specifiers.rst:967
 msgid ""
 "A version exclusion clause includes the version exclusion operator ``!=`` "
 "and a version identifier."
@@ -33088,7 +33152,7 @@ msgstr ""
 "バージョンの除外節は、バージョン除外演算子 ``!=`` とバージョン識別子を含みま"
 "す。"
 
-#: ../source/specifications/version-specifiers.rst:955
+#: ../source/specifications/version-specifiers.rst:970
 msgid ""
 "The allowed version identifiers and comparison semantics are the same as "
 "those of the `Version matching`_ operator, except that the sense of any "
@@ -33097,11 +33161,11 @@ msgstr ""
 "許されるバージョン識別子と比較のセマンティックスは、マッチの意味が反転してい"
 "る点を除けば `Version matching`_ 演算子のそれと同一です。"
 
-#: ../source/specifications/version-specifiers.rst:968
+#: ../source/specifications/version-specifiers.rst:983
 msgid "Inclusive ordered comparison"
 msgstr "境界を含む順序比較 <Inclusive ordered comparison>"
 
-#: ../source/specifications/version-specifiers.rst:970
+#: ../source/specifications/version-specifiers.rst:985
 msgid ""
 "An inclusive ordered comparison clause includes a comparison operator and a "
 "version identifier, and will match any version where the comparison is "
@@ -33114,12 +33178,12 @@ msgstr ""
 "よって定義される首尾一貫した順序付けに基づいてその比較が正しいかどうかを任意"
 "のバージョン番号に対して行います。"
 
-#: ../source/specifications/version-specifiers.rst:976
+#: ../source/specifications/version-specifiers.rst:991
 msgid "The inclusive ordered comparison operators are ``<=`` and ``>=``."
 msgstr "境界を含む順序比較の演算子は ``<=`` と ``>=`` です。"
 
-#: ../source/specifications/version-specifiers.rst:978
-#: ../source/specifications/version-specifiers.rst:1008
+#: ../source/specifications/version-specifiers.rst:993
+#: ../source/specifications/version-specifiers.rst:1023
 msgid ""
 "As with version matching, the release segment is zero padded as necessary to "
 "ensure the release segments are compared with the same length."
@@ -33128,16 +33192,16 @@ msgstr ""
 "ることを担保するために、リリース番号構成部分は必要に応じてゼロでパディングさ"
 "れます。"
 
-#: ../source/specifications/version-specifiers.rst:981
-#: ../source/specifications/version-specifiers.rst:1011
+#: ../source/specifications/version-specifiers.rst:996
+#: ../source/specifications/version-specifiers.rst:1026
 msgid "Local version identifiers are NOT permitted in this version specifier."
 msgstr "ローカルバージョン識別子は、このバージョン識別子の中では許されません。"
 
-#: ../source/specifications/version-specifiers.rst:985
+#: ../source/specifications/version-specifiers.rst:1000
 msgid "Exclusive ordered comparison"
 msgstr "境界を含まない順序比較 <Exclusive ordered comparison>"
 
-#: ../source/specifications/version-specifiers.rst:987
+#: ../source/specifications/version-specifiers.rst:1002
 msgid ""
 "The exclusive ordered comparisons ``>`` and ``<`` are similar to the "
 "inclusive ordered comparisons in that they rely on the relative position of "
@@ -33146,13 +33210,13 @@ msgid ""
 "specifically exclude pre-releases, post-releases, and local versions of the "
 "specified version."
 msgstr ""
-"境界を含まない順序比較である ``>`` と ``<`` は、標準の `Version scheme`_ によ"
-"って定義される首尾一貫した順序付けが与える候補バージョンと指定された"
-"バージョン番号の相対的な位置に依存する点で、境界を含む順序比較と似ています。"
-"しかしながら、指定されたバージョン番号のプレリリース・ポストリリース・"
-"ローカルバージョンの部分を除外します。"
+"境界を含まない順序比較である ``>`` と ``<`` は、標準の `Version scheme`_ に"
+"よって定義される首尾一貫した順序付けが与える候補バージョンと指定されたバー"
+"ジョン番号の相対的な位置に依存する点で、境界を含む順序比較と似ています。しか"
+"しながら、指定されたバージョン番号のプレリリース・ポストリリース・ローカル"
+"バージョンの部分を除外します。"
 
-#: ../source/specifications/version-specifiers.rst:993
+#: ../source/specifications/version-specifiers.rst:1008
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** allow a post-release of "
 "the given version unless ``V`` itself is a post release. You may mandate "
@@ -33168,7 +33232,7 @@ msgstr ""
 "ますが ``1.7.0.post1`` を許容せず、 ``>1.7.post2`` は ``1.7.1`` や "
 "``1.7.0.post3`` を許容しますが ``1.7.0`` を許容しません。"
 
-#: ../source/specifications/version-specifiers.rst:1000
+#: ../source/specifications/version-specifiers.rst:1015
 msgid ""
 "The exclusive ordered comparison ``>V`` **MUST NOT** match a local version "
 "of the specified version."
@@ -33176,7 +33240,7 @@ msgstr ""
 "境界を含まない順序比較 ``>V`` は、指定されたバージョン番号のローカルバージョ"
 "ン部分と **比較してはなりません**。"
 
-#: ../source/specifications/version-specifiers.rst:1003
+#: ../source/specifications/version-specifiers.rst:1018
 msgid ""
 "The exclusive ordered comparison ``<V`` **MUST NOT** allow a pre-release of "
 "the specified version unless the specified version is itself a pre-release. "
@@ -33188,11 +33252,11 @@ msgstr ""
 "はなりません** 。 ``<V.rc1`` や同様のものを使えば、指定されたプレリリース番号"
 "を含まずにそれより前であるプレリリース番号を許容することができるでしょう。"
 
-#: ../source/specifications/version-specifiers.rst:1015
+#: ../source/specifications/version-specifiers.rst:1030
 msgid "Arbitrary equality"
 msgstr "あらゆる意味での同一性 <Arbitrary equality>"
 
-#: ../source/specifications/version-specifiers.rst:1017
+#: ../source/specifications/version-specifiers.rst:1032
 msgid ""
 "Arbitrary equality comparisons are simple string equality operations which "
 "do not take into account any of the semantic information such as zero "
@@ -33208,7 +33272,7 @@ msgstr ""
 "た、 ``==`` 演算子なら実行するようなプレフィクスのマッチングもサポートしてい"
 "ません。"
 
-#: ../source/specifications/version-specifiers.rst:1023
+#: ../source/specifications/version-specifiers.rst:1038
 msgid ""
 "The primary use case for arbitrary equality is to allow for specifying a "
 "version which cannot otherwise be represented by this specification. This "
@@ -33222,14 +33286,14 @@ msgstr ""
 "ればこの仕様とは非互換になってしまうようなレガシーなバージョンを、それでもイ"
 "ンストールすることができる脱出ハッチとして振舞います。"
 
-#: ../source/specifications/version-specifiers.rst:1029
+#: ../source/specifications/version-specifiers.rst:1044
 msgid ""
 "An example would be ``===foobar`` which would match a version of ``foobar``."
 msgstr ""
 "一つの例としては、``foobar`` というバージョン番号に合致するであろう "
 "``==foobar`` ということになるでしょう。"
 
-#: ../source/specifications/version-specifiers.rst:1031
+#: ../source/specifications/version-specifiers.rst:1046
 msgid ""
 "This operator may also be used to explicitly require an unpatched version of "
 "a project such as ``===1.0`` which would not match for a version "
@@ -33239,7 +33303,7 @@ msgstr ""
 "うと思われる、 ``===1.0`` のようなプロジェクトのパッチ適用のないバージョンを"
 "明示的に要求するためにも使われます。"
 
-#: ../source/specifications/version-specifiers.rst:1035
+#: ../source/specifications/version-specifiers.rst:1050
 msgid ""
 "Use of this operator is heavily discouraged and tooling MAY display a "
 "warning when it is used."
@@ -33247,11 +33311,11 @@ msgstr ""
 "この演算子の使用は強い非推奨の状態にあり、使用に際してはツール類は警告を表示"
 "しても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:1040
+#: ../source/specifications/version-specifiers.rst:1055
 msgid "Handling of pre-releases"
 msgstr "プレリリースの取り扱い <Handling of pre-releases>"
 
-#: ../source/specifications/version-specifiers.rst:1042
+#: ../source/specifications/version-specifiers.rst:1057
 msgid ""
 "Pre-releases of any kind, including developmental releases, are implicitly "
 "excluded from all version specifiers, *unless* they are already present on "
@@ -33263,18 +33327,18 @@ msgstr ""
 "か、の *いずれかでない限り* 、開発リリースを含むプレリリースは、どんな種類で"
 "も、あらゆるバージョン指定子から暗黙裡に除外されます。"
 
-#: ../source/specifications/version-specifiers.rst:1047
+#: ../source/specifications/version-specifiers.rst:1062
 msgid "By default, dependency resolution tools SHOULD:"
 msgstr ""
 "デフォルトでは、依存関係を解決しようとするツール類は以下のことを行うべきです:"
 
-#: ../source/specifications/version-specifiers.rst:1049
+#: ../source/specifications/version-specifiers.rst:1064
 msgid "accept already installed pre-releases for all version specifiers"
 msgstr ""
 "全てのバージョン指定子向けにすでにインストールされているプレリリースを受け入"
 "れる"
 
-#: ../source/specifications/version-specifiers.rst:1050
+#: ../source/specifications/version-specifiers.rst:1065
 msgid ""
 "accept remotely available pre-releases for version specifiers where there is "
 "no final or post release that satisfies the version specifier"
@@ -33283,11 +33347,11 @@ msgstr ""
 "モートサイトにあって利用可能なプレリリースを、バージョン指定子として受け入れ"
 "る"
 
-#: ../source/specifications/version-specifiers.rst:1052
+#: ../source/specifications/version-specifiers.rst:1067
 msgid "exclude all other pre-releases from consideration"
 msgstr "他のすべてのプレリリースを考慮の対象から除外する"
 
-#: ../source/specifications/version-specifiers.rst:1054
+#: ../source/specifications/version-specifiers.rst:1069
 msgid ""
 "Dependency resolution tools MAY issue a warning if a pre-release is needed "
 "to satisfy a version specifier."
@@ -33295,7 +33359,7 @@ msgstr ""
 "依存関係解決ツール群は、バージョン指定子を満足させるためにあるプレリリースが"
 "必要である場合には、警告を発しても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:1057
+#: ../source/specifications/version-specifiers.rst:1072
 msgid ""
 "Dependency resolution tools SHOULD also allow users to request the following "
 "alternative behaviours:"
@@ -33303,11 +33367,11 @@ msgstr ""
 "依存関係解決ツール群は、また、以下のような代替的な振る舞いをユーザが要求する"
 "ことを許容するべきです:"
 
-#: ../source/specifications/version-specifiers.rst:1060
+#: ../source/specifications/version-specifiers.rst:1075
 msgid "accepting pre-releases for all version specifiers"
 msgstr "全てのバージョン指定子にプレリリースを受け入れること"
 
-#: ../source/specifications/version-specifiers.rst:1061
+#: ../source/specifications/version-specifiers.rst:1076
 msgid ""
 "excluding pre-releases for all version specifiers (reporting an error or "
 "warning if a pre-release is already installed locally, or if a pre-release "
@@ -33317,7 +33381,7 @@ msgstr ""
 "ローカルにインストールされている場合や特定の指定子を満たすためにはプレリリー"
 "スが唯一の選択肢である場合には、エラーないし警告を報告すること)"
 
-#: ../source/specifications/version-specifiers.rst:1065
+#: ../source/specifications/version-specifiers.rst:1080
 msgid ""
 "Dependency resolution tools MAY also allow the above behaviour to be "
 "controlled on a per-distribution basis."
@@ -33325,7 +33389,7 @@ msgstr ""
 "依存関係解決ツール群は、配布物の単位ごとに上記の振る舞いを許容しても構いませ"
 "ん。"
 
-#: ../source/specifications/version-specifiers.rst:1068
+#: ../source/specifications/version-specifiers.rst:1083
 msgid ""
 "Post-releases and final releases receive no special treatment in version "
 "specifiers - they are always included unless explicitly excluded."
@@ -33333,25 +33397,25 @@ msgstr ""
 "ポストリリースと最終リリースは、バージョン識別子の中で何ら特別な取り扱いを受"
 "けません - 明示的に除外されていない限り、これらは常に受け入れられます。"
 
-#: ../source/specifications/version-specifiers.rst:1075
+#: ../source/specifications/version-specifiers.rst:1090
 msgid "``~=3.1``: version 3.1 or later, but not version 4.0 or later."
 msgstr ""
 "``~=3.1``: バージョン 3.1 またはそれ以降、しかし、バージョン 4.0 またはそれ以"
 "降ではない。"
 
-#: ../source/specifications/version-specifiers.rst:1076
+#: ../source/specifications/version-specifiers.rst:1091
 msgid "``~=3.1.2``: version 3.1.2 or later, but not version 3.2.0 or later."
 msgstr ""
 "``~=3.1.2``: バージョン 3.1.2 またはそれ以降、しかし、バージョン 3.2.0 または"
 "それ以降ではない。"
 
-#: ../source/specifications/version-specifiers.rst:1077
+#: ../source/specifications/version-specifiers.rst:1092
 msgid "``~=3.1a1``: version 3.1a1 or later, but not version 4.0 or later."
 msgstr ""
 "``~=3.1a1``: バージョン 3.1a1 またはそれ以降、しかし、バージョン 4.0 またはそ"
 "れ以降ではない。"
 
-#: ../source/specifications/version-specifiers.rst:1078
+#: ../source/specifications/version-specifiers.rst:1093
 msgid ""
 "``== 3.1``: specifically version 3.1 (or 3.1.0), excludes all pre-releases, "
 "post releases, developmental releases and any 3.1.x maintenance releases."
@@ -33359,7 +33423,7 @@ msgstr ""
 "``== 3.1``: 正確にバージョン 3.1 (または 3.1.0)、プレリリース・ポストリリー"
 "ス・開発リリースや 3.1.x のメンテナンスリリースは全て除外する。"
 
-#: ../source/specifications/version-specifiers.rst:1080
+#: ../source/specifications/version-specifiers.rst:1095
 msgid ""
 "``== 3.1.*``: any version that starts with 3.1. Equivalent to the "
 "``~=3.1.0`` compatible release clause."
@@ -33367,7 +33431,7 @@ msgstr ""
 "``== 3.1.*``: 3.1 で始まるすべてのバージョン。 ``~=3.1.0`` 互換リリース節に同"
 "じ。"
 
-#: ../source/specifications/version-specifiers.rst:1082
+#: ../source/specifications/version-specifiers.rst:1097
 msgid ""
 "``~=3.1.0, != 3.1.3``: version 3.1.0 or later, but not version 3.1.3 and not "
 "version 3.2.0 or later."
@@ -33375,11 +33439,11 @@ msgstr ""
 "``~=3.1.0, != 3.1.3``: バージョン 3.1.0 またはそれ以降、しかし、バージョン "
 "3.1.3 ではなく、バージョン 3.2.0 またはそれ以降でもない。"
 
-#: ../source/specifications/version-specifiers.rst:1087
+#: ../source/specifications/version-specifiers.rst:1102
 msgid "Direct references"
 msgstr "直接参照"
 
-#: ../source/specifications/version-specifiers.rst:1089
+#: ../source/specifications/version-specifiers.rst:1104
 msgid ""
 "Some automated tools may permit the use of a direct reference as an "
 "alternative to a normal version specifier. A direct reference consists of "
@@ -33389,7 +33453,7 @@ msgstr ""
 "ものがあります。直接参照は、それを指定する ``@`` と明示された URL から構成さ"
 "れます。"
 
-#: ../source/specifications/version-specifiers.rst:1093
+#: ../source/specifications/version-specifiers.rst:1108
 msgid ""
 "Whether or not direct references are appropriate depends on the specific use "
 "case for the version specifier. Automated tools SHOULD at least issue "
@@ -33400,7 +33464,7 @@ msgstr ""
 "存します。自動化ツール群は、少なくとも警告を発行するべきで、直接参照が不適切"
 "に使われた場合には全体を拒否しても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:1098
+#: ../source/specifications/version-specifiers.rst:1113
 msgid ""
 "Public index servers SHOULD NOT allow the use of direct references in "
 "uploaded distributions. Direct references are intended as a tool for "
@@ -33410,7 +33474,7 @@ msgstr ""
 "すべきではありません。直接参照は、公開者 <publishers> 向けではなくてソフト"
 "ウェアインテグレータ向けのツールとして意図されたものです。"
 
-#: ../source/specifications/version-specifiers.rst:1102
+#: ../source/specifications/version-specifiers.rst:1117
 msgid ""
 "Depending on the use case, some appropriate targets for a direct URL "
 "reference may be an sdist or a wheel binary archive. The exact URLs and "
@@ -33420,16 +33484,16 @@ msgstr ""
 "バイナリアーカイブでしょう。正確な URL やターゲットのサポートがあるかどうかは"
 "ツール次第です。"
 
-#: ../source/specifications/version-specifiers.rst:1106
+#: ../source/specifications/version-specifiers.rst:1121
 msgid "For example, a local source archive may be referenced directly::"
 msgstr ""
 "例えば、ローカルのソースコードアーカイブが直接に参照されるかもしれません::"
 
-#: ../source/specifications/version-specifiers.rst:1110
+#: ../source/specifications/version-specifiers.rst:1125
 msgid "Alternatively, a prebuilt archive may also be referenced::"
 msgstr "あるいは、ビルド済みのアーカイブが参照されるかもしれません::"
 
-#: ../source/specifications/version-specifiers.rst:1114
+#: ../source/specifications/version-specifiers.rst:1129
 msgid ""
 "All direct references that do not refer to a local file URL SHOULD specify a "
 "secure transport mechanism (such as ``https``) AND include an expected hash "
@@ -33449,7 +33513,7 @@ msgstr ""
 "することを拒否しても構いません。もしそのような直接参照が安全でない転送手段を"
 "使っているなら、自動化ツールはその URL に依存するべきではありません。"
 
-#: ../source/specifications/version-specifiers.rst:1123
+#: ../source/specifications/version-specifiers.rst:1138
 msgid ""
 "It is RECOMMENDED that only hashes which are unconditionally provided by the "
 "latest version of the standard library's :py:mod:`hashlib` module be used "
@@ -33457,12 +33521,12 @@ msgid ""
 "``'md5'``, ``'sha1'``, ``'sha224'``, ``'sha256'``, ``'sha384'``, and "
 "``'sha512'``."
 msgstr ""
-"ソースコードアーカイブのハッシュ値計算には、標準ライブラリの "
-":py:mod:`hashlib` モジュールの最新版が無条件に提供するハッシュだけを用いるこ"
-"とを推奨します。本文書の執筆時点では、 ``'md5'`` ・ ``'sha1'`` ・ "
+"ソースコードアーカイブのハッシュ値計算には、標準ライブラリ"
+"の :py:mod:`hashlib` モジュールの最新版が無条件に提供するハッシュだけを用いる"
+"ことを推奨します。本文書の執筆時点では、 ``'md5'`` ・ ``'sha1'`` ・ "
 "``'sha224'`` ・ ``'sha256'`` ・ ``'sha384'`` ・ ``'sha512'`` が該当します。"
 
-#: ../source/specifications/version-specifiers.rst:1129
+#: ../source/specifications/version-specifiers.rst:1144
 msgid ""
 "For source archive and wheel references, an expected hash value may be "
 "specified by including a ``<hash-algorithm>=<expected-hash>`` entry as part "
@@ -33472,7 +33536,7 @@ msgstr ""
 "URL の一部として ``<hash-algorithm>=<expected-hash>`` エントリに含まれる形で"
 "指定されるでしょう。"
 
-#: ../source/specifications/version-specifiers.rst:1133
+#: ../source/specifications/version-specifiers.rst:1148
 msgid ""
 "For version control references, the ``VCS+protocol`` scheme SHOULD be used "
 "to identify both the version control system and the secure transport, and a "
@@ -33486,7 +33550,7 @@ msgstr ""
 "す。自動化ツール群は、ハッシュ値で表したコミット識別子を持たないバージョン管"
 "理システムではハッシュ値がなくても警告を省略しても構いません。"
 
-#: ../source/specifications/version-specifiers.rst:1139
+#: ../source/specifications/version-specifiers.rst:1154
 msgid ""
 "To handle version control systems that do not support including commit or "
 "tag references directly in the URL, that information may be appended to the "
@@ -33498,7 +33562,7 @@ msgstr ""
 "タグ>#<コミットのハッシュ値>`` という表記方法を用いて URL の末尾に追加しても"
 "構いません。"
 
-#: ../source/specifications/version-specifiers.rst:1146
+#: ../source/specifications/version-specifiers.rst:1161
 msgid ""
 "This isn't *quite* the same as the existing VCS reference notation supported "
 "by pip. Firstly, the distribution name is moved in front rather than "
@@ -33516,15 +33580,15 @@ msgstr ""
 "シュ値が含まれているべきであるという要求に従うために、コミットのハッシュ値が"
 "含まれています。"
 
-#: ../source/specifications/version-specifiers.rst:1154
+#: ../source/specifications/version-specifiers.rst:1169
 msgid "Remote URL examples::"
 msgstr "リモート URL の例::"
 
-#: ../source/specifications/version-specifiers.rst:1162
+#: ../source/specifications/version-specifiers.rst:1177
 msgid "File URLs"
 msgstr "ファイルを指す URL 群"
 
-#: ../source/specifications/version-specifiers.rst:1164
+#: ../source/specifications/version-specifiers.rst:1179
 msgid ""
 "File URLs take the form of ``file://<host>/<path>``. If the ``<host>`` is "
 "omitted it is assumed to be ``localhost`` and even if the ``<host>`` is "
@@ -33536,7 +33600,7 @@ msgstr ""
 "であってさえも３個目のスラッシュが存在していなければなりません。 ``<path>`` "
 "は、これからアクセスされるであろうファイルシステム上のファイルパスです。"
 
-#: ../source/specifications/version-specifiers.rst:1169
+#: ../source/specifications/version-specifiers.rst:1184
 msgid ""
 "On the various \\*nix operating systems the only allowed values for "
 "``<host>`` is for it to be omitted, ``localhost``, or another FQDN that the "
@@ -33548,7 +33612,7 @@ msgstr ""
 "の FQDN です。換言すれば、 \\*nix 上では、ローカルマシン上のパスにアクセスす"
 "るための ``file://`` スキームだけが使用可能であるということです。"
 
-#: ../source/specifications/version-specifiers.rst:1174
+#: ../source/specifications/version-specifiers.rst:1189
 msgid ""
 "On Windows the file format should include the drive letter if applicable as "
 "part of the ``<path>`` (e.g. ``file:///c:/path/to/a/file``). Unlike \\*nix "
@@ -33569,11 +33633,11 @@ msgstr ""
 "web.archive.org/web/20130321051043/http://blogs.msdn.com/b/ie/archive/"
 "2006/12/06/file-uris-in-windows.aspx>`_ を見てください。"
 
-#: ../source/specifications/version-specifiers.rst:1185
+#: ../source/specifications/version-specifiers.rst:1200
 msgid "Summary of differences from pkg_resources.parse_version"
 msgstr "pkg_resources.parse_version からの相違点のまとめ"
 
-#: ../source/specifications/version-specifiers.rst:1187
+#: ../source/specifications/version-specifiers.rst:1202
 msgid ""
 "Note: this comparison is to ``pkg_resources.parse_version`` as it existed at "
 "the time :pep:`440` was written. After the PEP was accepted, setuptools 6.0 "
@@ -33584,7 +33648,7 @@ msgstr ""
 "setuptools 6.0 およびそれ以降のバージョンは、ここで記述された動作を採用してい"
 "ます。"
 
-#: ../source/specifications/version-specifiers.rst:1191
+#: ../source/specifications/version-specifiers.rst:1206
 msgid ""
 "Local versions sort differently, this specification requires that they sort "
 "as greater than the same version without a local version, whereas "
@@ -33595,7 +33659,7 @@ msgstr ""
 "いますが、他方で、 ``pkg_resources.parse_version`` はそれ (訳註、ローカルバー"
 "ジョン) をプレリリースのマーカーの一つであると見做しています。"
 
-#: ../source/specifications/version-specifiers.rst:1195
+#: ../source/specifications/version-specifiers.rst:1210
 msgid ""
 "This specification purposely restricts the syntax which constitutes a valid "
 "version while ``pkg_resources.parse_version`` attempts to provide some "
@@ -33605,7 +33669,7 @@ msgstr ""
 "他方で ``pkg_resources.parse_version`` では *あらゆる* 任意の文字列から何らか"
 "の意味を汲み取るように試みます。"
 
-#: ../source/specifications/version-specifiers.rst:1199
+#: ../source/specifications/version-specifiers.rst:1214
 msgid ""
 "``pkg_resources.parse_version`` allows arbitrarily deeply nested version "
 "signifiers like ``1.0.dev1.post1.dev5``. This specification however allows "
@@ -33616,11 +33680,11 @@ msgstr ""
 "は、それぞれのタイプが高々一度だけ使われることと、ある順番に従って存在してい"
 "ることを許容しているだけです。"
 
-#: ../source/specifications/version-specifiers.rst:1208
+#: ../source/specifications/version-specifiers.rst:1223
 msgid "Appendix: Parsing version strings with regular expressions"
 msgstr "補遺: 正規表現を伴うバージョン文字列を解析する"
 
-#: ../source/specifications/version-specifiers.rst:1210
+#: ../source/specifications/version-specifiers.rst:1225
 msgid ""
 "As noted earlier in the :ref:`public-version-identifiers` section, published "
 "version identifiers SHOULD use the canonical format. This section provides "
@@ -33634,7 +33698,7 @@ msgstr ""
 "し否であればその後の標準化のためにさまざまな構成要素を引き出すために使うこと"
 "ができる、そのような正規表現を提供します。"
 
-#: ../source/specifications/version-specifiers.rst:1216
+#: ../source/specifications/version-specifiers.rst:1231
 msgid ""
 "To test whether a version identifier is in the canonical format, you can use "
 "the following function:"
@@ -33642,7 +33706,7 @@ msgstr ""
 "バージョン識別子が正統な書式であるか否かを確かめるためには、次の関数を使うこ"
 "とができます:"
 
-#: ../source/specifications/version-specifiers.rst:1225
+#: ../source/specifications/version-specifiers.rst:1240
 msgid ""
 "To extract the components of a version identifier, use the following regular "
 "expression (as defined by the `packaging <https://github.com/pypa/"
@@ -33652,11 +33716,11 @@ msgstr ""
 "(`パッケージング <https://github.com/pypa/packaging>`_ プロジェクトによって定"
 "義されたもの):"
 
-#: ../source/specifications/version-specifiers.rst:1272
+#: ../source/specifications/version-specifiers.rst:1287
 msgid "August 2014: This specification was approved through :pep:`440`."
 msgstr "2014年8月: :pep:`440` を通じてこの仕様が承認された。"
 
-#: ../source/specifications/version-specifiers.rst:1273
+#: ../source/specifications/version-specifiers.rst:1288
 msgid ""
 "May 2025: Clarify that development releases are a form of pre-release when "
 "they are handled."
@@ -33664,11 +33728,15 @@ msgstr ""
 "2025年5月: 開発リリースは、それが取り扱われるときにはプレリリースのひとつの形"
 "態であることを明確にしました。"
 
-#: ../source/specifications/version-specifiers.rst:1275
+#: ../source/specifications/version-specifiers.rst:1290
 msgid "Nov 2025: Make arbitrary equality case insensitivity explicit."
 msgstr ""
 "2025年11月: あらゆる意味での同一性 <Arbitrary equality> では大文字小文字を区"
 "別しないことを明示しました。"
+
+#: ../source/specifications/version-specifiers.rst:1291
+msgid "Jan 2026: The use of epochs was discouraged."
+msgstr ""
 
 #: ../source/specifications/virtual-environments.rst:6
 msgid "Python Virtual Environments"
@@ -33707,9 +33775,9 @@ msgid ""
 "default filesystem location of the standard library directories)."
 msgstr ""
 "ランタイムには、仮想環境は :py:data:`sys.prefix` (動作中のインタープリタの"
-"ファイルシステム上の場所) が :py:data:`sys.base_prefix` (標準ライブラリの"
-"ディレクトリのデフォルトでのファイルシステム上の場所) とは異なる値を持つおか"
-"げで識別可能です。"
+"ファイルシステム上の場所) が :py:data:`sys.base_prefix` (標準ライブラリのディ"
+"レクトリのデフォルトでのファイルシステム上の場所) とは異なる値を持つおかげで"
+"識別可能です。"
 
 #: ../source/specifications/virtual-environments.rst:25
 msgid ""
@@ -34888,16 +34956,16 @@ msgid ""
 "installed, thereby making it an equal alternative to :ref:`virtualenv`."
 msgstr ""
 "Python 3.4 以降は (:ref:`virtualenv` の代替物で標準ライブラリに取り込まれた) "
-"``venv`` があるので、インストール済みの ``pip`` で virtualenv 環境を作成でき"
-"、それによって :ref:`virtualenv` の同等な代替物となっています。"
+"``venv`` があるので、インストール済みの ``pip`` で virtualenv 環境を作成で"
+"き、それによって :ref:`virtualenv` の同等な代替物となっています。"
 
 #: ../source/tutorials/installing-packages.rst:680
 msgid ""
 "The compatible release specifier was accepted in :pep:`440` and support was "
 "released in :ref:`setuptools` v8.0 and :ref:`pip` v6.0"
 msgstr ""
-"互換性のあるリリース指定子は :pep:`440` で受容され、そのサポートが "
-":ref:`setuptools` v8.0 と :ref:`pip` v6.0 でリリースされました"
+"互換性のあるリリース指定子は :pep:`440` で受容され、そのサポート"
+"が :ref:`setuptools` v8.0 と :ref:`pip` v6.0 でリリースされました"
 
 #: ../source/tutorials/managing-dependencies.rst:4
 msgid "Managing Application Dependencies"
@@ -35945,6 +36013,22 @@ msgstr ""
 "話題** であると見做されています。Pythonのパッケージングについてやり始めたばか"
 "りなのであれば、 *通常のパッケージ* と (空のファイルだとしても) "
 "``__init__.py`` から離れないことをお薦めします。"
+
+#~ msgid ""
+#~ "Refer to the `pkg_resources documentation <https://"
+#~ "setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-"
+#~ "objects>`__ for more details."
+#~ msgstr ""
+#~ "さらに詳しい情報については、 `pkg_resources 説明文書 <https://"
+#~ "setuptools.readthedocs.io/en/latest/pkg_resources.html#workingset-"
+#~ "objects>`__ を参照してください。"
+
+#~ msgid ""
+#~ "A complete working example of two pkg_resources-style namespace packages "
+#~ "can be found in the `pkg_resources namespace example project`_."
+#~ msgstr ""
+#~ "pkg_resources 型の名前空間パッケージの動作可能な二つの例が `pkg_resources "
+#~ "型名前空間例示プロジェクト`_ で見つかるはずです。"
 
 #~ msgid ""
 #~ "In addition to the general response metadata, the project detail ``meta`` "
