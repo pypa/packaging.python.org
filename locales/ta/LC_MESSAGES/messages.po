@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-30 16:47+0000\n"
+"POT-Creation-Date: 2026-02-03 23:55+0000\n"
 "PO-Revision-Date: 2025-07-19 06:36+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -17208,12 +17208,19 @@ msgid "WHEEL is the wheel metadata specific to a build of the package."
 msgstr "சக்கரம் என்பது தொகுப்பின் கட்டமைப்பிற்கு குறிப்பிட்ட சக்கர மேனிலை தரவு ஆகும்."
 
 #: ../source/specifications/binary-distribution-format.rst:239
+#, fuzzy
+#| msgid ""
+#| "RECORD is a list of (almost) all the files in the wheel and their secure "
+#| "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
+#| "hash of itself, must include its hash.  The hash algorithm must be sha256 "
+#| "or better; specifically, md5 and sha1 are not permitted, as signed wheel "
+#| "files rely on the strong hashes in RECORD to validate the integrity of "
+#| "the archive."
 msgid ""
 "RECORD is a list of (almost) all the files in the wheel and their secure "
 "hashes.  Unlike PEP 376, every file except RECORD, which cannot contain a "
 "hash of itself, must include its hash.  The hash algorithm must be sha256 or "
-"better; specifically, md5 and sha1 are not permitted, as signed wheel files "
-"rely on the strong hashes in RECORD to validate the integrity of the archive."
+"better; specifically, md5 and sha1 are not permitted."
 msgstr ""
 "பதிவு என்பது சக்கரத்தில் உள்ள அனைத்து கோப்புகளையும் அவற்றின் பாதுகாப்பான ஆச்களின் "
 "(கிட்டத்தட்ட) பட்டியல். PEP 376 ஐப் போலன்றி, பதிவைத் தவிர ஒவ்வொரு கோப்பும், தன்னைத்தானே "
@@ -17222,98 +17229,97 @@ msgstr ""
 "ஏனெனில் கையொப்பமிடப்பட்ட சக்கர கோப்புகள் காப்பகத்தின் ஒருமைப்பாட்டை சரிபார்க்க பதிவில் உள்ள "
 "வலுவான ஆச்களை நம்பியுள்ளன."
 
-#: ../source/specifications/binary-distribution-format.rst:245
+#: ../source/specifications/binary-distribution-format.rst:244
 msgid "PEP 376's INSTALLER and REQUESTED are not included in the archive."
 msgstr "PEP 376 இன் நிறுவி மற்றும் கோரப்பட்டவை காப்பகத்தில் சேர்க்கப்படவில்லை."
 
-#: ../source/specifications/binary-distribution-format.rst:246
+#: ../source/specifications/binary-distribution-format.rst:245
 msgid ""
-"RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+"RECORD.jws and RECORD.p7s are deprecated.  Where they are still used, "
+"neither RECORD.jws nor RECORD.p7s are mentioned in RECORD. Build backends "
+"and other tools must not add them to wheels anymore, installers should be "
+"aware that these files may still be part of some wheels."
 msgstr ""
-"Record.JWS டிசிட்டல் கையொப்பங்களுக்கு பயன்படுத்தப்படுகிறது. இது பதிவில் "
-"குறிப்பிடப்படவில்லை."
 
-#: ../source/specifications/binary-distribution-format.rst:248
-msgid ""
-"RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/MIME "
-"signatures to secure their wheel files.  It is not mentioned in RECORD."
-msgstr ""
-"S/MIME கையொப்பங்களை தங்கள் சக்கரக் கோப்புகளைப் பாதுகாக்க விரும்பும் எவருக்கும் மரியாதையாக "
-"Record.P7S அனுமதிக்கப்படுகிறது. இது பதிவில் குறிப்பிடப்படவில்லை."
-
-#: ../source/specifications/binary-distribution-format.rst:251
+#: ../source/specifications/binary-distribution-format.rst:250
+#, fuzzy
+#| msgid ""
+#| "During extraction, wheel installers verify all the hashes in RECORD "
+#| "against the file contents.  Apart from RECORD and its signatures, "
+#| "installation will fail if any file in the archive is not both mentioned "
+#| "and correctly hashed in RECORD."
 msgid ""
 "During extraction, wheel installers verify all the hashes in RECORD against "
-"the file contents.  Apart from RECORD and its signatures, installation will "
-"fail if any file in the archive is not both mentioned and correctly hashed "
-"in RECORD."
+"the file contents.  Apart from RECORD, RECORD.jws and RECORD.p7s, "
+"installation will fail if any file in the archive is not both mentioned and "
+"correctly hashed in RECORD."
 msgstr ""
 "பிரித்தெடுக்கும் போது, சக்கர நிறுவிகள் கோப்பு உள்ளடக்கங்களுக்கு எதிராக பதிவுசெய்யப்பட்ட "
 "அனைத்து ஆச்களையும் சரிபார்க்கின்றன. பதிவு மற்றும் அதன் கையொப்பங்களைத் தவிர, காப்பகத்தில் "
 "உள்ள எந்தவொரு கோப்பும் குறிப்பிடப்படவில்லை மற்றும் பதிவில் சரியாக ஏச் செய்யப்பட்டால் நிறுவல் "
 "தோல்வியடையும்."
 
-#: ../source/specifications/binary-distribution-format.rst:257
+#: ../source/specifications/binary-distribution-format.rst:256
 msgid "Subdirectories in :file:`.dist-info/`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:259
+#: ../source/specifications/binary-distribution-format.rst:258
 msgid ""
 "Subdirectories under :file:`.dist-info/` are reserved for future use. The "
 "following subdirectory names under :file:`.dist-info/` are reserved for "
 "specific usage:"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 #, fuzzy
 #| msgid "Project name"
 msgid "Subdirectory name"
 msgstr "திட்ட பெயர்"
 
-#: ../source/specifications/binary-distribution-format.rst:263
+#: ../source/specifications/binary-distribution-format.rst:262
 msgid "PEP / Standard"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:265
+#: ../source/specifications/binary-distribution-format.rst:264
 #, fuzzy
 #| msgid "``license``"
 msgid "``licenses``"
 msgstr "`` உரிமம்``"
 
+#: ../source/specifications/binary-distribution-format.rst:264
 #: ../source/specifications/binary-distribution-format.rst:265
-#: ../source/specifications/binary-distribution-format.rst:266
 msgid ":pep:`639`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:266
+#: ../source/specifications/binary-distribution-format.rst:265
 #, fuzzy
 #| msgid "``license-files``"
 msgid "``license_files``"
 msgstr "`` உரிம-கோப்புகள்``"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 #, fuzzy
 #| msgid "``LIB``"
 msgid "``LICENSES``"
 msgstr "`` லிப்``"
 
-#: ../source/specifications/binary-distribution-format.rst:267
+#: ../source/specifications/binary-distribution-format.rst:266
 msgid "`REUSE licensing framework <https://reuse.software>`__"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid "``sboms``"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:268
+#: ../source/specifications/binary-distribution-format.rst:267
 msgid ":pep:`770`"
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:272
+#: ../source/specifications/binary-distribution-format.rst:271
 msgid "The :file:`.dist-info/licenses/` directory"
 msgstr "தி: கோப்பு: `.டிச்ட்-இன்ஃபோ/உரிமங்கள்/` அடைவு"
 
-#: ../source/specifications/binary-distribution-format.rst:274
+#: ../source/specifications/binary-distribution-format.rst:273
 msgid ""
 "If the metadata version is 2.4 or greater and one or more ``License-File`` "
 "fields is specified, the :file:`.dist-info/` directory MUST contain "
@@ -17327,24 +17333,24 @@ msgstr ""
 "கோப்பு`` புலங்களில் பட்டியலிடப்பட்டுள்ள கோப்புகள்: கோப்பு: `மெட்டாடேட்டா` அந்தந்த பாதைகளில் "
 "கோப்பு : கோப்பு: `உரிமங்கள்/` அடைவு."
 
-#: ../source/specifications/binary-distribution-format.rst:281
+#: ../source/specifications/binary-distribution-format.rst:280
 #, fuzzy
 #| msgid "The :file:`.dist-info/licenses/` directory"
 msgid "The :file:`.dist-info/sboms/` directory"
 msgstr "தி: கோப்பு: `.டிச்ட்-இன்ஃபோ/உரிமங்கள்/` அடைவு"
 
-#: ../source/specifications/binary-distribution-format.rst:283
+#: ../source/specifications/binary-distribution-format.rst:282
 msgid ""
 "All files contained within the :file:`.dist-info/sboms/` directory MUST be "
 "Software Bill-of-Materials (SBOM) files that describe software contained "
 "within the distribution archive."
 msgstr ""
 
-#: ../source/specifications/binary-distribution-format.rst:288
+#: ../source/specifications/binary-distribution-format.rst:287
 msgid "The .data directory"
 msgstr ".டேட்டா அடைவு"
 
-#: ../source/specifications/binary-distribution-format.rst:290
+#: ../source/specifications/binary-distribution-format.rst:289
 msgid ""
 "Any file that is not normally installed inside site-packages goes into "
 "the .data directory, named as the .dist-info directory but with the .data/ "
@@ -17353,7 +17359,7 @@ msgstr ""
 "தள-தொகுப்புகளுக்குள் பொதுவாக நிறுவப்படாத எந்த கோப்பும் .data கோப்பகத்திற்குள் செல்கிறது, "
 "இது .dist-info கோப்பகமாக பெயரிடப்பட்டது, ஆனால் .டேட்டா/ நீட்டிப்பு ::"
 
-#: ../source/specifications/binary-distribution-format.rst:298
+#: ../source/specifications/binary-distribution-format.rst:297
 msgid ""
 "The .data directory contains subdirectories with the scripts, headers, "
 "documentation and so forth from the distribution.  During installation the "
@@ -17363,111 +17369,18 @@ msgstr ""
 "உள்ளன. நிறுவலின் போது இந்த துணை அடைவுகளின் உள்ளடக்கங்கள் அவற்றின் இலக்கு பாதைகளில் "
 "நகர்த்தப்படுகின்றன."
 
-#: ../source/specifications/binary-distribution-format.rst:304
-msgid "Signed wheel files"
-msgstr "கையொப்பமிடப்பட்ட சக்கர கோப்புகள்"
-
-#: ../source/specifications/binary-distribution-format.rst:306
-msgid ""
-"Wheel files include an extended RECORD that enables digital signatures.  PEP "
-"376's RECORD is altered to include a secure hash "
-"``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding with "
-"no trailing = characters) as the second column instead of an md5sum.  All "
-"possible entries are hashed, including any generated files such as .pyc "
-"files, but not RECORD which cannot contain its own hash. For example::"
-msgstr ""
-"சக்கர கோப்புகளில் டிசிட்டல் கையொப்பங்களை செயல்படுத்தும் நீட்டிக்கப்பட்ட பதிவு அடங்கும். ஒரு "
-"பாதுகாப்பான ஆச் `` டைசச்ட் பெயர் = urlsafe_b64encode_nopad (டைசச்ட்) `` `` (ட்ரெயில்ங் "
-"= எழுத்துக்கள் இல்லாத URLSAFE BASE64 குறியாக்கம்) ஒரு MD5SUM க்கு பதிலாக இரண்டாவது "
-"நெடுவரிசையாக சேர்க்க PEP 376 இன் பதிவு மாற்றப்பட்டுள்ளது. .Pyc கோப்புகள் போன்ற எந்தவொரு "
-"உருவாக்கப்பட்ட கோப்புகளும் உட்பட, சாத்தியமான அனைத்து உள்ளீடுகளும் ஆசெட் செய்யப்படுகின்றன, "
-"ஆனால் அதன் சொந்த ஆசைக் கொண்டிருக்க முடியாத பதிவு அல்ல. உதாரணமாக ::"
-
-#: ../source/specifications/binary-distribution-format.rst:317
-msgid ""
-"The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in RECORD "
-"at all since they can only be added after RECORD is generated. Every other "
-"file in the archive must have a correct hash in RECORD or the installation "
-"will fail."
-msgstr ""
-"கையொப்ப கோப்பு (கள்) பதிவு. JWS மற்றும் Record.P7 கள் பதிவில் குறிப்பிடப்படவில்லை, "
-"ஏனெனில் அவை பதிவு உருவாக்கப்பட்ட பின்னரே சேர்க்க முடியும். காப்பகத்தில் உள்ள மற்ற ஒவ்வொரு "
-"கோப்பிலும் பதிவில் சரியான ஆச் இருக்க வேண்டும் அல்லது நிறுவல் தோல்வியடையும்."
-
-#: ../source/specifications/binary-distribution-format.rst:322
-msgid ""
-"If JSON web signatures are used, one or more JSON Web Signature JSON "
-"Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent to "
-"RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of RECORD "
-"as the signature's JSON payload:"
-msgstr ""
-"சாதொபொகு வலை கையொப்பங்கள் பயன்படுத்தப்பட்டால், ஒன்று அல்லது அதற்கு மேற்பட்ட சாதொபொகு வலை "
-"கையொப்பம் சாதொபொகு சீரியலைசேசன் (JWS-JS) கையொப்பங்கள் ஒரு கோப்பு பதிவில் "
-"சேமிக்கப்படுகின்றன. பதிவுக்கு அருகிலுள்ள JWS. கையொப்பத்தின் சாதொபொகு பேலோடாக SHA-256 "
-"ஆச் பதிவின் மூலம் பதிவில் கையெழுத்திட JWS பயன்படுத்தப்படுகிறது:"
-
-#: ../source/specifications/binary-distribution-format.rst:331
-msgid "(The hash value is the same format used in RECORD.)"
-msgstr "(ஆச் மதிப்பு என்பது பதிவில் பயன்படுத்தப்படும் அதே வடிவமாகும்.)"
-
-#: ../source/specifications/binary-distribution-format.rst:333
-msgid ""
-"If RECORD.p7s is used, it must contain a detached S/MIME format signature of "
-"RECORD."
-msgstr ""
-"Record.P7S பயன்படுத்தப்பட்டால், அதில் பதிவின் பிரிக்கப்பட்ட S/MIME வடிவமைப்பு கையொப்பம் "
-"இருக்க வேண்டும்."
-
-#: ../source/specifications/binary-distribution-format.rst:336
-msgid ""
-"A wheel installer is not required to understand digital signatures but MUST "
-"verify the hashes in RECORD against the extracted file contents. When the "
-"installer checks file hashes against RECORD, a separate signature checker "
-"only needs to establish that RECORD matches the signature."
-msgstr ""
-"டிசிட்டல் கையொப்பங்களைப் புரிந்து கொள்ள ஒரு சக்கர நிறுவி தேவையில்லை, ஆனால் "
-"பிரித்தெடுக்கப்பட்ட கோப்பு உள்ளடக்கங்களுக்கு எதிராக பதிவில் உள்ள ஆச்களை சரிபார்க்க வேண்டும். "
-"நிறுவி கோப்பு ஆச்களை பதிவுக்கு எதிராக சரிபார்க்கும்போது, ஒரு தனி கையொப்பச் சரிபார்ப்பு "
-"கையொப்பத்துடன் பொருந்துகிறது என்பதை மட்டுமே நிறுவ வேண்டும்."
-
-#: ../source/specifications/binary-distribution-format.rst:341
-msgid "See"
-msgstr "பார்க்க"
-
-#: ../source/specifications/binary-distribution-format.rst:343
-msgid "https://datatracker.ietf.org/doc/html/rfc7515"
-msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
-
-#: ../source/specifications/binary-distribution-format.rst:344
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-msgstr ""
-"https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
-"serialization-01"
-
-#: ../source/specifications/binary-distribution-format.rst:345
-msgid "https://datatracker.ietf.org/doc/html/rfc7517"
-msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
-
-#: ../source/specifications/binary-distribution-format.rst:346
-msgid ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-msgstr ""
-"https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
-
-#: ../source/specifications/binary-distribution-format.rst:350
+#: ../source/specifications/binary-distribution-format.rst:303
 #: ../source/specifications/platform-compatibility-tags.rst:376
 msgid "FAQ"
 msgstr "கேள்விகள்"
 
-#: ../source/specifications/binary-distribution-format.rst:354
+#: ../source/specifications/binary-distribution-format.rst:307
 msgid "Wheel defines a .data directory.  Should I put all my data there?"
 msgstr ""
 "சக்கரம் ஒரு .டேட்டா கோப்பகத்தை வரையறுக்கிறது. எனது எல்லா தரவையும் நான் அங்கு வைக்க "
 "வேண்டுமா?"
 
-#: ../source/specifications/binary-distribution-format.rst:356
+#: ../source/specifications/binary-distribution-format.rst:309
 msgid ""
 "This specification does not have an opinion on how you should organize your "
 "code.  The .data directory is just a place for any files that are not "
@@ -17482,62 +17395,11 @@ msgstr ""
 "தொடர்ந்து `` pkgutil.get_data (தொகுப்பு, வளம்) `` அந்த * கோப்புகள் வழக்கமாக * "
 "சக்கரத்தின் * `` .data`` கோப்பகத்தில் விநியோகிக்கப்படாது என்றாலும் தொடர்ந்து பயன்படுத்தலாம்."
 
-#: ../source/specifications/binary-distribution-format.rst:365
-msgid "Why does wheel include attached signatures?"
-msgstr "வீல் ஏன் இணைக்கப்பட்ட கையொப்பங்களை உள்ளடக்கியது?"
-
-#: ../source/specifications/binary-distribution-format.rst:367
-msgid ""
-"Attached signatures are more convenient than detached signatures because "
-"they travel with the archive.  Since only the individual files are signed, "
-"the archive can be recompressed without invalidating the signature or "
-"individual files can be verified without having to download the whole "
-"archive."
-msgstr ""
-"இணைக்கப்பட்ட கையொப்பங்கள் பிரிக்கப்பட்ட கையொப்பங்களை விட வசதியானவை, ஏனெனில் அவை "
-"காப்பகத்துடன் பயணிக்கின்றன. தனிப்பட்ட கோப்புகள் மட்டுமே கையொப்பமிடப்பட்டதால், கையொப்பத்தை "
-"செல்லாததாக்காமல் காப்பகத்தை மறுசீரமைக்க முடியும் அல்லது முழு காப்பகத்தையும் பதிவிறக்கம் "
-"செய்யாமல் தனிப்பட்ட கோப்புகளை சரிபார்க்க முடியும்."
-
-#: ../source/specifications/binary-distribution-format.rst:375
-msgid "Why does wheel allow JWS signatures?"
-msgstr "JWS கையொப்பங்களை சக்கரம் ஏன் அனுமதிக்கிறது?"
-
-#: ../source/specifications/binary-distribution-format.rst:377
-msgid ""
-"The JOSE specifications of which JWS is a part are designed to be easy to "
-"implement, a feature that is also one of wheel's primary design goals.  JWS "
-"yields a useful, concise pure-Python implementation."
-msgstr ""
-"சே.டபிள்யூ.எச் ஒரு பகுதியாக இருக்கும் சோச் விவரக்குறிப்புகள் நடைமுறைப்படுத்த எளிதானதாக "
-"வடிவமைக்கப்பட்டுள்ளன, இது சக்கரத்தின் முதன்மை வடிவமைப்பு இலக்குகளில் ஒன்றாகும். JWS ஒரு "
-"பயனுள்ள, சுருக்கமான தூய-பைதான் செயல்படுத்தலை அளிக்கிறது."
-
-#: ../source/specifications/binary-distribution-format.rst:383
-msgid "Why does wheel also allow S/MIME signatures?"
-msgstr "வீல் ஏன் எச்/மைம் கையொப்பங்களையும் அனுமதிக்கிறது?"
-
-#: ../source/specifications/binary-distribution-format.rst:385
-msgid ""
-"S/MIME signatures are allowed for users who need or want to use existing "
-"public key infrastructure with wheel."
-msgstr ""
-"தற்போதுள்ள பொது விசை உள்கட்டமைப்பை சக்கரத்துடன் பயன்படுத்த விரும்பும் அல்லது பயன்படுத்த "
-"விரும்பும் பயனர்களுக்கு எச்/மைம் கையொப்பங்கள் அனுமதிக்கப்படுகின்றன."
-
-#: ../source/specifications/binary-distribution-format.rst:388
-msgid ""
-"Signed packages are only a basic building block in a secure package update "
-"system.  Wheel only provides the building block."
-msgstr ""
-"கையொப்பமிடப்பட்ட தொகுப்புகள் பாதுகாப்பான தொகுப்பு புதுப்பிப்பு அமைப்பில் ஒரு அடிப்படை "
-"கட்டுமானத் தொகுதி மட்டுமே. சக்கரம் கட்டுமானத் தொகுதியை மட்டுமே வழங்குகிறது."
-
-#: ../source/specifications/binary-distribution-format.rst:393
+#: ../source/specifications/binary-distribution-format.rst:318
 msgid "What's the deal with \"purelib\" vs. \"platlib\"?"
 msgstr "\"பியூரிலிப்\" வெர்சச் \"பிளாட்ட்லிப்\" உடன் என்ன ஒப்பந்தம்?"
 
-#: ../source/specifications/binary-distribution-format.rst:395
+#: ../source/specifications/binary-distribution-format.rst:320
 msgid ""
 "Wheel preserves the \"purelib\" vs. \"platlib\" distinction, which is "
 "significant on some platforms. For example, Fedora installs pure Python "
@@ -17549,7 +17411,7 @@ msgstr ""
 "lib/pythonx.y/site-packages' மற்றும் இயங்குதள சார்பு தொகுப்புகளை '/usr/lib64/"
 "pythonx.y/site-packages' க்கு நிறுவுகிறது."
 
-#: ../source/specifications/binary-distribution-format.rst:400
+#: ../source/specifications/binary-distribution-format.rst:325
 msgid ""
 "A wheel with \"Root-Is-Purelib: false\" with all its files in ``{name}-"
 "{version}.data/purelib`` is equivalent to a wheel with \"Root-Is-Purelib: "
@@ -17561,7 +17423,7 @@ msgstr ""
 "ரூட்டில் உள்ள கோப்புகள், மற்றும் \"பியூரிலிப்\" மற்றும் \"பிளாட்லிப்\" வகைகளில் கோப்புகளை "
 "வைத்திருப்பது சட்டபூர்வமானது."
 
-#: ../source/specifications/binary-distribution-format.rst:405
+#: ../source/specifications/binary-distribution-format.rst:330
 msgid ""
 "In practice a wheel should have only one of \"purelib\" or \"platlib\" "
 "depending on whether it is pure Python or not and those files should be at "
@@ -17571,11 +17433,11 @@ msgstr ""
 "அல்லது \"பிளாட்லிப்\" ஒன்று மட்டுமே இருக்க வேண்டும், மேலும் அந்த கோப்புகள் \"ரூட்-இச்-"
 "பூரெலிப்\" க்கு வழங்கப்பட்ட பொருத்தமான அமைப்போடு வேரில் இருக்க வேண்டும்."
 
-#: ../source/specifications/binary-distribution-format.rst:413
+#: ../source/specifications/binary-distribution-format.rst:338
 msgid "Is it possible to import Python code directly from a wheel file?"
 msgstr "சக்கர கோப்பிலிருந்து நேரடியாக பைதான் குறியீட்டை இறக்குமதி செய்ய முடியுமா?"
 
-#: ../source/specifications/binary-distribution-format.rst:415
+#: ../source/specifications/binary-distribution-format.rst:340
 msgid ""
 "Technically, due to the combination of supporting installation via simple "
 "extraction and using an archive format that is compatible with "
@@ -17589,7 +17451,7 @@ msgstr ""
 "இந்த நடத்தை வடிவமைப்பு வடிவமைப்பின் இயல்பான விளைவு என்றாலும், உண்மையில் அதை "
 "நம்பியிருப்பது பொதுவாக ஊக்கமளிக்கிறது."
 
-#: ../source/specifications/binary-distribution-format.rst:421
+#: ../source/specifications/binary-distribution-format.rst:346
 msgid ""
 "Firstly, wheel *is* designed primarily as a distribution format, so skipping "
 "the installation step also means deliberately avoiding any reliance on "
@@ -17607,7 +17469,7 @@ msgstr ""
 "நீட்டிப்புகளுக்கான நிலையான உருவாக்க இயந்திரங்களுடன் முழுமையாக ஒருங்கிணைத்தல் தலைப்பு "
 "கோப்புகள் பொருத்தமான இடத்தில்)."
 
-#: ../source/specifications/binary-distribution-format.rst:430
+#: ../source/specifications/binary-distribution-format.rst:355
 msgid ""
 "Secondly, while some Python software is written to support running directly "
 "from a zip archive, it is still common for code to be written assuming it "
@@ -17638,7 +17500,7 @@ msgstr ""
 "மென்பொருள் சுருக்கமான வள ஏபிஐகளை உள்நாட்டில் சரியாகப் பயன்படுத்தும்போது கூட, வெளிப்புற "
 "கூறுகளுடன் இடைமுகப்படுத்த இன்னும் உண்மையான வட்டு கோப்பின் கிடைக்கும் தன்மை தேவைப்படலாம்."
 
-#: ../source/specifications/binary-distribution-format.rst:447
+#: ../source/specifications/binary-distribution-format.rst:372
 msgid ""
 "Like metaclasses, monkeypatching and metapath importers, if you're not "
 "already sure you need to take advantage of this feature, you almost "
@@ -17652,7 +17514,7 @@ msgstr ""
 "செய்தால், பல திட்டங்களுக்கு உண்மையான பிழையாக ஏற்றுக்கொள்வதற்கு முன்பு முழுமையாக "
 "நிறுவப்பட்ட தொகுப்புடன் மீண்டும் உருவாக்கத் தோல்வி தேவைப்படும் என்பதை அறிந்து கொள்ளுங்கள்."
 
-#: ../source/specifications/binary-distribution-format.rst:455
+#: ../source/specifications/binary-distribution-format.rst:380
 #: ../source/specifications/core-metadata.rst:1035
 #: ../source/specifications/dependency-groups.rst:250
 #: ../source/specifications/dependency-specifiers.rst:516
@@ -17673,11 +17535,11 @@ msgstr ""
 msgid "History"
 msgstr "வரலாறு"
 
-#: ../source/specifications/binary-distribution-format.rst:457
+#: ../source/specifications/binary-distribution-format.rst:382
 msgid "February 2013: This specification was approved through :pep:`427`."
 msgstr "பிப்ரவரி 2013: இந்த விவரக்குறிப்பு மூலம் அங்கீகரிக்கப்பட்டது: PEP: `427`."
 
-#: ../source/specifications/binary-distribution-format.rst:458
+#: ../source/specifications/binary-distribution-format.rst:383
 msgid ""
 "February 2021: The rules on escaping in wheel filenames were revised, to "
 "bring them into line with what popular tools actually do."
@@ -17685,7 +17547,7 @@ msgstr ""
 "பிப்ரவரி 2021: சக்கர கோப்பு பெயர்களில் தப்பிப்பது தொடர்பான விதிகள் திருத்தப்பட்டன, "
 "பிரபலமான கருவிகள் உண்மையில் என்ன செய்கின்றன என்பதற்கு ஏற்ப அவற்றைக் கொண்டுவருவதற்காக."
 
-#: ../source/specifications/binary-distribution-format.rst:460
+#: ../source/specifications/binary-distribution-format.rst:385
 msgid ""
 "December 2024: Clarified that the ``scripts`` folder should only contain "
 "regular files (the expected behaviour of consuming tools when encountering "
@@ -17697,7 +17559,7 @@ msgstr ""
 "எதிர்கொள்ளும்போது கருவிகளின் எதிர்பார்க்கப்படும் நடத்தை முறையாக வரையறுக்கப்படவில்லை, எனவே "
 "கருவிகளுக்கு இடையில் வேறுபடலாம்)."
 
-#: ../source/specifications/binary-distribution-format.rst:464
+#: ../source/specifications/binary-distribution-format.rst:389
 #: ../source/specifications/recording-installed-packages.rst:288
 msgid ""
 "December 2024: The :file:`.dist-info/licenses/` directory was specified "
@@ -17706,7 +17568,7 @@ msgstr ""
 "டிசம்பர் 2024: தி: கோப்பு: `.டிச்ட்-இன்ஃபோ/உரிமங்கள்/` அடைவு மூலம் குறிப்பிடப்பட்டது: "
 "PEP: `639`."
 
-#: ../source/specifications/binary-distribution-format.rst:466
+#: ../source/specifications/binary-distribution-format.rst:391
 msgid ""
 "January 2025: Clarified that name and version needs to be normalized for "
 "``.dist-info`` and ``.data`` directories."
@@ -17714,11 +17576,15 @@ msgstr ""
 "சனவரி 2025: அந்த பெயர் மற்றும் பதிப்பை தெளிவுபடுத்தியது `` .dist-info`` மற்றும் "
 "`.data`` கோப்பகங்களுக்கு இயல்பாக்கப்பட வேண்டும்."
 
-#: ../source/specifications/binary-distribution-format.rst:471
+#: ../source/specifications/binary-distribution-format.rst:393
+msgid "January 2026: Deprecate RECORD.jws and RECORD.p7s :pep:`815`."
+msgstr ""
+
+#: ../source/specifications/binary-distribution-format.rst:397
 msgid "Appendix"
 msgstr "பின் இணைப்பு"
 
-#: ../source/specifications/binary-distribution-format.rst:473
+#: ../source/specifications/binary-distribution-format.rst:399
 msgid "Example urlsafe-base64-nopad implementation::"
 msgstr "எடுத்துக்காட்டு urlsafe-base64-NOPAD செயல்படுத்தல் ::"
 
@@ -34812,6 +34678,148 @@ msgstr ""
 "கருதப்படுகிறது ** (இந்த டூட்டோரியலில் மறைக்கப்படவில்லை). நீங்கள் பைதான் பேக்கேசிங் மூலம் "
 "மட்டுமே தொடங்கினால், * வழக்கமான தொகுப்புகள் * மற்றும் `__init __. பை`` (கோப்பு "
 "காலியாக இருந்தாலும் கூட) ஒட்டிக்கொள்ள பரிந்துரைக்கப்படுகிறது."
+
+#~ msgid ""
+#~ "RECORD.jws is used for digital signatures.  It is not mentioned in RECORD."
+#~ msgstr ""
+#~ "Record.JWS டிசிட்டல் கையொப்பங்களுக்கு பயன்படுத்தப்படுகிறது. இது பதிவில் "
+#~ "குறிப்பிடப்படவில்லை."
+
+#~ msgid ""
+#~ "RECORD.p7s is allowed as a courtesy to anyone who would prefer to use S/"
+#~ "MIME signatures to secure their wheel files.  It is not mentioned in "
+#~ "RECORD."
+#~ msgstr ""
+#~ "S/MIME கையொப்பங்களை தங்கள் சக்கரக் கோப்புகளைப் பாதுகாக்க விரும்பும் எவருக்கும் "
+#~ "மரியாதையாக Record.P7S அனுமதிக்கப்படுகிறது. இது பதிவில் குறிப்பிடப்படவில்லை."
+
+#~ msgid "Signed wheel files"
+#~ msgstr "கையொப்பமிடப்பட்ட சக்கர கோப்புகள்"
+
+#~ msgid ""
+#~ "Wheel files include an extended RECORD that enables digital signatures.  "
+#~ "PEP 376's RECORD is altered to include a secure hash "
+#~ "``digestname=urlsafe_b64encode_nopad(digest)`` (urlsafe base64 encoding "
+#~ "with no trailing = characters) as the second column instead of an "
+#~ "md5sum.  All possible entries are hashed, including any generated files "
+#~ "such as .pyc files, but not RECORD which cannot contain its own hash. For "
+#~ "example::"
+#~ msgstr ""
+#~ "சக்கர கோப்புகளில் டிசிட்டல் கையொப்பங்களை செயல்படுத்தும் நீட்டிக்கப்பட்ட பதிவு அடங்கும். "
+#~ "ஒரு பாதுகாப்பான ஆச் `` டைசச்ட் பெயர் = urlsafe_b64encode_nopad (டைசச்ட்) `` `` "
+#~ "(ட்ரெயில்ங் = எழுத்துக்கள் இல்லாத URLSAFE BASE64 குறியாக்கம்) ஒரு MD5SUM க்கு "
+#~ "பதிலாக இரண்டாவது நெடுவரிசையாக சேர்க்க PEP 376 இன் பதிவு மாற்றப்பட்டுள்ளது. .Pyc "
+#~ "கோப்புகள் போன்ற எந்தவொரு உருவாக்கப்பட்ட கோப்புகளும் உட்பட, சாத்தியமான அனைத்து "
+#~ "உள்ளீடுகளும் ஆசெட் செய்யப்படுகின்றன, ஆனால் அதன் சொந்த ஆசைக் கொண்டிருக்க முடியாத பதிவு "
+#~ "அல்ல. உதாரணமாக ::"
+
+#~ msgid ""
+#~ "The signature file(s) RECORD.jws and RECORD.p7s are not mentioned in "
+#~ "RECORD at all since they can only be added after RECORD is generated. "
+#~ "Every other file in the archive must have a correct hash in RECORD or the "
+#~ "installation will fail."
+#~ msgstr ""
+#~ "கையொப்ப கோப்பு (கள்) பதிவு. JWS மற்றும் Record.P7 கள் பதிவில் குறிப்பிடப்படவில்லை, "
+#~ "ஏனெனில் அவை பதிவு உருவாக்கப்பட்ட பின்னரே சேர்க்க முடியும். காப்பகத்தில் உள்ள மற்ற "
+#~ "ஒவ்வொரு கோப்பிலும் பதிவில் சரியான ஆச் இருக்க வேண்டும் அல்லது நிறுவல் தோல்வியடையும்."
+
+#~ msgid ""
+#~ "If JSON web signatures are used, one or more JSON Web Signature JSON "
+#~ "Serialization (JWS-JS) signatures is stored in a file RECORD.jws adjacent "
+#~ "to RECORD.  JWS is used to sign RECORD by including the SHA-256 hash of "
+#~ "RECORD as the signature's JSON payload:"
+#~ msgstr ""
+#~ "சாதொபொகு வலை கையொப்பங்கள் பயன்படுத்தப்பட்டால், ஒன்று அல்லது அதற்கு மேற்பட்ட சாதொபொகு "
+#~ "வலை கையொப்பம் சாதொபொகு சீரியலைசேசன் (JWS-JS) கையொப்பங்கள் ஒரு கோப்பு பதிவில் "
+#~ "சேமிக்கப்படுகின்றன. பதிவுக்கு அருகிலுள்ள JWS. கையொப்பத்தின் சாதொபொகு பேலோடாக "
+#~ "SHA-256 ஆச் பதிவின் மூலம் பதிவில் கையெழுத்திட JWS பயன்படுத்தப்படுகிறது:"
+
+#~ msgid "(The hash value is the same format used in RECORD.)"
+#~ msgstr "(ஆச் மதிப்பு என்பது பதிவில் பயன்படுத்தப்படும் அதே வடிவமாகும்.)"
+
+#~ msgid ""
+#~ "If RECORD.p7s is used, it must contain a detached S/MIME format signature "
+#~ "of RECORD."
+#~ msgstr ""
+#~ "Record.P7S பயன்படுத்தப்பட்டால், அதில் பதிவின் பிரிக்கப்பட்ட S/MIME வடிவமைப்பு "
+#~ "கையொப்பம் இருக்க வேண்டும்."
+
+#~ msgid ""
+#~ "A wheel installer is not required to understand digital signatures but "
+#~ "MUST verify the hashes in RECORD against the extracted file contents. "
+#~ "When the installer checks file hashes against RECORD, a separate "
+#~ "signature checker only needs to establish that RECORD matches the "
+#~ "signature."
+#~ msgstr ""
+#~ "டிசிட்டல் கையொப்பங்களைப் புரிந்து கொள்ள ஒரு சக்கர நிறுவி தேவையில்லை, ஆனால் "
+#~ "பிரித்தெடுக்கப்பட்ட கோப்பு உள்ளடக்கங்களுக்கு எதிராக பதிவில் உள்ள ஆச்களை சரிபார்க்க "
+#~ "வேண்டும். நிறுவி கோப்பு ஆச்களை பதிவுக்கு எதிராக சரிபார்க்கும்போது, ஒரு தனி "
+#~ "கையொப்பச் சரிபார்ப்பு கையொப்பத்துடன் பொருந்துகிறது என்பதை மட்டுமே நிறுவ வேண்டும்."
+
+#~ msgid "See"
+#~ msgstr "பார்க்க"
+
+#~ msgid "https://datatracker.ietf.org/doc/html/rfc7515"
+#~ msgstr "https://datatracker.ietf.org/doc/html/rfc7515"
+
+#~ msgid ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+#~ "serialization-01"
+#~ msgstr ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-json-web-signature-json-"
+#~ "serialization-01"
+
+#~ msgid "https://datatracker.ietf.org/doc/html/rfc7517"
+#~ msgstr "https://datatracker.ietf.org/doc/html/rfc7517"
+
+#~ msgid ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
+#~ msgstr ""
+#~ "https://datatracker.ietf.org/doc/html/draft-jones-jose-json-private-key-01"
+
+#~ msgid "Why does wheel include attached signatures?"
+#~ msgstr "வீல் ஏன் இணைக்கப்பட்ட கையொப்பங்களை உள்ளடக்கியது?"
+
+#~ msgid ""
+#~ "Attached signatures are more convenient than detached signatures because "
+#~ "they travel with the archive.  Since only the individual files are "
+#~ "signed, the archive can be recompressed without invalidating the "
+#~ "signature or individual files can be verified without having to download "
+#~ "the whole archive."
+#~ msgstr ""
+#~ "இணைக்கப்பட்ட கையொப்பங்கள் பிரிக்கப்பட்ட கையொப்பங்களை விட வசதியானவை, ஏனெனில் அவை "
+#~ "காப்பகத்துடன் பயணிக்கின்றன. தனிப்பட்ட கோப்புகள் மட்டுமே கையொப்பமிடப்பட்டதால், கையொப்பத்தை "
+#~ "செல்லாததாக்காமல் காப்பகத்தை மறுசீரமைக்க முடியும் அல்லது முழு காப்பகத்தையும் பதிவிறக்கம் "
+#~ "செய்யாமல் தனிப்பட்ட கோப்புகளை சரிபார்க்க முடியும்."
+
+#~ msgid "Why does wheel allow JWS signatures?"
+#~ msgstr "JWS கையொப்பங்களை சக்கரம் ஏன் அனுமதிக்கிறது?"
+
+#~ msgid ""
+#~ "The JOSE specifications of which JWS is a part are designed to be easy to "
+#~ "implement, a feature that is also one of wheel's primary design goals.  "
+#~ "JWS yields a useful, concise pure-Python implementation."
+#~ msgstr ""
+#~ "சே.டபிள்யூ.எச் ஒரு பகுதியாக இருக்கும் சோச் விவரக்குறிப்புகள் நடைமுறைப்படுத்த "
+#~ "எளிதானதாக வடிவமைக்கப்பட்டுள்ளன, இது சக்கரத்தின் முதன்மை வடிவமைப்பு இலக்குகளில் "
+#~ "ஒன்றாகும். JWS ஒரு பயனுள்ள, சுருக்கமான தூய-பைதான் செயல்படுத்தலை அளிக்கிறது."
+
+#~ msgid "Why does wheel also allow S/MIME signatures?"
+#~ msgstr "வீல் ஏன் எச்/மைம் கையொப்பங்களையும் அனுமதிக்கிறது?"
+
+#~ msgid ""
+#~ "S/MIME signatures are allowed for users who need or want to use existing "
+#~ "public key infrastructure with wheel."
+#~ msgstr ""
+#~ "தற்போதுள்ள பொது விசை உள்கட்டமைப்பை சக்கரத்துடன் பயன்படுத்த விரும்பும் அல்லது பயன்படுத்த "
+#~ "விரும்பும் பயனர்களுக்கு எச்/மைம் கையொப்பங்கள் அனுமதிக்கப்படுகின்றன."
+
+#~ msgid ""
+#~ "Signed packages are only a basic building block in a secure package "
+#~ "update system.  Wheel only provides the building block."
+#~ msgstr ""
+#~ "கையொப்பமிடப்பட்ட தொகுப்புகள் பாதுகாப்பான தொகுப்பு புதுப்பிப்பு அமைப்பில் ஒரு அடிப்படை "
+#~ "கட்டுமானத் தொகுதி மட்டுமே. சக்கரம் கட்டுமானத் தொகுதியை மட்டுமே வழங்குகிறது."
 
 #~ msgid "The license expressions for these projects are:"
 #~ msgstr "இந்த திட்டங்களுக்கான உரிம வெளிப்பாடுகள்:"
