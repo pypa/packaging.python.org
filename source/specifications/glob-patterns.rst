@@ -15,8 +15,8 @@ Valid glob patterns
 For PyPA purposes, a *valid glob pattern* MUST be a string matched against
 filesystem entries as specified below:
 
-- Alphanumeric characters, underscores (``_``), hyphens (``-``) and dots (``.``)
-  MUST be matched verbatim.
+- Alphanumeric characters, spaces (`` ``), underscores (``_``), hyphens (``-``),
+  and dots (``.``) MUST be matched verbatim.
 
 - Special glob characters: ``*``, ``?``, ``**`` and character ranges: ``[]``
   containing only the verbatim matched characters MUST be supported.
@@ -107,9 +107,15 @@ The code below is as a simple reference implementation:
            raise ValueError(
                f"Pattern {pattern!r} should be relative and must not start with '/'"
            )
-       if re.match(r'^[\w\-\.\/\*\?\[\]]+$', pattern) is None:
+       if re.match(r'^[\w \-\.\/\*\?\[\]]+$', pattern) is None:
            raise ValueError(f"Pattern '{pattern}' contains invalid characters.")
        found = glob(pattern, recursive=True)
        if not found:
            raise ValueError(f"Pattern '{pattern}' did not match any files.")
        return found
+
+History
+=======
+
+- January 2025: Initial version
+- March 2026: Treat spaces as a verbatim character
