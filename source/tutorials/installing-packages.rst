@@ -133,6 +133,14 @@ standard library:
 
 If that still doesn't allow you to run ``python -m pip``:
 
+  .. warning::
+
+     Be cautious if you're using a Python install that's managed by your
+     operating system or another package manager. ``get-pip.py`` does not
+     coordinate with those tools, and may leave your system in an inconsistent
+     state. You can use ``python get-pip.py --prefix=/usr/local/`` to install
+     in ``/usr/local`` which is designed for locally-installed software.
+
 * Securely Download `get-pip.py
   <https://bootstrap.pypa.io/get-pip.py>`_ [1]_
 
@@ -140,14 +148,6 @@ If that still doesn't allow you to run ``python -m pip``:
   Additionally, it will install :ref:`setuptools` and :ref:`wheel` if they're
   not installed already.
 
-  .. warning::
-
-     Be cautious if you're using a Python install that's managed by your
-     operating system or another package manager. get-pip.py does not
-     coordinate with those tools, and may leave your system in an
-     inconsistent state. You can use ``python get-pip.py --prefix=/usr/local/``
-     to install in ``/usr/local`` which is designed for locally-installed
-     software.
 
 
 Ensure pip, setuptools, and wheel are up to date
