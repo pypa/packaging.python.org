@@ -1,4 +1,33 @@
-.. _`Binary Extensions`:
+.. _`Binary Extensions`:source/guides/packaging-binary-extension34487202s.rst34487202.. toctree::
+   :maxdepth: 3
+
+   getting-started/index
+   developer-workflow/index
+   triage/index
+   documentation/index
+   testing/index
+   development-tools/index
+   core-team/index
+   internals
+   versions
+
+.. tab:: macOS
+
+   .. code-block:: shell
+
+      ./python.exe -m test -j8
+
+   .. note::
+      :ref:`Most <mac-python.exe>` macOS systems use
+      :file:`./python.exe` in order to avoid filename conflicts with
+      the ``Python`` directory.
+.. tab:: Windows
+
+   .. code-block:: dosbatch
+
+      .\python.bat -m test -j3
+git checkout -b fix-issue-12345 maingit clone https://github.com/<your_username>/cpython
+cd cpython
 
 ===========================
 Packaging binary extensions
