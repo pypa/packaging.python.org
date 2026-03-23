@@ -836,7 +836,7 @@ uv
 `GitHub <https://github.com/astral-sh/uv>`__ |
 `PyPI <https://pypi.org/project/uv/>`__
 
-An extremely fast Python package and project manager, written in Rust. It
+A Python package and project manager, written in Rust for high performance. It
 supports creating and managing virtual environments, installing packages,
 locking dependencies, and managing Python versions and projects.
 
