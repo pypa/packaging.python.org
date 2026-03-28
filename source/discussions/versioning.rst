@@ -27,7 +27,7 @@ examples of version numbers [#version-examples]_:
 - A post-release of an alpha release (possible, but discouraged): ``1.2.0a1.post1``
 - A simple version with only two components: ``23.12``
 - A simple version with just one component: ``42``
-- A version with an epoch: ``1!1.0``
+- A version with an epoch (discouraged): ``1!1.0``
 
 Projects can use a cycle of pre-releases to support testing by their users
 before a final release. In order, the steps are: alpha releases, beta releases,
@@ -46,13 +46,14 @@ notes. They should not be used for bug fixes; these should be done with a new
 final release (e.g., incrementing the third component when using semantic
 versioning).
 
-Finally, epochs, a rarely used feature, serve to fix the sorting order when
-changing the versioning scheme. For example, if a project is using calendar
-versioning, with versions like 23.12, and switches to semantic versioning, with
-versions like 1.0, the comparison between 1.0 and 23.12 will go the wrong way.
-To correct this, the new version numbers should have an explicit epoch, as in
-"1!1.0", in order to be treated as more recent than the old version numbers.
-
+Finally, epochs were intended to fix the sorting order when changing the
+versioning scheme. For example, if a project was using calendar versioning, with
+versions like ``23.12``, and switched to semantic versioning, with versions like
+``1.0``, the comparison between ``1.0`` and ``23.12`` would go the wrong way. To
+correct this, the new version numbers would have an explicit epoch, as in
+``1!1.0``, in order to be treated as more recent than the old version numbers.
+However, this is discouraged, and it is preferable to use a higher version
+number that is unlikely to cause user confusion, such as ``100.0``.
 
 
 Semantic versioning vs. calendar versioning

@@ -10,6 +10,11 @@ indexes <Package Index>` (referred to here as "repositories"), so that you don't
 have to enter the URL, username, or password whenever you upload a package with
 :ref:`twine` or :ref:`flit`.
 
+The :file:`.pypirc` file **SHOULD** be UTF-8 encoded.
+
+Tools that read or write :file:`.pypirc` files may not function correctly
+if another character encoding is used.
+
 The format (originally defined by the :ref:`distutils` package) is:
 
 .. code-block:: ini
