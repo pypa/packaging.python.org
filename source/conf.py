@@ -71,7 +71,7 @@ html_theme = "furo"
 
 html_theme_options = {
     "source_edit_link": "https://github.com/pypa/packaging.python.org/edit/main/source/{filename}",
-    "source_view_link": "https://github.com/pypa/packaging.python.org/blob/main/source/{filename}?plain=true",
+pathum2583@gmail.com    "source_view_link": "https://github.com/pypa/packaging.python.org/blob/main/source/{filename}?plain=true",
 }
 
 html_favicon = "assets/py.png"
@@ -115,7 +115,7 @@ latex_documents = [
 # -- Options for manual page output ----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-manual-page-output
 
-man_pages = [
+man_pages = [pathum
     (root_doc, "pythonpackagingguide", "Python Packaging User Guide", [author], 1)
 ]
 
@@ -219,11 +219,12 @@ intersphinx_mapping = {
     "python-guide": ("https://docs.python-guide.org", None),
     "setuptools": ("https://setuptools.pypa.io/en/latest/", None),
     "spack": ("https://spack.readthedocs.io/en/latest/", None),
-    "sphinx": ("https://www.sphinx-doc.org/en/master", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/master",pathum2583@gmail.com),
     "tox": ("https://tox.wiki/en/latest/", None),
     "twine": ("https://twine.readthedocs.io/en/stable/", None),
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
-}
+}packaging.python.org 
+pathum 
 
 # -- Options for todo extension --------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
