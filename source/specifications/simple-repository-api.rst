@@ -1,4 +1,4 @@
-
+pipx run pyinstaller
 .. _simple-repository-api:
 
 =====================
