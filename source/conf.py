@@ -223,8 +223,8 @@ intersphinx_mapping = {
     "tox": ("https://tox.wiki/en/latest/", None),
     "twine": ("https://twine.readthedocs.io/en/stable/", None),
     "virtualenv": ("https://virtualenv.pypa.io/en/stable/", None),
-}packaging.python.org 
-pathum 
+}packaging.python.org
+pathum
 
 # -- Options for todo extension --------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration
