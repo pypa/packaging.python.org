@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-17 11:08+0000\n"
+"POT-Creation-Date: 2026-04-20 19:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3774,7 +3774,7 @@ msgstr ""
 
 #: ../source/guides/hosting-your-own-index.rst:65
 #: ../source/guides/index-mirrors-and-caches.rst:56
-#: ../source/guides/supporting-windows-using-appveyor.rst:146
+#: ../source/guides/supporting-windows-using-appveyor.rst:139
 msgid "Additional notes"
 msgstr ""
 
@@ -5827,7 +5827,7 @@ msgid "Hosting"
 msgstr ""
 
 #: ../source/guides/section-install.rst:3
-#: ../source/specifications/pylock-toml.rst:729
+#: ../source/specifications/pylock-toml.rst:744
 msgid "Installation"
 msgstr ""
 
@@ -5876,54 +5876,54 @@ msgid "Wikipedia has an extensive `comparison <https://en.wikipedia.org/wiki/Com
 msgstr ""
 
 #: ../source/guides/supporting-multiple-python-versions.rst:65
-msgid "`Travis CI <https://travis-ci.com>`_ provides both a Linux and a macOS environment. The Linux environment is Ubuntu 12.04 LTS Server Edition 64 bit while the macOS is 10.9.2 at the time of writing."
+msgid "`GitHub Actions <https://docs.github.com/en/actions>`_ provides Windows, Linux and a macOS environments."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:68
+#: ../source/guides/supporting-multiple-python-versions.rst:67
 msgid "`Appveyor <https://www.appveyor.com/>`_ provides a Windows environment (Windows Server 2012)."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:79
-msgid "Both `Travis CI`_ and Appveyor_ require a `YAML <https://yaml.org>`_-formatted file as specification for the instructions for testing. If any tests fail, the output log for that specific configuration can be inspected."
+#: ../source/guides/supporting-multiple-python-versions.rst:78
+msgid "Both `GitHub Actions`_ and Appveyor_ require a `YAML <https://yaml.org>`_-formatted file as specification for the instructions for testing. If any tests fail, the output log for that specific configuration can be inspected."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:84
+#: ../source/guides/supporting-multiple-python-versions.rst:83
 msgid "For Python projects that are intended to be deployed on both Python 2 and 3 with a single-source strategy, there are a number of options."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:88
+#: ../source/guides/supporting-multiple-python-versions.rst:87
 msgid "Tools for single-source Python packages"
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:90
+#: ../source/guides/supporting-multiple-python-versions.rst:89
 msgid "`six <https://pypi.org/project/six/>`_ is a tool developed by Benjamin Peterson for wrapping over the differences between Python 2 and Python 3. The six_ package has enjoyed widespread use and may be regarded as a reliable way to write a single-source Python module that can be use in both Python 2 and 3. The six_ module can be used from as early as Python 2.5. A tool called `modernize <https://pypi.org/project/modernize>`_, developed by Armin Ronacher, can be used to automatically apply the code modifications provided by six_."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:99
+#: ../source/guides/supporting-multiple-python-versions.rst:98
 msgid "Similar to six_, `python-future <http://python-future.org/overview.html>`_ is a package that provides a compatibility layer between Python 2 and Python 3 source code; however, unlike six_, this package aims to provide interoperability between Python 2 and Python 3 with a language syntax that matches one of the two Python versions: one may use"
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:106
+#: ../source/guides/supporting-multiple-python-versions.rst:105
 msgid "a Python 2 (by syntax) module in a Python 3 project."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:107
+#: ../source/guides/supporting-multiple-python-versions.rst:106
 msgid "a Python 3 (by syntax) module in a *Python 2* project."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:109
+#: ../source/guides/supporting-multiple-python-versions.rst:108
 msgid "Because of the bi-directionality, python-future_ offers a pathway to converting a Python 2 package to Python 3 syntax module-by-module. However, in contrast to six_, python-future_ is supported only from Python 2.6. Similar to modernize_ for six_, python-future_ comes with two scripts called ``futurize`` and ``pasteurize`` that can be applied to either a Python 2 module or a Python 3 module respectively."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:116
+#: ../source/guides/supporting-multiple-python-versions.rst:115
 msgid "Use of six_ or python-future_ adds an additional runtime dependency to your package: with python-future_, the ``futurize`` script can be called with the ``--stage1`` option to apply only the changes that Python 2.6+ already provides for forward-compatibility to Python 3. Any remaining compatibility problems would require manual changes."
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:123
+#: ../source/guides/supporting-multiple-python-versions.rst:122
 msgid "What's in which Python?"
 msgstr ""
 
-#: ../source/guides/supporting-multiple-python-versions.rst:125
+#: ../source/guides/supporting-multiple-python-versions.rst:124
 msgid "Ned Batchelder provides a list of changes in each Python release for `Python 2 <https://nedbatchelder.com/blog/201109/whats_in_which_python.html>`__, `Python 3.0-3.3 <https://nedbatchelder.com/blog/201310/whats_in_which_python_3.html>`__ and `Python 3.4-3.6 <https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html>`__. These lists may be used to check whether any changes between Python versions may affect your package."
 msgstr ""
 
@@ -5944,194 +5944,190 @@ msgid "Many projects are developed on Unix by default, and providing Windows sup
 msgstr ""
 
 #: ../source/guides/supporting-windows-using-appveyor.rst:23
-msgid "The Appveyor service is a continuous integration service, much like the better-known `Travis`_ service that is commonly used for testing by projects hosted on `GitHub`_. However, unlike Travis, the build workers on Appveyor are Windows hosts and have the necessary compilers installed to build Python extensions."
-msgstr ""
-
-#: ../source/guides/supporting-windows-using-appveyor.rst:29
 msgid "Windows users typically do not have access to a C compiler, and therefore are reliant on projects that use C extensions distributing binary wheels on PyPI in order for the distribution to be installable via ``python -m pip install <dist>``. By using Appveyor as a build service (even if not using it for testing) it is possible for projects without a dedicated Windows environment to provide Windows-targeted binaries."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:37
+#: ../source/guides/supporting-windows-using-appveyor.rst:31
 msgid "Setting up"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:39
+#: ../source/guides/supporting-windows-using-appveyor.rst:33
 msgid "In order to use Appveyor to build Windows wheels for your project, you must have an account on the service. Instructions on setting up an account are given in `the Appveyor documentation <https://www.appveyor.com/docs/>`__. The free tier of account is perfectly adequate for open source projects."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:44
+#: ../source/guides/supporting-windows-using-appveyor.rst:38
 msgid "Appveyor provides integration with `GitHub`_ and `Bitbucket`_, so as long as your project is hosted on one of those two services, setting up Appveyor integration is straightforward."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:48
-msgid "Once you have set up your Appveyor account and added your project, Appveyor will automatically build your project each time a commit occurs. This behaviour will be familiar to users of Travis."
+#: ../source/guides/supporting-windows-using-appveyor.rst:42
+msgid "Once you have set up your Appveyor account and added your project, Appveyor will automatically build your project each time a commit occurs."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:53
+#: ../source/guides/supporting-windows-using-appveyor.rst:46
 msgid "Adding Appveyor support to your project"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:55
+#: ../source/guides/supporting-windows-using-appveyor.rst:48
 msgid "In order to define how Appveyor should build your project, you need to add an :file:`appveyor.yml` file to your project. The full details of what can be included in the file are covered in the Appveyor documentation. This guide will provide the details necessary to set up wheel builds."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:60
+#: ../source/guides/supporting-windows-using-appveyor.rst:53
 msgid "Appveyor includes by default all of the compiler toolchains needed to build extensions for Python. For Python 2.7, 3.5+ and 32-bit versions of 3.3 and 3.4, the tools work out of the box. But for 64-bit versions of Python 3.3 and 3.4, there is a small amount of additional configuration needed to let distutils know where to find the 64-bit compilers. (From 3.5 onwards, the version of Visual Studio used includes 64-bit compilers with no additional setup)."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:68
+#: ../source/guides/supporting-windows-using-appveyor.rst:61
 msgid "appveyor.yml"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:74
+#: ../source/guides/supporting-windows-using-appveyor.rst:67
 msgid "This file can be downloaded from `here <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/appveyor.yml>`__."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:76
+#: ../source/guides/supporting-windows-using-appveyor.rst:69
 msgid "The :file:`appveyor.yml` file must be located in the root directory of your project. It is in ``YAML`` format, and consists of a number of sections."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:79
+#: ../source/guides/supporting-windows-using-appveyor.rst:72
 msgid "The ``environment`` section is the key to defining the Python versions for which your wheels will be created. Appveyor comes with Python 2.6, 2.7, 3.3, 3.4 and 3.5 installed, in both 32-bit and 64-bit builds. The example file builds for all of these environments except Python 2.6. Installing for Python 2.6 is more complex, as it does not come with pip included. We don't support 2.6 in this document (as Windows users still using Python 2 are generally able to move to Python 2.7 without too much difficulty)."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:87
+#: ../source/guides/supporting-windows-using-appveyor.rst:80
 msgid "The ``install`` section uses pip to install any additional software that the project may require. The only requirement for building wheels is the ``wheel`` project, but projects may wish to customise this code in certain circumstances (for example, to install additional build packages such as ``Cython``, or test tools such as ``tox``)."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:93
+#: ../source/guides/supporting-windows-using-appveyor.rst:86
 msgid "The ``build`` section simply switches off builds - there is no build step needed for Python, unlike languages like ``C#``."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:96
+#: ../source/guides/supporting-windows-using-appveyor.rst:89
 msgid "The main sections that will need to be tailored to your project are ``test_script`` and ``after_test``."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:99
+#: ../source/guides/supporting-windows-using-appveyor.rst:92
 msgid "The ``test_script`` section is where you will run your project's tests. The supplied file runs your test suite using ``setup.py test``. If you are only interested in building wheels, and not in running your tests on Windows, you can replace this section with a dummy command such as ``echo Skipped Tests``. You may wish to use another test tool, such as ``nose`` or :file:`py.test`.  Or you may wish to use a test driver like ``tox`` - however if you are using ``tox`` there are some additional configuration changes you will need to consider, which are described below."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:108
+#: ../source/guides/supporting-windows-using-appveyor.rst:101
 msgid "The ``after_test`` runs once your tests have completed, and so is where the wheels should be built. Assuming your project uses the recommended tools (specifically, ``setuptools``) then the ``setup.py bdist_wheel`` command will build your wheels."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:113
+#: ../source/guides/supporting-windows-using-appveyor.rst:106
 msgid "Note that wheels will only be built if your tests succeed. If you expect your tests to fail on Windows, you can skip them as described above."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:118
+#: ../source/guides/supporting-windows-using-appveyor.rst:111
 msgid "Support script"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:120
+#: ../source/guides/supporting-windows-using-appveyor.rst:113
 msgid "The :file:`appveyor.yml` file relies on a single support script, which sets up the environment to use the SDK compiler for 64-bit builds on Python 3.3 and 3.4.  For projects which do not need a compiler, or which don't support 3.3 or 3.4 on 64-bit Windows, only the :file:`appveyor.yml` file is needed."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:125
+#: ../source/guides/supporting-windows-using-appveyor.rst:118
 msgid "`build.cmd <https://raw.githubusercontent.com/pypa/python-packaging-user-guide/master/source/guides/appveyor-sample/build.cmd>`__ is a Windows batch script that runs a single command in an environment with the appropriate compiler for the selected Python version. All you need to do is to set the single environment variable ``DISTUTILS_USE_SDK`` to a value of ``1`` and the script does the rest. It sets up the SDK needed for 64-bit builds of Python 3.3 or 3.4, so don't set the environment variable for any other builds."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:132
+#: ../source/guides/supporting-windows-using-appveyor.rst:125
 msgid "You can simply download the batch file and include it in your project unchanged."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:136
+#: ../source/guides/supporting-windows-using-appveyor.rst:129
 msgid "Access to the built wheels"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:138
+#: ../source/guides/supporting-windows-using-appveyor.rst:131
 msgid "When your build completes, the built wheels will be available from the Appveyor control panel for your project. They can be found by going to the build status page for each build in turn. At the top of the build output there is a series of links, one of which is \"Artifacts\". That page will include a list of links to the wheels for that Python version / architecture. You can download those wheels and upload them to PyPI as part of your release process."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:149
+#: ../source/guides/supporting-windows-using-appveyor.rst:142
 msgid "Testing with tox"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:151
+#: ../source/guides/supporting-windows-using-appveyor.rst:144
 msgid "Many projects use the :doc:`Tox <tox:index>` tool to run their tests. It ensures that tests are run in an isolated environment using the exact files that will be distributed by the project."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:155
+#: ../source/guides/supporting-windows-using-appveyor.rst:148
 msgid "In order to use ``tox`` on Appveyor there are a couple of additional considerations (in actual fact, these issues are not specific to Appveyor, and may well affect other CI systems)."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:159
+#: ../source/guides/supporting-windows-using-appveyor.rst:152
 msgid "By default, ``tox`` only passes a chosen subset of environment variables to the test processes. Because ``distutils`` uses environment variables to control the compiler, this \"test isolation\" feature will cause the tests to use the wrong compiler by default."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:164
+#: ../source/guides/supporting-windows-using-appveyor.rst:157
 msgid "To force ``tox`` to pass the necessary environment variables to the subprocess, you need to set the ``tox`` configuration option ``passenv`` to list the additional environment variables to be passed to the subprocess. For the SDK compilers, you need"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:169
+#: ../source/guides/supporting-windows-using-appveyor.rst:162
 msgid "``DISTUTILS_USE_SDK``"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:170
+#: ../source/guides/supporting-windows-using-appveyor.rst:163
 msgid "``MSSdk``"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:171
+#: ../source/guides/supporting-windows-using-appveyor.rst:164
 msgid "``INCLUDE``"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:172
+#: ../source/guides/supporting-windows-using-appveyor.rst:165
 msgid "``LIB``"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:174
+#: ../source/guides/supporting-windows-using-appveyor.rst:167
 msgid "The ``passenv`` option can be set in your :file:`tox.ini`, or if you prefer to avoid adding Windows-specific settings to your general project files, it can be set by setting the ``TOX_TESTENV_PASSENV`` environment variable. The supplied :file:`build.cmd` script does this by default whenever ``DISTUTILS_USE_SDK`` is set."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:180
-msgid "When used interactively, ``tox`` allows you to run your tests against multiple environments (often, this means multiple Python versions). This feature is not as useful in a CI environment like Travis or Appveyor, where all tests are run in isolated environments for each configuration. As a result, projects often supply an argument ``-e ENVNAME`` to ``tox`` to specify which environment to use (there are default environments for most versions of Python)."
+#: ../source/guides/supporting-windows-using-appveyor.rst:173
+msgid "When used interactively, ``tox`` allows you to run your tests against multiple environments (often, this means multiple Python versions). This feature is not as useful in a CI environment like Appveyor, where all tests are run in isolated environments for each configuration. As a result, projects often supply an argument ``-e ENVNAME`` to ``tox`` to specify which environment to use (there are default environments for most versions of Python)."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:187
+#: ../source/guides/supporting-windows-using-appveyor.rst:180
 msgid "However, this does *not* work well with a Windows CI system like Appveyor, where there are (for example) two installations of Python 3.4 (32-bit and 64-bit) available, but only one ``py34`` environment in ``tox``."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:191
+#: ../source/guides/supporting-windows-using-appveyor.rst:184
 msgid "In order to run tests using ``tox``, therefore, projects should probably use the default ``py`` environment in ``tox``, which uses the Python interpreter that was used to run ``tox``. This will ensure that when Appveyor runs the tests, they will be run with the configured interpreter."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:196
+#: ../source/guides/supporting-windows-using-appveyor.rst:189
 msgid "In order to support running under the ``py`` environment, it is possible that projects with complex ``tox`` configurations might need to modify their :file:`tox.ini` file. Doing so is, however, outside the scope of this document."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:202
+#: ../source/guides/supporting-windows-using-appveyor.rst:195
 msgid "Automatically uploading wheels"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:204
+#: ../source/guides/supporting-windows-using-appveyor.rst:197
 msgid "It is possible to request Appveyor to automatically upload wheels. There is a ``deployment`` step available in :file:`appveyor.yml` that can be used to (for example) copy the built artifacts to a FTP site, or an Amazon S3 instance. Documentation on how to do this is included in the Appveyor guides."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:209
+#: ../source/guides/supporting-windows-using-appveyor.rst:202
 msgid "Alternatively, it would be possible to add a ``twine upload`` step to the build.  The supplied :file:`appveyor.yml` does not do this, as it is not clear that uploading new wheels after every commit is desirable (although some projects may wish to do this)."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:215
+#: ../source/guides/supporting-windows-using-appveyor.rst:208
 msgid "External dependencies"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:217
+#: ../source/guides/supporting-windows-using-appveyor.rst:210
 msgid "The supplied scripts will successfully build any distribution that does not rely on 3rd party external libraries for the build."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:220
+#: ../source/guides/supporting-windows-using-appveyor.rst:213
 msgid "It is possible to add steps to the :file:`appveyor.yml` configuration (typically in the \"install\" section) to download and/or build external libraries needed by the distribution. And if needed, it is possible to add extra configuration for the build to supply the location of these libraries to the compiler. However, this level of configuration is beyond the scope of this document."
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:229
+#: ../source/guides/supporting-windows-using-appveyor.rst:222
 msgid "Support scripts"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:231
+#: ../source/guides/supporting-windows-using-appveyor.rst:224
 msgid "For reference, the SDK setup support script is listed here:"
 msgstr ""
 
-#: ../source/guides/supporting-windows-using-appveyor.rst:233
+#: ../source/guides/supporting-windows-using-appveyor.rst:226
 msgid "``appveyor-sample/build.cmd``"
 msgstr ""
 
@@ -9147,7 +9143,7 @@ msgstr ""
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:440
-#: ../source/specifications/pylock-toml.rst:826
+#: ../source/specifications/pylock-toml.rst:841
 #: ../source/specifications/pyproject-toml.rst:632
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:974
@@ -9214,7 +9210,7 @@ msgstr ""
 #: ../source/specifications/build-details/index.rst:28
 #: ../source/specifications/build-details/v1.0.rst:16
 #: ../source/specifications/inline-script-metadata.rst:100
-#: ../source/specifications/pylock-toml.rst:722
+#: ../source/specifications/pylock-toml.rst:737
 msgid "Example"
 msgstr ""
 
@@ -13264,8 +13260,8 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:298
 #: ../source/specifications/pylock-toml.rst:348
 #: ../source/specifications/pylock-toml.rst:397
-#: ../source/specifications/pylock-toml.rst:494
-#: ../source/specifications/pylock-toml.rst:689
+#: ../source/specifications/pylock-toml.rst:505
+#: ../source/specifications/pylock-toml.rst:704
 msgid "**Required?**: yes"
 msgstr ""
 
@@ -13309,18 +13305,18 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:334
 #: ../source/specifications/pylock-toml.rst:362
 #: ../source/specifications/pylock-toml.rst:435
-#: ../source/specifications/pylock-toml.rst:469
-#: ../source/specifications/pylock-toml.rst:482
-#: ../source/specifications/pylock-toml.rst:519
-#: ../source/specifications/pylock-toml.rst:674
-#: ../source/specifications/pylock-toml.rst:700
+#: ../source/specifications/pylock-toml.rst:480
+#: ../source/specifications/pylock-toml.rst:493
+#: ../source/specifications/pylock-toml.rst:530
+#: ../source/specifications/pylock-toml.rst:689
 #: ../source/specifications/pylock-toml.rst:715
+#: ../source/specifications/pylock-toml.rst:730
 msgid "**Required?**: no"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:85
-#: ../source/specifications/pylock-toml.rst:520
-#: ../source/specifications/pylock-toml.rst:538
+#: ../source/specifications/pylock-toml.rst:531
+#: ../source/specifications/pylock-toml.rst:549
 msgid "**Inspiration**: uv_"
 msgstr ""
 
@@ -13344,19 +13340,21 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:347
 #: ../source/specifications/pylock-toml.rst:361
 #: ../source/specifications/pylock-toml.rst:396
-#: ../source/specifications/pylock-toml.rst:518
-#: ../source/specifications/pylock-toml.rst:551
-#: ../source/specifications/pylock-toml.rst:620
-#: ../source/specifications/pylock-toml.rst:688
+#: ../source/specifications/pylock-toml.rst:452
+#: ../source/specifications/pylock-toml.rst:463
+#: ../source/specifications/pylock-toml.rst:529
+#: ../source/specifications/pylock-toml.rst:562
+#: ../source/specifications/pylock-toml.rst:633
+#: ../source/specifications/pylock-toml.rst:703
 msgid "**Type**: string"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:99
 #: ../source/specifications/pylock-toml.rst:190
 #: ../source/specifications/pylock-toml.rst:256
-#: ../source/specifications/pylock-toml.rst:555
-#: ../source/specifications/pylock-toml.rst:608
-#: ../source/specifications/pylock-toml.rst:624
+#: ../source/specifications/pylock-toml.rst:566
+#: ../source/specifications/pylock-toml.rst:621
+#: ../source/specifications/pylock-toml.rst:637
 msgid "**Inspiration**: PDM_, Poetry_, uv_"
 msgstr ""
 
@@ -13396,8 +13394,8 @@ msgid "``dependency-groups``"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:134
-#: ../source/specifications/pylock-toml.rst:701
 #: ../source/specifications/pylock-toml.rst:716
+#: ../source/specifications/pylock-toml.rst:731
 msgid "**Inspiration**: :ref:`pyproject-tool-table`"
 msgstr ""
 
@@ -13459,8 +13457,8 @@ msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:188
 #: ../source/specifications/pylock-toml.rst:254
-#: ../source/specifications/pylock-toml.rst:605
-#: ../source/specifications/pylock-toml.rst:673
+#: ../source/specifications/pylock-toml.rst:618
+#: ../source/specifications/pylock-toml.rst:688
 msgid "**Type**: array of tables"
 msgstr ""
 
@@ -13551,9 +13549,9 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:274
 #: ../source/specifications/pylock-toml.rst:376
 #: ../source/specifications/pylock-toml.rst:434
-#: ../source/specifications/pylock-toml.rst:535
-#: ../source/specifications/pylock-toml.rst:699
+#: ../source/specifications/pylock-toml.rst:546
 #: ../source/specifications/pylock-toml.rst:714
+#: ../source/specifications/pylock-toml.rst:729
 msgid "**Type**: table"
 msgstr ""
 
@@ -13630,10 +13628,12 @@ msgid "The path to the local directory of the source tree."
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:323
+#: ../source/specifications/pylock-toml.rst:467
 msgid "If a relative path is used it MUST be relative to the location of this file."
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:324
+#: ../source/specifications/pylock-toml.rst:468
 msgid "If the path is relative it MAY use POSIX-style path separators explicitly for portability."
 msgstr ""
 
@@ -13748,7 +13748,7 @@ msgid "``packages.directory.subdirectory``"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:426
-#: ../source/specifications/pylock-toml.rst:510
+#: ../source/specifications/pylock-toml.rst:521
 msgid "See :ref:`pylock-packages-vcs-subdirectory`."
 msgstr ""
 
@@ -13757,6 +13757,8 @@ msgid "``[packages.archive]``"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:436
+#: ../source/specifications/pylock-toml.rst:454
+#: ../source/specifications/pylock-toml.rst:465
 msgid "**Inspiration**: :ref:`direct-url-data-structure-archive`"
 msgstr ""
 
@@ -13780,424 +13782,448 @@ msgstr ""
 msgid "``packages.archive.url``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:452
-msgid "See :ref:`pylock-packages-vcs-url`."
+#: ../source/specifications/pylock-toml.rst:453
+msgid "**Required?**: if :ref:`pylock-packages-archive-path` is not specified"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:458
+#: ../source/specifications/pylock-toml.rst:455
+msgid "The URL_ to the archive."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:461
 msgid "``packages.archive.path``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:460
-msgid "See :ref:`pylock-packages-vcs-path`."
+#: ../source/specifications/pylock-toml.rst:464
+msgid "**Required?**: if :ref:`pylock-packages-archive-url` is not specified"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:466
-msgid "``packages.archive.size``"
-msgstr ""
-
-#: ../source/specifications/pylock-toml.rst:468
-msgid "**Type**: integer"
+msgid "The path to the archive."
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:470
-msgid "**Inspiration**: uv_, :ref:`simple-repository-api`"
+msgid "If :ref:`pylock-packages-archive-url` is also specified, the filename as specified by this key takes precedence."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:471
-msgid "The size of the archive file."
-msgstr ""
-
-#: ../source/specifications/pylock-toml.rst:472
-msgid "Tools SHOULD provide the file size when reasonably possible (e.g. the file size is available via the Content-Length_ header from a HEAD_ HTTP request)."
+#: ../source/specifications/pylock-toml.rst:477
+msgid "``packages.archive.size``"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:479
-msgid "``packages.archive.upload-time``"
+msgid "**Type**: integer"
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:481
-msgid "**Type**: datetime"
+msgid "**Inspiration**: uv_, :ref:`simple-repository-api`"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:482
+msgid "The size of the archive file."
 msgstr ""
 
 #: ../source/specifications/pylock-toml.rst:483
+msgid "Tools SHOULD provide the file size when reasonably possible (e.g. the file size is available via the Content-Length_ header from a HEAD_ HTTP request)."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:490
+msgid "``packages.archive.upload-time``"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:492
+msgid "**Type**: datetime"
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:494
 msgid "**Inspiration**: :ref:`simple-repository-api`"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:484
+#: ../source/specifications/pylock-toml.rst:495
 msgid "The time the file was uploaded."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:485
+#: ../source/specifications/pylock-toml.rst:496
 msgid "The date and time MUST be recorded in UTC."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:491
+#: ../source/specifications/pylock-toml.rst:502
 msgid "``[packages.archive.hashes]``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:493
+#: ../source/specifications/pylock-toml.rst:504
 msgid "**Type**: Table of strings"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:495
+#: ../source/specifications/pylock-toml.rst:506
 msgid "**Inspiration**: PDM_, Poetry_, uv_, :ref:`simple-repository-api`"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:496
+#: ../source/specifications/pylock-toml.rst:507
 msgid "A table listing known hash values of the file where the key is the hash algorithm and the value is the hash value."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:498
+#: ../source/specifications/pylock-toml.rst:509
 msgid "The table MUST contain at least one entry."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:499
+#: ../source/specifications/pylock-toml.rst:510
 msgid "Hash algorithm keys SHOULD be lowercase."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:500
+#: ../source/specifications/pylock-toml.rst:511
 msgid "At least one secure algorithm from :py:data:`hashlib.algorithms_guaranteed` SHOULD always be included (at time of writing, sha256 specifically is recommended."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:508
+#: ../source/specifications/pylock-toml.rst:519
 msgid "``packages.archive.subdirectory``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:516
+#: ../source/specifications/pylock-toml.rst:527
 msgid "``packages.index``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:521
+#: ../source/specifications/pylock-toml.rst:532
 msgid "The base URL for the package index from :ref:`simple-repository-api` where the sdist and/or wheels were found (e.g. ``https://pypi.org/simple/``)."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:523
+#: ../source/specifications/pylock-toml.rst:534
 msgid "When possible, this SHOULD be specified to assist with generating `software bill of materials`_ -- aka SBOMs -- and to assist in finding a file if a URL ceases to be valid."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:526
+#: ../source/specifications/pylock-toml.rst:537
 msgid "Tools MAY support installing from an index if the URL recorded for a specific file is no longer valid (e.g. returns a 404 HTTP error code)."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:533
+#: ../source/specifications/pylock-toml.rst:544
 msgid "``[packages.sdist]``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:536
-#: ../source/specifications/pylock-toml.rst:606
+#: ../source/specifications/pylock-toml.rst:547
+#: ../source/specifications/pylock-toml.rst:619
 msgid "**Required?**: no; mutually-exclusive with :ref:`pylock-packages-vcs`, :ref:`pylock-packages-directory`, and :ref:`pylock-packages-archive`"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:539
+#: ../source/specifications/pylock-toml.rst:550
 msgid "Details of a :ref:`source-distribution-format-sdist` for the package."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:541
+#: ../source/specifications/pylock-toml.rst:552
 msgid "Tools MAY choose to not support sdist files, both from a locking and/or installation perspective."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:543
+#: ../source/specifications/pylock-toml.rst:554
 msgid "Tools SHOULD provide a way for users to opt in/out of using sdist files."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:549
+#: ../source/specifications/pylock-toml.rst:560
 msgid "``packages.sdist.name``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:552
+#: ../source/specifications/pylock-toml.rst:563
 msgid "**Required?**: no, not when the last component of :ref:`pylock-packages-sdist-path`/ :ref:`pylock-packages-sdist-url` would be the same value"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:556
+#: ../source/specifications/pylock-toml.rst:567
 msgid "The file name of the :ref:`source-distribution-format-sdist` file."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:562
+#: ../source/specifications/pylock-toml.rst:568
+msgid "If specified, this key's value takes precedence over the file name found in either :ref:`pylock-packages-sdist-url` or :ref:`pylock-packages-sdist-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:575
 msgid "``packages.sdist.upload-time``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:564
-#: ../source/specifications/pylock-toml.rst:633
+#: ../source/specifications/pylock-toml.rst:577
+#: ../source/specifications/pylock-toml.rst:648
 msgid "See :ref:`pylock-packages-archive-upload-time`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:570
+#: ../source/specifications/pylock-toml.rst:583
 msgid "``packages.sdist.url``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:572
-#: ../source/specifications/pylock-toml.rst:641
+#: ../source/specifications/pylock-toml.rst:585
+#: ../source/specifications/pylock-toml.rst:656
 msgid "See :ref:`pylock-packages-archive-url`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:578
+#: ../source/specifications/pylock-toml.rst:591
 msgid "``packages.sdist.path``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:580
-#: ../source/specifications/pylock-toml.rst:649
+#: ../source/specifications/pylock-toml.rst:593
+#: ../source/specifications/pylock-toml.rst:664
 msgid "See :ref:`pylock-packages-archive-path`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:586
+#: ../source/specifications/pylock-toml.rst:599
 msgid "``packages.sdist.size``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:588
-#: ../source/specifications/pylock-toml.rst:657
+#: ../source/specifications/pylock-toml.rst:601
+#: ../source/specifications/pylock-toml.rst:672
 msgid "See :ref:`pylock-packages-archive-size`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:594
+#: ../source/specifications/pylock-toml.rst:607
 msgid "``packages.sdist.hashes``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:596
-#: ../source/specifications/pylock-toml.rst:665
+#: ../source/specifications/pylock-toml.rst:609
+#: ../source/specifications/pylock-toml.rst:680
 msgid "See :ref:`pylock-packages-archive-hashes`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:603
+#: ../source/specifications/pylock-toml.rst:616
 msgid "``[[packages.wheels]]``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:609
+#: ../source/specifications/pylock-toml.rst:622
 msgid "For recording the wheel files as specified by :ref:`binary-distribution-format` for the package."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:611
+#: ../source/specifications/pylock-toml.rst:624
 msgid "Tools MUST support wheel files, both from a locking and installation perspective."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:618
+#: ../source/specifications/pylock-toml.rst:631
 msgid "``packages.wheels.name``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:621
+#: ../source/specifications/pylock-toml.rst:634
 msgid "**Required?**: no, not when the last component of :ref:`pylock-packages-wheels-path`/ :ref:`pylock-packages-wheels-url` would be the same value"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:625
+#: ../source/specifications/pylock-toml.rst:638
 msgid "The file name of the :ref:`binary-distribution-format` file."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:631
+#: ../source/specifications/pylock-toml.rst:639
+msgid "If specified, this key's value takes precedence over the file name found in either :ref:`pylock-packages-wheels-url` or :ref:`pylock-packages-wheels-path`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:646
 msgid "``packages.wheels.upload-time``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:639
+#: ../source/specifications/pylock-toml.rst:654
 msgid "``packages.wheels.url``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:647
+#: ../source/specifications/pylock-toml.rst:662
 msgid "``packages.wheels.path``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:655
+#: ../source/specifications/pylock-toml.rst:670
 msgid "``packages.wheels.size``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:663
+#: ../source/specifications/pylock-toml.rst:678
 msgid "``packages.wheels.hashes``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:671
+#: ../source/specifications/pylock-toml.rst:686
 msgid "``[[packages.attestation-identities]]``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:675
 #: ../source/specifications/pylock-toml.rst:690
+#: ../source/specifications/pylock-toml.rst:705
 msgid "**Inspiration**: :ref:`provenance-object`"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:676
+#: ../source/specifications/pylock-toml.rst:691
 msgid "A recording of the attestations for **any** file recorded for this package."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:677
+#: ../source/specifications/pylock-toml.rst:692
 msgid "If available, tools SHOULD include the attestation identities found."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:678
+#: ../source/specifications/pylock-toml.rst:693
 msgid "Publisher-specific keys are to be included in the table as-is (i.e. top-level), following the spec at :ref:`index-hosted-attestations`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:686
+#: ../source/specifications/pylock-toml.rst:701
 msgid "``packages.attestation-identities.kind``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:691
+#: ../source/specifications/pylock-toml.rst:706
 msgid "The unique identity of the Trusted Publisher."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:697
+#: ../source/specifications/pylock-toml.rst:712
 msgid "``[packages.tool]``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:702
+#: ../source/specifications/pylock-toml.rst:717
 msgid "Similar usage as that of the :ref:`pylock-tool` table from the :ref:`pyproject-toml-spec`, but at the package version level instead of at the lock file level (which is also available via :ref:`pylock-tool`)."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:705
+#: ../source/specifications/pylock-toml.rst:720
 msgid "Data recorded in the table MUST be disposable (i.e. it MUST NOT affect installation)."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:712
+#: ../source/specifications/pylock-toml.rst:727
 msgid "``[tool]``"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:717
+#: ../source/specifications/pylock-toml.rst:732
 msgid "See :ref:`pylock-packages-tool`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:731
+#: ../source/specifications/pylock-toml.rst:746
 msgid "The following outlines the steps to be taken to install from a lock file (while the requirements are prescriptive, the general steps and order are a suggestion):"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:735
+#: ../source/specifications/pylock-toml.rst:750
 msgid "Gather the extras and dependency groups to install and set ``extras`` and ``dependency_groups`` for marker evaluation, respectively."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:738
+#: ../source/specifications/pylock-toml.rst:753
 msgid "``extras`` SHOULD be set to the empty set by default."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:739
+#: ../source/specifications/pylock-toml.rst:754
 msgid "``dependency_groups`` SHOULD be the set created from :ref:`pylock-default-groups` by default."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:742
+#: ../source/specifications/pylock-toml.rst:757
 msgid "Check if the metadata version specified by :ref:`pylock-lock-version` is supported; an error or warning MUST be raised as appropriate."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:744
+#: ../source/specifications/pylock-toml.rst:759
 msgid "If :ref:`pylock-requires-python` is specified, check that the environment being installed for meets the requirement; an error MUST be raised if it is not met."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:747
+#: ../source/specifications/pylock-toml.rst:762
 msgid "If :ref:`pylock-environments` is specified, check that at least one of the environment marker expressions is satisfied; an error MUST be raised if no expression is satisfied."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:750
+#: ../source/specifications/pylock-toml.rst:765
 msgid "For each package listed in :ref:`pylock-packages`:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:752
+#: ../source/specifications/pylock-toml.rst:767
 msgid "If :ref:`pylock-packages-marker` is specified, check if it is satisfied; if it isn't, skip to the next package."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:754
+#: ../source/specifications/pylock-toml.rst:769
 msgid "If :ref:`pylock-packages-requires-python` is specified, check if it is satisfied; an error MUST be raised if it isn't."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:756
+#: ../source/specifications/pylock-toml.rst:771
 msgid "Check that no other conflicting instance of the package has been slated to be installed; an error about the ambiguity MUST be raised otherwise."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:758
+#: ../source/specifications/pylock-toml.rst:773
 msgid "Check that the source of the package is specified appropriately (i.e. there are no conflicting sources in the package entry); an error MUST be raised if any issues are found."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:761
+#: ../source/specifications/pylock-toml.rst:776
 msgid "Add the package to the set of packages to install."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:763
+#: ../source/specifications/pylock-toml.rst:778
 msgid "For each package to be installed:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:765
+#: ../source/specifications/pylock-toml.rst:780
 msgid "If :ref:`pylock-packages-vcs` is set:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:767
+#: ../source/specifications/pylock-toml.rst:782
 msgid "Clone the repository to the commit ID specified in :ref:`pylock-packages-vcs-commit-id`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:769
+#: ../source/specifications/pylock-toml.rst:784
 msgid ":ref:`Build <source-distribution-format-source-tree>` the package, respecting :ref:`pylock-packages-vcs-subdirectory`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:771
-#: ../source/specifications/pylock-toml.rst:777
 #: ../source/specifications/pylock-toml.rst:786
-#: ../source/specifications/pylock-toml.rst:806
+#: ../source/specifications/pylock-toml.rst:792
+#: ../source/specifications/pylock-toml.rst:801
 #: ../source/specifications/pylock-toml.rst:821
+#: ../source/specifications/pylock-toml.rst:836
 msgid ":ref:`Install <binary-distribution-format>`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:773
+#: ../source/specifications/pylock-toml.rst:788
 msgid "Else if :ref:`pylock-packages-directory` is set:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:775
+#: ../source/specifications/pylock-toml.rst:790
 msgid ":ref:`Build <source-distribution-format-source-tree>` the package, respecting :ref:`pylock-packages-directory-subdirectory`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:779
+#: ../source/specifications/pylock-toml.rst:794
 msgid "Else if :ref:`pylock-packages-archive` is set:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:781
-#: ../source/specifications/pylock-toml.rst:811
+#: ../source/specifications/pylock-toml.rst:796
+#: ../source/specifications/pylock-toml.rst:826
 msgid "Get the file."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:782
+#: ../source/specifications/pylock-toml.rst:797
 msgid "Validate using :ref:`pylock-packages-archive-size` and :ref:`pylock-packages-archive-hashes`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:784
+#: ../source/specifications/pylock-toml.rst:799
 msgid ":ref:`Build <source-distribution-format-source-tree>` the package, respecting :ref:`pylock-packages-archive-subdirectory`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:788
+#: ../source/specifications/pylock-toml.rst:803
 msgid "Else if there are entries for :ref:`pylock-packages-wheels`:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:790
+#: ../source/specifications/pylock-toml.rst:805
 msgid "Look for the appropriate wheel file based on :ref:`pylock-packages-wheels-name`; if one is not found then move on to :ref:`pylock-packages-sdist` or an error MUST be raised about a lack of source for the project."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:794
+#: ../source/specifications/pylock-toml.rst:809
 msgid "Get the file:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:796
+#: ../source/specifications/pylock-toml.rst:811
 msgid "If :ref:`pylock-packages-wheels-path` is set, use it."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:797
+#: ../source/specifications/pylock-toml.rst:812
 msgid "Else if :ref:`pylock-packages-wheels-url` is set, try to use it; optionally tools MAY use :ref:`pylock-packages-index` or some tool-specific mechanism to download the selected wheel file (tools MUST NOT try to change what wheel file to download based on what's available; what file to install should be determined in an offline fashion for reproducibility)."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:804
+#: ../source/specifications/pylock-toml.rst:819
 msgid "Validate using :ref:`pylock-packages-wheels-size` and :ref:`pylock-packages-wheels-hashes`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:808
+#: ../source/specifications/pylock-toml.rst:823
 msgid "Else if no :ref:`pylock-packages-wheels` file is found or :ref:`pylock-packages-sdist` is solely set:"
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:813
+#: ../source/specifications/pylock-toml.rst:828
 msgid "If :ref:`pylock-packages-sdist-path` is set, use it."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:814
+#: ../source/specifications/pylock-toml.rst:829
 msgid "Else if :ref:`pylock-packages-sdist-url` is set, try to use it; tools MAY use :ref:`pylock-packages-index` or some tool-specific mechanism to download the file."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:818
+#: ../source/specifications/pylock-toml.rst:833
 msgid "Validate using :ref:`pylock-packages-sdist-size` and :ref:`pylock-packages-sdist-hashes`."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:820
+#: ../source/specifications/pylock-toml.rst:835
 msgid ":ref:`Build <source-distribution-format-sdist>` the package."
 msgstr ""
 
-#: ../source/specifications/pylock-toml.rst:828
+#: ../source/specifications/pylock-toml.rst:843
 msgid "April 2025: Initial version, approved via :pep:`751`."
+msgstr ""
+
+#: ../source/specifications/pylock-toml.rst:844
+msgid "March 2026: Clarify file name precedence for archives, sdists, and wheels."
 msgstr ""
 
 #: ../source/specifications/pypirc.rst:6
