@@ -20,12 +20,6 @@ Many projects are developed on Unix by default, and providing Windows support
 can be a challenge, because setting up a suitable Windows test environment is
 non-trivial, and may require buying software licenses.
 
-The Appveyor service is a continuous integration service, much like the
-better-known `Travis`_ service that is commonly used for testing by projects
-hosted on `GitHub`_. However, unlike Travis, the build workers on Appveyor are
-Windows hosts and have the necessary compilers installed to build Python
-extensions.
-
 Windows users typically do not have access to a C compiler, and therefore are
 reliant on projects that use C extensions distributing binary wheels on PyPI in
 order for the distribution to be installable via ``python -m pip install <dist>``. By
@@ -46,8 +40,7 @@ your project is hosted on one of those two services, setting up Appveyor
 integration is straightforward.
 
 Once you have set up your Appveyor account and added your project, Appveyor will
-automatically build your project each time a commit occurs. This behaviour will
-be familiar to users of Travis.
+automatically build your project each time a commit occurs.
 
 Adding Appveyor support to your project
 =======================================
@@ -179,7 +172,7 @@ other CI systems).
 
 2. When used interactively, ``tox`` allows you to run your tests against multiple
    environments (often, this means multiple Python versions). This feature is not as
-   useful in a CI environment like Travis or Appveyor, where all tests are run in
+   useful in a CI environment like Appveyor, where all tests are run in
    isolated environments for each configuration. As a result, projects often supply
    an argument ``-e ENVNAME`` to ``tox`` to specify which environment to use (there
    are default environments for most versions of Python).
@@ -237,6 +230,6 @@ For reference, the SDK setup support script is listed here:
    :linenos:
 
 .. _Appveyor: https://www.appveyor.com/
-.. _Travis: https://travis-ci.com/
 .. _GitHub: https://github.com
+.. _GitHub Actions: https://docs.github.com/en/actions
 .. _Bitbucket: https://bitbucket.org/
