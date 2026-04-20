@@ -160,6 +160,8 @@ linkcheck_ignore = [
     # Temporarily ignored due to expired TLS cert.
     # Ref: https://github.com/pypa/packaging.python.org/issues/1998
     r"https://blog\.ganssle\.io/.*",
+    # Temporarily ignored due to expired TLS cert.
+    r"https://kivy.org/.*",
 ]
 linkcheck_retries = 2
 linkcheck_timeout = 30
