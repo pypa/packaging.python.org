@@ -160,8 +160,11 @@ linkcheck_ignore = [
     # Temporarily ignored due to expired TLS cert.
     # Ref: https://github.com/pypa/packaging.python.org/issues/1998
     r"https://blog\.ganssle\.io/.*",
+    # Temporarily ignored due to expired TLS cert.
+    r"https://kivy.org/.*",
 ]
-linkcheck_retries = 5
+linkcheck_retries = 2
+linkcheck_timeout = 30
 # Ignore anchors for common targets when we know they likely won't be found
 linkcheck_anchors_ignore_for_url = [
     # GitHub synthesises anchors in JavaScript, so Sphinx can't find them in the HTML
@@ -171,6 +174,13 @@ linkcheck_anchors_ignore_for_url = [
     # https://github.com/pypa/packaging.python.org/issues/1744
     r"https://pypi\.org/",
 ]
+# Authenticate requests to github.com (when a token is available) to avoid
+# unauthenticated rate limits that can stall linkcheck for hours on CI.
+if _gh_token := os.getenv("GITHUB_TOKEN"):
+    linkcheck_request_headers = {
+        "https://github.com/": {"Authorization": f"Bearer {_gh_token}"},
+        "https://api.github.com/": {"Authorization": f"Bearer {_gh_token}"},
+    }
 
 # -- Options for extlinks ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html#configuration

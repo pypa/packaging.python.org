@@ -827,6 +827,19 @@ scientific applications on clusters and supercomputers.
 Spack is not in PyPI (yet), but it requires no installation and can be
 used immediately after cloning from GitHub.
 
+.. _uv:
+
+uv
+==
+
+`Docs <https://docs.astral.sh/uv/>`__ |
+`GitHub <https://github.com/astral-sh/uv>`__ |
+`PyPI <https://pypi.org/project/uv/>`__
+
+A Python package and project manager, written in Rust for high performance. It
+supports creating and managing virtual environments, installing packages,
+locking dependencies, and managing Python versions and projects.
+
 .. _zestreleaser:
 
 zest.releaser

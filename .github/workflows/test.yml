@@ -24,6 +24,7 @@ jobs:
     name: ${{ matrix.noxenv }}
     if: ${{ github.repository_owner == 'pypa' || github.event_name != 'schedule' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
       matrix:
         noxenv:
@@ -47,6 +48,9 @@ jobs:
           python -m pip install --upgrade nox virtualenv
 
       - name: Nox ${{ matrix.noxenv }}
+        env:
+          # Authenticate github.com requests during linkcheck to avoid rate limits.
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           python -m nox -s ${{ matrix.noxenv }}
 

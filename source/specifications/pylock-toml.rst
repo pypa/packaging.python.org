@@ -449,7 +449,10 @@ See :ref:`pylock-packages-vcs-subdirectory`.
 ``packages.archive.url``
 ''''''''''''''''''''''''
 
-See :ref:`pylock-packages-vcs-url`.
+- **Type**: string
+- **Required?**: if :ref:`pylock-packages-archive-path` is not specified
+- **Inspiration**: :ref:`direct-url-data-structure-archive`
+- The URL_ to the archive.
 
 
 .. _pylock-packages-archive-path:
@@ -457,7 +460,15 @@ See :ref:`pylock-packages-vcs-url`.
 ``packages.archive.path``
 '''''''''''''''''''''''''
 
-See :ref:`pylock-packages-vcs-path`.
+- **Type**: string
+- **Required?**: if :ref:`pylock-packages-archive-url` is not specified
+- **Inspiration**: :ref:`direct-url-data-structure-archive`
+- The path to the archive.
+- If a relative path is used it MUST be relative to the location of this file.
+- If the path is relative it MAY use POSIX-style path separators explicitly
+  for portability.
+- If :ref:`pylock-packages-archive-url` is also specified, the filename as
+  specified by this key takes precedence.
 
 
 .. _pylock-packages-archive-size:
@@ -554,6 +565,8 @@ See :ref:`pylock-packages-vcs-subdirectory`.
   the same value
 - **Inspiration**: PDM_, Poetry_, uv_
 - The file name of the :ref:`source-distribution-format-sdist` file.
+- If specified, this key's value takes precedence over the file name found in
+  either :ref:`pylock-packages-sdist-url` or :ref:`pylock-packages-sdist-path`.
 
 
 .. _pylock-packages-sdist-upload-time:
@@ -623,6 +636,8 @@ See :ref:`pylock-packages-archive-hashes`.
   the same value
 - **Inspiration**: PDM_, Poetry_, uv_
 - The file name of the :ref:`binary-distribution-format` file.
+- If specified, this key's value takes precedence over the file name found in
+  either :ref:`pylock-packages-wheels-url` or :ref:`pylock-packages-wheels-path`.
 
 
 .. _pylock-packages-wheels-upload-time:
@@ -826,6 +841,7 @@ History
 -------
 
 - April 2025: Initial version, approved via :pep:`751`.
+- March 2026: Clarify file name precedence for archives, sdists, and wheels.
 
 
 .. _Content-Length: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Length
