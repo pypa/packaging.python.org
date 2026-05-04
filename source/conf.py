@@ -198,6 +198,7 @@ extlinks = {
     "pr": (f"{github_repo_url}/pull/%s", "PR #%s"),
     "commit": (f"{github_repo_url}/commit/%s", "%s"),
     "gh": (f"{github_url}/%s", "GitHub: %s"),
+    "pypi": ("https://pypi.org/project/%s", "%s"),
     "user": (f"{github_sponsors_url}/%s", "@%s"),
 }
 
