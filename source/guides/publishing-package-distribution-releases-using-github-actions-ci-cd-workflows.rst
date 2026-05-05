@@ -107,6 +107,13 @@ build the distribution packages.
 First, we'll define the job for building the dist packages of
 your project and storing them for later use:
 
+.. tip::
+
+   If you adapt this workflow to build multiple platform-specific wheels, use
+   uniquely named artifacts for each build job and adjust the download step
+   accordingly. The `cibuildwheel GitHub Actions examples`_ show a fuller
+   wheel matrix layout.
+
 .. literalinclude:: github-actions-ci-cd-sample/publish-to-pypi.yml
    :language: yaml
    :start-at: jobs:
@@ -231,3 +238,5 @@ sure that your release pipeline remains healthy!
 .. _Secrets:
    https://docs.github.com/en/actions/reference/encrypted-secrets
 .. _Trusted Publishing: https://docs.pypi.org/trusted-publishers/
+.. _`cibuildwheel GitHub Actions examples`:
+   https://cibuildwheel.pypa.io/en/latest/ci-services/#github-actions
