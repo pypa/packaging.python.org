@@ -128,6 +128,10 @@ Whitespace
 Non line-breaking whitespace is mostly optional with no semantic meaning. The
 sole exception is detecting the end of a URL requirement.
 
+When a dependency specifier is written as a quoted string, authors may keep
+optional whitespace for readability, such as around version specifiers and
+version clauses.
+
 .. _dependency-specifiers-names:
 
 Names
