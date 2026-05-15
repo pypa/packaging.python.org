@@ -135,6 +135,12 @@ Downloading packages
 
 ``pypi.org`` is the default host for downloading packages.
 
+If downloads still use the old ``pypi.python.org`` host, check whether a
+:file:`pip.conf` file or the ``PIP_INDEX_URL`` environment variable overrides
+pip's default index URL. See pip's
+:ref:`configuration documentation <pip:config-file>` for the locations and
+available settings.
+
 Managing published packages and releases
 ----------------------------------------
 
