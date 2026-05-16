@@ -244,7 +244,7 @@ The output is therefore valid ``requirements.txt`` data.
 
         dependency_groups_raw = pyproject["dependency-groups"]
         dependency_groups = _normalize_group_names(dependency_groups_raw)
-        print("\n".join(resolve(dependency_groups_raw, sys.argv[1])))
+        print("\n".join(resolve(dependency_groups, sys.argv[1])))
 
 History
 =======
