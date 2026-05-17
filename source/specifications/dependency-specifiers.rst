@@ -442,27 +442,39 @@ of the following marker fields:
        SHOULD NOT accept uploads containing such environment markers)
 
 For backwards compatibility with older locking and installation tools, the
-``extras`` and ``dependency_groups`` fields are currently only considered
-valid in :ref:`lock files <lock-file-spec>` (where they allow consumers of the
-lock file to selectively install optional parts of the locked dependency tree).
-Publishing tools SHOULD emit an error if projects attempt to use them in their
-published metadata, and index servers SHOULD NOT accept uploads referencing
+``extras`` and ``dependency_groups`` fields are currently only valid for use in
+``packages.marker`` fields in :ref:`lock files <lock-file-spec>`. For these
+comparisons, the ``extras`` and ``dependency_groups`` sets used for the marker
+evaluation refer to the *currently selected* extras and dependency groups when
+installing from the lock file, not the full set of defined extras and dependency
+groups listed in the corresponding top level lock file fields. The interface
+for selecting which extras and dependency groups to install is tool dependent.
+Publishing tools SHOULD emit an error if projects attempt to reference the
+``extras`` or ``dependency_groups`` fields in their published dependency
+declaration metadata, and index servers SHOULD NOT accept uploads referencing
 these fields. Outside lock file processing, marker evaluation environments
 DO NOT need to define these fields.
 
 The ``extra`` field is also special, as it expects set-like behaviour, but
 predates the addition of ``Set of strings`` as a defined marker field type.
-Accordingly, for this field only, ``extra == "name"`` is equivalent to
-``"name" in extras``, while ``extra != "name"`` is equivalent to
-``"name" not in extras``. Other comparison operations on ``extra`` are not
-defined and publishing tools SHOULD emit an error, index servers MAY disallow
-uploads containing such environment markers, while locking and
-installation tools SHOULD evaluate them as False. Unlike the newer ``extras``
-field, environment markers using this field SHOULD be accepted by both
-publishing tools and index servers. Marker evaluation environments intended
-for project dependency declarations will typically need to handle evaluation
-of ``extra`` field comparisons, while other evaluations of environment markers
-will not generally need to do so.
+Accordingly, ``extra == "name"`` in a dependency declaration is similar to
+``"name" in extras``, while ``extra != "name"`` is similar to
+``"name" not in extras``. For dependency marker evaluations, the set of extra
+names used for these comparisons is the full set of requested extras for *that
+particular package*, whether requested directly in a top level dependency
+declaration, or indirectly in a transitive dependency declaration. Other
+comparison operations on ``extra`` are not defined and publishing tools SHOULD
+emit an error, index servers MAY disallow uploads containing such environment
+markers, while locking and installation tools SHOULD evaluate them as False.
+
+Unlike the newer ``extras`` field, environment markers using this field SHOULD
+be accepted by both publishing tools and index servers. Marker evaluation
+environments intended for project dependency declarations will typically need
+to handle evaluation of ``extra`` field comparisons, while other evaluations
+of environment markers will not generally need to do so. The legacy ``extra``
+comparison syntax is NOT permitted in lock file ``packages.marker`` fields,
+and installation tools SHOULD reject lock files containing such comparisons as
+invalid.
 
 The ``implementation_version`` marker variable is derived from
 :py:data:`sys.implementation.version <sys.implementation>`:
