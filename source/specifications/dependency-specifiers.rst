@@ -383,7 +383,7 @@ of the following marker fields:
    * - ``platform_python_implementation``
      - :py:func:`platform.python_implementation()`
      - String
-     - ``CPython``, ``PyPy``, ``Jython``
+     - ``CPython``, ``PyPy``
    * - ``platform_release``
      - :py:func:`platform.release()`
      - Version | String
