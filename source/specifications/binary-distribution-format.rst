@@ -398,7 +398,9 @@ History
 Appendix
 ========
 
-Example urlsafe-base64-nopad implementation::
+Example urlsafe-base64-nopad implementation:
+
+.. code-block:: python
 
     # urlsafe-base64-nopad for Python 3
     import base64
