@@ -334,13 +334,15 @@ contain non-ASCII text that users wish to perform comparisons against.
 Unknown marker fields
 '''''''''''''''''''''
 
-References to unknown marker fields SHOULD raise an error rather than resulting
-in a comparison that evaluates to True or False. This is so that attempted
-installations involving unknown marker fields result in a clear installation
-failure, rather than an apparently successful installation that then fails at
-runtime due to missing dependencies (if the unknown marker is treated as
-False) or a potentially cryptic installation failure of a dependency that is
-not valid for the current platform (if the unknown marker is treated as True)
+References to unknown marker fields SHOULD render a package version ineligible
+for installation or inclusion in a locked dependency tree rather than resulting
+in a comparison that evaluates to True or False. This is so that published
+package versions with unknown marker fields are either ignored when resolving
+dependencies or emit a descriptive installation failure, rather than producing
+an apparently successful installation that then fails at runtime due to missing
+dependencies (if the unknown marker is treated as False) or a potentially
+cryptic installation failure of a dependency that is not valid for the
+current platform (if the unknown marker is treated as True).
 
 Variables whose value cannot be calculated on a given Python implementation
 should evaluate to ``0`` for ``Version`` fields, and an empty string for all
