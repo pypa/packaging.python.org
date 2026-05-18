@@ -93,9 +93,8 @@ environments::
                      'implementation_name' | 'implementation_version' |
                      'extra' | 'extras' | 'dependency_groups' # ONLY when defined by a containing layer
                      )
-    marker_var    = wsp* (env_var | python_str)
-    marker_expr   = marker_var marker_op marker_var
-                  | wsp* '(' marker wsp* ')'
+    marker_expr   = env_var wsp* marker_op wsp* python_str
+                  | '(' marker ')'
     marker_and    = marker_expr wsp* 'and' marker_expr
                   | marker_expr
     marker_or     = marker_and wsp* 'or' marker_and
@@ -523,8 +522,7 @@ The complete parsley grammar::
                      'implementation_name' | 'implementation_version' |
                      'extra' | 'extras' | 'dependency_groups' # ONLY when defined by a containing layer
                      ):varname -> lookup(varname)
-    marker_var    = wsp* (env_var | python_str)
-    marker_expr   = marker_var:l marker_op:o marker_var:r -> (o, l, r)
+    marker_expr   = wsp* env_var:l wsp* marker_op:o wsp* python_str:r -> (o, l, r)
                   | wsp* '(' marker:m wsp* ')' -> m
     marker_and    = marker_expr:l wsp* 'and' marker_expr:r -> ('and', l, r)
                   | marker_expr:m -> m
@@ -630,6 +628,9 @@ A test program - if the grammar is in a string ``grammar``:
         "name@http://foo.com",
         "name [fred,bar] @ http://foo.com ; python_version=='2.7'",
         "name[quux, strange];python_version<'2.7' and platform_version=='2'",
+        "name; python_version > '3.10'",
+        # Yoda specifiers are rejected
+        # "name; '3.10' < python_version",
         "name; os_name=='a' or os_name=='b'",
         # Should parse as (a and b) or c
         "name; os_name=='a' and os_name=='b' or os_name=='c'",
@@ -707,6 +708,8 @@ History
   work. [#marker_comparison_logic]_
 - January 2026: fix outdated references to other documents that were
   inadvertently retained from :pep:`508`
+- May 2026: Clarify that Yoda specifiers like ``'3.10' < python_version`` are not
+  allowed.
 
 
 References
