@@ -209,8 +209,8 @@ The output is therefore valid ``requirements.txt`` data.
         realized_group = []
         for item in raw_group:
             if isinstance(item, str):
-                # packaging.requirements.Requirement parsing ensures that this is a valid
-                # PEP 508 Dependency Specifier
+                # packaging.requirements.Requirement parsing ensures that this
+                # is a valid dependency specifier
                 # raises InvalidRequirement on failure
                 Requirement(item)
                 realized_group.append(item)
