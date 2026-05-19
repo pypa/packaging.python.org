@@ -404,6 +404,16 @@ a Debian system, see the following articles:
 * `Releasing the gil <https://thomasnyberg.com/releasing_the_gil.html>`_
 * `Writing cpython extension modules using C++ <https://thomasnyberg.com/cpp_extension_modules.html>`_
 
+Extension module helper guides
+------------------------------
+
+Additional extension module guides are available from:
+
+* `Python Extension Patterns <https://pythonextensionpatterns.readthedocs.io/en/latest/index.html>`_,
+  which covers common patterns for CPython extension modules.
+* `py3c <https://py3c.readthedocs.io/en/latest/>`_, which provides helper
+  APIs for extension modules that need to support both Python 2 and Python 3.
+
 Additional considerations for binary wheels
 -------------------------------------------
 
