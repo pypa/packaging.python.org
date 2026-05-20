@@ -54,12 +54,54 @@ jobs:
         run: |
           python -m pip install --upgrade nox virtualenv
 
+      - name: Restore linkcheck baseline
+        id: restore-linkcheck-baseline
+        if: matrix.noxenv == 'linkcheck'
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .linkcheck-cache/output.json
+          key: linkcheck-output-${{ github.event.repository.default_branch }}-${{ github.sha }}
+          restore-keys: |
+            linkcheck-output-${{ github.event.repository.default_branch }}-
+
       - name: Nox ${{ matrix.noxenv }}
         env:
           # Authenticate github.com requests during linkcheck to avoid rate limits.
           GITHUB_TOKEN: ${{ matrix.noxenv == 'linkcheck' && github.token || '' }}
+          LINKCHECK_BASELINE_JSON: >-
+            ${{
+              matrix.noxenv == 'linkcheck' &&
+              github.event_name == 'pull_request' &&
+              '.linkcheck-cache/output.json' ||
+              ''
+            }}
         run: |
           python -m nox -s ${{ matrix.noxenv }}
+
+      - name: Store linkcheck baseline
+        if: >-
+          ${{
+            matrix.noxenv == 'linkcheck' &&
+            github.event_name != 'pull_request' &&
+            github.ref_name == github.event.repository.default_branch &&
+            hashFiles('build/output.json') != ''
+          }}
+        run: |
+          mkdir -p .linkcheck-cache
+          cp build/output.json .linkcheck-cache/output.json
+
+      - name: Save linkcheck baseline
+        if: >-
+          ${{
+            matrix.noxenv == 'linkcheck' &&
+            github.event_name != 'pull_request' &&
+            github.ref_name == github.event.repository.default_branch &&
+            hashFiles('.linkcheck-cache/output.json') != ''
+          }}
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .linkcheck-cache/output.json
+          key: linkcheck-output-${{ github.event.repository.default_branch }}-${{ github.sha }}
 
 
   check:
