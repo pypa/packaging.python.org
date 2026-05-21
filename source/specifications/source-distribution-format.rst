@@ -74,7 +74,7 @@ at their respective paths relative to the root directory of the sdist
 No other content of a sdist is required or defined. Build systems can store
 whatever information they need in the sdist to build the project.
 
-The tarball should use the modern POSIX.1-2001 pax tar format, which specifies
+The tarball must use the modern POSIX.1-2001 pax tar format, which specifies
 UTF-8 based file names. In particular, source distribution files must be readable
 using the standard library tarfile module with the open flag 'r:gz'.
 
