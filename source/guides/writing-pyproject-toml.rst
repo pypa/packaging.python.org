@@ -208,6 +208,10 @@ In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
 ``import sys; from spam import main_cli; sys.exit(main_cli())``.
 
+Script entry points must use the ``module:object`` form. The object
+reference should point to a function that can be called with no arguments,
+not to a module by itself.
+
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
 up. To prevent this from happening, use the ``[project.gui-scripts]``
