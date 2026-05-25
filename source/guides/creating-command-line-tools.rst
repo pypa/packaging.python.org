@@ -69,13 +69,12 @@ in :file:`cli.py`:
 
     from .greet import greet
 
-
     app = typer.Typer()
     app.command()(greet)
 
 
-    if __name__ == "__main__":
-        app()
+    def main():
+        return app()
 
 The command-line interface is built with typer_, an easy-to-use CLI parser based on Python type hints. It provides
 auto-completion and nicely styled command-line help out of the box. Another option would be :py:mod:`argparse`,
@@ -113,7 +112,7 @@ For the project to be recognised as a command-line tool, additionally a ``consol
 .. code-block:: toml
 
 	[project.scripts]
-	greet = "greetings.cli:app"
+	greet = "greetings.cli:main"
 
 Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`,
 which makes it installable.
@@ -162,7 +161,7 @@ The same can be defined as follows in :file:`pyproject.toml`:
 .. code-block:: toml
 
     [project.entry-points."pipx.run"]
-    greetings = "greetings.cli:app"
+    greetings = "greetings.cli:main"
 
 
 Thanks to this entry point (which *must* match the package name), ``pipx`` will pick up the executable script as the
