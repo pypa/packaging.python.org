@@ -35,15 +35,15 @@ named after the main module:
 
 .. code-block:: python
 
-    import typer
+    from typer import Argument, Option
     from typing_extensions import Annotated
 
 
     def greet(
-        name: Annotated[str, typer.Argument(help="The (last, if --title is given) name of the person to greet")] = "",
-        title: Annotated[str, typer.Option(help="The preferred title of the person to greet")] = "",
-        doctor: Annotated[bool, typer.Option(help="Whether the person is a doctor (MD or PhD)")] = False,
-        count: Annotated[int, typer.Option(help="Number of times to greet the person")] = 1
+        name: Annotated[str, Argument(help="The (last, if --title is given) name of the person to greet")] = "",
+        title: Annotated[str, Option(help="The preferred title of the person to greet")] = "",
+        doctor: Annotated[bool, Option(help="Whether the person is a doctor (MD or PhD)")] = False,
+        count: Annotated[int, Option(help="Number of times to greet the person")] = 1
     ):
         greeting = "Greetings, "
         if doctor and not title:
