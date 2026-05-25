@@ -90,9 +90,12 @@ so initialize the command-line interface here:
 
 .. code-block:: python
 
-	if __name__ == "__main__":
-	    from greetings.cli import app
-	    app()
+        import sys
+
+        if __name__ == "__main__":
+            from greetings.cli import main
+
+            sys.exit(main())
 
 .. note::
 
