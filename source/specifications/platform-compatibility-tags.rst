@@ -226,7 +226,7 @@ the following list that describes the set of supported architectures:
 ``universal``  ``i386``, ``ppc``, ``ppc64``, ``x86_64``
 ``intel``      ``i386``, ``x86_64``
 ``fat``        ``i386``, ``ppc``
-``fat3``       ``i386``, ``ppc``, ``x86_64``
+``fat32``      ``i386``, ``ppc``, ``x86_64``
 ``fat64``      ``ppc64``, ``x86_64``
 ============== ========================================
 
