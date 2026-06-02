@@ -122,6 +122,15 @@ HTML Serialization
 
 .. _simple-repository-html-project-list:
 
+.. important::
+
+    The HTML representation is considered "frozen" and is not expected
+    to be updated. Producers and consumers of the simple API
+    should prefer the :ref:`JSON representation <json-serialization>`.
+
+    See :pep:`833` for additional information about the HTML representation's
+    status.
+
 The following constraints apply to all HTML serialized responses described in
 this spec:
 
@@ -989,3 +998,4 @@ History
 * November 2024: provenance metadata in the HTML and JSON formats, in :pep:`740`
 * July 2025: project status markers in the HTML and JSON formats, in :pep:`792`
 * July 2025: layout changes (dedicated page for file yanking, introduce concepts before API details)
+* June 2026: :pep:`833` formally "freezes" the HTML representation of the simple API
