@@ -208,9 +208,10 @@ In this example, after installing your project, a ``spam-cli`` command
 will be available. Executing this command will do the equivalent of
 ``import sys; from spam import main_cli; sys.exit(main_cli())``.
 
-Script entry points must use the ``module:object`` form. The object
-reference should point to a function that can be called with no arguments,
-not to a module by itself.
+Script entry points are written as :ref:`object references <entry-points>`,
+such as ``importable.module`` or ``importable.module:object.attr``. For
+script commands, the object reference should usually point to a callable object
+that can be called with no arguments, rather than to a module by itself.
 
 On Windows, scripts packaged this way need a terminal, so if you launch
 them from within a graphical application, they will make a terminal pop
