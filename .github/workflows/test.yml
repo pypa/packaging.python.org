@@ -54,12 +54,38 @@ jobs:
         run: |
           python -m pip install --upgrade nox virtualenv
 
+      - name: Restore linkcheck baseline
+        if: matrix.noxenv == 'linkcheck' && github.event_name == 'pull_request'
+        uses: actions/cache/restore@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: .linkcheck-baseline/output.json
+          key: linkcheck-output-${{ github.event.pull_request.base.sha }}
+          restore-keys: |
+            linkcheck-output-
+
       - name: Nox ${{ matrix.noxenv }}
         env:
           # Authenticate github.com requests during linkcheck to avoid rate limits.
           GITHUB_TOKEN: ${{ matrix.noxenv == 'linkcheck' && github.token || '' }}
+          # Ignore links that were already reported by the baseline linkcheck run.
+          LINKCHECK_IGNORE_FILE: >-
+            ${{ matrix.noxenv == 'linkcheck' && '.linkcheck-baseline/output.json' || '' }}
         run: |
           python -m nox -s ${{ matrix.noxenv }}
+
+      - name: Prepare linkcheck baseline
+        if: matrix.noxenv == 'linkcheck' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p .linkcheck-baseline
+          cp build/output.json .linkcheck-baseline/output.json
+
+      - name: Save linkcheck baseline
+        if: matrix.noxenv == 'linkcheck' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        uses: actions/cache/save@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: .linkcheck-baseline/output.json
+          key: linkcheck-output-${{ github.sha }}
 
 
   check:
