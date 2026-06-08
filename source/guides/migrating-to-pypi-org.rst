@@ -135,6 +135,12 @@ Downloading packages
 
 ``pypi.org`` is the default host for downloading packages.
 
+If your installer still tries to download from ``pypi.python.org``, check your
+pip configuration files and the ``PIP_INDEX_URL`` environment variable for an
+old ``index-url`` setting such as ``https://pypi.python.org/pypi/``. Remove
+that override, or replace it with ``https://pypi.org/simple/``. You can run
+``python -m pip config debug`` to see which configuration files pip is reading.
+
 Managing published packages and releases
 ----------------------------------------
 
