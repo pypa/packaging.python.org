@@ -18,23 +18,47 @@ Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_ren
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
   or `CommonMark <https://commonmark.org/>`_)
 
-It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
+It's customary to save your README file in the root of your project, in the
+same directory as your :file:`pyproject.toml` file. Older projects may keep
+their README alongside :file:`setup.py` instead.
 
 
 Including your README in your package's metadata
 ------------------------------------------------
 
 To include your README's contents as your package description,
-set your project's ``Description`` and ``Description-Content-Type`` metadata,
-typically in your project's :file:`setup.py` file.
+set your project's ``Description`` and ``Description-Content-Type`` metadata.
+For modern projects, the recommended way to do this is with the ``readme`` key
+in the ``[project]`` table of your :file:`pyproject.toml` file.
 
 .. seealso::
 
    * :ref:`description-optional`
    * :ref:`description-content-type-optional`
+   * :ref:`writing-pyproject-toml`
 
-For example, to set these values in a package's :file:`setup.py` file,
-use ``setup()``'s ``long_description`` and ``long_description_content_type``.
+For example, to load :file:`README.md` as the project description:
+
+.. code-block:: toml
+
+   [project]
+   readme = "README.md"
+
+The README's format is inferred from common file extensions, such as
+``.md`` for Markdown and ``.rst`` for reStructuredText. You can also specify
+the content type explicitly:
+
+.. code-block:: toml
+
+   [project]
+   readme = {file = "README.txt", content-type = "text/markdown"}
+
+The file named by ``readme`` should be present in your source distribution so
+build tools can read it when they generate the package metadata displayed by
+package indexes.
+
+Projects that still configure metadata in :file:`setup.py` can use
+``setup()``'s ``long_description`` and ``long_description_content_type``.
 
 Set the value of ``long_description`` to the contents (not the path) of the README file itself.
 Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
@@ -69,7 +93,7 @@ such as ``text/plain``, ``text/x-rst`` (for reStructuredText), or ``text/markdow
 
       twine upload dist/*
 
-For example, see this :file:`setup.py` file,
+For example, see this older :file:`setup.py` style,
 which reads the contents of :file:`README.md` as ``long_description``
 and identifies the markup as GitHub-flavored Markdown:
 
