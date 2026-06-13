@@ -131,6 +131,16 @@ So add this to the steps list:
    :start-at: Install pypa/build
    :end-before: publish-to-pypi
 
+.. important::
+
+   Keep building distributions and publishing them in separate jobs. The
+   publishing jobs in this guide intentionally do not check out your project or
+   run build commands. Instead, they only download the distribution files
+   produced by the build job and upload them to the package index. Combining
+   the build and publish steps in the same job is unsupported because it gives
+   the publishing job access to project code and its build-time dependencies
+   while it also has permission to mint publishing credentials.
+
 Defining a workflow job environment
 ===================================
 
