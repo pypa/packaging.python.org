@@ -66,7 +66,8 @@ Existing projects
      - ✔
      - ✔
      -
-     -
+     - complete PyPI mirror; supports filtering via plugins and filesystem or
+       S3-compatible storage backends
 
    * - :ref:`simpleindex`
      -
