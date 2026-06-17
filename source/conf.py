@@ -35,6 +35,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_toolbox.collapse",
     "sphinx-jsonschema",
+    "sphinx_issues",
 ]
 
 nitpicky = True
@@ -194,12 +195,16 @@ github_repo_issues_url = f"{github_url}/{github_repo_slug}/issues"
 github_sponsors_url = f"{github_url}/sponsors"
 
 extlinks = {
-    "issue": (f"{github_repo_issues_url}/%s", "#%s"),
-    "pr": (f"{github_repo_url}/pull/%s", "PR #%s"),
-    "commit": (f"{github_repo_url}/commit/%s", "%s"),
     "gh": (f"{github_url}/%s", "GitHub: %s"),
-    "user": (f"{github_sponsors_url}/%s", "@%s"),
 }
+
+# -- Options for sphinx_issues -------------------------------------------------------
+# https://github.com/sloria/sphinx-issues#installation-and-configuration
+# Provides the :issue:, :pr:, :commit:, :user:, and :pypi: roles.
+
+issues_github_path = github_repo_slug
+# Preserve the previous `user` role behaviour, which pointed at GitHub Sponsors.
+issues_user_uri = f"{github_sponsors_url}/{{user}}"
 
 # -- Options for intersphinx ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
