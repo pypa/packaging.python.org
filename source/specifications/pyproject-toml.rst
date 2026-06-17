@@ -215,7 +215,7 @@ If the file path ends in a case-insensitive ``.md`` suffix, then tools
 MUST assume the content-type is ``text/markdown``. If the file path
 ends in a case-insensitive ``.rst``, then tools MUST assume the
 content-type is ``text/x-rst``. If a tool recognizes more extensions
-than this PEP, they MAY infer the content-type for the user without
+than this specification, it MAY infer the content-type for the user without
 specifying this key as ``dynamic``. For all unrecognized suffixes
 when a content-type is not provided, tools MUST raise an error.
 
