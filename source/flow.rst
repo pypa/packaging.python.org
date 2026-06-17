@@ -68,11 +68,8 @@ format`_.
 At a minimum, the :file:`pyproject.toml` file needs a ``[build-system]`` table
 specifying your build tool. There are many build tools available, including
 but not limited to :ref:`flit`, :ref:`hatch`, :ref:`pdm`, :ref:`poetry`,
-:ref:`setuptools`, `trampolim`_, and `whey`_. Each tool's documentation will
+:ref:`setuptools`, :pypi:`trampolim`, and :pypi:`whey`. Each tool's documentation will
 show what to put in the ``[build-system]`` table.
-
-.. _trampolim: https://pypi.org/project/trampolim/
-.. _whey: https://pypi.org/project/whey/
 
 For example, here is a table for using :ref:`hatch`:
 

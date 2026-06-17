@@ -201,7 +201,7 @@ Install a package
 ~~~~~~~~~~~~~~~~~
 
 For example, let's install the
-`Requests`_ library from the :term:`Python Package Index (PyPI)`:
+:pypi:`Requests <requests>` library from the :term:`Python Package Index (PyPI)`:
 
 .. tab:: Unix/macOS
 
@@ -231,9 +231,6 @@ pip should download requests and all of its dependencies and install them:
       Using cached idna-2.6-py2.py3-none-any.whl
     Installing collected packages: chardet, urllib3, certifi, idna, requests
     Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
-
-.. _Requests: https://pypi.org/project/requests/
-
 
 Install a specific package version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

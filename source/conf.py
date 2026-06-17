@@ -28,6 +28,7 @@ root_doc = "index"
 
 extensions = [
     "pug_sphinx_extensions",
+    "sphinx_issues",
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
@@ -194,13 +195,12 @@ github_repo_issues_url = f"{github_url}/{github_repo_slug}/issues"
 github_sponsors_url = f"{github_url}/sponsors"
 
 extlinks = {
-    "issue": (f"{github_repo_issues_url}/%s", "#%s"),
-    "pr": (f"{github_repo_url}/pull/%s", "PR #%s"),
-    "commit": (f"{github_repo_url}/commit/%s", "%s"),
     "gh": (f"{github_url}/%s", "GitHub: %s"),
-    "pypi": ("https://pypi.org/project/%s", "%s"),
-    "user": (f"{github_sponsors_url}/%s", "@%s"),
 }
+
+# -- Options for sphinx_issues --------------------------------------------------------
+
+issues_default_group_project = github_repo_slug
 
 # -- Options for intersphinx ----------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
