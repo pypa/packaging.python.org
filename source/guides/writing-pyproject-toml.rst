@@ -255,7 +255,7 @@ an email address.
 ---------------
 
 This should be a one-line description of your project, to show as the "headline"
-of your project page on PyPI (`example <pypi-pip_>`_), and other places such as
+of your project page on PyPI (:pypi:`example <pip>`), and other places such as
 lists of search results (`example <pypi-search-pip_>`_).
 
 .. code-block:: toml
@@ -585,7 +585,6 @@ A full example
 .. _gfm: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 .. _setuptools: https://setuptools.pypa.io
 .. _poetry: https://python-poetry.org
-.. _pypi-pip: https://pypi.org/project/pip
 .. _pypi-search-pip: https://pypi.org/search?q=pip
 .. _classifier-list: https://pypi.org/classifiers
 .. _requires-python-blog-post: https://iscinumpy.dev/post/bound-version-constraints/#pinning-the-python-version-is-special
