@@ -96,8 +96,8 @@ go to the :ref:`source-distribution-format` specification to learn more.
 
 If you rely on any non-Python code, or non-Python packages (such as
 `libxml2 <https://en.wikipedia.org/wiki/Libxml2>`_ in the case of
-`lxml <https://pypi.org/project/lxml/>`_, or BLAS libraries in the
-case of `numpy <https://pypi.org/project/numpy>`_), you will need to
+:pypi:`lxml`, or BLAS libraries in the
+case of :pypi:`numpy`), you will need to
 use the format detailed in the next section, which also has many
 advantages for pure-Python libraries.
 
@@ -105,7 +105,7 @@ advantages for pure-Python libraries.
    different implementations of the same package. For instance the
    unmaintained-but-seminal `PIL distribution
    <https://pypi.org/project/PIL/>`_ provides the PIL package, and so
-   does `Pillow <https://pypi.org/project/Pillow/>`_, an
+   does :pypi:`Pillow`, an
    actively-maintained fork of PIL!
 
    This Python packaging superpower makes it possible for Pillow to be
@@ -308,7 +308,7 @@ A selection of Python freezers:
 * `py2exe <http://www.py2exe.org/>`_ - Windows only
 * `py2app <https://py2app.readthedocs.io/en/latest/>`_ - Mac only
 * `osnap <https://github.com/jamesabel/osnap>`_ - Windows and Mac
-* `pynsist <https://pypi.org/project/pynsist/>`_ - Windows only
+* :pypi:`pynsist` - Windows only
 
 Most of the above imply single-user deployments. For multi-component
 server applications, see :gh:`Chef Omnibus
