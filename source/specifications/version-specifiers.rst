@@ -172,9 +172,6 @@ identified by the public version identifier, but contains additional changes
 indexing and hosting upstream projects, it MUST NOT allow the use of local
 version identifiers.
 
-Source distributions using a local version identifier SHOULD provide the
-``python.integrator`` extension metadata (as defined in :pep:`459`).
-
 
 Final releases
 --------------
