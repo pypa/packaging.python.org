@@ -123,6 +123,8 @@ For example:
     [pytest11]
     nbval = nbval.plugin
 
+.. _script-entry-points:
+
 Use for scripts
 ===============
 
