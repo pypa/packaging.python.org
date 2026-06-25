@@ -18,23 +18,32 @@ Formats supported by `PyPI's README renderer <https://github.com/pypa/readme_ren
 * Markdown (`GitHub Flavored Markdown <https://github.github.com/gfm/>`_ by default,
   or `CommonMark <https://commonmark.org/>`_)
 
-It's customary to save your README file in the root of your project, in the same directory as your :file:`setup.py` file.
+It's customary to save your README file in the root of your project, in the
+same directory as your :file:`pyproject.toml` file.
 
 
 Including your README in your package's metadata
 ------------------------------------------------
 
-To include your README's contents as your package description,
-set your project's ``Description`` and ``Description-Content-Type`` metadata,
-typically in your project's :file:`setup.py` file.
+To include your README's contents as your package description, set the
+``readme`` key in your project's :file:`pyproject.toml` file:
+
+.. code-block:: toml
+
+   [project]
+   readme = "README.md"
+
+This sets your project's ``Description`` and ``Description-Content-Type``
+metadata.
 
 .. seealso::
 
+   * :ref:`writing-pyproject-toml`
    * :ref:`description-optional`
    * :ref:`description-content-type-optional`
 
-For example, to set these values in a package's :file:`setup.py` file,
-use ``setup()``'s ``long_description`` and ``long_description_content_type``.
+If your project still configures metadata in :file:`setup.py`, use ``setup()``'s
+``long_description`` and ``long_description_content_type``.
 
 Set the value of ``long_description`` to the contents (not the path) of the README file itself.
 Set the ``long_description_content_type`` to an accepted ``Content-Type``-style value for your README file's markup,
@@ -88,6 +97,10 @@ and identifies the markup as GitHub-flavored Markdown:
        long_description=long_description,
        long_description_content_type='text/markdown'
    )
+
+When using this approach, make sure the README file is included in your source
+distribution. :ref:`setuptools` includes common README names by default; other
+build backends may require explicit configuration.
 
 
 Validating reStructuredText markup
