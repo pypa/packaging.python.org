@@ -35,15 +35,15 @@ named after the main module:
 
 .. code-block:: python
 
-    import typer
+    from typer import Argument, Option
     from typing_extensions import Annotated
 
 
     def greet(
-        name: Annotated[str, typer.Argument(help="The (last, if --title is given) name of the person to greet")] = "",
-        title: Annotated[str, typer.Option(help="The preferred title of the person to greet")] = "",
-        doctor: Annotated[bool, typer.Option(help="Whether the person is a doctor (MD or PhD)")] = False,
-        count: Annotated[int, typer.Option(help="Number of times to greet the person")] = 1
+        name: Annotated[str, Argument(help="The (last, if --title is given) name of the person to greet")] = "",
+        title: Annotated[str, Option(help="The preferred title of the person to greet")] = "",
+        doctor: Annotated[bool, Option(help="Whether the person is a doctor (MD or PhD)")] = False,
+        count: Annotated[int, Option(help="Number of times to greet the person")] = 1
     ):
         greeting = "Greetings, "
         if doctor and not title:
@@ -69,13 +69,12 @@ in :file:`cli.py`:
 
     from .greet import greet
 
-
     app = typer.Typer()
     app.command()(greet)
 
 
-    if __name__ == "__main__":
-        app()
+    def main():
+        return app()
 
 The command-line interface is built with typer_, an easy-to-use CLI parser based on Python type hints. It provides
 auto-completion and nicely styled command-line help out of the box. Another option would be :py:mod:`argparse`,
@@ -91,9 +90,12 @@ so initialize the command-line interface here:
 
 .. code-block:: python
 
-	if __name__ == "__main__":
-	    from greetings.cli import app
-	    app()
+        import sys
+
+        if __name__ == "__main__":
+            from greetings.cli import main
+
+            sys.exit(main())
 
 .. note::
 
@@ -113,7 +115,7 @@ For the project to be recognised as a command-line tool, additionally a ``consol
 .. code-block:: toml
 
 	[project.scripts]
-	greet = "greetings.cli:app"
+	greet = "greetings.cli:main"
 
 Now, the project's source tree is ready to be transformed into a :term:`distribution package <Distribution Package>`,
 which makes it installable.
@@ -162,7 +164,7 @@ The same can be defined as follows in :file:`pyproject.toml`:
 .. code-block:: toml
 
     [project.entry-points."pipx.run"]
-    greetings = "greetings.cli:app"
+    greetings = "greetings.cli:main"
 
 
 Thanks to this entry point (which *must* match the package name), ``pipx`` will pick up the executable script as the
