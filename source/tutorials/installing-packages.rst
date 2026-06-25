@@ -3,7 +3,15 @@
 ===================
 Installing Packages
 ===================
-
+# setup.py
+setup(
+    name="my-crypto-utils",
+    author="EHEPS Team",
+    author_email="executive@eheps.com",
+    maintainer="Executive Director",
+    maintainer_email="Executivedirector@eheps.org",
+    ...
+)
 This section covers the basics of how to install Python :term:`packages
 <Distribution Package>`.
 
