@@ -937,11 +937,12 @@ match or not as shown::
     == 1.1.post1  # Not equal (post-release), so 1.1 does not match clause
     == 1.1.*      # Same prefix, so 1.1 matches clause
 
-It is invalid to have a prefix match containing a development or local release
-such as ``1.0.dev1.*`` or ``1.0+foo1.*``. If present, the development release
-segment is always the final segment in the public version, and the local version
-is ignored for comparison purposes, so using either in a prefix match wouldn't
-make any sense.
+It is invalid to have a prefix match containing a pre-release segment,
+post-release segment, developmental release segment, or local version label,
+such as ``1.0a1.*``, ``1.0.post1.*``, ``1.0.dev1.*``, or ``1.0+foo1.*``.
+While ``== 1.0.*`` can match versions like ``1.0.post1`` or, when
+pre-releases are requested, ``1.0a1``, the prefix itself must end at a
+release segment.
 
 The use of ``==`` (without at least the wildcard suffix) when defining
 dependencies for published distributions is strongly discouraged as it
