@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-21 14:37+0000\n"
+"POT-Creation-Date: 2026-05-05 16:17+0000\n"
 "PO-Revision-Date: 2024-11-02 00:54+0000\n"
 "Last-Translator: Milan Šalka <salka.milan@googlemail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -8725,23 +8725,31 @@ msgid ""
 "and storing them for later use:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:115
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:112
+msgid ""
+"If you adapt this workflow to build multiple platform-specific wheels, use "
+"uniquely named artifacts for each build job and adjust the download step "
+"accordingly. The `cibuildwheel GitHub Actions examples`_ show a fuller wheel "
+"matrix layout."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:122
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate the newest available Python 3 release."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:125
 msgid ""
 "And now we can build the dists from source and store them. In this example, "
 "we'll use the ``build`` package. So add this to the steps list:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:128
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "Defining a workflow job environment"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:137
 msgid ""
 "Now, let's add initial setup for our job that will publish to PyPI. It's a "
 "process that will execute commands that we'll define later. In this guide, "
@@ -8752,21 +8760,21 @@ msgid ""
 "implement secretless Trusted Publishing to PyPI."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:144
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:151
 msgid ""
 "This will also ensure that the PyPI publishing workflow is only triggered if "
 "the current commit is tagged."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:148
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:155
 msgid "Publishing the distribution to PyPI"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:150
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
 msgid "Finally, add the following steps at the end:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
 msgid ""
 "This step uses the `pypa/gh-action-pypi-publish`_ GitHub Action: after the "
 "stored distribution package has been downloaded by the `download-artifact`_ "
@@ -8774,7 +8782,7 @@ msgid ""
 "unconditionally."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:171
 msgid ""
 "Starting with version `v1.11.0 <https://github.com/pypa/gh-action-pypi-"
 "publish/releases/tag/v1.11.0>`_, `pypa/gh-action-pypi-publish`_ generates "
@@ -8782,37 +8790,37 @@ msgid ""
 "default. No additional manual signing steps are required."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:179
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:181
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:191
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
 "branch and is often used to indicate a healthy release publishing pipeline."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:195
 msgid "The whole CI/CD workflow"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:197
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:205
 msgid "That's all, folks!"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:207
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -8820,7 +8828,7 @@ msgid ""
 "well as making sure that your release pipeline remains healthy!"
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:215
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -8829,7 +8837,7 @@ msgid ""
 "server like :ref:`pypiserver` in the CI for testing purposes."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:223
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."

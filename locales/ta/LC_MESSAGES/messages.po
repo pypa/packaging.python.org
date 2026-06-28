@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-21 14:37+0000\n"
+"POT-Creation-Date: 2026-05-05 16:17+0000\n"
 "PO-Revision-Date: 2025-07-19 06:36+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -11112,7 +11112,15 @@ msgstr ""
 "முதலில், உங்கள் திட்டத்தின் தொலைதூர தொகுப்புகளை உருவாக்குவதற்கும் அவற்றை பின்னர் பயன்படுத்த "
 "சேமிப்பதற்கும் வேலையை வரையறுப்போம்:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:115
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:112
+msgid ""
+"If you adapt this workflow to build multiple platform-specific wheels, use "
+"uniquely named artifacts for each build job and adjust the download step "
+"accordingly. The `cibuildwheel GitHub Actions examples`_ show a fuller wheel "
+"matrix layout."
+msgstr ""
+
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:122
 msgid ""
 "This will download your repository into the CI runner and then install and "
 "activate the newest available Python 3 release."
@@ -11120,7 +11128,7 @@ msgstr ""
 "இது உங்கள் களஞ்சியத்தை தொஒ ரன்னரில் பதிவிறக்கம் செய்து பின்னர் கிடைக்கக்கூடிய புதிய பைதான் "
 "3 வெளியீட்டை நிறுவி செயல்படுத்தும்."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:118
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:125
 msgid ""
 "And now we can build the dists from source and store them. In this example, "
 "we'll use the ``build`` package. So add this to the steps list:"
@@ -11129,11 +11137,11 @@ msgstr ""
 "எடுத்துக்காட்டில், `` பில்ட்`` தொகுப்பைப் பயன்படுத்துவோம். எனவே இதை படிகள் பட்டியலில் "
 "சேர்க்கவும்:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:128
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:135
 msgid "Defining a workflow job environment"
 msgstr "பணிப்பாய்வு வேலை சூழலை வரையறுத்தல்"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:130
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:137
 #, fuzzy
 #| msgid ""
 #| "Now, let's add initial setup for our job that will publish to PyPI. It's "
@@ -11160,7 +11168,7 @@ msgstr ""
 "பைபி-பப்ளிச்`` நடவடிக்கைகள் பைபிக்கு ரகசியமற்ற நம்பகமான வெளியீட்டை செயல்படுத்த வேண்டும் "
 "என்று ஓபன்ஐடி இணைப்பு கிள்ளாக்கைப் பெற அனுமதிக்கிறது."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:144
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:151
 msgid ""
 "This will also ensure that the PyPI publishing workflow is only triggered if "
 "the current commit is tagged."
@@ -11168,15 +11176,15 @@ msgstr ""
 "தற்போதைய கமிட் குறிக்கப்பட்டால் மட்டுமே PYPI பப்ளிசிங் பணிப்பாய்வு தூண்டப்படுவதை இது "
 "உறுதி செய்யும்."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:148
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:155
 msgid "Publishing the distribution to PyPI"
 msgstr "PYPI க்கு விநியோகத்தை வெளியிடுகிறது"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:150
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
 msgid "Finally, add the following steps at the end:"
 msgstr "இறுதியாக, முடிவில் பின்வரும் படிகளைச் சேர்க்கவும்:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:157
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
 msgid ""
 "This step uses the `pypa/gh-action-pypi-publish`_ GitHub Action: after the "
 "stored distribution package has been downloaded by the `download-artifact`_ "
@@ -11188,7 +11196,7 @@ msgstr ""
 "பிறகு, இது `` மாவட்ட/`கோப்புறையின் உள்ளடக்கங்களை பதிவேற்றுகிறது நிபந்தனையின்றி "
 "பைபிக்குள்."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:164
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:171
 msgid ""
 "Starting with version `v1.11.0 <https://github.com/pypa/gh-action-pypi-"
 "publish/releases/tag/v1.11.0>`_, `pypa/gh-action-pypi-publish`_ generates "
@@ -11196,11 +11204,11 @@ msgid ""
 "default. No additional manual signing steps are required."
 msgstr ""
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:172
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:179
 msgid "Separate workflow for publishing to TestPyPI"
 msgstr "டெச்ட்பிபிக்கு வெளியிடுவதற்கு பணிப்பாய்வு தனி"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:174
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:181
 msgid ""
 "Now, repeat these steps and create another job for publishing to the "
 "TestPyPI package index under the ``jobs`` section:"
@@ -11208,7 +11216,7 @@ msgstr ""
 "இப்போது, இந்த படிகளை மீண்டும் செய்து, `` வேலைகள்`` பிரிவின் கீழ் டெச்ட்பை தொகுப்பு "
 "குறியீட்டுக்கு வெளியிட மற்றொரு வேலையை உருவாக்கவும்:"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:184
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:191
 msgid ""
 "Requiring manual approvals in the ``testpypi`` GitHub Environment is "
 "typically unnecessary as it's designed to run on each commit to the main "
@@ -11219,21 +11227,21 @@ msgstr ""
 "வடிவமைக்கப்பட்டுள்ளது மற்றும் ஆரோக்கியமான வெளியீட்டு வெளியீட்டு குழாய்த்திட்டத்தைக் குறிக்க "
 "பெரும்பாலும் பயன்படுத்தப்படுகிறது."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:188
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:195
 msgid "The whole CI/CD workflow"
 msgstr "முழு சிஐ/சிடி பணிப்பாய்வு"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:190
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:197
 msgid ""
 "This paragraph showcases the whole workflow after following the above guide."
 msgstr ""
 "இந்த பத்தி மேலே உள்ள வழிகாட்டியைப் பின்பற்றிய பிறகு முழு பணிப்பாய்வுகளையும் காட்டுகிறது."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:198
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:205
 msgid "That's all, folks!"
 msgstr "அவ்வளவுதான், எல்லோரும்!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:200
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:207
 msgid ""
 "Now, whenever you push a tagged commit to your Git repository remote on "
 "GitHub, this workflow will publish it to PyPI. And it'll publish any push to "
@@ -11245,7 +11253,7 @@ msgstr ""
 "சோதனை கட்டமைப்பை வழங்குவதற்கும், உங்கள் வெளியீட்டு குழாய் ஆரோக்கியமாக இருப்பதை "
 "உறுதிசெய்வதற்கும் பயனுள்ளதாக இருக்கும் டெச்ட்பிபிக்கு எந்தவொரு உந்துதலையும் வெளியிடும்!"
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:208
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:215
 msgid ""
 "If your repository has frequent commit activity and every push is uploaded "
 "to TestPyPI as described, the project might exceed the `PyPI project size "
@@ -11259,7 +11267,7 @@ msgstr ""
 "ஒரு சிறந்த தீர்வு ஒரு பைபி-இணக்கமான சேவையகத்தைப் பயன்படுத்தலாம்: குறிப்பு நோக்கங்களுக்காக "
 "தொஒ இல் `பைபிசெவர்`."
 
-#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:216
+#: ../source/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows.rst:223
 msgid ""
 "It is recommended to keep the integrated GitHub Actions at their latest "
 "versions, updating them frequently."
