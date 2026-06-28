@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 16:41+0000\n"
+"POT-Creation-Date: 2026-06-22 14:38+0000\n"
 "PO-Revision-Date: 2025-06-29 12:03+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/pypa/packaging-"
@@ -3308,7 +3308,7 @@ msgstr ""
 "dosieron :file:`__main__.py`:"
 
 #: ../source/discussions/versioning.rst:6
-#: ../source/specifications/simple-repository-api.rst:349
+#: ../source/specifications/simple-repository-api.rst:358
 msgid "Versioning"
 msgstr "Versiado"
 
@@ -17339,7 +17339,7 @@ msgstr ""
 #: ../source/specifications/pylock-toml.rst:841
 #: ../source/specifications/pyproject-toml.rst:655
 #: ../source/specifications/recording-installed-packages.rst:278
-#: ../source/specifications/simple-repository-api.rst:974
+#: ../source/specifications/simple-repository-api.rst:983
 #: ../source/specifications/source-distribution-format.rst:153
 #: ../source/specifications/version-specifiers.rst:1285
 #: ../source/specifications/virtual-environments.rst:54
@@ -23482,7 +23482,7 @@ msgid ""
 msgstr "Jen ekzemplo de kiel legi fluon da arbitraj metadatenaj blokoj."
 
 #: ../source/specifications/inline-script-metadata.rst:205
-#: ../source/specifications/simple-repository-api.rst:916
+#: ../source/specifications/simple-repository-api.rst:925
 msgid "Recommendations"
 msgstr "Rekomendoj"
 
@@ -28222,7 +28222,20 @@ msgstr ""
 msgid "HTML Serialization"
 msgstr "JSON-igo"
 
-#: ../source/specifications/simple-repository-api.rst:125
+#: ../source/specifications/simple-repository-api.rst:127
+msgid ""
+"The HTML representation is considered \"frozen\" and is not expected to be "
+"updated. Producers and consumers of the simple API should prefer "
+"the :ref:`JSON representation <json-serialization>`."
+msgstr ""
+
+#: ../source/specifications/simple-repository-api.rst:131
+msgid ""
+"See :pep:`833` for additional information about the HTML representation's "
+"status."
+msgstr ""
+
+#: ../source/specifications/simple-repository-api.rst:134
 #, fuzzy
 #| msgid ""
 #| "The following constraints apply to all JSON serialized responses "
@@ -28234,22 +28247,22 @@ msgstr ""
 "La sekvaj limigoj validas por ĉiuj JSON-seriigitaj respondoj priskribitaj en "
 "ĉi tiu specifo:"
 
-#: ../source/specifications/simple-repository-api.rst:128
+#: ../source/specifications/simple-repository-api.rst:137
 msgid "All HTML responses **MUST** be a valid HTML5 document."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:129
+#: ../source/specifications/simple-repository-api.rst:138
 msgid ""
 "HTML responses **MAY** contain one or more ``meta`` tags in the ``<head>`` "
 "section. The semantics of these tags are defined below."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:133
-#: ../source/specifications/simple-repository-api.rst:428
+#: ../source/specifications/simple-repository-api.rst:142
+#: ../source/specifications/simple-repository-api.rst:437
 msgid "Project List"
 msgstr "Listo de Projektoj"
 
-#: ../source/specifications/simple-repository-api.rst:135
+#: ../source/specifications/simple-repository-api.rst:144
 #, fuzzy
 #| msgid ""
 #| "Within a repository, the root URL (``/`` for this spec which represents "
@@ -28268,7 +28281,7 @@ msgstr ""
 "**DEVAS** esti la nomo de la projekto, kaj la atributo ``href`` **DEVAS** "
 "ligi al la retadreso de tiu projekto. Ekzemple:"
 
-#: ../source/specifications/simple-repository-api.rst:139
+#: ../source/specifications/simple-repository-api.rst:148
 #, fuzzy
 #| msgid ""
 #| "Within a repository, the root URL (``/`` for this spec which represents "
@@ -28287,25 +28300,25 @@ msgstr ""
 "**DEVAS** esti la nomo de la projekto, kaj la atributo ``href`` **DEVAS** "
 "ligi al la retadreso de tiu projekto. Ekzemple:"
 
-#: ../source/specifications/simple-repository-api.rst:156
-#: ../source/specifications/simple-repository-api.rst:473
+#: ../source/specifications/simple-repository-api.rst:165
+#: ../source/specifications/simple-repository-api.rst:482
 msgid "Project Detail"
 msgstr "Projekta Detalo"
 
-#: ../source/specifications/simple-repository-api.rst:158
+#: ../source/specifications/simple-repository-api.rst:167
 msgid ""
 "Below the root URL is another URL for each individual project contained "
 "within a repository. The format of this URL is ``/<project>/``, where the "
 "``<project>`` is replaced by the normalized name for that project."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:164
+#: ../source/specifications/simple-repository-api.rst:173
 msgid ""
 "For example, a project named \"HolyGrail\" would have a URL like ``/"
 "holygrail/``."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:167
+#: ../source/specifications/simple-repository-api.rst:176
 msgid ""
 "The project detail URL must respond with a valid HTML5 page with a single "
 "anchor element per file for the project. The ``href`` attribute **MUST** be "
@@ -28314,7 +28327,7 @@ msgid ""
 "URL."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:172
+#: ../source/specifications/simple-repository-api.rst:181
 #, fuzzy
 #| msgid ""
 #| "The repository **SHOULD** provide the hash of the Core Metadata file as "
@@ -28337,12 +28350,12 @@ msgstr ""
 "deponejo **POVAS** uzi ``true`` kiel la valoron de la atributo, se haketaĵo "
 "ne estas disponebla."
 
-#: ../source/specifications/simple-repository-api.rst:177
+#: ../source/specifications/simple-repository-api.rst:186
 msgid ""
 "In addition to the above, the following constraints are placed on the API:"
 msgstr "Aldone al ĉi-supro, ekzistas la jenaj limigoj pri la API:"
 
-#: ../source/specifications/simple-repository-api.rst:179
+#: ../source/specifications/simple-repository-api.rst:188
 msgid ""
 "All URLs which respond with an HTML5 page **MUST** end with a ``/`` and the "
 "repository **SHOULD** redirect the URLs without a ``/`` to add a ``/`` to "
@@ -28351,20 +28364,20 @@ msgstr ""
 "Ĉiu URL respondanta per HTML-paĝo **DEVAS** finiĝi per ``/``. La deponejo "
 "**REDIREKTU** URL sen ``/`` al URL kun sufiksa ``/``."
 
-#: ../source/specifications/simple-repository-api.rst:183
+#: ../source/specifications/simple-repository-api.rst:192
 msgid ""
 "URLs may be either absolute or relative as long as they point to the correct "
 "location."
 msgstr "URL povas esti aŭ absoluta aŭ relativa, se ĝi montras la ĝustan lokon."
 
-#: ../source/specifications/simple-repository-api.rst:186
+#: ../source/specifications/simple-repository-api.rst:195
 msgid ""
 "There are no constraints on where the files must be hosted relative to the "
 "repository."
 msgstr ""
 "Ekzistas nenia limigo pri kie la dosieroj ĉeestu relative al la deponejo."
 
-#: ../source/specifications/simple-repository-api.rst:189
+#: ../source/specifications/simple-repository-api.rst:198
 msgid ""
 "There may be any other HTML elements on the API pages as long as the "
 "required anchor elements exist."
@@ -28372,7 +28385,7 @@ msgstr ""
 "Povas ekzisti aliaj HTML-elementoj sur la API-paĝo, se la postulataj ankraj "
 "elementoj ekzistas."
 
-#: ../source/specifications/simple-repository-api.rst:192
+#: ../source/specifications/simple-repository-api.rst:201
 msgid ""
 "Repositories **MAY** redirect unnormalized URLs to the canonical normalized "
 "URL (e.g. ``/Foobar/`` may redirect to ``/foobar/``), however clients **MUST "
@@ -28382,7 +28395,7 @@ msgstr ""
 "retadreso (ekz. de ``/Foobar/`` al ``/foobar/``). Tamen, kliento **DEVAS "
 "NE** dependi de tia redirektado kaj **DEVAS** peti la normigitan retadreson."
 
-#: ../source/specifications/simple-repository-api.rst:197
+#: ../source/specifications/simple-repository-api.rst:206
 msgid ""
 "Repositories **SHOULD** choose a hash function from one of the ones "
 "guaranteed to be available via the :py:mod:`hashlib` module in the Python "
@@ -28394,7 +28407,7 @@ msgstr ""
 "``sha1``, ``sha224``, ``sha256``, ``sha384``, ``sha512``). La nuna rekomendo "
 "estas uzi ``sha256``."
 
-#: ../source/specifications/simple-repository-api.rst:202
+#: ../source/specifications/simple-repository-api.rst:211
 msgid ""
 "If there is a GPG signature for a particular distribution file it **MUST** "
 "live alongside that file with the same name with a ``.asc`` appended to it. "
@@ -28408,7 +28421,7 @@ msgstr ""
 "subskribon, la subskribo troviĝus ĉe ``/packages/"
 "SanktaGralo-1.0.tar.gz.asc``."
 
-#: ../source/specifications/simple-repository-api.rst:208
+#: ../source/specifications/simple-repository-api.rst:217
 msgid ""
 "A repository **MAY** include a ``data-core-metadata`` attribute on a file "
 "link."
@@ -28416,7 +28429,7 @@ msgstr ""
 "Deponejo **POVAS** inkluzivi atributon ``data-core-metadata`` sur dosiero-"
 "hiperligo."
 
-#: ../source/specifications/simple-repository-api.rst:211
+#: ../source/specifications/simple-repository-api.rst:220
 msgid ""
 "The repository **SHOULD** provide the hash of the Core Metadata file as the "
 "``data-core-metadata`` attribute's value using the syntax "
@@ -28433,7 +28446,7 @@ msgstr ""
 "deponejo **POVAS** uzi ``true`` kiel la valoron de la atributo, se haketaĵo "
 "ne estas disponebla."
 
-#: ../source/specifications/simple-repository-api.rst:217
+#: ../source/specifications/simple-repository-api.rst:226
 msgid ""
 "A repository **MAY** include a ``data-dist-info-metadata`` attribute on a "
 "file link."
@@ -28441,7 +28454,7 @@ msgstr ""
 "Deponejo **POVAS** inkluzivi atributon ``data-dist-info-metadata`` sur "
 "dosiero-hiperligo."
 
-#: ../source/specifications/simple-repository-api.rst:220
+#: ../source/specifications/simple-repository-api.rst:229
 msgid ""
 "Index clients **MAY** consume this key if present, as a legacy fallback for "
 "``data-core-metadata``."
@@ -28449,7 +28462,7 @@ msgstr ""
 "Indekso-kliento **POVAS** uzi tiun ŝlosilon, se ĝi ekzistas, kiel evitindan "
 "sinonimon de ``data-core-metadata``."
 
-#: ../source/specifications/simple-repository-api.rst:225
+#: ../source/specifications/simple-repository-api.rst:234
 msgid ""
 "``data-dist-info-metadata`` was standardized with :pep:`658` and renamed to "
 "``data-core-metadata`` with :pep:`714`."
@@ -28457,7 +28470,7 @@ msgstr ""
 "``data-dist-info-metadata`` estis normigita per :pep:`658`, kaj ĝia nomo "
 "ŝanĝiĝis al ``data-core-metadata`` per :pep:`714`."
 
-#: ../source/specifications/simple-repository-api.rst:228
+#: ../source/specifications/simple-repository-api.rst:237
 msgid ""
 "A repository **MAY** include a ``data-gpg-sig`` attribute on a file link "
 "with a value of either ``true`` or ``false`` to indicate whether or not "
@@ -28468,7 +28481,7 @@ msgstr ""
 "kun valoro de aŭ ``true`` aŭ ``false`` por indiki, ĉu ekzistas GPG-"
 "subskribo. Deponejo faranta tion **INKLUZIVU** ĝin sur ĉiu hiperligo."
 
-#: ../source/specifications/simple-repository-api.rst:232
+#: ../source/specifications/simple-repository-api.rst:241
 msgid ""
 "A repository **MAY** include a ``data-requires-python`` attribute on a file "
 "link. This exposes the :ref:`core-metadata-requires-python` metadata field "
@@ -28481,7 +28494,7 @@ msgstr ""
 "python` por la eldono. Se tiu ekzistas, instalilo **IGNORU** la elŝuton por "
 "instalado al Python-versio ne plenumanta la postulon. Ekzemple:"
 
-#: ../source/specifications/simple-repository-api.rst:242
+#: ../source/specifications/simple-repository-api.rst:251
 msgid ""
 "In the attribute value, < and > have to be HTML encoded as ``&lt;`` and "
 "``&gt;``, respectively."
@@ -28489,7 +28502,7 @@ msgstr ""
 "En la atributa valoro, < kaj > devas esti HTML-kodita kiel ``&lt;`` and "
 "``&gt;`` respektive."
 
-#: ../source/specifications/simple-repository-api.rst:245
+#: ../source/specifications/simple-repository-api.rst:254
 #, fuzzy
 #| msgid ""
 #| "A repository **MAY** include a ``data-core-metadata`` attribute on a file "
@@ -28500,7 +28513,7 @@ msgstr ""
 "Deponejo **POVAS** inkluzivi atributon ``data-core-metadata`` sur dosiero-"
 "hiperligo."
 
-#: ../source/specifications/simple-repository-api.rst:247
+#: ../source/specifications/simple-repository-api.rst:256
 #, fuzzy
 #| msgid ""
 #| "Links in the simple repository **MAY** have a ``data-yanked`` attribute "
@@ -28522,7 +28535,7 @@ msgstr ""
 "montrata de la hiperligo estas fortirita kaj ĝenerale ne elektata de "
 "instalilo krom specifaj kondiĉoj."
 
-#: ../source/specifications/simple-repository-api.rst:253
+#: ../source/specifications/simple-repository-api.rst:262
 #, fuzzy
 #| msgid ""
 #| "The value of the ``data-yanked`` attribute, if present, is an arbitrary "
@@ -28537,14 +28550,14 @@ msgstr ""
 "teksto pri la kialo de la fortiro. Ilo uzanta la simplan deponejan API "
 "**POVAS** montri tiun tekston al uzanto."
 
-#: ../source/specifications/simple-repository-api.rst:258
-#: ../source/specifications/simple-repository-api.rst:603
+#: ../source/specifications/simple-repository-api.rst:267
+#: ../source/specifications/simple-repository-api.rst:612
 msgid ""
 "The semantics of how tools should handle yanked files is described "
 "in :ref:`file-yanking`."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:261
+#: ../source/specifications/simple-repository-api.rst:270
 msgid ""
 "A repository **MAY** include a ``data-provenance`` attribute on a file link. "
 "The value of this attribute **MUST** be a fully qualified URL, signaling "
@@ -28558,12 +28571,12 @@ msgstr ""
 "**DEVAS** prezenti `sekuran originon <https://www.chromium.org/Home/chromium-"
 "security/prefer-secure-origins-for-powerful-new-features/>`_."
 
-#: ../source/specifications/simple-repository-api.rst:268
+#: ../source/specifications/simple-repository-api.rst:277
 msgid "The ``data-provenance`` attribute was added with API version 1.3."
 msgstr ""
 "La atributo ``data-provenance`` estis aldonita por versio 1.3 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:272
+#: ../source/specifications/simple-repository-api.rst:281
 msgid ""
 "The format of the linked provenance is defined in :ref:`index-hosted-"
 "attestations`."
@@ -28571,37 +28584,37 @@ msgstr ""
 "La formo de la ligita originpruvo estas difinita en :ref:`index-hosted-"
 "attestations`."
 
-#: ../source/specifications/simple-repository-api.rst:274
+#: ../source/specifications/simple-repository-api.rst:283
 msgid ""
 "A repository **MAY** include ``pypi:project-status`` and ``pypi:project-"
 "status-reason`` meta tags on the response itself."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:277
+#: ../source/specifications/simple-repository-api.rst:286
 msgid ""
 "The value of ``pypi:project-status`` **MUST** be a valid project status "
 "marker, while the value of ``pypi:project-status-reason`` **MUST** be an "
 "arbitrary string if present."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:283
-#: ../source/specifications/simple-repository-api.rst:489
+#: ../source/specifications/simple-repository-api.rst:292
+#: ../source/specifications/simple-repository-api.rst:498
 msgid ""
 "The set of valid project status markers and their semantics is described "
 "in :ref:`project-status-markers`."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:288
+#: ../source/specifications/simple-repository-api.rst:297
 msgid ""
 "The ``pypi:project-status`` and ``pypi:project-status-reason`` meta tags "
 "were added with API version 1.4."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:294
+#: ../source/specifications/simple-repository-api.rst:303
 msgid "Serve Distribution Metadata in the Simple Repository API"
 msgstr "Servi Distribuajn Metadatenojn per la Simpla Deponeja API"
 
-#: ../source/specifications/simple-repository-api.rst:296
+#: ../source/specifications/simple-repository-api.rst:305
 msgid ""
 "In a simple repository's project page, each anchor tag pointing to a "
 "distribution **MAY** have a ``data-dist-info-metadata`` attribute. The "
@@ -28610,7 +28623,7 @@ msgid ""
 "when the distribution is processed and/or installed."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:302
+#: ../source/specifications/simple-repository-api.rst:311
 msgid ""
 "If a ``data-dist-info-metadata`` attribute is present, the repository "
 "**MUST** serve the distribution's Core Metadata file alongside the "
@@ -28629,7 +28642,7 @@ msgstr ""
 "py3.none.any.whl.metadata``. Tio similas al la loko de la GPG-subskribo en "
 "la :ref:`baza specifo de HTML API <simple-repository-api-base>`."
 
-#: ../source/specifications/simple-repository-api.rst:311
+#: ../source/specifications/simple-repository-api.rst:320
 msgid ""
 "The repository **SHOULD** provide the hash of the Core Metadata file as the "
 "``data-dist-info-metadata`` attribute's value using the syntax "
@@ -28639,11 +28652,11 @@ msgid ""
 "unavailable."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:319
+#: ../source/specifications/simple-repository-api.rst:328
 msgid "Backwards Compatibility"
 msgstr "Retrokongrueco"
 
-#: ../source/specifications/simple-repository-api.rst:321
+#: ../source/specifications/simple-repository-api.rst:330
 msgid ""
 "If an anchor tag lacks the ``data-dist-info-metadata`` attribute, tools are "
 "expected to revert to their current behaviour of downloading the "
@@ -28653,7 +28666,7 @@ msgstr ""
 "la aktualan konduton, elŝutante la distribuon kaj inspektante la "
 "metadatenojn."
 
-#: ../source/specifications/simple-repository-api.rst:325
+#: ../source/specifications/simple-repository-api.rst:334
 msgid ""
 "Older tools not supporting the new ``data-dist-info-metadata`` attribute are "
 "expected to ignore the attribute and maintain their current behaviour of "
@@ -28661,11 +28674,11 @@ msgid ""
 "prior ``data-`` attribute additions expect existing tools to operate."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:334
+#: ../source/specifications/simple-repository-api.rst:343
 msgid "JSON-based Simple API for Python Package Indexes"
 msgstr "JSON-baza Simpla API por Python-Pakindeksoj"
 
-#: ../source/specifications/simple-repository-api.rst:336
+#: ../source/specifications/simple-repository-api.rst:345
 msgid ""
 "To enable response parsing with only the standard library, this spec "
 "specifies that all responses (besides the files themselves, and the HTML "
@@ -28677,7 +28690,7 @@ msgstr ""
 "respondoj el :ref:`la baza normo pri HTML API <simple-repository-api-base>` "
 "estu seriigitaj laŭ `JSON <https://www.json.org/>`_."
 
-#: ../source/specifications/simple-repository-api.rst:341
+#: ../source/specifications/simple-repository-api.rst:350
 msgid ""
 "To enable zero configuration discovery and to minimize the amount of "
 "additional HTTP requests, this spec extends :ref:`the base HTML API "
@@ -28687,7 +28700,7 @@ msgid ""
 "format to serve, i.e. either HTML or JSON."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:351
+#: ../source/specifications/simple-repository-api.rst:360
 msgid ""
 "Versioning will adhere to :ref:`the API versioning specification <simple-"
 "repository-api-versioning>` format (``Major.Minor``), which has defined the "
@@ -28697,7 +28710,7 @@ msgid ""
 "``1.0`` version, and instead just describes how to serialize that into JSON."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:358
+#: ../source/specifications/simple-repository-api.rst:367
 msgid ""
 "Similar to :ref:`the API versioning specification <simple-repository-api-"
 "versioning>`, the major version number **MUST** be incremented if any "
@@ -28709,7 +28722,7 @@ msgstr ""
 "la nova normo kaŭzus, ke ekzistanta kliento ne plu povos signife kompreni la "
 "protokolon."
 
-#: ../source/specifications/simple-repository-api.rst:364
+#: ../source/specifications/simple-repository-api.rst:373
 msgid ""
 "Likewise, the minor version **MUST** be incremented if features are added or "
 "removed from the format, but existing clients would be expected to continue "
@@ -28719,7 +28732,7 @@ msgstr ""
 "al aŭ malaldonitaj el la formo, sed ekzistanta kliento supozeble daŭre "
 "komprenos la formon."
 
-#: ../source/specifications/simple-repository-api.rst:368
+#: ../source/specifications/simple-repository-api.rst:377
 msgid ""
 "Changes that would not result in existing clients being unable to "
 "meaningfully understand the format and which do not represent features being "
@@ -28729,7 +28742,7 @@ msgstr ""
 "kiuj ne aldonas aŭ forigas funkciojn, povas okazi sen ŝanĝado de la versia "
 "numero."
 
-#: ../source/specifications/simple-repository-api.rst:372
+#: ../source/specifications/simple-repository-api.rst:381
 msgid ""
 "This is intentionally vague, as this spec believes it is best left up to "
 "future specs that make any changes to the API to investigate and decide "
@@ -28739,7 +28752,7 @@ msgstr ""
 "aŭtoroj de verkotaj normoj ŝanĝantaj la API-on konsideru kaj decidu, ĉu "
 "alkrementi la maĵoran aŭ minoran version."
 
-#: ../source/specifications/simple-repository-api.rst:376
+#: ../source/specifications/simple-repository-api.rst:385
 msgid ""
 "Future versions of the API may add things that can only be represented in a "
 "subset of the available serializations of that version. All serializations "
@@ -28748,7 +28761,7 @@ msgid ""
 "whether or not that feature is present at all."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:382
+#: ../source/specifications/simple-repository-api.rst:391
 msgid ""
 "It is the intent of this spec that the API should be thought of as URL "
 "endpoints that return data, whose interpretation is defined by the version "
@@ -28758,11 +28771,11 @@ msgstr ""
 "liverantajn datenojn, kies interpreton difinas la versio de tiuj datenoj, "
 "seriigitajn laŭ la cela seriigita dosierformo."
 
-#: ../source/specifications/simple-repository-api.rst:390
+#: ../source/specifications/simple-repository-api.rst:399
 msgid "JSON Serialization"
 msgstr "JSON-igo"
 
-#: ../source/specifications/simple-repository-api.rst:392
+#: ../source/specifications/simple-repository-api.rst:401
 #, fuzzy
 #| msgid ""
 #| "The URL structure from :ref:`the base HTML API specification <simple-"
@@ -28777,7 +28790,7 @@ msgstr ""
 "repository-api-base>` ankoraŭ validas, ĉar ĉi tiu specifo nur provizas plian "
 "seriigan formon de jam ekzistanta API."
 
-#: ../source/specifications/simple-repository-api.rst:396
+#: ../source/specifications/simple-repository-api.rst:405
 msgid ""
 "The following constraints apply to all JSON serialized responses described "
 "in this spec:"
@@ -28785,13 +28798,13 @@ msgstr ""
 "La sekvaj limigoj validas por ĉiuj JSON-seriigitaj respondoj priskribitaj en "
 "ĉi tiu specifo:"
 
-#: ../source/specifications/simple-repository-api.rst:399
+#: ../source/specifications/simple-repository-api.rst:408
 msgid ""
 "All JSON responses will *always* be a JSON object rather than an array or "
 "other type."
 msgstr "Ĉiu JSON-respondo *ĉiam* estos JSON-objekto, ne tabelo aŭ alia tipo."
 
-#: ../source/specifications/simple-repository-api.rst:402
+#: ../source/specifications/simple-repository-api.rst:411
 msgid ""
 "While JSON doesn't natively support a URL type, any value that represents an "
 "URL in this API may be either absolute or relative as long as they point to "
@@ -28803,7 +28816,7 @@ msgstr ""
 "ĝustan lokon. Relativa valoro estas relativa al la aktuala URL, same kiel "
 "HTML."
 
-#: ../source/specifications/simple-repository-api.rst:407
+#: ../source/specifications/simple-repository-api.rst:416
 msgid ""
 "Additional keys may be added to any dictionary objects in the API responses "
 "and clients **MUST** ignore keys that they don't understand."
@@ -28811,7 +28824,7 @@ msgstr ""
 "Ekstraj ŝlosiloj povas esti aldonitaj al iuj ajn vortaraj objektoj en la API-"
 "respondoj. Kliento **DEVAS** ignori ŝlosilojn ne kompreneblajn."
 
-#: ../source/specifications/simple-repository-api.rst:410
+#: ../source/specifications/simple-repository-api.rst:419
 msgid ""
 "All JSON responses will have a ``meta`` key, which contains information "
 "related to the response itself, rather than the content of the response."
@@ -28819,7 +28832,7 @@ msgstr ""
 "Ĉiu JSON-respondo havas ŝlosilon ``meta`` enhavantan informojn pri la "
 "respondo mem, ne pri la enhavo de la respondo."
 
-#: ../source/specifications/simple-repository-api.rst:413
+#: ../source/specifications/simple-repository-api.rst:422
 msgid ""
 "All JSON responses will have a ``meta.api-version`` key, which will be a "
 "string that contains the :ref:`API versioning specification <simple-"
@@ -28833,7 +28846,7 @@ msgstr ""
 "malsukceso/avertado kiel en :ref:`la API-versia specifo <simple-repository-"
 "api-versioning>`."
 
-#: ../source/specifications/simple-repository-api.rst:419
+#: ../source/specifications/simple-repository-api.rst:428
 msgid ""
 "All requirements of :ref:`the base HTML API specification <simple-repository-"
 "api-base>` that are not HTML specific still apply."
@@ -28841,7 +28854,7 @@ msgstr ""
 "Ĉiuj postuloj de :ref:`la baza HTML-API-specifo <simple-repository-api-"
 "base>` ne specifaj al HTML estas ankoraŭ observendaj."
 
-#: ../source/specifications/simple-repository-api.rst:422
+#: ../source/specifications/simple-repository-api.rst:431
 msgid ""
 "Keys (at any level) with a leading underscore are reserved as private for "
 "index server use. No future standard will assign a meaning to any such key."
@@ -28850,7 +28863,7 @@ msgstr ""
 "privata uzado de indeksa servilo. Neniu estonta normo asignos signifon al "
 "tia ŝlosilo."
 
-#: ../source/specifications/simple-repository-api.rst:430
+#: ../source/specifications/simple-repository-api.rst:439
 msgid ""
 "The root URL ``/`` for this spec (which represents the base URL) will be a "
 "JSON encoded dictionary which has a two keys:"
@@ -28858,7 +28871,7 @@ msgstr ""
 "La projekta radika retadreso ``/`` por ĉi tiu specifo (kiu prezentas la "
 "bazan retadreson) estas JSON-kodita vortaro kun du ŝlosiloj:"
 
-#: ../source/specifications/simple-repository-api.rst:433
+#: ../source/specifications/simple-repository-api.rst:442
 msgid ""
 "``projects``: An array where each entry is a dictionary with a single key, "
 "``name``, which represents string of the project name."
@@ -28866,8 +28879,8 @@ msgstr ""
 "``projects``: Listo, kies ĉiu ero estas vortaro kun ununura ŝlosilo, "
 "``nomo``, kies valoro estas signoĉeno de la projekta nomo."
 
-#: ../source/specifications/simple-repository-api.rst:434
-#: ../source/specifications/simple-repository-api.rst:508
+#: ../source/specifications/simple-repository-api.rst:443
+#: ../source/specifications/simple-repository-api.rst:517
 msgid ""
 "``meta``: The general response metadata as `described earlier <json-"
 "serialization_>`__."
@@ -28875,12 +28888,12 @@ msgstr ""
 "``meta``: La ĝeneralaj respondaj metadatenoj laŭ `la priskribo ĉi-supra "
 "<json-serialization_>`__."
 
-#: ../source/specifications/simple-repository-api.rst:436
-#: ../source/specifications/simple-repository-api.rst:634
+#: ../source/specifications/simple-repository-api.rst:445
+#: ../source/specifications/simple-repository-api.rst:643
 msgid "As an example:"
 msgstr "Ekzemple:"
 
-#: ../source/specifications/simple-repository-api.rst:453
+#: ../source/specifications/simple-repository-api.rst:462
 msgid ""
 "The ``name`` field is the same as the one from :ref:`the base HTML API "
 "specification <simple-repository-api-base>`, which does not specify whether "
@@ -28890,7 +28903,7 @@ msgid ""
 "implementation detail of the repository in question."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:463
+#: ../source/specifications/simple-repository-api.rst:472
 msgid ""
 "While the ``projects`` key is an array, and thus is required to be in some "
 "kind of an order, neither :ref:`the base HTML API specification <simple-"
@@ -28905,7 +28918,7 @@ msgstr ""
 "petoj. Oni rigardu tion kiel aron, sed nek JSON nek HTML kapablas prezenti "
 "aron."
 
-#: ../source/specifications/simple-repository-api.rst:475
+#: ../source/specifications/simple-repository-api.rst:484
 msgid ""
 "The format of this URL is ``/<project>/`` where the ``<project>`` is "
 "replaced by the :ref:`the base HTML API specification <simple-repository-api-"
@@ -28917,7 +28930,7 @@ msgstr ""
 "specifo de baza HTML API <simple-repository-api-base>`. Do projekto nomita "
 "«Ridinda_Piediro» havus la retadreson ``/ridinda-piediro/``."
 
-#: ../source/specifications/simple-repository-api.rst:480
+#: ../source/specifications/simple-repository-api.rst:489
 #, fuzzy
 #| msgid ""
 #| "This URL must respond with a JSON encoded dictionary that has four keys:"
@@ -28926,48 +28939,48 @@ msgid ""
 msgstr ""
 "Tiu URL devas respondi per JSON-kodita vortaro enhavanta kvar ŝlosilojn:"
 
-#: ../source/specifications/simple-repository-api.rst:482
+#: ../source/specifications/simple-repository-api.rst:491
 msgid "``name``: The normalized name of the project."
 msgstr "``name``: La normigita nomo de la projekto."
 
-#: ../source/specifications/simple-repository-api.rst:483
+#: ../source/specifications/simple-repository-api.rst:492
 msgid "``project-status``: An optional dictionary, containing the following:"
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:485
+#: ../source/specifications/simple-repository-api.rst:494
 msgid "``status``: If present, this **MUST** be a valid project status marker."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:494
+#: ../source/specifications/simple-repository-api.rst:503
 #, fuzzy
 #| msgid "The ``versions`` key was added with API version 1.1."
 msgid "The ``status`` key was added with API version 1.4."
 msgstr "La ŝlosilo ``versions`` estis aldonita por versio 1.1 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:496
+#: ../source/specifications/simple-repository-api.rst:505
 msgid ""
 "``reason``: If present, this **MUST** be an arbitrary string description of "
 "the project status."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:501
+#: ../source/specifications/simple-repository-api.rst:510
 #, fuzzy
 #| msgid "The ``versions`` key was added with API version 1.1."
 msgid "The ``reason`` key was added with API version 1.4."
 msgstr "La ŝlosilo ``versions`` estis aldonita por versio 1.1 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:505
+#: ../source/specifications/simple-repository-api.rst:514
 #, fuzzy
 #| msgid "The ``versions`` key was added with API version 1.1."
 msgid "The ``project-status`` key was added with API version 1.4."
 msgstr "La ŝlosilo ``versions`` estis aldonita por versio 1.1 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:507
+#: ../source/specifications/simple-repository-api.rst:516
 msgid ""
 "``files``: A list of dictionaries, each one representing an individual file."
 msgstr "``files``: Listo de vortaroj, po unu por individua dosiero."
 
-#: ../source/specifications/simple-repository-api.rst:509
+#: ../source/specifications/simple-repository-api.rst:518
 msgid ""
 "``versions``: A list of version strings specifying all of the project "
 "versions uploaded for this project. The value of ``versions`` is logically a "
@@ -28978,7 +28991,7 @@ msgstr ""
 "versiojn alŝutitajn de la projekto. La valoro de ``versions`` estas logika "
 "aro; tial, ĝi ne povas enhavi duoblaĵon, kaj la ordo de la versioj ne gravas."
 
-#: ../source/specifications/simple-repository-api.rst:516
+#: ../source/specifications/simple-repository-api.rst:525
 msgid ""
 "All of the files listed in the ``files`` key MUST be associated with one of "
 "the versions in the ``versions`` key. The ``versions`` key MAY contain "
@@ -28990,7 +29003,7 @@ msgstr ""
 "version sen asociita dosiero (por versio sen âlsutita dosiero, se la servilo "
 "subtenas tiaĵon)."
 
-#: ../source/specifications/simple-repository-api.rst:523
+#: ../source/specifications/simple-repository-api.rst:532
 msgid ""
 "Because servers may hold \"legacy\" data from before the adoption "
 "of :ref:`the version specifiers specification (VSS) <version-specifiers>`, "
@@ -28999,23 +29012,23 @@ msgid ""
 "servers **SHOULD** use normalized VSS versions where possible."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:531
+#: ../source/specifications/simple-repository-api.rst:540
 msgid "The ``versions`` key was added with API version 1.1."
 msgstr "La ŝlosilo ``versions`` estis aldonita por versio 1.1 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:533
+#: ../source/specifications/simple-repository-api.rst:542
 msgid "Each individual file dictionary has the following keys:"
 msgstr "Ĉiu individua dosiera vortaro havas la jenajn ŝlosilojn:"
 
-#: ../source/specifications/simple-repository-api.rst:535
+#: ../source/specifications/simple-repository-api.rst:544
 msgid "``filename``: The filename that is being represented."
 msgstr "``filename``: La dosiernomo prezentata."
 
-#: ../source/specifications/simple-repository-api.rst:536
+#: ../source/specifications/simple-repository-api.rst:545
 msgid "``url``: The URL that the file can be fetched from."
 msgstr "``url``: Retadreso, ĉe kiu oni povas elŝuti la dosieron."
 
-#: ../source/specifications/simple-repository-api.rst:537
+#: ../source/specifications/simple-repository-api.rst:546
 msgid ""
 "``hashes``: A dictionary mapping a hash name to a hex encoded digest of the "
 "file. Multiple hashes can be included, and it is up to the client to decide "
@@ -29024,7 +29037,7 @@ msgid ""
 "to be lowercase."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:542
+#: ../source/specifications/simple-repository-api.rst:551
 msgid ""
 "The ``hashes`` dictionary **MUST** be present, even if no hashes are "
 "available for the file, however it is **HIGHLY** recommended that at least "
@@ -29034,7 +29047,7 @@ msgstr ""
 "dosiero. Tamen, estas **REKOMENDEGATE** inkluzivi almenaŭ unu sekuran, "
 "garantie haveblan haketaĵon."
 
-#: ../source/specifications/simple-repository-api.rst:546
+#: ../source/specifications/simple-repository-api.rst:555
 msgid ""
 "By default, any hash algorithm available via :py:mod:`hashlib` (specifically "
 "any that can be passed to :py:func:`hashlib.new()` and do not require "
@@ -29044,7 +29057,7 @@ msgid ""
 "specifically is recommended."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:551
+#: ../source/specifications/simple-repository-api.rst:560
 msgid ""
 "``requires-python``: An **optional** key that exposes the :ref:`core-"
 "metadata-requires-python` metadata field. Where this is present, installer "
@@ -29055,7 +29068,7 @@ msgstr ""
 "metadata-requires-python`. Se ĝi ekzistas, instalilo **IGNORU** la elŝuton "
 "dum instalado al Python-versio ne plenumanta la postulon."
 
-#: ../source/specifications/simple-repository-api.rst:557
+#: ../source/specifications/simple-repository-api.rst:566
 msgid ""
 "Unlike ``data-requires-python`` in :ref:`the base HTML API specification "
 "<simple-repository-api-base>`, the ``requires-python`` key does not require "
@@ -29065,7 +29078,7 @@ msgstr ""
 "<simple-repository-api-base>`, la ŝlosilo ``requires-python`` ne postulas "
 "specialan kodŝanĝadon alian ol la implicitan kodŝanĝon de JSON."
 
-#: ../source/specifications/simple-repository-api.rst:560
+#: ../source/specifications/simple-repository-api.rst:569
 msgid ""
 "``core-metadata``: An **optional** key that indicates that metadata for this "
 "file is available, via the same location as specified in :ref:`the API "
@@ -29081,7 +29094,7 @@ msgstr ""
 "(indikanta, ĉu asociita metadatena dosiero ekzistas) aŭ vortaro, kiu asocias "
 "nomojn de haketaĵoj al deksesume koditaj haketaĵoj de la metadatenoj."
 
-#: ../source/specifications/simple-repository-api.rst:568
+#: ../source/specifications/simple-repository-api.rst:577
 msgid ""
 "When this is a dictionary of hashes instead of a boolean, then all the same "
 "requirements and recommendations as the ``hashes`` key hold true for this "
@@ -29090,7 +29103,7 @@ msgstr ""
 "Se ĉi tiu estas vortaro da haketaĵoj kaj ne bulea valoro, do la postuloj kaj "
 "rekomendoj por la ŝlosilo ``hashes`` ankaŭ validas por ĉi tiu ŝlosilo."
 
-#: ../source/specifications/simple-repository-api.rst:572
+#: ../source/specifications/simple-repository-api.rst:581
 msgid ""
 "If this key is missing then the metadata file may or may not exist. If the "
 "key value is truthy, then the metadata file is present, and if it is falsey "
@@ -29100,7 +29113,7 @@ msgstr ""
 "ŝlosila valoro estas vereca, la metadateno-dosiero ekzistas; se la ŝlosila "
 "valoro estas malvereca, la metadateno-dosiero mankas."
 
-#: ../source/specifications/simple-repository-api.rst:576
+#: ../source/specifications/simple-repository-api.rst:585
 msgid ""
 "It is recommended that servers make the hashes of the metadata file "
 "available if possible."
@@ -29108,14 +29121,14 @@ msgstr ""
 "Estas rekomendate, ke serviloj disponigu la haketaĵojn de la metadateno-"
 "dosiero, se tio eblas."
 
-#: ../source/specifications/simple-repository-api.rst:579
+#: ../source/specifications/simple-repository-api.rst:588
 msgid ""
 "``dist-info-metadata``: An **optional**, deprecated alias for ``core-"
 "metadata``."
 msgstr ""
 "``dist-info-metadata``: **Nedeviga**, evitinda sinonimo de ``core-metadata``."
 
-#: ../source/specifications/simple-repository-api.rst:581
+#: ../source/specifications/simple-repository-api.rst:590
 msgid ""
 "Index clients **MAY** consume this key if present, as a legacy fallback for "
 "``core-metadata``."
@@ -29123,7 +29136,7 @@ msgstr ""
 "Indekso-kliento **POVAS** uzi tiun ŝlosilon, se ĝi ekzistas, kiel evitindan "
 "sinonimon de ``core-metadata``."
 
-#: ../source/specifications/simple-repository-api.rst:586
+#: ../source/specifications/simple-repository-api.rst:595
 msgid ""
 "``dist-info-metadata`` was standardized with :pep:`658` and renamed to "
 "``core-metadata`` with :pep:`714`."
@@ -29131,7 +29144,7 @@ msgstr ""
 "``dist-info-metadata`` estis normigita per :pep:`658`, kaj ĝia nomo ŝanĝiĝis "
 "al ``core-metadata`` per :pep:`714`."
 
-#: ../source/specifications/simple-repository-api.rst:589
+#: ../source/specifications/simple-repository-api.rst:598
 msgid ""
 "``gpg-sig``: An **optional** key that acts a boolean to indicate if the file "
 "has an associated GPG signature or not. The URL for the signature file "
@@ -29140,7 +29153,7 @@ msgid ""
 "the signature may or may not exist."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:595
+#: ../source/specifications/simple-repository-api.rst:604
 msgid ""
 "``yanked``: An **optional** key which may be either a boolean to indicate if "
 "the file has been yanked, or a non empty, but otherwise arbitrary, string to "
@@ -29150,7 +29163,7 @@ msgid ""
 "been \"Yanked\"."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:606
+#: ../source/specifications/simple-repository-api.rst:615
 msgid ""
 "``size``: A **mandatory** key. It **MUST** contain an integer which is the "
 "file size in bytes."
@@ -29158,11 +29171,11 @@ msgstr ""
 "``size``: Ŝlosilo, kiu **DEVAS** ekzisti kaj **DEVAS** enhavi entjeron, kiu "
 "estas la grando de la dosiero en bajtoj."
 
-#: ../source/specifications/simple-repository-api.rst:610
+#: ../source/specifications/simple-repository-api.rst:619
 msgid "The ``size`` key was added with API version 1.1."
 msgstr "La ŝlosilo ``size`` estis aldonita por versio 1.1 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:612
+#: ../source/specifications/simple-repository-api.rst:621
 msgid ""
 "``upload-time``: An **optional** key that, if present, **MUST** contain a "
 "valid ISO 8601 date/time string in the format ``yyyy-mm-"
@@ -29174,7 +29187,7 @@ msgstr ""
 "ttThh:mm:ss.ffffffZ``, kiu prezentas la tempon, kiam la dosiero estis "
 "alŝutita al la indekso."
 
-#: ../source/specifications/simple-repository-api.rst:616
+#: ../source/specifications/simple-repository-api.rst:625
 msgid ""
 "As indicated by the ``Z`` suffix, the upload time **MUST** use the UTC "
 "timezone. The fractional seconds part of the timestamp (the ``.ffffff`` "
@@ -29188,11 +29201,11 @@ msgstr ""
 "servilo ne registras alŝutan tempon de dosiero, ĝi **POVAS** preterlasi la "
 "ŝlosilon ``upload-time``."
 
-#: ../source/specifications/simple-repository-api.rst:623
+#: ../source/specifications/simple-repository-api.rst:632
 msgid "The ``upload-time`` key was added with API version 1.1."
 msgstr "La ŝlosilo ``upload-time`` estis aldonita por versio 1.1 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:625
+#: ../source/specifications/simple-repository-api.rst:634
 msgid ""
 "``provenance``: An **optional** key which, if present **MUST** be either a "
 "JSON string or ``null``. If not ``null``, it **MUST** be a URL to the file's "
@@ -29205,11 +29218,11 @@ msgstr ""
 "kiel ``data-provenance`` en la :ref:`normo pri la baza HTML API <simple-"
 "repository-api-base>`."
 
-#: ../source/specifications/simple-repository-api.rst:632
+#: ../source/specifications/simple-repository-api.rst:641
 msgid "The ``provenance`` field was added with API version 1.3."
 msgstr "La kampo ``provenance`` estis aldonita por versio 1.3 de la API."
 
-#: ../source/specifications/simple-repository-api.rst:670
+#: ../source/specifications/simple-repository-api.rst:679
 msgid ""
 "While the ``files`` key is an array, and thus is required to be in some kind "
 "of an order, neither :ref:`the base HTML API specification <simple-"
@@ -29224,11 +29237,11 @@ msgstr ""
 "petoj. Oni rigardu tion kiel aron, sed nek JSON nek HTML kapablas prezenti "
 "aron."
 
-#: ../source/specifications/simple-repository-api.rst:679
+#: ../source/specifications/simple-repository-api.rst:688
 msgid "Content-Types"
 msgstr "Content-Types"
 
-#: ../source/specifications/simple-repository-api.rst:681
+#: ../source/specifications/simple-repository-api.rst:690
 msgid ""
 "This spec proposes that all responses from the Simple API will have a "
 "standard content type that describes what the response is (a Simple API "
@@ -29239,11 +29252,11 @@ msgstr ""
 "enhavtipon priskribantan kio la respondo estas (respondo de Simpla API), "
 "kiun version de la API ĝi uzas, kaj kiun seriigan formon ĝi uzas."
 
-#: ../source/specifications/simple-repository-api.rst:685
+#: ../source/specifications/simple-repository-api.rst:694
 msgid "The structure of this content type will be:"
 msgstr "La strukturo de ĉi tiu enhavtipo estos:"
 
-#: ../source/specifications/simple-repository-api.rst:691
+#: ../source/specifications/simple-repository-api.rst:700
 msgid ""
 "Since only major versions should be disruptive to clients attempting to "
 "understand one of these API responses, only the major version will be "
@@ -29251,19 +29264,19 @@ msgid ""
 "that it is a version number."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:696
+#: ../source/specifications/simple-repository-api.rst:705
 msgid "Which means that for the existing 1.0 API, the content types would be:"
 msgstr "Tio signifas, ke por la ekzistanta API 1.0, la enhavtipoj estus:"
 
-#: ../source/specifications/simple-repository-api.rst:698
+#: ../source/specifications/simple-repository-api.rst:707
 msgid "**JSON:** ``application/vnd.pypi.simple.v1+json``"
 msgstr "**JSON:** ``application/vnd.pypi.simple.v1+json``"
 
-#: ../source/specifications/simple-repository-api.rst:699
+#: ../source/specifications/simple-repository-api.rst:708
 msgid "**HTML:** ``application/vnd.pypi.simple.v1+html``"
 msgstr "**HTML:** ``application/vnd.pypi.simple.v1+html``"
 
-#: ../source/specifications/simple-repository-api.rst:701
+#: ../source/specifications/simple-repository-api.rst:710
 msgid ""
 "In addition to the above, a special \"meta\" version is supported named "
 "``latest``, whose purpose is to allow clients to request the absolute latest "
@@ -29272,7 +29285,7 @@ msgid ""
 "support."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:706
+#: ../source/specifications/simple-repository-api.rst:715
 msgid ""
 "To support existing clients which expect the existing :ref:`the base HTML "
 "API specification <simple-repository-api-base>` API responses to use the "
@@ -29284,11 +29297,11 @@ msgstr ""
 "``text/html``, ĉi tiu normo difinas ``text/html`` kiel sinonimon de la "
 "enhavtipo ``application/vnd.pypi.simple.v1+html`` ."
 
-#: ../source/specifications/simple-repository-api.rst:713
+#: ../source/specifications/simple-repository-api.rst:722
 msgid "Version + Format Selection"
 msgstr "Elektado de Versio kaj Dosierformo"
 
-#: ../source/specifications/simple-repository-api.rst:715
+#: ../source/specifications/simple-repository-api.rst:724
 msgid ""
 "Now that there is multiple possible serializations, we need a mechanism to "
 "allow clients to indicate what serialization formats they're able to "
@@ -29297,7 +29310,7 @@ msgid ""
 "expecting the previous API version."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:720
+#: ../source/specifications/simple-repository-api.rst:729
 msgid ""
 "To enable this, this spec standardizes on the use of HTTP's `Server-Driven "
 "Content Negotiation <https://developer.mozilla.org/en-US/docs/Web/HTTP/"
@@ -29307,7 +29320,7 @@ msgstr ""
 "Marĉandado de HTTP <https://developer.mozilla.org/en-US/docs/Web/HTTP/"
 "Content_negotiation>`_."
 
-#: ../source/specifications/simple-repository-api.rst:723
+#: ../source/specifications/simple-repository-api.rst:732
 msgid ""
 "While this spec won't fully describe the entirety of server-driven content "
 "negotiation, the flow is roughly:"
@@ -29315,7 +29328,7 @@ msgstr ""
 "Dum ĉi tiu specifo ne plene priskribas servilan enhavo-marĉandadon, la fluo "
 "estas proksimume jena:"
 
-#: ../source/specifications/simple-repository-api.rst:726
+#: ../source/specifications/simple-repository-api.rst:735
 msgid ""
 "The client makes an HTTP request containing an ``Accept`` header listing all "
 "of the version+format content types that they are able to understand."
@@ -29323,7 +29336,7 @@ msgstr ""
 "La kliento sendas HTTP-peton enhavantan ĉapon ``Accept`` listigantan ĉiujn "
 "enhavtipojn de la formo versio+formo komprenatajn de la kliento."
 
-#: ../source/specifications/simple-repository-api.rst:728
+#: ../source/specifications/simple-repository-api.rst:737
 msgid ""
 "The server inspects that header, selects one of the listed content types, "
 "then returns a response using that content type (treating the absence of an "
@@ -29333,7 +29346,7 @@ msgstr ""
 "kaj liveras respondon de tiu enhavtipo (la manko de ĉapo ``Accept`` estas "
 "ekvivalenta al ``Accept: */*``)."
 
-#: ../source/specifications/simple-repository-api.rst:731
+#: ../source/specifications/simple-repository-api.rst:740
 msgid ""
 "If the server does not support any of the content types in the ``Accept`` "
 "header then they are able to choose between 3 different options for how to "
@@ -29342,7 +29355,7 @@ msgstr ""
 "Se la servilo ne subtenas iun ajn el la enhavtipoj en la ĉapo ``Accept``, ĝi "
 "povas elekti inter la jenaj tri opcioj:"
 
-#: ../source/specifications/simple-repository-api.rst:735
+#: ../source/specifications/simple-repository-api.rst:744
 msgid ""
 "Select a default content type other than what the client has requested and "
 "return a response with that."
@@ -29350,7 +29363,7 @@ msgstr ""
 "Elekti aprioran enhavtipon alian ol tiujn petitajn de la kliento kaj liveri "
 "tian respondon."
 
-#: ../source/specifications/simple-repository-api.rst:737
+#: ../source/specifications/simple-repository-api.rst:746
 msgid ""
 "Return a HTTP ``406 Not Acceptable`` response to indicate that none of the "
 "requested content types were available, and the server was unable or "
@@ -29360,7 +29373,7 @@ msgstr ""
 "petitaj enhavtipoj estis disponeblaj, kaj la servilo ne volis aŭ ne povis "
 "elekti aprioran respondan enhavtipon."
 
-#: ../source/specifications/simple-repository-api.rst:740
+#: ../source/specifications/simple-repository-api.rst:749
 msgid ""
 "Return a HTTP ``300 Multiple Choices`` response that contains a list of all "
 "of the possible responses that could have been chosen."
@@ -29368,7 +29381,7 @@ msgstr ""
 "Liveri HTTP-respondon ``300 Pluraj Opcioj`` enhavantan liston de ĉiuj eblaj "
 "respondoj, kiujn la kliento povas elekti."
 
-#: ../source/specifications/simple-repository-api.rst:742
+#: ../source/specifications/simple-repository-api.rst:751
 msgid ""
 "The client interprets the response, handling the different types of "
 "responses that the server may have responded with."
@@ -29376,7 +29389,7 @@ msgstr ""
 "La kliento interpretas la respondon, pritraktante tiujn diversajn specojn de "
 "respondoj, kiujn la servilo eble sendis."
 
-#: ../source/specifications/simple-repository-api.rst:745
+#: ../source/specifications/simple-repository-api.rst:754
 msgid ""
 "This spec does not specify which choices the server makes in regards to "
 "handling a content type that it isn't able to return, and clients **SHOULD** "
@@ -29384,7 +29397,7 @@ msgid ""
 "the most sense for that client."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:750
+#: ../source/specifications/simple-repository-api.rst:759
 msgid ""
 "However, as there is no standard format for how a ``300 Multiple Choices`` "
 "response can be interpreted, this spec highly discourages servers from "
@@ -29395,7 +29408,7 @@ msgid ""
 "error."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:757
+#: ../source/specifications/simple-repository-api.rst:766
 msgid ""
 "This spec **does** require that if the meta version ``latest`` is being "
 "used, the server **MUST** respond with the content type for the actual "
@@ -29404,7 +29417,7 @@ msgid ""
 "should have a ``Content-Type`` of ``application/vnd.pypi.simple.v1+json``)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:764
+#: ../source/specifications/simple-repository-api.rst:773
 msgid ""
 "The ``Accept`` header is a comma separated list of content types that the "
 "client understands and is able to process. It supports three different "
@@ -29414,19 +29427,19 @@ msgstr ""
 "pritrakteblaj de la kliento. Ĝu subtenas tri malsamjn formojn por ĉiu "
 "pripetata enhavtipo:"
 
-#: ../source/specifications/simple-repository-api.rst:768
+#: ../source/specifications/simple-repository-api.rst:777
 msgid "``$type/$subtype``"
 msgstr "``$tipo/$subtipo``"
 
-#: ../source/specifications/simple-repository-api.rst:769
+#: ../source/specifications/simple-repository-api.rst:778
 msgid "``$type/*``"
 msgstr "``$tipo/*``"
 
-#: ../source/specifications/simple-repository-api.rst:770
+#: ../source/specifications/simple-repository-api.rst:779
 msgid "``*/*``"
 msgstr "``*/*``"
 
-#: ../source/specifications/simple-repository-api.rst:772
+#: ../source/specifications/simple-repository-api.rst:781
 msgid ""
 "For the use of selecting a version+format, the most useful of these is "
 "``$type/$subtype``, as that is the only way to actually specify the version "
@@ -29436,7 +29449,7 @@ msgstr ""
 "$subtipo``, ĉar tio estas la sola maniero specifi la deziratajn version kaj "
 "dosierformon."
 
-#: ../source/specifications/simple-repository-api.rst:776
+#: ../source/specifications/simple-repository-api.rst:785
 msgid ""
 "The order of the content types listed in the ``Accept`` header does not have "
 "any specific meaning, and the server **SHOULD** consider all of them to be "
@@ -29446,7 +29459,7 @@ msgid ""
 "Quality_values>`_ syntax."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:783
+#: ../source/specifications/simple-repository-api.rst:792
 msgid ""
 "This allows a client to specify a priority for a specific entry in their "
 "``Accept`` header, by appending a ``;q=`` followed by a value between ``0`` "
@@ -29456,7 +29469,7 @@ msgid ""
 "quality of ``1``."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:789
+#: ../source/specifications/simple-repository-api.rst:798
 msgid ""
 "However, clients should keep in mind that a server is free to select **any** "
 "of the content types they've asked for, regardless of their requested "
@@ -29466,7 +29479,7 @@ msgstr ""
 "Tamen, kliento memoru, ke servilo rajtas elekti **ajnan* el la petitaj "
 "enhavtipoj, malgraŭ la donitaj prioritatoj, kaj eĉ enhavtipon **ne** petitan."
 
-#: ../source/specifications/simple-repository-api.rst:793
+#: ../source/specifications/simple-repository-api.rst:802
 msgid ""
 "To aid clients in determining the content type of the response that they "
 "have received from an API request, this spec requires that servers always "
@@ -29483,11 +29496,11 @@ msgstr ""
 "cf3696a81b341925f82f20cb527e656176987565/src/pip/_internal/index/"
 "collector.py#L123-L150>`_. Tial la risko de reala rompo estas malgranda."
 
-#: ../source/specifications/simple-repository-api.rst:800
+#: ../source/specifications/simple-repository-api.rst:809
 msgid "An example of how a client can operate would look like:"
 msgstr "Jen ekzemplo de funkciado de kliento:"
 
-#: ../source/specifications/simple-repository-api.rst:851
+#: ../source/specifications/simple-repository-api.rst:860
 msgid ""
 "If a client wishes to only support HTML or only support JSON, then they "
 "would just remove the content types that they do not want from the "
@@ -29496,11 +29509,11 @@ msgstr ""
 "Se kliento volus nur subteni HTML aŭ JSON, do ĝi simple forigus nevolatan "
 "enhavtipon el la ĉapo ``Accept``, tiel ke ricevi tion estus erare."
 
-#: ../source/specifications/simple-repository-api.rst:857
+#: ../source/specifications/simple-repository-api.rst:866
 msgid "Alternative Negotiation Mechanisms"
 msgstr "Alternativaj Marĉandaj Meĥanismoj"
 
-#: ../source/specifications/simple-repository-api.rst:859
+#: ../source/specifications/simple-repository-api.rst:868
 msgid ""
 "While using HTTP's Content negotiation is considered the standard way for a "
 "client and server to coordinate to ensure that the client is getting an HTTP "
@@ -29509,11 +29522,11 @@ msgid ""
 "negotiation mechanisms that may *optionally* be used instead."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:867
+#: ../source/specifications/simple-repository-api.rst:876
 msgid "URL Parameter"
 msgstr "URL-Parametro"
 
-#: ../source/specifications/simple-repository-api.rst:869
+#: ../source/specifications/simple-repository-api.rst:878
 msgid ""
 "Servers that implement the Simple API may choose to support a URL parameter "
 "named ``format`` to allow the clients to request a specific version of the "
@@ -29522,7 +29535,7 @@ msgstr ""
 "Servilo realiganta la Simplan API povas eble subteni retadresan parametron "
 "nomitan ``format`` por peti specifan version de la retadreso."
 
-#: ../source/specifications/simple-repository-api.rst:872
+#: ../source/specifications/simple-repository-api.rst:881
 msgid ""
 "The value of the ``format`` parameter should be **one** of the valid content "
 "types. Passing multiple content types, wild cards, quality values, etc... is "
@@ -29531,7 +29544,7 @@ msgstr ""
 "La valoro de la parametro ``format`` estu **unu** el la validaj enhavtipoj. "
 "Ne subtenataj estas pluraj enhavtipoj, ĵokero, kvalito-valoro ktp."
 
-#: ../source/specifications/simple-repository-api.rst:876
+#: ../source/specifications/simple-repository-api.rst:885
 msgid ""
 "Supporting this parameter is optional, and clients **SHOULD NOT** rely on it "
 "for interacting with the API. This negotiation mechanism is intended to "
@@ -29543,7 +29556,7 @@ msgstr ""
 "esplorado de la API en TTT-legilo aŭ por permesi hiperligon al specifa "
 "versio kaj formo en dokumentaro aŭ notoj."
 
-#: ../source/specifications/simple-repository-api.rst:881
+#: ../source/specifications/simple-repository-api.rst:890
 msgid ""
 "Servers that do not support this parameter may choose to return an error "
 "when it is present, or they may simple ignore its presence."
@@ -29551,7 +29564,7 @@ msgstr ""
 "Servilo ne subtenanta tiun parametron povas raporti eraron se ĝi ĉeestas aŭ "
 "simple ignori ĝin."
 
-#: ../source/specifications/simple-repository-api.rst:884
+#: ../source/specifications/simple-repository-api.rst:893
 msgid ""
 "When a server does implement this parameter, it **SHOULD** take precedence "
 "over any values in the client's ``Accept`` header, and if the server does "
@@ -29561,11 +29574,11 @@ msgid ""
 "``303 Multiple Choices``, or selecting a default type to return)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:893
+#: ../source/specifications/simple-repository-api.rst:902
 msgid "Endpoint Configuration"
 msgstr "Agordado de Finpunkto"
 
-#: ../source/specifications/simple-repository-api.rst:895
+#: ../source/specifications/simple-repository-api.rst:904
 msgid ""
 "This option technically is not a special option at all, it is just a natural "
 "consequence of using content negotiation and allowing servers to select "
@@ -29575,7 +29588,7 @@ msgstr ""
 "uzadon de enhavo-marĉandado, permesante al servilo elekti sian aprioraĵon el "
 "la haveblaj enhavtipoj."
 
-#: ../source/specifications/simple-repository-api.rst:899
+#: ../source/specifications/simple-repository-api.rst:908
 msgid ""
 "If a server is unwilling or unable to implement the server-driven content "
 "negotiation, and would instead rather require users to explicitly configure "
@@ -29585,7 +29598,7 @@ msgstr ""
 "Se servilo ne volas aŭ ne povas subteni la servila enhavomarĉandado kaj "
 "volas postuli, ke uzanto eksplicu la deziratan version, tio estas permesata."
 
-#: ../source/specifications/simple-repository-api.rst:903
+#: ../source/specifications/simple-repository-api.rst:912
 msgid ""
 "To enable this, a server should make multiple endpoints (for instance, ``/"
 "simple/v1+html/`` and/or ``/simple/v1+json/``) for each version+format that "
@@ -29601,7 +29614,7 @@ msgstr ""
 "petas uzante la ĉapon ``Accept``, la servilo povas ignori tion kaj liveri la "
 "enhavtipon por la finpunkto."
 
-#: ../source/specifications/simple-repository-api.rst:910
+#: ../source/specifications/simple-repository-api.rst:919
 msgid ""
 "For clients that wish to require specific configuration, they can keep track "
 "of which version+format a specific repository URL was configured for, and "
@@ -29612,7 +29625,7 @@ msgstr ""
 "dosierformon de specifita deponeja retadreso, kaj (dum sendado de peto al "
 "tiu servilo) sendi ĉapon ``Accept`` *nur* inkluzivantan la ĝustan enhavtipon."
 
-#: ../source/specifications/simple-repository-api.rst:918
+#: ../source/specifications/simple-repository-api.rst:927
 msgid ""
 "This section is non-normative, and represents what the spec authors believe "
 "to be the best default implementation decisions for something implementing "
@@ -29623,7 +29636,7 @@ msgstr ""
 "tiun normon laŭ la opinioj de la aŭtoroj. Ĝi **ne** devige postulas tiajn "
 "decidojn."
 
-#: ../source/specifications/simple-repository-api.rst:922
+#: ../source/specifications/simple-repository-api.rst:931
 msgid ""
 "These decisions have been chosen to maximize the number of requests that can "
 "be moved onto the newest version of an API, while maintaining the greatest "
@@ -29632,11 +29645,11 @@ msgid ""
 "choices it can."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:927
+#: ../source/specifications/simple-repository-api.rst:936
 msgid "It is recommended that servers:"
 msgstr "Ni rekomendas, ke serviloj faru la jenon:"
 
-#: ../source/specifications/simple-repository-api.rst:929
+#: ../source/specifications/simple-repository-api.rst:938
 msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can, or at least as long "
@@ -29646,7 +29659,7 @@ msgstr ""
 "marĉandadon, por tiel longe kiel oni racie povas, aŭ minimume tiel longe "
 "kiel oni ricevas iom da trafiko uzanta la HTML-respondojn."
 
-#: ../source/specifications/simple-repository-api.rst:933
+#: ../source/specifications/simple-repository-api.rst:942
 msgid ""
 "When encountering an ``Accept`` header that does not contain any content "
 "types that it knows how to work with, the server should not ever return a "
@@ -29657,7 +29670,7 @@ msgstr ""
 "dosiertipon, ĝi ne liveru respondon ``300 Multiple Choice``; anstataŭe ĝi "
 "liveru respondon ``406 Not Acceptable``."
 
-#: ../source/specifications/simple-repository-api.rst:938
+#: ../source/specifications/simple-repository-api.rst:947
 msgid ""
 "However, if choosing to use the endpoint configuration, you should prefer to "
 "return a ``200 OK`` response in the expected content type for that endpoint."
@@ -29665,7 +29678,7 @@ msgstr ""
 "Tamen, se oni elektas uzi la finpunktan agordon, oni prefere liveru "
 "respondon ``200 OK`` en la atendata enhavtipo de tiu finpunkto."
 
-#: ../source/specifications/simple-repository-api.rst:941
+#: ../source/specifications/simple-repository-api.rst:950
 msgid ""
 "When selecting an acceptable version, the server should choose the highest "
 "version that the client supports, with the most expressive/featureful "
@@ -29674,11 +29687,11 @@ msgid ""
 "should only use the ``text/html`` content type as a last resort."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:947
+#: ../source/specifications/simple-repository-api.rst:956
 msgid "It is recommended that clients:"
 msgstr "Ni rekomendas, ke klientoj faru la jenon:"
 
-#: ../source/specifications/simple-repository-api.rst:949
+#: ../source/specifications/simple-repository-api.rst:958
 msgid ""
 "Support all 3 content types described in this spec, using server-driven "
 "content negotiation, for as long as they reasonably can."
@@ -29686,14 +29699,14 @@ msgstr ""
 "Subtenu ĉiujn 3 enhavtipojn priskribitajn en ĉi tiu specifo, per servila "
 "enhavo-marĉandado, tiel longe kiel racie eblas."
 
-#: ../source/specifications/simple-repository-api.rst:952
+#: ../source/specifications/simple-repository-api.rst:961
 msgid ""
 "When constructing an ``Accept`` header, include all of the content types "
 "that you support."
 msgstr ""
 "Dum konstruado de ĉapo ``Accept``, inkluzivu ĉiujn enhavtipojn subtenatajn."
 
-#: ../source/specifications/simple-repository-api.rst:955
+#: ../source/specifications/simple-repository-api.rst:964
 msgid ""
 "You should generally *not* include a quality priority value for your content "
 "types, unless you have implementation specific reasons that you want the "
@@ -29702,7 +29715,7 @@ msgid ""
 "responses that you're unable to parse in some edge cases)."
 msgstr ""
 
-#: ../source/specifications/simple-repository-api.rst:961
+#: ../source/specifications/simple-repository-api.rst:970
 msgid ""
 "The one exception to this recommendation is that it is recommended that you "
 "*should* include a ``;q=0.01`` value on the legacy ``text/html`` content "
@@ -29712,7 +29725,7 @@ msgstr ""
 "valoron ``;q=0.01`` sur la malnova enhavtipo ``text/html``, krom se tiu "
 "estas la sola enhavtipo, kiun vi petas."
 
-#: ../source/specifications/simple-repository-api.rst:965
+#: ../source/specifications/simple-repository-api.rst:974
 msgid ""
 "Explicitly select what versions they are looking for, rather than using the "
 "``latest`` meta version during normal operation."
@@ -29720,7 +29733,7 @@ msgstr ""
 "Eksplicite elektu la version serĉatan, anstataŭ uzi la metadatenan version "
 "``latest``, dum ordinara funkciado."
 
-#: ../source/specifications/simple-repository-api.rst:968
+#: ../source/specifications/simple-repository-api.rst:977
 msgid ""
 "Check the ``Content-Type`` of the response and ensure it matches something "
 "that you were expecting."
@@ -29728,19 +29741,19 @@ msgstr ""
 "Kontrolu la ``Content-Type`` de la respondo, kaj certigu, ke ĝi kongruas kun "
 "io atendata de vi."
 
-#: ../source/specifications/simple-repository-api.rst:976
+#: ../source/specifications/simple-repository-api.rst:985
 msgid "September 2015: initial form of the HTML format, in :pep:`503`"
 msgstr "Septembro 2015: unua versio de la HTML-formo, en :pep:`503`"
 
-#: ../source/specifications/simple-repository-api.rst:977
+#: ../source/specifications/simple-repository-api.rst:986
 msgid "July 2016: Requires-Python metadata, in an update to :pep:`503`"
 msgstr "Julio 2016: Metadateno Requires-Python, en ĝisdatigo al :pep:`503`"
 
-#: ../source/specifications/simple-repository-api.rst:978
+#: ../source/specifications/simple-repository-api.rst:987
 msgid "May 2019: \"yank\" support, in :pep:`592`"
 msgstr "Majo 2019: Subteno de «fortiro», en :pep:`592`"
 
-#: ../source/specifications/simple-repository-api.rst:979
+#: ../source/specifications/simple-repository-api.rst:988
 msgid ""
 "July 2020: API versioning convention and metadata, and declaring the HTML "
 "format as API v1, in :pep:`629`"
@@ -29748,14 +29761,14 @@ msgstr ""
 "Julio 2020: Versia konvencio de API kaj metadatenoj, kaj deklaro de la HTML-"
 "formo kiel versio 1 de la API, en :pep:`629`"
 
-#: ../source/specifications/simple-repository-api.rst:981
+#: ../source/specifications/simple-repository-api.rst:990
 msgid ""
 "May 2021: providing package metadata independently from a package, "
 "in :pep:`658`"
 msgstr ""
 "Majo 2021: provizi pakajn metadatenojn sendepende de pako, laŭ :pep:`658`"
 
-#: ../source/specifications/simple-repository-api.rst:983
+#: ../source/specifications/simple-repository-api.rst:992
 msgid ""
 "May 2022: initial form of the JSON format, with a mechanism for clients to "
 "choose between them, and declaring both formats as API v1, in :pep:`691`"
@@ -29763,7 +29776,7 @@ msgstr ""
 "Majo 2022: komenca versio de la JSON-formo, kun meĥanismo por kliento elekti "
 "inter ili, kaj deklaro de ambaŭ formoj kiel versio 1 de la API, en :pep:`691`"
 
-#: ../source/specifications/simple-repository-api.rst:985
+#: ../source/specifications/simple-repository-api.rst:994
 msgid ""
 "October 2022: project versions and file size and upload-time in the JSON "
 "format, in :pep:`700`"
@@ -29771,7 +29784,7 @@ msgstr ""
 "Oktobro 2022: projekta versio kaj dosiera grando kaj alŝuta tempo en la "
 "formo JSON laŭ :pep:`700`"
 
-#: ../source/specifications/simple-repository-api.rst:987
+#: ../source/specifications/simple-repository-api.rst:996
 msgid ""
 "June 2023: renaming the field which provides package metadata independently "
 "from a package, in :pep:`714`"
@@ -29779,7 +29792,7 @@ msgstr ""
 "Junio 2023: ŝanĝi la nomon de la kampo provizantan pakajn metadatenojn "
 "sendepende de pako laŭ :pep:`714`"
 
-#: ../source/specifications/simple-repository-api.rst:989
+#: ../source/specifications/simple-repository-api.rst:998
 msgid ""
 "November 2024: provenance metadata in the HTML and JSON formats, "
 "in :pep:`740`"
@@ -29787,7 +29800,7 @@ msgstr ""
 "Novembro 2024: originpruvaj metadatenoj en la formoj HTML kaj JSON, "
 "en :pep:`740`"
 
-#: ../source/specifications/simple-repository-api.rst:990
+#: ../source/specifications/simple-repository-api.rst:999
 #, fuzzy
 #| msgid ""
 #| "November 2024: provenance metadata in the HTML and JSON formats, "
@@ -29798,10 +29811,16 @@ msgstr ""
 "Novembro 2024: originpruvaj metadatenoj en la formoj HTML kaj JSON, "
 "en :pep:`740`"
 
-#: ../source/specifications/simple-repository-api.rst:991
+#: ../source/specifications/simple-repository-api.rst:1000
 msgid ""
 "July 2025: layout changes (dedicated page for file yanking, introduce "
 "concepts before API details)"
+msgstr ""
+
+#: ../source/specifications/simple-repository-api.rst:1001
+msgid ""
+"June 2026: :pep:`833` formally \"freezes\" the HTML representation of the "
+"simple API"
 msgstr ""
 
 #: ../source/specifications/source-distribution-format.rst:6
