@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python Packaging User Guide\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-05 16:17+0000\n"
+"POT-Creation-Date: 2026-05-18 17:36+0000\n"
 "PO-Revision-Date: 2025-08-07 00:01+0000\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/pypa/"
@@ -5276,7 +5276,7 @@ msgstr "Descrição"
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:77
 #: ../source/specifications/dependency-groups.rst:23
-#: ../source/specifications/dependency-specifiers.rst:29
+#: ../source/specifications/dependency-specifiers.rst:33
 #: ../source/specifications/direct-url-data-structure.rst:242
 #: ../source/specifications/version-specifiers.rst:1088
 msgid "Examples"
@@ -5694,7 +5694,7 @@ msgid ""
 msgstr ""
 
 #: ../source/guides/analyzing-pypi-package-downloads.rst:345
-#: ../source/specifications/dependency-specifiers.rst:537
+#: ../source/specifications/dependency-specifiers.rst:713
 msgid "References"
 msgstr "Referências"
 
@@ -8112,7 +8112,7 @@ msgstr ""
 "aplicações do pacote de qualquer lugar."
 
 #: ../source/guides/installing-stand-alone-command-line-tools.rst:54
-#: ../source/specifications/entry-points.rst:114
+#: ../source/specifications/entry-points.rst:113
 msgid "For example:"
 msgstr "Por exemplo:"
 
@@ -13060,7 +13060,6 @@ msgid "Dependencies and requirements"
 msgstr "Dependências e requisitos"
 
 #: ../source/guides/writing-pyproject-toml.rst:144
-#: ../source/specifications/pyproject-toml.rst:453
 msgid "``dependencies``/``optional-dependencies``"
 msgstr "``dependencies``/``optional-dependencies``"
 
@@ -17953,17 +17952,17 @@ msgstr ""
 #: ../source/specifications/binary-distribution-format.rst:380
 #: ../source/specifications/core-metadata.rst:1035
 #: ../source/specifications/dependency-groups.rst:250
-#: ../source/specifications/dependency-specifiers.rst:516
+#: ../source/specifications/dependency-specifiers.rst:680
 #: ../source/specifications/direct-url-data-structure.rst:292
 #: ../source/specifications/direct-url.rst:67
-#: ../source/specifications/entry-points.rst:164
+#: ../source/specifications/entry-points.rst:163
 #: ../source/specifications/externally-managed-environments.rst:472
 #: ../source/specifications/glob-patterns.rst:118
 #: ../source/specifications/inline-script-metadata.rst:213
 #: ../source/specifications/name-normalization.rst:50
 #: ../source/specifications/platform-compatibility-tags.rst:440
 #: ../source/specifications/pylock-toml.rst:841
-#: ../source/specifications/pyproject-toml.rst:632
+#: ../source/specifications/pyproject-toml.rst:655
 #: ../source/specifications/recording-installed-packages.rst:278
 #: ../source/specifications/simple-repository-api.rst:974
 #: ../source/specifications/source-distribution-format.rst:153
@@ -18071,7 +18070,7 @@ msgstr "Alterações"
 #: ../source/specifications/build-details/index.rst:45
 #: ../source/specifications/build-details/v1.0.rst:9
 #: ../source/specifications/dependency-groups.rst:20
-#: ../source/specifications/dependency-specifiers.rst:26
+#: ../source/specifications/dependency-specifiers.rst:30
 #: ../source/specifications/direct-url-data-structure.rst:19
 #: ../source/specifications/direct-url.rst:15
 #: ../source/specifications/file-yanking.rst:20
@@ -19557,10 +19556,6 @@ msgstr ""
 "requisito só é necessário nas condições especificadas."
 
 #: ../source/specifications/core-metadata.rst:577
-msgid "See :pep:`508` for full details of the allowed format."
-msgstr "Veja a :pep:`508` para detalhes completos do formato permitido."
-
-#: ../source/specifications/core-metadata.rst:579
 msgid ""
 "The project names should correspond to names as found on the `Python Package "
 "Index`_."
@@ -19568,13 +19563,20 @@ msgstr ""
 "Os nomes dos projetos devem corresponder aos nomes encontrados no `Python "
 "Package Index`_."
 
-#: ../source/specifications/core-metadata.rst:582
+#: ../source/specifications/core-metadata.rst:580
 msgid ""
 "Version specifiers must follow the rules described in :doc:`version-"
 "specifiers`."
 msgstr ""
 "Os especificadores de versão devem seguir as regras descritas "
 "em :doc:`version-specifiers`."
+
+#: ../source/specifications/core-metadata.rst:583
+#, fuzzy
+#| msgid "See :pep:`508` for full details of the allowed format."
+msgid ""
+"See :ref:`dependency-specifiers` for full details of the allowed format."
+msgstr "Veja a :pep:`508` para detalhes completos do formato permitido."
 
 #: ../source/specifications/core-metadata.rst:596
 msgid "Requires-Python"
@@ -20258,11 +20260,18 @@ msgid ""
 "containing distribution file and not the project itself."
 msgstr ""
 
-#: ../source/specifications/core-metadata.rst:1076
+#: ../source/specifications/core-metadata.rst:1074
+#: ../source/specifications/pyproject-toml.rst:673
+msgid ""
+"January 2026: Replaced outdated direct reference to :pep:`508` with a "
+"reference to :ref:`dependency-specifiers`."
+msgstr ""
+
+#: ../source/specifications/core-metadata.rst:1079
 msgid "reStructuredText markup: https://docutils.sourceforge.io/"
 msgstr "Marcação reStructuredText: https://docutils.sourceforge.io/"
 
-#: ../source/specifications/core-metadata.rst:1081
+#: ../source/specifications/core-metadata.rst:1084
 msgid "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 msgstr "RFC 822 Long Header Fields: :rfc:`822#section-3.1.1`"
 
@@ -20502,18 +20511,25 @@ msgstr "Especificadores de dependência"
 
 #: ../source/specifications/dependency-specifiers.rst:9
 msgid ""
-"This document describes the dependency specifiers format as originally "
-"specified in :pep:`508`."
+"This document defines the format used to specify dependencies on other "
+"projects. The language defined is a compact line based format which was "
+"adapted from the format originally used in ``pip`` requirements files."
 msgstr ""
-"Este documento descreve o formato dos especificadores de dependência "
-"conforme originalmente especificado na :pep:`508`."
 
-#: ../source/specifications/dependency-specifiers.rst:12
+#: ../source/specifications/dependency-specifiers.rst:13
+#, fuzzy
+#| msgid ""
+#| "The job of a dependency is to enable tools like pip [#pip]_ to find the "
+#| "right package to install. Sometimes this is very loose - just specifying "
+#| "a name, and sometimes very specific - referring to a specific file to "
+#| "install. Sometimes dependencies are only relevant in one platform, or "
+#| "only some versions are acceptable, so the language permits describing all "
+#| "these cases."
 msgid ""
 "The job of a dependency is to enable tools like pip [#pip]_ to find the "
 "right package to install. Sometimes this is very loose - just specifying a "
 "name, and sometimes very specific - referring to a specific file to install. "
-"Sometimes dependencies are only relevant in one platform, or only some "
+"Sometimes dependencies are only relevant on one platform, or only some "
 "versions are acceptable, so the language permits describing all these cases."
 msgstr ""
 "O trabalho de uma dependência é permitir que ferramentas como pip [#pip]_ "
@@ -20523,37 +20539,41 @@ msgstr ""
 "relevantes apenas em uma plataforma, ou apenas algumas versões são "
 "aceitáveis, então a linguagem permite descrever todos esses casos."
 
-#: ../source/specifications/dependency-specifiers.rst:18
-#, fuzzy
+#: ../source/specifications/dependency-specifiers.rst:19
 msgid ""
-"The language defined is a compact line based format which is already in "
-"widespread use in pip requirements files, though we do not specify the "
-"command line option handling that those files permit. There is one caveat - "
-"the URL reference form, specified in :ref:`Versioning specifier "
-"specification <version-specifiers>` is not actually implemented in pip, but "
-"we use that format rather than pip's current native format."
+"Whether tools should be strict or permissive in their processing of "
+"dependency specifiers is largely dependent on the role of the tool in the "
+"wider ecosystem:"
 msgstr ""
-"A linguagem definida é um formato compacto baseado em linha que já está em "
-"uso generalizado em arquivos de requisitos pip, embora não especifiquemos a "
-"manipulação de opção de linha de comando que esses arquivos permitem. Há uma "
-"ressalva: o formulário de referência de URL, especificado em :pep:`440`, não "
-"é realmente implementado em pip, mas como :pep:`440` é aceito, usamos esse "
-"formato em vez do formato nativo atual de pip."
 
-#: ../source/specifications/dependency-specifiers.rst:31
+#: ../source/specifications/dependency-specifiers.rst:22
+msgid ""
+"publishing tools and index servers SHOULD be strict in their processing for "
+"new releases, encouraging the consistency of published specifiers to improve "
+"over time"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:25
+msgid ""
+"locking and installation tools MAY be permissive in their processing, "
+"allowing consumption of older packages which may contain dependency "
+"specifiers that are arguably nonsensical"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:35
 msgid "All features of the language shown with a name based lookup::"
 msgstr ""
 "Todos os recursos do idioma mostrados com uma pesquisa baseada em nome ::"
 
-#: ../source/specifications/dependency-specifiers.rst:35
+#: ../source/specifications/dependency-specifiers.rst:39
 msgid "A minimal URL based lookup::"
 msgstr "Uma pesquisa baseada em URL mínima ::"
 
-#: ../source/specifications/dependency-specifiers.rst:40
+#: ../source/specifications/dependency-specifiers.rst:44
 msgid "Concepts"
 msgstr "Conceitos"
 
-#: ../source/specifications/dependency-specifiers.rst:42
+#: ../source/specifications/dependency-specifiers.rst:46
 msgid ""
 "A dependency specification always specifies a distribution name. It may "
 "include extras, which expand the dependencies of the named distribution to "
@@ -20568,11 +20588,11 @@ msgstr ""
 "para instalação. Finalmente, a dependência pode ser condicionada usando "
 "marcadores de ambiente."
 
-#: ../source/specifications/dependency-specifiers.rst:49
+#: ../source/specifications/dependency-specifiers.rst:53
 msgid "Grammar"
 msgstr "Gramática"
 
-#: ../source/specifications/dependency-specifiers.rst:51
+#: ../source/specifications/dependency-specifiers.rst:55
 msgid ""
 "We first cover the grammar briefly and then drill into the semantics of each "
 "section later."
@@ -20580,7 +20600,7 @@ msgstr ""
 "Primeiro, abordamos brevemente a gramática e, posteriormente, detalhamos a "
 "semântica de cada seção."
 
-#: ../source/specifications/dependency-specifiers.rst:54
+#: ../source/specifications/dependency-specifiers.rst:58
 msgid ""
 "A distribution specification is written in ASCII text. We use a parsley "
 "[#parsley]_ grammar to provide a precise grammar. It is expected that the "
@@ -20594,7 +20614,7 @@ msgstr ""
 "enquadramento, como comentários, suporte a várias linhas por meio de "
 "continuações ou outros recursos semelhantes."
 
-#: ../source/specifications/dependency-specifiers.rst:59
+#: ../source/specifications/dependency-specifiers.rst:63
 msgid ""
 "The full grammar including annotations to build a useful parse tree is "
 "included at the end of this document."
@@ -20602,7 +20622,7 @@ msgstr ""
 "A gramática completa, incluindo anotações para construir uma árvore de "
 "análise útil, está incluída no final deste documento."
 
-#: ../source/specifications/dependency-specifiers.rst:62
+#: ../source/specifications/dependency-specifiers.rst:66
 msgid ""
 "Versions may be specified according to the rules of the :ref:`Version "
 "specifier specification <version-specifiers>`. (Note: URI is defined "
@@ -20612,7 +20632,7 @@ msgstr ""
 "da :ref:`especificação de especificadores de versão <version-specifiers>`. "
 "(Nota: URI é definido em :rfc:`std-66 <3986>`)::"
 
-#: ../source/specifications/dependency-specifiers.rst:73
+#: ../source/specifications/dependency-specifiers.rst:77
 msgid ""
 "Environment markers allow making a specification only take effect in some "
 "environments::"
@@ -20620,7 +20640,7 @@ msgstr ""
 "Os marcadores de ambiente permitem que uma especificação só tenha efeito em "
 "alguns ambientes ::"
 
-#: ../source/specifications/dependency-specifiers.rst:102
+#: ../source/specifications/dependency-specifiers.rst:106
 msgid ""
 "Optional components of a distribution may be specified using the extras "
 "field::"
@@ -20628,65 +20648,60 @@ msgstr ""
 "Componentes opcionais de uma distribuição podem ser especificados usando o "
 "campo extras::"
 
-#: ../source/specifications/dependency-specifiers.rst:111
-msgid "Restrictions on names for extras is defined in :pep:`685`."
-msgstr "Restrições de nomes para extras são definidas na :pep:`685`."
-
-#: ../source/specifications/dependency-specifiers.rst:113
+#: ../source/specifications/dependency-specifiers.rst:115
 msgid "Giving us a rule for name based requirements::"
 msgstr "Fornecendo uma regra para requisitos baseados em nome ::"
 
-#: ../source/specifications/dependency-specifiers.rst:117
+#: ../source/specifications/dependency-specifiers.rst:119
 msgid "And a rule for direct reference specifications::"
 msgstr "E uma regra para especificações de referência direta ::"
 
-#: ../source/specifications/dependency-specifiers.rst:121
+#: ../source/specifications/dependency-specifiers.rst:123
 msgid "Leading to the unified rule that can specify a dependency.::"
 msgstr "Levando à regra unificada que pode especificar uma dependência.::"
 
-#: ../source/specifications/dependency-specifiers.rst:126
+#: ../source/specifications/dependency-specifiers.rst:128
 msgid "Whitespace"
 msgstr "Espaço em branco"
 
-#: ../source/specifications/dependency-specifiers.rst:128
+#: ../source/specifications/dependency-specifiers.rst:130
+#, fuzzy
+#| msgid ""
+#| "Non line-breaking whitespace is mostly optional with no semantic meaning. "
+#| "The sole exception is detecting the end of a URL requirement."
 msgid ""
 "Non line-breaking whitespace is mostly optional with no semantic meaning. "
-"The sole exception is detecting the end of a URL requirement."
+"The sole exceptions are detecting the end of a URL requirement and inside "
+"user supplied constants in environment markers."
 msgstr ""
 "O espaço em branco sem quebra de linha é principalmente opcional, sem "
 "significado semântico. A única exceção é detectar o fim de um requisito de "
 "URL."
 
-#: ../source/specifications/dependency-specifiers.rst:134
+#: ../source/specifications/dependency-specifiers.rst:137
 msgid "Names"
 msgstr "Nomes"
 
-#: ../source/specifications/dependency-specifiers.rst:136
+#: ../source/specifications/dependency-specifiers.rst:139
 msgid ""
-"Python distribution names are currently defined in :pep:`345`. Names act as "
-"the primary identifier for distributions. They are present in all dependency "
-"specifications, and are sufficient to be a specification on their own. "
-"However, PyPI places strict restrictions on names - they must match a case "
-"insensitive regex or they won't be accepted. Accordingly, in this document "
-"we limit the acceptable values for identifiers to that regex. A full "
-"redefinition of name may take place in a future metadata PEP. The regex (run "
-"with re.IGNORECASE) is::"
+"Distribution names are defined in the :ref:`Core metadata <core-metadata-"
+"name>`. Names act as the primary identifier for distributions. They are "
+"present in all dependency specifications, and are sufficient to be a "
+"specification on their own."
 msgstr ""
-"Nomes de distribuição Python são atualmente definidos na :pep:`345`. Os "
-"nomes atuam como o identificador primário para distribuições. Eles estão "
-"presentes em todas as especificações de dependência e são suficientes para "
-"serem uma especificação por conta própria. No entanto, PyPI impõe restrições "
-"estritas aos nomes: eles devem corresponder a uma regex que não diferencie "
-"maiúsculas de minúsculas ou não serão aceitos. Assim, neste documento, "
-"limitamos os valores aceitáveis para identificadores a essa regex. Uma "
-"redefinição completa do nome pode ocorrer em um futuro PEP de metadados. A "
-"regex (executada com re.IGNORECASE) é ::"
 
-#: ../source/specifications/dependency-specifiers.rst:150
+#: ../source/specifications/dependency-specifiers.rst:144
+#, fuzzy
+msgid ""
+"Valid distribution names are defined in the :ref:`name format specification "
+"<name-format>`."
+msgstr "Adicionadas restrições adicionais ao formato da :pep:`508`"
+
+#: ../source/specifications/dependency-specifiers.rst:151
 msgid "Extras"
 msgstr "Extras"
 
-#: ../source/specifications/dependency-specifiers.rst:152
+#: ../source/specifications/dependency-specifiers.rst:153
 msgid ""
 "An extra is an optional part of a distribution. Distributions can specify as "
 "many extras as they wish, and each extra results in the declaration of "
@@ -20698,7 +20713,7 @@ msgstr ""
 "dependências adicionais da distribuição **quando** o extra é usado em uma "
 "especificação de dependência. Por exemplo ::"
 
-#: ../source/specifications/dependency-specifiers.rst:159
+#: ../source/specifications/dependency-specifiers.rst:160
 msgid ""
 "Extras union in the dependencies they define with the dependencies of the "
 "distribution they are attached to. The example above would result in "
@@ -20710,22 +20725,40 @@ msgstr ""
 "de solicitações e nas próprias dependências das solicitações, além de "
 "quaisquer dependências listadas no extra de \"security\" das solicitações."
 
-#: ../source/specifications/dependency-specifiers.rst:164
+#: ../source/specifications/dependency-specifiers.rst:165
 msgid ""
 "If multiple extras are listed, all the dependencies are unioned together."
 msgstr "Se vários extras forem listados, todas as dependências serão unidas."
 
-#: ../source/specifications/dependency-specifiers.rst:169
+#: ../source/specifications/dependency-specifiers.rst:167
+msgid ""
+"Restrictions on names for extras are defined in the :ref:`Core metadata "
+"specification <core-metadata-provides-extra>`. Publication tools SHOULD "
+"enforce these restrictions in dependency specifiers, while locking and "
+"installation tools MAY normalize invalid extra names in order to accept "
+"published metadata using core metadata versions prior to 2.3."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:176
 msgid "Versions"
 msgstr "Versões"
 
-#: ../source/specifications/dependency-specifiers.rst:171
+#: ../source/specifications/dependency-specifiers.rst:178
+#, fuzzy
+#| msgid ""
+#| "See the :ref:`Version specifier specification <version-specifiers>` for "
+#| "more detail on both version numbers and version comparisons. Version "
+#| "specifications limit the versions of a distribution that can be used. "
+#| "They only apply to distributions looked up by name, rather than via a "
+#| "URL. Version comparison are also used in the markers feature. The "
+#| "optional brackets around a version are present for compatibility "
+#| "with :pep:`345` but should not be generated, only accepted."
 msgid ""
 "See the :ref:`Version specifier specification <version-specifiers>` for more "
 "detail on both version numbers and version comparisons. Version "
 "specifications limit the versions of a distribution that can be used. They "
 "only apply to distributions looked up by name, rather than via a URL. "
-"Version comparison are also used in the markers feature. The optional "
+"Version comparisons are also used in environment markers. The optional "
 "brackets around a version are present for compatibility with :pep:`345` but "
 "should not be generated, only accepted."
 msgstr ""
@@ -20738,17 +20771,23 @@ msgstr ""
 "uma versão estão presentes para compatibilidade com :pep:`345`, mas não "
 "devem ser gerados, apenas aceitos."
 
-#: ../source/specifications/dependency-specifiers.rst:182
+#: ../source/specifications/dependency-specifiers.rst:189
 msgid "Environment Markers"
 msgstr "Marcadores de ambiente"
 
-#: ../source/specifications/dependency-specifiers.rst:184
+#: ../source/specifications/dependency-specifiers.rst:191
+#, fuzzy
+#| msgid ""
+#| "Environment markers allow a dependency specification to provide a rule "
+#| "that describes when the dependency should be used. For instance, consider "
+#| "a package that needs argparse. In Python 2.7 argparse is always present. "
+#| "On older Python versions it has to be installed as a dependency. This can "
+#| "be expressed as so::"
 msgid ""
 "Environment markers allow a dependency specification to provide a rule that "
 "describes when the dependency should be used. For instance, consider a "
-"package that needs argparse. In Python 2.7 argparse is always present. On "
-"older Python versions it has to be installed as a dependency. This can be "
-"expressed as so::"
+"package that needs ``pywin32`` when running on Windows. This can be "
+"expressed as::"
 msgstr ""
 "Os marcadores de ambiente permitem que uma especificação de dependência "
 "forneça uma regra que descreva quando a dependência deve ser usada. Por "
@@ -20756,21 +20795,30 @@ msgstr ""
 "argparse está sempre presente. Em versões mais antigas Python, ele deve ser "
 "instalado como uma dependência. Isso pode ser expresso como ::"
 
-#: ../source/specifications/dependency-specifiers.rst:191
+#: ../source/specifications/dependency-specifiers.rst:197
+#, fuzzy
+#| msgid ""
+#| "A marker expression evaluates to either True or False. When it evaluates "
+#| "to False, the dependency specification should be ignored."
 msgid ""
-"A marker expression evaluates to either True or False. When it evaluates to "
-"False, the dependency specification should be ignored."
+"A marker expression evaluates to either True or False for a given deployment "
+"environment. When it evaluates to False, the dependency should be ignored."
 msgstr ""
 "Uma expressão de marcador é avaliada como True ou False. Quando for avaliado "
 "como False, a especificação de dependência deve ser ignorada."
 
-#: ../source/specifications/dependency-specifiers.rst:194
+#: ../source/specifications/dependency-specifiers.rst:200
+#, fuzzy
+#| msgid ""
+#| "The marker language is inspired by Python itself, chosen for the ability "
+#| "to safely evaluate it without running arbitrary code that could become a "
+#| "security vulnerability. Markers were first standardised in :pep:`345`. "
+#| "This document fixes some issues that were observed in the design "
+#| "described in :pep:`426`."
 msgid ""
 "The marker language is inspired by Python itself, chosen for the ability to "
 "safely evaluate it without running arbitrary code that could become a "
-"security vulnerability. Markers were first standardised in :pep:`345`. This "
-"document fixes some issues that were observed in the design described "
-"in :pep:`426`."
+"security vulnerability."
 msgstr ""
 "A linguagem do marcador é inspirada no próprio Python, escolhido pela "
 "capacidade de avaliá-lo com segurança sem executar código arbitrário que "
@@ -20778,344 +20826,625 @@ msgstr ""
 "padronizados pela primeira vez na :pep:`345`. Este documento corrige alguns "
 "problemas que foram observados no projeto descrito em :pep:`426`."
 
-#: ../source/specifications/dependency-specifiers.rst:199
-#, fuzzy
-#| msgid ""
-#| "Comparisons in marker expressions are typed by the comparison operator.  "
-#| "The <marker_op> operators that are not in <version_cmp> perform the same "
-#| "as they do for strings in Python. The <version_cmp> operators use the "
-#| "version comparison rules of the :ref:`Version specifier specification "
-#| "<version-specifiers>` when those are defined (that is when both sides "
-#| "have a valid version specifier). If there is no defined behaviour of this "
-#| "specification and the operator exists in Python, then the operator falls "
-#| "back to the Python behaviour. Otherwise an error should be raised. e.g. "
-#| "the following will result in  errors::"
+#: ../source/specifications/dependency-specifiers.rst:204
 msgid ""
-"Comparisons in marker expressions are typed by the comparison operator and "
-"the type of the marker value. The <marker_op> operators that are not in "
-"<version_cmp> perform the same as they do for strings or sets in Python "
-"based on whether the marker value is a string or set itself. The "
-"<version_cmp> operators use the version comparison rules of "
-"the :ref:`Version specifier specification <version-specifiers>` when those "
-"are defined (that is when both sides have a valid version specifier). If "
-"there is no defined behaviour of this specification and the operator exists "
-"in Python, then the operator falls back to the Python behaviour for the "
-"types involved. Otherwise an error should be raised. e.g. the following will "
-"result in errors::"
+"Markers were first defined in :pep:`345`, formally specified in :pep:`508`, "
+"then subsequently amended over time (amendments since :pep:`508` are "
+"recorded :ref:`at the end of this specification <dependency-specifier-"
+"history>`)."
 msgstr ""
-"As comparações em expressões de marcador são tipadas pelo operador de "
-"comparação. Os operadores <marker_op> que não estão em <version_cmp> fazem o "
-"mesmo que para strings no Python. Os operadores <version_cmp> usam as regras "
-"de comparação de versão da :ref:`especificação de especificadores de versão "
-"<version-specifiers>` quando são definidas (ou seja, quando ambos os lados "
-"têm um especificador de versão válido). Se não houver comportamento definido "
-"desta especificação e o operador existir no Python, o operador voltará ao "
-"comportamento do Python. Caso contrário, um erro deve ser levantado. Por "
-"exemplo, o seguinte resultará em erros ::"
+
+#: ../source/specifications/dependency-specifiers.rst:209
+msgid "Marker field types"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:211
+msgid ""
+"Environment marker fields are each defined as one of the following types:"
+msgstr ""
 
 #: ../source/specifications/dependency-specifiers.rst:213
 msgid ""
-"User supplied constants are always encoded as strings with either ``'`` or "
-"``\"`` quote marks. Note that backslash escapes are not defined, but "
-"existing implementations do support them. They are not included in this "
-"specification because they add complexity and there is no observable need "
-"for them today. Similarly we do not define non-ASCII character support: all "
-"the runtime variables we are referencing are expected to be ASCII-only."
+"``String``: the contents of the field are always treated as an opaque string."
 msgstr ""
-"As constantes fornecidas pelo usuário são sempre codificadas como strings "
-"com as aspas ``'`` ou ``\"``. Observe que os escapes de barra invertida não "
-"são definidos, mas as implementações existentes os suportam. Eles não estão "
-"incluídos nesta especificação porque adicionam complexidade e não há nenhuma "
-"necessidade observável para eles hoje.Da mesma forma, não definimos suporte "
-"a caracteres não-ASCII: espera-se que todas as variáveis de tempo de "
-"execução às quais nos referimos sejam somente ASCII."
 
-#: ../source/specifications/dependency-specifiers.rst:220
+#: ../source/specifications/dependency-specifiers.rst:214
 msgid ""
-"The variables in the marker grammar such as \"os_name\" resolve to values "
-"looked up in the Python runtime. With the exception of \"extra\" all values "
-"are defined on all Python versions today - it is an error in the "
-"implementation of markers if a value is not defined."
+"``Set of strings``: the contents of the field are always treated as a set "
+"containing opaque strings. In comparisons, the user supplied constant MUST "
+"still be a single string (as set literals are not part of the marker syntax)."
 msgstr ""
-"As variáveis na gramática do marcador, como \"os_name\", resolvem os valores "
-"pesquisados no tempo de execução do Python. Com exceção de \"extra\" todos "
-"os valores são definidos em todas as versões Python hoje -- é um erro na "
-"implementação de marcadores se um valor não for definido."
 
-#: ../source/specifications/dependency-specifiers.rst:225
+#: ../source/specifications/dependency-specifiers.rst:217
 msgid ""
-"Unknown variables must raise an error rather than resulting in a comparison "
-"that evaluates to True or False."
+"``Version``: the contents of the field are always expected to be a "
+"valid :ref:`version specifier <version-specifiers>`. Publishing tools SHOULD "
+"emit an error if that is not the case, but installation tools MAY fall back "
+"to treating the field as a string field."
 msgstr ""
-"Variáveis desconhecidas devem gerar um erro em vez de resultar em uma "
-"comparação avaliada como True ou False."
 
-#: ../source/specifications/dependency-specifiers.rst:228
+#: ../source/specifications/dependency-specifiers.rst:221
+msgid ""
+"``Version | String``: the contents of the field are expected to be a "
+"valid :ref:`version specifier <version-specifiers>` on some platforms, but "
+"an opaque string on others. The specifics of this distinction are field "
+"dependent and whether or not tools actually make the distinction will be "
+"tool dependent."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:227
+#, fuzzy
+#| msgid "Inclusive ordered comparison"
+msgid "Marker comparisons"
+msgstr "Comparação ordenada inclusiva"
+
+#: ../source/specifications/dependency-specifiers.rst:229
+msgid ""
+"All marker comparison expressions are expected to compare a named marker "
+"field against a given user supplied constant. The type of the comparison is "
+"determined by the comparison operator used and the type of the named field "
+"as given in :ref:`the table below <environment-marker-fields>`. Tools MAY "
+"emit an error if no marker field is referenced in a comparison (that is, "
+"both operands are given as constants)."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:236
+msgid ""
+"The follow comparison operations are defined in the marker expression "
+"grammar:"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:238
+msgid "``==`` (for example, ``sys_platform == \"win32\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:239
+msgid "``!=`` (for example, ``sys_platform != \"win32\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:240
+msgid "``>`` (for example, ``python_version > \"3.10\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:241
+msgid "``>=`` (for example, ``python_version >= \"3.10\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:242
+msgid "``<`` (for example, ``python_version < \"3.10\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:243
+msgid "``<=`` (for example, ``python_version <= \"3.10\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:244
+msgid "``~=`` (for example, ``python_version ~= \"3\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:245
+msgid ""
+"``===`` (for example, ``implementation_version === \"not.a.valid.version\"``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:246
+msgid ""
+"``in`` (for example, ``\"gui\" in extras``, ``\"SMP\" in platform_version``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:247
+msgid "``not in`` (for example, ``\"dev\" not in dependency_groups``)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:249
+msgid ""
+"For ``String`` fields, ``==``, ``!=``, ``in``, and ``not in`` are defined as "
+"they are for Python strings (case sensitive, with no value normalization of "
+"any kind). The use of ``~=`` or ``===`` with string fields is explicitly "
+"discouraged and publishing tools SHOULD emit an error, index servers MAY "
+"disallow uploads containing such environment markers, while locking and "
+"installation tools MAY instead interpret them as equivalent to ``==``. The "
+"use of ordered comparisons (``<``, ``<=``, ``>``, ``>=``) with string fields "
+"is explicitly discouraged (as it makes no semantic sense in the packaging "
+"context) and publishing tools SHOULD emit an error, index servers MAY "
+"disallow uploads containing such environment markers, while locking and "
+"installation tools SHOULD implement the following behavior:"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:261
+msgid "treat ``>=`` and ``<=`` as equivalent to ``==``"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:262
+msgid "treat ``>`` and ``<`` as always being False"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:264
+msgid ""
+"For ``Set of String`` fields, as there is no marker syntax for set literals, "
+"the only valid operations are ``in`` and ``not in`` comparisons with a user "
+"supplied string literal as the left operand. Publishing tools SHOULD emit an "
+"error if environment markers attempt to use any other comparison operations "
+"on these fields and index servers MAY disallow uploads containing such "
+"environment markers, while locking and installation tools SHOULD treat such "
+"operations as always being False."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:272
+msgid ""
+"For ``Version`` fields, the comparison operations are defined by "
+"the :ref:`Version specifier specification <version-specifiers>` when either "
+"both the marker field value and the user supplied constant can be parsed as "
+"valid version specifiers or the ``===`` arbitrary equivalence comparison "
+"operator is used. When an operator other than ``===`` is used, publishing "
+"tools SHOULD emit an error if the user supplied constant cannot be parsed as "
+"a valid version specifier, index servers MAY disallow uploads containing "
+"such environment markers, while locking and installation tools MAY either "
+"emit an error or else fall back to ``String`` field comparison logic if "
+"either the marker field value or the user supplied constant cannot be parsed "
+"as a valid version specifier. Note that ``in`` and ``not in`` containment "
+"checks are NOT valid for ``Version`` fields and publishing tools SHOULD emit "
+"an error, index servers MAY disallow uploads containing such environment "
+"markers, while locking and installation tools MAY treat them as always being "
+"False."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:287
+msgid ""
+"For ``Version | String`` fields, comparison operations are defined as they "
+"are for ``Version`` fields, while ``in`` and ``not in`` containment checks "
+"are defined as they are for ``String`` fields. However, there is no "
+"consistent cross-platform expectation that the parsing of the marker field "
+"value or the user supplied constant as a valid version will succeed, so "
+"tools SHOULD fall back to processing the field as a ``String`` field if "
+"parsing either value as a version fails. Tools MAY emit a warning if the "
+"field is expected to contain a valid version on a given platform but does "
+"not in fact do so. Tools SHOULD NOT unconditionally treat such fields as "
+"``String`` fields, as doing so may give incorrect answers for environment "
+"markers that are appropriately scoped to the relevant platforms before "
+"performing a version based comparison."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:301
+#, fuzzy
+#| msgid "Choosing a versioning scheme"
+msgid "Composing marker expressions"
+msgstr "Escolhendo um esquema de versionamento"
+
+#: ../source/specifications/dependency-specifiers.rst:303
+msgid ""
+"More complex marker expressions may be composed using the ``and`` and ``or`` "
+"logical operators. Parentheses may be used as necessary to control operand "
+"precedence (with all comparison operations having a higher precedence)."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:307
+#: ../source/specifications/version-specifiers.rst:203
+msgid "For example::"
+msgstr "Por exemplo::"
+
+#: ../source/specifications/dependency-specifiers.rst:313
+msgid ""
+"Python's comparison chaining (such as ``3.4 < python_version < 3.9``) is NOT "
+"supported in environment markers (such expressions must instead be written "
+"out as two separate comparisons joined by ``and``)."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:318
+msgid "User supplied constants"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:320
+msgid ""
+"User supplied constants are always given as strings within either ``'`` or "
+"``\"`` quote marks. Triple-quoted multi-line strings are NOT permitted."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:323
+msgid ""
+"Backslash escapes are not specified, although tools MAY support them. They "
+"are not included in the specification because they add complexity and there "
+"is currently no known need for treating user supplied constants as anything "
+"other than either opaque strings or valid version specifiers."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:328
+msgid ""
+"Similarly, non-ASCII character support is not specified, but tools MAY "
+"accept them (usually based on the text encoding of the file or stream "
+"containing the dependency specifier). This may be revisited in the future if "
+"it becomes more common for the runtime variables typically referenced in "
+"environment markers to contain non-ASCII text that users wish to perform "
+"comparisons against."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:335
+msgid "Unknown marker fields"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:337
+msgid ""
+"References to unknown marker fields SHOULD render a package version "
+"ineligible for installation or inclusion in a locked dependency tree rather "
+"than resulting in a comparison that evaluates to True or False. This is so "
+"that published package versions with unknown marker fields are either "
+"ignored when resolving dependencies or emit a descriptive installation "
+"failure, rather than producing an apparently successful installation that "
+"then fails at runtime due to missing dependencies (if the unknown marker is "
+"treated as False) or a potentially cryptic installation failure of a "
+"dependency that is not valid for the current platform (if the unknown marker "
+"is treated as True)."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:347
+#, fuzzy
+#| msgid ""
+#| "Variables whose value cannot be calculated on a given Python "
+#| "implementation should evaluate to ``0`` for versions, and an empty string "
+#| "for all other variables."
 msgid ""
 "Variables whose value cannot be calculated on a given Python implementation "
-"should evaluate to ``0`` for versions, and an empty string for all other "
-"variables."
+"should evaluate to ``0`` for ``Version`` fields, and an empty string for all "
+"other variables (including ``Version | String`` fields)."
 msgstr ""
 "As variáveis cujo valor não pode ser calculado em uma determinada "
 "implementação do Python devem ser avaliadas como ``0`` para versões e uma "
 "string vazia para todas as outras variáveis."
 
-#: ../source/specifications/dependency-specifiers.rst:232
-msgid ""
-"The \"extra\" variable is special. It is used by wheels to signal which "
-"specifications apply to a given extra in the wheel ``METADATA`` file, but "
-"since the ``METADATA`` file is based on a draft version of :pep:`426`, there "
-"is no current specification for this. Regardless, outside of a context where "
-"this special handling is taking place, the \"extra\" variable should result "
-"in an error like all other unknown variables."
-msgstr ""
-"A variável \"extra\" é especial. É usada pelo wheels para sinalizar quais "
-"especificações se aplicam a um determinado extra no arquivo ``METADATA`` do "
-"wheel, mas como o arquivo ``METADATA`` é baseado em uma versão de rascunho "
-"da :pep:`426`, não há especificação atual para isso. Independentemente "
-"disso, fora de um contexto em que esse tratamento especial esteja ocorrendo, "
-"a variável \"extra\" deve resultar em um erro como todas as outras variáveis "
-"desconhecidas."
+#: ../source/specifications/dependency-specifiers.rst:355
+#, fuzzy
+#| msgid "Environment Markers"
+msgid "Defined environment marker fields"
+msgstr "Marcadores de ambiente"
 
-#: ../source/specifications/dependency-specifiers.rst:239
+#: ../source/specifications/dependency-specifiers.rst:357
 msgid ""
-"The \"extras\" and \"dependency_groups\" variables are also special. They "
-"are used to specify any requested extras or dependency groups when "
-"installing from a lock file. Outside of the context of lock files, these two "
-"variables should result in an error like all other unknown variables."
+"Unless otherwise noted below, marker evaluation environments MUST support "
+"all of the following marker fields:"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:247
+#: ../source/specifications/dependency-specifiers.rst:363
 msgid "Marker"
 msgstr "Marcador"
 
-#: ../source/specifications/dependency-specifiers.rst:248
+#: ../source/specifications/dependency-specifiers.rst:364
 msgid "Python equivalent"
 msgstr "Equivalente no Python"
 
-#: ../source/specifications/dependency-specifiers.rst:249
+#: ../source/specifications/dependency-specifiers.rst:365
 msgid "Type"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:250
-msgid "Sample values"
+#: ../source/specifications/dependency-specifiers.rst:366
+#, fuzzy
+#| msgid "Sample values"
+msgid "Sample values & notes"
 msgstr "Valores de amostra"
 
-#: ../source/specifications/dependency-specifiers.rst:251
+#: ../source/specifications/dependency-specifiers.rst:367
 msgid "``os_name``"
 msgstr "``os_name``"
 
-#: ../source/specifications/dependency-specifiers.rst:252
+#: ../source/specifications/dependency-specifiers.rst:368
 #, fuzzy
 msgid ":py:data:`os.name`"
 msgstr "``os.name``"
 
-#: ../source/specifications/dependency-specifiers.rst:253
-#: ../source/specifications/dependency-specifiers.rst:257
-#: ../source/specifications/dependency-specifiers.rst:262
-#: ../source/specifications/dependency-specifiers.rst:266
-#: ../source/specifications/dependency-specifiers.rst:270
-#: ../source/specifications/dependency-specifiers.rst:274
-#: ../source/specifications/dependency-specifiers.rst:278
-#: ../source/specifications/dependency-specifiers.rst:292
-#: ../source/specifications/dependency-specifiers.rst:301
+#: ../source/specifications/dependency-specifiers.rst:369
+#: ../source/specifications/dependency-specifiers.rst:373
+#: ../source/specifications/dependency-specifiers.rst:379
+#: ../source/specifications/dependency-specifiers.rst:385
+#: ../source/specifications/dependency-specifiers.rst:394
+#: ../source/specifications/dependency-specifiers.rst:414
 msgid "String"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:254
+#: ../source/specifications/dependency-specifiers.rst:370
 msgid "``posix``, ``java``"
 msgstr "``posix``, ``java``"
 
-#: ../source/specifications/dependency-specifiers.rst:255
+#: ../source/specifications/dependency-specifiers.rst:371
 msgid "``sys_platform``"
 msgstr "``sys_platform``"
 
-#: ../source/specifications/dependency-specifiers.rst:256
+#: ../source/specifications/dependency-specifiers.rst:372
 #, fuzzy
 msgid ":py:data:`sys.platform`"
 msgstr "``sys.platform``"
 
-#: ../source/specifications/dependency-specifiers.rst:258
+#: ../source/specifications/dependency-specifiers.rst:374
+#, fuzzy
+#| msgid ""
+#| "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" "
+#| "is from Python3 and \"linux2\" from Python2)"
 msgid ""
-"``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (note that \"linux\" is "
-"from Python3 and \"linux2\" from Python2)"
+"``linux``, ``win32``, ``darwin``, ``java1.8.0_51`` (note that this is the "
+"most well defined field for use when declaring platform specific "
+"dependencies)"
 msgstr ""
 "``linux``, ``linux2``, ``darwin``, ``java1.8.0_51`` (observe que \"linux\" é "
 "do Python3 e \"linux2\" do Python2)"
 
-#: ../source/specifications/dependency-specifiers.rst:260
+#: ../source/specifications/dependency-specifiers.rst:377
 msgid "``platform_machine``"
 msgstr "``platform_machine``"
 
-#: ../source/specifications/dependency-specifiers.rst:261
+#: ../source/specifications/dependency-specifiers.rst:378
 #, fuzzy
 msgid ":py:func:`platform.machine()`"
 msgstr "``platform.machine()``"
 
-#: ../source/specifications/dependency-specifiers.rst:263
-#: ../source/specifications/platform-compatibility-tags.rst:262
-msgid "``x86_64``"
-msgstr "``x86_64``"
+#: ../source/specifications/dependency-specifiers.rst:380
+msgid ""
+"``x86_64``, ``aarch64``, ``AMD64``, ``arm64`` (note that this value is "
+"provided by the operating system, so the same CPU architecture may use "
+"different strings on different platforms)"
+msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:264
+#: ../source/specifications/dependency-specifiers.rst:383
 msgid "``platform_python_implementation``"
 msgstr "``platform_python_implementation``"
 
-#: ../source/specifications/dependency-specifiers.rst:265
+#: ../source/specifications/dependency-specifiers.rst:384
 #, fuzzy
 msgid ":py:func:`platform.python_implementation()`"
 msgstr "``platform.python_implementation()``"
 
-#: ../source/specifications/dependency-specifiers.rst:267
-msgid "``CPython``, ``Jython``"
+#: ../source/specifications/dependency-specifiers.rst:386
+#, fuzzy
+#| msgid "``CPython``, ``Jython``"
+msgid "``CPython``, ``PyPy``"
 msgstr "``CPython``, ``Jython``"
 
-#: ../source/specifications/dependency-specifiers.rst:268
+#: ../source/specifications/dependency-specifiers.rst:387
 msgid "``platform_release``"
 msgstr "``platform_release``"
 
-#: ../source/specifications/dependency-specifiers.rst:269
+#: ../source/specifications/dependency-specifiers.rst:388
 #, fuzzy
 msgid ":py:func:`platform.release()`"
 msgstr "``platform.release()``"
 
-#: ../source/specifications/dependency-specifiers.rst:271
-msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
+#: ../source/specifications/dependency-specifiers.rst:389
+#: ../source/specifications/dependency-specifiers.rst:398
+#, fuzzy
+#| msgid "Versioning"
+msgid "Version | String"
+msgstr "Versionamento"
+
+#: ../source/specifications/dependency-specifiers.rst:390
+#, fuzzy
+#| msgid "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
+msgid ""
+"``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51`` (may be a valid version "
+"field, for example on macOS/darwin)"
 msgstr "``3.14.1-x86_64-linode39``, ``14.5.0``, ``1.8.0_51``"
 
-#: ../source/specifications/dependency-specifiers.rst:272
+#: ../source/specifications/dependency-specifiers.rst:392
 msgid "``platform_system``"
 msgstr "``platform_system``"
 
-#: ../source/specifications/dependency-specifiers.rst:273
+#: ../source/specifications/dependency-specifiers.rst:393
 #, fuzzy
 msgid ":py:func:`platform.system()`"
 msgstr "``platform.system()``"
 
-#: ../source/specifications/dependency-specifiers.rst:275
+#: ../source/specifications/dependency-specifiers.rst:395
 msgid "``Linux``, ``Windows``, ``Java``"
 msgstr "``Linux``, ``Windows``, ``Java``"
 
-#: ../source/specifications/dependency-specifiers.rst:276
+#: ../source/specifications/dependency-specifiers.rst:396
 msgid "``platform_version``"
 msgstr "``platform_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:277
+#: ../source/specifications/dependency-specifiers.rst:397
 #, fuzzy
 msgid ":py:func:`platform.version()`"
 msgstr "``platform.version()``"
 
-#: ../source/specifications/dependency-specifiers.rst:279
+#: ../source/specifications/dependency-specifiers.rst:399
+#, fuzzy
+#| msgid ""
+#| "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server "
+#| "VM, 25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed "
+#| "Jul 29 02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 msgid ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
-"02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
+"02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64`` ``13`` (may be a "
+"valid version field, for example on iOS or Android)"
 msgstr ""
 "``#1 SMP Fri Apr 25 13:07:35 EDT 2014`` ``Java HotSpot(TM) 64-Bit Server VM, "
 "25.51-b03, Oracle Corporation`` ``Darwin Kernel Version 14.5.0: Wed Jul 29 "
 "02:18:53 PDT 2015; root:xnu-2782.40.9~2/RELEASE_X86_64``"
 
-#: ../source/specifications/dependency-specifiers.rst:282
+#: ../source/specifications/dependency-specifiers.rst:404
 msgid "``python_version``"
 msgstr "``python_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:283
+#: ../source/specifications/dependency-specifiers.rst:405
 msgid "``'.'.join(platform.python_version_tuple()[:2])``"
 msgstr "``'.'.join(platform.python_version_tuple()[:2])``"
 
-#: ../source/specifications/dependency-specifiers.rst:284
-#: ../source/specifications/dependency-specifiers.rst:288
-#: ../source/specifications/dependency-specifiers.rst:296
+#: ../source/specifications/dependency-specifiers.rst:406
+#: ../source/specifications/dependency-specifiers.rst:410
+#: ../source/specifications/dependency-specifiers.rst:418
 #, fuzzy
 #| msgid "Version specifiers"
 msgid ":ref:`Version <version-specifiers>`"
 msgstr "Especificadores de versão"
 
-#: ../source/specifications/dependency-specifiers.rst:285
-msgid "``3.4``, ``2.7``"
+#: ../source/specifications/dependency-specifiers.rst:407
+#, fuzzy
+#| msgid "``3.4``, ``2.7``"
+msgid "``3.9``, ``3.15``"
 msgstr "``3.4``, ``2.7``"
 
-#: ../source/specifications/dependency-specifiers.rst:286
+#: ../source/specifications/dependency-specifiers.rst:408
 msgid "``python_full_version``"
 msgstr "``python_full_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:287
+#: ../source/specifications/dependency-specifiers.rst:409
 #, fuzzy
 msgid ":py:func:`platform.python_version()`"
 msgstr "``platform.python_version()``"
 
-#: ../source/specifications/dependency-specifiers.rst:289
-#: ../source/specifications/dependency-specifiers.rst:297
-msgid "``3.4.0``, ``3.5.0b1``"
+#: ../source/specifications/dependency-specifiers.rst:411
+#, fuzzy
+#| msgid "``3.4.0``, ``3.5.0b1``"
+msgid "``3.10.12``, ``3.15.0a1``"
 msgstr "``3.4.0``, ``3.5.0b1``"
 
-#: ../source/specifications/dependency-specifiers.rst:290
+#: ../source/specifications/dependency-specifiers.rst:412
 msgid "``implementation_name``"
 msgstr "``implementation_name``"
 
-#: ../source/specifications/dependency-specifiers.rst:291
+#: ../source/specifications/dependency-specifiers.rst:413
 #, fuzzy
 msgid ":py:data:`sys.implementation.name <sys.implementation>`"
 msgstr "``sys.implementation.name``"
 
-#: ../source/specifications/dependency-specifiers.rst:293
-msgid "``cpython``"
-msgstr "``cpython``"
+#: ../source/specifications/dependency-specifiers.rst:415
+#, fuzzy
+#| msgid "``CPython``, ``Jython``"
+msgid "``cpython``, ``pypy``"
+msgstr "``CPython``, ``Jython``"
 
-#: ../source/specifications/dependency-specifiers.rst:294
+#: ../source/specifications/dependency-specifiers.rst:416
 msgid "``implementation_version``"
 msgstr "``implementation_version``"
 
-#: ../source/specifications/dependency-specifiers.rst:295
+#: ../source/specifications/dependency-specifiers.rst:417
 msgid "see definition below"
 msgstr "veja a definição abaixo"
 
-#: ../source/specifications/dependency-specifiers.rst:298
+#: ../source/specifications/dependency-specifiers.rst:419
+msgid ""
+"``3.10.12``, ``7.3.17`` (examples are for CPython and PyPy respectively)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:421
 msgid "``extra``"
 msgstr "``extra``"
 
-#: ../source/specifications/dependency-specifiers.rst:299
-#: ../source/specifications/dependency-specifiers.rst:304
-#: ../source/specifications/dependency-specifiers.rst:309
+#: ../source/specifications/dependency-specifiers.rst:422
+#, fuzzy
+#| msgid ""
+#| "An error except when defined by the context interpreting the "
+#| "specification."
 msgid ""
-"An error except when defined by the context interpreting the specification."
+"Used to indicate optional dependencies in project dependency metadata. An "
+"error except when defined by the context interpreting the specifier."
 msgstr ""
 "Um erro, exceto quando definido pelo contexto que interpreta a especificação."
 
-#: ../source/specifications/dependency-specifiers.rst:302
-#, fuzzy
-msgid "``toml``"
-msgstr "pyproject.toml"
+#: ../source/specifications/dependency-specifiers.rst:425
+msgid "Special (see below)"
+msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:303
+#: ../source/specifications/dependency-specifiers.rst:426
+msgid "``toml`` (publishing tools SHOULD permit use of this field)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:428
 #: ../source/specifications/pylock-toml.rst:108
 #, fuzzy
 #| msgid "``extra``"
 msgid "``extras``"
 msgstr "``extra``"
 
-#: ../source/specifications/dependency-specifiers.rst:306
-#: ../source/specifications/dependency-specifiers.rst:311
+#: ../source/specifications/dependency-specifiers.rst:429
+#, fuzzy
+#| msgid ""
+#| "An error except when defined by the context interpreting the "
+#| "specification."
+msgid ""
+"Used to indicate optional public dependencies in lock files. An error except "
+"when defined by the context interpreting the specifier."
+msgstr ""
+"Um erro, exceto quando definido pelo contexto que interpreta a especificação."
+
+#: ../source/specifications/dependency-specifiers.rst:431
+#: ../source/specifications/dependency-specifiers.rst:439
 msgid "Set of strings"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:307
-msgid "``{\"toml\"}``"
+#: ../source/specifications/dependency-specifiers.rst:432
+msgid ""
+"``{\"toml\"}`` (publishing tools SHOULD NOT permit use of this field and "
+"index servers SHOULD NOT accept uploads containing such environment markers)"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:308
+#: ../source/specifications/dependency-specifiers.rst:435
 #, fuzzy
 #| msgid "``dependencies``"
 msgid "``dependency_groups``"
 msgstr "``dependencies``"
 
-#: ../source/specifications/dependency-specifiers.rst:312
+#: ../source/specifications/dependency-specifiers.rst:436
 #, fuzzy
-#| msgid "``test``"
-msgid "``{\"test\"}``"
-msgstr "``test``"
+#| msgid ""
+#| "An error except when defined by the context interpreting the "
+#| "specification."
+msgid ""
+"Used to indicate optional project internal dependencies in lock files. An "
+"error except when defined by the context interpreting the specifier."
+msgstr ""
+"Um erro, exceto quando definido pelo contexto que interpreta a especificação."
 
-#: ../source/specifications/dependency-specifiers.rst:314
+#: ../source/specifications/dependency-specifiers.rst:440
+msgid ""
+"``{\"test\"}`` (publishing tools SHOULD NOT permit use of this field and "
+"index servers SHOULD NOT accept uploads containing such environment markers)"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:444
+msgid ""
+"For backwards compatibility with older locking and installation tools, the "
+"``extras`` and ``dependency_groups`` fields are currently only valid for use "
+"in ``packages.marker`` fields in :ref:`lock files <lock-file-spec>`. For "
+"these comparisons, the ``extras`` and ``dependency_groups`` sets used for "
+"the marker evaluation refer to the *currently selected* extras and "
+"dependency groups when installing from the lock file, not the full set of "
+"defined extras and dependency groups listed in the corresponding top level "
+"lock file fields. The interface for selecting which extras and dependency "
+"groups to install is tool dependent. Publishing tools SHOULD emit an error "
+"if projects attempt to reference the ``extras`` or ``dependency_groups`` "
+"fields in their published dependency declaration metadata, and index servers "
+"SHOULD NOT accept uploads referencing these fields. Outside lock file "
+"processing, marker evaluation environments DO NOT need to define these "
+"fields."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:458
+msgid ""
+"The ``extra`` field is also special, as it expects set-like behaviour, but "
+"predates the addition of ``Set of strings`` as a defined marker field type. "
+"Accordingly, ``extra == \"name\"`` in a dependency declaration is similar to "
+"``\"name\" in extras``, while ``extra != \"name\"`` is similar to ``\"name\" "
+"not in extras``. For dependency marker evaluations, the set of extra names "
+"used for these comparisons is the full set of requested extras for *that "
+"particular package*, whether requested directly in a top level dependency "
+"declaration, or indirectly in a transitive dependency declaration. Other "
+"comparison operations on ``extra`` are not defined and publishing tools "
+"SHOULD emit an error, index servers MAY disallow uploads containing such "
+"environment markers, while locking and installation tools SHOULD evaluate "
+"them as False."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:470
+msgid ""
+"Unlike the newer ``extras`` field, environment markers using this field "
+"SHOULD be accepted by both publishing tools and index servers. Marker "
+"evaluation environments intended for project dependency declarations will "
+"typically need to handle evaluation of ``extra`` field comparisons, while "
+"other evaluations of environment markers will not generally need to do so. "
+"The legacy ``extra`` comparison syntax is NOT permitted in lock file "
+"``packages.marker`` fields, and installation tools SHOULD reject lock files "
+"containing such comparisons as invalid."
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:479
 #, fuzzy
 msgid ""
 "The ``implementation_version`` marker variable is derived "
@@ -21124,33 +21453,25 @@ msgstr ""
 "A variável do marcador ``implementation_version`` é derivada de "
 "``sys.implementation.version``::"
 
-#: ../source/specifications/dependency-specifiers.rst:331
-msgid ""
-"This environment markers section, initially defined through :pep:`508`, "
-"supersedes the environment markers section in :pep:`345`."
-msgstr ""
-"Esta seção de marcadores de ambiente, inicialmente definida na :pep:`508`, "
-"substitui a seção de marcadores de ambiente na :pep:`345`."
-
-#: ../source/specifications/dependency-specifiers.rst:337
+#: ../source/specifications/dependency-specifiers.rst:499
 msgid "Complete Grammar"
 msgstr "Gramática completa"
 
-#: ../source/specifications/dependency-specifiers.rst:339
+#: ../source/specifications/dependency-specifiers.rst:501
 msgid "The complete parsley grammar::"
 msgstr "A gramática completa do persley ::"
 
-#: ../source/specifications/dependency-specifiers.rst:446
+#: ../source/specifications/dependency-specifiers.rst:608
 #, fuzzy
 msgid "A test program - if the grammar is in a string ``grammar``:"
 msgstr ""
 "Um programa de teste -- se a gramática estiver em uma string ``grammar``::"
 
-#: ../source/specifications/dependency-specifiers.rst:518
+#: ../source/specifications/dependency-specifiers.rst:682
 msgid "November 2015: This specification was approved through :pep:`508`."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:519
+#: ../source/specifications/dependency-specifiers.rst:683
 #, fuzzy
 msgid ""
 "July 2019: The definition of ``python_version`` was `changed <python-version-"
@@ -21164,20 +21485,26 @@ msgstr ""
 "potenciais futuras versões do Python com versões principais e secundárias de "
 "2 dígitos (por exemplo, 3.10). [#future_versions]_"
 
-#: ../source/specifications/dependency-specifiers.rst:524
+#: ../source/specifications/dependency-specifiers.rst:688
+msgid ""
+"March 2022: Standardised the normalization of extra names at publication "
+"time (for core metadata 2.3 and later) through :pep:`685`"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:690
 msgid ""
 "June 2024: The definition of ``version_many`` was changed to allow trailing "
 "commas, matching with the behavior of the Python implementation that has "
 "been in use since late 2022."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:527
+#: ../source/specifications/dependency-specifiers.rst:693
 msgid ""
-"April 2025: Added ``extras`` and ``dependency_groups`` for :ref:`lock-file-"
-"spec` as approved through :pep:`751`."
+"April 2025: Added ``extras`` and ``dependency_groups`` marker field "
+"for :ref:`lock-file-spec` as approved through :pep:`751`."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:529
+#: ../source/specifications/dependency-specifiers.rst:695
 #: ../source/specifications/name-normalization.rst:56
 msgid ""
 "August 2025: The suggested name validation regex was fixed to match the "
@@ -21185,13 +21512,32 @@ msgid ""
 "incorrectly permitting trailing newlines)"
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:532
+#: ../source/specifications/dependency-specifiers.rst:698
 msgid ""
-"December 2025: Ensure ``===`` before ``==`` in grammar, to allow arbitrary "
-"equality comparisons to be parsed."
+"December 2025: Ensure ``===`` is before ``==`` in grammar, to allow "
+"arbitrary equality comparisons to be parsed."
 msgstr ""
 
-#: ../source/specifications/dependency-specifiers.rst:539
+#: ../source/specifications/dependency-specifiers.rst:700
+msgid ""
+"January 2026: Amend the definition of environment marker comparison "
+"operations to restrict version comparison semantics to fields where they "
+"make sense, make extra name restrictions more explicit, adjust the way "
+"ordered comparisons are defined for strings, and make the fallback from "
+"version comparisons to string comparisons when version parsing fails "
+"optional. Also provide different tool behaviour recommendations for "
+"publishing tools vs installation tools. This brought the nominal "
+"specification into line with the way tools actually work. "
+"[#marker_comparison_logic]_"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:708
+msgid ""
+"January 2026: fix outdated references to other documents that were "
+"inadvertently retained from :pep:`508`"
+msgstr ""
+
+#: ../source/specifications/dependency-specifiers.rst:715
 msgid ""
 "pip, the recommended installer for Python packages (http://"
 "pip.readthedocs.org/en/stable/)"
@@ -21199,12 +21545,12 @@ msgstr ""
 "pip, o instalador recomendado para pacotes Python (http://"
 "pip.readthedocs.org/en/stable/)"
 
-#: ../source/specifications/dependency-specifiers.rst:542
+#: ../source/specifications/dependency-specifiers.rst:718
 msgid "The parsley PEG library. (https://pypi.python.org/pypi/parsley/)"
 msgstr ""
 "A biblioteca de PEG do parsley. (https://pypi.python.org/pypi/parsley/)"
 
-#: ../source/specifications/dependency-specifiers.rst:545
+#: ../source/specifications/dependency-specifiers.rst:721
 msgid ""
 "Future Python versions might be problematic with the definition of "
 "Environment Marker Variable ``python_version`` (https://github.com/python/"
@@ -21213,6 +21559,14 @@ msgstr ""
 "Versões futuras do Python podem ser problemáticas com a definição da "
 "variável do marcador de ambiente ``python_version`` (https://github.com/"
 "python/peps/issues/560)"
+
+#: ../source/specifications/dependency-specifiers.rst:725
+msgid ""
+"Resolving inconsistencies between actual tool behavior and the nominal "
+"definitions of environment marker field comparisons (https://"
+"discuss.python.org/t/spec-change-bugfix-dependency-specifiers-simplification-"
+"pep-508/105203)"
+msgstr ""
 
 #: ../source/specifications/direct-url.rst:6
 msgid "Recording the Direct URL Origin of installed distributions"
@@ -22065,15 +22419,24 @@ msgstr ""
 "por vírgulas entre colchetes."
 
 #: ../source/specifications/entry-points.rst:105
+#, fuzzy
+#| msgid ""
+#| "Within a value, readers must accept and ignore spaces (including multiple "
+#| "consecutive spaces) before or after the colon, between the object "
+#| "reference and the left square bracket, between the extra names and the "
+#| "square brackets and colons delimiting them, and after the right square "
+#| "bracket. The syntax for extras is formally specified as part "
+#| "of :pep:`508` (as ``extras``) and restrictions on values specified "
+#| "in :pep:`685`. For tools writing the file, it is recommended only to "
+#| "insert a space between the object reference and the left square bracket."
 msgid ""
 "Within a value, readers must accept and ignore spaces (including multiple "
 "consecutive spaces) before or after the colon, between the object reference "
 "and the left square bracket, between the extra names and the square brackets "
 "and colons delimiting them, and after the right square bracket. The syntax "
-"for extras is formally specified as part of :pep:`508` (as ``extras``) and "
-"restrictions on values specified in :pep:`685`. For tools writing the file, "
-"it is recommended only to insert a space between the object reference and "
-"the left square bracket."
+"for extras is formally specified in :ref:`dependency-specifiers`. For tools "
+"writing the file, it is recommended only to insert a space between the "
+"object reference and the left square bracket."
 msgstr ""
 "Dentro de um valor, os leitores devem aceitar e ignorar os espaços "
 "(incluindo vários espaços consecutivos) antes ou depois dos dois pontos, "
@@ -22084,11 +22447,11 @@ msgstr ""
 "na :pep:`685`. Para ferramentas de gravação de arquivo, é recomendável "
 "inserir apenas um espaço entre a referência do objeto e o colchete esquerdo."
 
-#: ../source/specifications/entry-points.rst:128
+#: ../source/specifications/entry-points.rst:127
 msgid "Use for scripts"
 msgstr "Uso para scripts"
 
-#: ../source/specifications/entry-points.rst:130
+#: ../source/specifications/entry-points.rst:129
 msgid ""
 "Two groups of entry points have special significance in packaging: "
 "``console_scripts`` and ``gui_scripts``. In both groups, the name of the "
@@ -22106,7 +22469,7 @@ msgstr ""
 "função pode retornar um inteiro para ser usado como um código de saída do "
 "processo, e retornar ``None`` é equivalente a retornar ``0``."
 
-#: ../source/specifications/entry-points.rst:138
+#: ../source/specifications/entry-points.rst:137
 msgid ""
 "For instance, the entry point ``mycmd = mymod:main`` would create a command "
 "``mycmd`` launching a script like this::"
@@ -22114,7 +22477,7 @@ msgstr ""
 "Por exemplo, o ponto de entrada ``mycmd = mymod:main`` criaria um comando "
 "``mycmd`` lançando um script como este::"
 
-#: ../source/specifications/entry-points.rst:145
+#: ../source/specifications/entry-points.rst:144
 #, fuzzy
 msgid ""
 "The difference between ``console_scripts`` and ``gui_scripts`` only affects "
@@ -22134,7 +22497,7 @@ msgstr ""
 "console, mas não podem usar streams padrão a menos que o código da aplicação "
 "os redirecione. Outras plataformas não têm a mesma distinção."
 
-#: ../source/specifications/entry-points.rst:153
+#: ../source/specifications/entry-points.rst:152
 msgid ""
 "Install tools are expected to set up wrappers for both ``console_scripts`` "
 "and ``gui_scripts`` in the scripts directory of the install scheme. They are "
@@ -22147,7 +22510,7 @@ msgstr ""
 "de ambiente ``PATH`` que define onde as ferramentas de linha de comando são "
 "encontradas."
 
-#: ../source/specifications/entry-points.rst:158
+#: ../source/specifications/entry-points.rst:157
 msgid ""
 "As files are created from the names, and some filesystems are case-"
 "insensitive, packages should avoid using names in these groups which differ "
@@ -22160,10 +22523,16 @@ msgstr ""
 "minúsculas. O comportamento das ferramentas de instalação quando os nomes "
 "diferem apenas no caso de ser indefinido."
 
-#: ../source/specifications/entry-points.rst:166
+#: ../source/specifications/entry-points.rst:165
 msgid ""
 "October 2017: This specification was written to formalize the existing entry "
 "points feature of setuptools (discussion_)."
+msgstr ""
+
+#: ../source/specifications/entry-points.rst:168
+msgid ""
+"January 2026: Replaced outdated direct references to :pep:`508` "
+"and :pep:`685` with a reference to :ref:`dependency-specifiers`."
 msgstr ""
 
 #: ../source/specifications/externally-managed-environments.rst:6
@@ -24238,6 +24607,10 @@ msgstr ""
 #, fuzzy
 #| msgid "``x86_64``"
 msgid "``x86``"
+msgstr "``x86_64``"
+
+#: ../source/specifications/platform-compatibility-tags.rst:262
+msgid "``x86_64``"
 msgstr "``x86_64``"
 
 #: ../source/specifications/platform-compatibility-tags.rst:264
@@ -26468,11 +26841,12 @@ msgid "``authors``"
 msgstr "``authors``"
 
 #: ../source/specifications/pyproject-toml.rst:136
+#: ../source/specifications/pyproject-toml.rst:452
 msgid "``dependencies``"
 msgstr "``dependencies``"
 
 #: ../source/specifications/pyproject-toml.rst:138
-#: ../source/specifications/pyproject-toml.rst:574
+#: ../source/specifications/pyproject-toml.rst:597
 msgid "``dynamic``"
 msgstr "``dynamic``"
 
@@ -26485,14 +26859,14 @@ msgid "``gui-scripts``"
 msgstr "``gui-scripts``"
 
 #: ../source/specifications/pyproject-toml.rst:141
-#: ../source/specifications/pyproject-toml.rst:482
+#: ../source/specifications/pyproject-toml.rst:505
 #, fuzzy
 #| msgid "``name``"
 msgid "``import-names``"
 msgstr "``name``"
 
 #: ../source/specifications/pyproject-toml.rst:142
-#: ../source/specifications/pyproject-toml.rst:533
+#: ../source/specifications/pyproject-toml.rst:556
 msgid "``import-namespaces``"
 msgstr ""
 
@@ -26501,6 +26875,7 @@ msgid "``maintainers``"
 msgstr "``maintainers``"
 
 #: ../source/specifications/pyproject-toml.rst:148
+#: ../source/specifications/pyproject-toml.rst:476
 msgid "``optional-dependencies``"
 msgstr "``optional-dependencies``"
 
@@ -26742,8 +27117,8 @@ msgstr ""
 #: ../source/specifications/pyproject-toml.rst:293
 #: ../source/specifications/pyproject-toml.rst:376
 #: ../source/specifications/pyproject-toml.rst:388
-#: ../source/specifications/pyproject-toml.rst:484
-#: ../source/specifications/pyproject-toml.rst:535
+#: ../source/specifications/pyproject-toml.rst:507
+#: ../source/specifications/pyproject-toml.rst:558
 msgid "TOML_ type: array of strings"
 msgstr "Tipo TOML_: vetor de strings"
 
@@ -27013,17 +27388,63 @@ msgstr ""
 "points.gui_scripts]``, pois elas seriam ambíguas perante "
 "``[project.scripts]`` e ``[project.gui-scripts]``, respectivamente."
 
-#: ../source/specifications/pyproject-toml.rst:455
+#: ../source/specifications/pyproject-toml.rst:454
 msgid ""
-"TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table with "
-"values of arrays of :pep:`508` strings (``optional-dependencies``)"
+"TOML_ type: Array of :ref:`dependency specifier <dependency-specifiers>` "
+"strings (``dependencies``)"
 msgstr ""
-"Tipo TOML_: Vetor de strings da :pep:`508` (``dependencies``) e uma tabela "
-"com valores de vetores de strings da :pep:`508` (``optional-dependencies``)"
 
-#: ../source/specifications/pyproject-toml.rst:458
+#: ../source/specifications/pyproject-toml.rst:456
+#, fuzzy
+#| msgid ""
+#| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+#| "Python <core-metadata-requires-python>`"
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+"Dist <core-metadata-requires-dist>`"
+msgstr ""
+"Campo correspondente dos :ref:`metadados principais <core-"
+"metadata>`: :ref:`Requires-Python <core-metadata-requires-python>`"
+
+#: ../source/specifications/pyproject-toml.rst:459
+msgid ""
+"``dependencies`` lists the expected dependencies of the project as an array "
+"of strings."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:462
+msgid ""
+"Each string represents a dependency of the project and MUST be formatted as "
+"a valid :ref:`dependency specifier <dependency-specifiers>`."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:465
+msgid ""
+"Each string maps directly to a :ref:`Requires-Dist <core-metadata-requires-"
+"dist>` entry."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:468
+msgid ""
+"Dependencies listed in this array are always considered for installation, "
+"but may still contain environment markers that cause them to be skipped in "
+"some environments."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:478
+msgid ""
+"TOML_ type: table with string keys mapping to arrays of :ref:`dependency "
+"specifier <dependency-specifiers>` strings (``optional-dependencies``)"
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:480
+#, fuzzy
+#| msgid ""
+#| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Requires-"
+#| "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-"
+#| "metadata-provides-extra>`"
+msgid ""
+"Corresponding :ref:`core metadata <core-metadata>` fields: :ref:`Requires-"
 "Dist <core-metadata-requires-dist>` and :ref:`Provides-Extra <core-metadata-"
 "provides-extra>`"
 msgstr ""
@@ -27031,31 +27452,29 @@ msgstr ""
 "metadata>`: :ref:`Requires-Dist <core-metadata-requires-dist>` "
 "e :ref:`Provides-Extra <core-metadata-provides-extra>`"
 
-#: ../source/specifications/pyproject-toml.rst:462
-msgid "The (optional) dependencies of the project."
-msgstr "As dependências (opcionais) do projeto."
-
-#: ../source/specifications/pyproject-toml.rst:464
+#: ../source/specifications/pyproject-toml.rst:484
 msgid ""
-"For ``dependencies``, it is a key whose value is an array of strings. Each "
-"string represents a dependency of the project and MUST be formatted as a "
-"valid :pep:`508` string. Each string maps directly to a :ref:`Requires-Dist "
-"<core-metadata-requires-dist>` entry."
+"``optional-dependencies`` is a table where each key specifies an extra and "
+"whose value is an array of strings using the same format as the "
+"``dependencies`` array (the strings in the arrays must be "
+"valid :ref:`dependency specifiers <dependency-specifiers>`)."
 msgstr ""
-"Para ``dependencies``, é uma chave cujo valor é um array de strings. Cada "
-"string representa uma dependência do projeto e DEVE ser formatada como uma "
-"string válida :pep:`508`. Cada string mapeia diretamente para "
-"um :ref:`Requires-Dist <core-metadata-requires-dist>`."
 
-#: ../source/specifications/pyproject-toml.rst:469
+#: ../source/specifications/pyproject-toml.rst:489
+#, fuzzy
+#| msgid ""
+#| "For ``optional-dependencies``, it is a table where each key specifies an "
+#| "extra and whose value is an array of strings. The strings of the arrays "
+#| "must be valid :pep:`508` strings. The keys MUST be valid values "
+#| "for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value in "
+#| "the array thus becomes a corresponding :ref:`Requires-Dist <core-metadata-"
+#| "requires-dist>` entry for the matching :ref:`Provides-Extra <core-"
+#| "metadata-provides-extra>` metadata."
 msgid ""
-"For ``optional-dependencies``, it is a table where each key specifies an "
-"extra and whose value is an array of strings. The strings of the arrays must "
-"be valid :pep:`508` strings. The keys MUST be valid values "
-"for :ref:`Provides-Extra <core-metadata-provides-extra>`. Each value in the "
-"array thus becomes a corresponding :ref:`Requires-Dist <core-metadata-"
-"requires-dist>` entry for the matching :ref:`Provides-Extra <core-metadata-"
-"provides-extra>` metadata."
+"The keys MUST be valid values for :ref:`Provides-Extra <core-metadata-"
+"provides-extra>`. Each value in the array thus becomes a "
+"corresponding :ref:`Requires-Dist <core-metadata-requires-dist>` entry for "
+"the matching :ref:`Provides-Extra <core-metadata-provides-extra>` metadata."
 msgstr ""
 "Para ``optional-dependencies``, é uma tabela onde cada chave especifica um "
 "extra e cujo valor é um vetor de strings. As strings dos vetores devem ser "
@@ -27065,7 +27484,15 @@ msgstr ""
 "metadata-requires-dist>` para os metadados correspondentes de :ref:`Provides-"
 "Extra <core-metadata-provides-extra>`."
 
-#: ../source/specifications/pyproject-toml.rst:485
+#: ../source/specifications/pyproject-toml.rst:496
+msgid ""
+"The optionality of these dependencies is recorded by modifying the "
+"environment marker clause on the related ``Requires-Dist`` entries to check "
+"the extra name. Optional dependencies are thus only considered for "
+"installation if installation if the associated extra name is requested."
+msgstr ""
+
+#: ../source/specifications/pyproject-toml.rst:508
 #, fuzzy
 #| msgid ""
 #| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
@@ -27077,7 +27504,7 @@ msgstr ""
 "Campo correspondente dos :ref:`metadados principais <core-"
 "metadata>`: :ref:`Name <core-metadata-name>`"
 
-#: ../source/specifications/pyproject-toml.rst:488
+#: ../source/specifications/pyproject-toml.rst:511
 msgid ""
 "An array of strings specifying the import names that the project exclusively "
 "provides when installed. Each string MUST be a valid Python identifier or "
@@ -27086,7 +27513,7 @@ msgid ""
 "surrounding the semicolon."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:493
+#: ../source/specifications/pyproject-toml.rst:516
 msgid ""
 "Projects SHOULD list all the shortest import names that are exclusively "
 "provided by the project. If any of the shortest names are dotted names, all "
@@ -27101,32 +27528,32 @@ msgid ""
 "using the ``; private`` modifier as appropriate."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:505
-#: ../source/specifications/pyproject-toml.rst:554
+#: ../source/specifications/pyproject-toml.rst:528
+#: ../source/specifications/pyproject-toml.rst:577
 msgid ""
 "If a project lists the same name in both ``import-names`` and ``import-"
 "namespaces``, then tools MUST raise an error due to ambiguity."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:508
+#: ../source/specifications/pyproject-toml.rst:531
 msgid ""
 "Projects MAY set ``import-names`` to an empty array to represent a project "
 "with no import names (i.e. there are no Python modules of any kind in the "
 "distribution file)."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:512
-#: ../source/specifications/pyproject-toml.rst:557
+#: ../source/specifications/pyproject-toml.rst:535
+#: ../source/specifications/pyproject-toml.rst:580
 msgid ""
 "Build back-ends MAY support dynamically calculating the value if the user "
 "declares the key in ``project.dynamic``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:515
+#: ../source/specifications/pyproject-toml.rst:538
 msgid "Examples:"
 msgstr "Exemplos:"
 
-#: ../source/specifications/pyproject-toml.rst:536
+#: ../source/specifications/pyproject-toml.rst:559
 #, fuzzy
 #| msgid ""
 #| "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Name "
@@ -27138,7 +27565,7 @@ msgstr ""
 "Campo correspondente dos :ref:`metadados principais <core-"
 "metadata>`: :ref:`Name <core-metadata-name>`"
 
-#: ../source/specifications/pyproject-toml.rst:539
+#: ../source/specifications/pyproject-toml.rst:562
 msgid ""
 "An array of strings specifying the import names that the project provides "
 "when installed, but not exclusively. Each string MUST be a valid Python "
@@ -27148,7 +27575,7 @@ msgid ""
 "namespaces`` CANNOT be an empty array."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:545
+#: ../source/specifications/pyproject-toml.rst:568
 msgid ""
 "Projects SHOULD list all the shortest import names that are exclusively "
 "provided by the project. If any of the shortest names are dotted names, all "
@@ -27156,7 +27583,7 @@ msgid ""
 "appropriately in ``import-names`` and/or ``import-namespaces``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:550
+#: ../source/specifications/pyproject-toml.rst:573
 msgid ""
 "This field is used for namespace packages where multiple projects can "
 "contribute to the same import namespace. Projects all listing the same "
@@ -27164,17 +27591,17 @@ msgid ""
 "shadowing each other."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:560
+#: ../source/specifications/pyproject-toml.rst:583
 #, fuzzy
 #| msgid "Example::"
 msgid "Example:"
 msgstr "Exemplo::"
 
-#: ../source/specifications/pyproject-toml.rst:576
+#: ../source/specifications/pyproject-toml.rst:599
 msgid "TOML_ type: array of string"
 msgstr "Tipo TOML_: vetor de string"
 
-#: ../source/specifications/pyproject-toml.rst:577
+#: ../source/specifications/pyproject-toml.rst:600
 msgid ""
 "Corresponding :ref:`core metadata <core-metadata>` field: :ref:`Dynamic "
 "<core-metadata-dynamic>`"
@@ -27182,7 +27609,7 @@ msgstr ""
 "Campo correspondente dos :ref:`metadados principais <core-"
 "metadata>`: :ref:`Dynamic <core-metadata-dynamic>`"
 
-#: ../source/specifications/pyproject-toml.rst:580
+#: ../source/specifications/pyproject-toml.rst:603
 msgid ""
 "Specifies which keys listed by this PEP were intentionally unspecified so "
 "another tool can/will provide such metadata dynamically. This clearly "
@@ -27195,7 +27622,7 @@ msgstr ""
 "não especificados e espera-se que permaneçam não especificados em comparação "
 "a serem fornecidos por meio de ferramentas posteriormente."
 
-#: ../source/specifications/pyproject-toml.rst:586
+#: ../source/specifications/pyproject-toml.rst:609
 msgid ""
 "A build back-end MUST honour statically-specified metadata (which means the "
 "metadata did not list the key in ``dynamic``)."
@@ -27204,7 +27631,7 @@ msgstr ""
 "estaticamente (o que significa que os metadados não listam a chave em "
 "``dynamic``)."
 
-#: ../source/specifications/pyproject-toml.rst:588
+#: ../source/specifications/pyproject-toml.rst:611
 msgid ""
 "A build back-end MUST raise an error if the metadata specifies ``name`` in "
 "``dynamic``."
@@ -27212,7 +27639,7 @@ msgstr ""
 "Um backend de construção DEVE gerar um erro se os metadados especificarem "
 "``name`` em ``dynamic``."
 
-#: ../source/specifications/pyproject-toml.rst:590
+#: ../source/specifications/pyproject-toml.rst:613
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Required\", then the metadata MUST specify the key statically or list it "
@@ -27226,7 +27653,7 @@ msgstr ""
 "um erro, caso contrário , ou seja, não deve ser possível que uma chave "
 "obrigatória não seja listada de alguma forma na tabela ``[project]``)."
 
-#: ../source/specifications/pyproject-toml.rst:595
+#: ../source/specifications/pyproject-toml.rst:618
 msgid ""
 "If the :ref:`core metadata <core-metadata>` specification lists a field as "
 "\"Optional\", the metadata MAY list it in ``dynamic`` if the expectation is "
@@ -27237,7 +27664,7 @@ msgstr ""
 "expectativa for um backend de construção fornecerá os dados para a chave "
 "mais tarde."
 
-#: ../source/specifications/pyproject-toml.rst:599
+#: ../source/specifications/pyproject-toml.rst:622
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key "
 "statically as well as being listed in ``dynamic``."
@@ -27245,7 +27672,7 @@ msgstr ""
 "Os backends de construção DEVEM levantar um erro se os metadados "
 "especificarem uma chave estaticamente, além de serem listados em ``dynamic``."
 
-#: ../source/specifications/pyproject-toml.rst:601
+#: ../source/specifications/pyproject-toml.rst:624
 msgid ""
 "If the metadata does not list a key in ``dynamic``, then a build back-end "
 "CANNOT fill in the requisite metadata on behalf of the user (i.e. "
@@ -27257,7 +27684,7 @@ msgstr ""
 "(ou seja, ``dynamic`` é a única maneira de permitir que uma ferramenta "
 "preencha metadados e o usuário deve optar pelo preenchimento)."
 
-#: ../source/specifications/pyproject-toml.rst:605
+#: ../source/specifications/pyproject-toml.rst:628
 msgid ""
 "Build back-ends MUST raise an error if the metadata specifies a key in "
 "``dynamic`` but the build back-end was unable to determine the data for it "
@@ -27268,11 +27695,11 @@ msgstr ""
 "capaz de determinar os dados para ele (omitir os dados, se determinado como "
 "o valor exato, é aceitável) ."
 
-#: ../source/specifications/pyproject-toml.rst:615
+#: ../source/specifications/pyproject-toml.rst:638
 msgid "Arbitrary tool configuration: the ``[tool]`` table"
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:617
+#: ../source/specifications/pyproject-toml.rst:640
 msgid ""
 "The ``[tool]`` table is where any tool related to your Python project, not "
 "just build tools, can have users specify configuration data as long as they "
@@ -27280,7 +27707,7 @@ msgid ""
 "pypi/flit>`_ tool would store its configuration in ``[tool.flit]``."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:623
+#: ../source/specifications/pyproject-toml.rst:646
 msgid ""
 "A mechanism is needed to allocate names within the ``tool.*`` namespace, to "
 "make sure that different projects do not attempt to use the same sub-table "
@@ -27288,32 +27715,32 @@ msgid ""
 "if, and only if, they own the entry for ``$NAME`` in the Cheeseshop/PyPI."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:634
+#: ../source/specifications/pyproject-toml.rst:657
 msgid ""
 "May 2016: The initial specification of the ``pyproject.toml`` file, with "
 "just a ``[build-system]`` containing a ``requires`` key and a ``[tool]`` "
 "table, was approved through :pep:`518`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:638
+#: ../source/specifications/pyproject-toml.rst:661
 msgid ""
 "November 2020: The specification of the ``[project]`` table was approved "
 "through :pep:`621`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:641
+#: ../source/specifications/pyproject-toml.rst:664
 msgid ""
 "December 2024: The ``license`` key was redefined, the ``license-files`` key "
 "was added and ``License::`` classifiers were deprecated through :pep:`639`."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:644
+#: ../source/specifications/pyproject-toml.rst:667
 msgid ""
 "September 2025: Clarity that the ``license`` key applies to all distribution "
 "files generated from the :file:`pyproject.toml` file."
 msgstr ""
 
-#: ../source/specifications/pyproject-toml.rst:647
+#: ../source/specifications/pyproject-toml.rst:670
 msgid ""
 "October 2025: The ``import-names`` and ``import-namespaces`` keys were added "
 "through :pep:`794`."
@@ -29955,10 +30382,6 @@ msgid ""
 "under this scheme, the most common variants are to use two components "
 "(\"major.minor\") or three components (\"major.minor.micro\")."
 msgstr ""
-
-#: ../source/specifications/version-specifiers.rst:203
-msgid "For example::"
-msgstr "Por exemplo::"
 
 #: ../source/specifications/version-specifiers.rst:218
 msgid ""
@@ -33529,6 +33952,180 @@ msgid ""
 "recommended to stick with *regular packages* and ``__init__.py`` (even if "
 "the file is empty)."
 msgstr ""
+
+#~ msgid ""
+#~ "This document describes the dependency specifiers format as originally "
+#~ "specified in :pep:`508`."
+#~ msgstr ""
+#~ "Este documento descreve o formato dos especificadores de dependência "
+#~ "conforme originalmente especificado na :pep:`508`."
+
+#, fuzzy
+#~ msgid ""
+#~ "The language defined is a compact line based format which is already in "
+#~ "widespread use in pip requirements files, though we do not specify the "
+#~ "command line option handling that those files permit. There is one caveat "
+#~ "- the URL reference form, specified in :ref:`Versioning specifier "
+#~ "specification <version-specifiers>` is not actually implemented in pip, "
+#~ "but we use that format rather than pip's current native format."
+#~ msgstr ""
+#~ "A linguagem definida é um formato compacto baseado em linha que já está "
+#~ "em uso generalizado em arquivos de requisitos pip, embora não "
+#~ "especifiquemos a manipulação de opção de linha de comando que esses "
+#~ "arquivos permitem. Há uma ressalva: o formulário de referência de URL, "
+#~ "especificado em :pep:`440`, não é realmente implementado em pip, mas "
+#~ "como :pep:`440` é aceito, usamos esse formato em vez do formato nativo "
+#~ "atual de pip."
+
+#~ msgid "Restrictions on names for extras is defined in :pep:`685`."
+#~ msgstr "Restrições de nomes para extras são definidas na :pep:`685`."
+
+#~ msgid ""
+#~ "Python distribution names are currently defined in :pep:`345`. Names act "
+#~ "as the primary identifier for distributions. They are present in all "
+#~ "dependency specifications, and are sufficient to be a specification on "
+#~ "their own. However, PyPI places strict restrictions on names - they must "
+#~ "match a case insensitive regex or they won't be accepted. Accordingly, in "
+#~ "this document we limit the acceptable values for identifiers to that "
+#~ "regex. A full redefinition of name may take place in a future metadata "
+#~ "PEP. The regex (run with re.IGNORECASE) is::"
+#~ msgstr ""
+#~ "Nomes de distribuição Python são atualmente definidos na :pep:`345`. Os "
+#~ "nomes atuam como o identificador primário para distribuições. Eles estão "
+#~ "presentes em todas as especificações de dependência e são suficientes "
+#~ "para serem uma especificação por conta própria. No entanto, PyPI impõe "
+#~ "restrições estritas aos nomes: eles devem corresponder a uma regex que "
+#~ "não diferencie maiúsculas de minúsculas ou não serão aceitos. Assim, "
+#~ "neste documento, limitamos os valores aceitáveis para identificadores a "
+#~ "essa regex. Uma redefinição completa do nome pode ocorrer em um futuro "
+#~ "PEP de metadados. A regex (executada com re.IGNORECASE) é ::"
+
+#, fuzzy
+#~| msgid ""
+#~| "Comparisons in marker expressions are typed by the comparison operator.  "
+#~| "The <marker_op> operators that are not in <version_cmp> perform the same "
+#~| "as they do for strings in Python. The <version_cmp> operators use the "
+#~| "version comparison rules of the :ref:`Version specifier specification "
+#~| "<version-specifiers>` when those are defined (that is when both sides "
+#~| "have a valid version specifier). If there is no defined behaviour of "
+#~| "this specification and the operator exists in Python, then the operator "
+#~| "falls back to the Python behaviour. Otherwise an error should be raised. "
+#~| "e.g. the following will result in  errors::"
+#~ msgid ""
+#~ "Comparisons in marker expressions are typed by the comparison operator "
+#~ "and the type of the marker value. The <marker_op> operators that are not "
+#~ "in <version_cmp> perform the same as they do for strings or sets in "
+#~ "Python based on whether the marker value is a string or set itself. The "
+#~ "<version_cmp> operators use the version comparison rules of "
+#~ "the :ref:`Version specifier specification <version-specifiers>` when "
+#~ "those are defined (that is when both sides have a valid version "
+#~ "specifier). If there is no defined behaviour of this specification and "
+#~ "the operator exists in Python, then the operator falls back to the Python "
+#~ "behaviour for the types involved. Otherwise an error should be raised. "
+#~ "e.g. the following will result in errors::"
+#~ msgstr ""
+#~ "As comparações em expressões de marcador são tipadas pelo operador de "
+#~ "comparação. Os operadores <marker_op> que não estão em <version_cmp> "
+#~ "fazem o mesmo que para strings no Python. Os operadores <version_cmp> "
+#~ "usam as regras de comparação de versão da :ref:`especificação de "
+#~ "especificadores de versão <version-specifiers>` quando são definidas (ou "
+#~ "seja, quando ambos os lados têm um especificador de versão válido). Se "
+#~ "não houver comportamento definido desta especificação e o operador "
+#~ "existir no Python, o operador voltará ao comportamento do Python. Caso "
+#~ "contrário, um erro deve ser levantado. Por exemplo, o seguinte resultará "
+#~ "em erros ::"
+
+#~ msgid ""
+#~ "User supplied constants are always encoded as strings with either ``'`` "
+#~ "or ``\"`` quote marks. Note that backslash escapes are not defined, but "
+#~ "existing implementations do support them. They are not included in this "
+#~ "specification because they add complexity and there is no observable need "
+#~ "for them today. Similarly we do not define non-ASCII character support: "
+#~ "all the runtime variables we are referencing are expected to be ASCII-"
+#~ "only."
+#~ msgstr ""
+#~ "As constantes fornecidas pelo usuário são sempre codificadas como strings "
+#~ "com as aspas ``'`` ou ``\"``. Observe que os escapes de barra invertida "
+#~ "não são definidos, mas as implementações existentes os suportam. Eles não "
+#~ "estão incluídos nesta especificação porque adicionam complexidade e não "
+#~ "há nenhuma necessidade observável para eles hoje.Da mesma forma, não "
+#~ "definimos suporte a caracteres não-ASCII: espera-se que todas as "
+#~ "variáveis de tempo de execução às quais nos referimos sejam somente ASCII."
+
+#~ msgid ""
+#~ "The variables in the marker grammar such as \"os_name\" resolve to values "
+#~ "looked up in the Python runtime. With the exception of \"extra\" all "
+#~ "values are defined on all Python versions today - it is an error in the "
+#~ "implementation of markers if a value is not defined."
+#~ msgstr ""
+#~ "As variáveis na gramática do marcador, como \"os_name\", resolvem os "
+#~ "valores pesquisados no tempo de execução do Python. Com exceção de "
+#~ "\"extra\" todos os valores são definidos em todas as versões Python hoje "
+#~ "-- é um erro na implementação de marcadores se um valor não for definido."
+
+#~ msgid ""
+#~ "Unknown variables must raise an error rather than resulting in a "
+#~ "comparison that evaluates to True or False."
+#~ msgstr ""
+#~ "Variáveis desconhecidas devem gerar um erro em vez de resultar em uma "
+#~ "comparação avaliada como True ou False."
+
+#~ msgid ""
+#~ "The \"extra\" variable is special. It is used by wheels to signal which "
+#~ "specifications apply to a given extra in the wheel ``METADATA`` file, but "
+#~ "since the ``METADATA`` file is based on a draft version of :pep:`426`, "
+#~ "there is no current specification for this. Regardless, outside of a "
+#~ "context where this special handling is taking place, the \"extra\" "
+#~ "variable should result in an error like all other unknown variables."
+#~ msgstr ""
+#~ "A variável \"extra\" é especial. É usada pelo wheels para sinalizar quais "
+#~ "especificações se aplicam a um determinado extra no arquivo ``METADATA`` "
+#~ "do wheel, mas como o arquivo ``METADATA`` é baseado em uma versão de "
+#~ "rascunho da :pep:`426`, não há especificação atual para isso. "
+#~ "Independentemente disso, fora de um contexto em que esse tratamento "
+#~ "especial esteja ocorrendo, a variável \"extra\" deve resultar em um erro "
+#~ "como todas as outras variáveis desconhecidas."
+
+#~ msgid "``cpython``"
+#~ msgstr "``cpython``"
+
+#, fuzzy
+#~ msgid "``toml``"
+#~ msgstr "pyproject.toml"
+
+#, fuzzy
+#~| msgid "``test``"
+#~ msgid "``{\"test\"}``"
+#~ msgstr "``test``"
+
+#~ msgid ""
+#~ "This environment markers section, initially defined through :pep:`508`, "
+#~ "supersedes the environment markers section in :pep:`345`."
+#~ msgstr ""
+#~ "Esta seção de marcadores de ambiente, inicialmente definida "
+#~ "na :pep:`508`, substitui a seção de marcadores de ambiente na :pep:`345`."
+
+#~ msgid ""
+#~ "TOML_ type: Array of :pep:`508` strings (``dependencies``), and a table "
+#~ "with values of arrays of :pep:`508` strings (``optional-dependencies``)"
+#~ msgstr ""
+#~ "Tipo TOML_: Vetor de strings da :pep:`508` (``dependencies``) e uma "
+#~ "tabela com valores de vetores de strings da :pep:`508` (``optional-"
+#~ "dependencies``)"
+
+#~ msgid "The (optional) dependencies of the project."
+#~ msgstr "As dependências (opcionais) do projeto."
+
+#~ msgid ""
+#~ "For ``dependencies``, it is a key whose value is an array of strings. "
+#~ "Each string represents a dependency of the project and MUST be formatted "
+#~ "as a valid :pep:`508` string. Each string maps directly to "
+#~ "a :ref:`Requires-Dist <core-metadata-requires-dist>` entry."
+#~ msgstr ""
+#~ "Para ``dependencies``, é uma chave cujo valor é um array de strings. Cada "
+#~ "string representa uma dependência do projeto e DEVE ser formatada como "
+#~ "uma string válida :pep:`508`. Cada string mapeia diretamente para "
+#~ "um :ref:`Requires-Dist <core-metadata-requires-dist>`."
 
 #~ msgid ""
 #~ "While ``pip`` alone is sufficient to install from pre-built binary "
