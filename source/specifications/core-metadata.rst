@@ -6,7 +6,7 @@
 Core metadata specifications
 ============================
 
-This page describes version 2.5, approved in September 2025.
+This page describes version 2.6, approved in May 2026.
 
 Fields defined in the following specification should be considered valid,
 complete and not subject to change. The required fields are:
@@ -50,7 +50,7 @@ Metadata-Version
 .. versionadded:: 1.0
 
 Version of the file format; legal values are "1.0", "1.1", "1.2", "2.1",
-"2.2", "2.3", "2.4", and "2.5".
+"2.2", "2.3", "2.4", "2.5", and "2.6".
 
 Automated tools consuming metadata SHOULD warn if ``metadata-version`` is
 greater than the highest version they support, and MUST fail if
@@ -109,6 +109,10 @@ Dynamic (multiple use)
 ======================
 
 .. versionadded:: 2.2
+.. versionchanged:: 2.6
+   A multiple use field that is present in the sdist and also marked
+   ``Dynamic`` may only be appended to in a wheel built from the sdist.
+   Previously any field listed in Dynamic was ignored in an sdist.
 
 A string containing the name of another core metadata field. The field
 names ``Name``, ``Version``, and ``Metadata-Version`` may not be specified
@@ -121,8 +125,12 @@ rules apply:
    in any wheel built from the sdist MUST match the value in the sdist.
    If the field is not in the sdist, and not marked as ``Dynamic``, then
    it MUST NOT be present in the wheel.
-2. If a field is marked as ``Dynamic``, it may contain any valid value in
-   a wheel built from the sdist (including not being present at all).
+2. If a single-use field is marked as ``Dynamic``, it may contain any valid
+   value in a wheel built from the sdist (including not being present at all).
+3. If a multiple use field is present in the sdist and also marked ``Dynamic``,
+   then a wheel built from the sdist MUST include the value(s) present in the
+   sdist. The wheel MAY add further values, but it MUST NOT remove, reorder, or
+   modify the values present in the sdist.
 
 If the sdist metadata version is older than version 2.2, then all fields should
 be treated as if they were specified with ``Dynamic`` (i.e. there are no special
@@ -1073,6 +1081,12 @@ History
 
 - January 2026: Replaced outdated direct reference to :pep:`508` with a
   reference to :ref:`dependency-specifiers`.
+
+- May 2026: Core metadata 2.6 was approved through :pep:`808`.
+
+  - Allowed a multiple use field marked ``Dynamic`` to be appended to in a
+    wheel built from a sdist, requiring the wheel to preserve the value(s)
+    present in the sdist.
 
 ----
 
