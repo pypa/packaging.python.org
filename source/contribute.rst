@@ -33,7 +33,7 @@ Documentation types
 
 This project consists of four distinct documentation types with specific
 purposes. The project aspires to follow the `Diátaxis process`_
-for creating quality documentation. When proposing new additions to the project please pick the
+for creating quality documentation. When proposing new additions to the project, please pick the
 appropriate documentation type.
 
 .. _Diátaxis process: https://diataxis.fr/
@@ -103,7 +103,7 @@ If you are not familiar with reStructuredText (RST) syntax, please read `this gu
 before translating on Weblate.
 
 **Do not translate the text in reference directly**
-  When translating the text in reference, please do not translate them directly.
+  When translating text in reference, please do not translate it directly.
 
   | Wrong: Translate the following text directly:
 
@@ -145,7 +145,7 @@ To build the guide, run the following shell command in the project's root folder
 
 After the process has completed you can find the HTML output in the
 ``./build/html`` directory. You can open the ``index.html`` file to view the
-guide in web browser, but it's recommended to serve the guide using an HTTP
+guide in a web browser, but it's recommended to serve the guide using an HTTP
 server.
 
 You can build the guide and serve it via an HTTP server using the following
@@ -188,7 +188,7 @@ Scope
 The guide is meant to answer questions and solve problems with accurate and
 focused recommendations.
 
-The guide isn't meant to be comprehensive and it's not meant to replace
+The guide isn't meant to be comprehensive, and it's not meant to replace
 individual projects' documentation. For example, pip has dozens of commands,
 options, and settings. The pip documentation describes each of them in detail,
 while this guide describes only the parts of pip that are needed to complete the
