@@ -457,9 +457,8 @@ DO NOT need to define these fields.
 
 The ``extra`` field is also special, as it expects set-like behaviour, but
 predates the addition of ``Set of strings`` as a defined marker field type.
-Accordingly, ``extra == "name"`` in a dependency declaration is similar to
-``"name" in extras``, while ``extra != "name"`` is similar to
-``"name" not in extras``. For dependency marker evaluations, the set of extra
+It only supports one operation, ``extra == "name"``, which is similar to
+``"name" in extras``. For dependency marker evaluations, the set of extra
 names used for these comparisons is the full set of requested extras for *that
 particular package*, whether requested directly in a top level dependency
 declaration, or indirectly in a transitive dependency declaration. Other
