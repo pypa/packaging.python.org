@@ -498,6 +498,13 @@ marker clause on the related ``Requires-Dist`` entries to check the extra name.
 Optional dependencies are thus only considered for installation if installation
 if the associated extra name is requested.
 
+A dependency specifier in an extra MAY name the project itself with other extras
+(for example, ``all = ["spam[gui, cli]"]``). That way a combined extra does not
+need its own manually maintained copy of each referenced extra's dependencies,
+which can otherwise fall out of sync. Installers that support self-referential
+extras will be able to install the union of these extras' dependencies. See
+:ref:`self-referential extras <self-referential-extras>` for examples.
+
 
 .. _pyproject-toml-import-names:
 
