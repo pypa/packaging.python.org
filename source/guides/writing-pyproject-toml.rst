@@ -189,7 +189,8 @@ Installing ``your-project-name[all]`` then installs both the ``gui`` and
 ``cli`` dependencies. You can also list extras separately, for example
 ``["your-project-name[gui]", "your-project-name[cli]"]``. The name in the
 requirement must match the project's ``name`` field. Installers such as
-:ref:`pip` and :ref:`uv` support this pattern already (pip since v21.2).
+:ref:`pip` and :ref:`uv` support this pattern already (pip since 
+`version 21.2 <https://pip.pypa.io/en/latest/reference/requirement-specifiers/#self-referential-extras>`_).
 
 
 .. _requires-python:
