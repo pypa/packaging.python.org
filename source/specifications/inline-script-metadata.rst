@@ -75,11 +75,11 @@ recognised as containing metadata. However, parsing Python code is non-trivial,
 and therefore:
 
 * Tools MAY choose to do a simple textual scan, rather than a full Python parse.
-  For example, the canonical regular expression provided above does a textual
-  scan.
 * As a result of the previous point, the behaviour of scripts that contain data
   that looks like metadata within another Python construct such as a multi-line
   string is tool-dependent and should not be relied on.
+* The canonical regular expression provided above is an example of an
+  implementation that does a simple textual scan.
 
 script type
 -----------
