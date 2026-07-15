@@ -1,6 +1,6 @@
 .. (comment) This file is included in guides/writing-pyproject-toml.rst and tutorials/packaging-projects.rst.
 .. The minimum versions here are the versions that introduced support for PEP 639.
- 
+
 .. tab:: Hatchling
 
     .. code-block:: toml
