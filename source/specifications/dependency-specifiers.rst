@@ -458,13 +458,15 @@ DO NOT need to define these fields.
 The ``extra`` field is also special, as it expects set-like behaviour, but
 predates the addition of ``Set of strings`` as a defined marker field type.
 It only supports one operation, ``extra == "name"``, which is similar to
-``"name" in extras``. For dependency marker evaluations, the set of extra
-names used for these comparisons is the full set of requested extras for *that
-particular package*, whether requested directly in a top level dependency
-declaration, or indirectly in a transitive dependency declaration. Other
-comparison operations on ``extra`` are not defined and publishing tools SHOULD
-emit an error, index servers MAY disallow uploads containing such environment
-markers, while locking and installation tools SHOULD evaluate them as False.
+``"name" in extras``. ``extra != "name"`` SHOULD NOT be used anymore and MAY
+be rejected or evaluated to false. For dependency marker evaluations, the set
+of extra names used for these comparisons is the full set of requested extras
+for *that particular package*, whether requested directly in a top level
+dependency declaration, or indirectly in a transitive dependency declaration.
+Other comparison operations on ``extra`` are not defined and publishing tools
+SHOULD emit an error, index servers MAY disallow uploads containing such
+environment markers, while locking and installation tools SHOULD evaluate them
+as False.
 
 Unlike the newer ``extras`` field, environment markers using this field SHOULD
 be accepted by both publishing tools and index servers. Marker evaluation
